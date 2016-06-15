@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <base href="/">
+
+    <title>Soho Angular Components</title>
+
+    <link id="stylesheet" rel="stylesheet" type="text/css" href="/node_modules/@infor/sohoxi/dist/css/grey-theme.css">
+
+    <script src="/node_modules/zone.js/dist/zone.js"></script>
+    <script src="/node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="/node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+
+    <script src="/node_modules/@infor/sohoxi/dist/js/d3.min.js"></script>
+    <script src="/node_modules/@infor/sohoxi/dist/js/jquery-3.0.0-rc1.js"></script>
+    <script src="/node_modules/@infor/sohoxi/dist/js/sohoxi.js"></script>
+
+	<script>
+	
+		(function(global) {
+
+			// map tells the System loader where to look for things
+			var map = {
+				'app':                        './', // 'dist',
+				'rxjs':                       '/node_modules/rxjs',
+				'angular2-in-memory-web-api': '/node_modules/angular2-in-memory-web-api',
+				'@angular':                   '/node_modules/@angular'
+			};
+
+			// packages tells the System loader how to load when no filename and/or no extension
+			var packages = {
+				'app':                        { main: 'main.js',  defaultExtension: 'js' },
+				'rxjs':                       { defaultExtension: 'js' },
+				'angular2-in-memory-web-api': { defaultExtension: 'js' }
+			};
+
+			var packageNames = [
+				'@angular/common',
+				'@angular/compiler',
+				'@angular/core',
+				'@angular/http',
+				'@angular/platform-browser',
+				'@angular/platform-browser-dynamic',
+				'@angular/router',
+				'@angular/router-deprecated',
+				'@angular/testing',
+				'@angular/upgrade'
+			];
+
+			// add package entries for angular packages in the form '@angular/common': { main: 'index.js', defaultExtension: 'js' }
+			packageNames.forEach(function(pkgName) {
+				packages[pkgName] = { main: 'index.js', defaultExtension: 'js' };
+			});
+
+			var config = {
+				map: map,
+				packages: packages
+			};
+
+			// filterSystemConfig - index.html's chance to modify config before we register it.
+			if (global.filterSystemConfig) {
+				global.filterSystemConfig(config);
+			}
+
+			System.config(config);
+		})(this);
+
+		System.import('js/main').then(null, console.error.bind(console));
+    </script>
+</head>
+<body>
+	<!-- Note: using soho busy html without initializer  -->
+	<div id="standalone-busy" class="landmarkLoading busy card">
+		<div class="overlay busy">
+		</div>
+		<div class="busy-indicator-container blocked-ui" aria-live="polite" role="status">
+			<div class="busy-indicator active">
+				<div class="bar one"></div>
+				<div class="bar two"></div>
+				<div class="bar three"></div>
+				<div class="bar four"></div>
+				<div class="bar five"></div>
+			</div>
+			<span>Loading...</span>
+		</div>
+	</div>
+</body>
+</html>
+
