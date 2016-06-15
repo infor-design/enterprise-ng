@@ -9,7 +9,14 @@ registry = "https://registry.npmjs.org/"
 3. If not then run ```npm set registry http://npm.infor.com:4873 --scope=@infor``` to add it to your .npmrc list
 4. In the angular-component directory run ```npm install```
 
-# Intellij 2016 Users:
+# Compiling typescript
+## Command line users
+1. Install typescript globally `npm install -g typescript@1.8.9`
+2. Install typings for typescript `npm install -g typings@0.6.8`
+3. cd to your projects `angular-component/ts` directory
+4. run `tsc` to compile or `tsc -w` to keep it running and compiling as you make changes.
+
+## Intellij 2016 Users:
 1. File -> Settings... -> Language and Frameworks -> Typescript
 2. Check `Resolve Object using tsconfig.json`
 3. Check `Enable typescript compiler`
