@@ -12,9 +12,9 @@ import {Component} from "@angular/core";
                     <svg class="icon icon-logo" focusable="false" aria-hidden="true" role="presentation">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo"></use>
                     </svg>
-                    <span class="audible">{{goToHomeLabel}}</span>
+                    <span class="audible">Go To Home</span>
                 </button>
-                <h1 class="masthead-appname">{{suiteTitle}}</h1>
+                <h1 class="masthead-appname">SohoXI</h1>
             </div>
 
             <!-- buttonset do not remove -->
@@ -51,8 +51,4 @@ import {Component} from "@angular/core";
         </div>
     `
 })
-export class SohoMastheadComponent
-{
-    private suiteTitle:string = "Suite Title";
-    private goToHomeLabel:string = Locale.translate("GoToHome");
-}
+export class SohoMastheadComponent{}
