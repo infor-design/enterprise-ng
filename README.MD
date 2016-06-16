@@ -1,6 +1,6 @@
 # Project Setup
 1. make sure the latest node is installed (https://nodejs.org/en/download/current/)
-2. run config list: there should be
+2. run `npm config list` : there should be
 ```
 ; userconfig C:\Users\ppatton\.npmrc<br>
 @infor:registry = "http://npm.infor.com:4873/"
@@ -26,5 +26,20 @@ registry = "https://registry.npmjs.org/"
 ![alt tag](./docs/images/intellij-typescript-settings.png)
 
 # Start Server and Run
-1. node app
+1. From command line or terminal run `node app`
 2. http://localhost:3000
+
+
+#Window git push error on forked repository
+
+If you get an error like this:
+
+`
+error: failed to execute prompt script (exit code 1)
+fatal: could not read Password for 'http://khollenbeck@gi
+t.infor.com': No error
+`
+
+Run this command to resolve this issue. Make sure the path to git-gui is correct.
+
+`git config --global core.askpass "C:/Program Files/Git/mingw64/libexec/git-core/git-gui--askpass"`
