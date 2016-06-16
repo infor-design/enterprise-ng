@@ -10,7 +10,7 @@ app.use( express.static( __dirname));
 
 app.all('*', function (req, res)
 {
-  res.status(200).sendFile(path.join(__dirname, '/index.html'));
+  res.status(200).sendFile(path.join(__dirname, '/ts/samples/spa/index.html'));
 });
 
 app.listen(3000, function () {

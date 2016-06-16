@@ -1,4 +1,4 @@
-///<reference path="./typings/tsd.d.ts" />
+///<reference path="../../typings/tsd.d.ts" />
 
 // angular imports
 import {provide} from "@angular/core";
