@@ -1,4 +1,4 @@
-# Project Setup mike
+# Project Setup
 1. make sure the latest node is installed (https://nodejs.org/en/download/current/)
 2. run `npm config list` : there should be
 ```
