@@ -28,18 +28,3 @@ registry = "https://registry.npmjs.org/"
 # Start Server and Run
 1. From command line or terminal run `node app`
 2. http://localhost:3000
-
-
-#Window git push error on forked repository
-
-If you get an error like this:
-
-`
-error: failed to execute prompt script (exit code 1)
-fatal: could not read Password for 'http://khollenbeck@gi
-t.infor.com': No error
-`
-
-run this command to resolve this issue
-
-`git config --global core.askpass /usr/libexec/git-core/git-gui--askpass`
