@@ -1,4 +1,4 @@
-///<reference path="../node_modules/angular2-in-memory-web-api/typings/browser.d.ts" />
+///<reference path="./typings/tsd.d.ts" />
 
 import {Component} from "@angular/core";
 import {SohoIcons,SohoIconsExtended} from "./components/index"; // can't get barrel files to work w/o adding index to path
