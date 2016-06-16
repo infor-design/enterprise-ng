@@ -1,4 +1,4 @@
-///<reference path="../../ts/typings/tsd.d.ts" />
+///<reference path="../../typings/tsd.d.ts" />
 
 import {Component, AfterViewInit} from "@angular/core";
 
@@ -29,7 +29,7 @@ import {Component, AfterViewInit} from "@angular/core";
         <div class="more">
           <button class="btn-actions page-changer" type="button">
             <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-              <use xlink:href="#icon-more"></use>
+              <use attr.xlink:href="{{baseUrl}}#icon-more"></use>
             </svg>
             <span class="audible" data-translate="text">More</span>
           </button>
