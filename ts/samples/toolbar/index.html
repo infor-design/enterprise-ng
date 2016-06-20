@@ -7,7 +7,7 @@
 
     <base href="/">
 
-    <title>Soho Angular Components</title>
+    <title>Soho Angular Toolbar Components</title>
 
     <link id="stylesheet" rel="stylesheet" type="text/css" href="/node_modules/@infor/sohoxi/dist/css/grey-theme.css">
 
@@ -70,12 +70,12 @@
 			System.config(config);
 		})(this);
 
-		System.import('js/main').then(null, console.error.bind(console));
+		System.import('js/samples/toolbar/main').then(null, console.error.bind(console));
     </script>
 </head>
 <body>
 	<!-- Note: using soho busy html without initializer  -->
-	<div id="standalone-busy" class="landmarkLoading busy card">
+	<div id="standalone-busy" class="busy card" style="height:100%;margin-bottom:0px;">
 		<div class="overlay busy">
 		</div>
 		<div class="busy-indicator-container blocked-ui" aria-live="polite" role="status">

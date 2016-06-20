@@ -1,4 +1,4 @@
-///<reference path="../typings/tsd.d.ts" />
+///<reference path="../../typings/tsd.d.ts" />
 
 import {Component} from "@angular/core";
 
@@ -10,7 +10,8 @@ import {Component} from "@angular/core";
             <div class="title">
                 <button id="logo-homepage" tabindex="0">
                     <svg class="icon icon-logo" focusable="false" aria-hidden="true" role="presentation">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo"></use>
+                    
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" attr.xlink:href="{{baseUrl}}#icon-logo"></use>
                     </svg>
                     <span class="audible">Go To Home</span>
                 </button>
@@ -21,28 +22,28 @@ import {Component} from "@angular/core";
             <div class="buttonset">
                 <button type="button" class="btn no-caps" title="Show User">
                     <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-                        <use xlink:href="#icon-user"></use>
+                        <use attr.xlink:href="{{baseUrl}}#icon-user"></use>
                     </svg>
                     <span class="audible">User</span>
                 </button>
         
                 <button type="button" class="btn">
                     <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-                    <use xlink:href="#icon-mingle-share"></use>
+                    <use attr.xlink:href="{{baseUrl}}#icon-mingle-share"></use>
                     </svg>
                     <span class="audible">Share</span>
                 </button>
         
                 <button type="button" class="btn">
                     <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-                        <use xlink:href="#icon-bookmark-filled"></use>
+                        <use attr.xlink:href="{{baseUrl}}#icon-bookmark-filled"></use>
                     </svg>
                     <span class="audible">Bookmark</span>
                 </button>
                 
                 <button type="button" class="btn">
                     <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-                        <use xlink:href="#icon-expand-app-tray"></use>
+                        <use attr.xlink:href="{{baseUrl}}#icon-expand-app-tray"></use>
                     </svg>
                     <span class="audible">Expand App Tray</span>
                 </button>
@@ -51,4 +52,7 @@ import {Component} from "@angular/core";
         </div>
     `
 })
-export class SohoMastheadComponent{}
+export class SohoMastheadComponent
+{
+    private baseUrl:string = window.location.href.replace(window.location.hash, "");
+}
