@@ -34,10 +34,10 @@ import {DropdownSampleComponent} from '../dropdown/dropdown-sample.component';
 })
 
 @RouteConfig ([
-    {path: '/toolbar',   name: 'ToolbarSample',   component: ToolbarSampleComponent},
-    {path: '/tabs',      name: 'TabsSample',      component: TabsSampleComponent},
-    {path: '/accordian', name: 'AccordianSample', component: AccordianSampleComponent},
-    {path: '/dropdown',  name: 'DropdownSample',  component: DropdownSampleComponent}
+    {path: '/spa/toolbar',   name: 'ToolbarSample',   component: ToolbarSampleComponent},
+    {path: '/spa/tabs',      name: 'TabsSample',      component: TabsSampleComponent},
+    {path: '/spa/accordian', name: 'AccordianSample', component: AccordianSampleComponent},
+    {path: '/spa/dropdown',  name: 'DropdownSample',  component: DropdownSampleComponent}
 ])
 
 export class AppComponent implements AfterViewInit

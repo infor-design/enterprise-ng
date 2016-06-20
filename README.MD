@@ -30,7 +30,7 @@ registry = "https://registry.npmjs.org/"
 2. http://localhost:3000
 
 
-#Window git push error on forked repository
+# Window git push error on forked repository
 
 If you get an error like this:
 
