@@ -38,28 +38,28 @@ import {ROUTER_DIRECTIVES} from "@angular/router-deprecated";
             <a href="#"><span>Help</span></a>
           </div>
         </div>
-    
+
         <div class="accordion-header">
           <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
             <use attr.xlink:href="{{baseUrl}}#icon-bookmark-filled"></use>
           </svg>
           <a href="#"><span>Bookmarks</span></a>
         </div>
-    
+
         <div class="accordion-header">
           <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
             <use attr.xlink:href="{{baseUrl}}#icon-clock"></use>
           </svg>
           <a href="#"><span>History</span></a>
         </div>
-    
+
         <div class="accordion-header">
           <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
             <use attr.xlink:href="{{baseUrl}}#icon-home"></use>
           </svg>
           <a href="#"><span>Homepages</span></a>
         </div>
-    
+
         <div class="accordion-header">
           <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
             <use attr.xlink:href="{{baseUrl}}#icon-roles"></use>
@@ -71,10 +71,11 @@ import {ROUTER_DIRECTIVES} from "@angular/router-deprecated";
           <div class="accordion-header"><a [routerLink]="['ToolbarSample']"><span>Toolbar Component</span></a></div>
           <div class="accordion-header"><a [routerLink]="['DropdownSample']"><span>Dropdown Component</span></a></div>
           <div class="accordion-header"><a [routerLink]="['TabsSample']"><span>Tabs Component</span></a></div>
+          <div class="accordion-header"><a [routerLink]="['ExpandableAreaSample']"><span>ExpandableArea Component</span></a></div>
         </div>
-    
+
       </div>
-    
+
       <div class="branding">
         <svg class="icon" viewBox="0 0 34 34" focusable="false" aria-hidden="true" role="presentation">
           <use attr.xlink:href="{{baseUrl}}#icon-logo"></use>
