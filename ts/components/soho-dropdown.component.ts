@@ -10,7 +10,7 @@ declare var jQuery:any;
 export class SohoDropdownComponent implements AfterViewInit
 {
     @Input() options:any;
-//    @Output() dropdownChange:EventEmitter<any> = new EventEmitter();
+    //@Output() dropdownChange:EventEmitter<any> = new EventEmitter();
     @Output() dropdownSelected:EventEmitter<any> = new EventEmitter();
 
     private nativeElement:any;

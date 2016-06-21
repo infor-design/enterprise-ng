@@ -1,6 +1,5 @@
 
 import {Component, Input, AfterViewInit} from '@angular/core';
-
 import {SohoDropdownComponent} from '../../components/index';
 
 @Component({
