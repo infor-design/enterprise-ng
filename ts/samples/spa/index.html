@@ -20,82 +20,10 @@
     <script src="/node_modules/@infor/sohoxi/dist/js/jquery-3.0.0-rc1.js"></script>
     <script src="/node_modules/@infor/sohoxi/dist/js/sohoxi.js"></script>
 
+	<script src="/systemjs.config.js"></script>
 	<script>
-
-		(function(global) {
-
-			// map tells the System loader where to look for things
-			var map = {
-				'app':                        './', // 'dist',
-				'rxjs':                       '/node_modules/rxjs',
-				'angular2-in-memory-web-api': '/node_modules/angular2-in-memory-web-api',
-				'@angular':                   '/node_modules/@angular'
-			};
-
-			// packages tells the System loader how to load when no filename and/or no extension
-			var packages = {
-				'app':                        { main: 'main.js',  defaultExtension: 'js' },
-				'rxjs':                       { defaultExtension: 'js' },
-				'angular2-in-memory-web-api': { defaultExtension: 'js' }
-			};
-
-			var packageNames = [
-				'@angular/common',
-				'@angular/compiler',
-				'@angular/core',
-				'@angular/http',
-				'@angular/platform-browser',
-				'@angular/platform-browser-dynamic',
-				'@angular/router',
-				'@angular/router-deprecated',
-				'@angular/testing',
-				'@angular/upgrade'
-			];
-
-			// add package entries for angular packages in the form '@angular/common': { main: 'index.js', defaultExtension: 'js' }
-			packageNames.forEach(function(pkgName) {
-				packages[pkgName] = { main: 'index.js', defaultExtension: 'js' };
-			});
-
-			var config = {
-				map: map,
-				packages: packages
-			};
-
-			// filterSystemConfig - index.html's chance to modify config before we register it.
-			if (global.filterSystemConfig) {
-				global.filterSystemConfig(config);
-			}
-
-			System.config(config);
-		})(this);
-
-		System.import('js/samples/spa/main').then(null, console.error.bind(console));
+		System.import('js/samples/spa/main.js').catch(function(err){ console.error(err); });
 	</script>
-	<style>
-/*
-		.initial-load {
-			height:100%;
-			margin-bottom:0px;
-			opacity:0;									!* start invisible *!
-			-webkit-animation:landmarkFadeIn ease-in 1;	!* slow start; repeat once *!
-			-moz-animation:landmarkFadeIn ease-in 1;
-			animation:landmarkFadeIn ease-in 1;
-
-			-webkit-animation-fill-mode:forwards;		!* remain at last keyframe value (opacity: 1) *!
-			-moz-animation-fill-mode:forwards;
-			animation-fill-mode:forwards;
-
-			-webkit-animation-duration:1s;
-			-moz-animation-duration:1s;
-			animation-duration:1s;
-
-			-webkit-animation-delay:500ms;
-			-moz-animation-delay:500ms;
-			animation-delay:500ms;
-		}
-*/
-	</style>
 </head>
 <body>
 	<!-- Note: using soho busy html without initializer  -->
