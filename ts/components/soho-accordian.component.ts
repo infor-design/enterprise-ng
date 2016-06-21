@@ -3,6 +3,7 @@ import {Component} from '@angular/core';
 
 @Component({
     selector : 'soho-accordian-component',
+    directives : [SohoAccordianComponent],
     template : `
       <div style="position:relative;padding-left:300px;box-sizing:border-box;height:100%">
           <div style="width:300px;height:100%;position:absolute;top:0px;left:0px;">

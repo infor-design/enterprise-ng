@@ -25,12 +25,18 @@ registry = "https://registry.npmjs.org/"
 
 ![alt tag](./docs/images/intellij-typescript-settings.png)
 
+## Atom Users
+1. Install https://atom.io/
+2. Install https://atom.io/packages/atom-typescript
+3. Open the project by opening the `angular-components` folder
+4. Save will auto compile
+
 # Start Server and Run
 1. From command line or terminal run `node app`
 2. http://localhost:3000
 
 
-#Window git push error on forked repository
+# Window git push error on forked repository
 
 If you get an error like this:
 
