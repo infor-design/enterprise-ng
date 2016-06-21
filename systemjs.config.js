@@ -53,4 +53,5 @@
 	}
 
 	System.config(config);
+
 })(this);
