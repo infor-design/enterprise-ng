@@ -49,3 +49,5 @@ t.infor.com': No error
 Run this command to resolve this issue. Make sure the path to git-gui is correct.
 
 `git config --global core.askpass "C:/Program Files/Git/mingw64/libexec/git-core/git-gui--askpass"`
+
+test
