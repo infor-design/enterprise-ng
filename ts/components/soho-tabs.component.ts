@@ -1,6 +1,6 @@
 ///<reference path="../typings/tsd.d.ts" />
 
-import {Component, EventEmitter, Output, ElementRef, AfterViewInit} from "@angular/core";
+import {Component, EventEmitter, Output, ElementRef, AfterViewInit, OnInit} from "@angular/core";
 
 @Component({
     selector   : 'soho-tabs-component',
@@ -20,12 +20,18 @@ export class SohoTabsComponent implements AfterViewInit
 
     constructor(private elementRef:ElementRef) {}
 
+    // had to move this to ngAfterViewInit for the
+    // tabs-dynamic-sample.component.ts to work.
     ngAfterViewInit()
+    {
+        this.update();
+        this.handleEvents();
+    }
+
+    public update():void
     {
         let $tabContainer = $(this.elementRef.nativeElement).find('.tab-container');
         this.sohoTabs = $tabContainer.tabs().data("tabs");
-
-        this.handleEvents();
     }
 
     private handleEvents():void
@@ -42,10 +48,9 @@ export class SohoTabsComponent implements AfterViewInit
         });
     }
 
-    onTabSelected(tabSelectedEvent:SohoTabSelectedEvent)
-    {
-        this.tabSelected.emit(tabSelectedEvent);
-    }
+    private onTabSelected(tabSelectedEvent:SohoTabSelectedEvent) { this.tabSelected.emit(tabSelectedEvent); }
+
+    public setTitle(id:string, newTitle:string):void { this.sohoTabs.rename(id, newTitle);}
 
     public isinitalized():boolean { return !!this.sohoTabs; };
 
