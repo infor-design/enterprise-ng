@@ -23,7 +23,7 @@ export class SohoAccordionComponent implements AfterViewInit
     {
     //    $('body').initialize('en-US');
         let $accordionContainer = $(this.elementRef.nativeElement).find('.accordion');
-        this.sohoAccordion = $accordionContainer.accordion().data("accordian");
+        this.sohoAccordion = $accordionContainer.accordion().data("accordion");
         this.handleEvents();
     }
 

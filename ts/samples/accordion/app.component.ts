@@ -3,12 +3,12 @@
 import {Component, AfterViewInit} from "@angular/core";
 import {SohoIcons, SohoIconsExtended} from "../../components/index";
 import {fixXlinkHrefs} from "../../fix-xlink-refs";
-import {AccordianSampleComponent} from "../accordian/accordian-sample.component";
+import {AccordionSampleComponent} from './accordian-sample.component';
 
 @Component({
     selector   : 'body',
     host       : {'class':'no-scroll'},
-    directives : [SohoIcons, SohoIconsExtended, AccordianSampleComponent],
+    directives : [SohoIcons, SohoIconsExtended, AccordionSampleComponent],
     template   :
         `
         <a href="#maincontent" class="skip-link">Skip To Main Content</a>
