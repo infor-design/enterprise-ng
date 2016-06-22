@@ -1,5 +1,5 @@
 // angular imports
-import {Directive, EventEmitter, Input, Output, ElementRef, AfterViewInit} from '@angular/core';
+import {Directive, EventEmitter, Input, Output, ElementRef, OnInit} from "@angular/core";
 
 declare var jQuery:any;
 
@@ -7,46 +7,34 @@ declare var jQuery:any;
     selector : '[soho-dropdown-component]'
 })
 
-export class SohoDropdownComponent implements AfterViewInit
+export class SohoDropdownComponent implements OnInit
 {
     @Input() options:any;
     //@Output() dropdownChange:EventEmitter<any> = new EventEmitter();
     @Output() dropdownSelected:EventEmitter<any> = new EventEmitter();
 
-    private nativeElement:any;
-    private $element:any = null;
+    constructor(private _elementRef:ElementRef) {}
 
-    constructor(private element:ElementRef)
-    {
-
-    }
+    private sohoDropdown:any = null;
 
     // events
-    ngAfterViewInit()
+    ngOnInit()
     {
-        this.nativeElement = this.element.nativeElement;
-        this.$element = jQuery(this.nativeElement);
+        this.sohoDropdown = $(this._elementRef.nativeElement).dropdown().data("dropdown");
 
-        this.build();
         this.handleEvents();
-    }
-
-    // private methods
-    private build()
-    {
-        this.$element.dropdown(this.options);
     }
 
     private handleEvents()
     {
         let self:SohoDropdownComponent = this;
 
-//        self.$element.on("change", function(e)
+//        this.$element.on("change", function(e)
 //        {
 //            self.dropdownChange.emit(e);
 //        });
 
-        self.$element.on("selected", function(e, value, isAdded)
+        this.sohoDropdown.element.on("selected", function(e, value, isAdded)
         {
             let eventParams = { event:e, value:value, isAdded:isAdded };
             self.dropdownSelected.emit(eventParams);
