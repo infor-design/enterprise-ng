@@ -1,6 +1,6 @@
 ///<reference path="../typings/tsd.d.ts" />
 
-import {Component, EventEmitter, Output, ElementRef, AfterViewInit} from "@angular/core";
+import {Component, EventEmitter, Output, ElementRef, AfterViewInit, OnInit} from "@angular/core";
 
 @Component({
     selector   : 'soho-tabs-component',
@@ -12,7 +12,7 @@ import {Component, EventEmitter, Output, ElementRef, AfterViewInit} from "@angul
     `
 })
 
-export class SohoTabsComponent implements AfterViewInit
+export class SohoTabsComponent implements OnInit
 {
     @Output() tabSelected = new EventEmitter<SohoTabSelectedEvent>();
 
@@ -20,7 +20,7 @@ export class SohoTabsComponent implements AfterViewInit
 
     constructor(private elementRef:ElementRef) {}
 
-    ngAfterViewInit()
+    ngOnInit()
     {
         let $tabContainer = $(this.elementRef.nativeElement).find('.tab-container');
         this.sohoTabs = $tabContainer.tabs().data("tabs");
