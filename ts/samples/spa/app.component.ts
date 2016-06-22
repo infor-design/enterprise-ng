@@ -9,7 +9,7 @@ import {SohoNavigationComponent} from "./soho-navigation.component";
 import {fixXlinkHrefs} from '../../fix-xlink-refs';
 
 import {ToolbarSampleComponent} from '../toolbar/toolbar-sample.component';
-import {TabsSampleComponent} from '../tabs/tabs-sample.component';
+import {TabsSampleComponent} from '../tabs/tabs-basic-sample.component';
 import {AccordianSampleComponent} from '../accordian/accordian-sample.component';
 import {DropdownSampleComponent} from '../dropdown/dropdown-sample.component';
 import {ExpandableAreaSampleComponent} from '../expandablearea/expandablearea-sample.component';
