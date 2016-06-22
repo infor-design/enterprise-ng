@@ -43,7 +43,7 @@ import {ExpandableAreaSampleComponent} from '../expandablearea/expandablearea-sa
     {path: '/spa/tabs-dynamic',    name: 'TabsDynamicSample',    component: TabsDynamicSampleComponent},
     {path: '/spa/accordian',       name: 'AccordianSample',      component: AccordianSampleComponent},
     {path: '/spa/dropdown',        name: 'DropdownSample',       component: DropdownSampleComponent},
-    {path: '/spa/expandablearea',  name: 'ExpandableAreaSample', component: ExpandableAreaSampleComponent}
+    {path: '/spa/expandablearea',  name: 'ExpandableAreaSample', component: ExpandableAreaSampleComponent, useAsDefault:true}
 ])
 
 export class AppComponent implements AfterViewInit
@@ -51,5 +51,6 @@ export class AppComponent implements AfterViewInit
     ngAfterViewInit()
     {
         fixXlinkHrefs();
+
     }
 }
