@@ -12,7 +12,7 @@ import {Component, EventEmitter, Output, ElementRef, AfterViewInit, OnInit} from
     `
 })
 
-export class SohoTabsComponent implements OnInit
+export class SohoTabsComponent implements AfterViewInit
 {
     @Output() tabSelected = new EventEmitter<SohoTabSelectedEvent>();
 
@@ -20,12 +20,18 @@ export class SohoTabsComponent implements OnInit
 
     constructor(private elementRef:ElementRef) {}
 
-    ngOnInit()
+    // had to move this to ngAfterViewInit for the
+    // tabs-dynamic-sample.component.ts to work.
+    ngAfterViewInit()
+    {
+        this.update();
+        this.handleEvents();
+    }
+
+    public update():void
     {
         let $tabContainer = $(this.elementRef.nativeElement).find('.tab-container');
         this.sohoTabs = $tabContainer.tabs().data("tabs");
-
-        this.handleEvents();
     }
 
     private handleEvents():void
@@ -42,10 +48,9 @@ export class SohoTabsComponent implements OnInit
         });
     }
 
-    onTabSelected(tabSelectedEvent:SohoTabSelectedEvent)
-    {
-        this.tabSelected.emit(tabSelectedEvent);
-    }
+    private onTabSelected(tabSelectedEvent:SohoTabSelectedEvent) { this.tabSelected.emit(tabSelectedEvent); }
+
+    public setTitle(id:string, newTitle:string):void { this.sohoTabs.rename(id, newTitle);}
 
     public isinitalized():boolean { return !!this.sohoTabs; };
 
