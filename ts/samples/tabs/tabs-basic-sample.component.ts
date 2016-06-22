@@ -25,9 +25,9 @@ import {SohoTabSelectedEvent} from "../../components/soho-tabs.component";
         </soho-tabs-component>
     `
 })
-export class TabsSampleComponent {
+export class TabsBasicSampleComponent {
 
     private onTabSelected(event:SohoTabSelectedEvent) {
-        console.log("TabsSampleComponent.onTabSelected: " + JSON.stringify(event));
+        console.log("TabsBasicSampleComponent.onTabSelected: " + JSON.stringify(event));
     }
 }

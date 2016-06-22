@@ -9,7 +9,9 @@ import {SohoNavigationComponent} from "./soho-navigation.component";
 import {fixXlinkHrefs} from '../../fix-xlink-refs';
 
 import {ToolbarSampleComponent} from '../toolbar/toolbar-sample.component';
-import {TabsSampleComponent} from '../tabs/tabs-basic-sample.component';
+import {TabsBasicSampleComponent} from '../tabs/tabs-basic-sample.component';
+import {TabsDataDrivenSampleComponent} from '../tabs/tabs-datadriven-sample.component';
+import {TabsDynamicSampleComponent} from '../tabs/tabs-dynamic-sample.component';
 import {AccordianSampleComponent} from '../accordian/accordian-sample.component';
 import {DropdownSampleComponent} from '../dropdown/dropdown-sample.component';
 import {ExpandableAreaSampleComponent} from '../expandablearea/expandablearea-sample.component';
@@ -35,11 +37,13 @@ import {ExpandableAreaSampleComponent} from '../expandablearea/expandablearea-sa
 })
 
 @RouteConfig ([
-    {path: '/spa/toolbar',   name: 'ToolbarSample',   component: ToolbarSampleComponent},
-    {path: '/spa/tabs',      name: 'TabsSample',      component: TabsSampleComponent},
-    {path: '/spa/accordian', name: 'AccordianSample', component: AccordianSampleComponent},
-    {path: '/spa/dropdown',  name: 'DropdownSample',  component: DropdownSampleComponent},
-    {path: '/spa/expandablearea',  name: 'ExpandableAreaSample',  component: ExpandableAreaSampleComponent}
+    {path: '/spa/toolbar',         name: 'ToolbarSample',        component: ToolbarSampleComponent},
+    {path: '/spa/tabs-basic',      name: 'TabsBasicSample',      component: TabsBasicSampleComponent},
+    {path: '/spa/tabs-datadriven', name: 'TabsDataDrivenSample', component: TabsDataDrivenSampleComponent},
+    {path: '/spa/tabs-dynamic',    name: 'TabsDynamicSample',    component: TabsDynamicSampleComponent},
+    {path: '/spa/accordian',       name: 'AccordianSample',      component: AccordianSampleComponent},
+    {path: '/spa/dropdown',        name: 'DropdownSample',       component: DropdownSampleComponent},
+    {path: '/spa/expandablearea',  name: 'ExpandableAreaSample', component: ExpandableAreaSampleComponent}
 ])
 
 export class AppComponent implements AfterViewInit

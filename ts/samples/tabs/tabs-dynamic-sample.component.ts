@@ -56,7 +56,7 @@ export class TabsDynamicSampleComponent implements OnInit {
 
     private onChangeTabs(event)
     {
-        console.log("TabsSampleComponent.onChangeTabs: " + JSON.stringify(event));
+        console.log("TabsBasicSampleComponent.onChangeTabs: " + JSON.stringify(event));
 
         this.currentTabsIndex++;
         if (this.currentTabsIndex >= this.tabsData.length)
@@ -89,7 +89,7 @@ export class TabsDynamicSampleComponent implements OnInit {
 
     private onTabSelected(event:SohoTabSelectedEvent)
     {
-        console.log("TabsSampleComponent.onTabSelected: " + JSON.stringify(event));
+        console.log("TabsBasicSampleComponent.onTabSelected: " + JSON.stringify(event));
     }
 
     private tabsData:Array<any> =

@@ -67,11 +67,15 @@ import {ROUTER_DIRECTIVES} from "@angular/router-deprecated";
           <a href="#"><span>Soho Angular Components</span></a>
         </div>
         <div class="accordion-pane">
-          <div class="accordion-header"><a [routerLink]="['AccordianSample']"><span>Accordian Component</span></a></div>
-          <div class="accordion-header"><a [routerLink]="['ToolbarSample']"><span>Toolbar Component</span></a></div>
-          <div class="accordion-header"><a [routerLink]="['DropdownSample']"><span>Dropdown Component</span></a></div>
-          <div class="accordion-header"><a [routerLink]="['TabsSample']"><span>Tabs Component</span></a></div>
-          <div class="accordion-header"><a [routerLink]="['ExpandableAreaSample']"><span>ExpandableArea Component</span></a></div>
+          <div class="accordion-header list-item"><a [routerLink]="['AccordianSample']"><span>Accordian Component</span></a></div>
+          <div class="accordion-header list-item"><a [routerLink]="['ToolbarSample']"><span>Toolbar Component</span></a></div>
+          <div class="accordion-header"><a href="javascript:void(0);"><span>Tabs</span></a></div>
+          <div class="accordion-pane">
+              <div class="accordion-header list-item"><a [routerLink]="['TabsBasicSample']"><span>Basic TabsComponent</span></a></div>
+              <div class="accordion-header list-item"><a [routerLink]="['TabsDataDrivenSample']"><span>Data-Driven TabsComponent</span></a></div>
+              <div class="accordion-header list-item"><a [routerLink]="['TabsDynamicSample']"><span>Dynamic TabsComponent</span></a></div>
+          </div>
+          <div class="accordion-header list-item"><a [routerLink]="['ExpandableAreaSample']"><span>ExpandableArea Component</span></a></div>
         </div>
 
       </div>
