@@ -1,9 +1,11 @@
 ///<reference path="../../typings/tsd.d.ts" />
 
+// angular imports
+import {bootstrap} from "@angular/platform-browser-dynamic";
 import {Component, AfterViewInit} from "@angular/core";
 import {SohoIcons, SohoIconsExtended} from "../../components/index";
 import {fixXlinkHrefs} from "../../fix-xlink-refs";
-import {TabsSampleComponent} from "../tabs/tabs-sample.component";
+import {TabsSampleComponent} from "./tabs-basic-sample.component";
 
 @Component({
     selector   : 'body',
@@ -31,3 +33,4 @@ export class AppComponent implements AfterViewInit
     }
 }
 
+bootstrap(<any>AppComponent);
