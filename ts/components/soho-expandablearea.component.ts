@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, HostBinding, Input} from '@angular/core';
+import {Component, ElementRef, OnInit, HostBinding, Input, AfterViewInit} from '@angular/core';
 
 declare var $: any;
 
@@ -16,16 +16,15 @@ declare var $: any;
     `
 })
 
-export class SohoExpandableAreaComponent implements OnInit {
-  elementRef: ElementRef;
-  constructor(elementRef: ElementRef) {
+export class SohoExpandableAreaComponent implements AfterViewInit {
+  constructor(public elementRef: ElementRef) {
     this.elementRef = elementRef;
   }
 
   @Input() title: string;
   @HostBinding('class') classes = 'expandable-area';
 
-  ngOnInit() {
+  ngAfterViewInit() {
     $(this.elementRef.nativeElement).expandablearea();
   }
 }
