@@ -31,7 +31,7 @@ import {ROUTER_DIRECTIVES} from "@angular/router-deprecated";
 export class SohoNavigationComponent
 {
     @HostBinding('id') hostId = 'application-menu';
-    @HostBinding('class') hostClasses = 'application-menu';// is-open no-transition';
+    @HostBinding('class') hostClasses = 'application-menu is-open no-transition';
 
     private baseUrl:string = window.location.href.replace(window.location.hash, "");
 }
