@@ -1,21 +1,15 @@
 # Project Setup
-1. make sure the latest node is installed (https://nodejs.org/en/download/current/)
-2. run config list: there should be
+1. Make sure the latest node is installed (https://nodejs.org/en/download/current/)
+2. Run config list: there should be
 ```
-; userconfig C:\Users\ppatton\.npmrc<br>
+; userconfig C:\Users\user\.npmrc<br>
 @infor:registry = "http://npm.infor.com:4873/"
 registry = "https://registry.npmjs.org/"
 ```
 3. If not then run ```npm set registry http://npm.infor.com:4873 --scope=@infor``` to add it to your .npmrc list
 4. In the angular-component directory run ```npm install```
 
-# Compiling typescript
-## Command line users
-1. Install typescript globally `npm install -g typescript@1.8.9`
-2. Install typings for typescript `npm install -g typings@0.6.8`
-3. cd to your projects `angular-component/ts` directory
-4. run `tsc` to compile or `tsc -w` to keep it running and compiling as you make changes.
-
+# Development Setup
 ## Intellij 2016 Users:
 1. File -> Settings... -> Language and Frameworks -> Typescript
 2. Check `Resolve Object using tsconfig.json`
@@ -25,6 +19,13 @@ registry = "https://registry.npmjs.org/"
 
 ![alt tag](./docs/images/intellij-typescript-settings.png)
 
+## Visual Studio Code Users:
+1. Install ESLint plugin. (ext install ____)
+2. Install TSLint plugin.
+3. Install EditorConfig plugin.
+4. Recommended: Install Angular 2 Typescript Snippets by John Papa.
+5. Recommended: Install language-vscode-javascript-angular2 plugin by nwallace for HTML highlighting in a Component's 'template'.
+
 # Start Server and Run
-1. node app
-2. http://localhost:3000
+1. Run `npm start` from the command line in the `angular-components` directory.
+2. Go to: http://localhost:3000 to see the project. The project is watched by the Broccoli compiler and will automatically update on changes to it.
