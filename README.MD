@@ -3,20 +3,21 @@
 This repository will be the shared location for Angular 2.0 directives which wrap the Soho XI component library.
 This is a working group supported by the core H&L team,  bringing together the various efforts of teams each creating their own angular directives.
 
-The goal is that this will make Angular easier to support for all teams and easier to extend as the library develops and to prevent multiple teams doing the same work. At the moment the project is being shaped during "Knights of the angular table calls"
+The goal is that this will make Angular easier to support for all teams and easier to extend as the library develops and to prevent multiple teams doing the same work. At the moment the project is being shaped during "Knights of the angular table" calls.
 
-A limited number of teams currently works on the Angular Calls.
 
-## Decisions so far
+## Decided so far
 * Will use Typescript
 * Will wrap Soho XI controls
 * Two Tracks: Track 1: Wrap Current Controls, Track 2: Es6 refactor of core controls keeping directives updated
 * Focus on Expandable Area, Dropdown, Toolbar as initial example components
 * Will be supported by the H&L team
 
+
 ## Almost Decided
 * Use Angular Style guide: https://angular.io/styleguide
 * With that use editor config, eslint and tslint
+
 
 ## Current Status
 
@@ -26,3 +27,8 @@ Deciding on project structure and approach. Collecting and compare repositories 
 * http://git.infor.com/projects/INFORCRM/repos/angular-crm/browse - CRM
 * http://git.infor.com/projects/LMS/repos/angular-wrappers/browse - LMS
 * http://git.infor.com/users/tharper/repos/sunsystems-reporting/browse - Sun Systems
+
+## Resources
+
+* https://blog.budacode.com/2016/06/27/angular-2-best-practises/?utm_source=hackernews&utm_medium=social&utm_campaign=angular2-best-practises
+* https://cli.angular.io/
