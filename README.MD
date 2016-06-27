@@ -1,31 +1,34 @@
-# Project Setup
-1. Make sure the latest node is installed (https://nodejs.org/en/download/current/)
-2. Run config list: there should be
-```
-; userconfig C:\Users\user\.npmrc<br>
-@infor:registry = "http://npm.infor.com:4873/"
-registry = "https://registry.npmjs.org/"
-```
-3. If not then run ```npm set registry http://npm.infor.com:4873 --scope=@infor``` to add it to your .npmrc list
-4. In the angular-component directory run ```npm install```
+# SoHo XI Directives for Angular 2.0
 
-# Development Setup
-## Intellij 2016 Users:
-1. File -> Settings... -> Language and Frameworks -> Typescript
-2. Check `Resolve Object using tsconfig.json`
-3. Check `Enable typescript compiler`
-4. Select `Use tsconfig.json`
-5. Click `OK` to close settings
+This repository will be the shared location for Angular 2.0 directives which wrap the Soho XI component library.
+This is a working group supported by the core H&L team,  bringing together the various efforts of teams each creating their own angular directives.
 
-![alt tag](./docs/images/intellij-typescript-settings.png)
+The goal is that this will make Angular easier to support for all teams and easier to extend as the library develops and to prevent multiple teams doing the same work. At the moment the project is being shaped during "Knights of the angular table" calls.
 
-## Visual Studio Code Users:
-1. Install ESLint plugin. (ext install ____)
-2. Install TSLint plugin.
-3. Install EditorConfig plugin.
-4. Recommended: Install Angular 2 Typescript Snippets by John Papa.
-5. Recommended: Install language-vscode-javascript-angular2 plugin by nwallace for HTML highlighting in a Component's 'template'.
 
-# Start Server and Run
-1. Run `npm start` from the command line in the `angular-components` directory.
-2. Go to: http://localhost:3000 to see the project. The project is watched by the Broccoli compiler and will automatically update on changes to it.
+## Decided so far
+* Will use Typescript
+* Will wrap Soho XI controls
+* Two Tracks: Track 1: Wrap Current Controls, Track 2: Es6 refactor of core controls keeping directives updated
+* Focus on Expandable Area, Dropdown, Toolbar as initial example components
+* Will be supported by the H&L team
+
+
+## Almost Decided
+* Use Angular Style guide: https://angular.io/styleguide
+* With that use editor config, eslint and tslint
+
+
+## Current Status
+
+Deciding on project structure and approach. Collecting and compare repositories for the various teams and use what we all decide is the best. The following repos are up for evaluation:
+
+* http://git.infor.com/users/ppatton/repos/angular-components/browse - Landmark
+* http://git.infor.com/projects/INFORCRM/repos/angular-crm/browse - CRM
+* http://git.infor.com/projects/LMS/repos/angular-wrappers/browse - LMS
+* http://git.infor.com/users/tharper/repos/sunsystems-reporting/browse - Sun Systems
+
+## Resources
+
+* https://blog.budacode.com/2016/06/27/angular-2-best-practises/?utm_source=hackernews&utm_medium=social&utm_campaign=angular2-best-practises
+* https://cli.angular.io/
