@@ -1,5 +1,6 @@
 
 import {Component, Input, AfterViewInit} from '@angular/core';
+import {fixXlinkHrefs} from '../../fix-xlink-refs';
 import {SohoDropdownComponent} from '../../components/index';
 
 @Component({
@@ -73,6 +74,7 @@ export class DropdownSampleComponent implements AfterViewInit
     ngAfterViewInit()
     {
 //        this.setDataView();
+        fixXlinkHrefs();
     }
 
     onDropdownSelected(params:any)
