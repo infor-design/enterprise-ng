@@ -1,30 +1,34 @@
-# Project Setup
-1. make sure the latest node is installed (https://nodejs.org/en/download/current/)
-2. run config list: there should be
-```
-; userconfig C:\Users\ppatton\.npmrc<br>
-@infor:registry = "http://npm.infor.com:4873/"
-registry = "https://registry.npmjs.org/"
-```
-3. If not then run ```npm set registry http://npm.infor.com:4873 --scope=@infor``` to add it to your .npmrc list
-4. In the angular-component directory run ```npm install```
+# SoHo XI Directives for Angular 2.0
 
-# Compiling typescript
-## Command line users
-1. Install typescript globally `npm install -g typescript@1.8.9`
-2. Install typings for typescript `npm install -g typings@0.6.8`
-3. cd to your projects `angular-component/ts` directory
-4. run `tsc` to compile or `tsc -w` to keep it running and compiling as you make changes.
+This repository will be the shared location for Angular 2.0 directives which wrap the Soho XI component library.
+This is a working group supported by the core H&L team,  bringing together the various efforts of teams each creating their own angular directives.
 
-## Intellij 2016 Users:
-1. File -> Settings... -> Language and Frameworks -> Typescript
-2. Check `Resolve Object using tsconfig.json`
-3. Check `Enable typescript compiler`
-4. Select `Use tsconfig.json`
-5. Click `OK` to close settings
+The goal is that this will make Angular easier to support for all teams and easier to extend as the library develops and to prevent multiple teams doing the same work. At the moment the project is being shaped during "Knights of the angular table" calls.
 
-![alt tag](./docs/images/intellij-typescript-settings.png)
 
-# Start Server and Run
-1. node app
-2. http://localhost:3000
+## Decided so far
+* Will use Typescript
+* Will wrap Soho XI controls
+* Two Tracks: Track 1: Wrap Current Controls, Track 2: Es6 refactor of core controls keeping directives updated
+* Focus on Expandable Area, Dropdown, Toolbar as initial example components
+* Will be supported by the H&L team
+
+
+## Almost Decided
+* Use Angular Style guide: https://angular.io/styleguide
+* With that use editor config, eslint and tslint
+
+
+## Current Status
+
+Deciding on project structure and approach. Collecting and compare repositories for the various teams and use what we all decide is the best. The following repos are up for evaluation:
+
+* http://git.infor.com/users/ppatton/repos/angular-components/browse - Landmark
+* http://git.infor.com/projects/INFORCRM/repos/angular-crm/browse - CRM
+* http://git.infor.com/projects/LMS/repos/angular-wrappers/browse - LMS
+* http://git.infor.com/users/tharper/repos/sunsystems-reporting/browse - Sun Systems
+
+## Resources
+
+* https://blog.budacode.com/2016/06/27/angular-2-best-practises/?utm_source=hackernews&utm_medium=social&utm_campaign=angular2-best-practises
+* https://cli.angular.io/
