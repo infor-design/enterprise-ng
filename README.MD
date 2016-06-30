@@ -5,6 +5,25 @@ This is a working group supported by the core H&L team,  bringing together the v
 
 The goal is that this will make Angular easier to support for all teams and easier to extend as the library develops and to prevent multiple teams doing the same work. At the moment the project is being shaped during "Knights of the angular table" calls.
 
+## Getting Started
+Check out these resources to get yourself familiar with some of the code and processes used here:
+
+[RxJS and Functional Reactive Programming](http://blog.jhades.org/angular-2-application-architecture-building-applications-using-rxjs-and-functional-reactive-programming-vs-redux/) - Example Implementation
+
+[MockBackend for Angular 2](http://plnkr.co/edit/7LWALD?p=preview) - Plunkr on setting up a MockBackend
+
+[RxJS and Observables](http://blog.jhades.org/functional-reactive-programming-for-angular-2-developers-rxjs-and-observables/) - General Overview
+
+[Angular Member's RxJS App State](http://victorsavkin.com/post/137821436516/managing-state-in-angular-2-applications) - RxJS and Observable method
+
+[Angular 2 In Production Today](http://blog.jhades.org/how-to-run-angular-2-in-production-today/) - Angular 2 Build Process
+
+[Awesome Angular 2](https://www.npmjs.com/package/awesome-angular2) - Compiled list of Angular 2 resources
+
+[Angular 2 Documentation](https://angular.io/docs/ts/latest/) - Angular 2 Library
+
+[RxJS](http://reactivex.io/) - Library's Site
+
 ## Decided so far
 * Will use Typescript
 * Will wrap Soho XI controls
