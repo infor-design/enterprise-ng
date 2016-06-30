@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
 import { By }           from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { DebugElement, ElementRef } from '@angular/core';
 
 import {
   beforeEach, beforeEachProviders,
@@ -13,8 +13,14 @@ import {
 import { ExpandableAreaComponent } from './expandablearea.component';
 
 describe('Component: Expandablearea', () => {
+  let elementRef: ElementRef;
+
+  beforeEach(inject([ElementRef], function (eref: ElementRef) {
+    elementRef = eref;
+  }));
+
   it('should create an instance', () => {
-    let component = new ExpandableAreaComponent();
+    let component = new ExpandableAreaComponent(elementRef);
     expect(component).toBeTruthy();
   });
 });
