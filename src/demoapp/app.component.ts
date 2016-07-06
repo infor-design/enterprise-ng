@@ -1,15 +1,23 @@
-import { Component } from '@angular/core';
-import { Route, RouterConfig, ROUTER_DIRECTIVES } from '@angular/router';
+import {Component, HostBinding} from "@angular/core";
+import {ROUTER_DIRECTIVES} from "@angular/router";
+import {SoHoIcon, SoHoIconExtended} from "../components";
+import {MastheadDemo} from "./masthead/masthead.demo";
+import {HeaderDemo} from "./header/header.demo";
+import {ApplicationMenuDemo} from "./application-menu/application-menu.demo";
 
 @Component({
   moduleId: module.id,
-  selector: 'app-root',
+  selector: 'body',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
   directives : [
-    ROUTER_DIRECTIVES,
+    SoHoIcon, SoHoIconExtended, MastheadDemo, ApplicationMenuDemo, HeaderDemo, ROUTER_DIRECTIVES
   ],
 })
 export class AppComponent {
   title = 'SoHo Xi Controls in Angular 2!';
+
+  @HostBinding('class') get classes() {
+    return 'no-scroll';
+  }
 }
