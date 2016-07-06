@@ -1,11 +1,17 @@
-import { provideRouter, RouterConfig } from '@angular/router';
-
-import { ExpandableAreaDemo } from './expandablearea/expandablearea.demo';
-import { IconDemo } from './icon/icon.demo';
+import {provideRouter, RouterConfig} from "@angular/router";
+import {ExpandableAreaDemo} from "./expandablearea/expandablearea.demo";
+import {IconDemo} from "./icon/icon.demo";
 
 export const routes: RouterConfig = [
-  { path: 'expandablearea', component: ExpandableAreaDemo },
-  { path: 'icon', component: IconDemo },
+  { path: '',                component: ExpandableAreaDemo }, // default
+  { path: 'expandablearea',  component: ExpandableAreaDemo },
+  { path: 'icon',            component: IconDemo }
+  // { path: 'toolbar',         component: ToolbarSampleComponent},
+  // { path: 'tabs-basic',      component: TabsBasicSampleComponent},
+  // { path: 'tabs-datadriven', component: TabsDataDrivenSampleComponent},
+  // { path: 'tabs-dynamic',    component: TabsDynamicSampleComponent},
+  // { path: 'accordian',       component: AccordionSampleComponent},
+  // { path: 'dropdown',        component: DropdownSampleComponent}
 ];
 
 export const APP_ROUTER_PROVIDERS = [
