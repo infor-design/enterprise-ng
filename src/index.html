@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <title>SoHo Xi - Angular Components</title>
-  <base href="/">
 
   {{#unless environment.production}}
   <script>document.write('<base href="' + document.location + '" />');</script>
@@ -12,9 +11,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" id="stylesheet" href="vendor/@infor/sohoxi/dist/css/grey-theme.min.css">
+
+  {{#each scripts.polyfills}}
+  <script src="{{.}}"></script>
+  {{/each}}
+  <script>
+    System.import('system-config.js').then(function () {
+      System.import('main');
+    }).catch(console.error.bind(console));
+  </script>
+
 </head>
 <body>
-  <app-root>
     <!-- Note: using soho busy html without initializer  -->
     <div id="standalone-busy" class="busy" style="height: 100%; width: 100%;">
       <div class="overlay busy">
@@ -30,16 +38,6 @@
         <span>Loading...</span>
       </div>
     </div>
-  </app-root>
-
-    {{#each scripts.polyfills}}
-    <script src="{{.}}"></script>
-    {{/each}}
-    <script>
-      System.import('system-config.js').then(function () {
-        System.import('main');
-      }).catch(console.error.bind(console));
-    </script>
 
 </body>
 </html>
