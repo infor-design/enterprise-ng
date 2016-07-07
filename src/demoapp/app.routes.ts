@@ -1,6 +1,6 @@
-import {provideRouter, RouterConfig} from "@angular/router";
-import {ExpandableAreaDemo} from "./expandablearea/expandablearea.demo";
-import {IconDemo} from "./icon/icon.demo";
+import { provideRouter, RouterConfig } from "@angular/router";
+import { ExpandableAreaDemo } from "./expandablearea/expandablearea.demo";
+import { IconDemo } from "./icon/icon.demo";
 
 export const routes: RouterConfig = [
   { path: '',                component: ExpandableAreaDemo }, // default

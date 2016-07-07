@@ -1,23 +1,14 @@
-import { Component, AfterViewInit, HostBinding } from "@angular/core";
-
+import { Component, HostBinding } from '@angular/core';
+import { HeaderComponent } from '../../components';
 @Component({
-  selector: 'soho-header',
-  templateUrl: '/demoapp/header/header.demo.html',
+  moduleId: module.id,
+  selector: 'soho-header-demo',
+  templateUrl: 'header.demo.html'
+  // directives: [HeaderComponent]
 })
-export class HeaderDemo implements AfterViewInit
+export class HeaderDemo
 {
   @HostBinding('class') get classes() {
     return 'header is-personalizable';
-  }
-
-  ngAfterViewInit()
-  {
-    // ngAfterViewInit lifecycle event - called after Angular creates the component's view(s).
-    // meaning the content is in the DOM and it's ok to run jQuery against it
-    let $toolbarElement:any = $('.toolbar');
-    $toolbarElement.toolbar();
-
-    let $applicationMenuElement:any = $('#application-menu');
-    $applicationMenuElement.applicationmenu({triggers: [$('.application-menu-trigger')]});
   }
 }

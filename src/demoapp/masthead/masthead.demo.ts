@@ -1,15 +1,19 @@
 import { Component, HostBinding } from "@angular/core";
 
+import { MastheadComponent } from '../../components';
+
 @Component({
-  selector: 'soho-masthead',
-  templateUrl: '/demoapp/masthead/masthead.demo.html',
+  moduleId: module.id,
+  selector: 'soho-masthead-demo',
+  templateUrl: 'masthead.demo.html',
+  // directives: [MastheadComponent],
   styles: [`
     :host {
-      display: block;
-    }       
+      display:block;
+    }  
   `]
 })
-export class MastheadDemo{
+export class MastheadDemo {
   @HostBinding('class') get classes() {
     return 'masthead';
   }
