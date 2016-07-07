@@ -1,9 +1,9 @@
-import {Component, HostBinding} from "@angular/core";
-import {ROUTER_DIRECTIVES} from "@angular/router";
-import {SoHoIcon, SoHoIconExtended} from "../components";
-import {MastheadDemo} from "./masthead/masthead.demo";
-import {HeaderDemo} from "./header/header.demo";
-import {ApplicationMenuDemo} from "./application-menu/application-menu.demo";
+import { Component, HostBinding } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
+import { SoHoIcon, SoHoIconExtended } from '../components';
+import { MastheadDemo } from './masthead/masthead.demo';
+import { HeaderDemo } from './header/header.demo';
+import { ApplicationMenuDemo } from './application-menu/application-menu.demo';
 
 @Component({
   moduleId: module.id,
