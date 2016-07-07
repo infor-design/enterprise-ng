@@ -8,8 +8,11 @@
 System.defaultJSExtensions = true;
 
 const components = [
+  'application-menu',
   'expandablearea',
+  'header',
   'icon',
+  'masthead'
 ];
 
 const componentBarrels: string[] = [];
