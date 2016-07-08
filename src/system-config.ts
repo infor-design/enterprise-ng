@@ -12,7 +12,8 @@ const components = [
   'expandablearea',
   'header',
   'icon',
-  'masthead'
+  'masthead',
+  'toolbar'
 ];
 
 const componentBarrels: string[] = [];
