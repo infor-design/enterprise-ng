@@ -5,12 +5,15 @@
 /***********************************************************************************************
  * User Configuration.
  **********************************************************************************************/
-System.defaultJSExtensions = true;
+System.defaultJSExtensions = true; //tslint:disable-line
 
 const components = [
+  'application-menu',
   'button',
   'expandablearea',
+  'header',
   'icon',
+  'masthead'
 ];
 
 const componentBarrels: string[] = [];
