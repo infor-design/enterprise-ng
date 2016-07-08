@@ -12,36 +12,11 @@ declare var jQuery: any;
 
 @Component({
     selector: 'soho-toolbar-title',
-    template: `
-        <!-- if in the header -->
-        <template [ngIf]="inHeader">
-             <button class="btn-icon application-menu-trigger" type="button">
-                <span class="audible">Show navigation</span>
-                <span class="icon app-header">
-                    <span class="one"></span>
-                    <span class="two"></span>
-                    <span class="three"></span>
-                </span>
-            </button>
-            <h1 class='titleHeader'>
-                <span class='page-title'>{{pageTitle}}</span>
-                <span class='section-title'>{{sectionTitle}}</span>
-            </h1>
-        </template>
-        
-        <!-- if not in the header -->
-        <template [ngIf]="!inHeader">
-            <span class='section-title'>{{sectionTitle}}</span>
-        </template>
-    `,
+    template: `<ng-content></ng-content>`,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ToolbarTitleComponent {
-
-    @Input() inHeader:boolean = false;
-    @Input() pageTitle:string;
-    @Input() sectionTitle:string;
 
     @HostBinding('class') hostClasses:string = 'title';
 
@@ -52,42 +27,12 @@ export class ToolbarTitleComponent {
 
 @Component({
     selector: 'soho-toolbar-button-set',
-    template: `
-
-        <!-- search field -->
-        <label *ngIf="searchField" class="audible" attr.for="{{searchField.id}}">
-            {{searchField.label}}
-        </label>
-        <input *ngIf="searchField" class="searchfield" id="{{searchField.id}}" placeholder="{{searchField.label}}" name="{{searchField.label}}"/>
-    
-        <!-- buttons -->
-        <template ngFor let-button [ngForOf]="buttons">
-            <button id="{{button?.id}}" class="{{button?.class}}" attr.data-button="{{button?.data}}" type="button">
-                <svg class="icon">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" attr.xlink:href="{{button?.icon}}"></use>
-                </svg>
-                <span>{{button?.text}}</span>
-                <svg *ngIf="button.menu" class="icon icon-dropdown">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-dropdown"></use>
-                </svg>
-            </button>
-        
-            <!-- dropdown menus for buttons -->
-            <ul *ngIf="button.menu" class="popupmenu">
-                <li *ngFor="let item of button.menu" id="{{item?.id}}">
-                    <a href="" attr.data="{{item?.data}}">{{item?.text}}</a>
-                </li>
-            </ul>
-        </template>
-    `,
+    template: `<ng-content></ng-content>`,
     styles : [`:host {display:inline-block;}`],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ToolbarButtonSetComponent {
-
-    @Input() searchField:SearchField;
-    @Input() buttons:ToolbarButton;
 
     @HostBinding('class') hostClasses:string = 'buttonset';
 
