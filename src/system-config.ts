@@ -13,6 +13,7 @@ const components = [
   'header',
   'icon',
   'masthead',
+  'tabs',
   'toolbar'
 ];
 

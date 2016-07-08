@@ -13,6 +13,10 @@ import { Observable } from 'rxjs/Rx';
 
 declare var jQuery: any;
 
+
+
+
+
 /**
  * Helper Component for the ExpandableAreaComponent
  */
@@ -26,6 +30,10 @@ declare var jQuery: any;
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpandableHeaderComponent {}
+
+
+
+
 
 /**
  * Helper Component for the ExpandableAreaComponent
@@ -41,6 +49,11 @@ export class ExpandablePaneComponent {
   @HostBinding('attr.fixed')
   @Input() fixed: boolean = false;
 }
+
+
+
+
+
 
 @Component({
   moduleId: module.id,

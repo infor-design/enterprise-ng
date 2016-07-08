@@ -1,0 +1,13 @@
+<soho-tabs-component (tabSelected)="onTabSelected($event)">
+
+  <ul class="tab-list">
+    <li *ngFor="let tab of tabs">
+      <a href="#{{tab.id}}">{{tab.title}}</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div *ngFor="let tab of tabs" id="{{tab.id}}">{{tab.content}}</div>
+  </div>
+
+</soho-tabs-component>
