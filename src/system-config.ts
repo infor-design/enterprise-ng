@@ -9,6 +9,7 @@ System.defaultJSExtensions = true;
 
 const components = [
   'expandablearea',
+  'toolbar',
   'icon',
 ];
 
