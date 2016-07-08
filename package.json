@@ -23,8 +23,8 @@
     "@angular/router":  "3.0.0-alpha.7",
     "@angular/router-deprecated":  "2.0.0-rc.2",
     "@angular/upgrade":  "2.0.0-rc.3",
- 
-    "@infor/sohoxi": "^4.2.0",
+
+    "@infor/sohoxi": "4.2.1-nightly",
     "immutable": "^3.8.1",
 
     "es6-shim": "0.35.1",

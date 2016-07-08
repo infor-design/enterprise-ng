@@ -1,3 +1,5 @@
+export * from './application-menu';
 export * from './expandablearea';
+export * from './header';
 export * from './icon';
-export * from './toolbar';
+export * from './masthead';
