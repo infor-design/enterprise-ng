@@ -37,6 +37,7 @@
       "timeEnd",
       "trace"
     ],
+    "no-consecutive-blank-lines": true,
     "no-construct": true,
     "no-debugger": true,
     "no-duplicate-key": true,
@@ -44,6 +45,7 @@
     "no-empty": false,
     "no-eval": true,
     "no-inferrable-types": true,
+    "no-reference": true,
     "no-shadowed-variable": true,
     "no-string-literal": false,
     "no-switch-case-fall-through": true,
@@ -89,6 +91,7 @@
       "check-branch",
       "check-decl",
       "check-operator",
+      "check-module",
       "check-separator",
       "check-type"
     ],

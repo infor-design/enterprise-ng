@@ -8,6 +8,7 @@
 System.defaultJSExtensions = true;
 
 const components = [
+  'button',
   'expandablearea',
   'icon',
 ];

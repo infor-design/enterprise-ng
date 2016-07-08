@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Route, RouterConfig, ROUTER_DIRECTIVES } from '@angular/router';
+import { SoHoIconComponent, SoHoIconExtendedComponent } from './';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -7,6 +8,8 @@ import { Route, RouterConfig, ROUTER_DIRECTIVES } from '@angular/router';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
   directives : [
+    SoHoIconComponent,
+    SoHoIconExtendedComponent,
     ROUTER_DIRECTIVES,
   ],
 })

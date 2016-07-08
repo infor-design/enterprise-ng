@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   ContentChild,
@@ -6,12 +7,11 @@ import {
   EventEmitter,
   HostBinding,
   Input,
+  OnDestroy,
   Output,
   forwardRef,
 } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-
-declare var jQuery: any;
 
 /**
  * Helper Component for the ExpandableAreaComponent
@@ -49,7 +49,7 @@ export class ExpandablePaneComponent {
   styles: [``],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ExpandableAreaComponent {
+export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   @Input('soho-expandable-area') id: string; // tslint:disable-line
   @Input() set disabled(value: boolean) {
     this._disabled = value;
