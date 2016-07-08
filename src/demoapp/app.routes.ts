@@ -1,10 +1,12 @@
 import {provideRouter, RouterConfig} from "@angular/router";
 import {ExpandableAreaDemo} from "./expandablearea/expandablearea.demo";
 import {IconDemo} from "./icon/icon.demo";
+import {ToolbarDemo} from "./toolbar/toolbar.demo";
 
 export const routes: RouterConfig = [
   { path: '',                component: ExpandableAreaDemo }, // default
   { path: 'expandablearea',  component: ExpandableAreaDemo },
+  { path: 'toolbar',         component: ToolbarDemo },
   { path: 'icon',            component: IconDemo }
   // { path: 'toolbar',         component: ToolbarSampleComponent},
   // { path: 'tabs-basic',      component: TabsBasicSampleComponent},
