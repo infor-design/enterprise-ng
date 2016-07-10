@@ -1,6 +1,12 @@
 <div class="accordion panel inverse" data-options="{'allowOnePane': true, rerouteOnLinkClick: false}" >
   <div class="accordion-header list-item"><a [routerLink]="['expandablearea']"><span>ExpandableArea</span></a></div>
   <div class="accordion-header list-item"><a [routerLink]="['icon']"><span>Icons</span></a></div>
+  <div class="accordion-header"><a href="javascript:void(0);"><span>Tree</span></a></div>
+    <div class="accordion-pane">
+  <div class="accordion-header list-item"><a [routerLink]="['tree-dynamic']"><span>Dynamic Tree</span></a></div>
+  <div class="accordion-header list-item"><a [routerLink]="['tree-service']"><span>Service Tree</span></a></div>
+  <div class="accordion-header list-item"><a [routerLink]="['tree-content']"><span>Content Tree</span></a></div>
+  </div>
   <!--
     <div class="accordion-header list-item"><a [routerLink]="['ToolbarSample']"><span>Toolbar Component</span></a></div>
     <div class="accordion-header list-item"><a [routerLink]="['DropdownSample']"><span>Dropdown Component</span></a></div>

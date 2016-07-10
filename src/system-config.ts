@@ -12,7 +12,8 @@ const components = [
   'expandablearea',
   'header',
   'icon',
-  'masthead'
+  'masthead',
+  'tree'
 ];
 
 const componentBarrels: string[] = [];
@@ -57,6 +58,7 @@ const barrels: string[] = [
   // App specific barrels.
   'demoapp',
   'components',
+  'utils',
   ...componentBarrels
   /** @cli-barrel */
 ];
