@@ -1,3 +1,26 @@
+/**
+ * Defines the data source of the datagrid.
+ */
+export const DATAGRID_TYPES = {
+  // Determines the type to use based on the presence of a service.
+  AUTO: 'auto',
+
+  // Use the components content.
+  CONTENT_ONLY: 'content-only'
+};
+
+
+// Valid list of data grid types.
+export const DATAGRID_TYPE_LIST = [DATAGRID_TYPES.AUTO, DATAGRID_TYPES.CONTENT_ONLY];
+
+/**
+ * Row height.
+ */
+export type RowHeightType = 'normal' | 'medium' | 'small';
+
+/**
+ * List of valid formatters.
+ */
 export declare var Formatters: {
     Text: any;
     Readonly: any;
@@ -29,6 +52,7 @@ export declare var Formatters: {
 };
 
 export declare var Editors: {
+  // @todo
 };
 
 export interface GridColumn {
@@ -87,7 +111,7 @@ export class GridOptions {
   // Id to the right click context menu
   menuId: any = null;
   // (short, medium or normal)
-  rowHeight: 'normal' | 'medium' | 'small' = 'small';
+  rowHeight: RowHeightType = 'small';
   // false; 'single' or 'multiple'
   selectable: boolean = true;
   clickToSelect = true;

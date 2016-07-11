@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 
 import {
-    ArgumentHelper
+  ArgumentHelper
 } from '../../utils';
 
 import {
@@ -26,24 +26,11 @@ import {
   ToolbarOptions,
   GridRequest,
   DataGridCellChangeEvent,
-  DataGridSelectedEvent
+  DataGridSelectedEvent,
+  DATAGRID_TYPES,
+  DATAGRID_TYPE_LIST,
+  RowHeightType
 } from './datagrid.model';
-
-/**
- *
- */
-export const DATAGRID_TYPES = {
-  // Determines the type to use based on the presence of a service.
-  AUTO: 'auto',
-
-  // Use the components content.
-  CONTENT_ONLY: 'content-only'
-};
-
-/**
- * Row height.
- */
-export type RowHeightType = 'normal' | 'medium' | 'small';
 
 /**
  * Angular Wrapper for the SoHo Data Grid Component.
@@ -65,14 +52,12 @@ export type RowHeightType = 'normal' | 'medium' | 'small';
  * paging
  * tooltips?
  * updaterow()
- * showColumn()
- * hideColumn()
  * ...
  * headers/footers/toolbars/menus
  */
 @Component({
   moduleId: module.id,
-  selector: '[soho-datagrid]', // ... or use div[soho-datagrid]?
+  selector: '[soho-datagrid]', // ... or use div[soho-datagrid] or table[soho-datagrid] or soho-datagrid?
   template: ' <ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -111,7 +96,7 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
    */
   @Input() set data(data: any[]) {
     this.gridData = data;
-    if (data && this.jQueryControl) {
+    if (data && this.jQueryElement) {
       this.datagrid.loadData(data);
     }
   }
@@ -125,7 +110,7 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
    */
   @Input() set columns(columns: GridColumn[]) {
     this.gridColumns = columns || [];
-    if (columns && this.jQueryControl) {
+    if (columns && this.jQueryElement) {
       this.datagrid.updateColumns(columns);
     }
   }
@@ -138,10 +123,12 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
    *   injected service (if defined) or via the Inputs if not.
    */
   @Input('soho-datagrid') set sohoDatagrid(datagridType: string) {
-    if (datagridType) {
-      this.dataGridType = datagridType;
+    if (DATAGRID_TYPE_LIST.includes(datagridType)) {
+      this.datagridType = datagridType;
+    } else if (datagridType) {
+      throw Error(`'${datagridType}' is not valid, it must be one of ${DATAGRID_TYPE_LIST}.`);
     } else {
-      this.dataGridType = DATAGRID_TYPES.AUTO;
+      this.datagridType = DATAGRID_TYPES.AUTO;
     }
   }
 
@@ -172,7 +159,7 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryControl: any;
+  private jQueryElement: any;
 
   // Reference to the SoHo datagrid control api.
   private datagrid: any;
@@ -184,7 +171,7 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   private gridData: any[];
 
   // The source type for the grid.
-  private dataGridType: string;
+  private datagridType: string;
 
   /**
    * Constructor.
@@ -261,7 +248,7 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     // Wrap the element in a jQuery selector.
-    this.jQueryControl = $(this.elementRef.nativeElement);
+    this.jQueryElement = $(this.elementRef.nativeElement);
 
     // Grid options ...
     let gridOptions: GridOptions = {
@@ -294,16 +281,16 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     // Initialise the SoHoXi control.
-    this.jQueryControl.datagrid(gridOptions);
+    this.jQueryElement.datagrid(gridOptions);
 
     // Once the control is initialised, extract the control
     // plug-in from the element.  The element name is
     // defined by the plug-in, but in this case is 'datagrid'.
-    this.datagrid = this.jQueryControl.data('datagrid');
+    this.datagrid = this.jQueryElement.data('datagrid');
 
     // If "auto" and there's a service, get the columns from it.
     // (may want to check if columns have already been set? Error?)
-    if (this.dataGridType === DATAGRID_TYPES.AUTO && this.datagridService) {
+    if (this.datagridType === DATAGRID_TYPES.AUTO && this.datagridService) {
       // Bootstrap from service, note this is not async.
       this.columns = this.datagridService.getColumns();
       // Once the columns are set, request the data (paging?)
@@ -317,7 +304,7 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     // Initialise any event handlers.
-    this.jQueryControl.on('selected', (e: any, args: DataGridSelectedEvent) => {
+    this.jQueryElement.on('selected', (e: any, args: DataGridSelectedEvent) => {
       this.selected.next(args);
     }).on('cellchange', (e: any, args: DataGridCellChangeEvent) => {
       this.cellchange.next(args);
@@ -327,9 +314,9 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.jQueryControl) {
-      this.jQueryControl.destroy();
-      this.jQueryControl = null;
+    if (this.jQueryElement) {
+      this.jQueryElement.destroy();
+      this.jQueryElement = null;
     }
   }
 }

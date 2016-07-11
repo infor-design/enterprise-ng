@@ -7,9 +7,8 @@ import {
 } from './datagrid.model';
 
 /**
- * Dynamic Grid contract.
+ * Dynamic SoHo Data Grid contract.
  */
-@Injectable()
 export abstract class DataGridService {
 
     /**
