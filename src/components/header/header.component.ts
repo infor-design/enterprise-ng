@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, HostBinding, ElementRef } from "@angular/core";
+import { Component, AfterViewInit, HostBinding, ElementRef } from '@angular/core';
 
 declare var $: any;
 
@@ -12,16 +12,16 @@ export class HeaderComponent implements AfterViewInit {
     return 'header is-personalizable';
   }
 
-  constructor(private elementRef:ElementRef){}
+  constructor(private elementRef: ElementRef) {}
 
   ngAfterViewInit() {
     // ngAfterViewInit lifecycle event - called after Angular creates the component's view(s).
     // meaning the content is in the DOM and it's ok to run jQuery against it
 
-    let $toolbarElement:any = $('.toolbar');
+    let $toolbarElement: any = $('.toolbar');
     $toolbarElement.toolbar();
 
-    let $applicationMenuElement:any = $('.application-menu');
+    let $applicationMenuElement: any = $('.application-menu');
     $applicationMenuElement.applicationmenu({triggers: [$('.application-menu-trigger')]});
 
     // let $element:any = jQuery(this.elementRef.nativeElement);

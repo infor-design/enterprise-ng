@@ -7,8 +7,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
   directives: [ROUTER_DIRECTIVES],
   templateUrl: 'application-menu.component.html'
 })
-export class ApplicationMenuComponent
-{
+export class ApplicationMenuComponent {
   @HostBinding('class') get classes() {
     return 'application-menu';
   }

@@ -1,6 +1,6 @@
-import { Component, HostBinding } from "@angular/core";
+import { Component, HostBinding } from '@angular/core';
 
-import { MastheadComponent } from '../../components';
+// import { MastheadComponent } from '../../components';
 
 @Component({
   moduleId: module.id,
@@ -10,10 +10,10 @@ import { MastheadComponent } from '../../components';
   styles: [`
     :host {
       display:block;
-    }  
+    }
   `]
 })
-export class MastheadDemo {
+export class MastheadDemoComponent {
   @HostBinding('class') get classes() {
     return 'masthead';
   }
