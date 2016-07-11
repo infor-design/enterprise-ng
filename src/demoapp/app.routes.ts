@@ -8,6 +8,7 @@ import { TreeDynamicDemoComponent } from './tree/tree-dynamic-demo.component';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service-demo.component';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content-demo.component';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic-demo.component';
+import { ToolbarDemo } from './toolbar/toolbar.demo';
 
 export const routes: RouterConfig = [
   { path: '',                component: ExpandableAreaDemoComponent }, // default
