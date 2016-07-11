@@ -119,7 +119,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     @Output() collapse = new EventEmitter<TreeNode>();
 
     // This event is fired when a node is selected, the TreeNode
-    // selected is passed as an srgument ot the handler.
+    // selected is passed as an argument to the handler.
     @Output() selected = new EventEmitter<TreeNode>();
 
     // -------------------------------------------
