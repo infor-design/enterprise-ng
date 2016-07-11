@@ -33,7 +33,7 @@ export class SoHoButtonComponent implements AfterViewInit, OnDestroy {
   @Input() ripple: boolean = true;
   @Input() isSubmit: boolean = false;
 
-  @HostBinding('class') get buttonClass() {
+  get buttonClass() {
     const classes: string[] = [];
     if (this.buttonType) {
       classes.push(`btn-${this.buttonType}`);

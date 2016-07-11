@@ -1,4 +1,4 @@
-<svg *ngIf="icon" role="presentation" aria-hidden="true" focusable="false" class="icon">
+<svg *ngIf="icon" [ngClass]="buttonClass" role="presentation" aria-hidden="true" focusable="false" class="icon">
   <use [attr.xlink:href]="'#icon-' + icon" />
 </svg>
 <span>
