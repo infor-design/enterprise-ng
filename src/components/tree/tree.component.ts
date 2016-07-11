@@ -61,8 +61,8 @@ export const TREE_TYPES = {
  * Angular Wrapper for the SoHo Tree Component.
  * 
  * This component searches for an unordered list (ul) with the attribute 
- * 'soho-tree' into the parent's DOM tree, initialising those found 
- * with the SoHo tree control. 
+ * 'soho-tree' in the parent's DOM tree, initialising those found with 
+ * the SoHo tree control. 
  * 
  * The data is provided either by the content (li elements), a dataset 
  * input or an implementation of the TreeService interface, by specifying
@@ -72,7 +72,7 @@ export const TREE_TYPES = {
  * 
  * @todo
  * 
- * 1) Content based version do not work due to lack of TreeNode.
+ * 1) Content based version does not work due to lack of TreeNode.
  * 2) Complete interface definition
  */
 @Component({
@@ -90,7 +90,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     // The array of root tree nodes to display.
     @Input() set dataset(dataset: TreeNode[]) {
         // @todo this is not fully working as the tree control does not 
-        // replace the contents but merges it.
+        // replace the contents but looks to merge it.
         this._dataset = dataset;
         if (this.tree) {
             this.tree.loadData(dataset);
@@ -111,13 +111,15 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     // -------------------------------------------
 
     // This event is fired when a node is expanded, the TreeNode 
-    // was expanded is passed as an argument to the handler.
+    // expanded is passed as an argument to the handler.
     @Output() expand = new EventEmitter<TreeNode>();
 
-    // This event is fired when a node is collapsed.
+    // This event is fired when a node is collapsed, the TreeNode 
+    // collapsed is passed as an argument to the handler.
     @Output() collapse = new EventEmitter<TreeNode>();
 
-    // This event is fired when a node is selected.
+    // This event is fired when a node is selected, the TreeNode
+    // selected is passed as an srgument ot the handler.
     @Output() selected = new EventEmitter<TreeNode>();
 
     // -------------------------------------------
@@ -164,9 +166,6 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     // Public API
     // -------------------------------------------
 
-    /**
-     * Disabled the control (not working)
-     */
     public enable(): void {
         // @todo not working on SoHo tree control
         this.isDisabled = false;
@@ -290,7 +289,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     /**
      * Handle a request to load the children of the specified node.
      * 
-     * args - tree {node: node, data: node.data('jsonData')};
+     * event - the tree event used to determine which node to load
      * response - function used to return the children
      */
     private onDataRequest(event: TreeEvent, response: (data: any) => void) {
