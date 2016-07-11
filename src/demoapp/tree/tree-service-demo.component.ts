@@ -14,12 +14,12 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 import {
-//    SoHoButtonComponent,
+    SoHoButtonComponent,
     SoHoTreeComponent,
     TreeService,
     TreeNode,
-    TreeEvent,
-    TREE_TYPES
+    TreeEvent
+
 }
 from '../';
 
@@ -32,12 +32,17 @@ import {
     selector: 'tree-service-demo',
     templateUrl: 'tree-service-demo.component.html',
     providers: [ {provide: TreeService, useClass: TreeDemoService }],
-    directives: [ SoHoTreeComponent ],
+    directives: [ SoHoTreeComponent, SoHoButtonComponent ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeServiceDemoComponent {
 
     @ViewChild(SoHoTreeComponent) tree: SoHoTreeComponent;
+
+
+    private subject = new Subject<TreeNode[]>();
+
+    private source = this.subject.asObservable();
 
     // Is this component enabled.
     enabled = true;
@@ -77,9 +82,6 @@ selected: TreeNode;
         this.tree.addNode(tn, this.selected);
     }
 
-    private subject = new Subject<TreeNode[]>();
-
-    private source = this.subject.asObservable();
 
     reset() {
         this.subject.next(this.DATA);
@@ -91,31 +93,31 @@ selected: TreeNode;
     }
 
     private DATA: TreeNode[] = [{
-        "id": "node1",
-        "text": "Data One",
-        "open": false,
-        "selected": false,
-        "href": '/somelink/'
+        'id': 'node1',
+        'text': 'Data One',
+        'open': false,
+        'selected': false,
+        'href': '/somelink/'
     }, {
-        "id": "node2",
-        "text": "Node Two",
-        "open": true,
-        "selected": true,
-        "focus": true,
-        "children": [{
-            "id": "node3",
-            "text": "Node 2.1"
+        'id': 'node2',
+        'text': 'Node Two',
+        'open': true,
+        'selected': true,
+        'focus': true,
+        'children': [{
+            'id': 'node3',
+            'text': 'Node 2.1'
         }, {
-            "id": "node4",
-            "text": "Node 2.2",
-            "children": [{
-                "id": "node5",
-                "text": "Node 2.2.1",
-                "icon": "icon-tree-chart",
-                "children": [{
-                    "id": "node6",
-                    "text": "Node 2.2.1.1",
-                    "icon": "icon-tree-chart"
+            'id': 'node4',
+            'text': 'Node 2.2',
+            'children': [{
+                'id': 'node5',
+                'text': 'Node 2.2.1',
+                'icon': 'icon-tree-chart',
+                'children': [{
+                    'id': 'node6',
+                    'text': 'Node 2.2.1.1',
+                    'icon': 'icon-tree-chart'
                 }]
             }]
         }]

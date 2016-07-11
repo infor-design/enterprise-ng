@@ -1,36 +1,22 @@
 import {
     Component,
-    AfterContentInit,
     ElementRef,
-    Output,
-    EventEmitter,
     ViewChild,
-    AfterViewInit,
     ChangeDetectionStrategy
 } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
-
 import {
-//    SoHoButtonComponent,
+    SoHoButtonComponent,
     SoHoTreeComponent,
-    TreeService,
     TreeNode,
-    TreeEvent,
-    TREE_TYPES
-}
-from '../';
-
-import {
-    TreeDemoService
-} from './tree-demo.service';
+    TreeEvent
+} from '../';
 
 @Component({
     moduleId: module.id,
     selector: 'tree-content-demo',
     templateUrl: 'tree-content-demo.component.html',
-    directives: [ SoHoTreeComponent ],
+    directives: [ SoHoTreeComponent, SoHoButtonComponent ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeContentDemoComponent {
@@ -40,7 +26,7 @@ export class TreeContentDemoComponent {
     // Is this component enabled.
     enabled = true;
 
-    selected: TreeNode; 
+    selected: TreeNode;
 
     constructor(private el: ElementRef) {
     }
@@ -67,7 +53,7 @@ export class TreeContentDemoComponent {
     }
 
     addNode() {
-        let tn : TreeNode = {text: 'New Item 1.2', disabled: true};
+        let tn: TreeNode = {text: 'New Item 1.2', disabled: true};
         this.tree.addNode(tn, this.selected);
     }
 
