@@ -5,15 +5,17 @@
 /***********************************************************************************************
  * User Configuration.
  **********************************************************************************************/
-System.defaultJSExtensions = true;
+System.defaultJSExtensions = true; //tslint:disable-line
 
 const components = [
   'application-menu',
+  'button',
   'expandablearea',
   'header',
   'icon',
   'masthead',
-  'tabs',
+  'datagrid',
+  'tree',
   'toolbar'
 ];
 
@@ -59,6 +61,7 @@ const barrels: string[] = [
   // App specific barrels.
   'demoapp',
   'components',
+  'utils',
   ...componentBarrels
   /** @cli-barrel */
 ];

@@ -1,22 +1,23 @@
 import { Component, HostBinding, AfterViewInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-import { SoHoIcon, SoHoIconExtended } from '../components';
+import { SoHoIconComponent, SoHoIconExtendedComponent } from '../components';
 
-import { MastheadDemo } from './masthead/masthead.demo';
-import { HeaderDemo } from './header/header.demo';
-import { ApplicationMenuDemo } from './application-menu/application-menu.demo';
-
-import { MastheadComponent } from '../components';
-import { HeaderComponent } from '../components';
-import { ApplicationMenuComponent } from '../components';
+import { MastheadDemoComponent } from './masthead/masthead.demo';
+import { HeaderDemoComponent } from './header/header.demo';
+import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
 
 @Component({
   moduleId: module.id,
   selector: 'body',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives : [
-    SoHoIcon, SoHoIconExtended, MastheadDemo, HeaderDemo, ApplicationMenuDemo, ROUTER_DIRECTIVES
+  directives: [
+    SoHoIconComponent,
+    SoHoIconExtendedComponent,
+    MastheadDemoComponent,
+    HeaderDemoComponent,
+    ApplicationMenuDemoComponent,
+    ROUTER_DIRECTIVES,
   ],
 })
 export class AppComponent implements AfterViewInit {
@@ -27,10 +28,10 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    let $toolbarElement:any = $('.toolbar');
-    $toolbarElement.toolbar();
+    let toolbarElement: any = jQuery('.toolbar');
+    toolbarElement.toolbar();
 
-    let $applicationMenuElement:any = $('.application-menu');
-    $applicationMenuElement.applicationmenu({triggers: [$('.application-menu-trigger')]});
+    let applicationMenuElement: any = jQuery('.application-menu');
+    applicationMenuElement.applicationmenu({triggers: [jQuery('.application-menu-trigger')]});
   }
 }
