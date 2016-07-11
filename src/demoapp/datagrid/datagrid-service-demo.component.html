@@ -3,11 +3,12 @@
 
         <h2 class="fieldset-title">Soho Data Grid - Service</h2>
 
-            <div class="field">
-                <button soho-button (click)="enable($event)">Enable</button>
-                <button soho-button (click)="disable($event)">Disable</button>
-                <button soho-button (click)="busy($event)">Busy</button>
-            </div>
+        <div class="field">
+            <button soho-button (click)="datagrid.enable($event)">Enable</button>
+            <button soho-button (click)="datagrid.disable($event)">Disable</button>
+            <button soho-button (click)="addRow($event)">Add Row</button>
+            <button soho-button (click)="busy($event)">Busy</button>
+        </div>
     </div>
 </div>
 <br>

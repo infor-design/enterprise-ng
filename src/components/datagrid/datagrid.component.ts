@@ -26,7 +26,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  ViewChild,
   Output,
   EventEmitter,
   HostBinding,
@@ -36,17 +35,17 @@ import {
   OnDestroy
 } from '@angular/core';
 
-import { Observable } from 'rxjs/Rx';
+import {
+    ArgumentHelper
+} from '../../utils';
 
-import { ArgumentHelper } from '../../utils';
-
-import { 
-  DataGridService 
+import {
+  DataGridService
 } from './datagrid.service';
 
-import { 
-  GridOptions, 
-  GridColumn, 
+import {
+  GridOptions,
+  GridColumn,
   ToolbarOptions,
   GridRequest,
   DataGridCellChangeEvent,
@@ -62,15 +61,15 @@ export const DATAGRID_TYPES = {
 }
 
 /**
- * SoHo Grid Component.
+ * Angular Wrapper for the SoHo Data Grid Component.
  * 
- * This component searches for a div with the attribute 'soho-datagrid' 
- * in the parent's DOM tree, initialising them with the SoHo 
- * datagrid control. 
+ * This component searches for a div (or table) with the attribute 
+ * 'soho-datagrid' in the parent's DOM tree, initialising it with 
+ * the SoHo datagrid control. 
  * 
- * The data is provided either by a dataset input or an implementation
- * of the DataGridService interface, by specifying
- * an implementation on the hosting component, i.e.
+ * The data is provided either by a component input or an implementation
+ * of the DataGridService interface, by specifying an implementation 
+ * on the hosting component, i.e.
  * 
  * providers: [ provide: DataGridService, useClass: DataGridDemoService} ]
  * 
@@ -98,6 +97,7 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   // Component Inputs
   // -------------------------------------------
 
+  @Input() idProperty: string;
   @Input() cellNavigation: boolean = true;
   @Input() alternateRowShading: boolean = false;
   @Input() dataset: Array<any>;
@@ -117,17 +117,27 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() saveColumns: boolean = false;
   @Input() source: any = null;
 
-  // Pre-loaded (or async) data.
+  /**
+   * The array of data to display in the grid.
+   * 
+   * As this method can be called before the control is
+   * initialised, stash the data for later, and only
+   * call loadData on the control api if ready.
+   */ 
   @Input() set data(data: any[]) {
     this.gridData = data;
-    console.log("New data");
     if (data && this.jQueryControl) {
-      console.log("New data");
       this.datagrid.loadData(data);
     }
   }
 
-  // Pre-loaded (or sync) columns.
+  /**
+   * The array of columns to display in the grid.
+   * 
+   * As this method can be called before the control is
+   * initialised, stash the data for later, and only
+   * call loadData on the control api if ready.
+   */ 
   @Input() set columns(columns: GridColumn[]) {
     this.gridColumns = columns || [];
     if (columns && this.jQueryControl) {
@@ -135,7 +145,13 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  // [soho-datagrid]='auto'
+  /**
+   * Defines the source type of the grid, either:
+   * 
+   * - "content-only" where table elements are provided in the body.
+   * - "auto" where columns and rows are obtained for an 
+   *   injected service (if defined) or via the Inputs if not.
+   */
   @Input('soho-datagrid') set sohoDatagrid(datagridType: string) {
     if (datagridType) {
       this.dataGridType = datagridType;
@@ -161,6 +177,7 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   // Set the enable / disabled class (not working)
   @HostBinding('class.is-disabled') isDisabled = false;
 
+  // Sets the class of the grid appropriately.
   @HostBinding('class') datagridClass = 'datagrid';
 
   @HostBinding('attr.role') datagridRole = 'datagrid';
@@ -213,33 +230,25 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   updateRow(idx: number, row: any): void {
-    if (this.datagrid) {
-      this.datagrid.updateRow(idx, row);
-    }
+    ArgumentHelper.checkNotNull('row', row);
+
+    this.datagrid.updateRow(idx, row);
   }
 
   hideColumn(id: any) {
-    if (this.datagrid) {
-      this.datagrid.hideColumn(id);
-    }
+    this.datagrid.hideColumn(id);
   }
 
   showColumn(id: any) {
-    if (this.datagrid) {
-      this.datagrid.showColumn(id);
-    }
+    this.datagrid.showColumn(id);
   }
 
   addRow(data: any, location: any) {
-    if (this.datagrid) {
-      this.datagrid.addRow(data, location);
-    }
+    this.datagrid.addRow(data, location);
   }
 
   removeRow(data: any) {
-    if (this.datagrid) {
-      this.datagrid.removeRow(data);
-    }
+    this.datagrid.removeRow(data);
   }
 
   // -------------------------------------------
@@ -248,6 +257,8 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
   /**
    * Handle a request to load the data for the grid from the service.
+   * 
+   * @todo paging.
    */
   onDataRequest(req: GridRequest, response: (data: any) => void) {
     this.datagridService.getData(req)
@@ -264,13 +275,12 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-
     // Wrap the element in a jQuery selector.
     this.jQueryControl = $(this.elementRef.nativeElement);
 
     // Grid options ...
     let gridOptions: GridOptions = {
-      //idProperty: this.idProperty,
+      idProperty: this.idProperty,
       cellNavigation: this.cellNavigation,
       alternateRowShading: this.alternateRowShading,
       columns: this.gridColumns,
@@ -290,8 +300,10 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
       actionableMode: this.actionableMode,
       saveColumns: this.saveColumns,
       source: this.source
-    }
+    };
 
+    // If a source property has not been defined, and a service has
+    // use the data service to load the data dynamically for paging. 
     if (!this.source && this.datagridService) {
       gridOptions.source = (args: any, response: any) => this.onDataRequest(args, response);
     }
@@ -304,14 +316,18 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     // defined by the plug-in, but in this case is 'datagrid'.
     this.datagrid = this.jQueryControl.data('datagrid');
 
-    if (this.dataGridType == DATAGRID_TYPES.AUTO && this.datagridService) {
-      // Bootstrap from service
+    // If "auto" and there's a service, get the columns from it.
+    // (may want to check if columns have already been set? Error?)
+    if (this.dataGridType === DATAGRID_TYPES.AUTO && this.datagridService) {
+      // Bootstrap from service, note this is not async.
       this.columns = this.datagridService.getColumns();
+      // Once the columns are set, request the data (paging?)
       this.datagridService.getData(null)
         .subscribe((data: any[]) => {
           this.datagrid.loadData(data);
         });
     } else if (this.gridData) {
+      // Not using a service, so use the pre-loaded data.
       this.datagrid.loadData(this.gridData);
     }
 
@@ -321,7 +337,7 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     }).on('cellchange', (e: any, args: DataGridCellChangeEvent) => {
       this.cellchange.next(args);
     }).on('exiteditmode', (e: any, args: any) => {
-      // ...
+      // ... more ...
     });
   }
 

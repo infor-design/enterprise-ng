@@ -87,6 +87,8 @@ export interface GridColumn {
 }
 
 export class GridOptions {
+  // Which column property is the rows identifier?
+  idProperty: string;
   // F2 - toggles actionableMode "true" and "false"
   // If actionableMode is "true”; tab and shift tab behave like left and right arrow key,
   // if the cell is editable it goes in and out of edit mode

@@ -2,8 +2,6 @@ import {
     Component,
     AfterContentInit,
     ElementRef,
-    Output,
-    EventEmitter,
     ViewChild,
     AfterViewInit,
     ChangeDetectionStrategy
@@ -14,7 +12,6 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import {
     SoHoDataGridComponent,
-    DataGridService,
     GridColumn
 } from '../../components/datagrid';
 
@@ -33,28 +30,38 @@ import {
 export class DataGridDynamicDemoComponent implements AfterContentInit, AfterViewInit {
     @ViewChild(SoHoDataGridComponent) dataGrid: SoHoDataGridComponent;
 
+    private _subject$ = <BehaviorSubject<any[]>>new BehaviorSubject([]);
+
+    public data = this._subject$.asObservable();
+
     constructor(private el: ElementRef,
         private service: DataGridDemoService) {
-
-        
     }
 
     public get columns(): Observable<GridColumn[]> {
         return Observable.of(this.service.getColumns());
     }
 
-    private _subject$ = <BehaviorSubject<any[]>>new BehaviorSubject([]);
-
-    public data = this._subject$.asObservable(); 
-
     addRows() {
-    
         this.service.getData(null).subscribe((d: any[]) => {
-            d.forEach((r) => r.orderDate = new Date());
-            console.log("Here I am");
-            this._subject$.next(d);
+            let newData = new Array<any>(...d);
+            newData.forEach((r) => r.orderDate = new Date());
+            this._subject$.next(newData);
+
             setTimeout(() => this.addRows(), 2000);
         });
+    }
+
+    addRow() {
+        this.service.getData(null).subscribe((d: any[]) => {
+            let newData = new Array<any>(d[0]);
+            newData.forEach((r) => r.orderDate = new Date());
+            this.dataGrid.addRow(newData[0], 'top');
+        });
+    }
+
+    busy() {
+        // @todo!
     }
 
     ngAfterContentInit() {
