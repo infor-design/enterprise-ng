@@ -1,7 +1,7 @@
 // Copyright (c) 2016 Infor. All rights reserved. www.infor.com
-// 
-// NOTICE 
-// 
+//
+// NOTICE
+//
 // THIS SOFTWARE IS THE PROPERTY OF AND CONTAINS
 // CONFIDENTIAL INFORMATION OF INFOR AND/OR ITS AFFILIATES
 // OR SUBSIDIARIES AND SHALL NOT BE DISCLOSED WITHOUT PRIOR
@@ -15,7 +15,7 @@
 // TRADEMARKS AND/OR REGISTERED TRADEMARKS OF INFOR
 // AND/OR ITS AFFILIATES AND SUBSIDIARIES. ALL RIGHTS
 // RESERVED.  ALL OTHER TRADEMARKS LISTED HEREIN ARE
-// THE PROPERTY OF THEIR RESPECTIVE OWNERS. 
+// THE PROPERTY OF THEIR RESPECTIVE OWNERS.
 
 //
 // Author: Theo Harper (theo.harper@infor.com)
@@ -52,27 +52,35 @@ import {
   DataGridSelectedEvent
 } from './datagrid.model';
 
+/**
+ *
+ */
 export const DATAGRID_TYPES = {
   // Determines the type to use based on the presence of a service.
   AUTO: 'auto',
 
   // Use the components content.
   CONTENT_ONLY: 'content-only'
-}
+};
+
+/**
+ * Row height.
+ */
+export type RowHeightType = 'normal' | 'medium' | 'small';
 
 /**
  * Angular Wrapper for the SoHo Data Grid Component.
- * 
- * This component searches for a div (or table) with the attribute 
- * 'soho-datagrid' in the parent's DOM tree, initialising it with 
- * the SoHo datagrid control. 
- * 
+ *
+ * This component searches for a div (or table) with the attribute
+ * 'soho-datagrid' in the parent's DOM tree, initialising it with
+ * the SoHo datagrid control.
+ *
  * The data is provided either by a component input or an implementation
- * of the DataGridService interface, by specifying an implementation 
+ * of the DataGridService interface, by specifying an implementation
  * on the hosting component, i.e.
- * 
+ *
  * providers: [ provide: DataGridService, useClass: DataGridDemoService} ]
- * 
+ *
  * TODO: using embedded table (content-only)
  * addRow()
  * removeRow()
@@ -105,7 +113,7 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() editable: boolean = false;
   @Input() isList: boolean = false;
   @Input() menuId: any = null;
-  @Input() rowHeight: 'normal' | 'medium' | 'small' = 'normal';
+  @Input() rowHeight: RowHeightType = 'normal';
   @Input() selectable: boolean = false;
   @Input() clickToSelect: boolean = true;
   @Input() toolbar: boolean | ToolbarOptions;
@@ -119,11 +127,11 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
   /**
    * The array of data to display in the grid.
-   * 
+   *
    * As this method can be called before the control is
    * initialised, stash the data for later, and only
    * call loadData on the control api if ready.
-   */ 
+   */
   @Input() set data(data: any[]) {
     this.gridData = data;
     if (data && this.jQueryControl) {
@@ -133,11 +141,11 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
   /**
    * The array of columns to display in the grid.
-   * 
+   *
    * As this method can be called before the control is
    * initialised, stash the data for later, and only
    * call loadData on the control api if ready.
-   */ 
+   */
   @Input() set columns(columns: GridColumn[]) {
     this.gridColumns = columns || [];
     if (columns && this.jQueryControl) {
@@ -147,9 +155,9 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
   /**
    * Defines the source type of the grid, either:
-   * 
+   *
    * - "content-only" where table elements are provided in the body.
-   * - "auto" where columns and rows are obtained for an 
+   * - "auto" where columns and rows are obtained for an
    *   injected service (if defined) or via the Inputs if not.
    */
   @Input('soho-datagrid') set sohoDatagrid(datagridType: string) {
@@ -192,7 +200,7 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   // Reference to the SoHo datagrid control api.
   private datagrid: any;
 
-  // Reference to the grid's columns.    
+  // Reference to the grid's columns.
   private gridColumns: GridColumn[];
 
   // Reference to the grid's data.
@@ -203,7 +211,7 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
   /**
    * Constructor.
-   * 
+   *
    * @param elementRef - the element matching the component's selector.
    * @param log - generic logger interface.
    * @param datagridService - service for obtaining data (optional)
@@ -257,7 +265,7 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
   /**
    * Handle a request to load the data for the grid from the service.
-   * 
+   *
    * @todo paging.
    */
   onDataRequest(req: GridRequest, response: (data: any) => void) {
@@ -303,7 +311,7 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     };
 
     // If a source property has not been defined, and a service has
-    // use the data service to load the data dynamically for paging. 
+    // use the data service to load the data dynamically for paging.
     if (!this.source && this.datagridService) {
       gridOptions.source = (args: any, response: any) => this.onDataRequest(args, response);
     }
@@ -311,7 +319,7 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     // Initialise the SoHoXi control.
     this.jQueryControl.datagrid(gridOptions);
 
-    // Once the control is initialised, extract the control 
+    // Once the control is initialised, extract the control
     // plug-in from the element.  The element name is
     // defined by the plug-in, but in this case is 'datagrid'.
     this.datagrid = this.jQueryControl.data('datagrid');
