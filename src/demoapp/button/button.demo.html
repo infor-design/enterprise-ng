@@ -1,0 +1,54 @@
+<div class="example-section">
+  <div class="row">
+    <span class="code-tag">Live Example</span>
+    <div class="row">
+      <div class="three columns">
+        <span class="label">Primary</span>
+        <button soho-button>Action</button>
+        <br>
+        <br>
+        <br>
+        <button soho-button disabled>Action</button>
+        <br>
+        <br>
+        <br>
+        <button soho-button icon="alert">Primary Button</button>
+        <br>
+        <br>
+        <br>
+        <button soho-button [ripple]="false">No Ripple</button>
+      </div>
+
+      <div class="three columns">
+        <span class="label">Secondary</span>
+        <button [soho-button]="types.SECONDARY">Action</button>
+        <br>
+        <br>
+        <br>
+        <button [soho-button]="types.SECONDARY" disabled>Action</button>
+        <br>
+        <br>
+        <br>
+        <button [soho-button]="types.SECONDARY" icon="settings">Secondary Button</button>
+      </div>
+
+      <div class="three columns">
+        <span class="label">Tertiary</span>
+        <button [soho-button]="types.TERTIARY" icon="filter">Action</button>
+        <br>
+        <br>
+        <br>
+        <button [soho-button]="types.TERTIARY" disabled icon="filter">Action</button>
+      </div>
+
+      <div class="three columns">
+        <span class="label">Icon</span>
+        <button [soho-button]="types.ICON" icon="calendar" title="Date">Date</button>
+        <br>
+        <br>
+        <br>
+        <button [soho-button]="types.ICON" icon="calendar" disabled>Date</button>
+      </div>
+    </div>
+  </div>
+</div>

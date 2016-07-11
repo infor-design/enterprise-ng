@@ -1,5 +1,5 @@
-import { Component, HostBinding } from "@angular/core";
-import { ROUTER_DIRECTIVES } from "@angular/router";
+import { Component, HostBinding } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import { ApplicationMenuComponent } from '../../components';
 
 @Component({
@@ -8,7 +8,7 @@ import { ApplicationMenuComponent } from '../../components';
   templateUrl: 'application-menu.demo.html',
   directives: [ROUTER_DIRECTIVES, ApplicationMenuComponent]
 })
-export class ApplicationMenuDemo {
+export class ApplicationMenuDemoComponent {
   @HostBinding('class') get classes() {
     return 'application-menu is-open no-transition';
   }

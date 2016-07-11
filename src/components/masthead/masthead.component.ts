@@ -10,10 +10,10 @@ import { Component, HostBinding, Input } from '@angular/core';
     }
   `]
 })
-export class MastheadComponent{
+export class MastheadComponent {
   @HostBinding('class') get classes() {
     return 'masthead';
   }
 
-  @Input() ariaLabel:string = "Go To Home UI Test Suite";
+  @Input() ariaLabel: string = 'Go To Home UI Test Suite';
 }
