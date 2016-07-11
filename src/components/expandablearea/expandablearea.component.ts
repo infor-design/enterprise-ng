@@ -13,8 +13,6 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
-declare var jQuery: any;
-
 /**
  * Helper Component for the ExpandableAreaComponent
  */
