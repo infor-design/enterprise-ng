@@ -14,6 +14,7 @@ const components = [
   'header',
   'icon',
   'masthead',
+  'datagrid',
   'tree'
 ];
 

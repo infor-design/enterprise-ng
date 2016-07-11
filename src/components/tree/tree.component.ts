@@ -1,26 +1,3 @@
-// Copyright (c) 2016 Infor. All rights reserved. www.infor.com
-// 
-// NOTICE 
-// 
-// THIS SOFTWARE IS THE PROPERTY OF AND CONTAINS
-// CONFIDENTIAL INFORMATION OF INFOR AND/OR ITS AFFILIATES
-// OR SUBSIDIARIES AND SHALL NOT BE DISCLOSED WITHOUT PRIOR
-// WRITTEN PERMISSION. LICENSED CUSTOMERS MAY COPY AND
-// ADAPT THIS SOFTWARE FOR THEIR OWN USE IN ACCORDANCE WITH
-// THE TERMS OF THEIR SOFTWARE LICENSE AGREEMENT.
-// ALL OTHER RIGHTS RESERVED.
-//
-// (c) COPYRIGHT 2016 INFOR.  ALL RIGHTS RESERVED.
-// THE WORD AND DESIGN MARKS SET FORTH HEREIN ARE
-// TRADEMARKS AND/OR REGISTERED TRADEMARKS OF INFOR
-// AND/OR ITS AFFILIATES AND SUBSIDIARIES. ALL RIGHTS
-// RESERVED.  ALL OTHER TRADEMARKS LISTED HEREIN ARE
-// THE PROPERTY OF THEIR RESPECTIVE OWNERS. 
-
-//
-// Author: Theo Harper (theo.harper@infor.com)
-//
-
 import {
     AfterViewInit,
     ChangeDetectionStrategy,
@@ -59,19 +36,19 @@ export const TREE_TYPES = {
 
 /**
  * Angular Wrapper for the SoHo Tree Component.
- * 
- * This component searches for an unordered list (ul) with the attribute 
- * 'soho-tree' in the parent's DOM tree, initialising those found with 
- * the SoHo tree control. 
- * 
- * The data is provided either by the content (li elements), a dataset 
+ *
+ * This component searches for an unordered list (ul) with the attribute
+ * 'soho-tree' in the parent's DOM tree, initialising those found with
+ * the SoHo tree control.
+ *
+ * The data is provided either by the content (li elements), a dataset
  * input or an implementation of the TreeService interface, by specifying
  * an implementation on the hosting component, e.g.
- *  
+ *
  * providers: [ provide: TreeService, useClass: TreeDemoService} ]
- * 
+ *
  * @todo
- * 
+ *
  * 1) Content based version does not work due to lack of TreeNode.
  * 2) Complete interface definition
  */
@@ -89,7 +66,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     // The array of root tree nodes to display.
     @Input() set dataset(dataset: TreeNode[]) {
-        // @todo this is not fully working as the tree control does not 
+        // @todo this is not fully working as the tree control does not
         // replace the contents but looks to merge it.
         this._dataset = dataset;
         if (this.tree) {
@@ -110,11 +87,11 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     // Component Output
     // -------------------------------------------
 
-    // This event is fired when a node is expanded, the TreeNode 
+    // This event is fired when a node is expanded, the TreeNode
     // expanded is passed as an argument to the handler.
     @Output() expand = new EventEmitter<TreeNode>();
 
-    // This event is fired when a node is collapsed, the TreeNode 
+    // This event is fired when a node is collapsed, the TreeNode
     // collapsed is passed as an argument to the handler.
     @Output() collapse = new EventEmitter<TreeNode>();
 
@@ -153,7 +130,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     /**
      * Constructor.
-     * 
+     *
      * @param elementRef - the element matching this directive.
      * @param treeService - service for obtaining data (optional)
      */
@@ -198,7 +175,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     /**
      * Updates the note with the information in the given TreeNode.
-     * 
+     *
      * @parm node the tree node; must not be null.
      */
     public updateNode(node: TreeNode): void {
@@ -209,7 +186,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     /**
      * Expands all the loaded tree nodes.
-     * 
+     *
      * Note: this does not load additional nodes.
      */
     public expandAll() {
@@ -264,7 +241,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     }
 
     /**
-     * Find the tree node for the given identifier (id). 
+     * Find the tree node for the given identifier (id).
      */
     public findById(id: string): TreeNode {
         ArgumentHelper.checkNotEmpty('id', id);
@@ -288,7 +265,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     /**
      * Handle a request to load the children of the specified node.
-     * 
+     *
      * event - the tree event used to determine which node to load
      * response - function used to return the children
      */
@@ -322,7 +299,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
         // Initialise the SoHo control.
         this.jQueryControl.tree(options);
 
-        // Once the control is initialised, extract the control 
+        // Once the control is initialised, extract the control
         // plug-in from the element.  The element name is
         // defined by the plug-in, but in this case it is 'tree'.
         this.tree = this.jQueryControl.data('tree');
