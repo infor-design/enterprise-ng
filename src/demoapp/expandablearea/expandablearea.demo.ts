@@ -7,9 +7,7 @@ import { EXPANDABLEAREA_COMPONENTS } from '../';
   templateUrl: 'expandablearea.demo.html',
   directives: [ EXPANDABLEAREA_COMPONENTS ],
 })
-export class ExpandableAreaDemo implements OnInit {
+export class ExpandableAreaDemoComponent implements OnInit {
   constructor() { }
-
   ngOnInit() { }
-
 }
