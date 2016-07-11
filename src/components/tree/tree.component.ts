@@ -26,30 +26,28 @@ import {
     ChangeDetectionStrategy,
     Component,
     ElementRef,
-    ViewChild,
     Output,
     EventEmitter,
     HostBinding,
     Input,
-    Inject,
     Optional,
     OnInit,
     OnDestroy
 } from '@angular/core';
 
-import { 
-    ArgumentHelper 
+import {
+    ArgumentHelper
 } from '../../utils';
 
 import {
     TreeService
 } from './tree.service';
 
-import { 
-    TreeNode, 
+import {
+    TreeNode,
     TreeOptions,
     TreeEvent
-} from './'
+} from './';
 
 export const TREE_TYPES = {
     // Determines the type to use based on the presence of a service.
@@ -57,7 +55,7 @@ export const TREE_TYPES = {
 
     // Use the components content.
     CONTENT_ONLY: 'content-only'
-}
+};
 
 /**
  * Angular Wrapper for the SoHo Tree Component.
@@ -92,7 +90,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     // The array of root tree nodes to display.
     @Input() set dataset(dataset: TreeNode[]) {
         // @todo this is not fully working as the tree control does not 
-        // replace the contents but adds to it.
+        // replace the contents but merges it.
         this._dataset = dataset;
         if (this.tree) {
             this.tree.loadData(dataset);
@@ -133,7 +131,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     @HostBinding('class') treeClass = 'tree';
 
     // Set the role.
-    @HostBinding('attr.role') treeRole = 'tree'; 
+    @HostBinding('attr.role') treeRole = 'tree';
 
     // -------------------------------------------
     // Private Member Data
@@ -199,6 +197,11 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
         this.tree.updateNode(node);
     }
 
+    /**
+     * Updates the note with the information in the given TreeNode.
+     * 
+     * @parm node the tree node; must not be null.
+     */
     public updateNode(node: TreeNode): void {
         ArgumentHelper.checkNotNull('node', node);
 
@@ -247,13 +250,14 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     }
 
     public getSelectedNode(): TreeNode {
+        // @todo not working - no api.
         let node = this.jQueryControl.find('.is-selected');
         return node.jsonData();
     }
 
     /**
      * Adds a node to the tree.
-     */ 
+     */
     public addNode(treeNode: TreeNode, location: any = 'bottom') {
         ArgumentHelper.checkNotNull('treeNode', treeNode);
 
@@ -309,9 +313,10 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
         // Wrap the "unordered list" element in a jQuery selector.
         this.jQueryControl = jQuery(this.elementRef.nativeElement);
 
+        // The source is used to lazily load the tree.
         let options: TreeOptions = {
             dataset: this._dataset,
-            source: (this.treeService && this.treeType != TREE_TYPES.CONTENT_ONLY) 
+            source: (this.treeService && this.treeType !== TREE_TYPES.CONTENT_ONLY)
             ? (args: TreeEvent, response: any) => this.onDataRequest(args, response) : null
         };
 
@@ -324,7 +329,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
         this.tree = this.jQueryControl.data('tree');
 
         // Preload from the service if specified (unless data already provided).
-        if (this.treeType != TREE_TYPES.CONTENT_ONLY && !this.dataset && this.treeService) {
+        if (this.treeType !== TREE_TYPES.CONTENT_ONLY && !this.dataset && this.treeService) {
             // ... bootstrap ...
             this.treeService.getRootTreeNodes()
                 .subscribe((dataset: TreeNode[]) => this.dataset = dataset);
