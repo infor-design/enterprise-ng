@@ -28,7 +28,7 @@
 
         <!-- buttons -->
         <template ngFor let-button [ngForOf]="buttons">
-            <button id="{{button?.id}}" class="{{button?.class}}" attr.data-button="{{button?.data}}" type="button">
+            <button id="{{button?.id}}" class="{{button?.cssClass}}" attr.data-button="{{button?.data}}" type="button">
                 <svg class="icon">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" attr.xlink:href="{{button?.icon}}"></use>
                 </svg>
