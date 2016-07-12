@@ -16,6 +16,14 @@ export const BUTTON_TYPES = {
   ICON: 'icon',
 };
 
+// List of valid buton types.
+const BUTTON_TYPE_LIST = [
+  BUTTON_TYPES.ICON,
+  BUTTON_TYPES.PRIMARY,
+  BUTTON_TYPES.SECONDARY,
+  BUTTON_TYPES.TERTIARY
+];
+
 @Component({
   moduleId: module.id,
   selector: 'button[soho-button]',
@@ -28,8 +36,10 @@ export class SoHoButtonComponent implements AfterViewInit, OnDestroy {
   private buttonType: any;
 
   @Input('soho-button') set sohoButton(type: string) {
-    if (type) {
+    if (BUTTON_TYPE_LIST.includes(type)) {
       this.buttonType = type;
+    } else if (type) {
+      throw Error(`'${type}' is not valid, it must be one of ${BUTTON_TYPE_LIST}.`);
     } else {
       this.buttonType = BUTTON_TYPES.PRIMARY;
     }
@@ -58,16 +68,11 @@ export class SoHoButtonComponent implements AfterViewInit, OnDestroy {
    */
   @Input() toggle: string;
 
-  @HostBinding('class') get buttonClass() {
-    const classes: string[] = [];
-    if (this.buttonType) {
-      classes.push(`btn-${this.buttonType}`);
-    }
-    if (!this.ripple) {
-      classes.push('no-ripple');
-    }
-    return classes.join(' ');
-  }
+  @HostBinding('class.btn-primary') get btnPrimary() { return this.buttonType === BUTTON_TYPES.PRIMARY; };
+  @HostBinding('class.btn-secondary') get btnSecondary(): boolean { return this.buttonType === BUTTON_TYPES.SECONDARY; };
+  @HostBinding('class.btn-tertiary') get btnTertiary(): boolean { return  this.buttonType === BUTTON_TYPES.TERTIARY; };
+  @HostBinding('class.btn-icon') get btnIcon(): boolean { return this.buttonType === BUTTON_TYPES.ICON; };
+  @HostBinding('class.no-ripple') get noRipple(): boolean { return !this.ripple; };
   @HostBinding('attr.type') type = this.isSubmit ? 'submit' : 'button';
   @HostListener('click') toggleState() {
     this.state = !this.state;

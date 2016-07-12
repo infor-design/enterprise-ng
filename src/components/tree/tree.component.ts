@@ -1,26 +1,3 @@
-// Copyright (c) 2016 Infor. All rights reserved. www.infor.com
-// 
-// NOTICE 
-// 
-// THIS SOFTWARE IS THE PROPERTY OF AND CONTAINS
-// CONFIDENTIAL INFORMATION OF INFOR AND/OR ITS AFFILIATES
-// OR SUBSIDIARIES AND SHALL NOT BE DISCLOSED WITHOUT PRIOR
-// WRITTEN PERMISSION. LICENSED CUSTOMERS MAY COPY AND
-// ADAPT THIS SOFTWARE FOR THEIR OWN USE IN ACCORDANCE WITH
-// THE TERMS OF THEIR SOFTWARE LICENSE AGREEMENT.
-// ALL OTHER RIGHTS RESERVED.
-//
-// (c) COPYRIGHT 2016 INFOR.  ALL RIGHTS RESERVED.
-// THE WORD AND DESIGN MARKS SET FORTH HEREIN ARE
-// TRADEMARKS AND/OR REGISTERED TRADEMARKS OF INFOR
-// AND/OR ITS AFFILIATES AND SUBSIDIARIES. ALL RIGHTS
-// RESERVED.  ALL OTHER TRADEMARKS LISTED HEREIN ARE
-// THE PROPERTY OF THEIR RESPECTIVE OWNERS. 
-
-//
-// Author: Theo Harper (theo.harper@infor.com)
-//
-
 import {
     AfterViewInit,
     ChangeDetectionStrategy,
@@ -46,38 +23,32 @@ import {
 import {
     TreeNode,
     TreeOptions,
-    TreeEvent
+    TreeEvent,
+    TREE_TYPES,
+    TREE_TYPE_LIST
 } from './';
-
-export const TREE_TYPES = {
-    // Determines the type to use based on the presence of a service.
-    AUTO: 'auto',
-
-    // Use the components content.
-    CONTENT_ONLY: 'content-only'
-};
 
 /**
  * Angular Wrapper for the SoHo Tree Component.
- * 
- * This component searches for an unordered list (ul) with the attribute 
- * 'soho-tree' in the parent's DOM tree, initialising those found with 
- * the SoHo tree control. 
- * 
- * The data is provided either by the content (li elements), a dataset 
+ *
+ * This component searches for an unordered list (ul) with the attribute
+ * 'soho-tree' in the parent's DOM tree, initialising those found with
+ * the SoHo tree control.
+ *
+ * The data is provided either by the content (li elements), a dataset
  * input or an implementation of the TreeService interface, by specifying
  * an implementation on the hosting component, e.g.
- *  
+ *
  * providers: [ provide: TreeService, useClass: TreeDemoService} ]
- * 
+ *
  * @todo
- * 
+ *
  * 1) Content based version does not work due to lack of TreeNode.
  * 2) Complete interface definition
  */
 @Component({
     moduleId: module.id,
-    selector: 'ul[soho-tree]',
+    selector: 'ul[soho-tree]', // @todo component or directive (like)
     template: '<ng-content></ng-content>',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -89,7 +60,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     // The array of root tree nodes to display.
     @Input() set dataset(dataset: TreeNode[]) {
-        // @todo this is not fully working as the tree control does not 
+        // @todo this is not fully working as the tree control does not
         // replace the contents but looks to merge it.
         this._dataset = dataset;
         if (this.tree) {
@@ -99,8 +70,10 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     // Controls the the type of the tree node.
     @Input('soho-tree') set sohoTree(treeType: string) {
-        if (treeType) {
+        if (TREE_TYPE_LIST.includes(treeType)) {
             this.treeType = treeType;
+        } else if (treeType) {
+            throw Error(`'${treeType}' is not valid, it must be one of ${TREE_TYPE_LIST}.`);
         } else {
             this.treeType = TREE_TYPES.AUTO;
         }
@@ -110,11 +83,11 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     // Component Output
     // -------------------------------------------
 
-    // This event is fired when a node is expanded, the TreeNode 
+    // This event is fired when a node is expanded, the TreeNode
     // expanded is passed as an argument to the handler.
     @Output() expand = new EventEmitter<TreeNode>();
 
-    // This event is fired when a node is collapsed, the TreeNode 
+    // This event is fired when a node is collapsed, the TreeNode
     // collapsed is passed as an argument to the handler.
     @Output() collapse = new EventEmitter<TreeNode>();
 
@@ -140,7 +113,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     // -------------------------------------------
 
     // Reference to the jQuery control.
-    private jQueryControl: any;
+    private jQueryElement: any;
 
     // Reference to the SoHo tree control api.
     private tree: any;
@@ -153,7 +126,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     /**
      * Constructor.
-     * 
+     *
      * @param elementRef - the element matching this directive.
      * @param treeService - service for obtaining data (optional)
      */
@@ -198,7 +171,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     /**
      * Updates the note with the information in the given TreeNode.
-     * 
+     *
      * @parm node the tree node; must not be null.
      */
     public updateNode(node: TreeNode): void {
@@ -209,7 +182,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     /**
      * Expands all the loaded tree nodes.
-     * 
+     *
      * Note: this does not load additional nodes.
      */
     public expandAll() {
@@ -250,7 +223,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     public getSelectedNode(): TreeNode {
         // @todo not working - no api.
-        let node = this.jQueryControl.find('.is-selected');
+        let node = this.jQueryElement.find('.is-selected');
         return node.jsonData();
     }
 
@@ -264,7 +237,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     }
 
     /**
-     * Find the tree node for the given identifier (id). 
+     * Find the tree node for the given identifier (id).
      */
     public findById(id: string): TreeNode {
         ArgumentHelper.checkNotEmpty('id', id);
@@ -288,7 +261,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     /**
      * Handle a request to load the children of the specified node.
-     * 
+     *
      * event - the tree event used to determine which node to load
      * response - function used to return the children
      */
@@ -310,7 +283,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     ngAfterViewInit() {
         // Wrap the "unordered list" element in a jQuery selector.
-        this.jQueryControl = jQuery(this.elementRef.nativeElement);
+        this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
         // The source is used to lazily load the tree.
         let options: TreeOptions = {
@@ -320,12 +293,12 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
         };
 
         // Initialise the SoHo control.
-        this.jQueryControl.tree(options);
+        this.jQueryElement.tree(options);
 
-        // Once the control is initialised, extract the control 
+        // Once the control is initialised, extract the control
         // plug-in from the element.  The element name is
         // defined by the plug-in, but in this case it is 'tree'.
-        this.tree = this.jQueryControl.data('tree');
+        this.tree = this.jQueryElement.data('tree');
 
         // Preload from the service if specified (unless data already provided).
         if (this.treeType !== TREE_TYPES.CONTENT_ONLY && !this.dataset && this.treeService) {
@@ -335,16 +308,16 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
         }
 
         // Initialize any event handlers.
-        this.jQueryControl
+        this.jQueryElement
             .on('selected', (e: any, args: TreeEvent) => this.selected.next(args.data))
             .on('expand', (e: any, args: TreeEvent) => this.expand.next(args.data))
             .on('collapse', (e: any, args: TreeEvent) => this.collapse.next(args.data));
     }
 
     ngOnDestroy() {
-        if (this.jQueryControl) {
-            this.jQueryControl.destroy();
-            this.jQueryControl = null;
+        if (this.jQueryElement) {
+            this.jQueryElement.destroy();
+            this.jQueryElement = null;
         }
     }
 }

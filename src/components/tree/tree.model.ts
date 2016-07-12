@@ -1,26 +1,22 @@
-// Copyright (c) 2016 Infor. All rights reserved. www.infor.com
-// 
-// NOTICE 
-// 
-// THIS SOFTWARE IS THE PROPERTY OF AND CONTAINS
-// CONFIDENTIAL INFORMATION OF INFOR AND/OR ITS AFFILIATES
-// OR SUBSIDIARIES AND SHALL NOT BE DISCLOSED WITHOUT PRIOR
-// WRITTEN PERMISSION. LICENSED CUSTOMERS MAY COPY AND
-// ADAPT THIS SOFTWARE FOR THEIR OWN USE IN ACCORDANCE WITH
-// THE TERMS OF THEIR SOFTWARE LICENSE AGREEMENT.
-// ALL OTHER RIGHTS RESERVED.
-//
-// (c) COPYRIGHT 2016 INFOR.  ALL RIGHTS RESERVED.
-// THE WORD AND DESIGN MARKS SET FORTH HEREIN ARE
-// TRADEMARKS AND/OR REGISTERED TRADEMARKS OF INFOR
-// AND/OR ITS AFFILIATES AND SUBSIDIARIES. ALL RIGHTS
-// RESERVED.  ALL OTHER TRADEMARKS LISTED HEREIN ARE
-// THE PROPERTY OF THEIR RESPECTIVE OWNERS. 
 
-//
-// Author: Theo Harper (theo.harper@infor.com)
-//
+/**
+ * Defines the data source of the tree.
+ */
+export const TREE_TYPES = {
+    // Determines the type to use based on the presence of a service.
+    AUTO: 'auto',
 
+    // Use the components content.
+    CONTENT_ONLY: 'content-only',
+};
+
+// Valid list of tree types.
+export const TREE_TYPE_LIST: string[] = [TREE_TYPES.AUTO, TREE_TYPES.CONTENT_ONLY];
+
+/**
+ * This is an interface mapping for the TreeNode defined
+ * within the SoHo jQuery Control.
+ */
 export interface TreeNode {
     // Unique identifier for this node in the tree.
     id?: string;
@@ -30,13 +26,16 @@ export interface TreeNode {
     icon?: string;
     // Is the node disabled
     disabled?: boolean;
-    // Is this the parent?
+    // Is this the parent? The element?
     node?: TreeNode;
     // Children.
     children?: TreeNode[];
+    // Is this node to be displayed open.
     open?: boolean;
+    // Is this node selected?
     selected?: boolean;
     href?: string;
+    // Data associated with the tree node.
     data?: any;
     focus?: boolean;
 }
@@ -46,7 +45,7 @@ export interface TreeNode {
  */
 export interface TreeOptions {
     // The initial data set to display, should contain
-    // at least one node. 
+    // at least one node.
     dataset: TreeNode[];
     // Function used to provide the source of the tree data.
     source: any;
