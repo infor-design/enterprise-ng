@@ -4,6 +4,7 @@ import {
   Component,
   ElementRef,
   HostBinding,
+  HostListener,
   Input,
   OnDestroy,
 } from '@angular/core';
@@ -22,6 +23,10 @@ export const BUTTON_TYPES = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SoHoButtonComponent implements AfterViewInit, OnDestroy {
+  private jQueryElement: any;
+  private button: any;
+  private buttonType: any;
+
   @Input('soho-button') set sohoButton(type: string) {
     if (type) {
       this.buttonType = type;
@@ -29,9 +34,29 @@ export class SoHoButtonComponent implements AfterViewInit, OnDestroy {
       this.buttonType = BUTTON_TYPES.PRIMARY;
     }
   }
+  /**
+   * The icon to be used
+   *  - shows when the state is true if toggle has a value
+   */
   @Input() icon: string;
-  @Input() ripple: boolean = true;
+  /**
+   * Sets the button type to 'submit' when true
+   */
   @Input() isSubmit: boolean = false;
+  /**
+   * Sets whether the button should have a ripple effect on click
+   */
+  @Input() ripple: boolean = true;
+  /**
+   * Binary state (toggle):
+   *  0 - shows toggle
+   *  1 - shows icon (default)
+   */
+  @Input() state: boolean = true;
+  /**
+   * The icon to be used when the state is false
+   */
+  @Input() toggle: string;
 
   @HostBinding('class') get buttonClass() {
     const classes: string[] = [];
@@ -44,10 +69,9 @@ export class SoHoButtonComponent implements AfterViewInit, OnDestroy {
     return classes.join(' ');
   }
   @HostBinding('attr.type') type = this.isSubmit ? 'submit' : 'button';
-
-  private jQueryElement: any;
-  private button: any;
-  private buttonType: any;
+  @HostListener('click') toggleState() {
+    this.state = !this.state;
+  }
 
   constructor(private element: ElementRef) {}
   ngAfterViewInit() {
@@ -58,5 +82,11 @@ export class SoHoButtonComponent implements AfterViewInit, OnDestroy {
   }
   ngOnDestroy() {
     this.button.destroy();
+  }
+  get currentIcon() {
+    if (!this.toggle) {
+      return this.icon;
+    }
+    return this.state ? this.icon : this.toggle;
   }
 }

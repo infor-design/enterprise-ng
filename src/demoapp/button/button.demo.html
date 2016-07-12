@@ -16,6 +16,10 @@
         <br>
         <br>
         <br>
+        <button soho-button icon="alert" toggle="error">Toggles Icon</button>
+        <br>
+        <br>
+        <br>
         <button soho-button [ripple]="false">No Ripple</button>
       </div>
 
@@ -30,6 +34,10 @@
         <br>
         <br>
         <button [soho-button]="types.SECONDARY" icon="settings">Secondary Button</button>
+        <br>
+        <br>
+        <br>
+        <button [soho-button]="types.SECONDARY" icon="user-profile" toggle="refresh" (click)="toggleHello()">{{shouldSayHi ? "Goodbye" : "Say Hello"}}</button>
       </div>
 
       <div class="three columns">
@@ -47,8 +55,15 @@
         <br>
         <br>
         <br>
+        <button [soho-button]="types.ICON" icon="calendar" toggle="error" title="Toggle Date">Toggle Date</button>
+        <br>
+        <br>
+        <br>
         <button [soho-button]="types.ICON" icon="calendar" disabled>Date</button>
       </div>
+    </div>
+    <div *ngIf="shouldSayHi" class="row">
+      <h2>Hello there!</h2>
     </div>
   </div>
 </div>

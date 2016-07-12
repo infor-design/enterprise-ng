@@ -29,6 +29,11 @@ import { SoHoButtonComponent, BUTTON_TYPES } from '../';
 })
 export class ButtonDemoComponent implements OnInit {
   private types = BUTTON_TYPES; // tslint:disable-line
-  constructor() { }
-  ngOnInit() { }
+  private shouldSayHi = false;
+
+  constructor() {}
+  ngOnInit() {}
+  toggleHello() {
+    this.shouldSayHi = !this.shouldSayHi;
+  }
 }
