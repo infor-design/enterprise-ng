@@ -45,8 +45,7 @@ import {
  *
  * providers: [ provide: DataGridService, useClass: DataGridDemoService} ]
  *
- * TODO: using embedded table (content-only)
- * addRow()
+ * TODO:
  * removeRow()
  * removeSelected()
  * paging
@@ -89,6 +88,8 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
   /**
    * The array of data to display in the grid.
+   *
+   * @param an array of objects matching the column definition.
    *
    * As this method can be called before the control is
    * initialised, stash the data for later, and only
