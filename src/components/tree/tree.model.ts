@@ -8,16 +8,16 @@ export const TREE_TYPES = {
 
     // Use the components content.
     CONTENT_ONLY: 'content-only',
-}
+};
 
 // Valid list of tree types.
 export const TREE_TYPE_LIST: string[] = [TREE_TYPES.AUTO, TREE_TYPES.CONTENT_ONLY];
 
 /**
  * This is an interface mapping for the TreeNode defined
- * within the SoHo jQuery Control. 
+ * within the SoHo jQuery Control.
  */
-export interface TreeNode {   
+export interface TreeNode {
     // Unique identifier for this node in the tree.
     id?: string;
     // The text for the node.
@@ -26,7 +26,7 @@ export interface TreeNode {
     icon?: string;
     // Is the node disabled
     disabled?: boolean;
-    // Is this the parent? The element? 
+    // Is this the parent? The element?
     node?: TreeNode;
     // Children.
     children?: TreeNode[];
