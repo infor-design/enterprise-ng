@@ -15,7 +15,8 @@ const components = [
   'icon',
   'masthead',
   'datagrid',
-  'tree'
+  'tree',
+  'toolbar'
 ];
 
 const componentBarrels: string[] = [];
