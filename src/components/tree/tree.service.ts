@@ -1,16 +1,14 @@
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 import { TreeNode } from './tree.model';
 
 /**
- * Dynamic Tree Service contract.
+ * SoHo Dynamic Tree Service contract.
  *
  * Useful where lazily loading of the tree is required, can also make
  * controlling the tree easier.
  */
-@Injectable()
-export class TreeService {
+export abstract class TreeService {
     /**
      * Returns the root tree node, without any
      * children.
@@ -20,7 +18,7 @@ export class TreeService {
      * @todo allow this to be parameterised, such that the
      * caller can control initial depth, recursion, etc ...
      */
-    getRootTreeNodes(): Observable<TreeNode[]> { return null; }
+    abstract getRootTreeNodes(): Observable<TreeNode[]>;
 
     /**
      * Given an existing TreeNode, this method returns a list
@@ -28,5 +26,5 @@ export class TreeService {
      * tree to lazy load from any in-memory or external source.
      *
      */
-    getTreeNodes(node: TreeNode): Observable<TreeNode[]> { return null; }
+    abstract getTreeNodes(node: TreeNode): Observable<TreeNode[]>;
 }

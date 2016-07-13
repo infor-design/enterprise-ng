@@ -23,16 +23,10 @@ import {
 import {
     TreeNode,
     TreeOptions,
-    TreeEvent
+    TreeEvent,
+    TREE_TYPES,
+    TREE_TYPE_LIST
 } from './';
-
-export const TREE_TYPES = {
-    // Determines the type to use based on the presence of a service.
-    AUTO: 'auto',
-
-    // Use the components content.
-    CONTENT_ONLY: 'content-only'
-};
 
 /**
  * Angular Wrapper for the SoHo Tree Component.
@@ -54,7 +48,7 @@ export const TREE_TYPES = {
  */
 @Component({
     moduleId: module.id,
-    selector: 'ul[soho-tree]',
+    selector: 'ul[soho-tree]', // @todo component or directive (like)
     template: '<ng-content></ng-content>',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -76,8 +70,10 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     // Controls the the type of the tree node.
     @Input('soho-tree') set sohoTree(treeType: string) {
-        if (treeType) {
+        if (TREE_TYPE_LIST.includes(treeType)) {
             this.treeType = treeType;
+        } else if (treeType) {
+            throw Error(`'${treeType}' is not valid, it must be one of ${TREE_TYPE_LIST}.`);
         } else {
             this.treeType = TREE_TYPES.AUTO;
         }
@@ -117,7 +113,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     // -------------------------------------------
 
     // Reference to the jQuery control.
-    private jQueryControl: any;
+    private jQueryElement: any;
 
     // Reference to the SoHo tree control api.
     private tree: any;
@@ -227,7 +223,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     public getSelectedNode(): TreeNode {
         // @todo not working - no api.
-        let node = this.jQueryControl.find('.is-selected');
+        let node = this.jQueryElement.find('.is-selected');
         return node.jsonData();
     }
 
@@ -287,7 +283,7 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     ngAfterViewInit() {
         // Wrap the "unordered list" element in a jQuery selector.
-        this.jQueryControl = jQuery(this.elementRef.nativeElement);
+        this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
         // The source is used to lazily load the tree.
         let options: TreeOptions = {
@@ -297,12 +293,12 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
         };
 
         // Initialise the SoHo control.
-        this.jQueryControl.tree(options);
+        this.jQueryElement.tree(options);
 
         // Once the control is initialised, extract the control
         // plug-in from the element.  The element name is
         // defined by the plug-in, but in this case it is 'tree'.
-        this.tree = this.jQueryControl.data('tree');
+        this.tree = this.jQueryElement.data('tree');
 
         // Preload from the service if specified (unless data already provided).
         if (this.treeType !== TREE_TYPES.CONTENT_ONLY && !this.dataset && this.treeService) {
@@ -312,16 +308,16 @@ export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
         }
 
         // Initialize any event handlers.
-        this.jQueryControl
+        this.jQueryElement
             .on('selected', (e: any, args: TreeEvent) => this.selected.next(args.data))
             .on('expand', (e: any, args: TreeEvent) => this.expand.next(args.data))
             .on('collapse', (e: any, args: TreeEvent) => this.collapse.next(args.data));
     }
 
     ngOnDestroy() {
-        if (this.jQueryControl) {
-            this.jQueryControl.destroy();
-            this.jQueryControl = null;
+        if (this.jQueryElement) {
+            this.jQueryElement.destroy();
+            this.jQueryElement = null;
         }
     }
 }

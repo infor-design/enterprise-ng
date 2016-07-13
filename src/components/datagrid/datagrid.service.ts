@@ -1,4 +1,3 @@
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 import {
@@ -7,9 +6,8 @@ import {
 } from './datagrid.model';
 
 /**
- * Dynamic Grid contract.
+ * Dynamic SoHo Data Grid contract.
  */
-@Injectable()
 export abstract class DataGridService {
 
     /**

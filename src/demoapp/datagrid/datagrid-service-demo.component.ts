@@ -1,32 +1,31 @@
-import { 
+import {
   Component,
-  AfterContentInit, 
-  ElementRef, 
-  Output, 
-  EventEmitter, 
-  ViewChild, 
-  AfterViewInit, 
-  ChangeDetectionStrategy 
+  AfterContentInit,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
+import {
+    SoHoButtonComponent
+} from '../';
 
-import { 
-    SoHoDataGridComponent, 
-    DataGridService,
-    GridColumn
+import {
+    SoHoDataGridComponent,
+    DataGridService
 } from '../../components/datagrid';
 
-import { 
-    DataGridDemoService 
+import {
+    DataGridDemoService
 } from './datagrid-demo.service';
 
 @Component({
     moduleId: module.id,
     selector: 'sample-datagrid',
     templateUrl: 'datagrid-service-demo.component.html',
-    providers: [ {provide: DataGridService, useClass: DataGridDemoService}],
-    directives: [ SoHoDataGridComponent ],
+    providers: [ { provide: DataGridService, useClass: DataGridDemoService } ],
+    directives: [ SoHoDataGridComponent, SoHoButtonComponent ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridServiceDemoComponent implements AfterContentInit, AfterViewInit {
@@ -34,10 +33,10 @@ export class DataGridServiceDemoComponent implements AfterContentInit, AfterView
 
     constructor(private el: ElementRef) {
     }
-    
+
     ngAfterContentInit() {
     }
 
-    ngAfterViewInit() {       
+    ngAfterViewInit() {
     }
 }
