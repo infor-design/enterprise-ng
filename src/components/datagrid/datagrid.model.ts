@@ -9,7 +9,6 @@ export const DATAGRID_TYPES = {
   CONTENT_ONLY: 'content-only'
 };
 
-
 // Valid list of data grid types.
 export const DATAGRID_TYPE_LIST = [DATAGRID_TYPES.AUTO, DATAGRID_TYPES.CONTENT_ONLY];
 
@@ -113,7 +112,7 @@ export class GridOptions {
   // (short, medium or normal)
   rowHeight: RowHeightType = 'small';
   // false; 'single' or 'multiple'
-  selectable: boolean = true;
+  selectable: boolean | 'single' | 'multiple' = false;
   clickToSelect = true;
   toolbar: boolean | ToolbarOptions =  new ToolbarOptions();
   // Paging Options
@@ -127,7 +126,6 @@ export class GridOptions {
   // callback for paging
   source: any = null;
 }
-
 
 export class ToolbarOptions {
     title: string = 'SoHo Data Grid';
