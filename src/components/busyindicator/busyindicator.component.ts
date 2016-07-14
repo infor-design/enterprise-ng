@@ -65,7 +65,7 @@ export class SoHoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   // Makes the element that Busy Indicator is invoked on unusable while it's displayed.
-  @Input() blockUI(blockUI: boolean) {
+  @Input() set blockUI(blockUI: boolean) {
     this.options.blockUI = blockUI;
     if (this.busyindicator) {
       this.busyindicator.settings.blockUI = blockUI;
