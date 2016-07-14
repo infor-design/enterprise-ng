@@ -1,4 +1,11 @@
-import { Component, AfterViewInit, HostBinding, ElementRef } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  HostBinding,
+  ElementRef,
+  Output,
+  EventEmitter
+} from '@angular/core';
 
 declare var $: any;
 

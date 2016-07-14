@@ -1,4 +1,12 @@
-import { Component, HostBinding } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  Output,
+  EventEmitter,
+  ElementRef,
+  Input
+} from '@angular/core';
+
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({

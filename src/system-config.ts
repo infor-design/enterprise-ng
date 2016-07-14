@@ -9,6 +9,7 @@ System.defaultJSExtensions = true; //tslint:disable-line
 
 const components = [
   'application-menu',
+  'busyindicator',
   'button',
   'expandablearea',
   'header',
@@ -16,7 +17,7 @@ const components = [
   'masthead',
   'datagrid',
   'tree',
-  'toolbar'
+  'toolbar',
 ];
 
 const componentBarrels: string[] = [];
@@ -51,6 +52,7 @@ const barrels: string[] = [
   '@angular/common',
   '@angular/compiler',
   '@angular/http',
+  '@angular/forms',
   '@angular/router',
   '@angular/platform-browser',
   '@angular/platform-browser-dynamic',
