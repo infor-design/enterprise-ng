@@ -1,10 +1,6 @@
 import {
   Component,
-  HostBinding,
-  Output,
-  EventEmitter,
-  ElementRef,
-  Input
+  HostBinding
 } from '@angular/core';
 
 import { ROUTER_DIRECTIVES } from '@angular/router';
@@ -19,4 +15,4 @@ export class ApplicationMenuComponent {
   @HostBinding('class') get classes() {
     return 'application-menu';
   }
-}
+ }
