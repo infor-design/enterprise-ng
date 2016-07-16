@@ -1,0 +1,15 @@
+<div style="padding: 20px 20px 0px 20px;">
+  <soho-tabs (activated)="onTabActivated($event)">
+
+    <ul class="tab-list">
+      <li *ngFor="let tab of tabs">
+        <a href="#{{tab.id}}">{{tab.title}}</a>
+      </li>
+    </ul>
+
+    <soho-tab-content class="tab-content">
+      <div *ngFor="let tab of tabs" id="{{tab.id}}">{{tab.content}}</div>
+    </soho-tab-content>
+
+  </soho-tabs>
+</div>
