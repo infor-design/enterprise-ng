@@ -2,10 +2,17 @@
 <soho-icons></soho-icons>
 <soho-icons-ext></soho-icons-ext>
 <soho-masthead-demo></soho-masthead-demo>
-<soho-application-menu-demo></soho-application-menu-demo>
+<nav soho-application-menu class="application-menu is-open" [openOnLarge]="true" [breakpoint]="tablet" [triggers]="applicationMenuTrigger">
+  <soho-application-menu-demo></soho-application-menu-demo>
+</nav>
 <div class="page-container">
   <soho-header-demo></soho-header-demo>
   <div id="maincontent" class="page-container scrollable" role="main">
       <router-outlet></router-outlet>
   </div>
 </div>
+
+<div soho-personalize></div>
+<div soho-initialize></div>
+
+

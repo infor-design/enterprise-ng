@@ -1,7 +1,6 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { ApplicationMenuComponent } from '../../components';
-
 @Component({
   moduleId: module.id,
   selector: 'soho-application-menu-demo',
@@ -9,7 +8,4 @@ import { ApplicationMenuComponent } from '../../components';
   directives: [ROUTER_DIRECTIVES, ApplicationMenuComponent]
 })
 export class ApplicationMenuDemoComponent {
-  @HostBinding('class') get classes() {
-    return 'application-menu is-open no-transition';
-  }
 }

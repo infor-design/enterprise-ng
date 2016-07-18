@@ -1,7 +1,7 @@
 <div class="toolbar">
   <div class="title">
     <button class="btn-icon application-menu-trigger" type="button">
-      <span class="audible">Show navigation</span>
+       <span class="audible">Show navigation</span>
       <span class="icon app-header">
               <span class="one"></span>
               <span class="two"></span>
@@ -14,19 +14,17 @@
     </h1>
   </div>
 
-  <div class="buttonset">
-    <ng-content select="soho-header-buttonset"></ng-content>
-  </div>
+  <ng-content select="[soho-header-buttonset]"></ng-content>
 
   <div class="more">
-    <button class="btn-actions page-changer" type="button">
-      <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#icon-more"></use>
-      </svg>
-      <span class="audible" data-translate="text">More</span>
-    </button>
-    <ul class="popupmenu is-selectable">
-      <ng-content select="soho-header-menuitems"></ng-content>
-    </ul>
+    <button class="btn-actions page-changer hide-focus" type="button" aria-haspopup="true" aria-controls="popupmenu-2" tabindex="-1">
+
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use xlink:href="#icon-more"></use>
+        </svg>
+        <span class="audible" data-translate="text">More</span>
+      </button>
+    <ng-content select="[soho-header-menuitems]"></ng-content>
   </div>
+
 </div>
