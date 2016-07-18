@@ -1,12 +1,15 @@
 import { Component, HostBinding } from '@angular/core';
-// import { HeaderComponent } from '../../components';
-import { SoHoButtonComponent } from '../../components';
+
+import {
+  HeaderComponent,
+  SoHoButtonComponent
+} from '../../components';
+
 @Component({
   moduleId: module.id,
   selector: 'soho-header-demo',
   templateUrl: 'header.demo.html',
-  // directives: [HeaderComponent]
-  directives: [ SoHoButtonComponent ]
+  directives: [ HeaderComponent, SoHoButtonComponent ]
 })
 export class HeaderDemoComponent {
   @HostBinding('class') get classes() {
