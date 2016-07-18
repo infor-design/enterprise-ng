@@ -6,6 +6,7 @@ export * from './expandablearea';
 export * from './header';
 export * from './icon';
 export * from './masthead';
+export * from './menu-button';
 export * from './tabs';
 export * from './toolbar';
 export * from './tree';
