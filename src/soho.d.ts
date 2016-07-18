@@ -1,4 +1,3 @@
-
 interface SoHoToastOptions {
   title: string;
   message: string;

@@ -1,10 +1,33 @@
-import { Component, HostBinding, AfterViewInit } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
-import { SoHoIconComponent, SoHoIconExtendedComponent, ApplicationMenuComponent } from '../components';
+import {
+  Component,
+  HostBinding,
+  AfterViewInit
+} from '@angular/core';
 
-import { MastheadDemoComponent } from './masthead/masthead.demo';
-import { HeaderDemoComponent } from './header/header.demo';
-import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
+import {
+  ROUTER_DIRECTIVES
+} from '@angular/router';
+
+import {
+  SoHoIconComponent,
+  SoHoIconExtendedComponent,
+  ApplicationMenuComponent
+} from '../components';
+
+import {
+  SoHoInitializeDirective,
+  SoHoPersonalizeDirective
+} from '../directives';
+
+import {
+  MastheadDemoComponent
+} from './masthead/masthead.demo';
+import {
+  HeaderDemoComponent
+} from './header/header.demo';
+import {
+  ApplicationMenuDemoComponent
+} from './application-menu/application-menu.demo';
 
 @Component({
   moduleId: module.id,
@@ -18,6 +41,8 @@ import { ApplicationMenuDemoComponent } from './application-menu/application-men
     HeaderDemoComponent,
     ApplicationMenuDemoComponent,
     ApplicationMenuComponent,
+    SoHoInitializeDirective,
+    SoHoPersonalizeDirective,
     ROUTER_DIRECTIVES,
   ],
 })
