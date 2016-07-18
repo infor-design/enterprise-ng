@@ -8,8 +8,7 @@ import {
  * Angular Wrapper for the SoHo Personalise Directive.
  *
  * This component searches for a div element with the attribute
- * 'soho-personalize' in the parent's DOM tree, initialising
- * those found with the SoHo personalize call.
+ * 'soho-personalize'.
  */
 @Directive({
   selector: 'div[soho-personalize]',
@@ -23,7 +22,7 @@ export class SoHoPersonalizeDirective implements AfterViewInit {
    * get the SoHoXi controls to apply any renderings.
    */
   ngAfterViewInit() {
-    // @todo is this rightto performan this on the body?
+    // @todo on the body?
     jQuery('body').personalize();
   }
 }
