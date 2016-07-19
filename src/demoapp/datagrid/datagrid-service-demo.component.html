@@ -12,8 +12,8 @@
     </div>
 </div>
 <br>
-<div class="example-section" role="main">
+<div soho-busyindicator class="example-section" role="main" [timeToClose]="1000" style="height:100%">
     <div id="gridContainer">
-        <div soho-datagrid (selected)="onSelected($event)"></div>
+        <div soho-datagrid (selected)="onSelected($event)" [selectable]="'multiple'"></div>
     </div>
 </div>

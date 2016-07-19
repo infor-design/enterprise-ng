@@ -35,7 +35,12 @@ export class ApplicationMenuComponent {
   @Input() openOnLarge: boolean;
 
   // A list of jQuery element which trigger he openning and closing of the menu.
-  @Input() triggers: any[];
+  @Input() set triggers(triggers: any[]) {
+    this._triggers = triggers;
+
+  }
+
+
 
   // -------------------------------------------
   // Host Bindings
@@ -54,6 +59,9 @@ export class ApplicationMenuComponent {
 
   // Reference to the annotated SoHoXi control
   private applicationmenu: any;
+
+  // List of triggers.
+  private _triggers: any[];
 
   // This event is fired when the visibility of the application menu is changed,
   // is it also called when the item is changed programmatically.

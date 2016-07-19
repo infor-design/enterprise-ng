@@ -65,6 +65,7 @@ const barrels: string[] = [
   'components',
   'utils',
   'directives',
+  'services',
   ...componentBarrels
   /** @cli-barrel */
 ];

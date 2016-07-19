@@ -8,7 +8,8 @@ import {
 } from '@angular/core';
 
 import {
-    SoHoButtonComponent
+    SoHoButtonComponent,
+    SoHoBusyIndicatorComponent
 } from '../';
 
 import {
@@ -20,23 +21,35 @@ import {
     DataGridDemoService
 } from './datagrid-demo.service';
 
+import {
+  SoHoToastService
+} from '../../services/';
+
 @Component({
     moduleId: module.id,
     selector: 'sample-datagrid',
     templateUrl: 'datagrid-service-demo.component.html',
-    providers: [ { provide: DataGridService, useClass: DataGridDemoService } ],
-    directives: [ SoHoDataGridComponent, SoHoButtonComponent ],
+    providers: [ { provide: DataGridService, useClass: DataGridDemoService }, SoHoToastService ],
+    directives: [ SoHoDataGridComponent, SoHoButtonComponent, SoHoBusyIndicatorComponent ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridServiceDemoComponent implements AfterContentInit, AfterViewInit {
     @ViewChild(SoHoDataGridComponent) dataGrid: SoHoDataGridComponent;
-
-    constructor(private el: ElementRef) {
+    @ViewChild(SoHoBusyIndicatorComponent) busyIndicator: SoHoBusyIndicatorComponent;
+    constructor(private el: ElementRef, private toastService: SoHoToastService) {
     }
 
     ngAfterContentInit() {
     }
 
     ngAfterViewInit() {
+    }
+
+    onSelected(e: any) {
+      this.toastService.show2('Selected', e);
+    }
+
+    busy() {
+      this.busyIndicator.activated = true;
     }
 }
