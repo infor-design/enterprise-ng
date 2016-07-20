@@ -10,9 +10,10 @@ import { DataGridServiceDemoComponent } from './datagrid/datagrid-service-demo.c
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content-demo.component';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic-demo.component';
 import { ToolbarDemoComponent } from './toolbar/toolbar.demo';
-import { TabsDemoComponent } from './tabs/tabs.demo';
-import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
-import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
+import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
+import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
+import { TabsDismissibleDemoComponent } from './tabs/tabs-dismissible.demo';
+import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 
 export const routes: RouterConfig = [
   { path: '',                 component: ExpandableAreaDemoComponent }, // default
@@ -27,9 +28,10 @@ export const routes: RouterConfig = [
   { path: 'datagrid-dynamic', component: DataGridDynamicDemoComponent },
   { path: 'datagrid-service', component: DataGridServiceDemoComponent },
   { path: 'datagrid-content', component: DataGridContentDemoComponent },
-  { path: 'tabs',             component: TabsDemoComponent },
-  { path: 'tabs-datadriven',  component: TabsDataDrivenDemoComponent },
-  { path: 'tabs-dynamic',     component: TabsDynamicDemoComponent },
+  { path: 'tabs-basic',       component: TabsBasicDemoComponent },
+  { path: 'tabs-counts',      component: TabsCountsDemoComponent },
+  { path: 'tabs-dismissible', component: TabsDismissibleDemoComponent },
+  { path: 'tabs-dropdown',    component: TabsDropdownDemoComponent },
   // { path: 'accordian',       component: AccordionSampleComponent},
   // { path: 'dropdown',        component: DropdownSampleComponent}
 ];

@@ -17,8 +17,20 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabListItemComponent {
+  @Input() dismissible: boolean = false;
+  @Input() isSelected: boolean = false;
   @HostBinding('class') get classes() {
-    return 'tab';
+    let classList = 'tab';
+
+    if (this.dismissible) {
+      classList += ' dismissible';
+    }
+
+    if (this.isSelected) {
+      classList += ' is-selected';
+    }
+
+    return classList;
   }
 }
 

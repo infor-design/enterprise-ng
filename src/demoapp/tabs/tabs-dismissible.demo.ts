@@ -3,8 +3,8 @@ import { TABS_COMPONENTS } from '../';
 
 @Component({
   moduleId: module.id,
-  selector: 'tabs-demo',
-  templateUrl: './tabs.demo.html',
+  selector: 'tabs-dismissible-demo',
+  templateUrl: './tabs-dismissible.demo.html',
   directives: [ TABS_COMPONENTS ]
 })
-export class TabsDemoComponent { }
+export class TabsDismissibleDemoComponent { }
