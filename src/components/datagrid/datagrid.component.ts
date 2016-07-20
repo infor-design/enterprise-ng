@@ -75,7 +75,7 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() isList: boolean = false;
   @Input() menuId: any = null;
   @Input() rowHeight: RowHeightType = 'normal';
-  @Input() selectable: boolean = false;
+  @Input() selectable: boolean | 'single' | 'multiple' = false;
   @Input() clickToSelect: boolean = true;
   @Input() toolbar: boolean | ToolbarOptions;
   @Input() paging: boolean = false;
@@ -178,7 +178,6 @@ export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
    * Constructor.
    *
    * @param elementRef - the element matching the component's selector.
-   * @param log - generic logger interface.
    * @param datagridService - service for obtaining data (optional)
    */
   constructor(

@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="twelve columns">
+
+    <h2 class="fieldset-title">Busy Indicator</h2>
+
+    <div class="field1">
+      <button soho-button (click)="start($event)">Start</button>
+      <button soho-button (click)="stop($event)">Stop</button>
+      <button soho-button (click)="timer($event)">Timer</button>
+    </div>
+  </div>
+</div>
+<br><br><br>
+<div class="example-section" role="main">
+
+  <div class="one-half column">
+    <div soho-busyindicator [blockUI]='true' text="{{message}}" delay="{{delay}}">
+      <h2 class="fieldset-title ">Regular Example (UI Blocking)</h2>
+
+      <form id="busy-form " class="busy " action="# " method="POST " data-delay="300 " (ngSubmit)="onSubmit() ">
+        <div class="field ">
+          <label for="busy-field-message ">Message</label>
+          <input id="busy-field-message " name="busy-field-message " type="text " [(ngModel)]="message" />
+        </div>
+        <div class="field ">
+          <label for="busy-field-delay ">Delay</label>
+          <input id="busy-field-delay " name="busy-field-delay" type="number" [(ngModel)]="delay" pattern="[0-9]{5}"/>
+        </div>
+        <div class="field ">
+          <button soho-button='secondary' type="reset ">Clear</button>
+          <button soho-button [isSubmit]="true ">Submit</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div class="one-half column ">
+  </div>
+</div>

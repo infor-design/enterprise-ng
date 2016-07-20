@@ -1,0 +1,50 @@
+<soho-toolbar [maxVisibleButtons]="4">
+    <soho-toolbar-title>
+
+        <!-- in header -->
+        <button *ngIf="inHeader" class="btn-icon application-menu-trigger" type="button">
+            <span class="audible">Show navigation</span>
+            <span class="icon app-header">
+                <span class="one"></span>
+                <span class="two"></span>
+                <span class="three"></span>
+            </span>
+        </button>
+        <h1 *ngIf="inHeader" class='titleHeader'>
+            <span class='page-title'>{{pageTitle}}</span>
+            <span class='section-title'>{{sectionTitle}}</span>
+        </h1>
+
+        <!-- if not in the header -->
+        <span *ngIf="!inHeader" class='section-title'>{{sectionTitle}}</span>
+    </soho-toolbar-title>
+
+    <soho-toolbar-button-set>
+        <!-- search field -->
+        <label *ngIf="searchField" class="audible" attr.for="{{searchField.id}}">
+            {{searchField.label}}
+        </label>
+        <input *ngIf="searchField" class="searchfield" id="{{searchField.id}}" placeholder="{{searchField.label}}" name="{{searchField.label}}"/>
+
+        <!-- buttons -->
+        <template ngFor let-button [ngForOf]="buttons">
+            <button id="{{button?.id}}" class="{{button?.cssClass}}" attr.data-button="{{button?.data}}" type="button">
+                <svg class="icon">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" attr.xlink:href="{{button?.icon}}"></use>
+                </svg>
+                <span>{{button?.text}}</span>
+                <svg *ngIf="button.menu" class="icon icon-dropdown">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-dropdown"></use>
+                </svg>
+            </button>
+
+            <!-- dropdown menus for buttons -->
+            <ul *ngIf="button.menu" class="popupmenu">
+                <li *ngFor="let item of button.menu" id="{{item?.id}}">
+                    <a href="" attr.data="{{item?.data}}">{{item?.text}}</a>
+                </li>
+            </ul>
+        </template>
+    </soho-toolbar-button-set>
+
+</soho-toolbar>

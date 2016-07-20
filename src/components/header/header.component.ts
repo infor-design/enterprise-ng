@@ -1,11 +1,19 @@
-import { Component, AfterViewInit, HostBinding, ElementRef } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  HostBinding,
+  ElementRef
+} from '@angular/core';
 
-declare var $: any;
+import {
+  SoHoButtonComponent
+} from '../../components';
 
 @Component({
   moduleId: module.id,
   selector: 'soho-header',
   templateUrl: 'header.component.html',
+  directives: [ SoHoButtonComponent ]
 })
 export class HeaderComponent implements AfterViewInit {
   @HostBinding('class') get classes() {
@@ -18,14 +26,10 @@ export class HeaderComponent implements AfterViewInit {
     // ngAfterViewInit lifecycle event - called after Angular creates the component's view(s).
     // meaning the content is in the DOM and it's ok to run jQuery against it
 
-    let $toolbarElement: any = $('.toolbar');
+    let $toolbarElement: any = jQuery('.toolbar');
     $toolbarElement.toolbar();
 
     let $applicationMenuElement: any = $('.application-menu');
-    $applicationMenuElement.applicationmenu({triggers: [$('.application-menu-trigger')]});
-
-    // let $element:any = jQuery(this.elementRef.nativeElement);
-    // $('.toolbar', $element).toolbar();
-    // $('.application-menu', $element).applicationmenu({triggers: [$('.application-menu-trigger')]});
+    $applicationMenuElement.applicationmenu({triggers: [jQuery('.application-menu-trigger')]});
   }
 }

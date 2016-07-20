@@ -1,6 +1,6 @@
 import { Component, HostBinding, AfterViewInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-import { SoHoIconComponent, SoHoIconExtendedComponent } from '../components';
+import { SoHoIconComponent, SoHoIconExtendedComponent, ApplicationMenuComponent } from '../components';
 
 import { MastheadDemoComponent } from './masthead/masthead.demo';
 import { HeaderDemoComponent } from './header/header.demo';
@@ -17,6 +17,7 @@ import { ApplicationMenuDemoComponent } from './application-menu/application-men
     MastheadDemoComponent,
     HeaderDemoComponent,
     ApplicationMenuDemoComponent,
+    ApplicationMenuComponent,
     ROUTER_DIRECTIVES,
   ],
 })
@@ -28,10 +29,5 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    let toolbarElement: any = jQuery('.toolbar');
-    toolbarElement.toolbar();
-
-    let applicationMenuElement: any = jQuery('.application-menu');
-    applicationMenuElement.applicationmenu({triggers: [jQuery('.application-menu-trigger')]});
   }
 }

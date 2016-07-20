@@ -4,7 +4,6 @@
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "mapRoot": "/",
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmitOnError": true,
@@ -19,6 +18,7 @@
 
   "files": [
     "main.ts",
-    "typings.d.ts"
+    "typings.d.ts",
+    "soho.d.ts"
   ]
 }
