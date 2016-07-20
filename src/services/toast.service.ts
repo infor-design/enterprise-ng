@@ -2,7 +2,6 @@ import {
   Injectable
 } from '@angular/core';
 
-
 export const TOAST_POSITION = {
   TOP_LEFT: 'top right',
   TOP_RIGHT: 'top left',
@@ -23,5 +22,3 @@ export class SoHoToastService {
     jQuery('body').toast(options).show();
   }
 }
-
-

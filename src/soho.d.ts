@@ -8,7 +8,7 @@ interface SoHoToastOptions {
 }
 
 interface ToastStatic {
-  show: () => void
+  show: () => void;
 }
 
 interface SoHoApplicationMenuOptions {

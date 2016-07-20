@@ -41,4 +41,3 @@ export class DataGridContentDemoComponent implements AfterContentInit, AfterView
   onSelected(e: any) {
   }
 }
-

@@ -16,6 +16,10 @@ import {
 } from '../components';
 
 import {
+  ArgumentHelper
+} from '../utils';
+
+import {
   SoHoPersonalizeDirective
 } from '../directives';
 
@@ -55,6 +59,8 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
+    ArgumentHelper.checkInputNotNull('AppComponent', 'applicationMenu', this.applicationMenu);
+
     // @todo I do not like this code.
     this.applicationMenu.triggers = [ jQuery('.application-menu-trigger') ];
   }
