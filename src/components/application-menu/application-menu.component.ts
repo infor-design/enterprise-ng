@@ -107,7 +107,7 @@ export class ApplicationMenuComponent {
     let options: SoHoApplicationMenuOptions = {
       breakpoint: this.breakpoint,
       openOnLarge: this.openOnLarge,
-      triggers: this.triggers
+      triggers: this._triggers
     };
 
     // Initialise the SoHoXi control.
