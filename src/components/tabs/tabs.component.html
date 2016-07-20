@@ -1,15 +1,5 @@
-<div class="tab-container">
-  <ng-content select='ul.tab-list'></ng-content>
-</div>
-<ng-content select='soho-tab-content'></ng-content>
+<ul [ngClass]="tabsListClasses">
+  <ng-content select='li[soho-tab]'></ng-content>
+</ul>
 
-<!--
-<div [ngClass]="tabsClasses">
-  <ul [ngClass]="tabsListClasses">
-    <ng-content select='ul.tab-list'></ng-content>
-  </ul>
-</div>
-<soho-tab-panels>
-  <ng-content [ngClass]='tabPanelClasses' select='soho-tab-content'></ng-content>
-</soho-tab-panels>
--->
+<ng-content select='div[soho-tab-panel]'></ng-content>

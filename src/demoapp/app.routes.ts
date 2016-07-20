@@ -10,7 +10,7 @@ import { DataGridServiceDemoComponent } from './datagrid/datagrid-service-demo.c
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content-demo.component';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic-demo.component';
 import { ToolbarDemoComponent } from './toolbar/toolbar.demo';
-import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
+import { TabsDemoComponent } from './tabs/tabs.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
 
@@ -27,7 +27,7 @@ export const routes: RouterConfig = [
   { path: 'datagrid-dynamic', component: DataGridDynamicDemoComponent },
   { path: 'datagrid-service', component: DataGridServiceDemoComponent },
   { path: 'datagrid-content', component: DataGridContentDemoComponent },
-  { path: 'tabs-basic',       component: TabsBasicDemoComponent },
+  { path: 'tabs',             component: TabsDemoComponent },
   { path: 'tabs-datadriven',  component: TabsDataDrivenDemoComponent },
   { path: 'tabs-dynamic',     component: TabsDynamicDemoComponent },
   // { path: 'accordian',       component: AccordionSampleComponent},

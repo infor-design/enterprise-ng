@@ -4,16 +4,122 @@ import {
   Output,
   ElementRef,
   AfterViewInit,
-  OnDestroy
+  OnDestroy,
+  Input,
+  ChangeDetectionStrategy,
+  HostBinding,
+  OnInit
 } from '@angular/core';
 
 @Component({
+  selector: 'li[soho-tab]',
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoTabListItemComponent {
+  @HostBinding('class') get classes() {
+    return 'tab';
+  }
+}
+
+@Component({
+  selector: 'div[soho-tab-panel]',
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoTabPanelComponent {
+  @HostBinding('class') get classes() {
+    return 'tab-panel';
+  }
+}
+
+/**
+ * The main soho-tabs component
+ */
+@Component({
   moduleId: module.id,
-  selector: 'soho-tabs',
+  selector: 'div[soho-tabs]',
   templateUrl: './tabs.component.html'
 })
-export class TabsComponent implements AfterViewInit, OnDestroy {
+export class TabsComponent implements OnInit, AfterViewInit, OnDestroy {
 
+  @HostBinding('class') get classes() {
+    return 'tab-container';
+  }
+
+  /**
+   * The tabId that binds the soho-tab to a soho-tab-panel.
+   // TODO do I want a tabId input or just use element id to match tabs to tab panels. Right
+   */
+  @Input() tabsId: string;
+
+  /**
+   * set to true to allow tab count markup <span class=tabcount>#</span>.
+   * @type {boolean}
+   *
+   */
+  // TODO make a component for tab counts? <span tab-count>
+  @Input() tabCounts: boolean = false;
+
+  /**
+   * set to true to show a secondary style for the tabs
+   * @type {boolean}
+   */
+  @Input() alternate: boolean = false;
+
+  /**
+   * set to true to display the tabs vertically to the left of the tab-panel
+   * @type {boolean}
+   */
+  @Input() vertical: boolean = false;
+
+  /**
+   * set to true to display the tabs in the main header
+   * @type {boolean}
+   * TODO Need to handle the tab-panels not being encapsuelated by this component.
+   */
+  @Input() headerTabs: boolean = false;
+
+  /**
+   * show the tabs as module tabs
+   * @type {boolean}
+   * TODO implement module tabs.
+   */
+  @Input() moduleTabs: boolean = false;
+
+  /**
+   * If set to true, creates a button at the end of the tab list that can be used to add an empty tab and panel.
+   * @type {boolean}
+   */
+  @Input() addTabButton: boolean = false;
+
+  /**
+   * if defined as a function, will be used in-place of the default Tab Adding method
+   * TODO: how to handle call back function?
+   */
+  @Input() addTabButtonCallback: Function;
+
+  /**
+   * Defines a separate element to be used for containing the tab panels.  Defaults to the Tab Container itself
+   */
+  @Input() containerElement: Element;
+
+  /**
+   * If true, will change the selected tab on invocation based on the URL that exists after the hash
+   * @type {boolean}
+   */
+  @Input() changeTabOnHashChange: boolean = false;
+
+  /**
+   * If defined as a function, provides an external method for adjusting the current page hash used by these tabs
+   * TODO: how to handle call back function?
+   */
+  @Input() hashChangeCallback: Function;
+
+  /**
+   *
+   * @type {EventEmitter<Object>}
+   */
   @Output() beforeactivate: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() activated: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() afteractivate: EventEmitter<Object> = new EventEmitter<Object>();
@@ -26,9 +132,11 @@ export class TabsComponent implements AfterViewInit, OnDestroy {
 
   constructor(private element: ElementRef) {}
 
+  ngOnInit() {}
+
   ngAfterViewInit() {
     // assign element to local variable
-    this.jQueryElement = jQuery(this.element.nativeElement.children[0]);
+    this.jQueryElement = jQuery(this.element.nativeElement);
 
     // add listeneres to emit events
     this.jQueryElement.bind('beforeactivate', ((event: TabsEvent) => {this.beforeactivate.emit(event); }));
@@ -38,24 +146,14 @@ export class TabsComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.bind('afterclose', ((event: TabsEvent) => {this.afterClose.emit(event); }));
     this.jQueryElement.bind('tab-added', ((event: TabsEvent) => {this.tabAdded.emit(event); }));
 
+    // initialize the tabs plugin
     this.jQueryElement.tabs({
-      // If set to true, creates a button at the end of the tab list that can be used to add an empty tab and panel
-      addTabButton: false,
-
-      // if defined as a function, will be used in-place of the default Tab Adding method
-      addTabButtonCallback: null,
-
-      // Defines a separate element to be used for containing the tab panels.  Defaults to the Tab Container itself
-      containerElement: null,
-
-      // If true, will change the selected tab on invocation based on the URL that exists after the hash
-      changeTabOnHashChange: false,
-
-      // If defined as a function, provides an external method for adjusting the current page hash used by these tabs
-      hashChangeCallback: null,
-
-      // If true, Displays a modifiable count above each tab.
-      tabCounts: false
+      addTabButton: this.addTabButton,
+      addTabButtonCallback: undefined, // this.addButtonCallback,
+      containerElement: this.containerElement,
+      changeTabOnHashChange: this.changeTabOnHashChange,
+      hashChangeCallback: undefined, // this.hashChangeCallback,
+      tabCounts: this.tabCounts
     });
     this.tabs = this.jQueryElement.data('tabs');
   }
@@ -137,6 +235,12 @@ export class TabsComponent implements AfterViewInit, OnDestroy {
   /**
    * The class setter for the tabs div element
    */
+  get tabsListClasses() {
+    return 'tab-list';
+  }
+  /**
+   * The class setter for the tabs div element
+   */
   get verticalTabsClasses() {
     return 'vertical';
   }
@@ -153,6 +257,15 @@ export class TabsComponent implements AfterViewInit, OnDestroy {
     return 'module-tabs';
   }
 }
+
+/**
+ * Holds all directives usable for expandablearea
+ */
+export const TABS_COMPONENTS = [
+  TabsComponent,
+  SohoTabListItemComponent,
+  SohoTabPanelComponent,
+];
 
 /**
  * Interface for the jQuery event emitted
