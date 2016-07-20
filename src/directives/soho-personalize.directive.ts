@@ -7,11 +7,11 @@ import {
 /**
  * Angular Wrapper for the SoHo Personalise Directive.
  *
- * This component searches for a div element with the attribute
+ * This component searches for an element with the attribute
  * 'soho-personalize'.
  */
 @Directive({
-  selector: 'div[soho-personalize]',
+  selector: '[soho-personalize]',
 })
 export class SoHoPersonalizeDirective implements AfterViewInit {
   constructor(private el: ElementRef) {

@@ -16,7 +16,6 @@ import {
 } from '../components';
 
 import {
-  SoHoInitializeDirective,
   SoHoPersonalizeDirective
 } from '../directives';
 
@@ -42,7 +41,6 @@ import {
     HeaderDemoComponent,
     ApplicationMenuDemoComponent,
     ApplicationMenuComponent,
-    SoHoInitializeDirective,
     SoHoPersonalizeDirective,
     ROUTER_DIRECTIVES,
   ],
