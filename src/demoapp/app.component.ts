@@ -1,7 +1,8 @@
 import {
   Component,
   HostBinding,
-  AfterViewInit
+  AfterViewInit,
+  ViewChild
 } from '@angular/core';
 
 import {
@@ -47,6 +48,8 @@ import {
   ],
 })
 export class AppComponent implements AfterViewInit {
+  @ViewChild(ApplicationMenuComponent) applicationMenu: ApplicationMenuComponent;
+
   title = 'SoHo Xi Controls in Angular 2!';
 
   @HostBinding('class') get classes() {
@@ -54,5 +57,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
+    // @todo I do not like this code.
+    this.applicationMenu.triggers = [ jQuery('.application-menu-trigger') ];
   }
 }

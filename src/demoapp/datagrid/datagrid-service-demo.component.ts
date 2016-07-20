@@ -46,7 +46,7 @@ export class DataGridServiceDemoComponent implements AfterContentInit, AfterView
     }
 
     onSelected(e: any) {
-      this.toastService.show2('Selected', e);
+      this.toastService.show({title: 'Selected', message: e.productId});
     }
 
     busy() {

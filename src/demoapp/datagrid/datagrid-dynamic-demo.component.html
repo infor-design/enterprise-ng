@@ -1,17 +1,20 @@
 <div class="row">
-    <div class="twelve columns">
-        <h2 class="fieldset-title">Soho Data Grid - Dynamic</h2>
-        <div class="field">
-            <button soho-button (click)="datagrid.enable($event)">Enable</button>
-            <button soho-button (click)="datagrid.disable($event)">Disable</button>
-            <button soho-button (click)="addRow($event)">Add Row</button>
-            <button soho-button (click)="busy($event)">Busy</button>
-        </div>
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Data Grid - Dynamic</h2>
+    <div class="field">
+      <button soho-button (click)="datagrid.enable($event)">Enable</button>
+      <button soho-button (click)="datagrid.disable($event)">Disable</button>
+      <button soho-button (click)="addRow($event)">Add Row</button>
+      <button soho-button (click)="busy($event)">Busy</button>
     </div>
+  </div>
 </div>
 <br>
 <div class="example-section scrollable" role="main">
-    <section class="scrollable contained-scrolling-right-bottom ">
-    <div soho-datagrid (selected)="onSelected($event)" [columns]="columns | async" [data]="data | async"  [selectable]="'multiple'"></div>
+  <section class="scrollable contained-scrolling-right-bottom ">
+    <div soho-datagrid (selected)="onSelected($event)"
+        [columns]="columns | async"
+        [data]="data | async"
+        selectable="multiple"></div>
   </section>
 </div>

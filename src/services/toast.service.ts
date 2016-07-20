@@ -10,20 +10,17 @@ export const TOAST_POSITION = {
   BOTTOM_RIGHT: 'bottom right'
 };
 
+export type ToastPositionType
+  = 'top right' | 'top left' | 'bottom left' | 'bottom right';
+
 @Injectable()
 export class SoHoToastService {
+
   /**
    * Show a toast using the specified options.
    */
-  show(options: SoHoToastOptions) {
+  show(options: SoHoToastOptions): void {
     jQuery('body').toast(options).show();
-  }
-
-  /**
-   * Simplified Version.
-   */
-  show2(title: string, message: string) {
-    jQuery('body').toast({ title: title, message: message }).show();
   }
 }
 

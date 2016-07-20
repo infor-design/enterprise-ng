@@ -7,8 +7,6 @@ import {
   EventEmitter
 } from '@angular/core';
 
-declare var $: any;
-
 @Component({
   moduleId: module.id,
   selector: 'soho-header',
