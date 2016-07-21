@@ -1,0 +1,85 @@
+<div class="example-section">
+  <div class="row">
+    <span class="code-tag">Live Example</span>
+    <div class="row">
+      <h1>Single-Select Dropdown</h1>
+      <div class="field">
+        <label for="states" class="label">States</label>
+        <select #dropdown soho-dropdown="states">
+          <option value="AL">Alabama</option>
+          <option value="CA">California</option>
+          <option value="DE">Delaware</option>
+          <option value="NY">New York</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+      <div>
+        <h3>Select value is: {{getValue(dropdown)}}</h3>
+      </div>
+      <div class="field">
+        <label for="states-readonly" class="label">States - ReadOnly</label>
+        <select #dropdown soho-dropdown="states-readonly" readOnly>
+          <option value="AL">Alabama</option>
+          <option value="CA">California</option>
+          <option value="DE">Delaware</option>
+          <option value="NY">New York</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+      <div class="field">
+        <button soho-button (click)="onAddOption()">Add Option</button>
+        <button soho-button (click)="onRemoveOption()">Remove Option</button>
+        <hr>
+        <label for="states-modifiable" class="label">Modifiable States</label>
+        <select #dropdownAddRemove soho-dropdown="states-modifiable">
+          <option *ngFor="let option of options" [value]="option.value">{{option.text}}</option>
+        </select>
+      </div>
+      <div>
+        <h3>Select value is: {{getValue(dropdownAddRemove)}}</h3>
+      </div>
+    </div>
+    <span class="code-tag">Live Example</span>
+    <div class="row">
+      <h1>Multi-Select Dropdown</h1>
+      <div class="field">
+        <label for="states-multi" class="label">Multiple States - Closes On Select</label>
+        <select #dropdownMultiCloses soho-dropdown="states-multi" multiple maxSelected=3>
+          <option value="AL">Alabama</option>
+          <option value="CA">California</option>
+          <option value="DE">Delaware</option>
+          <option value="NY">New York</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+      <div>
+        <h3>Select value is: {{getValue(dropdownMultiCloses)}}</h3>
+      </div>
+      <div class="field">
+        <label for="states-multi" class="label">Multiple States - Stays Open</label>
+        <select #dropdownMulti soho-dropdown="states-multi" multiple [closeOnSelect]="false" maxSelected=3>
+          <option value="AL">Alabama</option>
+          <option value="CA">California</option>
+          <option value="DE">Delaware</option>
+          <option value="NY">New York</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+      <div>
+        <h3>Select value is: {{getValue(dropdownMulti)}}</h3>
+      </div>
+      <div class="field">
+        <button soho-button (click)="onAddMultiOption()">Add Option</button>
+        <button soho-button (click)="onRemoveMultiOption()">Remove Option</button>
+        <hr>
+        <label for="states-modifiable-two" class="label">Modifiable States</label>
+        <select #dropdownAddRemoveMulti soho-dropdown="states-modifiable-two" multiple [closeOnSelect]="false">
+          <option *ngFor="let option of multiOptions" [value]="option.value">{{option.text}}</option>
+        </select>
+      </div>
+      <div>
+        <h3>Select value is: {{getValue(dropdownAddRemoveMulti)}}</h3>
+      </div>
+    </div>
+  </div>
+</div>

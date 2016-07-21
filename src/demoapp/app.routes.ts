@@ -9,12 +9,14 @@ import { TreeDynamicDemoComponent } from './tree/tree-dynamic-demo.component';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service-demo.component';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content-demo.component';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic-demo.component';
+import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { ToolbarDemoComponent } from './toolbar/toolbar.demo';
 
 export const routes: RouterConfig = [
   { path: '',                component: ExpandableAreaDemoComponent }, // default
   { path: 'button',          component: ButtonDemoComponent },
   { path: 'busyindicator',   component: BusyIndicatorDemoComponent },
+  { path: 'dropdown',        component: DropdownDemoComponent },
   { path: 'expandablearea',  component: ExpandableAreaDemoComponent },
   { path: 'toolbar',         component: ToolbarDemoComponent },
   { path: 'icon',            component: IconDemoComponent },

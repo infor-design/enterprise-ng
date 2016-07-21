@@ -1,4 +1,4 @@
-import { Component, HostBinding, AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component, HostBinding, ViewEncapsulation } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { SoHoIconComponent, SoHoIconExtendedComponent, ApplicationMenuComponent } from '../components';
 
@@ -20,6 +20,7 @@ import { ApplicationMenuDemoComponent } from './application-menu/application-men
     ApplicationMenuComponent,
     ROUTER_DIRECTIVES,
   ],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements AfterViewInit {
   title = 'SoHo Xi Controls in Angular 2!';

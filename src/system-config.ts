@@ -12,10 +12,11 @@ const components = [
   'busyindicator',
   'button',
   'expandablearea',
+  'datagrid',
+  'dropdown',
   'header',
   'icon',
   'masthead',
-  'datagrid',
   'tree',
   'toolbar',
 ];
