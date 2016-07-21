@@ -58,9 +58,9 @@ export interface GridColumn {
   // Identifier for the grid columns
   id: string;
   // Localised name for the columns
-  name: string;
+  name?: string;
   // Json field
-  field: string;
+  field?: string;
   // Showing?
   hidden?: boolean;
   // Sortable?
@@ -84,6 +84,7 @@ export interface GridColumn {
   ranges?: any;
   menuId?: any;
   selected?: any;
+  resizable?: boolean;
 }
 
 export class GridOptions {
@@ -99,11 +100,15 @@ export class GridOptions {
   alternateRowShading = true;
   //
   columns: Array<GridColumn> = Array<GridColumn>();
+
+  // Initial dataset
   dataset: any[] = [];
   // Allow Column reorder
   columnReorder = false;
   // Save Column Reorder and resize
   saveColumns = true;
+
+  // Editable?
   editable = false;
   // Makes a readonly "list"
   isList = false;

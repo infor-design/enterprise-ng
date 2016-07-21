@@ -1,10 +1,38 @@
-import { AfterViewInit, Component, HostBinding, ViewEncapsulation } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
-import { SoHoIconComponent, SoHoIconExtendedComponent, ApplicationMenuComponent } from '../components';
+import {
+  AfterViewInit,
+  Component,
+  HostBinding,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 
-import { MastheadDemoComponent } from './masthead/masthead.demo';
-import { HeaderDemoComponent } from './header/header.demo';
-import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
+import {
+  ROUTER_DIRECTIVES
+} from '@angular/router';
+
+import {
+  SoHoIconComponent,
+  SoHoIconExtendedComponent,
+  ApplicationMenuComponent
+} from '../components';
+
+import {
+  ArgumentHelper
+} from '../utils';
+
+import {
+  SoHoPersonalizeDirective
+} from '../directives';
+
+import {
+  MastheadDemoComponent
+} from './masthead/masthead.demo';
+import {
+  HeaderDemoComponent
+} from './header/header.demo';
+import {
+  ApplicationMenuDemoComponent
+} from './application-menu/application-menu.demo';
 
 @Component({
   moduleId: module.id,
@@ -18,11 +46,14 @@ import { ApplicationMenuDemoComponent } from './application-menu/application-men
     HeaderDemoComponent,
     ApplicationMenuDemoComponent,
     ApplicationMenuComponent,
+    SoHoPersonalizeDirective,
     ROUTER_DIRECTIVES,
   ],
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements AfterViewInit {
+  @ViewChild(ApplicationMenuComponent) applicationMenu: ApplicationMenuComponent;
+
   title = 'SoHo Xi Controls in Angular 2!';
 
   @HostBinding('class') get classes() {
@@ -30,5 +61,9 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
+    ArgumentHelper.checkInputNotNull('AppComponent', 'applicationMenu', this.applicationMenu);
+
+    // @todo I do not like this code.
+    this.applicationMenu.triggers = [ jQuery('.application-menu-trigger') ];
   }
 }
