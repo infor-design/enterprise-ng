@@ -1,4 +1,3 @@
-
 interface SoHoToastOptions {
   title: string;
   message: string;
@@ -9,7 +8,7 @@ interface SoHoToastOptions {
 }
 
 interface ToastStatic {
-  show: () => void
+  show: () => void;
 }
 
 interface SoHoApplicationMenuOptions {

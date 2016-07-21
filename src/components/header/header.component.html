@@ -14,17 +14,15 @@
     </h1>
   </div>
 
-  <ng-content select="[soho-header-buttonset]"></ng-content>
+ <ng-content select="[soho-header-buttonset]"></ng-content>
 
   <div class="more">
-    <button class="btn-actions page-changer hide-focus" type="button" aria-haspopup="true" aria-controls="popupmenu-2" tabindex="-1">
-
-        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-          <use xlink:href="#icon-more"></use>
-        </svg>
-        <span class="audible" data-translate="text">More</span>
-      </button>
+    <button class="btn-actions page-changer" type="button">
+      <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#icon-more"></use>
+      </svg>
+      <span class="audible" data-translate="text">More</span>
+    </button>
     <ng-content select="[soho-header-menuitems]"></ng-content>
   </div>
-
 </div>
