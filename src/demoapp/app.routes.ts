@@ -10,10 +10,13 @@ import { DataGridServiceDemoComponent } from './datagrid/datagrid-service-demo.c
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content-demo.component';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic-demo.component';
 import { ToolbarDemoComponent } from './toolbar/toolbar.demo';
+
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDismissibleDemoComponent } from './tabs/tabs-dismissible.demo';
 import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
+import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
+import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
 
 export const routes: RouterConfig = [
   { path: '',                 component: ExpandableAreaDemoComponent }, // default
@@ -32,6 +35,9 @@ export const routes: RouterConfig = [
   { path: 'tabs-counts',      component: TabsCountsDemoComponent },
   { path: 'tabs-dismissible', component: TabsDismissibleDemoComponent },
   { path: 'tabs-dropdown',    component: TabsDropdownDemoComponent },
+  { path: 'tabs-datadriven',  component: TabsDataDrivenDemoComponent },
+  { path: 'tabs-dynamic',     component: TabsDynamicDemoComponent },
+
   // { path: 'accordian',       component: AccordionSampleComponent},
   // { path: 'dropdown',        component: DropdownSampleComponent}
 ];

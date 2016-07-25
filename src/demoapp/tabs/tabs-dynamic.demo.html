@@ -5,17 +5,15 @@
       <button soho-button (click)="onChangeTitles($event)">Change Titles</button>
     </div>
   </div>
-  <soho-tabs (tabSelected)="onTabSelected($event)">
+</div>
 
-    <ul class="tab-list">
-      <li *ngFor="let tab of tabs">
-        <a href="#{{tab.id}}">{{tab.title}}</a>
-      </li>
-    </ul>
+<div class="row">
+  <div class="twelve columns">
 
-    <soho-tab-content class="tab-content">
-      <div *ngFor="let tab of tabs" id="{{tab.id}}">{{tab.content}}</div>
-    </soho-tab-content>
+    <div soho-tabs (tabSelected)="onTabSelected($event)">
+      <li soho-tab *ngFor="let tab of tabs"><a href="#{{tab.id}}">{{tab.title}}</a></li>
+      <div soho-tab-panel *ngFor="let tab of tabs" id="{{tab.id}}"><p>{{tab.content}}</p></div>
+    </div>
 
-  </soho-tabs>
+  </div>
 </div>

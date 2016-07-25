@@ -1,15 +1,10 @@
-<div style="padding: 20px 20px 0px 20px;">
-  <soho-tabs (activated)="onTabActivated($event)">
+<div class="row">
+  <div class="twelve columns">
 
-    <ul class="tab-list">
-      <li *ngFor="let tab of tabs">
-        <a href="#{{tab.id}}">{{tab.title}}</a>
-      </li>
-    </ul>
+    <div soho-tabs (activated)="onTabActivated($event)">
+      <li soho-tab *ngFor="let tab of tabs"><a href="#{{tab.id}}">{{tab.title}}</a></li>
+      <div soho-tab-panel *ngFor="let tab of tabs" id="{{tab.id}}"><p>{{tab.content}}</p></div>
+    </div>
 
-    <soho-tab-content class="tab-content">
-      <div *ngFor="let tab of tabs" id="{{tab.id}}">{{tab.content}}</div>
-    </soho-tab-content>
-
-  </soho-tabs>
+  </div>
 </div>

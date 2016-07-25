@@ -59,6 +59,10 @@ export class TabsComponent implements OnInit, AfterViewInit, OnDestroy {
     return 'tab-container';
   }
 
+  // ------------------------------------------------------------------------
+  // @Inputs
+  // ------------------------------------------------------------------------
+
   /**
    * The tabId that binds the soho-tab to a soho-tab-panel.
    // TODO do I want a tabId input or just use element id to match tabs to tab panels. Right
@@ -70,7 +74,7 @@ export class TabsComponent implements OnInit, AfterViewInit, OnDestroy {
    * @type {boolean}
    *
    */
-  // TODO make a component for tab counts? <span tab-count>
+  // TODO make a component for tab counts? <span tab-count> ??
   @Input() tabCounts: boolean = false;
 
   /**
@@ -88,7 +92,7 @@ export class TabsComponent implements OnInit, AfterViewInit, OnDestroy {
   /**
    * set to true to display the tabs in the main header
    * @type {boolean}
-   * TODO Need to handle the tab-panels not being encapsuelated by this component.
+   * TODO Need to handle the tab-panels not being encapsuelated by this component. Use recommended service approach.
    */
   @Input() headerTabs: boolean = false;
 
@@ -128,16 +132,48 @@ export class TabsComponent implements OnInit, AfterViewInit, OnDestroy {
    */
   @Input() hashChangeCallback: Function;
 
+  // ------------------------------------------------------------------------
+  // @Outputs
+  // ------------------------------------------------------------------------
+
   /**
-   *
+   * The beforeactivate event is fired whenever a tab is selected giving the event handler a chance
+   * to "veto" the tab selection change.
    * @type {EventEmitter<Object>}
    */
   @Output() beforeactivate: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * The activated event is fired whenever a tab is selected (or "activated");
+   * @type {EventEmitter<Object>}
+   */
   @Output() activated: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * The afteractivate event is fired after the has been activated.
+   * @type {EventEmitter<Object>}
+   */
   @Output() afteractivate: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * fired when a tab closes
+   * @type {EventEmitter<Object>}
+   */
   @Output() close: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * fired after a tab closes
+   * @type {EventEmitter<Object>}
+   */
   @Output() afterClose: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * fire when a new tab is added.
+   * @type {EventEmitter<Object>}
+   */
   @Output() tabAdded: EventEmitter<Object> = new EventEmitter<Object>();
+
+  // ------------------------------------------------------------------------
 
   private jQueryElement: any;
   private tabs: any;
@@ -150,7 +186,7 @@ export class TabsComponent implements OnInit, AfterViewInit, OnDestroy {
     // assign element to local variable
     this.jQueryElement = jQuery(this.element.nativeElement);
 
-    // add listeneres to emit events
+    // bind to jquery events and emit as angular events
     this.jQueryElement.bind('beforeactivate', ((event: TabsEvent) => {this.beforeactivate.emit(event); }));
     this.jQueryElement.bind('activated', ((event: TabsEvent) => {this.activated.emit(event); }));
     this.jQueryElement.bind('afteractivate', ((event: TabsEvent) => {this.afteractivate.emit(event); }));
@@ -234,9 +270,9 @@ export class TabsComponent implements OnInit, AfterViewInit, OnDestroy {
     this.tabs.enable();
   }
 
-  public isinitalized(): boolean {
-    return !!this.tabs;
-  }
+  // public isinitalized(): boolean {
+  //   return !!this.tabs;
+  // }
 
   /**
    * The class setter for the tabs div element
