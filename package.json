@@ -23,7 +23,7 @@
     "@angular/router": "3.0.0-beta.1",
     "@angular/upgrade": "2.0.0-rc.4",
 
-    "@infor/sohoxi": "nightly",
+    "@infor/sohoxi": "4.2.1-nightly",
     "immutable": "^3.8.1",
 
     "es6-shim": "0.35.1",
