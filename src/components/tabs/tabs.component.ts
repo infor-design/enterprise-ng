@@ -31,9 +31,7 @@ export class SohoTabListItemComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabPanelComponent {
-  @HostBinding('class') get classes() {
-    return 'tab-panel';
-  }
+  @HostBinding('class.tab-panel') get isTabPanel() { return true; };
 }
 
 /**
@@ -46,10 +44,7 @@ export class SohoTabPanelComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsComponent implements OnInit, AfterViewInit, OnDestroy {
-
-  @HostBinding('class') get classes() {
-    return 'tab-container';
-  }
+  @HostBinding('class.tab-container') get isTabContainer() { return true; };
 
   // ------------------------------------------------------------------------
   // @Inputs
