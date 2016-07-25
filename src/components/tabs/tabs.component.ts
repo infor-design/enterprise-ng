@@ -18,20 +18,11 @@ import {
 })
 export class SohoTabListItemComponent {
   @Input() dismissible: boolean = false;
-  @Input() isSelected: boolean = false;
-  @HostBinding('class') get classes() {
-    let classList = 'tab';
+  @Input() selected: boolean = false;
 
-    if (this.dismissible) {
-      classList += ' dismissible';
-    }
-
-    if (this.isSelected) {
-      classList += ' is-selected';
-    }
-
-    return classList;
-  }
+  @HostBinding('class.tab') get isTab() { return true; };
+  @HostBinding('class.dismissible') get isDismissable() { return this.dismissible; };
+  @HostBinding('class.is-selected') get isSelected()    { return this.selected; };
 }
 
 @Component({
@@ -51,7 +42,8 @@ export class SohoTabPanelComponent {
 @Component({
   moduleId: module.id,
   selector: 'div[soho-tabs]',
-  templateUrl: './tabs.component.html'
+  templateUrl: './tabs.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsComponent implements OnInit, AfterViewInit, OnDestroy {
 

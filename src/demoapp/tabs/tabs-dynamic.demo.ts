@@ -78,8 +78,6 @@ export class TabsDynamicDemoComponent implements OnInit, DoCheck {
   }
 
   onChangeTabs(event: TabsEvent) {
-    console.log('TabsBasicDemoComponent.onChangeTabs: ' + JSON.stringify(event));
-
     this.currentTabsIndex++;
     if (this.currentTabsIndex >= this.tabsData.length) {
       this.currentTabsIndex = 0;
