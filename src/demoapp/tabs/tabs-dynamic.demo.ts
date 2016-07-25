@@ -1,11 +1,11 @@
 
 import {
   Component,
-  ViewChild,
-  OnInit,
-  IterableDiffers,
+  DoCheck,
   IterableDiffer,
-  DoCheck
+  IterableDiffers,
+  OnInit,
+  ViewChild
 } from '@angular/core';
 
 import {
@@ -20,7 +20,7 @@ import {
   templateUrl: './tabs-dynamic.demo.html',
   directives: [ TabsComponent, SoHoButtonComponent ]
 })
-export class TabsDynamicDemoComponent implements OnInit, DoCheck {
+export class TabsDynamicDemoComponent implements DoCheck, OnInit {
 
   @ViewChild(TabsComponent) sohoTabsComponent: TabsComponent;
 

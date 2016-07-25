@@ -1,14 +1,14 @@
 import {
-  Component,
-  EventEmitter,
-  Output,
-  ElementRef,
   AfterViewInit,
-  OnDestroy,
-  Input,
   ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EventEmitter,
   HostBinding,
-  OnInit
+  Input,
+  OnDestroy,
+  OnInit,
+  Output
 } from '@angular/core';
 
 @Component({
@@ -43,7 +43,7 @@ export class SohoTabPanelComponent {
   templateUrl: './tabs.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TabsComponent implements OnInit, AfterViewInit, OnDestroy {
+export class TabsComponent implements AfterViewInit, OnDestroy, OnInit {
   @HostBinding('class.tab-container') get isTabContainer() { return true; };
 
   // ------------------------------------------------------------------------
@@ -294,7 +294,7 @@ export class TabsComponent implements OnInit, AfterViewInit, OnDestroy {
 }
 
 /**
- * Holds all directives usable for expandablearea
+ * Holds all directives usable for the tabs component.
  */
 export const TABS_COMPONENTS = [
   TabsComponent,
