@@ -1,10 +1,37 @@
-import { Component, HostBinding, AfterViewInit } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
-import { SoHoIconComponent, SoHoIconExtendedComponent } from '../components';
+import {
+  Component,
+  HostBinding,
+  AfterViewInit,
+  ViewChild
+} from '@angular/core';
 
-import { MastheadDemoComponent } from './masthead/masthead.demo';
-import { HeaderDemoComponent } from './header/header.demo';
-import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
+import {
+  ROUTER_DIRECTIVES
+} from '@angular/router';
+
+import {
+  SoHoIconComponent,
+  SoHoIconExtendedComponent,
+  ApplicationMenuComponent
+} from '../components';
+
+import {
+  ArgumentHelper
+} from '../utils';
+
+import {
+  SoHoPersonalizeDirective
+} from '../directives';
+
+import {
+  MastheadDemoComponent
+} from './masthead/masthead.demo';
+import {
+  HeaderDemoComponent
+} from './header/header.demo';
+import {
+  ApplicationMenuDemoComponent
+} from './application-menu/application-menu.demo';
 
 @Component({
   moduleId: module.id,
@@ -17,10 +44,14 @@ import { ApplicationMenuDemoComponent } from './application-menu/application-men
     MastheadDemoComponent,
     HeaderDemoComponent,
     ApplicationMenuDemoComponent,
+    ApplicationMenuComponent,
+    SoHoPersonalizeDirective,
     ROUTER_DIRECTIVES,
   ],
 })
 export class AppComponent implements AfterViewInit {
+  @ViewChild(ApplicationMenuComponent) applicationMenu: ApplicationMenuComponent;
+
   title = 'SoHo Xi Controls in Angular 2!';
 
   @HostBinding('class') get classes() {
@@ -28,10 +59,9 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    let toolbarElement: any = jQuery('.toolbar');
-    toolbarElement.toolbar();
+    ArgumentHelper.checkInputNotNull('AppComponent', 'applicationMenu', this.applicationMenu);
 
-    let applicationMenuElement: any = jQuery('.application-menu');
-    applicationMenuElement.applicationmenu({triggers: [jQuery('.application-menu-trigger')]});
+    // @todo I do not like this code.
+    this.applicationMenu.triggers = [ jQuery('.application-menu-trigger') ];
   }
 }

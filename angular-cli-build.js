@@ -46,7 +46,7 @@ module.exports = function(defaults) {
       'vendor/zone.js/dist/zone.js',
       'vendor/immutable/dist/immutable.js',
       'vendor/@infor/sohoxi/dist/js/jquery-3.0.0.min.js',
-      'vendor/@infor/sohoxi/dist/js/sohoxi.min.js',
+      'vendor/@infor/sohoxi/dist/js/sohoxi.js',
     ],
     vendorNpmFiles: [
       'systemjs/dist/system-polyfills.js',

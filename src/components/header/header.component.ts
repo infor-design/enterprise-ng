@@ -7,8 +7,6 @@ import {
   EventEmitter
 } from '@angular/core';
 
-declare var $: any;
-
 @Component({
   moduleId: module.id,
   selector: 'soho-header',
@@ -19,20 +17,41 @@ export class HeaderComponent implements AfterViewInit {
     return 'header is-personalizable';
   }
 
-  constructor(private elementRef: ElementRef) {}
+  // Reference to the jQuery element.
+  private jQueryElement: any;
+
+  // Reference to the annotated SoHoXi control
+  private header: any;
+
+  // This event is fired when the status of the header is changed.
+  @Output() onChange = new EventEmitter<any>();
+
+  // @Input() set updated(value : any) {
+  //   if (value) {
+  //     $(this.elementRef.nativeElement).trigger('updated');
+  //   }
+  // }
+
+  update() {
+    this.header.updated();
+  }
+
+  constructor(private elementRef: ElementRef) {
+  }
 
   ngAfterViewInit() {
-    // ngAfterViewInit lifecycle event - called after Angular creates the component's view(s).
-    // meaning the content is in the DOM and it's ok to run jQuery against it
+    // Wrap for later.
+    this.jQueryElement = $(this.elementRef.nativeElement);
 
-    let $toolbarElement: any = $('.toolbar');
-    $toolbarElement.toolbar();
+    // Initialise the SoHoXi control.
+    this.jQueryElement.header();
 
-    let $applicationMenuElement: any = $('.application-menu');
-    $applicationMenuElement.applicationmenu({triggers: [$('.application-menu-trigger')]});
+    // Once the control is initialised, extract the control
+    // plug-in from the element.  The element name is
+    // defined by the plug-in, but in this case is 'sohoxiHeader'.
+    this.header = this.jQueryElement.data('header');
 
-    // let $element:any = jQuery(this.elementRef.nativeElement);
-    // $('.toolbar', $element).toolbar();
-    // $('.application-menu', $element).applicationmenu({triggers: [$('.application-menu-trigger')]});
+    // Initialize any event handlers.
+    this.jQueryElement.on('updated', (e: any, args: any) => { this.onChange.next(args); });
   }
 }
