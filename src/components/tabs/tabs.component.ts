@@ -26,6 +26,15 @@ export class SohoTabListItemComponent {
 }
 
 @Component({
+  selector: 'span[soho-tab-count]',
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoTabCountComponent {
+  @HostBinding('class.count') get isCount() { return true; };
+}
+
+@Component({
   selector: 'div[soho-tab-panel]',
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -299,6 +308,7 @@ export class TabsComponent implements AfterViewInit, OnDestroy, OnInit {
 export const TABS_COMPONENTS = [
   TabsComponent,
   SohoTabListItemComponent,
+  SohoTabCountComponent,
   SohoTabPanelComponent,
 ];
 
