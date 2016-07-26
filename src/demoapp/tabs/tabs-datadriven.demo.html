@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="twelve columns">
+
+    <div soho-tabs (activated)="onTabActivated($event)">
+      <li soho-tab *ngFor="let tab of tabs"><a href="#{{tab.id}}">{{tab.title}}</a></li>
+      <div soho-tab-panel *ngFor="let tab of tabs" id="{{tab.id}}"><p>{{tab.content}}</p></div>
+    </div>
+
+  </div>
+</div>
