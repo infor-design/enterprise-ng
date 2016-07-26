@@ -1,5 +1,5 @@
 {
-  "name": "soho-angular-components",
+  "name": "@infor/sohoxi/angular",
   "version": "0.0.0",
   "license": "MIT",
   "angular-cli": {},
