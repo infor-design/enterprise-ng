@@ -11,11 +11,15 @@
   <div class="twelve columns">
 
     <div soho-tabs (tabSelected)="onTabSelected($event)">
-      <li soho-tab *ngFor="let tab of tabs"><a href="#{{tab.id}}">{{tab.title}}</a></li>
-      <div soho-tab-panel *ngFor="let tab of tabs" id="{{tab.id}}"><p>{{tab.content}}</p></div>
+      <ul soho-tab-list>
+        <li soho-tab *ngFor="let tab of tabs" [tabId]="tab.id">{{tab.title}}</li>
+      </ul>
+
+      <div soho-tab-panel *ngFor="let tab of tabs" [tabId]="tab.id"><p>{{tab.content}}</p></div>
     </div>
 
     <!--
+    <a href="#{{tab.id}}">{{tab.title}}</a>
     using template allows us to only go through the array once. However, I cannot
     seem to get this working.
 

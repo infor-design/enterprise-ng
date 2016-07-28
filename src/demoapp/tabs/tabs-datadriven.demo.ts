@@ -4,26 +4,24 @@ import {
   OnInit
 } from '@angular/core';
 
-import {
-  TabsComponent,
-  TabsEvent
-} from '../.';
+import { TABS_COMPONENTS, TabsEvent } from '../.';
 
 @Component({
   moduleId: module.id,
   selector: 'tabs-datadriven-demo',
   templateUrl: './tabs-datadriven.demo.html',
-  directives: [TabsComponent]
+  directives: [ TABS_COMPONENTS ]
 })
 export class TabsDataDrivenDemoComponent implements OnInit {
 
-  private tabs: Array<any> = [];
+  protected tabs: Array<{id: string, title: string, content: string}> = [
+    { id: 'one',   title: 'One',   content: 'Tab One Content' },
+    { id: 'two',   title: 'Two',   content: 'Tab Two Content' },
+    { id: 'three', title: 'Three', content: 'Tab Three Content' },
+    { id: 'four',  title: 'Four',  content: 'Tab Four Content' }
+  ];
 
   ngOnInit() {
-    this.tabs.push({id: 'one',   title: 'One',   content: 'Tab One Content'});
-    this.tabs.push({id: 'two',   title: 'Two',   content: 'Tab Two Content'});
-    this.tabs.push({id: 'three', title: 'Three', content: 'Tab Three Content'});
-    this.tabs.push({id: 'four',  title: 'Four',  content: 'Tab Four Content'});
   }
 
   onTabActivated(event: TabsEvent) {

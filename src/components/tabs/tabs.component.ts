@@ -11,21 +11,86 @@ import {
   Output
 } from '@angular/core';
 
+/**
+ * Internal component to support menu/dropdown tabs
+ */
 @Component({
-  selector: 'li[soho-tab]',
+  moduleId: module.id,
+  selector: 'ul[soho-tab-list]',
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SohoTabListItemComponent {
-  @Input() dismissible: boolean = false;
-  @Input() selected: boolean = false;
-
-  @HostBinding('class.tab') get isTab() { return true; };
-  @HostBinding('class.dismissible') get isDismissable() { return this.dismissible; };
-  @HostBinding('class.is-selected') get isSelected()    { return this.selected; };
+export class SohoTabListComponent {
+  @HostBinding('class.tab-list') get isTabList() { return true; };
 }
 
+/**
+ * Internal component to support the tab list items
+ */
 @Component({
+  moduleId: module.id,
+  selector: 'li[soho-tab]',
+  template: `<a href="#{{tabId}}"><ng-content></ng-content>{{tabTitle}}</a>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoTabComponent {
+  @HostBinding('class.tab') get isTab() { return true; };
+  @HostBinding('class.dismissible') get isDismissable()  { return this.dismissible; };
+  @HostBinding('class.is-selected') get isSelected()     { return this.selected; };
+
+  @Input() tabId: string;
+  @Input() tabTitle: string;
+  @Input() dismissible: boolean = false;
+  @Input() selected: boolean = false;
+}
+
+/**
+ * Internal component to support menu/dropdown tabs
+ */
+@Component({
+  moduleId: module.id,
+  selector: 'li[soho-tab-separator]',
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoTabSeparatorComponent {
+  @HostBinding('class.separator') get isSeparator() { return true; };
+}
+
+/**
+ * Internal component to support menu/dropdown tabs
+ */
+@Component({
+  moduleId: module.id,
+  selector: 'li[soho-menu-tab]',
+  template: `<a href="#">{{tabTitle}}</a><ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoMenuTabComponent extends SohoTabComponent {
+  @HostBinding('class.tab') get isTab() { return true; };
+  @HostBinding('class.has-popupmenu') get isPopupMenu() { return true; };
+  @Input() tabTitle: string;
+}
+
+/**
+ * Internal component to support the menu tab items
+ */
+@Component({
+  moduleId: module.id,
+  selector: 'li[soho-menu-tab-item]',
+  template: `<a attr.href="#{{tabId}}"><ng-content></ng-content>{{tabTitle}}</a>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoTabTitleComponent extends SohoTabComponent {
+  @Input() tabId: string;
+  @Input() tabTitle: string;
+}
+
+/**
+ * Internal component to support tabs with counts.
+ */
+@Component({
+  moduleId: module.id,
   selector: 'span[soho-tab-count]',
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -34,12 +99,17 @@ export class SohoTabCountComponent {
   @HostBinding('class.count') get isCount() { return true; };
 }
 
+/**
+ * Internal component to support tab panel content.
+ */
 @Component({
+  moduleId: module.id,
   selector: 'div[soho-tab-panel]',
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabPanelComponent {
+  @HostBinding('attr.id') @Input() tabId: string;
   @HostBinding('class.tab-panel') get isTabPanel() { return true; };
 }
 
@@ -58,6 +128,8 @@ export class TabsComponent implements AfterViewInit, OnDestroy, OnInit {
   // ------------------------------------------------------------------------
   // @Inputs
   // ------------------------------------------------------------------------
+
+  @Input() tabId: string;
 
   /**
    * The tabId that binds the soho-tab to a soho-tab-panel.
@@ -176,7 +248,9 @@ export class TabsComponent implements AfterViewInit, OnDestroy, OnInit {
 
   constructor(private element: ElementRef) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('ngOnInit');
+  }
 
   ngAfterViewInit() {
     // assign element to local variable
@@ -270,36 +344,36 @@ export class TabsComponent implements AfterViewInit, OnDestroy, OnInit {
   //   return !!this.tabs;
   // }
 
-  /**
-   * The class setter for the tabs div element
-   */
-  get tabsClasses() {
-    return 'tab-container';
-  }
-  /**
-   * The class setter for the tabs div element
-   */
-  get tabsListClasses() {
-    return 'tab-list';
-  }
-  /**
-   * The class setter for the tabs div element
-   */
-  get verticalTabsClasses() {
-    return 'vertical';
-  }
-  /**
-   * The class setter for the tabs div element
-   */
-  get alternateTabsClasses() {
-    return 'alternate';
-  }
-  /**
-   * The class setter for the tabs div element
-   */
-  get moduleTabsClasses() {
-    return 'module-tabs';
-  }
+  // /**
+  //  * The class setter for the tabs div element
+  //  */
+  // get tabsClasses() {
+  //   return 'tab-container';
+  // }
+  // /**
+  //  * The class setter for the tabs div element
+  //  */
+  // get tabsListClasses() {
+  //   return 'tab-list';
+  // }
+  // /**
+  //  * The class setter for the tabs div element
+  //  */
+  // get verticalTabsClasses() {
+  //   return 'vertical';
+  // }
+  // /**
+  //  * The class setter for the tabs div element
+  //  */
+  // get alternateTabsClasses() {
+  //   return 'alternate';
+  // }
+  // /**
+  //  * The class setter for the tabs div element
+  //  */
+  // get moduleTabsClasses() {
+  //   return 'module-tabs';
+  // }
 }
 
 /**
@@ -307,7 +381,11 @@ export class TabsComponent implements AfterViewInit, OnDestroy, OnInit {
  */
 export const TABS_COMPONENTS = [
   TabsComponent,
-  SohoTabListItemComponent,
+  SohoTabComponent,
+  SohoTabListComponent,
+  SohoTabSeparatorComponent,
+  SohoMenuTabComponent,
+  SohoTabTitleComponent,
   SohoTabCountComponent,
   SohoTabPanelComponent,
 ];

@@ -2,9 +2,17 @@
   <div class="twelve columns">
 
     <div soho-tabs (activated)="onTabActivated($event)">
-      <li soho-tab *ngFor="let tab of tabs"><a href="#{{tab.id}}">{{tab.title}}</a></li>
-      <div soho-tab-panel *ngFor="let tab of tabs" id="{{tab.id}}"><p>{{tab.content}}</p></div>
+      <ul soho-tab-list>
+        <li soho-tab *ngFor="let tab of tabs" [tabId]="tab.id">{{tab.title}}</li>
+      </ul>
+      <div soho-tab-panel *ngFor="let tab of tabs" [tabId]="tab.id"><p>{{tab.content}}</p></div>
     </div>
 
   </div>
 </div>
+<!--
+<template ngFor let-tab [ngForOf]="tabs">
+  <li soho-tab [tabId]="tab.id">{{tab.title}}</li>
+  <div soho-tab-panel id="{{tab.id}}"><p>{{tab.content}}</p></div>
+</template>
+-->

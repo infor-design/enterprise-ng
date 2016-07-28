@@ -8,7 +8,6 @@ import { TABS_COMPONENTS, TabsEvent } from '../';
   directives: [ TABS_COMPONENTS ]
 })
 export class TabsBasicDemoComponent {
-
   onTabActivated(event: TabsEvent) {
     console.log('TabsBasicDemoComponent.onTabActivated');
   }

@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 
 import {
+  TABS_COMPONENTS,
   TabsComponent,
   TabsEvent,
   SoHoButtonComponent
@@ -18,7 +19,7 @@ import {
   moduleId: module.id,
   selector: 'tabs-dynamic-sample-component',
   templateUrl: './tabs-dynamic.demo.html',
-  directives: [ TabsComponent, SoHoButtonComponent ]
+  directives: [ TABS_COMPONENTS, SoHoButtonComponent ]
 })
 export class TabsDynamicDemoComponent implements DoCheck, OnInit {
 
