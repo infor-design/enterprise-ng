@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { TABS_COMPONENTS, TabsEvent } from '../';
 
+/**
+ * This example:
+ * - Shows how to make a simple tab component with an angular template.
+ */
 @Component({
   moduleId: module.id,
   selector: 'tabs-basic-demo',

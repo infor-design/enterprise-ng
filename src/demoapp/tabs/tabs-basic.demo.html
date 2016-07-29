@@ -1,13 +1,13 @@
 <div class="row">
   <div class="twelve columns">
 
-    <div soho-tabs>
+    <div soho-tabs (activated)="onTabActivated($event)">
       <ul soho-tab-list>
-        <li soho-tab tabId='tabs-normal-contracts'     tabTitle='Contracts'></li>
+        <li soho-tab tabId='tabs-normal-contracts' tabTitle='Contracts'></li>
         <li soho-tab tabId='tabs-normal-opportunities' tabTitle='Opportunites'></li>
-        <li soho-tab tabId='tabs-normal-attachments'   tabTitle='Attachments' selected=true></li>
-        <li soho-tab tabId='tabs-normal-contacts'      tabTitle='Contacts'></li>
-        <li soho-tab tabId='tabs-normal-notes'         tabTitle='Notes'></li>
+        <li soho-tab tabId='tabs-normal-attachments' tabTitle='Attachments' selected=true></li>
+        <li soho-tab tabId='tabs-normal-contacts' tabTitle='Contacts'></li>
+        <li soho-tab tabId='tabs-normal-notes' tabTitle='Notes'></li>
       </ul>
 
       <div soho-tab-panel tabId='tabs-normal-contracts'>
@@ -24,7 +24,7 @@
           <input type="tel" name="tel-normal-opportunities" id="tel-normal-opportunities" data-validate="required" aria-required="true">
         </div>
       </div>
-      <div soho-tab-panel tabId='tabs-normal-attachments' selected>
+      <div soho-tab-panel tabId='tabs-normal-attachments'>
         <p>Frictionless webservices, killer open-source innovate, best-of-breed, whiteboard interactive back-end optimize capture dynamic front-end. Initiatives ubiquitous 24/7 enhance channels B2B drive frictionless web-readiness generate recontextualize widgets applications. Sexy sticky matrix, user-centred, rich user-centric: peer-to-peer podcasting networking addelivery optimize streamline integrated proactive: granular morph.<p>
       </div>
       <div soho-tab-panel tabId='tabs-normal-contacts'>
@@ -55,6 +55,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
