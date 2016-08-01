@@ -60,7 +60,7 @@ import {
   template: ' <ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SoHoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
+export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // -------------------------------------------
   // Component Inputs

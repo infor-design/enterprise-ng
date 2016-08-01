@@ -12,7 +12,7 @@ import {
   TABS_COMPONENTS,
   SohoTabsComponent,
   TabsEvent,
-  SoHoButtonComponent
+  SohoButtonComponent
 } from '../.';
 
 /**
@@ -27,7 +27,7 @@ import {
   moduleId: module.id,
   selector: 'tabs-dynamic-sample-component',
   templateUrl: './tabs-dynamic.demo.html',
-  directives: [ TABS_COMPONENTS, SoHoButtonComponent ]
+  directives: [ TABS_COMPONENTS, SohoButtonComponent ]
 })
 export class TabsDynamicDemoComponent implements DoCheck, OnInit {
 

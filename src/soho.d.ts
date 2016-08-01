@@ -1,4 +1,4 @@
-interface SoHoToastOptions {
+interface SohoToastOptions {
   title: string;
   message: string;
   position?: 'top right' | 'top left' | 'bottom left' | 'bottom right';
@@ -11,7 +11,7 @@ interface ToastStatic {
   show: () => void;
 }
 
-interface SoHoApplicationMenuOptions {
+interface SohoApplicationMenuOptions {
   breakpoint: 'phablet' | 'tablet' | 'desktop' | 'large';
   openOnLarge: boolean;
   triggers: any[];
@@ -23,7 +23,7 @@ interface ApplicationMenuStatic {
   modifyTriggers: (triggers: any[], remove: boolean, norebuild: boolean) => void;
 }
 
-interface SoHoBusyIndicatorOptions {
+interface SohoBusyIndicatorOptions {
   blockUI?: boolean;
   text: string;
   delay: number;
@@ -43,9 +43,9 @@ interface JQueryStatic {
 }
 
 interface JQuery {
-  applicationmenu(options?: SoHoApplicationMenuOptions): JQuery;
-  toast(options?: SoHoToastOptions): JQuery;
-  busyindicator(options?: SoHoBusyIndicatorOptions): JQuery;
+  applicationmenu(options?: SohoApplicationMenuOptions): JQuery;
+  toast(options?: SohoToastOptions): JQuery;
+  busyindicator(options?: SohoBusyIndicatorOptions): JQuery;
   tabs(): JQuery;
   initialize(locale: string): JQuery;
   personalize(): JQuery;

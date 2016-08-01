@@ -10,9 +10,9 @@ import {
 } from '@angular/router';
 
 import {
-  SoHoIconComponent,
-  SoHoIconExtendedComponent,
-  ApplicationMenuComponent
+  SohoIconComponent,
+  SohoIconExtendedComponent,
+  SohoApplicationMenuComponent
 } from '../components';
 
 import {
@@ -20,7 +20,7 @@ import {
 } from '../utils';
 
 import {
-  SoHoPersonalizeDirective
+  SohoPersonalizeDirective
 } from '../directives';
 
 import {
@@ -39,18 +39,18 @@ import {
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
   directives: [
-    SoHoIconComponent,
-    SoHoIconExtendedComponent,
+    SohoIconComponent,
+    SohoIconExtendedComponent,
     MastheadDemoComponent,
     HeaderDemoComponent,
     ApplicationMenuDemoComponent,
-    ApplicationMenuComponent,
-    SoHoPersonalizeDirective,
+    SohoApplicationMenuComponent,
+    SohoPersonalizeDirective,
     ROUTER_DIRECTIVES,
   ],
 })
 export class AppComponent implements AfterViewInit {
-  @ViewChild(ApplicationMenuComponent) applicationMenu: ApplicationMenuComponent;
+  @ViewChild(SohoApplicationMenuComponent) applicationMenu: SohoApplicationMenuComponent;
 
   title = 'SoHo Xi Controls in Angular 2!';
 

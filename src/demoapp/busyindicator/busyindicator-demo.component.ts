@@ -4,15 +4,15 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { SoHoButtonComponent } from '../';
+import { SohoButtonComponent } from '../';
 
-import { SoHoBusyIndicatorComponent } from '../';
+import { SohoBusyIndicatorComponent } from '../';
 
 @Component({
     moduleId: module.id,
     selector: 'busyindicator-demo',
     templateUrl: 'busyindicator-demo.component.html',
-    directives: [ SoHoButtonComponent, SoHoBusyIndicatorComponent ]
+    directives: [ SohoButtonComponent, SohoBusyIndicatorComponent ]
 })
 export class BusyIndicatorDemoComponent {
 
@@ -20,7 +20,7 @@ export class BusyIndicatorDemoComponent {
 
     delay: number = 1000;
 
-    @ViewChild(SoHoBusyIndicatorComponent) busyIndicator: SoHoBusyIndicatorComponent;
+    @ViewChild(SohoBusyIndicatorComponent) busyIndicator: SohoBusyIndicatorComponent;
 
     constructor(private elementRef: ElementRef) {
     }

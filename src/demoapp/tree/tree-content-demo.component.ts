@@ -6,8 +6,8 @@ import {
 } from '@angular/core';
 
 import {
-    SoHoButtonComponent,
-    SoHoTreeComponent,
+    SohoButtonComponent,
+    SohoTreeComponent,
     TreeNode,
     TreeEvent
 } from '../';
@@ -16,12 +16,12 @@ import {
     moduleId: module.id,
     selector: 'tree-content-demo',
     templateUrl: 'tree-content-demo.component.html',
-    directives: [ SoHoTreeComponent, SoHoButtonComponent ],
+    directives: [ SohoTreeComponent, SohoButtonComponent ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeContentDemoComponent {
 
-    @ViewChild(SoHoTreeComponent) tree: SoHoTreeComponent;
+    @ViewChild(SohoTreeComponent) tree: SohoTreeComponent;
 
     // Is this component enabled.
     enabled = true;
