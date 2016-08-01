@@ -29,7 +29,7 @@ const BUTTON_TYPE_LIST = [
   templateUrl: './button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SoHoButtonComponent implements AfterViewInit, OnDestroy {
+export class SohoButtonComponent implements AfterViewInit, OnDestroy {
 
   @Input('soho-button') set sohoButton(type: string) {
     if (BUTTON_TYPE_LIST.includes(type)) {

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { SoHoButtonComponent, BUTTON_TYPES } from '../';
+import { SohoButtonComponent, BUTTON_TYPES } from '../';
 
 @Component({
   moduleId: module.id,
   selector: 'soho-button-demo',
   templateUrl: 'button.demo.html',
-  directives: [ SoHoButtonComponent ],
+  directives: [ SohoButtonComponent ],
   styles: [`
     .code-tag {
       font-size: 12px;

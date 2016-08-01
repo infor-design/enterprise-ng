@@ -10,7 +10,7 @@ import { Component, HostBinding, Input } from '@angular/core';
     }
   `]
 })
-export class MastheadComponent {
+export class SohoMastheadComponent {
   @HostBinding('class') get classes() {
     return 'masthead';
   }

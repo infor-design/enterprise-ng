@@ -8,12 +8,12 @@ import {
 } from '@angular/core';
 
 import {
-    SoHoButtonComponent,
-    SoHoBusyIndicatorComponent
+    SohoButtonComponent,
+    SohoBusyIndicatorComponent
 } from '../';
 
 import {
-    SoHoDataGridComponent,
+    SohoDataGridComponent,
     DataGridService
 } from '../../components/datagrid';
 
@@ -22,21 +22,21 @@ import {
 } from './datagrid-demo.service';
 
 import {
-  SoHoToastService
+  SohoToastService
 } from '../../services/';
 
 @Component({
     moduleId: module.id,
     selector: 'sample-datagrid',
     templateUrl: 'datagrid-service-demo.component.html',
-    providers: [ { provide: DataGridService, useClass: DataGridDemoService }, SoHoToastService ],
-    directives: [ SoHoDataGridComponent, SoHoButtonComponent, SoHoBusyIndicatorComponent ],
+    providers: [ { provide: DataGridService, useClass: DataGridDemoService }, SohoToastService ],
+    directives: [ SohoDataGridComponent, SohoButtonComponent, SohoBusyIndicatorComponent ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridServiceDemoComponent implements AfterContentInit, AfterViewInit {
-    @ViewChild(SoHoDataGridComponent) dataGrid: SoHoDataGridComponent;
-    @ViewChild(SoHoBusyIndicatorComponent) busyIndicator: SoHoBusyIndicatorComponent;
-    constructor(private el: ElementRef, private toastService: SoHoToastService) {
+    @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
+    @ViewChild(SohoBusyIndicatorComponent) busyIndicator: SohoBusyIndicatorComponent;
+    constructor(private el: ElementRef, private toastService: SohoToastService) {
     }
 
     ngAfterContentInit() {

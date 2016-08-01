@@ -26,13 +26,13 @@ import {
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SoHoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
+export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
 
   // -------------------------------------------
   // Options Block
   // -------------------------------------------
 
-  private options: SoHoBusyIndicatorOptions = {
+  private options: SohoBusyIndicatorOptions = {
     blockUI: false,
     text: 'Loading...', // I18N
     delay: 0,

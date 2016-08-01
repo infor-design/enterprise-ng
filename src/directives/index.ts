@@ -1,1 +1,1 @@
-export { SoHoPersonalizeDirective } from './soho-personalize.directive';
+export { SohoPersonalizeDirective } from './soho-personalize.directive';

@@ -13,7 +13,7 @@ import {
 @Directive({
   selector: '[soho-personalize]',
 })
-export class SoHoPersonalizeDirective implements AfterViewInit {
+export class SohoPersonalizeDirective implements AfterViewInit {
   constructor(private el: ElementRef) {
   }
 

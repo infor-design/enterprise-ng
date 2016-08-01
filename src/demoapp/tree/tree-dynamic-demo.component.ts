@@ -12,8 +12,8 @@ import { Observable } from 'rxjs/Observable';
 /* tslint:enable */
 
 import {
-  SoHoButtonComponent,
-  SoHoTreeComponent,
+  SohoButtonComponent,
+  SohoTreeComponent,
   TreeNode,
   TreeEvent
 }
@@ -23,7 +23,7 @@ from '../';
   moduleId: module.id,
   selector: 'tree-dynamic-demo',
   templateUrl: 'tree-dynamic-demo.component.html',
-  directives: [SoHoTreeComponent, SoHoButtonComponent],
+  directives: [SohoTreeComponent, SohoButtonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeDynamicDemoComponent implements AfterViewInit {
@@ -59,7 +59,7 @@ export class TreeDynamicDemoComponent implements AfterViewInit {
         }]
     }];
 
-  @ViewChild(SoHoTreeComponent) tree: SoHoTreeComponent;
+  @ViewChild(SohoTreeComponent) tree: SohoTreeComponent;
 
   private subject = new Subject<TreeNode[]>();
 

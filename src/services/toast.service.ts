@@ -13,12 +13,12 @@ export type ToastPositionType
   = 'top right' | 'top left' | 'bottom left' | 'bottom right';
 
 @Injectable()
-export class SoHoToastService {
+export class SohoToastService {
 
   /**
    * Show a toast using the specified options.
    */
-  show(options: SoHoToastOptions): void {
+  show(options: SohoToastOptions): void {
     jQuery('body').toast(options).show();
   }
 }

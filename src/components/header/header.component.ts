@@ -12,7 +12,7 @@ import {
   selector: 'soho-header',
   templateUrl: 'header.component.html',
 })
-export class HeaderComponent implements AfterViewInit {
+export class SohoHeaderComponent implements AfterViewInit {
   @HostBinding('class') get classes() {
     return 'header is-personalizable';
   }
