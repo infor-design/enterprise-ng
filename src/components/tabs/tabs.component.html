@@ -1,1 +1,5 @@
-<ng-content></ng-content>
+<template [ngIf]="!headerTabs">
+  <ng-content select="ul[soho-tab-list]"></ng-content>
+</template>
+
+<ng-content select="div[soho-tab-panel]"></ng-content>
