@@ -33,8 +33,8 @@ export class SohoTabComponent {
   @HostBinding('class.tab')         get isTab()         { return true; };
   @HostBinding('class.dismissible') get isDismissable() { return this.dismissible; };
   @HostBinding('class.is-selected') get isSelected()    { return this.selected; };
-  @HostBinding('attr.disabled')     get isDisabled()    { return this.disabled; };
-  @HostBinding('attr.hidden')       get isHidden()      { return this.hidden; };
+  @HostBinding('class.is-disabled') get isDisabled()    { return this.disabled; };
+  @HostBinding('class.hidden')      get isHidden()      { return this.hidden; };
 
   @Input() tabId:       string;
   @Input() tabTitle:    string;
@@ -165,9 +165,7 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
   /**
    * set to true to allow tab count markup <span class=tabcount>#</span>.
    * @type {boolean}
-   *
    */
-  // TODO make a component for tab counts? <span tab-count> ??
   @Input() tabCounts: boolean = false;
 
   /**
@@ -185,7 +183,7 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
   /**
    * set to true to display the tabs in the main header
    * @type {boolean}
-   * TODO Need to handle the tab-panels not being encapsuelated by this component. Use recommended service approach.
+   * TODO implement header tabs.
    */
   @Input() headerTabs: boolean = false;
 
