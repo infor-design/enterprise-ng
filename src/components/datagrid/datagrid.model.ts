@@ -15,7 +15,7 @@ export const DATAGRID_TYPE_LIST = [DATAGRID_TYPES.AUTO, DATAGRID_TYPES.CONTENT_O
 /**
  * Row height.
  */
-export type RowHeightType = 'normal' | 'medium' | 'small';
+export type RowHeightType = 'normal' | 'medium' | 'short';
 
 /**
  * List of valid formatters.
@@ -115,7 +115,7 @@ export class GridOptions {
   // Id to the right click context menu
   menuId: any = null;
   // (short, medium or normal)
-  rowHeight: RowHeightType = 'small';
+  rowHeight: RowHeightType = 'short';
   // false; 'single' or 'multiple'
   selectable: boolean | 'single' | 'multiple' = false;
   clickToSelect = true;
