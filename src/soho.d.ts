@@ -36,6 +36,11 @@ interface BusyIndicatorStatic {
   close: () => void;
 }
 
+interface SohoMenuButtonOptions {
+  menu: string;
+  trigger?: string;
+}
+
 interface JQueryStatic {
   applicationmenu: ApplicationMenuStatic;
   toast: ToastStatic;

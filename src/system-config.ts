@@ -16,6 +16,7 @@ const components = [
   'header',
   'icon',
   'masthead',
+  'menu-button',
   'tabs',
   'toolbar',
   'tree',
