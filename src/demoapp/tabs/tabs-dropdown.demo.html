@@ -1,23 +1,31 @@
 <div class="row">
   <div class="twelve columns">
 
-    <div soho-tabs>
+    <div soho-tabs vertical>
       <ul soho-tab-list>
-        <li soho-tab tabId='tabs-dropdown-information' tabTitle='Information'></li>
-        <li soho-menu-tab tabTitle="Paper">
+
+        <li soho-tab>
+          <a soho-tab-title tabId='tabs-dropdown-information'>Information</a>
+        </li>
+
+        <li soho-tab hasPopupMenu='true'>
+          <a soho-tab-title>Paper</a>
           <ul>
-            <li soho-menu-tab-item tabId='tabs-dropdown-paper-cash' tabTitle='Cash'></li>
-            <li soho-menu-tab-item tabId='tabs-dropdown-paper-plates' tabTitle='Plates'></li>
-            <li soho-menu-tab-item tabId='tabs-dropdown-paper-bags' tabTitle='Bags'></li>
+            <li><a soho-tab-title tabId='tabs-dropdown-paper-cash'>Cash</a></li>
+            <li><a soho-tab-title tabId='tabs-dropdown-paper-plates'>Plates</a></li>
+            <li><a soho-tab-title tabId='tabs-dropdown-paper-bags'>Bags</a></li>
           </ul>
         </li>
-        <li soho-menu-tab tabTitle="Plastic">
+
+        <li soho-tab hasPopupMenu='true'>
+          <a soho-tab-title>Plastic</a>
           <ul>
-            <li soho-menu-tab-item tabId='tabs-dropdown-plastic-creditcards' tabTitle='Credit Cards'></li>
-            <li soho-menu-tab-item tabId='tabs-dropdown-plastic-plates' tabTitle='Plates'></li>
-            <li soho-menu-tab-item tabId='tabs-dropdown-plastic-bags' tabTitle='Bags'></li>
+            <li><a soho-tab-title tabId='tabs-dropdown-plastic-creditcards'>Credit Cards</a></li>
+            <li><a soho-tab-title tabId='tabs-dropdown-plastic-plates'>Plates</a></li>
+            <li><a soho-tab-title tabId='tabs-dropdown-plastic-bags'>Bags</a></li>
           </ul>
         </li>
+
       </ul>
 
       <div soho-tab-panel tabId='tabs-dropdown-information'>

@@ -20,36 +20,49 @@ import {
 @Component({
   moduleId: module.id,
   selector: 'li[soho-tab]',
-  template: `
-    <a href="#{{tabId}}">
-      <ng-content></ng-content>
-      <span *ngIf="tabCount" [class.count]="!!tabCount">{{tabCount}}</span>
-      {{tabTitle}}
-    </a>`,
+  template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 
 })
 export class SohoTabComponent {
-  @HostBinding('class.tab')         get isTab()         { return true; };
-  @HostBinding('class.dismissible') get isDismissable() { return this.dismissible; };
-  @HostBinding('class.is-selected') get isSelected()    { return this.selected; };
-  @HostBinding('class.is-disabled') get isDisabled()    { return this.disabled; };
-  @HostBinding('class.hidden')      get isHidden()      { return this.hidden; };
+  @HostBinding('class.tab') get isTab() { return true; };
 
-  @Input() tabId:       string;
-  @Input() tabTitle:    string;
-  @Input() tabCount:    string; // TODO ppatton - use a string in case the value needs to be formatted?
-  @Input() dismissible: boolean = false;
-  @Input() selected:    boolean = false;
-  @Input() disabled:    boolean = false;
-  @Input() hidden:      boolean = false;
+  @HostBinding('class.dismissible')   @Input() dismissible:  boolean = false;
+  @HostBinding('class.is-selected')   @Input() selected:     boolean = false;
+  @HostBinding('class.is-disabled')   @Input() disabled:     boolean = false;
+  @HostBinding('class.hidden')        @Input() hidden:       boolean = false;
+  @HostBinding('class.has-popupmenu') @Input() hasPopupMenu: boolean = false;
+}
+
+/**
+ * Internal component to support the tab title
+ */
+@Component({
+  selector: 'a[soho-tab-title]',
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoTabTitleComponent {
+  @HostBinding('attr.href') get hrefAttr() { return '#' + this.tabId; };
+  @Input() tabId: string;
+}
+
+/**
+ * Internal component to support the tab with a 'count' on it.
+ */
+@Component({
+  selector: 'span[soho-tab-count]',
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoTabCountComponent {
+  @HostBinding('class.count') get isTabCount() { return true; };
 }
 
 /**
  * Internal component to support menu/dropdown tabs
  */
 @Component({
-  moduleId: module.id,
   selector: 'li[soho-tab-separator]',
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -59,40 +72,9 @@ export class SohoTabSeparatorComponent {
 }
 
 /**
- * Internal component to support menu/dropdown tabs
- */
-@Component({
-  moduleId: module.id,
-  selector: 'li[soho-menu-tab]',
-  template: `<a href="#">{{tabTitle}}</a><ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-})
-export class SohoMenuTabComponent extends SohoTabComponent {
-  @HostBinding('class.tab') get isTab() { return true; };
-  @HostBinding('class.has-popupmenu') get hasPopupMenu() { return true; };
-
-  @Input() tabTitle: string;
-}
-
-/**
- * Internal component to support the menu tab items
- */
-@Component({
-  moduleId: module.id,
-  selector: 'li[soho-menu-tab-item]',
-  template: `<a attr.href="#{{tabId}}"><ng-content></ng-content>{{tabTitle}}</a>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-})
-export class SohoMenuTabItemComponent extends SohoTabComponent {
-  @Input() tabId: string;
-  @Input() tabTitle: string;
-}
-
-/**
  * Internal component to support tab panel content.
  */
 @Component({
-  moduleId: module.id,
   selector: 'div[soho-tab-panel]',
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -113,12 +95,6 @@ export class SohoTabPanelComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabsListComponent {
-  private sohoTabsComponent: SohoTabsComponent;
-
-  constructor(@Inject(forwardRef(() => SohoTabsComponent)) sohoTabsComponent: SohoTabsComponent) {
-    this.sohoTabsComponent = sohoTabsComponent;
-  }
-
   @HostBinding('class.tab-list') get isTabList() { return true; };
   @Input() headerTabs: boolean = false;
 
@@ -127,10 +103,14 @@ export class SohoTabsListComponent {
   // a child selector. Any component using this component will end up placing an element
   // between the '.page-container' and 'tab-container.vertical' causing child selector
   // not to get used.
+  // TODO ppatton once the css handles encapsulaing markup then this can be removed.
   // -----------------------------------------------------------------------------------------
-  @HostBinding('style.height') get tabListHeight() {
-    return this.sohoTabsComponent.vertical ? '100%' : '';
-  };
+  @HostBinding('style.height') get tabListHeight() { return this.sohoTabsComponent.vertical ? '100%' : ''; };
+  private sohoTabsComponent: SohoTabsComponent;
+  constructor(@Inject(forwardRef(() => SohoTabsComponent)) sohoTabsComponent: SohoTabsComponent) {
+    this.sohoTabsComponent = sohoTabsComponent;
+  }
+  // -----------------------------------------------------------------------------------------
 }
 
 /**
@@ -266,9 +246,17 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
 
   // ------------------------------------------------------------------------
 
+  // Reference to the jQuery control.
   private jQueryElement: any;
+
+  // Reference to the soho tabs control api.
   private tabs: any;
 
+  /**
+   * Constructor.
+   *
+   * @param elementRef - the element matching the component's selector.
+   */
   constructor(private element: ElementRef) {}
 
   ngAfterViewInit() {
@@ -460,9 +448,9 @@ export const TABS_COMPONENTS = [
   SohoTabsComponent,
   SohoTabsListComponent,
   SohoTabComponent,
+  SohoTabTitleComponent,
+  SohoTabCountComponent,
   SohoTabSeparatorComponent,
-  SohoMenuTabComponent,
-  SohoMenuTabItemComponent,
   SohoTabPanelComponent
 ];
 
