@@ -13,6 +13,7 @@ import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic-demo.c
 import { ToolbarDemoComponent } from './toolbar/toolbar.demo';
 
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
+import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDismissibleDemoComponent } from './tabs/tabs-dismissible.demo';
 import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
@@ -34,6 +35,7 @@ export const routes: RouterConfig = [
   { path: 'datagrid-service', component: DataGridServiceDemoComponent },
   { path: 'datagrid-content', component: DataGridContentDemoComponent },
   { path: 'tabs-basic',       component: TabsBasicDemoComponent },
+  { path: 'tabs-vertical',    component: TabsVerticalDemoComponent },
   { path: 'tabs-counts',      component: TabsCountsDemoComponent },
   { path: 'tabs-dismissible', component: TabsDismissibleDemoComponent },
   { path: 'tabs-dropdown',    component: TabsDropdownDemoComponent },
