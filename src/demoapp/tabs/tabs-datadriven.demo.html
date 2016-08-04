@@ -3,7 +3,7 @@
 
     <div soho-tabs (activated)="onTabActivated($event)">
       <ul soho-tab-list>
-        <li soho-tab *ngFor="let tab of tabs" [tabId]="tab.id">{{tab.title}}</li>
+        <li soho-tab *ngFor="let tab of tabs"><a soho-tab-title [tabId]="tab.id">{{tab.title}}</a></li>
       </ul>
       <div soho-tab-panel *ngFor="let tab of tabs" [tabId]="tab.id"><p>{{tab.content}}</p></div>
     </div>
