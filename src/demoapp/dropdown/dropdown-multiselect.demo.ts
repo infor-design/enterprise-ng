@@ -3,11 +3,11 @@ import { SohoDropdownComponent, SohoButtonComponent } from '../';
 
 @Component({
   moduleId: module.id,
-  selector: 'soho-dropdown-demo',
-  templateUrl: 'dropdown.demo.html',
+  selector: 'soho-dropdown-multiselect-demo',
+  templateUrl: 'dropdown-multiselect.demo.html',
   directives: [ SohoButtonComponent, SohoDropdownComponent ],
 })
-export class DropdownDemoComponent implements OnInit {
+export class DropdownMultiselectDemoComponent implements OnInit {
   private options: Array<Object> = [
     { value: 'AL', text: 'Alabama' },
     { value: 'CA', text: 'California' },

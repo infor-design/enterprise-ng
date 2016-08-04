@@ -93,12 +93,6 @@ export class SohoDropdownComponent implements AfterViewInit, OnDestroy {
     // TODO: Figure out what element to send to jQuery to init the dropdown
     this.jQueryElement = jQuery(this.element.nativeElement);
 
-    /**
-     * Bind to jQueryElement's events
-     */
-    this.jQueryElement.bind('change', () => { this.change.emit(null); });
-    this.jQueryElement.bind('updated', () => { this.updated.emit(null); });
-
     this.jQueryElement.dropdown({
       closeOnSelect: this.closeOnSelect,
       cssClass: this.cssClass,
@@ -110,6 +104,13 @@ export class SohoDropdownComponent implements AfterViewInit, OnDestroy {
       noSearch: this.noSearch,
       source: this.source,
     });
+
+    /**
+     * Bind to jQueryElement's events
+     */
+    this.jQueryElement.on('change', (event: any) => this.change.emit(event));
+    this.jQueryElement.on('updated', (event: any) => this.updated.emit(event));
+
     this.dropdown = this.jQueryElement.data('dropdown');
   }
   ngOnDestroy() {
