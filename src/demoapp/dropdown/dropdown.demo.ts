@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { SoHoDropdownComponent, SoHoButtonComponent } from '../';
+import { SohoDropdownComponent, SohoButtonComponent } from '../';
 
 @Component({
   moduleId: module.id,
   selector: 'soho-dropdown-demo',
   templateUrl: 'dropdown.demo.html',
-  directives: [ SoHoButtonComponent, SoHoDropdownComponent ],
+  directives: [ SohoButtonComponent, SohoDropdownComponent ],
 })
 export class DropdownDemoComponent implements OnInit {
   private options: Array<Object> = [
@@ -26,7 +26,7 @@ export class DropdownDemoComponent implements OnInit {
   private multiCounter = 0;
   constructor() { }
   ngOnInit() { }
-  getValue(dropdown: SoHoDropdownComponent) {
+  getValue(dropdown: SohoDropdownComponent) {
     return dropdown.value.join(', ');
   }
   onAddOption() {

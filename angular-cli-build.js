@@ -45,7 +45,7 @@ module.exports = function(defaults) {
       'vendor/systemjs/dist/system.src.js',
       'vendor/zone.js/dist/zone.js',
       'vendor/immutable/dist/immutable.js',
-      'vendor/@infor/sohoxi/dist/js/jquery-3.0.0.min.js',
+      'vendor/@infor/sohoxi/dist/js/jquery-3.0.0-rc1.min.js',
       'vendor/@infor/sohoxi/dist/js/sohoxi.js',
     ],
     vendorNpmFiles: [

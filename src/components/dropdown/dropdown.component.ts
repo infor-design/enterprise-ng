@@ -14,7 +14,7 @@ import {
   selector: 'select[soho-dropdown]',
   template: '<ng-content></ng-content>'
 })
-export class SoHoDropdownComponent implements AfterViewInit, OnDestroy {
+export class SohoDropdownComponent implements AfterViewInit, OnDestroy {
   /**
    * Assign the id for the control
    * (maps to the name to use on a label's 'for' attribute)
