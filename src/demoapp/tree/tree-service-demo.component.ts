@@ -12,8 +12,8 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 import {
-  SoHoButtonComponent,
-  SoHoTreeComponent,
+  SohoButtonComponent,
+  SohoTreeComponent,
   TreeService,
   TreeNode,
   TreeEvent
@@ -30,7 +30,7 @@ import {
   selector: 'tree-service-demo',
   templateUrl: 'tree-service-demo.component.html',
   providers: [{ provide: TreeService, useClass: TreeDemoService }],
-  directives: [SoHoTreeComponent, SoHoButtonComponent],
+  directives: [SohoTreeComponent, SohoButtonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeServiceDemoComponent {
@@ -66,7 +66,7 @@ export class TreeServiceDemoComponent {
         }]
     }];
 
-  @ViewChild(SoHoTreeComponent) tree: SoHoTreeComponent;
+  @ViewChild(SohoTreeComponent) tree: SohoTreeComponent;
 
   private subject = new Subject<TreeNode[]>();
 

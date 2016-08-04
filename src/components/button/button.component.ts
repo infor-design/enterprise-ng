@@ -30,7 +30,7 @@ const BUTTON_TYPE_LIST = [
   templateUrl: './button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SoHoButtonComponent implements AfterViewInit, OnDestroy {
+export class SohoButtonComponent implements AfterViewInit, OnDestroy {
   private jQueryElement: any;
   private button: any;
   private buttonType: any;

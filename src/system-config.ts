@@ -11,14 +11,16 @@ const components = [
   'application-menu',
   'busyindicator',
   'button',
-  'expandablearea',
   'datagrid',
   'dropdown',
+  'expandablearea',
   'header',
   'icon',
   'masthead',
-  'tree',
+  'menu-button',
+  'tabs',
   'toolbar',
+  'tree',
 ];
 
 const componentBarrels: string[] = [];

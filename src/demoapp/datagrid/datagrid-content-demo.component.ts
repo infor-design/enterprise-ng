@@ -8,8 +8,8 @@ import {
 } from '@angular/core';
 
 import {
-  SoHoDataGridComponent,
-  SoHoButtonComponent
+  SohoDataGridComponent,
+  SohoButtonComponent
 } from '../';
 
 @Component({
@@ -17,11 +17,11 @@ import {
   selector: 'sample-datagrid',
   templateUrl: 'datagrid-content-demo.component.html',
   providers: [],
-  directives: [SoHoDataGridComponent, SoHoButtonComponent],
+  directives: [SohoDataGridComponent, SohoButtonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridContentDemoComponent implements AfterContentInit, AfterViewInit {
-  @ViewChild(SoHoDataGridComponent) dataGrid: SoHoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
 
   constructor(private el: ElementRef) {
   }

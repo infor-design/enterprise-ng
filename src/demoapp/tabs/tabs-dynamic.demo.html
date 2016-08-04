@@ -1,0 +1,22 @@
+<div style="padding: 20px 20px 0 20px;">
+  <div class="row">
+    <div class="inline">
+      <button soho-button (click)="onChangeTabs($event)">Change Tabs</button>
+      <button soho-button (click)="onChangeTitles($event)">Change Titles</button>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="twelve columns">
+
+    <div soho-tabs>
+      <ul soho-tab-list>
+        <li soho-tab *ngFor="let tab of tabs" [tabId]="tab.id">{{tab.title}}</li>
+      </ul>
+
+      <div soho-tab-panel *ngFor="let tab of tabs" [tabId]="tab.id"><p>{{tab.content}}</p></div>
+    </div>
+
+  </div>
+</div>

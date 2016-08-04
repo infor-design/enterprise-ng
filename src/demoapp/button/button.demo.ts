@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { SoHoButtonComponent, BUTTON_TYPES } from '../';
+import { SohoButtonComponent, BUTTON_TYPES } from '../';
 
 @Component({
   moduleId: module.id,
   selector: 'soho-button-demo',
   templateUrl: 'button.demo.html',
-  directives: [ SoHoButtonComponent ],
+  directives: [ SohoButtonComponent ],
 })
 export class ButtonDemoComponent implements OnInit {
   private types = BUTTON_TYPES; // tslint:disable-line

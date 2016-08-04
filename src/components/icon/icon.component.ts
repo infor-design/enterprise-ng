@@ -5,4 +5,4 @@ import { Component } from '@angular/core';
   selector: 'soho-icons',
   templateUrl: 'vendor/@infor/sohoxi/dist/svg.html',
 })
-export class SoHoIconComponent {}
+export class SohoIconComponent {}

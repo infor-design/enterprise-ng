@@ -52,7 +52,7 @@ import {
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SoHoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
+export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
   // -------------------------------------------
   // Component Inputs

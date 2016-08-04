@@ -22,7 +22,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
   directives: [ROUTER_DIRECTIVES],
   templateUrl: 'application-menu.component.html'
 })
-export class ApplicationMenuComponent {
+export class SohoApplicationMenuComponent {
 
   // -------------------------------------------
   // Component Inputs
@@ -104,7 +104,7 @@ export class ApplicationMenuComponent {
     // Wrap for later.
     this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
-    let options: SoHoApplicationMenuOptions = {
+    let options: SohoApplicationMenuOptions = {
       breakpoint: this.breakpoint,
       openOnLarge: this.openOnLarge,
       triggers: this._triggers
