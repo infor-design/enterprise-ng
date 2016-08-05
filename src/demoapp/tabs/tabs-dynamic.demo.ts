@@ -17,7 +17,7 @@ import {
 
 /**
  * This sample:
- * - shows a the flash of unassigned content issue when changing the tabs
+ * - shows the flash of unassigned content issue when changing the tabs
  * - shows updating the tab title programatically
  * - shows how to get a reference to the SohoTabsComponent to message it's methods
  * - handling an event from the SohoTabComponent
