@@ -4,7 +4,7 @@ import {
   OnInit
 } from '@angular/core';
 
-import { TABS_COMPONENTS, TabsEvent } from '../.';
+import { TABS_DIRECTIVES, TabsEvent } from '../.';
 
 /**
  * This sample:
@@ -15,7 +15,7 @@ import { TABS_COMPONENTS, TabsEvent } from '../.';
   moduleId: module.id,
   selector: 'tabs-datadriven-demo',
   templateUrl: './tabs-datadriven.demo.html',
-  directives: [ TABS_COMPONENTS ]
+  directives: [ TABS_DIRECTIVES ]
 })
 export class TabsDataDrivenDemoComponent implements OnInit {
 
