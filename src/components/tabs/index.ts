@@ -1,4 +1,14 @@
-export * from './tabs.component';
+import {
+  SohoTabsComponent,
+  SohoTabsListComponent,
+  SohoTabComponent,
+  SohoTabTitleComponent,
+  SohoTabCountComponent,
+  SohoTabSeparatorComponent,
+  SohoTabPanelComponent,
+} from './tabs.component';
+
+export { SohoTabsComponent } from './tabs.component';
 
 /**
  * Holds all directives usable for the tabs component.
@@ -10,7 +20,7 @@ export const TABS_DIRECTIVES = [
   SohoTabTitleComponent,
   SohoTabCountComponent,
   SohoTabSeparatorComponent,
-  SohoTabPanelComponent
+  SohoTabPanelComponent,
 ];
 
 /**
