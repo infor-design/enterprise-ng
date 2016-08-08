@@ -4,6 +4,7 @@ import {
   Component,
   ElementRef,
   HostBinding,
+  HostListener,
   Input,
   OnDestroy,
 } from '@angular/core';
@@ -30,6 +31,9 @@ const BUTTON_TYPE_LIST = [
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoButtonComponent implements AfterViewInit, OnDestroy {
+  private jQueryElement: any;
+  private button: any;
+  private buttonType: any;
 
   @Input('soho-button') set sohoButton(type: string) {
     if (BUTTON_TYPE_LIST.includes(type)) {
@@ -40,9 +44,29 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
       this.buttonType = BUTTON_TYPES.PRIMARY;
     }
   }
+  /**
+   * The icon to be used
+   *  - shows when the state is true if toggle has a value
+   */
   @Input() icon: string;
-  @Input() ripple: boolean = true;
+  /**
+   * Sets the button type to 'submit' when true
+   */
   @Input() isSubmit: boolean = false;
+  /**
+   * Sets whether the button should have a ripple effect on click
+   */
+  @Input() ripple: boolean = true;
+  /**
+   * Binary state (toggle):
+   *  0 - shows toggle
+   *  1 - shows icon (default)
+   */
+  @Input() state: boolean = true;
+  /**
+   * The icon to be used when the state is false
+   */
+  @Input() toggle: string;
 
   @HostBinding('class.btn-primary') get btnPrimary() { return this.buttonType === BUTTON_TYPES.PRIMARY; };
   @HostBinding('class.btn-secondary') get btnSecondary(): boolean { return this.buttonType === BUTTON_TYPES.SECONDARY; };
@@ -50,10 +74,9 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.btn-icon') get btnIcon(): boolean { return this.buttonType === BUTTON_TYPES.ICON; };
   @HostBinding('class.no-ripple') get noRipple(): boolean { return !this.ripple; };
   @HostBinding('attr.type') type = this.isSubmit ? 'submit' : 'button';
-
-  private jQueryElement: any;
-  private button: any;
-  private buttonType: any;
+  @HostListener('click') toggleState() {
+    this.state = !this.state;
+  }
 
   constructor(private element: ElementRef) {}
   ngAfterViewInit() {
@@ -64,5 +87,11 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
   }
   ngOnDestroy() {
     this.button.destroy();
+  }
+  get currentIcon() {
+    if (!this.toggle) {
+      return this.icon;
+    }
+    return this.state ? this.icon : this.toggle;
   }
 }

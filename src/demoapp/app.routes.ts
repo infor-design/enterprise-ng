@@ -10,6 +10,8 @@ import { TreeDynamicDemoComponent } from './tree/tree-dynamic-demo.component';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service-demo.component';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content-demo.component';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic-demo.component';
+import { DropdownDemoComponent } from './dropdown/dropdown.demo';
+import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { ToolbarDemoComponent } from './toolbar/toolbar.demo';
 
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
@@ -24,6 +26,8 @@ export const routes: RouterConfig = [
   { path: '',                 component: ExpandableAreaDemoComponent }, // default
   { path: 'button',           component: ButtonDemoComponent },
   { path: 'busyindicator',    component: BusyIndicatorDemoComponent },
+  { path: 'dropdown',         component: DropdownDemoComponent },
+  { path: 'dropdown-multi',   component: DropdownMultiselectDemoComponent },
   { path: 'expandablearea',   component: ExpandableAreaDemoComponent },
   { path: 'toolbar',          component: ToolbarDemoComponent },
   { path: 'icon',             component: IconDemoComponent },
@@ -43,7 +47,6 @@ export const routes: RouterConfig = [
   { path: 'tabs-dynamic',     component: TabsDynamicDemoComponent },
 
   // { path: 'accordian',       component: AccordionSampleComponent},
-  // { path: 'dropdown',        component: DropdownSampleComponent}
 ];
 
 export const APP_ROUTER_PROVIDERS = [

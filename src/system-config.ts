@@ -12,6 +12,7 @@ const components = [
   'busyindicator',
   'button',
   'datagrid',
+  'dropdown',
   'expandablearea',
   'header',
   'icon',
