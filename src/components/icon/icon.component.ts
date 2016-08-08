@@ -1,8 +1,16 @@
 
-import { Component } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  Input,
+  OnInit,
+} from '@angular/core';
 
 @Component({
-  selector: 'soho-icons',
-  templateUrl: 'vendor/@infor/sohoxi/dist/svg.html',
+  moduleId: module.id,
+  selector: 'soho-icon',
+  templateUrl: 'icon.component.html',
 })
-export class SohoIconComponent {}
+export class SohoIconComponent {
+  @Input() icon: string = '';
+}

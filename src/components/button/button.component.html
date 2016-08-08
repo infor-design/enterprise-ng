@@ -1,6 +1,4 @@
-<svg *ngIf="icon" role="presentation" aria-hidden="true" focusable="false" class="icon">
-  <use [attr.xlink:href]="'#icon-' + currentIcon"/>
-</svg>
+<soho-icon *ngIf="icon" [icon]="icon"></soho-icon>
 <span>
   <ng-content></ng-content>
 </span>
