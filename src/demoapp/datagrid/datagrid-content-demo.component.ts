@@ -18,7 +18,7 @@ import {
   templateUrl: 'datagrid-content-demo.component.html',
   providers: [],
   directives: [SohoDataGridComponent, SohoButtonComponent],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DataGridContentDemoComponent implements AfterContentInit, AfterViewInit {
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;

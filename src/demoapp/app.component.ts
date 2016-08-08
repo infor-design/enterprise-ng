@@ -1,8 +1,9 @@
 import {
+  AfterViewInit,
   Component,
   HostBinding,
-  AfterViewInit,
-  ViewChild
+  ViewChild,
+  ViewEncapsulation,
 } from '@angular/core';
 
 import {
@@ -32,6 +33,9 @@ import {
 import {
   ApplicationMenuDemoComponent
 } from './application-menu/application-menu.demo';
+import {
+  routes
+} from './app.routes';
 
 @Component({
   moduleId: module.id,
@@ -48,6 +52,10 @@ import {
     SohoPersonalizeDirective,
     ROUTER_DIRECTIVES,
   ],
+  precompile: (<any[]>routes.map((route) => {
+    return route.component;
+  })),
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements AfterViewInit {
   @ViewChild(SohoApplicationMenuComponent) applicationMenu: SohoApplicationMenuComponent;

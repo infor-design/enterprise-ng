@@ -12,6 +12,7 @@ import {
   forwardRef,
 } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
+import { ExpandableAreaEvent } from './';
 
 /**
  * Helper Component for the ExpandableAreaComponent
@@ -194,30 +195,4 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   get visiblePaneClasses() {
     return 'expandable-visible-pane';
   }
-}
-
-/**
- * Holds all directives usable for expandablearea
- */
-export const EXPANDABLEAREA_COMPONENTS = [
-  ExpandableAreaComponent,
-  ExpandableHeaderComponent,
-  ExpandablePaneComponent,
-];
-
-/**
- * Interface for the jQuery event emitted
- */
-export interface ExpandableAreaEvent {
-  currentTarget: HTMLElement;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
 }

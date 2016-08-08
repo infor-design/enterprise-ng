@@ -57,7 +57,7 @@ export class SohoHeaderComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit() {
     // Wrap for later.
-    this.jQueryElement = $(this.elementRef.nativeElement);
+    this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
     // Initialise the SoHoXi control.
     this.jQueryElement.header();

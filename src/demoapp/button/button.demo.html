@@ -1,5 +1,6 @@
 <div class="example-section">
   <div class="row">
+    <h1>Buttons</h1>
     <span class="code-tag">Live Example</span>
     <div class="row">
       <div class="three columns">
@@ -13,6 +14,10 @@
         <br>
         <br>
         <button soho-button icon="alert">Primary Button</button>
+        <br>
+        <br>
+        <br>
+        <button soho-button icon="alert" toggle="error">Toggles Icon</button>
         <br>
         <br>
         <br>
@@ -30,6 +35,10 @@
         <br>
         <br>
         <button [soho-button]="types.SECONDARY" icon="settings">Secondary Button</button>
+        <br>
+        <br>
+        <br>
+        <button [soho-button]="types.SECONDARY" icon="user-profile" toggle="refresh" (click)="toggleHello()">{{shouldSayHi ? "Goodbye" : "Say Hello"}}</button>
       </div>
 
       <div class="three columns">
@@ -47,8 +56,15 @@
         <br>
         <br>
         <br>
+        <button [soho-button]="types.ICON" icon="calendar" toggle="error" title="Toggle Date">Toggle Date</button>
+        <br>
+        <br>
+        <br>
         <button [soho-button]="types.ICON" icon="calendar" disabled>Date</button>
       </div>
+    </div>
+    <div *ngIf="shouldSayHi" class="row">
+      <h2>Hello there!</h2>
     </div>
   </div>
 </div>
