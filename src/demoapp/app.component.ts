@@ -25,6 +25,9 @@ import {
 } from '../directives';
 
 import {
+  MaskDemoComponent
+} from './mask/mask.demo';
+import {
   MastheadDemoComponent
 } from './masthead/masthead.demo';
 import {
@@ -45,6 +48,7 @@ import {
   directives: [
     SohoIconComponent,
     SohoIconExtendedComponent,
+    MaskDemoComponent,
     MastheadDemoComponent,
     HeaderDemoComponent,
     ApplicationMenuDemoComponent,

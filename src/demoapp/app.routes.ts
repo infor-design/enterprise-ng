@@ -3,6 +3,7 @@ import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator-demo.c
 import { ButtonDemoComponent } from './button/button.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { IconDemoComponent } from './icon/icon.demo';
+import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service-demo.component';
 import { TreeContentDemoComponent } from './tree/tree-content-demo.component';
@@ -31,6 +32,7 @@ export const routes: RouterConfig = [
   { path: 'expandablearea',   component: ExpandableAreaDemoComponent },
   { path: 'toolbar',          component: ToolbarDemoComponent },
   { path: 'icon',             component: IconDemoComponent },
+  { path: 'mask',             component: MaskDemoComponent },
   { path: 'menu-button',      component: MenuButtonDemoComponent },
   { path: 'tree-dynamic',     component: TreeDynamicDemoComponent },
   { path: 'tree-service',     component: TreeServiceDemoComponent },
