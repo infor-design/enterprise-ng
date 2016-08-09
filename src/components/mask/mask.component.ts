@@ -7,6 +7,7 @@ import {
   OnDestroy,
   Output
 } from '@angular/core';
+import { MaskEvent } from './';
 
 @Component({
   selector: 'input[soho-mask]',
@@ -105,22 +106,4 @@ export class SohoMaskComponent implements AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.mask.destroy();
   }
-}
-
-export const MASK_COMPONENTS = [
-  SohoMaskComponent
-];
-
-export interface MaskEvent {
-  currentTarget: HTMLElement;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
 }

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { MASK_COMPONENTS, MaskEvent } from '../';
+import { Component, HostBinding, Input } from '@angular/core';
+import { SohoMaskComponent, MaskEvent } from '../';
 
 /**
  * This example:
@@ -9,7 +9,7 @@ import { MASK_COMPONENTS, MaskEvent } from '../';
   moduleId: module.id,
   selector: 'soho-mask-demo',
   templateUrl: './mask.demo.html',
-  directives: [ MASK_COMPONENTS ],
+  directives: [ SohoMaskComponent ],
   styles :
   [`
     .alignRight {
@@ -18,6 +18,8 @@ import { MASK_COMPONENTS, MaskEvent } from '../';
   `]
 })
 export class MaskDemoComponent {
+  @HostBinding('class.alignRight') @Input() alignRight: boolean = false;
+
   onMaskWrite(event: MaskEvent) {
     console.log('MaskDemoComponent.onMaskWrite');
   }
