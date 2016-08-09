@@ -16,6 +16,7 @@ const components = [
   'expandablearea',
   'header',
   'icon',
+  'lookup',
   'masthead',
   'menu-button',
   'tabs',
