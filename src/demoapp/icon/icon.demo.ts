@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SohoButtonComponent, BUTTON_TYPES, SohoIconComponent } from '../.';
 
 @Component({
@@ -7,16 +7,6 @@ import { SohoButtonComponent, BUTTON_TYPES, SohoIconComponent } from '../.';
   templateUrl: 'icon.demo.html',
   directives: [ SohoButtonComponent, SohoIconComponent ]
 })
-export class IconDemoComponent implements OnInit, AfterViewInit {
+export class IconDemoComponent {
   private types = BUTTON_TYPES; // tslint:disable-line
-  private jQueryElement: any;
-
-  constructor(private element: ElementRef) {}
-
-  ngOnInit() { }
-
-  ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
-    this.jQueryElement.button();
-  }
 }
