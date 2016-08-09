@@ -9,6 +9,8 @@ import {
 } from '@angular/core';
 import { MaskEvent } from './';
 
+export type SohoMaskMode = 'group' | 'number' | 'date' | 'time';
+
 @Component({
   selector: 'input[soho-mask]',
   template: '<ng-content></ng-content>'
@@ -35,7 +37,7 @@ export class SohoMaskComponent implements AfterViewInit, OnDestroy {
   /**
    * Indicates special formatting rules may apply to the mask
    */
-  @Input() mode: string | 'group' | 'number' | 'date' | 'time' = undefined;
+  @Input() mode: SohoMaskMode = undefined;
   /**
    * Indicates to complete the full mask or the mask will revert to empty.
    */

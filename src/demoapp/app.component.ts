@@ -48,7 +48,6 @@ import {
   directives: [
     SohoIconComponent,
     SohoIconExtendedComponent,
-    MaskDemoComponent,
     MastheadDemoComponent,
     HeaderDemoComponent,
     ApplicationMenuDemoComponent,
