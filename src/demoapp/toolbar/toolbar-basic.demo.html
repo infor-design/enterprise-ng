@@ -1,0 +1,41 @@
+<soho-toolbar [maxVisibleButtons]="4">
+  <soho-toolbar-title>
+    <span class='section-title'>Basic Toolbar</span>
+  </soho-toolbar-title>
+
+  <soho-toolbar-button-set>
+        <!-- search field -->
+    <label class="audible" attr.for='my-search-field'>Search</label>
+    <input class="searchfield" id='my-search-field' placeholder='Search' name='Search'/>
+
+    <!-- buttons -->
+    <button id="create" soho-button='icon' icon="add" title="Add" attr.data-button="{'btn': 'create'}"></button>
+
+    <!-- menu button for Charts -->
+<!--
+    <button soho-menu-button id='charts-btn' icon="charts" popupMenuId="charts-menu"></button>
+    <ul soho-popup-menu hasIcons="false" id="charts-menu">
+      <li id='pie'><a href="#" attr.data="{'menu': 'pie'}">Pie Chart</a></li>
+      <li id='line'><a href="#" attr.data="{'menu': 'line'}">Line Chart</a></li>
+      <li id='bubble'><a href="#" attr.data="{'menu': 'bubble'}">Bubble Chart</a></li>
+    </ul>
+-->
+
+    <!-- menu button for Charts -->
+    <button id='charts-btn' class='btn-menu' attr.data-button="{'btn': 'charts'}" type="button">
+      <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href='#icon-pie-chart'></use></svg>
+      <span>{{button?.text}}</span>
+      <svg class="icon icon-dropdown"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-dropdown"></use></svg>
+    </button>
+    <ul class="popupmenu">
+      <li id='pie'><a href="#"    attr.data="{'menu': 'pie'}">Pie Chart</a></li>
+      <li id='line'><a href="#"   attr.data="{'menu': 'line'}">Line Chart</a></li>
+      <li id='bubble'><a href="#" attr.data="{'menu': 'bubble'}">Bubble Chart</a></li>
+    </ul>
+
+    <button id="update-btn" soho-button='icon' icon="add" title="Open" attr.data-button="{'btn': 'update'}"></button>
+    <button id="delete-btn" soho-button='icon' icon="add" title="Delete" attr.data-button="{'btn': 'delete'}"></button>
+    <button id="refresh-btn" soho-button='icon' icon="refresh" title="Refresh" attr.data-button="{'btn': 'refresh'}"></button>
+
+  </soho-toolbar-button-set>
+</soho-toolbar>

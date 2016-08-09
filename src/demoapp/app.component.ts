@@ -5,25 +5,21 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-
 import {
   ROUTER_DIRECTIVES
 } from '@angular/router';
-
 import {
   SohoIconsComponent,
   SohoIconsExtendedComponent,
-  SohoApplicationMenuComponent
+  SohoApplicationMenuComponent,
+  SohoHeaderComponentRefService,
 } from '../components';
-
 import {
   ArgumentHelper
 } from '../utils';
-
 import {
   SohoPersonalizeDirective
 } from '../directives';
-
 import {
   MastheadDemoComponent
 } from './masthead/masthead.demo';
@@ -42,6 +38,7 @@ import {
   selector: 'body',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
+  providers: [ SohoHeaderComponentRefService ],
   directives: [
     SohoIconsComponent,
     SohoIconsExtendedComponent,
