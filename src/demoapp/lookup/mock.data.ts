@@ -77,14 +77,6 @@ export const productsData = [
 
 export const productsColumns = [
   {
-    id: 'selectionCheckbox',
-    sortable: false,
-    resizable: false,
-    width: 50,
-    formatter: Formatters.SelectionCheckbox,
-    align: 'center',
-  },
-  {
     id: 'productId',
     name: 'Product Id',
     field: 'productId',
@@ -127,3 +119,12 @@ export const productsColumns = [
     dateFormat: 'M/d/yyyy',
   },
 ];
+
+export const checkboxColumn = {
+  id: 'selectionCheckbox',
+  sortable: false,
+  resizable: false,
+  width: 50,
+  formatter: Formatters.SelectionCheckbox,
+  align: 'center',
+};
