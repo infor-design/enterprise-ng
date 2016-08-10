@@ -2,7 +2,9 @@ import { provideRouter, RouterConfig } from '@angular/router';
 import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator-demo.component';
 import { ButtonDemoComponent } from './button/button.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
+import { ToastDemoComponent } from './toast/toast.demo';
 import { IconDemoComponent } from './icon/icon.demo';
+import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service-demo.component';
 import { TreeContentDemoComponent } from './tree/tree-content-demo.component';
@@ -12,8 +14,7 @@ import { DataGridContentDemoComponent } from './datagrid/datagrid-content-demo.c
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic-demo.component';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
-import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
-import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
+import { ToolbarDemoComponent } from './toolbar/toolbar.demo';
 
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
@@ -24,29 +25,30 @@ import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
 
 export const routes: RouterConfig = [
-  { path: '',                   component: ExpandableAreaDemoComponent }, // default
-  { path: 'button',             component: ButtonDemoComponent },
-  { path: 'busyindicator',      component: BusyIndicatorDemoComponent },
-  { path: 'dropdown',           component: DropdownDemoComponent },
-  { path: 'dropdown-multi',     component: DropdownMultiselectDemoComponent },
-  { path: 'expandablearea',     component: ExpandableAreaDemoComponent },
-  { path: 'toolbar-basic',      component: ToolbarBasicDemoComponent },
-  { path: 'toolbar-datadriven', component: ToolbarDataDrivenDemoComponent },
-  { path: 'icon',               component: IconDemoComponent },
-  { path: 'menu-button',        component: MenuButtonDemoComponent },
-  { path: 'tree-dynamic',       component: TreeDynamicDemoComponent },
-  { path: 'tree-service',       component: TreeServiceDemoComponent },
-  { path: 'tree-content',       component: TreeContentDemoComponent },
-  { path: 'datagrid-dynamic',   component: DataGridDynamicDemoComponent },
-  { path: 'datagrid-service',   component: DataGridServiceDemoComponent },
-  { path: 'datagrid-content',   component: DataGridContentDemoComponent },
-  { path: 'tabs-basic',         component: TabsBasicDemoComponent },
-  { path: 'tabs-vertical',      component: TabsVerticalDemoComponent },
-  { path: 'tabs-counts',        component: TabsCountsDemoComponent },
-  { path: 'tabs-dismissible',   component: TabsDismissibleDemoComponent },
-  { path: 'tabs-dropdown',      component: TabsDropdownDemoComponent },
-  { path: 'tabs-datadriven',    component: TabsDataDrivenDemoComponent },
-  { path: 'tabs-dynamic',       component: TabsDynamicDemoComponent },
+  { path: '',                 component: ExpandableAreaDemoComponent }, // default
+  { path: 'button',           component: ButtonDemoComponent },
+  { path: 'busyindicator',    component: BusyIndicatorDemoComponent },
+  { path: 'dropdown',         component: DropdownDemoComponent },
+  { path: 'dropdown-multi',   component: DropdownMultiselectDemoComponent },
+  { path: 'expandablearea',   component: ExpandableAreaDemoComponent },
+  { path: 'toast',            component: ToastDemoComponent },
+  { path: 'toolbar',          component: ToolbarDemoComponent },
+  { path: 'icon',             component: IconDemoComponent },
+  { path: 'mask',             component: MaskDemoComponent },
+  { path: 'menu-button',      component: MenuButtonDemoComponent },
+  { path: 'tree-dynamic',     component: TreeDynamicDemoComponent },
+  { path: 'tree-service',     component: TreeServiceDemoComponent },
+  { path: 'tree-content',     component: TreeContentDemoComponent },
+  { path: 'datagrid-dynamic', component: DataGridDynamicDemoComponent },
+  { path: 'datagrid-service', component: DataGridServiceDemoComponent },
+  { path: 'datagrid-content', component: DataGridContentDemoComponent },
+  { path: 'tabs-basic',       component: TabsBasicDemoComponent },
+  { path: 'tabs-vertical',    component: TabsVerticalDemoComponent },
+  { path: 'tabs-counts',      component: TabsCountsDemoComponent },
+  { path: 'tabs-dismissible', component: TabsDismissibleDemoComponent },
+  { path: 'tabs-dropdown',    component: TabsDropdownDemoComponent },
+  { path: 'tabs-datadriven',  component: TabsDataDrivenDemoComponent },
+  { path: 'tabs-dynamic',     component: TabsDynamicDemoComponent },
 
   // { path: 'accordian',       component: AccordionSampleComponent},
 ];
