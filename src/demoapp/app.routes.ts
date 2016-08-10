@@ -14,7 +14,8 @@ import { DataGridContentDemoComponent } from './datagrid/datagrid-content-demo.c
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic-demo.component';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
-import { ToolbarDemoComponent } from './toolbar/toolbar.demo';
+import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
+import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
 
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
@@ -32,7 +33,6 @@ export const routes: RouterConfig = [
   { path: 'dropdown-multi',   component: DropdownMultiselectDemoComponent },
   { path: 'expandablearea',   component: ExpandableAreaDemoComponent },
   { path: 'toast',            component: ToastDemoComponent },
-  { path: 'toolbar',          component: ToolbarDemoComponent },
   { path: 'icon',             component: IconDemoComponent },
   { path: 'mask',             component: MaskDemoComponent },
   { path: 'menu-button',      component: MenuButtonDemoComponent },
@@ -49,6 +49,8 @@ export const routes: RouterConfig = [
   { path: 'tabs-dropdown',    component: TabsDropdownDemoComponent },
   { path: 'tabs-datadriven',  component: TabsDataDrivenDemoComponent },
   { path: 'tabs-dynamic',     component: TabsDynamicDemoComponent },
+  { path: 'toolbar-basic',    component: ToolbarBasicDemoComponent },
+  { path: 'toolbar-datadriven', component: ToolbarDataDrivenDemoComponent },
 
   // { path: 'accordian',       component: AccordionSampleComponent},
 ];
