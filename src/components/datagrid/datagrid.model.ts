@@ -87,6 +87,85 @@ export interface GridColumn {
   resizable?: boolean;
 }
 
+export interface SohoDatagridConfiguration {
+  /**
+   * F2 - toggles actionableMode "true" and "false"
+   * If actionableMode is "true”, tab and shift tab behave like left and right arrow key,
+   * if the cell is editable it goes in and out of edit mode
+   */
+  actionableMode?: boolean;
+  /**
+   * If cellNavigation is "false”, will show border arround whole row on focus
+   */
+  cellNavigation?: boolean;
+  /**
+   * Sets shading for readonly grids
+   */
+  alternateRowShading?: boolean;
+  columns?: GridColumn[];
+  data?: Object[];
+  dataset?: Object[];
+  /**
+   * Allow column reorder
+   */
+  columnReorder?: boolean;
+  /**
+   * Save Column Reorder and resize
+   */
+  saveColumns?: boolean;
+  editable?: boolean;
+  /**
+   * Makes a readonly "list"
+   */
+  isList?: boolean;
+  /**
+   * Id to the right click context menu
+   */
+  menuId?: string;
+  /**
+   * Determines the row height. Exists as:
+   *  - short
+   *  - medium
+   *  - normal
+   */
+  rowHeight?: 'short' | 'medium' | 'normal';
+  /**
+   * Sets the select-ability for the datagrid
+   */
+  selectable?: boolean | 'single' | 'multiple';
+  clickToSelect?: boolean;
+  /**
+   * or features fx..
+   * {
+   *    title: 'Data Grid Header Title',
+   *    results: true,
+   *    keywordFilter: true,
+   *    filter: true,
+   *    rowHeight: true,
+   *    views: true
+   * }
+   */
+  toolbar?: boolean | Object;
+  /**
+   * Paging Options
+   */
+  paging?: boolean;
+  pagesize?: number;
+  pagesizes?: number[];
+  /**
+   * Removed ability to go to a specific page.
+   */
+  indeterminate?: boolean;
+  /**
+   * Callback for paging
+   */
+  source?: Function;
+  /**
+   * Filtering Options
+   */
+  filterable?: boolean;
+}
+
 export class GridOptions {
   // Which column property is the rows identifier?
   idProperty: string;
@@ -130,6 +209,24 @@ export class GridOptions {
   indeterminate = false;
   // callback for paging
   source: any = null;
+
+  constructor(options?: SohoDatagridConfiguration) {
+    Object.assign(this, options);
+  }
+}
+
+export interface SohoToolbarConfiguration {
+  actions?: any | any[];
+  advancedFilter?: boolean;
+  collapsibleFilter?: boolean;
+  dateFilter?: boolean;
+  filter?: boolean;
+  keywordFilter?: boolean;
+  personalize?: boolean;
+  results?: boolean;
+  rowHeight?: boolean;
+  title?: string;
+  views?: boolean;
 }
 
 export class ToolbarOptions {
@@ -166,4 +263,35 @@ export interface PageInfo {
   pageSize: number;
   firstPage: boolean;
   lastPage: boolean;
+}
+
+export interface SohoSourceRequest {
+  activePage: number;
+  pagesize: number;
+  type: string;
+  total: number;
+  filterExpr: {
+    column: 'all' | string;
+    lowercase: 'yes' | 'no';
+    operator: 'contains' | string;
+    value: string;
+  }[];
+  preserveSelected?: boolean;
+  sortAsc?: boolean;
+  sortField?: string;
+  sortId?: string;
+}
+
+export type SohoResponseFunction = (
+  results: Object[],
+  request: SohoSourceRequest
+) => {};
+
+export type SohoSourceFunction = (
+  request: SohoSourceRequest,
+  response: SohoResponseFunction
+) => {};
+
+export declare abstract class SohoDatagridSource {
+  abstract source(req: SohoSourceRequest, response: (results: Object[], request: SohoSourceRequest) => {}): void;
 }
