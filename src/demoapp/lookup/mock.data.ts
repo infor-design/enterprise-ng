@@ -1,7 +1,7 @@
 // import { Formatters } from '../../components';
 declare const Formatters: any;
 
-export const singleSelectData = [
+export const productsData = [
   {
     id: 1,
     productId: 2142201,
@@ -75,7 +75,7 @@ export const singleSelectData = [
   },
 ];
 
-export const singleSelectColumns = [
+export const productsColumns = [
   {
     id: 'selectionCheckbox',
     sortable: false,
