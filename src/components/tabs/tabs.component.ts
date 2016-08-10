@@ -14,6 +14,8 @@ import {
   // ViewChild
 } from '@angular/core';
 
+import { TabsEvent } from './';
+
 /**
  * Internal component to support the tab list items
  */
@@ -22,7 +24,6 @@ import {
   selector: 'li[soho-tab]',
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
-
 })
 export class SohoTabComponent {
   @HostBinding('class.tab') get isTab() { return true; };
@@ -408,65 +409,4 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
   // public isinitalized(): boolean {
   //   return !!this.tabs;
   // }
-
-  // /**
-  //  * The class setter for the tabs div element
-  //  */
-  // get tabsClasses() {
-  //   return 'tab-container';
-  // }
-  // /**
-  //  * The class setter for the tabs div element
-  //  */
-  // get tabsListClasses() {
-  //   return 'tab-list';
-  // }
-  // /**
-  //  * The class setter for the tabs div element
-  //  */
-  // get verticalTabsClasses() {
-  //   return 'vertical';
-  // }
-  // /**
-  //  * The class setter for the tabs div element
-  //  */
-  // get alternateTabsClasses() {
-  //   return 'alternate';
-  // }
-  // /**
-  //  * The class setter for the tabs div element
-  //  */
-  // get moduleTabsClasses() {
-  //   return 'module-tabs';
-  // }
-}
-
-/**
- * Holds all directives usable for the tabs component.
- */
-export const TABS_COMPONENTS = [
-  SohoTabsComponent,
-  SohoTabsListComponent,
-  SohoTabComponent,
-  SohoTabTitleComponent,
-  SohoTabCountComponent,
-  SohoTabSeparatorComponent,
-  SohoTabPanelComponent
-];
-
-/**
- * Interface for the jQuery event emitted
- */
-export interface TabsEvent {
-  currentTarget: HTMLElement;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
 }
