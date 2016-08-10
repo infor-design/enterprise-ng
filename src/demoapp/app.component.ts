@@ -11,8 +11,8 @@ import {
 } from '@angular/router';
 
 import {
-  SohoIconComponent,
-  SohoIconExtendedComponent,
+  SohoIconsComponent,
+  SohoIconsExtendedComponent,
   SohoApplicationMenuComponent
 } from '../components';
 
@@ -43,8 +43,8 @@ import {
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
   directives: [
-    SohoIconComponent,
-    SohoIconExtendedComponent,
+    SohoIconsComponent,
+    SohoIconsExtendedComponent,
     MastheadDemoComponent,
     HeaderDemoComponent,
     ApplicationMenuDemoComponent,

@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 
 import {
-  TABS_COMPONENTS,
+  TABS_DIRECTIVES,
   SohoTabsComponent,
   TabsEvent,
   SohoButtonComponent
@@ -17,7 +17,7 @@ import {
 
 /**
  * This sample:
- * - shows a the flash of unassigned content issue when changing the tabs
+ * - shows the flash of unassigned content issue when changing the tabs
  * - shows updating the tab title programatically
  * - shows how to get a reference to the SohoTabsComponent to message it's methods
  * - handling an event from the SohoTabComponent
@@ -27,7 +27,7 @@ import {
   moduleId: module.id,
   selector: 'tabs-dynamic-sample-component',
   templateUrl: './tabs-dynamic.demo.html',
-  directives: [ TABS_COMPONENTS, SohoButtonComponent ]
+  directives: [ TABS_DIRECTIVES, SohoButtonComponent ]
 })
 export class TabsDynamicDemoComponent implements DoCheck, OnInit {
 

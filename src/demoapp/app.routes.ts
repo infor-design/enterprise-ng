@@ -2,8 +2,10 @@ import { provideRouter, RouterConfig } from '@angular/router';
 import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator-demo.component';
 import { ButtonDemoComponent } from './button/button.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
+import { ToastDemoComponent } from './toast/toast.demo';
 import { IconDemoComponent } from './icon/icon.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
+import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service-demo.component';
 import { TreeContentDemoComponent } from './tree/tree-content-demo.component';
@@ -30,9 +32,11 @@ export const routes: RouterConfig = [
   { path: 'dropdown',         component: DropdownDemoComponent },
   { path: 'dropdown-multi',   component: DropdownMultiselectDemoComponent },
   { path: 'expandablearea',   component: ExpandableAreaDemoComponent },
+  { path: 'toast',            component: ToastDemoComponent },
   { path: 'toolbar',          component: ToolbarDemoComponent },
   { path: 'icon',             component: IconDemoComponent },
   { path: 'lookup',           component: LookupDemoComponent },
+  { path: 'mask',             component: MaskDemoComponent },
   { path: 'menu-button',      component: MenuButtonDemoComponent },
   { path: 'tree-dynamic',     component: TreeDynamicDemoComponent },
   { path: 'tree-service',     component: TreeServiceDemoComponent },

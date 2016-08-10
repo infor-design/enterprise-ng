@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { SohoButtonComponent, BUTTON_TYPES, SohoIconComponent } from '../.';
 
 @Component({
   moduleId: module.id,
   selector: 'soho-icon-demo',
-  templateUrl: 'icon.demo.html'
+  templateUrl: 'icon.demo.html',
+  directives: [ SohoButtonComponent, SohoIconComponent ]
 })
-export class IconDemoComponent implements OnInit {
-  constructor() { }
-  ngOnInit() { }
+export class IconDemoComponent {
+  private types = BUTTON_TYPES; // tslint:disable-line
 }

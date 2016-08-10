@@ -1,5 +1,5 @@
 import { Component, HostBinding } from '@angular/core';
-import { TABS_COMPONENTS, TabsEvent } from '../';
+import { TABS_DIRECTIVES, TabsEvent } from '../';
 
 /**
  * This example:
@@ -9,7 +9,7 @@ import { TABS_COMPONENTS, TabsEvent } from '../';
   moduleId: module.id,
   selector: 'div[vertical-tabs-demo]',
   templateUrl: './tabs-vertical.demo.html',
-  directives: [ TABS_COMPONENTS ]
+  directives: [ TABS_DIRECTIVES ]
 })
 export class TabsVerticalDemoComponent {
 

@@ -17,6 +17,7 @@ const components = [
   'header',
   'icon',
   'lookup',
+  'mask',
   'masthead',
   'menu-button',
   'tabs',

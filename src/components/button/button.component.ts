@@ -9,6 +9,8 @@ import {
   OnDestroy,
 } from '@angular/core';
 
+import { SohoIconComponent } from '../icon';
+
 export const BUTTON_TYPES = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
@@ -29,6 +31,8 @@ const BUTTON_TYPE_LIST = [
   selector: 'button[soho-button]',
   templateUrl: './button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  directives: [ SohoIconComponent ]
+
 })
 export class SohoButtonComponent implements AfterViewInit, OnDestroy {
   private jQueryElement: any;
