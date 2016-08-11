@@ -7,8 +7,8 @@ export type SohoToastPositionType
 
 @Injectable()
 export class SohoToastService {
-  public static TOP_LEFT: SohoToastPositionType =  'top right';
-  public static TOP_RIGHT: SohoToastPositionType = 'top left';
+  public static TOP_LEFT: SohoToastPositionType =  'top left';
+  public static TOP_RIGHT: SohoToastPositionType = 'top right';
   public static BOTTOM_LEFT: SohoToastPositionType =  'bottom left';
   public static BOTTOM_RIGHT: SohoToastPositionType = 'bottom right';
 
