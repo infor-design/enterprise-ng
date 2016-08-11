@@ -21,13 +21,13 @@ import {
   SohoPersonalizeDirective
 } from '../directives';
 import {
-  MastheadDemoComponent
+  SohoMastheadDemoComponent
 } from './masthead/masthead.demo';
 import {
-  HeaderDemoComponent
+  SohoHeaderDemoComponent
 } from './header/header.demo';
 import {
-  ApplicationMenuDemoComponent
+  SohoApplicationMenuDemoComponent
 } from './application-menu/application-menu.demo';
 import {
   routes
@@ -42,9 +42,9 @@ import {
   directives: [
     SohoIconsComponent,
     SohoIconsExtendedComponent,
-    MastheadDemoComponent,
-    HeaderDemoComponent,
-    ApplicationMenuDemoComponent,
+    SohoMastheadDemoComponent,
+    SohoHeaderDemoComponent,
+    SohoApplicationMenuDemoComponent,
     SohoApplicationMenuComponent,
     SohoPersonalizeDirective,
     ROUTER_DIRECTIVES,
@@ -57,11 +57,9 @@ import {
 export class AppComponent implements AfterViewInit {
   @ViewChild(SohoApplicationMenuComponent) applicationMenu: SohoApplicationMenuComponent;
 
-  title = 'SoHo Xi Controls in Angular 2!';
+  @HostBinding('class.no-scroll') get isNoScroll() { return true; }
 
-  @HostBinding('class') get classes() {
-    return 'no-scroll';
-  }
+  private activeViewName = 'SoHo Xi Controls in Angular 2!'; // tslint:disable-line
 
   ngAfterViewInit() {
     ArgumentHelper.checkInputNotNull('AppComponent', 'applicationMenu', this.applicationMenu);
