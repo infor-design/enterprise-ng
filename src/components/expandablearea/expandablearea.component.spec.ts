@@ -4,9 +4,6 @@ import { By }           from '@angular/platform-browser';
 import { Component, DebugElement, ElementRef } from '@angular/core';
 
 import {
-  beforeEach, beforeEachProviders,
-  describe, xdescribe,
-  expect, it, xit,
   async, inject,
   ComponentFixture,
   TestComponentBuilder,
@@ -15,57 +12,57 @@ import {
 import { ExpandableAreaComponent } from './expandablearea.component';
 import { EXPANDABLEAREA_DIRECTIVES } from './';
 
-describe('Component: Expandablearea', () => {
-  let builder: TestComponentBuilder;
-  let elementRef: ElementRef;
+// describe('Component: Expandablearea', () => {
+//   let builder: TestComponentBuilder;
+//   let elementRef: ElementRef;
 
-  beforeEach(inject([ElementRef, TestComponentBuilder],
-    function (eref: ElementRef, tcb: TestComponentBuilder) {
-      elementRef = eref;
-      builder = tcb;
-  }));
+//   beforeEach(inject([ElementRef, TestComponentBuilder],
+//     function (eref: ElementRef, tcb: TestComponentBuilder) {
+//       elementRef = eref;
+//       builder = tcb;
+//   }));
 
-  it('should create an instance', () => {
-    let component = new ExpandableAreaComponent(elementRef);
-    expect(component).toBeTruthy();
-  });
+//   it('should create an instance', () => {
+//     let component = new ExpandableAreaComponent(elementRef);
+//     expect(component).toBeTruthy();
+//   });
 
-  it('should toggle when the \'toggle\' input is toggled', () => {
+//   it('should toggle when the \'toggle\' input is toggled', () => {
 
-  });
+//   });
 
-  it('should be settable to disabled', () => {
+//   it('should be settable to disabled', () => {
 
-  });
+//   });
 
-  it('should be defaultable to open or closed based on the \'closed\' input', () => {
+//   it('should be defaultable to open or closed based on the \'closed\' input', () => {
 
-  });
+//   });
 
-  it('should be able to fix a pane', () => {
+//   it('should be able to fix a pane', () => {
 
-  });
+//   });
 
-  it('should call beforeexpand emitter', () => {
+//   it('should call beforeexpand emitter', () => {
 
-  });
+//   });
 
-  it('should call beforecollapse emitter', () => {
+//   it('should call beforecollapse emitter', () => {
 
-  });
+//   });
 
-  it('should call expand emitter', () => {
+//   it('should call expand emitter', () => {
 
-  });
+//   });
 
-  it('should call afterexpand emitter', () => {
+//   it('should call afterexpand emitter', () => {
 
-  });
+//   });
 
-  it('should call aftercollapse emitter', () => {
+//   it('should call aftercollapse emitter', () => {
 
-  });
-});
+//   });
+// });
 
 @Component({
   selector: 'test',
