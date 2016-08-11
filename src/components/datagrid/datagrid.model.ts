@@ -1,60 +1,46 @@
 /**
- * Defines the data source of the datagrid.
- */
-export const DATAGRID_TYPES = {
-  // Determines the type to use based on the presence of a service.
-  AUTO: 'auto',
-
-  // Use the components content.
-  CONTENT_ONLY: 'content-only'
-};
-
-// Valid list of data grid types.
-export const DATAGRID_TYPE_LIST = [DATAGRID_TYPES.AUTO, DATAGRID_TYPES.CONTENT_ONLY];
-
-/**
  * Row height.
  */
-export type RowHeightType = 'normal' | 'medium' | 'short';
+export type SohoRowHeightType = 'normal' | 'medium' | 'short';
 
 /**
  * List of valid formatters.
  */
 export declare var Formatters: {
-    Text: any;
-    Readonly: any;
-    Date: any;
-    Autocomplete: any;
-    Lookup: any;
-    Decimal: any;
-    Integer: any;
-    Hyperlink: any;
-    Template: any;
-    Drilldown: any;
-    Password: any;
-    TextArea: any;
-    Checkbox: any;
-    SelectionCheckbox: any;
-    Actions: any;
-    Textarea: any;
-    Expander: any;
-    ClassRange: any;
-    Badge: any;
-    Tag: any;
-    Alert: any;
-    Image: any;
-    Color: any;
-    Button: any;
-    Dropdown: any;
-    Favorite: any;
-    Status: any;
+  Text: any;
+  Readonly: any;
+  Date: any;
+  Autocomplete: any;
+  Lookup: any;
+  Decimal: any;
+  Integer: any;
+  Hyperlink: any;
+  Template: any;
+  Drilldown: any;
+  Password: any;
+  TextArea: any;
+  Checkbox: any;
+  SelectionCheckbox: any;
+  Actions: any;
+  Textarea: any;
+  Expander: any;
+  ClassRange: any;
+  Badge: any;
+  Tag: any;
+  Alert: any;
+  Image: any;
+  Color: any;
+  Button: any;
+  Dropdown: any;
+  Favorite: any;
+  Status: any;
 };
 
 export declare var Editors: {
   // @todo
 };
 
-export interface GridColumn {
+export interface SohoGridColumn {
   // Identifier for the grid columns
   id: string;
   // Localised name for the columns
@@ -102,7 +88,7 @@ export interface SohoDatagridConfiguration {
    * Sets shading for readonly grids
    */
   alternateRowShading?: boolean;
-  columns?: GridColumn[];
+  columns?: SohoGridColumn[];
   data?: Object[];
   dataset?: Object[];
   /**
@@ -166,7 +152,7 @@ export interface SohoDatagridConfiguration {
   filterable?: boolean;
 }
 
-export class GridOptions {
+export class SohoGridOptions {
   // Which column property is the rows identifier?
   idProperty: string;
   // F2 - toggles actionableMode "true" and "false"
@@ -178,7 +164,7 @@ export class GridOptions {
   // Sets shading for readonly grids
   alternateRowShading = true;
   //
-  columns: Array<GridColumn> = Array<GridColumn>();
+  columns = Array<SohoGridColumn>();
 
   // Initial dataset
   dataset: any[] = [];
@@ -194,11 +180,11 @@ export class GridOptions {
   // Id to the right click context menu
   menuId: any = null;
   // (short, medium or normal)
-  rowHeight: RowHeightType = 'short';
+  rowHeight: SohoRowHeightType = 'short';
   // false; 'single' or 'multiple'
   selectable: boolean | 'single' | 'multiple' = false;
   clickToSelect = true;
-  toolbar: boolean | ToolbarOptions =  new ToolbarOptions();
+  toolbar: boolean | SohoToolbarConfiguration = new SohoToolbarOptions();
   // Paging Options
   paging = false;
   // Page size
@@ -229,33 +215,30 @@ export interface SohoToolbarConfiguration {
   views?: boolean;
 }
 
-export class ToolbarOptions {
-    title: string = 'SoHo Data Grid';
-    results: boolean = true;
-    keywordFilter: boolean = true;
-    filter: boolean = true;
-    rowHeight: boolean = true;
-    views: boolean = true;
-    collapsibleFilter: boolean = true;
-    dateFilter: boolean = true;
-    actions: any = [];
-    personalize: boolean = true;
-    advancedFilter: boolean = true;
+export class SohoToolbarOptions implements SohoToolbarConfiguration {
+  title = 'SoHo Data Grid';
+  results = true;
+  keywordFilter = true;
+  filter = true;
+  rowHeight = true;
+  views = true;
+  collapsibleFilter = true;
+  dateFilter = true;
+  actions: any = [];
+  personalize = true;
+  advancedFilter = true;
 }
 
-export interface DataGridSelectedEvent {
+export interface SohoDataGridSelectedEvent {
 }
 
-export interface DataGridCellChangeEvent {
-    row: any;
-    cell: any;
-    target: any;
-    value: any;
-    oldValue: any;
-    column: any;
-}
-
-export interface GridRequest {
+export interface SohoDataGridCellChangeEvent {
+  row: any;
+  cell: any;
+  target: any;
+  value: any;
+  oldValue: any;
+  column: any;
 }
 
 export interface PageInfo {
