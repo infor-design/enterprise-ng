@@ -34,7 +34,7 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
 
   private options: SohoBusyIndicatorOptions = {
     blockUI: false,
-    text: 'Loading...', // I18N
+    text: Locale.translate('Loading...'),
     delay: 0,
     timeToComplete: 0,
     timeToClose: 0
@@ -112,7 +112,7 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
   // Controls the activated state of the busy indicator.
   @Input() set activated(value: boolean) {
     if (this.busyindicator) {
-      if (value === true) {
+      if (value) {
         this.busyindicator.activate();
       } else {
         this.busyindicator.close();

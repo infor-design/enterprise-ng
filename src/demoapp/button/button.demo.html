@@ -5,6 +5,27 @@
     <div class="row">
       <div class="three columns">
         <span class="label">Primary</span>
+        <button soho-button="primary">Action</button>
+        <br>
+        <br>
+        <br>
+        <button soho-button="primary" disabled>Action</button>
+        <br>
+        <br>
+        <br>
+        <button soho-button="primary" icon="alert">Primary Button</button>
+        <br>
+        <br>
+        <br>
+        <button soho-button="primary" icon="alert" toggle="error">Toggles Icon</button>
+        <br>
+        <br>
+        <br>
+        <button soho-button="primary" [ripple]="false">No Ripple</button>
+      </div>
+
+      <div class="three columns">
+        <span class="label">Secondary</span>
         <button soho-button>Action</button>
         <br>
         <br>
@@ -13,56 +34,36 @@
         <br>
         <br>
         <br>
-        <button soho-button icon="alert">Primary Button</button>
+        <button soho-button icon="settings">Secondary Button</button>
         <br>
         <br>
         <br>
-        <button soho-button icon="alert" toggle="error">Toggles Icon</button>
-        <br>
-        <br>
-        <br>
-        <button soho-button [ripple]="false">No Ripple</button>
-      </div>
-
-      <div class="three columns">
-        <span class="label">Secondary</span>
-        <button [soho-button]="types.SECONDARY">Action</button>
-        <br>
-        <br>
-        <br>
-        <button [soho-button]="types.SECONDARY" disabled>Action</button>
-        <br>
-        <br>
-        <br>
-        <button [soho-button]="types.SECONDARY" icon="settings">Secondary Button</button>
-        <br>
-        <br>
-        <br>
-        <button [soho-button]="types.SECONDARY" icon="user-profile" toggle="refresh" (click)="toggleHello()">{{shouldSayHi ? "Goodbye" : "Say Hello"}}</button>
+        <button soho-button icon="user-profile" toggle="refresh" (click)="toggleHello()">{{shouldSayHi ? "Goodbye" : "Say Hello"}}</button>
       </div>
 
       <div class="three columns">
         <span class="label">Tertiary</span>
-        <button [soho-button]="types.TERTIARY" icon="filter">Action</button>
+        <button soho-button="tertiary" icon="filter">Action</button>
         <br>
         <br>
         <br>
-        <button [soho-button]="types.TERTIARY" disabled icon="filter">Action</button>
+        <button soho-button="tertiary" disabled icon="filter">Action</button>
       </div>
 
       <div class="three columns">
         <span class="label">Icon</span>
-        <button [soho-button]="types.ICON" icon="calendar" title="Date">Date</button>
+        <button soho-button="icon" icon="calendar" title="Date">Date</button>
         <br>
         <br>
         <br>
-        <button [soho-button]="types.ICON" icon="calendar" toggle="error" title="Toggle Date">Toggle Date</button>
+        <button soho-button="icon" icon="calendar" toggle="error" title="Toggle Date">Toggle Date</button>
         <br>
         <br>
         <br>
-        <button [soho-button]="types.ICON" icon="calendar" disabled>Date</button>
+        <button soho-button="icon" icon="calendar" disabled>Date</button>
       </div>
     </div>
+    <br/>
     <div *ngIf="shouldSayHi" class="row">
       <h2>Hello there!</h2>
     </div>

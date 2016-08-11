@@ -29,7 +29,7 @@ export const productsData = [
     activity:  'Inspect and Repair',
     quantity: 1,
     price: 120.99,
-    status: null,
+    status: <any>null,
     orderDate: new Date(2014, 6, 3),
     action: 'Action',
   }, {
@@ -81,7 +81,7 @@ export const productsColumns = [
     name: 'Product Id',
     field: 'productId',
     width: 140,
-    formatter: Formatters.Readonly,
+    formatter: Formatters.Readonly
   },
   {
     id: 'productName',
@@ -89,7 +89,7 @@ export const productsColumns = [
     sortable: false,
     field: 'productName',
     width: 250,
-    formatter: Formatters.Hyperlink,
+    formatter: Formatters.Hyperlink
   },
   {
     id: 'activity',
@@ -109,14 +109,14 @@ export const productsColumns = [
     name: 'Price',
     field: 'price',
     width: 125,
-    formatter: Formatters.Decimal,
+    formatter: Formatters.Decimal
   },
   {
     id: 'orderDate',
     name: 'Order Date',
     field: 'orderDate',
     formatter: Formatters.Date,
-    dateFormat: 'M/d/yyyy',
+    dateFormat: 'M/d/yyyy'
   },
 ];
 

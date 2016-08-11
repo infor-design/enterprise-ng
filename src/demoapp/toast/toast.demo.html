@@ -1,3 +1,7 @@
 <div class="full-width">
-  <button [soho-button]="types.SECONDARY" (click)="showToast($event)">Show Toast Top left</button>
+  <button soho-button="primary" (click)="showToast()">Show Toast Default</button>
+  <button soho-button (click)="showToast('top left')">Show Toast Top left</button>
+  <button soho-button (click)="showToast('top right')">Show Toast Top Right</button>
+  <button soho-button (click)="showToast('bottom right')">Show Toast Bottom Right</button>
+  <button soho-button (click)="showToast('bottom left')">Show Toast Bottom Left</button>
 </div>

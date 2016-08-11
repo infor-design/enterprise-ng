@@ -55,3 +55,11 @@ interface JQuery {
   initialize(locale: string): JQuery;
   personalize(): JQuery;
 }
+
+interface LocaleStatic {
+  currentCulture(): string;
+  translate(key: string): string;
+  calendar(): string;
+}
+
+declare var Locale: LocaleStatic;

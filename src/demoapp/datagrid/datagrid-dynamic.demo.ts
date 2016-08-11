@@ -13,7 +13,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import {
   SohoDataGridComponent,
   SohoButtonComponent,
-  GridColumn
+  SohoGridColumn,
+  SohoBusyIndicatorComponent
 } from '../';
 
 import {
@@ -23,13 +24,14 @@ import {
 @Component({
   moduleId: module.id,
   selector: 'sample-datagrid',
-  templateUrl: 'datagrid-dynamic-demo.component.html',
+  templateUrl: 'datagrid-dynamic.demo.html',
   providers: [DataGridDemoService],
-  directives: [SohoDataGridComponent, SohoButtonComponent],
+  directives: [SohoDataGridComponent, SohoButtonComponent, SohoBusyIndicatorComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridDynamicDemoComponent implements AfterContentInit, AfterViewInit {
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
+  @ViewChild(SohoBusyIndicatorComponent) busyIndicator: SohoBusyIndicatorComponent;
 
   private _subject$ = <BehaviorSubject<any[]>>new BehaviorSubject([]);
 
@@ -39,7 +41,7 @@ export class DataGridDynamicDemoComponent implements AfterContentInit, AfterView
     private service: DataGridDemoService) {
   }
 
-  public get columns(): Observable<GridColumn[]> {
+  public get columns(): Observable<SohoGridColumn[]> {
     return Observable.of(this.service.getColumns());
   }
 
@@ -62,7 +64,10 @@ export class DataGridDynamicDemoComponent implements AfterContentInit, AfterView
   }
 
   busy() {
-    // @todo!
+    if (this.busyIndicator) {
+      this.busyIndicator.activated = true;
+      setTimeout(() => this.busyIndicator.activated = false, 2000);
+    }
   }
 
   onSelected(e: any) {

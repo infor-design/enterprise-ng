@@ -1,4 +1,4 @@
 <soho-icon *ngIf="icon" [icon]="currentIcon"></soho-icon>
-<span>
+<span *ngIf="includeContent">
   <ng-content></ng-content>
 </span>

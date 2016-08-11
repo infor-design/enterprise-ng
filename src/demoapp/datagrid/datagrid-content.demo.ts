@@ -15,7 +15,7 @@ import {
 @Component({
   moduleId: module.id,
   selector: 'sample-datagrid',
-  templateUrl: 'datagrid-content-demo.component.html',
+  templateUrl: 'datagrid-content.demo.html',
   providers: [],
   directives: [SohoDataGridComponent, SohoButtonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
