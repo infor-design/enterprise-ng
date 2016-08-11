@@ -1,5 +1,11 @@
-import { Component } from '@angular/core';
-import { SohoButtonComponent, BUTTON_TYPES, SohoIconComponent } from '../.';
+import {
+  Component
+} from '@angular/core';
+
+import {
+  SohoButtonComponent,
+  SohoIconComponent
+} from '../.';
 
 @Component({
   moduleId: module.id,
@@ -8,5 +14,4 @@ import { SohoButtonComponent, BUTTON_TYPES, SohoIconComponent } from '../.';
   directives: [ SohoButtonComponent, SohoIconComponent ]
 })
 export class IconDemoComponent {
-  private types = BUTTON_TYPES; // tslint:disable-line
 }

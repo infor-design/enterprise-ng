@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
 
 import {
-  GridColumn,
+  SohoGridColumn,
   SohoLookupComponent,
   SohoDatagridSource,
   SohoSourceRequest,
   SohoResponseFunction,
 } from '../../components';
-import { checkboxColumn, productsColumns, productsData } from './mock.data';
+
+import {
+  checkboxColumn,
+  productsColumns,
+  productsData
+} from './mock.data';
 
 export interface FakeResponse {
   response: number;
@@ -19,11 +24,11 @@ export interface FakeResponse {
   moduleId: module.id,
   selector: 'soho-lookup-demo',
   templateUrl: 'lookup.demo.html',
-  directives: [ SohoLookupComponent ],
+  directives: [ SohoLookupComponent ]
 })
 export class LookupDemoComponent implements SohoDatagridSource {
-  private columns_product: GridColumn[];
-  private columns_multi: GridColumn[];
+  private columns_product: SohoGridColumn[];
+  private columns_multi: SohoGridColumn[];
 
   private data_product: any[];
 
@@ -43,7 +48,7 @@ export class LookupDemoComponent implements SohoDatagridSource {
         // Server filtering
         dataResult = productsData.filter( data => {
           return data.id.toString().includes(filter) ||
-                  data.productName.toLowerCase().includes(filter);
+            data.productName.toLowerCase().includes(filter);
         });
       }
 
@@ -57,7 +62,7 @@ export class LookupDemoComponent implements SohoDatagridSource {
         resolve({
           response: 200,
           total: productsData.length,
-          data: dataResult,
+          data: dataResult
         });
       }, 1000);
     });

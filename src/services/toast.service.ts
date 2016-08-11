@@ -2,18 +2,15 @@ import {
   Injectable
 } from '@angular/core';
 
-export const TOAST_POSITION = {
-  TOP_LEFT: 'top right',
-  TOP_RIGHT: 'top left',
-  BOTTOM_LEFT: 'bottom left',
-  BOTTOM_RIGHT: 'bottom right'
-};
-
-export type ToastPositionType
+export type SohoToastPositionType
   = 'top right' | 'top left' | 'bottom left' | 'bottom right';
 
 @Injectable()
 export class SohoToastService {
+  public static TOP_LEFT: SohoToastPositionType =  'top left';
+  public static TOP_RIGHT: SohoToastPositionType = 'top right';
+  public static BOTTOM_LEFT: SohoToastPositionType =  'bottom left';
+  public static BOTTOM_RIGHT: SohoToastPositionType = 'bottom right';
 
   /**
    * Show a toast using the specified options.
