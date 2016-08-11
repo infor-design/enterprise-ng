@@ -14,7 +14,7 @@ import {
 
 import {
     SohoDataGridComponent,
-    DataGridService
+    SohoDataGridService
 } from '../../components/datagrid';
 
 import {
@@ -28,8 +28,8 @@ import {
 @Component({
     moduleId: module.id,
     selector: 'sample-datagrid',
-    templateUrl: 'datagrid-service-demo.component.html',
-    providers: [ { provide: DataGridService, useClass: DataGridDemoService }, SohoToastService ],
+    templateUrl: 'datagrid-service.demo.html',
+    providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService }, SohoToastService ],
     directives: [ SohoDataGridComponent, SohoButtonComponent, SohoBusyIndicatorComponent ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -1,29 +1,26 @@
 import { Observable } from 'rxjs/Rx';
 
 import {
-    GridColumn,
-    GridRequest
+    SohoGridColumn,
+    SohoSourceRequest
 } from './datagrid.model';
 
 /**
  * Dynamic SoHo Data Grid contract.
  */
-export abstract class DataGridService {
+export abstract class SohoDataGridService {
 
     /**
-     * Returns the columns to use for the grid.
-     *
-     * This default service return an single root node.
-     *
-     * @todo allow this to be parameterised, such that the
-     * caller can controll initial depth, recursion, etc ...
+     * Returns the columns to use for the data grid.
      */
-    abstract getColumns(): GridColumn[];
+    abstract getColumns(): SohoGridColumn[];
 
     /**
-     * Returns a list of data rows, as a promise.
+     * Returns a list of data rows.
      *
-     * @param gridRequest -
+     * @todo implement pagingpaging
+     * 
+     * @param gridRequest -used to define the data to return.
      */
-    abstract getData(req: GridRequest): Observable<any[]>;
+    abstract getData(req: SohoSourceRequest): Observable<any[]>;
 }
