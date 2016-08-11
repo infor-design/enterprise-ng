@@ -8,7 +8,6 @@ import {
   OnDestroy,
   Output,
 } from '@angular/core';
-import { SelectControlValueAccessor } from '@angular/forms';
 
 let counter = 0;
 
@@ -16,7 +15,6 @@ let counter = 0;
   moduleId: module.id,
   selector: 'select[soho-dropdown]',
   template: '<ng-content></ng-content>',
-  providers: [ SelectControlValueAccessor ],
 })
 export class SohoDropdownComponent implements AfterViewInit, OnDestroy {
   /**
@@ -94,7 +92,7 @@ export class SohoDropdownComponent implements AfterViewInit, OnDestroy {
   private jQueryElement: any;
   private dropdown: any;
 
-  constructor(private select: SelectControlValueAccessor, private element: ElementRef) { }
+  constructor(private element: ElementRef) { }
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
