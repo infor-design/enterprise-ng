@@ -78,7 +78,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   /**
    * Defines the source type of the tree.
    */
-  @Input('soho-tree') set sohoTree(treeType: string) {
+  @Input('soho-tree') set sohoTree(treeType: SohoTreeType) {
     this.treeType = treeType ? treeType : SohoTreeComponent.AUTO;
   }
 
@@ -125,7 +125,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   private _dataset: SohoTreeNode[];
 
   // The tree's type.
-  private treeType: string;
+  private treeType: SohoTreeType;
 
   /**
    * Constructor.
@@ -143,10 +143,21 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   // -------------------------------------------
 
   /**
-   * Refreshes the tree, by reloading the data.
+   * Resets the data display to the default provided by the service,
+   * that is by calling getRootNodes.
+   *
+   * The alternative is to call use the property dataset, which
+   * has teh same affect but allows the caller to specify the nodes.
+   *
+   * This method is only applicable when the service is defined,
+   * but will not fail if one is not set.
    */
-  public refresh() {
-      this.tree.loadData();
+  public reset() {
+    // Preload from the service if specified (unless data already provided).
+    if (this.treeType !== SohoTreeComponent.CONTENT_ONLY && this.treeService) {
+      this.treeService.getRootTreeNodes()
+        .subscribe((dataset: SohoTreeNode[]) => this.dataset = dataset);
+    }
   }
 
   public enable(): void {
@@ -223,7 +234,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     ArgumentHelper.checkNotEmpty('id', id);
 
     let treeNode: SohoTreeNode = this.tree.findById(id);
-    if (treeNode) {
+    if (treeNode && treeNode.node) {
       this.tree.setSelectedNode(treeNode.node, focus);
     }
   }

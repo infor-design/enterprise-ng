@@ -67,7 +67,6 @@ export class ToolbarComponent implements AfterViewInit, OnDestroy {
     constructor(private element: ElementRef) {}
 
     ngAfterViewInit() {
-
         // Assign element to local variable
         this.jQueryElement = jQuery(this.element.nativeElement);
 

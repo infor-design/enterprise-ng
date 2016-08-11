@@ -1,67 +1,74 @@
 import {
   Component,
-  ChangeDetectionStrategy,
   ElementRef,
-  ViewChild
+  ViewChild,
+  AfterViewInit,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
+import { Subject } from 'rxjs/Subject';
 /* tslint:disable */
 import { Observable } from 'rxjs/Observable';
 /* tslint:enable */
-import { Subject } from 'rxjs/Subject';
 
 import {
   SohoButtonComponent,
   SohoTreeComponent,
-  SohoTreeService,
   SohoTreeNode,
   SohoTreeEvent
-} from '../';
-
-import { TreeDemoService } from './tree-demo.service';
+}
+from '../';
 
 @Component({
   moduleId: module.id,
-  selector: 'tree-service-demo',
-  templateUrl: 'tree-service-demo.component.html',
-  providers: [{ provide: SohoTreeService, useClass: TreeDemoService }],
+  selector: 'tree-dynamic-demo',
+  templateUrl: 'tree-dynamic.demo.html',
   directives: [SohoTreeComponent, SohoButtonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TreeServiceDemoComponent {
+export class TreeDynamicDemoComponent implements AfterViewInit {
 
-  private DATA: SohoTreeNode[] = [{
-    'id': 'node1',
-    'text': 'Data One',
-    'open': false,
-    'selected': false,
-    'href': '/somelink/'
-  }, {
+  private DATA: SohoTreeNode[] = [
+    {
+      'id': 'node1',
+      'text': 'Data One',
+      'open': false,
+      'selected': false,
+      'href': '/somelink/'
+    }, {
       'id': 'node2',
       'text': 'Node Two',
       'open': true,
       'selected': true,
       'focus': true,
-      'children': [{
-        'id': 'node3',
-        'text': 'Node 2.1'
-      }, {
+      'children': [
+        {
+          'id': 'node3',
+          'text': 'Node 2.1'
+        }, {
           'id': 'node4',
           'text': 'Node 2.2',
-          'children': [{
-            'id': 'node5',
-            'text': 'Node 2.2.1',
-            'icon': 'icon-tree-chart',
-            'children': [{
-              'id': 'node6',
-              'text': 'Node 2.2.1.1',
-              'icon': 'icon-tree-chart'
-            }]
-          }]
-        }]
-    }];
+          'children': [
+            {
+              'id': 'node5',
+              'text': 'Node 2.2.1',
+              'icon': 'icon-tree-chart',
+              'children': [
+                {
+                  'id': 'node6',
+                  'text': 'Node 2.2.1.1',
+                  'icon': 'icon-tree-chart'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ];
 
-  @ViewChild(SohoTreeComponent) tree: SohoTreeComponent;
+  @ViewChild(SohoTreeComponent)
+  tree: SohoTreeComponent;
 
   private subject = new Subject<SohoTreeNode[]>();
 
@@ -71,6 +78,10 @@ export class TreeServiceDemoComponent {
   enabled = true;
 
   selected: SohoTreeNode;
+
+  get dataset() {
+    return this.source;
+  }
 
   constructor(private el: ElementRef) {}
 
@@ -92,12 +103,8 @@ export class TreeServiceDemoComponent {
     }
   }
 
-  get dataset() {
-    return this.source;
-  }
-
   selectRoot() {
-    this.tree.setSelectedNode('node1');
+    this.tree.setSelectedNode('/1');
   }
 
   addNode() {
@@ -113,4 +120,9 @@ export class TreeServiceDemoComponent {
     this.selected = treeEvent.data;
     console.log(`Tree Event: ${this.selected}`);
   }
+
+  ngAfterViewInit() {
+    this.reset();
+  }
+
 }

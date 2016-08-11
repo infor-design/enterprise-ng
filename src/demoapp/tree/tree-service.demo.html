@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="twelve columns">
+
+    <h2 class="fieldset-title">SoHo Tree - Service Driven</h2>
+
+    <div class="field">
+      <button soho-button (click)="expandAll($event)">Expand All</button>
+      <button soho-button (click)="collapseAll($event)">Collapse All</button>
+      <button soho-button (click)="reset($event)">Reset Data</button>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row top-padding">
+  <div class="twelve columns demo" role="main">
+    <section soho-busyindicator class="scrollable">
+      <ul soho-tree (selected)="onSelected($event)" (expand)="onExpand($event)" (collapse)="onCollapse($event)"></ul>
+    </section>
+  </div>
+</div>

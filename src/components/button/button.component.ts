@@ -132,6 +132,18 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  /**
+   * True if the conetent should included.
+   *
+   * NOTE: This is a workaround to prevent the content being displayed for icons buttons,
+   * but should be fixed in the jQuery controls.
+   * 
+   * @returns true if the content should be displayed; otherwise false.
+   */
+  get includeContent(): boolean {
+    return this.buttonType !== SohoButtonComponent.ICON;
+  }
+
   get currentIcon() {
     if (!this.toggle) {
       return this.icon;

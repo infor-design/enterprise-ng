@@ -2,7 +2,7 @@
   <div class="twelve columns">
     <h2 class="fieldset-title">Soho Data Grid - Dynamic</h2>
     <div class="field">
-      <button soho-button (click)="datagrid.enable($event)">Enable</button>
+      <button soho-button="primary" (click)="datagrid.enable($event)">Enable</button>
       <button soho-button (click)="datagrid.disable($event)">Disable</button>
       <button soho-button (click)="addRow($event)">Add Row</button>
       <button soho-button (click)="busy($event)">Busy</button>
@@ -12,11 +12,12 @@
 <br>
 <div class="row top-padding">
   <div class="twelve columns demo" role="main">
-      <section class="scrollable contained-scrolling-right-bottom ">
+      <section soho-busyindicator class="scrollable contained-scrolling-right-bottom" style="height: 100%">
         <div soho-datagrid (selected)="onSelected($event)"
              [columns]="columns | async"
              [data]="data | async"
-             selectable="multiple"></div>
+             selectable="multiple">
+        </div>
       </section>
     </div>
 </div>

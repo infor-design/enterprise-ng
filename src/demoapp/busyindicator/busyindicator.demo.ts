@@ -11,7 +11,7 @@ import { SohoBusyIndicatorComponent } from '../';
 @Component({
     moduleId: module.id,
     selector: 'busyindicator-demo',
-    templateUrl: 'busyindicator-demo.component.html',
+    templateUrl: 'busyindicator.demo.html',
     directives: [ SohoButtonComponent, SohoBusyIndicatorComponent ]
 })
 export class BusyIndicatorDemoComponent {
