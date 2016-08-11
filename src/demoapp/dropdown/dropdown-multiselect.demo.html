@@ -1,46 +1,42 @@
 <div class="example-section">
-  <div class="row">
-    <h1>Multi-Select Dropdown</h1>
-    <span class="code-tag">Live Example</span>
+  <form>
     <div class="row">
-      <div class="field">
-        <label for="states-multi-closes" class="label">States - Closes On Select</label>
-        <select #dropdownCloses soho-dropdown="states-multi-closes" multiple maxSelected=3>
-          <option value="AL">Alabama</option>
-          <option value="CA">California</option>
-          <option value="DE">Delaware</option>
-          <option value="NY">New York</option>
-          <option value="WY">Wyoming</option>
-        </select>
-      </div>
-      <div>
-        <h3>Select value is: {{getValue(dropdownCloses)}}</h3>
-      </div>
-      <div class="field">
-        <label for="states-multi" class="label">States - Stays Open</label>
-        <select #dropdown soho-dropdown="states-multi" multiple [closeOnSelect]="false" maxSelected=3>
-          <option value="AL">Alabama</option>
-          <option value="CA">California</option>
-          <option value="DE">Delaware</option>
-          <option value="NY">New York</option>
-          <option value="WY">Wyoming</option>
-        </select>
-      </div>
-      <div>
-        <h3>Select value is: {{getValue(dropdown)}}</h3>
-      </div>
-      <div class="field">
-        <button soho-button (click)="onAddOption()">Add Option</button>
-        <button soho-button (click)="onRemoveOption()">Remove Option</button>
-        <hr>
-        <label for="states-modifiable-two" class="label">Modifiable States</label>
-        <select #dropdownAddRemove soho-dropdown="states-modifiable-two" multiple [closeOnSelect]="false">
-          <option *ngFor="let option of options" [value]="option.value">{{option.text}}</option>
-        </select>
-      </div>
-      <div>
-        <h3>Select value is: {{getValue(dropdownAddRemove)}}</h3>
+      <h1>Multi-Select Dropdown</h1>
+      <span class="code-tag">Live Example</span>
+      <div class="row">
+        <div class="field">
+          <label for="states-multi-closes" class="label">States - Closes On Select</label>
+          <select soho-dropdown name="states-multi-closes" multiple maxSelected=3>
+            <option value="AL">Alabama</option>
+            <option value="CA">California</option>
+            <option value="DE">Delaware</option>
+            <option value="NY">New York</option>
+            <option value="WY">Wyoming</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="states-multi" class="label">States - Stays Open</label>
+          <select soho-dropdown name="states-multi" multiple [closeOnSelect]="false" maxSelected=3 [(ngModel)]="model.multi">
+            <option value="AL">Alabama</option>
+            <option value="CA">California</option>
+            <option value="DE">Delaware</option>
+            <option value="NY">New York</option>
+            <option value="WY">Wyoming</option>
+          </select>
+        </div>
+        <div class="field">
+          <button soho-button (click)="onAddOption()">Add Option</button>
+          <button soho-button (click)="onRemoveOption()">Remove Option</button>
+          <hr>
+          <label for="states-modifiable-two" class="label">Modifiable States</label>
+          <select soho-dropdown name="states-modifiable-two" multiple [closeOnSelect]="false" [(ngModel)]="model.modifiable">
+            <option *ngFor="let option of options" [ngValue]="option">{{option.text}}</option>
+          </select>
+        </div>
       </div>
     </div>
+  </form>
+  <div>
+    <h3>{{ model | json }}</h3>
   </div>
 </div>

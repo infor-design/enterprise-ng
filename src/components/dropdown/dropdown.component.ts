@@ -9,18 +9,14 @@ import {
   Output,
 } from '@angular/core';
 
+let counter = 0;
+
 @Component({
   moduleId: module.id,
   selector: 'select[soho-dropdown]',
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
 })
 export class SohoDropdownComponent implements AfterViewInit, OnDestroy {
-  /**
-   * Assign the id for the control
-   * (maps to the name to use on a label's 'for' attribute)
-   */
-  @HostBinding('id')
-  @Input('soho-dropdown') id: string = null; // tslint:disable-line
   /**
    * Sets the dropdown to close on selecting a value (helpful for multi-select)
    */
@@ -51,6 +47,10 @@ export class SohoDropdownComponent implements AfterViewInit, OnDestroy {
   @HostBinding('attr.multiple')
   @Input() multiple: boolean = null;
   /**
+   * Name for the dropdown control. Necessary for ngModel to function
+   */
+  @Input() name: string = `soho-dropdown-${counter++}`;
+  /**
    * Flag to remove search functionality from the dropdown
    */
   @Input() noSearch: boolean = false;
@@ -72,8 +72,12 @@ export class SohoDropdownComponent implements AfterViewInit, OnDestroy {
   /**
    * Bind attributes to the host select element
    */
-  @HostBinding('name') get name() {
-    return this.id;
+  /**
+   * Assign the id for the control
+   * (maps to the name to use on a label's 'for' attribute)
+   */
+  @HostBinding('id') get id() {
+    return this.name;
   }
   @HostBinding('class.dropdown') get isDropdown() {
     return !this.multiple;
@@ -90,7 +94,6 @@ export class SohoDropdownComponent implements AfterViewInit, OnDestroy {
 
   constructor(private element: ElementRef) { }
   ngAfterViewInit() {
-    // TODO: Figure out what element to send to jQuery to init the dropdown
     this.jQueryElement = jQuery(this.element.nativeElement);
 
     this.jQueryElement.dropdown({
@@ -115,16 +118,5 @@ export class SohoDropdownComponent implements AfterViewInit, OnDestroy {
   }
   ngOnDestroy() {
     this.dropdown.destroy();
-  }
-  get value(): Array<string> {
-    if (!this.element.nativeElement) {
-      return;
-    }
-    const array = [].slice.call((<HTMLSelectElement>this.element.nativeElement).options);
-    return (<Array<HTMLOptionElement>>array).filter((option: HTMLOptionElement) => {
-      return option.selected;
-    }).map(option => {
-      return option.value;
-    });
   }
 }
