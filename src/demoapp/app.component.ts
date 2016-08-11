@@ -33,9 +33,6 @@ import {
 import {
   ApplicationMenuDemoComponent
 } from './application-menu/application-menu.demo';
-import {
-  routes
-} from './app.routes';
 
 @Component({
   moduleId: module.id,
