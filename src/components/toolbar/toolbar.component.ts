@@ -1,52 +1,133 @@
 import {
-    AfterViewInit,
-    Component,
-    ChangeDetectionStrategy,
-    ElementRef,
-    EventEmitter,
-    HostBinding,
-    Input,
-    Output,
-    OnDestroy
+  AfterViewInit,
+  Component,
+  ChangeDetectionStrategy,
+  ElementRef,
+  EventEmitter,
+  HostBinding,
+  Input,
+  Output,
+  OnDestroy
 } from '@angular/core';
 import {
   ToolbarEvent
 } from '../.';
 
-declare var jQuery: any;
+/**
+ * soho toolbar more button
+ */
+@Component({
+  selector: 'soho-toolbar-more-button',
+  template: `
+    <button class="btn-actions page-changer" type="button">
+      <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#icon-more"></use>
+      </svg>
+      <span class="audible" data-translate="text">More</span>
+    </button>
+    <!-- TODO: look into handling this through soho-button
+    <button soho-button="actions" pageChanger="true" icon="more">
+      <span class="audible" data-translate="text">More</span>
+    </button> 
+    -->
 
+    <ng-content></ng-content>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoToolbarMoreButtonComponent {
+  @HostBinding('class.more') get isMoreButton() { return true; };
+}
+
+/**
+ * soho toolbar page title.
+ */
+@Component({
+  selector: 'span[soho-page-title]',
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoPageTitleComponent {
+  @HostBinding('class.page-title') get isPageTitle() { return true; };
+}
+
+/**
+ * soho section title.
+ */
+@Component({
+  selector: 'span[soho-section-title]',
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoSectionTitleComponent {
+  @HostBinding('class.section-title') get isSectionTitle() { return true; };
+}
+
+/**
+ * Soho toolbar Navigation button
+ */
+@Component({
+  selector: 'button[soho-nav-button]',
+  template: `
+      <span class="audible">
+        <ng-content></ng-content>
+      </span>
+      <span class="icon app-header">
+        <span class="one"></span>
+        <span class="two"></span>
+        <span class="three"></span>
+      </span>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoToolbarNavButtonComponent {
+  @HostBinding('class.application-menu-trigger') get isAppMenuTrigger() { return true; };
+  @HostBinding('class.btn-icon') get isIconButton() { return true; };
+  @HostBinding('attr.type') get typeAttr() { return 'button'; };
+}
+
+/**
+ * Soho toolbar title
+ */
 @Component({
   selector: 'soho-toolbar-title',
   template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  directives: [ SohoToolbarNavButtonComponent ]
 })
-export class ToolbarTitleComponent {
+export class SohoToolbarTitleComponent {
   @HostBinding('class.title') get isTitle() { return true; };
 }
 
+/**
+ * Soho toolbar buttonset
+ */
 @Component({
   selector: 'soho-toolbar-button-set',
   template: `<ng-content></ng-content>`,
-  styles : [`:host {display:inline-block;}`],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ToolbarButtonSetComponent {
+export class SohoToolbarButtonSetComponent {
   @HostBinding('class.buttonset') get isButtonSet() { return true; };
+  @HostBinding('style.display') get isInlineBlock() { return 'inline-block'; };
 }
 
+/**
+ * The main soho toolbar component
+ */
 @Component({
   moduleId: module.id,
   selector: 'soho-toolbar',
   templateUrl: `toolbar.component.html`,
-  //styles: [`:host {display: block;}`],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  directives: [ SohoToolbarMoreButtonComponent ]
 })
-export class ToolbarComponent implements AfterViewInit, OnDestroy {
+export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.toolbar') get isToolbar() { return true; };
   @HostBinding('style.display') get isBlock() { return 'block'; };
+  @HostBinding('class.has-more-button') @Input() hasMoreButton:  boolean = false;
 
   @Input() maxVisibleButtons: number = 3;
-
   @Input() rightAlign: boolean = false;
 
   /**
@@ -95,14 +176,6 @@ export class ToolbarComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.bind('selected', ((event: ToolbarEvent) => {this.selected.emit(event); }));
 
     this.toolbar = this.jQueryElement.data('toolbar');
-
-    // // Add listeners to emit events
-    // this.jQueryElement.on('selected', ((event: ToolbarEvent, item: any) => {
-    //   event.item = item;
-    //   event.data = item[0].dataset;
-    //   this.toolbarClicked.emit(event);
-    //   console.log(event);
-    // }));
   }
 
   ngOnDestroy() {
