@@ -45,7 +45,7 @@ module.exports = function(defaults) {
       'vendor/systemjs/dist/system.src.js',
       'vendor/zone.js/dist/zone.js',
       'vendor/immutable/dist/immutable.js',
-      'vendor/@infor/sohoxi/dist/js/jquery-3.0.0-rc1.min.js',
+      'vendor/@infor/sohoxi/dist/js/jquery-3.0.0.min.js',
       'vendor/@infor/sohoxi/dist/js/sohoxi.js',
     ],
     vendorNpmFiles: [
@@ -56,7 +56,7 @@ module.exports = function(defaults) {
       'reflect-metadata/**/*.+(ts|js|js.map)',
       'rxjs/**/*.+(js|js.map)',
       '@angular/**/*.+(js|js.map)',
-      '@infor/sohoxi/dist/js/**/*.+(js|js.map)',
+      '@infor/sohoxi/dist/js/**/*.+(js|map|min.js)',
       '@infor/sohoxi/dist/**/*.+(css|html)',
       'immutable/dist/*.js',
     ]

@@ -4,6 +4,7 @@ import { ButtonDemoComponent } from './button/button.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
 import { IconDemoComponent } from './icon/icon.demo';
+import { LookupDemoComponent } from './lookup/lookup.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service-demo.component';
@@ -34,6 +35,7 @@ export const routes: RouterConfig = [
   { path: 'expandablearea',   component: ExpandableAreaDemoComponent },
   { path: 'toast',            component: ToastDemoComponent },
   { path: 'icon',             component: IconDemoComponent },
+  { path: 'lookup',           component: LookupDemoComponent },
   { path: 'mask',             component: MaskDemoComponent },
   { path: 'menu-button',      component: MenuButtonDemoComponent },
   { path: 'tree-dynamic',     component: TreeDynamicDemoComponent },

@@ -12,7 +12,7 @@ import { SohoButtonComponent, BUTTON_TYPES } from '../';
 export class ToastDemoComponent implements OnInit {
   private types = BUTTON_TYPES; // tslint:disable-line
 
-  //Inject Toast Servivce as a dependency and get an instance variable
+  // Inject Toast Servivce as a dependency and get an instance variable
   constructor(private toastService: SohoToastService) { }
   ngOnInit() { }
 
