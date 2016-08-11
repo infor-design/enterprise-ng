@@ -36,7 +36,9 @@
       </div>
     </div>
   </form>
-  <div>
+  <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+  <div *ngIf="showModel">
+    <hr>
     <h3>{{ model | json }}</h3>
   </div>
 </div>

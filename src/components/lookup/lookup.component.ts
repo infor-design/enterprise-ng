@@ -7,7 +7,12 @@ import {
   OnDestroy,
   Output,
   ViewChild,
+  forwardRef,
 } from '@angular/core';
+import {
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+} from '@angular/forms';
 
 import {
   SohoGridColumn,
@@ -18,12 +23,19 @@ import {
 
 import { SohoLookupChangeEvent } from './index'; // @todo sorry Visual Studio is blowing on this without the index.
 
+const SOHO_LOOKUP_VALUE_ACCESSOR: any = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => SohoLookupComponent),
+  multi: true,
+};
+
 @Component({
   moduleId: module.id,
   selector: 'soho-lookup',
-  templateUrl: 'lookup.component.html'
+  templateUrl: 'lookup.component.html',
+  providers: [ SOHO_LOOKUP_VALUE_ACCESSOR ]
 })
-export class SohoLookupComponent implements AfterViewInit, OnDestroy, SohoDatagridSource {
+export class SohoLookupComponent implements AfterViewInit, ControlValueAccessor, OnDestroy, SohoDatagridSource {
   /**
    * Available Soho Template control settings as Inputs
    * Should match the Soho properties for the component
@@ -52,7 +64,7 @@ export class SohoLookupComponent implements AfterViewInit, OnDestroy, SohoDatagr
    */
   @Output() afteropen: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() beforeopen: EventEmitter<Object> = new EventEmitter<Object>();
-  @Output() change: EventEmitter<SohoLookupChangeEvent> = new EventEmitter<SohoLookupChangeEvent>();
+  @Output() change: EventEmitter<SohoLookupChangeEvent[]> = new EventEmitter<SohoLookupChangeEvent[]>();
   @Output() open: EventEmitter<Object> = new EventEmitter<Object>();
 
   @ViewChild('inputElement') inputElement: ElementRef;
@@ -65,6 +77,9 @@ export class SohoLookupComponent implements AfterViewInit, OnDestroy, SohoDatagr
   private datagrid: any;
   private modal: any;
   private _dataset: Object[];
+  private _value: any;
+  private _onChangeCallback: any = () => {};
+  private _onTouchedCallback: any = () => {};
 
   constructor(private element: ElementRef) { }
   ngAfterViewInit() {
@@ -102,7 +117,7 @@ export class SohoLookupComponent implements AfterViewInit, OnDestroy, SohoDatagr
     this.jQueryElement.on('afteropen', (...args: any[]) => this.modalOpened(args));
     this.jQueryElement.on('beforeopen', () => this.beforeopen.emit(null));
     this.jQueryElement.on('open', () => this.open.emit(null));
-    this.jQueryElement.on('change', (e: any, args: SohoLookupChangeEvent) => this.change.emit(args));
+    this.jQueryElement.on('change', (e: any, args: SohoLookupChangeEvent[]) => this.onChange(args));
 
     this.lookup = this.jQueryElement.data('lookup');
   }
@@ -130,4 +145,27 @@ export class SohoLookupComponent implements AfterViewInit, OnDestroy, SohoDatagr
     }
     this.afteropen.emit(args);
   }
+  onChange(event: SohoLookupChangeEvent[]) {
+    if (event.length && event.length === 1) {
+      this._value = event[0].data;
+      this._onChangeCallback(event[0].data);
+    } else {
+      this._value = event.map(val => { return val.data; });
+      this._onChangeCallback(this._value);
+    }
+    this.change.emit(event);
+  }
+  /**
+   * Necessary for the ControlValueAccessor support
+   */
+  writeValue(value: any) {
+    this._value = value;
+  }
+  registerOnChange(fn: any) {
+    this._onChangeCallback = fn;
+  }
+  registerOnTouched(fn: any) {
+    this._onTouchedCallback = fn;
+  }
+
 }

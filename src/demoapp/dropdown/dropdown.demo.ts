@@ -23,6 +23,7 @@ export class DropdownDemoComponent implements OnInit {
     readOnly: '',
     modifiable: '',
   };
+  private showModel = false;
 
   constructor() { }
   ngOnInit() { }
@@ -32,5 +33,8 @@ export class DropdownDemoComponent implements OnInit {
   }
   onRemoveOption() {
     this.options.pop();
+  }
+  toggleModel() {
+    this.showModel = !this.showModel;
   }
 }
