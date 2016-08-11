@@ -113,31 +113,12 @@ export class SohoDropdownComponent implements AfterViewInit, OnDestroy {
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (event: any) => this.onChange(event));
+    this.jQueryElement.on('change', (event: any) => this.change.emit(event));
     this.jQueryElement.on('updated', (event: any) => this.updated.emit(event));
 
     this.dropdown = this.jQueryElement.data('dropdown');
   }
   ngOnDestroy() {
     this.dropdown.destroy();
-  }
-  onChange(event: Event) {
-    // const selectElement: HTMLSelectElement = <HTMLSelectElement>event.target;
-    this.select.onChange(this.value);
-    this.change.emit(event);
-  }
-  get value(): Array<string> {
-    if (!this.element.nativeElement) {
-      return;
-    }
-    if (this.multiple) {
-      const array = [].slice.call((<HTMLSelectElement>this.element.nativeElement).options);
-      return (<Array<HTMLOptionElement>>array).filter((option: HTMLOptionElement) => {
-        return option.selected;
-      }).map(option => {
-        return option.value;
-      });
-    }
-    return this.element.nativeElement.value;
   }
 }

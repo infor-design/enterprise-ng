@@ -18,7 +18,7 @@ export class DropdownDemoComponent implements OnInit {
     { value: 'WY', text: 'Wyoming' },
   ];
   private counter = 0;
-  private model = {
+  private model = { // tslint:disable-line
     single: '',
     readOnly: '',
     modifiable: '',
@@ -26,9 +26,6 @@ export class DropdownDemoComponent implements OnInit {
 
   constructor() { }
   ngOnInit() { }
-  getValue(dropdown: SohoDropdownComponent) {
-    // return dropdown.value.join(', ');
-  }
   onAddOption() {
     this.options.push({ value: 'test' + this.counter, text: 'Test ' + this.counter });
     this.counter++;
