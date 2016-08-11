@@ -10,12 +10,13 @@ import {
 } from '@angular/core';
 
 import {
-  GridColumn,
+  SohoGridColumn,
   SohoDatagridConfiguration,
   SohoDatagridSource,
-  SohoSourceFunction,
+  SohoSourceFunction
 } from '../datagrid';
-import { SohoLookupChangeEvent } from './';
+
+import { SohoLookupChangeEvent } from './index'; // @todo sorry Visual Studio is blowing on this without the index.
 
 @Component({
   moduleId: module.id,
@@ -27,9 +28,9 @@ export class SohoLookupComponent implements AfterViewInit, OnDestroy, SohoDatagr
    * Available Soho Template control settings as Inputs
    * Should match the Soho properties for the component
    */
-  // Make sure you bind the context to the function
+    // Make sure you bind the context to the function
   @Input() beforeShow: Function;
-  @Input() columns: GridColumn[];
+  @Input() columns: SohoGridColumn[];
   @Input() set dataset(data: Object[]) {
     this._dataset = data;
     if (data && this.jQueryElement) {
@@ -85,7 +86,7 @@ export class SohoLookupComponent implements AfterViewInit, OnDestroy, SohoDatagr
         rowHeight: true,
         views: false,
       }, this.toolbar),
-      source: this.source,
+      source: this.source
     };
 
     this.jQueryElement.lookup({
@@ -107,7 +108,9 @@ export class SohoLookupComponent implements AfterViewInit, OnDestroy, SohoDatagr
   }
   ngOnDestroy() {
     // Necessary clean up step (add additional here)
-    this.lookup.destroy();
+    if (this.lookup) {
+      this.lookup.destroy();
+    }
   }
   modalOpened(args: any) {
     /**
@@ -122,7 +125,7 @@ export class SohoLookupComponent implements AfterViewInit, OnDestroy, SohoDatagr
       if (this.datagrid.pager) {
         this.datagrid.pager.element.on('afterpaging', function() {
           this.modal.resize();
-        }.bind(this));
+        }.bind(this)); // <-- magic --
       }
     }
     this.afteropen.emit(args);
