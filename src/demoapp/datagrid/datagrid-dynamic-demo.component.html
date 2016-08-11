@@ -10,11 +10,13 @@
   </div>
 </div>
 <br>
-<div class="example-section scrollable" role="main">
-  <section class="scrollable contained-scrolling-right-bottom ">
-    <div soho-datagrid (selected)="onSelected($event)"
-        [columns]="columns | async"
-        [data]="data | async"
-        selectable="multiple"></div>
-  </section>
+<div class="row top-padding">
+  <div class="twelve columns demo" role="main">
+      <section class="scrollable contained-scrolling-right-bottom ">
+        <div soho-datagrid (selected)="onSelected($event)"
+             [columns]="columns | async"
+             [data]="data | async"
+             selectable="multiple"></div>
+      </section>
+    </div>
 </div>

@@ -1,9 +1,8 @@
-
 import {
   Component,
+  ChangeDetectionStrategy,
   ElementRef,
-  ViewChild,
-  ChangeDetectionStrategy
+  ViewChild
 } from '@angular/core';
 
 /* tslint:disable */
@@ -14,28 +13,24 @@ import { Subject } from 'rxjs/Subject';
 import {
   SohoButtonComponent,
   SohoTreeComponent,
-  TreeService,
-  TreeNode,
-  TreeEvent
+  SohoTreeService,
+  SohoTreeNode,
+  SohoTreeEvent
+} from '../';
 
-}
-from '../';
-
-import {
-  TreeDemoService
-} from './tree-demo.service';
+import { TreeDemoService } from './tree-demo.service';
 
 @Component({
   moduleId: module.id,
   selector: 'tree-service-demo',
   templateUrl: 'tree-service-demo.component.html',
-  providers: [{ provide: TreeService, useClass: TreeDemoService }],
+  providers: [{ provide: SohoTreeService, useClass: TreeDemoService }],
   directives: [SohoTreeComponent, SohoButtonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeServiceDemoComponent {
 
-  private DATA: TreeNode[] = [{
+  private DATA: SohoTreeNode[] = [{
     'id': 'node1',
     'text': 'Data One',
     'open': false,
@@ -68,16 +63,16 @@ export class TreeServiceDemoComponent {
 
   @ViewChild(SohoTreeComponent) tree: SohoTreeComponent;
 
-  private subject = new Subject<TreeNode[]>();
+  private subject = new Subject<SohoTreeNode[]>();
 
   private source = this.subject.asObservable();
 
   // Is this component enabled.
   enabled = true;
 
-  selected: TreeNode;
-  constructor(private el: ElementRef) {
-  }
+  selected: SohoTreeNode;
+
+  constructor(private el: ElementRef) {}
 
   expandAll() {
     this.tree.expandAll();
@@ -106,7 +101,7 @@ export class TreeServiceDemoComponent {
   }
 
   addNode() {
-    let tn: TreeNode = { text: 'New Item 1.2', disabled: true };
+    let tn: SohoTreeNode = { text: 'New Item 1.2', disabled: true };
     this.tree.addNode(tn, this.selected);
   }
 
@@ -114,7 +109,7 @@ export class TreeServiceDemoComponent {
     this.subject.next(this.DATA);
   }
 
-  onSelected(treeEvent: TreeEvent) {
+  onSelected(treeEvent: SohoTreeEvent) {
     this.selected = treeEvent.data;
     console.log(`Tree Event: ${this.selected}`);
   }

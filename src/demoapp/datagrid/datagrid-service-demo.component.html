@@ -1,19 +1,22 @@
 <div class="row">
-    <div class="twelve columns">
+  <div class="twelve columns">
 
-        <h2 class="fieldset-title">Soho Data Grid - Service</h2>
+    <h2 class="fieldset-title">Soho Data Grid - Service</h2>
 
-        <div class="field">
-            <button soho-button (click)="datagrid.enable($event)">Enable</button>
-            <button soho-button (click)="datagrid.disable($event)">Disable</button>
-            <button soho-button (click)="addRow($event)">Add Row</button>
-            <button soho-button (click)="busy($event)">Busy</button>
-        </div>
+    <div class="field">
+      <button soho-button (click)="datagrid.enable($event)">Enable</button>
+      <button soho-button (click)="datagrid.disable($event)">Disable</button>
+      <button soho-button (click)="addRow($event)">Add Row</button>
+      <button soho-button (click)="busy($event)">Busy</button>
     </div>
+  </div>
 </div>
 <br>
-<div soho-busyindicator class="example-section" role="main" timeToClose="1000" style="height:100%">
+
+<div class="row top-padding">
+  <div soho-busyindicator class="twelve columns demo" role="main" timeToClose="1000" style="height: 100%">
     <div id="gridContainer">
-        <div soho-datagrid (selected)="onSelected($event)" selectable="multiple"></div>
+      <div soho-datagrid (selected)="onSelected($event)" selectable="multiple"></div>
     </div>
+  </div>
 </div>

@@ -8,8 +8,8 @@ import {
 import {
     SohoButtonComponent,
     SohoTreeComponent,
-    TreeNode,
-    TreeEvent
+    SohoTreeNode,
+    SohoTreeEvent
 } from '../';
 
 @Component({
@@ -26,7 +26,7 @@ export class TreeContentDemoComponent {
     // Is this component enabled.
     enabled = true;
 
-    selected: TreeNode;
+    selected: SohoTreeNode;
 
     constructor(private el: ElementRef) {
     }
@@ -53,11 +53,11 @@ export class TreeContentDemoComponent {
     }
 
     addNode() {
-        let tn: TreeNode = {text: 'New Item 1.2', disabled: true};
+      let tn: SohoTreeNode = {text: 'New Item 1.2', disabled: true};
         this.tree.addNode(tn, this.selected);
     }
 
-    onSelected(treeEvent: TreeEvent) {
+    onSelected(treeEvent: SohoTreeEvent) {
         this.selected = treeEvent.data;
         console.log(`Tree Event: ${this.selected}`);
     }

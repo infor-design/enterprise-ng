@@ -13,7 +13,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import {
   SohoDataGridComponent,
   SohoButtonComponent,
-  GridColumn
+  SohoGridColumn
 } from '../';
 
 import {
@@ -39,7 +39,7 @@ export class DataGridDynamicDemoComponent implements AfterContentInit, AfterView
     private service: DataGridDemoService) {
   }
 
-  public get columns(): Observable<GridColumn[]> {
+  public get columns(): Observable<SohoGridColumn[]> {
     return Observable.of(this.service.getColumns());
   }
 
