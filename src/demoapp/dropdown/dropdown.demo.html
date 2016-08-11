@@ -1,43 +1,42 @@
 <div class="example-section">
-  <div class="row">
-    <h1>Single-Select Dropdown</h1>
-    <span class="code-tag">Live Example</span>
+  <form>
     <div class="row">
-      <div class="field">
-        <label for="states" class="label">States</label>
-        <select #dropdown soho-dropdown="states">
-          <option value="AL">Alabama</option>
-          <option value="CA">California</option>
-          <option value="DE">Delaware</option>
-          <option value="NY">New York</option>
-          <option value="WY">Wyoming</option>
-        </select>
-      </div>
-      <div>
-        <h3>Select value is: {{getValue(dropdown)}}</h3>
-      </div>
-      <div class="field">
-        <label for="states-readonly" class="label">States - ReadOnly</label>
-        <select #dropdownReadOnly soho-dropdown="states-readonly" readOnly>
-          <option value="AL">Alabama</option>
-          <option value="CA">California</option>
-          <option value="DE">Delaware</option>
-          <option value="NY">New York</option>
-          <option value="WY">Wyoming</option>
-        </select>
-      </div>
-      <div class="field">
-        <button soho-button (click)="onAddOption()">Add Option</button>
-        <button soho-button (click)="onRemoveOption()">Remove Option</button>
-        <hr>
-        <label for="states-modifiable" class="label">Modifiable States</label>
-        <select #dropdownAddRemove soho-dropdown="states-modifiable">
-          <option *ngFor="let option of options" [value]="option.value">{{option.text}}</option>
-        </select>
-      </div>
-      <div>
-        <h3>Select value is: {{getValue(dropdownAddRemove)}}</h3>
+      <h1>Single-Select Dropdown</h1>
+      <span class="code-tag">Live Example</span>
+      <div class="row">
+        <div class="field">
+          <label for="states" class="label">States</label>
+          <select soho-dropdown name="states" [(ngModel)]="model.single">
+            <option value="AL">Alabama</option>
+            <option value="CA">California</option>
+            <option value="DE">Delaware</option>
+            <option value="NY">New York</option>
+            <option value="WY">Wyoming</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="states-readonly" class="label">States - ReadOnly</label>
+          <select soho-dropdown name="states-readonly" readOnly [(ngModel)]="model.readOnly">
+            <option value="AL">Alabama</option>
+            <option value="CA">California</option>
+            <option value="DE">Delaware</option>
+            <option value="NY">New York</option>
+            <option value="WY">Wyoming</option>
+          </select>
+        </div>
+        <div class="field">
+          <button soho-button (click)="onAddOption()">Add Option</button>
+          <button soho-button (click)="onRemoveOption()">Remove Option</button>
+          <hr>
+          <label for="states-modifiable" class="label">Modifiable States</label>
+          <select soho-dropdown name="states-modifiable" [(ngModel)]="model.modifiable">
+            <option *ngFor="let option of options" [ngValue]="option">{{option.text}}</option>
+          </select>
+        </div>
       </div>
     </div>
+  </form>
+  <div>
+    <h3>{{ model | json }}</h3>
   </div>
 </div>

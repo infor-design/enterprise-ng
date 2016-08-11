@@ -33,9 +33,6 @@ import {
 import {
   ApplicationMenuDemoComponent
 } from './application-menu/application-menu.demo';
-import {
-  routes
-} from './app.routes';
 
 @Component({
   moduleId: module.id,
@@ -52,9 +49,9 @@ import {
     SohoPersonalizeDirective,
     ROUTER_DIRECTIVES,
   ],
-  precompile: (<any[]>routes.map((route) => {
-    return route.component;
-  })),
+  // precompile: (<any[]>routes.map((route) => {
+  //   return route.component;
+  // })),
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements AfterViewInit {
