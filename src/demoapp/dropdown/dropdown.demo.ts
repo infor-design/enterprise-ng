@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
+
 import { SohoDropdownComponent, SohoButtonComponent } from '../';
 
 @Component({
   moduleId: module.id,
   selector: 'soho-dropdown-demo',
   templateUrl: 'dropdown.demo.html',
-  directives: [ SohoButtonComponent, SohoDropdownComponent ],
+  directives: [ SohoButtonComponent, SohoDropdownComponent, REACTIVE_FORM_DIRECTIVES ],
 })
 export class DropdownDemoComponent implements OnInit {
   private options: Array<Object> = [
@@ -16,10 +18,16 @@ export class DropdownDemoComponent implements OnInit {
     { value: 'WY', text: 'Wyoming' },
   ];
   private counter = 0;
+  private model = {
+    single: '',
+    readOnly: '',
+    modifiable: '',
+  };
+
   constructor() { }
   ngOnInit() { }
   getValue(dropdown: SohoDropdownComponent) {
-    return dropdown.value.join(', ');
+    // return dropdown.value.join(', ');
   }
   onAddOption() {
     this.options.push({ value: 'test' + this.counter, text: 'Test ' + this.counter });
