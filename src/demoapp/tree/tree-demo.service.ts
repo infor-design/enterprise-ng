@@ -2,55 +2,59 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Rx';
 
-import { TreeService, TreeNode } from '../';
+import {
+  SohoTreeService,
+  SohoTreeNode
+} from '../';
 
 @Injectable()
-export class TreeDemoService extends TreeService {
+export class TreeDemoService extends SohoTreeService {
 
-    private static id: number = 2;
+  private static id: number = 2;
 
-   /**
-     * Root node - for the sample service.
-     */
-    private static ROOT_NODE: TreeNode = {
-            'id': 'Root ' + TreeDemoService.id++,
-            'text': 'Node 1',
-            'open': false,
-            'selected': false,
-            children:  []};
+  /**
+   * Root node - for the sample service.
+   */
+  private static ROOT_NODE: SohoTreeNode = {
+    'id': 'Root ' + TreeDemoService.id++,
+    'text': 'Node 1',
+    'open': false,
+    'selected': false,
+    children: []
+  };
 
-    constructor() {
-        super();
-    }
+  constructor() {
+    super();
+  }
 
-    getRootTreeNodes(): Observable<TreeNode[]> {
-        let rootNodes: TreeNode[] = [TreeDemoService.ROOT_NODE];
-        return Observable.of(rootNodes);
-    }
+  getRootTreeNodes(): Observable<SohoTreeNode[]> {
+    let rootNodes: SohoTreeNode[] = [TreeDemoService.ROOT_NODE];
+    return Observable.of(rootNodes);
+  }
 
-    getTreeNodes(node: TreeNode): Observable<TreeNode[]> {
-        let children: TreeNode[] = [{
-            'id': node.id + '/1',
-            'text': 'Leaf ' + TreeDemoService.id++,
-            'open': false,
-            'selected': false,
-            'children': []
-        },
-        {
-            'id': node.id + '/2',
-            'text': 'Node ' + TreeDemoService.id++,
-            'open': false,
-            'selected': false,
-            'children': []
-        },
-        {
-            'id': node.id + '/3',
-            'text': 'Node ' + TreeDemoService.id++,
-            'open': false,
-            'selected': false,
-            'children': []
-        }];
+  getTreeNodes(node: SohoTreeNode): Observable<SohoTreeNode[]> {
+    let children: SohoTreeNode[] = [{
+      'id': node.id + '/1',
+      'text': 'Leaf ' + TreeDemoService.id++,
+      'open': false,
+      'selected': false,
+      'children': []
+    },
+      {
+        'id': node.id + '/2',
+        'text': 'Node ' + TreeDemoService.id++,
+        'open': false,
+        'selected': false,
+        'children': []
+      },
+      {
+        'id': node.id + '/3',
+        'text': 'Node ' + TreeDemoService.id++,
+        'open': false,
+        'selected': false,
+        'children': []
+      }];
 
-        return Observable.of(children);
-    }
+    return Observable.of(children);
+  }
 }
