@@ -1,63 +1,73 @@
 <div class="example-section">
-  <div class="row">
-    <h1>Lookups</h1>
-    <span class="code-tag">Live Example</span>
+  <form>
     <div class="row">
-      <soho-lookup
-        [columns]="columns_product"
-        [dataset]="data_product"
-        field="productId"
-        label="Products (Single Select)"
-        name="product_single">
-      </soho-lookup>
+      <h1>Lookups</h1>
+      <span class="code-tag">Live Example</span>
+      <div class="row">
+        <soho-lookup
+          [(ngModel)]="model.single"
+          [columns]="columns_product"
+          [dataset]="data_product"
+          field="productId"
+          label="Products (Single Select)"
+          name="product_single">
+        </soho-lookup>
+      </div>
+      <div class="row">
+        <soho-lookup
+          [(ngModel)]="model.multi"
+          [columns]="columns_multi"
+          [dataset]="data_product"
+          [options]="{
+            selectable: 'multiple'
+          }"
+          [toolbar]="{
+            results: true,
+            dateFilter: false,
+            keywordFilter: true,
+            advancedFilter: true,
+            actions: true,
+            views: true,
+            rowHeight: false,
+            collapsibleFilter: false,
+            fullWidth: true
+          }"
+          field="productId"
+          label="Products (Multi Select)"
+          name="product_multi">
+        </soho-lookup>
+      </div>
+      <div class="row">
+        <soho-lookup
+          [(ngModel)]="model.async"
+          [columns]="columns_product"
+          [options]="{
+            paging: true,
+            pagesize: 5,
+            pagesizes: [3, 5, 10, 15]
+          }"
+          [source]="source.bind(context)"
+          [toolbar]="{
+            results: true,
+            dateFilter: false,
+            keywordFilter: true,
+            advancedFilter: true,
+            actions: true,
+            views: true,
+            rowHeight: false,
+            collapsibleFilter: false,
+            fullWidth: true
+          }"
+          field="productId"
+          label="Products (Async Results)"
+          name="product_async">
+        </soho-lookup>
+      </div>
     </div>
-    <div class="row">
-      <soho-lookup
-        [columns]="columns_multi"
-        [dataset]="data_product"
-        [options]="{
-          selectable: 'multiple'
-        }"
-        [toolbar]="{
-          results: true,
-          dateFilter: false,
-          keywordFilter: true,
-          advancedFilter: true,
-          actions: true,
-          views: true,
-          rowHeight: false,
-          collapsibleFilter: false,
-          fullWidth: true
-        }"
-        field="productId"
-        label="Products (Multi Select)"
-        name="product_multi">
-      </soho-lookup>
-    </div>
-    <div class="row">
-      <soho-lookup
-        [columns]="columns_product"
-        [options]="{
-          paging: true,
-          pagesize: 5,
-          pagesizes: [3, 5, 10, 15]
-        }"
-        [source]="source.bind(context)"
-        [toolbar]="{
-          results: true,
-          dateFilter: false,
-          keywordFilter: true,
-          advancedFilter: true,
-          actions: true,
-          views: true,
-          rowHeight: false,
-          collapsibleFilter: false,
-          fullWidth: true
-        }"
-        field="productId"
-        label="Products (Async Results)"
-        name="product_async">
-      </soho-lookup>
-    </div>
+  </form>
+  <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+  <div *ngIf="showModel">
+    <hr>
+    <h3>{{ model | json }}</h3>
   </div>
 </div>

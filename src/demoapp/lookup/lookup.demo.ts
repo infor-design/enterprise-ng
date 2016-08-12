@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 
 import {
+  SohoButtonComponent,
   SohoGridColumn,
   SohoLookupComponent,
   SohoDatagridSource,
@@ -24,13 +26,19 @@ export interface FakeResponse {
   moduleId: module.id,
   selector: 'soho-lookup-demo',
   templateUrl: 'lookup.demo.html',
-  directives: [ SohoLookupComponent ]
+  directives: [ SohoButtonComponent, SohoLookupComponent, REACTIVE_FORM_DIRECTIVES ]
 })
 export class LookupDemoComponent implements SohoDatagridSource {
   private columns_product: SohoGridColumn[];
   private columns_multi: SohoGridColumn[];
 
   private data_product: any[];
+  private model: any = { // tslint:disable-line
+    single: null,
+    multi: null,
+    async: null,
+  };
+  private showModel: boolean = false;
 
   // So we can bind 'this' to the source function passed to the lookup control
   private context = this; // tslint:disable-line
@@ -86,6 +94,9 @@ export class LookupDemoComponent implements SohoDatagridSource {
       this.columns_multi.push(column);
     });
 
+  }
+  toggleModel() {
+    this.showModel = !this.showModel;
   }
   /**
    * If source is used for a datagrid, then the datagrid is expected to be paged.

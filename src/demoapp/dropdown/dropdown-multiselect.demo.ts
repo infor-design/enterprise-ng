@@ -25,6 +25,7 @@ export class DropdownMultiselectDemoComponent implements OnInit {
     multi: [],
     modifiable: [],
   };
+  private showModel = false;
 
   constructor() { }
   ngOnInit() { }
@@ -34,5 +35,8 @@ export class DropdownMultiselectDemoComponent implements OnInit {
   }
   onRemoveOption() {
     this.options.pop();
+  }
+  toggleModel() {
+    this.showModel = !this.showModel;
   }
 }
