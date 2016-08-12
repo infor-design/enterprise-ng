@@ -29,6 +29,8 @@ const SOHO_LOOKUP_VALUE_ACCESSOR: any = {
   multi: true,
 };
 
+export type SohoFieldFunction = (data: Object, input: HTMLInputElement, grid: any) => string;
+
 @Component({
   moduleId: module.id,
   selector: 'soho-lookup',
@@ -50,7 +52,7 @@ export class SohoLookupComponent implements AfterViewInit, ControlValueAccessor,
     }
   }
   @Input() editable: boolean;
-  @Input() field: string | Function;
+  @Input() field: string | SohoFieldFunction;
   @Input() label: string;
   @Input() name: string;
   @Input() options: SohoDatagridConfiguration;
@@ -156,10 +158,39 @@ export class SohoLookupComponent implements AfterViewInit, ControlValueAccessor,
     this.change.emit(event);
   }
   /**
+   * Needed to extract this function from the 'insertRows' function within the
+   * Soho Lookup control object.
+   * TODO: Expose this in the Sohoxi library @tim @ed.coyle
+   */
+  processValue(value: Object | Object[]): string {
+    let val = '';
+    let toProcess: Object[] = <Object[]>value;
+    if (!Array.isArray(toProcess)) {
+      toProcess = [toProcess];
+    }
+
+    for (let i = 0; i < toProcess.length; i++) {
+      let current = '';
+
+      if (typeof this.field === 'function') {
+        current = (<SohoFieldFunction>this.field)(toProcess[i], this.lookup.element, this.lookup.grid);
+      } else {
+        current = (<any>toProcess[i])[<string>this.field];
+      }
+
+      val += (i !== 0 ? ',' : '') + current;
+    }
+
+    return val;
+  }
+  /**
    * Necessary for the ControlValueAccessor support
    */
   writeValue(value: any) {
     this._value = value;
+    if (this.lookup && value) {
+      this.lookup.element.val(this.processValue(value));
+    }
   }
   registerOnChange(fn: any) {
     this._onChangeCallback = fn;
