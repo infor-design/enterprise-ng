@@ -19,9 +19,11 @@ export class DropdownMultiselectDemoComponent implements OnInit {
   ];
   private counter = 0;
   private model: { // tslint:disable-line
+    closes: string[],
     multi: string[],
-    modifiable: string[]
+    modifiable: Object[]
   } = {
+    closes: [],
     multi: [],
     modifiable: [],
   };
