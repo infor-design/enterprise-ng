@@ -7,5 +7,5 @@ import { SohoApplicationMenuComponent } from '../../components';
   templateUrl: 'application-menu.demo.html',
   directives: [ROUTER_DIRECTIVES, SohoApplicationMenuComponent]
 })
-export class ApplicationMenuDemoComponent {
+export class SohoApplicationMenuDemoComponent {
 }

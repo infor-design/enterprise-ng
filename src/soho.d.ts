@@ -36,6 +36,10 @@ interface BusyIndicatorStatic {
   close: () => void;
 }
 
+interface SplitterStatic {
+  
+}
+
 interface SohoMenuButtonOptions {
   menu: string;
   trigger?: string;
@@ -45,6 +49,7 @@ interface JQueryStatic {
   applicationmenu: ApplicationMenuStatic;
   toast: ToastStatic;
   busyindicator: BusyIndicatorStatic;
+  splitter: SplitterStatic;
 }
 
 interface JQuery {
@@ -54,6 +59,7 @@ interface JQuery {
   tabs(): JQuery;
   initialize(locale: string): JQuery;
   personalize(): JQuery;
+  splitter(): JQuery;
 }
 
 interface LocaleStatic {

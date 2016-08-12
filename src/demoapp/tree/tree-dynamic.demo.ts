@@ -17,7 +17,7 @@ import {
   SohoTreeNode,
   SohoTreeEvent
 }
-from '../';
+  from '../';
 
 @Component({
   moduleId: module.id,

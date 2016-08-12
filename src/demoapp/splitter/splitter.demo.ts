@@ -37,6 +37,7 @@ export class SplitterDemoComponent implements AfterContentInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    jQuery('.splitter').splitter();
   }
 
   onSelected(e: any) {

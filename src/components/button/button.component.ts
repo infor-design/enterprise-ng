@@ -137,7 +137,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
    * which are currently overlapping into the control.
    *
    * This issue should be fixed in the jQuery controls.
-   * 
+   *
    * @returns true if the content should be displayed; otherwise false.
    */
   get includeContent(): boolean {

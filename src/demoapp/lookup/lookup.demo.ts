@@ -56,7 +56,7 @@ export class LookupDemoComponent implements SohoDatagridSource {
         // Server filtering
         dataResult = productsData.filter( data => {
           return data.id.toString().includes(filter) ||
-                  data.productName.toLowerCase().includes(filter);
+            data.productName.toLowerCase().includes(filter);
         });
       }
 

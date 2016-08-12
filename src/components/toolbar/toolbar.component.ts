@@ -1,126 +1,187 @@
 import {
-    AfterViewInit,
-    Component,
-    ChangeDetectionStrategy,
-    ElementRef,
-    EventEmitter,
-    HostBinding,
-    Input,
-    Output,
-    OnDestroy
+  AfterViewInit,
+  Component,
+  ChangeDetectionStrategy,
+  ElementRef,
+  EventEmitter,
+  HostBinding,
+  Input,
+  Output,
+  OnDestroy
 } from '@angular/core';
+import {
+  ToolbarEvent
+} from '../.';
 
-declare var jQuery: any;
-
+/**
+ * soho toolbar more button
+ */
 @Component({
-    selector: 'soho-toolbar-title',
-    template: `<ng-content></ng-content>`,
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'soho-toolbar-more-button',
+  template: `
+    <button class="btn-actions page-changer" type="button">
+      <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#icon-more"></use>
+      </svg>
+      <span class="audible" data-translate="text">More</span>
+    </button>
+    <!-- TODO: look into handling this through soho-button
+    <button soho-button="actions" pageChanger="true" icon="more">
+      <span class="audible" data-translate="text">More</span>
+    </button> 
+    -->
+
+    <ng-content></ng-content>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
-export class ToolbarTitleComponent {
-
-    @HostBinding('class') hostClasses: string = 'title';
-
-    constructor() {}
-
-    get titleClasses (): string { return this.hostClasses; }
+export class SohoToolbarMoreButtonComponent {
+  @HostBinding('class.more') get isMoreButton() { return true; };
 }
 
+/**
+ * soho toolbar page title.
+ */
 @Component({
-    selector: 'soho-toolbar-button-set',
-    template: `<ng-content></ng-content>`,
-    styles : [`:host {display:inline-block;}`],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'span[soho-page-title]',
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
-export class ToolbarButtonSetComponent {
-
-    @HostBinding('class') hostClasses: string = 'buttonset';
-
-    constructor() {}
-
-    get buttonSetClasses (): string { return this.hostClasses; }
+export class SohoPageTitleComponent {
+  @HostBinding('class.page-title') get isPageTitle() { return true; };
 }
 
+/**
+ * soho section title.
+ */
 @Component({
-    moduleId: module.id,
-    selector: 'soho-toolbar',
-    templateUrl: `toolbar.component.html`,
-    styles: [`:host {display: block;}`],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'span[soho-section-title]',
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
+export class SohoSectionTitleComponent {
+  @HostBinding('class.section-title') get isSectionTitle() { return true; };
+}
 
-export class ToolbarComponent implements AfterViewInit, OnDestroy {
+/**
+ * Soho toolbar Navigation button
+ */
+@Component({
+  selector: 'button[soho-nav-button]',
+  template: `
+      <span class="audible">
+        <ng-content></ng-content>
+      </span>
+      <span class="icon app-header">
+        <span class="one"></span>
+        <span class="two"></span>
+        <span class="three"></span>
+      </span>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoToolbarNavButtonComponent {
+  @HostBinding('class.application-menu-trigger') get isAppMenuTrigger() { return true; };
+  @HostBinding('class.btn-icon') get isIconButton() { return true; };
+  @HostBinding('attr.type') get typeAttr() { return 'button'; };
+}
 
-    @Input() maxVisibleButtons: number = 3;
-    @Input() rightAlign: boolean = false;
+/**
+ * Soho toolbar title
+ */
+@Component({
+  selector: 'soho-toolbar-title',
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  directives: [ SohoToolbarNavButtonComponent ]
+})
+export class SohoToolbarTitleComponent {
+  @HostBinding('class.title') get isTitle() { return true; };
+}
 
-    @HostBinding('class') hostClasses: string = 'toolbar';
+/**
+ * Soho toolbar buttonset
+ */
+@Component({
+  selector: 'soho-toolbar-button-set',
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class SohoToolbarButtonSetComponent {
+  @HostBinding('class.buttonset') get isButtonSet() { return true; };
+  @HostBinding('style.display') get isInlineBlock() { return 'inline-block'; };
+}
 
-    // Add Events for Angular elements to listen to (can only have exposed events)
-    @Output() toolbarClicked: EventEmitter<ToolbarEvent> = new EventEmitter<ToolbarEvent>();
+/**
+ * The main soho toolbar component
+ */
+@Component({
+  moduleId: module.id,
+  selector: 'soho-toolbar',
+  templateUrl: `toolbar.component.html`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  directives: [ SohoToolbarMoreButtonComponent ]
+})
+export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
+  @HostBinding('class.toolbar') get isToolbar() { return true; };
+  @HostBinding('style.display') get isBlock() { return 'block'; };
+  @HostBinding('class.has-more-button') @Input() hasMoreButton:  boolean = false;
 
-    private jQueryElement: any;
-    private toolbar: any;
+  @Input() maxVisibleButtons: number = 3;
+  @Input() rightAlign: boolean = false;
 
-    constructor(private element: ElementRef) {}
+  /**
+   * The beforeactivate event is fired whenever a toolbar is activated giving the event handler a chance
+   * to "veto" the tab selection change.
+   * @type {EventEmitter<Object>}
+   */
+  @Output() beforeactivate: EventEmitter<ToolbarEvent> = new EventEmitter<ToolbarEvent>();
+
+  /**
+   * The activated event is if the beforeActivate succeeds.
+   * @type {EventEmitter<Object>}
+   */
+  @Output() activated: EventEmitter<ToolbarEvent> = new EventEmitter<ToolbarEvent>();
+
+  /**
+   * The afteractivate event is fired after the toolbar has been activated.
+   * @type {EventEmitter<Object>}
+   */
+  @Output() afteractivate: EventEmitter<ToolbarEvent> = new EventEmitter<ToolbarEvent>();
+
+  /**
+   * The selected event is fired when a toolbar button has been clicked.
+   * @type {EventEmitter<ToolbarEvent>}
+   */
+  @Output() selected: EventEmitter<ToolbarEvent> = new EventEmitter<ToolbarEvent>();
+
+  private jQueryElement: any;
+  private toolbar: any;
+
+  constructor(private element: ElementRef) {}
 
     ngAfterViewInit() {
         // Assign element to local variable
         this.jQueryElement = jQuery(this.element.nativeElement);
 
-        let options = {
-            maxVisibleButtons: this.maxVisibleButtons,
-            rightAlign : this.rightAlign
-        };
+    this.jQueryElement.toolbar({
+      maxVisibleButtons: this.maxVisibleButtons,
+      rightAlign : this.rightAlign
+    });
 
-        // Instantiate the element via jQuery
-        this.jQueryElement.toolbar(options);
-        this.toolbar = this.jQueryElement.data('toolbar');
+    // bind to jquery events and emit as angular events
+    this.jQueryElement.bind('beforeactivate', ((event: ToolbarEvent) => {this.beforeactivate.emit(event); }));
+    this.jQueryElement.bind('activated', ((event: ToolbarEvent) => {this.activated.emit(event); }));
+    this.jQueryElement.bind('afteractivate', ((event: ToolbarEvent) => {this.afteractivate.emit(event); }));
+    this.jQueryElement.bind('selected', ((event: ToolbarEvent) => {this.selected.emit(event); }));
 
-        // Add listeners to emit events
-        this.jQueryElement.on('selected', ((event: ToolbarEvent, item: any) => {
-            event.item = item;
-            event.data = item[0].dataset;
-            this.toolbarClicked.emit(event);
-            console.log(event);
-        }));
+    this.toolbar = this.jQueryElement.data('toolbar');
+  }
+
+  ngOnDestroy() {
+    if (this.jQueryElement) {
+      this.jQueryElement.destroy();
+      this.jQueryElement = null;
     }
-
-    ngOnDestroy() {
-        if (this.jQueryElement) {
-            this.jQueryElement.destroy();
-            this.jQueryElement = null;
-        }
-    }
-
-    get toolbarClasses (): string { return this.hostClasses; }
-}
-
-/**
- * Holds all directives usable for toolbar
- */
-export const TOOLBAR_COMPONENTS = [
-    ToolbarComponent,
-    ToolbarTitleComponent,
-    ToolbarButtonSetComponent
-];
-
-/**
- * Interface for the jQuery event emitted
- */
-export interface ToolbarEvent {
-    currentTarget: HTMLElement;
-    item: any;
-    data: any;
-    delegateTarget: HTMLElement;
-    handleObj: Object;
-    isTrigger: number;
-    namespace: string;
-    result: any;
-    rnamespace: any;
-    target: HTMLElement;
-    timeStamp: number;
-    type: string;
+  }
 }

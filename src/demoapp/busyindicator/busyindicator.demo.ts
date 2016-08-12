@@ -9,32 +9,32 @@ import { SohoButtonComponent } from '../';
 import { SohoBusyIndicatorComponent } from '../';
 
 @Component({
-    moduleId: module.id,
-    selector: 'busyindicator-demo',
-    templateUrl: 'busyindicator.demo.html',
-    directives: [ SohoButtonComponent, SohoBusyIndicatorComponent ]
+  moduleId: module.id,
+  selector: 'busyindicator-demo',
+  templateUrl: 'busyindicator.demo.html',
+  directives: [ SohoButtonComponent, SohoBusyIndicatorComponent ]
 })
 export class BusyIndicatorDemoComponent {
 
-    message: string = 'I am waiting ... ';
+  message: string = 'I am waiting ... ';
 
-    delay: number = 1000;
+  delay: number = 1000;
 
-    @ViewChild(SohoBusyIndicatorComponent) busyIndicator: SohoBusyIndicatorComponent;
+  @ViewChild(SohoBusyIndicatorComponent) busyIndicator: SohoBusyIndicatorComponent;
 
-    constructor(private elementRef: ElementRef) {
-    }
+  constructor(private elementRef: ElementRef) {
+  }
 
-    start() {
-        this.busyIndicator.activated = true;
-    }
+  start() {
+    this.busyIndicator.activated = true;
+  }
 
-    stop() {
-        this.busyIndicator.activated = false;
-    }
+  stop() {
+    this.busyIndicator.activated = false;
+  }
 
-    timer() {
-        this.busyIndicator.activated = true;
-        setTimeout((f: any) => this.busyIndicator.activated = false, 10000);
-    }
+  timer() {
+    this.busyIndicator.activated = true;
+    setTimeout((f: any) => this.busyIndicator.activated = false, 10000);
+  }
 }

@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="twelve columns">
+
+    <soho-toolbar maxVisibleButtons="4">
+
+      <soho-toolbar-title>
+        <span soho-toolbar-section-title>{{sectionTitle}}</span>
+      </soho-toolbar-title>
+
+      <soho-toolbar-button-set>
+        <!-- search field -->
+        <label class="audible" attr.for='my-search-field'>Search</label>
+        <input class="searchfield" id='my-search-field' placeholder='Search' name='Search'/>
+
+        <!-- buttons -->
+        <button soho-button="icon" icon="add" title="Add"></button>
+
+        <!-- TODO: focusable, aria-hidden, and role attributes: do we need to allow for those?
+        <button soho-button="icon"
+          icon="add"
+          title="Add"
+          focusable="false"
+          aria-hidden="true"
+          role="presentation">
+        </button>
+        -->
+
+        <!-- TODO: better menu definition, run by ed coyle and see what he thinks
+        <button soho-menu-button icon="charts" title="Charts" menuId="charts-menu"></button>
+        <ul soho-menu popup="true" menuId="charts-menu">
+          <li soho-menu-item><a href="#">Pie Chart</a></li>
+          <li soho-menu-item><a href="#">Line Chart</a></li>
+          <li soho-menu-item><a href="#">Bubble Chart</a></li>
+        </ul>
+        -->
+
+        <!-- menu button for Charts -->
+        <button class='btn-menu' menu="charts-menu" type="button">
+          <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href='#icon-pie-chart'></use></svg>
+          <span>{{button?.text}}</span>
+          <svg class="icon icon-dropdown"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-dropdown"></use></svg>
+        </button>
+        <ul id="charts-menu" class="popupmenu">
+          <li id='pie'><a href="#">Pie Chart</a></li>
+          <li id='line'><a href="#">Line Chart</a></li>
+          <li id='bubble'><a href="#">Bubble Chart</a></li>
+        </ul>
+
+        <button soho-button='icon' icon="add" title="Open"></button>
+        <button soho-button='icon' icon="add" title="Delete"></button>
+        <button soho-button='icon' icon="refresh" title="Refresh"></button>
+
+      </soho-toolbar-button-set>
+    </soho-toolbar>
+
+  </div>
+</div>

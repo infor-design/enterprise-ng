@@ -5,33 +5,29 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-
 import {
   ROUTER_DIRECTIVES
 } from '@angular/router';
-
 import {
   SohoIconsComponent,
   SohoIconsExtendedComponent,
-  SohoApplicationMenuComponent
+  SohoApplicationMenuComponent,
+  SohoHeaderComponentRefService,
 } from '../components';
-
 import {
   ArgumentHelper
 } from '../utils';
-
 import {
   SohoPersonalizeDirective
 } from '../directives';
-
 import {
-  MastheadDemoComponent
+  SohoMastheadDemoComponent
 } from './masthead/masthead.demo';
 import {
-  HeaderDemoComponent
+  SohoHeaderDemoComponent
 } from './header/header.demo';
 import {
-  ApplicationMenuDemoComponent
+  SohoApplicationMenuDemoComponent
 } from './application-menu/application-menu.demo';
 
 @Component({
@@ -39,12 +35,13 @@ import {
   selector: 'body',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
+  providers: [ SohoHeaderComponentRefService ],
   directives: [
     SohoIconsComponent,
     SohoIconsExtendedComponent,
-    MastheadDemoComponent,
-    HeaderDemoComponent,
-    ApplicationMenuDemoComponent,
+    SohoMastheadDemoComponent,
+    SohoHeaderDemoComponent,
+    SohoApplicationMenuDemoComponent,
     SohoApplicationMenuComponent,
     SohoPersonalizeDirective,
     ROUTER_DIRECTIVES,
@@ -57,11 +54,9 @@ import {
 export class AppComponent implements AfterViewInit {
   @ViewChild(SohoApplicationMenuComponent) applicationMenu: SohoApplicationMenuComponent;
 
-  title = 'SoHo Xi Controls in Angular 2!';
+  @HostBinding('class.no-scroll') get isNoScroll() { return true; }
 
-  @HostBinding('class') get classes() {
-    return 'no-scroll';
-  }
+  private activeViewName = 'SoHo Xi Controls in Angular 2!'; // tslint:disable-line
 
   ngAfterViewInit() {
     ArgumentHelper.checkInputNotNull('AppComponent', 'applicationMenu', this.applicationMenu);
