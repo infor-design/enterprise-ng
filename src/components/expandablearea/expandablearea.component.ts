@@ -44,7 +44,6 @@ export class ExpandablePaneComponent {
 }
 
 @Component({
-  moduleId: module.id,
   selector: 'soho-expandable-area',
   templateUrl: 'expandablearea.component.html',
   styles: [``],

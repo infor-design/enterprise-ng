@@ -9,7 +9,6 @@ import {
 } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
   selector: 'soho-template',
   templateUrl: 'template.component.html'
 })

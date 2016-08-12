@@ -81,3 +81,11 @@ Check out these resources to get yourself familiar with some of the code and pro
 [RxJS](http://reactivex.io/) - Library's Site
 
 [Angular 2.0 Best Practices]( https://blog.budacode.com/2016/06/27/angular-2-best-practises/?utm_source=hackernews&utm_medium=social&utm_campaign=angular2-best-practises) - Angular 2.0 Best Practices
+
+### Update Angular Cli To Webpack
+
+`npm uninstall -g angular-cli`
+`npm cache clean`
+`npm install -g angular-cli@webpack`
+
+[More Info On Changes Here](https://github.com/angular/angular-cli/blob/master/WEBPACK_UPDATE.md)

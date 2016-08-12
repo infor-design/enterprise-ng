@@ -17,7 +17,6 @@ import { SohoIconComponent } from '../icon';
 export type SohoButtonType = 'primary' | 'secondary' | 'tertiary' | 'icon';
 
 @Component({
-  moduleId: module.id,
   selector: 'button[soho-button]',
   templateUrl: './button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

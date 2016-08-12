@@ -13,7 +13,6 @@ import { NgModel } from '@angular/forms';
 let counter = 0;
 
 @Component({
-  moduleId: module.id,
   selector: 'select[soho-dropdown]',
   template: '<ng-content></ng-content>',
   providers: [ NgModel ],

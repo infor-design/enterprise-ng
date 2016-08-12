@@ -15,7 +15,6 @@ import {
 } from '../../components';
 
 @Component({
-  moduleId: module.id,
   selector: 'soho-header',
   templateUrl: 'header.component.html'
   // directives: [ TABS_LIST_COMPONENTS ]

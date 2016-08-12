@@ -53,7 +53,6 @@ export type SohoDataGridType = 'auto' | 'content-only';
  * headers/footers/toolbars/menus
  */
 @Component({
-  moduleId: module.id,
   selector: '[soho-datagrid]',
   template: ' <ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush

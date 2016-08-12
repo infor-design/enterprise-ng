@@ -1,6 +1,6 @@
 {
   "project": {
-    "version": "1.0.0-beta.6",
+    "version": "1.0.0-beta.11-webpack",
     "name": "soho-angular-components"
   },
   "apps": [
@@ -23,10 +23,11 @@
     }
   },
   "defaults": {
-    "prefix": "",
+    "prefix": "app",
     "sourceDir": "src",
     "styleExt": "css",
     "prefixInterfaces": false,
     "lazyRoutePrefix": "+"
   }
 }
+
