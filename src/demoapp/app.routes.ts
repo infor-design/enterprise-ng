@@ -10,16 +10,19 @@ import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
 import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
+
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
+
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
-
 import { SplitterDemoComponent } from './splitter/splitter.demo';
 
-import { ToolbarDemoComponent } from './toolbar/toolbar.demo';
+import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
+import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
+import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
 
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
@@ -37,7 +40,6 @@ export const routes: RouterConfig = [
   { path: 'dropdown-multi',      component: DropdownMultiselectDemoComponent },
   { path: 'expandablearea',      component: ExpandableAreaDemoComponent },
   { path: 'toast',               component: ToastDemoComponent },
-  { path: 'toolbar',             component: ToolbarDemoComponent },
   { path: 'icon',                component: IconDemoComponent },
   { path: 'lookup',              component: LookupDemoComponent },
   { path: 'mask',                component: MaskDemoComponent },
@@ -56,9 +58,11 @@ export const routes: RouterConfig = [
   { path: 'tabs-dismissible',    component: TabsDismissibleDemoComponent },
   { path: 'tabs-dropdown',       component: TabsDropdownDemoComponent },
   { path: 'tabs-datadriven',     component: TabsDataDrivenDemoComponent },
-  { path: 'tabs-dynamic',        component: TabsDynamicDemoComponent }
-
-  // { path: 'accordian',        component: AccordionSampleComponent},
+  { path: 'tabs-dynamic',        component: TabsDynamicDemoComponent },
+  { path: 'toolbar-basic',       component: ToolbarBasicDemoComponent },
+  { path: 'toolbar-datadriven',  component: ToolbarDataDrivenDemoComponent },
+  { path: 'toolbar-all-icons',   component: ToolbarAllIconsDemoComponent },
+  // { path: 'accordian',       component: AccordionSampleComponent},
 ];
 
 export const APP_ROUTER_PROVIDERS = [

@@ -40,7 +40,7 @@ export class SohoLookupComponent implements AfterViewInit, ControlValueAccessor,
    * Available Soho Template control settings as Inputs
    * Should match the Soho properties for the component
    */
-  // Make sure you bind the context to the function
+    // Make sure you bind the context to the function
   @Input() beforeShow: Function;
   @Input() columns: SohoGridColumn[];
   @Input() set dataset(data: Object[]) {

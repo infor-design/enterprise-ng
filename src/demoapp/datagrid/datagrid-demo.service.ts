@@ -26,7 +26,7 @@ export class DataGridDemoService extends SohoDataGridService {
 
   constructor() {
     super();
-/* tslint:disable */
+    /* tslint:disable */
     this.columns.push({ id: 'selectionCheckbox', sortable: false, resizable: false, width: 50, formatter: 'SelectionCheckbox', align: 'center'});
     this.columns.push({ id: 'drillDown', hidden: true, name: 'Drill In', field: '', formatter: Formatters.Drilldown, cssClass: 'l-center-text', click(e: any, args: any) { console.log('clicked', args); } });
     this.columns.push({ id: 'productId', hidden: true, name: 'Product Id', field: 'productId', formatter: Formatters.Readonly });
@@ -53,6 +53,6 @@ export class DataGridDemoService extends SohoDataGridService {
     this.data.push({ id: 5, productId: 2642205, productName: 'Air Compressors', activity: 'Inspect and Repair', quantity: 18, price: 9, status: 'OK', orderDate: new Date(2014, 6, 9), action: 'On Hold', comment: 'B2C ubiquitous communities maximize B2C synergies extend dynamic revolutionize, world-class robust peer-to-peer. Action-items semantic technologies clicks-and-mortar iterate min' });
     this.data.push({ id: 6, productId: 2642206, productName: 'Some Compressor', activity: 'inspect and Repair', quantity: 41, price: 123.99, status: 'OK', orderDate: new Date(2014, 6, 9), action: 'On Hold', ordered: 0 });
     this.data.push({ id: 7, productId: 2642206, productName: 'Some Compressor', activity: 'inspect and Repair', quantity: 41, price: '100.99', status: 'OK', orderDate: new Date(2014, 6, 9, 12, 12, 12), action: 'On Hold', ordered: 0 });
-/* tslint:enable */
+    /* tslint:enable */
   }
 }

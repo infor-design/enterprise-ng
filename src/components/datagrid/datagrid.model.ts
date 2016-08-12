@@ -7,33 +7,33 @@ export type SohoRowHeightType = 'normal' | 'medium' | 'short';
  * List of valid formatters.
  */
 export declare var Formatters: {
-    Text: any;
-    Readonly: any;
-    Date: any;
-    Autocomplete: any;
-    Lookup: any;
-    Decimal: any;
-    Integer: any;
-    Hyperlink: any;
-    Template: any;
-    Drilldown: any;
-    Password: any;
-    TextArea: any;
-    Checkbox: any;
-    SelectionCheckbox: any;
-    Actions: any;
-    Textarea: any;
-    Expander: any;
-    ClassRange: any;
-    Badge: any;
-    Tag: any;
-    Alert: any;
-    Image: any;
-    Color: any;
-    Button: any;
-    Dropdown: any;
-    Favorite: any;
-    Status: any;
+  Text: any;
+  Readonly: any;
+  Date: any;
+  Autocomplete: any;
+  Lookup: any;
+  Decimal: any;
+  Integer: any;
+  Hyperlink: any;
+  Template: any;
+  Drilldown: any;
+  Password: any;
+  TextArea: any;
+  Checkbox: any;
+  SelectionCheckbox: any;
+  Actions: any;
+  Textarea: any;
+  Expander: any;
+  ClassRange: any;
+  Badge: any;
+  Tag: any;
+  Alert: any;
+  Image: any;
+  Color: any;
+  Button: any;
+  Dropdown: any;
+  Favorite: any;
+  Status: any;
 };
 
 export declare var Editors: {
@@ -216,29 +216,29 @@ export interface SohoToolbarConfiguration {
 }
 
 export class SohoToolbarOptions implements SohoToolbarConfiguration {
-    title = 'SoHo Data Grid';
-    results = true;
-    keywordFilter = true;
-    filter = true;
-    rowHeight = true;
-    views = true;
-    collapsibleFilter = true;
-    dateFilter = true;
-    actions: any = [];
-    personalize = true;
-    advancedFilter = true;
+  title = 'SoHo Data Grid';
+  results = true;
+  keywordFilter = true;
+  filter = true;
+  rowHeight = true;
+  views = true;
+  collapsibleFilter = true;
+  dateFilter = true;
+  actions: any = [];
+  personalize = true;
+  advancedFilter = true;
 }
 
 export interface SohoDataGridSelectedEvent {
 }
 
 export interface SohoDataGridCellChangeEvent {
-    row: any;
-    cell: any;
-    target: any;
-    value: any;
-    oldValue: any;
-    column: any;
+  row: any;
+  cell: any;
+  target: any;
+  value: any;
+  oldValue: any;
+  column: any;
 }
 
 export interface PageInfo {

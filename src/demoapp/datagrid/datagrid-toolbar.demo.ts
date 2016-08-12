@@ -10,14 +10,14 @@
 
 import {
   SohoButtonComponent,
-  ToolbarComponent
-} from '../../components/index';
+  TOOLBAR_DIRECTIVES,
+} from '../.';
 
 @Component({
   moduleId: module.id,
   selector: 'datagrid-toolbar-demo',
   templateUrl: 'datagrid-toolbar.demo.html',
-  directives: [ SohoButtonComponent, ToolbarComponent ],
+  directives: [ SohoButtonComponent, TOOLBAR_DIRECTIVES ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridToolbarDemoComponent implements OnInit, AfterViewInit, AfterContentInit {

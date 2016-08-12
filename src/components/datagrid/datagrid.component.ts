@@ -134,7 +134,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
    *   injected service (if defined) or via the Inputs if not.
    */
   @Input('soho-datagrid') set sohoDatagrid(datagridType: SohoDataGridType) {
-      this.datagridType = datagridType ? datagridType : SohoDataGridComponent.AUTO;
+    this.datagridType = datagridType ? datagridType : SohoDataGridComponent.AUTO;
   }
 
   // -------------------------------------------

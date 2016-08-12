@@ -13,8 +13,8 @@ export class TreeDemoService extends SohoTreeService {
   private static id: number = 2;
 
   /**
-    * Root node - for the sample service.
-    */
+   * Root node - for the sample service.
+   */
   private static ROOT_NODE: SohoTreeNode = {
     'id': 'Root ' + TreeDemoService.id++,
     'text': 'Node 1',

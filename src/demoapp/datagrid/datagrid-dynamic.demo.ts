@@ -38,7 +38,7 @@ export class DataGridDynamicDemoComponent implements AfterContentInit, AfterView
   public data = this._subject$.asObservable();
 
   constructor(private el: ElementRef,
-    private service: DataGridDemoService) {
+              private service: DataGridDemoService) {
   }
 
   public get columns(): Observable<SohoGridColumn[]> {
