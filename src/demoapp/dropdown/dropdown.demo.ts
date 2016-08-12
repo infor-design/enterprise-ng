@@ -20,8 +20,8 @@ export class DropdownDemoComponent implements OnInit {
   private counter = 0;
   private model = { // tslint:disable-line
     single: '',
-    readOnly: '',
-    modifiable: '',
+    readOnly: 'DE',
+    modifiable: this.options[3],
   };
   private showModel = false;
 

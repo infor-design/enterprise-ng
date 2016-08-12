@@ -6,7 +6,7 @@
       <div class="row">
         <div class="field">
           <label for="states-multi-closes" class="label">States - Closes On Select</label>
-          <select soho-dropdown name="states-multi-closes" multiple maxSelected=3>
+          <select soho-dropdown name="states-multi-closes" multiple maxSelected=3 [(ngModel)]="model.closes">
             <option value="AL">Alabama</option>
             <option value="CA">California</option>
             <option value="DE">Delaware</option>

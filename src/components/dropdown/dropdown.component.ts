@@ -8,6 +8,7 @@ import {
   OnDestroy,
   Output,
 } from '@angular/core';
+import { NgModel } from '@angular/forms';
 
 let counter = 0;
 
@@ -15,6 +16,7 @@ let counter = 0;
   moduleId: module.id,
   selector: 'select[soho-dropdown]',
   template: '<ng-content></ng-content>',
+  providers: [ NgModel ],
 })
 export class SohoDropdownComponent implements AfterViewInit, OnDestroy {
   /**
@@ -92,7 +94,15 @@ export class SohoDropdownComponent implements AfterViewInit, OnDestroy {
   private jQueryElement: any;
   private dropdown: any;
 
-  constructor(private element: ElementRef) { }
+  constructor(private element: ElementRef, private model?: NgModel) {
+    if (this.model) {
+      this.model.valueChanges.subscribe(() => {
+        if (this.dropdown) {
+          this.dropdown.updated();
+        }
+      });
+    }
+  }
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
@@ -111,12 +121,15 @@ export class SohoDropdownComponent implements AfterViewInit, OnDestroy {
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (event: any) => this.change.emit(event));
+    this.jQueryElement.on('change', (event: any) => this.onChange(event));
     this.jQueryElement.on('updated', (event: any) => this.updated.emit(event));
 
     this.dropdown = this.jQueryElement.data('dropdown');
   }
   ngOnDestroy() {
     this.dropdown.destroy();
+  }
+  onChange(event: any) {
+    this.change.emit(event);
   }
 }
