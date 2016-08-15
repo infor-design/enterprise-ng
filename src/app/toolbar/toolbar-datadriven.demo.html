@@ -24,20 +24,14 @@
 
       <soho-toolbar-button-set>
         <!-- search field -->
+        <!--TODO: need a search field component to override behaviour - theo, phillip -->
         <label *ngIf="searchField" class="audible" attr.for="{{searchField.id}}">{{searchField.label}}</label>
         <input *ngIf="searchField" class="searchfield" id="{{searchField.id}}" placeholder="{{searchField.label}}" name="{{searchField.label}}"/>
 
         <!-- buttons -->
         <template ngFor let-button [ngForOf]="buttons">
-          <button id="{{button?.id}}" class="{{button?.cssClass}}" attr.data-button="{{button?.data}}" type="button">
-            <svg class="icon">
-              <use xmlns:xlink="http://www.w3.org/1999/xlink" attr.xlink:href="{{button?.icon}}"></use>
-            </svg>
-            <span>{{button?.text}}</span>
-            <svg *ngIf="button.menu" class="icon icon-dropdown">
-              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-dropdown"></use>
-            </svg>
-          </button>
+          <button *ngIf="!button.menu" soho-button='icon' icon='{{button?.icon}}' id="{{button?.id}}" class="{{button?.cssClass}}" attr.data-button="{{button?.data}}"></button>
+          <button *ngIf="button.menu"  soho-menu-button   icon='{{button?.icon}}' id="{{button?.id}}" class="{{button?.cssClass}}" attr.data-button="{{button?.data}}"></button>
 
           <!-- dropdown menus for buttons -->
           <ul *ngIf="button.menu" class="popupmenu">

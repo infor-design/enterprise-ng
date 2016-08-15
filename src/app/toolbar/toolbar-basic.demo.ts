@@ -7,8 +7,4 @@ import { TOOLBAR_DIRECTIVES } from '../../components/toolbar';
   templateUrl: 'toolbar-basic.demo.html',
   directives: [ TOOLBAR_DIRECTIVES, SohoButtonComponent ]
 })
-export class ToolbarBasicDemoComponent {
-  private headerToolbar: boolean = false;
-  private pageTitle: string = 'Toolbar Demos';
-  private sectionTitle: string = 'Basic Toolbar Demo';
-}
+export class ToolbarBasicDemoComponent {}
