@@ -24,8 +24,7 @@ import {
   SohoToolbarConfiguration,
   SohoSourceRequest,
   SohoDataGridCellChangeEvent,
-  SohoDataGridSelectedEvent,
-  SohoRowHeightType
+  SohoDataGridSelectedEvent
 } from './datagrid.model';
 
 export type SohoDataGridType = 'auto' | 'content-only';
@@ -83,7 +82,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() editable = false;
   @Input() isList = false;
   @Input() menuId: any = null;
-  @Input() rowHeight: SohoRowHeightType = 'normal';
+  @Input() rowHeight: 'normal' | 'medium' | 'short' = 'normal';
   @Input() selectable: boolean | 'single' | 'multiple' = false;
   @Input() clickToSelect = true;
   @Input() toolbar: boolean | SohoToolbarConfiguration;

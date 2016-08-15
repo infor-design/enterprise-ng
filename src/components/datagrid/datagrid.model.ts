@@ -1,9 +1,4 @@
 /**
- * Row height.
- */
-export type SohoRowHeightType = 'normal' | 'medium' | 'short';
-
-/**
  * List of valid formatters.
  */
 export declare var Formatters: {
@@ -180,7 +175,7 @@ export class SohoGridOptions {
   // Id to the right click context menu
   menuId: any = null;
   // (short, medium or normal)
-  rowHeight: SohoRowHeightType = 'short';
+  rowHeight: 'normal' | 'medium' | 'short' = 'short';
   // false; 'single' or 'multiple'
   selectable: boolean | 'single' | 'multiple' = false;
   clickToSelect = true;
