@@ -17,7 +17,6 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
  * the SoHo application menu control.
  */
 @Component({
-  moduleId: module.id,
   selector: 'nav[soho-application-menu]', // @todo agree correct selector.
   directives: [ROUTER_DIRECTIVES],
   templateUrl: 'application-menu.component.html'

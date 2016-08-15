@@ -1,25 +1,22 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
-    "declaration": true,
+    "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "mapRoot": "/",
-    "module": "commonjs",
+    "mapRoot": "./",
+    "module": "es6",
+    "allowJs": true,
     "moduleResolution": "node",
-    "noEmitOnError": true,
-    "noImplicitAny": true,
-    "outDir": "../dist",
-    "rootDir": ".",
+    "outDir": "../dist/out-tsc",
     "sourceMap": true,
     "target": "es5",
-    "inlineSources": true,
-    "stripInternal": true
-  },
-
-  "files": [
-    "main.ts",
-    "typings.d.ts",
-    "soho.d.ts"
-  ]
+    "typeRoots": [
+      "../node_modules/@types"
+    ],
+    "types": [
+      "jasmine",
+      "jquery",
+      "core-js"
+    ]
+  }
 }

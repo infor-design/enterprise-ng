@@ -9,6 +9,7 @@ import {
   Output,
   OnDestroy
 } from '@angular/core';
+
 import {
   ToolbarEvent
 } from '../.';
@@ -116,9 +117,8 @@ export class SohoToolbarButtonSetComponent {
  * The main soho toolbar component
  */
 @Component({
-  moduleId: module.id,
   selector: 'soho-toolbar',
-  templateUrl: `toolbar.component.html`,
+  templateUrl: 'toolbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   directives: [ SohoToolbarMoreButtonComponent ]
 })

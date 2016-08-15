@@ -32,7 +32,6 @@ const SOHO_LOOKUP_VALUE_ACCESSOR: any = {
 export type SohoFieldFunction = (data: Object, input: HTMLInputElement, grid: any) => string;
 
 @Component({
-  moduleId: module.id,
   selector: 'soho-lookup',
   templateUrl: 'lookup.component.html',
   providers: [ SOHO_LOOKUP_VALUE_ACCESSOR ]

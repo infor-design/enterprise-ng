@@ -20,7 +20,7 @@ import {
   SohoTreeNode,
   SohoTreeOptions,
   SohoTreeEvent
-} from './index';
+} from './tree.model';
 
 /**
  *  Valid list of tree types.
@@ -44,7 +44,6 @@ export type SohoTreeType = 'auto' | 'content-only';
  * @todo Complete interface definition
  */
 @Component({
-  moduleId: module.id,
   selector: 'ul[soho-tree]',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -155,8 +154,8 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   public reset() {
     // Preload from the service if specified (unless data already provided).
     if (this.treeType !== SohoTreeComponent.CONTENT_ONLY && this.treeService) {
-      this.treeService.getRootTreeNodes()
-        .subscribe((dataset: SohoTreeNode[]) => this.dataset = dataset);
+      // this.treeService.getRootTreeNodes()
+      //   .subscribe((dataset: SohoTreeNode[]) => this.dataset = dataset);
     }
   }
 
@@ -319,8 +318,8 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     // Preload from the service if specified (unless data already provided).
     if (this.treeType !== SohoTreeComponent.CONTENT_ONLY && !this.dataset && this.treeService) {
       // ... bootstrap ...
-      this.treeService.getRootTreeNodes()
-        .subscribe((dataset: SohoTreeNode[]) => this.dataset = dataset);
+      // this.treeService.getRootTreeNodes()
+      //   .subscribe((dataset: SohoTreeNode[]) => this.dataset = dataset);
     }
 
     // Initialize any event handlers.

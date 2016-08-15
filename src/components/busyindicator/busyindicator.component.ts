@@ -21,7 +21,6 @@ import {
  * When activated, this control will display the busy indicator over the control appropriately.
  */
 @Component({
-  moduleId: module.id,
   selector: '[soho-busyindicator]',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush

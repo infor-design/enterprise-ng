@@ -20,7 +20,6 @@ import { TabsEvent } from './';
  * Internal component to support the tab list items
  */
 @Component({
-  moduleId: module.id,
   selector: 'li[soho-tab]',
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -90,7 +89,6 @@ export class SohoTabPanelComponent {
  * Main tabset header component
  */
 @Component({
-  moduleId: module.id,
   selector: 'ul[soho-tab-list]',
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -118,7 +116,6 @@ export class SohoTabsListComponent {
  * The main soho-tabs component
  */
 @Component({
-  moduleId: module.id,
   selector: 'div[soho-tabs]',
   templateUrl: './tabs.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -10,7 +10,6 @@ import {
 } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
   selector: '[soho-menu-button]',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
