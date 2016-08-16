@@ -33,4 +33,3 @@ const cultures = [
 cultures.forEach(c => {
     require(`@infor/sohoxi/dist/js/cultures/${c}`);
 });
-
