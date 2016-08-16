@@ -12,7 +12,7 @@ import {
   OnDestroy
 } from '@angular/core';
 
-import { ArgumentHelper } from '../../utils';
+import { ArgumentHelper } from '../../utils/argument.helper';
 
 import { SohoTreeService } from './tree.service';
 
@@ -145,8 +145,9 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
    * Resets the data display to the default provided by the service,
    * that is by calling getRootNodes.
    *
-   * The alternative is to call use the property dataset, which
-   * has the same affect but allows the caller to specify the nodes.
+   * The alternative is to set the dataset  property, which
+   * has the same affect but allows the client to specify
+   * the nodes.
    *
    * This method is only applicable when the service is defined,
    * but will not fail if one is not set.

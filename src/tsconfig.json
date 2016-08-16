@@ -3,6 +3,7 @@
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "lib": ["es6", "dom"],
     "mapRoot": "./",
     "module": "es6",
     "allowJs": true,
@@ -15,8 +16,7 @@
     ],
     "types": [
       "jasmine",
-      "jquery",
-      "core-js"
+      "jquery"
     ]
   }
 }
