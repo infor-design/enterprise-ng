@@ -4,18 +4,24 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  HostBinding,
   Input,
   OnDestroy,
   Output
 } from '@angular/core';
 
+import { SohoIconComponent } from '../icon';
+
 @Component({
-  selector: '[soho-menu-button]',
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'button[soho-menu-button]',
+  templateUrl: 'menu-button.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  directives: [ SohoIconComponent ]
 })
 
 export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
+  @HostBinding('class.btn-menu') get isBtnMenu() { return true; };
+  @HostBinding('attr.type') get buttonType() { return 'button'; };
 
   private jQueryElement: any;
   private menuButton: any;
@@ -41,6 +47,11 @@ export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
   // Component Inputs
   // -------------------------------------------
+
+  /**
+   * The icon to be used
+   */
+  @Input() icon: string = undefined;
 
   @Input() set trigger(trigger: string) {
     this.options.trigger = trigger;

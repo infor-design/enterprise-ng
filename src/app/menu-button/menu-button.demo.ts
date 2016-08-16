@@ -6,7 +6,4 @@ import { SohoMenuButtonComponent } from '../../components/menu-button';
   templateUrl: 'menu-button.demo.html',
   directives: [ SohoMenuButtonComponent ]
 })
-
-export class MenuButtonDemoComponent {
-  constructor() { }
-}
+export class MenuButtonDemoComponent {}
