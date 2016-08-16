@@ -37,7 +37,7 @@ interface BusyIndicatorStatic {
 }
 
 interface SplitterStatic {
-  
+
 }
 
 interface SohoMenuButtonOptions {
@@ -66,6 +66,7 @@ interface LocaleStatic {
   currentCulture(): string;
   translate(key: string): string;
   calendar(): string;
+  set(locale:string):any;
 }
 
 declare var Locale: LocaleStatic;

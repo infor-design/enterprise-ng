@@ -2,14 +2,17 @@
  * Created by vnguyen on 7/1/16.
  */
 
-// Jquery
+// // Jquery
 let jquery: any = require('jquery');
+
 window['jQuery'] = window['$'] = jquery;
 
 //  SohoXI
 require('@infor/sohoxi/dist/js/sohoxi');
+
 // Soho CSS
 // require('@infor/sohoxi/dist/css/grey-theme.css');
+
 //  SohoXI Culture files
 // Need to change this later, but have to work on getting webpack typing
 const cultures = [
@@ -26,6 +29,8 @@ const cultures = [
   'sv-SE', 'th-TH', 'tr-TR', 'vi-VN',
   'zh-CN', 'zh-TW'
 ];
-cultures.forEach(function (c) {
-  require('@infor/sohoxi/dist/js/cultures/' + c);
+
+cultures.forEach(c => {
+    require(`@infor/sohoxi/dist/js/cultures/${c}`);
 });
+
