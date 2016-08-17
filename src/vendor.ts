@@ -2,7 +2,7 @@
  * Created by vnguyen on 7/1/16.
  */
 
-// // Jquery
+// Jquery
 let jquery: any = require('jquery');
 
 window['jQuery'] = window['$'] = jquery;
@@ -33,4 +33,3 @@ const cultures = [
 cultures.forEach(c => {
     require(`@infor/sohoxi/dist/js/cultures/${c}`);
 });
-
