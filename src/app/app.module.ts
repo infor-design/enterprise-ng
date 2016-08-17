@@ -23,7 +23,7 @@ import { APP_ROUTER_PROVIDERS } from './app.routes';
       APP_ROUTER_PROVIDERS,
       { provide: APP_BASE_HREF, useValue: '/' }
   ],
-  entryComponents: [AppComponent],
+  entryComponents: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
