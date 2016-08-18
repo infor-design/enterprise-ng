@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { TOOLBAR_DIRECTIVES } from '../../components/toolbar';
+import { Component, ChangeDetectorRef, OnInit, ViewChild } from '@angular/core';
+import { SOHO_TOOLBAR_DIRECTIVES } from '../../components/toolbar';
 import { SohoButtonComponent } from '../../components/button';
 import { SohoMenuButtonComponent } from '../../components/menu-button';
 
@@ -7,19 +7,21 @@ import { SohoMenuButtonComponent } from '../../components/menu-button';
     selector: 'toolbar-datadriven-demo',
     templateUrl: 'toolbar-datadriven.demo.html',
     directives: [
-      TOOLBAR_DIRECTIVES,
+      SOHO_TOOLBAR_DIRECTIVES,
       SohoButtonComponent,
       SohoMenuButtonComponent
     ]
 })
 export class ToolbarDataDrivenDemoComponent implements OnInit {
 
+  @ViewChild('sohoToolbar') sohoToolbar: any;
+
   private pageTitle: string;
   private sectionTitle: string;
   private buttons: Array<ToolbarButton> = [];
   private searchField: SearchField;
 
-  constructor() {}
+  constructor(private _changeDetectorRef: ChangeDetectorRef) {}
 
   ngOnInit() {
 
@@ -31,7 +33,23 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
           label : 'Search Something'
       };
 
-      this.buttons = this.buildToolbarButtonArray();
+      let buttons = this.buildToolbarButtonArray();
+      this.buttons = buttons;
+
+      // Mock dynamically loading a button menu
+      let self: ToolbarDataDrivenDemoComponent = this;
+      setTimeout(function () {
+
+        // Add a new menu
+        self.addNewMenu();
+
+        // Force template to update
+        self._changeDetectorRef.detectChanges();
+
+        // Update toolbar
+        self.updated();
+
+      }, 100);
   }
 
   private buildToolbarButtonArray(): Array<ToolbarButton> {
@@ -81,7 +99,29 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
       cssClass : 'btn-icon'
     });
 
+    buttons.push({
+      id       : 'actions-btn',
+      data     : '{\'btn\' : \'actions\'}',
+      text     : 'Actions',
+      cssClass : 'btn-menu'
+    });
+
     return buttons;
+  }
+
+  private addNewMenu() {
+
+    let menu = [
+      {id: 'sub-one',   text: 'Sub One',   data: '{\'menu\': \'pie\'}'},
+      {id: 'sub-two',   text: 'Sub Two',   data: '{\'menu\': \'line\'}'},
+      {id: 'sub-three', text: 'Sub Three', data: '{\'menu\': \'bubble\'}'}
+    ];
+
+    this.buttons[this.buttons.length - 1].menu = menu;
+  }
+
+  private updated() {
+    this.sohoToolbar.updated();
   }
 }
 

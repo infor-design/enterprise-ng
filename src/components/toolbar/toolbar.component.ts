@@ -125,8 +125,9 @@ export class SohoToolbarButtonSetComponent {
 export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.toolbar') get isToolbar() { return true; };
   @HostBinding('style.display') get isBlock() { return 'block'; };
-  @HostBinding('class.has-more-button') @Input() hasMoreButton:  boolean = false;
+  @HostBinding('class.has-more-button') get isMoreButton() { return true; };
 
+  @Input() hasMoreButton: boolean = false;
   @Input() maxVisibleButtons: number = 3;
   @Input() rightAlign: boolean = false;
 
@@ -161,8 +162,8 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
   constructor(private element: ElementRef) {}
 
     ngAfterViewInit() {
-        // Assign element to local variable
-        this.jQueryElement = jQuery(this.element.nativeElement);
+    // Assign element to local variable
+    this.jQueryElement = jQuery(this.element.nativeElement);
 
     this.jQueryElement.toolbar({
       maxVisibleButtons: this.maxVisibleButtons,
@@ -183,5 +184,9 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
       this.jQueryElement.destroy();
       this.jQueryElement = null;
     }
+  }
+
+  public updated() {
+    this.toolbar.updated();
   }
 }
