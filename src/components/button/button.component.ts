@@ -131,18 +131,6 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  /**
-   * This is a workaround to prevent the content being displayed for icon buttons,
-   * which are currently overlapping into the control.
-   *
-   * This issue should be fixed in the jQuery controls.
-   *
-   * @returns true if the content should be displayed; otherwise false.
-   */
-  get includeContent(): boolean {
-    return this.buttonType !== SohoButtonComponent.ICON;
-  }
-
   get currentIcon() {
     if (!this.toggle) {
       return this.icon;
