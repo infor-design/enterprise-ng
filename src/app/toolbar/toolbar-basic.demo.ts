@@ -3,7 +3,7 @@ import { SohoButtonComponent } from '../../components/button';
 import { SOHO_TOOLBAR_DIRECTIVES } from '../../components/toolbar';
 
 @Component({
-  selector: 'soho-toolbar-basic-demo',
+  selector: 'toolbar-basic-demo',
   templateUrl: 'toolbar-basic.demo.html',
   directives: [ SOHO_TOOLBAR_DIRECTIVES, SohoButtonComponent ]
 })
