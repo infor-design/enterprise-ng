@@ -195,6 +195,26 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     return this.datagrid.getColumnGroup(idx);
   }
 
+  getColumnById(idx: number): string {
+    return this.datagrid.getColumnGroup(idx);
+  }
+
+  setSortFunction(sortFunction: Function): void {
+    this.datagrid.sortFunction = sortFunction;
+  }
+
+  pageSize(): any {
+    return this.datagrid.settings.pagesize;
+  }
+
+  getDirtyRows(commitEdits?: boolean): Array<any> {
+    return [];
+  }
+
+  getColumns(): Array<any> {
+    return this.datagrid.settings.columns;
+  }
+
   enable(): void {
     this.datagrid.enable();
   }
@@ -250,7 +270,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     // Wrap the element in a jQuery selector.
-    this.jQueryElement = $(this.elementRef.nativeElement);
+    this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
     // Grid options ...
     const gridOptions: SohoGridOptions = {
@@ -317,7 +337,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     if (this.datagrid) {
-      this.datagrid.destroy();
+      if (this.datagrid.destroy) {
+        this.datagrid.destroy();
+      }
+
       this.datagrid = null;
     }
   }
