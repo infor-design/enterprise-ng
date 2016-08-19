@@ -33,22 +33,18 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
           label : 'Search Something'
       };
 
-      let buttons = this.buildToolbarButtonArray();
-      this.buttons = buttons;
+      this.buttons = this.buildToolbarButtonArray();
 
       // Mock dynamically loading a button menu
-      let self: ToolbarDataDrivenDemoComponent = this;
-      setTimeout(function () {
-
+      setTimeout(() => {
         // Add a new menu
-        self.addNewMenu();
+        this.addNewMenu();
 
         // Force template to update
-        self._changeDetectorRef.detectChanges();
+        this._changeDetectorRef.detectChanges();
 
         // Update toolbar
-        self.updated();
-
+        this.updated();
       }, 100);
   }
 
