@@ -34,7 +34,7 @@ export * from './toolbar.component';
 /**
  * Interface for the jQuery event emitted
  */
-export interface ToolbarEvent {
+export interface SohoToolbarEvent {
   currentTarget: HTMLElement;
   item: any;
   data: any;
