@@ -1,0 +1,19 @@
+<div style="padding: 20px 20px 0 20px;">
+  <div class="row">
+    <div class="inline">
+      <button soho-button [disabled]="isShowingHeaderToolbar" (click)="onUseHeaderToolbar($event)">Use Header Toolbar</button>
+      <button soho-button [disabled]="!isShowingHeaderToolbar" (click)="onUseDefaultToolbar($event)">Use Default Toolbar</button>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+    <h4>Button Events:</h4>
+    <hr>
+    <p *ngIf="lastToolbarEvent?.currentTarget">
+      <b>event.currentTarget.id:</b> {{ lastToolbarEvent?.currentTarget?.id }}<br>
+      <b>event.currentTarget.dataset:</b> {{ lastToolbarEvent?.currentTarget?.dataset | json }}
+    </p>
+  </div>
+</div>

@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 
 import {
-  ToolbarEvent
+  SohoToolbarEvent
 } from '../.';
 
 /**
@@ -125,9 +125,11 @@ export class SohoToolbarButtonSetComponent {
 export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.toolbar') get isToolbar() { return true; };
   @HostBinding('style.display') get isBlock() { return 'block'; };
-  @HostBinding('class.has-more-button') get isMoreButton() { return true; };
+  @HostBinding('class.has-more-button') get showMoreButton() {
+    return this.hasMoreButton;
+  }
 
-  @Input() hasMoreButton: boolean = false;
+  @Input() hasMoreButton:  boolean = false;
   @Input() maxVisibleButtons: number = 3;
   @Input() rightAlign: boolean = false;
 
@@ -136,32 +138,38 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
    * to "veto" the tab selection change.
    * @type {EventEmitter<Object>}
    */
-  @Output() beforeactivate: EventEmitter<ToolbarEvent> = new EventEmitter<ToolbarEvent>();
+  @Output() beforeactivate: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
 
   /**
    * The activated event is if the beforeActivate succeeds.
    * @type {EventEmitter<Object>}
    */
-  @Output() activated: EventEmitter<ToolbarEvent> = new EventEmitter<ToolbarEvent>();
+  @Output() activated: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
 
   /**
    * The afteractivate event is fired after the toolbar has been activated.
    * @type {EventEmitter<Object>}
    */
-  @Output() afteractivate: EventEmitter<ToolbarEvent> = new EventEmitter<ToolbarEvent>();
+  @Output() afteractivate: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
 
   /**
    * The selected event is fired when a toolbar button has been clicked.
-   * @type {EventEmitter<ToolbarEvent>}
+   * @type {EventEmitter<SohoToolbarEvent>}
    */
-  @Output() selected: EventEmitter<ToolbarEvent> = new EventEmitter<ToolbarEvent>();
+  @Output() selected: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
+
+  /**
+   * The buttonClicked event is fired when a toolbar button has been clicked.
+   * @type {EventEmitter<SohoToolbarEvent>}
+   */
+  @Output() buttonClicked: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
 
   private jQueryElement: any;
   private toolbar: any;
 
   constructor(private element: ElementRef) {}
 
-    ngAfterViewInit() {
+  ngAfterViewInit() {
     // Assign element to local variable
     this.jQueryElement = jQuery(this.element.nativeElement);
 
@@ -171,10 +179,12 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
     });
 
     // bind to jquery events and emit as angular events
-    this.jQueryElement.bind('beforeactivate', ((event: ToolbarEvent) => {this.beforeactivate.emit(event); }));
-    this.jQueryElement.bind('activated', ((event: ToolbarEvent) => {this.activated.emit(event); }));
-    this.jQueryElement.bind('afteractivate', ((event: ToolbarEvent) => {this.afteractivate.emit(event); }));
-    this.jQueryElement.bind('selected', ((event: ToolbarEvent) => {this.selected.emit(event); }));
+    this.jQueryElement.bind('beforeactivate', ((event: SohoToolbarEvent) => { this.beforeactivate.emit(event); }));
+    this.jQueryElement.bind('activated', ((event: SohoToolbarEvent) => { this.activated.emit(event); }));
+    this.jQueryElement.bind('afteractivate', ((event: SohoToolbarEvent) => { this.afteractivate.emit(event); }));
+    this.jQueryElement.bind('selected', ((event: SohoToolbarEvent) => { this.selected.emit(event); }));
+
+    this.jQueryElement.on('click', 'button[soho-button]', (event: any) => { this.buttonClicked.emit(event); });
 
     this.toolbar = this.jQueryElement.data('toolbar');
   }
@@ -186,7 +196,9 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  public updated() {
-    this.toolbar.updated();
+  updated() {
+    if (this.toolbar) {
+      this.toolbar.updated();
+    }
   }
 }

@@ -9,7 +9,6 @@ import { SohoHeaderComponent } from '../../components/header';
   directives: [ SohoHeaderComponent, SohoButtonComponent, TOOLBAR_DIRECTIVES ]
 })
 export class SohoHeaderDemoComponent {
-  @HostBinding('class') get classes() {
-    return 'header is-personalizable';
-  }
+  @HostBinding('class.header') get isHeader() { return true; };
+  @HostBinding('class.is-personalizable') get isPersonalizable() { return true; };
 }
