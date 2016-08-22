@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
-import { SohoHeaderComponent } from './header.component';
+import { SohoHeaderDynamicDemoComponent } from './header-dynamic.demo';
 
 /**
  * Special service used by a "root router-outlet component": i.e. ListComponent, FormComponent. etc...
  * to set the banner headers toolbar options and state.
  */
 @Injectable()
-export class SohoHeaderComponentRefService {
-  private sohoHeaderComponent: SohoHeaderComponent;
+export class SohoHeaderDynamicDemoRefService {
+  private sohoHeaderComponent: SohoHeaderDynamicDemoComponent;
 
-  public set instance(sohoHeaderComponent: SohoHeaderComponent) {
+  public set instance(sohoHeaderComponent: SohoHeaderDynamicDemoComponent) {
     this.sohoHeaderComponent = sohoHeaderComponent;
   }
 
-  public get instance(): SohoHeaderComponent {
+  public get instance(): SohoHeaderDynamicDemoComponent {
     return this.sohoHeaderComponent;
   }
 }

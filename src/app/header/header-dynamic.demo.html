@@ -1,0 +1,75 @@
+<soho-header>
+
+  <!-- header toolbar -->
+  <soho-toolbar #appDynamicHeaderToolbar maxVisibleButtons=5 hasMoreButton='true'>
+
+    <soho-toolbar-title>
+      <button soho-nav-button>Show Navigation</button>
+      <h1>
+
+        <!-- if sectionTitle then display the appTitle in the page-title/eyebrow area
+             directly above the section title.-->
+        <span *ngIf="sectionTitle" class="page-title">SohoXI Angular Components</span>
+        <span *ngIf="sectionTitle" class="section-title">{{sectionTitle}}</span>
+
+        <!-- if !sectionTitle then display the appTitle without any classes -->
+        <span *ngIf="!sectionTitle">SohoXI Angular Components</span>
+
+      </h1>
+    </soho-toolbar-title>
+
+    <!-- If the currentToolbarOptions are NOT null/undefined then display the toolbar buttons
+         using the toolbarOptions input. -->
+    <!-- todo ppatton - for some reason if I put the ngIf='false' in the soho-toolbar-button-set
+         then some div seems to be automatically created for me or smething.Something in soho perhaps? -->
+    <soho-toolbar-button-set>
+
+      <!-- search field -->
+      <!-- TODO: need a search field component to override behaviour - theo, phillip -->
+      <input id="header-searchfield" class="searchfield" name="header-searchfield" />
+
+      <template [ngIf]="currentToolbarOptions">
+        <template ngFor let-button [ngForOf]="currentToolbarOptions?.toolbarButtons">
+          <button *ngIf="!button.menu" soho-button='icon' icon='{{button?.icon}}' id="{{button?.id}}" attr.data-button="{{button?.data}}">{{button?.text}}</button>
+
+          <template [ngIf]="button.menu">
+            <button soho-menu-button icon='{{button?.icon}}' id="{{button?.id}}" attr.data-button="{{button?.data}}">{{button?.text}}</button>
+            <ul class="popupmenu">
+              <li *ngFor="let item of button.menu" id="{{item?.id}}">
+                <a href="" attr.data="{{item?.data}}">{{item?.text}}</a>
+              </li>
+            </ul>
+          </template>
+        </template>
+      </template>
+
+      <template [ngIf]="!currentToolbarOptions">
+        <button soho-button="icon" icon="add" title="Add"></button>
+      </template>
+    </soho-toolbar-button-set>
+
+    <!-- If the currentToolbarOptions are null/undefined then display the "default" toolbar buttons
+         and more menu. -->
+    <soho-toolbar-more-button>
+      <template [ngIf]="!currentToolbarOptions">
+        <ul class="popupmenu is-selectable">
+          <li class="heading" role="presentation">Theme</li>
+          <li class="is-selectable is-checked"><a href="#" data-theme="grey-theme">Light</a></li>
+          <li class="is-selectable"><a href="#" data-theme="dark-theme">Dark</a></li>
+          <li class="is-selectable"><a href="#" data-theme="high-contrast-theme">High Contrast</a></li>
+          <li class="separator"></li>
+          <li class="heading" role="presentation">Personalization</li>
+          <li class="is-selectable is-checked"><a data-rgbcolor="" href="#">Default</a></li>
+          <li class="is-selectable"><a data-rgbcolor="#368AC0" href="#">Azure</a></li>
+          <li class="is-selectable"><a data-rgbcolor="#EFA836" href="#">Amber</a></li>
+          <li class="is-selectable"><a data-rgbcolor="#9279A6" href="#">Amethyst</a></li>
+          <li class="is-selectable"><a data-rgbcolor="#579E95" href="#">Turqoise</a></li>
+          <li class="is-selectable"><a data-rgbcolor="#76B051" href="#">Emerald</a></li>
+          <li class="is-selectable"><a data-rgbcolor="#5C5C5C" href="#">Graphite</a></li>
+        </ul>
+      </template>
+    </soho-toolbar-more-button>
+
+  </soho-toolbar>
+
+</soho-header>

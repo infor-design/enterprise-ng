@@ -125,8 +125,11 @@ export class SohoToolbarButtonSetComponent {
 export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.toolbar') get isToolbar() { return true; };
   @HostBinding('style.display') get isBlock() { return 'block'; };
-  @HostBinding('class.has-more-button') @Input() hasMoreButton:  boolean = false;
+  @HostBinding('class.has-more-button') get showMoreButton() {
+    return this.hasMoreButton;
+  }
 
+  @Input() hasMoreButton:  boolean = false;
   @Input() maxVisibleButtons: number = 3;
   @Input() rightAlign: boolean = false;
 
@@ -151,18 +154,25 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
 
   /**
    * The selected event is fired when a toolbar button has been clicked.
+   * TODO ppatton is this working?
    * @type {EventEmitter<ToolbarEvent>}
    */
   @Output() selected: EventEmitter<ToolbarEvent> = new EventEmitter<ToolbarEvent>();
+
+  /**
+   * The buttonClicked event is fired when a toolbar button has been clicked.
+   * @type {EventEmitter<ToolbarEvent>}
+   */
+  @Output() buttonClicked: EventEmitter<ToolbarEvent> = new EventEmitter<ToolbarEvent>();
 
   private jQueryElement: any;
   private toolbar: any;
 
   constructor(private element: ElementRef) {}
 
-    ngAfterViewInit() {
-        // Assign element to local variable
-        this.jQueryElement = jQuery(this.element.nativeElement);
+  ngAfterViewInit() {
+    // Assign element to local variable
+    this.jQueryElement = jQuery(this.element.nativeElement);
 
     this.jQueryElement.toolbar({
       maxVisibleButtons: this.maxVisibleButtons,
@@ -173,7 +183,9 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.bind('beforeactivate', ((event: ToolbarEvent) => {this.beforeactivate.emit(event); }));
     this.jQueryElement.bind('activated', ((event: ToolbarEvent) => {this.activated.emit(event); }));
     this.jQueryElement.bind('afteractivate', ((event: ToolbarEvent) => {this.afteractivate.emit(event); }));
-    this.jQueryElement.bind('selected', ((event: ToolbarEvent) => {this.selected.emit(event); }));
+    this.jQueryElement.bind('selected', ((event: ToolbarEvent) => { this.selected.emit(event); }));
+
+    this.jQueryElement.on('click', 'button[soho-button]', (event: any) => { this.buttonClicked.emit(event); });
 
     this.toolbar = this.jQueryElement.data('toolbar');
   }
@@ -182,6 +194,12 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
     if (this.jQueryElement) {
       this.jQueryElement.destroy();
       this.jQueryElement = null;
+    }
+  }
+
+  updated() {
+    if (this.toolbar) {
+      this.toolbar.updated();
     }
   }
 }

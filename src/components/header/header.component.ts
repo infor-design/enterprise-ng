@@ -4,15 +4,20 @@ import {
   ElementRef,
   EventEmitter,
   HostBinding,
-  Input,
   OnInit,
   Output,
+  ViewChild
 } from '@angular/core';
 
 import {
   TabsEvent
   // TABS_LIST_COMPONENTS
 } from '../../components';
+import {
+  SohoToolbarComponent,
+} from '../toolbar';
+// import { SohoHeaderRefService } from './header-ref.service';
+// import { SohoTabsComponent } from '../tabs';
 
 @Component({
   selector: 'soho-header',
@@ -20,21 +25,30 @@ import {
   // directives: [ TABS_LIST_COMPONENTS ]
 })
 export class SohoHeaderComponent implements AfterViewInit, OnInit {
-  @HostBinding('class.header')            get isHeader()         { return true; }
+  @HostBinding('class.header') get isHeader() { return true; }
   @HostBinding('class.is-personalizable') get isPersonalizable() { return true; };
-  @HostBinding('class.has-tabs') @Input() showHeaderTabs: boolean = false;
 
-  // This event is fired when the status of the header is changed.
-  @Output() onChange = new EventEmitter<any>();
+  @HostBinding('class.has-toolbar') get hasHeaderToolbar() { return !!this.sohoToolbarComponent; };
+  // @HostBinding('class.has-tabs') get hasHeaderTabs() { return this.showHeaderTabs; };
 
-  // This event is fired when the status of the header is changed.
+  /**
+   * use a template variable to find the toolbar element.
+   * that way the component user can ptu whatever markup in the
+   * header toolbar they want.
+   */
+  @ViewChild('sohoHeaderToolbar') sohoToolbarComponent: SohoToolbarComponent;
+
+  /**
+   * This event is fired when the status of the header is changed.
+   * @type {EventEmitter<any>}
+   */
+  @Output() updated = new EventEmitter<any>();
+
+  /**
+   * This event is fired when the status of the header is changed.
+   * @type {EventEmitter<TabsEvent>}
+   */
   @Output() tabActivated = new EventEmitter<TabsEvent>();
-
-  // @Input() set updated(value : any) {
-  //   if (value) {
-  //     $(this.elementRef.nativeElement).trigger('updated');
-  //   }
-  // }
 
   // Reference to the jQuery element.
   private jQueryElement: any;
@@ -42,16 +56,10 @@ export class SohoHeaderComponent implements AfterViewInit, OnInit {
   // Reference to the annotated SoHoXi control
   private header: any;
 
-  update() {
-    this.header.updated();
-  }
-
-  constructor(
-    private elementRef: ElementRef) {}
-    // private headerComponentRef: SohoHeaderComponentRefService)
+  constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
-    // this.headerComponentRef.instance = this;
+    // this.headerRef.instance = this;
   }
 
   ngAfterViewInit() {
@@ -67,7 +75,7 @@ export class SohoHeaderComponent implements AfterViewInit, OnInit {
     this.header = this.jQueryElement.data('header');
 
     // Initialize any event handlers.
-    this.jQueryElement.on('updated', (e: any, args: any) => { this.onChange.next(args); });
+    this.jQueryElement.on('updated', (e: any, args: any) => { this.updated.emit(args); });
   }
 
   onTabActivated(tabEvent: TabsEvent) { this.tabActivated.emit(tabEvent); }

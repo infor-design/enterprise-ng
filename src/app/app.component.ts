@@ -12,10 +12,9 @@ import {
   SohoIconsComponent,
   SohoIconsExtendedComponent
 } from '../components/icon';
-
-import { SohoApplicationMenuComponent } from '../components/application-menu';
-import { SohoHeaderComponentRefService } from '../components/header';
-
+import {
+  SohoApplicationMenuComponent
+} from '../components/application-menu';
 import {
   ArgumentHelper
 } from '../utils';
@@ -26,22 +25,28 @@ import {
   SohoMastheadDemoComponent
 } from './masthead/masthead.demo';
 import {
-  SohoHeaderDemoComponent
-} from './header/header.demo';
+  SohoHeaderDynamicDemoComponent
+} from './header/header-dynamic.demo';
 import {
   SohoApplicationMenuDemoComponent
 } from './application-menu/application-menu.demo';
+// import {
+//   SohoHeaderDemoComponent
+// } from './header/header.demo';
+import {
+  SohoHeaderDynamicDemoRefService
+} from './header/header-dynamic-demo-ref.service';
 
 @Component({
   selector: 'body',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  providers: [ SohoHeaderComponentRefService ],
+  providers: [ SohoHeaderDynamicDemoRefService ],
   directives: [
     SohoIconsComponent,
     SohoIconsExtendedComponent,
     SohoMastheadDemoComponent,
-    SohoHeaderDemoComponent,
+    SohoHeaderDynamicDemoComponent,
     SohoApplicationMenuDemoComponent,
     SohoApplicationMenuComponent,
     SohoPersonalizeDirective,
@@ -56,8 +61,6 @@ export class AppComponent implements AfterViewInit {
   @ViewChild(SohoApplicationMenuComponent) applicationMenu: SohoApplicationMenuComponent;
 
   @HostBinding('class.no-scroll') get isNoScroll() { return true; }
-
-  private activeViewName = 'SoHo Xi Controls in Angular 2!'; // tslint:disable-line
 
   ngAfterViewInit() {
     ArgumentHelper.checkInputNotNull('AppComponent', 'applicationMenu', this.applicationMenu);

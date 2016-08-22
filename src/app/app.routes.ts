@@ -23,6 +23,7 @@ import { SplitterDemoComponent } from './splitter/splitter.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
+import { ToolbarHeaderDemoComponent } from './toolbar/toolbar-header.demo';
 
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
@@ -62,6 +63,7 @@ export const routes: RouterConfig = [
   { path: 'toolbar-basic',       component: ToolbarBasicDemoComponent },
   { path: 'toolbar-datadriven',  component: ToolbarDataDrivenDemoComponent },
   { path: 'toolbar-all-icons',   component: ToolbarAllIconsDemoComponent },
+  { path: 'toolbar-header',      component: ToolbarHeaderDemoComponent },
   // { path: 'accordian',       component: AccordionSampleComponent},
 ];
 
