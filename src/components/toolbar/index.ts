@@ -11,7 +11,7 @@ import {
 /**
  * Holds all directives usable for toolbar
  */
-export const TOOLBAR_DIRECTIVES = [
+export const SOHO_TOOLBAR_DIRECTIVES = [
   SohoToolbarComponent,
   SohoToolbarButtonSetComponent,
   SohoToolbarTitleComponent,
@@ -20,6 +20,11 @@ export const TOOLBAR_DIRECTIVES = [
   SohoPageTitleComponent,
   SohoToolbarMoreButtonComponent
 ];
+
+/**
+ * @deprecated changing this to SOHO_TOOLBAR_DIRECTIVES
+ */
+export const TOOLBAR_DIRECTIVES = SOHO_TOOLBAR_DIRECTIVES;
 
 /**
  * Interface for the jQuery event emitted
