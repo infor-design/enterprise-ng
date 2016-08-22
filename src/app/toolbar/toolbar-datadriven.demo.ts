@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SOHO_TOOLBAR_DIRECTIVES } from '../../components/toolbar';
 import { SohoButtonComponent } from '../../components/button';
 import { SohoMenuButtonComponent } from '../../components/menu-button';
@@ -21,7 +21,7 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
   private buttons: Array<ToolbarButton> = [];
   private searchField: SearchField;
 
-  constructor(private _changeDetectorRef: ChangeDetectorRef) {}
+  constructor() {}
 
   ngOnInit() {
 
@@ -35,14 +35,11 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
 
       this.buttons = this.buildToolbarButtonArray();
 
+      // Add a new menu
+      this.addNewMenu();
+
       // Mock dynamically loading a button menu
       setTimeout(() => {
-        // Add a new menu
-        this.addNewMenu();
-
-        // Force template to update
-        this._changeDetectorRef.detectChanges();
-
         // Update toolbar
         this.updated();
       }, 100);
