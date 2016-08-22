@@ -169,9 +169,9 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
 
   constructor(private element: ElementRef) {}
 
-    ngAfterViewInit() {
-        // Assign element to local variable
-        this.jQueryElement = jQuery(this.element.nativeElement);
+  ngAfterViewInit() {
+    // Assign element to local variable
+    this.jQueryElement = jQuery(this.element.nativeElement);
 
     this.jQueryElement.toolbar({
       maxVisibleButtons: this.maxVisibleButtons,
@@ -179,9 +179,9 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
     });
 
     // bind to jquery events and emit as angular events
-    this.jQueryElement.bind('beforeactivate', ((event: ToolbarEvent) => {this.beforeactivate.emit(event); }));
-    this.jQueryElement.bind('activated', ((event: ToolbarEvent) => {this.activated.emit(event); }));
-    this.jQueryElement.bind('afteractivate', ((event: ToolbarEvent) => {this.afteractivate.emit(event); }));
+    this.jQueryElement.bind('beforeactivate', ((event: ToolbarEvent) => { this.beforeactivate.emit(event); }));
+    this.jQueryElement.bind('activated', ((event: ToolbarEvent) => { this.activated.emit(event); }));
+    this.jQueryElement.bind('afteractivate', ((event: ToolbarEvent) => { this.afteractivate.emit(event); }));
     this.jQueryElement.bind('selected', ((event: ToolbarEvent) => { this.selected.emit(event); }));
 
     this.jQueryElement.on('click', 'button[soho-button]', (event: any) => { this.buttonClicked.emit(event); });

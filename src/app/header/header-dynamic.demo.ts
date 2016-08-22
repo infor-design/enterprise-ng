@@ -4,11 +4,12 @@ import {
   Input,
   ViewChild
 } from '@angular/core';
-
 import {
-  SohoToolbarComponent,
-  ToolbarOptions,
+  SohoToolbarComponent
 } from '../../components';
+import {
+  ToolbarOptions
+} from './header-dynamic-demo.model';
 
 import { SohoHeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
 

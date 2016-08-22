@@ -22,6 +22,16 @@ export const SOHO_TOOLBAR_DIRECTIVES = [
 ];
 
 /**
+ * @deprecated use SOHO_TOOLBAR_DIRECTIVES instead.
+ */
+export const TOOLBAR_DIRECTIVES = SOHO_TOOLBAR_DIRECTIVES;
+
+/**
+ * Export all toolbar components in case only a few are needed.
+ */
+export * from './toolbar.component';
+
+/**
  * Interface for the jQuery event emitted
  */
 export interface ToolbarEvent {
