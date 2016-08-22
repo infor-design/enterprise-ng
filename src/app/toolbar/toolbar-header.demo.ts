@@ -10,7 +10,7 @@ import {
 } from '../../components/toolbar';
 
 import {
-ToolbarOptions,
+SohoToolbarOptions,
   SohoToolbarButtonOptions
 } from '../header/header-dynamic-demo.model';
 
@@ -27,7 +27,7 @@ import { SohoHeaderDynamicDemoRefService } from '../header/header-dynamic-demo-r
 })
 export class ToolbarHeaderDemoComponent implements AfterViewInit, OnDestroy {
 
-  private toolbarOptions: ToolbarOptions;
+  private toolbarOptions: SohoToolbarOptions;
   private lastToolbarEvent: any;
   private buttonClickedSubscription: Subscription;
 
@@ -83,8 +83,8 @@ export class ToolbarHeaderDemoComponent implements AfterViewInit, OnDestroy {
     // this.buttonClickedSubscription.unsubscribe();
   }
 
-  private buildToolbarOptions(): ToolbarOptions {
-    this.toolbarOptions = <ToolbarOptions>{};
+  private buildToolbarOptions(): SohoToolbarOptions {
+    this.toolbarOptions = <SohoToolbarOptions>{};
     this.toolbarOptions.toolbarButtons = this.buildToolbarButtonArray();
     return this.toolbarOptions;
   }

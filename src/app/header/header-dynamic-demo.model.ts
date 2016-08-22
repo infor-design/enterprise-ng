@@ -1,5 +1,5 @@
 
-export interface ToolbarOptions {
+export interface SohoToolbarOptions {
   toolbarButtons: Array<SohoToolbarButtonOptions>;
 }
 

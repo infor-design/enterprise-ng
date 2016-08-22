@@ -8,7 +8,7 @@ import {
   SohoToolbarComponent
 } from '../../components';
 import {
-  ToolbarOptions
+  SohoToolbarOptions
 } from './header-dynamic-demo.model';
 
 import { SohoHeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
@@ -40,7 +40,7 @@ export class SohoHeaderDynamicDemoComponent {
   /**
    * Set the toolbar using TabOptions
    */
-  @Input() set toolbarOptions(options: ToolbarOptions) {
+  @Input() set toolbarOptions(options: SohoToolbarOptions) {
     this.currentToolbarOptions = options;
     if (this.sohoToolbarComponent) {
       setTimeout(() => this.sohoToolbarComponent.updated());
@@ -51,7 +51,7 @@ export class SohoHeaderDynamicDemoComponent {
    * Used by the component template to decide when to display the toolbar.
    * @type {any}
    */
-  private currentToolbarOptions: ToolbarOptions = null;
+  private currentToolbarOptions: SohoToolbarOptions = null;
 
   constructor(private headerRef: SohoHeaderDynamicDemoRefService) {
     this.headerRef.instance = this;
@@ -59,9 +59,9 @@ export class SohoHeaderDynamicDemoComponent {
 
   /**
    * Get the current toolbar options.
-   * @returns {ToolbarOptions}
+   * @returns {SohoToolbarOptions}
    */
-  get toolbarOptions(): ToolbarOptions {
+  get toolbarOptions(): SohoToolbarOptions {
     return this.currentToolbarOptions;
   }
 }
