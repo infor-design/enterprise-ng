@@ -11,7 +11,7 @@ import {
 /**
  * Holds all directives usable for toolbar
  */
-export const TOOLBAR_DIRECTIVES = [
+export const SOHO_TOOLBAR_DIRECTIVES = [
   SohoToolbarComponent,
   SohoToolbarButtonSetComponent,
   SohoToolbarTitleComponent,
@@ -21,5 +21,20 @@ export const TOOLBAR_DIRECTIVES = [
   SohoToolbarMoreButtonComponent
 ];
 
-export * from './toolbar.component';
-export * from './toolbar.model';
+/**
+ * Interface for the jQuery event emitted
+ */
+export interface ToolbarEvent {
+  currentTarget: HTMLElement;
+  item: any;
+  data: any;
+  delegateTarget: HTMLElement;
+  handleObj: Object;
+  isTrigger: number;
+  namespace: string;
+  result: any;
+  rnamespace: any;
+  target: HTMLElement;
+  timeStamp: number;
+  type: string;
+}

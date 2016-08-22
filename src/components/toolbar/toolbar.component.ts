@@ -154,7 +154,6 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
 
   /**
    * The selected event is fired when a toolbar button has been clicked.
-   * TODO ppatton is this working?
    * @type {EventEmitter<ToolbarEvent>}
    */
   @Output() selected: EventEmitter<ToolbarEvent> = new EventEmitter<ToolbarEvent>();
@@ -170,9 +169,9 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
 
   constructor(private element: ElementRef) {}
 
-  ngAfterViewInit() {
-    // Assign element to local variable
-    this.jQueryElement = jQuery(this.element.nativeElement);
+    ngAfterViewInit() {
+        // Assign element to local variable
+        this.jQueryElement = jQuery(this.element.nativeElement);
 
     this.jQueryElement.toolbar({
       maxVisibleButtons: this.maxVisibleButtons,
