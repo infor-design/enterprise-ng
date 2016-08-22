@@ -5,9 +5,6 @@ import {
   Optional
 } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import {
-  TOOLBAR_DIRECTIVES
-} from '../../components/toolbar';
 
 import {
 SohoToolbarOptions,
@@ -20,10 +17,7 @@ import { SohoHeaderDynamicDemoRefService } from '../header/header-dynamic-demo-r
 @Component({
   selector: 'soho-toolbar-header-demo',
   templateUrl: 'toolbar-header.demo.html',
-  directives: [
-    TOOLBAR_DIRECTIVES,
-    SohoButtonComponent
-  ]
+  directives: [ SohoButtonComponent ]
 })
 export class ToolbarHeaderDemoComponent implements AfterViewInit, OnDestroy {
 
