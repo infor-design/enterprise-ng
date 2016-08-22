@@ -6,10 +6,13 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import {
-  TOOLBAR_DIRECTIVES,
-  ToolbarOptions,
-  SohoToolbarButtonOptions
+  TOOLBAR_DIRECTIVES
 } from '../../components/toolbar';
+
+import {
+ToolbarOptions,
+  SohoToolbarButtonOptions
+} from '../header/header-dynamic-demo.model';
 
 import { SohoButtonComponent } from '../../components/button';
 import { SohoHeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
