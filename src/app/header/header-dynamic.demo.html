@@ -6,15 +6,10 @@
     <soho-toolbar-title>
       <button soho-nav-button>Show Navigation</button>
       <h1>
-
-        <!-- if sectionTitle then display the appTitle in the page-title/eyebrow area
-             directly above the section title.-->
-        <span *ngIf="sectionTitle" class="page-title">SohoXI Angular Components</span>
+        <!-- if sectionTitle then display th directly above the section title appTitle in the page-title/eyebrow area
+            e.-->
+        <span [class.page-title]="sectionTitle" >SohoXI Angular Components</span>
         <span *ngIf="sectionTitle" class="section-title">{{sectionTitle}}</span>
-
-        <!-- if !sectionTitle then display the appTitle without any classes -->
-        <span *ngIf="!sectionTitle">SohoXI Angular Components</span>
-
       </h1>
     </soho-toolbar-title>
 
