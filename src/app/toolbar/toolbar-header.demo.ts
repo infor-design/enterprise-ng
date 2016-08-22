@@ -74,7 +74,7 @@ export class ToolbarHeaderDemoComponent implements AfterViewInit, OnDestroy {
     this.sohoHeaderRef.instance.toolbarOptions = undefined;
 
     // todo ppatton how do I unsubscribe from an Observable?
-    // this.buttonClickedSubscription.unsubscribe();
+    this.buttonClickedSubscription.unsubscribe();
   }
 
   private buildToolbarOptions(): SohoToolbarOptions {
