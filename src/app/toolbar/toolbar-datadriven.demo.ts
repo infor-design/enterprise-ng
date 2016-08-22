@@ -38,7 +38,6 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
       // Add a new menu
       this.addNewMenu();
 
-      // Mock dynamically loading a button menu
       setTimeout(() => {
         // Update toolbar
         this.updated();
