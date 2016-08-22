@@ -35,12 +35,14 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
 
       this.buttons = this.buildToolbarButtonArray();
 
-      // Add a new menu
-      this.addNewMenu();
-
       setTimeout(() => {
-        // Update toolbar
-        this.updated();
+        // Simulate an Ajax Request to add a new menu
+        this.addNewMenu();
+
+        setTimeout(() => {
+          // Force change detection
+          this.updated();
+        }, 1);
       }, 100);
   }
 
