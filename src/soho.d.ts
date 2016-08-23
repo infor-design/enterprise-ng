@@ -40,6 +40,21 @@ interface SplitterStatic {
 
 }
 
+interface SohoToolbarEvent {
+  currentTarget: HTMLElement;
+  item: any;
+  data: any;
+  delegateTarget: HTMLElement;
+  handleObj: Object;
+  isTrigger: number;
+  namespace: string;
+  result: any;
+  rnamespace: any;
+  target: HTMLElement;
+  timeStamp: number;
+  type: string;
+}
+
 interface SohoMenuButtonOptions {
   menu: string;
   trigger?: string;

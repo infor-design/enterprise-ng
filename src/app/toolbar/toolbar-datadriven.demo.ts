@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SOHO_TOOLBAR_DIRECTIVES } from '../../components/toolbar';
 import { SohoButtonComponent } from '../../components/button';
 import { SohoMenuButtonComponent } from '../../components/menu-button';
 
@@ -7,7 +6,6 @@ import { SohoMenuButtonComponent } from '../../components/menu-button';
     selector: 'toolbar-datadriven-demo',
     templateUrl: 'toolbar-datadriven.demo.html',
     directives: [
-      SOHO_TOOLBAR_DIRECTIVES,
       SohoButtonComponent,
       SohoMenuButtonComponent
     ]
