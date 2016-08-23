@@ -8,6 +8,20 @@ import {
 @Component({
   selector: 'soho-icon',
   templateUrl: 'icon.component.html',
+  styles: [
+    `
+      /* 
+        override css positioning 
+        inherited from popupmenu
+      */
+      :host {
+        padding:0;
+        margin:0;
+        top: 0px !important;
+        left: -7px !important;
+      }
+    `
+  ]
 })
 export class SohoIconComponent {
   /*

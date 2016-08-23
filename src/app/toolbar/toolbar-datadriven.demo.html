@@ -1,7 +1,7 @@
 <div class="row">
   <div class="twelve columns">
 
-    <soho-toolbar [maxVisibleButtons]="4">
+    <soho-toolbar [maxVisibleButtons]="4" #sohoToolbar>
       <soho-toolbar-title>
 
         <!-- in header -->
@@ -30,8 +30,8 @@
 
         <!-- buttons -->
         <template ngFor let-button [ngForOf]="buttons">
-          <button *ngIf="!button.menu" soho-button='icon' icon='{{button?.icon}}' id="{{button?.id}}" class="{{button?.cssClass}}" attr.data-button="{{button?.data}}"></button>
-          <button *ngIf="button.menu"  soho-menu-button   icon='{{button?.icon}}' id="{{button?.id}}" class="{{button?.cssClass}}" attr.data-button="{{button?.data}}"></button>
+          <button *ngIf="!button.menu" soho-button icon="{{button?.icon}}" id="{{button?.id}}" class="{{button?.cssClass}}" attr.data-button="{{button?.data}}">{{button?.text}}</button>
+          <button *ngIf="button.menu"  soho-menu-button icon="{{button?.icon}}" id="{{button?.id}}" class="{{button?.cssClass}}" attr.data-button="{{button?.data}}">{{button?.text}}</button>
 
           <!-- dropdown menus for buttons -->
           <ul *ngIf="button.menu" class="popupmenu">
