@@ -1,0 +1,9 @@
+<div *ngIf="searchable" class="listview-search">
+  <input class="searchfield">
+</div>
+<ng-content select="soho-toolbar.contextual-toolbar"></ng-content>
+<div #listview [class]="listClass">
+  <ul>
+    <ng-content select="li[soho-listview-item]"></ng-content>
+  </ul>
+</div>

@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 
 import { APP_ROUTER_PROVIDERS } from './app.routes';
 
+import { SohoListviewModule } from '../components/listview';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,7 +19,8 @@ import { APP_ROUTER_PROVIDERS } from './app.routes';
   imports: [
     BrowserModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    SohoListviewModule
   ],
   providers: [
       APP_ROUTER_PROVIDERS,
