@@ -4,13 +4,7 @@ import {
   Input,
   ViewChild
 } from '@angular/core';
-import {
-  SohoToolbarComponent
-} from '../../components';
-import {
-  SohoToolbarOptions
-} from './header-dynamic-demo.model';
-
+import { SohoToolbarOptions } from './header-dynamic-demo.model';
 import { SohoHeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
 
 @Component({
@@ -30,7 +24,7 @@ export class SohoHeaderDynamicDemoComponent {
    *   By element: @ViewChild('soho-toolbar')
    * Neither of these are working. investigate.
    */
-  @ViewChild('appDynamicHeaderToolbar') sohoToolbarComponent: SohoToolbarComponent;
+  @ViewChild('appDynamicHeaderToolbar') sohoToolbarComponent: any;
 
   /**
    * The current screen title

@@ -13,9 +13,7 @@ import {
   TabsEvent
   // TABS_LIST_COMPONENTS
 } from '../../components';
-import {
-  SohoToolbarComponent,
-} from '../toolbar';
+
 // import { SohoHeaderRefService } from './header-ref.service';
 // import { SohoTabsComponent } from '../tabs';
 
@@ -36,7 +34,7 @@ export class SohoHeaderComponent implements AfterViewInit, OnInit {
    * that way the component user can ptu whatever markup in the
    * header toolbar they want.
    */
-  @ViewChild('sohoHeaderToolbar') sohoToolbarComponent: SohoToolbarComponent;
+  @ViewChild('sohoHeaderToolbar') sohoToolbarComponent: any;
 
   /**
    * This event is fired when the status of the header is changed.

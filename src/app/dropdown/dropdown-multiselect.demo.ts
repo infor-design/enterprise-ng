@@ -17,14 +17,17 @@ export class DropdownMultiselectDemoComponent implements OnInit {
     { value: 'NY', text: 'New York' },
     { value: 'WY', text: 'Wyoming' },
   ];
+  private multisourceoptions: Array<Object> = [];
   private counter = 0;
   private model: { // tslint:disable-line
     closes: string[],
     multi: string[],
+    multisource: string[],
     modifiable: Object[]
   } = {
-    closes: [],
+    closes: ['AL', 'DE'],
     multi: [],
+    multisource: [],
     modifiable: [],
   };
   private showModel = false;
@@ -40,5 +43,22 @@ export class DropdownMultiselectDemoComponent implements OnInit {
   }
   toggleModel() {
     this.showModel = !this.showModel;
+  }
+  private source(response: any, searchTerm: any) {
+    let states = [
+      { value: 'AK', label: 'Alaska'},
+      { value: 'AZ', label: 'Arizona'},
+      { value: 'CA', label: 'California'},
+      { value: 'CO', label: 'Colorado'},
+      { value: 'MN', label: 'Minnesota'},
+      { value: 'ND', label: 'North Dakota'},
+      { value: 'OR', label: 'Oregon'},
+      { value: 'WA', label: 'Washington'},
+      { value: 'WY', label: 'Wyoming'}
+    ];
+
+    this.multisourceoptions = states;
+
+    response(states);
   }
 }

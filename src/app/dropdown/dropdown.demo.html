@@ -6,10 +6,10 @@
       <div class="row">
         <div class="field">
           <label for="states" class="label">States</label>
-          <select soho-dropdown name="states" [(ngModel)]="model.single">
+          <select soho-dropdown noSearch name="states" [(ngModel)]="model.single">
             <option value="AL">Alabama</option>
             <option value="CA">California</option>
-            <option value="DE" selected>Delaware</option>
+            <option value="DE" >Delaware</option>
             <option value="NY">New York</option>
             <option value="WY">Wyoming</option>
           </select>
@@ -22,6 +22,12 @@
             <option value="DE">Delaware</option>
             <option value="NY">New York</option>
             <option value="WY">Wyoming</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="states-source" class="label">States - From Source</label>
+          <select soho-dropdown name="states-source" [source]="source" [(ngModel)]="model.source">
+            <option *ngFor="let option of sourceoptions" [ngValue]="option">{{option.text}}</option>
           </select>
         </div>
         <div class="field">
