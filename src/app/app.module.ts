@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { APP_ROUTER_PROVIDERS } from './app.routes';
 
 import { SohoListviewModule } from '../components/listview';
+import { SohoSearchfieldModule } from '../components/searchfield';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SohoListviewModule } from '../components/listview';
     BrowserModule,
     CommonModule,
     FormsModule,
-    SohoListviewModule
+    SohoListviewModule,
+    SohoSearchfieldModule
   ],
   providers: [
       APP_ROUTER_PROVIDERS,

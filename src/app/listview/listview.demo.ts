@@ -6,6 +6,11 @@ import { SOHO_TOOLBAR_DIRECTIVES } from '../../components/toolbar';
 @Component({
   selector: 'soho-listview-demo',
   templateUrl: 'listview.demo.html',
+  styles: [`
+    .smaller-width {
+      width: calc(100% - 39px);
+    }
+  `],
   directives: [ SohoButtonComponent, SOHO_TOOLBAR_DIRECTIVES ],
 })
 export class ListviewDemoComponent {

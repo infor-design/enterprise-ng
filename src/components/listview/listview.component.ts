@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  ContentChild,
   ElementRef,
   EventEmitter,
   HostBinding,
@@ -9,7 +10,23 @@ import {
   OnDestroy,
   Output,
   ViewChild,
+  forwardRef,
 } from '@angular/core';
+
+import { SohoSearchfieldComponent } from '../searchfield';
+
+@Component({
+  selector: '[soho-listview-search]',
+  template: `
+    <input soho-searchfield *ngIf="!searchfieldRef">
+    <ng-content select="input[soho-searchfield]"></ng-content>
+  `,
+})
+export class SohoListviewSearchComponent {
+  @HostBinding('class.listview-search') get isListviewSearch() { return true; }
+  @ContentChild(forwardRef(() => SohoSearchfieldComponent))
+  private searchfieldRef: SohoSearchfieldComponent = null;
+}
 
 @Component({
   selector: '[soho-listview-item]',
@@ -50,14 +67,14 @@ export class SohoListviewMicroComponent {
   @HostBinding('class.listview-micro') get isMicro() { return true; }
 }
 
-/**
- * TODO: Once SohoSearchfieldComponent is complete add it and map it's functionality
- * to this component (for when it is searchable)
- */
-
 @Component({
   selector: 'soho-listview',
   templateUrl: 'listview.component.html',
+  styles: [`
+    .smaller {
+      width: 50%;
+    }
+  `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoListviewComponent implements AfterViewInit, OnDestroy {
@@ -123,6 +140,8 @@ export class SohoListviewComponent implements AfterViewInit, OnDestroy {
 
   // Used to locate the listViewReference in the HTML to init the component through jQuery
   @ViewChild('listview') listViewRef: ElementRef;
+  @ContentChild(forwardRef(() => SohoSearchfieldComponent))
+  private searchfieldRef: SohoSearchfieldComponent = null;
 
   /**
    * Local variables
@@ -135,6 +154,10 @@ export class SohoListviewComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     if (!this.listViewRef) {
       console.error('Unable to find listview reference...');
+    }
+    // Found a searchfield in the template, set searchable to true
+    if (this.searchfieldRef) {
+      this.searchable = true;
     }
     // TODO: Figure out what element to send to jQuery to init the component
     this.jQueryElement = jQuery(this.listViewRef.nativeElement);

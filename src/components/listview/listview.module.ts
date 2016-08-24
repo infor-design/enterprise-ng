@@ -8,6 +8,7 @@ import {
   SohoListviewMicroComponent,
   SohoListviewSubHeaderComponent,
 } from './listview.component';
+import { SohoSearchfieldModule } from '../searchfield';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {
   ],
   imports: [
     CommonModule,
+    SohoSearchfieldModule,
   ], // TODO: Add toolbar module
 })
 export class SohoListviewModule {}

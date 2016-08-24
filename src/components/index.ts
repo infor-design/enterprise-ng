@@ -11,6 +11,7 @@ export * from './lookup';
 export * from './mask';
 export * from './masthead';
 export * from './menu-button';
+export * from './searchfield';
 export * from './tabs';
 export * from './toolbar';
 export * from './tree';
