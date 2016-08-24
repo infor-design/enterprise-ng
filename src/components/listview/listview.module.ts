@@ -6,6 +6,7 @@ import {
   SohoListviewHeaderComponent,
   SohoListviewItemComponent,
   SohoListviewMicroComponent,
+  SohoListviewSearchComponent,
   SohoListviewSubHeaderComponent,
 } from './listview.component';
 import { SohoSearchfieldModule } from '../searchfield';
@@ -16,6 +17,7 @@ import { SohoSearchfieldModule } from '../searchfield';
     SohoListviewHeaderComponent,
     SohoListviewItemComponent,
     SohoListviewMicroComponent,
+    SohoListviewSearchComponent,
     SohoListviewSubHeaderComponent,
   ],
   exports: [
@@ -23,6 +25,7 @@ import { SohoSearchfieldModule } from '../searchfield';
     SohoListviewHeaderComponent,
     SohoListviewItemComponent,
     SohoListviewMicroComponent,
+    SohoListviewSearchComponent,
     SohoListviewSubHeaderComponent,
   ],
   imports: [

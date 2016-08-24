@@ -15,17 +15,27 @@ import {
 
 import { SohoSearchfieldComponent } from '../searchfield';
 
+/**
+ * This component will allow the developer to modify any DOM element
+ * by exposing it (if desired)
+ */
 @Component({
   selector: '[soho-listview-search]',
   template: `
-    <input soho-searchfield *ngIf="!searchfieldRef">
+    <input soho-searchfield *ngIf="buildSearch">
+    <ng-content select="span[soho-searchfield-wrapper]"></ng-content>
     <ng-content select="input[soho-searchfield]"></ng-content>
+    <ng-content></ng-content>
   `,
 })
 export class SohoListviewSearchComponent {
+  /**
+   * Use this flag if you are projecting a soho-searchfield into this component
+   * from another component and do not want this component to build another
+   * searchfield
+   */
+  @Input() buildSearch: boolean = true;
   @HostBinding('class.listview-search') get isListviewSearch() { return true; }
-  @ContentChild(forwardRef(() => SohoSearchfieldComponent))
-  private searchfieldRef: SohoSearchfieldComponent = null;
 }
 
 @Component({

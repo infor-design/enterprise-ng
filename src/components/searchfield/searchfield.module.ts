@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 
-import { SohoSearchfieldComponent } from './searchfield.component';
+import { SohoSearchfieldComponent, SohoSearchfieldWrapperComponent } from './searchfield.component';
 
 @NgModule({
   declarations: [
-    SohoSearchfieldComponent
+    SohoSearchfieldComponent,
+    SohoSearchfieldWrapperComponent
   ],
   exports: [
-    SohoSearchfieldComponent
+    SohoSearchfieldComponent,
+    SohoSearchfieldWrapperComponent
   ],
-  imports: []
 })
 export class SohoSearchfieldModule {}

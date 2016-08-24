@@ -10,6 +10,14 @@ import {
 } from '@angular/core';
 
 @Component({
+  selector: 'span[soho-searchfield-wrapper]',
+  template: `<ng-content></ng-content>`
+})
+export class SohoSearchfieldWrapperComponent {
+  @HostBinding('class.searchfield-wrapper') get isSearchfieldWrapper() { return true; }
+}
+
+@Component({
   selector: 'input[soho-searchfield]',
   template: '<ng-content></ng-content>'
 })

@@ -60,6 +60,7 @@
               (rendered)="onRendered($event)"
               (selected)="onSelected($event)"
               (sorted)="onSorted($event)">
+              <input soho-searchfield placeholder="Search" [clearable]="true">
               <soho-toolbar class="contextual-toolbar is-hidden">
                 <soho-toolbar-button-set>
                   <button soho-button="tertiary" title="Assign Selected Items">Assign</button>
