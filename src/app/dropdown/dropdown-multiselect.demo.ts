@@ -44,10 +44,6 @@ export class DropdownMultiselectDemoComponent implements OnInit {
   toggleModel() {
     this.showModel = !this.showModel;
   }
-  private setSource()
-  {
-      return this.source.bind(this);
-  }
   private source(response: any, searchTerm: any) {
     let states = [
       { value: 'AK', label: 'Alaska'},
