@@ -10,10 +10,6 @@ import {
   OnDestroy
 } from '@angular/core';
 
-import {
-  SohoToolbarEvent
-} from '../.';
-
 /**
  * soho toolbar more button
  */
@@ -94,7 +90,6 @@ export class SohoToolbarNavButtonComponent {
   selector: 'soho-toolbar-title',
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  directives: [ SohoToolbarNavButtonComponent ]
 })
 export class SohoToolbarTitleComponent {
   @HostBinding('class.title') get isTitle() { return true; };
@@ -120,7 +115,6 @@ export class SohoToolbarButtonSetComponent {
   selector: 'soho-toolbar',
   templateUrl: 'toolbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  directives: [ SohoToolbarMoreButtonComponent ]
 })
 export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.toolbar') get isToolbar() { return true; };

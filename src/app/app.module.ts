@@ -7,8 +7,8 @@ import {
 
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-
 import { APP_ROUTER_PROVIDERS } from './app.routes';
+import { SohoToolbarModule } from '../components/toolbar';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import { APP_ROUTER_PROVIDERS } from './app.routes';
   imports: [
     BrowserModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    SohoToolbarModule
   ],
   providers: [
       APP_ROUTER_PROVIDERS,

@@ -9,12 +9,11 @@
 } from '@angular/core';
 
 import { SohoButtonComponent } from '../../components/button';
-import { TOOLBAR_DIRECTIVES } from '../../components/toolbar';
 
 @Component({
   selector: 'datagrid-toolbar-demo',
   templateUrl: 'datagrid-toolbar.demo.html',
-  directives: [ SohoButtonComponent, TOOLBAR_DIRECTIVES ],
+  directives: [ SohoButtonComponent ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridToolbarDemoComponent implements OnInit, AfterViewInit, AfterContentInit {
