@@ -17,10 +17,12 @@ export class DropdownDemoComponent implements OnInit {
     { value: 'NY', text: 'New York' },
     { value: 'WY', text: 'Wyoming' },
   ];
+  private sourceoptions: Array<Object> = [];
   private counter = 0;
   private model = { // tslint:disable-line
     single: '',
     readOnly: 'DE',
+    source: '',
     modifiable: this.options[3],
   };
   private showModel = false;
@@ -36,5 +38,26 @@ export class DropdownDemoComponent implements OnInit {
   }
   toggleModel() {
     this.showModel = !this.showModel;
+  }
+  private setSource()
+  {
+    return this.source.bind(this);
+  }
+  private source(response: any, searchTerm: any) {
+    let states = [
+      { value: 'AK', label: 'Alaska'},
+      { value: 'AZ', label: 'Arizona'},
+      { value: 'CA', label: 'California'},
+      { value: 'CO', label: 'Colorado'},
+      { value: 'MN', label: 'Minnesota'},
+      { value: 'ND', label: 'North Dakota'},
+      { value: 'OR', label: 'Oregon'},
+      { value: 'WA', label: 'Washington'},
+      { value: 'WY', label: 'Wyoming'}
+    ];
+
+    this.sourceoptions = states;
+
+    response(states);
   }
 }

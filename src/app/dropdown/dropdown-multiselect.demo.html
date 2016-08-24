@@ -25,6 +25,12 @@
           </select>
         </div>
         <div class="field">
+          <label for="states-multi-source" class="label">States - From source</label>
+          <select soho-dropdown name="states-multi-source" multiple [source]="source" [(ngModel)]="model.multisource">
+            <option *ngFor="let option of multisourceoptions" [ngValue]="option">{{option.text}}</option>
+          </select>
+        </div>
+        <div class="field">
           <button soho-button (click)="onAddOption()">Add Option</button>
           <button soho-button (click)="onRemoveOption()">Remove Option</button>
           <hr>
