@@ -7,25 +7,25 @@ import {
 import { Subscription } from 'rxjs/Subscription';
 
 import {
-SohoToolbarOptions,
-  SohoToolbarButtonOptions
+HeaderDynamicToolbarOptions,
+  HeaderDynamicButtonOptions
 } from '../header/header-dynamic-demo.model';
 
 import { SohoButtonComponent } from '../../components/button';
-import { SohoHeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
+import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
 @Component({
   selector: 'soho-toolbar-header-demo',
-  templateUrl: 'toolbar-header.demo.html',
+  templateUrl: 'header-toolbar.demo.html',
   directives: [ SohoButtonComponent ]
 })
-export class ToolbarHeaderDemoComponent implements AfterViewInit, OnDestroy {
+export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
 
-  private toolbarOptions: SohoToolbarOptions;
+  private toolbarOptions: HeaderDynamicToolbarOptions;
   private lastToolbarEvent: any;
   private buttonClickedSubscription: Subscription;
 
-  constructor(@Optional() private sohoHeaderRef: SohoHeaderDynamicDemoRefService) {}
+  constructor(@Optional() private sohoHeaderRef: HeaderDynamicDemoRefService) {}
 
   ngAfterViewInit() {
     this.showHeaderToolbar();
@@ -77,14 +77,14 @@ export class ToolbarHeaderDemoComponent implements AfterViewInit, OnDestroy {
     this.buttonClickedSubscription.unsubscribe();
   }
 
-  private buildToolbarOptions(): SohoToolbarOptions {
-    this.toolbarOptions = <SohoToolbarOptions>{};
+  private buildToolbarOptions(): HeaderDynamicToolbarOptions {
+    this.toolbarOptions = <HeaderDynamicToolbarOptions>{};
     this.toolbarOptions.toolbarButtons = this.buildToolbarButtonArray();
     return this.toolbarOptions;
   }
 
-  private buildToolbarButtonArray(): Array<SohoToolbarButtonOptions> {
-    let toolbarButtons: Array<SohoToolbarButtonOptions> = [];
+  private buildToolbarButtonArray(): Array<HeaderDynamicButtonOptions> {
+    let toolbarButtons: Array<HeaderDynamicButtonOptions> = [];
 
     toolbarButtons.push({ id: 'Create', text: 'Create', icon: 'add', data: '{\'btn\': \'create\'}' });
     toolbarButtons.push({ id: 'charts-btn', icon: 'pie-chart', data: '{\'btn\': \'charts\'}', menu: [
