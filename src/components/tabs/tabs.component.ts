@@ -271,7 +271,7 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.tabs({
       addTabButton: this.addTabButton,
       addTabButtonCallback: undefined, // this.addButtonCallback,
-      containerElement: this.containerElement,
+      containerElement: '#' + this.containerElement,
       changeTabOnHashChange: this.changeTabOnHashChange,
       hashChangeCallback: undefined, // this.hashChangeCallback,
       tabCounts: this.tabCounts
