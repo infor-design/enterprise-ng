@@ -1,0 +1,11 @@
+<div soho-listview-search *ngIf="searchable && !searchfieldRef"></div>
+<div soho-listview-search *ngIf="searchable && searchfieldRef" [buildSearch]="false">
+  <ng-content select="input[soho-searchfield]"></ng-content>
+</div>
+<ng-content select="div.[soho-listview-search]"></ng-content>
+<ng-content select="soho-toolbar.contextual-toolbar"></ng-content>
+<div #listview [class]="listClass">
+  <ul>
+    <ng-content select="li[soho-listview-item]"></ng-content>
+  </ul>
+</div>

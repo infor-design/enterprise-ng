@@ -16,6 +16,8 @@ import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
 
+import { ListviewDemoComponent } from './listview/listview.demo';
+
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { SplitterDemoComponent } from './splitter/splitter.demo';
@@ -42,6 +44,7 @@ export const routes: RouterConfig = [
   { path: 'expandablearea',      component: ExpandableAreaDemoComponent },
   { path: 'toast',               component: ToastDemoComponent },
   { path: 'icon',                component: IconDemoComponent },
+  { path: 'listview',            component: ListviewDemoComponent },
   { path: 'lookup',              component: LookupDemoComponent },
   { path: 'mask',                component: MaskDemoComponent },
   { path: 'menu-button',         component: MenuButtonDemoComponent },
