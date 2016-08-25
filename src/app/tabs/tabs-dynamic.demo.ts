@@ -7,6 +7,7 @@ import {
   ViewChild
 } from '@angular/core';
 
+import { SohoTabsComponent } from '../../components/tabs';
 import { SohoButtonComponent } from '../../components/button';
 
 /**
@@ -24,7 +25,7 @@ import { SohoButtonComponent } from '../../components/button';
 })
 export class TabsDynamicDemoComponent implements DoCheck, OnInit {
 
-  @ViewChild('sohoTabsComponent') sohoTabsComponent: any;
+  @ViewChild(SohoTabsComponent) sohoTabsComponent: SohoTabsComponent;
 
   private tabs: Array<any>;
   private currentTabsIndex: number = 1;
