@@ -1,0 +1,18 @@
+<div class="full-width">
+
+  <div class="row">
+    <div class="inline">
+
+      <button soho-button [disabled]="isShowingHeaderToolbar" (click)="onUseHeaderToolbar($event)">Use Header Toolbar</button>
+      <button soho-button [disabled]="!isShowingHeaderToolbar" (click)="onUseDefaultToolbar($event)">Use Default Toolbar</button>
+      <button soho-button [disabled]="isShowingHeaderTabs" (click)="onShowHeaderTabs($event)">Show Header Tabs</button>
+      <button soho-button [disabled]="!isShowingHeaderTabs" (click)="onRemoveHeaderTabs($event)">Remove Header Tabs</button>
+
+    </div>
+  </div>
+
+  <template [ngIf]="currentTabsOptions">
+    <div soho-tab-panel *ngFor="let tab of currentTabsOptions.tabs" [tabId]="tab.id"><p>{{tab.content}}</p></div>
+  </template>
+
+</div>
