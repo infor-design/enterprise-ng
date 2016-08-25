@@ -1,6 +1,6 @@
 
-export interface SohoToolbarOptions {
-  toolbarButtons: Array<SohoToolbarButtonOptions>;
+export interface HeaderDynamicToolbarOptions {
+  toolbarButtons: Array<HeaderDynamicButtonOptions>;
 }
 
 /**
@@ -10,7 +10,7 @@ export interface SohoToolbarOptions {
  * the component using it then we need another way of building and receiving
  * events from a toolbar.
  */
-export interface SohoToolbarButtonOptions {
+export interface HeaderDynamicButtonOptions {
   // Unique identifier for this button in the toolbar.
   id?: string;
   // The text for the button.
@@ -26,5 +26,29 @@ export interface SohoToolbarButtonOptions {
   // Data to keep associated with this button.
   data: any;
   // Whether this button has a dropdown menu with menu items.
-  menu?: Array<SohoToolbarButtonOptions>;
+  menu?: Array<HeaderDynamicButtonOptions>;
+}
+
+export interface HeaderDynamicTabsetOptions {
+  tabs: Array<HeaderDynamicTabOptions>;
+}
+
+/**
+ * This is an interface mapping for programatically constructing a Toolbar.
+ * This is useful when there is no template that can be used, for example
+ * in the case of a header toolbar. Since the header toolbar is not in scope of
+ * the component using it then we need another way of building and receiving
+ * events from a toolbar.
+ */
+export interface HeaderDynamicTabOptions {
+  // Unique identifier for this button in the toolbar.
+  id?: string;
+  // The text for the button.
+  title?: string;
+  // The icon for the button.
+  content?: string;
+  // Is the button disabled
+  disabled?: boolean;
+  // Is the button hidden
+  hidden?: boolean;
 }

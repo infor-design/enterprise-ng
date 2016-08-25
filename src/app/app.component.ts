@@ -25,23 +25,16 @@ import {
   SohoMastheadDemoComponent
 } from './masthead/masthead.demo';
 import {
-  SohoHeaderDynamicDemoComponent
-} from './header/header-dynamic.demo';
-import {
   SohoApplicationMenuDemoComponent
 } from './application-menu/application-menu.demo';
-// import {
-//   SohoHeaderDemoComponent
-// } from './header/header.demo';
-import {
-  SohoHeaderDynamicDemoRefService
-} from './header/header-dynamic-demo-ref.service';
+import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.service';
+import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
 
 @Component({
   selector: 'body',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css'],
-  providers: [ SohoHeaderDynamicDemoRefService ],
+  styleUrls: [ 'app.component.css' ],
+  providers: [ HeaderDynamicDemoRefService ],
   directives: [
     SohoIconsComponent,
     SohoIconsExtendedComponent,
