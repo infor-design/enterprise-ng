@@ -1,5 +1,4 @@
 import { Component, HostBinding } from '@angular/core';
-import { TabsEvent } from '../../components/tabs';
 
 /**
  * This example:
@@ -18,7 +17,7 @@ export class TabsVerticalDemoComponent {
    */
   @HostBinding('style.height') get tabsHeightStyle() { return '100%'; };
 
-  onTabActivated(event: TabsEvent) {
+  onTabActivated(event: SohoTabsEvent) {
     console.log('TabsBasicDemoComponent.onTabActivated');
   }
 }

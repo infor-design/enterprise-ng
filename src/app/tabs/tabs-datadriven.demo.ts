@@ -1,10 +1,7 @@
-
 import {
   Component,
   OnInit
 } from '@angular/core';
-
-import { TabsEvent } from '../../components/tabs';
 
 /**
  * This sample:
@@ -12,7 +9,7 @@ import { TabsEvent } from '../../components/tabs';
  * - binding a method to a soho event
  */
 @Component({
-  selector: 'tabs-datadriven-demo',
+  selector: 'soho-tabs-datadriven-demo',
   templateUrl: './tabs-datadriven.demo.html',
 })
 export class TabsDataDrivenDemoComponent implements OnInit {
@@ -27,7 +24,7 @@ export class TabsDataDrivenDemoComponent implements OnInit {
     ];
   }
 
-  onTabActivated(event: TabsEvent) {
+  onTabActivated(event: SohoTabsEvent) {
     console.log('TabsDataDrivenDemoComponent.onTabActivated');
   }
 }

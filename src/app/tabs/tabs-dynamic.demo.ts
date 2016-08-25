@@ -1,4 +1,3 @@
-
 import {
   Component,
   DoCheck,
@@ -7,10 +6,6 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-
-import {
-  TabsEvent
-} from '../../components/tabs';
 
 import { SohoButtonComponent } from '../../components/button';
 
@@ -81,7 +76,7 @@ export class TabsDynamicDemoComponent implements DoCheck, OnInit {
     }
   }
 
-  onChangeTabs(event: TabsEvent) {
+  onChangeTabs(event: SohoTabsEvent) {
     this.currentTabsIndex++;
     if (this.currentTabsIndex >= this.tabsData.length) {
       this.currentTabsIndex = 0;
@@ -96,7 +91,7 @@ export class TabsDynamicDemoComponent implements DoCheck, OnInit {
     // ----------------------------------------------------------------------
   }
 
-  onChangeTitles(event: TabsEvent) {
+  onChangeTitles(event: SohoTabsEvent) {
     for (let i = 0; i < this.tabs.length; i++) {
       // ----------------------------------------------------------------------
       // Calling setTitle on the soho component/control so that the entire
