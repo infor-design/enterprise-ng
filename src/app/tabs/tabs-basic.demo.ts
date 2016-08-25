@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TABS_DIRECTIVES, TabsEvent } from '../../components/tabs';
+import { TabsEvent } from '../../components/tabs';
 
 /**
  * This example:
@@ -8,7 +8,6 @@ import { TABS_DIRECTIVES, TabsEvent } from '../../components/tabs';
 @Component({
   selector: 'tabs-basic-demo',
   templateUrl: './tabs-basic.demo.html',
-  directives: [ TABS_DIRECTIVES ]
 })
 export class TabsBasicDemoComponent {
   onTabActivated(event: TabsEvent) {

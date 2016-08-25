@@ -1,27 +1,4 @@
-import {
-  SohoTabsComponent,
-  SohoTabsListComponent,
-  SohoTabComponent,
-  SohoTabTitleComponent,
-  SohoTabCountComponent,
-  SohoTabSeparatorComponent,
-  SohoTabPanelComponent,
-} from './tabs.component';
-
-export { SohoTabsComponent } from './tabs.component';
-
-/**
- * Holds all directives usable for the tabs component.
- */
-export const TABS_DIRECTIVES = [
-  SohoTabsComponent,
-  SohoTabsListComponent,
-  SohoTabComponent,
-  SohoTabTitleComponent,
-  SohoTabCountComponent,
-  SohoTabSeparatorComponent,
-  SohoTabPanelComponent,
-];
+export * from './tabs.module';
 
 /**
  * Interface for the jQuery event emitted

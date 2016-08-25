@@ -9,8 +9,6 @@ import {
 } from '@angular/core';
 
 import {
-  TABS_DIRECTIVES,
-  SohoTabsComponent,
   TabsEvent
 } from '../../components/tabs';
 
@@ -25,13 +23,13 @@ import { SohoButtonComponent } from '../../components/button';
  * - handling change detection to programatically update the soho control
  */
 @Component({
-  selector: 'tabs-dynamic-sample-component',
+  selector: 'soho-tabs-dynamic-sample-component',
   templateUrl: './tabs-dynamic.demo.html',
-  directives: [ TABS_DIRECTIVES, SohoButtonComponent ]
+  directives: [ SohoButtonComponent ]
 })
 export class TabsDynamicDemoComponent implements DoCheck, OnInit {
 
-  @ViewChild(SohoTabsComponent) sohoTabsComponent: SohoTabsComponent;
+  @ViewChild('sohoTabsComponent') sohoTabsComponent: any;
 
   private tabs: Array<any>;
   private currentTabsIndex: number = 1;
@@ -78,8 +76,8 @@ export class TabsDynamicDemoComponent implements DoCheck, OnInit {
       // and get placed into teh sohoTabsComponent before we call update.
       // ISSUE: this causes a FOUC
       // ----------------------------------------------------------------------
-      setTimeout((sohoTabsComponent: SohoTabsComponent) => {
-        sohoTabsComponent.updated(); }, 1, this.sohoTabsComponent);
+      setTimeout(() => {
+        this.sohoTabsComponent.updated(); }, 1);
     }
   }
 

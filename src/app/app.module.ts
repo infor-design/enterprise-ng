@@ -11,7 +11,7 @@ import { APP_ROUTER_PROVIDERS } from './app.routes';
 import { SohoListviewModule } from '../components/listview';
 import { SohoSearchfieldModule } from '../components/searchfield';
 import { SohoToolbarModule } from '../components/toolbar';
-
+import { SohoTabsModule } from '../components/tabs';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import { SohoToolbarModule } from '../components/toolbar';
     FormsModule,
     SohoListviewModule,
     SohoSearchfieldModule,
-    SohoToolbarModule
+    SohoToolbarModule,
+    SohoTabsModule
   ],
   providers: [
     APP_ROUTER_PROVIDERS,
