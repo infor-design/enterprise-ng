@@ -1,5 +1,4 @@
 import { Component, HostBinding } from '@angular/core';
-import { TABS_DIRECTIVES, TabsEvent } from '../../components/tabs';
 
 /**
  * This example:
@@ -7,8 +6,7 @@ import { TABS_DIRECTIVES, TabsEvent } from '../../components/tabs';
  */
 @Component({
   selector: 'div[vertical-tabs-demo]',
-  templateUrl: './tabs-vertical.demo.html',
-  directives: [ TABS_DIRECTIVES ]
+  templateUrl: './tabs-vertical.demo.html'
 })
 export class TabsVerticalDemoComponent {
 
@@ -19,7 +17,7 @@ export class TabsVerticalDemoComponent {
    */
   @HostBinding('style.height') get tabsHeightStyle() { return '100%'; };
 
-  onTabActivated(event: TabsEvent) {
+  onTabActivated(event: SohoTabsEvent) {
     console.log('TabsBasicDemoComponent.onTabActivated');
   }
 }

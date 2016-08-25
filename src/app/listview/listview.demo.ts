@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 import { SohoButtonComponent } from '../../components/button';
-import { SOHO_TOOLBAR_DIRECTIVES } from '../../components/toolbar';
 
 @Component({
   selector: 'soho-listview-demo',
@@ -11,7 +10,7 @@ import { SOHO_TOOLBAR_DIRECTIVES } from '../../components/toolbar';
       width: calc(100% - 39px);
     }
   `],
-  directives: [ SohoButtonComponent, SOHO_TOOLBAR_DIRECTIVES ],
+  directives: [ SohoButtonComponent ],
 })
 export class ListviewDemoComponent {
   private demoTasks: Object[];

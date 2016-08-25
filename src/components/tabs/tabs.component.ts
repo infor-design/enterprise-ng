@@ -14,8 +14,6 @@ import {
   // ViewChild
 } from '@angular/core';
 
-import { TabsEvent } from './';
-
 /**
  * Internal component to support the tab list items
  */
@@ -262,12 +260,12 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
     // bind to jquery events and emit as angular events
-    this.jQueryElement.bind('beforeactivate', ((event: TabsEvent) => {this.beforeactivate.emit(event); }));
-    this.jQueryElement.bind('activated', ((event: TabsEvent) => {this.activated.emit(event); }));
-    this.jQueryElement.bind('afteractivate', ((event: TabsEvent) => {this.afteractivate.emit(event); }));
-    this.jQueryElement.bind('close', ((event: TabsEvent) => {this.close.emit(event); }));
-    this.jQueryElement.bind('afterclose', ((event: TabsEvent) => {this.afterClose.emit(event); }));
-    this.jQueryElement.bind('tab-added', ((event: TabsEvent) => {this.tabAdded.emit(event); }));
+    this.jQueryElement.bind('beforeactivate', ((event: SohoTabsEvent) => {this.beforeactivate.emit(event); }));
+    this.jQueryElement.bind('activated', ((event: SohoTabsEvent) => {this.activated.emit(event); }));
+    this.jQueryElement.bind('afteractivate', ((event: SohoTabsEvent) => {this.afteractivate.emit(event); }));
+    this.jQueryElement.bind('close', ((event: SohoTabsEvent) => {this.close.emit(event); }));
+    this.jQueryElement.bind('afterclose', ((event: SohoTabsEvent) => {this.afterClose.emit(event); }));
+    this.jQueryElement.bind('tab-added', ((event: SohoTabsEvent) => {this.tabAdded.emit(event); }));
 
     // initialize the tabs plugin
     this.jQueryElement.tabs({
@@ -349,7 +347,7 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
    * @param tabId The tabId of the tab to be retrieved.
    * @returns {JQuery} The JQuery object of a tab element.
    */
-  public getTab(event: TabsEvent, tabId: string): any {
+  public getTab(event: SohoTabsEvent, tabId: string): any {
     // TODO: getTab seems to return a jQuery object, what to return instead?
     return this.tabs.getTab(event, tabId);
   }

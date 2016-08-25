@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TABS_DIRECTIVES } from '../../components/tabs';
 
 /**
  * This example:
@@ -7,7 +6,6 @@ import { TABS_DIRECTIVES } from '../../components/tabs';
  */
 @Component({
   selector: 'tabs-counts-demo',
-  templateUrl: './tabs-counts.demo.html',
-  directives: [ TABS_DIRECTIVES ]
+  templateUrl: './tabs-counts.demo.html'
 })
 export class TabsCountsDemoComponent { }

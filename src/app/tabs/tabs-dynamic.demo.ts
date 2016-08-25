@@ -1,4 +1,3 @@
-
 import {
   Component,
   DoCheck,
@@ -7,12 +6,6 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-
-import {
-  TABS_DIRECTIVES,
-  SohoTabsComponent,
-  TabsEvent
-} from '../../components/tabs';
 
 import { SohoButtonComponent } from '../../components/button';
 
@@ -25,13 +18,13 @@ import { SohoButtonComponent } from '../../components/button';
  * - handling change detection to programatically update the soho control
  */
 @Component({
-  selector: 'tabs-dynamic-sample-component',
+  selector: 'soho-tabs-dynamic-sample-component',
   templateUrl: './tabs-dynamic.demo.html',
-  directives: [ TABS_DIRECTIVES, SohoButtonComponent ]
+  directives: [ SohoButtonComponent ]
 })
 export class TabsDynamicDemoComponent implements DoCheck, OnInit {
 
-  @ViewChild(SohoTabsComponent) sohoTabsComponent: SohoTabsComponent;
+  @ViewChild('sohoTabsComponent') sohoTabsComponent: any;
 
   private tabs: Array<any>;
   private currentTabsIndex: number = 1;
@@ -78,12 +71,12 @@ export class TabsDynamicDemoComponent implements DoCheck, OnInit {
       // and get placed into teh sohoTabsComponent before we call update.
       // ISSUE: this causes a FOUC
       // ----------------------------------------------------------------------
-      setTimeout((sohoTabsComponent: SohoTabsComponent) => {
-        sohoTabsComponent.updated(); }, 1, this.sohoTabsComponent);
+      setTimeout(() => {
+        this.sohoTabsComponent.updated(); }, 1);
     }
   }
 
-  onChangeTabs(event: TabsEvent) {
+  onChangeTabs(event: SohoTabsEvent) {
     this.currentTabsIndex++;
     if (this.currentTabsIndex >= this.tabsData.length) {
       this.currentTabsIndex = 0;
@@ -98,7 +91,7 @@ export class TabsDynamicDemoComponent implements DoCheck, OnInit {
     // ----------------------------------------------------------------------
   }
 
-  onChangeTitles(event: TabsEvent) {
+  onChangeTitles(event: SohoTabsEvent) {
     for (let i = 0; i < this.tabs.length; i++) {
       // ----------------------------------------------------------------------
       // Calling setTitle on the soho component/control so that the entire
