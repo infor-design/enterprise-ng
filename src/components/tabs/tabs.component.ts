@@ -185,7 +185,7 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
   /**
    * Defines a separate element to be used for containing the tab panels.  Defaults to the Tab Container itself
    */
-  @Input() containerElement: Element;
+  @Input() containerElement: string;
 
   /**
    * If true, will change the selected tab on invocation based on the URL that exists after the hash
@@ -271,7 +271,7 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.tabs({
       addTabButton: this.addTabButton,
       addTabButtonCallback: undefined, // this.addButtonCallback,
-      containerElement: '#' + this.containerElement,
+      containerElement: this.containerElement,
       changeTabOnHashChange: this.changeTabOnHashChange,
       hashChangeCallback: undefined, // this.hashChangeCallback,
       tabCounts: this.tabCounts
