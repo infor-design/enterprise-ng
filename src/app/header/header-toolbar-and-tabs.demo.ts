@@ -3,7 +3,6 @@ import {
   Component,
   OnDestroy,
 } from '@angular/core';
-import { SohoButtonComponent } from '../../components/button';
 import {
   HeaderDynamicTabsetOptions, HeaderDynamicToolbarOptions
 } from '../header/header-dynamic-demo.model';
@@ -11,8 +10,7 @@ import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
 
 @Component({
   selector: 'soho-toolbar-tabs-header-demo',
-  templateUrl: './header-toolbar-and-tabs.demo.html',
-  directives: [ SohoButtonComponent ]
+  templateUrl: './header-toolbar-and-tabs.demo.html'
 })
 export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, OnDestroy {
   private toolbarOptions: HeaderDynamicToolbarOptions;

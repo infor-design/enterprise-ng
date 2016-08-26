@@ -6,7 +6,6 @@ import {
 } from '@angular/core';
 
 import { TreeDemoService } from './tree-demo.service';
-import { SohoButtonComponent } from '../../components/button';
 
 import {
   SohoTreeComponent,
@@ -19,7 +18,7 @@ import {
   selector: 'tree-service-demo',
   templateUrl: 'tree-service.demo.html',
   providers: [{ provide: SohoTreeService, useClass: TreeDemoService }],
-  directives: [SohoTreeComponent, SohoButtonComponent],
+  directives: [SohoTreeComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeServiceDemoComponent {

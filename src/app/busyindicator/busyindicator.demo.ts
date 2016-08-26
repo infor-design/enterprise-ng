@@ -4,13 +4,12 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { SohoButtonComponent } from '../../components/button';
 import { SohoBusyIndicatorComponent } from '../../components/busyindicator';
 
 @Component({
   selector: 'busyindicator-demo',
   templateUrl: 'busyindicator.demo.html',
-  directives: [ SohoButtonComponent, SohoBusyIndicatorComponent ]
+  directives: [ SohoBusyIndicatorComponent ]
 })
 export class BusyIndicatorDemoComponent {
 

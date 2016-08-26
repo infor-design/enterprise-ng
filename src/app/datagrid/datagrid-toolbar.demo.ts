@@ -8,12 +8,9 @@
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import { SohoButtonComponent } from '../../components/button';
-
 @Component({
   selector: 'datagrid-toolbar-demo',
   templateUrl: 'datagrid-toolbar.demo.html',
-  directives: [ SohoButtonComponent ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridToolbarDemoComponent implements OnInit, AfterViewInit, AfterContentInit {

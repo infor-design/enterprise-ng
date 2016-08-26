@@ -8,13 +8,12 @@ import {
 } from '@angular/core';
 
 import { SohoDataGridComponent } from '../../components/datagrid';
-import { SohoButtonComponent } from  '../../components/button';
 
 @Component({
   selector: 'sample-datagrid',
   templateUrl: 'datagrid-content.demo.html',
   providers: [],
-  directives: [SohoDataGridComponent, SohoButtonComponent],
+  directives: [SohoDataGridComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DataGridContentDemoComponent implements AfterContentInit, AfterViewInit {

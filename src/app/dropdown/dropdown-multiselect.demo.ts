@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 
 import { SohoDropdownComponent } from '../../components/dropdown';
-import { SohoButtonComponent } from '../../components/button';
 
 @Component({
   selector: 'soho-dropdown-multiselect-demo',
   templateUrl: 'dropdown-multiselect.demo.html',
-  directives: [ SohoButtonComponent, SohoDropdownComponent, REACTIVE_FORM_DIRECTIVES ],
+  directives: [ SohoDropdownComponent, REACTIVE_FORM_DIRECTIVES ],
 })
 export class DropdownMultiselectDemoComponent implements OnInit {
   private options: Array<Object> = [

@@ -10,13 +10,10 @@ import {
   Output
 } from '@angular/core';
 
-import { SohoIconComponent } from '../icon';
-
 @Component({
   selector: 'button[soho-menu-button]',
   templateUrl: 'menu-button.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  directives: [ SohoIconComponent ]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {

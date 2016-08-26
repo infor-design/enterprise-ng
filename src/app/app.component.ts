@@ -9,10 +9,6 @@ import {
   ROUTER_DIRECTIVES
 } from '@angular/router';
 import {
-  SohoIconsComponent,
-  SohoIconsExtendedComponent
-} from '../components/icon';
-import {
   SohoApplicationMenuComponent
 } from '../components/application-menu';
 import {
@@ -36,8 +32,6 @@ import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
   styleUrls: [ 'app.component.css' ],
   providers: [ HeaderDynamicDemoRefService ],
   directives: [
-    SohoIconsComponent,
-    SohoIconsExtendedComponent,
     SohoMastheadDemoComponent,
     SohoHeaderDynamicDemoComponent,
     SohoApplicationMenuDemoComponent,

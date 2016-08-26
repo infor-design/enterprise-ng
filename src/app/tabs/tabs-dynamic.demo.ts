@@ -1,3 +1,4 @@
+
 import {
   Component,
   DoCheck,
@@ -8,7 +9,6 @@ import {
 } from '@angular/core';
 
 import { SohoTabsComponent } from '../../components/tabs';
-import { SohoButtonComponent } from '../../components/button';
 
 /**
  * This sample:
@@ -19,9 +19,8 @@ import { SohoButtonComponent } from '../../components/button';
  * - handling change detection to programatically update the soho control
  */
 @Component({
-  selector: 'soho-tabs-dynamic-sample-component',
-  templateUrl: './tabs-dynamic.demo.html',
-  directives: [ SohoButtonComponent ]
+  selector: 'tabs-dynamic-sample-component',
+  templateUrl: './tabs-dynamic.demo.html'
 })
 export class TabsDynamicDemoComponent implements DoCheck, OnInit {
 
@@ -72,8 +71,8 @@ export class TabsDynamicDemoComponent implements DoCheck, OnInit {
       // and get placed into teh sohoTabsComponent before we call update.
       // ISSUE: this causes a FOUC
       // ----------------------------------------------------------------------
-      setTimeout(() => {
-        this.sohoTabsComponent.updated(); }, 1);
+      setTimeout((sohoTabsComponent: SohoTabsComponent) => {
+        sohoTabsComponent.updated(); }, 1, this.sohoTabsComponent);
     }
   }
 

@@ -11,7 +11,6 @@ import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { SohoDataGridComponent, SohoGridColumn } from '../../components/datagrid';
 import { SohoBusyIndicatorComponent } from '../../components/busyindicator';
-import { SohoButtonComponent } from '../../components/button';
 
 import {
   DataGridDemoService
@@ -21,7 +20,7 @@ import {
   selector: 'sample-datagrid',
   templateUrl: 'datagrid-dynamic.demo.html',
   providers: [DataGridDemoService],
-  directives: [SohoDataGridComponent, SohoButtonComponent, SohoBusyIndicatorComponent],
+  directives: [SohoDataGridComponent, SohoBusyIndicatorComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridDynamicDemoComponent implements AfterContentInit, AfterViewInit {

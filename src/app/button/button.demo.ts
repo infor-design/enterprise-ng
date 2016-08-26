@@ -3,12 +3,9 @@ import {
   OnInit
 } from '@angular/core';
 
-import { SohoButtonComponent } from '../../components/button';
-
 @Component({
   selector: 'soho-button-demo',
-  templateUrl: 'button.demo.html',
-  directives: [ SohoButtonComponent ]
+  templateUrl: 'button.demo.html'
 })
 export class ButtonDemoComponent implements OnInit {
   private shouldSayHi = false;
