@@ -16,7 +16,7 @@ import { SohoSearchfieldModule } from '../components/searchfield';
 import { SohoTabsModule } from '../components/tabs';
 
 @NgModule({
-    declarations: [
+  declarations: [
     AppComponent
   ],
   imports: [
@@ -31,11 +31,10 @@ import { SohoTabsModule } from '../components/tabs';
     SohoTabsModule
   ],
   providers: [
-      APP_ROUTER_PROVIDERS,
-      { provide: APP_BASE_HREF, useValue: '/' }
+    APP_ROUTER_PROVIDERS,
+    { provide: APP_BASE_HREF, useValue: '/' }
   ],
   entryComponents: [],
   bootstrap: [ AppComponent ]
 })
-export class AppModule {
-}
+export class AppModule {}
