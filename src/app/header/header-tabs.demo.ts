@@ -36,9 +36,11 @@ export class HeaderTabsDemoComponent implements AfterViewInit, OnDestroy {
     return !!this.sohoHeaderRef.instance.tabOptions;
   }
 
-  // event handlers
-  protected onShowHeaderTabs(event: any) { this.showHeaderTabs(); }
-  protected onRemoveHeaderTabs(Event: any) { this.removeHeaderTabs(); }
+  onToggleHeaderTabs($event) {
+    this.isShowingHeaderTabs ?
+      this.removeHeaderTabs() :
+      this.showHeaderTabs();
+  }
 
   /**
    * Show the header toolbar.

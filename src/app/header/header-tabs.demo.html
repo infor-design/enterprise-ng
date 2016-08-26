@@ -1,13 +1,6 @@
 <div class="full-width">
 
-  <div class="row">
-    <div class="inline">
-
-      <button soho-button [disabled]="isShowingHeaderTabs" (click)="onShowHeaderTabs($event)">Show Header Tabs</button>
-      <button soho-button [disabled]="!isShowingHeaderTabs" (click)="onRemoveHeaderTabs($event)">Remove Header Tabs</button>
-
-    </div>
-  </div>
+  <button soho-button (click)="onToggleHeaderTabs($event)">{{isShowingHeaderTabs ? 'Remove Header Tabs' : 'Show Header Tabss'}}</button>
 
   <template [ngIf]="currentTabsOptions">
     <div soho-tab-panel *ngFor="let tab of currentTabsOptions.tabs" [tabId]="tab.id"><p>{{tab.content}}</p></div>

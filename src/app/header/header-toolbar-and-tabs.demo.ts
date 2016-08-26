@@ -35,24 +35,32 @@ export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, OnDestr
     this.removeHeaderToolbarAndTabs();
   }
 
-  get isShowingHeaderTabs(): boolean { return !!this.sohoHeaderRef.instance.tabOptions; }
-  protected onShowHeaderTabs(event: any) { this.showHeaderTabs(); }
-  protected onRemoveHeaderTabs(Event: any) { this.removeHeaderTabs(); }
+  get isShowingHeaderTabs(): boolean {
+    return !!this.sohoHeaderRef.instance.tabOptions;
+  }
 
-  get isShowingHeaderToolbar(): boolean { return !!this.sohoHeaderRef.instance.toolbarOptions; }
-  protected onUseHeaderToolbar(event: any) { this.showHeaderToolbar(); }
-  protected onUseDefaultToolbar(Event: any) { this.removeHeaderToolbar(); }
+  onToggleHeaderTabs($event) {
+    this.isShowingHeaderTabs ? this.removeHeaderTabs() : this.showHeaderTabs();
+  }
+
+  get isShowingHeaderToolbar(): boolean {
+    return !!this.sohoHeaderRef.instance.toolbarOptions;
+  }
+
+  onToggleHeaderToolbar(event: any) {
+    this.isShowingHeaderToolbar ? this.removeHeaderToolbar() : this.showHeaderToolbar();
+  }
 
   private showHeaderToolbarAndTabs() {
     this.sohoHeaderRef.instance.sectionTitle = 'Header Toolbar And Tabs Demo';
-    this.showHeaderToolbar();
-    this.showHeaderTabs();
-  }
+    if (!this.isShowingHeaderTabs) { this.showHeaderTabs(); }
+    if (!this.isShowingHeaderToolbar) { this.showHeaderToolbar(); }
+}
 
   private removeHeaderToolbarAndTabs() {
     this.sohoHeaderRef.instance.sectionTitle = null;
-    this.removeHeaderToolbar();
-    this.removeHeaderTabs();
+    if (this.isShowingHeaderTabs) { this.removeHeaderTabs(); }
+    if (this.isShowingHeaderToolbar) { this.removeHeaderToolbar(); }
   }
 
   /**
@@ -107,6 +115,7 @@ export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, OnDestr
     };
     return options;
   }
+
   private buildToolbarOptions(): HeaderDynamicToolbarOptions {
     this.toolbarOptions = <HeaderDynamicToolbarOptions> {
       toolbarButtons: [
