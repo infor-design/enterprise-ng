@@ -1,0 +1,13 @@
+<div class="full-width">
+
+  <button soho-button (click)="onToggleHeaderToolbar($event)">{{isShowingHeaderToolbar ? 'Show Default Toolbar' : 'Show Header Toolbar'}}</button>
+
+  <p></p>
+
+  <h4>Button Events:</h4>
+  <hr>
+  <p *ngIf="lastToolbarEvent?.currentTarget">
+    <b>event.currentTarget.id:</b> {{ lastToolbarEvent?.currentTarget?.id }}<br>
+    <b>event.currentTarget.dataset:</b> {{ lastToolbarEvent?.currentTarget?.dataset | json }}
+  </p>
+</div>

@@ -6,7 +6,7 @@ import { SohoHeaderDynamicDemoComponent } from './header-dynamic.demo';
  * to set the banner headers toolbar options and state.
  */
 @Injectable()
-export class SohoHeaderDynamicDemoRefService {
+export class HeaderDynamicDemoRefService {
   private sohoHeaderComponent: SohoHeaderDynamicDemoComponent;
 
   public set instance(sohoHeaderComponent: SohoHeaderDynamicDemoComponent) {

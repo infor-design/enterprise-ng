@@ -185,7 +185,7 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
   /**
    * Defines a separate element to be used for containing the tab panels.  Defaults to the Tab Container itself
    */
-  @Input() containerElement: Element;
+  @Input() containerElement: string;
 
   /**
    * If true, will change the selected tab on invocation based on the URL that exists after the hash

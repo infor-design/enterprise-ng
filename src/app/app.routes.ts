@@ -1,4 +1,4 @@
-import { provideRouter, RouterConfig } from '@angular/router';
+import { provideRouter, RouterConfig, Routes } from '@angular/router';
 import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
@@ -25,7 +25,10 @@ import { SplitterDemoComponent } from './splitter/splitter.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
-import { ToolbarHeaderDemoComponent } from './toolbar/toolbar-header.demo';
+
+import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
+import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
+import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
@@ -35,7 +38,7 @@ import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
 
-export const routes: RouterConfig = [
+export const routes: Routes = [
   { path: '',                    component: ExpandableAreaDemoComponent }, // default
   { path: 'button',              component: ButtonDemoComponent },
   { path: 'busyindicator',       component: BusyIndicatorDemoComponent },
@@ -56,6 +59,9 @@ export const routes: RouterConfig = [
   { path: 'datagrid-service',    component: DataGridServiceDemoComponent },
   { path: 'datagrid-content',    component: DataGridContentDemoComponent },
   { path: 'datagrid-breadcrumb', component: DataGridBreadcrumbDemoComponent },
+  { path: 'header-tabs',         component: HeaderTabsDemoComponent },
+  { path: 'header-toolbar',      component: HeaderToolbarDemoComponent },
+  { path: 'header-toolbar-tabs', component: HeaderToolbarAndTabsDemoComponent },
   { path: 'tabs-basic',          component: TabsBasicDemoComponent },
   { path: 'tabs-vertical',       component: TabsVerticalDemoComponent },
   { path: 'tabs-counts',         component: TabsCountsDemoComponent },
@@ -66,8 +72,7 @@ export const routes: RouterConfig = [
   { path: 'toolbar-basic',       component: ToolbarBasicDemoComponent },
   { path: 'toolbar-datadriven',  component: ToolbarDataDrivenDemoComponent },
   { path: 'toolbar-all-icons',   component: ToolbarAllIconsDemoComponent },
-  { path: 'toolbar-header',      component: ToolbarHeaderDemoComponent },
-  // { path: 'accordian',       component: AccordionSampleComponent},
+  // { path: 'accordian',           component: AccordionSampleComponent},
 ];
 
 export const APP_ROUTER_PROVIDERS = [

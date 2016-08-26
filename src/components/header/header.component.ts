@@ -4,25 +4,15 @@ import {
   ElementRef,
   EventEmitter,
   HostBinding,
-  OnInit,
   Output,
   ViewChild
 } from '@angular/core';
 
-import {
-  TabsEvent
-  // TABS_LIST_COMPONENTS
-} from '../../components';
-
-// import { SohoHeaderRefService } from './header-ref.service';
-// import { SohoTabsComponent } from '../tabs';
-
 @Component({
   selector: 'soho-header',
   templateUrl: 'header.component.html'
-  // directives: [ TABS_LIST_COMPONENTS ]
 })
-export class SohoHeaderComponent implements AfterViewInit, OnInit {
+export class SohoHeaderComponent implements AfterViewInit {
   @HostBinding('class.header') get isHeader() { return true; }
   @HostBinding('class.is-personalizable') get isPersonalizable() { return true; };
 
@@ -42,12 +32,6 @@ export class SohoHeaderComponent implements AfterViewInit, OnInit {
    */
   @Output() updated = new EventEmitter<any>();
 
-  /**
-   * This event is fired when the status of the header is changed.
-   * @type {EventEmitter<TabsEvent>}
-   */
-  @Output() tabActivated = new EventEmitter<TabsEvent>();
-
   // Reference to the jQuery element.
   private jQueryElement: any;
 
@@ -55,10 +39,6 @@ export class SohoHeaderComponent implements AfterViewInit, OnInit {
   private header: any;
 
   constructor(private elementRef: ElementRef) {}
-
-  ngOnInit() {
-    // this.headerRef.instance = this;
-  }
 
   ngAfterViewInit() {
     // Wrap for later.
@@ -75,18 +55,4 @@ export class SohoHeaderComponent implements AfterViewInit, OnInit {
     // Initialize any event handlers.
     this.jQueryElement.on('updated', (e: any, args: any) => { this.updated.emit(args); });
   }
-
-  onTabActivated(tabEvent: TabsEvent) { this.tabActivated.emit(tabEvent); }
-
-  // onToolbarButtonClicked(toolbarButtonEvent:ToolbarButtonEvent)
-  // {
-  //   this.console.log(["@BannerHeaderComponent -> onToolbarButtonClicked -> ", toolbarButtonEvent.buttonSpec]);
-  //   this.toolbarButtonClicked.emit(toolbarButtonEvent);
-  // }
-  //
-  // onToolbarMenuItemClicked(toolbarMenuItemEvent:ToolbarMenuItemEvent)
-  // {
-  //   this.console.log(["@BannerHeaderComponent -> onToolbarMenuItemClicked -> Id:", toolbarMenuItemEvent]);
-  //   this.toolbarMenuItemClicked.emit(toolbarMenuItemEvent);
-  // }
 }
