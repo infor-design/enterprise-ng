@@ -13,7 +13,7 @@ import { SohoButtonModule } from '../components/button';
 import { SohoIconModule } from '../components/icon';
 import { SohoListviewModule } from '../components/listview';
 import { SohoSearchfieldModule } from '../components/searchfield';
-import { SohoTabsModule } from  '../components/tabs';
+import { SohoTabsModule } from '../components/tabs';
 
 @NgModule({
     declarations: [
@@ -35,7 +35,7 @@ import { SohoTabsModule } from  '../components/tabs';
       { provide: APP_BASE_HREF, useValue: '/' }
   ],
   entryComponents: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {
 }
