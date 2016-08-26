@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 
 import { SohoDropdownComponent } from '../../components/dropdown';
-import { SohoButtonComponent } from '../../components/button';
 
 @Component({
   selector: 'soho-dropdown-demo',
   templateUrl: 'dropdown.demo.html',
-  directives: [ SohoButtonComponent, SohoDropdownComponent, REACTIVE_FORM_DIRECTIVES ],
+  directives: [ SohoDropdownComponent, REACTIVE_FORM_DIRECTIVES ],
 })
 export class DropdownDemoComponent implements OnInit {
   private options: Array<Object> = [

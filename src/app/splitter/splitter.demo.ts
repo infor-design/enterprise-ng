@@ -9,7 +9,6 @@
 import { TreeDemoService } from '../tree/tree-demo.service';
 import { DataGridDemoService } from '../datagrid/datagrid-demo.service';
 import { DataGridToolbarDemoComponent } from '../datagrid/datagrid-toolbar.demo';
-import { SohoButtonComponent } from '../../components/button';
 
 import {
   SohoDataGridComponent,
@@ -27,7 +26,7 @@ import {
   providers: [
     { provide: SohoDataGridService, useClass: DataGridDemoService },
     { provide: SohoTreeService, useClass: TreeDemoService }],
-  directives: [SohoTreeComponent, SohoDataGridComponent, SohoButtonComponent, DataGridToolbarDemoComponent],
+  directives: [SohoTreeComponent, SohoDataGridComponent, DataGridToolbarDemoComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SplitterDemoComponent implements AfterContentInit, AfterViewInit {

@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 
 import { SohoBusyIndicatorComponent } from '../../components/busyindicator';
-import { SohoButtonComponent } from '../../components/button';
 
 import {
   SohoDataGridComponent,
@@ -27,7 +26,7 @@ import {
   selector: 'sample-datagrid',
   templateUrl: 'datagrid-service.demo.html',
   providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService }, SohoToastService ],
-  directives: [ SohoDataGridComponent, SohoButtonComponent, SohoBusyIndicatorComponent ],
+  directives: [ SohoDataGridComponent, SohoBusyIndicatorComponent ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridServiceDemoComponent implements AfterContentInit, AfterViewInit {

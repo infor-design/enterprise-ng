@@ -11,8 +11,6 @@ import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 /* tslint:enable */
 
-import { SohoButtonComponent } from '../../components/button';
-
 import {
   SohoTreeComponent,
   SohoTreeNode,
@@ -22,7 +20,7 @@ import {
 @Component({
   selector: 'tree-dynamic-demo',
   templateUrl: 'tree-dynamic.demo.html',
-  directives: [SohoTreeComponent, SohoButtonComponent],
+  directives: [SohoTreeComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeDynamicDemoComponent implements AfterViewInit {

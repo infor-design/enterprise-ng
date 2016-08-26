@@ -1,12 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SohoButtonComponent } from '../../components/button';
 import { SohoMenuButtonComponent } from '../../components/menu-button';
 
 @Component({
     selector: 'toolbar-datadriven-demo',
     templateUrl: 'toolbar-datadriven.demo.html',
     directives: [
-      SohoButtonComponent,
       SohoMenuButtonComponent
     ]
 })

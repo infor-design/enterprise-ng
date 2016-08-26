@@ -8,13 +8,10 @@ import {
   SohoToastPositionType
 } from '../../services';
 
-import { SohoButtonComponent } from '../../components/button';
-
 @Component({
   selector: 'soho-toast-demo',
   templateUrl: 'toast.demo.html',
-  providers: [ SohoToastService ],
-  directives: [ SohoButtonComponent ]
+  providers: [ SohoToastService ]
 })
 export class ToastDemoComponent implements OnInit {
   // Inject Toast Servivce as a dependency and get an instance variable

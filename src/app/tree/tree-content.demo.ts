@@ -5,8 +5,6 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import { SohoButtonComponent } from '../../components/button';
-
 import {
   SohoTreeComponent,
   SohoTreeNode,
@@ -16,7 +14,7 @@ import {
 @Component({
   selector: 'tree-content-demo',
   templateUrl: 'tree-content.demo.html',
-  directives: [ SohoTreeComponent, SohoButtonComponent ],
+  directives: [ SohoTreeComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeContentDemoComponent {

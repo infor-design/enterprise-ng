@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
-import { SohoButtonComponent } from '../../components/button';
 import { SohoLookupComponent } from '../../components/lookup';
 
 import {
@@ -25,7 +24,7 @@ export interface FakeResponse {
 @Component({
   selector: 'soho-lookup-demo',
   templateUrl: 'lookup.demo.html',
-  directives: [ SohoButtonComponent, SohoLookupComponent, REACTIVE_FORM_DIRECTIVES ]
+  directives: [ SohoLookupComponent, REACTIVE_FORM_DIRECTIVES ]
 })
 export class LookupDemoComponent implements SohoDatagridSource {
   private columns_product: SohoGridColumn[];

@@ -5,13 +5,11 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { HeaderDynamicToolbarOptions } from '../header/header-dynamic-demo.model';
-import { SohoButtonComponent } from '../../components/button';
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
 @Component({
   selector: 'soho-toolbar-header-demo',
-  templateUrl: 'header-toolbar.demo.html',
-  directives: [ SohoButtonComponent ]
+  templateUrl: 'header-toolbar.demo.html'
 })
 export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
 

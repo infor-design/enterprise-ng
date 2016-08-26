@@ -4,13 +4,15 @@ import {
   CommonModule,
   APP_BASE_HREF
 } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { APP_ROUTER_PROVIDERS } from './app.routes';
+import { SohoToolbarModule } from '../components/toolbar';
+import { SohoButtonModule } from '../components/button';
+import { SohoIconModule } from '../components/icon';
 import { SohoListviewModule } from '../components/listview';
 import { SohoSearchfieldModule } from '../components/searchfield';
-import { SohoToolbarModule } from '../components/toolbar';
 import { SohoTabsModule } from '../components/tabs';
 
 @NgModule({
@@ -22,8 +24,10 @@ import { SohoTabsModule } from '../components/tabs';
     CommonModule,
     FormsModule,
     SohoListviewModule,
-    SohoSearchfieldModule,
     SohoToolbarModule,
+    SohoButtonModule,
+    SohoIconModule,
+    SohoSearchfieldModule,
     SohoTabsModule
   ],
   providers: [

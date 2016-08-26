@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-import { SohoButtonComponent } from '../../components/button';
-
 @Component({
   selector: 'soho-listview-demo',
   templateUrl: 'listview.demo.html',
@@ -9,8 +7,7 @@ import { SohoButtonComponent } from '../../components/button';
     .smaller-width {
       width: calc(100% - 39px);
     }
-  `],
-  directives: [ SohoButtonComponent ],
+  `]
 })
 export class ListviewDemoComponent {
   private demoTasks: Object[];

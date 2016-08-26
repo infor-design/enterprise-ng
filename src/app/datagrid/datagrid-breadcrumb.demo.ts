@@ -9,14 +9,13 @@ import {
 
 import { DataGridDemoService } from './datagrid-demo.service';
 import { DataGridToolbarDemoComponent } from './datagrid-toolbar.demo';
-import { SohoButtonComponent } from '../../components/button';
 import { SohoDataGridComponent, SohoDataGridService } from '../../components/datagrid';
 
 @Component({
     selector: 'datagrid-breadcrumb-demo',
     templateUrl: 'datagrid-breadcrumb.demo.html',
     providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService } ],
-    directives: [SohoDataGridComponent, SohoButtonComponent, DataGridToolbarDemoComponent ],
+    directives: [SohoDataGridComponent, DataGridToolbarDemoComponent ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridBreadcrumbDemoComponent implements AfterContentInit, AfterViewInit {
