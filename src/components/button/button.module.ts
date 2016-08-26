@@ -11,8 +11,7 @@ import { SohoIconModule } from '../icon/icon.module';
   declarations: [
     SohoButtonComponent
   ],
-  exports:
-  [
+  exports: [
     SohoButtonComponent
   ]
 })
