@@ -1,17 +1,5 @@
-import {
-  ExpandableAreaComponent,
-  ExpandableHeaderComponent,
-  ExpandablePaneComponent,
-} from './expandablearea.component';
-
-/**
- * Holds all directives usable for expandablearea
- */
-export const EXPANDABLEAREA_DIRECTIVES = [
-  ExpandableAreaComponent,
-  ExpandableHeaderComponent,
-  ExpandablePaneComponent,
-];
+export * from './expandablearea.component'
+export * from './expandablearea.module';
 
 /**
  * Interface for the jQuery event emitted

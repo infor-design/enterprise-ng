@@ -15,6 +15,7 @@ import { SohoListviewModule } from '../components/listview';
 import { SohoSearchfieldModule } from '../components/searchfield';
 import { SohoTabsModule } from '../components/tabs';
 import { SohoDatagridModule } from '../components/datagrid';
+import { SohoExpandableAreaModule } from '../components/expandablearea';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SohoDatagridModule } from '../components/datagrid';
     CommonModule,
     FormsModule,
     SohoDatagridModule,
+    SohoExpandableAreaModule,
     SohoListviewModule,
     SohoToolbarModule,
     SohoButtonModule,
