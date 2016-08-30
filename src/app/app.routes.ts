@@ -20,6 +20,7 @@ import { ListviewDemoComponent } from './listview/listview.demo';
 
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
+import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { SplitterDemoComponent } from './splitter/splitter.demo';
 
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
@@ -44,6 +45,7 @@ export const routes: Routes = [
   { path: 'busyindicator',       component: BusyIndicatorDemoComponent },
   { path: 'dropdown',            component: DropdownDemoComponent },
   { path: 'dropdown-multi',      component: DropdownMultiselectDemoComponent },
+  { path: 'dropdown-lm',         component: DropdownLMDemoComponent },
   { path: 'expandablearea',      component: ExpandableAreaDemoComponent },
   { path: 'toast',               component: ToastDemoComponent },
   { path: 'icon',                component: IconDemoComponent },
