@@ -74,6 +74,43 @@ interface SohoMenuButtonOptions {
   trigger?: string;
 }
 
+/**
+ * List of valid formatters.
+ */
+declare var Formatters: {
+  Text: any;
+  Readonly: any;
+  Date: any;
+  Autocomplete: any;
+  Lookup: any;
+  Decimal: any;
+  Integer: any;
+  Hyperlink: any;
+  Template: any;
+  Drilldown: any;
+  Password: any;
+  TextArea: any;
+  Checkbox: any;
+  SelectionCheckbox: any;
+  Actions: any;
+  Textarea: any;
+  Expander: any;
+  ClassRange: any;
+  Badge: any;
+  Tag: any;
+  Alert: any;
+  Image: any;
+  Color: any;
+  Button: any;
+  Dropdown: any;
+  Favorite: any;
+  Status: any;
+};
+
+declare var Editors: {
+  // @todo
+};
+
 interface JQueryStatic {
   applicationmenu: ApplicationMenuStatic;
   toast: ToastStatic;
@@ -94,8 +131,10 @@ interface JQuery {
 interface LocaleStatic {
   currentCulture(): string;
   translate(key: string): string;
-  calendar(): string;
-  set(locale:string):any;
+  calendar(): {dateFormat: string, timeFormat: string};
+  set(locale: string): any;
+
+  currentLocale: { name: string, data: any };
 }
 
 declare var Locale: LocaleStatic;

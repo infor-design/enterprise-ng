@@ -1,40 +1,3 @@
-/**
- * List of valid formatters.
- */
-export declare var Formatters: {
-  Text: any;
-  Readonly: any;
-  Date: any;
-  Autocomplete: any;
-  Lookup: any;
-  Decimal: any;
-  Integer: any;
-  Hyperlink: any;
-  Template: any;
-  Drilldown: any;
-  Password: any;
-  TextArea: any;
-  Checkbox: any;
-  SelectionCheckbox: any;
-  Actions: any;
-  Textarea: any;
-  Expander: any;
-  ClassRange: any;
-  Badge: any;
-  Tag: any;
-  Alert: any;
-  Image: any;
-  Color: any;
-  Button: any;
-  Dropdown: any;
-  Favorite: any;
-  Status: any;
-};
-
-export declare var Editors: {
-  // @todo
-};
-
 export interface SohoGridColumn {
   // Identifier for the grid columns
   id: string;
@@ -224,7 +187,15 @@ export class SohoToolbarOptions implements SohoToolbarConfiguration {
   advancedFilter = true;
 }
 
+export interface SohoDataGridSelectedRow {
+  idx: number;
+  data: any;
+  element: HTMLElement;
+}
+
 export interface SohoDataGridSelectedEvent {
+  e: any;
+  rows: SohoDataGridSelectedRow[];
 }
 
 export interface SohoDataGridCellChangeEvent {
@@ -234,6 +205,22 @@ export interface SohoDataGridCellChangeEvent {
   value: any;
   oldValue: any;
   column: any;
+}
+
+export interface SohoDataGridRowRemoveEvent {
+  row: any;
+  cell: any;
+  target: any;
+  value: any;
+  oldValue: any;
+}
+
+export interface SohoDataGridAddRowEvent {
+  row: any;
+  cell: any;
+  target: any;
+  value: any;
+  oldValue: any;
 }
 
 export interface PageInfo {
