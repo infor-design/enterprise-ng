@@ -6,7 +6,7 @@ import {
 } from './datagrid.model';
 
 /**
- * Dynamic SoHo Data Grid contract.
+ * Dynamic Soho Data Grid Service contract.
  */
 export abstract class SohoDataGridService {
 

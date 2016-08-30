@@ -24,7 +24,10 @@ import {
   SohoToolbarConfiguration,
   SohoSourceRequest,
   SohoDataGridCellChangeEvent,
-  SohoDataGridSelectedEvent
+  SohoDataGridSelectedEvent,
+  SohoDataGridSelectedRow,
+  SohoDataGridRowRemoveEvent,
+  SohoDataGridAddRowEvent
 } from './datagrid.model';
 
 export type SohoDataGridType = 'auto' | 'content-only';
@@ -42,14 +45,7 @@ export type SohoDataGridType = 'auto' | 'content-only';
  *
  * providers: [ provide: DataGridService, useClass: DataGridDemoService} ]
  *
- * TODO:
- * removeRow()
- * removeSelected()
- * paging
- * tooltips?
- * updaterow()
- * ...
- * headers/footers/toolbars/menus
+ * @todo paging
  */
 @Component({
   selector: '[soho-datagrid]',
@@ -64,35 +60,54 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // "auto" where columns and rows are obtained from the injected service
   // (if defined) or via the Inputs, otherwise.
-  public static AUTO: SohoDataGridType = 'auto';
+  static AUTO: SohoDataGridType = 'auto';
 
   // 'content-only' where table elements are usedto define the
   // columns and rows.
-  public static CONTENT_ONLY: SohoDataGridType = 'content-only';
+  static CONTENT_ONLY: SohoDataGridType = 'content-only';
 
   // -------------------------------------------
   // Component Inputs
   // -------------------------------------------
 
-  @Input() idProperty: string;
-  @Input() cellNavigation = true;
-  @Input() alternateRowShading = false;
-  @Input() dataset: Array<any>;
-  @Input() columnReorder = false;
-  @Input() editable = false;
-  @Input() isList = false;
-  @Input() menuId: any = null;
-  @Input() rowHeight: 'normal' | 'medium' | 'short' = 'normal';
-  @Input() selectable: boolean | 'single' | 'multiple' = false;
-  @Input() clickToSelect = true;
-  @Input() toolbar: boolean | SohoToolbarConfiguration;
-  @Input() paging = false;
-  @Input() pagesize = 25;
-  @Input() pagesizes: Array<number> = [10, 25, 50, 75];
-  @Input() indeterminate = false;
-  @Input() actionableMode = false;
-  @Input() saveColumns = false;
-  @Input() source: any = null;
+  @Input()
+  idProperty: string;
+  @Input()
+  cellNavigation = true;
+  @Input()
+  alternateRowShading = false;
+  @Input()
+  dataset: Array<any>;
+  @Input()
+  columnReorder = false;
+  @Input()
+  editable = false;
+  @Input()
+  isList = false;
+  @Input()
+  menuId: any = null;
+  @Input()
+  rowHeight: 'normal' | 'medium' | 'short' = 'normal';
+  @Input()
+  selectable: boolean | 'single' | 'multiple' = false;
+  @Input()
+  clickToSelect = true;
+  @Input()
+  toolbar: boolean | SohoToolbarConfiguration;
+  @Input()
+  paging = false;
+  @Input()
+  pagesize = 25;
+  @Input()
+  pagesizes: Array<number> = [10, 25, 50, 75];
+  @Input()
+  indeterminate = false;
+  @Input()
+  actionableMode = false;
+  @Input()
+  saveColumns = false;
+  @Input()
+  source: any = null;
 
   /**
    * The array of data to display in the grid.
@@ -103,7 +118,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
    * initialised, stash the data for later, and only
    * call loadData on the control api if ready.
    */
-  @Input() set data(data: any[]) {
+  @Input()
+  set data(data: any[]) {
     this.gridData = data;
     if (data && this.jQueryElement) {
       this.datagrid.loadData(data);
@@ -117,7 +133,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
    * initialised, stash the data for later, and only
    * call loadData on the control api if ready.
    */
-  @Input() set columns(columns: SohoGridColumn[]) {
+  @Input()
+  set columns(columns: SohoGridColumn[]) {
     this.gridColumns = columns || [];
     if (columns && this.jQueryElement) {
       this.datagrid.updateColumns(columns);
@@ -131,7 +148,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
    * - "auto" where columns and rows are obtained for an
    *   injected service (if defined) or via the Inputs if not.
    */
-  @Input('soho-datagrid') set sohoDatagrid(datagridType: SohoDataGridType) {
+  @Input('soho-datagrid')
+  set sohoDatagrid(datagridType: SohoDataGridType) {
     this.datagridType = datagridType ? datagridType : SohoDataGridComponent.AUTO;
   }
 
@@ -140,22 +158,42 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   // This event is fired when a row (or rows) are selected.
-  @Output() selected = new EventEmitter<SohoDataGridSelectedEvent>();
+  @Output()
+  selected = new EventEmitter<SohoDataGridSelectedEvent>();
 
   // This event is fired when a cell is changed.
-  @Output() cellchange = new EventEmitter<SohoDataGridCellChangeEvent>();
+  @Output()
+  cellchange = new EventEmitter<SohoDataGridCellChangeEvent>();
+
+  // This event is fired when a row is removed.
+  @Output()
+  rowRemove = new EventEmitter<SohoDataGridRowRemoveEvent>();
+
+  // This event is fired when a row is added. 
+  @Output()
+  rowAdd = new EventEmitter<SohoDataGridAddRowEvent>();
+
+  // @todo 
+  // 'activecellchange', [{node: this.activeCell.node, row: this.activeCell.row, cell: this.activeCell.cell}]);
+  // 'collapserow', [{grid: self, row: rowIndex, detail: detail, item: item}]);
+  // 'expandrow', [{ grid: self, row: rowIndex, detail: detail, item: item }]);
+  // 'sorted', [this.sortColumn]);
+  // 'columnchange', [{ type: 'updatecolumns', columns: this.settings.columns }]);
 
   // -------------------------------------------
   // Host Bindings
   // -------------------------------------------
 
   // Set the enable / disabled class (not working)
-  @HostBinding('class.is-disabled') isDisabled = false;
+  @HostBinding('class.is-disabled')
+  isDisabled = false;
 
   // Sets the class of the grid appropriately.
-  @HostBinding('class.datagrid') datagridClass = true;
+  @HostBinding('class.datagrid')
+  datagridClass = true;
 
-  @HostBinding('attr.role') datagridRole = 'datagrid';
+  @HostBinding('attr.role')
+  datagridRole = 'datagrid';
 
   // -------------------------------------------
   // Private Member Data
@@ -184,8 +222,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
    */
   constructor(
     private elementRef: ElementRef,
-    @Optional() protected datagridService: SohoDataGridService) {
-  }
+    @Optional() protected datagridService: SohoDataGridService) {}
 
   // -------------------------------------------
   // Public API
@@ -245,6 +282,79 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     this.datagrid.removeRow(data);
   }
 
+  removeSelected() {
+    this.datagrid.removeSelected();
+  }
+
+  /**
+   * Clears any filter defined, for this datagrid.
+   */
+  clearFilter(): void {
+    this.datagrid.clearFilter();
+  }
+
+  /**
+   * The rows currently selected on the data grid.
+   *
+   * @return an array of SohoDataGridSelectedRow instances.
+   */
+  getSelectedRows(): SohoDataGridSelectedRow[] {
+    return this.datagrid._selectedRows;
+  }
+
+  /**
+   * Selects all the rows in the grid.
+   */
+  selectAllRows() {
+    this.datagrid.selectAllRows();
+  }
+
+  /**
+   * Unselects all the rows in the grid.
+   */
+  unSelectAllRows() {
+    this.datagrid.unSelectAllRows();
+  }
+
+  /**
+   * Sets the selected status of the specified row in the data grid.
+   *
+   * @param idx - the row number (idx) of the row to select.
+   */
+  selectRow(idx: number) {
+    this.datagrid.selectRow(idx);
+  }
+
+  /**
+   * Deselects the specified row in the data grid.
+   *
+   * @param idx - the row number (idx) of the row to deselect.
+   */
+  unselectRow(idx: number) {
+    this.datagrid.unselectRow(idx);
+  }
+
+  /**
+   * Selects a range of rows based on the provided row indexes.
+   *
+   * @param start - the start index
+   * @param end - then end index
+   */
+  selectRange(start: number, end: number) {
+    const range: number[] = [start, end];
+    this.datagrid.selectRowsBetweenIndexes(range);
+  }
+
+  /**
+   * Selects a range of rows based on the provided row indexes.
+   *
+   * @param start - the start index
+   * @param end - then end index
+   */
+  selectRows(rows: number[]) {
+    this.datagrid.selectedRows(rows);
+  }
+
   // -------------------------------------------
   // Event Handlers
   // -------------------------------------------
@@ -265,8 +375,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   // Lifecycle Events
   // ------------------------------------------
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     // Wrap the element in a jQuery selector.
@@ -326,13 +435,22 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     // Initialise any event handlers.
-    this.jQueryElement.on('selected', (e: any, args: SohoDataGridSelectedEvent) => {
-      this.selected.next(args);
-    }).on('cellchange', (e: any, args: SohoDataGridCellChangeEvent) => {
-      this.cellchange.next(args);
-    }).on('exiteditmode', (e: any, args: any) => {
-      // ... more ...
-    });
+    this.jQueryElement.on('selected',
+        (e: any, args: SohoDataGridSelectedRow[]) => {
+          this.selected.next({ rows: args });
+        })
+      .on('cellchange',
+        (e: any, args: SohoDataGridCellChangeEvent) => {
+          this.cellchange.next(args);
+        })
+      .on('removerow',
+        (e: any, args: SohoDataGridRowRemoveEvent) => {
+          this.rowRemove.next(args);
+        })
+      .on('addrow',
+        (e: any, args: SohoDataGridAddRowEvent) => {
+          this.rowAdd.next(args);
+        });
   }
 
   ngOnDestroy() {
@@ -340,7 +458,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
       if (this.datagrid.destroy) {
         this.datagrid.destroy();
       }
-
       this.datagrid = null;
     }
   }

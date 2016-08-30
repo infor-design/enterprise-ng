@@ -14,6 +14,7 @@ import { SohoIconModule } from '../components/icon';
 import { SohoListviewModule } from '../components/listview';
 import { SohoSearchfieldModule } from '../components/searchfield';
 import { SohoTabsModule } from '../components/tabs';
+import { SohoDatagridModule } from '../components/datagrid';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SohoTabsModule } from '../components/tabs';
     BrowserModule,
     CommonModule,
     FormsModule,
+    SohoDatagridModule,
     SohoListviewModule,
     SohoToolbarModule,
     SohoButtonModule,
