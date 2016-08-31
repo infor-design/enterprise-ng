@@ -10,7 +10,7 @@ import {
 } from '@angular/core/testing';
 
 import { ExpandableAreaComponent } from './expandablearea.component';
-import { EXPANDABLEAREA_DIRECTIVES } from './';
+// import { EXPANDABLEAREA_DIRECTIVES } from './';
 
 // describe('Component: Expandablearea', () => {
 //   let builder: TestComponentBuilder;
@@ -89,7 +89,7 @@ import { EXPANDABLEAREA_DIRECTIVES } from './';
       </soho-expandable-pane>
     </soho-expandable-area>
   `,
-  directives: [ EXPANDABLEAREA_DIRECTIVES ],
+  // directives: [ EXPANDABLEAREA_DIRECTIVES ],
 })
 class ExpandableTestComponent {
   onBeforeExpand() {
