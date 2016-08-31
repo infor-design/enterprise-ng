@@ -316,7 +316,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     this.tree = this.jQueryElement.data('tree');
 
     // Preload from the service if specified (unless data already provided).
-    if (this.treeType !== SohoTreeComponent.CONTENT_ONLY && !this.dataset && this.treeService) {
+    if (this.treeType !== SohoTreeComponent.CONTENT_ONLY && !this._dataset && this.treeService) {
       // ... bootstrap ...
       this.treeService.getRootTreeNodes()
          .subscribe((dataset: SohoTreeNode[]) => this.dataset = dataset);

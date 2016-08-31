@@ -129,12 +129,12 @@ interface JQuery {
 }
 
 interface LocaleStatic {
+  currentLocale: { name: string, data: any };
+
   currentCulture(): string;
   translate(key: string): string;
   calendar(): {dateFormat: string, timeFormat: string};
   set(locale: string): any;
-
-  currentLocale: { name: string, data: any };
 }
 
 declare var Locale: LocaleStatic;

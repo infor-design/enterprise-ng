@@ -8,14 +8,8 @@ import {
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { APP_ROUTER_PROVIDERS } from './app.routes';
-import { SohoToolbarModule } from '../components/toolbar';
-import { SohoButtonModule } from '../components/button';
-import { SohoIconModule } from '../components/icon';
-import { SohoListviewModule } from '../components/listview';
-import { SohoSearchfieldModule } from '../components/searchfield';
-import { SohoTabsModule } from '../components/tabs';
-import { SohoDatagridModule } from '../components/datagrid';
-import { SohoExpandableAreaModule } from '../components/expandablearea';
+
+import { SohoComponentsModule } from '../soho-components.module';
 
 @NgModule({
   declarations: [
@@ -25,14 +19,7 @@ import { SohoExpandableAreaModule } from '../components/expandablearea';
     BrowserModule,
     CommonModule,
     FormsModule,
-    SohoDatagridModule,
-    SohoExpandableAreaModule,
-    SohoListviewModule,
-    SohoToolbarModule,
-    SohoButtonModule,
-    SohoIconModule,
-    SohoSearchfieldModule,
-    SohoTabsModule
+    SohoComponentsModule,
   ],
   providers: [
     APP_ROUTER_PROVIDERS,

@@ -1,4 +1,5 @@
 export * from './lookup.component';
+export * from './lookup.module';
 
 export declare abstract class OnBeforeLookupShow {
   /**
