@@ -18,6 +18,7 @@ import { SohoSearchfieldModule } from './components/searchfield/searchfield.modu
 import { SohoSplitterModule } from './components/splitter/splitter.module';
 import { SohoTreeModule } from './components/tree/tree.module';
 import { SohoPersonalizeModule } from './directives/soho-personalize.module';
+import { SohoToastModule } from './services/toast.module';
 
 @NgModule({
   imports: [
@@ -38,6 +39,7 @@ import { SohoPersonalizeModule } from './directives/soho-personalize.module';
     SohoSearchfieldModule,
     SohoSplitterModule,
     SohoTabsModule,
+    SohoToastModule,
     SohoToolbarModule,
     SohoTreeModule
   ],
@@ -60,6 +62,7 @@ import { SohoPersonalizeModule } from './directives/soho-personalize.module';
     SohoSearchfieldModule,
     SohoSplitterModule,
     SohoTabsModule,
+    SohoToastModule,
     SohoToolbarModule,
     SohoTreeModule
   ]
