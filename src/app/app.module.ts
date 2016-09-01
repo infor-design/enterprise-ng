@@ -6,6 +6,8 @@ import {
 } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { APP_ROUTER_PROVIDERS } from './app.routes';
 
@@ -19,6 +21,7 @@ import { SohoComponentsModule } from '../soho-components.module';
     BrowserModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     SohoComponentsModule,
   ],
   providers: [
