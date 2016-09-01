@@ -26,7 +26,6 @@ export class SohoSplitterRightPaneComponent {
 }
 
 @Component({
-  moduleId: module.id,
   selector: '[soho-splitter]',
   templateUrl: 'splitter.component.html'
 })
@@ -38,7 +37,7 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.jQueryElement = jquery(this.element.nativeElement);
+    this.jQueryElement = jQuery(this.element.nativeElement);
 
     const options: any = {
       axis: 'x',

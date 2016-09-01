@@ -2,11 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SohoMenuButtonComponent } from '../../components/menu-button';
 
 @Component({
-    selector: 'toolbar-datadriven-demo',
+    selector: 'soho-toolbar-datadriven-demo',
     templateUrl: 'toolbar-datadriven.demo.html',
-    directives: [
-      SohoMenuButtonComponent
-    ]
 })
 export class ToolbarDataDrivenDemoComponent implements OnInit {
 
