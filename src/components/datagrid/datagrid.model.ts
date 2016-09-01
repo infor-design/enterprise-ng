@@ -16,8 +16,12 @@ export interface SohoGridColumn {
   formatter?: any;
   icon?: string;
   editor?: any;
+  // 'checkbox', 'date', 'decimal', 'contents', 'select' otherwise a string.
   filterType?: any;
   filterFormatter?: any;
+  caseSensitive?: boolean;
+  // String array or an array of objects with a value method used for filters and editors. 
+  options?: SohoCellOption[];
   cssClass?: any;
   dateShowFormat?: any;
   dateSourceFormat?: any;
@@ -29,6 +33,13 @@ export interface SohoGridColumn {
   menuId?: any;
   selected?: any;
   resizable?: boolean;
+}
+
+export interface SohoCellOption {
+  // The underlying data value.
+  value: any;
+  // The localised display value. 
+  label: string;
 }
 
 export interface SohoDatagridConfiguration {
@@ -105,7 +116,7 @@ export interface SohoDatagridConfiguration {
    */
   source?: Function;
   /**
-   * Filtering Options
+   * Add filter bar?
    */
   filterable?: boolean;
 }
@@ -121,9 +132,8 @@ export class SohoGridOptions {
   cellNavigation = true;
   // Sets shading for readonly grids
   alternateRowShading = true;
-  //
+  // List of column definitions.
   columns = Array<SohoGridColumn>();
-
   // Initial dataset
   dataset: any[] = [];
   // Allow Column reorder
@@ -149,10 +159,12 @@ export class SohoGridOptions {
   pagesize = 25;
   // pages sizes (!!)
   pagesizes: Array<number> = [10, 25, 50, 75];
-  // removed ability to go to a specific page.
+  // removes ability to go to a specific page.
   indeterminate = false;
   // callback for paging
   source: any = null;
+  // Display the filter bar?
+  filterable?: boolean;
 
   constructor(options?: SohoDatagridConfiguration) {
     Object.assign(this, options);
@@ -164,7 +176,7 @@ export interface SohoToolbarConfiguration {
   advancedFilter?: boolean;
   collapsibleFilter?: boolean;
   dateFilter?: boolean;
-  filter?: boolean;
+  filterRow?: boolean;
   keywordFilter?: boolean;
   personalize?: boolean;
   results?: boolean;
@@ -174,10 +186,10 @@ export interface SohoToolbarConfiguration {
 }
 
 export class SohoToolbarOptions implements SohoToolbarConfiguration {
-  title = 'SoHo Data Grid';
+  title = 'Soho Data Grid';
   results = true;
   keywordFilter = true;
-  filter = true;
+  filterRow = true;
   rowHeight = true;
   views = true;
   collapsibleFilter = true;

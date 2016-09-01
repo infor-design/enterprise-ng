@@ -6,6 +6,8 @@
       <button soho-button (click)="datagrid.disable($event)">Disable</button>
       <button soho-button (click)="addRow($event)">Add Row</button>
       <button soho-button (click)="busy($event)">Busy</button>
+      <button soho-button (click)="toggleFilterRow($event)">Toggle Filter Row</button>
+
     </div>
   </div>
 </div>
@@ -13,7 +15,10 @@
 <div class="row top-padding">
   <div class="twelve columns demo" role="main">
     <section soho-busyindicator class="scrollable contained-scrolling-right-bottom" style="height: 100%">
-      <div soho-datagrid (selected)="onSelected($event)" selectable="multiple">
+      <div soho-datagrid (selected)="onSelected($event)" 
+      [selectable]="'multiple'" 
+      [filterable]="true"
+      [toolbar]="getToolbarOptions()">
         <datagrid-toolbar-demo></datagrid-toolbar-demo>
       </div>
     </section>

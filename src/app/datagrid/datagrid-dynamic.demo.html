@@ -16,7 +16,9 @@
         <div soho-datagrid (selected)="onSelected($event)"
              [columns]="columns | async"
              [data]="data | async"
-             selectable="multiple">
+             [selectable]="'multiple'"
+             [filterable]="true"
+             [toolbar]="getToolbarOptions()">
         </div>
       </section>
     </div>

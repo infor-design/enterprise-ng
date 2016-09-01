@@ -70,44 +70,26 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   // Component Inputs
   // -------------------------------------------
 
-  @Input()
-  idProperty: string;
-  @Input()
-  cellNavigation = true;
-  @Input()
-  alternateRowShading = false;
-  @Input()
-  dataset: Array<any>;
-  @Input()
-  columnReorder = false;
-  @Input()
-  editable = false;
-  @Input()
-  isList = false;
-  @Input()
-  menuId: any = null;
-  @Input()
-  rowHeight: 'normal' | 'medium' | 'short' = 'normal';
-  @Input()
-  selectable: boolean | 'single' | 'multiple' = false;
-  @Input()
-  clickToSelect = true;
-  @Input()
-  toolbar: boolean | SohoToolbarConfiguration;
-  @Input()
-  paging = false;
-  @Input()
-  pagesize = 25;
-  @Input()
-  pagesizes: Array<number> = [10, 25, 50, 75];
-  @Input()
-  indeterminate = false;
-  @Input()
-  actionableMode = false;
-  @Input()
-  saveColumns = false;
-  @Input()
-  source: any = null;
+  @Input() idProperty: string;
+  @Input() cellNavigation = true;
+  @Input() alternateRowShading = false;
+  @Input() dataset: Array<any>;
+  @Input() columnReorder = false;
+  @Input() editable = false;
+  @Input() isList = false;
+  @Input() menuId: any = null;
+  @Input() rowHeight: 'normal' | 'medium' | 'short' = 'normal';
+  @Input() selectable: boolean | 'single' | 'multiple' = false;
+  @Input() clickToSelect = true;
+  @Input() toolbar: boolean | SohoToolbarConfiguration;
+  @Input() paging = false;
+  @Input() pagesize = 25;
+  @Input() pagesizes: Array<number> = [10, 25, 50, 75];
+  @Input() indeterminate = false;
+  @Input() actionableMode = false;
+  @Input() saveColumns = false;
+  @Input() source: any = null;
+  @Input() filterable = false;
 
   /**
    * The array of data to display in the grid.
@@ -173,6 +155,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   @Output()
   rowAdd = new EventEmitter<SohoDataGridAddRowEvent>();
 
+  // This event is fired when the grid is filtered.
+  @Output()
+  filtered = new EventEmitter<SohoDataGridAddRowEvent>();
+
   // @todo 
   // 'activecellchange', [{node: this.activeCell.node, row: this.activeCell.row, cell: this.activeCell.cell}]);
   // 'collapserow', [{grid: self, row: rowIndex, detail: detail, item: item}]);
@@ -222,7 +208,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
    */
   constructor(
     private elementRef: ElementRef,
-    @Optional() protected datagridService: SohoDataGridService) {}
+    @Optional() protected datagridService: SohoDataGridService) { }
 
   // -------------------------------------------
   // Public API
@@ -355,6 +341,14 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     this.datagrid.selectedRows(rows);
   }
 
+
+  /**
+   * Toggles the display of the filter row.
+   */
+  toggleFilterRow() {
+    this.datagrid.toggleFilterRow();
+  }
+
   // -------------------------------------------
   // Event Handlers
   // -------------------------------------------
@@ -375,7 +369,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   // Lifecycle Events
   // ------------------------------------------
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   ngAfterViewInit() {
     // Wrap the element in a jQuery selector.
@@ -402,7 +396,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
       indeterminate: this.indeterminate,
       actionableMode: this.actionableMode,
       saveColumns: this.saveColumns,
-      source: this.source
+      source: this.source,
+      filterable: this.filterable
     };
 
     // If a source property has not been defined, and a service has
@@ -436,21 +431,25 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
     // Initialise any event handlers.
     this.jQueryElement.on('selected',
-        (e: any, args: SohoDataGridSelectedRow[]) => {
-          this.selected.next({ rows: args });
-        })
+      (e: any, args: SohoDataGridSelectedRow[]) => {
+        this.selected.next({ rows: args });
+      })
       .on('cellchange',
-        (e: any, args: SohoDataGridCellChangeEvent) => {
-          this.cellchange.next(args);
-        })
+      (e: any, args: SohoDataGridCellChangeEvent) => {
+        this.cellchange.next(args);
+      })
       .on('removerow',
-        (e: any, args: SohoDataGridRowRemoveEvent) => {
-          this.rowRemove.next(args);
-        })
+      (e: any, args: SohoDataGridRowRemoveEvent) => {
+        this.rowRemove.next(args);
+      })
       .on('addrow',
-        (e: any, args: SohoDataGridAddRowEvent) => {
-          this.rowAdd.next(args);
-        });
+      (e: any, args: SohoDataGridAddRowEvent) => {
+        this.rowAdd.next(args);
+      })
+      .on('filtered',
+      (e: any, args: any) => {
+        this.filtered.next(args);
+      });
   }
 
   ngOnDestroy() {

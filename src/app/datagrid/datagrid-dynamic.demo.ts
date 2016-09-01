@@ -9,7 +9,12 @@ import {
 
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { SohoDataGridComponent, SohoGridColumn } from '../../components/datagrid';
+import {
+  SohoDataGridComponent,
+  SohoGridColumn,
+  SohoToolbarOptions
+} from '../../components/datagrid';
+
 import { SohoBusyIndicatorComponent } from '../../components/busyindicator';
 
 import {
@@ -62,6 +67,13 @@ export class DataGridDynamicDemoComponent implements AfterContentInit, AfterView
       this.busyIndicator.activated = true;
       setTimeout(() => this.busyIndicator.activated = false, 2000);
     }
+  }
+
+  getToolbarOptions(): SohoToolbarOptions {
+    console.log('here');
+    const options = new SohoToolbarOptions();
+    options.filterRow = true;
+    return options;
   }
 
   onSelected(e: any) {
