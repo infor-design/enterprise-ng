@@ -1,12 +1,9 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl } from '@angular/forms';
-
-import { SohoDropdownComponent } from '../../components/dropdown';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
     selector: 'soho-dropdown-demo',
     templateUrl: 'dropdown-lm.demo.html',
-    directives: [ SohoDropdownComponent, REACTIVE_FORM_DIRECTIVES ],
 })
 export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
     private fieldSpec = { // tslint:disable-line

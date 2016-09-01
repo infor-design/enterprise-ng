@@ -18,7 +18,6 @@ import {
   selector: 'tree-service-demo',
   templateUrl: 'tree-service.demo.html',
   providers: [{ provide: SohoTreeService, useClass: TreeDemoService }],
-  directives: [SohoTreeComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeServiceDemoComponent {
