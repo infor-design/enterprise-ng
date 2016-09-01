@@ -6,10 +6,7 @@ import { SohoToastService } from './toast.service';
   imports: [
     CommonModule
   ],
-  declarations: [
-    SohoToastService
-  ],
-  exports: [
+  providers: [
     SohoToastService
   ]
 })
