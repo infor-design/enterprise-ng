@@ -151,7 +151,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   @Output()
   rowRemove = new EventEmitter<SohoDataGridRowRemoveEvent>();
 
-  // This event is fired when a row is added. 
+  // This event is fired when a row is added.
   @Output()
   rowAdd = new EventEmitter<SohoDataGridAddRowEvent>();
 
@@ -159,7 +159,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   @Output()
   filtered = new EventEmitter<SohoDataGridAddRowEvent>();
 
-  // @todo 
+  // @todo
   // 'activecellchange', [{node: this.activeCell.node, row: this.activeCell.row, cell: this.activeCell.cell}]);
   // 'collapserow', [{grid: self, row: rowIndex, detail: detail, item: item}]);
   // 'expandrow', [{ grid: self, row: rowIndex, detail: detail, item: item }]);
@@ -239,11 +239,11 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   enable(): void {
-    this.datagrid.enable();
+    this.isDisabled = false;
   }
 
   disable(): void {
-    this.datagrid.disable();
+    this.isDisabled = true;
   }
 
   updateRow(idx: number, row: any): void {

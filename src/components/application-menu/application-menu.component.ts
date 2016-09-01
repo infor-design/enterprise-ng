@@ -7,8 +7,6 @@ import {
   Input
 } from '@angular/core';
 
-import { ROUTER_DIRECTIVES } from '@angular/router';
-
 /**
  * Angular Wrapper for the SoHo Application Menu Component.
  *
@@ -18,7 +16,6 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
  */
 @Component({
   selector: 'nav[soho-application-menu]', // @todo agree correct selector.
-  directives: [ROUTER_DIRECTIVES],
   templateUrl: 'application-menu.component.html'
 })
 export class SohoApplicationMenuComponent {

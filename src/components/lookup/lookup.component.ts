@@ -79,7 +79,7 @@ export class SohoLookupComponent implements AfterViewInit, ControlValueAccessor,
   private modal: any;
   private _dataset: Object[];
   private _value: any;
-  private _onChangeCallback: any = () => {};
+  private _onChangeCallback: any = (value: any) => {};
   private _onTouchedCallback: any = () => {};
 
   constructor(private element: ElementRef) { }

@@ -1,4 +1,5 @@
 export * from './mask.component';
+export * from './mask.module';
 
 export interface MaskEvent {
     currentTarget: HTMLElement;
