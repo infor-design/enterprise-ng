@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SohoTreeComponent } from './Tree.component';
+import { SohoTreeComponent } from './tree.component';
 
 @NgModule({
   imports: [

@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SohoSplitterComponent } from './splitter.component';
+import {
+  SohoSplitterComponent,
+  SohoSplitterRightPaneComponent,
+  SohoSplitterLeftPaneComponent
+} from './splitter.component';
 
 @NgModule({
   imports: [
     CommonModule,
   ],
   declarations: [
-    SohoSplitterComponent
+    SohoSplitterLeftPaneComponent,
+  SohoSplitterRightPaneComponent,
+  SohoSplitterComponent
   ],
   exports: [
-    SohoSplitterComponent
+  SohoSplitterComponent
   ]
 })
 export class SohoSplitterModule {}

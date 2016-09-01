@@ -3,6 +3,7 @@
   Component,
   ElementRef,
   HostBinding,
+  Input,
   OnDestroy,
   ChangeDetectionStrategy
 } from '@angular/core';
@@ -32,6 +33,8 @@ export class SohoSplitterRightPaneComponent {
 export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
   private jQueryElement: any;
   private splitter: any;
+
+  @Input() axis: 'x' | 'y' = 'x';
 
   constructor(private element: ElementRef) {
   }

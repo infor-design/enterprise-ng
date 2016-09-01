@@ -1,50 +1,51 @@
 import {
-    Component,
-    AfterContentInit,
-    ElementRef,
-    ViewChild,
-    AfterViewInit,
-    ChangeDetectionStrategy
+  Component,
+  AfterContentInit,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import { DataGridDemoService } from './datagrid-demo.service';
 import { DataGridToolbarDemoComponent } from './datagrid-toolbar.demo';
 import {
-    SohoDataGridComponent,
-    SohoDataGridService,
-    SohoToolbarOptions
+  SohoDataGridComponent,
+  SohoDataGridService
 } from '../../components/datagrid';
 
 @Component({
-    selector: 'datagrid-breadcrumb-demo',
-    templateUrl: 'datagrid-breadcrumb.demo.html',
-    providers: [{ provide: SohoDataGridService, useClass: DataGridDemoService }],
-    directives: [SohoDataGridComponent, DataGridToolbarDemoComponent],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'datagrid-breadcrumb-demo',
+  templateUrl: 'datagrid-breadcrumb.demo.html',
+  providers: [{ provide: SohoDataGridService, useClass: DataGridDemoService }],
+  directives: [SohoDataGridComponent, DataGridToolbarDemoComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridBreadcrumbDemoComponent implements AfterContentInit, AfterViewInit {
-    @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
 
-    constructor(private el: ElementRef) {
-    }
+  constructor(private el: ElementRef,
+    private service: SohoDataGridService) {
+  }
 
-    ngAfterContentInit() {
-    }
+  ngAfterContentInit() {
+  }
 
-    ngAfterViewInit() {
-    }
+  ngAfterViewInit() {
+  }
 
-    toggleFilterRow() {
-        this.dataGrid.toggleFilterRow();
-    }
+  toggleFilterRow() {
+    this.dataGrid.toggleFilterRow();
+  }
 
-    getToolbarOptions(): SohoToolbarOptions {
-        console.log('here');
-        const options = new SohoToolbarOptions();
-        options.filterRow = true;
-        return options;
-    }
+  addRow() {
+    this.service.getData(null).subscribe((d: any[]) => {
+      let newData = new Array<any>(d[0]);
+      newData.forEach((r) => r.orderDate = new Date());
+      this.dataGrid.addRow(newData[0], 'top');
+    });
+  }
 
-    onSelected(e: any) {
-    }
+  onSelected(e: any) {
+  }
 }

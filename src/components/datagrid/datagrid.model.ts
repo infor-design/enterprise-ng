@@ -20,8 +20,8 @@ export interface SohoGridColumn {
   filterType?: any;
   filterFormatter?: any;
   caseSensitive?: boolean;
-  // String array or an array of objects with a value method used for filters and editors. 
-  options?: SohoCellOption[];
+  // String array or an array of objects with a value method used for filters and editors.
+  options?: SohoGridCellOption[];
   cssClass?: any;
   dateShowFormat?: any;
   dateSourceFormat?: any;
@@ -35,10 +35,10 @@ export interface SohoGridColumn {
   resizable?: boolean;
 }
 
-export interface SohoCellOption {
+export interface SohoGridCellOption {
   // The underlying data value.
   value: any;
-  // The localised display value. 
+  // The localised display value.
   label: string;
 }
 
@@ -119,7 +119,15 @@ export interface SohoDatagridConfiguration {
    * Add filter bar?
    */
   filterable?: boolean;
+
+  // Optional function to override the toolbar's results text.
+  resultsText?: SohoResultsTextFunction;
 }
+
+export type SohoResultsTextFunction = (
+  source: any,
+  count: number
+) => {};
 
 export class SohoGridOptions {
   // Which column property is the rows identifier?

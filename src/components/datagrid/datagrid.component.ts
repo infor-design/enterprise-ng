@@ -341,11 +341,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     this.datagrid.selectedRows(rows);
   }
 
-
   /**
    * Toggles the display of the filter row.
    */
-  toggleFilterRow() {
+  toggleFilterRow(): void {
     this.datagrid.toggleFilterRow();
   }
 
