@@ -20,7 +20,6 @@ import {
   selector: 'sample-datagrid',
   templateUrl: 'datagrid-dynamic.demo.html',
   providers: [DataGridDemoService],
-  directives: [SohoDataGridComponent, SohoBusyIndicatorComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridDynamicDemoComponent implements AfterContentInit, AfterViewInit {
@@ -64,6 +63,12 @@ export class DataGridDynamicDemoComponent implements AfterContentInit, AfterView
     }
   }
 
+  onDisable() {
+    this.dataGrid.disable();
+  }
+  onEnable() {
+    this.dataGrid.enable();
+  }
   onSelected(e: any) {
   }
 

@@ -10,8 +10,7 @@ import {
 
 @Component({
   selector: 'soho-toast-demo',
-  templateUrl: 'toast.demo.html',
-  providers: [ SohoToastService ]
+  templateUrl: 'toast.demo.html'
 })
 export class ToastDemoComponent implements OnInit {
   // Inject Toast Servivce as a dependency and get an instance variable

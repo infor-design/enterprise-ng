@@ -7,9 +7,8 @@ import {
 import { SohoBusyIndicatorComponent } from '../../components/busyindicator';
 
 @Component({
-  selector: 'busyindicator-demo',
-  templateUrl: 'busyindicator.demo.html',
-  directives: [ SohoBusyIndicatorComponent ]
+  selector: 'soho-busyindicator-demo',
+  templateUrl: 'busyindicator.demo.html'
 })
 export class BusyIndicatorDemoComponent {
 
