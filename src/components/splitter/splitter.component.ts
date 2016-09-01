@@ -43,7 +43,7 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
     const options: any = {
-      axis: 'x',
+      axis: this.axis,
       resize: 'immediate', // (or end)
       containment: null
     };
