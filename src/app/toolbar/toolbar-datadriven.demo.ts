@@ -1,5 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { SohoMenuButtonComponent } from '../../components/menu-button';
+import {
+  Component,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 
 @Component({
     selector: 'soho-toolbar-datadriven-demo',

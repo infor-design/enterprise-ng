@@ -14,4 +14,3 @@ import { SohoMastheadComponent } from './masthead.component';
   ]
 })
 export class SohoMastheadModule {}
-

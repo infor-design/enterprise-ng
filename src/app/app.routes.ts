@@ -1,4 +1,4 @@
-import { provideRouter, RouterConfig, Routes } from '@angular/router';
+import { provideRouter, Routes } from '@angular/router';
 import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';

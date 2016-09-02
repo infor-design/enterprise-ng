@@ -3,6 +3,7 @@
   Component,
   ElementRef,
   HostBinding,
+  Input,
   OnDestroy,
   ChangeDetectionStrategy
 } from '@angular/core';
@@ -33,6 +34,8 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
   private jQueryElement: any;
   private splitter: any;
 
+  @Input() axis: 'x' | 'y' = 'x';
+
   constructor(private element: ElementRef) {
   }
 
@@ -40,7 +43,7 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
     const options: any = {
-      axis: 'x',
+      axis: this.axis,
       resize: 'immediate', // (or end)
       containment: null
     };

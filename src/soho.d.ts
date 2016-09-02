@@ -133,8 +133,10 @@ interface LocaleStatic {
 
   currentCulture(): string;
   translate(key: string): string;
-  calendar(): {dateFormat: string, timeFormat: string};
+  calendar(): {dateFormat: any, timeFormat: string};
   set(locale: string): any;
 }
 
 declare var Locale: LocaleStatic;
+
+declare var jQuery: JQueryStatic;

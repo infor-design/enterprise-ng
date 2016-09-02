@@ -9,7 +9,11 @@ import {
 
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { SohoDataGridComponent, SohoGridColumn } from '../../components/datagrid';
+import {
+  SohoDataGridComponent,
+  SohoGridColumn
+} from '../../components/datagrid';
+
 import { SohoBusyIndicatorComponent } from '../../components/busyindicator';
 
 import {
@@ -63,12 +67,14 @@ export class DataGridDynamicDemoComponent implements AfterContentInit, AfterView
     }
   }
 
-  onDisable() {
-    this.dataGrid.disable();
+   toggleFilterRow() {
+    this.dataGrid.toggleFilterRow();
   }
-  onEnable() {
-    this.dataGrid.enable();
+
+  resetFilter() {
+    this.dataGrid.clearFilter();
   }
+
   onSelected(e: any) {
   }
 

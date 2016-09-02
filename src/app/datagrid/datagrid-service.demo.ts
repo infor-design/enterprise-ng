@@ -47,4 +47,12 @@ export class DataGridServiceDemoComponent implements AfterContentInit, AfterView
   busy() {
     this.busyIndicator.activated = true;
   }
+
+  toggleFilterRow() {
+    this.dataGrid.toggleFilterRow();
+  }
+
+  clearFilter() {
+    this.dataGrid.clearFilter();
+  }
 }
