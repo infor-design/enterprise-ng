@@ -3,6 +3,8 @@
 # compiled output
 /dist
 /tmp
+/obj
+/bin
 
 # dependencies
 /node_modules
@@ -15,6 +17,13 @@
 .classpath
 *.launch
 .settings/
+/.vs
+/packages
+*.csproj
+*.sln
+*.csproj.user
+packages.config
+web.*[Cc]onfig
 
 # misc
 /.sass-cache

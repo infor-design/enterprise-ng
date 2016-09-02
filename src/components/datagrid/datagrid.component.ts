@@ -429,8 +429,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     // Initialise any event handlers.
-    this.jQueryElement.on('selected',
-      (e: any, args: SohoDataGridSelectedRow[]) => {
+    this.jQueryElement.on('selected', (e: any, args: SohoDataGridSelectedRow[]) => {
         this.selected.next({ rows: args });
       })
       .on('cellchange',
@@ -445,7 +444,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
       (e: any, args: SohoDataGridAddRowEvent) => {
         this.rowAdd.next(args);
       })
-      .on('filtered',
+      .on('filtered', 
       (e: any, args: any) => {
         this.filtered.next(args);
       });

@@ -8,15 +8,15 @@ import {
 
 @NgModule({
   imports: [
-    CommonModule,
+    CommonModule
   ],
   declarations: [
     SohoSplitterLeftPaneComponent,
-  SohoSplitterRightPaneComponent,
-  SohoSplitterComponent
+    SohoSplitterRightPaneComponent,
+    SohoSplitterComponent
   ],
   exports: [
-  SohoSplitterComponent
+    SohoSplitterComponent
   ]
 })
 export class SohoSplitterModule {}
