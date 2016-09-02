@@ -2,10 +2,10 @@
   <div class="twelve columns">
     <h2 class="fieldset-title">Soho Data Grid - Dynamic</h2>
     <div class="field">
-      <button soho-button="primary" (click)="datagrid.enable($event)">Enable</button>
-      <button soho-button (click)="datagrid.disable($event)">Disable</button>
       <button soho-button (click)="addRow($event)">Add Row</button>
       <button soho-button (click)="busy($event)">Busy</button>
+      <button soho-button (click)="toggleFilterRow($event)">Toggle Filter Row</button>
+      <button soho-button (click)="resetFilter($event)">Reset Filter</button>
     </div>
   </div>
 </div>
@@ -16,9 +16,8 @@
         <div soho-datagrid (selected)="onSelected($event)"
              [columns]="columns | async"
              [data]="data | async"
-             [selectable]="'multiple'"
-             [filterable]="true"
-             [toolbar]="getToolbarOptions()">
+             selectable="multiple"
+             filterable="true">
         </div>
       </section>
     </div>

@@ -38,6 +38,10 @@ export class DataGridBreadcrumbDemoComponent implements AfterContentInit, AfterV
     this.dataGrid.toggleFilterRow();
   }
 
+  public clearFilter() {
+    this.dataGrid.clearFilter();
+  }
+
   addRow() {
     this.service.getData(null).subscribe((d: any[]) => {
       let newData = new Array<any>(d[0]);

@@ -283,6 +283,8 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   private onDataRequest(event: SohoTreeEvent, response: (data: any) => void) {
     let node = event.data;
 
+    console.log("onDataRequest");
+
     this.treeService.getTreeNodes(node)
       .subscribe((children: SohoTreeNode[]) => {
         response(children);

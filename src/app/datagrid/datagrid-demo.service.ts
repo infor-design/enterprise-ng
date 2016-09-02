@@ -17,6 +17,9 @@ export class DataGridDemoService extends SohoDataGridService {
   private data: Array<any> = Array<any>();
 
   getColumns(): Array<SohoGridColumn> {
+    if (this.columns.length === 0) {
+        this.init();
+    }
     return this.columns;
   }
 
@@ -26,6 +29,9 @@ export class DataGridDemoService extends SohoDataGridService {
 
   constructor() {
     super();
+  }
+
+  init() {
     /* tslint:disable */
     this.columns.push({
       id: 'selectionCheckbox',
@@ -77,7 +83,7 @@ export class DataGridDemoService extends SohoDataGridService {
       filterType: 'date',
       field: 'orderDate',
       formatter: Formatters.Date,
-      dateFormat: Locale.calendar().dateFormat
+      dateFormat: Locale.calendar().dateFormat.datetime // @todo
     });
     this.columns.push({
       id: 'status',

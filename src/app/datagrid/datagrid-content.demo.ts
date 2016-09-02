@@ -32,6 +32,10 @@ export class DataGridContentDemoComponent implements AfterContentInit, AfterView
     this.dataGrid.addRow({}, 'top');
   }
 
+   toggleFilterRow() {
+    this.dataGrid.toggleFilterRow();
+  }
+
   busy() {}
 
   onSelected(e: any) {
