@@ -36,4 +36,3 @@ cultures.forEach(c => {
 
 // Load the locale now - this is a workaround until the locale is set in the application initialisation.
 Locale.set('en-US');
-
