@@ -20,7 +20,6 @@ import {
 @Component({
   selector: 'tree-dynamic-demo',
   templateUrl: 'tree-dynamic.demo.html',
-  directives: [SohoTreeComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeDynamicDemoComponent implements AfterViewInit {

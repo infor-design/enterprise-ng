@@ -14,7 +14,6 @@ import {
 @Component({
   selector: 'tree-content-demo',
   templateUrl: 'tree-content.demo.html',
-  directives: [ SohoTreeComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeContentDemoComponent {

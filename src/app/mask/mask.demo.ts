@@ -1,5 +1,5 @@
 import { Component, HostBinding, Input } from '@angular/core';
-import { SohoMaskComponent, MaskEvent } from '../../components/mask';
+import { MaskEvent } from '../../components/mask';
 
 /**
  * This example:
@@ -8,7 +8,6 @@ import { SohoMaskComponent, MaskEvent } from '../../components/mask';
 @Component({
   selector: 'soho-mask-demo',
   templateUrl: './mask.demo.html',
-  directives: [ SohoMaskComponent ],
   styles :
   [`
     .alignRight {

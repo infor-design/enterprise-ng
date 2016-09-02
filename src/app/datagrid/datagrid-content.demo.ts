@@ -13,7 +13,6 @@ import { SohoDataGridComponent } from '../../components/datagrid';
   selector: 'sample-datagrid',
   templateUrl: 'datagrid-content.demo.html',
   providers: [],
-  directives: [SohoDataGridComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DataGridContentDemoComponent implements AfterContentInit, AfterViewInit {

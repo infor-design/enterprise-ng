@@ -26,7 +26,6 @@ import {
   selector: 'sample-datagrid',
   templateUrl: 'datagrid-service.demo.html',
   providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService }, SohoToastService ],
-  directives: [ SohoDataGridComponent, SohoBusyIndicatorComponent ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridServiceDemoComponent implements AfterContentInit, AfterViewInit {
