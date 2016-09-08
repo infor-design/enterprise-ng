@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   SohoSplitterComponent,
-  SohoSplitterRightPaneComponent,
-  SohoSplitterLeftPaneComponent
+  SohoSplitterPaneComponent,
 } from './splitter.component';
 
 @NgModule({
@@ -11,11 +10,11 @@ import {
     CommonModule
   ],
   declarations: [
-    SohoSplitterLeftPaneComponent,
-    SohoSplitterRightPaneComponent,
+    SohoSplitterPaneComponent,
     SohoSplitterComponent
   ],
   exports: [
+    SohoSplitterPaneComponent,
     SohoSplitterComponent
   ]
 })

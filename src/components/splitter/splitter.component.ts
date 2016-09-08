@@ -9,25 +9,18 @@
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-splitter-left-pane',
+  selector: 'soho-22splitter-pane',
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoSplitterLeftPaneComponent {
-  @HostBinding('class.pane-left') paneLeft= true;
+export class SohoSplitterPaneComponent implements AfterViewInit {
+  ngAfterViewInit(): void {
+    console.log("SohoSplitterPaneComponent");
+  }
 }
 
 @Component({
-  selector: 'soho-splitter-right-pane',
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
-})
-export class SohoSplitterRightPaneComponent {
-  @HostBinding('class.pane-right') paneRight = true;
-}
-
-@Component({
-  selector: '[soho-splitter]',
+  selector: 'soho-splitter',
   templateUrl: 'splitter.component.html'
 })
 export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
@@ -35,6 +28,7 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
   private splitter: any;
 
   @Input() axis: 'x' | 'y' = 'x';
+  @Input() resize: 'immediate' | 'end' = 'immediate';
 
   constructor(private element: ElementRef) {
   }
@@ -44,19 +38,18 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
 
     const options: any = {
       axis: this.axis,
-      resize: 'immediate', // (or end)
+      resize: this.resize,
       containment: null
     };
 
-    this.jQueryElement.splitter(options);
+    console.log(`Splitter: ${this.axis}`);
+
+    this.jQueryElement.find('.splitter').splitter(options);
 
     this.splitter = this.jQueryElement.data('data');
-
-  // this.jQueryElement.on('split', (f) => this.onSplit(f));
   }
 
   ngOnDestroy() {
-    // Necessary clean up step (add additional here)
     if (this.splitter) {
       this.splitter.destroy();
       this.splitter = null;
@@ -64,11 +57,3 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
   }
 }
 
-/**
- * Holds all components usable for splitter
- */
-export const SPLITTER_COMPONENTS = [
-  SohoSplitterLeftPaneComponent,
-  SohoSplitterRightPaneComponent,
-  SohoSplitterComponent
-];

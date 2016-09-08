@@ -7,16 +7,29 @@
 </div>
 <br>
 
-<div soho-busyindicator class="two-column fixed" role="main">
-  <div class="sidebar scrollable">
-    <ul soho-tree></ul>
-    <div class="splitter splitter-right"></div>
-  </div>
-  <div class="main" role="main">
-    <div soho-datagrid>
-      <datagrid-toolbar-demo></datagrid-toolbar-demo>
-    </div>
-  </div>
+<!--<div class="two-column fixed" role="main">-->
+<!--  <div class="sidebar scrollable">-->
+<!--    <ul soho-tree></ul>-->
+<!--    -->
+<!--  </div>-->
+<!--  <div class="main" role="main">-->
+<!--    <div soho-datagrid>-->
+<!--      <datagrid-toolbar-demo></datagrid-toolbar-demo>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="two-column fixed" role="main">
+  
+  <soho-splitter>
+    <soho-splitter-left-pane>
+      <ul soho-tree></ul>
+    </soho-splitter-left-pane>
+    <soho-splitter-right-pane>
+      <div soho-datagrid></div>
+    </soho-splitter-right-pane>
+  </soho-splitter>
+
 </div>
 
 

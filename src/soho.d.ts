@@ -139,4 +139,4 @@ interface LocaleStatic {
 
 declare var Locale: LocaleStatic;
 
-declare var jQuery: JQueryStatic;
+//declare var jQuery: JQueryStatic;

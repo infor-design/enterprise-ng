@@ -1,8 +1,5 @@
 ﻿import {
   Component,
-  AfterContentInit,
-  ElementRef,
-  AfterViewInit,
   ChangeDetectionStrategy
 } from '@angular/core';
 
@@ -18,24 +15,13 @@ import {
 } from '../../components/tree';
 
 @Component({
-  selector: 'splitter-demo',
-  templateUrl: 'splitter.demo.html',
+  selector: 'splitter-vertical-demo',
+  templateUrl: 'splitter-vertical.demo.html',
   providers: [
     { provide: SohoDataGridService, useClass: DataGridDemoService },
     { provide: SohoTreeService, useClass: TreeDemoService }],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SplitterDemoComponent implements AfterContentInit, AfterViewInit {
-  constructor(private el: ElementRef) {
-  }
+export class SplitterVerticalDemoComponent {
 
-  ngAfterContentInit() {
-  }
-
-  ngAfterViewInit() {
-    jQuery('.splitter').splitter();
-  }
-
-  onSelected(e: any) {
-  }
 }

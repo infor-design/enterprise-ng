@@ -429,13 +429,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     // Initialise any event handlers.
-    this.jQueryElement.on('selected', (e: any, args: SohoDataGridSelectedRow[]) => {
-        this.selected.next({ rows: args });
-      })
-      .on('cellchange',
-      (e: any, args: SohoDataGridCellChangeEvent) => {
-        this.cellchange.next(args);
-      })
+    this.jQueryElement
+      .on('selected', (...args: SohoDataGridSelectedRow[]) => this.selected.next({ rows: args }))
+      .on('cellchange', (...args: SohoDataGridCellChangeEvent[]) => this.cellchange.next(args))
       .on('removerow',
       (e: any, args: SohoDataGridRowRemoveEvent) => {
         this.rowRemove.next(args);
