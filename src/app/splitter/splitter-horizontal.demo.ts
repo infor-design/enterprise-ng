@@ -1,8 +1,6 @@
 ﻿import {
   Component,
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ElementRef
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import { TreeDemoService } from '../tree/tree-demo.service';
@@ -24,22 +22,5 @@ import {
     { provide: SohoTreeService, useClass: TreeDemoService }],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SplitterHorizontalDemoComponent implements AfterViewInit {
-  private jQueryElement: any;
-  private splitter: any;
-
-  constructor(private element: ElementRef) {
-  }
-  ngAfterViewInit(): void {
-    this.jQueryElement = jQuery(this.element.nativeElement);
-
-    const options: any = {
-      axis: 'y',
-      resize: 'end',
-      containment: null
-    };
-
-    this.jQueryElement.find('.splitter').splitter(options);
-
-  }
+export class SplitterHorizontalDemoComponent {
 }

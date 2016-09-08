@@ -40,6 +40,12 @@ interface SplitterStatic {
 
 }
 
+interface SohoSplitterOptions {
+  axis: 'x' | 'y';
+  resize: 'immediate' | 'end';
+  containment: any;
+}
+
 interface SohoToolbarEvent {
   currentTarget: HTMLElement;
   item: any;
