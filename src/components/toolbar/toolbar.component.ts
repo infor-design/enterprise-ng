@@ -178,8 +178,6 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.bind('afteractivate', ((event: SohoToolbarEvent) => { this.afteractivate.emit(event); }));
     this.jQueryElement.bind('selected', ((event: SohoToolbarEvent) => { this.selected.emit(event); }));
 
-    this.jQueryElement.on('click', 'button[soho-button]', (event: any) => { this.buttonClicked.emit(event); });
-
     this.toolbar = this.jQueryElement.data('toolbar');
   }
 
