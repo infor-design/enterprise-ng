@@ -11,7 +11,7 @@
 } from '@angular/core';
 
 /**
- * Angular Wrapper for the Soho Data Splitter Control.
+ * Angular Wrapper for the Soho  Splitter Control.
  *
  * This component searches for an element with the attribute
  * 'soho-splitter' in the parent's DOM tree, initialising it with
@@ -47,9 +47,8 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  // When are the panels redrawn after splitter, either
-  // continuously (immediate) or when the splitter is
-  // released (end).
+  // Controls when the panels are redrawn whilst the splitter is dragged, either
+  // continuously (immediate) or when the drag is finished (end).
   @Input() set resize(resize: 'immediate' | 'end') {
     this.options.resize = resize;
     if (this.splitter) {
@@ -118,7 +117,7 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement
       // Propogate the split event via the event emitter.  The data passed
       // is a reference to the jQuery control.
-      .on('split', (...args) => this.split.next(args));
+      .on('split', (...args: any[]) => this.split.next(args));
   }
 
   /**

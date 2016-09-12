@@ -85,7 +85,6 @@
     <Content Include="src\components\lookup\lookup.component.html" />
     <Content Include="src\components\masthead\masthead.component.html" />
     <Content Include="src\components\menu-button\menu-button.component.html" />
-    <Content Include="src\components\splitter\splitter.component.html" />
     <Content Include="src\components\tabs\tabs.component.html" />
     <Content Include="src\components\toolbar\toolbar.component.html" />
     <Content Include="src\favicon.ico" />
