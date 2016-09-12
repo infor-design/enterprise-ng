@@ -111,6 +111,7 @@ declare var Formatters: {
   Dropdown: any;
   Favorite: any;
   Status: any;
+  Tree: any
 };
 
 declare var Editors: {

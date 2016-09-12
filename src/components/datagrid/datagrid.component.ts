@@ -9,7 +9,9 @@ import {
   Input,
   Optional,
   OnInit,
-  OnDestroy
+  OnDestroy,
+  OnChanges,
+  SimpleChange
 } from '@angular/core';
 
 import {
@@ -52,7 +54,7 @@ export type SohoDataGridType = 'auto' | 'content-only';
   template: ' <ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
+export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, OnChanges {
 
   // -------------------------------------------
   // Soho Data Grid Types
@@ -70,26 +72,52 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   // Component Inputs
   // -------------------------------------------
 
-  @Input() idProperty: string;
-  @Input() cellNavigation = true;
-  @Input() alternateRowShading = false;
-  @Input() dataset: Array<any>;
-  @Input() columnReorder = false;
-  @Input() editable = false;
-  @Input() isList = false;
-  @Input() menuId: any = null;
-  @Input() rowHeight: 'normal' | 'medium' | 'short' = 'normal';
-  @Input() selectable: boolean | 'single' | 'multiple' = false;
-  @Input() clickToSelect = true;
-  @Input() toolbar: boolean | SohoToolbarConfiguration;
-  @Input() paging = false;
-  @Input() pagesize = 25;
-  @Input() pagesizes: Array<number> = [10, 25, 50, 75];
-  @Input() indeterminate = false;
-  @Input() actionableMode = false;
-  @Input() saveColumns = false;
-  @Input() source: any = null;
-  @Input() filterable = false;
+  @Input()
+  idProperty: string;
+  @Input()
+  cellNavigation = true;
+  @Input()
+  rowNavigation = true;
+  @Input()
+  alternateRowShading = false;
+  @Input()
+  dataset: Array<any>;
+  @Input()
+  columnReorder = false;
+  @Input()
+  editable = false;
+  @Input()
+  isList = false;
+  @Input()
+  menuId: any = null;
+  @Input()
+  rowHeight: 'normal' | 'medium' | 'short' = 'normal';
+  @Input()
+  selectable: boolean | 'single' | 'multiple' = false;
+  @Input()
+  clickToSelect = true;
+  @Input()
+  toolbar: boolean | SohoToolbarConfiguration = false;
+  @Input()
+  paging = false;
+  @Input()
+  pagesize = 25;
+  @Input()
+  pagesizes: Array<number> = [10, 25, 50, 75];
+  @Input()
+  indeterminate = false;
+  @Input()
+  actionableMode = false;
+  @Input()
+  saveColumns = false;
+  @Input()
+  source: any = null;
+  @Input()
+  filterable = false;
+  @Input()
+  treeGrid = false;
+  @Input()
+  resultText: string;
 
   /**
    * The array of data to display in the grid.
@@ -179,7 +207,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   datagridClass = true;
 
   @HostBinding('attr.role')
-  datagridRole = 'datagrid';
+  get datagridRole() {
+    if (this.treeGrid) {
+      return 'treegrid';
+    } else {
+      return 'datagrid';
+    }
+  }
 
   // -------------------------------------------
   // Private Member Data
@@ -208,7 +242,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
    */
   constructor(
     private elementRef: ElementRef,
-    @Optional() protected datagridService: SohoDataGridService) { }
+    @Optional() protected datagridService: SohoDataGridService) {}
 
   // -------------------------------------------
   // Public API
@@ -368,16 +402,20 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   // Lifecycle Events
   // ------------------------------------------
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     // Wrap the element in a jQuery selector.
     this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
+    console.log(`TreeGrid: ${this.treeGrid}`);
+    console.log(`Filterable: ${this.filterable}`);
+
     // Grid options ...
     const gridOptions: SohoGridOptions = {
       idProperty: this.idProperty,
       cellNavigation: this.cellNavigation,
+      rowNavigation: this.rowNavigation,
       alternateRowShading: this.alternateRowShading,
       columns: this.gridColumns,
       dataset: this.dataset,
@@ -396,7 +434,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
       actionableMode: this.actionableMode,
       saveColumns: this.saveColumns,
       source: this.source,
-      filterable: this.filterable
+      filterable: this.filterable,
+      treeGrid: this.treeGrid,
+      resultText: this.resultText
     };
 
     // If a source property has not been defined, and a service has
@@ -433,17 +473,17 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
       .on('selected', (e: any, args: SohoDataGridSelectedRow[]) => this.selected.next({ rows: args }))
       .on('cellchange', (e: any, args: SohoDataGridCellChangeEvent[]) => this.cellchange.next(args))
       .on('removerow',
-      (e: any, args: SohoDataGridRowRemoveEvent) => {
-        this.rowRemove.next(args);
-      })
+        (e: any, args: SohoDataGridRowRemoveEvent) => {
+          this.rowRemove.next(args);
+        })
       .on('addrow',
-      (e: any, args: SohoDataGridAddRowEvent) => {
-        this.rowAdd.next(args);
-      })
+        (e: any, args: SohoDataGridAddRowEvent) => {
+          this.rowAdd.next(args);
+        })
       .on('filtered',
-      (e: any, args: any) => {
-        this.filtered.next(args);
-      });
+        (e: any, args: any) => {
+          this.filtered.next(args);
+        });
   }
 
   ngOnDestroy() {
@@ -452,6 +492,17 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
         this.datagrid.destroy();
       }
       this.datagrid = null;
+    }
+  }
+
+  ngOnChanges(changes: { [propertyName: string]: SimpleChange }) {
+    for (let propName in changes) {
+      if (propName === 'dataset' ||propName === 'data' || propName === "columns") {} else {
+        let chng = changes[propName];
+        let cur = JSON.stringify(chng.currentValue);
+        let prev = JSON.stringify(chng.previousValue);
+        console.log(`${propName}: currentValue = ${cur}, previousValue = ${prev}`);
+      }
     }
   }
 }

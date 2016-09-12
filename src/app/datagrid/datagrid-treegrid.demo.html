@@ -1,0 +1,25 @@
+﻿<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Data Grid - TreeGrid</h2>
+    <div class="field">
+      <button soho-button (click)="makeChange($event)">Make Change</button>
+<!--      <button soho-button (click)="busy($event)">Busy</button>-->
+      <button soho-button (click)="toggleFilterRow($event)">Toggle Filter Row</button>
+      <button soho-button (click)="clearFilter($event)">Clear Filter</button>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row top-padding">
+  <div class="twelve columns demo" role="main">
+    <section soho-busyindicator class="scrollable contained-scrolling-right-bottom" style="height: 100%">
+      <div soho-datagrid (selected)="onSelected($event)" 
+           [treeGrid]='true' 
+           [columns]="columns" 
+           [data]="data" 
+           [dataset]="data" 
+           [toolbar]="{title: 'Tasks (Hierarchical)', results: true, personalize: true}"
+           [filterable]="true"></div>
+    </section>
+  </div>
+</div>

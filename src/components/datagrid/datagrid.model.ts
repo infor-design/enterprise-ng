@@ -33,6 +33,14 @@ export interface SohoGridColumn {
   menuId?: any;
   selected?: any;
   resizable?: boolean;
+
+  // The name of the property that controls whether a row is exapanded or not.
+  expanded?: string; 
+}
+
+export interface SohoTreeGridData {
+  children: any[];
+  depth?: number;
 }
 
 export interface SohoGridCellOption {
@@ -138,6 +146,8 @@ export class SohoGridOptions {
   actionableMode = false;
   // If cellNavigation is "false”, will show border arround whole row on focus
   cellNavigation = true;
+  // If rowNavigation is "false”, will NOT show border around the row
+  rowNavigation = true;
   // Sets shading for readonly grids
   alternateRowShading = true;
   // List of column definitions.
@@ -173,7 +183,10 @@ export class SohoGridOptions {
   source: any = null;
   // Display the filter bar?
   filterable?: boolean;
-
+ // Display as a tree grid?
+  treeGrid: boolean = false;
+  // Can provide a custom function to adjust results text
+  resultText: string;
   constructor(options?: SohoDatagridConfiguration) {
     Object.assign(this, options);
   }

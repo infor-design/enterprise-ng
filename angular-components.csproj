@@ -28,6 +28,15 @@
     <Content Include=".gitignore" />
     <Content Include="config\karma.conf.js" />
     <Content Include="config\protractor.conf.js" />
+    <Content Include="dist\css\dark-theme.css" />
+    <Content Include="dist\css\grey-theme.css" />
+    <Content Include="dist\css\high-contrast-theme.css" />
+    <Content Include="dist\index.html" />
+    <Content Include="dist\inline.js" />
+    <Content Include="dist\main.bundle.js" />
+    <Content Include="dist\polyfills.bundle.js" />
+    <Content Include="dist\svg\icons-extended.svg" />
+    <Content Include="dist\svg\icons.svg" />
     <Content Include="public\css\dark-theme.css" />
     <Content Include="public\css\grey-theme.css" />
     <Content Include="public\css\high-contrast-theme.css" />
@@ -43,6 +52,7 @@
     <Content Include="src\app\datagrid\datagrid-dynamic.demo.html" />
     <Content Include="src\app\datagrid\datagrid-service.demo.html" />
     <Content Include="src\app\datagrid\datagrid-toolbar.demo.html" />
+    <Content Include="src\app\datagrid\datagrid-treegrid.demo.html" />
     <Content Include="src\app\dropdown\dropdown-lm.demo.html" />
     <Content Include="src\app\dropdown\dropdown-multiselect.demo.html" />
     <Content Include="src\app\dropdown\dropdown.demo.html" />
@@ -100,6 +110,10 @@
     <Content Include="tslint.json" />
     <Content Include="public\.npmignore" />
     <Content Include="packages.config" />
+    <Content Include="dist\.npmignore" />
+    <Content Include="dist\inline.map" />
+    <Content Include="dist\main.map" />
+    <Content Include="dist\polyfills.map" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -121,6 +135,7 @@
     <TypeScriptCompile Include="src\app\datagrid\datagrid-dynamic.demo.ts" />
     <TypeScriptCompile Include="src\app\datagrid\datagrid-service.demo.ts" />
     <TypeScriptCompile Include="src\app\datagrid\datagrid-toolbar.demo.ts" />
+    <TypeScriptCompile Include="src\app\datagrid\datagrid-treegrid.demo.ts" />
     <TypeScriptCompile Include="src\app\dropdown\dropdown-lm.demo.ts" />
     <TypeScriptCompile Include="src\app\dropdown\dropdown-multiselect.demo.ts" />
     <TypeScriptCompile Include="src\app\dropdown\dropdown.demo.ts" />
