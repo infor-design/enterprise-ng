@@ -19,15 +19,16 @@ import {
 import { SohoDataGridService } from './datagrid.service';
 
 import {
-    SohoGridOptions,
-    SohoGridColumn,
-    SohoToolbarConfiguration,
-    SohoSourceRequest,
-    SohoDataGridCellChangeEvent,
-    SohoDataGridSelectedEvent,
-    SohoDataGridSelectedRow,
-    SohoDataGridRowRemoveEvent,
-    SohoDataGridAddRowEvent, PageInfo
+  SohoGridOptions,
+  SohoGridColumn,
+  SohoToolbarConfiguration,
+  SohoSourceRequest,
+  SohoDataGridCellChangeEvent,
+  SohoDataGridSelectedEvent,
+  SohoDataGridSelectedRow,
+  SohoDataGridRowRemoveEvent,
+  SohoDataGridAddRowEvent,
+  PageInfo
 } from './datagrid.model';
 
 export type SohoDataGridType = 'auto' | 'content-only';
@@ -69,6 +70,20 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   // -------------------------------------------
   // Component Inputs
   // -------------------------------------------
+
+  /**
+   * Set the options on a single call with the datagrid options object.
+   */
+  @Input() set gridOptions(gridOptions: SohoGridOptions) {
+    this._gridOptions = gridOptions;
+    if (this.jQueryElement) {
+      this.rebuild();
+    }
+  }
+
+  get gridOptions(): SohoGridOptions {
+    return this._gridOptions;
+  }
 
   /**
    *
@@ -479,7 +494,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // an internal gridOptions object that gets update by using
   // the components Inputs()
-  private gridOptions: SohoGridOptions = new SohoGridOptions();
+  private _gridOptions: SohoGridOptions = new SohoGridOptions();
 
   /**
    * Constructor.
@@ -662,11 +677,19 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   /**
+   * Scrolls the row at <b>idx</b> into view in the view port.
+   * @param idx The index of the row to scroll into view.
+   */
+  public scrollRowIntoView(idx: number): void {
+    this.datagrid.setActiveCell(idx, 0);
+  }
+
+  /**
    * Stop gap method to destroy the current datagrid and rebuilt it again.
    * This is required when there is no method found that can update the view
    * for a particular input.
    */
-  private rebuild(): void {
+  rebuild(): void {
     if (this.datagrid) {
       if (this.datagrid.destroy) {
         this.datagrid.destroy();
