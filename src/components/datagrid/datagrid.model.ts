@@ -33,6 +33,8 @@ export interface SohoGridColumn {
   menuId?: any;
   selected?: any;
   resizable?: boolean;
+
+  children?: Array<any>
 }
 
 export interface SohoGridCellOption {
@@ -139,7 +141,7 @@ export class SohoGridOptions {
   // If cellNavigation is "false”, will show border arround whole row on focus
   cellNavigation = true;
   // Sets shading for readonly grids
-  alternateRowShading = true;
+  alternateRowShading = false;
   // List of column definitions.
   columns = Array<SohoGridColumn>();
   // Initial dataset
@@ -156,11 +158,11 @@ export class SohoGridOptions {
   // Id to the right click context menu
   menuId: any = null;
   // (short, medium or normal)
-  rowHeight: 'normal' | 'medium' | 'short' = 'short';
+  rowHeight: 'normal' | 'medium' | 'short' = 'normal';
   // false; 'single' or 'multiple'
   selectable: boolean | 'single' | 'multiple' = false;
   clickToSelect = true;
-  toolbar: boolean | SohoToolbarConfiguration = new SohoToolbarOptions();
+  toolbar: boolean | SohoToolbarConfiguration = new SohoToolbarOptions(); // should the default be false?
   // Paging Options
   paging = false;
   // Page size
@@ -244,10 +246,14 @@ export interface SohoDataGridAddRowEvent {
 }
 
 export interface PageInfo {
-  pagesize: number;
-  pageSize: number;
-  firstPage: boolean;
-  lastPage: boolean;
+  pagesize?: number;
+  pageSize?: number;
+  firstPage?: boolean;
+  lastPage?: boolean;
+  activePage?: number;
+  total?: number;
+  type?: string;
+  preserveSelected?: boolean;
 }
 
 export interface SohoSourceRequest {
