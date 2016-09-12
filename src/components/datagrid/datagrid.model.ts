@@ -33,6 +33,8 @@ export interface SohoGridColumn {
   menuId?: any;
   selected?: any;
   resizable?: boolean;
+
+  children?: Array<any>
 }
 
 export interface SohoGridCellOption {
