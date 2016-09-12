@@ -19,22 +19,53 @@
  */
 @Component({
   selector: '[soho-splitter]',
-  templateUrl: 'splitter.component.html',
+  template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
+
+ // -------------------------------------------
+ // Options Block
+ // -------------------------------------------
+
+ private options: SohoSplitterOptions = {
+      axis: 'x',
+      resize: 'immediate',
+      containment: null
+    };
 
   // -------------------------------------------
   // Component Inputs
   // -------------------------------------------
 
   // The orientation of the splitter, either x (for vertical) or y (for horizontal)
-  @Input() axis: 'x' | 'y' = 'x';
+  @Input() set axis(axis: 'x' | 'y') {
+    this.options.axis = axis;
+    if (this.splitter) {
+      this.splitter.settings.axis = axis;
+      this.splitter.updated();
+    }
+  }
 
   // When are the panels redrawn after splitter, either
   // continuously (immediate) or when the splitter is
   // released (end).
-  @Input() resize: 'immediate' | 'end' = 'immediate';
+  @Input() set resize(resize: 'immediate' | 'end') {
+    this.options.resize = resize;
+    if (this.splitter) {
+      this.splitter.settings.resize = resize;
+      this.splitter.updated();
+    }
+  }
+
+  // Constrains the splitter within the bounds of the specified element or region.
+  @Input() set containment(containment: any) {
+    this.options.containment = containment;
+    if (this.splitter) {
+      this.splitter.settings.containment = containment;
+      this.splitter.updated();
+    }
+  }
 
   // -------------------------------------------
   // Component Output
@@ -75,22 +106,24 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
     // Wrap the element in a jQuery selector.
     this.jQueryElement = jQuery(this.element.nativeElement);
 
-    // Splitter Options.
-    const options: SohoSplitterOptions = {
-      axis: this.axis,
-      resize: this.resize,
-      containment: null
-    };
+     // Initialise the SohoXi Control
+    this.jQueryElement.splitter(this.options);
 
-    this.jQueryElement.splitter(options);
-
+    // Once the control is initialised, extract the control
+    // plug-in from the element.  The element name is
+    // defined by the plug-in, but in this case it is 'splitter'.
     this.splitter = this.jQueryElement.data('data');
 
-    // Propogate the split event via the event emitter.  The data passed
-    // is a reference to the jQuery control.
-    this.jQueryElement.on('split', (...args) => this.split.next(args));
+    // Initialise any event handlers.
+    this.jQueryElement
+      // Propogate the split event via the event emitter.  The data passed
+      // is a reference to the jQuery control.
+      .on('split', (...args) => this.split.next(args));
   }
 
+  /**
+   * Destructor.
+   */
   ngOnDestroy() {
     if (this.splitter) {
       this.splitter.destroy();
@@ -98,4 +131,3 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
     }
   }
 }
-
