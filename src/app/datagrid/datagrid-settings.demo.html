@@ -1,0 +1,88 @@
+
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Data Grid - Settings</h2>
+
+    <div class="three columns">
+      <div class="field">
+        <select soho-dropdown noSearch id="selectable" [(ngModel)]="datagrid.selectable">
+          <option value=''>No Selection</option>
+          <option value='single'>Single Selection</option>
+          <option value='multiple' class="is-selected">Multiple Selection</option>
+        </select>
+      </div>
+      <div class="field">
+        <select soho-dropdown noSearch id="selectable" [(ngModel)]="datagrid.rowHeight">
+          <option value='short'>Short Row Height</option>
+          <option value='medium'>Medium Row Height</option>
+          <option value='normal'>Normal Row Height</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="three columns">
+      <div class="field">
+        <input type="checkbox" class="checkbox" id="cellNavigation" [(ngModel)]="datagrid.cellNavigation">
+        <label for="cellNavigation" class="checkbox-label">Cell Navigation</label>
+      </div>
+      <div class="field">
+        <input type="checkbox" class="checkbox" id="isList" [(ngModel)]="datagrid.isList">
+        <label for="isList" class="checkbox-label">Is List</label>
+      </div>
+    </div>
+
+    <div class="three columns">
+      <div class="field">
+        <input type="checkbox" class="checkbox" id="alternateRowShading" [(ngModel)]="datagrid.alternateRowShading">
+        <label for="alternateRowShading" class="checkbox-label">Alternate Row Shading</label>
+      </div>
+      <div class="field">
+        <input type="checkbox" class="checkbox" id="clickToSelect" [(ngModel)]="datagrid.clickToSelect">
+        <label for="clickToSelect" class="checkbox-label">Click To Select</label>
+      </div>
+    </div>
+
+    <div class="three columns">
+      <div class="field">
+        <input type="checkbox" class="checkbox" id="columnReorder" [(ngModel)]="datagrid.columnReorder">
+        <label for="columnReorder" class="checkbox-label">Allow Column Reordering</label>
+      </div>
+    </div>
+
+<!--
+        <div class="field">
+            <input type="checkbox" class="checkbox" id="editable" [(ngModel)]="datagrid.editable">
+            <label for="editable" class="checkbox-label">Editable</label>
+        </div>
+
+        <div class="field">
+            <input type="checkbox" class="checkbox" id="isList" [(ngModel)]="datagrid.isList">
+            <label for="isList" class="checkbox-label">Is List</label>
+        </div>
+
+        <div class="field">
+            <input type="checkbox" class="checkbox" id="clickToSelect" [(ngModel)]="datagrid.clickToSelect">
+            <label for="clickToSelect" class="checkbox-label">Click To Select</label>
+        </div>
+
+        <div class="field">
+            <input type="checkbox" class="checkbox" id="paging" [(ngModel)]="datagrid.paging">
+            <label for="paging" class="checkbox-label">Paging</label>
+        </div>
+
+        <div class="field">
+            <input type="checkbox" class="checkbox" id="actionMode" [(ngModel)]="datagrid.actionMode">
+            <label for="actionMode" class="checkbox-label">Action Mode</label>
+        </div>
+-->
+    </div>
+</div>
+
+<br>
+<div class="row top-padding">
+    <div class="twelve columns demo" role="main">
+        <section soho-busyindicator class="scrollable contained-scrolling-right-bottom" style="height: 100%">
+            <div soho-datagrid selectable='' filterable="true"></div>
+        </section>
+    </div>
+</div>
