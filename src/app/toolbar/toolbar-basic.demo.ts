@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 })
 export class ToolbarBasicDemoComponent {
   onSelected(event) {
-    let target: EventTarget = event.currentTarget;
-    alert(target + ' SELECTED');
+    event.data = event.item[0].getAttribute('button-data');
+    alert(event.data);
   }
 }
