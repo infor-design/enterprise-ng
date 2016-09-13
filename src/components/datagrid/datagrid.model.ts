@@ -33,9 +33,14 @@ export interface SohoGridColumn {
   menuId?: any;
   selected?: any;
   resizable?: boolean;
-
+  children?: Array<any>;
   // The name of the property that controls whether a row is exapanded or not.
   expanded?: string;
+}
+
+export interface SohoTreeGridData {
+  children: any[];
+  depth?: number;
 }
 
 export interface SohoGridCellOption {
