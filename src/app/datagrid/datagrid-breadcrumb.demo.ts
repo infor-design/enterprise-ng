@@ -9,7 +9,6 @@ import {
 
 import { DataGridDemoService } from './datagrid-demo.service';
 
-import { DataGridToolbarDemoComponent } from './datagrid-toolbar.demo';
 import {
   SohoDataGridComponent,
   SohoDataGridService
