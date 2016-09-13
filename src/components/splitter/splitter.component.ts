@@ -13,12 +13,12 @@
 /**
  * Angular Wrapper for the Soho  Splitter Control.
  *
- * This component searches for an element with the attribute
+ * This component searches for an element with the name
  * 'soho-splitter' in the parent's DOM tree, initialising it with
- * the Soho splitter control.
+ * the Soho Splitter control.
  */
 @Component({
-  selector: '[soho-splitter]',
+  selector: 'soho-splitter',
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
