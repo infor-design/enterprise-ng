@@ -15,7 +15,7 @@ import {
 import { SohoBusyIndicatorComponent } from '../../components/busyindicator';
 
 @Component({
-  selector: 'sample-datagrid',
+  selector: 'soho-datagrid-treegrid-demo',
   templateUrl: 'datagrid-treegrid.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -100,6 +100,5 @@ export class DataGridTreeGridDemoComponent implements AfterContentInit, AfterVie
   }
 
   ngAfterViewInit() {
-    //setTimeout(() => this.addRows(), 1000);
   }
 }

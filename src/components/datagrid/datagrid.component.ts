@@ -515,10 +515,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   @HostBinding('class.is-disabled')
   isDisabled = false;
 
-  // Sets the class of the grid appropriately.
-  @HostBinding('class.datagrid')
-  datagridClass = true;
-
   /**
    * Sets the role for the grid.
    */

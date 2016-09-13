@@ -23,7 +23,7 @@ import {
 } from '../../services/';
 
 @Component({
-  selector: 'sample-datagrid',
+  selector: 'soho-datagrid-service-demo',
   templateUrl: 'datagrid-service.demo.html',
   providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService }, SohoToastService ],
   changeDetection: ChangeDetectionStrategy.OnPush

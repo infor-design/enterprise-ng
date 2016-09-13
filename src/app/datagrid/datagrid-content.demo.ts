@@ -10,7 +10,7 @@ import {
 import { SohoDataGridComponent } from '../../components/datagrid';
 
 @Component({
-  selector: 'sample-datagrid',
+  selector: 'soho-datagrid-content-demo',
   templateUrl: 'datagrid-content.demo.html',
   providers: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
