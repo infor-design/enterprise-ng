@@ -16,6 +16,7 @@ import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
+import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 
 import { ListviewDemoComponent } from './listview/listview.demo';
 
@@ -65,6 +66,7 @@ export const routes: Routes = [
   { path: 'datagrid-content',    component: DataGridContentDemoComponent },
   { path: 'datagrid-breadcrumb', component: DataGridBreadcrumbDemoComponent },
   { path: 'datagrid-treegrid',   component: DataGridTreeGridDemoComponent },
+  { path: 'datagrid-settings',   component: DataGridSettingsDemoComponent },
   { path: 'header-tabs',         component: HeaderTabsDemoComponent },
   { path: 'header-toolbar',      component: HeaderToolbarDemoComponent },
   { path: 'header-toolbar-tabs', component: HeaderToolbarAndTabsDemoComponent },

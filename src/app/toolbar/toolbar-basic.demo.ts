@@ -4,4 +4,9 @@ import { Component } from '@angular/core';
   selector: 'toolbar-basic-demo',
   templateUrl: 'toolbar-basic.demo.html'
 })
-export class ToolbarBasicDemoComponent {}
+export class ToolbarBasicDemoComponent {
+  onSelected(event) {
+    event.data = event.item[0].getAttribute('button-data');
+    alert(event.data);
+  }
+}
