@@ -500,13 +500,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   @Output()
   filtered = new EventEmitter<SohoDataGridAddRowEvent>();
 
-  // @todo
-  // 'activecellchange', [{node: this.activeCell.node, row: this.activeCell.row, cell: this.activeCell.cell}]);
-  // 'collapserow', [{grid: self, row: rowIndex, detail: detail, item: item}]);
-  // 'expandrow', [{ grid: self, row: rowIndex, detail: detail, item: item }]);
-  // 'sorted', [this.sortColumn]);
-  // 'columnchange', [{ type: 'updatecolumns', columns: this.settings.columns }]);
-
   // -------------------------------------------
   // Host Bindings
   // -------------------------------------------
