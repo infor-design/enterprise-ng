@@ -12,7 +12,7 @@ import {
 } from '../../components/tree';
 
 @Component({
-  selector: 'tree-content-demo',
+  selector: 'soho-tree-content-demo',
   templateUrl: 'tree-content.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

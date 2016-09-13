@@ -40,6 +40,12 @@ interface SplitterStatic {
 
 }
 
+interface SohoSplitterOptions {
+  axis: 'x' | 'y';
+  resize: 'immediate' | 'end';
+  containment: any;
+}
+
 interface SohoToolbarEvent {
   currentTarget: HTMLElement;
   item: any;
@@ -105,6 +111,7 @@ declare var Formatters: {
   Dropdown: any;
   Favorite: any;
   Status: any;
+  Tree: any
 };
 
 declare var Editors: {
@@ -139,4 +146,4 @@ interface LocaleStatic {
 
 declare var Locale: LocaleStatic;
 
-declare var jQuery: JQueryStatic;
+//declare var jQuery: JQueryStatic;

@@ -16,7 +16,13 @@
   <div class="accordion-header list-item"><a [routerLink]="['lookup']"><span>Lookup</span></a></div>
   <div class="accordion-header list-item"><a [routerLink]="['mask']"><span>Mask</span></a></div>
   <div class="accordion-header list-item"><a [routerLink]="['menu-button']"><span>Menu Button</span></a></div>
-  <div class="accordion-header list-item"><a [routerLink]="['splitter']"><span>Splitter</span></a></div>
+
+  <div class="accordion-header"><a href="javascript:void(0);"><span>Splitter</span></a></div>
+  <div class="accordion-pane">
+    <div class="accordion-header list-item"><a [routerLink]="['splitter-vertical']"><span>Vertical Splitter</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['splitter-horizontal']"><span>Horizontal Splitter</span></a></div>
+  </div>
+
   <div class="accordion-header list-item"><a [routerLink]="['toast']"><span>Toast</span></a></div>
 
   <div class="accordion-header"><a href="javascript:void(0);"><span>Header</span></a></div>
@@ -46,6 +52,7 @@
     <div class="accordion-header list-item"><a [routerLink]="['datagrid-service']"><span>Service DataGrid</span></a></div>
     <div class="accordion-header list-item"><a [routerLink]="['datagrid-content']"><span>Content DataGrid</span></a></div>
     <div class="accordion-header list-item"><a [routerLink]="['datagrid-breadcrumb']"><span>DataGrid with Toolbar and Breadcrumb</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['datagrid-treegrid']"><span>TreeGrid</span></a></div>
     <div class="accordion-header list-item"><a [routerLink]="['datagrid-settings']"><span>DataGrid with Updatable Settings</span></a></div>
   </div>
 

@@ -9,7 +9,7 @@
 } from '@angular/core';
 
 @Component({
-  selector: 'datagrid-toolbar-demo',
+  selector: 'soho-datagrid-toolbar-demo',
   templateUrl: 'datagrid-toolbar.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

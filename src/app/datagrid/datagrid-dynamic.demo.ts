@@ -21,7 +21,7 @@ import {
 } from './datagrid-demo.service';
 
 @Component({
-  selector: 'sample-datagrid',
+  selector: 'soho-datagrid-dynamic-demo',
   templateUrl: 'datagrid-dynamic.demo.html',
   providers: [DataGridDemoService],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -30,7 +30,7 @@ export class DataGridDynamicDemoComponent implements AfterContentInit, AfterView
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
   @ViewChild(SohoBusyIndicatorComponent) busyIndicator: SohoBusyIndicatorComponent;
 
-  private _subject$ = <BehaviorSubject<any[]>>new BehaviorSubject([]);
+  private _subject$ = new BehaviorSubject([]);
 
   public data = this._subject$.asObservable();
 

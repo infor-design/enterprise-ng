@@ -18,7 +18,7 @@ import {
 } from '../../components/tree';
 
 @Component({
-  selector: 'tree-dynamic-demo',
+  selector: 'soho-tree-dynamic-demo',
   templateUrl: 'tree-dynamic.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

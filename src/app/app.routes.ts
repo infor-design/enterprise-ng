@@ -15,6 +15,7 @@ import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
+import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 
 import { ListviewDemoComponent } from './listview/listview.demo';
@@ -22,7 +23,8 @@ import { ListviewDemoComponent } from './listview/listview.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
-import { SplitterDemoComponent } from './splitter/splitter.demo';
+import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
+import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
 
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
@@ -54,7 +56,8 @@ export const routes: Routes = [
   { path: 'lookup',              component: LookupDemoComponent },
   { path: 'mask',                component: MaskDemoComponent },
   { path: 'menu-button',         component: MenuButtonDemoComponent },
-  { path: 'splitter',            component: SplitterDemoComponent },
+  { path: 'splitter-vertical',   component: SplitterVerticalDemoComponent },
+  { path: 'splitter-horizontal', component: SplitterHorizontalDemoComponent },
   { path: 'tree-dynamic',        component: TreeDynamicDemoComponent },
   { path: 'tree-service',        component: TreeServiceDemoComponent },
   { path: 'tree-content',        component: TreeContentDemoComponent },
@@ -62,6 +65,7 @@ export const routes: Routes = [
   { path: 'datagrid-service',    component: DataGridServiceDemoComponent },
   { path: 'datagrid-content',    component: DataGridContentDemoComponent },
   { path: 'datagrid-breadcrumb', component: DataGridBreadcrumbDemoComponent },
+  { path: 'datagrid-treegrid',   component: DataGridTreeGridDemoComponent },
   { path: 'datagrid-settings',   component: DataGridSettingsDemoComponent },
   { path: 'header-tabs',         component: HeaderTabsDemoComponent },
   { path: 'header-toolbar',      component: HeaderToolbarDemoComponent },

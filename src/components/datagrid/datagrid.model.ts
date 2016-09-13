@@ -34,7 +34,8 @@ export interface SohoGridColumn {
   selected?: any;
   resizable?: boolean;
 
-  children?: Array<any>
+  // The name of the property that controls whether a row is exapanded or not.
+  expanded?: string;
 }
 
 export interface SohoGridCellOption {
@@ -137,44 +138,49 @@ export class SohoGridOptions {
   // F2 - toggles actionableMode "true" and "false"
   // If actionableMode is "true”; tab and shift tab behave like left and right arrow key,
   // if the cell is editable it goes in and out of edit mode
-  actionableMode = false;
+  actionableMode;
   // If cellNavigation is "false”, will show border arround whole row on focus
-  cellNavigation = true;
+  cellNavigation;
+  // If rowNavigation is "false”, will NOT show border around the row
+  rowNavigation;
   // Sets shading for readonly grids
-  alternateRowShading = false;
+  alternateRowShading;
   // List of column definitions.
   columns = Array<SohoGridColumn>();
   // Initial dataset
-  dataset: any[] = [];
+  dataset: any[];
   // Allow Column reorder
-  columnReorder = false;
+  columnReorder;
   // Save Column Reorder and resize
-  saveColumns = true;
-
+  saveColumns;
   // Editable?
-  editable = false;
+  editable;
   // Makes a readonly "list"
-  isList = false;
+  isList;
   // Id to the right click context menu
-  menuId: any = null;
+  menuId: any;
   // (short, medium or normal)
-  rowHeight: 'normal' | 'medium' | 'short' = 'normal';
+  rowHeight: 'normal' | 'medium' | 'short';
   // false; 'single' or 'multiple'
-  selectable: boolean | 'single' | 'multiple' = false;
-  clickToSelect = true;
-  toolbar: boolean | SohoToolbarConfiguration = new SohoToolbarOptions(); // should the default be false?
+  selectable: boolean | 'single' | 'multiple';
+  clickToSelect;
+  toolbar: boolean | SohoToolbarConfiguration;
   // Paging Options
-  paging = false;
+  paging;
   // Page size
-  pagesize = 25;
+  pagesize;
   // pages sizes (!!)
-  pagesizes: Array<number> = [10, 25, 50, 75];
+  pagesizes: number[];
   // removes ability to go to a specific page.
-  indeterminate = false;
+  indeterminate;
   // callback for paging
-  source: any = null;
+  source: Function;
   // Display the filter bar?
-  filterable?: boolean;
+  filterable: boolean;
+  // Display as a tree grid?
+  treeGrid: boolean = false;
+  // Can provide a custom function to adjust results text
+  resultText: string;
 
   constructor(options?: SohoDatagridConfiguration) {
     Object.assign(this, options);
@@ -196,17 +202,17 @@ export interface SohoToolbarConfiguration {
 }
 
 export class SohoToolbarOptions implements SohoToolbarConfiguration {
-  title = 'Soho Data Grid';
-  results = true;
-  keywordFilter = true;
-  filterRow = true;
-  rowHeight = true;
-  views = true;
-  collapsibleFilter = true;
-  dateFilter = true;
-  actions: any = [];
-  personalize = true;
-  advancedFilter = true;
+  title;
+  results;
+  keywordFilter;
+  filterRow;
+  rowHeight;
+  views;
+  collapsibleFilter;
+  dateFilter;
+  actions: any;
+  personalize;
+  advancedFilter;
 }
 
 export interface SohoDataGridSelectedRow {
