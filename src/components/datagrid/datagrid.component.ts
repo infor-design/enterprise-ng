@@ -571,7 +571,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   pageSize(): any {
-    return this.datagrid.settings.pagesize;
+    return this.datagrid.pager.settings.pagesize;
   }
 
   updatePagingInfo(pageInfo: PageInfo): void {
