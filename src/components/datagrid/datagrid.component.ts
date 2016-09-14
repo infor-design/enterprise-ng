@@ -774,7 +774,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
     // Initialise the SohoXi control.
-    this.jQueryElement.datagrid(this.gridOptions);
+    this.jQueryElement.datagrid(this._gridOptions);
 
     // Once the control is initialised, extract the control
     // plug-in from the element.  The element name is
