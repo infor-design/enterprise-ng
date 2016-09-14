@@ -83,11 +83,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  get gridOptions(): SohoGridOptions {
-    return this._gridOptions;
-  }
-
-  /**
+ /**
    * Defines which property in the data rows is to be used as the id of each
    * row sets.
    * of the data.
