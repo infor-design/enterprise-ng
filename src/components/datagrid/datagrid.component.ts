@@ -570,8 +570,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
     this.datagrid.setSortIndicator(columnId, isAscending);
   }
 
-  pageSize(): any {
-    return this.datagrid.settings.pagesize;
+  pageSize(): number {
+    return this.datagrid.pager.settings.pagesize;
   }
 
   updatePagingInfo(pageInfo: PageInfo): void {
