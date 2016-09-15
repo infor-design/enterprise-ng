@@ -1,3 +1,5 @@
+import { SohoDataGridComponent } from './datagrid.component';
+
 export interface SohoGridColumn {
   // Identifier for the grid columns
   id: string;
@@ -33,14 +35,37 @@ export interface SohoGridColumn {
   menuId?: any;
   selected?: any;
   resizable?: boolean;
-  children?: Array<any>;
+
+  // Optional children.
+  children?: any[];
+
   // The name of the property that controls whether a row is exapanded or not.
   expanded?: string;
 }
 
-export interface SohoTreeGridData {
-  children: any[];
-  depth?: number;
+/**
+ * Details of the 'expandrow' and 'collapserow' events.
+ */
+export interface SohoDataGridRowEvent {
+  // The data grid component originating the call.
+  grid: SohoDataGridComponent;
+
+  // The index of the row number that has been expanded/collapsed.
+  row: number;
+
+  // The owning header.
+  detail: any;
+
+  // The detail row thas has been expanded..
+  item: any;
+}
+
+/**
+ * Details of the 'sorted' event.
+ */
+export interface SohoDataGridSortedEvent {
+  // The column that was sorted.
+  column: SohoGridColumn;
 }
 
 export interface SohoGridCellOption {
@@ -256,7 +281,7 @@ export interface SohoDataGridAddRowEvent {
   oldValue: any;
 }
 
-export interface PageInfo {
+export interface SohoDataGridPageInfo {
   pagesize?: number;
   pageSize?: number;
   firstPage?: boolean;
