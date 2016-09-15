@@ -3,7 +3,13 @@
   <div class="twelve columns">
     <h2 class="fieldset-title">Soho Data Grid - Settings</h2>
 
-    <div class="three columns">
+    <div class="three columns top-padding">
+      <div class="field">
+        <button soho-button (click)="makeChange($event)">Make Change</button>
+      </div>
+    </div>
+
+    <div class="three columns top-padding">
       <div class="field">
         <select soho-dropdown noSearch id="selectable" [(ngModel)]="datagrid.selectable">
           <option value=''>No Selection</option>
@@ -49,40 +55,40 @@
       </div>
     </div>
 
-<!--
-        <div class="field">
-            <input type="checkbox" class="checkbox" id="editable" [(ngModel)]="datagrid.editable">
-            <label for="editable" class="checkbox-label">Editable</label>
-        </div>
+    <!--
+            <div class="field">
+                <input type="checkbox" class="checkbox" id="editable" [(ngModel)]="datagrid.editable">
+                <label for="editable" class="checkbox-label">Editable</label>
+            </div>
 
-        <div class="field">
-            <input type="checkbox" class="checkbox" id="isList" [(ngModel)]="datagrid.isList">
-            <label for="isList" class="checkbox-label">Is List</label>
-        </div>
+            <div class="field">
+                <input type="checkbox" class="checkbox" id="isList" [(ngModel)]="datagrid.isList">
+                <label for="isList" class="checkbox-label">Is List</label>
+            </div>
 
-        <div class="field">
-            <input type="checkbox" class="checkbox" id="clickToSelect" [(ngModel)]="datagrid.clickToSelect">
-            <label for="clickToSelect" class="checkbox-label">Click To Select</label>
-        </div>
+            <div class="field">
+                <input type="checkbox" class="checkbox" id="clickToSelect" [(ngModel)]="datagrid.clickToSelect">
+                <label for="clickToSelect" class="checkbox-label">Click To Select</label>
+            </div>
 
-        <div class="field">
-            <input type="checkbox" class="checkbox" id="paging" [(ngModel)]="datagrid.paging">
-            <label for="paging" class="checkbox-label">Paging</label>
-        </div>
+            <div class="field">
+                <input type="checkbox" class="checkbox" id="paging" [(ngModel)]="datagrid.paging">
+                <label for="paging" class="checkbox-label">Paging</label>
+            </div>
 
-        <div class="field">
-            <input type="checkbox" class="checkbox" id="actionMode" [(ngModel)]="datagrid.actionMode">
-            <label for="actionMode" class="checkbox-label">Action Mode</label>
-        </div>
--->
-    </div>
+            <div class="field">
+                <input type="checkbox" class="checkbox" id="actionMode" [(ngModel)]="datagrid.actionMode">
+                <label for="actionMode" class="checkbox-label">Action Mode</label>
+            </div>
+    -->
+  </div>
 </div>
 
 <br>
 <div class="row top-padding">
-    <div class="twelve columns demo" role="main">
-        <section soho-busyindicator class="scrollable contained-scrolling-right-bottom" style="height: 100%">
-            <div soho-datagrid selectable='' filterable="true"></div>
-        </section>
-    </div>
+  <div class="twelve columns demo" role="main">
+    <section soho-busyindicator class="scrollable contained-scrolling-right-bottom" style="height: 100%">
+      <div soho-datagrid selectable='' filterable="true"></div>
+    </section>
+  </div>
 </div>
