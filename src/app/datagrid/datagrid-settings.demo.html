@@ -3,7 +3,13 @@
   <div class="twelve columns">
     <h2 class="fieldset-title">Soho Data Grid - Settings</h2>
 
-    <div class="three columns">
+    <div class="three columns top-padding">
+      <div class="field">
+        <button soho-button (click)="makeChange($event)">Make Change</button>
+      </div>
+    </div>
+
+    <div class="three columns top-padding">
       <div class="field">
         <select soho-dropdown noSearch id="selectable" [(ngModel)]="datagrid.selectable">
           <option value=''>No Selection</option>
