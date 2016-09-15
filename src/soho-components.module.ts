@@ -15,7 +15,7 @@ import { SohoMaskModule } from './components/mask/mask.module';
 import { SohoMastheadModule } from './components/masthead/masthead.module';
 import { SohoMenuButtonModule } from './components/menu-button/menu-button.module';
 import { SohoSearchfieldModule } from './components/searchfield/searchfield.module';
-import { SohoSplitterModule, SohoSplitterComponent } from './components/splitter';
+import { SohoSplitterModule } from './components/splitter/splitter.module';
 import { SohoTreeModule } from './components/tree/tree.module';
 import { SohoPersonalizeModule } from './directives/soho-personalize.module';
 import { SohoToastModule } from './services/toast.module';
