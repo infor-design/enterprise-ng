@@ -105,8 +105,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
     * Defines which property in the data rows is to be used as the id of each
-    * row sets.
-    * of the data.
+    * row of the data.
     *
     * @param idProperty string id
     */
@@ -114,7 +113,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this._gridOptions.idProperty = idProperty;
     if (this.jQueryElement) {
       this.datagrid.settings.idProperty = idProperty;
-      this.markForRefresh('cellNavigation', RefreshHintFlags.Rebuild);
+      this.markForRefresh('idProperty', RefreshHintFlags.Rebuild);
     }
   }
 
