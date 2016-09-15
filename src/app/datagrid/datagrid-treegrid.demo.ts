@@ -9,7 +9,9 @@
 
 import {
   SohoDataGridComponent,
-  SohoGridColumn
+  SohoGridColumn,
+  SohoDataGridRowEvent,
+  SohoDataGridSelectedEvent
 } from '../../components/datagrid';
 
 import { SohoBusyIndicatorComponent } from '../../components/busyindicator';
@@ -23,10 +25,14 @@ export class DataGridTreeGridDemoComponent implements AfterContentInit, AfterVie
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
   @ViewChild(SohoBusyIndicatorComponent) busyIndicator: SohoBusyIndicatorComponent;
 
+  events: any[] = [];
+
   constructor(private el: ElementRef) {}
 
   public get columns(): SohoGridColumn[] {
     const columns: SohoGridColumn[] = [];
+    columns.push({id: 'selectionCheckbox', sortable: false, resizable: false, filterType: 'text', width: 50,
+      formatter: 'SelectionCheckbox', align: 'center' });
     columns.push({ id: 'taskName', name: 'Task', field: 'taskName',
       expanded: 'expanded', formatter: Formatters.Tree, filterType: 'text', width: 250 });
     columns.push({ id: 'id', name: 'Id', field: 'id', filterType: 'text', width: 25 });
@@ -87,7 +93,28 @@ export class DataGridTreeGridDemoComponent implements AfterContentInit, AfterVie
     this.dataGrid.clearFilter();
   }
 
-  onSelected(e: any) {
+  onSelected(e: SohoDataGridSelectedEvent) {
+    if (e.rows && e.rows.forEach) {
+      let descr = '';
+      e.rows.forEach((r) => {
+        if (r.data) {
+          descr += `${r.data.taskName}\n`;
+        }
+       });
+      this.events.push({name: 'Selected', descr: descr, date:  new Date()});
+    }
+  }
+
+  onExpandRow(e: SohoDataGridRowEvent) {
+    let descr = `${e.item.taskName}`;
+    let event = {event: 'expandrow', descr: descr, date:  new Date()};
+    console.log(event);
+    this.events.push({name: 'expandrow', descr: descr, date:  new Date()});
+  }
+
+  onCollapseRow(e: SohoDataGridRowEvent) {
+    let descr = `${e.item.taskName}`;
+    this.events.push({name: 'collapserow', descr: descr, date:  new Date()});
   }
 
   makeChange(e: any) {
