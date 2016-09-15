@@ -553,7 +553,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   // The source type for the grid.
   private datagridType: string;
 
-  // An internal gridOptions object that gets update by using
+  // An internal gridOptions object that gets updated by using
   // the component's Inputs()
   private _gridOptions = new SohoGridOptions();
 
@@ -654,7 +654,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   /**
-   * Unselects all selected rows
+   * Removes all selected rows
    */
   removeSelected() {
     this.datagrid.removeSelected();
