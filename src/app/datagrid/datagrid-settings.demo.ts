@@ -21,4 +21,13 @@ import {
 })
 export class DataGridSettingsDemoComponent {
   @ViewChild(SohoDataGridComponent) datagrid: SohoDataGridComponent;
+
+  /**
+   * Make several changes to the component in one go.
+   */
+  makeChange() {
+    this.datagrid.isList = !this.datagrid.isList;
+    this.datagrid.alternateRowShading = !this.datagrid.alternateRowShading;
+    this.datagrid.cellNavigation = !this.datagrid.cellNavigation;
+  }
 }
