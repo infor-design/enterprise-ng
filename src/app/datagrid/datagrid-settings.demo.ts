@@ -1,16 +1,16 @@
 import {
-    Component,
-    ViewChild,
-    ChangeDetectionStrategy
+  Component,
+  ViewChild,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import {
-    SohoDataGridComponent,
-    SohoDataGridService
+  SohoDataGridComponent,
+  SohoDataGridService
 } from '../../components/datagrid';
 
 import {
-    DataGridDemoService
+  DataGridDemoService
 } from './datagrid-demo.service';
 
 @Component({

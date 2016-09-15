@@ -1,5 +1,23 @@
 import { SohoDataGridComponent } from './datagrid.component';
 
+/**
+ * Enumeration of the Soho Datagrid FilterTypes.
+ * Note: integer, percent and lookup are not yet implemented the soho datagrid.js
+ * See http://stackoverflow.com/questions/15490560/create-an-enum-with-string-values-in-typescript
+ * for more details about creating an enum of strings.
+ */
+export enum SohoGridColumnFilterTypes {
+  Text     = <any> 'text',
+  Checkbox = <any> 'checkbox',
+  Contents = <any> 'contents',
+  Date     = <any> 'date',
+  Decimal  = <any> 'decimal',
+  Integer  = <any> 'integer',
+  Lookup   = <any> 'lookup',
+  Percent  = <any> 'percent',
+  Select   = <any> 'select'
+};
+
 export interface SohoGridColumn {
   // Identifier for the grid columns
   id: string;
@@ -19,7 +37,7 @@ export interface SohoGridColumn {
   icon?: string;
   editor?: any;
   // 'checkbox', 'date', 'decimal', 'contents', 'select' otherwise a string.
-  filterType?: any;
+  filterType?: SohoGridColumnFilterTypes | string;
   filterFormatter?: any;
   caseSensitive?: boolean;
   // String array or an array of objects with a value method used for filters and editors.

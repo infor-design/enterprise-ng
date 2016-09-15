@@ -47,39 +47,39 @@ export class DataGridTreeGridDemoComponent implements AfterContentInit, AfterVie
       {
         id: 1, escalated: 2, depth: 1, expanded: false, taskName: 'Follow up action with HMM Global',
         desc: '', comments: null, time: '', children: [
-          { id: 2, escalated: 1, depth: 2, taskName: 'Quotes due to expire',
+        { id: 2, escalated: 1, depth: 2, taskName: 'Quotes due to expire',
           desc: 'Update pending quotes and send out again to customers.', comments: 3, time: '7:10 AM' },
-          { id: 3, escalated: 0, depth: 2, taskName: 'Follow up action with Universal Shipping Logistics Customers',
+        { id: 3, escalated: 0, depth: 2, taskName: 'Follow up action with Universal Shipping Logistics Customers',
           desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '9:10 AM' },
-          { id: 4, escalated: 0, depth: 2, taskName: 'Follow up action with Acme Trucking',
+        { id: 4, escalated: 0, depth: 2, taskName: 'Follow up action with Acme Trucking',
           desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '14:10 PM' },
-        ]
+      ]
       },
       { id: 5, escalated: 0, depth: 1, taskName: 'Follow up action with Residental Housing',
-      desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '18:10 PM' },
+        desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '18:10 PM' },
       { id: 6, escalated: 0, depth: 1, taskName: 'Follow up action with HMM Global',
-      desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '20:10 PM' },
+        desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '20:10 PM' },
       { id: 7, escalated: 0, depth: 1, expanded: true, taskName: 'Follow up action with Residental Housing',
-      desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '22:10 PM', children: [
-          { id: 8, escalated: 0, depth: 2, taskName: 'Follow up action with Universal HMM Logistics',
+        desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '22:10 PM', children: [
+        { id: 8, escalated: 0, depth: 2, taskName: 'Follow up action with Universal HMM Logistics',
           desc: 'Contact sales representative.', comments: 2, time: '22:10 PM' },
-          { id: 9, escalated: 0, depth: 2, taskName: 'Follow up action with Acme Shipping',
+        { id: 9, escalated: 0, depth: 2, taskName: 'Follow up action with Acme Shipping',
           desc: 'Contact sales representative.', comments: 2, time: '22:10 PM' },
-          { id: 10, escalated: 0, depth: 2, expanded: true, taskName: 'Follow up action with Residental Shipping Logistics ',
+        { id: 10, escalated: 0, depth: 2, expanded: true, taskName: 'Follow up action with Residental Shipping Logistics ',
           desc: 'Contact sales representative.', comments: 2, time: '7:04 AM', children: [
-              { id: 11, escalated: 0, depth: 3, taskName: 'Follow up action with Universal Shipping Logistics Customers',
+          { id: 11, escalated: 0, depth: 3, taskName: 'Follow up action with Universal Shipping Logistics Customers',
+            desc: 'Contact sales representative.', comments: 2, time: '14:10 PM' },
+          { id: 12, escalated: 0, depth: 3, expanded: true, taskName: 'Follow up action with Acme Universal Logistics Customers',
+            desc: 'Contact sales representative.', comments: 2, time: '7:04 AM', children: [
+            { id: 13, escalated: 0, depth: 4, taskName: 'More Contact',
               desc: 'Contact sales representative.', comments: 2, time: '14:10 PM' },
-              { id: 12, escalated: 0, depth: 3, expanded: true, taskName: 'Follow up action with Acme Universal Logistics Customers',
-              desc: 'Contact sales representative.', comments: 2, time: '7:04 AM', children: [
-                  { id: 13, escalated: 0, depth: 4, taskName: 'More Contact',
-                  desc: 'Contact sales representative.', comments: 2, time: '14:10 PM' },
-                  { id: 14, escalated: 0, depth: 4, taskName: 'More Follow up',
-                  desc: 'Contact sales representative.', comments: 2, time: '7:04 AM' },
-                ]
-              },
-            ]
-          }
+            { id: 14, escalated: 0, depth: 4, taskName: 'More Follow up',
+              desc: 'Contact sales representative.', comments: 2, time: '7:04 AM' },
+          ]
+          },
         ]
+        }
+      ]
       }
     ];
     return tasks;
@@ -100,7 +100,7 @@ export class DataGridTreeGridDemoComponent implements AfterContentInit, AfterVie
         if (r.data) {
           descr += `${r.data.taskName}\n`;
         }
-       });
+      });
       this.events.push({name: 'Selected', descr: descr, date:  new Date()});
     }
   }

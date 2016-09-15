@@ -5,7 +5,8 @@ import { Observable } from 'rxjs/Rx';
 import {
   SohoDataGridService,
   SohoSourceRequest,
-  SohoGridColumn
+  SohoGridColumn,
+  SohoGridColumnFilterTypes
 } from '../../components/datagrid';
 
 declare var Formatters: any;
@@ -37,7 +38,7 @@ export class DataGridDemoService extends SohoDataGridService {
       id: 'selectionCheckbox',
       sortable: false,
       resizable: false,
-      filterType: 'text',
+      filterType: SohoGridColumnFilterTypes.Text, //'text',
       width: 50,
       formatter: 'SelectionCheckbox',
       align: 'center' });
@@ -48,7 +49,7 @@ export class DataGridDemoService extends SohoDataGridService {
     this.columns.push({ id: 'productId', hidden: true, name: 'Product Id', field: 'productId', formatter: Formatters.Readonly });
     this.columns.push({
       id: 'productDesc',
-      filterType: 'string',
+      filterType: SohoGridColumnFilterTypes.Text, //'string',
       name: 'Product Desc',
       sortable: false,
       field: 'productName',
@@ -58,20 +59,20 @@ export class DataGridDemoService extends SohoDataGridService {
     this.columns.push({
       id: 'activity',
       name: 'Activity',
-      filterType: 'string',
+      filterType: SohoGridColumnFilterTypes.Text, //'string',
       field: 'activity'
     });
     this.columns.push({
       id: 'quantity',
       name: 'Quantity',
-      filterType: 'integer',
+      filterType: SohoGridColumnFilterTypes.Text, //'integer',
       field: 'quantity'
     });
     this.columns.push({ id: 'activity', hidden: true, name: 'Password', field: 'activity', formatter: Formatters.Password, inputType: 'password' });
     this.columns.push({
       id: 'price1',
       name: 'Actual long Price',
-      filterType: 'decimal',
+      filterType: SohoGridColumnFilterTypes.Decimal,
       field: 'price',
       formatter: Formatters.Decimal });
     this.columns.push({ id: 'price2', hidden: true, name: 'Actual long Price', align: 'right', field: 'price', formatter: Formatters.Decimal });
@@ -80,7 +81,7 @@ export class DataGridDemoService extends SohoDataGridService {
       id: 'orderDate',
       width: 300,
       name: 'Order Date',
-      filterType: 'date',
+      filterType: SohoGridColumnFilterTypes.Date,
       field: 'orderDate',
       formatter: Formatters.Date,
       dateFormat: Locale.calendar().dateFormat.datetime // @todo
@@ -88,7 +89,7 @@ export class DataGridDemoService extends SohoDataGridService {
     this.columns.push({
       id: 'status',
       name: 'Status',
-      filterType: 'select',
+      filterType: SohoGridColumnFilterTypes.Select,
       options:  [{value: "ok", label: "OK"}],
       field: 'status',
       formatter: Formatters.Text

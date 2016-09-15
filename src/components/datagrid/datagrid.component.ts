@@ -104,11 +104,11 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-    * Defines which property in the data rows is to be used as the id of each
-    * row of the data.
-    *
-    * @param idProperty string id
-    */
+   * Defines which property in the data rows is to be used as the id of each
+   * row of the data.
+   *
+   * @param idProperty string id
+   */
   @Input() set idProperty(idProperty: string) {
     this._gridOptions.idProperty = idProperty;
     if (this.jQueryElement) {
