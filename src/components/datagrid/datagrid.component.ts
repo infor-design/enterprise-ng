@@ -43,11 +43,11 @@ export type SohoDataGridType = 'auto' | 'content-only';
 enum RefreshHintFlags {
   // No refresh required.
   None = 0,
-    // The rows needs to be re-rendered.
+  // The rows needs to be re-rendered.
   RenderRows = 1,
-    // The header needs to be re-renendered.
+  // The header needs to be re-renendered.
   RenderHeader = 2,
-    // A full rebuild is required.
+  // A full rebuild is required.
   Rebuild = 4
 }
 
