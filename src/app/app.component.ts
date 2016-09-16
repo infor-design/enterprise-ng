@@ -5,40 +5,18 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import {
-  ROUTER_DIRECTIVES
-} from '@angular/router';
-import {
-  SohoApplicationMenuComponent
-} from '../components/application-menu';
-import {
-  ArgumentHelper
-} from '../utils';
-import {
-  SohoPersonalizeDirective
-} from '../directives';
-import {
-  SohoMastheadDemoComponent
-} from './masthead/masthead.demo';
-import {
-  SohoApplicationMenuDemoComponent
-} from './application-menu/application-menu.demo';
+
+import { SohoApplicationMenuComponent } from '../components/application-menu';
+
+import { ArgumentHelper } from '../utils';
+
 import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.service';
-import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
 
 @Component({
   selector: 'body',
   templateUrl: 'app.component.html',
   styleUrls: [ 'app.component.css' ],
   providers: [ HeaderDynamicDemoRefService ],
-  directives: [
-    SohoMastheadDemoComponent,
-    SohoHeaderDynamicDemoComponent,
-    SohoApplicationMenuDemoComponent,
-    SohoApplicationMenuComponent,
-    SohoPersonalizeDirective,
-    ROUTER_DIRECTIVES,
-  ],
   // precompile: (<any[]>routes.map((route) => {
   //   return route.component;
   // })),

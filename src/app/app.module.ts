@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { APP_ROUTER_PROVIDERS } from './app.routes';
+import { AppRoutingModule } from './app.routes';
 
 import { SohoComponentsModule } from '../soho-components.module';
 
@@ -50,6 +50,12 @@ import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 
+import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
+import { SohoApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
+import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
+import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
+import { ModalComponent } from './modal/modal.demo';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +71,10 @@ import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
     LookupDemoComponent,
     MaskDemoComponent,
     MenuButtonDemoComponent,
+    SohoMastheadDemoComponent,
+    SohoApplicationMenuDemoComponent,
+    SohoHeaderDynamicDemoComponent,
+
     SplitterVerticalDemoComponent,
     SplitterHorizontalDemoComponent,
     TreeDynamicDemoComponent,
@@ -74,6 +84,7 @@ import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
     DataGridServiceDemoComponent,
     DataGridContentDemoComponent,
     DataGridBreadcrumbDemoComponent,
+    DataGridToolbarDemoComponent,
     DataGridTreeGridDemoComponent,
     DataGridSettingsDemoComponent,
     HeaderTabsDemoComponent,
@@ -88,7 +99,8 @@ import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
     TabsDynamicDemoComponent,
     ToolbarBasicDemoComponent,
     ToolbarDataDrivenDemoComponent,
-    ToolbarAllIconsDemoComponent
+    ToolbarAllIconsDemoComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -96,9 +108,9 @@ import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
     FormsModule,
     ReactiveFormsModule,
     SohoComponentsModule,
+    AppRoutingModule
   ],
   providers: [
-    APP_ROUTER_PROVIDERS,
     { provide: APP_BASE_HREF, useValue: '/' }
   ],
   entryComponents: [

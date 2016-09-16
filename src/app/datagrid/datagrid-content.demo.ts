@@ -1,9 +1,6 @@
 import {
   Component,
-  AfterContentInit,
-  ElementRef,
   ViewChild,
-  AfterViewInit,
   ChangeDetectionStrategy
 } from '@angular/core';
 
@@ -12,19 +9,12 @@ import { SohoDataGridComponent } from '../../components/datagrid';
 @Component({
   selector: 'soho-datagrid-content-demo',
   templateUrl: 'datagrid-content.demo.html',
-  providers: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DataGridContentDemoComponent implements AfterContentInit, AfterViewInit {
+export class DataGridContentDemoComponent {
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
 
-  constructor(private el: ElementRef) {
-  }
-
-  ngAfterContentInit() {
-  }
-
-  ngAfterViewInit() {
+  constructor() {
   }
 
   addRow() {

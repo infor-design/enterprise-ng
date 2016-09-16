@@ -11,11 +11,8 @@ import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 /* tslint:enable */
 
-import {
-  SohoTreeComponent,
-  SohoTreeNode,
-  SohoTreeEvent
-} from '../../components/tree';
+import { SohoTreeComponent } from '../../components/tree/tree.component';
+import { SohoTreeNode, SohoTreeEvent } from '../../components/tree/tree.model';
 
 @Component({
   selector: 'soho-tree-dynamic-demo',

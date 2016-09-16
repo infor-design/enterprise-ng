@@ -57,7 +57,7 @@ export interface SohoGridColumn {
   // Optional children.
   children?: any[];
 
-  // The name of the property that controls whether a row is exapanded or not.
+  // The name of the property that controls whether a row is expanded or not.
   expanded?: string;
 }
 
@@ -275,12 +275,12 @@ export interface SohoDataGridSelectedEvent {
 }
 
 export interface SohoDataGridCellChangeEvent {
-  row: any;
-  cell: any;
-  target: any;
-  value: any;
-  oldValue: any;
-  column: any;
+  row?: any;
+  cell?: any;
+  target?: any;
+  value?: any;
+  oldValue?: any;
+  column?: any;
 }
 
 export interface SohoDataGridRowRemoveEvent {

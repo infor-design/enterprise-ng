@@ -1,3 +1,3 @@
-export * from './tree.component';
-export * from './tree.model';
-export * from './tree.service';
+export { SohoTreeComponent } from './tree.component';
+export { SohoTreeNode, SohoTreeEvent, SohoTreeOptions } from './tree.model';
+export { SohoTreeService } from './tree.service';
