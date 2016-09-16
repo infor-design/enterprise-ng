@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { AppRouterModule } from './app.routes';
+import { AppRoutingModule } from './app.routes';
 
 import { SohoComponentsModule } from '../soho-components.module';
 
@@ -108,7 +108,7 @@ import { ModalComponent } from './modal/modal.demo';
     FormsModule,
     ReactiveFormsModule,
     SohoComponentsModule,
-    AppRouterModule
+    AppRoutingModule
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' }
