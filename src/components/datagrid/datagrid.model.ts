@@ -275,12 +275,12 @@ export interface SohoDataGridSelectedEvent {
 }
 
 export interface SohoDataGridCellChangeEvent {
-  row: any;
-  cell: any;
-  target: any;
-  value: any;
-  oldValue: any;
-  column: any;
+  row?: any;
+  cell?: any;
+  target?: any;
+  value?: any;
+  oldValue?: any;
+  column?: any;
 }
 
 export interface SohoDataGridRowRemoveEvent {

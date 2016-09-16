@@ -788,25 +788,24 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * Event fired after a child row has been expanded.
    *
-   *@todo arguments.
+   * @todo arguments.
    */
   private onExpandRow(args: any) {
     console.log(args);
-    let event = { grid: this, rowNumber: args.rowNumber, row: args.row, details: args.details, item: args.item };
+    let event = { grid: this, row: args.row, detail: args.detail, item: args.item };
     this.expandrow.next(event);
   }
 
   /**
    * Event fired after a child row has been collapsed.
    *
-   *@todo arguments.
+   * @todo arguments.
    */
   private onCollapseRow(args: any) {
     this.collapserow.next({
       grid: this,
-      rowNumber: args.rowNumber,
       row: args.row,
-      details: args.details,
+      detail: args.detail,
       item: args.item
     });
   }
@@ -894,7 +893,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
     // Initialise any event handlers.
     this.jQueryElement
-      .on('selected', (e: any, args: SohoDataGridSelectedRow[]) => this.selected.next({ rows: args }))
+      .on('selected', (e: any, args: SohoDataGridSelectedRow[]) => this.selected.next({ e, rows: args }))
       .on('cellchange', (e: any, args: SohoDataGridCellChangeEvent[]) => this.cellchange.next(args))
       .on('removerow', (e: any, args: SohoDataGridRowRemoveEvent) => { this.rowRemove.next(args); })
       .on('addrow', (e: any, args: SohoDataGridAddRowEvent) => { this.rowAdd.next(args); })

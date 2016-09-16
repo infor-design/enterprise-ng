@@ -1,4 +1,6 @@
-import { provideRouter, Routes } from '@angular/router';
+import { ModuleWithProviders }  from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
 import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
@@ -83,6 +85,4 @@ export const routes: Routes = [
   // { path: 'accordian',           component: AccordionSampleComponent},
 ];
 
-export const APP_ROUTER_PROVIDERS = [
-  provideRouter(routes)
-];
+export const AppRoutineModule: ModuleWithProviders = RouterModule.forRoot(routes);
