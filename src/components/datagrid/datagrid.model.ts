@@ -57,7 +57,7 @@ export interface SohoGridColumn {
   // Optional children.
   children?: any[];
 
-  // The name of the property that controls whether a row is exapanded or not.
+  // The name of the property that controls whether a row is expanded or not.
   expanded?: string;
 }
 

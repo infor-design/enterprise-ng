@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { AppRoutineModule } from './app.routes';
+import { AppRouterModule } from './app.routes';
 
 import { SohoComponentsModule } from '../soho-components.module';
 
@@ -54,6 +54,7 @@ import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
 import { SohoApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
 import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
 import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,8 @@ import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
     TabsDynamicDemoComponent,
     ToolbarBasicDemoComponent,
     ToolbarDataDrivenDemoComponent,
-    ToolbarAllIconsDemoComponent
+    ToolbarAllIconsDemoComponent,
+    ModalComponent
 
   ],
   imports: [
@@ -107,7 +109,7 @@ import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
     FormsModule,
     ReactiveFormsModule,
     SohoComponentsModule,
-    AppRoutineModule
+    AppRouterModule
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' }
