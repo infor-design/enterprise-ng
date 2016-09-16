@@ -27,6 +27,11 @@ export class AppComponent implements AfterViewInit {
 
   @HostBinding('class.no-scroll') get isNoScroll() { return true; }
 
+  constructor() {
+    // Set the locale here, to ensure all the values are setup.
+    Locale.set('en-US');
+  }
+
   ngAfterViewInit() {
     ArgumentHelper.checkInputNotNull('AppComponent', 'applicationMenu', this.applicationMenu);
 
