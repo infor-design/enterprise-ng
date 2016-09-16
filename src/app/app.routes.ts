@@ -85,4 +85,4 @@ export const routes: Routes = [
   // { path: 'accordian',           component: AccordionSampleComponent},
 ];
 
-export const AppRoutineModule: ModuleWithProviders = RouterModule.forRoot(routes);
+export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes);

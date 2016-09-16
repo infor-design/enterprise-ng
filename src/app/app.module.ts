@@ -54,7 +54,7 @@ import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
 import { SohoApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
 import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
 import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
-import { ModalComponent } from './modal/modal.component';
+import { ModalComponent } from './modal/modal.demo';
 
 @NgModule({
   declarations: [
@@ -101,7 +101,6 @@ import { ModalComponent } from './modal/modal.component';
     ToolbarDataDrivenDemoComponent,
     ToolbarAllIconsDemoComponent,
     ModalComponent
-
   ],
   imports: [
     BrowserModule,
