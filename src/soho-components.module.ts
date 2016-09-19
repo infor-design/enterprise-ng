@@ -3,6 +3,7 @@ import { SohoApplicationMenuModule } from './components/application-menu/applica
 import { SohoBusyIndicatorModule } from './components/busyindicator/busyindicator.module';
 import { SohoButtonModule } from './components/button/button.module';
 import { SohoDatagridModule } from './components/datagrid/datagrid.module';
+import { SohoDatepickerModule } from './components/datepicker/datepicker.module';
 import { SohoDropdownModule } from './components/dropdown/dropdown.module';
 import { SohoExpandableAreaModule } from './components/expandablearea/expandablearea.module';
 import { SohoHeaderModule } from './components/header/header.module';
@@ -26,6 +27,7 @@ import { SohoToastModule } from './services/toast.module';
     SohoBusyIndicatorModule,
     SohoButtonModule,
     SohoDatagridModule,
+    SohoDatepickerModule,
     SohoDropdownModule,
     SohoExpandableAreaModule,
     SohoHeaderModule,
@@ -50,6 +52,7 @@ import { SohoToastModule } from './services/toast.module';
     SohoBusyIndicatorModule,
     SohoButtonModule,
     SohoDatagridModule,
+    SohoDatepickerModule,
     SohoDropdownModule,
     SohoExpandableAreaModule,
     SohoHeaderModule,
