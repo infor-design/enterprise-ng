@@ -1,0 +1,24 @@
+
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Data Grid - Paging</h2>
+    <div class="field">
+      <input type="checkbox" class="checkbox" id="indeterminate" [(ngModel)]="sohoDataGridComponent.indeterminate">
+      <label for="indeterminate" class="checkbox-label">Use 'Indeterminate' Paging</label>
+    </div>
+    <div style="padding-left: 30px;">
+      <p>
+        <b>Indeterminate paging</b> is useful when the volume and filter capabilities make moving
+        directly to a <i>pageNum</i> impossible.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<br>
+<div class="row top-padding">
+  <div class="twelve columns demo" role="main">
+    <div soho-datagrid></div>
+  </div>
+</div>

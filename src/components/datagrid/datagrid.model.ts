@@ -231,7 +231,7 @@ export class SohoGridOptions {
   resultText: string;
 
   constructor(options?: SohoDatagridConfiguration) {
-    Object.assign(this, options);
+    Object.assign(this, options); // tslint
   }
 }
 
@@ -316,10 +316,10 @@ export interface SohoSourceRequest {
   type: string;
   total: number;
   filterExpr: {
-    column: 'all' | string;
-    lowercase: 'yes' | 'no';
-    operator: 'contains' | string;
-    value: string;
+    column?: 'all' | string;
+    lowercase?: 'yes' | 'no';
+    operator?: 'contains' | string;
+    value?: string;
   }[];
   preserveSelected?: boolean;
   sortAsc?: boolean;
