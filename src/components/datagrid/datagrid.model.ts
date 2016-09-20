@@ -231,7 +231,7 @@ export class SohoGridOptions {
   resultText: string;
 
   constructor(options?: SohoDatagridConfiguration) {
-    Object.assign(this, options); // tslint
+    Object.assign(this, options);
   }
 }
 
