@@ -2,6 +2,7 @@ export * from './application-menu';
 export * from './busyindicator';
 export * from './button';
 export * from './datagrid';
+export * from './datepicker';
 export * from './dropdown';
 export * from './expandablearea';
 export * from './header';

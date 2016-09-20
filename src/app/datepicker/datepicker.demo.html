@@ -1,0 +1,57 @@
+<div class="example-section">
+  <form>
+    <div class="row">
+      <h1>Datepicker</h1>
+      <span class="code-tag">Live Example</span>
+      <div class="row">
+        <div class="four columns">
+          <div class="field">
+            <label for="standard" class="label">Standard Date</label>
+            <input soho-datepicker name="standard" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" [(ngModel)]="model.standard" (change)="onChange($event)"/>
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="field">
+            <label for="standard2" class="label">Standard Date w/o Placeholder</label>
+            <input soho-datepicker name="standard2" dateFormat="MM/dd/yyyy" mode="standard" [(ngModel)]="model.standard" (change)="onChange($event)"/>
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="field">
+            <label for="datetime" class="label">Standard Date with Timepicker</label>
+            <input soho-datepicker timepicker=true name="datetime" dateFormat="MM/dd/yyyy" timeFormat="HH:mm:ss" showTime=true mode="standard" placeholder="MM/dd/yyyy HH:mm:ss" [(ngModel)]="model.datetime" (change)="onChange($event)"/>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="four columns">
+          <div class="field">
+            <label for="anniversary" class="label">Anniversary</label>
+            <input soho-datepicker name="anniversary" dateFormat="MMM yyyy" mode="standard" placeholder="MMM yyyy" [(ngModel)]="model.anniversary" (change)="onChange($event)"/>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="four columns">
+          <div class="field">
+            <label for="birthday" class="label">Birthday</label>
+            <input soho-datepicker name="birthday" dateFormat="MMMM dd" mode="standard" placeholder="MMMM dd" [(ngModel)]="model.birthday" (change)="onChange($event)"/>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="four columns">
+          <div class="field">
+            <label for="year" class="label">Year</label>
+            <input soho-datepicker name="year" dateFormat="yyyy" mode="standard" placeholder="yyyy" [(ngModel)]="model.year" (change)="onChange($event)"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+  <div *ngIf="showModel">
+    <hr>
+    <h3>{{ model | json }}</h3>
+  </div>
+</div>
