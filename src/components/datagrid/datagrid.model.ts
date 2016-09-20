@@ -316,10 +316,10 @@ export interface SohoSourceRequest {
   type: string;
   total: number;
   filterExpr: {
-    column: 'all' | string;
-    lowercase: 'yes' | 'no';
-    operator: 'contains' | string;
-    value: string;
+    column?: 'all' | string;
+    lowercase?: 'yes' | 'no';
+    operator?: 'contains' | string;
+    value?: string;
   }[];
   preserveSelected?: boolean;
   sortAsc?: boolean;

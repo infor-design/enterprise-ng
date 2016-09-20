@@ -37,6 +37,7 @@ import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
+import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
@@ -88,6 +89,7 @@ import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
     DataGridToolbarDemoComponent,
     DataGridTreeGridDemoComponent,
     DataGridSettingsDemoComponent,
+    DataGridPagingServiceDemoComponent,
     HeaderTabsDemoComponent,
     HeaderToolbarDemoComponent,
     HeaderToolbarAndTabsDemoComponent,
