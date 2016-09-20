@@ -16,6 +16,7 @@ import { SohoComponentsModule } from '../soho-components.module';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator.demo';
+import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
@@ -61,6 +62,7 @@ import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
     ExpandableAreaDemoComponent,
     ButtonDemoComponent,
     BusyIndicatorDemoComponent,
+    DatepickerDemoComponent,
     DropdownDemoComponent,
     DropdownMultiselectDemoComponent,
     DropdownLMDemoComponent,
