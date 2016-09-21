@@ -1,0 +1,37 @@
+<div class="example-section">
+  <form>
+    <div class="row"><span class="code-tag">Live Example</span></div>
+    <div class="row">
+      <div class="one-half column">
+        <div class="field">
+          <label for="resizable" class="label">Resizable</label>
+          <textarea soho-textarea name="resizable" [resizable]="true" [(ngModel)]="model.resizable"></textarea>
+        </div>
+        <div class="field">
+          <label for="counter" class="label">Counter</label>
+          <textarea soho-textarea maxlength=90 name="counter" [(ngModel)]="model.counter"></textarea>
+        </div>
+        <div class="field is-disabled">
+          <label for="disable" class="label">Disable</label>
+          <textarea soho-textarea disabled name="disable" [(ngModel)]="model.disable"></textarea>
+        </div>
+      </div>
+      <div class="one-half column">
+        <div class="field">
+          <label for="readonly" class="label">Read Only</label>
+          <textarea soho-textarea name="readonly" readonly [(ngModel)]="model.readonly"></textarea>
+        </div>
+        <div class="field">
+          <label for="modifiable" class="label">Modifiable</label>
+          <textarea soho-textarea name="modifiable" [(ngModel)]="model.modifiable"></textarea>
+        </div>
+      </div>
+    </div>
+  </form>
+  <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+  <div *ngIf="showModel">
+    <hr>
+    <pre>{{ model | json }}</pre>
+  </div>
+</div>
+

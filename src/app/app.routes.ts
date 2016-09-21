@@ -30,6 +30,8 @@ import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
 
+import { TextareaDemoComponent } from './textarea/textarea.demo';
+
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
@@ -83,6 +85,7 @@ export const routes: Routes = [
   { path: 'tabs-dropdown',       component: TabsDropdownDemoComponent },
   { path: 'tabs-datadriven',     component: TabsDataDrivenDemoComponent },
   { path: 'tabs-dynamic',        component: TabsDynamicDemoComponent },
+  { path: 'textarea',            component: TextareaDemoComponent },
   { path: 'toolbar-basic',       component: ToolbarBasicDemoComponent },
   { path: 'toolbar-datadriven',  component: ToolbarDataDrivenDemoComponent },
   { path: 'toolbar-all-icons',   component: ToolbarAllIconsDemoComponent },

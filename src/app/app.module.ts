@@ -48,6 +48,7 @@ import { TabsDismissibleDemoComponent } from './tabs/tabs-dismissible.demo';
 import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
+import { TextareaDemoComponent } from './textarea/textarea.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
@@ -100,6 +101,7 @@ import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
     TabsDropdownDemoComponent,
     TabsDataDrivenDemoComponent,
     TabsDynamicDemoComponent,
+    TextareaDemoComponent,
     ToolbarBasicDemoComponent,
     ToolbarDataDrivenDemoComponent,
     ToolbarAllIconsDemoComponent

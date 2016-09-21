@@ -33,7 +33,7 @@
     "@types/jasmine": "2.2.30",
     "@types/jquery": "^1.10.29",
     "@types/protractor": "1.5.16",
-    "angular-cli": "1.0.0-beta.15",
+    "angular-cli": "1.0.0-beta.14",
     "codelyzer": "~0.0.26",
     "jasmine-core": "2.4.1",
     "jasmine-spec-reporter": "2.5.0",
