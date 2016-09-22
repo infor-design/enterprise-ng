@@ -1,0 +1,35 @@
+<div class="example-section">
+  <form>
+    <div class="row">
+      <h1>Timepicker</h1>
+      <span class="code-tag">Live Example</span>
+      <div class="row">
+        <div class="four columns">
+          <div class="field">
+            <label for="standard12" class="label">Standard Time (h:mm a)</label>
+            <input soho-timepicker name="standard12" timeFormat="h:mm a" mode="standard" [(ngModel)]="model.hhmm" (change)="onChange($event)"/>
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="field">
+            <label for="standard24" class="label">Standard Time (24 hr)</label>
+            <input soho-timepicker name="standard24" timeFormat="HH:mm" mode="standard" [(ngModel)]="model.HHmm24" (change)="onChange($event)"/>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="four columns">
+          <div class="field">
+            <label for="standard12b" class="label">Standard Time (h:mm a) ReadOnly</label>
+            <input soho-timepicker name="standard12b" readonly timeFormat="h:mm a" mode="standard" [(ngModel)]="model.hhmm" (change)="onChange($event)"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+  <div *ngIf="showModel">
+    <hr>
+    <h3>{{ model | json }}</h3>
+  </div>
+</div>

@@ -46,6 +46,28 @@ interface SohoSplitterOptions {
   containment: any;
 }
 
+// timepicker
+type SohoTimeMode = 'standard' | 'range';
+interface SohoTimepickerOptions {
+  mode: SohoTimeMode;
+  timeFormat: string;
+  minuteInterval: number;
+  roundToInterval: boolean;
+}
+interface SohoTimepickerEvent {
+  currentTarget: HTMLElement;
+  data: any;
+  delegateTarget: HTMLElement;
+  handleObj: Object;
+  isTrigger: number;
+  namespace: string;
+  result: any;
+  rnamespace: any;
+  target: HTMLElement;
+  timeStamp: number;
+  type: string;
+}
+
 interface SohoToolbarEvent {
   currentTarget: HTMLElement;
   item: any;
@@ -133,6 +155,7 @@ interface JQuery {
   initialize(locale: string): JQuery;
   personalize(): JQuery;
   splitter(): JQuery;
+  timepicker(options?: SohoTimepickerOptions): JQuery;
 }
 
 interface LocaleStatic {
