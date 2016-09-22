@@ -32,15 +32,6 @@ export class SohoTimepickerComponent implements AfterViewInit, OnDestroy {
    * default value is false;
    */
   @Input() roundToInterval: boolean = false;
-  /**
-   *
-   */
-  @Input() set readonly(isReadonly: boolean) {
-    if (this.jQueryElement) {
-      // this.timepicker.readOnly();
-      this.jQueryElement.attr('readonly', isReadonly);
-    }
-  }
 
   /**
    * Called when the datepicker value changes
