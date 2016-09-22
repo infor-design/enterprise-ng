@@ -80,6 +80,13 @@ interface SohoMenuButtonOptions {
   trigger?: string;
 }
 
+interface SohoTextareaOptions {
+  characterCounter?: boolean;
+  printable?: boolean;
+  charRemainingText: string;
+  charMaxText: string;
+}
+
 /**
  * List of valid formatters.
  */
@@ -130,6 +137,7 @@ interface JQuery {
   toast(options?: SohoToastOptions): JQuery;
   busyindicator(options?: SohoBusyIndicatorOptions): JQuery;
   tabs(): JQuery;
+  textarea(options?: SohoTextareaOptions): JQuery;
   initialize(locale: string): JQuery;
   personalize(): JQuery;
   splitter(): JQuery;

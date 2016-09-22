@@ -15,42 +15,26 @@ import {
 })
 export class SohoTextareaComponent implements AfterViewInit, OnDestroy {
 
-  /**
-   * Turns on the character counter for the select element
-   */
-  @Input() characterCounter: boolean = true;
+  // -------------------------------------------
+  // Options Block
+  // -------------------------------------------
 
-  /**
-   * Sets the select element as printable
-   */
-  @Input() printable: boolean = true;
-
-  /**
-   * Sets the select element remianing character text
-   */
-  @Input() charRemainingText: string = null;
-
-  /**
-   * Sets the select element maximum character text
-   */
-  @Input() charMaxText: string = null;
-
-  /**
- * Name for the textarea control. Necessary for ngModel to function
- */
-  @Input() name: string = `soho-textarea`;
+  private options: SohoTextareaOptions = {
+    characterCounter : true, //Turns on the character counter for the select element
+    printable : true, //Sets the select element as printable
+    charRemainingText : null, //Sets the select element remaining character text
+    charMaxText : null //Sets the select element maximum character text
+  };
 
   /**
    * Sets the select element as disable
    */
-  @HostBinding('attr.disable')
   @Input() disable: boolean = null;
 
   /**
    * Sets the select element as readonly
    */
-  @HostBinding('attr.readonly')
-  @Input() readonly: boolean = null;
+  @Input() readonly: boolean =  null;
 
   /**
    * Sets the select element as resizable
@@ -64,69 +48,94 @@ export class SohoTextareaComponent implements AfterViewInit, OnDestroy {
   @HostBinding('attr.maxlength')
   @Input() maxlength: number;
 
+  // -------------------------------------------
+  // Component Output
+  // -------------------------------------------
   /**
    * Called when the textarea value changes
    */
-  @Output() change: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() onChange = new EventEmitter<TextareaEvent>();
+
   /**
    * Called when the textarea updates in some way
    */
-  @Output() updated: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() onUpdated = new EventEmitter<TextareaEvent>();
 
-  /**
-   * Bind attributes to the host select element
-   */
-  /**
-   * Assign the id for the control
-   * (maps to the name to use on a label's 'for' attribute)
-   */
-  @HostBinding('id') get id() {
-    return this.name;
+  // Enable or disable textarea control
+  @Input() set setDisable(value: boolean) {
+    if (this.textarea) {
+      if (value) {
+        this.textarea.disable();
+        this.disable = true;
+      } else {
+        this.textarea.enable();
+        this.disable = false;
+        this.readonly = false;
+      }
+    }
   }
-  @HostBinding('class.resizable') get isResizable() {
+
+  // Set textarea control to be readonly
+  @Input() set setReadonly(value: boolean) {
+    if (this.textarea) {
+      if (value) {
+        this.textarea.readonly();
+        this.readonly = true;
+      }
+    }
+  }
+
+  get isResizable() {
     return this.resizable;
   }
-  @HostBinding('attr.disable') get isDisable() {
+  get getDisable() {
     return this.disable;
   }
-  @HostBinding('attr.readonly') get isReadOnly() {
+  get getReadonly() {
     return this.readonly;
   }
-  @HostBinding('attr.maxlength') get getMaxlength() {
+  get getMaxlength() {
     return this.maxlength;
   }
 
-  /**
-   * Local variables
-   */
-  private jQueryElement: any;
+  // -------------------------------------------
+  // Private Member Data
+  // -------------------------------------------
+
+  // Reference to the jQuery control.
+  private jQueryElement: JQuery;
+
+  // Reference to the SoHoXi control api.
   private textarea: any;
 
   constructor(private element: ElementRef) {
 
   }
+
   ngAfterViewInit() {
+    // Wrap the element in a jQuery selector.
     this.jQueryElement = jQuery(this.element.nativeElement);
 
-    this.jQueryElement.textarea({
-      characterCounter: this.characterCounter,
-      printable: this.printable,
-      charRemainingText: this.charRemainingText,
-      charMaxText: this.charMaxText,
-    });
+    // Initialise the SohoXi Control
+    this.jQueryElement.textarea(this.options);
 
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (event: any) => this.onChange(event));
-    this.jQueryElement.on('updated', (event: any) => this.updated.emit(event));
+    this.jQueryElement.on('change', (e: any, args: TextareaEvent) => this.onChange.next(args));
+    this.jQueryElement.on('updated', (e: any, args: TextareaEvent) => this.onUpdated.next(args));
 
     this.textarea = this.jQueryElement.data('textarea');
   }
   ngOnDestroy() {
-    this.textarea.destroy();
+    if (this.textarea) {
+      this.textarea.destroy();
+      this.textarea = null;
+    }
   }
-  onChange(event: any) {
-    this.change.emit(event);
-  }
+}
+/**
+ * Soho Textarea Event
+ */
+export interface TextareaEvent {
 }
