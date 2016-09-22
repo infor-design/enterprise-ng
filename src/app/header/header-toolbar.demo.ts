@@ -13,7 +13,6 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
 })
 export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
 
-  private toolbarOptions: HeaderDynamicToolbarOptions;
   private lastToolbarEvent: any;
   private buttonClickedSubscription: Subscription;
 
@@ -28,7 +27,7 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
   }
 
   onToggleHeaderToolbar(event: any) {
-    this.isShowingHeaderToolbar ?
+    this.sohoHeaderRef.instance.hasHeaderToolbar ?
       this.removeHeaderToolbar() :
       this.showHeaderToolbar();
   }
@@ -37,18 +36,14 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
     this.lastToolbarEvent = event;
   }
 
-  get isShowingHeaderToolbar(): boolean {
-    return !!this.sohoHeaderRef.instance.toolbarOptions;
-  }
-
   /**
    * Show the header toolbar.
    * Set Input using toolbarOptions to have the header toolbar display.
    */
   private showHeaderToolbar() {
-    if (!this.isShowingHeaderToolbar) {
+    if (!this.sohoHeaderRef.instance.hasHeaderToolbar) {
       this.sohoHeaderRef.instance.sectionTitle = 'Header Toolbar Demo';
-      this.sohoHeaderRef.instance.toolbarOptions = this.buildToolbarOptions();
+      this.sohoHeaderRef.instance.toolbarOptions = this.toolbarOptions;
       this.buttonClickedSubscription = this.sohoHeaderRef.instance.sohoToolbarComponent.buttonClicked.subscribe(event =>
         this.onToolbarButtonClicked(event));
     }
@@ -58,30 +53,26 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
    * put the default header toolbar back.
    */
   private removeHeaderToolbar() {
-    if (this.isShowingHeaderToolbar) {
+    if (this.sohoHeaderRef.instance.hasHeaderToolbar) {
       this.sohoHeaderRef.instance.sectionTitle = null;
       this.sohoHeaderRef.instance.toolbarOptions = undefined;
       this.buttonClickedSubscription.unsubscribe();
     }
   }
 
-  private buildToolbarOptions(): HeaderDynamicToolbarOptions {
-    this.toolbarOptions = <HeaderDynamicToolbarOptions> {
-      toolbarButtons: [
-        { id: 'Create', text: 'Create', icon: 'add', data: '{\'btn\': \'create\'}' },
-        { id: 'charts-btn', icon: 'pie-chart', data: '{\'btn\': \'charts\'}', menu:
-          [
-            { id: 'pie', text: 'Pie Chart', data: '{\'menu\': \'pie\'}' },
-            { id: 'line', text: 'Line Chart', data: '{\'menu\': \'line\'}' },
-            { id: 'bubble', text: 'Bubble Chart', data: '{\'menu\': \'bubble\'}' }
-          ]
-        },
-        { id: 'update-btn', text: 'Open', icon: 'folder', data: '{\'btn\': \'update\'}' },
-        { id: 'delete-btn', text: 'Delete', icon: 'delete', data: '{\'btn\': \'delete\'}' },
-        { id: 'refresh-btn', text: 'Refresh', icon: 'refresh', data: '{\'btn\': \'refresh\'}' }
-      ]
-    };
-
-    return this.toolbarOptions;
-  }
+  private toolbarOptions: HeaderDynamicToolbarOptions = {
+    toolbarButtons: [
+      { id: 'Create', text: 'Create', icon: 'add', data: '{\'btn\': \'create\'}' },
+      { id: 'charts-btn', icon: 'pie-chart', data: '{\'btn\': \'charts\'}', menu:
+        [
+          { id: 'pie', text: 'Pie Chart', data: '{\'menu\': \'pie\'}' },
+          { id: 'line', text: 'Line Chart', data: '{\'menu\': \'line\'}' },
+          { id: 'bubble', text: 'Bubble Chart', data: '{\'menu\': \'bubble\'}' }
+        ]
+      },
+      { id: 'update-btn', text: 'Open', icon: 'folder', data: '{\'btn\': \'update\'}' },
+      { id: 'delete-btn', text: 'Delete', icon: 'delete', data: '{\'btn\': \'delete\'}' },
+      { id: 'refresh-btn', text: 'Refresh', icon: 'refresh', data: '{\'btn\': \'refresh\'}' }
+    ]
+  };
 }
