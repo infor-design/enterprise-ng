@@ -19,6 +19,7 @@ import { SohoSearchfieldModule } from './components/searchfield/searchfield.modu
 import { SohoSplitterModule } from './components/splitter/splitter.module';
 import { SohoTreeModule } from './components/tree/tree.module';
 import { SohoPersonalizeModule } from './directives/soho-personalize.module';
+import { SohoTimepickerModule } from './components/timepicker/soho-timepicker.module';
 import { SohoToastModule } from './services/toast.module';
 
 @NgModule({
@@ -41,6 +42,7 @@ import { SohoToastModule } from './services/toast.module';
     SohoSearchfieldModule,
     SohoSplitterModule,
     SohoTabsModule,
+    SohoTimepickerModule,
     SohoToastModule,
     SohoToolbarModule,
     SohoTreeModule
@@ -66,6 +68,7 @@ import { SohoToastModule } from './services/toast.module';
     SohoSearchfieldModule,
     SohoSplitterModule,
     SohoTabsModule,
+    SohoTimepickerModule,
     SohoToastModule,
     SohoToolbarModule,
     SohoTreeModule
