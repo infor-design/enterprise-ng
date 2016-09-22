@@ -46,6 +46,8 @@ import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
 
+import { ValidationFormDemoComponent } from './validation/validation-form.demo';
+
 export const routes: Routes = [
   { path: '',                    component: ExpandableAreaDemoComponent }, // default
   { path: 'button',              component: ButtonDemoComponent },
@@ -86,6 +88,7 @@ export const routes: Routes = [
   { path: 'toolbar-basic',       component: ToolbarBasicDemoComponent },
   { path: 'toolbar-datadriven',  component: ToolbarDataDrivenDemoComponent },
   { path: 'toolbar-all-icons',   component: ToolbarAllIconsDemoComponent },
+  { path: 'validation',          component: ValidationFormDemoComponent},
   // { path: 'accordian',           component: AccordionSampleComponent},
 ];
 

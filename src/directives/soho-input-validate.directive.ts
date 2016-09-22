@@ -11,7 +11,7 @@ import {
  * 'data-validate' or 'data-validate-on="submmit"'.
  */
 @Directive({
-  selector: '[data-validate], [data-validate-on="submit"]',
+  selector: 'input[data-validate], input[data-validate-on="submit"]',
 })
 export class SohoInputValidateDirective implements AfterViewInit {
   constructor(private el: ElementRef) {

@@ -51,6 +51,7 @@ import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
+import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 
 import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
 import { SohoApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
@@ -102,7 +103,8 @@ import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
     TabsDynamicDemoComponent,
     ToolbarBasicDemoComponent,
     ToolbarDataDrivenDemoComponent,
-    ToolbarAllIconsDemoComponent
+    ToolbarAllIconsDemoComponent,
+    ValidationFormDemoComponent
   ],
   imports: [
     BrowserModule,
