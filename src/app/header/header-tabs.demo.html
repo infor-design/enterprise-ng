@@ -1,6 +1,6 @@
 <div class="full-width">
 
-  <button soho-button (click)="onToggleHeaderTabs($event)">{{isShowingHeaderTabs ? 'Remove Header Tabs' : 'Show Header Tabss'}}</button>
+  <button soho-button (click)="onToggleHeaderTabs($event)">{{isShowingHeaderTabs ? 'Remove Header Tabs' : 'Show Header Tabs'}}</button>
 
   <template [ngIf]="currentTabsOptions">
     <div soho-tab-panel *ngFor="let tab of currentTabsOptions.tabs" [tabId]="tab.id"><p>{{tab.content}}</p></div>

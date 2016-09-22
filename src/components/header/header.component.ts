@@ -4,6 +4,7 @@ import {
   ElementRef,
   EventEmitter,
   HostBinding,
+  Input,
   Output,
   ViewChild
 } from '@angular/core';
@@ -15,16 +16,8 @@ import {
 export class SohoHeaderComponent implements AfterViewInit {
   @HostBinding('class.header') get isHeader() { return true; }
   @HostBinding('class.is-personalizable') get isPersonalizable() { return true; };
-
-  @HostBinding('class.has-toolbar') get hasHeaderToolbar() { return !!this.sohoToolbarComponent; };
-  // @HostBinding('class.has-tabs') get hasHeaderTabs() { return this.showHeaderTabs; };
-
-  /**
-   * use a template variable to find the toolbar element.
-   * that way the component user can ptu whatever markup in the
-   * header toolbar they want.
-   */
-  @ViewChild('sohoHeaderToolbar') sohoToolbarComponent: any;
+  @HostBinding('class.has-toolbar') @Input() hasToolbar;
+  @HostBinding('class.has-tabs') @Input() hasTabs;
 
   /**
    * This event is fired when the status of the header is changed.

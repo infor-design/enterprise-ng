@@ -16,25 +16,10 @@ import { SohoTabsComponent } from '../../components/tabs/tabs.component';
 export class SohoHeaderDynamicDemoComponent {
   @HostBinding('class.header') get isHeader() { return true; };
   @HostBinding('class.is-personalizable') get isPersonalizable() { return true; };
-  @HostBinding('class.has-toolbar') get hasHeaderToolbar() { return true; };
-  @HostBinding('class.has-tabs') get hasHeaderTabs() { return !!this.currentTabsOptions; };
+  @HostBinding('class.has-toolbar') get hasHeaderToolbar() { return !!this.toolbarOptions; };
+  @HostBinding('class.has-tabs') get hasHeaderTabs() { return !!this.tabOptions; };
 
-  /**
-   * Had to use a template variable to get the selector to work.
-   *
-   * TODO ppatton These other ViewChild query selectors are failing for me
-   *   By Type: @ViewChild(SohoToolbarComponent)   -
-   *   By element: @ViewChild('soho-toolbar')
-   * Neither of these are working. investigate.
-   */
   @ViewChild(SohoToolbarComponent) sohoToolbarComponent: SohoToolbarComponent;
-
-  /**
-   * Had to use a template variable to get the selector to work.
-   * TODO ppatton Neither of these are working. investigate.
-   *   By Type: @ViewChild(SohoToolbarComponent)   -
-   *   By element: @ViewChild('soho-toolbar')
-   */
   @ViewChild(SohoTabsComponent) sohoTabsComponent: SohoTabsComponent;
 
   /**
