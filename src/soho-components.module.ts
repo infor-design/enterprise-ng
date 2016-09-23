@@ -11,6 +11,7 @@ import { SohoIconModule } from './components/icon/icon.module';
 import { SohoListviewModule } from './components/listview/listview.module';
 import { SohoLookupModule } from './components/lookup/lookup.module';
 import { SohoTabsModule } from './components/tabs/tabs.module';
+import { SohoTextareaModule } from './components/textarea/textarea.module';
 import { SohoToolbarModule } from './components/toolbar/toolbar.module';
 import { SohoMaskModule } from './components/mask/mask.module';
 import { SohoMastheadModule } from './components/masthead/masthead.module';
@@ -42,6 +43,7 @@ import { SohoToastModule } from './services/toast.module';
     SohoSearchfieldModule,
     SohoSplitterModule,
     SohoTabsModule,
+    SohoTextareaModule,
     SohoTimepickerModule,
     SohoToastModule,
     SohoToolbarModule,
@@ -68,6 +70,7 @@ import { SohoToastModule } from './services/toast.module';
     SohoSearchfieldModule,
     SohoSplitterModule,
     SohoTabsModule,
+    SohoTextareaModule,
     SohoTimepickerModule,
     SohoToastModule,
     SohoToolbarModule,
