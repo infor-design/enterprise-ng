@@ -21,8 +21,8 @@ export class TextareaDemoComponent implements OnInit {
     modifiableText: 'This text is modifiable',
   };
   private showModel = false;
-  private disable = false;
-  private readonly = false;
+  private textAreaDisabled = false;
+  private textAreaReadOnly = false;
 
   constructor() { }
   ngOnInit() { }
@@ -32,18 +32,18 @@ export class TextareaDemoComponent implements OnInit {
   }
 
   setEnable() {
-    this.textarea.setDisable = false;
-    this.disable = this.textarea.getDisable;
-    this.readonly = this.textarea.getReadonly;
+    this.textarea.disabled = false;
+    this.textAreaDisabled = this.textarea.disabled;
+    this.textAreaReadOnly = this.textarea.readonly;
   }
 
   setDisable() {
-    this.textarea.setDisable = true;
-    this.disable = this.textarea.getDisable;
+    this.textarea.disabled = true;
+    this.textAreaDisabled = this.textarea.disabled;
   }
 
   setReadonly() {
-    this.textarea.setReadonly = true;
-    this.readonly = this.textarea.getReadonly;
+    this.textarea.readonly = true;
+    this.textAreaReadOnly = this.textarea.readonly;
   }
 }

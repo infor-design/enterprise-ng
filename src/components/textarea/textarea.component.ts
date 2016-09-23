@@ -20,33 +20,92 @@ export class SohoTextareaComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   private options: SohoTextareaOptions = {
-    characterCounter : true, //Turns on the character counter for the select element
-    printable : true, //Sets the select element as printable
-    charRemainingText : null, //Sets the select element remaining character text
-    charMaxText : null //Sets the select element maximum character text
+    characterCounter : undefined, //Turns on the character counter for the select element
+    printable : undefined, //Sets the select element as printable
+    charRemainingText : undefined, //Sets the select element remaining character text
+    charMaxText : undefined //Sets the select element maximum character text
   };
 
   /**
-   * Sets the select element as disable
+   * Local variables
    */
-  @Input() disable: boolean = null;
+  private isDisabled: boolean = null;
+  private isReadOnly: boolean =  null;
+
+  // -------------------------------------------
+  // Component Input
+  // -------------------------------------------
+  /**
+   * @param disabled
+   */
+  @Input() set disabled(value: boolean) {
+    if (this.textarea) {
+      if (value) {
+        this.textarea.disable();
+        this.isDisabled = true;
+      } else {
+        this.textarea.enable();
+        this.isDisabled = false;
+        this.isReadOnly = false;
+      }
+    }
+  }
 
   /**
-   * Sets the select element as readonly
+   * @param readonly
    */
-  @Input() readonly: boolean =  null;
+  @Input() set readonly(value: boolean) {
+    if (this.textarea) {
+      if (value) {
+        this.textarea.readonly();
+        this.isReadOnly = true;
+      } else {
+        this.textarea.enable();
+        this.isDisabled = false;
+        this.isReadOnly = false;
+      }
+    }
+  }
 
   /**
-   * Sets the select element as resizable
+   * @param resizable
    */
   @HostBinding('class.resizable')
   @Input() resizable: boolean = null;
 
   /**
-   * Sets the element maximum length
+   * @param maxlength
    */
   @HostBinding('attr.maxlength')
   @Input() maxlength: number;
+
+  /**
+   * @param characterCounter
+   */
+  @Input() set characterCounter(characterCounter: boolean) {
+    this.options.characterCounter = characterCounter;
+  }
+
+  /**
+   * @param printable
+   */
+  @Input() set printable(printable: boolean) {
+    this.options.printable = printable;
+  }
+
+  /**
+   * @param charRemainingText
+   */
+  @Input() set charRemainingText(charRemainingText: string) {
+    this.options.charRemainingText = charRemainingText;
+  }
+
+  /**
+   * @param charMaxText
+   */
+  @Input() set charMaxText(charMaxText: string) {
+    this.options.charMaxText = charMaxText;
+  }
 
   // -------------------------------------------
   // Component Output
@@ -61,41 +120,15 @@ export class SohoTextareaComponent implements AfterViewInit, OnDestroy {
    */
   @Output() onUpdated = new EventEmitter<TextareaEvent>();
 
-  // Enable or disable textarea control
-  @Input() set setDisable(value: boolean) {
-    if (this.textarea) {
-      if (value) {
-        this.textarea.disable();
-        this.disable = true;
-      } else {
-        this.textarea.enable();
-        this.disable = false;
-        this.readonly = false;
-      }
-    }
-  }
+  // -------------------------------------------
+  // Public API
+  // -------------------------------------------
 
-  // Set textarea control to be readonly
-  @Input() set setReadonly(value: boolean) {
-    if (this.textarea) {
-      if (value) {
-        this.textarea.readonly();
-        this.readonly = true;
-      }
-    }
+  get disabled() {
+    return this.isDisabled;
   }
-
-  get isResizable() {
-    return this.resizable;
-  }
-  get getDisable() {
-    return this.disable;
-  }
-  get getReadonly() {
-    return this.readonly;
-  }
-  get getMaxlength() {
-    return this.maxlength;
+  get readonly() {
+    return this.isReadOnly;
   }
 
   // -------------------------------------------

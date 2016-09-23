@@ -6,9 +6,9 @@
         <div class="field">
           <label for="modifiable" class="label">Modifiable</label>
           <textarea soho-textarea name="modifiable" [(ngModel)]="model.modifiableText"></textarea>
-          <button soho-button [disabled]="readonly" (click)="setReadonly()">Read Only</button>
-          <button soho-button [disabled]="disable" (click)="setDisable()">Disable</button>
-          <button soho-button [disabled]="!disable && !readonly" (click)="setEnable()">Enable</button>
+          <button soho-button [disabled]="textAreaReadOnly" (click)="setReadonly()">Read Only</button>
+          <button soho-button [disabled]="textAreaDisabled" (click)="setDisable()">Disable</button>
+          <button soho-button [disabled]="!textAreaDisabled && !textAreaReadOnly" (click)="setEnable()">Enable</button>
         </div>
         <br>
         <div class="field">
