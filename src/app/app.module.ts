@@ -54,9 +54,12 @@ import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.dem
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 
 import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
-import { SohoApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
+import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
 import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
 import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
+import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
+import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/application-menu-lazy-menu.demo';
+import { ApplicationMenuLazyService } from './application-menu/application-menu-lazy-service.demo';
 
 @NgModule({
   declarations: [
@@ -75,7 +78,9 @@ import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
     MaskDemoComponent,
     MenuButtonDemoComponent,
     SohoMastheadDemoComponent,
-    SohoApplicationMenuDemoComponent,
+    ApplicationMenuDemoComponent,
+    ApplicationMenuLazyDemoComponent,
+    ApplicationMenuLazyMenuDemoComponent,
     SohoHeaderDynamicDemoComponent,
 
     SplitterVerticalDemoComponent,
@@ -115,7 +120,8 @@ import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
     AppRoutingModule
   ],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '/' }
+    { provide: APP_BASE_HREF, useValue: '/' },
+    ApplicationMenuLazyService
   ],
   entryComponents: [
   ],
