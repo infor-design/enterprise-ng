@@ -28,6 +28,7 @@ import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
+import { TimepickerDemoComponent } from './timepicker/timepicker.demo';
 import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
@@ -80,6 +81,7 @@ import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
 
     SplitterVerticalDemoComponent,
     SplitterHorizontalDemoComponent,
+    TimepickerDemoComponent,
     TreeDynamicDemoComponent,
     TreeServiceDemoComponent,
     TreeContentDemoComponent,
