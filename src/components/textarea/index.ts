@@ -1,2 +1,2 @@
-export * from './textarea.component';
-export * from './textarea.module';
+export * from './soho-textarea.component';
+export * from './soho-textarea.module';

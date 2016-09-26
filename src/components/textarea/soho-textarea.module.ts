@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import {
   SohoTextareaComponent
-} from './textarea.component';
+} from './soho-textarea.component';
 
 @NgModule({
   imports: [ CommonModule ],
