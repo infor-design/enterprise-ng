@@ -39,6 +39,9 @@ export class SohoTextareaComponent implements AfterViewInit, OnDestroy {
    * @param disabled
    */
   @Input() set disabled(value: boolean) {
+    if (value)
+      this.isDisabled = value;
+
     if (this.textarea) {
       if (value) {
         this.textarea.disable();
@@ -55,6 +58,9 @@ export class SohoTextareaComponent implements AfterViewInit, OnDestroy {
    * @param readonly
    */
   @Input() set readonly(value: boolean) {
+    if (value)
+      this.isReadOnly = value;
+
     if (this.textarea) {
       if (value) {
         this.textarea.readonly();
