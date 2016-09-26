@@ -123,6 +123,19 @@ interface SohoTextareaOptions {
   charMaxText: string;
 }
 
+interface SohoEditorOptions {
+  buttons?: {
+    editor: Object,
+    source: Object
+  };
+  delay?: number;
+  firstHeader?: string;
+  secondHeader?: string;
+  placeholder: string;
+  anchor: string;
+  image: string;
+}
+
 /**
  * List of valid formatters.
  */
@@ -172,6 +185,7 @@ interface JQuery {
   applicationmenu(options?: SohoApplicationMenuOptions): JQuery;
   toast(options?: SohoToastOptions): JQuery;
   busyindicator(options?: SohoBusyIndicatorOptions): JQuery;
+  editor(options?: SohoEditorOptions): JQuery;
   tabs(): JQuery;
   textarea(options?: SohoTextareaOptions): JQuery;
   initialize(locale: string): JQuery;

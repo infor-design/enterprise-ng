@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
+import { EditorDemoComponent } from './editor/editor.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
 import { IconDemoComponent } from './icon/icon.demo';
@@ -57,6 +58,7 @@ export const routes: Routes = [
   { path: 'dropdown',            component: DropdownDemoComponent },
   { path: 'dropdown-multi',      component: DropdownMultiselectDemoComponent },
   { path: 'dropdown-lm',         component: DropdownLMDemoComponent },
+  { path: 'editor',              component: EditorDemoComponent },
   { path: 'expandablearea',      component: ExpandableAreaDemoComponent },
   { path: 'toast',               component: ToastDemoComponent },
   { path: 'icon',                component: IconDemoComponent },

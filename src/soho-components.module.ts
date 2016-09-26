@@ -5,13 +5,14 @@ import { SohoButtonModule } from './components/button/button.module';
 import { SohoDatagridModule } from './components/datagrid/datagrid.module';
 import { SohoDatepickerModule } from './components/datepicker/datepicker.module';
 import { SohoDropdownModule } from './components/dropdown/dropdown.module';
+import { SohoEditorModule } from './components/editor/soho-editor.module';
 import { SohoExpandableAreaModule } from './components/expandablearea/expandablearea.module';
 import { SohoHeaderModule } from './components/header/header.module';
 import { SohoIconModule } from './components/icon/icon.module';
 import { SohoListviewModule } from './components/listview/listview.module';
 import { SohoLookupModule } from './components/lookup/lookup.module';
 import { SohoTabsModule } from './components/tabs/tabs.module';
-import { SohoTextareaModule } from './components/textarea/textarea.module';
+import { SohoTextareaModule } from './components/textarea/soho-textarea.module';
 import { SohoToolbarModule } from './components/toolbar/toolbar.module';
 import { SohoMaskModule } from './components/mask/mask.module';
 import { SohoMastheadModule } from './components/masthead/masthead.module';
@@ -31,6 +32,7 @@ import { SohoToastModule } from './services/toast.module';
     SohoDatagridModule,
     SohoDatepickerModule,
     SohoDropdownModule,
+    SohoEditorModule,
     SohoExpandableAreaModule,
     SohoHeaderModule,
     SohoIconModule,
@@ -58,6 +60,7 @@ import { SohoToastModule } from './services/toast.module';
     SohoDatagridModule,
     SohoDatepickerModule,
     SohoDropdownModule,
+    SohoEditorModule,
     SohoExpandableAreaModule,
     SohoHeaderModule,
     SohoIconModule,

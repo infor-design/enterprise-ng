@@ -19,6 +19,7 @@ import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
+import { EditorDemoComponent } from './editor/editor.demo';
 import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
 import { IconDemoComponent } from './icon/icon.demo';
@@ -69,6 +70,7 @@ import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
     DropdownDemoComponent,
     DropdownMultiselectDemoComponent,
     DropdownLMDemoComponent,
+    EditorDemoComponent,
     ToastDemoComponent,
     IconDemoComponent,
     ListviewDemoComponent,
