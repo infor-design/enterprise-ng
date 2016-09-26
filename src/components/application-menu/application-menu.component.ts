@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   HostBinding,
   Output,
@@ -18,7 +19,7 @@ import {
   selector: 'nav[soho-application-menu]', // @todo agree correct selector.
   templateUrl: 'application-menu.component.html'
 })
-export class SohoApplicationMenuComponent {
+export class SohoApplicationMenuComponent implements AfterViewInit {
 
   // -------------------------------------------
   // Component Inputs
@@ -32,11 +33,18 @@ export class SohoApplicationMenuComponent {
 
   // A list of jQuery elements which trigger the openning and closing
   // application menu.
-  @Input() set triggers(triggers: any[]) {
-    this._triggers = triggers;
-    if (this.applicationmenu) {
-      this.applicationmenu.settings.triggers = this._triggers;
-      this.applicationmenu.updated();
+  @Input() set triggers(triggers: string[]) {
+
+    if (triggers) {
+      let i = triggers.length;
+      while (i--) {
+        this._triggers.push(jQuery(triggers[i]));
+      }
+
+      if (this.applicationmenu) {
+        this.applicationmenu.settings.triggers = this._triggers;
+        this.updated();
+      }
     }
   }
 
@@ -59,7 +67,7 @@ export class SohoApplicationMenuComponent {
   private applicationmenu: any;
 
   // List of jQuery triggers.
-  private _triggers: any[];
+  private _triggers: Array<any> = [];
 
   // This event is fired when the visibility of the application menu is changed,
   // is it also called when the item is changed programmatically.
@@ -76,20 +84,42 @@ export class SohoApplicationMenuComponent {
   /**
    * Close the menu.
    */
-  closeMenu() {
+  public closeMenu() {
     this.applicationmenu.closeMenu();
   }
 
   /** Open the menu. */
-  openMenu() {
+  public openMenu() {
     this.applicationmenu.openMenu();
   }
 
   /**
    * Returns true if the menu is open, otherwise false.
    */
-  isOpen() {
+  public isOpen() {
     this.applicationmenu.hasClass('is-open');
+  }
+
+  /**
+   * Notifies application menu that it has been updated
+   */
+  public updated() {
+    this.applicationmenu.updated();
+  }
+
+  /*
+   * Updates Accordion when menus have been lazily loaded
+   * TODO: Ed or Tim, there doesn't appear to be a public function for something like this
+   * from applicationmenu.js. This is my current work arround (Kris Holleneck)
+   */
+  public updateLazy(applicationMenu: SohoApplicationMenuComponent, target: any) {
+    let $applicationMenu = jQuery(applicationMenu.elementRef.nativeElement).data('applicationmenu');
+    let $accordion = $applicationMenu.accordion;
+    let accordion = $accordion.data('accordion');
+    // let header = jQuery(target).closest('.accordion-header');
+
+    // accordion.expand(header);
+    accordion.headers = $accordion.find('.accordion-header');
   }
 
   // ------------------------------------------

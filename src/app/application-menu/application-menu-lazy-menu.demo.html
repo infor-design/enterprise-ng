@@ -1,0 +1,12 @@
+<template ngFor let-item [ngForOf]="menuSpec">
+  <div class="accordion-header">
+    <button class="btn" type="button" (click)="onLazyMenuClicked($event)" attr.data-mock-url="{{item?.mockUrl}}">
+      <span class="icon plus-minus" aria-hidden="true" role="presentation"></span>
+      <span class="audible">Expand</span>
+    </button>
+    <a id="{{item?.name}}" href="javascript:void(0);">
+      <span>{{item.name}}</span>
+    </a>
+  </div>
+  <application-menu-lazy-menu *ngIf="item.submenu" class="accordion-pane" [menuSpec]="item.submenu" (subMenuLoaded)="onSubMenuLoaded($event)"></application-menu-lazy-menu>
+</template>
