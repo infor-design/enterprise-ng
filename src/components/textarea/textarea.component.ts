@@ -119,12 +119,12 @@ export class SohoTextareaComponent implements AfterViewInit, OnDestroy {
   /**
    * Called when the textarea value changes
    */
-  @Output() onChange = new EventEmitter<TextareaEvent>();
+  @Output() onChange = new EventEmitter<SohoTextareaEvent>();
 
   /**
    * Called when the textarea updates in some way
    */
-  @Output() onUpdated = new EventEmitter<TextareaEvent>();
+  @Output() onUpdated = new EventEmitter<SohoTextareaEvent>();
 
   // -------------------------------------------
   // Public API
@@ -161,8 +161,8 @@ export class SohoTextareaComponent implements AfterViewInit, OnDestroy {
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (e: any, args: TextareaEvent) => this.onChange.next(args));
-    this.jQueryElement.on('updated', (e: any, args: TextareaEvent) => this.onUpdated.next(args));
+    this.jQueryElement.on('change', (e: any, args: SohoTextareaEvent) => this.onChange.next(args));
+    this.jQueryElement.on('updated', (e: any, args: SohoTextareaEvent) => this.onUpdated.next(args));
 
     this.textarea = this.jQueryElement.data('textarea');
   }
@@ -172,9 +172,4 @@ export class SohoTextareaComponent implements AfterViewInit, OnDestroy {
       this.textarea = null;
     }
   }
-}
-/**
- * Soho Textarea Event
- */
-export interface TextareaEvent {
 }
