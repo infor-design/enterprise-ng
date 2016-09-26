@@ -7,9 +7,7 @@ import {
 } from '@angular/core';
 
 import { SohoApplicationMenuComponent } from '../components/application-menu';
-
 import { ArgumentHelper } from '../utils';
-
 import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.service';
 
 @Component({
@@ -17,9 +15,6 @@ import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.se
   templateUrl: 'app.component.html',
   styleUrls: [ 'app.component.css' ],
   providers: [ HeaderDynamicDemoRefService ],
-  // precompile: (<any[]>routes.map((route) => {
-  //   return route.component;
-  // })),
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements AfterViewInit {
@@ -35,7 +30,8 @@ export class AppComponent implements AfterViewInit {
   ngAfterViewInit() {
     ArgumentHelper.checkInputNotNull('AppComponent', 'applicationMenu', this.applicationMenu);
 
-    // @todo I do not like this code.
-    this.applicationMenu.triggers = [ jQuery('.application-menu-trigger') ];
+    // A list of jQuery elements which trigger the openning and closing
+    // application menu.
+    this.applicationMenu.triggers = ['.application-menu-trigger'];
   }
 }
