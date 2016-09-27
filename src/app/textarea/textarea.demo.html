@@ -1,0 +1,41 @@
+<div class="example-section">
+  <form>
+    <div class="row"><span class="code-tag">Live Example</span></div>
+    <div class="row">
+      <div class="one-half column">
+        <div class="field">
+          <label for="modifiable" class="label">Modifiable</label>
+          <textarea soho-textarea name="modifiable" [(ngModel)]="model.modifiableText"></textarea>
+          <button soho-button [disabled]="textAreaReadOnly" (click)="setReadonly()">Read Only</button>
+          <button soho-button [disabled]="textAreaDisabled" (click)="setDisable()">Disable</button>
+          <button soho-button [disabled]="!textAreaDisabled && !textAreaReadOnly" (click)="setEnable()">Enable</button>
+        </div>
+        <br>
+        <div class="field">
+          <label for="counter" class="label">Counter</label>
+          <textarea soho-textarea maxlength=90 name="counter" [(ngModel)]="model.counterText"></textarea>
+        </div>
+        <div class="field">
+          <label for="resizable" class="label">Resizable</label>
+          <textarea soho-textarea name="resizable" [resizable]="true" [(ngModel)]="model.resizableText"></textarea>
+        </div>
+      </div>
+      <div class="one-half column">
+        <div class="field">
+          <label for="readonly" class="label">Read Only</label>
+          <textarea soho-textarea name="readonly" [readonly]="true" [(ngModel)]="model.readonlyText"></textarea>
+        </div>
+        <div class="field">
+          <label for="disable" class="label">Disable</label>
+          <textarea soho-textarea [disabled]="true" name="disable" [(ngModel)]="model.disableText"></textarea>
+        </div>
+      </div>
+    </div>
+  </form>
+  <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+  <div *ngIf="showModel">
+    <hr>
+    <pre>{{ model | json }}</pre>
+  </div>
+</div>
+

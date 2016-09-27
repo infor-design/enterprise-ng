@@ -19,6 +19,7 @@ import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
+import { EditorDemoComponent } from './editor/editor.demo';
 import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
 import { IconDemoComponent } from './icon/icon.demo';
@@ -49,6 +50,7 @@ import { TabsDismissibleDemoComponent } from './tabs/tabs-dismissible.demo';
 import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
+import { TextareaDemoComponent } from './textarea/textarea.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
@@ -71,6 +73,7 @@ import { ApplicationMenuLazyService } from './application-menu/application-menu-
     DropdownDemoComponent,
     DropdownMultiselectDemoComponent,
     DropdownLMDemoComponent,
+    EditorDemoComponent,
     ToastDemoComponent,
     IconDemoComponent,
     ListviewDemoComponent,
@@ -107,6 +110,7 @@ import { ApplicationMenuLazyService } from './application-menu/application-menu-
     TabsDropdownDemoComponent,
     TabsDataDrivenDemoComponent,
     TabsDynamicDemoComponent,
+    TextareaDemoComponent,
     ToolbarBasicDemoComponent,
     ToolbarDataDrivenDemoComponent,
     ToolbarAllIconsDemoComponent
