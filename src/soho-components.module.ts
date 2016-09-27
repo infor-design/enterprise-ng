@@ -20,6 +20,7 @@ import { SohoMenuButtonModule } from './components/menu-button/menu-button.modul
 import { SohoSearchfieldModule } from './components/searchfield/searchfield.module';
 import { SohoSplitterModule } from './components/splitter/splitter.module';
 import { SohoTreeModule } from './components/tree/tree.module';
+import { SohoInputValidateModule } from './directives/soho-input-validate.module';
 import { SohoPersonalizeModule } from './directives/soho-personalize.module';
 import { SohoTimepickerModule } from './components/timepicker/soho-timepicker.module';
 import { SohoToastModule } from './services/toast.module';
@@ -36,6 +37,7 @@ import { SohoToastModule } from './services/toast.module';
     SohoExpandableAreaModule,
     SohoHeaderModule,
     SohoIconModule,
+    SohoInputValidateModule,
     SohoListviewModule,
     SohoLookupModule,
     SohoMaskModule,
@@ -64,6 +66,7 @@ import { SohoToastModule } from './services/toast.module';
     SohoExpandableAreaModule,
     SohoHeaderModule,
     SohoIconModule,
+    SohoInputValidateModule,
     SohoListviewModule,
     SohoLookupModule,
     SohoMaskModule,

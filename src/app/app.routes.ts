@@ -46,6 +46,7 @@ import { TabsDismissibleDemoComponent } from './tabs/tabs-dismissible.demo';
 import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
+import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
@@ -89,6 +90,7 @@ export const routes: Routes = [
   { path: 'toolbar-datadriven',    component: ToolbarDataDrivenDemoComponent },
   { path: 'toolbar-all-icons',     component: ToolbarAllIconsDemoComponent },
   // { path: 'accordian',           component: AccordionSampleComponent},
+  { path: 'validation',            component: ValidationFormDemoComponent},
 ];
 
 export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes);
