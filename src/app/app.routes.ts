@@ -89,8 +89,8 @@ export const routes: Routes = [
   { path: 'toolbar-basic',         component: ToolbarBasicDemoComponent },
   { path: 'toolbar-datadriven',    component: ToolbarDataDrivenDemoComponent },
   { path: 'toolbar-all-icons',     component: ToolbarAllIconsDemoComponent },
-  { path: 'validation',          component: ValidationFormDemoComponent},
   // { path: 'accordian',           component: AccordionSampleComponent},
+  { path: 'validation',            component: ValidationFormDemoComponent},
 ];
 
 export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes);
