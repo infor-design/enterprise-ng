@@ -15,7 +15,7 @@ import {
 } from '../../components/tree';
 
 @Component({
-  selector: 'tree-service-demo',
+  selector: 'soho-tree-service-demo',
   templateUrl: 'tree-service.demo.html',
   providers: [{ provide: SohoTreeService, useClass: TreeDemoService }],
   changeDetection: ChangeDetectionStrategy.OnPush

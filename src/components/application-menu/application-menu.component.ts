@@ -16,7 +16,7 @@ import {
  * the SoHo application menu control.
  */
 @Component({
-  selector: 'nav[soho-application-menu]', // @todo agree correct selector.
+  selector: 'nav[soho-application-menu]', // tslint:disable-line
   templateUrl: 'application-menu.component.html'
 })
 export class SohoApplicationMenuComponent implements AfterViewInit {

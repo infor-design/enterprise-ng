@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 
 @Component({
   selector: 'soho-dropdown-multiselect-demo',
@@ -12,7 +15,7 @@ export class DropdownMultiselectDemoComponent implements OnInit {
     { value: 'NY', text: 'New York' },
     { value: 'WY', text: 'Wyoming' },
   ];
-  private multisourceoptions: Array<Object> = [];
+  multisourceoptions: Array<Object> = [];
   private counter = 0;
   private model: { // tslint:disable-line
     closes: string[],
@@ -39,10 +42,11 @@ export class DropdownMultiselectDemoComponent implements OnInit {
   toggleModel() {
     this.showModel = !this.showModel;
   }
-  private source(response: any, searchTerm: any) {
-    let states = [
-      { value: 'AK', label: 'Alaska'},
-      { value: 'AZ', label: 'Arizona'},
+
+   source(response: any, searchTerm: any) {
+     let states = [
+       { value: 'AK', label: 'Alaska'},
+       { value: 'AZ', label: 'Arizona'},
       { value: 'CA', label: 'California'},
       { value: 'CO', label: 'Colorado'},
       { value: 'MN', label: 'Minnesota'},

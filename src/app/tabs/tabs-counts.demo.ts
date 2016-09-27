@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
  * - Shows how to make a tab with counts and separators
  */
 @Component({
-  selector: 'tabs-counts-demo',
+  selector: 'soho-tabs-counts-demo',
   templateUrl: './tabs-counts.demo.html'
 })
 export class TabsCountsDemoComponent { }

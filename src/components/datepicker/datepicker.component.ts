@@ -13,7 +13,7 @@ import {SohoDatepickerEvent} from './index';
 export type SohoDateMode = 'standard' | 'range';
 
 @Component({
-  selector: 'input[soho-datepicker]',
+  selector: 'input[soho-datepicker]', // tslint:disable-line
   template: '<ng-content></ng-content>'
 })
 export class SohoDatepickerComponent implements AfterViewInit, OnDestroy {
@@ -95,6 +95,9 @@ export class SohoDatepickerComponent implements AfterViewInit, OnDestroy {
     this.datepicker = this.jQueryElement.data('datepicker');
   }
   ngOnDestroy() {
-    // this.datepicker.destroy();
+    if (this.datepicker) {
+      // this.datepicker.destroy();
+      this.datepicker = null;
+    }
   }
 }

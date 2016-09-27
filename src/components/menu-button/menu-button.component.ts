@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'button[soho-menu-button]',
+  selector: 'button[soho-menu-button]', // tslint:disable-line
   templateUrl: 'menu-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

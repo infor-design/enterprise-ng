@@ -11,7 +11,7 @@ import { ArgumentHelper } from '../utils';
 import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.service';
 
 @Component({
-  selector: 'body',
+  selector: 'body', // tslint:disable-line
   templateUrl: 'app.component.html',
   styleUrls: [ 'app.component.css' ],
   providers: [ HeaderDynamicDemoRefService ],

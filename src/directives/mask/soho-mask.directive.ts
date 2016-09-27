@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: 'input[soho-mask]'
+  selector: 'input[soho-mask]' // tslint:disable-line
 })
 export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   /**

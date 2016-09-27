@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'span[soho-searchfield-wrapper]',
+  selector: 'span[soho-searchfield-wrapper]', // tslint:disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoSearchfieldWrapperComponent {
@@ -18,7 +18,7 @@ export class SohoSearchfieldWrapperComponent {
 }
 
 @Component({
-  selector: 'input[soho-searchfield]',
+  selector: 'input[soho-searchfield]', // tslint:disable-line
   template: '<ng-content></ng-content>'
 })
 export class SohoSearchfieldComponent implements AfterViewInit, OnDestroy {

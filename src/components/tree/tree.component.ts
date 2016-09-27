@@ -44,7 +44,7 @@ export type SohoTreeType = 'auto' | 'content-only';
  * @todo Complete interface definition
  */
 @Component({
-  selector: 'ul[soho-tree]',
+  selector: 'ul[soho-tree]', // tslint:disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

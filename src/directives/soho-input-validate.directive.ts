@@ -11,7 +11,7 @@ import {
  * 'data-validate' or 'data-validate-on="submmit"'.
  */
 @Directive({
-  selector: 'input[data-validate], input[data-validate-on="submit"]',
+  selector: 'input[data-validate], input[data-validate-on="submit"]', // tslint:disable-line
 })
 export class SohoInputValidateDirective implements AfterViewInit {
   constructor(private el: ElementRef) {

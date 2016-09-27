@@ -14,4 +14,3 @@ export interface SohoDatepickerEvent {
   timeStamp: number;
   type: string;
 }
-

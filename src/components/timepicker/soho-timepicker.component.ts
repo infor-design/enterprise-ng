@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'input[soho-timepicker]',
+  selector: 'input[soho-timepicker]', // tslint:disable-line
   template: '<ng-content></ng-content>'
 })
 export class SohoTimepickerComponent implements AfterViewInit, OnDestroy {
@@ -70,6 +70,9 @@ export class SohoTimepickerComponent implements AfterViewInit, OnDestroy {
     this.timepicker = this.jQueryElement.data('timepicker');
   }
   ngOnDestroy() {
-    this.timepicker.destroy();
+    if (this.timepicker) {
+      this.timepicker.destroy();
+      this.timepicker = null;
+    }
   }
 }
