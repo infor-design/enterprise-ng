@@ -4,15 +4,12 @@ import {
   Component,
   ViewChild
 } from '@angular/core';
+import { SohoDataGridComponent } from '../../components/datagrid';
 import {
-  SohoDataGridComponent
-} from '../../components/datagrid';
-import {
-  SohoGridOptions, SohoSourceRequest
-} from "../../components/datagrid/datagrid.model";
-import {
-  DataGridPagingDemoService
-} from './datagrid-paging-demo.service';
+  SohoGridOptions,
+  SohoSourceRequest
+} from '../../components/datagrid/datagrid.model';
+import { DataGridPagingDemoService } from './datagrid-paging-demo.service';
 
 @Component({
   selector: 'soho-datagrid-paging-service-demo',
@@ -31,7 +28,7 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
      * higher in the component hierarchy our ngAfterViewInit is called after
      * DataGrid ngAfterViewInit.
      */
-    let pageSize: number = 5;
+    let pageSize = 5;
 
     let gridOptions: SohoGridOptions = <SohoGridOptions> {
       columns: this.datagridPagingService.getColumns(),
@@ -40,7 +37,7 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
       pagesize: pageSize,
       pagesizes: [ 5, 10, 25 ],
       indeterminate: false,
-      rowHeight: 'medium', //short, medium or normal
+      rowHeight: 'medium', // short, medium or normal
     };
 
     gridOptions.source = (req: SohoSourceRequest, response: any) => {

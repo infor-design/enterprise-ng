@@ -20,7 +20,7 @@
     "@angular/platform-browser": "2.0.0",
     "@angular/platform-browser-dynamic": "2.0.0",
     "@angular/router": "3.0.0",
-    "@infor/sohoxi": "4.2.1-rc.1",
+    "@infor/sohoxi": "4.2.1-develop",
     "core-js": "^2.4.1",
     "immutable": "^3.8.1",
     "jquery": "3.1.0",
@@ -45,6 +45,6 @@
     "protractor": "4.0.5",
     "ts-node": "1.2.1",
     "tslint": "3.13.0",
-    "typescript": "2.0.2"
+    "typescript": "^2.0.0"
   }
 }

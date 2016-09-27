@@ -1,9 +1,7 @@
 import {
   Component,
-  ElementRef,
-  ViewChild
+  ElementRef
 } from '@angular/core';
-
 
 @Component({
   selector: 'soho-validation-form-demo',
@@ -11,18 +9,17 @@ import {
 })
 export class ValidationFormDemoComponent {
 
-private email_addr: string;
-private credit_card: string;
-private credit_code1: number;
-private credit_code2: number;
-private states: string;
+  email_addr: string;
+  credit_card: string;
+  credit_code1: number;
+  credit_code2: number;
+  states: string;
 
   constructor(private elementRef: ElementRef) {
   }
 
   onSubmit() {
     // TODO: Do something here?
-    console.log("in onSubmit");
+    console.log('in onSubmit');
   }
-
 }

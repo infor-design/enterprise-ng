@@ -57,7 +57,6 @@ export class SohoListviewHeaderComponent {
   @HostBinding('class.listview-heading') get isHeading() { return true; }
 }
 
-
 @Component({
   selector: '[soho-listview-subheader]',
   template: '<ng-content></ng-content>',
@@ -66,7 +65,6 @@ export class SohoListviewHeaderComponent {
 export class SohoListviewSubHeaderComponent {
   @HostBinding('class.listview-subheading') get isSubHeading() { return true; }
 }
-
 
 @Component({
   selector: '[soho-listview-micro]',

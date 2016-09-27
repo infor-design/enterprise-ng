@@ -18,7 +18,7 @@ import { SohoTabsComponent } from '../../components/tabs';
  * - handling change detection to programatically update the soho control
  */
 @Component({
-  selector: 'tabs-dynamic-sample-component',
+  selector: 'soho-tabs-dynamic-sample-component',
   templateUrl: './tabs-dynamic.demo.html'
 })
 export class TabsDynamicDemoComponent implements DoCheck, OnInit {

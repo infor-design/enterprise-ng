@@ -25,7 +25,7 @@ import {
     <!-- TODO: look into handling this through soho-button
     <button soho-button="actions" pageChanger="true" icon="more">
       <span class="audible" data-translate="text">More</span>
-    </button> 
+    </button>
     -->
 
     <ng-content></ng-content>
@@ -40,7 +40,7 @@ export class SohoToolbarMoreButtonComponent {
  * soho toolbar page title.
  */
 @Component({
-  selector: 'span[soho-page-title]',
+  selector: 'span[soho-page-title]', // tslint:disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -52,7 +52,7 @@ export class SohoPageTitleComponent {
  * soho section title.
  */
 @Component({
-  selector: 'span[soho-section-title]',
+  selector: 'span[soho-section-title]', // tslint:disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -64,7 +64,7 @@ export class SohoSectionTitleComponent {
  * Soho toolbar Navigation button
  */
 @Component({
-  selector: 'button[soho-nav-button]',
+  selector: 'button[soho-nav-button]', // tslint:disable-line
   template: `
       <span class="audible">
         <ng-content></ng-content>

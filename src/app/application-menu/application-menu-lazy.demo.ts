@@ -3,7 +3,7 @@ import { ApplicationMenuLazyService } from './application-menu-lazy-service.demo
 import { SohoApplicationMenuComponent } from '../../components/application-menu';
 
 @Component({
-  selector: 'application-meny-lazy-demo',
+  selector: 'application-meny-lazy-demo', // tslint:disable-line
   templateUrl: 'application-menu-lazy.demo.html',
 })
 export class ApplicationMenuLazyDemoComponent implements AfterViewInit, OnInit {

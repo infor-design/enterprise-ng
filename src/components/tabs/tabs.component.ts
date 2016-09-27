@@ -18,7 +18,7 @@ import {
  * Internal component to support the tab list items
  */
 @Component({
-  selector: 'li[soho-tab]',
+  selector: 'li[soho-tab]', // tslint:disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -36,7 +36,7 @@ export class SohoTabComponent {
  * Internal component to support the tab title
  */
 @Component({
-  selector: 'a[soho-tab-title]',
+  selector: 'a[soho-tab-title]', // tslint:disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -49,7 +49,7 @@ export class SohoTabTitleComponent {
  * Internal component to support the tab with a 'count' on it.
  */
 @Component({
-  selector: 'span[soho-tab-count]',
+  selector: 'span[soho-tab-count]', // tslint:disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -61,7 +61,7 @@ export class SohoTabCountComponent {
  * Internal component to support menu/dropdown tabs
  */
 @Component({
-  selector: 'li[soho-tab-separator]',
+  selector: 'li[soho-tab-separator]', // tslint:disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -73,7 +73,7 @@ export class SohoTabSeparatorComponent {
  * Internal component to support tab panel content.
  */
 @Component({
-  selector: 'div[soho-tab-panel]',
+  selector: 'div[soho-tab-panel]', // tslint:disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -87,7 +87,7 @@ export class SohoTabPanelComponent {
  * Main tabset header component
  */
 @Component({
-  selector: 'ul[soho-tab-list]',
+  selector: 'ul[soho-tab-list]', // tslint:disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -114,7 +114,7 @@ export class SohoTabsListComponent {
  * The main soho-tabs component
  */
 @Component({
-  selector: 'div[soho-tabs]',
+  selector: 'div[soho-tabs]', // tslint:disable-line
   templateUrl: './tabs.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

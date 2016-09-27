@@ -22,6 +22,7 @@ import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
+import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 
 import { ListviewDemoComponent } from './listview/listview.demo';
 
@@ -48,11 +49,16 @@ import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 
+import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
+import { TimepickerDemoComponent } from './timepicker/timepicker.demo';
+
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
   { path: 'application-lazy-menu', component: ApplicationMenuLazyDemoComponent},
   { path: 'button',                component: ButtonDemoComponent },
   { path: 'busyindicator',         component: BusyIndicatorDemoComponent },
+  { path: 'datepicker',            component: DatepickerDemoComponent },
+  { path: 'timepicker',            component: TimepickerDemoComponent },
   { path: 'dropdown',              component: DropdownDemoComponent },
   { path: 'dropdown-multi',        component: DropdownMultiselectDemoComponent },
   { path: 'dropdown-lm',           component: DropdownLMDemoComponent },
@@ -76,6 +82,7 @@ export const routes: Routes = [
   { path: 'datagrid-breadcrumb',   component: DataGridBreadcrumbDemoComponent },
   { path: 'datagrid-treegrid',     component: DataGridTreeGridDemoComponent },
   { path: 'datagrid-settings',     component: DataGridSettingsDemoComponent },
+  { path: 'datagrid-paging',       component: DataGridPagingServiceDemoComponent },
   { path: 'header-tabs',           component: HeaderTabsDemoComponent },
   { path: 'header-toolbar',        component: HeaderToolbarDemoComponent },
   { path: 'header-toolbar-tabs',   component: HeaderToolbarAndTabsDemoComponent },

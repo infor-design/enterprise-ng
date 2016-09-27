@@ -67,7 +67,7 @@ enum RefreshHintFlags {
  * @todo paging
  */
 @Component({
-  selector: '[soho-datagrid]',
+  selector: '[soho-datagrid]', // tslint:disable-line
   template: ' <ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -791,7 +791,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @todo arguments.
    */
   private onExpandRow(args: any) {
-    console.log(args);
     let event = { grid: this, row: args.row, detail: args.detail, item: args.item };
     this.expandrow.next(event);
   }
@@ -833,7 +832,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    *
    */
   ngAfterViewChecked() {
-    console.log(`ngAfterViewChecked - ${this.refreshHint}!`);
     if (this.refreshHint !== RefreshHintFlags.None) {
       this.updateControl();
     }
@@ -913,7 +911,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   private markForRefresh(optionName: string, hint: RefreshHintFlags) {
 
     // Merge in the hint.
-    this.refreshHint |= hint;
+    this.refreshHint |= hint; // tslint:disable-line
 
     // ... so we can use it later
     this.changedOptions.push(optionName);
@@ -931,22 +929,17 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * for a particular input.
    */
   private updateControl(): void {
-    console.log(this.refreshHint);
-    for (let i = 0; i < this.changedOptions.length; i++) {
-      console.log(`... '${this.changedOptions[i]}''`);
-    }
-
-    if (this.refreshHint & RefreshHintFlags.Rebuild) {
+    if (this.refreshHint & RefreshHintFlags.Rebuild) { // tslint:disable-line
       this.destroyDataGrid();
       this.buildDataGrid();
 
       // Assume a rebuild trumps all other candidates ...
     } else {
       // @todo verify if calling these separately makes sense.
-      if (this.refreshHint & RefreshHintFlags.RenderHeader) {
+      if (this.refreshHint & RefreshHintFlags.RenderHeader) { // tslint:disable-line
         this.datagrid.renderHeader();
       }
-      if (this.refreshHint & RefreshHintFlags.RenderRows) {
+      if (this.refreshHint & RefreshHintFlags.RenderRows) { // tslint:disable-line
         this.datagrid.renderRows();
       }
     }

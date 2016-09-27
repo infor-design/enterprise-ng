@@ -3,7 +3,6 @@ import {
   Component,
   ElementRef,
   EventEmitter,
-  HostBinding,
   Input,
   OnDestroy,
   Output,
@@ -165,6 +164,7 @@ export class SohoEditorComponent implements AfterViewInit, OnDestroy {
 
     this.editor = this.jQueryElement.data('editor');
   }
+
   ngOnDestroy() {
     if (this.editor) {
       this.editor.destroy();

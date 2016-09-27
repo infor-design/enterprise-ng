@@ -96,11 +96,11 @@
       "check-type"
     ],
 
-    "directive-selector-name": [true, "camelCase"],
-    "directive-selector-type": [true, "attribute"],
+    //"directive-selector-name": [true, "kebab-case"],
+    //"directive-selector-type": [true, "attribute"],
     "directive-selector-prefix": [true, "soho"],
-    "component-selector-name": [true, "kebab-case"],
-    "component-selector-type": [true, "element"],
+    //"component-selector-name": [true, "kebab-case"],
+    //"component-selector-type": [true, "element"],
     "component-selector-prefix": [true, "soho"],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,

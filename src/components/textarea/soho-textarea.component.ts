@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'textarea[soho-textarea]',
+  selector: 'textarea[soho-textarea]', // tslint:disable-line
   template: '<ng-content></ng-content>',
 })
 export class SohoTextareaComponent implements AfterViewInit, OnDestroy {
@@ -20,10 +20,10 @@ export class SohoTextareaComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   private options: SohoTextareaOptions = {
-    characterCounter : undefined, //Turns on the character counter for the select element
-    printable : undefined, //Sets the select element as printable
-    charRemainingText : undefined, //Sets the select element remaining character text
-    charMaxText : undefined //Sets the select element maximum character text
+    characterCounter : undefined, // Turns on the character counter for the select element
+    printable : undefined, // Sets the select element as printable
+    charRemainingText : undefined, // Sets the select element remaining character text
+    charMaxText : undefined // Sets the select element maximum character text
   };
 
   /**
@@ -39,8 +39,7 @@ export class SohoTextareaComponent implements AfterViewInit, OnDestroy {
    * @param disabled
    */
   @Input() set disabled(value: boolean) {
-    if (value)
-      this.isDisabled = value;
+    this.isDisabled = value;
 
     if (this.textarea) {
       if (value) {
@@ -58,8 +57,7 @@ export class SohoTextareaComponent implements AfterViewInit, OnDestroy {
    * @param readonly
    */
   @Input() set readonly(value: boolean) {
-    if (value)
-      this.isReadOnly = value;
+    this.isReadOnly = value;
 
     if (this.textarea) {
       if (value) {
@@ -166,6 +164,7 @@ export class SohoTextareaComponent implements AfterViewInit, OnDestroy {
 
     this.textarea = this.jQueryElement.data('textarea');
   }
+
   ngOnDestroy() {
     if (this.textarea) {
       this.textarea.destroy();

@@ -13,7 +13,7 @@ import { NgModel } from '@angular/forms';
 let counter = 0;
 
 @Component({
-  selector: 'select[soho-dropdown]',
+  selector: 'select[soho-dropdown]', // tslint:disable-line
   template: '<ng-content></ng-content>',
   providers: [ NgModel ],
 })

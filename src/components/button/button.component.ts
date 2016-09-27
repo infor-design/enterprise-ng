@@ -15,7 +15,7 @@ import {
 export type SohoButtonType = 'primary' | 'secondary' | 'tertiary' | 'icon';
 
 @Component({
-  selector: 'button[soho-button]',
+  selector: 'button[soho-button]', // tslint:disable-line
   templateUrl: './button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -16,7 +16,24 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
   private lastToolbarEvent: any;
   private buttonClickedSubscription: Subscription;
 
-  constructor(private sohoHeaderRef: HeaderDynamicDemoRefService) {}
+  private toolbarOptions: HeaderDynamicToolbarOptions = {
+    toolbarButtons: [
+      { id: 'Create', text: 'Create', icon: 'add', data: '{\'btn\': \'create\'}' },
+      {
+        id: 'charts-btn', icon: 'pie-chart', data: '{\'btn\': \'charts\'}', menu:
+          [
+            { id: 'pie', text: 'Pie Chart', data: '{\'menu\': \'pie\'}' },
+            { id: 'line', text: 'Line Chart', data: '{\'menu\': \'line\'}' },
+            { id: 'bubble', text: 'Bubble Chart', data: '{\'menu\': \'bubble\'}' }
+          ]
+      },
+      { id: 'update-btn', text: 'Open', icon: 'folder', data: '{\'btn\': \'update\'}' },
+      { id: 'delete-btn', text: 'Delete', icon: 'delete', data: '{\'btn\': \'delete\'}' },
+      { id: 'refresh-btn', text: 'Refresh', icon: 'refresh', data: '{\'btn\': \'refresh\'}' }
+    ]
+  };
+
+  constructor(private sohoHeaderRef: HeaderDynamicDemoRefService) { }
 
   ngAfterViewInit() {
     this.showHeaderToolbar();
@@ -59,20 +76,4 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
       this.buttonClickedSubscription.unsubscribe();
     }
   }
-
-  private toolbarOptions: HeaderDynamicToolbarOptions = {
-    toolbarButtons: [
-      { id: 'Create', text: 'Create', icon: 'add', data: '{\'btn\': \'create\'}' },
-      { id: 'charts-btn', icon: 'pie-chart', data: '{\'btn\': \'charts\'}', menu:
-        [
-          { id: 'pie', text: 'Pie Chart', data: '{\'menu\': \'pie\'}' },
-          { id: 'line', text: 'Line Chart', data: '{\'menu\': \'line\'}' },
-          { id: 'bubble', text: 'Bubble Chart', data: '{\'menu\': \'bubble\'}' }
-        ]
-      },
-      { id: 'update-btn', text: 'Open', icon: 'folder', data: '{\'btn\': \'update\'}' },
-      { id: 'delete-btn', text: 'Delete', icon: 'delete', data: '{\'btn\': \'delete\'}' },
-      { id: 'refresh-btn', text: 'Refresh', icon: 'refresh', data: '{\'btn\': \'refresh\'}' }
-    ]
-  };
 }
