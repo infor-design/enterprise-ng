@@ -36,6 +36,36 @@ interface BusyIndicatorStatic {
   close: () => void;
 }
 
+// mask
+type SohoMaskMode = 'group' | 'number' | 'date' | 'time';
+type SohoMaskShowSymbol = boolean | 'currency' | 'percent';
+interface SohoMaskOptions {
+  pattern: string;
+  placeholder: string;
+  definitions: any;
+  groupComplete: boolean;
+  mode: SohoMaskMode;
+  mustComplete: boolean;
+  negative: boolean;
+  number: boolean;
+  processOnInitialize: boolean;
+  thousandsSeparator: boolean;
+  showSymbol: SohoMaskShowSymbol;
+}
+interface SohoMaskEvent {
+  currentTarget: HTMLElement;
+  data: any;
+  delegateTarget: HTMLElement;
+  handleObj: Object;
+  isTrigger: number;
+  namespace: string;
+  result: any;
+  rnamespace: any;
+  target: HTMLElement;
+  timeStamp: number;
+  type: string;
+}
+
 interface SplitterStatic {
 
 }
@@ -186,6 +216,7 @@ interface JQuery {
   toast(options?: SohoToastOptions): JQuery;
   busyindicator(options?: SohoBusyIndicatorOptions): JQuery;
   editor(options?: SohoEditorOptions): JQuery;
+  mask(options?: SohoMaskOptions): JQuery;
   tabs(): JQuery;
   textarea(options?: SohoTextareaOptions): JQuery;
   initialize(locale: string): JQuery;

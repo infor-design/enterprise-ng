@@ -14,7 +14,7 @@ import { SohoLookupModule } from './components/lookup/lookup.module';
 import { SohoTabsModule } from './components/tabs/tabs.module';
 import { SohoTextareaModule } from './components/textarea/soho-textarea.module';
 import { SohoToolbarModule } from './components/toolbar/toolbar.module';
-import { SohoMaskModule } from './components/mask/mask.module';
+import { SohoMaskModule } from './directives/mask/soho-mask.module';
 import { SohoMastheadModule } from './components/masthead/masthead.module';
 import { SohoMenuButtonModule } from './components/menu-button/menu-button.module';
 import { SohoSearchfieldModule } from './components/searchfield/searchfield.module';

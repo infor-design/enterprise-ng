@@ -1,5 +1,4 @@
 import { Component, HostBinding, Input } from '@angular/core';
-import { MaskEvent } from '../../components/mask';
 
 /**
  * This example:
@@ -18,7 +17,7 @@ import { MaskEvent } from '../../components/mask';
 export class MaskDemoComponent {
   @HostBinding('class.alignRight') @Input() alignRight: boolean = false;
 
-  onMaskWrite(event: MaskEvent) {
+  onMaskWrite(event: SohoMaskEvent) {
     console.log('MaskDemoComponent.onMaskWrite');
   }
 }

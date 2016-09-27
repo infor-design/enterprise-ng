@@ -1,55 +1,52 @@
 <div class="example-section">
+  <form>
     <div class="row">
-
+      <h1>Mask</h1>
+      <span class="code-tag">Live Example</span>
+      <div class="row">
         <div class="two columns">
-            <div class="field">
-                <label>No mask</label>
-                <input maxlength="5"/>
-            </div>
-
+          <div class="field">
+            <label>No mask</label>
+            <input maxlength="5"/>
+          </div>
         </div>
         <div class="two columns">
-            <div class="field">
-                <label>+ Number (3)</label>
-                <input alignRight="true" soho-mask [pattern]="'###'" [mode]="'number'"/>
-            </div>
-
-            <div class="field">
-                <label>+ Decimal (3.2)</label>
-                <input alignRight="true" soho-mask [pattern]="'###.##'" [mode]="'number'" [negative]="true"/>
-            </div>
-
-            <div class="field">
-                <label>+ Percent (3.2)</label>
-                <input alignRight="true" soho-mask [pattern]="'###.##'" [mode]="'number'" [negative]="true" [showSymbol]="'percent'"/>
-            </div>
-
-            <div class="field">
-                <label>+ Currency (3.2)</label>
-                <input alignRight="true" soho-mask [pattern]="'###.##'" [mode]="'number'" [negative]="true" [showSymbol]="'currency'"/>
-            </div>
+          <div class="field">
+            <label>+ Number (3)</label>
+            <input alignRight="true" soho-mask [pattern]="'###'" [mode]="'number'"/>
+          </div>
+          <div class="field">
+            <label>+ Decimal (3.2)</label>
+            <input alignRight="true" soho-mask [pattern]="'###.##'" [mode]="'number'" [negative]="true"/>
+          </div>
+          <div class="field">
+            <label>+ Percent (3.2)</label>
+            <input alignRight="true" soho-mask [pattern]="'###.##'" [mode]="'number'" [negative]="true" [showSymbol]="'percent'"/>
+          </div>
+          <div class="field">
+            <label>+ Currency (3.2)</label>
+            <input alignRight="true" soho-mask [pattern]="'###.##'" [mode]="'number'" [negative]="true" [showSymbol]="'currency'"/>
+          </div>
         </div>
-
         <div class="two columns">
-            <div class="field">
-                <label>+- Number (3)</label>
-                <input alignRight="true" soho-mask [pattern]="'###-'" [mode]="'number'" [negative]="true"/>
-            </div>
-
-            <div class="field">
-                <label>+- Decimal (3.2)</label>
-                <input alignRight="true" soho-mask [pattern]="'###.##-'" [mode]="'number'" [negative]="true"/>
-            </div>
-
-            <div class="field">
-                <label>+- Percent (3.2)</label>
-                <input alignRight="true" soho-mask [pattern]="'###.##-'" [mode]="'number'" [negative]="true" [showSymbol]="'percent'"/>
-            </div>
-
-            <div class="field">
-                <label>+- Currency (3.2)</label>
-                <input alignRight="true" soho-mask [pattern]="'###.##-'" [mode]="'number'" [negative]="true" [showSymbol]="'currency'" (write)="onMaskWrite($event)" />
-            </div>
+          <div class="field">
+            <label>+- Number (3)</label>
+            <input alignRight="true" soho-mask [pattern]="'###-'" [mode]="'number'" [negative]="true"/>
+          </div>
+          <div class="field">
+            <label>+- Decimal (3.2)</label>
+            <input alignRight="true" soho-mask [pattern]="'###.##-'" [mode]="'number'" [negative]="true"/>
+          </div>
+          <div class="field">
+            <label>+- Percent (3.2)</label>
+            <input alignRight="true" soho-mask [pattern]="'###.##-'" [mode]="'number'" [negative]="true" [showSymbol]="'percent'"/>
+          </div>
+          <div class="field">
+            <label>+- Currency (3.2)</label>
+            <input alignRight="true" soho-mask [pattern]="'###.##-'" [mode]="'number'" [negative]="true" [showSymbol]="'currency'" (write)="onMaskWrite($event)" />
+          </div>
         </div>
+      </div>
     </div>
+  </form>
 </div>

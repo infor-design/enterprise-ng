@@ -9,7 +9,6 @@ export * from './header';
 export * from './icon';
 export * from './listview';
 export * from './lookup';
-export * from './mask';
 export * from './masthead';
 export * from './menu-button';
 export * from './searchfield';

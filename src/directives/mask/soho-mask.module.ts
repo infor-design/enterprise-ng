@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SohoMaskComponent } from './mask.component';
+import { SohoMaskDirective } from './soho-mask.directive';
 
 @NgModule({
   imports: [
     CommonModule,
   ],
   declarations: [
-    SohoMaskComponent
+    SohoMaskDirective
   ],
   exports: [
-    SohoMaskComponent
+    SohoMaskDirective
   ]
 })
 export class SohoMaskModule {}

@@ -1,21 +1,17 @@
 import {
   AfterViewInit,
-  Component,
+  Directive,
   ElementRef,
   EventEmitter,
   Input,
   OnDestroy,
   Output
 } from '@angular/core';
-import { MaskEvent } from './';
 
-export type SohoMaskMode = 'group' | 'number' | 'date' | 'time';
-
-@Component({
-  selector: 'input[soho-mask]',
-  template: '<ng-content></ng-content>'
+@Directive({
+  selector: 'input[soho-mask]'
 })
-export class SohoMaskComponent implements AfterViewInit, OnDestroy {
+export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   /**
    * Pattern for the mask
    */
@@ -65,12 +61,12 @@ export class SohoMaskComponent implements AfterViewInit, OnDestroy {
    * Indicates to display the localized symbol for currency or percent;
    * backwards compatible with old 'data-show-currency'; value true equates to currency
    */
-  @Input() showSymbol: boolean | 'currency' | 'percent' = false;
+  @Input() showSymbol: SohoMaskShowSymbol = false;
 
   /**
    * Called when mask value changes
    */
-  @Output() write: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() write: EventEmitter<SohoMaskEvent> = new EventEmitter<SohoMaskEvent>();
 
   /**
    * Local variables
@@ -79,12 +75,10 @@ export class SohoMaskComponent implements AfterViewInit, OnDestroy {
   private mask: any;
 
   constructor(private element: ElementRef) { }
-
   ngAfterViewInit() {
-    // TODO: Figure out what element to send to jQuery to init the component
     this.jQueryElement = jQuery(this.element.nativeElement);
 
-    this.jQueryElement.mask({
+    let options: SohoMaskOptions = {
       pattern: this.pattern,
       placeholder: this.placeholder,
       definitions: this.definitions,
@@ -96,16 +90,21 @@ export class SohoMaskComponent implements AfterViewInit, OnDestroy {
       processOnInitialize: this.processOnInitialize,
       thousandsSeparator: this.thousandsSeparator,
       showSymbol: this.showSymbol
-    });
+    };
+
+    this.jQueryElement.mask(options);
 
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('write.mask', (event: MaskEvent) => { this.write.emit(event); });
+    this.jQueryElement.on('write.mask', (event: SohoMaskEvent) => { this.write.emit(event); });
 
     this.mask = this.jQueryElement.data('mask');
   }
   ngOnDestroy() {
-    this.mask.destroy();
+    if (this.mask) {
+      this.mask.destroy();
+      this.mask = null;
+    }
   }
 }
