@@ -127,9 +127,43 @@ interface SohoTabsEvent {
   type: string;
 }
 
+interface SohoTextareaEvent {
+  currentTarget: HTMLElement;
+  data: any;
+  delegateTarget: HTMLElement;
+  handleObj: Object;
+  isTrigger: number;
+  namespace: string;
+  result: any;
+  rnamespace: any;
+  target: HTMLElement;
+  timeStamp: number;
+  type: string;
+}
+
 interface SohoMenuButtonOptions {
   menu: string;
   trigger?: string;
+}
+
+interface SohoTextareaOptions {
+  characterCounter?: boolean;
+  printable?: boolean;
+  charRemainingText: string;
+  charMaxText: string;
+}
+
+interface SohoEditorOptions {
+  buttons?: {
+    editor: Object,
+    source: Object
+  };
+  delay?: number;
+  firstHeader?: string;
+  secondHeader?: string;
+  placeholder: string;
+  anchor: string;
+  image: string;
 }
 
 /**
@@ -181,8 +215,10 @@ interface JQuery {
   applicationmenu(options?: SohoApplicationMenuOptions): JQuery;
   toast(options?: SohoToastOptions): JQuery;
   busyindicator(options?: SohoBusyIndicatorOptions): JQuery;
+  editor(options?: SohoEditorOptions): JQuery;
   mask(options?: SohoMaskOptions): JQuery;
   tabs(): JQuery;
+  textarea(options?: SohoTextareaOptions): JQuery;
   initialize(locale: string): JQuery;
   personalize(): JQuery;
   splitter(): JQuery;

@@ -4,7 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator.demo';
 import { ButtonDemoComponent } from './button/button.demo';
+import { EditorDemoComponent } from './editor/editor.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
+import { TextareaDemoComponent } from './textarea/textarea.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
 import { IconDemoComponent } from './icon/icon.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
@@ -44,6 +46,7 @@ import { TabsDismissibleDemoComponent } from './tabs/tabs-dismissible.demo';
 import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
+import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
@@ -53,7 +56,9 @@ export const routes: Routes = [
   { path: 'dropdown',              component: DropdownDemoComponent },
   { path: 'dropdown-multi',        component: DropdownMultiselectDemoComponent },
   { path: 'dropdown-lm',           component: DropdownLMDemoComponent },
+  { path: 'editor',                component: EditorDemoComponent },
   { path: 'expandablearea',        component: ExpandableAreaDemoComponent },
+  { path: 'textarea',              component: TextareaDemoComponent },
   { path: 'toast',                 component: ToastDemoComponent },
   { path: 'icon',                  component: IconDemoComponent },
   { path: 'listview',              component: ListviewDemoComponent },
@@ -85,6 +90,7 @@ export const routes: Routes = [
   { path: 'toolbar-datadriven',    component: ToolbarDataDrivenDemoComponent },
   { path: 'toolbar-all-icons',     component: ToolbarAllIconsDemoComponent },
   // { path: 'accordian',           component: AccordionSampleComponent},
+  { path: 'validation',            component: ValidationFormDemoComponent},
 ];
 
 export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes);
