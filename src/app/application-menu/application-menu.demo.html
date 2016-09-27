@@ -1,22 +1,14 @@
 <div class="accordion panel inverse" data-options="{'allowOnePane': true, rerouteOnLinkClick: false}">
 
+  <div class="accordion-header list-item"><a [routerLink]="['application-lazy-menu']"><span>Application Lazy Menu</span></a></div>
+
   <div class="accordion-header list-item"><a [routerLink]="['button']"><span>Button</span></a></div>
   <div class="accordion-header list-item"><a [routerLink]="['busyindicator']"><span>Busy Indicator</span></a></div>
 
   <div class="accordion-header"><a href="javascript:void(0);"><span>Date and Time</span></a></div>
   <div class="accordion-pane">
     <div class="accordion-header list-item"><a [routerLink]="['datepicker']"><span>Datepicker</span></a></div>
-  </div>
-
-  <div class="accordion-header"><a href="javascript:void(0);"><span>DataGrids</span></a></div>
-  <div class="accordion-pane">
-    <div class="accordion-header list-item"><a [routerLink]="['datagrid-dynamic']"><span>Dynamic DataGrid</span></a></div>
-    <div class="accordion-header list-item"><a [routerLink]="['datagrid-service']"><span>Service DataGrid</span></a></div>
-    <div class="accordion-header list-item"><a [routerLink]="['datagrid-content']"><span>Content DataGrid</span></a></div>
-    <div class="accordion-header list-item"><a [routerLink]="['datagrid-breadcrumb']"><span>DataGrid with Toolbar and Breadcrumb</span></a></div>
-    <div class="accordion-header list-item"><a [routerLink]="['datagrid-treegrid']"><span>TreeGrid</span></a></div>
-    <div class="accordion-header list-item"><a [routerLink]="['datagrid-settings']"><span>DataGrid with Updatable Settings</span></a></div>
-    <div class="accordion-header list-item"><a [routerLink]="['datagrid-paging']"><span>DataGrid Paging</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['timepicker']"><span>Timepicker</span></a></div>
   </div>
 
   <div class="accordion-header"><a href="javascript:void(0);"><span>Dropdown</span></a></div>
@@ -26,15 +18,8 @@
     <div class="accordion-header list-item"><a [routerLink]="['dropdown-lm']"><span>Landmark Single-Select</span></a></div>
   </div>
 
+  <div class="accordion-header list-item"><a [routerLink]="['editor']"><span>Rich Text Editor</span></a></div>
   <div class="accordion-header list-item"><a [routerLink]="['expandablearea']"><span>Expandable Area</span></a></div>
-
-  <div class="accordion-header"><a href="javascript:void(0);"><span>Header</span></a></div>
-  <div class="accordion-pane">
-    <div class="accordion-header list-item"><a [routerLink]="['header-toolbar']"><span>Header Toolbar</span></a></div>
-    <div class="accordion-header list-item"><a [routerLink]="['header-tabs']"><span>Header Tabs</span></a></div>
-    <div class="accordion-header list-item"><a [routerLink]="['header-toolbar-tabs']"><span>Header Toolbar And Tabs</span></a></div>
-  </div>
-
   <div class="accordion-header list-item"><a [routerLink]="['icon']"><span>Icon</span></a></div>
   <div class="accordion-header list-item"><a [routerLink]="['listview']"><span>Listview</span></a></div>
   <div class="accordion-header list-item"><a [routerLink]="['lookup']"><span>Lookup</span></a></div>
@@ -47,18 +32,16 @@
     <div class="accordion-header list-item"><a [routerLink]="['splitter-horizontal']"><span>Horizontal Splitter</span></a></div>
   </div>
 
-  <div class="accordion-header"><a href="javascript:void(0);"><span>Tabs</span></a></div>
-  <div class="accordion-pane">
-    <div class="accordion-header list-item"><a [routerLink]="['tabs-basic']"><span>Basic Tabs</span></a></div>
-    <div class="accordion-header list-item"><a [routerLink]="['tabs-vertical']"><span>Vertical Tabs</span></a></div>
-    <div class="accordion-header list-item"><a [routerLink]="['tabs-counts']"><span>Tabs With Counts</span></a></div>
-    <div class="accordion-header list-item"><a [routerLink]="['tabs-dismissible']"><span>Dismissible Tabs</span></a></div>
-    <div class="accordion-header list-item"><a [routerLink]="['tabs-dropdown']"><span>Dropdown Tabs</span></a></div>
-    <div class="accordion-header list-item"><a [routerLink]="['tabs-datadriven']"><span>Data-driven Tabs</span></a></div>
-    <div class="accordion-header list-item"><a [routerLink]="['tabs-dynamic']"><span>Dynamic Tabs</span></a></div>
-  </div>
-
   <div class="accordion-header list-item"><a [routerLink]="['toast']"><span>Toast</span></a></div>
+
+  <div class="accordion-header list-item"><a [routerLink]="['textarea']"><span>Textarea</span></a></div>
+
+  <div class="accordion-header"><a href="javascript:void(0);"><span>Header</span></a></div>
+  <div class="accordion-pane">
+    <div class="accordion-header list-item"><a [routerLink]="['header-toolbar']"><span>Header Toolbar</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['header-tabs']"><span>Header Tabs</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['header-toolbar-tabs']"><span>Header Toolbar And Tabs</span></a></div>
+  </div>
 
   <div class="accordion-header"><a href="javascript:void(0);"><span>Toolbar</span></a></div>
   <div class="accordion-pane">
@@ -74,7 +57,29 @@
     <div class="accordion-header list-item"><a [routerLink]="['tree-content']"><span>Content Tree</span></a></div>
   </div>
 
-  <div class="accordion-header list-item"><a [routerLink]="['validation']"><span>Validation</span></a></div>
+  <div class="accordion-header"><a href="javascript:void(0);"><span>DataGrids</span></a></div>
+  <div class="accordion-pane">
+    <div class="accordion-header list-item"><a [routerLink]="['datagrid-dynamic']"><span>Dynamic DataGrid</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['datagrid-service']"><span>Service DataGrid</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['datagrid-content']"><span>Content DataGrid</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['datagrid-breadcrumb']"><span>DataGrid with Toolbar and Breadcrumb</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['datagrid-treegrid']"><span>TreeGrid</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['datagrid-settings']"><span>DataGrid with Updatable Settings</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['datagrid-paging']"><span>DataGrid Paging</span></a></div>
+  </div>
+
+  <div class="accordion-header"><a href="javascript:void(0);"><span>Tabs</span></a></div>
+  <div class="accordion-pane">
+    <div class="accordion-header list-item"><a [routerLink]="['tabs-basic']"><span>Basic Tabs</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['tabs-vertical']"><span>Vertical Tabs</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['tabs-counts']"><span>Tabs With Counts</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['tabs-dismissible']"><span>Dismissible Tabs</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['tabs-dropdown']"><span>Dropdown Tabs</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['tabs-datadriven']"><span>Data-driven Tabs</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['tabs-dynamic']"><span>Dynamic Tabs</span></a></div>
+  </div>
+
+<div class="accordion-header list-item"><a [routerLink]="['validation']"><span>Validation</span></a></div>
 
 </div>
 
