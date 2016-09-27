@@ -42,6 +42,7 @@ export interface SohoGridColumn {
   caseSensitive?: boolean;
   // String array or an array of objects with a value method used for filters and editors.
   options?: SohoGridCellOption[];
+  editorOptions?: any;
   cssClass?: any;
   dateShowFormat?: any;
   dateSourceFormat?: any;
