@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SohoButtonComponent } from './button.component';
+import { SohoButtonComponent } from './soho-button.component';
 import { SohoIconModule } from '../icon/icon.module';
 
 @NgModule({

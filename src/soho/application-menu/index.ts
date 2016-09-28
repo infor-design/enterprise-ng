@@ -1,2 +1,2 @@
-export * from './application-menu.component';
-export * from './application-menu.module';
+export * from './soho-application-menu.component';
+export * from './soho-application-menu.module';

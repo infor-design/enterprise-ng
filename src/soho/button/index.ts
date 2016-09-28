@@ -1,2 +1,2 @@
-export * from './button.component';
-export * from './button.module';
+export * from './soho-button.component';
+export * from './soho-button.module';

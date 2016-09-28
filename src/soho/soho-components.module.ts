@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { SohoApplicationMenuModule } from './application-menu/soho-application-menu.module';
 import { SohoBusyIndicatorModule } from './busyindicator/soho-busyindicator.module';
-import { SohoButtonModule } from './button/button.module';
+import { SohoButtonModule } from './button/soho-button.module';
 import { SohoDatagridModule } from './datagrid/datagrid.module';
 import { SohoDatepickerModule } from './datepicker/datepicker.module';
 import { SohoDropdownModule } from './dropdown/dropdown.module';
