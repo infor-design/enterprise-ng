@@ -8,9 +8,12 @@ export class ApplicationMenuLazyService {
 
   public getMenuItems(): Promise<any> {
     return new Promise(function(resolve) {
+      let a = 'sub_' + Math.random();
+      let b = 'sub_' + Math.random();
+
       resolve([
-        {mockUrl: 'sub_' + Math.random(), name: 'SubChild One'},
-        {mockUrl: 'sub_' + Math.random(), name: 'SubChild Two'}
+        {mockUrl: a, name: a},
+        {mockUrl: b, name: b}
       ]);
     });
   }
