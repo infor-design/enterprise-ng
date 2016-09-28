@@ -116,10 +116,13 @@ export class SohoApplicationMenuComponent implements AfterViewInit {
     let $applicationMenu = jQuery(applicationMenu.elementRef.nativeElement).data('applicationmenu');
     let $accordion = $applicationMenu.accordion;
     let accordion = $accordion.data('accordion');
-    // let header = jQuery(target).closest('.accordion-header');
 
-    // accordion.expand(header);
     accordion.headers = $accordion.find('.accordion-header');
+
+    setTimeout(() => {
+      let header = jQuery(target).closest('.accordion-header');
+      accordion.toggle(header);
+    }, 1);
   }
 
   // ------------------------------------------
