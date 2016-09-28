@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SohoTimePickerComponent } from './soho-timepicker.component';
+import {
+  SohoSplitterComponent
+} from './soho-splitter.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    SohoTimePickerComponent
+    SohoSplitterComponent
   ],
   exports: [
-    SohoTimePickerComponent
+    SohoSplitterComponent
   ]
 })
-export class SohoTimePickerModule {}
+export class SohoSplitterModule {}

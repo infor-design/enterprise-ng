@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SohoTimePickerComponent } from './soho-timepicker.component';
+import { SohoDataGridComponent } from './soho-datagrid.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    SohoTimePickerComponent
+    SohoDataGridComponent
   ],
   exports: [
-    SohoTimePickerComponent
+    SohoDataGridComponent
   ]
 })
-export class SohoTimePickerModule {}
+export class SohoDataGridModule {}

@@ -16,7 +16,7 @@ export type SohoButtonType = 'primary' | 'secondary' | 'tertiary' | 'icon';
 
 @Component({
   selector: 'button[soho-button]', // tslint:disable-line
-  templateUrl: './button.component.html',
+  templateUrl: './soho-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoButtonComponent implements AfterViewInit, OnDestroy {

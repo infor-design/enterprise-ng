@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
-  SohoTextareaComponent
+  SohoTextAreaComponent
 } from './soho-textarea.component';
 
 @NgModule({
   imports: [ CommonModule ],
   declarations: [
-    SohoTextareaComponent
+    SohoTextAreaComponent
   ],
   exports: [
-    SohoTextareaComponent
+    SohoTextAreaComponent
   ]
 })
-export class SohoTextareaModule {}
+export class SohoTextAreaModule {}

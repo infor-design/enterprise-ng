@@ -1,8 +1,8 @@
-export { SohoDataGridComponent } from './datagrid.component';
-export { SohoDatagridModule } from './datagrid.module';
+export { SohoDataGridComponent } from './soho-datagrid.component';
+export { SohoDataGridModule } from './soho-datagrid.module';
 export {
   SohoDataGridAddRowEvent,
-  SohoDatagridConfiguration,
+  SohoDataGridConfiguration,
   SohoDataGridPageInfo,
   SohoDataGridSelectedRow,
   SohoGridOptions,
@@ -21,5 +21,5 @@ export {
   SohoResultsTextFunction,
   SohoToolbarConfiguration,
   SohoToolbarOptions
-} from './datagrid.model';
-export { SohoDataGridService } from './datagrid.service';
+} from './soho-datagrid.model';
+export { SohoDataGridService } from './soho-datagrid.service';

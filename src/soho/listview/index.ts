@@ -1,2 +1,2 @@
-export * from './listview.component';
-export * from './listview.module';
+export * from './soho-listview.component';
+export * from './soho-listview.module';

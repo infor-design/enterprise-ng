@@ -1,5 +1,5 @@
-export * from './expandablearea.component'
-export * from './expandablearea.module';
+export * from './soho-expandablearea.component'
+export * from './soho-expandablearea.module';
 
 /**
  * Interface for the jQuery event emitted

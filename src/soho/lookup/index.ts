@@ -1,5 +1,5 @@
-export * from './lookup.component';
-export * from './lookup.module';
+export * from './soho-lookup.component';
+export * from './soho-lookup.module';
 
 export declare abstract class OnBeforeLookupShow {
   /**

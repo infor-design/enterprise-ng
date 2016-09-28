@@ -1,2 +1,2 @@
-export * from './searchfield.component';
-export * from './searchfield.module';
+export * from './soho-searchfield.component';
+export * from './soho-searchfield.module';

@@ -1,2 +1,2 @@
-﻿export * from './splitter.component';
-export * from './splitter.module';
+﻿export * from './soho-splitter.component';
+export * from './soho-splitter.module';

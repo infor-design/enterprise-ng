@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ApplicationMenuLazyService } from './application-menu-lazy-service.demo';
+
+// import { SohoApplicationMenuComponent } from '@infor/soho/application-menu';
 import { SohoApplicationMenuComponent } from '../../soho/application-menu';
 
 @Component({

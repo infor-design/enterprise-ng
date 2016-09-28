@@ -13,7 +13,7 @@ import {
   selector: 'input[soho-timepicker]', // tslint:disable-line
   template: '<ng-content></ng-content>'
 })
-export class SohoTimepickerComponent implements AfterViewInit, OnDestroy {
+export class SohoTimePickerComponent implements AfterViewInit, OnDestroy {
   /**
    * Indicates mode, either 'standard' or 'range'; default value is 'standard'
    */
@@ -36,7 +36,7 @@ export class SohoTimepickerComponent implements AfterViewInit, OnDestroy {
   /**
    * Called when the datepicker value changes
    */
-  @Output() change: EventEmitter<SohoTimepickerEvent> = new EventEmitter<SohoTimepickerEvent>();
+  @Output() change: EventEmitter<SohoTimePickerEvent> = new EventEmitter<SohoTimePickerEvent>();
 
   /**
    * Bind attributes to the host input element
@@ -53,7 +53,7 @@ export class SohoTimepickerComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
-    let options: SohoTimepickerOptions = {
+    let options: SohoTimePickerOptions = {
       mode: this.mode,
       timeFormat: this.timeFormat,
       minuteInterval: this.minuteInterval,
@@ -65,7 +65,7 @@ export class SohoTimepickerComponent implements AfterViewInit, OnDestroy {
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (event: SohoTimepickerEvent) => this.change.emit(event));
+    this.jQueryElement.on('change', (event: SohoTimePickerEvent) => this.change.emit(event));
 
     this.timepicker = this.jQueryElement.data('timepicker');
   }

@@ -1,2 +1,2 @@
-export * from './tabs.component';
-export * from './tabs.module';
+export * from './soho-tabs.component';
+export * from './soho-tabs.module';

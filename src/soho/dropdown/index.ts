@@ -1,2 +1,2 @@
-export * from './dropdown.component';
-export * from './dropdown.module';
+export * from './soho-dropdown.component';
+export * from './soho-dropdown.module';

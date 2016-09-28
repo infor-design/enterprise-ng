@@ -1,7 +1,7 @@
-export * from './datepicker.component';
-export * from './datepicker.module';
+export * from './soho-datepicker.component';
+export * from './soho-datepicker.module';
 
-export interface SohoDatepickerEvent {
+export interface SohoDatePickerEvent {
   currentTarget: HTMLElement;
   data: any;
   delegateTarget: HTMLElement;

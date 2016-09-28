@@ -78,13 +78,13 @@ interface SohoSplitterOptions {
 
 // timepicker
 type SohoTimeMode = 'standard' | 'range';
-interface SohoTimepickerOptions {
+interface SohoTimePickerOptions {
   mode: SohoTimeMode;
   timeFormat: string;
   minuteInterval: number;
   roundToInterval: boolean;
 }
-interface SohoTimepickerEvent {
+interface SohoTimePickerEvent {
   currentTarget: HTMLElement;
   data: any;
   delegateTarget: HTMLElement;
@@ -146,7 +146,7 @@ interface SohoMenuButtonOptions {
   trigger?: string;
 }
 
-interface SohoTextareaOptions {
+interface SohoTextAreaOptions {
   characterCounter?: boolean;
   printable?: boolean;
   charRemainingText: string;
@@ -218,11 +218,11 @@ interface JQuery {
   editor(options?: SohoEditorOptions): JQuery;
   mask(options?: SohoMaskOptions): JQuery;
   tabs(): JQuery;
-  textarea(options?: SohoTextareaOptions): JQuery;
+  textarea(options?: SohoTextAreaOptions): JQuery;
   initialize(locale: string): JQuery;
   personalize(): JQuery;
   splitter(): JQuery;
-  timepicker(options?: SohoTimepickerOptions): JQuery;
+  timepicker(options?: SohoTimePickerOptions): JQuery;
 }
 
 interface LocaleStatic {

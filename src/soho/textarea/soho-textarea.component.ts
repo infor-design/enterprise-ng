@@ -13,13 +13,13 @@ import {
   selector: 'textarea[soho-textarea]', // tslint:disable-line
   template: '<ng-content></ng-content>',
 })
-export class SohoTextareaComponent implements AfterViewInit, OnDestroy {
+export class SohoTextAreaComponent implements AfterViewInit, OnDestroy {
 
   // -------------------------------------------
   // Options Block
   // -------------------------------------------
 
-  private options: SohoTextareaOptions = {
+  private options: SohoTextAreaOptions = {
     characterCounter : undefined, // Turns on the character counter for the select element
     printable : undefined, // Sets the select element as printable
     charRemainingText : undefined, // Sets the select element remaining character text

@@ -1,2 +1,2 @@
-export * from './header.component';
-export * from './header.module';
+export * from './soho-header.component';
+export * from './soho-header.module';

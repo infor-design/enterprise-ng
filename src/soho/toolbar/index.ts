@@ -1,2 +1,2 @@
-export * from './toolbar.component';
-export * from './toolbar.module';
+export * from './soho-toolbar.component';
+export * from './soho-toolbar.module';

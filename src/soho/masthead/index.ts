@@ -1,2 +1,2 @@
-export * from './masthead.component';
-export * from './masthead.module';
+export * from './soho-masthead.component';
+export * from './soho-masthead.module';

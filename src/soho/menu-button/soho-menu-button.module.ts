@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SohoButtonComponent } from './soho-button.component';
 import { SohoIconModule } from '../icon/soho-icon.module';
+import { SohoMenuButtonComponent } from './soho-menu-button.component';
 
 @NgModule({
   imports: [
@@ -9,10 +9,10 @@ import { SohoIconModule } from '../icon/soho-icon.module';
     SohoIconModule
   ],
   declarations: [
-    SohoButtonComponent
+    SohoMenuButtonComponent
   ],
   exports: [
-    SohoButtonComponent
+    SohoMenuButtonComponent
   ]
 })
-export class SohoButtonModule {}
+export class SohoMenuButtonModule {}
