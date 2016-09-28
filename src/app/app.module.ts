@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
 
-import { SohoComponentsModule } from '../soho-components.module';
+import { SohoComponentsModule } from '../soho/soho-components.module';
 
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { ButtonDemoComponent } from './button/button.demo';

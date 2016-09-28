@@ -3,7 +3,7 @@
  */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SohoApplicationMenuComponent } from './application-menu.component';
+import { SohoApplicationMenuComponent } from './soho-application-menu.component';
 
 @NgModule({
   imports: [
