@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Rx';
 import {
   SohoTreeService,
   SohoTreeNode
-} from '../../components/tree';
+} from '../../soho/tree';
 
 @Injectable()
 export class TreeDemoService extends SohoTreeService {

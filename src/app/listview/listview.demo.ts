@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
     }
   `]
 })
-export class ListviewDemoComponent {
+export class ListViewDemoComponent {
   private demoTasks: Object[];
   private counter = 63012;
   private dates = [

@@ -12,9 +12,9 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import {
   SohoDataGridComponent,
   SohoGridColumn
-} from '../../components/datagrid';
+} from '../../soho/datagrid';
 
-import { SohoBusyIndicatorComponent } from '../../components/busyindicator';
+import { SohoBusyIndicatorComponent } from '../../soho/busyindicator';
 
 import {
   DataGridDemoService

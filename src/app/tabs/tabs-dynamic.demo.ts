@@ -7,7 +7,7 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { SohoTabsComponent } from '../../components/tabs';
+import { SohoTabsComponent } from '../../soho/tabs';
 
 /**
  * This sample:

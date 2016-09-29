@@ -5,14 +5,14 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { TreeDemoService } from './tree-demo.service';
-
 import {
   SohoTreeComponent,
   SohoTreeService,
   SohoTreeNode,
   SohoTreeEvent
-} from '../../components/tree';
+} from '../../soho/tree';
+
+import { TreeDemoService } from './tree-demo.service';
 
 @Component({
   selector: 'soho-tree-service-demo',

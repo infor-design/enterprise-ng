@@ -13,7 +13,7 @@ import {
   forwardRef,
 } from '@angular/core';
 
-import { SohoSearchfieldComponent } from '../soho-searchfield';
+import { SohoSearchFieldComponent } from '../searchfield';
 
 /**
  * This component will allow the developer to modify any DOM element
@@ -148,8 +148,8 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy {
 
   // Used to locate the listViewReference in the HTML to init the component through jQuery
   @ViewChild('listview') listViewRef: ElementRef;
-  @ContentChild(forwardRef(() => SohoSearchfieldComponent))
-  private searchfieldRef: SohoSearchfieldComponent = null;
+  @ContentChild(forwardRef(() => SohoSearchFieldComponent))
+  private searchfieldRef: SohoSearchFieldComponent = null;
 
   /**
    * Local variables

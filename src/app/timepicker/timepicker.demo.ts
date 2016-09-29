@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 
 @Component({
   selector: 'soho-timepicker-demo',
   templateUrl: 'timepicker.demo.html',
 })
-export class TimepickerDemoComponent implements OnInit {
+export class TimePickerDemoComponent implements OnInit {
 
   private model = { // tslint:disable-line
     hhmm: '1:23 PM',

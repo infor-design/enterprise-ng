@@ -7,7 +7,7 @@ import {
 import {
   SohoDataGridComponent,
   SohoDataGridService
-} from '../../components/datagrid';
+} from '../../soho/datagrid';
 
 import {
   DataGridDemoService

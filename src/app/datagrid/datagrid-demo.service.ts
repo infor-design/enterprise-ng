@@ -7,7 +7,7 @@ import {
   SohoSourceRequest,
   SohoGridColumn,
   SohoGridColumnFilterTypes
-} from '../../components/datagrid';
+} from '../../soho/datagrid';
 
 declare var Formatters: any;
 

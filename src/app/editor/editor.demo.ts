@@ -6,7 +6,7 @@ import {
 
 import {
   SohoEditorComponent
-} from '../../components/editor';
+} from '../../soho/editor';
 
 @Component({
   selector: 'soho-editor-demo',

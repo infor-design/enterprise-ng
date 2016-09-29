@@ -7,12 +7,12 @@ import {
 } from '@angular/core';
 
 import { Subject } from 'rxjs/Subject';
-/* tslint:disable */
-import { Observable } from 'rxjs/Observable';
-/* tslint:enable */
 
-import { SohoTreeComponent } from '../../components/tree/tree.component';
-import { SohoTreeNode, SohoTreeEvent } from '../../components/tree/tree.model';
+import {
+  SohoTreeComponent,
+  SohoTreeNode,
+  SohoTreeEvent
+} from '../../soho/tree';
 
 @Component({
   selector: 'soho-tree-dynamic-demo',
