@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class AngularComponentsPage {
+export class SohoAngularComponentsPage {
   navigateTo() {
     return browser.get('/');
   }

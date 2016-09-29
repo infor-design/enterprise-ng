@@ -1,10 +1,10 @@
-import { AngularComponentsPage } from './app.po';
+import { SohoAngularComponentsPage } from './app.po';
 
-describe('angular-components App', function() {
-  let page: AngularComponentsPage;
+describe('soho-angular-components App', function() {
+  let page: SohoAngularComponentsPage;
 
   beforeEach(() => {
-    page = new AngularComponentsPage();
+    page = new SohoAngularComponentsPage();
   });
 
   it('should display message saying app works', () => {
