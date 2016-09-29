@@ -1,13 +1,10 @@
-
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
-  forwardRef,
   HostBinding,
-  Inject,
   Input,
   OnDestroy,
   Output,
@@ -93,21 +90,6 @@ export class SohoTabPanelComponent {
 })
 export class SohoTabsListComponent {
   @HostBinding('class.tab-list') get isTabList() { return true; };
-  @Input() headerTabs: boolean = false;
-
-  // -----------------------------------------------------------------------------------------
-  // Have to emulate '.page-container > tab-container.vertical' styles due to it being
-  // a child selector. Any component using this component will end up placing an element
-  // between the '.page-container' and 'tab-container.vertical' causing child selector
-  // not to get used.
-  // TODO ppatton once the css handles encapsulaing markup then this can be removed.
-  // -----------------------------------------------------------------------------------------
-  @HostBinding('style.height') get tabListHeight() { return this.sohoTabsComponent.vertical ? '100%' : ''; };
-  private sohoTabsComponent: SohoTabsComponent;
-  constructor(@Inject(forwardRef(() => SohoTabsComponent)) sohoTabsComponent: SohoTabsComponent) {
-    this.sohoTabsComponent = sohoTabsComponent;
-  }
-  // -----------------------------------------------------------------------------------------
 }
 
 /**
@@ -122,17 +104,6 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.tab-container') get isTabContainer() { return true; };
   @HostBinding('class.vertical')      get isVertical()     { return this.vertical; };
   @HostBinding('attr.alternate')      get isAlternate()    { return this.alternate; };
-
-  // -----------------------------------------------------------------------------------------
-  // Have to emulate '.page-container > tab-container.vertical' styles due to it being
-  // a child selector. Any component using this component will end up placing an element
-  // between the '.page-container' and 'tab-container.vertical' causing child selector
-  // not to get used.
-  // -----------------------------------------------------------------------------------------
-  @HostBinding('style.height') get getHeightStyle() { return (this.vertical) ? '100%' : ''; };
-  @HostBinding('style.overflow') get getOverflowStyle() { return (this.vertical) ? 'auto' : ''; };
-
-  // @ViewChild(SohoTabsListComponent) tabsListComponent: SohoTabsListComponent;
 
   // ------------------------------------------------------------------------
   // @Inputs
@@ -155,20 +126,6 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
    * @type {boolean}
    */
   @Input() vertical: boolean = false;
-
-  /**
-   * set to true to display the tabs in the main header
-   * @type {boolean}
-   * TODO implement header tabs.
-   */
-  @Input() headerTabs: boolean = false;
-
-  /**
-   * show the tabs as module tabs
-   * @type {boolean}
-   * TODO implement module tabs.
-   */
-  @Input() moduleTabs: boolean = false;
 
   /**
    * If set to true, creates a button at the end of the tab list that can be used to add an empty tab and panel.
@@ -400,8 +357,4 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
   public enable(): void {
     this.tabs.enable();
   }
-
-  // public isinitalized(): boolean {
-  //   return !!this.tabs;
-  // }
 }
