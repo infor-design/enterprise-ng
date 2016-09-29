@@ -9,7 +9,7 @@ import {
   SohoTreeComponent,
   SohoTreeNode,
   SohoTreeEvent
-} from '../../components/tree';
+} from '../../soho/tree';
 
 @Component({
   selector: 'soho-tree-content-demo',

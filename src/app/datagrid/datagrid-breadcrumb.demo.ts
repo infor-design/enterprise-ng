@@ -12,7 +12,7 @@ import { DataGridDemoService } from './datagrid-demo.service';
 import {
   SohoDataGridComponent,
   SohoDataGridService
-} from '../../components/datagrid';
+} from '../../soho/datagrid';
 
 @Component({
   selector: 'soho-datagrid-breadcrumb-demo',

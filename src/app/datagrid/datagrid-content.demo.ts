@@ -4,7 +4,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import { SohoDataGridComponent } from '../../components/datagrid';
+import { SohoDataGridComponent } from '../../soho/datagrid';
 
 @Component({
   selector: 'soho-datagrid-content-demo',

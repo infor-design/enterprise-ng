@@ -6,8 +6,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { SohoApplicationMenuComponent } from '../components/application-menu';
-import { ArgumentHelper } from '../utils';
+import { SohoApplicationMenuComponent } from '../soho/application-menu';
+import { ArgumentHelper } from '../soho/utils';
 import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.service';
 
 @Component({
@@ -23,14 +23,14 @@ export class AppComponent implements AfterViewInit {
   @HostBinding('class.no-scroll') get isNoScroll() { return true; }
 
   constructor() {
-    // Set the locale here, to ensure all the values are setup.
+    // @todo Set the locale here, to ensure all the values are setup.
     Locale.set('en-US');
   }
 
   ngAfterViewInit() {
     ArgumentHelper.checkInputNotNull('AppComponent', 'applicationMenu', this.applicationMenu);
 
-    // A list of jQuery elements which trigger the openning and closing
+    // A list of jQuery elements which trigger the openning and closing of the
     // application menu.
     this.applicationMenu.triggers = ['.application-menu-trigger'];
   }

@@ -24,7 +24,7 @@ import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 
-import { ListviewDemoComponent } from './listview/listview.demo';
+import { ListViewDemoComponent } from './listview/listview.demo';
 
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
@@ -50,7 +50,7 @@ import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
-import { TimepickerDemoComponent } from './timepicker/timepicker.demo';
+import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
@@ -58,7 +58,7 @@ export const routes: Routes = [
   { path: 'button',                component: ButtonDemoComponent },
   { path: 'busyindicator',         component: BusyIndicatorDemoComponent },
   { path: 'datepicker',            component: DatepickerDemoComponent },
-  { path: 'timepicker',            component: TimepickerDemoComponent },
+  { path: 'timepicker',            component: TimePickerDemoComponent },
   { path: 'dropdown',              component: DropdownDemoComponent },
   { path: 'dropdown-multi',        component: DropdownMultiselectDemoComponent },
   { path: 'dropdown-lm',           component: DropdownLMDemoComponent },
@@ -67,7 +67,7 @@ export const routes: Routes = [
   { path: 'textarea',              component: TextareaDemoComponent },
   { path: 'toast',                 component: ToastDemoComponent },
   { path: 'icon',                  component: IconDemoComponent },
-  { path: 'listview',              component: ListviewDemoComponent },
+  { path: 'listview',              component: ListViewDemoComponent },
   { path: 'lookup',                component: LookupDemoComponent },
   { path: 'mask',                  component: MaskDemoComponent },
   { path: 'menu-button',           component: MenuButtonDemoComponent },

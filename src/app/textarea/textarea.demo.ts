@@ -1,8 +1,8 @@
 import { Component, OnInit , ViewChild} from '@angular/core';
 
 import {
-  SohoTextareaComponent
-} from '../../components/textarea';
+  SohoTextAreaComponent
+} from '../../soho/textarea';
 
 @Component({
   selector: 'soho-textarea-demo',
@@ -11,7 +11,7 @@ import {
 })
 export class TextareaDemoComponent implements OnInit {
 
-  @ViewChild(SohoTextareaComponent) textarea: SohoTextareaComponent;
+  @ViewChild(SohoTextAreaComponent) textarea: SohoTextAreaComponent;
 
   private model = { // tslint:disable-line
     resizableText: 'This text is resizable',

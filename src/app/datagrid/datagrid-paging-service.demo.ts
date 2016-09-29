@@ -4,11 +4,11 @@ import {
   Component,
   ViewChild
 } from '@angular/core';
-import { SohoDataGridComponent } from '../../components/datagrid';
 import {
+  SohoDataGridComponent,
   SohoGridOptions,
   SohoSourceRequest
-} from '../../components/datagrid/datagrid.model';
+} from '../../soho/datagrid';
 import { DataGridPagingDemoService } from './datagrid-paging-demo.service';
 
 @Component({

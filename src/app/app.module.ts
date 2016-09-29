@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
 
-import { SohoComponentsModule } from '../soho-components.module';
+import { SohoComponentsModule } from '../soho/soho-components.module';
 
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { ButtonDemoComponent } from './button/button.demo';
@@ -23,13 +23,13 @@ import { EditorDemoComponent } from './editor/editor.demo';
 import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
 import { IconDemoComponent } from './icon/icon.demo';
-import { ListviewDemoComponent } from './listview/listview.demo';
+import { ListViewDemoComponent } from './listview/listview.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
-import { TimepickerDemoComponent } from './timepicker/timepicker.demo';
+import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
 import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
@@ -77,7 +77,7 @@ import { ApplicationMenuLazyService } from './application-menu/application-menu-
     EditorDemoComponent,
     ToastDemoComponent,
     IconDemoComponent,
-    ListviewDemoComponent,
+    ListViewDemoComponent,
     LookupDemoComponent,
     MaskDemoComponent,
     MenuButtonDemoComponent,
@@ -89,7 +89,7 @@ import { ApplicationMenuLazyService } from './application-menu/application-menu-
 
     SplitterVerticalDemoComponent,
     SplitterHorizontalDemoComponent,
-    TimepickerDemoComponent,
+    TimePickerDemoComponent,
     TreeDynamicDemoComponent,
     TreeServiceDemoComponent,
     TreeContentDemoComponent,

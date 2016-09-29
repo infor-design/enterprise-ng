@@ -4,9 +4,9 @@ import { Observable } from 'rxjs/Rx';
 
 import {
   SohoSourceRequest,
-  SohoGridColumn
-} from '../../components/datagrid';
-import { SohoDataGridService } from '../../components/datagrid/datagrid.service';
+  SohoGridColumn,
+  SohoDataGridService
+} from '../../soho/datagrid';
 
 declare var Formatters: any;
 

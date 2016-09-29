@@ -6,7 +6,7 @@ import {
 import {
   SohoToastService,
   SohoToastPositionType
-} from '../../services';
+} from '../../soho/toast';
 
 @Component({
   selector: 'soho-toast-demo',

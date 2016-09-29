@@ -5,7 +5,7 @@ import {
   SohoDatagridSource,
   SohoSourceRequest,
   SohoResponseFunction
-} from '../../components/datagrid';
+} from '../../soho/datagrid';
 
 import {
   checkboxColumn,

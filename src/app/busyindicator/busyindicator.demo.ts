@@ -4,7 +4,7 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { SohoBusyIndicatorComponent } from '../../components/busyindicator';
+import { SohoBusyIndicatorComponent } from '../../soho/busyindicator';
 
 @Component({
   selector: 'soho-busyindicator-demo',
