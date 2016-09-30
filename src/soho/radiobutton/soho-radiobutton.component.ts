@@ -7,4 +7,7 @@ import { Component, HostBinding, Input } from '@angular/core';
 export class SohoRadioButtonComponent {
   @HostBinding('attr.disabled')
   @Input() disabled: boolean;
+
+  @HostBinding('attr.disabled')
+  @Input() readonly: boolean;
 }
