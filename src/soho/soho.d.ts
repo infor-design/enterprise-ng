@@ -36,6 +36,33 @@ interface BusyIndicatorStatic {
   close: () => void;
 }
 
+// datepicker
+type SohoDatePickerDateMode = 'standard' | 'range';
+interface SohoDatePickerOptions {
+  showTime: boolean;
+  timeFormat: string;
+  minuteInterval: number;
+  mode: SohoDatePickerDateMode;
+  roundToInterval: number;
+  timepickerMarkup: string;
+  dateFormat: string;
+  placeholder: boolean;
+  disable: any;
+}
+interface SohoDatePickerEvent {
+  currentTarget: HTMLElement;
+  data: any;
+  delegateTarget: HTMLElement;
+  handleObj: Object;
+  isTrigger: number;
+  namespace: string;
+  result: any;
+  rnamespace: any;
+  target: HTMLElement;
+  timeStamp: number;
+  type: string;
+}
+
 // mask
 type SohoMaskMode = 'group' | 'number' | 'date' | 'time';
 type SohoMaskShowSymbol = boolean | 'currency' | 'percent';
