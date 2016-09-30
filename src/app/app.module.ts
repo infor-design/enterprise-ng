@@ -63,6 +63,7 @@ import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/application-menu-lazy-menu.demo';
 import { ApplicationMenuLazyService } from './application-menu/application-menu-lazy-service.demo';
+import { RadioButtonDemoComponent } from './radiobuton/radiobutton.demo';
 
 @NgModule({
   declarations: [
@@ -115,7 +116,8 @@ import { ApplicationMenuLazyService } from './application-menu/application-menu-
     ToolbarBasicDemoComponent,
     ToolbarDataDrivenDemoComponent,
     ToolbarAllIconsDemoComponent,
-    ValidationFormDemoComponent
+    ValidationFormDemoComponent,
+    RadioButtonDemoComponent
   ],
   imports: [
     BrowserModule,

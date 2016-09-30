@@ -24,6 +24,7 @@ import { SohoInputValidateModule } from './input-validate/soho-input-validate.mo
 import { SohoPersonalizeModule } from './personalize/soho-personalize.module';
 import { SohoTimePickerModule } from './timepicker/soho-timepicker.module';
 import { SohoToastModule } from './toast/soho-toast.module';
+import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
 
 @NgModule({
   imports: [
@@ -51,7 +52,8 @@ import { SohoToastModule } from './toast/soho-toast.module';
     SohoTimePickerModule,
     SohoToastModule,
     SohoToolbarModule,
-    SohoTreeModule
+    SohoTreeModule,
+    SohoRadioButtonModule
   ],
   declarations: [
   ],
@@ -80,7 +82,8 @@ import { SohoToastModule } from './toast/soho-toast.module';
     SohoTimePickerModule,
     SohoToastModule,
     SohoToolbarModule,
-    SohoTreeModule
+    SohoTreeModule,
+    SohoRadioButtonModule
   ]
 })
 export class SohoComponentsModule {}
