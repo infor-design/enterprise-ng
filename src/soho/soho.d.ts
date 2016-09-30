@@ -204,10 +204,30 @@ declare var Editors: {
   // @todo
 };
 
+interface SohoModalOptions {
+  title?: string;
+  content?: any; // jQuery
+  cssClass?: string;
+  buttons?: SohoModalButton[];
+  searchable?: boolean;
+}
+
+interface SohoModalButton {
+  text: string;
+  validate?: boolean;
+  isDefault?: boolean;
+  icon?: string;
+}
+
+interface ModalStatic {
+  close();
+}
+
 interface JQueryStatic {
   applicationmenu: ApplicationMenuStatic;
   toast: ToastStatic;
   busyindicator: BusyIndicatorStatic;
+  modal: ModalStatic;
   splitter: SplitterStatic;
 }
 
@@ -217,6 +237,7 @@ interface JQuery {
   busyindicator(options?: SohoBusyIndicatorOptions): JQuery;
   editor(options?: SohoEditorOptions): JQuery;
   mask(options?: SohoMaskOptions): JQuery;
+  modal(options: SohoModalOptions): JQuery;
   tabs(): JQuery;
   textarea(options?: SohoTextAreaOptions): JQuery;
   initialize(locale: string): JQuery;
