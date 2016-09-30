@@ -2,26 +2,26 @@
   <div class="row">
     <div class="twelve columns">
       <h3>Vertical Radio Buttons</h3>
-      <fieldset class="radio-group" soho-radiobutton>
+      <fieldset class="radio-group">
         <div class="row">
           <div class="twelve columns">
             <legend>Select delivery method</legend>
-            <input type="radio" class="radio" name="options" id="option1" value="option1" />
+            <input type="radio" class="radio" name="options" id="option1" value="option1" soho-radiobutton />
             <label for="option1" class="radio-label">Option One</label>
             <br>
-            <input type="radio" class="radio" name="options" id="option2" value="option1" checked />
+            <input type="radio" class="radio" name="options" id="option2" value="option1" soho-radiobutton checked />
             <label for="option2"  class="radio-label">Option Two</label>
             <br>
-            <input type="radio" class="radio" name="options" id="option3" value="option3" />
+            <input type="radio" class="radio" name="options" id="option3" value="option3" soho-radiobutton />
             <label for="option3" class="radio-label">Option Three</label>
             <br>
-            <input type="radio" class="radio" name="options" id="option4" value="delivery" disabled />
-            <label for="option4" class="radio-label">Option Four</label>
+            <input type="radio" class="radio" name="options" id="option4" value="delivery" soho-radiobutton [disabled]="isDisabled" />
+            <label for="option4" class="radio-label">Option Four Disabled</label>
           </div>
         </div>
       </fieldset>
       <h3>Horizontal Radio Buttons</h3>
-      <fieldset class="radio-group" soho-radiobutton>
+      <fieldset class="radio-group">
         <div class="row">
           <div class="twelve columns">
             <legend>Select delivery method</legend>
@@ -29,20 +29,20 @@
         </div>
         <div class="row">
           <div class="three columns">
-            <input type="radio" class="radio" name="options" id="option1A" value="option1" />
+            <input type="radio" class="radio" name="options" id="option1A" value="option1" soho-radiobutton />
             <label for="option1A" class="radio-label">Option One</label>
           </div>
           <div class="three columns">
-            <input type="radio" class="radio" name="options" id="option2A" value="option1" checked />
+            <input type="radio" class="radio" name="options" id="option2A" value="option1" soho-radiobutton checked />
             <label for="option2A"  class="radio-label">Option Two</label>
           </div>
           <div class="three columns">
-            <input type="radio" class="radio" name="options" id="option3A" value="option3" />
+            <input type="radio" class="radio" name="options" id="option3A" value="option3" soho-radiobutton />
             <label for="option3A" class="radio-label">Option Three</label>
           </div>
           <div class="three columns">
-            <input type="radio" class="radio" name="options" id="option4A" value="delivery" disabled />
-            <label for="option4A" class="radio-label">Option Four</label>
+            <input type="radio" class="radio" name="options" id="option4A" value="delivery" soho-radiobutton [disabled]="isDisabled" />
+            <label for="option4A" class="radio-label">Option Four Disabled</label>
           </div>
         </div>
       </fieldset>
