@@ -15,4 +15,3 @@ import {
   ]
 })
 export class SohoRadioButtonModule {}
-
