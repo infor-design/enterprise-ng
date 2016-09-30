@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RadioButtonDemoComponent implements OnInit {
   private isDisabled: boolean;
-  private isReadOnly: boolean;
 
   ngOnInit() {
     this.isDisabled = true;
-    this.isReadOnly = true;
   }
 }
