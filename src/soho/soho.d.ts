@@ -231,10 +231,86 @@ declare var Editors: {
   // @todo
 };
 
+/**
+ * Modal Dialog options
+ *
+ * See the jQuery control for the defaults.
+ */
+interface SohoModalOptions {
+  // The string used as the title for the dialog - not defaulted.
+  title?: string;
+
+  // The content, can be 'html' or a selector.
+  content?: JQuery;
+
+  // Style
+  cssClass?: string;
+
+  // The standard button to create.
+  buttons?: SohoModalButton[];
+
+  // Is this dialog searchable?
+  searchable?: boolean;
+
+  // When to close?
+  trigger?: 'click' | 'immediate' | 'manual';
+
+  /** Is this an alert daialog? */
+  isAlert?: boolean;
+
+  /** Auto focus? */
+  autoFocus?: boolean;
+
+  /** Identifier for the dialog. */
+  id?: string;
+
+  // Extra frame height.
+  frameHeight?: number;
+}
+
+interface SohoModalButton {
+  /** Text for the button. */
+  text: string;
+
+  validate?: boolean;
+
+  /** Is this the default button? */
+  isDefault?: boolean;
+
+  /** Icon for the button. */
+  icon?: string;
+
+  /** Click handler. */
+  click?: SohoModalButtonClickFunction;
+}
+
+type SohoModalButtonClickFunction = (
+  e: any,
+  model: ModalStatic) => void;
+
+interface ModalStatic {
+  /** Current Settings */
+  settings: SohoModalOptions;
+
+  /** Managed element. */
+  element: JQuery;
+
+  /** Closes the modal dialog. */
+  close(destroy?: boolean): void;
+
+  /** Releases all resources managed by the modal. */
+  destroy(): void;
+}
+
+/**
+ * JQuery Integration
+ */
+
 interface JQueryStatic {
   applicationmenu: ApplicationMenuStatic;
   toast: ToastStatic;
   busyindicator: BusyIndicatorStatic;
+  modal: ModalStatic;
   splitter: SplitterStatic;
 }
 
@@ -244,6 +320,7 @@ interface JQuery {
   busyindicator(options?: SohoBusyIndicatorOptions): JQuery;
   editor(options?: SohoEditorOptions): JQuery;
   mask(options?: SohoMaskOptions): JQuery;
+  modal(options: SohoModalOptions): JQuery;
   tabs(): JQuery;
   textarea(options?: SohoTextAreaOptions): JQuery;
   initialize(locale: string): JQuery;
@@ -257,7 +334,7 @@ interface LocaleStatic {
 
   currentCulture(): string;
   translate(key: string): string;
-  calendar(): {dateFormat: any, timeFormat: string};
+  calendar(): { dateFormat: any, timeFormat: string };
   set(locale: string): any;
 }
 

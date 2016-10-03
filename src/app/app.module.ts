@@ -64,6 +64,8 @@ import { ApplicationMenuLazyDemoComponent } from './application-menu/application
 import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/application-menu-lazy-menu.demo';
 import { ApplicationMenuLazyService } from './application-menu/application-menu-lazy-service.demo';
 
+import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -123,6 +125,9 @@ import { ApplicationMenuLazyService } from './application-menu/application-menu-
     FormsModule,
     ReactiveFormsModule,
     SohoComponentsModule,
+
+    ModalDialogDemoModule,
+
     AppRoutingModule
   ],
   providers: [
@@ -130,6 +135,7 @@ import { ApplicationMenuLazyService } from './application-menu/application-menu-
     ApplicationMenuLazyService
   ],
   entryComponents: [
+
   ],
   bootstrap: [AppComponent]
 })
