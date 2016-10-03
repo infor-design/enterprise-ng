@@ -105,7 +105,9 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
     return !this.ripple;
   };
 
-  @HostBinding('attr.type') type = this.isSubmit ? 'submit' : 'button';
+  @HostBinding('attr.type') get type() {
+    return this.isSubmit ? 'submit' : 'button';
+  };
 
   @HostListener('click') toggleState() {
     this.state = !this.state;
