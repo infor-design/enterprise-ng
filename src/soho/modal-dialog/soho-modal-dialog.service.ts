@@ -1,5 +1,4 @@
 import {
-  ComponentRef,
   ViewContainerRef,
   Injectable,
   Injector,
@@ -37,25 +36,22 @@ export class SohoModalDialogService {
    *
    * The dialog won't necessarily be open yet, see the dialog ref api for further methods.
    *
-   * @return the model dialog reference.
+   * @return the modal dialog reference.
    */
   modal<T>(component: ComponentType<T>, parent: ViewContainerRef): SohoModalDialogRef<T> {
     let modalDialogRef = new SohoModalDialogRef(component);
     const dialogInjector = new SohoModalDialogInjector(modalDialogRef, this.injector);
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
-    const instance: ComponentRef<T> = parent.createComponent<T>(componentFactory,
-        parent.length, dialogInjector || this.injector);
-
-    // Store the refernce in the dialog reference.
+    const instance = parent.createComponent<T>(componentFactory, parent.length, dialogInjector);
     modalDialogRef.componentInstance = instance;
     return modalDialogRef;
   }
 
-  /** todo implement a string content based version, not using a component. */
+  /** todo implement a string content based version, not using an Angular Component. */
 }
 
 /**
- * Something with a new methods returning a type T.
+ * Object with a "new"" method returning the type T.
  */
 export interface ComponentType<T> {
   new (...args: any[]): T;

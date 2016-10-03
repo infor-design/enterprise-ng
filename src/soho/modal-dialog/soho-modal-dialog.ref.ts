@@ -1,5 +1,4 @@
 import { Type, ComponentRef } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 /**
@@ -25,8 +24,23 @@ export class SohoModalDialogRef<T> {
   /** The result of the dialog. */
   private _dialogResult: any;
 
+  /** Event fired when the modal is opened. */
+  private open$: Subject<any> = new Subject();
+
+  /** Event fired when the modal is closed. */
+  private close$: Subject<any> = new Subject();
+
   /** Event fired after closing the modal. */
-  private _afterClosed: Subject<any> = new Subject();
+  private afterClose$: Subject<any> = new Subject();
+
+  /** Event fired before openning the modal dialog. */
+  private beforeOpen$: Subject<any> = new Subject();
+
+  /** Event fired after openning the modal dialog. */
+  private afterOpen$: Subject<any> = new Subject();
+
+  /** Event fired before closing the modal dialog. */
+  private beforeClose$: Subject<any> = new Subject();
 
   // @todo add other events.
 
@@ -160,6 +174,8 @@ export class SohoModalDialogRef<T> {
 
   /**
    * Sets the 'autoFocus' of the modal control.
+   *
+   * @param autoFocus -if true; the dialog will autoFocus.
    */
   autoFocus(autoFocus: boolean): SohoModalDialogRef<T> {
     this._options.autoFocus = autoFocus;
@@ -168,6 +184,16 @@ export class SohoModalDialogRef<T> {
       // @todo - need an api on modal to update settings.
     }
     return this;
+  }
+
+ /**
+   * Dialog result property.
+   */
+  set dialogResult(dialogResult: any) {
+    this._dialogResult = dialogResult;
+  }
+  get dialogResult(): any {
+    return this._dialogResult;
   }
 
   /**
@@ -180,6 +206,8 @@ export class SohoModalDialogRef<T> {
 
   /**
    * Opens the dialog.
+   *
+   * @return the dialog ref.
    */
   open(): SohoModalDialogRef<T> {
     if (!this.componentInstance) {
@@ -199,18 +227,21 @@ export class SohoModalDialogRef<T> {
     // Add listeners to fire events
     this.jQueryElement.on('afteropen', ((event: any) => { this.onAfterOpen(event); }));
     this.jQueryElement.on('beforeopen', ((event: any) => { this.onBeforeOpen(event); }));
-    this.jQueryElement.on('beforeclose', ((event: any) => { this.onBeforeOpen(event); }));
+    this.jQueryElement.on('beforeclose', ((event: any) => { return this.onBeforeClose(event); }));
     this.jQueryElement.on('close', ((event: any, isCancelled: boolean) => { this.onClose(event, isCancelled); }));
     this.jQueryElement.on('afterclose', ((event: any) => { this.onAfterClose(event); }));
     this.jQueryElement.on('open', ((event: any) => { this.onOpen(event); }));
+    this.jQueryElement.on('beforedestroy', ((event: any) => { return this.onBeforeDestroy(event); }));
 
-    // @todo return a promise / observable for when the dialog is closed?
+    // @todo return a promise / observable for when the dialog is closed or opened?
     return this;
   }
 
   /**
    * Closes the modal dialog, if open.  The dialog is not closed
-   * fully until the afteClosed method is called.
+   * fully until the 'afterClosed' event is fired.
+   *
+   * @param dialogResult - optional result - passed abck to the caller.
    */
   close(dialogResult?: any): SohoModalDialogRef<T> {
     this.dialogResult = dialogResult;
@@ -220,60 +251,133 @@ export class SohoModalDialogRef<T> {
     return this;
   };
 
+  // ------------------------------------------
+  // Events
+  // ------------------------------------------
+
   /**
-   * Close result property.
+   * Opened Event.
+   *
+   * This event is fired when the dialog is being opened.
+   *
+   * @param eventFn - the function to invoke when the dialog is to be opened.
    */
-  set dialogResult(dialogResult: any) {
-    this._dialogResult = dialogResult;
+  opened(eventFn: Function): SohoModalDialogRef<T> {
+    this.open$.subscribe((f: any) => { eventFn(f, this); });
+    return this;
   }
-  get dialogResult(): any {
-    return this._dialogResult;
+
+  /**
+   * Closed Event.
+   *
+   * This event is fired when the dialog is being closed.
+   *
+   * @param eventFn - the function to invoke when the dialog is to be closed.
+   */
+  closed(eventFn: SohoModalDialogEventFunction<T>): SohoModalDialogRef<T> {
+    // @todo isCancelled
+    this.close$.subscribe((f: any) => { eventFn(f, this); });
+    return this;
+  }
+
+  /**
+   * After Closed Event.
+   *
+   * This event is fired, with the result of the dialog, when the dialog has been
+   * closed and destroyed.
+   *
+   * @param eventFn - the function to invoke after the dialog has been closed.
+   */
+  afterClosed(eventFn: SohoModalDialogEventFunction<T>): SohoModalDialogRef<T> {
+    this.afterClose$.subscribe((f: any) => { eventFn(f, this); });
+    return this;
   }
 
   // -------------------------------------------
   // Event Handlers
   // -------------------------------------------
 
-  onAfterOpen(event: any) {
-    // @todo - not implemented
-    console.log('onAfterOpen');
-  }
-
-  onBeforeOpen(event: any) {
-  // @todo - not implemented
-   console.log('onBeforeOpen');
-  }
-
-  onBeforeClose(event: any) {
-    // @todo - not implemented
-    console.log('onBeforeClose');
-  }
-
-  onOpen(event: any) {
-    // @todo - not implemented
-    console.log('onOpen');
-  }
-  onClose(event: any, isCancelled: boolean) {
-    // @todo - not implemented
-    console.log('onClose isCancelled: ' + isCancelled);
-  }
-
-  onAfterClose(event: any) {
-    // Tidy up any angular component stuff.
-    this.componentInstance.destroy();
-
-    // Pass the dialog result back.
-    this._afterClosed.next(this.dialogResult);
-    this._afterClosed.complete();
-
-    // SOHO-4879 - Closing modal dialog does not remove the 'modal-page-container'
-    this.modal.destroy();
+  /**
+   * Handles the 'afterOpen' event, fired after the modal dialog
+   * has been opened.
+   *
+   * @param event - full event object.
+   */
+  private onAfterOpen(event: any) {
+    this.afterOpen$.next(event);
   }
 
   /**
-   * Events.
+   * Handles the 'beforeOpen' event, fired before the modal dialog
+   * has been opened.
+   *
+   * @param event - full event object.
    */
-  afterClosed(): Observable<any> {
-    return this._afterClosed.asObservable();
+  private onBeforeOpen(event: any) {
+    this.beforeOpen$.next(event);
+  }
+
+  /**
+   * Handles the 'beforeClose' event, fired before the modal dialog
+   * has been closed.
+   *
+   * @param event - full event object.
+   *
+   * @todo how to handle closeure prevention?
+   */
+  private onBeforeClose(event: any): boolean {
+    this.beforeClose$.next(event);
+    return true;
+  }
+
+  /**
+   * Handles the 'open' event, fired just before
+   * the focus is assigned to a modal.
+   *
+   * @param event - full event object.
+   */
+  private onOpen(event: any) {
+    this.open$.next(event);
+  }
+
+  /**
+   * Handles the close event.
+   *
+   * @param event - full event object.
+   * @param isCancelled - is true if the cancel button was pressed; otherwise false.
+   */
+  private onClose(event: any, isCancelled: boolean) {
+    this.close$.next(isCancelled);
+  }
+
+  /**
+   * Handles the 'afterClose' event, fired when the dialog
+   * has been closed and tidy up is required.
+   *
+   * @param event - full event object.
+   */
+  private onAfterClose(event: any) {
+    // Pass the dialog result back.
+    this.afterClose$.next(this.dialogResult);
+    this.afterClose$.complete();
+
+    // SOHO-4879 - Closing modal dialog does not remove the 'modal-page-container'
+    this.modal.destroy();
+    this.modal = null;
+  }
+
+  /**
+   * Handles the 'destroy' event.
+   *
+   * @param event - full event object.
+   */
+  private onBeforeDestroy(event: any): boolean {
+    // Tidy up any angular component stuff.
+    this.componentInstance.destroy();
+
+    // @todo prevent destruction?
+    return true;
   }
 }
+
+type SohoModalDialogEventFunction<T> = (f: any, modal: SohoModalDialogRef<T>) => void;
