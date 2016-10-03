@@ -12,6 +12,7 @@ import { IconDemoComponent } from './icon/icon.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
+import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
 import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
@@ -76,6 +77,7 @@ export const routes: Routes = [
   { path: 'menu-button',           component: MenuButtonDemoComponent },
   { path: 'splitter-vertical',     component: SplitterVerticalDemoComponent },
   { path: 'splitter-horizontal',   component: SplitterHorizontalDemoComponent },
+  { path: 'trackdirty',            component: TrackDirtyDemoComponent },
   { path: 'tree-dynamic',          component: TreeDynamicDemoComponent },
   { path: 'tree-service',          component: TreeServiceDemoComponent },
   { path: 'tree-content',          component: TreeContentDemoComponent },
