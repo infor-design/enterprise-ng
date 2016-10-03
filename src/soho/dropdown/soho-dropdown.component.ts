@@ -134,4 +134,12 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   onChange(event: any) {
     this.change.emit(event);
   }
+  /**
+   * In case options are being bound asynchronously, you will need to trigger updated on
+   * soho dropdown control so it updates its value label
+   */
+  public updateControl(): SohoDropDownComponent {
+    this.dropdown.updated();
+    return this;
+  }
 }
