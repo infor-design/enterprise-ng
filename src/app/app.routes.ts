@@ -53,6 +53,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
+import { RadioButtonDemoComponent } from './radiobuton/radiobutton.demo';
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
@@ -101,6 +102,7 @@ export const routes: Routes = [
   { path: 'toolbar-all-icons',     component: ToolbarAllIconsDemoComponent },
   // { path: 'accordian',           component: AccordionSampleComponent},
   { path: 'validation',            component: ValidationFormDemoComponent},
+  { path: 'radiobutton',           component: RadioButtonDemoComponent}
 ];
 
 export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes);

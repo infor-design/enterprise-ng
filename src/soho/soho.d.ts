@@ -104,9 +104,9 @@ interface SohoSplitterOptions {
 }
 
 // timepicker
-type SohoTimeMode = 'standard' | 'range';
+type SohoTimePickerMode = 'standard' | 'range';
 interface SohoTimePickerOptions {
-  mode: SohoTimeMode;
+  mode: SohoTimePickerMode;
   timeFormat: string;
   minuteInterval: number;
   roundToInterval: boolean;
