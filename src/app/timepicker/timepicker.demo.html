@@ -1,8 +1,32 @@
 <div class="example-section">
   <form>
     <div class="row">
-      <h1>Timepicker</h1>
+      <h1>TimePicker</h1>
       <span class="code-tag">Live Example</span>
+      <div class="row">
+        <div class="eight columns">
+          <div class="field">
+            <label for="statechange" class="label">State Change</label>
+            <input soho-timepicker name="statechange" timeFormat="h:mm a" mode="standard" [(ngModel)]="model.hhmm" (change)="onChange($event)"/>
+            <div>
+              <button soho-button [disabled]="timepickerReadOnly" (click)="setReadonly()">Read Only</button>
+              <button soho-button [disabled]="timepickerDisabled" (click)="setDisable()">Disable</button>
+              <button soho-button [disabled]="!timepickerDisabled && !timepickerReadOnly" (click)="setEnable()">Enable</button>
+            </div>
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="field">
+            <label for="readonly" class="label">Read Only</label>
+            <input soho-timepicker name="readonly" [readonly]="true" timeFormat="h:mm a" mode="standard" [(ngModel)]="model.hhmm" (change)="onChange($event)"/>
+          </div>
+          <div class="field">
+            <label for="disable" class="label">Disable</label>
+            <input soho-timepicker name="disable" [disabled]="true" timeFormat="h:mm a" mode="standard" [(ngModel)]="model.hhmm" (change)="onChange($event)"/>
+          </div>
+        </div>
+      </div>
+      <hr>
       <div class="row">
         <div class="four columns">
           <div class="field">
@@ -14,14 +38,6 @@
           <div class="field">
             <label for="standard24" class="label">Standard Time (24 hr)</label>
             <input soho-timepicker name="standard24" timeFormat="HH:mm" mode="standard" [(ngModel)]="model.HHmm24" (change)="onChange($event)"/>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="four columns">
-          <div class="field">
-            <label for="standard12b" class="label">Standard Time (h:mm a) ReadOnly</label>
-            <input soho-timepicker name="standard12b" readonly timeFormat="h:mm a" mode="standard" [(ngModel)]="model.hhmm" (change)="onChange($event)"/>
           </div>
         </div>
       </div>
