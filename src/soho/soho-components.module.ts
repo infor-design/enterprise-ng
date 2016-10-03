@@ -17,6 +17,7 @@ import { SohoToolbarModule } from './toolbar/soho-toolbar.module';
 import { SohoMaskModule } from './mask/soho-mask.module';
 import { SohoMastheadModule } from './masthead/soho-masthead.module';
 import { SohoMenuButtonModule } from './menu-button/soho-menu-button.module';
+import { SohoModalDialogModule } from './modal-dialog/soho-modal-dialog.module';
 import { SohoSearchFieldModule } from './searchfield/soho-searchfield.module';
 import { SohoSplitterModule } from './splitter/soho-splitter.module';
 import { SohoTreeModule } from './tree/soho-tree.module';
@@ -43,6 +44,7 @@ import { SohoToastModule } from './toast/soho-toast.module';
     SohoMaskModule,
     SohoMastheadModule,
     SohoMenuButtonModule,
+    SohoModalDialogModule,
     SohoPersonalizeModule,
     SohoSearchFieldModule,
     SohoSplitterModule,
@@ -72,6 +74,7 @@ import { SohoToastModule } from './toast/soho-toast.module';
     SohoMaskModule,
     SohoMastheadModule,
     SohoMenuButtonModule,
+    SohoModalDialogModule,
     SohoPersonalizeModule,
     SohoSearchFieldModule,
     SohoSplitterModule,
