@@ -75,7 +75,7 @@ export class ModalDialogDemoComponent {
     /** @todo Result - OK, Cancel, Json? */
 
     // Attach a listener to the afterclose event, which also gives you the result - if available.
-    this.dialog.afterClosed().subscribe(result => {
+    this.dialog.afterClosed(result => {
       this.closeResult = result;
       this.dialog = null;
     });
