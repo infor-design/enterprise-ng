@@ -1,10 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { SohoDatePickerComponent } from '../../soho/datepicker/soho-datepicker.component';
 
 @Component({
   selector: 'soho-datepicker-demo',
-  templateUrl: 'datepicker.demo.html',
+  templateUrl: 'datepicker.demo.html'
 })
 export class DatepickerDemoComponent implements OnInit {
+
+  @ViewChild(SohoDatePickerComponent) datepicker: SohoDatePickerComponent;
 
   private model = { // tslint:disable-line
     standard: '12/12/2016',
@@ -13,7 +20,9 @@ export class DatepickerDemoComponent implements OnInit {
     year: '',
     datetime: ''
   };
-  private showModel = false;
+  private showModel: boolean = false;
+  private datepickerDisabled: boolean = false;
+  private datepickerReadOnly: boolean = false;
 
   constructor() { }
   ngOnInit() { }
@@ -21,6 +30,22 @@ export class DatepickerDemoComponent implements OnInit {
     this.showModel = !this.showModel;
   }
   onChange(event: Event) {
-    console.log('DatepickerDemoComponent.onChange');
+    console.log('DatePickerDemoComponent.onChange');
+  }
+  setEnable() {
+// TODO: waiting on SOHO-4834
+    this.datepicker.disabled = false;
+    this.datepickerDisabled = this.datepicker.disabled;
+    this.datepickerReadOnly = this.datepicker.readonly;
+  }
+  setDisable() {
+// TODO: waiting on SOHO-4834
+    this.datepicker.disabled = true;
+    this.datepickerDisabled = this.datepicker.disabled;
+  }
+  setReadonly() {
+// TODO: waiting on SOHO-4834
+    this.datepicker.readonly = true;
+    this.datepickerReadOnly = this.datepicker.readonly;
   }
 }

@@ -17,6 +17,7 @@ import { SohoToolbarModule } from './toolbar/soho-toolbar.module';
 import { SohoMaskModule } from './mask/soho-mask.module';
 import { SohoMastheadModule } from './masthead/soho-masthead.module';
 import { SohoMenuButtonModule } from './menu-button/soho-menu-button.module';
+import { SohoModalDialogModule } from './modal-dialog/soho-modal-dialog.module';
 import { SohoSearchFieldModule } from './searchfield/soho-searchfield.module';
 import { SohoSplitterModule } from './splitter/soho-splitter.module';
 import { SohoTreeModule } from './tree/soho-tree.module';
@@ -24,6 +25,7 @@ import { SohoInputValidateModule } from './input-validate/soho-input-validate.mo
 import { SohoPersonalizeModule } from './personalize/soho-personalize.module';
 import { SohoTimePickerModule } from './timepicker/soho-timepicker.module';
 import { SohoToastModule } from './toast/soho-toast.module';
+import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
 
 @NgModule({
   imports: [
@@ -43,6 +45,7 @@ import { SohoToastModule } from './toast/soho-toast.module';
     SohoMaskModule,
     SohoMastheadModule,
     SohoMenuButtonModule,
+    SohoModalDialogModule,
     SohoPersonalizeModule,
     SohoSearchFieldModule,
     SohoSplitterModule,
@@ -51,7 +54,8 @@ import { SohoToastModule } from './toast/soho-toast.module';
     SohoTimePickerModule,
     SohoToastModule,
     SohoToolbarModule,
-    SohoTreeModule
+    SohoTreeModule,
+    SohoRadioButtonModule
   ],
   declarations: [
   ],
@@ -72,6 +76,7 @@ import { SohoToastModule } from './toast/soho-toast.module';
     SohoMaskModule,
     SohoMastheadModule,
     SohoMenuButtonModule,
+    SohoModalDialogModule,
     SohoPersonalizeModule,
     SohoSearchFieldModule,
     SohoSplitterModule,
@@ -80,7 +85,8 @@ import { SohoToastModule } from './toast/soho-toast.module';
     SohoTimePickerModule,
     SohoToastModule,
     SohoToolbarModule,
-    SohoTreeModule
+    SohoTreeModule,
+    SohoRadioButtonModule
   ]
 })
 export class SohoComponentsModule {}
