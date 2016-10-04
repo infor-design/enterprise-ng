@@ -42,6 +42,7 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
    * Local variables
    */
   private jQueryElement: any;
+
   /**
    * Constructor.
    *
