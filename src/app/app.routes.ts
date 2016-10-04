@@ -53,7 +53,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
-import { RadioButtonDemoComponent } from './radiobuton/radiobutton.demo';
+import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
