@@ -241,7 +241,7 @@ interface SohoModalOptions {
   title?: string;
 
   // The content, can be 'html' or a selector.
-  content?: JQuery;
+  content?: JQuery | string;
 
   // Style
   cssClass?: string;
