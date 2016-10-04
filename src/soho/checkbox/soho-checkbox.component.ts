@@ -11,7 +11,7 @@ import {
 
 @Component({
   selector: 'soho-checkbox',
-  templateUrl: './soho-checkbox.component.html',
+  template: `<ng-content></ng-content>`
 })
 export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
 
