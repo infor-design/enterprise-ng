@@ -36,6 +36,9 @@ interface BusyIndicatorStatic {
   close: () => void;
 }
 
+interface TrackDirtyStatic {
+}
+
 // datepicker
 type SohoDatePickerDateMode = 'standard' | 'range';
 interface SohoDatePickerOptions {
@@ -327,12 +330,14 @@ interface JQueryStatic {
   busyindicator: BusyIndicatorStatic;
   modal: ModalStatic;
   splitter: SplitterStatic;
+  trackdirty: TrackDirtyStatic;
 }
 
 interface JQuery {
   applicationmenu(options?: SohoApplicationMenuOptions): JQuery;
   toast(options?: SohoToastOptions): JQuery;
   busyindicator(options?: SohoBusyIndicatorOptions): JQuery;
+  datepicker(options?: SohoDatePickerOptions): JQuery;
   editor(options?: SohoEditorOptions): JQuery;
   mask(options?: SohoMaskOptions): JQuery;
   modal(options: SohoModalOptions): JQuery;
@@ -342,6 +347,7 @@ interface JQuery {
   personalize(): JQuery;
   splitter(): JQuery;
   timepicker(options?: SohoTimePickerOptions): JQuery;
+  trackdirty(): JQuery;
 }
 
 interface LocaleStatic {

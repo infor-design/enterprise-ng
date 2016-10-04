@@ -3,6 +3,7 @@ import {
   Directive,
   ElementRef,
   EventEmitter,
+  HostBinding,
   OnDestroy,
   Output
 } from '@angular/core';
@@ -11,6 +12,9 @@ import {
   selector: '[soho-trackdirty]'
 })
 export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
+
+  @HostBinding('attr.data-trackdirty') get trackDirtyAttr() { return true; };
+
   /**
    * Called when element value is different from original value
    */
@@ -24,14 +28,12 @@ export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
    * Local variables
    */
   private jQueryElement: any;
-  private trackDirty: any;
+  private trackDirty: TrackDirtyStatic;
 
   constructor(private element: ElementRef) { }
 
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
-
-    this.jQueryElement.attr('data-trackdirty', 'true');
 
     // no options available for control
     this.jQueryElement.trackdirty();
@@ -42,11 +44,12 @@ export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
     this.jQueryElement.on('dirty', (event: SohoTrackDirtyEvent) => this.dirty.emit(event));
     this.jQueryElement.on('pristine', (event: SohoTrackDirtyEvent) => this.pristine.emit(event));
 
-    this.trackDirty = this.jQueryElement.data('trackDirty');
+    this.trackDirty = this.jQueryElement.data('trackdirty');
   }
 
   ngOnDestroy() {
     if (this.trackDirty) {
+// TODO: waiting on SOHO-4819
 //      this.trackDirty.destroy();
       this.trackDirty = null;
     }
