@@ -326,6 +326,8 @@ export interface SohoSourceRequest {
   sortAsc?: boolean;
   sortField?: string;
   sortId?: string;
+  firstPage?: boolean;
+  lastPage?: boolean;
 }
 
 export type SohoResponseFunction = (
