@@ -20,6 +20,7 @@ import { SohoMenuButtonModule } from './menu-button/soho-menu-button.module';
 import { SohoModalDialogModule } from './modal-dialog/soho-modal-dialog.module';
 import { SohoSearchFieldModule } from './searchfield/soho-searchfield.module';
 import { SohoSplitterModule } from './splitter/soho-splitter.module';
+import { SohoTrackDirtyModule } from './trackdirty/soho-trackdirty.module';
 import { SohoTreeModule } from './tree/soho-tree.module';
 import { SohoInputValidateModule } from './input-validate/soho-input-validate.module';
 import { SohoPersonalizeModule } from './personalize/soho-personalize.module';
@@ -54,6 +55,7 @@ import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
     SohoTimePickerModule,
     SohoToastModule,
     SohoToolbarModule,
+    SohoTrackDirtyModule,
     SohoTreeModule,
     SohoRadioButtonModule
   ],
@@ -85,6 +87,7 @@ import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
     SohoTimePickerModule,
     SohoToastModule,
     SohoToolbarModule,
+    SohoTrackDirtyModule,
     SohoTreeModule,
     SohoRadioButtonModule
   ]
