@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator.demo';
 import { ButtonDemoComponent } from './button/button.demo';
+import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { TextareaDemoComponent } from './textarea/textarea.demo';
@@ -60,6 +61,7 @@ export const routes: Routes = [
   { path: 'application-lazy-menu', component: ApplicationMenuLazyDemoComponent},
   { path: 'button',                component: ButtonDemoComponent },
   { path: 'busyindicator',         component: BusyIndicatorDemoComponent },
+  { path: 'checkbox',              component: CheckBoxDemoComponent },
   { path: 'datepicker',            component: DatepickerDemoComponent },
   { path: 'timepicker',            component: TimePickerDemoComponent },
   { path: 'dropdown',              component: DropdownDemoComponent },

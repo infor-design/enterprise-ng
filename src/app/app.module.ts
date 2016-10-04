@@ -16,6 +16,7 @@ import { SohoComponentsModule } from '../soho/soho-components.module';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator.demo';
+import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
@@ -73,6 +74,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     ExpandableAreaDemoComponent,
     ButtonDemoComponent,
     BusyIndicatorDemoComponent,
+    CheckBoxDemoComponent,
     DatepickerDemoComponent,
     DropdownDemoComponent,
     DropdownMultiselectDemoComponent,

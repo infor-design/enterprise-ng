@@ -1,0 +1,35 @@
+<div class="example-section">
+  <form>
+    <div class="row"><span class="code-tag">Live Example</span></div>
+    <div class="row">
+      <div class="one-half column">
+        <div class="field">
+          <input type="checkbox" class="checkbox" id="checkbox1">
+          <label for="checkbox1" class="checkbox-label">Unchecked</label>
+        </div>
+
+        <div class="field">
+          <input type="checkbox" class="checkbox" id="checkbox2" [checked]="true">
+          <label for="checkbox2" class="checkbox-label" >Checked</label>
+        </div>
+      </div>
+      <div class="one-half column">
+        <div class="field">
+          <input type="checkbox" class="checkbox" id="checkbox4" [disabled]="true">
+          <label for="checkbox4" class="checkbox-label" >Disabled and Unchecked</label>
+        </div>
+
+        <div class="field">
+          <input type="checkbox" class="checkbox" id="checkbox5" [checked]="true" [disabled]="true">
+          <label for="checkbox5" class="checkbox-label">Disabled and Checked</label>
+        </div>
+
+        <div class="field">
+          <input type="checkbox" class="checkbox partial" aria-checked="mixed" [checked]="true" id="checkbox8">
+          <label for="checkbox8" class="checkbox-label"><span class="audible">Partial (not accessible)</span>Partial</label>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
