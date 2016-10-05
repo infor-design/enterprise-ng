@@ -1,14 +1,21 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 
-/**
- * This example:
- * - shows basic mask functionality on input elements with an angular template
- */
+import {
+  SohoCheckBoxComponent
+} from '../../soho/checkbox';
+
 @Component({
   selector: 'soho-checkbox-demo',
-  templateUrl: './checkbox.demo.html',
+  templateUrl: 'checkbox.demo.html',
 })
 export class CheckBoxDemoComponent {
+
+  constructor() { }
+  ngOnInit() { }
+
   onUpdated(event: SohoCheckBoxEvent) {
     console.log('CheckboxDemoComponent.onUpdated');
   }

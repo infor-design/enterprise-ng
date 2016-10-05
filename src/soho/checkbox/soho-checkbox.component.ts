@@ -10,10 +10,25 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-checkbox',
+  selector: '[soho-checkbox]',
   template: `<ng-content></ng-content>`
 })
 export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
+
+  /**
+   * Indicate that the checkbox is partial
+   */
+  @Input() partial: boolean;
+
+  /**
+   * Bind attributes to the host input element
+   */
+  @HostBinding('class.checkbox') get isCheckBox() {
+    return true;
+  }
+  @HostBinding('class.partial') get isPartialCheckBox() {
+    return this.partial ? true : false;
+  }
 
   /**
    * @param disabled
