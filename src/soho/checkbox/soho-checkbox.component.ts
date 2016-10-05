@@ -23,6 +23,9 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
   /**
    * Bind attributes to the host input element
    */
+  @HostBinding('attr.type') get isCheckBoxType() {
+    return 'checkbox';
+  }
   @HostBinding('class.checkbox') get isCheckBox() {
     return true;
   }
