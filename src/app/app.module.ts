@@ -31,6 +31,7 @@ import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
+import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
@@ -95,6 +96,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     SplitterVerticalDemoComponent,
     SplitterHorizontalDemoComponent,
     TimePickerDemoComponent,
+    TrackDirtyDemoComponent,
     TreeDynamicDemoComponent,
     TreeServiceDemoComponent,
     TreeContentDemoComponent,

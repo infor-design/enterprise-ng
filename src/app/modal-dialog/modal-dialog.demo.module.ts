@@ -10,11 +10,15 @@ import { SohoComponentsModule } from '../../soho/soho-components.module';
 import { ModalDialogDemoComponent } from './modal-dialog.demo';
 
 import { ExampleModalDialogComponent } from './example-modal-dialog.component';
+import { NestedModalDialogComponent } from './nested-modal-dialog.component';
+import { VetoableModalDialogComponent } from './vetoable-modal-dialog.component';
 
 @NgModule({
   declarations: [
+    NestedModalDialogComponent,
     ExampleModalDialogComponent,
-    ModalDialogDemoComponent
+    ModalDialogDemoComponent,
+    VetoableModalDialogComponent,
   ],
   exports: [
   ],
@@ -28,8 +32,10 @@ import { ExampleModalDialogComponent } from './example-modal-dialog.component';
   providers: [
   ],
   entryComponents: [
-    // You need to add any 'dynamic' component to the entry components otherwise the factory can't ind them.
-    ExampleModalDialogComponent
+    // You need to add any 'dynamic' components to the entry components otherwise the factory can't find them.
+    ExampleModalDialogComponent,
+    NestedModalDialogComponent,
+    VetoableModalDialogComponent
   ],
 })
 export class ModalDialogDemoModule {}
