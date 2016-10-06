@@ -2,11 +2,6 @@ import { ComponentRef } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 /**
- * Trigger types.
- */
-export type SohoModalDialogTriggerType = 'immediate' | 'click' | 'manual';
-
-/**
  * Wrapper for the jQuery modal control.
  *
  * @todo Return a promise from open.
@@ -141,7 +136,7 @@ export class SohoModalDialogRef<T> {
    *
    * @param trigger - when to open the dialog.
    */
-  trigger(trigger: SohoModalDialogTriggerType): SohoModalDialogRef<T> {
+  trigger(trigger: SohoModalOptionsTriggerType): SohoModalDialogRef<T> {
     this._options = trigger;
     if (this.modal) {
       this.modal.settings.trigger = trigger;
@@ -227,11 +222,14 @@ export class SohoModalDialogRef<T> {
    */
   open(): SohoModalDialogRef<T> {
     if (!this.componentRef && !this._options.content) {
-      throw Error('componentInstance must be initialised.');
+      throw Error('componentRef or content must be initialised.');
     }
 
+    // Assume conent ...
     let element: JQuery = $('body');
     if (this.componentRef) {
+      // .. unless component supplied, in which case get a selector
+     // to the component and use that.
       element = jQuery(this.componentRef.location.nativeElement);
       this._options.content = element;
     }
