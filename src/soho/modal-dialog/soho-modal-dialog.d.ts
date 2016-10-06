@@ -1,15 +1,13 @@
 /**
  * Soho Modal Dialog Control.
  *
- * This file contain sthe Typescript mappings for the public
+ * This file contains the Typescript mappings for the public
  * interface of the Soho jQuery modal dialog control.
  *
  * Only the public interface consumable by the Angular
- * Soho Componnent is included in this file.
+ * Soho Component is included in this file.
  *
- * The corresponding Soho control can be found in
- *
- * js\modal.js
+ * The corresponding Soho control can be found in js\modal.js.
  */
 
 /**
