@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  HostBinding,
   Input,
   OnDestroy,
   Output,
@@ -33,6 +34,10 @@ export class SohoEditorComponent implements AfterViewInit, OnDestroy {
    */
   private isDisabled: boolean = null;
   private isReadOnly: boolean =  null;
+
+  @HostBinding('class.editor') get isEditor() {
+    return true;
+  }
 
   // -------------------------------------------
   // Component Input
