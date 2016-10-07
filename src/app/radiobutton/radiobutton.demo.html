@@ -1,51 +1,79 @@
-<div class="page-container">
-  <div class="row">
-    <div class="twelve columns">
-      <h3>Vertical Radio Buttons</h3>
-      <fieldset class="radio-group">
-        <div class="row">
-          <div class="twelve columns">
-            <legend>Select delivery method</legend>
-            <input type="radio" class="radio" name="options" id="option1" value="option1" soho-radiobutton />
-            <label for="option1" class="radio-label">Option One</label>
+<div class="example-section">
+  <form>
+    <div class="row">
+      <h1>Radio Button</h1>
+      <span class="code-tag">Live Example</span>
+      <div class="row">
+        <div class="six columns">
+          <h3>Vertical without model</h3>
+          <div class="field">
+            <label>Select delivery method</label>
+            <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="optionVWO1" value="1" (change)="onChange($event)" checked />
+            <label for="optionVWO1" class="radio-label">One</label>
             <br>
-            <input type="radio" class="radio" name="options" id="option2" value="option1" soho-radiobutton checked />
-            <label for="option2"  class="radio-label">Option Two</label>
+            <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="optionVWO2" value="2" (change)="onChange($event)" />
+            <label for="optionVWO2" class="radio-label">Two</label>
             <br>
-            <input type="radio" class="radio" name="options" id="option3" value="option3" soho-radiobutton />
-            <label for="option3" class="radio-label">Option Three</label>
+            <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="optionVWO3" value="3" (change)="onChange($event)" />
+            <label for="optionVWO3" class="radio-label">Three</label>
             <br>
-            <input type="radio" class="radio" name="options" id="option4" value="delivery" soho-radiobutton [disabled]="isDisabled" />
-            <label for="option4" class="radio-label">Option Four Disabled</label>
+            <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="optionVWO4" value="4" (change)="onChange($event)" [disabled]="isDisabled" />
+            <label for="optionVWO4" class="radio-label">Four Disabled</label>
           </div>
         </div>
-      </fieldset>
-      <h3>Horizontal Radio Buttons</h3>
-      <fieldset class="radio-group">
-        <div class="row">
-          <div class="twelve columns">
-            <legend>Select delivery method</legend>
+        <div class="six columns">
+          <h3>Vertical with model</h3>
+          <div class="field">
+            <label>Select delivery method</label>
+            <input soho-radiobutton soho-trackdirty type="radio" class="radio" name="optionsGroupVWM" id="optionVWM1" value="1" [(ngModel)]="model.vertical" (change)="onChange($event)" />
+            <label for="optionVWM1" class="radio-label">One</label>
+            <br>
+            <input soho-radiobutton soho-trackdirty type="radio" class="radio" name="optionsGroupVWM" id="optionVWM2" value="2" [(ngModel)]="model.vertical" (change)="onChange($event)" />
+            <label for="optionVWM2" class="radio-label">Two</label>
+            <br>
+            <input soho-radiobutton soho-trackdirty type="radio" class="radio" name="optionsGroupVWM" id="optionVWM3" value="3" [(ngModel)]="model.vertical" (change)="onChange($event)" />
+            <label for="optionVWM3" class="radio-label">Three</label>
+            <br>
+            <input soho-radiobutton soho-trackdirty type="radio" class="radio" name="optionsGroupVWM" id="optionVWM4" value="4" [(ngModel)]="model.vertical" (change)="onChange($event)" [disabled]="isDisabled" />
+            <label for="optionVWM4" class="radio-label">Four Disabled</label>
           </div>
         </div>
         <div class="row">
-          <div class="three columns">
-            <input type="radio" class="radio" name="options" id="option1A" value="option1" soho-radiobutton />
-            <label for="option1A" class="radio-label">Option One</label>
+          <div class="six columns">
+            <h3>Horizontal without model</h3>
+            <div class="field">
+              <label>Select delivery method</label>
+              <input soho-radiobutton soho-trackdirty name="optionsGroupHWO" id="option1HWO" value="1" (change)="onChange($event)" />
+              <label for="option1HWO" class="radio-label">One</label>
+              <input soho-radiobutton soho-trackdirty name="optionsGroupHWO" id="option2HWO" value="2" (change)="onChange($event)" />
+              <label for="option2HWO" class="radio-label">Two</label>
+              <input soho-radiobutton soho-trackdirty name="optionsGroupHWO" id="option3HWO" value="3" (change)="onChange($event)" checked />
+              <label for="option3HWO" class="radio-label">Three</label>
+              <input soho-radiobutton soho-trackdirty name="optionsGroupHWO" id="option4HWO" value="4" (change)="onChange($event)" [disabled]="isDisabled" />
+              <label for="option4HWO" class="radio-label">Four Disabled</label>
+            </div>
           </div>
-          <div class="three columns">
-            <input type="radio" class="radio" name="options" id="option2A" value="option1" soho-radiobutton checked />
-            <label for="option2A"  class="radio-label">Option Two</label>
-          </div>
-          <div class="three columns">
-            <input type="radio" class="radio" name="options" id="option3A" value="option3" soho-radiobutton />
-            <label for="option3A" class="radio-label">Option Three</label>
-          </div>
-          <div class="three columns">
-            <input type="radio" class="radio" name="options" id="option4A" value="delivery" soho-radiobutton [disabled]="isDisabled" />
-            <label for="option4A" class="radio-label">Option Four Disabled</label>
+          <div class="six columns">
+            <h3>Horizontal with model</h3>
+            <div class="field">
+              <label>Select delivery method</label>
+              <input soho-radiobutton soho-trackdirty type="radio" class="radio" name="optionsGroupHWM" id="option1HWM" value="1" [(ngModel)]="model.horizontal" (change)="onChange($event)" />
+              <label for="option1HWM" class="radio-label">One</label>
+              <input soho-radiobutton soho-trackdirty type="radio" class="radio" name="optionsGroupHWM" id="option2HWM" value="2" [(ngModel)]="model.horizontal" (change)="onChange($event)" />
+              <label for="option2HWM" class="radio-label">Two</label>
+              <input soho-radiobutton soho-trackdirty type="radio" class="radio" name="optionsGroupHWM" id="option3HWM" value="3" [(ngModel)]="model.horizontal" (change)="onChange($event)" />
+              <label for="option3HWM" class="radio-label">Three</label>
+              <input soho-radiobutton soho-trackdirty type="radio" class="radio" name="optionsGroupHWM" id="option4HWM" value="4" [(ngModel)]="model.horizontal" (change)="onChange($event)" [disabled]="isDisabled" />
+              <label for="option4HWM" class="radio-label">Four Disabled</label>
+            </div>
           </div>
         </div>
-      </fieldset>
+      </div>
     </div>
+  </form>
+  <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+  <div *ngIf="showModel">
+    <hr>
+    <h3>{{ model | json }}</h3>
   </div>
 </div>
