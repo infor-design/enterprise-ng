@@ -1,16 +1,3 @@
-interface SohoToastOptions {
-  title: string;
-  message: string;
-  position?: 'top right' | 'top left' | 'bottom left' | 'bottom right';
-  audibleOnly?: boolean;
-  progressBar?: boolean;
-  timeout?: number;
-}
-
-interface ToastStatic {
-  show: () => void;
-}
-
 interface SohoApplicationMenuOptions {
   breakpoint: 'phablet' | 'tablet' | 'desktop' | 'large';
   openOnLarge: boolean;
@@ -20,20 +7,7 @@ interface SohoApplicationMenuOptions {
 interface ApplicationMenuStatic {
   openMenu: (noFocus?: boolean) => void;
   closeMenu: () => void;
-  modifyTriggers: (triggers: any[], remove: boolean, norebuild: boolean) => void;
-}
-
-interface SohoBusyIndicatorOptions {
-  blockUI?: boolean;
-  text: string;
-  delay: number;
-  timeToComplete: number;
-  timeToClose: number;
-}
-
-interface BusyIndicatorStatic {
-  activate: () => void;
-  close: () => void;
+  modifyTriggers: (triggers: any[], remove: boolean, norebusild: boolean) => void;
 }
 
 interface TrackDirtyStatic {
@@ -263,24 +237,18 @@ declare var Editors: {
   // @todo
 };
 
-
-
 /**
  * JQuery Integration
  */
 
 interface JQueryStatic {
   applicationmenu: ApplicationMenuStatic;
-  toast: ToastStatic;
-  busyindicator: BusyIndicatorStatic;
   splitter: SplitterStatic;
   trackdirty: TrackDirtyStatic;
 }
 
 interface JQuery {
   applicationmenu(options?: SohoApplicationMenuOptions): JQuery;
-  toast(options?: SohoToastOptions): JQuery;
-  busyindicator(options?: SohoBusyIndicatorOptions): JQuery;
   datepicker(options?: SohoDatePickerOptions): JQuery;
   editor(options?: SohoEditorOptions): JQuery;
   mask(options?: SohoMaskOptions): JQuery;

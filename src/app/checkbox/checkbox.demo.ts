@@ -3,15 +3,11 @@ import {
   OnInit
 } from '@angular/core';
 
-import {
-  SohoCheckBoxComponent
-} from '../../soho/checkbox';
-
 @Component({
   selector: 'soho-checkbox-demo',
   templateUrl: 'checkbox.demo.html',
 })
-export class CheckBoxDemoComponent {
+export class CheckBoxDemoComponent implements OnInit {
 
   constructor() { }
   ngOnInit() { }

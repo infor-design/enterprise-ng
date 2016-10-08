@@ -78,7 +78,7 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.on('change', (e: any, args: SohoCheckBoxEvent) => this.onChange.next(args));
     this.jQueryElement.on('updated', (e: any, args: SohoCheckBoxEvent) => this.onUpdated.next(args));
 
-    //no control initializer for checkbox
+    // no control initializer for checkbox
   }
 
   /**
