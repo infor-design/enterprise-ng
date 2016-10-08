@@ -66,6 +66,20 @@ interface SohoDatePickerEvent {
   type: string;
 }
 
+interface SohoCheckBoxEvent {
+  currentTarget: HTMLElement;
+  data: any;
+  delegateTarget: HTMLElement;
+  handleObj: Object;
+  isTrigger: number;
+  namespace: string;
+  result: any;
+  rnamespace: any;
+  target: HTMLElement;
+  timeStamp: number;
+  type: string;
+}
+
 // mask
 type SohoMaskMode = 'group' | 'number' | 'date' | 'time';
 type SohoMaskShowSymbol = boolean | 'currency' | 'percent';
