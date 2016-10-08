@@ -61,6 +61,11 @@ interface SohoApplicationMenuStatic {
    * @param clazz - the class to check for.
    */
   hasClass(clazz: string): boolean;
+
+  /**
+   * Cleans up any markup.
+   */
+  destroy();
 }
 
 interface JQueryStatic {

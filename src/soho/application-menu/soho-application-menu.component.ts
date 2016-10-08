@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   HostBinding,
+  OnDestroy,
   Output,
   EventEmitter,
   ElementRef,
@@ -19,7 +20,7 @@ import {
   selector: 'nav[soho-application-menu]', // tslint:disable-line
   templateUrl: 'soho-application-menu.component.html'
 })
-export class SohoApplicationMenuComponent implements AfterViewInit {
+export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
 
   // -------------------------------------------
   // Component Inputs
@@ -154,5 +155,15 @@ export class SohoApplicationMenuComponent implements AfterViewInit {
     this.jQueryElement
       .on('expand', () => this.visibility.next(true))
       .on('collapse', () => this.visibility.next(false));
+  }
+
+  /**
+   * Destructor.
+   */
+  public ngOnDestroy() {
+    if (this.applicationmenu) {
+      this.applicationmenu.destroy();
+      this.applicationmenu = null;
+    }
   }
 }
