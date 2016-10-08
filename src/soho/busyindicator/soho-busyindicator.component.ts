@@ -41,7 +41,7 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
   private jQueryElement: JQuery;
 
   // Reference to the SoHoXi control api.
-  private busyindicator: BusyIndicatorStatic;
+  private busyindicator: SohoBusyIndicatorStatic;
 
   // -------------------------------------------
   // Component Output

@@ -27,7 +27,7 @@ interface SohoBusyIndicatorOptions {
  * This interface represents the public API exposed by the
  * busy indicator.
  */
-interface BusyIndicatorStatic {
+interface SohoBusyIndicatorStatic {
   /** Access to the control's options block. */
   settings: SohoBusyIndicatorOptions;
 
@@ -48,7 +48,7 @@ interface BusyIndicatorStatic {
  * JQuery Integration
  */
 interface JQueryStatic {
-  busyindicator: BusyIndicatorStatic;
+  busyindicator: SohoBusyIndicatorStatic;
 }
 
 interface JQuery {
