@@ -1,14 +1,3 @@
-interface SohoApplicationMenuOptions {
-  breakpoint: 'phablet' | 'tablet' | 'desktop' | 'large';
-  openOnLarge: boolean;
-  triggers: any[];
-}
-
-interface ApplicationMenuStatic {
-  openMenu: (noFocus?: boolean) => void;
-  closeMenu: () => void;
-  modifyTriggers: (triggers: any[], remove: boolean, norebusild: boolean) => void;
-}
 
 interface TrackDirtyStatic {
 }
@@ -242,13 +231,11 @@ declare var Editors: {
  */
 
 interface JQueryStatic {
-  applicationmenu: ApplicationMenuStatic;
   splitter: SplitterStatic;
   trackdirty: TrackDirtyStatic;
 }
 
 interface JQuery {
-  applicationmenu(options?: SohoApplicationMenuOptions): JQuery;
   datepicker(options?: SohoDatePickerOptions): JQuery;
   editor(options?: SohoEditorOptions): JQuery;
   mask(options?: SohoMaskOptions): JQuery;

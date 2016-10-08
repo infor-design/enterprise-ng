@@ -2,6 +2,7 @@
 // https://github.com/typings/typings
 // https://www.typescriptlang.org/docs/handbook/writing-declaration-files.html
 
+/// <reference path="./soho/application-menu/soho-application-menu.d.ts" />
 /// <reference path="./soho/button/soho-button.d.ts" />
 /// <reference path="./soho/busyindicator/soho-busyindicator.d.ts" />
 /// <reference path="./soho/modal-dialog/soho-modal-dialog.d.ts" />

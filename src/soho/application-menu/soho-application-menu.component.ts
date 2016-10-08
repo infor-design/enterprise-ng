@@ -9,11 +9,11 @@ import {
 } from '@angular/core';
 
 /**
- * Angular Wrapper for the SoHo Application Menu Component.
+ * Angular Wrapper for the Soho Application Menu Component.
  *
  * This component searches for a nav element with the attribute
  * 'soho-applcation-menu' in the parent's DOM tree, initialising those found with
- * the SoHo application menu control.
+ * the Soho application menu control.
  */
 @Component({
   selector: 'nav[soho-application-menu]', // tslint:disable-line
@@ -25,15 +25,18 @@ export class SohoApplicationMenuComponent implements AfterViewInit {
   // Component Inputs
   // -------------------------------------------
 
-  // Breakpoint
-  @Input() breakpoint: 'phablet' | 'tablet' | 'desktop' | 'large';
+  /** Breakpoint. */
+  @Input()
+  public breakpoint: SohoApplicationMenuComponentOptionsBreakpoint;
 
   // Open on resize?
-  @Input() openOnLarge: boolean;
+  @Input()
+  public openOnLarge: boolean;
 
   // A list of jQuery elements which trigger the openning and closing
   // application menu.
-  @Input() set triggers(triggers: string[]) {
+  @Input()
+  public set triggers(triggers: string[]) {
 
     if (triggers) {
       let i = triggers.length;
@@ -61,10 +64,10 @@ export class SohoApplicationMenuComponent implements AfterViewInit {
   // -------------------------------------------
 
   // Reference to the jQuery element.
-  private jQueryElement: any;
+  private jQueryElement: jQuery;
 
   // Reference to the annotated SoHoXi control
-  private applicationmenu: any;
+  private applicationmenu: SohoApplicationMenuStatic;
 
   // List of jQuery triggers.
   private _triggers: Array<any> = [];
