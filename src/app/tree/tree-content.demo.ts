@@ -5,11 +5,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import {
-  SohoTreeComponent,
-  SohoTreeNode,
-  SohoTreeEvent
-} from '../../soho/tree';
+import { SohoTreeComponent } from '../../soho/tree';
 
 @Component({
   selector: 'soho-tree-content-demo',

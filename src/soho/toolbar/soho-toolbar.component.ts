@@ -150,7 +150,7 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
    * The selected event is fired when a toolbar button has been clicked.
    * @type {EventEmitter<SohoToolbarEvent>}
    */
-  @Output() selected: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
+  @Output() selected: EventEmitter<SohoSelectedToolbarEvent> = new EventEmitter<SohoSelectedToolbarEvent>();
 
   /**
    * The buttonClicked event is fired when a toolbar button has been clicked.
@@ -173,13 +173,12 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
     });
 
     // bind to jquery events and emit as angular events
-    this.jQueryElement.on('beforeactivate', ((event: SohoToolbarEvent) => { this.beforeactivate.emit(event); }));
-    this.jQueryElement.on('activated', ((event: SohoToolbarEvent) => { this.activated.emit(event); }));
-    this.jQueryElement.on('afteractivate', ((event: SohoToolbarEvent) => { this.afteractivate.emit(event); }));
+    this.jQueryElement.on('beforeactivate', ((event: JQueryEventObject) => { this.beforeactivate.emit(event); }));
+    this.jQueryElement.on('activated', ((event: JQueryEventObject) => { this.activated.emit(event); }));
+    this.jQueryElement.on('afteractivate', ((event: JQueryEventObject) => { this.afteractivate.emit(event); }));
 
-    this.jQueryElement.on('selected', (event: SohoToolbarEvent, item: HTMLButtonElement|HTMLAnchorElement) => {
-      event.item = item;
-      this.selected.emit(event);
+    this.jQueryElement.on('selected', (event: JQueryEventObject, item: HTMLButtonElement|HTMLAnchorElement) => {
+      this.selected.emit({event, item});
     });
 
     this.toolbar = this.jQueryElement.data('toolbar');
@@ -197,4 +196,9 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
       this.toolbar.updated();
     }
   }
+}
+
+interface SohoSelectedToolbarEvent {
+  event: SohoToolbarEvent;
+  item: HTMLButtonElement | HTMLAnchorElement;
 }

@@ -85,82 +85,28 @@ interface SohoSplitterOptions {
 
 // timepicker
 type SohoTimePickerMode = 'standard' | 'range';
+
 interface SohoTimePickerOptions {
   mode: SohoTimePickerMode;
   timeFormat: string;
   minuteInterval: number;
   roundToInterval: boolean;
 }
-interface SohoTimePickerEvent {
-  currentTarget: HTMLElement;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
+
+interface SohoTimePickerEvent extends BaseJQueryEventObject {
 }
 
 // trackdirty
-interface SohoTrackDirtyEvent {
-  currentTarget: HTMLElement;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
+interface SohoTrackDirtyEvent extends BaseJQueryEventObject {
 }
 
-interface SohoToolbarEvent {
-  currentTarget: HTMLElement;
-  item: any;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
+interface SohoToolbarEvent extends BaseJQueryEventObject {
 }
 
-interface SohoTabsEvent {
-  currentTarget: HTMLElement;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
+interface SohoTabsEvent extends BaseJQueryEventObject {
 }
 
-interface SohoTextareaEvent {
-  currentTarget: HTMLElement;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
+interface SohoTextareaEvent extends BaseJQueryEventObject {
 }
 
 interface SohoMenuButtonOptions {

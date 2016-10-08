@@ -37,7 +37,7 @@ interface SohoToastOptions {
  * This interface represents the pub Api exposed by the
  * Soho control.
  */
-interface ToastStatic {
+interface SohoToastStatic {
   show(): void;
 }
 
@@ -46,7 +46,7 @@ interface ToastStatic {
  */
 
 interface JQueryStatic {
-  toast: ToastStatic;
+  toast: SohoToastStatic;
 }
 
 interface JQuery {
