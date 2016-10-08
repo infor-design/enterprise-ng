@@ -27,7 +27,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit {
 
   /** Breakpoint. */
   @Input()
-  public breakpoint: SohoApplicationMenuComponentOptionsBreakpoint;
+  public breakpoint: SohoApplicationMenuOptionsBreakPoint;
 
   // Open on resize?
   @Input()
@@ -64,7 +64,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit {
   // -------------------------------------------
 
   // Reference to the jQuery element.
-  private jQueryElement: jQuery;
+  private jQueryElement: JQuery;
 
   // Reference to the annotated SoHoXi control
   private applicationmenu: SohoApplicationMenuStatic;

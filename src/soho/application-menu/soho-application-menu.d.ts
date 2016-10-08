@@ -25,6 +25,9 @@ interface SohoApplicationMenuOptions {
  * Application Menu Api
  */
 interface SohoApplicationMenuStatic {
+  /** Control settings. */
+  settings: SohoApplicationMenuOptions;
+
   /**
    * Opens the application menu.
    *
@@ -51,6 +54,13 @@ interface SohoApplicationMenuStatic {
    * Updates the control based on the new settings.
    */
   updated(): void;
+
+  /**
+   * Has this control got the defined class.
+   *
+   * @param clazz - the class to check for.
+   */
+  hasClass(clazz: string): boolean;
 }
 
 interface JQueryStatic {
