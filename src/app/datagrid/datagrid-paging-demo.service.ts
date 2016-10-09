@@ -2,27 +2,23 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Rx';
 
-import {
-  SohoSourceRequest,
-  SohoGridColumn,
-  SohoDataGridService
-} from '../../soho/datagrid';
+import { SohoDataGridService } from '../../soho/datagrid';
 
 declare var Formatters: any;
 
 @Injectable()
 export class DataGridPagingDemoService extends SohoDataGridService {
-  private columns: Array<SohoGridColumn> = Array<SohoGridColumn>();
+  private columns: Array<SohoDataGridColumn> = Array<SohoDataGridColumn>();
   private data: Array<any> = Array<any>();
 
-  getColumns(): Array<SohoGridColumn> {
+  getColumns(): Array<SohoDataGridColumn> {
     if (this.columns.length === 0) {
       this.init();
     }
     return this.columns;
   }
 
-  getData(req: SohoSourceRequest): Observable<any> {
+  getData(req: SohoDataGridSourceRequest): Observable<any> {
     let begin: number = (req.activePage - 1) * req.pagesize;
     let end: number = begin + req.pagesize;
     let data: Array<any> = this.data.slice(begin, end);

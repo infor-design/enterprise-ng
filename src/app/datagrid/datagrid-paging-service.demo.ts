@@ -4,11 +4,9 @@ import {
   Component,
   ViewChild
 } from '@angular/core';
-import {
-  SohoDataGridComponent,
-  SohoGridOptions,
-  SohoSourceRequest
-} from '../../soho/datagrid';
+
+import { SohoDataGridComponent } from '../../soho/datagrid';
+
 import { DataGridPagingDemoService } from './datagrid-paging-demo.service';
 
 @Component({
@@ -30,7 +28,7 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
      */
     let pageSize = 5;
 
-    let gridOptions: SohoGridOptions = <SohoGridOptions> {
+    let gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
       columns: this.datagridPagingService.getColumns(),
       selectable: 'single',
       paging: true,
@@ -40,7 +38,7 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
       rowHeight: 'medium', // short, medium or normal
     };
 
-    gridOptions.source = (req: SohoSourceRequest, response: any) => {
+    gridOptions.source = (req: SohoDataGridSourceRequest, response: any) => {
 
       /*
        * Option1: COMMENT OUT THE RETURN - when getting an initial page request. The
@@ -62,9 +60,9 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
      * Options2 - LOAD INITIAL DATA DIRECTLY - bypass the initial type in the
      * source function and load directly into:
      * NOTE: only seems to work with indeterminate paging. Perhaps a something
-     * missing in the SohoSourceRequest object?!?
+     * missing in the SohoDataGridSourceRequest object?!?
      */
-    // let initialRequest: SohoSourceRequest = { activePage: 1, pagesize: pageSize, type: '', total: 100, filterExpr: []};
+    // let initialRequest: SohoDataGridSourceRequest = { activePage: 1, pagesize: pageSize, type: '', total: 100, filterExpr: []};
     // this.datagridPagingService.getData(initialRequest).subscribe((result: any) => {
     //   this.sohoDataGridComponent.data = result.data;
     // });

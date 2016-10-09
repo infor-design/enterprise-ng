@@ -11,7 +11,7 @@
 type SohoTreeOptionsSelectable = 'single' | 'multiple';
 
 /**
- * Toast options.
+ * Tree options.
  */
 interface SohoTreeOptions {
   /** Tree selection setting. */
