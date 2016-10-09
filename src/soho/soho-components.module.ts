@@ -10,6 +10,7 @@ import { SohoEditorModule } from './editor/soho-editor.module';
 import { SohoExpandableAreaModule } from './expandablearea/soho-expandablearea.module';
 import { SohoHeaderModule } from './header/soho-header.module';
 import { SohoIconModule } from './icon/soho-icon.module';
+import { SohoLabelModule } from './label/soho-label.module';
 import { SohoListViewModule } from './listview/soho-listview.module';
 import { SohoLookupModule } from './lookup/soho-lookup.module';
 import { SohoTabsModule } from './tabs/soho-tabs.module';
@@ -43,6 +44,7 @@ import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
     SohoHeaderModule,
     SohoIconModule,
     SohoInputValidateModule,
+    SohoLabelModule,
     SohoListViewModule,
     SohoLookupModule,
     SohoMaskModule,
@@ -76,6 +78,7 @@ import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
     SohoHeaderModule,
     SohoIconModule,
     SohoInputValidateModule,
+    SohoLabelModule,
     SohoListViewModule,
     SohoLookupModule,
     SohoMaskModule,
