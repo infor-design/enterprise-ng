@@ -15,7 +15,7 @@ import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.se
   templateUrl: 'app.component.html',
   styleUrls: [ 'app.component.css' ],
   providers: [ HeaderDynamicDemoRefService ],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements AfterViewInit {
   @ViewChild(SohoApplicationMenuComponent) applicationMenu: SohoApplicationMenuComponent;

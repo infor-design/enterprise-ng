@@ -7,7 +7,13 @@
             "request": "launch",
             "url": "http://localhost:4200",
             "sourceMaps": true,
-            "webRoot": "${workspaceRoot}"
+            "webRoot": "${workspaceRoot}",
+            "sourceMapPathOverrides": {
+              "webpack:///*": "/*"
+              // "webpack:////absolute/path/to/workspaceRoot/*": "${webRoot}/*"
+              // works too, but this will not work:
+              // "webpack:///${workspaceRoot}/*": "${webRoot}/*"
+          }
         },
         {
             "name": "Attach to Chrome, with sourcemaps",

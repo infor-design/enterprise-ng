@@ -64,11 +64,11 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   /**
    * Called when the dropdown value changes
    */
-  @Output() change: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() change: EventEmitter<Object> = new EventEmitter<JQueryEventObject>();
   /**
    * Called when the dropdown updates in some way
    */
-  @Output() updated: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() updated: EventEmitter<Object> = new EventEmitter<JQueryEventObject>();
 
   /**
    * Bind attributes to the host select element
@@ -90,8 +90,9 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private jQueryElement: any;
-  private dropdown: any;
+  private jQueryElement: JQuery;
+
+  private dropdown: SohoDropDownStatic;
 
   constructor(private element: ElementRef, private model?: NgModel) {
     if (this.model) {
@@ -120,8 +121,9 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (event: any) => this.onChange(event));
-    this.jQueryElement.on('updated', (event: any) => this.updated.emit(event));
+    this.jQueryElement
+      .on('change', (event: JQueryEventObject) => this.onChange(event))
+      .on('updated', (event: JQueryEventObject) => this.updated.emit(event));
 
     this.dropdown = this.jQueryElement.data('dropdown');
   }

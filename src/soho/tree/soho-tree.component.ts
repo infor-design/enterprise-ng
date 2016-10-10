@@ -16,12 +16,6 @@ import { ArgumentHelper } from '../utils/argument.helper';
 
 import { SohoTreeService } from './soho-tree.service';
 
-import {
-  SohoTreeNode,
-  SohoTreeOptions,
-  SohoTreeEvent
-} from './soho-tree.model';
-
 /**
  *  Valid list of tree types.
  */
@@ -68,17 +62,35 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   @Input() set dataset(dataset: SohoTreeNode[]) {
     // @todo this is not fully working as the tree control does not
     // replace the contents but looks to merge it.
-    this._dataset = dataset;
+    this.treeOptions.dataset = dataset;
     if (this.tree) {
       this.tree.loadData(dataset);
     }
   };
 
-  /**
-   * Defines the source type of the tree.
-   */
+  /** Defines the source type of the tree. */
   @Input('soho-tree') set sohoTree(treeType: SohoTreeType) {
     this.treeType = treeType ? treeType : SohoTreeComponent.AUTO;
+  }
+
+  /** Is the tree selectable? */
+  @Input() set selectable(selectable: SohoTreeOptionsSelectable) {
+    this.treeOptions.selectable = selectable;
+    if (this.tree) {
+      this.tree.settings.selectable = selectable;
+      // @todo - make tree updatable when settings change,
+      // this.tree.updated();
+    }
+  }
+
+  /** Show selection checkboxes? */
+  @Input() set hideCheckboxes(hideCheckboxes: boolean) {
+    this.treeOptions.hideCheckboxes = hideCheckboxes;
+    if (this.tree) {
+      this.tree.settings.hideCheckboxes = hideCheckboxes;
+      // @todo - make tree updatable when settings change,
+      // this.tree.updated();
+    }
   }
 
   // -------------------------------------------
@@ -115,16 +127,16 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   // -------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: any;
+  private jQueryElement: JQuery;
 
   // Reference to the SoHo tree control api.
-  private tree: any;
-
-  // Loaded dataset (root tree nodes)
-  private _dataset: SohoTreeNode[];
+  private tree: SohoTreeStatic;
 
   // The tree's type.
   private treeType: SohoTreeType;
+
+  /** An internal options object that gets updated by using the component's Inputs(). */
+  private treeOptions: SohoTreeOptions = {};
 
   /**
    * Constructor.
@@ -145,7 +157,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
    * Resets the data display to the default provided by the service,
    * that is by calling getRootNodes.
    *
-   * The alternative is to set the dataset  property, which
+   * The alternative is to set the dataset property, which
    * has the same affect but allows the client to specify
    * the nodes.
    *
@@ -300,15 +312,13 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     // Wrap the "unordered list" element in a jQuery selector.
     this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
-    // The source is used to lazily load the tree.
-    let options: SohoTreeOptions = {
-      dataset: this._dataset,
-      source: (this.treeService && this.treeType !== SohoTreeComponent.CONTENT_ONLY)
-        ? (args: SohoTreeEvent, response: any) => this.onDataRequest(args, response) : null
-    };
+    // Ensure the source is set when a service is defined.
+    if (!this.treeOptions.dataset && this.treeService) {
+      this.treeOptions.source = (args: SohoTreeEvent, response: any) => this.onDataRequest(args, response);
+    }
 
     // Initialise the Soho control.
-    this.jQueryElement.tree(options);
+    this.jQueryElement.tree(this.treeOptions);
 
     // Once the control is initialised, extract the control
     // plug-in from the element.  The element name is
@@ -316,17 +326,17 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     this.tree = this.jQueryElement.data('tree');
 
     // Preload from the service if specified (unless data already provided).
-    if (this.treeType !== SohoTreeComponent.CONTENT_ONLY && !this._dataset && this.treeService) {
-      // ... bootstrap ...
+    if (this.treeType !== SohoTreeComponent.CONTENT_ONLY && !this.treeOptions.dataset && this.treeService) {
+      // ... bootstrap the root nodes ...
       this.treeService.getRootTreeNodes()
          .subscribe((dataset: SohoTreeNode[]) => this.dataset = dataset);
     }
 
     // Initialize any event handlers.
     this.jQueryElement
-      .on('selected', (e: any, args: SohoTreeEvent) => this.selected.next(args.data))
-      .on('expand', (e: any, args: SohoTreeEvent) => this.expand.next(args.data))
-      .on('collapse', (e: any, args: SohoTreeEvent) => this.collapse.next(args.data));
+      .on('selected', (e: JQueryEventObject, args: SohoTreeEvent) => this.selected.next(args.data))
+      .on('expand', (e: JQueryEventObject, args: SohoTreeEvent) => this.expand.next(args.data))
+      .on('collapse', (e: JQueryEventObject, args: SohoTreeEvent) => this.collapse.next(args.data));
   }
 
   ngOnDestroy() {

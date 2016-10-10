@@ -31,11 +31,6 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   private options: SohoBusyIndicatorOptions = {
-    blockUI: false,
-    text: Locale.translate('Loading...'),
-    delay: 0,
-    timeToComplete: 0,
-    timeToClose: 0
   };
 
   // -------------------------------------------
@@ -46,24 +41,27 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
   private jQueryElement: JQuery;
 
   // Reference to the SoHoXi control api.
-  private busyindicator: any;
+  private busyindicator: SohoBusyIndicatorStatic;
 
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
 
   // Fired after the busy indicator is displayed
-  @Output() onAfterStart = new EventEmitter<BusyIndicatorEvent>();
+  @Output() afterstart$ = new EventEmitter<SohoBusyIndicatorEvent>();
 
-  // Fired after the busy indicator is closed.
-  @Output() onComplete = new EventEmitter<BusyIndicatorEvent>();
+  /** This event is fired 'timeToComplete' milliseconds after the indicator is opened.
+   * NOTE: There's no close event on the busyindicator.
+  */
+  @Output() close$ = new EventEmitter<SohoBusyIndicatorEvent>();
 
   // -------------------------------------------
   // Component Inputs
   // -------------------------------------------
 
   // Makes the element that Busy Indicator is invoked on unusable while it's displayed.
-  @Input() set blockUI(blockUI: boolean) {
+  @Input()
+  public set blockUI(blockUI: boolean) {
     this.options.blockUI = blockUI;
     if (this.busyindicator) {
       this.busyindicator.settings.blockUI = blockUI;
@@ -72,34 +70,28 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
   }
 
   // Number in milliseconds to pass before the markup is displayed.  If 0, displays immediately
-  @Input() set delay(delay: number) {
-    this.options.delay = delay;
+  @Input()
+  public set displayDelay(displayDelay: number) {
+    this.options.displayDelay = displayDelay;
     if (this.busyindicator) {
-      this.busyindicator.settings.delay = delay;
+      this.busyindicator.settings.displayDelay = displayDelay;
       this.busyindicator.updated();
     }
   }
 
-  // fires the 'complete' trigger at a certain timing interval.  If 0, goes indefinitely.
-  @Input() set timeToComplete(timeToComplete: number) {
-    this.options.timeToClose = timeToComplete;
+  // Fires the 'complete' trigger at a certain timing interval.  If 0, goes indefinitely.
+  @Input()
+  public set timeToComplete(timeToComplete: number) {
+    this.options.timeToComplete = timeToComplete;
     if (this.busyindicator) {
-      this.busyindicator.settings.timeToClose = timeToComplete;
+      this.busyindicator.settings.timeToComplete = timeToComplete;
       this.busyindicator.updated();
     }
   }
 
-  // fires the 'close' trigger at a certain timing interval.  If 0, goes indefinitely.
-  @Input() set timeToClose(timeToClose: number) {
-    this.options.timeToClose = timeToClose;
-    if (this.busyindicator) {
-      this.busyindicator.settings.timeToClose = timeToClose;
-      this.busyindicator.updated();
-    }
-  }
-
-  // Custom Text To Show or Will Show Localized Loading....
-  @Input() set text(text: string) {
+  /** Custom Text To Show or Will Show Localized 'Loading...' */
+  @Input()
+  public set text(text: string) {
     this.options.text = text;
     if (this.busyindicator) {
       this.busyindicator.settings.text = text;
@@ -107,8 +99,9 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  // Controls the activated state of the busy indicator.
-  @Input() set activated(value: boolean) {
+  /** Controls the activated state of the busy indicator. */
+  @Input()
+  public set activated(value: boolean) {
     if (this.busyindicator) {
       if (value) {
         this.busyindicator.activate();
@@ -144,8 +137,22 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
 
     // Initialise any event handlers.
     this.jQueryElement
-      .on('afterstart', (e: any, args: BusyIndicatorEvent) => this.onAfterStart.next(args))
-      .on('complete', (e: any, args: BusyIndicatorEvent) => this.onComplete.next(args));
+      .on('afterstart', (e: JQueryEventObject) => this.onAfterStartEvent(e))
+      .on('close', (e: JQueryEventObject) => this.onCloseEvent(e));
+  }
+
+  /**
+   * Publishes the vent, after annotating the event.
+   */
+  private onAfterStartEvent(event: JQueryEventObject) {
+    this.afterstart$.next({type: 'afterstart', component: this, event: event});
+  }
+
+  /**
+   * Publishes the vent, after annotating the event.
+   */
+  private onCloseEvent(event: JQueryEventObject) {
+    this.close$.next({type: 'close', component: this, event: event});
   }
 
   /**
@@ -160,7 +167,15 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
 }
 
 /**
- * Soho Busy Indicator Event
+ * Event object.
  */
-export interface BusyIndicatorEvent {
+export interface SohoBusyIndicatorEvent {
+  /** Event Type. */
+  type: 'afterstart' |'close';
+
+  /** Source Component. */
+  component: SohoBusyIndicatorComponent;
+
+  /** Full JQuery Event. */
+  event: JQueryEventObject;
 }

@@ -1,69 +1,5 @@
-interface SohoToastOptions {
-  title: string;
-  message: string;
-  position?: 'top right' | 'top left' | 'bottom left' | 'bottom right';
-  audibleOnly?: boolean;
-  progressBar?: boolean;
-  timeout?: number;
-}
-
-interface ToastStatic {
-  show: () => void;
-}
-
-interface SohoApplicationMenuOptions {
-  breakpoint: 'phablet' | 'tablet' | 'desktop' | 'large';
-  openOnLarge: boolean;
-  triggers: any[];
-}
-
-interface ApplicationMenuStatic {
-  openMenu: (noFocus?: boolean) => void;
-  closeMenu: () => void;
-  modifyTriggers: (triggers: any[], remove: boolean, norebuild: boolean) => void;
-}
-
-interface SohoBusyIndicatorOptions {
-  blockUI?: boolean;
-  text: string;
-  delay: number;
-  timeToComplete: number;
-  timeToClose: number;
-}
-
-interface BusyIndicatorStatic {
-  activate: () => void;
-  close: () => void;
-}
 
 interface TrackDirtyStatic {
-}
-
-// datepicker
-type SohoDatePickerDateMode = 'standard' | 'range';
-interface SohoDatePickerOptions {
-  showTime: boolean;
-  timeFormat: string;
-  minuteInterval: number;
-  mode: SohoDatePickerDateMode;
-  roundToInterval: number;
-  timepickerMarkup: string;
-  dateFormat: string;
-  placeholder: boolean;
-  disable: any;
-}
-interface SohoDatePickerEvent {
-  currentTarget: HTMLElement;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
 }
 
 interface SohoCheckBoxEvent {
@@ -122,82 +58,28 @@ interface SohoSplitterOptions {
 
 // timepicker
 type SohoTimePickerMode = 'standard' | 'range';
+
 interface SohoTimePickerOptions {
   mode: SohoTimePickerMode;
   timeFormat: string;
   minuteInterval: number;
   roundToInterval: boolean;
 }
-interface SohoTimePickerEvent {
-  currentTarget: HTMLElement;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
+
+interface SohoTimePickerEvent extends BaseJQueryEventObject {
 }
 
 // trackdirty
-interface SohoTrackDirtyEvent {
-  currentTarget: HTMLElement;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
+interface SohoTrackDirtyEvent extends BaseJQueryEventObject {
 }
 
-interface SohoToolbarEvent {
-  currentTarget: HTMLElement;
-  item: any;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
+interface SohoToolbarEvent extends BaseJQueryEventObject {
 }
 
-interface SohoTabsEvent {
-  currentTarget: HTMLElement;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
+interface SohoTabsEvent extends BaseJQueryEventObject {
 }
 
-interface SohoTextareaEvent {
-  currentTarget: HTMLElement;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
+interface SohoTextareaEvent extends BaseJQueryEventObject {
 }
 
 interface SohoMenuButtonOptions {
@@ -263,25 +145,16 @@ declare var Editors: {
   // @todo
 };
 
-
-
 /**
  * JQuery Integration
  */
 
 interface JQueryStatic {
-  applicationmenu: ApplicationMenuStatic;
-  toast: ToastStatic;
-  busyindicator: BusyIndicatorStatic;
   splitter: SplitterStatic;
   trackdirty: TrackDirtyStatic;
 }
 
 interface JQuery {
-  applicationmenu(options?: SohoApplicationMenuOptions): JQuery;
-  toast(options?: SohoToastOptions): JQuery;
-  busyindicator(options?: SohoBusyIndicatorOptions): JQuery;
-  datepicker(options?: SohoDatePickerOptions): JQuery;
   editor(options?: SohoEditorOptions): JQuery;
   mask(options?: SohoMaskOptions): JQuery;
   tabs(): JQuery;

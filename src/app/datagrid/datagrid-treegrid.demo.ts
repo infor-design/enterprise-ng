@@ -9,9 +9,7 @@
 
 import {
   SohoDataGridComponent,
-  SohoGridColumn,
   SohoDataGridRowEvent,
-  SohoDataGridSelectedEvent
 } from '../../soho/datagrid';
 
 import { SohoBusyIndicatorComponent } from '../../soho/busyindicator';
@@ -29,8 +27,8 @@ export class DataGridTreeGridDemoComponent implements AfterContentInit, AfterVie
 
   constructor(private el: ElementRef) {}
 
-  public get columns(): SohoGridColumn[] {
-    const columns: SohoGridColumn[] = [];
+  public get columns(): SohoDataGridColumn[] {
+    const columns: SohoDataGridColumn[] = [];
     columns.push({id: 'selectionCheckbox', sortable: false, resizable: false, filterType: 'text', width: 50,
       formatter: 'SelectionCheckbox', align: 'center' });
     columns.push({ id: 'taskName', name: 'Task', field: 'taskName',

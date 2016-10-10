@@ -4,7 +4,10 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { SohoBusyIndicatorComponent } from '../../soho/busyindicator';
+import {
+  SohoBusyIndicatorComponent,
+  SohoBusyIndicatorEvent
+} from '../../soho/busyindicator';
 
 @Component({
   selector: 'soho-busyindicator-demo',
@@ -32,5 +35,13 @@ export class BusyIndicatorDemoComponent {
   timer() {
     this.busyIndicator.activated = true;
     setTimeout((f: any) => this.busyIndicator.activated = false, 10000);
+  }
+
+  onAfterStart(event: SohoBusyIndicatorEvent) {
+      console.log(`${event.type} - ${event.event.currentTarget}`);
+  }
+
+  onClose(event: SohoBusyIndicatorEvent) {
+      console.log(`${event.type} - ${event.event.currentTarget}`);
   }
 }
