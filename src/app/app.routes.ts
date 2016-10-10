@@ -26,6 +26,7 @@ import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 
+import { LabelDemoComponent } from './label/label.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
 
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
@@ -73,6 +74,7 @@ export const routes: Routes = [
   { path: 'textarea',              component: TextareaDemoComponent },
   { path: 'toast',                 component: ToastDemoComponent },
   { path: 'icon',                  component: IconDemoComponent },
+  { path: 'label',                 component: LabelDemoComponent },
   { path: 'listview',              component: ListViewDemoComponent },
   { path: 'lookup',                component: LookupDemoComponent },
   { path: 'mask',                  component: MaskDemoComponent },

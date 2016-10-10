@@ -24,6 +24,7 @@ import { EditorDemoComponent } from './editor/editor.demo';
 import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
 import { IconDemoComponent } from './icon/icon.demo';
+import { LabelDemoComponent } from './label/label.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
@@ -84,6 +85,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     ToastDemoComponent,
     IconDemoComponent,
     ListViewDemoComponent,
+    LabelDemoComponent,
     LookupDemoComponent,
     MaskDemoComponent,
     MenuButtonDemoComponent,
