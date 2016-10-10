@@ -38,7 +38,7 @@ interface SohoApplicationMenuStatic {
   /**
    * Closes the application menu.
    */
-  closeMenu():void;
+  closeMenu(): void;
 
   /**
    * Add and remove application nav menu triggers.

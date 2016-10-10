@@ -59,7 +59,7 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private jQueryElement: any;
+  private jQueryElement: JQuery;
 
   /**
    * Constructor.
@@ -85,7 +85,7 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
    * Destructor.
    */
   ngOnDestroy() {
-
+    // No jquery control.
   }
 
 }

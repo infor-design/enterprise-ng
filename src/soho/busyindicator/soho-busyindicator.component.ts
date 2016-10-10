@@ -137,8 +137,8 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
 
     // Initialise any event handlers.
     this.jQueryElement
-      .on('afterstart', (e: any) => this.onAfterStartEvent(e))
-      .on('close', (e: any) => this.onCloseEvent(e));
+      .on('afterstart', (e: JQueryEventObject) => this.onAfterStartEvent(e))
+      .on('close', (e: JQueryEventObject) => this.onCloseEvent(e));
   }
 
   /**

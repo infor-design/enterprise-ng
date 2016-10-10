@@ -42,7 +42,7 @@ interface SohoDataGridOptions {
   columns?: SohoDataGridColumn[];
 
   /** ?? */
-  //data?: Object[];
+  // data?: Object[];
 
   /** Initial dataset. */
   dataset?: Object[];
@@ -66,7 +66,7 @@ interface SohoDataGridOptions {
   rowHeight?: SohoDataGridOptionsRowHeight;
 
   /** Sets the select-ability for the datagrid. */
-  selectable?: SohoDataGridOptionsSelectable
+  selectable?: SohoDataGridOptionsSelectable;
 
   /** Click to select, or via checkbox? */
   clickToSelect?: boolean;
@@ -205,7 +205,6 @@ interface SohoGridCellOption {
   label: string;
 }
 
-
 /**
  * This interface represents the pub Api exposed by the
  * Soho datagrid control.
@@ -264,7 +263,6 @@ interface SohoDataGridAddRowEvent {
   oldValue: any;
 }
 
-
 /**
  * Move to toolbar!
  */
@@ -282,11 +280,9 @@ interface SohoToolbarOptions {
   views?: boolean;
 }
 
-
 /**
  * JQuery Integration
  */
-
 interface JQueryStatic {
   datagrid: SohoDataGridStatic;
 }

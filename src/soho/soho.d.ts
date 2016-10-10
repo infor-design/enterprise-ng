@@ -2,33 +2,6 @@
 interface TrackDirtyStatic {
 }
 
-// datepicker
-type SohoDatePickerDateMode = 'standard' | 'range';
-interface SohoDatePickerOptions {
-  showTime: boolean;
-  timeFormat: string;
-  minuteInterval: number;
-  mode: SohoDatePickerDateMode;
-  roundToInterval: number;
-  timepickerMarkup: string;
-  dateFormat: string;
-  placeholder: boolean;
-  disable: any;
-}
-interface SohoDatePickerEvent {
-  currentTarget: HTMLElement;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
-}
-
 interface SohoCheckBoxEvent {
   currentTarget: HTMLElement;
   data: any;
@@ -182,7 +155,6 @@ interface JQueryStatic {
 }
 
 interface JQuery {
-  datepicker(options?: SohoDatePickerOptions): JQuery;
   editor(options?: SohoEditorOptions): JQuery;
   mask(options?: SohoMaskOptions): JQuery;
   tabs(): JQuery;
