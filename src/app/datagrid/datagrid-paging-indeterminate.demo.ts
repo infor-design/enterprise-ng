@@ -45,27 +45,33 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
       filterable: true,
 
       /*
-       * ISSUE: the source function is called on a next and last sometime even when lastPage is true.
-       *  - To Duplicate set the page size to 25.
+       * ISSUE 1: the source function is called on a next and last sometimes even when lastPage is true.
+       *  - To Duplicate set the page size to 25. Next to the end then click greyed out next again.
        *  - Strangely it isn't a rpoblem when page size is 10!?!
+       *
+       * ISSUE 2: the source function is called on a prev and first sometimes even when firstPage is true.
+       *  - To Duplicate set the page size to 25. Next to then the end, prev back to beginning.
+       *    click prev again.
        */
       source: (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
-        /*
-         * WORKAROUND 1:
-         *  If you have state that keeps track of lastPgae then If lastPage is true
-         *  return on 'last' and 'next' before calling the service.getData() method.
-         */
-
         this.datagridPagingService.getData(request).subscribe((result: any) => {
           request.firstPage = result.firstPage;
           request.lastPage = result.lastPage;
 
           /*
-           * WORKAROUND 2:
+           * WORKAROUND for nexting issue
            * When the service reports lastPage set the activePage to the current pagesize.
            */
           if (request.lastPage) {
             request.activePage = request.pagesize;
+          }
+
+          /*
+           * WORKAROUND for prev'ing issue
+           * When the service reports lastPage set the activePage to the current pagesize.
+           */
+          if (request.firstPage) {
+            request.activePage = 0;
           }
 
           response(result.data, request);
