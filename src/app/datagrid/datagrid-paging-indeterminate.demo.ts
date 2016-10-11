@@ -30,7 +30,17 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
       indeterminate: true,
       rowHeight: 'short', // short, medium or normal
       sortable: false,
+
+      /**
+       * cause source method to be called with req.type of 'sorted' so that
+       * the server can be called to do sorting.
+       */
       disableClientSort: true,
+
+      /**
+       * Cause source method to be called with req.type of 'filtered' so that
+       * the server can be called to do filtering.
+       */
       disableClientFilter: true,
       filterable: true,
 
