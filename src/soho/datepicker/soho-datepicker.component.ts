@@ -14,8 +14,8 @@ import {
   template: '<ng-content></ng-content>'
 })
 export class SohoDatePickerComponent implements AfterViewInit, OnDestroy {
-// TODO: waiting on SOHO-4839 : 4.0 DatePicker - Needs to support an update() method
-//  so options can be changed after initialization
+  // TODO: waiting on SOHO-4839 : 4.0 DatePicker - Needs to support an update() method
+  //  so options can be changed after initialization
   /**
    * Indicates to display the timepicker; defaults to false.
    */
@@ -34,18 +34,21 @@ export class SohoDatePickerComponent implements AfterViewInit, OnDestroy {
   @Input() set minuteInterval(minuteInterval: number) {
     this.options.minuteInterval = minuteInterval;
   }
+
   /**
    * Indicates mode, either 'standard' or 'range'.
    */
-  @Input() set mode(mode: SohoDatePickerDateMode) {
+  @Input() set mode(mode: SohoDatePickerOptionsMode) {
     this.options.mode = mode;
   }
+
   /**
    * If a non-matching minutes value is entered, will round the minutes value to the nearest interval on the blur event.
    */
   @Input() set roundToInterval(roundToInterval: number) {
     this.options.roundToInterval = roundToInterval;
   }
+
   /**
    * Indicates the html markup for the timepicker.
    */
@@ -73,7 +76,7 @@ export class SohoDatePickerComponent implements AfterViewInit, OnDestroy {
   /**
    * Enables or disables the control
    */
-// TODO: waiting on SOHO-4834 - 4.0 Datepicker - Needs to support enable(), disable(), and readonly() methods
+  // TODO: waiting on SOHO-4834 - 4.0 Datepicker - Needs to support enable(), disable(), and readonly() methods
   @Input() set disabled(value: boolean) {
     this.isDisabled = value;
 
@@ -91,7 +94,7 @@ export class SohoDatePickerComponent implements AfterViewInit, OnDestroy {
   /**
    * Sets the control to readonly
    */
-// TODO: waiting on SOHO-4834 - 4.0 Datepicker - Needs to support enable(), disable(), and readonly() methods
+  // TODO: waiting on SOHO-4834 - 4.0 Datepicker - Needs to support enable(), disable(), and readonly() methods
   @Input() set readonly(value: boolean) {
     this.isReadOnly = value;
 
@@ -135,23 +138,18 @@ export class SohoDatePickerComponent implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private jQueryElement: any;
-  private datepicker: any;
+  private jQueryElement: JQuery;
+
+  private datepicker: SohoDatePickerStatic;
+
   private isDisabled: boolean = null;
+
   private isReadOnly: boolean = null;
-  private options: SohoDatePickerOptions = {
-    showTime: false,
-    timeFormat: undefined,
-    minuteInterval: undefined,
-    mode: undefined,
-    roundToInterval: undefined,
-    timepickerMarkup: undefined,
-    dateFormat: undefined,
-    placeholder: false,
-    disable: undefined
-  };
+
+  private options: SohoDatePickerOptions = {};
 
   constructor(private element: ElementRef) { }
+
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
@@ -160,13 +158,14 @@ export class SohoDatePickerComponent implements AfterViewInit, OnDestroy {
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (event: SohoDatePickerEvent) => this.change.emit(event));
+    this.jQueryElement
+      .on('change', (event: SohoDatePickerEvent) => this.change.emit(event));
 
     this.datepicker = this.jQueryElement.data('datepicker');
   }
   ngOnDestroy() {
     if (this.datepicker) {
-// TODO: waiting on SOHO-4777 - 4.0 Datepicker - Needs a destroy method
+      // TODO: waiting on SOHO-4777 - 4.0 Datepicker - Needs a destroy method
       // this.datepicker.destroy();
       this.datepicker = null;
     }

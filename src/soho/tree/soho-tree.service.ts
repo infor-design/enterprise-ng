@@ -1,7 +1,5 @@
 import { Observable } from 'rxjs/Rx';
 
-import { SohoTreeNode } from './soho-tree.model';
-
 /**
  * Soho Dynamic Tree Service contract.
  *

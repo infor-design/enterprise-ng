@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
 
 import {
-  SohoGridColumn,
-  SohoDatagridSource,
-  SohoSourceRequest,
-  SohoResponseFunction
-} from '../../soho/datagrid';
-
-import {
   checkboxColumn,
   productsColumns,
   productsData
@@ -23,9 +16,9 @@ export interface FakeResponse {
   selector: 'soho-lookup-demo',
   templateUrl: 'lookup.demo.html',
 })
-export class LookupDemoComponent implements SohoDatagridSource {
-  private columns_product: SohoGridColumn[];
-  private columns_multi: SohoGridColumn[];
+export class LookupDemoComponent /*implements SohoDataGridSourceFunction*/ {
+  private columns_product: SohoDataGridColumn[];
+  private columns_multi: SohoDataGridColumn[];
 
   private data_product: any[];
   private model: any = { // tslint:disable-line
@@ -99,7 +92,7 @@ export class LookupDemoComponent implements SohoDatagridSource {
    * can be supplemented with modifying the page sizes and current page size (can be
    * a set user configuration within the application).
    */
-  source(req: SohoSourceRequest, response: SohoResponseFunction) {
+  source(req: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) {
     const filter = req.filterExpr && req.filterExpr[0] && req.filterExpr[0].value;
     this.requestData(filter, req.activePage, req.pagesize).then( result => {
       req.total = result.total;

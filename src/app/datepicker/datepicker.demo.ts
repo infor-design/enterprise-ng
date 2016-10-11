@@ -29,8 +29,8 @@ export class DatepickerDemoComponent implements OnInit {
   toggleModel() {
     this.showModel = !this.showModel;
   }
-  onChange(event: Event) {
-    console.log('DatePickerDemoComponent.onChange');
+  onChange(event: SohoDatePickerEvent) {
+    console.log('DatePickerDemoComponent.onChange: type=' + event.type);
   }
   setEnable() {
 // TODO: waiting on SOHO-4834

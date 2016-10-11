@@ -9,11 +9,8 @@ import {
 
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import {
-  SohoDataGridComponent,
-  SohoGridColumn
-} from '../../soho/datagrid';
 
+import { SohoDataGridComponent } from '../../soho/datagrid';
 import { SohoBusyIndicatorComponent } from '../../soho/busyindicator';
 
 import {
@@ -38,7 +35,7 @@ export class DataGridDynamicDemoComponent implements AfterContentInit, AfterView
               private service: DataGridDemoService) {
   }
 
-  public get columns(): Observable<SohoGridColumn[]> {
+  public get columns(): Observable<SohoDataGridColumn[]> {
     return Observable.of(this.service.getColumns());
   }
 

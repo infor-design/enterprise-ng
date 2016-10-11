@@ -3,10 +3,7 @@ import {
   OnInit
 } from '@angular/core';
 
-import {
-  SohoToastService,
-  SohoToastPositionType
-} from '../../soho/toast';
+import { SohoToastService } from '../../soho/toast';
 
 @Component({
   selector: 'soho-toast-demo',
@@ -17,7 +14,7 @@ export class ToastDemoComponent implements OnInit {
   constructor(private toastService: SohoToastService) { }
   ngOnInit() { }
 
-  showToast(position: SohoToastPositionType = SohoToastService.TOP_RIGHT) {
+  showToast(position: SohoToastOptionsPosition = SohoToastService.TOP_RIGHT) {
     this.toastService.show({title: 'Sample Message', message: 'This is a Toast message', position: position});
   }
 }

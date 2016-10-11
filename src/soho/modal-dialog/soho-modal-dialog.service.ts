@@ -5,7 +5,10 @@ import {
   ComponentFactoryResolver
 } from '@angular/core';
 
-import { SohoModalDialogRef } from './soho-modal-dialog.ref';
+import {
+  SohoModalDialogRef
+} from './soho-modal-dialog.ref';
+
 import { SohoModalDialogInjector } from './soho-modal-dialog.injector';
 
 /**
@@ -39,15 +42,26 @@ export class SohoModalDialogService {
    * @return the modal dialog reference.
    */
   modal<T>(component: ComponentType<T>, parent: ViewContainerRef): SohoModalDialogRef<T> {
-    let modalDialogRef = new SohoModalDialogRef(component);
+    let modalDialogRef = new SohoModalDialogRef<T>();
     const dialogInjector = new SohoModalDialogInjector(modalDialogRef, this.injector);
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     const instance = parent.createComponent<T>(componentFactory, parent.length, dialogInjector);
-    modalDialogRef.componentInstance = instance;
+    modalDialogRef.component = instance;
     return modalDialogRef;
   }
 
-  /** todo implement a string content based version, not using an Angular Component. */
+  /**
+   * Creates a modal dialog (using the content defined in the options), returning a reference to the
+   * dialog that can be interacted with.
+   *
+   * The dialog won't be open.
+   *
+   * @return the modal dialog reference.
+   */
+  message<T>(content: string | JQuery): SohoModalDialogRef<T> {
+    return new SohoModalDialogRef<T>()
+      .content(content);
+  }
 }
 
 /**
