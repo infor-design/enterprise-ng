@@ -18,21 +18,6 @@ import { ArgumentHelper } from '../utils';
 
 import { SohoDataGridService } from './soho-datagrid.service';
 
-import {
-  SohoGridOptions,
-  SohoGridColumn,
-  SohoSourceRequest,
-  SohoDataGridCellChangeEvent,
-  SohoDataGridSelectedEvent,
-  SohoDataGridSelectedRow,
-  SohoDataGridRowRemoveEvent,
-  SohoDataGridAddRowEvent,
-  SohoDataGridRowEvent,
-  SohoDataGridSortedEvent,
-  SohoToolbarOptions,
-  SohoDataGridPageInfo
-} from './soho-datagrid.model';
-
 export type SohoDataGridType = 'auto' | 'content-only';
 
 /**
@@ -94,7 +79,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    *
    * @param gridOptions.
    */
-  @Input() set gridOptions(gridOptions: SohoGridOptions) {
+  @Input() set gridOptions(gridOptions: SohoDataGridOptions) {
     ArgumentHelper.checkNotNull('gridOptions', gridOptions);
 
     this._gridOptions = gridOptions;
@@ -277,7 +262,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    *
    * @param selectable valid values are: 'multiple', 'single', and false.
    */
-  @Input() set selectable(selectable: boolean | 'single' | 'multiple') {
+  @Input() set selectable(selectable: SohoDataGridOptionsSelectable) {
     this._gridOptions.selectable = selectable;
     if (this.jQueryElement) {
       // Just changing the datagrid.settings.selectable updates the datagrid view.
@@ -286,7 +271,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
-  get selectable(): boolean | 'single' | 'multiple' {
+  get selectable(): SohoDataGridOptionsSelectable {
     return this._gridOptions.selectable;
   }
 
@@ -477,7 +462,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * initialised, stash the data for later, and only
    * call loadData on the control api if ready.
    */
-  @Input() set columns(columns: SohoGridColumn[]) {
+  @Input() set columns(columns: SohoDataGridColumn[]) {
     this._gridOptions.columns = columns || [];
     if (columns && this.jQueryElement) {
 
@@ -570,7 +555,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   // An internal gridOptions object that gets updated by using
   // the component's Inputs()
-  private _gridOptions = new SohoGridOptions();
+  private _gridOptions: SohoDataGridOptions = {};
 
   // Provides hints to the component after the next refresh.
   private refreshHint: RefreshHintFlags = RefreshHintFlags.None;
@@ -776,12 +761,12 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * Handle a request to load the data for the grid from the service.
    *
-   * @todo paging - ??
+   * @todo paging - not yet fully implemented?
    */
-  private onDataRequest(req: SohoSourceRequest, response: (data: any) => void) {
-    this.datagridService.getData(req)
-      .subscribe((data: any) => {
-        response(data);
+  private onDataRequest(request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) {
+    this.datagridService.getData(request)
+      .subscribe((results: Object[]) => {
+        response(results, request);
       });
   }
 
@@ -891,14 +876,14 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
     // Initialise any event handlers.
     this.jQueryElement
-      .on('selected', (e: any, args: SohoDataGridSelectedRow[]) => this.selected.next({ e, rows: args }))
-      .on('cellchange', (e: any, args: SohoDataGridCellChangeEvent[]) => this.cellchange.next(args))
-      .on('removerow', (e: any, args: SohoDataGridRowRemoveEvent) => { this.rowRemove.next(args); })
-      .on('addrow', (e: any, args: SohoDataGridAddRowEvent) => { this.rowAdd.next(args); })
-      .on('filtered', (e: any, args: any) => { this.filtered.next(args); })
-      .on('sorted', (e: any, args: any) => { this.sorted.next(args); })
-      .on('expandrow', (e: any, args: any) => { this.onExpandRow(args); })
-      .on('collapserow', (e: any, args: any) => { this.onCollapseRow(args); });
+      .on('selected', (e: JQueryEventObject, args: SohoDataGridSelectedRow[]) => this.selected.next({ e, rows: args }))
+      .on('cellchange', (e: JQueryEventObject, args: SohoDataGridCellChangeEvent[]) => this.cellchange.next(args))
+      .on('removerow', (e: JQueryEventObject, args: SohoDataGridRowRemoveEvent) => { this.rowRemove.next(args); })
+      .on('addrow', (e: JQueryEventObject, args: SohoDataGridAddRowEvent) => { this.rowAdd.next(args); })
+      .on('filtered', (e: JQueryEventObject, args: any) => { this.filtered.next(args); })
+      .on('sorted', (e: JQueryEventObject, args: any) => { this.sorted.next(args); })
+      .on('expandrow', (e: JQueryEventObject, args: any) => { this.onExpandRow(args); })
+      .on('collapserow', (e: JQueryEventObject, args: any) => { this.onCollapseRow(args); });
   }
 
   /**
@@ -955,13 +940,49 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    *
    * @param source the function
    */
-  private updateSource(source: Function): void {
+  private updateSource(source: SohoDataGridSourceFunction): void {
     // If a source property has not been defined, and a service has
     // use the data service to load the data dynamically for paging.
     if (!source && this.datagridService) {
-      this._gridOptions.source = (args: any, response: any) => this.onDataRequest(args, response);
+      this._gridOptions.source
+        = (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => this.onDataRequest(request, response);
     } else {
       this._gridOptions.source = source;
     }
   }
+}
+
+/**
+ * Enumeration of the Soho Datagrid FilterTypes.
+ * Note: integer, percent and lookup are not yet implemented the soho datagrid.js
+ * See http://stackoverflow.com/questions/15490560/create-an-enum-with-string-values-in-typescript
+ * for more details about creating an enum of strings.
+ */
+export enum SohoGridColumnFilterTypes {
+  Text     = <any> 'text',
+  Checkbox = <any> 'checkbox',
+  Contents = <any> 'contents',
+  Date     = <any> 'date',
+  Decimal  = <any> 'decimal',
+  Integer  = <any> 'integer',
+  Lookup   = <any> 'lookup',
+  Percent  = <any> 'percent',
+  Select   = <any> 'select'
+};
+
+/**
+ * Details of the 'expandrow' and 'collapserow' events.
+ */
+export interface SohoDataGridRowEvent {
+  // The data grid component originating the call.
+  grid: SohoDataGridComponent;
+
+  // The index of the row number that has been expanded/collapsed.
+  row: number;
+
+  // The owning header.
+  detail: any;
+
+  // The detail row thas has been expanded..
+  item: any;
 }

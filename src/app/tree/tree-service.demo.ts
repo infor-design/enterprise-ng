@@ -7,9 +7,7 @@ import {
 
 import {
   SohoTreeComponent,
-  SohoTreeService,
-  SohoTreeNode,
-  SohoTreeEvent
+  SohoTreeService
 } from '../../soho/tree';
 
 import { TreeDemoService } from './tree-demo.service';

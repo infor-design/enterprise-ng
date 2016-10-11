@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator.demo';
 import { ButtonDemoComponent } from './button/button.demo';
+import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { TextareaDemoComponent } from './textarea/textarea.demo';
@@ -12,6 +13,7 @@ import { IconDemoComponent } from './icon/icon.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
+import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
 import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
@@ -24,6 +26,7 @@ import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 
+import { LabelDemoComponent } from './label/label.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
 
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
@@ -53,13 +56,14 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
-import { RadioButtonDemoComponent } from './radiobuton/radiobutton.demo';
+import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
   { path: 'application-lazy-menu', component: ApplicationMenuLazyDemoComponent},
   { path: 'button',                component: ButtonDemoComponent },
   { path: 'busyindicator',         component: BusyIndicatorDemoComponent },
+  { path: 'checkbox',              component: CheckBoxDemoComponent },
   { path: 'datepicker',            component: DatepickerDemoComponent },
   { path: 'timepicker',            component: TimePickerDemoComponent },
   { path: 'dropdown',              component: DropdownDemoComponent },
@@ -70,12 +74,14 @@ export const routes: Routes = [
   { path: 'textarea',              component: TextareaDemoComponent },
   { path: 'toast',                 component: ToastDemoComponent },
   { path: 'icon',                  component: IconDemoComponent },
+  { path: 'label',                 component: LabelDemoComponent },
   { path: 'listview',              component: ListViewDemoComponent },
   { path: 'lookup',                component: LookupDemoComponent },
   { path: 'mask',                  component: MaskDemoComponent },
   { path: 'menu-button',           component: MenuButtonDemoComponent },
   { path: 'splitter-vertical',     component: SplitterVerticalDemoComponent },
   { path: 'splitter-horizontal',   component: SplitterHorizontalDemoComponent },
+  { path: 'trackdirty',            component: TrackDirtyDemoComponent },
   { path: 'tree-dynamic',          component: TreeDynamicDemoComponent },
   { path: 'tree-service',          component: TreeServiceDemoComponent },
   { path: 'tree-content',          component: TreeContentDemoComponent },

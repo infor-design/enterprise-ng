@@ -14,13 +14,6 @@ import {
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
 
-import {
-  SohoGridColumn,
-  SohoDataGridConfiguration,
-  SohoDatagridSource,
-  SohoSourceFunction
-} from '../datagrid';
-
 import { SohoLookupChangeEvent } from './index'; // @todo sorry Visual Studio is blowing on this without the index.
 
 const SOHO_LOOKUP_VALUE_ACCESSOR: any = {
@@ -36,14 +29,14 @@ export type SohoFieldFunction = (data: Object, input: HTMLInputElement, grid: an
   templateUrl: 'soho-lookup.component.html',
   providers: [ SOHO_LOOKUP_VALUE_ACCESSOR ]
 })
-export class SohoLookupComponent implements AfterViewInit, ControlValueAccessor, OnDestroy, SohoDatagridSource {
+export class SohoLookupComponent implements AfterViewInit, ControlValueAccessor, OnDestroy {
   /**
    * Available Soho Template control settings as Inputs
    * Should match the Soho properties for the component
    */
     // Make sure you bind the context to the function
   @Input() beforeShow: Function;
-  @Input() columns: SohoGridColumn[];
+  @Input() columns: SohoDataGridColumn[];
   @Input() set dataset(data: Object[]) {
     this._dataset = data;
     if (data && this.jQueryElement) {
@@ -54,9 +47,9 @@ export class SohoLookupComponent implements AfterViewInit, ControlValueAccessor,
   @Input() field: string | SohoFieldFunction;
   @Input() label: string;
   @Input() name: string;
-  @Input() options: SohoDataGridConfiguration;
+  @Input() options: SohoDataGridOptions;
   // Make sure you bind the context to the function
-  @Input() source: SohoSourceFunction;
+  @Input() source: SohoDataGridSourceFunction;
   @Input() toolbar: any;
 
   /**
@@ -87,7 +80,7 @@ export class SohoLookupComponent implements AfterViewInit, ControlValueAccessor,
     // TODO: Figure out what element to send to jQuery to init the component
     this.jQueryElement = jQuery(this.inputElement.nativeElement);
 
-    const datagridConfig: SohoDataGridConfiguration = {
+    const datagridConfig: SohoDataGridOptions = {
       cellNavigation: false,
       columns: this.columns,
       dataset: this._dataset ? this._dataset : [],

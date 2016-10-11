@@ -2,10 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Rx';
 
-import {
-  SohoTreeService,
-  SohoTreeNode
-} from '../../soho/tree';
+import { SohoTreeService } from '../../soho/tree';
 
 @Injectable()
 export class TreeDemoService extends SohoTreeService {

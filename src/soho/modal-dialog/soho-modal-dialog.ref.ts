@@ -1,19 +1,21 @@
-import { Type, ComponentRef } from '@angular/core';
+import { ComponentRef } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-
-/**
- * Trigger types.
- */
-export type SohoModalDialogTriggerType = 'immediate' | 'click' | 'manual';
 
 /**
  * Wrapper for the jQuery modal control.
  *
- * @todo implement string html content
+ * @todo Return a promise from open.
+ * @todo async vetoable interface - is this possible?
+ * @todo fix dialog result !
+ * @todo on the fly updating of dialog
+ * @todo searchable dialog example
  */
 export class SohoModalDialogRef<T> {
-  /** The instance of component opened into the modal dialog. */
-  public componentInstance: ComponentRef<T>;
+  /** Component - if the content is derived from an exisiting component. */
+  private componentRef?: ComponentRef<T>;
+
+  /** Vetoable Event Guard */
+  private eventGuard: SohoModalDialogVetoableEventGuard = { };
 
   /** Selector referencing the modal-dialog after it has been moved to the dialog container. */
   private jQueryElement: any;
@@ -33,17 +35,20 @@ export class SohoModalDialogRef<T> {
   /** Event fired after closing the modal. */
   private afterClose$: Subject<any> = new Subject();
 
-  /** Event fired before openning the modal dialog. */
-  private beforeOpen$: Subject<any> = new Subject();
-
   /** Event fired after openning the modal dialog. */
   private afterOpen$: Subject<any> = new Subject();
 
-  /** Event fired before closing the modal dialog. */
-  private beforeClose$: Subject<any> = new Subject();
-
-  // @todo add other events.
-
+  /**
+   * The component displayed as the dialog content.
+   *
+   * @param componentRef - reference to the component defining the modal dialog content.
+   */
+  set component(componentRef: ComponentRef<T>) {
+    // The component can also implement the guard interface, if it does
+    // use it.
+    this.eventGuard = componentRef.instance;
+    this.componentRef = componentRef;
+  }
   // -------------------------------------------
   // Default options block
   // -------------------------------------------
@@ -129,9 +134,9 @@ export class SohoModalDialogRef<T> {
   /**
    * Sets the 'trigger' that the modal control uses.
    *
-   * @param trigger -
+   * @param trigger - when to open the dialog.
    */
-  trigger(trigger: SohoModalDialogTriggerType): SohoModalDialogRef<T> {
+  trigger(trigger: SohoModalOptionsTriggerType): SohoModalDialogRef<T> {
     this._options = trigger;
     if (this.modal) {
       this.modal.settings.trigger = trigger;
@@ -142,6 +147,8 @@ export class SohoModalDialogRef<T> {
 
   /**
    * Sets the 'isAlert' that the modal control uses.
+   *
+   * @param isAlert - true if this dialog is to be styled an an alert.
    */
   isAlert(isAlert: boolean): SohoModalDialogRef<T> {
     this._options.isAlert = isAlert;
@@ -154,9 +161,15 @@ export class SohoModalDialogRef<T> {
 
   /**
    * Sets the 'content' that the modal control uses.
+   *
+   * @param content - a selector or string representing the dialog content.
    */
   content(content: JQuery | string): SohoModalDialogRef<T> {
-    // @todo allow html content to be specified.
+    this._options.content = content;
+    if (this.modal) {
+      this.modal.settings.content = content;
+      // @todo - need an api on modal to update content.
+    }
     return this;
   }
 
@@ -198,10 +211,8 @@ export class SohoModalDialogRef<T> {
 
   /**
    * Constructor.
-   *
-   * @param component the component to be instantiated.
    */
-  constructor(private component: Type<T>) {
+  constructor() {
   }
 
   /**
@@ -210,13 +221,19 @@ export class SohoModalDialogRef<T> {
    * @return the dialog ref.
    */
   open(): SohoModalDialogRef<T> {
-    if (!this.componentInstance) {
-      throw Error('componentInstance must be initialised.');
+    if (!this.componentRef && !this._options.content) {
+      throw Error('componentRef or content must be initialised.');
     }
 
-    const element = jQuery(this.componentInstance.location.nativeElement);
-    // @todo support string HTML content?
-    this._options.content = element;
+    // Assume conent ...
+    let element: JQuery = $('body');
+    if (this.componentRef) {
+      // .. unless component supplied, in which case get a selector
+     // to the component and use that.
+      element = jQuery(this.componentRef.location.nativeElement);
+      this._options.content = element;
+    }
+
     element.modal(this._options);
     this.modal = element.data('modal');
 
@@ -224,13 +241,15 @@ export class SohoModalDialogRef<T> {
     // set the jQueryElement.
     this.jQueryElement = this.modal.element;
 
-    // Add listeners to fire events
-    this.jQueryElement.on('afteropen', ((event: any) => { this.onAfterOpen(event); }));
-    this.jQueryElement.on('beforeopen', ((event: any) => { this.onBeforeOpen(event); }));
-    this.jQueryElement.on('beforeclose', ((event: any) => { return this.onBeforeClose(event); }));
+    // Add listeners to control events
     this.jQueryElement.on('close', ((event: any, isCancelled: boolean) => { this.onClose(event, isCancelled); }));
     this.jQueryElement.on('afterclose', ((event: any) => { this.onAfterClose(event); }));
     this.jQueryElement.on('open', ((event: any) => { this.onOpen(event); }));
+    this.jQueryElement.on('afteropen', ((event: any) => { this.onAfterOpen(event); }));
+
+    // These are vetoable events.
+    this.jQueryElement.on('beforeopen', ((event: any) => { return this.onBeforeOpen(event); }));
+    this.jQueryElement.on('beforeclose', ((event: any) => { return this.onBeforeClose(event); }));
     this.jQueryElement.on('beforedestroy', ((event: any) => { return this.onBeforeDestroy(event); }));
 
     // @todo return a promise / observable for when the dialog is closed or opened?
@@ -241,7 +260,7 @@ export class SohoModalDialogRef<T> {
    * Closes the modal dialog, if open.  The dialog is not closed
    * fully until the 'afterClosed' event is fired.
    *
-   * @param dialogResult - optional result - passed abck to the caller.
+   * @param dialogResult - optional result - passed back to the caller.
    */
   close(dialogResult?: any): SohoModalDialogRef<T> {
     this.dialogResult = dialogResult;
@@ -256,6 +275,18 @@ export class SohoModalDialogRef<T> {
   // ------------------------------------------
 
   /**
+   * Registers a before open guard.
+   *
+   * SOHO-4892 - Returning false from beforeOpen or beforeDestroy breaks dialogs
+   *
+   * @param eventFn - the function to call before openning the dialog.
+   */
+  beforeOpen(eventFn: () => boolean): SohoModalDialogRef<T> {
+    this.eventGuard.beforeOpen = eventFn;
+    return this;
+  }
+
+  /**
    * Opened Event.
    *
    * This event is fired when the dialog is being opened.
@@ -264,6 +295,28 @@ export class SohoModalDialogRef<T> {
    */
   opened(eventFn: Function): SohoModalDialogRef<T> {
     this.open$.subscribe((f: any) => { eventFn(f, this); });
+    return this;
+  }
+
+  /**
+   * Opened Event.
+   *
+   * This event is fired after the dialog has been opened.
+   *
+   * @param eventFn - the function to invoke when the dialog is to be opened.
+   */
+  afterOpen(eventFn: Function): SohoModalDialogRef<T> {
+    this.afterOpen$.subscribe((f: any) => { eventFn(f, this); });
+    return this;
+  }
+
+  /**
+   * Registers a before close guard.
+   *
+   * @param eventFn - the function to call before closing the dialog.
+   */
+  beforeClose(eventFn: () => boolean): SohoModalDialogRef<T> {
+    this.eventGuard.beforeClose = eventFn;
     return this;
   }
 
@@ -288,8 +341,20 @@ export class SohoModalDialogRef<T> {
    *
    * @param eventFn - the function to invoke after the dialog has been closed.
    */
-  afterClosed(eventFn: SohoModalDialogEventFunction<T>): SohoModalDialogRef<T> {
+  afterClose(eventFn: SohoModalDialogEventFunction<T>): SohoModalDialogRef<T> {
     this.afterClose$.subscribe((f: any) => { eventFn(f, this); });
+    return this;
+  }
+
+ /**
+   * Registers a before destroy guard.
+   *
+   * SOHO-4892 - Returning false from beforeOpen or beforeDestroy breaks dialogs
+   *
+   * @param eventFn - the function to call before destroying the dialog.
+   */
+  beforeDestroy(eventFn: () => boolean): SohoModalDialogRef<T> {
+    this.eventGuard.beforeDestroy = eventFn;
     return this;
   }
 
@@ -312,22 +377,40 @@ export class SohoModalDialogRef<T> {
    * has been opened.
    *
    * @param event - full event object.
+   *
+   * @return true if the dialog can be opened; otherwise false if veoted.
    */
-  private onBeforeOpen(event: any) {
-    this.beforeOpen$.next(event);
+  private onBeforeOpen(event: any): boolean {
+    const fn: Function = this.eventGuard.beforeOpen;
+    return fn ? fn.call(this.eventGuard) : true;
   }
 
   /**
-   * Handles the 'beforeClose' event, fired before the modal dialog
-   * has been closed.
+   * Handles the 'beforeCloseevent, fired before the modal dialog
+   * has been destroyed.
    *
-   * @param event - full event object.
-   *
-   * @todo how to handle closeure prevention?
+   * @param event - event object.
+   * @return true if the dialog can be closed; otherwise false if veoted.
    */
   private onBeforeClose(event: any): boolean {
-    this.beforeClose$.next(event);
-    return true;
+    const fn: Function = this.eventGuard.beforeClose;
+    return fn ? fn.call(this.eventGuard) : true;
+  }
+
+  /**
+   * Handles the 'beforeDestroy' event, fired before the modal dialog
+   * has been destroyed.
+   *
+   * @param event - event object.
+   * @return true if the dialog can be destroyed; otherwise false if veoted.
+   */
+  private onBeforeDestroy(event: any): boolean {
+    const fn: Function = this.eventGuard.beforeDestroy;
+    const allow = fn ? fn.call(this.eventGuard) : true;
+    if (allow && this.componentRef) {
+      this.componentRef.destroy();
+    }
+    return allow;
   }
 
   /**
@@ -365,19 +448,39 @@ export class SohoModalDialogRef<T> {
     this.modal.destroy();
     this.modal = null;
   }
-
-  /**
-   * Handles the 'destroy' event.
-   *
-   * @param event - full event object.
-   */
-  private onBeforeDestroy(event: any): boolean {
-    // Tidy up any angular component stuff.
-    this.componentInstance.destroy();
-
-    // @todo prevent destruction?
-    return true;
-  }
 }
 
 type SohoModalDialogEventFunction<T> = (f: any, modal: SohoModalDialogRef<T>) => void;
+
+/**
+ * Contract for all SohoModalDialogComponents.
+ */
+export interface SohoModalComponent<T> {
+}
+
+/**
+ * Vetoable Event Handlers.
+ */
+export interface SohoModalDialogVetoableEventGuard {
+
+  /**
+   * Invoked before a modal is opened.
+   *
+   * @return false to veto the open action; otherwise true.
+   */
+  beforeOpen?(): boolean;
+
+  /**
+   * Invoked before a modal is closed.
+   *
+   * @return false to veto the close action; otherwise true.
+   */
+  beforeClose?(): boolean;
+
+  /**
+   * Invoked before a modal is opened.
+   *
+   * @return false to veto the destroy action; otherwise true.
+   */
+  beforeDestroy?(): boolean;
+}

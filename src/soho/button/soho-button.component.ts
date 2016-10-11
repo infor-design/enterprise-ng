@@ -34,21 +34,18 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
   // Private Member Data
   // -------------------------------------------
 
-  private jQueryElement: any;
+  /** Reference to the jQuery control. */
+  private jQueryElement: JQuery;
 
   /**
    * Reference to the Soho control api.
    */
-  private button: any;
+  private button: SohoButtonStatic;
 
-  /**
-   * The type of the button.
-   */
+  /** The type of the button. */
   private buttonType: SohoButtonType;
 
-  /**
-   * The type of the button, defaulting to 'secondary'.
-   */
+  /** The type of the button, defaulting to 'secondary'. */
   @Input('soho-button') set sohoButton(type: SohoButtonType) {
     this.buttonType = type ? type : SohoButtonComponent.SECONDARY;
   }
@@ -58,14 +55,10 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
    */
   @Input() icon: string;
 
-  /**
-   * Sets the button type to 'submit' when true
-   */
+  /** Sets the button type to 'submit' when true. */
   @Input() isSubmit = false;
 
-  /**
-   * Sets whether the button should have a ripple effect on click
-   */
+  /** Sets whether the button should have a ripple effect on click. */
   @Input() ripple = true;
 
   /**
@@ -75,9 +68,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
    */
   @Input() state = true;
 
-  /**
-   * The icon to be used when the state is false.
-   */
+  /** The icon to be used when the state is false. */
   @Input() toggle: string;
 
   @HostBinding('class.btn-primary')
@@ -113,16 +104,36 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
     this.state = !this.state;
   }
 
+  /**
+    * Constructor.
+    *
+    * @param elementRef - the element matching the component's selector.
+    */
   constructor(private element: ElementRef) {
   }
 
+  // ------------------------------------------
+  // Lifecycle Events
+  // ------------------------------------------
+
   ngAfterViewInit() {
+    // Wrap the element in a jQuery selector.
     this.jQueryElement = jQuery(this.element.nativeElement);
 
+    // Initialise the Soho control.
     this.jQueryElement.button();
+
+    // Once the control is initialised, extract the control
+    // plug-in from the element.  The element name is defined
+    // by the plug-in, but in this case is 'button'.
     this.button = this.jQueryElement.data('button');
+
+    // There are no 'extra' event handler for button.
   }
 
+  /**
+   * Destructor.
+   */
   ngOnDestroy() {
     if (this.button) {
       this.button.destroy();

@@ -16,6 +16,7 @@ import { SohoComponentsModule } from '../soho/soho-components.module';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator.demo';
+import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
@@ -23,6 +24,7 @@ import { EditorDemoComponent } from './editor/editor.demo';
 import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
 import { IconDemoComponent } from './icon/icon.demo';
+import { LabelDemoComponent } from './label/label.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
@@ -30,6 +32,7 @@ import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
+import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
@@ -63,7 +66,7 @@ import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/application-menu-lazy-menu.demo';
 import { ApplicationMenuLazyService } from './application-menu/application-menu-lazy-service.demo';
-import { RadioButtonDemoComponent } from './radiobuton/radiobutton.demo';
+import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 
 import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
 
@@ -73,6 +76,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     ExpandableAreaDemoComponent,
     ButtonDemoComponent,
     BusyIndicatorDemoComponent,
+    CheckBoxDemoComponent,
     DatepickerDemoComponent,
     DropdownDemoComponent,
     DropdownMultiselectDemoComponent,
@@ -81,6 +85,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     ToastDemoComponent,
     IconDemoComponent,
     ListViewDemoComponent,
+    LabelDemoComponent,
     LookupDemoComponent,
     MaskDemoComponent,
     MenuButtonDemoComponent,
@@ -93,6 +98,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     SplitterVerticalDemoComponent,
     SplitterHorizontalDemoComponent,
     TimePickerDemoComponent,
+    TrackDirtyDemoComponent,
     TreeDynamicDemoComponent,
     TreeServiceDemoComponent,
     TreeContentDemoComponent,

@@ -64,7 +64,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   /**
    * Called when the dropdown value changes
    */
-  @Output() change: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() change: EventEmitter<Object> = new EventEmitter<JQueryEventObject>();
   /**
    * Called when the dropdown updates in some way
    */
@@ -90,8 +90,9 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private jQueryElement: any;
-  private dropdown: any;
+  private jQueryElement: JQuery;
+
+  private dropdown: SohoDropDownStatic;
 
   constructor(private element: ElementRef, private model?: NgModel) {
     if (this.model) {
