@@ -95,6 +95,12 @@ interface SohoDataGridOptions {
   /** Display as a tree grid? */
   treeGrid?: boolean;
 
+  /** Disable Filter Logic client side and let your server do it */
+  disableClientFilter?: boolean;
+
+  /** Disable Sort Logic client side and let your server do it */
+  disableClientSort?: boolean;
+
   /** Can provide a custom function to adjust results text */
   resultsText?: SohoDataGridResultsTextFunction;
 }
