@@ -14,7 +14,7 @@ interface SohoButtonOptions {
 
 /**
  * This interface represents the public API exposed by the
- * busy indicator.
+ * button.
  */
 interface SohoButtonStatic {
   destroy(): void;

@@ -11,8 +11,8 @@ import {
   Output,
   forwardRef,
 } from '@angular/core';
+
 import { Observable } from 'rxjs/Rx';
-import { ExpandableAreaEvent } from './';
 
 /**
  * Helper Component for the ExpandableAreaComponent
@@ -64,7 +64,7 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   @Input() set closed(value: boolean) {
     this._closed = value;
     if (value && this.jQueryElement) {
-      this.jQueryElement.close();
+      this.expandablearea.close();
     }
   }
   // Expose Methods in case Angular needs to control the DOM, using Observables
@@ -86,8 +86,8 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   @Output() aftercollapse: EventEmitter<Object> = new EventEmitter<Object>();
 
   // Various local variables used for logic
-  private jQueryElement: any;
-  private expandablearea: any;
+  private jQueryElement: JQuery;
+  private expandablearea: SohoExpandableAreaStatic;
   private _disabled: boolean;
   private _closed: boolean;
 
@@ -109,12 +109,12 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
     }
 
     // Add listeners to emit events
-    this.jQueryElement.bind('beforeexpand', ((event: ExpandableAreaEvent) => { this.beforeexpand.emit(event); }));
-    this.jQueryElement.bind('beforecollapse', ((event: ExpandableAreaEvent) => { this.beforecollapse.emit(event); }));
-    this.jQueryElement.bind('expand', ((event: ExpandableAreaEvent) => { this.expand.emit(event); }));
-    this.jQueryElement.bind('collapse', ((event: ExpandableAreaEvent) => { this.collapse.emit(event); }));
-    this.jQueryElement.bind('afterexpand', ((event: ExpandableAreaEvent) => { this.afterexpand.emit(event); }));
-    this.jQueryElement.bind('aftercollapse', ((event: ExpandableAreaEvent) => { this.aftercollapse.emit(event); }));
+    this.jQueryElement.bind('beforeexpand', ((event: SohoExpandableAreaEvent) => { this.beforeexpand.emit(event); }));
+    this.jQueryElement.bind('beforecollapse', ((event: SohoExpandableAreaEvent) => { this.beforecollapse.emit(event); }));
+    this.jQueryElement.bind('expand', ((event: SohoExpandableAreaEvent) => { this.expand.emit(event); }));
+    this.jQueryElement.bind('collapse', ((event: SohoExpandableAreaEvent) => { this.collapse.emit(event); }));
+    this.jQueryElement.bind('afterexpand', ((event: SohoExpandableAreaEvent) => { this.afterexpand.emit(event); }));
+    this.jQueryElement.bind('aftercollapse', ((event: SohoExpandableAreaEvent) => { this.aftercollapse.emit(event); }));
 
     // Instantiate the element via jQuery
     this.jQueryElement.expandablearea({

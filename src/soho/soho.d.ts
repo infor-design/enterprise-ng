@@ -94,19 +94,6 @@ interface SohoTextAreaOptions {
   charMaxText: string;
 }
 
-interface SohoEditorOptions {
-  buttons?: {
-    editor: Object,
-    source: Object
-  };
-  delay?: number;
-  firstHeader?: string;
-  secondHeader?: string;
-  placeholder: string;
-  anchor: string;
-  image: string;
-}
-
 /**
  * List of valid formatters.
  */
@@ -155,7 +142,6 @@ interface JQueryStatic {
 }
 
 interface JQuery {
-  editor(options?: SohoEditorOptions): JQuery;
   mask(options?: SohoMaskOptions): JQuery;
   tabs(): JQuery;
   textarea(options?: SohoTextAreaOptions): JQuery;
