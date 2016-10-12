@@ -1,3 +1,4 @@
+/// <reference path="./soho-components.d.ts" />
 
 interface TrackDirtyStatic {
 }
