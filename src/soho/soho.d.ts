@@ -1,7 +1,5 @@
 /// <reference path="./soho-components.d.ts" />
 
-interface TrackDirtyStatic {
-}
 
 interface SohoCheckBoxEvent {
   currentTarget: HTMLElement;
@@ -69,11 +67,6 @@ interface SohoTimePickerOptions {
 
 interface SohoTimePickerEvent extends BaseJQueryEventObject {
 }
-
-// trackdirty
-interface SohoTrackDirtyEvent extends BaseJQueryEventObject {
-}
-
 interface SohoToolbarEvent extends BaseJQueryEventObject {
 }
 
@@ -139,7 +132,6 @@ declare var Editors: {
 
 interface JQueryStatic {
   splitter: SplitterStatic;
-  trackdirty: TrackDirtyStatic;
 }
 
 interface JQuery {
@@ -150,7 +142,6 @@ interface JQuery {
   personalize(): JQuery;
   splitter(): JQuery;
   timepicker(options?: SohoTimePickerOptions): JQuery;
-  trackdirty(): JQuery;
 }
 
 interface LocaleStatic {

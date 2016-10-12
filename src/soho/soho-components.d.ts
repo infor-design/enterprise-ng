@@ -1,6 +1,6 @@
 /**
  * All the typings for the jQuery Controls.
- * 
+ *
  */
 /// <reference path="./application-menu/soho-application-menu.d.ts" />
 /// <reference path="./button/soho-button.d.ts" />
@@ -14,4 +14,5 @@
 /// <reference path="./modal-dialog/soho-modal-dialog.d.ts" />
 /// <reference path="./radiobutton/soho-radiobutton.d.ts" />
 /// <reference path="./toast/soho-toast.d.ts" />
+/// <reference path="./trackdirty/soho-trackdirty.d.ts" />
 /// <reference path="./tree/soho-tree.d.ts" />
