@@ -132,7 +132,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   /**
    * Called when the dropdown updates in some way.
    */
-  @Output()
+  @Output('updated') // tslint:disable-line
   updatedEvent: EventEmitter<Object> = new EventEmitter<JQueryEventObject>();
 
   /**
