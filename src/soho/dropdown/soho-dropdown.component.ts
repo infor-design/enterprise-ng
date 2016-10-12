@@ -133,7 +133,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
    * Called when the dropdown updates in some way.
    */
   @Output()
-  updated: EventEmitter<JQueryEventObject> = new EventEmitter<JQueryEventObject>();
+  updatedEvent: EventEmitter<Object> = new EventEmitter<JQueryEventObject>();
 
   /**
    * Bind attributes to the host select element
@@ -178,7 +178,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
 
     this.jQueryElement
       .on('change', (event: JQueryEventObject) => this.onChange(event))
-      .on('updated', (event: JQueryEventObject) => this.onUpdated(event));
+      .on('updated', (event: JQueryEventObject) => this.updatedEvent.emit(event));
   }
 
   ngOnDestroy() {
@@ -192,7 +192,12 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
     this.change.emit(event);
   }
 
-  private onUpdated(event: JQueryEventObject) {
-    this.updated.next(event);
+  /**
+   * In case options are being bound asynchronously, you will need to trigger updated on
+   * soho dropdown control so it updates its value label
+   */
+  public updated(): SohoDropDownComponent {
+    this.dropdown.updated();
+    return this;
   }
 }
