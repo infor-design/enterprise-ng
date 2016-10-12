@@ -1,6 +1,5 @@
 /// <reference path="./soho-components.d.ts" />
 
-
 interface SohoCheckBoxEvent {
   currentTarget: HTMLElement;
   data: any;

@@ -1,8 +1,7 @@
 import {
-  Component
+  Component,
+  OnInit
 } from '@angular/core';
-
-import { SohoLabelDirective } from '../../soho/label/soho-label.directive';
 
 /**
  * This example:
@@ -12,15 +11,14 @@ import { SohoLabelDirective } from '../../soho/label/soho-label.directive';
   selector: 'soho-label-demo',
   templateUrl: './label.demo.html'
 })
-
-export class LabelDemoComponent {
+export class LabelDemoComponent implements OnInit {
 
   private isAudible: boolean;
   private isRequired: boolean;
 
-  private normalText: string = "Normal label";
-  private audibleText: string = "Audible label";
-  private requiredText: string = "Required label";
+  normalText: string = 'Normal label';
+  audibleText: string = 'Audible label';
+  requiredText: string = 'Required label';
 
   ngOnInit() {
     this.isRequired = true;
