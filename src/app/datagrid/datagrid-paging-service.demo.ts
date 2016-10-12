@@ -7,18 +7,18 @@ import {
 
 import { SohoDataGridComponent } from '../../soho/datagrid';
 
-import { DataGridPagingDemoService } from './datagrid-paging-demo.service';
+import { DataGridPagingServiceDemoService } from './datagrid-paging-service-demo.service';
 
 @Component({
   selector: 'soho-datagrid-paging-service-demo',
   templateUrl: 'datagrid-paging-service.demo.html',
-  providers: [ DataGridPagingDemoService ],
+  providers: [ DataGridPagingServiceDemoService ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridPagingServiceDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
-  constructor(private datagridPagingService: DataGridPagingDemoService) {}
+  constructor(private datagridPagingService: DataGridPagingServiceDemoService) {}
 
   ngAfterViewInit(): void {
     /*

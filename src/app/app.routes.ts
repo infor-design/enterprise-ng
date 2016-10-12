@@ -25,6 +25,7 @@ import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
+import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
 
 import { LabelDemoComponent } from './label/label.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
@@ -91,7 +92,8 @@ export const routes: Routes = [
   { path: 'datagrid-breadcrumb',   component: DataGridBreadcrumbDemoComponent },
   { path: 'datagrid-treegrid',     component: DataGridTreeGridDemoComponent },
   { path: 'datagrid-settings',     component: DataGridSettingsDemoComponent },
-  { path: 'datagrid-paging',       component: DataGridPagingServiceDemoComponent },
+  { path: 'datagrid-paging-service', component: DataGridPagingServiceDemoComponent },
+  { path: 'datagrid-paging-indeterminate', component: DataGridPagingIndeterminateDemoComponent },
   { path: 'header-tabs',           component: HeaderTabsDemoComponent },
   { path: 'header-toolbar',        component: HeaderToolbarDemoComponent },
   { path: 'header-toolbar-tabs',   component: HeaderToolbarAndTabsDemoComponent },
