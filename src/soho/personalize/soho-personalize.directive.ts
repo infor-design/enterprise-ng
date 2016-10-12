@@ -1,7 +1,8 @@
 import {
   AfterViewInit,
   Directive,
-  ElementRef
+  ElementRef,
+  Input
 } from '@angular/core';
 
 /**
@@ -14,6 +15,8 @@ import {
   selector: '[soho-personalize]',
 })
 export class SohoPersonalizeDirective implements AfterViewInit {
+  @Input() startingColor: string;
+  @Input() startingTheme: string; // SOHO-4626: TODO not implemented in base soho library
   constructor(private el: ElementRef) {
   }
 
@@ -23,6 +26,8 @@ export class SohoPersonalizeDirective implements AfterViewInit {
    */
   ngAfterViewInit() {
     // @todo on the body?
-    jQuery('body').personalize();
+    jQuery('body').personalize({
+      startingColor: this.startingColor
+    });
   }
 }

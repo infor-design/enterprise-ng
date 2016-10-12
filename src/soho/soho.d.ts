@@ -94,6 +94,10 @@ interface SohoTextAreaOptions {
   charMaxText: string;
 }
 
+interface SohoPersonalizeOptions {
+  startingColor?: string;
+}
+
 interface SohoEditorOptions {
   buttons?: {
     editor: Object,
@@ -160,7 +164,7 @@ interface JQuery {
   tabs(): JQuery;
   textarea(options?: SohoTextAreaOptions): JQuery;
   initialize(locale: string): JQuery;
-  personalize(): JQuery;
+  personalize(options?: SohoPersonalizeOptions): JQuery;
   splitter(): JQuery;
   timepicker(options?: SohoTimePickerOptions): JQuery;
   trackdirty(): JQuery;
