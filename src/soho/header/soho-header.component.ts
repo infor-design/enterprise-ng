@@ -25,10 +25,10 @@ export class SohoHeaderComponent implements AfterViewInit {
   @Output() updated = new EventEmitter<any>();
 
   // Reference to the jQuery element.
-  private jQueryElement: any;
+  private jQueryElement: JQuery;
 
   // Reference to the annotated SoHoXi control
-  private header: any;
+  private header: SohoHeaderStatic;
 
   constructor(private elementRef: ElementRef) {}
 
@@ -45,6 +45,6 @@ export class SohoHeaderComponent implements AfterViewInit {
     this.header = this.jQueryElement.data('header');
 
     // Initialize any event handlers.
-    this.jQueryElement.on('updated', (e: any, args: any) => { this.updated.emit(args); });
+    this.jQueryElement.on('updated', (e: JQueryEventObject, args: any) => { this.updated.emit(args); });
   }
 }

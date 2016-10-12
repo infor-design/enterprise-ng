@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   OnInit
 } from '@angular/core';
@@ -6,6 +7,7 @@ import {
 @Component({
   selector: 'soho-dropdown-multiselect-demo',
   templateUrl: 'dropdown-multiselect.demo.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownMultiselectDemoComponent implements OnInit {
   private options: Array<Object> = [

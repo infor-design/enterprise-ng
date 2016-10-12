@@ -19,15 +19,7 @@ export class SohoEditorComponent implements AfterViewInit, OnDestroy {
   // Options Block
   // -------------------------------------------
 
-  private options: SohoEditorOptions = {
-    buttons: undefined,
-    delay: undefined,
-    firstHeader: undefined,
-    secondHeader: undefined,
-    placeholder: undefined,
-    anchor: undefined,
-    image: undefined
-  };
+  private options: SohoEditorOptions = {};
 
   /**
    * Local variables
@@ -122,12 +114,12 @@ export class SohoEditorComponent implements AfterViewInit, OnDestroy {
   /**
    * Called when the editor value changes
    */
-  @Output() onChange = new EventEmitter<EditorEvent>();
+  @Output() change = new EventEmitter<SohoEditorEvent>();
 
   /**
    * Called when the editor updates in some way
    */
-  @Output() onUpdated = new EventEmitter<EditorEvent>();
+  @Output() updated = new EventEmitter<SohoEditorEvent>();
 
   // -------------------------------------------
   // Public API
@@ -148,7 +140,7 @@ export class SohoEditorComponent implements AfterViewInit, OnDestroy {
   private jQueryElement: JQuery;
 
   // Reference to the SoHoXi control api.
-  private editor: any;
+  private editor: SohoEditorStatic;
 
   constructor(private element: ElementRef) {
 
@@ -161,13 +153,13 @@ export class SohoEditorComponent implements AfterViewInit, OnDestroy {
     // Initialise the SohoXi Control
     this.jQueryElement.editor(this.options);
 
+    this.editor = this.jQueryElement.data('editor');
+
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (e: any, args: EditorEvent) => this.onChange.next(args));
-    this.jQueryElement.on('updated', (e: any, args: EditorEvent) => this.onUpdated.next(args));
-
-    this.editor = this.jQueryElement.data('editor');
+    this.jQueryElement.on('change', (e: JQueryEventObject, args: SohoEditorEvent) => this. change.next(args));
+    this.jQueryElement.on('updated', (e: JQueryEventObject, args: SohoEditorEvent) => this.updated.next(args));
   }
 
   ngOnDestroy() {
@@ -176,9 +168,4 @@ export class SohoEditorComponent implements AfterViewInit, OnDestroy {
       this.editor = null;
     }
   }
-}
-/**
- * Soho Editor Event
- */
-export interface EditorEvent {
 }

@@ -35,9 +35,7 @@ interface SohoDatePickerOptions {
   /** Display a placeholder for empty values? */
   placeholder?: boolean;
 
-  /**
-   * A date or range of dates that are enabled/disabled.
-   */
+  /** A date or range of dates that are enabled/disabled. */
   disable?: SohoDatePickerOptionsDisable;
 }
 
