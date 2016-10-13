@@ -28,18 +28,14 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
  // Options Block
  // -------------------------------------------
 
- private options: SohoSplitterOptions = {
-      axis: 'x',
-      resize: 'immediate',
-      containment: null
-    };
+ private options: SohoSplitterOptions = {};
 
   // -------------------------------------------
   // Component Inputs
   // -------------------------------------------
 
   // The orientation of the splitter, either x (for vertical) or y (for horizontal)
-  @Input() set axis(axis: 'x' | 'y') {
+  @Input() set axis(axis: SohoSplitterOptionsAxis) {
     this.options.axis = axis;
     if (this.splitter) {
       this.splitter.settings.axis = axis;
@@ -49,7 +45,7 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
 
   // Controls when the panels are redrawn whilst the splitter is dragged, either
   // continuously (immediate) or when the drag is finished (end).
-  @Input() set resize(resize: 'immediate' | 'end') {
+  @Input() set resize(resize: SohoSplitterOptionsResize) {
     this.options.resize = resize;
     if (this.splitter) {
       this.splitter.settings.resize = resize;
@@ -58,7 +54,7 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
   }
 
   // Constrains the splitter within the bounds of the specified element or region.
-  @Input() set containment(containment: any) {
+  @Input() set containment(containment: JQuery) {
     this.options.containment = containment;
     if (this.splitter) {
       this.splitter.settings.containment = containment;
@@ -70,7 +66,8 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
   // Component Output
   // -------------------------------------------
 
-  @Output() split = new EventEmitter<Object[]>();
+  @Output()
+  split = new EventEmitter<Object[]>();
 
   // -------------------------------------------
   // Host Bindings
@@ -84,10 +81,10 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: any;
+  private jQueryElement: JQuery;
 
   // Reference to the Soho splitter control api.
-  private splitter: any;
+  private splitter: SohoSplitterStatic;
 
   /**
    * Constructor.

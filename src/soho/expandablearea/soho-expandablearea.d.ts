@@ -10,9 +10,9 @@
  */
 interface SohoExpandableAreaOptions {
   /** Identifier. */
-  id?:string;
+  id?: string;
   disabled?: boolean;
-  expanded?:boolean;
+  expanded?: boolean;
 }
 
 /**

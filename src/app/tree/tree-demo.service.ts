@@ -4,54 +4,22 @@ import { Observable } from 'rxjs/Rx';
 
 import { SohoTreeService } from '../../soho/tree';
 
+import { TreeDemoData } from './tree-data.demo';
+
 @Injectable()
 export class TreeDemoService extends SohoTreeService {
 
-  private static id: number = 2;
-
-  /**
-   * Root node - for the sample service.
-   */
-  private static ROOT_NODE: SohoTreeNode = {
-    'id': 'Root ' + TreeDemoService.id++,
-    'text': 'Node 1',
-    'open': false,
-    'selected': false,
-    children: []
-  };
+  private demoData = new TreeDemoData();
 
   constructor() {
     super();
   }
 
   getRootTreeNodes(): Observable<SohoTreeNode[]> {
-    let rootNodes: SohoTreeNode[] = [TreeDemoService.ROOT_NODE];
-    return Observable.of(rootNodes);
+    return Observable.of(this.demoData.getRootTreeNodes());
   }
 
   getTreeNodes(node: SohoTreeNode): Observable<SohoTreeNode[]> {
-    let children: SohoTreeNode[] = [{
-      'id': node.id + '/1',
-      'text': 'Leaf ' + TreeDemoService.id++,
-      'open': false,
-      'selected': false,
-      'children': []
-    },
-      {
-        'id': node.id + '/2',
-        'text': 'Node ' + TreeDemoService.id++,
-        'open': false,
-        'selected': false,
-        'children': []
-      },
-      {
-        'id': node.id + '/3',
-        'text': 'Node ' + TreeDemoService.id++,
-        'open': false,
-        'selected': false,
-        'children': []
-      }];
-
-    return Observable.of(children);
+    return Observable.of(this.demoData.getTreeNodes(node));
   }
 }

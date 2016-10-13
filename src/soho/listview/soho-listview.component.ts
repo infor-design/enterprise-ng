@@ -86,51 +86,93 @@ export class SohoListViewMicroComponent {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoListViewComponent implements AfterViewInit, OnDestroy {
+
   /**
    * String of classes to append to the class for the list-view div element
    */
   @Input() class: string;
+
   /**
    * Array of data
    */
   @Input() set dataset(value: Object[]) {
+    this.options.dataset = value;
     if (this.jQueryElement && this.listview) {
+      this.listview.settings.dataset = value;
       this.listview.updated();
     }
-    this._dataset = value;
   }
-  /**
-   * Audible Label (or use parent title)
-   */
-  @Input() description: string;
-  /**
-   * If paging is activated, sets the number of listview items available per page
-   */
-  @Input() pagesize: number;
-  /**
-   * If true, activates paging
-   */
-  @Input() paging: boolean;
-  /**
-   * If true, associates itself with a Searchfield/Autocomplete and allows itself to be filtered
-   */
-  @Input() searchable: boolean;
-  /**
-   * false, 'single', or 'multiple'
-   */
-  @Input() selectable: boolean | 'single' | 'multiple';
-  /**
-   * true or false
-   */
-  @Input() selectOnFocus: boolean;
-  /**
-   * External function that can be used to provide a datasource
-   */
-  @Input() source: Function;
-  /**
-   * Html Template String
-   */
-  @Input() template: string;
+  /** Audible Label (or use parent title). */
+  @Input() set description(value: string) {
+    this.options.description = value;
+    if (this.jQueryElement && this.listview) {
+      this.listview.settings.description = value;
+      this.listview.updated();
+    }
+  }
+
+  /** If paging is activated, sets the number of listview items available per page. */
+  @Input() set pagesize(value: number) {
+    this.options.pagesize = value;
+    if (this.jQueryElement && this.listview) {
+      this.listview.settings.pagesize = value;
+      this.listview.updated();
+    }
+  }
+
+  /** If true, activates paging. */
+  @Input() set paging(value: boolean) {
+    this.options.paging = value;
+    if (this.jQueryElement && this.listview) {
+      this.listview.settings.paging = value;
+      this.listview.updated();
+    }
+  }
+
+  /** If true, associates itself with a Searchfield/Autocomplete and allows itself to be filtered.  */
+  @Input() set searchable(value: boolean) {
+    this.options.searchable = value;
+    if (this.jQueryElement && this.listview) {
+      this.listview.settings.searchable = value;
+      this.listview.updated();
+    }
+  }
+
+  /** false, 'single', or 'multiple'. */
+  @Input() set selectable(value: SohoListViewOptionsSelectable) {
+    this.options.selectable = value;
+    if (this.jQueryElement && this.listview) {
+      this.listview.settings.selectable = value;
+      this.listview.updated();
+    }
+  }
+
+  /** Select on focus change?true or false. */
+  @Input() set selectOnFocus(value: boolean) {
+    this.options.selectOnFocus = value;
+    if (this.jQueryElement && this.listview) {
+      this.listview.settings.selectOnFocus = value;
+      this.listview.updated();
+    }
+  }
+
+  /** External function that can be used to provide a datasource, or a URL. */
+  @Input() set source(value: SohoListViewOptionsSourceFunction | string) {
+    this.options.source = value;
+    if (this.jQueryElement && this.listview) {
+      this.listview.settings.source = value;
+      this.listview.updated();
+    }
+  }
+
+  /** Html Template String. */
+  @Input() set template(value: string) {
+    this.options.source = value;
+    if (this.jQueryElement && this.listview) {
+      this.listview.settings.source = value;
+      this.listview.updated();
+    }
+  }
 
   /**
    * Called after the listview is rendered, passes the dataset
@@ -154,36 +196,31 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private jQueryElement: any;
-  private listview: any;
-  private _dataset: Object[];
+  private jQueryElement: JQuery;
 
-  constructor(private element: ElementRef) { }
+  private listview: SohoListViewStatic;
+
+  private options: SohoListViewOptions = {};
+
+  /**
+   * Constructor.
+   */
+  constructor(private element: ElementRef) {}
+
   ngAfterViewInit() {
     if (!this.listViewRef) {
-      console.error('Unable to find listview reference...');
+      throw Error('Unable to find listview reference...');
     }
     // Found a searchfield in the template, set searchable to true
     if (this.searchfieldRef) {
-      this.searchable = true;
+      this.options.searchable = true;
     }
-    // TODO: Figure out what element to send to jQuery to init the component
+
     this.jQueryElement = jQuery(this.listViewRef.nativeElement);
 
-    this.jQueryElement.listview({
-      /**
-       * Pass in the Input values as settings to the initializer
-       */
-      dataset: this._dataset,
-      template: this.template,
-      description: this.description,
-      paging: this.paging,
-      pagesize: this.pagesize,
-      searchable: this.searchable,
-      selectable: this.selectable,
-      selectOnFocus: this.selectOnFocus,
-      source: this.source,
-    });
+    this.jQueryElement.listview(this.options);
+
+    this.listview = this.jQueryElement.data('listview');
 
     /**
      * Bind to jQueryElement's events
@@ -191,8 +228,6 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.on('rendered', (...args) => this.rendered.emit(args));
     this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
     this.jQueryElement.on('sorted', (...args) => this.sorted.emit(args));
-
-    this.listview = this.jQueryElement.data('listview');
   }
   ngOnDestroy() {
     // Necessary clean up step (add additional here)
