@@ -99,15 +99,18 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
   // This event is fired when a node is expanded, the SohoTreeNode
   // expanded is passed as an argument to the handler.
-  @Output() expand = new EventEmitter<SohoTreeNode>();
+  @Output()
+  expandEvent = new EventEmitter<SohoTreeNode>();
 
   // This event is fired when a node is collapsed, the SohoTreeNode
   // collapsed is passed as an argument to the handler.
-  @Output() collapse = new EventEmitter<SohoTreeNode>();
+  @Output()
+  collapseEvent = new EventEmitter<SohoTreeNode>();
 
   // This event is fired when a node is selected, the SohoTreeNode
   // selected is passed as an argument to the handler.
-  @Output() selected = new EventEmitter<SohoTreeNode>();
+  @Output()
+  selectedEvent = new EventEmitter<SohoTreeNode>();
 
   // -------------------------------------------
   // Host Bindings
@@ -334,9 +337,9 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     // Initialize any event handlers.
     this.jQueryElement
-      .on('selected', (e: JQueryEventObject, args: SohoTreeEvent) => this.selected.next(args.data))
-      .on('expand', (e: JQueryEventObject, args: SohoTreeEvent) => this.expand.next(args.data))
-      .on('collapse', (e: JQueryEventObject, args: SohoTreeEvent) => this.collapse.next(args.data));
+      .on('selected', (e: JQueryEventObject, args: SohoTreeEvent) => this.selectedEvent.next(args.data))
+      .on('expand', (e: JQueryEventObject, args: SohoTreeEvent) => this.expandEvent.next(args.data))
+      .on('collapse', (e: JQueryEventObject, args: SohoTreeEvent) => this.collapseEvent.next(args.data));
   }
 
   ngOnDestroy() {

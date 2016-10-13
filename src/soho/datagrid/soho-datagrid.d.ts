@@ -155,52 +155,117 @@ type SohoDataGridResultsTextFunction = (
 
 type SohoGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' | 'integer' | 'lookup' | 'percent' | 'select';
 
+type SohoDataGridColumnEditorFunction = (
+  row: any,
+  cell: any,
+  value: any,
+  container: any,
+  column: SohoDataGridColumn,
+  event?: any,
+  grid?: any,
+  item?: any
+) => string;
+
+declare var SohoDataGridColumnEditors: {
+  // Supports, Text, Numeric, Integer via mask
+  Input: SohoDataGridColumnEditorFunction;
+  Textarea: SohoDataGridColumnEditorFunction;
+  Checkbox: SohoDataGridColumnEditorFunction;
+  Dropdown: SohoDataGridColumnEditorFunction;
+  Date: SohoDataGridColumnEditorFunction;
+  Lookup: SohoDataGridColumnEditorFunction;
+  Autocomplete: SohoDataGridColumnEditorFunction;
+};
+
 /**
  * This is an interface mapping for the grid column defined
  * within the Soho jQuery Control.
  */
 interface SohoDataGridColumn {
-// Identifier for the grid columns
-  id: string;
-  // Localised name for the columns
+  /** Identifier for the grid columns. */
+  id?: string;
+
+  /** Displayed column name. */
   name?: string;
-  // Json field
+
+  /** Field in the row to display. */
   field?: string;
-  // Showing?
+
+  /** Is this column visible? */
   hidden?: boolean;
-  // Sortable?
+
+  /** Is the column sortable? */
   sortable?: boolean;
-  // How wide?
-  width?: any;
+
+  /** Width of the column (in pixels) or a string value for the width. */
+  width?: number  | string;
+
+  /** @todo fix type from any.  */
   align?: any;
-  // How to format the column.
+
+  /** Tooltip for the column header. */
+  headerTooltip?: string;
+
+  /** @todo fix type from any.  */
   formatter?: any;
+
+  /** Icon to use. */
   icon?: string;
-  editor?: any;
+
+  /**
+   * Name of the editor to instantiate (using new), or a SohoDataGridColumnEditorFunction.
+   */
+  editor?: SohoDataGridColumnEditorFunction | string;
+
+  /** @todo fix type from any.  */
+  editorOptions?: any;
+
   // 'checkbox', 'date', 'decimal', 'contents', 'select' otherwise a string.
   filterType?: SohoGridColumnFilterType | string;
+
+  /** @todo fix type from any.  */
   filterFormatter?: any;
+
   caseSensitive?: boolean;
   // String array or an array of objects with a value method used for filters and editors.
   options?: SohoGridCellOption[];
-  editorOptions?: any;
-  cssClass?: any;
+
+  /** css class  */
+  cssClass?: string;
+
+  /** @todo fix type from any.  */
   dateShowFormat?: any;
+
+  /** @todo fix type from any.  */
   dateSourceFormat?: any;
+
+  /** @todo fix type from any.  */
   click?: any;
+
+  /** Is the grid searchable. */
   searchable?: boolean;
+
+  /** @todo fix type from any.  */
   inputType?: any;
+
+  /** @todo fix type from any.  */
   dateFormat?: string;
+
+  /** @todo fix type from any.  */
   ranges?: any;
+
+  /** @todo fix type from any.  */
   menuId?: any;
+
+  /** @todo fix type from any.  */
   selected?: any;
 
   resizable?: boolean;
 
-  // Optional children.
+  /** @todo fix type from any.  */
   children?: any[];
 
-  // The name of the property that controls whether a row is expanded or not.
+  /** The name of the property that controls whether a row is expanded or not. */
   expanded?: string;
 }
 

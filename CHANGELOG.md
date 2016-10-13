@@ -2,7 +2,10 @@
 Release Date: 2016-10-31
 
 ### Whats New
-*
+* 2016-10-13 - TH - PR-XXX
+ - added typings for listview and splitter.
+ - SohoListViewComponent now uses Soho Control defaults for 'options'
+ 
 
 ### Breaking Changes
 * 2016-10-10 - TH - PR-118

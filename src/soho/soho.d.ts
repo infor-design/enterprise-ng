@@ -1,19 +1,5 @@
 /// <reference path="./soho-components.d.ts" />
 
-interface SohoCheckBoxEvent {
-  currentTarget: HTMLElement;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
-}
-
 // mask
 type SohoMaskMode = 'group' | 'number' | 'date' | 'time';
 type SohoMaskShowSymbol = boolean | 'currency' | 'percent';
@@ -42,16 +28,6 @@ interface SohoMaskEvent {
   target: HTMLElement;
   timeStamp: number;
   type: string;
-}
-
-interface SplitterStatic {
-
-}
-
-interface SohoSplitterOptions {
-  axis: 'x' | 'y';
-  resize: 'immediate' | 'end';
-  containment: any;
 }
 
 // timepicker
@@ -125,16 +101,11 @@ declare var Formatters: {
   Tree: any
 };
 
-declare var Editors: {
-  // @todo
-};
-
 /**
  * JQuery Integration
  */
 
 interface JQueryStatic {
-  splitter: SplitterStatic;
 }
 
 interface JQuery {
@@ -143,7 +114,6 @@ interface JQuery {
   textarea(options?: SohoTextAreaOptions): JQuery;
   initialize(locale: string): JQuery;
   personalize(options?: SohoPersonalizeOptions): JQuery;
-  splitter(): JQuery;
   timepicker(options?: SohoTimePickerOptions): JQuery;
 }
 

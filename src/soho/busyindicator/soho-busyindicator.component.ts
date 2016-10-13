@@ -48,12 +48,13 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   // Fired after the busy indicator is displayed
-  @Output() afterstart$ = new EventEmitter<SohoBusyIndicatorEvent>();
+  @Output() afterstart = new EventEmitter<SohoBusyIndicatorEvent>();
 
   /** This event is fired 'timeToComplete' milliseconds after the indicator is opened.
    * NOTE: There's no close event on the busyindicator.
   */
-  @Output() close$ = new EventEmitter<SohoBusyIndicatorEvent>();
+  @Output('close')
+  closeEvent = new EventEmitter<SohoBusyIndicatorEvent>(); // tslint:disable-line
 
   // -------------------------------------------
   // Component Inputs
@@ -145,14 +146,14 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
    * Publishes the vent, after annotating the event.
    */
   private onAfterStartEvent(event: JQueryEventObject) {
-    this.afterstart$.next({type: 'afterstart', component: this, event: event});
+    this.afterstart.next({type: 'afterstart', component: this, event: event});
   }
 
   /**
    * Publishes the vent, after annotating the event.
    */
   private onCloseEvent(event: JQueryEventObject) {
-    this.close$.next({type: 'close', component: this, event: event});
+    this.closeEvent.next({type: 'close', component: this, event: event});
   }
 
   /**
@@ -167,7 +168,7 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
 }
 
 /**
- * Event object.
+ * Customised event object.
  */
 export interface SohoBusyIndicatorEvent {
   /** Event Type. */
