@@ -37,9 +37,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
   /** Reference to the jQuery control. */
   private jQueryElement: JQuery;
 
-  /**
-   * Reference to the Soho control api.
-   */
+  /** Reference to the Soho control api. */
   private button: SohoButtonStatic;
 
   /** The type of the button. */

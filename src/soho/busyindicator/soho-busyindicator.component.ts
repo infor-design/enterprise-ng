@@ -48,12 +48,12 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   // Fired after the busy indicator is displayed
-  @Output() afterstart$ = new EventEmitter<SohoBusyIndicatorEvent>();
+  @Output() afterstart = new EventEmitter<SohoBusyIndicatorEvent>();
 
   /** This event is fired 'timeToComplete' milliseconds after the indicator is opened.
    * NOTE: There's no close event on the busyindicator.
   */
-  @Output() close$ = new EventEmitter<SohoBusyIndicatorEvent>();
+  @Output() closeEvent = new EventEmitter<SohoBusyIndicatorEvent>(); // tslint:disable-line
 
   // -------------------------------------------
   // Component Inputs
@@ -119,6 +119,28 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
   constructor(private elementRef: ElementRef) {
   }
 
+  // -------------------------------------------
+  // Public API
+  // -------------------------------------------
+
+  /**
+   * Closes the indicator, if open.
+   */
+  public close() {
+    if (this.busyindicator) {
+      this.busyindicator.close();
+    }
+  }
+
+  /**
+   * Displays the busy indicator.
+   */
+  public open() {
+    if (this.busyindicator) {
+      this.busyindicator.activate();
+    }
+  }
+
   // ------------------------------------------
   // Lifecycle Events
   // ------------------------------------------
@@ -137,22 +159,8 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
 
     // Initialise any event handlers.
     this.jQueryElement
-      .on('afterstart', (e: JQueryEventObject) => this.onAfterStartEvent(e))
-      .on('close', (e: JQueryEventObject) => this.onCloseEvent(e));
-  }
-
-  /**
-   * Publishes the vent, after annotating the event.
-   */
-  private onAfterStartEvent(event: JQueryEventObject) {
-    this.afterstart$.next({type: 'afterstart', component: this, event: event});
-  }
-
-  /**
-   * Publishes the vent, after annotating the event.
-   */
-  private onCloseEvent(event: JQueryEventObject) {
-    this.close$.next({type: 'close', component: this, event: event});
+      .on('afterstart', (e: JQueryEventObject) => this.onAfterStart(e))
+      .on('close', (e: JQueryEventObject) => this.onClose(e));
   }
 
   /**
@@ -164,14 +172,32 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
       this.busyindicator = null;
     }
   }
+
+  // -------------------------------------------
+  // Event Handlers
+  // -------------------------------------------
+
+  /**
+   * Publishes the event, after annotating the event.
+   */
+  private onAfterStart(event: JQueryEventObject) {
+    this.afterstart.next({ type: 'afterstart', component: this, event: event });
+  }
+
+  /**
+   * Publishes the vent, after annotating the event.
+   */
+  private onClose(event: JQueryEventObject) {
+    this.closeEvent.next({ type: 'close', component: this, event: event });
+  }
 }
 
 /**
- * Event object.
+ * Customised event object.
  */
 export interface SohoBusyIndicatorEvent {
   /** Event Type. */
-  type: 'afterstart' |'close';
+  type: 'afterstart' | 'close';
 
   /** Source Component. */
   component: SohoBusyIndicatorComponent;

@@ -1,5 +1,6 @@
 import {
-  Component
+  Component,
+  OnInit
 } from '@angular/core';
 
 /**
@@ -10,21 +11,20 @@ import {
   selector: 'soho-label-demo',
   templateUrl: './label.demo.html'
 })
-
-export class LabelDemoComponent {
+export class LabelDemoComponent implements OnInit {
 
   private isAudible: boolean;
   private isRequired: boolean;
 
-  private normalText: string = "Normal label";
-  private audibleText: string = "Audible label";
-  private requiredText: string = "Required label";
-  private checkBoxText: string = "Checkbox label";
+  normalText: string = 'Normal label';
+  audibleText: string = 'Audible label';
+  requiredText: string = 'Required label';
+  checkBoxText: string = 'Checkbox label';
 
-  private field1 : string = "id1";
-  private field2 : string = "id2";
-  private field3 : string = "id3";
-  private field4 : string = "id4";
+  field1: string = 'id1';
+  field2: string = 'id2';
+  field3: string = 'id3';
+  field4: string = 'id4';
 
   ngOnInit() {
     this.isRequired = true;

@@ -6,16 +6,6 @@
  */
 
 /**
- * Expandable Area Options
- */
-interface SohoExpandableAreaOptions {
-  /** Identifier. */
-  id?:string;
-  disabled?: boolean;
-  expanded?:boolean;
-}
-
-/**
  * This interface represents the public API exposed by the
  * editor.
  */

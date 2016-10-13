@@ -17,11 +17,11 @@ export class CheckBoxDemoComponent implements OnInit {
     checkBox5Value: true,
   };
 
-  private id1 : string = "checkbox1";
-  private id2 : string = "checkbox2";
-  private id3 : string = "checkbox3";
-  private id4 : string = "checkbox4";
-  private id5 : string = "checkbox5";
+  id1: string = 'checkbox1';
+  id2: string = 'checkbox2';
+  id3: string = 'checkbox3';
+  id4: string = 'checkbox4';
+  id5: string = 'checkbox5';
 
   constructor() { }
   ngOnInit() { }

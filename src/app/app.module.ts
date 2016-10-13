@@ -36,6 +36,7 @@ import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
+import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
@@ -103,6 +104,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     TreeDynamicDemoComponent,
     TreeServiceDemoComponent,
     TreeContentDemoComponent,
+    TreeSourceDemoComponent,
     DataGridDynamicDemoComponent,
     DataGridServiceDemoComponent,
     DataGridContentDemoComponent,
