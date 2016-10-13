@@ -9,9 +9,7 @@
                 <div class="field">
                     <label class="label">User Defined State</label>
                     <select soho-dropdown [formControlName]="'testControl'" [(ngModel)]="model.value">
-                        <option *ngFor="let child of children | async"
-                            [value]="child.value"
-                            [selected]="child.value === model.value">{{child.label}}</option>
+                        <option *ngFor="let child of children | async" [value]="child.value">{{child.label}}</option>
                     </select>
                 </div>
             </div>
