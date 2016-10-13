@@ -33,6 +33,7 @@ import { ListViewDemoComponent } from './listview/listview.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
+import { DropdownCRMDemoComponent } from './dropdown/dropdown-crm.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
 
@@ -70,6 +71,7 @@ export const routes: Routes = [
   { path: 'dropdown',              component: DropdownDemoComponent },
   { path: 'dropdown-multi',        component: DropdownMultiselectDemoComponent },
   { path: 'dropdown-lm',           component: DropdownLMDemoComponent },
+  { path: 'dropdown-crm',          component: DropdownCRMDemoComponent },
   { path: 'editor',                component: EditorDemoComponent },
   { path: 'expandablearea',        component: ExpandableAreaDemoComponent },
   { path: 'textarea',              component: TextareaDemoComponent },

@@ -1,0 +1,25 @@
+<div class="example-section">
+    <form [formGroup]="form">
+        <div class="row">
+            <h1>Dropdown - binding without "source" property</h1>
+            <p style="font-size: 1.3em">This example binds options to dropdown asynchronously on component creation.</p>
+            <hr>
+            <span class="code-tag">Live Example</span>
+            <div class="row">
+                <div class="field">
+                    <label class="label">User Defined State</label>
+                    <select soho-dropdown [formControlName]="'testControl'" [(ngModel)]="model.value">
+                        <option *ngFor="let child of children | async"
+                            [value]="child.value"
+                            [selected]="child.value === model.value">{{child.label}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </form>
+    <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+    <div *ngIf="showModel">
+        <hr>
+        <h3>{{ model | json }}</h3>
+    </div>
+</div>
