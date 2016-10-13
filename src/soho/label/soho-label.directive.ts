@@ -22,8 +22,20 @@ export class SohoLabelDirective implements AfterViewInit, OnDestroy {
   @Input() required: boolean;
 
   /**
+   * Indicate that the label is for checkbox or non-checkbox
+   */
+  @Input() forCheckBox: boolean;
+
+  /**
    * Bind attributes to the host label element
    */
+  @HostBinding('class.label') get isLabel() {
+    return !this.forCheckBox;
+  };
+
+  @HostBinding('class.checkbox-label') get isCheckBoxLabel() {
+    return this.forCheckBox;
+  };
 
   @HostBinding('class.audible') get isAudible() {
     return this.audible ? true : false;
