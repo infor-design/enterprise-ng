@@ -66,11 +66,18 @@ interface SohoListViewStatic {
   /** Access to the control's options block. */
   settings: SohoListViewOptions;
 
-  /** Displays the indicator. */
-  activate(): void;
+  /** Toggles all the selected elements. */
+  toggleAll(): void;
 
-  /** Closes the busy indicator. */
-  close(): void;
+  /** ClearToggles all the selected elements. */
+  clearSelection(): void;
+
+  /** Clear the list. */
+  clear(): void;
+
+  removeAllSelected(): void;
+
+  clearAllSelected(): void;
 
   /** Updates the busy indicator with any new seettings. */
   updated(): void;
