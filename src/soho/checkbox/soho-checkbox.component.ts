@@ -32,6 +32,9 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.partial') get isPartialCheckBox() {
     return this.partial ? true : false;
   }
+  @HostBinding('attr.aria-checked') get isPartialAriaChecked() {
+    return this.partial ? 'mixed' : null;
+  }
 
   /**
    * @param disabled

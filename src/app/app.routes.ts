@@ -17,6 +17,7 @@ import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
 import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
+import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
@@ -86,6 +87,7 @@ export const routes: Routes = [
   { path: 'tree-dynamic',          component: TreeDynamicDemoComponent },
   { path: 'tree-service',          component: TreeServiceDemoComponent },
   { path: 'tree-content',          component: TreeContentDemoComponent },
+  { path: 'tree-source',           component: TreeSourceDemoComponent },
   { path: 'datagrid-dynamic',      component: DataGridDynamicDemoComponent },
   { path: 'datagrid-service',      component: DataGridServiceDemoComponent },
   { path: 'datagrid-content',      component: DataGridContentDemoComponent },

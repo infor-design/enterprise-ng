@@ -117,13 +117,3 @@ interface JQuery {
   timepicker(options?: SohoTimePickerOptions): JQuery;
 }
 
-interface LocaleStatic {
-  currentLocale: { name: string, data: any };
-
-  currentCulture(): string;
-  translate(key: string): string;
-  calendar(): { dateFormat: any, timeFormat: string };
-  set(locale: string): any;
-}
-
-declare var Locale: LocaleStatic;

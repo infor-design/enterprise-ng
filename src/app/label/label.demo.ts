@@ -19,6 +19,12 @@ export class LabelDemoComponent implements OnInit {
   normalText: string = 'Normal label';
   audibleText: string = 'Audible label';
   requiredText: string = 'Required label';
+  checkBoxText: string = 'Checkbox label';
+
+  field1: string = 'id1';
+  field2: string = 'id2';
+  field3: string = 'id3';
+  field4: string = 'id4';
 
   ngOnInit() {
     this.isRequired = true;

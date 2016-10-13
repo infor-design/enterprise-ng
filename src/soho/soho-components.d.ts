@@ -13,6 +13,7 @@
 /// <reference path="./expandablearea/soho-expandablearea.d.ts" />
 /// <reference path="./header/soho-header.d.ts" />
 /// <reference path="./listview/soho-listview.d.ts" />
+/// <reference path="./locale/soho-locale.d.ts" />
 
 /// <reference path="./modal-dialog/soho-modal-dialog.d.ts" />
 /// <reference path="./radiobutton/soho-radiobutton.d.ts" />

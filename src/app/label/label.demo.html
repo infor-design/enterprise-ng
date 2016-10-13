@@ -1,18 +1,24 @@
 <div class="example-section">
   <form>
     <div class="row">
-      <h1>Mask</h1>
+      <h1>Label</h1>
       <span class="code-tag">Live Example</span>
       <div class="row">
         <div class="two columns">
           <div class="field">
-            <label id="label1" name="label1" soho-label>{{normalText}}</label>
+            <label id="label1" name="label1" soho-label [attr.for]="field1">{{normalText}}</label>
+            <input [attr.id]="field1" name="field1"/>
           </div>
           <div class="field">
             <label id="label2" name="label2" soho-label audible="isAudible">{{audibleText}}</label>
           </div>
           <div class="field">
-            <label id="label3" name="label3" soho-label required="isRequired">{{requiredText}}</label>
+            <label id="label3" name="label3" soho-label required="isRequired" [attr.for]="field3">{{requiredText}}</label>
+            <input [attr.id]="field3" name="field3"/>
+          </div>
+          <div class="field">
+            <input [attr.id]="field4" name="field4" soho-checkbox type="checkbox">
+            <label id="label4" name="label4" soho-label [forCheckBox]="true" [attr.for]="field4">{{checkBoxText}}</label>
           </div>
         </div>
       </div>
