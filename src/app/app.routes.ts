@@ -2,7 +2,7 @@ import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
-import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator.demo';
+import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { EditorDemoComponent } from './editor/editor.demo';

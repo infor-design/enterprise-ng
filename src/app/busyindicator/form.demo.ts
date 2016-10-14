@@ -5,13 +5,13 @@ import {
 } from '@angular/core';
 
 import {
-  SohoBusyIndicatorComponent,
+  SohoBusyIndicatorDirective,
   SohoBusyIndicatorEvent
 } from '../../soho/busyindicator';
 
 @Component({
   selector: 'soho-busyindicator-demo',
-  templateUrl: 'busyindicator.demo.html'
+  templateUrl: 'form.demo.html'
 })
 export class BusyIndicatorDemoComponent {
 
@@ -19,7 +19,7 @@ export class BusyIndicatorDemoComponent {
 
   delay: number = 1000;
 
-  @ViewChild(SohoBusyIndicatorComponent) busyIndicator: SohoBusyIndicatorComponent;
+  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
 
   constructor(private elementRef: ElementRef) {
   }

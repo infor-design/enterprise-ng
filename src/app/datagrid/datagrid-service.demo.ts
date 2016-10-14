@@ -7,7 +7,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import { SohoBusyIndicatorComponent } from '../../soho/busyindicator';
+import { SohoBusyIndicatorDirective } from '../../soho/busyindicator';
 
 import {
   SohoDataGridComponent,
@@ -25,7 +25,7 @@ import { SohoToastService } from '../../soho/';
 })
 export class DataGridServiceDemoComponent implements AfterContentInit, AfterViewInit {
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
-  @ViewChild(SohoBusyIndicatorComponent) busyIndicator: SohoBusyIndicatorComponent;
+  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
   constructor(private el: ElementRef, private toastService: SohoToastService) {
   }
 

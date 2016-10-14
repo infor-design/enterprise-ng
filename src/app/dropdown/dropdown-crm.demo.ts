@@ -1,14 +1,15 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { SohoDropDownComponent } from '../../soho';
+import { SohoDropDownComponent, SohoBusyIndicatorDirective } from '../../soho';
 import { Subject } from 'rxjs/Rx';
 
 @Component({
   selector: 'soho-dropdown-demo',
   templateUrl: 'dropdown-crm.demo.html',
 })
-export class DropdownCRMDemoComponent implements OnInit {
+export class DropdownCRMDemoComponent implements AfterViewInit, OnInit {
   @ViewChild(SohoDropDownComponent) dropDownComponent: SohoDropDownComponent;
+  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
   private showModel: boolean = true;
   private form: FormGroup;
 
@@ -23,7 +24,7 @@ export class DropdownCRMDemoComponent implements OnInit {
       { value: 'WA', label: 'Washington' },
       { value: 'WY', label: 'Wyoming' }
     ];
-  private model = { value: 'CO' };
+  private model = { value: 'MN' };
   private children: Subject<any> = new Subject<any>();
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
@@ -31,16 +32,20 @@ export class DropdownCRMDemoComponent implements OnInit {
 
   ngOnInit() {
     let group: {[key: string]: any} = [];
-    group['testControl'] = new FormControl(this.model, null);
+    group['testControl'] = new FormControl(this.model.value, null);
     this.form = new FormGroup(group);
+  }
 
+  ngAfterViewInit() {
+    this.busyIndicator.open();
     // Retrieve data from rest service and apply to observer
     // setTimeout simulates the behaviour of a rest service
     setTimeout(() => {
       this.children.next(this.states);
       this.changeDetectorRef.detectChanges();
       this.dropDownComponent.updated();
-    }, 1000);
+      this.busyIndicator.activated = false;
+    }, 2000);
   }
   toggleModel() {
     this.showModel = !this.showModel;
