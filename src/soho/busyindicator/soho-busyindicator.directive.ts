@@ -145,7 +145,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     // Wrap the element in a jQuery selector.
     this.jQueryElement = jQuery(this.elementRef.nativeElement);
-    console.log('busy init')
+
     // Initialise the SohoXi Control
     this.jQueryElement.busyindicator(this.options);
 
