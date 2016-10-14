@@ -12,7 +12,7 @@ import {
   SohoDataGridRowEvent,
 } from '../../soho/datagrid';
 
-import { SohoBusyIndicatorComponent } from '../../soho/busyindicator';
+import { SohoBusyIndicatorDirective } from '../../soho/busyindicator';
 
 @Component({
   selector: 'soho-datagrid-treegrid-demo',
@@ -21,7 +21,7 @@ import { SohoBusyIndicatorComponent } from '../../soho/busyindicator';
 })
 export class DataGridTreeGridDemoComponent implements AfterContentInit, AfterViewInit  {
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
-  @ViewChild(SohoBusyIndicatorComponent) busyIndicator: SohoBusyIndicatorComponent;
+  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
 
   events: any[] = [];
 

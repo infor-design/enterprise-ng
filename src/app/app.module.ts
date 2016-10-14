@@ -15,13 +15,14 @@ import { SohoComponentsModule } from '../soho/soho-components.module';
 
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { ButtonDemoComponent } from './button/button.demo';
-import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator.demo';
+import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
 import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
+import { DropdownCRMDemoComponent } from './dropdown/dropdown-crm.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
 import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
@@ -83,6 +84,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     DropdownDemoComponent,
     DropdownMultiselectDemoComponent,
     DropdownLMDemoComponent,
+    DropdownCRMDemoComponent,
     EditorDemoComponent,
     ToastDemoComponent,
     IconDemoComponent,

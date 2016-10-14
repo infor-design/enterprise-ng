@@ -11,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { SohoDataGridComponent } from '../../soho/datagrid';
-import { SohoBusyIndicatorComponent } from '../../soho/busyindicator';
+import { SohoBusyIndicatorDirective } from '../../soho/busyindicator';
 
 import {
   DataGridDemoService
@@ -25,7 +25,7 @@ import {
 })
 export class DataGridDynamicDemoComponent implements AfterContentInit, AfterViewInit {
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
-  @ViewChild(SohoBusyIndicatorComponent) busyIndicator: SohoBusyIndicatorComponent;
+  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
 
   private _subject$ = new BehaviorSubject([]);
 

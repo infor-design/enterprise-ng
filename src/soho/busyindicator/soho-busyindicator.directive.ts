@@ -1,12 +1,11 @@
 import {
   AfterViewInit,
-  Component,
+  Directive,
   ElementRef,
   EventEmitter,
   Input,
   Output,
-  OnDestroy,
-  ChangeDetectionStrategy
+  OnDestroy
 } from '@angular/core';
 
 /**
@@ -19,12 +18,10 @@ import {
  * <br>
  * When activated, this control will display the busy indicator over the control appropriately.
  */
-@Component({
-  selector: '[soho-busyindicator]',
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+@Directive({
+  selector: '[soho-busyindicator]'
 })
-export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
+export class SohoBusyIndicatorDirective implements AfterViewInit, OnDestroy {
 
   // -------------------------------------------
   // Options Block
@@ -148,7 +145,7 @@ export class SohoBusyIndicatorComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     // Wrap the element in a jQuery selector.
     this.jQueryElement = jQuery(this.elementRef.nativeElement);
-
+    console.log('busy init')
     // Initialise the SohoXi Control
     this.jQueryElement.busyindicator(this.options);
 
@@ -200,7 +197,7 @@ export interface SohoBusyIndicatorEvent {
   type: 'afterstart' | 'close';
 
   /** Source Component. */
-  component: SohoBusyIndicatorComponent;
+  component: SohoBusyIndicatorDirective;
 
   /** Full JQuery Event. */
   event: JQueryEventObject;
