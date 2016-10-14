@@ -30,19 +30,6 @@ interface SohoMaskEvent {
   type: string;
 }
 
-// timepicker
-type SohoTimePickerMode = 'standard' | 'range';
-
-interface SohoTimePickerOptions {
-  mode: SohoTimePickerMode;
-  timeFormat: string;
-  minuteInterval: number;
-  roundToInterval: boolean;
-}
-
-interface SohoTimePickerEvent extends BaseJQueryEventObject {
-}
-
 interface SohoTabsEvent extends BaseJQueryEventObject {
 }
 
