@@ -123,9 +123,29 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
     return this.hasMoreButton;
   }
 
-  @Input() hasMoreButton:  boolean = false;
-  @Input() maxVisibleButtons: number = 3;
-  @Input() rightAlign: boolean = false;
+  @Input() set hasMoreButton(value: boolean) {
+    this.options.hasMoreButton = value;
+    if (this.toolbar) {
+      this.toolbar.settings.hasMoreButton = value;
+      this.toolbar.updated();
+    }
+  }
+
+  @Input() set maxVisibleButtons(value: number) {
+    this.options.maxVisibleButtons = value;
+    if (this.toolbar) {
+      this.toolbar.settings.maxVisibleButtons = value;
+      this.toolbar.updated();
+    }
+  }
+
+  @Input() set rightAlign(value: boolean) {
+    this.options.rightAlign = value;
+    if (this.toolbar) {
+      this.toolbar.settings.rightAlign = value;
+      this.toolbar.updated();
+    }
+  }
 
   /**
    * The beforeactivate event is fired whenever a toolbar is activated giving the event handler a chance
@@ -148,9 +168,9 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
 
   /**
    * The selected event is fired when a toolbar button has been clicked.
-   * @type {EventEmitter<SohoToolbarEvent>}
+   * @type {EventEmitter<SohoToolbarSelectedEvent>}
    */
-  @Output() selected: EventEmitter<SohoSelectedToolbarEvent> = new EventEmitter<SohoSelectedToolbarEvent>();
+  @Output() selected: EventEmitter<SohoToolbarSelectedEvent> = new EventEmitter<SohoToolbarSelectedEvent>();
 
   /**
    * The buttonClicked event is fired when a toolbar button has been clicked.
@@ -158,36 +178,36 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
    */
   @Output() buttonClicked: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
 
-  private jQueryElement: any;
-  private toolbar: any;
+  private options: SohoToolbarOptions = {};
 
-  constructor(private element: ElementRef) {}
+  private jQueryElement: JQuery;
+
+  private toolbar: SohoToolbarStatic;
+
+  constructor(private element: ElementRef) { }
 
   ngAfterViewInit() {
     // Assign element to local variable
     this.jQueryElement = jQuery(this.element.nativeElement);
 
-    this.jQueryElement.toolbar({
-      maxVisibleButtons: this.maxVisibleButtons,
-      rightAlign : this.rightAlign
-    });
-
-    // bind to jquery events and emit as angular events
-    this.jQueryElement.on('beforeactivate', ((event: JQueryEventObject) => { this.beforeactivate.emit(event); }));
-    this.jQueryElement.on('activated', ((event: JQueryEventObject) => { this.activated.emit(event); }));
-    this.jQueryElement.on('afteractivate', ((event: JQueryEventObject) => { this.afteractivate.emit(event); }));
-
-    this.jQueryElement.on('selected', (event: JQueryEventObject, item: HTMLButtonElement|HTMLAnchorElement) => {
-      this.selected.emit({event, item});
-    });
+    this.jQueryElement.toolbar(this.options);
 
     this.toolbar = this.jQueryElement.data('toolbar');
+
+    // bind to jquery events and emit as angular events
+    this.jQueryElement
+      .on('beforeactivate', ((event: JQueryEventObject) => { this.beforeactivate.emit(event); }))
+      .on('activated', ((event: JQueryEventObject) => { this.activated.emit(event); }))
+      .on('afteractivate', ((event: JQueryEventObject) => { this.afteractivate.emit(event); }))
+      .on('selected', (event: JQueryEventObject, item: HTMLButtonElement | HTMLAnchorElement) => {
+        this.selected.emit({ event, item });
+      });
   }
 
   ngOnDestroy() {
-    if (this.jQueryElement) {
-      this.jQueryElement.destroy();
-      this.jQueryElement = null;
+    if (this.toolbar) {
+      this.toolbar.destroy();
+      this.toolbar = null;
     }
   }
 
@@ -196,9 +216,4 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
       this.toolbar.updated();
     }
   }
-}
-
-interface SohoSelectedToolbarEvent {
-  event: SohoToolbarEvent;
-  item: HTMLButtonElement | HTMLAnchorElement;
 }
