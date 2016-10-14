@@ -20,37 +20,33 @@ export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.btn-menu') get isBtnMenu() { return true; };
   @HostBinding('attr.type') get buttonType() { return 'button'; };
 
-  private jQueryElement: any;
-  private menuButton: any;
+  private jQueryElement: JQuery;
+
+  private menuButton: SohoPopupMenuStatic;
 
   // -------------------------------------------
   // Default options block
   // -------------------------------------------
 
-  private options: SohoMenuButtonOptions = {
-    menu: null,
-    trigger: 'click'
-  };
+  private options: SohoPopupMenuOptions = {};
 
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
 
-  @Output() selected: EventEmitter<Object> = new EventEmitter<Object>();
-  @Output() beforeopen: EventEmitter<Object> = new EventEmitter<Object>();
-  @Output() open: EventEmitter<Object> = new EventEmitter<Object>();
-  @Output() close: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() selected = new EventEmitter<SohoMenuButtonEvent>();
+  @Output() beforeopen = new EventEmitter<SohoMenuButtonEvent>();
+  @Output() open = new EventEmitter<SohoMenuButtonEvent>();
+  @Output() close = new EventEmitter<SohoMenuButtonEvent>();
 
   // -------------------------------------------
   // Component Inputs
   // -------------------------------------------
 
-  /**
-   * The icon to be used
-   */
-  @Input() icon: string = undefined;
+  /** The icon to be used. */
+  @Input() icon: string;
 
-  @Input() set trigger(trigger: string) {
+  @Input() set trigger(trigger: SohoPopupMenuOptionsTrigger) {
     this.options.trigger = trigger;
     if (this.menuButton) {
       this.menuButton.settings.trigger = trigger;
@@ -74,10 +70,11 @@ export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
     this.menuButton = this.jQueryElement.data('popupmenu');
 
     // Add listeners to emit events
-    this.jQueryElement.on('selected', ((event: MenuButtonEvent) => { this.selected.emit(event); }));
-    this.jQueryElement.on('beforeopen', ((event: MenuButtonEvent ) => { this.beforeopen.emit(event); }));
-    this.jQueryElement.on('close', ((event: MenuButtonEvent ) => { this.close.emit(event); }));
-    this.jQueryElement.on('open', ((event: MenuButtonEvent ) => { this.open.emit(event); }));
+    this.jQueryElement
+      .on('selected', ((event: SohoMenuButtonEvent) => { this.selected.emit(event); }))
+      .on('beforeopen', ((event: SohoMenuButtonEvent ) => { this.beforeopen.emit(event); }))
+      .on('close', ((event: SohoMenuButtonEvent ) => { this.close.emit(event); }))
+      .on('open', ((event: SohoMenuButtonEvent ) => { this.open.emit(event); }));
   }
 
   updated() {
@@ -89,24 +86,11 @@ export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.menuButton.destroy();
+    if (this.menuButton) {
+      // @todo raise an issue on this failing on removeData!
+      // this.menuButton.destroy();
+      this.menuButton = null;
+    }
   }
 
-}
-
-/**
- * Interface for the jQuery event emitted
- */
-export interface MenuButtonEvent {
-  currentTarget: HTMLElement;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
 }

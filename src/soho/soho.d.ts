@@ -30,30 +30,10 @@ interface SohoMaskEvent {
   type: string;
 }
 
-// timepicker
-type SohoTimePickerMode = 'standard' | 'range';
-
-interface SohoTimePickerOptions {
-  mode: SohoTimePickerMode;
-  timeFormat: string;
-  minuteInterval: number;
-  roundToInterval: boolean;
-}
-
-interface SohoTimePickerEvent extends BaseJQueryEventObject {
-}
-interface SohoToolbarEvent extends BaseJQueryEventObject {
-}
-
 interface SohoTabsEvent extends BaseJQueryEventObject {
 }
 
 interface SohoTextareaEvent extends BaseJQueryEventObject {
-}
-
-interface SohoMenuButtonOptions {
-  menu: string;
-  trigger?: string;
 }
 
 interface SohoTextAreaOptions {
@@ -66,40 +46,6 @@ interface SohoTextAreaOptions {
 interface SohoPersonalizeOptions {
   startingColor?: string;
 }
-
-/**
- * List of valid formatters.
- */
-declare var Formatters: {
-  Text: any;
-  Readonly: any;
-  Date: any;
-  Autocomplete: any;
-  Lookup: any;
-  Decimal: any;
-  Integer: any;
-  Hyperlink: any;
-  Template: any;
-  Drilldown: any;
-  Password: any;
-  TextArea: any;
-  Checkbox: any;
-  SelectionCheckbox: any;
-  Actions: any;
-  Textarea: any;
-  Expander: any;
-  ClassRange: any;
-  Badge: any;
-  Tag: any;
-  Alert: any;
-  Image: any;
-  Color: any;
-  Button: any;
-  Dropdown: any;
-  Favorite: any;
-  Status: any;
-  Tree: any
-};
 
 /**
  * JQuery Integration

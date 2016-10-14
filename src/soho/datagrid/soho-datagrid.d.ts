@@ -153,7 +153,7 @@ type SohoDataGridResultsTextFunction = (
   count: number
 ) => {};
 
-type SohoGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' | 'integer' | 'lookup' | 'percent' | 'select';
+type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' | 'integer' | 'lookup' | 'percent' | 'select';
 
 type SohoDataGridColumnEditorFunction = (
   row: any,
@@ -166,7 +166,7 @@ type SohoDataGridColumnEditorFunction = (
   item?: any
 ) => string;
 
-declare var SohoDataGridColumnEditors: {
+declare var Editors: {
   // Supports, Text, Numeric, Integer via mask
   Input: SohoDataGridColumnEditorFunction;
   Textarea: SohoDataGridColumnEditorFunction;
@@ -176,6 +176,60 @@ declare var SohoDataGridColumnEditors: {
   Lookup: SohoDataGridColumnEditorFunction;
   Autocomplete: SohoDataGridColumnEditorFunction;
 };
+
+type SohoDataGridColumnFormatterFunction = (
+  /** Row number. */
+  row: number,
+
+  /** Column id. */
+  cell: any,
+
+  /** Field value */
+  fieldValue: any,
+
+  /** Column Definition. */
+  columnDef: SohoDataGridColumn,
+
+  /** Row data */
+  rowData: Object,
+
+  /** dataGrid */
+  api: SohoDataGridStatic
+) => any;
+
+declare var Formatters: {
+  /** Text base column data. */
+  Text: SohoDataGridColumnFormatterFunction;
+  Readonly: SohoDataGridColumnFormatterFunction;
+  Date: SohoDataGridColumnFormatterFunction;
+  Autocomplete: SohoDataGridColumnFormatterFunction;
+  Lookup: SohoDataGridColumnFormatterFunction;
+  Decimal: SohoDataGridColumnFormatterFunction;
+  Integer: SohoDataGridColumnFormatterFunction;
+  Hyperlink: SohoDataGridColumnFormatterFunction;
+  Template: SohoDataGridColumnFormatterFunction;
+  Drilldown: SohoDataGridColumnFormatterFunction;
+  Password: SohoDataGridColumnFormatterFunction;
+  TextArea: SohoDataGridColumnFormatterFunction;
+  Checkbox: SohoDataGridColumnFormatterFunction;
+  SelectionCheckbox: SohoDataGridColumnFormatterFunction;
+  Actions: SohoDataGridColumnFormatterFunction;
+  Textarea: SohoDataGridColumnFormatterFunction;
+  Expander: SohoDataGridColumnFormatterFunction;
+  ClassRange: SohoDataGridColumnFormatterFunction;
+  Badge: SohoDataGridColumnFormatterFunction;
+  Tag: SohoDataGridColumnFormatterFunction;
+  Alert: SohoDataGridColumnFormatterFunction;
+  Image: SohoDataGridColumnFormatterFunction;
+  Color: SohoDataGridColumnFormatterFunction;
+  Button: SohoDataGridColumnFormatterFunction;
+  Dropdown: SohoDataGridColumnFormatterFunction;
+  Favorite: SohoDataGridColumnFormatterFunction;
+  Status: SohoDataGridColumnFormatterFunction;
+  Tree: SohoDataGridColumnFormatterFunction
+};
+
+// declare var Formatters as SohoDataGridColumnFormatters;
 
 /**
  * This is an interface mapping for the grid column defined
@@ -221,10 +275,10 @@ interface SohoDataGridColumn {
   editorOptions?: any;
 
   // 'checkbox', 'date', 'decimal', 'contents', 'select' otherwise a string.
-  filterType?: SohoGridColumnFilterType | string;
+  filterType?: SohoDataGridColumnFilterType | string;
 
-  /** @todo fix type from any.  */
-  filterFormatter?: any;
+  /** Column formatter function.  */
+  filterFormatter?: SohoDataGridColumnFormatterFunction | string;
 
   caseSensitive?: boolean;
   // String array or an array of objects with a value method used for filters and editors.
