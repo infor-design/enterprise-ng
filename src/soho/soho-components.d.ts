@@ -15,9 +15,11 @@
 /// <reference path="./listview/soho-listview.d.ts" />
 /// <reference path="./locale/soho-locale.d.ts" />
 
+/// <reference path="./menu-button/soho-menu-button.d.ts" />
 /// <reference path="./modal-dialog/soho-modal-dialog.d.ts" />
 /// <reference path="./radiobutton/soho-radiobutton.d.ts" />
 /// <reference path="./splitter/soho-splitter.d.ts" />
 /// <reference path="./toast/soho-toast.d.ts" />
+/// <reference path="./toolbar/soho-toolbar.d.ts" />
 /// <reference path="./trackdirty/soho-trackdirty.d.ts" />
 /// <reference path="./tree/soho-tree.d.ts" />
