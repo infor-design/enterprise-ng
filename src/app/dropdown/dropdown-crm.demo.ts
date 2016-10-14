@@ -37,7 +37,7 @@ export class DropdownCRMDemoComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
-    this.busyIndicator.open();
+    this.busyIndicator.activated = true;
     // Retrieve data from rest service and apply to observer
     // setTimeout simulates the behaviour of a rest service
     setTimeout(() => {

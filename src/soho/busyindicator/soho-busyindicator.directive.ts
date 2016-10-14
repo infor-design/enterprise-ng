@@ -103,7 +103,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, OnDestroy {
       if (value) {
         this.busyindicator.activate();
       } else {
-        this.busyindicator.close();
+        this.busyindicator.close(true);
       }
     }
   }
@@ -123,9 +123,9 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, OnDestroy {
   /**
    * Closes the indicator, if open.
    */
-  public close() {
+  public close(fromEvent: boolean) {
     if (this.busyindicator) {
-      this.busyindicator.close();
+      this.busyindicator.close(fromEvent);
     }
   }
 
@@ -145,7 +145,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     // Wrap the element in a jQuery selector.
     this.jQueryElement = jQuery(this.elementRef.nativeElement);
-    console.log('busy init')
+
     // Initialise the SohoXi Control
     this.jQueryElement.busyindicator(this.options);
 
