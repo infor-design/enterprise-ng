@@ -25,7 +25,6 @@ interface SohoTimePickerOptions {
 interface SohoTimePickerEvent extends BaseJQueryEventObject {
 }
 
-
 /**
  * This interface represents the pub Api exposed by the
  * Soho control.
