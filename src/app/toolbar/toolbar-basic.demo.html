@@ -19,11 +19,17 @@
         If I don't put the icon='pie-chart' in single quotes the input won't work.
         My guess is we have to use icon='some-icon' or [icon]="'some-icon'"
         -->
-        <button soho-menu-button icon='pie-chart' title="Charts" menu="charts-menu"></button>
-        <ul id="charts-menu" class="popupmenu has-icon">
-          <li id='pie'><a href="#" button-data="{'item':'pie'}">Pie Chart</a></li>
-          <li id='line'><a href="#" button-data="{'item':'line'}">Line Chart</a></li>
-          <li id='bubble'><a href="#" button-data="{'item':'bubble'}">Bubble Chart</a></li>
+        <button soho-menu-button icon="pie-chart" id="charts-btn" attr.data-button="{\'btn\' : \'charts\'}"></button>
+        <ul class="popupmenu">
+          <li id='pie'>
+            <a href="" button-data="{'item':'pie'}">Pie Chart</a>
+          </li>
+          <li id='line'>
+            <a href="#" button-data="{'item':'line'}">Line Chart</a>
+          </li>
+          <li id='bubble'>
+            <a href="#" button-data="{'item':'bubble'}">Bubble Chart</a>
+          </li>
         </ul>
 
         <!--// TODO: better menu definition, run by ed coyle and see what he thinks
