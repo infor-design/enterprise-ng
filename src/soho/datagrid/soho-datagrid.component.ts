@@ -267,7 +267,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     if (this.jQueryElement) {
       // Just changing the datagrid.settings.selectable updates the datagrid view.
       this.datagrid.settings.selectable = selectable;
-      this.markForRefresh('selctable', RefreshHintFlags.RenderRows);
+      this.markForRefresh('selectable', RefreshHintFlags.RenderRows);
     }
   }
 
