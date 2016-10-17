@@ -4,5 +4,5 @@
  * Soho does not provide a control api for radio button.
  */
 
-interface SohoRadioButtonEvent extends JQueryEventObject{
+interface SohoRadioButtonEvent extends JQueryEventObject {
 }
