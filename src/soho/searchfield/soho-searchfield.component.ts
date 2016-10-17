@@ -22,29 +22,47 @@ export class SohoSearchFieldWrapperComponent {
   template: '<ng-content></ng-content>'
 })
 export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
-  @Input() allResultsCallback: Function;
-  /**
-   * If defined as an array, displays a dropdown containing categories that can be used to filter results
-   */
-  @Input() categories: Object[];
-  /**
-   * If true, creates a multiselectable Categories list
-   */
-  @Input() categoryMultiselect: boolean;
-  /**
-   * Has an X to clear
-   */
-  @Input() clearable: boolean;
-  @Input() showAllResults: boolean;
-  /**
-   * If true, will show any available categories that are selected to teh left of the Dropdown field.
-   */
-  @Input() showCategoryText: boolean;
-  @Input() source: Function;
-  /**
-   * Template that can be passed
-   */
-  @Input() template: string;
+  /** Options. */
+  @Input() options: SohoSearchFieldOptions = {};
+
+  @Input() set allResultsCallback(value: (searchTerm: string) => void) {
+    this.options.allResultsCallback = value;
+  }
+  /** Displays a dropdown containing categories that can be used to filter results. */
+  @Input() set categories(value: Object[]) {
+    this.options.categories = value;
+  }
+
+  /** If true, creates a multiselectable Categories list. */
+  @Input() set categoryMultiselect(value: boolean) {
+    this.options.categoryMultiselect = value;
+  }
+
+  /** Has an X to clear. */
+  @Input() set clearable(value: boolean) {
+    this.options.clearable = value;
+  }
+
+  @Input() set showAllResults(value: boolean) {
+    this.options.showAllResults = value;
+  }
+
+  /** Show any available categories that are selected to teh left of the Dropdown field. */
+  @Input() set showCategoryText(value: boolean) {
+    this.options.showCategoryText = value;
+  }
+
+  /** AutoComplete : Source Function/Data/Url/Array */
+  @Input() set source(value: SohoAutoCompleteOptionsSource) {
+    this.options.source = value;
+  }
+
+  /** Template that can be passed */
+  @Input() set template(value: string) {
+    this.options.template = value;
+  }
+
+  // ------------------------------------------------------------
 
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
@@ -53,24 +71,15 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private jQueryElement: any;
-  private searchfield: any;
+  private jQueryElement: JQuery;
+  private searchfield: SohoSearchFieldStatic;
 
   constructor(private element: ElementRef) { }
   ngAfterViewInit() {
     // TODO: Figure out what element to send to jQuery to init the component
     this.jQueryElement = jQuery(this.element.nativeElement);
 
-    this.jQueryElement.searchfield({
-      allResultsCallback: this.allResultsCallback,
-      categories: this.categories,
-      categoryMultiselect: this.categoryMultiselect,
-      clearable: this.clearable,
-      showAllResults: this.showAllResults,
-      showCategoryText: this.showCategoryText,
-      source: this.source,
-      template: this.template,
-    });
+    this.jQueryElement.searchfield(this.options);
 
     /**
      * Bind to jQueryElement's events

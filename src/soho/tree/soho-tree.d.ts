@@ -151,6 +151,7 @@ interface SohoTreeStatic {
 interface SohoTreeEvent {
   /** HTML Element */
   node: HTMLElement;
+
   /** Tree node. */
   data: SohoTreeNode;
 }

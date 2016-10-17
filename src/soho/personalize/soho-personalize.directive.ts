@@ -15,8 +15,24 @@ import {
   selector: '[soho-personalize]',
 })
 export class SohoPersonalizeDirective implements AfterViewInit {
-  @Input() startingColor: string;
-  @Input() startingTheme: string; // SOHO-4626: TODO not implemented in base soho library
+
+  /** Options. */
+  @Input() options: SohoPersonalizeOptions = {};
+
+  /** The starting colour. */
+  @Input() set startingColor(value: string) {
+    this.options.startingColor = value;
+  }
+
+  /** The starting theme. */
+  @Input() set startingTheme(value: string) {
+    // SOHO-4626: TODO not implemented in base soho library
+    // this.options.startingTheme = value;
+  }
+
+  /**
+   * Constructor.
+   */
   constructor(private el: ElementRef) {
   }
 
@@ -25,9 +41,6 @@ export class SohoPersonalizeDirective implements AfterViewInit {
    * get the SoHoXi controls to apply any renderings.
    */
   ngAfterViewInit() {
-    // @todo on the body?
-    jQuery('body').personalize({
-      startingColor: this.startingColor
-    });
+    jQuery('body').personalize(this.options);
   }
 }

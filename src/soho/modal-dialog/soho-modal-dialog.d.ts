@@ -80,7 +80,7 @@ type SohoModalButtonClickFunction = (
   e: any,
 
   /** The jQuery control.  */
-  model: ModalStatic) => void;
+  model: SohoModalStatic) => void;
 
 /**
  * This interface represents the Api exposed by the
@@ -88,7 +88,7 @@ type SohoModalButtonClickFunction = (
  *
  * Only public members are exposed on this interface.
  */
-interface ModalStatic {
+interface SohoModalStatic {
   /** Existing configuration settings. */
   settings: SohoModalOptions;
 
@@ -97,6 +97,11 @@ interface ModalStatic {
    * modal dialog is placed after openning.
    */
   element: JQuery;
+
+  /**
+   * Forces a resize of the dialog.
+   */
+  resize();
 
   /**
    * Close the modal dialog.
@@ -119,5 +124,5 @@ interface JQuery {
 }
 
 interface JQueryStatic {
-  modal: ModalStatic;
+  modal: SohoModalStatic;
 }

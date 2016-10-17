@@ -247,7 +247,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    *
    * @param rowHeight - 'normal' | 'medium' | 'short'
    */
-  @Input() set rowHeight(rowHeight: 'normal' | 'medium' | 'short') {
+  @Input() set rowHeight(rowHeight: SohoDataGridOptionsRowHeight) {
     this._gridOptions.rowHeight = rowHeight;
     if (this.jQueryElement) {
       this.datagrid.settings.rowHeight = rowHeight;
@@ -262,16 +262,16 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    *
    * @param selectable valid values are: 'multiple', 'single', and false.
    */
-  @Input() set selectable(selectable: SohoDataGridOptionsSelectable) {
+  @Input() set selectable(selectable: any) {
     this._gridOptions.selectable = selectable;
     if (this.jQueryElement) {
       // Just changing the datagrid.settings.selectable updates the datagrid view.
       this.datagrid.settings.selectable = selectable;
-      this.markForRefresh('isList', RefreshHintFlags.RenderRows);
+      this.markForRefresh('selctable', RefreshHintFlags.RenderRows);
     }
   }
 
-  get selectable(): SohoDataGridOptionsSelectable {
+  get selectable(): any {
     return this._gridOptions.selectable;
   }
 
@@ -545,7 +545,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   private jQueryElement: any;
 
   // Reference to the Soho datagrid control api.
-  private datagrid: any;
+  private datagrid: SohoDataGridStatic;
 
   // Reference to the grid's data.
   private gridData: any[];
@@ -589,19 +589,25 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this.datagrid.getColumnGroup(idx);
   }
 
-  setSortFunction(sortFunction: Function): void {
-    this.datagrid.sortFunction = sortFunction;
-  }
-
-  setSortIndicator(columnId: string, isAscending: boolean): void {
-    this.datagrid.setSortIndicator(columnId, isAscending);
+  /**
+   * Overrides the sort function used by the datagrid,
+   * can only be used once the grd has been created.
+   *
+   * @todo this should made lazy.
+   */
+  setSortFunction(sortFunction: SohoDataGridSortFunction): void {
+    if (this.datagrid) {
+      this.datagrid.sortFunction = sortFunction;
+    } else {
+      throw new Error('datagrid not initialized.');
+    }
   }
 
   pageSize(): number {
     return this.datagrid.pager.settings.pagesize;
   }
 
-  updatePagingInfo(pageInfo: SohoDataGridPageInfo): void {
+  updatePagingInfo(pageInfo: SohoPagerPagingInfo): void {
     this.datagrid.updatePagingInfo(pageInfo);
   }
 
@@ -611,14 +617,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   disable(): void {
     this.isDisabled = true;
-  }
-
-  show(): void {
-    // TODO show datagrid
-  }
-
-  hide(): void {
-    // TODO hide datagrid
   }
 
   updateRow(idx: number, row: any): void {

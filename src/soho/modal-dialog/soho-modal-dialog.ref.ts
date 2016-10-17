@@ -21,7 +21,7 @@ export class SohoModalDialogRef<T> {
   private jQueryElement: any;
 
   /** Soho Control Api */
-  private modal: ModalStatic;
+  private modal: SohoModalStatic;
 
   /** The result of the dialog. */
   private _dialogResult: any;

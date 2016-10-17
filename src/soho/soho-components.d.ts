@@ -14,10 +14,13 @@
 /// <reference path="./header/soho-header.d.ts" />
 /// <reference path="./listview/soho-listview.d.ts" />
 /// <reference path="./locale/soho-locale.d.ts" />
-
+/// <reference path="./lookup/soho-lookup.d.ts" />
 /// <reference path="./menu-button/soho-menu-button.d.ts" />
 /// <reference path="./modal-dialog/soho-modal-dialog.d.ts" />
+/// <reference path="./pager/soho-pager.d.ts" />
+/// <reference path="./personalize/soho-personalize.d.ts" />
 /// <reference path="./radiobutton/soho-radiobutton.d.ts" />
+/// <reference path="./searchfield/soho-searchfield.d.ts" />
 /// <reference path="./splitter/soho-splitter.d.ts" />
 /// <reference path="./toast/soho-toast.d.ts" />
 /// <reference path="./toolbar/soho-toolbar.d.ts" />
