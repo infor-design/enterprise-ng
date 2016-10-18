@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
-  SohoTooltipComponent
+  SohoTooltipDirective
 } from './soho-tooltip.directive';
 
 @NgModule({
   imports: [ CommonModule ],
   declarations: [
-    SohoTooltipComponent
+    SohoTooltipDirective
   ],
   exports: [
-    SohoTooltipComponent
+    SohoTooltipDirective
   ]
 })
 export class SohoTooltipModule {}

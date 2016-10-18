@@ -11,28 +11,13 @@ import {
 @Directive({
   selector: '[soho-tooltip]' // tslint:disable-line
 })
-export class SohoTooltipComponent implements AfterViewInit, OnDestroy {
+export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
 
   // -------------------------------------------
   // Options Block
   // -------------------------------------------
 
-  private options: SohoTooltipOptions = {
-    content: undefined, //Takes title attribute or feed content. Can be a function or jQuery markup
-    offset: undefined, //how much room to leave
-    placement: undefined,  //can be top/left/bottom/right/offset
-    trigger: undefined, //supports click and immediate and hover (and maybe in future focus)
-    title: undefined, //Title for Infor Tips
-    beforeShow: undefined, //Call back for ajax tooltip
-    popover: undefined , //force it to be a popover (no content)
-    closebutton: undefined, //Show X close button next to title in popover
-    isError: undefined, //Add error classes
-    isErrorColor: undefined, //Add error color only not description
-    tooltipElement: undefined, // ID selector for an alternate element to use to contain the tooltip classes
-    keepOpen: undefined, // Forces the tooltip to stay open in situations where it would normally close.
-    extraClass: undefined, // Extra css class
-    maxWidth: undefined // Toolip max width
-  };
+  private options: SohoTooltipOptions = {};
 
   // -------------------------------------------
   // Component Input options
@@ -43,7 +28,6 @@ export class SohoTooltipComponent implements AfterViewInit, OnDestroy {
   @Input() set content(content: string) {
     this.options.content = content;
   }
-
   /**
    * @param offset
    */
@@ -53,7 +37,7 @@ export class SohoTooltipComponent implements AfterViewInit, OnDestroy {
   /**
    * @param placement
    */
-  @Input() set placement(placement: string) {
+  @Input() set placement(placement: SohoTooltipOffset) {
     this.options.placement = placement;
   }
   /**
@@ -133,12 +117,12 @@ export class SohoTooltipComponent implements AfterViewInit, OnDestroy {
   /**
    * Called when the tooltip value changes
    */
-  @Output() changeEvent = new EventEmitter<SohoTooltipEvent>();
+    @Output() changeEvent = new EventEmitter<SohoTooltipEvent>();
 
-  /**
-   * Called when the tooltip updates in some way
-   */
-  @Output() updateEvent = new EventEmitter<SohoTooltipEvent>();
+    /**
+     * Called when the tooltip updates in some way
+     */
+    @Output() updateEvent = new EventEmitter<SohoTooltipEvent>();
 
   // -------------------------------------------
   // Private Member Data
@@ -164,8 +148,8 @@ export class SohoTooltipComponent implements AfterViewInit, OnDestroy {
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (e: any, args: SohoTooltipEvent) => this.changeEvent.next(args));
-    this.jQueryElement.on('updated', (e: any, args: SohoTooltipEvent) => this.updateEvent.next(args));
+    this.jQueryElement.on('change', (event: SohoTooltipEvent) => this.changeEvent.emit(event));
+    this.jQueryElement.on('updated', (event: SohoTooltipEvent) => this.updateEvent.emit(event));
 
     this.tooltip = this.jQueryElement.data('tooltip');
   }
@@ -173,12 +157,20 @@ export class SohoTooltipComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
   // Public API
   // -------------------------------------------
-  show(): void {
-    this.tooltip.show();
+  /**
+   * Shows the tooltip.
+   */
+  public show(): void {
+    if (this.tooltip)
+      this.tooltip.show();
   }
 
-  hide(): void {
-    this.tooltip.hide();
+  /**
+   * Hides the tooltip.
+   */
+  public hide(): void {
+    if (this.tooltip)
+      this.tooltip.hide();
   }
 
   ngOnDestroy() {

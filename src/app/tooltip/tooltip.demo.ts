@@ -1,7 +1,7 @@
 import { Component, OnInit , ViewChildren, QueryList} from '@angular/core';
 
 import {
-  SohoTooltipComponent
+  SohoTooltipDirective
 } from '../../soho/tooltip';
 
 @Component({
@@ -10,7 +10,7 @@ import {
 })
 export class TooltipDemoComponent implements OnInit {
 
-  @ViewChildren(SohoTooltipComponent) tooltips: QueryList<SohoTooltipComponent>;
+  @ViewChildren(SohoTooltipDirective) tooltips: QueryList<SohoTooltipDirective>;
 
   private normalTooltipText: string = "Tooltips Provide<br> Additional Information";
   private standardTooltipText: string = "<span style='text-align: left; display: inline-block;'><b style='text-transform: uppercase; line-height: 1.7em;'>Connected order</b><br>Tooltips Provide <br> Additional Information</span>";

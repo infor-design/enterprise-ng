@@ -1,7 +1,7 @@
 interface SohoTooltipOptions {
-  content?: any, //Takes title attribute or feed content. Can be a function or jQuery markup
+  content?: string, //Takes title attribute or feed content. Can be a function or jQuery markup
   offset?: number, //how much room to leave
-  placement?: string,  //can be top/left/bottom/right/offset
+  placement?: SohoTooltipOffset,  //can be top/left/bottom/right/offset
   trigger?: string, //supports click and immediate and hover (and maybe in future focus)
   title?: string, //Title for Infor Tips
   beforeShow?: any, //Call back for ajax tooltip
@@ -12,7 +12,25 @@ interface SohoTooltipOptions {
   tooltipElement?: any, // ID selector for an alternate element to use to contain the tooltip classes
   keepOpen?: boolean, // Forces the tooltip to stay open in situations where it would normally close.
   extraClass?: string, // Extra css class
-  maxWidth?: number // Toolip max width
+  maxWidth?: number // Tooltip max width
 }
+/**
+ * Customised event object.
+ */
 interface SohoTooltipEvent extends BaseJQueryEventObject {
 }
+/**
+ * This interface represents the pub Api exposed by the
+ * Soho control.
+ */
+interface SohoTooltipStatic {
+  show(): void;
+  hide(): void;
+}
+/**
+ * JQuery Integration
+ */
+interface JQuery {
+  tooltip(options?: SohoTooltipOptions): JQuery;
+}
+type SohoTooltipOffset = 'top' | 'left' | 'bottom' | 'right' | 'offset';
