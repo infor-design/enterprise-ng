@@ -58,6 +58,7 @@ interface JQuery {
   mask(options?: SohoMaskOptions): JQuery;
   tabs(): JQuery;
   textarea(options?: SohoTextAreaOptions): JQuery;
+  tooltip(options?: SohoTooltipOptions): JQuery;
   initialize(locale: string): JQuery;
   personalize(options?: SohoPersonalizeOptions): JQuery;
   timepicker(options?: SohoTimePickerOptions): JQuery;

@@ -42,6 +42,8 @@ import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
 
+import { TooltipDemoComponent } from './tooltip/tooltip.demo';
+
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
@@ -110,6 +112,7 @@ export const routes: Routes = [
   { path: 'tabs-datadriven',       component: TabsDataDrivenDemoComponent },
   { path: 'tabs-dynamic',          component: TabsDynamicDemoComponent },
   { path: 'toolbar-basic',         component: ToolbarBasicDemoComponent },
+  { path: 'tooltip',               component: TooltipDemoComponent },
   { path: 'toolbar-datadriven',    component: ToolbarDataDrivenDemoComponent },
   { path: 'toolbar-all-icons',     component: ToolbarAllIconsDemoComponent },
   // { path: 'accordian',           component: AccordionSampleComponent},
