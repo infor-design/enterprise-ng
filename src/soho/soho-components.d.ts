@@ -1,6 +1,5 @@
 /**
  * All the typings for the jQuery Controls.
- *
  */
 /// <reference path="./application-menu/soho-application-menu.d.ts" />
 /// <reference path="./button/soho-button.d.ts" />

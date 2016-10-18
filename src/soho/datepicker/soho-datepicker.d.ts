@@ -5,7 +5,7 @@
  * interface of the Soho datepicker control.
  */
 
-type SohoDatePickerOptionsMode = 'standard' | 'range';
+type SohoDatePickerMode = 'standard' | 'range';
 
 /**
  * Date Picker Options
@@ -21,7 +21,7 @@ interface SohoDatePickerOptions {
   minuteInterval?: number;
 
   /** Indicates the entry mode. */
-  mode?: SohoDatePickerOptionsMode;
+  mode?: SohoDatePickerMode;
 
   /** If a non-matching minutes value is entered, will round the minutes value to the nearest interval on the blur event. */
   roundToInterval?: number;
@@ -36,13 +36,13 @@ interface SohoDatePickerOptions {
   placeholder?: boolean;
 
   /** A date or range of dates that are enabled/disabled. */
-  disable?: SohoDatePickerOptionsDisable;
+  disable?: SohoDatePickerDisable;
 }
 
 /**
  * Disabled date ranges.
  */
-interface SohoDatePickerOptionsDisable {
+interface SohoDatePickerDisable {
   /**
    * 'M/d/yyyy' or
    * ['M/d/yyyy'] or

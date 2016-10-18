@@ -30,7 +30,7 @@ interface SohoLookupOptions {
    *  - Upon receiving grid data, set lookup.settings.options for the columns and dataset.
    *  - Then call grid() to build the grid and complete the lookup call.
    */
-  beforeShow?: SohoLookupOptionsBeforeShowFunction;
+  beforeShow?: SohoLookupBeforeShowFunction;
 
   /** Custom modal content. */
   modalContent?: JQuery | string;
@@ -45,7 +45,7 @@ interface SohoLookupOptions {
   autoApply?: boolean;
 
   /** A function that fires to let you validate form items on open and select. */
-  validator?: SohoLookupOptionsValidatorFunction;
+  validator?: SohoLookupValidatorFunction;
 }
 
 type SohoLookupFieldFunction = (
@@ -77,13 +77,13 @@ interface SohoLookupStatic {
   destroy(): void;
 }
 
-type SohoLookupOptionsBeforeShowFunction = (
+type SohoLookupBeforeShowFunction = (
   lookup: any,
   grid: (gridOptions: Object) => {}
 ) => any;
 
 /** todo */
-type SohoLookupOptionsValidatorFunction = Function;
+type SohoLookupValidatorFunction = Function;
 
 interface SohoLookupChangeEvent {
   data: Object;

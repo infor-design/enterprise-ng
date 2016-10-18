@@ -16,7 +16,6 @@ interface SohoPersonalizeOptions {
  * JQuery Integration
  */
 interface JQueryStatic {
- // personalize: SohoPersonalizeStatic;
 }
 
 interface JQuery {

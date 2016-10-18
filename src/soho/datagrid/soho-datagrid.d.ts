@@ -8,12 +8,12 @@
 /**
  * Possible row height options.
  */
-type SohoDataGridOptionsRowHeight = 'short' | 'medium' | 'normal';
+type SohoDataGridRowHeight = 'short' | 'medium' | 'normal';
 
 /**
  * Selection options.
  */
-type SohoDataGridOptionsSelectable = boolean | 'single' | 'multiple';
+type SohoDataGridSelectable = boolean | 'single' | 'multiple';
 
 /**
  * Settings for the Soho datagrid control.
@@ -60,10 +60,10 @@ interface SohoDataGridOptions {
   menuId?: string;
 
   /** What height to make the rows? */
-  rowHeight?: SohoDataGridOptionsRowHeight;
+  rowHeight?: SohoDataGridRowHeight;
 
   /** Sets the select-ability for the datagrid. */
-  selectable?: SohoDataGridOptionsSelectable;
+  selectable?: SohoDataGridSelectable;
 
   /** Click to select, or via checkbox? */
   clickToSelect?: boolean;
@@ -110,16 +110,7 @@ interface SohoDataGridOptions {
 interface SohoDataGridPageInfo extends SohoPagerPagingInfo {
 }
 
-interface SohoDataGridSourceRequest {
-  /** Pager */
-  activePage?: number;
-  pagesize?: number;
-  type: string;
-  total: number;
-  firstPage?: boolean;
-  lastPage?: boolean;
-  preserveSelected?: boolean;
-
+interface SohoDataGridSourceRequest extends SohoPagerPagingInfo {
   filterExpr: {
     column?: 'all' | string;
     lowercase?: 'yes' | 'no';
@@ -348,7 +339,7 @@ interface SohoDataGridStatic {
   updateDataset(dataset: Object[]): void;
 
   /** Sets the row height on the datagrid. */
-  rowHeight(rowHeight: SohoDataGridOptionsRowHeight): void;
+  rowHeight(rowHeight: SohoDataGridRowHeight): void;
 
   /** Loads the dataset display by the grid. */
   loadData(dataset: Object[]): void;

@@ -136,7 +136,7 @@ export class SohoModalDialogRef<T> {
    *
    * @param trigger - when to open the dialog.
    */
-  trigger(trigger: SohoModalOptionsTriggerType): SohoModalDialogRef<T> {
+  trigger(trigger: SohoModalTriggerType): SohoModalDialogRef<T> {
     this._options = trigger;
     if (this.modal) {
       this.modal.settings.trigger = trigger;

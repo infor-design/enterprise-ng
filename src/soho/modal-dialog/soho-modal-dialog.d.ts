@@ -16,7 +16,7 @@
  * immediate - when 'modal' is called.
  * click - manual? # Not really sure what this option is.
  */
-type SohoModalOptionsTriggerType = 'click' | 'immediate';
+type SohoModalTriggerType = 'click' | 'immediate';
 
 /**
  * Soho Modal Dialog configuration options
@@ -40,7 +40,7 @@ interface SohoModalOptions {
   searchable?: boolean;
 
   /** When to close/open? */
-  trigger?: SohoModalOptionsTriggerType;
+  trigger?: SohoModalTriggerType;
 
   /** Is this an alert daialog? */
   isAlert?: boolean;

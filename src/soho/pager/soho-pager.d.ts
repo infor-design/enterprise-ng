@@ -10,22 +10,22 @@
 /**
  * Pager options.
  */
-type SohoPagerOptionsType = 'list' | 'table' | string;
+type SohoPagerType = 'list' | 'table' | string;
 
 /**
  * Pager location.
  */
-type SohoPagerOptionsPosition = 'bottom' | 'top';
+type SohoPagerPosition = 'bottom' | 'top';
 
 /**
  * Soho Page control options.
  */
 interface SohoPagerOptions {
   /** Type of pager - list, table and more. */
-  type?: SohoPagerOptionsType;
+  type?: SohoPagerType;
 
   /** Position of the pager.  */
-  position: SohoPagerOptionsPosition;
+  position: SohoPagerPosition;
 
   /** Current page. */
   activePage?: number;
@@ -33,8 +33,8 @@ interface SohoPagerOptions {
   /** Source Function */
   source?: SohoDataGridSourceFunction;
 
-  /** Page size */
-  pagesize?: number; // 15, //Can be calculate or a specific number
+  /** Page size - @todo soho may support 'calculate' at some point.*/
+  pagesize?: number;
 
   /** Page size options. */
   pagesizes?: number[]; // [15, 25, 50, 75],

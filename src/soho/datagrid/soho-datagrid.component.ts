@@ -247,7 +247,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    *
    * @param rowHeight - 'normal' | 'medium' | 'short'
    */
-  @Input() set rowHeight(rowHeight: SohoDataGridOptionsRowHeight) {
+  @Input() set rowHeight(rowHeight: SohoDataGridRowHeight) {
     this._gridOptions.rowHeight = rowHeight;
     if (this.jQueryElement) {
       this.datagrid.settings.rowHeight = rowHeight;

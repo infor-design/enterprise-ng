@@ -11,7 +11,7 @@
 */
 interface SohoAutoCompleteOptions {
  /** Defines the data to use, must be specified. */
- source?: SohoAutoCompleteOptionsSource;
+ source?: SohoAutoCompleteSource;
 
   /** If defined, use this to draw the contents of each search result instead of the default draw routine. */
  template?: string;
@@ -29,7 +29,7 @@ interface SohoAutoCompleteOptions {
  offset?: number | string;
 }
 
-type SohoAutoCompleteOptionsSource = Object[] | string | Object | SohoAutoCompleteSourceFunction;
+type SohoAutoCompleteSource = Object[] | string | Object | SohoAutoCompleteSourceFunction;
 
 type SohoAutoCompleteResponseFunction = (searchTerm: string, data: any[]) => void;
 

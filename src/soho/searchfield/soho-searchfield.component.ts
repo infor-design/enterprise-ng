@@ -53,7 +53,7 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
   }
 
   /** AutoComplete : Source Function/Data/Url/Array */
-  @Input() set source(value: SohoAutoCompleteOptionsSource) {
+  @Input() set source(value: SohoAutoCompleteSource) {
     this.options.source = value;
   }
 

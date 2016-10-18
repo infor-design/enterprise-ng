@@ -24,12 +24,6 @@ export class SohoPersonalizeDirective implements AfterViewInit {
     this.options.startingColor = value;
   }
 
-  /** The starting theme. */
-  @Input() set startingTheme(value: string) {
-    // SOHO-4626: TODO not implemented in base soho library
-    // this.options.startingTheme = value;
-  }
-
   /**
    * Constructor.
    */

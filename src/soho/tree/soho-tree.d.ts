@@ -8,14 +8,14 @@
 /**
  * The possible options available to control the position of the popup.
  */
-type SohoTreeOptionsSelectable = 'single' | 'multiple';
+type SohoTreeSelectable = 'single' | 'multiple';
 
 /**
  * Tree options.
  */
 interface SohoTreeOptions {
   /** Tree selection setting. */
-  selectable?: SohoTreeOptionsSelectable;
+  selectable?: SohoTreeSelectable;
 
   /** Only applicable when selectable is 'multiple' */
   hideCheckboxes?: boolean;
