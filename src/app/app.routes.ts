@@ -34,7 +34,7 @@ import { ListViewDemoComponent } from './listview/listview.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
-import { DropdownCRMDemoComponent } from './dropdown/dropdown-crm.demo';
+import { DropdownCRMDemoComponent } from './dropdown/dropdown-async-busy.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
 
