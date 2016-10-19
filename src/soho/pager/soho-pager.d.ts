@@ -59,10 +59,10 @@ interface SohoPagerPagingInfo {
   /** The page returned. */
   activePage?: number;
 
-  /** Used by indeterminate paging as an indicator of if whether this is the firstPage in the set or not. */
+  /** Used by indeterminate paging as an indicator of whether this is the firstPage in the set. */
   firstPage?: boolean;
 
-  /** Used by indeterminate paging as an indicator of if whether this is the lastPage in the set or not. */
+  /** Used by indeterminate paging as an indicator of whether this is the lastPage in the set. */
   lastPage?: boolean;
 
   /** Internal paging information */
