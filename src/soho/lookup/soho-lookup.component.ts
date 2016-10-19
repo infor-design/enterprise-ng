@@ -190,7 +190,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       if (typeof this._options.field === 'function') {
         current = (<SohoLookupFieldFunction>this._options.field)(toProcess[i], this.lookup.element, this.lookup.grid);
       } else {
-        current = (<any>toProcess[i])[<string>this.field];
+        current = (<any>toProcess[i])[<string>this._options.field];
       }
 
       val += (i !== 0 ? ',' : '') + current;
