@@ -603,6 +603,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+  setSortIndicator(columnId: string, ascending: boolean): void {
+    this.datagrid.setSortIndicator(columnId, ascending);
+  }
+
   pageSize(): number {
     return this.datagrid.pager.settings.pagesize;
   }
