@@ -28,7 +28,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    * Should match the Soho properties for the component
    */
   // Make sure you bind the context to the function
-  @Input() set beforeShow(value: SohoLookupBeforeShowFunction) {
+  @Input()  set beforeShow(value: SohoLookupBeforeShowFunction) {
     this._options.beforeShow = value;
   }
 

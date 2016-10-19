@@ -49,6 +49,7 @@ export class SohoModalDialogRef<T> {
     this.eventGuard = componentRef.instance;
     this.componentRef = componentRef;
   }
+
   // -------------------------------------------
   // Default options block
   // -------------------------------------------
@@ -195,6 +196,22 @@ export class SohoModalDialogRef<T> {
     if (this.modal) {
       this.modal.settings.autoFocus = autoFocus;
       // @todo - need an api on modal to update settings.
+    }
+    return this;
+  }
+
+  /**
+   * Applies a function lambda to the instantiated component,
+   * allowing the component to be modified, or initialised.
+   *
+   * The function is provided with a typed value for the
+   * instance.
+   *
+   * @param component - the instantated instance.
+   */
+  apply(fn: (component: T) => void): SohoModalDialogRef<T> {
+    if (fn && this.componentRef.instance) {
+      fn(this.componentRef.instance);
     }
     return this;
   }

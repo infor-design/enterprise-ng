@@ -57,6 +57,7 @@ export class ModalDialogDemoComponent {
       .buttons(buttons)
       .title(this.title)
       .isAlert(this.isAlert)
+      .apply((c) => { c.headerText = 'Header Text Update!!'; })
       .open();
 
     /** @todo Result - OK, Cancel, Json? */
