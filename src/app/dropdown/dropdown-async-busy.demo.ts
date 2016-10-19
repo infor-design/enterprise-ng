@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, AfterViewInit, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { SohoDropDownComponent, SohoBusyIndicatorDirective } from '../../soho';
 import { Subject } from 'rxjs/Rx';
@@ -8,11 +8,11 @@ import { Subject } from 'rxjs/Rx';
   templateUrl: 'dropdown-async-busy.demo.html',
 })
 export class DropdownCRMDemoComponent implements AfterViewInit, OnInit {
-  @ViewChild(SohoDropDownComponent) dropDownComponent: SohoDropDownComponent;
-  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
+  @ViewChildren(SohoDropDownComponent) dropDownComponents: QueryList<SohoDropDownComponent>;
+  @ViewChildren(SohoBusyIndicatorDirective) busyIndicators: QueryList<SohoBusyIndicatorDirective>;
+
   private showModel: boolean = true;
   private form: FormGroup;
-
   private states = [
       { value: 'AK', label: 'Alaska' },
       { value: 'AZ', label: 'Arizona' },
@@ -25,7 +25,10 @@ export class DropdownCRMDemoComponent implements AfterViewInit, OnInit {
       { value: 'WY', label: 'Wyoming' }
     ];
   private model = { value: 'MN' };
-  private children: Subject<any> = new Subject<any>();
+  private model2 = { value: 'MN', label: 'Minnesota' };
+
+  private childrenPreload: Subject<any> = new Subject<any>();
+  private childrenOnClick: Subject<any> = new Subject<any>();
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
   }
@@ -37,14 +40,27 @@ export class DropdownCRMDemoComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
-    this.busyIndicator.activated = true;
+    let dropdown = this.dropDownComponents.toArray()[0];
+    let busyIndicator = this.busyIndicators.toArray()[0];
+    this.bindDropdown(this.childrenPreload, dropdown, busyIndicator);
+  }
+  // TODO: this should be a click event
+  // currently cant be implemented since jquery component is restricting propagation on mouse click events
+  // Once a solution is avalaible - mouse event should be on <select> instead of any wrapper around it.
+  onMouseLeave($event) {
+    let dropdown = this.dropDownComponents.toArray()[1];
+    let busyIndicator = this.busyIndicators.toArray()[1];
+    this.bindDropdown(this.childrenOnClick, dropdown, busyIndicator);
+  }
+  private bindDropdown(subject, dropdown, busyIndicator) {
+    busyIndicator.activated = true;
     // Retrieve data from rest service and apply to observer
     // setTimeout simulates the behaviour of a rest service
     setTimeout(() => {
-      this.children.next(this.states);
+      subject.next(this.states);
       this.changeDetectorRef.detectChanges();
-      this.dropDownComponent.updated();
-      this.busyIndicator.activated = false;
+      dropdown.updated();
+      busyIndicator.activated = false;
     }, 2000);
   }
   toggleModel() {
