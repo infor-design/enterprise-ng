@@ -22,17 +22,16 @@
             <div class="row">
                 <div class="field">
                     <label class="label">Load options on component <b>CLICK</b></label>
-                    <span (mouseleave)="onMouseLeave($event)">
-                        <select
-                            soho-dropdown
-                            soho-busyindicator
-                            blockUI="true"
-                            displayDelay="0"
-                            [formControlName]="'testControl2'"
-                            [(ngModel)]="model2.value">
-                            <option *ngFor="let child of childrenOnClick | async" [value]="child.value">{{child.label}}</option>
-                        </select>
-                    </span>
+                    <select
+                        soho-dropdown
+                        soho-busyindicator
+                        blockUI="true"
+                        displayDelay="0"
+                        [formControlName]="'testControl2'"
+                        [(ngModel)]="model2.value"
+                        [onClick]="onMouseClick.bind(context)">
+                        <option *ngFor="let child of childrenOnClick | async" [value]="child.value">{{child.label}}</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -41,5 +40,6 @@
     <div *ngIf="showModel">
         <hr>
         <h3>{{ model | json }}</h3>
+        <h3>{{ model2 | json }}</h3>
     </div>
 </div>

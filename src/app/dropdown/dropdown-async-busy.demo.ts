@@ -13,6 +13,8 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
 
   private showModel: boolean = true;
   private form: FormGroup;
+  private context = this; // tslint:disable-line
+  private itemsAvailable = false;
   private states = [
       { value: 'AK', label: 'Alaska' },
       { value: 'AZ', label: 'Arizona' },
@@ -55,16 +57,18 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
     dropdown2.updated();
   }
 
-  // TODO: this should be a click event
-  // currently cant be implemented since jquery component is restricting propagation on mouse click events
-  // Once a solution is avalaible - mouse event should be on <select> instead of any wrapper around it.
-  onMouseLeave($event) {
-    let dropdown = this.dropDownComponents.toArray()[1];
-    let busyIndicator = this.busyIndicators.toArray()[1];
-    this.bindDropdown(this.childrenOnClick, dropdown, busyIndicator);
+  onMouseClick(callback) {
+    if (!this.itemsAvailable) {
+      let dropdown = this.dropDownComponents.toArray()[1];
+      let busyIndicator = this.busyIndicators.toArray()[1];
+      this.itemsAvailable = true;
+      this.bindDropdown(this.childrenOnClick, dropdown, busyIndicator, callback);
+    } else {
+      callback();
+    }
   }
 
-  private bindDropdown(subject, dropdown, busyIndicator) {
+  private bindDropdown(subject, dropdown, busyIndicator, callback?) {
     busyIndicator.activated = true;
     // Retrieve data from rest service and apply to observer
     // setTimeout simulates the behaviour of a rest service
@@ -73,6 +77,9 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
       this.changeDetectorRef.detectChanges();
       dropdown.updated();
       busyIndicator.activated = false;
+      if (callback) {
+        callback();
+      }
     }, 2000);
   }
 
