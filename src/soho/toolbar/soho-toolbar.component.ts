@@ -180,6 +180,11 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
 
   private options: SohoToolbarOptions = {};
 
+  /*
+   * Mouse over event to return information about original button from menu items
+   */
+  @Output() menuItemMouseOver: EventEmitter<HTMLButtonElement> = new EventEmitter<HTMLButtonElement>();
+
   private jQueryElement: JQuery;
 
   private toolbar: SohoToolbarStatic;
@@ -202,6 +207,16 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
       .on('selected', (event: JQueryEventObject, item: HTMLButtonElement | HTMLAnchorElement) => {
         this.selected.emit({ event, item });
       });
+
+    this.jQueryElement.find('.more').on('mouseover', 'a', ((event: JQueryEventObject) => {
+      const originalButton: HTMLButtonElement = jQuery(event.target).data('originalButton');
+
+      if (originalButton !== undefined) {
+        this.menuItemMouseOver.emit(originalButton);
+      }
+    }));
+
+    this.toolbar = this.jQueryElement.data('toolbar');
   }
 
   ngOnDestroy() {

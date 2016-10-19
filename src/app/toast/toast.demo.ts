@@ -14,7 +14,7 @@ export class ToastDemoComponent implements OnInit {
   constructor(private toastService: SohoToastService) { }
   ngOnInit() { }
 
-  showToast(position: SohoToastOptionsPosition = SohoToastService.TOP_RIGHT) {
+  showToast(position: SohoToastPosition = SohoToastService.TOP_RIGHT) {
     this.toastService.show({title: 'Sample Message', message: 'This is a Toast message', position: position});
   }
 }

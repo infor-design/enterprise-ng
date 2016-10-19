@@ -74,7 +74,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   /** Is the tree selectable? */
-  @Input() set selectable(selectable: SohoTreeOptionsSelectable) {
+  @Input() set selectable(selectable: SohoTreeSelectable) {
     this.options.selectable = selectable;
     if (this.tree) {
       this.tree.settings.selectable = selectable;

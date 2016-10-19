@@ -51,10 +51,10 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   /** Called when the checkbox value changes. */
-  @Output() change = new EventEmitter<SohoCheckBoxEvent>();
+  @Output() changeEvent = new EventEmitter<SohoCheckBoxEvent>();
 
   /** Called when the checkbox updates in some way. */
-  @Output() updated = new EventEmitter<SohoCheckBoxEvent>();
+  @Output() updateEvent = new EventEmitter<SohoCheckBoxEvent>();
 
   /**
    * Local variables
@@ -75,9 +75,8 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement
-      .on('change', (e: any, args: SohoCheckBoxEvent) => this.change.next(args))
-      .on('updated', (e: any, args: SohoCheckBoxEvent) => this.updated.next(args));
+    this.jQueryElement.on('change', (event: SohoCheckBoxEvent) => this.changeEvent.emit(event));
+    this.jQueryElement.on('updated', (event: SohoCheckBoxEvent) => this.updateEvent.emit(event));
 
     // no control initializer for checkbox
   }

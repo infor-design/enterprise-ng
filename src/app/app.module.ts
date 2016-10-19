@@ -60,6 +60,7 @@ import { TextareaDemoComponent } from './textarea/textarea.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
+import { TooltipDemoComponent } from './tooltip/tooltip.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 
 import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
@@ -130,6 +131,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     ToolbarBasicDemoComponent,
     ToolbarDataDrivenDemoComponent,
     ToolbarAllIconsDemoComponent,
+    TooltipDemoComponent,
     ValidationFormDemoComponent,
     RadioButtonDemoComponent
   ],

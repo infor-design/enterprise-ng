@@ -54,4 +54,7 @@ export class TreeContentDemoComponent {
     this.selected = treeEvent.data;
     console.log('Tree Event: ${this.selected}');
   }
+
+  busy() {
+  }
 }

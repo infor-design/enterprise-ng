@@ -42,6 +42,10 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
       }, 100);
   }
 
+  onMenuItemMouseOver(event) {
+    // console.log(event);
+  }
+
   private buildToolbarButtonArray(): Array<ToolbarButton> {
     let buttons: Array<ToolbarButton> = [];
 

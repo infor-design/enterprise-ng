@@ -12,10 +12,11 @@
 <br>
 <div class="row top-padding">
   <div class="twelve columns demo" role="main">
-      <section soho-busyindicator class="scrollable contained-scrolling-right-bottom" style="height: 100%">
-        <div soho-datagrid (selected)="onSelected($event)"
+      <section class="scrollable contained-scrolling-right-bottom" style="height: 100%">
+        <div soho-busyindicator soho-datagrid (selected)="onSelected($event)"
              [columns]="columns | async"
              [data]="data | async"
+             displayDelay="0"
              selectable="multiple"
              filterable="true">
         </div>

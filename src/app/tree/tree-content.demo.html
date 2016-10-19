@@ -11,8 +11,7 @@
 <br>
 <div class="row top-padding">
   <div class="twelve columns demo" role="main">
-    <section soho-busyindicator class="scrollable" style="height: 100%">
-      <ul [soho-tree]="'content-only'" (selected)="onSelected($event)">
+      <ul soho-busyindicator [soho-tree]="'content-only'" (selected)="onSelected($event)">
         <li>
           <a href="#" id="home">Home</a>
         </li>
@@ -37,6 +36,5 @@
           </ul>
         </li>
       </ul>
-    </section>
   </div>
 </div>
