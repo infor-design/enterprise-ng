@@ -603,6 +603,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+  /**
+   * Used to set the sort indicator on a column when disableClientSort is set to true.
+   */
   setSortIndicator(columnId: string, ascending: boolean): void {
     this.datagrid.setSortIndicator(columnId, ascending);
   }
