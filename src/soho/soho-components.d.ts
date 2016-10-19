@@ -1,6 +1,7 @@
 /**
  * All the typings for the jQuery Controls.
  */
+// tslint:disable
 /// <reference path="./application-menu/soho-application-menu.d.ts" />
 /// <reference path="./button/soho-button.d.ts" />
 /// <reference path="./busyindicator/soho-busyindicator.d.ts" />
