@@ -22,7 +22,7 @@ import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
 import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
-import { DropdownCRMDemoComponent } from './dropdown/dropdown-crm.demo';
+import { DropdownCRMDemoComponent } from './dropdown/dropdown-async-busy.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
 import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
