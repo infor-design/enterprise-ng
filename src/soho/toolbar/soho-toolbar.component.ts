@@ -179,6 +179,7 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
   @Output() buttonClicked: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
 
   private options: SohoToolbarOptions = {};
+
   /*
    * Mouse over event to return information about original button from menu items
    */
@@ -208,7 +209,7 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
       });
 
     this.jQueryElement.find('.more').on('mouseover', 'a', ((event: JQueryEventObject) => {
-      const originalButton: HTMLButtonElement = jQuery(event.target).data('c');
+      const originalButton: HTMLButtonElement = jQuery(event.target).data('originalButton');
 
       if (originalButton !== undefined) {
         this.menuItemMouseOver.emit(originalButton);
