@@ -161,16 +161,18 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
    * Shows the tooltip.
    */
   public show(): void {
-    if (this.tooltip)
+    if (this.tooltip) {
       this.tooltip.show();
+    }
   }
 
   /**
    * Hides the tooltip.
    */
   public hide(): void {
-    if (this.tooltip)
+    if (this.tooltip) {
       this.tooltip.hide();
+    }
   }
 
   ngOnDestroy() {

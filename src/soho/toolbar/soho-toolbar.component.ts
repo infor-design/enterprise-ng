@@ -120,7 +120,7 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.toolbar') get isToolbar() { return true; };
   @HostBinding('style.display') get isBlock() { return 'block'; };
   @HostBinding('class.has-more-button') get showMoreButton() {
-    return this.hasMoreButton;
+    return this.options.hasMoreButton;
   }
 
   @Input() set hasMoreButton(value: boolean) {
