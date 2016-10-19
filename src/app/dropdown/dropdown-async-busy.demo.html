@@ -28,9 +28,8 @@
                             soho-busyindicator
                             blockUI="true"
                             displayDelay="0"
-                            [formControlName]="'testControl'"
+                            [formControlName]="'testControl2'"
                             [(ngModel)]="model2.value">
-                            <option [value]="model2.value">{{model2.label}}</option>
                             <option *ngFor="let child of childrenOnClick | async" [value]="child.value">{{child.label}}</option>
                         </select>
                     </span>

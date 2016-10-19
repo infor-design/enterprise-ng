@@ -7,7 +7,7 @@ import { Subject } from 'rxjs/Rx';
   selector: 'soho-dropdown-demo',
   templateUrl: 'dropdown-async-busy.demo.html',
 })
-export class DropdownCRMDemoComponent implements AfterViewInit, OnInit {
+export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
   @ViewChildren(SohoDropDownComponent) dropDownComponents: QueryList<SohoDropDownComponent>;
   @ViewChildren(SohoBusyIndicatorDirective) busyIndicators: QueryList<SohoBusyIndicatorDirective>;
 
@@ -36,14 +36,25 @@ export class DropdownCRMDemoComponent implements AfterViewInit, OnInit {
   ngOnInit() {
     let group: {[key: string]: any} = [];
     group['testControl'] = new FormControl(this.model.value, null);
+    group['testControl2'] = new FormControl(this.model2.value, null);
     this.form = new FormGroup(group);
   }
 
   ngAfterViewInit() {
+    // Initialize options for onLoad dropdown
     let dropdown = this.dropDownComponents.toArray()[0];
     let busyIndicator = this.busyIndicators.toArray()[0];
     this.bindDropdown(this.childrenPreload, dropdown, busyIndicator);
+
+    // Initialize options for onClick dropdown
+    let optionsForEventDrivenControl = [];
+    optionsForEventDrivenControl.push(this.model2);
+    this.childrenOnClick.next(optionsForEventDrivenControl);
+    let dropdown2 = this.dropDownComponents.toArray()[1];
+    this.changeDetectorRef.detectChanges();
+    dropdown2.updated();
   }
+
   // TODO: this should be a click event
   // currently cant be implemented since jquery component is restricting propagation on mouse click events
   // Once a solution is avalaible - mouse event should be on <select> instead of any wrapper around it.
@@ -52,6 +63,7 @@ export class DropdownCRMDemoComponent implements AfterViewInit, OnInit {
     let busyIndicator = this.busyIndicators.toArray()[1];
     this.bindDropdown(this.childrenOnClick, dropdown, busyIndicator);
   }
+
   private bindDropdown(subject, dropdown, busyIndicator) {
     busyIndicator.activated = true;
     // Retrieve data from rest service and apply to observer
@@ -63,6 +75,7 @@ export class DropdownCRMDemoComponent implements AfterViewInit, OnInit {
       busyIndicator.activated = false;
     }, 2000);
   }
+
   toggleModel() {
     this.showModel = !this.showModel;
   }
