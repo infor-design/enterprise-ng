@@ -66,8 +66,7 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
   // Component Output
   // -------------------------------------------
 
-  @Output()
-  split = new EventEmitter<Object[]>();
+  @Output() split = new EventEmitter<Object[]>();
 
   // -------------------------------------------
   // Host Bindings

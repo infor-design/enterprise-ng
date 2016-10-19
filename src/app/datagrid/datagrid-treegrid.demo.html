@@ -11,15 +11,14 @@
   </div>
   <div class="row top-padding">
     <div class="twelve columns demo" role="main">
-      <section soho-busyindicator class="scrollable contained-scrolling-right-bottom" style="height: 100%">
-        <div soho-datagrid
+      <section class="scrollable contained-scrolling-right-bottom" style="height: 100%">
+        <div soho-busyindicator soho-datagrid
              (selected)="onSelected($event)"
              (expandrow)="onExpandRow($event)"
              (collapserow)="onCollapseRow($event)"
-             [selectable]="multiple"
+             selectable='multiple'
              [treeGrid]="true"
              [columns]="columns"
-             [data]="data"
              [dataset]="data"
              [toolbar]="{title: 'Tasks (Hierarchical)', results: true, personalize: true}"
              [filterable]="true">

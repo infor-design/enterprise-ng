@@ -44,4 +44,8 @@ export class BusyIndicatorDemoComponent {
   onClose(event: SohoBusyIndicatorEvent) {
       console.log(`${event.type} - ${event.event.currentTarget}`);
   }
+
+  onSubmit() {
+    console.log('submit');
+  }
 }

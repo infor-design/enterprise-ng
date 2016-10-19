@@ -46,7 +46,7 @@ export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
   /** The icon to be used. */
   @Input() icon: string;
 
-  @Input() set trigger(trigger: SohoPopupMenuOptionsTrigger) {
+  @Input() set trigger(trigger: SohoPopupMenuTrigger) {
     this.options.trigger = trigger;
     if (this.menuButton) {
       this.menuButton.settings.trigger = trigger;

@@ -3,14 +3,13 @@ import {
   Directive,
   ElementRef,
   HostBinding,
-  Input,
-  OnDestroy
+  Input
 } from '@angular/core';
 
 @Directive({
   selector: 'label[soho-label]' // tslint:disable-line
 })
-export class SohoLabelDirective implements AfterViewInit, OnDestroy {
+export class SohoLabelDirective implements AfterViewInit {
   /**
    * Indicate that the label is audible
    */
@@ -48,18 +47,14 @@ export class SohoLabelDirective implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private jQueryElement: any;
+  private jQueryElement: JQuery;
 
   constructor(private element: ElementRef) {
-
   }
 
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
     // no control initializer for label
-  }
-
-  ngOnDestroy() {
   }
 }

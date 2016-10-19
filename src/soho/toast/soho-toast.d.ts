@@ -8,7 +8,7 @@
 /**
  * The possible options available to control the position of the popup.
  */
-type SohoToastOptionsPosition = 'top right' | 'top left' | 'bottom left' | 'bottom right';
+type SohoToastPosition = 'top right' | 'top left' | 'bottom left' | 'bottom right';
 
 /**
  * Toast options.
@@ -21,7 +21,7 @@ interface SohoToastOptions {
   message: string;
 
   /** Controls the location of ALL toasts currently displayed. */
-  position?: SohoToastOptionsPosition;
+  position?: SohoToastPosition;
 
   /** Prevents the display of the toast, but allows for an audible queue.  */
   audibleOnly?: boolean;

@@ -8,12 +8,12 @@
 /**
  * Possible row height options.
  */
-type SohoDataGridOptionsRowHeight = 'short' | 'medium' | 'normal';
+type SohoDataGridRowHeight = 'short' | 'medium' | 'normal';
 
 /**
  * Selection options.
  */
-type SohoDataGridOptionsSelectable = false | 'single' | 'multiple';
+type SohoDataGridSelectable = boolean | 'single' | 'multiple';
 
 /**
  * Settings for the Soho datagrid control.
@@ -41,9 +41,6 @@ interface SohoDataGridOptions {
   /** List of columns definitions. */
   columns?: SohoDataGridColumn[];
 
-  /** ?? */
-  // data?: Object[];
-
   /** Initial dataset. */
   dataset?: Object[];
 
@@ -63,10 +60,10 @@ interface SohoDataGridOptions {
   menuId?: string;
 
   /** What height to make the rows? */
-  rowHeight?: SohoDataGridOptionsRowHeight;
+  rowHeight?: SohoDataGridRowHeight;
 
   /** Sets the select-ability for the datagrid. */
-  selectable?: SohoDataGridOptionsSelectable;
+  selectable?: SohoDataGridSelectable;
 
   /** Click to select, or via checkbox? */
   clickToSelect?: boolean;
@@ -107,35 +104,22 @@ interface SohoDataGridOptions {
 
 /**
  * Soho Data Grid Paging Options.
+ *
+ * @deprecated replaced with SohoPagerPagingInfo
  */
-interface SohoDataGridPageInfo {
-  pagesize?: number;
-  pageSize?: number;
-  firstPage?: boolean;
-  lastPage?: boolean;
-  activePage?: number;
-  total?: number;
-  type?: string;
-  preserveSelected?: boolean;
+interface SohoDataGridPageInfo extends SohoPagerPagingInfo {
 }
 
-interface SohoDataGridSourceRequest {
-  activePage: number;
-  pagesize: number;
-  type: string;
-  total: number;
+interface SohoDataGridSourceRequest extends SohoPagerPagingInfo {
   filterExpr: {
     column?: 'all' | string;
     lowercase?: 'yes' | 'no';
     operator?: 'contains' | string;
     value?: string;
   }[];
-  preserveSelected?: boolean;
   sortAsc?: boolean;
   sortField?: string;
   sortId?: string;
-  firstPage?: boolean;
-  lastPage?: boolean;
 }
 
 type SohoDataGridSourceFunction = (
@@ -152,6 +136,11 @@ type SohoDataGridResultsTextFunction = (
   source: any,
   count: number
 ) => {};
+
+type SohoDataGridSortFunction = (
+  id: number,
+  ascending: boolean
+) => boolean;
 
 type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' | 'integer' | 'lookup' | 'percent' | 'select';
 
@@ -260,8 +249,8 @@ interface SohoDataGridColumn {
   /** Tooltip for the column header. */
   headerTooltip?: string;
 
-  /** @todo fix type from any.  */
-  formatter?: any;
+  /** Column formatter function or a string.  */
+  formatter?: SohoDataGridColumnFormatterFunction | string;
 
   /** Icon to use. */
   icon?: string;
@@ -281,6 +270,7 @@ interface SohoDataGridColumn {
   filterFormatter?: SohoDataGridColumnFormatterFunction | string;
 
   caseSensitive?: boolean;
+
   // String array or an array of objects with a value method used for filters and editors.
   options?: SohoGridCellOption[];
 
@@ -314,6 +304,7 @@ interface SohoDataGridColumn {
   /** @todo fix type from any.  */
   selected?: any;
 
+  /** Resizable column */
   resizable?: boolean;
 
   /** @todo fix type from any.  */
@@ -337,6 +328,75 @@ interface SohoGridCellOption {
 interface SohoDataGridStatic {
   /** Control options. */
   settings: SohoDataGridOptions;
+
+  /** Overridable sort function. */
+  sortFunction: SohoDataGridSortFunction;
+
+  /** Reference to pager. */
+  pager: SohoPagerStatic;
+
+  /** Updates the dataset displayed by the data grid. */
+  updateDataset(dataset: Object[]): void;
+
+  /** Sets the row height on the datagrid. */
+  rowHeight(rowHeight: SohoDataGridRowHeight): void;
+
+  /** Loads the dataset display by the grid. */
+  loadData(dataset: Object[]): void;
+
+  /** Updates the columns displayed on the grid. */
+  updateColumns(columns: SohoDataGridColumn[]): void;
+
+  /** The grouping  name of the given column idx. */
+  getColumnGroup(idx: number): string;
+
+  /** Updates the pager associated with the grid. */
+  updatePagingInfo(pagerInfo: SohoPagerPagingInfo): void;
+
+  /** Updates the data displayed in the given row. */
+  updateRow(idx: number, rowData: Object): void;
+
+  /** Hides the column at the given index.  */
+  hideColumn(idx: number): void;
+
+  /** Shows the column at the given index.  */
+  showColumn(idx: number): void;
+
+  columnById(id: string): Array<any>;
+
+  getColumnIndex(columnId: string): number;
+
+  getHeaderRowColumn(fld: any): any;
+
+  addRow(data: Object, location: any): void;
+
+  removeRow(data: Object): void;
+
+  removeSelected(): void;
+
+  clearFilter(): void;
+
+  selectedRows(): SohoDataGridSelectedRow[];
+
+  selectAllRows(): void;
+
+  unSelectAllRows(): void;
+
+  selectRow(idx: number): void;
+
+  unselectRow(idx: number): void;
+
+  selectRowsBetweenIndexes(range: number[]);
+
+  selectedRows(rows: number[]): void;
+
+  toggleFilterRow(): void;
+
+  setActiveCell(idx: number, idx2: number): void;
+
+  renderHeader(): void;
+
+  renderRows(): void;
 
   /**
    * Destructor,

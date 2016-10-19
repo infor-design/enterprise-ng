@@ -139,7 +139,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy {
   }
 
   /** false, 'single', or 'multiple'. */
-  @Input() set selectable(value: SohoListViewOptionsSelectable) {
+  @Input() set selectable(value: SohoListViewSelectable) {
     this.options.selectable = value;
     if (this.jQueryElement && this.listview) {
       this.listview.settings.selectable = value;
@@ -157,7 +157,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy {
   }
 
   /** External function that can be used to provide a datasource, or a URL. */
-  @Input() set source(value: SohoListViewOptionsSourceFunction | string) {
+  @Input() set source(value: SohoListViewSourceFunction | string) {
     this.options.source = value;
     if (this.jQueryElement && this.listview) {
       this.listview.settings.source = value;

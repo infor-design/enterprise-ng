@@ -38,7 +38,7 @@ export class SohoDatePickerComponent implements AfterViewInit, OnDestroy {
   /**
    * Indicates mode, either 'standard' or 'range'.
    */
-  @Input() set mode(mode: SohoDatePickerOptionsMode) {
+  @Input() set mode(mode: SohoDatePickerMode) {
     this.options.mode = mode;
   }
 
