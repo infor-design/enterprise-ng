@@ -63,7 +63,7 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
       let busyIndicator = this.busyIndicators.toArray()[1];
       this.itemsAvailable = true;
       this.bindDropdown(this.childrenOnClick, dropdown, busyIndicator, callback);
-    } else {
+    } else if (callback) {
       callback();
     }
   }
