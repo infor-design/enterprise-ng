@@ -1,4 +1,6 @@
+// tslint:disable
 /// <reference path="./soho-components.d.ts" />
+// tslint:enable
 
 // mask
 type SohoMaskMode = 'group' | 'number' | 'date' | 'time';
@@ -63,4 +65,3 @@ interface JQuery {
   personalize(options?: SohoPersonalizeOptions): JQuery;
   timepicker(options?: SohoTimePickerOptions): JQuery;
 }
-
