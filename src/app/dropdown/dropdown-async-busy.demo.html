@@ -7,7 +7,7 @@
             <span class="code-tag">Live Example</span>
             <div class="row">
                 <div class="field">
-                    <label class="label">User Defined State</label>
+                    <label class="label">Load options on component <b>LOAD</b></label>
                     <select
                         soho-dropdown
                         soho-busyindicator
@@ -15,7 +15,22 @@
                         displayDelay="0"
                         [formControlName]="'testControl'"
                         [(ngModel)]="model.value">
-                        <option *ngFor="let child of children | async" [value]="child.value">{{child.label}}</option>
+                        <option *ngFor="let child of childrenPreload | async" [value]="child.value">{{child.label}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label class="label">Load options on component <b>CLICK</b></label>
+                    <select
+                        soho-dropdown
+                        soho-busyindicator
+                        blockUI="true"
+                        displayDelay="0"
+                        [formControlName]="'testControl2'"
+                        [(ngModel)]="model2.value"
+                        [onClick]="onMouseClick.bind(context)">
+                        <option *ngFor="let child of childrenOnClick | async" [value]="child.value">{{child.label}}</option>
                     </select>
                 </div>
             </div>
@@ -25,5 +40,6 @@
     <div *ngIf="showModel">
         <hr>
         <h3>{{ model | json }}</h3>
+        <h3>{{ model2 | json }}</h3>
     </div>
 </div>

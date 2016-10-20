@@ -1,6 +1,6 @@
 <div class="page-container"> <!-- required to get the correct styles applied to the vertical tabs - '.page-container > tab-container.vertical' -->
 
-  <div soho-tabs vertical=true>
+  <div soho-tabs vertical=true (activated)="onTabActivated($event)">
     <ul soho-tab-list>
       <li soho-tab><a soho-tab-title tabId='tabs-vertical-contracts'>Contracts</a></li>
       <li soho-tab disabled=true><a soho-tab-title tabId='tabs-vertical-opportunities'>Opportunites</a></li>

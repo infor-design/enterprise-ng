@@ -56,6 +56,12 @@ interface SohoDropDownOptions {
    * Typing Buffer Delay
    */
   delay?: number;
+
+  /**
+   * hitch into click event
+   */
+  onClick?: Function;
+
 }
 
 /**

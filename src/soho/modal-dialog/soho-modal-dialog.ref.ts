@@ -49,6 +49,7 @@ export class SohoModalDialogRef<T> {
     this.eventGuard = componentRef.instance;
     this.componentRef = componentRef;
   }
+
   // -------------------------------------------
   // Default options block
   // -------------------------------------------
@@ -199,8 +200,27 @@ export class SohoModalDialogRef<T> {
     return this;
   }
 
+  /**
+   * Applies a function to the instantiated component,
+   * allowing the component to be modified, or initialised.
+   *
+   * The function is provided with a typed value for the
+   * instance.
+   *
+   * @param component - the instantated instance.
+   * @return the dialof ref for onward assignment.
+   */
+  apply(fn: (component: T) => void): SohoModalDialogRef<T> {
+    if (fn && this.componentRef.instance) {
+      fn(this.componentRef.instance);
+    }
+    return this;
+  }
+
  /**
    * Dialog result property.
+   *
+   * @param dialogResult - the stored restult of the dialog.
    */
   set dialogResult(dialogResult: any) {
     this._dialogResult = dialogResult;

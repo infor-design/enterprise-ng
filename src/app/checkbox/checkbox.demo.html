@@ -4,8 +4,16 @@
     <div class="row">
       <div class="one-half column">
         <div class="field">
-          <input soho-checkbox type="checkbox" [attr.id]="id1" name="checkbox1" [(ngModel)]=model.checkBox1Value>
+          <input soho-checkbox type="checkbox" [disabled]="checkBoxDisabled" [attr.id]="id1" name="checkbox1" [(ngModel)]=model.checkBox1Value>
           <label soho-label [attr.for]="id1" [forCheckBox]="true">Unchecked</label>
+          <div class="row">
+            <button soho-button [disabled]="checkBoxDisabled" (click)="setDisable()">Disable</button>
+            <button soho-button [disabled]="!checkBoxDisabled" (click)="setEnable()">Enable</button>
+          </div><br><br><br>
+          <div class="row">
+            <button soho-button [disabled]="model.checkBox1Value" (click)="setCheck()">Check</button>
+            <button soho-button [disabled]="!model.checkBox1Value" (click)="setUncheck()">Uncheck</button>
+          </div>
         </div>
 
         <div class="field">

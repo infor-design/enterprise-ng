@@ -362,6 +362,9 @@ interface SohoDataGridStatic {
   /** Shows the column at the given index.  */
   showColumn(idx: number): void;
 
+  /** Used to set the sort indicator on a column when disableClientSort is set to true */
+  setSortIndicator(columnId: string, ascending: boolean): void;
+
   columnById(id: string): Array<any>;
 
   getColumnIndex(columnId: string): number;
