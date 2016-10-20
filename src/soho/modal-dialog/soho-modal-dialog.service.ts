@@ -39,6 +39,9 @@ export class SohoModalDialogService {
    *
    * The dialog won't necessarily be open yet, see the dialog ref api for further methods.
    *
+   * @parent component - the type of the component to instantiate; must not be null.
+   * @parent parent - the parent container; must not be null.
+   *
    * @return the modal dialog reference.
    */
   modal<T>(component: ComponentType<T>, parent: ViewContainerRef): SohoModalDialogRef<T> {

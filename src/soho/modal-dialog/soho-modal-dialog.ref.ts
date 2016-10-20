@@ -201,13 +201,14 @@ export class SohoModalDialogRef<T> {
   }
 
   /**
-   * Applies a function lambda to the instantiated component,
+   * Applies a function to the instantiated component,
    * allowing the component to be modified, or initialised.
    *
    * The function is provided with a typed value for the
    * instance.
    *
    * @param component - the instantated instance.
+   * @return the dialof ref for onward assignment.
    */
   apply(fn: (component: T) => void): SohoModalDialogRef<T> {
     if (fn && this.componentRef.instance) {
@@ -218,6 +219,8 @@ export class SohoModalDialogRef<T> {
 
  /**
    * Dialog result property.
+   *
+   * @param dialogResult - the stored restult of the dialog.
    */
   set dialogResult(dialogResult: any) {
     this._dialogResult = dialogResult;

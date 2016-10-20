@@ -60,8 +60,6 @@ export class ModalDialogDemoComponent {
       .apply((c) => { c.headerText = 'Header Text Update!!'; })
       .open();
 
-    /** @todo Result - OK, Cancel, Json? */
-
     // Attach a listener to the afterclose event, which also gives you the result - if available.
     this.dialog.afterClose(result => {
       this.closeResult = result;
