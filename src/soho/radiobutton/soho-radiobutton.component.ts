@@ -13,37 +13,37 @@ import {
   template: `<ng-content></ng-content>`
 })
 export class SohoRadioButtonComponent implements AfterViewInit {
-  /**
-   * Called when the radiobutton value changes
-   */
+  /** Called when the radiobutton value changes.  */
   @Output() change: EventEmitter<SohoRadioButtonEvent> = new EventEmitter<SohoRadioButtonEvent>();
 
-  /**
-   * Bind attributes to the host input element
-   */
+  /** Bind attributes to the host input element. */
   @HostBinding('attr.type') get isRadioType() {
     return 'radio';
   }
 
+  /** Sets the class attribute for the radio button. */
   @HostBinding('class.radio') get isRadioButton() {
     return true;
   }
 
-  /**
-   * Sets the element to disabled
-   */
+  /** Sets the element to disabled. */
   @HostBinding('attr.disabled') @Input() disabled: boolean;
 
-  /**
-   * Sets the element to indicate checked
-   */
+  /** Sets the element to indicate checked. */
   @HostBinding('attr.checked') @Input() checked: boolean;
 
   /**
+   * ---------------------------------------------------
    * Local variables
+   * ---------------------------------------------------
    */
-  private jQueryElement: any;
 
+  /** JQuery Control. */
+  private jQueryElement: JQuery;
+
+  /**
+   * Constructor.
+   */
   constructor(private element: ElementRef) { }
 
   ngAfterViewInit() {
@@ -51,6 +51,7 @@ export class SohoRadioButtonComponent implements AfterViewInit {
 
     // no control initializer for radiobutton
 
-    this.jQueryElement.on('change', (event: SohoRadioButtonEvent) => this.change.emit(event));
+    this.jQueryElement
+      .on('change', (event: JQueryEventObject) => this.change.emit(event));
   }
 }

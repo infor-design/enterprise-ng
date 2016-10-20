@@ -5,7 +5,7 @@
  * interface of the Soho jQuery listview control.
  */
 
-type SohoListViewOptionsSelectable = false | 'single' | 'multiple';
+type SohoListViewSelectable = false | 'single' | 'multiple';
 
 interface SohoListViewOptions {
   /** Data to display. */
@@ -27,35 +27,23 @@ interface SohoListViewOptions {
   searchable?: boolean;
 
   /** Selection setting. */
-  selectable?: SohoListViewOptionsSelectable;
+  selectable?: SohoListViewSelectable;
 
   /** Select on focus? */
   selectOnFocus?: boolean;
 
   /** URL or source function. */
-  source?: SohoListViewOptionsSourceFunction | string;
+  source?: SohoListViewSourceFunction | string;
 }
 
-/** @todo split int request and response? */
-interface SohoListViewOptionsPagerInfo {
-  pagesize?: number;
-  pageSize?: number;
-  firstPage?: boolean;
-  lastPage?: boolean;
-  activePage?: number;
-  total?: number;
-  type?: string;
-  preserveSelected?: boolean;
-}
-
-type SohoListViewOptionsSourceFunction = (
-  pagerInfo: SohoListViewOptionsPagerInfo,
-  SohoListViewOptionsResponseFunction
+type SohoListViewSourceFunction = (
+  pagerInfo: SohoPagerPagingInfo,
+  SohoListViewResponseFunction
 ) => void;
 
-type SohoListViewOptionsResponseFunction = (
+type SohoListViewResponseFunction = (
   data: Object[],
-  pagerInfo: SohoListViewOptionsPagerInfo
+  pagerInfo: SohoPagerPagingInfo
 ) => void;
 
 /**

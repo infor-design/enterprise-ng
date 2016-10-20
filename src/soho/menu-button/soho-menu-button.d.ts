@@ -8,7 +8,7 @@
 /**
  * Trigger types.
  */
-type SohoPopupMenuOptionsTrigger = 'click' | 'rightClick' | 'immediate';
+type SohoPopupMenuTrigger = 'click' | 'rightClick' | 'immediate';
 
 /**
  * Soho Popup Menu options.
@@ -18,7 +18,7 @@ interface SohoPopupMenuOptions {
   menu?: string | JQuery;
 
   /** 'click' | 'rightClick' | 'immediate' */
-  trigger?: SohoPopupMenuOptionsTrigger; // @todo
+  trigger?: SohoPopupMenuTrigger; // @todo
 
   /** Auto Focus */
   autoFocus?: boolean;

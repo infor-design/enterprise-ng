@@ -41,10 +41,11 @@ export class DataGridDynamicDemoComponent implements AfterContentInit, AfterView
 
   addRows() {
     this.service.getData(null).subscribe((d: any[]) => {
+      this.busyIndicator.open();
       let newData = new Array<any>(...d);
       newData.forEach((r) => r.orderDate = new Date());
       this._subject$.next(newData);
-
+      this.busyIndicator.close(true);
       setTimeout(() => this.addRows(), 2000);
     });
   }

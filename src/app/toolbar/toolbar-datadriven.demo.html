@@ -1,7 +1,7 @@
 <div class="row">
   <div class="twelve columns">
 
-    <soho-toolbar [maxVisibleButtons]="4" #sohoToolbar>
+    <soho-toolbar [maxVisibleButtons]="4" #sohoToolbar (menuItemMouseOver)="onMenuItemMouseOver($event)">
       <soho-toolbar-title>
 
         <!-- in header -->
@@ -36,7 +36,7 @@
           <!-- dropdown menus for buttons -->
           <ul *ngIf="button.menu" class="popupmenu">
             <li *ngFor="let item of button.menu" id="{{item?.id}}">
-              <a href="" attr.data="{{item?.data}}">{{item?.text}}</a>
+              <a href="" attr.data-button="{{item?.data}}">{{item?.text}}</a>
             </li>
           </ul>
         </template>

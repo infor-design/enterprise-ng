@@ -17,11 +17,11 @@ interface SohoEditorOptions {
     firstHeader?: string;
     secondHeader?: string;
     placeholder?: string;
-    anchor?: SohoEditorOptionsAnchor;
+    anchor?: SohoEditorAnchor;
     image?: SohoEditorOptionsImage;
 }
 
-interface SohoEditorOptionsAnchor {
+interface SohoEditorAnchor {
   url?: string;
   class?: string;
   target?: 'Same window'|'New window'| any;

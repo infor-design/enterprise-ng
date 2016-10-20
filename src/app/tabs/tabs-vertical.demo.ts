@@ -16,8 +16,10 @@ export class TabsVerticalDemoComponent {
    * @returns {string} the height of the style.height style.
    */
   @HostBinding('style.height') get tabsHeightStyle() { return '100%'; };
-
-  onTabActivated(event: SohoTabsEvent) {
-    console.log('TabsBasicDemoComponent.onTabActivated');
+  constructor() {
+    console.log('ub')
+  }
+  onTabActivated(tab) {
+    console.log(tab + ' TabsBasicDemoComponent.onTabActivated');
   }
 }

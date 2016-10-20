@@ -34,8 +34,12 @@ interface SohoBusyIndicatorStatic {
   /** Displays the indicator. */
   activate(): void;
 
-  /** Closes the busy indicator. */
-  close(): void;
+  /**
+   * Closes the busy indicator.
+   *
+   * @param fromEvent - if true ?
+   */
+  close(fromEvent: boolean): void;
 
   /** Updates the busy indicator with any new seettings. */
   updated(): void;

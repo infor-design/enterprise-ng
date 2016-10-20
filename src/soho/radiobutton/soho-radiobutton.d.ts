@@ -1,13 +1,8 @@
-interface SohoRadioButtonEvent {
-  currentTarget: HTMLElement;
-  data: any;
-  delegateTarget: HTMLElement;
-  handleObj: Object;
-  isTrigger: number;
-  namespace: string;
-  result: any;
-  rnamespace: any;
-  target: HTMLElement;
-  timeStamp: number;
-  type: string;
+/**
+ * JQuery Radio Button Control.
+ *
+ * Soho does not provide a control api for radio button.
+ */
+
+interface SohoRadioButtonEvent extends JQueryEventObject {
 }
