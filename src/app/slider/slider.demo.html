@@ -1,0 +1,89 @@
+<div class="example-section">
+  <form>
+    <div class="row">
+      <h1>Slider</h1>
+      <span class="code-tag">Live Example</span>
+      <div class="row">
+        <div class="twelve columns">
+          <label for="slider-regular">Regular</label>
+          <input soho-slider id="slider-regular" name="slider-regular" min="0" max="100" type="range" value={{model.value}}  (change)="onChange($event)"/>
+          <div>
+            <button soho-button [disabled]="sliderReadOnly" (click)="setReadonly()">Read Only</button>
+            <button soho-button [disabled]="sliderDisabled" (click)="setDisable()">Disable</button>
+            <button soho-button [disabled]="!sliderDisabled && !sliderReadOnly" (click)="setEnable()">Enable</button>
+          </div>
+          <br/>
+          <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+          <div *ngIf="showModel">
+            <hr>
+            <pre>{{ model | json }}</pre>
+          </div>
+          <br/>
+          <br/>
+          <br/>
+          <label for="slider-range">Range</label>
+          <input soho-slider id="slider-range" name="slider-range" min="-150" max="150" value="-150" range="true" tooltipContent="" persistTooltip="true" />
+          <br/>
+          <br/>
+          <label for="slider-stepped">Stepped</label>
+          <input soho-slider id="slider-stepped" name="slider-stepped" step="5" min="0" max="100" tooltipContent="#,S" persistTooltip="true"/>
+          <br/>
+          <br/>
+          <label for="slider-quality">Ticks &amp; Colors</label>
+          <input soho-slider id="slider-quality" name="slider-quality" min="0" max="5" value="2" step="1" ticks='[
+            {"value": 0, "description": "Very Poor", "color": "very-poor"},
+            {"value": 1, "description": "Poor", "color": "poor"},
+            {"value": 2, "description": "Adequate", "color": "adequate"},
+            {"value": 3, "description": "Good", "color": "good"},
+            {"value": 4, "description": "Very Good", "color": "very-good"},
+            {"value": 5, "description": "Superior", "color": "superior"}
+          ]'/>
+          <br/>
+          <br/>
+          <label for="slider-volume">Ticks &amp; Colors2 (#colors)</label>
+          <input soho-slider id="slider-volume" name="slider-tooltip" min="0" max="2" value="1" ticks='[
+            {"value": 0, "description": "low", "color": "#a13030"},
+            {"value": 1, "description": "medium", "color": "#e4882b"},
+            {"value": 2, "description": "high", "color": "#397514"}
+          ]' tooltipContent="" />
+          <br/>
+          <br/>
+          <label for="slider-disabled">Disabled</label>
+          <input soho-slider id="slider-disabled" name="slider-disabled" disabled min="0" max="5" value="2" step="1" ticks='[
+            {"value": 0, "description": "Very Poor", "color": "very-poor"},
+            {"value": 1, "description": "Poor", "color": "poor"},
+            {"value": 2, "description": "Adequate", "color": "adequate"},
+            {"value": 3, "description": "Good", "color": "good"},
+            {"value": 4, "description": "Very Good", "color": "very-good"},
+            {"value": 5, "description": "Superior", "color": "superior"}
+          ]'/>
+          <br/>
+          <br/>
+          <label for="slider-tooltip">Modified Tooltipped</label>
+          <input soho-slider id="slider-tooltip" name="slider-tooltip" min="0" max="100" value="30,100" range="true" ticks='[
+            {"value": 0, "description": "$0"},
+            {"value": 25, "description": "$25"},
+            {"value": 50, "description": "$50"},
+            {"value": 75, "description": "$75"},
+            {"value": 100, "description": "$100"}
+          ]' tooltipContent="$,"/>
+          <br/>
+          <br/>
+          <label for="slider-stepped2">Stepped - Vertical</label>
+          <input soho-slider id="slider-stepped2" name="slider-stepped" vertical="true" step="5" min="0" max="100" tooltipContent="#,S" persistTooltip="true"/>
+          <br/>
+          <br/>
+          <label for="slider-quality-vertical">Ticks &amp; Colors - Vertical</label>
+          <input soho-slider id="slider-quality-vertical" name="slider-quality" vertical="true" min="0" max="5" value="4" step="1" ticks='[
+            {"value": 0, "description": "Very Poor", "color": "very-poor"},
+            {"value": 1, "description": "Poor", "color": "poor"},
+            {"value": 2, "description": "Adequate", "color": "adequate"},
+            {"value": 3, "description": "Good", "color": "good"},
+            {"value": 4, "description": "Very Good", "color": "very-good"},
+            {"value": 5, "description": "Superior", "color": "superior"}
+          ]'/>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
