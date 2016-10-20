@@ -8,7 +8,7 @@ Modal dialogs allow users to enter a few key pieces of information without movin
 
 ### Usage
 
-Creating modal dialogs required the injection of the service `SohoModalDialogService` into the hosting component. To access 
+Creating modal dialogs requires the injection of the service `SohoModalDialogService` into the hosting component. To access 
 this service, you will need to inject `SohoModalDialogService` into the constructor of the relevant class. If 
 this is a class managed by Angular (such as a Component) then adding the following will work:
 
