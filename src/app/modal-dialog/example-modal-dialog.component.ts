@@ -8,6 +8,9 @@ import { Component } from '@angular/core';
   templateUrl: 'example-modal-dialog.component.html'
 })
 export class ExampleModalDialogComponent {
+
+  headerText: string = 'Default Header Text';
+
   constructor() {
   }
 }
