@@ -29,7 +29,7 @@ interface SohoSliderOptions {
   ticks?: SohoSliderTick[];
 
   /** Persist tooltip */
-  persistTooltip?:boolean;
+  persistTooltip?: boolean;
 
   /** Tooltip Content */
   tooltipContent?: string[];
@@ -85,5 +85,5 @@ interface JQueryStatic {
 }
 
 interface JQuery {
-  slider(options: SohoSliderOptions) : JQuery
+  slider(options: SohoSliderOptions): JQuery;
 }

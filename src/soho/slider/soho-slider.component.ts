@@ -89,9 +89,8 @@ export class SohoSliderComponent implements AfterViewInit, OnDestroy {
 
   @Input() set disabled (value: boolean) {
     this.isDisabled = value;
-    if (this.slider)
-    {
-      if (value){
+    if (this.slider) {
+      if (value) {
         this.slider.disable();
         this.isDisabled = true;
       } else {
@@ -104,11 +103,10 @@ export class SohoSliderComponent implements AfterViewInit, OnDestroy {
 
   @Input() set readonly (value: boolean) {
     this.isReadOnly = value;
-    if (value){
+    if (value) {
       this.slider.readonly();
       this.isReadOnly = true;
-    }
-    else {
+    } else {
       this.slider.enable();
       this.isReadOnly = false;
       this.isDisabled = false;
@@ -134,7 +132,7 @@ export class SohoSliderComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.slider){
+    if (this.slider) {
       this.slider.destroy();
       this.slider = null;
     }
