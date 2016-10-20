@@ -51,3 +51,7 @@ interface SohoLocaleStatic {
 }
 
 declare var Locale: SohoLocaleStatic;
+
+interface JQuery {
+  initialize(locale: string): JQuery;
+}

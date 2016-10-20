@@ -16,6 +16,7 @@
 /// <reference path="./locale/soho-locale.d.ts" />
 /// <reference path="./lookup/soho-lookup.d.ts" />
 /// <reference path="./menu-button/soho-menu-button.d.ts" />
+/// <reference path="./mask/soho-mask.d.ts" />
 /// <reference path="./modal-dialog/soho-modal-dialog.d.ts" />
 /// <reference path="./pager/soho-pager.d.ts" />
 /// <reference path="./personalize/soho-personalize.d.ts" />

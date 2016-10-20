@@ -19,18 +19,13 @@ export class SohoTextAreaComponent implements AfterViewInit, OnDestroy {
   // Options Block
   // -------------------------------------------
 
-  private options: SohoTextAreaOptions = {
-    characterCounter : undefined, // Turns on the character counter for the select element
-    printable : undefined, // Sets the select element as printable
-    charRemainingText : undefined, // Sets the select element remaining character text
-    charMaxText : undefined // Sets the select element maximum character text
-  };
+  private options: SohoTextAreaOptions = {};
 
   /**
    * Local variables
    */
-  private isDisabled: boolean = null;
-  private isReadOnly: boolean =  null;
+  private isDisabled: boolean;
+  private isReadOnly: boolean;
 
   // -------------------------------------------
   // Component Input
@@ -117,12 +112,12 @@ export class SohoTextAreaComponent implements AfterViewInit, OnDestroy {
   /**
    * Called when the textarea value changes
    */
-  @Output() onChange = new EventEmitter<SohoTextareaEvent>();
+  @Output() onChange = new EventEmitter<SohoTextAreaEvent>();
 
   /**
    * Called when the textarea updates in some way
    */
-  @Output() onUpdated = new EventEmitter<SohoTextareaEvent>();
+  @Output() onUpdated = new EventEmitter<SohoTextAreaEvent>();
 
   // -------------------------------------------
   // Public API
@@ -143,10 +138,9 @@ export class SohoTextAreaComponent implements AfterViewInit, OnDestroy {
   private jQueryElement: JQuery;
 
   // Reference to the SoHoXi control api.
-  private textarea: any;
+  private textarea: SohoTextAreaStatic;
 
   constructor(private element: ElementRef) {
-
   }
 
   ngAfterViewInit() {
@@ -155,14 +149,13 @@ export class SohoTextAreaComponent implements AfterViewInit, OnDestroy {
 
     // Initialise the SohoXi Control
     this.jQueryElement.textarea(this.options);
+    this.textarea = this.jQueryElement.data('textarea');
 
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (e: any, args: SohoTextareaEvent) => this.onChange.next(args));
-    this.jQueryElement.on('updated', (e: any, args: SohoTextareaEvent) => this.onUpdated.next(args));
-
-    this.textarea = this.jQueryElement.data('textarea');
+    this.jQueryElement.on('change', (e: any, args: SohoTextAreaEvent) => this.onChange.next(args));
+    this.jQueryElement.on('updated', (e: any, args: SohoTextAreaEvent) => this.onUpdated.next(args));
   }
 
   ngOnDestroy() {

@@ -272,7 +272,6 @@ export class SohoModalDialogRef<T> {
     this.jQueryElement.on('beforeclose', ((event: any) => { return this.onBeforeClose(event); }));
     this.jQueryElement.on('beforedestroy', ((event: any) => { return this.onBeforeDestroy(event); }));
 
-    // @todo return a promise / observable for when the dialog is closed or opened?
     return this;
   }
 

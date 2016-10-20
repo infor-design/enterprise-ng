@@ -107,10 +107,6 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
     this.options.maxWidth = maxWidth;
   }
 
-  /**
-   * Local variables
-   */
-
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
@@ -132,7 +128,7 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
   private jQueryElement: JQuery;
 
   // Reference to the SoHoXi control api.
-  private tooltip: any;
+  private tooltip: SohoTooltipStatic;
 
   constructor(private element: ElementRef) {
 
@@ -145,32 +141,35 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
     // Initialise the SohoXi Control
     this.jQueryElement.tooltip(this.options);
 
+    this.tooltip = this.jQueryElement.data('tooltip');
+
     /**
      * Bind to jQueryElement's events
      */
     this.jQueryElement.on('change', (event: SohoTooltipEvent) => this.changeEvent.emit(event));
     this.jQueryElement.on('updated', (event: SohoTooltipEvent) => this.updateEvent.emit(event));
-
-    this.tooltip = this.jQueryElement.data('tooltip');
   }
 
   // -------------------------------------------
   // Public API
   // -------------------------------------------
+
   /**
    * Shows the tooltip.
    */
   public show(): void {
-    if (this.tooltip)
+    if (this.tooltip) {
       this.tooltip.show();
+    }
   }
 
   /**
    * Hides the tooltip.
    */
   public hide(): void {
-    if (this.tooltip)
+    if (this.tooltip) {
       this.tooltip.hide();
+    }
   }
 
   ngOnDestroy() {

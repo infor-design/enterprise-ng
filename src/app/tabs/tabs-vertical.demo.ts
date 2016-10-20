@@ -17,7 +17,7 @@ export class TabsVerticalDemoComponent {
    */
   @HostBinding('style.height') get tabsHeightStyle() { return '100%'; };
   constructor() {
-    console.log('ub')
+    console.log('ub');
   }
   onTabActivated(tab) {
     console.log(tab + ' TabsBasicDemoComponent.onTabActivated');

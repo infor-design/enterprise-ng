@@ -17,11 +17,11 @@ export class CheckBoxDemoComponent implements OnInit {
     checkBox5Value: true,
   };
 
-  private id1: string = 'checkbox1';
-  private id2: string = 'checkbox2';
-  private id3: string = 'checkbox3';
-  private id4: string = 'checkbox4';
-  private id5: string = 'checkbox5';
+  private id1: string = 'checkbox1'; // tslint:disable-line
+  private id2: string = 'checkbox2'; // tslint:disable-line
+  private id3: string = 'checkbox3'; // tslint:disable-line
+  private id4: string = 'checkbox4'; // tslint:disable-line
+  private id5: string = 'checkbox5'; // tslint:disable-line
 
   private checkBoxDisabled = false;
   constructor() { }
