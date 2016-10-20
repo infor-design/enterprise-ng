@@ -23,6 +23,7 @@ export * from './textarea';
 export * from './timepicker'
 export * from './toast'
 export * from './toolbar';
+export * from './tooltip';
 export * from './trackdirty';
 export * from './tree';
 export * from './utils';

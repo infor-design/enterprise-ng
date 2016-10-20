@@ -2,7 +2,7 @@ import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
-import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator.demo';
+import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
@@ -17,6 +17,7 @@ import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
 import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
+import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
@@ -33,12 +34,15 @@ import { ListViewDemoComponent } from './listview/listview.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
+import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
 
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
+
+import { TooltipDemoComponent } from './tooltip/tooltip.demo';
 
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
@@ -71,6 +75,7 @@ export const routes: Routes = [
   { path: 'dropdown',              component: DropdownDemoComponent },
   { path: 'dropdown-multi',        component: DropdownMultiselectDemoComponent },
   { path: 'dropdown-lm',           component: DropdownLMDemoComponent },
+  { path: 'dropdown-async-busy',   component: DropdownAsyncBusyDemoComponent },
   { path: 'editor',                component: EditorDemoComponent },
   { path: 'expandablearea',        component: ExpandableAreaDemoComponent },
   { path: 'slider',                component: SliderDemoComponent },
@@ -88,6 +93,7 @@ export const routes: Routes = [
   { path: 'tree-dynamic',          component: TreeDynamicDemoComponent },
   { path: 'tree-service',          component: TreeServiceDemoComponent },
   { path: 'tree-content',          component: TreeContentDemoComponent },
+  { path: 'tree-source',           component: TreeSourceDemoComponent },
   { path: 'datagrid-dynamic',      component: DataGridDynamicDemoComponent },
   { path: 'datagrid-service',      component: DataGridServiceDemoComponent },
   { path: 'datagrid-content',      component: DataGridContentDemoComponent },
@@ -108,6 +114,7 @@ export const routes: Routes = [
   { path: 'tabs-datadriven',       component: TabsDataDrivenDemoComponent },
   { path: 'tabs-dynamic',          component: TabsDynamicDemoComponent },
   { path: 'toolbar-basic',         component: ToolbarBasicDemoComponent },
+  { path: 'tooltip',               component: TooltipDemoComponent },
   { path: 'toolbar-datadriven',    component: ToolbarDataDrivenDemoComponent },
   { path: 'toolbar-all-icons',     component: ToolbarAllIconsDemoComponent },
   // { path: 'accordian',           component: AccordionSampleComponent},

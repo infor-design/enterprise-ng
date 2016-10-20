@@ -2,7 +2,7 @@
   <div class="twelve columns">
 
     <button soho-menu-button menu="action-popupmenu">Add Item</button>
-    <ul class="popupmenu has-icons" id="action-popupmenu">
+    <ul class="popupmenu" id="action-popupmenu">
       <li><a href="#">Create a form</a></li>
       <li class="separator"></li>
       <li><a href="#">Spelling...</a></li>
@@ -11,6 +11,20 @@
       <li class="is-checked"><a href="#">Enable Autocomplete</a></li>
       <li><a href="#">Notification Rules</a></li>
       <li><a href="#">Protect Sheet Rules</a></li>
+    </ul>
+
+    <button soho-menu-button [icon]="'pie-chart'" menu="charts-menu"></button>
+    <ul class="popupmenu" id="charts-menu">
+      <li><a href="#">Pie Chart</a></li>
+      <li><a href="#">Line Chart</a></li>
+      <li><a href="#">Bubble Chart</a></li>
+    </ul>
+
+    <button soho-menu-button icon='pie-chart' title="Charts" menu="charts-menu2"></button>
+    <ul id="charts-menu2" class="popupmenu">
+      <li id='pie'><a href="#">Pie Chart</a></li>
+      <li id='line'><a href="#" button-data="{'item':'line'}">Line Chart</a></li>
+      <li id='bubble'><a href="#" button-data="{'item':'bubble'}">Bubble Chart</a></li>
     </ul>
 
   </div>

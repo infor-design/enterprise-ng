@@ -3,17 +3,17 @@
  */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SohoBusyIndicatorComponent } from './soho-busyindicator.component';
+import { SohoBusyIndicatorDirective } from './soho-busyindicator.directive';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    SohoBusyIndicatorComponent
+    SohoBusyIndicatorDirective
   ],
   exports: [
-    SohoBusyIndicatorComponent
+    SohoBusyIndicatorDirective
   ]
 })
 export class SohoBusyIndicatorModule {}

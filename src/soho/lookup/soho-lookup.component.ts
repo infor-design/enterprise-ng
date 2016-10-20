@@ -6,50 +6,63 @@ import {
   Input,
   OnDestroy,
   Output,
-  ViewChild,
-  forwardRef,
+  ViewChild
 } from '@angular/core';
+
+// import { ControlValueAccessor } from '@angular/forms';
+
 import {
-  ControlValueAccessor,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
-
-import { SohoLookupChangeEvent } from './index'; // @todo sorry Visual Studio is blowing on this without the index.
-
-const SOHO_LOOKUP_VALUE_ACCESSOR: any = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => SohoLookupComponent),
-  multi: true,
-};
-
-export type SohoFieldFunction = (data: Object, input: HTMLInputElement, grid: any) => string;
+  BaseControlValueAccessor,
+  provideControlValueAccessor
+} from '../utils';
 
 @Component({
   selector: 'soho-lookup',
   templateUrl: 'soho-lookup.component.html',
-  providers: [ SOHO_LOOKUP_VALUE_ACCESSOR ]
+  providers: [provideControlValueAccessor(SohoLookupComponent)]
 })
-export class SohoLookupComponent implements AfterViewInit, ControlValueAccessor, OnDestroy {
+export class SohoLookupComponent extends BaseControlValueAccessor<any> implements AfterViewInit, OnDestroy {
+
   /**
    * Available Soho Template control settings as Inputs
    * Should match the Soho properties for the component
    */
-    // Make sure you bind the context to the function
-  @Input() beforeShow: Function;
+  // Make sure you bind the context to the function
+  @Input()  set beforeShow(value: SohoLookupBeforeShowFunction) {
+    this._options.beforeShow = value;
+  }
+
+  /** Grid columns. */
   @Input() columns: SohoDataGridColumn[];
+
   @Input() set dataset(data: Object[]) {
     this._dataset = data;
     if (data && this.jQueryElement) {
-      this.lookup.datagrid.loadData(data);
+      this.lookup.grid.loadData(data);
     }
   }
-  @Input() editable: boolean;
-  @Input() field: string | SohoFieldFunction;
+
+  @Input() set editable(value: boolean) {
+    this._options.editable = value;
+  }
+
+  @Input() set field(value: string | SohoLookupFieldFunction) {
+    this._options.field = value;
+  }
+
+  @Input() set title(value: string) {
+    this._options.title = value;
+  }
+
   @Input() label: string;
+
   @Input() name: string;
+
   @Input() options: SohoDataGridOptions;
+
   // Make sure you bind the context to the function
   @Input() source: SohoDataGridSourceFunction;
+
   @Input() toolbar: any;
 
   /**
@@ -66,20 +79,25 @@ export class SohoLookupComponent implements AfterViewInit, ControlValueAccessor,
   /**
    * Local variables
    */
-  private jQueryElement: any;
-  private lookup: any;
-  private datagrid: any;
-  private modal: any;
-  private _dataset: Object[];
-  private _value: any;
-  private _onChangeCallback: any = (value: any) => {};
-  private _onTouchedCallback: any = () => {};
+  private jQueryElement: JQuery;
 
-  constructor(private element: ElementRef) { }
+  private lookup: SohoLookupStatic;
+
+  private _options: SohoLookupOptions = {};
+
+  /** Initial dataset */
+  private _dataset: Object[];
+
+  constructor(private element: ElementRef) {
+    super();
+  }
+
   ngAfterViewInit() {
-    // TODO: Figure out what element to send to jQuery to init the component
     this.jQueryElement = jQuery(this.inputElement.nativeElement);
 
+    // The default options for the data grid, which will
+    // be overriden by the options provided by the caller
+    // on a field by field basis.
     const datagridConfig: SohoDataGridOptions = {
       cellNavigation: false,
       columns: this.columns,
@@ -98,12 +116,9 @@ export class SohoLookupComponent implements AfterViewInit, ControlValueAccessor,
       source: this.source
     };
 
-    this.jQueryElement.lookup({
-      editable: this.editable,
-      field: this.field ? this.field : null,
-      beforeShow: this.beforeShow ? this.beforeShow : null,
-      options: Object.assign(datagridConfig, this.options),
-    });
+    this._options.options = Object.assign(datagridConfig, this.options);
+
+    this.jQueryElement.lookup(this._options);
 
     /**
      * Bind to jQueryElement's events
@@ -119,9 +134,10 @@ export class SohoLookupComponent implements AfterViewInit, ControlValueAccessor,
     // Necessary clean up step (add additional here)
     if (this.lookup) {
       this.lookup.destroy();
+      this.lookup = null;
     }
   }
-  modalOpened(args: any) {
+  modalOpened(args: any[]) {
     /**
      * Temporary fix for inability for grid to async call data and resize modal on returned
      * values (only necessary when the page size is large enough to make the datagrid larger
@@ -129,30 +145,37 @@ export class SohoLookupComponent implements AfterViewInit, ControlValueAccessor,
      * jira/browse/SOHO-4347
      */
     if (args[1] && args[2]) {
-      this.modal = args[1];
-      this.datagrid = args[2];
-      if (this.datagrid.pager) {
-        this.datagrid.pager.element.on('afterpaging', function() {
-          this.modal.resize();
-        }.bind(this)); // <-- magic --
+
+      let datagrid: SohoDataGridStatic = args[1],
+        modal: SohoModalStatic = args[2];
+
+      if (datagrid.pager) {
+        datagrid.pager.element.on('afterpaging', function () {
+          modal.resize();
+        }.bind(this));
       }
     }
     this.afteropen.emit(args);
   }
+
+  /**
+   * Handle the control being changed.
+   */
   onChange(event: SohoLookupChangeEvent[]) {
     if (event.length && event.length === 1) {
-      this._value = event[0].data;
-      this._onChangeCallback(event[0].data);
+      this.value = event[0].data;
     } else {
-      this._value = event.map(val => { return val.data; });
-      this._onChangeCallback(this._value);
+      this.value = event.map(val => { return val.data; });
     }
     this.change.emit(event);
   }
+
   /**
    * Needed to extract this function from the 'insertRows' function within the
    * Soho Lookup control object.
    * TODO: Expose this in the Sohoxi library @tim @ed.coyle
+   *
+   * @todo raise SOHO jira issue
    */
   processValue(value: Object | Object[]): string {
     let val = '';
@@ -164,10 +187,10 @@ export class SohoLookupComponent implements AfterViewInit, ControlValueAccessor,
     for (let i = 0; i < toProcess.length; i++) {
       let current = '';
 
-      if (typeof this.field === 'function') {
-        current = (<SohoFieldFunction>this.field)(toProcess[i], this.lookup.element, this.lookup.grid);
+      if (typeof this._options.field === 'function') {
+        current = (<SohoLookupFieldFunction>this._options.field)(toProcess[i], this.lookup.element, this.lookup.grid);
       } else {
-        current = (<any>toProcess[i])[<string>this.field];
+        current = (<any>toProcess[i])[<string>this._options.field];
       }
 
       val += (i !== 0 ? ',' : '') + current;
@@ -175,20 +198,32 @@ export class SohoLookupComponent implements AfterViewInit, ControlValueAccessor,
 
     return val;
   }
+
   /**
-   * Necessary for the ControlValueAccessor support
+   * Override writeValue to allow the lookup
+   * element to be updated correctly.
+   *
+   * @param value - the new value
    */
   writeValue(value: any) {
-    this._value = value;
+    super.writeValue(value);
     if (this.lookup && value) {
+      // The processing is required to ensure we use the correct format
+      // in the control.
       this.lookup.element.val(this.processValue(value));
     }
   }
-  registerOnChange(fn: any) {
-    this._onChangeCallback = fn;
-  }
-  registerOnTouched(fn: any) {
-    this._onTouchedCallback = fn;
-  }
+}
 
+declare abstract class OnBeforeLookupShow {
+  /**
+   * Used to manage data prior to showing the lookup.
+   *
+   * For example:
+   *  - When the button is clicked, show a loading dialog and make the request for
+   *    lookup grid data.
+   *  - Upon receiving grid data, set lookup.settings.options for the columns and dataset.
+   *  - Then call grid() to build the grid and complete the lookup call.
+   */
+  abstract onBeforeLookupShow: (lookup: any, grid: (gridOptions: Object) => {}) => any;
 }

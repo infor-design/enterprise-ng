@@ -28,7 +28,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
 
   /** Breakpoint. */
   @Input()
-  public breakpoint: SohoApplicationMenuOptionsBreakPoint;
+  public breakpoint: SohoApplicationMenuBreakPoint;
 
   // Open on resize?
   @Input()

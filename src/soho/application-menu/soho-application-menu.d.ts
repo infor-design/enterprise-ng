@@ -8,11 +8,11 @@
 /**
  * Application Menu Options
  */
-type SohoApplicationMenuOptionsBreakPoint = 'phablet' | 'tablet' | 'desktop' | 'large';
+type SohoApplicationMenuBreakPoint = 'phablet' | 'tablet' | 'desktop' | 'large';
 
 interface SohoApplicationMenuOptions {
   /** Defines the point at which the application should be displayed - depends on device. */
-  breakpoint: SohoApplicationMenuOptionsBreakPoint;
+  breakpoint: SohoApplicationMenuBreakPoint;
 
   /** Open the menu when the screen width is larger that the breakpoint. */
   openOnLarge: boolean;

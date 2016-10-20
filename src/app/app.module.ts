@@ -15,13 +15,14 @@ import { SohoComponentsModule } from '../soho/soho-components.module';
 
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { ButtonDemoComponent } from './button/button.demo';
-import { BusyIndicatorDemoComponent } from './busyindicator/busyindicator.demo';
+import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
 import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
+import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
 import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
@@ -36,6 +37,7 @@ import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
+import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
@@ -58,6 +60,7 @@ import { TextareaDemoComponent } from './textarea/textarea.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
+import { TooltipDemoComponent } from './tooltip/tooltip.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 
 import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
@@ -83,6 +86,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     DropdownDemoComponent,
     DropdownMultiselectDemoComponent,
     DropdownLMDemoComponent,
+    DropdownAsyncBusyDemoComponent,
     EditorDemoComponent,
     ToastDemoComponent,
     IconDemoComponent,
@@ -104,6 +108,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     TreeDynamicDemoComponent,
     TreeServiceDemoComponent,
     TreeContentDemoComponent,
+    TreeSourceDemoComponent,
     DataGridDynamicDemoComponent,
     DataGridServiceDemoComponent,
     DataGridContentDemoComponent,
@@ -127,6 +132,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     ToolbarBasicDemoComponent,
     ToolbarDataDrivenDemoComponent,
     ToolbarAllIconsDemoComponent,
+    TooltipDemoComponent,
     ValidationFormDemoComponent,
     RadioButtonDemoComponent,
     SliderDemoComponent

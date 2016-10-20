@@ -16,7 +16,7 @@
  * immediate - when 'modal' is called.
  * click - manual? # Not really sure what this option is.
  */
-type SohoModalOptionsTriggerType = 'click' | 'immediate';
+type SohoModalTriggerType = 'click' | 'immediate';
 
 /**
  * Soho Modal Dialog configuration options
@@ -40,7 +40,7 @@ interface SohoModalOptions {
   searchable?: boolean;
 
   /** When to close/open? */
-  trigger?: SohoModalOptionsTriggerType;
+  trigger?: SohoModalTriggerType;
 
   /** Is this an alert daialog? */
   isAlert?: boolean;
@@ -77,10 +77,10 @@ interface SohoModalButton {
  */
 type SohoModalButtonClickFunction = (
   /** The event object. */
-  e: any,
+  e: JQueryEventObject,
 
   /** The jQuery control.  */
-  model: ModalStatic) => void;
+  model: SohoModalStatic) => void;
 
 /**
  * This interface represents the Api exposed by the
@@ -88,7 +88,7 @@ type SohoModalButtonClickFunction = (
  *
  * Only public members are exposed on this interface.
  */
-interface ModalStatic {
+interface SohoModalStatic {
   /** Existing configuration settings. */
   settings: SohoModalOptions;
 
@@ -97,6 +97,11 @@ interface ModalStatic {
    * modal dialog is placed after openning.
    */
   element: JQuery;
+
+  /**
+   * Forces a resize of the dialog.
+   */
+  resize();
 
   /**
    * Close the modal dialog.
@@ -119,5 +124,5 @@ interface JQuery {
 }
 
 interface JQueryStatic {
-  modal: ModalStatic;
+  modal: SohoModalStatic;
 }

@@ -32,11 +32,9 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.partial') get isPartialCheckBox() {
     return this.partial ? true : false;
   }
-
-  /**
-   * @param disabled
-   */
-  @HostBinding('attr.disabled') @Input() disabled: boolean;
+  @HostBinding('attr.aria-checked') get isPartialAriaChecked() {
+    return this.partial ? 'mixed' : null;
+  }
 
   /**
    * @param checked
@@ -46,15 +44,12 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
-  /**
-   * Called when the checkbox value changes
-   */
-  @Output() onChange = new EventEmitter<SohoCheckBoxEvent>();
 
-  /**
-   * Called when the checkbox updates in some way
-   */
-  @Output() onUpdated = new EventEmitter<SohoCheckBoxEvent>();
+  /** Called when the checkbox value changes. */
+  @Output() changeEvent = new EventEmitter<SohoCheckBoxEvent>();
+
+  /** Called when the checkbox updates in some way. */
+  @Output() updateEvent = new EventEmitter<SohoCheckBoxEvent>();
 
   /**
    * Local variables
@@ -75,8 +70,8 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (e: any, args: SohoCheckBoxEvent) => this.onChange.next(args));
-    this.jQueryElement.on('updated', (e: any, args: SohoCheckBoxEvent) => this.onUpdated.next(args));
+    this.jQueryElement.on('change', (event: SohoCheckBoxEvent) => this.changeEvent.emit(event));
+    this.jQueryElement.on('updated', (event: SohoCheckBoxEvent) => this.updateEvent.emit(event));
 
     // no control initializer for checkbox
   }
@@ -85,7 +80,6 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
    * Destructor.
    */
   ngOnDestroy() {
-    // No jquery control.
+    // No jQuery control.
   }
-
 }

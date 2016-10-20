@@ -5,6 +5,7 @@ import {
 } from '@angular/core';
 
 import { SohoDataGridComponent } from '../../soho/datagrid';
+import { SohoBusyIndicatorDirective } from '../../soho';
 
 @Component({
   selector: 'soho-datagrid-content-demo',
@@ -13,6 +14,7 @@ import { SohoDataGridComponent } from '../../soho/datagrid';
 })
 export class DataGridContentDemoComponent {
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
+  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
 
   constructor() {
   }
@@ -25,7 +27,10 @@ export class DataGridContentDemoComponent {
     this.dataGrid.toggleFilterRow();
   }
 
-  busy() {}
+  busy() {
+    this.busyIndicator.open();
+    setTimeout(() => { this.busyIndicator.close(true); }, 3000);
+  }
 
   onSelected(e: any) {
   }

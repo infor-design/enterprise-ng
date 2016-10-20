@@ -62,7 +62,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   @Input() set dataset(dataset: SohoTreeNode[]) {
     // @todo this is not fully working as the tree control does not
     // replace the contents but looks to merge it.
-    this.treeOptions.dataset = dataset;
+    this.options.dataset = dataset;
     if (this.tree) {
       this.tree.loadData(dataset);
     }
@@ -74,8 +74,8 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   /** Is the tree selectable? */
-  @Input() set selectable(selectable: SohoTreeOptionsSelectable) {
-    this.treeOptions.selectable = selectable;
+  @Input() set selectable(selectable: SohoTreeSelectable) {
+    this.options.selectable = selectable;
     if (this.tree) {
       this.tree.settings.selectable = selectable;
       // @todo - make tree updatable when settings change,
@@ -85,9 +85,19 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
   /** Show selection checkboxes? */
   @Input() set hideCheckboxes(hideCheckboxes: boolean) {
-    this.treeOptions.hideCheckboxes = hideCheckboxes;
+    this.options.hideCheckboxes = hideCheckboxes;
     if (this.tree) {
       this.tree.settings.hideCheckboxes = hideCheckboxes;
+      // @todo - make tree updatable when settings change,
+      // this.tree.updated();
+    }
+  }
+
+  /** Set the source field, when not using a service or pre-defined data. */
+  @Input() set source(value: SohoTreeSourceFunction) {
+    this.options.source = value;
+    if (this.tree) {
+      this.tree.settings.source = value;
       // @todo - make tree updatable when settings change,
       // this.tree.updated();
     }
@@ -97,17 +107,23 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   // Component Output
   // -------------------------------------------
 
-  // This event is fired when a node is expanded, the SohoTreeNode
-  // expanded is passed as an argument to the handler.
-  @Output() expand = new EventEmitter<SohoTreeNode>();
+  /**
+   * This event is fired when a node is expanded, the SohoTreeNode
+   * expanded is passed in the argument passed to the handler.
+   */
+  @Output() expand = new EventEmitter<SohoTreeEvent>();
 
-  // This event is fired when a node is collapsed, the SohoTreeNode
-  // collapsed is passed as an argument to the handler.
-  @Output() collapse = new EventEmitter<SohoTreeNode>();
+  /**
+   * This event is fired when a node is collapsed, the SohoTreeNode
+   * collapsed is passed in the argument passed to the handler.
+   */
+  @Output() collapse = new EventEmitter<SohoTreeEvent>();
 
-  // This event is fired when a node is selected, the SohoTreeNode
-  // selected is passed as an argument to the handler.
-  @Output() selected = new EventEmitter<SohoTreeNode>();
+  /**
+   * This event is fired when a node is selected, the SohoTreeNode
+   * selected is passed in the argument passed to the handler.
+   * */
+  @Output() selected = new EventEmitter<SohoTreeEvent>();
 
   // -------------------------------------------
   // Host Bindings
@@ -126,17 +142,17 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   // Private Member Data
   // -------------------------------------------
 
-  // Reference to the jQuery control.
+  /** Reference to the jQuery control. */
   private jQueryElement: JQuery;
 
-  // Reference to the SoHo tree control api.
+  /** Reference to the SoHo tree control api. */
   private tree: SohoTreeStatic;
 
-  // The tree's type.
+  /** The tree's type. */
   private treeType: SohoTreeType;
 
   /** An internal options object that gets updated by using the component's Inputs(). */
-  private treeOptions: SohoTreeOptions = {};
+  private options: SohoTreeOptions = {};
 
   /**
    * Constructor.
@@ -292,7 +308,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
    * event - the tree event used to determine which node to load
    * response - function used to return the children
    */
-  private onDataRequest(event: SohoTreeEvent, response: (data: any) => void) {
+  private onDataRequest(event: SohoTreeEvent, response: SohoTreeResponseFunction) {
     let node = event.data;
 
     this.treeService.getTreeNodes(node)
@@ -313,12 +329,13 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
     // Ensure the source is set when a service is defined.
-    if (!this.treeOptions.dataset && this.treeService) {
-      this.treeOptions.source = (args: SohoTreeEvent, response: any) => this.onDataRequest(args, response);
+    if (!this.options.dataset && !this.options.source && this.treeService) {
+      this.options.source =
+      (args: SohoTreeEvent, response: SohoTreeResponseFunction) => this.onDataRequest(args, response);
     }
 
     // Initialise the Soho control.
-    this.jQueryElement.tree(this.treeOptions);
+    this.jQueryElement.tree(this.options);
 
     // Once the control is initialised, extract the control
     // plug-in from the element.  The element name is
@@ -326,7 +343,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     this.tree = this.jQueryElement.data('tree');
 
     // Preload from the service if specified (unless data already provided).
-    if (this.treeType !== SohoTreeComponent.CONTENT_ONLY && !this.treeOptions.dataset && this.treeService) {
+    if (this.treeType !== SohoTreeComponent.CONTENT_ONLY && !this.options.dataset && this.treeService) {
       // ... bootstrap the root nodes ...
       this.treeService.getRootTreeNodes()
          .subscribe((dataset: SohoTreeNode[]) => this.dataset = dataset);
@@ -334,9 +351,9 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     // Initialize any event handlers.
     this.jQueryElement
-      .on('selected', (e: JQueryEventObject, args: SohoTreeEvent) => this.selected.next(args.data))
-      .on('expand', (e: JQueryEventObject, args: SohoTreeEvent) => this.expand.next(args.data))
-      .on('collapse', (e: JQueryEventObject, args: SohoTreeEvent) => this.collapse.next(args.data));
+      .on('selected', (e: JQueryEventObject, args: SohoTreeEvent) => this.selected.next(args))
+      .on('expand', (e: JQueryEventObject, args: SohoTreeEvent) => this.expand.next(args))
+      .on('collapse', (e: JQueryEventObject, args: SohoTreeEvent) => this.collapse.next(args));
   }
 
   ngOnDestroy() {

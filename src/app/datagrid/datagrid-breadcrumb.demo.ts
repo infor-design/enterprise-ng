@@ -14,6 +14,8 @@ import {
   SohoDataGridService
 } from '../../soho/datagrid';
 
+import { SohoBusyIndicatorDirective } from '../../soho';
+
 @Component({
   selector: 'soho-datagrid-breadcrumb-demo',
   templateUrl: 'datagrid-breadcrumb.demo.html',
@@ -22,6 +24,7 @@ import {
 })
 export class DataGridBreadcrumbDemoComponent implements AfterContentInit, AfterViewInit {
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
+  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
 
   constructor(private el: ElementRef,
     private service: SohoDataGridService) {
@@ -37,8 +40,13 @@ export class DataGridBreadcrumbDemoComponent implements AfterContentInit, AfterV
     this.dataGrid.toggleFilterRow();
   }
 
-  public clearFilter() {
+  clearFilter() {
     this.dataGrid.clearFilter();
+  }
+
+  busy() {
+    this.busyIndicator.open();
+    setTimeout(() => { this.busyIndicator.close(true); }, 3000);
   }
 
   addRow() {
