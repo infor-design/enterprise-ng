@@ -1,29 +1,36 @@
 # Soho Angular Component : Modal
 
-Angular access to the `modal` component.
+## Description
 
-## SohoModalDialogService
+This component provides acess from Angular to the Soho `modal` JQuery control.
 
-This service is used to create a modal dialog, based on the content of
-an Angular Componnent.
+Modal dialogs allow users to enter a few key pieces of information without moving to a different page or task. 
 
 ### Usage
 
-In the component that wants to open a dialog, inject `SohoModalDialogService` 
-into the constructor.
+Creating modal dialogs required the injection of the service `SohoModalDialogService` into the hosting component. To access 
+this service, you will need to inject `SohoModalDialogService` into the constructor of the relevant class. If 
+this is a class managed by Angular (such as a Component) then adding the following will work:
 
 ```typescript
 constructor(private modalService: SohoModalDialogService) {
 }
-```   
-
-Angular rquires a placeholder component, which is used to parent the 
+```
+   
+Angular requires a placeholder component to parent the 
 dialog component when it is instantiated.  The location of the component 
 is up to the calling application, but in this example the hosting componenent
 is used.
 
 ```typescript
 @ViewChild('dialogPlaceholder', { read: ViewContainerRef }) placeholder: ViewContainerRef;
+```
+
+In the markup for the hosting component add:
+
+```html
+<!-- div #dialogPlaceholder will contain the child component -->
+<div #dialogPlaceholder></div>
 ```
 
 To open the dialog, the `modal` is called on the `SohoModalDialogService`, as follows:
@@ -36,7 +43,7 @@ this.dialog = this.modalService
 
 This returns a typed implemtation of `SohoModalDialogRef`.
 
-This will open the dialog on the screen.
+
 
 ## Methods
 
