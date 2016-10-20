@@ -14,8 +14,6 @@ import { SohoModalDialogInjector } from './soho-modal-dialog.injector';
 /**
  * This service is used to create a modal dialog, based on the content
  * of an Angular Componnent on the screen.
- *
- * todo layers?
  */
 @Injectable()
 export class SohoModalDialogService {
