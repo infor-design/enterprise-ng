@@ -30,7 +30,7 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
   private model2 = { value: 'MN', label: 'Minnesota' };
 
   private childrenPreload: Subject<any> = new Subject<any>();
-  private childrenOnClick: Subject<any> = new Subject<any>();
+  private childrenOnClick: Array<any>;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
   }
@@ -49,26 +49,24 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
     this.bindDropdown(this.childrenPreload, dropdown, busyIndicator);
 
     // Initialize options for onClick dropdown
-    let optionsForEventDrivenControl = [];
-    optionsForEventDrivenControl.push(this.model2);
-    this.childrenOnClick.next(optionsForEventDrivenControl);
+    let arInit = [];
+    arInit.push(this.model2);
+    this.childrenOnClick = arInit;
     let dropdown2 = this.dropDownComponents.toArray()[1];
     this.changeDetectorRef.detectChanges();
     dropdown2.updated();
   }
 
-  onMouseClick(callback) {
+  onSource(callback) {
     if (!this.itemsAvailable) {
-      let dropdown = this.dropDownComponents.toArray()[1];
-      let busyIndicator = this.busyIndicators.toArray()[1];
       this.itemsAvailable = true;
-      this.bindDropdown(this.childrenOnClick, dropdown, busyIndicator, callback);
-    } else if (callback) {
-      callback();
+      setTimeout(() => {
+        callback(this.states)
+      }, 2000);
     }
   }
 
-  private bindDropdown(subject, dropdown, busyIndicator, callback?) {
+  private bindDropdown(subject, dropdown, busyIndicator) {
     busyIndicator.activated = true;
     // Retrieve data from rest service and apply to observer
     // setTimeout simulates the behaviour of a rest service
@@ -77,9 +75,6 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
       this.changeDetectorRef.detectChanges();
       dropdown.updated();
       busyIndicator.activated = false;
-      if (callback) {
-        callback();
-      }
     }, 2000);
   }
 

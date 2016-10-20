@@ -57,11 +57,6 @@ interface SohoDropDownOptions {
    */
   delay?: number;
 
-  /**
-   * hitch into click event
-   */
-  onClick?: Function;
-
 }
 
 /**
