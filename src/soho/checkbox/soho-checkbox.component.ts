@@ -37,11 +37,6 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
   }
 
   /**
-   * @param disabled
-   */
-  @HostBinding('attr.disabled') @Input() disabled: boolean;
-
-  /**
    * @param checked
    */
   @HostBinding('attr.checked') @Input() checked: boolean;

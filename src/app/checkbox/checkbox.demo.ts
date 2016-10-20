@@ -17,14 +17,31 @@ export class CheckBoxDemoComponent implements OnInit {
     checkBox5Value: true,
   };
 
-  id1: string = 'checkbox1';
-  id2: string = 'checkbox2';
-  id3: string = 'checkbox3';
-  id4: string = 'checkbox4';
-  id5: string = 'checkbox5';
+  private id1: string = 'checkbox1';
+  private id2: string = 'checkbox2';
+  private id3: string = 'checkbox3';
+  private id4: string = 'checkbox4';
+  private id5: string = 'checkbox5';
 
+  private checkBoxDisabled = false;
   constructor() { }
   ngOnInit() { }
+
+  setDisable() {
+    this.checkBoxDisabled = true;
+  }
+
+  setEnable() {
+    this.checkBoxDisabled = false;
+  }
+
+  setCheck() {
+    this.model.checkBox1Value = true;
+  }
+
+  setUncheck() {
+    this.model.checkBox1Value = false;
+  }
 
   onUpdated(event: SohoCheckBoxEvent) {
     console.log('CheckboxDemoComponent.onUpdated');
