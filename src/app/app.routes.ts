@@ -23,6 +23,7 @@ import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
+import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
@@ -95,6 +96,7 @@ export const routes: Routes = [
   { path: 'datagrid-dynamic',      component: DataGridDynamicDemoComponent },
   { path: 'datagrid-service',      component: DataGridServiceDemoComponent },
   { path: 'datagrid-content',      component: DataGridContentDemoComponent },
+  { path: 'datagrid-editors',      component: DataGridEditorsDemoComponent },
   { path: 'datagrid-breadcrumb',   component: DataGridBreadcrumbDemoComponent },
   { path: 'datagrid-treegrid',     component: DataGridTreeGridDemoComponent },
   { path: 'datagrid-settings',     component: DataGridSettingsDemoComponent },
