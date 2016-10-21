@@ -4,9 +4,12 @@ import {
   ViewChild
 } from '@angular/core';
 
+import {ToolbarDataDrivenDemoService} from './toolbar-datadriven-demo.service';
+
 @Component({
     selector: 'soho-toolbar-datadriven-demo',
     templateUrl: 'toolbar-datadriven.demo.html',
+    providers: [ToolbarDataDrivenDemoService]
 })
 export class ToolbarDataDrivenDemoComponent implements OnInit {
 
@@ -16,8 +19,9 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
   private sectionTitle: string;
   private buttons: Array<ToolbarButton> = [];
   private searchField: SearchField;
+  private actionsLoaded: boolean = false;
 
-  constructor() {}
+  constructor(private toolbarDataDrivenDemoService: ToolbarDataDrivenDemoService) {}
 
   ngOnInit() {
 
@@ -30,20 +34,21 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
       };
 
       this.buttons = this.buildToolbarButtonArray();
-
-      setTimeout(() => {
-        // Simulate an Ajax Request to add a new menu
-        this.addNewMenu();
-
-        setTimeout(() => {
-          // Force change detection
-          this.updated();
-        }, 1);
-      }, 100);
   }
 
-  onMenuItemMouseOver(event) {
-    // console.log(event);
+  onMenuItemMouseOver(event: HTMLButtonElement) {
+    const button = JSON.parse(event[0].dataset.button);
+
+    if (button.btn === 'actions' && !this.actionsLoaded) {
+       this.toolbarDataDrivenDemoService.getToolbarData().then( (items: any) => {
+        this.buttons[this.buttons.length - 1].menu = items.data;
+        this.actionsLoaded = true;
+
+         // TODO: this does not work properly
+         // Update toolbar after new data items have been retrieved
+         setTimeout(() => { this.updated(); }, 1);
+       });
+    }
   }
 
   private buildToolbarButtonArray(): Array<ToolbarButton> {
@@ -51,7 +56,7 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
 
     buttons.push({
       id       : 'Create',
-      data     : '{\'btn\' : \'create\'}',
+      data     : '{"btn" : "create"}', // tslint: ignore-line
       text     : 'Create',
       icon     : 'add',
       cssClass : 'btn-icon'
@@ -59,7 +64,7 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
 
     buttons.push({
       id       : 'charts-btn',
-      data     : '{\'btn\' : \'charts\'}',
+      data     : '{"btn" : "charts"}', // tslint: ignore-line
       icon     : 'pie-chart',
       cssClass : 'btn-menu',
       menu     : [
@@ -71,7 +76,7 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
 
     buttons.push({
       id       : 'update-btn',
-      data     : '{\'btn\' : \'update\'}',
+      data     : '{"btn" : "open"}', // tslint: ignore-line
       text     : 'Open',
       icon     : 'folder',
       cssClass : 'btn-icon'
@@ -79,7 +84,7 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
 
     buttons.push({
       id       : 'delete-btn',
-      data     : '{\'btn\' : \'delete\'}',
+      data     : '{"btn" : "delete"}', // tslint: ignore-line
       text     : 'Delete',
       icon     : 'delete',
       cssClass : 'btn-icon'
@@ -87,7 +92,7 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
 
     buttons.push({
       id       : 'refresh-btn',
-      data     : '{\'btn\' : \'refresh\'}',
+      data     : '{"btn" : "refresh"}', // tslint: ignore-line
       text     : 'Refresh',
       icon     : 'refresh',
       cssClass : 'btn-icon'
@@ -95,23 +100,13 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
 
     buttons.push({
       id       : 'actions-btn',
-      data     : '{\'btn\' : \'actions\'}',
+      data     : '{"btn" : "actions"}', // tslint: ignore-line
       text     : 'Actions',
-      cssClass : 'btn-menu'
+      cssClass : 'btn-menu',
+      menu     : [{'label': 'Loading...'}]
     });
 
     return buttons;
-  }
-
-  private addNewMenu() {
-
-    let menu = [
-      {id: 'sub-one',   text: 'Sub One',   data: '{\'menu\': \'pie\'}'},
-      {id: 'sub-two',   text: 'Sub Two',   data: '{\'menu\': \'line\'}'},
-      {id: 'sub-three', text: 'Sub Three', data: '{\'menu\': \'bubble\'}'}
-    ];
-
-    this.buttons[this.buttons.length - 1].menu = menu;
   }
 
   private updated() {
