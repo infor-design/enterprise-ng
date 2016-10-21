@@ -62,6 +62,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
+import { SliderDemoComponent } from './slider/slider.demo';
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
@@ -77,6 +78,7 @@ export const routes: Routes = [
   { path: 'dropdown-async-busy',   component: DropdownAsyncBusyDemoComponent },
   { path: 'editor',                component: EditorDemoComponent },
   { path: 'expandablearea',        component: ExpandableAreaDemoComponent },
+  { path: 'slider',                component: SliderDemoComponent },
   { path: 'textarea',              component: TextareaDemoComponent },
   { path: 'toast',                 component: ToastDemoComponent },
   { path: 'icon',                  component: IconDemoComponent },

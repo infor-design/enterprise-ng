@@ -17,6 +17,7 @@ export * from './menu-button';
 export * from './personalize'
 export * from './searchfield';
 export * from './splitter';
+export * from './slider';
 export * from './tabs';
 export * from './textarea';
 export * from './timepicker'

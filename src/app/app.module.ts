@@ -71,6 +71,7 @@ import { ApplicationMenuLazyDemoComponent } from './application-menu/application
 import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/application-menu-lazy-menu.demo';
 import { ApplicationMenuLazyService } from './application-menu/application-menu-lazy-service.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
+import { SliderDemoComponent } from './slider/slider.demo';
 
 import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
 
@@ -133,7 +134,8 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     ToolbarAllIconsDemoComponent,
     TooltipDemoComponent,
     ValidationFormDemoComponent,
-    RadioButtonDemoComponent
+    RadioButtonDemoComponent,
+    SliderDemoComponent
   ],
   imports: [
     BrowserModule,

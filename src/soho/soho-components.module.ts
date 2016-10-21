@@ -30,6 +30,7 @@ import { SohoPersonalizeModule } from './personalize/soho-personalize.module';
 import { SohoTimePickerModule } from './timepicker/soho-timepicker.module';
 import { SohoToastModule } from './toast/soho-toast.module';
 import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
+import { SohoSliderModule } from './slider/soho-slider.module';
 
 @NgModule({
   imports: [
@@ -63,7 +64,8 @@ import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
     SohoTooltipModule,
     SohoTrackDirtyModule,
     SohoTreeModule,
-    SohoRadioButtonModule
+    SohoRadioButtonModule,
+    SohoSliderModule
   ],
   declarations: [
   ],
@@ -98,7 +100,8 @@ import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
     SohoTooltipModule,
     SohoTrackDirtyModule,
     SohoTreeModule,
-    SohoRadioButtonModule
+    SohoRadioButtonModule,
+    SohoSliderModule
   ]
 })
 export class SohoComponentsModule {}
