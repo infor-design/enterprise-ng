@@ -93,14 +93,6 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   }
 
   /**
-   * Flag to move the selected values to the top of the dropdown
-   */
-  @Input()
-  set onClick(fn: Function) {
-    this.options.onClick = fn;
-  }
-
-  /**
    * Sets the select element as a multi-select
    */
   @Input()
