@@ -65,6 +65,9 @@ interface SohoModalButton {
   /** Is this the default button? */
   isDefault?: boolean;
 
+  /** Is this a link? */
+  isLink?: boolean;
+
   /** Icon for the button. */
   icon?: string;
 

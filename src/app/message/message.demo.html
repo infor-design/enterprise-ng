@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Message</h2>
+    <div class="field">
+      <button soho-button (click)="openAlert($event)" [disabled]="messageRef">Example</button>
+      <button soho-button (click)="openError($event)" [disabled]="messageRef">Nested</button>
+    </div>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="twelve columns">
+    <div class="field">
+      <label for="title" class="label">Dialog Title</label>
+      <input type="text" name="title" [(ngModel)]="title" />
+    </div>
+    <input type="checkbox" class="checkbox" id="isAlert" [(ngModel)]="isAlert">
+    <label for="isAlert" class="checkbox-label">Is Alert</label>
+
+    <p>
+      Last close result: {{closeResult}}
+    </p>
+
+  </div>
+</div>
+
+<br>
