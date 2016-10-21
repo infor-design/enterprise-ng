@@ -32,7 +32,7 @@ export class DataGridEditorsDemoComponent implements AfterViewInit {
 }
 
 function FIELD_FN(row: any, field, grid) {
-   return row.status + '|';
+   return row.status;
 }
 
 function MATCH_FN (value, row: any, field, grid) {
