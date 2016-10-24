@@ -21,6 +21,9 @@ interface SohoLookupOptions {
   /** Options to pass to the underlying data grid. */
   options?: SohoDataGridOptions;
 
+  /** Function used to match the search term to the data. */
+  match?: SohoDataGridMatchFunction;
+
   /**
    * Used to manage data prior to showing the lookup.
    *
@@ -47,6 +50,21 @@ interface SohoLookupOptions {
   /** A function that fires to let you validate form items on open and select. */
   validator?: SohoLookupValidatorFunction;
 }
+
+/** Selection criteria. */
+type SohoDataGridMatchFunction = (
+  /** Value to match against. */
+  value: any,
+
+  /** The row to match. */
+  data: Object,
+
+  /** The editor element. */
+  element: JQuery,
+
+  /** The grid api. */
+  grid: SohoDataGridStatic
+) => boolean;
 
 type SohoLookupFieldFunction = (
   /** This row? or Cell? */
