@@ -1,0 +1,29 @@
+<br>
+<div class="row">
+  <div class="full column">
+    <button (click)="onButtonClick1()" class="btn-primary">Build Toolbar Button Set 1</button>
+    <button (click)="onButtonClick2()" class="btn-primary">Build Toolbar Button Set 2</button>
+    <button (click)="onButtonClick3()" class="btn-primary">Build Toolbar Button Set 3</button>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="full column">
+    <button (click)="onOpenDisable()" class="btn-secondary">Disable Open Button</button>
+    <button (click)="onOpenEnable()" class="btn-secondary">Enable Open Button</button>
+    <button (click)="onOpenShow()" class="btn-secondary">Show Open Button</button>
+    <button (click)="onOpenHide()" class="btn-secondary">Hide Open Button</button>
+  </div>
+</div>
+<br>
+
+<div class="row">
+  <div clas="full column">
+    <toolbar-state-demo
+      [inHeader]="toolbarInHeader"
+      [sectionTitle]="toolbarSectionTitle"
+      [pageTitle]="toolbarPageTitle"
+      [buttons]="toolbarButtons"
+    ></toolbar-state-demo>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<soho-toolbar
+  #SohoToolbarComponent
+  [maxVisibleButtons]="_maxVisibleButtons">
+
+  <soho-toolbar-title>
+
+    <!-- in header -->
+    <button *ngIf="inHeader" class="btn-icon application-menu-trigger" type="button">
+      <span class="audible">Show navigation</span>
+      <span class="icon app-header">
+        <span class="one"></span>
+        <span class="two"></span>
+        <span class="three"></span>
+      </span>
+    </button>
+    <h1 *ngIf="inHeader" class='titleHeader'>
+      <span *ngIf="pageTitle" class='section-title'>{{_pageTitle}}</span>
+      <span *ngIf="sectionTitle" class='page-title'>{{_sectionTitle}}</span>
+    </h1>
+
+    <!-- if not in the header -->
+    <span *ngIf="!inHeader" class='section-title'>{{_sectionTitle}}</span>
+  </soho-toolbar-title>
+
+  <soho-toolbar-button-set>
+    <!-- buttons -->
+    <template ngFor let-b [ngForOf]="_buttons">
+      <button soho-button *ngIf="!b.menu && b.state.visible" icon="{{b?.icon}}" attr.data-button="{{b?.data}}" [attr.disabled]="b.state.disabled ? true : null">{{b?.text}}</button>
+
+      <template [ngIf]="b.menu && b.state.visible">
+        <button class="btn-menu" attr.data-button="{{b?.data}}" title="{{b?.title}}" [attr.disabled]="b.state.disabled ? true : null">
+          <svg *ngIf="b.icon" class="icon" focusable="false" aria-hidden="true" role="presentation">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" attr.xlink:href="#icon-{{b.icon}}"></use>
+          </svg>
+          <span>{{b?.text}}</span>
+          <svg class="icon-dropdown icon" focusable="false" aria-hidden="true" role="presentation">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-dropdown"></use>
+          </svg>
+        </button>
+        <ul class="popupmenu">
+          <li *ngFor="let i of b.menu">
+            <a href="#" attr.data-button="{{i?.data}}">{{i?.text}}</a>
+          </li>
+        </ul>
+      </template>
+
+    </template>
+  </soho-toolbar-button-set>
+
+</soho-toolbar>

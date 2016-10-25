@@ -42,6 +42,7 @@ import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
+import { ToolbarStateComponent } from './toolbar/toolbar-state.component';
 
 import { TooltipDemoComponent } from './tooltip/tooltip.demo';
 
@@ -119,6 +120,7 @@ export const routes: Routes = [
   { path: 'tooltip',               component: TooltipDemoComponent },
   { path: 'toolbar-datadriven',    component: ToolbarDataDrivenDemoComponent },
   { path: 'toolbar-all-icons',     component: ToolbarAllIconsDemoComponent },
+  { path: 'toolbar-state',         component: ToolbarStateComponent },
   // { path: 'accordian',           component: AccordionSampleComponent},
   { path: 'validation',            component: ValidationFormDemoComponent},
   { path: 'radiobutton',           component: RadioButtonDemoComponent}
