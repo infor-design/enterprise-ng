@@ -73,6 +73,7 @@ import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/applica
 import { ApplicationMenuLazyService } from './application-menu/application-menu-lazy-service.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
+import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 
 import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
 
@@ -95,7 +96,6 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     LabelDemoComponent,
     LookupDemoComponent,
     MaskDemoComponent,
-    MenuButtonDemoComponent,
     SohoMastheadDemoComponent,
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,
@@ -136,6 +136,8 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     ToolbarAllIconsDemoComponent,
     TooltipDemoComponent,
     ValidationFormDemoComponent,
+    ContextMenuDemoComponent,
+    MenuButtonDemoComponent,
     RadioButtonDemoComponent,
     SliderDemoComponent
   ],

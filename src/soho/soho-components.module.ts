@@ -19,7 +19,6 @@ import { SohoTooltipModule } from './tooltip/soho-tooltip.module';
 import { SohoToolbarModule } from './toolbar/soho-toolbar.module';
 import { SohoMaskModule } from './mask/soho-mask.module';
 import { SohoMastheadModule } from './masthead/soho-masthead.module';
-import { SohoMenuButtonModule } from './menu-button/soho-menu-button.module';
 import { SohoModalDialogModule } from './modal-dialog/soho-modal-dialog.module';
 import { SohoSearchFieldModule } from './searchfield/soho-searchfield.module';
 import { SohoSplitterModule } from './splitter/soho-splitter.module';
@@ -31,6 +30,7 @@ import { SohoTimePickerModule } from './timepicker/soho-timepicker.module';
 import { SohoToastModule } from './toast/soho-toast.module';
 import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
 import { SohoSliderModule } from './slider/soho-slider.module';
+import { SohoPopupMenuModule } from "./popup-menu/soho-popup-menu.module";
 
 @NgModule({
   imports: [
@@ -51,9 +51,9 @@ import { SohoSliderModule } from './slider/soho-slider.module';
     SohoLookupModule,
     SohoMaskModule,
     SohoMastheadModule,
-    SohoMenuButtonModule,
     SohoModalDialogModule,
     SohoPersonalizeModule,
+    SohoPopupMenuModule,
     SohoSearchFieldModule,
     SohoSplitterModule,
     SohoTabsModule,
@@ -87,9 +87,9 @@ import { SohoSliderModule } from './slider/soho-slider.module';
     SohoLookupModule,
     SohoMaskModule,
     SohoMastheadModule,
-    SohoMenuButtonModule,
     SohoModalDialogModule,
     SohoPersonalizeModule,
+    SohoPopupMenuModule,
     SohoSearchFieldModule,
     SohoSplitterModule,
     SohoTabsModule,

@@ -19,8 +19,10 @@
         If I don't put the icon='pie-chart' in single quotes the input won't work.
         My guess is we have to use icon='some-icon' or [icon]="'some-icon'"
         -->
-        <button soho-menu-button icon="pie-chart" id="charts-btn" attr.data-button="{\'btn\' : \'charts\'}"></button>
-        <ul class="popupmenu">
+        <button soho-popup-menu menu="buttonPopupMenu" trigger="click" id="charts-btn" attr.data-button="{\'btn\' : \'charts\'}" class="btn-menu">
+          <soho-icon icon="pie-chart"></soho-icon>
+        </button>
+        <ul class="popupmenu" id="buttonPopupMenu">
           <li id='pie'>
             <a href="" button-data="{'item':'pie'}">Pie Chart</a>
           </li>

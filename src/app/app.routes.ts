@@ -12,7 +12,6 @@ import { ToastDemoComponent } from './toast/toast.demo';
 import { IconDemoComponent } from './icon/icon.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
-import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
@@ -64,6 +63,8 @@ import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
+import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
+import { MenuButtonDemoComponent }  from './menu-button/menu-button.demo';
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
@@ -87,7 +88,6 @@ export const routes: Routes = [
   { path: 'listview',              component: ListViewDemoComponent },
   { path: 'lookup',                component: LookupDemoComponent },
   { path: 'mask',                  component: MaskDemoComponent },
-  { path: 'menu-button',           component: MenuButtonDemoComponent },
   { path: 'splitter-vertical',     component: SplitterVerticalDemoComponent },
   { path: 'splitter-horizontal',   component: SplitterHorizontalDemoComponent },
   { path: 'trackdirty',            component: TrackDirtyDemoComponent },
@@ -121,7 +121,9 @@ export const routes: Routes = [
   { path: 'toolbar-all-icons',     component: ToolbarAllIconsDemoComponent },
   // { path: 'accordian',           component: AccordionSampleComponent},
   { path: 'validation',            component: ValidationFormDemoComponent},
-  { path: 'radiobutton',           component: RadioButtonDemoComponent}
+  { path: 'radiobutton',           component: RadioButtonDemoComponent},
+  { path: 'context-menu',           component: ContextMenuDemoComponent},
+  { path: 'menu-button',           component: MenuButtonDemoComponent }
 ];
 
 export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes);

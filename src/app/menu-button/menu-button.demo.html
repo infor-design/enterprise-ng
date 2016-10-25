@@ -1,7 +1,7 @@
 <div class="row">
   <div class="twelve columns">
 
-    <button soho-menu-button menu="action-popupmenu">Add Item</button>
+    <button soho-popup-menu trigger="click" menu="action-popupmenu" class="btn-menu">Add Item</button>
     <ul class="popupmenu" id="action-popupmenu">
       <li><a href="#">Create a form</a></li>
       <li class="separator"></li>
@@ -13,14 +13,20 @@
       <li><a href="#">Protect Sheet Rules</a></li>
     </ul>
 
-    <button soho-menu-button [icon]="'pie-chart'" menu="charts-menu"></button>
+    <button soho-popup-menu trigger="click" menu="charts-menu" class="btn-menu">
+      <soho-icon icon="pie-chart"></soho-icon>
+      <soho-icon icon="dropdown"></soho-icon>
+    </button>
     <ul class="popupmenu" id="charts-menu">
       <li><a href="#">Pie Chart</a></li>
       <li><a href="#">Line Chart</a></li>
       <li><a href="#">Bubble Chart</a></li>
     </ul>
 
-    <button soho-menu-button icon='pie-chart' title="Charts" menu="charts-menu2"></button>
+    <button soho-popup-menu title="Charts" menu="charts-menu2" trigger="click" class="btn-menu">
+      <soho-icon icon="pie-chart"></soho-icon>
+      <soho-icon icon="dropdown"></soho-icon>
+    </button>
     <ul id="charts-menu2" class="popupmenu">
       <li id='pie'><a href="#">Pie Chart</a></li>
       <li id='line'><a href="#" button-data="{'item':'line'}">Line Chart</a></li>

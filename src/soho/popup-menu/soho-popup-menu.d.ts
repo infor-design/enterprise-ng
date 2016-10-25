@@ -48,15 +48,8 @@ interface SohoPopupMenuOptions {
 /**
  * Interface for the jQuery event emitted
  *
- * @deprecated
  */
 interface SohoPopupMenuEvent extends JQueryEventObject {
-}
-
-/**
- * Interface for the jQuery event emitted
- */
-interface SohoMenuButtonEvent extends SohoPopupMenuEvent {
 }
 
 interface SohoPopupMenuStatic {
@@ -64,7 +57,7 @@ interface SohoPopupMenuStatic {
   /** Configuration options. */
   settings?: SohoPopupMenuOptions;
 
-  /** Returns the selecyed html element. */
+  /** Returns the selected html element. */
   getSelected(): any;
 
   /** Updates the control to reflect the settings. */
