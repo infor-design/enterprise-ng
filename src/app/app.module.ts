@@ -46,6 +46,7 @@ import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
+import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
@@ -113,6 +114,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     DataGridDynamicDemoComponent,
     DataGridServiceDemoComponent,
     DataGridContentDemoComponent,
+    DataGridEditorsDemoComponent,
     DataGridBreadcrumbDemoComponent,
     DataGridToolbarDemoComponent,
     DataGridTreeGridDemoComponent,

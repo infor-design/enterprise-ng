@@ -145,11 +145,11 @@ type SohoDataGridSortFunction = (
 type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' | 'integer' | 'lookup' | 'percent' | 'select';
 
 type SohoDataGridColumnEditorFunction = (
-  row: any,
-  cell: any,
-  value: any,
-  container: any,
-  column: SohoDataGridColumn,
+  row?: any,
+  cell?: any,
+  value?: any,
+  container?: any,
+  column?: SohoDataGridColumn,
   event?: any,
   grid?: any,
   item?: any
@@ -203,7 +203,6 @@ declare var Formatters: {
   Checkbox: SohoDataGridColumnFormatterFunction;
   SelectionCheckbox: SohoDataGridColumnFormatterFunction;
   Actions: SohoDataGridColumnFormatterFunction;
-  Textarea: SohoDataGridColumnFormatterFunction;
   Expander: SohoDataGridColumnFormatterFunction;
   ClassRange: SohoDataGridColumnFormatterFunction;
   Badge: SohoDataGridColumnFormatterFunction;
