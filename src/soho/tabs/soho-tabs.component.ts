@@ -264,7 +264,7 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
   // ------------------------------------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: any;
+  private jQueryElement: JQuery;
 
   // Reference to the soho tabs control api.
   private tabs: SohoTabsStatic;
