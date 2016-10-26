@@ -61,7 +61,7 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
     if (!this.itemsAvailable) {
       this.itemsAvailable = true;
       setTimeout(() => {
-        callback(this.states)
+        callback(this.states);
       }, 2000);
     } else {
       callback(this.states);

@@ -65,7 +65,7 @@ import { ToolbarStateComponent } from './toolbar/toolbar-state.component';
 import { ToolbarStateDemoComponent } from './toolbar/toolbar-state.demo';
 import { TooltipDemoComponent } from './tooltip/tooltip.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
-
+import { MessageDemoComponent } from './message/message.demo';
 import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
 import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
 import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
@@ -98,6 +98,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     LookupDemoComponent,
     MaskDemoComponent,
     MenuButtonDemoComponent,
+    MessageDemoComponent,
     SohoMastheadDemoComponent,
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,
