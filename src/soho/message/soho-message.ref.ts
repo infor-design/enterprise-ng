@@ -1,3 +1,5 @@
+import { ViewContainerRef } from '@angular/core';
+
 import { Subject } from 'rxjs/Subject';
 
 import { SohoModalDialogVetoableEventGuard } from '../modal-dialog';
@@ -17,6 +19,9 @@ export class SohoMessageRef {
 
   /** The result of the dialog. */
   private _dialogResult: any;
+
+  /** Dialog placeholder, defaults to $('body')*/
+  private _placeholder: JQuery;
 
   /** Event fired when the message is opened. */
   private open$: Subject<any> = new Subject();
@@ -122,8 +127,19 @@ export class SohoMessageRef {
 
   /**
    * Constructor.
+   *
+   * @param placeholder for the dialog; defaults to the body.
    */
   constructor() {
+      this._placeholder = $('body');
+  }
+
+  /**
+   * Sets the placeholder, where the dialog is instantiaed..
+   */
+  placeholder(placeholder: ViewContainerRef): SohoMessageRef {
+    this._placeholder = jQuery(placeholder.element.nativeElement);
+    return this;
   }
 
   /**
@@ -132,21 +148,21 @@ export class SohoMessageRef {
    * @return the dialog ref.
    */
   open(): SohoMessageRef {
-    let element: JQuery = $('body');
-    element.message(this._options);
+    // Returns the body!
+    this._placeholder.message(this._options);
+
+    // Need a better way of locating the message dialog.
+    this.jQueryElement = this._placeholder.find('modal message');
 
     // Get the api.
-    this._message = element.data('message');
+    this._message = this.jQueryElement.data('message');
 
-    // When the message is opened, get the dialog created from the api.
-    this.jQueryElement = this._message.element;
-
-    // Add listeners to control events
-    this.jQueryElement.on('open', ((event: any) => { this.onOpen(event); }));
+    // Add listeners to control event (which are on the placeholder)
+    this._placeholder.on('open', ((event: any) => { this.onOpen(event); }));
 
     // These are vetoable events.
-    this.jQueryElement.on('beforeopen', ((event: any) => { return this.onBeforeOpen(event); }));
-    this.jQueryElement.on('beforeclose', ((event: any) => { return this.onBeforeClose(event); }));
+    this._placeholder.on('beforeopen', ((event: any) => { return this.onBeforeOpen(event); }));
+    this._placeholder.on('beforeclose', ((event: any) => { return this.onBeforeClose(event); }));
 
     return this;
   }
