@@ -28,15 +28,7 @@
       <button soho-button *ngIf="!b.menu && b.state.visible" icon="{{b?.icon}}" attr.data-button="{{b?.data}}" [attr.disabled]="b.state.disabled ? true : null">{{b?.text}}</button>
 
       <template [ngIf]="b.menu && b.state.visible">
-        <button class="btn-menu" attr.data-button="{{b?.data}}" title="{{b?.title}}" [attr.disabled]="b.state.disabled ? true : null">
-          <svg *ngIf="b.icon" class="icon" focusable="false" aria-hidden="true" role="presentation">
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" attr.xlink:href="#icon-{{b.icon}}"></use>
-          </svg>
-          <span>{{b?.text}}</span>
-          <svg class="icon-dropdown icon" focusable="false" aria-hidden="true" role="presentation">
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-dropdown"></use>
-          </svg>
-        </button>
+        <button soho-menu-button [icon]="b?.icon" attr.data-button="{{b?.data}}" title="{{b?.title}}" [attr.disabled]="b.state.disabled ? true : null"></button>
         <ul class="popupmenu">
           <li *ngFor="let i of b.menu">
             <a href="#" attr.data-button="{{i?.data}}">{{i?.text}}</a>
