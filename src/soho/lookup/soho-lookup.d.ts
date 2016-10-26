@@ -6,8 +6,8 @@
  */
 
 interface SohoLookupOptions {
-  /** ?? */
-  click?: any; // @todo
+  /** Custom click event; can be used with a modal dialog and custom list component */
+  click?: Function;
 
   /** Field to return from the array or can be a function. */
   field?: string | SohoLookupFieldFunction;
