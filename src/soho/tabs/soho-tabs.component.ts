@@ -334,15 +334,15 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
     this.tabs.hide(tabId);
   }
 
-  show(tabId: string) {
+  show(tabId: string): void {
     this.tabs.hide(tabId);
   }
 
-  disableTab(tabId: number) {
+  disableTab(tabId: number): void {
     this.tabs.disableTab(tabId);
   }
 
-  enableTab(tabId: number) {
+  enableTab(tabId: number): void {
     this.tabs.enableTab(tabId);
   }
 
