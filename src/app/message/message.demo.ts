@@ -1,8 +1,4 @@
-import {
-  Component,
-  ViewChild,
-  ViewContainerRef
-} from '@angular/core';
+import { Component } from '@angular/core';
 
 import {
   SohoMessageService,
@@ -18,15 +14,6 @@ import {
   templateUrl: 'message.demo.html'
 })
 export class MessageDemoComponent {
-  /**
-   * The 'dialogPlaceholder' is where the reference dialog component will be
-   * parented when it is instantiated.
-   *
-   * This can be the ViewContainerRef of this component, or another component.
-   */
-  @ViewChild('dialogPlaceholder', { read: ViewContainerRef })
-  placeholder: ViewContainerRef;
-
   /**
    * The interface to an instantiated instance of the ExampeDialogComponent.
    */
@@ -61,19 +48,6 @@ export class MessageDemoComponent {
       }).opened(() => {
          console.log('opened');
       })
-      .open();
-  }
-
-  openPlaceholder() {
-    const buttons = [
-      { text: 'Cancel', click: (e, modal) => { modal.close(true); this.dialog = null; }, isDefault: true },
-      { text: 'Remove', click: (e, modal) => { modal.close(true); this.dialog = null; } }];
-
-    this.dialog = this.messageService
-      .message()
-      .title('Placeholder Dialog')
-      .placeholder(this.placeholder)
-      .buttons(buttons)
       .open();
   }
 

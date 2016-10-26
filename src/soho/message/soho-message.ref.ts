@@ -1,5 +1,3 @@
-import { ViewContainerRef } from '@angular/core';
-
 import { Subject } from 'rxjs/Subject';
 
 import { SohoModalDialogVetoableEventGuard } from '../modal-dialog';
@@ -132,14 +130,6 @@ export class SohoMessageRef {
    */
   constructor() {
       this._placeholder = $('body');
-  }
-
-  /**
-   * Sets the placeholder, where the dialog is instantiaed..
-   */
-  placeholder(placeholder: ViewContainerRef): SohoMessageRef {
-    this._placeholder = jQuery(placeholder.element.nativeElement);
-    return this;
   }
 
   /**

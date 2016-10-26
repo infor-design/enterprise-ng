@@ -4,7 +4,6 @@
     <div class="field">
       <button soho-button (click)="openAlert($event)" [disabled]="dialog">Alert</button>
       <button soho-button (click)="openError($event)" [disabled]="dialog">Error</button>
-      <button soho-button (click)="openPlaceholder($event)" [disabled]="dialog">Placeholder</button>
     </div>
   </div>
 </div>
@@ -17,11 +16,3 @@
 
   </div>
 </div>
-
-<br>
-
-<!-- div #dialogPlaceholder will contain the child component -->
-<div #dialogPlaceholder style="display:none">
-  <span>Hello!</span>
-</div>
-
