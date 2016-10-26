@@ -23,6 +23,7 @@
 /// <reference path="./radiobutton/soho-radiobutton.d.ts" />
 /// <reference path="./searchfield/soho-searchfield.d.ts" />
 /// <reference path="./splitter/soho-splitter.d.ts" />
+/// <reference path="./tabs/soho-tabs.d.ts" />
 /// <reference path="./toast/soho-toast.d.ts" />
 /// <reference path="./toolbar/soho-toolbar.d.ts" />
 /// <reference path="./trackdirty/soho-trackdirty.d.ts" />
