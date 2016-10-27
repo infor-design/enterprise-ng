@@ -95,15 +95,18 @@ interface SohoLookupStatic {
   destroy(): void;
 }
 
+/**
+ * Function prototype for the 'beforeShow' callback.
+ */
 type SohoLookupBeforeShowFunction = (
-  /** The lokup that has been activated. */
+  /** The lookup control that has been activated. */
   lookup: SohoLookupStatic,
   /** The response - takes the grid to use (or undefined or is is to be created.)  */
   response: SohoLookupBeforeShowResponse
 ) => any;
 
 type SohoLookupBeforeShowResponse = (
-  /** The grid to use if provided. */
+  /** The grid to use, if provided. */
   grid?: SohoDataGridStatic
 ) => void;
 
