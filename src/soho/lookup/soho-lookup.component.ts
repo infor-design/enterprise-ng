@@ -50,6 +50,11 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     this._options.field = value;
   }
 
+  // Make sure you bind the context to the function
+  @Input() set click(value: SohoLookupClickFunction) {
+    this._options.click = value;
+  }
+
   @Input() set title(value: string) {
     this._options.title = value;
   }
