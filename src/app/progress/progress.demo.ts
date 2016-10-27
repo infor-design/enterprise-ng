@@ -8,9 +8,6 @@ import { SohoProgressComponent } from '../../soho/progress/soho-progress.compone
 })
 
 export class ProgressDemoComponent {
-
-  @ViewChild(SohoProgressComponent) progress: SohoProgressComponent;
-
   /*
    * val is used to set the value in the HTML/DOM
    */
