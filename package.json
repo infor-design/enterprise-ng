@@ -9,8 +9,8 @@
     "test": "ng test",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
-    "develop-tag": "./scripts/add-npm-tag.js develop",
-    "bump-version": "./scripts/bump-version.js"
+    "add-develop-tag": "./scripts/add-npm-tag.js develop",
+    "set-version": "./scripts/set-version.js"
   },
   "dependencies": {
     "@angular/common": "~2.1.0",
