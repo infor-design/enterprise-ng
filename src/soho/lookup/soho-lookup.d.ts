@@ -7,7 +7,7 @@
 
 interface SohoLookupOptions {
   /** Custom click event; can be used with a modal dialog and custom list component */
-  click?: Function;
+  click?: SohoLookupClickFunction;
 
   /** Field to return from the array or can be a function. */
   field?: string | SohoLookupFieldFunction;
@@ -16,7 +16,7 @@ interface SohoLookupOptions {
   title?: string;
 
   /** Pass dialog buttons or Cancel / Apply. */
-  buttons?: any;  // @todo
+  buttons?: SohoModalButton[];
 
   /** Options to pass to the underlying data grid. */
   options?: SohoDataGridOptions;
@@ -65,6 +65,11 @@ type SohoDataGridMatchFunction = (
   /** The grid api. */
   grid: SohoDataGridStatic
 ) => boolean;
+
+type SohoLookupClickFunction = (
+  e: JQueryEventObject,
+  lookup: SohoLookupStatic
+) => void;
 
 type SohoLookupFieldFunction = (
   /** This row? or Cell? */
