@@ -11,29 +11,11 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'div[soho-progress-bar]', // tslint:disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
-})
-export class SohoProgressBarComponent {
-  @Input() progress: string = '0';
-  @HostBinding('class.progress-bar') isProgress = true;
-
-  @HostBinding('style.width') get width() {
-    return this.progress + '%';
-  }
-}
-
-@Component({
   selector: 'div[soho-progress]', // tslint:disable-line
-  template: `<div soho-progress-bar [progress]='this.value'></div>`,
+  template: `<div [class.progress-bar]="true" [attr.data-value]="this.value"></div>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-
 export class SohoProgressComponent implements AfterViewInit, OnDestroy {
-  private options: SohoProgressOptions = {};
-  public value: number;
-
   /*
    *  @param value
    */
@@ -42,7 +24,7 @@ export class SohoProgressComponent implements AfterViewInit, OnDestroy {
     if (this.progress) {
       this.progress.update(this.value);
     }
-  };
+  }
 
   get progressValue() {
     return this.value;
@@ -56,9 +38,11 @@ export class SohoProgressComponent implements AfterViewInit, OnDestroy {
   // Set the progress-bar class.
    @HostBinding('class.progress') progressClass = true;
 
-  // Reference to the jQuery control.
+  private options: SohoProgressOptions = {};
+  public value: number;
   private jQueryElement: JQuery;
   private progress: SohoProgressStatic;
+
   constructor(private element: ElementRef) { }
 
   ngAfterViewInit() {
@@ -84,5 +68,4 @@ export class SohoProgressComponent implements AfterViewInit, OnDestroy {
       this.progress.update(value);
     }
   }
-
 }

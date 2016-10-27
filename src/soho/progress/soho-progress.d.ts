@@ -7,12 +7,12 @@ interface SohoProgressEvent extends BaseJQueryEventObject {
  */
 interface SohoProgressStatic {
   /** Destroys any resources used by the control. */
+  settings?: SohoProgressOptions;
   destroy();
   update(value: number): void;
 }
 
 interface SohoProgressOptions {
-  settings?: SohoProgressOptions;
 }
 
 /**
