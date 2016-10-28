@@ -100,14 +100,38 @@ interface SohoLookupStatic {
   destroy(): void;
 }
 
+/**
+ * Function prototype for the 'beforeShow' callback.
+ */
 type SohoLookupBeforeShowFunction = (
-  lookup: any,
-  grid: (gridOptions: Object) => {}
+  /** The lookup control that has been activated. */
+  lookup: SohoLookupStatic,
+  /** The response - takes the grid to use (or undefined or is is to be created.)  */
+  response: SohoLookupBeforeShowResponse
 ) => any;
 
-/** todo */
-type SohoLookupValidatorFunction = Function;
+type SohoLookupBeforeShowResponse = (
+  /** The grid to use, if provided. */
+  grid?: SohoDataGridStatic
+) => void;
 
+/**
+ * Validates the controls on the dialog.
+ *
+ * Not sure how the result is handled, the code in Soho looks to ignore it.
+ */
+type SohoLookupValidatorFunction = (
+  /** The lookup's jQuery element. */
+  element: JQuery,
+
+  /** The modal dialog displaying the lookup. */
+  modal: SohoModalStatic,
+
+  /** The grid of data. */
+  grid: SohoDataGridStatic
+) => void;
+
+/** @todo verify this - but I think it's the selected row structure from the grid. */
 interface SohoLookupChangeEvent {
   data: Object;
   elem: HTMLElement[];
