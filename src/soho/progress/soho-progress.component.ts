@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'div[soho-progress]', // tslint:disable-line
+  selector: 'soho-progress', // tslint:disable-line
   template: `<div [class.progress-bar]="true" [attr.data-value]="this.value"></div>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -36,7 +36,7 @@ export class SohoProgressComponent implements AfterViewInit, OnDestroy {
   @Output() change: EventEmitter<Object>;
 
   // Set the progress-bar class.
-   @HostBinding('class.progress') progressClass = true;
+  @HostBinding('class.progress') progressClass = true;
 
   private options: SohoProgressOptions = {};
   private value: number;
