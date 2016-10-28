@@ -1,8 +1,14 @@
 {
-  "name": "soho-angular-components",
+  "name": "@infor/sohoxi-angular-components",
   "version": "4.2.2",
+  "description": "Hook & Loop - SoHo XI Angular Controls",
+  "author": "Hook & Loop",
   "license": "MIT",
   "angular-cli": {},
+  "publishConfig": {
+    "scope": "@infor",
+    "registry": "http://npm.infor.com:4873/"
+  },
   "scripts": {
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\" -e \"src/typings.d.ts\" -e \"src/soho/soh*.d.ts\"",
