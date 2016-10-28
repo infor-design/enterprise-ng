@@ -5,20 +5,15 @@ import {
   SohoMessageRef
 } from '../../soho/message';
 
-// import { ExampleModalDialogComponent } from './example-modal-dialog.component';
-// import { NestedModalDialogComponent } from './nested-modal-dialog.component';
-// import { VetoableModalDialogComponent } from './vetoable-modal-dialog.component';
-
 @Component({
   selector: 'soho-message.demo',
   templateUrl: 'message.demo.html'
 })
 export class MessageDemoComponent {
-  /**
-   * The interface to an instantiated instance of the ExampeDialogComponent.
-   */
+  /** The message dialog reference. */
   dialog: SohoMessageRef;
 
+  /** The result. */
   closeResult: string;
 
   /**

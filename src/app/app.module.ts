@@ -23,6 +23,7 @@ import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselec
 import { EditorDemoComponent } from './editor/editor.demo';
 import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
+import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
 import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
@@ -91,6 +92,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     DropdownMultiselectDemoComponent,
     DropdownLMDemoComponent,
     DropdownAsyncBusyDemoComponent,
+    DropdownSimpleDemoComponent,
     EditorDemoComponent,
     ToastDemoComponent,
     IconDemoComponent,
