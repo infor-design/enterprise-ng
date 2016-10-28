@@ -7,7 +7,7 @@
   "angular-cli": {},
   "publishConfig": {
     "scope": "@infor",
-    "registry": "http://npm.infor.com:4873/"
+    "registry": "http://npm.infor.com/"
   },
   "scripts": {
     "start": "ng serve",
