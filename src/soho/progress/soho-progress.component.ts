@@ -33,13 +33,13 @@ export class SohoProgressComponent implements AfterViewInit, OnDestroy {
   /*
    *  Calling when the progress-bar value changes
    */
-  @Output() change: EventEmitter<SohoProgressEvent> = new EventEmitter<SohoProgressEvent>();
+  @Output() change: EventEmitter<Object>;
 
   // Set the progress-bar class.
    @HostBinding('class.progress') progressClass = true;
 
   private options: SohoProgressOptions = {};
-  public value: number;
+  private value: number;
   private jQueryElement: JQuery;
   private progress: SohoProgressStatic;
 

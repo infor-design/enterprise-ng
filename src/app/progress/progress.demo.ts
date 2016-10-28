@@ -1,6 +1,4 @@
-import {Component, ViewChild } from '@angular/core';
-
-import { SohoProgressComponent } from '../../soho/progress/soho-progress.component';
+import {Component } from '@angular/core';
 
 @Component({
   selector: 'soho-progress-demo',
