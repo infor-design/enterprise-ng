@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[soho-context-menu], [soho-menu-button]', // tslint:disable-line
+  selector: '[soho-context-menu]', // tslint:disable-line
 })
 
 export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
@@ -20,7 +20,9 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
   // -------------------------------------------
   // Default options block
   // -------------------------------------------
-  private options: SohoPopupMenuOptions = {};
+  private options: SohoPopupMenuOptions = {
+    trigger: "rightClick"
+  };
 
   // -------------------------------------------
   // Component Output
