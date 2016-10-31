@@ -37,6 +37,7 @@ import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselec
 import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
+import { DropdownAsyncDemoComponent } from './dropdown/dropdown-async.demo';
 
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
@@ -82,6 +83,7 @@ export const routes: Routes = [
   { path: 'dropdown-lm',           component: DropdownLMDemoComponent },
   { path: 'dropdown-async-busy',   component: DropdownAsyncBusyDemoComponent },
   { path: 'dropdown-simple',       component: DropdownSimpleDemoComponent },
+  { path: 'dropdown-async',        component: DropdownAsyncDemoComponent },
   { path: 'editor',                component: EditorDemoComponent },
   { path: 'expandablearea',        component: ExpandableAreaDemoComponent },
   { path: 'slider',                component: SliderDemoComponent },

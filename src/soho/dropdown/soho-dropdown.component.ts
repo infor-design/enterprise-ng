@@ -200,4 +200,12 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
     this.dropdown.updated();
     return this;
   }
+
+  public disable(): void {
+    this.dropdown.disable();
+  }
+
+  public enable(): void {
+    this.dropdown.enable();
+  }
 }
