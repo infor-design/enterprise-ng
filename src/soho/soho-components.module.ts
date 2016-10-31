@@ -22,6 +22,7 @@ import { SohoMastheadModule } from './masthead/soho-masthead.module';
 import { SohoMenuButtonModule } from './menu-button/soho-menu-button.module';
 import { SohoMessageModule } from './message/soho-message.module';
 import { SohoModalDialogModule } from './modal-dialog/soho-modal-dialog.module';
+import { SohoProgressModule } from './progress/soho-progress.module';
 import { SohoSearchFieldModule } from './searchfield/soho-searchfield.module';
 import { SohoSplitterModule } from './splitter/soho-splitter.module';
 import { SohoTrackDirtyModule } from './trackdirty/soho-trackdirty.module';
@@ -56,6 +57,7 @@ import { SohoSliderModule } from './slider/soho-slider.module';
     SohoMessageModule,
     SohoModalDialogModule,
     SohoPersonalizeModule,
+    SohoProgressModule,
     SohoSearchFieldModule,
     SohoSplitterModule,
     SohoTabsModule,
@@ -92,6 +94,7 @@ import { SohoSliderModule } from './slider/soho-slider.module';
     SohoMenuButtonModule,
     SohoModalDialogModule,
     SohoPersonalizeModule,
+    SohoProgressModule,
     SohoSearchFieldModule,
     SohoSplitterModule,
     SohoTabsModule,

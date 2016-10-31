@@ -31,6 +31,7 @@ import { ListViewDemoComponent } from './listview/listview.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
+import { ProgressDemoComponent } from './progress/progress.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
@@ -106,7 +107,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     ApplicationMenuLazyDemoComponent,
     ApplicationMenuLazyMenuDemoComponent,
     SohoHeaderDynamicDemoComponent,
-
+    ProgressDemoComponent,
     SplitterVerticalDemoComponent,
     SplitterHorizontalDemoComponent,
     TimePickerDemoComponent,
