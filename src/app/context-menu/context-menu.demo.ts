@@ -1,7 +1,7 @@
 import {
   Component,
   OnInit,
-  ViewChild
+  ViewChild, HostListener
 } from '@angular/core';
 import { SohoTextAreaComponent } from '../../soho/textarea';
 
@@ -26,44 +26,37 @@ export class ContextMenuDemoComponent implements OnInit {
 
     entries.push({
       displayString       : 'Cut',
-      url     : '#',
       disabled : false
     });
 
     entries.push({
       displayString       : 'Copy',
-      url     : '#',
       disabled : false
     });
 
-
     entries.push({
       displayString       : 'Paste',
-      url     : '#',
       disabled : false
     });
 
     entries.push({
       displayString       : 'Name and project range',
-      url     : '#',
+      id     : 'range',
       disabled : false
     });
 
     entries.push({
       displayString       : 'Insert comment',
-      url     : '#',
       disabled : true
     });
 
     entries.push({
       displayString       : 'Insert note',
-      url     : '#',
       disabled : false
     });
 
     entries.push({
       displayString       : 'Clear notes',
-      url     : '#',
       disabled : true
     });
 
@@ -100,10 +93,28 @@ export class ContextMenuDemoComponent implements OnInit {
   ngOnInit() {
     this.contextEntries = this.buildContextMenu();
   }
+
+  @HostListener('selected', ['$event'])
+  onSelected() {
+    console.log('onSelected');
+  }
+
+  onBeforeopen() {
+    console.log('onBeforeopen');
+  }
+
+  onClose() {
+    console.log('onClose');
+  }
+
+  onOpen() {
+    console.log('onOpen');
+  }
 }
 
 interface ContextMenuEntries {
   displayString: string,
+  id?: string,
   url?: string,
   disabled?: boolean,
 };

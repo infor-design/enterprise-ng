@@ -1,5 +1,5 @@
 /**
- * Soho Popup Menu.
+ * Soho Context Menu.
  *
  * This file contains the Typescript mappings for the public
  * interface of the Soho jQuery popupmenu control.
@@ -48,8 +48,15 @@ interface SohoPopupMenuOptions {
 /**
  * Interface for the jQuery event emitted
  *
+ * @deprecated
  */
 interface SohoPopupMenuEvent extends JQueryEventObject {
+}
+
+/**
+ * Interface for the jQuery event emitted
+ */
+interface SohoContextMenuEvent extends SohoPopupMenuEvent {
 }
 
 interface SohoPopupMenuStatic {
@@ -57,6 +64,7 @@ interface SohoPopupMenuStatic {
   /** Configuration options. */
   settings?: SohoPopupMenuOptions;
 
+  /** Returns the selecyed html element. */
   /** Returns the selected html element. */
   getSelected(): any;
 

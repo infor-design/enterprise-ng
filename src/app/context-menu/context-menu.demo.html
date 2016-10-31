@@ -3,60 +3,92 @@
   <!-- Input text field example. No soho components used-->
   <div class="field">
     <label id="label1" name="label1" soho-label [attr.for]="field1" >{{normalText}}</label>
-    <input [attr.id]="field1" name="field1" soho-popup-menu menu="action-popupmenu" trigger="rightClick" value="Right Click Here"/>
+    <input [attr.id]="field1" name="field1" soho-context-menu menu="action-popupmenu" trigger="rightClick" value="Right Click Here"
+           (selected)="onSelected($event)"
+           (beforeopen)="onBeforeopen($event)"
+           (close)="onClose($event)"
+           (open)="onOpen($event)" />
   </div>
 
   <!-- Text area example. Soho-textarea component used-->
   <div class="field">
     <label soho-label [attr.for]="modifiable" id="label2" name="label2">{{modText}}</label>
-    <textarea soho-textarea name="modifiable" [(ngModel)]="textModel.modifiableText" soho-popup-menu menu="action-popupmenu" trigger="rightClick"></textarea>
+    <textarea soho-textarea name="modifiable" [(ngModel)]="textModel.modifiableText" soho-context-menu menu="action-popupmenu" trigger="rightClick"
+              (selected)="onSelected($event)"
+              (beforeopen)="onBeforeopen($event)"
+              (close)="onClose($event)"
+              (open)="onOpen($event)" ></textarea>
   </div>
 
   <!-- Disabled text area example. Soho-textarea component used-->
   <div class="field">
     <label soho-label [attr.for]="disable" id="label3" name="label3">{{disabledText}}</label>
-    <textarea soho-textarea [disabled]="true" name="disable" [(ngModel)]="textModel.disableText" soho-popup-menuu menu="action-popupmenu" trigger="rightClick"></textarea>
+    <textarea soho-textarea [disabled]="true" name="disable" [(ngModel)]="textModel.disableText" soho-context-menu menu="action-popupmenu" trigger="rightClick"
+              (selected)="onSelected($event)"
+              (beforeopen)="onBeforeopen($event)"
+              (close)="onClose($event)"
+              (open)="onOpen($event)" ></textarea>
   </div>
 
   <!-- Radio button example. Soho-radiobutton component used-->
   <div class="field">
     <label soho-label >{{radioButtonLabel}}</label>
-    <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO1" value="1" soho-popup-menu menu="action-popupmenu" trigger="rightClick" checked />
-    <label soho-label [attr.for]="optionVWO1" class="radio-label" soho-popup-menu menu="action-popupmenu" trigger="rightClick">One</label>
+    <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO1" value="1" soho-context-menu menu="action-popupmenu" trigger="rightClick"  checked
+           (selected)="onSelected($event)"
+           (beforeopen)="onBeforeopen($event)"
+           (close)="onClose($event)"
+           (open)="onOpen($event)" />
+    <label soho-label [attr.for]="optionVWO1" class="radio-label" soho-context-menu menu="action-popupmenu" >One</label>
     <br>
-    <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO2" value="2" soho-popup-menu menu="action-popupmenu" trigger="rightClick" />
-    <label soho-label [attr.for]="optionVWO2" class="radio-label" soho-popup-menu menu="action-popupmenu" trigger="rightClick">Two</label>
+    <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO2" value="2" soho-context-menu menu="action-popupmenu" trigger="rightClick"  />
+    <label soho-label [attr.for]="optionVWO2" class="radio-label" soho-context-menu menu="action-popupmenu"
+           (selected)="onSelected($event)"
+           (beforeopen)="onBeforeopen($event)"
+           (close)="onClose($event)"
+           (open)="onOpen($event)" >Two</label>
     <br>
-    <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO3" value="3" soho-popup-menu menu="action-popupmenu" trigger="rightClick" />
-    <label soho-label [attr.for]="optionVWO3" class="radio-label" soho-popup-menu menu="action-popupmenu" trigger="rightClick">Three</label>
+    <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO3" value="3" soho-context-menu menu="action-popupmenu" trigger="rightClick" />
+    <label soho-label [attr.for]="optionVWO3" class="radio-label" soho-context-menu menu="action-popupmenu"
+           (selected)="onSelected($event)"
+           (beforeopen)="onBeforeopen($event)"
+           (close)="onClose($event)"
+           (open)="onOpen($event)" >Three</label>
     <br>
-    <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO4" value="4" [disabled]="true" soho-popup-menu menu="action-popupmenu" trigger="rightClick" />
-    <label soho-label [attr.for]="optionVWO4" class="radio-label" soho-popup-menu menu="action-popupmenu" trigger="rightClick">Four Disabled</label>
+    <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO4" value="4" [disabled]="true" soho-context-menu menu="action-popupmenu" trigger="rightClick" />
+    <label soho-label [attr.for]="optionVWO4" class="radio-label" soho-context-menu menu="action-popupmenu"
+           (selected)="onSelected($event)"
+           (beforeopen)="onBeforeopen($event)"
+           (close)="onClose($event)"
+           (open)="onOpen($event)" >Four Disabled</label>
   </div>
 
   <!-- Checkbox example. Soho-icon component used-->
   <div class="field">
     <label soho-label >{{checkboxButtonLabel}}</label>
-    <input soho-checkbox type="checkbox" [attr.id]="id1" name="checkbox1" [(ngModel)]=checkboxModel.checkBox1Value soho-popup-menu menu="action-popupmenu" trigger="rightClick">
-    <label soho-label [attr.for]="id1" [forCheckBox]="true" soho-popup-menu menu="action-popupmenu" trigger="rightClick">Unchecked</label>
+    <input soho-checkbox type="checkbox" [attr.id]="id1" name="checkbox1" [(ngModel)]=checkboxModel.checkBox1Value >
+    <label soho-label [attr.for]="id1" [forCheckBox]="true" soho-context-menu menu="action-popupmenu" trigger="rightClick" >Unchecked</label>
     <br>
-    <input soho-checkbox type="checkbox" [attr.id]="id2" name="checkbox2" [(ngModel)]=checkboxModel.checkBox2Value soho-popup-menu menu="action-popupmenu" trigger="rightClick">
-    <label soho-label [attr.for]="id2" [forCheckBox]="true" soho-popup-menu menu="action-popupmenu" trigger="rightClick">Checked</label>
+    <input soho-checkbox type="checkbox" [attr.id]="id2" name="checkbox2" [(ngModel)]=checkboxModel.checkBox2Value soho-context-menu menu="action-popupmenu" trigger="rightClick" >
+    <label soho-label [attr.for]="id2" [forCheckBox]="true" soho-context-menu menu="action-popupmenu" >Checked</label>
   </div>
 
   <!-- Rich text area example. Soho-editor component used-->
   <div class="field">
     <span class="label">{{richTextEditorLabel}}</span>
-    <div soho-editor id="editor1" role="textbox" aria-multiline="true" aria-label="Comments" soho-popup-menu menu="action-popupmenu" trigger="rightClick">{{editorModel.editorText}}</div>
+    <div soho-editor id="editor1" role="textbox" aria-multiline="true" aria-label="Comments" soho-context-menu menu="action-popupmenu" trigger="rightClick"
+         (selected)="onSelected($event)"
+         (beforeopen)="onBeforeopen($event)"
+         (close)="onClose($event)"
+         (open)="onOpen($event)">{{editorModel.editorText}}</div>
   </div>
 
   <!-- Context menu used in all examples (except the menu button)-->
-  <div class="popupmenu-wrapper" role="application" aria-hidden="true" style="position: fixed; left: -999px; top: 112px;"><ul id="action-popupmenu" class="popupmenu" role="menu" aria-hidden="true">
-    <li *ngFor="let menuEntry of contextEntries" role="presentation" class="">
-      <a *ngIf="!menuEntry.disabled" href="{{menuEntry.url}}" tabindex="-1" role="menuitem">{{menuEntry.displayString}}</a>
-      <a *ngIf="menuEntry.disabled" href="{{menuEntry.url}}" disabled tabindex="-1" role="menuitem">{{menuEntry.displayString}}</a>
+  <ul soho-popupmenu id="action-popupmenu" >
+    <li soho-popupmenu-item *ngFor="let menuEntry of contextEntries" >
+      <a soho-popupmenu-label *ngIf='!menuEntry.url' menuId="{{menuEntry.id}}" [isDisabled]="menuEntry.disabled">{{menuEntry.displayString}}</a>
+      <a soho-popupmenu-label *ngIf='menuEntry.url' menuUrl="{{menuEntry.url}}" [isDisabled]="menuEntry.disabled">{{menuEntry.displayString}}</a>
     </li>
-  </ul></div>
+  </ul>
 
   </div>
 </div>

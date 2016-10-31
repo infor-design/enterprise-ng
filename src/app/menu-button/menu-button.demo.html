@@ -1,36 +1,42 @@
 <div class="row">
   <div class="twelve columns">
 
-    <button soho-popup-menu trigger="click" menu="action-popupmenu" class="btn-menu">Add Item</button>
-    <ul class="popupmenu" id="action-popupmenu">
-      <li><a href="#">Create a form</a></li>
-      <li class="separator"></li>
-      <li><a href="#">Spelling...</a></li>
-      <li><a href="#" disabled onclick="alert('Should not be Allowed')" aria-disabled="true">Solver...</a></li>
-      <li class="separator"></li>
-      <li class="is-checked"><a href="#">Enable Autocomplete</a></li>
-      <li><a href="#">Notification Rules</a></li>
-      <li><a href="#">Protect Sheet Rules</a></li>
+    <button soho-menu-button menu="action-popupmenu"
+            (selected)="onSelected($event)"
+            (beforeopen)="onBeforeopen($event)"
+            (close)="onClose($event)"
+            (open)="onOpen($event)">Add Item</button>
+    <ul soho-popupmenu id="action-popupmenu">
+      <li ><a soho-popupmenu-label >Create a form</a></li>
+      <li soho-popupmenu-separator></li>
+      <li soho-popupmenu-item><a l >Spelling...</a></li>
+      <li soho-popupmenu-item><a soho-popupmenu-label [isDisabled]='true' (click)="disabledEntryClicked()" >Solver...</a></li>
+      <li soho-popupmenu-separator singleSelectableSection=true></li>
+      <li soho-popupmenu-item isChecked=true isSelectable=true><a soho-popupmenu-label>Enable Autocomplete</a></li>
+      <li soho-popupmenu-item isSelectable=true><a soho-popupmenu-label>Notification Rules</a></li>
+      <li soho-popupmenu-item isSelectable=true><a soho-popupmenu-label>Protect Sheet Rules</a></li>
     </ul>
 
-    <button soho-popup-menu trigger="click" menu="charts-menu" class="btn-menu">
-      <soho-icon icon="pie-chart"></soho-icon>
-      <soho-icon icon="dropdown"></soho-icon>
-    </button>
-    <ul class="popupmenu" id="charts-menu">
-      <li><a href="#">Pie Chart</a></li>
-      <li><a href="#">Line Chart</a></li>
-      <li><a href="#">Bubble Chart</a></li>
+    <button soho-menu-button [icon]="'pie-chart'" menu="charts-menu"
+            (selected)="onSelected($event)"
+            (beforeopen)="onBeforeopen($event)"
+            (close)="onClose($event)"
+            (open)="onOpen($event)"></button>
+    <ul soho-popupmenu id="charts-menu">
+      <li ><a soho-popupmenu-label>Pie Chart</a></li>
+      <li soho-popupmenu-item><a soho-popupmenu-label>Line Chart</a></li>
+      <li soho-popupmenu-item><a soho-popupmenu-label>Bubble Chart</a></li>
     </ul>
 
-    <button soho-popup-menu title="Charts" menu="charts-menu2" trigger="click" class="btn-menu">
-      <soho-icon icon="pie-chart"></soho-icon>
-      <soho-icon icon="dropdown"></soho-icon>
-    </button>
-    <ul id="charts-menu2" class="popupmenu">
-      <li id='pie'><a href="#">Pie Chart</a></li>
-      <li id='line'><a href="#" button-data="{'item':'line'}">Line Chart</a></li>
-      <li id='bubble'><a href="#" button-data="{'item':'bubble'}">Bubble Chart</a></li>
+    <button soho-menu-button icon='pie-chart' title="Charts" menu="charts-menu2"
+            (selected)="onSelected($event)"
+            (beforeopen)="onBeforeopen($event)"
+            (close)="onClose($event)"
+            (open)="onOpen($event)"></button>
+    <ul soho-popupmenu id="charts-menu2">
+      <li soho-popupmenu-item id='pie'><a soho-popupmenu-label>Pie Chart</a></li>
+      <li soho-popupmenu-item id='line'><a soho-popupmenu-label>Line Chart</a></li>
+      <li soho-popupmenu-item id='bubble'><a soho-popupmenu-label>Bubble Chart</a></li>
     </ul>
 
   </div>
