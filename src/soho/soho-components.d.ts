@@ -20,6 +20,7 @@
 /// <reference path="./message/soho-message.d.ts" />
 /// <reference path="./pager/soho-pager.d.ts" />
 /// <reference path="./personalize/soho-personalize.d.ts" />
+/// <reference path="./progress/soho-progress.d.ts" />
 /// <reference path="./radiobutton/soho-radiobutton.d.ts" />
 /// <reference path="./searchfield/soho-searchfield.d.ts" />
 /// <reference path="./splitter/soho-splitter.d.ts" />

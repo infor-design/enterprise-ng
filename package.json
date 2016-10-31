@@ -1,16 +1,23 @@
 {
-  "name": "soho-angular-components",
-  "version": "4.2.1-develop",
+  "name": "@infor/sohoxi-angular",
+  "version": "4.2.2",
+  "description": "Hook & Loop - SoHo XI Angular Controls",
+  "author": "Hook & Loop",
   "license": "MIT",
   "angular-cli": {},
+  "publishConfig": {
+    "scope": "@infor",
+    "registry": "http://npm.infor.com/"
+  },
   "scripts": {
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\" -e \"src/typings.d.ts\" -e \"src/soho/soh*.d.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "e2e": "protractor",
+    "add-develop-tag": "./scripts/add-npm-tag.js develop",
+    "set-version": "./scripts/set-version.js"
   },
-  "private": true,
   "dependencies": {
     "@angular/common": "~2.1.0",
     "@angular/compiler": "~2.1.0",
