@@ -56,6 +56,8 @@ import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-t
 import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
 import { MessageDemoComponent } from './message/message.demo';
 
+import { ProgressDemoComponent } from './progress/progress.demo';
+
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
@@ -116,6 +118,7 @@ export const routes: Routes = [
   { path: 'header-toolbar-tabs',   component: HeaderToolbarAndTabsDemoComponent },
   { path: 'modal-dialog',          component: ModalDialogDemoComponent },
   { path: 'message',               component: MessageDemoComponent },
+  { path: 'progress',              component: ProgressDemoComponent },
   { path: 'tabs-basic',            component: TabsBasicDemoComponent },
   { path: 'tabs-vertical',         component: TabsVerticalDemoComponent },
   { path: 'tabs-counts',           component: TabsCountsDemoComponent },

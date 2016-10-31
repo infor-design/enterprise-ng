@@ -4,7 +4,6 @@ import {
   ViewChild,
   Input,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   OnChanges,
   SimpleChange
 } from '@angular/core';
@@ -22,14 +21,14 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownAsyncDemoComponent implements AfterViewInit, OnChanges {
-   /** Reference to the dropdown component so we can interact with it programmatically. */
-   @ViewChild(SohoDropDownComponent) dropdown: SohoDropDownComponent;
+  /** Reference to the dropdown component so we can interact with it programmatically. */
+  @ViewChild(SohoDropDownComponent) dropdown: SohoDropDownComponent;
 
-   /** Reference to the busy indicator so we can interact with it. */
-   @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
+  /** Reference to the busy indicator so we can interact with it. */
+  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
 
-   /** List of optopns {value: string, label: string} */
-   @Input() options = Array<any>();
+  /** List of observable options {value: string, label: string} */
+  @Input() options = new Subject<Array<any>>();
 
   /** Selected option.  */
   model = { selectedOption: 'ND' };
@@ -37,21 +36,21 @@ export class DropdownAsyncDemoComponent implements AfterViewInit, OnChanges {
   /** Demo flag */
   showModel = false;
 
-  constructor(private cd: ChangeDetectorRef) { }
+  constructor() { }
 
   ngAfterViewInit() {
     /**
      * When the component's view has been initialised, which means the children
-     * are ready, call the initialise method which emulates making an ajax call to
-     * load data from a source.
+     * are ready, call the initialise method async which emulates making an ajax call to
+     * load data from a backend webapi.
      * */
-    this.loadFromWebApi();
+     setTimeout(() => { this.loadFromWebApi(); });
   }
 
-  ngOnChanges(changes: {[propName: string]: SimpleChange}) {
+  ngOnChanges(changes: { [propName: string]: SimpleChange }) {
     console.log(changes);
-    this.dropdown.enable();
-    this.busyIndicator.activated = false;
+    // this.dropdown.enable();
+    // this.busyIndicator.activated = false;
   }
 
   toggleModel() {
@@ -64,22 +63,29 @@ export class DropdownAsyncDemoComponent implements AfterViewInit, OnChanges {
 
     // Retrieve data from AJAX service and call resonse.
     // setTimeout simulates the behaviour of a rest service
+    this.options.next([
+      { value: 'AK', label: 'Alaska' },
+      { value: 'AZ', label: 'Arizona' },
+      { value: 'CA', label: 'California' },
+      { value: 'CO', label: 'Colorado' },
+      { value: 'MN', label: 'Minnesota' },
+      { value: 'ND', label: 'North Dakota' },
+      { value: 'OR', label: 'Oregon' },
+      { value: 'WA', label: 'Washington' },
+      { value: 'WY', label: 'Wyoming' }
+    ]);
+
+    // Wheb the data base been loaded we need to make sure the dropdown re-reads
+    // the options (it does not automatically).
     setTimeout(() => {
-      this.options = [
-        { value: 'AK', label: 'Alaska'},
-        { value: 'AZ', label: 'Arizona'},
-        { value: 'CA', label: 'California'},
-        { value: 'CO', label: 'Colorado'},
-        { value: 'MN', label: 'Minnesota'},
-        { value: 'ND', label: 'North Dakota'},
-        { value: 'OR', label: 'Oregon'},
-        { value: 'WA', label: 'Washington'},
-        { value: 'WY', label: 'Wyoming'}
-      ];
+      // Force the control to refresh - reloading the options.
+      this.dropdown.updated();
 
-      this.cd.detectChanges();
-    }, 2000);
+      // The dropdown was disabled by default.
+      this.dropdown.enable();
 
+      // Complete the busy indicator - we're ready
+      this.busyIndicator.activated = false;
+    });
   }
-
 }
