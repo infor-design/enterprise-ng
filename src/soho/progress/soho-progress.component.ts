@@ -38,6 +38,10 @@ export class SohoProgressComponent implements AfterViewInit, OnDestroy {
   // Set the progress-bar class.
   @HostBinding('class.progress') progressClass = true;
 
+  @HostBinding('style.display') get dispType() {
+    return 'block';
+  }
+
   private options: SohoProgressOptions = {};
   private value: number;
   private jQueryElement: JQuery;
