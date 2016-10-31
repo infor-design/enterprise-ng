@@ -3,9 +3,7 @@ import {
   AfterViewInit,
   ViewChild,
   Input,
-  ChangeDetectionStrategy,
-  OnChanges,
-  SimpleChange
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import { Subject } from 'rxjs/Rx';
@@ -20,7 +18,7 @@ import {
   templateUrl: 'dropdown-async.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DropdownAsyncDemoComponent implements AfterViewInit, OnChanges {
+export class DropdownAsyncDemoComponent implements AfterViewInit {
   /** Reference to the dropdown component so we can interact with it programmatically. */
   @ViewChild(SohoDropDownComponent) dropdown: SohoDropDownComponent;
 
@@ -39,30 +37,32 @@ export class DropdownAsyncDemoComponent implements AfterViewInit, OnChanges {
   constructor() { }
 
   ngAfterViewInit() {
+    // Display the status indicator.
+    this.busyIndicator.activated = true;
+
     /**
      * When the component's view has been initialised, which means the children
      * are ready, call the initialise method async which emulates making an ajax call to
      * load data from a backend webapi.
-     * */
-     setTimeout(() => { this.loadFromWebApi(); });
-  }
-
-  ngOnChanges(changes: { [propName: string]: SimpleChange }) {
-    console.log(changes);
-    // this.dropdown.enable();
-    // this.busyIndicator.activated = false;
+     */
+     setTimeout(() => { this.webApiResponse(); });
   }
 
   toggleModel() {
     this.showModel = !this.showModel;
   }
 
-  loadFromWebApi() {
-    // Display the status indicator.
-    this.busyIndicator.activated = true;
+  /**
+   * ISSUE: I can not work out how to avoid the manual call to updated,
+   * I would like the fact the options have been updated to force the \
+   * jQuery control to reflect the changes.  The simple and async demos
+   * both have the same issue.
+   *
+   * Ideas?
+   */
 
-    // Retrieve data from AJAX service and call resonse.
-    // setTimeout simulates the behaviour of a rest service
+  webApiResponse() {
+    // Push the data out ...
     this.options.next([
       { value: 'AK', label: 'Alaska' },
       { value: 'AZ', label: 'Arizona' },
@@ -75,7 +75,9 @@ export class DropdownAsyncDemoComponent implements AfterViewInit, OnChanges {
       { value: 'WY', label: 'Wyoming' }
     ]);
 
-    // Wheb the data base been loaded we need to make sure the dropdown re-reads
+    // When the data has been loaded we need to make sure the dropdown
+    // reflects the changes, we can't just call update now as the view
+    // has not been updated yet, so push it onto the event queue.
     // the options (it does not automatically).
     setTimeout(() => {
       // Force the control to refresh - reloading the options.
