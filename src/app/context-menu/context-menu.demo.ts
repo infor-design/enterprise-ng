@@ -1,7 +1,7 @@
 import {
   Component,
   OnInit,
-  ViewChild, HostListener
+  ViewChild
 } from '@angular/core';
 import { SohoTextAreaComponent } from '../../soho/textarea';
 
@@ -11,6 +11,8 @@ import { SohoTextAreaComponent } from '../../soho/textarea';
 })
 export class ContextMenuDemoComponent implements OnInit {
 
+  @ViewChild(SohoTextAreaComponent) textarea: SohoTextAreaComponent;
+
   normalText: string = `Input Example`;
   modText: string = `Enabled Text Area Example`;
   disabledText: string = `Disabled Text Area Example`;
@@ -19,7 +21,6 @@ export class ContextMenuDemoComponent implements OnInit {
   richTextEditorLabel: string = `Rich Text Editor Example`;
 
   contextEntries: Array<ContextMenuEntries>;
-
 
   private buildContextMenu(): Array<ContextMenuEntries> {
     let entries: Array<ContextMenuEntries> = [];
@@ -69,10 +70,8 @@ export class ContextMenuDemoComponent implements OnInit {
     return entries;
   };
 
-  @ViewChild(SohoTextAreaComponent) textarea: SohoTextAreaComponent;
-
   private textModel = { // tslint:disable-line
-    disableText: `This text area is disabled, so should show the browser context menu and not the same context menu as the other components`,
+    disableText: `This text area is disabled, so should show the browser context menu and not the same context menu as the other components`,// tslint:disable-line
     modifiableText: `This text is modifiable`,
   };
 
@@ -82,7 +81,7 @@ export class ContextMenuDemoComponent implements OnInit {
   };
 
   private editorModel = { // tslint:disable-line
-    editorText: `<p>Embrace <a href="http://en.wikipedia.org/wiki/e-commerce" class="hyperlink">e-commerce action-items</a>, reintermediate, ecologies paradigms wireless share life-hacks create innovative harness. Evolve solutions rich-clientAPIs synergies harness relationships virtual vertical facilitate end-to-end, wireless, evolve synergistic synergies.</p> <p>Cross-platform, evolve, ROI scale cultivate eyeballs addelivery, e-services content cross-platform leverage extensible viral incentivize integrateAJAX-enabled sticky evolve magnetic cultivate leverage; cutting-edge. Innovate, end-to-end podcasting, whiteboard streamline e-business social; compelling, "cross-media exploit infomediaries innovative integrate integrateAJAX-enabled." Killer interactive reinvent, cultivate widgets leverage morph.</p>`
+    editorText: `<p>Embrace <a href="http://en.wikipedia.org/wiki/e-commerce" class="hyperlink">e-commerce action-items</a>, reintermediate, ecologies paradigms wireless share life-hacks create innovative harness. Evolve solutions rich-clientAPIs synergies harness relationships virtual vertical facilitate end-to-end, wireless, evolve synergistic synergies.</p> <p>Cross-platform, evolve, ROI scale cultivate eyeballs addelivery, e-services content cross-platform leverage extensible viral incentivize integrateAJAX-enabled sticky evolve magnetic cultivate leverage; cutting-edge. Innovate, end-to-end podcasting, whiteboard streamline e-business social; compelling, "cross-media exploit infomediaries innovative integrate integrateAJAX-enabled." Killer interactive reinvent, cultivate widgets leverage morph.</p>`// tslint:disable-line
   };
 
   onUpdated(event: SohoCheckBoxEvent) {
@@ -94,7 +93,6 @@ export class ContextMenuDemoComponent implements OnInit {
     this.contextEntries = this.buildContextMenu();
   }
 
-  @HostListener('selected', ['$event'])
   onSelected() {
     console.log('onSelected');
   }
@@ -113,8 +111,8 @@ export class ContextMenuDemoComponent implements OnInit {
 }
 
 interface ContextMenuEntries {
-  displayString: string,
-  id?: string,
-  url?: string,
-  disabled?: boolean,
+  displayString: string;
+  id?: string;
+  url?: string;
+  disabled?: boolean;
 };

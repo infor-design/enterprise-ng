@@ -21,7 +21,7 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
   // Default options block
   // -------------------------------------------
   private options: SohoPopupMenuOptions = {
-    trigger: "rightClick"
+    trigger: 'rightClick'
   };
 
   // -------------------------------------------

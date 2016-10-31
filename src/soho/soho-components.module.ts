@@ -4,7 +4,7 @@ import { SohoApplicationMenuModule } from './application-menu/soho-application-m
 import { SohoBusyIndicatorModule } from './busyindicator/soho-busyindicator.module';
 import { SohoButtonModule } from './button/soho-button.module';
 import { SohoCheckBoxModule } from './checkbox/soho-checkbox.module';
-import { SohoContextMenuModule } from "./context-menu/soho-context-menu.module";
+import { SohoContextMenuModule } from './context-menu/soho-context-menu.module';
 import { SohoDataGridModule } from './datagrid/soho-datagrid.module';
 import { SohoDatePickerModule } from './datepicker/soho-datepicker.module';
 import { SohoDropDownModule } from './dropdown/soho-dropdown.module';
