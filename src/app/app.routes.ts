@@ -31,6 +31,7 @@ import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-pa
 
 import { LabelDemoComponent } from './label/label.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
+import { ProgressDemoComponent } from './progress/progress.demo';
 
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
@@ -114,6 +115,7 @@ export const routes: Routes = [
   { path: 'header-toolbar-tabs',   component: HeaderToolbarAndTabsDemoComponent },
   { path: 'modal-dialog',          component: ModalDialogDemoComponent },
   { path: 'message',               component: MessageDemoComponent },
+  { path: 'progress',               component: ProgressDemoComponent },
   { path: 'tabs-basic',            component: TabsBasicDemoComponent },
   { path: 'tabs-vertical',         component: TabsVerticalDemoComponent },
   { path: 'tabs-counts',           component: TabsCountsDemoComponent },
