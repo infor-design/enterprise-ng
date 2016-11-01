@@ -34,7 +34,7 @@ import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
-import { PopupMenuDemoComponent } from "./popupmenu/popupmenu.demo";
+import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
 import { ProgressDemoComponent } from './progress/progress.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
