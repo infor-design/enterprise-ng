@@ -12,13 +12,13 @@ This repository serves as the central shared location for a crowd-sourced cross-
 
 This is a working group supported by the core H&L team,  bringing together the various efforts of teams each creating their own angular directives.
 
-The goal is that this will make Angular easier to support for all teams and easier to extend as the library develops and to prevent multiple teams doing the same work. At the moment the project is being shaped during "Knights of the angular table" calls. Contact andrew.lipetzky@infor.com if interested in joing the call its open to anyone how wants to contribute.
+The goal is that this will make Angular easier to support for all teams and easier to extend as the library develops and to prevent multiple teams doing the same work. At the moment the project is being shaped during "Knights of the angular table" calls. Contact andrew.lipetzky@infor.com if interested in joining the call its open to anyone how wants to contribute.
 
 The team is using https://slack.com/ for a communication forum.  We have created a [SoHo XI area | http://sohoxi-dev.slack.com/] for discussions related to the components.  There are https://sohoxi-dev.slack.com/messages/general/ and https://sohoxi-dev.slack.com/messages/angular-components/ channels for those discussion topics.  It is becoming more active every day.
 
 ## Current Status
 
-Agreed on project scaffolding of (using CLI and Typescript). Agreed on [shared Repo location |http://jira/browse/SOHO-4016] this master epic has all subtasks related to on going work
+Agreed on project scaffolding (using CLI and Typescript). Agreed on [shared Repo location |http://jira/browse/SOHO-4016] this master epic has all subtasks related to on going work
 http://jira/browse/SOHO-4016. You can also use it to see whats been done.
 
 ## Agreed so far
@@ -40,7 +40,7 @@ http://jira/browse/SOHO-4016. You can also use it to see whats been done.
 * H&L (US NYC + PA)
 * M3 Graphical Lot Tracker (Sweden, US - Penn)
 * M3 Sales Hub, Automotive Exchange (US – East)
-* Plus a couple of others.  Hard to keep track, Add you name with a Pull Request :)
+* Plus a couple of others.  Hard to keep track, Add your name with a Pull Request :)
 
 Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (SE), Mongoose, GT Nexus, ION
 
@@ -90,7 +90,7 @@ A brief overview of a simple component in the Soho Angular Component project.  T
 The typing file contains all the public API for the underlying Soho jQuery controls, it also contains some internal information required to get the component working.
 
     /**
-     * Soho widet Control Typings.
+     * Soho widget Control Typings.
      *
      * This file contains the Typescript mappings for the public
      * interface of the Soho jQuery widget control.
@@ -163,7 +163,7 @@ The outputs are the events emitted by the component.
 
 **HOST BINDINGS**
 
-Then any host bindings required to annoate the markup, such as classes, or attributes.  Some of these may of course we controlled by other properties.
+Then any host bindings required to annoate the markup, such as classes, or attributes.  Some of these may of course be controlled by other properties.
 
       @HostBinding('class.soho-widget') get isWidget() { return true; }
     Then private member data:
