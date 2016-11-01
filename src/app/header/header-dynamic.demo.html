@@ -26,10 +26,11 @@
           <button *ngIf="!button.menu" soho-button='icon' icon='{{button?.icon}}' id="{{button?.id}}" attr.data-button="{{button?.data}}">{{button?.text}}</button>
 
           <template [ngIf]="button.menu">
-            <button soho-menu-button icon='{{button?.icon}}' id="{{button?.id}}" attr.data-button="{{button?.data}}">{{button?.text}}</button>
-            <ul class="popupmenu">
-              <li *ngFor="let item of button.menu" id="{{item?.id}}">
-                <a href="" attr.data="{{item?.data}}">{{item?.text}}</a>
+            <button soho-menu-button id="{{button?.id}}" menu="buttonPopupMenu" icon="{{button?.icon}}"  attr.data-button="{{button?.data}}" >
+              {{button?.text}}</button>
+            <ul soho-popupmenu id="buttonPopupMenu">
+              <li soho-popupmenu-item *ngFor="let item of button.menu" id="{{item?.id}}">
+                <a soho-popupmenu-label attr.data="{{item?.data}}">{{item?.text}}</a>
               </li>
             </ul>
           </template>

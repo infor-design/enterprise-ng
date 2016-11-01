@@ -1,0 +1,53 @@
+
+<div style="padding: 20px 20px 0 20px;">
+  <div class="row">
+    <div class="inline">
+      <button soho-button (click)="onInsertCommentButtonClicked($event)">{{insertCommentText}} Insert Comment Item</button>
+      <button soho-button (click)="onInsertNoteClicked($event)">{{insertNoteText}} Insert Note Item</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="twelve columns">
+    <div class="field">
+      <label for="input-menu">Label</label>
+      <input id="input-menu" type="text" value="Right Click Me" soho-context-menu menu="action-popupmenu" trigger="rightClick">
+    </div>
+
+    <div class="field">
+      <label for="input-menu2">Label2</label>
+      <input id="input-menu2" type="text"  value="Right Click Me" soho-context-menu menu="action-popupmenu" trigger="rightClick">
+    </div>
+
+    <ul soho-popupmenu id="action-popupmenu"
+      (selected)="onSelected($event)"
+      (beforeopen)="onBeforeopen($event)"
+      (close)="onClose($event)"
+      (open)="onOpen($event)"
+    >
+      <li soho-popupmenu-item><a soho-popupmenu-label>Cut</a></li>
+      <li soho-popupmenu-item><a soho-popupmenu-label>Copy</a></li>
+      <li soho-popupmenu-item><a soho-popupmenu-label>Paste</a></li>
+      <li soho-popupmenu-item>
+        <a soho-popupmenu-label>Paste Special</a>
+        <ul soho-popupmenu>
+          <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 1</a></li>
+          <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 2</a></li>
+        </ul>
+      </li>
+      <li soho-popupmenu-separator></li>
+      <li soho-popupmenu-item><a soho-popupmenu-label>Name and project range</a></li>
+      <li soho-popupmenu-item><a soho-popupmenu-label [isDisabled]="isInsertCommentDisabled" id='x'>Insert comment</a></li>
+      <li soho-popupmenu-item><a soho-popupmenu-label [isDisabled]="isInsertNoteDisabled">Insert note</a></li>
+      <li soho-popupmenu-item><a soho-popupmenu-label >Clear notes</a></li>
+      <li soho-popupmenu-separator singleSelectableSection=true></li>
+      <li soho-popupmenu-heading>Additional Options</li>
+      <li soho-popupmenu-item isChecked=true isSelectable=true><a soho-popupmenu-label>Conditional formatting</a></li>
+      <li soho-popupmenu-item isSelectable=true><a soho-popupmenu-label>Data validation</a></li>
+    </ul>
+
+  </div>
+
+</div>
