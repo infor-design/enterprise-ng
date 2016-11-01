@@ -19,7 +19,7 @@ constructor(private modalService: SohoModalDialogService) {
    
 Angular requires a placeholder component to parent the 
 dialog component when it is instantiated.  The location of the component 
-is up to the calling application, but in this example the hosting componenent
+is up to the calling application, but in this example the hosting component
 is used.
 
 ```typescript
