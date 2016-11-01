@@ -17,6 +17,7 @@ import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.dem
 import { ButtonDemoComponent } from './button/button.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
+import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
@@ -87,6 +88,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
     ButtonDemoComponent,
     BusyIndicatorDemoComponent,
     CheckBoxDemoComponent,
+    ContextMenuDemoComponent,
     DatepickerDemoComponent,
     DropdownDemoComponent,
     DropdownMultiselectDemoComponent,
