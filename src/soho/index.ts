@@ -14,7 +14,8 @@ export * from './lookup';
 export * from './mask';
 export * from './masthead';
 export * from './menu-button';
-export * from './personalize'
+export * from './personalize';
+export * from './popupmenu';
 export * from './searchfield';
 export * from './splitter';
 export * from './slider';

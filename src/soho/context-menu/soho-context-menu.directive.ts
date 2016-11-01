@@ -1,34 +1,28 @@
 import {
   AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
+  Directive,
   ElementRef,
   EventEmitter,
-  HostBinding,
   Input,
   OnDestroy,
   Output
 } from '@angular/core';
 
-@Component({
-  selector: 'button[soho-menu-button]', // tslint:disable-line
-  templateUrl: 'soho-menu-button.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+@Directive({
+  selector: '[soho-context-menu]', // tslint:disable-line
 })
 
-export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
-  @HostBinding('class.btn-menu') get isBtnMenu() { return true; };
-  @HostBinding('attr.type') get buttonType() { return 'button'; };
-
+export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
   private jQueryElement: JQuery;
 
-  private menuButton: SohoPopupMenuStatic;
+  private contextMenu: SohoPopupMenuStatic;
 
   // -------------------------------------------
   // Default options block
   // -------------------------------------------
-
-  private options: SohoPopupMenuOptions = {};
+  private options: SohoPopupMenuOptions = {
+    trigger: 'rightClick'
+  };
 
   // -------------------------------------------
   // Component Output
@@ -41,24 +35,20 @@ export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
 
   // -------------------------------------------
   // Component Inputs
-  // -------------------------------------------
-
-  /** The icon to be used. */
-  @Input() icon: string;
 
   @Input() set trigger(trigger: SohoPopupMenuTrigger) {
     this.options.trigger = trigger;
-    if (this.menuButton) {
-      this.menuButton.settings.trigger = trigger;
-      this.menuButton.updated();
+    if (this.contextMenu) {
+      this.contextMenu.settings.trigger = trigger;
+      this.contextMenu.updated();
     }
   }
 
   @Input() set menu(menu: string) {
     this.options.menu = menu;
-    if (this.menuButton) {
-      this.menuButton.settings.menu = menu;
-      this.menuButton.updated();
+    if (this.contextMenu) {
+      this.contextMenu.settings.menu = menu;
+      this.contextMenu.updated();
     }
   }
 
@@ -67,7 +57,7 @@ export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.popupmenu(this.options);
-    this.menuButton = this.jQueryElement.data('popupmenu');
+    this.contextMenu = this.jQueryElement.data('popupmenu');
 
     // Add listeners to emit events
     this.jQueryElement
@@ -78,18 +68,18 @@ export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
   }
 
   updated() {
-    this.menuButton.updated();
+    this.contextMenu.updated();
   }
 
   teardown() {
-    this.menuButton.teardown();
+    this.contextMenu.teardown();
   }
 
   ngOnDestroy() {
-    if (this.menuButton) {
+    if (this.contextMenu) {
       // @todo raise an issue on this failing on removeData!
       // this.menuButton.destroy();
-      this.menuButton = null;
+      this.contextMenu = null;
     }
   }
 
