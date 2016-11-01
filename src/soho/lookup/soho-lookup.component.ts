@@ -9,8 +9,6 @@ import {
   ViewChild
 } from '@angular/core';
 
-// import { ControlValueAccessor } from '@angular/forms';
-
 import {
   BaseControlValueAccessor,
   provideControlValueAccessor
@@ -48,6 +46,11 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
   @Input() set field(value: string | SohoLookupFieldFunction) {
     this._options.field = value;
+  }
+
+  // Make sure you bind the context to the function
+  @Input() set click(value: SohoLookupClickFunction) {
+    this._options.click = value;
   }
 
   @Input() set title(value: string) {

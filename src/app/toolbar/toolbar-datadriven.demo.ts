@@ -56,7 +56,7 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
 
     buttons.push({
       id       : 'Create',
-      data     : '{"btn" : "create"}', // tslint: ignore-line
+      data     : '{"btn" : "create"}',
       text     : 'Create',
       icon     : 'add',
       cssClass : 'btn-icon'
@@ -64,7 +64,7 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
 
     buttons.push({
       id       : 'charts-btn',
-      data     : '{"btn" : "charts"}', // tslint: ignore-line
+      data     : '{"btn" : "charts"}',
       icon     : 'pie-chart',
       cssClass : 'btn-menu',
       menu     : [
@@ -76,7 +76,7 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
 
     buttons.push({
       id       : 'update-btn',
-      data     : '{"btn" : "open"}', // tslint: ignore-line
+      data     : '{"btn" : "open"}',
       text     : 'Open',
       icon     : 'folder',
       cssClass : 'btn-icon'
@@ -84,7 +84,7 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
 
     buttons.push({
       id       : 'delete-btn',
-      data     : '{"btn" : "delete"}', // tslint: ignore-line
+      data     : '{"btn" : "delete"}',
       text     : 'Delete',
       icon     : 'delete',
       cssClass : 'btn-icon'
@@ -92,7 +92,7 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
 
     buttons.push({
       id       : 'refresh-btn',
-      data     : '{"btn" : "refresh"}', // tslint: ignore-line
+      data     : '{"btn" : "refresh"}',
       text     : 'Refresh',
       icon     : 'refresh',
       cssClass : 'btn-icon'
@@ -100,7 +100,7 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
 
     buttons.push({
       id       : 'actions-btn',
-      data     : '{"btn" : "actions"}', // tslint: ignore-line
+      data     : '{"btn" : "actions"}',
       text     : 'Actions',
       cssClass : 'btn-menu',
       menu     : [{'label': 'Loading...'}]

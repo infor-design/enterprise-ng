@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Message</h2>
+    <div class="field">
+      <button soho-button (click)="openAlert($event)" [disabled]="dialog">Alert</button>
+      <button soho-button (click)="openError($event)" [disabled]="dialog">Error</button>
+    </div>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="twelve columns">
+    <p>
+      Last close result: {{closeResult}}
+    </p>
+
+  </div>
+</div>

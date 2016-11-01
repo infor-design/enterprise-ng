@@ -47,7 +47,7 @@ export class SohoModalDialogService {
     const dialogInjector = new SohoModalDialogInjector(modalDialogRef, this.injector);
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     const instance = parent.createComponent<T>(componentFactory, parent.length, dialogInjector);
-    instance.instance['options'] = options; // pass in any options/settings object to dialog
+    instance.instance['options'] = options; // pass in any options/settings object to dialog()
     modalDialogRef.component = instance;
     return modalDialogRef;
   }

@@ -137,6 +137,9 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy {
       this.listview.updated();
     }
   }
+  get searchable() {
+    return this.options.searchable;
+  }
 
   /** false, 'single', or 'multiple'. */
   @Input() set selectable(value: SohoListViewSelectable) {
