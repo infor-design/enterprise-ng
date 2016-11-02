@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By }              from '@angular/platform-browser';
-import { Component, DebugElement, ViewChild, AfterViewInit }    from '@angular/core';
+import { Component, DebugElement, ViewChild }    from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { SohoDropDownModule } from './soho-dropdown.module';
@@ -13,7 +12,6 @@ describe('Soho Dropdown Unit Tests', () => {
   let el:       HTMLElement;
 
   beforeEach( () => {
-    // refine the test module by declaring the test component
     TestBed.configureTestingModule({
       declarations: [ SohoDropDownComponent ]
     });
@@ -26,32 +24,32 @@ describe('Soho Dropdown Unit Tests', () => {
     el = de.nativeElement;
   });
 
-  it('simple content', () => {
+  it('Check Content', () => {
     expect(el.nodeName).toEqual('DIV');
     expect(el.attributes['id']).toEqual(comp.id);
     expect(el.className).toEqual('dropdown');
   });
 
-  /** TEST */
-  it('default name (and id)', () => {
+  it('Check Default \'name\' property', () => {
     expect(comp.name).toContain('soho-dropdown-');
   });
 
-  it('set name (and id)', () => {
+  it('Check setting \'name\' property.', () => {
     comp.name = 'my-id';
     expect(comp.name).toEqual('my-id');
     expect(comp.id).toEqual('my-id');
   });
+
+  // Add more method tests.
 });
 
 describe('Soho Dropdown Render', () => {
-  let dropDown:     SohoDropDownComponent;
+  let dropDown: SohoDropDownComponent;
   let fixture:  ComponentFixture<SohoDropDownTestComponent>;
   let de:       DebugElement;
   let el:       HTMLElement;
 
   beforeEach( () => {
-    // refine the test module by declaring the test component
     TestBed.configureTestingModule({
       declarations: [ SohoDropDownTestComponent ],
       imports: [ FormsModule, SohoDropDownModule ]
@@ -65,8 +63,9 @@ describe('Soho Dropdown Render', () => {
     el = de.nativeElement;
   });
 
-  it('simple content', () => {
+  it('Check HTML content', () => {
     console.log(el.innerHTML);
+
     expect(el.nodeName).toEqual('DIV');
     expect(el.attributes['id']).toEqual(dropDown.id);
     expect(el.className).toEqual('dropdown');
