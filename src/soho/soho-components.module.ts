@@ -10,6 +10,7 @@ import { SohoDropDownModule } from './dropdown/soho-dropdown.module';
 import { SohoEditorModule } from './editor/soho-editor.module';
 import { SohoExpandableAreaModule } from './expandablearea/soho-expandablearea.module';
 import { SohoHeaderModule } from './header/soho-header.module';
+import { SohoHyperlinkModule } from './hyperlink/soho-hyperlink.module';
 import { SohoIconModule } from './icon/soho-icon.module';
 import { SohoInputValidateModule } from './input-validate/soho-input-validate.module';
 import { SohoLabelModule } from './label/soho-label.module';
@@ -49,6 +50,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoEditorModule,
     SohoExpandableAreaModule,
     SohoHeaderModule,
+    SohoHyperlinkModule,
     SohoIconModule,
     SohoInputValidateModule,
     SohoLabelModule,
@@ -89,6 +91,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoEditorModule,
     SohoExpandableAreaModule,
     SohoHeaderModule,
+    SohoHyperlinkModule,
     SohoIconModule,
     SohoInputValidateModule,
     SohoLabelModule,

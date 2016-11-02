@@ -26,6 +26,7 @@ import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.dem
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
+import { HyperlinkDemoComponent } from './hyperlink/hyperlink.demo';
 import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
@@ -90,6 +91,7 @@ export const routes: Routes = [
   { path: 'header-tabs',           component: HeaderTabsDemoComponent },
   { path: 'header-toolbar',        component: HeaderToolbarDemoComponent },
   { path: 'header-toolbar-tabs',   component: HeaderToolbarAndTabsDemoComponent },
+  { path: 'hyperlink',             component: HyperlinkDemoComponent },
   { path: 'icon',                  component: IconDemoComponent },
   { path: 'label',                 component: LabelDemoComponent },
   { path: 'listview',              component: ListViewDemoComponent },
