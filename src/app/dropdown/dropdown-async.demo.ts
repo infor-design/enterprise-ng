@@ -8,10 +8,10 @@ import {
 
 import { Subject } from 'rxjs/Rx';
 
-import {
-  SohoDropDownComponent,
-  SohoBusyIndicatorDirective
-} from '../../soho';
+import { SohoDropDownComponent } from '../../soho';
+
+import { MOCK_STATES } from './dropdown-mock.data';
+
 
 @Component({
   selector: 'soho-dropdown-simple-demo',
@@ -21,9 +21,6 @@ import {
 export class DropdownAsyncDemoComponent implements AfterViewInit {
   /** Reference to the dropdown component so we can interact with it programmatically. */
   @ViewChild(SohoDropDownComponent) dropdown: SohoDropDownComponent;
-
-  /** Reference to the busy indicator so we can interact with it. */
-  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
 
   /** List of observable options {value: string, label: string} */
   @Input() options = new Subject<Array<any>>();
@@ -37,9 +34,6 @@ export class DropdownAsyncDemoComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit() {
-    // Display the status indicator.
-    this.busyIndicator.activated = true;
-
     /**
      * When the component's view has been initialised, which means the children
      * are ready, call the initialise method async which emulates making an ajax call to
@@ -63,31 +57,14 @@ export class DropdownAsyncDemoComponent implements AfterViewInit {
 
   webApiResponse() {
     // Push the data out ...
-    this.options.next([
-      { value: 'AK', label: 'Alaska' },
-      { value: 'AZ', label: 'Arizona' },
-      { value: 'CA', label: 'California' },
-      { value: 'CO', label: 'Colorado' },
-      { value: 'MN', label: 'Minnesota' },
-      { value: 'ND', label: 'North Dakota' },
-      { value: 'OR', label: 'Oregon' },
-      { value: 'WA', label: 'Washington' },
-      { value: 'WY', label: 'Wyoming' }
-    ]);
+    this.options.next(MOCK_STATES);
 
     // When the data has been loaded we need to make sure the dropdown
     // reflects the changes, we can't just call update now as the view
     // has not been updated yet, so push it onto the event queue.
-    // the options (it does not automatically).
     setTimeout(() => {
       // Force the control to refresh - reloading the options.
       this.dropdown.updated();
-
-      // The dropdown was disabled by default.
-      this.dropdown.enable();
-
-      // Complete the busy indicator - we're ready
-      this.busyIndicator.activated = false;
     });
   }
 }

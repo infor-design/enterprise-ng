@@ -6,7 +6,7 @@
       <div class="row">
         <div class="field">
           <label for="states" class="label">States</label>
-          <select soho-dropdown soho-busyindicator noSearch name="states" disabled activated="true" [(ngModel)]="model.selectedOption">
+          <select soho-dropdown noSearch name="states" [(ngModel)]="model.selectedOption">
             <option *ngFor="let option of (options | async)" [value]="option.value">{{option.label}}</option>
           </select>
         </div>

@@ -12,7 +12,10 @@ module.exports = function (config) {
       require('angular-cli/plugins/karma')
     ],
     files: [
-      { pattern: './src/test.ts', watched: false }
+      { pattern: './src/test.ts', watched: false },
+      { pattern: './node_modules/jquery/dist/jquery.js', watched: false  },
+      { pattern: './node_modules/@infor/sohoxi/dist/js/sohoxi.js', watched: false },
+      { pattern: './node_modules/@infor/sohoxi/dist/js/cultures/en-US.js', watched: false }
     ],
     preprocessors: {
       './src/test.ts': ['angular-cli']

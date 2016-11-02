@@ -77,9 +77,7 @@ This returns a typed implemtation of `SohoModalDialogRef`.
 | `closed(Function)` | 'Registers a 'closed' callback - before dialog is closed. |
 | `beforeDestroy(() => boolean))` | 'Registers a 'beforeDestroy' guard - vetoing the destruction. USE WITH CARE! |
 
-
 ## Events
-
 
 | Name | Description |
 | --- | --- |

@@ -17,6 +17,7 @@ import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
+import { DropdownAsyncDemoComponent } from './dropdown/dropdown-async.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
@@ -82,6 +83,7 @@ export const routes: Routes = [
   { path: 'datepicker',            component: DatepickerDemoComponent },
   { path: 'dropdown',              component: DropdownDemoComponent },
   { path: 'dropdown-async-busy',   component: DropdownAsyncBusyDemoComponent },
+  { path: 'dropdown-async',        component: DropdownAsyncDemoComponent },
   { path: 'dropdown-lm',           component: DropdownLMDemoComponent },
   { path: 'dropdown-multi',        component: DropdownMultiselectDemoComponent },
   { path: 'dropdown-simple',       component: DropdownSimpleDemoComponent },
