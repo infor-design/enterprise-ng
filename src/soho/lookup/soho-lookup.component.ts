@@ -3,10 +3,10 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  HostBinding,
   Input,
   OnDestroy,
-  Output,
-  ViewChild
+  Output
 } from '@angular/core';
 
 import {
@@ -15,8 +15,8 @@ import {
 } from '../utils';
 
 @Component({
-  selector: 'soho-lookup',
-  templateUrl: 'soho-lookup.component.html',
+  selector: 'input[soho-lookup]', // tslint:disable-line
+  template: '<ng-content></ng-content>',
   providers: [provideControlValueAccessor(SohoLookupComponent)]
 })
 export class SohoLookupComponent extends BaseControlValueAccessor<any> implements AfterViewInit, OnDestroy {
@@ -57,8 +57,6 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     this._options.title = value;
   }
 
-  @Input() label: string;
-
   @Input() name: string;
 
   @Input() options: SohoDataGridOptions;
@@ -77,7 +75,12 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   @Output() change: EventEmitter<SohoLookupChangeEvent[]> = new EventEmitter<SohoLookupChangeEvent[]>();
   @Output() open: EventEmitter<Object> = new EventEmitter<Object>();
 
-  @ViewChild('inputElement') inputElement: ElementRef;
+  /**
+   * Bind attributes to the host input element
+   */
+  @HostBinding('class.lookup') get isLookup() {
+    return true;
+  };
 
   /**
    * Local variables
@@ -96,7 +99,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.inputElement.nativeElement);
+    this.jQueryElement = jQuery(this.element.nativeElement);
 
     // The default options for the data grid, which will
     // be overriden by the options provided by the caller
@@ -130,6 +133,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     this.jQueryElement.on('beforeopen', () => this.beforeopen.emit(null));
     this.jQueryElement.on('open', () => this.open.emit(null));
     this.jQueryElement.on('change', (e: any, args: SohoLookupChangeEvent[]) => this.onChange(args));
+    this.jQueryElement.on('blur', (e: any) => this.touched());
 
     this.lookup = this.jQueryElement.data('lookup');
   }
@@ -165,6 +169,11 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    * Handle the control being changed.
    */
   onChange(event: SohoLookupChangeEvent[]) {
+    if (!event) {
+      // sometimes the event is not available
+      return;
+    }
+
     if (event.length && event.length === 1) {
       this.value = event[0].data;
     } else {

@@ -99,4 +99,12 @@ export class LookupDemoComponent /*implements SohoDataGridSourceFunction*/ {
       response(result.data, req);
     });
   }
+
+  onDirty(event: SohoTrackDirtyEvent) {
+    console.log('lookup.onDirty');
+  }
+
+  onPristine(event: SohoTrackDirtyEvent) {
+    console.log('lookup.onPristine');
+  }
 }
