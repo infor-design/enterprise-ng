@@ -10,4 +10,3 @@
  */
 interface SohoContextMenuEvent extends SohoPopupMenuEvent {
 }
-

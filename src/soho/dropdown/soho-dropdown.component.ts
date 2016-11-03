@@ -128,6 +128,10 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   @Input()
   public set multiple(multiple: boolean) {
     this.options.multiple = multiple;
+    if (this.dropdown) {
+      this.dropdown.settings.multiple = multiple;
+      this.dropdown.updated();
+    }
   }
 
   public get multiple(): boolean {
@@ -145,6 +149,10 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   @Input()
   public set noSearch(noSearch: boolean) {
     this.options.noSearch = noSearch;
+    if (this.dropdown) {
+      this.dropdown.settings.noSearch = noSearch;
+      this.dropdown.updated();
+    }
   }
 
   public get noSearch(): boolean {

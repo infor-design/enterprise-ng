@@ -113,7 +113,6 @@ export class SohoSliderComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-
   get disabled(): boolean {
     return this.isDisabled;
   }

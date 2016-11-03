@@ -12,7 +12,6 @@ import { SohoDropDownComponent } from '../../soho';
 
 import { MOCK_STATES } from './dropdown-mock.data';
 
-
 @Component({
   selector: 'soho-dropdown-simple-demo',
   templateUrl: 'dropdown-async.demo.html',
