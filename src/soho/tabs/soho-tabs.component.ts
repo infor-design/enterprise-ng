@@ -309,6 +309,13 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
   }
 
   /**
+   * Causes the tabs component to redraw
+   */
+  public refresh(): void {
+    this.tabs.handleResize();
+  }
+
+  /**
    * Adds a new tab into the tab component
    * @param tabId The tabId of the tab to be added
    * @param options ?

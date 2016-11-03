@@ -88,6 +88,9 @@ export class TabsDynamicDemoComponent implements DoCheck, OnInit {
     // expect change detection to message our ngDoChange and then we
     // can update the soho control based on tabs changes.
     // ----------------------------------------------------------------------
+
+
+    this.sohoTabsComponent.refresh();
   }
 
   onChangeTitles(event: SohoTabsEvent) {
@@ -102,5 +105,6 @@ export class TabsDynamicDemoComponent implements DoCheck, OnInit {
     }
 
     this.currentTabTitleChangeNumber++;
+    this.sohoTabsComponent.refresh();
   }
 }
