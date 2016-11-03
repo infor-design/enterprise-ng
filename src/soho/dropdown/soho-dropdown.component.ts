@@ -36,15 +36,21 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
    */
   private jQueryElement: JQuery;
 
+  /**
+   * Reference to the Soho Api.
+   */
   private dropdown: SohoDropDownStatic;
 
+  /**
+   * Block of options, use the accessors to modify.
+   */
   private options: SohoDropDownOptions = {};
 
   /**
    * Sets the dropdown to close on selecting a value (helpful for multi-select)
    */
   @Input()
-  set closeOnSelect(closeOnSelect: boolean) {
+  public set closeOnSelect(closeOnSelect: boolean) {
     this.options.closeOnSelect = closeOnSelect;
     if (this.dropdown) {
       this.dropdown.settings.closeOnSelect = closeOnSelect;
@@ -52,57 +58,88 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  public get closeOnSelect(): boolean {
+    return this.options.closeOnSelect;
+  }
+
   /**
    * Append a css class to the dropdown-list
    */
   @Input()
-  set cssClass(cssClass: string) {
+  public set cssClass(cssClass: string) {
     this.options.cssClass = cssClass;
+  }
+
+  public get cssClass(): string {
+    return this.options.cssClass;
   }
 
   /**
    * Typing debounce for search
    */
   @Input()
-  set delay(delay: number) {
+  public set delay(delay: number) {
     this.options.delay = delay;
+  }
+
+  public get delay(): number {
+    return this.options.delay;
   }
 
   /**
    * Initialize the empty value
    */
   @Input()
-  set empty(empty: boolean){
+  public set empty(empty: boolean){
     this.options.empty = empty;
+  }
+
+  public get empty(): boolean {
+    return this.options.empty;
   }
 
   /**
    * Value of the maximum number of selected elements (must have multiple set to true)
    */
   @Input()
-  set maxSelected(maxSelected: number) {
+  public set maxSelected(maxSelected: number) {
     this.options.maxSelected = maxSelected;
+  }
+
+  public get maxSelected(): number {
+    return this.options.maxSelected;
   }
 
   /**
    * Flag to move the selected values to the top of the dropdown
    */
   @Input()
-  set moveSelectedToTop(moveSelectedToTop: boolean) {
+  public set moveSelectedToTop(moveSelectedToTop: boolean) {
     this.options.moveSelectedToTop = moveSelectedToTop;
+  }
+
+  public get moveSelectedToTop(): boolean {
+    return this.options.moveSelectedToTop;
   }
 
   /**
    * Sets the select element as a multi-select
    */
   @Input()
-  set multiple(multiple: boolean) {
+  public set multiple(multiple: boolean) {
     this.options.multiple = multiple;
+    if (this.dropdown) {
+      this.dropdown.settings.multiple = multiple;
+      this.dropdown.updated();
+    }
+  }
+
+  public get multiple(): boolean {
+    return this.options.multiple;
   }
 
   /**
    * Name for the dropdown control. Necessary for ngModel to function.
-   *
    */
   @Input() name: string = `soho-dropdown-${SohoDropDownComponent.counter++}`;
 
@@ -110,8 +147,16 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
    * Flag to add/remove search functionality from the dropdown
    */
   @Input()
-  set noSearch(noSearch: boolean) {
+  public set noSearch(noSearch: boolean) {
     this.options.noSearch = noSearch;
+    if (this.dropdown) {
+      this.dropdown.settings.noSearch = noSearch;
+      this.dropdown.updated();
+    }
+  }
+
+  public get noSearch(): boolean {
+    return this.options.noSearch;
   }
 
   /**
@@ -119,8 +164,12 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
    * then create and pass to the control to use
    */
   @Input()
-  set source(source: SohoDropDownSourceFunction) {
+  public set source(source: SohoDropDownSourceFunction | Object | string ) {
     this.options.source = source;
+  }
+
+  public get source(): SohoDropDownSourceFunction | Object | string {
+    return this.options.source;
   }
 
   /**
@@ -174,11 +223,10 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.dropdown(this.options);
-    this.dropdown = this.jQueryElement.data('dropdown');
-
     this.jQueryElement
       .on('change', (event: JQueryEventObject) => this.onChange(event))
       .on('updated', (event: JQueryEventObject) => this.updatedEvent.emit(event));
+    this.dropdown = this.jQueryElement.data('dropdown');
   }
 
   ngOnDestroy() {
@@ -194,10 +242,18 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
 
   /**
    * In case options are being bound asynchronously, you will need to trigger updated on
-   * soho dropdown control so it updates its value label
+   * soho dropdown control so it updates its value labels.
    */
   public updated(): SohoDropDownComponent {
     this.dropdown.updated();
     return this;
+  }
+
+  public disable(): void {
+    this.dropdown.disable();
+  }
+
+  public enable(): void {
+    this.dropdown.enable();
   }
 }

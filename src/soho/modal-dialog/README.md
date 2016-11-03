@@ -19,7 +19,7 @@ constructor(private modalService: SohoModalDialogService) {
    
 Angular requires a placeholder component to parent the 
 dialog component when it is instantiated.  The location of the component 
-is up to the calling application, but in this example the hosting componenent
+is up to the calling application, but in this example the hosting component
 is used.
 
 ```typescript
@@ -77,9 +77,7 @@ This returns a typed implemtation of `SohoModalDialogRef`.
 | `closed(Function)` | 'Registers a 'closed' callback - before dialog is closed. |
 | `beforeDestroy(() => boolean))` | 'Registers a 'beforeDestroy' guard - vetoing the destruction. USE WITH CARE! |
 
-
 ## Events
-
 
 | Name | Description |
 | --- | --- |

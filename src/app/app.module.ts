@@ -33,6 +33,7 @@ import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
+import { DropdownAsyncDemoComponent } from './dropdown/dropdown-async.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
@@ -103,6 +104,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     DataGridTreeGridDemoComponent,
     DatepickerDemoComponent,
     DropdownAsyncBusyDemoComponent,
+    DropdownAsyncDemoComponent,
     DropdownDemoComponent,
     DropdownLMDemoComponent,
     DropdownMultiselectDemoComponent,

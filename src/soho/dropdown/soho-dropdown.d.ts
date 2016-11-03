@@ -106,6 +106,9 @@ interface SohoDropDownStatic {
    */
   disable(): void;
 
+  /** Enable the control. */
+  enable(): void;
+
   /**
    * True if the drop down is open; otherwise false.
    */

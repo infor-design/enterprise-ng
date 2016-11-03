@@ -113,11 +113,11 @@ export class SohoSliderComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  get disabled() {
+  get disabled(): boolean {
     return this.isDisabled;
   }
 
-  get readonly() {
+  get readonly(): boolean {
     return this.isReadOnly;
   }
 
