@@ -5,3 +5,7 @@
 
 interface SohoHyperlinkEvent extends JQueryEventObject {
 }
+
+interface JQuery {
+  hideFocus(): JQuery;
+}

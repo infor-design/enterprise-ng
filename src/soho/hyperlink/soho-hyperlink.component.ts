@@ -9,7 +9,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
-export type SohoHyperlinkType = 'hide-focus' | 'show-visited' | 'directional' | 'back';
+export type SohoHyperlinkType = 'show-visited' | 'forward-caret' | 'back-caret';
 
 @Component({
   selector: 'a[soho-hyperlink]', // tslint:disable-line
@@ -22,14 +22,15 @@ export type SohoHyperlinkType = 'hide-focus' | 'show-visited' | 'directional' | 
 
 export class SohoHyperlinkComponent implements AfterViewInit {
 
-  static HIDEFOCUS: SohoHyperlinkType = 'hide-focus';
   static SHOWVISITED: SohoHyperlinkType = 'show-visited';
-  static DIRECTIONAL: SohoHyperlinkType = 'directional';
-  static BACK: SohoHyperlinkType = 'back';
+  static DIRECTIONAL: SohoHyperlinkType = 'forward-caret';
+  static BACK: SohoHyperlinkType = 'back-caret';
 
   /** The type of the hyperlink, defaulting to 'hide-focus'. */
   @Input('soho-hyperlink') set sohoHyperlink(type: SohoHyperlinkType) {
-    this.hyperlinkType = type ? type : SohoHyperlinkComponent.HIDEFOCUS;
+    if (type) {
+      this.hyperlinkType = type;
+    }
   }
 
   @Input() icon: string;
@@ -37,14 +38,6 @@ export class SohoHyperlinkComponent implements AfterViewInit {
   @Output() change: EventEmitter<SohoHyperlinkEvent>;
 
   @HostBinding('class.hyperlink') hyperLinkClass = true;
-
-  @HostBinding('class.hide-focus') get hideFocusClass() {
-    if (this.hyperlinkType === SohoHyperlinkComponent.HIDEFOCUS
-    || this.hyperlinkType === SohoHyperlinkComponent.DIRECTIONAL
-    || this.hyperlinkType === SohoHyperlinkComponent.BACK) {
-      return true;
-    }
-  }
 
   @HostBinding('class.show-visited') get showVisitedClass() {
     if (this.hyperlinkType === SohoHyperlinkComponent.SHOWVISITED) {
@@ -79,8 +72,13 @@ export class SohoHyperlinkComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
-    this.jQueryElement.on('change', (event: JQueryEventObject) => this.change.emit(event));
 
-    // no control initializer for hyperlink
+    /*
+     * hideFocus() is the plugin used for hyperlink
+     * Initialize hideFocus()
+     */
+    this.jQueryElement.hideFocus();
+
+    this.jQueryElement.on('change', (event: JQueryEventObject) => this.change.emit(event));
   }
 }
