@@ -400,6 +400,8 @@ interface SohoDataGridStatic {
 
   renderRows(): void;
 
+  triggerSource(pagerType: 'initial' | 'refresh' | 'filtered' | 'sorted' | 'updatecolums' | string): void;
+
   /**
    * Destructor,
    */
