@@ -89,7 +89,6 @@ export class TabsDynamicDemoComponent implements DoCheck, OnInit {
     // can update the soho control based on tabs changes.
     // ----------------------------------------------------------------------
 
-
     this.sohoTabsComponent.refresh();
   }
 
