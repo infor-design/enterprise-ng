@@ -21,7 +21,7 @@ import { SohoTabsComponent } from '../../soho/tabs';
   selector: 'soho-tabs-dynamic-sample-component',
   templateUrl: './tabs-dynamic.demo.html'
 })
-export class TabsDynamicDemoComponent implements DoCheck, OnInit {
+export class TabsDynamicDemoComponent implements OnInit {
 
   @ViewChild(SohoTabsComponent) sohoTabsComponent: SohoTabsComponent;
 
@@ -58,23 +58,6 @@ export class TabsDynamicDemoComponent implements DoCheck, OnInit {
     this.tabs = this.tabsData[this.currentTabsIndex];
   }
 
-  ngDoCheck() {
-    if (!this.sohoTabsComponent) {
-      return;
-    }
-
-    let changes = this.tabsArrayDiffer.diff(this.tabs);
-    if (changes) {
-      // ----------------------------------------------------------------------
-      // place into timeout so the template can have a chance to process
-      // and get placed into teh sohoTabsComponent before we call update.
-      // ISSUE: this causes a FOUC
-      // ----------------------------------------------------------------------
-      setTimeout((sohoTabsComponent: SohoTabsComponent) => {
-        sohoTabsComponent.updated(); }, 1, this.sohoTabsComponent);
-    }
-  }
-
   onChangeTabs(event: SohoTabsEvent) {
     this.currentTabsIndex++;
     if (this.currentTabsIndex >= this.tabsData.length) {
@@ -83,13 +66,6 @@ export class TabsDynamicDemoComponent implements DoCheck, OnInit {
 
     this.tabs = this.tabsData[this.currentTabsIndex];
     this.currentTabTitleChangeNumber = 1;
-
-    // ----------------------------------------------------------------------
-    // expect change detection to message our ngDoChange and then we
-    // can update the soho control based on tabs changes.
-    // ----------------------------------------------------------------------
-
-    this.sohoTabsComponent.refresh();
   }
 
   onChangeTitles(event: SohoTabsEvent) {
@@ -104,6 +80,5 @@ export class TabsDynamicDemoComponent implements DoCheck, OnInit {
     }
 
     this.currentTabTitleChangeNumber++;
-    this.sohoTabsComponent.refresh();
   }
 }
