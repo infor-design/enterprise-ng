@@ -5,6 +5,8 @@ Release Date: 2016-10-31
 * 2016-10-13 - TH - PR-XXX
  - added typings for listview and splitter.
  - SohoListViewComponent now uses Soho Control defaults for 'options'
+* 2016-11-04 - TH - PR-XXX
+ - Added module support for _@infor/sohoxi-angular_.
  
 
 ### Breaking Changes

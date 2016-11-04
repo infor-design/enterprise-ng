@@ -24,3 +24,9 @@
 
 declare var System: any;
 
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of the common package.
+ */
+export * from './src/soho';

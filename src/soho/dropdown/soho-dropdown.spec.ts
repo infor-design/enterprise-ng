@@ -79,9 +79,9 @@ describe('Soho Dropdown Render', () => {
 
     let i = 0;
     component.options.forEach(option => {
-    expect(el.children[i].nodeName).toBe('OPTION');
-    expect(el.children[i].getAttribute('value')).toBe(option.value);
-    expect(el.children[i++].innerHTML).toBe(option.label);
+      expect(el.children[i].nodeName).toBe('OPTION');
+      expect(el.children[i].getAttribute('value')).toBe(option.value);
+      expect(el.children[i++].innerHTML).toBe(option.label);
     });
 
     dropdown.noSearch = false;
