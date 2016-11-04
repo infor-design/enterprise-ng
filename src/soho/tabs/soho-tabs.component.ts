@@ -325,6 +325,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
       console.log('tabCount changed: oldTabCount: ' + this.tabCount + ', newTabCount: ' + $liList.length + ': calling updated().')
       this.tabs.updated();
       this.tabCount = $liList.length;
+      this.tabTitles = this.getTabTitles($liList);
     } else {
       /*
        * if only tab titles change then call handleResize.
