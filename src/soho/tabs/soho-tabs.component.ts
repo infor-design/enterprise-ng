@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
@@ -7,8 +8,7 @@ import {
   HostBinding,
   Input,
   OnDestroy,
-  Output,
-  // ViewChild
+  Output
 } from '@angular/core';
 
 /**
@@ -100,7 +100,7 @@ export class SohoTabsListComponent {
   templateUrl: './soho-tabs.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoTabsComponent implements AfterViewInit, OnDestroy {
+export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   @HostBinding('class.tab-container') get isTabContainer() { return true; };
   @HostBinding('class.vertical')      get isVertical()     { return this.vertical; };
   @HostBinding('class.horizonal')     get isHorizontal()   { return this.horizontal; };
@@ -274,6 +274,16 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
   private _tabsOptions: SohoTabsOptions = <SohoTabsOptions> {};
 
   /**
+   * Keep track of current tab content for change detection.
+   * If the number of tab change we must call tabs.updated() to
+   * rebuild teh jquery tab control, if only the titles changed
+   * then we can call tabs.handleResize to update the selection
+   * style and the overflow.
+   */
+  private tabCount: number;
+  private tabTitles: Array<string>;
+
+  /**
    * Constructor.
    *
    * @param elementRef - the element matching the component's selector.
@@ -285,20 +295,79 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
     // bind to jquery events and emit as angular events
-    this.jQueryElement.bind('beforeactivate', ((event: SohoTabsEvent, tab) => {this.beforeactivate.emit(tab[0]); }));
-    this.jQueryElement.bind('activated', ((event: SohoTabsEvent, tab) => {this.activated.emit(tab[0]); }));
-    this.jQueryElement.bind('afteractivate', ((event: SohoTabsEvent, tab) => {this.afteractivate.emit(tab[0]); }));
-    this.jQueryElement.bind('close', ((event: SohoTabsEvent, tab) => {this.close.emit(tab[0]); }));
-    this.jQueryElement.bind('afterclose', ((event: SohoTabsEvent, tab) => {this.afterClose.emit(tab[0]); }));
-    this.jQueryElement.bind('tab-added', ((event: SohoTabsEvent, tab) => {this.tabAdded.emit(tab[0]); }));
+    this.jQueryElement
+      .on('beforeactivate', ((event: SohoTabsEvent, tab) => {this.beforeactivate.emit(tab[0]); }))
+      .on('activated', ((event: SohoTabsEvent, tab) => {this.activated.emit(tab[0]); }))
+      .on('afteractivate', ((event: SohoTabsEvent, tab) => {this.afteractivate.emit(tab[0]); }))
+      .on('close', ((event: SohoTabsEvent, tab) => {this.close.emit(tab[0]); }))
+      .on('afterclose', ((event: SohoTabsEvent, tab) => {this.afterClose.emit(tab[0]); }))
+      .on('tab-added', ((event: SohoTabsEvent, tab) => {this.tabAdded.emit(tab[0]); }));
 
     // initialize the tabs plugin
     this.jQueryElement.tabs(this._tabsOptions);
     this.tabs = this.jQueryElement.data('tabs');
+
+    this.updateTabInfo();
+  }
+
+  ngAfterViewChecked(): void {
+    if (!this.jQueryElement) {
+      return;
+    }
+
+    let $liList = this.getTabLiList();
+    if (!$liList) {
+      return;
+    }
+
+    if (this.tabCount !== $liList.length) {
+      /* Must rebuild the tab control if the tab count changes */
+      console.log('tabCount changed: oldTabCount: ' + this.tabCount + ', newTabCount: ' + $liList.length + ': calling updated().')
+      this.tabs.updated();
+      this.tabCount = $liList.length;
+      this.tabTitles = this.getTabTitles($liList);
+    } else {
+      /*
+       * if only tab titles change then call handleResize.
+       * It will update the tabs selection style and the overflow
+       */
+      let tabTitles = this.getTabTitles($liList);
+      for (let i = 0; i < tabTitles.length; i++) {
+        if (tabTitles[ i ] !== this.tabTitles[ i ]) {
+          console.log('tabTitles changed: Calling handleResize()');
+          this.tabs.handleResize();
+          this.tabTitles = tabTitles;
+          break;
+        }
+      }
+    }
   }
 
   ngOnDestroy() {
     this.tabs.destroy();
+  }
+
+  private updateTabInfo() {
+    let $liList: JQuery = this.getTabLiList();
+    this.tabCount = $liList.length;
+    this.tabTitles = this.getTabTitles($liList);
+  }
+
+  private getTabLiList($liList?: JQuery) {
+    return this.jQueryElement.children('.tab-list').find('li');
+  }
+
+  private getTabTitles($liList?: JQuery): Array<string> {
+    if (!$liList) {
+      $liList = this.getTabLiList();
+    }
+
+    let tabTitles: Array<string> = [];
+    let $anchorList: JQuery = $liList.find('a');
+    for (let i = 0, len = $anchorList.length; i < len; i++) {
+      tabTitles.push($($anchorList[i]).html());
+    }
+    return tabTitles;
   }
 
   /**

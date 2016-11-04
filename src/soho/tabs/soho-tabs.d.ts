@@ -75,6 +75,8 @@ interface SohoTabsStatic {
 
   enable(): void;
 
+  handleResize(): void;
+
   /**
    * Destructor,
    */
