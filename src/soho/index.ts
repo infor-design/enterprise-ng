@@ -13,7 +13,9 @@ export * from './listview';
 export * from './lookup';
 export * from './mask';
 export * from './masthead';
+export * from './message';
 export * from './menu-button';
+export * from './modal-dialog';
 export * from './personalize';
 export * from './popupmenu';
 export * from './searchfield';
@@ -28,3 +30,5 @@ export * from './tooltip';
 export * from './trackdirty';
 export * from './tree';
 export * from './utils';
+
+export { SohoComponentsModule } from './soho-components.module';
