@@ -358,7 +358,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   private getTabTitles($liList?: JQuery): Array<string> {
     if (!$liList) {
-      this.getTabLiList();
+      $liList = this.getTabLiList();
     }
 
     let tabTitles: Array<string> = [];
