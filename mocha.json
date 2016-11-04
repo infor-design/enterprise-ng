@@ -1,0 +1,62 @@
+{
+  "stats": {
+    "tests": 10,
+    "passes": 10,
+    "failures": 0,
+    "duration": 5185
+  },
+  "failures": [],
+  "passes": [
+    {
+      "title": "Soho DataGrid Unit Tests Check Content",
+      "fullTitle": "Soho DataGrid Unit Tests",
+      "duration": 469
+    },
+    {
+      "title": "Soho DataGrid Unit Tests Check Default 'name' property",
+      "fullTitle": "Soho DataGrid Unit Tests",
+      "duration": 341
+    },
+    {
+      "title": "Soho DataGrid Unit Tests Check setting 'name' property.",
+      "fullTitle": "Soho DataGrid Unit Tests",
+      "duration": 334
+    },
+    {
+      "title": "Soho Dropdown Render Check HTML content",
+      "fullTitle": "Soho Dropdown Render",
+      "duration": 765
+    },
+    {
+      "title": "Soho Dropdown Unit Tests Check Content",
+      "fullTitle": "Soho Dropdown Unit Tests",
+      "duration": 284
+    },
+    {
+      "title": "Soho Dropdown Unit Tests Check Default 'name' property",
+      "fullTitle": "Soho Dropdown Unit Tests",
+      "duration": 266
+    },
+    {
+      "title": "Soho Dropdown Unit Tests Check setting 'name' property.",
+      "fullTitle": "Soho Dropdown Unit Tests",
+      "duration": 273
+    },
+    {
+      "title": "Soho Dropdown Render Check HTML content",
+      "fullTitle": "Soho Dropdown Render",
+      "duration": 865
+    },
+    {
+      "title": "Soho Dropdown Render @Input() noSearch",
+      "fullTitle": "Soho Dropdown Render",
+      "duration": 788
+    },
+    {
+      "title": "Soho Dropdown Render @Input() multiple",
+      "fullTitle": "Soho Dropdown Render",
+      "duration": 800
+    }
+  ],
+  "skipped": []
+}

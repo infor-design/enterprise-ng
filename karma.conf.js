@@ -8,9 +8,21 @@ module.exports = function (config) {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
+      require('karma-phantomjs-launcher'),
       require('karma-remap-istanbul'),
-      require('angular-cli/plugins/karma')
+      require('angular-cli/plugins/karma'),
+      require('karma-mocha-reporter'),
+      require('karma-bamboo-reporter')
     ],
+    mochaReporter: {
+      colors: {
+        success: 'white',
+        info: 'orange',
+        warning: 'cyan',
+        error: 'bgRed',
+      },
+      output: 'autowatch',
+    },
     files: [
       { pattern: './src/test.ts', watched: false },
       { pattern: './node_modules/jquery/dist/jquery.js', watched: false  },
@@ -31,13 +43,16 @@ module.exports = function (config) {
       environment: 'dev'
     },
     reporters: config.angularCli && config.angularCli.codeCoverage
-              ? ['progress', 'karma-remap-istanbul']
-              : ['progress'],
+              ? ['progress', 'karma-remap-istanbul', 'mocha']
+              : ['progress', 'mocha'],
+    mocha:{
+      outputFile: 'tests/results.txt'
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
     singleRun: false
   });
 };

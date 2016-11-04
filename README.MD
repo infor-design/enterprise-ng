@@ -126,7 +126,7 @@ The types defined in here attempt to represent the interface exposed by the wrap
  - Simple types (number, string, ...)
  - Union types (enums)
  - Functions Prototypes (for source and response functions)
- - Events (for triggered events)  
+ - Events (for triggered events)
 
 It is **important** that the typings files accurately represent the underlying jQuery control, so any changes made by the Soho team need to made to the corresponding Soho Angular Component  typing file.
 
@@ -222,7 +222,7 @@ This file includes a reference to each of the typings files defined within each 
     /// <reference path="./widget/soho-widget.d.ts" />
 
 To integrate this into your application simply include a reference to soho\soho-**components.d.ts** file in your **typings.d.ts** file.
-There is also a **soho.d.ts** file, this pulls in the **soho-components.d.ts** file and also adds some additional global structures.  However,  this may be deleted when all the existing components have had individual typings created.  
+There is also a **soho.d.ts** file, this pulls in the **soho-components.d.ts** file and also adds some additional global structures.  However,  this may be deleted when all the existing components have had individual typings created.
 
 ###Issues
 ####Interface leaking
