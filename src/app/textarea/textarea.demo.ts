@@ -2,7 +2,7 @@ import { Component, OnInit , ViewChild} from '@angular/core';
 
 import {
   SohoTextAreaComponent
-} from '../../soho/textarea';
+} from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-textarea-demo',

@@ -10,9 +10,9 @@
 import {
   SohoDataGridComponent,
   SohoDataGridRowEvent,
-} from '../../soho/datagrid';
+} from '@infor/sohoxi-angular';
 
-import { SohoBusyIndicatorDirective } from '../../soho/busyindicator';
+import { SohoBusyIndicatorDirective } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-datagrid-treegrid-demo',

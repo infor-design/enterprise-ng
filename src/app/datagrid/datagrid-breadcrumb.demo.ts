@@ -12,7 +12,7 @@ import { DataGridDemoService } from './datagrid-demo.service';
 import {
   SohoDataGridComponent,
   SohoDataGridService
-} from '../../soho/datagrid';
+} from '@infor/sohoxi-angular';
 
 import { SohoBusyIndicatorDirective } from '../../soho';
 

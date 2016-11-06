@@ -8,7 +8,7 @@ import {
 import {
   SohoModalDialogService,
   SohoModalDialogRef
-} from '../../soho/modal-dialog';
+} from '@infor/sohoxi-angular';
 
 import { ExampleModalDialogComponent } from './example-modal-dialog.component';
 import { NestedModalDialogComponent } from './nested-modal-dialog.component';

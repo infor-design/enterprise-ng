@@ -6,8 +6,8 @@
 import { TreeDemoService } from '../tree/tree-demo.service';
 import { DataGridDemoService } from '../datagrid/datagrid-demo.service';
 
-import { SohoDataGridService } from '../../soho/datagrid';
-import { SohoTreeService } from '../../soho/tree';
+import { SohoDataGridService } from '@infor/sohoxi-angular';
+import { SohoTreeService } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-splitter-horizontal-demo',

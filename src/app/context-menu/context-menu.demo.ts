@@ -3,7 +3,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-import { SohoTextAreaComponent } from '../../soho/textarea';
+import { SohoTextAreaComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-content-menu-demo',

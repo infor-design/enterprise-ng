@@ -13,7 +13,7 @@ module.exports = function (config) {
       require('angular-cli/plugins/karma'),
       require('karma-mocha-reporter'),
       require('karma-bamboo-reporter')
-    ],
+   ],
     mochaReporter: {
       colors: {
         success: 'white',

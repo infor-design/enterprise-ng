@@ -6,7 +6,7 @@ import {
 
 import {
   SohoTimePickerComponent
-} from '../../soho/timepicker/soho-timepicker.component';
+} from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-timepicker-demo',

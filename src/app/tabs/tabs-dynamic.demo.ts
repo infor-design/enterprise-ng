@@ -1,13 +1,12 @@
 import {
   Component,
-  DoCheck,
   IterableDiffer,
   IterableDiffers,
   OnInit,
   ViewChild
 } from '@angular/core';
 
-import { SohoTabsComponent } from '../../soho/tabs';
+import { SohoTabsComponent } from '@infor/sohoxi-angular';
 
 /**
  * This sample:
