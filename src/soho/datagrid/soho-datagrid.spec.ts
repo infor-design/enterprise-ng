@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+// import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild }    from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -49,7 +49,7 @@ describe('Soho Dropdown Render', () => {
   let component: SohoDataGridTestComponent;
   let fixture:   ComponentFixture<SohoDataGridTestComponent>;
   let de:        DebugElement;
-  let el:        HTMLElement;
+//  let el:        HTMLElement;
 
   beforeEach( () => {
     TestBed.configureTestingModule({

@@ -4,7 +4,7 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { SohoDropDownComponent } from '../../soho';
+import { SohoDropDownComponent } from '@infor/sohoxi-angular';
 
 import { MOCK_STATES } from './dropdown-mock.data';
 

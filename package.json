@@ -12,10 +12,11 @@
     "registry": "http://npm.infor.com/"
   },
   "scripts": {
-    "start": "ng serve",
+    "start": "gulp copy-assets && ng serve",
+    "build": "gulp copy-assets && ng build",
     "lint": "tslint \"src/**/*.ts\" -e \"src/typings.d.ts\" -e \"src/soho/soh*.d.ts\"",
     "test": "ng test",
-    "unit-test": "ng test --watch=false --browsers=PhantomJS --reporters=bamboo,mocha",
+    "unit-test": "ng test --watch=false --browsers=PhantomJS --reporters=bamboo,mocha --code-coverage --lint",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
     "add-develop-tag": "./scripts/add-npm-tag.js develop",
@@ -43,6 +44,7 @@
     "@types/node": "^6.0.45",
     "angular-cli": "^1.0.0-beta.19-3",
     "codelyzer": "^1.0.0-beta.2",
+    "gulp": "^3.9.1",
     "jasmine-core": "2.4.1",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",

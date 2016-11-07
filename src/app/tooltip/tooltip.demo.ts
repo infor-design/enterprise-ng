@@ -2,7 +2,7 @@ import { Component, OnInit , ViewChildren, QueryList} from '@angular/core';
 
 import {
   SohoTooltipDirective
-} from '../../soho/tooltip';
+} from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-tooltip-demo',

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Rx';
 
-import { SohoDataGridService } from '../../soho/datagrid';
+import { SohoDataGridService } from '@infor/sohoxi-angular';
 import { PAGING_COLUMNS, PAGING_DATA } from './datagrid-paging-data';
 
 @Injectable()

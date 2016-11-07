@@ -7,7 +7,7 @@ import {
 import {
   SohoModalDialogRef,
   SohoModalDialogService
-} from '../../soho/modal-dialog';
+} from '@infor/sohoxi-angular';
 
 /**
  * This is an example of a nested dialog component, that can be instantiated

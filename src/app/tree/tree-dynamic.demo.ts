@@ -8,7 +8,7 @@ import {
 
 import { Subject } from 'rxjs/Subject';
 
-import { SohoTreeComponent } from '../../soho/tree';
+import { SohoTreeComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-tree-dynamic-demo',

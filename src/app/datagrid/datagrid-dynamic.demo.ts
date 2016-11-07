@@ -10,8 +10,8 @@ import {
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import { SohoDataGridComponent } from '../../soho/datagrid';
-import { SohoBusyIndicatorDirective } from '../../soho/busyindicator';
+import { SohoDataGridComponent } from '@infor/sohoxi-angular';
+import { SohoBusyIndicatorDirective } from '@infor/sohoxi-angular';
 
 import {
   DataGridDemoService

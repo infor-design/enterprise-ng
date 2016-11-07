@@ -5,7 +5,7 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { SohoDataGridComponent } from '../../soho/datagrid';
+import { SohoDataGridComponent } from '@infor/sohoxi-angular';
 
 import { DataGridPagingServiceDemoService } from './datagrid-paging-service-demo.service';
 

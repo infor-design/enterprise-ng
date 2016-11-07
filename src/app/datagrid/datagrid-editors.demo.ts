@@ -4,7 +4,7 @@ import {
   AfterViewInit
  } from '@angular/core';
 
-import { SohoDataGridComponent } from '../../soho';
+import { SohoDataGridComponent } from '@infor/sohoxi-angular';
 
 // tslint:disable
 
