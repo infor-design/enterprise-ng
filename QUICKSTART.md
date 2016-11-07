@@ -2,7 +2,7 @@
 
 This QuickStart guide demonstrates how to build and run a simple Angular application using the SohoXi component package (**@infor/sohoxi-angular**).
 
-You can down the latest version from [quickstart](http://git.infor.com/users/tharper/repos/sohoxi-angular-quickstart/browse).
+You can download the latest version from [quickstart](http://git.infor.com/users/tharper/repos/sohoxi-angular-quickstart/browse).
 
 ## Prerequisites
 
