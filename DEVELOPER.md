@@ -17,7 +17,7 @@
 - Type `ng build`
 - Type `ng serve`
 
-## Components and Typings
+## Component Structure
 
 A brief overview of a simple component in the Soho Angular Component project.  The intention is to define the contract between the Soho jQuery controls and the Soho Angular Components.
 
@@ -104,16 +104,16 @@ The outputs are the events emitted by the component.
     @Output() built = new EventEmitter<SohoWidgetBuiltEvent>();
 
 **HOST BINDINGS**
-
 Then any host bindings required to annoate the markup, such as classes, or attributes.  Some of these may of course be controlled by other properties.
 
       @HostBinding('class.soho-widget') get isWidget() { return true; }
-    Then private member data:
+   
+Then private member data:
+
       private element: JQuery;
       private widget: SohoWidgetStatic;
 
 **METHODS**
-
 Expose the methods provided by the component wrapper.
 
       makeWidget(): void {
@@ -129,57 +129,41 @@ The constructor needs to store the injected element reference.
 
  Then we handle the AfterViewEvent.
 
-    ngAfterViewInit() {
-      this.jQueryElement = jQuery(this.element.nativeElement);
-      this.jQueryElement.widget(this.options);
-      this.widet = this.jQueryElement.data('widget');
-      this.jQueryElement
-    .on('built', (e: JQueryObjecyEvent, widgetId: string) => this.built.next({widgetId}));
+  ngAfterViewInit() {
+    this.jQueryElement = jQuery(this.element.nativeElement);
+    this.jQueryElement.widget(this.options);
+    this.widet = this.jQueryElement.data('widget');
+    this.jQueryElement
+      .on('built', (e: JQueryObjectEvent, widgetId: string) => this.built.next({widgetId}));
     }
 
 Finally, the destructor.
 
-    ngOnDestroy() {
-      if (this.widget) {
-    this.widget.destroy();
-    this.widget = null;
-      }
+  ngOnDestroy() {
+    if (this.widget) {
+      this.widget.destroy();
+      this.widget = null;
     }
+  }
 
-**HTML**
+## HTML
 The HTML file should include any markup required for the control to work.
 
-    <soho-icon *ngIf="count > 1" [icon]='gear'></soho-icon>
-    <ng-content></ng-content>
+  <soho-icon *ngIf="count > 1" [icon]='gear'></soho-icon>
+  <ng-content></ng-content>
 
-###Pulling it all together
-The component is then added into the consolidated typings using the top level typing files:
+## Unit Testing
 
-    soho\
-     soho-components.d.ts
-     soho.d.ts
+Angular-CLI uses **jasmine** to handle unit testing.  Simple add you unit test code to a file called **soho-widget.spec.ts** in the same folder as component.
+
+## Pulling it all together
+The component is then added into the consolidated typings using the top level typing file:
+
+  soho\
+   soho-components.d.ts
 
 This file includes a reference to each of the typings files defined within each component, e.g.
 
-    /// <reference path="./widget/soho-widget.d.ts" />
+  /// <reference path="./widget/soho-widget.d.ts" />
 
-To integrate this into your application simply include a reference to soho\soho-**components.d.ts** file in your **typings.d.ts** file.
-There is also a **soho.d.ts** file, this pulls in the **soho-components.d.ts** file and also adds some additional global structures.  However,  this may be deleted when all the existing components have had individual typings created.
-
-###Issues
-####Interface leaking
-Exposing the typings in the way we do means the hosting application has access to JQuery control (and it api) which can cause issues with the Angular Component.  As a rule, I would expect all applications to use the Soho Angular Component, and extend the component when it does not provide necessary features.  It should only be an exception when that rule is broken.
-However, we use the typings on the Soho Angular Component interface, which breaks the encapsulation.
-This does have the advantage that the control is therefor more agile.
-
-####Component Unit Testing
- We have none yet but working on it
-
-####Component Documentation
-Eventual README per component?
-
-###NPM Support
-Working on it latest is at http://npm.infor.com in page
-@infor/sohoxi-angular
-
-This is WIP and un-tested but you should be able to reference it here
+To integrate this into your application simply include the **@infor/sohoxi-angular** package into your application, and include the **SohoComponentsModule** into your application module definition.  For further details, see the QuickStart guide.
