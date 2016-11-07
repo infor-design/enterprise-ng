@@ -7,6 +7,7 @@ export * from './dropdown';
 export * from './editor';
 export * from './expandablearea';
 export * from './header';
+export * from './hyperlink';
 export * from './icon';
 export * from './input-validate';
 export * from './listview';
