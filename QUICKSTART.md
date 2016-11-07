@@ -104,6 +104,23 @@ import { SohoComponentsModule } from '@infor/sohoxi-angular';
 ```
 Add ```SohoComponentsModule``` to the imports. 
 
+Add SohoComponentsModule to the imports.
+```
+@NgModule({
+  ...
+  declarations: [],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    SohoComponentsModule
+  ]
+  ...
+)}
+```
+
+## Add a SohoXi Component 
+
 Add a button to `app.component.html`, by appending the following code snippet:
 ```
 <button soho-button>Click Me!<button>
