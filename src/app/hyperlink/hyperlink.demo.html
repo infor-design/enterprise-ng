@@ -1,0 +1,28 @@
+<div class="example-section" role="main">
+  <div class="row ">
+    <br><br><br>
+    <div class="example">
+      <div class="example-content">
+        <span class="label">Normal</span>
+        <a soho-hyperlink [href]="url1">More Information Hyperlink</a><br><br><br><br>
+
+        <span class="label">Disabled</span>
+        <a soho-hyperlink [disabled]="isDisabled" tabindex="-1" [href]="url2">More Information Hyperlink</a><br><br><br><br>
+
+        <span class="label">Visited</span>
+        <a soho-hyperlink="show-visited" [href]="url1">More Information Hyperlink</a><br><br><br><br>
+
+        <span class="label">Link with Caret</span>
+        <a soho-hyperlink="forward-caret" [href]="url2" [isCaretRight]="true" ><span>Hyperlink with Directional Caret </span>
+
+        </a><br><br><br><br>
+
+        <span class="label">Back Link</span>
+        <a href="#" soho-hyperlink="back-caret" [isCaretLeft]="true">
+          <span>Back to Search Results</span>
+        </a>
+    </div>
+
+  </div>
+</div>
+</div>

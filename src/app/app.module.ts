@@ -43,6 +43,7 @@ import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.dem
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
+import { HyperlinkDemoComponent } from './hyperlink/hyperlink.demo';
 import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
@@ -114,6 +115,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     HeaderTabsDemoComponent,
     HeaderToolbarAndTabsDemoComponent,
     HeaderToolbarDemoComponent,
+    HyperlinkDemoComponent,
     IconDemoComponent,
     LabelDemoComponent,
     ListViewDemoComponent,
