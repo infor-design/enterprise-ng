@@ -6,8 +6,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { SohoApplicationMenuComponent } from '../soho/application-menu';
-import { ArgumentHelper } from '../soho/utils';
+import { SohoApplicationMenuComponent } from '@infor/sohoxi-angular';
+import { ArgumentHelper } from '@infor/sohoxi-angular';
 import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.service';
 
 @Component({

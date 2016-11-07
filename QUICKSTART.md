@@ -2,19 +2,21 @@
 
 This QuickStart guide demonstrates how to build and run a simple Angular application using the SohoXi component package (**@infor/sohoxi-angular**).
 
+You can down the latest version from [quickstart](http://git.infor.com/users/tharper/repos/sohoxi-angular-quickstart/browse).
+
 ## Prerequisites
 
-If **Node.js** and npm aren't already on your machine, install them. Our examples require node v4.x.x or higher and npm 3.x.x or higher. To check which version you are using, run `node -v` and `npm -v` in a terminal window.
+If **Node.js** and npm aren't already on your machine, install them. These examples require node v4.x.x or higher and npm 3.x.x or higher. To check which version you are using, run `node -v` and `npm -v` in a terminal window.
 
-This quick start guide uses **Angular-CLI** to create, build and run the application.  At the time of writing the version of angular-cli used was 1.0.0-beta-19.
+This quick start guide uses **Angular-CLI** to create, build and run the application.  At the time of writing the version of angular-cli used was 1.0.0-beta-19-3.
 
-In addition, **gulp** is used to perform any additional build and deployment steps required to get the application running.
+In addition, **gulp** is used to perform additional build and deployment steps required to get the application built.
 
 ## Step 1 : Create and Configure the Project
 
 ### Create the project folder
 
-Using a terminal window, create a new folder, called `sohoxi-angular-demo`.
+Using a terminal window, create a new folder, called `sohoxi-angular-quickstart`.
 ```
 mkdir sohoxi-angular-quickstart
 cd sohoxi-angular-quickstart
@@ -28,7 +30,7 @@ In the same terminal window, use angular-cli to initialise the project creating 
 ng init
 ```
 
-## Install Packages
+## Step 2 : Install Packages
 
 The project will need access to the Infor NPM registy to be able to pull down the latest *SohoXI* component libraries for jQuery and Angular.  The easiest was to achieve this is to create the file `.npmrc` at the root of the project, and edit the file to include:
 
@@ -36,7 +38,7 @@ The project will need access to the Infor NPM registy to be able to pull down th
 @infor:registry=http://npm.infor.com:4873
 ```
 
-You can add the dependencies directly into the `project.json` file, however it is more reliable to add them using the command line to avoid any issues.  From within the project folder run:
+You can add the dependencies directly into the `project.json` file, however it is more reliable to add them using the command line.  In a terminal window, in the project folder:
 
 1. Type `npm install –save jquery@3.1.1` 
 2. Type `npm install –save @types/jquery`
@@ -45,7 +47,7 @@ You can add the dependencies directly into the `project.json` file, however it i
 
 This includes all the packages we need to create this simple quick start application.
 
-## Configure Angular CLI
+## Step 3 : Configure Angular CLI
 
 The next step is to configure angular-cli to include the SohoXI libraries into the output. 
 
@@ -57,7 +59,7 @@ Edit `angular-cli.json`, change the  `scripts` as follows:
 "../node_modules/@infor/sohoxi/dist/js/cultures/en-US"
 ],
 ```
-## Configure TypeScript
+## Step 4 : Configure TypeScript
 Edit `src/tsconfig.json`, add this below the `typeRoots` property:
 ```json
 "types": [
@@ -66,11 +68,13 @@ Edit `src/tsconfig.json`, add this below the `typeRoots` property:
   "node"
 ]
 ```
-## SohoXI Assets
-Angular-CLI is not capable of automatically copying assets from dependencies in node_modules.
+## Step 5 : SohoXI Assets
+Angular-CLI is currently not capable of automatically copying assets from dependencies in node_modules.
 The easiest way to overcome this is to add a prebuild step which can be run as part of 
 npm.  This example uses **gulp** to copy the assets from the sohoxi folder into the src/assets folder of the 
-application. Create a gulpfile.js file in the root of your project, consisting of the following:
+application. 
+
+Create a gulpfile.js file in the root of your project, consisting of the following:
 ```typescript
 var gulp = require('gulp');
 
@@ -89,7 +93,7 @@ You can also include this in the build (and start) scripts included in the proje
 ```json
 "start": "gulp copy-assets && ng serve",
 ``` 
-## Making Sure it Works
+## Step 6 : Making Sure it Works
 Run the app to test it.
 ```ng serve``` 
 Check you get the default page when you browse to http://localhost:4200/.
@@ -109,3 +113,7 @@ Then from a command line run (you can use `ng serve` but that wont copy the asse
 npm run start
 ```
 Check you get the button when you browse to http://localhost:4200/.
+
+# What Next
+
+Now implement the rest of your application, using the components provided, of which a list can be found [here](??)

@@ -14,7 +14,7 @@ import {
   SohoDataGridService
 } from '@infor/sohoxi-angular';
 
-import { SohoBusyIndicatorDirective } from '../../soho';
+import { SohoBusyIndicatorDirective } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-datagrid-breadcrumb-demo',
