@@ -7,9 +7,11 @@ Release Date: 2016-10-31
  - SohoListViewComponent now uses Soho Control defaults for 'options'
 * 2016-11-04 - TH - PR-XXX
  - Added module support for _@infor/sohoxi-angular_.
-* 2016-11-07 - TH -
+* 2016-11-07 - TH - 
+ - added QUICKSTART.md for developers using this library
+ - added DEVELOPER.md for developers adding new components to this library
+ - styles are now loaded from the sohoxi package (using gulp)
  
-
 ### Breaking Changes
 * 2016-10-10 - TH - PR-118
     refactored SohoGridColumn -> SohoDataGridColumn
