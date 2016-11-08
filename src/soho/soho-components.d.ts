@@ -12,6 +12,7 @@
 /// <reference path="./dropdown/soho-dropdown.d.ts" />
 /// <reference path="./editor/soho-editor.d.ts" />
 /// <reference path="./expandablearea/soho-expandablearea.d.ts" />
+/// <reference path="./fileupload/soho-fileupload.d.ts" />
 /// <reference path="./header/soho-header.d.ts" />
 /// <reference path="./hyperlink/soho-hyperlink.d.ts" />
 /// <reference path="./listview/soho-listview.d.ts" />

@@ -24,6 +24,7 @@ import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselec
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
+import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
@@ -90,6 +91,7 @@ export const routes: Routes = [
   { path: 'dropdown-simple',       component: DropdownSimpleDemoComponent },
   { path: 'editor',                component: EditorDemoComponent },
   { path: 'expandablearea',        component: ExpandableAreaDemoComponent },
+  { path: 'fileupload',            component: FileUploadDemoComponent },
   { path: 'header-tabs',           component: HeaderTabsDemoComponent },
   { path: 'header-toolbar',        component: HeaderToolbarDemoComponent },
   { path: 'header-toolbar-tabs',   component: HeaderToolbarAndTabsDemoComponent },
