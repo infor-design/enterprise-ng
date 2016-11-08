@@ -247,4 +247,8 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy {
     }
     return classes;
   }
+
+  clearAllSelected() {
+    this.listview.clearAllSelected();
+  }
 }
