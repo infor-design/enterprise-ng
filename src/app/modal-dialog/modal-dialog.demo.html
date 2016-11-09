@@ -6,6 +6,7 @@
       <button soho-button (click)="openNested($event)" [disabled]="dialogRef">Nested</button>
       <button soho-button (click)="openMessage($event)" [disabled]="dialogRef">Message</button>
       <button soho-button (click)="openVeotable($event)" [disabled]="dialogRef">Vetoable</button>
+      <button soho-button (click)="openDialogResult($event)" [disabled]="dialogRef">Dialog Result</button>
     </div>
   </div>
 </div>
@@ -20,7 +21,7 @@
     <label for="isAlert" class="checkbox-label">Is Alert</label>
 
     <p>
-      Last close result: {{closeResult}}
+      Last Dialog Result: {{closeResult}}
     </p>
 
   </div>
