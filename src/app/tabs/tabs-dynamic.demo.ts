@@ -27,7 +27,6 @@ export class TabsDynamicDemoComponent implements OnInit {
   private tabs: Array<any>;
   private currentTabsIndex: number = 1;
   private currentTabTitleChangeNumber: number = 1;
-  private tabsArrayDiffer: IterableDiffer;
 
   private tabsData: Array<any> =
     [
@@ -49,9 +48,7 @@ export class TabsDynamicDemoComponent implements OnInit {
       ]
     ];
 
-  constructor(private iterableDiffers: IterableDiffers) {
-    this.tabsArrayDiffer = this.iterableDiffers.find([]).create(null);
-  }
+  constructor() {}
 
   ngOnInit() {
     this.tabs = this.tabsData[this.currentTabsIndex];
