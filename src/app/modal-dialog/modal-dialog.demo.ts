@@ -1,5 +1,4 @@
 import {
-  ChangeDetectionStrategy,
   Component,
   ViewContainerRef,
   ViewChild
@@ -17,8 +16,6 @@ import { VetoableModalDialogComponent } from './vetoable-modal-dialog.component'
 @Component({
   selector: 'soho-modal-dialog.demo',
   templateUrl: 'modal-dialog.demo.html'
-  //,
-  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ModalDialogDemoComponent {
   /**
@@ -119,7 +116,7 @@ export class ModalDialogDemoComponent {
       .title(this.title)
       .open()
       .afterClose(result => {
-        alert(`You selected ${result}`)
+        alert(`You selected ${result}`);
         this.closeResult = result;
         this.dialog = null;
       });
