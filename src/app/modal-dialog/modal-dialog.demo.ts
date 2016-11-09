@@ -1,5 +1,4 @@
 import {
-  ChangeDetectionStrategy,
   Component,
   ViewContainerRef,
   ViewChild
@@ -16,8 +15,7 @@ import { VetoableModalDialogComponent } from './vetoable-modal-dialog.component'
 
 @Component({
   selector: 'soho-modal-dialog.demo',
-  templateUrl: 'modal-dialog.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: 'modal-dialog.demo.html'
 })
 export class ModalDialogDemoComponent {
   /**
@@ -48,9 +46,9 @@ export class ModalDialogDemoComponent {
   }
 
   openSimple() {
-     const buttons = [
-       { text: 'Cancel', click: (e, modal) => { modal.close(true); } },
-       { text: 'Submit', click: (e, modal) => { modal.close(true); }, isDefault: true }];
+    const buttons = [
+      { text: 'Cancel', click: (e, modal) => { modal.close(true); } },
+      { text: 'Submit', click: (e, modal) => { modal.close(true); }, isDefault: true }];
 
     this.dialog = this.modalService
       .modal(ExampleModalDialogComponent, this.placeholder)
@@ -71,8 +69,8 @@ export class ModalDialogDemoComponent {
     this.dialog = this.modalService
       .modal(NestedModalDialogComponent, this.placeholder)
       .buttons(
-        [{text: 'Cancel', click: (e, modal) => { modal.close(true); }},
-         {text: 'Submit', click: (e, modal) => { modal.close(true); }, isDefault: true}])
+      [{ text: 'Cancel', click: (e, modal) => { modal.close(true); } },
+      { text: 'Submit', click: (e, modal) => { modal.close(true); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose(result => {
@@ -85,8 +83,8 @@ export class ModalDialogDemoComponent {
     this.dialog = this.modalService
       .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
       .buttons(
-        [{text: 'Cancel', click: (e, modal) => { modal.close(true); }},
-         {text: 'Submit', click: (e, modal) => { modal.close(true); }, isDefault: true}])
+      [{ text: 'Cancel', click: (e, modal) => { modal.close(true); } },
+      { text: 'Submit', click: (e, modal) => { modal.close(true); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose(result => {
@@ -99,11 +97,26 @@ export class ModalDialogDemoComponent {
     this.dialog = this.modalService
       .modal(VetoableModalDialogComponent, this.placeholder)
       .buttons(
-        [{text: 'Cancel', click: (e, modal) => { modal.close(true); }},
-         {text: 'Submit', click: (e, modal) => { modal.close(true); }, isDefault: true}])
+      [{ text: 'Cancel', click: (e, modal) => { modal.close(true); } },
+      { text: 'Submit', click: (e, modal) => { modal.close(true); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose(result => {
+        this.closeResult = result;
+        this.dialog = null;
+      });
+  }
+
+  openDialogResult() {
+    this.dialog = this.modalService
+      .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
+      .buttons(
+       [{ text: 'YES', click: () => { this.dialog.close('YES'); } },
+        { text: 'NO', click: () => { this.dialog.close('NO'); }, isDefault: true }])
+      .title(this.title)
+      .open()
+      .afterClose(result => {
+        alert(`You selected ${result}`);
         this.closeResult = result;
         this.dialog = null;
       });
