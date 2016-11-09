@@ -9,6 +9,7 @@ import { SohoDatePickerModule } from './datepicker/soho-datepicker.module';
 import { SohoDropDownModule } from './dropdown/soho-dropdown.module';
 import { SohoEditorModule } from './editor/soho-editor.module';
 import { SohoExpandableAreaModule } from './expandablearea/soho-expandablearea.module';
+import { SohoFileUploadModule } from './fileupload/soho-fileupload.module';
 import { SohoHeaderModule } from './header/soho-header.module';
 import { SohoHyperlinkModule } from './hyperlink/soho-hyperlink.module';
 import { SohoIconModule } from './icon/soho-icon.module';
@@ -49,6 +50,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoDropDownModule,
     SohoEditorModule,
     SohoExpandableAreaModule,
+    SohoFileUploadModule,
     SohoHeaderModule,
     SohoHyperlinkModule,
     SohoIconModule,
@@ -90,6 +92,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoDropDownModule,
     SohoEditorModule,
     SohoExpandableAreaModule,
+    SohoFileUploadModule,
     SohoHeaderModule,
     SohoHyperlinkModule,
     SohoIconModule,
