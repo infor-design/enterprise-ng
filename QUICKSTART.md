@@ -42,8 +42,8 @@ You can add the dependencies directly into the `project.json` file, however it i
 
 1. Type `npm install –save jquery@3.1.1` 
 2. Type `npm install –save @types/jquery`
-3. Type `npm install –save @infor/sohoxi@4.2.2-develop` 
-4. Type `npm install –save @infor/sohoxi-angular@4.2.2-develop` 
+3. Type `npm install –save @infor/sohoxi@4.2.3-develop` 
+4. Type `npm install –save @infor/sohoxi-angular@4.2.3-develop` 
 
 This includes all the packages we need to create this simple quick start application.
 

@@ -4,7 +4,8 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  Output
+  Output,
+  OnDestroy
 } from '@angular/core';
 
 @Component({
@@ -12,7 +13,7 @@ import {
   templateUrl: 'soho-fileupload.component.html'
 })
 
-export class SohoFileUploadComponent implements AfterViewInit {
+export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
