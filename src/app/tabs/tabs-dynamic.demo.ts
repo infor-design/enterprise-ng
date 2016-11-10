@@ -1,7 +1,5 @@
 import {
   Component,
-  IterableDiffer,
-  IterableDiffers,
   OnInit,
   ViewChild
 } from '@angular/core';

@@ -14,10 +14,10 @@ export class FileUploadDemoComponent implements OnInit {
 
   @ViewChild(SohoFileUploadComponent) fileupload: SohoFileUploadComponent;
 
-  private text = 'Upload a File';
-  private name1 = 'file-name';
-  private name2 = 'file-name-disabled';
-  private name3 = 'file-name-readonly';
+  private text = 'Upload a File'; // tslint:disable-line
+  private name1 = 'file-name'; // tslint:disable-line
+  private name2 = 'file-name-disabled'; // tslint:disable-line
+  private name3 = 'file-name-readonly'; // tslint:disable-line
 
   private showModel = false;
   private fileUploadDisabled = false;
