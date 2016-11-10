@@ -8,20 +8,7 @@ import {
 @Component({
   selector: 'soho-icon',
   templateUrl: 'soho-icon.component.html',
-  styles: [
-    `
-      /*
-        override css positioning
-        inherited from popupmenu
-      */
-      :host {
-        padding:0;
-        margin:0;
-        top: 0px !important;
-        left: -7px !important;
-      }
-    `
-  ]
+  styleUrls: [ 'soho-icon.component.css' ]
 })
 export class SohoIconComponent {
   /*
@@ -29,9 +16,11 @@ export class SohoIconComponent {
    * This seems to solve problems with soho popupmenu.js where
    * this button is handled. Phillip 8/15/16
    */
-  @HostBinding('class.icon') get isIcon() { return true; };
+  //@HostBinding('class.icon') get isIcon() { return true; };
 
+  @Input() alert: boolean;
   @Input() arrow: boolean;
+  @Input() confirm: boolean;
   @Input() icon: string = '';
 
   get svgClasses() {
@@ -40,6 +29,10 @@ export class SohoIconComponent {
 
     if (this.arrow) {
       classArray.push('arrow');
+    }
+
+    if (this.alert) {
+      classArray.push("icon-" + this.icon);
     }
 
     return classArray.join(' ');

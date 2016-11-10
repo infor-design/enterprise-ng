@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app.routes';
 
 import { SohoComponentsModule } from '../soho/soho-components.module';
 
+import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/application-menu-lazy-menu.demo';
@@ -61,6 +62,8 @@ import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
 import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
+import { StepControlDemoComponent } from './step-control/step-control.demo';
+import { StepControlDataDrivenDemoComponent } from './step-control/step-control-data-driven.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
@@ -87,6 +90,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 @NgModule({
   declarations: [
     AppComponent,
+    AlertDemoComponent,
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,
     ApplicationMenuLazyMenuDemoComponent,
@@ -133,6 +137,8 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     SohoMastheadDemoComponent,
     SplitterHorizontalDemoComponent,
     SplitterVerticalDemoComponent,
+    StepControlDemoComponent,
+    StepControlDataDrivenDemoComponent,
     TabsBasicDemoComponent,
     TabsCountsDemoComponent,
     TabsDataDrivenDemoComponent,

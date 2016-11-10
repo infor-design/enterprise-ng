@@ -1,6 +1,7 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { ButtonDemoComponent } from './button/button.demo';
@@ -64,10 +65,13 @@ import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
+import { StepControlDataDrivenDemoComponent } from './step-control/step-control-data-driven.demo';
+import { StepControlDemoComponent } from './step-control/step-control.demo';
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
   // { path: 'accordian',           component: AccordionSampleComponent},
+  { path: 'alert',                 component: AlertDemoComponent},
   { path: 'application-lazy-menu', component: ApplicationMenuLazyDemoComponent},
   { path: 'button',                component: ButtonDemoComponent },
   { path: 'busyindicator',         component: BusyIndicatorDemoComponent },
@@ -110,6 +114,8 @@ export const routes: Routes = [
   { path: 'slider',                component: SliderDemoComponent },
   { path: 'splitter-horizontal',   component: SplitterHorizontalDemoComponent },
   { path: 'splitter-vertical',     component: SplitterVerticalDemoComponent },
+  { path: 'step-control',          component: StepControlDemoComponent },
+  { path: 'step-data-driven',      component: StepControlDataDrivenDemoComponent },
   { path: 'tabs-basic',            component: TabsBasicDemoComponent },
   { path: 'tabs-counts',           component: TabsCountsDemoComponent },
   { path: 'tabs-datadriven',       component: TabsDataDrivenDemoComponent },
