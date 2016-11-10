@@ -4,7 +4,7 @@ import {
   ViewChild,
 } from '@angular/core';
 
-import { SohoSliderComponent } from '../../soho/slider/soho-slider.component';
+import { SohoSliderComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-slider-demo',

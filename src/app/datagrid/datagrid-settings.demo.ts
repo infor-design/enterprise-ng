@@ -7,7 +7,7 @@ import {
 import {
   SohoDataGridComponent,
   SohoDataGridService
-} from '../../soho/datagrid';
+} from '@infor/sohoxi-angular';
 
 import {
   DataGridDemoService

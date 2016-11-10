@@ -6,8 +6,8 @@ import {
 } from '@angular/core';
 import { HeaderDynamicToolbarOptions, HeaderDynamicTabsetOptions } from './header-dynamic-demo.model';
 import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
-import { SohoToolbarComponent } from '../../soho/toolbar';
-import { SohoTabsComponent } from '../../soho/tabs';
+import { SohoToolbarComponent } from '@infor/sohoxi-angular';
+import { SohoTabsComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-header-dynamic-demo',

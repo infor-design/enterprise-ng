@@ -1,16 +1,16 @@
-# Soho Angular Component : Modal
+# SoHoXi Angular Component : Modal
 
 ## Description
 
-This component provides acess from Angular to the Soho `modal` JQuery control.
+This component provides access from Angular to the SoHoXi `modal` JQuery control.
 
 Modal dialogs allow users to enter a few key pieces of information without moving to a different page or task. 
 
 ### Usage
 
-Creating modal dialogs requires the injection of the service `SohoModalDialogService` into the hosting component. To access 
-this service, you will need to inject `SohoModalDialogService` into the constructor of the relevant class. If 
-this is a class managed by Angular (such as a Component) then adding the following will work:
+Creating modal dialogs requires the injection of the service `SohoModalDialogService` into the hosting component. 
+To access this service, you will need to inject `SohoModalDialogService` into the constructor of the relevant class. 
+If this is a class managed by Angular (such as a Component) then adding the following will work:
 
 ```typescript
 constructor(private modalService: SohoModalDialogService) {
@@ -19,7 +19,7 @@ constructor(private modalService: SohoModalDialogService) {
    
 Angular requires a placeholder component to parent the 
 dialog component when it is instantiated.  The location of the component 
-is up to the calling application, but in this example the hosting componenent
+is up to the calling application, but in this example the hosting component
 is used.
 
 ```typescript
@@ -42,8 +42,6 @@ this.dialog = this.modalService
 ```
 
 This returns a typed implemtation of `SohoModalDialogRef`.
-
-
 
 ## Methods
 
@@ -77,9 +75,7 @@ This returns a typed implemtation of `SohoModalDialogRef`.
 | `closed(Function)` | 'Registers a 'closed' callback - before dialog is closed. |
 | `beforeDestroy(() => boolean))` | 'Registers a 'beforeDestroy' guard - vetoing the destruction. USE WITH CARE! |
 
-
 ## Events
-
 
 | Name | Description |
 | --- | --- |
@@ -91,32 +87,62 @@ This returns a typed implemtation of `SohoModalDialogRef`.
 This example show how a simple modal dialog component can be instantiated.
 
 ```typescript
-this.modalService
-  .modal(ModalDialogComponent, this.placeholder)
-  .buttons([{text: 'OK', 
-        click: (e, modal) => { modal.close(true); }, isDefault: true}
-      ])
-  .title('My Dialog')
-  .open());
+  this.dialog = this.modalService
+    .modal(ModalDialogComponent, this.placeholder)
+    .buttons([{text: 'OK', click: () => { this.dialog.close(); }, isDefault: true}])
+    .title('My Dialog')
+    .open());
 ```
 
 ### Simple Message dialog
 
 ```typescript
 openMessage() {
-  this.modalService
+  this.dialog = this.modalService
     .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
-    .buttons([{text: 'Submit', click: (e, modal) => { modal.close(true); }, isDefault: true}])
+    .buttons([{text: 'Submit', click: () => { this.dialog.close(); }, isDefault: true}])
     .title('Confirmation')
     .open();
+}
+```
+
+### Setting the dialog result
+
+Setting the `dialogResult` can be achieved in several ways, the simpliest is to 
+use the `close` method on `SohoModalDialogRef` in your button handler, which takes the 
+dialog result as an argument.  This is set on the dialog reference and then passed into
+the `afterClose` event handler.
+
+Alternatively, you can call the `setDialogResult` method on the dialog reference, which
+also takes a dialog result as an argument.  This allow the closing of the dialog to be
+decoupled from the result.
+
+The `dialogResult` could be the _model_ used by the underlying component, or a simple status 
+indicator, such as `OK` or `CANCELLED`.  
+
+Here is an example for a simple message returning a status as a result: 
+
+```typescript
+openMessage() {
+  this.dialog = this.modalService
+    .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
+    .buttons(
+      [{ text: 'No', click: () => { this.dialog.close('I pressed YES'); } },
+       { text: 'Yes', click: () => { this.dialog.close('I pressed NO'); }, isDefault: true }])
+    .title(this.title)
+    .open()
+    .afterClose(result => {
+      console.log(`The result was ${result}`);
+  });
 }
 ```
 
 ### Using `apply` to set values on the dialog instance.
 
 To allow the public properties and methods of a dialog to be accessed as
-part of the dialog creation process, the `apply` method exists on SohoModalDialogRef to allow the caller full access to the instance of the given component before (or after) it is displayed, 
-for example:
+part of the dialog creation process, the `apply` method exists on `SohoModalDialogRef`
+to allow the caller full access to the instance of the given component before 
+(or after) it is displayed, for example:
 
 ```typescript
 this.modalService

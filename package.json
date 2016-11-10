@@ -1,16 +1,27 @@
 {
-  "name": "soho-angular-components",
-  "version": "4.2.1-develop",
+  "name": "@infor/sohoxi-angular",
+  "version": "4.2.3",
+  "description": "Hook & Loop - SoHo XI Angular Controls",
+  "author": "Hook & Loop",
   "license": "MIT",
+  "module": "index.ts",
+  "typings": "index.d.ts",
   "angular-cli": {},
+  "publishConfig": {
+    "scope": "@infor",
+    "registry": "http://npm.infor.com/"
+  },
   "scripts": {
-    "start": "ng serve",
+    "start": "gulp copy-assets && ng serve",
+    "build": "gulp copy-assets && ng build",
     "lint": "tslint \"src/**/*.ts\" -e \"src/typings.d.ts\" -e \"src/soho/soh*.d.ts\"",
     "test": "ng test",
+    "unit-test": "ng test --watch=false --browsers=PhantomJS --reporters=bamboo,mocha --code-coverage --lint",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "e2e": "protractor",
+    "add-develop-tag": "./scripts/add-npm-tag.js develop",
+    "set-version": "./scripts/set-version.js"
   },
-  "private": true,
   "dependencies": {
     "@angular/common": "~2.1.0",
     "@angular/compiler": "~2.1.0",
@@ -20,29 +31,34 @@
     "@angular/platform-browser": "~2.1.0",
     "@angular/platform-browser-dynamic": "~2.1.0",
     "@angular/router": "~3.1.0",
-    "@infor/sohoxi": "^4.2.2-develop",
+    "@infor/sohoxi": "^4.2.3-develop",
     "core-js": "^2.4.1",
-    "jquery": "3.1.0",
+    "jquery": "3.1.1",
     "rxjs": "5.0.0-beta.12",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.6.23"
   },
   "devDependencies": {
     "@types/jasmine": "^2.2.30",
-    "@types/node": "^6.0.45",
     "@types/jquery": "^1.10.29",
-    "angular-cli": "1.0.0-beta.18",
+    "@types/node": "^6.0.45",
+    "angular-cli": "^1.0.0-beta.19-3",
     "codelyzer": "^1.0.0-beta.2",
+    "gulp": "^3.9.1",
     "jasmine-core": "2.4.1",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",
+    "karma-bamboo-reporter": "^0.1.2",
     "karma-chrome-launcher": "^2.0.0",
     "karma-cli": "^1.0.1",
     "karma-jasmine": "^1.0.2",
+    "karma-mocha-reporter": "^2.2.0",
+    "karma-phantomjs-launcher": "^1.0.2",
     "karma-remap-istanbul": "^0.2.1",
     "protractor": "4.0.9",
     "ts-node": "1.2.1",
-    "tslint": "3.15.1",
-    "typescript": "~2.0.3"
+    "tslint": "3.13.0",
+    "typescript": "~2.0.3",
+    "webdriver-manager": "10.2.5"
   }
 }

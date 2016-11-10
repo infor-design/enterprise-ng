@@ -6,8 +6,8 @@
  */
 
 interface SohoLookupOptions {
-  /** ?? */
-  click?: any; // @todo
+  /** Custom click event; can be used with a modal dialog and custom list component */
+  click?: SohoLookupClickFunction;
 
   /** Field to return from the array or can be a function. */
   field?: string | SohoLookupFieldFunction;
@@ -16,7 +16,7 @@ interface SohoLookupOptions {
   title?: string;
 
   /** Pass dialog buttons or Cancel / Apply. */
-  buttons?: any;  // @todo
+  buttons?: SohoModalButton[];
 
   /** Options to pass to the underlying data grid. */
   options?: SohoDataGridOptions;
@@ -66,6 +66,11 @@ type SohoDataGridMatchFunction = (
   grid: SohoDataGridStatic
 ) => boolean;
 
+type SohoLookupClickFunction = (
+  e: JQueryEventObject,
+  lookup: SohoLookupStatic
+) => void;
+
 type SohoLookupFieldFunction = (
   /** This row? or Cell? */
   data: Object,
@@ -95,14 +100,38 @@ interface SohoLookupStatic {
   destroy(): void;
 }
 
+/**
+ * Function prototype for the 'beforeShow' callback.
+ */
 type SohoLookupBeforeShowFunction = (
-  lookup: any,
-  grid: (gridOptions: Object) => {}
+  /** The lookup control that has been activated. */
+  lookup: SohoLookupStatic,
+  /** The response - takes the grid to use (or undefined or is is to be created.)  */
+  response: SohoLookupBeforeShowResponse
 ) => any;
 
-/** todo */
-type SohoLookupValidatorFunction = Function;
+type SohoLookupBeforeShowResponse = (
+  /** The grid to use, if provided. */
+  grid?: SohoDataGridStatic
+) => void;
 
+/**
+ * Validates the controls on the dialog.
+ *
+ * Not sure how the result is handled, the code in Soho looks to ignore it.
+ */
+type SohoLookupValidatorFunction = (
+  /** The lookup's jQuery element. */
+  element: JQuery,
+
+  /** The modal dialog displaying the lookup. */
+  modal: SohoModalStatic,
+
+  /** The grid of data. */
+  grid: SohoDataGridStatic
+) => void;
+
+/** @todo verify this - but I think it's the selected row structure from the grid. */
 interface SohoLookupChangeEvent {
   data: Object;
   elem: HTMLElement[];

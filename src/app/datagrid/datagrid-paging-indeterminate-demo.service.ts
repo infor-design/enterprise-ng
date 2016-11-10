@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Rx';
 
-import { SohoDataGridService } from '../../soho/datagrid';
+import { SohoDataGridService } from '@infor/sohoxi-angular';
 import { PAGING_DATA, PAGING_COLUMNS } from './datagrid-paging-data';
 
 declare var Formatters: any;

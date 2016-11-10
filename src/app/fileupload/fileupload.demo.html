@@ -1,0 +1,27 @@
+<div class="example-section">
+  <form>
+    <div class="row">
+      <h1>File Upload</h1>
+      <span class="code-tag">Live Example</span>
+      <div class="row">
+        <div class="twelve columns">
+
+          <div class="field">
+            <soho-fileupload [name]="name1" [label]="text"></soho-fileupload>
+            <button soho-button [disabled]="fileUploadReadOnly" (click)="setReadonly()">Read Only</button>
+            <button soho-button [disabled]="fileUploadDisabled" (click)="setDisable()">Disable</button>
+            <button soho-button [disabled]="!fileUploadDisabled && !fileUploadReadOnly" (click)="setEnable()">Enable</button>
+          </div>
+
+          <div class="field">
+            <soho-fileupload [name]="name2" [label]="text" [disabled]="true"></soho-fileupload>
+          </div>
+
+          <div class="field">
+            <soho-fileupload [name]="name3" [readonly]="true" [label]="text"></soho-fileupload>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

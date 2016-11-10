@@ -7,6 +7,8 @@ import 'zone.js/dist/jasmine-patch';
 import 'zone.js/dist/async-test';
 import 'zone.js/dist/fake-async-test';
 
+/// <reference path="./soho/soho.d.ts" />
+
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
 declare var __karma__: any;
 declare var require: any;
@@ -16,7 +18,8 @@ __karma__.loaded = function () {};
 
 Promise.all([
   System.import('@angular/core/testing'),
-  System.import('@angular/platform-browser-dynamic/testing')
+  System.import('@angular/platform-browser-dynamic/testing'),
+  System.import('@angular/forms')
 ])
   // First, initialize the Angular testing environment.
   .then(([testing, testingBrowser]) => {

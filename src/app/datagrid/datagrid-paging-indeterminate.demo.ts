@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import {
   SohoDataGridComponent,
-} from '../../soho/datagrid';
+} from '@infor/sohoxi-angular';
 import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indeterminate-demo.service';
 
 @Component({

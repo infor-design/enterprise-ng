@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Rx';
 import {
   SohoDataGridService,
   SohoGridColumnFilterTypes
-} from '../../soho/datagrid';
+} from '@infor/sohoxi-angular';
 
 declare var Formatters: any;
 

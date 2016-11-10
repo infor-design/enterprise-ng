@@ -8,11 +8,26 @@ module.exports = function (config) {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
+      require('karma-phantomjs-launcher'),
       require('karma-remap-istanbul'),
-      require('angular-cli/plugins/karma')
-    ],
+      require('angular-cli/plugins/karma'),
+      require('karma-mocha-reporter'),
+      require('karma-bamboo-reporter')
+   ],
+    mochaReporter: {
+      colors: {
+        success: 'white',
+        info: 'orange',
+        warning: 'cyan',
+        error: 'bgRed',
+      },
+      output: 'autowatch',
+    },
     files: [
-      { pattern: './src/test.ts', watched: false }
+      { pattern: './src/test.ts', watched: false },
+      { pattern: './node_modules/jquery/dist/jquery.js', watched: false  },
+      { pattern: './node_modules/@infor/sohoxi/dist/js/sohoxi.js', watched: false },
+      { pattern: './node_modules/@infor/sohoxi/dist/js/cultures/en-US.js', watched: false }
     ],
     preprocessors: {
       './src/test.ts': ['angular-cli']
@@ -27,12 +42,17 @@ module.exports = function (config) {
       config: './angular-cli.json',
       environment: 'dev'
     },
-    reporters: ['progress', 'karma-remap-istanbul'],
+    reporters: config.angularCli && config.angularCli.codeCoverage
+              ? ['progress', 'karma-remap-istanbul', 'mocha']
+              : ['progress', 'mocha'],
+    mocha:{
+      outputFile: 'tests/results.txt'
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
     singleRun: false
   });
 };

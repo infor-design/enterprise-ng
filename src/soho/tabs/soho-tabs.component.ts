@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
@@ -7,8 +8,7 @@ import {
   HostBinding,
   Input,
   OnDestroy,
-  Output,
-  // ViewChild
+  Output
 } from '@angular/core';
 
 /**
@@ -100,9 +100,12 @@ export class SohoTabsListComponent {
   templateUrl: './soho-tabs.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoTabsComponent implements AfterViewInit, OnDestroy {
+export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   @HostBinding('class.tab-container') get isTabContainer() { return true; };
   @HostBinding('class.vertical')      get isVertical()     { return this.vertical; };
+  @HostBinding('class.horizonal')     get isHorizontal()   { return this.horizontal; };
+  @HostBinding('class.module-tabs')   get isModuleTabs()   { return this.moduleTabs; };
+  @HostBinding('class.header-tabs')   get isHeaderTabs()   { return this.headerTabs; };
   @HostBinding('attr.alternate')      get isAlternate()    { return this.alternate; };
 
   // ------------------------------------------------------------------------
@@ -110,51 +113,112 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
   // ------------------------------------------------------------------------
 
   /**
-   * set to true to allow tab count markup <span class=tabcount>#</span>.
+   * set to true to show a secondary style for the tabs
    * @type {boolean}
    */
-  @Input() tabCounts: boolean = false;
+  @Input() horizontal = false;
 
   /**
    * set to true to show a secondary style for the tabs
    * @type {boolean}
    */
-  @Input() alternate: boolean = false;
+  @Input() alternate = false;
 
   /**
    * set to true to display the tabs vertically to the left of the tab-panel
    * @type {boolean}
    */
-  @Input() vertical: boolean = false;
+  @Input() vertical = false;
 
+  /**
+   * set to true to display the tabs as module tabs
+   * @type {boolean}
+   */
+  @Input() moduleTabs = false;
+
+  /**
+   * set to true to display the tabs as header tabs
+   * @type {boolean}
+   */
+  @Input() headerTabs = false;
+
+  @Input() set tabsOptions(tabsOptions: SohoTabsOptions) {
+    this._tabsOptions = tabsOptions;
+    if (this.jQueryElement) {
+      this.tabs.settings = tabsOptions;
+      this.updated();
+    }
+  }
   /**
    * If set to true, creates a button at the end of the tab list that can be used to add an empty tab and panel.
    * @type {boolean}
    */
-  @Input() addTabButton: boolean = false;
+  @Input() set addTabButton(addTabButton: boolean) {
+    this._tabsOptions.addTabButton = addTabButton;
+    if (this.jQueryElement) {
+      this.tabs.settings.addTabButton = addTabButton;
+      this.updated();
+    }
+  }
 
   /**
    * if defined as a function, will be used in-place of the default Tab Adding method
    * TODO: how to handle call back function?
    */
-  @Input() addTabButtonCallback: Function;
+  @Input() set addTabButtonCallback(addTabButtonCallback: Function) {
+    this._tabsOptions.addTabButtonCallback = addTabButtonCallback;
+    if (this.jQueryElement) {
+      this.tabs.settings.addTabButtonCallback = addTabButtonCallback;
+      this.updated();
+    }
+  }
 
   /**
    * Defines a separate element to be used for containing the tab panels.  Defaults to the Tab Container itself
    */
-  @Input() containerElement: string;
+  @Input() set containerElement(containerElement: string) {
+    this._tabsOptions.containerElement = containerElement;
+    if (this.jQueryElement) {
+      this.tabs.settings.containerElement = containerElement;
+      this.updated();
+    }
+  }
 
   /**
    * If true, will change the selected tab on invocation based on the URL that exists after the hash
    * @type {boolean}
    */
-  @Input() changeTabOnHashChange: boolean = false;
+  @Input() set changeTabOnHashChange(changeTabOnHashChange: boolean) {
+    this._tabsOptions.changeTabOnHashChange = changeTabOnHashChange;
+    if (this.jQueryElement) {
+      this.tabs.settings.changeTabOnHashChange = changeTabOnHashChange;
+      this.updated();
+    }
+  }
 
   /**
    * If defined as a function, provides an external method for adjusting the current page hash used by these tabs
    * TODO: how to handle call back function?
    */
-  @Input() hashChangeCallback: Function;
+  @Input() set hashChangeCallback(hashChangeCallback: Function) {
+    this._tabsOptions.hashChangeCallback = hashChangeCallback;
+    if (this.jQueryElement) {
+      this.tabs.settings.hashChangeCallback = hashChangeCallback;
+      this.updated();
+    }
+  }
+
+  /**
+   * set to true to allow tab count markup <span class=tabcount>#</span>.
+   * @type {boolean}
+   */
+  @Input() set tabCounts(tabCounts: boolean) {
+    this._tabsOptions.tabCounts = tabCounts;
+    if (this.jQueryElement) {
+      this.tabs.settings.tabCounts = tabCounts;
+      this.updated();
+    }
+  }
 
   // ------------------------------------------------------------------------
   // @Outputs
@@ -165,45 +229,59 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
    * to "veto" the tab selection change.
    * @type {EventEmitter<Object>}
    */
-  @Output() beforeactivate: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() beforeactivate = new EventEmitter<Object>();
 
   /**
    * The activated event is fired whenever a tab is selected (or "activated");
    * @type {EventEmitter<Object>}
    */
-  @Output() activated: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() activated = new EventEmitter<Object>();
 
   /**
    * The afteractivate event is fired after the has been activated.
    * @type {EventEmitter<Object>}
    */
-  @Output() afteractivate: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() afteractivate = new EventEmitter<Object>();
 
   /**
    * fired when a tab closes
    * @type {EventEmitter<Object>}
    */
-  @Output() close: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() close = new EventEmitter<Object>();
 
   /**
    * fired after a tab closes
    * @type {EventEmitter<Object>}
    */
-  @Output() afterClose: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() afterClose = new EventEmitter<Object>();
 
   /**
    * fire when a new tab is added.
    * @type {EventEmitter<Object>}
    */
-  @Output() tabAdded: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() tabAdded = new EventEmitter<Object>();
 
   // ------------------------------------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: any;
+  private jQueryElement: JQuery;
 
   // Reference to the soho tabs control api.
-  private tabs: any;
+  private tabs: SohoTabsStatic;
+
+  // An internal tabsOptions object that gets updated by using
+  // the component's Inputs()
+  private _tabsOptions: SohoTabsOptions = <SohoTabsOptions> {};
+
+  /**
+   * Keep track of current tab content for change detection.
+   * If the number of tab change we must call tabs.updated() to
+   * rebuild teh jquery tab control, if only the titles changed
+   * then we can call tabs.handleResize to update the selection
+   * style and the overflow.
+   */
+  private tabCount: number;
+  private tabTitles: Array<string>;
 
   /**
    * Constructor.
@@ -217,36 +295,88 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
     // bind to jquery events and emit as angular events
-    this.jQueryElement.bind('beforeactivate', ((event: SohoTabsEvent, tab) => {this.beforeactivate.emit(tab[0]); }));
-    this.jQueryElement.bind('activated', ((event: SohoTabsEvent, tab) => {this.activated.emit(tab[0]); }));
-    this.jQueryElement.bind('afteractivate', ((event: SohoTabsEvent, tab) => {this.afteractivate.emit(tab[0]); }));
-    this.jQueryElement.bind('close', ((event: SohoTabsEvent, tab) => {this.close.emit(tab[0]); }));
-    this.jQueryElement.bind('afterclose', ((event: SohoTabsEvent, tab) => {this.afterClose.emit(tab[0]); }));
-    this.jQueryElement.bind('tab-added', ((event: SohoTabsEvent, tab) => {this.tabAdded.emit(tab[0]); }));
+    this.jQueryElement
+      .on('beforeactivate', ((event: SohoTabsEvent, tab) => {this.beforeactivate.emit(tab[0]); }))
+      .on('activated', ((event: SohoTabsEvent, tab) => {this.activated.emit(tab[0]); }))
+      .on('afteractivate', ((event: SohoTabsEvent, tab) => {this.afteractivate.emit(tab[0]); }))
+      .on('close', ((event: SohoTabsEvent, tab) => {this.close.emit(tab[0]); }))
+      .on('afterclose', ((event: SohoTabsEvent, tab) => {this.afterClose.emit(tab[0]); }))
+      .on('tab-added', ((event: SohoTabsEvent, tab) => {this.tabAdded.emit(tab[0]); }));
 
     // initialize the tabs plugin
-    this.jQueryElement.tabs({
-      addTabButton: this.addTabButton,
-      addTabButtonCallback: undefined, // this.addButtonCallback,
-      containerElement: this.containerElement,
-      changeTabOnHashChange: this.changeTabOnHashChange,
-      hashChangeCallback: undefined, // this.hashChangeCallback,
-      tabCounts: this.tabCounts
-    });
+    this.jQueryElement.tabs(this._tabsOptions);
     this.tabs = this.jQueryElement.data('tabs');
+
+    this.updateTabInfo();
+  }
+
+  ngAfterViewChecked(): void {
+    if (!this.jQueryElement) {
+      return;
+    }
+
+    let $liList = this.getTabLiList();
+    if (!$liList) {
+      return;
+    }
+
+    if (this.tabCount !== $liList.length) {
+      /* Must rebuild the tab control if the tab count changes */
+      console.log('tabCount changed: oldTabCount: ' +
+        this.tabCount + ', newTabCount: ' +
+        $liList.length + ': calling updated().');
+      this.tabs.updated();
+      this.tabCount = $liList.length;
+      this.tabTitles = this.getTabTitles($liList);
+    } else {
+      /*
+       * if only tab titles change then call handleResize.
+       * It will update the tabs selection style and the overflow
+       */
+      let tabTitles = this.getTabTitles($liList);
+      for (let i = 0; i < tabTitles.length; i++) {
+        if (tabTitles[ i ] !== this.tabTitles[ i ]) {
+          console.log('tabTitles changed: Calling handleResize()');
+          this.tabs.handleResize();
+          this.tabTitles = tabTitles;
+          break;
+        }
+      }
+    }
   }
 
   ngOnDestroy() {
     this.tabs.destroy();
   }
 
+  private updateTabInfo() {
+    let $liList: JQuery = this.getTabLiList();
+    this.tabCount = $liList.length;
+    this.tabTitles = this.getTabTitles($liList);
+  }
+
+  private getTabLiList($liList?: JQuery) {
+    return this.jQueryElement.children('.tab-list').find('li');
+  }
+
+  private getTabTitles($liList?: JQuery): Array<string> {
+    if (!$liList) {
+      $liList = this.getTabLiList();
+    }
+
+    let tabTitles: Array<string> = [];
+    let $anchorList: JQuery = $liList.find('a');
+    for (let i = 0, len = $anchorList.length; i < len; i++) {
+      tabTitles.push($($anchorList[i]).html());
+    }
+    return tabTitles;
+  }
+
   /**
    * Causes the tabs component view to be rebuilt
-   * @returns {SohoTabsComponent} returns this tab component to allow method chaining.
    */
-  public updated(): SohoTabsComponent {
+  public updated(): void {
     this.tabs.updated();
-    return this;
   }
 
   /**
@@ -254,47 +384,40 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
    * @param tabId The tabId of the tab to be added
    * @param options ?
    * @param atIndex The index location where the tab is to be added.
-   * @returns {SohoTabsComponent} returns this tab component to allow method chaining.
    */
-  public add(tabId: string, options: any, atIndex: number): any {
+  public add(tabId: string, options: any, atIndex: number): void {
     this.tabs.add(tabId, options, atIndex);
-    return this;
   }
 
   /**
    * Removes a tab
    * @param tabId The tabId of the tab to be removed.
    */
-  public remove(tabId: string): void {
+  remove(tabId: string): void {
     this.tabs.remove(tabId);
   }
 
   /**
    * Hides a tab for the given tabId
    * @param tabId The id of the tab to hide
-   * @returns {SohoTabsComponent} Returns this SohoTabsComponent so allows method chaining.
    */
-  public hide(tabId: string): SohoTabsComponent {
+  hide(tabId: string): void {
     this.tabs.hide(tabId);
-    return this;
   }
 
-  public show(tabId: string): SohoTabsComponent {
+  show(tabId: string): void {
     this.tabs.hide(tabId);
-    return this;
   }
 
-  public disableTab(tabId: number): SohoTabsComponent {
+  disableTab(tabId: number): void {
     this.tabs.disableTab(tabId);
-    return this;
   }
 
-  public enableTab(tabId: number): SohoTabsComponent {
+  enableTab(tabId: number): void {
     this.tabs.enableTab(tabId);
-    return this;
   }
 
-  public rename(tabId: string, name: string): void {
+  rename(tabId: string, name: string): void {
     this.tabs.rename(tabId, name);
   }
 
@@ -302,9 +425,8 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
    * Gets a tab given either an event or a tabId
    * @param event And event from a tab that will allow tab retrieval
    * @param tabId The tabId of the tab to be retrieved.
-   * @returns {JQuery} The JQuery object of a tab element.
    */
-  public getTab(event: SohoTabsEvent, tabId: string): any {
+  getTab(event: SohoTabsEvent, tabId: string): any {
     // TODO: getTab seems to return a jQuery object, what to return instead?
     return this.tabs.getTab(event, tabId);
   }
@@ -313,7 +435,7 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
    * Return the the currenlty active/selected tab.
    * @returns {JQuery} A JQuery object of the active tab element.
    */
-  public getActiveTab(): JQuery {
+  getActiveTab(): JQuery {
     // TODO: getActiveTab seems to return a jQuery object, what to return instead?
     return this.tabs.getActiveTab();
   }
@@ -321,8 +443,8 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
   /**
    * Returns the visible tabs
    * @returns {Array<JQuery>} An array of JQuery objects of the visible tab elements
-     */
-  public getVisibleTabs(): Array<JQuery> {
+   */
+  getVisibleTabs(): Array<JQuery> {
     // TODO: getVisibleTabs seems to return a jQuery array, what to return instead?
     return this.tabs.getVisibleTabs();
   }
@@ -331,7 +453,7 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
    * Returns the overflow tabs
    * @returns {Array<JQuery>} An array of JQuery objects of the overflow tab elements
    */
-  public getOverflowTabs(): Array<JQuery> {
+  getOverflowTabs(): Array<JQuery> {
     // TODO: getVisibleTabs seems to return a jQuery array, what to return instead?
    return this.tabs.getOverflowTabs();
   }
@@ -340,21 +462,21 @@ export class SohoTabsComponent implements AfterViewInit, OnDestroy {
    * Selects the tab given an href
    * @param href an href used to find the tab to select
    */
-  public select(href: string): void {
+  select(href: string): void {
     this.tabs.select(href);
   }
 
   /**
    * Disables the entire tab component
    */
-  public disable(): void {
+  disable(): void {
     this.tabs.disable();
   }
 
   /**
    * enables the entire tab component
    */
-  public enable(): void {
+  enable(): void {
     this.tabs.enable();
   }
 }

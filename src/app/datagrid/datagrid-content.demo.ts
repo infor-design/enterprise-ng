@@ -4,8 +4,10 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import { SohoDataGridComponent } from '../../soho/datagrid';
-import { SohoBusyIndicatorDirective } from '../../soho';
+import {
+  SohoDataGridComponent,
+  SohoBusyIndicatorDirective
+} from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-datagrid-content-demo',

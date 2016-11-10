@@ -1,13 +1,10 @@
 import {
   Component,
-  DoCheck,
-  IterableDiffer,
-  IterableDiffers,
   OnInit,
   ViewChild
 } from '@angular/core';
 
-import { SohoTabsComponent } from '../../soho/tabs';
+import { SohoTabsComponent } from '@infor/sohoxi-angular';
 
 /**
  * This sample:
@@ -21,14 +18,13 @@ import { SohoTabsComponent } from '../../soho/tabs';
   selector: 'soho-tabs-dynamic-sample-component',
   templateUrl: './tabs-dynamic.demo.html'
 })
-export class TabsDynamicDemoComponent implements DoCheck, OnInit {
+export class TabsDynamicDemoComponent implements OnInit {
 
   @ViewChild(SohoTabsComponent) sohoTabsComponent: SohoTabsComponent;
 
   private tabs: Array<any>;
   private currentTabsIndex: number = 1;
   private currentTabTitleChangeNumber: number = 1;
-  private tabsArrayDiffer: IterableDiffer;
 
   private tabsData: Array<any> =
     [
@@ -50,29 +46,10 @@ export class TabsDynamicDemoComponent implements DoCheck, OnInit {
       ]
     ];
 
-  constructor(private iterableDiffers: IterableDiffers) {
-    this.tabsArrayDiffer = this.iterableDiffers.find([]).create(null);
-  }
+  constructor() {}
 
   ngOnInit() {
     this.tabs = this.tabsData[this.currentTabsIndex];
-  }
-
-  ngDoCheck() {
-    if (!this.sohoTabsComponent) {
-      return;
-    }
-
-    let changes = this.tabsArrayDiffer.diff(this.tabs);
-    if (changes) {
-      // ----------------------------------------------------------------------
-      // place into timeout so the template can have a chance to process
-      // and get placed into teh sohoTabsComponent before we call update.
-      // ISSUE: this causes a FOUC
-      // ----------------------------------------------------------------------
-      setTimeout((sohoTabsComponent: SohoTabsComponent) => {
-        sohoTabsComponent.updated(); }, 1, this.sohoTabsComponent);
-    }
   }
 
   onChangeTabs(event: SohoTabsEvent) {
@@ -83,11 +60,6 @@ export class TabsDynamicDemoComponent implements DoCheck, OnInit {
 
     this.tabs = this.tabsData[this.currentTabsIndex];
     this.currentTabTitleChangeNumber = 1;
-
-    // ----------------------------------------------------------------------
-    // expect change detection to message our ngDoChange and then we
-    // can update the soho control based on tabs changes.
-    // ----------------------------------------------------------------------
   }
 
   onChangeTitles(event: SohoTabsEvent) {

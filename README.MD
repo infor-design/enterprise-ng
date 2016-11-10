@@ -1,62 +1,60 @@
+
 # SoHo XI Directives for Angular 2.0
 
-This repository serves as the shared location for Angular 2.0 directives which wrap the Soho XI component library.
+This repository serves as the central shared location for a crowd-sourced cross-Infor Angular2 Typescript repo of Xi control wrapped components.
+
+  - avoids many teams building the same things - inefficient and asking Xi Team for different flavors of the same thing
+  - divide the work to get more done
+  - net new teams get huge gains
+  - great way to learn new things about angular and typescript, and code/architecture conventions
+  - includes wrappers and demos (usage) to get new teams and developers up to speed faster
+  - built-in feedback look from dev to H&L and back
 
 This is a working group supported by the core H&L team,  bringing together the various efforts of teams each creating their own angular directives.
 
-The goal is that this will make Angular easier to support for all teams and easier to extend as the library develops and to prevent multiple teams doing the same work. At the moment the project is being shaped during "Knights of the angular table" calls.
+The goal is that this will make Angular easier to support for all teams and easier to extend as the library develops and to prevent multiple teams doing the same work. At the moment the project is being shaped during "Knights of the angular table" calls. Contact andrew.lipetzky@infor.com if interested in joining the call its open to anyone how wants to contribute.
+
+The team is using https://slack.com/ for a communication forum.  We have created a [SoHo XI area | http://sohoxi-dev.slack.com/] for discussions related to the components.  There are https://sohoxi-dev.slack.com/messages/general/ and https://sohoxi-dev.slack.com/messages/angular-components/ channels for those discussion topics.  It is becoming more active every day.
 
 ## Current Status
 
-Agreed on project (using CLI and Typescript). Agreed on share Repo location and Jira http://jira/browse/HFC and will start to distribute from http://jira/browse/HFC-4016
+Agreed on project scaffolding (using CLI and Typescript). Agreed on [shared Repo location |http://jira/browse/SOHO-4016] this master epic has all subtasks related to on going work
+http://jira/browse/SOHO-4016. You can also use it to see whats been done.
 
 ## Agreed so far
 * Will use Typescript
 * Will wrap Soho XI controls
 * Two Tracks: Track 1: Wrap Current Controls, Track 2: Es6 refactor of core controls keeping directives updated
-* Focus on Expandable Area, Dropdown, Toolbar as initial example components
 * Will be supported by the H&L team in collaboration with multiple teams
 * We used https://cli.angular.io/
 * Will use Angular Style guide: https://angular.io/styleguide
 * Group discussion location https://sohoxi-dev.slack.com/messages/angular-components/
-* With that use editor config, eslint and tslint
-* Share location for issues / tasks is this Epic's sub tasks http://jira/browse/HFC-4016
+* Use editor config, eslint and tslint
+* Share location for issues / tasks is this Epic's sub tasks http://jira/browse/SOHO-4016
 
-## Open for Discussion
-* How to divide work and proceed next
+## Active Teams
+
+* CRM (US - Arizona)
+* Landmark (US - St. Paul)
+* Sun Systems (UK)
+* H&L (US NYC + PA)
+* M3 Graphical Lot Tracker (Sweden, US - Penn)
+* M3 Sales Hub, Automotive Exchange (US – East)
+* Plus a couple of others.  Hard to keep track, Add your name with a Pull Request :)
+
+Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (SE), Mongoose, GT Nexus, ION
 
 ## Previous Repos
 
-When we decided on project structure and approach. We collecting and compare repositories for the various teams and use what we all decide is the best. The following repos were up for evaluation:
+When we decided on project structure and approach. We collecting and compare repositories for the various teams and use what we all decide is the best. The following repos were considered and discussed.
 
 * http://git.infor.com/users/twallace/repos/angular-components/browse - Tyler (CRM)
 * http://git.infor.com/users/ppatton/repos/angular-components/browse - Landmark
 * http://git.infor.com/projects/LMS/repos/angular-wrappers/browse - LMS
 * http://git.infor.com/users/tharper/repos/sunsystems-reporting/browse - Sun Systems
 * http://git.infor.com/projects/INFORCRM/repos/angular-crm/browse - Full CRM Repo
-
+*
 Many chose Angular Cli, so this was the resulting decision.
-
-
-## Development Environment
-
-### Install
-- [Setup SSH key for using git](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html) (faster but not required)
-- PC users suggest [ComEmu](https://conemu.github.io/) which works a bit better than CMD.
-- Get the latest Node 5 release from https://nodejs.org/dist/latest-v5.x/.
-- Get an Editor like Visual Studio Code (https://code.visualstudio.com/) or [Atom](https://atom.io/) or your fav.
-
-### Initial Setup
-
-- Fork http://git.infor.com/projects/SOHO/repos/angular-components/browse to your name + repo
-- Clone Your Fork fx `git clone ssh://git@git.infor.com:7999/~tmcconechy/angular-components.git`
-- Open a command prompt to angular-components
-- Type `npm config set @infor:registry http://npm.infor.com:4873`
-- Type `npm install -g angular-cli@latest`
-- Type `npm i` (and wait a while …)
-- Type `ng build`
-- Type `ng serve`
-
 
 ## Other Resources
 
@@ -81,11 +79,3 @@ Check out these resources to get yourself familiar with some of the code and pro
 [RxJS](http://reactivex.io/) - Library's Site
 
 [Angular 2.0 Best Practices]( https://blog.budacode.com/2016/06/27/angular-2-best-practises/?utm_source=hackernews&utm_medium=social&utm_campaign=angular2-best-practises) - Angular 2.0 Best Practices
-
-### Update Angular Cli To Webpack
-
-`npm uninstall -g angular-cli`
-`npm cache clean`
-`npm install -g angular-cli@webpack`
-
-[More Info On Changes Here](https://github.com/angular/angular-cli/blob/master/WEBPACK_UPDATE.md)

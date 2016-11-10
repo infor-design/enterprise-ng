@@ -7,15 +7,15 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import { SohoBusyIndicatorDirective } from '../../soho/busyindicator';
+import { SohoBusyIndicatorDirective } from '@infor/sohoxi-angular';
 
 import {
   SohoDataGridComponent,
   SohoDataGridService
-} from '../../soho/datagrid';
+} from '@infor/sohoxi-angular';
 
 import { DataGridDemoService } from './datagrid-demo.service';
-import { SohoToastService } from '../../soho/';
+import { SohoToastService } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-datagrid-service-demo',

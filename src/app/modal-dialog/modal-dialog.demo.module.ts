@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { SohoComponentsModule } from '../../soho/soho-components.module';
+import { SohoComponentsModule } from '@infor/sohoxi-angular';
 
 import { ModalDialogDemoComponent } from './modal-dialog.demo';
 

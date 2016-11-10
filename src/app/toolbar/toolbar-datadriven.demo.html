@@ -36,12 +36,14 @@
         <!-- buttons -->
         <template ngFor let-button [ngForOf]="buttons">
           <button *ngIf="!button.menu" soho-button icon="{{button?.icon}}" id="{{button?.id}}" class="{{button?.cssClass}}" attr.data-button="{{button?.data}}">{{button?.text}}</button>
-          <button *ngIf="button.menu"  soho-menu-button icon="{{button?.icon}}" id="{{button?.id}}" class="{{button?.cssClass}}" attr.data-button="{{button?.data}}">{{button?.text}}</button>
+          <button *ngIf="button.menu"  id="{{button?.id}}" soho-menu-button menu="buttonPopupMenu" icon="{{button?.icon}}"  attr.data-button="{{button?.data}}">
+            {{button?.text}}
+          </button>
 
           <!-- dropdown menus for buttons -->
-          <ul *ngIf="button.menu" class="popupmenu">
-            <li *ngFor="let item of button.menu" id="{{item?.id}}">
-              <a href="" attr.data-button="{{item?.data}}">{{item?.text}}</a>
+          <ul soho-popupmenu *ngIf="button.menu" id="buttonPopupMenu">
+            <li soho-popupmenu-item *ngFor="let item of button.menu" id="{{item?.id}}">
+              <a soho-popupmenu-labe attr.data-button="{{item?.data}}">{{item?.text}}</a>
             </li>
           </ul>
         </template>

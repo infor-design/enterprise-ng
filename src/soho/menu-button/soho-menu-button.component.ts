@@ -34,10 +34,10 @@ export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
   // Component Output
   // -------------------------------------------
 
-  @Output() selected = new EventEmitter<SohoMenuButtonEvent>();
-  @Output() beforeopen = new EventEmitter<SohoMenuButtonEvent>();
-  @Output() open = new EventEmitter<SohoMenuButtonEvent>();
-  @Output() close = new EventEmitter<SohoMenuButtonEvent>();
+  @Output() selected = new EventEmitter<SohoContextMenuEvent>();
+  @Output() beforeopen = new EventEmitter<SohoContextMenuEvent>();
+  @Output() open = new EventEmitter<SohoContextMenuEvent>();
+  @Output() close = new EventEmitter<SohoContextMenuEvent>();
 
   // -------------------------------------------
   // Component Inputs
@@ -71,10 +71,10 @@ export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
 
     // Add listeners to emit events
     this.jQueryElement
-      .on('selected', ((event: SohoMenuButtonEvent) => { this.selected.emit(event); }))
-      .on('beforeopen', ((event: SohoMenuButtonEvent ) => { this.beforeopen.emit(event); }))
-      .on('close', ((event: SohoMenuButtonEvent ) => { this.close.emit(event); }))
-      .on('open', ((event: SohoMenuButtonEvent ) => { this.open.emit(event); }));
+      .on('selected', ((event: SohoContextMenuEvent) => { this.selected.emit(event); }))
+      .on('beforeopen', ((event: SohoContextMenuEvent ) => { this.beforeopen.emit(event); }))
+      .on('close', ((event: SohoContextMenuEvent ) => { this.close.emit(event); }))
+      .on('open', ((event: SohoContextMenuEvent ) => { this.open.emit(event); }));
   }
 
   updated() {

@@ -102,6 +102,10 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy {
       this.listview.updated();
     }
   }
+  get dateset(): Object[] {
+    return this.options.dataset;
+  }
+
   /** Audible Label (or use parent title). */
   @Input() set description(value: string) {
     this.options.description = value;
@@ -136,6 +140,9 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy {
       this.listview.settings.searchable = value;
       this.listview.updated();
     }
+  }
+  get searchable() {
+    return this.options.searchable;
   }
 
   /** false, 'single', or 'multiple'. */
@@ -239,5 +246,9 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy {
       classes += ` ${this.class}`;
     }
     return classes;
+  }
+
+  clearAllSelected() {
+    this.listview.clearAllSelected();
   }
 }
