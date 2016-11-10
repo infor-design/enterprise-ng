@@ -13,6 +13,9 @@ Release Date: 2016-10-31
  - copy SohoXi CSS files to `src/assets` on build
  - added _lint_ and _code coverage_ to _unit-test_ npm script
  - automatically include SohoXi typings when consuming NPM package.
+* 2016-11-10 - TH - Version Update
+ - Bumped version of @infor/sohoxi to 4.2.3-develop
+ - Bumped version of @infor/sohoxi-angular to 4.2.3-develop
  
 ### Breaking Changes
 * 2016-10-10 - TH - PR-118
