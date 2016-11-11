@@ -6,7 +6,7 @@ import {
   HostBinding,
   Input,
   OnDestroy,
-  Output,
+  Output, AfterViewChecked,
 } from '@angular/core';
 
 @Component({
@@ -14,32 +14,61 @@ import {
   template: '<ng-content></ng-content>'
 })
 
-export class SohoSliderComponent implements AfterViewInit, OnDestroy {
+export class SohoSliderComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   /** Minimum Value */
-  @Input() set min(min: number){
+  @Input()
+  public set min(min: number) {
     this.options.min = min;
   }
+  public get min(): number {
+    return this.options.min;
+  }
+
   /** Maximum Value */
-  @Input() set max(max: number){
+  @Input()
+  public set max(max: number) {
     this.options.max = max;
   }
+  public get max(): number {
+    return this.options.max;
+  }
   /** Increment or decrement by step value */
-  @Input() set step(step: number){
+  @Input()
+  public set step(step: number) {
     this.options.step = step;
   }
-  /** value or a range of values */
-  @Input() set value(value: number[]){
-    this.options.value = value;
+  public get step(): number {
+    return this.options.step;
   }
+
+  /** value or a range of values */
+  @Input()
+  public set value(value: number[]) {
+    this.options.value = value;
+    if (this.slider) {
+      this.slider.setValue(value[0], value[1]);
+    }
+  }
+  public get value(): number[] {
+    return this.options.value;
+  }
+
   /** Choose a range of values or select a value */
-  @Input() set range (range: boolean){
+  @Input()
+  public set range(range: boolean) {
     this.options.range = range;
   }
+  public get range(): boolean {
+    return this.options.range;
+  }
+
   /** An array of ticks that provide the value, description and color details */
-  @Input() set ticks (ticks: string){
+  @Input()
+  public set ticks(ticks: string) {
     this.options.ticks = JSON.parse(ticks);
   }
+
   /** Persist tooltip */
   @Input() set persistTooltip (persistTooltip: boolean){
     this.options.persistTooltip = persistTooltip;
@@ -70,6 +99,10 @@ export class SohoSliderComponent implements AfterViewInit, OnDestroy {
     return this.isVertical;
   }
 
+  @HostBinding('attr.vertical') get isVerticalSliderAttr() {
+    return this.isVertical;
+  }
+
   @HostBinding('attr.type') get sliderType() {
     return 'range';
   }
@@ -80,6 +113,7 @@ export class SohoSliderComponent implements AfterViewInit, OnDestroy {
   private isDisabled: boolean = null;
   private isReadOnly: boolean = null;
   private isVertical: boolean = false;
+  private isVerticalOriginal: boolean = false;
 
   private jQueryElement: JQuery;
   private slider: SohoSliderStatic;
@@ -129,6 +163,16 @@ export class SohoSliderComponent implements AfterViewInit, OnDestroy {
     // Bind to events
     this.jQueryElement.on('change', (event: SohoSliderEvent) => this.change.emit(event));
     this.jQueryElement.on('updated', (event: SohoSliderEvent) => this.updated.emit(event));
+  }
+
+  ngAfterViewChecked() {
+    if (this.slider) {
+      // Delay updated a bit so the class is also set for updated to render correctly.
+      if (this.isVerticalOriginal !== this.isVertical){
+        this.slider.updated();
+        this.isVerticalOriginal = this.isVertical;
+      }
+    }
   }
 
   ngOnDestroy() {
