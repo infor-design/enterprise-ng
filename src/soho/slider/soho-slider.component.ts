@@ -99,10 +99,6 @@ export class SohoSliderComponent implements AfterViewInit, AfterViewChecked, OnD
     return this.isVertical;
   }
 
-  @HostBinding('attr.vertical') get isVerticalSliderAttr() {
-    return this.isVertical;
-  }
-
   @HostBinding('attr.type') get sliderType() {
     return 'range';
   }
