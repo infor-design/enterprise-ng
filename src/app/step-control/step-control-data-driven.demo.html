@@ -6,7 +6,7 @@
     <div *ngFor="let step of steps">
       <div soho-step-list-item *ngIf="step.content">
         <soho-icon icon="{{step.icon}}" alert=true></soho-icon>
-        <a soho-step-list-item-anchor attr.stepId="{{step.id}}">
+        <a soho-step-list-item-anchor stepId="{{step.id}}">
           <span>{{step.title}}</span>
         </a>
       </div>
@@ -20,7 +20,7 @@
       <div soho-step-list-items  *ngIf="step.substeps">
         <div soho-step-list-item *ngFor="let substep of step.substeps">
           <soho-icon icon="{{substep.icon}}" alert=true></soho-icon>
-          <a soho-step-list-item-anchor attr.stepId="{{substep.id}}">
+          <a soho-step-list-item-anchor stepId="{{substep.id}}">
             <span>{{substep.title}}</span>
           </a>
         </div>
@@ -34,11 +34,11 @@
   </div>
   <div soho-step-content>
     <div *ngFor="let step of steps">
-      <div soho-step-content-panel *ngIf="step.content" attr.stepId="{{step.id}}">
+      <div soho-step-content-panel *ngIf="step.content" stepId="{{step.id}}">
         <p>{{step.content}}</p>
       </div>
       <div *ngIf="step.substeps">
-        <div soho-step-content-panel *ngFor="let substep of step.substeps" attr.stepId="{{substep.id}}">
+        <div soho-step-content-panel *ngFor="let substep of step.substeps" stepId="{{substep.id}}">
           <p>{{substep.content}}</p>
         </div>
       </div>
