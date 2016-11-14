@@ -229,7 +229,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
    * to "veto" the tab selection change.
    * @type {EventEmitter<Object>}
    */
-  @Output() beforeactivate = new EventEmitter<Object>();
+  @Output() beforeActivate = new EventEmitter<Object>();
 
   /**
    * The activated event is fired whenever a tab is selected (or "activated");
@@ -241,7 +241,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
    * The afteractivate event is fired after the has been activated.
    * @type {EventEmitter<Object>}
    */
-  @Output() afteractivate = new EventEmitter<Object>();
+  @Output() afterActivate = new EventEmitter<Object>();
 
   /**
    * fired when a tab closes
@@ -296,9 +296,9 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
     // bind to jquery events and emit as angular events
     this.jQueryElement
-      .on('beforeactivate', ((event: SohoTabsEvent, tab) => {this.beforeactivate.emit(tab[0]); }))
+      .on('beforeactivate', ((event: SohoTabsEvent, tab) => {this.beforeActivate.emit(tab[0]); }))
       .on('activated', ((event: SohoTabsEvent, tab) => {this.activated.emit(tab[0]); }))
-      .on('afteractivate', ((event: SohoTabsEvent, tab) => {this.afteractivate.emit(tab[0]); }))
+      .on('afteractivate', ((event: SohoTabsEvent, tab) => {this.afterActivate.emit(tab[0]); }))
       .on('close', ((event: SohoTabsEvent, tab) => {this.close.emit(tab[0]); }))
       .on('afterclose', ((event: SohoTabsEvent, tab) => {this.afterClose.emit(tab[0]); }))
       .on('tab-added', ((event: SohoTabsEvent, tab) => {this.tabAdded.emit(tab[0]); }));

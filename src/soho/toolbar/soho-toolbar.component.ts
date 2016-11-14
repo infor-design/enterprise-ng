@@ -152,7 +152,7 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
    * to "veto" the tab selection change.
    * @type {EventEmitter<Object>}
    */
-  @Output() beforeactivate: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
+  @Output() beforeActivate: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
 
   /**
    * The activated event is if the beforeActivate succeeds.
@@ -164,7 +164,7 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
    * The afteractivate event is fired after the toolbar has been activated.
    * @type {EventEmitter<Object>}
    */
-  @Output() afteractivate: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
+  @Output() afterActivate: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
 
   /**
    * The selected event is fired when a toolbar button has been clicked.
@@ -178,12 +178,12 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
    */
   @Output() buttonClicked: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
 
-  private options: SohoToolbarOptions = {};
-
   /*
    * Mouse over event to return information about original button from menu items
    */
   @Output() menuItemMouseOver: EventEmitter<HTMLButtonElement> = new EventEmitter<HTMLButtonElement>();
+
+  private options: SohoToolbarOptions = {};
 
   private jQueryElement: JQuery;
 
@@ -201,9 +201,9 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
 
     // bind to jquery events and emit as angular events
     this.jQueryElement
-      .on('beforeactivate', ((event: JQueryEventObject) => { this.beforeactivate.emit(event); }))
+      .on('beforeactivate', ((event: JQueryEventObject) => { this.beforeActivate.emit(event); }))
       .on('activated', ((event: JQueryEventObject) => { this.activated.emit(event); }))
-      .on('afteractivate', ((event: JQueryEventObject) => { this.afteractivate.emit(event); }))
+      .on('afteractivate', ((event: JQueryEventObject) => { this.afterActivate.emit(event); }))
       .on('selected', (event: JQueryEventObject, item: HTMLButtonElement | HTMLAnchorElement) => {
         this.selected.emit({ event, item });
       });
