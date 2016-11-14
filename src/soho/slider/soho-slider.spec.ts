@@ -102,5 +102,5 @@ describe ('Soho Slider Render', () => {
 })
 
 export class SohoSliderTestComponent {
-  @ViewChild(SohoSliderComponent) slider:SohoSliderComponent;
+  @ViewChild(SohoSliderComponent) slider: SohoSliderComponent;
 }

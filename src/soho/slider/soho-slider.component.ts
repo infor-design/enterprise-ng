@@ -17,8 +17,7 @@ import {
 export class SohoSliderComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   /** Minimum Value */
-  @Input()
-  public set min(min: number) {
+  @Input() public set min(min: number) {
     this.options.min = min;
   }
   public get min(): number {
@@ -26,16 +25,14 @@ export class SohoSliderComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** Maximum Value */
-  @Input()
-  public set max(max: number) {
+  @Input() public set max(max: number) {
     this.options.max = max;
   }
   public get max(): number {
     return this.options.max;
   }
   /** Increment or decrement by step value */
-  @Input()
-  public set step(step: number) {
+  @Input() public set step(step: number) {
     this.options.step = step;
   }
   public get step(): number {
@@ -43,8 +40,7 @@ export class SohoSliderComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** value or a range of values */
-  @Input()
-  public set value(value: number[]) {
+  @Input() public set value(value: number[]) {
     this.options.value = value;
     if (this.slider) {
       this.slider.setValue(value[0], value[1]);
@@ -55,8 +51,7 @@ export class SohoSliderComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** Choose a range of values or select a value */
-  @Input()
-  public set range(range: boolean) {
+  @Input() public set range(range: boolean) {
     this.options.range = range;
   }
   public get range(): boolean {
@@ -64,8 +59,7 @@ export class SohoSliderComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** An array of ticks that provide the value, description and color details */
-  @Input()
-  public set ticks(ticks: string) {
+  @Input() public set ticks(ticks: string) {
     this.options.ticks = JSON.parse(ticks);
   }
 
@@ -83,12 +77,10 @@ export class SohoSliderComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** Called when the slider control changes */
-  @Output()
-  change: EventEmitter<SohoSliderEvent> = new EventEmitter<SohoSliderEvent>();
+  @Output() change: EventEmitter<SohoSliderEvent> = new EventEmitter<SohoSliderEvent>();
 
   /** Called when the slider is updated when the model value changes */
-  @Output()
-  updated: EventEmitter<SohoSliderEvent> = new EventEmitter<SohoSliderEvent>();
+  @Output() updated: EventEmitter<SohoSliderEvent> = new EventEmitter<SohoSliderEvent>();
 
   /** Bind attributes to input element */
   @HostBinding('class.slider') get isSlider(){
@@ -164,7 +156,7 @@ export class SohoSliderComponent implements AfterViewInit, AfterViewChecked, OnD
   ngAfterViewChecked() {
     if (this.slider) {
       // Delay updated a bit so the class is also set for updated to render correctly.
-      if (this.isVerticalOriginal !== this.isVertical){
+      if (this.isVerticalOriginal !== this.isVertical) {
         this.slider.updated();
         this.isVerticalOriginal = this.isVertical;
       }
