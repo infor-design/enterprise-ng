@@ -346,7 +346,9 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   ngOnDestroy() {
-    this.tabs.destroy();
+    if (this.jQueryElement && this.tabs) {
+      this.tabs.destroy();
+    }
   }
 
   private updateTabInfo() {
