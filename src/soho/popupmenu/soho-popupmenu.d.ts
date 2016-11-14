@@ -64,7 +64,6 @@ interface SohoPopupMenuStatic {
   /** Configuration options. */
   settings?: SohoPopupMenuOptions;
 
-  /** Returns the selecyed html element. */
   /** Returns the selected html element. */
   getSelected(): any;
 
