@@ -1,6 +1,6 @@
 {
   "name": "@infor/sohoxi-angular",
-  "version": "4.2.2",
+  "version": "4.2.3",
   "description": "Hook & Loop - SoHo XI Angular Controls",
   "author": "Hook & Loop",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "@angular/platform-browser": "~2.1.0",
     "@angular/platform-browser-dynamic": "~2.1.0",
     "@angular/router": "~3.1.0",
-    "@infor/sohoxi": "^4.2.2-develop",
+    "@infor/sohoxi": "^4.2.3-develop",
     "core-js": "^2.4.1",
     "jquery": "3.1.1",
     "rxjs": "5.0.0-beta.12",

@@ -80,7 +80,7 @@ describe('Soho File upload Render', () => {
 
   it('@Input() name', () => {
     fixture.detectChanges();
-    expect(el.getAttribute("name")).toBe(component.name);
+    expect(el.getAttribute('name')).toBe(component.name);
   });
 
   it('@Input() label', () => {
@@ -95,6 +95,6 @@ describe('Soho File upload Render', () => {
 })
 class SohoFileUploadTestComponent {
   @ViewChild(SohoFileUploadComponent) fileupload: SohoFileUploadComponent;
-  name = "File";
-  text = "File Upload";
+  name = 'File';
+  text = 'File Upload';
 }
