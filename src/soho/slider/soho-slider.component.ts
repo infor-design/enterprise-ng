@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   Component,
   ElementRef,
@@ -6,7 +7,7 @@ import {
   HostBinding,
   Input,
   OnDestroy,
-  Output, AfterViewChecked,
+  Output,
 } from '@angular/core';
 
 @Component({
