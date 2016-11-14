@@ -5,8 +5,6 @@ import { SohoStepControlComponent,
          SohoStepsContentComponent,
          SohoStepsListTitleComponent,
          SohoStepContentTitleComponent,
-         SohoStepIconComponent,
-         SohoStepIconUseComponent,
          SohoStepListItemHeaderComponent,
          SohoStepListItemsComponent,
          SohoStepListItemComponent,
@@ -14,23 +12,25 @@ import { SohoStepControlComponent,
          SohoStepsContentPanelComponent
         } from '../stepcontrol/soho-step-control.component';
 import { SohoIconModule } from '../icon/soho-icon.module';
+import { SohoButtonModule } from '../button/soho-button.module';
 
 @NgModule({
-  imports: [ CommonModule,     SohoIconModule ],
+  imports: [
+    CommonModule,
+    SohoIconModule,
+    SohoButtonModule
+  ],
   declarations: [
     SohoStepControlComponent,
     SohoStepsListComponent,
     SohoStepsListTitleComponent,
     SohoStepContentTitleComponent,
     SohoStepsContentComponent,
-    SohoStepIconComponent,
-    SohoStepIconUseComponent,
     SohoStepListItemHeaderComponent,
     SohoStepListItemsComponent,
     SohoStepListItemComponent,
     SohoStepListItemAnchorComponent,
     SohoStepsContentPanelComponent
-
   ],
   exports: [
     SohoStepControlComponent,
@@ -38,8 +38,6 @@ import { SohoIconModule } from '../icon/soho-icon.module';
     SohoStepsListTitleComponent,
     SohoStepContentTitleComponent,
     SohoStepsContentComponent,
-    SohoStepIconComponent,
-    SohoStepIconUseComponent,
     SohoStepListItemHeaderComponent,
     SohoStepListItemsComponent,
     SohoStepListItemComponent,

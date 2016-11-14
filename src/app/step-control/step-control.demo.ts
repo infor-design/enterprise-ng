@@ -1,13 +1,13 @@
 import {
   Component,
-  OnInit, ElementRef
+  OnInit, ElementRef, AfterViewInit
 } from '@angular/core';
 
 @Component({
   selector: 'soho-step-control-demo',
   templateUrl: 'step-control.demo.html'
 })
-export class StepControlDemoComponent implements OnInit {
+export class StepControlDemoComponent implements OnInit, AfterViewInit {
   constructor(private element: ElementRef) {
   }
   ngOnInit() {
@@ -19,4 +19,3 @@ export class StepControlDemoComponent implements OnInit {
     console.log('stepControlDemoComponent.stepChange');
   }
 }
-

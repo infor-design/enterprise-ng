@@ -13,28 +13,20 @@
    <div class="main no-scroll" role="main">
      <div class="toolbar toolbar-custom collapsible-bar">
        <div class="title">
-         <button class="btn-icon btn-toggle-steps js-toggle-steps" type="button">
-           <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-             <use xlink:href="#icon-bullet-list"></use>
-           </svg>
-         </button>
+         <button soho-button="tertiary" icon="bullet-list" class="btn-icon btn-toggle-steps js-toggle-steps"></button>
          <div class="dual-title">
            <ng-content select="div[soho-step-content-title]"></ng-content>
          </div>
        </div>
        <div class="buttonset phone-hidden">
-         <button class="btn-tertiary js-step-link-prev" type="button">
-           <span>Previous</span>
-         </button>
-         <button class="btn-tertiary js-step-link-next" type="button">
-           <span>Next</span>
-         </button>
+         <button soho-button="tertiary" class="btn-tertiary js-step-link-prev">Previous</button>
+         <button soho-button="tertiary" class="btn-tertiary js-step-link-next">Next</button>
        </div>
      </div>
      <ng-content select="div[soho-step-content]"></ng-content>
      <div class="phone-button-bar phone-visible">
-       <button class="btn mobile-" type="button">Save &amp; Close</button>
-       <button class="btn-primary js-step-link-next" type="button">Next</button>
+       <button soho-button="primary" class="btn mobile-">Save &amp; Close</button>
+       <button soho-button="primary" class="btn-primary js-step-link-next">Next</button>
      </div>
    </div>
  </div>
