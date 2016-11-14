@@ -75,6 +75,16 @@ interface SohoSliderStatic {
    * Destroys any resources created by this control.
    */
   destroy(): void;
+
+  /**
+   * Forces an update of the control to reflect any changes made in the settings object.
+   */
+  updated(): void;
+
+  /**
+   * Sets the new low value and high value of the slider.
+   */
+  setValue(lowVal: number, highVal: number): number[];
 }
 
 /**
