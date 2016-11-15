@@ -1,0 +1,12 @@
+/* override css positioning, inherited from popupmenu */
+:host {
+  padding:0;
+  margin:0;
+  top: 0px !important;
+  left: -7px !important;
+}
+
+/* overrider ... */
+:host[alert] {
+  padding-left: 10px
+}

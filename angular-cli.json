@@ -15,7 +15,8 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/@infor/sohoxi/dist/css/light-theme.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
