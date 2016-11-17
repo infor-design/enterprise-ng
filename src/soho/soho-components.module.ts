@@ -29,6 +29,7 @@ import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
 import { SohoSearchFieldModule } from './searchfield/soho-searchfield.module';
 import { SohoSliderModule } from './slider/soho-slider.module';
 import { SohoSplitterModule } from './splitter/soho-splitter.module';
+import { SohoSpinboxModule } from './spinbox/soho-spinbox.module';
 import { SohoStepProcessModule } from './stepprocess/soho-stepprocess.module';
 import { SohoTabsModule } from './tabs/soho-tabs.module';
 import { SohoTextAreaModule } from './textarea/soho-textarea.module';
@@ -38,7 +39,6 @@ import { SohoToolbarModule } from './toolbar/soho-toolbar.module';
 import { SohoTooltipModule } from './tooltip/soho-tooltip.module';
 import { SohoTrackDirtyModule } from './trackdirty/soho-trackdirty.module';
 import { SohoTreeModule } from './tree/soho-tree.module';
-import { SohoStepControlModule } from './stepcontrol/soho-step-control.module';
 
 @NgModule({
   imports: [
@@ -70,6 +70,7 @@ import { SohoStepControlModule } from './stepcontrol/soho-step-control.module';
     SohoProgressModule,
     SohoRadioButtonModule,
     SohoSearchFieldModule,
+    SohoSpinboxModule,
     SohoStepProcessModule,
     SohoSplitterModule,
     SohoSliderModule,
@@ -114,6 +115,7 @@ import { SohoStepControlModule } from './stepcontrol/soho-step-control.module';
     SohoSearchFieldModule,
     SohoSliderModule,
     SohoSplitterModule,
+    SohoSpinboxModule,
     SohoStepProcessModule,
     SohoTabsModule,
     SohoTextAreaModule,

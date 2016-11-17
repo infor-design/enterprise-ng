@@ -1,0 +1,67 @@
+<div class="example-section">
+  <form>
+    <div>
+
+      <div class="row">
+        <div class="one-half column">
+          <div class="field">
+            <label for="disabled-spinbox">Spinbox (disabled example)</label>
+            <input soho-spinbox [id]="id4" [name]="disabled-spinbox" min="-50" max="50" [value]="val" />
+            <div>
+              <button soho-button [disabled]="disabled" (click)="setDisable()">Disable</button>
+              <button soho-button [disabled]="!disabled" (click)="setEnable()">Enable</button>
+              <button soho-button (click)="update()">Update</button>
+            </div>
+          </div>
+          <br><br>
+          <div class="field">
+            <label for="disabled-spinbox">Spinbox (disabled example via DOM)</label>
+            <input soho-spinbox [id]="id4" [name]="disabled-spinbox" min="-50" max="50" [value]="val" [isDisabled]="true" />
+          </div>
+          <br><br>
+          <div class="field">
+            <label for="regular-spinbox">Spinbox (no attributes)</label>
+            <input soho-spinbox [id]="id1" [name]="regular-spinbox" />
+          </div>
+        </div>
+
+
+          <div class="one-half column">
+            <div class="field">
+              <label for="limited-spinbox">Spinbox (init 3, min -50, max 50)</label>
+              <input soho-spinbox [id]="id2" [name]="limited-spinbox" [min]="-50" [max]="50" [value]="val" />
+
+            </div>
+
+            <div class="field">
+              <label for="dirty-spinbox">Spinbox with Dirty Tracking</label>
+              <input soho-spinbox soho-trackdirty [id]="id3" [name]="dirty-spinbox"  />
+            </div>
+
+            <div class="field">
+              <label for="stepped-spinbox">Spinbox (init 0, min -99, max 99, step 3)</label>
+              <input soho-spinbox [id]="id5" name="stepped-spinbox" min="-99" max="99" value="0" [step]="3"/>
+            </div>
+
+            <div class="field">
+              <label for="error-spinbox" class="required">Spinbox (error)</label>
+              <input soho-spinbox [id]="id6" name="error-spinbox" min="-50" max="50" value="0" data-validate="required"/>
+            </div>
+
+          </div>
+<br><br>
+
+
+
+
+
+
+
+      </div>
+
+    </div>
+  </form>
+</div>
+
+
+
