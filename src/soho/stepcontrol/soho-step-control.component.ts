@@ -6,7 +6,7 @@ import {
   HostBinding,
   Input,
   OnDestroy,
-  Output,
+  Output
 } from '@angular/core';
 
 /**
@@ -65,6 +65,7 @@ export class SohoStepsContentComponent {
 export class SohoStepsContentPanelComponent {
   @HostBinding('class.js-step-process-panel') get isJsStepProcessPanel() { return true; }
   @HostBinding('attr.id') get idAttr() { return this.stepId; };
+
   @Input() stepId: string;
 }
 
@@ -99,6 +100,7 @@ export class SohoStepListItemsComponent {
 
   constructor() {
   }
+
   @HostBinding('class.accordion-pane') get isAccordionPane() { return true; }
 }
 
@@ -107,19 +109,13 @@ export class SohoStepListItemsComponent {
  */
 @Component({
   selector: 'div[soho-step-list-item]', // tslint:disable-line
-  template: `<ng-content></ng-content>`,
-  styles: [
-    `
-      :host >>> a {
-        margin-left:-40px;
-      }
-    `   // this is used to fix an issue caused by an unexpected element between the accordion element and the alert Icon
-  ]
+  template: `<ng-content></ng-content>`
 })
 export class SohoStepListItemComponent {
 
   constructor() {
   }
+
   @HostBinding('class.step-process-item') get isStepProcessItem() { return true; };
 }
 
@@ -132,7 +128,9 @@ export class SohoStepListItemComponent {
 })
 export class SohoStepListItemAnchorComponent {
   @HostBinding('class.js-step-link') get isJsStepLink() { return true; };
+
   @HostBinding('attr.href') get hrefAttr() { return '#' + this.stepId; };
+
   @Input() stepId: string;
 }
 
@@ -141,14 +139,14 @@ export class SohoStepListItemAnchorComponent {
  */
 @Component({
   selector: 'div[soho-step-list-item-header]', // tslint:disable-line
-  template: `<ng-content></ng-content>
-            <button class="btn hide-focus" type="button">
-              <svg class="chevron icon active" focusable="false" aria-hidden="true" role="presentation">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-caret-down"></use>
-              </svg>
-            </button>
-          `,
-  styleUrls: [ 'soho-step-control.component.css' ]
+  template: `
+    <ng-content></ng-content>
+    <button class="btn hide-focus" type="button">
+      <svg class="chevron icon active" focusable="false" aria-hidden="true" role="presentation">
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-caret-down"></use>
+      </svg>
+    </button>`,
+  styleUrls: ['./soho-step-control.component.css']
 })
 export class SohoStepListItemHeaderComponent {
 
@@ -162,7 +160,7 @@ export class SohoStepListItemHeaderComponent {
 
 @Component({
   selector: 'div[soho-step]', // tslint:disable-line
-  templateUrl: './soho-step-control.component.html',
+  templateUrl: './soho-step-control.component.html'
 })
 export class SohoStepControlComponent implements AfterViewInit, OnDestroy {
 
@@ -208,6 +206,5 @@ export class SohoStepControlComponent implements AfterViewInit, OnDestroy {
     this.stepContol = this.jQueryElement.find('.soho-step-process').data('stepprocess');
   }
 
-  ngOnDestroy() {
-  }
+  ngOnDestroy() {}
 }

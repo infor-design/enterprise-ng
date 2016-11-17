@@ -5,13 +5,13 @@
   <div soho-steps-list>
     <div *ngFor="let step of steps">
       <div soho-step-list-item *ngIf="step.content">
-        <soho-icon icon="{{step.icon}}" alert=true></soho-icon>
+        <svg soho-icon icon="{{step.icon}}" alert=true></svg>
         <a soho-step-list-item-anchor stepId="{{step.id}}">
           <span>{{step.title}}</span>
         </a>
       </div>
       <div soho-step-list-item-header *ngIf="step.substeps">
-        <soho-icon icon="{{step.icon}}" alert=true></soho-icon>
+        <svg soho-icon icon="{{step.icon}}" alert=true></svg>
         <a href="#">
           <span>{{step.title}}</span>
         </a>
@@ -19,7 +19,7 @@
 
       <div soho-step-list-items  *ngIf="step.substeps">
         <div soho-step-list-item *ngFor="let substep of step.substeps">
-          <soho-icon icon="{{substep.icon}}" alert=true></soho-icon>
+          <svg soho-icon icon="{{substep.icon}}" alert=true></svg>
           <a soho-step-list-item-anchor stepId="{{substep.id}}">
             <span>{{substep.title}}</span>
           </a>
