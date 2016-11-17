@@ -1,22 +1,46 @@
 import {
   Component,
   Input,
+  HostBinding
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-icon',
-  templateUrl: 'soho-icon.component.html',
-  styleUrls: [ 'soho-icon.component.css' ]
+  selector: 'svg:use',
+  template: ``
+})
+
+export class SohoIconUseComponent {
+  @HostBinding('attr.xmlns:xlink') xmlnsXlink: string = 'http://www.w3.org/1999/xlink';
+  @HostBinding('attr.xlink:href') @Input() icon: string;
+}
+
+@Component({
+  selector: 'svg[soho-icon]',
+  template: `<svg:use [icon]="icon"></svg:use>`
 })
 export class SohoIconComponent {
 
-  @Input() alert: boolean;
-  @Input() icon: string = '';
+  private _icon: string;
 
-  get svgClasses() {
+  @HostBinding('attr.aria-hidden') ariaHidden: boolean = true;
+  @HostBinding('attr.focusable') focusable: boolean = false;
+  @HostBinding('attr.role') role: string = 'presentation';
+  @HostBinding('attr.class') hostClass: string;
+
+  @Input() alert: boolean;
+  @Input() set icon(icon: string) {
+    this._icon = icon ? '#icon-' + icon : '';
+    this.hostClass = this.svgClass(icon);
+  };
+
+  get icon(): string {
+    return this._icon;
+  }
+
+  private svgClass(icon: string) {
     let classStr  = 'icon';
     if (this.alert) {
-      classStr += ' icon-' + this.icon;
+      classStr += ' icon-' + icon;
     }
 
     return classStr;
