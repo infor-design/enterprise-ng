@@ -4,10 +4,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-step-control-data-driven-demo',
-  templateUrl: 'step-control-data-driven.demo.html'
+  selector: 'soho-stepprocess-data-driven-demo',
+  templateUrl: 'stepprocess-data-driven.demo.html'
 })
-export class StepControlDataDrivenDemoComponent implements OnInit, AfterViewInit {
+export class StepProcessDataDrivenDemoComponent implements OnInit, AfterViewInit {
 
   protected steps: Array<{
                   id: string,
@@ -54,6 +54,6 @@ export class StepControlDataDrivenDemoComponent implements OnInit, AfterViewInit
   ngAfterViewInit() { }
 
   stepChange(event: Event) {
-    console.log('stepControlDataDrivenDemoComponent.stepChange');
+    console.log('stepProcessDataDrivenDemoComponent.stepChange');
   }
 }
