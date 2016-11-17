@@ -8,7 +8,7 @@ import 'zone.js/dist/async-test';
 import 'zone.js/dist/fake-async-test';
 import { getTestBed } from '@angular/core/testing';
 
-// <reference path="./soho/soho.d.ts" />
+/// <reference path="./soho/soho.d.ts" />
 
 import {
   BrowserDynamicTestingModule,
