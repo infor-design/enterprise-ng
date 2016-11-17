@@ -28,6 +28,7 @@ import { SohoPopupMenuModule } from './popupmenu/soho-popupmenu.module';
 import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
 import { SohoSearchFieldModule } from './searchfield/soho-searchfield.module';
 import { SohoSliderModule } from './slider/soho-slider.module';
+import { SohoSpinboxModule } from './spinbox/soho-spinbox.module';
 import { SohoSplitterModule } from './splitter/soho-splitter.module';
 import { SohoSpinboxModule } from './spinbox/soho-spinbox.module';
 import { SohoStepProcessModule } from './stepprocess/soho-stepprocess.module';
