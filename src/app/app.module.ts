@@ -167,7 +167,6 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     BrowserModule,
     CommonModule,
     FormsModule,
-    HttpModule,
     ModalDialogDemoModule,
     ReactiveFormsModule,
     SohoComponentsModule
