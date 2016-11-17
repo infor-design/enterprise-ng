@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SohoStepControlComponent,
+import { SohoStepProcessComponent,
          SohoStepsListComponent,
          SohoStepsContentComponent,
          SohoStepsListTitleComponent,
@@ -10,7 +10,7 @@ import { SohoStepControlComponent,
          SohoStepListItemComponent,
          SohoStepListItemAnchorComponent,
          SohoStepsContentPanelComponent
-        } from '../stepcontrol/soho-step-control.component';
+        } from '../stepprocess/soho-stepprocess.component';
 import { SohoIconModule } from '../icon/soho-icon.module';
 import { SohoButtonModule } from '../button/soho-button.module';
 
@@ -21,7 +21,7 @@ import { SohoButtonModule } from '../button/soho-button.module';
     SohoButtonModule
   ],
   declarations: [
-    SohoStepControlComponent,
+    SohoStepProcessComponent,
     SohoStepsListComponent,
     SohoStepsListTitleComponent,
     SohoStepContentTitleComponent,
@@ -33,7 +33,7 @@ import { SohoButtonModule } from '../button/soho-button.module';
     SohoStepsContentPanelComponent
   ],
   exports: [
-    SohoStepControlComponent,
+    SohoStepProcessComponent,
     SohoStepsListComponent,
     SohoStepsListTitleComponent,
     SohoStepContentTitleComponent,
@@ -45,4 +45,4 @@ import { SohoButtonModule } from '../button/soho-button.module';
     SohoStepsContentPanelComponent
   ]
 })
-export class SohoStepControlModule {}
+export class SohoStepProcessModule {}

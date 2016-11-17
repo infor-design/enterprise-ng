@@ -23,7 +23,7 @@ export * from './popupmenu';
 export * from './searchfield';
 export * from './splitter';
 export * from './slider';
-export * from './stepcontrol';
+export * from './stepprocess';
 export * from './tabs';
 export * from './textarea';
 export * from './timepicker'

@@ -4,10 +4,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-step-control-demo',
-  templateUrl: 'step-control.demo.html'
+  selector: 'soho-stepprocess-demo',
+  templateUrl: 'stepprocess.demo.html'
 })
-export class StepControlDemoComponent implements OnInit, AfterViewInit {
+export class StepProcessDemoComponent implements OnInit, AfterViewInit {
   constructor(private element: ElementRef) {
   }
   ngOnInit() {
@@ -16,6 +16,6 @@ export class StepControlDemoComponent implements OnInit, AfterViewInit {
   }
 
   stepChange(event: Event) {
-    console.log('stepControlDemoComponent.stepChange');
+    console.log('stepProcessDemoComponent.stepChange');
   }
 }

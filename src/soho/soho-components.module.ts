@@ -29,7 +29,7 @@ import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
 import { SohoSearchFieldModule } from './searchfield/soho-searchfield.module';
 import { SohoSliderModule } from './slider/soho-slider.module';
 import { SohoSplitterModule } from './splitter/soho-splitter.module';
-import { SohoStepControlModule } from './stepcontrol/soho-step-control.module';
+import { SohoStepProcessModule } from './stepprocess/soho-stepprocess.module';
 import { SohoTabsModule } from './tabs/soho-tabs.module';
 import { SohoTextAreaModule } from './textarea/soho-textarea.module';
 import { SohoTimePickerModule } from './timepicker/soho-timepicker.module';
@@ -69,7 +69,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoProgressModule,
     SohoRadioButtonModule,
     SohoSearchFieldModule,
-    SohoStepControlModule,
+    SohoStepProcessModule,
     SohoSplitterModule,
     SohoSliderModule,
     SohoTabsModule,
@@ -113,7 +113,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoSearchFieldModule,
     SohoSliderModule,
     SohoSplitterModule,
-    SohoStepControlModule,
+    SohoStepProcessModule,
     SohoTabsModule,
     SohoTextAreaModule,
     SohoTimePickerModule,
