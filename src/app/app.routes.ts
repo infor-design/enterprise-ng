@@ -1,7 +1,6 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { ButtonDemoComponent } from './button/button.demo';
@@ -42,10 +41,9 @@ import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
 import { ProgressDemoComponent } from './progress/progress.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
+import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
-import { StepControlDataDrivenDemoComponent } from './step-control/step-control-data-driven.demo';
-import { StepControlDemoComponent } from './step-control/step-control.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
@@ -73,7 +71,6 @@ import { StepControlDemoComponent } from './step-control/step-control.demo';
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
   // { path: 'accordian',           component: AccordionSampleComponent},
-  { path: 'alert',                 component: AlertDemoComponent},
   { path: 'application-lazy-menu', component: ApplicationMenuLazyDemoComponent},
   { path: 'button',                component: ButtonDemoComponent },
   { path: 'busyindicator',         component: BusyIndicatorDemoComponent },
@@ -116,6 +113,7 @@ export const routes: Routes = [
   { path: 'slider',                component: SliderDemoComponent },
   { path: 'splitter-horizontal',   component: SplitterHorizontalDemoComponent },
   { path: 'splitter-vertical',     component: SplitterVerticalDemoComponent },
+  { path: 'spinbox',               component: SpinboxDemoComponent },
   { path: 'step-control',          component: StepControlDemoComponent },
   { path: 'step-data-driven',      component: StepControlDataDrivenDemoComponent },
   { path: 'tabs-basic',            component: TabsBasicDemoComponent },
