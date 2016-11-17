@@ -8,10 +8,10 @@ interface SohoSpinboxEvent extends BaseJQueryEventObject {
 interface SohoSpinboxStatic {
   settings?: SohoSpinboxOptions;
   /** Destroys any resources used by the control. */
-  destroy();
-  disable();
-  enable();
-  isDisabled();
+  destroy(): void;
+  disable(): void;
+  enable(): void;
+  isDisabled(): boolean;
   updateVal(value: number): void;
 }
 
