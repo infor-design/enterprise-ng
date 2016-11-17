@@ -25,13 +25,11 @@ export class SpinboxDemoComponent {
   constructor() { }
 
   setDisable() {
-    this.spinbox.disabled = true;
-    this.disabled = this.spinbox.disabled;
+    this.disabled = this.spinbox.disabled = true;
   }
 
   setEnable() {
-    this.spinbox.disabled = false;
-    this.disabled = this.spinbox.disabled;
+    this.disabled = this.spinbox.disabled = false;
   }
 
   update() {
