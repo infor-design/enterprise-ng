@@ -2,12 +2,11 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  EventEmitter,
   HostBinding,
   Input,
   OnDestroy,
-  Output,
 } from '@angular/core';
+import { ArgumentHelper } from '@infor/sohoxi-angular';
 
 /**
  * Internal component to support the step list items
@@ -118,8 +117,7 @@ export class SohoStepListItemsComponent {
 })
 export class SohoStepListItemComponent {
 
-  constructor() {
-  }
+  constructor() {}
   @HostBinding('class.step-process-item') get isStepProcessItem() { return true; };
 }
 
@@ -142,13 +140,13 @@ export class SohoStepListItemAnchorComponent {
 @Component({
   selector: 'div[soho-step-list-item-header]', // tslint:disable-line
   template: `<ng-content></ng-content>
-            <button class="btn hide-focus" type="button">
-              <svg class="chevron icon active" focusable="false" aria-hidden="true" role="presentation">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-caret-down"></use>
-              </svg>
-            </button>
-          `,
-  styleUrls: [ 'soho-step-control.component.css' ]
+             <button class="btn hide-focus" type="button">
+               <svg class="chevron icon active" focusable="false" aria-hidden="true" role="presentation">
+                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-caret-down"></use>
+               </svg>
+             </button>  
+            `,
+  styleUrls: [ 'soho-stepprocess.component.css' ]
 })
 export class SohoStepListItemHeaderComponent {
 
@@ -162,52 +160,129 @@ export class SohoStepListItemHeaderComponent {
 
 @Component({
   selector: 'div[soho-step]', // tslint:disable-line
-  templateUrl: './soho-step-control.component.html',
+  templateUrl: './soho-stepprocess.component.html',
 })
-export class SohoStepControlComponent implements AfterViewInit, OnDestroy {
+export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
+  // ------------------------------------------------------------------------
+  // @Inputs
+  // ------------------------------------------------------------------------
+
+  /**
+   * Set the step process options on a single call with the stepprocess options object.
+   *
+   * @param gridOptions.
+   */
+  @Input() set stepProcessOptions(stepProcessOptions: SohoStepProcessOptions) {
+    ArgumentHelper.checkNotNull('stepProcessOptions', stepProcessOptions);
+    this._stepProcessOptions = stepProcessOptions;
+    if (this.jQueryElement) {
+      this.updated();
+    }
+  }
+
+  /** The selector for elements that are step panels. default is '.js-step-process-panel' */
+  @Input() set stepPanels(stepPanels: string) {
+    this._stepProcessOptions.stepPanels = stepPanels;
+    if (this.jQueryElement) {
+      this.stepprocess.settings.stepPanels = stepPanels;
+      this.updated();
+    }
+  }
+
+  /** The selector for elements that are step links. default is '.js-step-link' */
+  @Input() set stepLinks(stepLinks: string) {
+    this._stepProcessOptions.stepLinks = stepLinks;
+    if (this.jQueryElement) {
+      this.stepprocess.settings.stepLinks = stepLinks;
+      this.updated();
+    }
+  }
+
+  /** The selector of the previous step action element. default is '.js-step-link-prev' */
+  @Input() set btnStepPrev(btnStepPrev: string) {
+    this._stepProcessOptions.btnStepPrev = btnStepPrev;
+    if (this.jQueryElement) {
+      this.stepprocess.settings.btnStepPrev = btnStepPrev;
+      this.updated();
+    }
+  }
+
+  /** The selector of the next step action element. default is '.js-step-link-next' */
+  @Input() set btnStepNext(btnStepNext: string) {
+    this._stepProcessOptions.btnStepNext = btnStepNext;
+    if (this.jQueryElement) {
+      this.stepprocess.settings.btnStepNext = btnStepNext;
+      this.updated();
+    }
+  }
+
+  /** The selector of the element to toggle the steps list. default is '.js-toggle-steps' */
+  @Input() set btnToggleStepLinks(btnToggleStepLinks: string) {
+    this._stepProcessOptions.btnToggleStepLinks = btnToggleStepLinks;
+    if (this.jQueryElement) {
+      this.stepprocess.settings.btnToggleStepLinks = btnToggleStepLinks;
+      this.updated();
+    }
+  }
+
+  /** The callback function called before the step selection changes */
+  @Input() set beforeStepChange(beforeStepChange: BeforeStepChangeFunction) {
+    this._stepProcessOptions.beforeStepChange = beforeStepChange;
+    if (this.jQueryElement) {
+      this.stepprocess.settings.beforeStepChange = beforeStepChange;
+      this.updated();
+    }
+  }
+
+  /** The callback function called after the step selection changes */
+  @Input() set afterStepChange(afterStepChange: AfterStepChangeFunction) {
+    this._stepProcessOptions.afterStepChange = afterStepChange;
+    if (this.jQueryElement) {
+      this.stepprocess.settings.afterStepChange = afterStepChange;
+      this.updated();
+    }
+  }
 
   // ------------------------------------------------------------------------
   // @Outputs
   // ------------------------------------------------------------------------
 
-  /**
-   * The beforeStepChange event is fired whenever a step is clicked giving the event handler a chance
-   * to "veto" the step changed.
-   * @type {EventEmitter<Object>}
-   */
-  @Output() beforeStepChange: EventEmitter<Object> = new EventEmitter<Object>();
-
-  /**
-   * The activated event is fired whenever a step is changed;
-   * @type {EventEmitter<Object>}
-   */
-  @Output() afterStepChange: EventEmitter<Object> = new EventEmitter<Object>();
-
   // Reference to the jQuery control.
   private jQueryElement: JQuery;
-  // Reference to the soho tabs control api.
-  private stepContol: SohoStepsStatic;
 
-  constructor(private element: ElementRef) {
-  }
+  // Reference to the soho tabs control api.
+  private stepprocess: SohoStepProcessStatic;
+
+  // An internal stepsOptions object that gets updated by using
+  // the component's Inputs()
+  private _stepProcessOptions: SohoStepProcessOptions = <SohoStepProcessOptions> {};
+
+  constructor(private element: ElementRef) {}
 
   ngAfterViewInit() {
     // assign element to local variable
     this.jQueryElement = jQuery(this.element.nativeElement);
-    this.jQueryElement.find('.soho-step-process').stepprocess({
-      beforeStepChange: () => {
-        let stepSelected = {};
-        this.beforeStepChange.emit(stepSelected);
-      },
-      afterStepChange: () => {
-        let stepSelected = {};
-        this.afterStepChange.emit(stepSelected);
-      }
-    });
+    let $stepProcess: JQuery = this.jQueryElement.find('.soho-step-process');
+    $stepProcess.stepprocess(this._stepProcessOptions);
+    this.stepprocess = $stepProcess.data('stepprocess');
+  }
 
-    this.stepContol = this.jQueryElement.find('.soho-step-process').data('stepprocess');
+  changeSelectedStep(stepLink: HTMLLinkElement): void {
+    this.stepprocess.changeSelectedStep(stepLink);
   }
 
   ngOnDestroy() {
+    // todo: need soho stepprocess control to implement destroy function
+    // if (this.stepprocess) {
+    //   this.stepprocess.destroy();
+    // }
+  }
+
+  /**
+   * Causes the stepprocess component view to be rebuilt
+   */
+  public updated(): void {
+    // todo: need soho stepprocess control implement updated() function .
+    // this.stepprocess.updated();
   }
 }
