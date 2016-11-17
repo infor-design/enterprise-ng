@@ -18,6 +18,18 @@ Release Date: 2016-10-31
  - Bumped version of @infor/sohoxi-angular to 4.2.3-develop
  
 ### Breaking Changes
+* 2016-17-11 KH - PR-189 
+    The changes for `SohoIconComponent` will cause a breaking change. 
+    http://git.infor.com/projects/SOHO/repos/angular-components/pull-requests/189/overview
+    
+    ```<soho-icon></soho-icon>```
+    
+    will now be
+    
+    ```<svg soho-icon></svg>```
+    
+    Wrapping the SVG was breaking numerous Sohoxi CSS rules and causing layout issues.
+
 * 2016-10-10 - TH - PR-118
     refactored SohoGridColumn -> SohoDataGridColumn
     refactored SohoSourceRequest -> SohoDataGridSourceRequest
