@@ -21,9 +21,8 @@ export class SohoSpinboxComponent implements AfterViewInit, OnDestroy {
    *  @param value
    */
   @Input() set updateValue(val: number){
-    this.val = val;
     if (this.spinbox) {
-      this.spinbox.updateVal(this.val);
+      this.spinbox.updateVal(val);
     }
   }
 
@@ -63,7 +62,6 @@ export class SohoSpinboxComponent implements AfterViewInit, OnDestroy {
   @HostBinding('attr.disabled')  @Input() isDisabled: boolean;
 
   private options: SohoSpinboxOptions = {};
-  private val: number;
   private jQueryElement: JQuery;
   private spinbox: SohoSpinboxStatic;
 
