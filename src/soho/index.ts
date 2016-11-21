@@ -21,11 +21,11 @@ export * from './modal-dialog';
 export * from './personalize';
 export * from './popupmenu';
 export * from './searchfield';
+export * from './spinbox';
 export * from './splitter';
 export * from './slider';
 export * from './spinbox';
 export * from './stepprocess';
-export * from './spinbox';
 export * from './tabs';
 export * from './textarea';
 export * from './timepicker'

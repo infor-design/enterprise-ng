@@ -39,7 +39,6 @@ import { SohoToolbarModule } from './toolbar/soho-toolbar.module';
 import { SohoTooltipModule } from './tooltip/soho-tooltip.module';
 import { SohoTrackDirtyModule } from './trackdirty/soho-trackdirty.module';
 import { SohoTreeModule } from './tree/soho-tree.module';
-import { SohoStepControlModule } from './stepcontrol/soho-step-control.module';
 
 @NgModule({
   imports: [
@@ -71,10 +70,10 @@ import { SohoStepControlModule } from './stepcontrol/soho-step-control.module';
     SohoProgressModule,
     SohoRadioButtonModule,
     SohoSearchFieldModule,
-    SohoSpinboxModule,
-    SohoStepProcessModule,
     SohoSplitterModule,
     SohoSliderModule,
+    SohoSpinboxModule,
+    SohoStepProcessModule,
     SohoTabsModule,
     SohoTextAreaModule,
     SohoTimePickerModule,
