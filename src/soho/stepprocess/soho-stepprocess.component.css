@@ -1,9 +1,0 @@
-/* these is used to fix an issue caused by an unexpected element between the accordion element and the alert Icon  */
-
-:host >>> soho-icon {
-  display: inline-block;
-}
-
-:host >>> soho-icon + a{
-  width:calc(100% - 75px) !important;
-}
