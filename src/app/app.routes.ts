@@ -68,8 +68,6 @@ import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
-import { StepControlDataDrivenDemoComponent } from './step-control/step-control-data-driven.demo';
-import { StepControlDemoComponent } from './step-control/step-control.demo';
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
@@ -115,10 +113,11 @@ export const routes: Routes = [
   { path: 'progress',              component: ProgressDemoComponent },
   { path: 'radiobutton',           component: RadioButtonDemoComponent},
   { path: 'slider',                component: SliderDemoComponent },
+  { path: 'spinbox',               component: SpinboxDemoComponent },
   { path: 'splitter-horizontal',   component: SplitterHorizontalDemoComponent },
   { path: 'splitter-vertical',     component: SplitterVerticalDemoComponent },
-  { path: 'step-control',          component: StepControlDemoComponent },
-  { path: 'step-data-driven',      component: StepControlDataDrivenDemoComponent },
+  { path: 'step-process',               component: StepProcessDemoComponent },
+  { path: 'step-data-driven',               component: StepProcessDataDrivenDemoComponent },
   { path: 'tabs-basic',            component: TabsBasicDemoComponent },
   { path: 'tabs-counts',           component: TabsCountsDemoComponent },
   { path: 'tabs-datadriven',       component: TabsDataDrivenDemoComponent },
