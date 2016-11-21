@@ -106,14 +106,7 @@ export class SohoStepListItemsComponent {
  */
 @Component({
   selector: 'div[soho-step-list-item]', // tslint:disable-line
-  template: `<ng-content></ng-content>`,
-  styles: [
-    `
-      :host >>> a {
-        margin-left:-40px;
-      }
-    `   // this is used to fix an issue caused by an unexpected element between the accordion element and the alert Icon
-  ]
+  template: `<ng-content></ng-content>`
 })
 export class SohoStepListItemComponent {
 
@@ -145,8 +138,7 @@ export class SohoStepListItemAnchorComponent {
                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-caret-down"></use>
                </svg>
              </button>  
-            `,
-  styleUrls: [ 'soho-stepprocess.component.css' ]
+            `
 })
 export class SohoStepListItemHeaderComponent {
 
