@@ -115,6 +115,8 @@ export const routes: Routes = [
   { path: 'slider',                component: SliderDemoComponent },
   { path: 'splitter-horizontal',   component: SplitterHorizontalDemoComponent },
   { path: 'splitter-vertical',     component: SplitterVerticalDemoComponent },
+  { path: 'step-process',               component: StepProcessDemoComponent },
+  { path: 'step-data-driven',               component: StepProcessDataDrivenDemoComponent },
   { path: 'spinbox',               component: SpinboxDemoComponent },
   { path: 'step-process',          component: StepProcessDemoComponent },
   { path: 'step-data-driven',      component: StepProcessDataDrivenDemoComponent },
