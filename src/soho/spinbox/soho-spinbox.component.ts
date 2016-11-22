@@ -17,9 +17,6 @@ import {
 })
 export class SohoSpinboxComponent implements AfterViewInit, OnDestroy {
 
-  /*
-   *  @param value
-   */
   @Input() set updateValue(val: number){
     if (this.spinbox) {
       this.spinbox.updateVal(val);

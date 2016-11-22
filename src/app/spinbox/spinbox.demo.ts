@@ -10,10 +10,6 @@ export class SpinboxDemoComponent {
   @ViewChild(SohoSpinboxComponent) spinbox: SohoSpinboxComponent;
 
   private disabled: boolean = false;
-
-  /*
-   * val is used to set the value in the HTML/DOM
-   */
   private id1: string= 'regular-spinbox';
   private id2: string= 'limited-spinbox';
   private id3: string= 'dirty-spinbox';
