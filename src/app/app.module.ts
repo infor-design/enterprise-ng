@@ -60,6 +60,7 @@ import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
 import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
 import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
+import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
 import { StepProcessDemoComponent } from './stepprocess/stepprocess.demo';
@@ -135,6 +136,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     SliderDemoComponent,
     SohoHeaderDynamicDemoComponent,
     SohoMastheadDemoComponent,
+    SpinboxDemoComponent,
     SplitterHorizontalDemoComponent,
     SplitterVerticalDemoComponent,
     StepProcessDemoComponent,

@@ -44,8 +44,9 @@ import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
-import { StepProcessDataDrivenDemoComponent } from './stepprocess/stepprocess-data-driven.demo';
+import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
 import { StepProcessDemoComponent } from './stepprocess/stepprocess.demo';
+import { StepProcessDataDrivenDemoComponent } from './stepprocess/stepprocess-data-driven.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
@@ -114,6 +115,9 @@ export const routes: Routes = [
   { path: 'slider',                component: SliderDemoComponent },
   { path: 'splitter-horizontal',   component: SplitterHorizontalDemoComponent },
   { path: 'splitter-vertical',     component: SplitterVerticalDemoComponent },
+  { path: 'step-process',               component: StepProcessDemoComponent },
+  { path: 'step-data-driven',               component: StepProcessDataDrivenDemoComponent },
+  { path: 'spinbox',               component: SpinboxDemoComponent },
   { path: 'step-process',          component: StepProcessDemoComponent },
   { path: 'step-data-driven',      component: StepProcessDataDrivenDemoComponent },
   { path: 'tabs-basic',            component: TabsBasicDemoComponent },
