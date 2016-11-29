@@ -8,7 +8,7 @@ You can download the latest version from [quickstart](http://git.infor.com/users
 
 If **Node.js** and npm aren't already on your machine, install them. These examples require node v4.x.x or higher and npm 3.x.x or higher. To check which version you are using, run `node -v` and `npm -v` in a terminal window.
 
-This quick start guide uses **Angular-CLI** to create, build and run the application.  At the time of writing the version of angular-cli used was 1.0.0-beta-19-3.
+This quick start guide uses **Angular-CLI** to create, build and run the application.  At the time of writing the version of angular-cli used was 1.0.0-beta-21.
 
 In addition, **gulp** is used to perform additional build and deployment steps required to get the application built.
 

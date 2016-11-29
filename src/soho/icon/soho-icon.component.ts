@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'svg:use',
+  selector: 'svg:use', // tslint:disable-line
   template: ``
 })
 
@@ -15,7 +15,7 @@ export class SohoIconUseComponent {
 }
 
 @Component({
-  selector: 'svg[soho-icon]',
+  selector: 'svg[soho-icon]',  // tslint:disable-line
   template: `<svg:use [icon]="icon"></svg:use>`
 })
 export class SohoIconComponent {
