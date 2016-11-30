@@ -54,6 +54,7 @@ import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
+import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
 import { ProgressDemoComponent } from './progress/progress.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
@@ -130,6 +131,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     MaskDemoComponent,
     MenuButtonDemoComponent,
     MessageDemoComponent,
+    PopDownDemoComponent,
     PopupMenuDemoComponent,
     ProgressDemoComponent,
     RadioButtonDemoComponent,
