@@ -25,7 +25,7 @@ export class SohoPopDownDirective implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     if (this.popdown) {
-      this.popdown = null;
+      this.popdown.destroy();
     }
   }
 }
