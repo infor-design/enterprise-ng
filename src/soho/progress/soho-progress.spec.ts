@@ -59,8 +59,8 @@ import { SohoComponentsModule } from '../soho-components.module';
   it('Progress update value', () => {
     progress.progressValue = 90;
     fixture.detectChanges();
-    expect(el.getAttribute('data-value')).toEqual(progress.value);
-    expect(progress.value).toEqual(90);
+    expect(el.getAttribute('data-value')).toEqual('90');
+    expect(progress.progressValue).toEqual(90);
   });
 
 });
