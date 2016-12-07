@@ -38,6 +38,7 @@ import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
+import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
 import { ProgressDemoComponent } from './progress/progress.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
@@ -109,14 +110,15 @@ export const routes: Routes = [
   { path: 'menu-button',           component: MenuButtonDemoComponent },
   { path: 'message',               component: MessageDemoComponent },
   { path: 'modal-dialog',          component: ModalDialogDemoComponent },
+  { path: 'popdown',               component: PopDownDemoComponent},
   { path: 'popupmenu',             component: PopupMenuDemoComponent },
   { path: 'progress',              component: ProgressDemoComponent },
   { path: 'radiobutton',           component: RadioButtonDemoComponent},
   { path: 'slider',                component: SliderDemoComponent },
   { path: 'splitter-horizontal',   component: SplitterHorizontalDemoComponent },
   { path: 'splitter-vertical',     component: SplitterVerticalDemoComponent },
-  { path: 'step-process',               component: StepProcessDemoComponent },
-  { path: 'step-data-driven',               component: StepProcessDataDrivenDemoComponent },
+  { path: 'step-process',          component: StepProcessDemoComponent },
+  { path: 'step-data-driven',      component: StepProcessDataDrivenDemoComponent },
   { path: 'spinbox',               component: SpinboxDemoComponent },
   { path: 'step-process',          component: StepProcessDemoComponent },
   { path: 'step-data-driven',      component: StepProcessDataDrivenDemoComponent },

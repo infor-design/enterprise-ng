@@ -24,6 +24,7 @@
 /// <reference path="./modal-dialog/soho-modal-dialog.d.ts" />
 /// <reference path="./pager/soho-pager.d.ts" />
 /// <reference path="./personalize/soho-personalize.d.ts" />
+/// <reference path="./popdown/soho-popdown.d.ts" />
 /// <reference path="./popupmenu/soho-popupmenu.d.ts" />
 /// <reference path="./progress/soho-progress.d.ts" />
 /// <reference path="./radiobutton/soho-radiobutton.d.ts" />

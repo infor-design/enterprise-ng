@@ -24,6 +24,7 @@ import { SohoMessageModule } from './message/soho-message.module';
 import { SohoModalDialogModule } from './modal-dialog/soho-modal-dialog.module';
 import { SohoPersonalizeModule } from './personalize/soho-personalize.module';
 import { SohoProgressModule } from './progress/soho-progress.module';
+import { SohoPopDownModule } from './popdown/soho-popdown.module';
 import { SohoPopupMenuModule } from './popupmenu/soho-popupmenu.module';
 import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
 import { SohoSearchFieldModule } from './searchfield/soho-searchfield.module';
@@ -66,6 +67,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoMessageModule,
     SohoModalDialogModule,
     SohoPersonalizeModule,
+    SohoPopDownModule,
     SohoPopupMenuModule,
     SohoProgressModule,
     SohoRadioButtonModule,
@@ -109,6 +111,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoMenuButtonModule,
     SohoModalDialogModule,
     SohoPersonalizeModule,
+    SohoPopDownModule,
     SohoPopupMenuModule,
     SohoProgressModule,
     SohoRadioButtonModule,
