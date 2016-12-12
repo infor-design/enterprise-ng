@@ -133,4 +133,5 @@ Check you get the button when you browse to http://localhost:4200/.
 
 # What Next
 
-Now implement the rest of your application, using the components provided, of which a list can be found [here](??)
+Now implement the rest of your application, using the components provided, 
+of which a list can be found [here](??)
