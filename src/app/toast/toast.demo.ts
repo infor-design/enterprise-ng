@@ -7,7 +7,7 @@ import { SohoToastService } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-toast-demo',
-  templateUrl: 'toast.demo.html'
+  templateUrl:'./toast.demo.html'
 })
 export class ToastDemoComponent implements OnInit {
   // Inject Toast Servivce as a dependency and get an instance variable

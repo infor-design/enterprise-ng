@@ -5,7 +5,7 @@ import {
 
 @Component({
   selector: 'soho-stepprocess-data-driven-demo',
-  templateUrl: 'stepprocess-data-driven.demo.html'
+  templateUrl:'./stepprocess-data-driven.demo.html'
 })
 export class StepProcessDataDrivenDemoComponent implements OnInit, AfterViewInit {
 

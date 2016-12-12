@@ -3,7 +3,7 @@ import { ApplicationMenuLazyService } from './application-menu-lazy-service.demo
 
 @Component({
   selector: 'application-menu-lazy-menu', // tslint:disable-line
-  templateUrl: 'application-menu-lazy-menu.demo.html'
+  templateUrl:'./application-menu-lazy-menu.demo.html'
 })
 export class ApplicationMenuLazyMenuDemoComponent {
   @Input() menuSpec: Array<any>;

@@ -45,7 +45,7 @@ export class ExpandablePaneComponent {
 
 @Component({
   selector: 'soho-expandable-area',
-  templateUrl: 'soho-expandablearea.component.html',
+  templateUrl:'./soho-expandablearea.component.html',
   styles: [``],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
