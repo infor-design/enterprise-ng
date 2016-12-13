@@ -4,7 +4,7 @@ import {
 
 @Component({
   selector: 'soho-alert-demo',
-  templateUrl: 'alert.demo.html'
+  templateUrl: './alert.demo.html'
 })
 export class AlertDemoComponent {
 }

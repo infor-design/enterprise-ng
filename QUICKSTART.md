@@ -2,13 +2,14 @@
 
 This QuickStart guide demonstrates how to build and run a simple Angular application using the SohoXi component package (**@infor/sohoxi-angular**).
 
-You can download the latest version from [quickstart](http://git.infor.com/users/tharper/repos/sohoxi-angular-quickstart/browse).
+You can download the latest version from [quickstart](http://git.infor.com/scm/soho/sohoxi-angular-quickstart.git).
 
 ## Prerequisites
 
 If **Node.js** and npm aren't already on your machine, install them. These examples require node v4.x.x or higher and npm 3.x.x or higher. To check which version you are using, run `node -v` and `npm -v` in a terminal window.
 
-This quick start guide uses **Angular-CLI** to create, build and run the application.  At the time of writing the version of angular-cli used was 1.0.0-beta-21.
+This quick start guide uses **Angular-CLI** to create, build and run the application.  
+At the time of writing the version of angular-cli used was 1.0.0-beta-22-1.
 
 In addition, **gulp** is used to perform additional build and deployment steps required to get the application built.
 
@@ -38,12 +39,13 @@ The project will need access to the Infor NPM registy to be able to pull down th
 @infor:registry=http://npm.infor.com:4873
 ```
 
-You can add the dependencies directly into the `project.json` file, however it is more reliable to add them using the command line.  In a terminal window, in the project folder:
+You can add the dependencies directly into the `project.json` file, however it is more reliable to add them using the command line. 
+In a terminal window, in the project folder:
 
 1. Type `npm install –save jquery@3.1.1` 
 2. Type `npm install –save @types/jquery`
-3. Type `npm install –save @infor/sohoxi@4.2.3-develop` 
-4. Type `npm install –save @infor/sohoxi-angular@4.2.3-develop` 
+3. Type `npm install –save @infor/sohoxi@4.2.4-develop` 
+4. Type `npm install –save @infor/sohoxi-angular@4.2.4-develop` 
 
 This includes all the packages we need to create this simple quick start application.
 
@@ -99,13 +101,13 @@ Run the app to test it.
 Check you get the default page when you browse to http://localhost:4200/.
 ## Add the SohoComponentsModule
 Edit `src/app/app.module.ts`:
-```
+```typescript
 import { SohoComponentsModule } from '@infor/sohoxi-angular';
 ```
 Add ```SohoComponentsModule``` to the imports. 
 
 Add SohoComponentsModule to the imports.
-```
+```typescript
 @NgModule({
   ...
   declarations: [],

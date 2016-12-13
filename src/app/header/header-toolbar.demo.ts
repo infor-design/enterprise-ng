@@ -9,7 +9,7 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
 
 @Component({
   selector: 'soho-toolbar-header-demo',
-  templateUrl: 'header-toolbar.demo.html'
+  templateUrl:'./header-toolbar.demo.html'
 })
 export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
 
