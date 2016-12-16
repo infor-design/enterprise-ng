@@ -44,8 +44,24 @@ interface SohoToolbarSelectedEvent {
   item: HTMLButtonElement | HTMLAnchorElement | HTMLInputElement;
 }
 
-interface SohoToolbarEvent extends JQueryEventObject {
+/*
+ * Extend Event/EventTarget to allow lookup of dataset property
+ * https://github.com/Microsoft/TypeScript/issues/299#issuecomment-168538829
+ */
+interface SohoToolbarButtonEvent extends Event {
+  currentTarget: SohoToolbarButtonEventTarget;
 }
+
+interface SohoToolbarButtonEventTarget extends EventTarget {
+  dataset?: HTMLElement;
+}
+
+interface SohoToolbarMenuItemEvent extends SohoToolbarButtonEvent {
+  data: any;
+  event: SohoToolbarButtonEvent;
+}
+
+interface SohoToolbarEvent extends JQueryEventObject {}
 
 /**
  * JQuery Integration
