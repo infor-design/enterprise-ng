@@ -6,7 +6,7 @@ import {
 
 @Component({
   selector: 'soho-dropdown-multiselect-demo',
-  templateUrl: 'dropdown-multiselect.demo.html',
+  templateUrl:'./dropdown-multiselect.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownMultiselectDemoComponent implements OnInit {

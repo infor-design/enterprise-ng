@@ -10,7 +10,7 @@
 
 @Component({
   selector: 'soho-datagrid-toolbar-demo',
-  templateUrl: 'datagrid-toolbar.demo.html',
+  templateUrl:'./datagrid-toolbar.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridToolbarDemoComponent implements OnInit, AfterViewInit, AfterContentInit {

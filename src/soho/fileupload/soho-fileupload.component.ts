@@ -10,7 +10,7 @@ import {
 
 @Component({
   selector: 'soho-fileupload', // tslint:disable-line
-  templateUrl: 'soho-fileupload.component.html'
+  templateUrl:'./soho-fileupload.component.html'
 })
 
 export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {

@@ -4,7 +4,7 @@ import {
 
 @Component({
   selector: 'soho-icon-demo',
-  templateUrl: 'icon.demo.html'
+  templateUrl:'./icon.demo.html'
 })
 export class IconDemoComponent {
 }
