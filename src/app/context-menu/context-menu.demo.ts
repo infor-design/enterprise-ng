@@ -7,7 +7,7 @@ import { SohoTextAreaComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-content-menu-demo',
-  templateUrl: 'context-menu.demo.html'
+  templateUrl:'./context-menu.demo.html'
 })
 export class ContextMenuDemoComponent implements OnInit {
 
@@ -110,7 +110,7 @@ export class ContextMenuDemoComponent implements OnInit {
   }
 }
 
-interface ContextMenuEntries {
+export interface ContextMenuEntries {
   displayString: string;
   id?: string;
   url?: string;

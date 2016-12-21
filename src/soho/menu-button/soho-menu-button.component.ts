@@ -12,7 +12,7 @@ import {
 
 @Component({
   selector: 'button[soho-menu-button]', // tslint:disable-line
-  templateUrl: 'soho-menu-button.component.html',
+  templateUrl:'./soho-menu-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 

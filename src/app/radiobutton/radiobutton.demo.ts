@@ -5,7 +5,7 @@ import {
 
 @Component({
   selector: 'soho-radiobutton-demo',
-  templateUrl: 'radiobutton.demo.html'
+  templateUrl:'./radiobutton.demo.html'
 })
 export class RadioButtonDemoComponent implements OnInit {
 

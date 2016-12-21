@@ -10,7 +10,7 @@ import { SohoToolbarComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'toolbar-state-demo', // tslint:disable-line
-  templateUrl: 'toolbar-state.demo.html'
+  templateUrl: './toolbar-state.demo.html'
 })
 export class ToolbarStateDemoComponent implements OnInit {
 

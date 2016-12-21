@@ -113,7 +113,7 @@ export class SohoToolbarButtonSetComponent {
  */
 @Component({
   selector: 'soho-toolbar',
-  templateUrl: 'soho-toolbar.component.html',
+  templateUrl:'./soho-toolbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
@@ -179,14 +179,13 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
   @Output() buttonClicked: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
 
   /*
-   * Mouse over event to return information about original button from menu items
+   * Returns information about original button from menu items
    */
+  @Output() menuItemClicked: EventEmitter<SohoToolbarMenuItemEvent> = new EventEmitter<SohoToolbarMenuItemEvent>();
   @Output() menuItemMouseOver: EventEmitter<HTMLButtonElement> = new EventEmitter<HTMLButtonElement>();
 
   private options: SohoToolbarOptions = {};
-
   private jQueryElement: JQuery;
-
   private toolbar: SohoToolbarStatic;
 
   constructor(private element: ElementRef) { }
@@ -194,26 +193,35 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     // Assign element to local variable
     this.jQueryElement = jQuery(this.element.nativeElement);
-
     this.jQueryElement.toolbar(this.options);
-
     this.toolbar = this.jQueryElement.data('toolbar');
 
     // bind to jquery events and emit as angular events
     this.jQueryElement
-      .on('beforeactivate', ((event: JQueryEventObject) => { this.beforeActivate.emit(event); }))
-      .on('activated', ((event: JQueryEventObject) => { this.activated.emit(event); }))
-      .on('afteractivate', ((event: JQueryEventObject) => { this.afterActivate.emit(event); }))
-      .on('selected', (event: JQueryEventObject, item: HTMLButtonElement | HTMLAnchorElement) => {
-        this.selected.emit({ event, item });
-      });
+    .on('beforeactivate', ((event: JQueryEventObject) => { this.beforeActivate.emit(event); }))
+    .on('activated', ((event: JQueryEventObject) => { this.activated.emit(event); }))
+    .on('afteractivate', ((event: JQueryEventObject) => { this.afterActivate.emit(event); }))
+    .on('selected', (event: JQueryEventObject, item: HTMLButtonElement | HTMLAnchorElement) => {
+      this.selected.emit({ event, item });
+    });
 
+    // Returns original button info on mouseover event
     this.jQueryElement.find('.more').on('mouseover', 'a', ((event: JQueryEventObject) => {
       const originalButton: HTMLButtonElement = jQuery(event.target).data('originalButton');
 
       if (originalButton !== undefined) {
         this.menuItemMouseOver.emit(originalButton);
       }
+    }));
+
+    // Return data objects from submenu items on click
+    this.jQueryElement.on('click', 'li', ((event: JQueryEventObject) => {
+      const o: any = {
+        data: jQuery(event.target).data(),
+        event: event
+      };
+
+      this.menuItemClicked.emit(o);
     }));
 
     this.toolbar = this.jQueryElement.data('toolbar');

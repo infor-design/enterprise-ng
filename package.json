@@ -43,7 +43,11 @@
     "@types/jasmine": "2.5.38",
     "@types/jquery": "^2.0.34",
     "@types/node": "^6.0.42",
+<<<<<<< HEAD
     "angular-cli": "1.0.0-beta.24",
+=======
+    "angular-cli": "1.0.0-beta.22-1",
+>>>>>>> 7207c65266b8fdc265b7ae731d4797a8b9424fc2
     "codelyzer": "~2.0.0-beta.1",
     "gulp": "^3.9.1",
     "jasmine-core": "2.5.2",

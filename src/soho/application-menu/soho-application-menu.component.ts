@@ -18,7 +18,7 @@ import {
  */
 @Component({
   selector: 'nav[soho-application-menu]', // tslint:disable-line
-  templateUrl: 'soho-application-menu.component.html'
+  templateUrl:'./soho-application-menu.component.html'
 })
 export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
 

@@ -469,7 +469,7 @@ export class SohoModalDialogRef<T> {
   }
 }
 
-type SohoModalDialogEventFunction<T> = (f: any, modal: SohoModalDialogRef<T>) => void;
+export type SohoModalDialogEventFunction<T> = (f: any, modal: SohoModalDialogRef<T>) => void;
 
 /**
  * Contract for all SohoModalDialogComponents.
