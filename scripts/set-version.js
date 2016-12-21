@@ -8,7 +8,7 @@ var fs = require('fs'),
 if (!version) {
 	console.log("[Error] Either bamboo_version or bamboo_jira_version ENV must be set.");
 	process.exit(1);
-} else if (version == pkg.version) {
+} else if (version === pkg.version) {
   console.log("[Error] New version cannot match current version.");
 	process.exit(1);
 } else {
