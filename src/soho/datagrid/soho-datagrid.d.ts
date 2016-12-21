@@ -280,7 +280,7 @@ interface SohoDataGridColumn {
   dateShowFormat?: any;
 
   /** @todo fix type from any.  */
-  dateSourceFormat?: any;
+  sourceFormat?: any;
 
   /** @todo fix type from any.  */
   click?: any;
