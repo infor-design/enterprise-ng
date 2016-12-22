@@ -1,8 +1,4 @@
-import {
-  forwardRef,
-  OpaqueToken,
-  Type
-} from '@angular/core';
+import { forwardRef } from '@angular/core';
 
 import {
   NG_VALUE_ACCESSOR,

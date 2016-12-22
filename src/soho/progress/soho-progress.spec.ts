@@ -1,16 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  TestBed
+} from '@angular/core/testing';
+
 import { By } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { Component, DebugElement, ViewChild }    from '@angular/core';
-import { SohoProgressModule } from './soho-progress.module';
+
+// import { FormsModule } from '@angular/forms';
+
+import {
+  Component,
+  DebugElement,
+  ViewChild
+} from '@angular/core';
+
+// import { SohoProgressModule } from './soho-progress.module';
 import { SohoProgressComponent } from './soho-progress.component';
-import { SohoComponentsModule } from '../soho-components.module';
+// import { SohoComponentsModule } from '../soho-components.module';
 
-
-
-//progress undefined
-  /*describe('Soho Progress Unit Tests', () => {
-    let progress:     SohoProgressComponent;
+describe('Soho Progress Unit Tests', () => {
+    let progress: SohoProgressComponent;
     let comp:     SohoProgressTestComponent;
     let fixture:  ComponentFixture<SohoProgressTestComponent>;
     let de:       DebugElement;
@@ -30,7 +38,7 @@ import { SohoComponentsModule } from '../soho-components.module';
       de = fixture.debugElement;
       el = de.query(By.css('div')).nativeElement;
     });
-  });*/
+  });
 
   // progress works, el does not
     describe('Soho Progress Unit Tests', () => {
