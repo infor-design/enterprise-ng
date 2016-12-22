@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// usage ./add-npm-tag.js develop
+
 var fs = require('fs'),
 	filename = 'package.json',
 	pkg = require('../' + filename),
