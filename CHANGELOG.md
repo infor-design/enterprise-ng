@@ -16,7 +16,11 @@ Release Date: 2016-10-31
 * 2016-11-10 - TH - Version Update
  - Bumped version of @infor/sohoxi to 4.2.3-develop
  - Bumped version of @infor/sohoxi-angular to 4.2.3-develop
- 
+ * 2016-11-10 - TH - Version Update
+ - Bumped version of @infor/sohoxi to 4.2.4-develop
+ - Bumped version of @infor/sohoxi-angular to 4.2.4-develop
+
+
 ### Breaking Changes
 * 2016-17-11 KH - PR-189 
     The changes for `SohoIconComponent` will cause a breaking change. 
