@@ -408,7 +408,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   show(tabId: string): void {
-    this.tabs.hide(tabId);
+    this.tabs.show(tabId);
   }
 
   disableTab(tabId: number): void {

@@ -1,8 +1,8 @@
-# SohoXi QuickStart Guide
+# SoHoXi-Angular QuickStart Guide
 
-This QuickStart guide demonstrates how to build and run a simple Angular application using the SohoXi component package (**@infor/sohoxi-angular**).
+This quickstart guide demonstrates how to build and run a simple Angular application using the SoHoXi Angular Component package (**@infor/sohoxi-angular**).
 
-You can download the latest version from [quickstart](http://git.infor.com/scm/soho/sohoxi-angular-quickstart.git).
+You can download the latest version of the code from [quickstart](http://git.infor.com/scm/soho/sohoxi-angular-quickstart.git).
 
 ## Prerequisites
 
@@ -122,7 +122,7 @@ Add SohoComponentsModule to the imports.
 )}
 ```
 
-## Add a SohoXi Component 
+## Add a SoHoXi Component 
 
 Add a button to `app.component.html`, by appending the following code snippet:
 ```
