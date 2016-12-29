@@ -34,7 +34,7 @@ ng init
 ## Step 2 : Install Packages
 
 The project will need access to the Infor NPM registy to be able to pull down the latest *SohoXI* component libraries for jQuery and Angular. 
-The easiest was to achieve this is to create the file `.npmrc` at the root of the project, and edit the file to include:
+The easiest way to achieve this is to create the file `.npmrc` at the root of the project, and edit the file to include:
 
 ```
 @infor:registry=http://npm.infor.com:4873
