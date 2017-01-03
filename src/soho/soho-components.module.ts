@@ -8,6 +8,7 @@ import { SohoDataGridModule } from './datagrid/soho-datagrid.module';
 import { SohoDatePickerModule } from './datepicker/soho-datepicker.module';
 import { SohoDropDownModule } from './dropdown/soho-dropdown.module';
 import { SohoEditorModule } from './editor/soho-editor.module';
+import { SohoErrorModule } from './error/soho-error.module';
 import { SohoExpandableAreaModule } from './expandablearea/soho-expandablearea.module';
 import { SohoFileUploadModule } from './fileupload/soho-fileupload.module';
 import { SohoHeaderModule } from './header/soho-header.module';
@@ -52,6 +53,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoDatePickerModule,
     SohoDropDownModule,
     SohoEditorModule,
+    SohoErrorModule,
     SohoExpandableAreaModule,
     SohoFileUploadModule,
     SohoHeaderModule,
@@ -97,6 +99,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoDatePickerModule,
     SohoDropDownModule,
     SohoEditorModule,
+    SohoErrorModule,
     SohoExpandableAreaModule,
     SohoFileUploadModule,
     SohoHeaderModule,

@@ -5,6 +5,7 @@ export * from './datagrid';
 export * from './datepicker';
 export * from './dropdown';
 export * from './editor';
+export * from './error';
 export * from './expandablearea';
 export * from './fileupload';
 export * from './header';

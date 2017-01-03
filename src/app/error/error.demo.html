@@ -1,0 +1,23 @@
+<div class="example-section">
+  <form>
+    <div class="row">
+      <h1>Error</h1>
+      <span class="code-tag">Live Example</span>
+      <div class="row">
+        <div class="two columns">
+          <div class="field">
+            <label>Field With Error</label>
+            <input alignRight="true" soho-error/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field1">
+            <button soho-button (click)="addInlineError($event)">Add Inline Error</button>
+            <button soho-button (click)="addTooltipError($event)">Add Tooltip Error</button>
+            <button soho-button (click)="removeError($event)">Remove Error</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
