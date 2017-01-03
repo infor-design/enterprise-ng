@@ -16,7 +16,6 @@
       "spaces"
     ],
     "label-position": true,
-    "label-undefined": true,
     "max-line-length": [
       true,
       140
@@ -40,7 +39,6 @@
     "no-consecutive-blank-lines": true,
     "no-construct": true,
     "no-debugger": true,
-    "no-duplicate-key": true,
     "no-duplicate-variable": true,
     "no-empty": false,
     "no-eval": true,
@@ -52,7 +50,6 @@
     "no-trailing-whitespace": true,
     "no-unused-expression": true,
     "no-unused-variable": true,
-    "no-unreachable": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
@@ -98,10 +95,11 @@
 
     //"directive-selector-name": [true, "kebab-case"],
     //"directive-selector-type": [true, "attribute"],
-    "directive-selector-prefix": [true, "soho"],
+    //"directive-selector-prefix": [true, "soho"],
     //"component-selector-name": [true, "kebab-case"],
     //"component-selector-type": [true, "element"],
-    "component-selector-prefix": [true, "soho"],
+    //"component-selector-prefix": [true, "soho"],
+
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
