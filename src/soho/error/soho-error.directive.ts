@@ -10,6 +10,7 @@ import {
  */
 @Directive({
   selector: '[soho-error]', // tslint:disable-line
+  exportAs: 'soho-error'
 })
 export class SohoErrorDirective implements AfterViewInit {
   constructor(private el: ElementRef) {
@@ -46,6 +47,25 @@ export class SohoErrorDirective implements AfterViewInit {
 
   get errorMessage() {
     return this.error;
+  }
+
+  /** add inline error */
+  addInlineError(message: string) {
+    this.showTooltip = false;
+    this.inline = true;
+    this.message = message;
+  }
+
+  /** add tooltip error */
+  addTooltipError(message: string) {
+    this.showTooltip = true;
+    this.inline = false;
+    this.message = message;
+  }
+
+  /** remove inline/tooltip error */
+  removeError() {
+    this.message = '';
   }
 
   /**

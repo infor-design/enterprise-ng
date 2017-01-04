@@ -7,14 +7,14 @@
         <div class="two columns">
           <div class="field">
             <label>Field With Error</label>
-            <input alignRight="true" soho-error/>
+            <input alignRight="true" soho-error #error="soho-error"/>
           </div>
         </div>
         <div class="row">
           <div class="field1">
-            <button soho-button (click)="addInlineError($event)">Add Inline Error</button>
-            <button soho-button (click)="addTooltipError($event)">Add Tooltip Error</button>
-            <button soho-button (click)="removeError($event)">Remove Error</button>
+            <button soho-button (click)="error.addInlineError(message)">Add Inline Error</button>
+            <button soho-button (click)="error.addTooltipError(message)">Add Tooltip Error</button>
+            <button soho-button (click)="error.removeError()">Remove Error</button>
           </div>
         </div>
       </div>
