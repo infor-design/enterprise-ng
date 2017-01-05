@@ -113,7 +113,7 @@ export class SohoToolbarButtonSetComponent {
  */
 @Component({
   selector: 'soho-toolbar',
-  templateUrl:'./soho-toolbar.component.html',
+  templateUrl: './soho-toolbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
@@ -214,10 +214,21 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
       }
     }));
 
-    // Return data objects from submenu items on click
-    this.jQueryElement.on('click', 'li', ((event: JQueryEventObject) => {
+    // Return item from overflow items and overflow submenu items on mousedown
+    // Changed click to mousedown. Event propagation is being stopped in fn.popupmenu()
+    // @ handleKeys: function () {} this was preventing events from being returned on
+    // overflowed buttons
+    this.jQueryElement.on('mousedown', 'a', ((event: JQueryEventObject) => {
+
+      let item = $(event.currentTarget);
+
+      // Get original button info if overflowed
+      if ($(event.currentTarget).data().originalButton) {
+        item = $(event.currentTarget).data().originalButton;
+      }
+
       const o: any = {
-        data: jQuery(event.target).data(),
+        item: item,
         event: event
       };
 
