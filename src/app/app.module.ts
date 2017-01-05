@@ -40,6 +40,7 @@ import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
+import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
@@ -118,6 +119,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     DropdownMultiselectDemoComponent,
     DropdownSimpleDemoComponent,
     EditorDemoComponent,
+    ErrorDemoComponent,
     ExpandableAreaDemoComponent,
     FileUploadDemoComponent,
     HeaderTabsDemoComponent,
