@@ -1,12 +1,11 @@
 <div class="no-scroll soho-step-process">
- <div class="page-container no-scroll two-column fixed">
-
+  <div class="step-process-container two-column fixed page-container no-scroll show-main" role="main">
    <!-- STEP CONTROL SIDE BAR -->
    <div class="sidebar" role="complementary">
      <div class="toolbar toolbar-custom collapsible-bar phone-visible">
        <ng-content select="div[soho-steps-list-title]"></ng-content>
      </div>
-     <ng-content select="div[soho-steps-list]"></ng-content>
+     <ng-content select="ul[soho-steps-list]"></ng-content>
    </div>
 
    <!-- STEP CONTROL MAIN CONTENT -->

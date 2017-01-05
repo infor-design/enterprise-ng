@@ -12,15 +12,16 @@ import { ArgumentHelper } from '@infor/sohoxi-angular';
  * Internal component to support the step list items
  */
 @Component({
-  selector: 'div[soho-steps-list]', // tslint:disable-line
+  selector: 'ul[soho-steps-list]', // tslint:disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoStepsListComponent {
-  @HostBinding('class.accordion') get isAccordion() { return true; }
-  @HostBinding('class.panel') get isPanel() { return true; }
-  @HostBinding('class.step-process-accordion') get isStepProcessAccordion() { return true; }
-  @HostBinding('class.js-step-links-scroll') get isJsStepLinksScroll() { return true; }
+  @HostBinding('attr.id') get Id() { return "json-tree"; }
+  @HostBinding('class.tree') get isTree() { return true; }
+  @HostBinding('class.js-step-tree-scroll') get isJsStepTreeScroll() { return true; }
+  @HostBinding('attr.role') get role() { return "tree"; }
   @HostBinding('attr.data-init') get isDataInit() { return false; }
+  @HostBinding('attr.aria-label') get ariaLabel() { return "Asset Types"; }
 
   constructor() {
   }
@@ -50,8 +51,8 @@ export class SohoStepsListTitleComponent {
 })
 export class SohoStepsContentComponent {
   @HostBinding('class.scrollable') get isScrollable() { return true; }
-  @HostBinding('class.step-panels') get iStepPanels() { return true; }
-  @HostBinding('class.js-step-panels-scroll') get isJsStepPanelsScroll() { return true; }
+  @HostBinding('class.step-container') get iStepContainer() { return true; }
+  @HostBinding('class.js-step-container-scroll') get isJsStepPanelsScroll() { return true; }
 }
 
 /**
@@ -62,7 +63,7 @@ export class SohoStepsContentComponent {
   template: `<ng-content></ng-content>`,
 })
 export class SohoStepsContentPanelComponent {
-  @HostBinding('class.js-step-process-panel') get isJsStepProcessPanel() { return true; }
+  @HostBinding('class.js-step-panel') get isJsStepProcessPanel() { return true; }
   @HostBinding('attr.id') get idAttr() { return this.stepId; };
   @Input() stepId: string;
 }
@@ -84,11 +85,11 @@ export class SohoStepContentTitleComponent {
  * Internal component to support the step content title
  */
 @Component({
-  selector: 'div[soho-step-list-items]', // tslint:disable-line
+  selector: 'ul[soho-step-list-items]', // tslint:disable-line
   template: `<ng-content></ng-content>`,
   styles: [
     `
-      :host {
+    :host {
         margin-left: 20px;
       }
     `   // indent the substep nodes
@@ -98,20 +99,33 @@ export class SohoStepListItemsComponent {
 
   constructor() {
   }
-  @HostBinding('class.accordion-pane') get isAccordionPane() { return true; }
+  @HostBinding('class.root') get isRoot() { return true; }
 }
 
 /**
  * Internal component to support the step content title
  */
 @Component({
-  selector: 'div[soho-step-list-item]', // tslint:disable-line
+  selector: 'li[soho-step-list-item]', // tslint:disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoStepListItemComponent {
 
   constructor() {}
-  @HostBinding('class.step-process-item') get isStepProcessItem() { return true; };
+//  @HostBinding('class.step-process-item') get isStepProcessItem() { return true; };
+}
+
+/**
+ * Internal component to support the step title
+ */
+@Component({
+  selector: 'span[soho-step-item-title]', // tslint:disable-line
+  template: `<ng-content></ng-content>`
+})
+export class sohoStepItemTitleComponent {
+
+  constructor() {}
+  @HostBinding('class.tree-text') get isTreeText() { return true; };
 }
 
 /**
@@ -122,7 +136,7 @@ export class SohoStepListItemComponent {
   template: `<ng-content></ng-content>`
 })
 export class SohoStepListItemAnchorComponent {
-  @HostBinding('class.js-step-link') get isJsStepLink() { return true; };
+//  @HostBinding('class.js-step-link') get isJsStepLink() { return true; };
   @HostBinding('attr.href') get hrefAttr() { return '#' + this.stepId; };
   @Input() stepId: string;
 }
