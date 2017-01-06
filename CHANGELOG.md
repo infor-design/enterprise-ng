@@ -23,7 +23,15 @@ Release Date: 2016-10-31
  - Upgraded to angular 2.3.1
 
 ### Breaking Changes
-* 2016-17-11 KH - PR-189 
+
+* 2017-05-01 - KH
+      
+     SohoToolbarComponent
+     
+    `@Output() menuItemClicked` is deprecated. Use `@Output() selected`
+  
+* 2016-17-11 - KH - PR-189 
+    
     The changes for `SohoIconComponent` will cause a breaking change. 
     http://git.infor.com/projects/SOHO/repos/angular-components/pull-requests/189/overview
     
@@ -36,6 +44,7 @@ Release Date: 2016-10-31
     Wrapping the SVG was breaking numerous Sohoxi CSS rules and causing layout issues.
 
 * 2016-10-10 - TH - PR-118
+    
     refactored SohoGridColumn -> SohoDataGridColumn
     refactored SohoSourceRequest -> SohoDataGridSourceRequest
     removed SohoDataGridConfiguration merged into SohoDataGridOptions

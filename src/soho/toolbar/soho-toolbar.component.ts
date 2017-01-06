@@ -113,7 +113,7 @@ export class SohoToolbarButtonSetComponent {
  */
 @Component({
   selector: 'soho-toolbar',
-  templateUrl:'./soho-toolbar.component.html',
+  templateUrl: './soho-toolbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
@@ -172,16 +172,8 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
    */
   @Output() selected: EventEmitter<SohoToolbarSelectedEvent> = new EventEmitter<SohoToolbarSelectedEvent>();
 
-  /**
-   * The buttonClicked event is fired when a toolbar button has been clicked.
-   * @type {EventEmitter<SohoToolbarEvent>}
-   */
-  @Output() buttonClicked: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
-
-  /*
-   * Returns information about original button from menu items
-   */
-  @Output() menuItemClicked: EventEmitter<SohoToolbarMenuItemEvent> = new EventEmitter<SohoToolbarMenuItemEvent>();
+  // Lazy load example
+  // Not fully implemented, see SOHO-5011
   @Output() menuItemMouseOver: EventEmitter<HTMLButtonElement> = new EventEmitter<HTMLButtonElement>();
 
   private options: SohoToolbarOptions = {};
@@ -206,22 +198,12 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
     });
 
     // Returns original button info on mouseover event
-    this.jQueryElement.find('.more').on('mouseover', 'a', ((event: JQueryEventObject) => {
+    this.jQueryElement.find('.more').on('mouseover', 'li.submenu', ((event: JQueryEventObject) => {
       const originalButton: HTMLButtonElement = jQuery(event.target).data('originalButton');
 
       if (originalButton !== undefined) {
         this.menuItemMouseOver.emit(originalButton);
       }
-    }));
-
-    // Return data objects from submenu items on click
-    this.jQueryElement.on('click', 'li', ((event: JQueryEventObject) => {
-      const o: any = {
-        data: jQuery(event.target).data(),
-        event: event
-      };
-
-      this.menuItemClicked.emit(o);
     }));
 
     this.toolbar = this.jQueryElement.data('toolbar');
