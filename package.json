@@ -21,7 +21,7 @@
     "e2e": "protractor",
     "add-develop-tag": "./scripts/add-npm-tag.js develop",
     "set-version": "./scripts/set-version.js",
-    "bump-soho-versions": "./scripts/bump-soho-versions.js develop"
+    "set-sohoxi-version": "./scripts/set-sohoxi-version.js"
   },
   "dependencies": {
     "@angular/common": "^2.4.1",
