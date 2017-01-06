@@ -36,8 +36,9 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
       this.buttons = this.buildToolbarButtonArray();
   }
 
+  // Lazy loading example
   onMenuItemMouseOver(event: HTMLButtonElement) {
-    const button = JSON.parse(event[0].dataset.button);
+    const button = JSON.parse(event[0].dataset.action);
 
     if (button.btn === 'actions' && !this.actionsLoaded) {
        this.toolbarDataDrivenDemoService.getToolbarData().then( (items: any) => {
@@ -51,6 +52,11 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
     }
   }
 
+  onSelected(event: SohoToolbarSelectedEvent) {
+    const data = event.item[0].dataset.action;
+    alert(data);
+  }
+
   private buildToolbarButtonArray(): Array<ToolbarButton> {
     let buttons: Array<ToolbarButton> = [];
 
@@ -60,6 +66,17 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
       text     : 'Create',
       icon     : 'add',
       cssClass : 'btn-icon'
+    });
+
+    buttons.push({
+      id       : 'Create Menu',
+      data     : '{"btn" : "create"}',
+      text     : 'Create',
+      cssClass : 'btn-icon',
+      menu     : [
+        {id: 'create 1',    text: 'Create 1',    data: '{\'menu\': \'create1\'}'},
+        {id: 'create 2',   text: 'Create 2',   data: '{\'menu\': \'create2\'}'},
+      ]
     });
 
     buttons.push({

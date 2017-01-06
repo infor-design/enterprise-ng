@@ -25,19 +25,11 @@ Release Date: 2016-10-31
 ### Breaking Changes
 
 * 2017-05-01 - KH
-
-    `@Output() menuItemClicked` now returns an object of `{item: ..., event: ...}`
-    instead of `{data: ..., event: ...}`. Data can be retrieved via item. 
-    
-    `event.item[0].dataset` for example. See, http://localhost:4200/toolbar-basic
-    
-    This was changed so both.. 
-    ```
-      @Output() menuItemClicked
-      @Output() selected 
-    ```
-    return the same object with the same properties.
-
+      
+     SohoToolbarComponent
+     
+    `@Output() menuItemClicked` is deprecated. Use `@Output() selected`
+  
 * 2016-17-11 - KH - PR-189 
     
     The changes for `SohoIconComponent` will cause a breaking change. 

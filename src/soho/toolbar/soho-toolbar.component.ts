@@ -172,16 +172,8 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
    */
   @Output() selected: EventEmitter<SohoToolbarSelectedEvent> = new EventEmitter<SohoToolbarSelectedEvent>();
 
-  /**
-   * The buttonClicked event is fired when a toolbar button has been clicked.
-   * @type {EventEmitter<SohoToolbarEvent>}
-   */
-  @Output() buttonClicked: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
-
-  /*
-   * Returns information about original button from menu items
-   */
-  @Output() menuItemClicked: EventEmitter<SohoToolbarMenuItemEvent> = new EventEmitter<SohoToolbarMenuItemEvent>();
+  // Lazy load example
+  // Not fully implemented, see SOHO-5011
   @Output() menuItemMouseOver: EventEmitter<HTMLButtonElement> = new EventEmitter<HTMLButtonElement>();
 
   private options: SohoToolbarOptions = {};
@@ -206,33 +198,12 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
     });
 
     // Returns original button info on mouseover event
-    this.jQueryElement.find('.more').on('mouseover', 'a', ((event: JQueryEventObject) => {
+    this.jQueryElement.find('.more').on('mouseover', 'li.submenu', ((event: JQueryEventObject) => {
       const originalButton: HTMLButtonElement = jQuery(event.target).data('originalButton');
 
       if (originalButton !== undefined) {
         this.menuItemMouseOver.emit(originalButton);
       }
-    }));
-
-    // Return item from overflow items and overflow submenu items on mousedown
-    // Changed click to mousedown. Event propagation is being stopped in fn.popupmenu()
-    // @ handleKeys: function () {} this was preventing events from being returned on
-    // overflowed buttons
-    this.jQueryElement.on('mousedown', 'a', ((event: JQueryEventObject) => {
-
-      let item = $(event.currentTarget);
-
-      // Get original button info if overflowed
-      if ($(event.currentTarget).data().originalButton) {
-        item = $(event.currentTarget).data().originalButton;
-      }
-
-      const o: any = {
-        item: item,
-        event: event
-      };
-
-      this.menuItemClicked.emit(o);
     }));
 
     this.toolbar = this.jQueryElement.data('toolbar');
