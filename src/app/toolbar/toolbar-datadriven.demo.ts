@@ -71,6 +71,7 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
     buttons.push({
       id       : 'Create Menu',
       data     : '{"btn" : "create"}',
+      icon     : 'add',
       text     : 'Create',
       cssClass : 'btn-icon',
       menu     : [

@@ -1,10 +1,12 @@
-import {Component, HostListener} from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'soho-menu-button-demo',
-  templateUrl:'./menu-button.demo.html',
+  templateUrl: './menu-button.demo.html',
 })
-export class MenuButtonDemoComponent {
+export class MenuButtonDemoComponent implements OnInit {
+
+  private menuButtons: Array<any>;
 
   disabledEntryClicked() {
     alert('Should not be Allowed');
@@ -25,5 +27,26 @@ export class MenuButtonDemoComponent {
 
   onOpen() {
     console.log('onOpen');
+  }
+
+  ngOnInit() {
+    this.menuButtons = [
+      {
+        label: 'Add',
+        icon: 'add',
+        menu: [
+          { label: 'action one' },
+          { label: 'action two' }
+        ]
+      },
+      {
+        label: 'Copy',
+        icon: 'copy',
+        menu: [
+          { label: 'action one' },
+          { label: 'action two' }
+        ]
+      }
+    ];
   }
 }
