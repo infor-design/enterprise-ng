@@ -14,7 +14,7 @@ import {
 
 @Component({
   selector: 'soho-datagrid-custom-formatter-demo',
-  templateUrl:'./datagrid-custom-formatter.demo.html',
+  templateUrl: './datagrid-custom-formatter.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
