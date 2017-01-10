@@ -22,7 +22,7 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     /**
-     * Add a
+     * Add a column for the custom formatter
      */
     PAGING_COLUMNS.push({
       id: 'custom-formatter',
