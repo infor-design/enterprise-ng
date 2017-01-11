@@ -28,7 +28,7 @@
       <li soho-popupmenu-item><a soho-popupmenu-label>Bubble Chart</a></li>
     </ul>
 
-    <button soho-menu-button icon='pie-chart' title="Charts" menu="charts-menu2"
+    <button soho-menu-button [icon]="'pie-chart'" title="Charts" menu="charts-menu2"
             (selected)="onSelected($event)"
             (beforeopen)="onBeforeopen($event)"
             (close)="onClose($event)"
@@ -38,6 +38,18 @@
       <li soho-popupmenu-item id='line'><a soho-popupmenu-label>Line Chart</a></li>
       <li soho-popupmenu-item id='bubble'><a soho-popupmenu-label>Bubble Chart</a></li>
     </ul>
+
+    <!-- dynamic -->
+    <template ngFor let-b [ngForOf]="menuButtons">
+      <button soho-menu-button [icon]="b?.icon">
+        <span>{{b?.label}}</span>
+      </button>
+      <ul class="popupmenu">
+        <li *ngFor="let i of b.menu">
+          <a href="#">{{i?.label}}</a>
+        </li>
+      </ul>
+    </template>
 
   </div>
 </div>
