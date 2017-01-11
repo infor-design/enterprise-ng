@@ -71,6 +71,7 @@ import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
+import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
@@ -91,6 +92,7 @@ export const routes: Routes = [
   { path: 'datagrid-settings',     component: DataGridSettingsDemoComponent },
   { path: 'datagrid-treegrid',     component: DataGridTreeGridDemoComponent },
   { path: 'datagrid-custom-formatter', component: DataGridCustomFormatterDemoComponent },
+  { path: 'datagrid-custom-formatter-service', component: DataGridCustomFormatterServiceDemoComponent },
   { path: 'datepicker',            component: DatepickerDemoComponent },
   { path: 'dropdown',              component: DropdownDemoComponent },
   { path: 'dropdown-async-busy',   component: DropdownAsyncBusyDemoComponent },
