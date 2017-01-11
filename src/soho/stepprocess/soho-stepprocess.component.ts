@@ -6,7 +6,7 @@ import {
   Input,
   OnDestroy,
 } from '@angular/core';
-import { ArgumentHelper } from '@infor/sohoxi-angular';
+import { ArgumentHelper } from '../utils';
 
 /**
  * Internal component to support the step list items
