@@ -5,7 +5,7 @@ import {
 
 @Component({
   selector: 'soho-checkbox-demo',
-  templateUrl:'./checkbox.demo.html',
+  templateUrl: './checkbox.demo.html',
 })
 export class CheckBoxDemoComponent implements OnInit {
 
