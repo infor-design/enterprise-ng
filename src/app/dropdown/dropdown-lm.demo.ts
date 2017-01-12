@@ -3,7 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'soho-dropdown-demo',
-  templateUrl:'./dropdown-lm.demo.html',
+  templateUrl: './dropdown-lm.demo.html',
 })
 export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
   private fieldSpec = { // tslint:disable-line

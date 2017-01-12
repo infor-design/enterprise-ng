@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'soho-listview-demo',
-  templateUrl:'./listview.demo.html',
+  templateUrl: './listview.demo.html',
   styles: [`
     .smaller-width {
       width: calc(100% - 39px);

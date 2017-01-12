@@ -77,7 +77,7 @@ export class SohoListViewMicroComponent {
 
 @Component({
   selector: 'soho-listview',
-  templateUrl:'./soho-listview.component.html',
+  templateUrl: './soho-listview.component.html',
   styles: [`
     .smaller {
       width: 50%;

@@ -3,7 +3,7 @@ import { SohoSpinboxComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-spinbox-demo',
-  templateUrl:'./spinbox.demo.html'
+  templateUrl: './spinbox.demo.html'
 })
 
 export class SpinboxDemoComponent {

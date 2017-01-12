@@ -8,7 +8,7 @@ import { SohoSliderComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-slider-demo',
-  templateUrl:'./slider.demo.html',
+  templateUrl: './slider.demo.html',
   styles: [`pre{font-size: 15px}`] // set font size to be larger so pre tag content is more readable
 })
 export class SliderDemoComponent implements OnInit {
