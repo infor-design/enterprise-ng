@@ -6,11 +6,13 @@
  */
 
 interface SohoErrorOptions {
-  /** Custom click event; can be used with a modal dialog and custom list component */
+  /** */
   message?: string;
 
+  /** */
   showTooltip?: boolean;
 
+  /** */
   inline?: boolean;
 }
 
@@ -22,9 +24,7 @@ interface SohoErrorStatic {
   /** Access to the control's options block. */
   settings: SohoErrorOptions;
 
-
-
-  /** Tears dwn the control and recreates it. */
+  /** Tears down the control and recreates it. */
   updated(): void;
 
   /** Destructor. */
