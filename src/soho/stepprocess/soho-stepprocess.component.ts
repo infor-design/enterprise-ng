@@ -268,7 +268,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     // assign element to local variable
     this.jQueryElement = jQuery(this.element.nativeElement);
-    let $stepProcess: JQuery = this.jQueryElement.find('.soho-step-process');
+    const $stepProcess: JQuery = this.jQueryElement.find('.soho-step-process');
     $stepProcess.stepprocess(this._stepProcessOptions);
     this.stepprocess = $stepProcess.data('stepprocess');
   }

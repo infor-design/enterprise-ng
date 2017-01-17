@@ -12,10 +12,11 @@ import {
 
 @Component({
   selector: 'soho-progress', // tslint:disable-line
-  template: `<div [class.progress-bar]="true" [attr.data-value]="this.value"></div>`,
+  template: `<div [class.progress-bar]="true" [attr.data-value]="value"></div>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoProgressComponent implements AfterViewInit, OnDestroy {
+  public value: number;
   /*
    *  @param value
    */
@@ -43,7 +44,6 @@ export class SohoProgressComponent implements AfterViewInit, OnDestroy {
   }
 
   private options: SohoProgressOptions = {};
-  private value: number;
   private jQueryElement: JQuery;
   private progress: SohoProgressStatic;
 
