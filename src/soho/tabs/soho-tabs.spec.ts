@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 // import { By } from '@angular/platform-browser';
-import { Component, DebugElement, ViewChild }    from '@angular/core';
+import { Component, DebugElement, ViewChild } from '@angular/core';
 
 import { SohoTabsModule } from './soho-tabs.module';
 import { SohoTabsComponent } from './soho-tabs.component';
@@ -62,7 +62,7 @@ describe('Soho Basic Tabs Render', () => {
   });
 
   it('Check HTML content', () => {
-    let tabsElement: Element = el.children[0];
+    const tabsElement: Element = el.children[0];
     expect(tabsElement.nodeName).toBe('DIV');
 
     // check attributes
@@ -74,13 +74,13 @@ describe('Soho Basic Tabs Render', () => {
     expect(tabsElement.classList).toContain('horizontal');
 
     // check ul element
-    let tabListElementList: NodeListOf<HTMLUListElement> = tabsElement.getElementsByTagName('ul');
+    const tabListElementList: NodeListOf<HTMLUListElement> = tabsElement.getElementsByTagName('ul');
     expect(tabListElementList.length).toBe(1);
     expect(tabListElementList[0].getAttribute('soho-tab-list')).not.toBeNull();
     expect(tabListElementList[0].classList).toContain('tab-list');
 
     // check lis
-    let tabListElementListItems: NodeListOf<HTMLLIElement> = tabListElementList[0].getElementsByTagName('li');
+    const tabListElementListItems: NodeListOf<HTMLLIElement> = tabListElementList[0].getElementsByTagName('li');
     expect(tabListElementListItems.length).toBe(2);
 
     // first li
@@ -111,7 +111,7 @@ describe('Soho Basic Tabs Render', () => {
     expect(anchorElementList[0].innerText).toEqual('Opportunites');
 
     // check tab panels
-    let tabPanelElementList: NodeListOf<Element> = tabsElement.querySelectorAll('div[soho-tab-panel]');
+    const tabPanelElementList: NodeListOf<Element> = tabsElement.querySelectorAll('div[soho-tab-panel]');
     expect(tabPanelElementList[0].classList).toContain('tab-panel');
     expect(tabPanelElementList[0].getAttribute('tabId')).toEqual('tabs-normal-contracts');
     expect(tabPanelElementList[0].getAttribute('id')).toEqual(tabPanelElementList[0].getAttribute('tabId'));

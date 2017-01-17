@@ -44,7 +44,7 @@
     "no-debugger": true,
     "no-duplicate-variable": true,
     "no-empty": false,
-    "no-empty-interface": true,
+    "no-empty-interface": false,
     "no-eval": true,
     "no-inferrable-types": [],
     "no-shadowed-variable": true,
@@ -98,7 +98,7 @@
       "check-type"
     ],
 
-    "directive-selector": [true, "attribute", "soho", "camelCase"],
+    "directive-selector": [true, "attribute", "soho", "kebab-case"],
     "component-selector": [true, "element", "soho", "kebab-case"],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,

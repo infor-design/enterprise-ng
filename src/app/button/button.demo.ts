@@ -8,7 +8,7 @@ import {
   templateUrl: './button.demo.html'
 })
 export class ButtonDemoComponent implements OnInit {
-  private shouldSayHi = false;
+  public shouldSayHi = false;
 
   constructor() {}
   ngOnInit() {}

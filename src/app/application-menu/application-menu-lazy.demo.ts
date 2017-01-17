@@ -4,15 +4,15 @@ import { ApplicationMenuLazyService } from './application-menu-lazy-service.demo
 import { SohoApplicationMenuComponent } from '@infor/sohoxi-angular';
 
 @Component({
-  selector: 'application-meny-lazy-demo', // tslint:disable-line
+  selector: 'application-menu-lazy-demo', // tslint:disable-line
   templateUrl: './application-menu-lazy.demo.html',
 })
 export class ApplicationMenuLazyDemoComponent implements AfterViewInit, OnInit {
 
   @ViewChild(SohoApplicationMenuComponent) applicationMenu: SohoApplicationMenuComponent;
 
-  private triggers: Array<string> = [];
-  private menu: Array<any> = [];
+  public triggers: Array<string> = [];
+  public menu: Array<any> = [];
 
   constructor(private _lazyMenuService: ApplicationMenuLazyService) {}
 
@@ -31,7 +31,7 @@ export class ApplicationMenuLazyDemoComponent implements AfterViewInit, OnInit {
 
   public onSubMenuLoaded(menuObject: any) {
     this.menu = menuObject.menuSpec;
-    let target = menuObject.event.target;
+    const target = menuObject.event.target;
     this.applicationMenu.updateLazy(this.applicationMenu, target);
   }
 }

@@ -117,14 +117,14 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
    * from applicationmenu.js. This is my current work arround (Kris Holleneck)
    */
   public updateLazy(applicationMenu: SohoApplicationMenuComponent, target: any) {
-    let $applicationMenu = jQuery(applicationMenu.elementRef.nativeElement).data('applicationmenu');
-    let $accordion = $applicationMenu.accordion;
-    let accordion = $accordion.data('accordion');
+    const $applicationMenu = jQuery(applicationMenu.elementRef.nativeElement).data('applicationmenu');
+    const $accordion = $applicationMenu.accordion;
+    const accordion = $accordion.data('accordion');
 
     accordion.headers = $accordion.find('.accordion-header');
 
     setTimeout(() => {
-      let header = jQuery(target).closest('.accordion-header');
+      const header = jQuery(target).closest('.accordion-header');
       accordion.toggle(header);
     }, 1);
   }
@@ -137,7 +137,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
     // Wrap for later.
     this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
-    let options: SohoApplicationMenuOptions = {
+    const options: SohoApplicationMenuOptions = {
       breakpoint: this.breakpoint,
       openOnLarge: this.openOnLarge,
       triggers: this._triggers
