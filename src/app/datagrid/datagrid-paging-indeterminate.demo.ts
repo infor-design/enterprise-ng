@@ -21,7 +21,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
   constructor(private datagridPagingService: DataGridPagingIndeterminateDemoService) {}
 
   ngAfterViewInit(): void {
-    let gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
+    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
       columns: this.datagridPagingService.getColumns(),
       selectable: 'single',
       paging: true,

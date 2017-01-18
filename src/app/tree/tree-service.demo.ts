@@ -62,4 +62,14 @@ export class TreeServiceDemoComponent {
     this.selected = treeEvent.data;
     console.log('Tree Event: ${this.selected}');
   }
+
+  onCollapse(treeEvent: SohoTreeEvent) {
+    this.selected = treeEvent.data;
+    console.log('Tree Event: ${this.selected}');
+  }
+
+  onExpand(treeEvent: SohoTreeEvent) {
+    this.selected = treeEvent.data;
+    console.log('Tree Event: ${this.selected}');
+  }
 }

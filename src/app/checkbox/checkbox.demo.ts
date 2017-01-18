@@ -9,7 +9,7 @@ import {
 })
 export class CheckBoxDemoComponent implements OnInit {
 
-  private model = { // tslint:disable-line
+  public model = { // tslint:disable-line
     checkBox1Value: false,
     checkBox2Value: true,
     checkBox3Value: false,

@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-checkbox]', // tslint:ignore-line
+  selector: '[soho-checkbox]', // tslint:disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
