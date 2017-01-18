@@ -9,7 +9,7 @@ You can download the latest version of the code from [quickstart](http://git.inf
 If **Node.js** and npm aren't already on your machine, install them. These examples require node v4.x.x or higher and npm 3.x.x or higher. To check which version you are using, run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **Angular-CLI** to create, build and run the application.  
-At the time of writing the version of angular-cli used was 1.0.0-beta-22-1.
+At the time of writing the version of angular-cli used was 1.0.0-beta.25.5.
 
 In addition, **gulp** is used to perform additional build and deployment steps required to get the application built.
 
@@ -45,8 +45,8 @@ In a terminal window, in the project folder:
 
 1. Type `npm install –save jquery@3.1.1` 
 2. Type `npm install –save @types/jquery`
-3. Type `npm install –save @infor/sohoxi@4.2.4-develop` 
-4. Type `npm install –save @infor/sohoxi-angular@4.2.4-develop` 
+3. Type `npm install –save @infor/sohoxi@4.2.5-develop` 
+4. Type `npm install –save @infor/sohoxi-angular@4.2.5-develop` 
 
 This includes all the packages we need to create this simple quick start application.
 

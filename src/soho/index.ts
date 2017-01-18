@@ -26,7 +26,7 @@ export * from './spinbox';
 export * from './splitter';
 export * from './slider';
 export * from './spinbox';
-export * from './stepprocess';
+export * from './stepprocess';
 export * from './tabs';
 export * from './textarea';
 export * from './timepicker'

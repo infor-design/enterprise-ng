@@ -1,4 +1,4 @@
-export var MOCK_STATES = [
+export const MOCK_STATES = [
       { value: 'AK', label: 'Alaska' },
       { value: 'AZ', label: 'Arizona' },
       { value: 'CA', label: 'California' },

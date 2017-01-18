@@ -14,7 +14,7 @@ import { TreeDemoService } from './tree-demo.service';
 
 @Component({
   selector: 'soho-tree-service-demo',
-  templateUrl:'./tree-service.demo.html',
+  templateUrl: './tree-service.demo.html',
   providers: [{ provide: SohoTreeService, useClass: TreeDemoService }],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -50,7 +50,7 @@ export class TreeServiceDemoComponent {
   }
 
   addNode() {
-    let tn: SohoTreeNode = { text: 'New Item 1.2', disabled: true };
+    const tn: SohoTreeNode = { text: 'New Item 1.2', disabled: true };
     this.tree.addNode(tn, this.selected);
   }
 

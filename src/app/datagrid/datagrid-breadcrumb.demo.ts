@@ -18,7 +18,7 @@ import { SohoBusyIndicatorDirective } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-datagrid-breadcrumb-demo',
-  templateUrl:'./datagrid-breadcrumb.demo.html',
+  templateUrl: './datagrid-breadcrumb.demo.html',
   providers: [{ provide: SohoDataGridService, useClass: DataGridDemoService }],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

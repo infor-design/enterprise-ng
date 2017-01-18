@@ -12,7 +12,7 @@ import {
  * numerous times using the SohoModalDialogService.
  */
 @Component({
-  templateUrl:'./vetoable-modal-dialog.component.html',
+  templateUrl: './vetoable-modal-dialog.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VetoableModalDialogComponent implements SohoModalDialogVetoableEventGuard {

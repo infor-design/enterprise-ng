@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'soho-dropdown-demo',
-  templateUrl:'./dropdown.demo.html',
+  templateUrl: './dropdown.demo.html',
 })
 export class DropdownDemoComponent implements OnInit {
   private options: Array<Object> = [

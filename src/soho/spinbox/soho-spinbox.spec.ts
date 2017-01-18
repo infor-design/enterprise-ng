@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Component, DebugElement, ViewChild }    from '@angular/core';
+import { Component, DebugElement, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { SohoSpinboxModule } from './soho-spinbox.module';
@@ -62,7 +62,7 @@ describe ('Soho Spinbox Unit tests', () => {
 
 @Component ({
   template: `
-    <input soho-spinbox id="id-spin" name="stepped-spinbox" min="-99" max="99" value="0" step="3"/>    
+    <input soho-spinbox id="id-spin" name="stepped-spinbox" min="-99" max="99" value="0" step="3"/>
     `
 })
 

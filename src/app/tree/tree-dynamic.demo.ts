@@ -13,7 +13,7 @@ import { SohoTreeComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-tree-dynamic-demo',
-  templateUrl:'./tree-dynamic.demo.html',
+  templateUrl: './tree-dynamic.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeDynamicDemoComponent implements AfterViewInit {

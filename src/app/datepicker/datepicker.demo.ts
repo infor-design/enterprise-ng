@@ -7,7 +7,7 @@ import { SohoDatePickerComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-datepicker-demo',
-  templateUrl:'./datepicker.demo.html'
+  templateUrl: './datepicker.demo.html'
 })
 export class DatepickerDemoComponent implements OnInit {
 

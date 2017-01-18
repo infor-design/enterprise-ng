@@ -17,8 +17,8 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private isDisabled: boolean;
-  private isReadOnly: boolean;
+  public isDisabled: boolean;
+  public isReadOnly: boolean;
 
   // -------------------------------------------
   // Component Input

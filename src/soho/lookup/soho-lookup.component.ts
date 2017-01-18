@@ -153,7 +153,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
      */
     if (args[1] && args[2]) {
 
-      let datagrid: SohoDataGridStatic = args[1],
+      const datagrid: SohoDataGridStatic = args[1],
         modal: SohoModalStatic = args[2];
 
       if (datagrid.pager) {

@@ -10,7 +10,7 @@ import {
 
 @Component({
   selector: 'soho-editor-demo',
-  templateUrl:'./editor.demo.html',
+  templateUrl: './editor.demo.html',
   styles: [`pre{font-size: 15px}`] // set font size to be larger so pre tag content is more readable
 })
 export class EditorDemoComponent implements OnInit {

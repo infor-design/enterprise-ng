@@ -10,7 +10,7 @@ import {
 
 @Component({
   selector: 'soho-timepicker-demo',
-  templateUrl:'./timepicker.demo.html',
+  templateUrl: './timepicker.demo.html',
 })
 export class TimePickerDemoComponent implements OnInit {
 

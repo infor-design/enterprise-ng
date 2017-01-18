@@ -5,7 +5,7 @@ import { Subject } from 'rxjs/Rx';
 
 @Component({
   selector: 'soho-dropdown-demo',
-  templateUrl:'./dropdown-async-busy.demo.html',
+  templateUrl: './dropdown-async-busy.demo.html',
 })
 export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
   @ViewChildren(SohoDropDownComponent) dropDownComponents: QueryList<SohoDropDownComponent>;

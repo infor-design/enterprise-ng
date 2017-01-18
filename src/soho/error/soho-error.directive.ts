@@ -13,12 +13,13 @@ import {
   exportAs: 'soho-error'
 })
 export class SohoErrorDirective implements AfterViewInit {
-  constructor(private el: ElementRef) {
-  }
 
   private _options: SohoErrorOptions = {};
   private error: SohoErrorStatic;
   private jQueryElement: JQuery;
+
+  constructor(private el: ElementRef) {
+  }
 
   /** message for the error. */
   @Input()
