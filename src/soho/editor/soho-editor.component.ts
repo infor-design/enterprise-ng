@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-editor]',
+  selector: '[soho-editor]', // tslint:disable-line
   template: '<ng-content></ng-content>',
 })
 export class SohoEditorComponent implements AfterViewInit, OnDestroy {

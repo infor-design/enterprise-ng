@@ -50,7 +50,7 @@ export class TreeServiceDemoComponent {
   }
 
   addNode() {
-    let tn: SohoTreeNode = { text: 'New Item 1.2', disabled: true };
+    const tn: SohoTreeNode = { text: 'New Item 1.2', disabled: true };
     this.tree.addNode(tn, this.selected);
   }
 

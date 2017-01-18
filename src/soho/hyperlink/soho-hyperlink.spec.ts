@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Component, DebugElement, ViewChild }    from '@angular/core';
+import { Component, DebugElement, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { SohoHyperlinkModule } from './soho-hyperlink.module';
@@ -78,7 +78,7 @@ describe ('Soho Hyperlink Unit tests', () => {
 
 @Component ({
   template: `
-    <a soho-hyperlink href="#">More Information Hyperlink</a><br><br><br><br>    
+    <a soho-hyperlink href="#">More Information Hyperlink</a><br><br><br><br>
     <a soho-hyperlink="show-visited" href="#">More Information Hyperlink</a><br><br><br><br>
     <a soho-hyperlink="forward-caret" isCaretRight="true" href="#"  ><span>Hyperlink with Directional Caret </span></a>
     <a soho-hyperlink="back-caret" href="#"  isCaretLeft="true"><span>Back to Search Results</span></a>

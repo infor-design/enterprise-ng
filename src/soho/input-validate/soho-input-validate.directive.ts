@@ -22,7 +22,7 @@ export class SohoInputValidateDirective implements AfterViewInit {
    * get the SoHoXi controls to activate any validations.
    */
   ngAfterViewInit() {
-    let jQueryEl: any = jQuery(this.el.nativeElement);
+    const jQueryEl: any = jQuery(this.el.nativeElement);
     jQueryEl.validate();
   }
 }
