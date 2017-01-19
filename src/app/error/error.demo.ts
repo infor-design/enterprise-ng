@@ -1,6 +1,11 @@
 import {
-  Component
+  Component,
+  ViewChild
 } from '@angular/core';
+
+import {
+  SohoErrorDirective
+} from '../../soho/error';
 
 /**
  * This example:
@@ -11,8 +16,9 @@ import {
   templateUrl: './error.demo.html'
 })
 export class ErrorDemoComponent {
+  @ViewChild(SohoErrorDirective) public error: SohoErrorDirective;
 
   // tslint:disable-next-line:no-unused-variable
-  private message = 'Field is required';
+  public message = 'Field is required';
 
 }

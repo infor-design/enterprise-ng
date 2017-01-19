@@ -13,8 +13,10 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
 })
 export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
 
-  private lastToolbarEvent: any;
-  private buttonClickedSubscription: Subscription;
+  public lastToolbarEvent: any;
+  public buttonClickedSubscription: Subscription;
+  public isShowingHeaderToolbar = true;
+  public isShowingHeaderTabs = false;
 
   private toolbarOptions: HeaderDynamicToolbarOptions = {
     toolbarButtons: [

@@ -35,7 +35,7 @@ export class DataGridToolbarDemoComponent implements OnInit, AfterViewInit, Afte
   }
 
   private buildBreadcrumbs() {
-    let breadcrumbs = Array<Breadcrumb>();
+    const breadcrumbs = Array<Breadcrumb>();
 
     breadcrumbs.push({ current: false, friendlyName: 'Root', path: '/', selectable: true});
     breadcrumbs.push({ current: false, friendlyName: 'Level 1', path: '/1', selectable: true});

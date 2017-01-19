@@ -10,16 +10,16 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownMultiselectDemoComponent implements OnInit {
-  private options: Array<Object> = [
+  public options: Array<Object> = [
     { value: 'AL', text: 'Alabama' },
     { value: 'CA', text: 'California' },
     { value: 'DE', text: 'Delaware' },
     { value: 'NY', text: 'New York' },
     { value: 'WY', text: 'Wyoming' },
   ];
-  multisourceoptions: Array<Object> = [];
-  private counter = 0;
-  private model: { // tslint:disable-line
+  public multisourceoptions: Array<Object> = [];
+  public counter = 0;
+  public model: { // tslint:disable-line
     closes: string[],
     multi: string[],
     multisource: string[],
@@ -30,7 +30,7 @@ export class DropdownMultiselectDemoComponent implements OnInit {
     multisource: [],
     modifiable: [],
   };
-  private showModel = false;
+  public showModel = false;
 
   constructor() { }
   ngOnInit() { }
@@ -46,7 +46,7 @@ export class DropdownMultiselectDemoComponent implements OnInit {
   }
 
    source(response: any, searchTerm: any) {
-     let states = [
+     const states = [
        { value: 'AK', label: 'Alaska'},
        { value: 'AZ', label: 'Arizona'},
       { value: 'CA', label: 'California'},

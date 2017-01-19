@@ -25,10 +25,10 @@ export class DropdownAsyncDemoComponent implements AfterViewInit {
   @Input() options = new Subject<Array<any>>();
 
   /** Selected option.  */
-  model = { selectedOption: 'ND' };
+  public model = { selectedOption: 'ND' };
 
   /** Demo flag */
-  showModel = false;
+  public showModel = false;
 
   constructor() { }
 

@@ -14,14 +14,14 @@ export class FileUploadDemoComponent implements OnInit {
 
   @ViewChild(SohoFileUploadComponent) fileupload: SohoFileUploadComponent;
 
-  private text = 'Upload a File'; // tslint:disable-line
-  private name1 = 'file-name'; // tslint:disable-line
-  private name2 = 'file-name-disabled'; // tslint:disable-line
-  private name3 = 'file-name-readonly'; // tslint:disable-line
+  public text = 'Upload a File';
+  public name1 = 'file-name';
+  public name2 = 'file-name-disabled';
+  public name3 = 'file-name-readonly';
 
-  private showModel = false;
-  private fileUploadDisabled = false;
-  private fileUploadReadOnly = false;
+  public showModel = false;
+  public fileUploadDisabled = false;
+  public fileUploadReadOnly = false;
 
   constructor() { }
   ngOnInit() { }

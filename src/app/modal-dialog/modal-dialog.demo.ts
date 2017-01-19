@@ -30,7 +30,7 @@ export class ModalDialogDemoComponent {
   /**
    * The interface to an instantiated instance of the ExampeDialogComponent.
    */
-  public dialog: SohoModalDialogRef<any>;
+  public dialogRef: SohoModalDialogRef<any>;
 
   public closeResult: string;
 
@@ -50,7 +50,7 @@ export class ModalDialogDemoComponent {
       { text: 'Cancel', click: (e, modal) => { modal.close(true); } },
       { text: 'Submit', click: (e, modal) => { modal.close(true); }, isDefault: true }];
 
-    this.dialog = this.modalService
+    this.dialogRef = this.modalService
       .modal(ExampleModalDialogComponent, this.placeholder)
       .buttons(buttons)
       .title(this.title)
@@ -59,14 +59,14 @@ export class ModalDialogDemoComponent {
       .open();
 
     // Attach a listener to the afterclose event, which also gives you the result - if available.
-    this.dialog.afterClose(result => {
+    this.dialogRef.afterClose(result => {
       this.closeResult = result;
-      this.dialog = null;
+      this.dialogRef = null;
     });
   }
 
   openNested() {
-    this.dialog = this.modalService
+    this.dialogRef = this.modalService
       .modal(NestedModalDialogComponent, this.placeholder)
       .buttons(
       [{ text: 'Cancel', click: (e, modal) => { modal.close(true); } },
@@ -75,12 +75,12 @@ export class ModalDialogDemoComponent {
       .open()
       .afterClose(result => {
         this.closeResult = result;
-        this.dialog = null;
+        this.dialogRef = null;
       });
   }
 
   openMessage() {
-    this.dialog = this.modalService
+    this.dialogRef = this.modalService
       .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
       .buttons(
       [{ text: 'Cancel', click: (e, modal) => { modal.close(true); } },
@@ -89,12 +89,12 @@ export class ModalDialogDemoComponent {
       .open()
       .afterClose(result => {
         this.closeResult = result;
-        this.dialog = null;
+        this.dialogRef = null;
       });
   }
 
   openVeotable() {
-    this.dialog = this.modalService
+    this.dialogRef = this.modalService
       .modal(VetoableModalDialogComponent, this.placeholder)
       .buttons(
       [{ text: 'Cancel', click: (e, modal) => { modal.close(true); } },
@@ -103,22 +103,22 @@ export class ModalDialogDemoComponent {
       .open()
       .afterClose(result => {
         this.closeResult = result;
-        this.dialog = null;
+        this.dialogRef = null;
       });
   }
 
   openDialogResult() {
-    this.dialog = this.modalService
+    this.dialogRef = this.modalService
       .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
       .buttons(
-       [{ text: 'YES', click: () => { this.dialog.close('YES'); } },
-        { text: 'NO', click: () => { this.dialog.close('NO'); }, isDefault: true }])
+       [{ text: 'YES', click: () => { this.dialogRef.close('YES'); } },
+        { text: 'NO', click: () => { this.dialogRef.close('NO'); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose(result => {
         alert(`You selected ${result}`);
         this.closeResult = result;
-        this.dialog = null;
+        this.dialogRef = null;
       });
   }
 }

@@ -6,7 +6,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   templateUrl: './dropdown-lm.demo.html',
 })
 export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
-  private fieldSpec = { // tslint:disable-line
+  public fieldSpec = {
     AlphaField: {
       bindId: 'AlphaField',
       stateValues: [
@@ -82,11 +82,11 @@ export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
     this.showModel = !this.showModel;
   }
 
-  private setSource() { // tslint:disable-line
+  public setSource() {
     return this.source.bind(this);
   }
 
-  private source(response: any, searchTerm: any) { // tslint:disable-line
+  public source(response: any, searchTerm: any) {
     const states = [
       { value: 'AK', label: 'Alaska' },
       { value: 'AZ', label: 'Arizona' },

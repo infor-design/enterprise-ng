@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './dropdown.demo.html',
 })
 export class DropdownDemoComponent implements OnInit {
-  private options: Array<Object> = [
+  public options: Array<Object> = [
     { value: 'AL', text: 'Alabama' },
     { value: 'CA', text: 'California' },
     { value: 'DE', text: 'Delaware' },
@@ -13,14 +13,14 @@ export class DropdownDemoComponent implements OnInit {
     { value: 'WY', text: 'Wyoming' },
   ];
   sourceoptions: Array<Object> = [];
-  private counter = 0;
-  private model = { // tslint:disable-line
+  public counter = 0;
+  public model = { // tslint:disable-line
     single: '',
     readOnly: 'DE',
     source: '',
     modifiable: this.options[3],
   };
-  private showModel = false;
+  public showModel = false;
 
   constructor() { }
   ngOnInit() { }
@@ -36,7 +36,7 @@ export class DropdownDemoComponent implements OnInit {
   }
 
   source(response: any, searchTerm: any) {
-    let states = [
+    const states = [
       { value: 'AK', label: 'Alaska'},
       { value: 'AZ', label: 'Arizona'},
       { value: 'CA', label: 'California'},

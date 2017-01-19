@@ -51,7 +51,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
 
           /* Get the current selected row index for this page of records. */
           let selectedIndex = -1;
-          let selectedRow = this.sohoDataGridComponent.getSelectedRows();
+          const selectedRow = this.sohoDataGridComponent.getSelectedRows();
           if (selectedRow && selectedRow.length > 0 && selectedRow[0].idx !== -1) {
             selectedIndex = selectedRow[0].idx;
             this.sohoDataGridComponent.unSelectAllRows();

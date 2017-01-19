@@ -11,8 +11,8 @@ import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
   templateUrl: './header-tabs.demo.html'
 })
 export class HeaderTabsDemoComponent implements AfterViewInit, OnDestroy {
-  private currentTabsOptions: HeaderDynamicTabsetOptions = undefined;
-
+  public currentTabsOptions: HeaderDynamicTabsetOptions = undefined;
+  public isShowingHeaderTabs = true;
   constructor(private sohoHeaderRef: HeaderDynamicDemoRefService) {}
 
   ngAfterViewInit() {
