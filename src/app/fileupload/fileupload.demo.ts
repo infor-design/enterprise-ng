@@ -8,7 +8,7 @@ import { SohoFileUploadComponent } from '../../soho/fileupload';
 
 @Component({
   selector: 'soho-fileupload-demo',
-  templateUrl:'./fileupload.demo.html',
+  templateUrl: './fileupload.demo.html',
 })
 export class FileUploadDemoComponent implements OnInit {
 

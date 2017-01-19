@@ -11,7 +11,7 @@ import { SohoTabsComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-header-dynamic-demo',
-  templateUrl:'./header-dynamic.demo.html'
+  templateUrl: './header-dynamic.demo.html'
 })
 export class SohoHeaderDynamicDemoComponent {
   @HostBinding('class.header') get isHeader() { return true; };

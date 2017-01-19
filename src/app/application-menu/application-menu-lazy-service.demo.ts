@@ -8,8 +8,8 @@ export class ApplicationMenuLazyService {
 
   public getMenuItems(): Promise<any> {
     return new Promise(function(resolve) {
-      let a = 'sub_' + Math.random();
-      let b = 'sub_' + Math.random();
+      const a = 'sub_' + Math.random();
+      const b = 'sub_' + Math.random();
 
       resolve([
         {mockUrl: a, name: a},
@@ -22,7 +22,7 @@ export class ApplicationMenuLazyService {
     if (this._menuSpec.length === 0) {
       this._menuSpec = menuSpec;
     } else {
-      let newMenu: Array<any> = menuSpec;
+      const newMenu: Array<any> = menuSpec;
       this._updateMenuSpec(this._menuSpec, newMenu, key);
     }
   }
@@ -32,9 +32,10 @@ export class ApplicationMenuLazyService {
   }
 
   private _updateMenuSpec(menu: Array<any>, newMenu: Array<any>, key: string): void {
+    // tslint:disable-next-line:prefer-const
     for (let i = 0, l = menu.length; i < l; i++) {
-      let object = menu[i];
-      for (let k in object) {
+      const object = menu[i];
+      for (const k in object) {
         if (object.hasOwnProperty(k)) {
           if (object[k] === key) {
             object.submenu = newMenu;

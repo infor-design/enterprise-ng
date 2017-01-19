@@ -12,7 +12,7 @@ import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.se
 
 @Component({
   selector: 'body', // tslint:disable-line
-  templateUrl:'./app.component.html',
+  templateUrl: './app.component.html',
   styleUrls: [ './app.component.css' ],
   providers: [ HeaderDynamicDemoRefService ],
   encapsulation: ViewEncapsulation.None

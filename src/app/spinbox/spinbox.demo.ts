@@ -1,9 +1,9 @@
-import {Component, ViewChild } from '@angular/core';
-import { SohoSpinboxComponent } from '@infor/sohoxi-angular';
+import { Component, ViewChild } from '@angular/core';
+import { SohoSpinboxComponent } from '../../soho/spinbox';
 
 @Component({
   selector: 'soho-spinbox-demo',
-  templateUrl:'./spinbox.demo.html'
+  templateUrl: './spinbox.demo.html'
 })
 
 export class SpinboxDemoComponent {

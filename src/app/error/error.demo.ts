@@ -12,6 +12,7 @@ import {
 })
 export class ErrorDemoComponent {
 
+  // tslint:disable-next-line:no-unused-variable
   private message = 'Field is required';
 
 }

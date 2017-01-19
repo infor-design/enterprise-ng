@@ -19,7 +19,7 @@ import {
 
 @Component({
   selector: 'soho-datagrid-dynamic-demo',
-  templateUrl:'./datagrid-dynamic.demo.html',
+  templateUrl: './datagrid-dynamic.demo.html',
   providers: [DataGridDemoService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -3,7 +3,7 @@ import { ApplicationMenuLazyService } from './application-menu-lazy-service.demo
 
 @Component({
   selector: 'application-menu-lazy-menu', // tslint:disable-line
-  templateUrl:'./application-menu-lazy-menu.demo.html'
+  templateUrl: './application-menu-lazy-menu.demo.html'
 })
 export class ApplicationMenuLazyMenuDemoComponent {
   @Input() menuSpec: Array<any>;
@@ -13,11 +13,11 @@ export class ApplicationMenuLazyMenuDemoComponent {
 
   public onLazyMenuClicked($event) {
     this._lazyMenuService.getMenuItems().then((response) => {
-      let element = $event.currentTarget;
-      let url = element.getAttribute('data-mock-url');
+      const element = $event.currentTarget;
+      const url = element.getAttribute('data-mock-url');
       this._lazyMenuService.updateMenu(response, url);
 
-      let menuSpec = this._lazyMenuService.getMenuSpec();
+      const menuSpec = this._lazyMenuService.getMenuSpec();
       this.subMenuLoaded.emit({ menuSpec: menuSpec, event: $event });
     });
   }

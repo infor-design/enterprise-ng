@@ -16,12 +16,12 @@ import { ArgumentHelper } from '../utils';
   template: `<ng-content></ng-content>`
 })
 export class SohoStepsListComponent {
-  @HostBinding('attr.id') get Id() { return "json-tree"; }
+  @HostBinding('attr.id') get Id() { return 'json-tree'; }
   @HostBinding('class.tree') get isTree() { return true; }
   @HostBinding('class.js-step-tree-scroll') get isJsStepTreeScroll() { return true; }
-  @HostBinding('attr.role') get role() { return "tree"; }
+  @HostBinding('attr.role') get role() { return 'tree'; }
   @HostBinding('attr.data-init') get isDataInit() { return false; }
-  @HostBinding('attr.aria-label') get ariaLabel() { return "Asset Types"; }
+  @HostBinding('attr.aria-label') get ariaLabel() { return 'Asset Types'; }
 
   constructor() {
   }
@@ -122,7 +122,7 @@ export class SohoStepListItemComponent {
   selector: 'span[soho-step-item-title]', // tslint:disable-line
   template: `<ng-content></ng-content>`
 })
-export class sohoStepItemTitleComponent {
+export class SohoStepItemTitleComponent {
 
   constructor() {}
   @HostBinding('class.tree-text') get isTreeText() { return true; };
@@ -151,7 +151,7 @@ export class SohoStepListItemAnchorComponent {
                <svg class="chevron icon active" focusable="false" aria-hidden="true" role="presentation">
                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-caret-down"></use>
                </svg>
-             </button>  
+             </button>
             `
 })
 export class SohoStepListItemHeaderComponent {
@@ -268,7 +268,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     // assign element to local variable
     this.jQueryElement = jQuery(this.element.nativeElement);
-    let $stepProcess: JQuery = this.jQueryElement.find('.soho-step-process');
+    const $stepProcess: JQuery = this.jQueryElement.find('.soho-step-process');
     $stepProcess.stepprocess(this._stepProcessOptions);
     this.stepprocess = $stepProcess.data('stepprocess');
   }

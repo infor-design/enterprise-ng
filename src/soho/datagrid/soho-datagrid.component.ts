@@ -790,7 +790,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @todo arguments.
    */
   private onExpandRow(args: any) {
-    let event = { grid: this, row: args.row, detail: args.detail, item: args.item };
+    const event = { grid: this, row: args.row, detail: args.detail, item: args.item };
     this.expandrow.next(event);
   }
 

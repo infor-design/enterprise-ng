@@ -5,7 +5,7 @@ import {
 
 @Component({
   selector: 'soho-hyperlink-demo',
-  templateUrl:'./hyperlink.demo.html'
+  templateUrl: './hyperlink.demo.html'
 })
 export class HyperlinkDemoComponent implements OnInit {
 

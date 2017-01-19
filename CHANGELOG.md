@@ -1,4 +1,4 @@
-## 4.2.2 - Minor Release
+## 4.2.5 - Minor Release
 Release Date: 2016-10-31
 
 ### Whats New
@@ -16,11 +16,16 @@ Release Date: 2016-10-31
 * 2016-11-10 - TH - Version Update
  - Bumped version of @infor/sohoxi to 4.2.3-develop
  - Bumped version of @infor/sohoxi-angular to 4.2.3-develop
- * 2016-12-23 - TH - Version Update
+* 2016-12-23 - TH - Version Update
  - Bumped version of @infor/sohoxi to 4.2.4-develop
  - Bumped version of @infor/sohoxi-angular to 4.2.4-develop
  - Upgraded to angular-cli 1.0.0-beta.24
  - Upgraded to angular 2.3.1
+* 2017-01-18 - TH - Version Update 
+ - Bumped version of @infor/sohoxi to 4.2.5-develop
+ - Bumped version of @infor/sohoxi-angular to 4.2.5-develop
+ - Upgraded to angular-cli 1.0.0-beta.25-5
+ - Upgraded to angular 2.4.X
 
 ### Breaking Changes
 

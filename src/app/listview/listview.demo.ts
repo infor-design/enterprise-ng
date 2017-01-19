@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'soho-listview-demo',
-  templateUrl:'./listview.demo.html',
+  templateUrl: './listview.demo.html',
   styles: [`
     .smaller-width {
       width: calc(100% - 39px);
@@ -10,15 +10,15 @@ import { Component } from '@angular/core';
   `]
 })
 export class ListViewDemoComponent {
-  private demoTasks: Object[];
+  public demoTasks: Object[];
   private counter = 63012;
-  private dates = [
+  public dates = [
     '10/11/2015',
     '10/07/2015',
     '07/11/2015',
     '07/08/2015',
   ];
-  private descCounter = 0;
+  public descCounter = 0;
 
   constructor() {
     this.demoTasks = [];
