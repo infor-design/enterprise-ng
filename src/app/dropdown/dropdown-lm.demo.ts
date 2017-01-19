@@ -67,7 +67,7 @@ export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     // update model values as data comes in late
     const keys = Object.keys(this.fieldSpec);
-    for (let index = 0, len = keys.length; index < len; index++) {
+    for (let index = 0; index < keys.length; index++) {
       const key = keys[index];
       const field = this.fieldSpec[key];
       let value = {};
