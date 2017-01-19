@@ -13,14 +13,14 @@ export class ContextMenuDemoComponent implements OnInit {
 
   @ViewChild(SohoTextAreaComponent) textarea: SohoTextAreaComponent;
 
-  normalText: string = `Input Example`;
-  modText: string = `Enabled Text Area Example`;
-  disabledText: string = `Disabled Text Area Example`;
-  radioButtonLabel: string = `Radio Button Example`;
-  checkboxButtonLabel: string = `Check Box Example`;
-  richTextEditorLabel: string = `Rich Text Editor Example`;
+  public normalText: string = `Input Example`;
+  public modText: string = `Enabled Text Area Example`;
+  public disabledText: string = `Disabled Text Area Example`;
+  public radioButtonLabel: string = `Radio Button Example`;
+  public checkboxButtonLabel: string = `Check Box Example`;
+  public richTextEditorLabel: string = `Rich Text Editor Example`;
 
-  contextEntries: Array<ContextMenuEntries>;
+  public contextEntries: Array<ContextMenuEntries>;
 
   private buildContextMenu(): Array<ContextMenuEntries> {
     const entries: Array<ContextMenuEntries> = [];

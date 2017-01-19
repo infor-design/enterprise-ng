@@ -15,11 +15,11 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
 
   @ViewChild('sohoToolbar') sohoToolbar: any;
 
-  private pageTitle: string;
-  private sectionTitle: string;
-  private buttons: Array<ToolbarButton> = [];
-  private searchField: SearchField;
-  private actionsLoaded: boolean = false;
+  public pageTitle: string;
+  public sectionTitle: string;
+  public buttons: Array<ToolbarButton> = [];
+  public searchField: SearchField;
+  public actionsLoaded: boolean = false;
 
   constructor(private toolbarDataDrivenDemoService: ToolbarDataDrivenDemoService) {}
 
@@ -58,7 +58,7 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
   }
 
   private buildToolbarButtonArray(): Array<ToolbarButton> {
-    let buttons: Array<ToolbarButton> = [];
+    const buttons: Array<ToolbarButton> = [];
 
     buttons.push({
       id       : 'Create',

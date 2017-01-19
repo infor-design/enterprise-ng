@@ -30,12 +30,12 @@ export class ModalDialogDemoComponent {
   /**
    * The interface to an instantiated instance of the ExampeDialogComponent.
    */
-  private dialog: SohoModalDialogRef<any>;
+  public dialog: SohoModalDialogRef<any>;
 
-  private closeResult: string;
+  public closeResult: string;
 
-  private title = 'Example Modal Dialog';
-  private isAlert = true;
+  public title = 'Example Modal Dialog';
+  public isAlert = true;
 
   /**
    * Constructor.

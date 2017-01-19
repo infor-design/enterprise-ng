@@ -2,8 +2,8 @@
 <div class="twelve columns">
   <!-- Input text field example. No soho components used-->
   <div class="field">
-    <label id="label1" name="label1" soho-label [attr.for]="field1" >{{normalText}}</label>
-    <input [attr.id]="field1" name="field1" soho-context-menu menu="action-popupmenu" value="Right Click Here"
+    <label id="label1" name="label1" soho-label for="field1" >{{normalText}}</label>
+    <input id="field1" name="field1" soho-context-menu menu="action-popupmenu" value="Right Click Here"
            (selected)="onSelected($event)"
            (beforeopen)="onBeforeopen($event)"
            (close)="onClose($event)"
@@ -12,7 +12,7 @@
 
   <!-- Text area example. Soho-textarea component used-->
   <div class="field">
-    <label soho-label [attr.for]="modifiable" id="label2" name="label2">{{modText}}</label>
+    <label soho-label for="modifiable" id="label2" name="label2">{{modText}}</label>
     <textarea soho-textarea name="modifiable" [(ngModel)]="textModel.modifiableText" soho-context-menu menu="action-popupmenu"
               (selected)="onSelected($event)"
               (beforeopen)="onBeforeopen($event)"
@@ -22,7 +22,7 @@
 
   <!-- Disabled text area example. Soho-textarea component used-->
   <div class="field">
-    <label soho-label [attr.for]="disable" id="label3" name="label3">{{disabledText}}</label>
+    <label soho-label for="disable" id="label3" name="label3">{{disabledText}}</label>
     <textarea soho-textarea [disabled]="true" name="disable" [(ngModel)]="textModel.disableText" soho-context-menu menu="action-popupmenu"
               (selected)="onSelected($event)"
               (beforeopen)="onBeforeopen($event)"
@@ -38,24 +38,24 @@
            (beforeopen)="onBeforeopen($event)"
            (close)="onClose($event)"
            (open)="onOpen($event)" />
-    <label soho-label [attr.for]="optionVWO1" class="radio-label" soho-context-menu menu="action-popupmenu" >One</label>
+    <label soho-label for="optionVWO1" class="radio-label" soho-context-menu menu="action-popupmenu" >One</label>
     <br>
     <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO2" value="2" soho-context-menu menu="action-popupmenu"  />
-    <label soho-label [attr.for]="optionVWO2" class="radio-label" soho-context-menu menu="action-popupmenu"
+    <label soho-label for="optionVWO2" class="radio-label" soho-context-menu menu="action-popupmenu"
            (selected)="onSelected($event)"
            (beforeopen)="onBeforeopen($event)"
            (close)="onClose($event)"
            (open)="onOpen($event)" >Two</label>
     <br>
     <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO3" value="3" soho-context-menu menu="action-popupmenu" />
-    <label soho-label [attr.for]="optionVWO3" class="radio-label" soho-context-menu menu="action-popupmenu"
+    <label soho-label for="optionVWO3" class="radio-label" soho-context-menu menu="action-popupmenu"
            (selected)="onSelected($event)"
            (beforeopen)="onBeforeopen($event)"
            (close)="onClose($event)"
            (open)="onOpen($event)" >Three</label>
     <br>
     <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO4" value="4" [disabled]="true" soho-context-menu menu="action-popupmenu" />
-    <label soho-label [attr.for]="optionVWO4" class="radio-label" soho-context-menu menu="action-popupmenu"
+    <label soho-label for="optionVWO4" class="radio-label" soho-context-menu menu="action-popupmenu"
            (selected)="onSelected($event)"
            (beforeopen)="onBeforeopen($event)"
            (close)="onClose($event)"
@@ -65,11 +65,11 @@
   <!-- Checkbox example. Soho-icon component used-->
   <div class="field">
     <label soho-label >{{checkboxButtonLabel}}</label>
-    <input soho-checkbox type="checkbox" [attr.id]="id1" name="checkbox1" [(ngModel)]=checkboxModel.checkBox1Value >
-    <label soho-label [attr.for]="id1" [forCheckBox]="true" soho-context-menu menu="action-popupmenu" >Unchecked</label>
+    <input soho-checkbox type="checkbox" id="id1" name="checkbox1" [(ngModel)]=checkboxModel.checkBox1Value >
+    <label soho-label for="id1" [forCheckBox]="true" soho-context-menu menu="action-popupmenu" >Unchecked</label>
     <br>
-    <input soho-checkbox type="checkbox" [attr.id]="id2" name="checkbox2" [(ngModel)]=checkboxModel.checkBox2Value soho-context-menu menu="action-popupmenu" >
-    <label soho-label [attr.for]="id2" [forCheckBox]="true" soho-context-menu menu="action-popupmenu" >Checked</label>
+    <input soho-checkbox type="checkbox" id="id2" name="checkbox2" [(ngModel)]=checkboxModel.checkBox2Value soho-context-menu menu="action-popupmenu" >
+    <label soho-label for="id2" [forCheckBox]="true" soho-context-menu menu="action-popupmenu" >Checked</label>
   </div>
 
   <!-- Rich text area example. Soho-editor component used-->

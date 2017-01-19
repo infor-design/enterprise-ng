@@ -44,6 +44,49 @@ http://jira/browse/SOHO-4016. You can also use it to see whats been done.
 
 Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (SE), Mongoose, GT Nexus, ION
 
+#### Feature status:
+
+| Feature          | Status                              | Docs         | Issue          |
+|------------------|-------------------------------------|--------------|----------------|
+| application-menu |                           Available | [README][1]  |              - |
+| button           |                           Available | [README][1]  |              - |
+| cards            |                           Available | [README][2]  |              - |
+| checkbox         |                           Available | [README][3]  |              - |
+| radio            |                           Available | [README][4]  |              - |
+| input            |                           Available | [README][5]  |              - |
+| sidenav          |                           Available | [README][6]  |              - |
+| toolbar          |                           Available | [README][7]  |              - |
+| list             |                           Available | [README][8]  |   [#107][0107] |
+| grid-list        |                           Available | [README][9]  |              - |
+| icon             |                           Available | [README][10] |              - |
+| progress-spinner |                           Available | [README][11] |              - |
+| progress-bar     |                           Available | [README][12] |              - |
+| tabs             |                           Available | [README][13] |              - |
+| slide-toggle     |                           Available | [README][14] |              - |
+| button-toggle    |                           Available | [README][15] |              - |
+| slider           |                           Available | [README][16] |              - |
+| menu             |                           Available | [README][17] |   [#119][0119] |
+| tooltip          |                           Available | [README][18] |              - |
+| ripples          |                           Available | [README][19] |   [#108][0108] |
+| dialog           |                           Available | [README][22] |   [#114][0114] |
+| snackbar / toast |                           Available | [README][21] |   [#115][0115] |
+| select           |                           Available |           -  |   [#118][0118] |
+| textarea         |                           Available |           -  |              - |
+| autocomplete     |                         In-progress |           -  |   [#117][0117] |
+| chips            |  Initial version, features evolving |           -  |   [#120][0120] |
+| theming          |   Available, need guidance overlays | [Guide][20]  |              - |
+| docs site        |   UX design and tooling in progress |           -  |              - |
+| typography       |                         Not started |           -  |   [#205][0205] |
+| fab speed-dial   |                         Not started |           -  |   [#860][0860] |
+| fab toolbar      |                         Not started |           -  |              - |
+| bottom-sheet     |                         Not started |           -  |              - |
+| bottom-nav       |                         Not started |           -  |   [#408][0408] |
+| virtual-repeat   |                         Not started |           -  |   [#823][0823] |
+| datepicker       |                         Not started |           -  |   [#675][0675] |
+| data-table       |                  Design in-progress |           -  |   [#581][0581] |
+| stepper          |                         Not started |           -  |   [#508][0508] |
+| layout           |   See [angular/flex-layout][lay_rp] | [Wiki][0]    |              - |
+
 ## Previous Repos
 
 When we decided on project structure and approach. We collecting and compare repositories for the various teams and use what we all decide is the best. The following repos were considered and discussed.
