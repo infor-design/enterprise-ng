@@ -1,7 +1,7 @@
 
-# SoHo XI Directives for Angular 2.0
+# SoHo XI Directives for Angular
 
-This repository serves as the central shared location for a crowd-sourced cross-Infor Angular2 Typescript repo of Xi control wrapped components.
+This repository serves as the central shared location for a crowd-sourced cross-Infor Angular Typescript repo of Xi control wrapped components.
 
   - avoids many teams building the same things - inefficient and asking Xi Team for different flavors of the same thing
   - divide the work to get more done
@@ -26,7 +26,7 @@ http://jira/browse/SOHO-4016. You can also use it to see whats been done.
 * Will wrap Soho XI controls
 * Two Tracks: Track 1: Wrap Current Controls, Track 2: Es6 refactor of core controls keeping directives updated
 * Will be supported by the H&L team in collaboration with multiple teams
-* We used https://cli.angular.io/
+* Will use https://cli.angular.io/
 * Will use Angular Style guide: https://angular.io/styleguide
 * Group discussion location https://sohoxi-dev.slack.com/messages/angular-components/
 * Use editor config, eslint and tslint
@@ -48,44 +48,57 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 
 | Feature          | Status                              | Docs         | Issue          |
 |------------------|-------------------------------------|--------------|----------------|
-| application-menu |                           Available | [README][1]  |              - |
-| button           |                           Available | [README][1]  |              - |
-| cards            |                           Available | [README][2]  |              - |
-| checkbox         |                           Available | [README][3]  |              - |
-| radio            |                           Available | [README][4]  |              - |
-| input            |                           Available | [README][5]  |              - |
-| sidenav          |                           Available | [README][6]  |              - |
-| toolbar          |                           Available | [README][7]  |              - |
-| list             |                           Available | [README][8]  |   [#107][0107] |
-| grid-list        |                           Available | [README][9]  |              - |
-| icon             |                           Available | [README][10] |              - |
-| progress-spinner |                           Available | [README][11] |              - |
-| progress-bar     |                           Available | [README][12] |              - |
-| tabs             |                           Available | [README][13] |              - |
-| slide-toggle     |                           Available | [README][14] |              - |
-| button-toggle    |                           Available | [README][15] |              - |
-| slider           |                           Available | [README][16] |              - |
-| menu             |                           Available | [README][17] |   [#119][0119] |
-| tooltip          |                           Available | [README][18] |              - |
-| ripples          |                           Available | [README][19] |   [#108][0108] |
-| dialog           |                           Available | [README][22] |   [#114][0114] |
-| snackbar / toast |                           Available | [README][21] |   [#115][0115] |
-| select           |                           Available |           -  |   [#118][0118] |
+| application-menu |                           Available |            - |              - |
+| busyindicator    |                           Available |            - |              - |
+| button           |                           Available |            - |              - |
+| checkbox         |                           Available |            - |              - |
+| context-menu     |                           Available |            - |              - |
+| datagrid         |                           Available |            - |              - |
+| datepicker       |                           Available |            - |              - |
+| dropdown         |                           Available |            - | [SOHO-4050][#4050] |
+| editor           |                           Available |            - |              - |
+| error            |                           Available |            - |              - |
+| expandablearea   |                           Available |            - |              - |
+| fileupload       |                           Available |            - |              - |
+| header           |                           Available |            - |              - |
+| hyperlink        |                           Available |            - |              - |
+| icon             |                           Available |            - |              - |
+| input-validate   |                           Available |            - |              - |
+| label            |                           Available |            - |              - |
+| listview         |                           Available |            - | [SOHO-4040][#4040] - |
+| locale           |                           Available |            - |              - |
+| lookup           |                           Available |            - |              - |
+| mask             |                           Available |            - |              - |
+| masthead         |                           Available |            - |              - |
+| menu-button      |                           Available |            - |              - |
+| message          |                           Available |           -  |              - |
+| modal-dalog      |                           Available | [README][1]  |              - |
+| pager            |                           Available |           -  |              - |
+| personalize      |                           Available |           -  |              - |
+| theming          |                     Partial Support |           -  |              - |
+| popdown          |                           Available |           -  |              - |
+| popupmenu        |                           Available |           -  |              - |
+| progress         |                           Available |           -  |              - |
+| radiobutton      |                           Available |           -  |              - |
+| searchfield      |                           Available |           -  |              - |
+| slider           |                           Available |           -  |              - |
+| spinbox          |                           Available |           -  |              - |
+| splitter         |                         In-Progress |           -  |              - |
+| step-process     |                           Available |           -  |              - |
+| tabs             |                           Available |           -  |              - |
 | textarea         |                           Available |           -  |              - |
-| autocomplete     |                         In-progress |           -  |   [#117][0117] |
-| chips            |  Initial version, features evolving |           -  |   [#120][0120] |
-| theming          |   Available, need guidance overlays | [Guide][20]  |              - |
-| docs site        |   UX design and tooling in progress |           -  |              - |
-| typography       |                         Not started |           -  |   [#205][0205] |
-| fab speed-dial   |                         Not started |           -  |   [#860][0860] |
-| fab toolbar      |                         Not started |           -  |              - |
-| bottom-sheet     |                         Not started |           -  |              - |
-| bottom-nav       |                         Not started |           -  |   [#408][0408] |
-| virtual-repeat   |                         Not started |           -  |   [#823][0823] |
-| datepicker       |                         Not started |           -  |   [#675][0675] |
-| data-table       |                  Design in-progress |           -  |   [#581][0581] |
-| stepper          |                         Not started |           -  |   [#508][0508] |
-| layout           |   See [angular/flex-layout][lay_rp] | [Wiki][0]    |              - |
+| timepicker       |                           Available |           -  |              - |
+| toast            |                           Available |           -  |              - |
+| toolbar          |                           Available |           -  |              - |
+| tooltip          |                           Available |           -  |              - |
+| trackdirty       |                           Available |           -  |              - |
+| tree             |                           Available |           -  |              - |
+
+
+[1]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/modal-dialog/README.md
+[#4050]: http://jira/browse/SOHO-4050
+[#4040]: http://jira/browse/SOHO-4040
+[#4097]: http://jira/browse/SOHO-4097
 
 ## Previous Repos
 
