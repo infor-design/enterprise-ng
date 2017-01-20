@@ -59,16 +59,17 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | editor           |                           Available |            - | [SOHO-4559][#4559] |
 | error            |                           Available |            - |              - |
 | expandablearea   |                           Available |            - | [SOHO-4017][#4017] |
-| fileupload       |                           Available |            - | [SOHO-4060][#4060] |
+| fileupload       |                           Available |            - | [SOHO-4560][#4560] |
+| fieldset         |                             Pending |            - | [SOHO-4561][#4561] |
 | header           |                           Available |            - |              - |
-| hyperlink        |                           Available |            - |              - |
+| hyperlink        |                           Available |            - | [SOHO-4562][#4562] |
 | icon             |                           Available |            - |              - |
 | input-validate   |                           Available |            - |              - |
-| label            |                           Available |            - |              - |
+| label            |                           Available |            - | [SOHO-4570][#4570] |
 | lightbox         |                     Not Implemented |            - | [SOHO-5127][#5127] |
 | listview         |                           Available |            - | [SOHO-4040][#4040] |
 | locale           |                           Available |            - | [SOHO-4470][#4470] |
-| lookup           |                           Available |            - |              - |
+| lookup           |                           Available |            - | [SOHO-4052][#4052] |
 | mask             |                           Available |            - | [SOHO-3895][#3895] |
 | masthead         |                           Available |            - |              - |
 | menu-button      |                           Available |            - | [SOHO-4049][#4089] |
@@ -77,15 +78,17 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | pager            |                           Available |           -  |              - |
 | personalize      |                           Available |           -  |              - |
 | theming          |                     Partial Support |           -  |              - |
-| popdown          |                           Available |           -  |              - |
+| popdown          |                           Available |           -  | [SOHO-4653][#4563] |
 | popupmenu        |                           Available |           -  | [SOHO-4342][#4342] |
-| progress         |                           Available |           -  |              - |
-| radiobutton      |                           Available |           -  |              - |
+| progress         |                           Available |           -  | [SOHO-4342][#4342] |
+| rating           |                             Pending |           -  | [SOHO-5126][#5126] |
+| radiobutton      |                           Available |           -  | [SOHO-4562][#4562] |
 | searchfield      |                           Available |           -  | [SOHO-4422][#4422] |
-| slider           |                           Available |           -  |              - |
-| spinbox          |                           Available |           -  |              - |
+| slider           |                           Available |           -  | [SOHO-4565][#4565] |
+| spinbox          |                           Available |           -  | [SOHO-5125][#5125] |
 | splitter         |                         In-Progress |           -  | [SOHO-4402][#4402] |
-| step-process     |                           Available |           -  |              - |
+| step-process     |                           Available |           -  | [SOHO-4999][#4999] |
+| swaplist         |                             Pending |           -  | [SOHO-5122][#5122] |
 | tabs             |                           Available |           -  |              - |
 | textarea         |                           Available |           -  |              - |
 | timepicker       |                           Available |           -  |              - |
@@ -94,15 +97,17 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | tooltip          |                           Available |           -  |              - |
 | trackdirty       |                           Available |           -  |              - |
 | tree             |                           Available |           -  | [SOHO-4043][#4083] |
+| treegrid         |                           Available |           -  | [SOHO-4722][#4722] |
 
 
 [1]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/modal-dialog/README.md
 [#3895]: http://jira/browse/SOHO-3895
 [#3950]: http://jira/browse/SOHO-3950
 [#4017]: http://jira/browse/SOHO-4017
+[#4040]: http://jira/browse/SOHO-4040
 [#4049]: http://jira/browse/SOHO-4049
 [#4050]: http://jira/browse/SOHO-4050
-[#4040]: http://jira/browse/SOHO-4040
+[#4052]: http://jira/browse/SOHO-4052
 [#4083]: http://jira/browse/SOHO-4083
 [#4089]: http://jira/browse/SOHO-4089
 [#4096]: http://jira/browse/SOHO-4096
@@ -116,9 +121,20 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 [#4557]: http://jira/browse/SOHO-4557
 [#4559]: http://jira/browse/SOHO-4559
 [#4560]: http://jira/browse/SOHO-4560
+[#4561]: http://jira/browse/SOHO-4561
+[#4562]: http://jira/browse/SOHO-4562
+[#4563]: http://jira/browse/SOHO-4563
+[#4564]: http://jira/browse/SOHO-4564
+[#4565]: http://jira/browse/SOHO-4565
+[#4570]: http://jira/browse/SOHO-4570
+[#4616]: http://jira/browse/SOHO-4616
 [#4617]: http://jira/browse/SOHO-4617
 [#4722]: http://jira/browse/SOHO-4722
 [#4734]: http://jira/browse/SOHO-4734
+[#4999]: http://jira/browse/SOHO-4999
+[#5122]: http://jira/browse/SOHO-5122
+[#5125]: http://jira/browse/SOHO-5125
+[#5126]: http://jira/browse/SOHO-5126
 [#5127]: http://jira/browse/SOHO-5127
 
 ## Previous Repos

@@ -13,7 +13,7 @@ export class DatepickerDemoComponent implements OnInit {
 
   @ViewChild(SohoDatePickerComponent) datepicker: SohoDatePickerComponent;
 
-  public model = { // tslint:disable-line
+  public model = {
     standard: '12/12/2016',
     anniversary: '',
     birthday: '',

@@ -14,7 +14,7 @@ export class DropdownDemoComponent implements OnInit {
   ];
   sourceoptions: Array<Object> = [];
   public counter = 0;
-  public model = { // tslint:disable-line
+  public model = {
     single: '',
     readOnly: 'DE',
     source: '',

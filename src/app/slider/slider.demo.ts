@@ -18,7 +18,7 @@ export class SliderDemoComponent implements OnInit {
   public sliderReadOnly: boolean = false;
   public showModel: boolean = false;
 
-  public model = { // tslint:disable-line
+  public model = {
     value: '20'
   };
 

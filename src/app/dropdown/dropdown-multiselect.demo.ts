@@ -19,7 +19,7 @@ export class DropdownMultiselectDemoComponent implements OnInit {
   ];
   public multisourceoptions: Array<Object> = [];
   public counter = 0;
-  public model: { // tslint:disable-line
+  public model: {
     closes: string[],
     multi: string[],
     multisource: string[],

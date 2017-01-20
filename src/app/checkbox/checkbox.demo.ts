@@ -9,7 +9,7 @@ import {
 })
 export class CheckBoxDemoComponent implements OnInit {
 
-  public model = { // tslint:disable-line
+  public model = {
     checkBox1Value: false,
     checkBox2Value: true,
     checkBox3Value: false,
@@ -17,11 +17,11 @@ export class CheckBoxDemoComponent implements OnInit {
     checkBox5Value: true,
   };
 
-  public id1: string = 'checkbox1'; // tslint:disable-line
-  public id2: string = 'checkbox2'; // tslint:disable-line
-  public id3: string = 'checkbox3'; // tslint:disable-line
-  public id4: string = 'checkbox4'; // tslint:disable-line
-  public id5: string = 'checkbox5'; // tslint:disable-line
+  public id1: string = 'checkbox1';
+  public id2: string = 'checkbox2';
+  public id3: string = 'checkbox3';
+  public id4: string = 'checkbox4';
+  public id5: string = 'checkbox5';
 
   public checkBoxDisabled = false;
   constructor() { }

@@ -9,7 +9,7 @@ import {
 })
 export class RadioButtonDemoComponent implements OnInit {
 
-  public model = { // tslint:disable-line
+  public model = {
     horizontal: '3',
     vertical: '1'
   };

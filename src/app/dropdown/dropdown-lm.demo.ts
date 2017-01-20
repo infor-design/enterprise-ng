@@ -45,7 +45,7 @@ export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
       stateValues: []
     }
   };
-  public model = {}; // tslint:disable-line
+  public model = {};
   public showModel = false;
   public form: FormGroup;
 

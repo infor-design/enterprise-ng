@@ -13,7 +13,7 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
 
   public showModel: boolean = true;
   public form: FormGroup;
-  public context = this; // tslint:disable-line
+  public context = this;
   public itemsAvailable = false;
   public states = [
       { value: 'AK', label: 'Alaska' },
