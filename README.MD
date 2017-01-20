@@ -22,7 +22,7 @@ Agreed on project scaffolding (using CLI and Typescript). Agreed on [shared Repo
 http://jira/browse/SOHO-4016. You can also use it to see whats been done.
 
 ## Agreed so far
-* Will use Typescript
+* Will use Typescript 2
 * Will wrap Soho XI controls
 * Two Tracks: Track 1: Wrap Current Controls, Track 2: Es6 refactor of core controls keeping directives updated
 * Will be supported by the H&L team in collaboration with multiple teams
@@ -49,12 +49,12 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | Feature          | Status                              | Docs         | Issue          |
 |------------------|-------------------------------------|--------------|----------------|
 | application-menu |                           Available |            - |              - |
-| busyindicator    |                           Available |            - |              - |
-| button           |                           Available |            - |              - |
+| busyindicator    |                           Available |            - | [SOHO-4096][#4096] |
+| button           |                           Available |            - | [SOHO-4556][#4556] |
 | checkbox         |                           Available |            - |              - |
 | context-menu     |                           Available |            - |              - |
-| datagrid         |                           Available |            - |              - |
-| datepicker       |                           Available |            - |              - |
+| datagrid         |                           Available |            - | [SOHO-4049][#4049] |
+| datepicker       |                           Available |            - | [SOHO-4489][#4489] |
 | dropdown         |                           Available |            - | [SOHO-4050][#4050] |
 | editor           |                           Available |            - |              - |
 | error            |                           Available |            - |              - |
@@ -65,25 +65,25 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | icon             |                           Available |            - |              - |
 | input-validate   |                           Available |            - |              - |
 | label            |                           Available |            - |              - |
-| listview         |                           Available |            - | [SOHO-4040][#4040] - |
-| locale           |                           Available |            - |              - |
+| listview         |                           Available |            - | [SOHO-4040][#4040] |
+| locale           |                           Available |            - | [SOHO-4470][#4470] |
 | lookup           |                           Available |            - |              - |
 | mask             |                           Available |            - |              - |
 | masthead         |                           Available |            - |              - |
-| menu-button      |                           Available |            - |              - |
+| menu-button      |                           Available |            - | [SOHO-4049][#4089] |
 | message          |                           Available |           -  |              - |
 | modal-dalog      |                           Available | [README][1]  |              - |
 | pager            |                           Available |           -  |              - |
 | personalize      |                           Available |           -  |              - |
 | theming          |                     Partial Support |           -  |              - |
 | popdown          |                           Available |           -  |              - |
-| popupmenu        |                           Available |           -  |              - |
+| popupmenu        |                           Available |           -  | [SOHO-4342][#4342] |
 | progress         |                           Available |           -  |              - |
 | radiobutton      |                           Available |           -  |              - |
-| searchfield      |                           Available |           -  |              - |
+| searchfield      |                           Available |           -  | [SOHO-4422][#4422] |
 | slider           |                           Available |           -  |              - |
 | spinbox          |                           Available |           -  |              - |
-| splitter         |                         In-Progress |           -  |              - |
+| splitter         |                         In-Progress |           -  | [SOHO-4402][#4402] |
 | step-process     |                           Available |           -  |              - |
 | tabs             |                           Available |           -  |              - |
 | textarea         |                           Available |           -  |              - |
@@ -92,13 +92,23 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | toolbar          |                           Available |           -  |              - |
 | tooltip          |                           Available |           -  |              - |
 | trackdirty       |                           Available |           -  |              - |
-| tree             |                           Available |           -  |              - |
+| tree             |                           Available |           -  | [SOHO-4043][#4083] |
 
 
 [1]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/modal-dialog/README.md
+[#4049]: http://jira/browse/SOHO-4049
 [#4050]: http://jira/browse/SOHO-4050
 [#4040]: http://jira/browse/SOHO-4040
+[#4083]: http://jira/browse/SOHO-4083
+[#4089]: http://jira/browse/SOHO-4089
+[#4096]: http://jira/browse/SOHO-4096
 [#4097]: http://jira/browse/SOHO-4097
+[#4342]: http://jira/browse/SOHO-4342
+[#4402]: http://jira/browse/SOHO-4402
+[#4422]: http://jira/browse/SOHO-4422
+[#4470]: http://jira/browse/SOHO-4470
+[#4489]: http://jira/browse/SOHO-4489
+[#4556]: http://jira/browse/SOHO-4556
 
 ## Previous Repos
 
