@@ -51,12 +51,12 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | application-menu |                           Available |            - |              - |
 | busyindicator    |                           Available |            - | [SOHO-4096][#4096] |
 | button           |                           Available |            - | [SOHO-4556][#4556] |
-| checkbox         |                           Available |            - |              - |
-| context-menu     |                           Available |            - |              - |
+| checkbox         |                           Available |            - | [SOHO-4617][#4617] |
+| context-menu     |                           Available |            - | [SOHO-4557][#4557] |
 | datagrid         |                           Available |            - | [SOHO-4049][#4049] |
 | datepicker       |                           Available |            - | [SOHO-4489][#4489] |
 | dropdown         |                           Available |            - | [SOHO-4050][#4050] |
-| editor           |                           Available |            - |              - |
+| editor           |                           Available |            - | [SOHO-4559][#4559] |
 | error            |                           Available |            - |              - |
 | expandablearea   |                           Available |            - |              - |
 | fileupload       |                           Available |            - |              - |
@@ -72,7 +72,7 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | masthead         |                           Available |            - |              - |
 | menu-button      |                           Available |            - | [SOHO-4049][#4089] |
 | message          |                           Available |           -  |              - |
-| modal-dalog      |                           Available | [README][1]  |              - |
+| modal-dalog      |                           Available | [README][1]  | [SOHO-4734][#4734]|
 | pager            |                           Available |           -  |              - |
 | personalize      |                           Available |           -  |              - |
 | theming          |                     Partial Support |           -  |              - |
@@ -109,6 +109,11 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 [#4470]: http://jira/browse/SOHO-4470
 [#4489]: http://jira/browse/SOHO-4489
 [#4556]: http://jira/browse/SOHO-4556
+[#4557]: http://jira/browse/SOHO-4557
+[#4559]: http://jira/browse/SOHO-4559
+[#4617]: http://jira/browse/SOHO-4617
+[#4722]: http://jira/browse/SOHO-4722
+[#4734]: http://jira/browse/SOHO-4734
 
 ## Previous Repos
 
