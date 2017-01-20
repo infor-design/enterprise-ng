@@ -2,7 +2,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ApplicationMenuLazyService } from './application-menu-lazy-service.demo';
 
 @Component({
-  selector: 'soho-application-menu-lazy-menu',
+  // tslint:disable-next-line:component-selector
+  selector: 'application-menu-lazy-menu',
   templateUrl: './application-menu-lazy-menu.demo.html'
 })
 export class ApplicationMenuLazyMenuDemoComponent {
