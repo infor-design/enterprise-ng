@@ -48,7 +48,7 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 
 | Feature          | Status                              | Docs         | Issue          |
 |------------------|-------------------------------------|--------------|----------------|
-| application-menu |                           Available |            - |              - |
+| application-menu |                           Available |            - | [SOHO-3950][#3950] |
 | busyindicator    |                           Available |            - | [SOHO-4096][#4096] |
 | button           |                           Available |            - | [SOHO-4556][#4556] |
 | checkbox         |                           Available |            - | [SOHO-4617][#4617] |
@@ -58,17 +58,18 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | dropdown         |                           Available |            - | [SOHO-4050][#4050] |
 | editor           |                           Available |            - | [SOHO-4559][#4559] |
 | error            |                           Available |            - |              - |
-| expandablearea   |                           Available |            - |              - |
-| fileupload       |                           Available |            - |              - |
+| expandablearea   |                           Available |            - | [SOHO-4017][#4017] |
+| fileupload       |                           Available |            - | [SOHO-4060][#4060] |
 | header           |                           Available |            - |              - |
 | hyperlink        |                           Available |            - |              - |
 | icon             |                           Available |            - |              - |
 | input-validate   |                           Available |            - |              - |
 | label            |                           Available |            - |              - |
+| lightbox         |                     Not Implemented |            - | [SOHO-5127][#5127] |
 | listview         |                           Available |            - | [SOHO-4040][#4040] |
 | locale           |                           Available |            - | [SOHO-4470][#4470] |
 | lookup           |                           Available |            - |              - |
-| mask             |                           Available |            - |              - |
+| mask             |                           Available |            - | [SOHO-3895][#3895] |
 | masthead         |                           Available |            - |              - |
 | menu-button      |                           Available |            - | [SOHO-4049][#4089] |
 | message          |                           Available |           -  |              - |
@@ -96,6 +97,9 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 
 
 [1]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/modal-dialog/README.md
+[#3895]: http://jira/browse/SOHO-3895
+[#3950]: http://jira/browse/SOHO-3950
+[#4017]: http://jira/browse/SOHO-4017
 [#4049]: http://jira/browse/SOHO-4049
 [#4050]: http://jira/browse/SOHO-4050
 [#4040]: http://jira/browse/SOHO-4040
@@ -111,9 +115,11 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 [#4556]: http://jira/browse/SOHO-4556
 [#4557]: http://jira/browse/SOHO-4557
 [#4559]: http://jira/browse/SOHO-4559
+[#4560]: http://jira/browse/SOHO-4560
 [#4617]: http://jira/browse/SOHO-4617
 [#4722]: http://jira/browse/SOHO-4722
 [#4734]: http://jira/browse/SOHO-4734
+[#5127]: http://jira/browse/SOHO-5127
 
 ## Previous Repos
 
