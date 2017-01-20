@@ -32,6 +32,7 @@ export class SohoErrorDirective implements AfterViewInit {
         this.jQueryElement.removeError(this._options);
       }
     }
+    this.error = this.jQueryElement.data('data-errormessage');
   }
 
   /** set error in tooltip. */
