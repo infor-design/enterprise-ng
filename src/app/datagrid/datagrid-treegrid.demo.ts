@@ -16,7 +16,7 @@ import { SohoBusyIndicatorDirective } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-datagrid-treegrid-demo',
-  templateUrl: 'datagrid-treegrid.demo.html',
+  templateUrl: './datagrid-treegrid.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridTreeGridDemoComponent implements AfterContentInit, AfterViewInit {

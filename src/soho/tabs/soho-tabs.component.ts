@@ -315,16 +315,13 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
       return;
     }
 
-    let $liList = this.getTabLiList();
+    const $liList = this.getTabLiList();
     if (!$liList) {
       return;
     }
 
     if (this.tabCount !== $liList.length) {
       /* Must rebuild the tab control if the tab count changes */
-      console.log('tabCount changed: oldTabCount: ' +
-        this.tabCount + ', newTabCount: ' +
-        $liList.length + ': calling updated().');
       this.tabs.updated();
       this.tabCount = $liList.length;
       this.tabTitles = this.getTabTitles($liList);
@@ -333,7 +330,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
        * if only tab titles change then call handleResize.
        * It will update the tabs selection style and the overflow
        */
-      let tabTitles = this.getTabTitles($liList);
+      const tabTitles = this.getTabTitles($liList);
       for (let i = 0; i < tabTitles.length; i++) {
         if (tabTitles[ i ] !== this.tabTitles[ i ]) {
           console.log('tabTitles changed: Calling handleResize()');
@@ -346,11 +343,13 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   ngOnDestroy() {
-    this.tabs.destroy();
+    if (this.jQueryElement && this.tabs) {
+      this.tabs.destroy();
+    }
   }
 
   private updateTabInfo() {
-    let $liList: JQuery = this.getTabLiList();
+    const $liList: JQuery = this.getTabLiList();
     this.tabCount = $liList.length;
     this.tabTitles = this.getTabTitles($liList);
   }
@@ -364,9 +363,9 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
       $liList = this.getTabLiList();
     }
 
-    let tabTitles: Array<string> = [];
-    let $anchorList: JQuery = $liList.find('a');
-    for (let i = 0, len = $anchorList.length; i < len; i++) {
+    const tabTitles: Array<string> = [];
+    const $anchorList: JQuery = $liList.find('a');
+    for (let i = 0; i < $anchorList.length; i++) {
       tabTitles.push($($anchorList[i]).html());
     }
     return tabTitles;
@@ -406,7 +405,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   show(tabId: string): void {
-    this.tabs.hide(tabId);
+    this.tabs.show(tabId);
   }
 
   disableTab(tabId: number): void {

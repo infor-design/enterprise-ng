@@ -11,7 +11,7 @@ import { DataGridPagingServiceDemoService } from './datagrid-paging-service-demo
 
 @Component({
   selector: 'soho-datagrid-paging-service-demo',
-  templateUrl: 'datagrid-paging-service.demo.html',
+  templateUrl: './datagrid-paging-service.demo.html',
   providers: [ DataGridPagingServiceDemoService ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

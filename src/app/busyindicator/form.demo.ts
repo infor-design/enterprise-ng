@@ -11,7 +11,7 @@ import {
 
 @Component({
   selector: 'soho-busyindicator-demo',
-  templateUrl: 'form.demo.html'
+  templateUrl: './form.demo.html'
 })
 export class BusyIndicatorDemoComponent {
 

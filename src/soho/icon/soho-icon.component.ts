@@ -1,47 +1,48 @@
-
 import {
   Component,
-  HostBinding,
   Input,
+  HostBinding
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-icon',
-  templateUrl: 'soho-icon.component.html',
-  styles: [
-    `
-      /*
-        override css positioning
-        inherited from popupmenu
-      */
-      :host {
-        padding:0;
-        margin:0;
-        top: 0px !important;
-        left: -7px !important;
-      }
-    `
-  ]
+  selector: 'svg:use', // tslint:disable-line
+  template: ``
+})
+
+export class SohoIconUseComponent {
+  @HostBinding('attr.xmlns:xlink') xmlnsXlink: string = 'http://www.w3.org/1999/xlink';
+  @HostBinding('attr.xlink:href') @Input() icon: string;
+}
+
+@Component({
+  selector: 'svg[soho-icon]',  // tslint:disable-line
+  template: `<svg:use [icon]="icon"></svg:use>`
 })
 export class SohoIconComponent {
-  /*
-   * Forcing the encapsulating component to have class='icon'.
-   * This seems to solve problems with soho popupmenu.js where
-   * this button is handled. Phillip 8/15/16
-   */
-  @HostBinding('class.icon') get isIcon() { return true; };
 
-  @Input() arrow: boolean;
-  @Input() icon: string = '';
+  private _icon: string;
 
-  get svgClasses() {
-    let classArray: Array<string> = new Array();
-    classArray.push('icon');
+  @HostBinding('attr.aria-hidden') ariaHidden: boolean = true;
+  @HostBinding('attr.focusable') focusable: boolean = false;
+  @HostBinding('attr.role') role: string = 'presentation';
+  @HostBinding('attr.class') hostClass: string;
 
-    if (this.arrow) {
-      classArray.push('arrow');
+  @Input() alert: boolean;
+  @Input() set icon(icon: string) {
+    this._icon = icon ? '#icon-' + icon : '';
+    this.hostClass = this.svgClass(icon);
+  };
+
+  get icon(): string {
+    return this._icon;
+  }
+
+  private svgClass(icon: string) {
+    let classStr  = 'icon';
+    if (this.alert) {
+      classStr += ' icon-' + icon;
     }
 
-    return classArray.join(' ');
+    return classStr;
   }
 }

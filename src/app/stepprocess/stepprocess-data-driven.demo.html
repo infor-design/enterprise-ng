@@ -1,0 +1,45 @@
+<div soho-step (beforestepchange)="stepChange($event);">
+  <div soho-steps-list-title>
+    Title will go here
+  </div>
+  <ul soho-steps-list>
+    <template ngFor let-step [ngForOf]="steps">
+
+      <li soho-step-list-item *ngIf="step.content">
+        <a soho-step-list-item-anchor stepId="{{step.id}}" attr.data-alert-icon="{{step.icon}}">
+          <span soho-step-item-title>{{step.title}}</span>
+        </a>
+      </li>
+      <li soho-step-list-item *ngIf="!step.content">
+        <a soho-step-list-item-anchor stepId="{{step.id}}" *ngIf="step.substeps">
+          <span>{{step.title}}</span>
+        </a>
+        <ul soho-step-list-items  *ngIf="step.substeps">
+          <li soho-step-list-item *ngFor="let substep of step.substeps">
+            <a soho-step-list-item-anchor stepId="{{substep.id}}" attr.data-alert-icon="{{substep.icon}}">
+              <span soho-step-item-title>{{substep.title}}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </template>
+  </ul>
+
+  <div soho-step-content-title>
+    <div>Preferences</div>
+    <small>Small text here</small>
+  </div>
+  <div soho-step-content>
+    <div *ngFor="let step of steps">
+      <div soho-step-content-panel *ngIf="step.content" stepId="{{step.id}}">
+        <p *ngIf="step.content">{{step.content}}</p>
+        <p *ngIf="!step.content">Step Content for title {{step.title}}</p>
+      </div>
+      <div *ngIf="step.substeps">
+        <div soho-step-content-panel *ngFor="let substep of step.substeps" stepId="{{substep.id}}">
+          <p>{{substep.content}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

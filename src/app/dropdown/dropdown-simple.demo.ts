@@ -10,7 +10,7 @@ import { MOCK_STATES } from './dropdown-mock.data';
 
 @Component({
   selector: 'soho-dropdown-simple-demo',
-  templateUrl: 'dropdown-simple.demo.html',
+  templateUrl: './dropdown-simple.demo.html',
 })
 export class DropdownSimpleDemoComponent implements AfterViewInit {
    @ViewChild(SohoDropDownComponent) dropDownComponent: SohoDropDownComponent;

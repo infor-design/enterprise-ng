@@ -14,7 +14,7 @@ import { MOCK_STATES } from './dropdown-mock.data';
 
 @Component({
   selector: 'soho-dropdown-simple-demo',
-  templateUrl: 'dropdown-async.demo.html',
+  templateUrl: './dropdown-async.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownAsyncDemoComponent implements AfterViewInit {

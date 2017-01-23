@@ -8,6 +8,7 @@ import { SohoDataGridModule } from './datagrid/soho-datagrid.module';
 import { SohoDatePickerModule } from './datepicker/soho-datepicker.module';
 import { SohoDropDownModule } from './dropdown/soho-dropdown.module';
 import { SohoEditorModule } from './editor/soho-editor.module';
+import { SohoErrorModule } from './error/soho-error.module';
 import { SohoExpandableAreaModule } from './expandablearea/soho-expandablearea.module';
 import { SohoFileUploadModule } from './fileupload/soho-fileupload.module';
 import { SohoHeaderModule } from './header/soho-header.module';
@@ -24,11 +25,14 @@ import { SohoMessageModule } from './message/soho-message.module';
 import { SohoModalDialogModule } from './modal-dialog/soho-modal-dialog.module';
 import { SohoPersonalizeModule } from './personalize/soho-personalize.module';
 import { SohoProgressModule } from './progress/soho-progress.module';
+import { SohoPopDownModule } from './popdown/soho-popdown.module';
 import { SohoPopupMenuModule } from './popupmenu/soho-popupmenu.module';
 import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
 import { SohoSearchFieldModule } from './searchfield/soho-searchfield.module';
 import { SohoSliderModule } from './slider/soho-slider.module';
 import { SohoSplitterModule } from './splitter/soho-splitter.module';
+import { SohoSpinboxModule } from './spinbox/soho-spinbox.module';
+import { SohoStepProcessModule } from './stepprocess/soho-stepprocess.module';
 import { SohoTabsModule } from './tabs/soho-tabs.module';
 import { SohoTextAreaModule } from './textarea/soho-textarea.module';
 import { SohoTimePickerModule } from './timepicker/soho-timepicker.module';
@@ -49,6 +53,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoDatePickerModule,
     SohoDropDownModule,
     SohoEditorModule,
+    SohoErrorModule,
     SohoExpandableAreaModule,
     SohoFileUploadModule,
     SohoHeaderModule,
@@ -64,12 +69,15 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoMessageModule,
     SohoModalDialogModule,
     SohoPersonalizeModule,
+    SohoPopDownModule,
     SohoPopupMenuModule,
     SohoProgressModule,
     SohoRadioButtonModule,
     SohoSearchFieldModule,
     SohoSplitterModule,
     SohoSliderModule,
+    SohoSpinboxModule,
+    SohoStepProcessModule,
     SohoTabsModule,
     SohoTextAreaModule,
     SohoTimePickerModule,
@@ -91,6 +99,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoDatePickerModule,
     SohoDropDownModule,
     SohoEditorModule,
+    SohoErrorModule,
     SohoExpandableAreaModule,
     SohoFileUploadModule,
     SohoHeaderModule,
@@ -105,12 +114,15 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoMenuButtonModule,
     SohoModalDialogModule,
     SohoPersonalizeModule,
+    SohoPopDownModule,
     SohoPopupMenuModule,
     SohoProgressModule,
     SohoRadioButtonModule,
     SohoSearchFieldModule,
     SohoSliderModule,
     SohoSplitterModule,
+    SohoSpinboxModule,
+    SohoStepProcessModule,
     SohoTabsModule,
     SohoTextAreaModule,
     SohoTimePickerModule,

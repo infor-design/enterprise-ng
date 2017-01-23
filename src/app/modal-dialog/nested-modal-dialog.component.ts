@@ -14,7 +14,7 @@ import {
  * numerous times using the SohoModalDialogService.
  */
 @Component({
-  templateUrl: 'nested-modal-dialog.component.html',
+  templateUrl: './nested-modal-dialog.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NestedModalDialogComponent {

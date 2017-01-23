@@ -100,6 +100,12 @@ interface SohoDataGridOptions {
 
   /** Can provide a custom function to adjust results text */
   resultsText?: SohoDataGridResultsTextFunction;
+
+  /**
+   * Used to hold an object that can be referenced in formatters
+   * and editors or anywhere else a datagrid reference is available
+   */
+  userObject?: any;
 }
 
 /**
@@ -280,7 +286,7 @@ interface SohoDataGridColumn {
   dateShowFormat?: any;
 
   /** @todo fix type from any.  */
-  dateSourceFormat?: any;
+  sourceFormat?: any;
 
   /** @todo fix type from any.  */
   click?: any;

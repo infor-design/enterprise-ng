@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app.routes';
 
 import { SohoComponentsModule } from '../soho/soho-components.module';
 
+import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/application-menu-lazy-menu.demo';
@@ -23,6 +24,8 @@ import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
+import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
+import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
@@ -39,6 +42,7 @@ import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
+import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
@@ -53,14 +57,18 @@ import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
+import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
 import { ProgressDemoComponent } from './progress/progress.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
 import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
 import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
+import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
+import { StepProcessDemoComponent } from './stepprocess/stepprocess.demo';
+import { StepProcessDataDrivenDemoComponent } from './stepprocess/stepprocess-data-driven.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
@@ -87,6 +95,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 @NgModule({
   declarations: [
     AppComponent,
+    AlertDemoComponent,
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,
     ApplicationMenuLazyMenuDemoComponent,
@@ -96,6 +105,8 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     ContextMenuDemoComponent,
     DataGridBreadcrumbDemoComponent,
     DataGridContentDemoComponent,
+    DataGridCustomFormatterDemoComponent,
+    DataGridCustomFormatterServiceDemoComponent,
     DataGridDynamicDemoComponent,
     DataGridEditorsDemoComponent,
     DataGridPagingIndeterminateDemoComponent,
@@ -112,6 +123,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     DropdownMultiselectDemoComponent,
     DropdownSimpleDemoComponent,
     EditorDemoComponent,
+    ErrorDemoComponent,
     ExpandableAreaDemoComponent,
     FileUploadDemoComponent,
     HeaderTabsDemoComponent,
@@ -125,14 +137,18 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     MaskDemoComponent,
     MenuButtonDemoComponent,
     MessageDemoComponent,
+    PopDownDemoComponent,
     PopupMenuDemoComponent,
     ProgressDemoComponent,
     RadioButtonDemoComponent,
     SliderDemoComponent,
     SohoHeaderDynamicDemoComponent,
     SohoMastheadDemoComponent,
+    SpinboxDemoComponent,
     SplitterHorizontalDemoComponent,
     SplitterVerticalDemoComponent,
+    StepProcessDemoComponent,
+    StepProcessDataDrivenDemoComponent,
     TabsBasicDemoComponent,
     TabsCountsDemoComponent,
     TabsDataDrivenDemoComponent,

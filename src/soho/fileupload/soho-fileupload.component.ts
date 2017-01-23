@@ -10,15 +10,15 @@ import {
 
 @Component({
   selector: 'soho-fileupload', // tslint:disable-line
-  templateUrl: 'soho-fileupload.component.html'
+  templateUrl: './soho-fileupload.component.html'
 })
 
 export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private isDisabled: boolean;
-  private isReadOnly: boolean;
+  public isDisabled: boolean;
+  public isReadOnly: boolean;
 
   // -------------------------------------------
   // Component Input

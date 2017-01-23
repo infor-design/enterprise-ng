@@ -20,6 +20,7 @@ import { SohoSearchFieldComponent } from '../searchfield';
  * by exposing it (if desired)
  */
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: '[soho-listview-search]',
   template: `
     <input soho-searchfield *ngIf="buildSearch">
@@ -39,6 +40,7 @@ export class SohoListViewSearchComponent {
 }
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: '[soho-listview-item]',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -49,6 +51,7 @@ export class SohoListViewItemComponent {
 }
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: '[soho-listview-header]',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -58,6 +61,7 @@ export class SohoListViewHeaderComponent {
 }
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: '[soho-listview-subheader]',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -67,6 +71,7 @@ export class SohoListViewSubHeaderComponent {
 }
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: '[soho-listview-micro]',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -77,7 +82,7 @@ export class SohoListViewMicroComponent {
 
 @Component({
   selector: 'soho-listview',
-  templateUrl: 'soho-listview.component.html',
+  templateUrl: './soho-listview.component.html',
   styles: [`
     .smaller {
       width: 50%;

@@ -1,6 +1,7 @@
-import { ModuleWithProviders }  from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { ButtonDemoComponent } from './button/button.demo';
@@ -23,6 +24,7 @@ import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
+import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
@@ -37,12 +39,16 @@ import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
+import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
 import { ProgressDemoComponent } from './progress/progress.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
+import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
+import { StepProcessDemoComponent } from './stepprocess/stepprocess.demo';
+import { StepProcessDataDrivenDemoComponent } from './stepprocess/stepprocess-data-driven.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
@@ -64,10 +70,13 @@ import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
+import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
+import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
   // { path: 'accordian',           component: AccordionSampleComponent},
+  { path: 'alert',                 component: AlertDemoComponent},
   { path: 'application-lazy-menu', component: ApplicationMenuLazyDemoComponent},
   { path: 'button',                component: ButtonDemoComponent },
   { path: 'busyindicator',         component: BusyIndicatorDemoComponent },
@@ -82,6 +91,8 @@ export const routes: Routes = [
   { path: 'datagrid-service',      component: DataGridServiceDemoComponent },
   { path: 'datagrid-settings',     component: DataGridSettingsDemoComponent },
   { path: 'datagrid-treegrid',     component: DataGridTreeGridDemoComponent },
+  { path: 'datagrid-custom-formatter', component: DataGridCustomFormatterDemoComponent },
+  { path: 'datagrid-custom-formatter-service', component: DataGridCustomFormatterServiceDemoComponent },
   { path: 'datepicker',            component: DatepickerDemoComponent },
   { path: 'dropdown',              component: DropdownDemoComponent },
   { path: 'dropdown-async-busy',   component: DropdownAsyncBusyDemoComponent },
@@ -90,6 +101,7 @@ export const routes: Routes = [
   { path: 'dropdown-multi',        component: DropdownMultiselectDemoComponent },
   { path: 'dropdown-simple',       component: DropdownSimpleDemoComponent },
   { path: 'editor',                component: EditorDemoComponent },
+  { path: 'error',                 component: ErrorDemoComponent },
   { path: 'expandablearea',        component: ExpandableAreaDemoComponent },
   { path: 'fileupload',            component: FileUploadDemoComponent },
   { path: 'header-tabs',           component: HeaderTabsDemoComponent },
@@ -104,12 +116,18 @@ export const routes: Routes = [
   { path: 'menu-button',           component: MenuButtonDemoComponent },
   { path: 'message',               component: MessageDemoComponent },
   { path: 'modal-dialog',          component: ModalDialogDemoComponent },
+  { path: 'popdown',               component: PopDownDemoComponent},
   { path: 'popupmenu',             component: PopupMenuDemoComponent },
   { path: 'progress',              component: ProgressDemoComponent },
   { path: 'radiobutton',           component: RadioButtonDemoComponent},
   { path: 'slider',                component: SliderDemoComponent },
   { path: 'splitter-horizontal',   component: SplitterHorizontalDemoComponent },
   { path: 'splitter-vertical',     component: SplitterVerticalDemoComponent },
+  { path: 'step-process',          component: StepProcessDemoComponent },
+  { path: 'step-data-driven',      component: StepProcessDataDrivenDemoComponent },
+  { path: 'spinbox',               component: SpinboxDemoComponent },
+  { path: 'step-process',          component: StepProcessDemoComponent },
+  { path: 'step-data-driven',      component: StepProcessDataDrivenDemoComponent },
   { path: 'tabs-basic',            component: TabsBasicDemoComponent },
   { path: 'tabs-counts',           component: TabsCountsDemoComponent },
   { path: 'tabs-datadriven',       component: TabsDataDrivenDemoComponent },

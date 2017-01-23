@@ -10,7 +10,7 @@ import {
 
 @Component({
   selector: 'soho-header',
-  templateUrl: 'soho-header.component.html'
+  templateUrl: './soho-header.component.html'
 })
 export class SohoHeaderComponent implements AfterViewInit {
   @HostBinding('class.header') get isHeader() { return true; }

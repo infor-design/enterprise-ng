@@ -260,7 +260,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   public setSelectedNode(id: string, focus = true) {
     ArgumentHelper.checkNotEmpty('id', id);
 
-    let treeNode: SohoTreeNode = this.tree.findById(id);
+    const treeNode: SohoTreeNode = this.tree.findById(id);
     if (treeNode && treeNode.node) {
       this.tree.setSelectedNode(treeNode.node, focus);
     }
@@ -309,7 +309,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
    * response - function used to return the children
    */
   private onDataRequest(event: SohoTreeEvent, response: SohoTreeResponseFunction) {
-    let node = event.data;
+    const node = event.data;
 
     this.treeService.getTreeNodes(node)
       .subscribe((children: SohoTreeNode[]) => {

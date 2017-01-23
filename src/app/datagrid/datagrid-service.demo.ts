@@ -19,7 +19,7 @@ import { SohoToastService } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-datagrid-service-demo',
-  templateUrl: 'datagrid-service.demo.html',
+  templateUrl: './datagrid-service.demo.html',
   providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService }, SohoToastService ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

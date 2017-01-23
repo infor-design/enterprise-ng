@@ -148,9 +148,12 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
    */
   @Input()
   public set noSearch(noSearch: boolean) {
-    this.options.noSearch = noSearch;
+    // Assume any value is true to allow the noSearch attribute to be added
+    // without a boolean value.
+    const value = noSearch !== null && <any>noSearch !== 'false';
+    this.options.noSearch = value;
     if (this.dropdown) {
-      this.dropdown.settings.noSearch = noSearch;
+      this.dropdown.settings.noSearch = value;
       this.dropdown.updated();
     }
   }

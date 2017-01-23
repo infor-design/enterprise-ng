@@ -3,7 +3,7 @@
 ### Install
 - [Setup SSH key for using git](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html) (faster but not required)
 - PC users suggest [ComEmu](https://conemu.github.io/) which works a bit better than CMD.
-- Get the latest Node 5 release from https://nodejs.org/dist/latest-v5.x/.
+- Get the latest **Node.js** release from https://nodejs.org/dist/latest-v5.x/.
 - Get an Editor like Visual Studio Code (https://code.visualstudio.com/) or [Atom](https://atom.io/) or your fav.
 
 ### Initial Setup
@@ -16,53 +16,53 @@
 - Type `npm i` (and wait a while …)
 - Type `ng build`
 - Type `ng serve`
-
 ## Component Structure
 
 A brief overview of a simple component in the Soho Angular Component project.  The intention is to define the contract between the Soho jQuery controls and the Soho Angular Components.
-
 ### Structure
-    soho\
-      mywidget\
-        soho-widget.d.ts
-        soho-widget.component.ts
-        soho-widget.component.html
+
+```
+soho\
+  mywidget\
+    soho-widget.d.ts
+    soho-widget.component.ts
+    soho-widget.component.html
     README.md (optional)
+```
+The typing file (soho-widget.d.ts) contains the public API for the underlying SoHoXi jQuery controls, it also contains some internal information required to get the component working.
+```typescript
+/**
+ * Soho widget Control Typings.
+ *
+ * This file contains the Typescript mappings for the public
+ * interface of the Soho jQuery widget control.
+ */
 
-The typing file contains all the public API for the underlying Soho jQuery controls, it also contains some internal information required to get the component working.
+/** Configuration options. */
+interface SohoWidgetOptions {
+  /** The number of widget to add. */
+  count?: number;
+}
 
-    /**
-     * Soho widget Control Typings.
-     *
-     * This file contains the Typescript mappings for the public
-     * interface of the Soho jQuery widget control.
-     */
+/** Soho control widget api.*/
+interface SohoWidgetStatic {
+  /** Destructor. */
+ destroy(): void;
+}
 
-    /** Configuration options. */
-    interface SohoWidgetOptions {
-      /** The number of widget to add. */
-      count?: number;
-    }
+interface SohoWidgetBuiltEvent {
+  event: JQueryObjectEvent;
+  widgetId: string;
+}
 
-    /** Soho control widget api.*/
-    interface SohoWidgetStatic {
-      /** Destructor. */
-      destroy(): void;
-    }
+interface JQueryStatic {
+  widget: SohoWidgetStatic;
+}
 
-    interface SohoWidgetBuiltEvent {
-      event: JQueryObjectEvent;
-      widgetId: string;
-    }
-
-    interface JQueryStatic {
-      widget: SohoWidgetStatic;
-    }
-
-    interface JQuery {
-      widget(options?: SohoWidgetOptions): JQuery;
-    }
-
+interface JQuery {
+  widget(options?: SohoWidgetOptions): JQuery;
+}
+```
 The types defined in here attempt to represent the interface exposed by the wrapped control, including:
 
  - Simple types (number, string, ...)
@@ -70,100 +70,114 @@ The types defined in here attempt to represent the interface exposed by the wrap
  - Functions Prototypes (for source and response functions)
  - Events (for triggered events)
 
-It is **important** that the typings files accurately represent the underlying jQuery control, so any changes made by the Soho team need to made to the corresponding Soho Angular Component  typing file.
+It is **important** that the typings files accurately represent the underlying SoHoXi jQuery control, so any changes made by the SoHo team must be made to the corresponding typing file.
 
 ### The Component
 
 The structure of a very simple Soho Angular Component that wraps a ficticious  jQuery Control called widget is defined below:
 
-    below:
-    @Component({
-      selector: 'soho-widget',
-      template: 'soho-widget.component.html',
-      changeDetection: ChangeDetectionStrategy.OnPush
-    })
-    export class SohoWidgetComponent extends AfterViewInit, OnDestroy {
-
+```typescript
+@Component({
+  selector: 'soho-widget',
+  template: './soho-widget.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class SohoWidgetComponent extends AfterViewInit, OnDestroy {
+```
 **INPUTS**
+
 The inputs define the properties exposed by the component for integration with other Angular Components.  In this case we have the general  *options* input and one for each discreet option, in this case *count*.
 
-      /** Configuration options. */
-      @Input() options: SohoWidgetOptions = {};
+```typescript
+/** Configuration options. */
+@Input() options: SohoWidgetOptions = {};
 
-      @Input() set count(value: number) {
-        this.options.count = value;
-    if (this.widget) {
-      this.widget.settings.count = value;
-      this.widget.updated();
-    }
-      }
-
+@Input() set count(value: number) {
+  this.options.count = value;
+  if (this.widget) {
+    this.widget.settings.count = value;
+    this.widget.updated();
+  }
+}
+```
 **OUTPUTS**
+
 The outputs are the events emitted by the component.
-
-    @Output() built = new EventEmitter<SohoWidgetBuiltEvent>();
-
+```typescript
+@Output() built = new EventEmitter<SohoWidgetBuiltEvent>();
+```
 **HOST BINDINGS**
+
 Then any host bindings required to annoate the markup, such as classes, or attributes.  Some of these may of course be controlled by other properties.
-
-      @HostBinding('class.soho-widget') get isWidget() { return true; }
-   
+```typescript
+@HostBinding('class.soho-widget') get isWidget() { return true; }
+```   
 Then private member data:
-
-      private element: JQuery;
-      private widget: SohoWidgetStatic;
-
+```typescript
+private element: JQuery;
+private widget: SohoWidgetStatic;
+```
 **METHODS**
+
 Expose the methods provided by the component wrapper.
 
-      makeWidget(): void {
-        Assert.NotNull(this.widget);
-        this.widget.makeWidget();
-      }
+```typescript
+makeWidget(): void {
+  this.widget.makeWidget();
+}
+```
 
 **LIFE CYCLE**
 
 The constructor needs to store the injected element reference.
 
-      constructor(private element: ElementRef) {}
+```typescript
+constructor(private element: ElementRef) {}
+```
 
- Then we handle the AfterViewEvent.
+Then we handle the AfterViewEvent.
 
-  ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
-    this.jQueryElement.widget(this.options);
-    this.widet = this.jQueryElement.data('widget');
-    this.jQueryElement
-      .on('built', (e: JQueryObjectEvent, widgetId: string) => this.built.next({widgetId}));
-    }
-
+```typescript
+ngAfterViewInit() {
+  this.jQueryElement = jQuery(this.element.nativeElement);
+  this.jQueryElement.widget(this.options);
+  this.widet = this.jQueryElement.data('widget');
+  this.jQueryElement
+    .on('built', (e: JQueryObjectEvent, widgetId: string) => this.built.next({widgetId}));
+}
+```
 Finally, the destructor.
-
+```typescript
   ngOnDestroy() {
     if (this.widget) {
       this.widget.destroy();
       this.widget = null;
     }
   }
-
+```
 ## HTML
+
 The HTML file should include any markup required for the control to work.
 
+```html
   <soho-icon *ngIf="count > 1" [icon]='gear'></soho-icon>
   <ng-content></ng-content>
-
+```
 ## Unit Testing
 
-Angular-CLI uses **jasmine** to handle unit testing.  Simple add you unit test code to a file called **soho-widget.spec.ts** in the same folder as component.
+Angular-CLI uses **jasmine** to handle unit testing.  Simply add your unit test code to a file called **soho-widget.spec.ts** in the same folder as component.
+
+These unit tests are run are part of the Continuous Integration build when code is pushed into the sohoxi-angular repository.
 
 ## Pulling it all together
+
 The component is then added into the consolidated typings using the top level typing file:
-
-  soho\
-   soho-components.d.ts
-
+```
+soho\
+  soho-components.d.ts
+```
 This file includes a reference to each of the typings files defined within each component, e.g.
-
-  /// <reference path="./widget/soho-widget.d.ts" />
-
+```typescript
+/// <reference path="./widget/soho-widget.d.ts" />
+```
 To integrate this into your application simply include the **@infor/sohoxi-angular** package into your application, and include the **SohoComponentsModule** into your application module definition.  For further details, see the QuickStart guide.

@@ -6,7 +6,7 @@ import {
 
 @Component({
   selector: 'soho-textarea-demo',
-  templateUrl: 'textarea.demo.html',
+  templateUrl: './textarea.demo.html',
   styles: [`pre{font-size: 15px}`] // set font size to be larger so pre tag content is more readable
 })
 export class TextareaDemoComponent implements OnInit {

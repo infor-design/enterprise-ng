@@ -5,6 +5,7 @@
 /tmp
 /obj
 /bin
+/src/assets/css
 
 # dependencies
 /node_modules

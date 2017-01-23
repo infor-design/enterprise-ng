@@ -6,7 +6,7 @@ import {
 
 @Component({
   selector: 'soho-tooltip-demo',
-  templateUrl: 'tooltip.demo.html',
+  templateUrl: './tooltip.demo.html',
 })
 export class TooltipDemoComponent implements OnInit {
 

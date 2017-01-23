@@ -5,7 +5,7 @@ import {
 
 @Component({
   selector: 'soho-validation-form-demo',
-  templateUrl: 'validation-form.demo.html'
+  templateUrl: './validation-form.demo.html'
 })
 export class ValidationFormDemoComponent {
 

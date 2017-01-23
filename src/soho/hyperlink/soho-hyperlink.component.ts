@@ -13,9 +13,9 @@ export type SohoHyperlinkType = 'show-visited' | 'forward-caret' | 'back-caret';
 
 @Component({
   selector: 'a[soho-hyperlink]', // tslint:disable-line
-  template: ` <soho-icon *ngIf="isCaretLeft" [icon]="'caret-left'"></soho-icon> 
+  template: ` <svg soho-icon *ngIf="isCaretLeft" [icon]="'caret-left'"></svg> 
               <ng-content></ng-content>                      
-              <soho-icon *ngIf="isCaretRight" [icon]="'caret-right'"></soho-icon>  
+              <svg soho-icon *ngIf="isCaretRight" [icon]="'caret-right'"></svg>  
               `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -37,17 +37,23 @@ interface SohoLocaleCalendar {
 }
 
 interface SohoLocaleStatic {
+  cultures: any;
+  culturesPath: string;
   currentLocale: { name: string, data: any };
-
-  currentCulture(): string;
-
-  translate(key: string): string;
-
-  calendar(): { dateFormat: any, timeFormat: string };
-
+  addCulture(locale: string, data: any): void;
+  calendar(): {dateFormat: any, timeFormat: string};
+  cultureInHead(): boolean;
+  formatDate(value: string | Date, attribs: any): string;
+  formatNumber(number: number | string, options: any): string;
+  getCulturesPath(): string;
+  isRTL(): boolean;
+  numbers(): any;
+  parseDate(dateString: string, dateFormat: string, isStrict: boolean): Date;
+  parseNumber(input: string): number;
   set(locale: string): any;
-
-  addCulture(locale: string, data: any);
+  setCurrentLocale(name: string, data: any): void;
+  translate(key: string): string;
+  translateDayPeriod(period: string): string;
 }
 
 declare var Locale: SohoLocaleStatic;

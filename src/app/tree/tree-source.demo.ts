@@ -11,15 +11,15 @@ import { TreeDemoData } from './tree-data.demo';
 
 @Component({
   selector: 'soho-tree-source-demo',
-  templateUrl: 'tree-source.demo.html',
+  templateUrl: './tree-source.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeSourceDemoComponent implements AfterViewInit {
   @ViewChild(SohoTreeComponent) tree: SohoTreeComponent;
 
-  enabled = true;
+  public enabled = true;
 
-  private demoData = new TreeDemoData();
+  public demoData = new TreeDemoData();
 
   constructor(private el: ElementRef) {
     // Configure options here?
@@ -64,6 +64,14 @@ export class TreeSourceDemoComponent implements AfterViewInit {
   }
 
   onSelected(treeEvent: SohoTreeEvent) {
+    console.log(`Tree Event: ${treeEvent.data}`);
+  }
+
+  onCollapse(treeEvent: SohoTreeEvent) {
+    console.log(`Tree Event: ${treeEvent.data}`);
+  }
+
+  onExpand(treeEvent: SohoTreeEvent) {
     console.log(`Tree Event: ${treeEvent.data}`);
   }
 }

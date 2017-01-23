@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Component, DebugElement, ViewChild }    from '@angular/core';
+import { Component, DebugElement, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { SohoSliderModule } from './soho-slider.module';
@@ -96,7 +96,7 @@ describe ('Soho Slider Render', () => {
 
 @Component ({
   template: `
-    <input soho-slider id="slider-regular" name="slider-regular" 
+    <input soho-slider id="slider-regular" name="slider-regular"
     min="0" max="100" type="range" value="40"/>
     `
 })

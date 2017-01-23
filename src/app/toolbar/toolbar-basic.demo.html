@@ -13,22 +13,22 @@
         <input class="searchfield" id='my-search-field' placeholder='Search' name='Search'/>
 
         <!-- buttons -->
-        <button soho-button="icon" icon="add" title="Add" button-data="{'button':'add'}"></button>
+        <button soho-button="icon" icon="add" title="Add" data-action="{'button':'add'}"></button>
 
         <!--
         If I don't put the icon='pie-chart' in single quotes the input won't work.
         My guess is we have to use icon='some-icon' or [icon]="'some-icon'"
         -->
-        <button soho-menu-button id="charts-btn" menu="buttonPopupMenu" [icon]="'pie-chart'" attr.data-button="{\'btn\' : \'charts\'}"></button>
-        <ul soho-popupmenu id="buttonPopupMenu">
-          <li soho-popupmenu-item id='pie'>
-            <a soho-popupmenu-label button-data="{'item':'pie'}">Pie Chart</a>
+        <button soho-menu-button id="charts-btn" [icon]="'pie-chart'" data-action="{\'btn\' : \'charts\'}"></button>
+        <ul class="popupmenu">
+          <li id='pie'>
+            <a data-action="{'item':'pie'}">Pie Chart</a>
           </li>
-          <li soho-popupmenu-item id='line'>
-            <a soho-popupmenu-label button-data="{'item':'line'}">Line Chart</a>
+          <li id='line'>
+            <a data-action="{'item':'line'}">Line Chart</a>
           </li>
-          <li soho-popupmenu-item id='bubble'>
-            <a soho-popupmenu-label button-data="{'item':'bubble'}">Bubble Chart</a>
+          <li id='bubble'>
+            <a data-action="{'item':'bubble'}">Bubble Chart</a>
           </li>
         </ul>
 
@@ -40,9 +40,9 @@
           <li soho-menu-item><a href="#" button-data="{'item':'pie'}">Bubble Chart</a></li>
         </ul>-->
 
-        <button soho-button='icon' icon="folder" title="Open" button-data="{'button':'open'}"></button>
-        <button soho-button='icon' icon="delete" title="Delete" button-data="{'button':'delete'}"></button>
-        <button soho-button='icon' icon="refresh" title="Refresh" button-data="{'button':'refresh'}"></button>
+        <button soho-button='icon' icon="folder" title="Open" data-action="{'button':'open'}"></button>
+        <button soho-button='icon' icon="delete" title="Delete" data-action="{'button':'delete'}"></button>
+        <button soho-button='icon' icon="refresh" title="Refresh" data-action="{'button':'refresh'}"></button>
 
       </soho-toolbar-button-set>
     </soho-toolbar>

@@ -11,7 +11,7 @@ import {
 
 @Component({
   selector: 'soho-datagrid-content-demo',
-  templateUrl: 'datagrid-content.demo.html',
+  templateUrl: './datagrid-content.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DataGridContentDemoComponent {

@@ -3,7 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'soho-dropdown-demo',
-  templateUrl: 'dropdown-lm.demo.html',
+  templateUrl: './dropdown-lm.demo.html',
 })
 export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
   private fieldSpec = { // tslint:disable-line
@@ -45,19 +45,19 @@ export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
       stateValues: []
     }
   };
-  private model = {}; // tslint:disable-line
-  private showModel = false;
-  private form: FormGroup;
+  public model = {}; // tslint:disable-line
+  public showModel = false;
+  public form: FormGroup;
 
   constructor() {
   }
 
   ngOnInit() {
     // build model and form group
-    let group: {[key: string]: any} = [];
-    let keys = Object.keys(this.fieldSpec);
-    for (let index = 0, len = keys.length; index < len; index++) {
-      let key = keys[index];
+    const group: {[key: string]: any} = [];
+    const keys = Object.keys(this.fieldSpec);
+    for (let index = 0; index < keys.length; index++) {
+      const key = keys[index];
       this.model[key] = { value: {} };
       group[key] = new FormControl();
     }
@@ -66,10 +66,10 @@ export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     // update model values as data comes in late
-    let keys = Object.keys(this.fieldSpec);
+    const keys = Object.keys(this.fieldSpec);
     for (let index = 0, len = keys.length; index < len; index++) {
-      let key = keys[index];
-      let field = this.fieldSpec[key];
+      const key = keys[index];
+      const field = this.fieldSpec[key];
       let value = {};
       if (field.hasOwnProperty('stateValues') && field.stateValues.length > 2) {
         value = field.stateValues[2];
@@ -87,7 +87,7 @@ export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
   }
 
   private source(response: any, searchTerm: any) { // tslint:disable-line
-    let states = [
+    const states = [
       { value: 'AK', label: 'Alaska' },
       { value: 'AZ', label: 'Arizona' },
       { value: 'CA', label: 'California' },

@@ -1,0 +1,7 @@
+/*
+ A second dropdown is being added when used in a toolbar
+ Looks like  Button.prototype = {} in $.fn.button is the culprit
+*/
+:host >>> .icon.icon-dropdown:not([soho-icon]) {
+  display: none;
+}

@@ -9,7 +9,7 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
 
 @Component({
   selector: 'soho-toolbar-header-demo',
-  templateUrl: 'header-toolbar.demo.html'
+  templateUrl: './header-toolbar.demo.html'
 })
 export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
 
@@ -61,7 +61,7 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
     if (!this.sohoHeaderRef.instance.hasHeaderToolbar) {
       this.sohoHeaderRef.instance.sectionTitle = 'Header Toolbar Demo';
       this.sohoHeaderRef.instance.toolbarOptions = this.toolbarOptions;
-      this.buttonClickedSubscription = this.sohoHeaderRef.instance.sohoToolbarComponent.buttonClicked.subscribe(event =>
+      this.buttonClickedSubscription = this.sohoHeaderRef.instance.sohoToolbarComponent.selected.subscribe(event =>
         this.onToolbarButtonClicked(event));
     }
   }
