@@ -1,7 +1,8 @@
 import {
   Component,
   ElementRef,
-  ViewChild
+  ViewChild,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import {
@@ -11,7 +12,8 @@ import {
 
 @Component({
   selector: 'soho-busyindicator-demo',
-  templateUrl: './form.demo.html'
+  templateUrl: './form.demo.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BusyIndicatorDemoComponent {
 

@@ -44,7 +44,7 @@
     "@types/jasmine": "2.5.41",
     "@types/jquery": "^2.0.39",
     "@types/node": "^7.0.0",
-    "angular-cli": "1.0.0-beta.25.5",
+    "angular-cli": "1.0.0-beta.26",
     "codelyzer": "~2.0.0-beta.4",
     "gulp": "^3.9.1",
     "jasmine-core": "2.5.2",

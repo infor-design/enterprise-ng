@@ -1,11 +1,13 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 @Component({
   selector: 'soho-checkbox-demo',
   templateUrl: './checkbox.demo.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CheckBoxDemoComponent implements OnInit {
 
