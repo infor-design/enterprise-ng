@@ -26,6 +26,8 @@ Release Date: 2016-10-31
  - Bumped version of @infor/sohoxi-angular to 4.2.5-develop
  - Upgraded to angular-cli 1.0.0-beta.25-5
  - Upgraded to angular 2.4.X
+ * 2017-01-23 - TH - Version Update 
+ - Upgraded to angular-cli 1.0.0-beta.26
 
 ### Breaking Changes
 

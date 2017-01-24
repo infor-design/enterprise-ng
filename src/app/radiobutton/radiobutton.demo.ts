@@ -9,12 +9,12 @@ import {
 })
 export class RadioButtonDemoComponent implements OnInit {
 
-  private model = { // tslint:disable-line
+  public model = {
     horizontal: '3',
     vertical: '1'
   };
-  private showModel = false;
-  private isDisabled: boolean;
+  public showModel = false;
+  public isDisabled: boolean;
 
   ngOnInit() {
     this.isDisabled = true;

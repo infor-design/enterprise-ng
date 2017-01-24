@@ -1,20 +1,26 @@
 /*
   A mock component to demonstrate interaction with the toolbar-landmark demo component
  */
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 
-import { Component, OnInit } from '@angular/core';
-import { ToolbarStateService, LMToolbarButton } from './toolbar-state.service';
+import {
+   ToolbarStateService,
+   LMToolbarButton
+} from './toolbar-state.service';
 
 @Component({
-  selector    : 'toolbar-state-component', // tslint:disable-line
-  templateUrl : './toolbar-state.component.html',
+  selector: 'toolbar-state-component', // tslint:disable-line
+  templateUrl: './toolbar-state.component.html',
   providers: [ ToolbarStateService ]
 })
 export class ToolbarStateComponent implements OnInit {
-  private toolbarInHeader: boolean;
-  private toolbarSectionTitle: string;
-  private toolbarPageTitle: string;
-  private toolbarButtons: Array<LMToolbarButton>;
+  public toolbarInHeader: boolean;
+  public toolbarSectionTitle: string;
+  public toolbarPageTitle: string;
+  public toolbarButtons: Array<LMToolbarButton>;
 
   constructor(public toolbarService: ToolbarStateService) {}
 

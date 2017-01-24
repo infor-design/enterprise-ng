@@ -14,7 +14,10 @@ import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
 })
 export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, OnDestroy {
 
-  private currentTabsOptions: HeaderDynamicTabsetOptions = undefined;
+  public currentTabsOptions: HeaderDynamicTabsetOptions = undefined;
+
+  public isShowingHeaderToolbar = true;
+  public isShowingHeaderTabs = false;
 
   constructor(private sohoHeaderRef: HeaderDynamicDemoRefService) {}
 

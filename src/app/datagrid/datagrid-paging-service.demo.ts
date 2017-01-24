@@ -26,9 +26,9 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
      * higher in the component hierarchy our ngAfterViewInit is called after
      * DataGrid ngAfterViewInit.
      */
-    let pageSize = 5;
+    const pageSize = 5;
 
-    let gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
+    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
       columns: this.datagridPagingService.getColumns(),
       selectable: 'single',
       paging: true,

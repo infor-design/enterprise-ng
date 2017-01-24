@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-fileupload', // tslint:disable-line
+  selector: 'soho-fileupload',
   templateUrl: './soho-fileupload.component.html'
 })
 

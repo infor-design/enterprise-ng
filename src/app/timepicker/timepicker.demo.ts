@@ -16,13 +16,13 @@ export class TimePickerDemoComponent implements OnInit {
 
   @ViewChild(SohoTimePickerComponent) timepicker: SohoTimePickerComponent;
 
-  private model = { // tslint:disable-line
+  public model = { // tslint:disable-line
     hhmm: '1:23 PM',
     HHmm24: ''
   };
-  private showModel = false;
-  private timepickerDisabled = false;
-  private timepickerReadOnly = false;
+  public showModel = false;
+  public timepickerDisabled = false;
+  public timepickerReadOnly = false;
 
   constructor() { }
 
