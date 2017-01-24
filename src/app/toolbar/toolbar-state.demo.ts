@@ -14,11 +14,11 @@ import { SohoToolbarComponent } from '@infor/sohoxi-angular';
 })
 export class ToolbarStateDemoComponent implements OnInit {
 
-  private _inHeader: boolean;
-  private _sectionTitle: string;
-  private _pageTitle: string;
-  private _buttons: Array<LMToolbarButton>;
-  private _maxVisibleButtons: number;
+  public _inHeader: boolean;
+  public _sectionTitle: string;
+  public _pageTitle: string;
+  public _buttons: Array<LMToolbarButton>;
+  public _maxVisibleButtons: number;
 
   @ViewChild('SohoToolbarComponent') sohoToolbar: SohoToolbarComponent;
 

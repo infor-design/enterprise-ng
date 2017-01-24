@@ -50,4 +50,7 @@ export class DataGridServiceDemoComponent implements AfterContentInit, AfterView
   clearFilter() {
     this.dataGrid.clearFilter();
   }
+
+  addRow() {
+  }
 }

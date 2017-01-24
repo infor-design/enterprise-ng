@@ -6,7 +6,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   templateUrl: './dropdown-lm.demo.html',
 })
 export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
-  private fieldSpec = { // tslint:disable-line
+  public fieldSpec = {
     AlphaField: {
       bindId: 'AlphaField',
       stateValues: [
@@ -45,7 +45,7 @@ export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
       stateValues: []
     }
   };
-  public model = {}; // tslint:disable-line
+  public model = {};
   public showModel = false;
   public form: FormGroup;
 
@@ -67,7 +67,7 @@ export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     // update model values as data comes in late
     const keys = Object.keys(this.fieldSpec);
-    for (let index = 0, len = keys.length; index < len; index++) {
+    for (let index = 0; index < keys.length; index++) {
       const key = keys[index];
       const field = this.fieldSpec[key];
       let value = {};
@@ -82,11 +82,11 @@ export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
     this.showModel = !this.showModel;
   }
 
-  private setSource() { // tslint:disable-line
+  public setSource() {
     return this.source.bind(this);
   }
 
-  private source(response: any, searchTerm: any) { // tslint:disable-line
+  public source(response: any, searchTerm: any) {
     const states = [
       { value: 'AK', label: 'Alaska' },
       { value: 'AZ', label: 'Arizona' },

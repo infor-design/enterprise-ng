@@ -31,7 +31,7 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       formatter: MyCustomFormatter,
     });
 
-    let gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
+    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
       columns: PAGING_COLUMNS,
       dataset: PAGING_DATA,
       selectable: 'single',
@@ -53,8 +53,8 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
    * through the userObject reference to this DemoComponent
    */
   public getRandomNumber(): number {
-    let min = 1;
-    let max = 50;
+    const min = 1;
+    const max = 50;
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 }

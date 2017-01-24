@@ -13,16 +13,16 @@ export class DatepickerDemoComponent implements OnInit {
 
   @ViewChild(SohoDatePickerComponent) datepicker: SohoDatePickerComponent;
 
-  private model = { // tslint:disable-line
+  public model = {
     standard: '12/12/2016',
     anniversary: '',
     birthday: '',
     year: '',
     datetime: ''
   };
-  private showModel: boolean = false;
-  private datepickerDisabled: boolean = false;
-  private datepickerReadOnly: boolean = false;
+  public showModel: boolean = false;
+  public datepickerDisabled: boolean = false;
+  public datepickerReadOnly: boolean = false;
 
   constructor() { }
   ngOnInit() { }

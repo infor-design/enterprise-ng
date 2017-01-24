@@ -50,7 +50,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, OnDestroy {
   /** This event is fired 'timeToComplete' milliseconds after the indicator is opened.
    * NOTE: There's no close event on the busyindicator.
   */
-  @Output() closeEvent = new EventEmitter<SohoBusyIndicatorEvent>(); // tslint:disable-line
+  @Output() closeEvent = new EventEmitter<SohoBusyIndicatorEvent>();
 
   // -------------------------------------------
   // Component Inputs

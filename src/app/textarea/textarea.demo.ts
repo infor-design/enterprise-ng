@@ -13,16 +13,16 @@ export class TextareaDemoComponent implements OnInit {
 
   @ViewChild(SohoTextAreaComponent) textarea: SohoTextAreaComponent;
 
-  private model = { // tslint:disable-line
+  public model = { // tslint:disable-line
     resizableText: 'This text is resizable',
     counterText: 'This text cannot exceed 90 chars',
     disableText: 'This text is disable',
     readonlyText: 'This text is readonly',
     modifiableText: 'This text is modifiable',
   };
-  private showModel = false;
-  private textAreaDisabled = false;
-  private textAreaReadOnly = false;
+  public showModel = false;
+  public textAreaDisabled = false;
+  public textAreaReadOnly = false;
 
   constructor() { }
   ngOnInit() { }
