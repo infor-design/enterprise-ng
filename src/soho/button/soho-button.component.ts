@@ -137,6 +137,10 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
     // by the plug-in, but in this case is 'button'.
     this.button = this.jQueryElement.data('button');
 
+    if (this.buttonType === SohoButtonComponent.FAVORITE) {
+      this.jQueryElement.off('click.favorite');
+    }
+
     // There are no 'extra' event handler for button.
   }
 
