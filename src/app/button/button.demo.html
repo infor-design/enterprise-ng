@@ -1,5 +1,8 @@
 <div class="example-section">
   <div class="row">
+    <br>
+    <br>
+    <br>
     <h1>Buttons</h1>
     <span class="code-tag">Live Example</span>
     <div class="row">
@@ -62,10 +65,28 @@
         <br>
         <button soho-button="icon" icon="calendar" disabled>Date</button>
       </div>
+
     </div>
+
     <br/>
     <div *ngIf="shouldSayHi" class="row">
       <h2>Hello there!</h2>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <h2>Favorites Icon Buttons</h2>
+  <div class="row">
+    <div class="row">
+      <div class="three columns">
+        <span class="label">Initially Filled</span>
+        <button soho-button="favorite" [state]="true" title="Favorite">Favorite</button>
+        <br>
+        <br>
+        <span class="label">Initially Outlined</span>
+        <button soho-button="favorite" [state]="false" title="Favorite">Favorite</button>
+      </div>
     </div>
   </div>
 </div>
