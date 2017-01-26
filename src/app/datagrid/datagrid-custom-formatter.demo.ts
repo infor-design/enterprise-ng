@@ -11,6 +11,7 @@ import {
   PAGING_COLUMNS,
   PAGING_DATA
 } from './datagrid-paging-data';
+import { SohoIconUtils } from '../../soho/utils/soho-icon.utils';
 
 @Component({
   selector: 'soho-datagrid-custom-formatter-demo',
@@ -29,6 +30,13 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       name: 'Custom Formatter',
       field: '',
       formatter: MyCustomFormatter,
+    });
+
+    PAGING_COLUMNS.push({
+      id: 'favorite-formatter',
+      name: 'Favorite',
+      field: '',
+      formatter: LMFavorite,
     });
 
     const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
@@ -76,3 +84,11 @@ function MyCustomFormatter(
   // use a standard formatter to format that value.
   return Formatters.Integer(row, cell, value, column, item, api);
 }
+
+export const LMFavorite = (row, cell, value, col, rowData, api): string => {
+  let isChecked: boolean = (rowData && rowData.price > 200); // jshint ignore:line
+  let icon = isChecked ? 'star-filled' : 'star-outlined';
+  return '<span class="audible">' + Locale.translate('Favorite') +
+    '</span><span class="icon-favorite">' + SohoIconUtils.createIcon({ icon: icon }) + '</span>';
+};
+
