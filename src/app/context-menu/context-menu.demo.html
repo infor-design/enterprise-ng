@@ -65,10 +65,10 @@
   <!-- Checkbox example. Soho-icon component used-->
   <div class="field">
     <label soho-label >{{checkboxButtonLabel}}</label>
-    <input soho-checkbox type="checkbox" id="id1" name="checkbox1" [(ngModel)]=checkboxModel.checkBox1Value >
+    <input soho-checkbox type="checkbox" id="id1" name="checkbox1" [(ngModel)]="checkboxModel.checkBox1Value">
     <label soho-label for="id1" [forCheckBox]="true" soho-context-menu menu="action-popupmenu" >Unchecked</label>
     <br>
-    <input soho-checkbox type="checkbox" id="id2" name="checkbox2" [(ngModel)]=checkboxModel.checkBox2Value soho-context-menu menu="action-popupmenu" >
+    <input soho-checkbox type="checkbox" id="id2" name="checkbox2" [(ngModel)]="checkboxModel.checkBox2Value" soho-context-menu menu="action-popupmenu" >
     <label soho-label for="id2" [forCheckBox]="true" soho-context-menu menu="action-popupmenu" >Checked</label>
   </div>
 
@@ -85,8 +85,8 @@
   <!-- Context menu used in all examples (except the menu button)-->
   <ul soho-popupmenu id="action-popupmenu" >
     <li soho-popupmenu-item *ngFor="let menuEntry of contextEntries" >
-      <a soho-popupmenu-label *ngIf='!menuEntry.url' menuId="{{menuEntry.id}}" [isDisabled]="menuEntry.disabled">{{menuEntry.displayString}}</a>
-      <a soho-popupmenu-label *ngIf='menuEntry.url' menuUrl="{{menuEntry.url}}" [isDisabled]="menuEntry.disabled">{{menuEntry.displayString}}</a>
+      <a soho-popupmenu-label *ngIf="!menuEntry.url" menuId="{{menuEntry.id}}" [isDisabled]="menuEntry.disabled">{{menuEntry.displayString}}</a>
+      <a soho-popupmenu-label *ngIf="menuEntry.url" menuUrl="{{menuEntry.url}}" [isDisabled]="menuEntry.disabled">{{menuEntry.displayString}}</a>
     </li>
   </ul>
 

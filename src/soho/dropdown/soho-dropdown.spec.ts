@@ -115,7 +115,7 @@ describe('Soho Dropdown Render', () => {
 
 @Component({
   template: `
-  <select soho-dropdown noSearch [(ngModel)]="selectedOption">
+  <select soho-dropdown noSearch  [closeOnSelect]="true" [(ngModel)]="selectedOption">
     <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
   </select>`
 })
