@@ -6,7 +6,7 @@
       <div class="row">
         <div class="field">
           <label for="states-multi-closes" class="label">States - Closes On Select</label>
-          <select soho-dropdown name="states-multi-closes" multiple maxSelected=3 [(ngModel)]="model.closes">
+          <select soho-dropdown name="states-multi-closes" multiple maxSelected="3" [(ngModel)]="model.closes">
             <option value="AL">Alabama</option>
             <option value="CA">California</option>
             <option value="DE">Delaware</option>
@@ -16,7 +16,7 @@
         </div>
         <div class="field">
           <label for="states-multi" class="label">States - Stays Open</label>
-          <select soho-dropdown name="states-multi" multiple [closeOnSelect]="false" maxSelected=3 [(ngModel)]="model.multi">
+          <select soho-dropdown name="states-multi" multiple [closeOnSelect]="false" maxSelected="3" [(ngModel)]="model.multi">
             <option value="AL">Alabama</option>
             <option value="CA">California</option>
             <option value="DE">Delaware</option>
@@ -26,7 +26,7 @@
         </div>
         <div class="field">
           <label for="states-multi-source" class="label">States - From source</label>
-          <select soho-dropdown name="states-multi-source" multiple=true [source]="source" [(ngModel)]="model.multisource">
+          <select soho-dropdown name="states-multi-source" multiple="true" [source]="source" [(ngModel)]="model.multisource">
             <option *ngFor="let option of multisourceoptions" [ngValue]="option">{{option.text}}</option>
           </select>
         </div>
@@ -35,7 +35,7 @@
           <button soho-button (click)="onRemoveOption()">Remove Option</button>
           <hr>
           <label for="states-modifiable-two" class="label">Modifiable States</label>
-          <select soho-dropdown name="states-modifiable-two" multiple=true [closeOnSelect]="false" [(ngModel)]="model.modifiable">
+          <select soho-dropdown name="states-modifiable-two" multiple="true" [closeOnSelect]="false" [(ngModel)]="model.modifiable">
             <option *ngFor="let option of options" [ngValue]="option">{{option.text}}</option>
           </select>
         </div>

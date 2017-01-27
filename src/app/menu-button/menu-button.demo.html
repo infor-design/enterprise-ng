@@ -10,14 +10,14 @@
       <li ><a soho-popupmenu-label >Create a form</a></li>
       <li soho-popupmenu-separator></li>
       <li soho-popupmenu-item><a l >Spelling...</a></li>
-      <li soho-popupmenu-item><a soho-popupmenu-label [isDisabled]='true' (click)="disabledEntryClicked()" >Solver...</a></li>
-      <li soho-popupmenu-separator singleSelectableSection=true></li>
-      <li soho-popupmenu-item isChecked=true isSelectable=true><a soho-popupmenu-label>Enable Autocomplete</a></li>
-      <li soho-popupmenu-item isSelectable=true><a soho-popupmenu-label>Notification Rules</a></li>
-      <li soho-popupmenu-item isSelectable=true><a soho-popupmenu-label>Protect Sheet Rules</a></li>
+      <li soho-popupmenu-item><a soho-popupmenu-label [isDisabled]="true" (click)="disabledEntryClicked()" >Solver...</a></li>
+      <li soho-popupmenu-separator singleSelectableSection="true"></li>
+      <li soho-popupmenu-item isChecked="true" isSelectable="true"><a soho-popupmenu-label>Enable Autocomplete</a></li>
+      <li soho-popupmenu-item isSelectable="true"><a soho-popupmenu-label>Notification Rules</a></li>
+      <li soho-popupmenu-item isSelectable="true"><a soho-popupmenu-label>Protect Sheet Rules</a></li>
     </ul>
 
-    <button soho-menu-button [icon]="'pie-chart'" menu="charts-menu"
+    <button soho-menu-button [icon]="" pie-chart="" menu="charts-menu"
             (selected)="onSelected($event)"
             (beforeopen)="onBeforeopen($event)"
             (close)="onClose($event)"
@@ -28,15 +28,15 @@
       <li soho-popupmenu-item><a soho-popupmenu-label>Bubble Chart</a></li>
     </ul>
 
-    <button soho-menu-button [icon]="'pie-chart'" title="Charts" menu="charts-menu2"
+    <button soho-menu-button [icon]="" pie-chart="" title="Charts" menu="charts-menu2"
             (selected)="onSelected($event)"
             (beforeopen)="onBeforeopen($event)"
             (close)="onClose($event)"
             (open)="onOpen($event)"></button>
     <ul soho-popupmenu id="charts-menu2">
-      <li soho-popupmenu-item id='pie'><a soho-popupmenu-label>Pie Chart</a></li>
-      <li soho-popupmenu-item id='line'><a soho-popupmenu-label>Line Chart</a></li>
-      <li soho-popupmenu-item id='bubble'><a soho-popupmenu-label>Bubble Chart</a></li>
+      <li soho-popupmenu-item id="pie"><a soho-popupmenu-label>Pie Chart</a></li>
+      <li soho-popupmenu-item id="line"><a soho-popupmenu-label>Line Chart</a></li>
+      <li soho-popupmenu-item id="bubble"><a soho-popupmenu-label>Bubble Chart</a></li>
     </ul>
 
     <!-- dynamic -->

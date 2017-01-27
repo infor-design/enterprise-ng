@@ -13,6 +13,13 @@ import {
 } from './datagrid-paging-data';
 import { SohoIconUtils } from '../../soho/utils/soho-icon.utils';
 
+export const LMFavorite = (row, cell, value, col, rowData, api): string => {
+  const isChecked: boolean = (rowData && rowData.price > 200); // jshint ignore:line
+  const icon = isChecked ? 'star-filled' : 'star-outlined';
+  return '<span class="audible">' + Locale.translate('Favorite') +
+    '</span><span class="icon-favorite">' + SohoIconUtils.createIcon({ icon: icon }) + '</span>';
+};
+
 @Component({
   selector: 'soho-datagrid-custom-formatter-demo',
   templateUrl: './datagrid-custom-formatter.demo.html',
@@ -85,10 +92,5 @@ function MyCustomFormatter(
   return Formatters.Integer(row, cell, value, column, item, api);
 }
 
-export const LMFavorite = (row, cell, value, col, rowData, api): string => {
-  let isChecked: boolean = (rowData && rowData.price > 200); // jshint ignore:line
-  let icon = isChecked ? 'star-filled' : 'star-outlined';
-  return '<span class="audible">' + Locale.translate('Favorite') +
-    '</span><span class="icon-favorite">' + SohoIconUtils.createIcon({ icon: icon }) + '</span>';
-};
+
 

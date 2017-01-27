@@ -12,16 +12,16 @@
     <div class="three columns top-padding">
       <div class="field">
         <select soho-dropdown noSearch id="selectable" [(ngModel)]="datagrid.selectable">
-          <option value=''>No Selection</option>
-          <option value='single'>Single Selection</option>
-          <option value='multiple'>Multiple Selection</option>
+          <option value="">No Selection</option>
+          <option value="single">Single Selection</option>
+          <option value="multiple">Multiple Selection</option>
         </select>
       </div>
       <div class="field">
-        <select soho-dropdown noSearch id="selectable" [(ngModel)]="datagrid.rowHeight">
-          <option value='short'>Short Row Height</option>
-          <option value='medium'>Medium Row Height</option>
-          <option value='normal'>Normal Row Height</option>
+        <select soho-dropdown noSearch id="selectable2" [(ngModel)]="datagrid.rowHeight">
+          <option value="short">Short Row Height</option>
+          <option value="medium">Medium Row Height</option>
+          <option value="normal">Normal Row Height</option>
         </select>
       </div>
     </div>
@@ -88,7 +88,7 @@
 <div class="row top-padding">
   <div class="twelve columns demo" role="main">
     <section soho-busyindicator class="scrollable contained-scrolling-right-bottom" style="height: 100%">
-      <div soho-datagrid selectable='' filterable="true"></div>
+      <div soho-datagrid selectable="true" filterable="true"></div>
     </section>
   </div>
 </div>
