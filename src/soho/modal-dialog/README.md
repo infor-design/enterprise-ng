@@ -41,7 +41,23 @@ this.dialog = this.modalService
   .open();
 ```
 
-This returns a typed implemtation of `SohoModalDialogRef`.
+This returns a typed implementation of `SohoModalDialogRef`.
+
+**NOTE:**  Angular needs to be able to find the dynamic dialog component for it to be able to
+instantiate it, so you **MUST** add the component into the *entryComponents* of the hosting 
+module. For example:
+
+```typescript
+@NgModule({
+  declarations: [ ExampleModalDialogComponent ],
+  exports: [],
+  imports: [ ..., SohoComonentsModule ],
+  providers: [],
+  entryComponents:[ ExampleModalDialogComponent ]
+  ]
+})
+export class ExampleModuleDialogModule {}
+```
 
 ## Methods
 

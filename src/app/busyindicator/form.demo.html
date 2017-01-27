@@ -15,7 +15,7 @@
 
   <div class="one-half column">
     <h2 class="fieldset-title">Regular Example (UI Blocking)</h2>
-    <form soho-busyindicator blockUI='true' text="{{message}}" displayDelay="{{delay}}" timeToComplete='1000' (afterstart$)="onAfterStart($event)"
+    <form soho-busyindicator blockUI="true" text="{{message}}" displayDelay="{{delay}}" timeToComplete="1000" (afterstart$)="onAfterStart($event)"
       (close$)="onClose($event)" id="busy-form" class="busy" action="#" method="POST" data-delay="300" (ngSubmit)="onSubmit()">
       <div class="field">
         <label for="busy-field-message">Message</label>

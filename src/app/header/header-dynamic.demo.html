@@ -1,7 +1,7 @@
 <soho-header [hasTabs]="hasHeaderTabs" [hasToolbar]="hasHeaderToolbar">
 
   <!-- header toolbar -->
-  <soho-toolbar #appDynamicHeaderToolbar maxVisibleButtons=5 hasMoreButton='true'>
+  <soho-toolbar #appDynamicHeaderToolbar maxVisibleButtons="5" hasMoreButton="true">
 
     <soho-toolbar-title>
       <button soho-nav-button>Show Navigation</button>
@@ -23,7 +23,7 @@
 
       <template [ngIf]="currentToolbarOptions">
         <template ngFor let-button [ngForOf]="currentToolbarOptions?.toolbarButtons">
-          <button *ngIf="!button.menu" soho-button='icon' icon='{{button?.icon}}' id="{{button?.id}}" attr.data-button="{{button?.data}}">{{button?.text}}</button>
+          <button *ngIf="!button.menu" soho-button="icon" icon="{{button?.icon}}" id="{{button?.id}}" attr.data-button="{{button?.data}}">{{button?.text}}</button>
 
           <template [ngIf]="button.menu">
             <button soho-menu-button id="{{button?.id}}" menu="buttonPopupMenu" icon="{{button?.icon}}"  attr.data-button="{{button?.data}}" >

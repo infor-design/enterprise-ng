@@ -6,7 +6,7 @@
       <div class="row">
         <label soho-label for="product_single">Products (Single Select) with mask</label>
         <input soho-lookup
-          soho-mask [pattern]="'#######'" [mode]="'number'" [negative]=false [number]=true
+          soho-mask [pattern]="'#######'" [mode]="'number'" [negative]="false" [number]="true"
           soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
           [(ngModel)]="model.single"
           [columns]="columns_product"

@@ -16,7 +16,7 @@ export interface FakeResponse {
   selector: 'soho-lookup-demo',
   templateUrl: './lookup.demo.html',
 })
-export class LookupDemoComponent /*implements SohoDataGridSourceFunction*/ {
+export class LookupDemoComponent {
   public columns_product: SohoDataGridColumn[];
   public columns_multi: SohoDataGridColumn[];
 
