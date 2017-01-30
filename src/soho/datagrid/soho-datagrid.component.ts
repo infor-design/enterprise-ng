@@ -173,6 +173,27 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Return the dataset currently displayed by the datagrid.
+   *
+   * @return an array of objects.
+   */
+  get dataset(): Array<any> {
+
+    // If the Soho control has been created, then the dataset
+    // in the settings object will contain the rows currently
+    // on display.
+    if (this.jQueryElement) {
+      return this.datagrid.settings.dataset;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so no data has been set (or potentially
+    // retrieved from a service), so the only option is the
+    // Input dataset, which may be undefined.
+    return this._gridOptions.dataset || [];
+  }
+
+  /**
    *
    * @param columnReorder
    */
