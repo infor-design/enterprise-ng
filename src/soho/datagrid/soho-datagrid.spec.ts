@@ -44,7 +44,7 @@ describe('Soho DataGrid Unit Tests', () => {
 });
 
 describe('Soho Dropdown Render', () => {
-  let dropdown:  SohoDataGridComponent;
+  let datagrid:  SohoDataGridComponent;
   let component: SohoDataGridTestComponent;
   let fixture:   ComponentFixture<SohoDataGridTestComponent>;
   let de:        DebugElement;
@@ -58,7 +58,8 @@ describe('Soho Dropdown Render', () => {
 
     fixture = TestBed.createComponent(SohoDataGridTestComponent);
     component = fixture.componentInstance;
-    dropdown = component.dropdown;
+
+    datagrid = component.datagrid;
 
     de = fixture.debugElement;
     // el = de.query(By.css('div[soho-datagrid]')).nativeElement;
@@ -89,11 +90,23 @@ describe('Soho Dropdown Render', () => {
     // expect(el.hasAttribute('noSearch')).toBeTruthy('noSearch');
   });
 
+   it('get/set dataset()', () => {
+    fixture.detectChanges();
+
+    const testData = [['d1', 'd2'], ['a1', 'a2']];
+
+    expect(component.datagrid.dataset).toEqual([]);
+
+    component.datagrid.dataset = testData;
+
+    expect(component.datagrid.dataset).toBe(testData);
+  });
+
 });
 
 @Component({
-  template: ``
+  template: `<div soho-datagrid></div>`
 })
 class SohoDataGridTestComponent {
-  @ViewChild(SohoDataGridComponent) dropdown: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) datagrid: SohoDataGridComponent;
 }
