@@ -4,9 +4,10 @@ import {
   ElementRef,
   HostBinding,
   Input,
-  OnDestroy,
+  OnDestroy, EventEmitter, Output,
 } from '@angular/core';
 import { ArgumentHelper } from '../utils';
+import { SohoBusyIndicatorDirective } from '@infor/sohoxi-angular';
 
 /**
  * Internal component to support the step list items
@@ -169,6 +170,7 @@ export class SohoStepListItemHeaderComponent {
   templateUrl: './soho-stepprocess.component.html',
 })
 export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
+
   // ------------------------------------------------------------------------
   // @Inputs
   // ------------------------------------------------------------------------
@@ -231,14 +233,15 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  /** The callback function called before the step selection changes */
-  @Input() set beforeStepChange(beforeStepChange: BeforeStepChangeFunction) {
-    this._stepProcessOptions.beforeStepChange = beforeStepChange;
-    if (this.jQueryElement) {
-      this.stepprocess.settings.beforeStepChange = beforeStepChange;
-      this.updated();
-    }
-  }
+    // The eventing for the stepProcess control is not working yet!!
+  // /** The callback function called before the step selection changes */
+  // @Input() set beforeStepChange(beforeStepChange: BeforeStepChangeFunction) {
+  //   this._stepProcessOptions.beforeStepChange = beforeStepChange;
+  //   if (this.jQueryElement) {
+  //     this.stepprocess.settings.beforeStepChange = beforeStepChange;
+  //     this.updated();
+  //   }
+  // }
 
   /** The callback function called after the step selection changes */
   @Input() set afterStepChange(afterStepChange: AfterStepChangeFunction) {
@@ -252,6 +255,14 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   // ------------------------------------------------------------------------
   // @Outputs
   // ------------------------------------------------------------------------
+
+  /**
+   * The beforeactivate event is fired whenever a tab is selected giving the event handler a chance
+   * to "veto" the tab selection change.
+   * @type {EventEmitter<Object>}
+   */
+  @Output() beforeStepChange = new EventEmitter<Object>();
+
 
   // Reference to the jQuery control.
   private jQueryElement: JQuery;
@@ -269,8 +280,20 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     // assign element to local variable
     this.jQueryElement = jQuery(this.element.nativeElement);
     const $stepProcess: JQuery = this.jQueryElement.find('.soho-step-process');
+
     $stepProcess.stepprocess(this._stepProcessOptions);
     this.stepprocess = $stepProcess.data('stepprocess');
+
+    // The eventing for the stepProcess soho jquery control is not finished yet. This is not how the final version will work.
+    this.stepprocess.theTreeApi.element
+    .on('selected', (() => {
+      this.beforeStepChange.emit();
+    }));
+  }
+
+  public getSelectedStepRef(): string {
+    let selectedNode: any = this.jQueryElement.find("li[soho-step-list-item] .is-selected").attr("href")
+    return selectedNode.substring(1);
   }
 
   changeSelectedStep(stepLink: HTMLLinkElement): void {

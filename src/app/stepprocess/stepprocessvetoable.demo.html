@@ -1,0 +1,239 @@
+<div>
+  <div soho-step
+    *ngIf="stepProcessOptions"
+    [stepProcessOptions]="stepProcessOptions"
+    (beforeStepChange)="beforeStepChange($event);">
+    <div soho-steps-list-title>
+      Title will go here
+    </div>
+
+    <ul soho-steps-list>
+      <li soho-step-list-item class="is-selected is-active is-open">
+        <a soho-step-list-item-anchor stepId="node1" data-alert-icon="error">
+          <span soho-step-item-title>Node 1</span></a>
+        <ul soho-step-list-items>
+          <li soho-step-list-item>
+            <a soho-step-list-item-anchor stepId="node1x1" data-alert-icon="error">
+              <span soho-step-item-title>Node 1 - 1</span>
+            </a>
+          </li>
+          <li soho-step-list-item>
+            <a soho-step-list-item-anchor stepId="node1x2" data-alert-icon="confirm">
+              <span soho-step-item-title>Node 1 - 2</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li soho-step-list-item>
+        <a soho-step-list-item-anchor stepId="node2" data-alert-icon="error">Node 2</a>
+        <ul soho-step-list-items>
+          <li soho-step-list-item>
+            <a soho-step-list-item-anchor stepId="node2x1" data-alert-icon="confirm">
+              <span soho-step-item-title>Node 2 - 1</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li soho-step-list-item>
+        <a soho-step-list-item-anchor stepId="node3" data-alert-icon="error">Node 3</a>
+        <ul soho-step-list-items>
+          <li soho-step-list-item>
+            <a soho-step-list-item-anchor stepId="node3x1">
+              <span soho-step-item-title>Future Goal Section</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li soho-step-list-item>
+        <a soho-step-list-item-anchor data-alert-icon="confirm" stepId="node4">
+          <span soho-step-item-title>Step 4 no sub steps</span>
+        </a>
+      </li>
+
+      <li soho-step-list-item>
+        <a soho-step-list-item-anchor data-alert-icon="confirm" stepId="node5">
+          <span soho-step-item-title>Step 5 no sub steps</span>
+        </a>
+      </li>
+
+      <li soho-step-list-item>
+        <a soho-step-list-item-anchor data-alert-icon="confirm" stepId="node6">
+          <span soho-step-item-title>Step 6 no sub steps</span>
+        </a>
+      </li>
+
+      <li soho-step-list-item>
+        <a soho-step-list-item-anchor data-alert-icon="confirm" stepId="node7">
+          <span soho-step-item-title>Step 7 no sub steps</span>
+        </a>
+      </li>
+
+    </ul>
+
+    <div soho-step-content-title>
+      <div>Preferences</div>
+      <small>Small text here</small>
+    </div>
+    <div soho-step-content>
+      <div  soho-busyindicator blockUI="true" text="Content Area Loading" displayDelay="100" timeToComplete="1000">
+        <div soho-step-content-panel stepId="node1">
+          <form>
+            <h4>Please be specific so we can match your preferences to our job requirements. You can attach a resume, but you increase the likelihood of finding a position if you complete the whole application process.</h4>
+            <div class="field">
+              <label for="employment-type" class="label">Employment Type</label>
+              <input id="employment-type" name="employment-type" type="text">
+            </div>
+
+            <div class="field">
+              <label for="work-type" class="label">Work Type</label>
+              <input id="work-type" name="work-type" type="text">
+            </div>
+
+            <div class="field">
+              <label for="point-of-origin" class="label">Point of Origin</label>
+              <input id="point-of-origin" name="point-of-origin" type="text">
+            </div>
+
+          </form>
+        </div>
+        <div soho-step-content-panel stepId="node1x1">
+          <h2>Competency Model 2</h2>
+          <form>
+            <div class="field">
+              <label for="slider-competency1">How competent do you think you are?</label>
+              <input id="slider-competency1" name="slider-competency1" class="slider" type="range" min="0" max="4" value="0" step="1" data-ticks='[
+                  {"value": 0, "description": "0%"},
+                  {"value": 1, "description": "25%"},
+                  {"value": 2, "description": "50%"},
+                  {"value": 3, "description": "75%"},
+                  {"value": 4, "description": "100%"}
+                ]' />
+            </div>
+            <div class="field">
+              <label for="slider-competency2">Do you think you are smarter than what percentage of the general population?</label>
+              <input id="slider-competency2" name="slider-competency2" class="slider" type="range" min="0" max="4" value="0" step="1" data-ticks='[
+                  {"value": 0, "description": "0%"},
+                  {"value": 1, "description": "25%"},
+                  {"value": 2, "description": "50%"},
+                  {"value": 3, "description": "75%"},
+                  {"value": 4, "description": "100%"}
+                ]' />
+            </div>
+          </form>
+        </div>
+        <div soho-step-content-panel stepId="node1x2">
+          <h2>How well did you meet your goals:</h2>
+          <form>
+            <div class="field">
+              <label for="slider-goal1">Your First Goal</label>
+              <input id="slider-goal1" name="slider-goal1" class="slider" type="range" min="0" max="4" value="0" step="1" data-ticks='[
+                  {"value": 0, "description": "0%"},
+                  {"value": 1, "description": "25%"},
+                  {"value": 2, "description": "50%"},
+                  {"value": 3, "description": "75%"},
+                  {"value": 4, "description": "100%"}
+                ]' />
+            </div>
+            <div class="field">
+              <label for="slider-goal2">Your Second Goal</label>
+              <input id="slider-goal2" name="slider-goal2" class="slider" type="range" min="0" max="4" value="0" step="1" data-ticks='[
+                  {"value": 0, "description": "0%"},
+                  {"value": 1, "description": "25%"},
+                  {"value": 2, "description": "50%"},
+                  {"value": 3, "description": "75%"},
+                  {"value": 4, "description": "100%"}
+                ]' />
+            </div>
+            <div class="field">
+              <label for="slider-goal3">Your Third Goal</label>
+              <input id="slider-goal3" name="slider-goal3" class="slider" type="range" min="0" max="4" value="0" step="1" data-ticks='[
+                  {"value": 0, "description": "0%"},
+                  {"value": 1, "description": "25%"},
+                  {"value": 2, "description": "50%"},
+                  {"value": 3, "description": "75%"},
+                  {"value": 4, "description": "100%"}
+                ]' />
+            </div>
+          </form>
+        </div>
+        <div soho-step-content-panel stepId="node2">
+            <h2>Your future goals:</h2>
+            <form>
+              <div class="field">
+                <label for="future-one" class="label">Goal 1</label>
+                <input id="future-one" name="future-one" type="text" data-validate="required">
+              </div>
+
+              <div class="field">
+                <label for="future-two" class="label">Goal 2</label>
+                <input id="future-two" name="future-two" type="text" data-validate="required">
+              </div>
+
+              <div class="field">
+                <label for="future-three" class="label">Goal 3</label>
+                <input id="future-three" name="future-three" type="text" data-validate="required">
+              </div>
+            </form>
+          </div>
+          <div soho-step-content-panel stepId="node2x1">
+            <h2>How well did you meet your goals:</h2>
+            <form>
+              <div class="field">
+                <label for="slider-goal1">Your First Goal</label>
+                <input id="slider-goal1" name="slider-goal1" class="slider" type="range" min="0" max="4" value="0" step="1" data-ticks='[
+                    {"value": 0, "description": "0%"},
+                    {"value": 1, "description": "25%"},
+                    {"value": 2, "description": "50%"},
+                    {"value": 3, "description": "75%"},
+                    {"value": 4, "description": "100%"}
+                  ]' />
+              </div>
+              <div class="field">
+                <label for="slider-goal2">Your Second Goal</label>
+                <input id="slider-goal2" name="slider-goal2" class="slider" type="range" min="0" max="4" value="0" step="1" data-ticks='[
+                    {"value": 0, "description": "0%"},
+                    {"value": 1, "description": "25%"},
+                    {"value": 2, "description": "50%"},
+                    {"value": 3, "description": "75%"},
+                    {"value": 4, "description": "100%"}
+                  ]' />
+              </div>
+              <div class="field">
+                <label for="slider-goal3">Your Third Goal</label>
+                <input id="slider-goal3" name="slider-goal3" class="slider" type="range" min="0" max="4" value="0" step="1" data-ticks='[
+                    {"value": 0, "description": "0%"},
+                    {"value": 1, "description": "25%"},
+                    {"value": 2, "description": "50%"},
+                    {"value": 3, "description": "75%"},
+                    {"value": 4, "description": "100%"}
+                  ]' />
+              </div>
+            </form>
+          </div>
+
+        <div soho-step-content-panel stepId="node3">
+          <h2>STEP 3 content</h2>
+        </div>
+
+
+        <div soho-step-content-panel stepId="node3x1">
+          <h2>STEP 3 - 1 content</h2>
+        </div>
+
+        <div soho-step-content-panel stepId="node4">
+          <h2>STEP 4 content</h2>
+        </div>
+        <div soho-step-content-panel stepId="node5">
+          <h2>STEP 5 content</h2>
+        </div>
+        <div soho-step-content-panel stepId="node6">
+          <h2>STEP 6 content</h2>
+        </div>
+        <div soho-step-content-panel stepId="node7">
+          <h2>STEP 7 content</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
