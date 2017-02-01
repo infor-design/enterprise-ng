@@ -49,8 +49,22 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
     * Write a new value to the element.
     */
   writeValue(value: T) {
-    this._value = value;
-    this._onChangeCallback(value);
+    // setTimeout here
+    // Expression has changed after it was checked
+    // This was mentioned in https://github.com/angular/angular/issues/6005
+    // See bennadel's comment
+    // https://www.bennadel.com/blog/3040-i-have-a-fundamental-misunderstanding-of-change-detection-in-angular-2-beta-8.htm
+    // See Ward Bell's comment
+
+    // OPEN RELATED TICKETS
+    // https://github.com/angular/angular/issues/10131
+    // https://github.com/angular/angular/issues/10816
+
+
+    setTimeout(() => {
+      this._value = value;
+      this._onChangeCallback(value);
+    }, 1);
   }
 
   /**
