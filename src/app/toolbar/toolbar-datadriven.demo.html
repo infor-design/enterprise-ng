@@ -22,13 +22,13 @@
             <span class="three"></span>
           </span>
         </button>
-        <h1 *ngIf="inHeader" class='titleHeader'>
-          <span class='page-title'>{{pageTitle}}</span>
-          <span class='section-title'>{{sectionTitle}}</span>
+        <h1 *ngIf="inHeader" class="titleHeader">
+          <span class="page-title">{{pageTitle}}</span>
+          <span class="section-title">{{sectionTitle}}</span>
         </h1>
 
         <!-- if not in the header -->
-        <span *ngIf="!inHeader" class='section-title'>{{sectionTitle}}</span>
+        <span *ngIf="!inHeader" class="section-title">{{sectionTitle}}</span>
       </soho-toolbar-title>
 
       <soho-toolbar-button-set>
@@ -40,7 +40,7 @@
         <!-- buttons -->
         <template ngFor let-button [ngForOf]="buttons">
           <button *ngIf="!button.menu" soho-button icon="{{button?.icon}}" id="{{button?.id}}" class="{{button?.cssClass}}" attr.data-action="{{button?.data}}">{{button?.text}}</button>
-          <button *ngIf="button.menu"  id="{{button?.id}}" soho-menu-button [icon]="button?.icon" attr.data-action="{{button?.data}}">
+          <button *ngIf="button.menu" id="{{button?.id}}" soho-menu-button [icon]="button?.icon" attr.data-action="{{button?.data}}">
             <span>{{button?.text}}</span>
           </button>
 

@@ -72,6 +72,7 @@ import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
+import { StepProcessVetoableDemoComponent } from './stepprocess/stepprocessvetoable.demo';
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
@@ -125,9 +126,8 @@ export const routes: Routes = [
   { path: 'splitter-vertical',     component: SplitterVerticalDemoComponent },
   { path: 'step-process',          component: StepProcessDemoComponent },
   { path: 'step-data-driven',      component: StepProcessDataDrivenDemoComponent },
+  { path: 'step-process-vetoable', component: StepProcessVetoableDemoComponent },
   { path: 'spinbox',               component: SpinboxDemoComponent },
-  { path: 'step-process',          component: StepProcessDemoComponent },
-  { path: 'step-data-driven',      component: StepProcessDataDrivenDemoComponent },
   { path: 'tabs-basic',            component: TabsBasicDemoComponent },
   { path: 'tabs-counts',           component: TabsCountsDemoComponent },
   { path: 'tabs-datadriven',       component: TabsDataDrivenDemoComponent },

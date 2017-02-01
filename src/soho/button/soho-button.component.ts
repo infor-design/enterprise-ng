@@ -137,6 +137,14 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
     // by the plug-in, but in this case is 'button'.
     this.button = this.jQueryElement.data('button');
 
+    // turn off the default handling of the favorite icon switching
+    // in the sohoxi controls (button.js). This is so that only this
+    // button-component handles the switching of the toggle icon for
+    // favorite.
+    if (this.buttonType === SohoButtonComponent.FAVORITE) {
+      this.jQueryElement.off('click.favorite');
+    }
+
     // There are no 'extra' event handler for button.
   }
 

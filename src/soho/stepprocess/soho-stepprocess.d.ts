@@ -8,28 +8,28 @@
 interface SohoStepProcessOptions {
 
   /** The selector for elements that are step panels. default is '.js-step-process-panel' */
-  stepPanels: string;
+  stepPanels?: string;
 
   /** The selector for elements that are step links. default is '.js-step-link' */
-  stepLinks: string;
+  stepLinks?: string;
 
   /** The selector of the previous step action element. default is '.js-step-link-prev' */
-  btnStepPrev: string;
+  btnStepPrev?: string;
 
   /** The selector of the next step action element. default is '.js-step-link-next' */
-  btnStepNext: string;
+  btnStepNext?: string;
 
   /** The selector of the element to toggle the steps list. default is '.js-toggle-steps' */
-  btnToggleStepLinks: string;
+  btnToggleStepLinks?: string;
 
   /** The callback function called before the step selection changes */
-  beforeStepChange: BeforeStepChangeFunction;
+  beforeSelectStep?: BeforeSelectStepFunction;
 
   /** The callback function called after the step selection changes */
-  afterStepChange: AfterStepChangeFunction;
+  afterStepChange?: AfterStepChangeFunction;
 }
 
-type BeforeStepChangeFunction = () => void;
+type BeforeSelectStepFunction = (node: any) => void;
 
 type AfterStepChangeFunction = () => void;
 
@@ -40,6 +40,9 @@ type AfterStepChangeFunction = () => void;
 interface SohoStepProcessStatic {
   /** Step Process Control Options. */
   settings: SohoStepProcessOptions;
+
+  /**  This is only here until the control exposes event  */
+  theTreeApi?: any;
 
   /** Change the selected stepLink */
   changeSelectedStep(stepLink: HTMLLinkElement): void;
