@@ -95,6 +95,9 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
       this.searchfield = null;
     }
   }
+  clear(): void {
+    this.searchfield.clear();
+  }
   // get classes() {
   //   return 'searchfield';
   // }

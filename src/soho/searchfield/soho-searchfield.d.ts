@@ -65,6 +65,9 @@ interface SohoSearchFieldStatic {
 
 /** Destructor. */
 destroy(): void;
+
+/** Clear */
+clear(): void;
 }
 
 /**
