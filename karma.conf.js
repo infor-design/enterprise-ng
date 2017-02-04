@@ -4,15 +4,15 @@
 module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: ['jasmine', 'angular-cli'],
+    frameworks: ['jasmine', '@angular/cli'],
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-phantomjs-launcher'),
       require('karma-remap-istanbul'),
-      require('angular-cli/plugins/karma'),
       require('karma-mocha-reporter'),
-      require('karma-bamboo-reporter')
+      require('karma-bamboo-reporter'),
+      require('@angular/cli/plugins/karma')
    ],
     mochaReporter: {
       colors: {
@@ -30,7 +30,7 @@ module.exports = function (config) {
       { pattern: './src/test.ts', watched: false }
     ],
     preprocessors: {
-      './src/test.ts': ['angular-cli']
+      './src/test.ts': ['@angular/cli']
     },
     mime: {
       'text/x-typescript': ['ts','tsx']
@@ -51,12 +51,18 @@ module.exports = function (config) {
     mocha:{
       outputFile: 'tests/results.txt'
     },
+    customLaunchers: {
+      'PhantomJS_custom': {
+        base: 'PhantomJS',
+        debug: true
+      }
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
-    browserNoActivityTimeout: 100000
+    browsers: ['Chrome' ],
+    browserNoActivityTimeout: 100000,
+    singleRun: false
   });
 };

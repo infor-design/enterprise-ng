@@ -6,10 +6,11 @@ You can download the latest version of the code from [quickstart](http://git.inf
 
 ## Prerequisites
 
-If **Node.js** and npm aren't already on your machine, install them. These examples require node v4.x.x or higher and npm 3.x.x or higher. To check which version you are using, run `node -v` and `npm -v` in a terminal window.
+If **Node.js** and npm aren't already on your machine, install them. These examples require node v4.x.x or higher and npm 3.x.x or higher. To check which version you are using,
+run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **Angular-CLI** to create, build and run the application.  
-At the time of writing the version of angular-cli used was 1.0.0-beta.26.
+At the time of writing the version of angular-cli used was 1.0.0-beta.30.
 
 In addition, **gulp** is used to perform additional build and deployment steps required to get the application built.
 
@@ -59,7 +60,7 @@ Edit `angular-cli.json`, change the  `scripts` as follows:
 "scripts": [
 "../node_modules/jquery/dist/jquery.js",
 "../node_modules/@infor/sohoxi/dist/js/sohoxi.js",
-"../node_modules/@infor/sohoxi/dist/js/cultures/en-US"
+"../node_modules/@infor/sohoxi/dist/js/cultures/en-US.js"
 ],
 ```
 ## Step 4 : Configure TypeScript
@@ -100,6 +101,23 @@ You can also include this in the build (and start) scripts included in the proje
 Run the app to test it.
 ```ng serve``` 
 Check you get the default page when you browse to http://localhost:4200/.
+
+## Step 7 : Unit Testing
+Edit the file karma.conf.js, adding any extra JavaScript librariesto the file property, for example:
+```json
+files: [
+ { pattern: './node_modules/jquery/dist/jquery.js', watched: false  },
+ { pattern: './node_modules/@infor/sohoxi/dist/js/sohoxi.js', watched: false },
+ { pattern: './node_modules/@infor/sohoxi/dist/js/cultures/en-US.js', watched: false },
+ { pattern: './src/test.ts', watched: false }
+],
+```
+Run the unit tests:
+```
+ng test
+```
+This will open a Chrome window, and run the tests from there.
+
 ## Add the SohoComponentsModule
 Edit `src/app/app.module.ts`:
 ```typescript

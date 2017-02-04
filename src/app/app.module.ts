@@ -6,6 +6,8 @@ import {
 } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -179,6 +181,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     BrowserModule,
     CommonModule,
     FormsModule,
+    HttpModule,
     ModalDialogDemoModule,
     ReactiveFormsModule,
     SohoComponentsModule
