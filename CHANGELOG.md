@@ -1,36 +1,47 @@
 ## 4.2.5 - Minor Release
 Release Date: 2016-10-31
 
-### Whats New
+## Whats New
 * 2016-10-13 - TH - PR-XXX
- - added typings for listview and splitter.
- - SohoListViewComponent now uses Soho Control defaults for 'options'
+  - added typings for listview and splitter.
+  - SohoListViewComponent now uses Soho Control defaults for 'options'
 * 2016-11-04 - TH - PR-XXX
- - Added module support for _@infor/sohoxi-angular_.
+  - Added module support for _@infor/sohoxi-angular_.
 * 2016-11-07 - TH - PR-171 
- - added QUICKSTART.md for developers consuming the published NPM package
- - added DEVELOPER.md for SohoXi Angular Component developers
- - copy SohoXi CSS files to `src/assets` on build
- - added _lint_ and _code coverage_ to _unit-test_ npm script
- - automatically include SohoXi typings when consuming NPM package.
+  - added QUICKSTART.md for developers consuming the published NPM package
+  - added DEVELOPER.md for SohoXi Angular Component developers
+  - copy SohoXi CSS files to `src/assets` on build
+  - added _lint_ and _code coverage_ to _unit-test_ npm script
+  - automatically include SohoXi typings when consuming NPM package.
 * 2016-11-10 - TH - Version Update
- - Bumped version of @infor/sohoxi to 4.2.3-develop
- - Bumped version of @infor/sohoxi-angular to 4.2.3-develop
+  - Bumped version of @infor/sohoxi to 4.2.3-develop
+  - Bumped version of @infor/sohoxi-angular to 4.2.3-develop
 * 2016-12-23 - TH - Version Update
- - Bumped version of @infor/sohoxi to 4.2.4-develop
- - Bumped version of @infor/sohoxi-angular to 4.2.4-develop
- - Upgraded to angular-cli 1.0.0-beta.24
- - Upgraded to angular 2.3.1
+  - Bumped version of @infor/sohoxi to 4.2.4-develop
+  - Bumped version of @infor/sohoxi-angular to 4.2.4-develop
+  - Upgraded to angular-cli 1.0.0-beta.24
+  - Upgraded to angular 2.3.1
 * 2017-01-18 - TH - Version Update 
- - Bumped version of @infor/sohoxi to 4.2.5-develop
- - Bumped version of @infor/sohoxi-angular to 4.2.5-develop
- - Upgraded to angular-cli 1.0.0-beta.25-5
- - Upgraded to angular 2.4.X
+  - Bumped version of @infor/sohoxi to 4.2.5-develop
+  - Bumped version of @infor/sohoxi-angular to 4.2.5-develop
+  - Upgraded to angular-cli 1.0.0-beta.25-5
+  * Upgraded to angular 2.4.X
  * 2017-01-23 - TH - Version Update 
- - Upgraded to angular-cli 1.0.0-beta.26
+   * Upgraded to angular-cli 1.0.0-beta.26
  * 2017-02-04 - TH - Version Update
- - Upgraded to angular-cli 1.0.0-beta-30
- - Upgraded to TypeScript 2.1.x
+   * Upgraded to angular-cli 1.0.0-beta-30
+   * Upgraded to TypeScript 2.1.x
+   * To upgrade to the @angular/cli:    
+     ```
+     npm uninstall -g angular-cli
+     npm cache clean
+     npm install -g @angular/cli@latest
+     rm -rf node_modules dist
+     npm uninstall --save-dev angular-cli
+     npm install --save-dev @angular/cli@latest
+     npm install
+     ng update
+     ```
 
 ### Breaking Changes
 
