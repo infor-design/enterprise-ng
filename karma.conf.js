@@ -10,10 +10,10 @@ module.exports = function (config) {
       require('karma-chrome-launcher'),
       require('karma-phantomjs-launcher'),
       require('karma-remap-istanbul'),
+      require('@angular/cli/plugins/karma'),
       require('karma-mocha-reporter'),
-      require('karma-bamboo-reporter'),
-      require('@angular/cli/plugins/karma')
-   ],
+      require('karma-bamboo-reporter')
+    ],
     mochaReporter: {
       colors: {
         success: 'white',
