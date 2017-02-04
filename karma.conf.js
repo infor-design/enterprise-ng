@@ -4,13 +4,13 @@
 module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: ['jasmine', 'angular-cli'],
+    frameworks: ['jasmine', '@angular/cli'],
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-phantomjs-launcher'),
       require('karma-remap-istanbul'),
-      require('angular-cli/plugins/karma'),
+      require('@angular/cli/plugins/karma'),
       require('karma-mocha-reporter'),
       require('karma-bamboo-reporter')
    ],
@@ -30,7 +30,7 @@ module.exports = function (config) {
       { pattern: './src/test.ts', watched: false }
     ],
     preprocessors: {
-      './src/test.ts': ['angular-cli']
+      './src/test.ts': ['@angular/cli']
     },
     mime: {
       'text/x-typescript': ['ts','tsx']
@@ -57,6 +57,6 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: false,
-    browserNoActivityTimeout: 100000
+    browserNoActivityTimeout: 10000
   });
 };

@@ -28,6 +28,9 @@ Release Date: 2016-10-31
  - Upgraded to angular 2.4.X
  * 2017-01-23 - TH - Version Update 
  - Upgraded to angular-cli 1.0.0-beta.26
+ * 2017-02-04 - TH - Version Update
+ - Upgraded to angular-cli 1.0.0-beta-30
+ - Upgraded to TypeScript 2.1.x
 
 ### Breaking Changes
 
