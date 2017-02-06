@@ -292,7 +292,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   }
 
   public getSelectedStepRef(): string {
-    let selectedNode: any = this.jQueryElement.find("li[soho-step-list-item] .is-selected").attr("href")
+    const selectedNode: any = this.jQueryElement.find('li[soho-step-list-item] .is-selected').attr('href');
     return selectedNode.substring(1);
   }
 

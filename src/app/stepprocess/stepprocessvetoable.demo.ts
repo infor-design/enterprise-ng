@@ -24,7 +24,7 @@ export class StepProcessVetoableDemoComponent implements OnInit, AfterViewInit {
     'node5': true,
     'node6': false,
     'node7': true
-  }
+  };
 
   public stepProcessOptions: SohoStepProcessOptions;
 
@@ -35,14 +35,14 @@ export class StepProcessVetoableDemoComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.stepProcessOptions = {beforeSelectStep: (node) => {
       this.busyIndicator.activated = true;
-      let deferred = $.Deferred();
-      let hasPermission = this.canViewNode[node.attr('stepid')];
+      const deferred = $.Deferred();
+      const hasPermission = this.canViewNode[node.attr('stepid')];
 
       // Simulate AJAX
       setTimeout(function (busyIndicator) {
         if (!hasPermission) {
-          alert("Cant go to that step!");
-          console.log("Cant go to that step!");
+          alert('Cant go to that step!');
+          console.log('Cant go to that step!');
         }
         deferred.resolve(hasPermission);
         busyIndicator.activated = false;
