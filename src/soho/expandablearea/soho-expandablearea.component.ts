@@ -24,7 +24,7 @@ import { Observable } from 'rxjs/Rx';
       <ng-content></ng-content>
     </span>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExpandableHeaderComponent {}
 
