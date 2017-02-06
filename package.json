@@ -60,8 +60,8 @@
     "karma-remap-istanbul": "^0.5.0",
     "karma-bamboo-reporter": "^0.1.2",
     "protractor": "~4.0.13",
-    "ts-node": "1.2.1",
-    "tslint": "^4.3.0",
+    "ts-node": "^2.0.0",
+    "tslint": "^4.4.2",
     "typescript": "~2.1.5"
   }
 }
