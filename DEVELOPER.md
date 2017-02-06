@@ -12,7 +12,7 @@
 - Clone Your Fork fx `git clone ssh://git@git.infor.com:7999/~tmcconechy/angular-components.git`
 - Open a command prompt to angular-components
 - Type `npm config set @infor:registry http://npm.infor.com:4873`
-- Type `npm install -g angular-cli@latest`
+- Type `npm install -g @angular/cli@latest`
 - Type `npm i` (and wait a while …)
 - Type `ng build`
 - Type `ng serve`
