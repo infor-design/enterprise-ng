@@ -291,7 +291,12 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     }));
   }
 
-  public getSelectedStepRef(): string {
+  public setSelectedStep(id: string): void {
+    const node: JQuery = jQuery('#tree-' + id);
+    this.stepprocess.theTreeApi.selectNode(node, true);
+  }
+
+  public getSelectedStepId(): string {
     const selectedNode: any = this.jQueryElement.find('li[soho-step-list-item] .is-selected').attr('href');
     return selectedNode.substring(1);
   }
