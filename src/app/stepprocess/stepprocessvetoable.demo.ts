@@ -42,23 +42,23 @@ export class StepProcessVetoableDemoComponent implements OnInit, AfterViewInit {
       const hasPermission = this.canViewNode[node.attr('stepid')];
 
       // Simulate AJAX
-      setTimeout(function (self) {
+      setTimeout(() => {
         if (!hasPermission) {
           alert('Cant go to that step!');
           console.log('Cant go to that step!');
         }
 
         deferred.resolve(hasPermission);
-        self.busyIndicator.activated = false;
-      }, 200, this);
+        this.busyIndicator.activated = false;
+      }, 200);
 
       // Return promise
       return deferred.promise();
     }};
 
-    setTimeout(function (self) {
-      self.sohoStepComponent.setSelectedStep("node1");
-    }, 1, this);
+    setTimeout(() => {
+      this.sohoStepComponent.setSelectedStep('node1');
+    }, 1);
   }
 
   beforeStepChange(event: Event) {
