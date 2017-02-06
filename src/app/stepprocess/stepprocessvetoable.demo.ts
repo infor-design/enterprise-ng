@@ -10,6 +10,7 @@ import { SohoStepProcessComponent, SohoBusyIndicatorDirective } from '@infor/soh
 })
 export class StepProcessVetoableDemoComponent implements OnInit, AfterViewInit {
 
+  @ViewChild(SohoStepProcessComponent) sohoStepComponent: SohoStepProcessComponent;
   @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
 
   private canViewNode = {
@@ -34,23 +35,30 @@ export class StepProcessVetoableDemoComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit() {
     this.stepProcessOptions = {beforeSelectStep: (node) => {
+
+
       this.busyIndicator.activated = true;
       let deferred = $.Deferred();
       let hasPermission = this.canViewNode[node.attr('stepid')];
 
       // Simulate AJAX
-      setTimeout(function (busyIndicator) {
+      setTimeout(function (self) {
         if (!hasPermission) {
           alert("Cant go to that step!");
           console.log("Cant go to that step!");
         }
+
         deferred.resolve(hasPermission);
-        busyIndicator.activated = false;
-      }, 2000, this.busyIndicator);
+        self.busyIndicator.activated = false;
+      }, 200, this);
 
       // Return promise
       return deferred.promise();
     }};
+
+    setTimeout(function (self) {
+      self.sohoStepComponent.setSelectedStep("node1");
+    }, 1, this);
   }
 
   beforeStepChange(event: Event) {
