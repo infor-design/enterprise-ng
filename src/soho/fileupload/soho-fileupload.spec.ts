@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -15,8 +15,8 @@ describe('Soho File upload Unit Tests', () => {
   beforeEach( () => {
     TestBed.configureTestingModule({
       declarations: [ SohoFileUploadComponent ]
-    })
-    .compileComponents(); // compile template and css;
+    });
+    // .compileComponents(); // compile template and css;
 
     fixture = TestBed.createComponent(SohoFileUploadComponent);
     comp = fixture.componentInstance;
@@ -85,7 +85,8 @@ describe('Soho File upload Render', () => {
 
   it('@Input() label', () => {
     fixture.detectChanges();
-    expect(el.previousSibling.parentElement.innerText.trim()).toBe(component.text);
+
+    expect(el.parentElement.children[0].innerHTML.trim()).toBe(component.text);
   });
 });
 
@@ -95,6 +96,6 @@ describe('Soho File upload Render', () => {
 })
 class SohoFileUploadTestComponent {
   @ViewChild(SohoFileUploadComponent) fileupload: SohoFileUploadComponent;
-  name = 'File';
-  text = 'File Upload';
+  public name = 'File';
+  public text = 'File Upload';
 }
