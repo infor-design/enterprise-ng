@@ -101,6 +101,6 @@ describe ('Soho Slider Render', () => {
     `
 })
 
-export class SohoSliderTestComponent {
+class SohoSliderTestComponent {
   @ViewChild(SohoSliderComponent) slider: SohoSliderComponent;
 }

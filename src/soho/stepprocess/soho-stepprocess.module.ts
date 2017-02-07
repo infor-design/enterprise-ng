@@ -5,6 +5,7 @@ import { SohoStepProcessComponent,
          SohoStepsContentComponent,
          SohoStepsListTitleComponent,
          SohoStepContentTitleComponent,
+         SohoStepItemTitleComponent,
          SohoStepListItemHeaderComponent,
          SohoStepListItemsComponent,
          SohoStepListItemComponent,
@@ -26,11 +27,14 @@ import { SohoButtonModule } from '../button/soho-button.module';
     SohoStepsListTitleComponent,
     SohoStepContentTitleComponent,
     SohoStepsContentComponent,
+    SohoStepItemTitleComponent,
     SohoStepListItemHeaderComponent,
     SohoStepListItemsComponent,
     SohoStepListItemComponent,
     SohoStepListItemAnchorComponent,
-    SohoStepsContentPanelComponent
+
+    SohoStepsContentPanelComponent,
+
   ],
   exports: [
     SohoStepProcessComponent,
