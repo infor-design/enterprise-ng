@@ -32,9 +32,7 @@ import { SohoButtonModule } from '../button/soho-button.module';
     SohoStepListItemsComponent,
     SohoStepListItemComponent,
     SohoStepListItemAnchorComponent,
-
-    SohoStepsContentPanelComponent,
-
+    SohoStepsContentPanelComponent
   ],
   exports: [
     SohoStepProcessComponent,
