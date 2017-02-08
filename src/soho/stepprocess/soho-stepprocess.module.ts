@@ -9,7 +9,8 @@ import { SohoStepProcessComponent,
          SohoStepListItemsComponent,
          SohoStepListItemComponent,
          SohoStepListItemAnchorComponent,
-         SohoStepsContentPanelComponent
+         SohoStepsContentPanelComponent,
+         SohoStepItemTitleComponent
         } from '../stepprocess/soho-stepprocess.component';
 import { SohoIconModule } from '../icon/soho-icon.module';
 import { SohoButtonModule } from '../button/soho-button.module';
@@ -30,7 +31,8 @@ import { SohoButtonModule } from '../button/soho-button.module';
     SohoStepListItemsComponent,
     SohoStepListItemComponent,
     SohoStepListItemAnchorComponent,
-    SohoStepsContentPanelComponent
+    SohoStepsContentPanelComponent,
+    SohoStepItemTitleComponent
   ],
   exports: [
     SohoStepProcessComponent,
