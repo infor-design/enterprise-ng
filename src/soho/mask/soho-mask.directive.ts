@@ -44,7 +44,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   }
 
   /** Definitions of pattern(s) as a regular expression. */
-  @Input() set definitions(value: any) {
+  @Input() set definitions(value: {[key: string]: RegExp}) {
     this._options.definitions = value;
     if (this.mask) {
       this.mask.settings.definitions = value;

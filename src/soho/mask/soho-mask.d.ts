@@ -11,6 +11,14 @@ type SohoMaskMode = 'group' | 'number' | 'date' | 'time';
 /** Possible mask symbols. */
 type SohoMaskShowSymbol = false | 'currency' | 'percent';
 
+/** Custom definitions type.
+ *  (map), e.g.
+ *  {'#': /[0-9]/,
+ *  '0': /[0-9]/,
+ *  'x': /[\u00C0-\u017Fa-zA-Z]/}
+ */
+type SohoMaskDefinitions = {[key: string]: RegExp};
+
 interface SohoMaskEvent extends JQueryEventObject {
 }
 
@@ -21,8 +29,8 @@ interface SohoMaskOptions {
   /** The placeholder text for the mask.  */
   placeholder?: string;
 
-  /** The maask shortcut definitions. (map)*/
-  definitions?: any;
+  /** The mask shortcut definitions. */
+  definitions?: SohoMaskDefinitions;
 
   /**
    * Indicates if each section of the group pattern match must be full in order for
