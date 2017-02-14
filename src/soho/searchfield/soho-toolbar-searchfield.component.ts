@@ -61,19 +61,14 @@ export class SohoToolbarSearchFieldComponent implements AfterViewInit, OnDestroy
 
   constructor(private element: ElementRef) { }
   ngAfterViewInit() {
-    // TODO: Figure out what element to send to jQuery to init the component
     this.jQueryElement = jQuery(this.element.nativeElement);
-
     this.jQueryElement.toolbarsearchfield(this.options);
 
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('selected', (...args) =>
-      this.selected.emit(args));
-
-    this.jQueryElement.on('clear', (...args) =>
-      this.clearEvent.emit(args));
+    this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
+    this.jQueryElement.on('clear', (...args) => this.clearEvent.emit(args));
 
     this.toolbarsearchfield = this.jQueryElement.data('toolbarsearchfield');
   }
