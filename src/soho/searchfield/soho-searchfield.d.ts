@@ -62,12 +62,33 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
  * Soho control seachfield api.
  */
 interface SohoSearchFieldStatic {
+  /** Destructor. */
+  destroy(): void;
 
-/** Destructor. */
-destroy(): void;
+  /** Clear */
+  clear(): void;
+}
 
-/** Clear */
-clear(): void;
+/**
+ * Configuration options.
+ */
+interface SohoToolbarSearchFieldOptions extends SohoAutoCompleteOptions {
+  /** Has an X to clear? */
+  clearable?: boolean;
+
+  /** Whether the serach field can be collapsed to just a search icon or not */
+  collapsible?: boolean;
+}
+
+/**
+ * Soho control seachfield api.
+ */
+interface SohoToolbarSearchFieldStatic {
+  /** Destructor. */
+  destroy(): void;
+
+  /** Clear */
+  clear(): void;
 }
 
 /**
@@ -75,8 +96,10 @@ clear(): void;
  */
 interface JQueryStatic {
   searchfield: SohoSearchFieldStatic;
+  toolbarsearchfield: SohoToolbarSearchFieldStatic;
 }
 
 interface JQuery {
   searchfield(options?: SohoSearchFieldOptions): JQuery;
+  toolbarsearchfield(options?: SohoToolbarSearchFieldOptions): JQuery;
 }
