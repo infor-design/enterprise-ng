@@ -49,7 +49,7 @@ export class SohoToolbarSearchFieldComponent implements AfterViewInit, OnDestroy
   // ------------------------------------------------------------
 
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
-  @Output('clear') clearEvent: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+  @Output() cleared: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   @HostBinding('class.searchfield') get isSearchField() { return true; }
 
@@ -68,7 +68,7 @@ export class SohoToolbarSearchFieldComponent implements AfterViewInit, OnDestroy
      * Bind to jQueryElement's events
      */
     this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
-    this.jQueryElement.on('clear', (...args) => this.clearEvent.emit(args));
+    this.jQueryElement.on('cleared', (...args) => this.cleared.emit(args));
 
     this.toolbarsearchfield = this.jQueryElement.data('toolbarsearchfield');
   }
