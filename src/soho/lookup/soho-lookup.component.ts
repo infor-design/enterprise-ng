@@ -171,6 +171,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   onChange(event: SohoLookupChangeEvent[]) {
     if (!event) {
       // sometimes the event is not available
+      this.value = this.lookup.element.val();
       return;
     }
 
@@ -212,6 +213,20 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   /**
+   * Set lookup value to allow the lookup
+   * element to be updated correctly.
+   *
+   * @param value - the new value
+   */
+  setValue(value: any)
+  {
+    if (this.lookup) {
+      this.value = value;
+      this.lookup.element.val(this.processValue(value));
+    }
+  }
+
+  /**
    * Override writeValue to allow the lookup
    * element to be updated correctly.
    *
@@ -219,7 +234,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    */
   writeValue(value: any) {
     super.writeValue(value);
-    if (this.lookup && value) {
+    if (this.lookup) {
       // The processing is required to ensure we use the correct format
       // in the control.
       this.lookup.element.val(this.processValue(value));

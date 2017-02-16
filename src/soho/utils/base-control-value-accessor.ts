@@ -46,8 +46,8 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
    */
 
   /**
-    * Write a new value to the element.
-    */
+   * Write a new value to the element.
+   */
   writeValue(value: T) {
     // setTimeout here
     // Expression has changed after it was checked
@@ -63,13 +63,13 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
 
     setTimeout(() => {
       this._value = value;
-      this._onChangeCallback(value);
+      // this._onChangeCallback(value);
     }, 1);
   }
 
   /**
-    * Set the function to be called when the control receives a change event.
-    */
+   * Set the function to be called when the control receives a change event.
+   */
   registerOnChange(fn: (_: any) => void): void {
     this._onChangeCallback = fn;
   }
@@ -82,11 +82,11 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
   }
 
   /**
-    * This function is called when the control status changes to or from "DISABLED".
-    * Depending on the value, it will enable or disable the appropriate DOM element.
-    *
-    * @param isDisabled
-    */
+   * This function is called when the control status changes to or from "DISABLED".
+   * Depending on the value, it will enable or disable the appropriate DOM element.
+   *
+   * @param isDisabled
+   */
   setDisabledState(isDisabled: boolean): void {
     // NOP
   }
