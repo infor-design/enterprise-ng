@@ -11,6 +11,11 @@
 type SohoSplitterOptionsAxis = 'x' | 'y';
 
 /**
+ * Side options.
+ */
+type SohoSplitterOptionsSide = 'left' | 'right';
+
+/**
  * Resize options.
  */
 type SohoSplitterOptionsResize = 'immediate' | 'end';
@@ -19,8 +24,11 @@ type SohoSplitterOptionsResize = 'immediate' | 'end';
  * Splitter options.
  */
 interface SohoSplitterOptions {
-  /** The orientation of the splitter. */
+    /** The orientation of the splitter. */
     axis?: SohoSplitterOptionsAxis;
+
+    /** The side to dock on for vertical splitter. */
+    side?: SohoSplitterOptionsSide;
 
     /** How the panes react to the splitter being moved. */
     resize?: SohoSplitterOptionsResize;
