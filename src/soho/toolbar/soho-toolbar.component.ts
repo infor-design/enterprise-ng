@@ -112,17 +112,21 @@ export class SohoToolbarButtonSetComponent {
  * The main soho toolbar component
  */
 @Component({
-  selector: 'soho-toolbar',
+  selector: 'soho-toolbar, div[soho-toolbar]',
   templateUrl: './soho-toolbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.toolbar') get isToolbar() { return true; };
-  @HostBinding('style.display') get isBlock() { return 'block'; };
   @HostBinding('class.has-more-button') get showMoreButton() {
     return this.options.hasMoreButton;
   }
-
+  @HostBinding('style.display') get isBlock() {
+    // custom elements don't have display: block set by default so set it here.
+    // if display is expected to be overridden then use div[soho-toolbar] selector
+    // instead. For example when a @media query wants to set something to display: none.
+    return this.element.nativeElement.tagName === 'SOHO-TOOLBAR' ? 'block' : null;
+  }
   @Input() set hasMoreButton(value: boolean) {
     this.options.hasMoreButton = value;
     if (this.toolbar) {
