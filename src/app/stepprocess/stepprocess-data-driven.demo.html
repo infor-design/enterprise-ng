@@ -1,34 +1,45 @@
-<div soho-step (beforeStepChange)="stepChange($event);">
-  <div soho-steps-list-title>
-    Title will go here
+<div soho-step>
+
+  <div soho-step-list-title>
+    These are the steps
   </div>
-  <ul soho-steps-list>
+
+  <ul soho-step-list>
+
     <template ngFor let-step [ngForOf]="steps">
 
       <li soho-step-list-item *ngIf="step.content">
-        <a soho-step-list-item-anchor stepId="{{step.id}}" attr.data-alert-icon="{{step.icon}}">
-          <span soho-step-item-title>{{step.title}}</span>
+        <a soho-step-list-item-anchor stepId="{{step.id}}">
+          <svg soho-icon icon="{{step.icon}}"></svg>
+          <span soho-step-list-item-title>{{step.title}}</span>
         </a>
       </li>
+
       <li soho-step-list-item *ngIf="!step.content">
         <a soho-step-list-item-anchor stepId="{{step.id}}" *ngIf="step.substeps">
-          <span>{{step.title}}</span>
+          <svg soho-icon icon="{{step.icon}}"></svg>
+          <span soho-step-list-item-title>{{step.title}}</span>
+          <svg soho-icon icon='caret-down' class='icon-tree'></svg>
         </a>
-        <ul soho-step-list-items  *ngIf="step.substeps">
+        <ul soho-substep-list *ngIf="step.substeps">
           <li soho-step-list-item *ngFor="let substep of step.substeps">
-            <a soho-step-list-item-anchor stepId="{{substep.id}}" attr.data-alert-icon="{{substep.icon}}">
-              <span soho-step-item-title>{{substep.title}}</span>
+            <a soho-step-list-item-anchor stepId="{{substep.id}}">
+              <svg soho-icon icon="{{substep.icon}}"></svg>
+              <span soho-step-list-item-title>{{substep.title}}</span>
             </a>
           </li>
         </ul>
       </li>
+
     </template>
+
   </ul>
 
-  <div soho-step-content-title>
-    <div>Preferences</div>
-    <small>Small text here</small>
+  <div soho-step-content-title dualTitle=true>
+    Step Process
+    <small>Page X of XX</small>
   </div>
+
   <div soho-step-content>
     <div *ngFor="let step of steps">
       <div soho-step-content-panel *ngIf="step.content" stepId="{{step.id}}">
