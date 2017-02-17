@@ -1,50 +1,57 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SohoStepProcessComponent,
-         SohoStepsListComponent,
-         SohoStepsContentComponent,
-         SohoStepsListTitleComponent,
-         SohoStepContentTitleComponent,
-         SohoStepItemTitleComponent,
-         SohoStepListItemHeaderComponent,
-         SohoStepListItemsComponent,
-         SohoStepListItemComponent,
-         SohoStepListItemAnchorComponent,
-         SohoStepsContentPanelComponent
-        } from '../stepprocess/soho-stepprocess.component';
+import {
+  SohoStepListComponent,
+  SohoStepListTitleComponent,
+  SohoStepListItemComponent,
+  SohoStepListItemAnchorComponent,
+  SohoStepListItemTitleComponent,
+  SohoSubstepListComponent,
+  SohoStepContentTitleComponent,
+  SohoStepContentComponent,
+  SohoStepContentPanelComponent,
+  SohoStepListItemsComponent,
+  SohoStepListItemHeaderComponent,
+  SohoStepProcessComponent
+} from '../stepprocess/soho-stepprocess.component';
 import { SohoIconModule } from '../icon/soho-icon.module';
 import { SohoButtonModule } from '../button/soho-button.module';
+import { SohoToolbarModule } from '../toolbar/soho-toolbar.module';
 
 @NgModule({
   imports: [
     CommonModule,
     SohoIconModule,
-    SohoButtonModule
+    SohoButtonModule,
+    SohoToolbarModule
   ],
   declarations: [
-    SohoStepProcessComponent,
-    SohoStepsListComponent,
-    SohoStepsListTitleComponent,
-    SohoStepContentTitleComponent,
-    SohoStepsContentComponent,
-    SohoStepItemTitleComponent,
-    SohoStepListItemHeaderComponent,
-    SohoStepListItemsComponent,
+    SohoStepListComponent,
+    SohoStepListTitleComponent,
     SohoStepListItemComponent,
     SohoStepListItemAnchorComponent,
-    SohoStepsContentPanelComponent
+    SohoStepListItemTitleComponent,
+    SohoSubstepListComponent,
+    SohoStepContentTitleComponent,
+    SohoStepContentComponent,
+    SohoStepContentPanelComponent,
+    SohoStepListItemsComponent,
+    SohoStepListItemHeaderComponent,
+    SohoStepProcessComponent
   ],
   exports: [
-    SohoStepProcessComponent,
-    SohoStepsListComponent,
-    SohoStepsListTitleComponent,
-    SohoStepContentTitleComponent,
-    SohoStepsContentComponent,
-    SohoStepListItemHeaderComponent,
-    SohoStepListItemsComponent,
+    SohoStepListComponent,
+    SohoStepListTitleComponent,
     SohoStepListItemComponent,
     SohoStepListItemAnchorComponent,
-    SohoStepsContentPanelComponent
+    SohoStepListItemTitleComponent,
+    SohoSubstepListComponent,
+    SohoStepContentTitleComponent,
+    SohoStepContentComponent,
+    SohoStepContentPanelComponent,
+    SohoStepListItemsComponent,
+    SohoStepListItemHeaderComponent,
+    SohoStepProcessComponent
   ]
 })
 export class SohoStepProcessModule {}

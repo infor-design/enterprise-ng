@@ -6,32 +6,22 @@
  */
 
 interface SohoStepProcessOptions {
+  /**
+   * The id selector used on the step list. Make sure this and the
+   * id on the actual soho-step-list element match.
+   */
+  stepList?: string;
 
-  /** The selector for elements that are step panels. default is '.js-step-process-panel' */
-  stepPanels?: string;
-
-  /** The selector for elements that are step links. default is '.js-step-link' */
-  stepLinks?: string;
-
-  /** The selector of the previous step action element. default is '.js-step-link-prev' */
-  btnStepPrev?: string;
-
-  /** The selector of the next step action element. default is '.js-step-link-next' */
-  btnStepNext?: string;
-
-  /** The selector of the element to toggle the steps list. default is '.js-toggle-steps' */
-  btnToggleStepLinks?: string;
+  /**
+   * Whether to enforce a linear progression through the stepprocess or not.
+   */
+  linearProgression?: boolean,
 
   /** The callback function called before the step selection changes */
   beforeSelectStep?: BeforeSelectStepFunction;
-
-  /** The callback function called after the step selection changes */
-  afterStepChange?: AfterStepChangeFunction;
 }
 
 type BeforeSelectStepFunction = (node: any) => void;
-
-type AfterStepChangeFunction = () => void;
 
 /**
  * This interface represents api exposed by the
@@ -41,11 +31,15 @@ interface SohoStepProcessStatic {
   /** Step Process Control Options. */
   settings: SohoStepProcessOptions;
 
-  /**  This is only here until the control exposes event  */
-  theTreeApi?: any;
+  /**
+   * Destructor,
+   */
+  destroy(): void;
+}
 
-  /** Change the selected stepLink */
-  changeSelectedStep(stepLink: HTMLLinkElement): void;
+interface SohoStepProcessSelectedEvent {
+  e: any;
+  stepLink: any;
 }
 
 /**
