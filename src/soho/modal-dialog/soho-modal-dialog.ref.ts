@@ -413,6 +413,7 @@ export class SohoModalDialogRef<T> {
    */
   private onBeforeClose(event: any): boolean {
     const fn: Function = this.eventGuard.beforeClose;
+    this.eventGuard.isCancelled = this.modal.isCancelled;
     return fn ? fn.call(this.eventGuard) : true;
   }
 
@@ -481,6 +482,11 @@ export interface SohoModalComponent<T> {
  * Vetoable Event Handlers.
  */
 export interface SohoModalDialogVetoableEventGuard {
+
+  /**
+   *  Track if cancelled
+   */
+  isCancelled?: boolean;
 
   /**
    * Invoked before a modal is opened.

@@ -47,7 +47,10 @@ export class ModalDialogDemoComponent {
 
   openSimple() {
     const buttons = [
-      { text: 'Cancel', click: (e, modal) => { modal.close(true); } },
+      { text: 'Cancel', click: (e, modal) => {
+        modal.isCancelled = true;
+        modal.close(true);
+      } },
       { text: 'Submit', click: (e, modal) => { modal.close(true); }, isDefault: true }];
 
     this.dialogRef = this.modalService
