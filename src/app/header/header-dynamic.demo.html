@@ -14,12 +14,11 @@
     <!-- If the currentToolbarOptions are NOT null/undefined then display the toolbar buttons
          using the toolbarOptions input. -->
     <!-- todo ppatton - for some reason if I put the ngIf='false' in the soho-toolbar-button-set
-         then some div seems to be automatically created for me or smething.Something in soho perhaps? -->
+         then some div seems to be automatically created for me or something. Something in soho perhaps? -->
     <soho-toolbar-button-set>
 
       <!-- search field -->
-      <!-- TODO: need a search field component to override behaviour - theo, phillip -->
-      <input id="header-searchfield" class="searchfield" name="header-searchfield" />
+      <input soho-toolbar-searchfield placeholder="Search" [clearable]="true" [collapsible]="true">
 
       <template [ngIf]="currentToolbarOptions">
         <template ngFor let-button [ngForOf]="currentToolbarOptions?.toolbarButtons">

@@ -46,6 +46,12 @@
             <input alignRight="true" soho-mask [pattern]="'###.##-'" [mode]="'number'" [negative]="true" [showSymbol]="'currency'" (write)="onMaskWrite($event)" />
           </div>
         </div>
+        <div class="two columns">
+          <div class="field">
+            <label>Custom</label>
+            <input soho-mask maxlength="5" [definitions]="definitions" [pattern]="'UUU'"/>
+          </div>
+        </div>
       </div>
     </div>
   </form>

@@ -44,10 +44,11 @@ The easiest way to achieve this is to create the file `.npmrc` at the root of th
 You can add the dependencies directly into the `project.json` file, however it is more reliable to add them using the command line. 
 In a terminal window, in the project folder:
 
-1. Type `npm install –save jquery@3.1.1` 
-2. Type `npm install –save @types/jquery`
-3. Type `npm install –save @infor/sohoxi@4.2.5-develop` 
-4. Type `npm install –save @infor/sohoxi-angular@4.2.5-develop` 
+1. Type `npm install jquery@3.1.1 -S` 
+2. Type `npm install gulp -S`
+3. Type `npm install @types/jquery -S`
+4. Type `npm install @infor/sohoxi@4.2.5-develop -S` 
+5. Type `npm install @infor/sohoxi-angular@4.2.5-develop -S` 
 
 This includes all the packages we need to create this simple quick start application.
 
@@ -92,7 +93,7 @@ Then run:
 ```
 gulp copy-assets
 ```
-You can also include this in the build (and start) scripts included in the project.json file, for example:
+You can also include this in the build (and start) scripts included in the package.json file, for example:
 
 ```json
 "start": "gulp copy-assets && ng serve",
@@ -125,7 +126,6 @@ import { SohoComponentsModule } from '@infor/sohoxi-angular';
 ```
 Add ```SohoComponentsModule``` to the imports. 
 
-Add SohoComponentsModule to the imports.
 ```typescript
 @NgModule({
   ...
