@@ -8,12 +8,16 @@ module.exports = function (config) {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
-      require('karma-phantomjs-launcher'),
-      require('karma-remap-istanbul'),
+      require('karma-jasmine-html-reporter'),
+      require('karma-coverage-istanbul-reporter'),
       require('@angular/cli/plugins/karma'),
+      require('karma-phantomjs-launcher'),
       require('karma-mocha-reporter'),
       require('karma-bamboo-reporter')
     ],
+    client:{
+      clearContext: false // leave Jasmine Spec Runner output visible in browser
+    },
     mochaReporter: {
       colors: {
         success: 'white',
@@ -36,19 +40,17 @@ module.exports = function (config) {
     mime: {
       'text/x-typescript': ['ts','tsx']
     },
-    remapIstanbulReporter: {
-      reports: {
-        html: 'coverage',
-        lcovonly: './coverage/coverage.lcov'
-      }
+    coverageIstanbulReporter: {
+      reports: [ 'html', 'lcovonly' ],
+      fixWebpackSourcePaths: true
     },
     angularCli: {
-      config: './angular-cli.json',
+      config: './.angular-cli.json',
       environment: 'dev'
     },
     reporters: config.angularCli && config.angularCli.codeCoverage
-              ? ['progress', 'karma-remap-istanbul', 'mocha']
-              : ['progress', 'mocha'],
+              ? ['progress', 'coverage-instanbul', 'mocha']
+              : ['progress', 'kjhtml', 'mocha'],
     mocha:{
       outputFile: 'tests/results.txt'
     },
@@ -64,6 +66,6 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['Chrome' ],
     browserNoActivityTimeout: 20000,
-    singleRun: true
+    singleRun: false
   });
 };

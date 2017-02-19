@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
@@ -90,7 +91,7 @@ export class SohoListViewMicroComponent {
   `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoListViewComponent implements AfterViewInit, OnDestroy {
+export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterViewChecked {
 
   /**
    * String of classes to append to the class for the list-view div element
@@ -241,6 +242,11 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
     this.jQueryElement.on('sorted', (...args) => this.sorted.emit(args));
   }
+
+  ngAfterViewChecked() {
+    this.listview.updated();
+  }
+
   ngOnDestroy() {
     // Necessary clean up step (add additional here)
     this.listview.destroy();

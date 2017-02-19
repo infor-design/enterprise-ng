@@ -5,69 +5,15 @@
       <div class="two-thirds column">
         <div class="card">
           <div class="card-header">
-            <h2 class="card-title">Tasks - Single Select</h2>
-          </div>
-          <div class="card-content">
-            <soho-listview
-              (rendered)="onRendered($event)"
-              (selected)="onSelected($event)"
-              (sorted)="onSorted($event)">
-              <li soho-listview-item *ngFor="let data of demoTasks" [disabled]="data.disabled ? true : false">
-                <p soho-listview-header>Task #{{data.task}}</p>
-                <p soho-listview-subheader>{{data.desc}}</p>
-                <p soho-listview-micro>DUE: {{data.date}}</p>
-              </li>
-            </soho-listview>
-          </div>
-        </div>
-      </div>
-      <div class="two-thirds column">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="card-title">Tasks - Multi Select</h2>
-          </div>
-          <div class="card-content" style="overflow: hidden;">
-            <soho-listview selectable="multiple"
-              (rendered)="onRendered($event)"
-              (selected)="onSelected($event)"
-              (sorted)="onSorted($event)">
-              <soho-toolbar class="contextual-toolbar is-hidden">
-                <soho-toolbar-button-set>
-                  <button soho-button="tertiary" title="Assign Selected Items">Assign</button>
-                  <button soho-button="tertiary" title="Remove Selected Items">Remove</button>
-                </soho-toolbar-button-set>
-              </soho-toolbar>
-              <li soho-listview-item *ngFor="let data of demoTasks" [disabled]="data.disabled ? true : false">
-                <p soho-listview-header>Task #{{data.task}}</p>
-                <p soho-listview-subheader>{{data.desc}}</p>
-                <p soho-listview-micro>DUE: {{data.date}}</p>
-              </li>
-            </soho-listview>
-          </div>
-        </div>
-      </div>
-      <div class="two-thirds column">
-        <div class="card">
-          <div class="card-header">
             <h2 class="card-title">Tasks - Searchable</h2>
           </div>
           <div class="card-content" style="overflow: hidden;">
             <soho-listview
-              [class]="'something-extra'"
               [dataset]="demoTasks"
               [searchable]="true"
-              selectable="multiple"
-              (rendered)="onRendered($event)"
-              (selected)="onSelected($event)"
-              (sorted)="onSorted($event)">
+              (selected)="onSelected($event)">
               <input soho-searchfield placeholder="Search" [clearable]="true">
-              <soho-toolbar class="contextual-toolbar is-hidden">
-                <soho-toolbar-button-set>
-                  <button soho-button="tertiary" title="Assign Selected Items">Assign</button>
-                  <button soho-button="tertiary" title="Remove Selected Items">Remove</button>
-                </soho-toolbar-button-set>
-              </soho-toolbar>
-              <li soho-listview-item *ngFor="let data of demoTasks" [disabled]="data.disabled ? true : false">
+              <li soho-listview-item *ngFor="let data of demoTasks">
                 <p soho-listview-header>Task #{{data.task}}</p>
                 <p soho-listview-subheader>{{data.desc}}</p>
                 <p soho-listview-micro>DUE: {{data.date}}</p>
@@ -76,7 +22,9 @@
           </div>
         </div>
       </div>
-      <button soho-button (click)="addItems()">Add Item</button>
+    </div>
+    <div class="row">
+        <button soho-button="primary" (click)="load()">Load</button>
     </div>
   </div>
 </div>

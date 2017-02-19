@@ -1,6 +1,6 @@
 import { SohoxiAngularPage } from './app.po';
 
-describe('sohoxi-angular App', function() {
+describe('sohoxi-angular App', () => {
   let page: SohoxiAngularPage;
 
   beforeEach(() => {

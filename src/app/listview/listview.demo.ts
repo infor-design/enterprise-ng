@@ -22,6 +22,9 @@ export class ListViewDemoComponent {
 
   constructor() {
     this.demoTasks = [];
+  }
+  load() {
+    setTimeout(() => {
     this.demoTasks.push({task: '063001', error: true, date: '10/11/2015', desc: 'Special fields test - New item has been created.'});
     this.demoTasks.push({task: '063002', date: '10/11/2015' , desc: 'Part #4212132 has low inventory level', disabled: true});
     this.demoTasks.push({task: '063003', date: '10/07/2015' , desc: 'Check #112412 parts ordering.'});
@@ -34,7 +37,8 @@ export class ListViewDemoComponent {
     this.demoTasks.push({task: '063010', date: '10/11/2015' , desc: 'Special fields test - New item has been created.'});
     this.demoTasks.push({task: '063011', date: '10/11/2015' , desc: 'Call TMZ Inc at 5 PM'});
     this.demoTasks.push({task: '063012', date: '07/08/2015' , desc: 'Part #6212132 has low inventory level'});
-  }
+    }, 1000);
+    }
   addItems() {
     // Make sure we are passing a new object to the listview as an input
     let temp = this.demoTasks;
