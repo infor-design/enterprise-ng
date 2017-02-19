@@ -81,6 +81,6 @@ describe('Soho Progress Unit Tests', () => {
 `
 })
 
-class SohoProgressTestComponent {
+export class SohoProgressTestComponent {
   @ViewChild(SohoProgressComponent) progress: SohoProgressComponent;
 }

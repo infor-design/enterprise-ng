@@ -6,23 +6,13 @@ You can download the latest version of the code from [quickstart](http://git.inf
 
 ## Prerequisites
 
-If **Node.js** and npm aren't already on your machine, install them. These examples require Node 4 or higher and NPM 3 or higher. To check which version you are using,
+If **Node.js** and npm aren't already on your machine, install them. These examples require node v4.x.x or higher and npm 3.x.x or higher. To check which version you are using,
 run `node -v` and `npm -v` in a terminal window.
 
-This quick start guide uses **@angular/cli** to create, build and run the application.  
-
-At the time of writing the version of **@angular/cli** used was 1.0.0-beta.30.
+This quick start guide uses **Angular-CLI** to create, build and run the application.  
+At the time of writing the version of angular-cli used was 1.0.0-beta.30.
 
 In addition, **gulp** is used to perform additional build and deployment steps required to get the application built.
-
-## Step 0 : Install Pre-Prerequisites
-
-From a command prompt, run:
-
-```
-npm install -g @angular/cli@latest
-npm install -g gulp@latest
-```
 
 ## Step 1 : Create and Configure the Project
 
@@ -36,7 +26,7 @@ cd sohoxi-angular-quickstart
 
 ### Create configuration files
 
-In the same terminal window, use **@angular/cli** to initialise the project creating scaffolding for your application:
+In the same terminal window, use angular-cli to initialise the project creating scaffolding for your application:
 
 ```
 ng init
@@ -45,7 +35,6 @@ ng init
 ## Step 2 : Install Packages
 
 The project will need access to the Infor NPM registy to be able to pull down the latest *SohoXI* component libraries for jQuery and Angular. 
-
 The easiest way to achieve this is to create the file `.npmrc` at the root of the project, and edit the file to include:
 
 ```
@@ -63,7 +52,7 @@ In a terminal window, in the project folder:
 
 This includes all the packages we need to create this simple quick start application.
 
-## Step 3 : Configure @angular/cli
+## Step 3 : Configure Angular CLI
 
 The next step is to configure angular-cli to include the SohoXI libraries into the output. 
 
@@ -75,8 +64,7 @@ Edit `angular-cli.json`, change the  `scripts` as follows:
 "../node_modules/@infor/sohoxi/dist/js/cultures/en-US.js"
 ],
 ```
-## Step 4 : Configure TypeScript:
-
+## Step 4 : Configure TypeScript
 Edit `src/tsconfig.json`, add this below the `typeRoots` property:
 ```json
 "types": [
@@ -85,7 +73,7 @@ Edit `src/tsconfig.json`, add this below the `typeRoots` property:
   "node"
 ]
 ```
-## Step 5 : SoHoXI Assets
+## Step 5 : SohoXI Assets
 Angular-CLI is currently not capable of automatically copying assets from dependencies in node_modules.
 The easiest way to overcome this is to add a prebuild step which can be run as part of 
 npm.  This example uses **gulp** to copy the assets from the sohoxi folder into the src/assets folder of the 
@@ -97,7 +85,7 @@ var gulp = require('gulp');
 
 gulp.task("copy-assets", function () {
     return gulp
-        .src('./node_modules/@infor/sohoxi/dist/css/*theme.css*')
+        .src('./node_modules/@infor/sohoxi/dist/css/**/*.css')
         .pipe(gulp.dest('./src/assets/css'))
 });
 ```
@@ -110,16 +98,6 @@ You can also include this in the build (and start) scripts included in the packa
 ```json
 "start": "gulp copy-assets && ng serve",
 ``` 
-
-Add the following to the `src/index.html` file:
-
-```
-<head>
-  ...
-  <link rel="stylesheet" id="stylesheet" href="/assets/css/light-theme.css" type="text/css">
-</head>
-```
-
 ## Step 6 : Making Sure it Works
 Run the app to test it.
 ```ng serve``` 
@@ -166,15 +144,8 @@ Add ```SohoComponentsModule``` to the imports.
 
 Add a button to `app.component.html`, by appending the following code snippet:
 ```
-<button soho-button (click)="clicked($event)">Click Me!<button>
+<button soho-button>Click Me!<button>
 ```
-Add the clicked handler to `app.component.ts`, as follows:
-```typescript
-public clicked() {
-    alert('Clicked me!');
-}
-```
-
 Then from a command line run (you can use `ng serve` but that wont copy the assets):
 ```
 npm run start

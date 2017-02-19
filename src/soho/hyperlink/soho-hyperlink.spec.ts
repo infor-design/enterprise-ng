@@ -21,7 +21,6 @@ describe ('Soho Hyperlink Unit tests', () => {
       declarations: [ SohoHyperlinkTestComponent ],
       imports: [ FormsModule, SohoHyperlinkModule ]
     });
-    TestBed.compileComponents();
 
     fixture = TestBed.createComponent(SohoHyperlinkTestComponent);
     comp = fixture.componentInstance;
@@ -86,6 +85,6 @@ describe ('Soho Hyperlink Unit tests', () => {
     `
 })
 
-class SohoHyperlinkTestComponent {
+export class SohoHyperlinkTestComponent {
   @ViewChild(SohoHyperlinkComponent) hyperlink: SohoHyperlinkComponent;
 }

@@ -17,6 +17,10 @@
     "paths": {
       "@infor/sohoxi-angular": ["../src/soho"]
     },
+    "exclude": [
+      "**/*.spec.ts",
+      "test.ts"
+    ],
     "typeRoots": [
       "../node_modules/@types"
     ],

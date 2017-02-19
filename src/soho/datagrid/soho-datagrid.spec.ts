@@ -92,7 +92,7 @@ describe('Soho DataGrid Render', () => {
    it('Check default value of dataset is []', () => {
     fixture.detectChanges();
 
-    // expect(component.datagrid.dataset).toEqual([]);
+    expect(component.datagrid.dataset).toEqual([]);
   });
 
   it('setting the dataset updates the grid', () => {
@@ -101,7 +101,7 @@ describe('Soho DataGrid Render', () => {
     const testData = [['d1', 'd2'], ['a1', 'a2']];
     component.datagrid.dataset = testData;
 
-    // expect(component.datagrid.dataset).toBe(testData);
+    expect(component.datagrid.dataset).toBe(testData);
   });
 
 });
