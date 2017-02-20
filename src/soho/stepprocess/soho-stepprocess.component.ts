@@ -1,16 +1,11 @@
 import {
-  AfterViewChecked,
   AfterViewInit,
-  ChangeDetectorRef,
   Component,
   ElementRef,
-  EventEmitter,
   HostBinding,
   Input,
-  OnDestroy,
-  Output,
+  OnDestroy, Output, EventEmitter,
 } from '@angular/core';
-import { ArgumentHelper } from '../utils';
 
 /**************************************************************
  * STEP LIST TITLE
@@ -22,7 +17,6 @@ import { ArgumentHelper } from '../utils';
 export class SohoStepListTitleComponent {
   @HostBinding('class.title') get title() { return true; }
   @HostBinding('class.title-wide') get titleWide() { return true; }
-  // @HostBinding('class.dual-title') @Input() dualTitle: boolean = false;
 }
 
 /**************************************************************
@@ -50,6 +44,9 @@ export class SohoStepListComponent {
   @HostBinding('attr.data-init') dataInit = false;
 }
 
+/**************************************************************
+ * SUB STEP LIST
+ **************************************************************/
 @Component({
   selector: 'ul[soho-substep-list]', // tslint:disable-line
   template: `<ng-content></ng-content>`
@@ -58,7 +55,6 @@ export class SohoSubstepListComponent {
   @HostBinding('class.folder') isFolder = true;
   @HostBinding('class.js-step-folder') isJSStepFolder = true;
 }
-
 
 /**************************************************************
  * STEP LIST ITEM
@@ -82,7 +78,7 @@ export class SohoStepListItemComponent {
 export class SohoStepListItemAnchorComponent {
   @HostBinding('class.js-step-link') isJsStepLink = true;
   @HostBinding('attr.href') get hrefAttr() {
-    return '#' + this.stepId;
+    return this.stepId ? '#' + this.stepId : null;
   }
 
   @Input() stepId: string;
@@ -136,40 +132,6 @@ export class SohoStepContentPanelComponent {
   @Input() stepId: string;
 }
 
-/**
- * Internal component to support the step content title
- * @deprecated - use soho-step-list-item isFolder=true
- */
-// @Component({
-//   selector: 'ul[soho-step-list-items]', // tslint:disable-line
-//   template: `<ng-content></ng-content>`,
-//   styles: [ `:host { margin-left: 20px;}` ]   // indent the substep nodes
-// })
-// export class SohoStepListItemsComponent {
-//   @HostBinding('class.root') get isRoot() { return true; }
-// }
-
-/**
- * Internal component to support the step content title
- * @deprecated - use soho-step-list-item isFolder=true
- */
-// @Component({
-//   selector: 'div[soho-step-list-item-header]', // tslint:disable-line
-//   template: `
-//     <ng-content></ng-content>
-//       <button class="btn hide-focus" type="button">
-//         <svg class="chevron icon active" focusable="false" aria-hidden="true" role="presentation">
-//           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-caret-down"></use>
-//         </svg>
-//       </button>
-//     `
-// })
-// export class SohoStepListItemHeaderComponent {
-//
-//   @HostBinding('class.accordion-header') get isAccordionHeader() { return true; }
-//   @Input() icon: string;
-// }
-
 /**************************************************************
  * MAIN STEP PROCESS COMPONENT
  **************************************************************/
@@ -184,39 +146,16 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.page-container') isPageContainer = true;
   @HostBinding('class.no-scroll') isNoScroll = true;
   @HostBinding('class.show-main') isShowMain = true;
-
   @HostBinding('attr.role') main: string = 'main';
 
-  // ------------------------------------------------------------------------
-  // @Inputs
-  // ------------------------------------------------------------------------
-  /**
-   * Set the step process options on a single call with the stepprocess options object.
-   *
-   * @param gridOptions.
-   */
-  @Input() set stepProcessOptions(stepProcessOptions: SohoStepProcessOptions) {
-    ArgumentHelper.checkNotNull('stepProcessOptions', stepProcessOptions);
-    this._stepProcessOptions = stepProcessOptions;
-  }
-
-  get stepProcessOptions(): SohoStepProcessOptions {
-    return this._stepProcessOptions;
-  }
-
-  @Input() set beforeStepChange(beforeSelectStep: BeforeSelectStepFunction) {
-    this._stepProcessOptions.beforeSelectStep = beforeSelectStep;
-    if (this.jQueryElement) {
-      this.stepprocess.settings.beforeSelectStep = beforeSelectStep;
-    }
-  }
+  @Output() beforeSelectStep = new EventEmitter<BeforeSelectStepEvent>();
 
   /**
    *
    * @param cellNavigation
    */
   @Input() set linearProgression(linearProgression: boolean) {
-    this._stepProcessOptions.linearProgression = linearProgression;
+    this.stepProcessOptions.linearProgression = linearProgression;
     if (this.jQueryElement) {
       this.stepprocess.settings.linearProgression = linearProgression;
     }
@@ -229,21 +168,66 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   // Reference to the jQuery control.
   private jQueryElement: JQuery;
 
-  // Reference to the soho tabs control api.
+  // Reference to the soho stepprocess control api.
   private stepprocess: SohoStepProcessStatic;
 
-  // An internal stepsOptions object that gets updated by using
-  // the component's Inputs()
-  private _stepProcessOptions: SohoStepProcessOptions = <SohoStepProcessOptions> {};
+  // The internal stepsOptions object used to construct the stepproces control
+  private stepProcessOptions: SohoStepProcessOptions = <SohoStepProcessOptions> {};
+
+  // beforeStepSelect callback that is adapted to an Angular EventEmittier
+  private beforeSelectStepDeferred: JQueryDeferred<boolean> = $.Deferred();
 
   constructor(private element: ElementRef) {}
 
   ngAfterViewInit() {
-    this._stepProcessOptions.stepList = '#step-list';
+    this.stepProcessOptions.stepList = '#step-list';
+    this.stepProcessOptions.beforeSelectStep = this.beforeSelectStepPromise;
+
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.stepprocess(this.stepProcessOptions);
     this.stepprocess = this.jQueryElement.data('stepprocess');
   }
+
+  private beforeSelectStepPromise = (args: { stepLink: JQuery, isStepping: number }): JQueryPromise<boolean> => {
+    this.beforeSelectStepDeferred = $.Deferred();
+
+    if (this.beforeSelectStep.observers.length > 0) {
+      // not sure what it would mean to have a multiple observers potentially
+      // calling the response function.
+      if (this.beforeSelectStep.observers.length !== 1) {
+        throw 'only 1 observer is allowed for the beforeSelectStep event emitter';
+      }
+
+      let beforeSelectStepEvent: BeforeSelectStepEvent = <any> {};
+
+      // ------------------------------------------------------------------------------
+      // The first beforeSelectStep is called before the this.stepprocess can be set.
+      // In that case there is no currentSelectedStep so getting teh currentStepId
+      // can be skipped.
+      // ------------------------------------------------------------------------------
+      if (this.stepprocess) {
+        let $selectedStep = this.stepprocess.getSelectedStep();
+        beforeSelectStepEvent.currentStepId = $selectedStep.children('a').attr('href').substring(1);
+      }
+
+      beforeSelectStepEvent.nextStepId = $(args.stepLink).attr('href').substring(1);
+      beforeSelectStepEvent.response = this.beforeSelectStepResponse;
+      this.beforeSelectStep.emit(beforeSelectStepEvent);
+    } else {
+      this.beforeSelectStepDeferred.resolve(true);
+    }
+
+    return this.beforeSelectStepDeferred.promise();
+  };
+
+  private beforeSelectStepResponse = (response: BeforeSelectStepResult) => {
+    if (response.nextStepId) {
+      let stepLinkToSelect = $('.js-step-link[href="#' + response.nextStepId + '"]');
+      this.beforeSelectStepDeferred.resolve(response.continue, stepLinkToSelect)
+    } else {
+      this.beforeSelectStepDeferred.resolve(response.continue);
+    }
+  };
 
   ngOnDestroy() {
     if (this.stepprocess) {

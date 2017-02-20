@@ -10,8 +10,6 @@ import {
   SohoStepContentTitleComponent,
   SohoStepContentComponent,
   SohoStepContentPanelComponent,
-  SohoStepListItemsComponent,
-  SohoStepListItemHeaderComponent,
   SohoStepProcessComponent
 } from '../stepprocess/soho-stepprocess.component';
 import { SohoIconModule } from '../icon/soho-icon.module';
@@ -35,8 +33,6 @@ import { SohoToolbarModule } from '../toolbar/soho-toolbar.module';
     SohoStepContentTitleComponent,
     SohoStepContentComponent,
     SohoStepContentPanelComponent,
-    SohoStepListItemsComponent,
-    SohoStepListItemHeaderComponent,
     SohoStepProcessComponent
   ],
   exports: [
@@ -49,8 +45,6 @@ import { SohoToolbarModule } from '../toolbar/soho-toolbar.module';
     SohoStepContentTitleComponent,
     SohoStepContentComponent,
     SohoStepContentPanelComponent,
-    SohoStepListItemsComponent,
-    SohoStepListItemHeaderComponent,
     SohoStepProcessComponent
   ]
 })

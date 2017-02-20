@@ -17,11 +17,17 @@ interface SohoStepProcessOptions {
    */
   linearProgression?: boolean,
 
-  /** The callback function called before the step selection changes */
-  beforeSelectStep?: BeforeSelectStepFunction;
+  /**
+   * The callback function called before the step selection changes.
+   * Return a jQuery promise that that resolves to a boolean
+   * - resolve(true) to continue to the next step
+   * - resolve(false) to veto the step change
+   * NOTE: this is used internally, not for use by the implementing code.
+   */
+  beforeSelectStep?: BeforeSelectStepFunction<boolean>;
 }
 
-type BeforeSelectStepFunction = (node: any) => void;
+type BeforeSelectStepFunction<T> = (args: { stepLink: JQuery, isStepping: number }) => JQueryPromise<T>;
 
 /**
  * This interface represents api exposed by the
@@ -30,6 +36,8 @@ type BeforeSelectStepFunction = (node: any) => void;
 interface SohoStepProcessStatic {
   /** Step Process Control Options. */
   settings: SohoStepProcessOptions;
+
+  getSelectedStep(): JQuery;
 
   /**
    * Destructor,
@@ -51,4 +59,34 @@ interface JQueryStatic {
 
 interface JQuery {
   stepprocess(options?: SohoStepProcessOptions): JQuery;
+}
+
+interface BeforeSelectStepResult {
+  /**
+   * Whether or not to continue to the next stepId.
+   */
+  continue: boolean;
+
+  /**
+   * override the stepId to continue to.
+   */
+  nextStepId?: string;
+}
+
+interface BeforeSelectStepEvent {
+  /**
+   *
+   */
+  currentStepId?: string;
+
+  /**
+   *
+   */
+  nextStepId: string;
+
+  /**
+   *
+   * @param result
+   */
+  response(result: BeforeSelectStepResult): void;
 }
