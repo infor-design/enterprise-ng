@@ -40,6 +40,13 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(el.classList).toContain('datagrid-container');
   });
 
+
+   it('Check default value of dataset is []', () => {
+    fixture.detectChanges();
+
+    expect(comp.dataset).toEqual([]);
+  });
+
   // Add more method tests.
 });
 
@@ -86,13 +93,6 @@ describe('Soho DataGrid Render', () => {
     // fixture.detectChanges();
 
     // expect(el.hasAttribute('noSearch')).toBeTruthy('noSearch');
-  });
-
-
-   it('Check default value of dataset is []', () => {
-    fixture.detectChanges();
-
-    expect(component.datagrid.dataset).toEqual([]);
   });
 
   it('setting the dataset updates the grid', () => {

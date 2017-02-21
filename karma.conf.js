@@ -62,10 +62,10 @@ module.exports = function (config) {
     },
     port: 9876,
     colors: true,
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
     autoWatch: true,
     browsers: ['Chrome' ],
-    browserNoActivityTimeout: 10000,
+    browserNoActivityTimeout: 20000,
     singleRun: true
   });
 };
