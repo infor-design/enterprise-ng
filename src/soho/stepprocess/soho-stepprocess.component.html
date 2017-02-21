@@ -1,32 +1,32 @@
-<div class="no-scroll soho-step-process">
-  <div class="step-process-container two-column fixed page-container no-scroll show-main" role="main">
-   <!-- STEP CONTROL SIDE BAR -->
-   <div class="sidebar" role="complementary">
-     <div class="toolbar toolbar-custom collapsible-bar phone-visible">
-       <ng-content select="div[soho-steps-list-title]"></ng-content>
-     </div>
-     <ng-content select="ul[soho-steps-list]"></ng-content>
-   </div>
 
-   <!-- STEP CONTROL MAIN CONTENT -->
-   <div class="main no-scroll" role="main">
-     <div class="toolbar toolbar-custom collapsible-bar">
-       <div class="title">
-         <button soho-button="tertiary" icon="bullet-list" class="btn-toggle-steps js-toggle-steps"></button>
-         <div class="dual-title">
-           <ng-content select="div[soho-step-content-title]"></ng-content>
-         </div>
-       </div>
-       <div class="buttonset phone-hidden">
-         <button soho-button="tertiary" class="btn-tertiary js-step-link-prev">Previous</button>
-         <button soho-button="tertiary" class="btn-tertiary js-step-link-next">Next</button>
-       </div>
-     </div>
-     <ng-content select="div[soho-step-content]"></ng-content>
-     <div class="phone-button-bar phone-visible">
-       <button soho-button="primary" class="btn mobile-">Save &amp; Close</button>
-       <button soho-button="primary" class="btn-primary js-step-link-next">Next</button>
-     </div>
-   </div>
- </div>
+<!-- STEP CONTROL STEPS -->
+<div class="sidebar">
+  <div soho-toolbar class='toolbar-custom toolbar-collapsible phone-visible'>
+    <soho-toolbar-title>
+      <ng-content select="div[soho-step-list-title]"></ng-content>
+    </soho-toolbar-title>
+  </div>
+  <ng-content select='ul[soho-step-list]'></ng-content>
+</div>
+
+<!-- STEP CONTROL CONTENT -->
+<div class="main no-scroll" role="main">
+  <div soho-toolbar class='toolbar-custom toolbar-collapsible'>
+    <soho-toolbar-title>
+      <button soho-button='icon' icon='bullet-steps' class='btn-icon btn-toggle-steps js-toggle-sidebar'></button>
+      <ng-content select='div[soho-step-content-title]'></ng-content>
+    </soho-toolbar-title>
+
+    <soho-toolbar-button-set class='phone-hidden'>
+      <button soho-button='tertiary' class="btn-tertiary js-step-link-prev">Previous</button>
+      <button soho-button='tertiary' class="btn-tertiary js-step-link-next">Next</button>
+    </soho-toolbar-button-set>
+  </div>
+
+  <!-- STEP CONTROL PHONE CONTROLS -->
+  <ng-content select="div[soho-step-content]"></ng-content>
+    <div class="phone-action-bar phone-visible">
+      <button soho-button="secondary" class="btn js-btn-save-changes">Save &amp; Close</button>
+      <button soho-button="primary" class="btn-primary js-step-link-next">Next</button>
+    </div>
 </div>

@@ -1,67 +1,85 @@
 import {
+  ChangeDetectorRef,
   Component,
-  OnInit, ElementRef, AfterViewInit, ViewChild
 } from '@angular/core';
-import { SohoStepProcessComponent, SohoBusyIndicatorDirective } from '@infor/sohoxi-angular';
+
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'soho-stepprocessvetoable-demo',
   templateUrl: './stepprocessvetoable.demo.html'
 })
-export class StepProcessVetoableDemoComponent implements OnInit, AfterViewInit {
+export class StepProcessVetoableDemoComponent {
 
-  @ViewChild(SohoStepProcessComponent) sohoStepComponent: SohoStepProcessComponent;
-  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
+  private infoSubSteps: Array<InfoSubStep> = undefined;
+  private showBusyIndicator: boolean = false;
+  private showStep4: boolean = false;
 
-  private canViewNode = {
-    'node1': true,
-    'node1x1': true,
-    'node1x2': true,
-    'node2': true,
-    'node2x1': true,
-    'node3': false,
-    'node3x1': false,
-    'node4': true,
-    'node5': true,
-    'node6': false,
-    'node7': true
-  };
+  private vetoStep2: boolean = false;
+  private addStep4: boolean = false;
+  private vetoHistorySubStep2: boolean = false;
 
-  public stepProcessOptions: SohoStepProcessOptions;
+  constructor(
+    private changeDetectorRef: ChangeDetectorRef
+  ) {}
 
-  constructor(private element: ElementRef) {
+  onBeforeSelectStep(event: BeforeSelectStepEvent) {
+    this.showBusyIndicator = true;
+
+    let result: BeforeSelectStepResult = <any> {};
+
+    if (event.currentStepId === 'profile' && this.vetoStep2) {
+
+      alert("cant go to that step");
+      result.continue = false;
+
+    } else if (event.currentStepId === 'preferences' && this.addStep4) {
+
+      this.showStep4 = true;
+      this.changeDetectorRef.detectChanges();
+      result.continue = true;
+      result.nextStepId = 'addedstep';
+
+    } else if (event.currentStepId === 'myhistory-1' && this.vetoHistorySubStep2) {
+
+      result.continue = false;
+      alert("cant go to that substep");
+
+    } else if (event.nextStepId == "information" && !this.infoSubSteps) {
+
+      this.infoSubSteps = this.buildInfoSubSteps();
+      this.changeDetectorRef.detectChanges();
+      result.continue = true;
+      result.nextStepId = 'information-1';
+
+    } else {
+      result.continue = true;
+    }
+
+    event.response(result);
+
+    this.showBusyIndicator = false;
   }
-  ngOnInit() {
+
+  private buildInfoSubSteps(): Array<InfoSubStep> {
+    return [ {
+        id: 'information-1',
+        icon: 'empty-circle',
+        title: 'Personal - step 7-1',
+        content: 'This is Information SubStep1'
+      }, {
+        id: 'information-2',
+        icon: 'empty-circle',
+        title: 'Family - step 7-2',
+        content: 'This is Information SubStep2'
+      }
+    ]
   }
-  ngAfterViewInit() {
-    this.stepProcessOptions = {beforeSelectStep: (node) => {
+}
 
-
-      this.busyIndicator.activated = true;
-      const deferred = $.Deferred();
-      const hasPermission = this.canViewNode[node.attr('stepid')];
-
-      // Simulate AJAX
-      setTimeout(() => {
-        if (!hasPermission) {
-          alert('Cant go to that step!');
-          console.log('Cant go to that step!');
-        }
-
-        deferred.resolve(hasPermission);
-        this.busyIndicator.activated = false;
-      }, 200);
-
-      // Return promise
-      return deferred.promise();
-    }};
-
-    setTimeout(() => {
-      this.sohoStepComponent.setSelectedStep('node1');
-    }, 1);
-  }
-
-  beforeStepChange(event: Event) {
-    console.log('stepProcessVetoableDemoComponent.stepChange');
-  }
+interface InfoSubStep {
+  id: string;
+  icon: string;
+  title: string;
+  content: string;
 }
