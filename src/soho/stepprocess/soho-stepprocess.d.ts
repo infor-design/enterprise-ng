@@ -27,7 +27,7 @@ interface SohoStepProcessOptions {
   beforeSelectStep?: BeforeSelectStepFunction<boolean>;
 }
 
-type BeforeSelectStepFunction<T> = (args: { stepLink: JQuery, isStepping: number }) => JQueryPromise<T>;
+type BeforeSelectStepFunction<T> = (args: { stepLink: JQuery, isStepping: StepDirection }) => JQueryPromise<T>;
 
 /**
  * This interface represents api exposed by the
@@ -73,6 +73,8 @@ interface BeforeSelectStepResult {
   overrideTargetStepId?: string;
 }
 
+type StepDirection = 'prev' | 'next' | 'none';
+
 interface BeforeSelectStepEvent {
   /**
    * The step that is current selected
@@ -83,6 +85,14 @@ interface BeforeSelectStepEvent {
    * The step that will be selected
    */
   targetStepId: string;
+
+  /**
+   * The direction the user is stepping when going to another step
+   * prev = previous step
+   * next = next step
+   * none = click on non linear step
+   */
+  isStepping?: StepDirection;
 
   /**
    * The response callback that indicates whether the step change should occur or not.
