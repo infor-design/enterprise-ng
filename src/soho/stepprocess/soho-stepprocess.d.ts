@@ -34,20 +34,20 @@ type BeforeSelectStepFunction<T> = (args: { stepLink: JQuery, isStepping: number
  * Soho control.
  */
 interface SohoStepProcessStatic {
-  /** Step Process Control Options. */
+  /**
+   * Step Process Control Options
+   */
   settings: SohoStepProcessOptions;
 
+  /**
+   * get the currently selected step
+   */
   getSelectedStep(): JQuery;
 
   /**
    * Destructor,
    */
   destroy(): void;
-}
-
-interface SohoStepProcessSelectedEvent {
-  e: any;
-  stepLink: any;
 }
 
 /**
@@ -68,24 +68,25 @@ interface BeforeSelectStepResult {
   continue: boolean;
 
   /**
-   * override the stepId to continue to.
+   * Override the stepId to continue to.
    */
-  nextStepId?: string;
+  overrideTargetStepId?: string;
 }
 
 interface BeforeSelectStepEvent {
   /**
-   *
+   * The step that is current selected
    */
   currentStepId?: string;
 
   /**
-   *
+   * The step that will be selected
    */
-  nextStepId: string;
+  targetStepId: string;
 
   /**
-   *
+   * The response callback that indicates whether the step change should occur or not.
+   * The targetStepId can be overridden here as well.
    * @param result
    */
   response(result: BeforeSelectStepResult): void;
