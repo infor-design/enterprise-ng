@@ -38,19 +38,19 @@ export class StepProcessVetoableDemoComponent {
       this.showStep4 = true;
       this.changeDetectorRef.detectChanges();
       result.continue = true;
-      result.nextStepId = 'addedstep';
+      result.overrideTargetStepId = 'addedstep';
 
     } else if (event.currentStepId === 'myhistory-1' && this.vetoHistorySubStep2) {
 
       result.continue = false;
       alert("cant go to that substep");
 
-    } else if (event.nextStepId == "information" && !this.infoSubSteps) {
+    } else if (event.targetStepId == "information" && !this.infoSubSteps) {
 
       this.infoSubSteps = this.buildInfoSubSteps();
       this.changeDetectorRef.detectChanges();
       result.continue = true;
-      result.nextStepId = 'information-1';
+      result.overrideTargetStepId = 'information-1';
 
     } else {
       result.continue = true;
