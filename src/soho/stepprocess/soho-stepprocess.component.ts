@@ -148,11 +148,12 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.show-main') isShowMain = true;
   @HostBinding('attr.role') main: string = 'main';
 
-  @Output() beforeSelectStep = new EventEmitter<BeforeSelectStepEvent>();
+  // ------------------------------------------------------------------------
+  // @Inputs
+  // ------------------------------------------------------------------------
 
   /**
-   *
-   * @param cellNavigation
+   * Whether or not to restrict navigation to next and previous buttons only.
    */
   @Input() set linearProgression(linearProgression: boolean) {
     this.stepProcessOptions.linearProgression = linearProgression;
@@ -163,6 +164,10 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
 
   // ------------------------------------------------------------------------
   // @Outputs
+  // ------------------------------------------------------------------------
+
+  @Output() beforeSelectStep = new EventEmitter<BeforeSelectStepEvent>();
+
   // ------------------------------------------------------------------------
 
   // Reference to the jQuery control.
@@ -210,7 +215,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
         beforeSelectStepEvent.currentStepId = $selectedStep.children('a').attr('href').substring(1);
       }
 
-      beforeSelectStepEvent.nextStepId = $(args.stepLink).attr('href').substring(1);
+      beforeSelectStepEvent.targetStepId = $(args.stepLink).attr('href').substring(1);
       beforeSelectStepEvent.response = this.beforeSelectStepResponse;
       this.beforeSelectStep.emit(beforeSelectStepEvent);
     } else {
@@ -221,8 +226,8 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   };
 
   private beforeSelectStepResponse = (response: BeforeSelectStepResult) => {
-    if (response.nextStepId) {
-      let stepLinkToSelect = $('.js-step-link[href="#' + response.nextStepId + '"]');
+    if (response.overrideTargetStepId) {
+      let stepLinkToSelect = $('.js-step-link[href="#' + response.overrideTargetStepId + '"]');
       this.beforeSelectStepDeferred.resolve(response.continue, stepLinkToSelect)
     } else {
       this.beforeSelectStepDeferred.resolve(response.continue);
