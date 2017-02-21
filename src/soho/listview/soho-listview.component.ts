@@ -1,6 +1,7 @@
 import {
   AfterViewChecked,
   AfterViewInit,
+  AfterViewChecked,
   ChangeDetectionStrategy,
   Component,
   ContentChild,
@@ -99,13 +100,18 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
   @Input() class: string;
 
   /**
+   * Force a update to fire next viewChecked.
+   */
+  public updateRequired: boolean;
+
+  /**
    * Array of data
    */
   @Input() set dataset(value: Object[]) {
     this.options.dataset = value;
     if (this.jQueryElement && this.listview) {
       this.listview.settings.dataset = value;
-      this.listview.updated();
+      this.updateRequired = true;
     }
   }
   get dateset(): Object[] {
@@ -242,9 +248,11 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
     this.jQueryElement.on('sorted', (...args) => this.sorted.emit(args));
   }
-
   ngAfterViewChecked() {
-    this.listview.updated();
+    if (this.updateRequired) {
+      this.listview.updated();
+      this.updateRequired = false;
+    }
   }
 
   ngOnDestroy() {

@@ -136,7 +136,7 @@ export class SohoStepContentPanelComponent {
  * MAIN STEP PROCESS COMPONENT
  **************************************************************/
 @Component({
-  selector: 'div[soho-step]', // tslint:disable-line
+  selector: 'div[soho-stepprocess]', // tslint:disable-line
   templateUrl: './soho-stepprocess.component.html',
 })
 export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
@@ -193,14 +193,14 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     this.stepprocess = this.jQueryElement.data('stepprocess');
   }
 
-  private beforeSelectStepPromise = (args: { stepLink: JQuery, isStepping: number }): JQueryPromise<boolean> => {
+  private beforeSelectStepPromise = (args: { stepLink: JQuery, isStepping: StepDirection }): JQueryPromise<boolean> => {
     this.beforeSelectStepDeferred = $.Deferred();
 
     if (this.beforeSelectStep.observers.length > 0) {
       // not sure what it would mean to have a multiple observers potentially
       // calling the response function.
       if (this.beforeSelectStep.observers.length !== 1) {
-        throw 'only 1 observer is allowed for the beforeSelectStep event emitter';
+        console.log('stepprocess: only 1 observer is allowed for the beforeSelectStep event emitter');
       }
 
       let beforeSelectStepEvent: BeforeSelectStepEvent = <any> {};
@@ -216,6 +216,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
       }
 
       beforeSelectStepEvent.targetStepId = $(args.stepLink).attr('href').substring(1);
+      beforeSelectStepEvent.isStepping = args.isStepping;
       beforeSelectStepEvent.response = this.beforeSelectStepResponse;
       this.beforeSelectStep.emit(beforeSelectStepEvent);
     } else {
