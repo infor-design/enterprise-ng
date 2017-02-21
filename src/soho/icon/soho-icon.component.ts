@@ -1,17 +1,22 @@
 import {
   Component,
+  ElementRef,
+  HostBinding,
   Input,
-  HostBinding
+  Renderer
 } from '@angular/core';
 
 @Component({
   selector: 'svg:use', // tslint:disable-line
   template: ``
 })
-
 export class SohoIconUseComponent {
   @HostBinding('attr.xmlns:xlink') xmlnsXlink: string = 'http://www.w3.org/1999/xlink';
-  @HostBinding('attr.xlink:href') @Input() icon: string;
+  @HostBinding('attr.xlink:href') get href(): string {
+    return '#' + this.icon;
+  }
+
+  @Input() icon: string;
 }
 
 @Component({
@@ -19,30 +24,36 @@ export class SohoIconUseComponent {
   template: `<svg:use [icon]="icon"></svg:use>`
 })
 export class SohoIconComponent {
-
-  private _icon: string;
-
+  @HostBinding('class.icon') isIcon: boolean = true;
   @HostBinding('attr.aria-hidden') ariaHidden: boolean = true;
   @HostBinding('attr.focusable') focusable: boolean = false;
   @HostBinding('attr.role') role: string = 'presentation';
-  @HostBinding('attr.class') hostClass: string;
 
-  @Input() alert: boolean;
+  @Input() set alert(alert: boolean) {
+    this._alert = alert;
+    this.setAlertIcon();
+  }
   @Input() set icon(icon: string) {
-    this._icon = icon ? '#icon-' + icon : '';
-    this.hostClass = this.svgClass(icon);
-  };
-
-  get icon(): string {
-    return this._icon;
+    this._icon = icon ? 'icon-' + icon : '';
+    this.setAlertIcon();
   }
 
-  private svgClass(icon: string) {
-    let classStr  = 'icon';
-    if (this.alert) {
-      classStr += ' icon-' + icon;
+  private _alert: boolean;
+  private _icon: string;
+
+  constructor(
+    private elementRef: ElementRef,
+    private renderer: Renderer
+  ) {}
+
+  private setAlertIcon() {
+    // This allows us to set a dynamic class to the class list
+    // w/o overwriting other classes in the class list.
+    if (this.alert && this.icon) {
+      this.renderer.setElementClass(this.elementRef.nativeElement, this.icon, true);
     }
-
-    return classStr;
   }
+
+  get alert(): boolean { return this._alert; }
+  get icon(): string { return this._icon; }
 }
