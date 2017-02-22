@@ -408,6 +408,8 @@ interface SohoDataGridStatic {
 
   triggerSource(pagerType: 'initial' | 'refresh' | 'filtered' | 'sorted' | 'updatecolums' | string): void;
 
+  exportToExcel(fileName: string, worksheetName: string, customDs: Object[]): void;
+
   /**
    * Destructor,
    */

@@ -789,6 +789,16 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this.datagrid.triggerSource(pagerType);
   }
 
+  /**
+   * Trigger export of grid data to Excel.
+   * @param fileName The prefix name to be used for the exported file.
+   * @param worksheetName The name to be used for the worksheet.
+   * @param customDs A datasource to override the default.
+   */
+  exportToExcel(fileName: string, worksheetName: string, customDs: Object[]): void {
+    this.datagrid.exportToExcel(fileName, worksheetName, customDs);
+  }
+
   // -------------------------------------------
   // Event Handlers
   // -------------------------------------------

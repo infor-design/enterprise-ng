@@ -67,4 +67,9 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
     //   this.sohoDataGridComponent.data = result.data;
     // });
   }
+
+  export(e: any) {
+    this.sohoDataGridComponent.exportToExcel('', '', this.datagridPagingService.getAllData());
+  }
+
 }
