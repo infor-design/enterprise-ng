@@ -85,6 +85,6 @@ describe ('Soho Hyperlink Unit tests', () => {
     `
 })
 
-export class SohoHyperlinkTestComponent {
+class SohoHyperlinkTestComponent {
   @ViewChild(SohoHyperlinkComponent) hyperlink: SohoHyperlinkComponent;
 }

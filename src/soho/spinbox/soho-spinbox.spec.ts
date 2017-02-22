@@ -66,6 +66,6 @@ describe ('Soho Spinbox Unit tests', () => {
     `
 })
 
-export class SohoSpinboxTestComponent {
+class SohoSpinboxTestComponent {
   @ViewChild(SohoSpinboxComponent) spinbox: SohoSpinboxComponent;
 }
