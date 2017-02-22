@@ -3,6 +3,13 @@ export interface HeaderDynamicToolbarOptions {
   toolbarButtons: Array<HeaderDynamicButtonOptions>;
 }
 
+export interface ToolbarSearchField {
+  id: string;
+  label: string;
+  value: string;
+  collapsible: boolean;
+}
+
 /**
  * This is an interface mapping for programatically constructing a Toolbar.
  * This is useful when there is no template that can be used, for example

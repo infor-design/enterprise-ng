@@ -1,7 +1,7 @@
 <soho-header [hasTabs]="hasHeaderTabs" [hasToolbar]="hasHeaderToolbar">
 
   <!-- header toolbar -->
-  <soho-toolbar #appDynamicHeaderToolbar maxVisibleButtons="5" hasMoreButton="true">
+  <soho-toolbar #appDynamicHeaderToolbar maxVisibleButtons="5" hasMoreButton="!currentToolbarOptions">
 
     <soho-toolbar-title>
       <button soho-nav-button>Show Navigation</button>
@@ -18,11 +18,20 @@
     <soho-toolbar-button-set>
 
       <!-- search field -->
-      <input soho-toolbar-searchfield placeholder="Search" [clearable]="true" [collapsible]="true">
+      <!--<input soho-toolbar-searchfield placeholder="Search" [clearable]="true" [collapsible]="true">-->
+      <input soho-toolbar-searchfield
+        *ngIf="toolbarSearchField"
+        placeholder="{{toolbarSearchField?.label}}"
+        [(ngModel)]="toolbarSearchField.value"
+        [collapsible]="true"
+        [clearable]="true"
+        (keyup.enter)="fireSearchEvent($event)"
+        (cleared)="fireClearSearchEvent($event)"
+      />
 
       <template [ngIf]="currentToolbarOptions">
         <template ngFor let-button [ngForOf]="currentToolbarOptions?.toolbarButtons">
-          <button *ngIf="!button.menu" soho-button="icon" icon="{{button?.icon}}" id="{{button?.id}}" attr.data-button="{{button?.data}}">{{button?.text}}</button>
+          <button *ngIf="!button.menu" soho-button="secondary" icon="{{button?.icon}}" id="{{button?.id}}" attr.data-button="{{button?.data}}">{{button?.text}}</button>
 
           <template [ngIf]="button.menu">
             <button soho-menu-button id="{{button?.id}}" menu="buttonPopupMenu" icon="{{button?.icon}}"  attr.data-button="{{button?.data}}" >
@@ -44,23 +53,21 @@
     <!-- If the currentToolbarOptions are null/undefined then display the "default" toolbar buttons
          and more menu. -->
     <soho-toolbar-more-button>
-      <template [ngIf]="!currentToolbarOptions">
-        <ul class="popupmenu is-selectable">
-          <li class="heading" role="presentation">Theme</li>
-          <li class="is-selectable is-checked"><a href="#" data-theme="grey-theme">Light</a></li>
-          <li class="is-selectable"><a href="#" data-theme="dark-theme">Dark</a></li>
-          <li class="is-selectable"><a href="#" data-theme="high-contrast-theme">High Contrast</a></li>
-          <li class="separator"></li>
-          <li class="heading" role="presentation">Personalization</li>
-          <li class="is-selectable is-checked"><a data-rgbcolor="" href="#">Default</a></li>
-          <li class="is-selectable"><a data-rgbcolor="#368AC0" href="#">Azure</a></li>
-          <li class="is-selectable"><a data-rgbcolor="#EFA836" href="#">Amber</a></li>
-          <li class="is-selectable"><a data-rgbcolor="#9279A6" href="#">Amethyst</a></li>
-          <li class="is-selectable"><a data-rgbcolor="#579E95" href="#">Turqoise</a></li>
-          <li class="is-selectable"><a data-rgbcolor="#76B051" href="#">Emerald</a></li>
-          <li class="is-selectable"><a data-rgbcolor="#5C5C5C" href="#">Graphite</a></li>
-        </ul>
-      </template>
+      <ul class="popupmenu is-selectable">
+        <li class="heading" role="presentation">Theme</li>
+        <li class="is-selectable is-checked"><a href="#" data-theme="grey-theme">Light</a></li>
+        <li class="is-selectable"><a href="#" data-theme="dark-theme">Dark</a></li>
+        <li class="is-selectable"><a href="#" data-theme="high-contrast-theme">High Contrast</a></li>
+        <li class="separator"></li>
+        <li class="heading" role="presentation">Personalization</li>
+        <li class="is-selectable is-checked"><a data-rgbcolor="" href="#">Default</a></li>
+        <li class="is-selectable"><a data-rgbcolor="#368AC0" href="#">Azure</a></li>
+        <li class="is-selectable"><a data-rgbcolor="#EFA836" href="#">Amber</a></li>
+        <li class="is-selectable"><a data-rgbcolor="#9279A6" href="#">Amethyst</a></li>
+        <li class="is-selectable"><a data-rgbcolor="#579E95" href="#">Turqoise</a></li>
+        <li class="is-selectable"><a data-rgbcolor="#76B051" href="#">Emerald</a></li>
+        <li class="is-selectable"><a data-rgbcolor="#5C5C5C" href="#">Graphite</a></li>
+      </ul>
     </soho-toolbar-more-button>
 
   </soho-toolbar>
