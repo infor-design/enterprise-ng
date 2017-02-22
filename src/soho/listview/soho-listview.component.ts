@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  AfterViewChecked,
   ChangeDetectionStrategy,
   Component,
   ContentChild,
@@ -90,12 +91,17 @@ export class SohoListViewMicroComponent {
   `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoListViewComponent implements AfterViewInit, OnDestroy {
+export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterViewChecked {
 
   /**
    * String of classes to append to the class for the list-view div element
    */
   @Input() class: string;
+
+  /**
+   * Force a update to fire next viewChecked.
+   */
+  public updateRequired: boolean;
 
   /**
    * Array of data
@@ -104,7 +110,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy {
     this.options.dataset = value;
     if (this.jQueryElement && this.listview) {
       this.listview.settings.dataset = value;
-      this.listview.updated();
+      this.updateRequired = true;
     }
   }
   get dateset(): Object[] {
@@ -240,6 +246,12 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.on('rendered', (...args) => this.rendered.emit(args));
     this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
     this.jQueryElement.on('sorted', (...args) => this.sorted.emit(args));
+  }
+  ngAfterViewChecked() {
+    if (this.updateRequired) {
+      this.listview.updated();
+      this.updateRequired = false;
+    }
   }
   ngOnDestroy() {
     // Necessary clean up step (add additional here)
