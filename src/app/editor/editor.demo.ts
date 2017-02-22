@@ -23,9 +23,9 @@ export class EditorDemoComponent implements OnInit {
   };
   // tslint:enable
 
-  private showModel = false;
-  private editorDisabled = false;
-  private editorReadOnly = false;
+  public showModel = false;
+  public editorDisabled = false;
+  public editorReadOnly = false;
 
   constructor() { }
   ngOnInit() { }

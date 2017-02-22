@@ -150,10 +150,6 @@ type SohoDataGridSortFunction = (
 
 type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' | 'integer' | 'lookup' | 'percent' | 'select';
 
-type SohoEditorFieldFunction = (
-  item: any
-) => string;
-
 type SohoDataGridColumnEditorFunction = (
   row?: any,
   cell?: any,

@@ -55,11 +55,21 @@
           </div>
           <div class="card-content" style="overflow: hidden;">
             <soho-listview
+              [class]="'something-extra'"
               [dataset]="demoTasks"
               [searchable]="true"
-              (selected)="onSelected($event)">
+              selectable="multiple"
+              (rendered)="onRendered($event)"
+              (selected)="onSelected($event)"
+              (sorted)="onSorted($event)">
               <input soho-searchfield placeholder="Search" [clearable]="true">
-              <li soho-listview-item *ngFor="let data of demoTasks">
+              <soho-toolbar class="contextual-toolbar is-hidden">
+                <soho-toolbar-button-set>
+                  <button soho-button="tertiary" title="Assign Selected Items">Assign</button>
+                  <button soho-button="tertiary" title="Remove Selected Items">Remove</button>
+                </soho-toolbar-button-set>
+              </soho-toolbar>
+              <li soho-listview-item *ngFor="let data of demoTasks" [disabled]="data.disabled ? true : false">
                 <p soho-listview-header>Task #{{data.task}}</p>
                 <p soho-listview-subheader>{{data.desc}}</p>
                 <p soho-listview-micro>DUE: {{data.date}}</p>

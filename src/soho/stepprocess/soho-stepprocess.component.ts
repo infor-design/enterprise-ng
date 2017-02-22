@@ -203,7 +203,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
         console.log('stepprocess: only 1 observer is allowed for the beforeSelectStep event emitter');
       }
 
-      let beforeSelectStepEvent: BeforeSelectStepEvent = <any> {};
+      const beforeSelectStepEvent: BeforeSelectStepEvent = <any> {};
 
       // ------------------------------------------------------------------------------
       // The first beforeSelectStep is called before the this.stepprocess can be set.
@@ -211,7 +211,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
       // can be skipped.
       // ------------------------------------------------------------------------------
       if (this.stepprocess) {
-        let $selectedStep = this.stepprocess.getSelectedStep();
+        const $selectedStep = this.stepprocess.getSelectedStep();
         beforeSelectStepEvent.currentStepId = $selectedStep.children('a').attr('href').substring(1);
       }
 
@@ -224,16 +224,16 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     }
 
     return this.beforeSelectStepDeferred.promise();
-  };
+  }
 
   private beforeSelectStepResponse = (response: BeforeSelectStepResult) => {
     if (response.overrideTargetStepId) {
-      let stepLinkToSelect = $('.js-step-link[href="#' + response.overrideTargetStepId + '"]');
-      this.beforeSelectStepDeferred.resolve(response.continue, stepLinkToSelect)
+      const stepLinkToSelect = $('.js-step-link[href="#' + response.overrideTargetStepId + '"]');
+      this.beforeSelectStepDeferred.resolve(response.continue, stepLinkToSelect);
     } else {
       this.beforeSelectStepDeferred.resolve(response.continue);
     }
-  };
+  }
 
   ngOnDestroy() {
     if (this.stepprocess) {

@@ -17,7 +17,7 @@ type SohoMaskShowSymbol = false | 'currency' | 'percent';
  *  '0': /[0-9]/,
  *  'x': /[\u00C0-\u017Fa-zA-Z]/}
  */
-interface SohoMaskDefinitions {[key: string]: RegExp;}
+interface SohoMaskDefinitions { [key: string]: RegExp; }
 
 /** */
 interface SohoMaskEvent extends JQueryEventObject {

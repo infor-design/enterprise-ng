@@ -55,13 +55,13 @@ export class SohoHeaderDynamicDemoComponent {
    * Used by the component template to decide when to display the tabs.
    * @type {any}
    */
-  private currentToolbarOptions: HeaderDynamicToolbarOptions = null;
+  public currentToolbarOptions: HeaderDynamicToolbarOptions = null;
 
   /**
    * Used by the component template to decide when to display the toolbar.
    * @type {any}
    */
-  private currentTabsOptions: HeaderDynamicTabsetOptions = null;
+  public currentTabsOptions: HeaderDynamicTabsetOptions = null;
 
   constructor(private headerRef: HeaderDynamicDemoRefService) {
     this.headerRef.instance = this;
