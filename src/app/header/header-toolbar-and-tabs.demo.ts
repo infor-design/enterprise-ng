@@ -49,7 +49,7 @@ export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, OnDestr
   }
 
   private showHeaderToolbarAndTabs() {
-    this.sohoHeaderRef.instance.sectionTitle = 'Header Toolbar And Tabs Demo';
+    this.sohoHeaderRef.instance.pageTitle = 'Header Toolbar And Tabs Demo';
 
     if (!this.sohoHeaderRef.instance.hasHeaderTabs) {
       this.showHeaderTabs();
@@ -61,7 +61,7 @@ export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, OnDestr
   }
 
   private removeHeaderToolbarAndTabs() {
-    this.sohoHeaderRef.instance.sectionTitle = null;
+    this.sohoHeaderRef.instance.pageTitle = null;
 
     if (this.sohoHeaderRef.instance.hasHeaderTabs) {
       this.removeHeaderTabs();

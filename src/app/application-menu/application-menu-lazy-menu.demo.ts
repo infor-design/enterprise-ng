@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ApplicationMenuLazyService } from './application-menu-lazy-service.demo';
+import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -10,7 +11,12 @@ export class ApplicationMenuLazyMenuDemoComponent {
   @Input() menuSpec: Array<any>;
   @Output() subMenuLoaded: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private _lazyMenuService: ApplicationMenuLazyService) { }
+  constructor(
+    private _lazyMenuService: ApplicationMenuLazyService,
+    private sohoHeaderRef: HeaderDynamicDemoRefService
+  ) {
+    sohoHeaderRef.instance.pageTitle = 'Application Lazy Menu';
+  }
 
   public onLazyMenuClicked($event) {
     this._lazyMenuService.getMenuItems().then((response) => {

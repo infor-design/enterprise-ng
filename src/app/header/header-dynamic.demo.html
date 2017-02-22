@@ -6,8 +6,11 @@
     <soho-toolbar-title>
       <button soho-nav-button>Show Navigation</button>
       <h1>
-        <span [class.page-title]="sectionTitle" >SohoXI Angular Components</span>
-        <span *ngIf="sectionTitle" class="section-title">{{sectionTitle}}</span>
+        <h1 *ngIf="pageTitle" class='titleHeader'>
+          <span class='section-title'>SohoXI Angular Components</span>
+          <span class='page-title'>{{pageTitle}}</span>
+        </h1>
+        <span *ngIf="!pageTitle" class='page-title'>SohoXI Angular Components</span>
       </h1>
     </soho-toolbar-title>
 
@@ -18,7 +21,15 @@
     <soho-toolbar-button-set>
 
       <!-- search field -->
-      <input soho-toolbar-searchfield placeholder="Search" [clearable]="true" [collapsible]="true">
+      <input soho-toolbar-searchfield
+        *ngIf="toolbarSearchField"
+        placeholder="{{toolbarSearchField?.label}}"
+        [(ngModel)]="toolbarSearchField.value"
+        [collapsible]="toolbarSearchField?.collapsible"
+        [clearable]="true"
+        (keyup.enter)="fireSearchEvent($event)"
+        (cleared)="fireClearSearchEvent($event)"
+      />
 
       <template [ngIf]="currentToolbarOptions">
         <template ngFor let-button [ngForOf]="currentToolbarOptions?.toolbarButtons">

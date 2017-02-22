@@ -25,7 +25,7 @@ export class SohoHeaderDynamicDemoComponent {
   /**
    * The current screen title
    */
-  @Input() sectionTitle: string;
+  @Input() pageTitle: string;
 
   /**
    * Sets the header toolbar using TabOptions
@@ -51,11 +51,27 @@ export class SohoHeaderDynamicDemoComponent {
     });
   }
 
+  @Input() set toolbarSearchField(searchField: LMToolbarSearchField) {
+    this._toolbarSearchField = searchField;
+  }
+
+  get toolbarSearchField(): LMToolbarSearchField {
+    return this._toolbarSearchField;
+  }
+
+  public _toolbarSearchField: LMToolbarSearchField = {
+    id: 'toolbarSearchField',
+    label: 'Search',
+    value: '',
+    collapsible: false
+  };
+
   /**
    * Used by the component template to decide when to display the tabs.
    * @type {any}
    */
   private currentToolbarOptions: HeaderDynamicToolbarOptions = null;
+
 
   /**
    * Used by the component template to decide when to display the toolbar.
@@ -82,4 +98,22 @@ export class SohoHeaderDynamicDemoComponent {
   public get tabOptions(): HeaderDynamicTabsetOptions {
     return this.currentTabsOptions;
   }
+
+  fireSearchEvent(event) {
+    alert('run search value : "' + this.toolbarSearchField.value + '"');
+  }
+
+  fireClearSearchEvent(event) {
+    alert('search value cleared');
+  }
+
+
 }
+
+interface LMToolbarSearchField {
+  id: string;
+  label: string;
+  value: string;
+  collapsible: boolean;
+}
+

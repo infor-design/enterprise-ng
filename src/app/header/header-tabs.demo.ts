@@ -42,7 +42,7 @@ export class HeaderTabsDemoComponent implements AfterViewInit, OnDestroy {
   private showHeaderTabs() {
     if (!this.sohoHeaderRef.instance.hasHeaderTabs) {
       this.currentTabsOptions = this.tabOptions;
-      this.sohoHeaderRef.instance.sectionTitle = 'Header Tabs Demo';
+      this.sohoHeaderRef.instance.pageTitle = 'Header Tabs Demo';
       this.sohoHeaderRef.instance.tabOptions = this.currentTabsOptions;
     }
   }
@@ -57,7 +57,7 @@ export class HeaderTabsDemoComponent implements AfterViewInit, OnDestroy {
     // ----------------------------------------------------------------
     if (this.sohoHeaderRef.instance.hasHeaderTabs) {
       this.currentTabsOptions = undefined;
-      this.sohoHeaderRef.instance.sectionTitle = null;
+      this.sohoHeaderRef.instance.pageTitle = null;
       this.sohoHeaderRef.instance.tabOptions = undefined;
     }
   }

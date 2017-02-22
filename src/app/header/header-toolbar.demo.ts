@@ -61,7 +61,7 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
    */
   private showHeaderToolbar() {
     if (!this.sohoHeaderRef.instance.hasHeaderToolbar) {
-      this.sohoHeaderRef.instance.sectionTitle = 'Header Toolbar Demo';
+      this.sohoHeaderRef.instance.pageTitle = 'Header Toolbar Demo';
       this.sohoHeaderRef.instance.toolbarOptions = this.toolbarOptions;
       this.buttonClickedSubscription = this.sohoHeaderRef.instance.sohoToolbarComponent.selected.subscribe(event =>
         this.onToolbarButtonClicked(event));
@@ -73,7 +73,7 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
    */
   private removeHeaderToolbar() {
     if (this.sohoHeaderRef.instance.hasHeaderToolbar) {
-      this.sohoHeaderRef.instance.sectionTitle = null;
+      this.sohoHeaderRef.instance.pageTitle = null;
       this.sohoHeaderRef.instance.toolbarOptions = undefined;
       this.buttonClickedSubscription.unsubscribe();
     }
