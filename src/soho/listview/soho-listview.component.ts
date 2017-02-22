@@ -1,7 +1,6 @@
 import {
   AfterViewChecked,
   AfterViewInit,
-  AfterViewChecked,
   ChangeDetectionStrategy,
   Component,
   ContentChild,
