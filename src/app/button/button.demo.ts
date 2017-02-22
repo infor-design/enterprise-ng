@@ -3,7 +3,6 @@ import {
   OnInit,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
 @Component({
   selector: 'soho-button-demo',
@@ -13,9 +12,7 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
 export class ButtonDemoComponent implements OnInit {
   public shouldSayHi = false;
 
-  constructor(private sohoHeaderRef: HeaderDynamicDemoRefService) {
-    sohoHeaderRef.instance.pageTitle = 'Buttons';
-  }
+  constructor() {}
   ngOnInit() {}
   toggleHello() {
     this.shouldSayHi = !this.shouldSayHi;
