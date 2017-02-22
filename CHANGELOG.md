@@ -31,17 +31,8 @@ Release Date: 2016-10-31
  * 2017-02-04 - TH - Version Update
    * Upgraded to angular-cli 1.0.0-beta-30
    * Upgraded to TypeScript 2.1.x
-   * To upgrade to the @angular/cli:    
-     ```
-     npm uninstall -g angular-cli
-     npm cache clean
-     npm install -g @angular/cli@latest
-     rm -rf node_modules dist
-     npm uninstall --save-dev angular-cli
-     npm install --save-dev @angular/cli@latest
-     npm install
-     ng update
-     ```
+ * 2017-02-22 - TH - Version Update
+   * Upgraded to @angular/cli 1.0.0-beta.32.3
 
 ### Breaking Changes
 
@@ -71,3 +62,38 @@ Release Date: 2016-10-31
     removed SohoDataGridConfiguration merged into SohoDataGridOptions
     refactored SohoResponseFunction -> SohoDataGridResponseFunction
     removed SohoDatagridSource (abstract class) for source functions
+
+* 2017-02-22 - TH - PR-242
+  * Summary of Changes
+    * *angular-cli.json*.
+      * This file has been renamed as *.angular-cli.json*
+      * There are some changes to how the environment is loaded.
+    * *src/tsconfig*
+      * the TypeScript code is now compiled into *es6* JavaScript.
+      * "es5" is now "es6"
+    * *src/polyfills.js* 
+      * *es6* polyfills must now be added as required, specifically for IE11.
+    * *package.json* 
+      * has a few version bumps.
+    * *protractor.conf.js* 
+      * some changes
+    * *karma.conf.js*
+      * the code coverage tool has changed to use a different module, from *karma-remap-instanbul* to *coverage-instanbul*.
+      * this requires a few changes (compare with a new project)
+
+## Upgrading
+
+When upgrading, I find the best way is to do the following:
+```
+npm uninstall -g @angular/cli 
+npm cache clean
+npm install -g @angular/cli@latest
+cd c:\git
+mkdir new-app
+ng new 
+```
+then compare the folders using **Beyond Compare** (or whatever you have).  Finally, 
+```
+rm -rf node_modules dist
+npm install
+ ```
