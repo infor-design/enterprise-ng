@@ -54,6 +54,7 @@ In a terminal window, in the project folder:
 3. Type `npm install @types/jquery -S`
 4. Type `npm install @infor/sohoxi@4.2.5-develop -S` 
 5. Type `npm install @infor/sohoxi-angular@4.2.5-develop -S` 
+6. Type `npm install merge-stream -S`
 
 This includes all the packages we need to create this simple quick start application.
 
@@ -88,6 +89,7 @@ application.
 Create a gulpfile.js file in the root of your project, consisting of the following:
 ```typescript
 var gulp = require('gulp');
+var merge = require('merge-stream');
 
 gulp.task("copy-assets", function () {
     var css = gulp.src('./node_modules/@infor/sohoxi/dist/css/**/*.css')
