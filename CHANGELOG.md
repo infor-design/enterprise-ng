@@ -64,6 +64,7 @@ Release Date: 2016-10-31
     removed SohoDatagridSource (abstract class) for source functions
 
 * 2017-02-22 - TH - PR-242
+  * Both the CLI and generated project have dependencies that require Node 6.9.0 or higher, together with NPM 3 or higher.
   * Summary of Changes
     * *angular-cli.json*.
       * This file has been renamed as *.angular-cli.json*

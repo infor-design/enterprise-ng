@@ -6,7 +6,7 @@ You can download the latest version of the code from [quickstart](http://git.inf
 
 ## Prerequisites
 
-If **Node.js** and npm aren't already on your machine, install them. These examples require Node 4 or higher and NPM 3 or higher. To check which version you are using,
+If **Node.js** and npm aren't already on your machine, install them. These examples require Node 6 or higher and NPM 3 or higher. To check which version you are using,
 run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **@angular/cli** to create, build and run the application.  
