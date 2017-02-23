@@ -26,4 +26,9 @@ export class DataGridPagingServiceDemoService extends SohoDataGridService {
     const result: any = { total: 100, data: data };
     return Observable.of(result);
   }
+
+  getAllData (): Array<any> {
+    return this.data;
+  }
+
 }
