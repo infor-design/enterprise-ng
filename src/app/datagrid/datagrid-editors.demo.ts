@@ -187,6 +187,9 @@ export class DataGridEditorsDemoComponent implements AfterViewInit {
       filterable: true,
     };
   }
+
+  export (e: any) {
+    this.sohoDataGridComponent.exportToExcel('', '', null);
+  }
+
 }
-
-
