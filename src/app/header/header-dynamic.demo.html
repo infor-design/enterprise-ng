@@ -18,12 +18,11 @@
     <soho-toolbar-button-set>
 
       <!-- search field -->
-      <!--<input soho-toolbar-searchfield placeholder="Search" [clearable]="true" [collapsible]="true">-->
       <input soho-toolbar-searchfield
         *ngIf="toolbarSearchField"
         placeholder="{{toolbarSearchField?.label}}"
         [(ngModel)]="toolbarSearchField.value"
-        [collapsible]="true"
+        [collapsible]="false"
         [clearable]="true"
         (keyup.enter)="fireSearchEvent($event)"
         (cleared)="fireClearSearchEvent($event)"

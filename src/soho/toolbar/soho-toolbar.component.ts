@@ -1,14 +1,140 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   Component,
+  ChangeDetectorRef,
   ChangeDetectionStrategy,
   ElementRef,
   EventEmitter,
   HostBinding,
   Input,
   Output,
-  OnDestroy
+  OnDestroy,
 } from '@angular/core';
+
+// copied wrapper component from soho-searchfield.component.ts. not sure it's needed.
+// @Component({
+//   selector: 'span[soho-toolbar-searchfield-wrapper]', // tslint:disable-line
+//   template: `<ng-content></ng-content>`
+// })
+// export class SohoToolbarSearchFieldWrapperComponent {
+//   @HostBinding('class.searchfield-wrapper') get isSearchfieldWrapper() { return true; }
+//   @HostBinding('class.toolbar-searchfield-wrapper') get isToolbarSearchfieldWrapper() { return true; }
+// }
+
+@Component({
+  selector: 'input[soho-toolbar-searchfield]', // tslint:disable-line
+  template: '<div #toolbarSearchField><ng-content></ng-content></div>'
+})
+export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
+  /** Options. */
+  @Input() options: SohoToolbarSearchFieldOptions = {};
+
+  /** Adds an X button for clearing the search value. */
+  @Input() set clearable(value: boolean) {
+    this.options.clearable = value;
+    if (this.toolbarsearchfield) {
+      this.toolbarsearchfield.settings.clearable = value;
+      this.markForRefresh();
+    }
+  }
+
+  /** Where it's collapsible or not */
+  @Input() set collapsible(value: boolean) {
+    this.options.collapsible = value;
+    if (this.toolbarsearchfield) {
+      this.toolbarsearchfield.settings.collapsible = value;
+      this.markForRefresh();
+    }
+  }
+
+  /** AutoComplete : Source Function/Data/Url/Array */
+  @Input() set source(value: SohoAutoCompleteSource) {
+    this.options.source = value;
+    if (this.toolbarsearchfield) {
+      this.toolbarsearchfield.settings.source = value;
+      this.markForRefresh();
+    }
+  }
+
+  /** Template that can be passed */
+  @Input() set template(value: string) {
+    this.options.template = value;
+    if (this.toolbarsearchfield) {
+      this.toolbarsearchfield.settings.template = value;
+      this.markForRefresh();
+    }
+  }
+
+  // ------------------------------------------------------------
+
+  @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+  @Output() cleared: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+
+  @HostBinding('class.searchfield') get isSearchField() { return true; }
+
+  /**
+   * Local variables
+   */
+  private jQueryElement: JQuery;
+  private toolbarsearchfield: SohoToolbarSearchFieldStatic;
+  private searchFieldChanged: boolean = false;
+
+  constructor(
+    private changeDetector: ChangeDetectorRef,
+    private element: ElementRef,
+  ) {}
+
+  ngAfterViewInit() {
+    // ------------------------------------------------------------------------
+    // Use setTimeOut so that the search field control isn't initialized
+    // with the toolbarsearchfield inputs until after the toolbar is created.
+    // ------------------------------------------------------------------------
+    setTimeout(() => {
+      this.initSohoControl();
+    }, 1);
+  }
+
+  private initSohoControl() {
+    this.jQueryElement = jQuery(this.element.nativeElement);
+    this.jQueryElement.toolbarsearchfield(this.options);
+    this.toolbarsearchfield = this.jQueryElement.data('toolbarsearchfield');
+
+    /**
+     * Bind to jQueryElement's events
+     */
+    this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
+    this.jQueryElement.on('cleared', (...args) => this.cleared.emit(args));
+  }
+
+  ngAfterViewChecked() {
+    if (this.searchFieldChanged) {
+      this.toolbarsearchfield.updated();
+      this.searchFieldChanged = false;
+    }
+  }
+
+  ngOnDestroy() {
+    // Necessary clean up step (add additional here)
+    if (this.toolbarsearchfield) {
+      this.toolbarsearchfield.destroy();
+      this.toolbarsearchfield = null;
+    }
+  }
+
+  clear(): void {
+    this.toolbarsearchfield.clear();
+  }
+
+  private markForRefresh() {
+    this.searchFieldChanged = true;
+
+    // ... make sure the change detector kicks in, otherwise if the inputs
+    // were change programmatially the component may not be eligible for
+    // updating.
+    this.changeDetector.markForCheck();
+  }
+}
 
 /**
  * soho toolbar more button
@@ -116,7 +242,7 @@ export class SohoToolbarButtonSetComponent {
   templateUrl: './soho-toolbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
+export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
   @HostBinding('class.toolbar') get isToolbar() { return true; };
   @HostBinding('class.has-more-button') get showMoreButton() {
     return this.options.hasMoreButton;
@@ -127,11 +253,12 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
     // instead. For example when a @media query wants to set something to display: none.
     return this.element.nativeElement.tagName === 'SOHO-TOOLBAR' ? 'block' : null;
   }
+
   @Input() set hasMoreButton(value: boolean) {
     this.options.hasMoreButton = value;
     if (this.toolbar) {
       this.toolbar.settings.hasMoreButton = value;
-      this.toolbar.updated();
+      this.markForRefresh();
     }
   }
 
@@ -139,7 +266,7 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
     this.options.maxVisibleButtons = value;
     if (this.toolbar) {
       this.toolbar.settings.maxVisibleButtons = value;
-      this.toolbar.updated();
+      this.markForRefresh();
     }
   }
 
@@ -147,7 +274,7 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
     this.options.rightAlign = value;
     if (this.toolbar) {
       this.toolbar.settings.rightAlign = value;
-      this.toolbar.updated();
+      this.markForRefresh();
     }
   }
 
@@ -183,8 +310,12 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
   private options: SohoToolbarOptions = {};
   private jQueryElement: JQuery;
   private toolbar: SohoToolbarStatic;
+  private toolbarChanged: boolean;
 
-  constructor(private element: ElementRef) { }
+  constructor(
+    private changeDetector: ChangeDetectorRef,
+    private element: ElementRef
+  ) {}
 
   ngAfterViewInit() {
     // Assign element to local variable
@@ -213,6 +344,13 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
     this.toolbar = this.jQueryElement.data('toolbar');
   }
 
+  ngAfterViewChecked() {
+    if (this.toolbarChanged) {
+      this.toolbar.updated();
+      this.toolbarChanged = false;
+    }
+  }
+
   ngOnDestroy() {
     if (this.toolbar) {
       this.toolbar.destroy();
@@ -224,5 +362,14 @@ export class SohoToolbarComponent implements AfterViewInit, OnDestroy {
     if (this.toolbar) {
       this.toolbar.updated();
     }
+  }
+
+  private markForRefresh() {
+    this.toolbarChanged = true;
+
+    // ... make sure the change detector kicks in, otherwise if the inputs
+    // were change programmatially the component may not be eligible for
+    // updating.
+    this.changeDetector.markForCheck();
   }
 }
