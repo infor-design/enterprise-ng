@@ -260,12 +260,10 @@ interface SohoDataGridColumn {
   /** Icon to use. */
   icon?: string;
 
-  /**
-   * Name of the editor to instantiate (using new), or a SohoDataGridColumnEditorFunction.
-   */
+  /** Name of the editor to instantiate (using new), or a SohoDataGridColumnEditorFunction. */
   editor?: SohoDataGridColumnEditorFunction | string;
 
-  /** @todo fix type from any.  */
+  /** Options associated with the associated editor type, e.g. SohoDropDownOptions. */
   editorOptions?: any;
 
   // 'checkbox', 'date', 'decimal', 'contents', 'select' otherwise a string.

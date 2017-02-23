@@ -11,7 +11,7 @@ run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **@angular/cli** to create, build and run the application.  
 
-At the time of writing the version of **@angular/cli** used was 1.0.0-beta.30.
+At the time of writing the version of **@angular/cli** used was 1.0.0-beta.32-3.
 
 In addition, **gulp** is used to perform additional build and deployment steps required to get the application built.
 
@@ -96,9 +96,11 @@ Create a gulpfile.js file in the root of your project, consisting of the followi
 var gulp = require('gulp');
 
 gulp.task("copy-assets", function () {
-    return gulp
-        .src('./node_modules/@infor/sohoxi/dist/css/*theme.css*')
+    var css = gulp.src('./node_modules/@infor/sohoxi/dist/css/**/*.css')
         .pipe(gulp.dest('./src/assets/css'))
+    var svg = gulp.src('./node_modules/@infor/sohoxi/dist/svg/**/*.html')
+        .pipe(gulp.dest('./src/assets/svg'))
+    return merge(css, svg);
 });
 ```
 Then run:

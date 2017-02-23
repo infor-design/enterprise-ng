@@ -15,7 +15,7 @@ interface SohoStepProcessOptions {
   /**
    * Whether to enforce a linear progression through the stepprocess or not.
    */
-  linearProgression?: boolean,
+  linearProgression?: boolean;
 
   /**
    * The callback function called before the step selection changes.

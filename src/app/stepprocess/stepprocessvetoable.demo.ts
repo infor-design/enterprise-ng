@@ -11,13 +11,13 @@ import { Observable } from 'rxjs/Observable';
 })
 export class StepProcessVetoableDemoComponent {
 
-  private infoSubSteps: Array<InfoSubStep> = undefined;
-  private showBusyIndicator: boolean = false;
-  private showStep4: boolean = false;
+  public infoSubSteps: Array<InfoSubStep> = undefined;
+  public showBusyIndicator: boolean = false;
+  public showStep4: boolean = false;
 
-  private vetoStep2: boolean = false;
-  private addStep4: boolean = false;
-  private vetoHistorySubStep2: boolean = false;
+  public vetoStep2: boolean = false;
+  public addStep4: boolean = false;
+  public vetoHistorySubStep2: boolean = false;
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef
@@ -26,11 +26,11 @@ export class StepProcessVetoableDemoComponent {
   onBeforeSelectStep(event: BeforeSelectStepEvent) {
     this.showBusyIndicator = true;
 
-    let result: BeforeSelectStepResult = <any> {};
+    const result: BeforeSelectStepResult = <any> {};
 
     if (event.currentStepId === 'profile' && this.vetoStep2) {
 
-      alert("cant go to that step");
+      alert('cant go to that step');
       result.continue = false;
 
     } else if (event.currentStepId === 'preferences' && this.addStep4) {
@@ -43,9 +43,9 @@ export class StepProcessVetoableDemoComponent {
     } else if (event.currentStepId === 'myhistory-1' && this.vetoHistorySubStep2) {
 
       result.continue = false;
-      alert("cant go to that substep");
+      alert('cant go to that substep');
 
-    } else if (event.targetStepId == "information" && !this.infoSubSteps) {
+    } else if (event.targetStepId === 'information' && !this.infoSubSteps) {
 
       this.infoSubSteps = this.buildInfoSubSteps();
       this.changeDetectorRef.detectChanges();
@@ -73,7 +73,7 @@ export class StepProcessVetoableDemoComponent {
         title: 'Family - step 7-2',
         content: 'This is Information SubStep2'
       }
-    ]
+    ];
   }
 }
 

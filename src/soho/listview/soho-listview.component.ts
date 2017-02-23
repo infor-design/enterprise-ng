@@ -209,7 +209,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
   // Used to locate the listViewReference in the HTML to init the component through jQuery
   @ViewChild('listview') listViewRef: ElementRef;
   @ContentChild(forwardRef(() => SohoSearchFieldComponent))
-  private searchfieldRef: SohoSearchFieldComponent = null;
+  public searchfieldRef: SohoSearchFieldComponent = null;
 
   /**
    * Local variables
@@ -253,6 +253,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
       this.updateRequired = false;
     }
   }
+
   ngOnDestroy() {
     // Necessary clean up step (add additional here)
     this.listview.destroy();
