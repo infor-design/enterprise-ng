@@ -1,13 +1,15 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   Component,
+  ChangeDetectorRef,
   ChangeDetectionStrategy,
   ElementRef,
   EventEmitter,
   HostBinding,
   Input,
   Output,
-  OnDestroy, ViewChild, ViewChildren, QueryList, ContentChildren, ContentChild, ChangeDetectorRef, AfterViewChecked
+  OnDestroy,
 } from '@angular/core';
 
 // copied wrapper component from soho-searchfield.component.ts. not sure it's needed.
