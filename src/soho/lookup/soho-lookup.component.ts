@@ -1,12 +1,13 @@
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
   HostBinding,
   Input,
   OnDestroy,
-  Output, ChangeDetectorRef
+  Output
 } from '@angular/core';
 
 import {
@@ -218,11 +219,10 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    *
    * @param value - the new value
    */
-  setValue(value: any)
-  {
+  setValue(event: SohoLookupChangeEvent[]) {
     if (this.lookup) {
-      this.value = value;
-      this.lookup.element.val(this.processValue(value));
+      this.onChange(event);
+      this.lookup.element.val(this.processValue(this.value));
     }
   }
 
@@ -237,7 +237,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     if (this.lookup) {
       // The processing is required to ensure we use the correct format
       // in the control.
-      this.lookup.element.val(this.processValue(value));
+      this.lookup.element.val(value);
     }
   }
 }

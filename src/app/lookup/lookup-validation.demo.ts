@@ -47,7 +47,7 @@ export class LookupValidationDemoComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.sohoLookups.last.writeValue({productId: 2142201});
+    this.sohoLookups.last.writeValue('2142201');
   }
 
   requestData(filter?: string, page?: number, pagesize?: number): Promise<FakeResponse> {
@@ -104,9 +104,9 @@ export class LookupValidationDemoComponent implements AfterViewInit {
   }
 
   clearModel() {
-    this.model.single = {productId: ''};
-    this.model.multi = {productId: ''};
-    this.model.async = {productId: ''};
+    this.model.single = '';
+    this.model.multi = '';
+    this.model.async = '';
   }
 
   /**
