@@ -6,7 +6,7 @@ import {
   HostBinding,
   Input,
   OnDestroy,
-  Output
+  Output, ChangeDetectorRef
 } from '@angular/core';
 
 import {
@@ -94,8 +94,8 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   /** Initial dataset */
   private _dataset: Object[];
 
-  constructor(private element: ElementRef) {
-    super();
+  constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
+    super(changeDetectionRef);
   }
 
   ngAfterViewInit() {

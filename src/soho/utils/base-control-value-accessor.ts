@@ -1,4 +1,4 @@
-import { forwardRef } from '@angular/core';
+import { forwardRef, ChangeDetectorRef } from '@angular/core';
 
 import {
   NG_VALUE_ACCESSOR,
@@ -22,6 +22,10 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
   /** Gets the value for the control. */
   protected get value(): T {
     return this._value;
+  }
+
+  constructor(private _changeDetectionRef: ChangeDetectorRef)
+  {
   }
 
   /** Sets the value for the control. */
@@ -49,22 +53,8 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
    * Write a new value to the element.
    */
   writeValue(value: T) {
-    // setTimeout here
-    // Expression has changed after it was checked
-    // This was mentioned in https://github.com/angular/angular/issues/6005
-    // See bennadel's comment
-    // https://www.bennadel.com/blog/3040-i-have-a-fundamental-misunderstanding-of-change-detection-in-angular-2-beta-8.htm
-    // See Ward Bell's comment
-
-    // OPEN RELATED TICKETS
-    // https://github.com/angular/angular/issues/10131
-    // https://github.com/angular/angular/issues/10816
-
-
-    setTimeout(() => {
       this._value = value;
-      // this._onChangeCallback(value);
-    }, 1);
+      this._changeDetectionRef.markForCheck();
   }
 
   /**
