@@ -35,14 +35,14 @@ export class LookupValidationDemoComponent implements AfterViewInit {
   // So we can bind 'this' to the source function passed to the lookup control
   public context = this;
 
-  private form: FormGroup;
+  public form: FormGroup;
   private formGroup: { [key: string]: any } = {};
 
   constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group(this.formGroup);
-    this.form.addControl("product_single", new FormControl(''));
-    this.form.addControl("product_multi", new FormControl([]));
-    this.form.addControl("product_async", new FormControl(''));
+    this.form.addControl('product_single', new FormControl(''));
+    this.form.addControl('product_multi', new FormControl([]));
+    this.form.addControl('product_async', new FormControl(''));
     this.setupProducts();
   }
 

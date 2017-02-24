@@ -24,9 +24,7 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
     return this._value;
   }
 
-  constructor(private _changeDetectionRef: ChangeDetectorRef)
-  {
-  }
+  constructor(private _changeDetectionRef: ChangeDetectorRef) {}
 
   /** Sets the value for the control. */
   protected set value(newValue: T) {
