@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
@@ -94,8 +95,8 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   /** Initial dataset */
   private _dataset: Object[];
 
-  constructor(private element: ElementRef) {
-    super();
+  constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
+    super(changeDetectionRef);
   }
 
   ngAfterViewInit() {
@@ -171,6 +172,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   onChange(event: SohoLookupChangeEvent[]) {
     if (!event) {
       // sometimes the event is not available
+      this.value = this.lookup.element.val();
       return;
     }
 
@@ -212,6 +214,19 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   /**
+   * Set lookup value to allow the lookup
+   * element to be updated correctly.
+   *
+   * @param value - the new value
+   */
+  setValue(event: SohoLookupChangeEvent[]) {
+    if (this.lookup) {
+      this.onChange(event);
+      this.lookup.element.val(this.processValue(this.value));
+    }
+  }
+
+  /**
    * Override writeValue to allow the lookup
    * element to be updated correctly.
    *
@@ -219,10 +234,10 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    */
   writeValue(value: any) {
     super.writeValue(value);
-    if (this.lookup && value) {
+    if (this.lookup) {
       // The processing is required to ensure we use the correct format
       // in the control.
-      this.lookup.element.val(this.processValue(value));
+      this.lookup.element.val(value);
     }
   }
 }
