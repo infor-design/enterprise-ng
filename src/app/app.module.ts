@@ -56,6 +56,7 @@ import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
+import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
@@ -139,6 +140,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     LabelDemoComponent,
     ListViewDemoComponent,
     LookupDemoComponent,
+    LookupValidationDemoComponent,
     MaskDemoComponent,
     MenuButtonDemoComponent,
     MessageDemoComponent,
