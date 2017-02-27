@@ -15,9 +15,6 @@ module.exports = function (config) {
       require('karma-mocha-reporter'),
       require('karma-bamboo-reporter')
     ],
-    client:{
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
-    },
     mochaReporter: {
       colors: {
         success: 'white',
@@ -62,10 +59,12 @@ module.exports = function (config) {
     },
     port: 9876,
     colors: true,
-    logLevel: config.LOG_DEBUG,
+    logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome' ],
-    browserNoActivityTimeout: 20000,
+    browserDisconnectTimeout : 10000, // default 2000
+    browserDisconnectTolerance : 1, // default 0
+    browserNoActivityTimeout : 60000, //default 10000
     singleRun: true
   });
 };

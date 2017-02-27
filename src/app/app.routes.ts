@@ -1,4 +1,4 @@
-import { ModuleWithProviders } from '@angular/core';
+﻿import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AlertDemoComponent } from './alert/alert.demo';
@@ -49,6 +49,7 @@ import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo
 import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
 import { StepProcessDemoComponent } from './stepprocess/stepprocess.demo';
 import { StepProcessDataDrivenDemoComponent } from './stepprocess/stepprocess-data-driven.demo';
+import { SwapListDemoComponent } from './swaplist/swaplist.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
@@ -127,6 +128,7 @@ export const routes: Routes = [
   { path: 'step-process',          component: StepProcessDemoComponent },
   { path: 'step-data-driven',      component: StepProcessDataDrivenDemoComponent },
   { path: 'step-process-vetoable', component: StepProcessVetoableDemoComponent },
+  { path: 'swaplist',			   component: SwapListDemoComponent },
   { path: 'spinbox',               component: SpinboxDemoComponent },
   { path: 'tabs-basic',            component: TabsBasicDemoComponent },
   { path: 'tabs-counts',           component: TabsCountsDemoComponent },

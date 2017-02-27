@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+﻿import { NgModule } from '@angular/core';
 import { SohoApplicationMenuModule } from './application-menu/soho-application-menu.module';
 import { SohoBusyIndicatorModule } from './busyindicator/soho-busyindicator.module';
 import { SohoButtonModule } from './button/soho-button.module';
@@ -33,6 +33,7 @@ import { SohoSliderModule } from './slider/soho-slider.module';
 import { SohoSplitterModule } from './splitter/soho-splitter.module';
 import { SohoSpinboxModule } from './spinbox/soho-spinbox.module';
 import { SohoStepProcessModule } from './stepprocess/soho-stepprocess.module';
+import { SohoSwapListModule } from './swaplist/soho-swaplist.module';
 import { SohoTabsModule } from './tabs/soho-tabs.module';
 import { SohoTextAreaModule } from './textarea/soho-textarea.module';
 import { SohoTimePickerModule } from './timepicker/soho-timepicker.module';
@@ -78,6 +79,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoSliderModule,
     SohoSpinboxModule,
     SohoStepProcessModule,
+    SohoSwapListModule,
     SohoTabsModule,
     SohoTextAreaModule,
     SohoTimePickerModule,
@@ -123,6 +125,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoSplitterModule,
     SohoSpinboxModule,
     SohoStepProcessModule,
+    SohoSwapListModule,
     SohoTabsModule,
     SohoTextAreaModule,
     SohoTimePickerModule,
