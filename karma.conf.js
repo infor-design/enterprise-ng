@@ -15,9 +15,6 @@ module.exports = function (config) {
       require('karma-mocha-reporter'),
       require('karma-bamboo-reporter')
     ],
-    client:{
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
-    },
     mochaReporter: {
       colors: {
         success: 'white',
@@ -45,11 +42,10 @@ module.exports = function (config) {
       fixWebpackSourcePaths: true
     },
     angularCli: {
-      config: './.angular-cli.json',
       environment: 'dev'
     },
     reporters: config.angularCli && config.angularCli.codeCoverage
-              ? ['progress', 'coverage-instanbul', 'mocha']
+              ? ['progress', 'coverage-istanbul', 'mocha']
               : ['progress', 'kjhtml', 'mocha'],
     mocha:{
       outputFile: 'tests/results.txt'
@@ -62,10 +58,12 @@ module.exports = function (config) {
     },
     port: 9876,
     colors: true,
-    logLevel: config.LOG_DEBUG,
+    logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome' ],
-    browserNoActivityTimeout: 20000,
-    singleRun: true
+    browserDisconnectTimeout : 10000, // default 2000
+    browserDisconnectTolerance : 1, // default 0
+    browserNoActivityTimeout : 60000, //default 10000
+    singleRun: false
   });
 };
