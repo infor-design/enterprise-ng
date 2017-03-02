@@ -103,7 +103,7 @@ export class SohoStepListItemTitleComponent {
   template: `<ng-content></ng-content>`
 })
 export class SohoStepContentTitleComponent {
-  @HostBinding('class.dual-title') @Input() dualTitle: boolean = false;
+  @HostBinding('class.heading') isHeading: boolean = true;
 }
 
 /**************************************************************
@@ -145,7 +145,6 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.fixed') isFixed= true;
   @HostBinding('class.page-container') isPageContainer = true;
   @HostBinding('class.no-scroll') isNoScroll = true;
-  @HostBinding('class.show-main') isShowMain = true;
   @HostBinding('attr.role') main: string = 'main';
 
   // ------------------------------------------------------------------------
