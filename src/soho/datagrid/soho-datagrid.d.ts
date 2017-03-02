@@ -232,7 +232,7 @@ type SohoDataGridColumnHrefFunction = (
   value: any
  ) => string;
 
- type SohoDataGridColumnHref =  string | SohoDataGridColumnHrefFunction;
+ type SohoDataGridColumnHref = string | SohoDataGridColumnHrefFunction;
 
 /**
  * This is an interface mapping for the grid column defined
@@ -326,7 +326,7 @@ interface SohoDataGridColumn {
   expanded?: string;
 
   /** href for hyperlink */
-  href?: SohoDataGridColumnHref | string;
+  href?: SohoDataGridColumnHref;
 }
 
 interface SohoGridCellOption {
