@@ -10,9 +10,6 @@ var fs = require('fs'),
 if (!version) {
 	console.log("[Error] Either soho_next_version should be set or version should be passed in");
 	process.exit(1);
-} else if (version === pkg.version) {
-  console.log("[Error] New version cannot match current version.");
-	process.exit(1);
 } else {
   pkg.version = version;
 }
