@@ -315,6 +315,10 @@ interface SohoDataGridColumn {
 
   /** The name of the property that controls whether a row is expanded or not. */
   expanded?: string;
+
+  /** @todo fix type from any */
+  href?: any
+
 }
 
 interface SohoGridCellOption {
