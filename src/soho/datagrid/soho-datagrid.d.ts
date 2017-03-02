@@ -225,6 +225,15 @@ declare var Formatters: {
 
 // declare var Formatters as SohoDataGridColumnFormatters;
 
+type SohoDataGridColumnHrefFunction = (
+  row: any,
+  cell: any,
+  col: SohoDataGridColumn,
+  value: any
+ ) => string;
+
+ type SohoDataGridColumnHref =  string | SohoDataGridColumnHrefFunction;
+
 /**
  * This is an interface mapping for the grid column defined
  * within the Soho jQuery Control.
@@ -316,9 +325,8 @@ interface SohoDataGridColumn {
   /** The name of the property that controls whether a row is expanded or not. */
   expanded?: string;
 
-  /** @todo fix type from any */
-  href?: any
-
+  /** href for hyperlink */
+  href?: SohoDataGridColumnHref | string;
 }
 
 interface SohoGridCellOption {
