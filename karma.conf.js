@@ -15,6 +15,9 @@ module.exports = function (config) {
       require('karma-mocha-reporter'),
       require('karma-bamboo-reporter')
     ],
+    client:{
+      clearContext: false // leave Jasmine Spec Runner output visible in browser
+    },
     mochaReporter: {
       colors: {
         success: 'white',
@@ -45,7 +48,7 @@ module.exports = function (config) {
       environment: 'dev'
     },
     reporters: config.angularCli && config.angularCli.codeCoverage
-              ? ['progress', 'coverage-istanbul', 'mocha']
+              ? ['progress', 'coverage-istanbul', 'kjhtml', 'mocha']
               : ['progress', 'kjhtml', 'mocha'],
     mocha:{
       outputFile: 'tests/results.txt'
