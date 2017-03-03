@@ -4,3 +4,7 @@
 /// <reference path="./soho/soho.d.ts" />
 
 declare var System: any;
+/* SystemJS module definition */
+declare var module: {
+  id: string;
+};
