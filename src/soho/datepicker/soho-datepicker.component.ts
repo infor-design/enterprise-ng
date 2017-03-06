@@ -6,14 +6,19 @@ import {
   HostBinding,
   Input,
   OnDestroy,
-  Output,
+  Output, ChangeDetectorRef,
 } from '@angular/core';
+import {
+  BaseControlValueAccessor,
+    provideControlValueAccessor
+} from '../utils';
 
 @Component({
   selector: 'input[soho-datepicker]', // tslint:disable-line
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  providers: [provideControlValueAccessor(SohoDatePickerComponent)]
 })
-export class SohoDatePickerComponent implements AfterViewInit, OnDestroy {
+export class SohoDatePickerComponent extends BaseControlValueAccessor<any> implements AfterViewInit, OnDestroy {
   // TODO: waiting on SOHO-4839 : 4.0 DatePicker - Needs to support an update() method
   //  so options can be changed after initialization
   /**
@@ -148,7 +153,9 @@ export class SohoDatePickerComponent implements AfterViewInit, OnDestroy {
 
   private options: SohoDatePickerOptions = {};
 
-  constructor(private element: ElementRef) { }
+  constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
+    super(changeDetectionRef);
+  }
 
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
@@ -159,10 +166,38 @@ export class SohoDatePickerComponent implements AfterViewInit, OnDestroy {
      * Bind to jQueryElement's events
      */
     this.jQueryElement
-      .on('change', (event: SohoDatePickerEvent) => this.change.emit(event));
+      .on('change', (e: any, args: SohoDatePickerEvent) => this.onChange(args));
 
     this.datepicker = this.jQueryElement.data('datepicker');
   }
+
+  /**
+   * Handle the control being changed.
+   */
+  onChange(event: SohoDatePickerEvent) {
+    if (!event) {
+      // sometimes the event is not available
+      this.value = this.datepicker.element.val();
+      return;
+    }
+    this.change.emit(event);
+  }
+
+  /**
+   * Override writeValue to allow the date picker
+   * element to be updated correctly.
+   *
+   * @param value - the new value
+   */
+  writeValue(value: any) {
+    super.writeValue(value);
+    if (this.datepicker) {
+      // The processing is required to ensure we use the correct format
+      // in the control.
+      this.datepicker.element.val(value);
+    }
+  }
+
   ngOnDestroy() {
     if (this.datepicker) {
       // TODO: waiting on SOHO-4777 - 4.0 Datepicker - Needs a destroy method
