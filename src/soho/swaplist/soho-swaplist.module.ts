@@ -5,7 +5,7 @@ import { SohoButtonModule } from '../button/soho-button.module';
 import {
   SohoSwapListCardComponent,
   SohoSwapListComponent
- } from './soho-swaplist.component';
+} from './soho-swaplist.component';
 
 @NgModule({
   imports: [
@@ -13,12 +13,12 @@ import {
     SohoButtonModule
   ],
   declarations: [
-      SohoSwapListCardComponent,
-      SohoSwapListComponent
+    SohoSwapListCardComponent,
+    SohoSwapListComponent
   ],
   exports: [
-      SohoSwapListCardComponent,
-      SohoSwapListComponent
+    SohoSwapListCardComponent,
+    SohoSwapListComponent
   ]
 })
-export class SohoSwapListModule {}
+export class SohoSwapListModule { }

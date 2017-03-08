@@ -9,7 +9,7 @@
     <button *ngIf="showFullAccessCard" soho-button="icon" icon="right-arrow" class="btn btn-moveto-right" title="'Move to right'">
     </button>
   </soho-swaplist-card>
-  <soho-swaplist-card  #fullAccess *ngIf="showFullAccessCard" [type]="'full-access'" [title]="'Additional Items'">
+  <soho-swaplist-card #fullAccess *ngIf="showFullAccessCard" [type]="'full-access'" [title]="'Additional Items'">
     <button soho-button="icon" icon="left-arrow" class="btn btn-moveto-selected" title="'Move to left'">
     </button>
   </soho-swaplist-card>

@@ -17,7 +17,7 @@ import { SohoSwapListModule } from './soho-swaplist.module';
 import {
   SohoSwapListComponent,
   SohoSwapListCardComponent
- } from './soho-swaplist.component';
+} from './soho-swaplist.component';
 
 describe('Soho Swap List Unit Tests', () => {
   let comp: SohoSwapListComponent;
