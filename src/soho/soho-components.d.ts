@@ -34,6 +34,7 @@
 /// <reference path="./spinbox/soho-spinbox.d.ts" />
 /// <reference path="./splitter/soho-splitter.d.ts" />
 /// <reference path="./stepprocess/soho-stepprocess.d.ts" />
+/// <reference path="./swaplist/soho-swaplist.d.ts" />
 /// <reference path="./tabs/soho-tabs.d.ts" />
 /// <reference path="./textarea/soho-textarea.d.ts" />
 /// <reference path="./timepicker/soho-timepicker.d.ts" />
