@@ -1,31 +1,47 @@
 ﻿/**
  * Soho SwapList.
  *
- * This file contains the Typescript mappings for the public
- * interface of the Soho swaplist control.
+ * This file contains the TypeScript mappings for the public
+ * interface of the SoHoXi 'swaplist' control.
  */
+
+interface SohoSwapListItem {
+  /** Unique identifier for this item. */
+  id: any;
+
+  /** The internal value of this item. */
+  value: any;
+
+  /** The text displayed for this item. */
+  text: string;
+
+  /** Is this item disabled. */
+  disabled?: boolean;
+}
 
 /**
  * Swap List Options
  */
 interface SohoSwapListOptions {
-    /**
-    * datasets
-    */
-    available?: any[];
-    selected?: any[];
-    additional?: any[];
+  /** Available items to choose from. */
+  available?: SohoSwapListItem[];
 
-    // Main containers
-    // 'availableClass': '.available',
-    // 'selectedClass': '.selected',
-    // 'additionalClass': '.full-access',
+  /** Selected items. */
+  selected?: SohoSwapListItem[];
 
-    // Action buttons
-    // 'availableBtn': '.btn-moveto-selected',
-    // 'selectedBtnLeft': '.btn-moveto-left',
-    // 'selectedBtnRight': '.btn-moveto-right',
-    // 'additionalBtn': '.btn-moveto-selected',
+  /** Optional  Additional items. */
+  additional?: SohoSwapListItem[];
+
+  // Main containers
+  // 'availableClass': '.available',
+  // 'selectedClass': '.selected',
+  // 'additionalClass': '.full-access',
+
+  // Action buttons
+  // 'availableBtn': '.btn-moveto-selected',
+  // 'selectedBtnLeft': '.btn-moveto-left',
+  // 'selectedBtnRight': '.btn-moveto-right',
+  // 'additionalBtn': '.btn-moveto-selected',
 }
 
 /**
@@ -34,59 +50,59 @@ interface SohoSwapListOptions {
  */
 interface SohoSwapListStatic {
 
-    /**
-     * Current in use options.
-     */
-    settings: SohoSwapListOptions;
+  /**
+   * Current in use options.
+   */
+  settings: SohoSwapListOptions;
 
-    /**
-     * Mark the contro as readonly.
-     */
-    readonly(): void;
+  /**
+   * Mark the contro as readonly.
+   */
+  readonly(): void;
 
-    /**
-     * Forces an update of the control to reflect any changes made in the settings object.
-     */
-    updated(): void;
+  /**
+   * Forces an update of the control to reflect any changes made in the settings object.
+   */
+  updated(): void;
 
-    /**
-     * Disable the control.
-     */
-    disable(): void;
+  /**
+   * Disable the control.
+   */
+  disable(): void;
 
-    /**
-     * Enable the control.
-     */
-    enable(): void;
+  /**
+   * Enable the control.
+   */
+  enable(): void;
 
-    /**
-     * Get available items
-     */
-    getAvailable(): any[];
+  /**
+   * Get available items
+   */
+  getAvailable(): any[];
 
-    /**
-     * Get selected items
-     */
-    getSelected(): any[];
+  /**
+   * Get selected items
+   */
+  getSelected(): any[];
 
-    /**
-     * get additional items
-     */
-    getAdditional(): any[];
+  /**
+   * get additional items
+   */
+  getAdditional(): any[];
 
-    /**
-     * Destroys any resources created by the control.
-     */
-    destroy(): void;
+  /**
+   * Destroys any resources created by the control.
+   */
+  destroy(): void;
 }
 
 /**
  * JQuery Integration
  */
 interface JQueryStatic {
-    swaplist: SohoSwapListStatic;
+  swaplist: SohoSwapListStatic;
 }
 
 interface JQuery {
-    swaplist(options: SohoSwapListOptions): JQuery;
+  swaplist(options: SohoSwapListOptions): JQuery;
 }

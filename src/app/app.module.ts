@@ -75,7 +75,7 @@ import { StepProcessDemoComponent } from './stepprocess/stepprocess.demo';
 import { StepProcessDataDrivenDemoComponent } from './stepprocess/stepprocess-data-driven.demo';
 import { StepProcessVetoableDemoComponent } from './stepprocess/stepprocessvetoable.demo';
 import { SwapListDemoComponent } from './swaplist/swaplist.demo';
-import { SwapListOneThirdDemoComponent } from './swaplist/swaplist-one-third.demo';
+import { SwapListFullAccessDemoComponent } from './swaplist/swaplist-full-access.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
@@ -160,7 +160,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     StepProcessDataDrivenDemoComponent,
     StepProcessVetoableDemoComponent,
     SwapListDemoComponent,
-    SwapListOneThirdDemoComponent,
+    SwapListFullAccessDemoComponent,
     TabsBasicDemoComponent,
     TabsCountsDemoComponent,
     TabsDataDrivenDemoComponent,

@@ -123,8 +123,9 @@ describe('Soho Swap List Render', () => {
 });
 
 @Component({
-  template: `<soho-swaplist id="swaplist1" [availableItems]="options.available" [selectedItems]="options.selected">
-            </soho-swaplist>`
+  template: `
+  <soho-swaplist id="swaplist1" [availableItems]="options.available" [selectedItems]="options.selected">
+  </soho-swaplist>`
 })
 class SohoSwapListTestComponent {
   @ViewChild(SohoSwapListComponent) swaplist: SohoSwapListComponent;

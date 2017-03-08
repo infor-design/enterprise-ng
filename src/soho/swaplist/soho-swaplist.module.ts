@@ -1,8 +1,11 @@
 ﻿import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SohoButtonModule } from '../button/soho-button.module';
-import { SohoSwapListCardComponent,
-         SohoSwapListComponent } from './soho-swaplist.component';
+
+import {
+  SohoSwapListCardComponent,
+  SohoSwapListComponent
+ } from './soho-swaplist.component';
 
 @NgModule({
   imports: [

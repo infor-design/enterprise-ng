@@ -2,10 +2,15 @@
   <form>
     <div class="row">
       <div class="twelve columns">
-        <h1>SwapList One Third Demo</h1>
+        <h1>SwapList Full Access Demo</h1>
         <div class="row">
           <div class="field">
-            <soho-swaplist oneThird id="citys-swaplist" [availableItems]="availableDemoItems" [selectedItems]="selectedDemoItems" [additionalItems]= "additionalDemoItems" (updated)="onUpdated($event)">
+            <soho-swaplist showFullAccessCard="true"
+              id="citys-swaplist"
+              [availableItems]="availableDemoItems"
+              [selectedItems]="selectedDemoItems"
+              [additionalItems]= "additionalDemoItems"
+              (updated)="onUpdated($event)">
             </soho-swaplist>
           </div>
         </div>
