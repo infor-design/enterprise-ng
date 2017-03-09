@@ -30,19 +30,10 @@ type SohoSwapListCardType = 'available' | 'selected' | 'full-access';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoSwapListCardComponent {
-  // Default class used for the 'card'.
-  private static CARD_DEFAULT_CLASS: string = 'card';
-
-  /**
-   *  The type of card.
-   *
-   * @todo make this a string literal?
-   */
+  /** The type of card. */
   private _type: SohoSwapListCardType;
 
-  /**
-   * The title for the card.
-   */
+  /** The title for the card. */
   private _title: string;
 
   @Input()
@@ -54,7 +45,7 @@ export class SohoSwapListCardComponent {
    * Return the class to use for the card.
    */
   public get cardClass(): string {
-    let cardClasses = SohoSwapListCardComponent.CARD_DEFAULT_CLASS;
+    let cardClasses = 'card';
 
     if (this._type) {
       cardClasses += ' ' + this._type;
@@ -93,22 +84,34 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   /** Block of options, use the accessors to modify. */
   private _options: SohoSwapListOptions = {};
 
-  //
+  /** Default title for available items card. */
+  @Input()
+  public availableCardTitle: string = 'Available';
+
+  /** Default title for selected items card. */
+  @Input()
+  public selectedCardTitle: string = 'Selected';
+
+  /** Default title for additional items card. */
+  @Input()
+  public fullAccessCardTitle: string = 'Additional Items';
+
+  /** Flag controlling the display of the full access (additional) items. */
   private _showFullAccessCard: boolean = false;
 
-  // Get the header DOM element
+  /** The component used to represent the available items. */
   @ContentChild('available')
   private _availableCard: SohoSwapListCardComponent = null;
 
+  /** The component used to represent the selected items. */
   @ContentChild('selected')
   private _selectedCard: SohoSwapListCardComponent = null;
 
+  /** The component used to represent the full access (additional) items. */
   @ContentChild('additional')
   private _additionalCard: SohoSwapListCardComponent = null;
 
-  /**
-   * Name for the swaplist control. Necessary for ngModel to function.
-   */
+  /** Name for the swaplist control. Necessary for ngModel to function. */
   @Input() name: string = `soho-swaplist-${SohoSwapListComponent.counter++}`;
 
   /**
@@ -119,17 +122,17 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
     return this.name;
   }
 
+  /** Adds the 'swaplist' class required by the SoHoXi control. */
   @HostBinding('class.swaplist') get isSwapList() {
     return true;
   }
 
+  /** Adds the 'one-third' class required when full access is set. */
   @HostBinding('class.one-third') get isOneThird() {
     return this.showFullAccessCard;
   }
 
-  /**
-   * Called when the swap list value changes.
-   */
+  /** Called when the swap list value changes. */
   @Output()
   public selected: EventEmitter<JQueryEventObject> = new EventEmitter<JQueryEventObject>();
 
@@ -142,7 +145,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
 
   @Input()
   public set availableItems(value: SohoSwapListItem[]) {
-    // todo: comfirm with the new dataset API
+    // @todo: update jQuery control when jQuery API updated
     this._options.available = value;
   }
 
@@ -152,6 +155,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
 
   @Input()
   public set selectedItems(value: SohoSwapListItem[]) {
+    // @todo: update jQuery control when jQuery API updated
     this._options.selected = value;
   }
 
@@ -161,6 +165,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
 
   @Input()
   public set additionalItems(value: SohoSwapListItem[]) {
+    // @todo: update jQuery control when jQuery API updated
     this._options.additional = value;
   }
 
@@ -219,7 +224,6 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   public readonly(): void {
     this.swaplist.readonly();
   }
-
 
   public setDataset(availableItems: any, selectedItems: any) {
     if (this.swaplist) {
