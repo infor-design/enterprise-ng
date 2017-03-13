@@ -33,7 +33,11 @@ Release Date: 2016-10-31
    * Upgraded to TypeScript 2.1.x
  * 2017-02-22 - TH - Version Update
    * Upgraded to @angular/cli 1.0.0-beta.32.3
-
+ * 2017-03-03 - TH - Version Update
+   * Upgraded to @angular/cli 1.0.0-rc.1
+ * 2017-03-08 - TH - SwapList (http://jira/browse/SOHO-5122)
+   * Added basic version of SwapList
+   
 ### Breaking Changes
 
 * 2017-05-01 - KH
