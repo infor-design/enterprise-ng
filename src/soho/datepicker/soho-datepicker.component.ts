@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import {
   BaseControlValueAccessor,
-    provideControlValueAccessor
+  provideControlValueAccessor
 } from '../utils';
 
 @Component({
@@ -166,9 +166,13 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
      * Bind to jQueryElement's events
      */
     this.jQueryElement
-      .on('change', (e: any, args: SohoDatePickerEvent) => this.onChange(args));
+    .on('change', (e: any, args: SohoDatePickerEvent) => this.onChange(args));
 
     this.datepicker = this.jQueryElement.data('datepicker');
+
+    if (this.value) {
+      this.datepicker.element.val(this.value);
+    }
   }
 
   /**
