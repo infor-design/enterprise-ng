@@ -137,6 +137,10 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     this.jQueryElement.on('blur', (e: any) => this.touched());
 
     this.lookup = this.jQueryElement.data('lookup');
+
+    if (this.value) {
+      this.lookup.element.val(this.value);
+    }
   }
   ngOnDestroy() {
     // Necessary clean up step (add additional here)
