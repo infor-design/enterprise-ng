@@ -45,7 +45,7 @@ export class SohoModalDialogService {
   modal<T>(component: ComponentType<T>, parent: ViewContainerRef, options?): SohoModalDialogRef<T> {
     ArgumentHelper.checkNotNull('component', component);
     ArgumentHelper.checkNotNull('parent', parent);
-
+``
     const modalDialogRef = new SohoModalDialogRef<T>();
     const dialogInjector = new SohoModalDialogInjector(modalDialogRef, this.injector);
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);

@@ -43,7 +43,7 @@ export class SohoModalDialogRef<T> {
    *
    * @param componentRef - reference to the component defining the modal dialog content.
    */
-  public set component(componentRef: ComponentRef<T>) {
+  set component(componentRef: ComponentRef<T>) {
     // The component can also implement the guard interface, if it does
     // use it.
     this.eventGuard = componentRef.instance;
@@ -51,8 +51,8 @@ export class SohoModalDialogRef<T> {
   }
 
   /**
-   * The component displayed inside the model, if specified.  This may
-   * be null if the dialog is build from an HTML framement or jQuery selector.
+   * The component displayed inside the modal frame, if specified.  This may
+   * be null if the dialog is built from an HTML fragment or a jQuery selector.
    */
   public get componentDialog(): T {
     if (this.componentRef) {

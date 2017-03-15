@@ -163,7 +163,6 @@ dialogRef.afterClose((result: any, ref: SohoModalStatic, dialogComponent: Exampl
 
 Access to the `dialogComponent` is also possible from the `SohoModalDialogRef` using the `componentDialog` property.  
 
-
 ### Using `apply` to set values on the dialog instance.
 
 To allow the public properties and methods of a dialog to be accessed as
