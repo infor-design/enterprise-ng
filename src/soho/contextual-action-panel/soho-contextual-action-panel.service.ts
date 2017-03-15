@@ -11,7 +11,7 @@ import { SohoContextualActionPanelInjector } from './soho-contextual-action-pane
 
 /**
  * This service is used to create a panel panel, based on the content
- * of an Angular Componnent on the screen.
+ * of an Angular Component on the screen.
  */
 @Injectable()
 export class SohoContextualActionPanelService {
@@ -33,7 +33,7 @@ export class SohoContextualActionPanelService {
    * The component has the potential to include the panel reference when it is
    * instantiated, as a provider.
    *
-   * The panel won't necessarily be open yet, see the panel ref api for further methods.
+   * The panel won't necessarily be open yet, see the panel ref Api for further methods.
    *
    * @parent component - the type of the component to instantiate; must not be null.
    * @parent parent - the parent container; must not be null.

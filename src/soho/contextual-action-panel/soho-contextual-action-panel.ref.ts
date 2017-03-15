@@ -6,7 +6,7 @@ import { Subject } from 'rxjs/Subject';
  *
  */
 export class SohoContextualActionPanelRef<T> {
-  /** Component - if the content is derived from an exisiting component. */
+  /** Component - if the content is derived from an existing component. */
   private componentRef?: ComponentRef<T>;
 
   /** Selector referencing the panel-panel after it has been moved to the panel container. */
@@ -27,7 +27,7 @@ export class SohoContextualActionPanelRef<T> {
   /** Event fired after closing the panel. */
   private afterClose$: Subject<any> = new Subject();
 
-  /** Event fired after openning the panel panel. */
+  /** Event fired after opening the panel panel. */
   private afterOpen$: Subject<any> = new Subject();
 
   /**
@@ -134,8 +134,8 @@ export class SohoContextualActionPanelRef<T> {
    * The function is provided with a typed value for the
    * instance.
    *
-   * @param component - the instantated instance.
-   * @return the dialof ref for onward assignment.
+   * @param component - the instantiated instance.
+   * @return the panel ref for onward assignment.
    */
   apply(fn: (component: T) => void): SohoContextualActionPanelRef<T> {
     if (fn && this.componentRef.instance) {
@@ -147,7 +147,7 @@ export class SohoContextualActionPanelRef<T> {
  /**
    * panel result property.
    *
-   * @param panelResult - the stored restult of the panel.
+   * @param panelResult - the stored result of the panel.
    */
   set panelResult(panelResult: any) {
     this._panelResult = panelResult;
