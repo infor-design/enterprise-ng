@@ -9,7 +9,10 @@ import { Component } from '@angular/core';
 })
 export class ExampleModalDialogComponent {
 
-  headerText: string = 'Default Header Text';
+   public model = {
+    header: 'Default Header Text',
+    comment: 'This task needs to be escalated to maximum priority and delivered be the end of this week.',
+  };
 
   constructor() {
   }

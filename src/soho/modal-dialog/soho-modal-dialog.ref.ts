@@ -43,11 +43,22 @@ export class SohoModalDialogRef<T> {
    *
    * @param componentRef - reference to the component defining the modal dialog content.
    */
-  set component(componentRef: ComponentRef<T>) {
+  public set component(componentRef: ComponentRef<T>) {
     // The component can also implement the guard interface, if it does
     // use it.
     this.eventGuard = componentRef.instance;
     this.componentRef = componentRef;
+  }
+
+  /**
+   * The component displayed inside the model, if specified.  This may
+   * be null if the dialog is build from an HTML framement or jQuery selector.
+   */
+  public get componentDialog(): T {
+    if (this.componentRef) {
+      return this.componentRef.instance;
+    }
+    return null;
   }
 
   // -------------------------------------------
@@ -347,8 +358,7 @@ export class SohoModalDialogRef<T> {
    * @param eventFn - the function to invoke when the dialog is to be closed.
    */
   closed(eventFn: SohoModalDialogEventFunction<T>): SohoModalDialogRef<T> {
-    // @todo isCancelled
-    this.close$.subscribe((f: any) => { eventFn(f, this); });
+    this.close$.subscribe((f: any) => { eventFn(f, this, this.componentDialog); });
     return this;
   }
 
@@ -361,7 +371,7 @@ export class SohoModalDialogRef<T> {
    * @param eventFn - the function to invoke after the dialog has been closed.
    */
   afterClose(eventFn: SohoModalDialogEventFunction<T>): SohoModalDialogRef<T> {
-    this.afterClose$.subscribe((f: any) => { eventFn(f, this); });
+    this.afterClose$.subscribe((result: any) => { eventFn(result, this,  this.componentDialog); });
     return this;
   }
 
@@ -470,7 +480,14 @@ export class SohoModalDialogRef<T> {
   }
 }
 
-export type SohoModalDialogEventFunction<T> = (f: any, modal: SohoModalDialogRef<T>) => void;
+/**
+ * Close/AfterClose event handler.
+ *
+ * @param result - the saved result (if set)
+ * @param dialogRef - the dialog refernence (wrapper)
+ * @param dialogComponent - the component hosted in the modal (may be null)
+ */
+export type SohoModalDialogEventFunction<T> = (result: any, dialogRef: SohoModalDialogRef<T>, dialogComponent: T) => void;
 
 /**
  * Contract for all SohoModalDialogComponents.

@@ -104,7 +104,7 @@ This example show how a simple modal dialog component can be instantiated.
 
 ```typescript
   this.dialog = this.modalService
-    .modal(ModalDialogComponent, this.placeholder)
+    .modal<ModalDialogComponent>(ModalDialogComponent, this.placeholder)
     .buttons([{text: 'OK', click: () => { this.dialog.close(); }, isDefault: true}])
     .title('My Dialog')
     .open());
@@ -140,11 +140,11 @@ Here is an example for a simple message returning a status as a result:
 
 ```typescript
 openMessage() {
-  this.dialog = this.modalService
+  const dialog = this.modalService
     .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
     .buttons(
-      [{ text: 'No', click: () => { this.dialog.close('I pressed YES'); } },
-       { text: 'Yes', click: () => { this.dialog.close('I pressed NO'); }, isDefault: true }])
+      [{ text: 'No', click: () => { dialog.close('I pressed YES'); } },
+       { text: 'Yes', click: () => { dialog.close('I pressed NO'); }, isDefault: true }])
     .title(this.title)
     .open()
     .afterClose(result => {
@@ -152,6 +152,17 @@ openMessage() {
   });
 }
 ```
+
+To provide access to any models present in the underlying dialog component, a reference to the component is passed to the `closed` and `afterClose` callbacks.  This reference can then be used to interogate the public properties of the `dialogComponent`.  
+
+```typescript
+dialogRef.afterClose((result: any, ref: SohoModalStatic, dialogComponent: ExampleModalDialogComponent) => {
+  console.log(dialogComponent.model.someProperty);
+});
+```
+
+Access to the `dialogComponent` is also possible from the `SohoModalDialogRef` using the `componentDialog` property.  
+
 
 ### Using `apply` to set values on the dialog instance.
 
