@@ -6,12 +6,11 @@ import { Subject } from 'rxjs/Subject';
  *
  * @todo Return a promise from open.
  * @todo async vetoable interface - is this possible?
- * @todo fix dialog result !
  * @todo on the fly updating of dialog
  * @todo searchable dialog example
  */
 export class SohoModalDialogRef<T> {
-  /** Component - if the content is derived from an exisiting component. */
+  /** Component - if the content is derived from an existing component. */
   private componentRef?: ComponentRef<T>;
 
   /** Vetoable Event Guard */
@@ -483,9 +482,9 @@ export class SohoModalDialogRef<T> {
 /**
  * Close/AfterClose event handler.
  *
- * @param result - the saved result (if set)
- * @param dialogRef - the dialog refernence (wrapper)
- * @param dialogComponent - the component hosted in the modal (may be null)
+ * @param result - the dialog result (if set); may be undefined.
+ * @param dialogRef - the dialog reference (or wrapper); never null.
+ * @param dialogComponent - the component hosted in the modal; may be undefined.
  */
 export type SohoModalDialogEventFunction<T> = (result: any, dialogRef: SohoModalDialogRef<T>, dialogComponent: T) => void;
 
