@@ -11,7 +11,7 @@ export class ExampleModalDialogComponent {
 
    public model = {
     header: 'Default Header Text',
-    comment: 'This task needs to be escalated to maximum priority and delivered be the end of this week.',
+    comment: 'This task needs to be escalated to maximum priority and delivered by the end of this week.',
   };
 
   constructor() {
