@@ -24,6 +24,7 @@ import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
+import { ContextualActionPanelDemoModule } from './contextual-action-panel/contextual-action-panel.demo.module';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
@@ -191,6 +192,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     FormsModule,
     HttpModule,
     ModalDialogDemoModule,
+    ContextualActionPanelDemoModule,
     ReactiveFormsModule,
     SohoComponentsModule
   ],

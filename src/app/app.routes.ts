@@ -7,6 +7,7 @@ import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
+import { ContextualActionPanelDemoComponent } from './contextual-action-panel/contextual-action-panel.demo';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
@@ -86,6 +87,7 @@ export const routes: Routes = [
   { path: 'busyindicator',         component: BusyIndicatorDemoComponent },
   { path: 'checkbox',              component: CheckBoxDemoComponent },
   { path: 'context-menu',          component: ContextMenuDemoComponent },
+  { path: 'contextual-action-panel', component: ContextualActionPanelDemoComponent },
   { path: 'datagrid-breadcrumb',   component: DataGridBreadcrumbDemoComponent },
   { path: 'datagrid-content',      component: DataGridContentDemoComponent },
   { path: 'datagrid-dynamic',      component: DataGridDynamicDemoComponent },
