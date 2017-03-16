@@ -35,12 +35,12 @@ export class SohoContextualActionPanelService {
    *
    * The panel won't necessarily be open yet, see the panel ref Api for further methods.
    *
-   * @parent component - the type of the component to instantiate; must not be null.
-   * @parent parent - the parent container; must not be null.
+   * @param component - the type of the component to instantiate; must not be null.
+   * @param parent - the parent container; must not be null.
    *
    * @return the panel reference.
    */
-  contextualactionpanel<T>(component: PanelComponentType<T>, parent: ViewContainerRef, options?): SohoContextualActionPanelRef<T> {
+  public contextualactionpanel<T>(component: PanelComponentType<T>, parent: ViewContainerRef, options?): SohoContextualActionPanelRef<T> {
     ArgumentHelper.checkNotNull('component', component);
     ArgumentHelper.checkNotNull('parent', parent);
 

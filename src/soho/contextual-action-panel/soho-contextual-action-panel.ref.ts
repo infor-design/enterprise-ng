@@ -41,6 +41,17 @@ export class SohoContextualActionPanelRef<T> {
     this.componentRef = componentRef;
   }
 
+  /**
+    * The component displayed inside the panel's frame, if specified.  This may
+    * be null if the component is built from an HTML fragment or a jQuery selector.
+    */
+  public get componentPanel(): T {
+    if (this.componentRef) {
+      return this.componentRef.instance;
+    }
+    return null;
+  }
+
   // -------------------------------------------
   // Default options block
   // -------------------------------------------
@@ -65,7 +76,7 @@ export class SohoContextualActionPanelRef<T> {
     return this;
   }
   /**
-   * Sets the title of the panel panel.
+   * Sets the title of the panel.
    *
    * @param title - the title of the panel.
    */
@@ -172,7 +183,7 @@ export class SohoContextualActionPanelRef<T> {
       throw Error('componentRef or content must be initialised.');
     }
 
-    // Assume conent ...
+    // Assume content...
     let element: JQuery = $('body');
     if (this.componentRef) {
       // .. unless component supplied, in which case get a selector
@@ -245,7 +256,7 @@ export class SohoContextualActionPanelRef<T> {
    * @param eventFn - the function to invoke when the panel is to be closed.
    */
   closed(eventFn: SohoContextualActionPanelEventFunction<T>): SohoContextualActionPanelRef<T> {
-    this.close$.subscribe((f: any) => { eventFn(f, this); });
+    this.close$.subscribe((result: any) => { eventFn(result, this, this.componentPanel); });
     return this;
   }
 
@@ -258,7 +269,7 @@ export class SohoContextualActionPanelRef<T> {
    * @param eventFn - the function to invoke after the panel has been closed.
    */
   afterClose(eventFn: SohoContextualActionPanelEventFunction<T>): SohoContextualActionPanelRef<T> {
-    this.afterClose$.subscribe((f: any) => { eventFn(f, this); });
+    this.afterClose$.subscribe((result: any) => { eventFn(result, this, this.componentPanel); });
     return this;
   }
 
@@ -310,8 +321,14 @@ export class SohoContextualActionPanelRef<T> {
     this.contextualactionpanel = null;
   }
 }
-
-export type SohoContextualActionPanelEventFunction<T> = (f: any, panel: SohoContextualActionPanelRef<T>) => void;
+/**
+ * Close/AfterClose event handler.
+ *
+ * @param result - the panel result (if set); may be undefined.
+ * @param panelRef - the panel reference (or wrapper); never null.
+ * @param panelComponent - the component hosted in the modal; may be undefined.
+ */
+export type SohoContextualActionPanelEventFunction<T> = (result: any, panelRef: SohoContextualActionPanelRef<T>, panelComponent: T) => void;
 
 /**
  * Contract for all SohoContextualActionPanelComponents.

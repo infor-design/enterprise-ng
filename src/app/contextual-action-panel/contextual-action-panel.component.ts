@@ -9,6 +9,12 @@ import { Component } from '@angular/core';
 })
 
 export class ContextualActionPanelComponent {
-  headerText: string = 'Default Header Text';
-  constructor() { }
+
+  public model = {
+    header: 'Default Header Text',
+    comment: 'This task needs to be escalated to maximum priority and delivered by the end of next week.',
+  };
+
+  constructor() {
+  }
 }
