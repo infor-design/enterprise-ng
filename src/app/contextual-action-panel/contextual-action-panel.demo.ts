@@ -17,7 +17,7 @@ import { ContextualActionPanelComponent } from './contextual-action-panel.compon
 })
 export class ContextualActionPanelDemoComponent {
   /**
-   * The 'dialogPlaceholder' is where the reference dialog component will be
+   * The 'panelPlaceholder' is where the reference dialog component will be
    * parented when it is instantiated.
    *
    * This can be the ViewContainerRef of this component, or another component.
