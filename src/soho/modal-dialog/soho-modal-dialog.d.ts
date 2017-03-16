@@ -99,7 +99,7 @@ interface SohoModalStatic {
   element: JQuery;
 
   /**
-   * Track if cancelled *
+   * Track if cancelled.
    */
   isCancelled: boolean;
 

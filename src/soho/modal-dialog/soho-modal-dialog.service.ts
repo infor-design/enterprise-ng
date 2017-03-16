@@ -37,12 +37,13 @@ export class SohoModalDialogService {
    *
    * The dialog won't necessarily be open yet, see the dialog ref api for further methods.
    *
-   * @parent component - the type of the component to instantiate; must not be null.
-   * @parent parent - the parent container; must not be null.
+   * @param component - the type of the component to instantiate; must not be null.
+   * @param parent - the parent container; must not be null.
+   * @param options - the control options to use.
    *
    * @return the modal dialog reference.
    */
-  modal<T>(component: ComponentType<T>, parent: ViewContainerRef, options?): SohoModalDialogRef<T> {
+  public modal<T>(component: ComponentType<T>, parent: ViewContainerRef, options?: SohoModalOptions): SohoModalDialogRef<T> {
     ArgumentHelper.checkNotNull('component', component);
     ArgumentHelper.checkNotNull('parent', parent);
 
@@ -63,7 +64,7 @@ export class SohoModalDialogService {
    *
    * @return the modal dialog reference.
    */
-  message<T>(content: string | JQuery): SohoModalDialogRef<T> {
+  public message<T>(content: string | JQuery): SohoModalDialogRef<T> {
     return new SohoModalDialogRef<T>()
       .content(content);
   }

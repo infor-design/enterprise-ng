@@ -1,9 +1,9 @@
 <div>
   <small class="alert-text">Escalated (2X)</small>
-  <h2>{{headerText}}</h2>
+  <h2>{{model.header}}</h2>
   <p>Contact sales representative with the updated purchase order <br>before submission to corporate.</p>
   <div class="field">
     <label for="txt-comment" class="audible">Comments</label>
-    <textarea id="txt-comment" name="txt-comment" class="textarea-lg">This task needs to be escalated to maximum priority and delivered be the end of this week.</textarea>
+    <textarea soho-textarea id="txt-comment" name="txt-comment" class="textarea-lg" [(ngModel)]="model.comment"></textarea>
   </div>
 </div>
