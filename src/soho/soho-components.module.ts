@@ -4,6 +4,7 @@ import { SohoBusyIndicatorModule } from './busyindicator/soho-busyindicator.modu
 import { SohoButtonModule } from './button/soho-button.module';
 import { SohoCheckBoxModule } from './checkbox/soho-checkbox.module';
 import { SohoContextMenuModule } from './context-menu/soho-context-menu.module';
+import { SohoContextualActionPanelModule } from './contextual-action-panel/soho-contextual-action-panel.module';
 import { SohoDataGridModule } from './datagrid/soho-datagrid.module';
 import { SohoDatePickerModule } from './datepicker/soho-datepicker.module';
 import { SohoDropDownModule } from './dropdown/soho-dropdown.module';
@@ -49,6 +50,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoBusyIndicatorModule,
     SohoButtonModule,
     SohoCheckBoxModule,
+    SohoContextualActionPanelModule,
     SohoContextMenuModule,
     SohoDataGridModule,
     SohoDatePickerModule,
@@ -97,6 +99,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoButtonModule,
     SohoCheckBoxModule,
     SohoContextMenuModule,
+    SohoContextualActionPanelModule,
     SohoDataGridModule,
     SohoDatePickerModule,
     SohoDropDownModule,

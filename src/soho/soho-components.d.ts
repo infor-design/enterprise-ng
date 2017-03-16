@@ -7,6 +7,7 @@
 /// <reference path="./button/soho-button.d.ts" />
 /// <reference path="./checkbox/soho-checkbox.d.ts" />
 /// <reference path="./context-menu/soho-context-menu.d.ts" />
+/// <reference path="./contextual-action-panel/soho-contextual-action-panel.d.ts" />
 /// <reference path="./datagrid/soho-datagrid.d.ts" />
 /// <reference path="./datepicker/soho-datepicker.d.ts" />
 /// <reference path="./dropdown/soho-dropdown.d.ts" />
