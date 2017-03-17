@@ -64,6 +64,7 @@ export class ContextualActionPanelDemoComponent {
       .contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
       .buttons(buttons)
       .title(this.title)
+      .initializeContent(true)
       .open();
   }
 }
