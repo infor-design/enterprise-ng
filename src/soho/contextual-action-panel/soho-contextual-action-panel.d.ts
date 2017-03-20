@@ -35,9 +35,11 @@ interface SohoContextualActionPanelOptions {
   /** When to close/open? */
   trigger?: SohoContextualActionPanelTriggerType;
 
+  /** Initialize newly loaded content */
+  initializeContent?: boolean;
+
   /** Identifier for the panel. */
   id?: string;
-
 }
 
 interface SohoContextualActionPanelButton {

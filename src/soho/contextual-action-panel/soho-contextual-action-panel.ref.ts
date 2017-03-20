@@ -114,6 +114,18 @@ export class SohoContextualActionPanelRef<T> {
   }
 
   /**
+   * Sets the 'id' that the panel control uses.
+   *
+   * @param initializeContent - Sets the ability to initialize content.
+   */
+  initializeContent(initializeContent: boolean): SohoContextualActionPanelRef<T> {
+    this._options.initializeContent = initializeContent;
+    if (this.contextualactionpanel) {
+      this.contextualactionpanel.settings.initializeContent = initializeContent;
+    }
+    return this;
+  }
+  /**
    * Sets the 'trigger' that the panel control uses.
    *
    * @param trigger - when to open the panel.
@@ -185,6 +197,7 @@ export class SohoContextualActionPanelRef<T> {
 
     // Assume content...
     let element: JQuery = $('body');
+
     if (this.componentRef) {
       // .. unless component supplied, in which case get a selector
      // to the component and use that.
