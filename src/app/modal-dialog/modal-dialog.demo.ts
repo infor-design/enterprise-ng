@@ -43,10 +43,13 @@ export class ModalDialogDemoComponent {
   openSimple() {
     const dialogRef = this.modalService
       .modal<ExampleModalDialogComponent>(ExampleModalDialogComponent, this.placeholder)
-      .buttons( [
-          { text: 'Cancel', click: (e, modal) => { modal.isCancelled = true; dialogRef.close('CANCEL'); } },
-          { text: 'Submit', click: (e, modal) => { dialogRef.close('SUBMIT');
-        }, isDefault: true }])
+      .buttons([
+        { text: 'Cancel', click: (e, modal) => { modal.isCancelled = true; dialogRef.close('CANCEL'); } },
+        {
+          text: 'Submit', click: (e, modal) => {
+            dialogRef.close('SUBMIT');
+          }, isDefault: true
+        }])
       .title(this.title)
       .isAlert(this.isAlert)
       .apply((dialogComponent) => { dialogComponent.model.header = 'Header Text Update!!'; })
@@ -65,7 +68,7 @@ export class ModalDialogDemoComponent {
       .modal<NestedModalDialogComponent>(NestedModalDialogComponent, this.placeholder)
       .buttons(
       [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-      { text: 'Submit', click: () => {  dialogRef.close('SUBMIT'); }, isDefault: true }])
+      { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose((result) => {
@@ -78,7 +81,7 @@ export class ModalDialogDemoComponent {
       .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
       .buttons(
       [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-       { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
+      { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose(result => {
@@ -91,7 +94,7 @@ export class ModalDialogDemoComponent {
       .modal(VetoableModalDialogComponent, this.placeholder)
       .buttons(
       [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-       { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
+      { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose(result => {
@@ -103,8 +106,8 @@ export class ModalDialogDemoComponent {
     const dialogRef = this.modalService
       .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
       .buttons(
-       [{ text: 'YES', click: () => { dialogRef.close('YES'); } },
-        { text: 'NO', click: () => { dialogRef.close('NO'); }, isDefault: true }])
+      [{ text: 'YES', click: () => { dialogRef.close('YES'); } },
+      { text: 'NO', click: () => { dialogRef.close('NO'); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose(result => {

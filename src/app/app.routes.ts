@@ -52,6 +52,7 @@ import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
 import { StepProcessDemoComponent } from './stepprocess/stepprocess.demo';
 import { StepProcessDataDrivenDemoComponent } from './stepprocess/stepprocess-data-driven.demo';
 import { SwapListDemoComponent } from './swaplist/swaplist.demo';
+import { SwapListDynamicDemoComponent } from './swaplist/swaplist-dynamic.demo';
 import { SwapListFullAccessDemoComponent } from './swaplist/swaplist-full-access.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
@@ -134,6 +135,7 @@ export const routes: Routes = [
   { path: 'step-data-driven',      component: StepProcessDataDrivenDemoComponent },
   { path: 'step-process-vetoable', component: StepProcessVetoableDemoComponent },
   { path: 'swaplist',			         component: SwapListDemoComponent },
+  { path: 'swaplist-dynamic',      component: SwapListDynamicDemoComponent },
   { path: 'swaplist-full-access',  component: SwapListFullAccessDemoComponent },
   { path: 'spinbox',               component: SpinboxDemoComponent },
   { path: 'tabs-basic',            component: TabsBasicDemoComponent },
