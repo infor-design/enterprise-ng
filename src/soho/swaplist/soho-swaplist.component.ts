@@ -145,8 +145,11 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
 
   @Input()
   public set availableItems(value: SohoSwapListItem[]) {
-    // @todo: update jQuery control when jQuery API updated
     this._options.available = value;
+    if (this.swaplist) {
+      this.swaplist.settings.available = value;
+      this.swaplist.updated();
+    }
   }
 
   public get availableItems(): SohoSwapListItem[] {
@@ -155,8 +158,11 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
 
   @Input()
   public set selectedItems(value: SohoSwapListItem[]) {
-    // @todo: update jQuery control when jQuery API updated
     this._options.selected = value;
+    if (this.swaplist) {
+      this.swaplist.settings.selected = value;
+      this.swaplist.updated();
+    }
   }
 
   public get selectedItems(): SohoSwapListItem[] {
@@ -165,8 +171,11 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
 
   @Input()
   public set additionalItems(value: SohoSwapListItem[]) {
-    // @todo: update jQuery control when jQuery API updated
     this._options.additional = value;
+    if (this.swaplist) {
+      this.swaplist.settings.additional = value;
+      this.swaplist.updated();
+    }
   }
 
   public get additionalItems(): SohoSwapListItem[] {
@@ -192,7 +201,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
 
     this.jQueryElement
       .on('selected', (event: JQueryEventObject) => this.selected.emit(event))
-      .on('swapupdate', (event: JQueryEventObject) => this.updatedEvent.emit(event));
+      .on('swapupdate', (event: JQueryEventObject, items: SohoSwapListItem[]) => this.updatedEvent.emit(event));
 
     this.swaplist = this.jQueryElement.data('swaplist');
   }
@@ -208,43 +217,31 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   }
 
   /**
-  * Disable the control.
-  */
-  public disable(): void {
-    this.swaplist.disable();
-  }
-
-  /**
-    * Enable the control.
-    */
-  public enable(): void {
-    this.swaplist.enable();
-  }
-
-  public readonly(): void {
-    this.swaplist.readonly();
-  }
-
-  /**
   * In case the list data is being bound asynchronously or modified on the fly,
   * you will need to trigger updated on so it updates the list(s).
   */
   public updated() {
-    this.swaplist.updated();
-  }
-
-  public setDataset(availableItems: any, selectedItems: any) {
     if (this.swaplist) {
-      // @todo Implement when SOHO-5648 complete.
-      // this.jQueryElement = jQuery(this.element.nativeElement);
-      // this.options = new SohoSwapListOptions();
-      // this.options.available = availableItems;
-      // this.options.selected = selectedItems;
-      // this.jQueryElement.swaplist(this.options);
-      // this.swaplist = this.jQueryElement.data('swaplist');
+      this.swaplist.updated();
     }
   }
 
+  /**
+   * Updates the dataset used by the swaplist, dynamically refesing the
+   * control's view.
+   *
+   * @param dataset the dataset to assign.
+   */
+  public updateDataset(dataset: SohoSwapListOptions) {
+    this._options.available = dataset.available;
+    this._options.selected = dataset.selected;
+    this._options.additional = dataset.additional;
+    if (this.swaplist) {
+      this.swaplist.updateDataset(this._options);
+    }
+  }
+
+  /** Converts the list of items into a list of swaplist items. */
   private ConvertToModel(items: any[]): SohoSwapListItem[] {
     const results = [];
     for (let i = 0; i < items.length; i++) {
