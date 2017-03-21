@@ -225,6 +225,14 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
     this.swaplist.readonly();
   }
 
+  /**
+  * In case the list data is being bound asynchronously or modified on the fly,
+  * you will need to trigger updated on so it updates the list(s).
+  */
+  public updated() {
+    this.swaplist.updated();
+  }
+
   public setDataset(availableItems: any, selectedItems: any) {
     if (this.swaplist) {
       // @todo Implement when SOHO-5648 complete.
