@@ -236,24 +236,34 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
     this.swaplist.readonly();
   }
 
-  public setDataset() {
+  /**
+    * In case the list data is being bound asynchronously or modified on the fly,
+    * you will need to trigger updated on so it updates the list(s).
+    */
+  public updated() {
+    this.swaplist.updated();
+  }
+
+  public setDataset(availableItems: any, selectedItems: any) {
       if (this.swaplist) {
-          if (this.swaplistService) {
-              // Once the columns are set, request the data (paging?)
-              this.swaplistService.getData(null, null)
-                  .subscribe((data: any[]) => {
-                      //@todo swaplist set data API
-                      //this.swaplist.setData(data);
-                  });
+          if (this.swaplist) {
+              if (this.swaplistService) {
+                  // Once the columns are set, request the data (paging?)
+                  this.swaplistService.getData(null, null)
+                      .subscribe((data: any[]) => {
+                          //@todo swaplist set data API
+                          //this.swaplist.setData(data);
+                      });
+              }
+              // @todo Implement when SOHO-5648 complete.
+              // this.jQueryElement = jQuery(this.element.nativeElement);
+              // this.options = new SohoSwapListOptions();
+              // this.options.available = availableItems;
+              // this.options.selected = selectedItems;
+              // this.jQueryElement.swaplist(this.options);
+              // this.swaplist = this.jQueryElement.data('swaplist');
           }
-      // @todo Implement when SOHO-5648 complete.
-      // this.jQueryElement = jQuery(this.element.nativeElement);
-      // this.options = new SohoSwapListOptions();
-      // this.options.available = availableItems;
-      // this.options.selected = selectedItems;
-      // this.jQueryElement.swaplist(this.options);
-      // this.swaplist = this.jQueryElement.data('swaplist');
-    }
+      }
   }
 
   private ConvertToModel(items: any[]): SohoSwapListItem[] {
@@ -264,5 +274,4 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
     }
     return results;
   }
-
 }

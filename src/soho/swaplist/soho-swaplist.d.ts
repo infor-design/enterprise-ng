@@ -94,6 +94,12 @@ interface SohoSwapListStatic {
    * Destroys any resources created by the control.
    */
   destroy(): void;
+
+  /**
+   * Forces an update of the control to reflect any changes made to the list data.
+   */
+  updated(): void;
+
 }
 
 /**
