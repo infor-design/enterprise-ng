@@ -7,9 +7,12 @@
   HostBinding,
   Input,
   OnDestroy,
+  Optional,
   Output,
   ContentChild
 } from '@angular/core';
+
+import { SohoSwapListService } from './soho-swaplist.service';
 
 type SohoSwapListCardType = 'available' | 'selected' | 'full-access';
 
@@ -66,6 +69,13 @@ export class SohoSwapListCardComponent {
   }
 }
 
+/*
+ * The data is provided either by a component input or an implementation
+ * of the DataGridService interface, by specifying an implementation
+ * on the hosting component, i.e.
+ *
+ * providers: [ provide: SohoSwapListService, useClass: SwapListDemoService} ]
+ */
 @Component({
   selector: 'soho-swaplist',
   templateUrl: 'soho-swaplist.html',
@@ -183,7 +193,8 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   }
 
   /** Constructor. */
-  constructor(private element: ElementRef) {
+  constructor(private element: ElementRef,
+      @Optional() protected swaplistService: SohoSwapListService) {
   }
 
   ngAfterViewInit() {
@@ -225,8 +236,16 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
     this.swaplist.readonly();
   }
 
-  public setDataset(availableItems: any, selectedItems: any) {
-    if (this.swaplist) {
+  public setDataset() {
+      if (this.swaplist) {
+          if (this.swaplistService) {
+              // Once the columns are set, request the data (paging?)
+              this.swaplistService.getData(null, null)
+                  .subscribe((data: any[]) => {
+                      //@todo swaplist set data API
+                      //this.swaplist.setData(data);
+                  });
+          }
       // @todo Implement when SOHO-5648 complete.
       // this.jQueryElement = jQuery(this.element.nativeElement);
       // this.options = new SohoSwapListOptions();
