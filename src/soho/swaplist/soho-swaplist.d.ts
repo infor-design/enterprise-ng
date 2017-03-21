@@ -31,17 +31,6 @@ interface SohoSwapListOptions {
 
   /** Optional  Additional items. */
   additional?: SohoSwapListItem[];
-
-  // Main containers
-  // 'availableClass': '.available',
-  // 'selectedClass': '.selected',
-  // 'additionalClass': '.full-access',
-
-  // Action buttons
-  // 'availableBtn': '.btn-moveto-selected',
-  // 'selectedBtnLeft': '.btn-moveto-left',
-  // 'selectedBtnRight': '.btn-moveto-right',
-  // 'additionalBtn': '.btn-moveto-selected',
 }
 
 /**
@@ -56,24 +45,14 @@ interface SohoSwapListStatic {
   settings: SohoSwapListOptions;
 
   /**
-   * Mark the contro as readonly.
+   * Dyhnamically updates the data stored in the swap list.
    */
-  readonly(): void;
+  updateDataset(dataset: SohoSwapListOptions);
 
   /**
    * Forces an update of the control to reflect any changes made in the settings object.
    */
   updated(): void;
-
-  /**
-   * Disable the control.
-   */
-  disable(): void;
-
-  /**
-   * Enable the control.
-   */
-  enable(): void;
 
   /**
    * Get available items
@@ -94,12 +73,6 @@ interface SohoSwapListStatic {
    * Destroys any resources created by the control.
    */
   destroy(): void;
-
-  /**
-   * Forces an update of the control to reflect any changes made to the list data.
-   */
-  updated(): void;
-
 }
 
 /**
