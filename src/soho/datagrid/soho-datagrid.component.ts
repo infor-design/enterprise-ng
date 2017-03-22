@@ -82,8 +82,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
     this._gridOptions = gridOptions;
     if (this.jQueryElement) {
-      // No need to set the settings the the rebuild will create
-      // a new set.
+      // No need to set the 'settings' as the Rebuild will create
+      // a new control with the _gridOptions.
       this.markForRefresh('gridOptions', RefreshHintFlags.Rebuild);
     }
   }
