@@ -73,7 +73,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   // -------------------------------------------
 
   /**
-   * Set the data grid options on a single call with the datagrid options object.
+   * Sets the grid options for the data grid, marking this components
+   * as requiring a full rebuild at the end of the change lifecycle.
    *
    * @param gridOptions - not null grid options.
    */
