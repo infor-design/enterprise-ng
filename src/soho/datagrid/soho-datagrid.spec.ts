@@ -47,7 +47,81 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(comp.dataset).toEqual([]);
   });
 
-  // Add more method tests.
+  it('check uniqueId', () => {
+    fixture.detectChanges();
+
+    // We don't specify an option - hence undefined.
+    expect(comp.gridOptions.uniqueId).toBeUndefined();
+
+    // The control has the default of null.
+    expect(comp.uniqueId).toBeNull();
+
+    comp.uniqueId = 'MyApp';
+
+    expect(comp.uniqueId).toEqual('MyApp');
+    expect(comp.gridOptions.uniqueId).toEqual('MyApp');
+  });
+
+  it('check rowReorder', () => {
+    fixture.detectChanges();
+
+    expect(comp.gridOptions.rowReorder).toBeFalsy();
+    expect(comp.rowReorder).toBeFalsy();
+
+    comp.rowReorder = true;
+
+    expect(comp.gridOptions.rowReorder).toBeTruthy();
+    expect(comp.rowReorder).toBeTruthy();
+  });
+
+  it('check showDirty', () => {
+    fixture.detectChanges();
+
+    expect(comp.gridOptions.showDirty).toBeFalsy();
+    expect(comp.showDirty).toBeFalsy();
+
+    comp.showDirty = true;
+
+    expect(comp.gridOptions.showDirty).toBeTruthy();
+    expect(comp.showDirty).toBeTruthy();
+  });
+
+  it('check virtualized', () => {
+    fixture.detectChanges();
+
+    expect(comp.gridOptions.virtualized).toBeFalsy();
+    expect(comp.virtualized).toBeFalsy();
+
+    comp.virtualized = true;
+
+    expect(comp.gridOptions.virtualized).toBeTruthy();
+    expect(comp.virtualized).toBeTruthy();
+  });
+
+  it('check virtualRowBuffer', () => {
+    fixture.detectChanges();
+
+    expect(comp.gridOptions.virtualRowBuffer).toEqual(undefined);
+    expect(comp.virtualRowBuffer).toEqual(10);
+
+    comp.virtualRowBuffer = 20;
+
+    expect(comp.gridOptions.virtualRowBuffer).toEqual(20);
+    expect(comp.virtualRowBuffer).toEqual(20);
+  });
+
+  it('check groupable', () => {
+    fixture.detectChanges();
+
+    expect(comp.gridOptions.groupable).toBeUndefined();
+    expect(comp.groupable).toBeNull();
+
+    comp.groupable = {fields: ['accountType'], aggregator: 'sum'};
+
+    expect(comp.gridOptions.groupable).toEqual({fields: ['accountType'], aggregator: 'sum'});
+    expect(comp.groupable).toEqual({fields: ['accountType'], aggregator: 'sum'});
+  });
+
 });
 
 describe('Soho DataGrid Render', () => {

@@ -48,8 +48,6 @@ enum RefreshHintFlags {
  * on the hosting component, i.e.
  *
  * providers: [ provide: DataGridService, useClass: DataGridDemoService} ]
- *
- * @todo paging
  */
 @Component({
   selector: '[soho-datagrid]', // tslint:disable-line
@@ -77,15 +75,20 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * Set the data grid options on a single call with the datagrid options object.
    *
-   * @param gridOptions.
+   * @param gridOptions - not null grid options.
    */
   @Input() set gridOptions(gridOptions: SohoDataGridOptions) {
     ArgumentHelper.checkNotNull('gridOptions', gridOptions);
 
     this._gridOptions = gridOptions;
     if (this.jQueryElement) {
+      // No need to set the settings the the rebuild will create
+      // a new set.
       this.markForRefresh('gridOptions', RefreshHintFlags.Rebuild);
     }
+  }
+  get gridOptions(): SohoDataGridOptions {
+      return this._gridOptions;
   }
 
   /**
@@ -96,7 +99,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   @Input() set idProperty(idProperty: string) {
     this._gridOptions.idProperty = idProperty;
-    if (this.jQueryElement) {
+    if (this.datagrid) {
       this.datagrid.settings.idProperty = idProperty;
       this.markForRefresh('idProperty', RefreshHintFlags.Rebuild);
     }
@@ -159,15 +162,18 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * The data to be displayed provided as an array
+   * of json object compatible with the column meta
+   * data provided.
    *
-   * @param dataset
+   * @param dataset - array of json objects
    */
   @Input() set dataset(dataset: Array<any>) {
     this._gridOptions.dataset = dataset;
     if (this.jQueryElement) {
       this.datagrid.settings.dataset = dataset;
 
-      // @todo ? add hints as this may be bundled up with other changes.
+      // @todo do we need hints as this may be bundled up with other changes.
       this.datagrid.updateDataset(dataset);
     }
   }
@@ -177,12 +183,12 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    *
    * @return an array of objects.
    */
-  get dataset(): Array<any> {
+  get dataset(): any[] {
 
     // If the Soho control has been created, then the dataset
     // in the settings object will contain the rows currently
     // on display.
-    if (this.jQueryElement) {
+    if (this.datagrid) {
       return this.datagrid.settings.dataset;
     }
 
@@ -199,7 +205,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   @Input() set columnReorder(columnReorder: boolean) {
     this._gridOptions.columnReorder = columnReorder;
-    if (this.jQueryElement) {
+    if (this.datagrid) {
       this.datagrid.settings.columnReorder = columnReorder;
       this.markForRefresh('columnReorder', RefreshHintFlags.RenderHeader);
     }
@@ -215,7 +221,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   @Input() set editable(editable: boolean) {
     this._gridOptions.editable = editable;
-    if (this.jQueryElement) {
+    if (this.datagrid) {
       this.datagrid.settings.editable = editable;
       this.markForRefresh('editable', RefreshHintFlags.Rebuild);
     }
@@ -233,7 +239,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this._gridOptions.isList = isList;
     if (this.jQueryElement) {
       this.datagrid.settings.isList = isList;
-      // todo: update soho data grids view
 
       // causes new isLsit rows to be appended to the current view
       // this.datagrid.render();
@@ -456,6 +461,181 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   get treeGrid(): boolean {
     return this._gridOptions.treeGrid;
+  }
+
+  /**
+   * Returns the unqiue identifier; which may be undefined.
+   */
+  get uniqueId(): string {
+    if (this.datagrid) {
+      return this.datagrid.settings.uniqueId;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.uniqueId;
+  }
+
+  /**
+   * Sets the unqiueId - will force a grid rebuild if the component has already been
+   * created.
+   *
+   * @param unqiueId - the new id.
+   */
+  @Input() set uniqueId(uniqueId: string) {
+    this._gridOptions.uniqueId = uniqueId;
+    if (this.datagrid) {
+      this.datagrid.settings.uniqueId = uniqueId;
+
+      // Force all a full rebuild of the control.
+      this.markForRefresh('uniqueId', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
+   * The value of the rowReorder flag - returns the requested value if the control has not been created yet.
+   */
+  get rowReorder(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.rowReorder;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.rowReorder;
+  }
+
+  /**
+   * Sets the rowReorder flag - will force a grid rebuild if the component has already been
+   * created.
+   *
+   * @param rowReorder - if true the rows will be reorderable; otherwise they will not.
+   */
+  @Input() set rowReorder(value: boolean) {
+    this._gridOptions.rowReorder = value;
+    if (this.datagrid) {
+      this.datagrid.settings.rowReorder = value;
+
+      // Force all a full rebuild of the control.
+      this.markForRefresh('rowReorder', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
+   * The value of the showDirty flag - returns the requested value if the control has not been created yet.
+   */
+  get showDirty(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.showDirty;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.showDirty;
+  }
+
+  /**
+   * Sets the showDirty flag - will force a grid rebuild if the component has already been
+   * created.
+   *
+   * @param showDirty - if true then dirty rows will be highlighted; otherwise they will not.
+   */
+  @Input() set showDirty(value: boolean) {
+    this._gridOptions.showDirty = value;
+    if (this.datagrid) {
+      this.datagrid.settings.showDirty = value;
+
+      // Force all a full rebuild of the control.
+      this.markForRefresh('showDirty', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
+   * The value of the virtualized flag - returns the requested value if the control has not been created yet.
+   */
+  get virtualized(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.virtualized;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.virtualized;
+  }
+
+  /**
+   * Sets the virtualized flag - will force a grid rebuild if the component has already been
+   * created.
+   *
+   * @param virtualized - if true then the grid will be virtualized; otherwise it will not.
+   */
+  @Input() set virtualized(value: boolean) {
+    this._gridOptions.virtualized = value;
+    if (this.datagrid) {
+      this.datagrid.settings.virtualized = value;
+
+      // Force all a full rebuild of the control.
+      this.markForRefresh('virtualized', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
+   * The value of the virtualRowBuffer option - returns the requested value if the control has not been created yet.
+   */
+  get virtualRowBuffer(): number {
+    if (this.datagrid) {
+      return this.datagrid.settings.virtualRowBuffer;
+    } else {
+      return this._gridOptions.virtualRowBuffer;
+    }
+  }
+
+  /**
+   * Sets the virtualRowBuffer number - will force a grid rebuild
+   * if the component has already been created.
+   *
+   * @param virtualRowBuffer - how many extra rows top and bottom to allow as a buffer.
+   */
+  @Input() set virtualRowBuffer(value: number) {
+    this._gridOptions.virtualRowBuffer = value;
+    if (this.datagrid) {
+      this.datagrid.settings.virtualRowBuffer = value;
+
+      // Force all a full rebuild of the control.
+      this.markForRefresh('virtualRowBuffer', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
+   * The value of the groupable option - returns the requested
+   * value if the control has not been created yet.
+   */
+  get groupable(): SohoDataGridGroupable {
+    if (this.datagrid) {
+      return this.datagrid.settings.groupable;
+    } else {
+      return this._gridOptions.groupable;
+    }
+  }
+
+  /**
+   * Sets the groupable settings - will force a grid rebuild if the component has already been
+   * created.
+   *
+   * @param groupable - the groupable settings.
+   */
+  @Input() set groupable(value: SohoDataGridGroupable) {
+    this._gridOptions.groupable = value;
+    if (this.datagrid) {
+      this.datagrid.settings.groupable = value;
+
+      // Force all a full rebuild of the control.
+      this.markForRefresh('groupable', RefreshHintFlags.Rebuild);
+    }
   }
 
   /**

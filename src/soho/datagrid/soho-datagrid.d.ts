@@ -59,11 +59,17 @@ interface SohoDataGridOptions {
   /** Id to the right click context menu */
   menuId?: string;
 
+  /** Unique ID for local storage reference and variable names. If not specified then the URL the page is used. */
+  uniqueId?: string;
+
   /** What height to make the rows? */
   rowHeight?: SohoDataGridRowHeight;
 
   /** Sets the select-ability for the datagrid. */
   selectable?: SohoDataGridSelectable;
+
+  /** Use Data grouping fx. {fields: ['incidentId'], supressRow: true, aggregator: 'list', aggregatorOptions: ['unitName1']} */
+  groupable?: SohoDataGridGroupable;
 
   /** Click to select, or via checkbox? */
   clickToSelect?: boolean;
@@ -106,6 +112,18 @@ interface SohoDataGridOptions {
    * and editors or anywhere else a datagrid reference is available
    */
   userObject?: any;
+
+  /** Prevent Unused rows from being added to the DOM  */
+  virtualized?: boolean;
+
+  /** How many extra rows top and bottom to allow as a buffer */
+  virtualRowBuffer?: number;
+
+  /** Allows you to reorder rows. Requires rowReorder formatter. */
+  rowReorder?: boolean;
+
+  /**  */
+  showDirty?: boolean;
 }
 
 /**
@@ -220,7 +238,8 @@ declare var Formatters: {
   Dropdown: SohoDataGridColumnFormatterFunction;
   Favorite: SohoDataGridColumnFormatterFunction;
   Status: SohoDataGridColumnFormatterFunction;
-  Tree: SohoDataGridColumnFormatterFunction
+  Tree: SohoDataGridColumnFormatterFunction;
+  RowReorder: SohoDataGridColumnFormatterFunction;
 };
 
 // declare var Formatters as SohoDataGridColumnFormatters;
@@ -486,6 +505,20 @@ interface SohoToolbarOptions {
   title?: string;
   views?: boolean;
 }
+
+interface SohoDataGridGroupable {
+
+  //
+  fields: string[];
+
+  // Expanded boolean or a function to determine this.
+  expanded?: boolean | Function;
+
+  // Type of aggregation.
+  aggregator: SohoDataGridAggregator;
+}
+
+type SohoDataGridAggregator = 'sum' | 'max' | 'list' | string;
 
 /**
  * JQuery Integration

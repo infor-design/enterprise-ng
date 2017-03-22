@@ -31,15 +31,19 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     /**
      * Add a column for the custom formatter
+     *
+     * @todo this is not good - it is changing a static! So each time you visit this component and new
+     * is crated you get extra columns! (and they break)
      */
-    PAGING_COLUMNS.push({
+    const columns = [];
+    PAGING_COLUMNS.forEach(element => columns.push(element));
+    columns.push({
       id: 'custom-formatter',
       name: 'Custom Formatter',
       field: '',
       formatter: MyCustomFormatter,
     });
-
-    PAGING_COLUMNS.push({
+    columns.push({
       id: 'favorite-formatter',
       name: 'Favorite',
       field: '',
@@ -47,7 +51,7 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
     });
 
     const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
-      columns: PAGING_COLUMNS,
+      columns: columns,
       dataset: PAGING_DATA,
       selectable: 'single',
       paging: true,
@@ -57,7 +61,7 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
        * Set userObject to the instance of this DemoComponent.
        * In that way the CustomFormatter can gain access to it.
        */
-      userObject: this,
+      userObject: this
     };
 
     this.sohoDataGridComponent.gridOptions = gridOptions;

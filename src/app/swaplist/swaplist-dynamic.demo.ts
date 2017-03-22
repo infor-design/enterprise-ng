@@ -27,7 +27,7 @@ export class SwapListDynamicDemoComponent implements OnInit {
   availableDemoItems: SohoSwapListItem[] = [];
   selectedDemoItems: SohoSwapListItem[] = [];
 
-  showModel = false;
+  public showModel = false;
 
   constructor() {
     this.availableDemoItems.push(
