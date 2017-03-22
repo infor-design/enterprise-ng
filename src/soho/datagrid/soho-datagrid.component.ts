@@ -557,59 +557,59 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * The value of the virtualized flag - returns the requested value if the control has not been created yet.
    */
-  get virtualized(): boolean {
-    if (this.datagrid) {
-      return this.datagrid.settings.virtualized;
-    }
+  // get virtualized(): boolean {
+  //   if (this.datagrid) {
+  //     return this.datagrid.settings.virtualized;
+  //   }
 
-    // ... we've been called before the component has completed
-    // initialisation, so return the current value from the
-    // options.
-    return this._gridOptions.virtualized;
-  }
+  //   // ... we've been called before the component has completed
+  //   // initialisation, so return the current value from the
+  //   // options.
+  //   return this._gridOptions.virtualized;
+  // }
 
-  /**
-   * Sets the virtualized flag - will force a grid rebuild if the component has already been
-   * created.
-   *
-   * @param virtualized - if true then the grid will be virtualized; otherwise it will not.
-   */
-  @Input() set virtualized(value: boolean) {
-    this._gridOptions.virtualized = value;
-    if (this.datagrid) {
-      this.datagrid.settings.virtualized = value;
+  // /**
+  //  * Sets the virtualized flag - will force a grid rebuild if the component has already been
+  //  * created.
+  //  *
+  //  * @param virtualized - if true then the grid will be virtualized; otherwise it will not.
+  //  */
+  // @Input() set virtualized(value: boolean) {
+  //   this._gridOptions.virtualized = value;
+  //   if (this.datagrid) {
+  //     this.datagrid.settings.virtualized = value;
 
-      // Force all a full rebuild of the control.
-      this.markForRefresh('virtualized', RefreshHintFlags.Rebuild);
-    }
-  }
+  //     // Force all a full rebuild of the control.
+  //     this.markForRefresh('virtualized', RefreshHintFlags.Rebuild);
+  //   }
+  // }
 
   /**
    * The value of the virtualRowBuffer option - returns the requested value if the control has not been created yet.
    */
-  get virtualRowBuffer(): number {
-    if (this.datagrid) {
-      return this.datagrid.settings.virtualRowBuffer;
-    } else {
-      return this._gridOptions.virtualRowBuffer;
-    }
-  }
+  // get virtualRowBuffer(): number {
+  //   if (this.datagrid) {
+  //     return this.datagrid.settings.virtualRowBuffer;
+  //   } else {
+  //     return this._gridOptions.virtualRowBuffer;
+  //   }
+  // }
 
-  /**
-   * Sets the virtualRowBuffer number - will force a grid rebuild
-   * if the component has already been created.
-   *
-   * @param virtualRowBuffer - how many extra rows top and bottom to allow as a buffer.
-   */
-  @Input() set virtualRowBuffer(value: number) {
-    this._gridOptions.virtualRowBuffer = value;
-    if (this.datagrid) {
-      this.datagrid.settings.virtualRowBuffer = value;
+  // /**
+  //  * Sets the virtualRowBuffer number - will force a grid rebuild
+  //  * if the component has already been created.
+  //  *
+  //  * @param virtualRowBuffer - how many extra rows top and bottom to allow as a buffer.
+  //  */
+  // @Input() set virtualRowBuffer(value: number) {
+  //   this._gridOptions.virtualRowBuffer = value;
+  //   if (this.datagrid) {
+  //     this.datagrid.settings.virtualRowBuffer = value;
 
-      // Force all a full rebuild of the control.
-      this.markForRefresh('virtualRowBuffer', RefreshHintFlags.Rebuild);
-    }
-  }
+  //     // Force all a full rebuild of the control.
+  //     this.markForRefresh('virtualRowBuffer', RefreshHintFlags.Rebuild);
+  //   }
+  // }
 
   /**
    * The value of the groupable option - returns the requested

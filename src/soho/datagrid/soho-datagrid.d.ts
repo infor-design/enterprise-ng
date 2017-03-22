@@ -114,10 +114,10 @@ interface SohoDataGridOptions {
   userObject?: any;
 
   /** Prevent Unused rows from being added to the DOM  */
-  virtualized?: boolean;
+  // virtualized?: boolean;
 
   /** How many extra rows top and bottom to allow as a buffer */
-  virtualRowBuffer?: number;
+  // virtualRowBuffer?: number;
 
   /** Allows you to reorder rows. Requires rowReorder formatter. */
   rowReorder?: boolean;
