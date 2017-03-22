@@ -204,9 +204,10 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
 
   ngOnDestroy() {
     if (this.datepicker) {
-      // TODO: waiting on SOHO-4777 - 4.0 Datepicker - Needs a destroy method
-      // this.datepicker.destroy();
-      this.datepicker = null;
+      if (this.datepicker) {
+        this.datepicker.destroy();
+        this.datepicker = null;
+      }
     }
   }
 }
