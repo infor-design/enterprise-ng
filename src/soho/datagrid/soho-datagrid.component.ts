@@ -164,7 +164,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * The data to be displayed provided as an array
-   * of json object compatible with the column meta
+   * of json objects compatible with the column meta
    * data provided.
    *
    * @param dataset - array of json objects
