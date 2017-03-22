@@ -31,9 +31,6 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     /**
      * Add a column for the custom formatter
-     *
-     * @todo this is not good - it is changing a static! So each time you visit this component and new
-     * is crated you get extra columns! (and they break)
      */
     const columns = [];
     PAGING_COLUMNS.forEach(element => columns.push(element));
