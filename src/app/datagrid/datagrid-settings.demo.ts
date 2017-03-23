@@ -1,7 +1,8 @@
 import {
   Component,
   ViewChild,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
+  AfterViewInit
 } from '@angular/core';
 
 import {
@@ -19,8 +20,23 @@ import {
   providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService } ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataGridSettingsDemoComponent {
+export class DataGridSettingsDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) datagrid: SohoDataGridComponent;
+
+  constructor(gridService: SohoDataGridService) {
+    (<DataGridDemoService> gridService).addColumn({
+      id: 'rowReorder',
+      name: '',
+      field: 'id',
+      align: 'center',
+      sortable: false,
+      formatter: Formatters.RowReorder,
+      width: 80
+    });
+  }
+
+  ngAfterViewInit() {
+  }
 
   /**
    * Make several changes to the component in one go.
