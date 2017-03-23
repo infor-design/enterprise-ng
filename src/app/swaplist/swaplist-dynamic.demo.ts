@@ -1,48 +1,34 @@
-import {
+﻿import {
   Component,
+  ElementRef,
   OnInit,
-  ViewChild
+  ViewChild,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import {
-  SohoSwapListComponent
+    SohoSwapListComponent,
+    SohoBusyIndicatorDirective
 } from '@infor/sohoxi-angular';
+
+import { SwapListDemoService } from './swaplist-demo.service';
 
 @Component({
   selector: 'soho-swaplist-dynamic-demo',
   templateUrl: './swaplist-dynamic.demo.html',
+  providers: [SwapListDemoService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SwapListDynamicDemoComponent implements OnInit {
   @ViewChild(SohoSwapListComponent) swapListComponent: SohoSwapListComponent;
-
-  private _subject1$ = new BehaviorSubject([]);
-  public available = this._subject1$.asObservable();
-
-  private _subject2$ = new BehaviorSubject([]);
-  public selected = this._subject2$.asObservable();
-
-  availableDemoItems: SohoSwapListItem[] = [];
-  selectedDemoItems: SohoSwapListItem[] = [];
+  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
 
   showModel = false;
 
-  constructor() {
-    this.availableDemoItems.push(
-      { id: 1, value: 'opt-1', text: 'Option A' },
-      { id: 2, value: 'opt-2', text: 'Option B' },
-      { id: 3, value: 'opt-3', text: 'Option C' },
-      { id: 5, value: 'opt-5', text: 'Option E', disabled: true },
-      { id: 6, value: 'opt-6', text: 'Option F' },
-      { id: 8, value: 'opt-8', text: 'Option H' },
-      { id: 9, value: 'opt-9', text: 'Option I' });
-
-    this.selectedDemoItems.push(
-      { id: 4, value: 'opt-4', text: 'Option D' },
-      { id: 7, value: 'opt-7', text: 'Option G' },
-      { id: 11, value: 'opt-11', text: 'Option K' });
+  constructor(private el: ElementRef, private service: SwapListDemoService) {
   }
 
   ngOnInit() {
@@ -57,8 +43,12 @@ export class SwapListDynamicDemoComponent implements OnInit {
   }
 
   updateData(event: any) {
-    this._subject1$.next(this.availableDemoItems);
-    this._subject2$.next(this.selectedDemoItems);
+      this.service.getData().subscribe((d: SohoSwapListOptions) => {
+        this.busyIndicator.open();
+        this.swapListComponent.updateDataset(d);
+        this.busyIndicator.close(true);
+        //setTimeout(() => this.updateData(event), 2000);
+    });
   }
 
   toggleModel() {
