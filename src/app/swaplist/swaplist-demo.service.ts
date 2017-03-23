@@ -10,19 +10,18 @@ declare var Formatters: any;
 
 @Injectable()
 export class SwapListDemoService extends SohoSwapListService {
-    private options: SohoSwapListOptions = {};
-    private availableDemoItems: SohoSwapListItem[] = [];
-    private selectedDemoItems: SohoSwapListItem[] = [];
-    private additionalDemoItems: SohoSwapListItem[] = [];
 
-    getData(): Observable<SohoSwapListOptions> {
-        console.log(this.options.available);
-        return Observable.of(this.options);
+    private data: Array<any> = Array<any>();
+    availableDemoItems: SohoSwapListItem[] = [];
+    selectedDemoItems: SohoSwapListItem[] = [];
+    additionalDemoItems: SohoSwapListItem[] = [];
+
+    getData(req: any, resp :any): Observable<Array<any>> {
+        return Observable.of(this.data);
     }
 
     constructor() {
         super();
-        this.init();
     }
 
     init() {
@@ -46,8 +45,8 @@ export class SwapListDemoService extends SohoSwapListService {
             { id: 13, value: 'opt-13', text: 'Option M' },
             { id: 14, value: 'opt-14', text: 'Option N' });
 
-        this.options.available = this.availableDemoItems;
-        this.options.selected = this.selectedDemoItems;
-        this.options.additional = this.additionalDemoItems;
+        this.data.push({ availableItems: this.availableDemoItems });
+        this.data.push({ selectedItems: this.selectedDemoItems });
+        this.data.push({ additionalItems: this.additionalDemoItems });
     }
 }

@@ -5,7 +5,11 @@
  */
 export abstract class SohoSwapListService {
     /**
-     * Returns a list of <SohoSwapListOptions> data.
+     * Returns a list of data rows.
+     *
+     * @param gridRequest -used to define the data to return.
+     *
+     * @todo Request/Response type and data type would be defined after SwapList dataset API completed.
      */
-    abstract getData(): Observable<SohoSwapListOptions>;
+    abstract getData(req: any, resp : any): Observable<any[]>;
 }
