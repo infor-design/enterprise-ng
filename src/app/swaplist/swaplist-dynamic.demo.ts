@@ -26,7 +26,7 @@ export class SwapListDynamicDemoComponent implements OnInit {
   @ViewChild(SohoSwapListComponent) swapListComponent: SohoSwapListComponent;
   @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
 
-  showModel = false;
+  public showModel = false;
 
   constructor(private el: ElementRef, private service: SwapListDemoService) {
   }

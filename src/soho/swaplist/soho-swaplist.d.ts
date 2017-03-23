@@ -57,17 +57,17 @@ interface SohoSwapListStatic {
   /**
    * Get available items
    */
-  getAvailable(): any[];
+  getAvailable(): SohoSwapListItem[];
 
   /**
    * Get selected items
    */
-  getSelected(): any[];
+  getSelected(): SohoSwapListItem[];
 
   /**
    * get additional items
    */
-  getAdditional(): any[];
+  getAdditional(): SohoSwapListItem[];
 
   /**
    * Destroys any resources created by the control.

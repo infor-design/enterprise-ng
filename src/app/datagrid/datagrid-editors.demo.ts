@@ -129,8 +129,20 @@ function MATCH_FN (value, row: any, field, grid) {
 }
 
 export const LOOKUP_COLUMNS = [
-    { id: 'status', name: 'Status', field: 'status', formatter: Formatters.Text, sortable: false },
-    { id: 'description', name: 'Description', field: 'description', formatter: Formatters.Text, sortable: false }
+    {
+      id: 'status',
+      name: 'Status',
+      field: 'status',
+      formatter: Formatters.Text,
+      sortable: false
+    },
+    {
+      id: 'description',
+      name: 'Description',
+      field: 'description',
+      formatter: Formatters.Text,
+      sortable: false
+    }
 ];
 
 export const LOOKUP_DATA = [
@@ -154,11 +166,38 @@ export const STATUS_LOOKUP_OPTIONS = {
 }};
 
 export const EDITORS_COLUMNS: any[] = [
-  { id: 'productId',   name: 'Product Id',   field: 'productId',   sortable: false, filterType: 'integer', width: 100, formatter: Formatters.Readonly },
-  { id: 'status',      name: 'Status',       field: 'status',      sortable: false, filterType: 'text',    width: 100, formatter: Formatters.Lookup,
+  {
+    id: 'productId',
+    name: 'Product Id',
+    field: 'productId',
+    sortable: false,
+    filterType: 'integer',
+    width: 100,
+    formatter: Formatters.Readonly
+  },
+
+  {
+    id: 'status',
+    name: 'Status',
+    field: 'status',
+    sortable: false,
+    filterType: 'text',
+    width: 100,
+    formatter: Formatters.Lookup,
     editor: Editors.Lookup,
-    editorOptions: STATUS_LOOKUP_OPTIONS },
-  { id: 'quantity',    name: 'Quantity',     field: 'quantity',    sortable: false, filterType: 'number',   width: 105 },
+    editorOptions: STATUS_LOOKUP_OPTIONS
+  },
+
+  {
+    id: 'quantity',
+    name: 'Quantity',
+    field: 'quantity',
+    sortable: false,
+    filterType: 'number',
+    width: 105,
+    editor: Editors.Input
+  },
+
   //{ id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text',    width: 150, formatter: Formatters.Hyperlink },
   //{ id: 'activity',    name: 'Activity',     field: 'activity',    sortable: false, filterType: 'text',    width: 150, formatter: Formatters.Text, editor: Editors.Lookup, editorOptions: LOOKUP_OPTIONS },
   //{ id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', width: 125, formatter: Formatters.Decimal },

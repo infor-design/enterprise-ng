@@ -31,6 +31,7 @@ import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
+import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
@@ -124,6 +125,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     DataGridSettingsDemoComponent,
     DataGridToolbarDemoComponent,
     DataGridTreeGridDemoComponent,
+    DataGridGroupableDemoComponent,
     DatepickerDemoComponent,
     DropdownAsyncBusyDemoComponent,
     DropdownAsyncDemoComponent,

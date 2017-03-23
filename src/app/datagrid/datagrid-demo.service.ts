@@ -15,9 +15,14 @@ export class DataGridDemoService extends SohoDataGridService {
   private columns: Array<SohoDataGridColumn> = Array<SohoDataGridColumn>();
   private data: Array<any> = Array<any>();
 
+  public addColumn(column: SohoDataGridColumn) {
+    console.log('settings');
+    this.getColumns().unshift(column);
+  }
+
   getColumns(): Array<SohoDataGridColumn> {
     if (this.columns.length === 0) {
-        this.init();
+      this.init();
     }
     return this.columns;
   }
@@ -39,12 +44,28 @@ export class DataGridDemoService extends SohoDataGridService {
       filterType: <any>SohoGridColumnFilterTypes.Text,
       width: 50,
       formatter: 'SelectionCheckbox',
-      align: 'center' });
+      align: 'center'
+    });
+
     this.columns.push({
-      id: 'drillDown', hidden: true, name: 'Drill In', field: '', formatter: Formatters.Drilldown, cssClass: 'l-center-text',
+      id: 'drillDown',
+      hidden: true,
+      name: 'Drill In',
+      field: '',
+      formatter: Formatters.Drilldown,
+      cssClass: 'l-center-text',
       click: (e: any, args: any) => { console.log('clicked', args); }
     });
-    this.columns.push({ id: 'productId', hidden: true, name: 'Product Id', field: 'productId', formatter: Formatters.Readonly });
+
+    this.columns.push(
+      {
+        id: 'productId',
+        hidden: true,
+        name: 'Product Id',
+        field: 'productId',
+        formatter: Formatters.Readonly
+      });
+
     this.columns.push({
       id: 'productDesc',
       filterType: <any>SohoGridColumnFilterTypes.Text,
@@ -52,29 +73,48 @@ export class DataGridDemoService extends SohoDataGridService {
       sortable: false,
       field: 'productName',
       formatter: Formatters.Hyperlink,
-      click: (e: any, args: any) => { console.log('link was clicked', args);}
+      click: (e: any, args: any) => { console.log('link was clicked', args); }
     });
+
     this.columns.push({
       id: 'activity',
       name: 'Activity',
       filterType: <any>SohoGridColumnFilterTypes.Text,
       field: 'activity'
     });
+
     this.columns.push({
       id: 'quantity',
       name: 'Quantity',
-      filterType: <any> SohoGridColumnFilterTypes.Text,
+      filterType: <any>SohoGridColumnFilterTypes.Text,
       field: 'quantity'
     });
-    this.columns.push({ id: 'activity', hidden: true, name: 'Password', field: 'activity', formatter: Formatters.Password, inputType: 'password' });
+
+    this.columns.push({
+      id: 'activity',
+      hidden: true,
+      name: 'Password',
+      field: 'activity',
+      formatter: Formatters.Password,
+      inputType: 'password'
+    });
+
     this.columns.push({
       id: 'price1',
       name: 'Actual long Price',
       filterType: <any>SohoGridColumnFilterTypes.Decimal,
       field: 'price',
-      formatter: Formatters.Decimal });
-    this.columns.push({ id: 'price2', hidden: true, name: 'Actual long Price', align: 'right', field: 'price', formatter: Formatters.Decimal });
-    this.columns.push({ id: 'price2', hidden: true, name: 'Price', field: 'price', formatter: Formatters.Integer });
+      formatter: Formatters.Decimal
+    });
+
+    this.columns.push({
+      id: 'price2', hidden: true, name: 'Actual long Price', align: 'right', field: 'price', formatter: Formatters.Decimal
+    });
+
+    this.columns.push({
+      id: 'price2', hidden: true, name: 'Price', field: 'price', formatter: Formatters.Integer
+    });
+
     this.columns.push({
       id: 'orderDate',
       width: 300,
@@ -84,15 +124,26 @@ export class DataGridDemoService extends SohoDataGridService {
       formatter: Formatters.Date,
       dateFormat: Locale.calendar().dateFormat.datetime // @todo
     });
+
     this.columns.push({
       id: 'status',
       name: 'Status',
       filterType: <any>SohoGridColumnFilterTypes.Select,
-      options:  [{value: "ok", label: "OKAY"}, {value: "OK", label: "BIG OKAY"},{value: "error", label: "ERROR"}, {value: "success", label: "SUCCESS"}],
+      options: [{ value: "ok", label: "OKAY" }, { value: "OK", label: "BIG OKAY" }, { value: "error", label: "ERROR" }, { value: "success", label: "SUCCESS" }],
       field: 'status',
       formatter: Formatters.Dropdown
     });
-    this.columns.push({ id: 'alert', hidden: true, name: 'Alert', field: 'quantity', formatter: Formatters.Alert, ranges: [{ 'min': 0, 'max': 8, 'classes': 'info', 'text': ' ' }, { 'min': 9, 'max': 1000, 'classes': 'error', 'text': 'value' }] });
+
+    this.columns.push(
+      {
+        id: 'alert',
+        hidden: true,
+        name: 'Alert',
+        field: 'quantity',
+        formatter: Formatters.Alert,
+        ranges: [{ 'min': 0, 'max': 8, 'classes': 'info', 'text': ' ' }, { 'min': 9, 'max': 1000, 'classes': 'error', 'text': 'value' }]
+      });
+
     this.columns.push({ id: 'ordered', hidden: true, name: 'Ordered', field: 'ordered', formatter: Formatters.Checkbox });
     this.columns.push({ id: '', hidden: true, name: 'Actions', field: '', formatter: Formatters.Actions, menuId: 'grid-actions-menu', selected(e: any, a: any) { console.log(e, a); } });
     this.columns.push({ id: 'nested', hidden: true, name: 'Nested Prop', field: 'setting.optionOne', formatter: Formatters.Text });
