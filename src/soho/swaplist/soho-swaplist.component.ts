@@ -202,12 +202,6 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   /** Constructor. */
   constructor(private element: ElementRef,
       @Optional() private swaplistService: SohoSwapListService) {
-      // tempt load data from service
-      if (swaplistService) {
-          swaplistService.getData().subscribe((d: SohoSwapListOptions) => {
-              this.updateDataset(d);
-          });
-      }
   }
 
   ngAfterViewInit() {
@@ -219,6 +213,13 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
       .on('swapupdate', (event: JQueryEventObject, items: SohoSwapListItem[]) => this.updatedEvent.emit(event));
 
     this.swaplist = this.jQueryElement.data('swaplist');
+
+    // tempt load data from service
+    if (this.swaplistService) {
+      this.swaplistService.getData().subscribe((d: SohoSwapListOptions) => {
+        this.updateDataset(d);
+      });
+    }
   }
 
   /**
