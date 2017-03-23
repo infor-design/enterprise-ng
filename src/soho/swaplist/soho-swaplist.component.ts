@@ -73,8 +73,6 @@ export class SohoSwapListCardComponent {
  * The data is provided either by a component input or an implementation
  * of the DataGridService interface, by specifying an implementation
  * on the hosting component, i.e.
- *
- * providers: [ provide: SohoSwapListService, useClass: SwapListDemoService} ]
  */
 @Component({
   selector: 'soho-swaplist',
@@ -203,7 +201,13 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
 
   /** Constructor. */
   constructor(private element: ElementRef,
-      @Optional() protected swaplistService: SohoSwapListService) {
+      @Optional() private swaplistService: SohoSwapListService) {
+      // tempt load data from service
+      if (swaplistService) {
+          swaplistService.getData().subscribe((d: SohoSwapListOptions) => {
+              this.updateDataset(d);
+          });
+      }
   }
 
   ngAfterViewInit() {
