@@ -3,6 +3,7 @@
 # compiled output
 /dist
 /tmp
+/out-tsc
 /obj
 /bin
 /src/assets/css
@@ -16,20 +17,23 @@
 *.iml
 .project
 .classpath
+.c9/
 *.launch
 .settings/
+*.sublime-workspace
 /.vs
-/packages
-*.csproj
-*.sln
-*.csproj.user
-packages.config
-web.*[Cc]onfig
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # misc
 /.sass-cache
 /connect.lock
-/coverage/*
+/coverage
 /libpeerconnection.log
 npm-debug.log
 testem.log
