@@ -71,7 +71,7 @@ export class SohoSwapListCardComponent {
 
 /*
  * The data is provided either by a component input or an implementation
- * of the DataGridService interface, by specifying an implementation
+ * of the SwapListService interface, by specifying an implementation
  * on the hosting component, i.e.
  */
 @Component({
