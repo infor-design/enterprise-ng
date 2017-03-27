@@ -181,7 +181,6 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     }
 
     if (event.length && event.length === 1) {
-      
       this.value = this.processValue(event[0].data);
 
     } else {
