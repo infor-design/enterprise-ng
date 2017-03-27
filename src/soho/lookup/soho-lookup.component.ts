@@ -230,7 +230,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       this.onChange(event);
       this.lookup.element.val(this.value);
     }
-}
+  }
 
   /**
    * Override writeValue to allow the lookup
