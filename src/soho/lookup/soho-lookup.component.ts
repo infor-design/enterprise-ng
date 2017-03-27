@@ -185,7 +185,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       this.value = this.processValue(event[0].data);
 
     } else {
-      this.value = event.map(val => { return val.data; });
+      this.value = event.map(val => val.data);
     }
     this.change.emit(this.value);
   }
@@ -225,12 +225,12 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    *
    * @param value - the new value
    */
-    setValue(event: SohoLookupChangeEvent[]) {
-		if (this.lookup) {
-		  this.onChange(event);
-		  this.lookup.element.val(this.value);
-		}
-	}
+  setValue(event: SohoLookupChangeEvent[]) {
+    if (this.lookup) {
+      this.onChange(event);
+      this.lookup.element.val(this.value);
+    }
+}
 
   /**
    * Override writeValue to allow the lookup
@@ -260,4 +260,3 @@ declare abstract class OnBeforeLookupShow {
    */
   abstract onBeforeLookupShow: (lookup: any, grid: (gridOptions: Object) => {}) => any;
 }
-
