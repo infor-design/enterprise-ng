@@ -256,7 +256,10 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
 
   ngOnDestroy() {
     // Necessary clean up step (add additional here)
-    this.listview.destroy();
+    if (this.listview) {
+      this.listview.destroy();
+      this.listview = null;
+    }
   }
   get listClass() {
     let classes = 'listview';
