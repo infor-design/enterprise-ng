@@ -107,6 +107,7 @@ export class SohoContextualActionPanelRef<T> {
    * @param id - the id.
    */
   id(id: string): SohoContextualActionPanelRef<T> {
+    this._options.id = id;
     if (this.contextualactionpanel) {
       this.contextualactionpanel.settings.id = id;
     }
@@ -131,6 +132,7 @@ export class SohoContextualActionPanelRef<T> {
    * @param trigger - when to open the panel.
    */
   trigger(trigger: SohoContextualActionPanelTriggerType): SohoContextualActionPanelRef<T> {
+    this._options.trigger = trigger;
     if (this.contextualactionpanel) {
       this.contextualactionpanel.settings.trigger = trigger;
     }
