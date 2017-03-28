@@ -12,8 +12,11 @@ type SohoDataGridRowHeight = 'short' | 'medium' | 'normal';
 
 /**
  * Selection options.
+ * Mixed mode allows for single row activated state with multipl selection checkbox states.
+ * rowdeactivated and rowactivated events are fired for the Activated mode of a row.
+ * Use is-rowactivated in your markup to set activated state
  */
-type SohoDataGridSelectable = boolean | 'single' | 'multiple';
+type SohoDataGridSelectable = boolean | 'single' | 'multiple' | 'mixed';
 
 /**
  * Settings for the Soho datagrid control.
@@ -427,6 +430,25 @@ interface SohoDataGridStatic {
 
   selectedRows(rows: number[]): void;
 
+  /**
+   * valid only when selection mode is 'mixed'
+   * @param idx
+   */
+  activateRow(idx: number): void;
+
+  /**
+   * Deactivate the currently activated row.
+   * valid only when selection mode is 'mixed'
+   * @param idx
+   */
+  deactivateRow(): void;
+
+  /**
+   * valid only when selection mode is 'mixed'
+   * @param idx
+   */
+  activatedRow(): SohoDataGridRowActivated;
+
   toggleFilterRow(): void;
 
   setActiveCell(idx: number, idx2: number): void;
@@ -451,6 +473,11 @@ interface SohoDataGridStatic {
 interface SohoDataGridSortedEvent {
   // The column that was sorted.
   column: SohoDataGridColumn;
+}
+
+interface SohoDataGridRowActivated {
+  row: number;
+  item: any;
 }
 
 interface SohoDataGridSelectedRow {

@@ -287,7 +287,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * Whether selection is enabled.
    *
-   * @param selectable valid values are: 'multiple', 'single', and false.
+   * @param selectable valid values are: 'multiple', 'single', 'mixed', and false.
    */
   @Input() set selectable(selectable: any) {
     this._gridOptions.selectable = selectable;
@@ -719,6 +719,12 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   @Output()
   sorted = new EventEmitter<SohoDataGridSortedEvent>();
 
+  @Output()
+  rowActivated = new EventEmitter<SohoDataGridRowActivated>();
+
+  @Output()
+  rowDeactivated = new EventEmitter<SohoDataGridRowActivated>();
+
   // -------------------------------------------
   // Host Bindings
   // -------------------------------------------
@@ -947,6 +953,30 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Activate the row and the passed in idx.
+   * NOTE: valid only when selection mode is 'mixed'
+   */
+  activateRow(idx: number): void {
+    this.datagrid.activateRow(idx);
+  }
+
+  /**
+   * Deactivate the currently activated row.
+   * NOTE: valid only when selection mode is 'mixed'
+   */
+  deactivateRow(): void {
+    this.datagrid.deactivateRow();
+  }
+
+  /**
+   * Get the currently activated row.
+   * NOTE: valid only when selection mode is 'mixed'
+   */
+  activatedRow(): SohoDataGridRowActivated {
+    return this.datagrid.activatedRow();
+  }
+
+  /**
    * Toggles the display of the filter row.
    */
   toggleFilterRow(): void {
@@ -1109,7 +1139,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       .on('filtered', (e: JQueryEventObject, args: any) => { this.filtered.next(args); })
       .on('sorted', (e: JQueryEventObject, args: any) => { this.sorted.next(args); })
       .on('expandrow', (e: JQueryEventObject, args: any) => { this.onExpandRow(args); })
-      .on('collapserow', (e: JQueryEventObject, args: any) => { this.onCollapseRow(args); });
+      .on('collapserow', (e: JQueryEventObject, args: any) => { this.onCollapseRow(args); })
+      .on('rowactivated', (e: JQueryEventObject, args: any) => { this.rowActivated.next(args); })
+      .on('rowdeactivated', (e: JQueryEventObject, args: any) => { this.rowDeactivated.next(args); });
   }
 
   /**
