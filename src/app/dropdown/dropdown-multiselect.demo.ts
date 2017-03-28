@@ -1,23 +1,22 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'soho-dropdown-multiselect-demo',
-  templateUrl: './dropdown-multiselect.demo.html',
+  selector:        'soho-dropdown-multiselect-demo',
+  templateUrl:     './dropdown-multiselect.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownMultiselectDemoComponent implements OnInit {
   public options: Array<Object> = [
-    { value: 'AL', text: 'Alabama' },
-    { value: 'CA', text: 'California' },
-    { value: 'DE', text: 'Delaware' },
-    { value: 'NY', text: 'New York' },
-    { value: 'WY', text: 'Wyoming' },
+    { value: 'AL', label: 'Alabama' },
+    { value: 'CA', label: 'California' },
+    { value: 'DE', label: 'Delaware' },
+    { value: 'NY', label: 'New York' },
+    { value: 'WY', label: 'Wyoming' },
   ];
-  public multisourceoptions: Array<Object> = [];
+  public multisourceoptions: Array<Object> = [
+    { value: 'AK', label: 'Alaska', selected: true },
+    { value: 'CA', label: 'California', selected: true }
+  ];
   public counter = 0;
   public model: {
     closes: string[],
@@ -25,37 +24,43 @@ export class DropdownMultiselectDemoComponent implements OnInit {
     multisource: string[],
     modifiable: Object[]
   } = {
-    closes: ['AL', 'DE'],
-    multi: [],
-    multisource: [],
-    modifiable: [],
+    closes:      [ 'AL', 'DE' ],
+    multi:       [],
+    multisource: [ 'AK', 'CA' ],
+    modifiable:  [],
   };
   public showModel = false;
 
-  constructor() { }
-  ngOnInit() { }
+  constructor() {
+  }
+
+  ngOnInit() {
+  }
+
   onAddOption() {
-    this.options.push({ value: 'test' + this.counter, text: 'Test ' + this.counter });
+    this.options.push({ value: 'test' + this.counter, label: 'Test ' + this.counter });
     this.counter++;
   }
+
   onRemoveOption() {
     this.options.pop();
   }
+
   toggleModel() {
     this.showModel = !this.showModel;
   }
 
-   source(response: any, searchTerm: any) {
-     const states = [
-       { value: 'AK', label: 'Alaska'},
-       { value: 'AZ', label: 'Arizona'},
-      { value: 'CA', label: 'California'},
-      { value: 'CO', label: 'Colorado'},
-      { value: 'MN', label: 'Minnesota'},
-      { value: 'ND', label: 'North Dakota'},
-      { value: 'OR', label: 'Oregon'},
-      { value: 'WA', label: 'Washington'},
-      { value: 'WY', label: 'Wyoming'}
+  source = (response: any, searchTerm: any) => {
+    const states = [
+      { value: 'AK', label: 'Alaska', selected: true },
+      { value: 'AZ', label: 'Arizona' },
+      { value: 'CA', label: 'California', selected: true },
+      { value: 'CO', label: 'Colorado' },
+      { value: 'MN', label: 'Minnesota' },
+      { value: 'ND', label: 'North Dakota' },
+      { value: 'OR', label: 'Oregon' },
+      { value: 'WA', label: 'Washington' },
+      { value: 'WY', label: 'Wyoming' }
     ];
 
     this.multisourceoptions = states;
