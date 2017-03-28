@@ -430,23 +430,10 @@ interface SohoDataGridStatic {
 
   selectedRows(rows: number[]): void;
 
-  /**
-   * valid only when selection mode is 'mixed'
-   * @param idx
-   */
   activateRow(idx: number): void;
 
-  /**
-   * Deactivate the currently activated row.
-   * valid only when selection mode is 'mixed'
-   * @param idx
-   */
   deactivateRow(): void;
 
-  /**
-   * valid only when selection mode is 'mixed'
-   * @param idx
-   */
   activatedRow(): SohoDataGridRowActivated;
 
   toggleFilterRow(): void;

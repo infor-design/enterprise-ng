@@ -953,7 +953,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   * Activate the row and the passed in idx.
+   * Activate the row of the passed-in idx.
    * NOTE: valid only when selection mode is 'mixed'
    */
   activateRow(idx: number): void {
