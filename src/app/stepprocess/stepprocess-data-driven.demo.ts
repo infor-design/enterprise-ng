@@ -9,7 +9,7 @@ import {
 })
 export class StepProcessDataDrivenDemoComponent implements OnInit, AfterViewInit {
 
-  protected steps: Array<{
+  public steps: Array<{
                   id: string,
                   title: string,
                   icon: string,

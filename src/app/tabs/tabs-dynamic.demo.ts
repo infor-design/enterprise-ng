@@ -22,11 +22,11 @@ export class TabsDynamicDemoComponent implements OnInit {
 
   @ViewChild(SohoTabsComponent) sohoTabsComponent: SohoTabsComponent;
 
-  private tabs: Array<any>;
-  private currentTabsIndex: number = 1;
-  private currentTabTitleChangeNumber: number = 1;
+  public tabs: Array<any>;
+  public currentTabsIndex = 1;
+  public currentTabTitleChangeNumber = 1;
 
-  private tabsData: Array<any> =
+  public tabsData: Array<any> =
     [
       [
         { id: 'requests', title: 'Requests', content: 'Exploit niches; enable A-list web-enabled holistic end-to-end. Exploit experiences value-added tagclouds, open-source cross-platform e-tailers, user-contributed, implement! Convergence, solutions front-end, "synergize markets initiatives integrateAJAX-enabled platforms; wireless, supply-chains reinvent, mindshare, synergies implement, drive evolve!" Post incentivize; rich-clientAPIs customized revolutionize 24/365 killer incentivize integrate intuitive utilize!' }, // tslint:disable-line

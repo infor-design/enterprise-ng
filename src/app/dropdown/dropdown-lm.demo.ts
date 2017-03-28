@@ -6,7 +6,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   templateUrl: './dropdown-lm.demo.html',
 })
 export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
-  public fieldSpec = {
+  public fieldSpec: any = {
     AlphaField: {
       bindId: 'AlphaField',
       stateValues: [
@@ -45,7 +45,7 @@ export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
       stateValues: []
     }
   };
-  public model = {};
+  public model: any = {};
   public showModel = false;
   public form: FormGroup;
 

@@ -107,7 +107,7 @@ export class DataGridTreeGridDemoComponent implements AfterContentInit, AfterVie
     this.events.push({ name: 'collapserow', descr: descr, date: new Date() });
   }
 
-  makeChange(e: any) {
+  makeChange() {
     this.dataGrid.isList = !this.dataGrid.isList;
     this.dataGrid.alternateRowShading = !this.dataGrid.alternateRowShading;
     this.dataGrid.cellNavigation = !this.dataGrid.cellNavigation;

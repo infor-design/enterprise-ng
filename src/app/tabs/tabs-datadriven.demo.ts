@@ -14,7 +14,7 @@ import {
 })
 export class TabsDataDrivenDemoComponent implements OnInit {
 
-  protected tabs: Array<{id: string, title: string, content: string}>;
+  public tabs: Array<{id: string, title: string, content: string}>;
 
   ngOnInit() {
     this.tabs = [

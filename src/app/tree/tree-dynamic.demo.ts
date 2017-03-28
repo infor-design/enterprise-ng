@@ -83,15 +83,15 @@ export class TreeDynamicDemoComponent implements AfterViewInit {
     this.tree.collapseAll();
   }
 
-  toggleEnabled(event: any) {
-    if (this.enabled) {
-      this.tree.disable();
-      this.enabled = false;
-    } else {
-      this.tree.enable();
-      this.enabled = true;
-    }
-  }
+  // toggleEnabled(event: any) {
+  //   if (this.enabled) {
+  //     this.tree.disable();
+  //     this.enabled = false;
+  //   } else {
+  //     this.tree.enable();
+  //     this.enabled = true;
+  //   }
+  // }
 
   selectRoot() {
     this.tree.setSelectedNode('/1');

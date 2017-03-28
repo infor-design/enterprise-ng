@@ -11,7 +11,7 @@ run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **@angular/cli** to create, build and run the application.  
 
-At the time of writing the version of **@angular/cli** used was 1.0.0-beta.32-3.
+At the time of writing the version of **@angular/cli** used was 1.0.0.
 
 In addition, **gulp** is used to perform additional build and deployment steps required to get the application built.
 
@@ -52,8 +52,8 @@ In a terminal window, in the project folder:
 1. Type `npm install jquery@3.1.1 -S` 
 2. Type `npm install gulp -S`
 3. Type `npm install @types/jquery -S`
-4. Type `npm install @infor/sohoxi@4.2.5-develop -S` 
-5. Type `npm install @infor/sohoxi-angular@4.2.5-develop -S` 
+4. Type `npm install @infor/sohoxi@4.2.6-rc -S` 
+5. Type `npm install @infor/sohoxi-angular@4.2.6-rc -S` 
 6. Type `npm install merge-stream -S`
 
 This includes all the packages we need to create this simple quick start application.
@@ -62,7 +62,7 @@ This includes all the packages we need to create this simple quick start applica
 
 The next step is to configure angular-cli to include the SohoXI libraries into the output. 
 
-Edit `angular-cli.json`, change the  `scripts` as follows:
+Edit `angular-cli.json`, change the `scripts` as follows:
 ```json
 "scripts": [
 "../node_modules/jquery/dist/jquery.js",

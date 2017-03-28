@@ -69,21 +69,21 @@
 
     <li soho-step-list-item>
       <a soho-step-list-item-anchor stepId="information">
-        <svg soho-icon icon='empty-circle'></svg>
+        <svg soho-icon icon="empty-circle"></svg>
         <span soho-step-list-item-title>Information - step 7</span>
-        <svg soho-icon icon='caret-down' class='icon-tree'></svg>
+        <svg soho-icon icon="caret-down" class="icon-tree"></svg>
       </a>
 
       <ul soho-substep-list>
 
-        <template [ngIf]="infoSubSteps">
+        <ng-template [ngIf]="infoSubSteps">
           <li soho-step-list-item *ngFor="let infoSubStep of infoSubSteps">
             <a soho-step-list-item-anchor stepId="{{infoSubStep.id}}">
               <svg soho-icon icon="{{infoSubStep.icon}}"></svg>
               <span soho-step-list-item-title>{{infoSubStep.title}}</span>
             </a>
           </li>
-        </template>
+        </ng-template>
 
       </ul>
     </li>
@@ -173,11 +173,11 @@
         <p>This is the talent profile Step</p>
       </div>
 
-      <template [ngIf]="infoSubSteps">
+      <ng-template [ngIf]="infoSubSteps">
         <div soho-step-content-panel *ngFor="let infoSubStep of infoSubSteps" stepId="{{infoSubStep.id}}">
           <p>{{infoSubStep.content}}</p>
         </div>
-      </template>
+      </ng-template>
 
       <div soho-step-content-panel stepId="summary">
         <h2>Summary</h2>

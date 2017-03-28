@@ -107,11 +107,11 @@ export class SohoHeaderDynamicDemoComponent {
     return this.currentTabsOptions;
   }
 
-  fireSearchEvent(event) {
+  fireSearchEvent(event: any) {
     alert('run search value : "' + this.toolbarSearchField.value + '"');
   }
 
-  fireClearSearchEvent(event) {
+  fireClearSearchEvent(event: any) {
     alert('search value cleared');
   }
 }
