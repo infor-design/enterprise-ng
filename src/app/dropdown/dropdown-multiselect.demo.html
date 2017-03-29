@@ -4,40 +4,62 @@
       <h1>Multi-Select Dropdown</h1>
       <span class="code-tag">Live Example</span>
       <div class="row">
-        <div class="field">
-          <label for="states-multi-closes" class="label">States - Closes On Select</label>
-          <select soho-dropdown name="states-multi-closes" multiple maxSelected="3" [(ngModel)]="model.closes">
-            <option value="AL">Alabama</option>
-            <option value="CA">California</option>
-            <option value="DE">Delaware</option>
-            <option value="NY">New York</option>
-            <option value="WY">Wyoming</option>
-          </select>
+        <div class="four columns">
+          <div class="field">
+            <label for="states-multi-closes" class="label">States - Closes On Select</label>
+            <select soho-dropdown name="states-multi-closes" multiple maxSelected="3" [(ngModel)]="model.closes">
+              <option value="AL">Alabama</option>
+              <option value="CA">California</option>
+              <option value="DE">Delaware</option>
+              <option value="NY">New York</option>
+              <option value="WY">Wyoming</option>
+            </select>
+          </div>
         </div>
-        <div class="field">
-          <label for="states-multi" class="label">States - Stays Open</label>
-          <select soho-dropdown name="states-multi" multiple [closeOnSelect]="false" maxSelected="3" [(ngModel)]="model.multi">
-            <option value="AL">Alabama</option>
-            <option value="CA">California</option>
-            <option value="DE">Delaware</option>
-            <option value="NY">New York</option>
-            <option value="WY">Wyoming</option>
-          </select>
+      </div>
+      <div class="row">
+        <div class="four columns">
+          <div class="field">
+            <label for="states-multi" class="label">States - Stays Open</label>
+            <select soho-dropdown name="states-multi" multiple [closeOnSelect]="false" maxSelected="3" [(ngModel)]="model.multi">
+              <option value="AL">Alabama</option>
+              <option value="CA">California</option>
+              <option value="DE">Delaware</option>
+              <option value="NY">New York</option>
+              <option value="WY">Wyoming</option>
+            </select>
+          </div>
         </div>
-        <div class="field">
-          <label for="states-multi-source" class="label">States - From source</label>
-          <select soho-dropdown name="states-multi-source" multiple="true" [source]="source" [(ngModel)]="model.multisource">
-            <option *ngFor="let option of multisourceoptions" [ngValue]="option">{{option.text}}</option>
-          </select>
+      </div>
+      <div class="row">
+        <div class="four columns">
+          <div class="field">
+            <label for="states-multi-source-alpha" class="label">States using source & alpha value</label>
+            <select soho-dropdown name="states-multi-source-alpha" multiple [source]="sourceAlpha" [(ngModel)]="model.multiSourceAlpha">
+              <option *ngFor="let option of multiSourceAlphaOptions" selected={{option.selected}} [value]="option.value">{{option.label}}</option>
+            </select>
+          </div>
         </div>
-        <div class="field">
-          <button soho-button (click)="onAddOption()">Add Option</button>
-          <button soho-button (click)="onRemoveOption()">Remove Option</button>
-          <hr>
-          <label for="states-modifiable-two" class="label">Modifiable States</label>
-          <select soho-dropdown name="states-modifiable-two" multiple="true" [closeOnSelect]="false" [(ngModel)]="model.modifiable">
-            <option *ngFor="let option of options" [ngValue]="option">{{option.text}}</option>
-          </select>
+        <div class="four columns">
+          <div class="field">
+            <label for="states-multi-source-numeric" class="label">States using source & numeric value</label>
+            <select soho-dropdown name="states-multi-source-numeric" multiple [source]="sourceNumeric" [(ngModel)]="model.multiSourceNumeric">
+              <option *ngFor="let option of multiSourceNumericOptions" selected={{option.selected}} [value]="option.value">{{option.label}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="four columns">
+          <div class="field">
+            <button soho-button (click)="onAddOption()">Add Option</button>
+            <button soho-button (click)="onRemoveOption()">Remove Option</button>
+            <hr>
+            <label for="states-modifiable-two" class="label">Modifiable States</label>
+            <select soho-dropdown name="states-modifiable-two" multiple="true" [closeOnSelect]="false" [(ngModel)]="model.modifiable">
+              <option *ngFor="let option of options" [ngValue]="option">{{option.label}}</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
