@@ -1,5 +1,6 @@
 // Place your settings in this file to overwrite default and user settings.
 {
 "typescript.tsdk": "node_modules/typescript/lib",
-"vsicons.presets.angular": true
+"vsicons.presets.angular": true,
+"typescript.referencesCodeLens.enabled": true
 }

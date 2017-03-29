@@ -89,6 +89,8 @@ Release Date: 2016-10-31
       * this requires a few changes (compare with a new project)
 * 2017-03-15 - TH - PR-261
     * Added `dialogComponent` to the prototype for `afterClose` and `closed` event callbacks.  More details in the README.
+* 2017-03-29 - TH - PR-275
+    * Angular 4 and @angular/cli 1.0.0.
       
 ## Upgrading
 
