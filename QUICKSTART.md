@@ -6,7 +6,7 @@ You can download the latest version of the code from [quickstart](http://git.inf
 
 ## Prerequisites
 
-If **Node.js** and npm aren't already on your machine, install them. These examples require Node 6 or higher and NPM 3 or higher. To check which version you are using,
+If **Node.js** and npm aren't already on your machine, install them. These examples require Node 6.9.0 or higher and NPM 3 or higher. To check which version you are using,
 run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **@angular/cli** to create, build and run the application.  
@@ -62,7 +62,7 @@ This includes all the packages we need to create this simple quick start applica
 
 The next step is to configure angular-cli to include the SohoXI libraries into the output. 
 
-Edit `angular-cli.json`, change the `scripts` as follows:
+Edit `.angular-cli.json`, change the `scripts` as follows:
 ```json
 "scripts": [
 "../node_modules/jquery/dist/jquery.js",
@@ -72,7 +72,7 @@ Edit `angular-cli.json`, change the `scripts` as follows:
 ```
 ## Step 4 : Configure TypeScript:
 
-Edit `src/tsconfig.json`, add this below the `typeRoots` property:
+Edit `src/tsconfig.app.json`, add this below the `typeRoots` property:
 ```json
 "types": [
   "jasmine",
