@@ -3,10 +3,7 @@
   <button soho-button (click)="onToggleHeaderToolbar()">{{isShowingHeaderToolbar ? 'Remove Default Toolbar' : 'Show Header Toolbar'}}</button>
   <button soho-button (click)="onToggleHeaderTabs()">{{isShowingHeaderTabs ? 'Remove Header Tabs' : 'Show Header Tabs'}}</button>
 
-  <ng-template *ngIf="currentTabsOptions">
+  <ng-template [ngIf]="currentTabsOptions">
     <div soho-tab-panel *ngFor="let tab of currentTabsOptions.tabs" [tabId]="tab.id"><p>{{tab.content}}</p></div>
   </ng-template>
-
-<br>
-{{currentTabsOptions}}
 </div>
