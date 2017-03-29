@@ -100,8 +100,8 @@ export class SohoSliderComponent implements AfterViewInit, AfterViewChecked, OnD
    */
   private isDisabled: boolean = null;
   private isReadOnly: boolean = null;
-  private isVertical: boolean = false;
-  private isVerticalOriginal: boolean = false;
+  private isVertical = false;
+  private isVerticalOriginal = false;
 
   private jQueryElement: JQuery;
   private slider: SohoSliderStatic;

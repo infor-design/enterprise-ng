@@ -78,7 +78,7 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
    */
   private jQueryElement: JQuery;
   private toolbarsearchfield: SohoToolbarSearchFieldStatic;
-  private searchFieldChanged: boolean = false;
+  private searchFieldChanged = false;
 
   constructor(
     private changeDetector: ChangeDetectorRef,

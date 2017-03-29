@@ -20,9 +20,9 @@ export class DatepickerDemoComponent implements OnInit {
     year: '',
     datetime: ''
   };
-  public showModel: boolean = false;
-  public datepickerDisabled: boolean = false;
-  public datepickerReadOnly: boolean = false;
+  public showModel = false;
+  public datepickerDisabled = false;
+  public datepickerReadOnly = false;
 
   constructor() { }
   ngOnInit() { }

@@ -14,9 +14,9 @@ import { SohoSliderComponent } from '@infor/sohoxi-angular';
 export class SliderDemoComponent implements OnInit {
   @ViewChild(SohoSliderComponent) slider: SohoSliderComponent;
 
-  public sliderDisabled: boolean = false;
-  public sliderReadOnly: boolean = false;
-  public showModel: boolean = false;
+  public sliderDisabled = false;
+  public sliderReadOnly = false;
+  public showModel = false;
 
   public model = {
     value: '20'

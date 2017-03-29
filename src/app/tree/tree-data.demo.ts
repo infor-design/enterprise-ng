@@ -1,6 +1,6 @@
 export class TreeDemoData {
 
-  private id: number = 2;
+  private id = 2;
 
   private ROOT_NODE: SohoTreeNode = {
     'id': 'Root ' + this.id++,

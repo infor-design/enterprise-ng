@@ -22,11 +22,11 @@ import {
 export class SohoTabComponent {
   @HostBinding('class.tab') get isTab() { return true; };
 
-  @HostBinding('class.dismissible')   @Input() dismissible:  boolean = false;
-  @HostBinding('class.is-selected')   @Input() selected:     boolean = false;
-  @HostBinding('class.is-disabled')   @Input() disabled:     boolean = false;
-  @HostBinding('class.hidden')        @Input() hidden:       boolean = false;
-  @HostBinding('class.has-popupmenu') @Input() hasPopupMenu: boolean = false;
+  @HostBinding('class.dismissible') @Input() dismissible = false;
+  @HostBinding('class.is-selected') @Input() selected = false;
+  @HostBinding('class.is-disabled') @Input() disabled = false;
+  @HostBinding('class.hidden')  @Input() hidden = false;
+  @HostBinding('class.has-popupmenu') @Input() hasPopupMenu = false;
 }
 
 /**
@@ -345,6 +345,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   ngOnDestroy() {
     if (this.jQueryElement && this.tabs) {
       this.tabs.destroy();
+      this.tabs = null;
     }
   }
 

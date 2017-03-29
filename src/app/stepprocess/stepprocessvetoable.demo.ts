@@ -12,12 +12,12 @@ import { Observable } from 'rxjs/Observable';
 export class StepProcessVetoableDemoComponent {
 
   public infoSubSteps: Array<InfoSubStep> = undefined;
-  public showBusyIndicator: boolean = false;
-  public showStep4: boolean = false;
+  public showBusyIndicator = false;
+  public showStep4 = false;
 
-  public vetoStep2: boolean = false;
-  public addStep4: boolean = false;
-  public vetoHistorySubStep2: boolean = false;
+  public vetoStep2 = false;
+  public addStep4 = false;
+  public vetoHistorySubStep2 = false;
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef
