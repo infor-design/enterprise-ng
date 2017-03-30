@@ -16,8 +16,13 @@ export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, OnDestr
 
   public currentTabsOptions: HeaderDynamicTabsetOptions = undefined;
 
-  public isShowingHeaderToolbar = true;
-  public isShowingHeaderTabs = false;
+  public get isShowingHeaderToolbar(): boolean {
+    return this.sohoHeaderRef.instance.toolbarOptions !== undefined;
+  }
+
+  public get isShowingHeaderTabs(): boolean {
+    return this.currentTabsOptions !== undefined;
+  }
 
   public tabsOptions: HeaderDynamicTabsetOptions = {
     tabs: [
