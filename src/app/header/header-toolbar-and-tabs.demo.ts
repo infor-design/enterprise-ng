@@ -16,10 +16,15 @@ export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, OnDestr
 
   public currentTabsOptions: HeaderDynamicTabsetOptions = undefined;
 
-  public isShowingHeaderToolbar = true;
-  public isShowingHeaderTabs = false;
+  public get isShowingHeaderToolbar(): boolean {
+    return this.sohoHeaderRef.instance.toolbarOptions !== undefined;
+  }
 
-  private tabsOptions: HeaderDynamicTabsetOptions = {
+  public get isShowingHeaderTabs(): boolean {
+    return this.currentTabsOptions !== undefined;
+  }
+
+  public tabsOptions: HeaderDynamicTabsetOptions = {
     tabs: [
       { id: 'paper-plates', title: 'Paper Plates', content: 'Disintermediate enterprise ecologies revolutionize 24/365 mesh embedded feeds webservices world-class rss-capable innovative; e-business empower user-centric best-of-breed architect customized create." Bandwidth peer-to-peer user-centric share communities, rss-capable turn-key metrics deliverables productize robust integrate seize harness platforms killer, facilitate A-list 24/7 deliver tag. Reinvent viral scale leading-edge networking solutions web-readiness.' }, // tslint:disable-line
       { id: 'paper-bags', title: 'Paper Bags', content: 'Podcasts e-enable, robust viral rich-clientAPIs widgets cutting-edge strategic embedded integrateAJAX-enabled matrix proactive architect, "experiences, scale streamline." Open-source standards-compliant infomediaries visionary systems user-centred applications.' },  // tslint:disable-line
@@ -29,7 +34,7 @@ export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, OnDestr
     ]
   };
 
-  toolbarOptions: HeaderDynamicToolbarOptions = {
+  public toolbarOptions: HeaderDynamicToolbarOptions = {
     toolbarButtons: [
       { id: 'Create', text: 'Create', icon: 'add', data: '{\'btn\': \'create\'}' },
       {
@@ -63,13 +68,13 @@ export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, OnDestr
     this.removeHeaderToolbarAndTabs();
   }
 
-  onToggleHeaderTabs($event) {
+  onToggleHeaderTabs() {
     this.sohoHeaderRef.instance.hasHeaderTabs ?
       this.removeHeaderTabs() :
       this.showHeaderTabs();
   }
 
-  onToggleHeaderToolbar(event: any) {
+  onToggleHeaderToolbar() {
     this.sohoHeaderRef.instance.hasHeaderToolbar ?
       this.removeHeaderToolbar() :
       this.showHeaderToolbar();

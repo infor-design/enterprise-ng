@@ -40,7 +40,7 @@ export class ExpandableHeaderComponent {}
 })
 export class ExpandablePaneComponent {
   @HostBinding('attr.fixed')
-  @Input() fixed: boolean = false;
+  @Input() fixed = false;
 }
 
 @Component({

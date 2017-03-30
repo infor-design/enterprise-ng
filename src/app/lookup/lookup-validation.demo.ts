@@ -30,7 +30,7 @@ export class LookupValidationDemoComponent implements AfterViewInit {
     multi: null,
     async: null,
   };
-  public showModel: boolean = false;
+  public showModel = false;
 
   // So we can bind 'this' to the source function passed to the lookup control
   public context = this;

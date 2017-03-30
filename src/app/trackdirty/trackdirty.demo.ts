@@ -18,7 +18,7 @@ export class TrackDirtyDemoComponent implements OnInit {
     numeric: ''
   };
 
-  public showModel: boolean = false;
+  public showModel = false;
 
   constructor() { }
 

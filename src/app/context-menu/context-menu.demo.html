@@ -4,62 +4,62 @@
   <div class="field">
     <label id="label1" name="label1" soho-label for="field1" >{{normalText}}</label>
     <input id="field1" name="field1" soho-context-menu menu="action-popupmenu" value="Right Click Here"
-           (selected)="onSelected($event)"
-           (beforeopen)="onBeforeopen($event)"
-           (close)="onClose($event)"
-           (open)="onOpen($event)" />
+           (selected)="onSelected()"
+           (beforeopen)="onBeforeOpen()"
+           (close)="onClose()"
+           (open)="onOpen()" />
   </div>
 
   <!-- Text area example. Soho-textarea component used-->
   <div class="field">
     <label soho-label for="modifiable" id="label2" name="label2">{{modText}}</label>
     <textarea soho-textarea name="modifiable" [(ngModel)]="textModel.modifiableText" soho-context-menu menu="action-popupmenu"
-              (selected)="onSelected($event)"
-              (beforeopen)="onBeforeopen($event)"
-              (close)="onClose($event)"
-              (open)="onOpen($event)" ></textarea>
+              (selected)="onSelected()"
+              (beforeopen)="onBeforeOpen()"
+              (close)="onClose()"
+              (open)="onOpen()" ></textarea>
   </div>
 
   <!-- Disabled text area example. Soho-textarea component used-->
   <div class="field">
     <label soho-label for="disable" id="label3" name="label3">{{disabledText}}</label>
     <textarea soho-textarea [disabled]="true" name="disable" [(ngModel)]="textModel.disableText" soho-context-menu menu="action-popupmenu"
-              (selected)="onSelected($event)"
-              (beforeopen)="onBeforeopen($event)"
-              (close)="onClose($event)"
-              (open)="onOpen($event)" ></textarea>
+              (selected)="onSelected()"
+              (beforeopen)="onBeforeOpen()"
+              (close)="onClose()"
+              (open)="onOpen()" ></textarea>
   </div>
 
   <!-- Radio button example. Soho-radiobutton component used-->
   <div class="field">
     <label soho-label >{{radioButtonLabel}}</label>
     <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO1" value="1" soho-context-menu menu="action-popupmenu" checked
-           (selected)="onSelected($event)"
-           (beforeopen)="onBeforeopen($event)"
-           (close)="onClose($event)"
-           (open)="onOpen($event)" />
+           (selected)="onSelected()"
+           (beforeopen)="onBeforeOpen()"
+           (close)="onClose()"
+           (open)="onOpen()" />
     <label soho-label for="optionVWO1" class="radio-label" soho-context-menu menu="action-popupmenu" >One</label>
     <br>
     <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO2" value="2" soho-context-menu menu="action-popupmenu"  />
     <label soho-label for="optionVWO2" class="radio-label" soho-context-menu menu="action-popupmenu"
-           (selected)="onSelected($event)"
-           (beforeopen)="onBeforeopen($event)"
-           (close)="onClose($event)"
-           (open)="onOpen($event)" >Two</label>
+           (selected)="onSelected()"
+           (beforeopen)="onBeforeOpen()"
+           (close)="onClose()"
+           (open)="onOpen()">Two</label>
     <br>
     <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO3" value="3" soho-context-menu menu="action-popupmenu" />
     <label soho-label for="optionVWO3" class="radio-label" soho-context-menu menu="action-popupmenu"
-           (selected)="onSelected($event)"
-           (beforeopen)="onBeforeopen($event)"
-           (close)="onClose($event)"
-           (open)="onOpen($event)" >Three</label>
+           (selected)="onSelected()"
+           (beforeopen)="onBeforeOpen()"
+           (close)="onClose()"
+           (open)="onOpen()" >Three</label>
     <br>
     <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO4" value="4" [disabled]="true" soho-context-menu menu="action-popupmenu" />
     <label soho-label for="optionVWO4" class="radio-label" soho-context-menu menu="action-popupmenu"
-           (selected)="onSelected($event)"
-           (beforeopen)="onBeforeopen($event)"
-           (close)="onClose($event)"
-           (open)="onOpen($event)" >Four Disabled</label>
+           (selected)="onSelected()"
+           (beforeopen)="onBeforeOpen()"
+           (close)="onClose()"
+           (open)="onOpen()" >Four Disabled</label>
   </div>
 
   <!-- Checkbox example. Soho-icon component used-->
@@ -76,10 +76,10 @@
   <div class="field">
     <span class="label">{{richTextEditorLabel}}</span>
     <div soho-editor id="editor1" role="textbox" aria-multiline="true" aria-label="Comments" soho-context-menu menu="action-popupmenu"
-         (selected)="onSelected($event)"
-         (beforeopen)="onBeforeopen($event)"
-         (close)="onClose($event)"
-         (open)="onOpen($event)">{{editorModel.editorText}}</div>
+         (selected)="onSelected()"
+         (beforeopen)="onBeforeOpen()"
+         (close)="onClose()"
+         (open)="onOpen()">{{editorModel.editorText}}</div>
   </div>
 
   <!-- Context menu used in all examples (except the menu button)-->

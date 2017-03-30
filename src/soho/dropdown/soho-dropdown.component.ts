@@ -141,7 +141,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   /**
    * Name for the dropdown control. Necessary for ngModel to function.
    */
-  @Input() name: string = `soho-dropdown-${SohoDropDownComponent.counter++}`;
+  @Input() name = `soho-dropdown-${SohoDropDownComponent.counter++}`;
 
   /**
    * Flag to add/remove search functionality from the dropdown

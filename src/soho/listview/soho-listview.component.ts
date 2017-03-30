@@ -36,7 +36,7 @@ export class SohoListViewSearchComponent {
    * from another component and do not want this component to build another
    * searchfield
    */
-  @Input() buildSearch: boolean = true;
+  @Input() buildSearch = true;
   @HostBinding('class.listview-search') get isListviewSearch() { return true; }
 }
 

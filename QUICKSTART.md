@@ -6,12 +6,12 @@ You can download the latest version of the code from [quickstart](http://git.inf
 
 ## Prerequisites
 
-If **Node.js** and npm aren't already on your machine, install them. These examples require Node 6 or higher and NPM 3 or higher. To check which version you are using,
+If **Node.js** and npm aren't already on your machine, install them. These examples require Node 6.9.0 or higher and NPM 3 or higher. To check which version you are using,
 run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **@angular/cli** to create, build and run the application.  
 
-At the time of writing the version of **@angular/cli** used was 1.0.0-beta.32-3.
+At the time of writing the version of **@angular/cli** used was 1.0.0.
 
 In addition, **gulp** is used to perform additional build and deployment steps required to get the application built.
 
@@ -50,11 +50,11 @@ You can add the dependencies directly into the `project.json` file, however it i
 In a terminal window, in the project folder:
 
 1. Type `npm install jquery@3.1.1 -S` 
-2. Type `npm install gulp -S`
-3. Type `npm install @types/jquery -S`
-4. Type `npm install @infor/sohoxi@4.2.5-develop -S` 
-5. Type `npm install @infor/sohoxi-angular@4.2.5-develop -S` 
-6. Type `npm install merge-stream -S`
+2. Type `npm install @infor/sohoxi@4.2.6-rc -S` 
+3. Type `npm install @infor/sohoxi-angular@4.2.6-rc -S` 
+4. Type `npm install gulp -D`
+5. Type `npm install @types/jquery -D`
+6. Type `npm install merge-stream -D`
 
 This includes all the packages we need to create this simple quick start application.
 
@@ -62,7 +62,7 @@ This includes all the packages we need to create this simple quick start applica
 
 The next step is to configure angular-cli to include the SohoXI libraries into the output. 
 
-Edit `angular-cli.json`, change the  `scripts` as follows:
+Edit `.angular-cli.json`, change the `scripts` as follows:
 ```json
 "scripts": [
 "../node_modules/jquery/dist/jquery.js",
@@ -72,7 +72,7 @@ Edit `angular-cli.json`, change the  `scripts` as follows:
 ```
 ## Step 4 : Configure TypeScript:
 
-Edit `src/tsconfig.json`, add this below the `typeRoots` property:
+Edit `src/tsconfig.app.json`, add this below the `typeRoots` property:
 ```json
 "types": [
   "jasmine",
@@ -91,12 +91,22 @@ Create a gulpfile.js file in the root of your project, consisting of the followi
 var gulp = require('gulp');
 var merge = require('merge-stream');
 
+/**
+ * Angular-CLI does not support copying assets from outside the
+ * source folder, so this gulp target will copy the necessary files
+ * from the sohoxi dist folder to the assets folder in the src folder.
+ */
 gulp.task("copy-assets", function () {
     var css = gulp.src('./node_modules/@infor/sohoxi/dist/css/**/*.css')
         .pipe(gulp.dest('./src/assets/css'))
+
+    var css_map = gulp.src('./node_modules/@infor/sohoxi/dist/css/**/*.css.map')
+        .pipe(gulp.dest('./src/assets/css'))
+
     var svg = gulp.src('./node_modules/@infor/sohoxi/dist/svg/**/*.html')
         .pipe(gulp.dest('./src/assets/svg'))
-    return merge(css, svg);
+
+    return merge(css, css_map, svg);
 });
 ```
 Then run:
@@ -139,6 +149,34 @@ ng test
 ```
 This will open a Chrome window, and run the tests from there.
 
+## Add polyfills
+
+If you plan on using IE11, then it is advisable to include a number of polyfills used to plug holes in IEs JavaScript support.
+
+Edit the file src/polyfills.js, and uncomment all the import lines below
+
+```typescript
+/** IE9, IE10 and IE11 requires all of the following polyfills. **/
+import 'core-js/es6/symbol';
+import 'core-js/es6/object';
+import 'core-js/es6/function';
+import 'core-js/es6/parse-int';
+import 'core-js/es6/parse-float';
+import 'core-js/es6/number';
+import 'core-js/es6/math';
+import 'core-js/es6/string';
+import 'core-js/es6/date';
+import 'core-js/es6/array';
+import 'core-js/es6/regexp';
+import 'core-js/es6/map';
+import 'core-js/es6/set';
+
+/** IE10 and IE11 requires the following for NgClass support on SVG elements */
+import 'classlist.js';  // Run `npm install --save classlist.js`.
+```
+
+Type `npm install --save classlist.js` to add classlist package.
+
 ## Add the SohoComponentsModule
 Edit `src/app/app.module.ts`:
 ```typescript
@@ -164,7 +202,7 @@ Add ```SohoComponentsModule``` to the imports.
 
 Add a button to `app.component.html`, by appending the following code snippet:
 ```
-<button soho-button (click)="clicked($event)">Click Me!<button>
+<button soho-button (click)="clicked()">Click Me!</button>
 ```
 Add the clicked handler to `app.component.ts`, as follows:
 ```typescript

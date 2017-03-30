@@ -35,7 +35,7 @@ export class ApplicationMenuLazyDemoComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
-    this.triggers = ['.application-lazy-menu-trigger'];
+    this.triggers = ['#application-lazy-menu-trigger'];
   }
 
   public onSubMenuLoaded(menuObject: any) {

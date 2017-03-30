@@ -19,7 +19,7 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
   public sectionTitle: string;
   public buttons: Array<ToolbarButton> = [];
   public searchField: SearchField;
-  public actionsLoaded: boolean = false;
+  public actionsLoaded = false;
   public inHeader = false;
 
   constructor(private toolbarDataDrivenDemoService: ToolbarDataDrivenDemoService) {}

@@ -86,18 +86,18 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
 
   /** Default title for available items card. */
   @Input()
-  public availableCardTitle: string = 'Available';
+  public availableCardTitle = 'Available';
 
   /** Default title for selected items card. */
   @Input()
-  public selectedCardTitle: string = 'Selected';
+  public selectedCardTitle = 'Selected';
 
   /** Default title for additional items card. */
   @Input()
-  public fullAccessCardTitle: string = 'Additional Items';
+  public fullAccessCardTitle = 'Additional Items';
 
   /** Flag controlling the display of the full access (additional) items. */
-  private _showFullAccessCard: boolean = false;
+  private _showFullAccessCard = false;
 
   /** The component used to represent the available items. */
   @ContentChild('available')
@@ -112,7 +112,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   private _additionalCard: SohoSwapListCardComponent = null;
 
   /** Name for the swaplist control. Necessary for ngModel to function. */
-  @Input() name: string = `soho-swaplist-${SohoSwapListComponent.counter++}`;
+  @Input() name = `soho-swaplist-${SohoSwapListComponent.counter++}`;
 
   /**
    * Assign the id for the control

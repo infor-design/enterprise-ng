@@ -19,7 +19,7 @@ import {
 })
 export class NestedModalDialogComponent {
 
-  public static depth = 1;
+  public static s_depth = 1;
 
   /**
    * The 'dialogPlaceholder' is where the reference dialog component will be
@@ -38,14 +38,18 @@ export class NestedModalDialogComponent {
     private dialog: SohoModalDialogService) {
   }
 
+  public get depth(): number {
+    return NestedModalDialogComponent.s_depth;
+  }
+
   openModel() {
     this.dialog
       .modal(NestedModalDialogComponent, this.placeholder)
-      .title(`Modal Dialog no. '${NestedModalDialogComponent.depth++}'.`)
+      .title(`Modal Dialog no. '${NestedModalDialogComponent.s_depth++}'.`)
       .buttons(
         [{text: 'Cancel', click: (e, modal) => { modal.close(true); }},
          {text: 'OK', click: (e, modal) => { modal.close(true); }, isDefault: true}])
-      .afterClose((f) => { NestedModalDialogComponent.depth--; })
+      .afterClose((f) => { NestedModalDialogComponent.s_depth--; })
       .open();
   }
 }

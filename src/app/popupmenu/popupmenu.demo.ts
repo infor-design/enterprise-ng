@@ -25,8 +25,8 @@ export class PopupMenuDemoComponent {
     console.log('onSelected');
   }
 
-  onBeforeopen() {
-    console.log('onBeforeopen');
+  onBeforeOpen() {
+    console.log('onBeforeOpen');
   }
 
   onClose() {

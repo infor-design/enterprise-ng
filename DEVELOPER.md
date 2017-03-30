@@ -3,7 +3,7 @@
 ### Install
 - [Setup SSH key for using git](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html) (faster but not required)
 - PC users suggest [ComEmu](https://conemu.github.io/) which works a bit better than CMD.
-- Get the latest **Node.js** release from https://nodejs.org/dist/latest-v5.x/.
+- Get the latest **Node.js** release from https://nodejs.org/en/.
 - Get an Editor like Visual Studio Code (https://code.visualstudio.com/) or [Atom](https://atom.io/) or your fav.
 
 ### Initial Setup

@@ -2,10 +2,10 @@
   <div class="twelve columns">
 
     <button soho-menu-button menu="action-popupmenu"
-            (selected)="onSelected($event)"
-            (beforeopen)="onBeforeopen($event)"
-            (close)="onClose($event)"
-            (open)="onOpen($event)">Add Item</button>
+            (selected)="onSelected()"
+            (beforeopen)="onBeforeOpen()"
+            (close)="onClose()"
+            (open)="onOpen()">Add Item</button>
     <ul soho-popupmenu id="action-popupmenu">
       <li ><a soho-popupmenu-label >Create a form</a></li>
       <li soho-popupmenu-separator></li>
@@ -18,10 +18,10 @@
     </ul>
 
     <button soho-menu-button [icon]="" pie-chart="" menu="charts-menu"
-            (selected)="onSelected($event)"
-            (beforeopen)="onBeforeopen($event)"
-            (close)="onClose($event)"
-            (open)="onOpen($event)"></button>
+            (selected)="onSelected()"
+            (beforeopen)="onBeforeOpen()"
+            (close)="onClose()"
+            (open)="onOpen()"></button>
     <ul soho-popupmenu id="charts-menu">
       <li ><a soho-popupmenu-label>Pie Chart</a></li>
       <li soho-popupmenu-item><a soho-popupmenu-label>Line Chart</a></li>
@@ -29,10 +29,10 @@
     </ul>
 
     <button soho-menu-button [icon]="" pie-chart="" title="Charts" menu="charts-menu2"
-            (selected)="onSelected($event)"
-            (beforeopen)="onBeforeopen($event)"
-            (close)="onClose($event)"
-            (open)="onOpen($event)"></button>
+            (selected)="onSelected()"
+            (beforeopen)="onBeforeOpen()"
+            (close)="onClose()"
+            (open)="onOpen()"></button>
     <ul soho-popupmenu id="charts-menu2">
       <li soho-popupmenu-item id="pie"><a soho-popupmenu-label>Pie Chart</a></li>
       <li soho-popupmenu-item id="line"><a soho-popupmenu-label>Line Chart</a></li>
@@ -40,7 +40,7 @@
     </ul>
 
     <!-- dynamic -->
-    <template ngFor let-b [ngForOf]="menuButtons">
+    <ng-template ngFor let-b [ngForOf]="menuButtons">
       <button soho-menu-button [icon]="b?.icon">
         <span>{{b?.label}}</span>
       </button>
@@ -49,7 +49,7 @@
           <a href="#">{{i?.label}}</a>
         </li>
       </ul>
-    </template>
+    </ng-template>
 
   </div>
 </div>

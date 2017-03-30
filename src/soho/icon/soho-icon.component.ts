@@ -11,7 +11,7 @@ import {
   template: ``
 })
 export class SohoIconUseComponent {
-  @HostBinding('attr.xmlns:xlink') xmlnsXlink: string = 'http://www.w3.org/1999/xlink';
+  @HostBinding('attr.xmlns:xlink') xmlnsXlink = 'http://www.w3.org/1999/xlink';
   @HostBinding('attr.xlink:href') get href(): string {
     return '#' + this.icon;
   }
@@ -24,10 +24,10 @@ export class SohoIconUseComponent {
   template: `<svg:use [icon]="icon"></svg:use>`
 })
 export class SohoIconComponent {
-  @HostBinding('class.icon') isIcon: boolean = true;
-  @HostBinding('attr.aria-hidden') ariaHidden: boolean = true;
-  @HostBinding('attr.focusable') focusable: boolean = false;
-  @HostBinding('attr.role') role: string = 'presentation';
+  @HostBinding('class.icon') isIcon = true;
+  @HostBinding('attr.aria-hidden') ariaHidden = true;
+  @HostBinding('attr.focusable') focusable = false;
+  @HostBinding('attr.role') role = 'presentation';
 
   @Input() set alert(alert: boolean) {
     this._alert = alert;

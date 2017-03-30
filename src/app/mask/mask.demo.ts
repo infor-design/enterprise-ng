@@ -19,7 +19,7 @@ import {
   `]
 })
 export class MaskDemoComponent {
-  @HostBinding('class.alignRight') @Input() alignRight: boolean = false;
+  @HostBinding('class.alignRight') @Input() alignRight = false;
 
   /**
    * I cannot workout the syntax for a RexExp that works correctly in

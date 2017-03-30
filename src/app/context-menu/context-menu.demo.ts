@@ -15,12 +15,12 @@ export class ContextMenuDemoComponent implements OnInit {
 
   @ViewChild(SohoTextAreaComponent) textarea: SohoTextAreaComponent;
 
-  public normalText: string = `Input Example`;
-  public modText: string = `Enabled Text Area Example`;
-  public disabledText: string = `Disabled Text Area Example`;
-  public radioButtonLabel: string = `Radio Button Example`;
-  public checkboxButtonLabel: string = `Check Box Example`;
-  public richTextEditorLabel: string = `Rich Text Editor Example`;
+  public normalText = `Input Example`;
+  public modText = `Enabled Text Area Example`;
+  public disabledText = `Disabled Text Area Example`;
+  public radioButtonLabel = `Radio Button Example`;
+  public checkboxButtonLabel = `Check Box Example`;
+  public richTextEditorLabel = `Rich Text Editor Example`;
 
   public contextEntries: Array<ContextMenuEntries>;
 
@@ -86,7 +86,7 @@ export class ContextMenuDemoComponent implements OnInit {
     return entries;
   };
 
-  onUpdated(event: SohoCheckBoxEvent) {
+  onUpdated() {
     console.log('CheckboxDemoComponent.onUpdated');
   }
 
@@ -99,8 +99,8 @@ export class ContextMenuDemoComponent implements OnInit {
     console.log('onSelected');
   }
 
-  onBeforeopen() {
-    console.log('onBeforeopen');
+  onBeforeOpen() {
+    console.log('onBeforeOpen');
   }
 
   onClose() {

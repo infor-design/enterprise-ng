@@ -17,9 +17,9 @@ import {
 })
 export class BusyIndicatorDemoComponent {
 
-  message: string = 'I am waiting ... ';
+  message = 'I am waiting ... ';
 
-  delay: number = 1000;
+  delay = 1000;
 
   @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
 
