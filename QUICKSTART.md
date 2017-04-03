@@ -86,7 +86,7 @@ The easiest way to overcome this is to add a prebuild step which can be run as p
 npm.  This example uses **gulp** to copy the assets from the sohoxi folder into the src/assets folder of the 
 application. 
 
-Create a gulpfile.js file in the root of your project, consisting of the following:
+Create a `gulpfile.js` file in the root of your project, consisting of the following:
 ```typescript
 var gulp = require('gulp');
 var merge = require('merge-stream');
@@ -98,13 +98,13 @@ var merge = require('merge-stream');
  */
 gulp.task("copy-assets", function () {
     var css = gulp.src('./node_modules/@infor/sohoxi/dist/css/**/*.css')
-        .pipe(gulp.dest('./src/assets/css'))
+        .pipe(gulp.dest('./src/assets/sohoxi/css'))
 
     var css_map = gulp.src('./node_modules/@infor/sohoxi/dist/css/**/*.css.map')
-        .pipe(gulp.dest('./src/assets/css'))
+        .pipe(gulp.dest('./src/assets/sohoxi/css'))
 
     var svg = gulp.src('./node_modules/@infor/sohoxi/dist/svg/**/*.html')
-        .pipe(gulp.dest('./src/assets/svg'))
+        .pipe(gulp.dest('./src/assets/sohoxi/svg'))
 
     return merge(css, css_map, svg);
 });
@@ -124,7 +124,7 @@ Add the following to the `src/index.html` file:
 ```
 <head>
   ...
-  <link rel="stylesheet" id="stylesheet" href="/assets/css/light-theme.css" type="text/css">
+  <link rel="stylesheet" id="stylesheet" href="/assets/sohoxi/css/light-theme.css" type="text/css">
 </head>
 ```
 

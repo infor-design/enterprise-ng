@@ -90,17 +90,31 @@ Release Date: 2016-10-31
 * 2017-03-15 - TH - PR-261
     * Added `dialogComponent` to the prototype for `afterClose` and `closed` event callbacks.  More details in the README.
 * 2017-03-29 - TH - PR-275
-    * Angular 4 and @angular/cli 1.0.0.
+    * **angular-cli 1.0.x**.
+      * This requires the consuming application to be upgraded to angular 4 (and possible cli 1.0 too).
+    * **angular 4.0.x**
+      * Any usages of `template` should be changed to `ng-template`.
+      * 
+    * *SoHoXi Assets*
+      * The location of the assets for sohoxi has been changed to a sub-folder (sohoxi), to avoid poluting the `asset` folder. This should not affect consuming apps, however should be treated as guidance on how to structure a cli app.  
+      * The ultimate method for managing these assets is down to the consuming app, so this change should not impact existing applications.
       
 ## Upgrading
 
-When upgrading, I find the best way is to do the following:
+Use **sohoxi-angular-quickstart** (http://git.infor.com/projects/SOHO/repos/sohoxi-angular-quickstart/browse) as a tempalate.
+
+Use **ng new** as a template with reference to the QUICKSTART guide.
+
+Alternatively, read the upgrade guidelines on https://github.com/angular/angular-cli/wiki/stories-1.0-update.
+
+The following is what I usually do:
 ```
 npm uninstall -g @angular/cli
 npm cache clean
 npm install -g @angular/cli@latest
 cd c:\git
 mkdir new-app
+cd new-app
 ng new
 ```
 then compare the folders using **Beyond Compare** (or whatever you have).  Finally,
