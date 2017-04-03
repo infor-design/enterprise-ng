@@ -42,7 +42,7 @@ Release Date: 2016-10-31
 
 ### Breaking Changes
 
-* 2017-04-03 - PH - PR-
+* 2017-04-03 - PP - PR-278
 
     Changed the events fired from SohoTabsComponent. Instead of the newly selected tab being
     passed into the event handler it will now be the SohoTabsEvent with the tab added into it
