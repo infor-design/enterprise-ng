@@ -52,7 +52,7 @@ export class TabsDynamicDemoComponent implements OnInit {
     this.tabs = this.tabsData[this.currentTabsIndex];
   }
 
-  onChangeTabs(event: SohoTabsEvent) {
+  onChangeTabs() {
     this.currentTabsIndex++;
     if (this.currentTabsIndex >= this.tabsData.length) {
       this.currentTabsIndex = 0;
@@ -62,7 +62,7 @@ export class TabsDynamicDemoComponent implements OnInit {
     this.currentTabTitleChangeNumber = 1;
   }
 
-  onChangeTitles(event: SohoTabsEvent) {
+  onChangeTitles() {
     for (let i = 0; i < this.tabs.length; i++) {
       // ----------------------------------------------------------------------
       // Calling setTitle on the soho component/control so that the entire
@@ -74,5 +74,12 @@ export class TabsDynamicDemoComponent implements OnInit {
     }
 
     this.currentTabTitleChangeNumber++;
+  }
+
+  onActivated(event: SohoTabsEvent) {
+    setTimeout(() => {
+      const tab: any = this.sohoTabsComponent.getTab(event, event.tab);
+      console.log('selected tab index is: ' + tab.index());
+    }, 1);
   }
 }

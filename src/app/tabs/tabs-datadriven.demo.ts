@@ -24,7 +24,7 @@ export class TabsDataDrivenDemoComponent implements OnInit {
     ];
   }
 
-  onTabActivated(tab) {
-    console.log(tab + ' TabsDataDrivenDemoComponent.onTabActivated');
+  onTabActivated(event) {
+    console.log(event.tab + ' TabsDataDrivenDemoComponent.onTabActivated');
   }
 }
