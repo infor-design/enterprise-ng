@@ -42,6 +42,44 @@ Release Date: 2016-10-31
 
 ### Breaking Changes
 
+* 2017-04-03 - PH - PR-
+
+    Changed the events fired from SohoTabsComponent. Instead of the newly selected tab being
+    passed into the event handler it will now be the SohoTabsEvent with the tab added into it
+    as a property.
+    
+    `(activated)="onActivated($event)`
+    
+    How it was handled before:
+        
+    ```
+    onActivated(tab: any) {
+       console.log(tab)
+    }
+    ```
+    
+    How to handle it now
+   
+    ```
+    onActivated(event: SohoTabsEvent) {
+       console.log(event.tab)
+    }
+    ```
+    
+    This change was necessary so that certain soho-tabs.component functions could be used.
+    ```
+    onActivated(event: SohoTabsEvent) {
+      
+      // putting in timeout so the component has a chance to get the 
+      // jquery component instance
+      
+      setTimeout(() => {
+        let tab = this.sohoTabsComponent.getTab(event, event.tab);
+        let tabIndex = tab.index();
+      }, 1);
+    }
+    ```
+     
 * 2017-05-01 - KH
 
      SohoToolbarComponent
