@@ -10,6 +10,6 @@ import { Component } from '@angular/core';
 })
 export class TabsBasicDemoComponent {
   onTabActivated(event) {
-    console.log(event.tabid + ' TabsBasicDemoComponent.onTabActivated');
+    console.log(event.tab + ' TabsBasicDemoComponent.onTabActivated');
   }
 }
