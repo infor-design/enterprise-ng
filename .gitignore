@@ -6,7 +6,6 @@
 /out-tsc
 /obj
 /bin
-/src/assets/sohoxi
 
 # dependencies
 /node_modules
