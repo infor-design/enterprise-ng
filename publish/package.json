@@ -1,0 +1,67 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "@infor/sohoxi-angular@^4.2.6-test",
+        "scope": "@infor",
+        "escapedName": "@infor%2fsohoxi-angular",
+        "name": "@infor/sohoxi-angular",
+        "rawSpec": "^4.2.6-test",
+        "spec": ">=4.2.6-test <5.0.0",
+        "type": "range"
+      },
+      "/Users/tmcconechy/Dev/sohoxi-angular-quickstart"
+    ]
+  ],
+  "_from": "@infor/sohoxi-angular@>=4.2.6-test <5.0.0",
+  "_id": "@infor/sohoxi-angular@4.2.6",
+  "_inCache": true,
+  "_location": "/@infor/sohoxi-angular",
+  "_nodeVersion": "7.4.0",
+  "_npmUser": {},
+  "_npmVersion": "4.0.5",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "@infor/sohoxi-angular@^4.2.6-test",
+    "scope": "@infor",
+    "escapedName": "@infor%2fsohoxi-angular",
+    "name": "@infor/sohoxi-angular",
+    "rawSpec": "^4.2.6-test",
+    "spec": ">=4.2.6-test <5.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "file:publish",
+  "_shasum": "aba43684f234ddd216497bf1b4d2105a04a125df",
+  "_shrinkwrap": null,
+  "_spec": "@infor/sohoxi-angular@^4.2.6-test",
+  "_where": "/Users/tmcconechy/Dev/sohoxi-angular-quickstart",
+  "angular-cli": {},
+  "author": {
+    "name": "Hook & Loop"
+  },
+  "dependencies": {
+    "@infor/sohoxi": "4.2.6"
+  },
+  "description": "Hook & Loop - SoHo XI Angular Controls",
+  "devDependencies": {},
+  "dist": {
+    "shasum": "aba43684f234ddd216497bf1b4d2105a04a125df",
+    "tarball": "http://npm.infor.com:4873/@infor%2fsohoxi-angular/-/sohoxi-angular-4.2.6.tgz"
+  },
+  "license": "MIT",
+  "module": "index.ts",
+  "name": "@infor/sohoxi-angular",
+  "optionalDependencies": {},
+  "publishConfig": {
+    "scope": "@infor",
+    "registry": "http://npm.infor.com/"
+  },
+  "readme": "ERROR: No README data found!",
+  "readmeFilename": "README.MD",
+  "scripts": {},
+  "typings": "index.d.ts",
+  "version": "4.2.6"
+}
