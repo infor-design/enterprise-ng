@@ -29,7 +29,7 @@ npm install -g gulp@latest
 ### Create the project folder
 
 Using a terminal/console window, use **@angular/cli** to initialise the project, creating scaffolding for the application (in this case **sohoxi-angular-quickstart**):
- 
+
 ```
 ng new sohoxi-angular-quickstart
 ```
@@ -38,7 +38,7 @@ ng new sohoxi-angular-quickstart
 
 ## Step 2 : Install Packages
 
-The project will need access to the Infor NPM registy to be able to pull down the latest *SohoXI* component libraries for jQuery and Angular. 
+The project will need access to the Infor NPM registy to be able to pull down the latest *SohoXI* component libraries for jQuery and Angular.
 
 The easiest way to achieve this is to create the file `.npmrc` at the root of the project, and edit the file to include:
 
@@ -46,12 +46,12 @@ The easiest way to achieve this is to create the file `.npmrc` at the root of th
 @infor:registry=http://npm.infor.com:4873
 ```
 
-You can add the dependencies directly into the `project.json` file, however it is more reliable to add them using the command line. 
+You can add the dependencies directly into the `project.json` file, however it is more reliable to add them using the command line.
 In a terminal window, in the project folder:
 
-1. Type `npm install jquery@3.1.1 -S` 
-2. Type `npm install @infor/sohoxi@4.2.6-rc -S` 
-3. Type `npm install @infor/sohoxi-angular@4.2.6-rc -S` 
+1. Type `npm install jquery@3.1.1 -S`
+2. Type `npm install @infor/sohoxi@4.2.6-rc -S`
+3. Type `npm install @infor/sohoxi-angular@4.2.6-rc -S`
 4. Type `npm install gulp -D`
 5. Type `npm install @types/jquery -D`
 6. Type `npm install merge-stream -D`
@@ -60,7 +60,7 @@ This includes all the packages we need to create this simple quick start applica
 
 ## Step 3 : Configure @angular/cli
 
-The next step is to configure angular-cli to include the SohoXI libraries into the output. 
+The next step is to configure angular-cli to include the SohoXI libraries into the output.
 
 Edit `.angular-cli.json`, change the `scripts` as follows:
 ```json
@@ -81,46 +81,17 @@ Edit `src/tsconfig.app.json`, add this below the `typeRoots` property:
 ]
 ```
 ## Step 5 : SoHoXI Assets
-Angular-CLI is currently not capable of automatically copying assets from dependencies in node_modules.
-The easiest way to overcome this is to add a prebuild step which can be run as part of 
-npm.  This example uses **gulp** to copy the assets from the sohoxi folder into the src/assets folder of the 
-application. 
+Angular-CLI is now able to copying assets from dependencies in node_modules.
+The older gulp copy is not needed but we have it here for the publish task (TODO: could later make this an npm / node script).
 
-Create a `gulpfile.js` file in the root of your project, consisting of the following:
-```typescript
-var gulp = require('gulp');
-var merge = require('merge-stream');
-
-/**
- * Angular-CLI does not support copying assets from outside the
- * source folder, so this gulp target will copy the necessary files
- * from the sohoxi dist folder to the assets folder in the src folder.
- */
-gulp.task("copy-assets", function () {
-    var css = gulp.src('./node_modules/@infor/sohoxi/dist/css/**/*.css')
-        .pipe(gulp.dest('./src/assets/sohoxi/css'))
-
-    var css_map = gulp.src('./node_modules/@infor/sohoxi/dist/css/**/*.css.map')
-        .pipe(gulp.dest('./src/assets/sohoxi/css'))
-
-    var svg = gulp.src('./node_modules/@infor/sohoxi/dist/svg/**/*.html')
-        .pipe(gulp.dest('./src/assets/sohoxi/svg'))
-
-    return merge(css, css_map, svg);
-});
+To configure this edit .angular-cli.json assets section.
 ```
-Then run:
+  "assets": [
+    { "glob": "**/*", "input": "../node_modules/@infor/sohoxi/dist/css", "output": "./assets/sohoxi/css" }
+  ],
 ```
-gulp copy-assets
-```
-You can also include this in the build (and start) scripts included in the package.json file, for example:
 
-```json
-"start": "gulp copy-assets && ng serve",
-``` 
-
-Add the following to the `src/index.html` file:
-
+The link in the following to the `src/index.html` file would be the output folder..
 ```
 <head>
   ...
@@ -130,7 +101,7 @@ Add the following to the `src/index.html` file:
 
 ## Step 6 : Making Sure it Works
 Run the app to test it.
-```ng serve``` 
+```ng serve```
 Check you get the default page when you browse to http://localhost:4200/.
 
 ## Step 7 : Unit Testing
@@ -182,7 +153,7 @@ Edit `src/app/app.module.ts`:
 ```typescript
 import { SohoComponentsModule } from '@infor/sohoxi-angular';
 ```
-Add ```SohoComponentsModule``` to the imports. 
+Add ```SohoComponentsModule``` to the imports.
 
 ```typescript
 @NgModule({
@@ -198,7 +169,7 @@ Add ```SohoComponentsModule``` to the imports.
 )}
 ```
 
-## Add a SoHoXi Component 
+## Add a SoHoXi Component
 
 Add a button to `app.component.html`, by appending the following code snippet:
 ```
