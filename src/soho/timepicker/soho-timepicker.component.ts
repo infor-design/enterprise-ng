@@ -6,14 +6,20 @@ import {
   HostBinding,
   Input,
   OnDestroy,
-  Output,
+  Output, ChangeDetectorRef,
 } from '@angular/core';
+import {
+  BaseControlValueAccessor,
+  provideControlValueAccessor
+} from '../utils';
+
 
 @Component({
   selector: 'input[soho-timepicker]', // tslint:disable-line
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  providers: [provideControlValueAccessor(SohoTimePickerComponent)]
 })
-export class SohoTimePickerComponent implements AfterViewInit, OnDestroy {
+export class SohoTimePickerComponent extends BaseControlValueAccessor<any> implements AfterViewInit, OnDestroy {
   /**
    * Indicates mode, either 'standard' or 'range'; default value is 'standard'
    */
@@ -125,7 +131,10 @@ export class SohoTimePickerComponent implements AfterViewInit, OnDestroy {
     roundToInterval: false
   };
 
-  constructor(private element: ElementRef) { }
+  constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
+    super(changeDetectionRef);
+  }
+
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
@@ -134,10 +143,43 @@ export class SohoTimePickerComponent implements AfterViewInit, OnDestroy {
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (event: SohoTimePickerEvent) => this.change.emit(event));
+    this.jQueryElement
+    .on('change', (e: any, args: SohoTimePickerEvent) => this.onChange(args));
 
     this.timepicker = this.jQueryElement.data('timepicker');
+
+    if (this.value) {
+      this.timepicker.element.val(this.value);
+    }
   }
+
+  /**
+   * Handle the control being changed.
+   */
+  onChange(event: SohoTimePickerEvent) {
+    if (!event) {
+      // sometimes the event is not available
+      this.value = this.timepicker.element.val();
+      return;
+    }
+    this.change.emit(event);
+  }
+
+  /**
+   * Override writeValue to allow the time picker
+   * element to be updated correctly.
+   *
+   * @param value - the new value
+   */
+  writeValue(value: any) {
+    super.writeValue(value);
+    if (this.timepicker) {
+      // The processing is required to ensure we use the correct format
+      // in the control.
+      this.timepicker.element.val(value);
+    }
+  }
+
   ngOnDestroy() {
     if (this.timepicker) {
       this.timepicker.destroy();
