@@ -6,7 +6,8 @@ import {
   HostBinding,
   Input,
   OnDestroy,
-  Output, ChangeDetectorRef,
+  Output,
+  ChangeDetectorRef
 } from '@angular/core';
 import {
   BaseControlValueAccessor,
