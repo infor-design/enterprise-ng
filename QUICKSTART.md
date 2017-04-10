@@ -81,7 +81,7 @@ Edit `src/tsconfig.app.json`, add this below the `typeRoots` property:
 ]
 ```
 ## Step 5 : SoHoXI Assets
-Angular-CLI is now able to copying assets from dependencies in node_modules.
+Angular-CLI is now able to copy assets from dependencies in node_modules.
 The older gulp copy is not needed but we have it here for the publish task (TODO: could later make this an npm / node script).
 
 To configure this edit .angular-cli.json assets section.
