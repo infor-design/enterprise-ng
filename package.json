@@ -13,15 +13,16 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "gulp copy-assets && ng serve",
-    "build": "gulp copy-assets && ng build",
-    "test": "gulp copy-assets && ng test",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "unit-test": "ng test --watch=false --browsers=PhantomJS --reporters=bamboo,mocha --code-coverage",
     "add-develop-tag": "./scripts/add-npm-tag.js develop",
     "set-version": "./scripts/set-version.js",
-    "set-sohoxi-version": "./scripts/set-sohoxi-version.js"
+    "set-sohoxi-version": "./scripts/set-sohoxi-version.js",
+    "publish": "gulp publish && npm publish publish --force"
   },
   "private": false,
   "dependencies": {
@@ -33,7 +34,7 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
-    "@infor/sohoxi": "4.2.6-rc",
+    "@infor/sohoxi": "4.2.6",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
     "jquery": "3.1.1",
@@ -47,9 +48,12 @@
     "@types/jquery": "^2.0.39",
     "@types/node": "~6.0.60",
     "codelyzer": "~2.0.0",
-    "gulp": "^3.9.1",
+    "del": "^2.2.2",
+    "gulp": "github:gulpjs/gulp#4.0",
     "gulp-clean": "^0.3.2",
-    "merge-stream": "^1.0.1",
+    "gulp-filter": "^5.0.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-string-replace": "^0.4.0",
     "htmlhint": "^0.9.13",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
@@ -62,9 +66,11 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-mocha-reporter": "^2.2.3",
     "karma-phantomjs-launcher": "^1.0.4",
+    "merge-stream": "^1.0.1",
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
     "typescript": "~2.2.0"
-  }
+  },
+  "optionalDependencies": {}
 }
