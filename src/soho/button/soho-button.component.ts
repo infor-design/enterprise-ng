@@ -132,6 +132,11 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
     // Initialise the Soho control.
     this.jQueryElement.button();
 
+    // Initialize title attribute as a soho tooltip
+    if (this.jQueryElement.has('[title]')) {
+      this.jQueryElement.tooltip();
+    }
+
     // Once the control is initialised, extract the control
     // plug-in from the element.  The element name is defined
     // by the plug-in, but in this case is 'button'.
