@@ -30,6 +30,11 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# Publish
+publish/*
+publish/soho/**
+!publish/package.json
+
 # misc
 /.sass-cache
 /connect.lock
