@@ -14,7 +14,7 @@ import { NgModel } from '@angular/forms';
 @Component({
   selector: 'select[soho-dropdown]', // tslint:disable-line
   template: '<ng-content></ng-content>',
-  providers: [ NgModel ],
+  providers: [NgModel],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
@@ -90,7 +90,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
    * Initialize the empty value
    */
   @Input()
-  public set empty(empty: boolean){
+  public set empty(empty: boolean) {
     this.options.empty = empty;
   }
 
@@ -167,7 +167,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
    * then create and pass to the control to use
    */
   @Input()
-  public set source(source: SohoDropDownSourceFunction | Object | string ) {
+  public set source(source: SohoDropDownSourceFunction | Object | string) {
     this.options.source = source;
   }
 
@@ -203,7 +203,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
     return this.options.multiple;
   }
 
-  @HostBinding('class.dropdown') get isDropdown(): boolean{
+  @HostBinding('class.dropdown') get isDropdown(): boolean {
     return !this.options.multiple;
   }
 
@@ -259,4 +259,13 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   public enable(): void {
     this.dropdown.enable();
   }
+
+  /**
+   * Soho-dropdown is not a native element - need this to set focus programmatically.
+   * 'name' attribute must be set on the control for this to work correctly.
+   */
+  public setFocus(): void {
+    this.jQueryElement.trigger('activated');
+  }
+
 }
