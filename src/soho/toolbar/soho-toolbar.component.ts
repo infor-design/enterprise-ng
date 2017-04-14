@@ -98,6 +98,12 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
   private initSohoControl() {
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.toolbarsearchfield(this.options);
+
+    // Initialize title attribute as a soho tooltip
+    if (this.jQueryElement.has('[title]')) {
+      this.jQueryElement.tooltip();
+    }
+
     this.toolbarsearchfield = this.jQueryElement.data('toolbarsearchfield');
 
     /**

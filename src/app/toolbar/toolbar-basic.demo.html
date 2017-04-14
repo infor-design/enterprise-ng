@@ -10,16 +10,20 @@
       <soho-toolbar-button-set>
         <!-- search field -->
         <label class="audible" attr.for="my-search-field">Search</label>
-        <input class="searchfield" id="my-search-field" placeholder="Search" name="Search"/>
+        <input soho-toolbar-searchfield id="my-search-field" placeholder="Search" title="Search" name="Search"/>
 
         <!-- buttons -->
-        <button soho-button="icon" icon="add" title="Add" data-action="{'button':'add'}"></button>
+        <button soho-button="icon" icon="add" title="Add" data-action="{'button':'add'}">
+          <span class="audible">Add</span>
+        </button>
 
         <!--
         If I don't put the icon='pie-chart' in single quotes the input won't work.
         My guess is we have to use icon='some-icon' or [icon]="'some-icon'"
         -->
-        <button soho-menu-button id="charts-btn" [icon]="'pie-chart'" data-action="{\'btn\' : \'charts\'}"></button>
+        <button soho-menu-button id="charts-btn" title="Charts" [icon]="'pie-chart'" data-action="{\'btn\' : \'charts\'}">
+          <span class="audible">Charts</span>
+        </button>
         <ul class="popupmenu">
           <li id="pie">
             <a data-action="{'item':'pie'}">Pie Chart</a>
@@ -40,9 +44,15 @@
           <li soho-menu-item><a href="#" button-data="{'item':'pie'}">Bubble Chart</a></li>
         </ul>-->
 
-        <button soho-button="icon" icon="folder" title="Open" data-action="{'button':'open'}"></button>
-        <button soho-button="icon" icon="delete" title="Delete" data-action="{'button':'delete'}"></button>
-        <button soho-button="icon" icon="refresh" title="Refresh" data-action="{'button':'refresh'}"></button>
+        <button soho-button="icon" icon="folder" name="Open" title="Open" data-action="{'button':'open'}">
+          <span class="audible">Open</span>
+        </button>
+        <button soho-button="icon" icon="delete" title="Delete" data-action="{'button':'delete'}">
+          <span class="audible">Delete</span>
+        </button>
+        <button soho-button="icon" icon="refresh" title="Refresh" data-action="{'button':'refresh'}">
+          <span class="audible">Refresh</span>
+        </button>
 
       </soho-toolbar-button-set>
     </soho-toolbar>
