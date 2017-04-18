@@ -9,7 +9,7 @@ export class ProgressDemoComponent {
   /*
    * val is used to set the value in the HTML/DOM
    */
-  private val: number= 30;
+  public val = 30;
   constructor() { }
 
   update() {

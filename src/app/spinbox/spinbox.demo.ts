@@ -9,14 +9,14 @@ import { SohoSpinboxComponent } from '../../soho/spinbox';
 export class SpinboxDemoComponent {
   @ViewChild(SohoSpinboxComponent) spinbox: SohoSpinboxComponent;
 
-  private disabled: boolean = false;
-  private id1: string= 'regular-spinbox';
-  private id2: string= 'limited-spinbox';
-  private id3: string= 'dirty-spinbox';
-  private id4: string= 'disabled-spinbox';
-  private id5: string= 'stepped-spinbox';
-  private id6: string= 'error-spinbox';
-  private val: number= 5;
+  public disabled = false;
+  public id1 = 'regular-spinbox';
+  public id2 = 'limited-spinbox';
+  public id3 = 'dirty-spinbox';
+  public id4 = 'disabled-spinbox';
+  public id5 = 'stepped-spinbox';
+  public id6 = 'error-spinbox';
+  public val = 5;
 
   constructor() { }
 

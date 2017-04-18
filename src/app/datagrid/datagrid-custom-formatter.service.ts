@@ -3,11 +3,12 @@
  */
 
 import { Injectable } from '@angular/core';
+
 @Injectable()
 export class DataGridCustomFormatterService {
 
   public randomIntegerFormatter(row, cell, value, column, item, api) {
-    let newValue = this.getRandomNumber();
+    const newValue = this.getRandomNumber();
     return Formatters.Integer(row, cell, newValue, column, item, api);
   }
 
@@ -16,8 +17,8 @@ export class DataGridCustomFormatterService {
    * through the userObject reference to this DemoComponent
    */
   private getRandomNumber(): number {
-    let min = 1;
-    let max = 50;
+    const min = 1;
+    const max = 50;
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 }

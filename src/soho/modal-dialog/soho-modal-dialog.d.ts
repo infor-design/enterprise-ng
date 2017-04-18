@@ -99,6 +99,11 @@ interface SohoModalStatic {
   element: JQuery;
 
   /**
+   * Track if cancelled.
+   */
+  isCancelled: boolean;
+
+  /**
    * Forces a resize of the dialog.
    */
   resize();

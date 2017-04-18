@@ -19,9 +19,17 @@ import {
   `]
 })
 export class MaskDemoComponent {
-  @HostBinding('class.alignRight') @Input() alignRight: boolean = false;
+  @HostBinding('class.alignRight') @Input() alignRight = false;
+
+  /**
+   * I cannot workout the syntax for a RexExp that works correctly in
+   * an angular template, so the definitions have to be loaded from align
+   * property.
+   */
+  public definitions = {'U': /[A-Z]/};
 
   onMaskWrite(event: SohoMaskEvent) {
     console.log('MaskDemoComponent.onMaskWrite');
   }
+
 }

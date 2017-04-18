@@ -6,6 +6,8 @@ import {
 } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -22,12 +24,15 @@ import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
+import { ContextualActionPanelDemoModule } from './contextual-action-panel/contextual-action-panel.demo.module';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
+import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
+import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-selection.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
@@ -49,10 +54,12 @@ import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
 import { HyperlinkDemoComponent } from './hyperlink/hyperlink.demo';
+import { SohoHeaderDemoComponent } from './header/header.demo';
 import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
+import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
@@ -69,6 +76,10 @@ import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
 import { StepProcessDemoComponent } from './stepprocess/stepprocess.demo';
 import { StepProcessDataDrivenDemoComponent } from './stepprocess/stepprocess-data-driven.demo';
+import { StepProcessVetoableDemoComponent } from './stepprocess/stepprocessvetoable.demo';
+import { SwapListDemoComponent } from './swaplist/swaplist.demo';
+import { SwapListDynamicDemoComponent } from './swaplist/swaplist-dynamic.demo';
+import { SwapListFullAccessDemoComponent } from './swaplist/swaplist-full-access.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
@@ -109,12 +120,14 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     DataGridCustomFormatterServiceDemoComponent,
     DataGridDynamicDemoComponent,
     DataGridEditorsDemoComponent,
+    DataGridMixedSelectionDemoComponent,
     DataGridPagingIndeterminateDemoComponent,
     DataGridPagingServiceDemoComponent,
     DataGridServiceDemoComponent,
     DataGridSettingsDemoComponent,
     DataGridToolbarDemoComponent,
     DataGridTreeGridDemoComponent,
+    DataGridGroupableDemoComponent,
     DatepickerDemoComponent,
     DropdownAsyncBusyDemoComponent,
     DropdownAsyncDemoComponent,
@@ -134,6 +147,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     LabelDemoComponent,
     ListViewDemoComponent,
     LookupDemoComponent,
+    LookupValidationDemoComponent,
     MaskDemoComponent,
     MenuButtonDemoComponent,
     MessageDemoComponent,
@@ -143,12 +157,17 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     RadioButtonDemoComponent,
     SliderDemoComponent,
     SohoHeaderDynamicDemoComponent,
+    SohoHeaderDemoComponent,
     SohoMastheadDemoComponent,
     SpinboxDemoComponent,
     SplitterHorizontalDemoComponent,
     SplitterVerticalDemoComponent,
     StepProcessDemoComponent,
     StepProcessDataDrivenDemoComponent,
+    StepProcessVetoableDemoComponent,
+    SwapListDemoComponent,
+    SwapListDynamicDemoComponent,
+    SwapListFullAccessDemoComponent,
     TabsBasicDemoComponent,
     TabsCountsDemoComponent,
     TabsDataDrivenDemoComponent,
@@ -177,7 +196,9 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     BrowserModule,
     CommonModule,
     FormsModule,
+    HttpModule,
     ModalDialogDemoModule,
+    ContextualActionPanelDemoModule,
     ReactiveFormsModule,
     SohoComponentsModule
   ],

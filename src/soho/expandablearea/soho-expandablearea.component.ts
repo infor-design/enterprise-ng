@@ -24,7 +24,7 @@ import { Observable } from 'rxjs/Rx';
       <ng-content></ng-content>
     </span>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExpandableHeaderComponent {}
 
@@ -40,7 +40,7 @@ export class ExpandableHeaderComponent {}
 })
 export class ExpandablePaneComponent {
   @HostBinding('attr.fixed')
-  @Input() fixed: boolean = false;
+  @Input() fixed = false;
 }
 
 @Component({

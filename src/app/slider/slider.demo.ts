@@ -14,11 +14,11 @@ import { SohoSliderComponent } from '@infor/sohoxi-angular';
 export class SliderDemoComponent implements OnInit {
   @ViewChild(SohoSliderComponent) slider: SohoSliderComponent;
 
-  private sliderDisabled: boolean = false;
-  private sliderReadOnly: boolean = false;
-  private showModel: boolean = false;
+  public sliderDisabled = false;
+  public sliderReadOnly = false;
+  public showModel = false;
 
-  private model = { // tslint:disable-line
+  public model = {
     value: '20'
   };
 

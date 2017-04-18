@@ -16,20 +16,20 @@ export interface FakeResponse {
   selector: 'soho-lookup-demo',
   templateUrl: './lookup.demo.html',
 })
-export class LookupDemoComponent /*implements SohoDataGridSourceFunction*/ {
-  private columns_product: SohoDataGridColumn[];
-  private columns_multi: SohoDataGridColumn[];
+export class LookupDemoComponent {
+  public columns_product: SohoDataGridColumn[];
+  public columns_multi: SohoDataGridColumn[];
 
-  private data_product: any[];
-  private model: any = { // tslint:disable-line
+  public data_product: any[];
+  public model: any = {
     single: null,
     multi: null,
     async: null,
   };
-  private showModel: boolean = false;
+  public showModel = false;
 
   // So we can bind 'this' to the source function passed to the lookup control
-  private context = this; // tslint:disable-line
+  public context = this;
 
   constructor() {
     this.setupProducts();

@@ -27,15 +27,10 @@ export class ModalDialogDemoComponent {
   @ViewChild('dialogPlaceholder', { read: ViewContainerRef })
   placeholder: ViewContainerRef;
 
-  /**
-   * The interface to an instantiated instance of the ExampeDialogComponent.
-   */
-  private dialog: SohoModalDialogRef<any>;
+  public closeResult: string;
 
-  private closeResult: string;
-
-  private title = 'Example Modal Dialog';
-  private isAlert = true;
+  public title = 'Example Modal Dialog';
+  public isAlert = true;
 
   /**
    * Constructor.
@@ -46,79 +41,78 @@ export class ModalDialogDemoComponent {
   }
 
   openSimple() {
-    const buttons = [
-      { text: 'Cancel', click: (e, modal) => { modal.close(true); } },
-      { text: 'Submit', click: (e, modal) => { modal.close(true); }, isDefault: true }];
-
-    this.dialog = this.modalService
-      .modal(ExampleModalDialogComponent, this.placeholder)
-      .buttons(buttons)
+    const dialogRef = this.modalService
+      .modal<ExampleModalDialogComponent>(ExampleModalDialogComponent, this.placeholder)
+      .buttons([
+        { text: 'Cancel', click: (e, modal) => { modal.isCancelled = true; dialogRef.close('CANCEL'); } },
+        {
+          text: 'Submit', click: (e, modal) => {
+            dialogRef.close('SUBMIT');
+          }, isDefault: true
+        }])
       .title(this.title)
       .isAlert(this.isAlert)
-      .apply((c) => { c.headerText = 'Header Text Update!!'; })
+      .apply((dialogComponent) => { dialogComponent.model.header = 'Header Text Update!!'; })
       .open();
 
-    // Attach a listener to the afterclose event, which also gives you the result - if available.
-    this.dialog.afterClose(result => {
+
+    // Attach a listener to the afterClose event, which also gives you the result - if available.
+    dialogRef.afterClose((result, ref, dialogComponent) => {
+      console.log(dialogComponent.model);
       this.closeResult = result;
-      this.dialog = null;
     });
   }
 
   openNested() {
-    this.dialog = this.modalService
-      .modal(NestedModalDialogComponent, this.placeholder)
+    const dialogRef = this.modalService
+      .modal<NestedModalDialogComponent>(NestedModalDialogComponent, this.placeholder)
       .buttons(
-      [{ text: 'Cancel', click: (e, modal) => { modal.close(true); } },
-      { text: 'Submit', click: (e, modal) => { modal.close(true); }, isDefault: true }])
+      [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
+      { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
       .title(this.title)
       .open()
-      .afterClose(result => {
+      .afterClose((result) => {
         this.closeResult = result;
-        this.dialog = null;
       });
   }
 
   openMessage() {
-    this.dialog = this.modalService
+    const dialogRef = this.modalService
       .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
       .buttons(
-      [{ text: 'Cancel', click: (e, modal) => { modal.close(true); } },
-      { text: 'Submit', click: (e, modal) => { modal.close(true); }, isDefault: true }])
+      [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
+      { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose(result => {
         this.closeResult = result;
-        this.dialog = null;
       });
   }
 
   openVeotable() {
-    this.dialog = this.modalService
+    const dialogRef = this.modalService
       .modal(VetoableModalDialogComponent, this.placeholder)
       .buttons(
-      [{ text: 'Cancel', click: (e, modal) => { modal.close(true); } },
-      { text: 'Submit', click: (e, modal) => { modal.close(true); }, isDefault: true }])
+      [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
+      { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose(result => {
         this.closeResult = result;
-        this.dialog = null;
       });
   }
 
   openDialogResult() {
-    this.dialog = this.modalService
+    const dialogRef = this.modalService
       .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
       .buttons(
-       [{ text: 'YES', click: () => { this.dialog.close('YES'); } },
-        { text: 'NO', click: () => { this.dialog.close('NO'); }, isDefault: true }])
+      [{ text: 'YES', click: () => { dialogRef.close('YES'); } },
+      { text: 'NO', click: () => { dialogRef.close('NO'); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose(result => {
         alert(`You selected ${result}`);
         this.closeResult = result;
-        this.dialog = null;
       });
   }
 }

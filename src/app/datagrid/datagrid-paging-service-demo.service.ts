@@ -20,10 +20,15 @@ export class DataGridPagingServiceDemoService extends SohoDataGridService {
   }
 
   getData(req: SohoDataGridSourceRequest): Observable<any> {
-    let begin: number = (req.activePage - 1) * req.pagesize;
-    let end: number = begin + req.pagesize;
-    let data: Array<any> = this.data.slice(begin, end);
-    let result: any = { total: 100, data: data };
+    const begin: number = (req.activePage - 1) * req.pagesize;
+    const end: number = begin + req.pagesize;
+    const data: Array<any> = this.data.slice(begin, end);
+    const result: any = { total: 100, data: data };
     return Observable.of(result);
   }
+
+  getAllData (): Array<any> {
+    return this.data;
+  }
+
 }

@@ -7,10 +7,13 @@ import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
+import { ContextualActionPanelDemoComponent } from './contextual-action-panel/contextual-action-panel.demo';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
+import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
+import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-selection.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
@@ -35,6 +38,7 @@ import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
+import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
@@ -49,6 +53,9 @@ import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo
 import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
 import { StepProcessDemoComponent } from './stepprocess/stepprocess.demo';
 import { StepProcessDataDrivenDemoComponent } from './stepprocess/stepprocess-data-driven.demo';
+import { SwapListDemoComponent } from './swaplist/swaplist.demo';
+import { SwapListDynamicDemoComponent } from './swaplist/swaplist-dynamic.demo';
+import { SwapListFullAccessDemoComponent } from './swaplist/swaplist-full-access.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
@@ -72,6 +79,7 @@ import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
+import { StepProcessVetoableDemoComponent } from './stepprocess/stepprocessvetoable.demo';
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
@@ -82,10 +90,13 @@ export const routes: Routes = [
   { path: 'busyindicator',         component: BusyIndicatorDemoComponent },
   { path: 'checkbox',              component: CheckBoxDemoComponent },
   { path: 'context-menu',          component: ContextMenuDemoComponent },
+  { path: 'contextual-action-panel', component: ContextualActionPanelDemoComponent },
   { path: 'datagrid-breadcrumb',   component: DataGridBreadcrumbDemoComponent },
   { path: 'datagrid-content',      component: DataGridContentDemoComponent },
   { path: 'datagrid-dynamic',      component: DataGridDynamicDemoComponent },
   { path: 'datagrid-editors',      component: DataGridEditorsDemoComponent },
+  { path: 'datagrid-groupable',    component: DataGridGroupableDemoComponent },
+  { path: 'datagrid-mixed-selection', component: DataGridMixedSelectionDemoComponent },
   { path: 'datagrid-paging-indeterminate', component: DataGridPagingIndeterminateDemoComponent },
   { path: 'datagrid-paging-service', component: DataGridPagingServiceDemoComponent },
   { path: 'datagrid-service',      component: DataGridServiceDemoComponent },
@@ -112,6 +123,7 @@ export const routes: Routes = [
   { path: 'label',                 component: LabelDemoComponent },
   { path: 'listview',              component: ListViewDemoComponent },
   { path: 'lookup',                component: LookupDemoComponent },
+  { path: 'lookup-validation',     component: LookupValidationDemoComponent },
   { path: 'mask',                  component: MaskDemoComponent },
   { path: 'menu-button',           component: MenuButtonDemoComponent },
   { path: 'message',               component: MessageDemoComponent },
@@ -125,9 +137,11 @@ export const routes: Routes = [
   { path: 'splitter-vertical',     component: SplitterVerticalDemoComponent },
   { path: 'step-process',          component: StepProcessDemoComponent },
   { path: 'step-data-driven',      component: StepProcessDataDrivenDemoComponent },
+  { path: 'step-process-vetoable', component: StepProcessVetoableDemoComponent },
+  { path: 'swaplist',			         component: SwapListDemoComponent },
+  { path: 'swaplist-dynamic',      component: SwapListDynamicDemoComponent },
+  { path: 'swaplist-full-access',  component: SwapListFullAccessDemoComponent },
   { path: 'spinbox',               component: SpinboxDemoComponent },
-  { path: 'step-process',          component: StepProcessDemoComponent },
-  { path: 'step-data-driven',      component: StepProcessDataDrivenDemoComponent },
   { path: 'tabs-basic',            component: TabsBasicDemoComponent },
   { path: 'tabs-counts',           component: TabsCountsDemoComponent },
   { path: 'tabs-datadriven',       component: TabsDataDrivenDemoComponent },

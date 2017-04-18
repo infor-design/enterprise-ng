@@ -13,11 +13,12 @@ import {
 })
 export class TrackDirtyDemoComponent implements OnInit {
 
-  private model = { // tslint:disable-line
+  public model = {
     textbox: '',
     numeric: ''
   };
-  private showModel: boolean = false;
+
+  public showModel = false;
 
   constructor() { }
 

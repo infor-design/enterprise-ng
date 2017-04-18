@@ -14,5 +14,5 @@ export class SohoMastheadComponent {
     return 'masthead';
   }
 
-  @Input() ariaLabel: string = 'Go To Home UI Test Suite';
+  @Input() ariaLabel = 'Go To Home UI Test Suite';
 }

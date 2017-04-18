@@ -83,22 +83,22 @@ export class TreeDynamicDemoComponent implements AfterViewInit {
     this.tree.collapseAll();
   }
 
-  toggleEnabled(event: any) {
-    if (this.enabled) {
-      this.tree.disable();
-      this.enabled = false;
-    } else {
-      this.tree.enable();
-      this.enabled = true;
-    }
-  }
+  // toggleEnabled(event: any) {
+  //   if (this.enabled) {
+  //     this.tree.disable();
+  //     this.enabled = false;
+  //   } else {
+  //     this.tree.enable();
+  //     this.enabled = true;
+  //   }
+  // }
 
   selectRoot() {
-    this.tree.setSelectedNode('/1');
+    this.tree.selectedNode('/1');
   }
 
   addNode() {
-    let tn: SohoTreeNode = { text: 'New Item 1.2', disabled: true };
+    const tn: SohoTreeNode = { text: 'New Item 1.2', disabled: true };
     this.tree.addNode(tn, this.selected);
   }
 

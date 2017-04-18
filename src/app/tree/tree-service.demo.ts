@@ -46,7 +46,7 @@ export class TreeServiceDemoComponent {
   }
 
   selectRoot() {
-    this.tree.setSelectedNode('node1');
+    this.tree.selectedNode('node1');
   }
 
   addNode() {
@@ -59,6 +59,16 @@ export class TreeServiceDemoComponent {
   }
 
   onSelected(treeEvent: SohoTreeEvent) {
+    this.selected = treeEvent.data;
+    console.log('Tree Event: ${this.selected}');
+  }
+
+  onCollapse(treeEvent: SohoTreeEvent) {
+    this.selected = treeEvent.data;
+    console.log('Tree Event: ${this.selected}');
+  }
+
+  onExpand(treeEvent: SohoTreeEvent) {
     this.selected = treeEvent.data;
     console.log('Tree Event: ${this.selected}');
   }

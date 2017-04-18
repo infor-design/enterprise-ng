@@ -1,7 +1,7 @@
 
-# SoHo XI Directives for Angular 2.0
+# SoHo XI Directives for Angular
 
-This repository serves as the central shared location for a crowd-sourced cross-Infor Angular2 Typescript repo of Xi control wrapped components.
+This repository serves as the central shared location for a crowd-sourced cross-Infor Angular Typescript repo of Xi control wrapped components.
 
   - avoids many teams building the same things - inefficient and asking Xi Team for different flavors of the same thing
   - divide the work to get more done
@@ -22,11 +22,11 @@ Agreed on project scaffolding (using CLI and Typescript). Agreed on [shared Repo
 http://jira/browse/SOHO-4016. You can also use it to see whats been done.
 
 ## Agreed so far
-* Will use Typescript
+* Will use Typescript 2.2
 * Will wrap Soho XI controls
 * Two Tracks: Track 1: Wrap Current Controls, Track 2: Es6 refactor of core controls keeping directives updated
 * Will be supported by the H&L team in collaboration with multiple teams
-* We used https://cli.angular.io/
+* Will use https://cli.angular.io/
 * Will use Angular Style guide: https://angular.io/styleguide
 * Group discussion location https://sohoxi-dev.slack.com/messages/angular-components/
 * Use editor config, eslint and tslint
@@ -43,6 +43,101 @@ http://jira/browse/SOHO-4016. You can also use it to see whats been done.
 * Plus a couple of others.  Hard to keep track, Add your name with a Pull Request :)
 
 Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (SE), Mongoose, GT Nexus, ION
+
+#### Feature status:
+
+| Feature                 | Status                              | Docs         | Issue              |
+|-------------------------|-------------------------------------|--------------|--------------------|
+| application-menu        |                           Available |            - | [SOHO-3950][#3950] |
+| busyindicator           |                           Available |            - | [SOHO-4096][#4096] |
+| button                  |                           Available |            - | [SOHO-4556][#4556] |
+| checkbox                |                           Available |            - | [SOHO-4617][#4617] |
+| context-menu            |                           Available |            - | [SOHO-4557][#4557] |
+| contextual-action-panel |                           Available |  [README][0] |                    |
+| datagrid                |                           Available |            - | [SOHO-4049][#4049] |
+| datepicker              |                           Available |            - | [SOHO-4489][#4489] |
+| dropdown                |                           Available |            - | [SOHO-4050][#4050] |
+| editor                  |                           Available |            - | [SOHO-4559][#4559] |
+| error                   |                           Available |            - |                  - |
+| expandablearea          |                           Available |            - | [SOHO-4017][#4017] |
+| fileupload              |                           Available |            - | [SOHO-4560][#4560] |
+| fieldset                |                             Pending |            - | [SOHO-4561][#4561] |
+| header                  |                           Available |            - |                  - |
+| hyperlink               |                           Available |            - | [SOHO-4562][#4562] |
+| icon                    |                           Available |            - |              - |
+| input-validate          |                           Available |            - |              - |
+| label                   |                           Available |            - | [SOHO-4570][#4570] |
+| lightbox                |                     Not Implemented |            - | [SOHO-5127][#5127] |
+| listview                |                           Available |            - | [SOHO-4040][#4040] |
+| locale                  |                           Available |            - | [SOHO-4470][#4470] |
+| lookup                  |                           Available |            - | [SOHO-4052][#4052] |
+| mask                    |                           Available |            - | [SOHO-3895][#3895] |
+| masthead                |                           Available |            - |              - |
+| menu-button             |                           Available |            - | [SOHO-4049][#4089] |
+| message                 |                           Available |           -  |              - |
+| modal-dalog             |                           Available | [README][1]  | [SOHO-4734][#4734]|
+| pager                   |                           Available |           -  |              - |
+| personalize             |                           Available |           -  |              - |
+| popdown                 |                           Available |           -  | [SOHO-4653][#4563] |
+| popupmenu               |                           Available |           -  | [SOHO-4342][#4342] |
+| progress                |                           Available |           -  | [SOHO-4342][#4342] |
+| rating                  |                             Pending |           -  | [SOHO-5126][#5126] |
+| radiobutton             |                           Available |           -  | [SOHO-4562][#4562] |
+| searchfield             |                           Available |           -  | [SOHO-4422][#4422] |
+| slider                  |                           Available |           -  | [SOHO-4565][#4565] |
+| spinbox                 |                           Available |           -  | [SOHO-5125][#5125] |
+| splitter                |                           Available |           -  | [SOHO-4402][#4402] |
+| step-process            |                           Available |           -  | [SOHO-4999][#4999] |
+| swaplist                |                           Available |           -  | [SOHO-5122][#5122] |
+| tabs                    |                           Available |           -  |              - |
+| textarea                |                           Available |           -  |              - |
+| timepicker              |                           Available |           -  |              - |
+| theming                 |                     Partial Support |           -  |              - |
+| toast                   |                           Available |           -  |              - |
+| toolbar                 |                           Available |           -  |              - |
+| tooltip                 |                           Available |           -  |              - |
+| trackdirty              |                           Available |           -  |              - |
+| tree                    |                           Available |           -  | [SOHO-4043][#4083] |
+| treegrid                |                           Available |           -  | [SOHO-4722][#4722] |
+
+
+[0]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/contextual-action-panel/README.md
+[1]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/modal-dialog/README.md
+[#3895]: http://jira/browse/SOHO-3895
+[#3950]: http://jira/browse/SOHO-3950
+[#4017]: http://jira/browse/SOHO-4017
+[#4040]: http://jira/browse/SOHO-4040
+[#4049]: http://jira/browse/SOHO-4049
+[#4050]: http://jira/browse/SOHO-4050
+[#4052]: http://jira/browse/SOHO-4052
+[#4083]: http://jira/browse/SOHO-4083
+[#4089]: http://jira/browse/SOHO-4089
+[#4096]: http://jira/browse/SOHO-4096
+[#4097]: http://jira/browse/SOHO-4097
+[#4342]: http://jira/browse/SOHO-4342
+[#4402]: http://jira/browse/SOHO-4402
+[#4422]: http://jira/browse/SOHO-4422
+[#4470]: http://jira/browse/SOHO-4470
+[#4489]: http://jira/browse/SOHO-4489
+[#4556]: http://jira/browse/SOHO-4556
+[#4557]: http://jira/browse/SOHO-4557
+[#4559]: http://jira/browse/SOHO-4559
+[#4560]: http://jira/browse/SOHO-4560
+[#4561]: http://jira/browse/SOHO-4561
+[#4562]: http://jira/browse/SOHO-4562
+[#4563]: http://jira/browse/SOHO-4563
+[#4564]: http://jira/browse/SOHO-4564
+[#4565]: http://jira/browse/SOHO-4565
+[#4570]: http://jira/browse/SOHO-4570
+[#4616]: http://jira/browse/SOHO-4616
+[#4617]: http://jira/browse/SOHO-4617
+[#4722]: http://jira/browse/SOHO-4722
+[#4734]: http://jira/browse/SOHO-4734
+[#4999]: http://jira/browse/SOHO-4999
+[#5122]: http://jira/browse/SOHO-5122
+[#5125]: http://jira/browse/SOHO-5125
+[#5126]: http://jira/browse/SOHO-5126
+[#5127]: http://jira/browse/SOHO-5127
 
 ## Previous Repos
 

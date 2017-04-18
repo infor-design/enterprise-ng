@@ -5,14 +5,11 @@
 var fs = require('fs'),
 	filename = 'package.json',
 	pkg = require('../' + filename),
-	version = process.env.bamboo_npm_version || process.argv[2];
+	version = process.env.soho_next_version || process.argv[2];
 
 if (!version) {
-	console.log("[Error] Either bamboo_version or bamboo_jira_version ENV must be set.");
-	process.exit(1);
-} else if (version === pkg.dependencies['@infor/sohoxi']) {
-  console.log("[Error] New version cannot match current version.");
-	process.exit(1);
+  console.log("[Error] Either soho_next_version should be set or version should be passed in");
+  process.exit(1);
 } else {
   pkg.dependencies['@infor/sohoxi'] = version;
 }

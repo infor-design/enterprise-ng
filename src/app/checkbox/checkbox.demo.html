@@ -4,7 +4,7 @@
     <div class="row">
       <div class="one-half column">
         <div class="field">
-          <input soho-checkbox type="checkbox" [disabled]="checkBoxDisabled" [attr.id]="id1" name="checkbox1" [(ngModel)]=model.checkBox1Value>
+          <input soho-checkbox type="checkbox" [disabled]="checkBoxDisabled" [attr.id]="id1" name="checkbox1" [(ngModel)]="model.checkBox1Value">
           <label soho-label [attr.for]="id1" [forCheckBox]="true">Unchecked</label>
           <div class="row">
             <button soho-button [disabled]="checkBoxDisabled" (click)="setDisable()">Disable</button>
@@ -17,23 +17,23 @@
         </div>
 
         <div class="field">
-          <input soho-checkbox type="checkbox" [attr.id]="id2" name="checkbox2" [(ngModel)]=model.checkBox2Value>
+          <input soho-checkbox type="checkbox" [attr.id]="id2" name="checkbox2" [(ngModel)]="model.checkBox2Value">
           <label soho-label [attr.for]="id2" [forCheckBox]="true">Checked</label>
         </div>
       </div>
       <div class="one-half column">
         <div class="field">
-          <input soho-checkbox type="checkbox" [attr.id]="id3" name="checkbox3" [disabled]="true" [(ngModel)]=model.checkBox3Value>
+          <input soho-checkbox type="checkbox" [attr.id]="id3" name="checkbox3" [disabled]="true" [(ngModel)]="model.checkBox3Value">
           <label soho-label [attr.for]="id3" [forCheckBox]="true">Disabled and Unchecked</label>
         </div>
 
         <div class="field">
-          <input soho-checkbox type="checkbox" [attr.id]="id4" name="checkbox4" [(ngModel)]=model.checkBox4Value [disabled]="true">
+          <input soho-checkbox type="checkbox" [attr.id]="id4" name="checkbox4" [(ngModel)]="model.checkBox4Value" [disabled]="true">
           <label soho-label [attr.for]="id4" [forCheckBox]="true">Disabled and Checked</label>
         </div>
 
         <div class="field">
-          <input soho-checkbox type="checkbox" [attr.id]="id5" name="checkbox5" partial=true [(ngModel)]=model.checkBox5Value>
+          <input soho-checkbox type="checkbox" [attr.id]="id5" name="checkbox5" partial="true" [(ngModel)]="model.checkBox5Value">
           <label soho-label [attr.for]="id5" [forCheckBox]="true"><span class="audible">Partial (not accessible)</span>Partial</label>
         </div>
       </div>

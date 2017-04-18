@@ -1,6 +1,7 @@
 export * from './application-menu';
 export * from './busyindicator';
 export * from './button';
+export * from './contextual-action-panel';
 export * from './datagrid';
 export * from './datepicker';
 export * from './dropdown';
@@ -27,6 +28,7 @@ export * from './splitter';
 export * from './slider';
 export * from './spinbox';
 export * from './stepprocess';
+export * from './swaplist';
 export * from './tabs';
 export * from './textarea';
 export * from './timepicker'

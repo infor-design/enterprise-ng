@@ -70,6 +70,9 @@ interface SohoDatePickerDisable {
  */
 interface SohoDatePickerStatic {
 
+  /** Underlying element. */
+  element: JQuery;
+
   readonly(): void;
 
   // TODO: waiting on SOHO-4834 - 4.0 Datepicker - Needs to support enable(), disable(), and readonly() methods
@@ -85,6 +88,8 @@ interface SohoDatePickerStatic {
  * Type safe date picker event object.
  */
 interface SohoDatePickerEvent extends JQueryEventObject {
+  data: Object;
+  elem: HTMLElement[];
 }
 
 /**

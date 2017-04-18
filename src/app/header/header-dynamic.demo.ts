@@ -4,7 +4,10 @@ import {
   Input,
   ViewChild
 } from '@angular/core';
-import { HeaderDynamicToolbarOptions, HeaderDynamicTabsetOptions } from './header-dynamic-demo.model';
+import {
+  HeaderDynamicToolbarOptions, HeaderDynamicTabsetOptions,
+  ToolbarSearchField
+} from './header-dynamic-demo.model';
 import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
 import { SohoToolbarComponent } from '@infor/sohoxi-angular';
 import { SohoTabsComponent } from '@infor/sohoxi-angular';
@@ -51,17 +54,38 @@ export class SohoHeaderDynamicDemoComponent {
     });
   }
 
+  @Input() set toolbarSearchField(searchField: ToolbarSearchField) {
+    this._toolbarSearchField = searchField;
+    setTimeout(() => {
+      if (this.sohoToolbarComponent) {
+        this.sohoToolbarComponent.updated();
+      }
+    });
+  }
+
+  get toolbarSearchField(): ToolbarSearchField {
+    return this._toolbarSearchField;
+  }
+
+  public _toolbarSearchField: ToolbarSearchField = {
+    id: 'toolbarSearchField',
+    label: 'Search',
+    value: '',
+    collapsible: true
+  };
+
+
   /**
    * Used by the component template to decide when to display the tabs.
    * @type {any}
    */
-  private currentToolbarOptions: HeaderDynamicToolbarOptions = null;
+  public currentToolbarOptions: HeaderDynamicToolbarOptions = null;
 
   /**
    * Used by the component template to decide when to display the toolbar.
    * @type {any}
    */
-  private currentTabsOptions: HeaderDynamicTabsetOptions = null;
+  public currentTabsOptions: HeaderDynamicTabsetOptions = null;
 
   constructor(private headerRef: HeaderDynamicDemoRefService) {
     this.headerRef.instance = this;
@@ -81,5 +105,13 @@ export class SohoHeaderDynamicDemoComponent {
    */
   public get tabOptions(): HeaderDynamicTabsetOptions {
     return this.currentTabsOptions;
+  }
+
+  fireSearchEvent(event: any) {
+    alert('run search value : "' + this.toolbarSearchField.value + '"');
+  }
+
+  fireClearSearchEvent(event: any) {
+    alert('search value cleared');
   }
 }

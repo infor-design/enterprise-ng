@@ -1,94 +1,35 @@
-<div class="toolbar no-actions-button" role="toolbar">  <!--aria-label="{{ariaLabel}}">-->
+<soho-toolbar noActionsButton="true" maxVisibleButtons="4">
 
-  <div class="title">
-    <button id="logo-homepage" tabindex="0">
+  <soho-toolbar-title>
+     <button id="logo-homepage" tabindex="0">
       <svg class="icon icon-logo" focusable="false" aria-hidden="true" role="presentation">
-
         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo"></use>
       </svg>
       <span class="audible">Go To Home</span>
     </button>
     <h1 class="masthead-appname">Soho Angular Components</h1>
-  </div>
+  </soho-toolbar-title>
 
-  <div class="buttonset">
-    <button type="button" class="btn" title="Show User">
-      <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#icon-user"></use>
-      </svg>
+  <soho-toolbar-button-set>
+
+    <button soho-button="icon" icon="user">
       <span class="audible">User</span>
     </button>
 
-    <button type="button" class="btn">
-      <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#icon-mingle-share"></use>
-      </svg>
+    <button soho-button="icon" icon="mingle-share">
       <span class="audible">Share</span>
     </button>
 
-    <button type="button" class="btn">
-      <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#icon-bookmark-filled"></use>
-      </svg>
+    <button soho-button="icon" icon="bookmark-filled">
       <span class="audible">Bookmark</span>
     </button>
 
-    <button type="button" class="btn">
-      <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#icon-expand-app-tray"></use>
-      </svg>
+    <button soho-button="icon" icon="expand-app-tray">
       <span class="audible">Expand App Tray</span>
     </button>
-  </div>
 
-</div>
-
+  </soho-toolbar-button-set>
 
 
-<!--
 
-<soho-masthead>
-
-  <soho-masthead-title>
-    <button id="logo-homepage" tabindex="0">
-      <svg class="icon icon-logo" focusable="false" aria-hidden="true" role="presentation">
-
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo"></use>
-      </svg>
-      <span class="audible">Go To Home</span>
-    </button>
-    <h1 class="masthead-appname">SohoXI</h1>
-  </soho-masthead-title>
-
-  <soho-masthead-buttonset>
-    <button type="button" class="btn" title="Show User">
-      <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#icon-user"></use>
-      </svg>
-      <span class="audible">User</span>
-    </button>
-
-    <button type="button" class="btn">
-      <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#icon-mingle-share"></use>
-      </svg>
-      <span class="audible">Share</span>
-    </button>
-
-    <button type="button" class="btn">
-      <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#icon-bookmark-filled"></use>
-      </svg>
-      <span class="audible">Bookmark</span>
-    </button>
-
-    <button type="button" class="btn">
-      <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#icon-expand-app-tray"></use>
-      </svg>
-      <span class="audible">Expand App Tray</span>
-    </button>
-  </soho-masthead-buttonset>
-
-</soho-masthead>
--->
+</soho-toolbar>

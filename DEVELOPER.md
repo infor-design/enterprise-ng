@@ -3,7 +3,7 @@
 ### Install
 - [Setup SSH key for using git](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html) (faster but not required)
 - PC users suggest [ComEmu](https://conemu.github.io/) which works a bit better than CMD.
-- Get the latest **Node.js** release from https://nodejs.org/dist/latest-v5.x/.
+- Get the latest **Node.js** release from https://nodejs.org/en/.
 - Get an Editor like Visual Studio Code (https://code.visualstudio.com/) or [Atom](https://atom.io/) or your fav.
 
 ### Initial Setup
@@ -12,7 +12,7 @@
 - Clone Your Fork fx `git clone ssh://git@git.infor.com:7999/~tmcconechy/angular-components.git`
 - Open a command prompt to angular-components
 - Type `npm config set @infor:registry http://npm.infor.com:4873`
-- Type `npm install -g angular-cli@latest`
+- Type `npm install -g @angular/cli@latest`
 - Type `npm i` (and wait a while …)
 - Type `ng build`
 - Type `ng serve`
@@ -27,9 +27,12 @@ soho\
     soho-widget.d.ts
     soho-widget.component.ts
     soho-widget.component.html
+    soho-widget.module.ts
+    sogo-widget.spec.ts
     README.md (optional)
 ```
 The typing file (soho-widget.d.ts) contains the public API for the underlying SoHoXi jQuery controls, it also contains some internal information required to get the component working.
+
 ```typescript
 /**
  * Soho widget Control Typings.
@@ -163,6 +166,30 @@ The HTML file should include any markup required for the control to work.
   <soho-icon *ngIf="count > 1" [icon]='gear'></soho-icon>
   <ng-content></ng-content>
 ```
+
+## Widget Component Module
+
+Create the file `soho-widget.module.ts` and add the following:
+
+```
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { SohoWidgetComponent } from './soho-widget.component';
+
+@NgModule({
+  imports: [ CommonModule ],
+  declarations: [
+    SohoWidgetComponent
+  ],
+  exports: [
+    SohoWidgetComponent
+  ]
+})
+export class SohoWidgetModule {}
+
+```
+
 ## Unit Testing
 
 Angular-CLI uses **jasmine** to handle unit testing.  Simply add your unit test code to a file called **soho-widget.spec.ts** in the same folder as component.
@@ -180,4 +207,29 @@ This file includes a reference to each of the typings files defined within each 
 ```typescript
 /// <reference path="./widget/soho-widget.d.ts" />
 ```
+
+Add the component to the top level `soho-components.module.ts` file, by adding the widget component's module.
+
+```
+import { NgModule } from '@angular/core';
+
+...
+import { SohoWidgetModule } from './widget/soho-widget.module';
+...
+
+@NgModule({
+  imports: [
+    ...
+    SohoWidgetModule
+  ],
+  declarations: [
+  ],
+  exports: [
+    ...
+    SohoWidgetModule
+  ]
+})
+export class SohoComponentsModule {}
+```
+
 To integrate this into your application simply include the **@infor/sohoxi-angular** package into your application, and include the **SohoComponentsModule** into your application module definition.  For further details, see the QuickStart guide.

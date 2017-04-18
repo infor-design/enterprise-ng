@@ -1,0 +1,78 @@
+<div class="example-section" xmlns="http://www.w3.org/1999/html">
+  <form [formGroup]="form">
+    <div class="row">
+      <h1>Lookups</h1>
+      <span class="code-tag">Live Example</span>
+      <div class="row">
+        <label soho-label for="product_single">Products (Single Select) with mask</label>
+        <input soho-lookup
+          soho-mask [pattern]="'#######'" [mode]="'number'" [negative]="false" [number]="true"
+          soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
+          [(ngModel)]="model.single"
+          [columns]="columns_product"
+          [dataset]="data_product"
+          field="productId"
+          formControlName="product_single"/>
+      </div>
+      <div class="row">
+        <label soho-label for="product_multi">Products (Multi Select)</label>
+        <input soho-lookup
+          soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
+          [(ngModel)]="model.multi"
+          [columns]="columns_multi"
+          [dataset]="data_product"
+          [options]="{
+            selectable: 'multiple'
+          }"
+          [toolbar]="{
+            results: true,
+            dateFilter: false,
+            keywordFilter: true,
+            advancedFilter: true,
+            actions: true,
+            views: true,
+            rowHeight: false,
+            collapsibleFilter: false,
+            fullWidth: true
+          }"
+          field="productId"
+          formControlName="product_multi"/>
+      </div>
+      <div class="row">
+        <label soho-label for="product_async">Products (Async Results)</label>
+        <input soho-lookup
+          soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
+          [(ngModel)]="model.async"
+          [columns]="columns_product"
+          [options]="{
+            paging: true,
+            pagesize: 5,
+            pagesizes: [3, 5, 10, 15]
+          }"
+          [source]="source.bind(context)"
+          [toolbar]="{
+            results: true,
+            dateFilter: false,
+            keywordFilter: true,
+            advancedFilter: true,
+            actions: true,
+            views: true,
+            rowHeight: false,
+            collapsibleFilter: false,
+            fullWidth: true
+          }"
+          field="productId"
+          formControlName="product_async"/>
+      </div>
+    </div>
+  </form>
+  <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+  <div *ngIf="showModel">
+    <hr>
+    <h3>{{ model | json }}</h3>
+  </div>
+  <button soho-button (click)="clearModel()">Clear Model</button><br><br>
+  <div class="row">
+    <h3>Form dirty: {{form.dirty}}</h3>
+  </div>
+</div>

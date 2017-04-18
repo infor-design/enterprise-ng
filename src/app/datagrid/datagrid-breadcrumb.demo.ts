@@ -51,7 +51,7 @@ export class DataGridBreadcrumbDemoComponent implements AfterContentInit, AfterV
 
   addRow() {
     this.service.getData(null).subscribe((d: any[]) => {
-      let newData = new Array<any>(d[0]);
+      const newData = new Array<any>(d[0]);
       newData.forEach((r) => r.orderDate = new Date());
       this.dataGrid.addRow(newData[0], 'top');
     });

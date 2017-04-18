@@ -4,12 +4,6 @@
       <h1>Error</h1>
       <span class="code-tag">Live Example</span>
       <div class="row">
-        <div class="two columns">
-          <div class="field">
-            <label>Field With Error</label>
-            <input alignRight="true" soho-error #error="soho-error"/>
-          </div>
-        </div>
         <div class="row">
           <div class="field1">
             <button soho-button (click)="error.addInlineError(message)">Add Inline Error</button>
@@ -17,6 +11,14 @@
             <button soho-button (click)="error.removeError()">Remove Error</button>
           </div>
         </div>
+        <br/>
+        <div class="two columns">
+          <div class="field">
+            <label for="error">Field With Error</label>
+            <input alignRight="true" soho-error name="error"/>
+          </div>
+        </div>
+
       </div>
     </div>
   </form>

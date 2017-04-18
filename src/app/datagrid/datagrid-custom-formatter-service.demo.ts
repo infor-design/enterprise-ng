@@ -41,7 +41,7 @@ export class DataGridCustomFormatterServiceDemoComponent implements AfterViewIni
       formatter: this.RandomIntegerFormatter
     });
 
-    let gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
+    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
       columns: PAGING_COLUMNS,
       dataset: PAGING_DATA,
       selectable: 'single',

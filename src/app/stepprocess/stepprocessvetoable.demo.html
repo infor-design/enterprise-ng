@@ -1,0 +1,189 @@
+<div soho-stepprocess (beforeSelectStep)="onBeforeSelectStep($event)">
+
+  <div soho-step-list-title>
+    Steps to complete
+  </div>
+
+  <ul soho-step-list>
+
+    <li soho-step-list-item isSelected='true'>
+      <a soho-step-list-item-anchor stepId='profile'>
+        <svg soho-icon icon='empty-circle'></svg>
+        <span soho-step-list-item-title>Profile and Consent - step 1</span>
+      </a>
+    </li>
+
+    <li soho-step-list-item>
+      <a soho-step-list-item-anchor stepId='resume'>
+        <svg soho-icon icon='empty-circle'></svg>
+        <span soho-step-list-item-title>Resume / CV - step 2</span>
+      </a>
+    </li>
+
+    <li soho-step-list-item>
+      <a soho-step-list-item-anchor stepId='preferences'>
+        <svg soho-icon icon='empty-circle'></svg>
+        <span soho-step-list-item-title>Preferences - step 3</span>
+      </a>
+    </li>
+
+    <li soho-step-list-item *ngIf="showStep4">
+      <a soho-step-list-item-anchor stepId='addedstep'>
+        <svg soho-icon icon='empty-circle'></svg>
+        <span soho-step-list-item-title>Added Step - step 4</span>
+      </a>
+    </li>
+
+    <li soho-step-list-item>
+      <a soho-step-list-item-anchor stepId="myhistory">
+        <svg soho-icon icon='empty-circle'></svg>
+        <span soho-step-list-item-title>My History- step 5</span>
+        <svg soho-icon icon='caret-down' class='icon-tree'></svg>
+      </a>
+
+      <ul soho-substep-list>
+
+        <li soho-step-list-item>
+          <a soho-step-list-item-anchor stepId='myhistory-1'>
+            <svg soho-icon icon='empty-circle'></svg>
+            <span soho-step-list-item-title>2016 - step 5-1</span>
+          </a>
+        </li>
+
+        <li soho-step-list-item>
+          <a soho-step-list-item-anchor stepId='myhistory-2'>
+            <svg soho-icon icon='empty-circle'></svg>
+            <span soho-step-list-item-title>2015 - step 5-2</span>
+          </a>
+        </li>
+
+      </ul>
+    </li>
+
+    <li soho-step-list-item>
+      <a soho-step-list-item-anchor stepId='talent'>
+        <svg soho-icon icon='empty-circle'></svg>
+        <span soho-step-list-item-title>Talent Profile - step 6</span>
+      </a>
+    </li>
+
+    <li soho-step-list-item>
+      <a soho-step-list-item-anchor stepId="information">
+        <svg soho-icon icon="empty-circle"></svg>
+        <span soho-step-list-item-title>Information - step 7</span>
+        <svg soho-icon icon="caret-down" class="icon-tree"></svg>
+      </a>
+
+      <ul soho-substep-list>
+
+        <ng-template [ngIf]="infoSubSteps">
+          <li soho-step-list-item *ngFor="let infoSubStep of infoSubSteps">
+            <a soho-step-list-item-anchor stepId="{{infoSubStep.id}}">
+              <svg soho-icon icon="{{infoSubStep.icon}}"></svg>
+              <span soho-step-list-item-title>{{infoSubStep.title}}</span>
+            </a>
+          </li>
+        </ng-template>
+
+      </ul>
+    </li>
+
+    <li soho-step-list-item>
+      <a soho-step-list-item-anchor stepId='summary'>
+        <svg soho-icon icon='empty-circle'></svg>
+        <span soho-step-list-item-title>Summary - step 8</span>
+      </a>
+    </li>
+
+  </ul>
+
+  <div soho-step-content-title>
+    Step Process
+    <small>Page X of XX</small>
+  </div>
+
+  <div soho-step-content>
+    <div soho-busyindicator
+      [activated]="showBusyIndicator"
+      blockUI="true"
+      text="Loading"
+      displayDelay="100"
+      timeToComplete="1000"
+    >
+
+      <div soho-step-content-panel stepId="profile">
+        <h2>Profile</h2>
+        <form>
+          <div class="field">
+            <input soho-checkbox type="checkbox" [attr.id]="vetoStep2" [(ngModel)]="vetoStep2" [ngModelOptions]="{standalone: true}">
+            <label soho-label [attr.for]="vetoStep2" [forCheckBox]="true">Veto Next Step</label>
+          </div>
+        </form>
+      </div>
+
+      <div soho-step-content-panel stepId="resume">
+        <h2>Resume / CV</h2>
+        <form>
+          <div class="field">
+            <label for="slider-competency">How competent do you think you are?</label>
+            <input soho-slider id="slider-competency" name="slider-competency1" min="0" max="4" value="0" step="1" ticks='[
+                {"value": 0, "description": "0%"},
+                {"value": 1, "description": "25%"},
+                {"value": 2, "description": "50%"},
+                {"value": 3, "description": "75%"},
+                {"value": 4, "description": "100%"}
+              ]' />
+          </div>
+        </form>
+      </div>
+
+      <div soho-step-content-panel stepId="preferences">
+        <h2>Preferences</h2>
+        <form>
+          <div class="field">
+            <input soho-checkbox type="checkbox" [attr.id]="addStep4" [(ngModel)]="addStep4" [ngModelOptions]="{standalone: true}">
+            <label soho-label [attr.for]="addStep4" [forCheckBox]="true">Add Another Step</label>
+          </div>
+        </form>
+      </div>
+
+      <div soho-step-content-panel *ngIf="showStep4" stepId="addedstep">
+        <h2>Added Step</h2>
+        <p>Added Step - step 4</p>
+      </div>
+
+      <div soho-step-content-panel stepId="myhistory-1">
+        <h2>My History Substep 1</h2>
+        <p>This is History substep 1</p>
+        <form>
+          <div class="field">
+            <input soho-checkbox type="checkbox" [attr.id]="vetoHistorySubStep2" [(ngModel)]="vetoHistorySubStep2" [ngModelOptions]="{standalone: true}">
+            <label soho-label [attr.for]="vetoHistorySubStep2" [forCheckBox]="true">Veto Next Sub Step</label>
+          </div>
+        </form>
+      </div>
+
+      <div soho-step-content-panel stepId="myhistory-2">
+        <h2>My History Substep 2</h2>
+        <p>This is History substep 2</p>
+      </div>
+
+      <div soho-step-content-panel stepId="talent">
+        <h2>Talent Profile</h2>
+        <p>This is the talent profile Step</p>
+      </div>
+
+      <ng-template [ngIf]="infoSubSteps">
+        <div soho-step-content-panel *ngFor="let infoSubStep of infoSubSteps" stepId="{{infoSubStep.id}}">
+          <p>{{infoSubStep.content}}</p>
+        </div>
+      </ng-template>
+
+      <div soho-step-content-panel stepId="summary">
+        <h2>Summary</h2>
+        <p>This is final Summary Step</p>
+      </div>
+
+    </div>
+
+</div>

@@ -1,11 +1,20 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnInit,
+  ViewChild,
+  ChangeDetectionStrategy
+} from '@angular/core';
+
 import { ApplicationMenuLazyService } from './application-menu-lazy-service.demo';
 
 import { SohoApplicationMenuComponent } from '@infor/sohoxi-angular';
 
 @Component({
-  selector: 'application-menu-lazy-demo', // tslint:disable-line
+  // tslint:disable-next-line:component-selector
+  selector: 'application-menu-lazy-demo',
   templateUrl: './application-menu-lazy.demo.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ApplicationMenuLazyDemoComponent implements AfterViewInit, OnInit {
 
@@ -26,7 +35,7 @@ export class ApplicationMenuLazyDemoComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
-    this.triggers = ['.application-lazy-menu-trigger'];
+    this.triggers = ['#application-lazy-menu-trigger'];
   }
 
   public onSubMenuLoaded(menuObject: any) {

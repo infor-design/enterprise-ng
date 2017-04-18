@@ -1,15 +1,17 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 @Component({
   selector: 'soho-checkbox-demo',
   templateUrl: './checkbox.demo.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CheckBoxDemoComponent implements OnInit {
 
-  private model = { // tslint:disable-line
+  public model = {
     checkBox1Value: false,
     checkBox2Value: true,
     checkBox3Value: false,
@@ -17,11 +19,11 @@ export class CheckBoxDemoComponent implements OnInit {
     checkBox5Value: true,
   };
 
-  public id1: string = 'checkbox1'; // tslint:disable-line
-  public id2: string = 'checkbox2'; // tslint:disable-line
-  public id3: string = 'checkbox3'; // tslint:disable-line
-  public id4: string = 'checkbox4'; // tslint:disable-line
-  public id5: string = 'checkbox5'; // tslint:disable-line
+  public id1 = 'checkbox1';
+  public id2 = 'checkbox2';
+  public id3 = 'checkbox3';
+  public id4 = 'checkbox4';
+  public id5 = 'checkbox5';
 
   public checkBoxDisabled = false;
   constructor() { }

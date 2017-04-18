@@ -44,7 +44,7 @@ describe('Soho Context Menu Unit Tests', () => {
   template: `
      <input soho-context-menu menu="TestContextMenu" trigger="click"
            (selected)="onSelected($event)"
-           (beforeopen)="onBeforeopen($event)"
+           (beforeopen)="onBeforeOpen($event)"
            (close)="onClose($event)"
            (open)="onOpen($event)"/>
      <ul soho-popupmenu id="TestContextMenu" >
@@ -61,7 +61,7 @@ class TestContextMenuDirectiveComponent {
     this.selected.emit(value);
   }
 
-  onBeforeopen(value) {
+  onBeforeOpen(value) {
     this.beforeopen.emit(value);
   }
 

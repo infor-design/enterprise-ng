@@ -12,7 +12,7 @@ import {
 /**
  * Supported button types.
  */
-export type SohoButtonType = 'primary' | 'secondary' | 'tertiary' | 'icon';
+export type SohoButtonType = 'primary' | 'secondary' | 'tertiary' | 'icon' | 'favorite';
 
 @Component({
   selector: 'button[soho-button]', // tslint:disable-line
@@ -29,6 +29,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
   static SECONDARY: SohoButtonType = 'secondary';
   static TERTIARY: SohoButtonType = 'tertiary';
   static ICON: SohoButtonType = 'icon';
+  static FAVORITE: SohoButtonType = 'favorite';
 
   // -------------------------------------------
   // Private Member Data
@@ -46,7 +47,13 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
   /** The type of the button, defaulting to 'secondary'. */
   @Input('soho-button') set sohoButton(type: SohoButtonType) {
     this.buttonType = type ? type : SohoButtonComponent.SECONDARY;
+
+    if (type === SohoButtonComponent.FAVORITE) {
+      this.toggle = 'star-outlined';
+      this.icon = 'star-filled';
+    }
   }
+
   /**
    * The icon to be used
    *  - shows when the state is true if toggle has a value
@@ -86,7 +93,11 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
 
   @HostBinding('class.btn-icon')
   get btnIcon(): boolean {
-    return this.buttonType === SohoButtonComponent.ICON;
+    return this.buttonType === SohoButtonComponent.ICON || this.buttonType === SohoButtonComponent.FAVORITE;
+  };
+
+  @HostBinding('class.icon-favorite') get iconFavorite(): boolean {
+    return this.buttonType === SohoButtonComponent.FAVORITE;
   };
 
   @HostBinding('class.no-ripple')
@@ -121,10 +132,23 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
     // Initialise the Soho control.
     this.jQueryElement.button();
 
+    // Initialize title attribute as a soho tooltip
+    if (this.jQueryElement.has('[title]')) {
+      this.jQueryElement.tooltip();
+    }
+
     // Once the control is initialised, extract the control
     // plug-in from the element.  The element name is defined
     // by the plug-in, but in this case is 'button'.
     this.button = this.jQueryElement.data('button');
+
+    // turn off the default handling of the favorite icon switching
+    // in the sohoxi controls (button.js). This is so that only this
+    // button-component handles the switching of the toggle icon for
+    // favorite.
+    if (this.buttonType === SohoButtonComponent.FAVORITE) {
+      this.jQueryElement.off('click.favorite');
+    }
 
     // There are no 'extra' event handler for button.
   }

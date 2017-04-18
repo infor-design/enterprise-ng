@@ -21,7 +21,7 @@ export class SohoPopupMenuHeadingComponent {
 })
 export class SohoPopupMenuSeparatorComponent {
   @HostBinding('class.separator') get isSeparator() { return true; }
-  @HostBinding('class.single-selectable-section') @Input() singleSelectableSection: boolean = false;
+  @HostBinding('class.single-selectable-section') @Input() singleSelectableSection = false;
 }
 
 /**
@@ -48,7 +48,7 @@ export class SohoPopupMenuItemLabelComponent {
 
   @Input() menuId: string;
   @Input() menuUrl: string;
-  @Input() isDisabled: boolean = false;
+  @Input() isDisabled = false;
 }
 
 /**
@@ -60,7 +60,7 @@ export class SohoPopupMenuItemLabelComponent {
 })
 export class SohoPopupMenuItemComponent {
   @HostBinding('class.is-checked') @Input() isChecked: boolean;
-  @HostBinding('class.is-selectable') @Input() isSelectable: boolean = false;
+  @HostBinding('class.is-selectable') @Input() isSelectable = false;
 }
 
 /**

@@ -64,13 +64,41 @@ interface SohoToolbarMenuItemEvent extends SohoToolbarButtonEvent {
 interface SohoToolbarEvent extends JQueryEventObject {}
 
 /**
+ * Configuration options.
+ */
+interface SohoToolbarSearchFieldOptions extends SohoAutoCompleteOptions {
+  /** Has an X to clear? */
+  clearable?: boolean;
+
+  /** Whether the serach field can be collapsed to just a search icon or not */
+  collapsible?: boolean;
+}
+
+/**
+ * Soho control seachfield api.
+ */
+interface SohoToolbarSearchFieldStatic {
+  settings: SohoToolbarSearchFieldOptions;
+
+  updated(): void;
+
+  /** Destructor. */
+  destroy(): void;
+
+  /** Clear */
+  clear(): void;
+}
+
+/**
  * JQuery Integration
  */
 
 interface JQueryStatic {
   toolbar: SohoToolbarStatic;
+  toolbarsearchfield: SohoToolbarSearchFieldStatic;
 }
 
 interface JQuery {
   toolbar(options?: SohoToolbarOptions): JQuery;
+  toolbarsearchfield(options?: SohoToolbarSearchFieldOptions): JQuery;
 }

@@ -42,11 +42,11 @@ export class TreeContentDemoComponent {
   }
 
   selectRoot() {
-    this.tree.setSelectedNode('/1');
+    this.tree.selectedNode('/1');
   }
 
   addNode() {
-    let tn: SohoTreeNode = {text: 'New Item 1.2', disabled: true};
+    const tn: SohoTreeNode = {text: 'New Item 1.2', disabled: true};
     this.tree.addNode(tn, this.selected);
   }
 

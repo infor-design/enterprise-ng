@@ -6,43 +6,48 @@
  */
 
 interface SohoStepProcessOptions {
+  /**
+   * The id selector used on the step list. Make sure this and the
+   * id on the actual soho-step-list element match.
+   */
+  stepList?: string;
 
-  /** The selector for elements that are step panels. default is '.js-step-process-panel' */
-  stepPanels: string;
+  /**
+   * Whether to enforce a linear progression through the stepprocess or not.
+   */
+  linearProgression?: boolean;
 
-  /** The selector for elements that are step links. default is '.js-step-link' */
-  stepLinks: string;
-
-  /** The selector of the previous step action element. default is '.js-step-link-prev' */
-  btnStepPrev: string;
-
-  /** The selector of the next step action element. default is '.js-step-link-next' */
-  btnStepNext: string;
-
-  /** The selector of the element to toggle the steps list. default is '.js-toggle-steps' */
-  btnToggleStepLinks: string;
-
-  /** The callback function called before the step selection changes */
-  beforeStepChange: BeforeStepChangeFunction;
-
-  /** The callback function called after the step selection changes */
-  afterStepChange: AfterStepChangeFunction;
+  /**
+   * The callback function called before the step selection changes.
+   * Return a jQuery promise that that resolves to a boolean
+   * - resolve(true) to continue to the next step
+   * - resolve(false) to veto the step change
+   * NOTE: this is used internally, not for use by the implementing code.
+   */
+  beforeSelectStep?: BeforeSelectStepFunction<boolean>;
 }
 
-type BeforeStepChangeFunction = () => void;
-
-type AfterStepChangeFunction = () => void;
+type BeforeSelectStepFunction<T> = (args: { stepLink: JQuery, isStepping: StepDirection }) => JQueryPromise<T>;
 
 /**
  * This interface represents api exposed by the
  * Soho control.
  */
 interface SohoStepProcessStatic {
-  /** Step Process Control Options. */
+  /**
+   * Step Process Control Options
+   */
   settings: SohoStepProcessOptions;
 
-  /** Change the selected stepLink */
-  changeSelectedStep(stepLink: HTMLLinkElement): void;
+  /**
+   * get the currently selected step
+   */
+  getSelectedStep(): JQuery;
+
+  /**
+   * Destructor,
+   */
+  destroy(): void;
 }
 
 /**
@@ -54,4 +59,45 @@ interface JQueryStatic {
 
 interface JQuery {
   stepprocess(options?: SohoStepProcessOptions): JQuery;
+}
+
+interface BeforeSelectStepResult {
+  /**
+   * Whether or not to continue to the next stepId.
+   */
+  continue: boolean;
+
+  /**
+   * Override the stepId to continue to.
+   */
+  overrideTargetStepId?: string;
+}
+
+type StepDirection = 'prev' | 'next' | 'none';
+
+interface BeforeSelectStepEvent {
+  /**
+   * The step that is current selected
+   */
+  currentStepId?: string;
+
+  /**
+   * The step that will be selected
+   */
+  targetStepId: string;
+
+  /**
+   * The direction the user is stepping when going to another step
+   * prev = previous step
+   * next = next step
+   * none = click on non linear step
+   */
+  isStepping?: StepDirection;
+
+  /**
+   * The response callback that indicates whether the step change should occur or not.
+   * The targetStepId can be overridden here as well.
+   * @param result
+   */
+  response(result: BeforeSelectStepResult): void;
 }

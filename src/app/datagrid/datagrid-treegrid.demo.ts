@@ -40,7 +40,7 @@ export class DataGridTreeGridDemoComponent implements AfterContentInit, AfterVie
       this._columns.push({id: 'comments', name: 'Comments', field: 'comments', formatter: Formatters.Hyperlink, filterType: 'text', width: 60 });
       this._columns.push({id: 'time', name: 'Time', field: 'time', filterType: 'time', width: 60 });
       /* tslint:enable */
-  }
+    }
     return this._columns;
   }
 
@@ -107,7 +107,7 @@ export class DataGridTreeGridDemoComponent implements AfterContentInit, AfterVie
     this.events.push({ name: 'collapserow', descr: descr, date: new Date() });
   }
 
-  makeChange(e: any) {
+  makeChange() {
     this.dataGrid.isList = !this.dataGrid.isList;
     this.dataGrid.alternateRowShading = !this.dataGrid.alternateRowShading;
     this.dataGrid.cellNavigation = !this.dataGrid.cellNavigation;

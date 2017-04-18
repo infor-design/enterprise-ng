@@ -8,11 +8,11 @@ import {
 @NgModule({
   declarations: [
     SohoSearchFieldComponent,
-    SohoSearchFieldWrapperComponent
+    SohoSearchFieldWrapperComponent,
   ],
   exports: [
     SohoSearchFieldComponent,
-    SohoSearchFieldWrapperComponent
+    SohoSearchFieldWrapperComponent,
   ],
 })
 export class SohoSearchFieldModule {}

@@ -9,11 +9,13 @@ import {
 })
 export class HyperlinkDemoComponent implements OnInit {
 
-  private url1: string = '#'; // tslint:disable-line
-  private url2: string = 'http://www.google.com'; // tslint:disable-line
-  private isDisabled: boolean = true; // tslint:disable-line
+  public url1 = '#';
+  public url2 = 'http://www.google.com';
+  public isDisabled = true;
 
-  constructor() { }
-  ngOnInit() {}
+  constructor() {
+  }
+
+  ngOnInit() { }
 
 }

@@ -11,6 +11,14 @@ import {
   PAGING_COLUMNS,
   PAGING_DATA
 } from './datagrid-paging-data';
+import { SohoIconUtils } from '../../soho/utils/soho-icon.utils';
+
+export const LMFavorite = (row, cell, value, col, rowData, api): string => {
+  const isChecked: boolean = (rowData && rowData.price > 200); // jshint ignore:line
+  const icon = isChecked ? 'star-filled' : 'star-outlined';
+  return '<span class="audible">' + Locale.translate('Favorite') +
+    '</span><span class="icon-favorite">' + SohoIconUtils.createIcon({ icon: icon }) + '</span>';
+};
 
 @Component({
   selector: 'soho-datagrid-custom-formatter-demo',
@@ -24,15 +32,23 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
     /**
      * Add a column for the custom formatter
      */
-    PAGING_COLUMNS.push({
+    const columns = [];
+    PAGING_COLUMNS.forEach(element => columns.push(element));
+    columns.push({
       id: 'custom-formatter',
       name: 'Custom Formatter',
       field: '',
       formatter: MyCustomFormatter,
     });
+    columns.push({
+      id: 'favorite-formatter',
+      name: 'Favorite',
+      field: '',
+      formatter: LMFavorite,
+    });
 
-    let gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
-      columns: PAGING_COLUMNS,
+    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
+      columns: columns,
       dataset: PAGING_DATA,
       selectable: 'single',
       paging: true,
@@ -42,7 +58,7 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
        * Set userObject to the instance of this DemoComponent.
        * In that way the CustomFormatter can gain access to it.
        */
-      userObject: this,
+      userObject: this
     };
 
     this.sohoDataGridComponent.gridOptions = gridOptions;
@@ -53,8 +69,8 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
    * through the userObject reference to this DemoComponent
    */
   public getRandomNumber(): number {
-    let min = 1;
-    let max = 50;
+    const min = 1;
+    const max = 50;
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 }
@@ -76,3 +92,6 @@ function MyCustomFormatter(
   // use a standard formatter to format that value.
   return Formatters.Integer(row, cell, value, column, item, api);
 }
+
+
+

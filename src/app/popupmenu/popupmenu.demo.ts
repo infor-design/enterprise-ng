@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
 })
 export class PopupMenuDemoComponent {
 
-  private isInsertCommentDisabled = true;
-  private isInsertNoteDisabled = true;
-  private insertCommentText = 'Enable';
-  private insertNoteText = 'Enable';
+  public isInsertCommentDisabled = true;
+  public isInsertNoteDisabled = true;
+  public insertCommentText = 'Enable';
+  public insertNoteText = 'Enable';
 
   onInsertCommentButtonClicked() {
     this.isInsertCommentDisabled = !this.isInsertCommentDisabled;
@@ -25,8 +25,8 @@ export class PopupMenuDemoComponent {
     console.log('onSelected');
   }
 
-  onBeforeopen() {
-    console.log('onBeforeopen');
+  onBeforeOpen() {
+    console.log('onBeforeOpen');
   }
 
   onClose() {

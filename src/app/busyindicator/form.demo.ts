@@ -1,7 +1,8 @@
 import {
   Component,
   ElementRef,
-  ViewChild
+  ViewChild,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import {
@@ -11,13 +12,14 @@ import {
 
 @Component({
   selector: 'soho-busyindicator-demo',
-  templateUrl: './form.demo.html'
+  templateUrl: './form.demo.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BusyIndicatorDemoComponent {
 
-  message: string = 'I am waiting ... ';
+  message = 'I am waiting ... ';
 
-  delay: number = 1000;
+  delay = 1000;
 
   @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
 

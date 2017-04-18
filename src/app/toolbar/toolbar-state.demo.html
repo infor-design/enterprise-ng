@@ -13,30 +13,30 @@
         <span class="three"></span>
       </span>
     </button>
-    <h1 *ngIf="inHeader" class='titleHeader'>
-      <span *ngIf="pageTitle" class='section-title'>{{_pageTitle}}</span>
-      <span *ngIf="sectionTitle" class='page-title'>{{_sectionTitle}}</span>
+    <h1 *ngIf="inHeader" class="titleHeader">
+      <span *ngIf="pageTitle" class="section-title">{{_pageTitle}}</span>
+      <span *ngIf="sectionTitle" class="page-title">{{_sectionTitle}}</span>
     </h1>
 
     <!-- if not in the header -->
-    <span *ngIf="!inHeader" class='section-title'>{{_sectionTitle}}</span>
+    <span *ngIf="!inHeader" class="page-title">{{_sectionTitle}}</span>
   </soho-toolbar-title>
 
   <soho-toolbar-button-set>
     <!-- buttons -->
-    <template ngFor let-b [ngForOf]="_buttons">
+    <ng-template ngFor let-b [ngForOf]="_buttons">
       <button soho-button *ngIf="!b.menu && b.state.visible" icon="{{b?.icon}}" attr.data-button="{{b?.data}}" [attr.disabled]="b.state.disabled ? true : null">{{b?.text}}</button>
 
-      <template [ngIf]="b.menu && b.state.visible">
+      <ng-template [ngIf]="b.menu && b.state.visible">
         <button soho-menu-button [icon]="b?.icon" attr.data-button="{{b?.data}}" title="{{b?.title}}" [attr.disabled]="b.state.disabled ? true : null"></button>
         <ul class="popupmenu">
           <li *ngFor="let i of b.menu">
             <a href="#" attr.data-button="{{i?.data}}">{{i?.text}}</a>
           </li>
         </ul>
-      </template>
+      </ng-template>
 
-    </template>
+    </ng-template>
   </soho-toolbar-button-set>
 
 </soho-toolbar>

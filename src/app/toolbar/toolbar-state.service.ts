@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ToolbarStateService {
   public  buildToolbarButtonSet1(): Array<LMToolbarButton> {
-    let toolbarButtonSet = [];
+    const toolbarButtonSet = [];
 
     toolbarButtonSet.push({
       id    : 'Create',
@@ -65,7 +65,7 @@ export class ToolbarStateService {
   }
 
   public buildToolbarButtonSet2(): Array<LMToolbarButton> {
-    let toolbarButtonSet = [];
+    const toolbarButtonSet = [];
 
     toolbarButtonSet.push({
       data : '{"btn" : "create"}',
@@ -107,7 +107,7 @@ export class ToolbarStateService {
   }
 
   public buildToolbarButtonSet3(): Array<LMToolbarButton> {
-    let toolbarButtonSet = [];
+    const toolbarButtonSet = [];
 
     toolbarButtonSet.push({
       data     : '{"btn" : "create"}',

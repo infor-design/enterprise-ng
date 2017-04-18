@@ -4,9 +4,9 @@
       <h1>Lookups</h1>
       <span class="code-tag">Live Example</span>
       <div class="row">
-        <label soho-label [attr.for]="product_single">Products (Single Select) with mask</label>
+        <label soho-label for="product_single">Products (Single Select) with mask</label>
         <input soho-lookup
-          soho-mask [pattern]="'#######'" [mode]="'number'" [negative]=false [number]=true
+          soho-mask [pattern]="'#######'" [mode]="'number'" [negative]="false" [number]="true"
           soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
           [(ngModel)]="model.single"
           [columns]="columns_product"
@@ -15,7 +15,7 @@
           name="product_single"/>
       </div>
       <div class="row">
-        <label soho-label [attr.for]="product_multi">Products (Multi Select)</label>
+        <label soho-label for="product_multi">Products (Multi Select)</label>
         <input soho-lookup
           soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
           [(ngModel)]="model.multi"
@@ -39,7 +39,7 @@
           name="product_multi"/>
       </div>
       <div class="row">
-        <label soho-label [attr.for]="product_async">Products (Async Results)</label>
+        <label soho-label for="product_async">Products (Async Results)</label>
         <input soho-lookup
           soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
           [(ngModel)]="model.async"

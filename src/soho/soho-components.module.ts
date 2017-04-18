@@ -4,6 +4,7 @@ import { SohoBusyIndicatorModule } from './busyindicator/soho-busyindicator.modu
 import { SohoButtonModule } from './button/soho-button.module';
 import { SohoCheckBoxModule } from './checkbox/soho-checkbox.module';
 import { SohoContextMenuModule } from './context-menu/soho-context-menu.module';
+import { SohoContextualActionPanelModule } from './contextual-action-panel/soho-contextual-action-panel.module';
 import { SohoDataGridModule } from './datagrid/soho-datagrid.module';
 import { SohoDatePickerModule } from './datepicker/soho-datepicker.module';
 import { SohoDropDownModule } from './dropdown/soho-dropdown.module';
@@ -33,6 +34,7 @@ import { SohoSliderModule } from './slider/soho-slider.module';
 import { SohoSplitterModule } from './splitter/soho-splitter.module';
 import { SohoSpinboxModule } from './spinbox/soho-spinbox.module';
 import { SohoStepProcessModule } from './stepprocess/soho-stepprocess.module';
+import { SohoSwapListModule } from './swaplist/soho-swaplist.module';
 import { SohoTabsModule } from './tabs/soho-tabs.module';
 import { SohoTextAreaModule } from './textarea/soho-textarea.module';
 import { SohoTimePickerModule } from './timepicker/soho-timepicker.module';
@@ -48,6 +50,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoBusyIndicatorModule,
     SohoButtonModule,
     SohoCheckBoxModule,
+    SohoContextualActionPanelModule,
     SohoContextMenuModule,
     SohoDataGridModule,
     SohoDatePickerModule,
@@ -78,6 +81,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoSliderModule,
     SohoSpinboxModule,
     SohoStepProcessModule,
+    SohoSwapListModule,
     SohoTabsModule,
     SohoTextAreaModule,
     SohoTimePickerModule,
@@ -95,6 +99,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoButtonModule,
     SohoCheckBoxModule,
     SohoContextMenuModule,
+    SohoContextualActionPanelModule,
     SohoDataGridModule,
     SohoDatePickerModule,
     SohoDropDownModule,
@@ -123,6 +128,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoSplitterModule,
     SohoSpinboxModule,
     SohoStepProcessModule,
+    SohoSwapListModule,
     SohoTabsModule,
     SohoTextAreaModule,
     SohoTimePickerModule,

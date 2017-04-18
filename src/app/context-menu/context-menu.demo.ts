@@ -1,26 +1,42 @@
 import {
   Component,
   OnInit,
-  ViewChild
+  ViewChild,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { SohoTextAreaComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-content-menu-demo',
-  templateUrl: './context-menu.demo.html'
+  templateUrl: './context-menu.demo.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContextMenuDemoComponent implements OnInit {
 
   @ViewChild(SohoTextAreaComponent) textarea: SohoTextAreaComponent;
 
-  normalText: string = `Input Example`;
-  modText: string = `Enabled Text Area Example`;
-  disabledText: string = `Disabled Text Area Example`;
-  radioButtonLabel: string = `Radio Button Example`;
-  checkboxButtonLabel: string = `Check Box Example`;
-  richTextEditorLabel: string = `Rich Text Editor Example`;
+  public normalText = `Input Example`;
+  public modText = `Enabled Text Area Example`;
+  public disabledText = `Disabled Text Area Example`;
+  public radioButtonLabel = `Radio Button Example`;
+  public checkboxButtonLabel = `Check Box Example`;
+  public richTextEditorLabel = `Rich Text Editor Example`;
 
-  contextEntries: Array<ContextMenuEntries>;
+  public contextEntries: Array<ContextMenuEntries>;
+
+  public textModel = {
+    disableText: `This text area is disabled, so should show the browser context menu and not the same context menu as the other components`,// tslint:disable-line
+    modifiableText: `This text is modifiable`,
+  };
+
+  public checkboxModel = {
+    checkBox1Value: false,
+    checkBox2Value: true
+  };
+
+  public editorModel = {
+    editorText: `<p>Embrace <a href="http://en.wikipedia.org/wiki/e-commerce" class="hyperlink">e-commerce action-items</a>, reintermediate, ecologies paradigms wireless share life-hacks create innovative harness. Evolve solutions rich-clientAPIs synergies harness relationships virtual vertical facilitate end-to-end, wireless, evolve synergistic synergies.</p> <p>Cross-platform, evolve, ROI scale cultivate eyeballs addelivery, e-services content cross-platform leverage extensible viral incentivize integrateAJAX-enabled sticky evolve magnetic cultivate leverage; cutting-edge. Innovate, end-to-end podcasting, whiteboard streamline e-business social; compelling, "cross-media exploit infomediaries innovative integrate integrateAJAX-enabled." Killer interactive reinvent, cultivate widgets leverage morph.</p>`// tslint:disable-line
+  };
 
   private buildContextMenu(): Array<ContextMenuEntries> {
     const entries: Array<ContextMenuEntries> = [];
@@ -70,21 +86,7 @@ export class ContextMenuDemoComponent implements OnInit {
     return entries;
   };
 
-  public textModel = {
-    disableText: `This text area is disabled, so should show the browser context menu and not the same context menu as the other components`,// tslint:disable-line
-    modifiableText: `This text is modifiable`,
-  };
-
-  public checkboxModel = {
-    checkBox1Value: false,
-    checkBox2Value: true
-  };
-
-  public editorModel = {
-    editorText: `<p>Embrace <a href="http://en.wikipedia.org/wiki/e-commerce" class="hyperlink">e-commerce action-items</a>, reintermediate, ecologies paradigms wireless share life-hacks create innovative harness. Evolve solutions rich-clientAPIs synergies harness relationships virtual vertical facilitate end-to-end, wireless, evolve synergistic synergies.</p> <p>Cross-platform, evolve, ROI scale cultivate eyeballs addelivery, e-services content cross-platform leverage extensible viral incentivize integrateAJAX-enabled sticky evolve magnetic cultivate leverage; cutting-edge. Innovate, end-to-end podcasting, whiteboard streamline e-business social; compelling, "cross-media exploit infomediaries innovative integrate integrateAJAX-enabled." Killer interactive reinvent, cultivate widgets leverage morph.</p>`// tslint:disable-line
-  };
-
-  onUpdated(event: SohoCheckBoxEvent) {
+  onUpdated() {
     console.log('CheckboxDemoComponent.onUpdated');
   }
 
@@ -97,8 +99,8 @@ export class ContextMenuDemoComponent implements OnInit {
     console.log('onSelected');
   }
 
-  onBeforeopen() {
-    console.log('onBeforeopen');
+  onBeforeOpen() {
+    console.log('onBeforeOpen');
   }
 
   onClose() {

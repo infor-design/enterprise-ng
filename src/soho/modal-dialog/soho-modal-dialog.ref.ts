@@ -6,12 +6,11 @@ import { Subject } from 'rxjs/Subject';
  *
  * @todo Return a promise from open.
  * @todo async vetoable interface - is this possible?
- * @todo fix dialog result !
  * @todo on the fly updating of dialog
  * @todo searchable dialog example
  */
 export class SohoModalDialogRef<T> {
-  /** Component - if the content is derived from an exisiting component. */
+  /** Component - if the content is derived from an existing component. */
   private componentRef?: ComponentRef<T>;
 
   /** Vetoable Event Guard */
@@ -48,6 +47,17 @@ export class SohoModalDialogRef<T> {
     // use it.
     this.eventGuard = componentRef.instance;
     this.componentRef = componentRef;
+  }
+
+  /**
+   * The component displayed inside the modal frame, if specified.  This may
+   * be null if the dialog is built from an HTML fragment or a jQuery selector.
+   */
+  public get componentDialog(): T {
+    if (this.componentRef) {
+      return this.componentRef.instance;
+    }
+    return null;
   }
 
   // -------------------------------------------
@@ -347,8 +357,7 @@ export class SohoModalDialogRef<T> {
    * @param eventFn - the function to invoke when the dialog is to be closed.
    */
   closed(eventFn: SohoModalDialogEventFunction<T>): SohoModalDialogRef<T> {
-    // @todo isCancelled
-    this.close$.subscribe((f: any) => { eventFn(f, this); });
+    this.close$.subscribe((f: any) => { eventFn(f, this, this.componentDialog); });
     return this;
   }
 
@@ -361,7 +370,7 @@ export class SohoModalDialogRef<T> {
    * @param eventFn - the function to invoke after the dialog has been closed.
    */
   afterClose(eventFn: SohoModalDialogEventFunction<T>): SohoModalDialogRef<T> {
-    this.afterClose$.subscribe((f: any) => { eventFn(f, this); });
+    this.afterClose$.subscribe((result: any) => { eventFn(result, this,  this.componentDialog); });
     return this;
   }
 
@@ -413,6 +422,7 @@ export class SohoModalDialogRef<T> {
    */
   private onBeforeClose(event: any): boolean {
     const fn: Function = this.eventGuard.beforeClose;
+    this.eventGuard.isCancelled = this.modal.isCancelled;
     return fn ? fn.call(this.eventGuard) : true;
   }
 
@@ -469,7 +479,14 @@ export class SohoModalDialogRef<T> {
   }
 }
 
-export type SohoModalDialogEventFunction<T> = (f: any, modal: SohoModalDialogRef<T>) => void;
+/**
+ * Close/AfterClose event handler.
+ *
+ * @param result - the dialog result (if set); may be undefined.
+ * @param dialogRef - the dialog reference (or wrapper); never null.
+ * @param dialogComponent - the component hosted in the modal; may be undefined.
+ */
+export type SohoModalDialogEventFunction<T> = (result: any, dialogRef: SohoModalDialogRef<T>, dialogComponent: T) => void;
 
 /**
  * Contract for all SohoModalDialogComponents.
@@ -481,6 +498,11 @@ export interface SohoModalComponent<T> {
  * Vetoable Event Handlers.
  */
 export interface SohoModalDialogVetoableEventGuard {
+
+  /**
+   *  Track if cancelled
+   */
+  isCancelled?: boolean;
 
   /**
    * Invoked before a modal is opened.

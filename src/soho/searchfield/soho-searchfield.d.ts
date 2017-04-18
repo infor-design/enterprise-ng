@@ -62,9 +62,11 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
  * Soho control seachfield api.
  */
 interface SohoSearchFieldStatic {
+  /** Destructor. */
+  destroy(): void;
 
-/** Destructor. */
-destroy(): void;
+  /** Clear */
+  clear(): void;
 }
 
 /**

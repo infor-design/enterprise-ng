@@ -84,6 +84,7 @@ interface SohoTabsStatic {
 }
 
 interface SohoTabsEvent extends JQueryEventObject {
+  tab: any;
 }
 
 /**

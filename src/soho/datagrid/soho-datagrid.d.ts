@@ -12,8 +12,11 @@ type SohoDataGridRowHeight = 'short' | 'medium' | 'normal';
 
 /**
  * Selection options.
+ * Mixed mode allows for single row activated state with multipl selection checkbox states.
+ * rowdeactivated and rowactivated events are fired for the Activated mode of a row.
+ * Use is-rowactivated in your markup to set activated state
  */
-type SohoDataGridSelectable = boolean | 'single' | 'multiple';
+type SohoDataGridSelectable = boolean | 'single' | 'multiple' | 'mixed';
 
 /**
  * Settings for the Soho datagrid control.
@@ -59,11 +62,17 @@ interface SohoDataGridOptions {
   /** Id to the right click context menu */
   menuId?: string;
 
+  /** Unique ID for local storage reference and variable names. If not specified then the URL the page is used. */
+  uniqueId?: string;
+
   /** What height to make the rows? */
   rowHeight?: SohoDataGridRowHeight;
 
   /** Sets the select-ability for the datagrid. */
   selectable?: SohoDataGridSelectable;
+
+  /** Use Data grouping fx. {fields: ['incidentId'], supressRow: true, aggregator: 'list', aggregatorOptions: ['unitName1']} */
+  groupable?: SohoDataGridGroupable;
 
   /** Click to select, or via checkbox? */
   clickToSelect?: boolean;
@@ -106,6 +115,18 @@ interface SohoDataGridOptions {
    * and editors or anywhere else a datagrid reference is available
    */
   userObject?: any;
+
+  /** Prevent Unused rows from being added to the DOM  */
+  // virtualized?: boolean;
+
+  /** How many extra rows top and bottom to allow as a buffer */
+  // virtualRowBuffer?: number;
+
+  /** Allows you to reorder rows. Requires rowReorder formatter. */
+  rowReorder?: boolean;
+
+  /**  */
+  showDirty?: boolean;
 }
 
 /**
@@ -220,10 +241,20 @@ declare var Formatters: {
   Dropdown: SohoDataGridColumnFormatterFunction;
   Favorite: SohoDataGridColumnFormatterFunction;
   Status: SohoDataGridColumnFormatterFunction;
-  Tree: SohoDataGridColumnFormatterFunction
+  Tree: SohoDataGridColumnFormatterFunction;
+  RowReorder: SohoDataGridColumnFormatterFunction;
 };
 
 // declare var Formatters as SohoDataGridColumnFormatters;
+
+type SohoDataGridColumnHrefFunction = (
+  row: any,
+  cell: any,
+  col: SohoDataGridColumn,
+  value: any
+ ) => string;
+
+ type SohoDataGridColumnHref = string | SohoDataGridColumnHrefFunction;
 
 /**
  * This is an interface mapping for the grid column defined
@@ -260,12 +291,10 @@ interface SohoDataGridColumn {
   /** Icon to use. */
   icon?: string;
 
-  /**
-   * Name of the editor to instantiate (using new), or a SohoDataGridColumnEditorFunction.
-   */
+  /** Name of the editor to instantiate (using new), or a SohoDataGridColumnEditorFunction. */
   editor?: SohoDataGridColumnEditorFunction | string;
 
-  /** @todo fix type from any.  */
+  /** Options associated with the associated editor type, e.g. SohoDropDownOptions. */
   editorOptions?: any;
 
   // 'checkbox', 'date', 'decimal', 'contents', 'select' otherwise a string.
@@ -317,6 +346,9 @@ interface SohoDataGridColumn {
 
   /** The name of the property that controls whether a row is expanded or not. */
   expanded?: string;
+
+  /** href for hyperlink */
+  href?: SohoDataGridColumnHref;
 }
 
 interface SohoGridCellOption {
@@ -398,6 +430,12 @@ interface SohoDataGridStatic {
 
   selectedRows(rows: number[]): void;
 
+  activateRow(idx: number): void;
+
+  deactivateRow(): void;
+
+  activatedRow(): SohoDataGridRowActivated;
+
   toggleFilterRow(): void;
 
   setActiveCell(idx: number, idx2: number): void;
@@ -407,6 +445,8 @@ interface SohoDataGridStatic {
   renderRows(): void;
 
   triggerSource(pagerType: 'initial' | 'refresh' | 'filtered' | 'sorted' | 'updatecolums' | string): void;
+
+  exportToExcel(fileName: string, worksheetName: string, customDs: Object[]): void;
 
   /**
    * Destructor,
@@ -420,6 +460,11 @@ interface SohoDataGridStatic {
 interface SohoDataGridSortedEvent {
   // The column that was sorted.
   column: SohoDataGridColumn;
+}
+
+interface SohoDataGridRowActivated {
+  row: number;
+  item: any;
 }
 
 interface SohoDataGridSelectedRow {
@@ -474,6 +519,20 @@ interface SohoToolbarOptions {
   title?: string;
   views?: boolean;
 }
+
+interface SohoDataGridGroupable {
+
+  //
+  fields: string[];
+
+  // Expanded boolean or a function to determine this.
+  expanded?: boolean | Function;
+
+  // Type of aggregation.
+  aggregator: SohoDataGridAggregator;
+}
+
+type SohoDataGridAggregator = 'sum' | 'max' | 'list' | string;
 
 /**
  * JQuery Integration
