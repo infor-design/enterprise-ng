@@ -130,7 +130,7 @@ interface SohoTreeStatic {
   /**
    * Set the selected node.
    */
-  setSelectedNode(node: SohoTreeNode, focus: boolean): void;
+  selectedNode(node: SohoTreeNode, focus: boolean): void;
 
   /**
    * Add the node to the given location.

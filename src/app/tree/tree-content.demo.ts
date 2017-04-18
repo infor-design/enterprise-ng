@@ -42,7 +42,7 @@ export class TreeContentDemoComponent {
   }
 
   selectRoot() {
-    this.tree.setSelectedNode('/1');
+    this.tree.selectedNode('/1');
   }
 
   addNode() {

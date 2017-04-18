@@ -46,7 +46,7 @@ export class TreeServiceDemoComponent {
   }
 
   selectRoot() {
-    this.tree.setSelectedNode('node1');
+    this.tree.selectedNode('node1');
   }
 
   addNode() {

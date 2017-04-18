@@ -40,6 +40,8 @@
 
 ### Breaking Changes
 
+* 2017-04-18 - TJM - Changed setSelectedNode method in tree component to selectedNode to match the component change.
+
 * 2017-04-07 - TJM - PR-278
 
 It is not necessary to use gulp anymore with the default.
