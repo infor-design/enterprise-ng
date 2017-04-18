@@ -257,12 +257,12 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   /**
    * Set the selected note based in the id of the node.
    */
-  public setSelectedNode(id: string, focus = true) {
+  public selectedNode(id: string, focus = true) {
     ArgumentHelper.checkNotEmpty('id', id);
 
     const treeNode: SohoTreeNode = this.tree.findById(id);
     if (treeNode && treeNode.node) {
-      this.tree.setSelectedNode(treeNode.node, focus);
+      this.tree.selectedNode(treeNode.node, focus);
     }
   }
 
