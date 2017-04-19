@@ -46,7 +46,7 @@ export class TreeServiceDemoComponent {
   }
 
   selectRoot() {
-    this.tree.selectNode('node1');
+    this.tree.selectNode('Root 2');
   }
 
   addNode() {
