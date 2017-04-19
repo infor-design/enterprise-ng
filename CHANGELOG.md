@@ -40,6 +40,8 @@
 
 ### Breaking Changes
 
+* 2017-04-19 - BTH - Changed `selectedNode` to `selectNode` to match jQuery tree widget.
+
 * 2017-04-18 - TJM - Changed setSelectedNode method in tree component to selectedNode to match the component change.
 
 * 2017-04-07 - TJM - PR-278
@@ -153,7 +155,7 @@ Quick start project is updated and working.
 
 ## Upgrading
 
-Use **sohoxi-angular-quickstart** (http://git.infor.com/projects/SOHO/repos/sohoxi-angular-quickstart/browse) as a tempalate.
+Use **sohoxi-angular-quickstart** (http://git.infor.com/projects/SOHO/repos/sohoxi-angular-quickstart/browse) as a template.
 
 Use **ng new** as a template with reference to the QUICKSTART guide.
 
