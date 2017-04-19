@@ -5,16 +5,12 @@
     "module": "es2015",
     "baseUrl": "",
     "paths": {
-      "@infor/sohoxi-angular": ["./soho"]
+      "@infor/sohoxi-angular": ["soho"]
     },
     "types": [
       "jasmine",
       "jquery",
       "node"
     ]
-  },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts"
-  ]
+  }
 }

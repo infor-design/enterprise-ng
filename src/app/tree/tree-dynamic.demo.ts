@@ -94,7 +94,7 @@ export class TreeDynamicDemoComponent implements AfterViewInit {
   // }
 
   selectRoot() {
-    this.tree.selectedNode('/1');
+    this.tree.selectNode('/1');
   }
 
   addNode() {
