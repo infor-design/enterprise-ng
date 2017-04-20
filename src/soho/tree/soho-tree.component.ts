@@ -68,6 +68,21 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     }
   };
 
+  get dataset(): SohoTreeNode[] {
+    // If the Soho control has been created, then the dataset
+    // in the settings object will contain the rows currently
+    // on display.
+    if (this.tree) {
+      return this.tree.settings.dataset;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so no data has been set (or potentially
+    // retrieved from a service), so the only option is the
+    // Input dataset, which may be undefined.
+    return this.options.dataset || [];
+  }
+
   /** Defines the source type of the tree. */
   @Input('soho-tree') set sohoTree(treeType: SohoTreeType) {
     this.treeType = treeType ? treeType : SohoTreeComponent.AUTO;
@@ -81,6 +96,14 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
       // @todo - make tree updatable when settings change,
       // this.tree.updated();
     }
+  }
+
+  get selectable(): SohoTreeSelectable {
+    if (this.tree) {
+      return this.tree.settings.selectable;
+    }
+
+    return this.options.selectable;
   }
 
   /** Show selection checkboxes? */
@@ -152,7 +175,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   private treeType: SohoTreeType;
 
   /** An internal options object that gets updated by using the component's Inputs(). */
-  private options: SohoTreeOptions = {};
+  options: SohoTreeOptions = {};
 
   /**
    * Constructor.
@@ -255,19 +278,37 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   /**
-   * Set the selected note based in the id of the node.
+   * Set the selected note based in the id of the node.  If the node
+   * does not exist an exception is thrown.
    */
-  public selectedNode(id: string, focus = true) {
+  public selectNode(id: string, focus = true) {
     ArgumentHelper.checkNotEmpty('id', id);
 
     const treeNode: SohoTreeNode = this.tree.findById(id);
     if (treeNode && treeNode.node) {
-      this.tree.selectedNode(treeNode.node, focus);
+      this.tree.selectNode(treeNode.node, focus);
+    } else {
+      throw Error(`Node ${id} does not exist`);
     }
   }
 
-  public getSelectedNode(): SohoTreeNode {
-    throw Error('Not implemented');
+  /**
+   * Returns a list of selected tree nodes, or an
+   * empty array if the tree has not been initialised
+   * yet.
+   */
+  public getSelectedNodes(): SohoTreeNode[] {
+    const result: SohoTreeNode[] = [];
+    if (this.tree) {
+
+      // It would be good if the tree widget had a method that returned
+      // tree nodes rather then an intermediate wrapper, but to clean up
+      // the api we dispose of the extra information here.
+      this.tree.getSelectedNodes().forEach(
+        (n) => { result.push(n.data); }
+      );
+    }
+    return result;
   }
 
   /**

@@ -3,42 +3,44 @@
 * 2017-04-07 - TJM - Change to copy link/assets out of the node_modules
 * 2017-03-16 - DH - Contextual Action Panel(http://jira/browse/SOHO-5909)
   * Added basic version of Contextual Action Panel
-* 2017-03-08 - TH - SwapList (http://jira/browse/SOHO-5122)
+* 2017-03-08 - BTH - SwapList (http://jira/browse/SOHO-5122)
  * Added basic version of SwapList
-* 2017-03-03 - TH - Version Update
+* 2017-03-03 - BTH - Version Update
   * Upgraded to @angular/cli 1.0.0-rc.1
-* 2017-02-04 - TH - Version Update
+* 2017-02-04 - BTH - Version Update
   * Upgraded to angular-cli 1.0.0-beta-30
   * Upgraded to TypeScript 2.1.x
-* 2017-02-22 - TH - Version Update
+* 2017-02-22 - BTH - Version Update
   * Upgraded to @angular/cli 1.0.0-beta.32.3
-* 2017-01-23 - TH - Version Update
+* 2017-01-23 - BTH - Version Update
   * Upgraded to angular-cli 1.0.0-beta.26
-* 2017-01-18 - TH - Version Update
+* 2017-01-18 - BTH - Version Update
   - Bumped version of @infor/sohoxi to 4.2.5-develop
   - Bumped version of @infor/sohoxi-angular to 4.2.5-develop
   - Upgraded to angular-cli 1.0.0-beta.25-5
-* 2016-12-23 - TH - Version Update
+* 2016-12-23 - BTH - Version Update
   - Bumped version of @infor/sohoxi to 4.2.4-develop
   - Bumped version of @infor/sohoxi-angular to 4.2.4-develop
   - Upgraded to angular-cli 1.0.0-beta.24
   - Upgraded to angular 2.3.1
-* 2016-11-10 - TH - Version Update
+* 2016-11-10 - BTH - Version Update
   - Bumped version of @infor/sohoxi to 4.2.3-develop
   - Bumped version of @infor/sohoxi-angular to 4.2.3-develop
-* 2016-11-07 - TH - PR-171
+* 2016-11-07 - BTH - PR-171
   - added QUICKSTART.md for developers consuming the published NPM package
   - added DEVELOPER.md for SohoXi Angular Component developers
   - copy SohoXi CSS files to `src/assets` on build
   - added _lint_ and _code coverage_ to _unit-test_ npm script
   - automatically include SohoXi typings when consuming NPM package.
-* 2016-11-04 - TH - PR-XXX
+* 2016-11-04 - BTH - PR-XXX
   * Added module support for _@infor/sohoxi-angular_.
-* 2016-10-13 - TH - PR-XXX
+* 2016-10-13 - BTH - PR-XXX
  * added typings for listview and splitter.
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2017-04-19 - BTH - Changed `selectedNode` to `selectNode` to match jQuery tree widget.
 
 * 2017-04-18 - TJM - Changed setSelectedNode method in tree component to selectedNode to match the component change.
 
@@ -102,7 +104,7 @@ Quick start project is updated and working.
     }
     ```
 
-* 2017-03-29 - TH - PR-275
+* 2017-03-29 - BTH - PR-275
     * **angular-cli 1.0.x**.
       * This requires the consuming application to be upgraded to angular 4 (and possible cli 1.0 too).
     * **angular 4.0.x**
@@ -111,9 +113,9 @@ Quick start project is updated and working.
     * *SoHoXi Assets*
       * The location of the assets for sohoxi has been changed to a sub-folder (sohoxi), to avoid poluting the `asset` folder. This should not affect consuming apps, however should be treated as guidance on how to structure a cli app.  
       * The ultimate method for managing these assets is down to the consuming app, so this change should not impact existing applications.
-* 2017-03-15 - TH - PR-261
+* 2017-03-15 - BTH - PR-261
     * Added `dialogComponent` to the prototype for `afterClose` and `closed` event callbacks.  More details in the README.
-* 2017-02-22 - TH - PR-242
+* 2017-02-22 - BTH - PR-242
   * Both the CLI and generated project have dependencies that require Node 6.9.0 or higher, together with NPM 3 or higher.
   * Summary of Changes
     * *angular-cli.json*.
@@ -143,7 +145,7 @@ Quick start project is updated and working.
     ```<svg soho-icon></svg>```
 
     Wrapping the SVG was breaking numerous Sohoxi CSS rules and causing layout issues.
-* 2016-10-10 - TH - PR-118
+* 2016-10-10 - BTH - PR-118
 
     refactored SohoGridColumn -> SohoDataGridColumn
     refactored SohoSourceRequest -> SohoDataGridSourceRequest
@@ -153,7 +155,7 @@ Quick start project is updated and working.
 
 ## Upgrading
 
-Use **sohoxi-angular-quickstart** (http://git.infor.com/projects/SOHO/repos/sohoxi-angular-quickstart/browse) as a tempalate.
+Use **sohoxi-angular-quickstart** (http://git.infor.com/projects/SOHO/repos/sohoxi-angular-quickstart/browse) as a template.
 
 Use **ng new** as a template with reference to the QUICKSTART guide.
 
