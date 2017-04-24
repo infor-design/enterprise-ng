@@ -74,6 +74,7 @@ import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
 import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
+import { StepProcessBtnDisableDemoComponent } from './stepprocess/stepprocessbuttondisable.demo';
 import { StepProcessDemoComponent } from './stepprocess/stepprocess.demo';
 import { StepProcessDataDrivenDemoComponent } from './stepprocess/stepprocess-data-driven.demo';
 import { StepProcessVetoableDemoComponent } from './stepprocess/stepprocessvetoable.demo';
@@ -102,7 +103,6 @@ import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
-import { StepProcessBtnDisableDemoComponent } from './stepprocess/stepprocessbuttondisable.demo';
 
 @NgModule({
   declarations: [
