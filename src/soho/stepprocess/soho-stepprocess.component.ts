@@ -163,13 +163,13 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
 
   @Input() set nextButtonEnable(enabled: boolean) {
     if (this.jQueryElement) {
-      this.jQueryElement.find('.js-step-link-next').prop('disabled', enabled ? false : true);
+      this.jQueryElement.find('.js-step-link-next').prop('disabled', !enabled);
     }
   }
 
   @Input() set previousButtonEnable(enabled: boolean) {
     if (this.jQueryElement) {
-      this.jQueryElement.find('.js-step-link-prev').prop('disabled', enabled ? false : true);
+      this.jQueryElement.find('.js-step-link-prev').prop('disabled', !enabled);
     }
   }
 
