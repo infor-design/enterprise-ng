@@ -102,6 +102,7 @@ import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
+import { StepProcessBtnDisableDemoComponent } from './stepprocess/stepprocessbuttondisable.demo';
 
 @NgModule({
   declarations: [
@@ -163,6 +164,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     SplitterHorizontalDemoComponent,
     SplitterVerticalDemoComponent,
     StepProcessDemoComponent,
+    StepProcessBtnDisableDemoComponent,
     StepProcessDataDrivenDemoComponent,
     StepProcessVetoableDemoComponent,
     SwapListDemoComponent,
