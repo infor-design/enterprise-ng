@@ -51,8 +51,10 @@ import { SliderDemoComponent } from './slider/slider.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
 import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
+import { StepProcessBtnDisableDemoComponent } from './stepprocess/stepprocessbuttondisable.demo';
 import { StepProcessDemoComponent } from './stepprocess/stepprocess.demo';
 import { StepProcessDataDrivenDemoComponent } from './stepprocess/stepprocess-data-driven.demo';
+import { StepProcessVetoableDemoComponent } from './stepprocess/stepprocessvetoable.demo';
 import { SwapListDemoComponent } from './swaplist/swaplist.demo';
 import { SwapListDynamicDemoComponent } from './swaplist/swaplist-dynamic.demo';
 import { SwapListFullAccessDemoComponent } from './swaplist/swaplist-full-access.demo';
@@ -79,7 +81,6 @@ import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
-import { StepProcessVetoableDemoComponent } from './stepprocess/stepprocessvetoable.demo';
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
@@ -136,6 +137,7 @@ export const routes: Routes = [
   { path: 'splitter-horizontal',   component: SplitterHorizontalDemoComponent },
   { path: 'splitter-vertical',     component: SplitterVerticalDemoComponent },
   { path: 'step-process',          component: StepProcessDemoComponent },
+  { path: 'step-process-btn-disble', component: StepProcessBtnDisableDemoComponent },
   { path: 'step-data-driven',      component: StepProcessDataDrivenDemoComponent },
   { path: 'step-process-vetoable', component: StepProcessVetoableDemoComponent },
   { path: 'swaplist',			         component: SwapListDemoComponent },

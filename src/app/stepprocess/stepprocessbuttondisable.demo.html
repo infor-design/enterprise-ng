@@ -1,0 +1,81 @@
+<div soho-stepprocess  #sohoStepProcessComponent>
+
+  <div soho-step-list-title>
+    Steps to complete
+  </div>
+
+  <ul soho-step-list>
+
+    <li soho-step-list-item isSelected='true'>
+      <a soho-step-list-item-anchor stepId='profile'>
+        <svg soho-icon icon='empty-circle'></svg>
+        <span soho-step-list-item-title>Profile and Consent - step 1</span>
+      </a>
+    </li>
+
+    <li soho-step-list-item>
+      <a soho-step-list-item-anchor>
+        <svg soho-icon icon='empty-circle'></svg>
+        <span soho-step-list-item-title>Resume / CV - step 2</span>
+        <svg soho-icon icon='caret-down' class='icon-tree'></svg>
+      </a>
+
+      <ul soho-substep-list>
+
+        <li soho-step-list-item>
+          <a soho-step-list-item-anchor stepId='resume1'>
+            <svg soho-icon icon='empty-circle'></svg>
+            <span soho-step-list-item-title>Resume - step 2 - 1</span>
+          </a>
+        </li>
+
+        <li soho-step-list-item>
+          <a soho-step-list-item-anchor stepId='resume2'>
+            <svg soho-icon icon='empty-circle'></svg>
+            <span soho-step-list-item-title>Resume - step 2 - 2</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </li>
+
+    <li soho-step-list-item>
+      <a soho-step-list-item-anchor stepId='summary'>
+        <svg soho-icon icon='empty-circle'></svg>
+        <span  soho-step-list-item-title>Summary - step 3</span>
+      </a>
+    </li>
+
+  </ul>
+
+  <div soho-step-content-title>
+    Step Process
+    <small>Page X of XX</small>
+  </div>
+
+  <div soho-step-content>
+
+    <div soho-step-content-panel stepId="profile">
+      <h2>Profile</h2>
+      <p>This is Step 1</p>
+    </div>
+
+    <div soho-step-content-panel stepId="resume1">
+      <h2>Resume / CV</h2>
+      <p>Resume step 2 - 1</p>
+    </div>
+
+    <div soho-step-content-panel stepId="resume2">
+      <h2>Resume / CV</h2>
+      <p>Resume step 2 - 2</p>
+    </div>
+
+    <div soho-step-content-panel stepId="summary">
+      <h2>Summary</h2>
+      <p>This is final Summary Step</p>
+    </div>
+
+  </div>
+
+</div>

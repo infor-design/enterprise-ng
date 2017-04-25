@@ -74,6 +74,7 @@ import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
 import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
+import { StepProcessBtnDisableDemoComponent } from './stepprocess/stepprocessbuttondisable.demo';
 import { StepProcessDemoComponent } from './stepprocess/stepprocess.demo';
 import { StepProcessDataDrivenDemoComponent } from './stepprocess/stepprocess-data-driven.demo';
 import { StepProcessVetoableDemoComponent } from './stepprocess/stepprocessvetoable.demo';
@@ -163,6 +164,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     SplitterHorizontalDemoComponent,
     SplitterVerticalDemoComponent,
     StepProcessDemoComponent,
+    StepProcessBtnDisableDemoComponent,
     StepProcessDataDrivenDemoComponent,
     StepProcessVetoableDemoComponent,
     SwapListDemoComponent,
