@@ -67,6 +67,16 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="four columns">
+          <div class="field">
+            <label for="validrange" class="label">Valid Range 2016</label>
+            <input soho-datepicker name="validrange" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy"
+              [disable]="disableOptions"
+              [(ngModel)]="model.validrange" (change)="onChange($event)"/>
+          </div>
+        </div>
+      </div>
     </div>
   </form>
   <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
