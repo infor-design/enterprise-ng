@@ -22,6 +22,7 @@ import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/applica
 import { ApplicationMenuLazyService } from './application-menu/application-menu-lazy-service.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { ButtonDemoComponent } from './button/button.demo';
+import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoModule } from './contextual-action-panel/contextual-action-panel.demo.module';
@@ -113,6 +114,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     ApplicationMenuLazyMenuDemoComponent,
     BusyIndicatorDemoComponent,
     ButtonDemoComponent,
+    ChartDemoComponent,
     CheckBoxDemoComponent,
     ContextMenuDemoComponent,
     DataGridBreadcrumbDemoComponent,

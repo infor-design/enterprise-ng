@@ -5,6 +5,7 @@ import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { ButtonDemoComponent } from './button/button.demo';
+import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoComponent } from './contextual-action-panel/contextual-action-panel.demo';
@@ -89,6 +90,7 @@ export const routes: Routes = [
   { path: 'application-lazy-menu', component: ApplicationMenuLazyDemoComponent},
   { path: 'button',                component: ButtonDemoComponent },
   { path: 'busyindicator',         component: BusyIndicatorDemoComponent },
+  { path: 'chart',                 component: ChartDemoComponent },
   { path: 'checkbox',              component: CheckBoxDemoComponent },
   { path: 'context-menu',          component: ContextMenuDemoComponent },
   { path: 'contextual-action-panel', component: ContextualActionPanelDemoComponent },
