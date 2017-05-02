@@ -11,7 +11,7 @@
   ContentChild
 } from '@angular/core';
 
-type SohoSwapListCardType = 'available' | 'selected' | 'full-access';
+export type SohoSwapListCardType = 'available' | 'selected' | 'full-access';
 
 @Component({
   selector: 'soho-swaplist-card',

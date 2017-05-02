@@ -120,10 +120,11 @@ describe('Soho Tree Render', () => {
   it('selectedNode - invalid node', () => {
     fixture.detectChanges();
 
+    // An Error (Exception) is expected when we pass an invalid node name.
     expect( () => { tree.selectNode('invalid'); }).toThrow(new Error(`Node invalid does not exist`));
 
-    // Make sure the nodes has not changed, in this case we have an unforunate
-    // dependency with the previous test!
+    // Make sure the nodes have not changed, in this case we have an
+    // unfortunate dependency with the previous test!
     const selectedNodes = tree.getSelectedNodes();
     expect(selectedNodes.length).toBe(1);
     expect(selectedNodes[0].id).toBe('node2');
