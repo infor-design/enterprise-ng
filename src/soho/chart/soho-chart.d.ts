@@ -1,12 +1,13 @@
 
 interface SohoChartOptions {
-  sohoDataSet: SohoDataSet;
-  chartType: ChartTypes;
-  axisLabels: AxisLabels;
-  showLegend: boolean;
-  formatterString: string;
-  chartLabel: ChartLabel;
-  redrawOnResize: boolean;
+  dataset?: SohoDataSet;
+  type?: ChartTypes;
+  axisLabels?: AxisLabels;
+  showLegend?: boolean;
+  formatterString?: string;
+  chartLabel?: ChartLabel;
+  labels?: ChartLabel;
+  redrawOnResize?: boolean;
 }
 
 /**

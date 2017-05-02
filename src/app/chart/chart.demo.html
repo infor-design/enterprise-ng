@@ -1,13 +1,13 @@
 <div class="full-width chart-container" style="height:100%">
   <div soho-chart
-    [dataSet]="basicData"
+    [dataSet]="chartDemoService.getBasicData()"
     [type]="barGroupedChart"
   >
   </div>
 </div>
 <div class="full-width chart-container" style="height:100%">
   <div soho-chart
-    [dataSet]="basicData"
+    [dataSet]="chartDemoService.getBasicData()"
     [type]="pieChart"
     [chartLabel]="labels"
   >
@@ -15,7 +15,7 @@
 </div>
 <div class="full-width chart-container" style="height:100%">
   <div soho-chart
-    [dataSet]="basicData"
+    [dataSet]="chartDemoService.getBasicData()"
     [type]="pieChart"
     [chartLabel]="labels2"
   >
@@ -23,14 +23,14 @@
 </div>
 <div class="full-width chart-container" style="height:100%">
   <div soho-chart
-    [dataSet]="basicData"
+    [dataSet]="chartDemoService.getBasicData()"
     [type]="columnChart"
   >
   </div>
 </div>
 <div class="full-width chart-container" style="height:100%">
   <div soho-chart
-    [dataSet]="basicData"
+    [dataSet]="chartDemoService.getBasicData()"
     [type]="barChart"
     [showLegend]="showLegend"
     [formatterString] = "formatterString"
@@ -39,7 +39,7 @@
 </div>
 <div class="full-width chart-container" style="height:100%">
   <div soho-chart
-    [dataSet]="basicData"
+    [dataSet]="chartDemoService.getBasicData()"
     [type]="lineChart"
     [axisLabels]="lineAxisLabels"
   >
@@ -47,7 +47,7 @@
 </div>
 <div class="full-width chart-container" style="height:100%">
   <div soho-chart
-    [dataSet]="basicData"
+    [dataSet]="chartDemoService.getBasicData()"
     [type]="donutChart"
     [showLegend]="showLegend"
     [chartLabel]="labels"
@@ -56,7 +56,7 @@
 </div>
 <div class="full-width chart-container" style="height:100%">
     <div soho-chart
-      [dataSet]="basicData"
+      [dataSet]="chartDemoService.getBasicData()"
       [type]="donutChart"
       [showLegend]="showLegend"
       [chartLabel]="labels2"
@@ -65,7 +65,7 @@
   </div>
 <div class="full-width chart-container" style="height:100%">
   <div soho-chart
-    [dataSet]="bubbleData"
+    [dataSet]="chartDemoService.getbubbleData()"
     [type]="bubbleChart"
     [showLegend]="showLegend"
   >
@@ -73,7 +73,7 @@
 </div>
 <div class="full-width chart-container" style="height:100%">
   <div soho-chart
-    [dataSet]="bubbleData"
+    [dataSet]="chartDemoService.getbubbleData()"
     [type]="bubbleChart"
   >
   </div>

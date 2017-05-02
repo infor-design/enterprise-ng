@@ -21,18 +21,18 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  @Input() set dataSet(sohoDataSet: SohoDataSet) {
-    this._chartOptions.sohoDataSet = sohoDataSet;
+  @Input() set dataSet(dataset: SohoDataSet) {
+    this._chartOptions.dataset = dataset;
     if (this.jQueryElement) {
-      this.chart.settings.sohoDataSet = sohoDataSet;
+      this.chart.settings.dataset = dataset;
       this.updated();
     }
   }
 
-  @Input() set type(chartType: ChartTypes) {
-    this._chartOptions.chartType = chartType;
+  @Input() set type(type: ChartTypes) {
+    this._chartOptions.type = type;
     if (this.jQueryElement) {
-      this.chart.settings.chartType = chartType;
+      this.chart.settings.type = type;
       this.updated();
     }
   }
@@ -79,7 +79,7 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
 
   // An internal chartOptions object that gets updated by using
   // the component's Inputs()
-  private _chartOptions: SohoChartOptions = <SohoChartOptions> {};
+  private _chartOptions: SohoChartOptions = {};
 
   // Reference to the jQuery element.
   private jQueryElement: JQuery;
@@ -93,20 +93,7 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
     // Wrap for later.
     this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
-     this.jQueryElement.chart({
-      type: this._chartOptions.chartType,
-      axisLabels: this._chartOptions.axisLabels,
-      showLegend: this._chartOptions.showLegend,
-      formatterString: this._chartOptions.formatterString,
-      chartLabel: this._chartOptions.chartLabel,
-      dataset: this._chartOptions.sohoDataSet,
-      labels: this._chartOptions.chartLabel,
-      redrawOnResize: this._chartOptions.redrawOnResize,
-    });
-
-    setTimeout(() => {
-       this.type = 'bar';
-     }, 5000);
+    this.jQueryElement.chart(this._chartOptions);
   }
 
   ngOnDestroy() {
