@@ -284,6 +284,22 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     }
   }
 
+  @Input() set resizeContainers(value: boolean) {
+    this.options.resizeContainers = value;
+    if (this.toolbar) {
+      this.toolbar.settings.resizeContainers = value;
+      this.markForRefresh();
+    }
+  }
+
+  @Input() set favorButtonset(value: boolean) {
+    this.options.favorButtonset = value;
+    if (this.toolbar) {
+      this.toolbar.settings.favorButtonset = value;
+      this.markForRefresh();
+    }
+  }
+
   /**
    * The beforeactivate event is fired whenever a toolbar is activated giving the event handler a chance
    * to "veto" the tab selection change.
