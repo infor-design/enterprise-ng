@@ -47,7 +47,7 @@ export class ChartDemoService {
     }
   ];
 
-  public bubbleData: SohoDataSet = [{
+  private bubbleData: SohoDataSet = [{
     data: [{name: 'January', tooltip: 'This is a January', value: {x: 5, y: 3, z: 3}
     }, {name: 'February', tooltip: 'This is a February', value: {x: 37, y: 5, z: 9}
     }, {name: 'March', tooltip: 'This is a March', value: {x: 10, y: 5.3, z: 4}
@@ -88,7 +88,7 @@ export class ChartDemoService {
     return this.basicData;
   }
 
-  public getbubbleData(): SohoDataSet {
+  public getBubbleData(): SohoDataSet {
     return this.bubbleData;
   }
 }

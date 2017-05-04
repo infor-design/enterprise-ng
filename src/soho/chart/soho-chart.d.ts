@@ -17,7 +17,7 @@ interface SohoChartOptions {
 interface SohoChartStatic {
   /** Options. */
   settings: SohoChartOptions;
-}
+s}
 
 interface SohoChartData {
   name: string;
@@ -30,9 +30,9 @@ interface SohoChartData {
   abbrName?: string;
 }
 
-type ChartTypes = 'pie' | 'bar' | 'bar-stacked' | 'bar-normalized' | 'bar-grouped' | 'column-stacked' |
-  'column' | 'column-grouped' | 'column-positive-negative' | 'donut' | 'line' | 'area' | 'bullet' |
-  'completion' | 'completion-target' | 'targeted-achievement';
+type ChartTypes = 'pie' | 'bar' | 'bar-stacked' | 'bar-normalized' | 'bar-grouped' | 'bubble' |
+  'column-stacked' |'column' | 'column-grouped' | 'column-positive-negative' | 'donut' | 'line' |
+  'area' | 'bullet' | 'completion' | 'completion-target' | 'targeted-achievement';
 
 type SohoChartDataArray = Array<SohoChartData>;
 
@@ -77,3 +77,8 @@ interface ChartLabel {
   hideLabels?: boolean;
 }
 
+interface ChartEvent {
+  event: JQueryEventObject;
+  ui?: any;
+  data?: any;
+}

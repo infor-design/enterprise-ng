@@ -3,7 +3,7 @@ import {
   Component,
   ElementRef,
   Input,
-  OnDestroy,
+  OnDestroy, EventEmitter, Output,
 } from '@angular/core';
 
 @Component({
@@ -16,7 +16,6 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
   @Input() set chartOptions(chartOptions: SohoChartOptions) {
     this._chartOptions = chartOptions;
     if (this.jQueryElement) {
-      this.chart.settings = chartOptions;
       this.updated();
     }
   }
@@ -24,7 +23,6 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
   @Input() set dataSet(dataset: SohoDataSet) {
     this._chartOptions.dataset = dataset;
     if (this.jQueryElement) {
-      this.chart.settings.dataset = dataset;
       this.updated();
     }
   }
@@ -32,7 +30,6 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
   @Input() set type(type: ChartTypes) {
     this._chartOptions.type = type;
     if (this.jQueryElement) {
-      this.chart.settings.type = type;
       this.updated();
     }
   }
@@ -40,7 +37,6 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
   @Input() set axisLabels(axisLabels: AxisLabels) {
     this._chartOptions.axisLabels = axisLabels;
     if (this.jQueryElement) {
-      this.chart.settings.axisLabels = axisLabels;
       this.updated();
     }
   }
@@ -48,7 +44,6 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
   @Input() set showLegend(showLegend: boolean) {
     this._chartOptions.showLegend = showLegend;
     if (this.jQueryElement) {
-      this.chart.settings.showLegend = showLegend;
       this.updated();
     }
   }
@@ -56,7 +51,6 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
   @Input() set formatterString(formatterString: string) {
     this._chartOptions.formatterString = formatterString;
     if (this.jQueryElement) {
-      this.chart.settings.formatterString = formatterString;
       this.updated();
     }
   }
@@ -64,7 +58,6 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
   @Input() set chartLabel(chartLabel: ChartLabel) {
     this._chartOptions.chartLabel = chartLabel;
     if (this.jQueryElement) {
-      this.chart.settings.chartLabel = chartLabel;
       this.updated();
     }
   }
@@ -72,10 +65,19 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
   @Input() set chartredrawOnResizeLabel(redrawOnResize: boolean) {
     this._chartOptions.redrawOnResize = redrawOnResize;
     if (this.jQueryElement) {
-      this.chart.settings.redrawOnResize = redrawOnResize;
       this.updated();
     }
   }
+
+  // ------------------------------------------------------------------------
+  // @Outputs
+  // ------------------------------------------------------------------------
+
+  @Output() selected = new EventEmitter<ChartEvent>();
+
+  @Output() unselected = new EventEmitter<ChartEvent>();
+
+  @Output() rendered = new EventEmitter<ChartEvent>();
 
   // An internal chartOptions object that gets updated by using
   // the component's Inputs()
@@ -84,7 +86,7 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
   // Reference to the jQuery element.
   private jQueryElement: JQuery;
 
-  // Reference to the soho tabs control api.
+  // Reference to the soho chart control api.
   private chart: SohoChartStatic;
 
   constructor(private elementRef: ElementRef) { }
@@ -93,13 +95,25 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
     // Wrap for later.
     this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
-    this.jQueryElement.chart(this._chartOptions);
+    this.chart = this.jQueryElement.chart(this._chartOptions);
+    this.jQueryElement.on('selected', (event: JQueryEventObject, ui: any, data: any) => {
+      this.selected.emit({ event, ui, data });
+    }).on('unselected', (event: JQueryEventObject, ui: any, data: any) => {
+      this.unselected.emit({ event, ui, data });
+    }).on('rendered', (event: JQueryEventObject, ui: any, data: any) => {
+      this.rendered.emit({ event, ui, data });
+    });
   }
 
   ngOnDestroy() {
   }
 
+  public getChartOptions(): SohoChartOptions {
+    return this._chartOptions;
+  }
+
   updated() {
     // logic here if we have a way to update charts
+    this.jQueryElement.chart(this._chartOptions);
   }
 }
