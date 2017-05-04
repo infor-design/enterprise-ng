@@ -14,6 +14,7 @@ export * from './header';
 export * from './hyperlink';
 export * from './icon';
 export * from './input-validate';
+export * from './label';
 export * from './listview';
 export * from './lookup';
 export * from './mask';
