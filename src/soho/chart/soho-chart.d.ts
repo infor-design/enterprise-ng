@@ -17,7 +17,7 @@ interface SohoChartOptions {
 interface SohoChartStatic {
   /** Options. */
   settings: SohoChartOptions;
-s}
+}
 
 interface SohoChartData {
   name: string;
