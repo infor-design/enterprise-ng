@@ -12,7 +12,7 @@ import {
 /**
  * Supported button types.
  */
-export type SohoButtonType = 'primary' | 'secondary' | 'tertiary' | 'icon' | 'favorite';
+export type SohoButtonType = 'btn' | 'primary' | 'secondary' | 'tertiary' | 'icon' | 'favorite';
 
 @Component({
   selector: 'button[soho-button]', // tslint:disable-line
@@ -25,6 +25,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
   // Supported button types.
   // -------------------------------------------
 
+  static BTN: SohoButtonType = 'btn';
   static PRIMARY: SohoButtonType = 'primary';
   static SECONDARY: SohoButtonType = 'secondary';
   static TERTIARY: SohoButtonType = 'tertiary';
@@ -75,6 +76,11 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy {
 
   /** The icon to be used when the state is false. */
   @Input() toggle: string;
+
+  @HostBinding('class.btn')
+  get btn() {
+    return this.buttonType === SohoButtonComponent.BTN;
+  };
 
   @HostBinding('class.btn-primary')
   get btnPrimary() {
