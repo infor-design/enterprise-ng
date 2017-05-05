@@ -5,6 +5,7 @@
 /// <reference path="./application-menu/soho-application-menu.d.ts" />
 /// <reference path="./busyindicator/soho-busyindicator.d.ts" />
 /// <reference path="./button/soho-button.d.ts" />
+/// <reference path="./chart/soho-chart.d.ts" />
 /// <reference path="./checkbox/soho-checkbox.d.ts" />
 /// <reference path="./context-menu/soho-context-menu.d.ts" />
 /// <reference path="./contextual-action-panel/soho-contextual-action-panel.d.ts" />

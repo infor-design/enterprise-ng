@@ -95,7 +95,10 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
     // Wrap for later.
     this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
-    this.chart = this.jQueryElement.chart(this._chartOptions);
+    this.jQueryElement.chart(this._chartOptions);
+
+    this.chart = this.jQueryElement.data('chart');
+
     this.jQueryElement.on('selected', (event: JQueryEventObject, ui: any, data: any) => {
       this.selected.emit({ event, ui, data });
     }).on('unselected', (event: JQueryEventObject, ui: any, data: any) => {
