@@ -191,6 +191,7 @@ declare var Editors: {
   Date: SohoDataGridColumnEditorFunction;
   Lookup: SohoDataGridColumnEditorFunction;
   Autocomplete: SohoDataGridColumnEditorFunction;
+  Favorite: SohoDataGridColumnEditorFunction;
 };
 
 type SohoDataGridColumnFormatterFunction = (

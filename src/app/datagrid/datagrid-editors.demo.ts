@@ -17,7 +17,8 @@ export const EDITORS_DATA: any[] = [
     quantity:    1,
     price:       210.99,
     orderDate:   '2015-01-01T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    favorite:    true
   },
   {
     id:          1,
@@ -28,7 +29,8 @@ export const EDITORS_DATA: any[] = [
     price:       209.99,
     status:      'Late',
     orderDate:   '2015-01-02T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    favorite:    false
   },
   {
     id:          2,
@@ -39,7 +41,8 @@ export const EDITORS_DATA: any[] = [
     price:       208.99,
     status:      'Active',
     orderDate:   '2015-01-03T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    favorite:    true
   },
   {
     id:          3,
@@ -50,7 +53,8 @@ export const EDITORS_DATA: any[] = [
     price:       207.99,
     status:      'Inactive',
     orderDate:   '2015-01-04T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    favorite:    true
   },
   {
     id:          4,
@@ -61,7 +65,8 @@ export const EDITORS_DATA: any[] = [
     price:       206.99,
     status:      'Inactive',
     orderDate:   '2015-01-05T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    favorite:    false
   },
   {
     id:          5,
@@ -72,7 +77,8 @@ export const EDITORS_DATA: any[] = [
     price:       205.99,
     status:      'Inactive',
     orderDate:   '2015-01-06T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    favorite:    false
   },
   {
     id:          6,
@@ -83,7 +89,8 @@ export const EDITORS_DATA: any[] = [
     price:       204.99,
     status:      'On Hold',
     orderDate:   '2015-01-07T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    favorite:    true
   },
   {
     id:          7,
@@ -94,7 +101,8 @@ export const EDITORS_DATA: any[] = [
     price:       203.99,
     status:      'On Hold',
     orderDate:   '2015-01-08T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    favorite:    true
   },
   {
     id:          8,
@@ -105,7 +113,8 @@ export const EDITORS_DATA: any[] = [
     price:       202.99,
     status:      'On Hold',
     orderDate:   '2015-01-09T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    favorite:    false
   },
   {
     id:          9,
@@ -116,7 +125,8 @@ export const EDITORS_DATA: any[] = [
     price:       201.99,
     status:      'On Hold',
     orderDate:   '2015-01-10T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    favorite:    false
   }
 ];
 
@@ -196,6 +206,17 @@ export const EDITORS_COLUMNS: any[] = [
     filterType: 'number',
     width: 105,
     editor: Editors.Input
+  },
+
+  {
+    id: 'favorite',
+    name: 'Favorite',
+    field: 'favorite',
+    sortable: false,
+    width: 105,
+    showEmpty: true,
+    formatter: Formatters.Favorite,
+    editor: Editors.Favorite
   },
 
   //{ id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text',    width: 150, formatter: Formatters.Hyperlink },
