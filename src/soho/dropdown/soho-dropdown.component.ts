@@ -26,6 +26,8 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
+  private isDisabled: boolean = null;
+  private isReadOnly: boolean =  null;
 
   /**
    * Selector for originating element.
@@ -252,12 +254,39 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
     return this;
   }
 
-  public disable(): void {
-    this.dropdown.disable();
+  // -------------------------------------------
+  // Component Input
+  // -------------------------------------------
+  /**
+   * @param disabled
+   */
+  @Input() set disabled(value: boolean) {
+    if (this.dropdown) {
+      if (value) {
+        this.dropdown.disable();
+        this.isDisabled = true;
+      } else {
+        this.dropdown.enable();
+        this.isDisabled = false;
+        this.isReadOnly = false;
+      }
+    }
   }
 
-  public enable(): void {
-    this.dropdown.enable();
+  /**
+   * @param readonly
+   */
+  @Input() set readonly(value: boolean) {
+    if (this.dropdown) {
+      if (value) {
+        this.dropdown.readonly();
+        this.isReadOnly = true;
+      } else {
+        this.dropdown.enable();
+        this.isDisabled = false;
+        this.isReadOnly = false;
+      }
+    }
   }
 
   /**
