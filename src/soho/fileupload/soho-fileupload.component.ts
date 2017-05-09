@@ -104,8 +104,8 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
     // Initialise the SohoXi Control
-    this.jQueryElement.find('.fileupload').fileupload();
-    this.fileUpload = this.jQueryElement.data('fileupload');
+    const $fileUpload = this.jQueryElement.find('.fileupload').fileupload();
+    this.fileUpload = $fileUpload.data('fileupload');
 
     /**
      * Bind to jQueryElement's events
