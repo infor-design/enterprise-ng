@@ -31,9 +31,11 @@ interface SohoTooltipEvent extends BaseJQueryEventObject {
  * Soho control.
  */
 interface SohoTooltipStatic {
-  show(): void;
-  hide(): void;
+  settings: SohoTooltipOptions;
   destroy(): void;
+  hide(): void;
+  show(): void;
+  updated(): void;
 }
 
 /**
