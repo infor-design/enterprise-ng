@@ -27,6 +27,10 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
  */
   @Input() set content(content: string) {
     this.options.content = content;
+    if (this.tooltip) {
+      this.tooltip.settings.content = content;
+      this.tooltip.updated();
+    }
   }
   /**
    * @param offset

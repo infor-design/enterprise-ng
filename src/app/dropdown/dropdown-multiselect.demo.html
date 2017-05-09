@@ -4,7 +4,7 @@
       <h1>Multi-Select Dropdown</h1>
       <span class="code-tag">Live Example</span>
       <div class="row">
-        <div class="four columns">
+        <div class="twelve columns">
           <div class="field">
             <label for="states-multi-closes" class="label">States - Closes On Select</label>
             <select soho-dropdown name="states-multi-closes" multiple maxSelected="3" [(ngModel)]="model.closes">
@@ -14,6 +14,9 @@
               <option value="NY">New York</option>
               <option value="WY">Wyoming</option>
             </select>
+            <button soho-button [disabled]="dropDownReadOnly" (click)="setReadonly()">Read Only</button>
+            <button soho-button [disabled]="dropDownDisabled" (click)="setDisable()">Disable</button>
+            <button soho-button [disabled]="!dropDownDisabled && !dropDownReadOnly" (click)="setEnable()">Enable</button>
           </div>
         </div>
       </div>
@@ -34,17 +37,27 @@
       <div class="row">
         <div class="four columns">
           <div class="field">
-            <label for="states-multi-source-alpha" class="label">States using source & alpha value</label>
-            <select soho-dropdown name="states-multi-source-alpha" multiple [source]="sourceAlpha" [(ngModel)]="model.multiSourceAlpha">
-              <option *ngFor="let option of multiSourceAlphaOptions" selected={{option.selected}} [value]="option.value">{{option.label}}</option>
+            <label for="states-multi-source-alpha" class="label">Using alpha source & tooltip</label>
+            <select soho-dropdown name="states-multi-source-alpha" multiple [source]="sourceAlpha"
+              soho-tooltip content="{{stateAsText}}" [(ngModel)]="model.multiSourceAlpha.value">
+              <option *ngFor="let option of model.multiSourceAlpha.options" selected={{option.selected}} [value]="option.value">{{option.label}}</option>
             </select>
           </div>
         </div>
         <div class="four columns">
           <div class="field">
-            <label for="states-multi-source-numeric" class="label">States using source & numeric value</label>
-            <select soho-dropdown name="states-multi-source-numeric" multiple [source]="sourceNumeric" [(ngModel)]="model.multiSourceNumeric">
-              <option *ngFor="let option of multiSourceNumericOptions" selected={{option.selected}} [value]="option.value">{{option.label}}</option>
+            <label for="states-multi-source-alpha-ro" class="label">Readonly using alpha source & tooltip</label>
+            <select soho-dropdown name="states-multi-source-alpha-ro" readOnly multiple [source]="sourceAlpha"
+              soho-tooltip content="{{stateAsText}}" [(ngModel)]="model.multiSourceAlpha.value">
+              <option *ngFor="let option of model.multiSourceAlpha.options" selected={{option.selected}} [value]="option.value">{{option.label}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="field">
+            <label for="states-multi-source-numeric" class="label">Using numeric source</label>
+            <select soho-dropdown name="states-multi-source-numeric" multiple [source]="sourceNumeric" [(ngModel)]="model.multiSourceNumeric.value">
+              <option *ngFor="let option of model.multiSourceNumeric.options" selected={{option.selected}} [value]="option.value">{{option.label}}</option>
             </select>
           </div>
         </div>
