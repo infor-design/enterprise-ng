@@ -1046,7 +1046,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       grid: this,
       row: args.row,
       detail: args.detail,
-      item: args.item
+      item: args.item,
+      rowData: args.rowData
     });
   }
 
@@ -1243,4 +1244,7 @@ export interface SohoDataGridRowEvent {
 
   // The detail row thas has been expanded..
   item: any;
+
+  // Data associated with row
+  rowData: any;
 }
