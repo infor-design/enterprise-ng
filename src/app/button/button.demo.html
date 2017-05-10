@@ -20,7 +20,7 @@
         <br>
         <br>
         <br>
-        <button soho-button="primary" icon="alert" toggle="error">Toggles Icon</button>
+        <button soho-button="primary" icon="alert" toggle="error">Toggles Icon</button> (deprecated in 4.3.x)
         <br>
         <br>
         <br>
@@ -41,7 +41,7 @@
         <br>
         <br>
         <br>
-        <button soho-button icon="user-profile" toggle="refresh" (click)="toggleHello()">{{shouldSayHi ? "Goodbye" : "Say Hello"}}</button>
+        <button soho-button icon="user-profile" toggle="refresh" (click)="toggleHello()">{{shouldSayHi ? "Goodbye" : "Say Hello"}}</button> (deprecated in 4.3.x)
       </div>
 
       <div class="three columns">
@@ -73,10 +73,66 @@
       <h2>Hello there!</h2>
     </div>
   </div>
-  <br>
-  <br>
 
+  <br>
+  <br>
+  <h2>Toggle Buttons</h2>
+  <div class="row">
+    <div class="three columns">
+      <span class="label">Primary</span>
+      <button soho-button="primary" isToggle="true" icon="heart-filled" title="Love It"><span>Love It</span></button>
+      <br>
+      <br>
+      <br>
+      <button soho-button="primary" isToggle="true" toggleOnIcon="heart-filled" toggleOffIcon="heart-outlined" title="Love It"><span>Love It</span></button>
+    </div>
+
+    <div class="three columns">
+      <span class="label">Secondary</span>
+      <button soho-button isToggle="true" icon="heart-filled" title="Love It"><span>Love It</span></button>
+      <br>
+      <br>
+      <br>
+      <button soho-button isToggle="true" toggleOnIcon="heart-filled" toggleOffIcon="heart-outlined" title="Love It"><span>Love It</span></button>
+    </div>
+
+    <div class="three columns">
+      <span class="label">Tertiary</span>
+      <button soho-button="tertiary" isToggle="true" icon="heart-filled">Action</button>
+      <br>
+      <br>
+      <br>
+      <button soho-button="tertiary" isToggle="true" toggleOnIcon="heart-filled" toggleOffIcon="heart-outlined" title="Love It">Love It</button>
+    </div>
+
+    <div class="three columns">
+      <span class="label">Icon</span>
+      <button soho-button="icon" isToggle="true" icon="heart-filled">Action</button>
+      <br>
+      <br>
+      <br>
+      <button soho-button="icon" isToggle="true" toggleOnIcon="heart-filled" toggleOffIcon="heart-outlined" title="Love It">Love It</button>
+    </div>
+
+  </div>
+
+  <br>
+  <br>
   <h2>Favorites Icon Buttons</h2>
+  <div class="row">
+    <div class="row">
+      <div class="three columns">
+        <span class="label">Initially Filled</span>
+        <button soho-button="favorite" title="Favorite" aria-pressed="true"></button>
+        <br>
+        <br>
+        <span class="label">Initially Outlined</span>
+        <button soho-button="favorite" title="Favorite"></button>
+      </div>
+    </div>
+  </div>
+
+  <p>The Old Way(deprecated in 4.3.x)</p>
   <div class="row">
     <div class="row">
       <div class="three columns">
@@ -89,4 +145,5 @@
       </div>
     </div>
   </div>
+
 </div>
