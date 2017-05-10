@@ -48,7 +48,7 @@ export class DataGridDemoService extends SohoDataGridService {
     });
 
     this.columns.push({
-      id: 'drillDown',
+      id: 'drilldown',
       hidden: true,
       name: 'Drill In',
       field: '',
