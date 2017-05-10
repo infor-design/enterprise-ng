@@ -1035,7 +1035,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @todo arguments.
    */
   private onExpandRow(args: any) {
-    const event = { grid: this, row: args.row, detail: args.detail, item: args.item };
+    const event = {
+      grid: this,
+      ...args
+    };
     this.expandrow.next(event);
   }
 
@@ -1047,9 +1050,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   private onCollapseRow(args: any) {
     this.collapserow.next({
       grid: this,
-      row: args.row,
-      detail: args.detail,
-      item: args.item
+      ...args
     });
   }
 
@@ -1247,4 +1248,7 @@ export interface SohoDataGridRowEvent {
 
   // The detail row thas has been expanded..
   item: any;
+
+  // Data associated with row
+  rowData: any;
 }
