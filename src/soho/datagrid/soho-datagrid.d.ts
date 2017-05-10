@@ -474,6 +474,13 @@ interface SohoDataGridSelectedRow {
   element: HTMLElement;
 }
 
+interface SohoDataGridRowClicked {
+  cell: number;
+  item: any;
+  originalEvent: JQueryEventObject;
+  row: number;
+}
+
 interface SohoDataGridSelectedEvent {
   e: any;
   rows: SohoDataGridSelectedRow[];

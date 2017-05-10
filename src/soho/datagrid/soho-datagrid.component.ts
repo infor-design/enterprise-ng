@@ -725,6 +725,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   @Output()
   rowDeactivated = new EventEmitter<SohoDataGridRowActivated>();
 
+  @Output()
+  rowClicked = new EventEmitter<SohoDataGridRowClicked>()
+
   // -------------------------------------------
   // Host Bindings
   // -------------------------------------------
@@ -1141,7 +1144,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       .on('expandrow', (e: JQueryEventObject, args: any) => { this.onExpandRow(args); })
       .on('collapserow', (e: JQueryEventObject, args: any) => { this.onCollapseRow(args); })
       .on('rowactivated', (e: JQueryEventObject, args: any) => { this.rowActivated.next(args); })
-      .on('rowdeactivated', (e: JQueryEventObject, args: any) => { this.rowDeactivated.next(args); });
+      .on('rowdeactivated', (e: JQueryEventObject, args: any) => { this.rowDeactivated.next(args); })
+      .on('click', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.rowClicked.next(args); });
   }
 
   /**
