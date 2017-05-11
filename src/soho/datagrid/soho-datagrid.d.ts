@@ -409,7 +409,7 @@ interface SohoDataGridStatic {
 
   getHeaderRowColumn(fld: any): any;
 
-  addRow(data: Object, location: string): void;
+  addRow(data: Object, location: any): void;
 
   removeRow(data: Object): void;
 
