@@ -12,12 +12,8 @@ import {
 } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
-import { SohoButtonModule } from '../button/soho-button.module';
 import { SohoSwapListModule } from './soho-swaplist.module';
-import {
-  SohoSwapListComponent,
-  SohoSwapListCardComponent
-} from './soho-swaplist.component';
+import { SohoSwapListComponent} from './soho-swaplist.component';
 
 describe('Soho Swap List Unit Tests', () => {
   let comp: SohoSwapListComponent;
@@ -28,7 +24,7 @@ describe('Soho Swap List Unit Tests', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [],
-      imports: [SohoButtonModule, SohoSwapListModule]
+      imports: [ SohoSwapListModule ]
     });
 
     fixture = TestBed.createComponent(SohoSwapListComponent);

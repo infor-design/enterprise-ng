@@ -552,3 +552,26 @@ interface JQueryStatic {
 interface JQuery {
   datagrid(options?: SohoDataGridOptions): JQuery;
 }
+
+interface SohoDataGridRowExpandEvent {
+  // child elements
+  children: Array<any>;
+
+  // The index of the row number that has been expanded/collapsed.
+  row: number;
+
+  // The detail row thas has been expanded..
+  item: any;
+
+  // Data associated with row
+  rowData: any;
+}
+
+interface SohoDataGridRowCollapseEvent extends SohoDataGridRowExpandEvent { }
+
+interface SohoDataGridRowActivatedEvent {
+  row: number;
+  item: any;
+}
+
+interface SohoDataGridRowDeactivatedEvent extends SohoDataGridRowActivatedEvent {}
