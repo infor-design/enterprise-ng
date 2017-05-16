@@ -12,21 +12,20 @@ export class MenuButtonDemoComponent implements OnInit {
     alert('Should not be Allowed');
   }
 
-  @HostListener('selected', ['$event'])
-  onSelected() {
-    console.log('onSelected');
+  onSelected(event: SohoContextMenuEvent) {
+    console.log(event, 'onSelected');
   }
 
-  onBeforeOpen() {
-    console.log('onBeforeOpen');
+  onBeforeOpen(event: SohoContextMenuEvent) {
+    console.log(event, 'onBeforeOpen');
   }
 
-  onClose() {
-    console.log('onClose');
+  onClose(event: SohoContextMenuEvent) {
+    console.log(event, 'onClose');
   }
 
-  onOpen() {
-    console.log('onOpen');
+  onOpen(event: SohoContextMenuEvent) {
+    console.log(event, 'onOpen');
   }
 
   ngOnInit() {
