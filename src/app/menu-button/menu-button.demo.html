@@ -2,10 +2,10 @@
   <div class="twelve columns">
 
     <button soho-menu-button menu="action-popupmenu"
-            (selected)="onSelected()"
-            (beforeopen)="onBeforeOpen()"
-            (close)="onClose()"
-            (open)="onOpen()">Add Item</button>
+            (selected)="onSelected($event)"
+            (beforeopen)="onBeforeOpen($event)"
+            (close)="onClose($event)"
+            (open)="onOpen($event)">Add Item</button>
     <ul soho-popupmenu id="action-popupmenu">
       <li ><a soho-popupmenu-label >Create a form</a></li>
       <li soho-popupmenu-separator></li>
@@ -17,22 +17,22 @@
       <li soho-popupmenu-item isSelectable="true"><a soho-popupmenu-label>Protect Sheet Rules</a></li>
     </ul>
 
-    <button soho-menu-button [icon]="" pie-chart="" menu="charts-menu"
-            (selected)="onSelected()"
-            (beforeopen)="onBeforeOpen()"
-            (close)="onClose()"
-            (open)="onOpen()"></button>
+    <button soho-menu-button [icon]="pie-chart" pie-chart="" menu="charts-menu"
+            (selected)="onSelected($event)"
+            (beforeopen)="onBeforeOpen($event)"
+            (close)="onClose($event)"
+            (open)="onOpen($event)"></button>
     <ul soho-popupmenu id="charts-menu">
-      <li ><a soho-popupmenu-label>Pie Chart</a></li>
+      <li soho-popupmenu-item><a soho-popupmenu-label>Pie Chart</a></li>
       <li soho-popupmenu-item><a soho-popupmenu-label>Line Chart</a></li>
       <li soho-popupmenu-item><a soho-popupmenu-label>Bubble Chart</a></li>
     </ul>
 
-    <button soho-menu-button [icon]="" pie-chart="" title="Charts" menu="charts-menu2"
-            (selected)="onSelected()"
-            (beforeopen)="onBeforeOpen()"
-            (close)="onClose()"
-            (open)="onOpen()"></button>
+    <button soho-menu-button [icon]="line-chart" pie-chart="" title="Charts" menu="charts-menu2"
+            (selected)="onSelected($event)"
+            (beforeopen)="onBeforeOpen($event)"
+            (close)="onClose($event)"
+            (open)="onOpen($event)"></button>
     <ul soho-popupmenu id="charts-menu2">
       <li soho-popupmenu-item id="pie"><a soho-popupmenu-label>Pie Chart</a></li>
       <li soho-popupmenu-item id="line"><a soho-popupmenu-label>Line Chart</a></li>

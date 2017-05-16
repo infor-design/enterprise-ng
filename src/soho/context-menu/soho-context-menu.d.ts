@@ -9,4 +9,5 @@
  * Interface for the jQuery event emitted
  */
 interface SohoContextMenuEvent extends SohoPopupMenuEvent {
+  args: any;
 }
