@@ -19,6 +19,18 @@ interface SohoChartStatic {
   settings: SohoChartOptions;
 }
 
+/**
+ * JQuery Integration
+ */
+interface JQueryStatic {
+  chart: SohoChartStatic;
+}
+
+interface JQuery {
+  chart(options?: SohoChartOptions): JQuery;
+}
+
+
 interface SohoChartData {
   name: string;
   value: number | BubbleCordinates;
