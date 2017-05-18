@@ -18,6 +18,7 @@
 /// <reference path="./fileupload/soho-fileupload.d.ts" />
 /// <reference path="./header/soho-header.d.ts" />
 /// <reference path="./hyperlink/soho-hyperlink.d.ts" />
+/// <reference path="./input/soho-input.d.ts" />
 /// <reference path="./listview/soho-listview.d.ts" />
 /// <reference path="./locale/soho-locale.d.ts" />
 /// <reference path="./lookup/soho-lookup.d.ts" />
