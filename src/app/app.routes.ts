@@ -13,6 +13,7 @@ import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
+import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
 import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-selection.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
@@ -98,6 +99,7 @@ export const routes: Routes = [
   { path: 'datagrid-content',      component: DataGridContentDemoComponent },
   { path: 'datagrid-dynamic',      component: DataGridDynamicDemoComponent },
   { path: 'datagrid-editors',      component: DataGridEditorsDemoComponent },
+  { path: 'datagrid-fixedheader',  component: DataGridFixedHeaderDemoComponent },
   { path: 'datagrid-groupable',    component: DataGridGroupableDemoComponent },
   { path: 'datagrid-mixed-selection', component: DataGridMixedSelectionDemoComponent },
   { path: 'datagrid-paging-indeterminate', component: DataGridPagingIndeterminateDemoComponent },
