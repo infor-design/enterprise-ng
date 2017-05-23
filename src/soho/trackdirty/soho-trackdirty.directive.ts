@@ -44,6 +44,7 @@ export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
     this.jQueryElement.on('dirty', (event: SohoTrackDirtyEvent) => this.dirty.emit(event));
     this.jQueryElement.on('pristine', (event: SohoTrackDirtyEvent) => this.pristine.emit(event));
 
+    // returns a boolean, not an object
     this.trackDirty = this.jQueryElement.data('trackdirty');
   }
 
@@ -52,6 +53,12 @@ export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
 // TODO: waiting on SOHO-4819
 //      this.trackDirty.destroy();
       this.trackDirty = null;
+    }
+  }
+
+  triggerChangeEvent() {
+    if (this.trackDirty) {
+      this.jQueryElement.trigger('change.dirty');
     }
   }
 }

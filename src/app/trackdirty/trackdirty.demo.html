@@ -6,6 +6,15 @@
       <div class="row">
         <div class="two columns">
           <div class="field">
+            <label for="lookup" class="label">Lookup</label>
+            <input name="lookup" soho-lookup
+              [click]="onLookupClick"
+              [field]="onLookupField"
+              soho-trackdirty [(ngModel)]="model.lookup" (pristine)="onPristine($event)" (dirty)="onDirty($event)"/>
+          </div>
+        </div>
+        <div class="two columns">
+          <div class="field">
             <label for="textbox" class="label">Textbox</label>
             <input name="textbox" soho-trackdirty [(ngModel)]="model.textbox" (pristine)="onPristine($event)" (dirty)="onDirty($event)"/>
           </div>

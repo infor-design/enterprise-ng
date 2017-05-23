@@ -1,7 +1,8 @@
 import {
   Component,
-  OnInit
+  OnInit, ViewChild
 } from '@angular/core';
+import { SohoTrackDirtyDirective, SohoLookupComponent } from '@infor/sohoxi-angular';
 
 /**
  * This example:
@@ -13,7 +14,11 @@ import {
 })
 export class TrackDirtyDemoComponent implements OnInit {
 
+  @ViewChild(SohoLookupComponent) sohoLookup: SohoLookupComponent;
+  @ViewChild(SohoTrackDirtyDirective) sohoTrackDirty: SohoTrackDirtyDirective;
+
   public model = {
+    lookup: '',
     textbox: '',
     numeric: ''
   };
@@ -35,4 +40,31 @@ export class TrackDirtyDemoComponent implements OnInit {
   onPristine(event: SohoTrackDirtyEvent) {
     console.log('TrackDirtyDemoComponent.onPristine');
   }
+
+  onLookupClick = (event: Event) => {
+    const data = [JSON.parse(`{"data":{
+    "fields": {
+      "RelationshipToOrganization": {
+        "value": "CONSULTANT"
+      }
+    }}}`)];
+
+    this.sohoLookup.setValue(data);
+    this.sohoTrackDirty.triggerChangeEvent();
+  }
+
+  onLookupField = (data: DataFields) => {
+    return data.fields['RelationshipToOrganization'].value;
+  }
+}
+
+interface DataView {
+  fields: DataFields;
+}
+
+// tslint:disable-next-line
+type DataFields = { [key: string]: DataField };
+
+interface DataField {
+  value: string | number | boolean;
 }
