@@ -9,7 +9,7 @@
 
 import {
   SohoDataGridComponent,
-  SohoDataGridRowEvent,
+  SohoDataGridToggleRowEvent,
 } from '@infor/sohoxi-angular';
 
 import { SohoBusyIndicatorDirective } from '@infor/sohoxi-angular';
@@ -95,15 +95,15 @@ export class DataGridTreeGridDemoComponent implements AfterContentInit, AfterVie
     }
   }
 
-  onExpandRow(e: SohoDataGridRowEvent) {
-    let descr = `${e.item.taskName}`;
+  onExpandRow(e: SohoDataGridToggleRowEvent) {
+    let descr = e.item.rowData.taskName;
     let event = { event: 'expandrow', descr: descr, date: new Date() };
     console.log(event);
     this.events.push({ name: 'expandrow', descr: descr, date: new Date() });
   }
 
-  onCollapseRow(e: SohoDataGridRowEvent) {
-    let descr = `${e.item.taskName}`;
+  onCollapseRow(e: SohoDataGridToggleRowEvent) {
+    let descr = e.item.rowData.taskName;
     this.events.push({ name: 'collapserow', descr: descr, date: new Date() });
   }
 

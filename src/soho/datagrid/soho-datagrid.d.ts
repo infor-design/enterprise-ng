@@ -191,6 +191,7 @@ declare var Editors: {
   Date: SohoDataGridColumnEditorFunction;
   Lookup: SohoDataGridColumnEditorFunction;
   Autocomplete: SohoDataGridColumnEditorFunction;
+  Favorite: SohoDataGridColumnEditorFunction;
 };
 
 type SohoDataGridColumnFormatterFunction = (
@@ -473,6 +474,13 @@ interface SohoDataGridSelectedRow {
   element: HTMLElement;
 }
 
+interface SohoDataGridRowClicked {
+  cell: number;
+  item: any;
+  originalEvent: JQueryEventObject;
+  row: number;
+}
+
 interface SohoDataGridSelectedEvent {
   e: any;
   rows: SohoDataGridSelectedRow[];
@@ -544,3 +552,26 @@ interface JQueryStatic {
 interface JQuery {
   datagrid(options?: SohoDataGridOptions): JQuery;
 }
+
+interface SohoDataGridRowExpandEvent {
+  // child elements
+  children: Array<any>;
+
+  // The index of the row number that has been expanded/collapsed.
+  row: number;
+
+  // The detail row thas has been expanded..
+  item: any;
+
+  // Data associated with row
+  rowData: any;
+}
+
+interface SohoDataGridRowCollapseEvent extends SohoDataGridRowExpandEvent { }
+
+interface SohoDataGridRowActivatedEvent {
+  row: number;
+  item: any;
+}
+
+interface SohoDataGridRowDeactivatedEvent extends SohoDataGridRowActivatedEvent {}

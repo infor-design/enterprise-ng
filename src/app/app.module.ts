@@ -22,6 +22,7 @@ import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/applica
 import { ApplicationMenuLazyService } from './application-menu/application-menu-lazy-service.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { ButtonDemoComponent } from './button/button.demo';
+import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoModule } from './contextual-action-panel/contextual-action-panel.demo.module';
@@ -31,6 +32,7 @@ import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
+import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
 import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-selection.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
@@ -74,6 +76,7 @@ import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
 import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
+import { StepProcessBtnDisableDemoComponent } from './stepprocess/stepprocessbuttondisable.demo';
 import { StepProcessDemoComponent } from './stepprocess/stepprocess.demo';
 import { StepProcessDataDrivenDemoComponent } from './stepprocess/stepprocess-data-driven.demo';
 import { StepProcessVetoableDemoComponent } from './stepprocess/stepprocessvetoable.demo';
@@ -112,6 +115,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     ApplicationMenuLazyMenuDemoComponent,
     BusyIndicatorDemoComponent,
     ButtonDemoComponent,
+    ChartDemoComponent,
     CheckBoxDemoComponent,
     ContextMenuDemoComponent,
     DataGridBreadcrumbDemoComponent,
@@ -120,6 +124,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     DataGridCustomFormatterServiceDemoComponent,
     DataGridDynamicDemoComponent,
     DataGridEditorsDemoComponent,
+    DataGridFixedHeaderDemoComponent,
     DataGridMixedSelectionDemoComponent,
     DataGridPagingIndeterminateDemoComponent,
     DataGridPagingServiceDemoComponent,
@@ -163,6 +168,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     SplitterHorizontalDemoComponent,
     SplitterVerticalDemoComponent,
     StepProcessDemoComponent,
+    StepProcessBtnDisableDemoComponent,
     StepProcessDataDrivenDemoComponent,
     StepProcessVetoableDemoComponent,
     SwapListDemoComponent,

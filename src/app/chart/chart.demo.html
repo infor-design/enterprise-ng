@@ -1,0 +1,106 @@
+<div class="full-width chart-container" style="height:100%">
+  <form>
+    <div class="ten columns">
+      <label>Type of Chart</label>
+      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option1" value="bar-grouped" (change)="onChange($event)" checked />
+      <label for="option1" class="radio-label">Bar Grouped</label>
+      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option2" value="pie" (change)="onChange($event)"/>
+      <label for="option2" class="radio-label">Pie</label>
+      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option3" value="donut" (change)="onChange($event)"/>
+      <label for="option3" class="radio-label">Donut</label>
+      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option4" value="bar" (change)="onChange($event)"/>
+      <label for="option4" class="radio-label">Bar</label>
+      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option5" value="column" (change)="onChange($event)" />
+      <label for="option5" class="radio-label">Column</label>
+      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option6" value="column-stacked" (change)="onChange($event)" />
+      <label for="option6" class="radio-label">Column Stacked</label>
+      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option7" value="line" (change)="onChange($event)" />
+      <label for="option7" class="radio-label">Line</label>
+      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option8" value="area" (change)="onChange($event)" />
+      <label for="option8" class="radio-label">Area</label>
+      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option9" value="bubble" (change)="onChange($event)" />
+      <label for="option9" class="radio-label">Bubble</label>
+    </div>
+  </form>
+  <div soho-chart
+    [dataSet]="chartDemoService.getBasicData()"
+    [type]="barGroupedChart"
+    (selected)="onSelected($event)"
+    (unselected)="onUnselected($event)"
+    (rendered)="onRendered($event)"
+  >
+  </div>
+</div>
+<div class="full-width chart-container" style="height:calc(100% - 40px)">
+  <div soho-chart
+    [dataSet]="chartDemoService.getBasicData()"
+    [type]="pieChart"
+    [chartLabel]="labels"
+  >
+  </div>
+</div>
+<div class="full-width chart-container" style="height:100%">
+  <div soho-chart
+    [dataSet]="chartDemoService.getBasicData()"
+    [type]="pieChart"
+    [chartLabel]="labels2"
+  >
+  </div>
+</div>
+<div class="full-width chart-container" style="height:100%">
+  <div soho-chart
+    [dataSet]="chartDemoService.getBasicData()"
+    [type]="columnChart"
+  >
+  </div>
+</div>
+<div class="full-width chart-container" style="height:100%">
+  <div soho-chart
+    [dataSet]="chartDemoService.getBasicData()"
+    [type]="barChart"
+    [showLegend]="showLegend"
+    [formatterString] = "formatterString"
+  >
+  </div>
+</div>
+<div class="full-width chart-container" style="height:100%">
+  <div soho-chart
+    [dataSet]="chartDemoService.getBasicData()"
+    [type]="lineChart"
+    [axisLabels]="lineAxisLabels"
+  >
+  </div>
+</div>
+<div class="full-width chart-container" style="height:100%">
+  <div soho-chart
+    [dataSet]="chartDemoService.getBasicData()"
+    [type]="donutChart"
+    [showLegend]="showLegend"
+    [chartLabel]="labels"
+  >
+  </div>
+</div>
+<div class="full-width chart-container" style="height:100%">
+    <div soho-chart
+      [dataSet]="chartDemoService.getBasicData()"
+      [type]="donutChart"
+      [showLegend]="showLegend"
+      [chartLabel]="labels2"
+    >
+    </div>
+  </div>
+<div class="full-width chart-container" style="height:100%">
+  <div soho-chart
+    [dataSet]="chartDemoService.getBubbleData()"
+    [type]="bubbleChart"
+    [showLegend]="showLegend"
+  >
+  </div>
+</div>
+<div class="full-width chart-container" style="height:100%">
+  <div soho-chart
+    [dataSet]="chartDemoService.getBubbleData()"
+    [type]="bubbleChart"
+  >
+  </div>
+</div>

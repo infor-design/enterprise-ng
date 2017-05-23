@@ -6,7 +6,7 @@
     "target": "es5",
     "baseUrl": "",
     "paths": {
-      "@infor/sohoxi-angular": ["./soho"]
+      "@infor/sohoxi-angular": ["soho"]
     },
     "types": [
       "jasmine",

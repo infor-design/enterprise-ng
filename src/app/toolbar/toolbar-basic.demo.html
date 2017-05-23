@@ -1,7 +1,12 @@
 <div class="row">
   <div class="twelve columns">
 
-    <soho-toolbar maxVisibleButtons="4" (selected)="onSelected($event)">
+    <soho-toolbar
+        [maxVisibleButtons]="6"
+        [resizeContainers]="true"
+        [favorButtonset]="true"
+        (selected)="onSelected($event)"
+    >
 
       <soho-toolbar-title>
         <span soho-toolbar-section-title>Basic Toolbar Demo</span>
@@ -13,6 +18,10 @@
         <input soho-toolbar-searchfield id="my-search-field" placeholder="Search" title="Search" name="Search"/>
 
         <!-- buttons -->
+        <button soho-button="icon" icon="filter" title="Filter" isToggle=true data-action="{'button':'filter'}">
+          <span class="audible">Filter</span>
+        </button>
+
         <button soho-button="icon" icon="add" title="Add" data-action="{'button':'add'}">
           <span class="audible">Add</span>
         </button>

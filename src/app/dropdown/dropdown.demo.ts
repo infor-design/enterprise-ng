@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
+import { SohoDropDownComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-dropdown-demo',
   templateUrl: './dropdown.demo.html',
 })
 export class DropdownDemoComponent implements OnInit {
+  @ViewChildren(SohoDropDownComponent) dropDowns: QueryList<SohoDropDownComponent>;
+
   public options: Array<Object> = [
     { value: 'AL', text: 'Alabama' },
     { value: 'CA', text: 'California' },
@@ -21,6 +24,8 @@ export class DropdownDemoComponent implements OnInit {
     modifiable: this.options[3],
   };
   public showModel = false;
+  public dropDownDisabled = false;
+  public dropDownReadOnly = false;
 
   constructor() { }
   ngOnInit() { }
@@ -33,6 +38,22 @@ export class DropdownDemoComponent implements OnInit {
   }
   toggleModel() {
     this.showModel = !this.showModel;
+  }
+
+  setEnable() {
+    this.dropDowns.first.disabled = false;
+    this.dropDownDisabled = this.dropDowns.first.disabled;
+    this.dropDownReadOnly = this.dropDowns.first.readonly;
+  }
+
+  setDisable() {
+    this.dropDowns.first.disabled = true;
+    this.dropDownDisabled = true;
+  }
+
+  setReadonly() {
+    this.dropDowns.first.readonly = true;
+    this.dropDownReadOnly = true;
   }
 
   source(response: any, searchTerm: any) {

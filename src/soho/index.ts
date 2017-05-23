@@ -1,6 +1,7 @@
 export * from './application-menu';
 export * from './busyindicator';
 export * from './button';
+export * from './chart';
 export * from './contextual-action-panel';
 export * from './datagrid';
 export * from './datepicker';
@@ -13,6 +14,7 @@ export * from './header';
 export * from './hyperlink';
 export * from './icon';
 export * from './input-validate';
+export * from './label';
 export * from './listview';
 export * from './lookup';
 export * from './mask';

@@ -1,4 +1,7 @@
-import { forwardRef, ChangeDetectorRef } from '@angular/core';
+import {
+  forwardRef,
+  ChangeDetectorRef
+} from '@angular/core';
 
 import {
   NG_VALUE_ACCESSOR,
@@ -83,7 +86,7 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
 /**
  * Provider - adds the contol value accessor.
  */
-export function provideControlValueAccessor(type: any) {
+export function provideControlValueAccessor(type: any): any {
   // creates an ngModel accessor to be used in components providers
   return {
     provide: NG_VALUE_ACCESSOR,

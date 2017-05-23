@@ -161,6 +161,18 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  @Input() set nextButtonEnable(enabled: boolean) {
+    if (this.jQueryElement) {
+      this.jQueryElement.find('.js-step-link-next').prop('disabled', !enabled);
+    }
+  }
+
+  @Input() set previousButtonEnable(enabled: boolean) {
+    if (this.jQueryElement) {
+      this.jQueryElement.find('.js-step-link-prev').prop('disabled', !enabled);
+    }
+  }
+
   // ------------------------------------------------------------------------
   // @Outputs
   // ------------------------------------------------------------------------
@@ -224,7 +236,6 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
 
     return this.beforeSelectStepDeferred.promise();
   }
-
   private beforeSelectStepResponse = (response: BeforeSelectStepResult) => {
     if (response.overrideTargetStepId) {
       const stepLinkToSelect = $('.js-step-link[href="#' + response.overrideTargetStepId + '"]');
