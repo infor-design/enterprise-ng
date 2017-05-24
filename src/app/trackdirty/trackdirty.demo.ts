@@ -2,7 +2,7 @@ import {
   Component,
   OnInit, ViewChild
 } from '@angular/core';
-import { SohoTrackDirtyDirective, SohoLookupComponent } from '@infor/sohoxi-angular';
+import { SohoLookupComponent } from '@infor/sohoxi-angular';
 
 /**
  * This example:
@@ -15,7 +15,6 @@ import { SohoTrackDirtyDirective, SohoLookupComponent } from '@infor/sohoxi-angu
 export class TrackDirtyDemoComponent implements OnInit {
 
   @ViewChild(SohoLookupComponent) sohoLookup: SohoLookupComponent;
-  @ViewChild(SohoTrackDirtyDirective) sohoTrackDirty: SohoTrackDirtyDirective;
 
   public model = {
     lookup: '',

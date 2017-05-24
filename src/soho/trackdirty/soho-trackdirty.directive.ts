@@ -55,10 +55,4 @@ export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
       this.trackDirty = null;
     }
   }
-
-  triggerChangeEvent() {
-    if (this.trackDirty) {
-      this.jQueryElement.trigger('change.dirty');
-    }
-  }
 }
