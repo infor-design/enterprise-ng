@@ -50,7 +50,6 @@ export class TrackDirtyDemoComponent implements OnInit {
     }}}`)];
 
     this.sohoLookup.setValue(data);
-    this.sohoTrackDirty.triggerChangeEvent();
   }
 
   onLookupField = (data: DataFields) => {

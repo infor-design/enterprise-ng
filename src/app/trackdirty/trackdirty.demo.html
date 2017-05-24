@@ -7,10 +7,9 @@
         <div class="two columns">
           <div class="field">
             <label for="lookup" class="label">Lookup</label>
-            <input name="lookup" soho-lookup
-              [click]="onLookupClick"
-              [field]="onLookupField"
-              soho-trackdirty [(ngModel)]="model.lookup" (pristine)="onPristine($event)" (dirty)="onDirty($event)"/>
+            <input name="lookup" [(ngModel)]="model.lookup"
+              soho-lookup [click]="onLookupClick" [field]="onLookupField"
+              soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"/>
           </div>
         </div>
         <div class="two columns">
