@@ -21,6 +21,12 @@ interface SohoBusyIndicatorOptions {
    /** Number of milliseconds before the indicator is removed, if 0 does indefinitely. */
    // Is this correct?  Should the indicator not close.
    timeToComplete?: number;
+
+  /**
+   * If true, allows the "blockUI" setting to display an overlay that prevents interaction,
+   * but appears transparent instead of gray.
+   */
+  transparentOverlay?: boolean;
 }
 
 /**

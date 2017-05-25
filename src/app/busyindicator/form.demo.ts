@@ -2,7 +2,7 @@ import {
   Component,
   ElementRef,
   ViewChild,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy, HostBinding
 } from '@angular/core';
 
 import {
@@ -20,6 +20,8 @@ export class BusyIndicatorDemoComponent {
   message = 'I am waiting ... ';
 
   delay = 1000;
+
+  transparentOverlay = false;
 
   @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
 

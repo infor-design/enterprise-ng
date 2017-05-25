@@ -50,7 +50,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, OnDestroy {
   /** This event is fired 'timeToComplete' milliseconds after the indicator is opened.
    * NOTE: There's no close event on the busyindicator.
   */
-  @Output() closeEvent = new EventEmitter<SohoBusyIndicatorEvent>();
+  @Output('close') closeEvent = new EventEmitter<SohoBusyIndicatorEvent>(); // tslint:disable-line
 
   // -------------------------------------------
   // Component Inputs
@@ -105,6 +105,19 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, OnDestroy {
       } else {
         this.busyindicator.close(true);
       }
+    }
+  }
+
+  /**
+   * Display an overlay that prevents interaction,
+   * but appears transparent instead of gray.
+   */
+  @Input()
+  public set transparentOverlay(transparentOverlay: boolean) {
+    this.options.transparentOverlay = transparentOverlay;
+    if (this.busyindicator) {
+      this.busyindicator.settings.transparentOverlay = transparentOverlay;
+      this.busyindicator.updated();
     }
   }
 
