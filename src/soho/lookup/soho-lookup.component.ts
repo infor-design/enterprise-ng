@@ -174,18 +174,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    * Handle the control being changed.
    */
   onChange(event: SohoLookupChangeEvent[]) {
-    if (!event) {
-      // sometimes the event is not available
-      this.value = this.lookup.element.val();
-      return;
-    }
-
-    if (event.length && event.length === 1) {
-      this.value = this.processValue(event[0].data);
-
-    } else {
-      this.value = event.map(val => val.data);
-    }
+    this.parseValue(event);
     this.change.emit(this.value);
   }
 
@@ -203,6 +192,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       toProcess = [toProcess];
     }
 
+    // mimics functionality in sohoxi lookup insertRows()
     for (let i = 0; i < toProcess.length; i++) {
       let current = '';
 
@@ -219,15 +209,21 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   /**
-   * Set lookup value to allow the lookup
-   * element to be updated correctly.
+   * Set lookup value to allow the lookup element to be updated correctly.
+   * Used when the click property is set on the sohoxi control.
    *
-   * @param value - the new value
+   * @param event - selected row
+   * TODO: Expose this in the Sohoxi library @tim @ed.coyle
+   *
+   * @todo raise SOHO jira issue
    */
   setValue(event: SohoLookupChangeEvent[]) {
     if (this.lookup) {
-      this.onChange(event);
-      this.lookup.element.val(this.value);
+      this.parseValue(event);
+
+      // mimics functionality in sohoxi lookup insertRows()
+      this.lookup.element.val(this.value).trigger('change', [event]);
+      this.lookup.element.focus();
     }
   }
 
@@ -243,6 +239,26 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       // The processing is required to ensure we use the correct format
       // in the control.
       this.lookup.element.val(value);
+    }
+  }
+
+  // private methods
+  /**
+   * Evaluate the event param and parse the value
+   * @param event
+   */
+  private parseValue(event: SohoLookupChangeEvent[]) {
+    if (!event) {
+      // sometimes the event is not available
+      this.value = this.lookup.element.val();
+      return;
+    }
+
+    if (event.length && event.length === 1) {
+      this.value = this.processValue(event[0].data);
+
+    } else {
+      this.value = event.map(val => val.data);
     }
   }
 }
