@@ -1,16 +1,18 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
   HostBinding,
   Input,
-  Output
+  Output,
 } from '@angular/core';
 
 @Component({
   selector: 'soho-header',
-  templateUrl: './soho-header.component.html'
+  templateUrl: './soho-header.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoHeaderComponent implements AfterViewInit {
   @HostBinding('class.header') get isHeader() { return true; }
