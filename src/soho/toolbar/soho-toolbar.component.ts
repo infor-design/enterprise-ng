@@ -24,7 +24,9 @@ import {
 
 @Component({
   selector: 'input[soho-toolbar-searchfield]', // tslint:disable-line
-  template: '<div #toolbarSearchField><ng-content></ng-content></div>'
+  template: '<div #toolbarSearchField><ng-content></ng-content></div>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
   /** Options. */
