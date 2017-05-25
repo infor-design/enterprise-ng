@@ -1,8 +1,8 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   ViewChild,
-  ChangeDetectionStrategy, HostBinding
 } from '@angular/core';
 
 import {
