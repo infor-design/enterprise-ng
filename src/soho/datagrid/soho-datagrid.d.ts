@@ -257,6 +257,14 @@ type SohoDataGridColumnHrefFunction = (
 
  type SohoDataGridColumnHref = string | SohoDataGridColumnHrefFunction;
 
+ type SohoDataGridColumnIsEditableFunction = (
+  row: number,
+  cell: any,
+  fieldValue: any,
+  columnDef: SohoDataGridColumn,
+  rowData: Object
+) => boolean;
+
 /**
  * This is an interface mapping for the grid column defined
  * within the Soho jQuery Control.
@@ -350,6 +358,9 @@ interface SohoDataGridColumn {
 
   /** href for hyperlink */
   href?: SohoDataGridColumnHref;
+
+  /** Column function to dynamically set the readonly property on cells based on row data. */
+  isEditable?: SohoDataGridColumnIsEditableFunction;
 }
 
 interface SohoGridCellOption {
