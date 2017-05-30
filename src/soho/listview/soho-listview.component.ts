@@ -247,6 +247,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
     this.jQueryElement.on('sorted', (...args) => this.sorted.emit(args));
   }
+
   ngAfterViewChecked() {
     if (this.updateRequired) {
       this.listview.updated();
@@ -261,6 +262,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
       this.listview = null;
     }
   }
+
   get listClass() {
     let classes = 'listview';
     if (this.class) {
@@ -269,7 +271,18 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     return classes;
   }
 
+  /**
+   * Clear all the currently selected listview items that are selected.
+   */
   clearAllSelected() {
     this.listview.clearAllSelected();
   }
+
+  /**
+   * Toggle the selected listview items between all and none.
+   */
+  toggleAll () {
+    this.listview.toggleAll();
+  }
+
 }
