@@ -58,6 +58,7 @@ export class SohoTabSeparatorComponent {
 })
 export class SohoTabPanelContainerComponent {
   @HostBinding('class.tab-panel-container') isTabPanelContainer = true;
+  @HostBinding('class.scrollable-y') @Input() verticalScrolling;
 }
 
 
@@ -112,11 +113,9 @@ export class SohoTabListComponent {
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SohoTabListContainerComponent implements AfterViewInit {
+export class SohoTabListContainerComponent {
   @HostBinding('class.tab-list-container') isTabListContainer = true;
-  ngAfterViewInit() {
-    console.log('SohoTabListContainerComponent');
-  }
+  @HostBinding('class.scrollable-y') @Input() verticalScrolling;
 }
 
 /**
