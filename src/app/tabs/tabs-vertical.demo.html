@@ -1,15 +1,19 @@
 <div class="page-container"> <!-- required to get the correct styles applied to the vertical tabs - ".page-container > tab-container.vertical" -->
 
   <div soho-tabs vertical="true" (activated)="onTabActivated($event)">
-    <ul soho-tab-list>
-      <li soho-tab><a soho-tab-title tabId="tabs-vertical-contracts">Contracts</a></li>
-      <li soho-tab disabled="true"><a soho-tab-title tabId="tabs-vertical-opportunities">Opportunites</a></li>
-      <li soho-tab><a soho-tab-title tabId="tabs-vertical-attachments">Attachments</a></li>
-      <li soho-tab hidden="true"><a soho-tab-title tabId="tabs-vertical-hidden">Hidden</a></li>
-      <li soho-tab selected="true"><a soho-tab-title tabId="tabs-vertical-contacts">Contacts</a></li>
-      <li soho-tab><a soho-tab-title tabId="tabs-vertical-notes">Notes</a></li>
-    </ul>
+    <div soho-tab-list-container [verticalScrolling]="true">
+      <ul soho-tab-list>
+        <li soho-tab><a soho-tab-title tabId="tabs-vertical-contracts">Contracts</a></li>
+        <li soho-tab disabled="true"><a soho-tab-title tabId="tabs-vertical-opportunities">Opportunites</a></li>
+        <li soho-tab><a soho-tab-title tabId="tabs-vertical-attachments">Attachments</a></li>
+        <li soho-tab hidden="true"><a soho-tab-title tabId="tabs-vertical-hidden">Hidden</a></li>
+        <li soho-tab selected="true"><a soho-tab-title tabId="tabs-vertical-contacts">Contacts</a></li>
+        <li soho-tab><a soho-tab-title tabId="tabs-vertical-notes">Notes</a></li>
+      </ul>
+    </div>
+  </div>
 
+  <div soho-tab-panel-container [verticalScrolling]="true">
     <div soho-tab-panel tabId="tabs-vertical-contracts">
       <h3>Contracts</h3>
       <p>Facilitate cultivate monetize, seize e-services peer-to-peer content integrateAJAX-enabled user-centric strategize. Mindshare; repurpose integrate global addelivery leading-edge frictionless, harness real-time plug-and-play standards-compliant 24/7 enterprise strategize robust infomediaries: functionalities back-end. Killer disintermediate web-enabled ubiquitous empower relationships, solutions, metrics architectures.</p>

@@ -12,24 +12,6 @@ import {
 } from '@angular/core';
 
 /**
- * Internal component to support the tab list items
- */
-@Component({
-  selector: 'li[soho-tab]', // tslint:disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-})
-export class SohoTabComponent {
-  @HostBinding('class.tab') get isTab() { return true; };
-
-  @HostBinding('class.dismissible') @Input() dismissible = false;
-  @HostBinding('class.is-selected') @Input() selected = false;
-  @HostBinding('class.is-disabled') @Input() disabled = false;
-  @HostBinding('class.hidden')  @Input() hidden = false;
-  @HostBinding('class.has-popupmenu') @Input() hasPopupMenu = false;
-}
-
-/**
  * Internal component to support the tab title
  */
 @Component({
@@ -55,7 +37,7 @@ export class SohoTabCountComponent {
 }
 
 /**
- * Internal component to support menu/dropdown tabs
+ * Internal component to support a divider between tab items
  */
 @Component({
   selector: 'li[soho-tab-separator]', // tslint:disable-line
@@ -67,6 +49,20 @@ export class SohoTabSeparatorComponent {
 }
 
 /**
+ * Internal component to support tab panel container content.
+ */
+@Component({
+  selector: 'div[soho-tab-panel-container]', // tslint:disable-line
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoTabPanelContainerComponent {
+  @HostBinding('class.tab-panel-container') isTabPanelContainer = true;
+  @HostBinding('class.scrollable-y') @Input() verticalScrolling;
+}
+
+
+/**
  * Internal component to support tab panel content.
  */
 @Component({
@@ -75,9 +71,26 @@ export class SohoTabSeparatorComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabPanelComponent {
-  @HostBinding('class.tab-panel') get isTabPanel() { return true; };
+  @HostBinding('class.tab-panel') isTabPanel = true;
   @HostBinding('attr.id')        @Input() tabId: string;
   @HostBinding('attr.contained') @Input() contained: string;
+}
+
+/**
+ * Internal component to support the tab list items
+ */
+@Component({
+  selector: 'li[soho-tab]', // tslint:disable-line
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoTabComponent {
+  @HostBinding('class.tab') get isTab() { return true; };
+  @HostBinding('class.dismissible') @Input() dismissible = false;
+  @HostBinding('class.is-selected') @Input() selected = false;
+  @HostBinding('class.is-disabled') @Input() disabled = false;
+  @HostBinding('class.hidden')  @Input() hidden = false;
+  @HostBinding('class.has-popupmenu') @Input() hasPopupMenu = false;
 }
 
 /**
@@ -88,8 +101,21 @@ export class SohoTabPanelComponent {
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SohoTabsListComponent {
-  @HostBinding('class.tab-list') get isTabList() { return true; };
+export class SohoTabListComponent {
+  @HostBinding('class.tab-list') isTabList = true;
+}
+
+/**
+ * Main tabset header component
+ */
+@Component({
+  selector: 'div[soho-tab-list-container]', // tslint:disable-line
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoTabListContainerComponent {
+  @HostBinding('class.tab-list-container') isTabListContainer = true;
+  @HostBinding('class.scrollable-y') @Input() verticalScrolling;
 }
 
 /**
@@ -97,7 +123,7 @@ export class SohoTabsListComponent {
  */
 @Component({
   selector: 'div[soho-tabs]', // tslint:disable-line
-  templateUrl: './soho-tabs.component.html',
+  template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
