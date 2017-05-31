@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   SohoTabsComponent,
-  SohoTabsListComponent,
+  SohoTabListContainerComponent,
+  SohoTabListComponent,
   SohoTabComponent,
   SohoTabTitleComponent,
   SohoTabCountComponent,
   SohoTabSeparatorComponent,
+  SohoTabPanelContainerComponent,
   SohoTabPanelComponent,
 } from './soho-tabs.component';
 
@@ -14,20 +16,24 @@ import {
   imports: [ CommonModule ],
   declarations: [
     SohoTabsComponent,
-    SohoTabsListComponent,
+    SohoTabListContainerComponent,
+    SohoTabListComponent,
     SohoTabComponent,
     SohoTabTitleComponent,
     SohoTabCountComponent,
     SohoTabSeparatorComponent,
+    SohoTabPanelContainerComponent,
     SohoTabPanelComponent,
   ],
   exports: [
     SohoTabsComponent,
-    SohoTabsListComponent,
+    SohoTabListContainerComponent,
+    SohoTabListComponent,
     SohoTabComponent,
     SohoTabTitleComponent,
     SohoTabCountComponent,
     SohoTabSeparatorComponent,
+    SohoTabPanelContainerComponent,
     SohoTabPanelComponent,
   ]
 })
