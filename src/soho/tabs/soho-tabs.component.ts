@@ -123,7 +123,7 @@ export class SohoTabListContainerComponent {
  */
 @Component({
   selector: 'div[soho-tabs]', // tslint:disable-line
-  templateUrl: './soho-tabs.component.html',
+  template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
