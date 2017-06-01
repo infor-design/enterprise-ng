@@ -22,7 +22,7 @@
     "add-develop-tag": "./scripts/add-npm-tag.js develop",
     "set-version": "./scripts/set-version.js",
     "set-sohoxi-version": "./scripts/set-sohoxi-version.js",
-    "publish": "gulp publish && npm publish publish --force"
+    "publish": "gulp publish && npm publish publish --tag dev --force"
   },
   "private": false,
   "dependencies": {
