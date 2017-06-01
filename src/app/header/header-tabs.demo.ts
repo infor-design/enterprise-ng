@@ -20,7 +20,7 @@ export class HeaderTabsDemoComponent implements AfterViewInit, OnDestroy {
     // ------------------------------------------------------------------------
     // After the view has been initialized then build and set the header tabs.
     // ------------------------------------------------------------------------
-    // setTimeout(() => this.showHeaderTabs());
+    this.showHeaderTabs();
   }
 
   ngOnDestroy() {
@@ -43,14 +43,9 @@ export class HeaderTabsDemoComponent implements AfterViewInit, OnDestroy {
   private showHeaderTabs() {
     if (!this.sohoHeaderRef.instance.hasHeaderTabs) {
       this.currentTabsOptions = this.tabOptions;
+      this.sohoHeaderRef.instance.sectionTitle = 'Header Tabs Demo';
+      this.sohoHeaderRef.instance.tabOptions = this.currentTabsOptions;
       this.isShowingHeaderTabs = true;
-
-      // give the template a pass to process current tab options
-      // before the soho-tabs component initializes.
-      setTimeout(() => {
-        this.sohoHeaderRef.instance.sectionTitle = 'Header Tabs Demo';
-        this.sohoHeaderRef.instance.tabOptions = this.currentTabsOptions;
-      });
     }
   }
 
@@ -58,8 +53,6 @@ export class HeaderTabsDemoComponent implements AfterViewInit, OnDestroy {
    * put the default header toolbar back.
    */
   private removeHeaderTabs() {
-    this.isShowingHeaderTabs = false;
-
     // ----------------------------------------------------------------
     // set Input using toolbarOptions instead of using a template.
     // this.sohoHeaderRef.instance.showHeaderToolbar = false;
@@ -68,6 +61,7 @@ export class HeaderTabsDemoComponent implements AfterViewInit, OnDestroy {
       this.currentTabsOptions = undefined;
       this.sohoHeaderRef.instance.sectionTitle = null;
       this.sohoHeaderRef.instance.tabOptions = undefined;
+      this.isShowingHeaderTabs = false;
     }
   }
 
