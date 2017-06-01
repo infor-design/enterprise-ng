@@ -35,12 +35,6 @@ export class SohoHeaderDynamicDemoComponent {
    */
   @Input() set toolbarOptions(options: HeaderDynamicToolbarOptions) {
     this.currentToolbarOptions = options;
-
-    setTimeout(() => {
-      if (this.sohoToolbarComponent) {
-        this.sohoToolbarComponent.updated();
-      }
-    });
   }
 
   /**
@@ -52,6 +46,12 @@ export class SohoHeaderDynamicDemoComponent {
 
   @Input() set toolbarSearchField(searchField: ToolbarSearchField) {
     this._toolbarSearchField = searchField;
+
+    setTimeout(() => {
+      if (this.sohoToolbarComponent) {
+        this.sohoToolbarComponent.updated();
+      }
+    });
   }
 
   get toolbarSearchField(): ToolbarSearchField {
