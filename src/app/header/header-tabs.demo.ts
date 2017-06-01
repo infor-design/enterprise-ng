@@ -12,14 +12,15 @@ import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
 })
 export class HeaderTabsDemoComponent implements AfterViewInit, OnDestroy {
   public currentTabsOptions: HeaderDynamicTabsetOptions = undefined;
-  public isShowingHeaderTabs = true;
+  public isShowingHeaderTabs = false;
+
   constructor(private sohoHeaderRef: HeaderDynamicDemoRefService) {}
 
   ngAfterViewInit() {
     // ------------------------------------------------------------------------
     // After the view has been initialized then build and set the header tabs.
     // ------------------------------------------------------------------------
-    this.showHeaderTabs();
+    // setTimeout(() => this.showHeaderTabs());
   }
 
   ngOnDestroy() {
@@ -42,8 +43,14 @@ export class HeaderTabsDemoComponent implements AfterViewInit, OnDestroy {
   private showHeaderTabs() {
     if (!this.sohoHeaderRef.instance.hasHeaderTabs) {
       this.currentTabsOptions = this.tabOptions;
-      this.sohoHeaderRef.instance.sectionTitle = 'Header Tabs Demo';
-      this.sohoHeaderRef.instance.tabOptions = this.currentTabsOptions;
+      this.isShowingHeaderTabs = true;
+
+      // give the template a pass to process current tab options
+      // before the soho-tabs component initializes.
+      setTimeout(() => {
+        this.sohoHeaderRef.instance.sectionTitle = 'Header Tabs Demo';
+        this.sohoHeaderRef.instance.tabOptions = this.currentTabsOptions;
+      });
     }
   }
 
@@ -51,6 +58,8 @@ export class HeaderTabsDemoComponent implements AfterViewInit, OnDestroy {
    * put the default header toolbar back.
    */
   private removeHeaderTabs() {
+    this.isShowingHeaderTabs = false;
+
     // ----------------------------------------------------------------
     // set Input using toolbarOptions instead of using a template.
     // this.sohoHeaderRef.instance.showHeaderToolbar = false;
@@ -69,6 +78,7 @@ export class HeaderTabsDemoComponent implements AfterViewInit, OnDestroy {
       { id: 'plastic-plates', title: 'Plastic Plates', content: 'Widgets remix, strategic holistic bandwidth, maximize deliver innovate infrastructures disintermediate channels. Reinvent; long-tail impactful target exploit e-business mashups, clicks-and-mortar front-end efficient scalable B2B tagclouds bricks-and-clicks--proactive web-enabled value, webservices. Generate dot-com networking standards-compliant integrateAJAX-enabled dynamic real-time widgets extensible convergence, "e-tailers iterate mesh; next-generation." Aggregate wireless networks exploit, iterate e-tailers impactful turn-key podcasts long-tail integrate platforms morph' }, // tslint:disable-line
       { id: 'plastic-bags',   title: 'Plastic Bags',   content: 'Back-end e-services end-to-end streamline portals methodologies post relationships enable e-markets users B2B, paradigms monetize eyeballs. Rich front-end, "dynamic webservices users revolutionary enterprise wireless capture orchestrate blogging; synergize; mindshare models engage!" Portals networkeffects mission-critical embrace, orchestrate, incentivize; relationships, platforms incentivize. Scalable applications world-class beta-test, target synergies frictionless synergies evolve web-readiness niches incentivize orchestrate.'}, // tslint:disable-line
       { id: 'creditcards',    title: 'Credit Cards',   content: 'Virtual supply-chains rich users iterate magnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.' } // tslint:disable-line
-    ]
+    ],
+    containerElementSelector: '#header-demo-tab-panels'
   };
 }

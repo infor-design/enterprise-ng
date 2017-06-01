@@ -317,27 +317,35 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   constructor(private element: ElementRef) {}
 
   ngAfterViewInit() {
-    // assign element to local variable
-    this.jQueryElement = jQuery(this.element.nativeElement);
+    setTimeout(() => {
+      // The markup for tab panels are now moved outside the soho-tabs and into their own
+      // <div class=tab-panel-container> element. This causes issues in this lifecycle event
+      // since we try to initialize the jquery tabs() before the soho-tab-panel-container has
+      // had a chance to apply it's host bindings: Specifically applying the tab-panel-container
+      // class which is needed for the jquery component to initialize properly.
 
-    // bind to jquery events and emit as angular events
-    this.jQueryElement
-      .on('beforeactivate', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.beforeActivate.emit(event); }))
-      .on('activated', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.activated.emit(event); }))
-      .on('afteractivate', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.afterActivate.emit(event); }))
-      .on('close', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.close.emit(event); }))
-      .on('afterclose', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.afterClose.emit(event); }))
-      .on('tab-added', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.tabAdded.emit(event); }));
+      // assign element to local variable
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    // initialize the tabs plugin
-    this.jQueryElement.tabs(this._tabsOptions);
-    this.tabs = this.jQueryElement.data('tabs');
+      // bind to jquery events and emit as angular events
+      this.jQueryElement
+        .on('beforeactivate', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.beforeActivate.emit(event); }))
+        .on('activated', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.activated.emit(event); }))
+        .on('afteractivate', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.afterActivate.emit(event); }))
+        .on('close', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.close.emit(event); }))
+        .on('afterclose', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.afterClose.emit(event); }))
+        .on('tab-added', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.tabAdded.emit(event); }));
 
-    this.updateTabInfo();
+      // initialize the tabs plugin
+      this.jQueryElement.tabs(this._tabsOptions);
+      this.tabs = this.jQueryElement.data('tabs');
+
+      this.updateTabInfo();
+    });
   }
 
   ngAfterViewChecked(): void {
-    if (!this.jQueryElement) {
+    if (!this.jQueryElement || !this.tabs) {
       return;
     }
 
