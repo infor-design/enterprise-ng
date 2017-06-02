@@ -321,7 +321,6 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
   unselect(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
     this.execute((e) => this.listview.unselect(e), index);
   }
-
   /**
    * Selects the list item (or list items) identified by their index or jQuery element.
    *
