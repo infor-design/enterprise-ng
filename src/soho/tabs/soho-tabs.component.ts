@@ -345,7 +345,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   ngAfterViewChecked(): void {
-    if (!this.jQueryElement || !this.tabs) {
+    if (!this.jQueryElement) {
       return;
     }
 
