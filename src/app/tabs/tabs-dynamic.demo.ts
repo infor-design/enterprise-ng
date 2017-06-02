@@ -60,7 +60,6 @@ export class TabsDynamicDemoComponent implements OnInit {
 
     this.tabs = this.tabsData[this.currentTabsIndex];
     this.currentTabTitleChangeNumber = 1;
-    setTimeout(_ => this.sohoTabsComponent.updated());
   }
 
   onChangeTitles() {
@@ -75,7 +74,6 @@ export class TabsDynamicDemoComponent implements OnInit {
     }
 
     this.currentTabTitleChangeNumber++;
-    setTimeout(_ => this.sohoTabsComponent.updated());
   }
 
   onActivated(event: SohoTabsEvent) {
