@@ -73,12 +73,14 @@
 
   </soho-toolbar>
 
-  <div soho-tabs *ngIf="currentTabsOptions" #appDynamicHeaderTabs>
-    <ul soho-tab-list>
-      <li soho-tab *ngFor="let tab of currentTabsOptions.tabs">
-        <a soho-tab-title [tabId]="tab.id">{{tab.title}}</a>
-      </li>
-    </ul>
+  <div soho-tabs *ngIf="currentTabsOptions" #appDynamicHeaderTabs [containerElement]="currentTabsOptions.containerElementSelector">
+    <div soho-tab-list-container>
+      <ul soho-tab-list>
+        <li soho-tab *ngFor="let tab of currentTabsOptions.tabs">
+          <a soho-tab-title [tabId]="tab.id">{{tab.title}}</a>
+        </li>
+      </ul>
+    </div>
   </div>
 
 </soho-header>
