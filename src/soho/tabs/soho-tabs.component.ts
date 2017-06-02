@@ -381,7 +381,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
     this.tabTitles = this.getTabTitles($liList);
   }
 
-  private getTabLiList($liList?: JQuery) {
+  private getTabLiList() {
     return this.jQueryElement.find('.tab-list').find('li');
   }
 
