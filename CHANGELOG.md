@@ -41,7 +41,7 @@
 
 ### Breaking Changes
 
-* 2017-06-01 - VW - PR-298 - Replaced enable and disable functions with disable property to enable/disable dropdown and added readonly property. 
+* 2017-06-01 - VW - PR-298 - Replaced enable and disable functions with disabled property to enable/disable dropdown and added readonly property. 
 
 * 2017-05-31 - PWP - Markup change needed for new tabs implementation in soho
 
