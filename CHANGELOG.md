@@ -68,7 +68,7 @@
       ...
     </div>
     ``` 
-    If the `<div soho-tab-panel-container>` is not a sibling of `<ul soho-tab-list>` (for example 
+    If the `<div soho-tab-panel-container>` is not a sibling of `<ul soho-tabs>` (for example 
     in the case of header tabs) then you'll need to pass in a containerElement selector as input to the
     `<div soho-tabs>`. For Example:
     ```angular2html
