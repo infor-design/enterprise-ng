@@ -68,6 +68,19 @@
       ...
     </div>
     ``` 
+    If the `<div soho-tab-panel-container>` is not a sibling of `<ul soho-tab-list>` (for example 
+    in the case of header tabs) then you'll need to pass in a containerElement selector as input to the
+    `<div soho-tabs>`. For Example:
+    ```angular2html
+    <header>
+      <div soho-tabs [containerElement]="#header-tab-panels">
+      </div>
+    </header>
+  
+    * somewhere in your document * 
+    <div soho-tab-panel-container id="header-tab-panels">
+    </div>
+    ```     
  
 * 2017-04-19 - BTH - Changed `selectedNode` to `selectNode` to match jQuery tree widget.
 
