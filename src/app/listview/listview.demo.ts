@@ -1,4 +1,11 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  ViewChild
+ } from '@angular/core';
+
+ import {
+   SohoListViewComponent
+ } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-listview-demo',
@@ -10,6 +17,11 @@ import { Component } from '@angular/core';
   `]
 })
 export class ListViewDemoComponent {
+
+  @ViewChild('singleSelectListView') singleSelectListView: SohoListViewComponent;
+
+  @ViewChild('multipleSelectListView') multipleSelectListView: SohoListViewComponent;
+
   public demoTasks: Object[];
   public loadTasks: Object[];
   private counter = 63012;
@@ -48,6 +60,33 @@ export class ListViewDemoComponent {
     });
     temp = null;
   }
+
+  selectItems(listView: SohoListViewComponent) {
+    for (let i = 0; i < listView.items.length; i++) {
+      setTimeout(() => listView.select(i), i * 1000);
+    }
+  }
+
+  unselectItems(listView: SohoListViewComponent) {
+    for (let i = 0; i < listView.items.length; i++) {
+      listView.unselect(i);
+    }
+  }
+
+  removeItems(listView: SohoListViewComponent) {
+    if (listView.selectedItems) {
+      console.log(listView.selectedItems);
+    }
+
+    const indices: number[] = new Array<number>();
+    for (let i = 0; i < listView.items.length; i++) {
+      indices.push(i);
+    }
+    listView.remove(indices);
+
+    this.demoTasks = [];
+  }
+
   load() {
     setTimeout(() => {
     let temp = this.loadTasks;

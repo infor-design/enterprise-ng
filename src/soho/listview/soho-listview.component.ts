@@ -4,6 +4,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ContentChild,
+  ContentChildren,
   ElementRef,
   EventEmitter,
   HostBinding,
@@ -12,7 +13,10 @@ import {
   Output,
   ViewChild,
   forwardRef,
+  QueryList
 } from '@angular/core';
+
+import { ArgumentHelper } from '../utils';
 
 import { SohoSearchFieldComponent } from '../searchfield';
 
@@ -92,6 +96,8 @@ export class SohoListViewMicroComponent {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterViewChecked {
+
+ @ContentChildren(SohoListViewItemComponent) items: QueryList<SohoListViewItemComponent>;
 
   /**
    * String of classes to append to the class for the list-view div element
@@ -283,6 +289,89 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    */
   toggleAll () {
     this.listview.toggleAll();
+  }
+
+  /**
+   * Selected List Items.
+   *
+   * @return the indexes of the selected list items.
+   */
+  get selectedItems(): number[] {
+    // Map the selected items as indexes
+    // @todo could map to the SohoListViewItemComponent?
+    return this.listview.selectedItems.map((element) => element.index());
+  }
+
+  /**
+   * Removes the list item (or list items) identified by their index or jQuery element.
+   *
+   * @param index - the index (or list of indices) of the items to be removed.
+   * @throws Error if the argument is null, or contains out of range indices then any error is thrown.
+   */
+  remove(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
+    this.execute((e) => this.listview.remove(e), index);
+  }
+
+  /**
+   * Unselects the list item (or list items) identified by their index or jQuery element.
+   *
+   * @param index - the index (or list of indices) of the items to be unselected.
+   * @throws Error if the argument is null, or contains out of range indices then any error is thrown.
+   */
+  unselect(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
+    this.execute((e) => this.listview.unselect(e), index);
+  }
+
+  /**
+   * Selects the list item (or list items) identified by their index or jQuery element.
+   *
+   * If the argument is null, or contains out of range indices then any error is thrown.
+   *
+   * @param index the index (or list of indices) of the items to be deselected.
+   * @throws Error if the argument is null, or contains out of range indices then any error is thrown.
+   */
+  select(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
+    this.execute((e) => this.listview.select(e), index);
+  }
+
+  /**
+   * Applys the given function to the list view item(s).
+   *
+   * @param fn the function to apply - must take a SohoListViewReference.
+   * @param index the index of list view item(s).
+   */
+   execute(fn: (index: SohoListViewItemReference) => void, index: SohoListViewItemReference | SohoListViewItemReference[]): void {
+    ArgumentHelper.checkNotNull('index', index);
+
+    if (this.listview) {
+      this.boundsCheck(index);
+
+      if (index instanceof Array) {
+        index.forEach(element => fn(element) );
+      } else {
+        fn(index);
+      }
+    } else {
+      throw Error('Not initialised');
+    }
+  }
+
+  /**
+   * Verifies the given item reference is within allowable ranges.
+   */
+  private boundsCheck(index: SohoListViewItemReference | SohoListViewItemReference[]) {
+      if (typeof index === 'number') {
+        const indexNumber = index;
+        if (indexNumber < 0 || indexNumber >= this.itemCount) {
+          throw Error(`The index ${index} is out of bounds.`);
+        }
+      } else if (index instanceof Array) {
+        index.forEach(element => this.boundsCheck(element) );
+      }
+  }
+
+  private get itemCount(): number {
+    return this.items.length;
   }
 
 }

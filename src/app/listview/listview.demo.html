@@ -4,12 +4,18 @@
     <div class="row">
       <div class="two-thirds column">
         <button soho-button (click)="addItems()">Add Item</button>
+        <button soho-button (click)="selectItems(singleSelectListView)">Select Items</button>
+        <button soho-button (click)="unselectItems(singleSelectListView)">Unselect Items</button>
+        <button soho-button (click)="removeItems(singleSelectListView)">Remove Items</button>
+        <br/>
+        <br/>
         <div class="card">
           <div class="card-header">
             <h2 class="card-title">Tasks - Single Select</h2>
           </div>
           <div class="card-content">
             <soho-listview
+              #singleSelectListView
               (rendered)="onRendered($event)"
               (selected)="onSelected($event)"
               (sorted)="onSorted($event)">
@@ -24,12 +30,20 @@
         </div>
       </div>
       <div class="two-thirds column">
+        <button soho-button (click)="selectItems(multipleSelectListView)">Select Items</button>
+        <button soho-button (click)="unselectItems(multipleSelectListView)">Unselect Items</button>
+        <button soho-button (click)="removeItems(multipleSelectListView)">Remove Items</button>
+        <br/>
+        <br/>
+
         <div class="card">
           <div class="card-header">
             <h2 class="card-title">Tasks - Multi Select</h2>
           </div>
           <div class="card-content" style="overflow: hidden;">
-            <soho-listview selectable="multiple"
+            <soho-listview
+              #multipleSelectListView
+              selectable="multiple"
               (rendered)="onRendered($event)"
               (selected)="onSelected($event)"
               (sorted)="onSorted($event)">
