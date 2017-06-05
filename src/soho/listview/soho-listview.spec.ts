@@ -81,7 +81,7 @@ describe('Soho ListView Render', () => {
 });
 
 @Component({
-  template: `<soho-listview
+  template: `<soho-listview>
               <li soho-listview-item *ngFor="let data of listItems" [disabled]="data.disabled ? true : false">
                 <p soho-listview-header>Task #{{data.task}}</p>
                 <p soho-listview-subheader>{{data.desc}}</p>

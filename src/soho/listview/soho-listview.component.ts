@@ -41,6 +41,7 @@ export class SohoListViewSearchComponent {
    * searchfield
    */
   @Input() buildSearch = true;
+
   @HostBinding('class.listview-search') get isListviewSearch() { return true; }
 }
 
@@ -199,6 +200,32 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
   }
 
   /**
+   * Sets or gets the selected items.
+   *
+   * @memberof SohoListViewComponent
+   */
+  @Input() set selectedItems(selectedItems: number[]) {
+    // To pass in the id's of the list items will require the
+    // the lis to be parsed.
+    this.select(selectedItems);
+  }
+
+  get selectedItems(): number[] {
+    return this.listview.selectedItems.map((element) =>  element.index());
+  }
+
+  /**
+   * Selected List Items.
+   *
+   * @return the indexes of the selected list items.
+   */
+  get selectedItemCount(): number[] {
+    // Map the selected items as indexes
+    // @todo could map to the SohoListViewItemComponent?
+    return this.listview.selectedItems.map((element) => element.index());
+  }
+
+  /**
    * Called after the listview is rendered, passes the dataset
    */
   @Output() rendered: EventEmitter<Object[]> = new EventEmitter<Object[]>();
@@ -292,24 +319,13 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
   }
 
   /**
-   * Selected List Items.
-   *
-   * @return the indexes of the selected list items.
-   */
-  get selectedItems(): number[] {
-    // Map the selected items as indexes
-    // @todo could map to the SohoListViewItemComponent?
-    return this.listview.selectedItems.map((element) => element.index());
-  }
-
-  /**
    * Removes the list item (or list items) identified by their index or jQuery element.
    *
    * @param index - the index (or list of indices) of the items to be removed.
    * @throws Error if the argument is null, or contains out of range indices then any error is thrown.
    */
   remove(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
-    this.execute((e) => this.listview.remove(e), index);
+    this.apply((e) => this.listview.remove(e), index);
   }
 
   /**
@@ -319,7 +335,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * @throws Error if the argument is null, or contains out of range indices then any error is thrown.
    */
   unselect(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
-    this.execute((e) => this.listview.unselect(e), index);
+    this.apply((e) => this.listview.unselect(e), index);
   }
   /**
    * Selects the list item (or list items) identified by their index or jQuery element.
@@ -330,16 +346,16 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * @throws Error if the argument is null, or contains out of range indices then any error is thrown.
    */
   select(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
-    this.execute((e) => this.listview.select(e), index);
+    this.apply((e) => this.listview.select(e), index);
   }
 
   /**
-   * Applys the given function to the list view item(s).
+   * Apply the given function to the list view item(s).
    *
    * @param fn the function to apply - must take a SohoListViewReference.
    * @param index the index of list view item(s).
    */
-   execute(fn: (index: SohoListViewItemReference) => void, index: SohoListViewItemReference | SohoListViewItemReference[]): void {
+   private apply(fn: (index: SohoListViewItemReference) => void, index: SohoListViewItemReference | SohoListViewItemReference[]): void {
     ArgumentHelper.checkNotNull('index', index);
 
     if (this.listview) {
@@ -351,7 +367,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
         fn(index);
       }
     } else {
-      throw Error('Not initialised');
+      throw Error('Component not initialised.');
     }
   }
 
@@ -362,13 +378,16 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
       if (typeof index === 'number') {
         const indexNumber = index;
         if (indexNumber < 0 || indexNumber >= this.itemCount) {
-          throw Error(`The index ${index} is out of bounds.`);
+          throw Error(`The item index '${index}' is out of bounds.`);
         }
       } else if (index instanceof Array) {
         index.forEach(element => this.boundsCheck(element) );
       }
   }
 
+  /**
+   * The number of items in the list.
+   */
   private get itemCount(): number {
     return this.items.length;
   }
