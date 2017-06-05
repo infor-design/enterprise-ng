@@ -153,6 +153,9 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       this.lookup = null;
     }
   }
+  isMultiselect(): boolean {
+    return this.multiselect !== false || (this.options && this.options.selectable === 'multiple'); 
+  }
   modalOpened(args: any[]) {
     /**
      * Temporary fix for inability for grid to async call data and resize modal on returned
@@ -264,9 +267,6 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     } else {
       this.value = event.map(val => this.asobject !== false ? val.data : this.processValue(val.data));
     }
-  }
-  private isMultiselect(): boolean {
-    return this.multiselect !== false || (this.options && this.options.selectable === 'multiple'); 
   }
 }
 
