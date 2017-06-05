@@ -61,7 +61,7 @@ describe('Soho Basic Tabs Render', () => {
     el = de.nativeElement;
   });
 
-  it('Check HTML content', () => {
+  fit('Check HTML content', () => {
     const tabsElement: Element = el.children[0];
     expect(tabsElement.nodeName).toBe('DIV');
 
@@ -73,8 +73,14 @@ describe('Soho Basic Tabs Render', () => {
     expect(tabsElement.classList).toContain('tab-container');
     expect(tabsElement.classList).toContain('horizontal');
 
+    // check div.tab-list-container element
+    const tabListContainerElementList: NodeListOf<Element> = tabsElement.getElementsByClassName('tab-list-container');
+    expect(tabListContainerElementList.length).toBe(1);
+    expect(tabListContainerElementList[0].nodeName).toBe('DIV');
+
     // check ul element
-    const tabListElementList: NodeListOf<HTMLUListElement> = tabsElement.getElementsByTagName('ul');
+    const tabListElementList: NodeListOf<HTMLUListElement> = tabListContainerElementList[0].getElementsByTagName('ul');
+
     expect(tabListElementList.length).toBe(1);
     expect(tabListElementList[0].getAttribute('soho-tab-list')).not.toBeNull();
     expect(tabListElementList[0].classList).toContain('tab-list');
@@ -110,8 +116,13 @@ describe('Soho Basic Tabs Render', () => {
     expect(anchorElementList[0].getAttribute('href')).toEqual('#' + tabId);
     expect(anchorElementList[0].innerText).toEqual('Opportunites');
 
+    // check tab panel container
+    const tabPanelContainerElement: Element = el.children[1];
+    expect(tabPanelContainerElement.nodeName).toBe('DIV');
+    expect(tabPanelContainerElement.classList).toContain('tab-panel-container');
+
     // check tab panels
-    const tabPanelElementList: NodeListOf<Element> = tabsElement.querySelectorAll('div[soho-tab-panel]');
+    const tabPanelElementList: NodeListOf<Element> = tabPanelContainerElement.querySelectorAll('div[soho-tab-panel]');
     expect(tabPanelElementList[0].classList).toContain('tab-panel');
     expect(tabPanelElementList[0].getAttribute('tabId')).toEqual('tabs-normal-contracts');
     expect(tabPanelElementList[0].getAttribute('id')).toEqual(tabPanelElementList[0].getAttribute('tabId'));
@@ -125,16 +136,19 @@ describe('Soho Basic Tabs Render', () => {
 @Component({
   template: `
     <div soho-tabs>
-
-      <ul soho-tab-list>
-        <li soho-tab>
-          <a soho-tab-title tabId='tabs-normal-contracts'>Contracts</a>
-        </li>
-        <li soho-tab selected=true>
-          <a soho-tab-title tabId='tabs-normal-opportunities'>Opportunites</a>
-        </li>
-      </ul>
-
+      <div soho-tab-list-container>
+        <ul soho-tab-list>
+          <li soho-tab>
+            <a soho-tab-title tabId='tabs-normal-contracts'>Contracts</a>
+          </li>
+          <li soho-tab selected=true>
+            <a soho-tab-title tabId='tabs-normal-opportunities'>Opportunites</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div soho-tab-panel-container>
       <div soho-tab-panel tabId='tabs-normal-contracts'>
         <p>Contracts Tab Content</p>
       </div>
