@@ -146,7 +146,7 @@ describe('Soho Basic Tabs Render', () => {
 @Component({
   template: `
     <div soho-tabs>
-      <div class="tab-list-container">
+      <div soho-tab-list-container>
         <ul soho-tab-list>
           <li soho-tab>
             <a soho-tab-title tabId='tabs-normal-contracts'>Contracts</a>
@@ -158,7 +158,7 @@ describe('Soho Basic Tabs Render', () => {
       </div>
     </div>
     
-    <div class="tab-panel-container">
+    <div soho-tab-panel-container>
       <div soho-tab-panel tabId='tabs-normal-contracts'>
         <p>Contracts Tab Content</p>
       </div>
