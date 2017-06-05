@@ -128,7 +128,7 @@ export class SohoTabListContainerComponent {
 export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   @HostBinding('class.tab-container') get isTabContainer() { return true; };
   @HostBinding('class.vertical')      get isVertical()     { return this.vertical; };
-  @HostBinding('class.horizonal')     get isHorizontal()   { return this.horizontal; };
+  @HostBinding('class.horizontal')    get isHorizontal()   { return this.horizontal; };
   @HostBinding('class.module-tabs')   get isModuleTabs()   { return this.moduleTabs; };
   @HostBinding('class.header-tabs')   get isHeaderTabs()   { return this.headerTabs; };
   @HostBinding('attr.alternate')      get isAlternate()    { return this.alternate; };
@@ -141,7 +141,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
    * set to true to show a secondary style for the tabs
    * @type {boolean}
    */
-  @Input() horizontal = false;
+  @Input() horizontal = !this.isVertical;
 
   /**
    * set to true to show a secondary style for the tabs
