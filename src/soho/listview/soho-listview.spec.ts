@@ -7,14 +7,14 @@ import { SohoListViewModule } from './soho-listview.module';
 import { SohoListViewComponent } from './soho-listview.component';
 
 describe('Soho Listview Unit Tests', () => {
-  let comp:     SohoListViewComponent;
-  let fixture:  ComponentFixture<SohoListViewComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let comp: SohoListViewComponent;
+  let fixture: ComponentFixture<SohoListViewComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoListViewComponent ]
+      declarations: [SohoListViewComponent]
     });
 
     fixture = TestBed.createComponent(SohoListViewComponent);
@@ -34,24 +34,24 @@ describe('Soho Listview Unit Tests', () => {
 });
 
 describe('Soho ListView Render', () => {
-  let listview:  SohoListViewComponent;
+  let listview: SohoListViewComponent;
   let component: SohoListViewTestComponent;
-  let fixture:   ComponentFixture<SohoListViewTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoListViewTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoListViewTestComponent ],
-      imports: [ FormsModule, SohoListViewModule ]
+      declarations: [SohoListViewTestComponent],
+      imports: [FormsModule, SohoListViewModule]
     });
 
     fixture = TestBed.createComponent(SohoListViewTestComponent);
     component = fixture.componentInstance;
-    listview = component.dropdown;
+    listview = component.listview;
 
     de = fixture.debugElement;
-    el = de.query(By.css('select[soho-dropdown]')).nativeElement;
+    el = de.query(By.css('[soho-listview]')).nativeElement;
 
     fixture.detectChanges();
   });
@@ -81,29 +81,31 @@ describe('Soho ListView Render', () => {
 });
 
 @Component({
-  template: `<soho-listview>
-              <li soho-listview-item *ngFor="let data of listItems" [disabled]="data.disabled ? true : false">
-                <p soho-listview-header>Task #{{data.task}}</p>
-                <p soho-listview-subheader>{{data.desc}}</p>
-                <p soho-listview-micro>DUE: {{data.date}}</p>
-              </li>
-            </soho-listview>`
+  template: `<div>
+               <soho-listview [searchable]="false" selectable="single">
+                 <li soho-listview-item *ngFor="let item of listItems" [disabled]="item.disabled" [selected]="item.selected">
+                  <p soho-listview-header>Task #{{item.task}}</p>
+                  <p soho-listview-subheader>{{item.desc}}</p>
+                  <p soho-listview-micro>DUE: {{item.date}}</p>
+                </li>
+              </soho-listview>
+            </div>`
 })
 class SohoListViewTestComponent {
-  @ViewChild(SohoListViewComponent) dropdown: SohoListViewComponent;
+  @ViewChild(SohoListViewComponent) listview: SohoListViewComponent;
   selectedTasks = [0, 1];
 
-    public listItems = [
-     {task: '063001', error: true, date: '10/11/2015', desc: 'Special fields test - New item has been created.'},
-    {task: '063002', date: '10/11/2015' , desc: 'Part #4212132 has low inventory level', disabled: true},
-    {task: '063003', date: '10/07/2015' , desc: 'Check #112412 parts ordering.'},
-    {task: '063004', date: '10/07/2015' , desc: 'Special fields test - New item has been created.'},
-    {task: '063005', date: '10/11/2015' , desc: 'Call XYZ Inc at 5 PM'},
-    {task: '063006', error: true, date: '10/11/2015' , desc: 'Part #4212132 has low inventory level'},
-    {task: '063007', date: '07/11/2015' , desc: 'Special fields test - New item has been created.'},
-    {task: '063008', date: '10/11/2015' , desc: 'Part #5212132 has low inventory level'},
-    {task: '063009', date: '10/07/2015' , desc: 'Check #212412 parts ordering.'},
-    {task: '063010', date: '10/11/2015' , desc: 'Special fields test - New item has been created.'},
-    {task: '063011', date: '10/11/2015' , desc: 'Call TMZ Inc at 5 PM'},
-    {task: '063012', date: '07/08/2015' , desc: 'Part #6212132 has low inventory level'}];
+  public listItems = [
+    { task: '063001', error: true, date: '10/11/2015', desc: 'Special fields test - New item has been created.' },
+    { task: '063002', date: '10/11/2015', desc: 'Part #4212132 has low inventory level', disabled: true },
+    { task: '063003', date: '10/07/2015', desc: 'Check #112412 parts ordering.', selected: true },
+    { task: '063004', date: '10/07/2015', desc: 'Special fields test - New item has been created.' },
+    { task: '063005', date: '10/11/2015', desc: 'Call XYZ Inc at 5 PM' },
+    { task: '063006', error: true, date: '10/11/2015', desc: 'Part #4212132 has low inventory level' },
+    { task: '063007', date: '07/11/2015', desc: 'Special fields test - New item has been created.' },
+    { task: '063008', date: '10/11/2015', desc: 'Part #5212132 has low inventory level' },
+    { task: '063009', date: '10/07/2015', desc: 'Check #212412 parts ordering.' },
+    { task: '063010', date: '10/11/2015', desc: 'Special fields test - New item has been created.' },
+    { task: '063011', date: '10/11/2015', desc: 'Call TMZ Inc at 5 PM' },
+    { task: '063012', date: '07/08/2015', desc: 'Part #6212132 has low inventory level' }];
 }

@@ -25,6 +25,7 @@ export class ListViewDemoComponent {
   public demoTasks: Object[];
   public loadTasks: Object[];
   private counter = 63012;
+
   public dates = [
     '10/11/2015',
     '10/07/2015',
@@ -38,13 +39,13 @@ export class ListViewDemoComponent {
     this.loadTasks = [];
     this.demoTasks.push({task: '063001', error: true, date: '10/11/2015', desc: 'Special fields test - New item has been created.'});
     this.demoTasks.push({task: '063002', date: '10/11/2015' , desc: 'Part #4212132 has low inventory level', disabled: true});
-    this.demoTasks.push({task: '063003', date: '10/07/2015' , desc: 'Check #112412 parts ordering.'});
+    this.demoTasks.push({task: '063003', date: '10/07/2015' , desc: 'Check #112412 parts ordering.', selected: true});
     this.demoTasks.push({task: '063004', date: '10/07/2015' , desc: 'Special fields test - New item has been created.'});
-    this.demoTasks.push({task: '063005', date: '10/11/2015' , desc: 'Call XYZ Inc at 5 PM'});
+    this.demoTasks.push({task: '063005', date: '10/11/2015' , desc: 'Call XYZ Inc at 5 PM', selected: true});
     this.demoTasks.push({task: '063006', error: true, date: '10/11/2015' , desc: 'Part #4212132 has low inventory level'});
     this.demoTasks.push({task: '063007', date: '07/11/2015' , desc: 'Special fields test - New item has been created.'});
     this.demoTasks.push({task: '063008', date: '10/11/2015' , desc: 'Part #5212132 has low inventory level'});
-    this.demoTasks.push({task: '063009', date: '10/07/2015' , desc: 'Check #212412 parts ordering.'});
+    this.demoTasks.push({task: '063009', date: '10/07/2015' , desc: 'Check #212412 parts ordering.', selected: true});
     this.demoTasks.push({task: '063010', date: '10/11/2015' , desc: 'Special fields test - New item has been created.'});
     this.demoTasks.push({task: '063011', date: '10/11/2015' , desc: 'Call TMZ Inc at 5 PM'});
     this.demoTasks.push({task: '063012', date: '07/08/2015' , desc: 'Part #6212132 has low inventory level'});
@@ -68,21 +69,11 @@ export class ListViewDemoComponent {
   }
 
   unselectItems(listView: SohoListViewComponent) {
-    for (let i = 0; i < listView.items.length; i++) {
-      listView.unselect(i);
-    }
+    listView.unselect(listView.items.map((item) => item.selector));
   }
 
   removeItems(listView: SohoListViewComponent) {
-    if (listView.selectedItems) {
-      console.log(listView.selectedItems);
-    }
-
-    const indices: number[] = new Array<number>();
-    for (let i = 0; i < listView.items.length; i++) {
-      indices.push(i);
-    }
-    listView.remove(indices);
+    listView.remove(listView.items.map((e) => e.index));
 
     this.demoTasks = [];
   }
@@ -93,12 +84,12 @@ export class ListViewDemoComponent {
     this.loadTasks = [];
     this.loadTasks.push({task: '063001', error: true, date: '10/11/2015', desc: 'Special fields test - New item has been created.'});
     this.loadTasks.push({task: '063002', date: '10/11/2015' , desc: 'Part #4212132 has low inventory level', disabled: true});
-    this.loadTasks.push({task: '063003', date: '10/07/2015' , desc: 'Check #112412 parts ordering.'});
+    this.loadTasks.push({task: '063003', date: '10/07/2015' , desc: 'Check #112412 parts ordering.', selected: true});
     this.loadTasks.push({task: '063004', date: '10/07/2015' , desc: 'Special fields test - New item has been created.'});
-    this.loadTasks.push({task: '063005', date: '10/11/2015' , desc: 'Call XYZ Inc at 5 PM'});
+    this.loadTasks.push({task: '063005', date: '10/11/2015' , desc: 'Call XYZ Inc at 5 PM', selected: true});
     this.loadTasks.push({task: '063006', error: true, date: '10/11/2015' , desc: 'Part #4212132 has low inventory level'});
     this.loadTasks.push({task: '063007', date: '07/11/2015' , desc: 'Special fields test - New item has been created.'});
-    this.loadTasks.push({task: '063008', date: '10/11/2015' , desc: 'Part #5212132 has low inventory level'});
+    this.loadTasks.push({task: '063008', date: '10/11/2015' , desc: 'Part #5212132 has low inventory level', selected: true});
     this.loadTasks.push({task: '063009', date: '10/07/2015' , desc: 'Check #212412 parts ordering.'});
     this.loadTasks.push({task: '063010', date: '10/11/2015' , desc: 'Special fields test - New item has been created.'});
     this.loadTasks.push({task: '063011', date: '10/11/2015' , desc: 'Call TMZ Inc at 5 PM'});

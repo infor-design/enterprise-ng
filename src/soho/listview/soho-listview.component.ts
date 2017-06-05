@@ -51,9 +51,33 @@ export class SohoListViewSearchComponent {
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoListViewItemComponent {
+export class SohoListViewItemComponent implements AfterViewInit {
+  private listItem: JQuery;
+
   @HostBinding('class.is-disabled')
-  @Input() disabled: boolean;
+  @Input() disabled = false;
+
+  @HostBinding('class.is-selected')
+  @Input() selected = false;
+
+  constructor(private element: ElementRef) {
+  }
+
+  /**
+   * The index of the list view item in it's parent.
+   */
+  public get index() {
+    return this.selector.index();
+  }
+
+  public get selector() {
+    return this.listItem;
+  }
+
+  ngAfterViewInit(): void {
+    this.listItem = jQuery(this.element.nativeElement);
+  }
+
 }
 
 @Component({
@@ -200,18 +224,18 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
   }
 
   /**
-   * Sets or gets the selected items.
+   * Set the list of selected items either by their indices or via the
+   * jQuery selector for the li element.
    *
-   * @memberof SohoListViewComponent
+   * @param selectedItems the list of selected items.
+   * @throws Error if any of the indicies are out of bounds.
    */
-  @Input() set selectedItems(selectedItems: number[]) {
-    // To pass in the id's of the list items will require the
-    // the lis to be parsed.
+  @Input() set selectedItems(selectedItems: SohoListViewItemReference[]) {
     this.select(selectedItems);
   }
 
-  get selectedItems(): number[] {
-    return this.listview.selectedItems.map((element) =>  element.index());
+  get selectedItems(): SohoListViewItemReference[] {
+    return this.listview.selectedItems;
   }
 
   /**

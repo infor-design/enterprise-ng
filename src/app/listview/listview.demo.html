@@ -19,14 +19,13 @@
               (rendered)="onRendered($event)"
               (selected)="onSelected($event)"
               (sorted)="onSorted($event)">
-              <li soho-listview-item *ngFor="let data of demoTasks" [disabled]="data.disabled ? true : false">
+              <li soho-listview-item *ngFor="let data of demoTasks" [disabled]="data.disabled" [selected]="data.selected">
                 <p soho-listview-header>Task #{{data.task}}</p>
                 <p soho-listview-subheader>{{data.desc}}</p>
                 <p soho-listview-micro>DUE: {{data.date}}</p>
               </li>
             </soho-listview>
           </div>
-
         </div>
       </div>
       <div class="two-thirds column">
@@ -53,7 +52,7 @@
                   <button soho-button="tertiary" title="Remove Selected Items">Remove</button>
                 </soho-toolbar-button-set>
               </soho-toolbar>
-              <li soho-listview-item *ngFor="let data of demoTasks" [disabled]="data.disabled ? true : false">
+              <li soho-listview-item *ngFor="let data of demoTasks" [disabled]="data.disabled" [selected]="data.selected">
                 <p soho-listview-header>Task #{{data.task}}</p>
                 <p soho-listview-subheader>{{data.desc}}</p>
                 <p soho-listview-micro>DUE: {{data.date}}</p>
@@ -83,7 +82,7 @@
                   <button soho-button="tertiary" title="Remove Selected Items">Remove</button>
                 </soho-toolbar-button-set>
               </soho-toolbar>
-              <li soho-listview-item *ngFor="let data of demoTasks" [disabled]="data.disabled ? true : false">
+              <li soho-listview-item *ngFor="let data of demoTasks" [disabled]="data.disabled">
                 <p soho-listview-header>Task #{{data.task}}</p>
                 <p soho-listview-subheader>{{data.desc}}</p>
                 <p soho-listview-micro>DUE: {{data.date}}</p>
