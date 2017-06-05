@@ -157,7 +157,6 @@ describe('Soho Basic Tabs Render', () => {
       <div soho-tab-panel tabId='tabs-normal-opportunities'>
         <p>Opportunites Tab Content</p>
       </div>
-
     </div>
   `
 })
