@@ -100,7 +100,11 @@ describe('Soho Basic Tabs Render', () => {
     let tabId: string = anchorElementList[0].getAttribute('tabId');
     expect(tabId).toBe('tabs-normal-contracts');
     expect(anchorElementList[0].getAttribute('href')).toEqual('#' + tabId);
-    // fails during full test, if I set only this test to run it succeeds.
+    // -------------------------------------------------------------------------------
+    // TODO figure out why this is happening
+    // for some reason innerText isn't working when running the full test. But
+    // it does work when I run only this test by puting an f in front of the it()
+    // -------------------------------------------------------------------------------
     // expect(anchorElementList[0].innerText).toEqual('Contracts');
 
     // second li
@@ -115,7 +119,11 @@ describe('Soho Basic Tabs Render', () => {
     tabId = anchorElementList[0].getAttribute('tabId');
     expect(tabId).toBe('tabs-normal-opportunities');
     expect(anchorElementList[0].getAttribute('href')).toEqual('#' + tabId);
-    // fails during full test, if I set only this test to run it succeeds.
+    // -------------------------------------------------------------------------------
+    // TODO figure out why this is happening
+    // for some reason innerText isn't working when running the full test. But
+    // it does work when I run only this test by puting an f in front of the it()
+    // -------------------------------------------------------------------------------
     // expect(anchorElementList[0].innerText).toEqual('Opportunites');
 
     // check tab panel container
@@ -134,6 +142,7 @@ describe('Soho Basic Tabs Render', () => {
     expect(tabPanelElementList[1].getAttribute('id')).toEqual(tabPanelElementList[1].getAttribute('tabId'));
   });
 });
+
 @Component({
   template: `
     <div soho-tabs>
