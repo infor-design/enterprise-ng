@@ -71,7 +71,6 @@ describe('Soho Basic Tabs Render', () => {
 
     // check classes
     expect(tabsElement.classList).toContain('tab-container');
-    expect(tabsElement.classList).toContain('horizontal');
 
     // check div.tab-list-container element
     const tabListContainerElementList: NodeListOf<Element> = tabsElement.getElementsByClassName('tab-list-container');

@@ -128,7 +128,6 @@ export class SohoTabListContainerComponent {
 export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   @HostBinding('class.tab-container') get isTabContainer() { return true; };
   @HostBinding('class.vertical')      get isVertical()     { return this.vertical; };
-  @HostBinding('class.horizontal')    get isHorizontal()   { return this.horizontal; };
   @HostBinding('class.module-tabs')   get isModuleTabs()   { return this.moduleTabs; };
   @HostBinding('class.header-tabs')   get isHeaderTabs()   { return this.headerTabs; };
   @HostBinding('attr.alternate')      get isAlternate()    { return this.alternate; };
@@ -136,12 +135,6 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   // ------------------------------------------------------------------------
   // @Inputs
   // ------------------------------------------------------------------------
-
-  /**
-   * set to true to show a secondary style for the tabs
-   * @type {boolean}
-   */
-  @Input() horizontal = !this.isVertical;
 
   /**
    * set to true to show a secondary style for the tabs
@@ -241,6 +234,18 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
     this._tabsOptions.tabCounts = tabCounts;
     if (this.jQueryElement) {
       this.tabs.settings.tabCounts = tabCounts;
+      this.updated();
+    }
+  }
+
+  /**
+   * If Vertical Tabs & true, will automatically switch to Horizontal Tabs on smaller breakpoints.
+   * @type {boolean}
+   */
+  @Input() set verticalResponsive(verticalResponsive: boolean) {
+    this._tabsOptions.verticalResponsive = verticalResponsive;
+    if (this.jQueryElement) {
+      this.tabs.settings.verticalResponsive = verticalResponsive;
       this.updated();
     }
   }
