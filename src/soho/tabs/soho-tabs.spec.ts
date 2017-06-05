@@ -134,7 +134,6 @@ describe('Soho Basic Tabs Render', () => {
     expect(tabPanelElementList[1].getAttribute('id')).toEqual(tabPanelElementList[1].getAttribute('tabId'));
   });
 });
-
 @Component({
   template: `
     <div soho-tabs>
