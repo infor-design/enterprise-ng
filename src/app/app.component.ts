@@ -19,7 +19,6 @@ export class AppComponent {
   @HostBinding('class.no-scroll') get isNoScroll() { return true; }
 
   private personalizeOptions;
-  private initialColor;
 
   constructor() {
     // @todo Set the locale here, to ensure all the values are setup.
