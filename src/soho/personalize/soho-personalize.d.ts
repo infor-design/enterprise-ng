@@ -12,6 +12,10 @@ interface SohoPersonalizeOptions {
   startingColor?: string;
 }
 
+interface SohoPersonalizeEvent extends JQueryEventObject {
+  data: string;
+}
+
 /**
  * JQuery Integration
  */
