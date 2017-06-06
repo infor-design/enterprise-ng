@@ -23,20 +23,31 @@ In the markup for the hosting component add:
 ```
 
 
+## Properties
+
+| Name | Description |
+| `selectedItems` | Returns an array of numbers, based on the index position of the selected items in the listview. |
+| `sorted` | Returns an array of numbers, based on the index position of the selected items in the listview. |
+
+
+
 ## Methods
 
 | Name | Description |
 | --- | --- |
-
-
-| Name | Description |
-| --- | --- |
-| `selectedItems` | Returns an array of numbers, based on the index position of the selected items in the listview. |
+| `remove(index | index[])` | Remove the item(s) at the given index (or indices) from the listview. |
+| `select(index | index[])` | Select the item(s) at the given index (or indices) from the listview. |
+| `unselect(index | index[])` | Unselect the item(s) at the given index (or indices) from the listview. |
+| `toggleAll()` | Toggles the selection of all items. |
+| `clearAllSelected()` | Clears all the selected items. |
 
 ## Events
 
 | Name | Description |
 | --- | --- |
+| `sorted` | Fired when the list is sorted. |
+| `selected` | Fired when the set of selected items changes. |
+| `rendered` | Fired when the items are rendered, passing the dataset displayed. |
 
 ## Examples
 
