@@ -7,6 +7,9 @@
 
 type SohoListViewSelectable = false | 'single' | 'multiple';
 
+/** How individual items are referenced in the list view. */
+type SohoListViewItemReference = number | JQuery;
+
 interface SohoListViewOptions {
   /** Data to display. */
   dataset?: Object[];
@@ -54,6 +57,9 @@ interface SohoListViewStatic {
   /** Access to the control's options block. */
   settings: SohoListViewOptions;
 
+  /** Selected items - as jQuery elements  */
+  selectedItems: JQuery[];
+
   /** Toggles all the selected elements. */
   toggleAll(): void;
 
@@ -72,6 +78,21 @@ interface SohoListViewStatic {
 
   /** Destroys the control on completion. */
   destroy(): void;
+
+  /**
+   * Removes the given item from the list view, if rendered.
+   */
+  remove(item: SohoListViewItemReference): void;
+
+  /**
+   * Unselects the given item from the list viewm, if rendered.
+   */
+  unselect(item: SohoListViewItemReference): void;
+
+  /**
+   * Selects the given item from the list view, if rendered.
+   */
+  select(item: SohoListViewItemReference): void;
 }
 
 /**
