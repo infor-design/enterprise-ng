@@ -78,8 +78,13 @@ export class SohoHeaderDynamicDemoComponent {
    */
   public currentTabsOptions: HeaderDynamicTabsetOptions = null;
 
+  private defaultPersonalizeColor: string;
+  private defaultPersonalizeTheme: string;
+
   constructor(private headerRef: HeaderDynamicDemoRefService) {
     this.headerRef.instance = this;
+    this.defaultPersonalizeColor = this.getDefaultColor();
+    this.defaultPersonalizeTheme = this.getDefaultTheme();
   }
 
   /**
@@ -96,6 +101,20 @@ export class SohoHeaderDynamicDemoComponent {
    */
   public get tabOptions(): HeaderDynamicTabsetOptions {
     return this.currentTabsOptions;
+  }
+
+  // This should be within an Application Service in your local project
+  getDefaultColor() {
+    return localStorage.getItem('soho_color');
+  }
+
+  // This should be within an Application Service in your local project
+  getDefaultTheme() {
+    let theme = localStorage.getItem('soho_theme');
+    if (theme) {
+      theme += '-theme';
+    }
+    return theme;
   }
 
   fireSearchEvent(event: any) {
