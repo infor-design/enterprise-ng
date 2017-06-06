@@ -56,12 +56,12 @@ export class AppComponent implements AfterViewInit {
       }
     }
   }
-  onChangeTheme(args) {
-    console.log('Theme changed: ', args);
-    localStorage.setItem('soho_theme', args[1]);
+  onChangeTheme(ev: SohoPersonalizeEvent) {
+    console.log('Theme changed: ', ev);
+    localStorage.setItem('soho_theme', ev.data);
   }
-  onChangeColors(args) {
-    console.log('Colors changed: ', args);
-    localStorage.setItem('soho_color', args[1]);
+  onChangeColors(ev: SohoPersonalizeEvent) {
+    console.log('Colors changed: ', ev);
+    localStorage.setItem('soho_color', ev.data);
   }
 }

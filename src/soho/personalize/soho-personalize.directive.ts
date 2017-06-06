@@ -42,7 +42,7 @@ export class SohoPersonalizeDirective implements AfterViewInit {
    */
   ngAfterViewInit() {
     jQuery('body').personalize(this.options)
-      .on('changetheme.personalize', (...args) => this.changetheme.emit(args))
-      .on('changecolors.personalize', (...args) => this.changecolors.emit(args));
+      .on('changetheme.personalize', (ev, data) => { ev.data = data; this.changetheme.emit(ev); })
+      .on('changecolors.personalize', (ev, data) => { ev.data = data; this.changecolors.emit(ev); });
   }
 }
