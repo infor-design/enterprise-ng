@@ -26,8 +26,10 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    * Available Soho Template control settings as Inputs
    * Should match the Soho properties for the component
    */
+  @Input() asobject = false; // set to false for backwards compatibility
+
   // Make sure you bind the context to the function
-  @Input()  set beforeShow(value: SohoLookupBeforeShowFunction) {
+  @Input() set beforeShow(value: SohoLookupBeforeShowFunction) {
     this._options.beforeShow = value;
   }
 
@@ -57,6 +59,8 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   @Input() set title(value: string) {
     this._options.title = value;
   }
+
+  @Input() multiselect = false;
 
   @Input() name: string;
 
@@ -109,7 +113,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       cellNavigation: false,
       columns: this.columns,
       dataset: this._dataset ? this._dataset : [],
-      selectable: 'single',
+      selectable: this.isMultiselect() ? 'multiple' : 'single',
       toolbar: Object.assign({
         actions: true,
         advancedFilter: false,
@@ -148,6 +152,9 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       this.lookup.destroy();
       this.lookup = null;
     }
+  }
+  isMultiselect(): boolean {
+    return this.multiselect !== false || (this.options && this.options.selectable === 'multiple'); 
   }
   modalOpened(args: any[]) {
     /**
@@ -254,11 +261,10 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       return;
     }
 
-    if (event.length && event.length === 1) {
-      this.value = this.processValue(event[0].data);
-
+    if (event.length && event.length === 1 && !this.isMultiselect()) {
+      this.value = this.asobject !== false ? event[0].data : this.processValue(event[0].data);
     } else {
-      this.value = event.map(val => val.data);
+      this.value = event.map(val => this.asobject !== false ? val.data : this.processValue(val.data));
     }
   }
 }
