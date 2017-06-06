@@ -52,14 +52,22 @@ export class SohoListViewSearchComponent {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoListViewItemComponent implements AfterViewInit {
+  /** Underling jQuery item. */
   private listItem: JQuery;
 
+  /** Sets the item as disabled.  */
   @HostBinding('class.is-disabled')
   @Input() disabled = false;
 
+  /** Sets the item as selected.  */
   @HostBinding('class.is-selected')
   @Input() selected = false;
 
+  /**
+   * Constructor.
+   *
+   * @param element - the element.
+   */
   constructor(private element: ElementRef) {
   }
 
@@ -234,16 +242,14 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     this.select(selectedItems);
   }
 
-  get selectedItems(): SohoListViewItemReference[] {
-    return this.listview.selectedItems;
-  }
-
   /**
    * Selected List Items.
    *
+   * Note currenty this returns the index of the selected item.
+   *
    * @return the indexes of the selected list items.
    */
-  get selectedItemCount(): number[] {
+  get getSelectedItems(): SohoListViewItemReference[] {
     // Map the selected items as indexes
     // @todo could map to the SohoListViewItemComponent?
     return this.listview.selectedItems.map((element) => element.index());

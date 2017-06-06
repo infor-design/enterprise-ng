@@ -3,8 +3,16 @@ import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { SohoSearchFieldModule } from '../searchfield/soho-searchfield.module';
 import { SohoListViewModule } from './soho-listview.module';
-import { SohoListViewComponent } from './soho-listview.component';
+import {
+  SohoListViewComponent,
+  SohoListViewHeaderComponent,
+  SohoListViewItemComponent,
+  SohoListViewMicroComponent,
+  SohoListViewSearchComponent,
+  SohoListViewSubHeaderComponent
+} from './soho-listview.component';
 
 describe('Soho Listview Unit Tests', () => {
   let comp: SohoListViewComponent;
@@ -14,7 +22,15 @@ describe('Soho Listview Unit Tests', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SohoListViewComponent]
+      declarations: [
+        SohoListViewComponent,
+        SohoListViewHeaderComponent,
+        SohoListViewItemComponent,
+        SohoListViewMicroComponent,
+        SohoListViewSearchComponent,
+       SohoListViewSubHeaderComponent,
+      ],
+      imports: [ SohoSearchFieldModule ]
     });
 
     fixture = TestBed.createComponent(SohoListViewComponent);
@@ -22,7 +38,7 @@ describe('Soho Listview Unit Tests', () => {
     fixture.detectChanges();
 
     de = fixture.debugElement;
-    el = de.nativeElement;
+    el = de.query(By.css('.listview')).nativeElement;
   });
 
   it('Check Content', () => {
@@ -50,8 +66,13 @@ describe('Soho ListView Render', () => {
     component = fixture.componentInstance;
     listview = component.listview;
 
-    de = fixture.debugElement;
-    el = de.query(By.css('[soho-listview]')).nativeElement;
+    TestBed.compileComponents();
+
+    fixture.detectChanges();
+
+    const rootDe = fixture.debugElement;
+    de = rootDe.query(By.css('.listview'));
+    el = de.nativeElement;
 
     fixture.detectChanges();
   });
@@ -59,37 +80,45 @@ describe('Soho ListView Render', () => {
   it('Check HTML content', () => {
     fixture.detectChanges();
 
-    expect(el.nodeName).toEqual('div');
+    expect(el.nodeName).toEqual('DIV');
     expect(el.classList).toContain('listview');
     expect(el.hasAttribute('is-multiselect')).toBeFalsy('is-multiselect');
 
     const ul = el.children[0];
-    expect(ul.childElementCount).toBe(11);
+    expect(ul.childElementCount).toBe(component.listItems.length);
 
     let i = 0;
-    component.listItems.forEach(li => {
-      expect(ul.children[i].nodeName).toBe('li');
-      expect(ul.children[i].getAttribute('value')).toBe(li.desc);
-      expect(ul.children[i++].innerHTML).toBe(li.task);
+    component.listItems.forEach(listItem => {
+      const li = ul.children[i++];
+      expect(li.nodeName).toBe('LI');
+
+      // Header
+      const headerDe = de.query(By.css('.listview-heading'));
+      expect(headerDe).not.toBe(null);
+
+      // Subheader
+      const subHeadingDe = de.query(By.css('.listview-subheading'));
+      expect(subHeadingDe).not.toBe(null);
+
+      // Micro
+      const microDe = de.query(By.css('.listview-micro'));
+      expect(microDe).not.toBe(null);
     });
 
     fixture.detectChanges();
-
-    expect(el.hasAttribute('noSearch')).toBeTruthy('noSearch');
   });
 
 });
 
 @Component({
-  template: `<div>
-               <soho-listview [searchable]="false" selectable="single">
+  template: `<soho-listview [searchable]="false" selectable="single">
                  <li soho-listview-item *ngFor="let item of listItems" [disabled]="item.disabled" [selected]="item.selected">
                   <p soho-listview-header>Task #{{item.task}}</p>
                   <p soho-listview-subheader>{{item.desc}}</p>
                   <p soho-listview-micro>DUE: {{item.date}}</p>
                 </li>
               </soho-listview>
-            </div>`
+            `
 })
 class SohoListViewTestComponent {
   @ViewChild(SohoListViewComponent) listview: SohoListViewComponent;
