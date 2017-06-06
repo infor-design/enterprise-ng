@@ -1,8 +1,6 @@
 import {
-  AfterViewInit,
   Component,
   HostBinding,
-  ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
 
@@ -17,9 +15,7 @@ import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.se
   providers: [ HeaderDynamicDemoRefService ],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent implements AfterViewInit {
-  @ViewChild(SohoApplicationMenuComponent) applicationMenu: SohoApplicationMenuComponent;
-
+export class AppComponent {
   @HostBinding('class.no-scroll') get isNoScroll() { return true; }
 
   private personalizeOptions;
@@ -29,14 +25,6 @@ export class AppComponent implements AfterViewInit {
     // @todo Set the locale here, to ensure all the values are setup.
     Locale.set('en-US');
     this.setInitialPersonalization();
-  }
-
-  ngAfterViewInit() {
-    ArgumentHelper.checkInputNotNull('AppComponent', 'applicationMenu', this.applicationMenu);
-
-    // A list of jQuery elements which trigger the openning and closing of the
-    // application menu.
-    this.applicationMenu.triggers = ['.application-menu-trigger'];
   }
   setInitialPersonalization() {
     const theme = localStorage.getItem('soho_theme');
