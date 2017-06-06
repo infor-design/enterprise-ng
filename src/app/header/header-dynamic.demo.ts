@@ -78,8 +78,11 @@ export class SohoHeaderDynamicDemoComponent {
    */
   public currentTabsOptions: HeaderDynamicTabsetOptions = null;
 
+  private defaultPersonalizeColor: string;
+
   constructor(private headerRef: HeaderDynamicDemoRefService) {
     this.headerRef.instance = this;
+    this.defaultPersonalizeColor = this.getDefaultColor();
   }
 
   /**
@@ -96,6 +99,10 @@ export class SohoHeaderDynamicDemoComponent {
    */
   public get tabOptions(): HeaderDynamicTabsetOptions {
     return this.currentTabsOptions;
+  }
+
+  getDefaultColor() {
+    return localStorage.getItem('soho_color');
   }
 
   fireSearchEvent(event: any) {
