@@ -246,7 +246,6 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       // The processing is required to ensure we use the correct format
       // in the control.
       this.lookup.element.val(value);
-      // this.lookup.element.focus();
     }
   }
 
