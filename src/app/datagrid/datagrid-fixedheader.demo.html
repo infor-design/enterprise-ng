@@ -1,4 +1,4 @@
-<div class="full-height full-width">
+<div soho-busyindicator class="full-height full-width">
   <soho-toolbar [rightAlign]=true [maxVisibleButtons]="6">
     <soho-toolbar-title>
       <span soho-toolbar-section-title>Soho Data Grid - Fixed Header</span>
@@ -10,9 +10,6 @@
     </soho-toolbar-button-set>
   </soho-toolbar>
 
-  <!-- Remove this outer div and fixed headers work but toolbar disappears -->
-  <div soho-busyindicator id="gridContainer">
-    <div soho-datagrid>
-    </div>
+  <div soho-datagrid>
   </div>
 </div>
