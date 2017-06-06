@@ -361,7 +361,22 @@ interface SohoDataGridColumn {
 
   /** Column function to dynamically set the readonly property on cells based on row data. */
   isEditable?: SohoDataGridColumnIsEditableFunction;
+
+  /** special display formatting for a numeric column */
+  numberFormat?: SohoDataGridColumnNumberFormat;
+
 }
+
+interface SohoDataGridColumnNumberFormat {
+  decimal?: string;
+  group?: string;
+  minimumFractionDigits?: number;
+  maximumFractionDigits?: number;
+  style?: SohoDataGridColumnNumberFormatStyle;
+  round?: boolean;
+}
+
+type SohoDataGridColumnNumberFormatStyle = 'decimal' | 'currency' | 'percent' | 'integer' | string;
 
 interface SohoGridCellOption {
   /** The underlying data value. */

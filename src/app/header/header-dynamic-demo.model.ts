@@ -38,6 +38,7 @@ export interface HeaderDynamicButtonOptions {
 
 export interface HeaderDynamicTabsetOptions {
   tabs: Array<HeaderDynamicTabOptions>;
+  containerElementSelector?: string;
 }
 
 /**

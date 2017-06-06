@@ -116,6 +116,16 @@ export class DataGridDemoService extends SohoDataGridService {
     });
 
     this.columns.push({
+      id: 'price4',
+      hidden: true,
+      name: 'Price - special formatted',
+      filterType: <any>SohoGridColumnFilterTypes.Decimal,
+      field: 'price',
+      formatter: Formatters.Decimal,
+      numberFormat: { minimumFractionDigits: 0, maximumFractionDigits: 6 }
+    });
+
+    this.columns.push({
       id: 'orderDate',
       width: 300,
       name: 'Order Date',
