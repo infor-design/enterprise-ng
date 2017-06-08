@@ -127,6 +127,9 @@ interface SohoDataGridOptions {
 
   /**  */
   showDirty?: boolean;
+
+  /** If a row is activated the user should not be able to deactivate it by clicking on the activated row */
+  disableRowDeactivation?: boolean;
 }
 
 /**
