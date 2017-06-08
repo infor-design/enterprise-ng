@@ -554,6 +554,27 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+  get disableRowDeactivation(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.disableRowDeactivation;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.disableRowDeactivation;
+  }
+
+  @Input() set disableRowDeactivation(value: boolean) {
+    this._gridOptions.disableRowDeactivation = value;
+    if (this.datagrid) {
+      this.datagrid.settings.disableRowDeactivation = value;
+
+      // Force all a full rebuild of the control.
+      this.markForRefresh('showDirty', RefreshHintFlags.Rebuild);
+    }
+  }
+
   /**
    * The value of the virtualized flag - returns the requested value if the control has not been created yet.
    */

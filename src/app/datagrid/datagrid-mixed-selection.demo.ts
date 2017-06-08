@@ -37,6 +37,7 @@ export class DataGridMixedSelectionDemoComponent implements AfterViewInit {
       selectable: 'mixed',
       paging: false,
       pagesize: 10,
+      disableRowDeactivation: true
     };
 
     this.sohoDataGridComponent.gridOptions = gridOptions;
