@@ -26,21 +26,26 @@ import { PAGING_COLUMNS, PAGING_DATA } from './datagrid-paging-data';
 export class DataGridMixedSelectionDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
+  public disableRowDeactivation = true;
+  public get rowDeactivationLabel() {
+    return (this.disableRowDeactivation ? 'Enable ' : 'Disable ') + 'Row Deactivation';
+  }
+
   ngAfterViewInit(): void {
-
-    const columns = [];
-    PAGING_COLUMNS.forEach(element => columns.push(element));
-
     const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
-      columns: columns,
+      columns: PAGING_COLUMNS,
       dataset: PAGING_DATA,
       selectable: 'mixed',
       paging: false,
       pagesize: 10,
-      disableRowDeactivation: true
+      disableRowDeactivation: this.disableRowDeactivation
     };
 
     this.sohoDataGridComponent.gridOptions = gridOptions;
+  }
+
+  onRowDeactivationToggle(event) {
+    this.disableRowDeactivation = !this.disableRowDeactivation;
   }
 
   onActivateSelectedRow(event) {

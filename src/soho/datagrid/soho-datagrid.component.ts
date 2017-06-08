@@ -571,7 +571,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       this.datagrid.settings.disableRowDeactivation = value;
 
       // Force all a full rebuild of the control.
-      this.markForRefresh('showDirty', RefreshHintFlags.Rebuild);
+      // this.markForRefresh('disableRowDeactivation', RefreshHintFlags.Rebuild);
     }
   }
 
