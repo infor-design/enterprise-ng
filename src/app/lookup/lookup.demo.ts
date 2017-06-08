@@ -23,7 +23,9 @@ export class LookupDemoComponent {
   public data_product: any[];
   public model: any = {
     single: null,
+    singleobject: null,
     multi: null,
+    multiobject: null,
     async: null,
   };
   public showModel = false;

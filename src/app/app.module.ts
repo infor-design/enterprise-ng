@@ -39,6 +39,7 @@ import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-pa
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
+import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
 import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
@@ -130,6 +131,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     DataGridPagingServiceDemoComponent,
     DataGridServiceDemoComponent,
     DataGridSettingsDemoComponent,
+    DataGridStandardFormatterDemoComponent,
     DataGridToolbarDemoComponent,
     DataGridTreeGridDemoComponent,
     DataGridGroupableDemoComponent,

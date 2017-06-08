@@ -41,6 +41,49 @@
 
 ### Breaking Changes
 
+* 2017-06-01 - VW - PR-298 - Replaced enable and disable functions with disabled property to enable/disable dropdown and added readonly property. 
+
+* 2017-05-31 - PWP - Markup change needed for new tabs implementation in soho
+
+    The soho-tabs now can only contain the tab list and require a new element `<div soho-tab-list-container>` to 
+    encapsulate the `<ul soho-tab-list>`.
+    
+    ```angular2html
+    <div soho-tabs>
+      <div soho-tab-list-container>    <-- NEW ELEMENT
+        <ul soho-tab-list>
+          <li soho-tab><a soho-tab-title tabId="tab1">Contracts</a></li>
+          ...
+        </ul>
+      </div>
+    </div>
+    ```
+    
+    The tab panels need to be placed inside a `<div soho-tab-panel-container>` element. This markup can
+    occur largely anywhere in the markup in support of header tabs. A restriction being that it cannot 
+    be placed in the `<div soho-tabs>` element.
+    ```angular2html
+    <div soho-tab-panel-container>     <-- NEW ELEMENT
+      <div soho-tab-panel tabId="tab1">
+        <p>tab content</p>
+      </div>
+      ...
+    </div>
+    ``` 
+    If the `<div soho-tab-panel-container>` is not a sibling of `<ul soho-tabs>` (for example 
+    in the case of header tabs) then you'll need to pass in a containerElement selector as input to the
+    `<div soho-tabs>`. For Example:
+    ```angular2html
+    <header>
+      <div soho-tabs [containerElement]="#header-tab-panels">
+      </div>
+    </header>
+  
+    * somewhere in your document * 
+    <div soho-tab-panel-container id="header-tab-panels">
+    </div>
+    ```     
+ 
 * 2017-04-19 - BTH - Changed `selectedNode` to `selectNode` to match jQuery tree widget.
 
 * 2017-04-18 - TJM - Changed setSelectedNode method in tree component to selectedNode to match the component change.

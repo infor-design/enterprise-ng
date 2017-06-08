@@ -2,7 +2,9 @@ import {
   AfterViewInit,
   Directive,
   ElementRef,
-  Input
+  EventEmitter,
+  Input,
+  Output,
 } from '@angular/core';
 
 /**
@@ -24,6 +26,10 @@ export class SohoPersonalizeDirective implements AfterViewInit {
     this.options.startingColor = value;
   }
 
+  @Output() changetheme: EventEmitter<Object> = new EventEmitter<Object>();
+
+  @Output() changecolors: EventEmitter<Object> = new EventEmitter<Object>();
+
   /**
    * Constructor.
    */
@@ -35,6 +41,8 @@ export class SohoPersonalizeDirective implements AfterViewInit {
    * get the SoHoXi controls to apply any renderings.
    */
   ngAfterViewInit() {
-    jQuery('body').personalize(this.options);
+    jQuery('body').personalize(this.options)
+      .on('changetheme.personalize', (ev, data) => { ev.data = data; this.changetheme.emit(ev); })
+      .on('changecolors.personalize', (ev, data) => { ev.data = data; this.changecolors.emit(ev); });
   }
 }

@@ -200,20 +200,21 @@ export class SohoSectionTitleComponent {
 @Component({
   selector: 'button[soho-nav-button]', // tslint:disable-line
   template: `
-      <span class="audible">
-        <ng-content></ng-content>
-      </span>
       <span class="icon app-header">
         <span class="one"></span>
         <span class="two"></span>
         <span class="three"></span>
       </span>
+      <span class="audible">
+        <ng-content></ng-content>
+      </span>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarNavButtonComponent {
-  @HostBinding('class.application-menu-trigger') get isAppMenuTrigger() { return true; };
+  // This HostBinding needs to go first to maintain correct styling
   @HostBinding('class.btn-icon') get isIconButton() { return true; };
+  @HostBinding('class.application-menu-trigger') get isAppMenuTrigger() { return true; };
   @HostBinding('attr.type') get typeAttr() { return 'button'; };
 }
 

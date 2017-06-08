@@ -20,6 +20,7 @@ import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-pa
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
+import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
@@ -109,6 +110,7 @@ export const routes: Routes = [
   { path: 'datagrid-treegrid',     component: DataGridTreeGridDemoComponent },
   { path: 'datagrid-custom-formatter', component: DataGridCustomFormatterDemoComponent },
   { path: 'datagrid-custom-formatter-service', component: DataGridCustomFormatterServiceDemoComponent },
+  { path: 'datagrid-standard-formatter', component: DataGridStandardFormatterDemoComponent },
   { path: 'datepicker',            component: DatepickerDemoComponent },
   { path: 'dropdown',              component: DropdownDemoComponent },
   { path: 'dropdown-async-busy',   component: DropdownAsyncBusyDemoComponent },

@@ -12,7 +12,19 @@
           [columns]="columns_product"
           [dataset]="data_product"
           field="productId"
-          name="product_single"/>
+          name="product_single" />
+      </div>
+      <div class="row">
+        <label soho-label for="product_single">Products (Single Select Stored as Object) with mask</label>
+        <input soho-lookup
+          soho-mask [pattern]="'#######'" [mode]="'number'" [negative]="false" [number]="true"
+          soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
+          [(ngModel)]="model.singleobject"
+          [columns]="columns_product"
+          [dataset]="data_product"
+          field="productId"
+          name="product_single_object"
+          asobject />
       </div>
       <div class="row">
         <label soho-label for="product_multi">Products (Multi Select)</label>
@@ -21,9 +33,7 @@
           [(ngModel)]="model.multi"
           [columns]="columns_multi"
           [dataset]="data_product"
-          [options]="{
-            selectable: 'multiple'
-          }"
+          multiselect
           [toolbar]="{
             results: true,
             dateFilter: false,
@@ -37,6 +47,29 @@
           }"
           field="productId"
           name="product_multi"/>
+      </div>
+      <div class="row">
+        <label soho-label for="product_multi">Products (Multi Select Stored as Object)</label>
+        <input soho-lookup
+          soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
+          [(ngModel)]="model.multiobject"
+          [columns]="columns_multi"
+          [dataset]="data_product"
+          multiselect
+          [toolbar]="{
+            results: true,
+            dateFilter: false,
+            keywordFilter: true,
+            advancedFilter: true,
+            actions: true,
+            views: true,
+            rowHeight: false,
+            collapsibleFilter: false,
+            fullWidth: true
+          }"
+          field="productId"
+          name="product_multi_object"
+          asobject />
       </div>
       <div class="row">
         <label soho-label for="product_async">Products (Async Results)</label>
