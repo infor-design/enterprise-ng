@@ -2,6 +2,22 @@
   <div class="row">
     <span class="code-tag">Live Example</span>
     <div class="row">
+
+    <div class="two-thirds column">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Tasks - Simple</h2>
+          </div>
+          <div class="card-content">
+            <soho-listview #simpleSelectListView>
+              <li soho-listview-item *ngFor="let data of demoTasks" [disabled]="data.disabled" [selected]="data.selected">
+                Task #{{data.task}}
+              </li>
+            </soho-listview>
+          </div>
+        </div>
+      </div>
+
       <div class="two-thirds column">
         <button soho-button (click)="addItems()">Add Item</button>
         <button soho-button (click)="selectItems(singleSelectListView)">Select Items</button>

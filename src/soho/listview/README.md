@@ -53,7 +53,9 @@ In the markup for the hosting component add:
 
 ### Simple List View Component
 
-This example show how a simple `listview` component.
+This example shows a simple `listview` component.
+
+```
 
 ```typescript
   
