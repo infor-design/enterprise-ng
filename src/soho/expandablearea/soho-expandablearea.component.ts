@@ -1,15 +1,18 @@
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ContentChild,
+  ContentChildren,
   ElementRef,
   EventEmitter,
+  forwardRef,
   HostBinding,
   Input,
   OnDestroy,
   Output,
-  forwardRef, ContentChildren, QueryList, ChangeDetectorRef,
+  QueryList,
 } from '@angular/core';
 
 import { Observable } from 'rxjs/Rx';
@@ -117,10 +120,6 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
     private changeDetectorRef: ChangeDetectorRef
   ) {}
   ngAfterViewInit() {
-    // Check that the pane exist
-    // if (!this._pane) {
-    //   console.error('Missing expandable pane in expandable area.');
-    // }
     // Assign element to local variable
     this.jQueryElement = jQuery(this.element.nativeElement.children[0]);
 
