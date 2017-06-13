@@ -1,5 +1,14 @@
 
 ## Whats New
+* 2017-06-12 - PWP - Updates to `soho-expandablearea.component` and `soho-button.component`
+  - Added `soho-expandable-footer` element
+  - Changed `soho-expandable-header` to be optional
+  - Added `expandableExpander` input to `soho-button.component` for custom expander button
+  - Added `soho-expandablearea-footer-demo` to illustrate use of the custom expander button
+* 2017-06-09 - BTH - Version Update (http://jira/browse/SOHO-6322)
+  * Upgraded to @angular/cli 1.1.1
+* 2017-06-07 - BTH - Listview Changes
+  * Added `select`, `unselect` and `remove` methods.
 * 2017-05-11 - KH - Changed data grid interfaces specifically, `SohoDataGridRowEvent to SohoDataGridToggleRowEvent`
 * 2017-04-07 - TJM - Change to copy link/assets out of the node_modules
 * 2017-03-16 - DH - Contextual Action Panel(http://jira/browse/SOHO-5909)

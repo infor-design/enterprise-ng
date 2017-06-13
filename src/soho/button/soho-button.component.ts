@@ -124,6 +124,13 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    */
   @Input() toggle: string;
 
+  /**
+   * Sets the expandable-expander class to be placed on the button for the
+   * soho-expandablearea to use as it's expand/collapse trigger
+   * @type {boolean}
+   */
+  @Input() expandableExpander = false;
+
   @HostBinding('class.btn')
   get btn() {
     return this.buttonType === SohoButtonComponent.BTN;
@@ -165,6 +172,10 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   @HostBinding('attr.type') get type() {
     return this.isSubmit ? 'submit' : 'button';
   };
+
+  @HostBinding('class.expandable-expander') get isExpandableExpander() {
+    return this.expandableExpander;
+  }
 
   /**
    * @deprecated no longer needed once this.toggle is removed.

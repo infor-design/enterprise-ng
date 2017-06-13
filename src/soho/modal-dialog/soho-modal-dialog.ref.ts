@@ -278,9 +278,9 @@ export class SohoModalDialogRef<T> {
     this.jQueryElement.on('afteropen', ((event: any) => { this.onAfterOpen(event); }));
 
     // These are vetoable events.
-    this.jQueryElement.on('beforeopen', ((event: any) => { return this.onBeforeOpen(event); }));
-    this.jQueryElement.on('beforeclose', ((event: any) => { return this.onBeforeClose(event); }));
-    this.jQueryElement.on('beforedestroy', ((event: any) => { return this.onBeforeDestroy(event); }));
+    this.jQueryElement.on('beforeopen', ((event: any) => this.onBeforeOpen(event)));
+    this.jQueryElement.on('beforeclose', ((event: any) => this.onBeforeClose(event)));
+    this.jQueryElement.on('beforedestroy', ((event: any) => this.onBeforeDestroy(event)));
 
     return this;
   }

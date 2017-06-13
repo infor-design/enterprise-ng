@@ -18,7 +18,7 @@ import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.se
 export class AppComponent {
   @HostBinding('class.no-scroll') get isNoScroll() { return true; }
 
-  private personalizeOptions: {
+  public personalizeOptions: {
     theme?,
     colors?,
   } = {};
