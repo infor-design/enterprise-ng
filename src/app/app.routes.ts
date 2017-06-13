@@ -1,6 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AccordionDemoComponent } from './accordion/accordion.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
@@ -86,7 +87,7 @@ import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
-  // { path: 'accordian',           component: AccordionSampleComponent},
+  { path: 'accordion',             component: AccordionDemoComponent},
   { path: 'alert',                 component: AlertDemoComponent},
   { path: 'application-lazy-menu', component: ApplicationMenuLazyDemoComponent},
   { path: 'button',                component: ButtonDemoComponent },
