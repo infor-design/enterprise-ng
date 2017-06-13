@@ -1,5 +1,9 @@
 
 ## Whats New
+* 2017-06-12 - PWP - Updates to soho-expandablearea and soho-button
+  - new expandable-area-footer element
+  - expandable-area-header is now optional
+  - added expandableExpaner input to soho-button for custom expander button
 * 2017-06-09 - BTH - Version Update (http://jira/browse/SOHO-6322)
   * Upgraded to @angular/cli 1.1.1
 * 2017-06-07 - BTH - Listview Changes
