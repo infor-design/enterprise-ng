@@ -9,7 +9,7 @@ import {
   Input,
   OnDestroy,
   Output,
-  forwardRef,
+  forwardRef, ContentChildren, QueryList, ChangeDetectorRef,
 } from '@angular/core';
 
 import { Observable } from 'rxjs/Rx';
@@ -43,6 +43,18 @@ export class ExpandablePaneComponent {
   @Input() fixed = false;
 }
 
+/**
+ * Helper Component for the ExpandableAreaComponent
+ */
+@Component({
+  selector: 'soho-expandable-footer',
+  template: `
+    <ng-content></ng-content>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class ExpandableFooterComponent {}
+
 @Component({
   selector: 'soho-expandable-area',
   templateUrl: './soho-expandablearea.component.html',
@@ -72,10 +84,18 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
 
   // Get the header DOM element
   @ContentChild(forwardRef(() => ExpandableHeaderComponent))
-  private _header: ExpandableHeaderComponent = null;
+  public header: ExpandableHeaderComponent = null;
+
+  // Get the pane DOM elements
+  @ContentChildren(forwardRef(() => ExpandablePaneComponent))
+  public panes: QueryList<ExpandablePaneComponent>;
+
+  // @ContentChild(forwardRef(() => ExpandablePaneComponent))
+  // private _pane: ExpandablePaneComponent = null;
+
   // Get the pane DOM element
-  @ContentChild(forwardRef(() => ExpandablePaneComponent))
-  private _pane: ExpandablePaneComponent = null;
+  @ContentChild(forwardRef(() => ExpandableFooterComponent))
+  public footer: ExpandablePaneComponent = null;
 
   // Add Events for Angular elements to listen to (can only have exposed events)
   @Output() beforeexpand: EventEmitter<Object> = new EventEmitter<Object>();
@@ -90,16 +110,17 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   private expandablearea: SohoExpandableAreaStatic;
   private _disabled: boolean;
   private _closed: boolean;
+  public hasFixedPane = true;
 
-  constructor(private element: ElementRef) {}
+  constructor(
+    private element: ElementRef,
+    private changeDetectorRef: ChangeDetectorRef
+  ) {}
   ngAfterViewInit() {
-    // Check that header and pane exist
-    if (!this._header) {
-      console.error('Missing expandable header in expandable area.');
-    }
-    if (!this._pane) {
-      console.error('Missing expandable pane in expandable area.');
-    }
+    // Check that the pane exist
+    // if (!this._pane) {
+    //   console.error('Missing expandable pane in expandable area.');
+    // }
     // Assign element to local variable
     this.jQueryElement = jQuery(this.element.nativeElement.children[0]);
 
@@ -134,6 +155,11 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
     } else if (typeof this.closed !== 'undefined') {
       this.toggleOpen(true);
     }
+
+    setTimeout(() => {
+      this.hasFixedPane = this.panes.filter(pane => pane.fixed).length !== 0;
+      this.changeDetectorRef.detectChanges();
+    });
   }
   ngOnDestroy() {
     this.expandablearea.destroy();
@@ -187,6 +213,12 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
    */
   get paneClasses() {
     return 'expandable-pane';
+  }
+  /**
+   * The class setter for the pane element
+   */
+  get footerClasses() {
+    return 'expandable-footer';
   }
   /**
    * The class setter for the visible pane element
