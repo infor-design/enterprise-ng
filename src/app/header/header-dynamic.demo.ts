@@ -78,8 +78,8 @@ export class SohoHeaderDynamicDemoComponent {
    */
   public currentTabsOptions: HeaderDynamicTabsetOptions = null;
 
-  private defaultPersonalizeColor: string;
-  private defaultPersonalizeTheme: string;
+  public defaultPersonalizeColor: string;
+  public defaultPersonalizeTheme: string;
 
   constructor(private headerRef: HeaderDynamicDemoRefService) {
     this.headerRef.instance = this;
