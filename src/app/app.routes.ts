@@ -84,6 +84,7 @@ import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
+import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
@@ -121,6 +122,7 @@ export const routes: Routes = [
   { path: 'editor',                component: EditorDemoComponent },
   { path: 'error',                 component: ErrorDemoComponent },
   { path: 'expandablearea',        component: ExpandableAreaDemoComponent },
+  { path: 'expandablearea-footer', component: ExpandableAreaFooterDemoComponent },
   { path: 'fileupload',            component: FileUploadDemoComponent },
   { path: 'header-tabs',           component: HeaderTabsDemoComponent },
   { path: 'header-toolbar',        component: HeaderToolbarDemoComponent },
