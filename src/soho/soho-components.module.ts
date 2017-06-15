@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { SohoAccordionModule } from './accordion/soho-accordion.module';
 import { SohoApplicationMenuModule } from './application-menu/soho-application-menu.module';
 import { SohoBusyIndicatorModule } from './busyindicator/soho-busyindicator.module';
 import { SohoButtonModule } from './button/soho-button.module';
@@ -48,6 +49,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
 
 @NgModule({
   imports: [
+    SohoAccordionModule,
     SohoApplicationMenuModule,
     SohoBusyIndicatorModule,
     SohoButtonModule,
@@ -98,6 +100,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
   declarations: [
   ],
   exports: [
+    SohoAccordionModule,
     SohoApplicationMenuModule,
     SohoBusyIndicatorModule,
     SohoButtonModule,
