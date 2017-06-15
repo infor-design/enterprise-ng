@@ -46,11 +46,7 @@
     <div class="accordion-header list-item"><a [routerLink]="['dropdown-async']"><span>Dropdown Async</span></a></div>
   </div>
 
-  <div class="accordion-header"><a href="javascript:void(0);"><span>Expandable Area</span></a></div>
-  <div class="accordion-pane">
-    <div class="accordion-header list-item"><a [routerLink]="['expandablearea']"><span>Expandable Area</span></a></div>
-    <div class="accordion-header list-item"><a [routerLink]="['expandablearea-footer']"><span>Expandable Area With Footer</span></a></div>
-  </div>
+  <div class="accordion-header list-item"><a [routerLink]="['expandablearea']"><span>Expandable Area</span></a></div>
   <div class="accordion-header list-item"><a [routerLink]="['icon']"><span>Icon</span></a></div>
   <div class="accordion-header list-item"><a [routerLink]="['listview']"><span>List View</span></a></div>
 
@@ -138,7 +134,6 @@
     <div class="accordion-header list-item"><a [routerLink]="['datagrid-paging-indeterminate']"><span>DataGrid Paging Indeterminate</span></a></div>
     <div class="accordion-header list-item"><a [routerLink]="['datagrid-custom-formatter']"><span>DataGrid Custom Formatter</span></a></div>
     <div class="accordion-header list-item"><a [routerLink]="['datagrid-custom-formatter-service']"><span>DataGrid Custom Formatter Service</span></a></div>
-    <div class="accordion-header list-item"><a [routerLink]="['datagrid-standard-formatter']"><span>DataGrid Standard Formatter</span></a></div>
     <div class="accordion-header list-item"><a [routerLink]="['datagrid-mixed-selection']"><span>DataGrid Mixed Selection Mode</span></a></div>
     <div class="accordion-header list-item"><a [routerLink]="['datagrid-fixedheader']"><span>DataGrid Fixed Header</span></a></div>
   </div>
@@ -154,8 +149,11 @@
     <div class="accordion-header list-item"><a [routerLink]="['tabs-dynamic']"><span>Dynamic Tabs</span></a></div>
   </div>
 
-<div class="accordion-header list-item"><a [routerLink]="['validation']"><span>Validation</span></a></div>
-
+  <div class="accordion-header"><a href="javascript:void(0);"><span>Validation</span></a></div>
+  <div class="accordion-pane">
+    <div class="accordion-header list-item"><a [routerLink]="['validation']"><span>Validation - Simple</span></a></div>
+    <div class="accordion-header list-item"><a [routerLink]="['validation-group']"><span>Validation - FormGroup & Mask</span></a></div>
+  </div>
 </div>
 
 <div class="branding">

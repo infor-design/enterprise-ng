@@ -107,6 +107,7 @@ import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
+import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
 
 @NgModule({
   declarations: [
@@ -199,7 +200,8 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     TreeDynamicDemoComponent,
     TreeServiceDemoComponent,
     TreeSourceDemoComponent,
-    ValidationFormDemoComponent
+    ValidationFormDemoComponent,
+    ValidationFormGroupDemoComponent
   ],
   imports: [
     AppRoutingModule,
