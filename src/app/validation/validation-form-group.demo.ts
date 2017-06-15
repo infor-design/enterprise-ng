@@ -1,7 +1,6 @@
 import {
   Component,
-  ElementRef,
-  OnChanges
+  ElementRef
 } from '@angular/core';
 
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -10,16 +9,12 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
   selector: 'soho-validation-form-group-demo',
   templateUrl: './validation-form-group.demo.html'
 })
-export class ValidationFormGroupDemoComponent implements OnChanges {
+export class ValidationFormGroupDemoComponent  {
 
   demoForm: FormGroup;
 
   constructor(private elementRef: ElementRef, private fb: FormBuilder) {
     this.createForm();
-  }
-
-  ngOnChanges() {
-    this.demoForm.reset();
   }
 
   createForm() {
