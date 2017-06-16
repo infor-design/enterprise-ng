@@ -250,7 +250,6 @@ export class SohoToolbarButtonSetComponent {
 @Component({
   selector: 'soho-toolbar, div[soho-toolbar]',
   templateUrl: './soho-toolbar.component.html',
-  styles: [`{ display: block }`],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
