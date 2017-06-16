@@ -23,6 +23,10 @@ export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
    * Called when element value is same as original value
    */
   @Output() pristine: EventEmitter<SohoTrackDirtyEvent> = new EventEmitter<SohoTrackDirtyEvent>();
+  /**
+   * Called when the element has its original value reset to the current value
+   */
+  @Output() afterResetDirty: EventEmitter<SohoTrackDirtyEvent> = new EventEmitter<SohoTrackDirtyEvent>();
 
   /**
    * Local variables
@@ -43,6 +47,7 @@ export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
      */
     this.jQueryElement.on('dirty', (event: SohoTrackDirtyEvent) => this.dirty.emit(event));
     this.jQueryElement.on('pristine', (event: SohoTrackDirtyEvent) => this.pristine.emit(event));
+    this.jQueryElement.on('afterresetdirty', (event: SohoTrackDirtyEvent) => this.afterResetDirty.emit(event));
 
     // returns a boolean, not an object
     this.trackDirty = this.jQueryElement.data('trackdirty');
@@ -53,6 +58,12 @@ export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
 // TODO: waiting on SOHO-4819
 //      this.trackDirty.destroy();
       this.trackDirty = null;
+    }
+  }
+
+  resetDirty() {
+    if (this.trackDirty) {
+      this.jQueryElement.trigger('resetdirty');
     }
   }
 }
