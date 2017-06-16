@@ -1,17 +1,17 @@
-<div soho-busyindicator class="full-height full-width">
-  <soho-toolbar [rightAlign]=true [maxVisibleButtons]="6">
-    <soho-toolbar-title>
-      <span soho-toolbar-section-title>Soho Data Grid - Fixed Header</span>
-    </soho-toolbar-title>
+<div class="full-width full-height scrollable-flex">
 
-    <soho-toolbar-button-set>
-      <button soho-button="icon" icon="process" id="validate-btn" class="btn-icon" title="Validate"></button>
-      <button soho-button="icon" icon="delete" id="delete-btn" class="btn-icon" title="Delete"></button>
-    </soho-toolbar-button-set>
-  </soho-toolbar>
-  <!--
-  For now need to add in the has-toolbar class so that the appropriate height will be calculated.
-  -->
-  <div soho-datagrid class="has-toolbar">
-  </div>
+    <soho-toolbar>
+      <soho-toolbar-title>
+        <span soho-toolbar-section-title>Soho Data Grid - Fixed Header</span>
+      </soho-toolbar-title>
+
+      <soho-toolbar-button-set>
+        <button soho-button="icon" icon="process" id="validate-btn" class="btn-icon" title="Validate"></button>
+        <button soho-button="icon" icon="delete" id="delete-btn" class="btn-icon" title="Delete"></button>
+      </soho-toolbar-button-set>
+    </soho-toolbar>
+
+    <div soho-datagrid class="scrollable-area">
+    </div>
+
 </div>
