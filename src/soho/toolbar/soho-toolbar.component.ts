@@ -224,6 +224,7 @@ export class SohoToolbarNavButtonComponent {
 @Component({
   selector: 'soho-toolbar-title',
   template: `<ng-content></ng-content>`,
+  styles: [`{ display:inline-block }`],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarTitleComponent {
@@ -236,11 +237,11 @@ export class SohoToolbarTitleComponent {
 @Component({
   selector: 'soho-toolbar-button-set',
   template: `<ng-content></ng-content>`,
+  styles: [`{ display:inline-block }`],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoToolbarButtonSetComponent {
   @HostBinding('class.buttonset') get isButtonSet() { return true; };
-  @HostBinding('style.display') get isInlineBlock() { return 'inline-block'; };
 }
 
 /**
@@ -249,6 +250,7 @@ export class SohoToolbarButtonSetComponent {
 @Component({
   selector: 'soho-toolbar, div[soho-toolbar]',
   templateUrl: './soho-toolbar.component.html',
+  styles: [`{ display: block }`],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
