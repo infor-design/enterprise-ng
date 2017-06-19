@@ -1,5 +1,6 @@
 ﻿import {
-  ComponentFixture,
+    ComponentFixture,
+    async,
   TestBed
 } from '@angular/core/testing';
 
@@ -157,50 +158,95 @@ describe('Soho Swap List Render', () => {
   });
 });
 
-/*
-@Injectable()
-export class SwapListSpecService extends SohoSwapListService {
+describe('Soho Swap List Service', () => {
+    let com: SohoSwapListComponent;
+    let component: SohoSwapListServiceTestComponent;
+    let fixture: ComponentFixture<SohoSwapListServiceTestComponent>;
+    let spy: jasmine.Spy;
+    let service: SwapListTestService;
+    let de: DebugElement;
+    let el: HTMLElement;
 
-    private data: Array<any> = Array<any>();
-    availableDemoItems: SohoSwapListItem[] = [];
-    selectedDemoItems: SohoSwapListItem[] = [];
-    additionalDemoItems: SohoSwapListItem[] = [];
-
-    getData(req: any, resp: any): Observable<Array<any>> {
-        return Observable.of(this.data);
-    }
-
-    constructor() {
-        super();
-    }
-
-    init() {
-        this.availableDemoItems.push(
+    const options: SohoSwapListOptions = {
+        available: [
             { id: 1, value: 'opt-1', text: 'Option A' },
             { id: 2, value: 'opt-2', text: 'Option B' },
             { id: 3, value: 'opt-3', text: 'Option C' },
             { id: 5, value: 'opt-5', text: 'Option E', disabled: true },
             { id: 6, value: 'opt-6', text: 'Option F' },
             { id: 8, value: 'opt-8', text: 'Option H' },
-            { id: 9, value: 'opt-9', text: 'Option I' });
-
-        this.selectedDemoItems.push(
+            { id: 9, value: 'opt-9', text: 'Option I' }],
+        selected: [
             { id: 4, value: 'opt-4', text: 'Option D' },
             { id: 7, value: 'opt-7', text: 'Option G' },
-            { id: 11, value: 'opt-11', text: 'Option K' });
-
-        this.additionalDemoItems.push(
+            { id: 11, value: 'opt-11', text: 'Option K' }],
+        additional: [
             { id: 10, value: 'opt-10', text: 'Option J' },
             { id: 12, value: 'opt-12', text: 'Option L' },
             { id: 13, value: 'opt-13', text: 'Option M' },
-            { id: 14, value: 'opt-14', text: 'Option N' });
+            { id: 14, value: 'opt-14', text: 'Option N' }]
+    };
 
-        this.data.push({ availableItems: this.availableDemoItems });
-        this.data.push({ selectedItems: this.selectedDemoItems });
-        this.data.push({ additionalItems: this.additionalDemoItems });
-    }
-}
-*/
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            declarations: [SohoSwapListServiceTestComponent],
+            imports: [FormsModule, SohoSwapListModule],
+            providers: [SwapListTestService],
+        });
+
+        fixture = TestBed.createComponent(SohoSwapListServiceTestComponent);
+        component = fixture.componentInstance;
+        service = fixture.debugElement.injector.get(SwapListTestService);
+
+        // Setup spy on the `getData` method
+        spy = spyOn(service, 'getData')
+            .and.returnValue(Observable.of(options));
+
+        com = component.swaplist;
+        de = fixture.debugElement;
+        fixture.detectChanges();
+    });
+
+    it('Check items text', async(() => {
+        fixture.detectChanges();
+
+        fixture.whenStable().then(() => { // wait for async getQuote
+            fixture.detectChanges();        // update view with quote
+
+            const cards = de.queryAll(By.css('soho-swaplist-card'));
+
+            // available
+            let i = 0;
+            let items = cards[0].queryAll(By.css('.swaplist-item-content'));
+            const aItems = com.availableItems;
+            items.forEach(item => {
+                const itemTextEl = item.query(By.css('p')).nativeElement;
+                expect(itemTextEl.textContent).toEqual(aItems[i].text);
+                i++;
+            });
+
+            // selected
+            i = 0;
+            items = cards[1].queryAll(By.css('.swaplist-item-content'));
+            const sItems = com.selectedItems;
+            items.forEach(item => {
+                const itemTextEl = item.query(By.css('p')).nativeElement;
+                expect(itemTextEl.textContent).toEqual(sItems[i].text);
+                i++;
+            });
+
+            // full access
+            i = 0;
+            items = cards[2].queryAll(By.css('.swaplist-item-content'));
+            const fItems = com.additionalItems;
+            items.forEach(item => {
+                const itemTextEl = item.query(By.css('p')).nativeElement;
+                expect(itemTextEl.textContent).toEqual(fItems[i].text);
+                i++;
+            });
+        });
+    }));
+});
 
 @Component({
   template: `
@@ -228,4 +274,84 @@ class SohoSwapListTestComponent {
           { id: 13, value: 'opt-13', text: 'Option M' },
           { id: 14, value: 'opt-14', text: 'Option N' }]
   };
+}
+
+
+@Injectable()
+export class SwapListTestService extends SohoSwapListService {
+    private options: SohoSwapListOptions = {};
+    private availableDemoItems: SohoSwapListItem[] = [];
+    private selectedDemoItems: SohoSwapListItem[] = [];
+    private additionalDemoItems: SohoSwapListItem[] = [];
+
+    getData(): Observable<SohoSwapListOptions> {
+        console.log(this.options.available);
+        return Observable.of(this.options);
+    }
+
+    constructor() {
+        super();
+        this.init();
+    }
+
+    init() {
+        this.availableDemoItems.push(
+            { id: 1, value: 'opt-1', text: 'Option A' },
+            { id: 2, value: 'opt-2', text: 'Option B' },
+            { id: 3, value: 'opt-3', text: 'Option C' },
+            { id: 5, value: 'opt-5', text: 'Option E', disabled: true },
+            { id: 6, value: 'opt-6', text: 'Option F' },
+            { id: 8, value: 'opt-8', text: 'Option H' },
+            { id: 9, value: 'opt-9', text: 'Option I' });
+
+        this.selectedDemoItems.push(
+            { id: 4, value: 'opt-4', text: 'Option D' },
+            { id: 7, value: 'opt-7', text: 'Option G' },
+            { id: 11, value: 'opt-11', text: 'Option K' });
+
+        this.additionalDemoItems.push(
+            { id: 10, value: 'opt-10', text: 'Option J' },
+            { id: 12, value: 'opt-12', text: 'Option L' },
+            { id: 13, value: 'opt-13', text: 'Option M' },
+            { id: 14, value: 'opt-14', text: 'Option N' });
+
+        this.options.available = this.availableDemoItems;
+        this.options.selected = this.selectedDemoItems;
+        this.options.additional = this.additionalDemoItems;
+    }
+}
+
+
+@Component({
+    template: `<soho-swaplist showFullAccessCard="true" id="swaplist-service"></soho-swaplist>`,
+    providers: [SwapListTestService]
+})
+class SohoSwapListServiceTestComponent {
+    @ViewChild(SohoSwapListComponent) swaplist: SohoSwapListComponent;
+
+    constructor(private service: SwapListTestService) {
+    }
+
+    ngOnInit() {
+        this.updateData();
+    }
+
+    onSelected(event: any) {
+        console.log(this.swaplist.selectedItems);
+    }
+
+    onUpdated(event: any) {
+        console.log(this.swaplist.selectedItems);
+    }
+
+    updateData() {  
+       this.service.getData().subscribe((d: SohoSwapListOptions) => {
+           this.swaplist.updateDataset(d);
+           setTimeout(() => this.updateData(), 2000);
+       });
+    }
+
+    get selectedItems(): SohoSwapListItem[] {
+        return this.swaplist.selectedItems;
+    }
 }
