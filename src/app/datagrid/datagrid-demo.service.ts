@@ -54,7 +54,8 @@ export class DataGridDemoService extends SohoDataGridService {
       field: '',
       formatter: Formatters.Drilldown,
       cssClass: 'l-center-text',
-      click: (e: any, args: any) => { console.log('clicked', args); }
+      click: (e: any, args: any) => { console.log('clicked', args); },
+      reorderable: false
     });
 
     this.columns.push(
