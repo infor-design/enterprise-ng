@@ -368,6 +368,9 @@ interface SohoDataGridColumn {
   /** special display formatting for a numeric column */
   numberFormat?: SohoDataGridColumnNumberFormat;
 
+  /** false = prevent user drag/drop this column order i.e. a drilldown column */
+  reorderable?: boolean
+
 }
 
 interface SohoDataGridColumnNumberFormat {
