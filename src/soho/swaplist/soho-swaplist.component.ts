@@ -7,9 +7,12 @@
   HostBinding,
   Input,
   OnDestroy,
+  Optional,
   Output,
   ContentChild
 } from '@angular/core';
+
+import { SohoSwapListService } from './soho-swaplist.service';
 
 export type SohoSwapListCardType = 'available' | 'selected' | 'full-access';
 
@@ -192,8 +195,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   }
 
   /** Constructor. */
-  constructor(private element: ElementRef,
-      @Optional() private swaplistService: SohoSwapListService) {
+  constructor(private element: ElementRef, @Optional() private swaplistService: SohoSwapListService) {
   }
 
   ngAfterViewInit() {
@@ -206,11 +208,10 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
 
     this.swaplist = this.jQueryElement.data('swaplist');
 
-    // tempt load data from service
     if (this.swaplistService) {
-      this.swaplistService.getData().subscribe((d: SohoSwapListOptions) => {
-        this.updateDataset(d);
-      });
+        this.swaplistService.getData().subscribe((d: SohoSwapListOptions) => {
+            this.updateDataset(d);
+        });
     }
   }
 
@@ -225,9 +226,9 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   }
 
   /**
-    * In case the list data is being bound asynchronously or modified on the fly,
-    * you will need to trigger updated on so it updates the list(s).
-    */
+  * In case the list data is being bound asynchronously or modified on the fly,
+  * you will need to trigger updated on so it updates the list(s).
+  */
   public updated() {
     if (this.swaplist) {
       this.swaplist.updated();
