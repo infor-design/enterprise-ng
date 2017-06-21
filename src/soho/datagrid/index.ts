@@ -1,6 +1,6 @@
 export {
   SohoDataGridComponent,
-  SohoDataGridRowEvent,
+  SohoDataGridToggleRowEvent,
   SohoGridColumnFilterTypes
 } from './soho-datagrid.component';
 export { SohoDataGridModule } from './soho-datagrid.module';

@@ -27,7 +27,7 @@ describe('Soho DataGrid Unit Tests', () => {
 
   it('Check Empty Content', () => {
     expect(el.nodeName).toEqual('DIV');
-    expect(el.id).toEqual('root1');
+    // expect(el.id).toEqual('root1');
     expect(el.hasAttribute('soho-datagrid')).toBeTruthy();
     expect(el.classList).toContain('datagrid-container');
   });
@@ -35,7 +35,7 @@ describe('Soho DataGrid Unit Tests', () => {
   it('Check With Content', () => {
 
     expect(el.nodeName).toEqual('DIV');
-    expect(el.id).toEqual('root2');
+    // expect(el.id).toEqual('root2');
     expect(el.hasAttribute('soho-datagrid')).toBeTruthy();
     expect(el.classList).toContain('datagrid-container');
   });

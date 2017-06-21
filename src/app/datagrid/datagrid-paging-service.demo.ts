@@ -72,4 +72,7 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
     this.sohoDataGridComponent.exportToExcel('', '', this.datagridPagingService.getAllData());
   }
 
+  onRowClicked(event: SohoDataGridRowClicked) {
+    console.log('onRowClicked event is: ' + event);
+  }
 }

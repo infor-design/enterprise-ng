@@ -57,8 +57,8 @@ export class Breadcrumb {
   path: string;
 
   // Indicator that this is the selectable.
-  selectable: boolean = false;
+  selectable = false;
 
   // Is this the active breadcrumb.
-  current: boolean = false;
+  current = false;
 }

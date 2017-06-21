@@ -151,8 +151,8 @@ export class SohoMessageRef {
     this._placeholder.on('open', ((event: any) => { this.onOpen(event); }));
 
     // These are vetoable events.
-    this._placeholder.on('beforeopen', ((event: any) => { return this.onBeforeOpen(event); }));
-    this._placeholder.on('beforeclose', ((event: any) => { return this.onBeforeClose(event); }));
+    this._placeholder.on('beforeopen', ((event: any) => this.onBeforeOpen(event)));
+    this._placeholder.on('beforeclose', ((event: any) => this.onBeforeClose(event)));
 
     return this;
   }

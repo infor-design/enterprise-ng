@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
+import { SohoAccordionModule } from './accordion/soho-accordion.module';
 import { SohoApplicationMenuModule } from './application-menu/soho-application-menu.module';
 import { SohoBusyIndicatorModule } from './busyindicator/soho-busyindicator.module';
 import { SohoButtonModule } from './button/soho-button.module';
+import { SohoChartModule } from './chart/soho-chart.module';
 import { SohoCheckBoxModule } from './checkbox/soho-checkbox.module';
 import { SohoContextMenuModule } from './context-menu/soho-context-menu.module';
 import { SohoContextualActionPanelModule } from './contextual-action-panel/soho-contextual-action-panel.module';
@@ -15,6 +17,7 @@ import { SohoFileUploadModule } from './fileupload/soho-fileupload.module';
 import { SohoHeaderModule } from './header/soho-header.module';
 import { SohoHyperlinkModule } from './hyperlink/soho-hyperlink.module';
 import { SohoIconModule } from './icon/soho-icon.module';
+import { SohoInputModule } from './input/soho-input.module';
 import { SohoInputValidateModule } from './input-validate/soho-input-validate.module';
 import { SohoLabelModule } from './label/soho-label.module';
 import { SohoListViewModule } from './listview/soho-listview.module';
@@ -46,9 +49,11 @@ import { SohoTreeModule } from './tree/soho-tree.module';
 
 @NgModule({
   imports: [
+    SohoAccordionModule,
     SohoApplicationMenuModule,
     SohoBusyIndicatorModule,
     SohoButtonModule,
+    SohoChartModule,
     SohoCheckBoxModule,
     SohoContextualActionPanelModule,
     SohoContextMenuModule,
@@ -62,6 +67,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoHeaderModule,
     SohoHyperlinkModule,
     SohoIconModule,
+    SohoInputModule,
     SohoInputValidateModule,
     SohoLabelModule,
     SohoListViewModule,
@@ -94,9 +100,11 @@ import { SohoTreeModule } from './tree/soho-tree.module';
   declarations: [
   ],
   exports: [
+    SohoAccordionModule,
     SohoApplicationMenuModule,
     SohoBusyIndicatorModule,
     SohoButtonModule,
+    SohoChartModule,
     SohoCheckBoxModule,
     SohoContextMenuModule,
     SohoContextualActionPanelModule,
@@ -110,6 +118,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoHeaderModule,
     SohoHyperlinkModule,
     SohoIconModule,
+    SohoInputModule,
     SohoInputValidateModule,
     SohoLabelModule,
     SohoListViewModule,

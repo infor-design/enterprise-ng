@@ -31,17 +31,17 @@ export class ToolbarStateComponent implements OnInit {
     this.toolbarButtons = this.toolbarService.buildToolbarButtonSet1();
   }
 
-  onButtonClick1(event) {
+  onButtonClick1() {
     this.toolbarButtons = this.toolbarService.buildToolbarButtonSet1();
     this.toolbarSectionTitle = 'Toolbar State Component 1';
   }
 
-  onButtonClick2(event) {
+  onButtonClick2() {
     this.toolbarButtons = this.toolbarService.buildToolbarButtonSet2();
     this.toolbarSectionTitle = 'Toolbar State Component 2';
   }
 
-  onButtonClick3(event) {
+  onButtonClick3() {
     this.toolbarButtons = this.toolbarService.buildToolbarButtonSet3();
     this.toolbarSectionTitle = 'Toolbar State Component 3';
   }

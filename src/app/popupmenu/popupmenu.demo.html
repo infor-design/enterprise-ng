@@ -2,8 +2,8 @@
 <div style="padding: 20px 20px 0 20px;">
   <div class="row">
     <div class="inline">
-      <button soho-button (click)="onInsertCommentButtonClicked($event)">{{insertCommentText}} Insert Comment Item</button>
-      <button soho-button (click)="onInsertNoteClicked($event)">{{insertNoteText}} Insert Note Item</button>
+      <button soho-button (click)="onInsertCommentButtonClicked()">{{insertCommentText}} Insert Comment Item</button>
+      <button soho-button (click)="onInsertNoteClicked()">{{insertNoteText}} Insert Note Item</button>
     </div>
   </div>
 </div>
@@ -22,10 +22,10 @@
     </div>
 
     <ul soho-popupmenu id="action-popupmenu"
-      (selected)="onSelected($event)"
-      (beforeopen)="onBeforeopen($event)"
-      (close)="onClose($event)"
-      (open)="onOpen($event)"
+      (selected)="onSelected()"
+      (beforeopen)="onBeforeOpen()"
+      (close)="onClose()"
+      (open)="onOpen()"
     >
       <li soho-popupmenu-item><a soho-popupmenu-label>Cut</a></li>
       <li soho-popupmenu-item><a soho-popupmenu-label>Copy</a></li>

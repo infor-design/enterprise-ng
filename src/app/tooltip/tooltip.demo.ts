@@ -17,8 +17,8 @@ export class TooltipDemoComponent implements OnInit {
 
   @ViewChildren(SohoTooltipDirective) tooltips: QueryList<SohoTooltipDirective>;
 
-  public normalTooltipText: string = 'Tooltips Provide<br> Additional Information';
-  public standardTooltipText: string = `<span style=\'text-align: left; display: inline-block;\'>
+  public normalTooltipText = 'Tooltips Provide<br> Additional Information';
+  public standardTooltipText = `<span style=\'text-align: left; display: inline-block;\'>
   <b style=\'text-transform: uppercase; line-height: 1.7em;\'>Connected order</b>
   <br>Tooltips Provide <br> Additional Information</span>`;
 

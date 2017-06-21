@@ -22,31 +22,33 @@
         *ngIf="toolbarSearchField"
         placeholder="{{toolbarSearchField?.label}}"
         [(ngModel)]="toolbarSearchField.value"
-        [collapsible]="false"
+        [collapsible]="true"
         [clearable]="true"
         (keyup.enter)="fireSearchEvent($event)"
         (cleared)="fireClearSearchEvent($event)"
       />
 
-      <template [ngIf]="currentToolbarOptions">
-        <template ngFor let-button [ngForOf]="currentToolbarOptions?.toolbarButtons">
+      <ng-template [ngIf]="currentToolbarOptions">
+        <ng-template ngFor let-button [ngForOf]="currentToolbarOptions?.toolbarButtons">
           <button *ngIf="!button.menu" soho-button="secondary" icon="{{button?.icon}}" id="{{button?.id}}" attr.data-button="{{button?.data}}">{{button?.text}}</button>
 
-          <template [ngIf]="button.menu">
+          <ng-template [ngIf]="button.menu">
             <button soho-menu-button id="{{button?.id}}" menu="buttonPopupMenu" icon="{{button?.icon}}"  attr.data-button="{{button?.data}}" >
               {{button?.text}}</button>
-            <ul soho-popupmenu id="buttonPopupMenu">
-              <li soho-popupmenu-item *ngFor="let item of button.menu" id="{{item?.id}}">
-                <a soho-popupmenu-label attr.data="{{item?.data}}">{{item?.text}}</a>
-              </li>
-            </ul>
-          </template>
-        </template>
-      </template>
+            <div class="popupmenu-wrapper bottom" role="application" aria-hidden="true">
+              <ul soho-popupmenu id="buttonPopupMenu">
+                <li soho-popupmenu-item *ngFor="let item of button.menu" id="{{item?.id}}">
+                  <a soho-popupmenu-label attr.data="{{item?.data}}">{{item?.text}}</a>
+                </li>
+              </ul>
+            </div>
+          </ng-template>
+        </ng-template>
+      </ng-template>
 
-      <template [ngIf]="!currentToolbarOptions">
+      <ng-template [ngIf]="!currentToolbarOptions">
         <button soho-button="icon" icon="add" title="Add"></button>
-      </template>
+      </ng-template>
     </soho-toolbar-button-set>
 
     <!-- If the currentToolbarOptions are null/undefined then display the "default" toolbar buttons
@@ -54,12 +56,13 @@
     <soho-toolbar-more-button>
       <ul class="popupmenu is-selectable">
         <li class="heading" role="presentation">Theme</li>
-        <li class="is-selectable is-checked"><a href="#" data-theme="grey-theme">Light</a></li>
+        <li class="is-selectable is-checked"><a href="#" [attr.data-theme]="defaultPersonalizeTheme">Default</a></li>
+        <li class="is-selectable"><a href="#" data-theme="light-theme">Light</a></li>
         <li class="is-selectable"><a href="#" data-theme="dark-theme">Dark</a></li>
         <li class="is-selectable"><a href="#" data-theme="high-contrast-theme">High Contrast</a></li>
         <li class="separator"></li>
         <li class="heading" role="presentation">Personalization</li>
-        <li class="is-selectable is-checked"><a data-rgbcolor="" href="#">Default</a></li>
+        <li class="is-selectable is-checked"><a [attr.data-rgbcolor]="defaultPersonalizeColor" href="#">Default</a></li>
         <li class="is-selectable"><a data-rgbcolor="#368AC0" href="#">Azure</a></li>
         <li class="is-selectable"><a data-rgbcolor="#EFA836" href="#">Amber</a></li>
         <li class="is-selectable"><a data-rgbcolor="#9279A6" href="#">Amethyst</a></li>
@@ -71,12 +74,14 @@
 
   </soho-toolbar>
 
-  <div soho-tabs *ngIf="currentTabsOptions" #appDynamicHeaderTabs>
-    <ul soho-tab-list>
-      <li soho-tab *ngFor="let tab of currentTabsOptions.tabs">
-        <a soho-tab-title [tabId]="tab.id">{{tab.title}}</a>
-      </li>
-    </ul>
+  <div soho-tabs *ngIf="currentTabsOptions" #appDynamicHeaderTabs [containerElement]="currentTabsOptions.containerElementSelector">
+    <div soho-tab-list-container>
+      <ul soho-tab-list>
+        <li soho-tab *ngFor="let tab of currentTabsOptions.tabs">
+          <a soho-tab-title [tabId]="tab.id">{{tab.title}}</a>
+        </li>
+      </ul>
+    </div>
   </div>
 
 </soho-header>

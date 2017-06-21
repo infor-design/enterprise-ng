@@ -1,10 +1,9 @@
 <div class="full-width">
 
-  <button soho-button (click)="onToggleHeaderToolbar($event)">{{isShowingHeaderToolbar ? 'Show Default Toolbar' : 'Show Header Toolbar'}}</button>
-  <button soho-button (click)="onToggleHeaderTabs($event)">{{isShowingHeaderTabs ? 'Remove Header Tabs' : 'Show Header Tabss'}}</button>
+  <button soho-button (click)="onToggleHeaderToolbar()">{{isShowingHeaderToolbar ? 'Remove Default Toolbar' : 'Show Header Toolbar'}}</button>
+  <button soho-button (click)="onToggleHeaderTabs()">{{isShowingHeaderTabs ? 'Remove Header Tabs' : 'Show Header Tabs'}}</button>
 
-  <template [ngIf]="currentTabsOptions">
+  <div soho-tab-panel-container  id="header-demo-tab-panels" *ngIf="currentTabsOptions">
     <div soho-tab-panel *ngFor="let tab of currentTabsOptions.tabs" [tabId]="tab.id"><p>{{tab.content}}</p></div>
-  </template>
-
+  </div>
 </div>

@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app.routes';
 
 import { SohoComponentsModule } from '../soho/soho-components.module';
 
+import { AccordionDemoComponent } from './accordion/accordion.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
@@ -22,6 +23,7 @@ import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/applica
 import { ApplicationMenuLazyService } from './application-menu/application-menu-lazy-service.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { ButtonDemoComponent } from './button/button.demo';
+import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoModule } from './contextual-action-panel/contextual-action-panel.demo.module';
@@ -31,11 +33,14 @@ import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
+import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
+import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-selection.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
+import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
 import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
@@ -48,6 +53,7 @@ import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
 import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
+import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
@@ -73,6 +79,7 @@ import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
 import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
+import { StepProcessBtnDisableDemoComponent } from './stepprocess/stepprocessbuttondisable.demo';
 import { StepProcessDemoComponent } from './stepprocess/stepprocess.demo';
 import { StepProcessDataDrivenDemoComponent } from './stepprocess/stepprocess-data-driven.demo';
 import { StepProcessVetoableDemoComponent } from './stepprocess/stepprocessvetoable.demo';
@@ -102,16 +109,19 @@ import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
+import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AccordionDemoComponent,
     AlertDemoComponent,
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,
     ApplicationMenuLazyMenuDemoComponent,
     BusyIndicatorDemoComponent,
     ButtonDemoComponent,
+    ChartDemoComponent,
     CheckBoxDemoComponent,
     ContextMenuDemoComponent,
     DataGridBreadcrumbDemoComponent,
@@ -120,10 +130,13 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     DataGridCustomFormatterServiceDemoComponent,
     DataGridDynamicDemoComponent,
     DataGridEditorsDemoComponent,
+    DataGridFixedHeaderDemoComponent,
+    DataGridMixedSelectionDemoComponent,
     DataGridPagingIndeterminateDemoComponent,
     DataGridPagingServiceDemoComponent,
     DataGridServiceDemoComponent,
     DataGridSettingsDemoComponent,
+    DataGridStandardFormatterDemoComponent,
     DataGridToolbarDemoComponent,
     DataGridTreeGridDemoComponent,
     DataGridGroupableDemoComponent,
@@ -137,6 +150,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     EditorDemoComponent,
     ErrorDemoComponent,
     ExpandableAreaDemoComponent,
+    ExpandableAreaFooterDemoComponent,
     FileUploadDemoComponent,
     HeaderTabsDemoComponent,
     HeaderToolbarAndTabsDemoComponent,
@@ -162,6 +176,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     SplitterHorizontalDemoComponent,
     SplitterVerticalDemoComponent,
     StepProcessDemoComponent,
+    StepProcessBtnDisableDemoComponent,
     StepProcessDataDrivenDemoComponent,
     StepProcessVetoableDemoComponent,
     SwapListDemoComponent,
@@ -189,7 +204,8 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     TreeDynamicDemoComponent,
     TreeServiceDemoComponent,
     TreeSourceDemoComponent,
-    ValidationFormDemoComponent
+    ValidationFormDemoComponent,
+    ValidationFormGroupDemoComponent
   ],
   imports: [
     AppRoutingModule,

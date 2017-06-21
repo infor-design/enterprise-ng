@@ -24,7 +24,9 @@ import {
 
 @Component({
   selector: 'input[soho-toolbar-searchfield]', // tslint:disable-line
-  template: '<div #toolbarSearchField><ng-content></ng-content></div>'
+  template: '<div #toolbarSearchField><ng-content></ng-content></div>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
   /** Options. */
@@ -78,7 +80,7 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
    */
   private jQueryElement: JQuery;
   private toolbarsearchfield: SohoToolbarSearchFieldStatic;
-  private searchFieldChanged: boolean = false;
+  private searchFieldChanged = false;
 
   constructor(
     private changeDetector: ChangeDetectorRef,
@@ -98,6 +100,12 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
   private initSohoControl() {
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.toolbarsearchfield(this.options);
+
+    // Initialize title attribute as a soho tooltip
+    if (this.jQueryElement.has('[title]')) {
+      this.jQueryElement.tooltip();
+    }
+
     this.toolbarsearchfield = this.jQueryElement.data('toolbarsearchfield');
 
     /**
@@ -118,7 +126,7 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
     // Necessary clean up step (add additional here)
     if (this.toolbarsearchfield) {
       this.toolbarsearchfield.destroy();
-      this.toolbarsearchfield = null;
+      this.toolbarsearchfield = undefined;
     }
   }
 
@@ -192,20 +200,21 @@ export class SohoSectionTitleComponent {
 @Component({
   selector: 'button[soho-nav-button]', // tslint:disable-line
   template: `
-      <span class="audible">
-        <ng-content></ng-content>
-      </span>
       <span class="icon app-header">
         <span class="one"></span>
         <span class="two"></span>
         <span class="three"></span>
       </span>
+      <span class="audible">
+        <ng-content></ng-content>
+      </span>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarNavButtonComponent {
-  @HostBinding('class.application-menu-trigger') get isAppMenuTrigger() { return true; };
+  // This HostBinding needs to go first to maintain correct styling
   @HostBinding('class.btn-icon') get isIconButton() { return true; };
+  @HostBinding('class.application-menu-trigger') get isAppMenuTrigger() { return true; };
   @HostBinding('attr.type') get typeAttr() { return 'button'; };
 }
 
@@ -215,6 +224,7 @@ export class SohoToolbarNavButtonComponent {
 @Component({
   selector: 'soho-toolbar-title',
   template: `<ng-content></ng-content>`,
+  styles: [`{ display:inline-block }`],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarTitleComponent {
@@ -227,11 +237,11 @@ export class SohoToolbarTitleComponent {
 @Component({
   selector: 'soho-toolbar-button-set',
   template: `<ng-content></ng-content>`,
+  styles: [`{ display:inline-block }`],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoToolbarButtonSetComponent {
   @HostBinding('class.buttonset') get isButtonSet() { return true; };
-  @HostBinding('style.display') get isInlineBlock() { return 'inline-block'; };
 }
 
 /**
@@ -274,6 +284,22 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     this.options.rightAlign = value;
     if (this.toolbar) {
       this.toolbar.settings.rightAlign = value;
+      this.markForRefresh();
+    }
+  }
+
+  @Input() set resizeContainers(value: boolean) {
+    this.options.resizeContainers = value;
+    if (this.toolbar) {
+      this.toolbar.settings.resizeContainers = value;
+      this.markForRefresh();
+    }
+  }
+
+  @Input() set favorButtonset(value: boolean) {
+    this.options.favorButtonset = value;
+    if (this.toolbar) {
+      this.toolbar.settings.favorButtonset = value;
       this.markForRefresh();
     }
   }

@@ -38,8 +38,8 @@
         <input *ngIf="searchField" class="searchfield" id="{{searchField.id}}" placeholder="{{searchField.label}}" name="{{searchField.label}}"/>
 
         <!-- buttons -->
-        <template ngFor let-button [ngForOf]="buttons">
-          <button *ngIf="!button.menu" soho-button icon="{{button?.icon}}" id="{{button?.id}}" class="{{button?.cssClass}}" attr.data-action="{{button?.data}}">{{button?.text}}</button>
+        <ng-template ngFor let-button [ngForOf]="buttons">
+          <button *ngIf="!button.menu" soho-button="btn" icon="{{button?.icon}}" id="{{button?.id}}" class="{{button?.cssClass}}" attr.data-action="{{button?.data}}">{{button?.text}}</button>
           <button *ngIf="button.menu" id="{{button?.id}}" soho-menu-button [icon]="button?.icon" attr.data-action="{{button?.data}}">
             <span>{{button?.text}}</span>
           </button>
@@ -51,7 +51,7 @@
             </li>
           </ul>
 
-        </template>
+        </ng-template>
       </soho-toolbar-button-set>
 
     </soho-toolbar>

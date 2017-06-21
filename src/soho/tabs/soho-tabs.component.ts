@@ -12,24 +12,6 @@ import {
 } from '@angular/core';
 
 /**
- * Internal component to support the tab list items
- */
-@Component({
-  selector: 'li[soho-tab]', // tslint:disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-})
-export class SohoTabComponent {
-  @HostBinding('class.tab') get isTab() { return true; };
-
-  @HostBinding('class.dismissible')   @Input() dismissible:  boolean = false;
-  @HostBinding('class.is-selected')   @Input() selected:     boolean = false;
-  @HostBinding('class.is-disabled')   @Input() disabled:     boolean = false;
-  @HostBinding('class.hidden')        @Input() hidden:       boolean = false;
-  @HostBinding('class.has-popupmenu') @Input() hasPopupMenu: boolean = false;
-}
-
-/**
  * Internal component to support the tab title
  */
 @Component({
@@ -55,7 +37,7 @@ export class SohoTabCountComponent {
 }
 
 /**
- * Internal component to support menu/dropdown tabs
+ * Internal component to support a divider between tab items
  */
 @Component({
   selector: 'li[soho-tab-separator]', // tslint:disable-line
@@ -67,6 +49,19 @@ export class SohoTabSeparatorComponent {
 }
 
 /**
+ * Internal component to support tab panel container content.
+ */
+@Component({
+  selector: 'div[soho-tab-panel-container]', // tslint:disable-line
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoTabPanelContainerComponent {
+  @HostBinding('class.tab-panel-container') isTabPanelContainer = true;
+  @HostBinding('class.scrollable-y') @Input() verticalScrolling;
+}
+
+/**
  * Internal component to support tab panel content.
  */
 @Component({
@@ -75,9 +70,26 @@ export class SohoTabSeparatorComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabPanelComponent {
-  @HostBinding('class.tab-panel') get isTabPanel() { return true; };
+  @HostBinding('class.tab-panel') isTabPanel = true;
   @HostBinding('attr.id')        @Input() tabId: string;
   @HostBinding('attr.contained') @Input() contained: string;
+}
+
+/**
+ * Internal component to support the tab list items
+ */
+@Component({
+  selector: 'li[soho-tab]', // tslint:disable-line
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoTabComponent {
+  @HostBinding('class.tab') get isTab() { return true; };
+  @HostBinding('class.dismissible') @Input() dismissible = false;
+  @HostBinding('class.is-selected') @Input() selected = false;
+  @HostBinding('class.is-disabled') @Input() disabled = false;
+  @HostBinding('class.hidden')  @Input() hidden = false;
+  @HostBinding('class.has-popupmenu') @Input() hasPopupMenu = false;
 }
 
 /**
@@ -88,8 +100,21 @@ export class SohoTabPanelComponent {
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SohoTabsListComponent {
-  @HostBinding('class.tab-list') get isTabList() { return true; };
+export class SohoTabListComponent {
+  @HostBinding('class.tab-list') isTabList = true;
+}
+
+/**
+ * Main tabset header component
+ */
+@Component({
+  selector: 'div[soho-tab-list-container]', // tslint:disable-line
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoTabListContainerComponent {
+  @HostBinding('class.tab-list-container') isTabListContainer = true;
+  @HostBinding('class.scrollable-y') @Input() verticalScrolling;
 }
 
 /**
@@ -97,13 +122,12 @@ export class SohoTabsListComponent {
  */
 @Component({
   selector: 'div[soho-tabs]', // tslint:disable-line
-  templateUrl: './soho-tabs.component.html',
+  template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   @HostBinding('class.tab-container') get isTabContainer() { return true; };
   @HostBinding('class.vertical')      get isVertical()     { return this.vertical; };
-  @HostBinding('class.horizonal')     get isHorizontal()   { return this.horizontal; };
   @HostBinding('class.module-tabs')   get isModuleTabs()   { return this.moduleTabs; };
   @HostBinding('class.header-tabs')   get isHeaderTabs()   { return this.headerTabs; };
   @HostBinding('attr.alternate')      get isAlternate()    { return this.alternate; };
@@ -111,12 +135,6 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   // ------------------------------------------------------------------------
   // @Inputs
   // ------------------------------------------------------------------------
-
-  /**
-   * set to true to show a secondary style for the tabs
-   * @type {boolean}
-   */
-  @Input() horizontal = false;
 
   /**
    * set to true to show a secondary style for the tabs
@@ -220,6 +238,18 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
     }
   }
 
+  /**
+   * If Vertical Tabs & true, will automatically switch to Horizontal Tabs on smaller breakpoints.
+   * @type {boolean}
+   */
+  @Input() set verticalResponsive(verticalResponsive: boolean) {
+    this._tabsOptions.verticalResponsive = verticalResponsive;
+    if (this.jQueryElement) {
+      this.tabs.settings.verticalResponsive = verticalResponsive;
+      this.updated();
+    }
+  }
+
   // ------------------------------------------------------------------------
   // @Outputs
   // ------------------------------------------------------------------------
@@ -229,37 +259,37 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
    * to "veto" the tab selection change.
    * @type {EventEmitter<Object>}
    */
-  @Output() beforeActivate = new EventEmitter<Object>();
+  @Output() beforeActivate = new EventEmitter<SohoTabsEvent>();
 
   /**
    * The activated event is fired whenever a tab is selected (or "activated");
    * @type {EventEmitter<Object>}
    */
-  @Output() activated = new EventEmitter<Object>();
+  @Output() activated = new EventEmitter<SohoTabsEvent>();
 
   /**
    * The afteractivate event is fired after the has been activated.
    * @type {EventEmitter<Object>}
    */
-  @Output() afterActivate = new EventEmitter<Object>();
+  @Output() afterActivate = new EventEmitter<SohoTabsEvent>();
 
   /**
    * fired when a tab closes
    * @type {EventEmitter<Object>}
    */
-  @Output() close = new EventEmitter<Object>();
+  @Output() close = new EventEmitter<SohoTabsEvent>();
 
   /**
    * fired after a tab closes
    * @type {EventEmitter<Object>}
    */
-  @Output() afterClose = new EventEmitter<Object>();
+  @Output() afterClose = new EventEmitter<SohoTabsEvent>();
 
   /**
    * fire when a new tab is added.
    * @type {EventEmitter<Object>}
    */
-  @Output() tabAdded = new EventEmitter<Object>();
+  @Output() tabAdded = new EventEmitter<SohoTabsEvent>();
 
   // ------------------------------------------------------------------------
 
@@ -291,23 +321,32 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   constructor(private element: ElementRef) {}
 
   ngAfterViewInit() {
-    // assign element to local variable
-    this.jQueryElement = jQuery(this.element.nativeElement);
+    // The markup for tab panels are now moved outside the soho-tabs and into their own
+    // <div class=tab-panel-container> element. This causes issues in this lifecycle event
+    // since we try to initialize the jquery tabs() before the soho-tab-panel-container has
+    // had a chance to apply it's host bindings in the case there is an ngIf in an upper
+    // element: Specifically applying the tab-panel-container
+    // class which is needed for the jquery component to initialize properly.
 
-    // bind to jquery events and emit as angular events
-    this.jQueryElement
-      .on('beforeactivate', ((event: SohoTabsEvent, tab) => {this.beforeActivate.emit(tab[0]); }))
-      .on('activated', ((event: SohoTabsEvent, tab) => {this.activated.emit(tab[0]); }))
-      .on('afteractivate', ((event: SohoTabsEvent, tab) => {this.afterActivate.emit(tab[0]); }))
-      .on('close', ((event: SohoTabsEvent, tab) => {this.close.emit(tab[0]); }))
-      .on('afterclose', ((event: SohoTabsEvent, tab) => {this.afterClose.emit(tab[0]); }))
-      .on('tab-added', ((event: SohoTabsEvent, tab) => {this.tabAdded.emit(tab[0]); }));
+    setTimeout(() => {
+      // assign element to local variable
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    // initialize the tabs plugin
-    this.jQueryElement.tabs(this._tabsOptions);
-    this.tabs = this.jQueryElement.data('tabs');
+      // bind to jquery events and emit as angular events
+      this.jQueryElement
+      .on('beforeactivate', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.beforeActivate.emit(event); }))
+      .on('activated', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.activated.emit(event); }))
+      .on('afteractivate', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.afterActivate.emit(event); }))
+      .on('close', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.close.emit(event); }))
+      .on('afterclose', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.afterClose.emit(event); }))
+      .on('tab-added', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.tabAdded.emit(event); }));
 
-    this.updateTabInfo();
+      // initialize the tabs plugin
+      this.jQueryElement.tabs(this._tabsOptions);
+      this.tabs = this.jQueryElement.data('tabs');
+
+      this.updateTabInfo();
+    });
   }
 
   ngAfterViewChecked(): void {
@@ -345,6 +384,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   ngOnDestroy() {
     if (this.jQueryElement && this.tabs) {
       this.tabs.destroy();
+      this.tabs = null;
     }
   }
 
@@ -354,8 +394,8 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
     this.tabTitles = this.getTabTitles($liList);
   }
 
-  private getTabLiList($liList?: JQuery) {
-    return this.jQueryElement.children('.tab-list').find('li');
+  private getTabLiList() {
+    return this.jQueryElement.find('.tab-list').find('li');
   }
 
   private getTabTitles($liList?: JQuery): Array<string> {

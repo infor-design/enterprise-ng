@@ -4,9 +4,9 @@
     <h2 class="fieldset-title">Busy Indicator</h2>
 
     <div class="field1">
-      <button soho-button (click)="start($event)">Start</button>
-      <button soho-button (click)="stop($event)">Stop</button>
-      <button soho-button (click)="timer($event)">Timer</button>
+      <button soho-button (click)="start()">Start</button>
+      <button soho-button (click)="stop()">Stop</button>
+      <button soho-button (click)="timer()">Timer</button>
     </div>
   </div>
 </div>
@@ -15,8 +15,22 @@
 
   <div class="one-half column">
     <h2 class="fieldset-title">Regular Example (UI Blocking)</h2>
-    <form soho-busyindicator blockUI="true" text="{{message}}" displayDelay="{{delay}}" timeToComplete="1000" (afterstart$)="onAfterStart($event)"
-      (close$)="onClose($event)" id="busy-form" class="busy" action="#" method="POST" data-delay="300" (ngSubmit)="onSubmit()">
+    <form
+      id="busy-form"
+      action="#"
+      method="POST"
+      (ngSubmit)="onSubmit()"
+
+      soho-busyindicator
+      [transparentOverlay]="transparentOverlay"
+      [blockUI]="true"
+      [text]="message"
+      [displayDelay]="delay"
+      [timeToComplete]="20000"
+      (afterstart)="onAfterStart($event)"
+      (close)="onClose($event)"
+    >
+
       <div class="field">
         <label for="busy-field-message">Message</label>
         <input id="busy-field-message" name="busy-field-message" type="text" [(ngModel)]="message" />
@@ -24,6 +38,10 @@
       <div class="field">
         <label for="busy-field-delay">Delay</label>
         <input id="busy-field-delay" name="busy-field-delay" type="number" [(ngModel)]="delay" pattern="[0-9]{5}" />
+      </div>
+      <div class="field">
+        <input soho-checkbox type="checkbox" [attr.id]="transparentOverlay" name="transparentOverlay" [(ngModel)]="transparentOverlay">
+        <label soho-label [attr.for]="transparentOverlay" [forCheckBox]="true">Transparent Overlay</label>
       </div>
       <div class="field">
         <button soho-button type="reset">Clear</button>

@@ -42,7 +42,7 @@ export class TreeContentDemoComponent {
   }
 
   selectRoot() {
-    this.tree.setSelectedNode('/1');
+    this.tree.selectNode('home');
   }
 
   addNode() {
@@ -53,8 +53,5 @@ export class TreeContentDemoComponent {
   onSelected(treeEvent: SohoTreeEvent) {
     this.selected = treeEvent.data;
     console.log('Tree Event: ${this.selected}');
-  }
-
-  busy() {
   }
 }

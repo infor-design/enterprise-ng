@@ -23,10 +23,12 @@ export class LookupDemoComponent {
   public data_product: any[];
   public model: any = {
     single: null,
+    singleobject: null,
     multi: null,
+    multiobject: null,
     async: null,
   };
-  public showModel: boolean = false;
+  public showModel = false;
 
   // So we can bind 'this' to the source function passed to the lookup control
   public context = this;

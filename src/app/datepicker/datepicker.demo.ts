@@ -15,14 +15,22 @@ export class DatepickerDemoComponent implements OnInit {
 
   public model = {
     standard: '12/12/2016',
+    validrange: '12/12/2016',
     anniversary: '',
     birthday: '',
     year: '',
     datetime: ''
   };
-  public showModel: boolean = false;
-  public datepickerDisabled: boolean = false;
-  public datepickerReadOnly: boolean = false;
+  public showModel = false;
+  public datepickerDisabled = false;
+  public datepickerReadOnly = false;
+
+  public disableOptions: SohoDatePickerDisable = {
+    dates: '',
+    minDate: '12/31/2015',
+    maxDate: '1/1/2017',
+    dayOfWeek: []
+  };
 
   constructor() { }
   ngOnInit() { }

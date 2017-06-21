@@ -3,7 +3,7 @@
 ### Install
 - [Setup SSH key for using git](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html) (faster but not required)
 - PC users suggest [ComEmu](https://conemu.github.io/) which works a bit better than CMD.
-- Get the latest **Node.js** release from https://nodejs.org/dist/latest-v5.x/.
+- Get the latest **Node.js** release from https://nodejs.org/en/.
 - Get an Editor like Visual Studio Code (https://code.visualstudio.com/) or [Atom](https://atom.io/) or your fav.
 
 ### Initial Setup
@@ -77,7 +77,7 @@ It is **important** that the typings files accurately represent the underlying S
 
 ### The Component
 
-The structure of a very simple Soho Angular Component that wraps a ficticious  jQuery Control called widget is defined below:
+The structure of a very simple Soho Angular Component that wraps a ficticious jQuery Control called widget is defined below:
 
 ```typescript
 @Component({
@@ -89,7 +89,7 @@ export class SohoWidgetComponent extends AfterViewInit, OnDestroy {
 ```
 **INPUTS**
 
-The inputs define the properties exposed by the component for integration with other Angular Components.  In this case we have the general  *options* input and one for each discreet option, in this case *count*.
+The inputs define the properties exposed by the component for integration with other Angular Components.  In this case we have the general *options* input and one for each discreet option, in this case *count*.
 
 ```typescript
 /** Configuration options. */

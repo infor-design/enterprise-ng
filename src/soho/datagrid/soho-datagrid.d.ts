@@ -12,8 +12,11 @@ type SohoDataGridRowHeight = 'short' | 'medium' | 'normal';
 
 /**
  * Selection options.
+ * Mixed mode allows for single row activated state with multipl selection checkbox states.
+ * rowdeactivated and rowactivated events are fired for the Activated mode of a row.
+ * Use is-rowactivated in your markup to set activated state
  */
-type SohoDataGridSelectable = boolean | 'single' | 'multiple';
+type SohoDataGridSelectable = boolean | 'single' | 'multiple' | 'mixed';
 
 /**
  * Settings for the Soho datagrid control.
@@ -124,6 +127,9 @@ interface SohoDataGridOptions {
 
   /**  */
   showDirty?: boolean;
+
+  /** If a row is activated the user should not be able to deactivate it by clicking on the activated row */
+  disableRowDeactivation?: boolean;
 }
 
 /**
@@ -188,6 +194,7 @@ declare var Editors: {
   Date: SohoDataGridColumnEditorFunction;
   Lookup: SohoDataGridColumnEditorFunction;
   Autocomplete: SohoDataGridColumnEditorFunction;
+  Favorite: SohoDataGridColumnEditorFunction;
 };
 
 type SohoDataGridColumnFormatterFunction = (
@@ -252,6 +259,14 @@ type SohoDataGridColumnHrefFunction = (
  ) => string;
 
  type SohoDataGridColumnHref = string | SohoDataGridColumnHrefFunction;
+
+ type SohoDataGridColumnIsEditableFunction = (
+  row: number,
+  cell: any,
+  fieldValue: any,
+  columnDef: SohoDataGridColumn,
+  rowData: Object
+) => boolean;
 
 /**
  * This is an interface mapping for the grid column defined
@@ -346,7 +361,28 @@ interface SohoDataGridColumn {
 
   /** href for hyperlink */
   href?: SohoDataGridColumnHref;
+
+  /** Column function to dynamically set the readonly property on cells based on row data. */
+  isEditable?: SohoDataGridColumnIsEditableFunction;
+
+  /** special display formatting for a numeric column */
+  numberFormat?: SohoDataGridColumnNumberFormat;
+
+  /** false = prevent user drag/drop this column order i.e. a drilldown column */
+  reorderable?: boolean
+
 }
+
+interface SohoDataGridColumnNumberFormat {
+  decimal?: string;
+  group?: string;
+  minimumFractionDigits?: number;
+  maximumFractionDigits?: number;
+  style?: SohoDataGridColumnNumberFormatStyle;
+  round?: boolean;
+}
+
+type SohoDataGridColumnNumberFormatStyle = 'decimal' | 'currency' | 'percent' | 'integer' | string;
 
 interface SohoGridCellOption {
   /** The underlying data value. */
@@ -427,6 +463,12 @@ interface SohoDataGridStatic {
 
   selectedRows(rows: number[]): void;
 
+  activateRow(idx: number): void;
+
+  deactivateRow(): void;
+
+  activatedRow(): SohoDataGridRowActivated;
+
   toggleFilterRow(): void;
 
   setActiveCell(idx: number, idx2: number): void;
@@ -453,10 +495,22 @@ interface SohoDataGridSortedEvent {
   column: SohoDataGridColumn;
 }
 
+interface SohoDataGridRowActivated {
+  row: number;
+  item: any;
+}
+
 interface SohoDataGridSelectedRow {
   idx: number;
   data: any;
   element: HTMLElement;
+}
+
+interface SohoDataGridRowClicked {
+  cell: number;
+  item: any;
+  originalEvent: JQueryEventObject;
+  row: number;
 }
 
 interface SohoDataGridSelectedEvent {
@@ -530,3 +584,26 @@ interface JQueryStatic {
 interface JQuery {
   datagrid(options?: SohoDataGridOptions): JQuery;
 }
+
+interface SohoDataGridRowExpandEvent {
+  // child elements
+  children: Array<any>;
+
+  // The index of the row number that has been expanded/collapsed.
+  row: number;
+
+  // The detail row thas has been expanded..
+  item: any;
+
+  // Data associated with row
+  rowData: any;
+}
+
+interface SohoDataGridRowCollapseEvent extends SohoDataGridRowExpandEvent { }
+
+interface SohoDataGridRowActivatedEvent {
+  row: number;
+  item: any;
+}
+
+interface SohoDataGridRowDeactivatedEvent extends SohoDataGridRowActivatedEvent {}

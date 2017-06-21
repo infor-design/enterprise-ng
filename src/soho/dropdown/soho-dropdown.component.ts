@@ -14,7 +14,7 @@ import { NgModel } from '@angular/forms';
 @Component({
   selector: 'select[soho-dropdown]', // tslint:disable-line
   template: '<ng-content></ng-content>',
-  providers: [ NgModel ],
+  providers: [NgModel],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
@@ -26,6 +26,8 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
+  private isDisabled: boolean = null;
+  private isReadOnly: boolean =  null;
 
   /**
    * Selector for originating element.
@@ -90,7 +92,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
    * Initialize the empty value
    */
   @Input()
-  public set empty(empty: boolean){
+  public set empty(empty: boolean) {
     this.options.empty = empty;
   }
 
@@ -141,7 +143,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   /**
    * Name for the dropdown control. Necessary for ngModel to function.
    */
-  @Input() name: string = `soho-dropdown-${SohoDropDownComponent.counter++}`;
+  @Input() name = `soho-dropdown-${SohoDropDownComponent.counter++}`;
 
   /**
    * Flag to add/remove search functionality from the dropdown
@@ -167,7 +169,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
    * then create and pass to the control to use
    */
   @Input()
-  public set source(source: SohoDropDownSourceFunction | Object | string ) {
+  public set source(source: SohoDropDownSourceFunction | Object | string) {
     this.options.source = source;
   }
 
@@ -203,7 +205,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
     return this.options.multiple;
   }
 
-  @HostBinding('class.dropdown') get isDropdown(): boolean{
+  @HostBinding('class.dropdown') get isDropdown(): boolean {
     return !this.options.multiple;
   }
 
@@ -252,11 +254,47 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
     return this;
   }
 
-  public disable(): void {
-    this.dropdown.disable();
+  // -------------------------------------------
+  // Component Input
+  // -------------------------------------------
+  /**
+   * @param disabled
+   */
+  @Input() set disabled(value: boolean) {
+    if (this.dropdown) {
+      if (value) {
+        this.dropdown.disable();
+        this.isDisabled = true;
+      } else {
+        this.dropdown.enable();
+        this.isDisabled = false;
+        this.isReadOnly = false;
+      }
+    }
   }
 
-  public enable(): void {
-    this.dropdown.enable();
+  /**
+   * @param readonly
+   */
+  @Input() set readonly(value: boolean) {
+    if (this.dropdown) {
+      if (value) {
+        this.dropdown.readonly();
+        this.isReadOnly = true;
+      } else {
+        this.dropdown.enable();
+        this.isDisabled = false;
+        this.isReadOnly = false;
+      }
+    }
   }
+
+  /**
+   * Soho-dropdown is not a native element - need this to set focus programmatically.
+   * 'name' attribute must be set on the control for this to work correctly.
+   */
+  public setFocus(): void {
+    this.jQueryElement.trigger('activated');
+  }
+
 }

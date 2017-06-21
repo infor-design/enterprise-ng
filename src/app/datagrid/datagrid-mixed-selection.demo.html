@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="twelve columns">
+
+    <soho-toolbar>
+      <soho-toolbar-title>
+        <span soho-toolbar-section-title>Mixed Selection Mode Demo</span>
+      </soho-toolbar-title>
+      <soho-toolbar-button-set>
+        <button soho-button (click)="onRowDeactivationToggle($event)" title="{{rowDeactivationLabel}}">{{rowDeactivationLabel}}</button>
+        <button soho-button (click)="onActivateSelectedRow($event)" title="Activate Selected Row">Activate Selected Row</button>
+        <button soho-button (click)="onDeactivateActivatedRow($event)" title="Deactivate Activated Row">Deactivate Activated Row</button>
+      </soho-toolbar-button-set>
+    </soho-toolbar>
+
+    <div class="contextual-toolbar toolbar is-hidden">
+      <div class="title selection-count">0 Selected</div>
+      <div class="buttonset">
+        <button class="btn" type="button">
+          <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+            <use xlink:href="#icon-link"></use>
+          </svg>
+          <span>Example</span>
+        </button>
+      </div>
+    </div>
+    <div soho-datagrid id="datagrid-header"
+        [disableRowDeactivation]="disableRowDeactivation"
+        (rowActivated)="onRowActivated($event)"
+        (rowDeactivated)="onRowDeactivated($event)"
+    ></div>
+
+  </div>
+</div>

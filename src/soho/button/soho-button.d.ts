@@ -9,7 +9,8 @@
  * Button Options
  */
 interface SohoButtonOptions {
-  // All options are set via attributes.
+  toggleOnIcon?: string;
+  toggleOffIcon?: string;
 }
 
 /**
@@ -28,5 +29,5 @@ interface JQueryStatic {
 }
 
 interface JQuery {
-  button(): JQuery;
+  button(options?: SohoButtonOptions): JQuery;
 }

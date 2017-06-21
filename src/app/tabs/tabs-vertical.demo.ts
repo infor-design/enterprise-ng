@@ -19,7 +19,7 @@ export class TabsVerticalDemoComponent {
   constructor() {
     console.log('ub');
   }
-  onTabActivated(tab) {
-    console.log(tab + ' TabsBasicDemoComponent.onTabActivated');
+  onTabActivated(event: SohoTabsEvent) {
+    console.log(event.tab + ' TabsBasicDemoComponent.onTabActivated');
   }
 }

@@ -287,7 +287,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * Whether selection is enabled.
    *
-   * @param selectable valid values are: 'multiple', 'single', and false.
+   * @param selectable valid values are: 'multiple', 'single', 'mixed', and false.
    */
   @Input() set selectable(selectable: any) {
     this._gridOptions.selectable = selectable;
@@ -554,6 +554,27 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+  get disableRowDeactivation(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.disableRowDeactivation;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.disableRowDeactivation;
+  }
+
+  @Input() set disableRowDeactivation(value: boolean) {
+    this._gridOptions.disableRowDeactivation = value;
+    if (this.datagrid) {
+      this.datagrid.settings.disableRowDeactivation = value;
+
+      // Force all a full rebuild of the control.
+      // this.markForRefresh('disableRowDeactivation', RefreshHintFlags.Rebuild);
+    }
+  }
+
   /**
    * The value of the virtualized flag - returns the requested value if the control has not been created yet.
    */
@@ -710,14 +731,23 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   // This event is fired when a row in the grid is expanded.
   @Output()
-  expandrow = new EventEmitter<SohoDataGridRowEvent>();
+  expandrow = new EventEmitter<SohoDataGridToggleRowEvent>();
 
   // This event is fired when a row in the grid is collapsed.
   @Output()
-  collapserow = new EventEmitter<SohoDataGridRowEvent>();
+  collapserow = new EventEmitter<SohoDataGridToggleRowEvent>();
 
   @Output()
   sorted = new EventEmitter<SohoDataGridSortedEvent>();
+
+  @Output()
+  rowActivated = new EventEmitter<SohoDataGridRowActivated>();
+
+  @Output()
+  rowDeactivated = new EventEmitter<SohoDataGridRowActivated>();
+
+  @Output()
+  rowClicked = new EventEmitter<SohoDataGridRowClicked>();
 
   // -------------------------------------------
   // Host Bindings
@@ -947,6 +977,30 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Activate the row of the passed-in idx.
+   * NOTE: valid only when selection mode is 'mixed'
+   */
+  activateRow(idx: number): void {
+    this.datagrid.activateRow(idx);
+  }
+
+  /**
+   * Deactivate the currently activated row.
+   * NOTE: valid only when selection mode is 'mixed'
+   */
+  deactivateRow(): void {
+    this.datagrid.deactivateRow();
+  }
+
+  /**
+   * Get the currently activated row.
+   * NOTE: valid only when selection mode is 'mixed'
+   */
+  activatedRow(): SohoDataGridRowActivated {
+    return this.datagrid.activatedRow();
+  }
+
+  /**
    * Toggles the display of the filter row.
    */
   toggleFilterRow(): void {
@@ -1001,8 +1055,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    *
    * @todo arguments.
    */
-  private onExpandRow(args: any) {
-    const event = { grid: this, row: args.row, detail: args.detail, item: args.item };
+  private onExpandRow(args: SohoDataGridRowExpandEvent) {
+    const event = { grid: this, ...args };
     this.expandrow.next(event);
   }
 
@@ -1011,13 +1065,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    *
    * @todo arguments.
    */
-  private onCollapseRow(args: any) {
-    this.collapserow.next({
-      grid: this,
-      row: args.row,
-      detail: args.detail,
-      item: args.item
-    });
+  private onCollapseRow(args: SohoDataGridRowCollapseEvent) {
+    const event = { grid: this, ...args };
+    this.collapserow.next(event);
   }
 
   // ------------------------------------------
@@ -1108,8 +1158,11 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       .on('addrow', (e: JQueryEventObject, args: SohoDataGridAddRowEvent) => { this.rowAdd.next(args); })
       .on('filtered', (e: JQueryEventObject, args: any) => { this.filtered.next(args); })
       .on('sorted', (e: JQueryEventObject, args: any) => { this.sorted.next(args); })
-      .on('expandrow', (e: JQueryEventObject, args: any) => { this.onExpandRow(args); })
-      .on('collapserow', (e: JQueryEventObject, args: any) => { this.onCollapseRow(args); });
+      .on('expandrow', (e: JQueryEventObject, args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
+      .on('collapserow', (e: JQueryEventObject, args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
+      .on('rowactivated', (e: JQueryEventObject, args: SohoDataGridRowActivatedEvent) => { this.rowActivated.next(args); })
+      .on('rowdeactivated', (e: JQueryEventObject, args: SohoDataGridRowDeactivatedEvent) => { this.rowDeactivated.next(args); })
+      .on('click', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.rowClicked.next(args); });
   }
 
   /**
@@ -1199,16 +1252,7 @@ export enum SohoGridColumnFilterTypes {
 /**
  * Details of the 'expandrow' and 'collapserow' events.
  */
-export interface SohoDataGridRowEvent {
+export interface SohoDataGridToggleRowEvent extends SohoDataGridRowExpandEvent {
   // The data grid component originating the call.
   grid: SohoDataGridComponent;
-
-  // The index of the row number that has been expanded/collapsed.
-  row: number;
-
-  // The owning header.
-  detail: any;
-
-  // The detail row thas has been expanded..
-  item: any;
 }

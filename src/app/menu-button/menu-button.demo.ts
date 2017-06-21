@@ -6,27 +6,26 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 export class MenuButtonDemoComponent implements OnInit {
 
-  private menuButtons: Array<any>;
+  public menuButtons: Array<any>;
 
   disabledEntryClicked() {
     alert('Should not be Allowed');
   }
 
-  @HostListener('selected', ['$event'])
-  onSelected() {
-    console.log('onSelected');
+  onSelected(event: SohoContextMenuEvent) {
+    console.log(event, 'onSelected');
   }
 
-  onBeforeopen() {
-    console.log('onBeforeopen');
+  onBeforeOpen(event: SohoContextMenuEvent) {
+    console.log(event, 'onBeforeOpen');
   }
 
-  onClose() {
-    console.log('onClose');
+  onClose(event: SohoContextMenuEvent) {
+    console.log(event, 'onClose');
   }
 
-  onOpen() {
-    console.log('onOpen');
+  onOpen(event: SohoContextMenuEvent) {
+    console.log(event, 'onOpen');
   }
 
   ngOnInit() {

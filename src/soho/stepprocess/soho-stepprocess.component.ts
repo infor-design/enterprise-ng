@@ -92,7 +92,7 @@ export class SohoStepListItemAnchorComponent {
   template: `<ng-content></ng-content>`
 })
 export class SohoStepListItemTitleComponent {
-  @HostBinding('class.tree-text') treeText: boolean = true;
+  @HostBinding('class.tree-text') treeText = true;
 }
 
 /**************************************************************
@@ -103,7 +103,7 @@ export class SohoStepListItemTitleComponent {
   template: `<ng-content></ng-content>`
 })
 export class SohoStepContentTitleComponent {
-  @HostBinding('class.heading') isHeading: boolean = true;
+  @HostBinding('class.heading') isHeading = true;
 }
 
 /**************************************************************
@@ -145,7 +145,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.fixed') isFixed= true;
   @HostBinding('class.page-container') isPageContainer = true;
   @HostBinding('class.no-scroll') isNoScroll = true;
-  @HostBinding('attr.role') main: string = 'main';
+  @HostBinding('attr.role') main = 'main';
 
   // ------------------------------------------------------------------------
   // @Inputs
@@ -158,6 +158,18 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     this.stepProcessOptions.linearProgression = linearProgression;
     if (this.jQueryElement) {
       this.stepprocess.settings.linearProgression = linearProgression;
+    }
+  }
+
+  @Input() set nextButtonEnable(enabled: boolean) {
+    if (this.jQueryElement) {
+      this.jQueryElement.find('.js-step-link-next').prop('disabled', !enabled);
+    }
+  }
+
+  @Input() set previousButtonEnable(enabled: boolean) {
+    if (this.jQueryElement) {
+      this.jQueryElement.find('.js-step-link-prev').prop('disabled', !enabled);
     }
   }
 
@@ -224,7 +236,6 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
 
     return this.beforeSelectStepDeferred.promise();
   }
-
   private beforeSelectStepResponse = (response: BeforeSelectStepResult) => {
     if (response.overrideTargetStepId) {
       const stepLinkToSelect = $('.js-step-link[href="#' + response.overrideTargetStepId + '"]');

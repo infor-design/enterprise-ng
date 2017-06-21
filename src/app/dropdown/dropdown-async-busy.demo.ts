@@ -11,7 +11,7 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
   @ViewChildren(SohoDropDownComponent) dropDownComponents: QueryList<SohoDropDownComponent>;
   @ViewChildren(SohoBusyIndicatorDirective) busyIndicators: QueryList<SohoBusyIndicatorDirective>;
 
-  public showModel: boolean = true;
+  public showModel = true;
   public form: FormGroup;
   public context = this;
   public itemsAvailable = false;

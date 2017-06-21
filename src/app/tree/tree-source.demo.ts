@@ -56,7 +56,7 @@ export class TreeSourceDemoComponent implements AfterViewInit {
   }
 
   selectRoot() {
-    this.tree.setSelectedNode('node1');
+    this.tree.selectNode('Root 2');
   }
 
   reset() {

@@ -6,7 +6,7 @@
 /out-tsc
 /obj
 /bin
-/src/assets/css
+/src/assets/sohoxi
 
 # dependencies
 /node_modules
@@ -29,6 +29,11 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# Publish
+publish/*
+publish/soho/**
+!publish/package.json
 
 # misc
 /.sass-cache

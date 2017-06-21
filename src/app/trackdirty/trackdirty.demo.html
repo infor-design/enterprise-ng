@@ -6,17 +6,26 @@
       <div class="row">
         <div class="two columns">
           <div class="field">
+            <label for="lookup" class="label">Lookup</label>
+            <input name="lookup" [(ngModel)]="model.lookup"
+              soho-lookup [click]="onLookupClick" [field]="onLookupField"
+              soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"/>
+          </div>
+        </div>
+        <div class="two columns">
+          <div class="field">
             <label for="textbox" class="label">Textbox</label>
-            <input name="textbox" soho-trackdirty [(ngModel)]="model.textbox" (pristine)="onPristine($event)" (dirty)="onDirty($event)"/>
+            <input name="textbox" soho-trackdirty [(ngModel)]="model.textbox" (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"/>
           </div>
         </div>
         <div class="two columns">
           <div class="field">
             <label for="numeric" class="label">Numeric with mask</label>
-            <input name="numeric" soho-trackdirty soho-mask [pattern]="'###'" [mode]="'number'" [(ngModel)]="model.numeric" (pristine)="onPristine($event)" (dirty)="onDirty($event)"/>
+            <input name="numeric" soho-trackdirty soho-mask [pattern]="'###'" [mode]="'number'" [(ngModel)]="model.numeric" (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"/>
           </div>
         </div>
       </div>
+      <button soho-button (click)="saveForm()">Save</button>
     </div>
   </form>
   <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>

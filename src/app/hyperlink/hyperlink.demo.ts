@@ -9,11 +9,13 @@ import {
 })
 export class HyperlinkDemoComponent implements OnInit {
 
-  public url1: string = '#';
-  public url2: string = 'http://www.google.com';
-  public isDisabled: boolean = true;
+  public url1 = '#';
+  public url2 = 'http://www.google.com';
+  public isDisabled = true;
 
-  constructor() { }
-  ngOnInit() {}
+  constructor() {
+  }
+
+  ngOnInit() { }
 
 }

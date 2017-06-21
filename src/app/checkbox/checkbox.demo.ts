@@ -19,11 +19,11 @@ export class CheckBoxDemoComponent implements OnInit {
     checkBox5Value: true,
   };
 
-  public id1: string = 'checkbox1';
-  public id2: string = 'checkbox2';
-  public id3: string = 'checkbox3';
-  public id4: string = 'checkbox4';
-  public id5: string = 'checkbox5';
+  public id1 = 'checkbox1';
+  public id2 = 'checkbox2';
+  public id3 = 'checkbox3';
+  public id4 = 'checkbox4';
+  public id5 = 'checkbox5';
 
   public checkBoxDisabled = false;
   constructor() { }

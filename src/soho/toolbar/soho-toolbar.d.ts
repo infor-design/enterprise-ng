@@ -9,14 +9,37 @@
  * Toolbar options.
  */
 interface SohoToolbarOptions {
-  /** Does the toolbar include the more button? */
+  /**
+   * Does the toolbar include the more button?
+   */
   hasMoreButton?: boolean;
 
-  /** The maximum number of visible button? */
+  /**
+   * Total amount of buttons that can be present, not including the More button.
+   * Default is 3
+   */
   maxVisibleButtons?: number;
 
-  /** Button alignment. */
+  /**
+   * Will always attempt to right-align the contents of the toolbar.
+   * Default is false.
+   */
   rightAlign?: boolean;
+
+  /**
+   * If true, uses Javascript to size the Title and Buttonset elements in a way
+   * that shows as much of the Title area as possible.
+   * Default is false.
+   */
+  resizeContainers?: boolean;
+
+  /**
+   * If "resizeContainers" is true, setting this to true will try to display as many buttons as possible
+   * while resizing the toolbar. Setting to false attempts to show the entire title instead.
+   * Default is true.
+   */
+  favorButtonset?: boolean;
+
 }
 
 /**

@@ -48,13 +48,14 @@ export class DataGridDemoService extends SohoDataGridService {
     });
 
     this.columns.push({
-      id: 'drillDown',
+      id: 'drilldown',
       hidden: true,
       name: 'Drill In',
       field: '',
       formatter: Formatters.Drilldown,
       cssClass: 'l-center-text',
-      click: (e: any, args: any) => { console.log('clicked', args); }
+      click: (e: any, args: any) => { console.log('clicked', args); },
+      reorderable: false
     });
 
     this.columns.push(
@@ -113,6 +114,16 @@ export class DataGridDemoService extends SohoDataGridService {
 
     this.columns.push({
       id: 'price2', hidden: true, name: 'Price', field: 'price', formatter: Formatters.Integer
+    });
+
+    this.columns.push({
+      id: 'price4',
+      hidden: true,
+      name: 'Price - special formatted',
+      filterType: <any>SohoGridColumnFilterTypes.Decimal,
+      field: 'price',
+      formatter: Formatters.Decimal,
+      numberFormat: { minimumFractionDigits: 0, maximumFractionDigits: 6 }
     });
 
     this.columns.push({

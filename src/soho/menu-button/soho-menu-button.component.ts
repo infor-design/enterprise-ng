@@ -70,12 +70,17 @@ export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.popupmenu(this.options);
     this.menuButton = this.jQueryElement.data('popupmenu');
 
+    // Initialize title attribute as a soho tooltip
+    if (this.jQueryElement.has('[title]')) {
+      this.jQueryElement.tooltip();
+    }
+
     // Add listeners to emit events
     this.jQueryElement
-      .on('selected', ((event: SohoContextMenuEvent) => { this.selected.emit(event); }))
-      .on('beforeopen', ((event: SohoContextMenuEvent ) => { this.beforeopen.emit(event); }))
-      .on('close', ((event: SohoContextMenuEvent ) => { this.close.emit(event); }))
-      .on('open', ((event: SohoContextMenuEvent ) => { this.open.emit(event); }));
+      .on('selected', ((event: SohoContextMenuEvent, args: any) => { event.args = args; this.selected.emit(event); }))
+      .on('beforeopen', ((event: SohoContextMenuEvent, args: any) => { event.args = args; this.beforeopen.emit(event); }))
+      .on('close', ((event: SohoContextMenuEvent, args: any) => { event.args = args; this.close.emit(event); }))
+      .on('open', ((event: SohoContextMenuEvent, args: any) => { event.args = args; this.open.emit(event); }));
   }
 
   updated() {

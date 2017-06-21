@@ -31,7 +31,7 @@ import { SohoSearchFieldModule } from '../searchfield';
   ],
   imports: [
     CommonModule,
-    SohoSearchFieldModule,
+    SohoSearchFieldModule
   ], // TODO: Add toolbar module
 })
 export class SohoListViewModule {}

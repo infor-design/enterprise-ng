@@ -13,6 +13,9 @@
             <option value="NY">New York</option>
             <option value="WY">Wyoming</option>
           </select>
+          <button soho-button [disabled]="dropDownReadOnly" (click)="setReadonly()">Read Only</button>
+          <button soho-button [disabled]="dropDownDisabled" (click)="setDisable()">Disable</button>
+          <button soho-button [disabled]="!dropDownDisabled && !dropDownReadOnly" (click)="setEnable()">Enable</button>
         </div>
         <div class="field">
           <label for="states-readonly" class="label">States - ReadOnly</label>

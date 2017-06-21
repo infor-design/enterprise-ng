@@ -18,6 +18,7 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    1,
     price:       210.99,
+    status:      'Active',
     orderDate:   '2015-01-01T06:00:00.000Z',
     action:      'Action'
   },
@@ -83,7 +84,7 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    4,
     price:       204.99,
-    status:      'On Hold',
+    status:      'Active',
     orderDate:   '2015-01-07T06:00:00.000Z',
     action:      'Action'
   },
@@ -116,7 +117,7 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    5.5,
     price:       201.99,
-    status:      'On Hold',
+    status:      'Late',
     orderDate:   '2015-01-10T06:00:00.000Z',
     action:      'Action'
   },
@@ -127,6 +128,7 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    6,
     price:       200.99,
+    status:      'Late',
     orderDate:   '2015-01-01T06:00:00.000Z',
     action:      'Action'
   },
@@ -159,7 +161,7 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    7.5,
     price:       197.99,
-    status:      'Inactive',
+    status:      'Late',
     orderDate:   '2015-01-04T06:00:00.000Z',
     action:      'Action'
   },
@@ -170,7 +172,7 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    8,
     price:       196.99,
-    status:      'Inactive',
+    status:      'On Hold',
     orderDate:   '2015-01-05T06:00:00.000Z',
     action:      'Action'
   },
@@ -181,7 +183,7 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    8.5,
     price:       195.99,
-    status:      'Inactive',
+    status:      'Active',
     orderDate:   '2015-01-06T06:00:00.000Z',
     action:      'Action'
   },
@@ -192,7 +194,6 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    9,
     price:       194.99,
-    status:      'On Hold',
     orderDate:   '2015-01-07T06:00:00.000Z',
     action:      'Action'
   },
@@ -203,7 +204,7 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    9.5,
     price:       193.99,
-    status:      'On Hold',
+    status:      'Active',
     orderDate:   '2015-01-08T06:00:00.000Z',
     action:      'Action'
   },

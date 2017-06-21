@@ -1,0 +1,25 @@
+{
+  "name": "@infor/sohoxi-angular",
+  "version": "4.3.0-rc",
+  "description": "Hook & Loop - SoHo XI Angular Controls",
+  "author": "Hook & Loop",
+  "license": "MIT",
+  "module": "index.ts",
+  "typings": "index.d.ts",
+  "angular-cli": {},
+  "publishConfig": {
+    "scope": "@infor",
+    "registry": "http://npm.infor.com/"
+  },
+  "scripts": {
+  },
+  "private": false,
+  "dependencies": {
+    "@infor/sohoxi": "^4.3.0-rc",
+    "classlist.js": "^1.1.20150312",
+    "jquery": "3.1.1"
+  },
+  "devDependencies": {
+  },
+  "optionalDependencies": {}
+}
