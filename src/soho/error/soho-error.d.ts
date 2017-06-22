@@ -32,7 +32,7 @@ interface SohoErrorStatic {
 }
 
 interface JQuery {
-  addError(options?: SohoMaskOptions): JQuery;
+  addError(options?: SohoErrorOptions): JQuery;
 
-  removeError(options?: SohoMaskOptions): JQuery;
+  removeError(options?: SohoErrorOptions): JQuery;
 }
