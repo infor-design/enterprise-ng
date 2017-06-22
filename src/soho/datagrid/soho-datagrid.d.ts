@@ -230,7 +230,7 @@ declare var Formatters: {
   Template: SohoDataGridColumnFormatterFunction;
   Drilldown: SohoDataGridColumnFormatterFunction;
   Password: SohoDataGridColumnFormatterFunction;
-  TextArea: SohoDataGridColumnFormatterFunction;
+  Textarea: SohoDataGridColumnFormatterFunction;
   Checkbox: SohoDataGridColumnFormatterFunction;
   SelectionCheckbox: SohoDataGridColumnFormatterFunction;
   Actions: SohoDataGridColumnFormatterFunction;
