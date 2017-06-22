@@ -195,7 +195,8 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   }
 
   /** Constructor. */
-  constructor(private element: ElementRef, @Optional() private swaplistService: SohoSwapListService) {
+  constructor(private element: ElementRef, 
+                @Optional() private swaplistService: SohoSwapListService) {
   }
 
   ngAfterViewInit() {
