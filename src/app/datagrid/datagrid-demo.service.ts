@@ -158,7 +158,7 @@ export class DataGridDemoService extends SohoDataGridService {
     this.columns.push({ id: 'ordered', hidden: true, name: 'Ordered', field: 'ordered', formatter: Formatters.Checkbox });
     this.columns.push({ id: '', hidden: true, name: 'Actions', field: '', formatter: Formatters.Actions, menuId: 'grid-actions-menu', selected(e: any, a: any) { console.log(e, a); } });
     this.columns.push({ id: 'nested', hidden: true, name: 'Nested Prop', field: 'setting.optionOne', formatter: Formatters.Text });
-    this.columns.push({ id: 'comment', hidden: true, name: 'Comment', field: 'comment', formatter: Formatters.TextArea, width: 100 });
+    this.columns.push({ id: 'comment', hidden: true, name: 'Comment', field: 'comment', formatter: Formatters.Textarea, width: 100 });
 
     this.data.push({ id: 1, productId: 2142201, productName: 'Compressor', activity: 'Assemble Paint', quantity: 1, price: 210.99, status: 'ok', orderDate: new Date(2014, 12, 8), action: 'Action', ordered: 1, setting: { optionOne: 'One', optionTwo: 'One' } });
     this.data.push({ id: 2, productId: 2241202, productName: 'Different Compressor', activity: 'Inspect and Repair', quantity: 2, price: 210.99, status: '', orderDate: new Date(2015, 7, 3), action: 'On Hold', ordered: true, setting: { optionOne: 'One', optionTwo: 'One' } });
