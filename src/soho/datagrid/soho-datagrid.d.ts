@@ -485,6 +485,9 @@ interface SohoDataGridStatic {
    * Destructor,
    */
   destroy(): void;
+
+  dirtyRows(): Array<any>;
+  
 }
 
 /**
