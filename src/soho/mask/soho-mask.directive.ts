@@ -162,7 +162,9 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
      * Bind to jQueryElement's events
      */
     this.jQueryElement
-      .on('write.mask', (event: SohoMaskEvent) => { this.write.emit(event); });
+      .on('write.mask', (event: SohoMaskEvent) => {
+        this.write.emit(event);
+       });
   }
 
   /** Destructor. */

@@ -5,7 +5,8 @@ import {
   ElementRef,
   EventEmitter,
   OnDestroy,
-  Output
+  Output,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { BaseControlValueAccessor, provideControlValueAccessor } from '../utils';
 
@@ -37,7 +38,10 @@ export class SohoInputComponent extends BaseControlValueAccessor<any> implements
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (e: any, args: any[]) => this.onChange(args));
+    this.jQueryElement
+      .on('change', (e: any, args: any[]) => this.onChange(args))
+      .on('write.mask', (e: any, args: any[]) => super.writeValue(this.jQueryElement.val()))
+      .on('blur.mask', (e: any) => this.touched());
 
     // no control initializer for input
 
@@ -57,6 +61,7 @@ export class SohoInputComponent extends BaseControlValueAccessor<any> implements
     if (!event) {
       // sometimes the event is not available
       this.value = this.jQueryElement.val();
+      super.writeValue(this.value);
       return;
     }
 

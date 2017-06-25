@@ -17,25 +17,28 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
   private _value: T;
 
   /** ControlValueAccessor method called when the attached control has changed, */
-  private _onChangeCallback: any = (value: T) => { };
+  private _onChangeCallback: (_: T) => void = () => {};
 
   /** ControlValueAccessor method called when the attached control has touched. */
-  private _onTouchedCallback: any = () => { };
+  private _onTouchedCallback: () => void = () => {};
 
   /** Gets the value for the control. */
   protected get value(): T {
+    console.log('returning ' + this._value);
     return this._value;
   }
 
-  constructor(private _changeDetectionRef: ChangeDetectorRef) {}
-
   /** Sets the value for the control. */
   protected set value(newValue: T) {
+    console.log('setting ' + newValue);
+
     if (newValue !== this._value) {
       this._value = newValue;
       this._onChangeCallback(newValue);
     }
   }
+
+  constructor(private _changeDetectionRef: ChangeDetectorRef) {}
 
   /**
    * When touched.
@@ -55,13 +58,14 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
    */
   writeValue(value: T) {
       this._value = value;
-      this._changeDetectionRef.markForCheck();
+      //this._changeDetectionRef.markForCheck();
+      this._onChangeCallback(value);
   }
 
   /**
    * Set the function to be called when the control receives a change event.
    */
-  registerOnChange(fn: (_: any) => void): void {
+  registerOnChange(fn: (_: T) => void): void {
     this._onChangeCallback = fn;
   }
 

@@ -1,23 +1,33 @@
-<form [formGroup]="demoForm" (ngSubmit)="onSubmit()" novalidate>
-  <div class="row">
-    <div class="twelve columns">
-      <h2 class="fieldset-title">Validation Form - Group</h2>
-    </div>
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Validation Form - Group</h2>
   </div>
-  <br><br><br>
+</div>
+<br><br><br>
 
-  <div class="example-section" role="main">
+<div class="example-section" role="main">
+
+  <form [formGroup]="demoForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <!-- note both fields are the same except for the soho-input/soho-mask stuff -->
       <label class="center-block">Required & Masked:
-        <input class="form-control" formControlName="masked"
-          soho-input soho-mask [mode]="'number'" [pattern]="'###.##'">
+        <input soho-input class="form-control" formControlName="masked" soho-mask [mode]="'number'" [pattern]="'###.##'">
       </label>
+
       <h3>Masked valid?: {{ demoForm.controls.masked.valid | json }}</h3>
+
       <label class="center-block">Required & Not Masked:
         <input class="form-control" formControlName="notmasked">
       </label>
+      <br/>
+
       <h3>Not Masked valid?: {{ demoForm.controls.notmasked.valid | json }}</h3>
+
+      <h3>Form valid?: {{ demoForm.status | json }}</h3>
+
+
+      <h3>Masked Value: {{ demoForm.controls.masked.value | json }}</h3>
+      <h3>NotMasked Value: {{ demoForm.controls.notmasked.value | json }}</h3>
     </div>
-  </div>
-</form>
+  </form>
+</div>
