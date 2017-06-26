@@ -1,5 +1,7 @@
 
 ## Whats New
+* 2017-07-23 - BTH - Added `dirtyRows` to dataGrid.
+  - Removed `getDirtyRows(...)` as this was not implemented and did not match the underlying control.
 * 2017-06-12 - PWP - Updates to `soho-expandablearea.component` and `soho-button.component`
   - Added `soho-expandable-footer` element
   - Changed `soho-expandable-header` to be optional
@@ -49,6 +51,10 @@
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2017-07-23 - BTH - Replaced `getDirtyRows(...)` with `dirtyRows()` on datagrid.  
+
+    Any code using the original method would not have worked as expected as the code alwasy returned `[]`.
 
 * 2017-06-01 - VW - PR-298 - Replaced enable and disable functions with disabled property to enable/disable dropdown and added readonly property. 
 

@@ -896,8 +896,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this.datagrid.removeRow(data);
   }
 
-  getDirtyRows(commitEdits?: boolean): Array<any> {
-    return []; // this.datagrid.getDirtyRows(commitEdits);
+  /**
+   * Returns an array of the dirty rows in the grid.
+   *
+   * @return an array of the dirty rows in the grid.
+   */
+  dirtyRows(): Array<any> {
+    return this.datagrid.dirtyRows();
   }
 
   /**

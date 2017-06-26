@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app.routes';
 
 import { SohoComponentsModule } from '../soho/soho-components.module';
 
+import { AccordionDemoComponent } from './accordion/accordion.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
@@ -112,6 +113,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
 @NgModule({
   declarations: [
     AppComponent,
+    AccordionDemoComponent,
     AlertDemoComponent,
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,

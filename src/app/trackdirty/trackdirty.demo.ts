@@ -1,8 +1,14 @@
 import {
   Component,
-  OnInit, ViewChild
+  OnInit,
+  QueryList,
+  ViewChild,
+  ViewChildren
 } from '@angular/core';
-import { SohoLookupComponent } from '@infor/sohoxi-angular';
+import {
+  SohoLookupComponent,
+  SohoTrackDirtyDirective
+} from '@infor/sohoxi-angular';
 
 /**
  * This example:
@@ -15,6 +21,7 @@ import { SohoLookupComponent } from '@infor/sohoxi-angular';
 export class TrackDirtyDemoComponent implements OnInit {
 
   @ViewChild(SohoLookupComponent) sohoLookup: SohoLookupComponent;
+  @ViewChildren(SohoTrackDirtyDirective) trackDirtyComponents: QueryList<SohoTrackDirtyDirective>;
 
   public model = {
     lookup: '',
@@ -28,8 +35,18 @@ export class TrackDirtyDemoComponent implements OnInit {
 
   ngOnInit() { }
 
+  saveForm() {
+    this.trackDirtyComponents.forEach( (trackDirty: SohoTrackDirtyDirective) => {
+      trackDirty.resetDirty();
+    })
+  }
+
   toggleModel() {
     this.showModel = !this.showModel;
+  }
+
+  onAfterResetDirty(event: SohoTrackDirtyEvent) {
+    console.log('TrackDirtyDemoComponent.onAfterResetDirty');
   }
 
   onDirty(event: SohoTrackDirtyEvent) {

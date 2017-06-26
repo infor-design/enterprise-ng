@@ -230,7 +230,7 @@ declare var Formatters: {
   Template: SohoDataGridColumnFormatterFunction;
   Drilldown: SohoDataGridColumnFormatterFunction;
   Password: SohoDataGridColumnFormatterFunction;
-  TextArea: SohoDataGridColumnFormatterFunction;
+  Textarea: SohoDataGridColumnFormatterFunction;
   Checkbox: SohoDataGridColumnFormatterFunction;
   SelectionCheckbox: SohoDataGridColumnFormatterFunction;
   Actions: SohoDataGridColumnFormatterFunction;
@@ -368,6 +368,9 @@ interface SohoDataGridColumn {
   /** special display formatting for a numeric column */
   numberFormat?: SohoDataGridColumnNumberFormat;
 
+  /** false = prevent user drag/drop this column order i.e. a drilldown column */
+  reorderable?: boolean
+
 }
 
 interface SohoDataGridColumnNumberFormat {
@@ -477,6 +480,13 @@ interface SohoDataGridStatic {
   triggerSource(pagerType: 'initial' | 'refresh' | 'filtered' | 'sorted' | 'updatecolums' | string): void;
 
   exportToExcel(fileName: string, worksheetName: string, customDs: Object[]): void;
+
+  /**
+   * Returns an array of all the rows in the grid marked as dirty.
+   *
+   * @return an array of all the rows in the grid marked as dirty.
+   */
+  dirtyRows(): Array<any>;
 
   /**
    * Destructor,
