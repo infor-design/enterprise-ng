@@ -160,6 +160,12 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
    */
   @Input() headerTabs = false;
 
+  /**
+   * The callback function called before a tab is closed.
+   * Return false to prevent the tab from closing.
+  */
+  @Input() beforeCloseCallback: Function;
+
   @Input() set tabsOptions(tabsOptions: SohoTabsOptions) {
     this._tabsOptions = tabsOptions;
     if (this.jQueryElement) {
@@ -274,6 +280,12 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   @Output() afterActivate = new EventEmitter<SohoTabsEvent>();
 
   /**
+   * fired before a tab closes
+   * @type {EventEmitter<Object>}
+   */
+  @Output() beforeClose = new EventEmitter<SohoTabsEvent>();
+
+  /**
    * fired when a tab closes
    * @type {EventEmitter<Object>}
    */
@@ -337,6 +349,10 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
       .on('beforeactivate', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.beforeActivate.emit(event); }))
       .on('activated', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.activated.emit(event); }))
       .on('afteractivate', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.afterActivate.emit(event); }))
+      .on('beforeclose', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.beforeClose.emit(event);
+        if (this.beforeCloseCallback) {
+          return this.beforeCloseCallback(event, tab);
+      }}))
       .on('close', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.close.emit(event); }))
       .on('afterclose', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.afterClose.emit(event); }))
       .on('tab-added', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.tabAdded.emit(event); }));
@@ -431,9 +447,11 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   /**
    * Removes a tab
    * @param tabId The tabId of the tab to be removed.
+   * @param enableBeforeClose If the beforeClose callback should be called
+   * before removing the tab.
    */
-  remove(tabId: string): void {
-    this.tabs.remove(tabId);
+  remove(tabId: string, enableBeforeClose?: boolean): void {
+    this.tabs.remove(tabId, enableBeforeClose);
   }
 
   /**
