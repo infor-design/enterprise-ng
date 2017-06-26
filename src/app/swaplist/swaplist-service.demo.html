@@ -1,19 +1,19 @@
 ﻿<div class="row">
   <div class="twelve columns">
-    <h2 class="fieldset-title">SoHo Tree - Content Driven</h2>
+    <h2 class="fieldset-title">Soho SwapList - Service Dynamic</h2>
     <div class="field">
       <button soho-button (click)="updateData($event)">Update Data</button>
     </div>
   </div>
 </div>
 <br><div class="example-section">
-  <form>
+  <form role="main">
     <div class="row">
       <div class="twelve columns">
         <h1>SwapList Dynamic Demo</h1>
         <div class="row">
           <div class="field">
-            <soho-swaplist id="demo-swaplist"
+            <soho-swaplist soho-busyindicator id="demo-swaplist"
                            [availableCardTitle]="'Choose from these'"
                            [availableItems]="available | async"
                            [selectedItems]="selected | async"

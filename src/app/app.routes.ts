@@ -1,4 +1,4 @@
-import { ModuleWithProviders } from '@angular/core';
+﻿import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AccordionDemoComponent } from './accordion/accordion.demo';
@@ -62,6 +62,7 @@ import { StepProcessVetoableDemoComponent } from './stepprocess/stepprocessvetoa
 import { SwapListDemoComponent } from './swaplist/swaplist.demo';
 import { SwapListDynamicDemoComponent } from './swaplist/swaplist-dynamic.demo';
 import { SwapListFullAccessDemoComponent } from './swaplist/swaplist-full-access.demo';
+import { SwapListServiceDemoComponent } from './swaplist/swaplist-service.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
@@ -150,9 +151,10 @@ export const routes: Routes = [
   { path: 'step-process-btn-disble', component: StepProcessBtnDisableDemoComponent },
   { path: 'step-data-driven',      component: StepProcessDataDrivenDemoComponent },
   { path: 'step-process-vetoable', component: StepProcessVetoableDemoComponent },
-  { path: 'swaplist',			         component: SwapListDemoComponent },
+  { path: 'swaplist',			   component: SwapListDemoComponent },
   { path: 'swaplist-dynamic',      component: SwapListDynamicDemoComponent },
   { path: 'swaplist-full-access',  component: SwapListFullAccessDemoComponent },
+  { path: 'swaplist-service',      component: SwapListServiceDemoComponent },
   { path: 'spinbox',               component: SpinboxDemoComponent },
   { path: 'tabs-basic',            component: TabsBasicDemoComponent },
   { path: 'tabs-counts',           component: TabsCountsDemoComponent },
