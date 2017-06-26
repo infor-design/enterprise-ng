@@ -907,7 +907,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Sets the status of a given row in the grid.
-   * 
+   *
    * @param idx - the row number (idx) of the row
    * @param status - status class name e.g. 'error'
    * @param tooltip - string value for tooltip message e.g. 'Error'

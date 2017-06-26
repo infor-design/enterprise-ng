@@ -36,6 +36,8 @@ export type SohoSwapListCardType = 'available' | 'selected' | 'full-access';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoSwapListCardComponent {
+  @HostBinding('class.swaplist') get isSwapList() { return true; }
+
   /** The type of card. */
   private _type: SohoSwapListCardType;
 
@@ -95,7 +97,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
 
   /** Flag controlling the display of the full access (additional) items. */
   private _showFullAccessCard = false;
- 
+
   /**
   * Assign the id for the control
   * (maps to the name to use on a label's 'for' attribute)
@@ -242,7 +244,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   // ------------------------------------------------------------------------
   // Constructor
   // ------------------------------------------------------------------------
-  constructor(private element: ElementRef, 
+  constructor(private element: ElementRef,
                 @Optional() private swaplistService: SohoSwapListService) {
   }
 

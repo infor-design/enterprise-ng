@@ -1,16 +1,18 @@
 ﻿import {
   Component,
   OnInit,
+  OnDestroy,
   ViewChild
 } from '@angular/core';
 
 import { SohoSwapListComponent } from '@infor/sohoxi-angular';
+import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
 @Component({
   selector: 'soho-swaplist-demo',
   templateUrl: './swaplist.demo.html',
 })
-export class SwapListDemoComponent implements OnInit {
+export class SwapListDemoComponent implements OnInit, OnDestroy {
   @ViewChild(SohoSwapListComponent) swapListComponent: SohoSwapListComponent;
 
   allDemoItems: any[] = [];
@@ -19,7 +21,7 @@ export class SwapListDemoComponent implements OnInit {
 
   showModel = false;
 
-  constructor() {
+  constructor(private sohoHeaderRef: HeaderDynamicDemoRefService) {
     this.availableDemoItems.push(
       {id: 1, value: 'opt-1', text: 'Option A'},
       {id: 2, value: 'opt-2', text: 'Option B'},
@@ -36,6 +38,7 @@ export class SwapListDemoComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.sohoHeaderRef.instance.sectionTitle = 'SwapList Basic Demo';
   }
 
   onSelected(event: any) {
@@ -48,6 +51,10 @@ export class SwapListDemoComponent implements OnInit {
 
   toggleModel() {
     this.showModel = !this.showModel;
+  }
+
+  ngOnDestroy() {
+    this.sohoHeaderRef.instance.sectionTitle = '';
   }
 
   get selectedItems(): SohoSwapListItem[] {

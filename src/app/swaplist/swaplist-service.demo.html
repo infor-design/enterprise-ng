@@ -1,14 +1,5 @@
-﻿<div class="row">
-  <div class="twelve columns">
-    <h2 class="fieldset-title">Soho SwapList - Service Dynamic</h2>
-    <div class="field">
-      <button soho-button (click)="updateData($event)">Update Data</button>
-    </div>
-  </div>
-</div>
-<br><div class="example-section">
   <form role="main">
-    <div class="row">
+    <div class="row top-padding">
       <div class="twelve columns">
         <h1>SwapList Dynamic Demo</h1>
         <div class="row">
@@ -19,16 +10,17 @@
                            [selectedItems]="selected | async"
                            (updated)="onUpdated($event)">
             </soho-swaplist>
+
+            <button soho-button (click)="updateData($event)">Update Data</button>
+            <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+            <div *ngIf="showModel">
+              <br />
+              <h2>Selected Items:</h2>
+              <h3 *ngFor="let item of selectedItems">{{ item | json }}</h3>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
   </form>
-  <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
-  <div *ngIf="showModel">
-    <br />
-    <h2>Selected Items:</h2>
-    <hr>
-    <h3 *ngFor="let item of selectedItems">{{ item | json }}</h3>
-  </div>
-</div>

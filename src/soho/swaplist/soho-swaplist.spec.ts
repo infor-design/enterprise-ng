@@ -1,6 +1,6 @@
 ﻿import {
-    ComponentFixture,
-    async,
+  ComponentFixture,
+  async,
   TestBed
 } from '@angular/core/testing';
 
@@ -8,9 +8,10 @@ import { By } from '@angular/platform-browser';
 
 import {
   Component,
+  OnInit,
   DebugElement,
   Injectable,
-  ViewChild  
+  ViewChild
 } from '@angular/core';
 
 import { Observable } from 'rxjs/Rx';
@@ -64,7 +65,7 @@ describe('Soho Swap List Unit Tests', () => {
 
   it('Check setting \'showFullAccessCard\' property.', () => {
       expect(comp.showFullAccessCard).toBeFalsy();
-      expect(el.hasAttribute('showFullAccessCard')).toBeFalsy();     
+      expect(el.hasAttribute('showFullAccessCard')).toBeFalsy();
   });
 
   // Add more method tests.
@@ -99,9 +100,9 @@ describe('Soho Swap List Render', () => {
   });
 
   it('Check titles', () => {
-      //com.availableCardTitle = 'TestAvailable';
-      //com.selectedCardTitle = 'TestSelected';
-      //com.fullAccessCardTitle = 'TestFullAccess';
+      // com.availableCardTitle = 'TestAvailable';
+      // com.selectedCardTitle = 'TestSelected';
+      // com.fullAccessCardTitle = 'TestFullAccess';
 
       fixture.detectChanges();
       const cards = de.queryAll(By.css('soho-swaplist-card'));
@@ -161,7 +162,6 @@ describe('Soho Swap List Service', () => {
     let spy: jasmine.Spy;
     let service: SwapListTestService;
     let de: DebugElement;
-    let el: HTMLElement;
 
     const options: SohoSwapListOptions = {
         available: [
@@ -246,7 +246,8 @@ describe('Soho Swap List Service', () => {
 
 @Component({
   template: `
-  <soho-swaplist showFullAccessCard="true" id="swaplist1" [availableItems]="options.available" [selectedItems]="options.selected" [additionalItems]= "options.additional">
+  <soho-swaplist showFullAccessCard="true" id="swaplist1" [availableItems]="options.available"
+    [selectedItems]="options.selected" [additionalItems]= "options.additional">
   </soho-swaplist>`
 })
 class SohoSwapListTestComponent {
@@ -322,32 +323,32 @@ export class SwapListTestService extends SohoSwapListService {
     template: `<soho-swaplist showFullAccessCard="true" id="swaplist-service"></soho-swaplist>`,
     providers: [SwapListTestService]
 })
-class SohoSwapListServiceTestComponent {
-    @ViewChild(SohoSwapListComponent) swaplist: SohoSwapListComponent;
+class SohoSwapListServiceTestComponent implements OnInit {
+  @ViewChild(SohoSwapListComponent) swaplist: SohoSwapListComponent;
 
-    constructor(private service: SwapListTestService) {
-    }
+  constructor(private service: SwapListTestService) {
+  }
 
-    ngOnInit() {
-        this.updateData();
-    }
+  ngOnInit() {
+    this.updateData();
+  }
 
-    onSelected(event: any) {
-        console.log(this.swaplist.selectedItems);
-    }
+  onSelected(event: any) {
+    console.log(this.swaplist.selectedItems);
+  }
 
-    onUpdated(event: any) {
-        console.log(this.swaplist.selectedItems);
-    }
+  onUpdated(event: any) {
+    console.log(this.swaplist.selectedItems);
+  }
 
-    updateData() {  
-       this.service.getData().subscribe((d: SohoSwapListOptions) => {
-           this.swaplist.updateDataset(d);
-           setTimeout(() => this.updateData(), 2000);
-       });
-    }
+  updateData() {
+   this.service.getData().subscribe((d: SohoSwapListOptions) => {
+     this.swaplist.updateDataset(d);
+     setTimeout(() => this.updateData(), 2000);
+   });
+  }
 
-    get selectedItems(): SohoSwapListItem[] {
-        return this.swaplist.selectedItems;
-    }
+  get selectedItems(): SohoSwapListItem[] {
+    return this.swaplist.selectedItems;
+  }
 }
