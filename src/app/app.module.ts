@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+﻿import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {
   CommonModule,
@@ -86,6 +86,7 @@ import { StepProcessVetoableDemoComponent } from './stepprocess/stepprocessvetoa
 import { SwapListDemoComponent } from './swaplist/swaplist.demo';
 import { SwapListDynamicDemoComponent } from './swaplist/swaplist-dynamic.demo';
 import { SwapListFullAccessDemoComponent } from './swaplist/swaplist-full-access.demo';
+import { SwapListServiceDemoComponent } from './swaplist/swaplist-service.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
@@ -181,6 +182,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     SwapListDemoComponent,
     SwapListDynamicDemoComponent,
     SwapListFullAccessDemoComponent,
+    SwapListServiceDemoComponent,
     TabsBasicDemoComponent,
     TabsCountsDemoComponent,
     TabsDataDrivenDemoComponent,

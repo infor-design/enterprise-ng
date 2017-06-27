@@ -164,6 +164,10 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     return this.buttonType === SohoButtonComponent.FAVORITE;
   };
 
+  @HostBinding('class.btn-moveto-left') @Input() moveToLeft;
+  @HostBinding('class.btn-moveto-right') @Input() moveToRight;
+  @HostBinding('class.btn-moveto-selected') @Input() moveToSelected;
+
   @HostBinding('class.no-ripple')
   get noRipple(): boolean {
     return !this.ripple;

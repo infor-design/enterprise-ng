@@ -7,12 +7,18 @@
   HostBinding,
   Input,
   OnDestroy,
+  Optional,
   Output,
   ContentChild
 } from '@angular/core';
 
+import { SohoSwapListService } from './soho-swaplist.service';
+
 export type SohoSwapListCardType = 'available' | 'selected' | 'full-access';
 
+/**************************************************************
+ * SWAP LIST CARD
+ **************************************************************/
 @Component({
   selector: 'soho-swaplist-card',
   template: `
@@ -30,6 +36,8 @@ export type SohoSwapListCardType = 'available' | 'selected' | 'full-access';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoSwapListCardComponent {
+  @HostBinding('class.swaplist') get isSwapList() { return true; }
+
   /** The type of card. */
   private _type: SohoSwapListCardType;
 
@@ -66,6 +74,9 @@ export class SohoSwapListCardComponent {
   }
 }
 
+/**************************************************************
+ * SWAP LIST
+ **************************************************************/
 @Component({
   selector: 'soho-swaplist',
   templateUrl: 'soho-swaplist.html',
@@ -84,20 +95,26 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   /** Block of options, use the accessors to modify. */
   private _options: SohoSwapListOptions = {};
 
-  /** Default title for available items card. */
-  @Input()
-  public availableCardTitle = 'Available';
-
-  /** Default title for selected items card. */
-  @Input()
-  public selectedCardTitle = 'Selected';
-
-  /** Default title for additional items card. */
-  @Input()
-  public fullAccessCardTitle = 'Additional Items';
-
   /** Flag controlling the display of the full access (additional) items. */
   private _showFullAccessCard = false;
+
+  /**
+  * Assign the id for the control
+  * (maps to the name to use on a label's 'for' attribute)
+  */
+  @HostBinding('id') get id() {
+      return this.name;
+  }
+
+  /** Adds the 'swaplist' class required by the SoHoXi control. */
+  @HostBinding('class.swaplist') get isSwapList() {
+      return true;
+  }
+
+  /** Adds the 'one-third' class required when full access is set. */
+  @HostBinding('class.one-third') get isOneThird() {
+      return this.showFullAccessCard;
+  }
 
   /** The component used to represent the available items. */
   @ContentChild('available')
@@ -111,30 +128,111 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   @ContentChild('additional')
   private _additionalCard: SohoSwapListCardComponent = null;
 
+  // ------------------------------------------------------------------------
+  // @Inputs
+  // ------------------------------------------------------------------------
   /** Name for the swaplist control. Necessary for ngModel to function. */
   @Input() name = `soho-swaplist-${SohoSwapListComponent.counter++}`;
 
+  /** Default title for available items card. */
+  @Input()
+  public availableCardTitle = 'Available';
+
+  /** Default title for selected items card. */
+  @Input()
+  public selectedCardTitle = 'Selected';
+
+  /** Default title for additional items card. */
+  @Input()
+  public fullAccessCardTitle = 'Additional Items';
+
   /**
-   * Assign the id for the control
-   * (maps to the name to use on a label's 'for' attribute)
+    * Set available card items.
+    *
+    * @param value item data.
+    */
+  @Input()
+  public set availableItems(value: SohoSwapListItem[]) {
+      this._options.available = value;
+      if (this.swaplist) {
+          this.swaplist.settings.available = value;
+          this.swaplist.updated();
+      }
+  }
+
+  /**
+   * Return the dataset currently available card items.
+   *
+   * @return an array of SohoSwapListItem.
    */
-  @HostBinding('id') get id() {
-    return this.name;
+  public get availableItems(): SohoSwapListItem[] {
+      return this.ConvertToModel(this.swaplist.getAvailable());
   }
 
-  /** Adds the 'swaplist' class required by the SoHoXi control. */
-  @HostBinding('class.swaplist') get isSwapList() {
-    return true;
+  /**
+    * Set selected card items.
+    *
+    * @param value item data.
+    */
+  @Input()
+  public set selectedItems(value: SohoSwapListItem[]) {
+      this._options.selected = value;
+      if (this.swaplist) {
+          this.swaplist.settings.selected = value;
+          this.swaplist.updated();
+      }
   }
 
-  /** Adds the 'one-third' class required when full access is set. */
-  @HostBinding('class.one-third') get isOneThird() {
-    return this.showFullAccessCard;
+  /**
+   * Return the dataset currently selected card items.
+   *
+   * @return an array of SohoSwapListItem.
+   */
+  public get selectedItems(): SohoSwapListItem[] {
+      return this.ConvertToModel(this.swaplist.getSelected());
   }
 
-  /** Called when the swap list value changes. */
-  @Output()
-  public selected: EventEmitter<JQueryEventObject> = new EventEmitter<JQueryEventObject>();
+  /**
+    * Set additional card items.
+    *
+    * @param value item data.
+    */
+  @Input()
+  public set additionalItems(value: SohoSwapListItem[]) {
+      this._options.additional = value;
+      if (this.swaplist) {
+          this.swaplist.settings.additional = value;
+          this.swaplist.updated();
+      }
+  }
+
+  /**
+   * Return the dataset currently additional card items.
+   *
+   * @return an array of SohoSwapListItem.
+   */
+  public get additionalItems(): SohoSwapListItem[] {
+      return this.ConvertToModel(this.swaplist.getAdditional());
+  }
+
+  /**
+    * Set flag to display third card full access card or not.
+    *
+    * @param value the value to show full access card.
+    */
+  @Input()
+  public set showFullAccessCard(value: boolean) {
+      this._showFullAccessCard = value === null || <any>value === 'true';
+  }
+
+  /**
+   * Return the value whether full access card displayed.
+   *
+   * @return boolean value.
+   */
+  public get showFullAccessCard(): boolean {
+      return this._showFullAccessCard;
+  }
 
   /**
    * Called when the swap list updates in some way.
@@ -143,56 +241,11 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   @Output('updated')
   public updatedEvent: EventEmitter<Object> = new EventEmitter<JQueryEventObject>();
 
-  @Input()
-  public set availableItems(value: SohoSwapListItem[]) {
-    this._options.available = value;
-    if (this.swaplist) {
-      this.swaplist.settings.available = value;
-      this.swaplist.updated();
-    }
-  }
-
-  public get availableItems(): SohoSwapListItem[] {
-    return this.ConvertToModel(this.swaplist.getAvailable());
-  }
-
-  @Input()
-  public set selectedItems(value: SohoSwapListItem[]) {
-    this._options.selected = value;
-    if (this.swaplist) {
-      this.swaplist.settings.selected = value;
-      this.swaplist.updated();
-    }
-  }
-
-  public get selectedItems(): SohoSwapListItem[] {
-    return this.ConvertToModel(this.swaplist.getSelected());
-  }
-
-  @Input()
-  public set additionalItems(value: SohoSwapListItem[]) {
-    this._options.additional = value;
-    if (this.swaplist) {
-      this.swaplist.settings.additional = value;
-      this.swaplist.updated();
-    }
-  }
-
-  public get additionalItems(): SohoSwapListItem[] {
-    return this.ConvertToModel(this.swaplist.getAdditional());
-  }
-
-  @Input()
-  public set showFullAccessCard(value: boolean) {
-    this._showFullAccessCard = value === null || <any>value === 'true';
-  }
-
-  public get showFullAccessCard(): boolean {
-    return this._showFullAccessCard;
-  }
-
-  /** Constructor. */
-  constructor(private element: ElementRef) {
+  // ------------------------------------------------------------------------
+  // Constructor
+  // ------------------------------------------------------------------------
+  constructor(private element: ElementRef,
+                @Optional() private swaplistService: SohoSwapListService) {
   }
 
   ngAfterViewInit() {
@@ -200,10 +253,15 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.swaplist(this._options);
 
     this.jQueryElement
-      .on('selected', (event: JQueryEventObject) => this.selected.emit(event))
       .on('swapupdate', (event: JQueryEventObject, items: SohoSwapListItem[]) => this.updatedEvent.emit(event));
 
     this.swaplist = this.jQueryElement.data('swaplist');
+
+    if (this.swaplistService) {
+        this.swaplistService.getData().subscribe((d: SohoSwapListOptions) => {
+            this.updateDataset(d);
+        });
+    }
   }
 
   /**
@@ -241,7 +299,11 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  /** Converts the list of items into a list of swaplist items. */
+  /**
+    * Converts the list of items into a list of swaplist items.
+    *
+    * @param items data to convert to item model.
+    */
   private ConvertToModel(items: any[]): SohoSwapListItem[] {
     const results = [];
     for (let i = 0; i < items.length; i++) {
