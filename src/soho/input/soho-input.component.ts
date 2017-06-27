@@ -28,6 +28,12 @@ export class SohoInputComponent extends BaseControlValueAccessor<any> implements
    */
   private jQueryElement: JQuery;
 
+  /**
+   * Constructor.
+   *
+   * @param element the owning element.
+   * @param changeDetectionRef change detection.
+   */
   constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
     super(changeDetectionRef);
   }
@@ -35,16 +41,13 @@ export class SohoInputComponent extends BaseControlValueAccessor<any> implements
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
-    /**
-     * Bind to jQueryElement's events
-     */
+    // Bind to jQueryElement's events
     this.jQueryElement
-      .on('change', (e: any, args: any[]) => this.onChange(args))
-      .on('write.mask', (e: any, args: any[]) => super.writeValue(this.jQueryElement.val()))
-      .on('blur.mask', (e: any) => this.touched());
+      .on('change', (e: any, args: any[]) => this.onChange(args));
 
-    // no control initializer for input
+    // There is no SoHoXi control initializer for input
 
+    // Make sure the value of the control is set appropriately.
     if (this.value) {
       this.jQueryElement.val(this.value);
     }

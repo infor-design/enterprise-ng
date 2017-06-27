@@ -14,17 +14,15 @@
         <input soho-input class="form-control" formControlName="masked" soho-mask [mode]="'number'" [pattern]="'###.##'">
       </label>
 
-      <h3>Masked valid?: {{ demoForm.controls.masked.valid | json }}</h3>
+      <h3>Is Masked Control valid?: {{ demoForm.controls.masked.valid | json }}</h3>
 
       <label class="center-block">Required & Not Masked:
-        <input class="form-control" formControlName="notmasked">
+        <input soho-input class="form-control" formControlName="notmasked">
       </label>
       <br/>
 
-      <h3>Not Masked valid?: {{ demoForm.controls.notmasked.valid | json }}</h3>
-
+      <h3>Is Non Masked Control valid?: {{ demoForm.controls.notmasked.valid | json }}</h3>
       <h3>Form valid?: {{ demoForm.status | json }}</h3>
-
 
       <h3>Masked Value: {{ demoForm.controls.masked.value | json }}</h3>
       <h3>NotMasked Value: {{ demoForm.controls.notmasked.value | json }}</h3>

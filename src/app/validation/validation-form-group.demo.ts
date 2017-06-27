@@ -1,7 +1,8 @@
 import {
   Component,
   ElementRef,
-  OnInit
+  OnInit,
+  AfterViewInit
 } from '@angular/core';
 
 import { FormArray, FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
@@ -10,46 +11,51 @@ import { FormArray, FormBuilder, FormGroup, Validators, ValidatorFn, AbstractCon
   selector: 'soho-validation-form-group-demo',
   templateUrl: './validation-form-group.demo.html'
 })
-export class ValidationFormGroupDemoComponent implements OnInit {
+export class ValidationFormGroupDemoComponent implements AfterViewInit {
 
   demoForm: FormGroup;
 
   public maskedValue = '111.1';
   public notmaskedValue = '111.1';
 
+
+  private formErrors = {
+    'masked': '',
+    'notmasked': ''
+  };
+
   constructor(private elementRef: ElementRef, private formBuilder: FormBuilder) {
+    this.createForm();
   }
 
-ngOnInit(): void {
-  this.createForm();
-}
+  ngAfterViewInit(): void {
+  }
 
   createForm() {
     // note - both controls have the .required validator.
     this.demoForm = this.formBuilder.group({
-      masked: [this.maskedValue, requiredValidator],
-      notmasked: [this.notmaskedValue, requiredValidator]
+      masked: [this.maskedValue, customValidator],
+      notmasked: [this.notmaskedValue, customValidator]
     });
 
     this.demoForm.valueChanges
-        .subscribe(data => this.onValueChanged(data));
+      .subscribe(data => this.onValueChanged(data));
   }
 
-onValueChanged(t: any) {
-console.log(`value has changed: ${this.maskedValue}`)
-}
+  onValueChanged(data?: any) {
+    console.log(`onValueChanged: '${data}`)
+  }
 
   onSubmit() {
-    // TODO: Do something here?
     console.log('in onSubmit');
   }
 }
 
-
-export function requiredValidator(): ValidatorFn {
-  return (control: AbstractControl): {[key: string]: any} => {
-    console.log(control);
+export function customValidator(): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } => {
+    console.log(`Custom Validator ${control.valid} - ${control.value}`);
     const name = control.value;
-    return null;
+
+    return name && name.length > 0 ? null : ['Error'];
   };
 }
