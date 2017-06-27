@@ -5,6 +5,7 @@
 } from '@angular/core';
 
 import { SohoSwapListComponent } from '@infor/sohoxi-angular';
+import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
 @Component({
   selector: 'soho-swaplist-three-demo',
@@ -18,7 +19,7 @@ export class SwapListFullAccessDemoComponent implements OnInit {
   additionalDemoItems: SohoSwapListItem[] = [];
   showModel = false;
 
-  constructor() {
+  constructor(private sohoHeaderRef: HeaderDynamicDemoRefService) {
 
     this.availableDemoItems.push(
       {id: 1, value: 'opt-1', text: 'Option A'},
@@ -42,6 +43,7 @@ export class SwapListFullAccessDemoComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.sohoHeaderRef.instance.sectionTitle = 'SwapList Full Access Demo';
   }
 
   onSelected(event: any) {

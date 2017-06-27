@@ -1,61 +1,69 @@
 ﻿import {
-    Component,
-    ElementRef,
-    OnInit,
-    ViewChild,
-    ChangeDetectionStrategy
+  Component,
+  ElementRef,
+  OnInit,
+  OnDestroy,
+  ViewChild,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import {
-    SohoSwapListComponent,
-    SohoBusyIndicatorDirective
+  SohoSwapListComponent,
+  SohoBusyIndicatorDirective
 } from '@infor/sohoxi-angular';
 
 import { SwapListDemoService } from './swaplist-demo.service';
+import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
 @Component({
-    selector: 'soho-swaplist-service-demo',
-    templateUrl: './swaplist-service.demo.html',
-    providers: [SwapListDemoService],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'soho-swaplist-service-demo',
+  templateUrl: './swaplist-service.demo.html',
+  providers: [SwapListDemoService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SwapListServiceDemoComponent implements OnInit {
-    @ViewChild(SohoSwapListComponent) swapListComponent: SohoSwapListComponent;
-    @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
+export class SwapListServiceDemoComponent implements OnInit, OnDestroy {
+  @ViewChild(SohoSwapListComponent) swapListComponent: SohoSwapListComponent;
+  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
 
-    showModel = false;
+  showModel = false;
+  available: SohoSwapListItem[] = [];
+  selected: SohoSwapListItem[] = [];
 
-    constructor(private el: ElementRef, private service: SwapListDemoService) {
-    }
+  constructor(private el: ElementRef, private service: SwapListDemoService, private sohoHeaderRef: HeaderDynamicDemoRefService) {
+  }
 
-    ngOnInit() {
-    }
+  ngOnInit() {
+    this.sohoHeaderRef.instance.sectionTitle = 'SwapList Service Demo';
+  }
 
-    onSelected(event: any) {
-        console.log(this.swapListComponent.selectedItems);
-    }
+  onSelected(event: any) {
+    console.log(this.swapListComponent.selectedItems);
+  }
 
-    onUpdated(event: any) {
-        console.log(this.swapListComponent.selectedItems);
-    }
+  onUpdated(event: any) {
+    console.log(this.swapListComponent.selectedItems);
+  }
 
-    updateData(event: any) {
-        this.service.getData().subscribe((d: SohoSwapListOptions) => {
-            this.busyIndicator.open();
-            this.swapListComponent.updateDataset(d);
-            this.busyIndicator.close(true);
-            //setTimeout(() => this.updateData(event), 2000);
-        });
-    }
+  updateData(event: any) {
+    this.service.getData().subscribe((d: SohoSwapListOptions) => {
+      this.busyIndicator.open();
+      this.swapListComponent.updateDataset(d);
+      this.busyIndicator.close(true);
+    });
+  }
 
-    toggleModel() {
-        this.showModel = !this.showModel;
-    }
+  toggleModel() {
+    this.showModel = !this.showModel;
+  }
 
-    get selectedItems(): SohoSwapListItem[] {
-        return this.swapListComponent.selectedItems;
-    }
+  ngOnDestroy() {
+    this.sohoHeaderRef.instance.sectionTitle = '';
+  }
+
+  get selectedItems(): SohoSwapListItem[] {
+    return this.swapListComponent.selectedItems;
+  }
 }
