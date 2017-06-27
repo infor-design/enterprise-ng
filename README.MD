@@ -68,7 +68,7 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | input-validate          |                           Available |            - |              - |
 | label                   |                           Available |            - | [SOHO-4570][#4570] |
 | lightbox                |                     Not Implemented |            - | [SOHO-5127][#5127] |
-| listview                |                           Available |            - | [SOHO-4040][#4040] |
+| listview                |                           Available | [README][2]  | [SOHO-4040][#4040] |
 | locale                  |                           Available |            - | [SOHO-4470][#4470] |
 | lookup                  |                           Available |            - | [SOHO-4052][#4052] |
 | mask                    |                           Available |            - | [SOHO-3895][#3895] |
@@ -103,6 +103,7 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 
 [0]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/contextual-action-panel/README.md
 [1]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/modal-dialog/README.md
+[2]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/listview/README.md
 [#3895]: http://jira/browse/SOHO-3895
 [#3950]: http://jira/browse/SOHO-3950
 [#4017]: http://jira/browse/SOHO-4017

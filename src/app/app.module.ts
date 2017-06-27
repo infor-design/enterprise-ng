@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+﻿import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {
   CommonModule,
@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app.routes';
 
 import { SohoComponentsModule } from '../soho/soho-components.module';
 
+import { AccordionDemoComponent } from './accordion/accordion.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
@@ -39,6 +40,7 @@ import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-pa
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
+import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
 import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
@@ -51,6 +53,7 @@ import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
 import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
+import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
@@ -83,6 +86,7 @@ import { StepProcessVetoableDemoComponent } from './stepprocess/stepprocessvetoa
 import { SwapListDemoComponent } from './swaplist/swaplist.demo';
 import { SwapListDynamicDemoComponent } from './swaplist/swaplist-dynamic.demo';
 import { SwapListFullAccessDemoComponent } from './swaplist/swaplist-full-access.demo';
+import { SwapListServiceDemoComponent } from './swaplist/swaplist-service.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
@@ -105,10 +109,12 @@ import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
+import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AccordionDemoComponent,
     AlertDemoComponent,
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,
@@ -130,6 +136,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     DataGridPagingServiceDemoComponent,
     DataGridServiceDemoComponent,
     DataGridSettingsDemoComponent,
+    DataGridStandardFormatterDemoComponent,
     DataGridToolbarDemoComponent,
     DataGridTreeGridDemoComponent,
     DataGridGroupableDemoComponent,
@@ -143,6 +150,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     EditorDemoComponent,
     ErrorDemoComponent,
     ExpandableAreaDemoComponent,
+    ExpandableAreaFooterDemoComponent,
     FileUploadDemoComponent,
     HeaderTabsDemoComponent,
     HeaderToolbarAndTabsDemoComponent,
@@ -174,6 +182,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     SwapListDemoComponent,
     SwapListDynamicDemoComponent,
     SwapListFullAccessDemoComponent,
+    SwapListServiceDemoComponent,
     TabsBasicDemoComponent,
     TabsCountsDemoComponent,
     TabsDataDrivenDemoComponent,
@@ -195,7 +204,8 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     TreeDynamicDemoComponent,
     TreeServiceDemoComponent,
     TreeSourceDemoComponent,
-    ValidationFormDemoComponent
+    ValidationFormDemoComponent,
+    ValidationFormGroupDemoComponent
   ],
   imports: [
     AppRoutingModule,

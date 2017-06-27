@@ -56,12 +56,13 @@
     <soho-toolbar-more-button>
       <ul class="popupmenu is-selectable">
         <li class="heading" role="presentation">Theme</li>
-        <li class="is-selectable is-checked"><a href="#" data-theme="grey-theme">Light</a></li>
+        <li class="is-selectable is-checked"><a href="#" [attr.data-theme]="defaultPersonalizeTheme">Default</a></li>
+        <li class="is-selectable"><a href="#" data-theme="light-theme">Light</a></li>
         <li class="is-selectable"><a href="#" data-theme="dark-theme">Dark</a></li>
         <li class="is-selectable"><a href="#" data-theme="high-contrast-theme">High Contrast</a></li>
         <li class="separator"></li>
         <li class="heading" role="presentation">Personalization</li>
-        <li class="is-selectable is-checked"><a data-rgbcolor="" href="#">Default</a></li>
+        <li class="is-selectable is-checked"><a [attr.data-rgbcolor]="defaultPersonalizeColor" href="#">Default</a></li>
         <li class="is-selectable"><a data-rgbcolor="#368AC0" href="#">Azure</a></li>
         <li class="is-selectable"><a data-rgbcolor="#EFA836" href="#">Amber</a></li>
         <li class="is-selectable"><a data-rgbcolor="#9279A6" href="#">Amethyst</a></li>
@@ -73,12 +74,14 @@
 
   </soho-toolbar>
 
-  <div soho-tabs *ngIf="currentTabsOptions" #appDynamicHeaderTabs>
-    <ul soho-tab-list>
-      <li soho-tab *ngFor="let tab of currentTabsOptions.tabs">
-        <a soho-tab-title [tabId]="tab.id">{{tab.title}}</a>
-      </li>
-    </ul>
+  <div soho-tabs *ngIf="currentTabsOptions" #appDynamicHeaderTabs [containerElement]="currentTabsOptions.containerElementSelector">
+    <div soho-tab-list-container>
+      <ul soho-tab-list>
+        <li soho-tab *ngFor="let tab of currentTabsOptions.tabs">
+          <a soho-tab-title [tabId]="tab.id">{{tab.title}}</a>
+        </li>
+      </ul>
+    </div>
   </div>
 
 </soho-header>

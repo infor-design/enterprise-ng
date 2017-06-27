@@ -78,8 +78,7 @@ export class TabsDynamicDemoComponent implements OnInit {
 
   onActivated(event: SohoTabsEvent) {
     setTimeout(() => {
-      const tab: any = this.sohoTabsComponent.getTab(event, event.tab);
-      console.log('selected tab index is: ' + tab.index());
+      console.log('selected tab index is: ' + event.tab.tabIndex);
     }, 1);
   }
 }

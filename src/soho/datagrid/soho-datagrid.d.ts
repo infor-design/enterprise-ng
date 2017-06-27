@@ -127,6 +127,9 @@ interface SohoDataGridOptions {
 
   /**  */
   showDirty?: boolean;
+
+  /** If a row is activated the user should not be able to deactivate it by clicking on the activated row */
+  disableRowDeactivation?: boolean;
 }
 
 /**
@@ -227,7 +230,7 @@ declare var Formatters: {
   Template: SohoDataGridColumnFormatterFunction;
   Drilldown: SohoDataGridColumnFormatterFunction;
   Password: SohoDataGridColumnFormatterFunction;
-  TextArea: SohoDataGridColumnFormatterFunction;
+  Textarea: SohoDataGridColumnFormatterFunction;
   Checkbox: SohoDataGridColumnFormatterFunction;
   SelectionCheckbox: SohoDataGridColumnFormatterFunction;
   Actions: SohoDataGridColumnFormatterFunction;
@@ -361,7 +364,25 @@ interface SohoDataGridColumn {
 
   /** Column function to dynamically set the readonly property on cells based on row data. */
   isEditable?: SohoDataGridColumnIsEditableFunction;
+
+  /** special display formatting for a numeric column */
+  numberFormat?: SohoDataGridColumnNumberFormat;
+
+  /** false = prevent user drag/drop this column order i.e. a drilldown column */
+  reorderable?: boolean
+
 }
+
+interface SohoDataGridColumnNumberFormat {
+  decimal?: string;
+  group?: string;
+  minimumFractionDigits?: number;
+  maximumFractionDigits?: number;
+  style?: SohoDataGridColumnNumberFormatStyle;
+  round?: boolean;
+}
+
+type SohoDataGridColumnNumberFormatStyle = 'decimal' | 'currency' | 'percent' | 'integer' | string;
 
 interface SohoGridCellOption {
   /** The underlying data value. */
@@ -459,6 +480,23 @@ interface SohoDataGridStatic {
   triggerSource(pagerType: 'initial' | 'refresh' | 'filtered' | 'sorted' | 'updatecolums' | string): void;
 
   exportToExcel(fileName: string, worksheetName: string, customDs: Object[]): void;
+
+  /**
+   * Returns an array of all the rows in the grid marked as dirty.
+   *
+   * @return an array of all the rows in the grid marked as dirty.
+   */
+  dirtyRows(): Array<any>;
+
+
+  /**
+   * Sets the status of a given row in the grid.
+   * 
+   * @param idx - the row number (idx) of the row
+   * @param status - status class name e.g. 'error'
+   * @param tooltip - string value for tooltip message e.g. 'Error'
+   */
+  rowStatus(idx: number, status: string, tooltip: string): void;
 
   /**
    * Destructor,

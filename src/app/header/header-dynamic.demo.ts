@@ -35,11 +35,6 @@ export class SohoHeaderDynamicDemoComponent {
    */
   @Input() set toolbarOptions(options: HeaderDynamicToolbarOptions) {
     this.currentToolbarOptions = options;
-    setTimeout(() => {
-      if (this.sohoToolbarComponent) {
-        this.sohoToolbarComponent.updated();
-      }
-    });
   }
 
   /**
@@ -47,15 +42,11 @@ export class SohoHeaderDynamicDemoComponent {
    */
   @Input() public set tabOptions(options: HeaderDynamicTabsetOptions) {
     this.currentTabsOptions = options;
-    setTimeout(() => {
-      if (this.sohoTabsComponent) {
-        this.sohoTabsComponent.updated();
-      }
-    });
   }
 
   @Input() set toolbarSearchField(searchField: ToolbarSearchField) {
     this._toolbarSearchField = searchField;
+
     setTimeout(() => {
       if (this.sohoToolbarComponent) {
         this.sohoToolbarComponent.updated();
@@ -87,8 +78,13 @@ export class SohoHeaderDynamicDemoComponent {
    */
   public currentTabsOptions: HeaderDynamicTabsetOptions = null;
 
+  public defaultPersonalizeColor: string;
+  public defaultPersonalizeTheme: string;
+
   constructor(private headerRef: HeaderDynamicDemoRefService) {
     this.headerRef.instance = this;
+    this.defaultPersonalizeColor = this.getDefaultColor();
+    this.defaultPersonalizeTheme = this.getDefaultTheme();
   }
 
   /**
@@ -105,6 +101,20 @@ export class SohoHeaderDynamicDemoComponent {
    */
   public get tabOptions(): HeaderDynamicTabsetOptions {
     return this.currentTabsOptions;
+  }
+
+  // This should be within an Application Service in your local project
+  getDefaultColor() {
+    return localStorage.getItem('soho_color');
+  }
+
+  // This should be within an Application Service in your local project
+  getDefaultTheme() {
+    let theme = localStorage.getItem('soho_theme');
+    if (theme) {
+      theme += '-theme';
+    }
+    return theme;
   }
 
   fireSearchEvent(event: any) {

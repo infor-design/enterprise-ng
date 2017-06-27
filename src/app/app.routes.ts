@@ -1,6 +1,7 @@
-import { ModuleWithProviders } from '@angular/core';
+﻿import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AccordionDemoComponent } from './accordion/accordion.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
@@ -20,6 +21,7 @@ import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-pa
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
+import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
@@ -60,6 +62,7 @@ import { StepProcessVetoableDemoComponent } from './stepprocess/stepprocessvetoa
 import { SwapListDemoComponent } from './swaplist/swaplist.demo';
 import { SwapListDynamicDemoComponent } from './swaplist/swaplist-dynamic.demo';
 import { SwapListFullAccessDemoComponent } from './swaplist/swaplist-full-access.demo';
+import { SwapListServiceDemoComponent } from './swaplist/swaplist-service.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
@@ -81,12 +84,14 @@ import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
+import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
 import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
+import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
-  // { path: 'accordian',           component: AccordionSampleComponent},
+  { path: 'accordion',             component: AccordionDemoComponent},
   { path: 'alert',                 component: AlertDemoComponent},
   { path: 'application-lazy-menu', component: ApplicationMenuLazyDemoComponent},
   { path: 'button',                component: ButtonDemoComponent },
@@ -109,6 +114,7 @@ export const routes: Routes = [
   { path: 'datagrid-treegrid',     component: DataGridTreeGridDemoComponent },
   { path: 'datagrid-custom-formatter', component: DataGridCustomFormatterDemoComponent },
   { path: 'datagrid-custom-formatter-service', component: DataGridCustomFormatterServiceDemoComponent },
+  { path: 'datagrid-standard-formatter', component: DataGridStandardFormatterDemoComponent },
   { path: 'datepicker',            component: DatepickerDemoComponent },
   { path: 'dropdown',              component: DropdownDemoComponent },
   { path: 'dropdown-async-busy',   component: DropdownAsyncBusyDemoComponent },
@@ -119,6 +125,7 @@ export const routes: Routes = [
   { path: 'editor',                component: EditorDemoComponent },
   { path: 'error',                 component: ErrorDemoComponent },
   { path: 'expandablearea',        component: ExpandableAreaDemoComponent },
+  { path: 'expandablearea-footer', component: ExpandableAreaFooterDemoComponent },
   { path: 'fileupload',            component: FileUploadDemoComponent },
   { path: 'header-tabs',           component: HeaderTabsDemoComponent },
   { path: 'header-toolbar',        component: HeaderToolbarDemoComponent },
@@ -144,9 +151,10 @@ export const routes: Routes = [
   { path: 'step-process-btn-disble', component: StepProcessBtnDisableDemoComponent },
   { path: 'step-data-driven',      component: StepProcessDataDrivenDemoComponent },
   { path: 'step-process-vetoable', component: StepProcessVetoableDemoComponent },
-  { path: 'swaplist',			         component: SwapListDemoComponent },
+  { path: 'swaplist',			   component: SwapListDemoComponent },
   { path: 'swaplist-dynamic',      component: SwapListDynamicDemoComponent },
   { path: 'swaplist-full-access',  component: SwapListFullAccessDemoComponent },
+  { path: 'swaplist-service',      component: SwapListServiceDemoComponent },
   { path: 'spinbox',               component: SpinboxDemoComponent },
   { path: 'tabs-basic',            component: TabsBasicDemoComponent },
   { path: 'tabs-counts',           component: TabsCountsDemoComponent },
@@ -168,7 +176,8 @@ export const routes: Routes = [
   { path: 'tree-dynamic',          component: TreeDynamicDemoComponent },
   { path: 'tree-service',          component: TreeServiceDemoComponent },
   { path: 'tree-source',           component: TreeSourceDemoComponent },
-  { path: 'validation',            component: ValidationFormDemoComponent}
+  { path: 'validation',            component: ValidationFormDemoComponent},
+  { path: 'validation-group',      component: ValidationFormGroupDemoComponent}
 ];
 
 export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes);
