@@ -80,8 +80,10 @@ export class ModalDialogDemoComponent {
     const dialogRef = this.modalService
       .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
       .buttons(
-      [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-      { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
+      [
+        { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
+        { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }
+      ])
       .title(this.title)
       .open()
       .afterClose(result => {
@@ -89,12 +91,30 @@ export class ModalDialogDemoComponent {
       });
   }
 
-  openVeotable() {
+
+  openVetoableSimple() {
+    const dialogRef = this.modalService
+      .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
+      .buttons(
+      [
+        { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
+        { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }
+      ])
+      .title(this.title)
+      .open()
+      .beforeClose( (r) => r === 'CANCEL' )
+      .afterClose(result => {
+        this.closeResult = result;
+      });
+  }
+
+  openVetoable() {
     const dialogRef = this.modalService
       .modal(VetoableModalDialogComponent, this.placeholder)
       .buttons(
-      [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-      { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
+      [
+        { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
+        { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose(result => {

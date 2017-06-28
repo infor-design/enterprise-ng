@@ -15,7 +15,7 @@ import {
   templateUrl: './vetoable-modal-dialog.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class VetoableModalDialogComponent implements SohoModalDialogVetoableEventGuard {
+export class VetoableModalDialogComponent implements SohoModalDialogVetoableEventGuard<VetoableModalDialogComponent> {
   public allowOpen = true; // SOHO-4892 - causes problems with all dialogs if false!
   public allowClose = false;
   public allowDestroy = true; // SOHO-4892 - caused problems with all dialogs if false.
@@ -31,9 +31,9 @@ export class VetoableModalDialogComponent implements SohoModalDialogVetoableEven
     return this.allowOpen;
   }
 
-  beforeClose(): boolean {
+  beforeClose(result: any, dialogRef: SohoModalDialogRef<VetoableModalDialogComponent>, component: VetoableModalDialogComponent): boolean {
     console.log(`beforeClose: ${this.allowClose}`);
-    return this.allowClose;
+    return this.allowClose || result === 'CANCEL';
   }
 
   beforeDestroy() {

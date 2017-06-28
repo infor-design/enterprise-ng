@@ -86,7 +86,7 @@ export class ExampleModuleDialogModule {}
 | `beforeOpen(() => boolean)` | 'Registers a 'beforeOpen' callback, which can veto open. |
 | `afterOpen(Function)` | 'Registers an 'afterOpen' callback. |
 | `opened(Function)` | 'Registers an 'opened' callback - before the dialog is opend. |
-| `beforeClose(() => boolean)` | 'Registers a 'beforeClose' callback, which can veto close. |
+| `beforeClose((dialogResult: any, dialogRef: SohoModalDialogRef<T>, component: T) => boolean)` | 'Registers a 'beforeClose' callback, which can veto close. |
 | `afterClose(Function)` | 'Registers an 'afterClose' callback. |
 | `closed(Function)` | 'Registers a 'closed' callback - before dialog is closed. |
 | `beforeDestroy(() => boolean))` | 'Registers a 'beforeDestroy' guard - vetoing the destruction. USE WITH CARE! |
@@ -153,10 +153,28 @@ openMessage() {
 }
 ```
 
-To provide access to any models present in the underlying dialog component, a reference to the component is passed to the `closed` and `afterClose` callbacks.  This reference can then be used to interogate the public properties of the `dialogComponent`.  
+### Vetoable Closure using 'beforeClose'
+
+You can veto the closure of a modal dialog by specfying a function which returns `false` if the dialog should not be closed.  This guard is called by the underlying control before the modal dialog is closed.  The prototype of the function is as follows:
 
 ```typescript
-dialogRef.afterClose((result: any, ref: SohoModalStatic, dialogComponent: ExampleModalDialogComponent) => {
+(dialogResult: any, dialogRef: SohoModalDialogRef<T>, dialogComponent: T) => boolean;
+```
+
+This can be used when configuring the modal dialog as follows:
+
+```typescript
+dialogRef.beforeClose( (dialogResult, dialogRef, component) => r === 'CANCEL' );
+```
+
+Alternatively, the component can implement the `SohoModalDialogVetoableEventGuard` interface on the dialog component, see the demo for an example.
+
+To provide access to any model present in the underlying dialog component, a reference to
+the component is passed to the `beforeClose`, `closed` and `afterClose` callbacks.  This 
+reference can then be used to interogate the public properties of the `dialogComponent`.  
+
+```typescript
+dialogRef.afterClose((result: any, ref: SohoModalDialogRef<ExampleModalDialogComponent>, dialogComponent: ExampleModalDialogComponent) => {
   console.log(dialogComponent.model.someProperty);
 });
 ```
