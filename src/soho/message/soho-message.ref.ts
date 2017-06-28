@@ -7,7 +7,7 @@ import { SohoModalDialogVetoableEventGuard } from '../modal-dialog';
  */
 export class SohoMessageRef {
   /** Vetoable Event Guard */
-  private eventGuard: SohoModalDialogVetoableEventGuard = { };
+  private eventGuard: SohoModalDialogVetoableEventGuard<any> = { };
 
   /** Selector referencing the modal-dialog after it has been moved to the dialog container. */
   private jQueryElement: JQuery;
