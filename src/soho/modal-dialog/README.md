@@ -168,7 +168,7 @@ Access to the `dialogComponent` is also possible from the `SohoModalDialogRef` u
 
 To veto the closure of a modal dialog, the `SohoModalDialogRef` calls the `beforeClose` guard function.  If this function returns `false` 
 the dialog will not be closed.  The `beforeClose` guard can be configured on a modal (or message) dialog. In this example, the closure of 
-the dialog is allowed if the underlying component is valid of the dialogResult has been set to 'CANCEL' (in the cancel button).
+the dialog is allowed if the underlying model is valid or the dialogResult has been set to 'CANCEL' (in the cancel button).
 
 ```typescript
 this.modalService
@@ -176,7 +176,7 @@ this.modalService
   .buttons([
      { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
      { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
-  .beforeClose( (dialogRef) => dialogRef.dialogComponent.isValid || dialogRef.dialogResult === 'CANCEL' );
+  .beforeClose( (dialogRef) => dialogRef.dialogComponent.isModelValid || dialogRef.dialogResult === 'CANCEL' );
   .open();
 
 ```
