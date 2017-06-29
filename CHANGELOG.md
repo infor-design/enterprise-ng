@@ -1,5 +1,7 @@
 
 ## Whats New
+* 2017-07-28 - BTH - Improvded Veto Support for modal and message dialogs.
+  - Added `dialogRef` as an argument to `beforeClose` to provide access to dialog properties.
 * 2017-07-23 - BTH - Added `dirtyRows` to dataGrid.
   - Removed `getDirtyRows(...)` as this was not implemented and did not match the underlying control.
 * 2017-06-12 - PWP - Updates to `soho-expandablearea.component` and `soho-button.component`
@@ -51,6 +53,10 @@
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2017-07-28 - BTH - Added generic type argument onto `SohoModalDialogVetoableEventGuard`.  
+ 
+    Any code using this interface should add the generic type of the dialog component, or `any` for messages.
 
 * 2017-07-23 - BTH - Replaced `getDirtyRows(...)` with `dirtyRows()` on datagrid.  
 

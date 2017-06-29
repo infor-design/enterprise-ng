@@ -6,8 +6,6 @@
           <div class="field">
             <soho-swaplist soho-busyindicator id="demo-swaplist"
                            [availableCardTitle]="'Choose from these'"
-                           [availableItems]="available | async"
-                           [selectedItems]="selected | async"
                            (updated)="onUpdated($event)">
             </soho-swaplist>
 
