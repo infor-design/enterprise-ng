@@ -102,7 +102,7 @@ export class ModalDialogDemoComponent {
       ])
       .title(this.title)
       .open()
-      .beforeClose( (r) => r === 'CANCEL' )
+      .beforeClose((ref) => ref.dialogResult === 'CANCEL')
       .afterClose(result => {
         this.closeResult = result;
       });

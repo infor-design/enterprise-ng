@@ -31,9 +31,9 @@ export class VetoableModalDialogComponent implements SohoModalDialogVetoableEven
     return this.allowOpen;
   }
 
-  beforeClose(result: any, dialogRef: SohoModalDialogRef<VetoableModalDialogComponent>, component: VetoableModalDialogComponent): boolean {
+  beforeClose(dialogRef: SohoModalDialogRef<VetoableModalDialogComponent>): boolean {
     console.log(`beforeClose: ${this.allowClose}`);
-    return this.allowClose || result === 'CANCEL';
+    return this.allowClose || dialogRef.dialogResult === 'CANCEL';
   }
 
   beforeDestroy() {

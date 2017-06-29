@@ -86,7 +86,7 @@ export class ExampleModuleDialogModule {}
 | `beforeOpen(() => boolean)` | 'Registers a 'beforeOpen' callback, which can veto open. |
 | `afterOpen(Function)` | 'Registers an 'afterOpen' callback. |
 | `opened(Function)` | 'Registers an 'opened' callback - before the dialog is opend. |
-| `beforeClose((dialogResult: any, dialogRef: SohoModalDialogRef<T>, component: T) => boolean)` | 'Registers a 'beforeClose' callback, which can veto close. |
+| `beforeClose((dialogRef: SohoModalDialogRef<T>) => boolean)` | 'Registers a 'beforeClose' callback, which can veto the close. |
 | `afterClose(Function)` | 'Registers an 'afterClose' callback. |
 | `closed(Function)` | 'Registers a 'closed' callback - before dialog is closed. |
 | `beforeDestroy(() => boolean))` | 'Registers a 'beforeDestroy' guard - vetoing the destruction. USE WITH CARE! |
@@ -152,26 +152,9 @@ openMessage() {
   });
 }
 ```
-
-### Vetoable Closure using 'beforeClose'
-
-You can veto the closure of a modal dialog by specfying a function which returns `false` if the dialog should not be closed.  This guard is called by the underlying control before the modal dialog is closed.  The prototype of the function is as follows:
-
-```typescript
-(dialogResult: any, dialogRef: SohoModalDialogRef<T>, dialogComponent: T) => boolean;
-```
-
-This can be used when configuring the modal dialog as follows:
-
-```typescript
-dialogRef.beforeClose( (dialogResult, dialogRef, component) => r === 'CANCEL' );
-```
-
-Alternatively, the component can implement the `SohoModalDialogVetoableEventGuard` interface on the dialog component, see the demo for an example.
-
-To provide access to any model present in the underlying dialog component, a reference to
-the component is passed to the `beforeClose`, `closed` and `afterClose` callbacks.  This 
-reference can then be used to interogate the public properties of the `dialogComponent`.  
+To provide access to any model present on the underlying dialog component, a reference to
+this component is passed to the `beforeClose`, `closed` and `afterClose` callbacks.  This 
+reference can then be used to interogate the public properties of that `dialogComponent`.  
 
 ```typescript
 dialogRef.afterClose((result: any, ref: SohoModalDialogRef<ExampleModalDialogComponent>, dialogComponent: ExampleModalDialogComponent) => {
@@ -180,6 +163,32 @@ dialogRef.afterClose((result: any, ref: SohoModalDialogRef<ExampleModalDialogCom
 ```
 
 Access to the `dialogComponent` is also possible from the `SohoModalDialogRef` using the `componentDialog` property.  
+
+### Vetoable Closure using 'beforeClose'
+
+To veto the closure of a modal dialog, the `SohoModalDialogRef` calls the `beforeClose` guard function.  If this function returns `false` 
+the dialog will not be closed.  The `beforeClose` guard can be configured on a modal (or message) dialog. In this example, the closure of 
+the dialog is allowed if the underlying component is valid of the dialogResult has been set to 'CANCEL' (in the cancel button).
+
+```typescript
+this.modalService
+  .modal(ExampleModalDialogComponent, this.placeholder)
+  .buttons([
+     { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
+     { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
+  .beforeClose( (dialogRef) => dialogRef.dialogComponent.isValid || dialogRef.dialogResult === 'CANCEL' );
+  .open();
+
+```
+
+The `beforeClose` guard function is defined as follows:
+
+```typescript
+(dialogRef: SohoModalDialogRef<T>) => boolean;
+```
+
+Alternatively, the dialog component can implement the `SohoModalDialogVetoableEventGuard` 
+interface, see the application demos for an example.
 
 ### Using `apply` to set values on the dialog instance.
 

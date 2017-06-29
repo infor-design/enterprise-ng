@@ -423,7 +423,8 @@ export class SohoModalDialogRef<T> {
   private onBeforeClose(event: any): boolean {
     const fn: Function = this.eventGuard.beforeClose;
     this.eventGuard.isCancelled = this.modal.isCancelled;
-    return fn ? fn.call(this.eventGuard, this.dialogResult, this, this.componentDialog) : true;
+
+    return fn ? fn.call(this.eventGuard, this) : true;
   }
 
   /**
@@ -490,8 +491,10 @@ export type SohoModalDialogEventFunction<T> = (result: any, dialogRef: SohoModal
 
 /**
  * BeforeClose event handler.
+ *
+ * @param dialogRef - the dialog reference; never null.
  */
-export type SohoModalDialogEventVetoFunction<T> = (result: any, dialogRef: SohoModalDialogRef<T>, dialogComponent: T) => boolean;
+export type SohoModalDialogEventVetoFunction<T> = (dialogRef: SohoModalDialogRef<T>) => boolean;
 
 /**
  * Contract for all SohoModalDialogComponents.
