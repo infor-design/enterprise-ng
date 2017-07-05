@@ -330,6 +330,17 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+    /**
+   *
+   * @param saveUserSettings
+   */
+  @Input() set saveUserSettings(settingsForSave: SohoDataGridSaveUserSettings) {
+    this._gridOptions.saveUserSettings = settingsForSave;
+    if (this.jQueryElement) {
+      this.datagrid.settings.saveUserSettings = settingsForSave;
+    }
+  }
+
   /**
    *
    * @param paging
