@@ -55,6 +55,7 @@ import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
+import { HomePageDemoComponent } from './homepage/homepage.demo';
 import { HyperlinkDemoComponent } from './hyperlink/hyperlink.demo';
 import { SohoHeaderDemoComponent } from './header/header.demo';
 import { IconDemoComponent } from './icon/icon.demo';
@@ -147,6 +148,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
     HeaderTabsDemoComponent,
     HeaderToolbarAndTabsDemoComponent,
     HeaderToolbarDemoComponent,
+    HomePageDemoComponent,
     HyperlinkDemoComponent,
     IconDemoComponent,
     LabelDemoComponent,

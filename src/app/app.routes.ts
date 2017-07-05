@@ -35,6 +35,7 @@ import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
+import { HomePageDemoComponent } from './homepage/homepage.demo';
 import { HyperlinkDemoComponent } from './hyperlink/hyperlink.demo';
 import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
@@ -123,6 +124,7 @@ export const routes: Routes = [
   { path: 'header-tabs',           component: HeaderTabsDemoComponent },
   { path: 'header-toolbar',        component: HeaderToolbarDemoComponent },
   { path: 'header-toolbar-tabs',   component: HeaderToolbarAndTabsDemoComponent },
+  { path: 'homepage',              component: HomePageDemoComponent },
   { path: 'hyperlink',             component: HyperlinkDemoComponent },
   { path: 'icon',                  component: IconDemoComponent },
   { path: 'label',                 component: LabelDemoComponent },
