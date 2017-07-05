@@ -4,6 +4,8 @@
   - Added `dialogRef` as an argument to `beforeClose` to provide access to dialog properties.
 * 2017-07-23 - BTH - Added `dirtyRows` to dataGrid.
   - Removed `getDirtyRows(...)` as this was not implemented and did not match the underlying control.
+* 2017-07-05 - MH - Home Page (https://jira/browse/SOHO-6468)
+  - Added basic version of the Home Page
 * 2017-06-12 - PWP - Updates to `soho-expandablearea.component` and `soho-button.component`
   - Added `soho-expandable-footer` element
   - Changed `soho-expandable-header` to be optional
