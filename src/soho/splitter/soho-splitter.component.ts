@@ -62,6 +62,15 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+   // Adds/Remove the collapse button.
+  @Input() set collapseButton(collapseButton: boolean) {
+    this.options.collapseButton = collapseButton;
+    if (this.splitter) {
+      this.splitter.settings.collapseButton = collapseButton;
+      this.splitter.updated();
+    }
+  }
+
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
