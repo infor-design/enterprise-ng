@@ -35,6 +35,12 @@ interface SohoSplitterOptions {
 
     /** An element that is constraining the splitter. */
     containment?: JQuery;
+
+    /** Save the location in local storage. */
+    save?: boolean;
+
+    /** Display a collapse button on the splitter. */
+    collapseButton?: boolean
 }
 
 /**

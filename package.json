@@ -1,6 +1,6 @@
 {
   "name": "@infor/sohoxi-angular",
-  "version": "4.2.6",
+  "version": "4.3.1-rc",
   "description": "Hook & Loop - SoHo XI Angular Controls",
   "author": "Hook & Loop",
   "license": "MIT",
@@ -22,10 +22,12 @@
     "add-develop-tag": "./scripts/add-npm-tag.js develop",
     "set-version": "./scripts/set-version.js",
     "set-sohoxi-version": "./scripts/set-sohoxi-version.js",
-    "publish": "gulp publish && npm publish publish --force"
+    "publish-dev": "gulp publish && npm publish publish --tag dev --force",
+    "publish-prod": "gulp publish && npm publish publish --force"
   },
   "private": false,
   "dependencies": {
+    "@angular/animations": "^4.0.0",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/core": "^4.0.0",
@@ -34,7 +36,7 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
-    "@infor/sohoxi": "4.2.6",
+    "@infor/sohoxi": "^4.3.1-rc",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
     "jquery": "3.1.1",
@@ -42,12 +44,13 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "1.0.0",
+    "@angular/cli": "1.1.1",
     "@angular/compiler-cli": "^4.0.0",
-    "@types/jasmine": "2.5.38",
-    "@types/jquery": "^2.0.39",
+    "@angular/language-service": "^4.0.0",
+    "@types/jasmine": "2.5.45",
     "@types/node": "~6.0.60",
-    "codelyzer": "~2.0.0",
+    "@types/jquery": "~2.0.46",
+    "codelyzer": "~3.0.1",
     "del": "^2.2.2",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-clean": "^0.3.2",
@@ -55,11 +58,11 @@
     "gulp-replace": "^0.5.4",
     "gulp-string-replace": "^0.4.0",
     "htmlhint": "^0.9.13",
-    "jasmine-core": "~2.5.2",
-    "jasmine-spec-reporter": "~3.2.0",
-    "karma": "~1.4.1",
+    "jasmine-core": "~2.6.2",
+    "jasmine-spec-reporter": "~4.1.0",
+    "karma": "~1.7.0",
     "karma-bamboo-reporter": "^0.1.2",
-    "karma-chrome-launcher": "~2.0.0",
+    "karma-chrome-launcher": "~2.1.1",
     "karma-cli": "~1.0.1",
     "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
@@ -67,10 +70,10 @@
     "karma-mocha-reporter": "^2.2.3",
     "karma-phantomjs-launcher": "^1.0.4",
     "merge-stream": "^1.0.1",
-    "protractor": "~5.1.0",
-    "ts-node": "~2.0.0",
-    "tslint": "~4.5.0",
-    "typescript": "~2.2.0"
+    "protractor": "~5.1.2",
+    "ts-node": "~3.0.4",
+    "tslint": "~5.3.2",
+    "typescript": "~2.3.3"
   },
   "optionalDependencies": {}
 }

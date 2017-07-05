@@ -330,6 +330,17 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+    /**
+   *
+   * @param saveUserSettings
+   */
+  @Input() set saveUserSettings(settingsForSave: SohoDataGridSaveUserSettings) {
+    this._gridOptions.saveUserSettings = settingsForSave;
+    if (this.jQueryElement) {
+      this.datagrid.settings.saveUserSettings = settingsForSave;
+    }
+  }
+
   /**
    *
    * @param paging
@@ -551,6 +562,27 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
       // Force all a full rebuild of the control.
       this.markForRefresh('showDirty', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  get disableRowDeactivation(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.disableRowDeactivation;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.disableRowDeactivation;
+  }
+
+  @Input() set disableRowDeactivation(value: boolean) {
+    this._gridOptions.disableRowDeactivation = value;
+    if (this.datagrid) {
+      this.datagrid.settings.disableRowDeactivation = value;
+
+      // Force all a full rebuild of the control.
+      // this.markForRefresh('disableRowDeactivation', RefreshHintFlags.Rebuild);
     }
   }
 
@@ -875,8 +907,24 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this.datagrid.removeRow(data);
   }
 
-  getDirtyRows(commitEdits?: boolean): Array<any> {
-    return []; // this.datagrid.getDirtyRows(commitEdits);
+  /**
+   * Returns an array of the dirty rows in the grid.
+   *
+   * @return an array of the dirty rows in the grid.
+   */
+  dirtyRows(): Array<any> {
+    return this.datagrid.dirtyRows();
+  }
+
+  /**
+   * Sets the status of a given row in the grid.
+   *
+   * @param idx - the row number (idx) of the row
+   * @param status - status class name e.g. 'error'
+   * @param tooltip - string value for tooltip message e.g. 'Error'
+   */
+  rowStatus(idx: number, status: string, tooltip: string): void {
+    this.datagrid.rowStatus(idx, status, tooltip);
   }
 
   /**

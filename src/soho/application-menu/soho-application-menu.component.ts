@@ -59,6 +59,12 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class') get classes() {
     return 'application-menu';
   }
+  /**
+   * This will let the Soho controls bind the application menu trigger naturally
+   */
+  @HostBinding('id') get menuId() {
+    return 'application-menu';
+  }
 
   // -------------------------------------------
   // Private Member Data

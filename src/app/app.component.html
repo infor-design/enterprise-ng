@@ -13,4 +13,4 @@
   </div>
 </div>
 
-<div soho-personalize></div>
+<div soho-personalize [options]="personalizeOptions" (changetheme)="onChangeTheme($event)" (changecolors)="onChangeColors($event)"></div>

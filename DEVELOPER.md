@@ -77,7 +77,7 @@ It is **important** that the typings files accurately represent the underlying S
 
 ### The Component
 
-The structure of a very simple Soho Angular Component that wraps a ficticious  jQuery Control called widget is defined below:
+The structure of a very simple Soho Angular Component that wraps a ficticious jQuery Control called widget is defined below:
 
 ```typescript
 @Component({
@@ -89,7 +89,7 @@ export class SohoWidgetComponent extends AfterViewInit, OnDestroy {
 ```
 **INPUTS**
 
-The inputs define the properties exposed by the component for integration with other Angular Components.  In this case we have the general  *options* input and one for each discreet option, in this case *count*.
+The inputs define the properties exposed by the component for integration with other Angular Components.  In this case we have the general *options* input and one for each discreet option, in this case *count*.
 
 ```typescript
 /** Configuration options. */
