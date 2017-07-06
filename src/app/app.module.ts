@@ -59,6 +59,9 @@ import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
 import { HomePageDemoComponent } from './homepage/homepage.demo';
+import { HomePageScenarioADemoComponent } from './homepage/homepage-scenario-a.demo';
+import { HomePageScenarioBDemoComponent } from './homepage/homepage-scenario-b.demo';
+import { HomePageScenarioCDemoComponent } from './homepage/homepage-scenario-c.demo';
 import { HyperlinkDemoComponent } from './hyperlink/hyperlink.demo';
 import { SohoHeaderDemoComponent } from './header/header.demo';
 import { IconDemoComponent } from './icon/icon.demo';
@@ -157,6 +160,9 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     HeaderToolbarAndTabsDemoComponent,
     HeaderToolbarDemoComponent,
     HomePageDemoComponent,
+    HomePageScenarioADemoComponent,
+    HomePageScenarioBDemoComponent,
+    HomePageScenarioCDemoComponent,
     HyperlinkDemoComponent,
     IconDemoComponent,
     LabelDemoComponent,

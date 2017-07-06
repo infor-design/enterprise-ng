@@ -4,12 +4,29 @@
  * This file contains the Typescript mappings for the public
  * interface of the Soho home page control.
  */
+type EasingType = 'blockslide' | 'linear' | 'swing';
+
+/**
+ * Homepage Options
+ */
+interface SohoHomePageOptions {
+  gutterSize?: number;
+  widgetWidth?: number;
+  widgetHeight?: number;
+  animate?: boolean;
+  timeout?: number;
+  columns?: number;
+  easing?: EasingType;
+}
 
 /**
  * This interface represents the public API exposed by the
  * editor.
  */
 interface SohoHomePageStatic {
+  /** Control options. */
+  settings: SohoHomePageOptions;
+
   /**
    * Resize the control.
    */
@@ -29,5 +46,5 @@ interface JQueryStatic {
 }
 
 interface JQuery {
-  homepage(): JQuery;
+  homepage(options?: SohoHomePageOptions): JQuery;
 }
