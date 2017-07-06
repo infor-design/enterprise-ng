@@ -447,11 +447,11 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   /**
    * Removes a tab
    * @param tabId The tabId of the tab to be removed.
-   * @param enableBeforeClose If the beforeClose callback should be called
+   * @param disableBeforeClose If true, the beforeClose callback should be called
    * before removing the tab.
    */
-  remove(tabId: string, enableBeforeClose?: boolean): void {
-    this.tabs.remove(tabId, enableBeforeClose);
+  remove(tabId: string, disableBeforeClose?: boolean): void {
+    this.tabs.remove(tabId, disableBeforeClose);
   }
 
   /**
