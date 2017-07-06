@@ -39,6 +39,7 @@ import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-t
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
 import { HomePageDemoComponent } from './homepage/homepage.demo';
 import { HomePageScenarioADemoComponent } from './homepage/homepage-scenario-a.demo';
+import { HomePageScenarioBDemoComponent } from './homepage/homepage-scenario-b.demo';
 import { HyperlinkDemoComponent } from './hyperlink/hyperlink.demo';
 import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
@@ -134,6 +135,7 @@ export const routes: Routes = [
   { path: 'header-toolbar-tabs',   component: HeaderToolbarAndTabsDemoComponent },
   { path: 'homepage',              component: HomePageDemoComponent },
   { path: 'homepage-scenario-a',   component: HomePageScenarioADemoComponent },
+  { path: 'homepage-scenario-b',   component: HomePageScenarioBDemoComponent },
   { path: 'hyperlink',             component: HyperlinkDemoComponent },
   { path: 'icon',                  component: IconDemoComponent },
   { path: 'label',                 component: LabelDemoComponent },
