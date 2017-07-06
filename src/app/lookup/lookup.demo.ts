@@ -24,6 +24,17 @@ export class LookupDemoComponent {
   public model: any = {
     single: null,
     singleobject: null,
+    singleobjectexists: {
+      id: 1,
+      productId: 2142201,
+      productName: 'Compressor',
+      activity:  'Assemble Paint',
+      quantity: 1,
+      price: 210.99,
+      status: 'OK',
+      orderDate: new Date(2014, 12, 8),
+      action: 'Action',
+    },
     multi: null,
     multiobject: null,
     async: null,

@@ -27,6 +27,18 @@
           asobject />
       </div>
       <div class="row">
+        <label soho-label for="product_single_object_exists">Products (Single Select Stored as Object) with existing value</label>
+        <input soho-lookup
+          soho-mask [pattern]="'#######'" [mode]="'number'" [negative]="false" [number]="true"
+          soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
+          [(ngModel)]="model.singleobjectexists"
+          [columns]="columns_product"
+          [dataset]="data_product"
+          field="productId"
+          name="product_single_object_exists"
+          asobject />
+      </div>
+      <div class="row">
         <label soho-label for="product_multi">Products (Multi Select)</label>
         <input soho-lookup
           soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
