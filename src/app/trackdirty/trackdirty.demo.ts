@@ -38,7 +38,7 @@ export class TrackDirtyDemoComponent implements OnInit {
   saveForm() {
     this.trackDirtyComponents.forEach( (trackDirty: SohoTrackDirtyDirective) => {
       trackDirty.resetDirty();
-    })
+    });
   }
 
   toggleModel() {
