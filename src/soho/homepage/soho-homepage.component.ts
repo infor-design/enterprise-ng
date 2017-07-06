@@ -140,7 +140,7 @@ export class SohoHomePageComponent implements AfterViewInit {
     this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
     // Initialise the SoHoXi control.
-    this.jQueryElement.homepage();
+    this.jQueryElement.homepage(this._homePageOptions);
 
     // Once the control is initialised, extract the control
     // plug-in from the element.  The element name is
