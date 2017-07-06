@@ -54,7 +54,7 @@ interface SohoTabsStatic {
 
   add(tabId: string, options: any, atIndex: number): any;
 
-  remove(tabId: string, enableBeforeClose?: boolean): void;
+  remove(tabId: string, disableBeforeClose?: boolean): void;
 
   hide(tabId: string): SohoTabsStatic;
 
