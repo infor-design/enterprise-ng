@@ -17,6 +17,7 @@ export class ChartDemoService {
       name: 'Schedule Adherence By Quantity',
       color: '#8ED1C6',
       centerLabel: 'This is center label',
+      selected: true
     }, {
       data: [
         { name: 'Current Metrics', value: 3, tooltip: 'This is a tooltip',

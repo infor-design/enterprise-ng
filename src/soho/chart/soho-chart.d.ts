@@ -55,6 +55,7 @@ interface SohoDataSetItem {
   labels?: SohoChartLabel;
   valueFormatterString?: BubbleCordinateLabels;
   centerLabel?: string;
+  selected?: boolean;
 }
 
 type SohoDataSet = Array<SohoDataSetItem>;
