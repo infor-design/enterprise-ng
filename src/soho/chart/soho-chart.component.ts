@@ -8,13 +8,21 @@ import {
 
 @Component({
   selector: 'div[soho-chart]', // tslint:disable-line
-  template: ''
+  template: ' '
 })
 
 export class SohoChartComponent implements AfterViewInit, OnDestroy {
 
   @Input() set chartOptions(chartOptions: SohoChartOptions) {
-    this._chartOptions = chartOptions;
+      this._chartOptions = chartOptions;
+      if (this.jQueryElement) {
+        this.updated();
+      }
+  }
+
+  @Input() set selectedIndex(index: number) {
+    this.setSelectDataIndex(index);
+
     if (this.jQueryElement) {
       this.updated();
     }
@@ -22,6 +30,7 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
 
   @Input() set dataSet(dataset: SohoDataSet) {
     this._chartOptions.dataset = dataset;
+
     if (this.jQueryElement) {
       this.updated();
     }
@@ -118,5 +127,33 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
   updated() {
     // logic here if we have a way to update charts
     this.jQueryElement.chart(this._chartOptions);
+  }
+
+  setSelectDataIndex(selectIndex: number) {
+    if (this.jQueryElement) {
+      const dataArray = this._chartOptions.dataset;
+      if (this._chartOptions.type === 'pie' || this._chartOptions.type === 'donut') {
+        for (let i = 0; i < dataArray.length; i++) {
+          const dataNode = dataArray[ i ];
+          for (let j = 0; j < dataNode.data.length; j++) {
+            const data = dataNode.data[ j ];
+            if (selectIndex === j) {
+              data.selected = true;
+            } else {
+              delete data.selected;
+            }
+          }
+        }
+      } else {
+        for (let i = 0; i < dataArray.length; i++) {
+          const data = dataArray[ i ];
+          if (selectIndex === i) {
+            data.selected = true;
+          } else {
+            delete data.selected;
+          }
+        }
+      }
+    }
   }
 }
