@@ -7,7 +7,7 @@ import { SohoModalDialogVetoableEventGuard } from '../modal-dialog';
  */
 export class SohoMessageRef {
   /** Vetoable Event Guard */
-  private eventGuard: SohoModalDialogVetoableEventGuard = { };
+  private eventGuard: SohoModalDialogVetoableEventGuard<any> = { };
 
   /** Selector referencing the modal-dialog after it has been moved to the dialog container. */
   private jQueryElement: JQuery;
@@ -224,15 +224,15 @@ export class SohoMessageRef {
   }
 
   /**
-   * Handles the 'beforeCloseevent, fired before the modal dialog
-   * has been destroyed.
+   * Handles the 'beforeCloseEvent, fired before the modal dialog
+   * is closed, allowing the closure to be vetoed.
    *
    * @param event - event object.
    * @return true if the dialog can be closed; otherwise false if veoted.
    */
   private onBeforeClose(event: any): boolean {
-    const fn: Function = this.eventGuard.beforeClose;
-    return fn ? fn.call(this.eventGuard) : true;
+    const fn = this.eventGuard.beforeClose;
+    return fn ? fn.call(this.eventGuard, this) : true;
   }
 
  /**

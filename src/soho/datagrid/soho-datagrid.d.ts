@@ -130,6 +130,9 @@ interface SohoDataGridOptions {
 
   /** If a row is activated the user should not be able to deactivate it by clicking on the activated row */
   disableRowDeactivation?: boolean;
+
+  /** To automatically save user settings for the grid */
+  saveUserSettings?: SohoDataGridSaveUserSettings;
 }
 
 /**
@@ -575,6 +578,18 @@ interface SohoToolbarOptions {
   rowHeight?: boolean;
   title?: string;
   views?: boolean;
+}
+
+/**
+ * Part of the grid options, indicates what specific grid settings to automatically save.
+ */
+interface SohoDataGridSaveUserSettings {
+  columns?: boolean;
+  rowHeight?: boolean;
+  sortOrder?: boolean;
+  pagesize?: boolean;
+  activePage?: boolean;
+  filter?: boolean;
 }
 
 interface SohoDataGridGroupable {

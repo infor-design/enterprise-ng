@@ -15,6 +15,7 @@ import { SohoErrorModule } from './error/soho-error.module';
 import { SohoExpandableAreaModule } from './expandablearea/soho-expandablearea.module';
 import { SohoFileUploadModule } from './fileupload/soho-fileupload.module';
 import { SohoHeaderModule } from './header/soho-header.module';
+import { SohoHomePageModule } from './homepage/soho-homepage.module';
 import { SohoHyperlinkModule } from './hyperlink/soho-hyperlink.module';
 import { SohoIconModule } from './icon/soho-icon.module';
 import { SohoInputModule } from './input/soho-input.module';
@@ -65,6 +66,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoExpandableAreaModule,
     SohoFileUploadModule,
     SohoHeaderModule,
+    SohoHomePageModule,
     SohoHyperlinkModule,
     SohoIconModule,
     SohoInputModule,
@@ -116,6 +118,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoExpandableAreaModule,
     SohoFileUploadModule,
     SohoHeaderModule,
+    SohoHomePageModule,
     SohoHyperlinkModule,
     SohoIconModule,
     SohoInputModule,
