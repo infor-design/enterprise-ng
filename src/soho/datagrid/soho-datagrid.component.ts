@@ -1038,6 +1038,34 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Toggles the display of the filter row.
+   */
+  toggleFilterRow(): void {
+    this.datagrid.toggleFilterRow();
+  }
+
+  /**
+   * Accept conditions from outside or pull from filter row
+   */
+  applyFilter(conditions?: Array<SohoDataGridFilterCondition>): void {
+    this.datagrid.applyFilter(conditions);
+  }
+
+  /**
+   * Set the filter row from passed data / settings
+   */
+  setFilterConditions(conditions: Array<SohoDataGridFilterCondition>): void {
+    this.datagrid.setFilterConditions(conditions);
+  }
+
+  /**
+   * Get filter conditions in array form from the UI
+   */
+  filterConditions(): Array<SohoDataGridFilterCondition> {
+    return this.datagrid.filterConditions();
+  }
+
+  /**
    * Clears any filter defined, for this datagrid.
    */
   clearFilter(): void {
@@ -1128,13 +1156,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   activatedRow(): SohoDataGridRowActivated {
     return this.datagrid.activatedRow();
-  }
-
-  /**
-   * Toggles the display of the filter row.
-   */
-  toggleFilterRow(): void {
-    this.datagrid.toggleFilterRow();
   }
 
   /**

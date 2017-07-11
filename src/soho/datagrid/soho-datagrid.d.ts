@@ -144,12 +144,7 @@ interface SohoDataGridPageInfo extends SohoPagerPagingInfo {
 }
 
 interface SohoDataGridSourceRequest extends SohoPagerPagingInfo {
-  filterExpr: {
-    column?: 'all' | string;
-    lowercase?: 'yes' | 'no';
-    operator?: 'contains' | string;
-    value?: string;
-  }[];
+  filterExpr: Array<SohoDataGridFilterCondition>;
   sortAsc?: boolean;
   sortField?: string;
   sortId?: string;
@@ -452,6 +447,19 @@ interface SohoDataGridStatic {
 
   removeSelected(): void;
 
+  /** Toggles the display of the filter row. */
+  toggleFilterRow(): void;
+
+  /** Accept conditions from outside or pull from filter row */
+  applyFilter(conditions?: Array<SohoDataGridFilterCondition>): void;
+
+  /** Set the filter row from passed data / settings */
+  setFilterConditions(conditions: Array<SohoDataGridFilterCondition>): void;
+
+  /** Get filter conditions in array form from the UI */
+  filterConditions(): Array<SohoDataGridFilterCondition>;
+
+  /** Clear and reset the filter */
   clearFilter(): void;
 
   selectedRows(): SohoDataGridSelectedRow[];
@@ -473,8 +481,6 @@ interface SohoDataGridStatic {
   deactivateRow(): void;
 
   activatedRow(): SohoDataGridRowActivated;
-
-  toggleFilterRow(): void;
 
   setActiveCell(idx: number, idx2: number): void;
 
@@ -641,3 +647,10 @@ interface SohoDataGridRowActivatedEvent {
 }
 
 interface SohoDataGridRowDeactivatedEvent extends SohoDataGridRowActivatedEvent {}
+
+interface SohoDataGridFilterCondition {
+  column?: 'all' | string;
+  lowercase?: 'yes' | 'no';
+  operator?: 'contains' | string;
+  value?: string;
+}
