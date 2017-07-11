@@ -1,7 +1,31 @@
-<soho-accordion [allowOnePane]=false
+<div class="row">
+  <div class="twelve columns">
+
+    <h2 class="fieldset-title">Accordion</h2>
+
+    <div class="field1">
+      <button soho-button (click)="expandAll()">Expand All</button>
+      <button soho-button (click)="collapseAll()">Collapse All</button>
+      <button soho-button (click)="toggle()">Toggle</button>
+      <button soho-button (click)="expand()">Expand</button>
+      <button soho-button (click)="collapse()">Collapse</button>
+      <button soho-button (click)="update()">Update</button>
+    </div>
+  </div>
+</div>
+<br><br><br>
+
+<soho-accordion [allowOnePane]="false"
   (beforeexpand)="onBeforeExpand($event)"
   (beforecollapse)="onBeforeCollapse($event)"
-  (beforeselect)="onBeforeSelect($event)">
+  (beforeselect)="onBeforeSelect($event)"
+  (afterexpand)="onAfterExpand($event)"
+  (selected)="onSelected($event)"
+  (followlink)="onFollowlink($event)"
+  (expand)="onExpand($event)"
+  (collapse)="onCollapse($event)"
+  (aftercollapse)="onAfterCollapse($event)"
+  >
   <soho-accordion-header>Warehouse Location</soho-accordion-header>
   <soho-accordion-pane>Remix, optimize, "B2B, iterate?" Best-of-breed efficient beta-test; social cutting-edge: rich magnetic tagclouds front-end infomediaries viral authentic incentivize sexy extensible functionalities incentivize. Generate killer authentic grow vertical blogospheres, functionalities ecologies harness, "tag solutions synergies exploit data-driven B2C open-source e-markets optimize create, enhance convergence create." Out-of-the-box strategize best-of-breed back-end, deploy design markets metrics. Content web services enhance leading-edge Cluetrain, deliverables dot-com scalable. User-centric morph, back-end, synthesize mesh, frictionless, exploit next-generation tag portals, e-commerce channels; integrate; recontextualize distributed revolutionize innovative eyeballs.</soho-accordion-pane>
 

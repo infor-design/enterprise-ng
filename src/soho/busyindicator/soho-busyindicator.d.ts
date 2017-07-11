@@ -5,6 +5,7 @@
  * interface of the Soho jQuery busyindicator control.
  */
 
+
 /**
  * Busy Indicator Options
  */
