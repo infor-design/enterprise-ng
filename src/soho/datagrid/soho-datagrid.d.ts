@@ -338,6 +338,9 @@ interface SohoDataGridColumn {
   /** Is the grid searchable. */
   searchable?: boolean;
 
+  /** Optional template to use when rendering cells using the Template formatter. */
+  template?: string;
+
   /** @todo fix type from any.  */
   inputType?: any;
 
@@ -373,7 +376,6 @@ interface SohoDataGridColumn {
 
   /** false = prevent user drag/drop this column order i.e. a drilldown column */
   reorderable?: boolean
-
 }
 
 interface SohoDataGridColumnNumberFormat {
@@ -494,7 +496,7 @@ interface SohoDataGridStatic {
 
   /**
    * Sets the status of a given row in the grid.
-   * 
+   *
    * @param idx - the row number (idx) of the row
    * @param status - status class name e.g. 'error'
    * @param tooltip - string value for tooltip message e.g. 'Error'
