@@ -336,7 +336,7 @@ interface SohoDataGridColumn {
   click?: any;
 
   /** Is the grid searchable. */
-  searchable?: boolean,
+  searchable?: boolean;
 
   /** Optional template to use when rendering cells using the Template formatter. */
   template?: string;
