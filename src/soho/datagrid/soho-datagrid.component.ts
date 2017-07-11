@@ -89,7 +89,14 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
   get gridOptions(): SohoDataGridOptions {
-      return this._gridOptions;
+    if (this.datagrid) {
+      return this.datagrid.settings;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions;
   }
 
   /**
@@ -107,6 +114,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get idProperty(): string {
+    if (this.datagrid) {
+      return this.datagrid.settings.idProperty;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.idProperty;
   }
 
@@ -123,6 +137,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get cellNavigation(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.cellNavigation;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.cellNavigation;
   }
 
@@ -143,6 +164,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get rowNavigation(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.rowNavigation;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.rowNavigation;
   }
 
@@ -159,6 +187,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get alternateRowShading(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.rowNavigation;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.alternateRowShading;
   }
 
@@ -213,6 +248,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get columnReorder(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.columnReorder;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.columnReorder;
   }
 
@@ -229,6 +271,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get editable(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.editable;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.editable;
   }
 
@@ -254,6 +303,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get isList(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.isList;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.isList;
   }
 
@@ -299,6 +355,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get selectable(): any {
+    if (this.datagrid) {
+      return this.datagrid.settings.selectable;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.selectable;
   }
 
@@ -315,6 +378,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get clickToSelect(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.clickToSelect;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.clickToSelect;
   }
 
@@ -355,6 +425,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
   get paging(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.paging;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.paging;
   }
 
@@ -407,6 +484,14 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get actionableMode(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.actionableMode;
+    }
+
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.actionableMode;
   }
 
@@ -447,6 +532,14 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
   get filterable(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.filterable;
+    }
+
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.filterable;
   }
 
@@ -472,6 +565,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get treeGrid(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.treeGrid;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.treeGrid;
   }
 
@@ -650,9 +750,12 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   get groupable(): SohoDataGridGroupable {
     if (this.datagrid) {
       return this.datagrid.settings.groupable;
-    } else {
-      return this._gridOptions.groupable;
     }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.groupable;
   }
 
   /**
