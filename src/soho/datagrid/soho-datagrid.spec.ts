@@ -50,8 +50,8 @@ describe('Soho DataGrid Unit Tests', () => {
   it('check uniqueId', () => {
     fixture.detectChanges();
 
-    // We don't specify an option - hence undefined.
-    expect(comp.gridOptions.uniqueId).toBeUndefined();
+    // gridOptions.uniqueId has the default of null
+    expect(comp.gridOptions.uniqueId).toBeNull();
 
     // The control has the default of null.
     expect(comp.uniqueId).toBeNull();
@@ -113,7 +113,7 @@ describe('Soho DataGrid Unit Tests', () => {
   it('check groupable', () => {
     fixture.detectChanges();
 
-    expect(comp.gridOptions.groupable).toBeUndefined();
+    expect(comp.gridOptions.groupable).toBeNull();
     expect(comp.groupable).toBeNull();
 
     comp.groupable = {fields: ['accountType'], aggregator: 'sum'};
