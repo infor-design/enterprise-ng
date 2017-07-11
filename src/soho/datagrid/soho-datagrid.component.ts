@@ -356,13 +356,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   get selectable(): any {
     if (this.datagrid) {
-      return this.datagrid.settings.isList;
+      return this.datagrid.settings.selectable;
     }
 
     // ... we've been called before the component has completed
     // initialisation, so return the current value from the
     // options.
-    return this._gridOptions.isList;
+    return this._gridOptions.selectable;
   }
 
   /**
