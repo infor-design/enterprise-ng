@@ -1,7 +1,7 @@
 /**
  * Soho Accordion Typings.
  *
- * TThe Accordion is a grouped set of collapsible panels used to navigate sections of
+ * The Accordion is a grouped set of collapsible panels used to navigate sections of
  * related content. Each panel consists of two levels: the top level identifies the
  * category or section header, and the second level provides the associated options.
  */

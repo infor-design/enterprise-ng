@@ -37,7 +37,6 @@ export class SohoAccordionHeaderComponent implements AfterViewInit {
   // ------------------------------------------
 
   ngAfterViewInit(): void {
-    console.log('hkfslkf;lskf');
     this.jQueryElement = jQuery(this.elementRef.nativeElement);
   }
 }
