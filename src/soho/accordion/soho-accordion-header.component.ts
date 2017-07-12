@@ -18,8 +18,8 @@ export class SohoAccordionHeaderComponent implements AfterViewInit {
   // -------------------------------------------
 
   /**
-   * Reference to the jQuery control - this is is public so
-   * it can be used in the accordion's api.
+   * Reference to the jQuery control - this is public so
+   * it can be used in the api on the accordion control.
    */
   jQueryElement: JQuery;
 

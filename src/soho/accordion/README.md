@@ -10,8 +10,8 @@ category or section header, and the second level provides the associated options
 
 ### Usage
 
-To use the Soho accordion, you musg make sure the `SohoComponentsModule` is included in the application your 
-hosting component resides.
+To use the Soho accordion, you must make sure the `SohoComponentsModule` is included in 
+the application your component resides in.
 
 In the markup for you angular component, simply add elements named `soho-accordion`, for example:
 
@@ -34,7 +34,7 @@ In the markup for you angular component, simply add elements named `soho-accordi
 
 ## Inputs
 
-The 'accordion' component provides a number of options to controls it behaviour, and presentation.
+The 'accordion' component provides a number of options to control its behaviour, and presentation.
 
 | Name | Description |
 | --- | --- |
