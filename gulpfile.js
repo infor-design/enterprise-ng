@@ -66,7 +66,11 @@ gulp.task('publish-replace', function() {
     .pipe(replace('../../../node_modules/@infor/sohoxi/dist/svg/svg-extended.html', '../../../sohoxi/dist/svg/svg-extended.html'))
     .pipe(gulp.dest('./publish/soho/icon/'));
 
-  return merge(extended, icons);
+  var empty = gulp.src(['./publish/soho/icon/soho-icons-empty.component.ts'])
+    .pipe(replace('../../../node_modules/@infor/sohoxi/dist/svg/svg-empty.html', '../../../sohoxi/dist/svg/svg-empty.html'))
+    .pipe(gulp.dest('./publish/soho/icon/'));
+
+  return merge(empty, extended, icons);
 });
 
 gulp.task('publish', gulp.series('publish-clean', 'publish-copy', 'publish-replace'));
