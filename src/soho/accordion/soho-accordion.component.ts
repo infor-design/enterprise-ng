@@ -247,8 +247,6 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
     // plug-in from the element.  The element name is
     // defined by the plug-in, but in this case it is 'accordion'.
     this.accordion = this.jQueryElement.data('accordion');
-
-    this.headers.forEach(alertInstance => console.log(alertInstance));
   }
 
   /**
