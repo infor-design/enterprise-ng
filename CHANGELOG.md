@@ -1,7 +1,7 @@
 
 ## Whats New
-* 2017-07-12 - BTH - Added api support for the `accordion` control.
-  - added `expandAll`, `collapseAll`, `toggle`, `expand`, `collapse`, `enable` and `disable`.
+* 2017-07-12 - BTH - PR-382 - Added api support for the `accordion` control.
+  - added `expandAll`, `collapseAll`, `toggle`, `expand`, `collapse`, `enable`, `disable`, `isDisabled` and `isExpanded`.
   - added `headers` collection to `accordion` component.
   - added ability to update options as per  existing angular wrappers.
 * 2017-07-08 - BTH - Improvded Veto Support for modal and message dialogs.
