@@ -1,8 +1,12 @@
 
 ## Whats New
-* 2017-07-28 - BTH - Improvded Veto Support for modal and message dialogs.
+* 2017-07-12 - BTH - PR-382 - Added api support for the `accordion` control.
+  - added `expandAll`, `collapseAll`, `toggle`, `expand`, `collapse`, `enable`, `disable`, `isDisabled` and `isExpanded`.
+  - added `headers` collection to `accordion` component.
+  - added ability to update options as per  existing angular wrappers.
+* 2017-07-08 - BTH - Improvded Veto Support for modal and message dialogs.
   - Added `dialogRef` as an argument to `beforeClose` to provide access to dialog properties.
-* 2017-07-23 - BTH - Added `dirtyRows` to dataGrid.
+* 2017-07-03 - BTH - Added `dirtyRows` to dataGrid.
   - Removed `getDirtyRows(...)` as this was not implemented and did not match the underlying control.
 * 2017-07-05 - MH - Home Page (https://jira/browse/SOHO-6468)
   - Added basic version of the Home Page
