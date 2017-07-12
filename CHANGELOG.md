@@ -1,9 +1,9 @@
 
 ## Whats New
-* 2017-07-12 - BTH - Add api support for the `accordion` control.
+* 2017-07-12 - BTH - Added api support for the `accordion` control.
   - added `expandAll`, `collapseAll`, `toggle`, `expand`, `collapse`, `enable` and `disable`.
   - added `headers` collection to `accordion` component.
-  - added updating options matching existing angualar wrappers.
+  - added ability to update options as per  existing angular wrappers.
 * 2017-07-08 - BTH - Improvded Veto Support for modal and message dialogs.
   - Added `dialogRef` as an argument to `beforeClose` to provide access to dialog properties.
 * 2017-07-03 - BTH - Added `dirtyRows` to dataGrid.

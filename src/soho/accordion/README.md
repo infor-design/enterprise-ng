@@ -51,14 +51,14 @@ Changes to these properties will dynamically update the component.
 | --- | --- |
 | `collapse(h: SohoHeaderComponent)` | Collapses the specified header. |
 | `collapseAll` | Collapses all accordion headers. |
-| `disable` | Disable an accordion. |
-| `enable` | Enable an accordion. |
+| `disable` | Disable the accordion. |
+| `enable` | Enable the accordion. |
 | `expand(h: SohoHeaderComponent)` | Expand the given Panel on the Accordion. |
 | `expandAll` | Expands all accordion headers, if possible. |
 | `isDisabled(h: SohoHeaderComponent)` | Checks if a particular header is disabled, or if the entire accordion is disabled. |
 | `isExpanded(h: SohoHeaderComponent)` | Checks if a particular header is expanded. |
 | `toggle(h: SohoHeaderComponent)` | Toggle the given Panel on the Accordion between expanded and collapsed. |
-| `updated` | Update the control. |
+| `updated` | Update the control with changes. |
 
 ## Outputs
 

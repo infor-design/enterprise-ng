@@ -4,6 +4,7 @@ import {
   AfterViewInit,
   ElementRef,
   ChangeDetectionStrategy,
+  Input
 } from '@angular/core';
 
 @Component({
@@ -16,13 +17,16 @@ export class SohoAccordionHeaderComponent implements AfterViewInit {
   // Private Member Data
   // -------------------------------------------
 
-  // Reference to the jQuery control.
+  /**
+   * Reference to the jQuery control - this is is public so
+   * it can be used in the accordion's api.
+   */
   jQueryElement: JQuery;
+
+  @HostBinding('class.is-disabled') isDisabled = false;
 
   @HostBinding('style.display') get isBlockDisplay() { return 'block'; };
   @HostBinding('class.accordion-header') get isAccordionHeader() { return true; };
-  // @HostBinding('class.hide-focus') get isHideFocus() { return true; };
-  // @HostBinding('class.has-chevron') get hasChevron() { return true; };
 
   /**
    * Constructor.

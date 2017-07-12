@@ -211,6 +211,47 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
   }
 
   /**
+   * Disables the control.
+   */
+  public disable() {
+    if (this.accordion) {
+      this.accordion.disable();
+    }
+  }
+  /**
+   * Enables the control.
+   */
+  public enable() {
+    if (this.accordion) {
+      this.accordion.enable();
+    }
+  }
+
+  /**
+   * Returns true if the given header is currently disabled or the whole accordion
+   * is disabled; otherwise false.
+   *
+   * @param header the accordion header panel to check.
+   */
+  public isDisabled(header: SohoAccordionHeaderComponent) {
+    if (this.accordion) {
+      this.accordion.isDisabled(header.jQueryElement);
+    }
+  }
+
+  /**
+   * Returns true if the given header is currently expanded; otherwise
+   * false.
+   *
+   * @param header the accordion header panel to check.
+   */
+  public isExpanded(header: SohoAccordionHeaderComponent) {
+    if (this.accordion) {
+      this.accordion.isExpanded(header.jQueryElement);
+    }
+  }
+
+  /**
    * Toggle the given Panel on the Accordion between expanded and collapsed
    *
    * @param {Object} header &nbsp;-&nbsp; the jquery header element

@@ -7,7 +7,7 @@ import { SohoAccordionComponent } from '@infor/sohoxi-angular';
 })
 export class AccordionDemoComponent implements AfterViewInit {
 
-  @ViewChild(SohoAccordionComponent) accordion;
+  @ViewChild(SohoAccordionComponent) accordion: SohoAccordionComponent;
 
   onBeforeCollapse(args) {
     console.log('Collapsed!', args);
@@ -55,11 +55,25 @@ export class AccordionDemoComponent implements AfterViewInit {
   collapse(): void {
     this.accordion.collapse(this.accordion.getHeader(1));
   }
-  ngAfterViewInit(): void {
 
+  disable(): void {
+    this.accordion.getHeader(1).isDisabled = true;
+    //    this.accordion.disable();
+  }
+
+  enable(): void {
+    this.accordion.getHeader(1).isDisabled = false;
+    // this.accordion.enable();
+  }
+
+  ngAfterViewInit(): void {
   }
 
   update(): void {
-    this.accordion.displayChevron = !this.accordion.displayChevron;
+    if (this.accordion.displayChevron === undefined) {
+      this.accordion.displayChevron = false;
+    } else {
+      this.accordion.displayChevron = !this.accordion.displayChevron;
+    }
   }
 }
