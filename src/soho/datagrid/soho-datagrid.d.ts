@@ -649,7 +649,7 @@ interface SohoDataGridRowActivatedEvent {
 interface SohoDataGridRowDeactivatedEvent extends SohoDataGridRowActivatedEvent {}
 
 interface SohoDataGridFilterCondition {
-  column?: 'all' | string;
+  columnId?: 'all' | string;
   lowercase?: 'yes' | 'no';
   operator?: 'contains' | string;
   value?: string;
