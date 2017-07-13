@@ -45,7 +45,16 @@ export class DataGridStandardFormatterDemoComponent implements AfterViewInit {
       ]
     };
 
-    const columns = [ ...PAGING_COLUMNS, statusColumn ];
+    const ratedColumn = {
+      id: 'rated',
+      name: 'Rated',
+      field: 'rated',
+      width: 40,
+      formatter: Formatters.TargetedAchievement,   // Formatters.Text,
+      showPercentText: true,
+    };
+
+    const columns = [ ...PAGING_COLUMNS, statusColumn, ratedColumn ];
 
     const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
       columns: columns,
