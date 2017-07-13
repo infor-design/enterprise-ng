@@ -245,6 +245,7 @@ declare var Formatters: {
   Status: SohoDataGridColumnFormatterFunction;
   Tree: SohoDataGridColumnFormatterFunction;
   RowReorder: SohoDataGridColumnFormatterFunction;
+  TargetedAchievement: SohoDataGridColumnFormatterFunction;
 };
 
 // declare var Formatters as SohoDataGridColumnFormatters;
