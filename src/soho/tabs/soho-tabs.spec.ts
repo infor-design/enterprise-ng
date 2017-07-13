@@ -67,7 +67,7 @@ describe('Soho Basic Tabs Render', () => {
 
     // check attributes
     expect(tabsElement.getAttribute('soho-tabs')).not.toBeNull();
-    expect(tabsElement.getAttribute('alternate')).toBe('false');
+    expect(tabsElement.classList.contains('alternate')).toBe(false);
 
     // check classes
     expect(tabsElement.classList).toContain('tab-container');
