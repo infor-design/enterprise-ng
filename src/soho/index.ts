@@ -1,3 +1,4 @@
+export * from './about';
 export * from './accordion';
 export * from './application-menu';
 export * from './busyindicator';
