@@ -5,14 +5,16 @@
  * interface of the Soho editor control.
  */
 
+interface SohoEditorButtons {
+  editor: Array<any>;
+  source: Array<any>;
+}
+
 /**
  * Editor Options
  */
 interface SohoEditorOptions {
-    buttons?: {
-      editor: Object;
-      source: Object;
-    };
+    buttons?: SohoEditorButtons;
     delay?: number;
     firstHeader?: string;
     secondHeader?: string;

@@ -108,6 +108,14 @@ export class SohoEditorComponent implements AfterViewInit, OnDestroy {
     this.options.image = image;
   }
 
+  /**
+   * @param buttons
+   */
+  @Input() set buttons(buttons: SohoEditorButtons) {
+    this.options.buttons = buttons;
+    this.jQueryElement.trigger('updated');
+  }
+
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
