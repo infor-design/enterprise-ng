@@ -1,28 +1,25 @@
-<div class="example-section">
-  <form>
-    <div>
-      <div class="row"><span class="code-tag">Live Example</span></div>
-      <div class="row">
-        <div class="twelve columns">
-          <div class="field">
-            <label class="label" for="title">Title</label>
-            <input type="text" id="title" value="The Page Title">
-          </div>
 
-          <div class="field">
-            <span class="label">Comments</span>
-            <div soho-editor id="editor1" role="textbox" aria-multiline="true" aria-label="Comments">{{model.editorText}}</div>
-            <button soho-button [disabled]="editorReadOnly" (click)="setReadonly()">Read Only</button>
-            <button soho-button [disabled]="editorDisabled" (click)="setDisable()">Disable</button>
-            <button soho-button [disabled]="!editorDisabled && !editorReadOnly" (click)="setEnable()">Enable</button>
-          </div>
-        </div>
+<form>
+  <div class="row top-padding">
+    <div class="twelve columns">
+      <div class="field">
+        <label class="label" for="title">Title</label>
+        <input type="text" id="title" value="The Page Title">
       </div>
+
+      <div class="field">
+        <span class="label">Comments</span>
+        <div soho-editor id="editor1" role="textbox" aria-multiline="true" aria-label="Comments">{{model.editorText}}</div>
+        <button soho-button [disabled]="editorReadOnly" (click)="setReadonly()">Read Only</button>
+        <button soho-button [disabled]="editorDisabled" (click)="setDisable()">Disable</button>
+        <button soho-button [disabled]="!editorDisabled && !editorReadOnly" (click)="setEnable()">Enable</button>
+        <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+      </div>
+
+      <div *ngIf="showModel">
+        <pre>{{ model | json }}</pre>
+      </div>
+
     </div>
-  </form>
-  <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
-  <div *ngIf="showModel">
-    <hr>
-    <pre>{{ model | json }}</pre>
   </div>
-</div>
+</form>
