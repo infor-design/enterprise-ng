@@ -46,7 +46,6 @@ export class DataGridDynamicDemoComponent implements AfterContentInit, AfterView
       newData.forEach((r) => r.orderDate = new Date());
       this._subject$.next(newData);
       this.busyIndicator.close(true);
-      setTimeout(() => this.addRows(), 2000);
     });
   }
 
@@ -65,7 +64,7 @@ export class DataGridDynamicDemoComponent implements AfterContentInit, AfterView
     }
   }
 
-   toggleFilterRow() {
+  toggleFilterRow() {
     this.dataGrid.toggleFilterRow();
   }
 
@@ -73,7 +72,20 @@ export class DataGridDynamicDemoComponent implements AfterContentInit, AfterView
     this.dataGrid.clearFilter();
   }
 
-  onSelected(e: any) {
+  onSelected(e: SohoDataGridSelectedEvent) {
+    console.log('onSelected() - rows ' + e.rows)
+  }
+
+  onRowDoubleClicked(e: SohoDataGridRowClicked) {
+    console.log('onRowDoubleClicked() - row: ' + e.row + ', cell: ' + e.cell);
+  }
+
+  onRowClicked(e: SohoDataGridRowClicked) {
+    console.log('onRowClicked() - row: ' + e.row + ', cell: ' + e.cell);
+  }
+
+  onContextMenu(e: SohoDataGridRowClicked) {
+    console.log('onContextMenu() - row: ' + e.row + ', cell: ' + e.cell);
   }
 
   ngAfterContentInit() {
