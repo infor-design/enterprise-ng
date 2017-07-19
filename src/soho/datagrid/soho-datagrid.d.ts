@@ -499,7 +499,6 @@ interface SohoDataGridStatic {
    */
   dirtyRows(): Array<any>;
 
-
   /**
    * Sets the status of a given row in the grid.
    *
