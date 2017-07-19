@@ -1,10 +1,11 @@
 
 ## Whats New
+* 2017-07-18 - TJM - Added a service for the about dialog like the message service. (SOHO-5630)
 * 2017-07-12 - BTH - PR-382 - Added api support for the `accordion` control.
   - added `expandAll`, `collapseAll`, `toggle`, `expand`, `collapse`, `enable`, `disable`, `isDisabled` and `isExpanded`.
   - added `headers` collection to `accordion` component.
   - added ability to update options as per  existing angular wrappers.
-* 2017-07-08 - BTH - Improvded Veto Support for modal and message dialogs.
+* 2017-07-08 - BTH - Improved Veto Support for modal and message dialogs.
   - Added `dialogRef` as an argument to `beforeClose` to provide access to dialog properties.
 * 2017-07-03 - BTH - Added `dirtyRows` to dataGrid.
   - Removed `getDirtyRows(...)` as this was not implemented and did not match the underlying control.
@@ -61,20 +62,20 @@
 ### Breaking Changes
 
 * 2017-07-28 - BTH - Added generic type argument onto `SohoModalDialogVetoableEventGuard`.  
- 
+
     Any code using this interface should add the generic type of the dialog component, or `any` for messages.
 
 * 2017-07-23 - BTH - Replaced `getDirtyRows(...)` with `dirtyRows()` on datagrid.  
 
     Any code using the original method would not have worked as expected as the code alwasy returned `[]`.
 
-* 2017-06-01 - VW - PR-298 - Replaced enable and disable functions with disabled property to enable/disable dropdown and added readonly property. 
+* 2017-06-01 - VW - PR-298 - Replaced enable and disable functions with disabled property to enable/disable dropdown and added readonly property.
 
 * 2017-05-31 - PWP - Markup change needed for new tabs implementation in soho
 
-    The soho-tabs now can only contain the tab list and require a new element `<div soho-tab-list-container>` to 
+    The soho-tabs now can only contain the tab list and require a new element `<div soho-tab-list-container>` to
     encapsulate the `<ul soho-tab-list>`.
-    
+
     ```angular2html
     <div soho-tabs>
       <div soho-tab-list-container>    <-- NEW ELEMENT
@@ -85,9 +86,9 @@
       </div>
     </div>
     ```
-    
+
     The tab panels need to be placed inside a `<div soho-tab-panel-container>` element. This markup can
-    occur largely anywhere in the markup in support of header tabs. A restriction being that it cannot 
+    occur largely anywhere in the markup in support of header tabs. A restriction being that it cannot
     be placed in the `<div soho-tabs>` element.
     ```angular2html
     <div soho-tab-panel-container>     <-- NEW ELEMENT
@@ -96,8 +97,8 @@
       </div>
       ...
     </div>
-    ``` 
-    If the `<div soho-tab-panel-container>` is not a sibling of `<ul soho-tabs>` (for example 
+    ```
+    If the `<div soho-tab-panel-container>` is not a sibling of `<ul soho-tabs>` (for example
     in the case of header tabs) then you'll need to pass in a containerElement selector as input to the
     `<div soho-tabs>`. For Example:
     ```angular2html
@@ -105,12 +106,12 @@
       <div soho-tabs [containerElement]="#header-tab-panels">
       </div>
     </header>
-  
-    * somewhere in your document * 
+
+    * somewhere in your document *
     <div soho-tab-panel-container id="header-tab-panels">
     </div>
     ```     
- 
+
 * 2017-04-19 - BTH - Changed `selectedNode` to `selectNode` to match jQuery tree widget.
 
 * 2017-04-18 - TJM - Changed setSelectedNode method in tree component to selectedNode to match the component change.

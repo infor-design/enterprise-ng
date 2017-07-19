@@ -1,6 +1,7 @@
 ﻿import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AboutDemoComponent } from './about/about.demo';
 import { AccordionDemoComponent } from './accordion/accordion.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
@@ -95,6 +96,7 @@ import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablear
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
+  { path: 'about',                 component: AboutDemoComponent },
   { path: 'accordion',             component: AccordionDemoComponent},
   { path: 'alert',                 component: AlertDemoComponent},
   { path: 'application-lazy-menu', component: ApplicationMenuLazyDemoComponent},
