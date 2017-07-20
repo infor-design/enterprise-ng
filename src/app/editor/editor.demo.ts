@@ -28,7 +28,22 @@ export class EditorDemoComponent implements OnInit {
   public editorReadOnly = false;
 
   constructor() { }
-  ngOnInit() { }
+  ngOnInit() {
+
+    // Customize the buttons on init
+    this.editor.buttons = {
+          editor: [
+            'header1', 'header2',
+            'separator', 'bold', 'italic', 'underline', 'strikethrough',
+            'separator', 'justifyLeft', 'justifyCenter', 'justifyRight',
+            'separator', 'quote', 'orderedlist', 'unorderedlist',
+            'separator', 'source'
+          ],
+          source: [
+            'visual'
+          ]
+        };
+  }
 
   toggleModel() {
     this.showModel = !this.showModel;
@@ -49,4 +64,5 @@ export class EditorDemoComponent implements OnInit {
     this.editor.readonly = true;
     this.editorReadOnly = this.editor.readonly;
   }
+
 }

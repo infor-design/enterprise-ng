@@ -863,6 +863,12 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   @Output()
   rowClicked = new EventEmitter<SohoDataGridRowClicked>();
 
+  @Output()
+  rowDoubleClicked = new EventEmitter<SohoDataGridRowClicked>();
+
+  @Output()
+  contextMenu = new EventEmitter<SohoDataGridRowClicked>();
+
   // -------------------------------------------
   // Host Bindings
   // -------------------------------------------
@@ -1304,7 +1310,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // Initialise any event handlers.
     this.jQueryElement
       .on('selected', (e: JQueryEventObject, args: SohoDataGridSelectedRow[]) => this.selected.next({ e, rows: args }))
-      .on('cellchange', (e: JQueryEventObject, args: SohoDataGridCellChangeEvent[]) => this.cellchange.next(args))
+      .on('cellchange', (e: JQueryEventObject, args: SohoDataGridCellChangeEvent) => this.cellchange.next(args))
       .on('removerow', (e: JQueryEventObject, args: SohoDataGridRowRemoveEvent) => { this.rowRemove.next(args); })
       .on('addrow', (e: JQueryEventObject, args: SohoDataGridAddRowEvent) => { this.rowAdd.next(args); })
       .on('filtered', (e: JQueryEventObject, args: any) => { this.filtered.next(args); })
@@ -1313,7 +1319,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       .on('collapserow', (e: JQueryEventObject, args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
       .on('rowactivated', (e: JQueryEventObject, args: SohoDataGridRowActivatedEvent) => { this.rowActivated.next(args); })
       .on('rowdeactivated', (e: JQueryEventObject, args: SohoDataGridRowDeactivatedEvent) => { this.rowDeactivated.next(args); })
-      .on('click', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.rowClicked.next(args); });
+      .on('click', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.rowClicked.next(args); })
+      .on('dblclick', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.rowDoubleClicked.next(args); })
+      .on('contextmenu', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.contextMenu.next(args); });
   }
 
   /**

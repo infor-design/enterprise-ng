@@ -122,6 +122,19 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, OnDestroy {
   }
 
   /**
+   * To display only the overlay w/o the badge and text. Useful to stop input to a component
+   * that doesn't already have another mechanism (like a disabled state).
+   */
+  @Input()
+  public set overlayOnly(overlayOnly: boolean) {
+    this.options.overlayOnly = overlayOnly;
+    if (this.busyindicator) {
+      this.busyindicator.settings.overlayOnly = overlayOnly;
+      this.busyindicator.updated();
+    }
+  }
+
+  /**
    * Constructor.
    *
    * @param elementRef - the element matching the component's selector.

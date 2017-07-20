@@ -130,7 +130,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   @HostBinding('class.vertical')      get isVertical()     { return this.vertical; };
   @HostBinding('class.module-tabs')   get isModuleTabs()   { return this.moduleTabs; };
   @HostBinding('class.header-tabs')   get isHeaderTabs()   { return this.headerTabs; };
-  @HostBinding('attr.alternate')      get isAlternate()    { return this.alternate; };
+  @HostBinding('class.alternate')     get isAlternate()    { return this.alternate; };
 
   // ------------------------------------------------------------------------
   // @Inputs
