@@ -155,7 +155,6 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
     // Initialise the SohoXi Control
-    console.log(this.options, this.element);
     this.jQueryElement.tooltip(this.options);
 
     this.tooltip = this.jQueryElement.data('tooltip');
