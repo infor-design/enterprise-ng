@@ -20,7 +20,6 @@
           (contextMenu)="onContextMenu($event)"
           [columns]="columns | async"
           [data]="data | async"
-          menuId="grid-context-menu"
           displayDelay="0"
           selectable="multiple"
           filterable="true"
@@ -29,8 +28,20 @@
   </div>
 </div>
 
-<ul id="grid-context-menu" class="popupmenu">
-  <li><a href="#">Action One</a></li>
-  <li><a href="#">Action Two</a></li>
-  <li><a href="#">Action Three</a></li>
-</ul>
+<div *ngIf="displayContextMenu" class="popupmenu-wrapper" role="application" aria-hidden="true">
+  <ul
+    soho-popupmenu
+    id="grid-context-menu"
+    trigger='immediate'
+    menu='grid-context-menu'
+    [eventObj]="contextMenuEvent"
+    (selected)="onMenuItemSelected($event)"
+    (beforeopen)="onBeforeContextMenuOpen($event)"
+    (close)="onContextMenuClose($event)"
+    (open)="onContextMenuOpen($event)"
+  >
+    <li soho-popupmenu-item><a soho-popupmenu-label href="#">Action One</a></li>
+    <li soho-popupmenu-item><a soho-popupmenu-label href="#">Action Two</a></li>
+    <li soho-popupmenu-item><a soho-popupmenu-label href="#">Action Three</a></li>
+  </ul>
+</div>
