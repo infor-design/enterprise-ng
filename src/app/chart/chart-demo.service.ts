@@ -85,11 +85,43 @@ export class ChartDemoService {
       name: 'Series 02'
     }];
 
+  private pieData: SohoDataSet = [{
+    data: [{
+      name: 'Wages',
+      shortName: 'Wages',
+      value: 10.6,
+    }, {
+      name: 'Pre-tax Deductions',
+      shortName: 'Pre-tax',
+      value: 10.2,
+    }, {
+      name: 'Company Taxes',
+      shortName: 'C Tax',
+      value: 14.35,
+    }, {
+      name: 'Taxes',
+      shortName: 'Taxes',
+      value: 15.6,
+    }, {
+      name: 'After-tax Deductions',
+      shortName: 'Af-tax',
+      value: 21.6,
+    }, {
+      name: 'Company Deductions',
+      shortName: 'C Dedc',
+      value: 41.6,
+    }]
+  }];
+
   public getBasicData(): SohoDataSet {
     return this.basicData;
   }
 
   public getBubbleData(): SohoDataSet {
     return this.bubbleData;
+  }
+
+  public getPieData(): SohoDataSet {
+    return this.pieData;
   }
 }
