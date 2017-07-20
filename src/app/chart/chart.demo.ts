@@ -63,7 +63,9 @@ export class ChartDemoComponent implements OnInit {
     const chartType: ChartTypes = $(event.currentTarget).filter(':checked').val();
     const chartOptions: SohoChartOptions = {};
 
-    if (chartType === 'bubble') {
+    if (chartType === 'pie' || chartType === 'donut') {
+      chartOptions.dataset = this.chartDemoService.getPieData();
+    } else if (chartType === 'bubble') {
       chartOptions.dataset = this.chartDemoService.getBubbleData();
     } else {
       chartOptions.dataset = this.chartDemoService.getBasicData();
