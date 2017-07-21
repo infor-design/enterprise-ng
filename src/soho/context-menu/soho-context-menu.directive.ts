@@ -13,7 +13,7 @@ import {
 })
 
 export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
-  private jQueryElement: any;
+  private jQueryElement: JQuery;
 
   private contextMenu: SohoPopupMenuStatic;
 
@@ -61,10 +61,10 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
 
     // Add listeners to emit events
     this.jQueryElement
-      .on('selected', ((event: SohoContextMenuEvent) => { this.selected.emit(event); }))
-      .on('beforeopen', ((event: SohoContextMenuEvent ) => { this.beforeopen.emit(event); }))
-      .on('close', ((event: SohoContextMenuEvent ) => { this.close.emit(event); }))
-      .on('open', ((event: SohoContextMenuEvent ) => { this.open.emit(event); }));
+      .on('selected',   (e: JQueryEventObject, args: JQuery) => this.selected.next({ e, args }))
+      .on('beforeopen', (e: JQueryEventObject, args: JQuery) => this.beforeopen.emit({ e, args }))
+      .on('close',      (e: JQueryEventObject, args: JQuery) => this.close.emit({ e, args }))
+      .on('open',       (e: JQueryEventObject, args: JQuery) => this.open.emit({ e, args }));
   }
 
   updated() {

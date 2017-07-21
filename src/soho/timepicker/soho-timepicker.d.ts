@@ -30,6 +30,21 @@ interface SohoTimePickerEvent extends BaseJQueryEventObject {
  * Soho control.
  */
 interface SohoTimePickerStatic {
+  settings: SohoTimePickerOptions;
+
+  /** Underlying element. */
+  element: JQuery;
+
+  destroy(): void;
+
+  disable(): void;
+
+  enable(): void;
+
+  readonly(): void;
+
+  updated(): void;
+
   show(): void;
 }
 

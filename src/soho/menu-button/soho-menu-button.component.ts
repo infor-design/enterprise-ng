@@ -21,7 +21,7 @@ export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.btn-menu') get isBtnMenu() { return true; };
   @HostBinding('attr.type') get buttonType() { return 'button'; };
 
-  private jQueryElement: any;
+  private jQueryElement: JQuery;
 
   private menuButton: SohoPopupMenuStatic;
 
@@ -77,10 +77,10 @@ export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
 
     // Add listeners to emit events
     this.jQueryElement
-      .on('selected', ((event: SohoContextMenuEvent, args: any) => { event.args = args; this.selected.emit(event); }))
-      .on('beforeopen', ((event: SohoContextMenuEvent, args: any) => { event.args = args; this.beforeopen.emit(event); }))
-      .on('close', ((event: SohoContextMenuEvent, args: any) => { event.args = args; this.close.emit(event); }))
-      .on('open', ((event: SohoContextMenuEvent, args: any) => { event.args = args; this.open.emit(event); }));
+      .on('selected',   (e: JQueryEventObject, args: JQuery) => this.selected.emit({ e, args }))
+      .on('beforeopen', (e: JQueryEventObject, args: JQuery) => this.beforeopen.emit({ e, args }))
+      .on('close',      (e: JQueryEventObject, args: JQuery) => this.close.emit({ e, args }))
+      .on('open',       (e: JQueryEventObject, args: JQuery) => this.open.emit({ e, args }));
   }
 
   updated() {

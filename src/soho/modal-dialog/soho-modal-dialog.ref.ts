@@ -17,7 +17,7 @@ export class SohoModalDialogRef<T> {
   private eventGuard: SohoModalDialogVetoableEventGuard<T> = { };
 
   /** Selector referencing the modal-dialog after it has been moved to the dialog container. */
-  private jQueryElement: any;
+  private jQueryElement: JQuery;
 
   /** Soho Control Api */
   private modal: SohoModalStatic;

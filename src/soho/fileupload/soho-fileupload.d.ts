@@ -27,6 +27,11 @@ interface SohoFileUploadStatic {
 
   destroy(): void;
 }
+
 interface JQueryStatic {
   fileupload: SohoFileUploadStatic;
+}
+
+interface JQuery {
+  fileupload(options?: SohoFileUploadEvent): JQuery;
 }
