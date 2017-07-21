@@ -60,9 +60,6 @@ interface SohoPopupMenuEvent {
   args: JQuery;
 }
 
-interface SohoContextMenuEvent extends SohoPopupMenuEvent {
-}
-
 interface SohoPopupMenuStatic {
 
   /** Configuration options. */

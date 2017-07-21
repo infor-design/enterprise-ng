@@ -98,7 +98,7 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: any;
+  private jQueryElement: JQuery;
 
   // Reference to the SoHoXi control api.
   private fileUpload: SohoFileUploadStatic;
@@ -121,7 +121,7 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   ngOnDestroy() {
     if (this.fileUpload) {
       this.fileUpload.destroy();
-      this.jQueryElement.destroy();
+      this.fileUpload = null;
     }
   }
 }
