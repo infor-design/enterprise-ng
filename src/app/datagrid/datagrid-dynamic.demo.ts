@@ -10,7 +10,7 @@ import {
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import { SohoDataGridComponent } from '@infor/sohoxi-angular';
+import { SohoDataGridComponent, SohoPopupMenuComponent } from '@infor/sohoxi-angular';
 import { SohoBusyIndicatorDirective } from '@infor/sohoxi-angular';
 
 import {
@@ -26,13 +26,24 @@ import {
 export class DataGridDynamicDemoComponent implements AfterContentInit, AfterViewInit {
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
   @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
+  // @ViewChild(SohoPopupMenuComponent) popupMenu: SohoPopupMenuComponent;
 
   private _subject$ = new BehaviorSubject([]);
 
   public data = this._subject$.asObservable();
 
-  constructor(private el: ElementRef,
-              private service: DataGridDemoService) {
+  public displayContextMenu = false;
+  public contextMenuEvent: any;
+
+  constructor(
+    private service: DataGridDemoService
+  ) {}
+
+  ngAfterContentInit() {
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => this.addRows(), 1000);
   }
 
   public get columns(): Observable<SohoDataGridColumn[]> {
@@ -85,13 +96,24 @@ export class DataGridDynamicDemoComponent implements AfterContentInit, AfterView
   }
 
   onContextMenu(e: SohoDataGridRowClicked) {
-    console.log('onContextMenu() - row: ' + e.row + ', cell: ' + e.cell);
+    this.contextMenuEvent = e.originalEvent;
+    this.displayContextMenu = true;
   }
 
-  ngAfterContentInit() {
+  onMenuItemSelected(e: any) {
+    console.log('onMenuItemSelected()- ' + e);
   }
 
-  ngAfterViewInit() {
-    setTimeout(() => this.addRows(), 1000);
+  onBeforeContextMenuOpen(e: any) {
+    console.log('onBeforeContextMenuOpen()- ' + e);
+  }
+
+  onContextMenuClose(e: any) {
+    console.log('onContextMenuClose()- ' + e);
+    this.displayContextMenu = false;
+  }
+
+  onContextMenuOpen(e: any) {
+    console.log('onContextMenuOpen()- ' + e);
   }
 }

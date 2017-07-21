@@ -13,7 +13,7 @@ import {
 })
 
 export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
-  private jQueryElement: JQuery;
+  private jQueryElement: any;
 
   private contextMenu: SohoPopupMenuStatic;
 
