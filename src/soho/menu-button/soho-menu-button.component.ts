@@ -21,7 +21,7 @@ export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.btn-menu') get isBtnMenu() { return true; };
   @HostBinding('attr.type') get buttonType() { return 'button'; };
 
-  private jQueryElement: JQuery;
+  private jQueryElement: any;
 
   private menuButton: SohoPopupMenuStatic;
 
