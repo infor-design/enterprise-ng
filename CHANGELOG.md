@@ -1,5 +1,6 @@
 
 ## Whats New
+* 2017-07-20 - PWP - PR-399 - Added input and outputs to soho-popupmenu
 * 2017-07-12 - BTH - PR-382 - Added api support for the `accordion` control.
   - added `expandAll`, `collapseAll`, `toggle`, `expand`, `collapse`, `enable`, `disable`, `isDisabled` and `isExpanded`.
   - added `headers` collection to `accordion` component.
@@ -59,6 +60,10 @@
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2017-07-21 - PWP - PR-401 - Changed SohoPopupMenuEvent to include the original JQueryEvent as a property instead of extending from it.
+    
+    Any code relying on the jQueryEvent should reference it through the SohoContextMenuEvent and SohoPopupMenuEvent. 
 
 * 2017-07-28 - BTH - Added generic type argument onto `SohoModalDialogVetoableEventGuard`.  
  
