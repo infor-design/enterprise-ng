@@ -34,6 +34,7 @@ export class DataGridDynamicDemoComponent implements AfterContentInit, AfterView
 
   public displayContextMenu = false;
   public contextMenuEvent: any;
+  public contextMenuId = 'grid-context-menu';
 
   constructor(
     private service: DataGridDemoService
@@ -96,6 +97,7 @@ export class DataGridDynamicDemoComponent implements AfterContentInit, AfterView
   }
 
   onContextMenu(e: SohoDataGridRowClicked) {
+    console.log('contextmenu fired', e);
     this.contextMenuEvent = e.originalEvent;
     this.displayContextMenu = true;
   }
