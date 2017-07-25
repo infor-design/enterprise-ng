@@ -50,6 +50,14 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
     }
   }
 
+  @Input() set collapsibleOnMobile(value: boolean) {
+    this.options.collapsibleOnMobile = value;
+    if (this.toolbarsearchfield) {
+      this.toolbarsearchfield.settings.collapsibleOnMobile = value;
+      this.markForRefresh();
+    }
+  }
+
   /** AutoComplete : Source Function/Data/Url/Array */
   @Input() set source(value: SohoAutoCompleteSource) {
     this.options.source = value;

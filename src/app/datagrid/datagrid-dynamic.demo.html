@@ -28,12 +28,12 @@
   </div>
 </div>
 
-<div *ngIf="displayContextMenu" class="popupmenu-wrapper" role="application" aria-hidden="true">
+<div *ngIf="displayContextMenu" class="popupmenu-wrapper bottom" role="application" aria-hidden="true">
   <ul
     soho-popupmenu
-    id="grid-context-menu"
+    id="{{contextMenuId}}"
     trigger='immediate'
-    menu='grid-context-menu'
+    menu="{{contextMenuId}}"
     [eventObj]="contextMenuEvent"
     (selected)="onMenuItemSelected($event)"
     (beforeopen)="onBeforeContextMenuOpen($event)"
