@@ -216,8 +216,8 @@ export class SohoContextualActionPanelRef<T> {
     // Add listeners to control events
     this.jQueryElement.on('close', ((event: any, isCancelled: boolean) => { this.onClose(event, isCancelled); }));
     this.jQueryElement.on('open', ((event: any) => { this.onOpen(event); }));
-    this.jQueryElement.on('afterclose', ((event: any) => { this.onAfterClose(event); }));
-    this.jQueryElement.on('afteropen', ((event: any) => { this.onAfterOpen(event); }));
+    this.contextualactionpanel.panel.on('afterclose', ((event: any) => { this.onAfterClose(event); }));
+    this.contextualactionpanel.panel.on('afteropen', ((event: any) => { this.onAfterOpen(event); }));
 
     return this;
   }
