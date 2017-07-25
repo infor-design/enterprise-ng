@@ -1,7 +1,7 @@
 
 ## Whats New
-* 2017-07-25 - PWP - Added collapseOnMobile input for search field on a soho-toolbar
-* 2017-07-20 - PWP - PR-399 - Added input and outputs to soho-popupmenu
+* 2017-07-25 - PWP - PR-403 - Added collapseOnMobile input for search field on a soho-toolbar
+* 2017-07-20 - PWP git - PR-399 - Added input and outputs to soho-popupmenu
 * 2017-07-18 - TJM - Added a service for the about dialog like the message service. (SOHO-5630)
 * 2017-07-12 - BTH - PR-382 - Added api support for the `accordion` control.
   - added `expandAll`, `collapseAll`, `toggle`, `expand`, `collapse`, `enable`, `disable`, `isDisabled` and `isExpanded`.
