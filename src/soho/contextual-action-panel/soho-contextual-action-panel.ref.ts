@@ -334,6 +334,9 @@ export class SohoContextualActionPanelRef<T> {
 
     this.contextualactionpanel.destroy();
     this.contextualactionpanel = null;
+
+    this.componentRef.destroy();
+    this.componentRef = null;
   }
 }
 /**
