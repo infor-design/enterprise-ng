@@ -1,5 +1,7 @@
 
 ## Whats New
+* 2017-07-25 - PWP - PR-403 - Added collapseOnMobile input for search field on a soho-toolbar
+* 2017-07-20 - PWP git - PR-399 - Added input and outputs to soho-popupmenu
 * 2017-07-18 - TJM - Added a service for the about dialog like the message service. (SOHO-5630)
 * 2017-07-12 - BTH - PR-382 - Added api support for the `accordion` control.
   - added `expandAll`, `collapseAll`, `toggle`, `expand`, `collapse`, `enable`, `disable`, `isDisabled` and `isExpanded`.
@@ -61,6 +63,10 @@
 
 ### Breaking Changes
 
+* 2017-07-21 - PWP - PR-401 - Changed SohoPopupMenuEvent to include the original JQueryEvent as a property instead of extending from it.
+    
+    Any code relying on the jQueryEvent should reference it through the SohoContextMenuEvent and SohoPopupMenuEvent.
+    
 * 2017-07-28 - BTH - Added generic type argument onto `SohoModalDialogVetoableEventGuard`.  
 
     Any code using this interface should add the generic type of the dialog component, or `any` for messages.
