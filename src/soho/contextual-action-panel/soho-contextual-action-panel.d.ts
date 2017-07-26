@@ -89,6 +89,11 @@ interface SohoContextualActionPanelStatic {
   element: JQuery;
 
   /**
+   * The underlying panel on the CAP added by the Core CAP API.
+   */
+  panel: JQuery;
+
+  /**
    * Track if cancelled *
    */
   isCancelled: boolean;
