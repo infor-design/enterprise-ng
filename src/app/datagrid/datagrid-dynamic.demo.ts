@@ -102,7 +102,7 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
       this.displayContextMenu = false;
 
       this.popupMenu.close();
-      this.popupMenu.teardown();
+      this.popupMenu.destroy();
     }
 
     // -----------------------------------------------------------------
