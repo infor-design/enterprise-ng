@@ -1,10 +1,7 @@
 import {
   Component,
-  AfterContentInit,
-  ElementRef,
   ViewChild,
   AfterViewInit,
-  ChangeDetectionStrategy
 } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
