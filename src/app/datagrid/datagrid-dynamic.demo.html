@@ -28,20 +28,21 @@
   </div>
 </div>
 
-<div *ngIf="displayContextMenu" class="popupmenu-wrapper bottom" role="application" aria-hidden="true">
-  <ul
-    soho-popupmenu
+<div *ngIf="displayContextMenu" class="popupmenu-wrapper" role="application" aria-hidden="true">
+  <ul soho-popupmenu
     id="{{contextMenuId}}"
-    trigger='immediate'
     menu="{{contextMenuId}}"
+    trigger='immediate'
     [eventObj]="contextMenuEvent"
+    [attachToBody]="true"
+
     (selected)="onMenuItemSelected($event)"
     (beforeopen)="onBeforeContextMenuOpen($event)"
     (close)="onContextMenuClose($event)"
     (open)="onContextMenuOpen($event)"
   >
-    <li soho-popupmenu-item><a soho-popupmenu-label href="#">Action One</a></li>
-    <li soho-popupmenu-item><a soho-popupmenu-label href="#">Action Two</a></li>
-    <li soho-popupmenu-item><a soho-popupmenu-label href="#">Action Three</a></li>
+    <li *ngFor="let item of menuItems">
+      <a soho-popupmenu-label href="#">{{item.label}}</a>
+    </li>
   </ul>
 </div>
