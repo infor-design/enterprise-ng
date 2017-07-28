@@ -71,10 +71,14 @@ interface SohoPopupMenuStatic {
   /** Updates the control to reflect the settings. */
   updated(): void;
 
-  /** Tear down. */
+  /** Tear down the markup for the control */
   teardown(): void;
 
-  /** Destroy the markup and any other resources.  */
+  /** Closes the popup menu control */
+
+   close(isCancelled?: boolean, noFocus?: boolean): void;
+
+  /** Destroy the markup and any other resources. */
   destroy(): void;
 }
 

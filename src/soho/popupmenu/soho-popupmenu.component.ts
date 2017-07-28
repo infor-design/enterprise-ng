@@ -287,7 +287,9 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
 
   @Output() afteropen = new EventEmitter<SohoPopupMenuEvent>();
 
-  @Output() close = new EventEmitter<SohoPopupMenuEvent>();
+  // using output renaming since close conflicts with the close method
+  // in this class.
+  @Output('close') closeEvent = new EventEmitter<SohoPopupMenuEvent>(); //tslint:disable-line
 
   // -------------------------------------------
   // Host Bindings
@@ -325,7 +327,54 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
     .on('beforeopen',          (e: JQueryEventObject, args: JQuery) => this.beforeopen.next({ e, args }))
     .on('open',                (e: JQueryEventObject, args: JQuery) => this.open.next({ e, args }))
     .on('afteropen',           (e: JQueryEventObject, args: JQuery) => this.afteropen.next({ e, args }))
-    .on('close',               (e: JQueryEventObject, args: JQuery) => this.close.next({ e, args }));
+    .on('close',               (e: JQueryEventObject, args: JQuery) => this.closeEvent.next({ e, args }));
+  }
+
+  /**
+   * Returns the selected html element.
+   */
+  getSelected(): any {
+    if (this.popupmenu) {
+      return this.popupmenu.getSelected()
+    }
+  }
+
+  /**
+   * Updates the control to reflect the settings.
+   */
+  updated(): void {
+    if (this.popupmenu) {
+      this.popupmenu.updated()
+    }
+  }
+
+  /**
+   * Tear down the markup for the popup menu
+   */
+  teardown(): void {
+    if (this.popupmenu) {
+      this.popupmenu.teardown()
+    }
+  }
+
+  /**
+   * Closes the popup menu
+   * @param {boolean} isCancelled
+   * @param {boolean} noFocus
+   */
+  close(isCancelled?: boolean, noFocus?: boolean): void {
+    if (this.popupmenu) {
+      this.popupmenu.close(isCancelled, noFocus);
+    }
+  }
+
+  /**
+   * Destroy the markup and any other resources.
+   */
+  destroy() {
+    if (this.popupmenu) {
+      this.popupmenu.destroy();
+    }
   }
 
   /**
@@ -333,8 +382,6 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
    * Unsubscribe observables, detach event handlers and remove other resources to avoid memory leaks.
    */
   ngOnDestroy() {
-    if (this.popupmenu) {
-      this.popupmenu.destroy();
-    }
+    this.destroy();
   }
 }
