@@ -9,6 +9,7 @@ import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
+import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoComponent } from './contextual-action-panel/contextual-action-panel.demo';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
@@ -104,6 +105,7 @@ export const routes: Routes = [
   { path: 'busyindicator',         component: BusyIndicatorDemoComponent },
   { path: 'chart',                 component: ChartDemoComponent },
   { path: 'checkbox',              component: CheckBoxDemoComponent },
+  { path: 'colorpicker',           component: ColorPickerDemoComponent },
   { path: 'context-menu',          component: ContextMenuDemoComponent },
   { path: 'contextual-action-panel', component: ContextualActionPanelDemoComponent },
   { path: 'datagrid-breadcrumb',   component: DataGridBreadcrumbDemoComponent },

@@ -53,6 +53,7 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | busyindicator           |                           Available |            - | [SOHO-4096][#4096] |
 | button                  |                           Available |            - | [SOHO-4556][#4556] |
 | checkbox                |                           Available |            - | [SOHO-4617][#4617] |
+| colorpicker             |                           Available |            - | [SOHO-6503][#6503] |
 | context-menu            |                           Available |            - | [SOHO-4557][#4557] |
 | contextual-action-panel |                           Available |  [README][0] | [SOHO-5909][#5909] |
 | datagrid                |                           Available |            - | [SOHO-4049][#4049] |

@@ -5,6 +5,7 @@ export * from './busyindicator';
 export * from './button';
 export * from './chart';
 export * from './checkbox';
+export * from './colorpicker';
 export * from './context-menu';
 export * from './contextual-action-panel';
 export * from './datagrid';
