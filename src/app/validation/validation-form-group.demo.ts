@@ -34,8 +34,8 @@ export class ValidationFormGroupDemoComponent implements AfterViewInit {
   createForm() {
     // note - both controls have the .required validator.
     this.demoForm = this.formBuilder.group({
-      masked: [this.maskedValue, customValidator],
-      notmasked: [this.notmaskedValue, customValidator]
+      masked: [this.maskedValue, [Validators.required, Validators.minLength(1)]],
+      notmasked: [this.notmaskedValue, [Validators.required, Validators.minLength(1), Validators.maxLength(10)]]
     });
 
     this.demoForm.valueChanges
