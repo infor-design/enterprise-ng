@@ -5,7 +5,8 @@ import {
   ElementRef,
   EventEmitter,
   OnDestroy,
-  Output
+  Output,
+  HostListener
 } from '@angular/core';
 import { BaseControlValueAccessor, provideControlValueAccessor } from '../utils';
 
@@ -31,6 +32,14 @@ export class SohoInputComponent extends BaseControlValueAccessor<any> implements
     super(changeDetectionRef);
   }
 
+  @HostListener('keyup', ['$event'])
+  onKeyUp(event: KeyboardEvent, val) {
+    // This is required if masking is used, otherwise the
+    // the form binding does not see updates.
+    // console.log(`onKeyUp: ${event} - "${this.value}"`)
+    this.value = this.jQueryElement.val();
+  }
+
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
@@ -53,7 +62,8 @@ export class SohoInputComponent extends BaseControlValueAccessor<any> implements
   /**
    * Handle the control being changed.
    */
-  onChange(event: SohoInputEvent[]) {
+  onChange(event: any) {
+    // console.log(`onChange: ${event} - "${this.jQueryElement.val()}"`)
     if (!event) {
       // sometimes the event is not available
       this.value = this.jQueryElement.val();

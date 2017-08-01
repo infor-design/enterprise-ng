@@ -25,8 +25,13 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
     }
   }
 
-  /** Pattern for the mask. */
-  @Input() set pattern(value: string) {
+  /**
+   * Pattern for the mask.
+   *
+   * This uses the sohoPrefix otherwise the pattern interfers
+   * with the pattern on form groups.
+   */
+  @Input() set sohoPattern(value: string) {
     this._options.pattern = value;
     if (this.mask) {
       this.mask.settings.pattern = value;

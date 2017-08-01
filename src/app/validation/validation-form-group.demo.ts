@@ -20,8 +20,8 @@ export class ValidationFormGroupDemoComponent  {
   createForm() {
     // note - both controls have the .required validator.
     this.demoForm = this.fb.group({
-      masked: ['123', [Validators.required]],
-      notmasked: ['123', [Validators.required]]
+      masked: ['123', [Validators.required, Validators.minLength(1)]],
+      notmasked: ['123', [Validators.required, Validators.minLength(1), Validators.maxLength(10)]]
     });
   }
 
