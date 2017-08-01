@@ -66,7 +66,7 @@ module.exports = function (config) {
     browsers: ['Chrome' ],
     browserDisconnectTimeout : 10000, // default 2000
     browserDisconnectTolerance : 1, // default 0
-    browserNoActivityTimeout : 60000, //default 10000
+    browserNoActivityTimeout : 80000, //default 10000
     singleRun: false
   });
 };

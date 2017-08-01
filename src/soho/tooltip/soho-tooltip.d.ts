@@ -1,5 +1,5 @@
 interface SohoTooltipOptions {
-  content?: string; // Takes title attribute or feed content. Can be a function or jQuery markup
+  content?: string; // Feed in popover content. Can be a string or jQuery selector
   offset?: number; // how much room to leave
   placement?: SohoTooltipOffset;  // can be top/left/bottom/right/offset
   trigger?: string; // supports click and immediate and hover (and maybe in future focus)
@@ -20,12 +20,14 @@ interface SohoTooltipOptions {
   extraClass?: string; // Extra css class
   maxWidth?: number; // Tooltip max width
 }
+
 /**
  * Customised event object.
  */
 interface SohoTooltipEvent extends BaseJQueryEventObject {
 
 }
+
 /**
  * This interface represents the api exposed by the
  * Soho control.

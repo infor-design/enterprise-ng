@@ -15,7 +15,7 @@ import {
  */
 @Component({
   templateUrl: './nested-modal-dialog.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NestedModalDialogComponent {
 
@@ -45,7 +45,7 @@ export class NestedModalDialogComponent {
   openModel() {
     this.dialog
       .modal(NestedModalDialogComponent, this.placeholder)
-      .title(`Modal Dialog no. '${NestedModalDialogComponent.s_depth++}'.`)
+      .title(`Modal Dialog no. '${++NestedModalDialogComponent.s_depth}'.`)
       .buttons(
         [{text: 'Cancel', click: (e, modal) => { modal.close(true); }},
          {text: 'OK', click: (e, modal) => { modal.close(true); }, isDefault: true}])

@@ -13,20 +13,25 @@
   <div class="twelve columns">
     <div class="field">
       <label for="input-menu">Label</label>
-      <input id="input-menu" type="text" value="Right Click Me" soho-context-menu menu="action-popupmenu" trigger="rightClick">
+      <input id="input-menu" type="text" value="Right Click Me" soho-context-menu menu="action-popupmenu" trigger="rightClick"
+        (selected)="onSelected()"
+        (beforeopen)="onBeforeOpen()"
+        (close)="onClose()"
+        (open)="onOpen()"
+      >
     </div>
 
     <div class="field">
       <label for="input-menu2">Label2</label>
-      <input id="input-menu2" type="text"  value="Right Click Me" soho-context-menu menu="action-popupmenu" trigger="rightClick">
+      <input id="input-menu2" type="text"  value="Right Click Me" soho-context-menu menu="action-popupmenu" trigger="rightClick"
+        (selected)="onSelected()"
+        (beforeopen)="onBeforeOpen()"
+        (close)="onClose()"
+        (open)="onOpen()"
+      >
     </div>
 
-    <ul soho-popupmenu id="action-popupmenu"
-      (selected)="onSelected()"
-      (beforeopen)="onBeforeOpen()"
-      (close)="onClose()"
-      (open)="onOpen()"
-    >
+    <ul soho-popupmenu id="action-popupmenu">
       <li soho-popupmenu-item><a soho-popupmenu-label>Cut</a></li>
       <li soho-popupmenu-item><a soho-popupmenu-label>Copy</a></li>
       <li soho-popupmenu-item><a soho-popupmenu-label>Paste</a></li>

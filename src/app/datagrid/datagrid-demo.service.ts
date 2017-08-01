@@ -73,7 +73,8 @@ export class DataGridDemoService extends SohoDataGridService {
       name: 'Product Desc',
       sortable: false,
       field: 'productName',
-      formatter: Formatters.Hyperlink,
+      formatter: Formatters.Template,
+      template: '<p class="datagrid-row-heading">{{productId}}</p><p class="datagrid-row-subheading">{{productName}}</p>',
       click: (e: any, args: any) => { console.log('link was clicked', args); }
     });
 

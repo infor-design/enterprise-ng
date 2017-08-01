@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app.routes';
 
 import { SohoComponentsModule } from '../soho/soho-components.module';
 
+import { AboutDemoComponent } from './about/about.demo';
 import { AccordionDemoComponent } from './accordion/accordion.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
@@ -58,6 +59,10 @@ import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
+import { HomePageDemoComponent } from './homepage/homepage.demo';
+import { HomePageScenarioADemoComponent } from './homepage/homepage-scenario-a.demo';
+import { HomePageScenarioBDemoComponent } from './homepage/homepage-scenario-b.demo';
+import { HomePageScenarioCDemoComponent } from './homepage/homepage-scenario-c.demo';
 import { HyperlinkDemoComponent } from './hyperlink/hyperlink.demo';
 import { SohoHeaderDemoComponent } from './header/header.demo';
 import { IconDemoComponent } from './icon/icon.demo';
@@ -114,6 +119,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
 @NgModule({
   declarations: [
     AppComponent,
+    AboutDemoComponent,
     AccordionDemoComponent,
     AlertDemoComponent,
     ApplicationMenuDemoComponent,
@@ -155,6 +161,10 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     HeaderTabsDemoComponent,
     HeaderToolbarAndTabsDemoComponent,
     HeaderToolbarDemoComponent,
+    HomePageDemoComponent,
+    HomePageScenarioADemoComponent,
+    HomePageScenarioBDemoComponent,
+    HomePageScenarioCDemoComponent,
     HyperlinkDemoComponent,
     IconDemoComponent,
     LabelDemoComponent,

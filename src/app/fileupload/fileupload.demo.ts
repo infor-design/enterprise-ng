@@ -15,9 +15,11 @@ export class FileUploadDemoComponent implements OnInit {
   @ViewChild(SohoFileUploadComponent) fileupload: SohoFileUploadComponent;
 
   public text = 'Upload a File';
+  public limitLabel = 'Limited to xls, xlsx and csv';
   public name1 = 'file-name';
   public name2 = 'file-name-disabled';
   public name3 = 'file-name-readonly';
+  public fileLimits = '.cvs,.xls,.xlsx';
 
   public showModel = false;
   public fileUploadDisabled = false;

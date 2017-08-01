@@ -97,15 +97,23 @@ export class SohoEditorComponent implements AfterViewInit, OnDestroy {
   /**
    * @param anchor
    */
-  @Input() set anchor(anchor: string) {
+  @Input() set anchor(anchor: SohoEditorAnchor) {
     this.options.anchor = anchor;
   }
 
   /**
    * @param image
    */
-  @Input() set image(image: string) {
+  @Input() set image(image: SohoEditorOptionsImage) {
     this.options.image = image;
+  }
+
+  /**
+   * @param buttons
+   */
+  @Input() set buttons(buttons: SohoEditorButtons) {
+    this.options.buttons = buttons;
+    this.jQueryElement.trigger('updated');
   }
 
   // -------------------------------------------

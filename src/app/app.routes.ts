@@ -1,6 +1,7 @@
 ﻿import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AboutDemoComponent } from './about/about.demo';
 import { AccordionDemoComponent } from './accordion/accordion.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
@@ -37,6 +38,10 @@ import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
+import { HomePageDemoComponent } from './homepage/homepage.demo';
+import { HomePageScenarioADemoComponent } from './homepage/homepage-scenario-a.demo';
+import { HomePageScenarioBDemoComponent } from './homepage/homepage-scenario-b.demo';
+import { HomePageScenarioCDemoComponent } from './homepage/homepage-scenario-c.demo';
 import { HyperlinkDemoComponent } from './hyperlink/hyperlink.demo';
 import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
@@ -91,6 +96,7 @@ import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablear
 
 export const routes: Routes = [
   { path: '',                      component: ExpandableAreaDemoComponent }, // default
+  { path: 'about',                 component: AboutDemoComponent },
   { path: 'accordion',             component: AccordionDemoComponent},
   { path: 'alert',                 component: AlertDemoComponent},
   { path: 'application-lazy-menu', component: ApplicationMenuLazyDemoComponent},
@@ -130,6 +136,10 @@ export const routes: Routes = [
   { path: 'header-tabs',           component: HeaderTabsDemoComponent },
   { path: 'header-toolbar',        component: HeaderToolbarDemoComponent },
   { path: 'header-toolbar-tabs',   component: HeaderToolbarAndTabsDemoComponent },
+  { path: 'homepage',              component: HomePageDemoComponent },
+  { path: 'homepage-scenario-a',   component: HomePageScenarioADemoComponent },
+  { path: 'homepage-scenario-b',   component: HomePageScenarioBDemoComponent },
+  { path: 'homepage-scenario-c',   component: HomePageScenarioCDemoComponent },
   { path: 'hyperlink',             component: HyperlinkDemoComponent },
   { path: 'icon',                  component: IconDemoComponent },
   { path: 'label',                 component: LabelDemoComponent },
