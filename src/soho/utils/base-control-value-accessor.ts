@@ -24,14 +24,11 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
 
   /** Gets the value for the control. */
   protected get value(): T {
-    console.log('returning ' + this._value);
     return this._value;
   }
 
   /** Sets the value for the control. */
   protected set value(newValue: T) {
-    console.log('setting ' + newValue);
-
     if (newValue !== this._value) {
       this._value = newValue;
       this._onChangeCallback(newValue);
