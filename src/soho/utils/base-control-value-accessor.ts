@@ -58,7 +58,6 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
    */
   writeValue(value: T) {
       this._value = value;
-      //this._changeDetectionRef.markForCheck();
       this._onChangeCallback(value);
   }
 
