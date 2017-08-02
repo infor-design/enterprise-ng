@@ -79,6 +79,7 @@ export class ChartDemoComponent implements OnInit {
   }
 
   onSelected(chartEvent: ChartEvent) {
+    this.sohoChartComponent.getSelected();
     console.log(chartEvent.event, chartEvent.ui, chartEvent.data);
   }
 

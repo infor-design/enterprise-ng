@@ -17,6 +17,7 @@ interface SohoChartOptions {
 interface SohoChartStatic {
   /** Options. */
   settings: SohoChartOptions;
+  getSelected: Function;
 }
 
 /**
@@ -40,6 +41,7 @@ interface SohoChartData {
   shortName?: string;
   selected?: boolean;
   abbrName?: string;
+  ref?: any;
 }
 
 type ChartTypes = 'pie' | 'bar' | 'bar-stacked' | 'bar-normalized' | 'bar-grouped' | 'bubble' |

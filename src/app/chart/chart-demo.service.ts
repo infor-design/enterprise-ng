@@ -9,10 +9,10 @@ export class ChartDemoService {
 
   private basicData: SohoDataSet = [{
       data: [
-        { name: 'Current Metrics', value: 4, tooltip: 'This is a tooltip',
+        { name: 'Current Metrics', value: 4, tooltip: 'This is a tooltip', ref: 1,
           url: '/metrics/viewSingleSupplierReportCard?histPk=10026&supPk=11001&buySupPk=10002&viewChart=false&selectedDate=10026'},
-        { name: 'Previous Metrics', value: 5, tooltip: 'This is a tooltip', url: '#'},
-        { name: 'Future Metrics', value: 2, tooltip: 'This is a tooltip', url: '#'}
+        { name: 'Previous Metrics', value: 5, tooltip: 'This is a tooltip', ref: 1, url: '#'},
+        { name: 'Future Metrics', value: 2, tooltip: 'This is a tooltip', ref: 1, url: '#'}
       ],
       name: 'Schedule Adherence By Quantity',
       color: '#8ED1C6',
@@ -20,29 +20,29 @@ export class ChartDemoService {
       selected: true
     }, {
       data: [
-        { name: 'Current Metrics', value: 3, tooltip: 'This is a tooltip',
+        { name: 'Current Metrics', value: 3, tooltip: 'This is a tooltip', ref: 2,
           url: '/metrics/viewSingleSupplierReportCard?histPk=10026&supPk=11001&buySupPk=10002&viewChart=false&selectedDate=10026'},
-        { name: 'Previous Metrics', value: 1, tooltip: 'This is a tooltip', url: '#'},
-        { name: 'Future Metrics', value: 5, tooltip: 'This is a tooltip', url: '#'}
+        { name: 'Previous Metrics', value: 1, tooltip: 'This is a tooltip', ref: 2, url: '#'},
+        { name: 'Future Metrics', value: 5, tooltip: 'This is a tooltip', ref: 2, url: '#'}
       ],
       name: 'Schedule Adherence By Date'
     },
     {
       data: [
-        { name: 'Current Metrics', value: 6, tooltip: 'This is a tooltip',
+        { name: 'Current Metrics', value: 6, tooltip: 'This is a tooltip', ref: 3,
           url: '/metrics/viewSingleSupplierReportCard?histPk=10026&supPk=11001&buySupPk=10002&viewChart=false&selectedDate=10026'},
-        { name: 'Previous Metrics', value: 9, tooltip: 'This is a tooltip', url: '#'},
-        { name: 'Future Metrics', value: 3, tooltip: 'This is a tooltip', url: '#'}
+        { name: 'Previous Metrics', value: 9, tooltip: 'This is a tooltip', ref: 3, url: '#'},
+        { name: 'Future Metrics', value: 3, tooltip: 'This is a tooltip', ref: 3, url: '#'}
       ],
       name: 'Receiving Accuracy',
       color: '#9279A6'
     }, {
     data:
       [
-        { name: 'Current Metrics', value: 3, tooltip: 'This is a tooltip',
+        { name: 'Current Metrics', value: 7, tooltip: 'This is a tooltip', ref: 4,
           url: '/metrics/viewSingleSupplierReportCard?histPk=10026&supPk=11001&buySupPk=10002&viewChart=false&selectedDate=10026'},
-        { name: 'Previous Metrics', value: 2, tooltip: 'This is a tooltip', url: '#'},
-        { name: 'Future Metrics', value: 9, tooltip: 'This is a tooltip', url: '#'}
+        { name: 'Previous Metrics', value: 2, tooltip: 'This is a tooltip', ref: 4, url: '#'},
+        { name: 'Future Metrics', value: 9, tooltip: 'This is a tooltip', ref: 4, url: '#'}
       ],
       name: 'Overall Rating'
     }

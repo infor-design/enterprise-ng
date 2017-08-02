@@ -125,8 +125,15 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
   }
 
   updated() {
-    // logic here if we have a way to update charts
     this.jQueryElement.chart(this._chartOptions);
+    this.chart = this.jQueryElement.data('chart');
+  }
+
+  getSelected() {
+    if (this.jQueryElement) {
+      return this.chart.getSelected();
+    }
+    return undefined;
   }
 
   setSelectDataIndex(selectIndex: number) {
