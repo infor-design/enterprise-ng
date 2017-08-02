@@ -52,7 +52,7 @@ describe('Soho Custom Mask Render', () => {
 @Component({
   template: `
   <div>
-    <input soho-input soho-mask [pattern]="'UUU'" [definitions]="definitions" />
+    <input soho-input soho-mask [sohoPattern]="'UUU'" [definitions]="definitions" />
   </div>`
 })
 class SohoCustomMaskTestComponent {
