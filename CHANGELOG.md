@@ -1,5 +1,6 @@
 
 ## Whats New
+* 2017-08-01 - BTH - PR-409 - Fixed use of reactive forms with soho-mask (see breaking changes)
 * 2017-07-25 - PWP - PR-403 - Added collapseOnMobile input for search field on a soho-toolbar
 * 2017-07-20 - PWP git - PR-399 - Added input and outputs to soho-popupmenu
 * 2017-07-18 - TJM - Added a service for the about dialog like the message service. (SOHO-5630)
@@ -62,6 +63,8 @@
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2017-08-01 - BTH - PR-409 - Changed the `pattern` attribute used by `soho-mask` to define the pattern to `sohoPattern`, this change is required otherwise this name clashes with the attribute used by the forms module.
 
 * 2017-07-21 - PWP - PR-401 - Changed SohoPopupMenuEvent to include the original JQueryEvent as a property instead of extending from it.
     
