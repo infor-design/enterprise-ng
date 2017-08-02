@@ -25,7 +25,7 @@ interface SohoMaskEvent extends JQueryEventObject {
 
 interface SohoMaskOptions {
   /** The pattern to use for the mask. */
-  sohoPattern?: string;
+  pattern?: string;
 
   /** The placeholder text for the mask.  */
   placeholder?: string;
