@@ -21,19 +21,19 @@ export class PopupMenuDemoComponent {
     this.insertNoteText = this.isInsertNoteDisabled ? 'Enable' : 'Disable';
   }
 
-  onSelected() {
-    console.log('onSelected');
+  onSelected(event: SohoPopupMenuEvent) {
+    console.log('PopupMenu Demo: popupmenu.onSelected');
   }
 
-  onBeforeOpen() {
-    console.log('onBeforeOpen');
+  onBeforeOpen(event: SohoPopupMenuEvent) {
+    console.log('PopupMenu Demo: popupmenu.onBeforeOpen');
   }
 
-  onClose() {
-    console.log('onClose');
+  onClose(event: SohoPopupMenuEvent) {
+    console.log('PopupMenu Demo: popupmenu.onClose');
   }
 
-  onOpen() {
-    console.log('onOpen');
+  onOpen(event: SohoPopupMenuEvent) {
+    console.log('PopupMenu Demo: popupmenu.onOpen');
   }
 }

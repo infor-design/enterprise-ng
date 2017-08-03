@@ -15,13 +15,17 @@
         <div class="two columns">
           <div class="field">
             <label for="textbox" class="label">Textbox</label>
-            <input name="textbox" soho-trackdirty [(ngModel)]="model.textbox" (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"/>
+            <input name="textbox" [(ngModel)]="model.textbox"
+              soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"/>
           </div>
         </div>
         <div class="two columns">
           <div class="field">
             <label for="numeric" class="label">Numeric with mask</label>
-            <input name="numeric" soho-trackdirty soho-mask [pattern]="'###'" [mode]="'number'" [(ngModel)]="model.numeric" (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"/>
+            <input name="numeric" [(ngModel)]="model.numeric"
+              soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
+              soho-input
+              soho-mask [sohoPattern]="'###'" [mode]="'number'" [negative]="false" [number]="true"/>
           </div>
         </div>
       </div>

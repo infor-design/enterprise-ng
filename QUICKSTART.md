@@ -11,7 +11,7 @@ run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **@angular/cli** to create, build and run the application.  
 
-At the time of writing the version of **@angular/cli** used was 1.0.0.
+At the time of writing the version of **@angular/cli** used was 1.2.0.
 
 In addition, **gulp** is used to perform additional build and deployment steps required to get the application built.
 
@@ -50,8 +50,8 @@ You can add the dependencies directly into the `project.json` file, however it i
 In a terminal window, in the project folder:
 
 1. Type `npm install jquery@3.1.1 -S`
-2. Type `npm install @infor/sohoxi@4.3.0-rc -S`
-3. Type `npm install @infor/sohoxi-angular@4.3.0-rc -S`
+2. Type `npm install @infor/sohoxi@4.3.1-rc -S`
+3. Type `npm install @infor/sohoxi-angular@4.3.1-rc -S`
 4. Type `npm install gulp -D`
 5. Type `npm install @types/jquery -D`
 6. Type `npm install merge-stream -D`

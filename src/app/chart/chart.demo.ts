@@ -53,25 +53,33 @@ export class ChartDemoComponent implements OnInit {
   public lineChart = 'line';
   public donutChart = 'donut';
   public bubbleChart = 'bubble';
+  public selectedIndex = 1;
 
   constructor(public chartDemoService: ChartDemoService, private elementRef: ElementRef) { }
   ngOnInit() { }
 
   public onChange(event: Event) {
-  //  this.sohoChartComponent;
+    //  this.sohoChartComponent;
     const chartType: ChartTypes = $(event.currentTarget).filter(':checked').val();
-    const chartOptions: SohoChartOptions = this.sohoChartComponent.getChartOptions();
-    if (chartType === 'bubble') {
+    const chartOptions: SohoChartOptions = {};
+
+    if (chartType === 'pie' || chartType === 'donut') {
+      chartOptions.dataset = this.chartDemoService.getPieData();
+    } else if (chartType === 'bubble') {
       chartOptions.dataset = this.chartDemoService.getBubbleData();
     } else {
       chartOptions.dataset = this.chartDemoService.getBasicData();
     }
-
     chartOptions.type = chartType;
     this.sohoChartComponent.chartOptions = chartOptions;
   }
 
+  public onChangeIndex(event: Event) {
+    this.selectedIndex = parseInt($(event.currentTarget).filter(':checked').val(), 10);
+  }
+
   onSelected(chartEvent: ChartEvent) {
+    this.sohoChartComponent.getSelected();
     console.log(chartEvent.event, chartEvent.ui, chartEvent.data);
   }
 

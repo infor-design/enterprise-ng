@@ -193,6 +193,9 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    * @todo raise SOHO jira issue
    */
   processValue(value: Object | Object[]): string {
+    if (!value) {
+      return;
+    }
     let val = '';
     let toProcess: Object[] = <Object[]>value;
     if (!Array.isArray(toProcess)) {
@@ -203,10 +206,14 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     for (let i = 0; i < toProcess.length; i++) {
       let current = '';
 
-      if (typeof this._options.field === 'function') {
-        current = (<SohoLookupFieldFunction>this._options.field)(toProcess[i], this.lookup.element, this.lookup.grid);
+      if (typeof toProcess[i] === 'object') {
+        if (typeof this._options.field === 'function') {
+          current = (<SohoLookupFieldFunction>this._options.field)(toProcess[i], this.lookup.element, this.lookup.grid);
+        } else {
+          current = (<any>toProcess[i])[<string>this._options.field];
+        }
       } else {
-        current = (<any>toProcess[i])[<string>this._options.field];
+        current = <string>toProcess[i];
       }
 
       val += (i !== 0 ? ',' : '') + current;
@@ -245,7 +252,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     if (this.lookup) {
       // The processing is required to ensure we use the correct format
       // in the control.
-      this.lookup.element.val(value);
+      this.lookup.element.val(this.processValue(value));
     }
   }
 

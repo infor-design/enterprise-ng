@@ -27,6 +27,12 @@ interface SohoBusyIndicatorOptions {
    * but appears transparent instead of gray.
    */
   transparentOverlay?: boolean;
+
+  /**
+   * To display only the overlay w/o the badge and text. Useful to stop input to a component
+   * that doesn't already have another mechanism (like a disabled state).
+   */
+  overlayOnly?: boolean;
 }
 
 /**

@@ -227,7 +227,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     this.jQueryElement.button(this._buttonOptions);
 
     // Initialize title attribute as a soho tooltip
-    if (this.jQueryElement.has('[title]')) {
+    if (this.jQueryElement.has('[title]') && !this.jQueryElement.has('[popover]')) {
       this.jQueryElement.tooltip();
     }
 

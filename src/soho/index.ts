@@ -1,3 +1,4 @@
+export * from './about';
 export * from './accordion';
 export * from './application-menu';
 export * from './busyindicator';
@@ -14,6 +15,7 @@ export * from './error';
 export * from './expandablearea';
 export * from './fileupload';
 export * from './header';
+export * from './homepage';
 export * from './hyperlink';
 export * from './icon';
 export * from './input';

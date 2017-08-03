@@ -13,6 +13,7 @@ export class ValidationFormDemoComponent {
   credit_card: string;
   credit_code1: number;
   credit_code2: number;
+  requiredText: string;
   states: string;
 
   constructor(private elementRef: ElementRef) {

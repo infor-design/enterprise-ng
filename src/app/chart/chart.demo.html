@@ -1,36 +1,54 @@
+<form>
+  <div class="ten columns">
+    <label>Type of Chart</label>
+    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option1" value="bar-grouped" (change)="onChange($event)"/>
+    <label for="option1" class="radio-label">Bar Grouped</label>
+    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option2" value="pie" (change)="onChange($event)"/>
+    <label for="option2" class="radio-label">Pie</label>
+    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option3" value="donut" (change)="onChange($event)"/>
+    <label for="option3" class="radio-label">Donut</label>
+    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option4" value="bar" (change)="onChange($event)"/>
+    <label for="option4" class="radio-label">Bar</label>
+    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option5" value="column" (change)="onChange($event)" checked />
+    <label for="option5" class="radio-label">Column</label>
+    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option6" value="column-stacked" (change)="onChange($event)" />
+    <label for="option6" class="radio-label">Column Stacked</label>
+    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option7" value="line" (change)="onChange($event)"/>
+    <label for="option7" class="radio-label">Line</label>
+    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option8" value="area" (change)="onChange($event)"/>
+    <label for="option8" class="radio-label">Area</label>
+    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option9" value="bubble" (change)="onChange($event)"/>
+    <label for="option9" class="radio-label">Bubble</label>
+  </div>
+  <div class="ten columns">
+    <label>Selected Index</label>
+    <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionA" value=0 (change)="onChangeIndex($event)" checked />
+    <label for="optionA" class="radio-label">1</label>
+    <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionB" value=1 (change)="onChangeIndex($event)"/>
+    <label for="optionB" class="radio-label">2</label>
+    <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionC" value=2 (change)="onChangeIndex($event)"/>
+    <label for="optionC" class="radio-label">3</label>
+    <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionD" value=3 (change)="onChangeIndex($event)"/>
+    <label for="optionD" class="radio-label">4</label>
+  </div>
+
+</form>
 <div class="full-width chart-container" style="height:100%">
-  <form>
-    <div class="ten columns">
-      <label>Type of Chart</label>
-      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option1" value="bar-grouped" (change)="onChange($event)" checked />
-      <label for="option1" class="radio-label">Bar Grouped</label>
-      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option2" value="pie" (change)="onChange($event)"/>
-      <label for="option2" class="radio-label">Pie</label>
-      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option3" value="donut" (change)="onChange($event)"/>
-      <label for="option3" class="radio-label">Donut</label>
-      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option4" value="bar" (change)="onChange($event)"/>
-      <label for="option4" class="radio-label">Bar</label>
-      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option5" value="column" (change)="onChange($event)" />
-      <label for="option5" class="radio-label">Column</label>
-      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option6" value="column-stacked" (change)="onChange($event)" />
-      <label for="option6" class="radio-label">Column Stacked</label>
-      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option7" value="line" (change)="onChange($event)" />
-      <label for="option7" class="radio-label">Line</label>
-      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option8" value="area" (change)="onChange($event)" />
-      <label for="option8" class="radio-label">Area</label>
-      <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option9" value="bubble" (change)="onChange($event)" />
-      <label for="option9" class="radio-label">Bubble</label>
-    </div>
-  </form>
+
   <div soho-chart
     [dataSet]="chartDemoService.getBasicData()"
-    [type]="barGroupedChart"
+    [type]="columnChart"
+    [selectedIndex]="selectedIndex"
     (selected)="onSelected($event)"
     (unselected)="onUnselected($event)"
     (rendered)="onRendered($event)"
+    [showLegend]="showLegend"
   >
   </div>
 </div>
+
+<!--
+
 <div class="full-width chart-container" style="height:calc(100% - 40px)">
   <div soho-chart
     [dataSet]="chartDemoService.getBasicData()"
@@ -103,4 +121,4 @@
     [type]="bubbleChart"
   >
   </div>
-</div>
+</div>  -->
