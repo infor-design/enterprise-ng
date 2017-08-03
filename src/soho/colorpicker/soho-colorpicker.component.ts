@@ -56,7 +56,8 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
   @Input() set readonly(value: boolean) {
     this.isReadOnly = value;
 
-    if (this.colorpicker) {
+    // 4.3.1 did not have this method in time add a safety check it works for future versions
+    if (this.colorpicker && this.colorpicker.readonly) {
       if (value) {
         this.colorpicker.readonly();
         this.isReadOnly = true;
@@ -109,7 +110,8 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
-    alert();
+    // Needs the value set pre-init
+    this.jQueryElement.val(this.value);
     this.jQueryElement.colorpicker(this.options);
 
     /**
@@ -129,12 +131,28 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
    * Handle the control being changed.
    */
   onChange(event: SohoColorPickerEvent) {
+    alert();
     if (!event) {
       // sometimes the event is not available
       this.value = this.colorpicker.element.val();
       return;
     }
     this.change.emit(event);
+  }
+
+  /**
+   * Override writeValue to allow the time picker
+   * element to be updated correctly.
+   *
+   * @param value - the new value
+   */
+  writeValue(value: any) {
+    super.writeValue(value);
+    if (this.colorpicker) {
+      // The processing is required to ensure we use the correct format
+      // in the control.
+      this.colorpicker.element.val(value);
+    }
   }
 
   ngOnDestroy() {

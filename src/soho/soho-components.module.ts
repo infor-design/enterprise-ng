@@ -113,6 +113,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoButtonModule,
     SohoChartModule,
     SohoCheckBoxModule,
+    SohoColorPickerModule,
     SohoContextMenuModule,
     SohoContextualActionPanelModule,
     SohoDataGridModule,
