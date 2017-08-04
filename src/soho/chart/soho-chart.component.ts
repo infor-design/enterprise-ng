@@ -88,6 +88,8 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
 
   @Output() rendered = new EventEmitter<ChartEvent>();
 
+  @Output() contextmenu = new EventEmitter<ChartEvent>();
+
   // An internal chartOptions object that gets updated by using
   // the component's Inputs()
   private _chartOptions: SohoChartOptions = {};
@@ -114,6 +116,8 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
       this.unselected.emit({ event, ui, data });
     }).on('rendered', (event: JQueryEventObject, ui: any, data: any) => {
       this.rendered.emit({ event, ui, data });
+    }).on('contextmenu', (event, ui, data) => {
+      this.contextmenu.emit({ event, ui, data });
     });
   }
 
