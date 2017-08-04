@@ -115,6 +115,7 @@ import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
+import { ValidationFormEventDemoComponent } from './validation/validation-form-event.demo';
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
 
 @NgModule({
@@ -217,6 +218,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     TreeServiceDemoComponent,
     TreeSourceDemoComponent,
     ValidationFormDemoComponent,
+    ValidationFormEventDemoComponent,
     ValidationFormGroupDemoComponent
   ],
   imports: [
