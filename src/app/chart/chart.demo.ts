@@ -90,4 +90,9 @@ export class ChartDemoComponent implements OnInit {
   onRendered(chartEvent: ChartEvent) {
     console.log(chartEvent.event);
   }
+
+  onContextMenu(chartEvent: ChartEvent) {
+    this.sohoChartComponent.getSelected();
+    console.log(chartEvent.event, chartEvent.ui, chartEvent.data);
+  }
 }
