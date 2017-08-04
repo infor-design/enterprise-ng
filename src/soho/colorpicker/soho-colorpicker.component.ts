@@ -28,7 +28,7 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
   @Input() set colors(colors: Array<SohoColorOption>) {
     this.options.colors = colors;
     if (this.colorpicker) {
-      this.colorpicker.updated();
+      this.colorpicker.settings.colors = colors;
     }
   }
 

@@ -9,6 +9,7 @@ interface SohoColorOption {
   label?: string;
   number?: string;
   value?: string;
+  border?: string;
 }
 
 interface SohoColorPickerOptions {

@@ -9,6 +9,9 @@ import { SohoSpinboxComponent } from '../../soho/spinbox';
 export class SpinboxDemoComponent {
   @ViewChild(SohoSpinboxComponent) spinbox: SohoSpinboxComponent;
 
+  public model = { // tslint:disable-line
+    value1: '10'
+  };
   public disabled = false;
   public id1 = 'regular-spinbox';
   public id2 = 'limited-spinbox';
@@ -17,6 +20,7 @@ export class SpinboxDemoComponent {
   public id5 = 'stepped-spinbox';
   public id6 = 'error-spinbox';
   public val = 5;
+  public showModel = false;
 
   constructor() { }
 
@@ -26,6 +30,10 @@ export class SpinboxDemoComponent {
 
   setEnable() {
     this.disabled = this.spinbox.disabled = false;
+  }
+
+  toggleModel() {
+    this.showModel = !this.showModel;
   }
 
   update() {
