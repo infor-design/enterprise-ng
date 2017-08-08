@@ -133,6 +133,9 @@ interface SohoDataGridOptions {
 
   /** To automatically save user settings for the grid */
   saveUserSettings?: SohoDataGridSaveUserSettings;
+
+  /** Grouped columns*/
+  columnGroups?: SohoDataGridColumnGroup[];
 }
 
 /**
@@ -416,7 +419,7 @@ interface SohoDataGridStatic {
   loadData(dataset: Object[]): void;
 
   /** Updates the columns displayed on the grid. */
-  updateColumns(columns: SohoDataGridColumn[]): void;
+  updateColumns(columns: SohoDataGridColumn[], columnGroups: SohoDataGridColumnGroup[]): void;
 
   /** The grouping  name of the given column idx. */
   getColumnGroup(idx: number): string;
@@ -654,4 +657,10 @@ interface SohoDataGridFilterCondition {
   lowercase?: 'yes' | 'no';
   operator?: 'contains' | string;
   value?: string;
+}
+
+interface SohoDataGridColumnGroup {
+  colspan: number;
+  id: string;
+  name: string;
 }

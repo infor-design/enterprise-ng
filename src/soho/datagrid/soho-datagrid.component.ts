@@ -804,7 +804,23 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     if (columns && this.jQueryElement) {
 
       // @todo add hints for this too, as other changes may force a rebuild?
-      this.datagrid.updateColumns(columns);
+      this.datagrid.updateColumns(columns, this._gridOptions.columnGroups);
+    }
+  }
+
+  /**
+   * The column groups
+   *
+   * As this method can be called before the control is
+   * initialised, stash the data for later, and only
+   * call loadData on the control api if ready.
+   */
+  @Input() set columnGroup(columnGroups: SohoDataGridColumnGroup[]) {
+    this._gridOptions.columnGroups = columnGroups || [];
+    if (columnGroups && this._gridOptions.columns && this.jQueryElement) {
+
+      // @todo add hints for this too, as other changes may force a rebuild?
+      this.datagrid.updateColumns(this._gridOptions.columns, columnGroups);
     }
   }
 
