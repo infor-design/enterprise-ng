@@ -37,6 +37,7 @@ import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
+import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-header.demo';
 import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-selection.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
@@ -140,6 +141,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     DataGridDynamicDemoComponent,
     DataGridEditorsDemoComponent,
     DataGridFixedHeaderDemoComponent,
+    DataGridGroupedHeaderDemoComponent,
     DataGridMixedSelectionDemoComponent,
     DataGridPagingIndeterminateDemoComponent,
     DataGridPagingServiceDemoComponent,
