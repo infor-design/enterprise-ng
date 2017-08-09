@@ -65,6 +65,8 @@
 
 ### Breaking Changes
 
+* 2017-08-09 - PWP - soho-popupmenu.component - moved isDisabled `@Input()` from the `<a>` anchor to the `<li>`
+
 * 2017-08-01 - BTH - PR-409 - Changed the `pattern` attribute used by `soho-mask` to define the pattern to `sohoPattern`, this change is required otherwise this name clashes with the attribute used by the forms module.
 
 * 2017-07-21 - PWP - PR-401 - Changed SohoPopupMenuEvent to include the original JQueryEvent as a property instead of extending from it.
