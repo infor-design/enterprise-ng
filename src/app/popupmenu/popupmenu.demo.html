@@ -44,8 +44,8 @@
       </li>
       <li soho-popupmenu-separator></li>
       <li soho-popupmenu-item><a soho-popupmenu-label>Name and project range</a></li>
-      <li soho-popupmenu-item><a soho-popupmenu-label [isDisabled]="isInsertCommentDisabled" id="x">Insert comment</a></li>
-      <li soho-popupmenu-item><a soho-popupmenu-label [isDisabled]="isInsertNoteDisabled">Insert note</a></li>
+      <li soho-popupmenu-item [isDisabled]="isInsertCommentDisabled"><a soho-popupmenu-label id="x">Insert comment</a></li>
+      <li soho-popupmenu-item [isDisabled]="isInsertNoteDisabled"><a soho-popupmenu-label>Insert note</a></li>
       <li soho-popupmenu-item><a soho-popupmenu-label >Clear notes</a></li>
       <li soho-popupmenu-separator singleSelectableSection="true"></li>
       <li soho-popupmenu-heading>Additional Options</li>

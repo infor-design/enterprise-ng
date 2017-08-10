@@ -10,7 +10,7 @@
       <li ><a soho-popupmenu-label >Create a form</a></li>
       <li soho-popupmenu-separator></li>
       <li soho-popupmenu-item><a l >Spelling...</a></li>
-      <li soho-popupmenu-item><a soho-popupmenu-label [isDisabled]="true" (click)="disabledEntryClicked()" >Solver...</a></li>
+      <li soho-popupmenu-item [isDisabled]="true"><a soho-popupmenu-label (click)="disabledEntryClicked()" >Solver...</a></li>
       <li soho-popupmenu-separator singleSelectableSection="true"></li>
       <li soho-popupmenu-item isChecked="true" isSelectable="true"><a soho-popupmenu-label>Enable Autocomplete</a></li>
       <li soho-popupmenu-item isSelectable="true"><a soho-popupmenu-label>Notification Rules</a></li>
