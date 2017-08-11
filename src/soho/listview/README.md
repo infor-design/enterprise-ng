@@ -46,7 +46,8 @@ In the markup for the hosting component add:
 | Name | Description |
 | --- | --- |
 | `sorted` | Fired when the list is sorted. |
-| `selected` | Fired when the set of selected items changes. |
+| `selected` | Fired when a row is selected. |
+| `unselected` | Fired when a row is deselected. |
 | `rendered` | Fired when the items are rendered, passing the dataset displayed. |
 
 ## Examples
