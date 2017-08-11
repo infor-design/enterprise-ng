@@ -19,6 +19,7 @@
 /// <reference path="./error/soho-error.d.ts" />
 /// <reference path="./expandablearea/soho-expandablearea.d.ts" />
 /// <reference path="./fileupload/soho-fileupload.d.ts" />
+/// <reference path="./hierarchy/soho-hierarchy.d.ts" />
 /// <reference path="./header/soho-header.d.ts" />
 /// <reference path="./hyperlink/soho-hyperlink.d.ts" />
 /// <reference path="./homepage/soho-homepage.d.ts" />

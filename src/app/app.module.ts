@@ -61,6 +61,7 @@ import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
+import { HierarchyDemoComponent } from './hierarchy/hierarchy.demo';
 import { HomePageDemoComponent } from './homepage/homepage.demo';
 import { HomePageScenarioADemoComponent } from './homepage/homepage-scenario-a.demo';
 import { HomePageScenarioBDemoComponent } from './homepage/homepage-scenario-b.demo';
@@ -166,6 +167,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     HeaderTabsDemoComponent,
     HeaderToolbarAndTabsDemoComponent,
     HeaderToolbarDemoComponent,
+    HierarchyDemoComponent,
     HomePageDemoComponent,
     HomePageScenarioADemoComponent,
     HomePageScenarioBDemoComponent,

@@ -15,6 +15,7 @@ export * from './editor';
 export * from './error';
 export * from './expandablearea';
 export * from './fileupload';
+export * from './hierarchy';
 export * from './header';
 export * from './homepage';
 export * from './hyperlink';
