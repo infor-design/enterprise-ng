@@ -59,7 +59,7 @@ export class HierarchyDemoComponent implements OnInit {
 
      this.leafTemplate = this.domSanitizer.bypassSecurityTrustHtml(leafTemplate);
 
-     this.hierarchyService.getLeafTemplate().subscribe((data) => {
+     this.hierarchyService.getHierarchyData().subscribe((data) => {
        this.data = data;
        this.changeDetectorRef.markForCheck();
      })

@@ -7,7 +7,7 @@ export class HierarchyDemoService {
 
   constructor(private http: Http) {}
 
-  public getLeafTemplate(): Observable<any> {
+  public getHierarchyData(): Observable<any> {
     return this.http.get('./app/hierarchy/hierarchy.demo.json')
     .map((res: any) => res.json())
     .catch(error => this.handleError(error));
