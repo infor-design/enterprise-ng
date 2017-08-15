@@ -37,6 +37,9 @@ interface SohoDatePickerOptions {
 
   /** A date or range of dates that are enabled/disabled. */
   disable?: SohoDatePickerDisable;
+
+  /** Day with which the calendar starts (0=sunday, 1=monday ...) */
+  firstDayOfWeek?: number;
 }
 
 /**
