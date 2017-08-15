@@ -73,6 +73,9 @@ interface SohoDatePickerStatic {
   /** Underlying element. */
   element: JQuery;
 
+  // Sets the value of the data picker.
+  setValue(value: Date, trigger?: boolean): void;
+
   readonly(): void;
 
   // TODO: waiting on SOHO-4834 - 4.0 Datepicker - Needs to support enable(), disable(), and readonly() methods
