@@ -191,12 +191,9 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
    * Handle the control being changed.
    */
   onChange(event: SohoDatePickerEvent) {
-    // if (!event) {
-      // sometimes the event is not available
-      this.value = this.datepicker.element.val();
-      // return;
-    // }
-    // Set the updated value in the event.
+    this.value = this.datepicker.element.val();
+
+    // Set the date on the event.
     event.data = this.value;
 
     // Fire the event
