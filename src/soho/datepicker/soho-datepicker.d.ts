@@ -76,7 +76,7 @@ interface SohoDatePickerStatic {
   /** Underlying element. */
   element: JQuery;
 
-  // Sets the value of the data picker.
+  // Sets the value of the date picker.
   setValue(value: Date, trigger?: boolean): void;
 
   readonly(): void;
