@@ -9,7 +9,8 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { ArgumentHelper } from '@infor/sohoxi-angular';
+
+import { ArgumentHelper } from '../utils/';
 
 /**
  * Supported button types.
