@@ -28,10 +28,10 @@ describe('Soho Datepicker Unit Tests', () => {
 
     spyOn(comp, 'onChange');
 
-    const date = new Date('1968-12-18T03:24:00');
+    const date = new Date('1978-11-18T03:24:00');
 
     comp.changed.map((x: SohoDatePickerEvent) => x.data).subscribe((x) => {
-      expect(x).toBe(date, 'Incorrect vale passed to event');
+      expect(x).toBe(date, 'Incorrect value passed to event');
     });
 
     comp.datepicker.setValue(date);
@@ -39,7 +39,7 @@ describe('Soho Datepicker Unit Tests', () => {
 
     fixture.whenStable().then(() => {
         expect(comp.onChange).toHaveBeenCalled();
-        expect(comp.model).toBe('12/18/1968', 'Model not updated to correct value.');
+        expect(comp.model).toBe('11/18/1978', 'Model not updated to correct value.');
     });
   }));
 });
