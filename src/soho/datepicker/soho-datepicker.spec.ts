@@ -28,7 +28,7 @@ describe('Soho Datepicker Unit Tests', () => {
 
     spyOn(comp, 'onChange');
 
-    const date = new Date('1978-11-18T03:24:00');
+    const date = new Date('1978-11-18T03:24:00Z');
 
     comp.changed.map((x: SohoDatePickerEvent) => x.data).subscribe((x) => {
       expect(x).toBe(date, 'Incorrect value passed to event');

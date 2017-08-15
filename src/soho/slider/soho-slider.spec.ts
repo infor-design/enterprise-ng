@@ -62,9 +62,9 @@ describe ('Soho Slider Render', () => {
     fixture.detectChanges();
     expect(el.nodeName).toEqual('INPUT');
     expect(el.classList).toContain('slider');
-    expect(el.getAttribute('min')).toEqual(slider.min);
-    expect(el.getAttribute('max')).toEqual(slider.max);
-    expect(el.getAttribute('value')).toEqual(slider.value);
+    expect(el.getAttribute('min')).toEqual(slider.min.toString());
+    expect(el.getAttribute('max')).toEqual(slider.max.toString());
+    expect(el.getAttribute('value')).toEqual(slider.value.toString());
   });
 
   it('Slider disabled', () => {
