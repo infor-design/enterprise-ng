@@ -27,6 +27,7 @@ import { ButtonDemoComponent } from './button/button.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
+import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoModule } from './contextual-action-panel/contextual-action-panel.demo.module';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
@@ -134,6 +135,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     ChartDemoComponent,
     CheckBoxDemoComponent,
     ColorPickerDemoComponent,
+    CompletionChartDemoComponent,
     ContextMenuDemoComponent,
     DataGridBreadcrumbDemoComponent,
     DataGridContentDemoComponent,

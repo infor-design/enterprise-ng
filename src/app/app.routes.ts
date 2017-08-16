@@ -10,6 +10,7 @@ import { ButtonDemoComponent } from './button/button.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
+import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoComponent } from './contextual-action-panel/contextual-action-panel.demo';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
@@ -109,6 +110,7 @@ export const routes: Routes = [
   { path: 'chart',                 component: ChartDemoComponent },
   { path: 'checkbox',              component: CheckBoxDemoComponent },
   { path: 'colorpicker',           component: ColorPickerDemoComponent },
+  { path: 'completion-chart',      component: CompletionChartDemoComponent },
   { path: 'context-menu',          component: ContextMenuDemoComponent },
   { path: 'contextual-action-panel', component: ContextualActionPanelDemoComponent },
   { path: 'datagrid-breadcrumb',   component: DataGridBreadcrumbDemoComponent },
