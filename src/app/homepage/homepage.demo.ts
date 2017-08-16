@@ -95,4 +95,11 @@ export class HomePageDemoComponent {
   onSorted(event: any) {
     console.log('Sorted: ' + event);
   }
+  onBeforeOpen(event: any) {
+  }
+  onClose(event: any) {
+  }
+  onOpen(event: any) {
+
+  }
 }
