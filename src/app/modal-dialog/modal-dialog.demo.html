@@ -20,8 +20,8 @@
       <label class="center-block">Dialog Title:
         <input soho-input class="form-control" type="text" name="title" [(ngModel)]="title" />
       </label>
-      <input soho-checkbox [attr.id]="id4" name="isAlert" [(ngModel)]="isAlert">
-      <label soho-label class="center-block" [attr.for]="id4" [forCheckBox]="true">Is Alert</label>
+      <input soho-checkbox id="id4" name="isAlert" [(ngModel)]="isAlert">
+      <label soho-label class="center-block" for="id4" [forCheckBox]="true">Is Alert</label>
     </div>
     <p>
       Last Dialog Result: {{closeResult}}
