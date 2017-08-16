@@ -5,7 +5,7 @@ import {
   ComponentFactoryResolver
 } from '@angular/core';
 
-import { ArgumentHelper } from '@infor/sohoxi-angular';
+import { ArgumentHelper } from '../utils';
 import { SohoContextualActionPanelRef } from './soho-contextual-action-panel.ref';
 import { SohoContextualActionPanelInjector } from './soho-contextual-action-panel.injector';
 

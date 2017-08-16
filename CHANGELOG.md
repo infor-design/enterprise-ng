@@ -1,5 +1,6 @@
 
 ## Whats New
+* 2017-08-15 - BTH - Upgraded to @angular/cli 1.3.0
 * 2017-08-08 - MHH - Added support for grouped headers to datagrid
 * 2017-08-01 - BTH - PR-409 - Fixed use of reactive forms with soho-mask (see breaking changes)
 * 2017-07-25 - PWP - PR-403 - Added collapseOnMobile input for search field on a soho-toolbar

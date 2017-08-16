@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  SohoHomePageComponent,
-  SohoWidgetComponent,
-  SohoWidgetContentComponent,
-  SohoWidgetHeaderComponent,
-  SohoWidgetTitleComponent } from './';
+import { SohoHomePageComponent } from './soho-homepage.component';
+import { SohoWidgetComponent } from './soho-widget.component';
+import { SohoWidgetContentComponent } from './soho-widget-content.component';
+import { SohoWidgetHeaderComponent } from './soho-widget-header.component';
+import { SohoWidgetTitleComponent } from './soho-widget-title.component';
 
 @NgModule({
   imports:      [ CommonModule ],
