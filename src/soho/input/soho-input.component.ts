@@ -8,7 +8,11 @@ import {
   Output,
   HostListener
 } from '@angular/core';
-import { BaseControlValueAccessor, provideControlValueAccessor } from '../utils';
+
+import {
+  BaseControlValueAccessor,
+  provideControlValueAccessor
+} from 'soho/utils';
 
 @Component({
   selector:  'input[soho-input]', // tslint:disable-line
@@ -42,7 +46,6 @@ export class SohoInputComponent extends BaseControlValueAccessor<any> implements
   onKeyUp(event: KeyboardEvent, val) {
     // This is required if masking is used, otherwise the
     // the form binding does not see updates.
-    // console.log(`onKeyUp: ${event} - "${this.value}"`)
     this.value = this.jQueryElement.val();
   }
 

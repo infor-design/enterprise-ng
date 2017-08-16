@@ -2,9 +2,8 @@
 <div class="row top-padding">
   <div class="one-half column">
     <div class="field">
-      <label for="disabled-spinbox">Spinbox (disabled example)</label>
-      <input soho-spinbox id="id4" name="disabled-spinbox" min="-50" max="50" [(ngModel)]="model.value1" />
-
+      <label for="ngmodel-spinbox">Spinbox (example)</label>
+      <input #spinbox soho-spinbox id="ngmodel-spinbox" name="ngmodel-spinbox" min="-50" max="50" [(ngModel)]="model.value1" />
     </div>
 
     <div class="field">

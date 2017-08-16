@@ -12,7 +12,7 @@ interface SohoSpinboxStatic {
   disable(): void;
   enable(): void;
   isDisabled(): boolean;
-  updateVal(value: number): void;
+  updateVal(value: number | string): void;
 }
 
 interface SohoSpinboxOptions {
