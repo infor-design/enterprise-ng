@@ -16,10 +16,7 @@ import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.se
 export class AppComponent {
   @HostBinding('class.no-scroll') get isNoScroll() { return true; }
 
-  public personalizeOptions: {
-    theme?,
-    colors?,
-  } = {};
+  public personalizeOptions: SohoPersonalizeOptions = {};
 
   constructor() {
     // @todo Set the locale here, to ensure all the values are setup.
