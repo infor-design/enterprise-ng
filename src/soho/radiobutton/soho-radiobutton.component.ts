@@ -5,16 +5,25 @@ import {
   EventEmitter,
   HostBinding,
   Input,
-  Output
+  Output,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef
 } from '@angular/core';
+
+import {
+  BaseControlValueAccessor,
+  provideControlValueAccessor
+} from 'soho/utils';
 
 @Component({
   selector: 'input[soho-radiobutton]', // tslint:disable-line
-  template: `<ng-content></ng-content>`
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [provideControlValueAccessor(SohoRadioButtonComponent)]
 })
-export class SohoRadioButtonComponent implements AfterViewInit {
+export class SohoRadioButtonComponent extends BaseControlValueAccessor<any> implements AfterViewInit {
   /** Called when the radiobutton value changes.  */
-  @Output() change: EventEmitter<SohoRadioButtonEvent> = new EventEmitter<SohoRadioButtonEvent>();
+  @Output() change = new EventEmitter<SohoRadioButtonEvent>();
 
   /** Bind attributes to the host input element. */
   @HostBinding('attr.type') get isRadioType() {
@@ -44,14 +53,37 @@ export class SohoRadioButtonComponent implements AfterViewInit {
   /**
    * Constructor.
    */
-  constructor(private element: ElementRef) { }
+  constructor(
+    private element: ElementRef,
+    changeDetectorRef: ChangeDetectorRef) {
+    super(changeDetectorRef);
+  }
 
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
     // no control initializer for radiobutton
 
+    if (this.internalValue) {
+      this.jQueryElement.val(this.internalValue);
+    }
+
     this.jQueryElement
-      .on('change', (event: JQueryEventObject) => this.change.emit(event));
+      .on('change', (event: JQueryEventObject) => this.onChange(event));
+  }
+
+  onChange(event: JQueryEventObject) {
+    const newValue = this.jQueryElement.val();
+
+    if (this.internalValue !== newValue) {
+      // Update the model ...
+      this.internalValue = newValue;
+
+      // Update the data.
+      event.data = newValue;
+
+      // ... then emit the changed value. (!)
+      this.change.emit(event);
+    }
   }
 }

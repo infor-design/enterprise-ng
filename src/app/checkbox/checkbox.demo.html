@@ -37,6 +37,11 @@
           <label soho-label [attr.for]="id5" [forCheckBox]="true"><span class="audible">Partial (not accessible)</span>Partial</label>
         </div>
       </div>
+      <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+      <div *ngIf="showModel">
+        <hr>
+        <h3>{{ model | json }}</h3>
+      </div>
     </div>
   </form>
 </div>

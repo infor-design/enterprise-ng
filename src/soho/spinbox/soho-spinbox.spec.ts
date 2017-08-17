@@ -53,7 +53,7 @@ describe ('Soho Spinbox Unit tests', () => {
   });
 
   it('Spinbox update value', () => {
-    spinbox.updateValue = 90;
+    spinbox.value = 90;
     fixture.detectChanges();
     expect(el.getAttribute('aria-valuenow')).toContain('90');
   });

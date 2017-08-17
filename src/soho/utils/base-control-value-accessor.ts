@@ -23,12 +23,12 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
   private _onTouchedCallback: () => void = () => {};
 
   /** Gets the value for the control. */
-  protected get value(): T {
+  protected get internalValue(): T {
     return this._value;
   }
 
   /** Sets the value for the control. */
-  protected set value(newValue: T) {
+  protected set internalValue(newValue: T) {
     if (newValue !== this._value) {
       this._value = newValue;
       this._onChangeCallback(newValue);

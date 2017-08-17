@@ -1,5 +1,6 @@
 
 ## Whats New
+* 2017-08-16 - BTH - Fixed SOHO-5125 - `spinbox`, `datepicker`, `timepicker` and `colorpicker`.
 * 2017-08-15 - BTH - Upgraded to @angular/cli 1.3.0
 * 2017-08-08 - MHH - Added support for grouped headers to datagrid
 * 2017-08-01 - BTH - PR-409 - Fixed use of reactive forms with soho-mask (see breaking changes)
@@ -65,6 +66,12 @@
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2017-08-16 - BTH - soho-spinbox.component - hooked up value input to model, and exposed as setter.  This deprecates the original `updateVal` property - which exposed the internal function.  Old code may continue to work, but should be replaced with:
+
+    ```
+    this.spinbox.value = 90;
+    ```
 
 * 2017-08-09 - PWP - soho-popupmenu.component - moved isDisabled `@Input()` from the `<a>` anchor to the `<li>`
 
