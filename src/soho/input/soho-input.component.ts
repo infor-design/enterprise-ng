@@ -12,7 +12,7 @@ import {
 import {
   BaseControlValueAccessor,
   provideControlValueAccessor
-} from 'soho/utils';
+} from '../utils';
 
 @Component({
   selector:  'input[soho-input]', // tslint:disable-line
