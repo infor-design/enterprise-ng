@@ -182,8 +182,8 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
 
     this.datepicker = this.jQueryElement.data('datepicker');
 
-    if (this.value) {
-      this.datepicker.element.val(this.value);
+    if (this.internalValue) {
+      this.datepicker.element.val(this.internalValue);
     }
   }
 
@@ -191,10 +191,10 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
    * Handle the control being changed.
    */
   onChange(event: SohoDatePickerEvent) {
-    this.value = this.datepicker.element.val();
+    this.internalValue = this.datepicker.element.val();
 
     // Set the date on the event.
-    event.data = this.value;
+    event.data = this.internalValue;
 
     // Fire the event
     this.change.emit(event);

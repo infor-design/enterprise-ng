@@ -111,7 +111,7 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
     this.jQueryElement = jQuery(this.element.nativeElement);
 
     // Needs the value set pre-init
-    this.jQueryElement.val(this.value);
+    this.jQueryElement.val(this.internalValue);
     this.jQueryElement.colorpicker(this.options);
 
     /**
@@ -122,8 +122,8 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
 
     this.colorpicker = this.jQueryElement.data('colorpicker');
 
-    if (this.value) {
-      this.colorpicker.element.val(this.value);
+    if (this.internalValue) {
+      this.colorpicker.element.val(this.internalValue);
     }
   }
 
@@ -134,7 +134,7 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
 
     if (!event) {
       // sometimes the event is not available
-      this.value = this.colorpicker.element.val();
+      this.internalValue = this.colorpicker.element.val();
       return;
     }
     this.change.emit(event);

@@ -20,11 +20,11 @@ import {
   selector: 'input[soho-spinbox]', // tslint:disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ provideControlValueAccessor(SohoSpinboxComponent) ]
+  providers: [provideControlValueAccessor(SohoSpinboxComponent)]
 })
 export class SohoSpinboxComponent extends BaseControlValueAccessor<number> implements AfterViewInit, OnDestroy {
 
-  @Input() set disabled (disabled: boolean) {
+  @Input() set disabled(disabled: boolean) {
     if (this.spinbox) {
       if (disabled) {
         this.spinbox.disable();
@@ -47,30 +47,44 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
     return 'text';
   }
 
-  @HostBinding('attr.id')        @Input() id: string;
-  @HostBinding('attr.name')      @Input() name: string;
-  @HostBinding('attr.min')       @Input() min: number;
-  @HostBinding('attr.max')       @Input() max: number;
+  @HostBinding('attr.id') @Input() id: string;
+  @HostBinding('attr.name') @Input() name: string;
+  @HostBinding('attr.min') @Input() min: number;
+  @HostBinding('attr.max') @Input() max: number;
 
-  @HostBinding('attr.value')     @Input('value') public set attrValue(val: number) {
+  /**
+   * Value of the spin box.
+   */
+  @HostBinding('attr.value') @Input() public set value(val: number) {
     if (this.spinbox) {
       this.spinbox.updateVal(val);
     }
-    this.value = val;
+    this.internalValue = val;
   }
 
-  @HostBinding('attr.step')      @Input() step: boolean;
-  @HostBinding('attr.disabled')  @Input() isDisabled: boolean;
+  public get value() {
+    return this.internalValue;
+  }
+
+  @HostBinding('attr.step') @Input() step: boolean;
+  @HostBinding('attr.disabled') @Input() isDisabled: boolean;
 
   private options: SohoSpinboxOptions = {};
   private jQueryElement: JQuery;
   private spinbox: SohoSpinboxStatic;
 
+  updateVal(value: string | number) {
+    if (this.spinbox) {
+      this.spinbox.updateVal(value);
+    }
+    this.value = <number> value;
+  }
+
   constructor(
     private element: ElementRef,
     changeDetectorRef: ChangeDetectorRef) {
     super(changeDetectorRef);
-   }
+  }
 
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
@@ -83,19 +97,19 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
     this.spinbox = this.jQueryElement.data('spinbox');
 
     // Make sure the value of the control is set appropriately.
-    if (this.value) {
-      this.jQueryElement.val(this.value);
+    if (this.internalValue) {
+      this.jQueryElement.val(this.internalValue);
     }
   }
 
   onChange(event: SohoSpinboxEvent) {
     const newValue = this.jQueryElement.val();
-    if (this.value !== newValue) {
+    if (this.internalValue !== newValue) {
       // Update the model ...
-      this.value = this.jQueryElement.val();
+      this.internalValue = this.jQueryElement.val();
 
       // ... then emit the changed value.
-      this.change.emit(this.value);
+      this.change.emit(this.internalValue);
     }
   }
 

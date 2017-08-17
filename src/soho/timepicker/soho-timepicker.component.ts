@@ -156,8 +156,8 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
 
     this.timepicker = this.jQueryElement.data('timepicker');
 
-    if (this.value) {
-      this.timepicker.element.val(this.value);
+    if (this.internalValue) {
+      this.timepicker.element.val(this.internalValue);
     }
   }
 
@@ -165,10 +165,10 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
    * Handle the control being changed.
    */
   onChange(event: SohoTimePickerEvent) {
-    this.value = this.timepicker.element.val();
+    this.internalValue = this.timepicker.element.val();
 
     // Set the date on the event.
-    event.data = this.value;
+    event.data = this.internalValue;
 
     // Fire the event
     this.change.emit(event);

@@ -10,6 +10,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CheckBoxDemoComponent implements OnInit {
+  showModel = false;
 
   public model = {
     checkBox1Value: false,
@@ -47,5 +48,9 @@ export class CheckBoxDemoComponent implements OnInit {
 
   onUpdated(event: SohoCheckBoxEvent) {
     console.log('CheckboxDemoComponent.onUpdated');
+  }
+
+  toggleModel() {
+    this.showModel = !this.showModel;
   }
 }

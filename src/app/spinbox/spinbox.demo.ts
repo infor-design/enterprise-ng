@@ -40,8 +40,7 @@ export class SpinboxDemoComponent {
   update() {
     this.val = 46;
     if (!this.disabled) {
-      // this.spinbox.updateValue = this.val;
-      this.spinbox.attrValue = 100; // this.val;
+      this.spinbox.value = 80;
     }
   }
 
