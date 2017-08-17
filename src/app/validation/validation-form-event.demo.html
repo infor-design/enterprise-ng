@@ -7,7 +7,7 @@
       <div class="row">
         <div class="six columns">
           <div class="field">
-            <label soho-label [required]="model.AlphaField.required" [attr.for]="AlphaField">AlphaField</label>
+            <label soho-label [required]="model.AlphaField.required" for="AlphaField">AlphaField</label>
             <input id="AlphaField" name="AlphaField" formControlName="AlphaField"
               [(ngModel)]="model.AlphaField.value"
               soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
@@ -17,7 +17,7 @@
         </div>
         <div class="six columns">
           <div class="field">
-            <label soho-label [required]="model.NumericField.required" [attr.for]="NumericField">Numeric Field</label>
+            <label soho-label [required]="model.NumericField.required" for="NumericField">Numeric Field</label>
             <input id="NumericField" name="NumericField" formControlName="NumericField"
               [(ngModel)]="model.NumericField.value"
               soho-input
@@ -32,7 +32,7 @@
       <div class="row">
         <div class="six columns">
           <div class="field">
-            <label soho-label [required]="model.DateField.required" [attr.for]="DateField">Date Field</label>
+            <label soho-label [required]="model.DateField.required" for="DateField">Date Field</label>
             <input id="DateField" name="DateField" formControlName="DateField"
               [(ngModel)]="model.DateField.value"
               soho-datepicker dateFormat="MM/dd/yyyy" mode="standard"
@@ -45,7 +45,7 @@
 
       <div class="row">
         <div class="six columns">
-          <button soho-button disabled={{disableSave}} (click)="saveForm()">Save</button>
+          <button soho-button [disabled]="disableSave" (click)="saveForm()">Save</button>
           <p>Save button is enabled when the Form Status is dirty and valid</p>
           <p>Form {{status()}}</p>
         </div>

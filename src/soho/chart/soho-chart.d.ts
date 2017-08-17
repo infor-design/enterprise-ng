@@ -31,10 +31,12 @@ interface JQuery {
   chart(options?: SohoChartOptions): JQuery;
 }
 
-
 interface SohoChartData {
-  name: string;
-  value: number | BubbleCordinates;
+  name: string | SohoChartDataName;
+  value?: number | BubbleCordinates;
+  info?: SohoChartDataInfo;
+  completed?: SohoChartDataCompleted;
+  total?: SohoChartDataTotal;
   url?: string;
   color?: string;
   tooltip?: string;
@@ -42,6 +44,25 @@ interface SohoChartData {
   selected?: boolean;
   abbrName?: string;
   ref?: any;
+}
+
+interface SohoChartDataName {
+  text?: string;
+}
+
+interface SohoChartDataInfo {
+  value?: number;
+  text?: string;
+  color?: string;
+}
+
+interface SohoChartDataCompleted {
+  value?: number;
+  color?: string;
+}
+
+interface SohoChartDataTotal {
+  value?: number;
 }
 
 type ChartTypes = 'pie' | 'bar' | 'bar-stacked' | 'bar-normalized' | 'bar-grouped' | 'bubble' |
