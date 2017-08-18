@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HierarchyDemoService } from './hierarchy.demo.service';
+import { SohoHierarchyComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-hierarchy-demo',
@@ -11,11 +12,16 @@ import { HierarchyDemoService } from './hierarchy.demo.service';
 })
 export class HierarchyDemoComponent implements OnInit {
 
+  @ViewChild('SohoHierarchy') sohoHierarchy: SohoHierarchyComponent;
+
    public data: Array<any>;
    public legend: Array<SohoHierarchyLegend>;
    public leafTemplate: any;
    public leafTemplateId = 'hierarchyChartTemplate';
-   public legendKey = 'EmploymentType'
+   public legendKey = 'EmploymentType';
+
+   // Flag to allow the lazy load data to only be used once
+   private lazyDataLoaded = false;
 
    constructor(
     private domSanitizer: DomSanitizer,
@@ -47,7 +53,7 @@ export class HierarchyDemoComponent implements OnInit {
             <p class="micro">{{EmploymentType}}</p>
            </div>
 
-           <button class="btn-expand {{displayClass}} btn-icon" type="button">
+           <button class="btn btn-icon" type="button">
             <svg role="presentation" aria-hidden="true" focusable="false" class="icon">
              <use xlink:href="#icon-caret-up"/>
             </svg>
@@ -60,13 +66,22 @@ export class HierarchyDemoComponent implements OnInit {
      this.leafTemplate = this.domSanitizer.bypassSecurityTrustHtml(leafTemplate);
 
      this.hierarchyService.getHierarchyData().subscribe((data) => {
-       this.data = data;
+       this.data = data[0].initial;
        this.changeDetectorRef.markForCheck();
-     })
+     });
    }
 
    onSelected(hierarchyEvent: SohoHierarchyEvent) {
      console.log(hierarchyEvent.data, hierarchyEvent.eventType);
+
+     if (hierarchyEvent.eventType === 'expand' && !this.lazyDataLoaded) {
+       this.hierarchyService.getHierarchyData().subscribe((data) => {
+         const newData = data[0].lazy;
+         this.sohoHierarchy.add(hierarchyEvent.data.id, this.data, newData);
+         this.changeDetectorRef.markForCheck();
+         this.lazyDataLoaded = true;
+       });
+     }
    }
 
 }
