@@ -65,6 +65,14 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
 
   constructor(private elementRef: ElementRef) {}
 
+  /**
+   * Used to add new data lazily when a leaf is expanded
+   * @param {string} id should match the leaf id in the DOM
+   */
+  add(id: string, dataset: Array<any>, newData: Array<any>) {
+    this.hierarchy.add(id, dataset, newData);
+  }
+
   ngOnDestroy() {
     // Necessary clean up step (add additional here)
     if (this.hierarchy) {
@@ -82,8 +90,12 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
 
     // Initialize any event handlers.
     this.jQueryElement
-      .on('selected', ( (e: JQueryEventObject, args: SohoHierarchyEvent) => {
-        this.selected.next(args)
-      }))
+        .on('selected', ( (e: JQueryEventObject, args: SohoHierarchyEvent) => {
+          this.selected.next(args)
+        }));
+
+    // Assign the hierarchy control
+    this.hierarchy = this.jQueryElement.data('hierarchy');
+
   }
 }
