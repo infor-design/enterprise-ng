@@ -36,6 +36,7 @@ interface SohoChartData {
   value?: number | BubbleCordinates;
   info?: SohoChartDataInfo;
   completed?: SohoChartDataCompleted;
+  remaining?: SohoChartDataRemaining;
   total?: SohoChartDataTotal;
   url?: string;
   color?: string;
@@ -51,18 +52,28 @@ interface SohoChartDataName {
 }
 
 interface SohoChartDataInfo {
-  value?: number;
+  value?: number | string;
   text?: string;
   color?: string;
 }
 
 interface SohoChartDataCompleted {
-  value?: number;
+  value?: number | string;
+  text?: string;
+  color?: string;
+}
+
+interface SohoChartDataRemaining {
+  value?: number | string;
+  text?: string;
   color?: string;
 }
 
 interface SohoChartDataTotal {
-  value?: number;
+  value?: number | string;
+  text?: string;
+  format?: string;
+  difference?: string;
 }
 
 type ChartTypes = 'pie' | 'bar' | 'bar-stacked' | 'bar-normalized' | 'bar-grouped' | 'bubble' |

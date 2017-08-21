@@ -42,7 +42,7 @@ export class CompletionChartDemoComponent implements OnInit, OnDestroy {
         text: 'Current Status'
       },
       info:      {
-        value: 13
+        value: '13 %'
       },
       completed: {
         value: 13,
@@ -88,6 +88,7 @@ export class CompletionChartDemoComponent implements OnInit, OnDestroy {
       },
       completed: {
         value: 78,
+        text: '78 %',
         color: 'good'
       }
     };
