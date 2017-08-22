@@ -14,20 +14,20 @@
     <div class="field">
       <label for="input-menu">Label</label>
       <input id="input-menu" type="text" value="Right Click Me" soho-context-menu menu="action-popupmenu" trigger="rightClick"
-        (selected)="onSelected()"
-        (beforeopen)="onBeforeOpen()"
-        (close)="onClose()"
-        (open)="onOpen()"
+        (selected)="onSelected($event)"
+        (beforeopen)="onBeforeOpen($event)"
+        (close)="onClose($event)"
+        (open)="onOpen($event)"
       >
     </div>
 
     <div class="field">
       <label for="input-menu2">Label2</label>
       <input id="input-menu2" type="text"  value="Right Click Me" soho-context-menu menu="action-popupmenu" trigger="rightClick"
-        (selected)="onSelected()"
-        (beforeopen)="onBeforeOpen()"
-        (close)="onClose()"
-        (open)="onOpen()"
+        (selected)="onSelected($event)"
+        (beforeopen)="onBeforeOpen($event)"
+        (close)="onClose($event)"
+        (open)="onOpen($event)"
       >
     </div>
 
