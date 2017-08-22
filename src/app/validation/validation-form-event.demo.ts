@@ -50,6 +50,14 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
     this.form.controls[ event.currentTarget.id ].markAsPristine();
   }
 
+  onError(event: SohoInputValidateEvent) {
+    this.form.controls[ event.currentTarget.id ].setErrors({ 'inError': true });
+  }
+
+  onValid(event: SohoInputValidateEvent) {
+    this.form.controls[ event.currentTarget.id ].setErrors(null);
+  }
+
   private buildModel() {
     // build model and form group
     const group: { [key: string]: any } = [];

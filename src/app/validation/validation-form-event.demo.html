@@ -37,6 +37,7 @@
               [(ngModel)]="model.DateField.value"
               soho-datepicker dateFormat="MM/dd/yyyy" mode="standard"
               soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
+              soho-input-validate (error)="onError($event)" (valid)="onValid($event)"
             >
             <p>{{status('DateField')}}</p>
           </div>
