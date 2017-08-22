@@ -10,7 +10,7 @@ import {
   OnInit,
 } from '@angular/core';
 
-import { ArgumentHelper } from '../utils/';
+import { ArgumentHelper } from '../utils/argument.helper';
 
 /**
  * Supported button types.

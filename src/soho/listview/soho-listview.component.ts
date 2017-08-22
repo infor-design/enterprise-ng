@@ -16,9 +16,9 @@ import {
   QueryList
 } from '@angular/core';
 
-import { ArgumentHelper } from '../utils';
+import { ArgumentHelper } from '../utils/argument.helper';
 
-import { SohoSearchFieldComponent } from '../searchfield';
+import { SohoSearchFieldComponent } from '../searchfield/soho-searchfield.component';
 
 /**
  * This component will allow the developer to modify any DOM element
