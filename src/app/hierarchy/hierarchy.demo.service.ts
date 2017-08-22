@@ -8,7 +8,7 @@ export class HierarchyDemoService {
   constructor(private http: Http) {}
 
   public getHierarchyData(): Observable<any> {
-    return this.http.get('./app/data/hierarchy.demo.json')
+    return this.http.get('./app/demodata/hierarchy.demo.json')
     .map((res: any) => res.json())
     .catch(error => this.handleError(error));
   }
