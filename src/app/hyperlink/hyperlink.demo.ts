@@ -18,4 +18,8 @@ export class HyperlinkDemoComponent implements OnInit {
 
   ngOnInit() { }
 
+  onChange(event) {
+    console.log(`${event}`);
+  }
+
 }
