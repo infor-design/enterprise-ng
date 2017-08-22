@@ -10,7 +10,7 @@ import {
   SohoListViewSubHeaderComponent,
 } from './soho-listview.component';
 
-import { SohoSearchFieldModule } from '../searchfield';
+import { SohoSearchFieldModule } from '../searchfield/soho-searchfield.module';
 
 @NgModule({
   declarations: [

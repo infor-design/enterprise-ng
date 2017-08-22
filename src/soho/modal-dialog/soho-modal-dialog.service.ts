@@ -5,7 +5,7 @@ import {
   ComponentFactoryResolver
 } from '@angular/core';
 
-import { ArgumentHelper } from '../utils';
+import { ArgumentHelper } from '../utils/argument.helper';
 
 import { SohoModalDialogRef } from './soho-modal-dialog.ref';
 

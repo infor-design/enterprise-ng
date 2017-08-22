@@ -3,7 +3,7 @@ import {
   HostBinding,
   Input } from '@angular/core';
 
-type WidgetSize = 'single' | 'double' | 'triple' | 'quad';
+export type WidgetSize = 'single' | 'double' | 'triple' | 'quad';
 
 @Component({
   selector: 'div[soho-widget]', // tslint:disable-line

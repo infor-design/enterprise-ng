@@ -14,7 +14,7 @@ import {
 import {
   BaseControlValueAccessor,
   provideControlValueAccessor
-} from '../utils';
+} from '../utils/base-control-value-accessor';
 
 @Component({
   selector: 'input[soho-spinbox]', // tslint:disable-line

@@ -14,7 +14,7 @@ import {
   OnDestroy
 } from '@angular/core';
 
-import { ArgumentHelper } from '../utils';
+import { ArgumentHelper } from '../utils/argument.helper';
 
 import { SohoDataGridService } from './soho-datagrid.service';
 
