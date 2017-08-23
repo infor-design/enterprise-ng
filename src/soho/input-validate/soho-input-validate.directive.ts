@@ -7,7 +7,7 @@ import { AfterViewInit, Directive, ElementRef, EventEmitter, Output } from '@ang
  * 'data-validate' or 'data-validate-on="submit"'.
  */
 @Directive({
-  selector: 'input[soho-input-validate], input[data-validate], input[data-validate-on="submit"], textarea[data-validate]', // tslint:disable-line
+  selector: 'form[soho-input-validate], input[soho-input-validate], input[data-validate], input[data-validate-on="submit"], textarea[data-validate]', // tslint:disable-line
 })
 export class SohoInputValidateDirective implements AfterViewInit {
 
@@ -37,7 +37,19 @@ export class SohoInputValidateDirective implements AfterViewInit {
      * Bind to jQueryElement's events
      */
     this.jQueryElement
-    .on('error', (event: SohoInputValidateEvent, validation) => { event.validation = validation; this.error.emit(event); })
-    .on('valid', (event: SohoInputValidateEvent, validation) => { event.validation = validation; this.valid.emit(event); });
+    .on('error', (event: SohoInputValidateEvent, validation) => {
+      event.validation = {
+        field:   validation.field[0],
+        message: validation.message
+      };
+      this.error.emit(event);
+    })
+    .on('valid', (event: SohoInputValidateEvent, validation) => {
+      event.validation = {
+        field:   validation.field[0],
+        message: validation.message
+      };
+      this.valid.emit(event);
+    });
   }
 }

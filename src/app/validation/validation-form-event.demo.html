@@ -1,6 +1,8 @@
 <div class="example-section">
 
-  <form [formGroup]="form" >
+  <form [formGroup]="form"
+    soho-input-validate (error)="onError($event)" (valid)="onValid($event)"
+  >
     <div class="row">
       <h1>Validation Form - Events</h1>
       <span class="code-tag">Live Example</span>
@@ -37,7 +39,6 @@
               [(ngModel)]="model.DateField.value"
               soho-datepicker dateFormat="MM/dd/yyyy" mode="standard"
               soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
-              soho-input-validate (error)="onError($event)" (valid)="onValid($event)"
             >
             <p>{{status('DateField')}}</p>
           </div>
