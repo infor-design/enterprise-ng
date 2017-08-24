@@ -270,6 +270,25 @@ type SohoDataGridColumnHrefFunction = (
   rowData: Object
 ) => boolean;
 
+interface SohoDataGridColumnClickData {
+  /** Index of the row clicked. */
+  row: number;
+
+  /** Element click. */
+  cell: HTMLElement;
+
+  /** Row data */
+  item: any;
+
+  /** Source event. */
+  originalEvent: Event;
+}
+
+type SohoDataGridColumnClickFunction = (
+  e: Event,
+  args: SohoDataGridColumnClickData[]
+) => void;
+
 /**
  * This is an interface mapping for the grid column defined
  * within the Soho jQuery Control.
@@ -331,8 +350,8 @@ interface SohoDataGridColumn {
   /** @todo fix type from any.  */
   sourceFormat?: any;
 
-  /** @todo fix type from any.  */
-  click?: any;
+  /** Invoked when a clickable formatter is used, such as Button.  */
+  click?: SohoDataGridColumnClickFunction;
 
   /** Is the grid searchable. */
   searchable?: boolean;
