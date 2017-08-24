@@ -18,6 +18,7 @@ interface SohoChartStatic {
   /** Options. */
   settings: SohoChartOptions;
   getSelected: Function;
+  setSelected: Function;
 }
 
 /**
@@ -90,6 +91,7 @@ interface SohoDataSetItem {
   valueFormatterString?: BubbleCordinateLabels;
   centerLabel?: string;
   selected?: boolean;
+  ref?: any;
 }
 
 type SohoDataSet = Array<SohoDataSetItem>;
@@ -128,4 +130,11 @@ interface ChartEvent {
   event: JQueryEventObject;
   ui?: any;
   data?: any;
+}
+
+interface  ChartSelectionOptions {
+  fieldName?: string;
+  fieldValue?: any;
+  groupName?: string;
+  groupValue?: any;
 }
