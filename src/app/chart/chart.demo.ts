@@ -20,7 +20,7 @@ export class ChartDemoComponent implements OnInit {
   @ViewChild(SohoChartComponent) sohoChartComponent: SohoChartComponent;
 
   @HostBinding('style.display') get getDisplay() {
-  return 'block';
+    return 'block';
   };
   @HostBinding('style.height') get getHeight() {
     return '100%';
@@ -54,6 +54,7 @@ export class ChartDemoComponent implements OnInit {
   public donutChart = 'donut';
   public bubbleChart = 'bubble';
   public selectedIndex = 1;
+  private currentChartType = '';
 
   constructor(public chartDemoService: ChartDemoService, private elementRef: ElementRef) { }
   ngOnInit() { }
@@ -62,11 +63,17 @@ export class ChartDemoComponent implements OnInit {
     //  this.sohoChartComponent;
     const chartType: ChartTypes = $(event.currentTarget).filter(':checked').val();
     const chartOptions: SohoChartOptions = {};
-
+    if (chartType === this.currentChartType) {
+      // dont do anything if the chart is the same type
+      return;
+    }
+    this.currentChartType = chartType;
     if (chartType === 'pie' || chartType === 'donut') {
       chartOptions.dataset = this.chartDemoService.getPieData();
     } else if (chartType === 'bubble') {
       chartOptions.dataset = this.chartDemoService.getBubbleData();
+    } else if (chartType === 'bar' || chartType.indexOf('stacked')) {
+      chartOptions.dataset = this.chartDemoService.getStackedData();
     } else {
       chartOptions.dataset = this.chartDemoService.getBasicData();
     }

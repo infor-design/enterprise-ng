@@ -17,7 +17,8 @@ export class ChartDemoService {
       name: 'Schedule Adherence By Quantity',
       color: '#8ED1C6',
       centerLabel: 'This is center label',
-      selected: true
+      selected: true,
+      ref: 1
     }, {
       data: [
         { name: 'Current Metrics', value: 3, tooltip: 'This is a tooltip', ref: 2,
@@ -25,7 +26,8 @@ export class ChartDemoService {
         { name: 'Previous Metrics', value: 1, tooltip: 'This is a tooltip', ref: 2, url: '#'},
         { name: 'Future Metrics', value: 5, tooltip: 'This is a tooltip', ref: 2, url: '#'}
       ],
-      name: 'Schedule Adherence By Date'
+      name: 'Schedule Adherence By Date',
+      ref: 2
     },
     {
       data: [
@@ -35,7 +37,8 @@ export class ChartDemoService {
         { name: 'Future Metrics', value: 3, tooltip: 'This is a tooltip', ref: 3, url: '#'}
       ],
       name: 'Receiving Accuracy',
-      color: '#9279A6'
+      color: '#9279A6',
+      ref: 3
     }, {
     data:
       [
@@ -44,7 +47,53 @@ export class ChartDemoService {
         { name: 'Previous Metrics', value: 2, tooltip: 'This is a tooltip', ref: 4, url: '#'},
         { name: 'Future Metrics', value: 9, tooltip: 'This is a tooltip', ref: 4, url: '#'}
       ],
-      name: 'Overall Rating'
+      name: 'Overall Rating',
+      ref: 4
+    }
+  ];
+
+  private stackedData: SohoDataSet = [{
+    data: [
+      { name: 'Current Metrics', value: 4, tooltip: 'This is a tooltip', ref: 1,
+        url: '/metrics/viewSingleSupplierReportCard?histPk=10026&supPk=11001&buySupPk=10002&viewChart=false&selectedDate=10026'},
+      { name: 'Previous Metrics', value: 5, tooltip: 'This is a tooltip', ref: 2, url: '#'},
+      { name: 'Future Metrics', value: 2, tooltip: 'This is a tooltip', ref: 3, url: '#'}
+    ],
+    name: 'Schedule Adherence By Quantity',
+    color: '#8ED1C6',
+    centerLabel: 'This is center label',
+    selected: true,
+    ref: 1
+  }, {
+    data: [
+      { name: 'Current Metrics', value: 3, tooltip: 'This is a tooltip', ref: 1,
+        url: '/metrics/viewSingleSupplierReportCard?histPk=10026&supPk=11001&buySupPk=10002&viewChart=false&selectedDate=10026'},
+      { name: 'Previous Metrics', value: 1, tooltip: 'This is a tooltip', ref: 2, url: '#'},
+      { name: 'Future Metrics', value: 5, tooltip: 'This is a tooltip', ref: 3, url: '#'}
+    ],
+    name: 'Schedule Adherence By Date',
+    ref: 2
+  },
+    {
+      data: [
+        { name: 'Current Metrics', value: 6, tooltip: 'This is a tooltip', ref: 1,
+          url: '/metrics/viewSingleSupplierReportCard?histPk=10026&supPk=11001&buySupPk=10002&viewChart=false&selectedDate=10026'},
+        { name: 'Previous Metrics', value: 9, tooltip: 'This is a tooltip', ref: 2, url: '#'},
+        { name: 'Future Metrics', value: 3, tooltip: 'This is a tooltip', ref: 3, url: '#'}
+      ],
+      name: 'Receiving Accuracy',
+      color: '#9279A6',
+      ref: 3
+    }, {
+      data:
+        [
+          { name: 'Current Metrics', value: 7, tooltip: 'This is a tooltip', ref: 1,
+            url: '/metrics/viewSingleSupplierReportCard?histPk=10026&supPk=11001&buySupPk=10002&viewChart=false&selectedDate=10026'},
+          { name: 'Previous Metrics', value: 2, tooltip: 'This is a tooltip', ref: 2, url: '#'},
+          { name: 'Future Metrics', value: 9, tooltip: 'This is a tooltip', ref: 3, url: '#'}
+        ],
+      name: 'Overall Rating',
+      ref: 4
     }
   ];
 
@@ -90,31 +139,41 @@ export class ChartDemoService {
       name: 'Wages',
       shortName: 'Wages',
       value: 10.6,
+      ref: 1
     }, {
       name: 'Pre-tax Deductions',
       shortName: 'Pre-tax',
       value: 10.2,
+      ref: 2
     }, {
       name: 'Company Taxes',
       shortName: 'C Tax',
       value: 14.35,
+      ref: 3
     }, {
       name: 'Taxes',
       shortName: 'Taxes',
       value: 15.6,
+      ref: 4
     }, {
       name: 'After-tax Deductions',
       shortName: 'Af-tax',
       value: 21.6,
+      ref: 5
     }, {
       name: 'Company Deductions',
       shortName: 'C Dedc',
       value: 41.6,
+      ref: 6
     }]
   }];
 
   public getBasicData(): SohoDataSet {
     return this.basicData;
+  }
+
+  public getStackedData(): SohoDataSet {
+    return this.stackedData;
   }
 
   public getBubbleData(): SohoDataSet {
