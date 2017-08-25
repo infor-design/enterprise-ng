@@ -130,12 +130,12 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges
   /**
    * Called when the tooltip value changes
    */
-    @Output() changeEvent = new EventEmitter<SohoTooltipEvent>();
+  @Output() changeEvent = new EventEmitter<SohoTooltipEvent>();
 
-    /**
-     * Called when the tooltip updates in some way
-     */
-    @Output() updateEvent = new EventEmitter<SohoTooltipEvent>();
+  /**
+   * Called when the tooltip updates in some way
+   */
+  @Output() updateEvent = new EventEmitter<SohoTooltipEvent>();
 
   // -------------------------------------------
   // Private Member Data
@@ -155,6 +155,10 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges
     // Wrap the element in a jQuery selector.
     this.jQueryElement = jQuery(this.element.nativeElement);
 
+    this.createControl();
+  }
+
+  private createControl() {
     // Initialise the SohoXi Control
     this.jQueryElement.tooltip(this.options);
 
@@ -198,8 +202,9 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges
 
   ngOnChanges() {
     if (this.tooltip) {
-      this.tooltip.settings = this.options;
-      this.tooltip.updated();
+      this.tooltip.destroy();
+      this.tooltip = null;
+      this.createControl();
     }
   }
 }
