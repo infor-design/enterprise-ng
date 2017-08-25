@@ -81,6 +81,13 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  @Input() set chartAnimate(animate: boolean) {
+    this._chartOptions.animate = animate;
+    if (this.jQueryElement) {
+      this.updated();
+    }
+  }
+
   // ------------------------------------------------------------------------
   // @Outputs
   // ------------------------------------------------------------------------
@@ -95,7 +102,7 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
 
   // An internal chartOptions object that gets updated by using
   // the component's Inputs()
-  private _chartOptions: SohoChartOptions = {};
+  private _chartOptions: SohoChartOptions = {animate: true};
 
   // Reference to the jQuery element.
   private jQueryElement: JQuery;

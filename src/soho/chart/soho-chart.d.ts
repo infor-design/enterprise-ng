@@ -8,6 +8,7 @@ interface SohoChartOptions {
   chartLabel?: ChartLabel;
   labels?: ChartLabel;
   redrawOnResize?: boolean;
+  animate?: boolean;
 }
 
 /**

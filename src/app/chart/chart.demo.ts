@@ -54,30 +54,45 @@ export class ChartDemoComponent implements OnInit {
   public donutChart = 'donut';
   public bubbleChart = 'bubble';
   public selectedIndex = 1;
-  private currentChartType = '';
+  private currentChartType: ChartTypes = 'column';
+  private animateCharts = true;
 
   constructor(public chartDemoService: ChartDemoService, private elementRef: ElementRef) { }
   ngOnInit() { }
 
+  public onCheckboxChange(event: Event) {
+    const animateCheckElement = $(event.currentTarget);
+    const isCheck = $(event.currentTarget).is(':checked');
+    this.animateCharts = isCheck;
+    this.buildChartOptions(animateCheckElement);
+  }
+
   public onChange(event: Event) {
-    //  this.sohoChartComponent;
-    const chartType: ChartTypes = $(event.currentTarget).filter(':checked').val();
-    const chartOptions: SohoChartOptions = {};
+    const element = $(event.currentTarget);
+    const chartType: ChartTypes = element.filter(':checked').val();
     if (chartType === this.currentChartType) {
       // dont do anything if the chart is the same type
       return;
     }
     this.currentChartType = chartType;
-    if (chartType === 'pie' || chartType === 'donut') {
+
+    this.buildChartOptions(element)
+  }
+
+  private buildChartOptions(element) {
+    const chartOptions: SohoChartOptions = {};
+
+    if (this.currentChartType === 'pie' || this.currentChartType === 'donut') {
       chartOptions.dataset = this.chartDemoService.getPieData();
-    } else if (chartType === 'bubble') {
+    } else if (this.currentChartType === 'bubble') {
       chartOptions.dataset = this.chartDemoService.getBubbleData();
-    } else if (chartType === 'bar' || chartType.indexOf('stacked')) {
+    } else if (this.currentChartType === 'bar' || this.currentChartType.indexOf('stacked')) {
       chartOptions.dataset = this.chartDemoService.getStackedData();
     } else {
       chartOptions.dataset = this.chartDemoService.getBasicData();
     }
-    chartOptions.type = chartType;
+    chartOptions.type = this.currentChartType;
+    chartOptions.animate = this.animateCharts;
     this.sohoChartComponent.chartOptions = chartOptions;
   }
 
