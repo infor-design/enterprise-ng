@@ -11,7 +11,6 @@ import {
 
 @Directive({
   selector: '[soho-tooltip]', // tslint:disable-line
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges {
 
@@ -198,7 +197,9 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges
   }
 
   ngOnChanges() {
-    if(this.jQueryElement)
-      this.jQueryElement.tooltip(this.options);
+    if (this.tooltip) {
+      this.tooltip.settings = this.options;
+      this.tooltip.updated();
+    }
   }
 }
