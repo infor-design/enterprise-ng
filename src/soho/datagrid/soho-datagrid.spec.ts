@@ -12,9 +12,9 @@ describe('Soho DataGrid Unit Tests', () => {
   let de: DebugElement;
   let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoDataGridComponent ]
+      declarations: [SohoDataGridComponent]
     });
 
     fixture = TestBed.createComponent(SohoDataGridComponent);
@@ -41,7 +41,7 @@ describe('Soho DataGrid Unit Tests', () => {
   });
 
 
-   it('Check default value of dataset is []', () => {
+  it('Check default value of dataset is []', () => {
     fixture.detectChanges();
 
     expect(comp.dataset).toEqual([]);
@@ -116,25 +116,24 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(comp.gridOptions.groupable).toBeNull();
     expect(comp.groupable).toBeNull();
 
-    comp.groupable = {fields: ['accountType'], aggregator: 'sum'};
+    comp.groupable = { fields: ['accountType'], aggregator: 'sum' };
 
-    expect(comp.gridOptions.groupable).toEqual({fields: ['accountType'], aggregator: 'sum'});
-    expect(comp.groupable).toEqual({fields: ['accountType'], aggregator: 'sum'});
+    expect(comp.gridOptions.groupable).toEqual({ fields: ['accountType'], aggregator: 'sum' });
+    expect(comp.groupable).toEqual({ fields: ['accountType'], aggregator: 'sum' });
   });
-
 });
 
 describe('Soho DataGrid Render', () => {
-  let datagrid:  SohoDataGridComponent;
+  let datagrid: SohoDataGridComponent;
   let component: SohoDataGridTestComponent;
-  let fixture:   ComponentFixture<SohoDataGridTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoDataGridTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoDataGridTestComponent ],
-      imports: [ FormsModule, SohoDataGridModule ]
+      declarations: [SohoDataGridTestComponent],
+      imports: [FormsModule, SohoDataGridModule]
     });
 
     fixture = TestBed.createComponent(SohoDataGridTestComponent);
@@ -178,6 +177,34 @@ describe('Soho DataGrid Render', () => {
     expect(component.datagrid.dataset).toBe(testData);
   });
 
+  it('check setColumnSort(id, descending)', (done) => {
+
+    component.datagrid.sorted.subscribe((sortedEvent: SohoDataGridSortedEvent) => {
+      expect(sortedEvent.sortId).toEqual('desc');
+      expect(sortedEvent.sortAsc).toBeTruthy();
+      expect(sortedEvent.sortField).toEqual('desc');
+      done();
+    });
+
+    fixture.detectChanges();
+
+    component.datagrid.setSortColumn('desc', true);
+  });
+
+  it('check setColumnSort(id, ascending)', () => {
+    fixture.detectChanges();
+
+    component.datagrid.setSortColumn('desc', false);
+  });
+
+  it('check setColumnSort(id)', () => {
+    fixture.detectChanges();
+
+    component.datagrid.setSortColumn('desc');
+  });
+
+
+
 });
 
 @Component({
@@ -194,12 +221,12 @@ class SohoDataGridTestComponent {
     if (!this._columns) {
       this._columns = [];
       /* tslint:disable */
-      this._columns.push({id: 'selectionCheckbox', sortable: false, resizable: false, filterType: 'text', width: 50, formatter: Formatters.SelectionCheckbox, align: 'center'});
-      this._columns.push({id: 'taskName', name: 'Task', field: 'taskName', expanded: 'expanded', formatter: Formatters.Tree, filterType: 'text', width: 250});
-      this._columns.push({id: 'id', name: 'Id', field: 'id', filterType: 'text', width: 25 });
-      this._columns.push({id: 'desc', name: 'Description', field: 'desc', filterType: 'text', width: 200 });
-      this._columns.push({id: 'comments', name: 'Comments', field: 'comments', formatter: Formatters.Hyperlink, filterType: 'text', width: 60 });
-      this._columns.push({id: 'time', name: 'Time', field: 'time', filterType: 'time', width: 60 });
+      this._columns.push({ id: 'selectionCheckbox', sortable: false, resizable: false, filterType: 'text', width: 50, formatter: Formatters.SelectionCheckbox, align: 'center' });
+      this._columns.push({ id: 'taskName', name: 'Task', field: 'taskName', expanded: 'expanded', formatter: Formatters.Tree, filterType: 'text', width: 250 });
+      this._columns.push({ id: 'id', name: 'Id', field: 'id', filterType: 'text', width: 25 });
+      this._columns.push({ id: 'desc', name: 'Description', field: 'desc', filterType: 'text', width: 200 });
+      this._columns.push({ id: 'comments', name: 'Comments', field: 'comments', formatter: Formatters.Hyperlink, filterType: 'text', width: 60 });
+      this._columns.push({ id: 'time', name: 'Time', field: 'time', filterType: 'time', width: 60 });
       /* tslint:enable */
     }
     return this._columns;
@@ -209,22 +236,26 @@ class SohoDataGridTestComponent {
     if (!this._data) {
       /* tslint:disable */
       this._data = [
-        {id: 1, escalated: 2, depth: 1, expanded: false, taskName: 'Follow up action with HMM Global', desc: '', comments: null, time: '', children: [
-            {id: 2, escalated: 1, depth: 2, taskName: 'Quotes due to expire',  desc: 'Update pending quotes and send out again to customers.', comments: 3, time: '7:10 AM'},
-            {id: 3, escalated: 0, depth: 2, taskName: 'Follow up action with Universal Shipping Logistics Customers', desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '9:10 AM'},
-            {id: 4, escalated: 0, depth: 2, taskName: 'Follow up action with Acme Trucking', desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '14:10 PM'},
+        {
+          id: 1, escalated: 2, depth: 1, expanded: false, taskName: 'Follow up action with HMM Global', desc: '', comments: null, time: '', children: [
+            { id: 2, escalated: 1, depth: 2, taskName: 'Quotes due to expire', desc: 'Update pending quotes and send out again to customers.', comments: 3, time: '7:10 AM' },
+            { id: 3, escalated: 0, depth: 2, taskName: 'Follow up action with Universal Shipping Logistics Customers', desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '9:10 AM' },
+            { id: 4, escalated: 0, depth: 2, taskName: 'Follow up action with Acme Trucking', desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '14:10 PM' },
           ]
         },
-        {id: 5, escalated: 0, depth: 1, taskName: 'Follow up action with Residental Housing', desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '18:10 PM'},
-        {id: 6, escalated: 0, depth: 1, taskName: 'Follow up action with HMM Global', desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '20:10 PM'},
-        {id: 7, escalated: 0, depth: 1, expanded: true, taskName: 'Follow up action with Residental Housing', desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '22:10 PM', children: [
-          {id: 8, escalated: 0, depth: 2, taskName: 'Follow up action with Universal HMM Logistics', desc: 'Contact sales representative.', comments: 2, time: '22:10 PM'},
-            {id: 9, escalated: 0, depth: 2, taskName: 'Follow up action with Acme Shipping', desc: 'Contact sales representative.', comments: 2, time: '22:10 PM'},
-            {id: 10, escalated: 0, depth: 2, expanded: true, taskName: 'Follow up action with Residental Shipping Logistics ', desc: 'Contact sales representative.', comments: 2, time: '7:04 AM', children: [
-                {id: 11, escalated: 0, depth: 3, taskName: 'Follow up action with Universal Shipping Logistics Customers', desc: 'Contact sales representative.', comments: 2, time: '14:10 PM'},
-                {id: 12, escalated: 0, depth: 3, expanded: true, taskName: 'Follow up action with Acme Universal Logistics Customers', desc: 'Contact sales representative.', comments: 2, time: '7:04 AM', children: [
-                    {id: 13, escalated: 0, depth: 4, taskName: 'More Contact', desc: 'Contact sales representative.', comments: 2, time: '14:10 PM'},
-                    {id: 14, escalated: 0, depth: 4, taskName: 'More Follow up', desc: 'Contact sales representative.', comments: 2, time: '7:04 AM'},
+        { id: 5, escalated: 0, depth: 1, taskName: 'Follow up action with Residental Housing', desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '18:10 PM' },
+        { id: 6, escalated: 0, depth: 1, taskName: 'Follow up action with HMM Global', desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '20:10 PM' },
+        {
+          id: 7, escalated: 0, depth: 1, expanded: true, taskName: 'Follow up action with Residental Housing', desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '22:10 PM', children: [
+            { id: 8, escalated: 0, depth: 2, taskName: 'Follow up action with Universal HMM Logistics', desc: 'Contact sales representative.', comments: 2, time: '22:10 PM' },
+            { id: 9, escalated: 0, depth: 2, taskName: 'Follow up action with Acme Shipping', desc: 'Contact sales representative.', comments: 2, time: '22:10 PM' },
+            {
+              id: 10, escalated: 0, depth: 2, expanded: true, taskName: 'Follow up action with Residental Shipping Logistics ', desc: 'Contact sales representative.', comments: 2, time: '7:04 AM', children: [
+                { id: 11, escalated: 0, depth: 3, taskName: 'Follow up action with Universal Shipping Logistics Customers', desc: 'Contact sales representative.', comments: 2, time: '14:10 PM' },
+                {
+                  id: 12, escalated: 0, depth: 3, expanded: true, taskName: 'Follow up action with Acme Universal Logistics Customers', desc: 'Contact sales representative.', comments: 2, time: '7:04 AM', children: [
+                    { id: 13, escalated: 0, depth: 4, taskName: 'More Contact', desc: 'Contact sales representative.', comments: 2, time: '14:10 PM' },
+                    { id: 14, escalated: 0, depth: 4, taskName: 'More Follow up', desc: 'Contact sales representative.', comments: 2, time: '7:04 AM' },
                   ]
                 },
               ]

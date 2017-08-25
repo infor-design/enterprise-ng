@@ -458,6 +458,13 @@ interface SohoDataGridStatic {
   /** Used to set the sort indicator on a column when disableClientSort is set to true */
   setSortIndicator(columnId: string, ascending: boolean): void;
 
+  /** Used to define the column to sort on.
+   *
+   * @param columnId - the identifier of the column to sort on.
+   * @param ascending - optional flag to set the direction of the sort, if undefined the drection is flipped.
+   */
+  setSortColumn(columnId: string, ascending?: boolean )
+
   columnById(id: string): Array<any>;
 
   getColumnIndex(columnId: string): number;
@@ -541,8 +548,14 @@ interface SohoDataGridStatic {
  * Details of the 'sorted' event.
  */
 interface SohoDataGridSortedEvent {
-  // The column that was sorted.
-  column: SohoDataGridColumn;
+  // The id of the colummn
+  sortId: string;
+
+  // The associated field name
+  sortField: string;
+
+  // Ascending?
+  sortAsc: boolean;
 }
 
 interface SohoDataGridRowActivated {

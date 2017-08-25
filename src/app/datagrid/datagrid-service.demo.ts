@@ -51,6 +51,10 @@ export class DataGridServiceDemoComponent implements AfterContentInit, AfterView
     this.dataGrid.clearFilter();
   }
 
+  sortColumn() {
+    this.dataGrid.setSortColumn('price1');
+  }
+
   addRow() {
   }
 }
