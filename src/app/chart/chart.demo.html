@@ -31,6 +31,10 @@
     <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionD" value=4 (change)="onChangeIndex($event)"/>
     <label for="optionD" class="radio-label">4</label>
   </div>
+  <div class="ten columns">
+    <input type="checkbox" class="checkbox" id="checkbox2" checked (change)="onCheckboxChange($event)">
+    <label for="checkbox2" class="checkbox-label" >Animate Chart(not all supported)</label>
+  </div>
 
 </form>
 <div class="full-width chart-container" style="height:75%">
