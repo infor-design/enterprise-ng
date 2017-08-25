@@ -6,12 +6,13 @@ import {
   Input,
   OnDestroy,
   Output,
+  OnChanges
 } from '@angular/core';
 
 @Directive({
   selector: '[soho-tooltip]' // tslint:disable-line
 })
-export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
+export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges {
 
   // -------------------------------------------
   // Options Block
@@ -193,5 +194,10 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
       this.tooltip.destroy();
       this.tooltip = null;
     }
+  }
+
+  ngOnChanges() {
+    if(this.jQueryElement)
+      this.jQueryElement.tooltip(this.options);
   }
 }
