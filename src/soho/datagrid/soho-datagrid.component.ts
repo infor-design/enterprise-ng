@@ -959,7 +959,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Overrides the sort function used by the datagrid,
-   * can only be used once the grd has been created.
+   * can only be used once the grid has been created.
    *
    * @todo this should made lazy.
    */
@@ -972,10 +972,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   * Sets the sort column.
+   * Sets the column and direction to sort the dataset on.
    *
-   * @param columnId the id of the column to sort on; must non-null.
-   * @param ascending the direction based on if passed in or toggling existing field
+   * Can only be used once the grid has been initialised, otherwise
+   * an error is thrown.
+   *
+   * @param columnId the id of the column to sort on; must be non-null.
+   * @param ascending if true sort ascending, otherwise if alse descending.  If not supplied the order is reversed.
    */
   setSortColumn(columnId: string, ascending?: boolean): void {
     if (this.datagrid) {

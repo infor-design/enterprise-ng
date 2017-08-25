@@ -458,10 +458,14 @@ interface SohoDataGridStatic {
   /** Used to set the sort indicator on a column when disableClientSort is set to true */
   setSortIndicator(columnId: string, ascending: boolean): void;
 
-  /** Used to define the column to sort on.
+  /**
+   * Sets the column and direction to sort the dataset on.
    *
-   * @param columnId - the identifier of the column to sort on.
-   * @param ascending - optional flag to set the direction of the sort, if undefined the drection is flipped.
+   * Can only be used once the grid has been initialised, otherwise
+   * an error is thrown.
+   *
+   * @param columnId the id of the column to sort on.
+   * @param ascending if true sort ascending, otherwise if alse descending.  If not supplied the order is reversed.
    */
   setSortColumn(columnId: string, ascending?: boolean )
 
