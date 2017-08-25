@@ -10,7 +10,8 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[soho-tooltip]' // tslint:disable-line
+  selector: '[soho-tooltip]', // tslint:disable-line
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges {
 
