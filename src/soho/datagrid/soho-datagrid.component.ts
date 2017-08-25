@@ -978,7 +978,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * an error is thrown.
    *
    * @param columnId the id of the column to sort on; must be non-null.
-   * @param ascending if true sort ascending, otherwise if alse descending.  If not supplied the order is reversed.
+   * @param ascending if true sort ascending, otherwise descending.  If not supplied the setting is toggled.
    */
   setSortColumn(columnId: string, ascending?: boolean): void {
     if (this.datagrid) {

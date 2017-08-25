@@ -465,7 +465,7 @@ interface SohoDataGridStatic {
    * an error is thrown.
    *
    * @param columnId the id of the column to sort on.
-   * @param ascending if true sort ascending, otherwise if alse descending.  If not supplied the order is reversed.
+   * @param ascending if true sort ascending, otherwise descending.  If not supplied the setting is toggled.
    */
   setSortColumn(columnId: string, ascending?: boolean )
 
