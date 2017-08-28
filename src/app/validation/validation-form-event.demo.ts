@@ -40,14 +40,22 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
   }
 
   onAfterResetDirty(event: SohoTrackDirtyEvent) {
-    this.form.controls[ event.currentTarget.id ].markAsPristine();
+    this.form.controls[ event.currentTarget.getAttribute('formControlName') ].markAsPristine();
   }
 
   onDirty(event: SohoTrackDirtyEvent) {
   }
 
   onPristine(event: SohoTrackDirtyEvent) {
-    this.form.controls[ event.currentTarget.id ].markAsPristine();
+    this.form.controls[ event.currentTarget.getAttribute('formControlName') ].markAsPristine();
+  }
+
+  onError(event: SohoInputValidateEvent) {
+    this.form.controls[ event.validation.field.getAttribute('formControlName') ].setErrors({ 'inError': true });
+  }
+
+  onValid(event: SohoInputValidateEvent) {
+    this.form.controls[ event.validation.field.getAttribute('formControlName') ].setErrors(null);
   }
 
   private buildModel() {
