@@ -24,6 +24,7 @@
 /// <reference path="./hyperlink/soho-hyperlink.d.ts" />
 /// <reference path="./homepage/soho-homepage.d.ts" />
 /// <reference path="./input/soho-input.d.ts" />
+/// <reference path="./input-validate/soho-input-validate.d.ts" />
 /// <reference path="./listview/soho-listview.d.ts" />
 /// <reference path="./locale/soho-locale.d.ts" />
 /// <reference path="./lookup/soho-lookup.d.ts" />
