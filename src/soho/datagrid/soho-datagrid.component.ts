@@ -400,10 +400,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
-    /**
-   *
-   * @param saveUserSettings
-   */
+  /**
+ *
+ * @param saveUserSettings
+ */
   @Input() set saveUserSettings(settingsForSave: SohoDataGridSaveUserSettings) {
     this._gridOptions.saveUserSettings = settingsForSave;
     if (this.jQueryElement) {
@@ -959,7 +959,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Overrides the sort function used by the datagrid,
-   * can only be used once the grd has been created.
+   * can only be used once the grid has been created.
    *
    * @todo this should made lazy.
    */
@@ -968,6 +968,23 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       this.datagrid.sortFunction = sortFunction;
     } else {
       throw new Error('datagrid not initialized.');
+    }
+  }
+
+  /**
+   * Sets the column and direction to sort the dataset on.
+   *
+   * Can only be used once the grid has been initialised, otherwise
+   * an error is thrown.
+   *
+   * @param columnId the id of the column to sort on; must be non-null.
+   * @param ascending if true sort ascending, otherwise descending.  If not supplied the setting is toggled.
+   */
+  setSortColumn(columnId: string, ascending?: boolean): void {
+    if (this.datagrid) {
+      this.datagrid.setSortColumn(columnId, ascending);
+    } else {
+      throw new Error('datagrid not initialized');
     }
   }
 
@@ -1330,7 +1347,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       .on('removerow', (e: JQueryEventObject, args: SohoDataGridRowRemoveEvent) => { this.rowRemove.next(args); })
       .on('addrow', (e: JQueryEventObject, args: SohoDataGridAddRowEvent) => { this.rowAdd.next(args); })
       .on('filtered', (e: JQueryEventObject, args: any) => { this.filtered.next(args); })
-      .on('sorted', (e: JQueryEventObject, args: any) => { this.sorted.next(args); })
+      .on('sorted', (e: JQueryEventObject, args: SohoDataGridSortedEvent) => { this.sorted.next(args); })
       .on('expandrow', (e: JQueryEventObject, args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
       .on('collapserow', (e: JQueryEventObject, args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
       .on('rowactivated', (e: JQueryEventObject, args: SohoDataGridRowActivatedEvent) => { this.rowActivated.next(args); })
@@ -1413,15 +1430,15 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
  * for more details about creating an enum of strings.
  */
 export enum SohoGridColumnFilterTypes {
-  Text     = <any> 'text',
-  Checkbox = <any> 'checkbox',
-  Contents = <any> 'contents',
-  Date     = <any> 'date',
-  Decimal  = <any> 'decimal',
-  Integer  = <any> 'integer',
-  Lookup   = <any> 'lookup',
-  Percent  = <any> 'percent',
-  Select   = <any> 'select'
+  Text = <any>'text',
+  Checkbox = <any>'checkbox',
+  Contents = <any>'contents',
+  Date = <any>'date',
+  Decimal = <any>'decimal',
+  Integer = <any>'integer',
+  Lookup = <any>'lookup',
+  Percent = <any>'percent',
+  Select = <any>'select'
 };
 
 /**

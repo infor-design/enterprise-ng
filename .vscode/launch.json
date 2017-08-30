@@ -10,6 +10,16 @@
             "sourceMaps": true,
             "webRoot": "${workspaceRoot}"
         },
+
+        {
+          "name": "Launch Chrome Test",
+          "type": "chrome",
+          "request": "launch",
+          "url": "http://localhost:9876/debug.html?spec=Soho%20DataGrid%20Render%20check%20setColumnSort(id%2C%20descending)",
+          "sourceMaps": true,
+          "webRoot": "${workspaceRoot}"
+      },
+
         {
             "name": "Attach to Chrome, with sourcemaps",
             "type": "chrome",
