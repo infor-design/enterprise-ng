@@ -1,5 +1,6 @@
 
 ## Whats New
+* 2017-08-30 - PWP - Fixed breakpoints type in soho-application-menu.d.ts to match soho.
 * 2017-08-16 - BTH - Fixed SOHO-5125 - `spinbox`, `datepicker`, `timepicker` and `colorpicker`.
 * 2017-08-15 - BTH - Upgraded to @angular/cli 1.3.0
 * 2017-08-08 - MHH - Added support for grouped headers to datagrid
@@ -66,6 +67,8 @@
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2017-08-30 - PWP - Fixed breakpoints SohoApplicationMenuBreakPoint type in soho-application-menu.d.ts to match soho. Two settings weren't available (tablet and large) and caused the app menu to dismiss on every click. And several other options weren't defined in the type.
 
 * 2017-08-17 - PWP - soho-personalize.d.ts - had incorrect options definition. This removes the use the `@Input() startingColor` as an option into the personalize directive. Use of `@Input() colors` is recommended instead.
 
