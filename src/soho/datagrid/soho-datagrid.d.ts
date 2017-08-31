@@ -270,6 +270,25 @@ type SohoDataGridColumnHrefFunction = (
   rowData: Object
 ) => boolean;
 
+interface SohoDataGridColumnClickData {
+  /** Index of the row clicked. */
+  row: number;
+
+  /** Element click. */
+  cell: HTMLElement;
+
+  /** Row data */
+  item: any;
+
+  /** Source event. */
+  originalEvent: Event;
+}
+
+type SohoDataGridColumnClickFunction = (
+  e: Event,
+  args: SohoDataGridColumnClickData[]
+) => void;
+
 /**
  * This is an interface mapping for the grid column defined
  * within the Soho jQuery Control.
@@ -331,8 +350,8 @@ interface SohoDataGridColumn {
   /** @todo fix type from any.  */
   sourceFormat?: any;
 
-  /** @todo fix type from any.  */
-  click?: any;
+  /** Invoked when a clickable formatter is used, such as Button.  */
+  click?: SohoDataGridColumnClickFunction;
 
   /** Is the grid searchable. */
   searchable?: boolean;
@@ -439,6 +458,17 @@ interface SohoDataGridStatic {
   /** Used to set the sort indicator on a column when disableClientSort is set to true */
   setSortIndicator(columnId: string, ascending: boolean): void;
 
+  /**
+   * Sets the column and direction to sort the dataset on.
+   *
+   * Can only be used once the grid has been initialised, otherwise
+   * an error is thrown.
+   *
+   * @param columnId the id of the column to sort on.
+   * @param ascending if true sort ascending, otherwise descending.  If not supplied the setting is toggled.
+   */
+  setSortColumn(columnId: string, ascending?: boolean )
+
   columnById(id: string): Array<any>;
 
   getColumnIndex(columnId: string): number;
@@ -522,8 +552,14 @@ interface SohoDataGridStatic {
  * Details of the 'sorted' event.
  */
 interface SohoDataGridSortedEvent {
-  // The column that was sorted.
-  column: SohoDataGridColumn;
+  // The id of the colummn
+  sortId: string;
+
+  // The associated field name
+  sortField: string;
+
+  // Ascending?
+  sortAsc: boolean;
 }
 
 interface SohoDataGridRowActivated {
