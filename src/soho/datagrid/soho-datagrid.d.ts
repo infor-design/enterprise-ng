@@ -173,7 +173,7 @@ type SohoDataGridSortFunction = (
   ascending: boolean
 ) => boolean;
 
-type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' | 'integer' | 'lookup' | 'percent' | 'select';
+type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' | 'integer' | 'percent' | 'select' | 'time';
 
 type SohoDataGridColumnEditorFunction = (
   row?: any,
