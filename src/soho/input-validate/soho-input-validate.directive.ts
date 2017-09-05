@@ -7,7 +7,7 @@ import { AfterViewInit, Directive, ElementRef, EventEmitter, Output } from '@ang
  * 'data-validate' or 'data-validate-on="submit"'.
  */
 @Directive({
-  selector: 'form[soho-input-validate], input[soho-input-validate], input[data-validate], input[data-validate-on="submit"], textarea[data-validate]', // tslint:disable-line
+  selector: 'form[soho-input-validate], input[soho-input-validate], input[data-validate], input[data-validate-on="submit"], textarea[data-validate], select[data-validate]' // tslint:disable-line
 })
 export class SohoInputValidateDirective implements AfterViewInit {
 

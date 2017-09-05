@@ -43,6 +43,18 @@
             <p>{{status('DateField')}}</p>
           </div>
         </div>
+         <div class="six columns">
+          <div class="field">
+            <label soho-label [required]="model.DropdownField.required" for="DropdownField">Dropdown Field</label>
+            <select class="dropdown" id="DropdownField" name="DropdownField" formControlName="DropdownField"
+              [(ngModel)]="model.DropdownField.value"
+              soho-dropdown soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
+            >
+              <option *ngFor="let option of ['', 'Option #1', 'Option #2', 'Option #3']" [value]="option">{{option}}</option>
+            </select>
+            <p>{{status('DropdownField')}}</p>
+          </div>
+        </div>
       </div>
 
       <div class="row">
