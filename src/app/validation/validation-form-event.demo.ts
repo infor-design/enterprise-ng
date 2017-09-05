@@ -20,6 +20,10 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
     },
     DateField:    {
       value: ''
+    },
+    DropdownField: {
+      value: '',
+      required: true
     }
   };
 
