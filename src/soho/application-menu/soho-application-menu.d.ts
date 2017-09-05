@@ -8,7 +8,14 @@
 /**
  * Application Menu Options
  */
-type SohoApplicationMenuBreakPoint = 'phablet' | 'tablet' | 'desktop' | 'large';
+type SohoApplicationMenuBreakPoint =
+  'phone' |
+  'slim' |
+  'phablet' |
+  'phone-to-tablet' |
+  'wide-tablet' |
+  'tablet-to-desktop' |
+  'desktop-to-extralarge';
 
 interface SohoApplicationMenuOptions {
   /** Defines the point at which the application should be displayed - depends on device. */
