@@ -10,19 +10,18 @@
           </div>
 
           <div class="field">
-            <soho-fileupload [name]="name1" [label]="text"></soho-fileupload>
+            <label [for]="name4">{{text}}</label>
+            <soho-fileupload [name]="name4" [accept]="fileLimits"></soho-fileupload>
           </div>
 
           <div class="field">
-            <soho-fileupload [name]="name1" [label]="limitLabel" [accept]="fileLimits"></soho-fileupload>
+            <label [for]="name2">{{text}}</label>
+            <soho-fileupload [name]="name2" [disabled]="true"></soho-fileupload>
           </div>
 
           <div class="field">
-            <soho-fileupload [name]="name2" [label]="text" [disabled]="true"></soho-fileupload>
-          </div>
-
-          <div class="field">
-            <soho-fileupload [name]="name3" [readonly]="true" [label]="text"></soho-fileupload>
+            <label [for]="name3">{{text}}</label>
+            <soho-fileupload [name]="name3" [readonly]="true"></soho-fileupload>
           </div>
 
           <br/>
