@@ -5,6 +5,11 @@
         <div class="twelve columns">
 
           <div class="field">
+            <label [for]="name1">{{text}}</label>
+            <soho-fileupload [id]="name1" [name]="name1"></soho-fileupload>
+          </div>
+
+          <div class="field">
             <soho-fileupload [name]="name1" [label]="text"></soho-fileupload>
           </div>
 
