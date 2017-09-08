@@ -30,7 +30,7 @@ import { RadioControlValueAccessor } from '@angular/forms';
  * input[type=radio][formControl]
  * input[type=radio][ngModel]
  *
- * Make sure you add `type="radio"` to you control.
+ * Make sure you add `type="radio"` to your control.
  */
 @Component({
   selector: 'input[soho-radiobutton]', // tslint:disable-line
@@ -46,12 +46,12 @@ export class SohoRadioButtonComponent implements AfterViewInit {
 
   /** Bind attributes to the host input element. */
   @HostBinding('attr.type') get isRadioType() {
-     return 'radio';
+    return 'radio';
   }
 
-  /** Sets the class attribute for the radio button - this is irr */
+  /** Sets the class attribute for the radio button. */
   @HostBinding('class.radio') get isRadioButton() {
-     return true;
+    return true;
   }
 
   /** Sets the element to disabled. */
