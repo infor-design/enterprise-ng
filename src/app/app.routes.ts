@@ -86,6 +86,7 @@ import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
 import { ToolbarStateComponent } from './toolbar/toolbar-state.component';
+import { ToolbarRightAlignedDemoComponent } from './toolbar/toolbar-right-aligned.demo';
 import { TooltipDemoComponent } from './tooltip/tooltip.demo';
 import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
@@ -189,6 +190,7 @@ export const routes: Routes = [
   { path: 'toolbar-basic',         component: ToolbarBasicDemoComponent },
   { path: 'toolbar-datadriven',    component: ToolbarDataDrivenDemoComponent },
   { path: 'toolbar-state',         component: ToolbarStateComponent },
+  { path: 'toolbar-right-aligned', component: ToolbarRightAlignedDemoComponent },
   { path: 'tooltip',               component: TooltipDemoComponent },
   { path: 'trackdirty',            component: TrackDirtyDemoComponent },
   { path: 'tree-content',          component: TreeContentDemoComponent },

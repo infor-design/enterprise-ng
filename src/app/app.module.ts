@@ -111,6 +111,7 @@ import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
 import { ToolbarStateComponent } from './toolbar/toolbar-state.component';
 import { ToolbarStateDemoComponent } from './toolbar/toolbar-state.demo';
+import { ToolbarRightAlignedDemoComponent } from './toolbar/toolbar-right-aligned.demo';
 import { TooltipDemoComponent } from './tooltip/tooltip.demo';
 import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
@@ -217,6 +218,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     ToolbarDataDrivenDemoComponent,
     ToolbarStateComponent,
     ToolbarStateDemoComponent,
+    ToolbarRightAlignedDemoComponent,
     TooltipDemoComponent,
     TrackDirtyDemoComponent,
     TreeContentDemoComponent,

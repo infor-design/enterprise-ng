@@ -26,15 +26,15 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
 
   ngOnInit() {
 
-      this.pageTitle = 'Page Title';
-      this.sectionTitle = 'Data Driven Toolbar';
+    this.pageTitle = 'Page Title';
+    this.sectionTitle = 'Data Driven Toolbar';
 
-      this.searchField = {
-          id    : 'Search',
-          label : 'Search Something'
-      };
+    this.searchField = {
+        id    : 'Search',
+        label : 'Search Something'
+    };
 
-      this.buttons = this.buildToolbarButtonArray();
+    this.buttons = this.buildToolbarButtonArray();
   }
 
   // Lazy loading example

@@ -1,16 +1,13 @@
 <div class="row">
-  <div class="twelve columns">
-    <h1>Data Driven Toolbar Example</h1>
-    <span class="code-tag">Enhancement</span>
-    <a href="http://jira/browse/SOHO-5011" class="hyperlink">SOHO-5011</a>
-  </div>
-  <div class="twelve columns">
+
+  <div class="full-width column">
+
     <soho-toolbar
       #sohoToolbar
       [maxVisibleButtons]="6"
       (selected)="onSelected($event)"
-      (menuItemMouseOver)="onMenuItemMouseOver($event)"
-    >
+      (menuItemMouseOver)="onMenuItemMouseOver($event)">
+
       <soho-toolbar-title>
 
         <!-- in header -->
