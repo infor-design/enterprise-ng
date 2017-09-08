@@ -7,18 +7,23 @@ import { SohoSpinboxComponent } from '../../soho/spinbox';
 })
 
 export class SpinboxDemoComponent {
-  @ViewChild(SohoSpinboxComponent) spinbox: SohoSpinboxComponent;
+  @ViewChild('spinbox') spinbox: SohoSpinboxComponent;
 
+  public model = { // tslint:disable-line
+    value1: '10'
+  };
   public disabled = false;
   public id1 = 'regular-spinbox';
   public id2 = 'limited-spinbox';
   public id3 = 'dirty-spinbox';
-  public id4 = 'disabled-spinbox';
+  public id4 = 'ngmodel-spinbox';
   public id5 = 'stepped-spinbox';
   public id6 = 'error-spinbox';
   public val = 5;
+  public showModel = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   setDisable() {
     this.disabled = this.spinbox.disabled = true;
@@ -28,10 +33,14 @@ export class SpinboxDemoComponent {
     this.disabled = this.spinbox.disabled = false;
   }
 
+  toggleModel() {
+    this.showModel = !this.showModel;
+  }
+
   update() {
     this.val = 46;
     if (!this.disabled) {
-      this.spinbox.updateValue = this.val;
+      this.spinbox.value = 80;
     }
   }
 

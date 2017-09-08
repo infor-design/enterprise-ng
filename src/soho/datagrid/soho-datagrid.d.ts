@@ -127,6 +127,15 @@ interface SohoDataGridOptions {
 
   /**  */
   showDirty?: boolean;
+
+  /** If a row is activated the user should not be able to deactivate it by clicking on the activated row */
+  disableRowDeactivation?: boolean;
+
+  /** To automatically save user settings for the grid */
+  saveUserSettings?: SohoDataGridSaveUserSettings;
+
+  /** Grouped columns*/
+  columnGroups?: SohoDataGridColumnGroup[];
 }
 
 /**
@@ -138,12 +147,7 @@ interface SohoDataGridPageInfo extends SohoPagerPagingInfo {
 }
 
 interface SohoDataGridSourceRequest extends SohoPagerPagingInfo {
-  filterExpr: {
-    column?: 'all' | string;
-    lowercase?: 'yes' | 'no';
-    operator?: 'contains' | string;
-    value?: string;
-  }[];
+  filterExpr: Array<SohoDataGridFilterCondition>;
   sortAsc?: boolean;
   sortField?: string;
   sortId?: string;
@@ -169,7 +173,7 @@ type SohoDataGridSortFunction = (
   ascending: boolean
 ) => boolean;
 
-type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' | 'integer' | 'lookup' | 'percent' | 'select';
+type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' | 'integer' | 'percent' | 'select' | 'time';
 
 type SohoDataGridColumnEditorFunction = (
   row?: any,
@@ -227,7 +231,7 @@ declare var Formatters: {
   Template: SohoDataGridColumnFormatterFunction;
   Drilldown: SohoDataGridColumnFormatterFunction;
   Password: SohoDataGridColumnFormatterFunction;
-  TextArea: SohoDataGridColumnFormatterFunction;
+  Textarea: SohoDataGridColumnFormatterFunction;
   Checkbox: SohoDataGridColumnFormatterFunction;
   SelectionCheckbox: SohoDataGridColumnFormatterFunction;
   Actions: SohoDataGridColumnFormatterFunction;
@@ -244,6 +248,7 @@ declare var Formatters: {
   Status: SohoDataGridColumnFormatterFunction;
   Tree: SohoDataGridColumnFormatterFunction;
   RowReorder: SohoDataGridColumnFormatterFunction;
+  TargetedAchievement: SohoDataGridColumnFormatterFunction;
 };
 
 // declare var Formatters as SohoDataGridColumnFormatters;
@@ -256,6 +261,33 @@ type SohoDataGridColumnHrefFunction = (
  ) => string;
 
  type SohoDataGridColumnHref = string | SohoDataGridColumnHrefFunction;
+
+ type SohoDataGridColumnIsEditableFunction = (
+  row: number,
+  cell: any,
+  fieldValue: any,
+  columnDef: SohoDataGridColumn,
+  rowData: Object
+) => boolean;
+
+interface SohoDataGridColumnClickData {
+  /** Index of the row clicked. */
+  row: number;
+
+  /** Element click. */
+  cell: HTMLElement;
+
+  /** Row data */
+  item: any;
+
+  /** Source event. */
+  originalEvent: Event;
+}
+
+type SohoDataGridColumnClickFunction = (
+  e: Event,
+  args: SohoDataGridColumnClickData[]
+) => void;
 
 /**
  * This is an interface mapping for the grid column defined
@@ -318,11 +350,14 @@ interface SohoDataGridColumn {
   /** @todo fix type from any.  */
   sourceFormat?: any;
 
-  /** @todo fix type from any.  */
-  click?: any;
+  /** Invoked when a clickable formatter is used, such as Button.  */
+  click?: SohoDataGridColumnClickFunction;
 
   /** Is the grid searchable. */
   searchable?: boolean;
+
+  /** Optional template to use when rendering cells using the Template formatter. */
+  template?: string;
 
   /** @todo fix type from any.  */
   inputType?: any;
@@ -350,7 +385,27 @@ interface SohoDataGridColumn {
 
   /** href for hyperlink */
   href?: SohoDataGridColumnHref;
+
+  /** Column function to dynamically set the readonly property on cells based on row data. */
+  isEditable?: SohoDataGridColumnIsEditableFunction;
+
+  /** special display formatting for a numeric column */
+  numberFormat?: SohoDataGridColumnNumberFormat;
+
+  /** false = prevent user drag/drop this column order i.e. a drilldown column */
+  reorderable?: boolean
 }
+
+interface SohoDataGridColumnNumberFormat {
+  decimal?: string;
+  group?: string;
+  minimumFractionDigits?: number;
+  maximumFractionDigits?: number;
+  style?: SohoDataGridColumnNumberFormatStyle;
+  round?: boolean;
+}
+
+type SohoDataGridColumnNumberFormatStyle = 'decimal' | 'currency' | 'percent' | 'integer' | string;
 
 interface SohoGridCellOption {
   /** The underlying data value. */
@@ -383,7 +438,7 @@ interface SohoDataGridStatic {
   loadData(dataset: Object[]): void;
 
   /** Updates the columns displayed on the grid. */
-  updateColumns(columns: SohoDataGridColumn[]): void;
+  updateColumns(columns: SohoDataGridColumn[], columnGroups: SohoDataGridColumnGroup[]): void;
 
   /** The grouping  name of the given column idx. */
   getColumnGroup(idx: number): string;
@@ -403,6 +458,17 @@ interface SohoDataGridStatic {
   /** Used to set the sort indicator on a column when disableClientSort is set to true */
   setSortIndicator(columnId: string, ascending: boolean): void;
 
+  /**
+   * Sets the column and direction to sort the dataset on.
+   *
+   * Can only be used once the grid has been initialised, otherwise
+   * an error is thrown.
+   *
+   * @param columnId the id of the column to sort on.
+   * @param ascending if true sort ascending, otherwise descending.  If not supplied the setting is toggled.
+   */
+  setSortColumn(columnId: string, ascending?: boolean )
+
   columnById(id: string): Array<any>;
 
   getColumnIndex(columnId: string): number;
@@ -415,6 +481,19 @@ interface SohoDataGridStatic {
 
   removeSelected(): void;
 
+  /** Toggles the display of the filter row. */
+  toggleFilterRow(): void;
+
+  /** Accept conditions from outside or pull from filter row */
+  applyFilter(conditions?: Array<SohoDataGridFilterCondition>): void;
+
+  /** Set the filter row from passed data / settings */
+  setFilterConditions(conditions: Array<SohoDataGridFilterCondition>): void;
+
+  /** Get filter conditions in array form from the UI */
+  filterConditions(): Array<SohoDataGridFilterCondition>;
+
+  /** Clear and reset the filter */
   clearFilter(): void;
 
   selectedRows(): SohoDataGridSelectedRow[];
@@ -437,8 +516,6 @@ interface SohoDataGridStatic {
 
   activatedRow(): SohoDataGridRowActivated;
 
-  toggleFilterRow(): void;
-
   setActiveCell(idx: number, idx2: number): void;
 
   renderHeader(): void;
@@ -450,6 +527,22 @@ interface SohoDataGridStatic {
   exportToExcel(fileName: string, worksheetName: string, customDs: Object[]): void;
 
   /**
+   * Returns an array of all the rows in the grid marked as dirty.
+   *
+   * @return an array of all the rows in the grid marked as dirty.
+   */
+  dirtyRows(): Array<any>;
+
+  /**
+   * Sets the status of a given row in the grid.
+   *
+   * @param idx - the row number (idx) of the row
+   * @param status - status class name e.g. 'error'
+   * @param tooltip - string value for tooltip message e.g. 'Error'
+   */
+  rowStatus(idx: number, status: string, tooltip: string): void;
+
+  /**
    * Destructor,
    */
   destroy(): void;
@@ -459,8 +552,14 @@ interface SohoDataGridStatic {
  * Details of the 'sorted' event.
  */
 interface SohoDataGridSortedEvent {
-  // The column that was sorted.
-  column: SohoDataGridColumn;
+  // The id of the colummn
+  sortId: string;
+
+  // The associated field name
+  sortField: string;
+
+  // Ascending?
+  sortAsc: boolean;
 }
 
 interface SohoDataGridRowActivated {
@@ -528,6 +627,18 @@ interface SohoToolbarOptions {
   views?: boolean;
 }
 
+/**
+ * Part of the grid options, indicates what specific grid settings to automatically save.
+ */
+interface SohoDataGridSaveUserSettings {
+  columns?: boolean;
+  rowHeight?: boolean;
+  sortOrder?: boolean;
+  pagesize?: boolean;
+  activePage?: boolean;
+  filter?: boolean;
+}
+
 interface SohoDataGridGroupable {
 
   //
@@ -575,3 +686,17 @@ interface SohoDataGridRowActivatedEvent {
 }
 
 interface SohoDataGridRowDeactivatedEvent extends SohoDataGridRowActivatedEvent {}
+
+interface SohoDataGridFilterCondition {
+  columnId?: 'all' | string;
+  format?: string;
+  lowercase?: 'yes' | 'no';
+  operator?: 'contains' | string;
+  value?: string;
+}
+
+interface SohoDataGridColumnGroup {
+  colspan: number;
+  id: string;
+  name: string;
+}

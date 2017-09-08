@@ -1,49 +1,25 @@
-﻿<div class="two-column fixed">
-  <div class="sidebar">
-    <fieldset>
-      <legend>Company Information</legend>
-      <div class="summary-form">
-        <div class="row">
-          <div class="one-half column">
-            <div class="field">
-              <span class="label">Company Name</span>
-              <span class="data">Building Suppliers</span>
-            </div>
-            <div class="field">
-              <span class="label">Company Type</span>
-              <span class="data">Contractor</span>
-            </div>
-            <div class="field">
-              <span class="label">Company Address</span>
-               <span class="data">4209 Industrial Avenue <br>Los Angeles, California 90001 USA</span>
-            </div>
-          </div>
-
-          <div class="one-half column">
-              <div class="field">
-                <span class="label">Phone Number</span>
-                <span class="data">(999) 810-2604</span>
-              </div>
-              <div class="field">
-                <span class="label">Website</span>
-                <span class="data">www.buildings.com</span>
-              </div>
-              <div class="field">
-                <span class="label">Estimated Delivery</span>
-                <span class="data">June 21, 2015 <i> (4 days)</i></span>
-              </div>
-          </div>
+﻿<div class="two-column no-scroll" role="main">
+  <div class="sidebar scrollable">
+    <div class="panel-header">
+      <div class="toolbar standalone">
+        <div class="title">
+          <span>Nodes</span>
         </div>
-      </div>
-    </fieldset>
-  </div>
-  <div class="main" role="main">
-    <soho-splitter></soho-splitter>
-    <div class="row">
-      <div class="full-width">
-        <div soho-datagrid>
+
+        <div class="buttonset">
+          <button soho-button="icon" icon="expand-all" title="Expand All" id="expand-collapse">
+            <span>Expand All</span>
+          </button>
         </div>
       </div>
     </div>
+    <ul soho-tree></ul>
+    <soho-splitter [isSplitterRight]="true" [collapseButton]="true">
+      <div class="panel-header"></div>
+    </soho-splitter>
+  </div>
+
+  <div class="scrollable-area no-scroll">
+    <div soho-datagrid></div>
   </div>
 </div>

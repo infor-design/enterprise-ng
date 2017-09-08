@@ -1,5 +1,8 @@
 
-import { Component, HostBinding } from '@angular/core';
+import {
+  Component,
+  HostBinding
+} from '@angular/core';
 
 @Component({
   selector: 'soho-icons-ext',

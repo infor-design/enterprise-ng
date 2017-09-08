@@ -2,11 +2,14 @@
  * All the typings for the jQuery Controls.
  */
 // tslint:disable
+/// <reference path="./about/soho-about.d.ts" />
 /// <reference path="./application-menu/soho-application-menu.d.ts" />
+/// <reference path="./accordion/soho-accordion.d.ts" />
 /// <reference path="./busyindicator/soho-busyindicator.d.ts" />
 /// <reference path="./button/soho-button.d.ts" />
 /// <reference path="./chart/soho-chart.d.ts" />
 /// <reference path="./checkbox/soho-checkbox.d.ts" />
+/// <reference path="./colorpicker/soho-colorpicker.d.ts" />
 /// <reference path="./context-menu/soho-context-menu.d.ts" />
 /// <reference path="./contextual-action-panel/soho-contextual-action-panel.d.ts" />
 /// <reference path="./datagrid/soho-datagrid.d.ts" />
@@ -16,9 +19,12 @@
 /// <reference path="./error/soho-error.d.ts" />
 /// <reference path="./expandablearea/soho-expandablearea.d.ts" />
 /// <reference path="./fileupload/soho-fileupload.d.ts" />
+/// <reference path="./hierarchy/soho-hierarchy.d.ts" />
 /// <reference path="./header/soho-header.d.ts" />
 /// <reference path="./hyperlink/soho-hyperlink.d.ts" />
+/// <reference path="./homepage/soho-homepage.d.ts" />
 /// <reference path="./input/soho-input.d.ts" />
+/// <reference path="./input-validate/soho-input-validate.d.ts" />
 /// <reference path="./listview/soho-listview.d.ts" />
 /// <reference path="./locale/soho-locale.d.ts" />
 /// <reference path="./lookup/soho-lookup.d.ts" />

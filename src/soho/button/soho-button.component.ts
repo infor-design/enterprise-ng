@@ -9,7 +9,8 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { ArgumentHelper } from '@infor/sohoxi-angular';
+
+import { ArgumentHelper } from '../utils/argument.helper';
 
 /**
  * Supported button types.
@@ -124,6 +125,13 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    */
   @Input() toggle: string;
 
+  /**
+   * Sets the expandable-expander class to be placed on the button for the
+   * soho-expandablearea to use as it's expand/collapse trigger
+   * @type {boolean}
+   */
+  @Input() expandableExpander = false;
+
   @HostBinding('class.btn')
   get btn() {
     return this.buttonType === SohoButtonComponent.BTN;
@@ -157,6 +165,10 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     return this.buttonType === SohoButtonComponent.FAVORITE;
   };
 
+  @HostBinding('class.btn-moveto-left') @Input() moveToLeft;
+  @HostBinding('class.btn-moveto-right') @Input() moveToRight;
+  @HostBinding('class.btn-moveto-selected') @Input() moveToSelected;
+
   @HostBinding('class.no-ripple')
   get noRipple(): boolean {
     return !this.ripple;
@@ -165,6 +177,10 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   @HostBinding('attr.type') get type() {
     return this.isSubmit ? 'submit' : 'button';
   };
+
+  @HostBinding('class.expandable-expander') get isExpandableExpander() {
+    return this.expandableExpander;
+  }
 
   /**
    * @deprecated no longer needed once this.toggle is removed.
@@ -212,7 +228,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     this.jQueryElement.button(this._buttonOptions);
 
     // Initialize title attribute as a soho tooltip
-    if (this.jQueryElement.has('[title]')) {
+    if (this.jQueryElement.has('[title]') && !this.jQueryElement.has('[popover]')) {
       this.jQueryElement.tooltip();
     }
 

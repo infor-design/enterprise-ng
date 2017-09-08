@@ -14,7 +14,7 @@ import {
   OnDestroy
 } from '@angular/core';
 
-import { ArgumentHelper } from '../utils';
+import { ArgumentHelper } from '../utils/argument.helper';
 
 import { SohoDataGridService } from './soho-datagrid.service';
 
@@ -89,7 +89,14 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
   get gridOptions(): SohoDataGridOptions {
-      return this._gridOptions;
+    if (this.datagrid) {
+      return this.datagrid.settings;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions;
   }
 
   /**
@@ -107,6 +114,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get idProperty(): string {
+    if (this.datagrid) {
+      return this.datagrid.settings.idProperty;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.idProperty;
   }
 
@@ -123,6 +137,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get cellNavigation(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.cellNavigation;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.cellNavigation;
   }
 
@@ -143,6 +164,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get rowNavigation(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.rowNavigation;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.rowNavigation;
   }
 
@@ -159,6 +187,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get alternateRowShading(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.rowNavigation;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.alternateRowShading;
   }
 
@@ -213,6 +248,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get columnReorder(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.columnReorder;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.columnReorder;
   }
 
@@ -229,6 +271,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get editable(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.editable;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.editable;
   }
 
@@ -254,6 +303,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get isList(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.isList;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.isList;
   }
 
@@ -299,6 +355,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get selectable(): any {
+    if (this.datagrid) {
+      return this.datagrid.settings.selectable;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.selectable;
   }
 
@@ -315,6 +378,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get clickToSelect(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.clickToSelect;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.clickToSelect;
   }
 
@@ -327,6 +397,17 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     if (this.jQueryElement) {
       this.datagrid.settings.toolbar = toolbar;
       this.markForRefresh('toolbar', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
+ *
+ * @param saveUserSettings
+ */
+  @Input() set saveUserSettings(settingsForSave: SohoDataGridSaveUserSettings) {
+    this._gridOptions.saveUserSettings = settingsForSave;
+    if (this.jQueryElement) {
+      this.datagrid.settings.saveUserSettings = settingsForSave;
     }
   }
 
@@ -344,6 +425,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
   get paging(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.paging;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.paging;
   }
 
@@ -396,6 +484,14 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get actionableMode(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.actionableMode;
+    }
+
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.actionableMode;
   }
 
@@ -436,6 +532,14 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
   get filterable(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.filterable;
+    }
+
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.filterable;
   }
 
@@ -461,6 +565,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   get treeGrid(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.treeGrid;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
     return this._gridOptions.treeGrid;
   }
 
@@ -554,6 +665,27 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+  get disableRowDeactivation(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.disableRowDeactivation;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.disableRowDeactivation;
+  }
+
+  @Input() set disableRowDeactivation(value: boolean) {
+    this._gridOptions.disableRowDeactivation = value;
+    if (this.datagrid) {
+      this.datagrid.settings.disableRowDeactivation = value;
+
+      // Force all a full rebuild of the control.
+      // this.markForRefresh('disableRowDeactivation', RefreshHintFlags.Rebuild);
+    }
+  }
+
   /**
    * The value of the virtualized flag - returns the requested value if the control has not been created yet.
    */
@@ -618,9 +750,12 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   get groupable(): SohoDataGridGroupable {
     if (this.datagrid) {
       return this.datagrid.settings.groupable;
-    } else {
-      return this._gridOptions.groupable;
     }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.groupable;
   }
 
   /**
@@ -669,7 +804,23 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     if (columns && this.jQueryElement) {
 
       // @todo add hints for this too, as other changes may force a rebuild?
-      this.datagrid.updateColumns(columns);
+      this.datagrid.updateColumns(columns, this._gridOptions.columnGroups);
+    }
+  }
+
+  /**
+   * The column groups
+   *
+   * As this method can be called before the control is
+   * initialised, stash the data for later, and only
+   * call loadData on the control api if ready.
+   */
+  @Input() set columnGroup(columnGroups: SohoDataGridColumnGroup[]) {
+    this._gridOptions.columnGroups = columnGroups || [];
+    if (columnGroups && this._gridOptions.columns && this.jQueryElement) {
+
+      // @todo add hints for this too, as other changes may force a rebuild?
+      this.datagrid.updateColumns(this._gridOptions.columns, columnGroups);
     }
   }
 
@@ -728,6 +879,12 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   @Output()
   rowClicked = new EventEmitter<SohoDataGridRowClicked>();
 
+  @Output()
+  rowDoubleClicked = new EventEmitter<SohoDataGridRowClicked>();
+
+  @Output()
+  contextMenu = new EventEmitter<SohoDataGridRowClicked>();
+
   // -------------------------------------------
   // Host Bindings
   // -------------------------------------------
@@ -753,7 +910,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   // -------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: any;
+  private jQueryElement: JQuery;
 
   // Reference to the Soho datagrid control api.
   private datagrid: SohoDataGridStatic;
@@ -802,7 +959,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Overrides the sort function used by the datagrid,
-   * can only be used once the grd has been created.
+   * can only be used once the grid has been created.
    *
    * @todo this should made lazy.
    */
@@ -811,6 +968,23 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       this.datagrid.sortFunction = sortFunction;
     } else {
       throw new Error('datagrid not initialized.');
+    }
+  }
+
+  /**
+   * Sets the column and direction to sort the dataset on.
+   *
+   * Can only be used once the grid has been initialised, otherwise
+   * an error is thrown.
+   *
+   * @param columnId the id of the column to sort on; must be non-null.
+   * @param ascending if true sort ascending, otherwise descending.  If not supplied the setting is toggled.
+   */
+  setSortColumn(columnId: string, ascending?: boolean): void {
+    if (this.datagrid) {
+      this.datagrid.setSortColumn(columnId, ascending);
+    } else {
+      throw new Error('datagrid not initialized');
     }
   }
 
@@ -875,8 +1049,24 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this.datagrid.removeRow(data);
   }
 
-  getDirtyRows(commitEdits?: boolean): Array<any> {
-    return []; // this.datagrid.getDirtyRows(commitEdits);
+  /**
+   * Returns an array of the dirty rows in the grid.
+   *
+   * @return an array of the dirty rows in the grid.
+   */
+  dirtyRows(): Array<any> {
+    return this.datagrid.dirtyRows();
+  }
+
+  /**
+   * Sets the status of a given row in the grid.
+   *
+   * @param idx - the row number (idx) of the row
+   * @param status - status class name e.g. 'error'
+   * @param tooltip - string value for tooltip message e.g. 'Error'
+   */
+  rowStatus(idx: number, status: string, tooltip: string): void {
+    this.datagrid.rowStatus(idx, status, tooltip);
   }
 
   /**
@@ -884,6 +1074,34 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   removeSelected() {
     this.datagrid.removeSelected();
+  }
+
+  /**
+   * Toggles the display of the filter row.
+   */
+  toggleFilterRow(): void {
+    this.datagrid.toggleFilterRow();
+  }
+
+  /**
+   * Accept conditions from outside or pull from filter row
+   */
+  applyFilter(conditions?: Array<SohoDataGridFilterCondition>): void {
+    this.datagrid.applyFilter(conditions);
+  }
+
+  /**
+   * Set the filter row from passed data / settings
+   */
+  setFilterConditions(conditions: Array<SohoDataGridFilterCondition>): void {
+    this.datagrid.setFilterConditions(conditions);
+  }
+
+  /**
+   * Get filter conditions in array form from the UI
+   */
+  filterConditions(): Array<SohoDataGridFilterCondition> {
+    return this.datagrid.filterConditions();
   }
 
   /**
@@ -977,13 +1195,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   activatedRow(): SohoDataGridRowActivated {
     return this.datagrid.activatedRow();
-  }
-
-  /**
-   * Toggles the display of the filter row.
-   */
-  toggleFilterRow(): void {
-    this.datagrid.toggleFilterRow();
   }
 
   /**
@@ -1132,16 +1343,18 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // Initialise any event handlers.
     this.jQueryElement
       .on('selected', (e: JQueryEventObject, args: SohoDataGridSelectedRow[]) => this.selected.next({ e, rows: args }))
-      .on('cellchange', (e: JQueryEventObject, args: SohoDataGridCellChangeEvent[]) => this.cellchange.next(args))
+      .on('cellchange', (e: JQueryEventObject, args: SohoDataGridCellChangeEvent) => this.cellchange.next(args))
       .on('removerow', (e: JQueryEventObject, args: SohoDataGridRowRemoveEvent) => { this.rowRemove.next(args); })
       .on('addrow', (e: JQueryEventObject, args: SohoDataGridAddRowEvent) => { this.rowAdd.next(args); })
       .on('filtered', (e: JQueryEventObject, args: any) => { this.filtered.next(args); })
-      .on('sorted', (e: JQueryEventObject, args: any) => { this.sorted.next(args); })
+      .on('sorted', (e: JQueryEventObject, args: SohoDataGridSortedEvent) => { this.sorted.next(args); })
       .on('expandrow', (e: JQueryEventObject, args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
       .on('collapserow', (e: JQueryEventObject, args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
       .on('rowactivated', (e: JQueryEventObject, args: SohoDataGridRowActivatedEvent) => { this.rowActivated.next(args); })
       .on('rowdeactivated', (e: JQueryEventObject, args: SohoDataGridRowDeactivatedEvent) => { this.rowDeactivated.next(args); })
-      .on('click', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.rowClicked.next(args); });
+      .on('click', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.rowClicked.next(args); })
+      .on('dblclick', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.rowDoubleClicked.next(args); })
+      .on('contextmenu', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.contextMenu.next(args); });
   }
 
   /**
@@ -1217,15 +1430,15 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
  * for more details about creating an enum of strings.
  */
 export enum SohoGridColumnFilterTypes {
-  Text     = <any> 'text',
-  Checkbox = <any> 'checkbox',
-  Contents = <any> 'contents',
-  Date     = <any> 'date',
-  Decimal  = <any> 'decimal',
-  Integer  = <any> 'integer',
-  Lookup   = <any> 'lookup',
-  Percent  = <any> 'percent',
-  Select   = <any> 'select'
+  Text = <any>'text',
+  Checkbox = <any>'checkbox',
+  Contents = <any>'contents',
+  Date = <any>'date',
+  Decimal = <any>'decimal',
+  Integer = <any>'integer',
+  Lookup = <any>'lookup',
+  Percent = <any>'percent',
+  Select = <any>'select'
 };
 
 /**

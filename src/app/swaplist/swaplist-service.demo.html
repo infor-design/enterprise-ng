@@ -1,0 +1,24 @@
+  <form role="main">
+    <div class="row top-padding">
+      <div class="twelve columns">
+        <h1>SwapList Dynamic Demo</h1>
+        <div class="row">
+          <div class="field">
+            <soho-swaplist soho-busyindicator id="demo-swaplist"
+                           [availableCardTitle]="'Choose from these'"
+                           (updated)="onUpdated($event)">
+            </soho-swaplist>
+
+            <button soho-button (click)="updateData($event)">Update Data</button>
+            <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+            <div *ngIf="showModel">
+              <br />
+              <h2>Selected Items:</h2>
+              <h3 *ngFor="let item of selectedItems">{{ item | json }}</h3>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>

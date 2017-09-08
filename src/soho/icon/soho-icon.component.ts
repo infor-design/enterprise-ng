@@ -28,6 +28,7 @@ export class SohoIconComponent {
   @HostBinding('attr.aria-hidden') ariaHidden = true;
   @HostBinding('attr.focusable') focusable = false;
   @HostBinding('attr.role') role = 'presentation';
+  @Input() @HostBinding('class.icon-empty-state') isEmptyState = false;
 
   @Input() set alert(alert: boolean) {
     this._alert = alert;

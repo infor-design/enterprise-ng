@@ -18,8 +18,10 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    1,
     price:       210.99,
+    status:      'Active',
     orderDate:   '2015-01-01T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .32
   },
   {
     id:          1,
@@ -30,7 +32,8 @@ export const PAGING_DATA: any[] = [
     price:       209.99,
     status:      'Late',
     orderDate:   '2015-01-02T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .76
   },
   {
     id:          2,
@@ -41,7 +44,8 @@ export const PAGING_DATA: any[] = [
     price:       208.99,
     status:      'Active',
     orderDate:   '2015-01-03T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .32
   },
   {
     id:          3,
@@ -52,7 +56,8 @@ export const PAGING_DATA: any[] = [
     price:       207.99,
     status:      'Inactive',
     orderDate:   '2015-01-04T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .53
   },
   {
     id:          4,
@@ -63,7 +68,8 @@ export const PAGING_DATA: any[] = [
     price:       206.99,
     status:      'Inactive',
     orderDate:   '2015-01-05T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .42
   },
   {
     id:          5,
@@ -74,7 +80,8 @@ export const PAGING_DATA: any[] = [
     price:       205.99,
     status:      'Inactive',
     orderDate:   '2015-01-06T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .88
   },
   {
     id:          6,
@@ -83,9 +90,10 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    4,
     price:       204.99,
-    status:      'On Hold',
+    status:      'Active',
     orderDate:   '2015-01-07T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .54
   },
   {
     id:          7,
@@ -96,7 +104,8 @@ export const PAGING_DATA: any[] = [
     price:       203.99,
     status:      'On Hold',
     orderDate:   '2015-01-08T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .41
   },
   {
     id:          8,
@@ -107,7 +116,8 @@ export const PAGING_DATA: any[] = [
     price:       202.99,
     status:      'On Hold',
     orderDate:   '2015-01-09T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .21
   },
   {
     id:          9,
@@ -116,9 +126,10 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    5.5,
     price:       201.99,
-    status:      'On Hold',
+    status:      'Late',
     orderDate:   '2015-01-10T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .23
   },
   {
     id:          10,
@@ -127,8 +138,10 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    6,
     price:       200.99,
+    status:      'Late',
     orderDate:   '2015-01-01T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .76
   },
   {
     id:          11,
@@ -139,7 +152,8 @@ export const PAGING_DATA: any[] = [
     price:       199.99,
     status:      'Late',
     orderDate:   '2015-01-02T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .23
   },
   {
     id:          12,
@@ -150,7 +164,8 @@ export const PAGING_DATA: any[] = [
     price:       198.99,
     status:      'Active',
     orderDate:   '2015-01-03T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       1.00
   },
   {
     id:          13,
@@ -159,9 +174,10 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    7.5,
     price:       197.99,
-    status:      'Inactive',
+    status:      'Late',
     orderDate:   '2015-01-04T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .36
   },
   {
     id:          14,
@@ -170,9 +186,10 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    8,
     price:       196.99,
-    status:      'Inactive',
+    status:      'On Hold',
     orderDate:   '2015-01-05T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       1.00
   },
   {
     id:          15,
@@ -181,9 +198,10 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    8.5,
     price:       195.99,
-    status:      'Inactive',
+    status:      'Active',
     orderDate:   '2015-01-06T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .96
   },
   {
     id:          16,
@@ -192,9 +210,9 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    9,
     price:       194.99,
-    status:      'On Hold',
     orderDate:   '2015-01-07T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .72
   },
   {
     id:          17,
@@ -203,9 +221,10 @@ export const PAGING_DATA: any[] = [
     activity:    'Assemble Paint',
     quantity:    9.5,
     price:       193.99,
-    status:      'On Hold',
+    status:      'Active',
     orderDate:   '2015-01-08T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .35
   },
   {
     id:          18,
@@ -216,7 +235,8 @@ export const PAGING_DATA: any[] = [
     price:       192.99,
     status:      'On Hold',
     orderDate:   '2015-01-09T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .44
   },
   {
     id:          19,
@@ -227,7 +247,8 @@ export const PAGING_DATA: any[] = [
     price:       191.99,
     status:      'On Hold',
     orderDate:   '2015-01-10T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .24
   },
   {
     id:          20,
@@ -237,7 +258,8 @@ export const PAGING_DATA: any[] = [
     quantity:    11,
     price:       190.99,
     orderDate:   '2015-01-01T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .22
   },
   {
     id:          21,
@@ -248,7 +270,8 @@ export const PAGING_DATA: any[] = [
     price:       189.99,
     status:      'Late',
     orderDate:   '2015-01-02T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .67
   },
   {
     id:          22,
@@ -259,7 +282,8 @@ export const PAGING_DATA: any[] = [
     price:       188.99,
     status:      'Active',
     orderDate:   '2015-01-03T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .66
   },
   {
     id:          23,
@@ -270,7 +294,8 @@ export const PAGING_DATA: any[] = [
     price:       187.99,
     status:      'Inactive',
     orderDate:   '2015-01-04T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .24
   },
   {
     id:          24,
@@ -281,7 +306,8 @@ export const PAGING_DATA: any[] = [
     price:       186.99,
     status:      'Inactive',
     orderDate:   '2015-01-05T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .33
   },
   {
     id:          25,
@@ -292,7 +318,8 @@ export const PAGING_DATA: any[] = [
     price:       185.99,
     status:      'Inactive',
     orderDate:   '2015-01-06T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .54
   },
   {
     id:          26,
@@ -303,7 +330,8 @@ export const PAGING_DATA: any[] = [
     price:       184.99,
     status:      'On Hold',
     orderDate:   '2015-01-07T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .42
   },
   {
     id:          27,
@@ -314,7 +342,8 @@ export const PAGING_DATA: any[] = [
     price:       183.99,
     status:      'On Hold',
     orderDate:   '2015-01-08T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .46
   },
   {
     id:          28,
@@ -325,7 +354,8 @@ export const PAGING_DATA: any[] = [
     price:       182.99,
     status:      'On Hold',
     orderDate:   '2015-01-09T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .33
   },
   {
     id:          29,
@@ -336,7 +366,8 @@ export const PAGING_DATA: any[] = [
     price:       181.99,
     status:      'On Hold',
     orderDate:   '2015-01-10T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .23
   },
   {
     id:          30,
@@ -346,7 +377,8 @@ export const PAGING_DATA: any[] = [
     quantity:    16,
     price:       180.99,
     orderDate:   '2015-01-01T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .37
   },
   {
     id:          31,
@@ -357,7 +389,8 @@ export const PAGING_DATA: any[] = [
     price:       179.99,
     status:      'Late',
     orderDate:   '2015-01-02T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .23
   },
   {
     id:          32,
@@ -368,7 +401,8 @@ export const PAGING_DATA: any[] = [
     price:       178.99,
     status:      'Active',
     orderDate:   '2015-01-03T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .47
   },
   {
     id:          33,
@@ -379,7 +413,8 @@ export const PAGING_DATA: any[] = [
     price:       177.99,
     status:      'Inactive',
     orderDate:   '2015-01-04T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .26
   },
   {
     id:          34,
@@ -390,7 +425,8 @@ export const PAGING_DATA: any[] = [
     price:       176.99,
     status:      'Inactive',
     orderDate:   '2015-01-05T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .12
   },
   {
     id:          35,
@@ -401,7 +437,8 @@ export const PAGING_DATA: any[] = [
     price:       175.99,
     status:      'Inactive',
     orderDate:   '2015-01-06T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .71
   },
   {
     id:          36,
@@ -412,7 +449,8 @@ export const PAGING_DATA: any[] = [
     price:       174.99,
     status:      'On Hold',
     orderDate:   '2015-01-07T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .11
   },
   {
     id:          37,
@@ -423,7 +461,8 @@ export const PAGING_DATA: any[] = [
     price:       173.99,
     status:      'On Hold',
     orderDate:   '2015-01-08T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .23
   },
   {
     id:          38,
@@ -434,7 +473,8 @@ export const PAGING_DATA: any[] = [
     price:       172.99,
     status:      'On Hold',
     orderDate:   '2015-01-09T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .62
   },
   {
     id:          39,
@@ -445,7 +485,8 @@ export const PAGING_DATA: any[] = [
     price:       171.99,
     status:      'On Hold',
     orderDate:   '2015-01-10T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .45
   },
   {
     id:          40,
@@ -455,7 +496,8 @@ export const PAGING_DATA: any[] = [
     quantity:    21,
     price:       170.99,
     orderDate:   '2015-01-01T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .32
   },
   {
     id:          41,
@@ -466,7 +508,8 @@ export const PAGING_DATA: any[] = [
     price:       169.99,
     status:      'Late',
     orderDate:   '2015-01-02T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .23
   },
   {
     id:          42,
@@ -477,7 +520,8 @@ export const PAGING_DATA: any[] = [
     price:       168.99,
     status:      'Active',
     orderDate:   '2015-01-03T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .67
   },
   {
     id:          43,
@@ -488,7 +532,8 @@ export const PAGING_DATA: any[] = [
     price:       167.99,
     status:      'Inactive',
     orderDate:   '2015-01-04T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .45
   },
   {
     id:          44,
@@ -499,7 +544,8 @@ export const PAGING_DATA: any[] = [
     price:       166.99,
     status:      'Inactive',
     orderDate:   '2015-01-05T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .24
   },
   {
     id:          45,
@@ -510,7 +556,8 @@ export const PAGING_DATA: any[] = [
     price:       165.99,
     status:      'Inactive',
     orderDate:   '2015-01-06T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .12
   },
   {
     id:          46,
@@ -521,7 +568,8 @@ export const PAGING_DATA: any[] = [
     price:       164.99,
     status:      'On Hold',
     orderDate:   '2015-01-07T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .31
   },
   {
     id:          47,
@@ -532,7 +580,8 @@ export const PAGING_DATA: any[] = [
     price:       163.99,
     status:      'On Hold',
     orderDate:   '2015-01-08T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .71
   },
   {
     id:          48,
@@ -543,7 +592,8 @@ export const PAGING_DATA: any[] = [
     price:       162.99,
     status:      'On Hold',
     orderDate:   '2015-01-09T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .53
   },
   {
     id:          49,
@@ -554,7 +604,8 @@ export const PAGING_DATA: any[] = [
     price:       161.99,
     status:      'On Hold',
     orderDate:   '2015-01-10T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .73
   },
   {
     id:          50,
@@ -564,7 +615,8 @@ export const PAGING_DATA: any[] = [
     quantity:    26,
     price:       160.99,
     orderDate:   '2015-01-01T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .36
   },
   {
     id:          51,
@@ -575,7 +627,8 @@ export const PAGING_DATA: any[] = [
     price:       159.99,
     status:      'Late',
     orderDate:   '2015-01-02T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .23
   },
   {
     id:          52,
@@ -586,7 +639,8 @@ export const PAGING_DATA: any[] = [
     price:       158.99,
     status:      'Active',
     orderDate:   '2015-01-03T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .16
   },
   {
     id:          53,
@@ -597,7 +651,8 @@ export const PAGING_DATA: any[] = [
     price:       157.99,
     status:      'Inactive',
     orderDate:   '2015-01-04T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .41
   },
   {
     id:          54,
@@ -608,7 +663,8 @@ export const PAGING_DATA: any[] = [
     price:       156.99,
     status:      'Inactive',
     orderDate:   '2015-01-05T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .44
   },
   {
     id:          55,
@@ -619,7 +675,8 @@ export const PAGING_DATA: any[] = [
     price:       155.99,
     status:      'Inactive',
     orderDate:   '2015-01-06T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .53
   },
   {
     id:          56,
@@ -630,7 +687,8 @@ export const PAGING_DATA: any[] = [
     price:       154.99,
     status:      'On Hold',
     orderDate:   '2015-01-07T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .23
   },
   {
     id:          57,
@@ -641,7 +699,8 @@ export const PAGING_DATA: any[] = [
     price:       153.99,
     status:      'On Hold',
     orderDate:   '2015-01-08T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .72
   },
   {
     id:          58,
@@ -652,7 +711,8 @@ export const PAGING_DATA: any[] = [
     price:       152.99,
     status:      'On Hold',
     orderDate:   '2015-01-09T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .33
   },
   {
     id:          59,
@@ -663,7 +723,8 @@ export const PAGING_DATA: any[] = [
     price:       151.99,
     status:      'On Hold',
     orderDate:   '2015-01-10T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .78
   },
   {
     id:          60,
@@ -673,7 +734,8 @@ export const PAGING_DATA: any[] = [
     quantity:    31,
     price:       150.99,
     orderDate:   '2015-01-01T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .26
   },
   {
     id:          61,
@@ -684,7 +746,8 @@ export const PAGING_DATA: any[] = [
     price:       149.99,
     status:      'Late',
     orderDate:   '2015-01-02T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .52
   },
   {
     id:          62,
@@ -695,7 +758,8 @@ export const PAGING_DATA: any[] = [
     price:       148.99,
     status:      'Active',
     orderDate:   '2015-01-03T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .10
   },
   {
     id:          63,
@@ -706,7 +770,8 @@ export const PAGING_DATA: any[] = [
     price:       147.99,
     status:      'Inactive',
     orderDate:   '2015-01-04T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .40
   },
   {
     id:          64,
@@ -717,7 +782,8 @@ export const PAGING_DATA: any[] = [
     price:       146.99,
     status:      'Inactive',
     orderDate:   '2015-01-05T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .45
   },
   {
     id:          65,
@@ -728,7 +794,8 @@ export const PAGING_DATA: any[] = [
     price:       145.99,
     status:      'Inactive',
     orderDate:   '2015-01-06T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .23
   },
   {
     id:          66,
@@ -739,7 +806,8 @@ export const PAGING_DATA: any[] = [
     price:       144.99,
     status:      'On Hold',
     orderDate:   '2015-01-07T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .35
   },
   {
     id:          67,
@@ -750,7 +818,8 @@ export const PAGING_DATA: any[] = [
     price:       143.99,
     status:      'On Hold',
     orderDate:   '2015-01-08T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .41
   },
   {
     id:          68,
@@ -761,7 +830,8 @@ export const PAGING_DATA: any[] = [
     price:       142.99,
     status:      'On Hold',
     orderDate:   '2015-01-09T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .23
   },
   {
     id:          69,
@@ -772,7 +842,8 @@ export const PAGING_DATA: any[] = [
     price:       141.99,
     status:      'On Hold',
     orderDate:   '2015-01-10T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .26
   },
   {
     id:          70,
@@ -782,7 +853,8 @@ export const PAGING_DATA: any[] = [
     quantity:    36,
     price:       140.99,
     orderDate:   '2015-01-01T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .66
   },
   {
     id:          71,
@@ -793,7 +865,8 @@ export const PAGING_DATA: any[] = [
     price:       139.99,
     status:      'Late',
     orderDate:   '2015-01-02T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .54
   },
   {
     id:          72,
@@ -804,7 +877,8 @@ export const PAGING_DATA: any[] = [
     price:       138.99,
     status:      'Active',
     orderDate:   '2015-01-03T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .22
   },
   {
     id:          73,
@@ -815,7 +889,8 @@ export const PAGING_DATA: any[] = [
     price:       137.99,
     status:      'Inactive',
     orderDate:   '2015-01-04T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .32
   },
   {
     id:          74,
@@ -826,7 +901,8 @@ export const PAGING_DATA: any[] = [
     price:       136.99,
     status:      'Inactive',
     orderDate:   '2015-01-05T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .41
   },
   {
     id:          75,
@@ -837,7 +913,8 @@ export const PAGING_DATA: any[] = [
     price:       135.99,
     status:      'Inactive',
     orderDate:   '2015-01-06T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .34
   },
   {
     id:          76,
@@ -848,7 +925,8 @@ export const PAGING_DATA: any[] = [
     price:       134.99,
     status:      'On Hold',
     orderDate:   '2015-01-07T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .11
   },
   {
     id:          77,
@@ -859,7 +937,8 @@ export const PAGING_DATA: any[] = [
     price:       133.99,
     status:      'On Hold',
     orderDate:   '2015-01-08T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .25
   },
   {
     id:          78,
@@ -870,7 +949,8 @@ export const PAGING_DATA: any[] = [
     price:       132.99,
     status:      'On Hold',
     orderDate:   '2015-01-09T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .33
   },
   {
     id:          79,
@@ -881,7 +961,8 @@ export const PAGING_DATA: any[] = [
     price:       131.99,
     status:      'On Hold',
     orderDate:   '2015-01-10T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .33
   },
   {
     id:          80,
@@ -891,7 +972,8 @@ export const PAGING_DATA: any[] = [
     quantity:    41,
     price:       130.99,
     orderDate:   '2015-01-01T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .62
   },
   {
     id:          81,
@@ -902,7 +984,8 @@ export const PAGING_DATA: any[] = [
     price:       129.99,
     status:      'Late',
     orderDate:   '2015-01-02T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .52
   },
   {
     id:          82,
@@ -913,7 +996,8 @@ export const PAGING_DATA: any[] = [
     price:       128.99,
     status:      'Active',
     orderDate:   '2015-01-03T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .23
   },
   {
     id:          83,
@@ -924,7 +1008,8 @@ export const PAGING_DATA: any[] = [
     price:       127.99000000000001,
     status:      'Inactive',
     orderDate:   '2015-01-04T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .74
   },
   {
     id:          84,
@@ -935,7 +1020,8 @@ export const PAGING_DATA: any[] = [
     price:       126.99000000000001,
     status:      'Inactive',
     orderDate:   '2015-01-05T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .54
   },
   {
     id:          85,
@@ -946,7 +1032,8 @@ export const PAGING_DATA: any[] = [
     price:       125.99000000000001,
     status:      'Inactive',
     orderDate:   '2015-01-06T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .21
   },
   {
     id:          86,
@@ -957,7 +1044,8 @@ export const PAGING_DATA: any[] = [
     price:       124.99000000000001,
     status:      'On Hold',
     orderDate:   '2015-01-07T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .11
   },
   {
     id:          87,
@@ -968,7 +1056,8 @@ export const PAGING_DATA: any[] = [
     price:       123.99000000000001,
     status:      'On Hold',
     orderDate:   '2015-01-08T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .31
   },
   {
     id:          88,
@@ -979,7 +1068,8 @@ export const PAGING_DATA: any[] = [
     price:       122.99000000000001,
     status:      'On Hold',
     orderDate:   '2015-01-09T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .76
   },
   {
     id:          89,
@@ -990,7 +1080,8 @@ export const PAGING_DATA: any[] = [
     price:       121.99000000000001,
     status:      'On Hold',
     orderDate:   '2015-01-10T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .21
   },
   {
     id:          90,
@@ -1000,7 +1091,8 @@ export const PAGING_DATA: any[] = [
     quantity:    46,
     price:       120.99000000000001,
     orderDate:   '2015-01-01T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .83
   },
   {
     id:          91,
@@ -1011,7 +1103,8 @@ export const PAGING_DATA: any[] = [
     price:       119.99000000000001,
     status:      'Late',
     orderDate:   '2015-01-02T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .42
   },
   {
     id:          92,
@@ -1022,7 +1115,8 @@ export const PAGING_DATA: any[] = [
     price:       118.99000000000001,
     status:      'Active',
     orderDate:   '2015-01-03T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .31
   },
   {
     id:          93,
@@ -1033,7 +1127,8 @@ export const PAGING_DATA: any[] = [
     price:       117.99000000000001,
     status:      'Inactive',
     orderDate:   '2015-01-04T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .64
   },
   {
     id:          94,
@@ -1044,7 +1139,8 @@ export const PAGING_DATA: any[] = [
     price:       116.99000000000001,
     status:      'Inactive',
     orderDate:   '2015-01-05T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .26
   },
   {
     id:          95,
@@ -1055,7 +1151,8 @@ export const PAGING_DATA: any[] = [
     price:       115.99000000000001,
     status:      'Inactive',
     orderDate:   '2015-01-06T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .51
   },
   {
     id:          96,
@@ -1066,7 +1163,8 @@ export const PAGING_DATA: any[] = [
     price:       114.99000000000001,
     status:      'On Hold',
     orderDate:   '2015-01-07T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .43
   },
   {
     id:          97,
@@ -1077,7 +1175,8 @@ export const PAGING_DATA: any[] = [
     price:       113.99000000000001,
     status:      'On Hold',
     orderDate:   '2015-01-08T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .11
   },
   {
     id:          98,
@@ -1088,7 +1187,8 @@ export const PAGING_DATA: any[] = [
     price:       112.99000000000001,
     status:      'On Hold',
     orderDate:   '2015-01-09T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .66
   },
   {
     id:          99,
@@ -1099,6 +1199,7 @@ export const PAGING_DATA: any[] = [
     price:       111.99000000000001,
     status:      'On Hold',
     orderDate:   '2015-01-10T06:00:00.000Z',
-    action:      'Action'
+    action:      'Action',
+    rated:       .34
   }
 ];

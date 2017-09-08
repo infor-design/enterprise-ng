@@ -5,25 +5,27 @@
       <button soho-button (click)="openSimple()">Example</button>
       <button soho-button (click)="openNested()">Nested</button>
       <button soho-button (click)="openMessage()">Message</button>
-      <button soho-button (click)="openVeotable()">Vetoable</button>
+      <button soho-button (click)="openVetoable()">Vetoable</button>
       <button soho-button (click)="openDialogResult()">Dialog Result</button>
     </div>
   </div>
 </div>
-<br/>
+
+<div></div>
+
 <div class="row">
   <div class="twelve columns">
+    <h2 class="fieldset-title">Dialog Options</h2>
     <div class="field">
-      <label for="title" class="label">Dialog Title</label>
-      <input type="text" name="title" [(ngModel)]="title" />
+      <label class="center-block">Dialog Title:
+        <input soho-input class="form-control" type="text" name="title" [(ngModel)]="title" />
+      </label>
+      <input soho-checkbox id="id4" name="isAlert" [(ngModel)]="isAlert">
+      <label soho-label class="center-block" for="id4" [forCheckBox]="true">Is Alert</label>
     </div>
-    <input type="checkbox" class="checkbox" id="isAlert" [(ngModel)]="isAlert">
-    <label for="isAlert" class="checkbox-label">Is Alert</label>
-
     <p>
       Last Dialog Result: {{closeResult}}
     </p>
-
   </div>
 </div>
 

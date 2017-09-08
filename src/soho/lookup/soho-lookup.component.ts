@@ -13,7 +13,7 @@ import {
 import {
   BaseControlValueAccessor,
   provideControlValueAccessor
-} from '../utils';
+} from '../utils/base-control-value-accessor';
 
 @Component({
   selector: 'input[soho-lookup]', // tslint:disable-line
@@ -26,8 +26,10 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    * Available Soho Template control settings as Inputs
    * Should match the Soho properties for the component
    */
+  @Input() asobject = false; // set to false for backwards compatibility
+
   // Make sure you bind the context to the function
-  @Input()  set beforeShow(value: SohoLookupBeforeShowFunction) {
+  @Input() set beforeShow(value: SohoLookupBeforeShowFunction) {
     this._options.beforeShow = value;
   }
 
@@ -57,6 +59,8 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   @Input() set title(value: string) {
     this._options.title = value;
   }
+
+  @Input() multiselect = false;
 
   @Input() name: string;
 
@@ -109,7 +113,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       cellNavigation: false,
       columns: this.columns,
       dataset: this._dataset ? this._dataset : [],
-      selectable: 'single',
+      selectable: this.isMultiselect() ? 'multiple' : 'single',
       toolbar: Object.assign({
         actions: true,
         advancedFilter: false,
@@ -138,8 +142,8 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
     this.lookup = this.jQueryElement.data('lookup');
 
-    if (this.value) {
-      this.lookup.element.val(this.value);
+    if (this.internalValue) {
+      this.lookup.element.val(this.internalValue);
     }
   }
   ngOnDestroy() {
@@ -148,6 +152,9 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       this.lookup.destroy();
       this.lookup = null;
     }
+  }
+  isMultiselect(): boolean {
+    return this.multiselect !== false || (this.options && this.options.selectable === 'multiple');
   }
   modalOpened(args: any[]) {
     /**
@@ -174,19 +181,8 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    * Handle the control being changed.
    */
   onChange(event: SohoLookupChangeEvent[]) {
-    if (!event) {
-      // sometimes the event is not available
-      this.value = this.lookup.element.val();
-      return;
-    }
-
-    if (event.length && event.length === 1) {
-      this.value = this.processValue(event[0].data);
-
-    } else {
-      this.value = event.map(val => val.data);
-    }
-    this.change.emit(this.value);
+    this.parseValue(event);
+    this.change.emit(this.internalValue);
   }
 
   /**
@@ -197,19 +193,27 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    * @todo raise SOHO jira issue
    */
   processValue(value: Object | Object[]): string {
+    if (!value) {
+      return;
+    }
     let val = '';
     let toProcess: Object[] = <Object[]>value;
     if (!Array.isArray(toProcess)) {
       toProcess = [toProcess];
     }
 
+    // mimics functionality in sohoxi lookup insertRows()
     for (let i = 0; i < toProcess.length; i++) {
       let current = '';
 
-      if (typeof this._options.field === 'function') {
-        current = (<SohoLookupFieldFunction>this._options.field)(toProcess[i], this.lookup.element, this.lookup.grid);
+      if (typeof toProcess[i] === 'object') {
+        if (typeof this._options.field === 'function') {
+          current = (<SohoLookupFieldFunction>this._options.field)(toProcess[i], this.lookup.element, this.lookup.grid);
+        } else {
+          current = (<any>toProcess[i])[<string>this._options.field];
+        }
       } else {
-        current = (<any>toProcess[i])[<string>this._options.field];
+        current = <string>toProcess[i];
       }
 
       val += (i !== 0 ? ',' : '') + current;
@@ -219,15 +223,21 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   /**
-   * Set lookup value to allow the lookup
-   * element to be updated correctly.
+   * Set lookup value to allow the lookup element to be updated correctly.
+   * Used when the click property is set on the sohoxi control.
    *
-   * @param value - the new value
+   * @param event - selected row
+   * TODO: Expose this in the Sohoxi library @tim @ed.coyle
+   *
+   * @todo raise SOHO jira issue
    */
   setValue(event: SohoLookupChangeEvent[]) {
     if (this.lookup) {
-      this.onChange(event);
-      this.lookup.element.val(this.value);
+      this.parseValue(event);
+
+      // mimics functionality in sohoxi lookup insertRows()
+      this.lookup.element.val(this.internalValue).trigger('change', [event]);
+      this.lookup.element.focus();
     }
   }
 
@@ -242,7 +252,26 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     if (this.lookup) {
       // The processing is required to ensure we use the correct format
       // in the control.
-      this.lookup.element.val(value);
+      this.lookup.element.val(this.processValue(value));
+    }
+  }
+
+  // private methods
+  /**
+   * Evaluate the event param and parse the value
+   * @param event
+   */
+  private parseValue(event: SohoLookupChangeEvent[]) {
+    if (!event) {
+      // sometimes the event is not available
+      this.internalValue = this.lookup.element.val();
+      return;
+    }
+
+    if (event.length && event.length === 1 && !this.isMultiselect()) {
+      this.internalValue = this.asobject !== false ? event[0].data : this.processValue(event[0].data);
+    } else {
+      this.internalValue = event.map(val => this.asobject !== false ? val.data : this.processValue(val.data));
     }
   }
 }

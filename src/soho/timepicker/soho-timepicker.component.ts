@@ -12,7 +12,7 @@ import {
 import {
   BaseControlValueAccessor,
   provideControlValueAccessor
-} from '../utils';
+} from '../utils/base-control-value-accessor';
 
 
 @Component({
@@ -21,6 +21,21 @@ import {
   providers: [provideControlValueAccessor(SohoTimePickerComponent)]
 })
 export class SohoTimePickerComponent extends BaseControlValueAccessor<any> implements AfterViewInit, OnDestroy {
+
+  /**
+   * Local variables
+   */
+  private jQueryElement: JQuery;
+  private timepicker: SohoTimePickerStatic;
+  private isDisabled: boolean = null;
+  private isReadOnly: boolean = null;
+  private options: SohoTimePickerOptions = {
+    mode: undefined,
+    timeFormat: undefined,
+    minuteInterval: undefined,
+    roundToInterval: false
+  };
+
   /**
    * Indicates mode, either 'standard' or 'range'; default value is 'standard'
    */
@@ -80,7 +95,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
   /**
    * Sets the control to readonly
    */
-// TODO: waiting on SOHO-4875 - 4.0 Timepicker - Needs to support readonly() method
+  // TODO: waiting on SOHO-4875 - 4.0 Timepicker - Needs to support readonly() method
   @Input() set readonly(value: boolean) {
     this.isReadOnly = value;
 
@@ -111,25 +126,17 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
     return this.isReadOnly;
   }
 
+  public setValue(time: string) {
+    // There is not API to set the value on thetime picker, so this
+    // emulates what the control does internally.
+    this.timepicker.element.val(time).trigger('change');
+  }
+
   /**
    * Bind attributes to the host input element
    */
   @HostBinding('class.timepicker') get isTimepicker() {
     return true;
-  };
-
-  /**
-   * Local variables
-   */
-  private jQueryElement: any;
-  private timepicker: any;
-  private isDisabled: boolean = null;
-  private isReadOnly: boolean = null;
-  private options: SohoTimePickerOptions = {
-    mode: undefined,
-    timeFormat: undefined,
-    minuteInterval: undefined,
-    roundToInterval: false
   };
 
   constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
@@ -145,12 +152,12 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
      * Bind to jQueryElement's events
      */
     this.jQueryElement
-    .on('change', (e: any, args: SohoTimePickerEvent) => this.onChange(args));
+      .on('change', (args: SohoTimePickerEvent) => this.onChange(args));
 
     this.timepicker = this.jQueryElement.data('timepicker');
 
-    if (this.value) {
-      this.timepicker.element.val(this.value);
+    if (this.internalValue) {
+      this.timepicker.element.val(this.internalValue);
     }
   }
 
@@ -158,11 +165,12 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
    * Handle the control being changed.
    */
   onChange(event: SohoTimePickerEvent) {
-    if (!event) {
-      // sometimes the event is not available
-      this.value = this.timepicker.element.val();
-      return;
-    }
+    this.internalValue = this.timepicker.element.val();
+
+    // Set the date on the event.
+    event.data = this.internalValue;
+
+    // Fire the event
     this.change.emit(event);
   }
 

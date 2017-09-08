@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ToolbarDataDrivenDemoService {
 
-  public getToolbarData(): Promise<Array<any>> {
+  public getToolbarData(): Promise<any> {
     return new Promise((resolve) => {
       const data = {
         data: [

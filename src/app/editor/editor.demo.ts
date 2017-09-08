@@ -1,7 +1,8 @@
 import {
   Component,
   OnInit ,
-  ViewChild
+  ViewChild,
+  AfterViewInit
 } from '@angular/core';
 
 import {
@@ -13,7 +14,7 @@ import {
   templateUrl: './editor.demo.html',
   styles: [`pre{font-size: 15px}`] // set font size to be larger so pre tag content is more readable
 })
-export class EditorDemoComponent implements OnInit {
+export class EditorDemoComponent implements AfterViewInit {
 
   @ViewChild(SohoEditorComponent) editor: SohoEditorComponent;
 
@@ -28,7 +29,22 @@ export class EditorDemoComponent implements OnInit {
   public editorReadOnly = false;
 
   constructor() { }
-  ngOnInit() { }
+  ngAfterViewInit() {
+
+    // Customize the buttons on init
+    this.editor.buttons = {
+          editor: [
+            'header1', 'header2',
+            'separator', 'bold', 'italic', 'underline', 'strikethrough',
+            'separator', 'justifyLeft', 'justifyCenter', 'justifyRight',
+            'separator', 'quote', 'orderedlist', 'unorderedlist',
+            'separator', 'source'
+          ],
+          source: [
+            'visual'
+          ]
+        };
+  }
 
   toggleModel() {
     this.showModel = !this.showModel;
@@ -49,4 +65,5 @@ export class EditorDemoComponent implements OnInit {
     this.editor.readonly = true;
     this.editorReadOnly = this.editor.readonly;
   }
+
 }

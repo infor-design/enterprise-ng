@@ -1,0 +1,64 @@
+<div soho-homepage>
+
+    <div soho-widget widgetWidth="triple">
+      <div soho-widget-header>
+        <div soho-widget-title tabIndex="0"><h2>Chart Title</h2></div>
+        <button soho-button="icon" icon="more" soho-context-menu menu="action-popupmenu" trigger="click" class="btn-actions"></button>
+      </div>
+      <div soho-widget-content>
+        <div class="full-width chart-container" style="height:100%">
+          <div soho-chart
+            [dataSet]="getBarChartData()"
+            type="bar"
+            showLegend="true"
+            formatterString = "'$,.2f'"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div soho-widget>
+      <div soho-widget-header>
+        <div soho-widget-title tabIndex="1"><h2>Tasks</h2></div>
+        <button soho-button="icon" icon="more" soho-context-menu menu="action-popupmenu" trigger="click" class="btn-actions"></button>
+      </div>
+      <div soho-widget-content>
+        <soho-listview
+          (rendered)="onRendered($event)"
+          (selected)="onSelected($event)"
+          (sorted)="onSorted($event)">
+          <li soho-listview-item *ngFor="let data of demoTasks" [disabled]="data.disabled ? true : false">
+            <p soho-listview-header>Task #{{data.task}}</p>
+            <p soho-listview-subheader>{{data.desc}}</p>
+            <p soho-listview-micro>DUE: {{data.date}}</p>
+          </li>
+        </soho-listview>
+      </div>
+    </div>
+
+    <div soho-widget>
+      <div soho-widget-header>
+        <div soho-widget-title tabIndex="2"><h2>Business Insight</h2></div>
+        <button soho-button="icon" icon="more" soho-context-menu menu="action-popupmenu" trigger="click" class="btn-actions"></button>
+      </div>
+      <div soho-widget-content>
+        <div class="full-width chart-container" style="height:100%">
+          <div soho-chart
+            [dataSet]="getPieChartData()"
+            type="pie"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <ul soho-popupmenu id="action-popupmenu"
+    (selected)="onSelected($event)"
+    (beforeopen)="onBeforeOpen($event)"
+    (close)="onClose($event)"
+    (open)="onOpen($event)">
+    <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
+    <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
+  </ul>
+</div>

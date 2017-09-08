@@ -33,7 +33,7 @@ interface SohoPopupMenuOptions {
   beforeOpen?: any;
 
   /** Switches aria to use listbox construct instead of menu construct (internal). */
-  // ariaListbox?: boolean;
+  ariaListbox?: boolean;
 
   /**
    * By default, menus open up underneath their target element.  Set this to true to
@@ -43,20 +43,21 @@ interface SohoPopupMenuOptions {
 
   /** Can pass in the event object so you can do a right click with immediate */
   eventObj?: any;
-}
 
-/**
- * Interface for the jQuery event emitted
- *
- * @deprecated
- */
-interface SohoPopupMenuEvent extends JQueryEventObject {
+  placementOpts?: SohoPopupmenuPlacementOpts;
+
+  offset?: SohoPopupmenuOffset;
 }
 
 /**
  * Interface for the jQuery event emitted
  */
-interface SohoContextMenuEvent extends SohoPopupMenuEvent {
+interface SohoPopupMenuEvent {
+  e: JQueryEventObject;
+  /**
+   * the relevant element for the given event
+   */
+  args: JQuery;
 }
 
 interface SohoPopupMenuStatic {
@@ -70,10 +71,14 @@ interface SohoPopupMenuStatic {
   /** Updates the control to reflect the settings. */
   updated(): void;
 
-  /** Tear down. */
+  /** Tear down the markup for the control */
   teardown(): void;
 
-  /** Destroy the markup and any other resources.  */
+  /** Closes the popup menu control */
+
+   close(isCancelled?: boolean, noFocus?: boolean): void;
+
+  /** Destroy the markup and any other resources. */
   destroy(): void;
 }
 
@@ -86,4 +91,15 @@ interface JQueryStatic {
 
 interface JQuery {
   popupmenu(options?: SohoPopupMenuOptions): JQuery;
+}
+
+interface SohoPopupmenuOffset {
+  x: number;
+  y: number;
+}
+
+interface SohoPopupmenuPlacementOpts {
+  containerOffsetX: number;
+  containerOffsetY: number;
+  strategies: Array<string>
 }

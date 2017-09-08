@@ -15,6 +15,7 @@ export class TextareaDemoComponent implements OnInit {
 
   public model = { // tslint:disable-line
     resizableText: 'This text is resizable',
+    requiredText: '',
     counterText: 'This text cannot exceed 90 chars',
     disableText: 'This text is disable',
     readonlyText: 'This text is readonly',

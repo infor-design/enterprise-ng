@@ -62,6 +62,15 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+   // Adds/Remove the collapse button.
+  @Input() set collapseButton(collapseButton: boolean) {
+    this.options.collapseButton = collapseButton;
+    if (this.splitter) {
+      this.splitter.settings.collapseButton = collapseButton;
+      this.splitter.updated();
+    }
+  }
+
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
@@ -74,6 +83,11 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
 
   // Set the splitter class.
   @HostBinding('class.splitter') isSplitter = true;
+
+
+  // Is the splitter on the right?  Defaults to the left.
+
+  @HostBinding('class.splitter-right') @Input() isSplitterRight;
 
   // -------------------------------------------
   // Private Member Data

@@ -5,9 +5,14 @@ import {
   ElementRef,
   EventEmitter,
   OnDestroy,
-  Output
+  Output,
+  HostListener
 } from '@angular/core';
-import { BaseControlValueAccessor, provideControlValueAccessor } from '../utils';
+
+import {
+  BaseControlValueAccessor,
+  provideControlValueAccessor
+} from '../utils/base-control-value-accessor';
 
 @Component({
   selector:  'input[soho-input]', // tslint:disable-line
@@ -27,22 +32,35 @@ export class SohoInputComponent extends BaseControlValueAccessor<any> implements
    */
   private jQueryElement: JQuery;
 
+  /**
+   * Constructor.
+   *
+   * @param element the owning element.
+   * @param changeDetectionRef change detection.
+   */
   constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
     super(changeDetectionRef);
+  }
+
+  @HostListener('keyup', ['$event'])
+  onKeyUp(event: KeyboardEvent, val) {
+    // This is required if masking is used, otherwise the
+    // the form binding does not see updates.
+    this.internalValue = this.jQueryElement.val();
   }
 
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
-    /**
-     * Bind to jQueryElement's events
-     */
-    this.jQueryElement.on('change', (e: any, args: any[]) => this.onChange(args));
+    // Bind to jQueryElement's events
+    this.jQueryElement
+      .on('change', (e: any, args: any[]) => this.onChange(args));
 
-    // no control initializer for input
+    // There is no SoHoXi control initializer for input
 
-    if (this.value) {
-      this.jQueryElement.val(this.value);
+    // Make sure the value of the control is set appropriately.
+    if (this.internalValue) {
+      this.jQueryElement.val(this.internalValue);
     }
   }
 
@@ -53,14 +71,16 @@ export class SohoInputComponent extends BaseControlValueAccessor<any> implements
   /**
    * Handle the control being changed.
    */
-  onChange(event: SohoInputEvent[]) {
+  onChange(event: any) {
+    // console.log(`onChange: ${event} - "${this.jQueryElement.val()}"`)
     if (!event) {
       // sometimes the event is not available
-      this.value = this.jQueryElement.val();
+      this.internalValue = this.jQueryElement.val();
+      super.writeValue(this.internalValue);
       return;
     }
 
-    this.change.emit(this.value);
+    this.change.emit(this.internalValue);
   }
 
   /**

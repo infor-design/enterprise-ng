@@ -11,7 +11,7 @@ run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **@angular/cli** to create, build and run the application.  
 
-At the time of writing the version of **@angular/cli** used was 1.0.0.
+At the time of writing the version of **@angular/cli** used was 1.2.0.
 
 In addition, **gulp** is used to perform additional build and deployment steps required to get the application built.
 
@@ -50,8 +50,8 @@ You can add the dependencies directly into the `project.json` file, however it i
 In a terminal window, in the project folder:
 
 1. Type `npm install jquery@3.1.1 -S`
-2. Type `npm install @infor/sohoxi@4.2.6-rc -S`
-3. Type `npm install @infor/sohoxi-angular@4.2.6-rc -S`
+2. Type `npm install @infor/sohoxi@4.3.1-rc -S`
+3. Type `npm install @infor/sohoxi-angular@4.3.1-rc -S`
 4. Type `npm install gulp -D`
 5. Type `npm install @types/jquery -D`
 6. Type `npm install merge-stream -D`
@@ -82,6 +82,7 @@ Edit `src/tsconfig.app.json`, add this below the `typeRoots` property:
 ```
 ## Step 5 : SoHoXI Assets
 Angular-CLI is now able to copy assets from dependencies in node_modules.
+
 The older gulp copy is not needed but we have it here for the publish task (TODO: could later make this an npm / node script).
 
 To configure this edit .angular-cli.json assets section.
@@ -140,6 +141,7 @@ import 'core-js/es6/date';
 import 'core-js/es6/array';
 import 'core-js/es6/regexp';
 import 'core-js/es6/map';
+import 'core-js/es6/weak-map';
 import 'core-js/es6/set';
 
 /** IE10 and IE11 requires the following for NgClass support on SVG elements */

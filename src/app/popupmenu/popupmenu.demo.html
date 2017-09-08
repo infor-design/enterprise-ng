@@ -13,20 +13,25 @@
   <div class="twelve columns">
     <div class="field">
       <label for="input-menu">Label</label>
-      <input id="input-menu" type="text" value="Right Click Me" soho-context-menu menu="action-popupmenu" trigger="rightClick">
+      <input id="input-menu" type="text" value="Right Click Me" soho-context-menu menu="action-popupmenu" trigger="rightClick"
+        (selected)="onSelected($event)"
+        (beforeopen)="onBeforeOpen($event)"
+        (close)="onClose($event)"
+        (open)="onOpen($event)"
+      >
     </div>
 
     <div class="field">
       <label for="input-menu2">Label2</label>
-      <input id="input-menu2" type="text"  value="Right Click Me" soho-context-menu menu="action-popupmenu" trigger="rightClick">
+      <input id="input-menu2" type="text"  value="Right Click Me" soho-context-menu menu="action-popupmenu" trigger="rightClick"
+        (selected)="onSelected($event)"
+        (beforeopen)="onBeforeOpen($event)"
+        (close)="onClose($event)"
+        (open)="onOpen($event)"
+      >
     </div>
 
-    <ul soho-popupmenu id="action-popupmenu"
-      (selected)="onSelected()"
-      (beforeopen)="onBeforeOpen()"
-      (close)="onClose()"
-      (open)="onOpen()"
-    >
+    <ul soho-popupmenu id="action-popupmenu">
       <li soho-popupmenu-item><a soho-popupmenu-label>Cut</a></li>
       <li soho-popupmenu-item><a soho-popupmenu-label>Copy</a></li>
       <li soho-popupmenu-item><a soho-popupmenu-label>Paste</a></li>
@@ -39,8 +44,8 @@
       </li>
       <li soho-popupmenu-separator></li>
       <li soho-popupmenu-item><a soho-popupmenu-label>Name and project range</a></li>
-      <li soho-popupmenu-item><a soho-popupmenu-label [isDisabled]="isInsertCommentDisabled" id="x">Insert comment</a></li>
-      <li soho-popupmenu-item><a soho-popupmenu-label [isDisabled]="isInsertNoteDisabled">Insert note</a></li>
+      <li soho-popupmenu-item [isDisabled]="isInsertCommentDisabled"><a soho-popupmenu-label id="x">Insert comment</a></li>
+      <li soho-popupmenu-item [isDisabled]="isInsertNoteDisabled"><a soho-popupmenu-label>Insert note</a></li>
       <li soho-popupmenu-item><a soho-popupmenu-label >Clear notes</a></li>
       <li soho-popupmenu-separator singleSelectableSection="true"></li>
       <li soho-popupmenu-heading>Additional Options</li>

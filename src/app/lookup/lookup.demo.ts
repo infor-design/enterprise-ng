@@ -23,8 +23,45 @@ export class LookupDemoComponent {
   public data_product: any[];
   public model: any = {
     single: null,
+    singleexists: '1212121',
+    singleobject: null,
+    singleobjectexists: {
+      id: 1,
+      productId: 2142201,
+      productName: 'Compressor',
+      activity:  'Assemble Paint',
+      quantity: 1,
+      price: 210.99,
+      status: 'OK',
+      orderDate: new Date(2014, 12, 8),
+      action: 'Action',
+    },
     multi: null,
+    multiexists: ['2445204', '2342203'],
+    multiobject: null,
+    multiobjectexists: [{
+      id: 1,
+      productId: 2142201,
+      productName: 'Compressor',
+      activity:  'Assemble Paint',
+      quantity: 1,
+      price: 210.99,
+      status: 'OK',
+      orderDate: new Date(2014, 12, 8),
+      action: 'Action',
+    }, {
+      id: 4,
+      productId: 2142204,
+      productName: 'Another Compressor',
+      activity:  'Assemble Paint',
+      quantity: 3,
+      price: 210.99,
+      status: 'OK',
+      orderDate: new Date(2014, 12, 8),
+      action: 'Action',
+    }],
     async: null,
+    asyncexists: '2342203',
   };
   public showModel = false;
 

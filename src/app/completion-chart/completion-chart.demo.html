@@ -1,0 +1,46 @@
+<div class="example-section">
+
+  <form>
+    <div class="row">
+      <h1>Completion Chart Types on a form</h1>
+      <span class="code-tag">Live Example</span>
+      <div class="row">
+        <div class="four columns">
+          <label soho-label for="completion">Completion</label>
+          <div class="field">
+            <div id="completion" name="completion"
+              soho-chart
+              [dataSet]="completionData"
+              [type]="'completion'"
+            >
+            </div>
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="field">
+            <label soho-label for="completiontarget">Completion Target</label>
+            <div id="completiontarget" name="completiontarget"
+              soho-chart
+              [dataSet]="completionTargetData"
+              [type]="'completion-target'"
+            >
+            </div>
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="field">
+            <label soho-label for="targeted">Targeted Achievement</label>
+            <div id="targeted"
+              soho-chart
+              [dataSet]="targetedAchievementData"
+              [type]="'targeted-achievement'"
+            >
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>

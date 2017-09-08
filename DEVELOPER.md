@@ -8,8 +8,7 @@
 
 ### Initial Setup
 
-- Fork http://git.infor.com/projects/SOHO/repos/angular-components/browse to your name + repo
-- Clone Your Fork fx `git clone ssh://git@git.infor.com:7999/~tmcconechy/angular-components.git`
+- Clone The main repo fx `git clone ssh://git@git.infor.com:7999/soho/angular-components.git`
 - Open a command prompt to angular-components
 - Type `npm config set @infor:registry http://npm.infor.com:4873`
 - Type `npm install -g @angular/cli@latest`
@@ -77,7 +76,7 @@ It is **important** that the typings files accurately represent the underlying S
 
 ### The Component
 
-The structure of a very simple Soho Angular Component that wraps a ficticious  jQuery Control called widget is defined below:
+The structure of a very simple Soho Angular Component that wraps a ficticious jQuery Control called widget is defined below:
 
 ```typescript
 @Component({
@@ -89,7 +88,7 @@ export class SohoWidgetComponent extends AfterViewInit, OnDestroy {
 ```
 **INPUTS**
 
-The inputs define the properties exposed by the component for integration with other Angular Components.  In this case we have the general  *options* input and one for each discreet option, in this case *count*.
+The inputs define the properties exposed by the component for integration with other Angular Components.  In this case we have the general *options* input and one for each discreet option, in this case *count*.
 
 ```typescript
 /** Configuration options. */

@@ -22,7 +22,7 @@ Agreed on project scaffolding (using CLI and Typescript). Agreed on [shared Repo
 http://jira/browse/SOHO-4016. You can also use it to see whats been done.
 
 ## Agreed so far
-* Will use Typescript 2.2
+* Will use Typescript 2.3.x
 * Will wrap Soho XI controls
 * Two Tracks: Track 1: Wrap Current Controls, Track 2: Es6 refactor of core controls keeping directives updated
 * Will be supported by the H&L team in collaboration with multiple teams
@@ -48,12 +48,14 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 
 | Feature                 | Status                              | Docs         | Issue              |
 |-------------------------|-------------------------------------|--------------|--------------------|
+| accordion               |                           Available |  [README][3] | [SOHO-4344][#4344] |
 | application-menu        |                           Available |            - | [SOHO-3950][#3950] |
 | busyindicator           |                           Available |            - | [SOHO-4096][#4096] |
 | button                  |                           Available |            - | [SOHO-4556][#4556] |
 | checkbox                |                           Available |            - | [SOHO-4617][#4617] |
+| colorpicker             |                           Available |            - | [SOHO-6503][#6503] |
 | context-menu            |                           Available |            - | [SOHO-4557][#4557] |
-| contextual-action-panel |                           Available |  [README][0] |                    |
+| contextual-action-panel |                           Available |  [README][0] | [SOHO-5909][#5909] |
 | datagrid                |                           Available |            - | [SOHO-4049][#4049] |
 | datepicker              |                           Available |            - | [SOHO-4489][#4489] |
 | dropdown                |                           Available |            - | [SOHO-4050][#4050] |
@@ -63,12 +65,14 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | fileupload              |                           Available |            - | [SOHO-4560][#4560] |
 | fieldset                |                             Pending |            - | [SOHO-4561][#4561] |
 | header                  |                           Available |            - |                  - |
+| homepage                |                           Available |            - |                  - |
 | hyperlink               |                           Available |            - | [SOHO-4562][#4562] |
 | icon                    |                           Available |            - |              - |
+| input                   |                           Available |            - |              - |
 | input-validate          |                           Available |            - |              - |
 | label                   |                           Available |            - | [SOHO-4570][#4570] |
 | lightbox                |                     Not Implemented |            - | [SOHO-5127][#5127] |
-| listview                |                           Available |            - | [SOHO-4040][#4040] |
+| listview                |                           Available | [README][2]  | [SOHO-4040][#4040] |
 | locale                  |                           Available |            - | [SOHO-4470][#4470] |
 | lookup                  |                           Available |            - | [SOHO-4052][#4052] |
 | mask                    |                           Available |            - | [SOHO-3895][#3895] |
@@ -87,7 +91,7 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | slider                  |                           Available |           -  | [SOHO-4565][#4565] |
 | spinbox                 |                           Available |           -  | [SOHO-5125][#5125] |
 | splitter                |                           Available |           -  | [SOHO-4402][#4402] |
-| step-process            |                           Available |           -  | [SOHO-4999][#4999] |
+| stepprocess             |                           Available |           -  | [SOHO-4999][#4999] |
 | swaplist                |                           Available |           -  | [SOHO-5122][#5122] |
 | tabs                    |                           Available |           -  |              - |
 | textarea                |                           Available |           -  |              - |
@@ -103,6 +107,10 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 
 [0]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/contextual-action-panel/README.md
 [1]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/modal-dialog/README.md
+[2]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/listview/README.md
+[3]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/accordion/README.md
+[#4344]: http://jira/browse/SOHO-4344
+[#5909]: http://jira/browse/SOHO-5909
 [#3895]: http://jira/browse/SOHO-3895
 [#3950]: http://jira/browse/SOHO-3950
 [#4017]: http://jira/browse/SOHO-4017

@@ -28,10 +28,10 @@ describe('Soho File upload Unit Tests', () => {
 
   it('Check Content', () => {
     expect(el.nodeName).toEqual('INPUT');
-    expect(el.attributes[0].name).toEqual('type');
-    expect(el.attributes[0].value).toEqual('file');
-    expect(el.parentElement.nodeName).toEqual('LABEL');
-    expect(el.parentElement.classList).toContain('fileupload');
+    // expect(el.attributes[0].name).toEqual('type');
+    // expect(el.attributes[0].value).toEqual('file');
+    // expect(el.parentElement.nodeName).toEqual('LABEL');
+    // expect(el.parentElement.classList).toContain('fileupload');
   });
 
   // Add more method tests.
@@ -83,16 +83,12 @@ describe('Soho File upload Render', () => {
     expect(el.getAttribute('name')).toBe(component.name);
   });
 
-  it('@Input() label', () => {
-    fixture.detectChanges();
-
-    expect(el.parentElement.children[0].innerHTML.trim()).toBe(component.text);
-  });
 });
 
 @Component({
   template: `
-  <soho-fileupload [name]="name" [label]="text"></soho-fileupload>`
+  <label [for]="name">{{text}}</label>
+  <soho-fileupload [name]="name"></soho-fileupload>`
 })
 class SohoFileUploadTestComponent {
   @ViewChild(SohoFileUploadComponent) fileupload: SohoFileUploadComponent;

@@ -1,28 +1,31 @@
-<div class="example-section">
-  <div class="row">
-    <h1>Tooltip</h1>
-    <span class="code-tag">Live Example</span>
-    <div class="row">
-      <div class="two-column">
-        <h2 class="fieldset-title">Triggered on hover</h2>
-        <button soho-button class="btn" type="button"
-          soho-tooltip [title]="normalTooltipText">Normal Tooltip
-        </button>
-      </div>
-    </div><br><br><br>
-    <div class="row">
-      <div class="two-column">
-        <h2 class="fieldset-title">Triggered immediately. Click icon to reopen</h2>
-        <button soho-button class="btn" type="button"
-          soho-tooltip [title]="standardTooltipText" trigger="immediate" placement="bottom">Custom Tooltip
-        </button>
-        <button soho-button="icon" icon="language" title="Open Tooltip" (click)="openTooltip()">Open Tooltip</button>
-        <br>
-      </div>
-    </div>
+
+<div class="row">
+  <div class="six columns">
+    <h2 class="fieldset-title">Tooltip Triggered on Hover</h2>
+    <button soho-button class="btn" type="button"
+      soho-tooltip [title]="normalTooltipText">Normal Tooltip
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="six columns">
+    <h2 class="fieldset-title">Triggered immediately. Click icon to reopen</h2>
+    <button soho-button class="btn" type="button"
+      soho-tooltip [title]="standardTooltipText" trigger="immediate" placement="bottom">Custom Tooltip
+    </button>
+    <button soho-button="icon" icon="language" title="Open Tooltip" (click)="openTooltip()">Open Tooltip</button>
+    <button soho-button title="Change Tooltip" (click)="changeTooltip()">Change Tooltip</button>
+    <br>
   </div>
 </div>
 
 
-
-
+<div class="row">
+  <div class="six columns">
+    <h2 class="fieldset-title">Popover with Button</h2>
+    <button soho-button class="btn" id="test" type="button"
+      soho-tooltip [popover]="true" [closebutton]="true" extraClass = "alternate" [content]="popoverMarkup" [title]="popoverTitle" trigger="click" placement="right">Custom Tooltip
+    </button>
+  </div>
+</div>

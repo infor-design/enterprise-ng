@@ -8,8 +8,12 @@
  * Configuration options.
  */
 interface SohoPersonalizeOptions {
-  /** Specifies the starting colour. */
-  startingColor?: string;
+  colors?: string,
+  theme?: string
+}
+
+interface SohoPersonalizeEvent extends JQueryEventObject {
+  data: string;
 }
 
 /**

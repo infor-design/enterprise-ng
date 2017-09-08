@@ -6,12 +6,13 @@ import {
   Input,
   OnDestroy,
   Output,
+  OnChanges
 } from '@angular/core';
 
 @Directive({
   selector: '[soho-tooltip]' // tslint:disable-line
 })
-export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
+export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges {
 
   // -------------------------------------------
   // Options Block
@@ -29,81 +30,93 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
     this.options.content = content;
     if (this.tooltip) {
       this.tooltip.settings.content = content;
-      this.tooltip.updated();
     }
   }
+
   /**
    * @param offset
    */
   @Input() set offset(offset: number) {
     this.options.offset = offset;
   }
+
   /**
    * @param placement
    */
   @Input() set placement(placement: SohoTooltipOffset) {
     this.options.placement = placement;
   }
+
   /**
    * @param trigger
    */
   @Input() set trigger(trigger: string) {
     this.options.trigger = trigger;
   }
+
   /**
    * @param tooltipTitle
    */
-  @Input() set tooltipTitle(tooltipTitle: string) {
-    this.options.title = tooltipTitle;
+  @Input() set title(title: string) {
+    this.options.title = title;
   }
+
   /**
    * @param beforeShow
    */
   @Input() set beforeShow(beforeShow: any) {
     this.options.beforeShow = beforeShow;
   }
+
   /**
    * @param popover
    */
   @Input() set popover(popover: boolean) {
     this.options.popover = popover;
   }
+
   /**
    * @param closebutton
    */
   @Input() set closebutton(closebutton: boolean) {
     this.options.closebutton = closebutton;
   }
+
   /**
    * @param isError
    */
   @Input() set isError(isError: boolean) {
     this.options.isError = isError;
   }
+
   /**
    * @param isErrorColor
    */
   @Input() set isErrorColor(isErrorColor: boolean) {
     this.options.isErrorColor = isErrorColor;
   }
+
   /**
    * @param tooltipElement
    */
   @Input() set tooltipElement(tooltipElement: any) {
     this.options.tooltipElement = tooltipElement;
   }
+
   /**
    * @param keepOpen
    */
   @Input() set keepOpen(keepOpen: boolean) {
     this.options.keepOpen = keepOpen;
   }
+
   /**
    * @param extraClass
    */
   @Input() set extraClass(extraClass: string) {
     this.options.extraClass = extraClass;
   }
+
   /**
    * @param maxWidth
    */
@@ -117,12 +130,12 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
   /**
    * Called when the tooltip value changes
    */
-    @Output() changeEvent = new EventEmitter<SohoTooltipEvent>();
+  @Output() changeEvent = new EventEmitter<SohoTooltipEvent>();
 
-    /**
-     * Called when the tooltip updates in some way
-     */
-    @Output() updateEvent = new EventEmitter<SohoTooltipEvent>();
+  /**
+   * Called when the tooltip updates in some way
+   */
+  @Output() updateEvent = new EventEmitter<SohoTooltipEvent>();
 
   // -------------------------------------------
   // Private Member Data
@@ -142,6 +155,10 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
     // Wrap the element in a jQuery selector.
     this.jQueryElement = jQuery(this.element.nativeElement);
 
+    this.createControl();
+  }
+
+  private createControl() {
     // Initialise the SohoXi Control
     this.jQueryElement.tooltip(this.options);
 
@@ -180,6 +197,14 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
     if (this.tooltip) {
       this.tooltip.destroy();
       this.tooltip = null;
+    }
+  }
+
+  ngOnChanges() {
+    if (this.tooltip) {
+      this.tooltip.destroy();
+      this.tooltip = null;
+      this.createControl();
     }
   }
 }

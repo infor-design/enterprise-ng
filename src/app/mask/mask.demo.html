@@ -19,43 +19,43 @@
         <div class="two columns">
           <div class="field">
             <label>+ Number (3)</label>
-            <input id="number" name="number" alignRight="true" [(ngModel)]="model.number" soho-input soho-mask [pattern]="'###'" [mode]="'number'" (write)="onMaskWrite($event)"/>
+            <input id="number" name="number" alignRight="true" [(ngModel)]="model.number" soho-input soho-mask [sohoPattern]="'###'" [mode]="'number'" (write)="onMaskWrite($event)"/>
           </div>
           <div class="field">
             <label>+ Decimal (3.2)</label>
-            <input id="decimal" name="decimal" alignRight="true" [(ngModel)]="model.decimal" soho-input soho-mask [pattern]="'###.##'" [mode]="'number'" [negative]="true" (write)="onMaskWrite($event)"/>
+            <input id="decimal" name="decimal" alignRight="true" [(ngModel)]="model.decimal" soho-input soho-mask [sohoPattern]="'###.##'" [mode]="'number'" [negative]="true" (write)="onMaskWrite($event)"/>
           </div>
           <div class="field">
             <label>+ Percent (3.2)</label>
-            <input id="percent" name="percent" alignRight="true" [(ngModel)]="model.percent" soho-input soho-mask [pattern]="'###.##'" [mode]="'number'" [negative]="true" [showSymbol]="'percent'" (write)="onMaskWrite($event)"/>
+            <input id="percent" name="percent" alignRight="true" [(ngModel)]="model.percent" soho-input soho-mask [sohoPattern]="'###.##'" [mode]="'number'" [negative]="true" [showSymbol]="'percent'" (write)="onMaskWrite($event)"/>
           </div>
           <div class="field">
             <label>+ Currency (3.2)</label>
-            <input id="currency" name="currency" alignRight="true" [(ngModel)]="model.currency" soho-input soho-mask [pattern]="'###.##'" [mode]="'number'" [negative]="true" [showSymbol]="'currency'" (write)="onMaskWrite($event)"/>
+            <input id="currency" name="currency" alignRight="true" [(ngModel)]="model.currency" soho-input soho-mask [sohoPattern]="'###.##'" [mode]="'number'" [negative]="true" [showSymbol]="'currency'" (write)="onMaskWrite($event)"/>
           </div>
         </div>
         <div class="two columns">
           <div class="field">
             <label>+- Number (3)</label>
-            <input id="signednumber" name="signednumber" alignRight="true" [(ngModel)]="model.signednumber" soho-input soho-mask [pattern]="'###-'" [mode]="'number'" [negative]="true" (write)="onMaskWrite($event)"/>
+            <input id="signednumber" name="signednumber" alignRight="true" [(ngModel)]="model.signednumber" soho-input soho-mask [sohoPattern]="'###-'" [mode]="'number'" [negative]="true" (write)="onMaskWrite($event)"/>
           </div>
           <div class="field">
             <label>+- Decimal (3.2)</label>
-            <input id="signeddecimal" name="signeddecimal" alignRight="true" [(ngModel)]="model.signeddecimal" soho-input soho-mask [pattern]="'###.##-'" [mode]="'number'" [negative]="true" (write)="onMaskWrite($event)" />
+            <input id="signeddecimal" name="signeddecimal" alignRight="true" [(ngModel)]="model.signeddecimal" soho-input soho-mask [sohoPattern]="'###.##-'" [mode]="'number'" [negative]="true" (write)="onMaskWrite($event)" />
           </div>
           <div class="field">
             <label>+- Percent (3.2)</label>
-            <input id="signedpercent" name="signedpercent" alignRight="true" [(ngModel)]="model.signedpercent" soho-input soho-mask [pattern]="'###.##-'" [mode]="'number'" [negative]="true" [showSymbol]="'percent'" (write)="onMaskWrite($event)" />
+            <input id="signedpercent" name="signedpercent" alignRight="true" [(ngModel)]="model.signedpercent" soho-input soho-mask [sohoPattern]="'###.##-'" [mode]="'number'" [negative]="true" [showSymbol]="'percent'" (write)="onMaskWrite($event)" />
           </div>
           <div class="field">
             <label>+- Currency (3.2)</label>
-            <input id="signedcurrency" name="signedcurrency" alignRight="true" [(ngModel)]="model.signedcurrency" soho-input soho-mask [pattern]="'###.##-'" [mode]="'number'" [negative]="true" [showSymbol]="'currency'" (write)="onMaskWrite($event)" />
+            <input id="signedcurrency" name="signedcurrency" alignRight="true" [(ngModel)]="model.signedcurrency" soho-input soho-mask [sohoPattern]="'###.##-'" [mode]="'number'" [negative]="true" [showSymbol]="'currency'" (write)="onMaskWrite($event)" />
           </div>
         </div>
         <div class="two columns">
           <div class="field">
             <label>Custom</label>
-            <input id="custommask" name="custommask" [(ngModel)]="model.custommask" soho-input soho-mask maxlength="5" [definitions]="definitions" [pattern]="'UUU'"/>
+            <input id="custommask" name="custommask" [(ngModel)]="model.custommask" soho-input soho-mask maxlength="5" [definitions]="definitions" [sohoPattern]="'UUU'"/>
           </div>
         </div>
       </div>

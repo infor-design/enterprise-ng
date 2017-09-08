@@ -35,6 +35,11 @@ interface SohoTabsOptions {
    * If true, Displays a modifiable count above each tab.
    */
   tabCounts: boolean;
+
+  /**
+   * If Vertical Tabs & true, will automatically switch to Horizontal Tabs on smaller breakpoints.
+   */
+  verticalResponsive: boolean;
 }
 
 /**
@@ -49,7 +54,7 @@ interface SohoTabsStatic {
 
   add(tabId: string, options: any, atIndex: number): any;
 
-  remove(tabId: string): void;
+  remove(tabId: string, disableBeforeClose?: boolean): void;
 
   hide(tabId: string): SohoTabsStatic;
 

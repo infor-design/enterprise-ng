@@ -1,5 +1,34 @@
 
 ## Whats New
+
+* 2017-09-07 - THM - Fixed SOHO-6746 - See breaking changes
+* 2017-08-30 - PWP - Fixed breakpoints type in soho-application-menu.d.ts to match soho.
+* 2017-08-16 - BTH - Fixed SOHO-5125 - `spinbox`, `datepicker`, `timepicker` and `colorpicker`.
+* 2017-08-15 - BTH - Upgraded to @angular/cli 1.3.0
+* 2017-08-08 - MHH - Added support for grouped headers to datagrid
+* 2017-08-01 - BTH - PR-409 - Fixed use of reactive forms with soho-mask (see breaking changes)
+* 2017-07-25 - PWP - PR-403 - Added collapseOnMobile input for search field on a soho-toolbar
+* 2017-07-20 - PWP git - PR-399 - Added input and outputs to soho-popupmenu
+* 2017-07-18 - TJM - Added a service for the about dialog like the message service. (SOHO-5630)
+* 2017-07-12 - BTH - PR-382 - Added api support for the `accordion` control.
+  - added `expandAll`, `collapseAll`, `toggle`, `expand`, `collapse`, `enable`, `disable`, `isDisabled` and `isExpanded`.
+  - added `headers` collection to `accordion` component.
+  - added ability to update options as per  existing angular wrappers.
+* 2017-07-08 - BTH - Improved Veto Support for modal and message dialogs.
+  - Added `dialogRef` as an argument to `beforeClose` to provide access to dialog properties.
+* 2017-07-03 - BTH - Added `dirtyRows` to dataGrid.
+  - Removed `getDirtyRows(...)` as this was not implemented and did not match the underlying control.
+* 2017-07-05 - MH - Home Page (https://jira/browse/SOHO-6468)
+  - Added basic version of the Home Page
+* 2017-06-12 - PWP - Updates to `soho-expandablearea.component` and `soho-button.component`
+  - Added `soho-expandable-footer` element
+  - Changed `soho-expandable-header` to be optional
+  - Added `expandableExpander` input to `soho-button.component` for custom expander button
+  - Added `soho-expandablearea-footer-demo` to illustrate use of the custom expander button
+* 2017-06-09 - BTH - Version Update (http://jira/browse/SOHO-6322)
+  * Upgraded to @angular/cli 1.1.1
+* 2017-06-07 - BTH - Listview Changes
+  * Added `select`, `unselect` and `remove` methods.
 * 2017-05-11 - KH - Changed data grid interfaces specifically, `SohoDataGridRowEvent to SohoDataGridToggleRowEvent`
 * 2017-04-07 - TJM - Change to copy link/assets out of the node_modules
 * 2017-03-16 - DH - Contextual Action Panel(http://jira/browse/SOHO-5909)
@@ -40,6 +69,78 @@
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2017-08-17 - TJM - Not entirely breaking but file upload should now be done without an inline label as per fileupload example. This wont break if you don't change it but will cause a loop on ie edge due to an ie edge bug if initializing it with an inline label. So change your file upload markup
+
+* 2017-08-30 - PWP - Fixed breakpoints SohoApplicationMenuBreakPoint type in soho-application-menu.d.ts to match soho. Two settings weren't available (tablet and large) and caused the app menu to dismiss on every click. And several other options weren't defined in the type.
+
+
+* 2017-08-17 - PWP - soho-personalize.d.ts - had incorrect options definition. This removes the use the `@Input() startingColor` as an option into the personalize directive. Use of `@Input() colors` is recommended instead.
+
+* 2017-08-16 - BTH - soho-spinbox.component - hooked up value input to model, and exposed as setter.  This deprecates the original `updateVal` property - which exposed the internal function.  Old code may continue to work, but should be replaced with:
+
+    ```
+    this.spinbox.value = 90;
+    ```
+
+* 2017-08-09 - PWP - soho-popupmenu.component - moved isDisabled `@Input()` from the `<a>` anchor to the `<li>`
+
+* 2017-08-01 - BTH - PR-409 - Changed the `pattern` attribute used by `soho-mask` to define the pattern to `sohoPattern`, this change is required otherwise this name clashes with the attribute used by the forms module.
+
+* 2017-07-21 - PWP - PR-401 - Changed SohoPopupMenuEvent to include the original JQueryEvent as a property instead of extending from it.
+
+    Any code relying on the jQueryEvent should reference it through the SohoContextMenuEvent and SohoPopupMenuEvent.
+
+* 2017-07-28 - BTH - Added generic type argument onto `SohoModalDialogVetoableEventGuard`.  
+
+    Any code using this interface should add the generic type of the dialog component, or `any` for messages.
+
+* 2017-07-23 - BTH - Replaced `getDirtyRows(...)` with `dirtyRows()` on datagrid.  
+
+    Any code using the original method would not have worked as expected as the code alwasy returned `[]`.
+
+* 2017-06-01 - VW - PR-298 - Replaced enable and disable functions with disabled property to enable/disable dropdown and added readonly property.
+
+* 2017-05-31 - PWP - Markup change needed for new tabs implementation in soho
+
+    The soho-tabs now can only contain the tab list and require a new element `<div soho-tab-list-container>` to
+    encapsulate the `<ul soho-tab-list>`.
+
+    ```angular2html
+    <div soho-tabs>
+      <div soho-tab-list-container>    <-- NEW ELEMENT
+        <ul soho-tab-list>
+          <li soho-tab><a soho-tab-title tabId="tab1">Contracts</a></li>
+          ...
+        </ul>
+      </div>
+    </div>
+    ```
+
+    The tab panels need to be placed inside a `<div soho-tab-panel-container>` element. This markup can
+    occur largely anywhere in the markup in support of header tabs. A restriction being that it cannot
+    be placed in the `<div soho-tabs>` element.
+    ```angular2html
+    <div soho-tab-panel-container>     <-- NEW ELEMENT
+      <div soho-tab-panel tabId="tab1">
+        <p>tab content</p>
+      </div>
+      ...
+    </div>
+    ```
+    If the `<div soho-tab-panel-container>` is not a sibling of `<ul soho-tabs>` (for example
+    in the case of header tabs) then you'll need to pass in a containerElement selector as input to the
+    `<div soho-tabs>`. For Example:
+    ```angular2html
+    <header>
+      <div soho-tabs [containerElement]="#header-tab-panels">
+      </div>
+    </header>
+
+    * somewhere in your document *
+    <div soho-tab-panel-container id="header-tab-panels">
+    </div>
+    ```     
 
 * 2017-04-19 - BTH - Changed `selectedNode` to `selectNode` to match jQuery tree widget.
 

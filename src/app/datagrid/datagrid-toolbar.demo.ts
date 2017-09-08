@@ -22,8 +22,8 @@ export class DataGridToolbarDemoComponent implements OnInit, AfterViewInit, Afte
     this.breadcrumbs = this.buildBreadcrumbs();
   }
 
-  selectBreadcrumb(Breadcrumb: Breadcrumb) {
-    console.log('Selected ${Breadcrumb.friendlyName}');
+  selectBreadcrumb(breadcrumb: Breadcrumb) {
+    console.log('Selected ${breadcrumb.friendlyName}');
   }
 
   ngOnInit() {

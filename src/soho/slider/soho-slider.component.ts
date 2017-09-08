@@ -1,5 +1,4 @@
 import {
-  AfterViewChecked,
   AfterViewInit,
   Component,
   ElementRef,
@@ -7,15 +6,22 @@ import {
   HostBinding,
   Input,
   OnDestroy,
-  Output,
+  Output, AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef,
 } from '@angular/core';
+
+import {
+  BaseControlValueAccessor,
+  provideControlValueAccessor
+} from '../utils/base-control-value-accessor';
 
 @Component({
   selector: 'input[soho-slider]', // tslint:disable-line
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [provideControlValueAccessor(SohoSliderComponent)]
 })
 
-export class SohoSliderComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
+export class SohoSliderComponent extends BaseControlValueAccessor<number> implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   /** Minimum Value */
   @Input() public set min(min: number) {
@@ -65,15 +71,15 @@ export class SohoSliderComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** Persist tooltip */
-  @Input() set persistTooltip (persistTooltip: boolean){
+  @Input() set persistTooltip(persistTooltip: boolean) {
     this.options.persistTooltip = persistTooltip;
   }
   /** Tooltip Content */
-  @Input() set tooltipContent (tooltipContent: string[]){
+  @Input() set tooltipContent(tooltipContent: string[]) {
     this.options.tooltipContent = tooltipContent;
   }
   /** Set vertical class to render the slider vertically */
-  @Input() set vertical (isVertical: boolean){
+  @Input() set vertical(isVertical: boolean) {
     this.isVertical = isVertical;
   }
 
@@ -84,11 +90,11 @@ export class SohoSliderComponent implements AfterViewInit, AfterViewChecked, OnD
   @Output() updated: EventEmitter<SohoSliderEvent> = new EventEmitter<SohoSliderEvent>();
 
   /** Bind attributes to input element */
-  @HostBinding('class.slider') get isSlider(){
+  @HostBinding('class.slider') get isSlider() {
     return true;
   }
 
-  @HostBinding('class.vertical') get isVerticalSlider(){
+  @HostBinding('class.vertical') get isVerticalSlider() {
     return this.isVertical;
   }
 
@@ -108,9 +114,13 @@ export class SohoSliderComponent implements AfterViewInit, AfterViewChecked, OnD
   private slider: SohoSliderStatic;
   private options: SohoSliderOptions = {};
 
-  constructor(private element: ElementRef) { }
+  constructor(
+    private element: ElementRef,
+    changeDetectorRef: ChangeDetectorRef) {
+    super(changeDetectorRef);
+  }
 
-  @Input() set disabled (value: boolean) {
+  @Input() set disabled(value: boolean) {
     this.isDisabled = value;
     if (this.slider) {
       if (value) {
@@ -124,7 +134,7 @@ export class SohoSliderComponent implements AfterViewInit, AfterViewChecked, OnD
     }
   }
 
-  @Input() set readonly (value: boolean) {
+  @Input() set readonly(value: boolean) {
     this.isReadOnly = value;
     if (value) {
       this.slider.readonly();
@@ -150,8 +160,9 @@ export class SohoSliderComponent implements AfterViewInit, AfterViewChecked, OnD
     this.slider = this.jQueryElement.data('slider');
 
     // Bind to events
-    this.jQueryElement.on('change', (event: SohoSliderEvent) => this.change.emit(event));
-    this.jQueryElement.on('updated', (event: SohoSliderEvent) => this.updated.emit(event));
+    this.jQueryElement
+      .on('change', (event: SohoSliderEvent) => this.onChange(event))
+      .on('updated', (event: SohoSliderEvent) => this.onUpdated(event));
   }
 
   ngAfterViewChecked() {
@@ -169,5 +180,22 @@ export class SohoSliderComponent implements AfterViewInit, AfterViewChecked, OnD
       this.slider.destroy();
       this.slider = null;
     }
+  }
+
+  onChange(event: SohoSliderEvent) {
+    const newValue = this.jQueryElement.val();
+    if (this.internalValue !== newValue) {
+      // Update the model ...
+      this.internalValue = newValue;
+      event.data = newValue;
+
+      // ... then emit the changed value.
+      this.updated.emit(event);
+    }
+  }
+
+  onUpdated(event: SohoSliderEvent) {
+    event.data = this.jQueryElement.val();
+    this.change.emit(event);
   }
 }

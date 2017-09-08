@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
+import { SohoAboutModule } from './about/soho-about.module';
+import { SohoAccordionModule } from './accordion/soho-accordion.module';
 import { SohoApplicationMenuModule } from './application-menu/soho-application-menu.module';
 import { SohoBusyIndicatorModule } from './busyindicator/soho-busyindicator.module';
 import { SohoButtonModule } from './button/soho-button.module';
 import { SohoChartModule } from './chart/soho-chart.module';
 import { SohoCheckBoxModule } from './checkbox/soho-checkbox.module';
+import { SohoColorPickerModule } from './colorpicker/soho-colorpicker.module';
 import { SohoContextMenuModule } from './context-menu/soho-context-menu.module';
 import { SohoContextualActionPanelModule } from './contextual-action-panel/soho-contextual-action-panel.module';
 import { SohoDataGridModule } from './datagrid/soho-datagrid.module';
@@ -14,6 +17,8 @@ import { SohoErrorModule } from './error/soho-error.module';
 import { SohoExpandableAreaModule } from './expandablearea/soho-expandablearea.module';
 import { SohoFileUploadModule } from './fileupload/soho-fileupload.module';
 import { SohoHeaderModule } from './header/soho-header.module';
+import { SohoHierarchyModule } from './hierarchy/soho-hierarchy.module';
+import { SohoHomePageModule } from './homepage/soho-homepage.module';
 import { SohoHyperlinkModule } from './hyperlink/soho-hyperlink.module';
 import { SohoIconModule } from './icon/soho-icon.module';
 import { SohoInputModule } from './input/soho-input.module';
@@ -48,11 +53,14 @@ import { SohoTreeModule } from './tree/soho-tree.module';
 
 @NgModule({
   imports: [
+    SohoAboutModule,
+    SohoAccordionModule,
     SohoApplicationMenuModule,
     SohoBusyIndicatorModule,
     SohoButtonModule,
     SohoChartModule,
     SohoCheckBoxModule,
+    SohoColorPickerModule,
     SohoContextualActionPanelModule,
     SohoContextMenuModule,
     SohoDataGridModule,
@@ -63,6 +71,8 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoExpandableAreaModule,
     SohoFileUploadModule,
     SohoHeaderModule,
+    SohoHierarchyModule,
+    SohoHomePageModule,
     SohoHyperlinkModule,
     SohoIconModule,
     SohoInputModule,
@@ -98,11 +108,14 @@ import { SohoTreeModule } from './tree/soho-tree.module';
   declarations: [
   ],
   exports: [
+    SohoAboutModule,
+    SohoAccordionModule,
     SohoApplicationMenuModule,
     SohoBusyIndicatorModule,
     SohoButtonModule,
     SohoChartModule,
     SohoCheckBoxModule,
+    SohoColorPickerModule,
     SohoContextMenuModule,
     SohoContextualActionPanelModule,
     SohoDataGridModule,
@@ -113,6 +126,8 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoExpandableAreaModule,
     SohoFileUploadModule,
     SohoHeaderModule,
+    SohoHierarchyModule,
+    SohoHomePageModule,
     SohoHyperlinkModule,
     SohoIconModule,
     SohoInputModule,

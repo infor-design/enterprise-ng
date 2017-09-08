@@ -93,8 +93,11 @@ interface SohoToolbarSearchFieldOptions extends SohoAutoCompleteOptions {
   /** Has an X to clear? */
   clearable?: boolean;
 
-  /** Whether the serach field can be collapsed to just a search icon or not */
+  /** Whether the search field can be collapsed to just a search icon or not */
   collapsible?: boolean;
+
+  /** Whether the search field, on mobile, can be collapsed to just a search icon or not */
+  collapsibleOnMobile?: boolean;
 }
 
 /**

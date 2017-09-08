@@ -13,9 +13,9 @@ export type SohoHyperlinkType = 'show-visited' | 'forward-caret' | 'back-caret';
 
 @Component({
   selector: 'a[soho-hyperlink]', // tslint:disable-line
-  template: ` <svg soho-icon *ngIf="isCaretLeft" [icon]="'caret-left'"></svg> 
-              <ng-content></ng-content>                      
-              <svg soho-icon *ngIf="isCaretRight" [icon]="'caret-right'"></svg>  
+  template: ` <svg soho-icon *ngIf="isCaretLeft" [icon]="'caret-left'"></svg>
+              <ng-content></ng-content>
+              <svg soho-icon *ngIf="isCaretRight" [icon]="'caret-right'"></svg>
               `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -78,7 +78,5 @@ export class SohoHyperlinkComponent implements AfterViewInit {
      * Initialize hideFocus()
      */
     this.jQueryElement.hideFocus();
-
-    this.jQueryElement.on('change', (event: JQueryEventObject) => this.change.emit(event));
   }
 }
