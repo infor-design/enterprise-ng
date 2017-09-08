@@ -8,8 +8,7 @@
 
 ### Initial Setup
 
-- Fork http://git.infor.com/projects/SOHO/repos/angular-components/browse to your name + repo
-- Clone Your Fork fx `git clone ssh://git@git.infor.com:7999/~tmcconechy/angular-components.git`
+- Clone The main repo fx `git clone ssh://git@git.infor.com:7999/soho/angular-components.git`
 - Open a command prompt to angular-components
 - Type `npm config set @infor:registry http://npm.infor.com:4873`
 - Type `npm install -g @angular/cli@latest`
