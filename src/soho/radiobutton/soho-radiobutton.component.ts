@@ -46,12 +46,12 @@ export class SohoRadioButtonComponent implements AfterViewInit {
 
   /** Bind attributes to the host input element. */
   @HostBinding('attr.type') get isRadioType() {
-     return 'radio';
+    return 'radio';
   }
 
   /** Sets the class attribute for the radio button */
   @HostBinding('class.radio') get isRadioButton() {
-     return true;
+    return true;
   }
 
   /** Sets the element to disabled. */
