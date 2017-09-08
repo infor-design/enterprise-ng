@@ -22,6 +22,7 @@ export class ColorPickerDemoComponent implements OnInit {
   public showModel = false;
   public colorPickerDisabled = false;
   public colorPickerReadOnly = false;
+  public colorPickerEditable = true;
 
   constructor() { }
 
@@ -39,6 +40,11 @@ export class ColorPickerDemoComponent implements OnInit {
     this.colorpicker.disabled = false;
     this.colorPickerDisabled = this.colorpicker.disabled;
     this.colorPickerReadOnly = this.colorpicker.readonly;
+  }
+
+  setEditable() {
+    this.colorPickerEditable = !this.colorPickerEditable;
+    this.colorpicker.editable = this.colorPickerEditable;
   }
 
   setDisable() {

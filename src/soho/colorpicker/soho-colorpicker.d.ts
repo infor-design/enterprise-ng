@@ -18,6 +18,9 @@ interface SohoColorPickerOptions {
 
   /** Show the label if true vs the hex value if false. */
   showLabel: boolean;
+
+  /** If false only allow setting the value from the list (No typing) */
+  editable: boolean;
 }
 
 interface SohoColorPickerEvent extends BaseJQueryEventObject {

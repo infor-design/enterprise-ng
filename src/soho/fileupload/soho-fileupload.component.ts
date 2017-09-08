@@ -69,6 +69,11 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
    */
   @Input() accept: string;
 
+  /**
+   * @param accepts string.
+   */
+  @Input() id: string;
+
   // -------------------------------------------
   // Component Output
   // -------------------------------------------

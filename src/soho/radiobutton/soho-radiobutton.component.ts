@@ -15,13 +15,32 @@ import {
   provideControlValueAccessor
 } from '../utils/base-control-value-accessor';
 
+import { RadioControlValueAccessor } from '@angular/forms';
+
+/**
+ * This component does not extend the ControlValueAccessor
+ * as Angular already implements RadioControlValueAccessor
+ * which hooks the controls up to the Forms model, see
+ * https://angular.io/api/forms/RadioControlValueAccessor.
+ *
+ * The requirement is that the control matches the following
+ * selector:
+ *
+ * input[type=radio][formControlName]
+ * input[type=radio][formControl]
+ * input[type=radio][ngModel]
+ *
+ * Make sure you add `type="radio"` to your markup.
+ */
 @Component({
   selector: 'input[soho-radiobutton]', // tslint:disable-line
   template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [provideControlValueAccessor(SohoRadioButtonComponent)]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoRadioButtonComponent extends BaseControlValueAccessor<any> implements AfterViewInit {
+export class SohoRadioButtonComponent implements AfterViewInit {
+  /** Current value. */
+  @Input() value: any;
+
   /** Called when the radiobutton value changes.  */
   @Output() change = new EventEmitter<SohoRadioButtonEvent>();
 
@@ -30,7 +49,7 @@ export class SohoRadioButtonComponent extends BaseControlValueAccessor<any> impl
     return 'radio';
   }
 
-  /** Sets the class attribute for the radio button. */
+  /** Sets the class attribute for the radio button */
   @HostBinding('class.radio') get isRadioButton() {
     return true;
   }
@@ -54,9 +73,7 @@ export class SohoRadioButtonComponent extends BaseControlValueAccessor<any> impl
    * Constructor.
    */
   constructor(
-    private element: ElementRef,
-    changeDetectorRef: ChangeDetectorRef) {
-    super(changeDetectorRef);
+    private element: ElementRef) {
   }
 
   ngAfterViewInit() {
@@ -64,8 +81,8 @@ export class SohoRadioButtonComponent extends BaseControlValueAccessor<any> impl
 
     // no control initializer for radiobutton
 
-    if (this.internalValue) {
-      this.jQueryElement.val(this.internalValue);
+    if (this.value) {
+      this.jQueryElement.val(this.value);
     }
 
     this.jQueryElement
@@ -75,15 +92,13 @@ export class SohoRadioButtonComponent extends BaseControlValueAccessor<any> impl
   onChange(event: JQueryEventObject) {
     const newValue = this.jQueryElement.val();
 
-    if (this.internalValue !== newValue) {
-      // Update the model ...
-      this.internalValue = newValue;
+    // Update the model ...
+    this.value = newValue;
 
-      // Update the data.
-      event.data = newValue;
+    // Update the data.
+    event.data = newValue;
 
-      // ... then emit the changed value. (!)
-      this.change.emit(event);
-    }
+    // ... then emit the changed value. (!)
+    this.change.emit(event);
   }
 }
