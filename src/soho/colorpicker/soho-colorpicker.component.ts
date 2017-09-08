@@ -51,6 +51,28 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
   }
 
   /**
+   * Enables or disables editing
+   */
+  @Input() set editable(value: boolean) {
+    this.isEditable = value;
+    this.options.editable = value;
+
+    if (this.colorpicker) {
+      this.colorpicker.settings.editable = value;
+    }
+
+    if (this.colorpicker) {
+      if (value) {
+        this.colorpicker.enable();
+        this.isEditable = true;
+      } else {
+        this.colorpicker.readonly();
+        this.isEditable = false;
+      }
+    }
+  }
+
+  /**
    * Sets the control to readonly
    */
   @Input() set readonly(value: boolean) {
@@ -96,11 +118,13 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
    */
   private jQueryElement: any;
   private colorpicker: any;
+  private isEditable: boolean = null;
   private isDisabled: boolean = null;
   private isReadOnly: boolean = null;
   private options: SohoColorPickerOptions = {
     colors: undefined,
-    showLabel: false
+    showLabel: false,
+    editable: true
   };
 
   constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
@@ -124,6 +148,7 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
 
     if (this.internalValue) {
       this.colorpicker.element.val(this.internalValue);
+      this.colorpicker.setColor(this.internalValue);
     }
   }
 
@@ -135,6 +160,7 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
     if (!event) {
       // sometimes the event is not available
       this.internalValue = this.colorpicker.element.val();
+      this.colorpicker.setColor(this.internalValue);
       return;
     }
     this.change.emit(event);
@@ -152,6 +178,7 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
       // The processing is required to ensure we use the correct format
       // in the control.
       this.colorpicker.element.val(value);
+      this.colorpicker.setColor(value);
     }
   }
 

@@ -12,11 +12,12 @@
   <div class="twelve columns">
     <button soho-button [disabled]="colorPickerReadOnly" (click)="setReadonly()">Read Only</button>
     <button soho-button [disabled]="colorPickerDisabled" (click)="setDisable()">Disable</button>
+    <button soho-button (click)="setEditable()">Make {{colorPickerEditable ? 'Not' : ''}} Editable</button>
     <button soho-button [disabled]="!colorPickerDisabled && !colorPickerReadOnly" (click)="setEnable()">Enable</button>
     <button soho-button (click)="changeColors()">Change Colors</button>
     <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
     <div *ngIf="showModel">
-      <h3>{{ model | json }}</h3>
+      <br><h3>{{ model | json }}</h3>
     </div>
   </div>
 </div>
