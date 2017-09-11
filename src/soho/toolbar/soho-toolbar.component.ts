@@ -308,7 +308,7 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
 
   /**
    * Depricated use the rightAligned option.
-   * @depricated
+   * @deprecated
    */
   @Input() set rightAlign(value: boolean) {
     console.warn('This input has been renamed, please use the rightAligned input instead.')
