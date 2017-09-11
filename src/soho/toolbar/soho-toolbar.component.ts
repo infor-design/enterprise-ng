@@ -272,6 +272,10 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     return this.element.nativeElement.tagName === 'SOHO-TOOLBAR' ? 'block' : null;
   }
 
+  /**
+   * Set the has more button component option, this is used
+   * to define if the more button is expected to exist in the toolbar logic.
+   */
   @Input() set hasMoreButton(value: boolean) {
     this.options.hasMoreButton = value;
     if (this.toolbar) {
@@ -280,6 +284,9 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     }
   }
 
+  /**
+   * Set the expected max visible buttons before overflow is forced.
+   */
   @Input() set maxVisibleButtons(value: number) {
     this.options.maxVisibleButtons = value;
     if (this.toolbar) {
@@ -288,6 +295,9 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     }
   }
 
+  /**
+   * Set the rightAligned hint. This is for toolbars with no title that should be forced to right align.
+   */
   @Input() set rightAligned(value: boolean) {
     this.options.rightAligned = value;
     if (this.toolbar) {
@@ -296,8 +306,13 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     }
   }
 
-  // Keep to avoid breaking changes with misnamed setting
+  /**
+   * Depricated use the rightAligned option.
+   * @depricated
+   */
   @Input() set rightAlign(value: boolean) {
+    console.warn('This input has been renamed, please use the rightAligned input instead.')
+
     this.options.rightAligned = value;
     if (this.toolbar) {
       this.toolbar.settings.rightAligned = value;
@@ -305,6 +320,9 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     }
   }
 
+  /**
+   * If true, uses Javascript to size the Title and Buttonset elements in a way that shows as much of the Title area as possible.
+   */
   @Input() set resizeContainers(value: boolean) {
     this.options.resizeContainers = value;
     if (this.toolbar) {
@@ -313,6 +331,10 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     }
   }
 
+  /**
+   * If "resizeContainers" is true, setting this to true will try to display as many buttons as possible while resizing the toolbar.
+   * Setting to false attempts to show the entire title instead.
+   */
   @Input() set favorButtonset(value: boolean) {
     this.options.favorButtonset = value;
     if (this.toolbar) {
