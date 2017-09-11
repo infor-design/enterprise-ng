@@ -26,24 +26,24 @@ export class ToolbarStateComponent implements OnInit {
 
   ngOnInit() {
     this.toolbarInHeader = false;
-    this.toolbarSectionTitle = 'Toolbar State Component 1';
+    this.toolbarSectionTitle = 'Toolbar Set One';
     this.toolbarPageTitle = 'Toolbar State Page Title';
     this.toolbarButtons = this.toolbarService.buildToolbarButtonSet1();
   }
 
   onButtonClick1() {
     this.toolbarButtons = this.toolbarService.buildToolbarButtonSet1();
-    this.toolbarSectionTitle = 'Toolbar State Component 1';
+    this.toolbarSectionTitle = 'Toolbar Set One';
   }
 
   onButtonClick2() {
     this.toolbarButtons = this.toolbarService.buildToolbarButtonSet2();
-    this.toolbarSectionTitle = 'Toolbar State Component 2';
+    this.toolbarSectionTitle = 'Toolbar Set Two';
   }
 
   onButtonClick3() {
     this.toolbarButtons = this.toolbarService.buildToolbarButtonSet3();
-    this.toolbarSectionTitle = 'Toolbar State Component 3';
+    this.toolbarSectionTitle = 'Toolbar Set Three';
   }
 
   onOpenDisable() {

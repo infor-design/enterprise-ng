@@ -7,6 +7,7 @@ export class ToolbarStateService {
 
     toolbarButtonSet.push({
       id    : 'Create',
+      button: 'icon',
       data  : '{"btn" : "create"}',
       text  : 'Create',
       icon  : 'add',
