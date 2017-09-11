@@ -296,6 +296,15 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     }
   }
 
+  // Keep to avoid breaking changes with misnamed setting
+  @Input() set rightAlign(value: boolean) {
+    this.options.rightAligned = value;
+    if (this.toolbar) {
+      this.toolbar.settings.rightAligned = value;
+      this.markForRefresh();
+    }
+  }
+
   @Input() set resizeContainers(value: boolean) {
     this.options.resizeContainers = value;
     if (this.toolbar) {
