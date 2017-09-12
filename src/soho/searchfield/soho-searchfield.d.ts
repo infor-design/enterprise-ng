@@ -5,35 +5,6 @@
  * interface of the Soho jQuery searchfield control.
  */
 
-/** AUTOCOMPLETE
- *
- * @todo autocomplete interface
-*/
-interface SohoAutoCompleteOptions {
- /** Defines the data to use, must be specified. */
- source?: SohoAutoCompleteSource;
-
-  /** If defined, use this to draw the contents of each search result instead of the default draw routine. */
- template?: string;
-
- /** startsWith and contains Supported - false will not client side filter. */
- filterMode?: 'startsWith' | 'contains';
-
- /** The delay between key strokes on the keypad before it thinks you stopped typing */
- delay?: number;
-
- /** width of the auto complete menu. */
- width?: number;
-
- /** left or top offset */
- offset?: number | string;
-}
-
-type SohoAutoCompleteSource = Object[] | string | Object | SohoAutoCompleteSourceFunction;
-
-type SohoAutoCompleteResponseFunction = (searchTerm: string, data: any[]) => void;
-
-type SohoAutoCompleteSourceFunction = (searchTerm: string, response: SohoAutoCompleteResponseFunction) => void;
 
 /**
  * Configuration options.

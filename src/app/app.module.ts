@@ -22,6 +22,7 @@ import { ApplicationMenuDemoComponent } from './application-menu/application-men
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/application-menu-lazy-menu.demo';
 import { ApplicationMenuLazyService } from './application-menu/application-menu-lazy-service.demo';
+import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
@@ -131,6 +132,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,
     ApplicationMenuLazyMenuDemoComponent,
+    AutocompleteDemoComponent,
     BusyIndicatorDemoComponent,
     ButtonDemoComponent,
     ChartDemoComponent,

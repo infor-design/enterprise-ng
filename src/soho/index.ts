@@ -1,6 +1,7 @@
 export * from './about/index';
 export * from './accordion/index';
 export * from './application-menu/index';
+export * from './autocomplete/index';
 export * from './busyindicator/index';
 export * from './button/index';
 export * from './chart/index';

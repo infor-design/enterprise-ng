@@ -3,8 +3,9 @@
  */
 // tslint:disable
 /// <reference path="./about/soho-about.d.ts" />
-/// <reference path="./application-menu/soho-application-menu.d.ts" />
 /// <reference path="./accordion/soho-accordion.d.ts" />
+/// <reference path="./application-menu/soho-application-menu.d.ts" />
+/// <reference path="./autocomplete/soho-autocomplete.d.ts" />
 /// <reference path="./busyindicator/soho-busyindicator.d.ts" />
 /// <reference path="./button/soho-button.d.ts" />
 /// <reference path="./chart/soho-chart.d.ts" />
