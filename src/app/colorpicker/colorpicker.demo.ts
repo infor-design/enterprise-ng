@@ -17,12 +17,14 @@ export class ColorPickerDemoComponent implements OnInit {
   @ViewChild(SohoColorPickerComponent) colorpicker: SohoColorPickerComponent;
 
   public model = { // tslint:disable-line
-    color: '#900000'
+    color: '#1a1a1a',
+    label: 'Slate10'
   };
   public showModel = false;
   public colorPickerDisabled = false;
   public colorPickerReadOnly = false;
   public colorPickerEditable = true;
+  public showLabel = false;
 
   constructor() { }
 
@@ -71,5 +73,10 @@ export class ColorPickerDemoComponent implements OnInit {
     newColors.push({label: 'Slate', number: '01', value: 'F0F0F0', border: 'light, high-contrast'});
 
     this.colorpicker.colors = newColors;
+  }
+
+  toggleLabel() {
+    this.showLabel = !this.showLabel;
+    this.colorpicker.showLabel = this.showLabel;
   }
 }
