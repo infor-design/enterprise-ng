@@ -6,7 +6,7 @@ import { SohoAutoCompleteComponent } from '@infor/sohoxi-angular';
   templateUrl: './autocomplete.demo.html',
 })
 export class AutocompleteDemoComponent implements OnInit {
-  public statesUrl = 'http://localhost:4200/app/demodata/states.json?term=';
+  public statesUrl = 'http://localhost:4200/app/demodata/states.demo.json?term=';
   @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
 
   private options: SohoAutoCompleteOptions;
