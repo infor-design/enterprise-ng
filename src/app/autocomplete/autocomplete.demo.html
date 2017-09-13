@@ -3,22 +3,22 @@
     <h2>Set source as a function example</h2>
     <div class="field">
       <label for="autocomplete-default">States</label>
-      <input soho-autocomplete [source]="setSource()" type="text">
+      <input id="autocomplete-default" soho-autocomplete [source]="setSource()" type="text">
     </div>
     <h2>Set source as a URL string</h2>
     <div class="field">
-      <label for="autocomplete-default">States</label>
-      <input soho-autocomplete [source]="statesUrl" type="text">
+      <label for="autocomplete-url-string">States</label>
+      <input id="autocomplete-url-string" soho-autocomplete [source]="statesUrl" type="text">
     </div>
     <h2>Set filterMode as contains</h2>
     <div class="field">
-      <label for="autocomplete-default">States</label>
-      <input soho-autocomplete [source]="statesUrl" filterMode="contains" type="text">
+      <label for="autocomplete-filtermode">States</label>
+      <input id="autocomplete-filtermode" soho-autocomplete [source]="statesUrl" filterMode="contains" type="text">
     </div>
     <h2>Selected event fires</h2>
     <div class="field">
-      <label for="autocomplete-default">States</label>
-      <input soho-autocomplete [source]="statesUrl" filterMode="contains" (selected)="onSelected($event)" type="text">
+      <label for="autocomplete-selected-event">States</label>
+      <input id="autocomplete-selected-event" soho-autocomplete [source]="statesUrl" filterMode="contains" (selected)="onSelected($event)" type="text">
     </div>
   </div>
 </div>
