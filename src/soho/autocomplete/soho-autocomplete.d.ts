@@ -9,27 +9,28 @@
  * Autocomplete Options
  */
 interface SohoAutoCompleteOptions {
-  /** Defines the data to use, must be specified. */
+  /** Defines the data to use, must be specified for this component. */
   source?: SohoAutoCompleteSource;
 
-  /** If a source method is defined, this flexible object can be passed into the source method, and augmented with parameters specific to the implementation. */
+  /** Object is passed into the source method, and augmented with parameters. */
   sourceArguments?: string;
 
-   /** If defined, use this to draw the contents of each search result instead of the default draw routine. */
+  /** Menu template, appropriate markup is expected. */
   template?: string;
 
-  /** startsWith and contains Supported - false will not client side filter. */
+  /** Filters based on the first character('startsWidth') of the string, or the entire string('contains') */
   filterMode?: SohoAutoCompleteFilterMode;
 
-  /** The delay between key strokes on the keypad before it thinks you stopped typing */
+  /** Delay between key strokes on the keypad before the end of typing */
   delay?: number;
 
-  /** width of the auto complete menu. */
+  /** Width of the open menu */
   width?: number | string;
 
-  /** left or top offset */
-  offset?: number | string;
+  /** Offset, the left or top offset */
+  offset?: SohoAutoCompleteOffset;
 
+  /** Selects first item menu */
   autoSelectFirstItem?: boolean;
  }
  type SohoAutoCompleteSource = Object[] | string | Object | SohoAutoCompleteSourceFunction;
@@ -41,7 +42,11 @@ interface SohoAutoCompleteOptions {
  type SohoAutoCompleteFilterMode = 'startsWith' | 'contains';
 
  type SohoAutoCompleteWidth = number | string;
- type SohoAutoCompleteOffset = number | string;
+
+interface SohoAutoCompleteOffset {
+  top?: number | string;
+  left?: number | string;
+}
 
  interface SohoAutoCompleteStatic {
    /** Destructor. */
