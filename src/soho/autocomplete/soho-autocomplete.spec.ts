@@ -29,12 +29,6 @@ describe('Soho AutoComplete Unit Tests', () => {
     expect(el.nodeName).toEqual('DIV');
     expect(el.classList).toContain('autocomplete');
   });
-
-  it('Check Default \'role\' property', () => {
-    expect(comp.role).toContain('combobox');
-  });
-
-  // Add more method tests.
 });
 
 describe('Soho Autocomplete Render', () => {
