@@ -52,8 +52,6 @@ export class SohoAutoCompleteComponent implements AfterViewInit, OnDestroy {
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   @HostBinding('class.autocomplete') get isAutoComplete() { return true; }
-  @HostBinding('attr.role') role = 'combobox';
-  @HostBinding('attr.autocomplete') get isAutocomplete() { return 'off'; };
 
   private jQueryElement: JQuery;
   private autocomplete: any;
