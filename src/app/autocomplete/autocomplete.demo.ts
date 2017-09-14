@@ -1,38 +1,54 @@
-import { Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  ChangeDetectionStrategy,
+  Component,
+  ViewChild
+} from '@angular/core';
 import { SohoAutoCompleteComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'autocomplete-demo', // tslint:disable-line
   templateUrl: './autocomplete.demo.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AutocompleteDemoComponent implements OnInit {
+export class AutocompleteDemoComponent implements AfterViewInit {
+  public url       = 'http://localhost:4200/app/demodata/cities.demo.json?term=';
   public statesUrl = 'http://localhost:4200/app/demodata/states.demo.json?term=';
+  public states = [
+    'Alaska',
+    'Arizona',
+    'California',
+    'Colorado',
+    'Minnesota',
+    'North Dakota',
+    'Oregon',
+    'Washington',
+    'Wyoming'
+  ];
+
   @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
 
   private options: SohoAutoCompleteOptions;
 
-  constructor() {}
+  constructor(private changeDetectorRef: ChangeDetectorRef) {}
 
-  ngOnInit() {}
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.reinitialise();
+    });
+  }
 
-  public setSource() {
-    return this.source;
+  reinitialise() {
+    setTimeout(() => {
+      this.url = this.statesUrl;
+      this.changeDetectorRef.detectChanges();
+      this.autocomplete.updated();
+    }, 5000);
   }
 
   public source = (term: string, response: any) => {
-    const states = [
-      'Alaska',
-      'Arizona',
-      'California',
-      'Colorado',
-      'Minnesota',
-      'North Dakota',
-      'Oregon',
-      'Washington',
-      'Wyoming'
-    ];
-
-    response(term, states);
+    response(term, this.states);
   }
 
   public onSelected(event: any) {

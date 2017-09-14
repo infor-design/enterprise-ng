@@ -62,8 +62,27 @@ describe('Soho Autocomplete Render', () => {
 });
 
 @Component({
-  template: `<input soho-autocomplete>`
+  template: `<input soho-autocomplete [source]="setSource()">`
 })
 class SohoAutoCompleteTestComponent {
   @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
+  public setSource() {
+    return this.source;
+  }
+
+  public source = (term: string, response: any) => {
+    const states = [
+      'Alaska',
+      'Arizona',
+      'California',
+      'Colorado',
+      'Minnesota',
+      'North Dakota',
+      'Oregon',
+      'Washington',
+      'Wyoming'
+    ];
+
+    response(term, states);
+  }
 }

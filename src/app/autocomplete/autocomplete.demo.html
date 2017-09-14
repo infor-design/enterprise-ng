@@ -1,14 +1,14 @@
 <div class="row">
   <div class="twelve columns">
-    <h2>Set source as a function</h2>
+    <h2>Set source as string, update from cities to states</h2>
     <div class="field">
       <label for="autocomplete-default">States</label>
-      <input id="autocomplete-default" soho-autocomplete [source]="setSource()" type="text">
+      <input id="autocomplete-default" soho-autocomplete [attr.data-autocomplete]="url" type="text">
     </div>
-    <h2>Set source as a URL string</h2>
+    <h2>Set source as a function</h2>
     <div class="field">
-      <label for="autocomplete-url-string">States</label>
-      <input id="autocomplete-url-string" soho-autocomplete [source]="statesUrl" type="text">
+      <label for="autocomplete-source">States</label>
+      <input id="autocomplete-source" soho-autocomplete [source]="source" [autoSelectFirstItem]="true" type="text">
     </div>
     <h2>Set filterMode as contains</h2>
     <div class="field">

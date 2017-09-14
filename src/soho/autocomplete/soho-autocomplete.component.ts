@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -11,7 +12,8 @@ import {
 
 @Component({
   selector: 'input[soho-autocomplete]', // tslint:disable-line
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class SohoAutoCompleteComponent implements AfterViewInit, OnDestroy {
@@ -78,5 +80,11 @@ export class SohoAutoCompleteComponent implements AfterViewInit, OnDestroy {
       this.autocomplete.destroy();
       this.autocomplete = null;
     }
+  }
+
+   /** For async methods, reinit autocomplete `source` setting. */
+  public updated(): SohoAutoCompleteComponent {
+    this.autocomplete.updated();
+    return this;
   }
 }
