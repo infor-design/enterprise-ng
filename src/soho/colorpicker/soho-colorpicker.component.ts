@@ -27,6 +27,7 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
    */
   @Input() set colors(colors: Array<SohoColorOption>) {
     this.options.colors = colors;
+
     if (this.colorpicker) {
       this.colorpicker.settings.colors = colors;
     }
@@ -92,6 +93,18 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
   }
 
   /**
+   * Sets the control to show color label
+   */
+  @Input() set showLabel(value: boolean) {
+    this.isShowLabel = value;
+    this.options.showLabel = value;
+
+    if (this.colorpicker) {
+      this.colorpicker.settings.showLabel = value;
+    }
+  }
+
+  /**
    * Called when the datepicker value changes
    */
   @Output() change: EventEmitter<SohoColorPickerEvent> = new EventEmitter<SohoColorPickerEvent>();
@@ -104,6 +117,9 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
   }
   get readonly() {
     return this.isReadOnly;
+  }
+  get showLabel() {
+    return this.isShowLabel;
   }
 
   /**
@@ -121,6 +137,7 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
   private isEditable: boolean = null;
   private isDisabled: boolean = null;
   private isReadOnly: boolean = null;
+  private isShowLabel: boolean = null;
   private options: SohoColorPickerOptions = {
     colors: undefined,
     showLabel: false,
@@ -142,7 +159,7 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
      * Bind to jQueryElement's events
      */
     this.jQueryElement
-    .on('change', (e: any, args: SohoColorPickerEvent) => this.onChange(args));
+      .on('change', (e: any, args: SohoColorPickerEvent) => this.onChange(args));
 
     this.colorpicker = this.jQueryElement.data('colorpicker');
 
