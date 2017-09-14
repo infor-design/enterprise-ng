@@ -16,10 +16,11 @@ export class AutocompleteDemoComponent implements OnInit {
   ngOnInit() {}
 
   public setSource() {
-    return this.source.bind(this);
+    debugger;
+    return this.source;
   }
 
-  public source(term: string, response: any) {
+  public source = (term: string, response: any) => {
     const states = [
       'Alaska',
       'Arizona',
