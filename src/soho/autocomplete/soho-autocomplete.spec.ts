@@ -62,13 +62,10 @@ describe('Soho Autocomplete Render', () => {
 });
 
 @Component({
-  template: `<input soho-autocomplete [source]="setSource()">`
+  template: `<input soho-autocomplete [source]="source">`
 })
 class SohoAutoCompleteTestComponent {
   @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
-  public setSource() {
-    return this.source;
-  }
 
   public source = (term: string, response: any) => {
     const states = [
