@@ -16,7 +16,6 @@ export class AutocompleteDemoComponent implements OnInit {
   ngOnInit() {}
 
   public setSource() {
-    debugger;
     return this.source;
   }
 
