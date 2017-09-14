@@ -24,7 +24,7 @@
                 </div>
                 <div class="field">
                     <label for="lm-id-3" class="label">User Defined State - From Source</label>
-                    <select soho-dropdown id="lm-id-3" [formControlName]="fieldSpec.SourceField.bindId" [source]="setSource()" [(ngModel)]="model.SourceField.value">
+                    <select soho-dropdown id="lm-id-3" [formControlName]="fieldSpec.SourceField.bindId" [source]="source" [(ngModel)]="model.SourceField.value">
                         <option *ngFor="let option of fieldSpec.SourceField.stateValues" [ngValue]="option">{{option.label}}</option>
                     </select>
                 </div>
