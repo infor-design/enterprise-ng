@@ -169,9 +169,9 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
         modal: SohoModalStatic = args[2];
 
       if (datagrid.pager) {
-        datagrid.pager.element.on('afterpaging', function () {
+        datagrid.pager.element.on('afterpaging', () => {
           modal.resize();
-        }.bind(this));
+        });
       }
     }
     this.afteropen.emit(args);
