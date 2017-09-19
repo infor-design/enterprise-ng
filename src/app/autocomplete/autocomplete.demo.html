@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2>Set source as string, update from cities to states</h2>
+    <div class="field">
+      <label for="autocomplete-default">States</label>
+      <input id="autocomplete-default" soho-autocomplete [attr.data-autocomplete]="url" type="text">
+    </div>
+    <h2>Set source as a function</h2>
+    <div class="field">
+      <label for="autocomplete-source">States</label>
+      <input id="autocomplete-source" soho-autocomplete [source]="source" [autoSelectFirstItem]="true" type="text">
+    </div>
+    <h2>Set filterMode as contains</h2>
+    <div class="field">
+      <label for="autocomplete-filtermode">States</label>
+      <input id="autocomplete-filtermode" soho-autocomplete [source]="statesUrl" filterMode="contains" type="text">
+    </div>
+    <h2>Selected event fires</h2>
+    <div class="field">
+      <label for="autocomplete-selected-event">States</label>
+      <input id="autocomplete-selected-event" soho-autocomplete [source]="statesUrl" filterMode="contains" (selected)="onSelected($event)" type="text">
+    </div>
+  </div>
+</div>
+

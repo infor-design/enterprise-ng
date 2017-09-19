@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [
         { "glob": "**/*", "input": "../node_modules/@infor/sohoxi/dist/css", "output": "./assets/sohoxi/css" },
-        "./app/data"
+        "./app/demodata"
       ],
       "index": "index.html",
       "main": "main.ts",

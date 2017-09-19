@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { SohoAboutModule } from './about/soho-about.module';
 import { SohoAccordionModule } from './accordion/soho-accordion.module';
 import { SohoApplicationMenuModule } from './application-menu/soho-application-menu.module';
+import { SohoAutoCompleteModule } from './autocomplete/soho-autocomplete.module';
 import { SohoBusyIndicatorModule } from './busyindicator/soho-busyindicator.module';
 import { SohoButtonModule } from './button/soho-button.module';
 import { SohoChartModule } from './chart/soho-chart.module';
@@ -56,6 +57,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoAboutModule,
     SohoAccordionModule,
     SohoApplicationMenuModule,
+    SohoAutoCompleteModule,
     SohoBusyIndicatorModule,
     SohoButtonModule,
     SohoChartModule,
@@ -111,6 +113,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoAboutModule,
     SohoAccordionModule,
     SohoApplicationMenuModule,
+    SohoAutoCompleteModule,
     SohoBusyIndicatorModule,
     SohoButtonModule,
     SohoChartModule,
