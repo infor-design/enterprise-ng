@@ -8,6 +8,7 @@ interface SohoChartOptions {
   chartLabel?: ChartLabel;
   labels?: ChartLabel;
   redrawOnResize?: boolean;
+  animate?: boolean;
 }
 
 /**
@@ -18,6 +19,7 @@ interface SohoChartStatic {
   /** Options. */
   settings: SohoChartOptions;
   getSelected: Function;
+  setSelected: Function;
 }
 
 /**
@@ -31,10 +33,13 @@ interface JQuery {
   chart(options?: SohoChartOptions): JQuery;
 }
 
-
 interface SohoChartData {
-  name: string;
-  value: number | BubbleCordinates;
+  name: string | SohoChartDataName;
+  value?: number | BubbleCordinates;
+  info?: SohoChartDataInfo;
+  completed?: SohoChartDataCompleted;
+  remaining?: SohoChartDataRemaining;
+  total?: SohoChartDataTotal;
   url?: string;
   color?: string;
   tooltip?: string;
@@ -42,6 +47,35 @@ interface SohoChartData {
   selected?: boolean;
   abbrName?: string;
   ref?: any;
+}
+
+interface SohoChartDataName {
+  text?: string;
+}
+
+interface SohoChartDataInfo {
+  value?: number | string;
+  text?: string;
+  color?: string;
+}
+
+interface SohoChartDataCompleted {
+  value?: number | string;
+  text?: string;
+  color?: string;
+}
+
+interface SohoChartDataRemaining {
+  value?: number | string;
+  text?: string;
+  color?: string;
+}
+
+interface SohoChartDataTotal {
+  value?: number | string;
+  text?: string;
+  format?: string;
+  difference?: string;
 }
 
 type ChartTypes = 'pie' | 'bar' | 'bar-stacked' | 'bar-normalized' | 'bar-grouped' | 'bubble' |
@@ -58,6 +92,7 @@ interface SohoDataSetItem {
   valueFormatterString?: BubbleCordinateLabels;
   centerLabel?: string;
   selected?: boolean;
+  ref?: any;
 }
 
 type SohoDataSet = Array<SohoDataSetItem>;
@@ -96,4 +131,11 @@ interface ChartEvent {
   event: JQueryEventObject;
   ui?: any;
   data?: any;
+}
+
+interface  ChartSelectionOptions {
+  fieldName?: string;
+  fieldValue?: any;
+  groupName?: string;
+  groupValue?: any;
 }

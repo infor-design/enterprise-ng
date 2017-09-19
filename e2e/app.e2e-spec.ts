@@ -1,14 +1,14 @@
-import { SohoAngularComponentsPage } from './app.po';
+import { AppPage } from './app.po';
 
-describe('soho-angular-components App', function() {
-  let page: SohoAngularComponentsPage;
+describe('angular-components App', () => {
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new SohoAngularComponentsPage();
+    page = new AppPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });

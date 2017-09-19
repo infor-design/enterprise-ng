@@ -25,7 +25,7 @@
   <soho-toolbar-button-set>
     <!-- buttons -->
     <ng-template ngFor let-b [ngForOf]="_buttons">
-      <button soho-button *ngIf="!b.menu && b.state.visible" icon="{{b?.icon}}" attr.data-button="{{b?.data}}" [attr.disabled]="b.state.disabled ? true : null">{{b?.text}}</button>
+      <button soho-button="icon" *ngIf="!b.menu && b.state.visible" icon="{{b?.icon}}" attr.data-button="{{b?.data}}" [attr.disabled]="b.state.disabled ? true : null">{{b?.text}}</button>
 
       <ng-template [ngIf]="b.menu && b.state.visible">
         <button soho-menu-button [icon]="b?.icon" attr.data-button="{{b?.data}}" title="{{b?.title}}" [attr.disabled]="b.state.disabled ? true : null"></button>

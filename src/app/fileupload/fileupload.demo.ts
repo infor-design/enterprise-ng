@@ -19,6 +19,7 @@ export class FileUploadDemoComponent implements OnInit {
   public name1 = 'file-name';
   public name2 = 'file-name-disabled';
   public name3 = 'file-name-readonly';
+  public name4 = 'file-name-limits';
   public fileLimits = '.cvs,.xls,.xlsx';
 
   public showModel = false;

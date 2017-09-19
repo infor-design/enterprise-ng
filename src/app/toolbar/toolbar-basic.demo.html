@@ -1,15 +1,14 @@
 <div class="row">
-  <div class="twelve columns">
+  <div class="full-width column">
 
     <soho-toolbar
         [maxVisibleButtons]="6"
         [resizeContainers]="true"
         [favorButtonset]="true"
-        (selected)="onSelected($event)"
-    >
+        (selected)="onSelected($event)">
 
       <soho-toolbar-title>
-        <span soho-toolbar-section-title>Basic Toolbar Demo</span>
+        <span soho-toolbar-section-title>Basic Standard Toolbar</span>
       </soho-toolbar-title>
 
       <soho-toolbar-button-set>
@@ -30,7 +29,7 @@
         If I don't put the icon='pie-chart' in single quotes the input won't work.
         My guess is we have to use icon='some-icon' or [icon]="'some-icon'"
         -->
-        <button soho-menu-button id="charts-btn" title="Charts" [icon]="'pie-chart'" data-action="{\'btn\' : \'charts\'}">
+        <button soho-menu-button class="btn-menu" id="charts-btn" title="Charts" [icon]="'pie-chart'" data-action="{\'btn\' : \'charts\'}">
           <span class="audible">Charts</span>
         </button>
         <ul class="popupmenu">
@@ -65,5 +64,6 @@
 
       </soho-toolbar-button-set>
     </soho-toolbar>
+
   </div>
 </div>

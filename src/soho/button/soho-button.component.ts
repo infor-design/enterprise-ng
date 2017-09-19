@@ -9,7 +9,8 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { ArgumentHelper } from '@infor/sohoxi-angular';
+
+import { ArgumentHelper } from '../utils/argument.helper';
 
 /**
  * Supported button types.
@@ -49,6 +50,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
 
   private _buttonOptions: SohoButtonOptions = {};
   private _isToggle = false;
+  private _isTogglePressed = false;
   private _isPressed = false;
 
   /** The type of the button, defaulting to 'secondary'. */
@@ -95,6 +97,17 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
 
   get isToggle(): boolean {
     return this._isToggle;
+  }
+
+  /**
+   * Whether the toggle button should be in a pressed state or not.
+   */
+  @Input() set isTogglePressed(isTogglePressed: boolean) {
+    this._isTogglePressed = isTogglePressed;
+  }
+
+  get isTogglePressed(): boolean {
+    return this._isTogglePressed;
   }
 
   /**
@@ -158,6 +171,10 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
 
   @HostBinding('class.btn-toggle') get btnToggle() {
     return this.isToggle;
+  }
+
+  @HostBinding('class.is-pressed') get btnTogglePressed() {
+    return this.isTogglePressed;
   }
 
   @HostBinding('class.icon-favorite') get iconFavorite(): boolean {
@@ -275,6 +292,9 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     return this.icon;
   }
 
+  /**
+   * @deprecated use isToggle and isTogglePressed instead.
+   */
   public isPressed(): boolean {
     const pressed = this.element.nativeElement.getAttribute('aria-pressed');
     this._isPressed = (pressed === true || pressed === 'true');

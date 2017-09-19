@@ -13,7 +13,7 @@ import {
 import {
   BaseControlValueAccessor,
   provideControlValueAccessor
-} from '../utils';
+} from '../utils/base-control-value-accessor';
 
 @Component({
   selector: 'input[soho-lookup]', // tslint:disable-line
@@ -142,8 +142,8 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
     this.lookup = this.jQueryElement.data('lookup');
 
-    if (this.value) {
-      this.lookup.element.val(this.value);
+    if (this.internalValue) {
+      this.lookup.element.val(this.internalValue);
     }
   }
   ngOnDestroy() {
@@ -169,9 +169,9 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
         modal: SohoModalStatic = args[2];
 
       if (datagrid.pager) {
-        datagrid.pager.element.on('afterpaging', function () {
+        datagrid.pager.element.on('afterpaging', () => {
           modal.resize();
-        }.bind(this));
+        });
       }
     }
     this.afteropen.emit(args);
@@ -182,7 +182,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    */
   onChange(event: SohoLookupChangeEvent[]) {
     this.parseValue(event);
-    this.change.emit(this.value);
+    this.change.emit(this.internalValue);
   }
 
   /**
@@ -236,7 +236,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       this.parseValue(event);
 
       // mimics functionality in sohoxi lookup insertRows()
-      this.lookup.element.val(this.value).trigger('change', [event]);
+      this.lookup.element.val(this.internalValue).trigger('change', [event]);
       this.lookup.element.focus();
     }
   }
@@ -264,14 +264,14 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   private parseValue(event: SohoLookupChangeEvent[]) {
     if (!event) {
       // sometimes the event is not available
-      this.value = this.lookup.element.val();
+      this.internalValue = this.lookup.element.val();
       return;
     }
 
     if (event.length && event.length === 1 && !this.isMultiselect()) {
-      this.value = this.asobject !== false ? event[0].data : this.processValue(event[0].data);
+      this.internalValue = this.asobject !== false ? event[0].data : this.processValue(event[0].data);
     } else {
-      this.value = event.map(val => this.asobject !== false ? val.data : this.processValue(val.data));
+      this.internalValue = event.map(val => this.asobject !== false ? val.data : this.processValue(val.data));
     }
   }
 }

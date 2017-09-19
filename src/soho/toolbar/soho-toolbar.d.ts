@@ -24,7 +24,7 @@ interface SohoToolbarOptions {
    * Will always attempt to right-align the contents of the toolbar.
    * Default is false.
    */
-  rightAlign?: boolean;
+  rightAligned?: boolean;
 
   /**
    * If true, uses Javascript to size the Title and Buttonset elements in a way

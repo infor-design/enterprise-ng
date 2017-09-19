@@ -1,0 +1,24 @@
+
+<div class="row top-padding">
+  <div class="twelve columns">
+    <div class="field">
+        <label for="bgcolor" class="label">Background Color</label>
+        <input soho-colorpicker name="bgcolor" [(ngModel)]="model.color" (change)="onChange($event)"/>
+      </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="twelve columns">
+    <button soho-button [disabled]="colorPickerReadOnly" (click)="setReadonly()">Read Only</button>
+    <button soho-button [disabled]="colorPickerDisabled" (click)="setDisable()">Disable</button>
+    <button soho-button (click)="setEditable()">Make {{colorPickerEditable ? 'Not' : ''}} Editable</button>
+    <button soho-button [disabled]="!colorPickerDisabled && !colorPickerReadOnly" (click)="setEnable()">Enable</button>
+    <button soho-button (click)="changeColors()">Change Colors</button>
+    <button soho-button (click)="toggleLabel()">{{showLabel ? 'Show Hex Value' : 'Show Label'}}</button>
+    <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+    <div *ngIf="showModel">
+      <br><h3>{{ model | json }}</h3>
+    </div>
+  </div>
+</div>

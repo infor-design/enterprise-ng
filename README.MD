@@ -50,9 +50,11 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 |-------------------------|-------------------------------------|--------------|--------------------|
 | accordion               |                           Available |  [README][3] | [SOHO-4344][#4344] |
 | application-menu        |                           Available |            - | [SOHO-3950][#3950] |
+| autocomplete            |                           Available |            - | [SOHO-6759][#6759] |
 | busyindicator           |                           Available |            - | [SOHO-4096][#4096] |
 | button                  |                           Available |            - | [SOHO-4556][#4556] |
 | checkbox                |                           Available |            - | [SOHO-4617][#4617] |
+| colorpicker             |                           Available |            - | [SOHO-6503][#6503] |
 | context-menu            |                           Available |            - | [SOHO-4557][#4557] |
 | contextual-action-panel |                           Available |  [README][0] | [SOHO-5909][#5909] |
 | datagrid                |                           Available |            - | [SOHO-4049][#4049] |
@@ -108,6 +110,7 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 [1]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/modal-dialog/README.md
 [2]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/listview/README.md
 [3]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/accordion/README.md
+[#6759]: http://jira/browse/SOHO-6759
 [#4344]: http://jira/browse/SOHO-4344
 [#5909]: http://jira/browse/SOHO-5909
 [#3895]: http://jira/browse/SOHO-3895

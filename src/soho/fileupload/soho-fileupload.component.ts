@@ -65,14 +65,14 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   @Input() name: string;
 
   /**
-   * @param label
-   */
-  @Input() label: string;
-
-  /**
    * @param accepts filetypes
    */
   @Input() accept: string;
+
+  /**
+   * @param accepts string.
+   */
+  @Input() id: string;
 
   // -------------------------------------------
   // Component Output
@@ -108,8 +108,8 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
-    // Initialise the SohoXi Control
-    const $fileUpload = this.jQueryElement.find('.fileupload').fileupload();
+    // Initialize the SohoXi Control
+    const $fileUpload = this.jQueryElement.find('input').fileupload();
     this.fileUpload = $fileUpload.data('fileupload');
 
     /**

@@ -57,4 +57,9 @@ export class TooltipDemoComponent implements OnInit {
   openTooltip() {
     this.tooltips.toArray()[1].show();
   }
+
+  changeTooltip() {
+    this.standardTooltipText = 'CHANGED';
+    this.normalTooltipText = 'CHANGED';
+  }
 }

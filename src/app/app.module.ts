@@ -22,10 +22,13 @@ import { ApplicationMenuDemoComponent } from './application-menu/application-men
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/application-menu-lazy-menu.demo';
 import { ApplicationMenuLazyService } from './application-menu/application-menu-lazy-service.demo';
+import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
+import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
+import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoModule } from './contextual-action-panel/contextual-action-panel.demo.module';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
@@ -36,6 +39,7 @@ import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
+import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-header.demo';
 import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-selection.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
@@ -59,6 +63,7 @@ import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
+import { HierarchyDemoComponent } from './hierarchy/hierarchy.demo';
 import { HomePageDemoComponent } from './homepage/homepage.demo';
 import { HomePageScenarioADemoComponent } from './homepage/homepage-scenario-a.demo';
 import { HomePageScenarioBDemoComponent } from './homepage/homepage-scenario-b.demo';
@@ -107,6 +112,7 @@ import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
 import { ToolbarStateComponent } from './toolbar/toolbar-state.component';
 import { ToolbarStateDemoComponent } from './toolbar/toolbar-state.demo';
+import { ToolbarRightAlignedDemoComponent } from './toolbar/toolbar-right-aligned.demo';
 import { TooltipDemoComponent } from './tooltip/tooltip.demo';
 import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
@@ -114,6 +120,7 @@ import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
+import { ValidationFormEventDemoComponent } from './validation/validation-form-event.demo';
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
 
 @NgModule({
@@ -125,10 +132,13 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,
     ApplicationMenuLazyMenuDemoComponent,
+    AutocompleteDemoComponent,
     BusyIndicatorDemoComponent,
     ButtonDemoComponent,
     ChartDemoComponent,
     CheckBoxDemoComponent,
+    ColorPickerDemoComponent,
+    CompletionChartDemoComponent,
     ContextMenuDemoComponent,
     DataGridBreadcrumbDemoComponent,
     DataGridContentDemoComponent,
@@ -137,6 +147,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     DataGridDynamicDemoComponent,
     DataGridEditorsDemoComponent,
     DataGridFixedHeaderDemoComponent,
+    DataGridGroupedHeaderDemoComponent,
     DataGridMixedSelectionDemoComponent,
     DataGridPagingIndeterminateDemoComponent,
     DataGridPagingServiceDemoComponent,
@@ -161,6 +172,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     HeaderTabsDemoComponent,
     HeaderToolbarAndTabsDemoComponent,
     HeaderToolbarDemoComponent,
+    HierarchyDemoComponent,
     HomePageDemoComponent,
     HomePageScenarioADemoComponent,
     HomePageScenarioBDemoComponent,
@@ -208,6 +220,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     ToolbarDataDrivenDemoComponent,
     ToolbarStateComponent,
     ToolbarStateDemoComponent,
+    ToolbarRightAlignedDemoComponent,
     TooltipDemoComponent,
     TrackDirtyDemoComponent,
     TreeContentDemoComponent,
@@ -215,6 +228,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     TreeServiceDemoComponent,
     TreeSourceDemoComponent,
     ValidationFormDemoComponent,
+    ValidationFormEventDemoComponent,
     ValidationFormGroupDemoComponent
   ],
   imports: [

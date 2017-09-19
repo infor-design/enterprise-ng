@@ -16,9 +16,9 @@ import {
   QueryList
 } from '@angular/core';
 
-import { ArgumentHelper } from '../utils';
+import { ArgumentHelper } from '../utils/argument.helper';
 
-import { SohoSearchFieldComponent } from '../searchfield';
+import { SohoSearchFieldComponent } from '../searchfield/soho-searchfield.component';
 
 /**
  * This component will allow the developer to modify any DOM element
@@ -265,6 +265,11 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    */
   @Output() selected: EventEmitter<Object> = new EventEmitter<Object>();
   /**
+   * Called once an item is unselected. Returns an object containing the event and the
+   * current selected items.
+   */
+  @Output() unselected: EventEmitter<Object> = new EventEmitter<Object>();
+  /**
    * Called after the list has been sorted for any reason
    */
   @Output() sorted: EventEmitter<Object[]> = new EventEmitter<Object[]>();
@@ -308,6 +313,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
      */
     this.jQueryElement.on('rendered', (...args) => this.rendered.emit(args));
     this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
+    this.jQueryElement.on('unselected', (...args) => this.unselected.emit(args));
     this.jQueryElement.on('sorted', (...args) => this.sorted.emit(args));
   }
 

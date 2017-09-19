@@ -1,7 +1,7 @@
 <form>
   <div class="ten columns">
     <label>Type of Chart</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option1" value="bar-grouped" (change)="onChange($event)"/>
+    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option1" value="bar-grouped" (change)="onChange($event)" checked />
     <label for="option1" class="radio-label">Bar Grouped</label>
     <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option2" value="pie" (change)="onChange($event)"/>
     <label for="option2" class="radio-label">Pie</label>
@@ -9,7 +9,7 @@
     <label for="option3" class="radio-label">Donut</label>
     <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option4" value="bar" (change)="onChange($event)"/>
     <label for="option4" class="radio-label">Bar</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option5" value="column" (change)="onChange($event)" checked />
+    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option5" value="column" (change)="onChange($event)"/>
     <label for="option5" class="radio-label">Column</label>
     <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option6" value="column-stacked" (change)="onChange($event)" />
     <label for="option6" class="radio-label">Column Stacked</label>
@@ -22,103 +22,35 @@
   </div>
   <div class="ten columns">
     <label>Selected Index</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionA" value=0 (change)="onChangeIndex($event)" checked />
+    <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionA" value=1 (change)="onChangeIndex($event)" checked />
     <label for="optionA" class="radio-label">1</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionB" value=1 (change)="onChangeIndex($event)"/>
+    <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionB" value=2 (change)="onChangeIndex($event)"/>
     <label for="optionB" class="radio-label">2</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionC" value=2 (change)="onChangeIndex($event)"/>
+    <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionC" value=3 (change)="onChangeIndex($event)"/>
     <label for="optionC" class="radio-label">3</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionD" value=3 (change)="onChangeIndex($event)"/>
+    <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionD" value=4 (change)="onChangeIndex($event)"/>
     <label for="optionD" class="radio-label">4</label>
+  </div>
+  <div class="ten columns">
+    <input type="checkbox" class="checkbox" id="checkbox2" checked (change)="onCheckboxChange($event)">
+    <label for="checkbox2" class="checkbox-label" >Animate Chart(not all supported)</label>
   </div>
 
 </form>
-<div class="full-width chart-container" style="height:100%">
+<div class="full-width chart-container" style="height:75%">
 
   <div soho-chart
     [dataSet]="chartDemoService.getBasicData()"
-    [type]="columnChart"
+    [type]="barGroupedChart"
     [selectedIndex]="selectedIndex"
     (selected)="onSelected($event)"
     (unselected)="onUnselected($event)"
     (rendered)="onRendered($event)"
+    (contextmenu)="onContextMenu($event)"
     [showLegend]="showLegend"
   >
   </div>
 </div>
 
-<!--
 
-<div class="full-width chart-container" style="height:calc(100% - 40px)">
-  <div soho-chart
-    [dataSet]="chartDemoService.getBasicData()"
-    [type]="pieChart"
-    [chartLabel]="labels"
-  >
-  </div>
-</div>
-<div class="full-width chart-container" style="height:100%">
-  <div soho-chart
-    [dataSet]="chartDemoService.getBasicData()"
-    [type]="pieChart"
-    [chartLabel]="labels2"
-  >
-  </div>
-</div>
-<div class="full-width chart-container" style="height:100%">
-  <div soho-chart
-    [dataSet]="chartDemoService.getBasicData()"
-    [type]="columnChart"
-  >
-  </div>
-</div>
-<div class="full-width chart-container" style="height:100%">
-  <div soho-chart
-    [dataSet]="chartDemoService.getBasicData()"
-    [type]="barChart"
-    [showLegend]="showLegend"
-    [formatterString] = "formatterString"
-  >
-  </div>
-</div>
-<div class="full-width chart-container" style="height:100%">
-  <div soho-chart
-    [dataSet]="chartDemoService.getBasicData()"
-    [type]="lineChart"
-    [axisLabels]="lineAxisLabels"
-  >
-  </div>
-</div>
-<div class="full-width chart-container" style="height:100%">
-  <div soho-chart
-    [dataSet]="chartDemoService.getBasicData()"
-    [type]="donutChart"
-    [showLegend]="showLegend"
-    [chartLabel]="labels"
-  >
-  </div>
-</div>
-<div class="full-width chart-container" style="height:100%">
-    <div soho-chart
-      [dataSet]="chartDemoService.getBasicData()"
-      [type]="donutChart"
-      [showLegend]="showLegend"
-      [chartLabel]="labels2"
-    >
-    </div>
-  </div>
-<div class="full-width chart-container" style="height:100%">
-  <div soho-chart
-    [dataSet]="chartDemoService.getBubbleData()"
-    [type]="bubbleChart"
-    [showLegend]="showLegend"
-  >
-  </div>
-</div>
-<div class="full-width chart-container" style="height:100%">
-  <div soho-chart
-    [dataSet]="chartDemoService.getBubbleData()"
-    [type]="bubbleChart"
-  >
-  </div>
-</div>  -->
+<!-- barGroupedChart  pieChart  columnChart  barChart  lineChart  donutChart  bubbleChart  -->

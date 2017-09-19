@@ -82,11 +82,7 @@ export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
     this.showModel = !this.showModel;
   }
 
-  public setSource() {
-    return this.source.bind(this);
-  }
-
-  public source(response: any, searchTerm: any) {
+  public source = (response: any, searchTerm: any) => {
     const states = [
       { value: 'AK', label: 'Alaska' },
       { value: 'AZ', label: 'Arizona' },

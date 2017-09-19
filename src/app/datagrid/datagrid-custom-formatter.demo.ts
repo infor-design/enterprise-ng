@@ -28,6 +28,10 @@ export const LMFavorite = (row, cell, value, col, rowData, api): string => {
 export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
+  onClick(args) {
+    console.log('click');
+  }
+
   ngAfterViewInit(): void {
     /**
      * Add a column for the custom formatter
@@ -46,8 +50,16 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       field: '',
       formatter: LMFavorite,
     });
-
-    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
+    columns.push({
+      id: 'buton-formatter',
+      name: 'Button',
+      text: 'Press Me!',
+      sortable: false,
+      align: 'center',
+      formatter: Formatters.Button,
+      click: (e, args) => this.onClick(args)
+    });
+    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions>{
       columns: columns,
       dataset: PAGING_DATA,
       selectable: 'single',

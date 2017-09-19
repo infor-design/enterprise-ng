@@ -21,11 +21,14 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
   }
 
   @Input() set selectedIndex(index: number) {
-    this.setSelectDataIndex(index);
 
-    if (this.jQueryElement) {
-      this.updated();
-    }
+    this.setSelectRef(index);
+
+    // this.setSelectDataIndex(index);
+    //
+    // if (this.jQueryElement) {
+    //   this.updated();
+    // }
   }
 
   @Input() set dataSet(dataset: SohoDataSet) {
@@ -78,6 +81,13 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  @Input() set chartAnimate(animate: boolean) {
+    this._chartOptions.animate = animate;
+    if (this.jQueryElement) {
+      this.updated();
+    }
+  }
+
   // ------------------------------------------------------------------------
   // @Outputs
   // ------------------------------------------------------------------------
@@ -88,9 +98,11 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
 
   @Output() rendered = new EventEmitter<ChartEvent>();
 
+  @Output() contextmenu = new EventEmitter<ChartEvent>();
+
   // An internal chartOptions object that gets updated by using
   // the component's Inputs()
-  private _chartOptions: SohoChartOptions = {};
+  private _chartOptions: SohoChartOptions = {animate: true};
 
   // Reference to the jQuery element.
   private jQueryElement: JQuery;
@@ -98,7 +110,9 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
   // Reference to the soho chart control api.
   private chart: SohoChartStatic;
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(private elementRef: ElementRef) {
+
+  }
 
   ngAfterViewInit() {
     // Wrap for later.
@@ -114,6 +128,8 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
       this.unselected.emit({ event, ui, data });
     }).on('rendered', (event: JQueryEventObject, ui: any, data: any) => {
       this.rendered.emit({ event, ui, data });
+    }).on('contextmenu', (event, ui, data) => {
+      this.contextmenu.emit({ event, ui, data });
     });
   }
 
@@ -134,6 +150,19 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
       return this.chart.getSelected();
     }
     return undefined;
+  }
+
+  setSelectRef(ref: any): void {
+    if (this.jQueryElement) {
+      let selectOptions: ChartSelectionOptions;
+      if (this._chartOptions.type.indexOf('grouped') >= 0 || this._chartOptions.type === 'column') {
+        selectOptions = {groupName: 'ref', groupValue: ref}
+      } else {
+        selectOptions = {fieldName: 'ref', fieldValue: ref}
+      }
+
+      this.chart.setSelected(selectOptions);
+    }
   }
 
   setSelectDataIndex(selectIndex: number) {

@@ -6,12 +6,13 @@ import {
   Input,
   OnDestroy,
   Output,
+  OnChanges
 } from '@angular/core';
 
 @Directive({
   selector: '[soho-tooltip]' // tslint:disable-line
 })
-export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
+export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges {
 
   // -------------------------------------------
   // Options Block
@@ -129,12 +130,12 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
   /**
    * Called when the tooltip value changes
    */
-    @Output() changeEvent = new EventEmitter<SohoTooltipEvent>();
+  @Output() changeEvent = new EventEmitter<SohoTooltipEvent>();
 
-    /**
-     * Called when the tooltip updates in some way
-     */
-    @Output() updateEvent = new EventEmitter<SohoTooltipEvent>();
+  /**
+   * Called when the tooltip updates in some way
+   */
+  @Output() updateEvent = new EventEmitter<SohoTooltipEvent>();
 
   // -------------------------------------------
   // Private Member Data
@@ -154,6 +155,10 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
     // Wrap the element in a jQuery selector.
     this.jQueryElement = jQuery(this.element.nativeElement);
 
+    this.createControl();
+  }
+
+  private createControl() {
     // Initialise the SohoXi Control
     this.jQueryElement.tooltip(this.options);
 
@@ -192,6 +197,14 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy {
     if (this.tooltip) {
       this.tooltip.destroy();
       this.tooltip = null;
+    }
+  }
+
+  ngOnChanges() {
+    if (this.tooltip) {
+      this.tooltip.destroy();
+      this.tooltip = null;
+      this.createControl();
     }
   }
 }

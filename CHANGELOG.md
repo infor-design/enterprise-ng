@@ -1,5 +1,11 @@
 
 ## Whats New
+
+* 2017-09-07 - THM - Fixed SOHO-6746 - See breaking changes
+* 2017-08-30 - PWP - Fixed breakpoints type in soho-application-menu.d.ts to match soho.
+* 2017-08-16 - BTH - Fixed SOHO-5125 - `spinbox`, `datepicker`, `timepicker` and `colorpicker`.
+* 2017-08-15 - BTH - Upgraded to @angular/cli 1.3.0
+* 2017-08-08 - MHH - Added support for grouped headers to datagrid
 * 2017-08-01 - BTH - PR-409 - Fixed use of reactive forms with soho-mask (see breaking changes)
 * 2017-07-25 - PWP - PR-403 - Added collapseOnMobile input for search field on a soho-toolbar
 * 2017-07-20 - PWP git - PR-399 - Added input and outputs to soho-popupmenu
@@ -64,12 +70,27 @@
 
 ### Breaking Changes
 
+* 2017-08-17 - TJM - Not entirely breaking but file upload should now be done without an inline label as per fileupload example. This wont break if you don't change it but will cause a loop on ie edge due to an ie edge bug if initializing it with an inline label. So change your file upload markup
+
+* 2017-08-30 - PWP - Fixed breakpoints SohoApplicationMenuBreakPoint type in soho-application-menu.d.ts to match soho. Two settings weren't available (tablet and large) and caused the app menu to dismiss on every click. And several other options weren't defined in the type.
+
+
+* 2017-08-17 - PWP - soho-personalize.d.ts - had incorrect options definition. This removes the use the `@Input() startingColor` as an option into the personalize directive. Use of `@Input() colors` is recommended instead.
+
+* 2017-08-16 - BTH - soho-spinbox.component - hooked up value input to model, and exposed as setter.  This deprecates the original `updateVal` property - which exposed the internal function.  Old code may continue to work, but should be replaced with:
+
+    ```
+    this.spinbox.value = 90;
+    ```
+
+* 2017-08-09 - PWP - soho-popupmenu.component - moved isDisabled `@Input()` from the `<a>` anchor to the `<li>`
+
 * 2017-08-01 - BTH - PR-409 - Changed the `pattern` attribute used by `soho-mask` to define the pattern to `sohoPattern`, this change is required otherwise this name clashes with the attribute used by the forms module.
 
 * 2017-07-21 - PWP - PR-401 - Changed SohoPopupMenuEvent to include the original JQueryEvent as a property instead of extending from it.
-    
+
     Any code relying on the jQueryEvent should reference it through the SohoContextMenuEvent and SohoPopupMenuEvent.
-    
+
 * 2017-07-28 - BTH - Added generic type argument onto `SohoModalDialogVetoableEventGuard`.  
 
     Any code using this interface should add the generic type of the dialog component, or `any` for messages.

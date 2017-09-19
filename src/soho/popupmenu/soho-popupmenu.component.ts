@@ -41,8 +41,6 @@ export class SohoPopupMenuSeparatorComponent {
   template: `<ng-content></ng-content>`
 })
 export class SohoPopupMenuItemLabelComponent {
-  @HostBinding('attr.disabled') get propDisabled() { return this.isDisabled === true ? '' : null; }
-
   @HostBinding('attr.href') get hrefAttr() {
     if (this.menuId) {
       return '#' + this.menuId;
@@ -57,7 +55,6 @@ export class SohoPopupMenuItemLabelComponent {
 
   @Input() menuId: string;
   @Input() menuUrl: string;
-  @Input() isDisabled = false;
 }
 
 /**
@@ -70,6 +67,7 @@ export class SohoPopupMenuItemLabelComponent {
 export class SohoPopupMenuItemComponent {
   @HostBinding('class.is-checked') @Input() isChecked: boolean;
   @HostBinding('class.is-selectable') @Input() isSelectable = false;
+  @HostBinding('class.is-disabled') @Input() isDisabled = false;
 }
 
 /**

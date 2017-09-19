@@ -22,8 +22,13 @@ export class SohoPersonalizeDirective implements AfterViewInit {
   @Input() options: SohoPersonalizeOptions = {};
 
   /** The starting colour. */
-  @Input() set startingColor(value: string) {
-    this.options.startingColor = value;
+  @Input() set colors(colors: string) {
+    this.options.colors = colors;
+  }
+
+  /** The starting theme. */
+  @Input() set theme(theme: string) {
+    this.options.theme = theme;
   }
 
   @Output() changetheme: EventEmitter<Object> = new EventEmitter<Object>();

@@ -78,7 +78,5 @@ export class SohoHyperlinkComponent implements AfterViewInit {
      * Initialize hideFocus()
      */
     this.jQueryElement.hideFocus();
-
-    this.jQueryElement.on('change', (event: JQueryEventObject) => this.change.emit(event));
   }
 }

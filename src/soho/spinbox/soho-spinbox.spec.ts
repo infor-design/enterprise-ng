@@ -36,10 +36,10 @@ describe ('Soho Spinbox Unit tests', () => {
     expect(el.classList).toContain('spinbox');
     expect(el.getAttribute('id')).toEqual(spinbox.id);
     expect(el.getAttribute('name')).toEqual(spinbox.name);
-    expect(el.getAttribute('min')).toEqual(spinbox.min);
-    expect(el.getAttribute('max')).toEqual(spinbox.max);
-    expect(el.getAttribute('value')).toEqual(spinbox.value);
-    expect(el.getAttribute('step')).toEqual(spinbox.step);
+    expect(el.getAttribute('min')).toEqual(spinbox.min.toString());
+    expect(el.getAttribute('max')).toEqual(spinbox.max.toString());
+    expect(el.getAttribute('value')).toEqual(spinbox.value.toString());
+    expect(el.getAttribute('step')).toEqual(spinbox.step.toString());
   });
 
   it('Spinbox disabled', () => {
@@ -53,7 +53,7 @@ describe ('Soho Spinbox Unit tests', () => {
   });
 
   it('Spinbox update value', () => {
-    spinbox.updateValue = 90;
+    spinbox.value = 90;
     fixture.detectChanges();
     expect(el.getAttribute('aria-valuenow')).toContain('90');
   });

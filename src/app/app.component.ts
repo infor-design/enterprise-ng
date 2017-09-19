@@ -4,8 +4,6 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { SohoApplicationMenuComponent } from '@infor/sohoxi-angular';
-import { ArgumentHelper } from '@infor/sohoxi-angular';
 import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.service';
 
 @Component({
@@ -18,10 +16,7 @@ import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.se
 export class AppComponent {
   @HostBinding('class.no-scroll') get isNoScroll() { return true; }
 
-  public personalizeOptions: {
-    theme?,
-    colors?,
-  } = {};
+  public personalizeOptions: SohoPersonalizeOptions = {};
 
   constructor() {
     // @todo Set the locale here, to ensure all the values are setup.

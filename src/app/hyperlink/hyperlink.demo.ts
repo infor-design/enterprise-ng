@@ -1,13 +1,10 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'soho-hyperlink-demo',
   templateUrl: './hyperlink.demo.html'
 })
-export class HyperlinkDemoComponent implements OnInit {
+export class HyperlinkDemoComponent {
 
   public url1 = '#';
   public url2 = 'http://www.google.com';
@@ -15,7 +12,4 @@ export class HyperlinkDemoComponent implements OnInit {
 
   constructor() {
   }
-
-  ngOnInit() { }
-
 }

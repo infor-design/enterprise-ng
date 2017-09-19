@@ -6,7 +6,9 @@
       <div class="row">
         <div class="twelve columns">
           <label for="slider-regular">Regular</label>
-          <input soho-slider id="slider-regular" name="slider-regular" min="0" max="100" type="range" value="{{model.value}}" (change)="onChange($event)"/>
+          <input soho-slider id="slider-regular" name="slider-regular" min="0" max="100" type="range"
+          [(ngModel)]="model.value" (change)="onChange($event)"/>
+          <div></div>
           <div>
             <button soho-button [disabled]="sliderReadOnly" (click)="setReadonly()">Read Only</button>
             <button soho-button [disabled]="sliderDisabled" (click)="setDisable()">Disable</button>

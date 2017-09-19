@@ -11,7 +11,7 @@ import {
 import {
   BaseControlValueAccessor,
   provideControlValueAccessor
-} from '../utils';
+} from '../utils/base-control-value-accessor';
 
 @Component({
   selector: 'input[soho-datepicker]', // tslint:disable-line
@@ -19,6 +19,19 @@ import {
   providers: [provideControlValueAccessor(SohoDatePickerComponent)]
 })
 export class SohoDatePickerComponent extends BaseControlValueAccessor<any> implements AfterViewInit, OnDestroy {
+
+  /**
+   * Local variables
+   */
+  private jQueryElement: JQuery;
+
+  private datepicker: SohoDatePickerStatic;
+
+  private isDisabled: boolean = null;
+
+  private isReadOnly: boolean = null;
+
+  private options: SohoDatePickerOptions = {};
   // TODO: waiting on SOHO-4839 : 4.0 DatePicker - Needs to support an update() method
   //  so options can be changed after initialization
   /**
@@ -66,6 +79,13 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   @Input() set dateFormat(dateFormat: string) {
     this.options.dateFormat = dateFormat;
   }
+
+  /**
+   * Indicates the day of week the calendar starts with (0=sunday, 1=monday ...)
+   */
+  @Input() set firstDayOfWeek(firstDayOfWeek: number) {
+    this.options.firstDayOfWeek = firstDayOfWeek;
+  }
   /**
    * Indicates a placeholder for an empty value; defaults to false.
    */
@@ -96,6 +116,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
       }
     }
   }
+
   /**
    * Sets the control to readonly
    */
@@ -118,7 +139,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   /**
    * Called when the datepicker value changes
    */
-  @Output() change: EventEmitter<SohoDatePickerEvent> = new EventEmitter<SohoDatePickerEvent>();
+  @Output() change = new EventEmitter<SohoDatePickerEvent>();
 
   /**
    * Public API
@@ -130,6 +151,10 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
     return this.isReadOnly;
   }
 
+  public setValue(value: Date) {
+    this.datepicker.setValue(value, true);
+  }
+
   /**
    * Bind attributes to the host input element
    */
@@ -139,19 +164,6 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   @HostBinding('class.timepicker') get isTimepicker() {
     return !!this.options.showTime;
   };
-
-  /**
-   * Local variables
-   */
-  private jQueryElement: JQuery;
-
-  private datepicker: SohoDatePickerStatic;
-
-  private isDisabled: boolean = null;
-
-  private isReadOnly: boolean = null;
-
-  private options: SohoDatePickerOptions = {};
 
   constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
     super(changeDetectionRef);
@@ -166,12 +178,12 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
      * Bind to jQueryElement's events
      */
     this.jQueryElement
-    .on('change', (e: any, args: SohoDatePickerEvent) => this.onChange(args));
+      .on('change', (args: SohoDatePickerEvent) => this.onChange(args));
 
     this.datepicker = this.jQueryElement.data('datepicker');
 
-    if (this.value) {
-      this.datepicker.element.val(this.value);
+    if (this.internalValue) {
+      this.datepicker.element.val(this.internalValue);
     }
   }
 
@@ -179,11 +191,12 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
    * Handle the control being changed.
    */
   onChange(event: SohoDatePickerEvent) {
-    if (!event) {
-      // sometimes the event is not available
-      this.value = this.datepicker.element.val();
-      return;
-    }
+    this.internalValue = this.datepicker.element.val();
+
+    // Set the date on the event.
+    event.data = this.internalValue;
+
+    // Fire the event
     this.change.emit(event);
   }
 

@@ -37,6 +37,9 @@ interface SohoDatePickerOptions {
 
   /** A date or range of dates that are enabled/disabled. */
   disable?: SohoDatePickerDisable;
+
+  /** Day with which the calendar starts (0=sunday, 1=monday ...) */
+  firstDayOfWeek?: number;
 }
 
 /**
@@ -72,6 +75,9 @@ interface SohoDatePickerStatic {
 
   /** Underlying element. */
   element: JQuery;
+
+  // Sets the value of the date picker.
+  setValue(value: Date, trigger?: boolean): void;
 
   readonly(): void;
 
