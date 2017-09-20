@@ -15,7 +15,6 @@ import {
 export class SohoErrorDirective implements AfterViewInit {
 
   private _options: SohoErrorOptions = {};
-  private error: SohoErrorStatic;
   private jQueryElement: JQuery;
 
   constructor(private el: ElementRef) {
@@ -32,7 +31,6 @@ export class SohoErrorDirective implements AfterViewInit {
         this.jQueryElement.removeError(this._options);
       }
     }
-    this.error = this.jQueryElement.data('data-errormessage');
   }
 
   /** set error in tooltip. */
@@ -48,7 +46,7 @@ export class SohoErrorDirective implements AfterViewInit {
   }
 
   get errorMessage() {
-    return this.error;
+    return this.jQueryElement.getErrorMessage();
   }
 
   /** add inline error */
@@ -76,7 +74,5 @@ export class SohoErrorDirective implements AfterViewInit {
    */
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.el.nativeElement);
-
-    this.error = this.jQueryElement.data('data-errormessage');
   }
 }

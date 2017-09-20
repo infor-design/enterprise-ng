@@ -35,4 +35,6 @@ interface JQuery {
   addError(options?: SohoErrorOptions): JQuery;
 
   removeError(options?: SohoErrorOptions): JQuery;
+
+  getErrorMessage(options?: SohoErrorOptions): JQuery;
 }

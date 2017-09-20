@@ -11,7 +11,7 @@
           <div class="field">
             <label soho-label [required]="model.AlphaField.required" for="AlphaField">AlphaField</label>
             <input id="AlphaField" name="AlphaField" formControlName="AlphaField"
-              [(ngModel)]="model.AlphaField.value"
+              [(ngModel)]="model.AlphaField.value" attr.data-validate="{{isRequired('AlphaField')}}"
               soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
             >
             <p>{{status('AlphaField')}}</p>
@@ -21,7 +21,7 @@
           <div class="field">
             <label soho-label [required]="model.NumericField.required" for="NumericField">Numeric Field</label>
             <input id="NumericField" name="NumericField" formControlName="NumericField"
-              [(ngModel)]="model.NumericField.value"
+              [(ngModel)]="model.NumericField.value" attr.data-validate="{{isRequired('NumericField')}}"
               soho-input
               soho-mask [mode]="'number'" [sohoPattern]="'###.##'"
               soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
@@ -36,7 +36,7 @@
           <div class="field">
             <label soho-label [required]="model.DateField.required" for="DateField">Date Field</label>
             <input id="DateField" name="DateField" formControlName="DateField"
-              [(ngModel)]="model.DateField.value"
+              [(ngModel)]="model.DateField.value" attr.data-validate="{{isRequired('DateField')}}"
               soho-datepicker dateFormat="MM/dd/yyyy" mode="standard"
               soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
             >
@@ -47,12 +47,15 @@
           <div class="field">
             <label soho-label [required]="model.DropdownField.required" for="DropdownField">Dropdown Field</label>
             <select class="dropdown" id="DropdownField" name="DropdownField" formControlName="DropdownField"
-              [(ngModel)]="model.DropdownField.value"
+              [(ngModel)]="model.DropdownField.value" attr.data-validate="{{isRequired('DropdownField')}}"
               soho-dropdown soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
+              soho-error
             >
-              <option *ngFor="let option of ['', 'Option #1', 'Option #2', 'Option #3']" [value]="option">{{option}}</option>
+              <option *ngFor="let option of ['Option #1', 'Option #2', 'Option #3']" [value]="option">{{option}}</option>
             </select>
             <p>{{status('DropdownField')}}</p>
+            <button soho-button (click)="addError()">Add Error</button>
+            <button soho-button (click)="removeError()">Remove Error</button>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit, QueryList, ViewChildren } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { SohoTrackDirtyDirective } from 'soho/trackdirty';
+import { SohoErrorDirective } from '@infor/sohoxi-angular';
 
 @Component({
   selector:    'soho-validation-form-event-demo',
@@ -8,21 +9,22 @@ import { SohoTrackDirtyDirective } from 'soho/trackdirty';
 })
 export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
   @ViewChildren(SohoTrackDirtyDirective) trackDirtyComponents: QueryList<SohoTrackDirtyDirective>;
+  @ViewChild(SohoErrorDirective) errorDirective: SohoErrorDirective;
 
   public dataView: any = {
-    AlphaField:   {
+    AlphaField:    {
       value:    'abc',
       required: true
     },
-    NumericField: {
+    NumericField:  {
       value:    '',
       required: true
     },
-    DateField:    {
+    DateField:     {
       value: ''
     },
     DropdownField: {
-      value: '',
+      value:    '',
       required: true
     }
   };
@@ -68,14 +70,13 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
 
     Object.keys(this.dataView).map((item, index, ary) => {
       const required = this.dataView[ item ].required;
-      const validator: ValidatorFn = (required) ? Validators.required : null;
 
       this.model[ item ] = {
         value:    this.dataView[ item ].value,
         required: required
       };
 
-      group[ item ] = new FormControl('', validator);
+      group[ item ] = new FormControl('');
     });
 
     this.form = new FormGroup(group);
@@ -90,6 +91,15 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
 
     // disables save button
     return true;
+  }
+
+  isRequired(id: string): string {
+    // used to set the sohoxi required validator on the data-validate attribute on a control
+    // return null means attribute is not set
+    if (this.model[ id ].required) {
+      return 'required';
+    }
+    return null;
   }
 
   status(key?: string): string {
@@ -109,6 +119,20 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
     this.trackDirtyComponents.forEach((trackDirty: SohoTrackDirtyDirective) => {
       trackDirty.resetDirty();
     });
+  }
+
+  addError() {
+    // don't add an error if field already has an error
+    if (!this.errorDirective.errorMessage) {
+      this.errorDirective.addInlineError('Field is in error');
+    }
+  }
+
+  removeError() {
+    // only remove an error if an error exists
+    if (this.errorDirective.errorMessage) {
+      this.errorDirective.removeError();
+    }
   }
 
   toggleModel() {
