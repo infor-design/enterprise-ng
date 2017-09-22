@@ -1,8 +1,4 @@
-import {
-  AfterViewInit,
-  Directive,
-  ElementRef, Input
-} from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
 
 /**
  * Angular Wrapper for the SoHo Error Directive.
@@ -45,8 +41,12 @@ export class SohoErrorDirective implements AfterViewInit {
     this._options.inline = inline;
   }
 
+  /**
+   * Returns the data object data-errormessage
+   * @returns {JQuery}
+   */
   get errorMessage() {
-    return this.jQueryElement.getErrorMessage();
+    return this.jQueryElement.getErrorMessage(this._options);
   }
 
   /** add inline error */
@@ -66,6 +66,15 @@ export class SohoErrorDirective implements AfterViewInit {
   /** remove inline/tooltip error */
   removeError() {
     this.message = '';
+  }
+
+  /**
+   * Scrolls the element into the visible area of the browser window
+   *
+   * @param alignToTop (boolean) optional - true (default) element will be aligned to the top of the visible area of the scrollable ancestor
+   */
+  scrollIntoView(alignToTop?: boolean) {
+    this.jQueryElement.scrollIntoView(alignToTop, this._options);
   }
 
   /**

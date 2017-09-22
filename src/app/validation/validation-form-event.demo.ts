@@ -135,6 +135,13 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
     }
   }
 
+  goToError() {
+    // scroll element into view if there is an error
+    if (this.errorDirective.errorMessage) {
+      this.errorDirective.scrollIntoView();
+    }
+  }
+
   toggleModel() {
     this.showModel = !this.showModel;
   }
