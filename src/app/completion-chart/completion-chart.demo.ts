@@ -88,8 +88,10 @@ export class CompletionChartDemoComponent implements OnInit, OnDestroy {
       },
       completed: {
         value: 78,
-        text: '78 %',
         color: 'good'
+      },
+      percentText: {
+        show: true
       }
     };
 

@@ -40,6 +40,7 @@ interface SohoChartData {
   completed?: SohoChartDataCompleted;
   remaining?: SohoChartDataRemaining;
   total?: SohoChartDataTotal;
+  percentText?: SohoChartPercentText;
   url?: string;
   color?: string;
   tooltip?: string;
@@ -63,21 +64,30 @@ interface SohoChartDataCompleted {
   value?: number | string;
   text?: string;
   color?: string;
+  format?: string;
 }
 
 interface SohoChartDataRemaining {
   value?: number | string;
   text?: string;
   color?: string;
+  format?: string;
+  textOnly?: boolean;
 }
 
 interface SohoChartDataTotal {
   value?: number | string;
   text?: string;
   format?: string;
-  difference?: string;
+  difference?: boolean;
+  textOnly?: boolean;
 }
 
+interface SohoChartPercentText {
+  show?: boolean;
+  color1?: string;
+  color2?: string;
+}
 type ChartTypes = 'pie' | 'bar' | 'bar-stacked' | 'bar-normalized' | 'bar-grouped' | 'bubble' |
   'column-stacked' |'column' | 'column-grouped' | 'column-positive-negative' | 'donut' | 'line' |
   'area' | 'bullet' | 'completion' | 'completion-target' | 'targeted-achievement';
