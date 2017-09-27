@@ -1225,7 +1225,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   * Trigger export of grid data to Excel.
+   * Trigger export of grid data to CSV formatted file.
    * @param fileName The prefix name to be used for the exported file.
    * @param customDs A datasource to override the default.
    */
