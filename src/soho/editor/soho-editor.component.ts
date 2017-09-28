@@ -1,5 +1,5 @@
 import {
-  AfterViewInit,
+  AfterViewInit, ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
@@ -9,11 +9,17 @@ import {
   Output,
 } from '@angular/core';
 
+import {
+  BaseControlValueAccessor,
+  provideControlValueAccessor
+} from '../utils/base-control-value-accessor';
+
 @Component({
   selector: '[soho-editor]', // tslint:disable-line
   template: '<ng-content></ng-content>',
+  providers: [ provideControlValueAccessor(SohoEditorComponent) ]
 })
-export class SohoEditorComponent implements AfterViewInit, OnDestroy {
+export class SohoEditorComponent extends BaseControlValueAccessor<any> implements AfterViewInit, OnDestroy {
 
   // -------------------------------------------
   // Options Block
@@ -35,7 +41,7 @@ export class SohoEditorComponent implements AfterViewInit, OnDestroy {
   // Component Input
   // -------------------------------------------
   /**
-   * @param disabled
+   * @param value
    */
   @Input() set disabled(value: boolean) {
     if (this.editor) {
@@ -51,7 +57,7 @@ export class SohoEditorComponent implements AfterViewInit, OnDestroy {
   }
 
   /**
-   * @param readonly
+   * @param value
    */
   @Input() set readonly(value: boolean) {
     if (this.editor) {
@@ -150,8 +156,8 @@ export class SohoEditorComponent implements AfterViewInit, OnDestroy {
   // Reference to the SoHoXi control api.
   private editor: SohoEditorStatic;
 
-  constructor(private element: ElementRef) {
-
+  constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
+    super(changeDetectionRef);
   }
 
   ngAfterViewInit() {
@@ -166,8 +172,27 @@ export class SohoEditorComponent implements AfterViewInit, OnDestroy {
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (e: JQueryEventObject, args: SohoEditorEvent) => this. change.next(args));
+    this.jQueryElement.on('change', (e: JQueryEventObject, args: SohoEditorEvent) => this.onChange(args));
     this.jQueryElement.on('updated', (e: JQueryEventObject, args: SohoEditorEvent) => this.updated.next(args));
+
+    if (this.internalValue) {
+      this.jQueryElement.val(this.internalValue);
+    }
+  }
+
+  /**
+   * Handle the control being changed.
+   */
+  onChange(event: any) {
+    // console.log(`onChange: ${event} - "${this.jQueryElement.val()}"`)
+    if (!event) {
+      // sometimes the event is not available
+      this.internalValue = this.jQueryElement.val();
+      super.writeValue(this.internalValue);
+      return;
+    }
+
+    this.change.emit(this.internalValue);
   }
 
   ngOnDestroy() {
