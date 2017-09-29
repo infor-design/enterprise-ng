@@ -13,3 +13,6 @@
 interface SohoMenuButtonEvent extends SohoPopupMenuEvent {
 
 }
+
+type AjaxBeforeOpenResponseFunction = (arg1: string) => void;
+type AjaxBeforeOpenFunction = (AjaxBeforeOpenResponseFunction) => void;

@@ -1,11 +1,12 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { SohoMenuButtonComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-menu-button-demo',
   templateUrl: './menu-button.demo.html',
 })
-export class MenuButtonDemoComponent implements OnInit {
-
+export class MenuButtonDemoComponent implements OnInit, AfterViewInit {
+  @ViewChild('ajax')ajaxMenuButton: SohoMenuButtonComponent;
   public menuButtons: Array<any>;
 
   disabledEntryClicked() {
@@ -28,6 +29,10 @@ export class MenuButtonDemoComponent implements OnInit {
     console.log(event, 'onOpen');
   }
 
+  ajaxMenuItems(fn: AjaxBeforeOpenResponseFunction) {
+    fn('<li><a id="ajax-content-option-1" href="#">AJAX Option #1</a></li><li><a id="ajax-content-option-2" href="#">AJAX Option #2</a></li><li><a id="ajax-content-option-3" href="#">AJAX Option #3</a></li>');
+  }
+
   ngOnInit() {
     this.menuButtons = [
       {
@@ -47,5 +52,9 @@ export class MenuButtonDemoComponent implements OnInit {
         ]
       }
     ];
+  }
+
+  ngAfterViewInit() {
+    this.ajaxMenuButton.ajaxBeforeOpenFunction = this.ajaxMenuItems;
   }
 }
