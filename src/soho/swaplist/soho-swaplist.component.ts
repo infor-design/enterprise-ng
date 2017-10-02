@@ -150,11 +150,11 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   @Input()
   public btnMoveToSelect = Locale.translate('Select');
 
-  /** Default button text for select. */
+  /** Default button text for move to left. */
   @Input()
   public btnMoveToLeft = Locale.translate('MoveToLeft');
 
-  /** Default button text for select. */
+  /** Default button text for  move to right. */
   @Input()
   public btnMoveToRight = Locale.translate('MoveToRight');
 
