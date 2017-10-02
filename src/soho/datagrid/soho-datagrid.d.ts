@@ -136,6 +136,9 @@ interface SohoDataGridOptions {
 
   /** Grouped columns*/
   columnGroups?: SohoDataGridColumnGroup[];
+
+  /** whether to show the page size selector or not */
+  showPageSizeSelector?: boolean;
 }
 
 /**
@@ -666,16 +669,16 @@ interface JQuery {
 
 interface SohoDataGridRowExpandEvent {
   // child elements
-  children: Array<any>;
+  children?: Array<any>;
 
   // The index of the row number that has been expanded/collapsed.
-  row: number;
+  row?: number;
 
   // The detail row thas has been expanded..
-  item: any;
+  item?: any;
 
   // Data associated with row
-  rowData: any;
+  rowData?: any;
 }
 
 interface SohoDataGridRowCollapseEvent extends SohoDataGridRowExpandEvent { }

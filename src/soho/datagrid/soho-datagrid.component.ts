@@ -809,6 +809,19 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Whether to show the page size selector or not.
+   */
+  @Input() set showPageSizeSelector(showPageSizeSelector: boolean) {
+    this._gridOptions.showPageSizeSelector = showPageSizeSelector;
+    if (this.jQueryElement) {
+      this.datagrid.settings.showPageSizeSelector = showPageSizeSelector;
+
+      // todo: need a function in datagrid.js that allows toggling of the page size selector. for now I have to rebuild the datagrid.
+      this.markForRefresh('showPageSizeSelector', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
    * The column groups
    *
    * As this method can be called before the control is
@@ -1246,7 +1259,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @todo arguments.
    */
   private onExpandRow(args: SohoDataGridRowExpandEvent) {
-    const event = { grid: this, ...args };
+    const event = {grid: this, ...args };
     this.expandrow.next(event);
   }
 
@@ -1447,4 +1460,5 @@ export enum SohoGridColumnFilterTypes {
 export interface SohoDataGridToggleRowEvent extends SohoDataGridRowExpandEvent {
   // The data grid component originating the call.
   grid: SohoDataGridComponent;
+  args?: any;
 }
