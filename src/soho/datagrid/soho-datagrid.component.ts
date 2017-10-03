@@ -1237,6 +1237,15 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this.datagrid.exportToExcel(fileName, worksheetName, customDs);
   }
 
+  /**
+   * Trigger export of grid data to CSV formatted file.
+   * @param fileName The prefix name to be used for the exported file.
+   * @param customDs A datasource to override the default.
+   */
+  exportToCsv(fileName: string, customDs: Object[]): void {
+    this.datagrid.exportToCsv(fileName, customDs);
+  }
+
   // -------------------------------------------
   // Event Handlers
   // -------------------------------------------

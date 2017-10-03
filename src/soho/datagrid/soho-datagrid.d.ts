@@ -261,11 +261,11 @@ type SohoDataGridColumnHrefFunction = (
   cell: any,
   col: SohoDataGridColumn,
   value: any
- ) => string;
+) => string;
 
- type SohoDataGridColumnHref = string | SohoDataGridColumnHrefFunction;
+type SohoDataGridColumnHref = string | SohoDataGridColumnHrefFunction;
 
- type SohoDataGridColumnIsEditableFunction = (
+type SohoDataGridColumnIsEditableFunction = (
   row: number,
   cell: any,
   fieldValue: any,
@@ -313,7 +313,7 @@ interface SohoDataGridColumn {
   sortable?: boolean;
 
   /** Width of the column (in pixels) or a string value for the width. */
-  width?: number  | string;
+  width?: number | string;
 
   /** @todo fix type from any.  */
   align?: any;
@@ -470,7 +470,7 @@ interface SohoDataGridStatic {
    * @param columnId the id of the column to sort on.
    * @param ascending if true sort ascending, otherwise descending.  If not supplied the setting is toggled.
    */
-  setSortColumn(columnId: string, ascending?: boolean )
+  setSortColumn(columnId: string, ascending?: boolean)
 
   columnById(id: string): Array<any>;
 
@@ -528,6 +528,8 @@ interface SohoDataGridStatic {
   triggerSource(pagerType: 'initial' | 'refresh' | 'filtered' | 'sorted' | 'updatecolums' | string): void;
 
   exportToExcel(fileName: string, worksheetName: string, customDs: Object[]): void;
+
+  exportToCsv(fileName: string, customDs: Object[]): void;
 
   /**
    * Returns an array of all the rows in the grid marked as dirty.
@@ -688,7 +690,7 @@ interface SohoDataGridRowActivatedEvent {
   item: any;
 }
 
-interface SohoDataGridRowDeactivatedEvent extends SohoDataGridRowActivatedEvent {}
+interface SohoDataGridRowDeactivatedEvent extends SohoDataGridRowActivatedEvent { }
 
 interface SohoDataGridFilterCondition {
   columnId?: 'all' | string;
