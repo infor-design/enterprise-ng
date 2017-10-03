@@ -63,6 +63,12 @@ export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  @Input() set ajaxBeforeOpenFunction(fn: AjaxBeforeOpenFunction) {
+    if (this.menuButton) {
+      this.menuButton.settings.beforeOpen = fn;
+    }
+  }
+
   constructor(private element: ElementRef) {}
 
   ngAfterViewInit() {
