@@ -33,19 +33,19 @@ export class MenuButtonDemoComponent implements OnInit, AfterViewInit {
     // Context lost. this is no longer an Angular component.
     // Not able to project content and get ElementRef's innerHTML
 
-    let ajaxMenuItemList = [
+    const ajaxMenuItemList = [
       {label: 'Ajax Option #1'},
       {label: 'Ajax Option #2'},
       {label: 'Ajax Option #3'},
     ];
 
     let content = '';
-    ajaxMenuItemList.forEach(item =>{
+    ajaxMenuItemList.forEach(item => {
       content += `
             <li>
               <a href="#">${item.label}</a>
             </li>
-            `
+            `;
     });
     fn(content);
    }
