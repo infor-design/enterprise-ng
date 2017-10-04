@@ -295,7 +295,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
   @Output() click: EventEmitter<Object> = new EventEmitter<Object>();
 
    /**
-   * Called once an item double clicked. This isnt used that often.
+   * Called once an item is double clicked. This isnt used that often.
    */
   @Output() dblclick: EventEmitter<Object> = new EventEmitter<Object>();
 
