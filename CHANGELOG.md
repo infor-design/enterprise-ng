@@ -1,6 +1,7 @@
 
 ## Whats New
 
+* 2017-09-28 - MHH - Updated Soho-editor to implement BaseControlValueAccessor
 * 2017-09-07 - THM - Fixed SOHO-6746 - See breaking changes
 * 2017-08-30 - PWP - Fixed breakpoints type in soho-application-menu.d.ts to match soho.
 * 2017-08-16 - BTH - Fixed SOHO-5125 - `spinbox`, `datepicker`, `timepicker` and `colorpicker`.
