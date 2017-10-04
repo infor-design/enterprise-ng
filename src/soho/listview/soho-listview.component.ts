@@ -281,13 +281,13 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * Called once an item is activated. Returns an object containing the event
    * and additional info about the activated item.
    */
-  @Output() activated: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() itemactivated: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**
    * Called once an item is deactivated.  Returns an object containing the event
    * and additional info about the deactivated item.
    */
-  @Output() deactivated: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() itemdeactivated: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**
    * Called once an item is clicked. You may also prefer need activated / deactived here.
@@ -304,7 +304,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * Use popupmenu during this event.
    */
   @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object>();
-  
+
   /**
    * Called after the list has been sorted for any reason
    */
@@ -351,8 +351,8 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
     this.jQueryElement.on('unselected', (...args) => this.unselected.emit(args));
     this.jQueryElement.on('deselected', (...args) => this.deselected.emit(args));
-    this.jQueryElement.on('activated', (...args) => this.activated.emit(args));
-    this.jQueryElement.on('deactivated', (...args) => this.deactivated.emit(args));
+    this.jQueryElement.on('itemactivated', (...args) => this.itemactivated.emit(args));
+    this.jQueryElement.on('itemdeactivated', (...args) => this.itemdeactivated.emit(args));
     this.jQueryElement.on('click', (...args) => this.click.emit(args));
     this.jQueryElement.on('dblclick', (...args) => this.dblclick.emit(args));
     this.jQueryElement.on('contextmenu', (...args) => this.contextmenu.emit(args));
