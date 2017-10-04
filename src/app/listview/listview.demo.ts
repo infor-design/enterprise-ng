@@ -50,6 +50,7 @@ export class ListViewDemoComponent {
     this.demoTasks.push({task: '063011', date: '10/11/2015' , desc: 'Call TMZ Inc at 5 PM'});
     this.demoTasks.push({task: '063012', date: '07/08/2015' , desc: 'Part #6212132 has low inventory level'});
   }
+
   addItems() {
     // Make sure we are passing a new object to the listview as an input
     let temp = this.demoTasks;
@@ -97,12 +98,15 @@ export class ListViewDemoComponent {
     temp = null;
     }, 1000);
   }
+
   onRendered(event: any) {
     console.log('Rendered listview: ' + event);
   }
+
   onSelected(event: any) {
     console.log('Selected item: ' + event);
   }
+
   onSorted(event: any) {
     console.log('Sorted: ' + event);
   }

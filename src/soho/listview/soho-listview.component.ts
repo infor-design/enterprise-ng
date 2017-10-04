@@ -264,11 +264,47 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * current selected items.
    */
   @Output() selected: EventEmitter<Object> = new EventEmitter<Object>();
+
   /**
-   * Called once an item is unselected. Returns an object containing the event and the
+   * Called once an item is deselected. Returns an object containing the event and the
    * current selected items.
    */
   @Output() unselected: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * Called once an item is deselected. Returns an object containing the event and the
+   * current selected items.
+   */
+  @Output() deselected: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * Called once an item is activated. Returns an object containing the event
+   * and additional info about the activated item.
+   */
+  @Output() activated: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * Called once an item is deactivated.  Returns an object containing the event
+   * and additional info about the deactivated item.
+   */
+  @Output() deactivated: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * Called once an item is clicked. You may also prefer need activated / deactived here.
+   */
+  @Output() click: EventEmitter<Object> = new EventEmitter<Object>();
+
+   /**
+   * Called once an item double clicked. This isnt used that often.
+   */
+  @Output() dblclick: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * Called during right click to enable context menus on list items.
+   * Use popupmenu during this event.
+   */
+  @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object>();
+  
   /**
    * Called after the list has been sorted for any reason
    */
@@ -314,6 +350,12 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     this.jQueryElement.on('rendered', (...args) => this.rendered.emit(args));
     this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
     this.jQueryElement.on('unselected', (...args) => this.unselected.emit(args));
+    this.jQueryElement.on('deselected', (...args) => this.deselected.emit(args));
+    this.jQueryElement.on('activated', (...args) => this.activated.emit(args));
+    this.jQueryElement.on('deactivated', (...args) => this.deactivated.emit(args));
+    this.jQueryElement.on('click', (...args) => this.click.emit(args));
+    this.jQueryElement.on('dblclick', (...args) => this.dblclick.emit(args));
+    this.jQueryElement.on('contextmenu', (...args) => this.contextmenu.emit(args));
     this.jQueryElement.on('sorted', (...args) => this.sorted.emit(args));
   }
 

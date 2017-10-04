@@ -5,7 +5,7 @@
  * interface of the Soho jQuery listview control.
  */
 
-type SohoListViewSelectable = false | 'single' | 'multiple';
+type SohoListViewSelectable = false | 'single' | 'multiple' | 'mixed';
 
 /** How individual items are referenced in the list view. */
 type SohoListViewItemReference = number | JQuery;
@@ -69,8 +69,10 @@ interface SohoListViewStatic {
   /** Clear the list. */
   clear(): void;
 
+  /** Remove all selected items from the list */
   removeAllSelected(): void;
 
+  /** Deselect all selected items in the list*/
   clearAllSelected(): void;
 
   /** Updates the busy indicator with any new seettings. */
@@ -85,14 +87,36 @@ interface SohoListViewStatic {
   remove(item: SohoListViewItemReference): void;
 
   /**
-   * Unselects the given item from the list viewm, if rendered.
+   * Unselects the given item from the list viewm, if rendered. (Deprecated) use deselect for proper semantics.
+   * @deprecated
    */
   unselect(item: SohoListViewItemReference): void;
+
+  /**
+   * Unselects the given item from the list viewm, if rendered.
+   */
+  deselect(item: SohoListViewItemReference): void;
 
   /**
    * Selects the given item from the list view, if rendered.
    */
   select(item: SohoListViewItemReference): void;
+
+  /**
+   * Activate the list item.
+   */
+  activate(item: SohoListViewItemReference): void;
+
+  /**
+   * De-activate the list item.
+   */
+  deactivate(item: SohoListViewItemReference): void;
+
+  /**
+   * Toggle Activation on the list item.
+   */
+  toggleActivation(item: SohoListViewItemReference): void;
+
 }
 
 /**
