@@ -261,11 +261,11 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   // ------------------------------------------------------------------------
 
   /**
-   * The beforeactivate event is fired whenever a tab is selected giving the event handler a chance
+   * The beforeactivated event is fired whenever a tab is selected giving the event handler a chance
    * to "veto" the tab selection change.
    * @type {EventEmitter<Object>}
    */
-  @Output() beforeActivate = new EventEmitter<SohoTabsEvent>();
+  @Output() beforeActivated = new EventEmitter<SohoTabsEvent>();
 
   /**
    * The activated event is fired whenever a tab is selected (or "activated");
@@ -346,7 +346,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
       // bind to jquery events and emit as angular events
       this.jQueryElement
-      .on('beforeactivate', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.beforeActivate.emit(event); }))
+      .on('beforeactivated', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.beforeActivated.emit(event); }))
       .on('activated', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.activated.emit(event); }))
       .on('afteractivate', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.afterActivate.emit(event); }))
       .on('beforeclose', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.beforeClose.emit(event);
