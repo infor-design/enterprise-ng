@@ -428,7 +428,7 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     }
   }
 
-  recalculateButtons() {
+  handleResize() {
     if (this.toolbar) {
       this.toolbar.handleResize();
     }
