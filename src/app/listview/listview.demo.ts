@@ -110,4 +110,12 @@ export class ListViewDemoComponent {
   onSorted(event: any) {
     console.log('Sorted: ' + event);
   }
+
+  onItemActivated(event: any) {
+    console.log('Item Activated', event);
+  }
+
+  onItemDeactivated(event: any) {
+    console.log('Item Deactivated', event);
+  }
 }

@@ -138,6 +138,8 @@
           (rendered)="onRendered($event)"
           (selected)="onSelected($event)"
           (sorted)="onSorted($event)"
+          (itemactivated)="onItemActivated($event)"
+          (itemdeactivated)="onItemDeactivated($event)"
         >
           <input soho-searchfield placeholder="Search" [clearable]="true">
           <soho-toolbar class="contextual-toolbar is-hidden">
