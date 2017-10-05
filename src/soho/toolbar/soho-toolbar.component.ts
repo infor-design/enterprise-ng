@@ -428,6 +428,12 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     }
   }
 
+  recalculateButtons() {
+    if (this.toolbar) {
+      this.toolbar.handleResize();
+    }
+  }
+
   private markForRefresh() {
     this.toolbarChanged = true;
 
