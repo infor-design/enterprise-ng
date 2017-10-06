@@ -1,4 +1,4 @@
-import { ModuleWithProviders } from '@angular/core';
+﻿import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AboutDemoComponent } from './about/about.demo';
@@ -43,6 +43,7 @@ import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
 import { HierarchyDemoComponent } from './hierarchy/hierarchy.demo';
+import { HierarchyPagingDemoComponent } from './hierarchy/hierarchy-paging.demo';
 import { HomePageDemoComponent } from './homepage/homepage.demo';
 import { HomePageScenarioADemoComponent } from './homepage/homepage-scenario-a.demo';
 import { HomePageScenarioBDemoComponent } from './homepage/homepage-scenario-b.demo';
@@ -148,6 +149,7 @@ export const routes: Routes = [
   { path: 'header-toolbar',                    component: HeaderToolbarDemoComponent },
   { path: 'header-toolbar-tabs',               component: HeaderToolbarAndTabsDemoComponent },
   { path: 'hierarchy',                         component: HierarchyDemoComponent },
+  { path: 'hierarchy-paging',                  component: HierarchyPagingDemoComponent },
   { path: 'homepage',                          component: HomePageDemoComponent },
   { path: 'homepage-scenario-a',               component: HomePageScenarioADemoComponent },
   { path: 'homepage-scenario-b',               component: HomePageScenarioBDemoComponent },

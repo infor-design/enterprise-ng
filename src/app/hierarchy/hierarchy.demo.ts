@@ -66,7 +66,7 @@ export class HierarchyDemoComponent implements OnInit {
      this.leafTemplate = this.domSanitizer.bypassSecurityTrustHtml(leafTemplate);
 
      this.hierarchyService.getHierarchyData().subscribe((data) => {
-       this.data = data[0].initial;
+       this.data = data[0].initialDataSet;
        this.changeDetectorRef.markForCheck();
      });
    }
@@ -76,7 +76,7 @@ export class HierarchyDemoComponent implements OnInit {
 
      if (hierarchyEvent.eventType === 'expand' && !this.lazyDataLoaded) {
        this.hierarchyService.getHierarchyData().subscribe((data) => {
-         const newData = data[0].lazy;
+         const newData = data[0].lazyDataSet;
          this.sohoHierarchy.add(hierarchyEvent.data.id, this.data, newData);
          this.changeDetectorRef.markForCheck();
          this.lazyDataLoaded = true;
