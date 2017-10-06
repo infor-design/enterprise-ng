@@ -511,7 +511,9 @@ interface SohoDataGridStatic {
 
   selectRowsBetweenIndexes(range: number[]);
 
-  selectedRows(rows: number[]): void;
+  selectedRows(): SohoDataGridSelectedRow[];
+
+  selectRows(row: number | number[]);
 
   activateRow(idx: number): void;
 
@@ -575,6 +577,11 @@ interface SohoDataGridRowActivated {
 interface SohoDataGridSelectedRow {
   idx: number;
   data: any;
+  elem: HTMLElement;
+
+  /**
+   * @deprecated <b>element</b> doesn't seem to be used in datagrid.js. Use <b>elem</b> instead.
+   */
   element: HTMLElement;
 }
 
