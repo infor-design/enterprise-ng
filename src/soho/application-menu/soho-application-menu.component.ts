@@ -175,8 +175,8 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
 
     // Initialise any event handlers.
     this.jQueryElement
-    .on('expand', () => this.visibility.next(true))
-    .on('collapse', () => this.visibility.next(false));
+      .on('expand', () => this.visibility.next(true))
+      .on('collapse', () => this.visibility.next(false));
   }
 
   /**
