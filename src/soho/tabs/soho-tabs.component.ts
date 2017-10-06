@@ -11,6 +11,10 @@ import {
   Output
 } from '@angular/core';
 
+import {
+  DeprecatedEventEmitter
+} from '../utils/deprecated-event-emitter';
+
 /**
  * Internal component to support the tab title
  */
@@ -272,10 +276,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
    * @deprecated
    * @type {EventEmitter<Object>}
    */
-  @Output() beforeActivate = (function() {
-    console.warn('"beforeactivate" event has been deprecated in favor of "beforeactivated"');
-    return new EventEmitter<SohoTabsEvent>();
-  })();
+  @Output() beforeActivate = new DeprecatedEventEmitter<SohoTabsEvent>("beforeactivate", "beforeactivated");
 
   /**
    * The activated event is fired whenever a tab is selected (or "activated");
