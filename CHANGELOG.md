@@ -1,6 +1,7 @@
 
 ## Whats New
 
+* 2017-10-06 - PWP - Changed some functions in soho-datagrid.component to match recently made datagrid.js changes. See breaking changes below for details.
 * 2017-09-28 - MHH - Updated Soho-editor to implement BaseControlValueAccessor
 * 2017-09-07 - THM - Fixed SOHO-6746 - See breaking changes
 * 2017-08-30 - PWP - Fixed breakpoints type in soho-application-menu.d.ts to match soho.
@@ -70,6 +71,8 @@
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2017-10-06 - PWP - Changed 2 soho-datagrid.component functions to match changes made to datagrid.js in PR-2049: selectedRows() now returns selected row. selectRows() selects rows.
 
 * 2017-08-17 - TJM - Not entirely breaking but file upload should now be done without an inline label as per fileupload example. This wont break if you don't change it but will cause a loop on ie edge due to an ie edge bug if initializing it with an inline label. So change your file upload markup
 

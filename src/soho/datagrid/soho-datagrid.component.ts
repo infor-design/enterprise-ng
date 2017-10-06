@@ -1125,11 +1125,19 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   * The rows currently selected on the data grid.
-   *
+   * Returns the rows currently selected on the data grid.
    * @return an array of SohoDataGridSelectedRow instances.
+   * @deprecated use selectedRows instead.
    */
   getSelectedRows(): SohoDataGridSelectedRow[] {
+    return this.selectedRows();
+  }
+
+  /**
+   * Returns the rows currently selected on the data grid.
+   * @return an array of SohoDataGridSelectedRow instances.
+   */
+  selectedRows(): SohoDataGridSelectedRow[] {
     return this.datagrid.selectedRows();
   }
 
@@ -1151,6 +1159,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * Sets the selected status of the specified row in the data grid.
    *
    * @param idx - the row number (idx) of the row to select.
+   * @deprecated - use selectRows instead.
    */
   selectRow(idx: number) {
     this.datagrid.selectRow(idx);
@@ -1177,13 +1186,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   * Selects a range of rows based on the provided row indexes.
-   *
-   * @param start - the start index
-   * @param end - then end index
+   * Set the selected rows by passing the row index or an array of row indexes
    */
-  selectRows(rows: number[]) {
-    this.datagrid.selectedRows(rows);
+  selectRows(row: number | number[]) {
+    this.datagrid.selectRows(row);
   }
 
   /**
