@@ -133,7 +133,7 @@ export class ListViewDemoComponent {
   deactivateItem() {
     console.log('deactivateItem');
 
-    var activatedItem = this.mixedSelectionListView.activatedItem();
+    const activatedItem = this.mixedSelectionListView.activatedItem();
     if (activatedItem && activatedItem.index > -1) {
       this.mixedSelectionListView.deactivateItem(activatedItem.index);
     } else {
