@@ -29,10 +29,7 @@ export class MenuButtonDemoComponent implements OnInit, AfterViewInit {
     console.log(event, 'onOpen');
   }
 
-  ajaxMenuItems(fn: AjaxBeforeOpenResponseFunction) {
-    // Context lost. this is no longer an Angular component.
-    // Not able to project content and get ElementRef's innerHTML
-
+  ajaxMenuItems = (fn: AjaxBeforeOpenResponseFunction) => {
     const ajaxMenuItemList = [
       {label: 'Ajax Option #1'},
       {label: 'Ajax Option #2'},
