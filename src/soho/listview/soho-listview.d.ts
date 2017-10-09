@@ -112,7 +112,7 @@ interface SohoListViewStatic {
   activateItem(item: SohoListViewItemReference): void;
 
   /**
-   * Return the index of the activated row.
+   * Return an object containing infor about the currenly actived item.
    */
   activatedItem();
 
