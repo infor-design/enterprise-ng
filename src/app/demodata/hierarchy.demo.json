@@ -1,5 +1,5 @@
 [{
-  "initial": [
+  "initialDataSet": [
     {
       "id": "1",
       "Name": "Jonathan Cargill",
@@ -213,7 +213,7 @@
       ]
     }
   ],
-  "lazy": [
+  "lazyDataSet": [
     {
       "id": "child_1",
       "Name": "Partricia Clark",
@@ -229,6 +229,73 @@
       "EmploymentType": "FT",
       "Picture": "https://randomuser.me/api/portraits/med/men/5.jpg",
       "isLeaf": true
+    }
+  ],
+  "pagingDataSet": [
+    {
+      "id": "1",
+      "Name": "Jonathan Cargill",
+      "Position": "Director",
+      "EmploymentType": "FT",
+      "Picture": "https://randomuser.me/api/portraits/med/men/2.jpg",
+      "children": [
+        {
+          "id": "1_1",
+          "Name": "Partricia Clark",
+          "Position": "Administration",
+          "EmploymentType": "FT",
+          "Picture": "https://randomuser.me/api/portraits/med/women/4.jpg",
+          "isLeaf": true
+        },
+        {
+          "id": "1_2",
+          "Name": "Drew Buchanan",
+          "Position": "Assistant Director",
+          "EmploymentType": "FT",
+          "Picture": "https://randomuser.me/api/portraits/med/men/5.jpg",
+          "isLeaf": true
+        },
+        {
+          "id": "1_3",
+          "Name": "Kaylee Edwards",
+          "Position": "Records Manager",
+          "EmploymentType": "FT",
+          "Picture": "https://randomuser.me/api/portraits/med/women/11.jpg",
+          "children": []
+        },
+        {
+          "id": "1_4",
+          "Name": "Jason Ayers",
+          "Position": "HR Manager",
+          "EmploymentType": "FT",
+          "Picture": "https://randomuser.me/api/portraits/med/men/12.jpg",
+          "isLeaf": true
+        },
+        {
+          "id": "1_5",
+          "Name": "Daniel Calhoun",
+          "Position": "Manager",
+          "EmploymentType": "FT",
+          "Picture": "https://randomuser.me/api/portraits/med/men/4.jpg",
+          "children": []
+        },
+        {
+          "id": "1_6",
+          "Name": "Amber Carter",
+          "Position": "Library Manager",
+          "EmploymentType": "FT",
+          "Picture": "https://randomuser.me/api/portraits/med/women/2.jpg",
+          "isLeaf": true
+        },
+        {
+          "id": "1_7",
+          "Name": "Mary Butler",
+          "Position": "Workers’ Compensation Manager",
+          "EmploymentType": "FT",
+          "Picture": "https://randomuser.me/api/portraits/med/women/3.jpg",
+          "isLeaf": true
+        }
+      ]
     }
   ]
 }]
