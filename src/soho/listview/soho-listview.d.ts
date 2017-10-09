@@ -8,7 +8,7 @@
 type SohoListViewSelectable = false | 'single' | 'multiple' | 'mixed';
 
 /** How individual items are referenced in the list view. */
-type SohoListViewItemReference = number | JQuery;
+type SohoListViewItemReference = JQuery | number | void;
 
 interface SohoListViewOptions {
   /** Data to display. */
@@ -37,6 +37,9 @@ interface SohoListViewOptions {
 
   /** URL or source function. */
   source?: SohoListViewSourceFunction | string;
+
+  /** If true when an item is activated the user should not be able to deactivate it by clicking on the activated item. */
+  disableItemDeactivation?: boolean;
 }
 
 type SohoListViewSourceFunction = (
@@ -106,17 +109,22 @@ interface SohoListViewStatic {
   /**
    * Activate the given list item.
    */
-  activate(item: SohoListViewItemReference): void;
+  activateItem(item: SohoListViewItemReference): void;
+
+  /**
+   * Return an object containing info about the currently activated item.
+   */
+  activatedItem();
 
   /**
    * De-activate the given list item.
    */
-  deactivate(item: SohoListViewItemReference): void;
+  deactivateItem(item: SohoListViewItemReference): void;
 
   /**
    * Toggle Activation on the given list item.
    */
-  toggleActivation(item: SohoListViewItemReference): void;
+  toggleItemActivation(item: SohoListViewItemReference): void;
 
 }
 
