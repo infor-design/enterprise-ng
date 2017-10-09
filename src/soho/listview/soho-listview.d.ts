@@ -119,7 +119,7 @@ interface SohoListViewStatic {
   /**
    * De-activate the given list item.
    */
-  deactivateItem(item: SohoListViewItemReference): void;
+  deactivateItem(item?: SohoListViewItemReference): void;
 
   /**
    * Toggle Activation on the given list item.
