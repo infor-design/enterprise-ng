@@ -1229,8 +1229,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * function with the given pagerType.
    * @param pagerType - a valid pager type.
    */
-  triggerSource(pagerType: 'initial' | 'refresh' | 'filtered' | string): void {
-    this.datagrid.triggerSource(pagerType);
+  triggerSource(pagerType: SohoDataGridTriggerSourcePagerType, callback?: Function): void {
+    this.datagrid.triggerSource(pagerType, callback);
   }
 
   /**

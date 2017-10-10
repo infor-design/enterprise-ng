@@ -409,6 +409,7 @@ interface SohoDataGridColumnNumberFormat {
 }
 
 type SohoDataGridColumnNumberFormatStyle = 'decimal' | 'currency' | 'percent' | 'integer' | string;
+type SohoDataGridTriggerSourcePagerType = 'initial' | 'refresh' | 'filtered' | 'sorted' | 'updatecolums' | string;
 
 interface SohoGridCellOption {
   /** The underlying data value. */
@@ -527,7 +528,7 @@ interface SohoDataGridStatic {
 
   renderRows(): void;
 
-  triggerSource(pagerType: 'initial' | 'refresh' | 'filtered' | 'sorted' | 'updatecolums' | string): void;
+  triggerSource(pagerType: SohoDataGridTriggerSourcePagerType, callback?: Function): void;
 
   exportToExcel(fileName: string, worksheetName: string, customDs: Object[]): void;
 

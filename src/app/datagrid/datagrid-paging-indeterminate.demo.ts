@@ -72,6 +72,13 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
     this.sohoDataGridComponent.gridOptions = gridOptions;
   }
 
+  onRefresh() {
+    console.log('onRefresh() called');
+    this.sohoDataGridComponent.triggerSource('refresh', function() {
+      console.log('List Refresh Completed')
+    });
+  }
+
   onShowPageSizeSelector() {
     this.showPageSizeSelector = !this.showPageSizeSelector;
   }
