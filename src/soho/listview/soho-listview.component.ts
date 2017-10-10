@@ -231,6 +231,17 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     }
   }
 
+  @Input() set disableItemDeactivation(value: boolean) {
+    this.options.disableItemDeactivation = value;
+    if (this.jQueryElement && this.listview) {
+      this.listview.settings.disableItemDeactivation = value;
+      this.listview.updated();
+    }
+  }
+  get disableItemDeactivation() {
+    return this.options.disableItemDeactivation;
+  }
+
   /**
    * Set the list of selected items either by their indices or via the
    * jQuery selector for the li element.
@@ -425,6 +436,35 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    */
   select(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
     this.apply((e) => this.listview.select(e), index);
+  }
+
+  /**
+   * Activate the given list item.
+   */
+  activateItem(item: SohoListViewItemReference): void {
+    this.apply((e) => this.listview.activateItem(e), item);
+  }
+
+  /**
+   * Return an object containing info about the currently activated item.
+   */
+  activatedItem(): any {
+    return this.listview.activatedItem();
+  }
+
+  /**
+   * De-activate the given list item. If no item is specified the currently
+   * activated item will be deactivated.
+   */
+  deactivateItem(item?: SohoListViewItemReference): void {
+    this.apply((e) => this.listview.deactivateItem(e), item);
+  }
+
+  /**
+   * Toggle Activation on the given list item.
+   */
+  toggleItemActivation(item: SohoListViewItemReference): void {
+    this.apply((e) => this.listview.toggleItemActivation(e), item);
   }
 
   /**

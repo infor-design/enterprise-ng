@@ -22,6 +22,8 @@ export class ListViewDemoComponent {
 
   @ViewChild('multipleSelectListView') multipleSelectListView: SohoListViewComponent;
 
+  @ViewChild('mixedSelectionListView') mixedSelectionListView: SohoListViewComponent;
+
   public demoTasks: Object[];
   public loadTasks: Object[];
   private counter = 63012;
@@ -117,5 +119,25 @@ export class ListViewDemoComponent {
 
   onItemDeactivated(event: any) {
     console.log('Item Deactivated', event);
+  }
+
+  activatedItem() {
+    console.log('activatedItem', this.mixedSelectionListView.activatedItem());
+  }
+
+  activateItem() {
+    console.log('activateItem at index 2');
+    this.mixedSelectionListView.activateItem(2);
+  }
+
+  deactivateItem() {
+    console.log('deactivateItem');
+
+    const activatedItem = this.mixedSelectionListView.activatedItem();
+    if (activatedItem && activatedItem.index > -1) {
+      this.mixedSelectionListView.deactivateItem(activatedItem.index);
+    } else {
+      console.log('cannot deactivate, must activate an item first.')
+    }
   }
 }

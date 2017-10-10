@@ -126,12 +126,17 @@
   </div>
 
   <div class="two-thirds column">
+    <button soho-button (click)="activatedItem()">Activated Item</button>
+    <button soho-button (click)="activateItem()">Activate Item</button>
+    <button soho-button (click)="deactivateItem()">Deactivate Item</button>
     <div class="card">
       <div class="card-header">
         <h2 class="card-title">Tasks - Mixed Selection</h2>
       </div>
       <div class="card-content" style="overflow: hidden;">
         <soho-listview
+          #mixedSelectionListView
+          [disableItemDeactivation]="true"
           [dataset]="demoTasks"
           [searchable]="true"
           [selectable]="'mixed'"
