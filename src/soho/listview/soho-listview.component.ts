@@ -457,7 +457,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * activated item will be deactivated.
    */
   deactivateItem(item?: SohoListViewItemReference): void {
-    this.apply((e) => this.listview.deactivateItem(e), item);
+    this.listview.deactivateItem(item);
   }
 
   /**
