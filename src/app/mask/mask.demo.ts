@@ -8,27 +8,35 @@ import { Component, HostBinding, Input } from '@angular/core';
   selector:    'soho-mask-demo',
   templateUrl: './mask.demo.html',
   styles:      [
-    `
-    .alignRight {
+      `
+      .alignRight {
         text-align: right;
-    }
-  `
+      }
+    `
   ]
 })
 export class MaskDemoComponent {
   @HostBinding('class.alignRight') @Input() alignRight = false;
 
   public model = {
-    nomask:         '12',
-    number:         '123',
-    decimal:        '123.45',
-    percent:        '85.23',
-    currency:       '99.76',
-    signednumber:   '-12',
-    signeddecimal:  '-12.45',
-    signedpercent:  '-85.23',
-    signedcurrency: '-9.76',
-    custommask:     'ZZZ'
+    nomask:               '123456',
+    numberlegacy:         '123',
+    decimallegacy:        '123456.78',
+    percentlegacy:        '85.23',
+    currencylegacy:       '876543.21',
+    signednumberlegacy:   '-123',
+    signeddecimallegacy:  '-123456.78',
+    signedpercentlegacy:  '-85.23',
+    signedcurrencylegacy: '-876543.21',
+    custommask:           'ZZZ',
+    number:               '123',
+    decimal:              '123456.78',
+    percent:              '85.23',
+    currency:             '876543.21',
+    signednumber:         '-123',
+    signeddecimal:        '-123456.78',
+    signedpercent:        '-85.23',
+    signedcurrency:       '-876543.21'
   };
   public showModel = true;
   /**
