@@ -276,7 +276,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
    * @deprecated
    * @type {EventEmitter<Object>}
    */
-  @Output() beforeActivate = new DeprecatedEventEmitter<SohoTabsEvent>("beforeactivate", "beforeactivated");
+  @Output() beforeActivate = new DeprecatedEventEmitter<SohoTabsEvent>('beforeactivate', 'beforeactivated');
 
   /**
    * The activated event is fired whenever a tab is selected (or "activated");
