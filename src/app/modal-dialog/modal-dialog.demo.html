@@ -2,11 +2,11 @@
   <div class="twelve columns">
     <h2 class="fieldset-title">Soho Modal Dialog</h2>
     <div class="field">
-      <button soho-button (click)="openSimple()">Example</button>
-      <button soho-button (click)="openNested()">Nested</button>
-      <button soho-button (click)="openMessage()">Message</button>
-      <button soho-button (click)="openVetoable()">Vetoable</button>
-      <button soho-button (click)="openDialogResult()">Dialog Result</button>
+      <button id="openSimpleBtn" soho-button (click)="openSimple()">Example</button>
+      <button id="openNestedBtn" soho-button (click)="openNested()">Nested</button>
+      <button id="openMessageBtn" soho-button (click)="openMessage()">Message</button>
+      <button id="openVetoableBtn" soho-button (click)="openVetoable()">Vetoable</button>
+      <button id="openDialogResultBtn" soho-button (click)="openDialogResult()">Dialog Result</button>
     </div>
   </div>
 </div>
@@ -18,7 +18,7 @@
     <h2 class="fieldset-title">Dialog Options</h2>
     <div class="field">
       <label class="center-block">Dialog Title:
-        <input soho-input class="form-control" type="text" name="title" [(ngModel)]="title" />
+        <input id="dialogTitleInput" soho-input class="form-control" type="text" name="title" [(ngModel)]="title" />
       </label>
       <input soho-checkbox id="id4" name="isAlert" [(ngModel)]="isAlert">
       <label soho-label class="center-block" for="id4" [forCheckBox]="true">Is Alert</label>
