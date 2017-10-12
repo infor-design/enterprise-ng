@@ -19,8 +19,8 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   private _symbols: SohoMaskPatternSymbols;
 
   /** Sets all the options. */
-  @Input() set options(value: SohoMaskOptions) {
-    this._options = value;
+  @Input() set options(value: SohoMaskOptions | string) {
+    this._options = (typeof value === 'string') ? JSON.parse(value) : value;
     if (this.mask) {
       this.mask.settings = value;
       this.mask.updated();
@@ -123,8 +123,8 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   }
 
   /** The pattern options. */
-  @Input() set patternOptions(value: SohoMaskPatternOptions) {
-    this._options.patternOptions = value;
+  @Input() set patternOptions(value: SohoMaskPatternOptions | string) {
+    this._options.patternOptions = (typeof value === 'string') ? JSON.parse(value) : value;
     if (this.mask) {
       this.mask.settings.patternOptions = value;
       this.mask.updated();
@@ -213,8 +213,8 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   }
 
   /** The symbols to use for the formatted number. */
-  @Input() set symbols(value: SohoMaskPatternSymbols) {
-    this._options.patternOptions.symbols = value;
+  @Input() set symbols(value: SohoMaskPatternSymbols | string) {
+    this._options.patternOptions.symbols = (typeof value === 'string') ? JSON.parse(value) : value;
     if (this.mask) {
       this.mask.settings.patternOptions.symbols = value;
       this.mask.updated();

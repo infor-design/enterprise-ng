@@ -38,6 +38,26 @@ export class MaskDemoComponent {
     signedpercent:        '-85.23',
     signedcurrency:       '-876543.21'
   };
+  private _symbols: SohoMaskPatternSymbols = {
+    currency: Locale.currentLocale.data.currencySign,
+    decimal: Locale.currentLocale.data.numbers.decimal,
+    negative: Locale.currentLocale.data.numbers.minusSign,
+    thousands: Locale.currentLocale.data.numbers.group
+  };
+  private _patternOptions: SohoMaskPatternOptions = {
+    allowDecimal: true,
+    allowNegative: true,
+    allowThousandsSeparator: true,
+    integerLimit: 6,
+    decimalLimit: 2,
+    symbols: this._symbols
+  };
+  private _options: SohoMaskOptions = {
+    process: 'number',
+    patternOptions: this._patternOptions,
+    placeholderChar: '#'
+  };
+
   public showModel = true;
   /**
    * I cannot workout the syntax for a RexExp that works correctly in
@@ -47,6 +67,23 @@ export class MaskDemoComponent {
   public definitions = { 'U': /[A-Z]/ };
 
   constructor() {
+  }
+
+  pipe = (processResult, opts) => {
+    console.log('pipe was executed');
+    return processResult.conformedValue + ' | ';
+  };
+
+  get symbols(): string {
+    return JSON.stringify(this._symbols);
+  }
+
+  get patternOptions(): string {
+    return JSON.stringify(this._patternOptions);
+  }
+
+  get options(): string {
+    return JSON.stringify(this._options);
   }
 
   toggleModel() {
