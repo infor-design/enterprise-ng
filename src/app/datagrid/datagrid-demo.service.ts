@@ -41,9 +41,8 @@ export class DataGridDemoService extends SohoDataGridService {
       id: 'selectionCheckbox',
       sortable: false,
       resizable: false,
-      filterType: <any>SohoGridColumnFilterTypes.Text,
       width: 50,
-      formatter: 'SelectionCheckbox',
+      formatter: Formatters.SelectionCheckbox,
       align: 'center'
     });
 
@@ -157,7 +156,7 @@ export class DataGridDemoService extends SohoDataGridService {
       });
 
     this.columns.push({ id: 'ordered', hidden: true, name: 'Ordered', field: 'ordered', formatter: Formatters.Checkbox });
-    this.columns.push({ id: '', hidden: true, name: 'Actions', field: '',
+    this.columns.push({ id: '', hidden: false, name: 'Actions', field: '',
       formatter: Formatters.Actions, menuId: 'grid-actions-menu', selected: (e, a) => { this.onActionHandler(a); } });
     this.columns.push({ id: 'nested', hidden: true, name: 'Nested Prop', field: 'setting.optionOne', formatter: Formatters.Text });
     this.columns.push({ id: 'comment', hidden: true, name: 'Comment', field: 'comment', formatter: Formatters.Textarea, width: 100 });

@@ -236,7 +236,7 @@ class SohoDataGridTestComponent {
     if (!this._columns) {
       this._columns = [];
       /* tslint:disable */
-      this._columns.push({ id: 'selectionCheckbox', sortable: false, resizable: false, filterType: 'text', width: 50, formatter: Formatters.SelectionCheckbox, align: 'center' });
+      this._columns.push({ id: 'selectionCheckbox', sortable: false, resizable: false, width: 50, formatter: Formatters.SelectionCheckbox, align: 'center' });
       this._columns.push({ id: 'taskName', name: 'Task', field: 'taskName', expanded: 'expanded', formatter: Formatters.Tree, filterType: 'text', width: 250 });
       this._columns.push({ id: 'id', name: 'Id', field: 'id', filterType: 'text', width: 25 });
       this._columns.push({ id: 'desc', name: 'Description', field: 'desc', filterType: 'text', width: 200 });
