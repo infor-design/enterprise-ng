@@ -85,6 +85,7 @@ interface SohoChartDataTotal {
 
 interface SohoChartPercentText {
   value?: number | string;
+  text?: string;
   show?: boolean;
   color1?: string;
   color2?: string;
