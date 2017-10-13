@@ -56,6 +56,16 @@ interface SohoModalOptions {
 }
 
 interface SohoModalButton {
+  /** An optional identifier for the button. */
+  id?: string;
+
+  /** An optional name for the input control, not used unless type = 'input'. */
+  name?: string;
+
+  /** An optional type for the control, either undefined, 'button' or 'input'
+   * The 'input' type is used internally for searching. */
+  type?: 'input' | 'button';
+
   /** Text for the button. */
   text: string;
 
