@@ -44,7 +44,9 @@ export class ModalDialogDemoComponent {
     const dialogRef = this.modalService
       .modal<ExampleModalDialogComponent>(ExampleModalDialogComponent, this.placeholder)
       .buttons([
-        { text: 'Cancel', click: (e, modal) => { modal.isCancelled = true; dialogRef.close('CANCEL'); } },
+        { id: 'cancel-button',
+          text: Locale.translate('Cancel'),
+          click: (e, modal) => { modal.isCancelled = true; dialogRef.close('CANCEL'); } },
         {
           text: 'Submit', click: (e, modal) => {
             dialogRef.close('SUBMIT');

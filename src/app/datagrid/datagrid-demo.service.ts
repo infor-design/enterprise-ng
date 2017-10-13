@@ -157,7 +157,8 @@ export class DataGridDemoService extends SohoDataGridService {
       });
 
     this.columns.push({ id: 'ordered', hidden: true, name: 'Ordered', field: 'ordered', formatter: Formatters.Checkbox });
-    this.columns.push({ id: '', hidden: true, name: 'Actions', field: '', formatter: Formatters.Actions, menuId: 'grid-actions-menu', selected(e: any, a: any) { console.log(e, a); } });
+    this.columns.push({ id: '', hidden: true, name: 'Actions', field: '',
+      formatter: Formatters.Actions, menuId: 'grid-actions-menu', selected: (e, a) => { this.onActionHandler(a); } });
     this.columns.push({ id: 'nested', hidden: true, name: 'Nested Prop', field: 'setting.optionOne', formatter: Formatters.Text });
     this.columns.push({ id: 'comment', hidden: true, name: 'Comment', field: 'comment', formatter: Formatters.Textarea, width: 100 });
 
@@ -170,5 +171,9 @@ export class DataGridDemoService extends SohoDataGridService {
     this.data.push({ id: 6, productId: 2642206, productName: 'Some Compressor', activity: 'inspect and Repair', quantity: 41, price: 123.99, status: 'OK', orderDate: new Date(2014, 6, 9), action: 'On Hold', ordered: 0 });
     this.data.push({ id: 7, productId: 2642206, productName: 'Some Compressor', activity: 'inspect and Repair', quantity: 41, price: '100.99', status: 'OK', orderDate: new Date(2014, 6, 9, 12, 12, 12), action: 'On Hold', ordered: 0 });
     /* tslint:enable */
+  }
+
+  onActionHandler(a: any) {
+    console.warn(a.text());
   }
 }
