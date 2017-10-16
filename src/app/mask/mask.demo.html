@@ -21,50 +21,6 @@
         </div>
         <div class="two columns">
           <div class="field">
-            <label soho-label for="number-legacy" >+ Number (3) legacy</label>
-            <input id="number-legacy" name="number-legacy" alignRight="true" [(ngModel)]="model.numberlegacy" soho-input
-              soho-mask [sohoPattern]="'###'" [mode]="'number'" (write)="onMaskWrite($event)"/>
-          </div>
-          <div class="field">
-            <label soho-label for="decimal-legacy" >+ Decimal (6.2)</label>
-            <input id="decimal-legacy" name="decimal-legacy" alignRight="true" [(ngModel)]="model.decimallegacy" soho-input
-              soho-mask [sohoPattern]="'###,###.##'" [mode]="'number'" [negative]="true" (write)="onMaskWrite($event)"/>
-          </div>
-          <div class="field">
-            <label soho-label for="percent-legacy" >+ Percent (3.2)</label>
-            <input id="percent-legacy" name="percent-legacy" alignRight="true" [(ngModel)]="model.percentlegacy" soho-input
-              soho-mask [sohoPattern]="'###.##'" [mode]="'number'" [negative]="true" [showSymbol]="'percent'" (write)="onMaskWrite($event)"/>
-          </div>
-          <div class="field">
-            <label soho-label for="currency-legacy" >+ Currency (6.2)</label>
-            <input id="currency-legacy" name="currency-legacy" alignRight="true" [(ngModel)]="model.currencylegacy" soho-input
-              soho-mask [sohoPattern]="'###,###.##'" [mode]="'number'" [negative]="true" [showSymbol]="'currency'" (write)="onMaskWrite($event)"/>
-          </div>
-        </div>
-        <div class="two columns">
-          <div class="field">
-            <label soho-label for="signed-number-legacy" >+- Number (3) legacy</label>
-            <input id="signed-number-legacy" name="signed-number-legacy" alignRight="true" [(ngModel)]="model.signednumberlegacy" soho-input
-              soho-mask [sohoPattern]="'###-'" [mode]="'number'" [negative]="true" (write)="onMaskWrite($event)"/>
-          </div>
-          <div class="field">
-            <label soho-label for="signed-decimal-legacy" >+- Decimal (6.2)</label>
-            <input id="signed-decimal-legacy" name="signed-decimal-legacy" alignRight="true" [(ngModel)]="model.signeddecimallegacy" soho-input
-              soho-mask [sohoPattern]="'###,###.##-'" [mode]="'number'" [negative]="true" (write)="onMaskWrite($event)" />
-          </div>
-          <div class="field">
-            <label soho-label for="signed-percent-legacy" >+- Percent (3.2)</label>
-            <input id="signed-percent-legacy" name="signed-percent-legacy" alignRight="true" [(ngModel)]="model.signedpercentlegacy" soho-input
-              soho-mask [sohoPattern]="'###.##-'" [mode]="'number'" [negative]="true" [showSymbol]="'percent'" (write)="onMaskWrite($event)" />
-          </div>
-          <div class="field">
-            <label soho-label for="signed-currency-legacy" >+- Currency (6.2)</label>
-            <input id="signed-currency-legacy" name="signed-currency-legacy" alignRight="true" [(ngModel)]="model.signedcurrencylegacy" soho-input
-              soho-mask [sohoPattern]="'###,###.##-'" [mode]="'number'" [negative]="true" [showSymbol]="'currency'" (write)="onMaskWrite($event)" />
-          </div>
-        </div>
-        <div class="two columns">
-          <div class="field">
             <label soho-label for="number" >+ Number (3)</label>
             <input id="number" name="number" alignRight="true" [(ngModel)]="model.number" soho-input
               soho-mask [process]="'number'" [integerLimit]="3" (write)="onMaskWrite($event)"/>

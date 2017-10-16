@@ -20,15 +20,6 @@ export class MaskDemoComponent {
 
   public model = {
     nomask:               '123456',
-    numberlegacy:         '123',
-    decimallegacy:        '123456.78',
-    percentlegacy:        '85.23',
-    currencylegacy:       '876543.21',
-    signednumberlegacy:   '-123',
-    signeddecimallegacy:  '-123456.78',
-    signedpercentlegacy:  '-85.23',
-    signedcurrencylegacy: '-876543.21',
-    custommask:           'ZZZ',
     number:               '123',
     decimal:              '123456.78',
     percent:              '85.23',
@@ -36,7 +27,8 @@ export class MaskDemoComponent {
     signednumber:         '-123',
     signeddecimal:        '-123456.78',
     signedpercent:        '-85.23',
-    signedcurrency:       '-876543.21'
+    signedcurrency:       '-876543.21',
+    custommask:           'ZZZ'
   };
   private _symbols: SohoMaskPatternSymbols = {
     currency: Locale.currentLocale.data.currencySign,

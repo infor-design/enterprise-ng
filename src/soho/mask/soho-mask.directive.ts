@@ -22,7 +22,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   @Input() set options(value: SohoMaskOptions | string) {
     this._options = (typeof value === 'string') ? JSON.parse(value) : value;
     if (this.mask) {
-      this.mask.settings = value;
+      this.mask.settings = this._options;
       this.mask.updated();
     }
   }
@@ -126,7 +126,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   @Input() set patternOptions(value: SohoMaskPatternOptions | string) {
     this._options.patternOptions = (typeof value === 'string') ? JSON.parse(value) : value;
     if (this.mask) {
-      this.mask.settings.patternOptions = value;
+      this.mask.settings.patternOptions = this._options.patternOptions;
       this.mask.updated();
     }
   }
@@ -216,7 +216,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   @Input() set symbols(value: SohoMaskPatternSymbols | string) {
     this._options.patternOptions.symbols = (typeof value === 'string') ? JSON.parse(value) : value;
     if (this.mask) {
-      this.mask.settings.patternOptions.symbols = value;
+      this.mask.settings.patternOptions.symbols = this._options.patternOptions.symbols;
       this.mask.updated();
     }
   }

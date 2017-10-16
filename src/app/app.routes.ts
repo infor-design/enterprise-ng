@@ -55,6 +55,7 @@ import { ListViewDemoComponent } from './listview/listview.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
+import { MaskLegacyDemoComponent } from './mask/mask-legacy.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
@@ -161,6 +162,7 @@ export const routes: Routes = [
   { path: 'lookup',                            component: LookupDemoComponent },
   { path: 'lookup-validation',                 component: LookupValidationDemoComponent },
   { path: 'mask',                              component: MaskDemoComponent },
+  { path: 'mask-legacy',                       component: MaskLegacyDemoComponent },
   { path: 'menu-button',                       component: MenuButtonDemoComponent },
   { path: 'message',                           component: MessageDemoComponent },
   { path: 'modal-dialog',                      component: ModalDialogDemoComponent },
