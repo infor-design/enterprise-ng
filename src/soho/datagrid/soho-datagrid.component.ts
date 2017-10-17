@@ -1046,6 +1046,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this.datagrid.settings.columns;
   }
 
+  getColumnGroups(): SohoDataGridColumnGroup[] {
+    return this.datagrid.settings.columnGroups;
+  }
+
   getColumnIndex(columnId: string): number {
     return this.datagrid.getColumnIndex(columnId);
   }
