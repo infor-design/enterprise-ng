@@ -1046,6 +1046,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this.datagrid.settings.columns;
   }
 
+  getColumnGroups(): SohoDataGridColumnGroup[] {
+    return this.datagrid.settings.columnGroups;
+  }
+
   getColumnIndex(columnId: string): number {
     return this.datagrid.getColumnIndex(columnId);
   }
@@ -1250,6 +1254,15 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   exportToCsv(fileName: string, customDs: Object[]): void {
     this.datagrid.exportToCsv(fileName, customDs);
+  }
+
+  /**
+   * Updates the columns and columnGroups displayed on the grid.
+   * @param {SohoDataGridColumn[]} columns The datagrid columns to update.
+   * @param {SohoDataGridColumnGroup[]} columnGroups The column groups to update.
+   */
+  updateColumns(columns: SohoDataGridColumn[], columnGroups: SohoDataGridColumnGroup[]): void {
+    this.datagrid.updateColumns(columns, columnGroups);
   }
 
   // -------------------------------------------
