@@ -1252,6 +1252,15 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this.datagrid.exportToCsv(fileName, customDs);
   }
 
+  /**
+   * Updates the columns and columnGroups displayed on the grid.
+   * @param {SohoDataGridColumn[]} columns The datagrid columns to update.
+   * @param {SohoDataGridColumnGroup[]} columnGroups The column groups to update.
+   */
+  updateColumns(columns: SohoDataGridColumn[], columnGroups: SohoDataGridColumnGroup[]): void {
+    this.datagrid.updateColumns(columns, columnGroups);
+  }
+
   // -------------------------------------------
   // Event Handlers
   // -------------------------------------------
