@@ -687,6 +687,28 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Used to hold an object that can be referenced in formatters
+   * and editors or anywhere else a datagrid reference is available
+   */
+  @Input() set userObject(userObject: any) {
+    this._gridOptions.userObject = userObject;
+    if (this.datagrid) {
+      this.datagrid.settings.userObject = userObject;
+    }
+  }
+
+  get userObject(): any {
+    if (this.datagrid) {
+      return this.datagrid.settings.userObject;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.userObject;
+  }
+
+  /**
    * The value of the virtualized flag - returns the requested value if the control has not been created yet.
    */
   // get virtualized(): boolean {
