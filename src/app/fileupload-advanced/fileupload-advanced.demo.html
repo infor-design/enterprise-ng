@@ -16,12 +16,12 @@
 
           <div class="field">
             <label [for]="name2">{{text}}</label>
-            <soho-fileupload-advanced [disabled]="disabled"></soho-fileupload-advanced>
+            <soho-fileupload-advanced [disabled]="fileUploadDisabled"></soho-fileupload-advanced>
           </div>
 
           <br/>
           <button soho-button [disabled]="fileUploadDisabled" (click)="setDisable()">Disable</button>
-          <button soho-button [disabled]="!fileUploadDisabled && !fileUploadReadOnly" (click)="setEnable()">Enable</button>
+          <button soho-button [disabled]="!fileUploadDisabled" (click)="setEnable()">Enable</button>
 
         </div>
       </div>

@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-fileupload-advanced',
+  selector: 'soho-fileupload-advanced,div[soho-fileupload-advanced]',
   templateUrl: './soho-fileupload-advanced.component.html'
 })
 
@@ -39,7 +39,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
       } else {
         this.fileUploadAdvanced.enable();
         this.isDisabled = false;
-    }
+      }
     }
   }
 
@@ -108,7 +108,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
   // Reference to the SoHoXi control api.
   private fileUploadAdvanced: SohoFileUploadAdvancedStatic;
 
-  constructor(private element: ElementRef) {}
+  constructor(private element: ElementRef) { }
 
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);

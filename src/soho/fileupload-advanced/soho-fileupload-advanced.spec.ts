@@ -6,55 +6,24 @@ import { FormsModule } from '@angular/forms';
 import { SohoFileUploadAdvancedModule } from './soho-fileupload-advanced.module';
 import { SohoFileUploadAdvancedComponent } from './soho-fileupload-advanced.component';
 
-describe('Soho File upload Unit Tests', () => {
-  let comp:     SohoFileUploadAdvancedComponent;
-  let fixture:  ComponentFixture<SohoFileUploadAdvancedComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+describe('Soho File Upload Advanced Render', () => {
+  let fileuploadadvanced:  SohoFileUploadAdvancedComponent;
+  let component:           SohoFileUploadAdvancedTestComponent;
+  let fixture:             ComponentFixture<SohoFileUploadAdvancedTestComponent>;
+  let de:                  DebugElement;
+  let el:                  HTMLElement;
 
   beforeEach( () => {
     TestBed.configureTestingModule({
-      declarations: [ SohoFileUploadAdvancedComponent ]
-    });
-    // .compileComponents(); // compile template and css;
-
-    fixture = TestBed.createComponent(SohoFileUploadAdvancedComponent);
-    comp = fixture.componentInstance;
-    fixture.detectChanges();
-
-    de = fixture.debugElement.query(By.css('input'));
-    el = de.nativeElement;
-  });
-
-  it('Check Content', () => {
-    expect(el.nodeName).toEqual('INPUT');
-    // expect(el.attributes[0].name).toEqual('type');
-    // expect(el.attributes[0].value).toEqual('file');
-    // expect(el.parentElement.nodeName).toEqual('LABEL');
-    // expect(el.parentElement.classList).toContain('fileupload');
-  });
-
-  // Add more method tests.
-});
-
-describe('Soho File upload Render', () => {
-  let fileupload:  SohoFileUploadAdvancedComponent;
-  let component:   SohoFileUploadTestComponent;
-  let fixture:     ComponentFixture<SohoFileUploadTestComponent>;
-  let de:          DebugElement;
-  let el:          HTMLElement;
-
-  beforeEach( () => {
-    TestBed.configureTestingModule({
-      declarations: [ SohoFileUploadTestComponent ],
+      declarations: [ SohoFileUploadAdvancedTestComponent ],
       imports: [ FormsModule, SohoFileUploadAdvancedModule ]
     });
 
-    fixture = TestBed.createComponent(SohoFileUploadTestComponent);
+    fixture = TestBed.createComponent(SohoFileUploadAdvancedTestComponent);
     component = fixture.componentInstance;
-    fileupload = component.fileupload;
+    fileuploadadvanced = component.fileuploadadvanced;
 
-    de = fixture.debugElement.query(By.css('input'));
+    de = fixture.debugElement.query(By.css('div[soho-fileupload-advanced]'));
     el = de.nativeElement;
 
     fixture.detectChanges();
@@ -62,35 +31,17 @@ describe('Soho File upload Render', () => {
 
   it('@Input() disabled', () => {
     fixture.detectChanges();
-    fileupload.disabled = true;
+    fileuploadadvanced.disabled = true;
     fixture.detectChanges();
-    expect(el.hasAttribute('disabled')).toBeTruthy();
-    fileupload.disabled = false;
-    fixture.detectChanges();
-  });
-
-  it('@Input() readonly', () => {
-    fixture.detectChanges();
-    fileupload.readonly = true;
-    fixture.detectChanges();
-    expect(el.hasAttribute('readonly')).toBeTruthy();
-    fileupload.readonly = false;
+    // expect(el.hasAttribute('is-disabled')).toBeTruthy();
+    fileuploadadvanced.disabled = false;
     fixture.detectChanges();
   });
-
-  it('@Input() name', () => {
-    fixture.detectChanges();
-    expect(el.getAttribute('name')).toBe(component.name);
-  });
-
 });
 
 @Component({
-  template: `
-  <soho-fileupload-advanced [name]="name"></soho-fileupload-advanced>`
+  template: `<div soho-fileupload-advanced></div>`
 })
 class SohoFileUploadAdvancedTestComponent {
-  @ViewChild(SohoFileUploadAdvancedComponent) fileupload: SohoFileUploadAdvancedComponent;
-  public name = 'File';
-  public text = 'File Upload';
+  @ViewChild(SohoFileUploadAdvancedComponent) fileuploadadvanced: SohoFileUploadAdvancedComponent;
 }
