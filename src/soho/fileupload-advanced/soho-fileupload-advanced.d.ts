@@ -17,6 +17,14 @@
 interface SohoFileUploadAdvancedEvent extends JQueryEventObject {
 }
 
+interface FileUploadAdvanacedStatus {
+  setCompleted(data: any);
+
+  setProgress(percent: number);
+
+  setAbort(jqXHR: JQueryXHR);
+}
+
 interface SohoFileUploadAdvancedOptions {
   // On page(true) -or- on modal (false) , this is used for some visual style only.
   isStandalone?: boolean;
@@ -33,7 +41,7 @@ interface SohoFileUploadAdvancedOptions {
   //
   isDisabled?: boolean;
   showBrowseButton?: boolean;
-  send?: null;
+  send?: (file: FormData, status: FileUploadAdvanacedStatus) => void;
 
   textDropArea?: string;
   textDropAreaWithBrowse?: string;
