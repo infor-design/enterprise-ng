@@ -17,7 +17,7 @@ interface SohoFileUploadEvent extends JQueryEventObject {
  */
 interface SohoFileUploadStatic {
   /** Options. */
-  settings: SohoTextAreaOptions;
+  settings: SohoFileUploadAdvancedOptions;
 
   enable(): void;
 

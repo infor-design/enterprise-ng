@@ -1,0 +1,29 @@
+
+  <form>
+
+      <div class="row top-padding">
+        <div class="twelve columns">
+
+          <div class="field">
+            <label [for]="name1">{{text}}</label>
+            <soho-fileupload-advanced></soho-fileupload-advanced>
+          </div>
+
+          <div class="field">
+            <label [for]="name4">{{text}}</label>
+            <soho-fileupload-advanced (filesdragenter)="onFilesdragenter"></soho-fileupload-advanced>
+          </div>
+
+          <div class="field">
+            <label [for]="name2">{{text}}</label>
+            <soho-fileupload-advanced [disabled]="disabled"></soho-fileupload-advanced>
+          </div>
+
+          <br/>
+          <button soho-button [disabled]="fileUploadDisabled" (click)="setDisable()">Disable</button>
+          <button soho-button [disabled]="!fileUploadDisabled && !fileUploadReadOnly" (click)="setEnable()">Enable</button>
+
+        </div>
+      </div>
+
+  </form>

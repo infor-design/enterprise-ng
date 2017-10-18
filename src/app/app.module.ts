@@ -60,6 +60,7 @@ import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
+import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
@@ -170,6 +171,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     ErrorDemoComponent,
     ExpandableAreaDemoComponent,
     ExpandableAreaFooterDemoComponent,
+    FileUploadAdvancedDemoComponent,
     FileUploadDemoComponent,
     HeaderTabsDemoComponent,
     HeaderToolbarAndTabsDemoComponent,

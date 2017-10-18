@@ -16,6 +16,7 @@ import { SohoDropDownModule } from './dropdown/soho-dropdown.module';
 import { SohoEditorModule } from './editor/soho-editor.module';
 import { SohoErrorModule } from './error/soho-error.module';
 import { SohoExpandableAreaModule } from './expandablearea/soho-expandablearea.module';
+import { SohoFileUploadAdvancedModule } from './fileupload-advanced/soho-fileupload-advanced.module';
 import { SohoFileUploadModule } from './fileupload/soho-fileupload.module';
 import { SohoHeaderModule } from './header/soho-header.module';
 import { SohoHierarchyModule } from './hierarchy/soho-hierarchy.module';
@@ -71,6 +72,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoEditorModule,
     SohoErrorModule,
     SohoExpandableAreaModule,
+    SohoFileUploadAdvancedModule,
     SohoFileUploadModule,
     SohoHeaderModule,
     SohoHierarchyModule,
@@ -127,6 +129,7 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoEditorModule,
     SohoErrorModule,
     SohoExpandableAreaModule,
+    SohoFileUploadAdvancedModule,
     SohoFileUploadModule,
     SohoHeaderModule,
     SohoHierarchyModule,
