@@ -190,12 +190,12 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
       event.data = newValue;
 
       // ... then emit the changed value.
-      this.updated.emit(event);
+      this.change.emit(event);
     }
   }
 
   onUpdated(event: SohoSliderEvent) {
     event.data = this.jQueryElement.val();
-    this.change.emit(event);
+    this.updated.emit(event);
   }
 }
