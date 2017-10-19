@@ -44,16 +44,16 @@ export class FileUploadAdvancedDemoComponent implements OnInit {
   }
 
   // To allow the function to passed into the options we need a scoped
-  // local meber variable representing the function, the neatest way is to
+  // local member variable representing the function, the neatest way is to
   // assign it to a lambda.
   onSend = (formData: FormData, status: SohoFileUploadAdvancedStatus) => {
 
     // To pass back multipart data to a WebApi requires the use of
     // a new FormData object, in which the additional non file data
-    // is encoded.
+    // can be encoded.
     //
     // For ASP.NET Core the backend uses a simple class consisting of the
-    // IFormFile to represent the DataField.
+    // IFormFile to represent the Data field.
     //
     // This is an example form (based on an attachment service in SunSystems).
     const fd = new FormData();
