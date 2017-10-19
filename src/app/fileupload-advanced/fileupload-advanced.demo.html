@@ -4,23 +4,25 @@
       <div class="row top-padding">
         <div class="twelve columns">
 
-          <button soho-button [disabled]="fileUploadDisabled" (click)="setDisable()">Disable</button>
-          <button soho-button [disabled]="!fileUploadDisabled" (click)="setEnable()">Enable</button>
+          <div class="buttonbar">
+            <button soho-button [disabled]="fileUploadDisabled" (click)="setDisable()">Disable</button>
+            <button soho-button [disabled]="!fileUploadDisabled" (click)="setEnable()">Enable</button>
+          </div>
 
           <br>
 
           <div class="field">
-            <label>Upload File</label>
-            <soho-fileupload-advanced></soho-fileupload-advanced>
+            <label soho-label for="upload1">Upload File</label>
+            <soho-fileupload-advanced id="upload1" name="upload1"></soho-fileupload-advanced>
           </div>
 
           <div class="field">
-            <label>Upload File with Events</label>
-            <soho-fileupload-advanced (filesdragenter)="onFilesdragenter()"></soho-fileupload-advanced>
+            <label soho-label for="upload2">Upload File with Events</label>
+            <soho-fileupload-advanced name="upload2" (filesdragenter)="onFilesdragenter()"></soho-fileupload-advanced>
           </div>
 
           <div class="field">
-            <label>Upload File with Send</label>
+            <label soho-label>Upload File with Send</label>
             <soho-fileupload-advanced [disabled]="fileUploadDisabled" [send]="onSend"></soho-fileupload-advanced>
           </div>
 
