@@ -67,13 +67,33 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
    */
   @Input() set allowedTypes(allowedTypes: string) {
     this.settings.allowedTypes = allowedTypes;
-    if (this.allowedTypes) {
+    if (this.fileUploadAdvanced) {
       this.fileUploadAdvanced.settings.allowedTypes = allowedTypes;
       // @todo provide an update method on the widget or destroy and recreate
     }
   }
   get allowedTypes(): string {
     return this.settings.allowedTypes;
+  }
+
+  /**
+   * Defines the send method used to upload the files.
+   *
+   * The send function takes the FormData containing the file, and a
+   * status interface to provide fedback to the control whilst uploading.
+   *
+   * @param sendFn - the callback function responsible to uploading the file.
+   */
+  @Input() set send(sendFn: SohoFileUploadAdvancedSendFunction) {
+    this.settings.send = sendFn;
+    if (this.fileUploadAdvanced) {
+      this.fileUploadAdvanced.settings.send = sendFn;
+      // @todo provide an update method on the widget or destroy and recreate
+    }
+  }
+
+  get send() {
+    return this.settings.send;
   }
 
   // -------------------------------------------

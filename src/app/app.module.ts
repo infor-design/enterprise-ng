@@ -7,6 +7,7 @@ import {
 
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -243,6 +244,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     CommonModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     ModalDialogDemoModule,
     ContextualActionPanelDemoModule,
     ReactiveFormsModule,
