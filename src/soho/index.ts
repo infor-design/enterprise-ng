@@ -51,5 +51,6 @@ export * from './tooltip/index';
 export * from './trackdirty/index';
 export * from './tree/index';
 export * from './utils/index';
+export * from './wizard/index';
 
 export { SohoComponentsModule } from './soho-components.module';

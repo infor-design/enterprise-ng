@@ -104,6 +104,7 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | trackdirty              |                           Available |           -  |              - |
 | tree                    |                           Available |           -  | [SOHO-4043][#4083] |
 | treegrid                |                           Available |           -  | [SOHO-4722][#4722] |
+| wizard                  |                         In-progress |           -  | [SOHO-6317][#6317] |
 
 
 [0]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/contextual-action-panel/README.md
@@ -148,6 +149,7 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 [#5125]: http://jira/browse/SOHO-5125
 [#5126]: http://jira/browse/SOHO-5126
 [#5127]: http://jira/browse/SOHO-5127
+[#6317]: http://jira/browse/SOHO-6317
 
 ## Previous Repos
 

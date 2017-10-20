@@ -51,6 +51,7 @@ import { SohoToolbarModule } from './toolbar/soho-toolbar.module';
 import { SohoTooltipModule } from './tooltip/soho-tooltip.module';
 import { SohoTrackDirtyModule } from './trackdirty/soho-trackdirty.module';
 import { SohoTreeModule } from './tree/soho-tree.module';
+import { SohoWizardModule } from './wizard/soho-wizard.module';
 
 @NgModule({
   imports: [
@@ -105,7 +106,8 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoToolbarModule,
     SohoTooltipModule,
     SohoTrackDirtyModule,
-    SohoTreeModule
+    SohoTreeModule,
+    SohoWizardModule
   ],
   declarations: [
   ],
@@ -160,7 +162,8 @@ import { SohoTreeModule } from './tree/soho-tree.module';
     SohoToolbarModule,
     SohoTooltipModule,
     SohoTrackDirtyModule,
-    SohoTreeModule
+    SohoTreeModule,
+    SohoWizardModule
   ]
 })
 export class SohoComponentsModule {}

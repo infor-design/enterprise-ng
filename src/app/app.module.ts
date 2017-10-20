@@ -124,6 +124,7 @@ import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { ValidationFormEventDemoComponent } from './validation/validation-form-event.demo';
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
+import { WizardDemoComponent } from './wizard/wizard.demo';
 
 @NgModule({
   declarations: [
@@ -233,7 +234,8 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     TreeSourceDemoComponent,
     ValidationFormDemoComponent,
     ValidationFormEventDemoComponent,
-    ValidationFormGroupDemoComponent
+    ValidationFormGroupDemoComponent,
+    WizardDemoComponent
   ],
   imports: [
     AppRoutingModule,

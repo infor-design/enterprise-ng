@@ -1,6 +1,7 @@
 
 ## Whats New
 
+* 2017-10-20 - BTH - SOHO-6317: Added support for 'wizard'.
 * 2017-10-11 - MAF - SOHO-6954: Add support for the maskedinput control in soho-mask.
 * 2017-10-06 - PWP - PR-471 - Changed some functions in soho-datagrid.component to match recently made datagrid.js changes. See breaking changes below for details.
 * 2017-09-28 - MHH - Updated Soho-editor to implement BaseControlValueAccessor
