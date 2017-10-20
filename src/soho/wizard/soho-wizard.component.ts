@@ -125,6 +125,7 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
       .on('activated', (e: JQueryEventObject, args: JQuery) => this.onActivated(args))
       .on('afteractivated', (e: JQueryEventObject, args: SohoWizardEvent) => this.afteractivated.next(args));
 
+    // @todo we need to select the appropriate tick, so in this case choose the first one.
       this.wizard.activate(null, $(`[tickId=1]`));
   }
 
