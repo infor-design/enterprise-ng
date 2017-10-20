@@ -8,7 +8,9 @@ import {
 } from '@angular/core';
 
 /**
- * Angular wrapper for the wizard tick.
+ * Angular wrapper for the soho wizard tick.
+ *
+ * This wraps anchor tags annotated with the `soho-wizard-tick`.
  */
 @Component({
   selector: 'a[soho-wizard-tick]', // tslint:disable-line
@@ -17,16 +19,26 @@ import {
 })
 export class SohoWizardTickComponent implements AfterViewInit {
 
+  /**
+   * The label displayed on the tick.
+   */
   @Input() label: string;
 
-  @Input() @HostBinding('attr.href') href: string;
-
+  /**
+   * Ensure any classes are set correctly.
+   */
   @HostBinding('class.tick') isWizardTick = true;
 
+  /**
+   * For the `href` use the tickid.
+   */
   @HostBinding('attr.href') get hrefAttr() {
     return this.tickId ? '#' + this.tickId : null;
   }
 
+  /**
+   * The tickId, used to link back to the pages.
+   */
   @Input()
   public tickId = 0;
 

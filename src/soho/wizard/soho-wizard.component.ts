@@ -26,6 +26,16 @@ import { SohoWizardHeaderComponent } from './soho-wizard-header.component';
  * This component searches for adiv with the attribute
  * 'soho-wizard' in the DOM, initialising those found with
  * the SoHo Wizard control.
+ *
+ * TODO:
+ * =====
+ *
+ * - setting initial tick (page)
+ * - better handling of ticks / tick model.
+ * - model driven
+ * - add default button bar (like modal)
+ *
+ * Alot of this depends on which way the SoHo widge goes.
  */
 @Component({
   selector: 'div[soho-wizard]', // tslint:disable-line
@@ -34,7 +44,7 @@ import { SohoWizardHeaderComponent } from './soho-wizard-header.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnInit, OnDestroy {
-  // Can't see ticks as they are nested in another component, not directly in this one.
+  // @todo this is not working as the components are not directly in this one.
   @ViewChildren(SohoWizardTickComponent) _wizardStepComponents: QueryList<SohoWizardTickComponent>;
 
   // -------------------------------------------
@@ -55,12 +65,24 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
     return this._options.ticks;
   }
 
+  /**
+   * Provides a `beforeActivate` vetoable handler, which
+   * allows the caller to prevent activation of a link.
+   *
+   * @todo needs linking with any buttons!
+   */
   @Input()
   private beforeActivate?: (tick: SohoWizardTick) => boolean;
 
+  /**
+   * This event is fired when a tick is activated.
+   */
   @Output()
   public activated = new EventEmitter<SohoWizardEvent>();
 
+  /**
+   * This event is fired after a tick is activated.
+   */
   @Output()
   public afteractivated = new EventEmitter<SohoWizardEvent>();
 
@@ -125,8 +147,8 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
       .on('activated', (e: JQueryEventObject, args: JQuery) => this.onActivated(args))
       .on('afteractivated', (e: JQueryEventObject, args: SohoWizardEvent) => this.afteractivated.next(args));
 
-    // @todo we need to select the appropriate tick, so in this case choose the first one.
-      this.wizard.activate(null, $(`[tickId=1]`));
+    // @todo we need to select the appropriate tick, so in this case choose the first one.  The
+    this.wizard.activate(null, $(`[tickId=1]`));
   }
 
   ngAfterContentInit() {
@@ -139,8 +161,8 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
     }
   }
 
-  private onActivated(args: JQuery): void {
-    this.activated.next({ tick: args });
+  private onActivated(tick: JQuery): void {
+    this.activated.next({ tick: tick });
   }
 
   private onBeforeActivate(tick: SohoWizardTick): boolean {

@@ -6,6 +6,9 @@ import {
 
 /**
  * Angular wrapper for the soho wizard header.
+ *
+ * Looks for a `div` annotated with `soho-wizard-header`, this
+ * simply add a wrapper around the wizard ticks.
  */
 @Component({
   selector: 'div[soho-wizard-header]', // tslint:disable-line
