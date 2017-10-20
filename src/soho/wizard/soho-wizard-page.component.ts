@@ -2,7 +2,9 @@ import {
   HostBinding,
   Input,
   Component,
-  ChangeDetectionStrategy } from '@angular/core';
+  ChangeDetectionStrategy,
+  ElementRef,
+  AfterViewInit} from '@angular/core';
 
   /**
    * Angular wrapper for the soho wizard page.
@@ -14,10 +16,19 @@ import {
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoWizardPageComponent {
+export class SohoWizardPageComponent implements AfterViewInit {
+  jqueryElement: JQuery;
   @HostBinding('class.wizard-page') isWizardPage = true;
+
+  @HostBinding('class.hidden') hidden = false;
 
   /** This id of the tick. */
   @Input()
-  tickId: number;
+  tickId: string;
+
+  constructor(public el: ElementRef) {}
+
+  ngAfterViewInit() {
+    this.jqueryElement = $(this.el.nativeElement);
+  }
 }

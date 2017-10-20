@@ -7,25 +7,17 @@
         <a soho-wizard-tick tickId="3" [label]="'Confirmation'"></a>
         <a soho-wizard-tick tickId="4" [label]="'Finished'"></a>
       </div>
-      <div soho-wizard-pages class="scrollable-area no-scroll full-width" style="height:200px">
-        <div *ngIf="currentTick==1" soho-wizard-page tickid="1" height="70%">
-          <div>
-            <h2>Page 1</h2>
-            <form>
-            </form>
-          </div>
+      <div class="scrollable-area no-scroll full-width" style="height:200px">
+        <div soho-wizard-page tickId="1" height="70%">
+          <h2>Page 1</h2>
         </div>
-        <div *ngIf="currentTick==2" soho-wizard-page tickid="2" height="70%">
-          <div>
-            <h2>Page 2</h2>
-            <form>
-            </form>
-          </div>
+        <div soho-wizard-page tickId="2" height="70%">
+          <h2>Page 2</h2>
         </div>
-        <div *ngIf="currentTick==3" soho-wizard-page tickid="3">
+        <div soho-wizard-page tickId="3">
           <p>Page 3</p>
         </div>
-        <div *ngIf="currentTick==4" soho-wizard-page tickid="4">
+        <div soho-wizard-page tickId="4">
           <p>Page 4</p>
         </div>
       </div>

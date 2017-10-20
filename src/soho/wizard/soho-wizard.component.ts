@@ -19,6 +19,7 @@ import {
 
 import { SohoWizardTickComponent } from './soho-wizard-tick.component';
 import { SohoWizardHeaderComponent } from './soho-wizard-header.component';
+import { SohoWizardPageComponent } from 'soho/wizard/soho-wizard-page.component';
 
 /**
  * Angular Wrapper for the Soho Wizard Component.
@@ -44,13 +45,22 @@ import { SohoWizardHeaderComponent } from './soho-wizard-header.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnInit, OnDestroy {
-  // @todo this is not working as the components are not directly in this one.
-  @ViewChildren(SohoWizardTickComponent) _wizardStepComponents: QueryList<SohoWizardTickComponent>;
+  _currentTickId: string;
+
+  /** List of underlyinh pages. */
+  @ContentChildren(SohoWizardPageComponent) pages: QueryList<SohoWizardPageComponent>;
+
+  @ContentChildren(SohoWizardTickComponent) tickComponents: QueryList<SohoWizardTickComponent>;
+
+  private pageList: Array<SohoWizardPageComponent> = [];
 
   // -------------------------------------------
   // Inputs
   // -------------------------------------------
 
+  /**
+   * Ticks for the settings - ??
+   */
   @Input()
   set ticks(ticks: SohoWizardTick[]) {
     this._options.ticks = ticks;
@@ -63,6 +73,22 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
 
   get ticks() {
     return this._options.ticks;
+  }
+
+  /** Id of the current tick. */
+  @Input()
+  set currentTickId(tickId: string) {
+    if (this._currentTickId !== tickId) {
+      const page: SohoWizardPageComponent = this.pages.find(p => (p.tickId === tickId));
+      this.pages.forEach(p => p.hidden = (p.tickId !== tickId));
+      if (this.wizard && page) {
+        this.wizard.activate(null, page.jqueryElement);
+      }
+   }
+  }
+
+  get currentTickId(): string {
+    return this._currentTickId;
   }
 
   /**
@@ -122,6 +148,18 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
     this.wizard.activate(null, tick);
   }
 
+  public next() {
+
+  }
+
+  public previous() {
+
+  }
+
+  public finish() {
+
+  }
+
   // ------------------------------------------
   // Lifecycle Events
   // ------------------------------------------
@@ -147,11 +185,10 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
       .on('activated', (e: JQueryEventObject, args: JQuery) => this.onActivated(args))
       .on('afteractivated', (e: JQueryEventObject, args: SohoWizardEvent) => this.afteractivated.next(args));
 
-    // @todo we need to select the appropriate tick, so in this case choose the first one.  The
-    this.wizard.activate(null, $(`[tickId=1]`));
   }
 
   ngAfterContentInit() {
+    this._currentTickId = this.tickComponents.find(p => p.isCurrentTick()).tickId;
   }
 
   ngOnDestroy() {
@@ -162,6 +199,9 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
   }
 
   private onActivated(tick: JQuery): void {
+    const page = this.pages.find(p => p.jqueryElement === tick);
+    this._currentTickId = page.tickId;
+    this.pages.forEach(p => p.hidden = p.tickId !== this._currentTickId);
     this.activated.next({ tick: tick });
   }
 

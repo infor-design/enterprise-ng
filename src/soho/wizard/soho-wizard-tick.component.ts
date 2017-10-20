@@ -40,9 +40,13 @@ export class SohoWizardTickComponent implements AfterViewInit {
    * The tickId, used to link back to the pages.
    */
   @Input()
-  public tickId = 0;
+  public tickId: string;
 
   public jQueryElement: JQuery;
+
+  public isCurrentTick(): boolean {
+    return this.jQueryElement.hasClass('current');
+  }
 
   /**
    * Constructor.

@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { SohoButtonModule } from '../button/soho-button.module';
+
 import { SohoWizardComponent } from './soho-wizard.component';
 import { SohoWizardTickComponent } from './soho-wizard-tick.component';
 import { SohoWizardHeaderComponent } from './soho-wizard-header.component';
-import { SohoButtonModule } from '../button/soho-button.module';
+import { SohoWizardPageComponent } from './soho-wizard-page.component';
+
 
 @NgModule({
   imports: [
@@ -14,12 +17,14 @@ import { SohoButtonModule } from '../button/soho-button.module';
   declarations: [
     SohoWizardComponent,
     SohoWizardTickComponent,
-    SohoWizardHeaderComponent
+    SohoWizardHeaderComponent,
+    SohoWizardPageComponent
   ],
   exports: [
     SohoWizardComponent,
     SohoWizardTickComponent,
-    SohoWizardHeaderComponent
+    SohoWizardHeaderComponent,
+    SohoWizardPageComponent
   ]})
 export class SohoWizardModule {
 

@@ -18,8 +18,6 @@ import {
   templateUrl: './wizard.demo.html',
 })
 export class WizardDemoComponent implements OnInit, AfterViewInit {
-  currentTick = 1;
-
 
   @ViewChild(SohoWizardComponent) wizard: SohoWizardComponent;
 
@@ -37,29 +35,18 @@ export class WizardDemoComponent implements OnInit, AfterViewInit {
     });
   }
 
-  select() {
-    this.wizard.activate($(`[tickId=${this.currentTick}]`));
-  }
-
   previous() {
-    console.log(`previous ${this.currentTick}`);
-    if (this.currentTick > 1) { this.currentTick--; }
-    this.select();
+    this.wizard.previous();
   }
 
   next() {
-    console.log(`next ${this.currentTick}`);
-    if (this.currentTick < 4) { this.currentTick++; }
-    this.select();
+    this.wizard.next();
   }
 
   finish() {
-    console.log(`finish ${this.currentTick}`);
-    this.currentTick = 4;
-    this.select();
+    this.wizard.finish()
   }
 
   onActivated(e: any) {
-    this.currentTick = <number>e[0].getAttribute('tickid');
   }
 }
