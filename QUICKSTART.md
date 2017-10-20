@@ -11,7 +11,7 @@ run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **@angular/cli** to create, build and run the application.  
 
-At the time of writing the version of **@angular/cli** used was 1.2.0.
+At the time of writing the version of **@angular/cli** used was 1.4.5.
 
 In addition, **gulp** is used to perform additional build and deployment steps required to get the application built.
 
@@ -50,10 +50,10 @@ You can add the dependencies directly into the `project.json` file, however it i
 In a terminal window, in the project folder:
 
 1. Type `npm install jquery@3.1.1 -S`
-2. Type `npm install @infor/sohoxi@4.3.1-rc -S`
-3. Type `npm install @infor/sohoxi-angular@4.3.1-rc -S`
-4. Type `npm install gulp -D`
-5. Type `npm install @types/jquery -D`
+2. Type `npm install @infor/sohoxi@4.3.3-rc -S`
+3. Type `npm install @infor/sohoxi-angular@4.3.3-rc -S`
+4. Type `npm install gulp -D` ???????
+5. Type `npm install @types/jquery@2.0.46", -D`
 6. Type `npm install merge-stream -D`
 
 This includes all the packages we need to create this simple quick start application.
@@ -67,12 +67,13 @@ Edit `.angular-cli.json`, change the `scripts` as follows:
 "scripts": [
 "../node_modules/jquery/dist/jquery.js",
 "../node_modules/@infor/sohoxi/dist/js/sohoxi.js",
-"../node_modules/@infor/sohoxi/dist/js/cultures/en-US.js"
+"../node_modules/@infor/sohoxi/dist/js/cultures/en-US.js",
+"../node_modules/@infor/sohoxi/dist/js/d3.js"
 ],
 ```
 ## Step 4 : Configure TypeScript:
 
-Edit `src/tsconfig.app.json`, add this below the `typeRoots` property:
+Edit `src/tsconfig.app.json`, update/add the `types` property:
 ```json
 "types": [
   "jasmine",
@@ -81,11 +82,9 @@ Edit `src/tsconfig.app.json`, add this below the `typeRoots` property:
 ]
 ```
 ## Step 5 : SoHoXI Assets
-Angular-CLI is now able to copy assets from dependencies in node_modules.
+@angular/cli is  able to copy assets from dependencies in node_modules, hence the older gulp copy is not needed but we have it here for the publish task (TODO: could later make this an npm / node script).
 
-The older gulp copy is not needed but we have it here for the publish task (TODO: could later make this an npm / node script).
-
-To configure this edit .angular-cli.json assets section.
+To configure this edit `.angular-cli.json` assets section.
 ```
   "assets": [
     { "glob": "**/*", "input": "../node_modules/@infor/sohoxi/dist/css", "output": "./assets/sohoxi/css" }
@@ -106,7 +105,7 @@ Run the app to test it.
 Check you get the default page when you browse to http://localhost:4200/.
 
 ## Step 7 : Unit Testing
-Edit the file karma.conf.js, adding any extra JavaScript librariesto the file property, for example:
+Edit the file `karma.conf.js`, adding any extra JavaScript libraries to the file property, for example:
 ```json
 files: [
  { pattern: './node_modules/jquery/dist/jquery.js', watched: false  },
@@ -125,7 +124,7 @@ This will open a Chrome window, and run the tests from there.
 
 If you plan on using IE11, then it is advisable to include a number of polyfills used to plug holes in IEs JavaScript support.
 
-Edit the file src/polyfills.js, and uncomment all the import lines below
+Edit the file `src/polyfills.js`, and uncomment all the import lines below
 
 ```typescript
 /** IE9, IE10 and IE11 requires all of the following polyfills. **/
@@ -184,7 +183,7 @@ public clicked() {
 }
 ```
 
-Then from a command line run (you can use `ng serve` but that wont copy the assets):
+Then from a command line run (you can use `ng serve`):
 ```
 npm run start
 ```
