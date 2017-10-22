@@ -7,7 +7,8 @@ import { SohoWizardComponent } from './soho-wizard.component';
 import { SohoWizardTickComponent } from './soho-wizard-tick.component';
 import { SohoWizardHeaderComponent } from './soho-wizard-header.component';
 import { SohoWizardPageComponent } from './soho-wizard-page.component';
-
+import { SohoWizardPagesComponent } from './soho-wizard-pages.component';
+import { SohoWizardButtonbarComponent } from './soho-wizard-buttonbar.component';
 
 @NgModule({
   imports: [
@@ -18,13 +19,17 @@ import { SohoWizardPageComponent } from './soho-wizard-page.component';
     SohoWizardComponent,
     SohoWizardTickComponent,
     SohoWizardHeaderComponent,
-    SohoWizardPageComponent
+    SohoWizardPagesComponent,
+    SohoWizardPageComponent,
+    SohoWizardButtonbarComponent
   ],
   exports: [
     SohoWizardComponent,
     SohoWizardTickComponent,
     SohoWizardHeaderComponent,
-    SohoWizardPageComponent
+    SohoWizardPagesComponent,
+    SohoWizardPageComponent,
+    SohoWizardButtonbarComponent
   ]})
 export class SohoWizardModule {
 

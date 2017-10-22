@@ -8,27 +8,40 @@ import {
 
   /**
    * Angular wrapper for the soho wizard page.
-   *
-   * @todo WIP
    */
 @Component({
   selector: 'div[soho-wizard-page]', // tslint:disable-line
   template: `<ng-content></ng-content>`,
+  styles: [
+    `:host {
+        flex:           1;
+        display:        flex;
+        flex-direction: column;
+        overflow-y:     auto;"
+    }`
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoWizardPageComponent implements AfterViewInit {
-  jqueryElement: JQuery;
+  jQueryElement: JQuery;
   @HostBinding('class.wizard-page') isWizardPage = true;
 
-  @HostBinding('class.hidden') hidden = false;
+  /**
+   * Is this wizard page hidden? Return true by default to avoid
+   * displaying all the pages for a moment.  The wizard will
+   * ensure only a single page is displayed.
+   *
+   * @memberof SohoWizardPageComponent
+   */
+  @HostBinding('class.hidden') hidden = true;
 
-  /** This id of the tick. */
+  /** This id of the associated tick. */
   @Input()
   tickId: string;
 
   constructor(public el: ElementRef) {}
 
   ngAfterViewInit() {
-    this.jqueryElement = $(this.el.nativeElement);
+    this.jQueryElement = $(this.el.nativeElement);
   }
 }

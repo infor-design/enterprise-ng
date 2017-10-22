@@ -37,7 +37,7 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "@infor/sohoxi": "^4.3.3-rc",
-     "classlist.js": "^1.1.20150312",
+    "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
     "jquery": "3.1.1",
     "rxjs": "^5.4.2",

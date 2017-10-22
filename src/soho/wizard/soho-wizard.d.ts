@@ -5,6 +5,11 @@
  * interface of the Soho jQuery wizard control.
  */
 
+ /**
+  * Soho Widget model for a tick.
+  *
+  * @interface SohoWizardTick
+  */
  interface SohoWizardTick {
 
   /** Sets the ng-click event for AngularJS? */
@@ -13,8 +18,20 @@
   /** State of the tick either:  */
   state?: 'complete' | 'current';
 
+  /**
+   * href key.
+   *
+   * @type {string}
+   * @memberof SohoWizardTick
+   */
   href?: string;
 
+  /**
+   * Label string to display under the tick.
+   *
+   * @type {string}
+   * @memberof SohoWizardTick
+   */
   label?: string;
  }
 
@@ -22,7 +39,12 @@
  * Wizard options.
  */
 interface SohoWizardOptions {
-
+  /**
+   * Optional model driven list of ticks to display.
+   *
+   * @type {SohoWizardTick[]}
+   * @memberof SohoWizardOptions
+   */
   ticks?: SohoWizardTick[];
 }
 
@@ -34,6 +56,13 @@ interface SohoWizardStatic {
   /** Control options. */
   settings: SohoWizardOptions;
 
+  /**
+   * Activates a tick - based on the jsuet element.
+   *
+   * @param {*} e
+   * @param {(number | JQuery)} tick
+   * @memberof SohoWizardStatic
+   */
   activate(e: any, tick: number | JQuery): void;
 
   updated(): void;

@@ -1,8 +1,12 @@
 import {
   Component,
   ChangeDetectionStrategy,
-  HostBinding
+  HostBinding,
+  ContentChildren,
+  QueryList
 } from '@angular/core';
+
+import { SohoWizardTickComponent } from './soho-wizard-tick.component';
 
 /**
  * Angular wrapper for the soho wizard header.
@@ -19,5 +23,13 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoWizardHeaderComponent {
+  /**
+   * List of ticks in the control.
+   *
+   * @type {QueryList<SohoWizardTickComponent>}
+   * @memberof SohoWizardHeaderComponent
+   */
+  @ContentChildren(SohoWizardTickComponent) steps: QueryList<SohoWizardTickComponent>;
+
   @HostBinding('class.wizard-header') isWizardHeader = true;
 }

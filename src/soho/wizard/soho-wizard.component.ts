@@ -14,11 +14,13 @@ import {
   QueryList,
   AfterContentInit,
   ViewChild,
-  ContentChildren
+  ContentChildren,
+  ContentChild
 } from '@angular/core';
 
 import { SohoWizardTickComponent } from './soho-wizard-tick.component';
 import { SohoWizardHeaderComponent } from './soho-wizard-header.component';
+import { SohoWizardPagesComponent } from 'soho/wizard/soho-wizard-pages.component';
 import { SohoWizardPageComponent } from 'soho/wizard/soho-wizard-page.component';
 
 /**
@@ -31,35 +33,44 @@ import { SohoWizardPageComponent } from 'soho/wizard/soho-wizard-page.component'
  * TODO:
  * =====
  *
- * - setting initial tick (page)
- * - better handling of ticks / tick model.
+ * - handling of ticks / tick model (based on underlying widget)
  * - model driven
- * - add default button bar (like modal)
- *
- * Alot of this depends on which way the SoHo widge goes.
  */
 @Component({
   selector: 'div[soho-wizard]', // tslint:disable-line
   template: `<ng-content></ng-content>`,
-  styles: [],
+  styles: [
+    `:host {
+        display:        flex;
+        flex:           1;
+        flex-direction: column;
+    }`
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnInit, OnDestroy {
-  _currentTickId: string;
+  /**
+   * Reference to the underlying container for the pages.
+   *
+   * @type {SohoWizardPagesComponent}
+   * @memberof SohoWizardComponent
+   */
+  @ContentChild(SohoWizardPagesComponent) pagesContainer: SohoWizardPagesComponent;
 
-  /** List of underlyinh pages. */
-  @ContentChildren(SohoWizardPageComponent) pages: QueryList<SohoWizardPageComponent>;
-
-  @ContentChildren(SohoWizardTickComponent) tickComponents: QueryList<SohoWizardTickComponent>;
-
-  private pageList: Array<SohoWizardPageComponent> = [];
+  /**
+   * Reference to the header, container for the ticks.
+   *
+   * @type {SohoWizardHeaderComponent}
+   * @memberof SohoWizardComponent
+   */
+  @ContentChild(SohoWizardHeaderComponent) header: SohoWizardHeaderComponent;
 
   // -------------------------------------------
   // Inputs
   // -------------------------------------------
 
   /**
-   * Ticks for the settings - ??
+   * Ticks for the settings - this does not reslly work yet (i think).
    */
   @Input()
   set ticks(ticks: SohoWizardTick[]) {
@@ -78,17 +89,11 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
   /** Id of the current tick. */
   @Input()
   set currentTickId(tickId: string) {
-    if (this._currentTickId !== tickId) {
-      const page: SohoWizardPageComponent = this.pages.find(p => (p.tickId === tickId));
-      this.pages.forEach(p => p.hidden = (p.tickId !== tickId));
-      if (this.wizard && page) {
-        this.wizard.activate(null, page.jqueryElement);
-      }
-   }
-  }
-
-  get currentTickId(): string {
-    return this._currentTickId;
+    this.pagesContainer.pages.forEach(p => p.hidden = (p.tickId !== tickId));
+    const step = this.header.steps.find(s => s.tickId === tickId);
+    if (this.wizard && step) {
+      this.wizard.activate(null, step.jQueryElement);
+    }
   }
 
   /**
@@ -131,6 +136,11 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
   /** An internal options object that gets updated by using the component's Inputs(). */
   private _options: SohoWizardOptions = {};
 
+  private _steps: SohoWizardTickComponent[];
+
+  private finished = false;
+
+
   /**
    * Constructor.
    *
@@ -143,21 +153,67 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
   // Public API
   // -------------------------------------------
 
-  public activate(tick: JQuery) {
-    // @todo not happy with this!
-    this.wizard.activate(null, tick);
-  }
-
+  /**
+   * Attempts to move to the next step, if allowed.
+   *
+   * @memberof SohoWizardComponent
+   */
   public next() {
-
+    // This is a bit grim ... but we need to rely on ticks for the state.
+    let currentIndex = this.currentIndex();
+    if (!this.finished && ++currentIndex < this.stepCount()) {
+      this.wizard.activate(null, this.stepAt(currentIndex).jQueryElement);
+    }
   }
 
+  /**
+   * Attempts to move to the previous step, if allowed.
+   *
+   * @memberof SohoWizardComponent
+   */
   public previous() {
-
+    let currentIndex = this.currentIndex();
+    if (--currentIndex >= 0) {
+      this.wizard.activate(null, this.stepAt(currentIndex).jQueryElement);
+    }
   }
 
-  public finish() {
+  /**
+   * Attempts to move to the last step, if allowed.
+   *
+   * @memberof SohoWizardComponent
+   */
+  public last() {
+    const step = this.stepAt(this.stepCount() - 1);
+    this.wizard.activate(null, step.jQueryElement);
+  }
 
+  /**
+   * Attempts to move to the last step, and finish the wizard.
+   *
+   * @memberof SohoWizardComponent
+   */
+  public finish() {
+    this.last();
+    this.finished = true;
+  }
+
+  /**
+   * Is there another step after the current step?
+   *
+   * @returns {boolean} true if there is another step; otherwise false.
+   * @memberof SohoWizardComponent
+   */
+  public hasNext(): boolean {
+    return !this.finished && this.currentIndex() < this.stepCount() - 1;
+  }
+
+  public hasPrevious(): boolean {
+    return !this.finished && this.currentIndex() > 0;
+  }
+
+  public hasFinished(): boolean {
+    return this.finished;
   }
 
   // ------------------------------------------
@@ -182,15 +238,28 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
     // Initialize any event handlers.
     this.jQueryElement
       .on('beforeactivate', ((e: any) => this.onBeforeActivate(e)))
-      .on('activated', (e: JQueryEventObject, args: JQuery) => this.onActivated(args))
-      .on('afteractivated', (e: JQueryEventObject, args: SohoWizardEvent) => this.afteractivated.next(args));
+      .on('activated', (e: JQueryEventObject, tick: JQuery) => this.onActivated(tick))
+      .on('afteractivated', (e: JQueryEventObject, tick: JQuery) => this.afteractivated.next({ tick: tick }));
 
+    // Reset the cached steps if the list of steps changes.
+    this.header.steps.changes.subscribe(() => { this._steps = null; });
   }
 
   ngAfterContentInit() {
-    this._currentTickId = this.tickComponents.find(p => p.isCurrentTick()).tickId;
+    // Added delay otherwise the component is not complete
+    // causing the active page to not be displayed.
+    setTimeout(() => {
+      const step = this.header.steps.find(s => s.isCurrentTick());
+      this.pagesContainer.pages.forEach(p => p.hidden = (!step || step.tickId !== p.tickId));
+    });
   }
 
+  /**
+   * Handle component destruction by clearing down the SoHo
+   * wizard component.
+   *
+   * @memberof SohoWizardComponent
+   */
   ngOnDestroy() {
     if (this.wizard) {
       this.wizard.destroy();
@@ -199,13 +268,47 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
   }
 
   private onActivated(tick: JQuery): void {
-    const page = this.pages.find(p => p.jqueryElement === tick);
-    this._currentTickId = page.tickId;
-    this.pages.forEach(p => p.hidden = p.tickId !== this._currentTickId);
-    this.activated.next({ tick: tick });
+    // When activated - make sure the rest of the component is
+    // updated ...
+    if (tick) {
+      // ... find the id of the tick activated ...
+      const tickId = tick.attr('tickId');
+
+      // ... if we have one (to avoid errors) ...
+      if (tickId) {
+        // hide all the inactive pages and show the active page.
+        this.pagesContainer.pages.forEach(p => p.hidden = (tickId !== p.tickId));
+
+        // ... publish.
+        this.activated.next({ tick: tick });
+      }
+    }
   }
 
   private onBeforeActivate(tick: SohoWizardTick): boolean {
+    // Check for vetoing.
     return this.beforeActivate != null ? this.beforeActivate.call(tick) : true;
+  }
+
+  private stepCount(): number {
+    return this.header.steps.length;
+  }
+
+  private steps(): SohoWizardTickComponent[] {
+    if (!this._steps) {
+      this._steps = this.header.steps.toArray();
+    }
+    return this._steps;
+  }
+  private stepAt(index: number): SohoWizardTickComponent {
+    return this.steps()[index];
+  }
+
+  private currentIndex(): number {
+    return this.steps().indexOf(this.currentStep());
+  }
+
+  private currentStep(): SohoWizardTickComponent {
+    return this.steps().find(s => s.isCurrentTick());
   }
 }

@@ -124,7 +124,12 @@ import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { ValidationFormEventDemoComponent } from './validation/validation-form-event.demo';
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
-import { WizardDemoComponent } from './wizard/wizard.demo';
+import {
+  WizardDemoComponent,
+  DemoSelectFilePageComponent,
+  DemoTargetFolderPageComponent,
+  DemoBackupRulePageComponent
+} from './wizard/wizard.demo';
 
 @NgModule({
   declarations: [
@@ -161,6 +166,9 @@ import { WizardDemoComponent } from './wizard/wizard.demo';
     DataGridTreeGridDemoComponent,
     DataGridGroupableDemoComponent,
     DatepickerDemoComponent,
+    DemoSelectFilePageComponent,
+    DemoTargetFolderPageComponent,
+    DemoBackupRulePageComponent,
     DropdownAsyncBusyDemoComponent,
     DropdownAsyncDemoComponent,
     DropdownDemoComponent,

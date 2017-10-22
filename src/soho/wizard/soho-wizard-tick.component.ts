@@ -14,15 +14,10 @@ import {
  */
 @Component({
   selector: 'a[soho-wizard-tick]', // tslint:disable-line
-  template: '<span class="label">{{label}}</span>',
+  template: '<span class="label"><ng-content></ng-content></span>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoWizardTickComponent implements AfterViewInit {
-
-  /**
-   * The label displayed on the tick.
-   */
-  @Input() label: string;
 
   /**
    * Ensure any classes are set correctly.
@@ -30,22 +25,25 @@ export class SohoWizardTickComponent implements AfterViewInit {
   @HostBinding('class.tick') isWizardTick = true;
 
   /**
-   * For the `href` use the tickid.
+   * For the `href` use the id.
    */
   @HostBinding('attr.href') get hrefAttr() {
     return this.tickId ? '#' + this.tickId : null;
   }
 
   /**
-   * The tickId, used to link back to the pages.
+   * The id, used to link back to the pages.
    */
-  @Input()
-  public tickId: string;
+  @Input() public tickId: string;
+
+  @HostBinding('class.current')
+  @Input() public current = false;
 
   public jQueryElement: JQuery;
 
   public isCurrentTick(): boolean {
-    return this.jQueryElement.hasClass('current');
+    // A step is selected if the element has the current class.
+    return this.jQueryElement && this.jQueryElement.hasClass('current');
   }
 
   /**
