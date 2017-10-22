@@ -35,6 +35,7 @@ import { SohoWizardPageComponent } from 'soho/wizard/soho-wizard-page.component'
  *
  * - handling of ticks / tick model (based on underlying widget)
  * - model driven
+ * - support Builder Panel style (with title?)
  */
 @Component({
   selector: 'div[soho-wizard]', // tslint:disable-line
