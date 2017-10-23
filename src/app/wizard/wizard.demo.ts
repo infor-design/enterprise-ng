@@ -5,19 +5,77 @@ import {
   QueryList,
   AfterViewInit,
   ViewChild,
-  Inject
+  Inject,
+  ContentChild
 } from '@angular/core';
 
 import {
   SohoWizardComponent,
+  SohoProgressComponent,
   SohoToastService
 } from '@infor/sohoxi-angular';
+
+@Component({
+  // tslint:disable-next-line:component-selector
+  selector: 'demo-result-page',
+  template: `
+  <div style="flex: 0;">
+    <fieldset>
+      <legend>Import Progress</legend>
+    </fieldset>
+  </div>
+  <div style="flex: 0;">
+    <soho-progress progressValue="0"></soho-progress>
+  </div>
+  <div style="flex: 0;">
+    <label class="inline">
+      <span class="label-text">Files Processed</span>
+      <input soho-input disabled readonly id="files-processed" value="1 of 4"/>
+    </label>
+  </div>
+  <div class="field" style="flex: 0;">
+    <label soho-label for="imported-unvalidated">Imported (unvalidated)</label>
+    <input soho-input readonly id="imported-unvalidated" value="0" />
+  </div>
+    <div class="field" style="flex: 0;">
+      <label soho-label for="imported-validated">Imported (validated)</label>
+      <input soho-input readonly id="imported-unvalidated" value="1" />
+    </div>
+    <div class="field" style="flex: 0;">
+      <label soho-label for="rejected">Rejected</label>
+      <input soho-input readonly id="rejected" value="0" />
+    </div>
+    <div class="field" style="flex: 0;">
+      <label soho-label for="folders-created">Folders Created</label>
+      <input soho-input readonly id="folders-created" value="0" />
+    </div>`,
+styles: [
+  `:host {
+      display:        flex;
+      flex:           1;
+      flex-direction: column;
+  }`]
+})
+export class WizardDemoResultPageComponent {
+  @ViewChild(SohoProgressComponent) progress: SohoProgressComponent;
+  fire() {
+    setTimeout(() => { this.update(); }, 1000);
+  }
+
+  update() {
+    this.progress.progressValue += 10;
+    if (this.progress.progressValue < 100) {
+      setTimeout(() => { this.update(); }, 1000);
+    }
+  }
+}
 
 @Component({
   selector: 'soho-wizard-demo',
   templateUrl: './wizard.demo.html',
 })
 export class WizardDemoComponent implements OnInit, AfterViewInit {
+  @ViewChild(WizardDemoResultPageComponent) resultPage: WizardDemoResultPageComponent;
 
   @ViewChild(SohoWizardComponent) wizard: SohoWizardComponent;
 
@@ -49,7 +107,12 @@ export class WizardDemoComponent implements OnInit, AfterViewInit {
     alert('display some help');
   }
 
+  // tslint:disable-next-line:member-ordering
+
   onActivated(e: SohoWizardEvent) {
+    if (e.tick.attr('tickId') === 'result') {
+      this.resultPage.fire();
+    }
     this.toastService.show({
       'title': 'Activated!',
       'message': 'The tick with the label <span style="font-weight: bold;">' + e.tick.text() + '</span> was activated!'
@@ -159,50 +222,4 @@ styles: [
   }`]
 })
 export class WizardDemoBackupRulePageComponent {
-}
-
-
-@Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'demo-result-page',
-  template: `
-  <div style="flex: 0;">
-    <fieldset>
-      <legend>Import Progress</legend>
-    </fieldset>
-  </div>
-  <div style="flex: 0;">
-    <soho-progress progressValue="0.5"></soho-progress>
-  </div>
-  <div class="field" style="flex: 0;">
-    <label class="inline">
-      <span class="label-text">Files Processed</span>
-      <input soho-input readonly id="files-processed" value="1 of 4"/>
-    </label>
-  </div>
-  <div class="field" style="flex: 0;">
-    <label soho-label for="imported-unvalidated">Imported (unvalidated)</label>
-    <input soho-input readonly id="imported-unvalidated" value="0" />
-  </div>
-    <div class="field" style="flex: 0;">
-      <label soho-label for="imported-validated">Imported (validated)</label>
-      <input soho-input readonly id="imported-unvalidated" value="1" />
-    </div>
-    <div class="field" style="flex: 0;">
-      <label soho-label for="rejected">Rejected</label>
-      <input soho-input readonly id="rejected" value="0" />
-    </div>
-    <div class="field" style="flex: 0;">
-      <label soho-label for="folders-created">Folders Created</label>
-      <input soho-input readonly id="folders-created" value="0" />
-    </div>`,
-styles: [
-  `:host {
-      display:        flex;
-      flex:           1;
-      flex-direction: column;
-  }`]
-})
-export class WizardDemoResultPageComponent {
-
 }

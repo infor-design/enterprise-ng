@@ -97,6 +97,10 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
     }
   }
 
+  get currentTickId(): string {
+    return this.currentStep().tickId;
+  }
+
   /**
    * Provides a `beforeActivate` vetoable handler, which
    * allows the caller to prevent activation of a link.
@@ -162,6 +166,8 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
   public next() {
     // This is a bit grim ... but we need to rely on ticks for the state.
     let currentIndex = this.currentIndex();
+
+    // @todo handle disabled states.
     if (!this.finished && ++currentIndex < this.stepCount()) {
       this.wizard.activate(null, this.stepAt(currentIndex).jQueryElement);
     }
@@ -195,8 +201,14 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
    * @memberof SohoWizardComponent
    */
   public finish() {
-    this.last();
+    // Mark the wizard as finished.
     this.finished = true;
+
+    // Disabled all ticks.
+    this.header.steps.forEach(p => p.disabled = this.finished);
+
+    // Move to the last tick.
+    this.last();
   }
 
   /**
@@ -209,6 +221,9 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
     return !this.finished && this.currentIndex() < this.stepCount() - 1;
   }
 
+  /**
+   * Is there previous step.
+   */
   public hasPrevious(): boolean {
     return !this.finished && this.currentIndex() > 0;
   }

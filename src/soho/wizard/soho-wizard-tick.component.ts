@@ -39,6 +39,12 @@ export class SohoWizardTickComponent implements AfterViewInit {
   @HostBinding('class.current')
   @Input() public current = false;
 
+  /**
+   * Disabled the tick.
+   */
+  @HostBinding('class.is-disabled')
+  @Input() public disabled = false;
+
   public jQueryElement: JQuery;
 
   public isCurrentTick(): boolean {
