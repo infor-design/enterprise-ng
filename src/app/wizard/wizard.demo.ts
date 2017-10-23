@@ -61,15 +61,15 @@ export class WizardDemoComponent implements OnInit, AfterViewInit {
   selector: 'demo-select-files-page',
   template: `<div style="flex: 0;">
   <fieldset>
-  <legend>Select individual files or a zip file containing previously exported reports:</legend>
+  <legend>Select individual files or a zip file containing previously exported reports.</legend>
   <br />
   </fieldset>
 </div>
 <div class="buttonset" style="flex: 0; margin-bottom: 5px;">
-  <button soho-button="icon" icon="add">Add</button>
-  <button soho-button="icon" icon="delete" disabled>Remove</button>
+  <button soho-button>Add</button>
+  <button soho-butto disabled>Remove</button>
 </div>
-<div style="display:flex; flex: 1;">
+<div style="flex: 1; overflow: hidden;">
   <div soho-datagrid [columns]="columns" [data]="data" selectable="true" filterable="true" class="scrollable-area">
   </div>
 </div>`,
@@ -80,7 +80,7 @@ styles: [
       flex-direction: column;
   }`]
 })
-export class DemoSelectFilePageComponent {
+export class WizardDemoSelectFilePageComponent {
   public columns: SohoDataGridColumn[] = [
     { id: 'selectionCheckbox', sortable: false, resizable: false, width: 50, formatter: Formatters.SelectionCheckbox, align: 'center'},
     { id: 'filename', name: 'File Name', field: 'filename', formatter: Formatters.Text, width: '200px' },
@@ -102,7 +102,7 @@ export class DemoSelectFilePageComponent {
   template: `
   <div style="flex: 0;">
   <fieldset>
-  <legend>Use the following options to determing the folder and the options used to import the files.</legend>
+  <legend>Select the Target Folder, and the options to use when importing zip files.</legend>
   </fieldset>
   </div>
   <div class="field" style="flex: 0;">
@@ -127,7 +127,7 @@ styles: [
       flex-direction: column;
   }`]
 })
-export class DemoTargetFolderPageComponent {
+export class WizardDemoTargetFolderPageComponent {
 }
 
 @Component({
@@ -155,5 +155,50 @@ styles: [
       flex-direction: column;
   }`]
 })
-export class DemoBackupRulePageComponent {
+export class WizardDemoBackupRulePageComponent {
+}
+
+
+@Component({
+  selector: 'demo-result-page',
+  template: `
+  <div style="flex: 0;">
+    <fieldset>
+      <legend>Import Progress</legend>
+    </fieldset>
+  </div>
+  <div style="flex: 0;">
+    <soho-progress progressValue="0.5"></soho-progress>
+  </div>
+  <div class="field" style="flex: 0;">
+    <label class="inline">
+      <span class="label-text">Files Processed</span>
+      <input soho-input readonly id="files-processed" value="1 of 4"/>
+    </label>
+  </div>
+  <div class="field" style="flex: 0;">
+    <label soho-label for="imported-unvalidated">Imported (unvalidated)</label>
+    <input soho-input readonly id="imported-unvalidated" value="0" />
+  </div>
+    <div class="field" style="flex: 0;">
+      <label soho-label for="imported-validated">Imported (validated)</label>
+      <input soho-input readonly id="imported-unvalidated" value="1" />
+    </div>
+    <div class="field" style="flex: 0;">
+      <label soho-label for="rejected">Rejected</label>
+      <input soho-input readonly id="rejected" value="0" />
+    </div>
+    <div class="field" style="flex: 0;">
+      <label soho-label for="folders-created">Folders Created</label>
+      <input soho-input readonly id="folders-created" value="0" />
+    </div>`,
+styles: [
+  `:host {
+      display:        flex;
+      flex:           1;
+      flex-direction: column;
+  }`]
+})
+export class WizardDemoResultPageComponent {
+
 }

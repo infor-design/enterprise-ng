@@ -126,9 +126,10 @@ import { ValidationFormEventDemoComponent } from './validation/validation-form-e
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
 import {
   WizardDemoComponent,
-  DemoSelectFilePageComponent,
-  DemoTargetFolderPageComponent,
-  DemoBackupRulePageComponent
+  WizardDemoSelectFilePageComponent,
+  WizardDemoTargetFolderPageComponent,
+  WizardDemoBackupRulePageComponent,
+  WizardDemoResultPageComponent
 } from './wizard/wizard.demo';
 
 @NgModule({
@@ -166,9 +167,6 @@ import {
     DataGridTreeGridDemoComponent,
     DataGridGroupableDemoComponent,
     DatepickerDemoComponent,
-    DemoSelectFilePageComponent,
-    DemoTargetFolderPageComponent,
-    DemoBackupRulePageComponent,
     DropdownAsyncBusyDemoComponent,
     DropdownAsyncDemoComponent,
     DropdownDemoComponent,
@@ -243,7 +241,11 @@ import {
     ValidationFormDemoComponent,
     ValidationFormEventDemoComponent,
     ValidationFormGroupDemoComponent,
-    WizardDemoComponent
+    WizardDemoComponent,
+    WizardDemoSelectFilePageComponent,
+    WizardDemoTargetFolderPageComponent,
+    WizardDemoBackupRulePageComponent,
+    WizardDemoResultPageComponent
   ],
   imports: [
     AppRoutingModule,
