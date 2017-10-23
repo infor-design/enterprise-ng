@@ -58,6 +58,7 @@ export class WizardDemoComponent implements OnInit, AfterViewInit {
 }
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'demo-select-files-page',
   template: `<div style="flex: 0;">
   <fieldset>
@@ -98,6 +99,7 @@ export class WizardDemoSelectFilePageComponent {
 
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'demo-target-folder-page',
   template: `
   <div style="flex: 0;">
@@ -131,6 +133,7 @@ export class WizardDemoTargetFolderPageComponent {
 }
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'demo-backup-rule-page',
   template: `<div style="flex: 0;">
   <fieldset>
@@ -160,6 +163,7 @@ export class WizardDemoBackupRulePageComponent {
 
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'demo-result-page',
   template: `
   <div style="flex: 0;">

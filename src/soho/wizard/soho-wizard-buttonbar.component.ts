@@ -4,7 +4,8 @@ import {
   HostBinding,
   ContentChildren,
   QueryList,
-  Input
+  Input,
+  ChangeDetectorRef
 } from '@angular/core';
 
 import { SohoWizardTickComponent } from './soho-wizard-tick.component';
@@ -105,7 +106,7 @@ export class SohoWizardButtonbarComponent {
     { id:        'finish',
       text:      'Finish', // Locale.translate('Finish'),
       click:     () => { this.wizard.finish(); },
-      disabled:  () => !this.wizard.hasNext(),
+      disabled:  () => !this.wizard.hasFinished(),
       position:  'right',
       // icon:      'stop',
       // type:      'icon'
@@ -113,8 +114,11 @@ export class SohoWizardButtonbarComponent {
 
   @HostBinding('class.buttonset') isButtonBar = false;
 
-  constructor(private wizard: SohoWizardComponent) {}
-
+  constructor(private wizard: SohoWizardComponent, private cd: ChangeDetectorRef) {
+    this.wizard.afteractivated.subscribe(() => {
+      this.cd.markForCheck();
+    });
+  }
 }
 
 interface SohoWizardButton {
