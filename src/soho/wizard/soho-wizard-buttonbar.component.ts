@@ -106,7 +106,7 @@ export class SohoWizardButtonbarComponent {
     { id:        'finish',
       text:      'Finish', // Locale.translate('Finish'),
       click:     () => { this.wizard.finish(); },
-      disabled:  () => !this.wizard.hasFinished(),
+      disabled:  () => this.wizard.hasFinished(),
       position:  'right',
       // icon:      'stop',
       // type:      'icon'
