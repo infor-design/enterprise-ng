@@ -24,31 +24,33 @@ import {
       <legend>Import Progress</legend>
     </fieldset>
   </div>
-  <div style="flex: 0;">
+  <div style="margins: 0px, 20px, 0px, 20px; ">
     <soho-progress progressValue="0"></soho-progress>
   </div>
-  <div style="flex: 0;">
-    <label class="inline">
-      <span class="label-text">Files Processed</span>
-      <input soho-input disabled readonly id="files-processed" value="1 of 4"/>
-    </label>
-  </div>
-  <div class="field" style="flex: 0;">
-    <label soho-label for="imported-unvalidated">Imported (unvalidated)</label>
-    <input soho-input readonly id="imported-unvalidated" value="0" />
-  </div>
-    <div class="field" style="flex: 0;">
+  <div>
+    <div class="field">
+      <label class="short-label">
+        <span soho-label>Files Processed</span>
+      </label>
+      <input soho-textarea disabled readonly id="files-processed" value="1 of 4"/>
+    </div>
+    <div class="field">
+      <label class="short-label" for="imported-unvalidated">Imported (unvalidated)</label>
+      <input soho-input readonly id="imported-unvalidated" value="0" />
+    </div>
+    <div class="field">
       <label soho-label for="imported-validated">Imported (validated)</label>
       <input soho-input readonly id="imported-unvalidated" value="1" />
     </div>
-    <div class="field" style="flex: 0;">
+    <div class="field">
       <label soho-label for="rejected">Rejected</label>
       <input soho-input readonly id="rejected" value="0" />
     </div>
-    <div class="field" style="flex: 0;">
+    <div class="field">
       <label soho-label for="folders-created">Folders Created</label>
       <input soho-input readonly id="folders-created" value="0" />
-    </div>`,
+     </div>
+  </div>`,
 styles: [
   `:host {
       display:        flex;
@@ -63,7 +65,7 @@ export class WizardDemoResultPageComponent {
   }
 
   update() {
-    this.progress.progressValue += 10;
+    this.progress.progressValue += 1;
     if (this.progress.progressValue < 100) {
       setTimeout(() => { this.update(); }, 1000);
     }
