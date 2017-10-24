@@ -26,14 +26,23 @@ export class SohoLabelDirective implements AfterViewInit {
   @Input() forCheckBox: boolean;
 
   /**
+   * Indicate that the label is for radiobutton or non-radiobutton
+   */
+  @Input() forRadioButton: boolean;
+
+  /**
    * Bind attributes to the host label element
    */
   @HostBinding('class.label') get isLabel() {
-    return !this.forCheckBox;
+    return !this.forCheckBox && !this.forRadioButton;
   };
 
   @HostBinding('class.checkbox-label') get isCheckBoxLabel() {
-    return this.forCheckBox;
+    return this.forCheckBox && !this.forRadioButton;
+  };
+
+  @HostBinding('class.radio-label') get isRadioButtonLabel() {
+    return this.forRadioButton && !this.forCheckBox;
   };
 
   @HostBinding('class.audible') get isAudible() {
