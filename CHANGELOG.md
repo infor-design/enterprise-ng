@@ -3,6 +3,7 @@
 
 * 2017-10-24 - BTH - SOHO-6317: Added support for SOHO 'wizard'.
 * 2017-10-18 - BTH - SOHO-5124: File Upload Advanced (`soho-fileupload-advanced`)
+* 2017-10-24 - MAF - SOHO-7041: 4.0 Radiobutton demo does not disable correctly when using ngModel; added forRadioButton in soho-label.directive.
 * 2017-10-11 - MAF - SOHO-6954: Add support for the maskedinput control in soho-mask.
 * 2017-10-06 - PWP - PR-471 - Changed some functions in soho-datagrid.component to match recently made datagrid.js changes. See breaking changes below for details.
 * 2017-09-28 - MHH - Updated Soho-editor to implement BaseControlValueAccessor
