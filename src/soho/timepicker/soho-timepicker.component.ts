@@ -73,7 +73,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
     if (this.timepicker) {
       this.timepicker.updated();
     }
-  };
+  }
 
   /**
    * Enables or disables the control
@@ -137,7 +137,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
    */
   @HostBinding('class.timepicker') get isTimepicker() {
     return true;
-  };
+  }
 
   constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
     super(changeDetectionRef);

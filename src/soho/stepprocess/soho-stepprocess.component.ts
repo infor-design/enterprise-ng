@@ -128,7 +128,7 @@ export class SohoStepContentComponent {
 })
 export class SohoStepContentPanelComponent {
   @HostBinding('class.js-step-panel') get isJsStepProcessPanel() { return true; }
-  @HostBinding('attr.id') get idAttr() { return this.stepId; };
+  @HostBinding('attr.id') get idAttr() { return this.stepId; }
   @Input() stepId: string;
 }
 

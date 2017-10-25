@@ -43,7 +43,7 @@ export class ValidationFormGroupDemoComponent implements AfterViewInit {
   }
 
   onValueChanged(data?: any) {
-    console.log(`onValueChanged: '${data}`)
+    console.log(`onValueChanged: '${data}`);
   }
 
   onSubmit() {

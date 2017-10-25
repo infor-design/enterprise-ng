@@ -160,10 +160,10 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
    */
   @HostBinding('class.datepicker') get isDatepicker() {
     return true;
-  };
+  }
   @HostBinding('class.timepicker') get isTimepicker() {
     return !!this.options.showTime;
-  };
+  }
 
   constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
     super(changeDetectionRef);

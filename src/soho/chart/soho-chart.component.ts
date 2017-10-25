@@ -156,9 +156,9 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
     if (this.jQueryElement) {
       let selectOptions: ChartSelectionOptions;
       if (this._chartOptions.type.indexOf('grouped') >= 0 || this._chartOptions.type === 'column') {
-        selectOptions = {groupName: 'ref', groupValue: ref}
+        selectOptions = {groupName: 'ref', groupValue: ref};
       } else {
-        selectOptions = {fieldName: 'ref', fieldValue: ref}
+        selectOptions = {fieldName: 'ref', fieldValue: ref};
       }
 
       this.chart.setSelected(selectOptions);

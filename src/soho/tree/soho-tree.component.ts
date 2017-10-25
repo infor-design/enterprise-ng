@@ -66,7 +66,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     if (this.tree) {
       this.tree.loadData(dataset);
     }
-  };
+  }
 
   get dataset(): SohoTreeNode[] {
     // If the Soho control has been created, then the dataset

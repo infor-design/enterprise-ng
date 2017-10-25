@@ -15,7 +15,7 @@ export class TabsVerticalDemoComponent {
    * the bottom of the screen.
    * @returns {string} the height of the style.height style.
    */
-  @HostBinding('style.height') get tabsHeightStyle() { return '100%'; };
+  @HostBinding('style.height') get tabsHeightStyle() { return '100%'; }
   constructor() {
     console.log('ub');
   }

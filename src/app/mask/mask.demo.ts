@@ -64,7 +64,7 @@ export class MaskDemoComponent {
   pipe = (processResult, opts) => {
     console.log('pipe was executed');
     return processResult.conformedValue + ' | ';
-  };
+  }
 
   get symbols(): string {
     return JSON.stringify(this._symbols);

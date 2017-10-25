@@ -149,27 +149,27 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   @HostBinding('class.btn')
   get btn() {
     return this.buttonType === SohoButtonComponent.BTN;
-  };
+  }
 
   @HostBinding('class.btn-primary')
   get btnPrimary() {
     return this.buttonType === SohoButtonComponent.PRIMARY;
-  };
+  }
 
   @HostBinding('class.btn-secondary')
   get btnSecondary() {
     return this.buttonType === SohoButtonComponent.SECONDARY;
-  };
+  }
 
   @HostBinding('class.btn-tertiary')
   get btnTertiary(): boolean {
     return this.buttonType === SohoButtonComponent.TERTIARY;
-  };
+  }
 
   @HostBinding('class.btn-icon')
   get btnIcon(): boolean {
     return this.buttonType === SohoButtonComponent.ICON || this.buttonType === SohoButtonComponent.FAVORITE;
-  };
+  }
 
   @HostBinding('class.btn-toggle') get btnToggle() {
     return this.isToggle;
@@ -189,7 +189,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
 
   @HostBinding('class.icon-favorite') get iconFavorite(): boolean {
     return this.buttonType === SohoButtonComponent.FAVORITE;
-  };
+  }
 
   @HostBinding('class.btn-moveto-left') @Input() moveToLeft;
   @HostBinding('class.btn-moveto-right') @Input() moveToRight;
@@ -198,11 +198,11 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   @HostBinding('class.no-ripple')
   get noRipple(): boolean {
     return !this.ripple;
-  };
+  }
 
   @HostBinding('attr.type') get type() {
     return this.isSubmit ? 'submit' : 'button';
-  };
+  }
 
   @HostBinding('class.expandable-expander') get isExpandableExpander() {
     return this.expandableExpander;

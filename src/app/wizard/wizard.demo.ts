@@ -136,7 +136,8 @@ export class WizardDemoComponent implements OnInit, AfterViewInit {
   <button soho-butto disabled>Remove</button>
 </div>
 <div style="flex: 1; overflow: hidden;">
-  <div soho-datagrid [columns]="columns" [data]="data" selectable="true" filterable="true" class="scrollable-area" style="overflow: hidden;">
+  <div soho-datagrid [columns]="columns" [data]="data" selectable="true"
+    filterable="true" class="scrollable-area" style="overflow: hidden;">
   </div>
 </div>`,
 styles: [

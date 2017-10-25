@@ -30,11 +30,11 @@ export class SohoLabelDirective implements AfterViewInit {
    */
   @HostBinding('class.label') get isLabel() {
     return !this.forCheckBox;
-  };
+  }
 
   @HostBinding('class.checkbox-label') get isCheckBoxLabel() {
     return this.forCheckBox;
-  };
+  }
 
   @HostBinding('class.audible') get isAudible() {
     return this.audible ? true : false;
