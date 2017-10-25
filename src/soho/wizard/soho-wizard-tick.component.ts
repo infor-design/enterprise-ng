@@ -1,3 +1,4 @@
+//tslint:disable
 import {
   ElementRef,
   Component,
@@ -13,7 +14,7 @@ import {
  * This wraps anchor tags annotated with the `soho-wizard-tick`.
  */
 @Component({
-  selector: 'a[soho-wizard-tick]', // tslint:disable-line
+  selector: 'a[soho-wizard-tick]',
   template: '<span class="label"><ng-content></ng-content></span>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

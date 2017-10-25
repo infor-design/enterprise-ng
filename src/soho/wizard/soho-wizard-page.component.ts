@@ -1,16 +1,18 @@
+//tslint:disable
 import {
   HostBinding,
   Input,
   Component,
   ChangeDetectionStrategy,
   ElementRef,
-  AfterViewInit} from '@angular/core';
+  AfterViewInit
+} from '@angular/core';
 
-  /**
-   * Angular wrapper for the soho wizard page.
-   */
+/**
+ * Angular wrapper for the soho wizard page.
+ */
 @Component({
-  selector: 'div[soho-wizard-page]', // tslint:disable-line
+  selector: 'div[soho-wizard-page]',
   template: `<ng-content></ng-content>`,
   styles: [
     `:host {
@@ -33,11 +35,11 @@ export class SohoWizardPageComponent implements AfterViewInit {
    *
    * @memberof SohoWizardPageComponent
    */
-  @HostBinding('class.hidden') hidden = true;
+  @HostBinding('class.hidden') hidden = true; // tslint: ignore-line
 
   /** This id of the associated tick. */
   @Input()
-  tickId: string;
+  tickId: string; // tslint: ignore-line
 
   constructor(public el: ElementRef) {}
 

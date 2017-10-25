@@ -53,6 +53,38 @@ In the markup for the hosting component add:
 This example shows a simple `wizard` component with a set of steps
 
 ```html
-
-
+<div class="full-width full-height scrollable-flex">
+  <div soho-wizard (afteractivated)="onActivated($event)">
+    <div soho-wizard-header>
+      <a soho-wizard-tick tickId="select-files" current="true">Select Files</a>
+      <a soho-wizard-tick tickId="target-folder">Target Folder</a>
+      <a soho-wizard-tick tickId="backup-rule">Backup Rule</a>
+      <a soho-wizard-tick tickId="validation-rule">Validation Rule</a>
+      <a soho-wizard-tick tickId="confirmation">Confirmation</a>
+      <a soho-wizard-tick tickId="result" disabled="true">Result</a>
+    </div>
+    <div soho-wizard-pages>
+      <div soho-wizard-page tickId="select-files" style="overflow:  hidden;">
+        <demo-select-files-page></demo-select-files-page>
+      </div>
+      <div soho-wizard-page tickId="target-folder">
+        <demo-target-folder-page></demo-target-folder-page>
+      </div>
+      <div soho-wizard-page tickId="backup-rule">
+        <demo-backup-rule-page></demo-backup-rule-page>
+      </div>
+      <div soho-wizard-page tickId="validation-rule">
+        <p>Page 4</p>
+      </div>
+      <div soho-wizard-page tickId="confirmation">
+        <p>Page 5</p>
+      </div>
+      <div soho-wizard-page tickId="result">
+        <demo-result-page></demo-result-page>
+      </div>
+    </div>
+    <div soho-wizard-buttonbar>
+    </div>
+  </div>
+</div>
 ```

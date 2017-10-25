@@ -1,3 +1,4 @@
+//tslint:disable
 import {
   Component,
   ChangeDetectionStrategy,
@@ -18,7 +19,7 @@ import { SohoWizardComponent } from './soho-wizard.component';
  * simply add a component used to handle the button selection.
  */
 @Component({
-  selector: 'div[soho-wizard-buttonbar]', // tslint:disable-line
+  selector: 'div[soho-wizard-buttonbar]',
   template: `
     <hr class="fieldset-hr">
     <div class="buttonbar">

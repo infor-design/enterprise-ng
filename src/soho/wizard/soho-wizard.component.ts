@@ -1,3 +1,4 @@
+//tslint:disable
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -36,6 +37,7 @@ import { SohoWizardPageComponent } from 'soho/wizard/soho-wizard-page.component'
  * - handling of ticks / tick model (based on underlying widget)
  * - model driven
  * - support Builder Panel style (with title?)
+ * - support for "modal style" buttons.
  */
 @Component({
   selector: 'div[soho-wizard]', // tslint:disable-line
@@ -49,7 +51,7 @@ import { SohoWizardPageComponent } from 'soho/wizard/soho-wizard-page.component'
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnInit, OnDestroy {
+export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnDestroy {
   /**
    * Reference to the underlying container for the pages.
    *
@@ -159,6 +161,15 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
   // -------------------------------------------
 
   /**
+   * Moves to the first state if possible.
+   */
+  public first() {
+    if (!this.finished && this.stepCount() > 0) {
+      this.wizard.activate(null, this.stepAt(0).jQueryElement);
+    }
+  }
+
+  /**
    * Attempts to move to the next step, if allowed.
    *
    * @memberof SohoWizardComponent
@@ -232,12 +243,14 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnI
     return this.finished;
   }
 
+  public reset(): void {
+    this.finished = false;
+    this.first();
+  }
+
   // ------------------------------------------
   // Lifecycle Events
   // ------------------------------------------
-
-  ngOnInit() {
-  }
 
   ngAfterViewInit() {
     // Wrap the "unordered list" element in a jQuery selector.

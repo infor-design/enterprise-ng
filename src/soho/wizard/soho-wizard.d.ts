@@ -1,3 +1,4 @@
+//tslint:disable
 /**
  * Soho Wizard Control.
  *

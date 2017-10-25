@@ -1,3 +1,4 @@
+//tslint:disable
 export { SohoWizardComponent } from './soho-wizard.component';
 export { SohoWizardTickComponent } from './soho-wizard-tick.component';
 export { SohoWizardHeaderComponent } from './soho-wizard-header.component';

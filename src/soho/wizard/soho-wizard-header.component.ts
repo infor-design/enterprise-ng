@@ -1,3 +1,4 @@
+//tslint:disable
 import {
   Component,
   ChangeDetectionStrategy,
@@ -20,6 +21,7 @@ import { SohoWizardTickComponent } from './soho-wizard-tick.component';
     <div class="completed-range"></div>
     <ng-content></ng-content>
   </div>`,
+  styles: [`:host { padding: 20px 40px 60px 40px }`],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoWizardHeaderComponent {

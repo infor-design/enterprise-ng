@@ -15,7 +15,7 @@ import { ArgumentHelper } from '../utils/argument.helper';
 /**
  * Supported button types.
  */
-export type SohoButtonType = 'btn' | 'primary' | 'secondary' | 'tertiary' | 'icon' | 'favorite';
+export type SohoButtonType = 'btn' | 'primary' | 'secondary' | 'tertiary' | 'icon' | 'favorite' | 'modal' | 'modal-primary';
 
 @Component({
   selector: 'button[soho-button]', // tslint:disable-line
@@ -34,6 +34,8 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   static TERTIARY: SohoButtonType = 'tertiary';
   static ICON: SohoButtonType = 'icon';
   static FAVORITE: SohoButtonType = 'favorite';
+  static MODAL: SohoButtonType = 'modal';
+  static MODAL_PRIMARY: SohoButtonType = 'modal-primary';
 
   // -------------------------------------------
   // Private Member Data
@@ -171,6 +173,14 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
 
   @HostBinding('class.btn-toggle') get btnToggle() {
     return this.isToggle;
+  }
+
+  @HostBinding('class.btn-modal') get btnModal() {
+    return this.buttonType === SohoButtonComponent.MODAL;
+  }
+
+  @HostBinding('class.btn-modal-primary') get btnModalPrimary() {
+    return this.buttonType === SohoButtonComponent.MODAL_PRIMARY;
   }
 
   @HostBinding('class.is-pressed') get btnTogglePressed() {
