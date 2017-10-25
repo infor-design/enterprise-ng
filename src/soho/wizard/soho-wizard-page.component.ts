@@ -1,4 +1,3 @@
-//tslint:disable
 import {
   HostBinding,
   Input,
@@ -12,7 +11,7 @@ import {
  * Angular wrapper for the soho wizard page.
  */
 @Component({
-  selector: 'div[soho-wizard-page]',
+  selector: 'div[soho-wizard-page]', // tslint:disable-line
   template: `<ng-content></ng-content>`,
   styles: [
     `:host {

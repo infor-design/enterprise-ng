@@ -35,15 +35,15 @@ export class SohoLabelDirective implements AfterViewInit {
    */
   @HostBinding('class.label') get isLabel() {
     return !this.forCheckBox && !this.forRadioButton;
-  };
+  }
 
   @HostBinding('class.checkbox-label') get isCheckBoxLabel() {
     return this.forCheckBox && !this.forRadioButton;
-  };
+  }
 
   @HostBinding('class.radio-label') get isRadioButtonLabel() {
     return this.forRadioButton && !this.forCheckBox;
-  };
+  }
 
   @HostBinding('class.audible') get isAudible() {
     return this.audible ? true : false;

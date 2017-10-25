@@ -1,4 +1,3 @@
-//tslint:disable
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -38,6 +37,7 @@ import { SohoWizardPageComponent } from 'soho/wizard/soho-wizard-page.component'
  * - model driven
  * - support Builder Panel style (with title?)
  * - support for "modal style" buttons.
+ * - extract state machine
  */
 @Component({
   selector: 'div[soho-wizard]', // tslint:disable-line
@@ -143,6 +143,13 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
   /** An internal options object that gets updated by using the component's Inputs(). */
   private _options: SohoWizardOptions = {};
 
+  /**
+   * Ordered list of steps.
+   *
+   * @private
+   * @type {SohoWizardTickComponent[]}
+   * @memberof SohoWizardComponent
+   */
   private _steps: SohoWizardTickComponent[];
 
   private finished = false;
@@ -191,7 +198,7 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
    */
   public previous() {
     let currentIndex = this.currentIndex();
-    if (--currentIndex >= 0) {
+    if (!this.finished && --currentIndex >= 0) {
       this.wizard.activate(null, this.stepAt(currentIndex).jQueryElement);
     }
   }
@@ -239,10 +246,21 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
     return !this.finished && this.currentIndex() > 0;
   }
 
+  /**
+   * Returns true if the process has finished,
+   * otherwise false.
+   *
+   * @returns {boolean}
+   * @memberof SohoWizardComponent
+   */
   public hasFinished(): boolean {
     return this.finished;
   }
 
+  /**
+   * Resets the state machine, moving to the first page
+   * and clearing finished flag.
+   */
   public reset(): void {
     this.finished = false;
     this.first();
@@ -271,15 +289,19 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
       .on('afteractivated', (e: JQueryEventObject, tick: JQuery) => this.afteractivated.next({ tick: tick }));
 
     // Reset the cached steps if the list of steps changes.
-    this.header.steps.changes.subscribe(() => { this._steps = null; });
+    if (this.header) {
+      this.header.steps.changes.subscribe(() => { this._steps = null; });
+    }
   }
 
   ngAfterContentInit() {
     // Added delay otherwise the component is not complete
     // causing the active page to not be displayed.
     setTimeout(() => {
-      const step = this.header.steps.find(s => s.isCurrentTick());
-      this.pagesContainer.pages.forEach(p => p.hidden = (!step || step.tickId !== p.tickId));
+      if (this.header) {
+        const step = this.header.steps.find(s => s.isCurrentTick());
+        this.pagesContainer.pages.forEach(p => p.hidden = (!step || step.tickId !== p.tickId));
+      }
     });
   }
 

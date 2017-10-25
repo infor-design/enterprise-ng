@@ -1,4 +1,3 @@
-//tslint:disable
 import {
   Component,
   ChangeDetectionStrategy,
