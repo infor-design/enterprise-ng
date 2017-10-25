@@ -123,19 +123,19 @@
   "use-input-property-decorator": true,
   "use-output-property-decorator": true,
   "use-host-property-decorator": true,
-  //"no-attribute-parameter-decorator": true
-  "no-input-rename": true
-  // "no-output-rename": true,
-  // "no-forward-ref": true,
-  // "use-life-cycle-interface": true,
-  // "use-pipe-transform-interface": true,
+  "no-attribute-parameter-decorator": true,
+  "no-input-rename": true,
+  "no-output-rename": true,
+  "no-forward-ref": true,
+  "use-life-cycle-interface": true,
+  "use-pipe-transform-interface": true,
 
   // [ENABLED, "SUFFIX"]
   // Where "SUFFIX" is your custom suffix, for instance "Page" for Ionic 2 components.
-  // "component-class-suffix": [true, "Component"],
-  // "directive-class-suffix": [true, "Directive"],
-  // "templates-use-public": true,
-  // "no-access-missing-member": true,
-  // "invoke-injectable": true
+  "component-class-suffix": [true, "Component"],
+  "directive-class-suffix": [true, "Directive"],
+  "templates-use-public": true,
+  "no-access-missing-member": true,
+  "invoke-injectable": true
   }
 }
