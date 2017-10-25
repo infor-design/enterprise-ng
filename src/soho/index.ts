@@ -16,6 +16,7 @@ export * from './editor/index';
 export * from './error/index';
 export * from './expandablearea/index';
 export * from './fileupload/index';
+export * from './fileupload-advanced/index';
 export * from './hierarchy/index';
 export * from './header/index';
 export * from './homepage/index';

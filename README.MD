@@ -64,6 +64,7 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | error                   |                           Available |            - |                  - |
 | expandablearea          |                           Available |            - | [SOHO-4017][#4017] |
 | fileupload              |                           Available |            - | [SOHO-4560][#4560] |
+| fileupload-advanced     |                           Available |            - | [SOHO-5124][#5214] |
 | fieldset                |                             Pending |            - | [SOHO-4561][#4561] |
 | header                  |                           Available |            - |                  - |
 | homepage                |                           Available |            - |                  - |
@@ -150,6 +151,7 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 [#5126]: http://jira/browse/SOHO-5126
 [#5127]: http://jira/browse/SOHO-5127
 [#6317]: http://jira/browse/SOHO-6317
+[#5124]: http://jira/browse/SOHO-5124
 
 ## Previous Repos
 

@@ -39,6 +39,7 @@ import { EditorDemoComponent } from './editor/editor.demo';
 import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
+import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
@@ -146,6 +147,7 @@ export const routes: Routes = [
   { path: 'error',                             component: ErrorDemoComponent },
   { path: 'expandablearea',                    component: ExpandableAreaDemoComponent },
   { path: 'expandablearea-footer',             component: ExpandableAreaFooterDemoComponent },
+  { path: 'fileupload-advanced',               component: FileUploadAdvancedDemoComponent },
   { path: 'fileupload',                        component: FileUploadDemoComponent },
   { path: 'header-tabs',                       component: HeaderTabsDemoComponent },
   { path: 'header-toolbar',                    component: HeaderToolbarDemoComponent },
