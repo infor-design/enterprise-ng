@@ -4,11 +4,11 @@
 
 This component provides access from Angular to the SoHoXi `wizard` JQuery control.
 
-Note: the current SoHo widget is not fullt functional, and provides only the visual header ticks, so this control attempts to provide the minimum functionality to implement a working wizard component.
+Note: the current SoHo widget is not fully functional, and provides only the visual header ticks, so this control attempts to provide the minimum functionality to implement a working wizard component.
 
 ### Usage
 
-To add a `wizard` to a component requires adding the module `SohoWizardModule` into the hosting component.  If you have included the top level SoHo module them this will be included already.
+To add a `wizard` to a component requires adding the module `SohoWizardModule` into the hosting component.  If you have included the top level SoHo module then this will be included already.
 
 In the markup for the hosting component add:
 
@@ -29,26 +29,34 @@ In the markup for the hosting component add:
 ## Properties
 
 | Name | Description |
-| `ticks` | ticks items ! NOT SUPPORTED AT THIS TIME ! |
+| `ticks` | ticks items ! NOT SUPPORTED |
+| `currentTickId` | provides the id for the currently selected tick |
+| `beforeActivate` | function to call before a tick is acivated to allow the transition to be vetoed. |
 
 ## Methods
 
 | Name | Description |
 | --- | --- |
-| `last()` | Moves to the last step. |
 | `finish()` | Moves to the last step and marks the wizard as complete. |
-| `next()` | Moves to the next step. |
-| `previous()` | Moves to the previous step. |
+| `first()` | Moves to the first step, if possible. |
+| `hasFinished()` | Has the wizard finished. |
+| `hasNext()` | Does the wizard have a next step. |
+| `hasPrevious()` | Does the wizard have a previous step. |
+| `last()` | Moves to the last step, if possible. |
+| `next()` | Moves to the next step, if possible. |
+| `previous()` | Moves to the previous step, if popssible. |
+| `reset()` | Resets the wizard. |
 
 ## Events
 
 | Name | Description |
 | --- | --- |
-| `` | . |
+| `activated` | This event is fired when the step is activated. |
+| `afteractivated` | This event is fired after the step has been activated. |
 
 ## Examples
 
-### Simple List View Component
+### Simple Wizard Component
 
 This example shows a simple `wizard` component with a set of steps
 
