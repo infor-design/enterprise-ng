@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="full-width column">
+
+    <soho-toolbar
+        [maxVisibleButtons]="6"
+        [resizeContainers]="true"
+        [favorButtonset]="true"
+        (selected)="onSelected($event)">
+
+      <soho-toolbar-title>
+        <span soho-toolbar-section-title>Basic Standard Toolbar</span>
+      </soho-toolbar-title>
+
+      <soho-toolbar-button-set>
+        <!-- search field -->
+        <label class="audible" attr.for="my-search-field">Search</label>
+        <input soho-toolbar-searchfield id="my-search-field" placeholder="Search" title="Search" name="Search"/>
+
+        <!-- buttons -->
+        <button soho-button="icon" icon="filter" title="Filter" isToggle=true data-action="{'button':'filter'}">
+          <span class="audible">Filter</span>
+        </button>
+      </soho-toolbar-button-set>
+
+      <div class="more">
+        <div class="popupmenu-wrapper">
+          <ul class="popupmenu">
+            <li><a href="">Option 1</a></li>
+            <li><a href="">Option 2</a></li>
+            <li class="submenu">
+              <a href="">Option 3</a>
+              <div class="wrapper">
+                <ul class="popupmenu">
+                  <li><a href="">Sub-option 1</a></li>
+                  <li><a href="">Sub-option 2</a></li>
+                  <li><a href="">Sub-option 3</a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="">Option 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </soho-toolbar>
+
+  </div>
+</div>
