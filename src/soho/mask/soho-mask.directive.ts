@@ -273,7 +273,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
    * @deprecated use process instead
    */
   @Input() set mode(value: SohoMaskMode) {
-    console.warn('The mode input has been renamed, please use the process input instead.')
+    console.warn('The mode input has been renamed, please use the process input instead.');
 
     this._options.process = value;
     if (this.mask) {

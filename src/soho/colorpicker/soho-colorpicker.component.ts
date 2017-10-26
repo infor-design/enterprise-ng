@@ -127,7 +127,7 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
    */
   @HostBinding('class.colorpicker') get isColorpicker() {
     return true;
-  };
+  }
 
   /**
    * Local variables

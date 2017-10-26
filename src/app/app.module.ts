@@ -126,6 +126,13 @@ import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { ValidationFormEventDemoComponent } from './validation/validation-form-event.demo';
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
+import {
+  WizardDemoComponent,
+  WizardDemoSelectFilePageComponent,
+  WizardDemoTargetFolderPageComponent,
+  WizardDemoBackupRulePageComponent,
+  WizardDemoResultPageComponent
+} from './wizard/wizard.demo';
 
 @NgModule({
   declarations: [
@@ -236,7 +243,12 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     TreeSourceDemoComponent,
     ValidationFormDemoComponent,
     ValidationFormEventDemoComponent,
-    ValidationFormGroupDemoComponent
+    ValidationFormGroupDemoComponent,
+    WizardDemoComponent,
+    WizardDemoSelectFilePageComponent,
+    WizardDemoTargetFolderPageComponent,
+    WizardDemoBackupRulePageComponent,
+    WizardDemoResultPageComponent
   ],
   imports: [
     AppRoutingModule,

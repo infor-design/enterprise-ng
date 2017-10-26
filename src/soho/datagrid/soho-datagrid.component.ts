@@ -1502,7 +1502,7 @@ export enum SohoGridColumnFilterTypes {
   Lookup = <any>'lookup',
   Percent = <any>'percent',
   Select = <any>'select'
-};
+}
 
 /**
  * Details of the 'expandrow' and 'collapserow' events.

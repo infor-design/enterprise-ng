@@ -75,7 +75,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
   onRefresh() {
     console.log('onRefresh() called');
     this.sohoDataGridComponent.triggerSource('refresh', function() {
-      console.log('List Refresh Completed')
+      console.log('List Refresh Completed');
     });
   }
 

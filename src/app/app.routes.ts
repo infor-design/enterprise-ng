@@ -103,6 +103,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
 import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
+import { WizardDemoComponent } from './wizard/wizard.demo';
 
 export const routes: Routes = [
   { path: '',                                  component: ExpandableAreaDemoComponent }, // default
@@ -207,7 +208,8 @@ export const routes: Routes = [
   { path: 'tree-source',                       component: TreeSourceDemoComponent },
   { path: 'validation',                        component: ValidationFormDemoComponent},
   { path: 'validation-event',                  component: ValidationFormEventDemoComponent},
-  { path: 'validation-group',                  component: ValidationFormGroupDemoComponent}
+  { path: 'validation-group',                  component: ValidationFormGroupDemoComponent},
+  { path: 'wizard',                            component: WizardDemoComponent}
 ];
 
 export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes);

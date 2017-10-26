@@ -78,7 +78,7 @@ export class HierarchyPagingDemoComponent implements OnInit {
     } else if (!hierarchyEvent.data.isLoaded && !hierarchyEvent.data.isLeaf) {
 
       this.hierarchyService.getHierarchyData().subscribe((data) => {
-        hierarchyEvent.data.children = data[0].lazyDataSet
+        hierarchyEvent.data.children = data[0].lazyDataSet;
         this.sohoHierarchy.reloadDataSet(hierarchyEvent.data);
         this.changeDetectorRef.markForCheck();
       });

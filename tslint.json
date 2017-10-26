@@ -6,21 +6,21 @@
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,
-    "comment-format": [
-      true,
-      "check-space"
-    ],
-    "curly": true,
-    "eofline": true,
-    "forin": true,
-    "import-blacklist": [
-      true,
-      "rxjs"
+     "comment-format": [
+       true,
+       "check-space"
+     ],
+     "curly": true,
+     "eofline": true,
+     "forin": true,
+     "import-blacklist": [
+       true,
+       "rxjs"
     ],
     "import-spacing": true,
     "indent": [
-      true,
-      "spaces"
+       true,
+       "spaces"
     ],
     "interface-over-type-literal": true,
     "label-position": true,
@@ -30,19 +30,25 @@
     ],
     "member-access": false,
     "member-ordering": [
-      true,
-      "static-before-instance",
-      "variables-before-functions"
+       true,
+       {
+         "order": [
+           "static-field",
+           "instance-field",
+           "static-method",
+           "instance-method"
+         ]
+       }
     ],
     "no-arg": true,
     "no-bitwise": true,
     "no-console": [
-      true,
-      "debug",
-      "info",
-      "time",
-      "timeEnd",
-      "trace"
+       true,
+       "debug",
+       "info",
+       "time",
+       "timeEnd",
+       "trace"
     ],
     "no-construct": true,
     "no-debugger": true,
@@ -80,6 +86,7 @@
     ],
     "radix": true,
     "semicolon": [
+      true,
       "always"
     ],
     "triple-equals": [
@@ -108,19 +115,27 @@
       "check-type"
     ],
 
-    "directive-selector": [true, "attribute", "soho", "kebab-case"],
-    "component-selector": [true, "element", "soho", "kebab-case"],
-    "use-input-property-decorator": true,
-    "use-output-property-decorator": true,
-    "use-host-property-decorator": true,
-    "no-input-rename": true,
-    "no-output-rename": true,
-    "use-life-cycle-interface": true,
-    "use-pipe-transform-interface": true,
-    "component-class-suffix": true,
-    "directive-class-suffix": true,
-    "no-access-missing-member": true,
-    "templates-use-public": true,
-    "invoke-injectable": true
+    // The rule have the following arguments:
+  // [ENABLED, "attribute" | "element", "selectorPrefix" | ["listOfPrefixes"], "camelCase" | "kebab-case"]
+  "directive-selector": [true, "attribute", ["soho", "demo"], "kebab-case"],
+  "component-selector": [true, "element", ["soho", "demo"], "kebab-case"],
+
+  "use-input-property-decorator": true,
+  "use-output-property-decorator": true,
+  "use-host-property-decorator": true,
+  "no-attribute-parameter-decorator": true,
+  "no-input-rename": true,
+  "no-output-rename": true,
+  "no-forward-ref": true,
+  "use-life-cycle-interface": true,
+  "use-pipe-transform-interface": true,
+
+  // [ENABLED, "SUFFIX"]
+  // Where "SUFFIX" is your custom suffix, for instance "Page" for Ionic 2 components.
+  "component-class-suffix": [true, "Component"],
+  "directive-class-suffix": [true, "Directive"],
+  "templates-use-public": true,
+  "no-access-missing-member": true,
+  "invoke-injectable": true
   }
 }

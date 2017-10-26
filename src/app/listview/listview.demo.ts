@@ -137,7 +137,7 @@ export class ListViewDemoComponent {
     if (activatedItem && activatedItem.index > -1) {
       this.mixedSelectionListView.deactivateItem(activatedItem.index);
     } else {
-      console.log('cannot deactivate, must activate an item first.')
+      console.log('cannot deactivate, must activate an item first.');
     }
   }
 }

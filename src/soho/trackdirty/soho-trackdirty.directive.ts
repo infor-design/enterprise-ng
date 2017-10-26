@@ -13,7 +13,7 @@ import {
 })
 export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
 
-  @HostBinding('attr.data-trackdirty') get trackDirtyAttr() { return true; };
+  @HostBinding('attr.data-trackdirty') get trackDirtyAttr() { return true; }
 
   /**
    * Called when element value is different from original value

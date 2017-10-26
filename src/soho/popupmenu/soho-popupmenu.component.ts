@@ -333,7 +333,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
    */
   getSelected(): any {
     if (this.popupmenu) {
-      return this.popupmenu.getSelected()
+      return this.popupmenu.getSelected();
     }
   }
 
@@ -342,7 +342,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
    */
   updated(): void {
     if (this.popupmenu) {
-      this.popupmenu.updated()
+      this.popupmenu.updated();
     }
   }
 
@@ -351,7 +351,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
    */
   teardown(): void {
     if (this.popupmenu) {
-      this.popupmenu.teardown()
+      this.popupmenu.teardown();
     }
   }
 
