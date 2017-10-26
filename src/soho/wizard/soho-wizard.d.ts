@@ -12,7 +12,11 @@
   */
  interface SohoWizardTick {
 
-  /** Sets the ng-click event for AngularJS? */
+  /**
+   * Sets the ng-click event for AngularJS.
+   *
+   * @todo requires a better explanation and should it be exposed in the Angular Component?
+   */
   ngClick?: string;
 
   /** State of the tick either:  */
@@ -57,7 +61,7 @@ interface SohoWizardStatic {
   settings: SohoWizardOptions;
 
   /**
-   * Activates a tick - based on the jsuet element.
+   * Activates a tick - based on the index or jquery element.
    *
    * @param {*} e
    * @param {(number | JQuery)} tick

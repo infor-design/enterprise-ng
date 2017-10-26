@@ -26,7 +26,7 @@ import { SohoWizardPageComponent } from 'soho/wizard/soho-wizard-page.component'
 /**
  * Angular Wrapper for the Soho Wizard Component.
  *
- * This component searches for adiv with the attribute
+ * This component searches for a div with the attribute
  * 'soho-wizard' in the DOM, initialising those found with
  * the SoHo Wizard control.
  *
