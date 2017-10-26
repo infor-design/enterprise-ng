@@ -20,8 +20,8 @@ import {
 
 import { SohoWizardTickComponent } from './soho-wizard-tick.component';
 import { SohoWizardHeaderComponent } from './soho-wizard-header.component';
-import { SohoWizardPagesComponent } from 'soho/wizard/soho-wizard-pages.component';
-import { SohoWizardPageComponent } from 'soho/wizard/soho-wizard-page.component';
+import { SohoWizardPagesComponent } from './soho-wizard-pages.component';
+import { SohoWizardPageComponent } from './soho-wizard-page.component';
 
 /**
  * Angular Wrapper for the Soho Wizard Component.
