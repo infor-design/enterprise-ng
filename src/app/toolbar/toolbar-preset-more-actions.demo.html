@@ -22,31 +22,25 @@
         </button>
       </soho-toolbar-button-set>
 
-      <div class="more">
-        <button id="my-more-button" class="btn-actions">
-          <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-            <use xlink:href="#icon-more"></use>
-          </svg>
-          <span class="audible">More Actions</span>
-        </button>
-        <div id="my-popupmenu-wrapper-element" class="popupmenu-wrapper">
-          <ul id="my-popupmenu-element" class="popupmenu">
-            <li><a href="">Option 1</a></li>
-            <li><a href="">Option 2</a></li>
-            <li class="submenu">
-              <a href="">Option 3</a>
+      <soho-toolbar-more-button>
+        <div class="popupmenu-wrapper">
+          <ul soho-popupmenu id="my-popupmenu-element" class="popupmenu">
+            <li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined option 1</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined option 2</a></li>
+            <li soho-popupmenu-item class="submenu">
+              <a soho-popupmenu-label>Pre-defined option 3</a>
               <div class="wrapper">
-                <ul class="popupmenu">
-                  <li><a href="">Sub-option 1</a></li>
-                  <li><a href="">Sub-option 2</a></li>
-                  <li><a href="">Sub-option 3</a></li>
+                <ul soho-popupmenu class="popupmenu">
+                  <li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined sub-option 1</a></li>
+                  <li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined sub-option 2</a></li>
+                  <li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined sub-option 3</a></li>
                 </ul>
               </div>
             </li>
-            <li><a href="">Option 4</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined option 4</a></li>
           </ul>
         </div>
-      </div>
+      </soho-toolbar-more-button>
     </soho-toolbar>
 
   </div>
