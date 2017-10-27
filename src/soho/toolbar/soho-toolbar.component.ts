@@ -367,6 +367,12 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
    */
   @Output() selected: EventEmitter<SohoToolbarSelectedEvent> = new EventEmitter<SohoToolbarSelectedEvent>();
 
+  /**
+   * Event that can be triggered on the toolbar jQuery element that will cause it to recalculate dimensions internally.
+   * @type {EventEmitter<SohoToolbarEvent>}
+   */
+  @Output() recalculateButtons: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
+
   // Lazy load example
   // Not fully implemented, see SOHO-5011
   @Output() menuItemMouseOver: EventEmitter<HTMLButtonElement> = new EventEmitter<HTMLButtonElement>();
@@ -394,7 +400,8 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     .on('afteractivate', ((event: JQueryEventObject) => { this.afterActivate.emit(event); }))
     .on('selected', (event: JQueryEventObject, item: HTMLButtonElement | HTMLAnchorElement) => {
       this.selected.emit({ event, item });
-    });
+    })
+    .on('recalculate-buttons', ((event: JQueryEventObject) => { this.recalculateButtons.emit(event); }))
 
     // Returns original button info on mouseover event
     this.jQueryElement.find('.more').on('mouseover', 'li.submenu', ((event: JQueryEventObject) => {

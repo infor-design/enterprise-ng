@@ -114,6 +114,7 @@ import { ToastDemoComponent } from './toast/toast.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
+import { ToolbarPresetMoreActionsDemoComponent } from './toolbar/toolbar-preset-more-actions.demo';
 import { ToolbarStateComponent } from './toolbar/toolbar-state.component';
 import { ToolbarStateDemoComponent } from './toolbar/toolbar-state.demo';
 import { ToolbarRightAlignedDemoComponent } from './toolbar/toolbar-right-aligned.demo';
@@ -234,6 +235,7 @@ import {
     ToolbarDataDrivenDemoComponent,
     ToolbarStateComponent,
     ToolbarStateDemoComponent,
+    ToolbarPresetMoreActionsDemoComponent,
     ToolbarRightAlignedDemoComponent,
     TooltipDemoComponent,
     TrackDirtyDemoComponent,
