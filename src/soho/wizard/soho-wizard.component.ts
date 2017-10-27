@@ -328,7 +328,20 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
       // ... if we have one (to avoid errors) ...
       if (tickId) {
         // hide all the inactive pages and show the active page.
-        this.pagesContainer.pages.forEach(p => p.hidden = (tickId !== p.tickId));
+        this.pagesContainer.pages.forEach(
+          (p) => {
+            if (tickId === p.tickId) {
+              // fire an event on the page.
+              p.fireActivate({ tick: tick });
+
+              // ... show it.
+              p.hidden = false;
+            } else {
+
+              // hide it.
+              p.hidden = true;
+            }
+          });
 
         // ... publish.
         this.activated.next({ tick: tick });

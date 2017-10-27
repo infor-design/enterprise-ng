@@ -843,6 +843,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+
+
   /**
    * The column groups
    *

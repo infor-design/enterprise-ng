@@ -1,0 +1,32 @@
+<div style="flex: 0;">
+  <fieldset>
+    <legend>Import Progress</legend>
+  </fieldset>
+</div>
+<div style="margin: 0px, 20px, 0px, 20px; ">
+  <soho-progress progressValue="0"></soho-progress>
+</div>
+<div>
+  <div class="field">
+    <label class="short-label">
+      <span soho-label>Files Processed</span>
+    </label>
+    <input soho-textarea disabled readonly id="files-processed" value="1 of 4" />
+  </div>
+  <div class="field">
+    <label class="short-label" for="imported-unvalidated">Imported (unvalidated)</label>
+    <input soho-input readonly id="imported-unvalidated" value="0" />
+  </div>
+  <div class="field">
+    <label soho-label for="imported-validated">Imported (validated)</label>
+    <input soho-input readonly id="imported-validated" value="1" />
+  </div>
+  <div class="field">
+    <label soho-label for="rejected">Rejected</label>
+    <input soho-input readonly id="rejected" value="0" />
+  </div>
+  <div class="field">
+    <label soho-label for="folders-created">Folders Created</label>
+    <input soho-input readonly id="folders-created" value="0" />
+  </div>
+</div>
