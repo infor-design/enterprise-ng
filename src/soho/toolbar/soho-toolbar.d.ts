@@ -70,11 +70,6 @@ interface SohoToolbarSelectedEvent {
   item: HTMLButtonElement | HTMLAnchorElement | HTMLInputElement;
 }
 
-interface SohoToolbarRecalculateButtonsEvent {
-  /** the raw event object passed from jQuery. */
-  event: JQueryEventObject;
-}
-
 /*
  * Extend Event/EventTarget to allow lookup of dataset property
  * https://github.com/Microsoft/TypeScript/issues/299#issuecomment-168538829
