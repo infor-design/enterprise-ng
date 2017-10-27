@@ -84,7 +84,7 @@ export class ContextMenuDemoComponent implements OnInit {
     });
 
     return entries;
-  };
+  }
 
   onUpdated() {
     console.log('CheckboxDemoComponent.onUpdated');
@@ -117,4 +117,4 @@ export interface ContextMenuEntries {
   id?: string;
   url?: string;
   disabled?: boolean;
-};
+}

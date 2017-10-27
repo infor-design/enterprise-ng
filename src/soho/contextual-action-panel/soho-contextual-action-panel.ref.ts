@@ -234,7 +234,7 @@ export class SohoContextualActionPanelRef<T> {
       this.contextualactionpanel.close();
     }
     return this;
-  };
+  }
 
   // ------------------------------------------
   // Events

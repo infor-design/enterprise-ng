@@ -6,8 +6,7 @@
 <nav soho-application-menu class="application-menu is-open is-pesonalizable" [openOnLarge]="true">
   <application-menu-demo></application-menu-demo>
 </nav>
-<div class="page-container">
-  <!--<soho-header-demo class="header is-personalizable" (toggleMenu)="toggleApplicationMenu()" [title]="activeViewName"></soho-header-demo>-->
+<div class="page-container no-scroll">
   <soho-header-dynamic-demo></soho-header-dynamic-demo>
   <div id="maincontent" class="page-container scrollable" role="main">
       <router-outlet></router-outlet>

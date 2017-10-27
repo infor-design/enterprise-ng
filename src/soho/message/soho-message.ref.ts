@@ -168,7 +168,7 @@ export class SohoMessageRef {
       this._message.close();
     }
     return this;
-  };
+  }
 
   // ------------------------------------------
   // Event Registration

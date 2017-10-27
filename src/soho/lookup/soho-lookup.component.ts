@@ -85,7 +85,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    */
   @HostBinding('class.lookup') get isLookup() {
     return true;
-  };
+  }
 
   /**
    * Local variables
