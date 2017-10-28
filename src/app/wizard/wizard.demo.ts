@@ -40,14 +40,7 @@ export class WizardDemoComponent  {
   constructor(private toastService: SohoToastService) {
   }
 
-  help() {
-    alert('display some help');
-  }
-
   onActivated(e: SohoWizardEvent) {
-    this.toastService.show({
-      'title': 'Activated!',
-      'message': 'The tick with the label <span style="font-weight: bold;">' + e.tick.text() + '</span> was activated!'
-    });
+    console.log('The tick with the label e.tick.text()');
   }
 }

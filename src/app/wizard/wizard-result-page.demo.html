@@ -3,30 +3,39 @@
     <legend>Import Progress</legend>
   </fieldset>
 </div>
-<div style="margin: 0px, 20px, 0px, 20px; ">
-  <soho-progress progressValue="0"></soho-progress>
+<div class="row">
+  <div class="one-half column">
+    <div class="field">
+      <span class="label">Files Processed</span>
+      <span class="data">{{current}} of {{total}}</span>
+    </div>
+    <div class="field">
+      <span class="label">Imported (unvalidated)</span>
+      <span class="data">{{imported}}</span>
+    </div>
+    <div class="field">
+      <span class="label">Imported (validated)</span>
+      <span class="data">{{validated}}</span>
+    </div>
+  </div>
+  <div class="one-half column">
+    <div class="field">
+      <span class="label">Rejected</span>
+      <span class="data">{{rejected}}</span>
+    </div>
+    <div class="field">
+      <span class="label">Folders Created</span>
+      <span class="data">{{folders}}</span>
+    </div>
+  </div>
 </div>
-<div>
-  <div class="field">
-    <label class="short-label">
-      <span soho-label>Files Processed</span>
-    </label>
-    <input soho-textarea disabled readonly id="files-processed" value="1 of 4" />
-  </div>
-  <div class="field">
-    <label class="short-label" for="imported-unvalidated">Imported (unvalidated)</label>
-    <input soho-input readonly id="imported-unvalidated" value="0" />
-  </div>
-  <div class="field">
-    <label soho-label for="imported-validated">Imported (validated)</label>
-    <input soho-input readonly id="imported-validated" value="1" />
-  </div>
-  <div class="field">
-    <label soho-label for="rejected">Rejected</label>
-    <input soho-input readonly id="rejected" value="0" />
-  </div>
-  <div class="field">
-    <label soho-label for="folders-created">Folders Created</label>
-    <input soho-input readonly id="folders-created" value="0" />
+<div class="row">
+    <div soho-busyindicator></div>
+</div>
+<!--
+  <div class="row">
+  <div class="column">
+    <soho-progress progressValue="0" style="display:none;"></soho-progress>
   </div>
 </div>
+-->

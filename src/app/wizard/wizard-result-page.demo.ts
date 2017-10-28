@@ -1,9 +1,14 @@
 import {
   Component,
-  ViewChild
+  ViewChild,
+  AfterViewInit
 } from '@angular/core';
 
-import { SohoProgressComponent, SohoWizardPageComponent } from '@infor/sohoxi-angular';
+import {
+  SohoProgressComponent,
+  SohoWizardPageComponent,
+  SohoBusyIndicatorDirective
+} from '@infor/sohoxi-angular';
 
 import { WizardDemoComponent } from './wizard.demo';
 
@@ -17,18 +22,53 @@ import { WizardDemoComponent } from './wizard.demo';
       flex-direction: column;
   }`]
 })
-export class WizardDemoResultPageComponent {
+export class WizardDemoResultPageComponent implements AfterViewInit {
 
   @ViewChild(SohoProgressComponent) progress: SohoProgressComponent;
 
+  @ViewChild(SohoBusyIndicatorDirective) busyindicator: SohoBusyIndicatorDirective;
+
+  public current = 0;
+
+  public total = 4;
+
+  public imported = 0;
+
+  public validated = 0;
+
+  public rejected = 0;
+
+  public folders = 0;
+
   constructor(private page: SohoWizardPageComponent) {
-    this.page.activated.subscribe((e) => { setTimeout(() => { this.update(); }, 1000); });
+  }
+
+  ngAfterViewInit() {
+    this.busyindicator.text = `Importing ${this.current} of ${this.total} ...`;
+    this.page.activated.subscribe((e) => {
+      this.current = 0;
+      this.validated = 0;
+      this.busyindicator.open();
+      this.busyindicator.text = `Imported ${this.current} of ${this.total} ...`;
+      if (this.progress) {
+        this.progress.progressValue = ((this.current / this.total) * 100);
+      }
+     setTimeout(() => { this.update(); }, 5000); });
   }
 
   update() {
-    this.progress.progressValue += 1;
-    if (this.progress.progressValue < 100) {
-      setTimeout(() => { this.update(); }, 1000);
+    this.current++;
+    this.validated++;
+    if (this.progress) {
+       this.progress.progressValue = ((this.current / this.total) * 100);
+    }
+
+    this.busyindicator.text = `Imported ${this.current} of ${this.total} ...`;
+
+    if (this.current < this.total) {
+      setTimeout(() => { this.update(); }, 3000);
+    } else {
+      this.busyindicator.close(false);
     }
   }
 }
