@@ -127,13 +127,13 @@ import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { ValidationFormEventDemoComponent } from './validation/validation-form-event.demo';
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
-import {
-  WizardDemoComponent,
-  WizardDemoSelectFilePageComponent,
-  WizardDemoTargetFolderPageComponent,
-  WizardDemoBackupRulePageComponent,
-  WizardDemoResultPageComponent
-} from './wizard/wizard.demo';
+import { WizardDemoBackupRulePageComponent } from './wizard/wizard-backup-rule-page.demo';
+import { WizardDemoComponent } from './wizard/wizard.demo';
+import { WizardDemoConfirmationPageComponent } from './wizard/wizard-confirmation-page.demo';
+import { WizardDemoResultPageComponent } from './wizard/wizard-result-page.demo';
+import { WizardDemoSelectFilePageComponent } from './wizard/wizard-selected-files-page.demo';
+import { WizardDemoTargetFolderPageComponent } from './wizard/wizard-target-folder-page.demo';
+import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validation-rules-page.demo';
 
 @NgModule({
   declarations: [
@@ -247,10 +247,12 @@ import {
     ValidationFormEventDemoComponent,
     ValidationFormGroupDemoComponent,
     WizardDemoComponent,
+    WizardDemoConfirmationPageComponent,
     WizardDemoSelectFilePageComponent,
     WizardDemoTargetFolderPageComponent,
     WizardDemoBackupRulePageComponent,
-    WizardDemoResultPageComponent
+    WizardDemoResultPageComponent,
+    WizardDemoValidationRulesPageComponent
   ],
   imports: [
     AppRoutingModule,

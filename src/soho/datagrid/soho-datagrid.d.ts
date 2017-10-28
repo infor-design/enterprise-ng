@@ -53,6 +53,9 @@ interface SohoDataGridOptions {
   /** Save Column Reorder and resize. */
   saveColumns?: boolean;
 
+  /** To automatically save user settings for the grid */
+  saveUserSettings?: SohoDataGridSaveUserSettings;
+
   /** Is the grid editable? */
   editable?: boolean;
 
@@ -61,6 +64,21 @@ interface SohoDataGridOptions {
 
   /** Id to the right click context menu */
   menuId?: string;
+
+  /** Id to the right click context menu to use for the header. */
+  headerMenuId?: string;
+
+  /** Callback for the grid level right click menu. */
+  menuSelected?: Function,
+
+  /** Call back for the grid level before open menu event. */
+  menuBeforeOpen?: Function,
+
+  /** Callback for the header level right click menu. */
+  headerMenuSelected?: Function,
+
+  /** Call back for the header level before open menu event. */
+  headerMenuBeforeOpen?: Function,
 
   /** Unique ID for local storage reference and variable names. If not specified then the URL the page is used. */
   uniqueId?: string;
@@ -80,6 +98,9 @@ interface SohoDataGridOptions {
   /** Toolbar options. */
   toolbar?: boolean | SohoToolbarOptions;
 
+  /** Can set to false if you will initialize the toolbar yourself. */
+  initializeToolbar?: boolean;
+
   /** Paging Options. */
   paging?: boolean;
 
@@ -89,17 +110,20 @@ interface SohoDataGridOptions {
   /** Size of a page options */
   pagesizes?: number[];
 
+  /** whether to show the page size selector or not */
+  showPageSizeSelector?: boolean; // Will show page size selector
+
   /** Remove ability to go to a specific page. */
   indeterminate?: boolean;
 
   /** Callback for paging. */
   source?: SohoDataGridSourceFunction;
 
+  /** If true, hides the pager if there's only one page worth of results. */
+  hidePagerOnOnePage?: boolean;
+
   /** Add filter bar? */
   filterable?: boolean;
-
-  /** Display as a tree grid? */
-  treeGrid?: boolean;
 
   /** Disable Filter Logic client side and let your server do it */
   disableClientFilter?: boolean;
@@ -109,12 +133,6 @@ interface SohoDataGridOptions {
 
   /** Can provide a custom function to adjust results text */
   resultsText?: SohoDataGridResultsTextFunction;
-
-  /**
-   * Used to hold an object that can be referenced in formatters
-   * and editors or anywhere else a datagrid reference is available
-   */
-  userObject?: any;
 
   /** Prevent Unused rows from being added to the DOM  */
   // virtualized?: boolean;
@@ -128,17 +146,38 @@ interface SohoDataGridOptions {
   /**  */
   showDirty?: boolean;
 
+  /** Only allows one expandable row at a time. */
+  allowOneExpandedRow?: boolean;
+
+  /** Process tooltip logic at a cost of performance. */
+  enableTooltips?: boolean;
+
   /** If a row is activated the user should not be able to deactivate it by clicking on the activated row */
   disableRowDeactivation?: boolean;
 
-  /** To automatically save user settings for the grid */
-  saveUserSettings?: SohoDataGridSaveUserSettings;
+  /** If true make all the columns equal width. */
+  sizeColumnsEqually?: boolean;
+
+  /** Supply an empty expandable row template. */
+  expandableRow?: boolean;
+
+  /** Run column redraw logic on resize. */
+  redrawOnResize?: boolean;
+
+  /** Export data with trailing negative signs moved in front. */
+  exportConvertNegative?: boolean;
 
   /** Grouped columns*/
   columnGroups?: SohoDataGridColumnGroup[];
 
-  /** whether to show the page size selector or not */
-  showPageSizeSelector?: boolean;
+  /** Display as a tree grid? */
+  treeGrid?: boolean;
+
+  /**
+   * Used to hold an object that can be referenced in formatters
+   * and editors or anywhere else a datagrid reference is available
+   */
+  userObject?: any;
 }
 
 /**

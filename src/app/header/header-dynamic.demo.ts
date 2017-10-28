@@ -65,7 +65,6 @@ export class SohoHeaderDynamicDemoComponent {
     collapsible: true
   };
 
-
   /**
    * Used by the component template to decide when to display the tabs.
    * @type {any}

@@ -104,6 +104,3 @@ function MyCustomFormatter(
   // use a standard formatter to format that value.
   return Formatters.Integer(row, cell, value, column, item, api);
 }
-
-
-

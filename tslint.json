@@ -20,7 +20,8 @@
     "import-spacing": true,
     "indent": [
        true,
-       "spaces"
+       "spaces",
+       2
     ],
     "interface-over-type-literal": true,
     "label-position": true,
@@ -115,7 +116,10 @@
       "check-type"
     ],
 
-    // The rule have the following arguments:
+  // Extra SoHo Options
+  "no-consecutive-blank-lines": true,
+
+  // The rule have the following arguments:
   // [ENABLED, "attribute" | "element", "selectorPrefix" | ["listOfPrefixes"], "camelCase" | "kebab-case"]
   "directive-selector": [true, "attribute", ["soho", "demo"], "kebab-case"],
   "component-selector": [true, "element", ["soho", "demo"], "kebab-case"],

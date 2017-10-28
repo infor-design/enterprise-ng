@@ -84,9 +84,7 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
   // Set the splitter class.
   @HostBinding('class.splitter') isSplitter = true;
 
-
   // Is the splitter on the right?  Defaults to the left.
-
   @HostBinding('class.splitter-right') @Input() isSplitterRight;
 
   // -------------------------------------------
