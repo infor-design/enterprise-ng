@@ -8,8 +8,8 @@ import { ApplicationMenuLazyService } from './application-menu-lazy-service.demo
 })
 export class ApplicationMenuLazyMenuDemoComponent {
 
-
   @Input() menuSpec: Array<any>;
+
   @Output() subMenuLoaded: EventEmitter<any> = new EventEmitter<any>();
   private menuExpanded = false;
 

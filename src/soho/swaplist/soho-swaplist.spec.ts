@@ -273,7 +273,6 @@ class SohoSwapListTestComponent {
   };
 }
 
-
 @Injectable()
 export class SwapListTestService extends SohoSwapListService {
     private options: SohoSwapListOptions = {};
@@ -317,7 +316,6 @@ export class SwapListTestService extends SohoSwapListService {
         this.options.additional = this.additionalDemoItems;
     }
 }
-
 
 @Component({
     template: `<soho-swaplist showFullAccessCard="true" id="swaplist-service"></soho-swaplist>`,

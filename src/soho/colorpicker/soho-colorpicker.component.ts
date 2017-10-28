@@ -14,7 +14,6 @@ import {
   provideControlValueAccessor
 } from '../utils/base-control-value-accessor';
 
-
 @Component({
   selector: 'input[soho-colorpicker]', // tslint:disable-line
   template: '<ng-content></ng-content>',

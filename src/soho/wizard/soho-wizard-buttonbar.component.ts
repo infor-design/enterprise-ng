@@ -130,7 +130,6 @@ interface SohoWizardButton {
    */
   id?: string;
 
-
   /**
    * Text used inside the button.
    *

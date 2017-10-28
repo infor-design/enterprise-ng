@@ -9,7 +9,6 @@ export class SohoIconUtils {
     return $.createIcon(params);
   }
 
-
   /**
    * Returns a jQuery-wrapped element containing a new icon
    * @param options

@@ -152,8 +152,10 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
    */
   private _steps: SohoWizardTickComponent[];
 
+  /**
+   * Has the wizard finished.
+   */
   private finished = false;
-
 
   /**
    * Constructor.
@@ -332,7 +334,7 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
           (p) => {
             if (tickId === p.tickId) {
               // fire an event on the page.
-              p.fireActivate({ tick: tick });
+              p.fireActivated({ tick: tick });
 
               // ... show it.
               p.hidden = false;

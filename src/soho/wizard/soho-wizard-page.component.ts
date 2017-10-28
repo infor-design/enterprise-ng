@@ -63,15 +63,15 @@ export class SohoWizardPageComponent implements AfterViewInit {
   }
 
   /**
-   * Fire the activated event, using the given SohoWzardEvent.
+   * Fire the activated event, using the given SohoWizardEvent.
    *
-   * Could have (I'd have rather done this with an event, but we end up
-   * with a circular dependency.)
+   * I'd have rather done this with an event, but we end up
+   * with a circular dependency.
    *
    * @param {SohoWizardEvent} e
    * @memberof SohoWizardPageComponent
    */
-  fireActivate(e: SohoWizardEvent) {
+  fireActivated(e: SohoWizardEvent) {
     this.activated.next(e);
   }
 }

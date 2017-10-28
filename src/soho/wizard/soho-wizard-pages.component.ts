@@ -7,7 +7,6 @@ import {
 
 import { SohoWizardPageComponent } from './soho-wizard-page.component';
 
-
   /**
    * Angular wrapper for the soho wizard pagesß.
    */

@@ -11,7 +11,7 @@ import { WizardDemoComponent } from './wizard.demo';
   selector: 'demo-result-page',
   templateUrl: `./wizard-result-page.demo.html`,
   styles: [
-  `:host {
+    `:host {
       display:        flex;
       flex:           1;
       flex-direction: column;
@@ -22,7 +22,7 @@ export class WizardDemoResultPageComponent {
   @ViewChild(SohoProgressComponent) progress: SohoProgressComponent;
 
   constructor(private page: SohoWizardPageComponent) {
-    this.page.activated.subscribe( (e) => { setTimeout(() => { this.update(); }, 1000); } );
+    this.page.activated.subscribe((e) => { setTimeout(() => { this.update(); }, 1000); });
   }
 
   update() {

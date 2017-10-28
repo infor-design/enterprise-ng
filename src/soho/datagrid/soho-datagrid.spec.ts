@@ -40,7 +40,6 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(el.classList).toContain('datagrid-container');
   });
 
-
   it('Check default value of dataset is []', () => {
     fixture.detectChanges();
 
@@ -217,9 +216,6 @@ describe('Soho DataGrid Render', () => {
 
     component.datagrid.setSortColumn('desc');
   });
-
-
-
 });
 
 @Component({
