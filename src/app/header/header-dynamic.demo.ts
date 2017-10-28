@@ -72,7 +72,7 @@ export class SohoHeaderDynamicDemoComponent {
   public currentToolbarOptions: HeaderDynamicToolbarOptions = null;
 
   /**
-   * Used by the component teplate to decide when to display the toolbar.
+   * Used by the component template to decide when to display the toolbar.
    * @type {any}
    */
   public currentTabsOptions: HeaderDynamicTabsetOptions = null;
