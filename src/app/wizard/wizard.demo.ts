@@ -33,16 +33,18 @@ export class WizardDemoComponent {
     {
       id: 'next',
       text: Locale.translate('Next'),
-      click: () => { this.wizard.next(); }, isDefault: true,
+      click: () => { this.wizard.next(); },
+      isDefault: true,
       disabled: () => this.nextButtonDisabled(),
       position: 'middle'
     },
     {
-      id: 'finish', text: Locale.translate('Finish'),
+      id: 'finish',
+      text: 'Finish', // Locale.translate('Finish'),
       click: () => { this.wizard.finish(); },
       disabled: () => !this.wizard.hasFinished(),
       position: 'middle'
-    },
+    }
   ];
 
   // public ticks: SohoWizardTick[] = [
