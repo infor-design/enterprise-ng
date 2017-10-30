@@ -69,16 +69,16 @@ interface SohoDataGridOptions {
   headerMenuId?: string;
 
   /** Callback for the grid level right click menu. */
-  menuSelected?: Function,
+  menuSelected?: Function;
 
   /** Call back for the grid level before open menu event. */
-  menuBeforeOpen?: Function,
+  menuBeforeOpen?: Function;
 
   /** Callback for the header level right click menu. */
-  headerMenuSelected?: Function,
+  headerMenuSelected?: Function;
 
   /** Call back for the header level before open menu event. */
-  headerMenuBeforeOpen?: Function,
+  headerMenuBeforeOpen?: Function;
 
   /** Unique ID for local storage reference and variable names. If not specified then the URL the page is used. */
   uniqueId?: string;
@@ -178,6 +178,9 @@ interface SohoDataGridOptions {
    * and editors or anywhere else a datagrid reference is available
    */
   userObject?: any;
+
+  /** whether or not to run postRender column logic */
+  postColumnRender?: boolean;
 }
 
 /**
@@ -435,7 +438,16 @@ interface SohoDataGridColumn {
   numberFormat?: SohoDataGridColumnNumberFormat;
 
   /** false = prevent user drag/drop this column order i.e. a drilldown column */
-  reorderable?: boolean
+  reorderable?: boolean;
+
+  /** The older style pattern mask for the column */
+  mask?: string;
+
+  /** The newer style object pattern mask for the column*/
+  maskOptions?: any[];
+
+  /** The newer style object pattern mask for the column*/
+  postRender?: any[];
 }
 
 interface SohoDataGridColumnNumberFormat {
@@ -510,7 +522,7 @@ interface SohoDataGridStatic {
    * @param columnId the id of the column to sort on.
    * @param ascending if true sort ascending, otherwise descending.  If not supplied the setting is toggled.
    */
-  setSortColumn(columnId: string, ascending?: boolean)
+  setSortColumn(columnId: string, ascending?: boolean);
 
   columnById(id: string): Array<any>;
 

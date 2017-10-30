@@ -2,10 +2,13 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  ViewChild
+  ViewChild,
+  ComponentFactoryResolver,
+  ViewContainerRef
 } from '@angular/core';
 import {
   SohoDataGridComponent,
+  SohoButtonComponent
 } from '@infor/sohoxi-angular';
 import {
   PAGING_COLUMNS,
@@ -23,13 +26,33 @@ export const LMFavorite = (row, cell, value, col, rowData, api): string => {
 @Component({
   selector: 'soho-datagrid-custom-formatter-demo',
   templateUrl: './datagrid-custom-formatter.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  entryComponents: [SohoButtonComponent],
 })
 export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
+  constructor(private componentFactoryResolver: ComponentFactoryResolver,
+             private viewContainerRef: ViewContainerRef) {
+  }
+
   onClick(args) {
     console.log('click');
+  }
+
+  /**
+  * Emulating the need to inject a component in the cell
+  */
+  onPostRender = (
+    container: any,
+    args: Object
+  ) => {
+
+    const factory = this.componentFactoryResolver.resolveComponentFactory(SohoButtonComponent);
+    const ref = this.viewContainerRef.createComponent(factory);
+    ref.changeDetectorRef.detectChanges();
+
+    console.log('xxxx', container);
   }
 
   ngAfterViewInit(): void {
@@ -48,10 +71,12 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       id: 'favorite-formatter',
       name: 'Favorite',
       field: '',
-      formatter: LMFavorite,
+      align: 'center',
+      sortable: false,
+      formatter: LMFavorite,  // We could use the built in Favorite formatter also.
     });
     columns.push({
-      id: 'buton-formatter',
+      id: 'button-formatter',
       name: 'Button',
       text: 'Press Me!',
       sortable: false,
@@ -59,13 +84,20 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       formatter: Formatters.Button,
       click: (e, args) => this.onClick(args)
     });
+    columns.push({
+      id: 'postrender',
+      name: 'Post Rendered',
+      sortable: false,
+      align: 'center',
+      postRender: this.onPostRender
+    });
     const gridOptions: SohoDataGridOptions = <SohoDataGridOptions>{
       columns: columns,
       dataset: PAGING_DATA,
       selectable: 'single',
       paging: true,
       pagesize: 10,
-
+      postColumnRender: true, // Needed for the Post Rendered column
       /**
        * Set userObject to the instance of this DemoComponent.
        * In that way the CustomFormatter can gain access to it.
