@@ -100,7 +100,8 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
   }
 
   get currentTickId(): string {
-    return this.currentStep().tickId;
+    const step = this.currentStep();
+    return step ? step.tickId : null;
   }
 
   /**
@@ -168,6 +169,16 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
   // -------------------------------------------
   // Public API
   // -------------------------------------------
+
+  /**
+   * Returns the currently selected page.
+   */
+  public get currentPage(): SohoWizardPageComponent {
+    if (this.pagesContainer && this.pagesContainer.pages) {
+      return this.pagesContainer.pages.find(p => p.tickId === this.currentTickId);
+    }
+    return null;
+  }
 
   /**
    * Moves to the first state if possible.
