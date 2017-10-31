@@ -4,7 +4,8 @@ import {
   Component,
   ViewChild,
   ComponentFactoryResolver,
-  ViewContainerRef
+  Injector,
+  ApplicationRef
 } from '@angular/core';
 import {
   SohoDataGridComponent,
@@ -32,8 +33,9 @@ export const LMFavorite = (row, cell, value, col, rowData, api): string => {
 export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver,
-             private viewContainerRef: ViewContainerRef) {
+  constructor(private resolver: ComponentFactoryResolver,
+              private injector: Injector,
+              private app: ApplicationRef) {
   }
 
   onClick(args) {
@@ -48,11 +50,9 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
     args: Object
   ) => {
 
-    const factory = this.componentFactoryResolver.resolveComponentFactory(SohoButtonComponent);
-    const ref = this.viewContainerRef.createComponent(factory);
-    ref.changeDetectorRef.detectChanges();
-
-    console.log('xxxx', container);
+    const factory = this.resolver.resolveComponentFactory(SohoButtonComponent);
+    const ref = factory.create(this.injector, [], container);
+    this.app.attachView(ref.hostView);
   }
 
   ngAfterViewInit(): void {
