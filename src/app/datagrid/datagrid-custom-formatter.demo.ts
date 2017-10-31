@@ -4,6 +4,7 @@ import {
   Component,
   ViewChild,
   ComponentFactoryResolver,
+  ViewContainerRef,
   Injector,
   ApplicationRef
 } from '@angular/core';
@@ -34,8 +35,8 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
   constructor(private resolver: ComponentFactoryResolver,
-              private injector: Injector,
-              private app: ApplicationRef) {
+                  private injector: Injector,
+                  private app: ApplicationRef) {
   }
 
   onClick(args) {
@@ -52,7 +53,10 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
 
     const factory = this.resolver.resolveComponentFactory(SohoButtonComponent);
     const ref = factory.create(this.injector, [], container);
+
     this.app.attachView(ref.hostView);
+    ref.changeDetectorRef.detectChanges();
+
   }
 
   ngAfterViewInit(): void {
