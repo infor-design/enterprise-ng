@@ -6,11 +6,14 @@ import {
   ComponentFactoryResolver,
   ViewContainerRef,
   Injector,
-  ApplicationRef
+  ApplicationRef,
+  NgModule,
+  Compiler
 } from '@angular/core';
 import {
   SohoDataGridComponent,
-  SohoButtonComponent
+  SohoButtonComponent,
+  SohoComponentsModule
 } from '@infor/sohoxi-angular';
 import {
   PAGING_COLUMNS,
@@ -36,7 +39,8 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
 
   constructor(private resolver: ComponentFactoryResolver,
                   private injector: Injector,
-                  private app: ApplicationRef) {
+                  private app: ApplicationRef,
+                  private compiler: Compiler) {
   }
 
   onClick(args) {
@@ -50,13 +54,36 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
     container: any,
     args: Object
   ) => {
+    this.addComponent(container,
+      '<button soho-button="primary" (click)="onClick($event)">Press Me!</button>',
+    {onClick: (e) => { console.log('click'); }});
+  }
 
-    const factory = this.resolver.resolveComponentFactory(SohoButtonComponent);
-    const ref = factory.create(this.injector, [], container);
+  private addComponent(container: any, template: string, properties: any = {}) {
+    @Component({template})
+    class TemplateComponent {}
 
-    this.app.attachView(ref.hostView);
-    ref.changeDetectorRef.detectChanges();
+    @NgModule({
+      declarations: [TemplateComponent],
+      imports: [SohoComponentsModule],
+      entryComponents: [TemplateComponent]})
+    class TemplateModule {}
 
+    const mod = this.compiler.compileModuleAndAllComponentsSync(TemplateModule);
+    const factory = mod.componentFactories.find((comp) =>
+      comp.componentType === TemplateComponent
+    );
+    const moduleRef = mod.ngModuleFactory.create(this.injector);
+    // const component = this.container.createComponent(factory);
+
+    const component = factory.create(this.injector, [], container, moduleRef);
+    Object.assign(component.instance, properties);
+
+    this.app.attachView(component.hostView);
+    component.changeDetectorRef.detectChanges();
+    // If properties are changed at a later stage, the change detection
+    // may need to be triggered manually:
+    // component.changeDetectorRef.detectChanges();
   }
 
   ngAfterViewInit(): void {
@@ -111,6 +138,8 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
 
     this.sohoDataGridComponent.gridOptions = gridOptions;
   }
+
+
 
   /**
    * Make a public method so it's available for the custom formatter
