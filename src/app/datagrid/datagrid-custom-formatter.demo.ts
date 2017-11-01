@@ -74,23 +74,22 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       comp.componentType === TemplateComponent
     );
     const moduleRef = mod.ngModuleFactory.create(this.injector);
-    // const component = this.container.createComponent(factory);
 
     const component = factory.create(this.injector, [], container, moduleRef);
     Object.assign(component.instance, properties);
 
     this.app.attachView(component.hostView);
     component.changeDetectorRef.detectChanges();
-    // If properties are changed at a later stage, the change detection
-    // may need to be triggered manually:
-    // component.changeDetectorRef.detectChanges();
-  }
+
+    // @todo Need someone to destroy the component.
+    // component.destroy();
+ }
 
   ngAfterViewInit(): void {
     /**
      * Add a column for the custom formatter
      */
-    const columns = [];
+    const columns: SohoDataGridColumn[] = [];
     PAGING_COLUMNS.forEach(element => columns.push(element));
     columns.push({
       id: 'custom-formatter',
@@ -122,6 +121,21 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       align: 'center',
       postRender: this.onPostRender
     });
+
+    // columns.push({
+    //   id: 'template',
+    //   name: 'template',
+    //   sortable: false,
+    //   align: 'center',
+    //   postRender: this.onPostRender,
+    //   formatter: (row, cell, value, column, item, api) => {
+    //     return '<button soho-button="primary" (click)="onClick($event)">Press Me!</button>';
+    //   },
+    //   formatterOptions: {
+    //     onClick: (e) => { console.log('click'); }
+    //   }
+    // });
+
     const gridOptions: SohoDataGridOptions = <SohoDataGridOptions>{
       columns: columns,
       dataset: PAGING_DATA,

@@ -447,7 +447,13 @@ interface SohoDataGridColumn {
   maskOptions?: any[];
 
   /** The newer style object pattern mask for the column*/
-  postRender?: any[];
+  postRender?: Function;
+
+  /** Text to display? */
+  text?: string;
+
+  /** Options for the formmatter */
+  formatterOptions?: any;
 }
 
 interface SohoDataGridColumnNumberFormat {
