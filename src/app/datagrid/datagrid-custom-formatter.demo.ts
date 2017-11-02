@@ -10,7 +10,8 @@ import {
   NgModule,
   Compiler,
   OnDestroy,
-  Input
+  Input,
+  Inject
 } from '@angular/core';
 import {
   SohoDataGridComponent,
@@ -31,25 +32,18 @@ export const LMFavorite = (row, cell, value, col, rowData, api): string => {
 };
 
 @Component({
-  template: '<button soho-button="primary" (click)="onClick($event)">{{value}}</button>'
+  template: '<button soho-button="primary" (click)="onClick($event)">{{args.cell}}</button> <p>{{args?.row}}</p>'
 })
 export class DemoCellFormatterComponent implements OnDestroy {
-  static ID = 0;
-  id: number;
-
-  @Input()
-  value: string = 'Default';
-
-  constructor() {
-    this.id = DemoCellFormatterComponent.ID++;
-    console.log(`constructor ${this.id++}`);
+  constructor(@Inject('args') public args: SohoGridPostRenderCellFunctionArgs) {
+    console.log(`constructor ${this.args.value}`);
   }
   public onClick(e) {
-    console.log(`${this.id} - ${this.value}`);
+    console.log(`${this.args.row}`);
   }
 
   ngOnDestroy() {
-    console.log(`DemoCellFormatterComponent ${this.id} destroyed`);
+    console.log(`DemoCellFormatterComponent ${this.args.row} destroyed`);
   }
 }
 

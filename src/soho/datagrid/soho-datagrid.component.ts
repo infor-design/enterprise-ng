@@ -18,7 +18,9 @@ import {
   Compiler,
   NgModule,
   ComponentRef,
-  ComponentFactory
+  ComponentFactory,
+  Provider,
+  ReflectiveInjector
 } from '@angular/core';
 
 import { ArgumentHelper } from '../utils/argument.helper';
@@ -1395,7 +1397,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   private onPostRenderCell(container: JQuery, args: SohoGridPostRenderCellFunctionArgs) {
     const factory = this.resolver.resolveComponentFactory(args.col.component);
-    const component = factory.create(this.injector, [], container, null);
+
+    const i = ReflectiveInjector.resolveAndCreate([ { provide: 'args', useValue: args } ], this.injector);
+
+    const component = factory.create(i, [], container, null);
     Object.assign(component.instance, args.col.componentOptions);
     this.app.attachView(component.hostView);
     component.changeDetectorRef.detectChanges();
@@ -1403,7 +1408,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // Need to push the args into the component!
     this.cellComponents.push(component);
   }
-
 
   private buildDataGrid(): void {
     // Wrap the element in a jQuery selector.
