@@ -8,7 +8,9 @@ import {
   Injector,
   ApplicationRef,
   NgModule,
-  Compiler
+  Compiler,
+  OnDestroy,
+  Input
 } from '@angular/core';
 import {
   SohoDataGridComponent,
@@ -29,6 +31,29 @@ export const LMFavorite = (row, cell, value, col, rowData, api): string => {
 };
 
 @Component({
+  template: '<button soho-button="primary" (click)="onClick($event)">Press Me!</button>'
+})
+export class DemoCellFormatterComponent implements OnDestroy {
+  static ID = 0;
+  id: number;
+
+  @Input()
+  value: string;
+
+  constructor() {
+    this.id = DemoCellFormatterComponent.ID++;
+    console.log(`constructor ${this.id++}`);
+  }
+  public onClick(e) {
+    console.log(`${this.id} - ${this.value}`);
+  }
+
+  ngOnDestroy() {
+    console.log(`DemoCellFormatterComponent ${this.id} destroyed`);
+  }
+}
+
+@Component({
   selector: 'soho-datagrid-custom-formatter-demo',
   templateUrl: './datagrid-custom-formatter.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -37,60 +62,20 @@ export const LMFavorite = (row, cell, value, col, rowData, api): string => {
 export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
-  constructor(private resolver: ComponentFactoryResolver,
-                  private injector: Injector,
-                  private app: ApplicationRef,
-                  private compiler: Compiler) {
+  constructor() {
   }
 
   onClick(args) {
     console.log('click');
   }
 
-  /**
-  * Emulating the need to inject a component in the cell
-  */
-  onPostRender = (
-    container: any,
-    args: Object
-  ) => {
-    this.addComponent(container,
-      '<button soho-button="primary" (click)="onClick($event)">Press Me!</button>',
-    {onClick: (e) => { console.log('click'); }});
-  }
-
-  private addComponent(container: any, template: string, properties: any = {}) {
-    @Component({template})
-    class TemplateComponent {}
-
-    @NgModule({
-      declarations: [TemplateComponent],
-      imports: [SohoComponentsModule],
-      entryComponents: [TemplateComponent]})
-    class TemplateModule {}
-
-    const mod = this.compiler.compileModuleAndAllComponentsSync(TemplateModule);
-    const factory = mod.componentFactories.find((comp) =>
-      comp.componentType === TemplateComponent
-    );
-    const moduleRef = mod.ngModuleFactory.create(this.injector);
-
-    const component = factory.create(this.injector, [], container, moduleRef);
-    Object.assign(component.instance, properties);
-
-    this.app.attachView(component.hostView);
-    component.changeDetectorRef.detectChanges();
-
-    // @todo Need someone to destroy the component.
-    // component.destroy();
- }
-
-  ngAfterViewInit(): void {
+   ngAfterViewInit(): void {
     /**
      * Add a column for the custom formatter
      */
     const columns: SohoDataGridColumn[] = [];
     PAGING_COLUMNS.forEach(element => columns.push(element));
+
     columns.push({
       id: 'custom-formatter',
       name: 'Custom Formatter',
@@ -115,34 +100,21 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       click: (e, args) => this.onClick(args)
     });
     columns.push({
-      id: 'postrender',
-      name: 'Post Rendered',
+      id: 'template',
+      name: 'Template',
       sortable: false,
       align: 'center',
-      postRender: this.onPostRender
+      postRender: true,
+      formatter: () => DemoCellFormatterComponent,
+      formatterOptions: { value: 'somespecialvalue' },
     });
 
-    // columns.push({
-    //   id: 'template',
-    //   name: 'template',
-    //   sortable: false,
-    //   align: 'center',
-    //   postRender: this.onPostRender,
-    //   formatter: (row, cell, value, column, item, api) => {
-    //     return '<button soho-button="primary" (click)="onClick($event)">Press Me!</button>';
-    //   },
-    //   formatterOptions: {
-    //     onClick: (e) => { console.log('click'); }
-    //   }
-    // });
-
-    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions>{
+    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
       columns: columns,
       dataset: PAGING_DATA,
       selectable: 'single',
       paging: true,
       pagesize: 10,
-      postColumnRender: true, // Needed for the Post Rendered column
       /**
        * Set userObject to the instance of this DemoComponent.
        * In that way the CustomFormatter can gain access to it.
@@ -152,8 +124,6 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
 
     this.sohoDataGridComponent.gridOptions = gridOptions;
   }
-
-
 
   /**
    * Make a public method so it's available for the custom formatter

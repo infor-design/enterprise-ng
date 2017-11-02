@@ -11,12 +11,20 @@ import {
   Input,
   Optional,
   OnInit,
-  OnDestroy
+  OnDestroy,
+  ComponentFactoryResolver,
+  Injector,
+  ApplicationRef,
+  Compiler,
+  NgModule,
+  ComponentRef,
+  ComponentFactory
 } from '@angular/core';
 
 import { ArgumentHelper } from '../utils/argument.helper';
 
 import { SohoDataGridService } from './soho-datagrid.service';
+import { SohoComponentsModule } from '@infor/sohoxi-angular';
 
 export type SohoDataGridType = 'auto' | 'content-only';
 
@@ -964,6 +972,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   // List of option names changed (for debugging).
   private changedOptions = [];
 
+  private cellComponents: ComponentRef<{}>[] = [];
+
   /**
    * Constructor.
    *
@@ -974,6 +984,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   constructor(
     private elementRef: ElementRef,
     private changeDetector: ChangeDetectorRef,
+    private resolver: ComponentFactoryResolver,
+    private injector: Injector,
+    private app: ApplicationRef,
+    private compiler: Compiler,
     @Optional() protected datagridService: SohoDataGridService) {
 
   }
@@ -1307,7 +1321,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @todo arguments.
    */
   private onExpandRow(args: SohoDataGridRowExpandEvent) {
-    const event = {grid: this, ...args };
+    const event = { grid: this, ...args };
     this.expandrow.next(event);
   }
 
@@ -1366,6 +1380,11 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * Destroys the jQuery control associated with this component.
    */
   private destroyDataGrid(): void {
+    console.log('datagrid destroy');
+
+    this.cellComponents.forEach((c) => { c.destroy(); });
+    this.cellComponents = [];
+
     if (this.datagrid) {
       if (this.datagrid.destroy) {
         this.datagrid.destroy();
@@ -1374,9 +1393,87 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+  private onPostRenderCell(container: JQuery, args: SohoGridPostRenderCellFunctionArgs) {
+    const fn = (<SohoDataGridColumnFormatterFunction>args.col.formatter);
+    const templateOrComponent = fn(args.row, args.cell, args.value, args.col, null, args.api)
+
+    if (typeof (templateOrComponent) === 'string') {
+      this.addTemplate(container, templateOrComponent, args.col.ngImports, args.col.formatterOptions);
+    } else {
+      this.addComponent(container, templateOrComponent, args.col.formatterOptions);
+    }
+  }
+
+  private addComponent(container: any, componentType: any, properties: any = {}) {
+    const factory = this.resolver.resolveComponentFactory(componentType);
+    const component = factory.create(this.injector, [], container, null);
+    Object.assign(component.instance, properties);
+    this.app.attachView(component.hostView);
+    component.changeDetectorRef.detectChanges();
+
+    this.cellComponents.push(component);
+  }
+
+  private addTemplate(container: any, template: string, ngImports: any, properties: any = {}) {
+
+    // ---------------------- WARNING -----------------------
+    // THIS DOES NOT WORK IN PRODUCTION MODE, WITHOUT FORCING THE
+    // JIT COMPILER TO BE INCLUDES WHEN -AOT / -PROD is used.
+    //
+    // We need this be done at build time - maybe we should use a component?
+    // ---------------------- WARNING -----------------------
+
+    // Generate a new component for the given template.
+    @Component({ template })
+    class SohoCellFormatterComponent implements OnDestroy {
+      ngOnDestroy(): void {
+        // @todo remove this once we have resolved destruction issues.
+        console.log('destroy');
+      }
+    }
+
+    // Generate a module for the teampate, as we cannot edit
+    // the existing one ...
+    @NgModule({
+      declarations: [SohoCellFormatterComponent],
+      imports: ngImports,
+      entryComponents: [SohoCellFormatterComponent]
+    })
+    class SohoCellFormatterModule { }
+
+    // Create the module ...
+    const module = this.compiler.compileModuleAndAllComponentsSync(SohoCellFormatterModule);
+
+    // Find the component factory for the component in the module ...
+    const factory = module.componentFactories.find((comp) =>
+      comp.componentType === SohoCellFormatterComponent
+    );
+
+    // We need a module ref for the factor, which we can create from the module.
+    const moduleRef = module.ngModuleFactory.create(this.injector);
+
+    // Create the component, using the injector for the hosting component, and
+    // use the container as the hosting element.
+    const component = factory.create(this.injector, [], container, moduleRef);
+
+    // Assign all the properties to the component, as supplied.
+    Object.assign(component.instance, properties);
+
+    // ... attach it.
+    this.app.attachView(component.hostView);
+
+    // Make sure any changes are detected (this causes an error is missed)
+    component.changeDetectorRef.detectChanges();
+  }
+
   private buildDataGrid(): void {
     // Wrap the element in a jQuery selector.
     this.jQueryElement = jQuery(this.elementRef.nativeElement);
+
+    // Add the onPostCellRenderer
+    this._gridOptions.onPostRenderCell = (c, args) => {
+      this.onPostRenderCell(c, args);
+    };
 
     // Initialise the SohoXi control.
     this.jQueryElement.datagrid(this._gridOptions);

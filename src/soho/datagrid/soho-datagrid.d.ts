@@ -179,8 +179,14 @@ interface SohoDataGridOptions {
    */
   userObject?: any;
 
-  /** whether or not to run postRender column logic */
-  postColumnRender?: boolean;
+  /**
+   * Optional callback callsed when a cell is rendered with the flag `postRender`
+   * set to true.
+   *
+   * This is used by the datagrid to allow Angular Components to be used as cell
+   * editors / formatters.
+   * */
+  onPostRenderCell?: SohoDataGridPostRenderCellFunction;
 }
 
 /**
@@ -197,6 +203,33 @@ interface SohoDataGridSourceRequest extends SohoPagerPagingInfo {
   sortField?: string;
   sortId?: string;
 }
+
+/**
+ * The arguments object passed to the onPostRenderCell callback.
+ */
+interface SohoGridPostRenderCellFunctionArgs {
+  /** The row index. */
+  row: number;
+
+  /** The cell index. */
+  cell: number;
+
+  /** The data value. */
+  value: any;
+
+  /** The column definition. */
+  col: SohoDataGridColumn;
+
+  /** The api for the datagrid. */
+  api: SohoDataGridStatic;
+}
+
+/**
+ * Type definition of the post render cell callback.
+ */
+type SohoDataGridPostRenderCellFunction = (
+  container: JQuery, args: SohoGridPostRenderCellFunctionArgs
+) => void;
 
 type SohoDataGridSourceFunction = (
   request: SohoDataGridSourceRequest,
@@ -446,14 +479,17 @@ interface SohoDataGridColumn {
   /** The newer style object pattern mask for the column*/
   maskOptions?: any[];
 
-  /** The newer style object pattern mask for the column*/
-  postRender?: Function;
+  /** Call the grids `onPostRenderCell` function for cells in this column after they are rendered. */
+  postRender?: boolean;
 
   /** Text to display? */
   text?: string;
 
-  /** Options for the formmatter */
+  /** Options for the Angular component used to format a cell. */
   formatterOptions?: any;
+
+  /** OBSOLETE - List of imports required by the formatter. */
+  ngImports?: any;
 }
 
 interface SohoDataGridColumnNumberFormat {
