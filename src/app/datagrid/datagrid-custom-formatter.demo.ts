@@ -31,14 +31,14 @@ export const LMFavorite = (row, cell, value, col, rowData, api): string => {
 };
 
 @Component({
-  template: '<button soho-button="primary" (click)="onClick($event)">Press Me!</button>'
+  template: '<button soho-button="primary" (click)="onClick($event)">{{value}}</button>'
 })
 export class DemoCellFormatterComponent implements OnDestroy {
   static ID = 0;
   id: number;
 
   @Input()
-  value: string;
+  value: string = 'Default';
 
   constructor() {
     this.id = DemoCellFormatterComponent.ID++;
@@ -105,8 +105,8 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       sortable: false,
       align: 'center',
       postRender: true,
-      formatter: () => DemoCellFormatterComponent,
-      formatterOptions: { value: 'somespecialvalue' },
+      component: DemoCellFormatterComponent,
+      componentOptions: { value: 'somespecialvalue' },
     });
 
     const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
