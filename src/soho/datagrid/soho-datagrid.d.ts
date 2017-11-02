@@ -486,7 +486,10 @@ interface SohoDataGridColumn {
   text?: string;
 
   /** Options for the Angular component used to format a cell. */
-  formatterOptions?: any;
+  component?: any; // can't use ComponentRef<{}>!
+
+  /** Options for the Angular component used to format a cell. */
+  componentOptions?: any;
 
   /** OBSOLETE - List of imports required by the formatter. */
   ngImports?: any;
