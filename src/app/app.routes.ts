@@ -7,6 +7,7 @@ import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
+import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
@@ -114,6 +115,7 @@ export const routes: Routes = [
   { path: 'autocomplete',                      component: AutocompleteDemoComponent },
   { path: 'button',                            component: ButtonDemoComponent },
   { path: 'busyindicator',                     component: BusyIndicatorDemoComponent },
+  { path: 'busyindicatorbody',                 component: BusyIndicatorDemoBodyComponent },
   { path: 'chart',                             component: ChartDemoComponent },
   { path: 'checkbox',                          component: CheckBoxDemoComponent },
   { path: 'colorpicker',                       component: ColorPickerDemoComponent },
