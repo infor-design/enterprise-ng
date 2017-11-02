@@ -86,16 +86,17 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
     });
     columns.push({
       id: 'button-formatter',
-      name: 'Button',
-      text: 'Press Me!',
+      name: 'Edit',
+      text: 'Edit Row',
       sortable: false,
+      icon: 'edit',
       align: 'center',
       formatter: Formatters.Button,
       click: (e, args) => this.onClick(args)
     });
     columns.push({
       id: 'template',
-      name: 'Template',
+      name: 'Settings',
       sortable: false,
       align: 'center',
       postRender: true,

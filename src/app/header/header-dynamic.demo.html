@@ -17,7 +17,7 @@
          then some div seems to be automatically created for me or something. Something in soho perhaps? -->
     <soho-toolbar-button-set>
 
-      <!-- search field -->
+      <!-- search field
       <input soho-toolbar-searchfield
         *ngIf="toolbarSearchField"
         placeholder="{{toolbarSearchField?.label}}"
@@ -27,6 +27,7 @@
         (keyup.enter)="fireSearchEvent($event)"
         (cleared)="fireClearSearchEvent($event)"
       />
+      -->
 
       <ng-template [ngIf]="currentToolbarOptions">
         <ng-template ngFor let-button [ngForOf]="currentToolbarOptions?.toolbarButtons">
