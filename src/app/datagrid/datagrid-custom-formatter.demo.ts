@@ -31,14 +31,14 @@ export const LMFavorite = (row, cell, value, col, rowData, api): string => {
 };
 
 @Component({
-  template: '<button soho-button="primary" (click)="onClick($event)">{{value}}</button>'
+  template: '<button soho-button="icon" icon="settings" (click)="onClick($event)">{{value}}</button>'
 })
 export class DemoCellFormatterComponent implements OnDestroy {
   static ID = 0;
   id: number;
 
   @Input()
-  value: string = 'Default';
+  value: 'Default';
 
   constructor() {
     this.id = DemoCellFormatterComponent.ID++;
@@ -92,16 +92,17 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
     });
     columns.push({
       id: 'button-formatter',
-      name: 'Button',
-      text: 'Press Me!',
+      name: 'Edit',
+      text: 'Edit Row',
       sortable: false,
+      icon: 'edit',
       align: 'center',
       formatter: Formatters.Button,
       click: (e, args) => this.onClick(args)
     });
     columns.push({
       id: 'template',
-      name: 'Template',
+      name: 'Settings',
       sortable: false,
       align: 'center',
       postRender: true,
