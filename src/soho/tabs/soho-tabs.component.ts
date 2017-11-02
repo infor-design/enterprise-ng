@@ -24,7 +24,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabTitleComponent {
-  @HostBinding('attr.href') get hrefAttr() { return '#' + this.tabId; };
+  @HostBinding('attr.href') get hrefAttr() { return '#' + this.tabId; }
   @Input() tabId: string;
 }
 
@@ -37,7 +37,7 @@ export class SohoTabTitleComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabCountComponent {
-  @HostBinding('class.count') get isTabCount() { return true; };
+  @HostBinding('class.count') get isTabCount() { return true; }
 }
 
 /**
@@ -49,7 +49,7 @@ export class SohoTabCountComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabSeparatorComponent {
-  @HostBinding('class.separator') get isSeparator() { return true; };
+  @HostBinding('class.separator') get isSeparator() { return true; }
 }
 
 /**
@@ -88,7 +88,7 @@ export class SohoTabPanelComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabComponent {
-  @HostBinding('class.tab') get isTab() { return true; };
+  @HostBinding('class.tab') get isTab() { return true; }
   @HostBinding('class.dismissible') @Input() dismissible = false;
   @HostBinding('class.is-selected') @Input() selected = false;
   @HostBinding('class.is-disabled') @Input() disabled = false;
@@ -130,11 +130,11 @@ export class SohoTabListContainerComponent {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
-  @HostBinding('class.tab-container') get isTabContainer() { return true; };
-  @HostBinding('class.vertical')      get isVertical()     { return this.vertical; };
-  @HostBinding('class.module-tabs')   get isModuleTabs()   { return this.moduleTabs; };
-  @HostBinding('class.header-tabs')   get isHeaderTabs()   { return this.headerTabs; };
-  @HostBinding('class.alternate')     get isAlternate()    { return this.alternate; };
+  @HostBinding('class.tab-container') get isTabContainer() { return true; }
+  @HostBinding('class.vertical')      get isVertical()     { return this.vertical; }
+  @HostBinding('class.module-tabs')   get isModuleTabs()   { return this.moduleTabs; }
+  @HostBinding('class.header-tabs')   get isHeaderTabs()   { return this.headerTabs; }
+  @HostBinding('class.alternate')     get isAlternate()    { return this.alternate; }
 
   // ------------------------------------------------------------------------
   // @Inputs

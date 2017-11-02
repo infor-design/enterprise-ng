@@ -488,7 +488,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       return this.datagrid.settings.actionableMode;
     }
 
-
     // ... we've been called before the component has completed
     // initialisation, so return the current value from the
     // options.
@@ -535,7 +534,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     if (this.datagrid) {
       return this.datagrid.settings.filterable;
     }
-
 
     // ... we've been called before the component has completed
     // initialisation, so return the current value from the
@@ -1502,7 +1500,7 @@ export enum SohoGridColumnFilterTypes {
   Lookup = <any>'lookup',
   Percent = <any>'percent',
   Select = <any>'select'
-};
+}
 
 /**
  * Details of the 'expandrow' and 'collapserow' events.

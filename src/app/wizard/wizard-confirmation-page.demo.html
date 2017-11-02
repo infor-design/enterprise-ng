@@ -1,0 +1,47 @@
+<div style="flex: 0;">
+  <fieldset>
+    <legend>Please confirm your selections and options for the import process.</legend>
+  </fieldset>
+</div>
+<div class="summary-form" style="flex: 0;">
+  <div class="row">
+    <div class="one-half column">
+      <div class="field">
+        <span class="label">Target Folder:</span>
+        <span class="data">\My Reports</span>
+      </div>
+      <div class="field">
+        <label soho-label for="user-folder">Use Folder Structure:</label>
+        <span class="data">Yes</span>
+      </div>
+      <div class="field">
+        <span class="label">Apply Folder Permissions:</span>
+        <span class="data">Yes</span>
+      </div>
+    </div>
+    <div class="one-half column">
+      <div class="field">
+        <span class="label">Backup Rule:</span>
+        <span class="data">Always prompt when overwriting files</span>
+      </div>
+      <div class="field">
+        <span class="label">Backup Folder:</span>
+        <span class="data">Not applicable</span>
+      </div>
+      <div class="field">
+        <span class="label">Validation Rule:</span>
+        <span class="data">Validate: Report Definitions, Reject Invalid Reports</span>
+      </div>
+    </div>
+  </div>
+  <div style="margin: 20px">
+    <soho-toolbar>
+      <soho-toolbar-title>
+        <span soho-toolbar-section-title>Selected Files:</span>
+      </soho-toolbar-title>
+    </soho-toolbar>
+    <div soho-datagrid [toolbar]="{keywordFilter: false, collapsibleFilter: false}" [columns]="columns" [data]="data" [selectable]="'multiple'"
+      [rowHeight]="'medium'" [filterable]="false" [isList]="true">
+    </div>
+  </div>
+</div>

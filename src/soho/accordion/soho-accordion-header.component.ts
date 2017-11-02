@@ -25,8 +25,8 @@ export class SohoAccordionHeaderComponent implements AfterViewInit {
 
   @HostBinding('class.is-disabled') isDisabled = false;
 
-  @HostBinding('style.display') get isBlockDisplay() { return 'block'; };
-  @HostBinding('class.accordion-header') get isAccordionHeader() { return true; };
+  @HostBinding('style.display') get isBlockDisplay() { return 'block'; }
+  @HostBinding('class.accordion-header') get isAccordionHeader() { return true; }
 
   /**
    * Constructor.

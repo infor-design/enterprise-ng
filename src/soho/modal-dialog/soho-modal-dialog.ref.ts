@@ -297,7 +297,7 @@ export class SohoModalDialogRef<T> {
       this.modal.close();
     }
     return this;
-  };
+  }
 
   // ------------------------------------------
   // Events

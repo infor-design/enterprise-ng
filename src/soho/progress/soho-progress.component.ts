@@ -20,7 +20,7 @@ export class SohoProgressComponent implements AfterViewInit, OnDestroy {
   /*
    *  @param value
    */
-  @Input() set progressValue(value: number){
+  @Input() set progressValue(value: number) {
     this.value = value;
     if (this.progress) {
       this.progress.update(this.value);

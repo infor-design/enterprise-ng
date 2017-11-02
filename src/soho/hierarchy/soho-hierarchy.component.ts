@@ -27,7 +27,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
 
   @Input() set dataset(dataset: Array<any>) {
     this.options.dataset = dataset;
-  };
+  }
 
   get dataset(): Array<any> {
     return this.options.dataset;
@@ -58,7 +58,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
   }
 
   @Input() set paging(bool: boolean) {
-    this.options.paging = bool
+    this.options.paging = bool;
   }
 
   get paging(): boolean {
@@ -107,7 +107,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
     // Initialize any event handlers.
     this.jQueryElement
         .on('selected', ( (e: JQueryEventObject, args: SohoHierarchyEvent) => {
-          this.selected.next(args)
+          this.selected.next(args);
         }));
 
     // Assign the hierarchy control

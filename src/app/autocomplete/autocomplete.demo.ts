@@ -53,6 +53,6 @@ export class AutocompleteDemoComponent implements AfterViewInit {
 
   public onSelected(event: any) {
     console.log(event);
-    console.log(`Selected item: ${event[2].label}`)
+    console.log(`Selected item: ${event[2].label}`);
   }
 }

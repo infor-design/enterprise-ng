@@ -86,18 +86,18 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   @Input() toggle: Observable<boolean>;
 
   // Get the header DOM element
-  @ContentChild(forwardRef(() => ExpandableHeaderComponent))
+  @ContentChild(forwardRef(() => ExpandableHeaderComponent)) // tslint:disable-line
   public header: ExpandableHeaderComponent = null;
 
   // Get the pane DOM elements
-  @ContentChildren(forwardRef(() => ExpandablePaneComponent))
+  @ContentChildren(forwardRef(() => ExpandablePaneComponent)) // tslint:disable-line
   public panes: QueryList<ExpandablePaneComponent>;
 
   // @ContentChild(forwardRef(() => ExpandablePaneComponent))
   // private _pane: ExpandablePaneComponent = null;
 
   // Get the pane DOM element
-  @ContentChild(forwardRef(() => ExpandableFooterComponent))
+  @ContentChild(forwardRef(() => ExpandableFooterComponent)) // tslint:disable-line
   public footer: ExpandablePaneComponent = null;
 
   // Add Events for Angular elements to listen to (can only have exposed events)

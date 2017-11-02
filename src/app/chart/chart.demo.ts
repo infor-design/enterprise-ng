@@ -21,10 +21,11 @@ export class ChartDemoComponent implements OnInit {
 
   @HostBinding('style.display') get getDisplay() {
     return 'block';
-  };
+  }
+
   @HostBinding('style.height') get getHeight() {
     return '100%';
-  };
+  }
 
   public lineAxisLabels: AxisLabels =  {
     left: 'Left axis label',
@@ -76,7 +77,7 @@ export class ChartDemoComponent implements OnInit {
     }
     this.currentChartType = chartType;
 
-    this.buildChartOptions(element)
+    this.buildChartOptions(element);
   }
 
   private buildChartOptions(element) {

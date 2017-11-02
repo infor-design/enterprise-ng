@@ -57,7 +57,6 @@ export class ModalDialogDemoComponent {
       .apply((dialogComponent) => { dialogComponent.model.header = 'Header Text Update!!'; })
       .open();
 
-
     // Attach a listener to the afterClose event, which also gives you the result - if available.
     dialogRef.afterClose((result, ref, dialogComponent) => {
       console.log(dialogComponent.model);
@@ -92,7 +91,6 @@ export class ModalDialogDemoComponent {
         this.closeResult = result;
       });
   }
-
 
   openVetoableSimple() {
     const dialogRef = this.modalService

@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="full-width column">
+
+    <soho-toolbar
+        [maxVisibleButtons]="6"
+        [hasMoreButton]="true"
+        [favorButtonset]="true"
+        (selected)="onSelected($event)">
+
+      <soho-toolbar-title>
+        <span soho-toolbar-section-title>Toolbar with Pre-Defined "More Actions" Menu</span>
+      </soho-toolbar-title>
+
+      <soho-toolbar-button-set>
+        <!-- search field -->
+        <label class="audible" attr.for="my-search-field">Search</label>
+        <input soho-toolbar-searchfield id="my-search-field" placeholder="Search" title="Search" name="Search"/>
+
+        <!-- buttons -->
+        <button soho-button="icon" icon="filter" title="Filter" isToggle=true data-action="{'button':'filter'}">
+          <span>Filter</span>
+        </button>
+      </soho-toolbar-button-set>
+
+      <soho-toolbar-more-button>
+        <div class="popupmenu-wrapper">
+          <ul soho-popupmenu id="my-popupmenu-element" class="popupmenu">
+            <li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined option 1</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined option 2</a></li>
+            <li soho-popupmenu-item class="submenu">
+              <a soho-popupmenu-label>Pre-defined option 3</a>
+              <div class="wrapper">
+                <ul soho-popupmenu class="popupmenu">
+                  <li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined sub-option 1</a></li>
+                  <li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined sub-option 2</a></li>
+                  <li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined sub-option 3</a></li>
+                </ul>
+              </div>
+            </li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined option 4</a></li>
+          </ul>
+        </div>
+      </soho-toolbar-more-button>
+    </soho-toolbar>
+
+  </div>
+</div>

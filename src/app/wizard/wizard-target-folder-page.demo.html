@@ -1,0 +1,20 @@
+<div style="flex: 0;">
+  <fieldset>
+    <legend>Select the Target Folder, and the options to use when importing zip files.</legend>
+  </fieldset>
+</div>
+<div class="field" style="flex: 0;">
+  <label soho-label for="target-folder-lookup">Target Folder for the import:</label>
+  <input soho-lookup id="target-folder-lookup" />
+</div>
+<div class="field" style="flex: 0;">
+  <p>Where contained in the zip structure:</p>
+</div>
+<div class="field" style="flex: 0;">
+  <input soho-checkbox type="checkbox" id="use-folder-checkbox">
+  <label soho-label for="use-folder-checkbox" [forCheckBox]="true">Use the Folder Structure</label>
+</div>
+<div class="field" style="flex: 0;">
+  <input soho-checkbox type="checkbox" id="apply-permissions">
+  <label soho-label for="apply-permissions" [forCheckBox]="true">Apply Folder Permissions</label>
+</div>

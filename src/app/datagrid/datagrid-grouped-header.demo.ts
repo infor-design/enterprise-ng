@@ -30,7 +30,9 @@ export class DataGridGroupedHeaderDemoComponent implements AfterViewInit {
       indeterminate: true,
       rowHeight: 'short', // short, medium or normal
       sortable: false,
-      columnGroups: [{ colspan: 3, id: 'firstGroup', name: 'Grouped Headers'}, {colspan: 1, id: '', name: ''}, {colspan: 2, id: 'secondGroup', name: 'Grouped Headers 2'}],// tslint:disable-line
+      columnGroups: [{ colspan: 3, id: 'firstGroup', name: 'Grouped Headers'},
+        {colspan: 1, id: '', name: ''},
+        {colspan: 2, id: 'secondGroup', name: 'Grouped Headers 2'}],// tslint:disable-line
 
       /**
        * cause source method to be called with req.type of 'sorted' so that

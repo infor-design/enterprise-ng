@@ -23,7 +23,7 @@ export class SohoWidgetComponent {
     }
 
     return tmp;
-  };
+  }
 
   @HostBinding('class.widget') isWidget = true;
 

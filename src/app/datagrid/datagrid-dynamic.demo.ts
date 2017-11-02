@@ -78,7 +78,7 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
   }
 
   onSelected(e: SohoDataGridSelectedEvent) {
-    console.log('onSelected()', e)
+    console.log('onSelected()', e);
   }
 
   onRowDoubleClicked(e: SohoDataGridRowClicked) {

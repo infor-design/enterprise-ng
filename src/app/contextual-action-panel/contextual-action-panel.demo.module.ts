@@ -11,7 +11,6 @@ import { ContextualActionPanelDemoComponent } from './contextual-action-panel.de
 
 import { ContextualActionPanelComponent } from './contextual-action-panel.component';
 
-
 @NgModule({
   declarations: [
     ContextualActionPanelComponent,

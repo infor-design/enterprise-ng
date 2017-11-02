@@ -39,6 +39,7 @@ import { EditorDemoComponent } from './editor/editor.demo';
 import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
+import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
@@ -88,8 +89,9 @@ import { ToastDemoComponent } from './toast/toast.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
-import { ToolbarStateComponent } from './toolbar/toolbar-state.component';
+import { ToolbarPresetMoreActionsDemoComponent } from './toolbar/toolbar-preset-more-actions.demo';
 import { ToolbarRightAlignedDemoComponent } from './toolbar/toolbar-right-aligned.demo';
+import { ToolbarStateComponent } from './toolbar/toolbar-state.component';
 import { TooltipDemoComponent } from './tooltip/tooltip.demo';
 import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
@@ -102,6 +104,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
 import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
+import { WizardDemoComponent } from './wizard/wizard.demo';
 
 export const routes: Routes = [
   { path: '',                                  component: ExpandableAreaDemoComponent }, // default
@@ -145,6 +148,7 @@ export const routes: Routes = [
   { path: 'error',                             component: ErrorDemoComponent },
   { path: 'expandablearea',                    component: ExpandableAreaDemoComponent },
   { path: 'expandablearea-footer',             component: ExpandableAreaFooterDemoComponent },
+  { path: 'fileupload-advanced',               component: FileUploadAdvancedDemoComponent },
   { path: 'fileupload',                        component: FileUploadDemoComponent },
   { path: 'header-tabs',                       component: HeaderTabsDemoComponent },
   { path: 'header-toolbar',                    component: HeaderToolbarDemoComponent },
@@ -193,6 +197,7 @@ export const routes: Routes = [
   { path: 'timepicker',                        component: TimePickerDemoComponent },
   { path: 'toast',                             component: ToastDemoComponent },
   { path: 'toolbar-all-icons',                 component: ToolbarAllIconsDemoComponent },
+  { path: 'toolbar-preset-more-actions',       component: ToolbarPresetMoreActionsDemoComponent },
   { path: 'toolbar-basic',                     component: ToolbarBasicDemoComponent },
   { path: 'toolbar-datadriven',                component: ToolbarDataDrivenDemoComponent },
   { path: 'toolbar-state',                     component: ToolbarStateComponent },
@@ -205,7 +210,8 @@ export const routes: Routes = [
   { path: 'tree-source',                       component: TreeSourceDemoComponent },
   { path: 'validation',                        component: ValidationFormDemoComponent},
   { path: 'validation-event',                  component: ValidationFormEventDemoComponent},
-  { path: 'validation-group',                  component: ValidationFormGroupDemoComponent}
+  { path: 'validation-group',                  component: ValidationFormGroupDemoComponent},
+  { path: 'wizard',                            component: WizardDemoComponent}
 ];
 
 export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes);

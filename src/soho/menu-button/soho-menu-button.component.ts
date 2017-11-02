@@ -18,8 +18,8 @@ import {
 })
 
 export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
-  @HostBinding('class.btn-menu') get isBtnMenu() { return true; };
-  @HostBinding('attr.type') get buttonType() { return 'button'; };
+  @HostBinding('class.btn-menu') get isBtnMenu() { return true; }
+  @HostBinding('attr.type') get buttonType() { return 'button'; }
 
   private jQueryElement: JQuery;
 

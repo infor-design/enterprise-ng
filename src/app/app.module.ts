@@ -7,6 +7,7 @@ import {
 
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -60,6 +61,7 @@ import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
+import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
@@ -112,6 +114,7 @@ import { ToastDemoComponent } from './toast/toast.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
+import { ToolbarPresetMoreActionsDemoComponent } from './toolbar/toolbar-preset-more-actions.demo';
 import { ToolbarStateComponent } from './toolbar/toolbar-state.component';
 import { ToolbarStateDemoComponent } from './toolbar/toolbar-state.demo';
 import { ToolbarRightAlignedDemoComponent } from './toolbar/toolbar-right-aligned.demo';
@@ -124,6 +127,13 @@ import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { ValidationFormEventDemoComponent } from './validation/validation-form-event.demo';
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
+import { WizardDemoBackupRulePageComponent } from './wizard/wizard-backup-rule-page.demo';
+import { WizardDemoComponent } from './wizard/wizard.demo';
+import { WizardDemoConfirmationPageComponent } from './wizard/wizard-confirmation-page.demo';
+import { WizardDemoResultPageComponent } from './wizard/wizard-result-page.demo';
+import { WizardDemoSelectFilePageComponent } from './wizard/wizard-selected-files-page.demo';
+import { WizardDemoTargetFolderPageComponent } from './wizard/wizard-target-folder-page.demo';
+import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validation-rules-page.demo';
 
 @NgModule({
   declarations: [
@@ -170,6 +180,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     ErrorDemoComponent,
     ExpandableAreaDemoComponent,
     ExpandableAreaFooterDemoComponent,
+    FileUploadAdvancedDemoComponent,
     FileUploadDemoComponent,
     HeaderTabsDemoComponent,
     HeaderToolbarAndTabsDemoComponent,
@@ -224,6 +235,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     ToolbarDataDrivenDemoComponent,
     ToolbarStateComponent,
     ToolbarStateDemoComponent,
+    ToolbarPresetMoreActionsDemoComponent,
     ToolbarRightAlignedDemoComponent,
     TooltipDemoComponent,
     TrackDirtyDemoComponent,
@@ -233,7 +245,14 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     TreeSourceDemoComponent,
     ValidationFormDemoComponent,
     ValidationFormEventDemoComponent,
-    ValidationFormGroupDemoComponent
+    ValidationFormGroupDemoComponent,
+    WizardDemoComponent,
+    WizardDemoConfirmationPageComponent,
+    WizardDemoSelectFilePageComponent,
+    WizardDemoTargetFolderPageComponent,
+    WizardDemoBackupRulePageComponent,
+    WizardDemoResultPageComponent,
+    WizardDemoValidationRulesPageComponent
   ],
   imports: [
     AppRoutingModule,
@@ -241,6 +260,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
     CommonModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     ModalDialogDemoModule,
     ContextualActionPanelDemoModule,
     ReactiveFormsModule,
