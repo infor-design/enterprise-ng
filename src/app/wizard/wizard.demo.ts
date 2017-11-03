@@ -19,14 +19,33 @@ import { WizardDemoResultPageComponent } from './wizard-result-page.demo';
   selector: 'soho-wizard-demo',
   templateUrl: './wizard.demo.html',
 })
-export class WizardDemoComponent  {
+export class WizardDemoComponent {
   @ViewChild(SohoWizardComponent) wizard: SohoWizardComponent;
 
-  // buttons = [
-  //   {id: 'prevous', text: Locale.translate('Previous'), click: () => { this.wizard.previous(); }},
-  //   {id: 'next', text: Locale.translate('Next'), click: () => { this.wizard.next(); }, isDefault: true},
-  //   {id: 'finish', text: Locale.translate('Finish'), click: () => { this.wizard.finish(); }},
-  // ];
+  public buttons = [
+    {
+      id: 'prevous',
+      text: Locale.translate('Previous'),
+      click: () => { this.wizard.previous(); },
+      disabled: () => !this.wizard.hasPrevious(),
+      position: 'middle'
+    },
+    {
+      id: 'next',
+      text: Locale.translate('Next'),
+      click: () => { this.wizard.next(); },
+      isDefault: true,
+      disabled: () => this.nextButtonDisabled(),
+      position: 'middle'
+    },
+    {
+      id: 'finish',
+      text: 'Finish', // Locale.translate('Finish'),
+      click: () => { this.wizard.finish(); },
+      disabled: () => !this.wizard.hasFinished(),
+      position: 'middle'
+    }
+  ];
 
   // public ticks: SohoWizardTick[] = [
   //   { label: 'Select Files', href: 'select-files', state: 'current'},
@@ -38,6 +57,10 @@ export class WizardDemoComponent  {
   // ];
 
   constructor(private toastService: SohoToastService) {
+  }
+
+  nextButtonDisabled() {
+    return this.wizard.currentTickId === 'confirmation';
   }
 
   onActivated(e: SohoWizardEvent) {
