@@ -16,7 +16,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint --format verbose",
+    "lint": "ng lint",
     "e2e": "ng e2e",
     "unit-test": "ng test --watch=false --browsers=PhantomJS --reporters=bamboo,mocha --code-coverage",
     "add-develop-tag": "./scripts/add-npm-tag.js develop",

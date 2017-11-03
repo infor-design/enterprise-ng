@@ -7,7 +7,6 @@ import {
 
 import { SohoWizardPageComponent } from './soho-wizard-page.component';
 
-
   /**
    * Angular wrapper for the soho wizard pagesß.
    */
@@ -18,7 +17,8 @@ import { SohoWizardPageComponent } from './soho-wizard-page.component';
   `:host {
     display:        flex;
     flex:           1 100%;
-    margin:         20px;
+    margin:         0px 40px 0px 40px;
+    border:         1px;
   }`
   ],
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -18,7 +18,6 @@ export class ValidationFormGroupDemoComponent implements AfterViewInit {
   public maskedValue = '111.1';
   public notmaskedValue = '111.1';
 
-
   private formErrors = {
     'masked': '',
     'notmasked': ''

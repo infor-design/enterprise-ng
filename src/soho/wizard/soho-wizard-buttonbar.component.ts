@@ -15,7 +15,7 @@ import { SohoWizardComponent } from './soho-wizard.component';
  * Angular wrapper for the soho wizard buttonbar.
  *
  * Looks for a `div` annotated with `soho-wizard-buttonbar`, this
- * simply add a component used to handle the button selection.
+ * simply adds a component used to handle the button selection.
  */
 @Component({
   selector: 'div[soho-wizard-buttonbar]', // tslint:disable-line
@@ -82,39 +82,26 @@ export class SohoWizardButtonbarComponent {
       text:     Locale.translate('Previous'),
       click:    () => { this.wizard.previous(); },
       disabled: () => !this.wizard.hasPrevious(),
-      position: 'middle',
-      // icon:     'left-arrow',
-      // type:     'icon'
+      position: 'middle'
     },
     { id:        'next',
       text:      Locale.translate('Next'),
       click:     () => { this.wizard.next(); },
       disabled:  () => !this.wizard.hasNext(),
       isDefault: true,
-      position:  'middle',
-      // icon:      'right-arrow',
-      // type:      'icon'
+      position:  'middle'
     },
-    // { id:        'last',
-    //   text:      'Last', // Locale.translate('Complete'),
-    //   click:     () => { this.wizard.last(); },
-    //   disabled:  () => this.wizard.hasNext(),
-    //   position:  'middle',
-    //   icon:      'last-page',
-    //   type:      'icon'
-    // },
     { id:        'finish',
       text:      'Finish', // Locale.translate('Finish'),
       click:     () => { this.wizard.finish(); },
       disabled:  () => this.wizard.hasFinished(),
-      position:  'right',
-      // icon:      'stop',
-      // type:      'icon'
+      position:  'right'
     }];
 
   @HostBinding('class.buttonset') isButtonBar = false;
 
   constructor(private wizard: SohoWizardComponent, private cd: ChangeDetectorRef) {
+    // Ensures all the button are redrawn, keeping track of their enabled state.
     this.wizard.afteractivated.subscribe(() => {
       this.cd.markForCheck();
     });
@@ -129,7 +116,6 @@ interface SohoWizardButton {
    * @memberof SohoWizardButton
    */
   id?: string;
-
 
   /**
    * Text used inside the button.

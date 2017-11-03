@@ -1,0 +1,14 @@
+<div style="flex: 0;">
+  <fieldset>
+    <legend>Select individual files or a zip file containing previously exported reports.</legend>
+    <br />
+  </fieldset>
+</div>
+<div class="buttonset" style="flex: 0; margin-bottom: 5px;">
+  <button soho-button>Add</button>
+  <button soho-butto disabled>Remove</button>
+</div>
+<div style="flex: 1; overflow: hidden;">
+  <div soho-datagrid [columns]="columns" [data]="data" selectable="true" filterable="true" class="scrollable-area" style="overflow: hidden;">
+  </div>
+</div>

@@ -100,7 +100,8 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
   }
 
   get currentTickId(): string {
-    return this.currentStep().tickId;
+    const step = this.currentStep();
+    return step ? step.tickId : null;
   }
 
   /**
@@ -152,8 +153,10 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
    */
   private _steps: SohoWizardTickComponent[];
 
+  /**
+   * Has the wizard finished.
+   */
   private finished = false;
-
 
   /**
    * Constructor.
@@ -166,6 +169,16 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
   // -------------------------------------------
   // Public API
   // -------------------------------------------
+
+  /**
+   * Returns the currently selected page.
+   */
+  public get currentPage(): SohoWizardPageComponent {
+    if (this.pagesContainer && this.pagesContainer.pages) {
+      return this.pagesContainer.pages.find(p => p.tickId === this.currentTickId);
+    }
+    return null;
+  }
 
   /**
    * Moves to the first state if possible.
@@ -328,7 +341,20 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
       // ... if we have one (to avoid errors) ...
       if (tickId) {
         // hide all the inactive pages and show the active page.
-        this.pagesContainer.pages.forEach(p => p.hidden = (tickId !== p.tickId));
+        this.pagesContainer.pages.forEach(
+          (p) => {
+            if (tickId === p.tickId) {
+              // fire an event on the page.
+              p.fireActivated({ tick: tick });
+
+              // ... show it.
+              p.hidden = false;
+            } else {
+
+              // hide it.
+              p.hidden = true;
+            }
+          });
 
         // ... publish.
         this.activated.next({ tick: tick });

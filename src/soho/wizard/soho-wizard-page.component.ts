@@ -4,8 +4,12 @@ import {
   Component,
   ChangeDetectionStrategy,
   ElementRef,
-  AfterViewInit
+  AfterViewInit,
+  Output,
+  EventEmitter
 } from '@angular/core';
+
+import { SohoWizardComponent } from './soho-wizard.component';
 
 /**
  * Angular wrapper for the soho wizard page.
@@ -40,9 +44,34 @@ export class SohoWizardPageComponent implements AfterViewInit {
   @Input()
   tickId: string; // tslint: ignore-line
 
-  constructor(public el: ElementRef) {}
+  /**
+   * Event fired when the page is activated.
+   */
+  @Output() activated = new EventEmitter<SohoWizardEvent>();
+
+  /**
+   * Constructor.
+   *
+   * @param {ElementRef} el owning DOM element
+   * @memberof SohoWizardPageComponent
+   */
+  constructor(private el: ElementRef) {
+  }
 
   ngAfterViewInit() {
     this.jQueryElement = $(this.el.nativeElement);
+  }
+
+  /**
+   * Fire the activated event, using the given SohoWizardEvent.
+   *
+   * I'd have rather done this with an event, but we end up
+   * with a circular dependency.
+   *
+   * @param {SohoWizardEvent} e
+   * @memberof SohoWizardPageComponent
+   */
+  fireActivated(e: SohoWizardEvent) {
+    this.activated.next(e);
   }
 }
