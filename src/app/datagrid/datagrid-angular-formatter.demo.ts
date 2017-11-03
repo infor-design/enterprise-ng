@@ -44,7 +44,7 @@ export class PriceCellFormatterComponent {
 })
 export class DataGridAngularFormatterDemoComponent {
   public columns: SohoDataGridColumn[] = [
-    { id: 'productId',   name: 'Product Id',   field: 'productId',   sortable: false, filterType: 'integer', width: 140, formatter: Formatters.Readonly },
+    { id: 'productId',   name: 'Product Id',   field: 'productId', sortable: false, filterType: 'integer', width: 140, formatter: Formatters.Readonly },
     { id: 'button-formatter', name: 'Edit', text: 'Edit Row', sortable: false, icon: 'edit', align: 'center', formatter: Formatters.Button, click: (e, args) => this.onClick(args) },
     { id: 'button', name: 'Settings', sortable: false, align: 'center', postRender: true, component: ButtonCellFormatterComponent, componentInputs: { value: 'somespecialvalue' } },
     { id: 'price2', name: 'Price', field: 'price', sortable: false, align: 'center', postRender: true, component: PriceCellFormatterComponent, componentInputs: {} }
