@@ -1407,7 +1407,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @param container the container to host the element.
    * @param args the formatter arguments.
    */
-  private onPostRenderCell(container: JQuery, args: SohoGridPostRenderCellFunctionArgs) {
+  private onPostRenderCell(container: JQuery, args: SohoDataGridPostRenderCellFunctionArgs) {
     // Pre-conditions
     if (!args.col.component) {
       throw Error(`Missing 'component' in column ${args.col.id}`);
@@ -1444,7 +1444,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @param container the container.
    * @param args the args
    */
-  private onDestroyCell(container: JQuery, args: SohoGridPostRenderCellFunctionArgs) {
+  private onDestroyCell(container: JQuery, args: SohoDataGridPostRenderCellFunctionArgs) {
     const idx = this.cellComponents.findIndex((c) => args.row === c.row && args.cell === c.cell);
     if (idx > 1) {
       this.cellComponents[idx].component.destroy();
@@ -1597,3 +1597,22 @@ export interface SohoDataGridToggleRowEvent extends SohoDataGridRowExpandEvent {
   grid: SohoDataGridComponent;
   args?: any;
 }
+
+export class SohoAngularEditorAdapter {
+  constructor(public component: any, public args: SohoDataGridPostRenderCellFunctionArgs) {
+  }
+
+  init(component: ComponentRef<{}>) {
+    //
+  }
+
+  val(value?: any): any {
+  }
+
+  focus(): void {
+  }
+
+  destroy(): void {
+  }
+
+ }
