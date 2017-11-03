@@ -3,18 +3,38 @@
   <div class="one-half column">
 
     <div class="field">
-
       <label soho-label for="item-desc">Text Field</label>
       <input soho-field-options type="text" id="item-desc" name="item-desc">
-      <button soho-button="icon" icon="more" soho-context-menu [menu]="popupmenu" trigger="click"></button>
+      <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu [menu]="popupmenu" trigger="click"></button>
+      <ul soho-popupmenu>
+        <li soho-popupmenu-item><a soho-popupmenu-label>Show History</a></li>
+        <li soho-popupmenu-item><a soho-popupmenu-label>Edit Record</a></li>
+      </ul>
+    </div>
 
-      <div class="popupmenu-wrapper" role="application" aria-hidden="true">
-        <ul soho-popupmenu id="popupmenu">
-          <li soho-popupmenu-item><a soho-popupmenu-label>Show History</a></li>
-          <li soho-popupmenu-item><a soho-popupmenu-label>Edit Record</a></li>
-        </ul>
-      </div>
+    <div class="field">
+      <label soho-label for="example-dropdown">Dropdown</label>
+      <select soho-dropdown soho-field-options id="example-dropdown" name="example-dropdown">
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+      </select>
+      <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu [menu]="popupmenu" trigger="click"></button>
+      <ul soho-popupmenu>
+        <li soho-popupmenu-item><a soho-popupmenu-label>Show History</a></li>
+        <li soho-popupmenu-item><a soho-popupmenu-label>Edit Record</a></li>
+      </ul>
+    </div>
 
+    <div class="field">
+      <label soho-label for="product-lookup">Lookup</label>
+      <input soho-lookup soho-field-options name="product-lookup" type="text">
+
+      <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu [menu]="popupmenu" trigger="click"></button>
+      <ul soho-popupmenu>
+        <li soho-popupmenu-item><a soho-popupmenu-label>Show History</a></li>
+        <li soho-popupmenu-item><a soho-popupmenu-label>Edit Record</a></li>
+      </ul>
     </div>
 
   </div>

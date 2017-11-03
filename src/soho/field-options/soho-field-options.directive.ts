@@ -3,7 +3,8 @@ import {
   Directive,
   ElementRef,
   EventEmitter,
-  OnDestroy
+  OnDestroy,
+  HostBinding
 } from '@angular/core';
 
 @Directive({
@@ -12,6 +13,9 @@ import {
 export class SohoFieldOptionsDirective implements AfterViewInit, OnDestroy {
 
   private _options: SohoFieldOptionsSettings;
+
+  @HostBinding('class.field-options')
+  allFieldOptions = true;
 
   /**
    * Local variables
