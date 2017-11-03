@@ -974,7 +974,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   // List of option names changed (for debugging).
   private changedOptions = [];
 
-  private cellComponents: ComponentRef<{}>[] = [];
+  // List of dynamic formatter components - keyed by the original args.
+  private cellComponents: any[] = [];
 
   /**
    * Constructor.
@@ -1379,14 +1380,19 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   // -------------------------------------------
 
   /**
-   * Destroys the jQuery control associated with this component.
+   * Destroys the jQuery control (and any other resources)
+   * associated with this component.
    */
   private destroyDataGrid(): void {
     console.log('datagrid destroy');
 
-    this.cellComponents.forEach((c) => { c.destroy(); });
+    // Remove any remaining dynamic components.
+    this.cellComponents.forEach((c) => { c.component.destroy(); });
+
+    // Clear the cache.
     this.cellComponents = [];
 
+    // Now destroy the grid.
     if (this.datagrid) {
       if (this.datagrid.destroy) {
         this.datagrid.destroy();
@@ -1395,18 +1401,55 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+  /**
+   * Handles the 'postCellRender' event.
+   *
+   * @param container the container to host the element.
+   * @param args the formatter arguments.
+   */
   private onPostRenderCell(container: JQuery, args: SohoGridPostRenderCellFunctionArgs) {
+    // Pre-conditions
+    if (!args.col.component) {
+      throw Error(`Missing 'component' in column ${args.col.id}`);
+    }
+    // Get the factory for the component specified on the column.
     const factory = this.resolver.resolveComponentFactory(args.col.component);
 
+    // Create an injector that will provide the arguments for the
+    // component.
     const i = ReflectiveInjector.resolveAndCreate([ { provide: 'args', useValue: args } ], this.injector);
 
+    // Create the component, in the container.
     const component = factory.create(i, [], container, null);
-    Object.assign(component.instance, args.col.componentOptions);
+
+    // Copy into it any column level Inputs, these are optional but allow
+    // column specific overrides to be defined.
+    Object.assign(component.instance, args.col.componentInputs);
+
+    // ... attach to the app ...
     this.app.attachView(component.hostView);
+
+    // ... update for changes ...
     component.changeDetectorRef.detectChanges();
 
-    // Need to push the args into the component!
-    this.cellComponents.push(component);
+    // ... finally store the created component for later, we'll delete it when
+    // requested, or when the grid is destroyed.
+    this.cellComponents.push(
+      {row: args.row, cell: args.cell, component}
+    );
+  }
+
+  /**
+   * Handles the 'destroyCell' event.
+   * @param container the container.
+   * @param args the args
+   */
+  private onDestroyCell(container: JQuery, args: SohoGridPostRenderCellFunctionArgs) {
+    const idx = this.cellComponents.findIndex((c) => args.row === c.row && args.cell === c.cell);
+    if (idx > 1) {
+      this.cellComponents[idx].component.destroy();
+      this.cellComponents.splice(idx, 1);
+    }
   }
 
   private buildDataGrid(): void {
@@ -1416,6 +1459,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // Add the onPostCellRenderer
     this._gridOptions.onPostRenderCell = (c, args) => {
       this.onPostRenderCell(c, args);
+    };
+
+    this._gridOptions.onDestroyCell = (c, args) => {
+      this.onDestroyCell(c, args);
     };
 
     // Initialise the SohoXi control.

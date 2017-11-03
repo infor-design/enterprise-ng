@@ -180,13 +180,20 @@ interface SohoDataGridOptions {
   userObject?: any;
 
   /**
-   * Optional callback callsed when a cell is rendered with the flag `postRender`
+   * Optional callback called when a cell is rendered with the flag `postRender`
    * set to true.
    *
    * This is used by the datagrid to allow Angular Components to be used as cell
    * editors / formatters.
    * */
   onPostRenderCell?: SohoDataGridPostRenderCellFunction;
+
+  /**
+   * Optional callback called when any resources associated with a cell
+   * should be destroyed, specifically in the case of components added
+   * as cell formatters in Angular.
+   */
+  onDestroyCell?: SohoDataGridPostRenderCellFunction;
 }
 
 /**
@@ -488,11 +495,8 @@ interface SohoDataGridColumn {
   /** Options for the Angular component used to format a cell. */
   component?: any; // can't use ComponentRef<{}>!
 
-  /** Options for the Angular component used to format a cell. */
-  componentOptions?: any;
-
-  /** OBSOLETE - List of imports required by the formatter. */
-  ngImports?: any;
+  /** Inputs for the Angular component used to format a cell. */
+  componentInputs?: any;
 }
 
 interface SohoDataGridColumnNumberFormat {

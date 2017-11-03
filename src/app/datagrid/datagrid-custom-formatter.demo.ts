@@ -101,7 +101,7 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       align: 'center',
       postRender: true,
       component: DemoCellFormatterComponent,
-      componentOptions: { value: 'somespecialvalue' },
+      componentInputs: { value: 'somespecialvalue' }
     });
 
     const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {

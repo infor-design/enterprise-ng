@@ -199,7 +199,7 @@ export const EDITORS_COLUMNS: any[] = [
   },
 
   {
-    id: 'quantity',
+    id: 'quantity2',
     name: 'Quantity',
     field: 'quantity',
     sortable: false,
@@ -219,11 +219,66 @@ export const EDITORS_COLUMNS: any[] = [
     editor: Editors.Favorite
   },
 
+  {
+    id: 'quantity',
+    name: 'Quantity',
+    field: 'quantity',
+    editor: (row, cell, value, container, column, e, api) => {
+      return new DemoInputAdapter(row, cell, value, container, column, e, api);
+    }
+  }
+
   //{ id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text',    width: 150, formatter: Formatters.Hyperlink },
   //{ id: 'activity',    name: 'Activity',     field: 'activity',    sortable: false, filterType: 'text',    width: 150, formatter: Formatters.Text, editor: Editors.Lookup, editorOptions: LOOKUP_OPTIONS },
   //{ id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', width: 125, formatter: Formatters.Decimal },
   //{ id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',                formatter: Formatters.Date, dateFormat: 'M/d/yyyy' }
 ];
+
+interface SohoDataGridCellEditorAdapter {
+  val(value?: any);
+  focus();
+  destroy();
+}
+
+class DemoInputAdapter {
+  public name = 'input';
+  public originalValue: string;
+  public useValue: boolean;
+  public input;
+
+  constructor(private row, private cell, private value, private container, private column, private e, private api) {
+   this.name = 'input';
+   this.originalValue = value;
+   this.useValue = column.inlineEditor ? true : false;
+   this.init();
+  }
+
+  private init() {
+    if (this.column.inlineEditor) {
+      this.input = this.container.find('input');
+    } else {
+      this.input = $('<input type="'+ (this.column.inputType || 'text') +'"/>')
+        .appendTo(this.container);
+    }
+  }
+
+  public val(value) {
+    if (value) {
+      console.log(`set to ${value}`)
+      return this.input.val(value);
+    }
+    console.log(`get ${this.input.val()}`)
+    return this.input.val();
+  }
+
+  public focus () {
+      console.log(`focus`);
+      this.input.focus();
+    }
+  public  destroy() {
+    console.log(`destroy`);
+  }
+}
 
 @Component({
   selector: 'soho-datagrid-editors',
