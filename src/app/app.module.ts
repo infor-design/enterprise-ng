@@ -34,7 +34,16 @@ import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoModule } from './contextual-action-panel/contextual-action-panel.demo.module';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
-import { DataGridCustomFormatterDemoComponent, DemoCellFormatterComponent } from './datagrid/datagrid-custom-formatter.demo';
+import {
+  DataGridAngularFormatterDemoComponent,
+  PriceCellFormatterComponent,
+  ButtonCellFormatterComponent
+} from './datagrid/datagrid-angular-formatter.demo';
+import {
+  DataGridCustomFormatterDemoComponent,
+  DemoCellFormatterComponent,
+  DemoCellIntegerFormatterComponent
+} from './datagrid/datagrid-custom-formatter.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
@@ -154,6 +163,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ContextMenuDemoComponent,
     DataGridBreadcrumbDemoComponent,
     DataGridContentDemoComponent,
+    DataGridAngularFormatterDemoComponent,
     DataGridCustomFormatterDemoComponent,
     DataGridCustomFormatterServiceDemoComponent,
     DataGridDynamicDemoComponent,
@@ -171,6 +181,9 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     DataGridGroupableDemoComponent,
     DatepickerDemoComponent,
     DemoCellFormatterComponent,
+    DemoCellIntegerFormatterComponent,
+    PriceCellFormatterComponent,
+    ButtonCellFormatterComponent,
     DropdownAsyncBusyDemoComponent,
     DropdownAsyncDemoComponent,
     DropdownDemoComponent,
@@ -272,7 +285,10 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ApplicationMenuLazyService
   ],
   entryComponents: [
-    DemoCellFormatterComponent
+    DemoCellFormatterComponent,
+    DemoCellIntegerFormatterComponent,
+    ButtonCellFormatterComponent,
+    PriceCellFormatterComponent
   ],
   bootstrap: [AppComponent]
 })

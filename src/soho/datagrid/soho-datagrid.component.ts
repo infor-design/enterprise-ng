@@ -1420,7 +1420,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     const i = ReflectiveInjector.resolveAndCreate([ { provide: 'args', useValue: args } ], this.injector);
 
     // Create the component, in the container.
-    const component = factory.create(i, [], container, null);
+    const component = factory.create(i, [], container);
 
     // Copy into it any column level Inputs, these are optional but allow
     // column specific overrides to be defined.
