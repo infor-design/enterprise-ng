@@ -32,7 +32,7 @@ export const LMFavorite = (row, cell, value, col, rowData, api): string => {
 };
 
 @Component({
-  template: '<button soho-button="primary" (click)="onClick($event)">{{args.cell}}</button> <p>{{args?.row}}</p>'
+  template: '<button soho-button="icon" icon="settings" (click)="onClick($event)" title="{{args?.row}} . {{args.cell}}"></button>'
 })
 export class DemoCellFormatterComponent implements OnDestroy {
   constructor(@Inject('args') public args: SohoDataGridPostRenderCellFunctionArgs) {
@@ -48,7 +48,7 @@ export class DemoCellFormatterComponent implements OnDestroy {
 }
 
 @Component({
-  template: '<p>{{args?.value?.price}}</p>'
+  template: '{{args?.value?.price}}'
 })
 export class DemoCellIntegerFormatterComponent {
   constructor(@Inject('args') public args: SohoDataGridPostRenderCellFunctionArgs) {}

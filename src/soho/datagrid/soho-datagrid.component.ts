@@ -1446,7 +1446,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   private onDestroyCell(container: JQuery, args: SohoDataGridPostRenderCellFunctionArgs) {
     const idx = this.cellComponents.findIndex((c) => args.row === c.row && args.cell === c.cell);
-    if (idx > 1) {
+    if (idx > -1) {
       this.cellComponents[idx].component.destroy();
       this.cellComponents.splice(idx, 1);
     }
