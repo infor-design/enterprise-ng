@@ -15,7 +15,7 @@ import {
 } from './datagrid-paging-data';
 
 @Component({
-  template: '<button soho-button="primary" (click)="onClick($event)">Cell: {{args.cell}}, Row: {{args?.row}}</button>'
+  template: '<button soho-button="icon" icon="settings" (click)="onClick($event)">Cell: {{args.cell}}, Row: {{args?.row}}</button>'
 })
 export class ButtonCellFormatterComponent implements OnDestroy {
   constructor(@Inject('args') public args: SohoDataGridPostRenderCellFunctionArgs) {
@@ -44,11 +44,22 @@ export class PriceCellFormatterComponent {
 })
 export class DataGridAngularFormatterDemoComponent {
   public columns: SohoDataGridColumn[] = [
-    { id: 'productId',   name: 'Product Id',   field: 'productId', sortable: false, filterType: 'integer', width: 140, formatter: Formatters.Readonly },
-    { id: 'button-formatter', name: 'Edit', text: 'Edit Row', sortable: false, icon: 'edit', align: 'center', formatter: Formatters.Button, click: (e, args) => this.onClick(args) },
-    { id: 'button', name: 'Settings', sortable: false, align: 'center', postRender: true, component: ButtonCellFormatterComponent, componentInputs: { value: 'somespecialvalue' } },
-    { id: 'price',  name: 'Price (std fmt)', field: 'price', sortable: false, filterType: 'decimal', width: 125, formatter: Formatters.Decimal },
-    { id: 'price2', name: 'Price (ng fmt)', field: 'price', sortable: false, align: 'center', width: 125, postRender: true, component: PriceCellFormatterComponent, componentInputs: {} }
+    { id: 'productId',   name: 'Product Id',   field: 'productId',
+      sortable: false, filterType: 'integer',
+      formatter: Formatters.Readonly },
+    { id: 'button-formatter', name: 'Edit', text: 'Edit Row',
+      sortable: false, icon: 'edit', align: 'center',
+      formatter: Formatters.Button, click: (e, args) => this.onClick(args) },
+    { id: 'button', name: 'Settings',
+      sortable: false, align: 'center', postRender: true,
+      component: ButtonCellFormatterComponent,
+      componentInputs: { value: 'somespecialvalue' } },
+    { id: 'price',  name: 'Price (std fmt)', field: 'price',
+      sortable: false, filterType: 'decimal',
+      formatter: Formatters.Decimal },
+    { id: 'price2', name: 'Price (ng fmt)', field: 'price',
+      sortable: false, align: 'center', postRender: true,
+      component: PriceCellFormatterComponent, componentInputs: {} }
   ];
 
   public data = PAGING_DATA;
