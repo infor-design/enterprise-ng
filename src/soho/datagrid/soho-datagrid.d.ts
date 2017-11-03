@@ -194,6 +194,16 @@ interface SohoDataGridOptions {
    * as cell formatters in Angular.
    */
   onDestroyCell?: SohoDataGridPostRenderCellFunction;
+
+  /**
+  * Optional callback called when a cell is edited with the flag `postRender`
+  * set to true.
+  *
+  * This is used by the datagrid to allow Angular Components to be used as cell
+  *
+  * editors / formatters.
+  */
+  onEditCell?: SohoDataGridEditCellFunction;
 }
 
 /**
@@ -214,7 +224,7 @@ interface SohoDataGridSourceRequest extends SohoPagerPagingInfo {
 /**
  * The arguments object passed to the onPostRenderCell callback.
  */
-interface SohoGridPostRenderCellFunctionArgs {
+interface SohoDataGridPostRenderCellFunctionArgs {
   /** The row index. */
   row: number;
 
@@ -231,11 +241,20 @@ interface SohoGridPostRenderCellFunctionArgs {
   api: SohoDataGridStatic;
 }
 
+interface SohoDataGridEditCellFunctionArgs extends SohoDataGridPostRenderCellFunctionArgs {
+  container: any;
+  e: any;
+}
+
 /**
  * Type definition of the post render cell callback.
  */
 type SohoDataGridPostRenderCellFunction = (
-  container: JQuery, args: SohoGridPostRenderCellFunctionArgs
+  container: JQuery, args: SohoDataGridPostRenderCellFunctionArgs
+) => void;
+
+type SohoDataGridEditCellFunction = (
+  container: JQuery, args: SohoDataGridPostRenderCellFunctionArgs, editor: any
 ) => void;
 
 type SohoDataGridSourceFunction = (
@@ -497,6 +516,8 @@ interface SohoDataGridColumn {
 
   /** Inputs for the Angular component used to format a cell. */
   componentInputs?: any;
+
+
 }
 
 interface SohoDataGridColumnNumberFormat {

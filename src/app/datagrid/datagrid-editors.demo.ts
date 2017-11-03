@@ -1,10 +1,11 @@
 import {
   Component,
   ViewChild,
-  AfterViewInit
+  AfterViewInit,
+  ComponentRef
  } from '@angular/core';
 
-import { SohoDataGridComponent } from '@infor/sohoxi-angular';
+import { SohoDataGridComponent, SohoInputComponent } from '@infor/sohoxi-angular';
 
 // tslint:disable
 
@@ -223,9 +224,8 @@ export const EDITORS_COLUMNS: any[] = [
     id: 'quantity',
     name: 'Quantity',
     field: 'quantity',
-    editor: (row, cell, value, container, column, e, api) => {
-      return new DemoInputAdapter(row, cell, value, container, column, e, api);
-    }
+    postRender: true, // this editors requires post rendering
+    editor: (row, cell, value, container, col, e, api) => new SohoAngularEditorAdapter(SohoInputComponent, {row, cell, value, container, col, e, api})
   }
 
   //{ id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text',    width: 150, formatter: Formatters.Hyperlink },
@@ -234,10 +234,17 @@ export const EDITORS_COLUMNS: any[] = [
   //{ id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',                formatter: Formatters.Date, dateFormat: 'M/d/yyyy' }
 ];
 
-interface SohoDataGridCellEditorAdapter {
-  val(value?: any);
-  focus();
-  destroy();
+class SohoAngularEditorAdapter  {
+  constructor(private component: any, private args: SohoDataGridEditCellFunctionArgs){}
+  val(value?: any): any {
+    // get and set the value of the component.
+  }
+  focus(): void {
+    // sets the focus on the component
+  }
+  destroy(): void {
+    // destroy the component
+  }
 }
 
 class DemoInputAdapter {
