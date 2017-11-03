@@ -47,7 +47,8 @@ export class DataGridAngularFormatterDemoComponent {
     { id: 'productId',   name: 'Product Id',   field: 'productId',   sortable: false, filterType: 'integer', width: 140, formatter: Formatters.Readonly },
     { id: 'button-formatter', name: 'Edit', text: 'Edit Row', sortable: false, icon: 'edit', align: 'center', formatter: Formatters.Button, click: (e, args) => this.onClick(args) },
     { id: 'button', name: 'Settings', sortable: false, align: 'center', postRender: true, component: ButtonCellFormatterComponent, componentInputs: { value: 'somespecialvalue' } },
-    { id: 'price2', name: 'Price', field: 'price', sortable: false, align: 'center', postRender: true, component: PriceCellFormatterComponent, componentInputs: {} }
+    { id: 'price',  name: 'Price (std fmt)', field: 'price', sortable: false, filterType: 'decimal', width: 125, formatter: Formatters.Decimal },
+    { id: 'price2', name: 'Price (ng fmt)', field: 'price', sortable: false, align: 'center', width: 125, postRender: true, component: PriceCellFormatterComponent, componentInputs: {} }
   ];
 
   public data = PAGING_DATA;
