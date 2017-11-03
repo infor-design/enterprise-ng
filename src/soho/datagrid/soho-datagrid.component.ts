@@ -1407,10 +1407,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @param container the container to host the element.
    * @param args the formatter arguments.
    */
-  private onPostRenderCell(container: JQuery, args: SohoDataGridPostRenderCellFunctionArgs) {
+  private onPostRenderCell(container: JQuery, args: SohoDataGridPostRenderCellArgs) {
     // Pre-conditions
     if (!args.col.component) {
-      throw Error(`Missing 'component' in column ${args.col.id}`);
+      return; // throw Error(`Missing 'component' in column ${args.col.id}`);
     }
     // Get the factory for the component specified on the column.
     const factory = this.resolver.resolveComponentFactory(args.col.component);
@@ -1444,7 +1444,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @param container the container.
    * @param args the args
    */
-  private onDestroyCell(container: JQuery, args: SohoDataGridPostRenderCellFunctionArgs) {
+  private onDestroyCell(container: JQuery, args: SohoDataGridPostRenderCellArgs) {
     const idx = this.cellComponents.findIndex((c) => args.row === c.row && args.cell === c.cell);
     if (idx > -1) {
       this.cellComponents[idx].component.destroy();
@@ -1599,20 +1599,28 @@ export interface SohoDataGridToggleRowEvent extends SohoDataGridRowExpandEvent {
 }
 
 export class SohoAngularEditorAdapter {
-  constructor(public component: any, public args: SohoDataGridPostRenderCellFunctionArgs) {
+  constructor(public component: any, public args: SohoDataGridEditCellFunctionArgs) {
   }
 
   init(component: ComponentRef<{}>) {
-    //
+    console.log(`init editor ${component}`);
   }
 
   val(value?: any): any {
+    if (value) {
+      console.log(`set editor value = ${value}`);
+    } else {
+      console.log(`get editor value = ${value}`);
+      return 'value';
+    }
   }
 
   focus(): void {
+    console.log(`focus editor`);
   }
 
   destroy(): void {
+    console.log(`destroy editor`);
   }
 
  }
