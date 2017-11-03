@@ -51,7 +51,7 @@ export class DemoCellFormatterComponent implements OnDestroy {
   template: '<p>{{args?.value?.price}}</p>'
 })
 export class DemoCellIntegerFormatterComponent {
-  constructor(@Inject('args') public args: SohoGridPostRenderCellFunctionArgs) {}
+  constructor(@Inject('args') public args: SohoDataGridPostRenderCellFunctionArgs) {}
 }
 
 @Component({
