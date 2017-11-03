@@ -101,6 +101,7 @@ import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { ValidationFormEventDemoComponent } from './validation/validation-form-event.demo';
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
+import { DataGridAngularFormatterDemoComponent} from './datagrid/datagrid-angular-formatter.demo';
 import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
@@ -134,6 +135,7 @@ export const routes: Routes = [
   { path: 'datagrid-service',                  component: DataGridServiceDemoComponent },
   { path: 'datagrid-settings',                 component: DataGridSettingsDemoComponent },
   { path: 'datagrid-treegrid',                 component: DataGridTreeGridDemoComponent },
+  { path: 'datagrid-angular-formatter',        component: DataGridAngularFormatterDemoComponent },
   { path: 'datagrid-custom-formatter',         component: DataGridCustomFormatterDemoComponent },
   { path: 'datagrid-custom-formatter-service', component: DataGridCustomFormatterServiceDemoComponent },
   { path: 'datagrid-standard-formatter',       component: DataGridStandardFormatterDemoComponent },

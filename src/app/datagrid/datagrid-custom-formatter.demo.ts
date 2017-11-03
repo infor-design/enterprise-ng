@@ -48,6 +48,13 @@ export class DemoCellFormatterComponent implements OnDestroy {
 }
 
 @Component({
+  template: '<p>{{args?.value?.price}}</p>'
+})
+export class DemoCellIntegerFormatterComponent {
+  constructor(@Inject('args') public args: SohoGridPostRenderCellFunctionArgs) {}
+}
+
+@Component({
   selector: 'soho-datagrid-custom-formatter-demo',
   templateUrl: './datagrid-custom-formatter.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -102,6 +109,17 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       postRender: true,
       component: DemoCellFormatterComponent,
       componentInputs: { value: 'somespecialvalue' }
+    });
+    columns.push({
+      id: 'price2',
+      name: 'Price',
+      field: 'price',
+      sortable: false,
+      align: 'center',
+      width: 100,
+      postRender: true,
+      component: DemoCellIntegerFormatterComponent,
+      componentInputs: {}
     });
 
     const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
