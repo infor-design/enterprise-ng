@@ -5,7 +5,7 @@ import {
   ComponentRef
  } from '@angular/core';
 
-import { SohoDataGridComponent, SohoInputComponent } from '@infor/sohoxi-angular';
+import { SohoDataGridComponent, SohoInputComponent, SohoAngularEditorAdapter } from '@infor/sohoxi-angular';
 
 // tslint:disable
 
@@ -233,59 +233,6 @@ export const EDITORS_COLUMNS: any[] = [
   //{ id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', width: 125, formatter: Formatters.Decimal },
   //{ id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',                formatter: Formatters.Date, dateFormat: 'M/d/yyyy' }
 ];
-
-class SohoAngularEditorAdapter  {
-  constructor(private component: any, private args: SohoDataGridEditCellFunctionArgs){}
-  val(value?: any): any {
-    // get and set the value of the component.
-  }
-  focus(): void {
-    // sets the focus on the component
-  }
-  destroy(): void {
-    // destroy the component
-  }
-}
-
-class DemoInputAdapter {
-  public name = 'input';
-  public originalValue: string;
-  public useValue: boolean;
-  public input;
-
-  constructor(private row, private cell, private value, private container, private column, private e, private api) {
-   this.name = 'input';
-   this.originalValue = value;
-   this.useValue = column.inlineEditor ? true : false;
-   this.init();
-  }
-
-  private init() {
-    if (this.column.inlineEditor) {
-      this.input = this.container.find('input');
-    } else {
-      this.input = $('<input type="'+ (this.column.inputType || 'text') +'"/>')
-        .appendTo(this.container);
-    }
-  }
-
-  public val(value) {
-    if (value) {
-      console.log(`set to ${value}`)
-      return this.input.val(value);
-    }
-    console.log(`get ${this.input.val()}`)
-    return this.input.val();
-  }
-
-  public focus () {
-      console.log(`focus`);
-      this.input.focus();
-    }
-  public  destroy() {
-    console.log(`destroy`);
-  }
-}
 
 @Component({
   selector: 'soho-datagrid-editors',

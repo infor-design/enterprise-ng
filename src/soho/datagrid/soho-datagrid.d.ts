@@ -224,7 +224,7 @@ interface SohoDataGridSourceRequest extends SohoPagerPagingInfo {
 /**
  * The arguments object passed to the onPostRenderCell callback.
  */
-interface SohoDataGridPostRenderCellFunctionArgs {
+interface SohoDataGridPostRenderCellArgs {
   /** The row index. */
   row: number;
 
@@ -241,7 +241,7 @@ interface SohoDataGridPostRenderCellFunctionArgs {
   api: SohoDataGridStatic;
 }
 
-interface SohoDataGridEditCellFunctionArgs extends SohoDataGridPostRenderCellFunctionArgs {
+interface SohoDataGridEditCellFunctionArgs extends SohoDataGridPostRenderCellArgs {
   container: any;
   e: any;
 }
@@ -250,11 +250,11 @@ interface SohoDataGridEditCellFunctionArgs extends SohoDataGridPostRenderCellFun
  * Type definition of the post render cell callback.
  */
 type SohoDataGridPostRenderCellFunction = (
-  container: JQuery, args: SohoDataGridPostRenderCellFunctionArgs
+  container: JQuery, args: SohoDataGridPostRenderCellArgs
 ) => void;
 
 type SohoDataGridEditCellFunction = (
-  container: JQuery, args: SohoDataGridPostRenderCellFunctionArgs, editor: any
+  container: JQuery, args: SohoDataGridPostRenderCellArgs, editor: any
 ) => void;
 
 type SohoDataGridSourceFunction = (

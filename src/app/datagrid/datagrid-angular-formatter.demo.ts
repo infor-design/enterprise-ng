@@ -18,7 +18,7 @@ import {
   template: '<button soho-button="icon" icon="settings" (click)="onClick($event)">Cell: {{args.cell}}, Row: {{args?.row}}</button>'
 })
 export class ButtonCellFormatterComponent implements OnDestroy {
-  constructor(@Inject('args') public args: SohoDataGridPostRenderCellFunctionArgs) {
+  constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {
     console.log(`constructor ${this.args.value}`);
   }
   public onClick(e) {
@@ -34,7 +34,7 @@ export class ButtonCellFormatterComponent implements OnDestroy {
   template: '<p>{{args?.value?.price}}</p>'
 })
 export class PriceCellFormatterComponent {
-  constructor(@Inject('args') public args: SohoDataGridPostRenderCellFunctionArgs) {}
+  constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {}
 }
 
 @Component({
