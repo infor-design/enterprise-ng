@@ -5,8 +5,7 @@ import {
   ComponentRef
  } from '@angular/core';
 
-import { SohoDataGridComponent, SohoInputComponent } from '@infor/sohoxi-angular';
-import { SohoAngularEditorAdapter } from "soho/datagrid/soho-datagrid.component";
+import { SohoDataGridComponent, SohoInputComponent, SohoAngularEditorAdapter } from '@infor/sohoxi-angular';
 
 // tslint:disable
 
