@@ -38,6 +38,7 @@ import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
 import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
+import { FieldOptionsDemoComponent } from './field-options/field-options.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
@@ -150,6 +151,7 @@ export const routes: Routes = [
   { path: 'error',                             component: ErrorDemoComponent },
   { path: 'expandablearea',                    component: ExpandableAreaDemoComponent },
   { path: 'expandablearea-footer',             component: ExpandableAreaFooterDemoComponent },
+  { path: 'field-options',                     component: FieldOptionsDemoComponent },
   { path: 'fileupload-advanced',               component: FileUploadAdvancedDemoComponent },
   { path: 'fileupload',                        component: FileUploadDemoComponent },
   { path: 'header-tabs',                       component: HeaderTabsDemoComponent },

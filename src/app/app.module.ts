@@ -69,6 +69,7 @@ import { EditorDemoComponent } from './editor/editor.demo';
 import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
+import { FieldOptionsDemoComponent } from './field-options/field-options.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
@@ -194,6 +195,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ErrorDemoComponent,
     ExpandableAreaDemoComponent,
     ExpandableAreaFooterDemoComponent,
+    FieldOptionsDemoComponent,
     FileUploadAdvancedDemoComponent,
     FileUploadDemoComponent,
     HeaderTabsDemoComponent,
