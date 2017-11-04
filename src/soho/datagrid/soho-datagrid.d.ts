@@ -244,6 +244,7 @@ interface SohoDataGridPostRenderCellArgs {
 interface SohoDataGridEditCellFunctionArgs extends SohoDataGridPostRenderCellArgs {
   container: any;
   e: any;
+  item: any;
 }
 
 /**
@@ -254,7 +255,7 @@ type SohoDataGridPostRenderCellFunction = (
 ) => void;
 
 type SohoDataGridEditCellFunction = (
-  container: JQuery, args: SohoDataGridPostRenderCellArgs, editor: any
+  editor: any
 ) => void;
 
 type SohoDataGridSourceFunction = (
@@ -279,6 +280,14 @@ type SohoDataGridSortFunction = (
 
 type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' | 'integer' | 'percent' | 'select' | 'time';
 
+interface SohoDataGridCellEditor {
+  val(value?: any): any;
+
+  focus(): void;
+
+  destroy(): void;
+}
+
 type SohoDataGridColumnEditorFunction = (
   row?: any,
   cell?: any,
@@ -288,7 +297,7 @@ type SohoDataGridColumnEditorFunction = (
   event?: any,
   grid?: any,
   item?: any
-) => string;
+) => SohoDataGridCellEditor;
 
 declare var Editors: {
   // Supports, Text, Numeric, Integer via mask
@@ -511,13 +520,17 @@ interface SohoDataGridColumn {
   /** Text to display? */
   text?: string;
 
-  /** Options for the Angular component used to format a cell. */
-  component?: any; // can't use ComponentRef<{}>!
+  /** Angular component used to format a cell. */
+  component?: any; //  // Type<{}>
 
   /** Inputs for the Angular component used to format a cell. */
   componentInputs?: any;
 
+  /** Angular component used to edit a cell. */
+  editorComponent?: any; // Type<{}>
 
+  /** Inputs for the Angular component used to edit a cell. */
+  editorComponentInputs?: any;
 }
 
 interface SohoDataGridColumnNumberFormat {

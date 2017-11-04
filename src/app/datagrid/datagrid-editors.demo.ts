@@ -2,7 +2,8 @@ import {
   Component,
   ViewChild,
   AfterViewInit,
-  ComponentRef
+  ComponentRef,
+  Input
  } from '@angular/core';
 
 import { SohoDataGridComponent, SohoInputComponent, SohoAngularEditorAdapter } from '@infor/sohoxi-angular';
@@ -176,7 +177,15 @@ export const STATUS_LOOKUP_OPTIONS = {
      toolbar: {title: 'Business Party', results: true, dateFilter: false, keywordFilter: false, advancedFilter: true, actions: true, views: true, rowHeight: true }
 }};
 
-export const EDITORS_COLUMNS: any[] = [
+@Component({
+  template: `<input soho-input/>`
+})
+export class DemoCellEditorComponent {
+  @Input()
+  value: string;
+}
+
+export const EDITORS_COLUMNS: SohoDataGridColumn[] = [
   {
     id: 'productId',
     name: 'Product Id',
@@ -215,7 +224,7 @@ export const EDITORS_COLUMNS: any[] = [
     field: 'favorite',
     sortable: false,
     width: 105,
-    showEmpty: true,
+    // showEmpty: true,
     formatter: Formatters.Favorite,
     editor: Editors.Favorite
   },
@@ -224,8 +233,8 @@ export const EDITORS_COLUMNS: any[] = [
     id: 'quantity',
     name: 'Quantity',
     field: 'quantity',
-    postRender: true, // this editors requires post rendering
-    editor: (row, cell, value, container, col, e, api) => new SohoAngularEditorAdapter(SohoInputComponent, {row, cell, value, container, col, e, api})
+    postRender: true, // this editors requires post rendering (for editors)
+    editorComponent: DemoCellEditorComponent, editorComponentInputs: {}
   }
 
   //{ id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text',    width: 150, formatter: Formatters.Hyperlink },
@@ -233,6 +242,7 @@ export const EDITORS_COLUMNS: any[] = [
   //{ id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', width: 125, formatter: Formatters.Decimal },
   //{ id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',                formatter: Formatters.Date, dateFormat: 'M/d/yyyy' }
 ];
+
 
 @Component({
   selector: 'soho-datagrid-editors',

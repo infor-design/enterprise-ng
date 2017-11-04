@@ -46,7 +46,7 @@ import {
 } from './datagrid/datagrid-custom-formatter.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
-import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
+import { DataGridEditorsDemoComponent, DemoCellEditorComponent } from './datagrid/datagrid-editors.demo';
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
 import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-header.demo';
@@ -181,6 +181,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     DataGridTreeGridDemoComponent,
     DataGridGroupableDemoComponent,
     DatepickerDemoComponent,
+    DemoCellEditorComponent,
     DemoCellFormatterComponent,
     DemoCellIntegerFormatterComponent,
     PriceCellFormatterComponent,
@@ -287,6 +288,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ApplicationMenuLazyService
   ],
   entryComponents: [
+    DemoCellEditorComponent,
     DemoCellFormatterComponent,
     DemoCellIntegerFormatterComponent,
     ButtonCellFormatterComponent,
