@@ -35,6 +35,11 @@ import { ContextualActionPanelDemoModule } from './contextual-action-panel/conte
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import {
+  DataGridAngularEditorDemoComponent,
+  DemoCellInputEditorComponent,
+  DemoCellDatePickerEditorComponent
+} from './datagrid/datagrid-angular-editor.demo';
+import {
   DataGridAngularFormatterDemoComponent,
   PriceCellFormatterComponent,
   ButtonCellFormatterComponent
@@ -164,9 +169,11 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ContextMenuDemoComponent,
     DataGridBreadcrumbDemoComponent,
     DataGridContentDemoComponent,
+    DataGridAngularEditorDemoComponent,
     DataGridAngularFormatterDemoComponent,
     DataGridCustomFormatterDemoComponent,
     DataGridCustomFormatterServiceDemoComponent,
+    DemoCellDatePickerEditorComponent,
     DataGridDynamicDemoComponent,
     DataGridEditorsDemoComponent,
     DataGridFixedHeaderDemoComponent,
@@ -181,6 +188,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     DataGridTreeGridDemoComponent,
     DataGridGroupableDemoComponent,
     DatepickerDemoComponent,
+    DemoCellInputEditorComponent,
     DemoCellFormatterComponent,
     DemoCellIntegerFormatterComponent,
     PriceCellFormatterComponent,
@@ -287,6 +295,8 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ApplicationMenuLazyService
   ],
   entryComponents: [
+    DemoCellDatePickerEditorComponent,
+    DemoCellInputEditorComponent,
     DemoCellFormatterComponent,
     DemoCellIntegerFormatterComponent,
     ButtonCellFormatterComponent,

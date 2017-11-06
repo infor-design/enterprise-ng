@@ -19,7 +19,7 @@ import {
   template:  '<ng-content></ng-content>',
   providers: [ provideControlValueAccessor(SohoInputComponent) ]
 })
-export class SohoInputComponent extends BaseControlValueAccessor<any> implements AfterViewInit, OnDestroy {
+export class SohoInputComponent extends BaseControlValueAccessor<string> implements AfterViewInit, OnDestroy {
 
   /**
    * Available Soho Template events as Output (EventEmitters passing the event)
@@ -71,7 +71,7 @@ export class SohoInputComponent extends BaseControlValueAccessor<any> implements
   /**
    * Handle the control being changed.
    */
-  onChange(event: any) {
+  onChange(event: any[]) {
     // console.log(`onChange: ${event} - "${this.jQueryElement.val()}"`)
     if (!event) {
       // sometimes the event is not available
@@ -80,7 +80,7 @@ export class SohoInputComponent extends BaseControlValueAccessor<any> implements
       return;
     }
 
-    this.change.emit(this.internalValue);
+    this.change.emit(event);
   }
 
   /**
@@ -97,5 +97,17 @@ export class SohoInputComponent extends BaseControlValueAccessor<any> implements
       // in the control.
       this.jQueryElement.val(value);
     }
+  }
+
+  getValue(): string {
+    return this.internalValue;
+  }
+
+  setValue(value: string) {
+    this.writeValue(value);
+  }
+
+  focus() {
+    this.element.nativeElement.focus();
   }
 }
