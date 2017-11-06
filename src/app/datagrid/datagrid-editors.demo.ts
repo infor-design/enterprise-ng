@@ -224,6 +224,16 @@ export const EDITORS_COLUMNS: SohoDataGridColumn[] = [
     editor: Editors.Favorite
   },
 
+  {
+    id: 'orderDate',
+    name: 'Order Date',
+    field: 'orderDate',
+    sortable: false,
+    formatter: Formatters.Date,
+    dateFormat: 'M/d/yyyy',
+    editor: Editors.Date
+  }
+
 
   //{ id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text',    width: 150, formatter: Formatters.Hyperlink },
   //{ id: 'activity',    name: 'Activity',     field: 'activity',    sortable: false, filterType: 'text',    width: 150, formatter: Formatters.Text, editor: Editors.Lookup, editorOptions: LOOKUP_OPTIONS },
