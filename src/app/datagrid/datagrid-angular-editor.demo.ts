@@ -213,10 +213,6 @@ export class DemoCellInputEditorComponent implements SohoDataGridCellEditor {
   focus() {
     this.input.focus();
   }
-
-  destroy() {
-    // @todo remove the need for this method on the contract
-  }
 }
 
 /**
@@ -243,10 +239,6 @@ export class DemoCellDatePickerEditorComponent implements SohoDataGridCellEditor
 
   focus() {
     this.datePicker.focus();
-  }
-
-  destroy() {
-    // @todo remove the need for this method on the contract
   }
 }
 

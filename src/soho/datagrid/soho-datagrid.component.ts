@@ -1660,9 +1660,10 @@ export interface SohoDataGridToggleRowEvent extends SohoDataGridRowExpandEvent {
  * Contract for cell editors.
  */
 export interface ExtendedSohoDataGridCellEditor extends SohoDataGridCellEditor {
+  // The type of the component.
+  component: Type<SohoDataGridCellEditor>;
 
-  component: Type<{}>;
-
+  // The args passed to the editor
   args: SohoDataGridEditCellFunctionArgs;
 
   // @todo - talk to Tim on what this means.
@@ -1675,7 +1676,12 @@ export interface ExtendedSohoDataGridCellEditor extends SohoDataGridCellEditor {
    * Initialise the edit control with the given component.  The control
    * mist conform to the SohoDataGridCellEditor contract.
    */
-  init(componentRef: ComponentRef<SohoDataGridCellEditor>);
+  init(componentRef: ComponentRef<SohoDataGridCellEditor>): void;
+
+  /**
+   * Destroy the editor.
+   */
+  destroy(): void;
 }
 
 export class SohoAngularEditorAdapter implements ExtendedSohoDataGridCellEditor {
