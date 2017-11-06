@@ -1717,8 +1717,10 @@ export class SohoAngularEditorAdapter implements ExtendedSohoDataGridCellEditor 
 
   destroy(): void {
     if (this.componentRef) {
-      this.componentRef.destroy();
-      this.componentRef = null;
+      setTimeout(() => {
+        this.componentRef.destroy();
+        this.componentRef = null;
+      });
     }
   }
 

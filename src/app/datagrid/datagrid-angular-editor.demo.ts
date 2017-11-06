@@ -230,9 +230,10 @@ export class DemoCellDatePickerEditorComponent implements SohoDataGridCellEditor
   }
 
   val(value?: any) {
-    console.log(`DemoCellDatePickerEditorComponent: ${value}`)
     if (value) {
+      console.log(`DemoCellDatePickerEditorComponent: ${value}`)
       this.datePicker.setValue(value);
+      return value;
     }
     return this.datePicker.getValue();
   }
