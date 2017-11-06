@@ -1,16 +1,20 @@
 import {
   Component,
+  ContentChild,
   ViewChild,
   AfterViewInit,
   ComponentRef,
+  ElementRef,
   Input,
   Inject,
   OnDestroy
 } from '@angular/core';
 
-import { SohoDataGridComponent } from '@infor/sohoxi-angular';
-
-// tslint:disable
+import {
+  SohoDataGridComponent,
+  SohoInputComponent,
+  SohoDatePickerComponent
+} from '@infor/sohoxi-angular';
 
 export const EDITORS_DATA: any[] = [
   {
@@ -180,6 +184,72 @@ export const STATUS_LOOKUP_OPTIONS = {
   }
 };
 
+@Component({
+  template: `<input #input alignRight="true" [(ngModel)]="value" soho-input
+        soho-mask [process]="'number'" [integerLimit]="3" (write)="onMaskWrite($event)"/>`
+})
+export class DemoCellInputEditorComponent implements SohoDataGridCellEditor {
+  @ViewChild(SohoInputComponent) input: SohoInputComponent;
+
+  value: string;
+
+  constructor( @Inject('args') public args: SohoDataGridPostRenderCellArgs) {
+    this.value = args.value;
+  }
+
+  onMaskWrite(event: any) {
+    console.log(`DemoCellInputEditorComponent ${this.args.row} onMaskWrite: ${event}`);
+  }
+
+  // @region Soho Editor Implementation
+
+  val(value?: any) {
+    if (value) {
+      this.value = value;
+    }
+    return this.value;
+  }
+
+  focus() {
+    this.input.focus();
+  }
+
+  destroy() {
+    // @todo remove the need for this method on the contract
+  }
+}
+
+/**
+ * DataPicker Angular Edit Component
+ *
+ * This component display a date picker in a cell when editted.
+ */
+@Component({
+  template: `<input soho-datepicker dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy"/>`
+})
+export class DemoCellDatePickerEditorComponent implements SohoDataGridCellEditor {
+  @ViewChild(SohoDatePickerComponent) datePicker: SohoDatePickerComponent;
+
+  constructor( @Inject('args') public args: SohoDataGridPostRenderCellArgs) {
+  }
+
+  val(value?: any) {
+    console.log(`DemoCellDatePickerEditorComponent: ${value}`)
+    if (value) {
+      this.datePicker.setValue(value);
+    }
+    return this.datePicker.getValue();
+  }
+
+  focus() {
+    this.datePicker.focus();
+  }
+
+  destroy() {
+    // @todo remove the need for this method on the contract
+  }
+}
+
 export const EDITORS_COLUMNS: SohoDataGridColumn[] = [
   {
     id: 'productId',
@@ -209,20 +279,19 @@ export const EDITORS_COLUMNS: SohoDataGridColumn[] = [
     field: 'quantity',
     sortable: false,
     filterType: 'number',
-    width: 105,
-    editor: Editors.Input
+    editorComponent: DemoCellInputEditorComponent,
+    editorComponentInputs: {}
   },
-
   {
-    id: 'favorite',
-    name: 'Favorite',
-    field: 'favorite',
+    id: 'orderDate',
+    name: 'Order Date',
+    field: 'orderDate',
     sortable: false,
-    width: 105,
-    // showEmpty: true,
-    formatter: Formatters.Favorite,
-    editor: Editors.Favorite
-  },
+    formatter: Formatters.Date,
+    dateFormat: 'M/d/yyyy',
+    editorComponent: DemoCellDatePickerEditorComponent,
+    editorComponentInputs: {}
+  }
 
 
   //{ id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text',    width: 150, formatter: Formatters.Hyperlink },
@@ -233,10 +302,10 @@ export const EDITORS_COLUMNS: SohoDataGridColumn[] = [
 
 
 @Component({
-  selector: 'soho-datagrid-editors',
-  templateUrl: './datagrid-editors.demo.html'
+  selector: 'soho-datagrid-angular-editor',
+  templateUrl: './datagrid-angular-editor.demo.html'
 })
-export class DataGridEditorsDemoComponent implements AfterViewInit {
+export class DataGridAngularEditorDemoComponent implements AfterViewInit {
 
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
@@ -250,13 +319,8 @@ export class DataGridEditorsDemoComponent implements AfterViewInit {
       selectable: 'single',
       idProperty: 'productId',
       editable: true,
-      rowHeight: 'short',
+      isList: true,
       filterable: true,
     };
   }
-
-  export(e: any) {
-    this.sohoDataGridComponent.exportToExcel('', '', null);
-  }
-
 }

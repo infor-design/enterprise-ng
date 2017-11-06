@@ -14,8 +14,12 @@ import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
 import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoComponent } from './contextual-action-panel/contextual-action-panel.demo';
+import { DataGridAngularEditorDemoComponent } from './datagrid/datagrid-angular-editor.demo';
+import { DataGridAngularFormatterDemoComponent } from './datagrid/datagrid-angular-formatter.demo';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
+import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
+import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
@@ -102,9 +106,6 @@ import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { ValidationFormEventDemoComponent } from './validation/validation-form-event.demo';
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
-import { DataGridAngularFormatterDemoComponent} from './datagrid/datagrid-angular-formatter.demo';
-import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
-import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 import { WizardDemoComponent } from './wizard/wizard.demo';
 
@@ -136,6 +137,7 @@ export const routes: Routes = [
   { path: 'datagrid-service',                  component: DataGridServiceDemoComponent },
   { path: 'datagrid-settings',                 component: DataGridSettingsDemoComponent },
   { path: 'datagrid-treegrid',                 component: DataGridTreeGridDemoComponent },
+  { path: 'datagrid-angular-editor',           component: DataGridAngularEditorDemoComponent },
   { path: 'datagrid-angular-formatter',        component: DataGridAngularFormatterDemoComponent },
   { path: 'datagrid-custom-formatter',         component: DataGridCustomFormatterDemoComponent },
   { path: 'datagrid-custom-formatter-service', component: DataGridCustomFormatterServiceDemoComponent },

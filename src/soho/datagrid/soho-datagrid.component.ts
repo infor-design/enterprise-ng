@@ -1391,8 +1391,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * associated with this component.
    */
   private destroyDataGrid(): void {
-    console.log('datagrid destroy');
-
     // Remove any remaining dynamic components.
     this.cellComponents.forEach((c) => { c.component.destroy(); });
 
@@ -1471,21 +1469,27 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // component.
     const i = ReflectiveInjector.resolveAndCreate([{ provide: 'args', useValue: editor.args }], this.injector);
 
+    // Warning!! the dynamic component is not added inside the container,
+    // but as a sibling, so when it's destroyed it takes any siblings  with
+    // it.  It is not clear why this - so to work around this issue, add
+    // a single child to the cell container.
+    const transientContainer = $('<div></div>').appendTo(editor.args.container);
+
     // Create the component, in the container.
-    const component = factory.create(i, [], editor.args.container);
+    const componentRef = <ComponentRef<SohoDataGridCellEditor>> factory.create(i, [], transientContainer[0]);
 
     // Copy into it any column level Inputs, these are optional but allow
     // column specific overrides to be defined.
-    Object.assign(component.instance, editor.args.col.editorComponentInputs);
+    Object.assign(componentRef.instance, editor.args.col.editorComponentInputs);
 
     // ... attach to the app ...
-    this.app.attachView(component.hostView);
+    this.app.attachView(componentRef.hostView);
 
     // ... update for changes ...
-    component.changeDetectorRef.detectChanges();
+    componentRef.changeDetectorRef.detectChanges();
 
     // Give the component to the editor.
-    editor.init(component);
+    editor.init(componentRef);
   }
 
   private buildDataGrid(): void {
@@ -1616,9 +1620,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // Add an adapter for all the columns using an component as an editor.
     this._gridOptions.columns.forEach((c) => {
       if (c.editorComponent) {
-        console.log(`${c.id} - using angular column.`);
-        c.editor = (row?: any, cell?: any, value?: any, container?: any, col?: SohoDataGridColumn, e?: any, api?: any, item?: any) => {
-          return new SohoAngularEditorAdapter(c.editorComponent, { row, cell, value, container, col, e, api, item });
+        console.log(`'${c.id}' - using angular column.`);
+        c.editor = (row?: any, cell?: any, value?: any, container?: JQuery, col?: SohoDataGridColumn, e?: any, api?: any, item?: any) => {
+          return new SohoAngularEditorAdapter(c.editorComponent, { row, cell, value, container: container[0], col, e, api, item });
         };
       }
     });
@@ -1661,34 +1665,55 @@ export interface ExtendedSohoDataGridCellEditor extends SohoDataGridCellEditor {
 
   args: SohoDataGridEditCellFunctionArgs;
 
-  init(componentRef: ComponentRef<{}>);
+  // @todo - talk to Tim on what this means.
+  input: JQuery;
+
+  // @todo - talk to Tim on what this means.
+  useValue: boolean;
+
+  /**
+   * Initialise the edit control with the given component.  The control
+   * mist conform to the SohoDataGridCellEditor contract.
+   */
+  init(componentRef: ComponentRef<SohoDataGridCellEditor>);
 }
 
 export class SohoAngularEditorAdapter implements ExtendedSohoDataGridCellEditor {
-  componentRef: ComponentRef<{}>;
+  componentRef: ComponentRef<SohoDataGridCellEditor>;
 
-  constructor(public component: Type<{}>, public args: SohoDataGridEditCellFunctionArgs) {
+  input: JQuery;
+
+  // @todo - talk to Tim on what this means.
+  useValue = true;
+
+  constructor(
+    public component: Type<SohoDataGridCellEditor>,
+    public args: SohoDataGridEditCellFunctionArgs) {
   }
 
-  init(componentRef: ComponentRef<{}>) {
+  init(componentRef: ComponentRef<SohoDataGridCellEditor>) {
+    // Store the component.
     this.componentRef = componentRef;
+
+    // The Soho datagrid wants an input control, otherwise it wont accept the editor
+    // as a component.
+    // @todo talk to Tim about removing this requirement.
+    this.input = $(this.componentRef.location.nativeElement).find('input');
   }
 
   val(value?: any): any {
-    if (value) {
-      console.log(`set editor value = ${value}`);
-    } else {
-      console.log(`get editor value = ${value}`);
-      return 'value';
-    }
+    return this.componentRef.instance.val(value);
   }
 
   focus(): void {
-    console.log(`focus editor`);
+    this.componentRef.instance.focus();
   }
 
   destroy(): void {
-    console.log(`destroy editor`);
+    if (this.componentRef) {
+      this.componentRef.destroy();
+      this.componentRef = null;
+    }
   }
 
 }
