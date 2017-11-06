@@ -6,6 +6,7 @@ import {
   ViewChildren
 } from '@angular/core';
 import {
+  SohoInputComponent,
   SohoLookupComponent,
   SohoTrackDirtyDirective
 } from '@infor/sohoxi-angular';
@@ -39,6 +40,12 @@ export class TrackDirtyDemoComponent implements OnInit {
     this.trackDirtyComponents.forEach( (trackDirty: SohoTrackDirtyDirective) => {
       trackDirty.resetDirty();
     });
+  }
+
+  changeValues() {
+    this.model.lookup = (Math.random() + 1).toString(36).substring(2, 5);
+    this.model.textbox = (Math.random() + 1).toString(36).substring(2, 7);
+    this.model.numeric = Math.floor(Math.random() * 400).toString();
   }
 
   toggleModel() {
