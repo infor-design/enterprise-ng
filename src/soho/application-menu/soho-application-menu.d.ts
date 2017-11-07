@@ -21,6 +21,9 @@ interface SohoApplicationMenuOptions {
   /** Defines the point at which the application should be displayed - depends on device. */
   breakpoint: SohoApplicationMenuBreakPoint;
 
+  /** Is this application menu filterable. */
+  filterable?: boolean;
+
   /** Open the menu when the screen width is larger that the breakpoint. */
   openOnLarge: boolean;
 
