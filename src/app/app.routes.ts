@@ -10,6 +10,7 @@ import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
+import { CodeBlockDemoComponent } from './code-block/code-block.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
 import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
@@ -120,6 +121,7 @@ export const routes: Routes = [
   { path: 'busyindicator',                     component: BusyIndicatorDemoComponent },
   { path: 'chart',                             component: ChartDemoComponent },
   { path: 'checkbox',                          component: CheckBoxDemoComponent },
+  { path: 'code-block',                        component: CodeBlockDemoComponent },
   { path: 'colorpicker',                       component: ColorPickerDemoComponent },
   { path: 'completion-chart',                  component: CompletionChartDemoComponent },
   { path: 'context-menu',                      component: ContextMenuDemoComponent },

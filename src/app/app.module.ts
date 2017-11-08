@@ -29,6 +29,8 @@ import { ButtonDemoComponent } from './button/button.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
+import { CodeBlockComponent } from './code-block/code-block.component';
+import { CodeBlockDemoComponent } from './code-block/code-block.demo';
 import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoModule } from './contextual-action-panel/contextual-action-panel.demo.module';
@@ -165,6 +167,8 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ChartDemoComponent,
     CheckBoxDemoComponent,
     ColorPickerDemoComponent,
+    CodeBlockComponent,
+    CodeBlockDemoComponent,
     CompletionChartDemoComponent,
     ContextMenuDemoComponent,
     DataGridBreadcrumbDemoComponent,
