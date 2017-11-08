@@ -1,6 +1,5 @@
 
 ## Whats New
-
 * 2017-11-07 - BTH - SOHO-6797/SOHO-7015/SOHO-6263: Added support for component formatters and editors for datagrid.
 * 2017-11-03 - TJM - SOHO-6265: Added support for SOHO 'field-options'.
 * 2017-10-24 - BTH - SOHO-6317: Added support for SOHO 'wizard'.

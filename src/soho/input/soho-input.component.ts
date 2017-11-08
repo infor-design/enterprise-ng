@@ -72,7 +72,6 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
    * Handle the control being changed.
    */
   onChange(event: any[]) {
-    // console.log(`onChange: ${event} - "${this.jQueryElement.val()}"`)
     if (!event) {
       // sometimes the event is not available
       this.internalValue = this.jQueryElement.val();

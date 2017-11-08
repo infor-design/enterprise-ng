@@ -211,7 +211,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
       // not sure what it would mean to have a multiple observers potentially
       // calling the response function.
       if (this.beforeSelectStep.observers.length !== 1) {
-        console.log('stepprocess: only 1 observer is allowed for the beforeSelectStep event emitter');
+        console.warn('stepprocess: only 1 observer is allowed for the beforeSelectStep event emitter');
       }
 
       const beforeSelectStepEvent: BeforeSelectStepEvent = <any> {};
