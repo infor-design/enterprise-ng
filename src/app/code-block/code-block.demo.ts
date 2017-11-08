@@ -5,8 +5,11 @@ import {
 } from '@angular/core';
 
 import {
-  ledgerColumns,
-  ledgerData
+  columns,
+  ledgerData,
+  accountingData,
+  departmentData,
+  costCenterData
 } from './mock.data';
 
 @Component({
@@ -16,14 +19,21 @@ import {
 })
 export class CodeBlockDemoComponent implements OnInit {
   public showModel = false;
-  public showLabels = false;
+  public showLabels = true;
 
   public model = {
-    ledger: 'CORE'
+    ledger: 'CORE',
+    accountingEntity: '1001',
+    accountingUnit: '99 CORP',
+    costCenter: '102',
+    department: '102'
   };
 
-  public ledgerColumns = ledgerColumns;
+  public columns = columns;
   public ledgerData = ledgerData;
+  public accountingData = accountingData;
+  public departmentData = departmentData;
+  public costCenterData = costCenterData;
 
   constructor() { }
   ngOnInit() { }

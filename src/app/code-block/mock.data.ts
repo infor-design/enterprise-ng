@@ -1,4 +1,4 @@
-export const ledgerColumns = [
+export const columns = [
   {
     id: 'column1',
     name: 'Column One',
@@ -57,5 +57,122 @@ export const ledgerData = [
     column2: '4343-4334-434343',
     column3: 'Aynanville, MD',
     column4: '05/02/2016'
+  }
+];
+
+export const accountingData = [
+  {
+    column1: '1001',
+    column2: 'AE-28292',
+    column3: 'Sales',
+    column4: '04/25/2016'
+  },
+  {
+    column1: '1002',
+    column2: 'AE-28292',
+    column3: 'Sales',
+    column4: '05/02/2016'
+  },
+  {
+    column1: '1003',
+    column2: 'AE-28292',
+    column3: 'Sales',
+    column4: '01/15/2016'
+  },
+  {
+    column1: '1004',
+    column2: 'AE-28292',
+    column3: 'Sales',
+    column4: '05/28/2016'
+  },
+  {
+    column1: '1004',
+    column2: 'AE-28292',
+    column3: 'Sales',
+    column4: '05/02/2016'
+  },
+  {
+    column1: '1006',
+    column2: 'AE-28292',
+    column3: 'Sales',
+    column4: '05/02/2016'
+  }
+];
+
+export const departmentData = [
+  {
+    column1: '102',
+    column2: 'Marketing Department',
+    column3: 'N/A',
+    column4: '04/25/2016'
+  },
+  {
+    column1: '103',
+    column2: 'Research and Development',
+    column3: 'N/A',
+    column4: '04/25/2016'
+  },
+  {
+    column1: '104',
+    column2: 'Human resources',
+    column3: 'N/A',
+    column4: '04/25/2016'
+  },
+  {
+    column1: '105',
+    column2: 'Work office',
+    column3: 'N/A',
+    column4: '04/25/2016'
+  },
+  {
+    column1: '106',
+    column2: 'Quality Assurance',
+    column3: 'N/A',
+    column4: '04/25/2016'
+  },
+  {
+    column1: '107',
+    column2: 'Engineering Assurance',
+    column3: 'Sales',
+    column4: '04/25/2016'
+  }
+];
+
+export const costCenterData = [
+  {
+    column1: '102',
+    column2: 'Marketing Department',
+    column3: 'N/A',
+    column4: '04/25/2016'
+  },
+  {
+    column1: '103',
+    column2: 'Research and Development',
+    column3: 'N/A',
+    column4: '04/25/2016'
+  },
+  {
+    column1: '104',
+    column2: 'Human resources',
+    column3: 'N/A',
+    column4: '04/25/2016'
+  },
+  {
+    column1: '105',
+    column2: 'Work office',
+    column3: 'N/A',
+    column4: '04/25/2016'
+  },
+  {
+    column1: '106',
+    column2: 'Quality Assurance',
+    column3: 'N/A',
+    column4: '04/25/2016'
+  },
+  {
+    column1: '107',
+    column2: 'Engineering Assurance',
+    column3: 'Sales',
+    column4: '04/25/2016'
   }
 ];
