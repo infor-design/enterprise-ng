@@ -10,6 +10,7 @@
           <div class="field">
             <label soho-label for="ledger">Ledger</label>
             <input soho-lookup soho-field-options name="ledger" id="ledger" value="CORE" size="4"
+              [autoWidth]="true"
               [(ngModel)]="model.ledger"
               [columns]="ledgerColumns"
               [dataset]="ledgerData"
@@ -26,10 +27,9 @@
                   <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 2</a></li>
                 </ul>
               </li>
+              <li soho-popupmenu-separator singleSelectableSection="true"></li>
               <li soho-popupmenu-heading>Options</li>
-              <li soho-popupmenu-item isChecked="true" isSelectable="true"><a soho-popupmenu-label>Show Labels</a></li>
-              <li soho-popupmenu-item isChecked="true" isSelectable="true"><a soho-popupmenu-label>Additional Option</a></li>
-              <li soho-popupmenu-item><a soho-popupmenu-label>Additional Option</a></li>
+              <li soho-popupmenu-item (click)="toggleLabels()" [isChecked]="showLabels" isSelectable="true"><a soho-popupmenu-label>Show Labels</a></li>
             </ul>
           </div>
 
@@ -66,7 +66,7 @@
           <div class="field">
             <label soho-label for="department">Department</label>
             <input soho-lookup soho-field-options name="department" id="department" type="text" value="102" size="3">
-            <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu [menu]="popupmenu" trigger="click"></button>
+            <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click"></button>
             <ul soho-popupmenu>
               <li soho-popupmenu-item><a soho-popupmenu-label>Show History</a></li>
               <li soho-popupmenu-item><a soho-popupmenu-label>Edit Record</a></li>

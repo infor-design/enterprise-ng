@@ -55,14 +55,12 @@
 :host ::ng-deep input {
   border-color: transparent;
   padding-left: 0;
-  transition: all 0.5s ease;
+  transition: margin .5s ease, left .5s ease, padding .5s ease, width .5s ease;
   width: initial;
 }
 
 :host ::ng-deep .lookup {
-  position: relative;
-  padding-right: 0;
-  top: -1px;
+  padding: 8px 0 8px 1px;
 }
 
 /* Add a : After the label */
@@ -72,34 +70,36 @@
 
 /* Make Elements Sit Well Next to Each other */
 :host ::ng-deep .field-options {
-  margin-left: 5px;
-  margin-right: 0px;
+  margin-left: 0;
+  margin-right: 25px;
 }
 
 :host ::ng-deep .trigger {
-  display: none;
-  margin-left: -35px;
+  visibility: hidden;
+  margin-left: -36px;
+  position: relative;
+  top: -3px;
 }
 
 :host ::ng-deep input.is-active + .trigger {
-  display: inline-block;
+  visibility: visible;
 }
 
 :host ::ng-deep input.is-active + .trigger + .btn-actions {
-  display: inline-block;
+  visibility: visible;
 }
 
 :host ::ng-deep .field.is-active::before {
-  display: none;
+  visibility: hidden;
 }
 
 :host ::ng-deep input.is-active {
-  padding-right: 27px;
+  padding-right: 10px;
 }
 
 /* Adjust the Field Options */
 :host ::ng-deep .btn-actions {
-  display: none;
-  left: -14px;
+  visibility: hidden;
+  left: -15px;
   margin-right: -17px;
 }

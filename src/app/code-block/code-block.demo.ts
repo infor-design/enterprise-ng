@@ -15,7 +15,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CodeBlockDemoComponent implements OnInit {
-  showModel = false;
+  public showModel = false;
+  public showLabels = false;
 
   public model = {
     ledger: 'CORE'
@@ -31,7 +32,9 @@ export class CodeBlockDemoComponent implements OnInit {
     console.log('onUpdated');
   }
 
-  toggleModel() {
-    this.showModel = !this.showModel;
+  toggleLabels() {
+    this.showLabels = !this.showLabels;
+    console.log(this.showLabels);
   }
+
 }
