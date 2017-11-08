@@ -5,10 +5,9 @@
 }
 
 :host .code-block {
-  border: 1px solid #999999;
   display: inline-block;
   padding: 4px 0 0px 4px;
-  width: calc(100% - 60px);
+  width: calc(100% - 58px);
 }
 
 /* Right Buttons */
@@ -18,7 +17,15 @@
 
 :host .code-block-actions {
   transform: rotate(90deg);
+  left: -17px;
   visibility: visible;
+}
+
+:host .code-block-buttons {
+  position: absolute;
+  top: 50%;
+  margin-top: 18px;
+  right: 5px;
 }
 
 /* Style Parent and inner Focus */
@@ -44,8 +51,9 @@
   border: 1px solid transparent;
   border-radius: 2px;
   display: inline-block;
-  margin-bottom: 5px;
-  padding-left: 5px;
+  margin-bottom: 4px;
+  padding-left: 11px;
+  margin-right: -14px;
 }
 
 :host ::ng-deep .field:not(:last-of-type)::after {
@@ -55,6 +63,7 @@
   color: #5C5C5C;
   right: 14px;
   top: 7px;
+  width: 4px;
 }
 
 :host ::ng-deep .field.is-active::after {
