@@ -1,10 +1,18 @@
-# SoHoXi Angular Component : DatsGrid
+# SoHoXi Angular Component : DataGrid
 
 ## Description
 
 This component provides access from Angular to the SoHoXi `datagrid` control.
 
-**Work in progress**
+This component searches for an element with the attribute `soho-datagrid` in the parent's DOM tree, initialising it with
+the Soho datagrid control.  The data is provided either by a component input or an implementation
+of the DataGridService interface, by specifying an implementation on the hosting component, i.e.
+
+# Angular Services
+
+| Name | Description |
+| --- | --- |
+| providers | A injectable service (derived from DataGridService) that can provide the rows and columns for the datagrid. |
 
 ### Usage
 
@@ -14,6 +22,11 @@ The 'datagrid' component provides a number of options to control its behaviour, 
 
 | Name | Description |
 | --- | --- |
+| gridOptions | Gets/Sets the grid options for the data grid, marking this components as requiring a full rebuild at the end of the change lifecycle. |
+| idProperty | Defines which property in the data rows is to be used as the id of each row of the data. |
+| cellNavigation | True if cell navigation is enabled; otherwise false if not. |
+| rowNavigation | Changes the row navigation setting of the data grid. If rowNavigation is "false” then a border is not displayed around the row. |
+
 
 Changes to these properties will dynamically update the component.
 

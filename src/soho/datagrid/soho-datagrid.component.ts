@@ -1620,7 +1620,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // Add an adapter for all the columns using an component as an editor.
     this._gridOptions.columns.forEach((c) => {
       if (c.editorComponent) {
-        console.log(`'${c.id}' - using angular column.`);
         c.editor = (row?: any, cell?: any, value?: any, container?: JQuery, col?: SohoDataGridColumn, e?: any, api?: any, item?: any) => {
           return new SohoAngularEditorAdapter(c.editorComponent, { row, cell, value, container: container[0], col, e, api, item });
         };

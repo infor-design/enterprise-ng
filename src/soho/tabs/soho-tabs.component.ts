@@ -399,7 +399,6 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
       const tabTitles = this.getTabTitles($liList);
       for (let i = 0; i < tabTitles.length; i++) {
         if (tabTitles[ i ] !== this.tabTitles[ i ]) {
-          console.log('tabTitles changed: Calling handleResize()');
           this.tabs.handleResize();
           this.tabTitles = tabTitles;
           break;
