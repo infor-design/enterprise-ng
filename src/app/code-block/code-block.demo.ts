@@ -1,7 +1,7 @@
 import {
   Component,
   OnInit,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy, ViewChild
 } from '@angular/core';
 
 import {
@@ -12,7 +12,7 @@ import {
 @Component({
   selector: 'soho-codeblock-demo',
   templateUrl: './code-block.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CodeBlockDemoComponent implements OnInit {
   public showModel = false;
@@ -33,8 +33,7 @@ export class CodeBlockDemoComponent implements OnInit {
   }
 
   toggleLabels() {
-    this.showLabels = !this.showLabels;
-    console.log(this.showLabels);
+    setTimeout(() => this.showLabels = !this.showLabels);
   }
 
 }

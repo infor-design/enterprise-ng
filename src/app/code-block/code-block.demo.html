@@ -8,7 +8,7 @@
       <div lm-code-block>
 
           <div class="field">
-            <label soho-label for="ledger">Ledger</label>
+            <label *ngIf="showLabels" soho-label for="ledger">Ledger</label>
             <input soho-lookup soho-field-options name="ledger" id="ledger" value="CORE" size="4"
               [autoWidth]="true"
               [(ngModel)]="model.ledger"
@@ -34,7 +34,7 @@
           </div>
 
           <div class="field">
-            <label soho-label for="accounting-entity">Accounting Entity</label>
+            <label *ngIf="showLabels" soho-label for="accounting-entity">Accounting Entity</label>
             <input soho-lookup soho-field-options name="accounting-entity" id="accounting-entity" type="text" value="1001" size="4">
             <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click"></button>
             <ul soho-popupmenu>
@@ -44,7 +44,7 @@
           </div>
 
           <div class="field">
-            <label soho-label for="accounting-unit">Accounting Unit</label>
+            <label *ngIf="showLabels" soho-label for="accounting-unit">Accounting Unit</label>
             <input soho-lookup soho-field-options name="accounting-unit" id="accounting-unit" type="text" value="99 CORP" size="6">
             <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click"></button>
             <ul soho-popupmenu>
@@ -54,7 +54,7 @@
           </div>
 
           <div class="field">
-            <label soho-label for="cost-center">Cost Center</label>
+            <label *ngIf="showLabels" soho-label for="cost-center">Cost Center</label>
             <input soho-lookup soho-field-options name="cost-center" id="cost-center" type="text" value="102" size="3">
             <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click"></button>
             <ul soho-popupmenu>
@@ -64,7 +64,7 @@
           </div>
 
           <div class="field">
-            <label soho-label for="department">Department</label>
+            <label *ngIf="showLabels" soho-label for="department">Department</label>
             <input soho-lookup soho-field-options name="department" id="department" type="text" value="102" size="3">
             <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click"></button>
             <ul soho-popupmenu>
