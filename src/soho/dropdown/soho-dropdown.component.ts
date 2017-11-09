@@ -130,6 +130,10 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   @Input()
   public set moveSelected(moveSelected: SohoDropDownMoveSelectedOptions) {
     this.options.moveSelected = moveSelected;
+    if (this.dropdown) {
+      this.dropdown.settings.moveSelected = moveSelected;
+      this.dropdown.updated();
+    }
   }
 
   public get moveSelected(): SohoDropDownMoveSelectedOptions {
