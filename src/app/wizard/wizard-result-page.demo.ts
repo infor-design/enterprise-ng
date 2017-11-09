@@ -14,7 +14,7 @@ import { WizardDemoComponent } from './wizard.demo';
 
 @Component({
   selector: 'demo-result-page',
-  templateUrl: `./wizard-result-page.demo.html`,
+  templateUrl: './wizard-result-page.demo.html',
   styles: [
     `:host {
       display:        flex;
