@@ -46,7 +46,7 @@ interface SohoDropDownOptions {
   moveSelectedToTop?: boolean;
 
   /**
-   * Repl
+   * Controls where selected items are displayed.
    */
   moveSelected?: SohoDropDownMoveSelectedOptions;
 
