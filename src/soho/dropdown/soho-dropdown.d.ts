@@ -41,7 +41,7 @@ interface SohoDropDownOptions {
   /**
    * When the menu is opened, displays all selected options at the top of the list
    *
-   * @deprectaed - use moveSelected.
+   * @deprecated - please use 'moveSelected'.
    */
   moveSelectedToTop?: boolean;
 

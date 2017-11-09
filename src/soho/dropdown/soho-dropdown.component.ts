@@ -140,6 +140,45 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
     return this.options.moveSelected;
   }
 
+  @Input()
+  public set showEmptyGroupHeaders(showEmptyGroupHeaders: boolean) {
+    this.options.showEmptyGroupHeaders = showEmptyGroupHeaders;
+    if (this.dropdown) {
+      this.dropdown.settings.showEmptyGroupHeaders = showEmptyGroupHeaders;
+      this.dropdown.updated();
+    }
+  }
+
+  public get showEmptyGroupHeaders(): boolean {
+    return this.options.showEmptyGroupHeaders;
+  }
+
+  @Input()
+  public set sourceArguments(sourceArguments: any) {
+    this.options.sourceArguments = sourceArguments;
+    if (this.dropdown) {
+      this.dropdown.settings.sourceArguments = sourceArguments;
+      this.dropdown.updated();
+    }
+  }
+
+  public get sourceArguments(): any {
+    return this.options.sourceArguments;
+  }
+
+  @Input()
+  public set reloadSourceOnOpen(reloadSourceOnOpen: boolean) {
+    this.options.reloadSourceOnOpen = reloadSourceOnOpen;
+    if (this.dropdown) {
+      this.dropdown.settings.reloadSourceOnOpen = reloadSourceOnOpen;
+      this.dropdown.updated();
+    }
+  }
+
+  public get reloadSourceOnOpen(): boolean {
+    return this.options.reloadSourceOnOpen;
+  }
+
   /**
    * If set the width of the dropdown is limited to this pixel width.
    * Use 300 for the 300 px size fields. Default is size of the largest data.
