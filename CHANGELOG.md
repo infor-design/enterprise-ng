@@ -1,6 +1,7 @@
 
 ## Whats New
 
+* 2017-11-09 - BTH - Added 'maxWidth' to dropdown (and other missing inputs)
 * 2017-10-24 - BTH - SOHO-6317: Added support for SOHO 'wizard'.
 * 2017-10-18 - BTH - SOHO-5124: File Upload Advanced (`soho-fileupload-advanced`)
 * 2017-10-24 - MAF - SOHO-7041: 4.0 Radiobutton demo does not disable correctly when using ngModel; added forRadioButton in soho-label.directive.

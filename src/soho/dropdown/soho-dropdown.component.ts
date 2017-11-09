@@ -114,14 +114,58 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
 
   /**
    * Flag to move the selected values to the top of the dropdown
+   *
+   * @deprecated use moveSelected
    */
   @Input()
   public set moveSelectedToTop(moveSelectedToTop: boolean) {
+    console.warn(`The input 'moveSelectedToTop' renamed 'moveSelected'.`);
     this.options.moveSelectedToTop = moveSelectedToTop;
   }
 
   public get moveSelectedToTop(): boolean {
     return this.options.moveSelectedToTop;
+  }
+
+  @Input()
+  public set moveSelected(moveSelected: 'group' | 'all' | 'none') {
+    this.options.moveSelected = moveSelected;
+  }
+
+  public get moveSelected(): 'group' | 'all' | 'none' {
+    return this.options.moveSelected;
+  }
+
+  /**
+   * If set the width of the dropdown is limited to this pixel width.
+   * Use 300 for the 300 px size fields. Default is size of the largest data.
+   */
+  @Input()
+  public set maxWidth(maxWidth: number) {
+    this.options.maxWidth = maxWidth;
+    if (this.dropdown) {
+      // @todo this property can not be updated once the control
+      // has been initialised.
+      this.dropdown.settings.maxWidth = maxWidth;
+      this.dropdown.updated();
+    }
+  }
+
+  public get maxWidth(): number {
+    return this.options.maxWidth;
+  }
+
+  @Input()
+  public set filterMode(filterMode: false | 'startsWith' | 'contains') {
+    this.options.filterMode = filterMode;
+    if (this.dropdown) {
+      this.dropdown.settings.filterMode = filterMode;
+      this.dropdown.updated();
+    }
+  }
+
+  public get filterMode(): false | 'startsWith' | 'contains' {
+    return this.options.filterMode;
   }
 
   /**
@@ -136,7 +180,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  public get multiple(): boolean {
+    public get multiple(): boolean {
     return this.options.multiple;
   }
 
