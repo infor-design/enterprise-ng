@@ -250,6 +250,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * If true the columns can be reorders; otherwise if false they are fixed.
    *
    * @param columnReorder
    */
@@ -340,7 +341,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   * Set's the row height for the grid, to be one of the supported options.
+   * Sets the row height for the grid, to be one of the supported options.
    *
    * @param rowHeight - 'normal' | 'medium' | 'short'
    */
@@ -1422,10 +1423,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
     // Create an injector that will provide the arguments for the
     // component.
-    const i = ReflectiveInjector.resolveAndCreate([{ provide: 'args', useValue: args }], this.injector);
+    const injector = ReflectiveInjector.resolveAndCreate([{ provide: 'args', useValue: args }], this.injector);
 
     // Create the component, in the container.
-    const component = factory.create(i, [], container);
+    const component = factory.create(injector, [], container);
 
     // Copy into it any column level Inputs, these are optional but allow
     // column specific overrides to be defined.
@@ -1435,7 +1436,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this.app.attachView(component.hostView);
 
     // ... update for changes ...
-    component.changeDetectorRef.detectChanges();
+    // component.changeDetectorRef.detectChanges();
+    //
+    // Do this at the end?
 
     // ... finally store the created component for later, we'll delete it when
     // requested, or when the grid is destroyed.
