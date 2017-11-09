@@ -26,6 +26,15 @@ The 'datagrid' component provides a number of options to control its behaviour, 
 | idProperty | Defines which property in the data rows is to be used as the id of each row of the data. |
 | cellNavigation | True if cell navigation is enabled; otherwise false if not. |
 | rowNavigation | Changes the row navigation setting of the data grid. If rowNavigation is "false” then a border is not displayed around the row. |
+| alternateRowShading | If true, turns on alternate row shading otherwise no shading is applied if false. |
+| dataset | The data to be displayed provided as an array of json objects compatible with the column meta data provided. |
+| columnReorder | If true the columns can be reorders; otherwise if false they are fixed. |
+| editable | If true allows editing of cells in the data grid, otherwise if false editing is disabled. |
+| isList | If true, displays the grid like a list. |
+| menuId | TBC |
+| rowHeight | Sets the row height in the data grid to be 'normal', 'medium' or 'short'. |
+| selectable | If true selection can be used, other if false selection is disabled. |
+
 
 
 Changes to these properties will dynamically update the component.
