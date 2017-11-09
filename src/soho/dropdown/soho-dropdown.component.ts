@@ -119,7 +119,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
    */
   @Input()
   public set moveSelectedToTop(moveSelectedToTop: boolean) {
-    console.warn(`The input 'moveSelectedToTop' renamed 'moveSelected'.`);
+    console.warn(`'moveSelectedToTop' has been deprecated, please use 'moveSelected'.`);
     this.options.moveSelectedToTop = moveSelectedToTop;
   }
 
@@ -128,11 +128,11 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   }
 
   @Input()
-  public set moveSelected(moveSelected: 'group' | 'all' | 'none') {
+  public set moveSelected(moveSelected: SohoDropDownMoveSelectedOptions) {
     this.options.moveSelected = moveSelected;
   }
 
-  public get moveSelected(): 'group' | 'all' | 'none' {
+  public get moveSelected(): SohoDropDownMoveSelectedOptions {
     return this.options.moveSelected;
   }
 
@@ -156,7 +156,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   }
 
   @Input()
-  public set filterMode(filterMode: false | 'startsWith' | 'contains') {
+  public set filterMode(filterMode: SohoDropDownFilterModeOptions) {
     this.options.filterMode = filterMode;
     if (this.dropdown) {
       this.dropdown.settings.filterMode = filterMode;
@@ -164,7 +164,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  public get filterMode(): false | 'startsWith' | 'contains' {
+  public get filterMode(): SohoDropDownFilterModeOptions {
     return this.options.filterMode;
   }
 
@@ -180,7 +180,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-    public get multiple(): boolean {
+  public get multiple(): boolean {
     return this.options.multiple;
   }
 

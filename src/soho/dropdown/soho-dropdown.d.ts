@@ -5,6 +5,10 @@
  * interface of the Soho dropdown control.
  */
 
+ type SohoDropDownMoveSelectedOptions = 'group' | 'all' | 'none';
+
+ type SohoDropDownFilterModeOptions = false | 'startsWith' | 'contains';
+
 /**
  * Drop Down Options
  */
@@ -22,7 +26,7 @@ interface SohoDropDownOptions {
   /**
    * Search mode to use between 'startsWith' and 'contains', false will not allow client side filter
    */
-  filterMode?: false | 'startsWith' | 'contains';
+  filterMode?: SohoDropDownFilterModeOptions;
 
   /**
    * If true, displays <optgroup> headers in the list even if no selectable options are present underneath.
@@ -44,7 +48,7 @@ interface SohoDropDownOptions {
   /**
    * Repl
    */
-  moveSelected?: 'group' | 'all' | 'none';
+  moveSelected?: SohoDropDownMoveSelectedOptions;
 
   /**
    * If true, turns the dropdown into a multiple selection box; otherwise
