@@ -14,10 +14,10 @@ import {
 
 @Component({
   selector: 'soho-codeblock-demo',
-  templateUrl: './code-block.demo.html',
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './code-block.demo.html'
 })
 export class CodeBlockDemoComponent implements OnInit {
+
   public showModel = false;
   public showLabels = true;
 
@@ -37,10 +37,6 @@ export class CodeBlockDemoComponent implements OnInit {
 
   constructor() { }
   ngOnInit() { }
-
-  onUpdated(event: any) {
-    console.log('onUpdated');
-  }
 
   toggleLabels() {
     setTimeout(() => this.showLabels = !this.showLabels);

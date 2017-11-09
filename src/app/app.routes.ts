@@ -18,6 +18,7 @@ import { ContextualActionPanelDemoComponent } from './contextual-action-panel/co
 import { DataGridAngularEditorDemoComponent } from './datagrid/datagrid-angular-editor.demo';
 import { DataGridAngularFormatterDemoComponent } from './datagrid/datagrid-angular-formatter.demo';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
+import { DataGridCodeBlockFormatterDemoComponent } from './datagrid/datagrid-code-block-formatter.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
@@ -141,6 +142,7 @@ export const routes: Routes = [
   { path: 'datagrid-treegrid',                 component: DataGridTreeGridDemoComponent },
   { path: 'datagrid-angular-editor',           component: DataGridAngularEditorDemoComponent },
   { path: 'datagrid-angular-formatter',        component: DataGridAngularFormatterDemoComponent },
+  { path: 'datagrid-code-block-formatter',     component: DataGridCodeBlockFormatterDemoComponent },
   { path: 'datagrid-custom-formatter',         component: DataGridCustomFormatterDemoComponent },
   { path: 'datagrid-custom-formatter-service', component: DataGridCustomFormatterServiceDemoComponent },
   { path: 'datagrid-standard-formatter',       component: DataGridStandardFormatterDemoComponent },

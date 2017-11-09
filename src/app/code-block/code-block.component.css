@@ -127,3 +127,22 @@
   left: -15px;
   margin-right: -22px;
 }
+
+/* Grid Formatter Adjustments */
+.datagrid :host .code-block {
+  border: none;
+  padding: 0;
+  margin-left: -13px;
+}
+
+.datagrid :host ::ng-deep .field {
+  margin-bottom: 0px;
+}
+
+.datagrid :host ::ng-deep .field::after {
+  top: -1px;
+}
+
+.datagrid :host ::ng-deep .code-block-buttons {
+  display: none;
+}
