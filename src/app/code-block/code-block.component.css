@@ -10,6 +10,15 @@
   width: calc(100% - 58px);
 }
 
+/* Show Labels Functionality */
+:host(.hide-labels) ::ng-deep label {
+  display: none;
+}
+
+:host(.hide-labels) ::ng-deep .field-options {
+  margin-right: 15px;
+}
+
 /* Right Buttons */
 :host ::ng-deep .code-block-container > button {
   display: inline-block;
@@ -56,7 +65,7 @@
   margin-right: -14px;
 }
 
-:host ::ng-deep .field:not(:last-of-type)::after {
+:host ::ng-deep .field:not(:last-of-type):not(.is-active)::after {
   content: '•';
   position: absolute;
   font-size: 18px;
@@ -126,6 +135,18 @@
   visibility: hidden;
   left: -15px;
   margin-right: -22px;
+}
+
+/* Readonly Styles */
+:host ::ng-deep .data {
+  padding-left: 3px;
+  padding-right: 41px;
+  font-size: 1.4rem;
+}
+
+:host ::ng-deep .input-style.is-readonly .field::after {
+  right: 20px;
+  top: -3px;
 }
 
 /* Grid Formatter Adjustments */

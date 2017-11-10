@@ -18,9 +18,6 @@ import {
 })
 export class CodeBlockDemoComponent implements OnInit {
 
-  public showModel = false;
-  public showLabels = true;
-
   public model = {
     ledger: 'CORE',
     accountingEntity: '1001',
@@ -37,9 +34,5 @@ export class CodeBlockDemoComponent implements OnInit {
 
   constructor() { }
   ngOnInit() { }
-
-  toggleLabels() {
-    setTimeout(() => this.showLabels = !this.showLabels);
-  }
 
 }

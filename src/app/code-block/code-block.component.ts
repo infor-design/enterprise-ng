@@ -2,13 +2,15 @@ import {
   Component,
   AfterViewInit,
   OnDestroy,
-  ElementRef
+  ElementRef,
+  HostBinding,
+  Input
 } from '@angular/core';
 
 @Component({
   selector: '[lm-code-block]', // tslint:disable-line
   template: `<div class="code-block-container">
-      <div class="code-block input-style">
+      <div class="code-block input-style" [ngClass]="{'is-readonly': isReadOnly }">
         <ng-content></ng-content>
       </div>
       <div class="code-block-buttons">
@@ -39,7 +41,7 @@ import {
           <li soho-popupmenu-separator singleSelectableSection="true"></li>
           <li soho-popupmenu-heading>Options</li>
           <li soho-popupmenu-item
-          (click)="toggleLabels()" [isChecked]="showLabels" isSelectable="true">
+          (click)="toggleLabels()" [isChecked]="!hideLabels" isSelectable="true">
               <a soho-popupmenu-label>Show Labels</a>
           </li>
         </ul>
@@ -48,7 +50,9 @@ import {
   styleUrls: ['./code-block.component.css']
 })
 export class CodeBlockComponent implements AfterViewInit, OnDestroy {
-  public showLabels = true;
+
+  @HostBinding('class.hide-labels') hideLabels = false;
+  isReadOnly = false;
 
   constructor(private elementRef: ElementRef) {
 
@@ -65,7 +69,20 @@ export class CodeBlockComponent implements AfterViewInit, OnDestroy {
   }
 
   toggleLabels() {
-    setTimeout(() => this.showLabels = !this.showLabels);
+    setTimeout(() => this.hideLabels = !this.hideLabels);
+  }
+
+  /**
+   * @param readonly
+   */
+  @Input() set readonly(value: boolean) {
+    this.isReadOnly = value;
+
+    if (value) {
+      this.isReadOnly = true;
+    } else {
+      this.isReadOnly = false;
+    }
   }
 
 }

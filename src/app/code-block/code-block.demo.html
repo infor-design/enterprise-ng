@@ -2,13 +2,11 @@
 
   <div class="twelve columns">
     <div class="field">
-
       <h2 class="fieldset-title">Code Block One</h2>
-
       <div lm-code-block>
 
           <div class="field">
-            <label *ngIf="showLabels" soho-label for="ledger">Ledger</label>
+            <label soho-label for="ledger">Ledger</label>
             <input soho-lookup soho-field-options name="ledger" id="ledger" value="CORE" size="4"
               [autoWidth]="true"
               [(ngModel)]="model.ledger"
@@ -27,14 +25,11 @@
                   <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 2</a></li>
                 </ul>
               </li>
-              <li soho-popupmenu-separator singleSelectableSection="true"></li>
-              <li soho-popupmenu-heading>Options</li>
-              <li soho-popupmenu-item (click)="toggleLabels()" [isChecked]="showLabels" isSelectable="true"><a soho-popupmenu-label>Show Labels</a></li>
             </ul>
           </div>
 
           <div class="field">
-            <label *ngIf="showLabels" soho-label for="accounting-entity">Accounting Entity</label>
+            <label soho-label for="accounting-entity">Accounting Entity</label>
             <input soho-lookup soho-field-options name="accounting-entity" id="accounting-entity" type="text" value="1001" size="4"
               [autoWidth]="true"
               [(ngModel)]="model.accountingEntity"
@@ -53,14 +48,11 @@
                   <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 2</a></li>
                 </ul>
               </li>
-              <li soho-popupmenu-separator singleSelectableSection="true"></li>
-              <li soho-popupmenu-heading>Options</li>
-              <li soho-popupmenu-item (click)="toggleLabels()" [isChecked]="showLabels" isSelectable="true"><a soho-popupmenu-label>Show Labels</a></li>
-            </ul>
+              </ul>
           </div>
 
           <div class="field">
-            <label *ngIf="showLabels" soho-label for="accounting-unit">Accounting Unit</label>
+            <label soho-label for="accounting-unit">Accounting Unit</label>
             <input soho-lookup soho-field-options name="accounting-unit" id="accounting-unit" type="text" value="99 CORP" size="6"
               [autoWidth]="true"
               [(ngModel)]="model.accountingUnit"
@@ -79,14 +71,11 @@
                   <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 2</a></li>
                 </ul>
               </li>
-              <li soho-popupmenu-separator singleSelectableSection="true"></li>
-              <li soho-popupmenu-heading>Options</li>
-              <li soho-popupmenu-item (click)="toggleLabels()" [isChecked]="showLabels" isSelectable="true"><a soho-popupmenu-label>Show Labels</a></li>
             </ul>
           </div>
 
           <div class="field">
-            <label *ngIf="showLabels" soho-label for="cost-center">Cost Center</label>
+            <label soho-label for="cost-center">Cost Center</label>
             <input soho-lookup soho-field-options name="cost-center" id="cost-center" type="text" value="102" size="3"
               [autoWidth]="true"
               [(ngModel)]="model.costCenter"
@@ -105,14 +94,11 @@
                   <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 2</a></li>
                 </ul>
               </li>
-              <li soho-popupmenu-separator singleSelectableSection="true"></li>
-              <li soho-popupmenu-heading>Options</li>
-              <li soho-popupmenu-item (click)="toggleLabels()" [isChecked]="showLabels" isSelectable="true"><a soho-popupmenu-label>Show Labels</a></li>
             </ul>
           </div>
 
           <div class="field">
-            <label *ngIf="showLabels" soho-label for="department">Department</label>
+            <label soho-label for="department">Department</label>
             <input soho-lookup soho-field-options name="department" id="department" type="text" value="102" size="3"
               [autoWidth]="true"
               [(ngModel)]="model.department"
@@ -131,14 +117,44 @@
                   <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 2</a></li>
                 </ul>
               </li>
-              <li soho-popupmenu-separator singleSelectableSection="true"></li>
-              <li soho-popupmenu-heading>Options</li>
-              <li soho-popupmenu-item (click)="toggleLabels()" [isChecked]="showLabels" isSelectable="true"><a soho-popupmenu-label>Show Labels</a></li>
             </ul>
           </div>
 
       </div>
     </div>
+
+    <div class="field">
+      <h2 class="fieldset-title">Code Block Readonly</h2>
+      <div lm-code-block [readonly]="true">
+
+          <div class="field">
+            <label soho-label for="ledger">Ledger</label>
+            <span class="data">CORE</span>
+          </div>
+
+          <div class="field">
+            <label soho-label for="accounting-entity">Accounting Entity</label>
+            <span class="data">1001</span>
+          </div>
+
+          <div class="field">
+            <label soho-label for="accounting-unit">Accounting Unit</label>
+            <span class="data">99 CORP</span>
+          </div>
+
+          <div class="field">
+            <label soho-label for="cost-center">Cost Center</label>
+            <span class="data">102</span>
+          </div>
+
+          <div class="field">
+            <label soho-label for="department">Department</label>
+            <span class="data">102</span>
+          </div>
+
+      </div>
+    </div>
+
   </div>
 
 </div>
