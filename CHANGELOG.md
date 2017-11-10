@@ -78,7 +78,7 @@
 
 ### Breaking Changes
 
-* 2017-11-10 - BTH - PR-XXX - When using angular-cli 1.5, the cli no longer adds source folders in automatically, this affect all projects, especially those expectining to compile code in nod_modules.  There is a workaround, until @infor/sohoxi-angular includes compiled output, by adding the following to `.angular-cli.json`:
+* 2017-11-10 - BTH - PR-XXX - When using `@angular/cli` 1.5, the cli no longer automatically determines the typescript files to compile, and as `@infor/sohoxi-angular` is not distributed as a compiled package the module must be added to the top level  `tsconfig.json` for inclusion in the build.  For example:
 
 ```json
  "include": [
