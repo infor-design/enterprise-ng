@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ViewChild,
   OnDestroy,
@@ -25,23 +26,38 @@ import {
 } from '../code-block/mock.data';
 
 @Component({
-  template: `<div lm-code-block>
-    <div class="field">
-      <label *ngIf="showLabels" soho-label for="ledger">Ledger</label>
-      <input soho-lookup soho-field-options name="ledger" id="ledger" value="CORE" size="6"
-        [autoWidth]="true"
-        [(ngModel)]="model.ledger">
-    </div>
+  template: `<div lm-code-block [readonly]="true">
 
-    <div class="field">
-      <label *ngIf="showLabels" soho-label for="accounting-entity">Accounting Entity</label>
-      <input soho-lookup soho-field-options name="accounting-entity" id="accounting-entity" type="text" value="110{{args?.row}}" size="4"
-        [autoWidth]="true">
-    </div>
+      <div class="field">
+        <label soho-label for="ledger">Ledger</label>
+        <span class="data">{{model.ledger}}</span>
+      </div>
+
+      <div class="field">
+        <label soho-label for="accounting-entity">Accounting Entity</label>
+        <span class="data">100{{args?.row}}</span>
+      </div>
+
+      <div class="field">
+        <label soho-label for="accounting-unit">Accounting Unit</label>
+        <span class="data">99 CORP</span>
+      </div>
+
+      <div class="field">
+        <label soho-label for="cost-center">Cost Center</label>
+        <span class="data">102</span>
+      </div>
+
+      <div class="field">
+        <label soho-label for="department">Department</label>
+        <span class="data">102</span>
+      </div>
+
   </div>`
 })
 export class CodeBlockCellFormatterComponent implements OnDestroy {
   constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {
+
   }
 
   public showModel = false;
@@ -84,7 +100,9 @@ export class DataGridCodeBlockFormatterDemoComponent {
     { id: 'button', name: 'Code Block',
       sortable: false, postRender: true,
       component: CodeBlockCellFormatterComponent,
-      componentInputs: { value: 'somespecialvalue' } }
+      expandOnActivate: true,
+      textOverflow: 'ellipsis'
+    }
   ];
 
   public data = PAGING_DATA;

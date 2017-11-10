@@ -151,6 +151,7 @@
 
 /* Grid Formatter Adjustments */
 .datagrid :host .code-block {
+  background-color: transparent;
   border: none;
   padding: 0;
   margin-left: -13px;

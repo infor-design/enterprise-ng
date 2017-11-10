@@ -134,6 +134,9 @@ interface SohoDataGridOptions {
   /** Can provide a custom function to adjust results text */
   resultsText?: SohoDataGridResultsTextFunction;
 
+  /** If true the toolbar will show n or m in the results, otherwise will show just the total */
+  showResultTotal?: boolean;
+
   /** Prevent Unused rows from being added to the DOM  */
   // virtualized?: boolean;
 
@@ -529,6 +532,12 @@ interface SohoDataGridColumn {
 
   /** Inputs for the Angular component used to edit a cell. */
   editorComponentInputs?: any;
+
+  /** If true the cell can be expanded on focus to show additional / all content. */
+  expandOnActivate?: boolean;
+
+  /** Sets the css text overflow on the cell. Specifically to add 'ellipsis' text */
+  textOverflow?: string;
 }
 
 interface SohoDataGridColumnNumberFormat {
