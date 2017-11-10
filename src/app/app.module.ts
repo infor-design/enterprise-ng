@@ -48,8 +48,7 @@ import {
   ButtonCellFormatterComponent
 } from './datagrid/datagrid-angular-formatter.demo';
 import {
-  DataGridCodeBlockFormatterDemoComponent,
-  CodeBlockCellFormatterComponent
+  DataGridCodeBlockFormatterDemoComponent
 } from './datagrid/datagrid-code-block-formatter.demo';
 import {
   DataGridCustomFormatterDemoComponent,
@@ -182,7 +181,6 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     DataGridAngularEditorDemoComponent,
     DataGridAngularFormatterDemoComponent,
     DataGridCodeBlockFormatterDemoComponent,
-    CodeBlockCellFormatterComponent,
     DataGridCustomFormatterDemoComponent,
     DataGridCustomFormatterServiceDemoComponent,
     DemoCellDatePickerEditorComponent,

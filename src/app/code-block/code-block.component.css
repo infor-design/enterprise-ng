@@ -148,23 +148,3 @@
   right: 20px;
   top: -3px;
 }
-
-/* Grid Formatter Adjustments */
-.datagrid :host .code-block {
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  margin-left: -13px;
-}
-
-.datagrid :host ::ng-deep .field {
-  margin-bottom: 0px;
-}
-
-.datagrid :host ::ng-deep .field::after {
-  top: -1px;
-}
-
-.datagrid :host ::ng-deep .code-block-buttons {
-  display: none;
-}
