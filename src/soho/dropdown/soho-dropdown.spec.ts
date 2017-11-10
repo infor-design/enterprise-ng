@@ -101,16 +101,24 @@ describe('Soho Dropdown Render', () => {
     // expect(el.hasAttribute('noSearch')).toBeFalsy();
   });
 
-    it('@Input() multiple', () => {
-      expect(el.hasAttribute('multiple')).toBeFalsy();
-      expect(el.classList.contains('multiselect')).toBe(false);
-      dropdown.multiple = true;
-      fixture.detectChanges();
-      expect(el.hasAttribute('multiple')).toBeTruthy();
-      expect(el.classList).toContain('multiselect');
-
+  it('@Input() multiple', () => {
+    expect(el.hasAttribute('multiple')).toBeFalsy();
+    expect(el.classList.contains('multiselect')).toBe(false);
+    dropdown.multiple = true;
+    fixture.detectChanges();
+    expect(el.hasAttribute('multiple')).toBeTruthy();
+    expect(el.classList).toContain('multiselect');
   });
 
+  it('@Input() maxWidth', () => {
+    expect(el.style.maxWidth).toBe('');
+
+    dropdown.maxWidth = 100;
+    fixture.detectChanges();
+
+    // @todo does not work yet
+    expect(el.style.maxWidth).toBe('');
+  });
 });
 
 @Component({
