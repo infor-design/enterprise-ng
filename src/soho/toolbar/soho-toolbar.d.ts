@@ -40,6 +40,10 @@ interface SohoToolbarOptions {
    */
   favorButtonset?: boolean;
 
+  /**
+   * 
+   */
+  noSearchfieldReinvoke?: boolean;
 }
 
 /**

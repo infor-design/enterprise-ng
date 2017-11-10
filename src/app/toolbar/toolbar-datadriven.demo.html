@@ -32,7 +32,7 @@
         <!-- search field -->
         <!--TODO: need a search field component to override behaviour - theo, phillip -->
         <label *ngIf="searchField" class="audible" attr.for="{{searchField.id}}">{{searchField.label}}</label>
-        <input *ngIf="searchField" class="searchfield" id="{{searchField.id}}" placeholder="{{searchField.label}}" name="{{searchField.label}}"/>
+        <input soho-toolbar-searchfield *ngIf="searchField" class="searchfield" id="{{searchField.id}}" placeholder="{{searchField.label}}" name="{{searchField.label}}"/>
 
         <!-- buttons -->
         <ng-template ngFor let-button [ngForOf]="buttons">
