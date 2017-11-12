@@ -1436,8 +1436,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this.app.attachView(component.hostView);
 
     // ... update for changes ...
-    // component.changeDetectorRef.detectChanges();
-    //
+    component.changeDetectorRef.detectChanges();
+
     // Do this at the end?
 
     // ... finally store the created component for later, we'll delete it when
