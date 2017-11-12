@@ -18,6 +18,9 @@ import {
   PAGING_DATA
 } from './datagrid-paging-data';
 import {
+  CODE_BLOCK_DATA
+} from '../demodata/code-block-data';
+import {
   columns,
   ledgerData,
   accountingData,
@@ -25,87 +28,50 @@ import {
   costCenterData
 } from '../code-block/mock.data';
 
-@Component({
-  template: `<div lm-code-block [readonly]="true">
+export const CodeBlockFormatter = (row, cell, value, col, rowData, api): string => {
+  console.log(rowData);
 
-      <div class="field">
-        <label soho-label for="ledger">Ledger</label>
-        <span class="data">{{model.ledger}}</span>
-      </div>
+  /* tslint:disable */
+  return `
+    <span class="code-block">
 
-      <div class="field">
-        <label soho-label for="accounting-entity">Accounting Entity</label>
-        <span class="data">100{{args?.row}}</span>
-      </div>
+        <label for="ledger" soho-label="" class="label">Ledger</label>
+        <span class="data">CORE</span>
 
-      <div class="field">
-        <label soho-label for="accounting-unit">Accounting Unit</label>
+        <label for="accounting-entity" soho-label="" class="label">Accounting Entity</label>
+        <span class="data">1001</span>
+
+        <label for="accounting-unit" soho-label="" class="label">Accounting Unit</label>
         <span class="data">99 CORP</span>
-      </div>
 
-      <div class="field">
-        <label soho-label for="cost-center">Cost Center</label>
+        <label for="cost-center" soho-label="" class="label">Cost Center</label>
         <span class="data">102</span>
-      </div>
 
-      <div class="field">
-        <label soho-label for="department">Department</label>
+        <label for="department" soho-label="" class="label">Department</label>
         <span class="data">102</span>
-      </div>
 
-  </div>`
-})
-export class CodeBlockCellFormatterComponent implements OnDestroy {
-  constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {
-
-  }
-
-  public showModel = false;
-  public showLabels = true;
-
-  public model = {
-    ledger: 'CORE',
-    accountingEntity: '1001',
-    accountingUnit: '99 CORP',
-    costCenter: '102',
-    department: '102'
-  };
-
-  public columns = columns;
-  public ledgerData = ledgerData;
-  public accountingData = accountingData;
-  public departmentData = departmentData;
-  public costCenterData = costCenterData;
-
-  toggleLabels() {
-    setTimeout(() => this.showLabels = !this.showLabels);
-  }
-
-  ngOnDestroy() {
-  }
-}
+  </span>`;
+  /* tslint:enable */
+};
 
 @Component({
   selector: 'soho-datagrid-code-block-formatter-demo',
   templateUrl: './datagrid-code-block-formatter.demo.html',
-  entryComponents: [SohoButtonComponent, CodeBlockComponent, CodeBlockCellFormatterComponent],
+  styleUrls: ['../code-block/code-block.formatter.css']
 })
 export class DataGridCodeBlockFormatterDemoComponent {
   public columns: SohoDataGridColumn[] = [
-    { id: 'productId', name: 'Company', field: 'productId'},
-    { id: 'productId', name: 'Name', field: 'productId'},
-    { id: 'button-formatter', name: 'Code Block', text: 'Edit Row',
-      sortable: false, icon: 'edit', align: 'center',
-      formatter: Formatters.Button, click: (e, args) => this.onClick(args) },
-    { id: 'button', name: 'Code Block',
+    { id: 'companyId', name: 'Company', field: 'companyId', width: 200},
+    { id: 'companyName', name: 'Name', field: 'companyName', width: 200},
+    { id: 'codeBlock', name: 'Code Block',
       sortable: false, postRender: true,
-      component: CodeBlockCellFormatterComponent,
+      formatter: CodeBlockFormatter,
       expandOnActivate: true,
       textOverflow: 'ellipsis'
     }
   ];
 
-  public data = PAGING_DATA;
+  public data = CODE_BLOCK_DATA;
 
   constructor() {}
 
