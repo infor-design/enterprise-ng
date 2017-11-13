@@ -34,6 +34,17 @@ import { SohoSliderComponent } from './soho-slider.component';
 //   });
 // });
 
+@Component ({
+  template: `
+    <input soho-slider id="slider-regular" name="slider-regular"
+    min="0" max="100" type="range" value="40"/>
+    `
+})
+
+class SohoSliderTestComponent {
+  @ViewChild(SohoSliderComponent) slider: SohoSliderComponent;
+}
+
 describe ('Soho Slider Render', () => {
   let slider:   SohoSliderComponent;
   let comp:     SohoSliderTestComponent;
@@ -93,14 +104,3 @@ describe ('Soho Slider Render', () => {
     expect(el.getAttribute('value')).toEqual('60');
   });
 });
-
-@Component ({
-  template: `
-    <input soho-slider id="slider-regular" name="slider-regular"
-    min="0" max="100" type="range" value="40"/>
-    `
-})
-
-class SohoSliderTestComponent {
-  @ViewChild(SohoSliderComponent) slider: SohoSliderComponent;
-}

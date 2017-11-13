@@ -37,6 +37,12 @@ describe('Soho File upload Unit Tests', () => {
   // Add more method tests.
 });
 
+class SohoFileUploadTestComponent {
+  @ViewChild(SohoFileUploadComponent) fileupload: SohoFileUploadComponent;
+  public name = 'File';
+  public text = 'File Upload';
+}
+
 describe('Soho File upload Render', () => {
   let fileupload:  SohoFileUploadComponent;
   let component:   SohoFileUploadTestComponent;
@@ -90,8 +96,3 @@ describe('Soho File upload Render', () => {
   <label [for]="name">{{text}}</label>
   <soho-fileupload [name]="name"></soho-fileupload>`
 })
-class SohoFileUploadTestComponent {
-  @ViewChild(SohoFileUploadComponent) fileupload: SohoFileUploadComponent;
-  public name = 'File';
-  public text = 'File Upload';
-}

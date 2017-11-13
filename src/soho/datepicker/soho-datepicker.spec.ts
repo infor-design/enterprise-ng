@@ -2,7 +2,29 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Component, DebugElement, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { SohoDatePickerModule, SohoDatePickerComponent } from 'soho/datepicker';
+import { SohoDatePickerModule, SohoDatePickerComponent } from './index';
+
+@Component({
+  template: `
+    <input soho-datepicker
+      name="statechange"
+      dateFormat="MM/dd/yyyy"
+      mode="standard"
+      placeholder="MM/dd/yyyy"
+      [(ngModel)]="model"
+      (change)="onChange($event)"/>
+`
+})
+class TestDatePickerComponent {
+  @ViewChild(SohoDatePickerComponent) datepicker: SohoDatePickerComponent;
+
+  @Output() changed = new EventEmitter<SohoDatePickerEvent>();
+
+  public model: string;
+  onChange(value) {
+    this.changed.emit(value);
+  }
+}
 
 describe('Soho Datepicker Unit Tests', () => {
   let comp:     TestDatePickerComponent;
@@ -43,25 +65,3 @@ describe('Soho Datepicker Unit Tests', () => {
     });
   }));
 });
-
-@Component({
-  template: `
-    <input soho-datepicker
-      name="statechange"
-      dateFormat="MM/dd/yyyy"
-      mode="standard"
-      placeholder="MM/dd/yyyy"
-      [(ngModel)]="model"
-      (change)="onChange($event)"/>
-`
-})
-class TestDatePickerComponent {
-  @ViewChild(SohoDatePickerComponent) datepicker: SohoDatePickerComponent;
-
-  @Output() changed = new EventEmitter<SohoDatePickerEvent>();
-
-  public model: string;
-  onChange(value) {
-    this.changed.emit(value);
-  }
-}

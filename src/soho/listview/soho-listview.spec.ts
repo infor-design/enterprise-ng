@@ -14,6 +14,35 @@ import {
   SohoListViewSubHeaderComponent
 } from './soho-listview.component';
 
+@Component({
+  template: `<soho-listview [searchable]="false" selectable="single">
+                 <li soho-listview-item *ngFor="let item of listItems" [disabled]="item.disabled" [selected]="item.selected">
+                  <p soho-listview-header>Task #{{item.task}}</p>
+                  <p soho-listview-subheader>{{item.desc}}</p>
+                  <p soho-listview-micro>DUE: {{item.date}}</p>
+                </li>
+              </soho-listview>
+            `
+})
+class SohoListViewTestComponent {
+  @ViewChild(SohoListViewComponent) listview: SohoListViewComponent;
+  selectedTasks = [0, 1];
+
+  public listItems = [
+    { task: '063001', error: true, date: '10/11/2015', desc: 'Special fields test - New item has been created.' },
+    { task: '063002', date: '10/11/2015', desc: 'Part #4212132 has low inventory level', disabled: true },
+    { task: '063003', date: '10/07/2015', desc: 'Check #112412 parts ordering.', selected: true },
+    { task: '063004', date: '10/07/2015', desc: 'Special fields test - New item has been created.' },
+    { task: '063005', date: '10/11/2015', desc: 'Call XYZ Inc at 5 PM' },
+    { task: '063006', error: true, date: '10/11/2015', desc: 'Part #4212132 has low inventory level' },
+    { task: '063007', date: '07/11/2015', desc: 'Special fields test - New item has been created.' },
+    { task: '063008', date: '10/11/2015', desc: 'Part #5212132 has low inventory level' },
+    { task: '063009', date: '10/07/2015', desc: 'Check #212412 parts ordering.' },
+    { task: '063010', date: '10/11/2015', desc: 'Special fields test - New item has been created.' },
+    { task: '063011', date: '10/11/2015', desc: 'Call TMZ Inc at 5 PM' },
+    { task: '063012', date: '07/08/2015', desc: 'Part #6212132 has low inventory level' }];
+}
+
 describe('Soho Listview Unit Tests', () => {
   let comp: SohoListViewComponent;
   let fixture: ComponentFixture<SohoListViewComponent>;
@@ -109,32 +138,3 @@ describe('Soho ListView Render', () => {
   });
 
 });
-
-@Component({
-  template: `<soho-listview [searchable]="false" selectable="single">
-                 <li soho-listview-item *ngFor="let item of listItems" [disabled]="item.disabled" [selected]="item.selected">
-                  <p soho-listview-header>Task #{{item.task}}</p>
-                  <p soho-listview-subheader>{{item.desc}}</p>
-                  <p soho-listview-micro>DUE: {{item.date}}</p>
-                </li>
-              </soho-listview>
-            `
-})
-class SohoListViewTestComponent {
-  @ViewChild(SohoListViewComponent) listview: SohoListViewComponent;
-  selectedTasks = [0, 1];
-
-  public listItems = [
-    { task: '063001', error: true, date: '10/11/2015', desc: 'Special fields test - New item has been created.' },
-    { task: '063002', date: '10/11/2015', desc: 'Part #4212132 has low inventory level', disabled: true },
-    { task: '063003', date: '10/07/2015', desc: 'Check #112412 parts ordering.', selected: true },
-    { task: '063004', date: '10/07/2015', desc: 'Special fields test - New item has been created.' },
-    { task: '063005', date: '10/11/2015', desc: 'Call XYZ Inc at 5 PM' },
-    { task: '063006', error: true, date: '10/11/2015', desc: 'Part #4212132 has low inventory level' },
-    { task: '063007', date: '07/11/2015', desc: 'Special fields test - New item has been created.' },
-    { task: '063008', date: '10/11/2015', desc: 'Part #5212132 has low inventory level' },
-    { task: '063009', date: '10/07/2015', desc: 'Check #212412 parts ordering.' },
-    { task: '063010', date: '10/11/2015', desc: 'Special fields test - New item has been created.' },
-    { task: '063011', date: '10/11/2015', desc: 'Call TMZ Inc at 5 PM' },
-    { task: '063012', date: '07/08/2015', desc: 'Part #6212132 has low inventory level' }];
-}
