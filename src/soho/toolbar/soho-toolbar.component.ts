@@ -273,6 +273,12 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
   }
 
   /**
+   * Whether to display the overflow more-button or not regardless of
+   * overflow content.
+   */
+  @HostBinding('class.no-actions-button') @Input() noActionsButton = false;
+
+  /**
    * Set the has more button component option, this is used
    * to define if the more button is expected to exist in the toolbar logic.
    */

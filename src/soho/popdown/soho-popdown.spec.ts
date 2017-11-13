@@ -3,20 +3,33 @@ import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { SohoPopDownContentsComponent,
-         SohoPopDownModule } from './';
+import {
+  SohoPopDownContentsComponent,
+  SohoPopDownModule
+} from './';
+
+@Component({
+  template: `
+    <button soho-popdown ></button>
+    <soho-popdown-contents>
+      <h1>Filler Heading</h1>
+    </soho-popdown-contents>`
+})
+class SohoPopDownDirectiveTestComponent {
+  @ViewChild(SohoPopDownContentsComponent) contents: SohoPopDownContentsComponent;
+}
 
 describe('Soho PopDown Unit Tests', () => {
-  let comp:            SohoPopDownDirectiveTestComponent;
-  let fixture:         ComponentFixture<SohoPopDownDirectiveTestComponent>;
-  let de:              DebugElement;
-  let element:         HTMLElement;
+  let comp: SohoPopDownDirectiveTestComponent;
+  let fixture: ComponentFixture<SohoPopDownDirectiveTestComponent>;
+  let de: DebugElement;
+  let element: HTMLElement;
   let popdownContents: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoPopDownDirectiveTestComponent ],
-      imports: [ FormsModule, SohoPopDownModule ]
+      declarations: [SohoPopDownDirectiveTestComponent],
+      imports: [FormsModule, SohoPopDownModule]
     });
 
     fixture = TestBed.createComponent(SohoPopDownDirectiveTestComponent);
@@ -42,14 +55,3 @@ describe('Soho PopDown Unit Tests', () => {
     expect(popdownContents.classList).toContain('popdown');
   });
 });
-
-@Component({
-  template: `
-     <button soho-popdown ></button>
-     <soho-popdown-contents>
-        <h1>Filler Heading</h1>
-     </soho-popdown-contents>`
-})
-class SohoPopDownDirectiveTestComponent {
-  @ViewChild(SohoPopDownContentsComponent) contents: SohoPopDownContentsComponent;
-}

@@ -54,6 +54,58 @@ describe('Soho Tree Unit Tests', () => {
   });
 });
 
+@Component({
+  template: `<ul soho-tree [dataset]="dataset"></ul>`
+})
+class SohoTreeTestComponent {
+  @ViewChild(SohoTreeComponent) tree: SohoTreeComponent;
+  _data: any[];
+
+  public get dataset(): any[] {
+    if (!this._data) {
+      /* tslint:disable */
+      this._data = [{
+        'id': 'node1',
+        'text': 'Data One',
+        'open': false,
+        'selected': false,
+        'href': '/somelink/'
+      }, {
+        'id': 'node2',
+        'text': 'Node Two',
+        'open': true,
+        'selected': true,
+        'focus': true,
+        'children': [
+          {
+            'id': 'node3',
+            'text': 'Node 2.1'
+          }, {
+            'id': 'node4',
+            'text': 'Node 2.2',
+            'children': [
+              {
+                'id': 'node5',
+                'text': 'Node 2.2.1',
+                'icon': 'icon-tree-chart',
+                'children': [
+                  {
+                    'id': 'node6',
+                    'text': 'Node 2.2.1.1',
+                    'icon': 'icon-tree-chart'
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+      ];
+    }
+    return this._data;
+  }
+}
+
 describe('Soho Tree Render', () => {
   let tree: SohoTreeComponent;
   let component: SohoTreeTestComponent;
@@ -130,57 +182,3 @@ describe('Soho Tree Render', () => {
     expect(selectedNodes[0].id).toBe('node2');
   });
 });
-
-@Component({
-  template: `<ul soho-tree [dataset]="dataset"></ul>`
-})
-class SohoTreeTestComponent {
-  @ViewChild(SohoTreeComponent) tree: SohoTreeComponent;
-  _data: any[];
-
-  public get dataset(): any[] {
-    if (!this._data) {
-      /* tslint:disable */
-      this._data = [{
-        'id': 'node1',
-        'text': 'Data One',
-        'open': false,
-        'selected': false,
-        'href': '/somelink/'
-      }, {
-        'id': 'node2',
-        'text': 'Node Two',
-        'open': true,
-        'selected': true,
-        'focus': true,
-        'children': [
-          {
-            'id': 'node3',
-            'text': 'Node 2.1'
-          }, {
-            'id': 'node4',
-            'text': 'Node 2.2',
-            'children': [
-              {
-                'id': 'node5',
-                'text': 'Node 2.2.1',
-                'icon': 'icon-tree-chart',
-                'children': [
-                  {
-                    'id': 'node6',
-                    'text': 'Node 2.2.1.1',
-                    'icon': 'icon-tree-chart'
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-      ];
-    }
-    return this._data;
-  }
-
-}
-

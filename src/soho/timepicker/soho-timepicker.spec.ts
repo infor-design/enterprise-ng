@@ -5,6 +5,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SohoTimePickerModule, SohoTimePickerComponent } from 'soho/timepicker';
 import { By } from '@angular/platform-browser';
 
+@Component({
+  template: `
+  <input soho-timepicker timeFormat="h:mm a" mode="standard" [(ngModel)]="model" (change)="onChange($event)"/>
+`
+})
+class TestTimepickerComponent {
+  @ViewChild(SohoTimePickerComponent) timepicker: SohoTimePickerComponent;
+
+  @Output() changed = new EventEmitter<SohoTimePickerEvent>();
+
+  public model = '13:00';
+  onChange(value) {
+    this.changed.emit(value);
+  }
+}
+
 describe('Soho Timepicker Unit Tests', () => {
   let comp:     TestTimepickerComponent;
   let fixture:  ComponentFixture<TestTimepickerComponent>;
@@ -46,19 +62,3 @@ describe('Soho Timepicker Unit Tests', () => {
     });
   }));
 });
-
-@Component({
-  template: `
-  <input soho-timepicker timeFormat="h:mm a" mode="standard" [(ngModel)]="model" (change)="onChange($event)"/>
-`
-})
-class TestTimepickerComponent {
-  @ViewChild(SohoTimePickerComponent) timepicker: SohoTimePickerComponent;
-
-  @Output() changed = new EventEmitter<SohoTimePickerEvent>();
-
-  public model = '13:00';
-  onChange(value) {
-    this.changed.emit(value);
-  }
-}
