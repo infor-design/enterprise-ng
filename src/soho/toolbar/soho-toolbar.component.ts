@@ -96,10 +96,6 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
   ) {}
 
   ngAfterViewInit() {
-    // ------------------------------------------------------------------------
-    // Use setTimeOut so that the search field control isn't initialized
-    // with the toolbarsearchfield inputs until after the toolbar is created.
-    // ------------------------------------------------------------------------
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.toolbarsearchfield(this.options);
 
