@@ -2,6 +2,11 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Component, DebugElement, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// https://github.com/ReactiveX/rxjs/issues/2984
+// tslint:disable-next-line:import-blacklist
+import 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
+
 import { SohoDatePickerModule, SohoDatePickerComponent } from './index';
 
 @Component({
