@@ -37,6 +37,11 @@ describe('Soho File upload Unit Tests', () => {
   // Add more method tests.
 });
 
+@Component({
+  template: `
+  <label [for]="name">{{text}}</label>
+  <soho-fileupload [name]="name"></soho-fileupload>`
+})
 class SohoFileUploadTestComponent {
   @ViewChild(SohoFileUploadComponent) fileupload: SohoFileUploadComponent;
   public name = 'File';
@@ -90,9 +95,3 @@ describe('Soho File upload Render', () => {
   });
 
 });
-
-@Component({
-  template: `
-  <label [for]="name">{{text}}</label>
-  <soho-fileupload [name]="name"></soho-fileupload>`
-})
