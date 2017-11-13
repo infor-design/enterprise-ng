@@ -54,8 +54,14 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
   }
 
   onSelected(event: SohoToolbarSelectedEvent) {
-    const data = event.item[0].dataset.action;
-    alert(data);
+    return;
+
+/*    const data = event.item[0].dataset.action;
+    $('body').toast({
+      title: 'Selected',
+      message : '' + data
+    });
+    */
   }
 
   private buildToolbarButtonArray(): Array<ToolbarButton> {
