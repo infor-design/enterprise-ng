@@ -43,6 +43,35 @@ describe('Soho Wizard Unit Tests', () => {
   });
 });
 
+@Component({
+  template: `
+  <div soho-wizard>
+    <div soho-wizard-header>
+      <a soho-wizard-tick tickId="one" current="true">One</a>
+      <a soho-wizard-tick tickId="two">Two</a>
+      <a soho-wizard-tick tickId="three">Three</a>
+    </div>
+  <div soho-wizard-pages>
+    <div soho-wizard-page tickId="one"></div>
+    <div soho-wizard-page tickId="two"></div>
+    <div soho-wizard-page tickId="three"></div>
+  </div>
+  <div soho-wizard-buttonbar></div>
+</div>`
+})
+class SohoWizardTestComponent {
+  @ViewChild(SohoWizardComponent) wizard: SohoWizardComponent;
+
+  public ticks: SohoWizardTick[] = [
+    { label: 'One', href: 'one', state: 'current'},
+    { label: 'Two', href: 'two'},
+    { label: 'Three', href: 'three'},
+    { label: 'Four', href: 'four'},
+    { label: 'Five', href: 'five'},
+    { label: 'Six', href: 'six'}
+  ];
+}
+
 describe('Soho Wizard Render', () => {
   let wizard: SohoWizardComponent;
   let component: SohoWizardTestComponent;
@@ -134,33 +163,3 @@ describe('Soho Wizard Render', () => {
   });
 
 });
-
-@Component({
-  template: `
-  <div soho-wizard>
-    <div soho-wizard-header>
-      <a soho-wizard-tick tickId="one" current="true">One</a>
-      <a soho-wizard-tick tickId="two">Two</a>
-      <a soho-wizard-tick tickId="three">Three</a>
-    </div>
-  <div soho-wizard-pages>
-    <div soho-wizard-page tickId="one"></div>
-    <div soho-wizard-page tickId="two"></div>
-    <div soho-wizard-page tickId="three"></div>
-  </div>
-  <div soho-wizard-buttonbar></div>
-</div>`
-})
-class SohoWizardTestComponent {
-  @ViewChild(SohoWizardComponent) wizard: SohoWizardComponent;
-
-  public ticks: SohoWizardTick[] = [
-    { label: 'One', href: 'one', state: 'current'},
-    { label: 'Two', href: 'two'},
-    { label: 'Three', href: 'three'},
-    { label: 'Four', href: 'four'},
-    { label: 'Five', href: 'five'},
-    { label: 'Six', href: 'six'}
-  ];
-
-}

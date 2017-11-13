@@ -6,6 +6,13 @@ import { FormsModule } from '@angular/forms';
 import { SohoFileUploadAdvancedModule } from './soho-fileupload-advanced.module';
 import { SohoFileUploadAdvancedComponent } from './soho-fileupload-advanced.component';
 
+@Component({
+  template: `<div soho-fileupload-advanced></div>`
+})
+class SohoFileUploadAdvancedTestComponent {
+  @ViewChild(SohoFileUploadAdvancedComponent) fileuploadadvanced: SohoFileUploadAdvancedComponent;
+}
+
 describe('Soho File Upload Advanced Render', () => {
   let fileuploadadvanced:  SohoFileUploadAdvancedComponent;
   let component:           SohoFileUploadAdvancedTestComponent;
@@ -38,10 +45,3 @@ describe('Soho File Upload Advanced Render', () => {
     fixture.detectChanges();
   });
 });
-
-@Component({
-  template: `<div soho-fileupload-advanced></div>`
-})
-class SohoFileUploadAdvancedTestComponent {
-  @ViewChild(SohoFileUploadAdvancedComponent) fileuploadadvanced: SohoFileUploadAdvancedComponent;
-}

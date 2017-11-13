@@ -6,6 +6,16 @@ import { FormsModule } from '@angular/forms';
 import { SohoSpinboxModule } from './soho-spinbox.module';
 import { SohoSpinboxComponent } from './soho-spinbox.component';
 
+@Component ({
+  template: `
+    <input soho-spinbox id="id-spin" name="stepped-spinbox" min="-99" max="99" value="0" step="3"/>
+    `
+})
+
+class SohoSpinboxTestComponent {
+  @ViewChild(SohoSpinboxComponent) spinbox: SohoSpinboxComponent;
+}
+
 describe ('Soho Spinbox Unit tests', () => {
   let spinbox:   SohoSpinboxComponent;
   let comp:     SohoSpinboxTestComponent;
@@ -59,13 +69,3 @@ describe ('Soho Spinbox Unit tests', () => {
   });
 
 });
-
-@Component ({
-  template: `
-    <input soho-spinbox id="id-spin" name="stepped-spinbox" min="-99" max="99" value="0" step="3"/>
-    `
-})
-
-class SohoSpinboxTestComponent {
-  @ViewChild(SohoSpinboxComponent) spinbox: SohoSpinboxComponent;
-}

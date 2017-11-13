@@ -6,6 +6,28 @@ import { FormsModule } from '@angular/forms';
 import { SohoDropDownModule } from './soho-dropdown.module';
 import { SohoDropDownComponent } from './soho-dropdown.component';
 
+@Component({
+  template: `
+  <select soho-dropdown noSearch  [closeOnSelect]="true" [(ngModel)]="selectedOption">
+    <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
+  </select>`
+})
+class SohoDropDownTestComponent {
+  @ViewChild(SohoDropDownComponent) dropdown: SohoDropDownComponent;
+  selectedOption = 'ND';
+  public options = [
+      { value: 'AK', label: 'Alaska' },
+      { value: 'AZ', label: 'Arizona' },
+      { value: 'CA', label: 'California' },
+      { value: 'CO', label: 'Colorado' },
+      { value: 'MN', label: 'Minnesota' },
+      { value: 'ND', label: 'North Dakota' },
+      { value: 'OR', label: 'Oregon' },
+      { value: 'WA', label: 'Washington' },
+      { value: 'WY', label: 'Wyoming' }
+    ];
+}
+
 describe('Soho Dropdown Unit Tests', () => {
   let comp:     SohoDropDownComponent;
   let fixture:  ComponentFixture<SohoDropDownComponent>;
@@ -120,25 +142,3 @@ describe('Soho Dropdown Render', () => {
     expect(el.style.maxWidth).toBe('');
   });
 });
-
-@Component({
-  template: `
-  <select soho-dropdown noSearch  [closeOnSelect]="true" [(ngModel)]="selectedOption">
-    <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
-  </select>`
-})
-class SohoDropDownTestComponent {
-  @ViewChild(SohoDropDownComponent) dropdown: SohoDropDownComponent;
-  selectedOption = 'ND';
-  public options = [
-      { value: 'AK', label: 'Alaska' },
-      { value: 'AZ', label: 'Arizona' },
-      { value: 'CA', label: 'California' },
-      { value: 'CO', label: 'Colorado' },
-      { value: 'MN', label: 'Minnesota' },
-      { value: 'ND', label: 'North Dakota' },
-      { value: 'OR', label: 'Oregon' },
-      { value: 'WA', label: 'Washington' },
-      { value: 'WY', label: 'Wyoming' }
-    ];
-}
