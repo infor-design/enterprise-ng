@@ -11,17 +11,14 @@ run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **@angular/cli** to create, build and run the application.  
 
-At the time of writing the version of **@angular/cli** used was 1.4.5.
-
-In addition, **gulp** is used to perform additional build and deployment steps required to get the application built.
+At the time of writing the version of **@angular/cli** used was 1.5.0 with **angular** 5.0.1.
 
 ## Step 0 : Install Pre-Prerequisites
 
 From a command prompt, run:
 
 ```
-npm install -g @angular/cli@latest
-npm install -g gulp@latest
+npm install -g @angular/cli@1.5.0
 ```
 
 ## Step 1 : Create and Configure the Project
@@ -52,9 +49,8 @@ In a terminal window, in the project folder:
 1. Type `npm install jquery@3.1.1 -S`
 2. Type `npm install @infor/sohoxi@4.3.3-rc -S`
 3. Type `npm install @infor/sohoxi-angular@4.3.3-rc -S`
-4. Type `npm install gulp -D` ???????
-5. Type `npm install @types/jquery@2.0.46", -D`
-6. Type `npm install merge-stream -D`
+4. Type `npm install @types/jquery@2.0.46", -D`
+5. Type `npm install merge-stream -D`
 
 This includes all the packages we need to create this simple quick start application.
 
@@ -71,6 +67,14 @@ Edit `.angular-cli.json`, change the `scripts` as follows:
 "../node_modules/@infor/sohoxi/dist/js/d3.js"
 ],
 ```
+Also, add `"node_modules/@infor/sohoxi-angular/index.ts"` to the include property, as follows:
+
+```json
+"include": [
+  "src/**/*",
+  "node_modules/@infor/sohoxi-angular/index.ts"
+]
+```
 ## Step 4 : Configure TypeScript:
 
 Edit `src/tsconfig.app.json`, update/add the `types` property:
@@ -82,15 +86,14 @@ Edit `src/tsconfig.app.json`, update/add the `types` property:
 ]
 ```
 ## Step 5 : SoHoXI Assets
-@angular/cli is  able to copy assets from dependencies in node_modules, hence the older gulp copy is not needed but we have it here for the publish task (TODO: could later make this an npm / node script).
+**@angular/cli** needs to copy assets from node_modules into the compiled output.
 
-To configure this edit `.angular-cli.json` assets section.
+To configure this edit the `.angular-cli.json` assets section.
 ```
   "assets": [
     { "glob": "**/*", "input": "../node_modules/@infor/sohoxi/dist/css", "output": "./assets/sohoxi/css" }
   ],
 ```
-
 The link in the following to the `src/index.html` file would be the output folder..
 ```
 <head>

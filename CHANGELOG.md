@@ -1,6 +1,7 @@
 
 ## Whats New
 
+* 2017-11-10 - BTH - PR-503 - Upgraded to angular-cli 1.5 and angular 5.
 * 2017-11-09 - BTH - Added 'maxWidth', 'filterMode', 'moveSelected', 'showEmptyGroupHeaders', 'sourceArguments' and 'reloadSourceOnOpen' to `soho-dropdown`.
 * 2017-10-24 - BTH - SOHO-6317: Added support for SOHO 'wizard'.
 * 2017-10-18 - BTH - SOHO-5124: File Upload Advanced (`soho-fileupload-advanced`)
@@ -76,6 +77,15 @@
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2017-11-10 - BTH - PR-XXX - When using `@angular/cli` 1.5, the cli no longer automatically determines the typescript files to compile, and as `@infor/sohoxi-angular` is not distributed as a compiled package the module must be added to the top level  `tsconfig.json` for inclusion in the build.  For example:
+
+```json
+ "include": [
+  "src/**/*",
+  "node_modules/@infor/sohoxi-angular/index.ts"
+ ]
+```
 
 * 2017-10-06 - PWP - PR-471 - Changed 2 soho-datagrid.component functions to match changes made to datagrid.js in sohoxi/PR-2049: selectedRows() now returns selected row. selectRows() selects rows.
 

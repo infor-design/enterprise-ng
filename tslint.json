@@ -6,16 +6,17 @@
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,
-     "comment-format": [
-       true,
-       "check-space"
-     ],
-     "curly": true,
-     "eofline": true,
-     "forin": true,
-     "import-blacklist": [
-       true,
-       "rxjs"
+    "comment-format": [
+      true,
+      "check-space"
+    ],
+    "curly": true,
+    "eofline": true,
+    "forin": true,
+    "import-blacklist": [
+      true,
+      "rxjs",
+      "rxjs/Rx"
     ],
     "import-spacing": true,
     "indent": [
@@ -31,25 +32,25 @@
     ],
     "member-access": false,
     "member-ordering": [
-       true,
-       {
-         "order": [
-           "static-field",
-           "instance-field",
-           "static-method",
-           "instance-method"
-         ]
-       }
+      true,
+      {
+        "order": [
+          "static-field",
+          "instance-field",
+          "static-method",
+          "instance-method"
+        ]
+      }
     ],
     "no-arg": true,
     "no-bitwise": true,
     "no-console": [
-       true,
-       "debug",
-       "info",
-       "time",
-       "timeEnd",
-       "trace"
+      true,
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace"
     ],
     "no-construct": true,
     "no-debugger": true,
