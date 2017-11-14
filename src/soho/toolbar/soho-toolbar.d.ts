@@ -41,7 +41,7 @@ interface SohoToolbarOptions {
   favorButtonset?: boolean;
 
   /**
-   * Notifies the jQuery component that its Searchfield's lifecycle will be managed by this Anuglar
+   * Notifies the jQuery component that its Searchfield's lifecycle will be managed by this Angular
    * component wrapper (invoke/destroy/updated), instead of managed by the jQuery component.  This prevents some
    * duplication of resize events, add/remove CSS classes, etc that happen due to a component repaint.
    */
