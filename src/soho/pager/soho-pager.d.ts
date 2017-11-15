@@ -41,6 +41,9 @@ interface SohoPagerOptions {
 
   /**  Will not show anything that lets you go to a specific page.  */
   indeterminate?: boolean;
+
+  /** Causes the pager to become completely hidden if both firstPage and lastPage are true */
+  hideDisabledPagers?: boolean;
 }
 
 /**

@@ -403,6 +403,14 @@ type SohoDataGridColumnClickFunction = (
   args: SohoDataGridColumnClickData[]
 ) => void;
 
+type SohoDataGridColumnContentVisibleFunction = (
+  row: number,
+  cell: HTMLElement,
+  rowData: Object,
+  columnDef: SohoDataGridColumn,
+  item: any
+) => boolean;
+
 /**
  * This is an interface mapping for the grid column defined
  * within the Soho jQuery Control.
@@ -538,6 +546,9 @@ interface SohoDataGridColumn {
 
   /** Sets the css text overflow on the cell. Specifically to add 'ellipsis' text */
   textOverflow?: string;
+
+  /** Content visible function*/
+  contentVisible?: SohoDataGridColumnContentVisibleFunction;
 }
 
 interface SohoDataGridColumnNumberFormat {

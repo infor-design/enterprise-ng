@@ -32,6 +32,75 @@ import { SohoComponentsModule } from '@infor/sohoxi-angular';
 export type SohoDataGridType = 'auto' | 'content-only';
 
 /**
+ * Contract for cell editors.
+ */
+export interface ExtendedSohoDataGridCellEditor extends SohoDataGridCellEditor {
+  // The type of the component.
+  component: Type<SohoDataGridCellEditor>;
+
+  // The args passed to the editor
+  args: SohoDataGridEditCellFunctionArgs;
+
+  // @todo - talk to Tim on what this means.
+  input: JQuery;
+
+  // @todo - talk to Tim on what this means.
+  useValue: boolean;
+
+  /**
+   * Initialise the edit control with the given component.  The control
+   * mist conform to the SohoDataGridCellEditor contract.
+   */
+  init(componentRef: ComponentRef<SohoDataGridCellEditor>): void;
+
+  /**
+   * Destroy the editor.
+   */
+  destroy(): void;
+}
+
+export class SohoAngularEditorAdapter implements ExtendedSohoDataGridCellEditor {
+  componentRef: ComponentRef<SohoDataGridCellEditor>;
+
+  input: JQuery;
+
+  // @todo - talk to Tim on what this means.
+  useValue = true;
+
+  constructor(
+    public component: Type<SohoDataGridCellEditor>,
+    public args: SohoDataGridEditCellFunctionArgs) {
+  }
+
+  init(componentRef: ComponentRef<SohoDataGridCellEditor>) {
+    // Store the component.
+    this.componentRef = componentRef;
+
+    // The Soho datagrid wants an input control, otherwise it wont accept the editor
+    // as a component.
+    // @todo talk to Tim about removing this requirement.
+    this.input = $(this.componentRef.location.nativeElement).find('input');
+  }
+
+  val(value?: any): any {
+    return this.componentRef.instance.val(value);
+  }
+
+  focus(): void {
+    this.componentRef.instance.focus();
+  }
+
+  destroy(): void {
+    if (this.componentRef) {
+      setTimeout(() => {
+        this.componentRef.destroy();
+        this.componentRef = null;
+      });
+    }
+  }
+}
+
+/**
  * Internal refresh hints used to determine what type of "refresh" is
  * required after the change detection process has completed and the
  * AfterViewChecked method is called.
@@ -1656,74 +1725,4 @@ export interface SohoDataGridToggleRowEvent extends SohoDataGridRowExpandEvent {
   // The data grid component originating the call.
   grid: SohoDataGridComponent;
   args?: any;
-}
-
-/**
- * Contract for cell editors.
- */
-export interface ExtendedSohoDataGridCellEditor extends SohoDataGridCellEditor {
-  // The type of the component.
-  component: Type<SohoDataGridCellEditor>;
-
-  // The args passed to the editor
-  args: SohoDataGridEditCellFunctionArgs;
-
-  // @todo - talk to Tim on what this means.
-  input: JQuery;
-
-  // @todo - talk to Tim on what this means.
-  useValue: boolean;
-
-  /**
-   * Initialise the edit control with the given component.  The control
-   * mist conform to the SohoDataGridCellEditor contract.
-   */
-  init(componentRef: ComponentRef<SohoDataGridCellEditor>): void;
-
-  /**
-   * Destroy the editor.
-   */
-  destroy(): void;
-}
-
-export class SohoAngularEditorAdapter implements ExtendedSohoDataGridCellEditor {
-  componentRef: ComponentRef<SohoDataGridCellEditor>;
-
-  input: JQuery;
-
-  // @todo - talk to Tim on what this means.
-  useValue = true;
-
-  constructor(
-    public component: Type<SohoDataGridCellEditor>,
-    public args: SohoDataGridEditCellFunctionArgs) {
-  }
-
-  init(componentRef: ComponentRef<SohoDataGridCellEditor>) {
-    // Store the component.
-    this.componentRef = componentRef;
-
-    // The Soho datagrid wants an input control, otherwise it wont accept the editor
-    // as a component.
-    // @todo talk to Tim about removing this requirement.
-    this.input = $(this.componentRef.location.nativeElement).find('input');
-  }
-
-  val(value?: any): any {
-    return this.componentRef.instance.val(value);
-  }
-
-  focus(): void {
-    this.componentRef.instance.focus();
-  }
-
-  destroy(): void {
-    if (this.componentRef) {
-      setTimeout(() => {
-        this.componentRef.destroy();
-        this.componentRef = null;
-      });
-    }
-  }
-
 }
