@@ -28,8 +28,19 @@ export const LMFavorite = (row, cell, value, col, rowData, api): string => {
 export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
+  visible: boolean;
+
   onClick(args) {
     console.log('click');
+  }
+
+  isContentVisible(row: number, cell: HTMLElement, data: Object, col: SohoDataGridColumn, item: any): boolean {
+    if (this.visible) {
+      this.visible = false;
+    } else {
+      this.visible = true;
+    }
+    return this.visible;
   }
 
   ngAfterViewInit(): void {
@@ -58,6 +69,16 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       align: 'center',
       formatter: Formatters.Button,
       click: (e, args) => this.onClick(args)
+    });
+    columns.push({
+      id: 'buton-formatter',
+      name: 'Button',
+      text: 'Visible button',
+      sortable: false,
+      align: 'center',
+      formatter: Formatters.Button,
+      click: (e, args) => this.onClick(args),
+      contentVisible: (row, cell, data, col, item) => this.isContentVisible(row, cell, data, col, item)
     });
     const gridOptions: SohoDataGridOptions = <SohoDataGridOptions>{
       columns: columns,
