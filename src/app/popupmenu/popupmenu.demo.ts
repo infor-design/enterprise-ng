@@ -23,6 +23,10 @@ export class PopupMenuDemoComponent {
 
   onSelected(event: SohoPopupMenuEvent) {
     console.log('PopupMenu Demo: popupmenu.onSelected');
+    $('body').toast({
+      title: 'Selected',
+      message: 'Popupmenu Item "' + $(event.args).text().trim() + '" selected.'
+    });
   }
 
   onBeforeOpen(event: SohoPopupMenuEvent) {
