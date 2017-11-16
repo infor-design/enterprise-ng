@@ -5,8 +5,9 @@
 }
 
 :host .code-block {
+  border-radius: 2px;
   display: inline-block;
-  padding: 4px 0 0px 4px;
+  padding: 2px;
   width: calc(100% - 58px);
 }
 
@@ -38,16 +39,22 @@
 }
 
 /* Style Parent and inner Focus */
-:host .code-block:focus-within {
+:host .code-block.is-active {
   border: 1px solid #368ac0;
+  box-shadow: 0 0 4px 3px rgba(54, 138, 192, .3);
 }
 
-:host ::ng-deep .field:focus-within {
+:host .code-block.is-active input {
+  box-shadow: none !important;
+}
+
+:host ::ng-deep .field.is-active {
   border: 1px solid #368ac0;
 }
 
 :host ::ng-deep .field.is-active .field-options:not([disabled]) {
   border-color: transparent;
+  box-shadow: none !important;
 }
 
 /* Make Label and Input Inline */
@@ -60,9 +67,17 @@
   border: 1px solid transparent;
   border-radius: 2px;
   display: inline-block;
-  margin-bottom: 4px;
-  padding-left: 11px;
-  margin-right: -14px;
+  margin-bottom: -3px;
+  padding-left: 9px;
+  margin-right: -8px;
+  padding-right: 6px;
+  vertical-align: middle;
+  padding-top: 0px;
+  margin-top: -3px;
+  margin-left: -3px;
+  padding-bottom: 0;
+  height: 34px;
+  line-height: 34px;
 }
 
 :host ::ng-deep .field:not(:last-of-type):not(.is-active)::after {
@@ -70,13 +85,17 @@
   position: absolute;
   font-size: 18px;
   color: #5C5C5C;
-  right: 14px;
-  top: 7px;
+  right: 21px;
+  top: 0px;
   width: 4px;
 }
 
 :host ::ng-deep .field.is-active::after {
   content: '';
+}
+
+:host ::ng-deep .field.is-active:focus {
+  box-shadow: none !important;
 }
 
 /* Adjst labels and input styles */
@@ -93,7 +112,11 @@
 }
 
 :host ::ng-deep .lookup {
-  padding: 8px 0 8px 1px;
+  padding: 0;
+}
+
+:host ::ng-deep .lookup:focus {
+  box-shadow: none !important;
 }
 
 /* Add a : After the label */
@@ -104,12 +127,12 @@
 /* Make Elements Sit Well Next to Each other */
 :host ::ng-deep .field-options {
   margin-left: 0;
-  margin-right: 25px;
+  margin-right: 20px;
 }
 
 :host ::ng-deep .trigger {
   visibility: hidden;
-  margin-left: -36px;
+  margin-left: -33px;
   position: relative;
   top: -3px;
 }
@@ -135,6 +158,7 @@
   visibility: hidden;
   left: -15px;
   margin-right: -22px;
+  top: 1px;
 }
 
 /* Readonly Styles */

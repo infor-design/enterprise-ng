@@ -51,6 +51,10 @@ import {
   DataGridCodeBlockFormatterDemoComponent
 } from './datagrid/datagrid-code-block-formatter.demo';
 import {
+  DataGridCodeBlockEditorDemoComponent,
+  CodeBlockEditorComponent
+} from './datagrid/datagrid-code-block-editor.demo';
+import {
   DataGridCustomFormatterDemoComponent,
   DemoCellFormatterComponent,
   DemoCellIntegerFormatterComponent
@@ -174,6 +178,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ColorPickerDemoComponent,
     CodeBlockComponent,
     CodeBlockDemoComponent,
+    CodeBlockEditorComponent,
     CompletionChartDemoComponent,
     ContextMenuDemoComponent,
     DataGridBreadcrumbDemoComponent,
@@ -181,6 +186,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     DataGridAngularEditorDemoComponent,
     DataGridAngularFormatterDemoComponent,
     DataGridCodeBlockFormatterDemoComponent,
+    DataGridCodeBlockEditorDemoComponent,
     DataGridCustomFormatterDemoComponent,
     DataGridCustomFormatterServiceDemoComponent,
     DemoCellDatePickerEditorComponent,
@@ -310,7 +316,8 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     DemoCellFormatterComponent,
     DemoCellIntegerFormatterComponent,
     ButtonCellFormatterComponent,
-    PriceCellFormatterComponent
+    PriceCellFormatterComponent,
+    CodeBlockEditorComponent
   ],
   bootstrap: [AppComponent]
 })

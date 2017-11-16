@@ -68,6 +68,10 @@ export class CodeBlockComponent implements AfterViewInit, OnDestroy {
 
   }
 
+  focus () {
+    console.log('Do Focus');
+  }
+
   toggleLabels() {
     setTimeout(() => this.hideLabels = !this.hideLabels);
   }
