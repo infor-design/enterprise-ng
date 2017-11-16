@@ -65,12 +65,22 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
 
   constructor() {
   }
+  visible: boolean;
 
   onClick(args) {
     console.log('click');
   }
 
-   ngAfterViewInit(): void {
+  isContentVisible(row: number, cell: HTMLElement, data: Object, col: SohoDataGridColumn, item: any): boolean {
+    if (this.visible) {
+      this.visible = false;
+    } else {
+      this.visible = true;
+    }
+    return this.visible;
+  }
+
+  ngAfterViewInit(): void {
     /**
      * Add a column for the custom formatter
      */
@@ -102,27 +112,16 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       click: (e, args) => this.onClick(args)
     });
     columns.push({
-      id: 'template',
-      name: 'Settings',
+      id: 'buton-formatter',
+      name: 'Button',
+      text: 'Visible button',
       sortable: false,
       align: 'center',
-      postRender: true,
-      component: DemoCellFormatterComponent,
-      componentInputs: { value: 'somespecialvalue' }
+      formatter: Formatters.Button,
+      click: (e, args) => this.onClick(args),
+      contentVisible: (row, cell, data, col, item) => this.isContentVisible(row, cell, data, col, item)
     });
-    columns.push({
-      id: 'price2',
-      name: 'Price',
-      field: 'price',
-      sortable: false,
-      align: 'center',
-      width: 100,
-      postRender: true,
-      component: DemoCellIntegerFormatterComponent,
-      componentInputs: {}
-    });
-
-    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
+    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions>{
       columns: columns,
       dataset: PAGING_DATA,
       selectable: 'single',
