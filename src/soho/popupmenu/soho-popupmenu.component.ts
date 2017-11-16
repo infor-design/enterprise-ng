@@ -68,6 +68,7 @@ export class SohoPopupMenuItemComponent {
   @HostBinding('class.is-checked') @Input() isChecked: boolean;
   @HostBinding('class.is-selectable') @Input() isSelectable = false;
   @HostBinding('class.is-disabled') @Input() isDisabled = false;
+  @HostBinding('class.submenu') @Input() subMenu = false;
 }
 
 /**
