@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Data Grid - Empty Message</h2>
+    <button soho-button (click)="makeChange">Toggle</button>
+    <span>{{hasData}}</span>
+  </div>
+</div>
+<br>
+<div class="row top-padding">
+  <div class="twelve columns demo" role="main">
+    <section class="scrollable contained-scrolling-right-bottom" style="height: 100%">
+      <div soho-datagrid [data]="data | async" [columns]="columns"></div>
+    </section>
+  </div>
+</div>

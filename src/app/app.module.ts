@@ -39,6 +39,7 @@ import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
+import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
 import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-header.demo';
@@ -160,6 +161,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     DataGridCustomFormatterServiceDemoComponent,
     DataGridDynamicDemoComponent,
     DataGridEditorsDemoComponent,
+    DataGridEmptyMessageDemoComponent,
     DataGridFixedHeaderDemoComponent,
     DataGridGroupedHeaderDemoComponent,
     DataGridMixedSelectionDemoComponent,

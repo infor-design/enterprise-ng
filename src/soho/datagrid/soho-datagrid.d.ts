@@ -178,7 +178,64 @@ interface SohoDataGridOptions {
    * and editors or anywhere else a datagrid reference is available
    */
   userObject?: any;
+
+  /**
+   * An empty message will be displayed when there is no rows in the grid.
+   * This accepts an object of the form SohoDataGridEmptyMessageOptions, set
+   * this to null for no message or will default to 'No Data Found with an icon.'
+   */
+  emptyMessage?: SohoDataGridEmptyMessageOptions;
 }
+
+/**
+ * Example:
+ *
+ * { title: 'No Data Available',
+ *    info: 'Make a selection on the list above to see results',
+ *    icon: 'icon-empty-no-data',
+ *  button: {text: 'Run Query', cssClass: '' }
+ *   click: <function>}
+ * }
+ * set this to null for no message or will default to 'No Data Found with an icon.'
+ */
+interface SohoDataGridEmptyMessageOptions {
+  /**
+   * Title text.
+   */
+  title?: string;
+
+  /**
+   * Informational text.
+   */
+  info?: string;
+
+  /**
+   * Icon, to diplay (see svg-empty)
+   */
+  icon?: string;
+
+  /**
+   * Button options - note this cannot be a Soho Angular Component.
+   */
+  button?: SohoDataGridEmptyMessageButtonOptions;
+
+  /**
+   * Button callback.
+   */
+  click?: Function;
+}
+
+/**
+ * Button definition.
+ */
+interface SohoDataGridEmptyMessageButtonOptions {
+  text: string;
+
+  cssClass: string;
+
+  id: string;
+}
+
 
 /**
  * Soho Data Grid Paging Options.
@@ -446,7 +503,7 @@ interface SohoDataGridColumn {
   reorderable?: boolean
 
   /** Content visible function*/
-  contentVisible?: SohoDataGridColumnContentVisibleFunction; 
+  contentVisible?: SohoDataGridColumnContentVisibleFunction;
 }
 
 interface SohoDataGridColumnNumberFormat {
