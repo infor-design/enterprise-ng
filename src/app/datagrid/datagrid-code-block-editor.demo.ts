@@ -12,7 +12,6 @@ import {
 
 import {
   SohoDataGridComponent,
-  SohoInputComponent
 } from '@infor/sohoxi-angular';
 
 import {
@@ -24,11 +23,15 @@ import {
 } from '../code-block/code-block.component';
 
 @Component({
-  template: `<input #input alignRight="true" [(ngModel)]="value" soho-input
-        soho-mask [process]="'number'" [integerLimit]="3" (write)="onMaskWrite($event)"/>`
+  template: `<input lm-code-block [(ngModel)]="value"/>`
+  //               soho-mask
+  //               alignRight="true"
+  //               [process]="'number'"
+  //               [integerLimit]="3"
+  //               (write)="onMaskWrite($event)"/>
 })
-export class CodeBlockEditorComponent implements SohoDataGridCellEditor {
-  @ViewChild(CodeBlockComponent) input: CodeBlockComponent;
+export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
+  @ViewChild(CodeBlockComponent) codeblock: CodeBlockComponent;
 
   value: string;
 
@@ -36,9 +39,9 @@ export class CodeBlockEditorComponent implements SohoDataGridCellEditor {
     this.value = args.value;
   }
 
-  onMaskWrite(event: any) {
-    console.log(`CodeBlockEditorComponent ${this.args.row} onMaskWrite: ${event}`);
-  }
+  // onMaskWrite(event: any) {
+  //   console.log(`CodeBlockEditorComponent ${this.args.row} onMaskWrite: ${event}`);
+  // }
 
   // @region Soho Editor Implementation
   val(value?: any) {
@@ -49,7 +52,7 @@ export class CodeBlockEditorComponent implements SohoDataGridCellEditor {
   }
 
   focus() {
-    this.input.focus();
+    this.codeblock.focus();
   }
 }
 

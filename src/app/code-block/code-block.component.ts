@@ -52,6 +52,14 @@ import {
 export class CodeBlockComponent implements AfterViewInit, OnDestroy {
 
   @HostBinding('class.hide-labels') hideLabels = false;
+
+  /**
+   * @param readonly
+   */
+  @Input() set readonly(value: boolean) {
+    this.isReadOnly = value;
+  }
+
   isReadOnly = false;
 
   constructor(private elementRef: ElementRef) {
@@ -65,7 +73,6 @@ export class CodeBlockComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-
   }
 
   focus () {
@@ -75,18 +82,4 @@ export class CodeBlockComponent implements AfterViewInit, OnDestroy {
   toggleLabels() {
     setTimeout(() => this.hideLabels = !this.hideLabels);
   }
-
-  /**
-   * @param readonly
-   */
-  @Input() set readonly(value: boolean) {
-    this.isReadOnly = value;
-
-    if (value) {
-      this.isReadOnly = true;
-    } else {
-      this.isReadOnly = false;
-    }
-  }
-
 }
