@@ -166,26 +166,28 @@ export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
       width: 100,
       formatter: Formatters.Text
     },
-
     {
       id: 'quantity',
       name: 'Quantity',
       field: 'quantity',
       sortable: false,
       filterType: 'number',
-      width: 105,
-      editor: Editors.Input
+      width: 105
     },
-
     {
       id: 'favorite',
       name: 'Favorite',
       field: 'favorite',
       sortable: false,
-      width: 300,
-      formatter: Formatters.Favorite,
-      editor: Editors.Favorite
+      formatter: Formatters.Favorite
+    },
+    {
+      id: 'productName',
+      name: 'Product',
+      field: 'productName',
+      formatter: Formatters.Text
     }
+
     ];
   }
 
