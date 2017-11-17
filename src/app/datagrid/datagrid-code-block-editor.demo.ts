@@ -23,7 +23,7 @@ import {
 } from '../code-block/code-block.component';
 
 @Component({
-  template: `<input lm-code-block [(ngModel)]="value"/>`
+    template: `<div lm-code-block [(ngModel)]="value"></div>`
   //               soho-mask
   //               alignRight="true"
   //               [process]="'number'"
