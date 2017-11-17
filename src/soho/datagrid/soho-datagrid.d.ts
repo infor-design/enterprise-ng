@@ -196,7 +196,7 @@ interface SohoDataGridOptions {
  *  button: {text: 'Run Query', cssClass: '' }
  *   click: <function>}
  * }
- * set this to null for no message or will default to 'No Data Found with an icon.'
+ *
  */
 interface SohoDataGridEmptyMessageOptions {
   /**
