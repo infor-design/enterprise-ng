@@ -14,7 +14,7 @@ declare var Formatters: any;
 export class DataGridDemoService extends SohoDataGridService {
 
   private columns: Array<SohoDataGridColumn> = Array<SohoDataGridColumn>();
-  private data: Array<any> = Array<any>();
+  public data: Array<any> = Array<any>();
 
   public addColumn(column: SohoDataGridColumn) {
     console.log('settings');

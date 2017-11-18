@@ -1,6 +1,7 @@
 
 ## Whats New
 
+* 2017-11-17 - BTH - PR-512 - Added 'emptyMessage' support.
 * 2017-11-10 - BTH - PR-503 - Upgraded to angular-cli 1.5 and angular 5.
 * 2017-11-09 - BTH - Added 'maxWidth', 'filterMode', 'moveSelected', 'showEmptyGroupHeaders', 'sourceArguments' and 'reloadSourceOnOpen' to `soho-dropdown`.
 * 2017-10-24 - BTH - SOHO-6317: Added support for SOHO 'wizard'.

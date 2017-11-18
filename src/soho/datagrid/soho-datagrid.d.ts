@@ -210,7 +210,7 @@ interface SohoDataGridEmptyMessageOptions {
   info?: string;
 
   /**
-   * Icon, to diplay (see svg-empty)
+   * Icon, to diplay (see svg-empty) - must be the full icon name.
    */
   icon?: string;
 
@@ -220,7 +220,7 @@ interface SohoDataGridEmptyMessageOptions {
   button?: SohoDataGridEmptyMessageButtonOptions;
 
   /**
-   * Button callback.
+   * Click function - @todo not working?
    */
   click?: Function;
 }
@@ -229,11 +229,25 @@ interface SohoDataGridEmptyMessageOptions {
  * Button definition.
  */
 interface SohoDataGridEmptyMessageButtonOptions {
+  /**
+   * Button text.
+   */
   text: string;
 
-  cssClass: string;
+  /**
+   * Class of button.
+   */
+  cssClass?: string;
 
-  id: string;
+  /**
+   * Element button for id.
+   */
+  id?: string;
+
+  /**
+   * Click function - @todo not working
+   */
+  click?: Function;
 }
 
 
