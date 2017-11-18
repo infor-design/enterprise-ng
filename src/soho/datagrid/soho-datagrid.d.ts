@@ -180,7 +180,7 @@ interface SohoDataGridOptions {
   userObject?: any;
 
   /**
-   * An empty message will be displayed when there is no rows in the grid.
+   * An empty message will be displayed when there are no rows in the grid.
    * This accepts an object of the form SohoDataGridEmptyMessageOptions, set
    * this to null for no message or will default to 'No Data Found with an icon.'
    */
