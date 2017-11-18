@@ -144,8 +144,7 @@ export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
     title: 'Server Error',
     info: 'The target server returned an error',
     icon: 'icon-empty-error-loading', // needs to be the full SVG name
-    button: { text: 'Retry', click: () => { alert('try again'); } },
-    click: () => { alert('click 2'); }
+    button: { text: 'Retry', click: () => { alert('try again'); } }
   };
 
   get data() {
@@ -174,8 +173,7 @@ export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
       title: 'No Matches',
       info: 'No products found that match your query',
       icon: 'icon-empty-no-orders', // needs to be the full SVG name
-      button: { text: 'Retry', click: () => { alert('try again'); } },
-      click: () => { alert('click 2'); }
+      button: { text: 'Retry', click: () => { alert('try again'); } }
     };
   }
 

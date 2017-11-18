@@ -182,7 +182,7 @@ interface SohoDataGridOptions {
   /**
    * An empty message will be displayed when there are no rows in the grid.
    * This accepts an object of the form SohoDataGridEmptyMessageOptions, set
-   * this to null for no message or will default to 'No Data Found with an icon.'
+   * this to null for no message or it will default to 'No Data Found with an icon.'
    */
   emptyMessage?: SohoDataGridEmptyMessageOptions;
 }
@@ -218,11 +218,6 @@ interface SohoDataGridEmptyMessageOptions {
    * Button options - note this cannot be a Soho Angular Component.
    */
   button?: SohoDataGridEmptyMessageButtonOptions;
-
-  /**
-   * Click function - @todo not working?
-   */
-  click?: Function;
 }
 
 /**
