@@ -15,12 +15,12 @@ import {
 } from './datagrid-demo.service';
 
 @Component({
-  selector: 'soho-datagrid-settings-demo',
-  templateUrl: './datagrid-settings.demo.html',
+  selector: 'soho-datagrid-rowreorder-demo',
+  templateUrl: './datagrid-rowreorder.demo.html',
   providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService } ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataGridSettingsDemoComponent implements AfterViewInit {
+export class DataGridRowReorderDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) datagrid: SohoDataGridComponent;
 
   constructor(gridService: SohoDataGridService) {
@@ -38,12 +38,12 @@ export class DataGridSettingsDemoComponent implements AfterViewInit {
   ngAfterViewInit() {
   }
 
-  /**
-   * Make several changes to the component in one go.
-   */
-  makeChange() {
-    this.datagrid.isList = !this.datagrid.isList;
-    this.datagrid.alternateRowShading = !this.datagrid.alternateRowShading;
-    this.datagrid.cellNavigation = !this.datagrid.cellNavigation;
+  onRowReordered(event: SohoDataGridRowReorderedEvent) {
+    console.log("startIndex: " + event.startIndex);
+    console.log("endIndex: " + event.endIndex);
+  }
+
+  onRowClicked(event: SohoDataGridRowClicked) {
+    console.log("selectedRow: " + event.row + " , productId: " + event.item.productId);
   }
 }
