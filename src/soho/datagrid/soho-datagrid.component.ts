@@ -858,6 +858,25 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * The `emptyMessage` data grid option.
+   */
+  @Input() set emptyMessage(emptyMessage: SohoDataGridEmptyMessageOptions) {
+    /** Check for undefined/null and reset to the default message */
+    emptyMessage = emptyMessage ||
+      {title: (Locale ? Locale.translate('NoData') : 'No Data Available'), info: '', icon: 'icon-empty-no-data'};
+
+    this._gridOptions.emptyMessage = emptyMessage;
+    if (this.jQueryElement) {
+      this.datagrid.settings.emptyMessage = emptyMessage;
+      this.markForRefresh('emptyMessage', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  get emptyMessage(): SohoDataGridEmptyMessageOptions {
+    return this._gridOptions.emptyMessage;
+  }
+
+  /**
    * Defines the source type of the grid, either:
    *
    * - "content-only" where table elements are provided in the body.

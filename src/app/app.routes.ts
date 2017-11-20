@@ -18,6 +18,7 @@ import { ContextualActionPanelDemoComponent } from './contextual-action-panel/co
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
+import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
@@ -126,6 +127,7 @@ export const routes: Routes = [
   { path: 'datagrid-breadcrumb',               component: DataGridBreadcrumbDemoComponent },
   { path: 'datagrid-content',                  component: DataGridContentDemoComponent },
   { path: 'datagrid-dynamic',                  component: DataGridDynamicDemoComponent },
+  { path: 'datagrid-empty-message',            component: DataGridEmptyMessageDemoComponent },
   { path: 'datagrid-editors',                  component: DataGridEditorsDemoComponent },
   { path: 'datagrid-fixedheader',              component: DataGridFixedHeaderDemoComponent },
   { path: 'datagrid-groupedheader',            component: DataGridGroupedHeaderDemoComponent },
