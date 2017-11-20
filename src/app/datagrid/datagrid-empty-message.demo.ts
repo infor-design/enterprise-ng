@@ -16,6 +16,10 @@ import { DataGridDemoService } from './datagrid-demo.service';
 export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
 
+  public get toggleButtonName() {
+    return this.hasData ? 'Clear Data' : 'Add Data';
+  }
+
   public hasData: boolean;
 
   emptyMessage: SohoDataGridEmptyMessageOptions = {
