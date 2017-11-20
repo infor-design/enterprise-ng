@@ -46,4 +46,13 @@ export class DataGridSettingsDemoComponent implements AfterViewInit {
     this.datagrid.alternateRowShading = !this.datagrid.alternateRowShading;
     this.datagrid.cellNavigation = !this.datagrid.cellNavigation;
   }
+
+  onRowReordered(event: SohoDataGridRowReorderedEvent) {
+    console.log("startIndex: " + event.startIndex);
+    console.log("endIndex: " + event.endIndex);
+  }
+
+  onRowClicked(event: SohoDataGridRowClicked) {
+    console.log("selectedRow: " + event.row + " , productId: " + event.item.productId);
+  }
 }

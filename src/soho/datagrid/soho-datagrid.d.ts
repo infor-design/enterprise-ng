@@ -446,7 +446,7 @@ interface SohoDataGridColumn {
   reorderable?: boolean
 
   /** Content visible function*/
-  contentVisible?: SohoDataGridColumnContentVisibleFunction; 
+  contentVisible?: SohoDataGridColumnContentVisibleFunction;
 }
 
 interface SohoDataGridColumnNumberFormat {
@@ -663,6 +663,13 @@ interface SohoDataGridRowRemoveEvent {
   target: any;
   value: any;
   oldValue: any;
+}
+
+interface SohoDataGridRowReorderedEvent {
+  start: any;
+  startIndex: number;
+  end: any;
+  endIndex: number;
 }
 
 interface SohoDataGridAddRowEvent {

@@ -85,7 +85,7 @@
 <div class="row top-padding">
   <div class="twelve columns demo" role="main">
     <section soho-busyindicator class="scrollable contained-scrolling-right-bottom" style="height: 100%">
-      <div soho-datagrid selectable="true" filterable="true"></div>
+      <div soho-datagrid selectable="true" filterable="true" (rowClicked)="onRowClicked($event)" (rowReordered)="onRowReordered($event)"></div>
     </section>
   </div>
 </div>
