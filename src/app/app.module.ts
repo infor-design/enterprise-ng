@@ -48,6 +48,11 @@ import {
   ButtonCellFormatterComponent
 } from './datagrid/datagrid-angular-formatter.demo';
 import {
+  DataGridAngularCardFormatterDemoComponent,
+  CardFormatterComponent
+} from './datagrid/datagrid-angular-card-formatter.demo';
+import { DataGridCardDemoComponent } from './datagrid/datagrid-card.demo';
+import {
   DataGridCodeBlockFormatterDemoComponent
 } from './datagrid/datagrid-code-block-formatter.demo';
 import {
@@ -173,6 +178,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     BusyIndicatorDemoComponent,
     BusyIndicatorDemoBodyComponent,
     ButtonDemoComponent,
+    CardFormatterComponent,
     ChartDemoComponent,
     CheckBoxDemoComponent,
     ColorPickerDemoComponent,
@@ -182,9 +188,11 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     CompletionChartDemoComponent,
     ContextMenuDemoComponent,
     DataGridBreadcrumbDemoComponent,
+    DataGridCardDemoComponent,
     DataGridContentDemoComponent,
     DataGridAngularEditorDemoComponent,
     DataGridAngularFormatterDemoComponent,
+    DataGridAngularCardFormatterDemoComponent,
     DataGridCodeBlockFormatterDemoComponent,
     DataGridCodeBlockEditorDemoComponent,
     DataGridCustomFormatterDemoComponent,
@@ -317,7 +325,8 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     DemoCellIntegerFormatterComponent,
     ButtonCellFormatterComponent,
     PriceCellFormatterComponent,
-    CodeBlockEditorComponent
+    CodeBlockEditorComponent,
+    CardFormatterComponent
   ],
   bootstrap: [AppComponent]
 })

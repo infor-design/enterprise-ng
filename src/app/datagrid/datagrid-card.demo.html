@@ -1,0 +1,21 @@
+<ng-container *ngFor="let data of dataSet">
+  <div>
+    <h3>{{data.title}}</h3>
+    <div class="demo-card-row">
+      <label>{{data.location.label}}</label>
+      <span>{{data.location.value}}</span>
+    </div>
+    <div class="demo-card-row">
+      <label>{{data.price.label}}</label>
+      <span>{{data.price.value}}</span>
+    </div>
+    <soho-toolbar [hasMoreButton]="true" [favorButtonset]="true" #SohoToolbar>
+      <soho-toolbar-button-set>
+        <button soho-button="tertiary" *ngFor="let button of data.buttons" (click)="onClick(button.value)">
+          <span>{{button.value}}</span>
+        </button>
+      </soho-toolbar-button-set>
+    </soho-toolbar>
+  </div>
+</ng-container>
+
