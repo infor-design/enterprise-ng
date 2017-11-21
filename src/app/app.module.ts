@@ -67,12 +67,14 @@ import {
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
+import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
 import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-header.demo';
 import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-selection.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
+import { DataGridRowReorderDemoComponent } from './datagrid/datagrid-rowreorder.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
@@ -200,11 +202,13 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     DemoCellDatePickerEditorComponent,
     DataGridDynamicDemoComponent,
     DataGridEditorsDemoComponent,
+    DataGridEmptyMessageDemoComponent,
     DataGridFixedHeaderDemoComponent,
     DataGridGroupedHeaderDemoComponent,
     DataGridMixedSelectionDemoComponent,
     DataGridPagingIndeterminateDemoComponent,
     DataGridPagingServiceDemoComponent,
+    DataGridRowReorderDemoComponent,
     DataGridServiceDemoComponent,
     DataGridSettingsDemoComponent,
     DataGridStandardFormatterDemoComponent,

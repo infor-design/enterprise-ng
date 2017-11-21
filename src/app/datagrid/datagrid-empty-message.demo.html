@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Data Grid - Empty Message</h2>
+    <button soho-button (click)="makeChange()">{{toggleButtonName}}</button>
+    <button soho-button (click)="changeMessage()">Change Message</button>
+    <button soho-button (click)="resetMessage()">Reset Message</button>
+    <button soho-button (click)="defaultMessage()">Default Message</button>
+  </div>
+</div>
+<br>
+<div class="row top-padding">
+  <div class="twelve columns demo" role="main">
+    <section class="scrollable contained-scrolling-right-bottom" style="height: 100%">
+      <div soho-datagrid [data]="data" [columns]="columns" [emptyMessage]="emptyMessage"></div>
+    </section>
+  </div>
+</div>
+

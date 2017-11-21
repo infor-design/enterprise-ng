@@ -2,9 +2,10 @@
 ## Whats New
 
 * 2017-11-07 - BTH - SOHO-6797/SOHO-7015/SOHO-6263: Added support for component formatters and editors for datagrid.
-* 2017-11-03 - TJM - SOHO-6265: Added support for SOHO 'field-options'.
+* 2017-11-17 - BTH - PR-512 - Added 'emptyMessage' support.
 * 2017-11-10 - BTH - PR-503 - Upgraded to angular-cli 1.5 and angular 5.
 * 2017-11-09 - BTH - Added 'maxWidth', 'filterMode', 'moveSelected', 'showEmptyGroupHeaders', 'sourceArguments' and 'reloadSourceOnOpen' to `soho-dropdown`.
+* 2017-11-03 - TJM - SOHO-6265: Added support for SOHO 'field-options'.
 * 2017-10-24 - BTH - SOHO-6317: Added support for SOHO 'wizard'.
 * 2017-10-18 - BTH - SOHO-5124: File Upload Advanced (`soho-fileupload-advanced`)
 * 2017-10-24 - MAF - SOHO-7041: 4.0 Radiobutton demo does not disable correctly when using ngModel; added forRadioButton in soho-label.directive.
