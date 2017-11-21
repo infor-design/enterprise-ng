@@ -731,6 +731,13 @@ interface SohoDataGridRowRemoveEvent {
   oldValue: any;
 }
 
+interface SohoDataGridRowReorderedEvent {
+  start: any;
+  startIndex: number;
+  end: any;
+  endIndex: number;
+}
+
 interface SohoDataGridAddRowEvent {
   row: any;
   cell: any;

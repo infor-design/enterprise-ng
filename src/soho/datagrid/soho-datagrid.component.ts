@@ -937,6 +937,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   @Output()
   contextMenu = new EventEmitter<SohoDataGridRowClicked>();
 
+  @Output()
+  rowReordered = new EventEmitter<SohoDataGridRowReorderedEvent>();
+
   // -------------------------------------------
   // Host Bindings
   // -------------------------------------------
@@ -1434,7 +1437,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       .on('rowdeactivated', (e: JQueryEventObject, args: SohoDataGridRowDeactivatedEvent) => { this.rowDeactivated.next(args); })
       .on('click', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.rowClicked.next(args); })
       .on('dblclick', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.rowDoubleClicked.next(args); })
-      .on('contextmenu', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.contextMenu.next(args); });
+      .on('contextmenu', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.contextMenu.next(args); })
+      .on('rowreorder', (e: JQueryEventObject, args: SohoDataGridRowReorderedEvent) => { this.rowReordered.next(args); });
   }
 
   /**
