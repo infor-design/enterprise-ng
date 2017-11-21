@@ -51,5 +51,12 @@
       </ul>
     </ng-template>
 
+    <!-- ajax menu button -->
+    <button #ajax soho-menu-button menu="ajax-popup"
+      (selected)="onSelected($event)">
+      <span>Ajax Menu</span>
+    </button>
+    <ul soho-popupmenu id="ajax-popup">
+    </ul>
   </div>
 </div>

@@ -1,6 +1,17 @@
 
 ## Whats New
 
+* 2017-11-07 - BTH - SOHO-6797/SOHO-7015/SOHO-6263: Added support for component formatters and editors for datagrid.
+* 2017-11-17 - BTH - PR-512 - Added 'emptyMessage' support.
+* 2017-11-10 - BTH - PR-503 - Upgraded to angular-cli 1.5 and angular 5.
+* 2017-11-09 - BTH - Added 'maxWidth', 'filterMode', 'moveSelected', 'showEmptyGroupHeaders', 'sourceArguments' and 'reloadSourceOnOpen' to `soho-dropdown`.
+* 2017-11-03 - TJM - SOHO-6265: Added support for SOHO 'field-options'.
+* 2017-10-24 - BTH - SOHO-6317: Added support for SOHO 'wizard'.
+* 2017-10-18 - BTH - SOHO-5124: File Upload Advanced (`soho-fileupload-advanced`)
+* 2017-10-24 - MAF - SOHO-7041: 4.0 Radiobutton demo does not disable correctly when using ngModel; added forRadioButton in soho-label.directive.
+* 2017-10-11 - MAF - SOHO-6954: Add support for the maskedinput control in soho-mask.
+* 2017-10-06 - PWP - PR-471 - Changed some functions in soho-datagrid.component to match recently made datagrid.js changes. See breaking changes below for details.
+* 2017-09-28 - MHH - Updated Soho-editor to implement BaseControlValueAccessor
 * 2017-09-07 - THM - Fixed SOHO-6746 - See breaking changes
 * 2017-08-30 - PWP - Fixed breakpoints type in soho-application-menu.d.ts to match soho.
 * 2017-08-16 - BTH - Fixed SOHO-5125 - `spinbox`, `datepicker`, `timepicker` and `colorpicker`.
@@ -69,6 +80,17 @@
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2017-11-10 - BTH - PR-XXX - When using `@angular/cli` 1.5, the cli no longer automatically determines the typescript files to compile, and as `@infor/sohoxi-angular` is not distributed as a compiled package the module must be added to the top level  `tsconfig.json` for inclusion in the build.  For example:
+
+```json
+ "include": [
+  "src/**/*",
+  "node_modules/@infor/sohoxi-angular/index.ts"
+ ]
+```
+
+* 2017-10-06 - PWP - PR-471 - Changed 2 soho-datagrid.component functions to match changes made to datagrid.js in sohoxi/PR-2049: selectedRows() now returns selected row. selectRows() selects rows.
 
 * 2017-08-17 - TJM - Not entirely breaking but file upload should now be done without an inline label as per fileupload example. This wont break if you don't change it but will cause a loop on ie edge due to an ie edge bug if initializing it with an inline label. So change your file upload markup
 

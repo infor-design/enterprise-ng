@@ -15,7 +15,9 @@ export * from './dropdown/index';
 export * from './editor/index';
 export * from './error/index';
 export * from './expandablearea/index';
+export * from './field-options/index';
 export * from './fileupload/index';
+export * from './fileupload-advanced/index';
 export * from './hierarchy/index';
 export * from './header/index';
 export * from './homepage/index';
@@ -51,5 +53,6 @@ export * from './tooltip/index';
 export * from './trackdirty/index';
 export * from './tree/index';
 export * from './utils/index';
+export * from './wizard/index';
 
 export { SohoComponentsModule } from './soho-components.module';

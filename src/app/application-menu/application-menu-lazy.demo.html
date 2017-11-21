@@ -2,11 +2,17 @@
 
 <nav id="applicationMenuLazy" soho-application-menu [triggers]="triggers">
   <div class="accordion panel inverse" data-options="{'allowOnePane': true}">
-      <div class="accordion-header">
-        <a href="javascript:void(0);"><span>My Roles</span></a>
-      </div>
-      <div class="accordion-pane">
-        <application-menu-lazy-menu [menuSpec]="menu" (subMenuLoaded)="onSubMenuLoaded($event)"></application-menu-lazy-menu>
-      </div>
+    <div class="accordion-header">
+      <a href="#"><span>Roles and Applications</span></a>
+    </div>
+    <div class="accordion-pane">
+      <div class="accordion-header"><a href="#" (click)="onWebAppMenuLoaded()"><span>Expand My Roles</span></a></div>
+    </div>
+    <div #webAppMenuHeader class="accordion-header">
+      <a href="javascript:void(0);"><span>My Roles</span></a>
+    </div>
+    <div class="accordion-pane">
+      <application-menu-lazy-menu [menuSpec]="menu" (subMenuLoaded)="onSubMenuLoaded($event)" (onWebAppMenuLoaded)="onWebAppMenuLoaded()"></application-menu-lazy-menu>
+    </div>
   </div>
 </nav>

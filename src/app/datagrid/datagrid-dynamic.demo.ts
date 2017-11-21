@@ -6,6 +6,7 @@ import {
 
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import 'rxjs/add/observable/of';
 
 import { SohoDataGridComponent, SohoPopupMenuComponent } from '@infor/sohoxi-angular';
 import { SohoBusyIndicatorDirective } from '@infor/sohoxi-angular';
@@ -78,7 +79,7 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
   }
 
   onSelected(e: SohoDataGridSelectedEvent) {
-    console.log('onSelected()', e)
+    console.log('onSelected()', e);
   }
 
   onRowDoubleClicked(e: SohoDataGridRowClicked) {

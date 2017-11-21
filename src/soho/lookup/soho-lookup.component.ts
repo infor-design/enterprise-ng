@@ -47,6 +47,10 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     this._options.editable = value;
   }
 
+  @Input() set autoWidth(value: boolean) {
+    this._options.autoWidth = value;
+  }
+
   @Input() set field(value: string | SohoLookupFieldFunction) {
     this._options.field = value;
   }
@@ -85,7 +89,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    */
   @HostBinding('class.lookup') get isLookup() {
     return true;
-  };
+  }
 
   /**
    * Local variables

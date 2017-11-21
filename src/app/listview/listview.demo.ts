@@ -22,6 +22,8 @@ export class ListViewDemoComponent {
 
   @ViewChild('multipleSelectListView') multipleSelectListView: SohoListViewComponent;
 
+  @ViewChild('mixedSelectionListView') mixedSelectionListView: SohoListViewComponent;
+
   public demoTasks: Object[];
   public loadTasks: Object[];
   private counter = 63012;
@@ -50,6 +52,7 @@ export class ListViewDemoComponent {
     this.demoTasks.push({task: '063011', date: '10/11/2015' , desc: 'Call TMZ Inc at 5 PM'});
     this.demoTasks.push({task: '063012', date: '07/08/2015' , desc: 'Part #6212132 has low inventory level'});
   }
+
   addItems() {
     // Make sure we are passing a new object to the listview as an input
     let temp = this.demoTasks;
@@ -97,13 +100,44 @@ export class ListViewDemoComponent {
     temp = null;
     }, 1000);
   }
+
   onRendered(event: any) {
     console.log('Rendered listview: ' + event);
   }
+
   onSelected(event: any) {
     console.log('Selected item: ' + event);
   }
+
   onSorted(event: any) {
     console.log('Sorted: ' + event);
+  }
+
+  onItemActivated(event: any) {
+    console.log('Item Activated', event);
+  }
+
+  onItemDeactivated(event: any) {
+    console.log('Item Deactivated', event);
+  }
+
+  activatedItem() {
+    console.log('activatedItem', this.mixedSelectionListView.activatedItem());
+  }
+
+  activateItem() {
+    console.log('activateItem at index 2');
+    this.mixedSelectionListView.activateItem(2);
+  }
+
+  deactivateItem() {
+    console.log('deactivateItem');
+
+    const activatedItem = this.mixedSelectionListView.activatedItem();
+    if (activatedItem && activatedItem.index > -1) {
+      this.mixedSelectionListView.deactivateItem(activatedItem.index);
+    } else {
+      console.log('cannot deactivate, must activate an item first.');
+    }
   }
 }

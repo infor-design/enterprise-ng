@@ -27,7 +27,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
 
   @Input() set dataset(dataset: Array<any>) {
     this.options.dataset = dataset;
-  };
+  }
 
   get dataset(): Array<any> {
     return this.options.dataset;
@@ -57,6 +57,14 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
     return this.options.templateId;
   }
 
+  @Input() set paging(bool: boolean) {
+    this.options.paging = bool;
+  }
+
+  get paging(): boolean {
+    return this.options.paging;
+  }
+
   /**
    * Leaf is selected
    * @type {EventEmitter<SohoHierarchyEvent>}
@@ -71,6 +79,14 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
    */
   add(id: string, dataset: Array<any>, newData: Array<any>) {
     this.hierarchy.add(id, dataset, newData);
+  }
+
+  /**
+   *  Reload hierarchy with a new dataset
+   */
+  reloadDataSet(dataSet:  Array<any>) {
+    this.options.dataset = dataSet;
+    this.hierarchy.reload(this.options);
   }
 
   ngOnDestroy() {
@@ -91,7 +107,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
     // Initialize any event handlers.
     this.jQueryElement
         .on('selected', ( (e: JQueryEventObject, args: SohoHierarchyEvent) => {
-          this.selected.next(args)
+          this.selected.next(args);
         }));
 
     // Assign the hierarchy control

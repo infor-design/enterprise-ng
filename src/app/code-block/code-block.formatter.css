@@ -1,0 +1,52 @@
+/* Grid Formatter Adjustments */
+:host ::ng-deep .datagrid .code-block {
+  display: block;
+  line-height: inherit;
+  text-overflow: inherit;
+  overflow: inherit;
+  margin-bottom: -19px;
+  position: relative;
+}
+
+:host ::ng-deep .datagrid .is-active .code-block {
+  display: inline-block;
+  line-height: inherit !important;
+  top: -5px;
+}
+
+:host ::ng-deep .datagrid .code-block label {
+  display: inline-block;
+  margin-bottom: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  top: 0;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+:host ::ng-deep .datagrid .code-block label::after {
+  content: ':';
+}
+
+:host ::ng-deep .datagrid .code-block .data {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 15px;
+  line-height: inherit;
+  margin-bottom: 0;
+  position: relative;
+  top: 0;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+:host ::ng-deep .datagrid .code-block .data:not(:last-of-type)::after {
+  content: '•';
+  color: #5C5C5C;
+  font-size: 18px;
+  padding-left: 15px;
+  margin-right: 0;
+  position: relative;
+  top: 1px;
+}

@@ -68,6 +68,7 @@ export class SohoPopupMenuItemComponent {
   @HostBinding('class.is-checked') @Input() isChecked: boolean;
   @HostBinding('class.is-selectable') @Input() isSelectable = false;
   @HostBinding('class.is-disabled') @Input() isDisabled = false;
+  @HostBinding('class.submenu') @Input() subMenu = false;
 }
 
 /**
@@ -333,7 +334,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
    */
   getSelected(): any {
     if (this.popupmenu) {
-      return this.popupmenu.getSelected()
+      return this.popupmenu.getSelected();
     }
   }
 
@@ -342,7 +343,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
    */
   updated(): void {
     if (this.popupmenu) {
-      this.popupmenu.updated()
+      this.popupmenu.updated();
     }
   }
 
@@ -351,7 +352,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
    */
   teardown(): void {
     if (this.popupmenu) {
-      this.popupmenu.teardown()
+      this.popupmenu.teardown();
     }
   }
 

@@ -35,4 +35,8 @@ interface JQuery {
   addError(options?: SohoErrorOptions): JQuery;
 
   removeError(options?: SohoErrorOptions): JQuery;
+
+  getErrorMessage(options?: SohoErrorOptions): JQuery;
+
+  scrollIntoView(alignToTop?: boolean, options?: SohoErrorOptions);
 }

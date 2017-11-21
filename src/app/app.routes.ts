@@ -1,4 +1,4 @@
-import { ModuleWithProviders } from '@angular/core';
+﻿import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AboutDemoComponent } from './about/about.demo';
@@ -7,16 +7,26 @@ import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
+import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
+import { CodeBlockDemoComponent } from './code-block/code-block.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
 import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoComponent } from './contextual-action-panel/contextual-action-panel.demo';
+import { DataGridAngularEditorDemoComponent } from './datagrid/datagrid-angular-editor.demo';
+import { DataGridAngularFormatterDemoComponent } from './datagrid/datagrid-angular-formatter.demo';
+import { DataGridAngularCardFormatterDemoComponent } from './datagrid/datagrid-angular-card-formatter.demo';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
+import { DataGridCodeBlockFormatterDemoComponent } from './datagrid/datagrid-code-block-formatter.demo';
+import { DataGridCodeBlockEditorDemoComponent } from './datagrid/datagrid-code-block-editor.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
+import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
+import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
+import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
@@ -24,6 +34,7 @@ import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-
 import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-selection.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
+import { DataGridRowReorderDemoComponent } from './datagrid/datagrid-rowreorder.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
@@ -38,11 +49,14 @@ import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
 import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
+import { FieldOptionsDemoComponent } from './field-options/field-options.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
+import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
 import { HierarchyDemoComponent } from './hierarchy/hierarchy.demo';
+import { HierarchyPagingDemoComponent } from './hierarchy/hierarchy-paging.demo';
 import { HomePageDemoComponent } from './homepage/homepage.demo';
 import { HomePageScenarioADemoComponent } from './homepage/homepage-scenario-a.demo';
 import { HomePageScenarioBDemoComponent } from './homepage/homepage-scenario-b.demo';
@@ -54,6 +68,7 @@ import { ListViewDemoComponent } from './listview/listview.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
+import { MaskLegacyDemoComponent } from './mask/mask-legacy.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
@@ -86,8 +101,9 @@ import { ToastDemoComponent } from './toast/toast.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
-import { ToolbarStateComponent } from './toolbar/toolbar-state.component';
+import { ToolbarPresetMoreActionsDemoComponent } from './toolbar/toolbar-preset-more-actions.demo';
 import { ToolbarRightAlignedDemoComponent } from './toolbar/toolbar-right-aligned.demo';
+import { ToolbarStateComponent } from './toolbar/toolbar-state.component';
 import { TooltipDemoComponent } from './tooltip/tooltip.demo';
 import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
@@ -97,9 +113,8 @@ import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { ValidationFormEventDemoComponent } from './validation/validation-form-event.demo';
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
-import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
-import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
+import { WizardDemoComponent } from './wizard/wizard.demo';
 
 export const routes: Routes = [
   { path: '',                                  component: ExpandableAreaDemoComponent }, // default
@@ -110,15 +125,23 @@ export const routes: Routes = [
   { path: 'autocomplete',                      component: AutocompleteDemoComponent },
   { path: 'button',                            component: ButtonDemoComponent },
   { path: 'busyindicator',                     component: BusyIndicatorDemoComponent },
+  { path: 'busyindicatorbody',                 component: BusyIndicatorDemoBodyComponent },
   { path: 'chart',                             component: ChartDemoComponent },
   { path: 'checkbox',                          component: CheckBoxDemoComponent },
+  { path: 'code-block',                        component: CodeBlockDemoComponent },
   { path: 'colorpicker',                       component: ColorPickerDemoComponent },
   { path: 'completion-chart',                  component: CompletionChartDemoComponent },
   { path: 'context-menu',                      component: ContextMenuDemoComponent },
   { path: 'contextual-action-panel',           component: ContextualActionPanelDemoComponent },
   { path: 'datagrid-breadcrumb',               component: DataGridBreadcrumbDemoComponent },
   { path: 'datagrid-content',                  component: DataGridContentDemoComponent },
+  { path: 'datagrid-angular-formatter',        component: DataGridAngularFormatterDemoComponent},
+  { path: 'datagrid-angular-card-formatter',   component: DataGridAngularCardFormatterDemoComponent},
+  { path: 'datagrid-angular-editor',           component: DataGridAngularEditorDemoComponent},
+  { path: 'datagrid-code-block-editor',        component: DataGridCodeBlockEditorDemoComponent},
+  { path: 'datagrid-code-block-formatter',     component: DataGridCodeBlockFormatterDemoComponent},
   { path: 'datagrid-dynamic',                  component: DataGridDynamicDemoComponent },
+  { path: 'datagrid-empty-message',            component: DataGridEmptyMessageDemoComponent },
   { path: 'datagrid-editors',                  component: DataGridEditorsDemoComponent },
   { path: 'datagrid-fixedheader',              component: DataGridFixedHeaderDemoComponent },
   { path: 'datagrid-groupedheader',            component: DataGridGroupedHeaderDemoComponent },
@@ -126,6 +149,7 @@ export const routes: Routes = [
   { path: 'datagrid-mixed-selection',          component: DataGridMixedSelectionDemoComponent },
   { path: 'datagrid-paging-indeterminate',     component: DataGridPagingIndeterminateDemoComponent },
   { path: 'datagrid-paging-service',           component: DataGridPagingServiceDemoComponent },
+  { path: 'datagrid-rowreorder',               component: DataGridRowReorderDemoComponent },
   { path: 'datagrid-service',                  component: DataGridServiceDemoComponent },
   { path: 'datagrid-settings',                 component: DataGridSettingsDemoComponent },
   { path: 'datagrid-treegrid',                 component: DataGridTreeGridDemoComponent },
@@ -143,11 +167,13 @@ export const routes: Routes = [
   { path: 'error',                             component: ErrorDemoComponent },
   { path: 'expandablearea',                    component: ExpandableAreaDemoComponent },
   { path: 'expandablearea-footer',             component: ExpandableAreaFooterDemoComponent },
+  { path: 'fileupload-advanced',               component: FileUploadAdvancedDemoComponent },
   { path: 'fileupload',                        component: FileUploadDemoComponent },
   { path: 'header-tabs',                       component: HeaderTabsDemoComponent },
   { path: 'header-toolbar',                    component: HeaderToolbarDemoComponent },
   { path: 'header-toolbar-tabs',               component: HeaderToolbarAndTabsDemoComponent },
   { path: 'hierarchy',                         component: HierarchyDemoComponent },
+  { path: 'hierarchy-paging',                  component: HierarchyPagingDemoComponent },
   { path: 'homepage',                          component: HomePageDemoComponent },
   { path: 'homepage-scenario-a',               component: HomePageScenarioADemoComponent },
   { path: 'homepage-scenario-b',               component: HomePageScenarioBDemoComponent },
@@ -159,6 +185,7 @@ export const routes: Routes = [
   { path: 'lookup',                            component: LookupDemoComponent },
   { path: 'lookup-validation',                 component: LookupValidationDemoComponent },
   { path: 'mask',                              component: MaskDemoComponent },
+  { path: 'mask-legacy',                       component: MaskLegacyDemoComponent },
   { path: 'menu-button',                       component: MenuButtonDemoComponent },
   { path: 'message',                           component: MessageDemoComponent },
   { path: 'modal-dialog',                      component: ModalDialogDemoComponent },
@@ -189,6 +216,7 @@ export const routes: Routes = [
   { path: 'timepicker',                        component: TimePickerDemoComponent },
   { path: 'toast',                             component: ToastDemoComponent },
   { path: 'toolbar-all-icons',                 component: ToolbarAllIconsDemoComponent },
+  { path: 'toolbar-preset-more-actions',       component: ToolbarPresetMoreActionsDemoComponent },
   { path: 'toolbar-basic',                     component: ToolbarBasicDemoComponent },
   { path: 'toolbar-datadriven',                component: ToolbarDataDrivenDemoComponent },
   { path: 'toolbar-state',                     component: ToolbarStateComponent },
@@ -201,7 +229,8 @@ export const routes: Routes = [
   { path: 'tree-source',                       component: TreeSourceDemoComponent },
   { path: 'validation',                        component: ValidationFormDemoComponent},
   { path: 'validation-event',                  component: ValidationFormEventDemoComponent},
-  { path: 'validation-group',                  component: ValidationFormGroupDemoComponent}
+  { path: 'validation-group',                  component: ValidationFormGroupDemoComponent},
+  { path: 'wizard',                            component: WizardDemoComponent}
 ];
 
 export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes);

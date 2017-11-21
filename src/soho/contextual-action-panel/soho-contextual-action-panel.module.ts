@@ -16,4 +16,3 @@ import { SohoContextualActionPanelService } from './soho-contextual-action-panel
   ]
 })
 export class SohoContextualActionPanelModule {}
-

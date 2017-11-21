@@ -2,10 +2,21 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  ViewChild
+  ViewChild,
+  ComponentFactoryResolver,
+  ViewContainerRef,
+  Injector,
+  ApplicationRef,
+  NgModule,
+  Compiler,
+  OnDestroy,
+  Input,
+  Inject
 } from '@angular/core';
 import {
   SohoDataGridComponent,
+  SohoButtonComponent,
+  SohoComponentsModule
 } from '@infor/sohoxi-angular';
 import {
   PAGING_COLUMNS,
@@ -21,23 +32,61 @@ export const LMFavorite = (row, cell, value, col, rowData, api): string => {
 };
 
 @Component({
+  template: '<button soho-button="icon" icon="settings" (click)="onClick($event)" title="{{args?.row}} . {{args.cell}}"></button>'
+})
+export class DemoCellFormatterComponent implements OnDestroy {
+  constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {
+    console.log(`constructor ${this.args.value}`);
+  }
+  public onClick(e) {
+    console.log(`${this.args.row}`);
+  }
+
+  ngOnDestroy() {
+    console.log(`DemoCellFormatterComponent ${this.args.row} destroyed`);
+  }
+}
+
+@Component({
+  template: '{{args?.value?.price}}'
+})
+export class DemoCellIntegerFormatterComponent {
+  constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {}
+}
+
+@Component({
   selector: 'soho-datagrid-custom-formatter-demo',
   templateUrl: './datagrid-custom-formatter.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  entryComponents: [SohoButtonComponent],
 })
 export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
+  constructor() {
+  }
+  visible: boolean;
+
   onClick(args) {
     console.log('click');
+  }
+
+  isContentVisible(row: number, cell: HTMLElement, data: Object, col: SohoDataGridColumn, item: any): boolean {
+    if (this.visible) {
+      this.visible = false;
+    } else {
+      this.visible = true;
+    }
+    return this.visible;
   }
 
   ngAfterViewInit(): void {
     /**
      * Add a column for the custom formatter
      */
-    const columns = [];
+    const columns: SohoDataGridColumn[] = [];
     PAGING_COLUMNS.forEach(element => columns.push(element));
+
     columns.push({
       id: 'custom-formatter',
       name: 'Custom Formatter',
@@ -48,16 +97,29 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       id: 'favorite-formatter',
       name: 'Favorite',
       field: '',
-      formatter: LMFavorite,
+      align: 'center',
+      sortable: false,
+      formatter: LMFavorite,  // We could use the built in Favorite formatter also.
+    });
+    columns.push({
+      id: 'button-formatter',
+      name: 'Edit',
+      text: 'Edit Row',
+      sortable: false,
+      icon: 'edit',
+      align: 'center',
+      formatter: Formatters.Button,
+      click: (e, args) => this.onClick(args)
     });
     columns.push({
       id: 'buton-formatter',
       name: 'Button',
-      text: 'Press Me!',
+      text: 'Visible button',
       sortable: false,
       align: 'center',
       formatter: Formatters.Button,
-      click: (e, args) => this.onClick(args)
+      click: (e, args) => this.onClick(args),
+      contentVisible: (row, cell, data, col, item) => this.isContentVisible(row, cell, data, col, item)
     });
     const gridOptions: SohoDataGridOptions = <SohoDataGridOptions>{
       columns: columns,
@@ -65,7 +127,6 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       selectable: 'single',
       paging: true,
       pagesize: 10,
-
       /**
        * Set userObject to the instance of this DemoComponent.
        * In that way the CustomFormatter can gain access to it.
@@ -104,6 +165,3 @@ function MyCustomFormatter(
   // use a standard formatter to format that value.
   return Formatters.Integer(row, cell, value, column, item, api);
 }
-
-
-

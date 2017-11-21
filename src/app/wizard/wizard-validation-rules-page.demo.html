@@ -1,0 +1,17 @@
+<div style="flex: 0;">
+  <fieldset>
+    <legend>Select the validation level to use when importing report definitions</legend>
+  </fieldset>
+</div>
+<div class="field" style="flex: 0; margin: 20px;">
+  <div class="field">
+    <input soho-radiobutton soho-trackdirty name="validation-rules" type="radio" id="no-validation" value="1" />
+    <label soho-label for="no-validation" [forRadioButton]="true">Import reporting without validation</label>
+    <br>
+    <input soho-radiobutton soho-trackdirty name="validation-rules" type="radio" id="mark-invalid" value="2" />
+    <label soho-label for="mark-invalid" [forRadioButton]="true">Validate report definitions and mark invalid definitions</label>
+    <br>
+    <input soho-radiobutton soho-trackdirty name="validation-rules" id="reject-invalid" value="3" checked />
+    <label soho-label for="reject-invalid" [forRadioButton]="true">Validate report definitions and reject invalid reports</label>
+  </div>
+</div>

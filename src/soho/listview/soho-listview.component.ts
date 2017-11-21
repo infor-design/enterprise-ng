@@ -231,6 +231,17 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     }
   }
 
+  @Input() set disableItemDeactivation(value: boolean) {
+    this.options.disableItemDeactivation = value;
+    if (this.jQueryElement && this.listview) {
+      this.listview.settings.disableItemDeactivation = value;
+      this.listview.updated();
+    }
+  }
+  get disableItemDeactivation() {
+    return this.options.disableItemDeactivation;
+  }
+
   /**
    * Set the list of selected items either by their indices or via the
    * jQuery selector for the li element.
@@ -264,11 +275,47 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * current selected items.
    */
   @Output() selected: EventEmitter<Object> = new EventEmitter<Object>();
+
   /**
-   * Called once an item is unselected. Returns an object containing the event and the
+   * Called once an item is deselected. Returns an object containing the event and the
    * current selected items.
    */
   @Output() unselected: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * Called once an item is deselected. Returns an object containing the event and the
+   * current selected items.
+   */
+  @Output() deselected: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * Called once an item is activated. Returns an object containing the event
+   * and additional info about the activated item.
+   */
+  @Output() itemactivated: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * Called once an item is deactivated.  Returns an object containing the event
+   * and additional info about the deactivated item.
+   */
+  @Output() itemdeactivated: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * Called once an item is clicked. You may also prefer need activated / deactived here.
+   */
+  @Output() click: EventEmitter<Object> = new EventEmitter<Object>();
+
+   /**
+   * Called once an item is double clicked. This isnt used that often.
+   */
+  @Output() dblclick: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * Called during right click to enable context menus on list items.
+   * Use popupmenu during this event.
+   */
+  @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object>();
+
   /**
    * Called after the list has been sorted for any reason
    */
@@ -276,7 +323,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
 
   // Used to locate the listViewReference in the HTML to init the component through jQuery
   @ViewChild('listview') listViewRef: ElementRef;
-  @ContentChild(forwardRef(() => SohoSearchFieldComponent))
+  @ContentChild(forwardRef(() => SohoSearchFieldComponent)) // tslint:disable-line
   public searchfieldRef: SohoSearchFieldComponent = null;
 
   /**
@@ -314,6 +361,12 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     this.jQueryElement.on('rendered', (...args) => this.rendered.emit(args));
     this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
     this.jQueryElement.on('unselected', (...args) => this.unselected.emit(args));
+    this.jQueryElement.on('deselected', (...args) => this.deselected.emit(args));
+    this.jQueryElement.on('itemactivated', (...args) => this.itemactivated.emit(args));
+    this.jQueryElement.on('itemdeactivated', (...args) => this.itemdeactivated.emit(args));
+    this.jQueryElement.on('click', (...args) => this.click.emit(args));
+    this.jQueryElement.on('dblclick', (...args) => this.dblclick.emit(args));
+    this.jQueryElement.on('contextmenu', (...args) => this.contextmenu.emit(args));
     this.jQueryElement.on('sorted', (...args) => this.sorted.emit(args));
   }
 
@@ -383,6 +436,35 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    */
   select(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
     this.apply((e) => this.listview.select(e), index);
+  }
+
+  /**
+   * Activate the given list item.
+   */
+  activateItem(item: SohoListViewItemReference): void {
+    this.apply((e) => this.listview.activateItem(e), item);
+  }
+
+  /**
+   * Return an object containing info about the currently activated item.
+   */
+  activatedItem(): any {
+    return this.listview.activatedItem();
+  }
+
+  /**
+   * De-activate the given list item. If no item is specified the currently
+   * activated item will be deactivated.
+   */
+  deactivateItem(item?: SohoListViewItemReference): void {
+    this.listview.deactivateItem(item);
+  }
+
+  /**
+   * Toggle Activation on the given list item.
+   */
+  toggleItemActivation(item: SohoListViewItemReference): void {
+    this.apply((e) => this.listview.toggleItemActivation(e), item);
   }
 
   /**

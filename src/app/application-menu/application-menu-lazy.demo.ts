@@ -3,12 +3,13 @@ import {
   Component,
   OnInit,
   ViewChild,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy, ElementRef
 } from '@angular/core';
 
 import { ApplicationMenuLazyService } from './application-menu-lazy-service.demo';
 
 import { SohoApplicationMenuComponent } from '@infor/sohoxi-angular';
+import { ApplicationMenuLazyMenuDemoComponent } from './application-menu-lazy-menu.demo';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -19,6 +20,8 @@ import { SohoApplicationMenuComponent } from '@infor/sohoxi-angular';
 export class ApplicationMenuLazyDemoComponent implements AfterViewInit, OnInit {
 
   @ViewChild(SohoApplicationMenuComponent) applicationMenu: SohoApplicationMenuComponent;
+  @ViewChild(ApplicationMenuLazyMenuDemoComponent) private _lazyMenuComponent: ApplicationMenuLazyMenuDemoComponent;
+  @ViewChild('webAppMenuHeader') private _webAppMenuHeader: ElementRef;
 
   public triggers: Array<string> = [];
   public menu: Array<any> = [];
@@ -42,5 +45,13 @@ export class ApplicationMenuLazyDemoComponent implements AfterViewInit, OnInit {
     this.menu = menuObject.menuSpec;
     const target = menuObject.event.target;
     this.applicationMenu.updateLazy(this.applicationMenu, target);
+  }
+
+  public onWebAppMenuLoaded() {
+    if (this._webAppMenuHeader) {
+      this.applicationMenu.toggleAndSelectHeader(this.applicationMenu, this._webAppMenuHeader.nativeElement);
+    } else {
+      this.applicationMenu.updated();
+    }
   }
 }

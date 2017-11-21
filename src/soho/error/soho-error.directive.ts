@@ -1,8 +1,4 @@
-import {
-  AfterViewInit,
-  Directive,
-  ElementRef, Input
-} from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
 
 /**
  * Angular Wrapper for the SoHo Error Directive.
@@ -15,7 +11,6 @@ import {
 export class SohoErrorDirective implements AfterViewInit {
 
   private _options: SohoErrorOptions = {};
-  private error: SohoErrorStatic;
   private jQueryElement: JQuery;
 
   constructor(private el: ElementRef) {
@@ -32,7 +27,6 @@ export class SohoErrorDirective implements AfterViewInit {
         this.jQueryElement.removeError(this._options);
       }
     }
-    this.error = this.jQueryElement.data('data-errormessage');
   }
 
   /** set error in tooltip. */
@@ -47,8 +41,12 @@ export class SohoErrorDirective implements AfterViewInit {
     this._options.inline = inline;
   }
 
+  /**
+   * Returns the data object data-errormessage
+   * @returns {JQuery}
+   */
   get errorMessage() {
-    return this.error;
+    return this.jQueryElement.getErrorMessage(this._options);
   }
 
   /** add inline error */
@@ -71,12 +69,19 @@ export class SohoErrorDirective implements AfterViewInit {
   }
 
   /**
+   * Scrolls the element into the visible area of the browser window
+   *
+   * @param alignToTop (boolean) optional - true (default) element will be aligned to the top of the visible area of the scrollable ancestor
+   */
+  scrollIntoView(alignToTop?: boolean) {
+    this.jQueryElement.scrollIntoView(alignToTop, this._options);
+  }
+
+  /**
    * After the control has been initialised and the view is ready,
    * get the SoHoXi controls to activate any validations.
    */
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.el.nativeElement);
-
-    this.error = this.jQueryElement.data('data-errormessage');
   }
 }

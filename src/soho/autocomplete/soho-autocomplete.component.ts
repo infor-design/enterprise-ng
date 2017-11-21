@@ -27,7 +27,7 @@ export class SohoAutoCompleteComponent implements AfterViewInit, OnDestroy {
 
   /** Object is passed into the source method, and augmented with parameters. */
   @Input() set sourceArguments(sourceArguments: string) {
-    this.options.sourceArguments = sourceArguments
+    this.options.sourceArguments = sourceArguments;
   }
 
   /** Menu template, appropriate markup is expected. */

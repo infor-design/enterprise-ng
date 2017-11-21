@@ -44,7 +44,9 @@ export class ModalDialogDemoComponent {
     const dialogRef = this.modalService
       .modal<ExampleModalDialogComponent>(ExampleModalDialogComponent, this.placeholder)
       .buttons([
-        { text: 'Cancel', click: (e, modal) => { modal.isCancelled = true; dialogRef.close('CANCEL'); } },
+        { id: 'cancel-button',
+          text: Locale.translate('Cancel'),
+          click: (e, modal) => { modal.isCancelled = true; dialogRef.close('CANCEL'); } },
         {
           text: 'Submit', click: (e, modal) => {
             dialogRef.close('SUBMIT');
@@ -54,7 +56,6 @@ export class ModalDialogDemoComponent {
       .isAlert(this.isAlert)
       .apply((dialogComponent) => { dialogComponent.model.header = 'Header Text Update!!'; })
       .open();
-
 
     // Attach a listener to the afterClose event, which also gives you the result - if available.
     dialogRef.afterClose((result, ref, dialogComponent) => {
@@ -90,7 +91,6 @@ export class ModalDialogDemoComponent {
         this.closeResult = result;
       });
   }
-
 
   openVetoableSimple() {
     const dialogRef = this.modalService

@@ -2,13 +2,18 @@
 <div class="row">
   <div class="twelve columns">
     <h2 class="fieldset-title">Soho Data Grid - Indeterminate Paging</h2>
+    <div class="field">
+      <button soho-button (click)="onShowPageSizeSelector()">Toggle Show Page Size Selector</button>
+      <button soho-button (click)="onRefresh()">Refresh</button>
+    </div>
   </div>
 </div>
 
 <br>
 <div class="row top-padding">
   <div class="twelve columns demo" role="main">
-    <div soho-datagrid>
-    </div>
+    <div soho-datagrid
+      [showPageSizeSelector]="this.showPageSizeSelector"
+    ></div>
   </div>
 </div>

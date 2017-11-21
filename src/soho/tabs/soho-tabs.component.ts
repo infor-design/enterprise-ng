@@ -11,6 +11,10 @@ import {
   Output
 } from '@angular/core';
 
+import {
+  DeprecatedEventEmitter
+} from '../utils/deprecated-event-emitter';
+
 /**
  * Internal component to support the tab title
  */
@@ -20,7 +24,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabTitleComponent {
-  @HostBinding('attr.href') get hrefAttr() { return '#' + this.tabId; };
+  @HostBinding('attr.href') get hrefAttr() { return '#' + this.tabId; }
   @Input() tabId: string;
 }
 
@@ -33,7 +37,7 @@ export class SohoTabTitleComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabCountComponent {
-  @HostBinding('class.count') get isTabCount() { return true; };
+  @HostBinding('class.count') get isTabCount() { return true; }
 }
 
 /**
@@ -45,7 +49,7 @@ export class SohoTabCountComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabSeparatorComponent {
-  @HostBinding('class.separator') get isSeparator() { return true; };
+  @HostBinding('class.separator') get isSeparator() { return true; }
 }
 
 /**
@@ -84,7 +88,7 @@ export class SohoTabPanelComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabComponent {
-  @HostBinding('class.tab') get isTab() { return true; };
+  @HostBinding('class.tab') get isTab() { return true; }
   @HostBinding('class.dismissible') @Input() dismissible = false;
   @HostBinding('class.is-selected') @Input() selected = false;
   @HostBinding('class.is-disabled') @Input() disabled = false;
@@ -126,11 +130,11 @@ export class SohoTabListContainerComponent {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
-  @HostBinding('class.tab-container') get isTabContainer() { return true; };
-  @HostBinding('class.vertical')      get isVertical()     { return this.vertical; };
-  @HostBinding('class.module-tabs')   get isModuleTabs()   { return this.moduleTabs; };
-  @HostBinding('class.header-tabs')   get isHeaderTabs()   { return this.headerTabs; };
-  @HostBinding('class.alternate')     get isAlternate()    { return this.alternate; };
+  @HostBinding('class.tab-container') get isTabContainer() { return true; }
+  @HostBinding('class.vertical')      get isVertical()     { return this.vertical; }
+  @HostBinding('class.module-tabs')   get isModuleTabs()   { return this.moduleTabs; }
+  @HostBinding('class.header-tabs')   get isHeaderTabs()   { return this.headerTabs; }
+  @HostBinding('class.alternate')     get isAlternate()    { return this.alternate; }
 
   // ------------------------------------------------------------------------
   // @Inputs
@@ -261,11 +265,18 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   // ------------------------------------------------------------------------
 
   /**
-   * The beforeactivate event is fired whenever a tab is selected giving the event handler a chance
+   * The beforeactivated event is fired whenever a tab is selected giving the event handler a chance
    * to "veto" the tab selection change.
    * @type {EventEmitter<Object>}
    */
-  @Output() beforeActivate = new EventEmitter<SohoTabsEvent>();
+  @Output() beforeActivated = new EventEmitter<SohoTabsEvent>();
+
+  /**
+   * The beforeactivate event is deprecated in favor of `beforeactivated`.
+   * @deprecated
+   * @type {EventEmitter<Object>}
+   */
+  @Output() beforeActivate = new DeprecatedEventEmitter<SohoTabsEvent>('beforeactivate', 'beforeactivated');
 
   /**
    * The activated event is fired whenever a tab is selected (or "activated");
@@ -346,7 +357,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
       // bind to jquery events and emit as angular events
       this.jQueryElement
-      .on('beforeactivate', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.beforeActivate.emit(event); }))
+      .on('beforeactivated', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.beforeActivated.emit(event); }))
       .on('activated', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.activated.emit(event); }))
       .on('afteractivate', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.afterActivate.emit(event); }))
       .on('beforeclose', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.beforeClose.emit(event);
@@ -388,7 +399,6 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
       const tabTitles = this.getTabTitles($liList);
       for (let i = 0; i < tabTitles.length; i++) {
         if (tabTitles[ i ] !== this.tabTitles[ i ]) {
-          console.log('tabTitles changed: Calling handleResize()');
           this.tabs.handleResize();
           this.tabTitles = tabTitles;
           break;

@@ -90,7 +90,7 @@ export function provideControlValueAccessor(type: any): any {
   // creates an ngModel accessor to be used in components providers
   return {
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => type),
+    useExisting: forwardRef(() => type), // tslint:disable-line
     multi: true
   };
 }

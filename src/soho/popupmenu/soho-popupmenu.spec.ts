@@ -3,22 +3,56 @@ import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { SohoPopupMenuComponent,
-         SohoPopupMenuHeadingComponent,
-         SohoPopupMenuModule,
-         SohoPopupMenuItemComponent,
-         SohoPopupMenuItemLabelComponent,
-         SohoPopupMenuSeparatorComponent } from './';
+import {
+  SohoPopupMenuComponent,
+  SohoPopupMenuHeadingComponent,
+  SohoPopupMenuModule,
+  SohoPopupMenuItemComponent,
+  SohoPopupMenuItemLabelComponent,
+  SohoPopupMenuSeparatorComponent
+} from './';
+
+@Component({
+  template: `
+             <li soho-popupmenu-separator singleSelectableSection=true></li>`
+})
+class SohoPopupMenuSeparatorTestComponent {
+  @ViewChild(SohoPopupMenuSeparatorComponent) separator: SohoPopupMenuSeparatorComponent;
+}
+
+@Component({
+  template: `
+             <li soho-popupmenu-heading>Heading One</li>`
+})
+class SohoPopupMenuHeadingTestComponent {
+  @ViewChild(SohoPopupMenuHeadingComponent) heading: SohoPopupMenuHeadingComponent;
+}
+
+@Component({
+  template: `
+             <li soho-popupmenu-item>Item One</li>`
+})
+class SohoPopupMenuItemTestComponent {
+  @ViewChild(SohoPopupMenuItemComponent) item: SohoPopupMenuItemComponent;
+}
+
+@Component({
+  template: `
+             <a soho-popupmenu-label isDisabled="true" > Entry One</a>`
+})
+class SohoPopupMenuItemLabelTestComponent {
+  @ViewChild(SohoPopupMenuItemLabelComponent) label: SohoPopupMenuItemLabelComponent;
+}
 
 describe('Soho Popup Menu Unit Tests', () => {
-  let comp:     SohoPopupMenuComponent;
-  let fixture:  ComponentFixture<SohoPopupMenuComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let comp: SohoPopupMenuComponent;
+  let fixture: ComponentFixture<SohoPopupMenuComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoPopupMenuComponent ]
+      declarations: [SohoPopupMenuComponent]
     });
 
     fixture = TestBed.createComponent(SohoPopupMenuComponent);
@@ -36,16 +70,16 @@ describe('Soho Popup Menu Unit Tests', () => {
 });
 
 describe('Soho Popup Menu Heading Render', () => {
-  let heading:    SohoPopupMenuHeadingComponent;
-  let component:  SohoPopupMenuHeadingTestComponent;
-  let fixture:    ComponentFixture<SohoPopupMenuHeadingTestComponent>;
-  let de:         DebugElement;
-  let el:         HTMLElement;
+  let heading: SohoPopupMenuHeadingComponent;
+  let component: SohoPopupMenuHeadingTestComponent;
+  let fixture: ComponentFixture<SohoPopupMenuHeadingTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoPopupMenuHeadingTestComponent ],
-      imports: [ FormsModule, SohoPopupMenuModule ]
+      declarations: [SohoPopupMenuHeadingTestComponent],
+      imports: [FormsModule, SohoPopupMenuModule]
     });
 
     fixture = TestBed.createComponent(SohoPopupMenuHeadingTestComponent);
@@ -68,16 +102,16 @@ describe('Soho Popup Menu Heading Render', () => {
 });
 
 describe('Soho Popup Menu Separator Render', () => {
-  let separator:  SohoPopupMenuSeparatorComponent;
-  let component:  SohoPopupMenuSeparatorTestComponent;
-  let fixture:    ComponentFixture<SohoPopupMenuSeparatorTestComponent>;
-  let de:         DebugElement;
-  let el:         HTMLElement;
+  let separator: SohoPopupMenuSeparatorComponent;
+  let component: SohoPopupMenuSeparatorTestComponent;
+  let fixture: ComponentFixture<SohoPopupMenuSeparatorTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoPopupMenuSeparatorTestComponent ],
-      imports: [ FormsModule, SohoPopupMenuModule ]
+      declarations: [SohoPopupMenuSeparatorTestComponent],
+      imports: [FormsModule, SohoPopupMenuModule]
     });
 
     fixture = TestBed.createComponent(SohoPopupMenuSeparatorTestComponent);
@@ -101,16 +135,16 @@ describe('Soho Popup Menu Separator Render', () => {
 });
 
 describe('Soho Popup Menu Item Render', () => {
-  let item:       SohoPopupMenuItemComponent;
-  let component:  SohoPopupMenuItemTestComponent;
-  let fixture:    ComponentFixture<SohoPopupMenuItemTestComponent>;
-  let de:         DebugElement;
-  let el:         HTMLElement;
+  let item: SohoPopupMenuItemComponent;
+  let component: SohoPopupMenuItemTestComponent;
+  let fixture: ComponentFixture<SohoPopupMenuItemTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoPopupMenuItemTestComponent ],
-      imports: [ FormsModule, SohoPopupMenuModule ]
+      declarations: [SohoPopupMenuItemTestComponent],
+      imports: [FormsModule, SohoPopupMenuModule]
     });
 
     fixture = TestBed.createComponent(SohoPopupMenuItemTestComponent);
@@ -139,16 +173,16 @@ describe('Soho Popup Menu Item Render', () => {
 });
 
 describe('Soho Popup Menu Item Label Render', () => {
-  let label:      SohoPopupMenuItemLabelComponent;
-  let component:  SohoPopupMenuItemLabelTestComponent;
-  let fixture:    ComponentFixture<SohoPopupMenuItemLabelTestComponent>;
-  let de:         DebugElement;
-  let el:         HTMLElement;
+  let label: SohoPopupMenuItemLabelComponent;
+  let component: SohoPopupMenuItemLabelTestComponent;
+  let fixture: ComponentFixture<SohoPopupMenuItemLabelTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoPopupMenuItemLabelTestComponent ],
-      imports: [ FormsModule, SohoPopupMenuModule ]
+      declarations: [SohoPopupMenuItemLabelTestComponent],
+      imports: [FormsModule, SohoPopupMenuModule]
     });
 
     fixture = TestBed.createComponent(SohoPopupMenuItemLabelTestComponent);
@@ -181,35 +215,3 @@ describe('Soho Popup Menu Item Label Render', () => {
   });
 
 });
-
-@Component({
-  template: `
-     <li soho-popupmenu-separator singleSelectableSection=true></li>`
-})
-class SohoPopupMenuSeparatorTestComponent {
-  @ViewChild(SohoPopupMenuSeparatorComponent) separator: SohoPopupMenuSeparatorComponent;
-}
-
-@Component({
-  template: `
-     <li soho-popupmenu-heading>Heading One</li>`
-})
-class SohoPopupMenuHeadingTestComponent {
-  @ViewChild(SohoPopupMenuHeadingComponent) heading: SohoPopupMenuHeadingComponent;
-}
-
-@Component({
-  template: `
-     <li soho-popupmenu-item>Item One</li>`
-})
-class SohoPopupMenuItemTestComponent {
-  @ViewChild(SohoPopupMenuItemComponent) item: SohoPopupMenuItemComponent;
-}
-
-@Component({
-  template: `
-     <a soho-popupmenu-label isDisabled="true" > Entry One</a>`
-})
-class SohoPopupMenuItemLabelTestComponent {
-  @ViewChild(SohoPopupMenuItemLabelComponent) label: SohoPopupMenuItemLabelComponent;
-}

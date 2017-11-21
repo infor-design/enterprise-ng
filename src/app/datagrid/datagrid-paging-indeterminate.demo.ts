@@ -18,6 +18,8 @@ import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indete
 export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
+  public showPageSizeSelector = true;
+
   constructor(private datagridPagingService: DataGridPagingIndeterminateDemoService) {}
 
   ngAfterViewInit(): void {
@@ -30,6 +32,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
       indeterminate: true,
       rowHeight: 'short', // short, medium or normal
       sortable: false,
+      showPageSizeSelector: this.showPageSizeSelector,
 
       /**
        * cause source method to be called with req.type of 'sorted' so that
@@ -67,5 +70,16 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
     };
 
     this.sohoDataGridComponent.gridOptions = gridOptions;
+  }
+
+  onRefresh() {
+    console.log('onRefresh() called');
+    this.sohoDataGridComponent.triggerSource('refresh', function() {
+      console.log('List Refresh Completed');
+    });
+  }
+
+  onShowPageSizeSelector() {
+    this.showPageSizeSelector = !this.showPageSizeSelector;
   }
 }

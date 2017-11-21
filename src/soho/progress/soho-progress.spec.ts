@@ -17,6 +17,18 @@ import {
 import { SohoProgressComponent } from './soho-progress.component';
 // import { SohoComponentsModule } from '../soho-components.module';
 
+@Component ({
+  template: `
+    <soho-progress progressValue="50">
+       <div class="progress-bar" data-value="50" id="progress-bar1" aria-labelledby="pr-label1"></div>
+    </soho-progress>
+`
+})
+
+class SohoProgressTestComponent {
+  @ViewChild(SohoProgressComponent) progress: SohoProgressComponent;
+}
+
 describe('Soho Progress Unit Tests', () => {
     let progress: SohoProgressComponent;
     let comp:     SohoProgressTestComponent;
@@ -72,15 +84,3 @@ describe('Soho Progress Unit Tests', () => {
   });
 
 });
-
-@Component ({
-  template: `
-    <soho-progress progressValue="50">
-       <div class="progress-bar" data-value="50" id="progress-bar1" aria-labelledby="pr-label1"></div>
-    </soho-progress>
-`
-})
-
-class SohoProgressTestComponent {
-  @ViewChild(SohoProgressComponent) progress: SohoProgressComponent;
-}

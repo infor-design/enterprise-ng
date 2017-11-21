@@ -5,10 +5,10 @@
  * interface of the Soho jQuery listview control.
  */
 
-type SohoListViewSelectable = false | 'single' | 'multiple';
+type SohoListViewSelectable = false | 'single' | 'multiple' | 'mixed';
 
 /** How individual items are referenced in the list view. */
-type SohoListViewItemReference = number | JQuery;
+type SohoListViewItemReference = JQuery | number | void;
 
 interface SohoListViewOptions {
   /** Data to display. */
@@ -37,6 +37,9 @@ interface SohoListViewOptions {
 
   /** URL or source function. */
   source?: SohoListViewSourceFunction | string;
+
+  /** If true when an item is activated the user should not be able to deactivate it by clicking on the activated item. */
+  disableItemDeactivation?: boolean;
 }
 
 type SohoListViewSourceFunction = (
@@ -69,30 +72,60 @@ interface SohoListViewStatic {
   /** Clear the list. */
   clear(): void;
 
+  /** Remove all selected items from the list */
   removeAllSelected(): void;
 
+  /** Deselect all selected items in the list */
   clearAllSelected(): void;
 
-  /** Updates the busy indicator with any new seettings. */
+  /** Updates the busy indicator with any new settings. */
   updated(): void;
 
-  /** Destroys the control on completion. */
+  /** Destroy the component on completion. */
   destroy(): void;
 
   /**
-   * Removes the given item from the list view, if rendered.
+   * Removes the given item from the list, if rendered.
    */
   remove(item: SohoListViewItemReference): void;
 
   /**
-   * Unselects the given item from the list viewm, if rendered.
+   * Deselects the given item from the list, if rendered.
+   * (Deprecated) use deselect for proper semantics.
+   * @deprecated
    */
   unselect(item: SohoListViewItemReference): void;
 
   /**
-   * Selects the given item from the list view, if rendered.
+   * Unselects the given item from the list, if rendered.
+   */
+  deselect(item: SohoListViewItemReference): void;
+
+  /**
+   * Selects the given item from the list, if rendered.
    */
   select(item: SohoListViewItemReference): void;
+
+  /**
+   * Activate the given list item.
+   */
+  activateItem(item: SohoListViewItemReference): void;
+
+  /**
+   * Return an object containing info about the currently activated item.
+   */
+  activatedItem();
+
+  /**
+   * De-activate the given list item.
+   */
+  deactivateItem(item?: SohoListViewItemReference): void;
+
+  /**
+   * Toggle Activation on the given list item.
+   */
+  toggleItemActivation(item: SohoListViewItemReference): void;
+
 }
 
 /**

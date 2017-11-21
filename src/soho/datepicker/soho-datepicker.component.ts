@@ -18,7 +18,7 @@ import {
   template: '<ng-content></ng-content>',
   providers: [provideControlValueAccessor(SohoDatePickerComponent)]
 })
-export class SohoDatePickerComponent extends BaseControlValueAccessor<any> implements AfterViewInit, OnDestroy {
+export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> implements AfterViewInit, OnDestroy {
 
   /**
    * Local variables
@@ -155,15 +155,25 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
     this.datepicker.setValue(value, true);
   }
 
+  public getValue(): Date {
+    return this.internalValue;
+  }
+
+  public focus(): void {
+    if (this.datepicker) {
+      this.datepicker.element.focus();
+    }
+  }
+
   /**
    * Bind attributes to the host input element
    */
   @HostBinding('class.datepicker') get isDatepicker() {
     return true;
-  };
+  }
   @HostBinding('class.timepicker') get isTimepicker() {
     return !!this.options.showTime;
-  };
+  }
 
   constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
     super(changeDetectionRef);
@@ -183,7 +193,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
     this.datepicker = this.jQueryElement.data('datepicker');
 
     if (this.internalValue) {
-      this.datepicker.element.val(this.internalValue);
+      this.datepicker.setValue(this.internalValue);
     }
   }
 

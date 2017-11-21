@@ -127,11 +127,27 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
     const $accordion = $applicationMenu.accordion;
     const accordion = $accordion.data('accordion');
 
+    setTimeout(() => {
+      accordion.updated();
+      const header = jQuery(target).closest('.accordion-header');
+      accordion.expand(header);
+    }, 1);
+  }
+
+  /*
+   * Toggle and select a specific header
+   */
+  public toggleAndSelectHeader(applicationMenu: SohoApplicationMenuComponent, header: any) {
+    const $applicationMenu = jQuery(applicationMenu.elementRef.nativeElement).data('applicationmenu');
+    const $accordion = $applicationMenu.accordion;
+    const accordion = $accordion.data('accordion');
+
     accordion.headers = $accordion.find('.accordion-header');
 
     setTimeout(() => {
-      const header = jQuery(target).closest('.accordion-header');
-      accordion.toggle(header);
+      accordion.updated();
+      accordion.toggle(jQuery(header));
+      accordion.select(jQuery(header));
     }, 1);
   }
 

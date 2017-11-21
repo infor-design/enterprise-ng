@@ -17,10 +17,10 @@ import { SohoTabsComponent } from '@infor/sohoxi-angular';
   templateUrl: './header-dynamic.demo.html'
 })
 export class SohoHeaderDynamicDemoComponent {
-  @HostBinding('class.header') get isHeader() { return true; };
-  @HostBinding('class.is-personalizable') get isPersonalizable() { return true; };
-  @HostBinding('class.has-toolbar') get hasHeaderToolbar() { return !!this.toolbarOptions; };
-  @HostBinding('class.has-tabs') get hasHeaderTabs() { return !!this.tabOptions; };
+  @HostBinding('class.header') get isHeader() { return true; }
+  @HostBinding('class.is-personalizable') get isPersonalizable() { return true; }
+  @HostBinding('class.has-toolbar') get hasHeaderToolbar() { return !!this.toolbarOptions; }
+  @HostBinding('class.has-tabs') get hasHeaderTabs() { return !!this.tabOptions; }
 
   @ViewChild(SohoToolbarComponent) sohoToolbarComponent: SohoToolbarComponent;
   @ViewChild(SohoTabsComponent) sohoTabsComponent: SohoTabsComponent;
@@ -64,7 +64,6 @@ export class SohoHeaderDynamicDemoComponent {
     value: '',
     collapsible: true
   };
-
 
   /**
    * Used by the component template to decide when to display the tabs.

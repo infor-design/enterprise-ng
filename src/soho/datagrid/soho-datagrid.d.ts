@@ -53,6 +53,9 @@ interface SohoDataGridOptions {
   /** Save Column Reorder and resize. */
   saveColumns?: boolean;
 
+  /** To automatically save user settings for the grid */
+  saveUserSettings?: SohoDataGridSaveUserSettings;
+
   /** Is the grid editable? */
   editable?: boolean;
 
@@ -61,6 +64,21 @@ interface SohoDataGridOptions {
 
   /** Id to the right click context menu */
   menuId?: string;
+
+  /** Id to the right click context menu to use for the header. */
+  headerMenuId?: string;
+
+  /** Callback for the grid level right click menu. */
+  menuSelected?: Function;
+
+  /** Call back for the grid level before open menu event. */
+  menuBeforeOpen?: Function;
+
+  /** Callback for the header level right click menu. */
+  headerMenuSelected?: Function;
+
+  /** Call back for the header level before open menu event. */
+  headerMenuBeforeOpen?: Function;
 
   /** Unique ID for local storage reference and variable names. If not specified then the URL the page is used. */
   uniqueId?: string;
@@ -80,6 +98,9 @@ interface SohoDataGridOptions {
   /** Toolbar options. */
   toolbar?: boolean | SohoToolbarOptions;
 
+  /** Can set to false if you will initialize the toolbar yourself. */
+  initializeToolbar?: boolean;
+
   /** Paging Options. */
   paging?: boolean;
 
@@ -89,17 +110,20 @@ interface SohoDataGridOptions {
   /** Size of a page options */
   pagesizes?: number[];
 
+  /** whether to show the page size selector or not */
+  showPageSizeSelector?: boolean; // Will show page size selector
+
   /** Remove ability to go to a specific page. */
   indeterminate?: boolean;
 
   /** Callback for paging. */
   source?: SohoDataGridSourceFunction;
 
+  /** If true, hides the pager if there's only one page worth of results. */
+  hidePagerOnOnePage?: boolean;
+
   /** Add filter bar? */
   filterable?: boolean;
-
-  /** Display as a tree grid? */
-  treeGrid?: boolean;
 
   /** Disable Filter Logic client side and let your server do it */
   disableClientFilter?: boolean;
@@ -110,11 +134,8 @@ interface SohoDataGridOptions {
   /** Can provide a custom function to adjust results text */
   resultsText?: SohoDataGridResultsTextFunction;
 
-  /**
-   * Used to hold an object that can be referenced in formatters
-   * and editors or anywhere else a datagrid reference is available
-   */
-  userObject?: any;
+  /** Paging results will show filtered count, false to not show the filter count. */
+  showFilterTotal?: boolean;
 
   /** Prevent Unused rows from being added to the DOM  */
   // virtualized?: boolean;
@@ -128,15 +149,132 @@ interface SohoDataGridOptions {
   /**  */
   showDirty?: boolean;
 
+  /** Only allows one expandable row at a time. */
+  allowOneExpandedRow?: boolean;
+
+  /** Process tooltip logic at a cost of performance. */
+  enableTooltips?: boolean;
+
   /** If a row is activated the user should not be able to deactivate it by clicking on the activated row */
   disableRowDeactivation?: boolean;
 
-  /** To automatically save user settings for the grid */
-  saveUserSettings?: SohoDataGridSaveUserSettings;
+  /** If true make all the columns equal width. */
+  sizeColumnsEqually?: boolean;
+
+  /** Supply an empty expandable row template. */
+  expandableRow?: boolean;
+
+  /** Run column redraw logic on resize. */
+  redrawOnResize?: boolean;
+
+  /** Export data with trailing negative signs moved in front. */
+  exportConvertNegative?: boolean;
 
   /** Grouped columns*/
   columnGroups?: SohoDataGridColumnGroup[];
+
+  /** Display as a tree grid? */
+  treeGrid?: boolean;
+
+  /**
+   * Used to hold an object that can be referenced in formatters
+   * and editors or anywhere else a datagrid reference is available
+   */
+  userObject?: any;
+
+  /**
+   * Optional callback called when a cell is rendered with the flag `postRender`
+   * set to true.
+   *
+   * This is used by the datagrid to allow Angular Components to be used as cell
+   * editors / formatters.
+   * */
+  onPostRenderCell?: SohoDataGridPostRenderCellFunction;
+
+  /**
+   * Optional callback called when any resources associated with a cell
+   * should be destroyed, specifically in the case of components added
+   * as cell formatters in Angular.
+   */
+  onDestroyCell?: SohoDataGridPostRenderCellFunction;
+
+  /**
+  * Optional callback called when a cell is edited with the flag `postRender`
+  * set to true.
+  *
+  * This is used by the datagrid to allow Angular Components to be used as cell
+  *
+  * editors / formatters.
+  */
+  onEditCell?: SohoDataGridEditCellFunction;
+
+  /**
+   * An empty message will be displayed when there are no rows in the grid.
+   * This accepts an object of the form SohoDataGridEmptyMessageOptions, set
+   * this to null for no message or it will default to 'No Data Found with an icon.'
+   */
+  emptyMessage?: SohoDataGridEmptyMessageOptions;
 }
+
+/**
+ * Example:
+ *
+ * { title: 'No Data Available',
+ *    info: 'Make a selection on the list above to see results',
+ *    icon: 'icon-empty-no-data',
+ *  button: {text: 'Run Query', cssClass: '' }
+ *   click: <function>}
+ * }
+ *
+ */
+interface SohoDataGridEmptyMessageOptions {
+  /**
+   * Title text.
+   */
+  title?: string;
+
+  /**
+   * Informational text.
+   */
+  info?: string;
+
+  /**
+   * Icon, to diplay (see svg-empty) - must be the full icon name.
+   */
+  icon?: string;
+
+  /**
+   * Button options - note this cannot be a Soho Angular Component.
+   */
+  button?: SohoDataGridEmptyMessageButtonOptions;
+
+}
+
+/**
+ * Button definition.
+ */
+interface SohoDataGridEmptyMessageButtonOptions {
+  /**
+   * Button text.
+   */
+  text: string;
+
+  /**
+   * Class of button.
+   */
+  cssClass?: string;
+
+  /**
+   * Element button for id.
+   */
+  id?: string;
+
+  /**
+   * Click function - @todo not working
+   */
+  click?: Function;
+}
+
 
 /**
  * Soho Data Grid Paging Options.
@@ -152,6 +290,43 @@ interface SohoDataGridSourceRequest extends SohoPagerPagingInfo {
   sortField?: string;
   sortId?: string;
 }
+
+/**
+ * The arguments object passed to the onPostRenderCell callback.
+ */
+interface SohoDataGridPostRenderCellArgs {
+  /** The row index. */
+  row: number;
+
+  /** The cell index. */
+  cell: number;
+
+  /** The data value. */
+  value: any;
+
+  /** The column definition. */
+  col: SohoDataGridColumn;
+
+  /** The api for the datagrid. */
+  api: SohoDataGridStatic;
+}
+
+interface SohoDataGridEditCellFunctionArgs extends SohoDataGridPostRenderCellArgs {
+  container: any;
+  e: any;
+  item: any;
+}
+
+/**
+ * Type definition of the post render cell callback.
+ */
+type SohoDataGridPostRenderCellFunction = (
+  container: JQuery, args: SohoDataGridPostRenderCellArgs
+) => void;
+
+type SohoDataGridEditCellFunction = (
+  editor: any
+) => void;
 
 type SohoDataGridSourceFunction = (
   request: SohoDataGridSourceRequest,
@@ -175,6 +350,12 @@ type SohoDataGridSortFunction = (
 
 type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' | 'integer' | 'percent' | 'select' | 'time';
 
+interface SohoDataGridCellEditor {
+  val(value?: any): any;
+
+  focus(): void;
+}
+
 type SohoDataGridColumnEditorFunction = (
   row?: any,
   cell?: any,
@@ -184,7 +365,7 @@ type SohoDataGridColumnEditorFunction = (
   event?: any,
   grid?: any,
   item?: any
-) => string;
+) => SohoDataGridCellEditor;
 
 declare var Editors: {
   // Supports, Text, Numeric, Integer via mask
@@ -258,11 +439,11 @@ type SohoDataGridColumnHrefFunction = (
   cell: any,
   col: SohoDataGridColumn,
   value: any
- ) => string;
+) => string;
 
- type SohoDataGridColumnHref = string | SohoDataGridColumnHrefFunction;
+type SohoDataGridColumnHref = string | SohoDataGridColumnHrefFunction;
 
- type SohoDataGridColumnIsEditableFunction = (
+type SohoDataGridColumnIsEditableFunction = (
   row: number,
   cell: any,
   fieldValue: any,
@@ -289,6 +470,14 @@ type SohoDataGridColumnClickFunction = (
   args: SohoDataGridColumnClickData[]
 ) => void;
 
+type SohoDataGridColumnContentVisibleFunction = (
+  row: number,
+  cell: HTMLElement,
+  rowData: Object,
+  columnDef: SohoDataGridColumn,
+  item: any
+) => boolean;
+
 /**
  * This is an interface mapping for the grid column defined
  * within the Soho jQuery Control.
@@ -310,7 +499,7 @@ interface SohoDataGridColumn {
   sortable?: boolean;
 
   /** Width of the column (in pixels) or a string value for the width. */
-  width?: number  | string;
+  width?: number | string;
 
   /** @todo fix type from any.  */
   align?: any;
@@ -393,7 +582,40 @@ interface SohoDataGridColumn {
   numberFormat?: SohoDataGridColumnNumberFormat;
 
   /** false = prevent user drag/drop this column order i.e. a drilldown column */
-  reorderable?: boolean
+  reorderable?: boolean;
+
+  /** The older style pattern mask for the column */
+  mask?: string;
+
+  /** The newer style object pattern mask for the column*/
+  maskOptions?: any[];
+
+  /** Call the grids `onPostRenderCell` function for cells in this column after they are rendered. */
+  postRender?: boolean;
+
+  /** Text to display? */
+  text?: string;
+
+  /** Angular component used to format a cell. */
+  component?: any; //  // Type<{}>
+
+  /** Inputs for the Angular component used to format a cell. */
+  componentInputs?: any;
+
+  /** Angular component used to edit a cell. */
+  editorComponent?: any; // Type<{}>
+
+  /** Inputs for the Angular component used to edit a cell. */
+  editorComponentInputs?: any;
+
+  /** If true the cell can be expanded on focus to show additional / all content. */
+  expandOnActivate?: boolean;
+
+  /** Sets the css text overflow on the cell. Specifically to add 'ellipsis' text */
+  textOverflow?: string;
+
+  /** Content visible function*/
+  contentVisible?: SohoDataGridColumnContentVisibleFunction;
 }
 
 interface SohoDataGridColumnNumberFormat {
@@ -406,6 +628,7 @@ interface SohoDataGridColumnNumberFormat {
 }
 
 type SohoDataGridColumnNumberFormatStyle = 'decimal' | 'currency' | 'percent' | 'integer' | string;
+type SohoDataGridTriggerSourcePagerType = 'initial' | 'refresh' | 'filtered' | 'sorted' | 'updatecolums' | string;
 
 interface SohoGridCellOption {
   /** The underlying data value. */
@@ -467,7 +690,7 @@ interface SohoDataGridStatic {
    * @param columnId the id of the column to sort on.
    * @param ascending if true sort ascending, otherwise descending.  If not supplied the setting is toggled.
    */
-  setSortColumn(columnId: string, ascending?: boolean )
+  setSortColumn(columnId: string, ascending?: boolean);
 
   columnById(id: string): Array<any>;
 
@@ -508,7 +731,9 @@ interface SohoDataGridStatic {
 
   selectRowsBetweenIndexes(range: number[]);
 
-  selectedRows(rows: number[]): void;
+  selectedRows(): SohoDataGridSelectedRow[];
+
+  selectRows(row: number | number[]);
 
   activateRow(idx: number): void;
 
@@ -522,9 +747,11 @@ interface SohoDataGridStatic {
 
   renderRows(): void;
 
-  triggerSource(pagerType: 'initial' | 'refresh' | 'filtered' | 'sorted' | 'updatecolums' | string): void;
+  triggerSource(pagerType: SohoDataGridTriggerSourcePagerType, callback?: Function): void;
 
   exportToExcel(fileName: string, worksheetName: string, customDs: Object[]): void;
+
+  exportToCsv(fileName: string, customDs: Object[]): void;
 
   /**
    * Returns an array of all the rows in the grid marked as dirty.
@@ -570,6 +797,11 @@ interface SohoDataGridRowActivated {
 interface SohoDataGridSelectedRow {
   idx: number;
   data: any;
+  elem: HTMLElement;
+
+  /**
+   * @deprecated <b>element</b> doesn't seem to be used in datagrid.js. Use <b>elem</b> instead.
+   */
   element: HTMLElement;
 }
 
@@ -600,6 +832,13 @@ interface SohoDataGridRowRemoveEvent {
   target: any;
   value: any;
   oldValue: any;
+}
+
+interface SohoDataGridRowReorderedEvent {
+  start: any;
+  startIndex: number;
+  end: any;
+  endIndex: number;
 }
 
 interface SohoDataGridAddRowEvent {
@@ -666,16 +905,16 @@ interface JQuery {
 
 interface SohoDataGridRowExpandEvent {
   // child elements
-  children: Array<any>;
+  children?: Array<any>;
 
   // The index of the row number that has been expanded/collapsed.
-  row: number;
+  row?: number;
 
   // The detail row thas has been expanded..
-  item: any;
+  item?: any;
 
   // Data associated with row
-  rowData: any;
+  rowData?: any;
 }
 
 interface SohoDataGridRowCollapseEvent extends SohoDataGridRowExpandEvent { }
@@ -685,7 +924,7 @@ interface SohoDataGridRowActivatedEvent {
   item: any;
 }
 
-interface SohoDataGridRowDeactivatedEvent extends SohoDataGridRowActivatedEvent {}
+interface SohoDataGridRowDeactivatedEvent extends SohoDataGridRowActivatedEvent { }
 
 interface SohoDataGridFilterCondition {
   columnId?: 'all' | string;

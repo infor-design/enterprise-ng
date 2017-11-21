@@ -57,13 +57,15 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | colorpicker             |                           Available |            - | [SOHO-6503][#6503] |
 | context-menu            |                           Available |            - | [SOHO-4557][#4557] |
 | contextual-action-panel |                           Available |  [README][0] | [SOHO-5909][#5909] |
-| datagrid                |                           Available |            - | [SOHO-4049][#4049] |
+| datagrid                |                           Available |  [README][4] | [SOHO-4049][#4049] |
 | datepicker              |                           Available |            - | [SOHO-4489][#4489] |
 | dropdown                |                           Available |            - | [SOHO-4050][#4050] |
 | editor                  |                           Available |            - | [SOHO-4559][#4559] |
 | error                   |                           Available |            - |                  - |
 | expandablearea          |                           Available |            - | [SOHO-4017][#4017] |
+| fieldOptions            |                           Available |            - | [SOHO-6265][#6265] |
 | fileupload              |                           Available |            - | [SOHO-4560][#4560] |
+| fileupload-advanced     |                           Available |            - | [SOHO-5124][#5214] |
 | fieldset                |                             Pending |            - | [SOHO-4561][#4561] |
 | header                  |                           Available |            - |                  - |
 | homepage                |                           Available |            - |                  - |
@@ -104,12 +106,14 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | trackdirty              |                           Available |           -  |              - |
 | tree                    |                           Available |           -  | [SOHO-4043][#4083] |
 | treegrid                |                           Available |           -  | [SOHO-4722][#4722] |
+| wizard                  |                         In-progress |           -  | [SOHO-6317][#6317] |
 
 
 [0]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/contextual-action-panel/README.md
 [1]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/modal-dialog/README.md
 [2]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/listview/README.md
 [3]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/accordion/README.md
+[4]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/datagrid/README.md
 [#6759]: http://jira/browse/SOHO-6759
 [#4344]: http://jira/browse/SOHO-4344
 [#5909]: http://jira/browse/SOHO-5909
@@ -145,9 +149,14 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 [#4734]: http://jira/browse/SOHO-4734
 [#4999]: http://jira/browse/SOHO-4999
 [#5122]: http://jira/browse/SOHO-5122
+[#5124]: http://jira/browse/SOHO-5124
 [#5125]: http://jira/browse/SOHO-5125
 [#5126]: http://jira/browse/SOHO-5126
 [#5127]: http://jira/browse/SOHO-5127
+[#5214]: http://jira/browse/SOHO-5214
+[#6317]: http://jira/browse/SOHO-6317
+[#6265]: http://jira/browse/SOHO-6265
+[#6503]: http://jira/browse/SOHO-6503
 
 ## Previous Repos
 

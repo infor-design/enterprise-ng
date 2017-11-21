@@ -18,8 +18,8 @@ import {
 })
 
 export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
-  @HostBinding('class.btn-menu') get isBtnMenu() { return true; };
-  @HostBinding('attr.type') get buttonType() { return 'button'; };
+  @HostBinding('class.btn-menu') get isBtnMenu() { return true; }
+  @HostBinding('attr.type') get buttonType() { return 'button'; }
 
   private jQueryElement: JQuery;
 
@@ -60,6 +60,12 @@ export class SohoMenuButtonComponent implements AfterViewInit, OnDestroy {
     if (this.menuButton) {
       this.menuButton.settings.menu = menu;
       this.menuButton.updated();
+    }
+  }
+
+  @Input() set ajaxBeforeOpenFunction(fn: AjaxBeforeOpenFunction) {
+    if (this.menuButton) {
+      this.menuButton.settings.beforeOpen = fn;
     }
   }
 

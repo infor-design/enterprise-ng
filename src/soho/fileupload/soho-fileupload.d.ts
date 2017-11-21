@@ -11,6 +11,7 @@ interface SohoFileUploadEvent extends JQueryEventObject {
 /**
  * JQuery Integration
  */
+
 /**
  * This interface represents the public API exposed by the
  * editor.
@@ -33,5 +34,5 @@ interface JQueryStatic {
 }
 
 interface JQuery {
-  fileupload(options?: SohoFileUploadEvent): JQuery;
+  fileupload(options?: SohoTextAreaOptions): JQuery;
 }

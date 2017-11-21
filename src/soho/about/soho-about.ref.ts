@@ -138,6 +138,6 @@ export class SohoAboutRef {
       this._about.close();
     }
     return this;
-  };
+  }
 
 }

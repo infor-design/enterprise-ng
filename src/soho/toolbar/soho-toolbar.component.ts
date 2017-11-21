@@ -96,16 +96,6 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
   ) {}
 
   ngAfterViewInit() {
-    // ------------------------------------------------------------------------
-    // Use setTimeOut so that the search field control isn't initialized
-    // with the toolbarsearchfield inputs until after the toolbar is created.
-    // ------------------------------------------------------------------------
-    setTimeout(() => {
-      this.initSohoControl();
-    }, 1);
-  }
-
-  private initSohoControl() {
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.toolbarsearchfield(this.options);
 
@@ -175,7 +165,7 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarMoreButtonComponent {
-  @HostBinding('class.more') get isMoreButton() { return true; };
+  @HostBinding('class.more') get isMoreButton() { return true; }
 }
 
 /**
@@ -187,7 +177,7 @@ export class SohoToolbarMoreButtonComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoPageTitleComponent {
-  @HostBinding('class.page-title') get isPageTitle() { return true; };
+  @HostBinding('class.page-title') get isPageTitle() { return true; }
 }
 
 /**
@@ -199,7 +189,7 @@ export class SohoPageTitleComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoSectionTitleComponent {
-  @HostBinding('class.section-title') get isSectionTitle() { return true; };
+  @HostBinding('class.section-title') get isSectionTitle() { return true; }
 }
 
 /**
@@ -221,9 +211,9 @@ export class SohoSectionTitleComponent {
 })
 export class SohoToolbarNavButtonComponent {
   // This HostBinding needs to go first to maintain correct styling
-  @HostBinding('class.btn-icon') get isIconButton() { return true; };
-  @HostBinding('class.application-menu-trigger') get isAppMenuTrigger() { return true; };
-  @HostBinding('attr.type') get typeAttr() { return 'button'; };
+  @HostBinding('class.btn-icon') get isIconButton() { return true; }
+  @HostBinding('class.application-menu-trigger') get isAppMenuTrigger() { return true; }
+  @HostBinding('attr.type') get typeAttr() { return 'button'; }
 }
 
 /**
@@ -236,7 +226,7 @@ export class SohoToolbarNavButtonComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarTitleComponent {
-  @HostBinding('class.title') get isTitle() { return true; };
+  @HostBinding('class.title') get isTitle() { return true; }
 }
 
 /**
@@ -249,7 +239,7 @@ export class SohoToolbarTitleComponent {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoToolbarButtonSetComponent {
-  @HostBinding('class.buttonset') get isButtonSet() { return true; };
+  @HostBinding('class.buttonset') get isButtonSet() { return true; }
 }
 
 /**
@@ -261,7 +251,7 @@ export class SohoToolbarButtonSetComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
-  @HostBinding('class.toolbar') get isToolbar() { return true; };
+  @HostBinding('class.toolbar') get isToolbar() { return true; }
   @HostBinding('class.has-more-button') get showMoreButton() {
     return this.options.hasMoreButton;
   }
@@ -271,6 +261,12 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     // instead. For example when a @media query wants to set something to display: none.
     return this.element.nativeElement.tagName === 'SOHO-TOOLBAR' ? 'block' : null;
   }
+
+  /**
+   * Whether to display the overflow more-button or not regardless of
+   * overflow content.
+   */
+  @HostBinding('class.no-actions-button') @Input() noActionsButton = false;
 
   /**
    * Set the has more button component option, this is used
@@ -310,7 +306,7 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
    * @deprecated Use the rightAligned option.
    */
   @Input() set rightAlign(value: boolean) {
-    console.warn('This input has been renamed, please use the rightAligned input instead.')
+    console.warn('This input has been renamed, please use the rightAligned input instead.');
 
     this.options.rightAligned = value;
     if (this.toolbar) {
@@ -382,6 +378,8 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
   ) {}
 
   ngAfterViewInit() {
+    this.options.noSearchfieldReinvoke = true;
+
     // Assign element to local variable
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.toolbar(this.options);
@@ -425,6 +423,12 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
   updated() {
     if (this.toolbar) {
       this.toolbar.updated();
+    }
+  }
+
+  handleResize() {
+    if (this.toolbar) {
+      this.toolbar.handleResize();
     }
   }
 
