@@ -39,11 +39,11 @@ export class DataGridRowReorderDemoComponent implements AfterViewInit {
   }
 
   onRowReordered(event: SohoDataGridRowReorderedEvent) {
-    console.log("startIndex: " + event.startIndex);
-    console.log("endIndex: " + event.endIndex);
+    console.log('startIndex: ' + event.startIndex);
+    console.log('endIndex: ' + event.endIndex);
   }
 
   onRowClicked(event: SohoDataGridRowClicked) {
-    console.log("selectedRow: " + event.row + " , productId: " + event.item.productId);
+    console.log('selectedRow: ' + event.row + ' , productId: ' + event.item.productId);
   }
 }

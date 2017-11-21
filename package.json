@@ -23,7 +23,9 @@
     "set-version": "./scripts/set-version.js",
     "set-sohoxi-version": "./scripts/set-sohoxi-version.js",
     "publish-dev": "gulp publish && npm publish publish --tag dev --force",
-    "publish-prod": "gulp publish && npm publish publish --force"
+    "publish-prod": "gulp publish && npm publish publish --force",
+    "run": "ts-node ./src/index.ts",
+    "prepublishOnly": "tsc -p ./ --outDir dist/"
   },
   "private": false,
   "dependencies": {

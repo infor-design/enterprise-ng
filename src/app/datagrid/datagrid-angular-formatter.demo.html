@@ -1,0 +1,22 @@
+
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Data Grid - Angular Formatter</h2>
+    <p>
+      This demo illustrates the use of a angular components as formatters.
+    </p>
+  </div>
+</div>
+
+<br>
+<div class="row top-padding">
+  <div class="twelve columns demo" role="main">
+    <div soho-datagrid
+      [columns]="columns"
+      [data]="data"
+      [selectable]="'single'"
+      [paging]="true"
+      [pagesize]="10"
+    ></div>
+  </div>
+</div>

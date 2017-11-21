@@ -11,14 +11,94 @@ import {
   Input,
   Optional,
   OnInit,
-  OnDestroy
+  OnDestroy,
+  ComponentFactoryResolver,
+  Injector,
+  ApplicationRef,
+  Compiler,
+  NgModule,
+  ComponentRef,
+  ComponentFactory,
+  Provider,
+  ReflectiveInjector,
+  Type
 } from '@angular/core';
 
 import { ArgumentHelper } from '../utils/argument.helper';
 
 import { SohoDataGridService } from './soho-datagrid.service';
+import { SohoComponentsModule } from '@infor/sohoxi-angular';
 
 export type SohoDataGridType = 'auto' | 'content-only';
+
+/**
+ * Contract for cell editors.
+ */
+export interface ExtendedSohoDataGridCellEditor extends SohoDataGridCellEditor {
+  // The type of the component.
+  component: Type<SohoDataGridCellEditor>;
+
+  // The args passed to the editor
+  args: SohoDataGridEditCellFunctionArgs;
+
+  // @todo - talk to Tim on what this means.
+  input: JQuery;
+
+  // @todo - talk to Tim on what this means.
+  useValue: boolean;
+
+  /**
+   * Initialise the edit control with the given component.  The control
+   * mist conform to the SohoDataGridCellEditor contract.
+   */
+  init(componentRef: ComponentRef<SohoDataGridCellEditor>): void;
+
+  /**
+   * Destroy the editor.
+   */
+  destroy(): void;
+}
+
+export class SohoAngularEditorAdapter implements ExtendedSohoDataGridCellEditor {
+  componentRef: ComponentRef<SohoDataGridCellEditor>;
+
+  input: JQuery;
+
+  // @todo - talk to Tim on what this means.
+  useValue = true;
+
+  constructor(
+    public component: Type<SohoDataGridCellEditor>,
+    public args: SohoDataGridEditCellFunctionArgs) {
+  }
+
+  init(componentRef: ComponentRef<SohoDataGridCellEditor>) {
+    // Store the component.
+    this.componentRef = componentRef;
+
+    // The Soho datagrid wants an input control, otherwise it wont accept the editor
+    // as a component.
+    // @todo talk to Tim about removing this requirement.
+    this.input = $(this.componentRef.location.nativeElement).find('input');
+  }
+
+  val(value?: any): any {
+    return this.componentRef.instance.val(value);
+  }
+
+  focus(): void {
+    this.componentRef.instance.focus();
+  }
+
+  destroy(): void {
+    if (this.componentRef) {
+      setTimeout(() => {
+        this.componentRef.destroy();
+        this.componentRef = null;
+      });
+    }
+  }
+}
 
 /**
  * Internal refresh hints used to determine what type of "refresh" is
@@ -82,6 +162,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     ArgumentHelper.checkNotNull('gridOptions', gridOptions);
 
     this._gridOptions = gridOptions;
+
+    this.checkForComponentEditors();
+
     if (this.jQueryElement) {
       // No need to set the 'settings' as the Rebuild will create
       // a new control with the _gridOptions.
@@ -236,6 +319,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * If true the columns can be reorders; otherwise if false they are fixed.
    *
    * @param columnReorder
    */
@@ -326,7 +410,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   * Set's the row height for the grid, to be one of the supported options.
+   * Sets the row height for the grid, to be one of the supported options.
    *
    * @param rowHeight - 'normal' | 'medium' | 'short'
    */
@@ -821,10 +905,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   @Input() set columns(columns: SohoDataGridColumn[]) {
     this._gridOptions.columns = columns || [];
+
+    this.checkForComponentEditors();
+
     if (columns && this.jQueryElement) {
 
       // @todo add hints for this too, as other changes may force a rebuild?
-      this.datagrid.updateColumns(columns, this._gridOptions.columnGroups);
+      this.datagrid.updateColumns(this._gridOptions.columns, this._gridOptions.columnGroups);
     }
   }
 
@@ -986,6 +1073,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   // List of option names changed (for debugging).
   private changedOptions = [];
 
+  // List of dynamic formatter components - keyed by the original args.
+  private cellComponents: any[] = [];
+
   /**
    * Constructor.
    *
@@ -996,6 +1086,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   constructor(
     private elementRef: ElementRef,
     private changeDetector: ChangeDetectorRef,
+    private resolver: ComponentFactoryResolver,
+    private injector: Injector,
+    private app: ApplicationRef,
+    private compiler: Compiler,
     @Optional() protected datagridService: SohoDataGridService) {
 
   }
@@ -1329,7 +1423,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @todo arguments.
    */
   private onExpandRow(args: SohoDataGridRowExpandEvent) {
-    const event = {grid: this, ...args };
+    const event = { grid: this, ...args };
     this.expandrow.next(event);
   }
 
@@ -1385,9 +1479,17 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   // -------------------------------------------
 
   /**
-   * Destroys the jQuery control associated with this component.
+   * Destroys the jQuery control (and any other resources)
+   * associated with this component.
    */
   private destroyDataGrid(): void {
+    // Remove any remaining dynamic components.
+    this.cellComponents.forEach((c) => { c.component.destroy(); });
+
+    // Clear the cache.
+    this.cellComponents = [];
+
+    // Now destroy the grid.
     if (this.datagrid) {
       if (this.datagrid.destroy) {
         this.datagrid.destroy();
@@ -1396,9 +1498,112 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+  /**
+   * Handles the 'postCellRender' event.
+   *
+   * @param container the container to host the element.
+   * @param args the formatter arguments.
+   */
+  private onPostRenderCell(container: JQuery, args: SohoDataGridPostRenderCellArgs) {
+    // Pre-conditions
+    if (!args.col.component) {
+      return; // throw Error(`Missing 'component' in column ${args.col.id}`);
+    }
+    // Get the factory for the component specified on the column.
+    const factory = this.resolver.resolveComponentFactory(args.col.component);
+
+    // Create an injector that will provide the arguments for the
+    // component.
+    const injector = ReflectiveInjector.resolveAndCreate([{ provide: 'args', useValue: args }], this.injector);
+
+    // Create the component, in the container.
+    const component = factory.create(injector, [], container);
+
+    // Copy into it any column level Inputs, these are optional but allow
+    // column specific overrides to be defined.
+    Object.assign(component.instance, args.col.componentInputs);
+
+    // ... attach to the app ...
+    this.app.attachView(component.hostView);
+
+    // ... update for changes ...
+    component.changeDetectorRef.detectChanges();
+
+    // Do this at the end?
+
+    // ... finally store the created component for later, we'll delete it when
+    // requested, or when the grid is destroyed.
+    this.cellComponents.push(
+      { row: args.row, cell: args.cell, component }
+    );
+  }
+
+  /**
+   * Handles the 'destroyCell' event.
+   * @param container the container.
+   * @param args the args
+   */
+  private onDestroyCell(container: JQuery, args: SohoDataGridPostRenderCellArgs) {
+    const idx = this.cellComponents.findIndex((c) => args.row === c.row && args.cell === c.cell);
+    if (idx > -1) {
+      this.cellComponents[idx].component.destroy();
+      this.cellComponents.splice(idx, 1);
+    }
+  }
+
+  private onEditCell(editor: ExtendedSohoDataGridCellEditor) {
+    // Pre-conditions
+    if (!editor.component) {
+      return; // throw Error(`Missing 'component' in column ${args.col.id}`);
+    }
+    // Get the factory for the component specified on the column.
+    const factory = this.resolver.resolveComponentFactory(editor.component);
+
+    // Create an injector that will provide the arguments for the
+    // component.
+    const i = ReflectiveInjector.resolveAndCreate([{ provide: 'args', useValue: editor.args }], this.injector);
+
+    // Warning!! the dynamic component is not added inside the container,
+    // but as a sibling, so when it's destroyed it takes any siblings  with
+    // it.  It is not clear why this - so to work around this issue, add
+    // a single child to the cell container.
+    const transientContainer = $('<div></div>').appendTo(editor.args.container);
+
+    // Create the component, in the container.
+    const componentRef = <ComponentRef<SohoDataGridCellEditor>> factory.create(i, [], transientContainer[0]);
+
+    // Copy into it any column level Inputs, these are optional but allow
+    // column specific overrides to be defined.
+    Object.assign(componentRef.instance, editor.args.col.editorComponentInputs);
+
+    // ... attach to the app ...
+    this.app.attachView(componentRef.hostView);
+
+    // ... update for changes ...
+    componentRef.changeDetectorRef.detectChanges();
+
+    // Give the component to the editor.
+    editor.init(componentRef);
+  }
+
   private buildDataGrid(): void {
     // Wrap the element in a jQuery selector.
     this.jQueryElement = jQuery(this.elementRef.nativeElement);
+
+    // Add the onPostCellRenderer
+    this._gridOptions.onPostRenderCell = (c, args: SohoDataGridPostRenderCellArgs) => {
+      this.onPostRenderCell(c, args);
+    };
+
+    // Add the destroy cell callback.
+    this._gridOptions.onDestroyCell = (c, args: SohoDataGridPostRenderCellArgs) => {
+      this.onDestroyCell(c, args);
+    };
+
+    // Add the edit cell callback.
+    this._gridOptions.onEditCell = (editor: ExtendedSohoDataGridCellEditor) => {
+      this.onEditCell(editor);
+    };
 
     // Initialise the SohoXi control.
     this.jQueryElement.datagrid(this._gridOptions);
@@ -1504,6 +1709,17 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     } else {
       this._gridOptions.source = source;
     }
+  }
+
+  private checkForComponentEditors() {
+    // Add an adapter for all the columns using an component as an editor.
+    this._gridOptions.columns.forEach((c) => {
+      if (c.editorComponent) {
+        c.editor = (row?: any, cell?: any, value?: any, container?: JQuery, col?: SohoDataGridColumn, e?: any, api?: any, item?: any) => {
+          return new SohoAngularEditorAdapter(c.editorComponent, { row, cell, value, container: container[0], col, e, api, item });
+        };
+      }
+    });
   }
 }
 

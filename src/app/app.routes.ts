@@ -11,12 +11,20 @@ import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo
 import { ButtonDemoComponent } from './button/button.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
+import { CodeBlockDemoComponent } from './code-block/code-block.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
 import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoComponent } from './contextual-action-panel/contextual-action-panel.demo';
+import { DataGridAngularEditorDemoComponent } from './datagrid/datagrid-angular-editor.demo';
+import { DataGridAngularFormatterDemoComponent } from './datagrid/datagrid-angular-formatter.demo';
+import { DataGridAngularCardFormatterDemoComponent } from './datagrid/datagrid-angular-card-formatter.demo';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
+import { DataGridCodeBlockFormatterDemoComponent } from './datagrid/datagrid-code-block-formatter.demo';
+import { DataGridCodeBlockEditorDemoComponent } from './datagrid/datagrid-code-block-editor.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
+import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
+import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
@@ -41,6 +49,7 @@ import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
 import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
+import { FieldOptionsDemoComponent } from './field-options/field-options.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
@@ -104,8 +113,6 @@ import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { ValidationFormEventDemoComponent } from './validation/validation-form-event.demo';
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
-import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
-import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 import { WizardDemoComponent } from './wizard/wizard.demo';
 
@@ -121,12 +128,18 @@ export const routes: Routes = [
   { path: 'busyindicatorbody',                 component: BusyIndicatorDemoBodyComponent },
   { path: 'chart',                             component: ChartDemoComponent },
   { path: 'checkbox',                          component: CheckBoxDemoComponent },
+  { path: 'code-block',                        component: CodeBlockDemoComponent },
   { path: 'colorpicker',                       component: ColorPickerDemoComponent },
   { path: 'completion-chart',                  component: CompletionChartDemoComponent },
   { path: 'context-menu',                      component: ContextMenuDemoComponent },
   { path: 'contextual-action-panel',           component: ContextualActionPanelDemoComponent },
   { path: 'datagrid-breadcrumb',               component: DataGridBreadcrumbDemoComponent },
   { path: 'datagrid-content',                  component: DataGridContentDemoComponent },
+  { path: 'datagrid-angular-formatter',        component: DataGridAngularFormatterDemoComponent},
+  { path: 'datagrid-angular-card-formatter',   component: DataGridAngularCardFormatterDemoComponent},
+  { path: 'datagrid-angular-editor',           component: DataGridAngularEditorDemoComponent},
+  { path: 'datagrid-code-block-editor',        component: DataGridCodeBlockEditorDemoComponent},
+  { path: 'datagrid-code-block-formatter',     component: DataGridCodeBlockFormatterDemoComponent},
   { path: 'datagrid-dynamic',                  component: DataGridDynamicDemoComponent },
   { path: 'datagrid-empty-message',            component: DataGridEmptyMessageDemoComponent },
   { path: 'datagrid-editors',                  component: DataGridEditorsDemoComponent },

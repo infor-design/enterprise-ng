@@ -69,16 +69,16 @@ interface SohoDataGridOptions {
   headerMenuId?: string;
 
   /** Callback for the grid level right click menu. */
-  menuSelected?: Function,
+  menuSelected?: Function;
 
   /** Call back for the grid level before open menu event. */
-  menuBeforeOpen?: Function,
+  menuBeforeOpen?: Function;
 
   /** Callback for the header level right click menu. */
-  headerMenuSelected?: Function,
+  headerMenuSelected?: Function;
 
   /** Call back for the header level before open menu event. */
-  headerMenuBeforeOpen?: Function,
+  headerMenuBeforeOpen?: Function;
 
   /** Unique ID for local storage reference and variable names. If not specified then the URL the page is used. */
   uniqueId?: string;
@@ -134,6 +134,9 @@ interface SohoDataGridOptions {
   /** Can provide a custom function to adjust results text */
   resultsText?: SohoDataGridResultsTextFunction;
 
+  /** Paging results will show filtered count, false to not show the filter count. */
+  showFilterTotal?: boolean;
+
   /** Prevent Unused rows from being added to the DOM  */
   // virtualized?: boolean;
 
@@ -180,6 +183,32 @@ interface SohoDataGridOptions {
   userObject?: any;
 
   /**
+   * Optional callback called when a cell is rendered with the flag `postRender`
+   * set to true.
+   *
+   * This is used by the datagrid to allow Angular Components to be used as cell
+   * editors / formatters.
+   * */
+  onPostRenderCell?: SohoDataGridPostRenderCellFunction;
+
+  /**
+   * Optional callback called when any resources associated with a cell
+   * should be destroyed, specifically in the case of components added
+   * as cell formatters in Angular.
+   */
+  onDestroyCell?: SohoDataGridPostRenderCellFunction;
+
+  /**
+  * Optional callback called when a cell is edited with the flag `postRender`
+  * set to true.
+  *
+  * This is used by the datagrid to allow Angular Components to be used as cell
+  *
+  * editors / formatters.
+  */
+  onEditCell?: SohoDataGridEditCellFunction;
+
+  /**
    * An empty message will be displayed when there are no rows in the grid.
    * This accepts an object of the form SohoDataGridEmptyMessageOptions, set
    * this to null for no message or it will default to 'No Data Found with an icon.'
@@ -218,6 +247,7 @@ interface SohoDataGridEmptyMessageOptions {
    * Button options - note this cannot be a Soho Angular Component.
    */
   button?: SohoDataGridEmptyMessageButtonOptions;
+
 }
 
 /**
@@ -261,6 +291,43 @@ interface SohoDataGridSourceRequest extends SohoPagerPagingInfo {
   sortId?: string;
 }
 
+/**
+ * The arguments object passed to the onPostRenderCell callback.
+ */
+interface SohoDataGridPostRenderCellArgs {
+  /** The row index. */
+  row: number;
+
+  /** The cell index. */
+  cell: number;
+
+  /** The data value. */
+  value: any;
+
+  /** The column definition. */
+  col: SohoDataGridColumn;
+
+  /** The api for the datagrid. */
+  api: SohoDataGridStatic;
+}
+
+interface SohoDataGridEditCellFunctionArgs extends SohoDataGridPostRenderCellArgs {
+  container: any;
+  e: any;
+  item: any;
+}
+
+/**
+ * Type definition of the post render cell callback.
+ */
+type SohoDataGridPostRenderCellFunction = (
+  container: JQuery, args: SohoDataGridPostRenderCellArgs
+) => void;
+
+type SohoDataGridEditCellFunction = (
+  editor: any
+) => void;
+
 type SohoDataGridSourceFunction = (
   request: SohoDataGridSourceRequest,
   response: SohoDataGridResponseFunction
@@ -283,6 +350,12 @@ type SohoDataGridSortFunction = (
 
 type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' | 'integer' | 'percent' | 'select' | 'time';
 
+interface SohoDataGridCellEditor {
+  val(value?: any): any;
+
+  focus(): void;
+}
+
 type SohoDataGridColumnEditorFunction = (
   row?: any,
   cell?: any,
@@ -292,7 +365,7 @@ type SohoDataGridColumnEditorFunction = (
   event?: any,
   grid?: any,
   item?: any
-) => string;
+) => SohoDataGridCellEditor;
 
 declare var Editors: {
   // Supports, Text, Numeric, Integer via mask
@@ -509,7 +582,37 @@ interface SohoDataGridColumn {
   numberFormat?: SohoDataGridColumnNumberFormat;
 
   /** false = prevent user drag/drop this column order i.e. a drilldown column */
-  reorderable?: boolean
+  reorderable?: boolean;
+
+  /** The older style pattern mask for the column */
+  mask?: string;
+
+  /** The newer style object pattern mask for the column*/
+  maskOptions?: any[];
+
+  /** Call the grids `onPostRenderCell` function for cells in this column after they are rendered. */
+  postRender?: boolean;
+
+  /** Text to display? */
+  text?: string;
+
+  /** Angular component used to format a cell. */
+  component?: any; //  // Type<{}>
+
+  /** Inputs for the Angular component used to format a cell. */
+  componentInputs?: any;
+
+  /** Angular component used to edit a cell. */
+  editorComponent?: any; // Type<{}>
+
+  /** Inputs for the Angular component used to edit a cell. */
+  editorComponentInputs?: any;
+
+  /** If true the cell can be expanded on focus to show additional / all content. */
+  expandOnActivate?: boolean;
+
+  /** Sets the css text overflow on the cell. Specifically to add 'ellipsis' text */
+  textOverflow?: string;
 
   /** Content visible function*/
   contentVisible?: SohoDataGridColumnContentVisibleFunction;
@@ -587,7 +690,7 @@ interface SohoDataGridStatic {
    * @param columnId the id of the column to sort on.
    * @param ascending if true sort ascending, otherwise descending.  If not supplied the setting is toggled.
    */
-  setSortColumn(columnId: string, ascending?: boolean)
+  setSortColumn(columnId: string, ascending?: boolean);
 
   columnById(id: string): Array<any>;
 
