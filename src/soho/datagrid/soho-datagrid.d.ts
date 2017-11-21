@@ -134,8 +134,8 @@ interface SohoDataGridOptions {
   /** Can provide a custom function to adjust results text */
   resultsText?: SohoDataGridResultsTextFunction;
 
-  /** If true the toolbar will show n or m in the results, otherwise will show just the total */
-  showResultTotal?: boolean;
+  /** Paging results will show filtered count, false to not show the filter count. */
+  showFilterTotal?: boolean;
 
   /** Prevent Unused rows from being added to the DOM  */
   // virtualized?: boolean;
@@ -183,7 +183,6 @@ interface SohoDataGridOptions {
   userObject?: any;
 
   /**
-<<<<<<< HEAD
    * Optional callback called when a cell is rendered with the flag `postRender`
    * set to true.
    *
@@ -208,7 +207,8 @@ interface SohoDataGridOptions {
   * editors / formatters.
   */
   onEditCell?: SohoDataGridEditCellFunction;
-=======
+
+  /**
    * An empty message will be displayed when there are no rows in the grid.
    * This accepts an object of the form SohoDataGridEmptyMessageOptions, set
    * this to null for no message or it will default to 'No Data Found with an icon.'
@@ -247,7 +247,7 @@ interface SohoDataGridEmptyMessageOptions {
    * Button options - note this cannot be a Soho Angular Component.
    */
   button?: SohoDataGridEmptyMessageButtonOptions;
->>>>>>> origin/4.3.3-rc
+
 }
 
 /**
