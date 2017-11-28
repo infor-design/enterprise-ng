@@ -100,6 +100,7 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
 
     if (this.colorpicker) {
       this.colorpicker.settings.showLabel = value;
+      this.colorpicker.updated();
     }
   }
 
