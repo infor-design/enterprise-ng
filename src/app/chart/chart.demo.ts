@@ -13,7 +13,8 @@ import { SohoChartComponent } from '@infor/sohoxi-angular';
     .radio-label {
       padding-right:10px;
     }
-  `]
+  `
+  ]
 })
 export class ChartDemoComponent implements OnInit {
 
@@ -46,7 +47,8 @@ export class ChartDemoComponent implements OnInit {
   };
 
   public formatterString = '$,.2f';
-  public showLegend = false;
+  public showLegend = true;
+  public hideLabel = true;
   public barGroupedChart = 'bar-grouped';
   public pieChart = 'pie';
   public columnChart = 'column';
@@ -61,11 +63,25 @@ export class ChartDemoComponent implements OnInit {
   constructor(public chartDemoService: ChartDemoService, private elementRef: ElementRef) { }
   ngOnInit() { }
 
-  public onCheckboxChange(event: Event) {
+  public onAnimateCheckboxChange(event: Event) {
     const animateCheckElement = $(event.currentTarget);
     const isCheck = $(event.currentTarget).is(':checked');
     this.animateCharts = isCheck;
     this.buildChartOptions(animateCheckElement);
+  }
+
+  public onLegendCheckboxChange(event: Event) {
+    const legendCheckElement = $(event.currentTarget);
+    const isCheck = $(event.currentTarget).is(':checked');
+    this.showLegend = isCheck;
+    this.buildChartOptions(legendCheckElement);
+  }
+
+  public onShowLabelCheckboxChange(event: Event) {
+    const showLabelCheckElement = $(event.currentTarget);
+    const isCheck = $(event.currentTarget).is(':checked');
+    this.hideLabel = isCheck;
+    this.buildChartOptions(showLabelCheckElement);
   }
 
   public onChange(event: Event) {
@@ -87,13 +103,24 @@ export class ChartDemoComponent implements OnInit {
       chartOptions.dataset = this.chartDemoService.getPieData();
     } else if (this.currentChartType === 'bubble') {
       chartOptions.dataset = this.chartDemoService.getBubbleData();
-    } else if (this.currentChartType === 'bar' || this.currentChartType.indexOf('stacked')) {
+    } else if (this.currentChartType === 'scatter') {
+      chartOptions.dataset = this.chartDemoService.getScatterData();
+      this.currentChartType = 'bubble'
+    } else if (this.currentChartType === 'bar' || this.currentChartType.indexOf('stacked') >= 0) {
       chartOptions.dataset = this.chartDemoService.getStackedData();
+    } else if (this.currentChartType === 'column-positive-negative') {
+      chartOptions.dataset = this.chartDemoService.getPosNegData();
     } else {
       chartOptions.dataset = this.chartDemoService.getBasicData();
     }
     chartOptions.type = this.currentChartType;
     chartOptions.animate = this.animateCharts;
+    chartOptions.showLegend = this.showLegend;
+    if (chartOptions.labels) {
+      chartOptions.labels.hideLabels = !this.hideLabel;
+    } else {
+      chartOptions['labels'] = {hideLabels: !this.hideLabel};
+    }
     this.sohoChartComponent.chartOptions = chartOptions;
   }
 
