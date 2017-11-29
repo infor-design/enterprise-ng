@@ -41,51 +41,30 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
 
   @Input() set type(type: ChartTypes) {
     this._chartOptions.type = type;
-    if (this.jQueryElement) {
-      this.updated();
-    }
   }
 
   @Input() set axisLabels(axisLabels: AxisLabels) {
     this._chartOptions.axisLabels = axisLabels;
-    if (this.jQueryElement) {
-      this.updated();
-    }
   }
 
   @Input() set showLegend(showLegend: boolean) {
     this._chartOptions.showLegend = showLegend;
-    if (this.jQueryElement) {
-      this.updated();
-    }
   }
 
   @Input() set formatterString(formatterString: string) {
     this._chartOptions.formatterString = formatterString;
-    if (this.jQueryElement) {
-      this.updated();
-    }
   }
 
   @Input() set chartLabel(chartLabel: ChartLabel) {
     this._chartOptions.chartLabel = chartLabel;
-    if (this.jQueryElement) {
-      this.updated();
-    }
   }
 
   @Input() set chartredrawOnResizeLabel(redrawOnResize: boolean) {
     this._chartOptions.redrawOnResize = redrawOnResize;
-    if (this.jQueryElement) {
-      this.updated();
-    }
   }
 
   @Input() set chartAnimate(animate: boolean) {
     this._chartOptions.animate = animate;
-    if (this.jQueryElement) {
-      this.updated();
-    }
   }
 
   // ------------------------------------------------------------------------
