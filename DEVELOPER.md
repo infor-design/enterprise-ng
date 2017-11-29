@@ -6,15 +6,26 @@
 - Get the latest **Node.js** release from https://nodejs.org/en/.
 - Get an Editor like Visual Studio Code (https://code.visualstudio.com/) or [Atom](https://atom.io/) or your fav.
 
-### Initial Setup
+### Initial Setup with npm 5
 
 - Clone The main repo fx `git clone ssh://git@git.infor.com:7999/soho/angular-components.git`
 - Open a command prompt to angular-components
 - Type `npm config set @infor:registry http://npm.infor.com:4873`
 - Type `npm install -g @angular/cli@latest`
-- Type `npm i` (and wait a while …)
+- Type `npm i`
 - Type `ng build`
 - Type `ng serve`
+
+### Initial Setup yarn
+
+- Clone The main repo fx `git clone ssh://git@git.infor.com:7999/soho/angular-components.git`
+- Open a command prompt to angular-components
+- Type `npm config set @infor:registry http://npm.infor.com:4873`
+- Type `npm install -g @angular/cli@latest`
+- Type `yarn`
+- Type `ng build`
+- Type `ng serve`
+
 ## Component Structure
 
 A brief overview of a simple component in the Soho Angular Component project.  The intention is to define the contract between the Soho jQuery controls and the Soho Angular Components.
