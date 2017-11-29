@@ -105,7 +105,7 @@ export class ChartDemoComponent implements OnInit {
       chartOptions.dataset = this.chartDemoService.getBubbleData();
     } else if (this.currentChartType === 'scatter') {
       chartOptions.dataset = this.chartDemoService.getScatterData();
-      this.currentChartType = 'bubble'
+      this.currentChartType = 'bubble';
     } else if (this.currentChartType === 'bar' || this.currentChartType.indexOf('stacked') >= 0) {
       chartOptions.dataset = this.chartDemoService.getStackedData();
     } else if (this.currentChartType === 'column-positive-negative') {
