@@ -3,7 +3,7 @@
   "version": "4.3.4-rc",
   "description": "Hook & Loop - SoHo XI Angular Controls",
   "author": "Hook & Loop",
-  "license": "MIT",
+  "license": "COMMERCIAL",
   "module": "index.ts",
   "typings": "index.d.ts",
   "angular-cli": {},
