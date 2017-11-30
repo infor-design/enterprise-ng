@@ -351,8 +351,8 @@ type SohoDataGridSortFunction = (
 type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' | 'integer' | 'percent' | 'select' | 'time';
 
 interface SohoDataGridCellEditor {
+  className: string;
   val(value?: any): any;
-
   focus(): void;
 }
 

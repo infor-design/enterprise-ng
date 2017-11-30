@@ -26,7 +26,7 @@ import {
   //  template: `<div lm-code-block [(ngModel)]="value"></div>`
   // TODO: Probably use an ngIf and insert these from data
   template: `
-      <div lm-code-block ngDefaultControl>
+      <div lm-code-block>
 
           <div class="field">
             <label soho-label for="ledger">Ledger</label>
@@ -144,12 +144,14 @@ import {
           </div>
 
       </div>
-  `
+  `,
+  styleUrls: ['../code-block/code-block.editor.css']
 })
 export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
   @ViewChild(CodeBlockComponent) codeblock: CodeBlockComponent;
 
   value: string;
+  public className = '.code-block';
 
   public model = {
     ledger: 'CORE',
