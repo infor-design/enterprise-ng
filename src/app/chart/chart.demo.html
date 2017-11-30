@@ -1,56 +1,83 @@
-<form>
-  <div class="ten columns">
-    <label>Type of Chart</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option1" value="bar-grouped" (change)="onChange($event)" checked />
-    <label for="option1" class="radio-label">Bar Grouped</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option2" value="pie" (change)="onChange($event)"/>
-    <label for="option2" class="radio-label">Pie</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option3" value="donut" (change)="onChange($event)"/>
-    <label for="option3" class="radio-label">Donut</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option4" value="bar" (change)="onChange($event)"/>
-    <label for="option4" class="radio-label">Bar</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option5" value="column" (change)="onChange($event)"/>
-    <label for="option5" class="radio-label">Column</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option6" value="column-stacked" (change)="onChange($event)" />
-    <label for="option6" class="radio-label">Column Stacked</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option7" value="line" (change)="onChange($event)"/>
-    <label for="option7" class="radio-label">Line</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option8" value="area" (change)="onChange($event)"/>
-    <label for="option8" class="radio-label">Area</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option9" value="bubble" (change)="onChange($event)"/>
-    <label for="option9" class="radio-label">Bubble</label>
-  </div>
-  <div class="ten columns">
-    <label>Selected Index</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionA" value=1 (change)="onChangeIndex($event)" checked />
-    <label for="optionA" class="radio-label">1</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionB" value=2 (change)="onChangeIndex($event)"/>
-    <label for="optionB" class="radio-label">2</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionC" value=3 (change)="onChangeIndex($event)"/>
-    <label for="optionC" class="radio-label">3</label>
-    <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionD" value=4 (change)="onChangeIndex($event)"/>
-    <label for="optionD" class="radio-label">4</label>
-  </div>
-  <div class="ten columns">
-    <input type="checkbox" class="checkbox" id="checkbox2" checked (change)="onCheckboxChange($event)">
-    <label for="checkbox2" class="checkbox-label" >Animate Chart(not all supported)</label>
-  </div>
+<div class="two-column no-scroll" role="main">
 
-</form>
-<div class="full-width chart-container" style="height:75%">
+  <div class="sidebar scrollable">
+    <form>
+      <div class="panel-header">
+        <div class="toolbar standalone">
+          <div class="title">
+            <span>Chart Options</span>
+          </div>
+        </div>
+      </div>
+      <div class="full-width">
+        <label>Type of Chart</label>
+        <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option1" value="bar-grouped" (change)="onChange($event)" checked />
+        <label for="option1" class="radio-label">Bar Grouped</label>
+        <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option2" value="pie" (change)="onChange($event)"/>
+        <label for="option2" class="radio-label">Pie</label>
+        <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option3" value="donut" (change)="onChange($event)"/>
+        <label for="option3" class="radio-label">Donut</label>
+        <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option4" value="bar" (change)="onChange($event)"/>
+        <label for="option4" class="radio-label">Bar</label>
+        <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option5" value="column" (change)="onChange($event)"/>
+        <label for="option5" class="radio-label">Column</label>
+        <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option6" value="column-stacked" (change)="onChange($event)" />
+        <label for="option6" class="radio-label">Column Stacked</label>
+        <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option7" value="line" (change)="onChange($event)"/>
+        <label for="option7" class="radio-label">Line</label>
+        <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option8" value="area" (change)="onChange($event)"/>
+        <label for="option8" class="radio-label">Area</label>
+        <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option9" value="bubble" (change)="onChange($event)"/>
+        <label for="option9" class="radio-label">Bubble</label>
+        <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option10" value="scatter" (change)="onChange($event)"/>
+        <label for="option10" class="radio-label">Scatter</label>
+        <input soho-radiobutton soho-trackdirty name="optionsGroupVWO" id="option11" value="column-positive-negative" (change)="onChange($event)"/>
+        <label for="option11" class="radio-label">Positive-Negative</label>
+      </div>
+      <div class="full-width" style="padding: 0px 20px">
+        <label>Selected Index</label>
+        <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionA" value=1 (change)="onChangeIndex($event)" checked />
+        <label for="optionA" class="radio-label">1</label>
+        <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionB" value=2 (change)="onChangeIndex($event)"/>
+        <label for="optionB" class="radio-label">2</label>
+        <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionC" value=3 (change)="onChangeIndex($event)"/>
+        <label for="optionC" class="radio-label">3</label>
+        <input soho-radiobutton soho-trackdirty name="optionsGroupSelected" id="optionD" value=4 (change)="onChangeIndex($event)"/>
+        <label for="optionD" class="radio-label">4</label>
+      </div>
 
-  <div soho-chart
-    [dataSet]="chartDemoService.getBasicData()"
-    [type]="barGroupedChart"
-    [selectedIndex]="selectedIndex"
-    (selected)="onSelected($event)"
-    (unselected)="onUnselected($event)"
-    (rendered)="onRendered($event)"
-    (contextmenu)="onContextMenu($event)"
-    [showLegend]="showLegend"
-  >
+      <div style="padding-left: 20px;">
+        <input type="checkbox" class="checkbox" id="legendCheckbox" checked (change)="onLegendCheckboxChange($event)">
+        <label for="legendCheckbox" class="checkbox-label" >Show Legend</label>
+      </div>
+      <div style="padding-left: 20px;">
+        <input type="checkbox" class="checkbox" id="showLabelCheckbox" checked (change)="onShowLabelCheckboxChange($event)">
+        <label for="showLabelCheckbox" class="checkbox-label" >Hide Label(Pie, Donut)</label>
+      </div>
+      <div style="padding-left: 20px;">
+        <input type="checkbox" class="checkbox" id="animateCheckbox" checked (change)="onAnimateCheckboxChange($event)">
+        <label for="animateCheckbox" class="checkbox-label" >Animate Chart(not all supported)</label>
+      </div>
+    </form>
+    <soho-splitter [isSplitterRight]="true" [collapseButton]="true">
+      <div class="panel-header"></div>
+    </soho-splitter>
   </div>
+  <div class="full-width chart-container" style="height:95%;padding: 0px;">
+    <div soho-chart
+      [dataSet]="chartDemoService.getBasicData()"
+      [type]="barGroupedChart"
+      [selectedIndex]="selectedIndex"
+      (selected)="onSelected($event)"
+      (unselected)="onUnselected($event)"
+      (rendered)="onRendered($event)"
+      (contextmenu)="onContextMenu($event)"
+      [showLegend]="showLegend"
+    >
+    </div>
+    </div>
+
+
 </div>
-
 
 <!-- barGroupedChart  pieChart  columnChart  barChart  lineChart  donutChart  bubbleChart  -->

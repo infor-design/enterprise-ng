@@ -23,7 +23,12 @@ export class CodeBlockDemoComponent implements OnInit {
     accountingEntity: '1001',
     accountingUnit: '99 CORP',
     costCenter: '102',
-    department: '102'
+    department: '102',
+    AlphaField: 'ABC',
+    DateField: '12/01/2017',
+    DropdownField: 'Option #1',
+    CheckBoxField: 'false',
+    PercentField: '123 %'
   };
 
   public columns = columns;

@@ -2,6 +2,7 @@ import {
   Component,
   ViewChild,
   AfterViewInit,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { SohoDataGridComponent } from '@infor/sohoxi-angular';
@@ -11,7 +12,8 @@ import { DataGridDemoService } from './datagrid-demo.service';
 @Component({
   selector: 'soho-datagrid-empty-message-demo',
   templateUrl: './datagrid-empty-message.demo.html',
-  providers: [ DataGridDemoService ]
+  providers: [ DataGridDemoService ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
