@@ -2,7 +2,7 @@
 
   <div class="twelve columns">
     <div class="field">
-      <h2 class="fieldset-title">Code Block One</h2>
+      <label soho-label >Compound Field Lookup</label>
       <div lm-code-block>
 
           <div class="field">
@@ -124,7 +124,143 @@
     </div>
 
     <div class="field">
-      <h2 class="fieldset-title">Code Block Readonly</h2>
+      <label soho-label >Compound Field Additional types</label>
+      <div lm-code-block>
+
+        <div class="field">
+          <label soho-label for="ledger">Ledger</label>
+          <input soho-lookup soho-field-options name="ledger" id="ledger" value="CORE" size="4" readOnly
+            [autoWidth]="true"
+            [(ngModel)]="model.ledger"
+            [columns]="columns"
+            [dataset]="ledgerData"
+            field="column1">
+
+          <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click"></button>
+          <ul soho-popupmenu>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Show Field History</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Show Pending Changes</a></li>
+            <li soho-popupmenu-item>
+              <a soho-popupmenu-label>Drill Around</a>
+              <ul soho-popupmenu>
+                <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 1</a></li>
+                <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 2</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="field">
+          <label soho-label for="AlphaField">AlphaField</label>
+          <input id="AlphaField" name="AlphaField"
+            soho-field-options
+            [(ngModel)]="model.AlphaField" value="ABC" size="4"
+          >
+
+          <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click"></button>
+          <ul soho-popupmenu>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Show Field History</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Show Pending Changes</a></li>
+            <li soho-popupmenu-item>
+              <a soho-popupmenu-label>Drill Around</a>
+              <ul soho-popupmenu>
+                <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 1</a></li>
+                <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 2</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="field">
+          <label soho-label for="DateField">Date Field</label>
+          <input id="DateField" name="DateField"
+            [(ngModel)]="model.DateField" value="12/01/2017" size="10"
+            soho-field-options
+            soho-datepicker dateFormat="MM/dd/yyyy" mode="standard"
+          >
+
+          <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click"></button>
+          <ul soho-popupmenu>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Show Field History</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Show Pending Changes</a></li>
+            <li soho-popupmenu-item>
+              <a soho-popupmenu-label>Drill Around</a>
+              <ul soho-popupmenu>
+                <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 1</a></li>
+                <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 2</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="field">
+          <label soho-label for="DropdownField">Dropdown Field</label>
+          <select class="dropdown" id="DropdownField" name="DropdownField"
+            [(ngModel)]="model.DropdownField"
+            soho-dropdown  soho-field-options
+          >
+            <option *ngFor="let option of ['Option #1', 'Option #2', 'Option #3']" [value]="option">{{option}}</option>
+          </select>
+
+          <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click"></button>
+          <ul soho-popupmenu>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Show Field History</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Show Pending Changes</a></li>
+            <li soho-popupmenu-item>
+              <a soho-popupmenu-label>Drill Around</a>
+              <ul soho-popupmenu>
+                <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 1</a></li>
+                <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 2</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="field">
+          <input soho-checkbox type="CheckBoxField" [attr.id]="id5" name="CheckBoxField" [(ngModel)]="model.CheckBoxField"
+            soho-field-options>
+          <label soho-label [attr.for]="CheckBoxField" [forCheckBox]="true"><span class="audible">Is Primary<</span>Is Primary</label>
+
+          <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click"></button>
+          <ul soho-popupmenu>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Show Field History</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Show Pending Changes</a></li>
+            <li soho-popupmenu-item>
+              <a soho-popupmenu-label>Drill Around</a>
+              <ul soho-popupmenu>
+                <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 1</a></li>
+                <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 2</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="field">
+          <label soho-label for="PercentField" >Percent Field</label>
+          <input id="PercentField" name="PercentField" alignRight="true" [(ngModel)]="model.PercentField" value="123 %"
+            soho-field-options soho-input
+            soho-mask [process]="'number'" [allowThousandsSeparator]="true" [allowDecimal]="true" [integerLimit]="3"
+            [decimalLimit]="0" [symbols]="symbols" [suffix]="'%'" [showSymbol]="percent"
+          >
+
+          <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click"></button>
+          <ul soho-popupmenu>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Show Field History</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label>Show Pending Changes</a></li>
+            <li soho-popupmenu-item>
+              <a soho-popupmenu-label>Drill Around</a>
+              <ul soho-popupmenu>
+                <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 1</a></li>
+                <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 2</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label soho-label >Compound Field Readonly</label>
       <div lm-code-block [readonly]="true">
 
           <div class="field">
