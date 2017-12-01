@@ -41,11 +41,14 @@ export interface ExtendedSohoDataGridCellEditor extends SohoDataGridCellEditor {
   // The args passed to the editor
   args: SohoDataGridEditCellFunctionArgs;
 
-  // @todo - talk to Tim on what this means.
+  // This is the input element (single) within the field
   input: JQuery;
 
-  // @todo - talk to Tim on what this means.
+  // Use the direct value from the dataset vs the formatted value
   useValue: boolean;
+
+  // The parent class of the inner editor. Used to determine if open or not.
+  className: string;
 
   /**
    * Initialise the edit control with the given component.  The control
@@ -64,8 +67,11 @@ export class SohoAngularEditorAdapter implements ExtendedSohoDataGridCellEditor 
 
   input: JQuery;
 
-  // @todo - talk to Tim on what this means.
+  // Use the direct value from the dataset vs the formatted value
   useValue = true;
+
+  // The parent class of the inner editor. Used to determine if open or not.
+  className: string;
 
   constructor(
     public component: Type<SohoDataGridCellEditor>,
@@ -79,7 +85,10 @@ export class SohoAngularEditorAdapter implements ExtendedSohoDataGridCellEditor 
     // The Soho datagrid wants an input control, otherwise it wont accept the editor
     // as a component.
     // @todo talk to Tim about removing this requirement.
-    this.input = $(this.componentRef.location.nativeElement).find('input');
+    this.input = $(this.componentRef.location.nativeElement).find('input:first');
+    this.className = this.componentRef.instance
+        && this.componentRef.instance.className
+        ? this.componentRef.instance.className : '.editor';
   }
 
   val(value?: any): any {

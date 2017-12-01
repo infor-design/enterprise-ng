@@ -1,0 +1,5 @@
+
+/* Datagrid Editor Fixes */
+:host ::ng-deep .datagrid .field-options {
+  border: 1px solid red;
+}

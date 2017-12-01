@@ -39,8 +39,7 @@ export class DataGridRowReorderDemoComponent implements AfterViewInit {
   }
 
   onRowReordered(event: SohoDataGridRowReorderedEvent) {
-    console.log('startIndex: ' + event.startIndex);
-    console.log('endIndex: ' + event.endIndex);
+    console.log('startIndex: ' + event.startIndex, 'endIndex: ' + event.endIndex);
   }
 
   onRowClicked(event: SohoDataGridRowClicked) {

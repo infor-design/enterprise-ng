@@ -63,9 +63,7 @@ export class CodeBlockComponent implements AfterViewInit, OnDestroy {
   isReadOnly = false;
 
   constructor(private elementRef: ElementRef) {
-
-    // TODO: Add focus within poly fill for IE 11
-    // https://gist.github.com/aFarkas/a7e0d85450f323d5e164
+    console.log('Init');
   }
 
   ngAfterViewInit() {
