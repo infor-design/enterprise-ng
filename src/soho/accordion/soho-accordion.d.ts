@@ -33,8 +33,22 @@
    * of tab contents on open.
    */
   source?: Function;
-}
 
+   /**
+    *  Set true to use panels with header selection
+    */
+   allowPanels?: boolean;
+
+   /**
+    * Sets the color scheme to inverse
+    */
+   inverse?: boolean;
+
+   /**
+    * Sets the color scheme to alternate
+    */
+   alternate?: boolean;
+ }
 
 /**
  * This interface represents the public API exposed by the
@@ -95,4 +109,3 @@ interface JQuery {
 interface SohoAccordionEvent extends JQueryEventObject {
   anchor: HTMLAnchorElement;
 }
-

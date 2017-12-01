@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 
 import { SohoAccordionHeaderComponent } from './soho-accordion-header.component';
+import { SohoAccordionPaneComponent } from './soho-accordion-pane.component';
 
 /**
  * Angular Wrapper for the Soho Accordion control.
@@ -36,12 +37,14 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
   // All header panels.
   @ContentChildren(SohoAccordionHeaderComponent) headers: QueryList<SohoAccordionHeaderComponent>;
 
+  // All panes
+  @ContentChildren(SohoAccordionPaneComponent) panes: QueryList<SohoAccordionPaneComponent>;
+
   // -------------------------------------------
   // Options Block
   // -------------------------------------------
 
-  private options: SohoAccordionOptions = {
-  };
+  private options: SohoAccordionOptions = {};
 
   // -------------------------------------------
   // Private Member Data
@@ -94,7 +97,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
       this.accordion.updated();
     }
   }
-  public get allowOnePanel() {
+  public get allowOnePane() {
     return this.options.allowOnePane;
   }
 
@@ -143,6 +146,39 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
       this.accordion.settings.source = this.options.source;
       this.accordion.updated();
     }
+  }
+
+  /**
+   * Display accordion with panels
+   */
+  @Input() public set allowPanels(bool: boolean) {
+    this.options.allowPanels = bool;
+  }
+
+  public get allowPanels(): boolean {
+    return this.options.allowPanels;
+  }
+
+  /**
+   * Set the color scheme to inverse
+   */
+  @Input() public set inverse(bool: boolean) {
+    this.options.inverse = bool;
+  }
+
+  public get inverse(): boolean {
+    return this.options.inverse;
+  }
+
+  /**
+   * Set the color scheme to alternate
+   */
+  @Input() public set alternate(bool: boolean) {
+    this.options.alternate = bool;
+  }
+
+  public get alternate(): boolean {
+    return this.options.alternate;
   }
 
   /**
@@ -266,6 +302,15 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
   // Lifecycle Events
   // ------------------------------------------
   ngAfterViewInit() {
+
+    // If using panels exclude the content class from the pane
+    if (this.panes && this.allowPanels) {
+      this.panes.forEach((pane: SohoAccordionPaneComponent) => {
+        // SetTimeout to prevent expression changed after checked error
+        setTimeout(() => { pane.contentClass = false; }, 1);
+      });
+    }
+
     // Wrap the element in a jQuery selector.
     this.jQueryElement = jQuery(this.element.nativeElement.childNodes[0]);
 
