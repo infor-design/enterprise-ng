@@ -51,6 +51,14 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
     this._chartOptions.showLegend = showLegend;
   }
 
+  @Input() set hideLabels(hideLabels: boolean) {
+    if (this._chartOptions.labels) {
+      this._chartOptions.labels.hideLabels = !hideLabels;
+    } else {
+      this._chartOptions['labels'] = {hideLabels: !hideLabels};
+    }
+  }
+
   @Input() set formatterString(formatterString: string) {
     this._chartOptions.formatterString = formatterString;
   }
