@@ -18,6 +18,7 @@ import { SohoComponentsModule } from '../soho/soho-components.module';
 
 import { AboutDemoComponent } from './about/about.demo';
 import { AccordionDemoComponent } from './accordion/accordion.demo';
+import { AccordionPanelsDemoComponent } from './accordion/accordion-panels.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
@@ -172,6 +173,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     AppComponent,
     AboutDemoComponent,
     AccordionDemoComponent,
+    AccordionPanelsDemoComponent,
     AlertDemoComponent,
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,
