@@ -3,9 +3,7 @@ import {
   OnDestroy,
   ElementRef,
   HostBinding,
-  Input,
-  ViewChildren,
-  ContentChildren
+  Input
 } from '@angular/core';
 
 @Component({
