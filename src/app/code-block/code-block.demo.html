@@ -128,8 +128,8 @@
       <div lm-code-block>
 
         <div class="field">
-          <label soho-label for="ledger">Ledger</label>
-          <input soho-lookup soho-field-options name="ledger" id="ledger" value="CORE" size="4" readOnly
+          <label soho-label for="ledger2">Ledger</label>
+          <input soho-lookup soho-field-options name="ledger" id="ledger2" value="CORE" size="4" readOnly
             [autoWidth]="true"
             [(ngModel)]="model.ledger"
             [columns]="columns"
@@ -217,9 +217,9 @@
         </div>
 
         <div class="field">
-          <input soho-checkbox type="CheckBoxField" [attr.id]="id5" name="CheckBoxField" [(ngModel)]="model.CheckBoxField"
-            soho-field-options>
-          <label soho-label [attr.for]="CheckBoxField" [forCheckBox]="true"><span class="audible">Is Primary<</span>Is Primary</label>
+
+          <input soho-checkbox soho-field-options type="checkbox" [attr.id]="id1" name="checkbox1" [(ngModel)]="model.CheckBoxField">
+          <label soho-label [attr.for]="id1" [forCheckBox]="true">Unchecked</label>
 
           <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click"></button>
           <ul soho-popupmenu>
@@ -240,7 +240,7 @@
           <input id="PercentField" name="PercentField" alignRight="true" [(ngModel)]="model.PercentField" value="123 %"
             soho-field-options soho-input
             soho-mask [process]="'number'" [allowThousandsSeparator]="true" [allowDecimal]="true" [integerLimit]="3"
-            [decimalLimit]="0" [symbols]="symbols" [suffix]="'%'" [showSymbol]="percent"
+            [decimalLimit]="0" [symbols]="symbols" [suffix]="'%'"
           >
 
           <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click"></button>
