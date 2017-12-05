@@ -34,8 +34,8 @@
 :host .code-block-buttons {
   position: absolute;
   top: 50%;
-  margin-top: 18px;
-  right: 5px;
+  margin-top: -7px;
+  right: 6px;
 }
 
 /* Style Parent and inner Focus */
@@ -68,9 +68,9 @@
   border-radius: 2px;
   display: inline-block;
   margin-bottom: -3px;
-  padding-left: 9px;
-  margin-right: -8px;
-  padding-right: 6px;
+  padding-left: 12px;
+  margin-right: -12px;
+  padding-right: 0;
   vertical-align: middle;
   padding-top: 0px;
   margin-top: -3px;
@@ -85,8 +85,8 @@
   position: absolute;
   font-size: 18px;
   color: #5C5C5C;
-  right: 21px;
-  top: 0px;
+  right: 18px;
+  top: -1px;
   width: 4px;
 }
 
@@ -98,7 +98,7 @@
   box-shadow: none !important;
 }
 
-/* Adjst labels and input styles */
+/* Adjust labels and input styles */
 :host ::ng-deep .label {
   position: relative;
   top: -1px;
@@ -111,12 +111,21 @@
   width: initial;
 }
 
+:host ::ng-deep .is-number-mask {
+  text-align: left;
+}
+
 :host ::ng-deep .lookup {
   padding: 0;
 }
 
 :host ::ng-deep .lookup:focus {
   box-shadow: none !important;
+}
+
+/* Other Input Types */
+:host ::ng-deep input[readonly] {
+  background-color: transparent;
 }
 
 /* Add a : After the label */
@@ -126,8 +135,8 @@
 
 /* Make Elements Sit Well Next to Each other */
 :host ::ng-deep .field-options {
-  margin-left: 0;
-  margin-right: 20px;
+  margin-left: 3px;
+  margin-right: 18px;
 }
 
 :host ::ng-deep .trigger {
@@ -141,7 +150,24 @@
   visibility: visible;
 }
 
+:host ::ng-deep input.is-active + .trigger .icon {
+  fill: #5c5c5c !important;
+}
+
+:host ::ng-deep .lookup-wrapper.is-active + .trigger {
+  visibility: visible;
+}
+
 :host ::ng-deep input.is-active + .trigger + .btn-actions {
+  border: none;
+  box-shadow: none !important;
+  left: -15px;
+  visibility: visible;
+  margin-right: -18px;
+}
+
+/* Input Field with field options */
+:host ::ng-deep .btn-actions.is-active {
   border: none;
   box-shadow: none !important;
   visibility: visible;
@@ -173,4 +199,9 @@
 :host ::ng-deep .input-style.is-readonly .field::after {
   right: 20px;
   top: -3px;
+}
+
+/* Editor overrides */
+:host-context(.datagrid) .code-block {
+  border: none;
 }

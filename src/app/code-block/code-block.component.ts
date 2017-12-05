@@ -1,10 +1,11 @@
 import {
   Component,
-  AfterViewInit,
   OnDestroy,
   ElementRef,
   HostBinding,
-  Input
+  Input,
+  ViewChildren,
+  ContentChildren
 } from '@angular/core';
 
 @Component({
@@ -49,7 +50,7 @@ import {
     </div>`,
   styleUrls: ['./code-block.component.css']
 })
-export class CodeBlockComponent implements AfterViewInit, OnDestroy {
+export class CodeBlockComponent implements OnDestroy {
 
   @HostBinding('class.hide-labels') hideLabels = false;
 
@@ -63,18 +64,14 @@ export class CodeBlockComponent implements AfterViewInit, OnDestroy {
   isReadOnly = false;
 
   constructor(private elementRef: ElementRef) {
-    console.log('Init');
-  }
-
-  ngAfterViewInit() {
-    console.log(this.elementRef);
   }
 
   ngOnDestroy() {
   }
 
   focus () {
-    console.log('Do Focus');
+    // Using jquery to focus the element as ViewChildren is not working
+    $('input:first', this.elementRef.nativeElement).focus();
   }
 
   toggleLabels() {
