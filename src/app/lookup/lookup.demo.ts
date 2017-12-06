@@ -71,6 +71,7 @@ export class LookupDemoComponent {
   constructor() {
     this.setupProducts();
   }
+
   requestData(filter?: string, page?: number, pagesize?: number): Promise<FakeResponse> {
     // This acts as a fake response from the server, therefore all computations
     // would be done server-side
@@ -100,6 +101,7 @@ export class LookupDemoComponent {
       }, 1000);
     });
   }
+
   setupProducts() {
     this.columns_product = [];
     this.columns_multi = [];
@@ -120,9 +122,11 @@ export class LookupDemoComponent {
     });
 
   }
+
   toggleModel() {
     this.showModel = !this.showModel;
   }
+
   /**
    * If source is used for a datagrid, then the datagrid is expected to be paged.
    * This means we need to pass an options of 'paged: true' to the datagrid, this
@@ -135,6 +139,14 @@ export class LookupDemoComponent {
       req.total = result.total;
       response(result.data, req);
     });
+  }
+
+  // Example of calling before show to cancel the opening
+  onBeforeShow(api, response) {
+    return false; // and we will never open
+
+    // If there was rows (in this example we dont show this)
+    // response();
   }
 
   onDirty(event: SohoTrackDirtyEvent) {
