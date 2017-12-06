@@ -4,6 +4,7 @@
 // tslint:disable
 /// <reference path="./about/soho-about.d.ts" />
 /// <reference path="./accordion/soho-accordion.d.ts" />
+/// <reference path="./alert/soho-alert.d.ts" />
 /// <reference path="./application-menu/soho-application-menu.d.ts" />
 /// <reference path="./autocomplete/soho-autocomplete.d.ts" />
 /// <reference path="./busyindicator/soho-busyindicator.d.ts" />
