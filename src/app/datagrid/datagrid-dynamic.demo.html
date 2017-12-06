@@ -32,10 +32,9 @@
   <ul soho-popupmenu
     id="{{contextMenuId}}"
     menu="{{contextMenuId}}"
-    trigger='immediate'
+    trigger="immediate"
     [eventObj]="contextMenuEvent"
     [attachToBody]="true"
-
     (selected)="onMenuItemSelected($event)"
     (beforeopen)="onBeforeContextMenuOpen($event)"
     (close)="onContextMenuClose($event)"
