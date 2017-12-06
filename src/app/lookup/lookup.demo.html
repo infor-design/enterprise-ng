@@ -1,4 +1,3 @@
-
 <form>
   <div class="row top-padding">
     <div class="row">
@@ -232,26 +231,38 @@
             [(ngModel)]="model.asyncexists"
             [columns]="columns_product"
             [options]="{
-          paging: true,
-          pagesize: 5,
-          pagesizes: [3, 5, 10, 15]
-        }"
+              paging: true,
+              pagesize: 5,
+              pagesizes: [3, 5, 10, 15]
+            }"
             [source]="source.bind(context)"
             [toolbar]="{
-          results: true,
-          dateFilter: false,
-          keywordFilter: true,
-          advancedFilter: true,
-          actions: true,
-          views: true,
-          rowHeight: false,
-          collapsibleFilter: false,
-          fullWidth: true
-        }"
+              results: true,
+              dateFilter: false,
+              keywordFilter: true,
+              advancedFilter: true,
+              actions: true,
+              views: true,
+              rowHeight: false,
+              collapsibleFilter: false,
+              fullWidth: true
+            }"
             field="productId"
             name="product_async_exists"/>
         </div>
+        <div class="field">
+          <label soho-label for="product_custom_match">Custom Matching</label>
+          <input soho-lookup
+            [(ngModel)]="model.single"
+            [field]="onField"
+            [match]="onMatch"
+            [columns]="columns_product"
+            [dataset]="data_product"
+            field="productId"
+            name="product_custom_match" />
+
+        </div>
+        </div>
       </div>
     </div>
-  </div>
 </form>
