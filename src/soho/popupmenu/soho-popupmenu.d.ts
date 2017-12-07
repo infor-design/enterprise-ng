@@ -53,7 +53,7 @@ interface SohoPopupMenuOptions {
  * Interface for the jQuery event emitted
  */
 interface SohoPopupMenuEvent {
-  e: JQueryEventObject;
+  e: JQuery.Event;
   /**
    * the relevant element for the given event
    */

@@ -5,7 +5,7 @@
  * interface of the Soho jQuery file upload control.
  */
 
-interface SohoFileUploadEvent extends JQueryEventObject {
+interface SohoFileUploadEvent extends JQuery.Event {
 }
 
 /**

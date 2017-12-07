@@ -316,15 +316,15 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
 
     // Initialise the event handlers.
     this.jQueryElement
-      .on('beforeexpand', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.beforeexpandEvent.emit(event); })
-      .on('beforecollapse', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.beforecollapseEvent.emit(event); })
-      .on('beforeselect', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.beforeselectEvent.emit(event); })
-      .on('selected', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.selectedEvent.emit(event); })
-      .on('followlink', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.followlinkEvent.emit(event); })
-      .on('expand', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.expandEvent.emit(event); })
-      .on('afterexpand', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.afterexpandEvent.emit(event); })
-      .on('collapse', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.collapseEvent.emit(event); })
-      .on('aftercollapse', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.aftercollapseEvent.emit(event); });
+      .on('beforeexpand', (event: any, anchor) => { event.anchor = anchor; this.beforeexpandEvent.emit(event); })
+      .on('beforecollapse', (event: any, anchor) => { event.anchor = anchor; this.beforecollapseEvent.emit(event); })
+      .on('beforeselect', (event: any, anchor) => { event.anchor = anchor; this.beforeselectEvent.emit(event); })
+      .on('selected', (event: any, anchor) => { event.anchor = anchor; this.selectedEvent.emit(event); })
+      .on('followlink', (event: any, anchor) => { event.anchor = anchor; this.followlinkEvent.emit(event); })
+      .on('expand', (event: any, anchor) => { event.anchor = anchor; this.expandEvent.emit(event); })
+      .on('afterexpand', (event: any, anchor) => { event.anchor = anchor; this.afterexpandEvent.emit(event); })
+      .on('collapse', (event: any, anchor) => { event.anchor = anchor; this.collapseEvent.emit(event); })
+      .on('aftercollapse', (event: any, anchor) => { event.anchor = anchor; this.aftercollapseEvent.emit(event); });
 
     // Initialise the SohoXi Control
     this.jQueryElement.accordion(this.options);

@@ -188,7 +188,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> impl
      * Bind to jQueryElement's events
      */
     this.jQueryElement
-      .on('change', (args: SohoDatePickerEvent) => this.onChange(args));
+      .on('change', (args: any) => this.onChange(args));
 
     this.datepicker = this.jQueryElement.data('datepicker');
 
@@ -201,7 +201,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> impl
    * Handle the control being changed.
    */
   onChange(event: SohoDatePickerEvent) {
-    this.internalValue = this.datepicker.element.val();
+    this.internalValue = <any>this.datepicker.element.val();
 
     // Set the date on the event.
     event.data = this.internalValue;

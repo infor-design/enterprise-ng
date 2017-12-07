@@ -321,12 +321,12 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
 
     // Initialise any event handlers.
     this.jQueryElement
-    .on('selected',            (e: JQueryEventObject, args: JQuery) => this.selected.next({ e, args }))
-    .on('popupmenuafterplace', (e: JQueryEventObject, args: JQuery) => this.popupmenuafterplace.next({ e, args }))
-    .on('beforeopen',          (e: JQueryEventObject, args: JQuery) => this.beforeopen.next({ e, args }))
-    .on('open',                (e: JQueryEventObject, args: JQuery) => this.open.next({ e, args }))
-    .on('afteropen',           (e: JQueryEventObject, args: JQuery) => this.afteropen.next({ e, args }))
-    .on('close',               (e: JQueryEventObject, args: JQuery) => this.closeEvent.next({ e, args }));
+    .on('selected',            (e: JQuery.Event, args: JQuery) => this.selected.next({ e, args }))
+    .on('popupmenuafterplace', (e: JQuery.Event, args: JQuery) => this.popupmenuafterplace.next({ e, args }))
+    .on('beforeopen',          (e: JQuery.Event, args: JQuery) => this.beforeopen.next({ e, args }))
+    .on('open',                (e: JQuery.Event, args: JQuery) => this.open.next({ e, args }))
+    .on('afteropen',           (e: JQuery.Event, args: JQuery) => this.afteropen.next({ e, args }))
+    .on('close',               (e: JQuery.Event, args: JQuery) => this.closeEvent.next({ e, args }));
   }
 
   /**

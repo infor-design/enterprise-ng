@@ -52,7 +52,7 @@
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
-    "@types/jquery": "~2.0.46",
+    "@types/jquery": "~3.2.16",
     "codelyzer": "~4.0.1",
     "del": "^2.2.2",
     "gulp": "github:gulpjs/gulp#4.0",

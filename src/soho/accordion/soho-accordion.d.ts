@@ -106,6 +106,6 @@ interface JQuery {
   accordion(options?: SohoAccordionOptions): SohoAccordionStatic;
 }
 
-interface SohoAccordionEvent extends JQueryEventObject {
+interface SohoAccordionEvent extends JQuery.Event {
   anchor: HTMLAnchorElement;
 }

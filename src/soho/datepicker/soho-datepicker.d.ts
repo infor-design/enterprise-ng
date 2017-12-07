@@ -93,8 +93,8 @@ interface SohoDatePickerStatic {
 /**
  * Type safe date picker event object.
  */
-interface SohoDatePickerEvent extends JQueryEventObject {
-  data: Object;
+interface SohoDatePickerEvent extends JQuery.Event {
+  data: any;
   elem: HTMLElement[];
 }
 

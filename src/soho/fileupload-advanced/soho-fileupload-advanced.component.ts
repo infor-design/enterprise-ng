@@ -259,7 +259,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
   /**
    * Called when the fileupload value changes
    */
-  @Output() filesdragenter = new EventEmitter<JQueryEventObject>();
+  @Output() filesdragenter = new EventEmitter<JQuery.Event>();
   @Output() filesdropped = new EventEmitter<File[]>();
   @Output() beforecreatestatus = new EventEmitter<File[]>();
   @Output() aftercreatestatus = new EventEmitter<File[]>();
@@ -305,13 +305,13 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
     this.jQueryElement.fileuploadadvanced(this.options);
 
     this.jQueryElement
-      .on('filesdragenter', (e: JQueryEventObject) => { this.filesdragenter.next(e); })
-      .on('filesdroped', (args: JQueryEventObject, files: File[]) => { this.filesdropped.next(files); })
-      .on('beforecreatestatus', (args: JQueryEventObject, files: File[]) => { this.beforecreatestatus.next(files); })
-      .on('aftercreatestatus', (args: JQueryEventObject, files: File[]) => { this.aftercreatestatus.next(files); })
-      .on('fileprogress', (args: JQueryEventObject, files: File[]) => { this.fileprogress.next(files); })
-      .on('fileaborted', (args: JQueryEventObject, files: File[]) => { this.fileaborted.next(files); })
-      .on('filecompleteuploading', (args: JQueryEventObject, files: File[]) => { this.filecompleteduploading.next(files); });
+      .on('filesdragenter', (e: JQuery.Event) => { this.filesdragenter.next(e); })
+      .on('filesdroped', (args: JQuery.Event, files: File[]) => { this.filesdropped.next(files); })
+      .on('beforecreatestatus', (args: JQuery.Event, files: File[]) => { this.beforecreatestatus.next(files); })
+      .on('aftercreatestatus', (args: JQuery.Event, files: File[]) => { this.aftercreatestatus.next(files); })
+      .on('fileprogress', (args: JQuery.Event, files: File[]) => { this.fileprogress.next(files); })
+      .on('fileaborted', (args: JQuery.Event, files: File[]) => { this.fileaborted.next(files); })
+      .on('filecompleteuploading', (args: JQuery.Event, files: File[]) => { this.filecompleteduploading.next(files); });
 
     this.fileuploadadvanced = this.jQueryElement.data('fileuploadadvanced');
   }

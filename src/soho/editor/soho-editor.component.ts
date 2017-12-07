@@ -173,8 +173,8 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (e: JQueryEventObject, args: SohoEditorEvent) => this.onChange(args));
-    this.jQueryElement.on('updated', (e: JQueryEventObject, args: SohoEditorEvent) => this.updated.next(args));
+    this.jQueryElement.on('change', (e: JQuery.Event, args: SohoEditorEvent) => this.onChange(args));
+    this.jQueryElement.on('updated', (e: JQuery.Event, args: SohoEditorEvent) => this.updated.next(args));
 
     if (this.internalValue) {
       this.jQueryElement.val(this.internalValue);

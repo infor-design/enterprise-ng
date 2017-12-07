@@ -268,13 +268,13 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
    * Called when the dropdown value changes
    */
   @Output()
-  change: EventEmitter<JQueryEventObject> = new EventEmitter<JQueryEventObject>();
+  change: EventEmitter<JQuery.Event> = new EventEmitter<JQuery.Event>();
 
   /**
    * Called when the dropdown updates in some way.
    */
   @Output('updated') // tslint:disable-line
-  updatedEvent: EventEmitter<Object> = new EventEmitter<JQueryEventObject>();
+  updatedEvent: EventEmitter<Object> = new EventEmitter<JQuery.Event>();
 
   /**
    * Bind attributes to the host select element
@@ -316,8 +316,8 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.dropdown(this.options);
     this.jQueryElement
-      .on('change', (event: JQueryEventObject) => this.onChange(event))
-      .on('updated', (event: JQueryEventObject) => this.updatedEvent.emit(event));
+      .on('change', (event: JQuery.Event) => this.onChange(event))
+      .on('updated', (event: JQuery.Event) => this.updatedEvent.emit(event));
     this.dropdown = this.jQueryElement.data('dropdown');
   }
 

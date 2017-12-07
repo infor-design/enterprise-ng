@@ -106,7 +106,7 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
     const newValue = this.jQueryElement.val();
     if (this.internalValue !== newValue) {
       // Update the model ...
-      this.internalValue = this.jQueryElement.val();
+      this.internalValue = <number>this.jQueryElement.val();
 
       // ... then emit the changed value.
       this.change.emit(this.internalValue);
