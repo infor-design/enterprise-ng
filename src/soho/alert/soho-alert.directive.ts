@@ -26,18 +26,6 @@ export class SohoAlertDirective implements AfterViewInit {
     }
   }
 
-  /** Set message in tooltip. */
-  @Input()
-  public set showTooltip(showTooltip: boolean) {
-    this._options.showTooltip = showTooltip;
-  }
-
-  /** Set message to be inline. */
-  @Input()
-  public set inline(inline: boolean) {
-    this._options.inline = inline;
-  }
-
   /** Set message with the SohoAlertType. */
   @Input()
   public set type(type: SohoAlertType) {
@@ -55,6 +43,7 @@ export class SohoAlertDirective implements AfterViewInit {
   }
 
   constructor(private el: ElementRef) {
+    this._options.inline = true;
   }
 
   /**
@@ -82,21 +71,7 @@ export class SohoAlertDirective implements AfterViewInit {
    * @param type; defaults to 'error'
    */
   addInlineMessage(message: string, type?: SohoAlertType) {
-    this.showTooltip = false;
-    this.inline = true;
     this.type = type || 'error';
-    this.message = message;
-  }
-
-  /**
-   * Adds a tooltip error message
-   *
-   * @param message
-   */
-  addTooltipError(message: string) {
-    this.showTooltip = true;
-    this.inline = false;
-    this.type = 'error';
     this.message = message;
   }
 

@@ -26,12 +26,6 @@ export class AlertDemoComponent {
     });
   }
 
-  addTooltipError() {
-    this.alerts.forEach((alert: SohoAlertDirective) => {
-      alert.addTooltipError(this.message + 'error');
-    });
-  }
-
   removeMessage() {
     this.alerts.forEach((alert: SohoAlertDirective) => {
       alert.removeMessage(this.currentValidationType);

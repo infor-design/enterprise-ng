@@ -12,9 +12,6 @@ interface SohoAlertOptions {
   message?: string;
 
   /** */
-  showTooltip?: boolean;
-
-  /** */
   inline?: boolean;
 
   /** */
