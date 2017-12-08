@@ -27,6 +27,8 @@ interface SohoEditorAnchor {
   url?: string;
   class?: string;
   target?: 'Same window'|'New window'| any;
+  isClickable?: boolean;
+  showIsClickable?: boolean;
 }
 
 /**
