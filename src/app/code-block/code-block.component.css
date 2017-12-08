@@ -32,10 +32,9 @@
 }
 
 :host .code-block-buttons {
-  position: absolute;
-  top: 50%;
-  margin-top: -7px;
-  right: 6px;
+  position: relative;
+  left: 5px;
+  display: inline-block;
 }
 
 /* Style Parent and inner Focus */
@@ -111,12 +110,20 @@
   width: initial;
 }
 
+:host ::ng-deep .dropdown {
+  height: 28px !important;
+}
+
 :host ::ng-deep .is-number-mask {
   text-align: left;
 }
 
 :host ::ng-deep .lookup {
   padding: 0;
+}
+
+:host ::ng-deep div.field + .field-checkbox {
+  margin-bottom: 0px !important;
 }
 
 :host ::ng-deep .lookup:focus {

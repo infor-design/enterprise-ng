@@ -168,6 +168,7 @@ export const routes: Routes = [
   { path: 'expandablearea',                         component: ExpandableAreaDemoComponent },
   { path: 'expandablearea-footer',                  component: ExpandableAreaFooterDemoComponent },
   { path: 'field-options',                          component: FieldOptionsDemoComponent },
+  { path: 'field-options',                     component: FieldOptionsDemoComponent },
   { path: 'fileupload-advanced',                    component: FileUploadAdvancedDemoComponent },
   { path: 'fileupload',                             component: FileUploadDemoComponent },
   { path: 'header-tabs',                            component: HeaderTabsDemoComponent },

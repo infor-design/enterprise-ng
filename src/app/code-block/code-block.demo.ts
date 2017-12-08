@@ -1,7 +1,6 @@
 import {
   Component,
   OnInit,
-  ChangeDetectionStrategy, ViewChild
 } from '@angular/core';
 
 import {
@@ -11,6 +10,8 @@ import {
   departmentData,
   costCenterData
 } from './mock.data';
+
+import * as _ from 'lodash';
 
 @Component({
   selector: 'soho-codeblock-demo',
@@ -31,13 +32,30 @@ export class CodeBlockDemoComponent implements OnInit {
     PercentField: '123 %'
   };
 
+  private MENU_RESPONSE_HTML = '' +
+    '<li><a href="#" id="ShowFieldHistory">Show Field History</a></li>' +
+    '<li><a href="#" id="ShowPendingChanges">Show Pending Changes</a></li>' +
+    '';
+
   public columns = columns;
   public ledgerData = ledgerData;
   public accountingData = accountingData;
   public departmentData = departmentData;
   public costCenterData = costCenterData;
 
+  private isPopupBuilt = false;
+
   constructor() { }
   ngOnInit() { }
 
+  onBeforeContextMenuOpen = (response: AjaxBeforeOpenResponseFunction, options: any) => {
+    if (!this.isPopupBuilt) {
+      response(this.MENU_RESPONSE_HTML);
+      return;
+    }
+  }
+
+  onSelected($event) {
+    alert($event.args[0].id + ' clicked');
+  }
 }
