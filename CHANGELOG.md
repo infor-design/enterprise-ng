@@ -1,6 +1,7 @@
 
 ## Whats New
 
+* 2017-12-06 - MAF - SOHO-7216: Added support for SohoAlert.
 * 2017-11-07 - BTH - SOHO-6797/SOHO-7015/SOHO-6263: Added support for component formatters and editors for datagrid.
 * 2017-11-17 - BTH - PR-512 - Added 'emptyMessage' support.
 * 2017-11-10 - BTH - PR-503 - Upgraded to angular-cli 1.5 and angular 5.
