@@ -11,8 +11,6 @@ import {
   costCenterData
 } from './mock.data';
 
-import * as _ from 'lodash';
-
 @Component({
   selector: 'soho-codeblock-demo',
   templateUrl: './code-block.demo.html'

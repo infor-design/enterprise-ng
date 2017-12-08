@@ -6,8 +6,6 @@ import {
   Input
 } from '@angular/core';
 
-import * as _ from 'lodash';
-
 @Component({
   selector: '[lm-code-block]', // tslint:disable-line
   template: `<div class="code-block-container">
@@ -81,7 +79,7 @@ export class CodeBlockComponent implements OnDestroy {
   }
 
   onBeforeContextMenuOpen = (response: AjaxBeforeOpenResponseFunction, options: any) => {
-    if (!_.isEmpty(options)) {
+    if (options.hasOwnProperty('contextElement')) {
       response(this.SUBMENU_RESPONSE_HTML);
       return;
     } else {
@@ -92,10 +90,8 @@ export class CodeBlockComponent implements OnDestroy {
 
   onSelected($event) {
     const buttonId = $event.args[0].id;
-    const parent = $event.args[0].parentElement;
     if (buttonId === 'ShowLabels') {
       this.toggleLabels();
-      // let class = parent.classList;
     } else {
       alert(buttonId + ' clicked');
     }
