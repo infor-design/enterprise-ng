@@ -2,7 +2,7 @@ import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
 
 /**
  * Angular Wrapper for the SoHo Error Directive.
- *
+ * @deprecated - use SohoAlert instead
  */
 @Directive({
   selector: '[soho-error]', // tslint:disable-line
@@ -16,7 +16,10 @@ export class SohoErrorDirective implements AfterViewInit {
   constructor(private el: ElementRef) {
   }
 
-  /** message for the error. */
+  /**
+   *  message for the error.
+   * @deprecated - use SohoAlert instead
+   */
   @Input()
   public set message(message: string) {
     this._options.message = message;
@@ -29,13 +32,19 @@ export class SohoErrorDirective implements AfterViewInit {
     }
   }
 
-  /** set error in tooltip. */
+  /**
+   *  set error in tooltip.
+   * @deprecated - use SohoAlert instead
+   */
   @Input()
   public set showTooltip(showTooltip: boolean) {
     this._options.showTooltip = showTooltip;
   }
 
-  /** set error to be inline. */
+  /**
+   * set error to be inline.
+   * @deprecated - use SohoAlert instead
+   */
   @Input()
   public set inline(inline: boolean) {
     this._options.inline = inline;
@@ -43,34 +52,44 @@ export class SohoErrorDirective implements AfterViewInit {
 
   /**
    * Returns the data object data-errormessage
+   * @deprecated - use SohoAlert instead
    * @returns {JQuery}
    */
   get errorMessage() {
     return this.jQueryElement.getErrorMessage(this._options);
   }
 
-  /** add inline error */
+  /**
+   * add inline error
+   * @deprecated - use SohoAlert instead
+   */
   addInlineError(message: string) {
     this.showTooltip = false;
     this.inline = true;
     this.message = message;
   }
 
-  /** add tooltip error */
+  /**
+   * add tooltip error
+   * @deprecated - use SohoAlert instead
+   */
   addTooltipError(message: string) {
     this.showTooltip = true;
     this.inline = false;
     this.message = message;
   }
 
-  /** remove inline/tooltip error */
+  /**
+   * remove inline/tooltip error
+   * @deprecated - use SohoAlert instead
+   */
   removeError() {
     this.message = '';
   }
 
   /**
    * Scrolls the element into the visible area of the browser window
-   *
+   * @deprecated - use SohoAlert instead
    * @param alignToTop (boolean) optional - true (default) element will be aligned to the top of the visible area of the scrollable ancestor
    */
   scrollIntoView(alignToTop?: boolean) {

@@ -52,6 +52,22 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
     }
   }
 
+  /** beforeOpen - ajax callback for open event */
+  @Input() set beforeOpen(beforeOpen: SohoPopupMenuSourceFunction) {
+    this.options.beforeOpen = beforeOpen;
+    if (this.contextMenu) {
+      this.contextMenu.settings.beforeOpen = beforeOpen;
+    }
+  }
+
+  get beforeOpen(): SohoPopupMenuSourceFunction {
+    if (this.contextMenu) {
+      return this.contextMenu.settings.beforeOpen;
+    }
+
+    return this.options.beforeOpen;
+  }
+
   constructor(private element: ElementRef) {}
 
   ngAfterViewInit() {

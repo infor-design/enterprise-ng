@@ -1,14 +1,37 @@
-<div class="row">
+<div class="row top-padding">
   <div class="twelve columns">
-    <svg soho-icon icon="confirm" alert="true"></svg>
-    <svg soho-icon icon="alert" alert="true"></svg>
-    <svg soho-icon icon="empty-circle" alert="true"></svg>
-    <svg soho-icon icon="dirty" alert="true"></svg>
-    <svg soho-icon icon="error" alert="true"></svg>
-    <svg soho-icon icon="info" alert="true"></svg>
-    <svg soho-icon icon="pending" alert="true"></svg>
-    <svg soho-icon icon="new" alert="true"></svg>
-    <svg soho-icon icon="in-progress" alert="true"></svg>
-    <svg soho-icon icon="info-field" alert="true"></svg>
+    <div class="field">
+      <label soho-label>Type of Alert</label>
+      <input soho-radiobutton name="options-group" id="option1" value="error" (change)="onChange($event)" checked />
+      <label soho-label for="option1" [forRadioButton]="true">Error</label>
+      <input soho-radiobutton name="options-group" id="option2" value="alert" (change)="onChange($event)"/>
+      <label soho-label for="option2" [forRadioButton]="true">Alert</label>
+      <input soho-radiobutton name="options-group" id="option3" value="confirm" (change)="onChange($event)"/>
+      <label soho-label for="option3" [forRadioButton]="true">Confirm</label>
+      <input soho-radiobutton name="options-group" id="option4" value="info" (change)="onChange($event)"/>
+      <label soho-label for="option4" [forRadioButton]="true">Info</label>
+    </div>
   </div>
 </div>
+<div class="row">
+  <div class="twelve columns">
+    <div class="field">
+      <button soho-button (click)="addMessage()">Add Inline Message</button>
+      <button soho-button (click)="removeMessage()">Remove Message</button>
+      <button soho-button (click)="removeAllMesssages()">Clear All Messages</button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="two columns">
+    <div class="field">
+      <label soho-label for="text-field">Text Field</label>
+      <input soho-alert alignRight="true" name="text-field" id="text-field"/>
+    </div>
+    <div class="field">
+      <label soho-label for="date-field">Date Field</label>
+      <input soho-alert soho-datepicker name="date-field" id="date-field" dateFormat="MM/dd/yyyy" mode="standard"/>
+    </div>
+  </div>
+</div>
+
