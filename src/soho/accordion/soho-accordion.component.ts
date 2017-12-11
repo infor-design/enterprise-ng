@@ -301,7 +301,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
   /**
    * Call to notify the accordion about any dom changes
    */
-  public udpated(): void {
+  public updated(): void {
     if (this.accordion) {
       this.accordion.updated();
     }
