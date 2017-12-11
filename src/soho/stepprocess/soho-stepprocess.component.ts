@@ -237,12 +237,12 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     return this.beforeSelectStepDeferred.promise();
   }
   private beforeSelectStepResponse = (response: BeforeSelectStepResult) => {
-    // if (response.overrideTargetStepId) {
-    //   const stepLinkToSelect = $('.js-step-link[href="#' + response.overrideTargetStepId + '"]');
-    //   this.beforeSelectStepDeferred.resolve(response.continue, stepLinkToSelect);
-    // } else {
+    if (response.overrideTargetStepId) {
+      const stepLinkToSelect = $('.js-step-link[href="#' + response.overrideTargetStepId + '"]');
+      this.beforeSelectStepDeferred.resolve(response.continue, <any>stepLinkToSelect);
+    } else {
       this.beforeSelectStepDeferred.resolve(response.continue);
-    // }
+    }
   }
 
   ngOnDestroy() {
