@@ -176,14 +176,14 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
   }
 
   /** beforeOpen - ajax callback for open event */
-  @Input() set beforeOpen(beforeOpen: any) {
+  @Input() set beforeOpen(beforeOpen: SohoPopupMenuSourceFunction) {
     this._popupMenuOptions.beforeOpen = beforeOpen;
     if (this.popupmenu) {
       this.popupmenu.settings.beforeOpen = beforeOpen;
     }
   }
 
-  get beforeOpen(): any {
+  get beforeOpen(): SohoPopupMenuSourceFunction {
     if (this.popupmenu) {
       return this.popupmenu.settings.beforeOpen;
     }
