@@ -32,7 +32,7 @@ export class SohoAccordionHeaderComponent implements AfterViewInit {
    *
    * @param elementRef - the element matching the component's selector.
    */
-  constructor(private elementRef: ElementRef) {
+  constructor(public elementRef: ElementRef) {
   }
 
   // ------------------------------------------
