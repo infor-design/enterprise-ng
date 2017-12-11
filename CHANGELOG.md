@@ -84,6 +84,8 @@
 
 ### Breaking Changes
 
+* 2017-12-11 - CWF - PR-532 - Projects may need to update the version of `@types/jquery` in their `package.json` file to match sohoxi-angular's version: `"@types/jquery": "~3.2.16"`
+
 * 2017-11-10 - BTH - PR-XXX - When using `@angular/cli` 1.5, the cli no longer automatically determines the typescript files to compile, and as `@infor/sohoxi-angular` is not distributed as a compiled package the module must be added to the top level  `tsconfig.json` for inclusion in the build.  For example:
 
 ```json
