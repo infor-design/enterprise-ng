@@ -5,6 +5,8 @@ import {
   AfterViewInit
 } from '@angular/core';
 
+import { DomSanitizer } from '@angular/platform-browser';
+
 import {
   SohoEditorComponent
 } from '@infor/sohoxi-angular';
@@ -18,35 +20,49 @@ export class EditorDemoComponent implements AfterViewInit {
 
   @ViewChild(SohoEditorComponent) editor: SohoEditorComponent;
 
-  // tslint:disable
-  public model = {
-    editorText: '<a href="http://en.wikipedia.org/wiki/e-commerce" class="hyperlink">e-commerce action-items</a>, reintermediate, ecologies paradigms wireless share life-hacks create innovative harness. Evolve solutions rich-clientAPIs synergies harness relationships virtual vertical facilitate end-to-end, wireless, evolve synergistic synergies.</p> <p>Cross-platform, evolve, ROI scale cultivate eyeballs addelivery, e-services content cross-platform leverage extensible viral incentivize integrateAJAX-enabled //sticky evolve magnetic cultivate leverage; cutting-edge. Innovate, end-to-end podcasting, whiteboard streamline e-business social; compelling, "cross-media exploit infomediaries innovative integrate integrateAJAX-enabled." Killer interactive reinvent, cultivate widgets leverage morph.</p>'
-  };
-
-  // tslint:enable
-
+  public model;
+  public showMultipleEditors = false;
   public showModel = false;
   public editorDisabled = false;
   public editorReadOnly = false;
 
-  constructor() { }
+  constructor(sanitizer: DomSanitizer) {
+    // tslint:disable
+    // This text is assumed trusted through the editor since we handle security in our back end and database.
+    // (Or you should be careful here)
+    this.model = {
+      editorText: sanitizer.bypassSecurityTrustHtml(`<a href="http://en.wikipedia.org/wiki/e-commerce" class="hyperlink">e-commerce action-items</a>, reintermediate, ecologies paradigms wireless share life-hacks create innovative harness. Evolve solutions rich-clientAPIs synergies harness relationships virtual vertical facilitate end-to-end, wireless, evolve synergistic synergies.</p> <p>Cross-platform, evolve, ROI scale cultivate eyeballs addelivery, e-services content cross-platform leverage extensible viral incentivize integrateAJAX-enabled sticky evolve magnetic cultivate leverage; cutting-edge. Innovate, end-to-end podcasting, whiteboard streamline e-business social; compelling, "cross-media exploit infomediaries innovative integrate integrateAJAX-enabled." Killer interactive reinvent, cultivate widgets leverage morph.</p>`)
+    };
+
+    // tslint:enable
+  }
+
   ngAfterViewInit() {
 
     // Customize the buttons on init
     this.editor.buttons = {
-          editor: [
-            'header1', 'header2',
-            'separator', 'bold', 'italic', 'underline', 'strikethrough',
-            'separator', 'justifyLeft', 'justifyCenter', 'justifyRight',
-            'separator', 'quote', 'orderedlist', 'unorderedlist',
-            'separator', 'source'
-          ],
-          source: [
-            'visual'
-          ]
-        };
+      editor: [
+        'header1', 'header2',
+        'separator', 'bold', 'underline', 'strikethrough',
+        'separator', 'foreColor',
+        'separator', 'justifyLeft', 'justifyCenter', 'justifyRight',
+        'separator', 'quote', 'orderedlist', 'unorderedlist',
+        'separator', 'anchor',
+        'separator', 'source'
+      ],
+      source: [
+        'visual'
+      ]
+    };
 
-    this.editor.anchor.isClickable = true;
+    this.editor.anchor = {
+      url: 'http://www.example.com',
+      class: 'hyperlink',
+      target: 'New Window',
+      isClickable: true,
+      showIsClickable: true
+    };
+
   }
 
   toggleModel() {
