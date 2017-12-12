@@ -104,6 +104,8 @@ interface JQueryStatic {
  */
 interface JQuery {
   accordion(options?: SohoAccordionOptions): SohoAccordionStatic;
+  on(events: string,
+    handler: JQuery.EventHandlerBase<any, SohoAccordionEvent>): this;
 }
 
 interface SohoAccordionEvent extends JQuery.Event {

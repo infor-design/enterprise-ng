@@ -37,14 +37,14 @@ export class SohoInputValidateDirective implements AfterViewInit {
      * Bind to jQueryElement's events
      */
     this.jQueryElement
-    .on('error', (event: any, validation) => {
+    .on('error', (event: SohoInputValidateEvent, validation) => {
       event.validation = {
         field:   validation.field[0],
         message: validation.message
       };
       this.error.emit(event);
     })
-    .on('valid', (event: any, validation) => {
+    .on('valid', (event: SohoInputValidateEvent, validation) => {
       event.validation = {
         field:   validation.field[0],
         message: validation.message

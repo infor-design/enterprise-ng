@@ -86,10 +86,10 @@ export class SohoRadioButtonComponent implements AfterViewInit {
     }
 
     this.jQueryElement
-      .on('change', (event: any) => this.onChange(event));
+      .on('change', (event: SohoRadioButtonEvent) => this.onChange(event));
   }
 
-  onChange(event: any) {
+  onChange(event: SohoRadioButtonEvent) {
     const newValue = this.jQueryElement.val();
 
     // Update the model ...

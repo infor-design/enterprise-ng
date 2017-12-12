@@ -357,16 +357,16 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
       // bind to jquery events and emit as angular events
       this.jQueryElement
-      .on('beforeactivated', ((event: any, tab) => { event.tab = tab[0]; this.beforeActivated.emit(event); }))
-      .on('activated', ((event: any, tab) => { event.tab = tab[0]; this.activated.emit(event); }))
-      .on('afteractivate', ((event: any, tab) => { event.tab = tab[0]; this.afterActivate.emit(event); }))
-      .on('beforeclose', ((event: any, tab) => { event.tab = tab[0]; this.beforeClose.emit(event);
+      .on('beforeactivated', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.beforeActivated.emit(event); }))
+      .on('activated', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.activated.emit(event); }))
+      .on('afteractivate', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.afterActivate.emit(event); }))
+      .on('beforeclose', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.beforeClose.emit(event);
         if (this.beforeCloseCallback) {
           return this.beforeCloseCallback(event, tab);
       }}))
-      .on('close', ((event: any, tab) => { event.tab = tab[0]; this.close.emit(event); }))
-      .on('afterclose', ((event: any, tab) => { event.tab = tab[0]; this.afterClose.emit(event); }))
-      .on('tab-added', ((event: any, tab) => { event.tab = tab[0]; this.tabAdded.emit(event); }));
+      .on('close', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.close.emit(event); }))
+      .on('afterclose', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.afterClose.emit(event); }))
+      .on('tab-added', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.tabAdded.emit(event); }));
 
       // initialize the tabs plugin
       this.jQueryElement.tabs(this._tabsOptions);

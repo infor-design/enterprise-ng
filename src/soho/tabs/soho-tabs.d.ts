@@ -101,4 +101,6 @@ interface JQueryStatic {
 
 interface JQuery {
   tabs(options?: SohoTabsOptions): JQuery;
+  on(events: string,
+    handler: JQuery.EventHandlerBase<any, SohoTabsEvent>): this;
 }

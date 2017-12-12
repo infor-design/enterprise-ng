@@ -5,4 +5,10 @@
  */
 
 interface SohoRadioButtonEvent extends JQuery.Event {
+  data: any
+}
+
+interface JQuery {
+  on(events: string,
+    handler: JQuery.EventHandlerBase<any, SohoRadioButtonEvent>): this;
 }

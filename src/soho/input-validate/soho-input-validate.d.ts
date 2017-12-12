@@ -34,4 +34,6 @@ interface JQueryStatic {
 
 interface JQuery {
   validate(): JQuery;
+  on(events: string,
+    handler: JQuery.EventHandlerBase<any, SohoInputValidateEvent>): this;
 }
