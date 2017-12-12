@@ -19,6 +19,7 @@
       <button soho-button (click)="addMessage()">Add Inline Message</button>
       <button soho-button (click)="removeMessage()">Remove Message</button>
       <button soho-button (click)="removeAllMesssages()">Clear All Messages</button>
+      <button soho-button (click)="getMessage()">Get Message</button>
     </div>
   </div>
 </div>
@@ -26,11 +27,17 @@
   <div class="two columns">
     <div class="field">
       <label soho-label for="text-field">Text Field</label>
-      <input soho-alert alignRight="true" name="text-field" id="text-field"/>
+      <input soho-alert alignRight="true" name="text-field" id="text-field" [(ngModel)]="model.text" />
     </div>
     <div class="field">
       <label soho-label for="date-field">Date Field</label>
-      <input soho-alert soho-datepicker name="date-field" id="date-field" dateFormat="MM/dd/yyyy" mode="standard"/>
+      <input soho-alert soho-datepicker name="date-field" id="date-field" dateFormat="MM/dd/yyyy" mode="standard" [(ngModel)]="model.date" />
+    </div>
+  </div>
+  <div class="two columns">
+    <div class="field">
+      <label soho-label for="output-field">Result of Get Message</label>
+      <textarea soho-textarea name="output-field" id="output-field" readonly [(ngModel)]="model.outputField"></textarea>
     </div>
   </div>
 </div>
