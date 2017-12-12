@@ -1,6 +1,26 @@
 
 ## Whats New
 
+* 2017-12-12 - KH  - Changed soho-accordion-pane.component.html from.. 
+  
+  ```angular2html
+  <div class="accordion-content">
+    <ng-content></ng-content>
+  </div>
+  ``` 
+   to 
+  ```angular2html
+  <ng-content></ng-content>
+  ```
+  The wrapper for `accordion-content` should be part of the transclusion coming from the application. For example.. accordion.demo.html
+  ```angular2html
+    <soho-accordion-pane>
+        <div class="accordion-content">
+        ... your content
+      </div>
+    </soho-accordion-pane>
+  ```
+  
 * 2017-12-06 - MHH - SOHO-7228: Added support for lazy loading the context menu's popup menu.
 * 2017-12-06 - MAF - SOHO-7216: Added support for SohoAlert.
 * 2017-11-07 - BTH - SOHO-6797/SOHO-7015/SOHO-6263: Added support for component formatters and editors for datagrid.

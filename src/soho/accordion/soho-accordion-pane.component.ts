@@ -9,14 +9,4 @@ import {
 })
 export class SohoAccordionPaneComponent {
   @HostBinding('class.accordion-pane') get isAccordionPane() { return true; }
-
-  private _contentClass = true;
-
-  public set contentClass(bool: boolean) {
-    this._contentClass = bool;
-  }
-
-  public get contentClass(): boolean {
-    return this._contentClass;
-  }
 }
