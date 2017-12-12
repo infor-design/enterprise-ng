@@ -14,7 +14,16 @@
       (collapse)="onCollapse($event)"
       (aftercollapse)="onAfterCollapse($event)"
     >
-      <ng-container *ngTemplateOutlet="AccordionContent"></ng-container>
+      <soho-accordion-header>Warehouse Location A</soho-accordion-header>
+      <soho-accordion-pane>
+        <soho-accordion-header>Item 1</soho-accordion-header>
+        <soho-accordion-header>Item 2</soho-accordion-header>
+      </soho-accordion-pane>
+      <soho-accordion-header>Warehouse Location B</soho-accordion-header>
+      <soho-accordion-pane>
+        <soho-accordion-header>Item 1</soho-accordion-header>
+        <soho-accordion-header>Item 2</soho-accordion-header>
+      </soho-accordion-pane>
     </soho-accordion>
   </div>
 </div>
@@ -36,7 +45,16 @@
       (collapse)="onCollapse($event)"
       (aftercollapse)="onAfterCollapse($event)"
     >
-      <ng-container *ngTemplateOutlet="AccordionContent"></ng-container>
+      <soho-accordion-header>Warehouse Location A</soho-accordion-header>
+      <soho-accordion-pane>
+        <soho-accordion-header>Item 1</soho-accordion-header>
+        <soho-accordion-header>Item 2</soho-accordion-header>
+      </soho-accordion-pane>
+      <soho-accordion-header>Warehouse Location B</soho-accordion-header>
+      <soho-accordion-pane>
+        <soho-accordion-header>Item 1</soho-accordion-header>
+        <soho-accordion-header>Item 2</soho-accordion-header>
+      </soho-accordion-pane>
     </soho-accordion>
   </div>
 </div>
@@ -58,20 +76,16 @@
       (collapse)="onCollapse($event)"
       (aftercollapse)="onAfterCollapse($event)"
     >
-      <ng-container *ngTemplateOutlet="AccordionContent"></ng-container>
+      <soho-accordion-header>Warehouse Location A</soho-accordion-header>
+      <soho-accordion-pane>
+        <soho-accordion-header>Item 1</soho-accordion-header>
+        <soho-accordion-header>Item 2</soho-accordion-header>
+      </soho-accordion-pane>
+      <soho-accordion-header>Warehouse Location B</soho-accordion-header>
+      <soho-accordion-pane>
+        <soho-accordion-header>Item 1</soho-accordion-header>
+        <soho-accordion-header>Item 2</soho-accordion-header>
+      </soho-accordion-pane>
     </soho-accordion>
   </div>
 </div>
-
-<ng-template #AccordionContent>
-  <soho-accordion-header>Warehouse Location A</soho-accordion-header>
-  <soho-accordion-pane>
-    <soho-accordion-header>Item 1</soho-accordion-header>
-    <soho-accordion-header>Item 2</soho-accordion-header>
-  </soho-accordion-pane>
-  <soho-accordion-header>Warehouse Location B</soho-accordion-header>
-  <soho-accordion-pane>
-    <soho-accordion-header>Item 1</soho-accordion-header>
-    <soho-accordion-header>Item 2</soho-accordion-header>
-  </soho-accordion-pane>
-</ng-template>
