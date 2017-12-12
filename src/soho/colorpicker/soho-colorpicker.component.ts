@@ -173,12 +173,10 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
    * Handle the control being changed.
    */
   onChange(event: SohoColorPickerEvent) {
-
     if (!event) {
       // sometimes the event is not available
       this.internalValue = this.colorpicker.element.val();
       this.colorpicker.setColor(this.internalValue);
-      return;
     }
     this.change.emit(event);
   }
