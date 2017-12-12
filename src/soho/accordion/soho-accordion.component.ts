@@ -313,7 +313,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
 
     // If using panels exclude the content class from the pane
-    if (this.panes && this.allowPanels) {
+    if (this.panes.length > 0 && this.allowPanels) {
       this.panes.forEach((pane: SohoAccordionPaneComponent) => {
         // SetTimeout to prevent expression changed after checked error
         setTimeout(() => { pane.contentClass = false; }, 1);
