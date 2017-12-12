@@ -36,13 +36,15 @@ interface SohoAlertStatic {
 interface JQuery {
   addError(options?: SohoAlertOptions): JQuery;
 
-  removeError(options?: SohoAlertOptions): JQuery;
-
   addMessage(options?: SohoAlertOptions): JQuery;
 
-  removeMessage(options?: SohoAlertOptions): JQuery;
+  getErrorMessage(options?: SohoAlertOptions): string;
 
-  getErrorMessage(options?: SohoAlertOptions): JQuery;
+  getMessage(options?: SohoAlertOptions): string;
+
+  removeError(options?: SohoAlertOptions): JQuery;
+
+  removeMessage(options?: SohoAlertOptions): JQuery;
 
   scrollIntoView(alignToTop?: boolean, options?: SohoAlertOptions);
 }
