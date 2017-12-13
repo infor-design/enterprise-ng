@@ -81,8 +81,12 @@ export class SohoAlertDirective implements AfterViewInit {
    * @returns {string}
    */
   getMessage(type?: SohoAlertType): string {
-    this.type = type || 'error';
-    return this.jQueryElement.getMessage(this._options);
+    if (this.jQueryElement) {
+      this.type = type || 'error';
+      return this.jQueryElement.getMessage(this._options);
+    }
+
+    return '';
   }
 
   /**
@@ -120,6 +124,8 @@ export class SohoAlertDirective implements AfterViewInit {
    * @param alignToTop (boolean) optional - true (default) element will be aligned to the top of the visible area of the scrollable ancestor
    */
   scrollIntoView(alignToTop?: boolean) {
-    this.jQueryElement.scrollIntoView(alignToTop, this._options);
+    if (this.jQueryElement) {
+      this.jQueryElement.scrollIntoView(alignToTop, this._options);
+    }
   }
 }
