@@ -1,168 +1,167 @@
-<div class="example-section">
-  <form [formGroup]="form">
+<form [formGroup]="form">
+  <div class="row top-padding">
+
     <div class="row">
-      <h1>Radio Button</h1>
-      <span class="code-tag">Live Example</span>
-      <div class="row">
-        <div class="four columns">
-          <h3>Vertical without model</h3>
-          <div class="field">
-            <label soho-label>Select delivery method</label>
-            <input soho-radiobutton (change)="onChange($event)"
-              soho-trackdirty
-              id="optionVWO1" type="radio" name="optionsGroupVWO" value="1" checked />
-            <label soho-label for="optionVWO1" [forRadioButton]="true">One</label>
-            <br>
-            <input soho-radiobutton
-              soho-trackdirty (change)="onChange($event)"
-              id="optionVWO2" type="radio" name="optionsGroupVWO" value="2" />
-            <label soho-label for="optionVWO2" [forRadioButton]="true">Two</label>
-            <br>
-            <input soho-radiobutton (change)="onChange($event)"
-              soho-trackdirty
-              id="optionVWO3" type="radio" name="optionsGroupVWO" value="3" />
-            <label soho-label for="optionVWO3" [forRadioButton]="true">Three</label>
-            <br>
-            <input soho-radiobutton (change)="onChange($event)" [disabled]="isDisabled"
-              soho-trackdirty
-              id="optionVWO4" type="radio" name="optionsGroupVWO" value="4" />
-            <label soho-label for="optionVWO4" [forRadioButton]="true">Four Disabled</label>
-          </div>
-        </div>
-        <div class="four columns">
-          <h3>Vertical with model</h3>
-          <div class="field">
-            <label soho-label>Select delivery method</label>
-            <input soho-radiobutton (change)="onChange($event)"
-              soho-trackdirty
-              id="optionVWM1" type="radio" attr.name="optionsGroupVWM" value="1"
-              [(ngModel)]="model.vertical.value"
-              [formControlName]="fieldSpec.vertical.bindId" />
-            <label soho-label for="optionVWM1" [forRadioButton]="true">One</label>
-            <br>
-            <input soho-radiobutton (change)="onChange($event)"
-              soho-trackdirty
-              id="optionVWM2" type="radio" attr.name="optionsGroupVWM" value="2"
-              [(ngModel)]="model.vertical.value"
-              [formControlName]="fieldSpec.vertical.bindId" />
-            <label soho-label for="optionVWM2" [forRadioButton]="true">Two</label>
-            <br>
-            <input soho-radiobutton (change)="onChange($event)"
-              soho-trackdirty
-              id="optionVWM3" type="radio" attr.name="optionsGroupVWM" value="3"
-              [(ngModel)]="model.vertical.value"
-              [formControlName]="fieldSpec.vertical.bindId" />
-            <label soho-label for="optionVWM3" [forRadioButton]="true">Three</label>
-            <br>
-            <input soho-radiobutton (change)="onChange($event)" [disabled]="isDisabled"
-              soho-trackdirty
-              id="optionVWM4" type="radio" attr.name="optionsGroupVWM" value="4"
-              [(ngModel)]="model.vertical.value"
-              [formControlName]="fieldSpec.vertical.bindId" />
-            <label soho-label for="optionVWM4" [forRadioButton]="true">Four Disabled</label>
-          </div>
-        </div>
-        <div class="four columns">
-          <h3>Dynamic {{fieldSpec.F1Field.displayAsHorizontal ? 'horizontal' : 'vertical'}}</h3>
-          <div class="field radio-group field-radio">
-            <label soho-label>{{fieldSpec.F1Field.label}}</label>
-            <ng-template ngFor let-item [ngForOf]="fieldSpec.F1Field.stateValues" let-indx="index">
-              <input
-                soho-radiobutton (change)="onChange($event)" [disabled]="fieldSpec.F1Field.displayAsDisplayOnly"
-                soho-trackdirty
-                id="{{fieldSpec.F1Field.bindId}}_{{indx}}_Option"
-                type="radio"
-                attr.name="{{fieldSpec.F1Field.bindId}}_Group"
-                value="{{item?.value}}"
-                [(ngModel)]="model.F1Field.value"
-                [formControlName]="fieldSpec.F1Field.bindId" />
-              <label soho-label [forRadioButton]="true"
-                attr.for="{{fieldSpec.F1Field.bindId}}_{{indx}}_Option">{{item?.label}}
-              </label>
-              <br *ngIf="!fieldSpec.F1Field.displayAsHorizontal"/>
-            </ng-template>
-          </div>
+      <div class="four columns">
+        <div class="field">
+          <label soho-label>Vertical without model</label>
+          <input soho-radiobutton (change)="onChange($event)"
+            soho-trackdirty
+            id="optionVWO1" type="radio" name="optionsGroupVWO" value="1" checked />
+          <label soho-label for="optionVWO1" [forRadioButton]="true">One</label>
+          <br>
+          <input soho-radiobutton
+            soho-trackdirty (change)="onChange($event)"
+            id="optionVWO2" type="radio" name="optionsGroupVWO" value="2" />
+          <label soho-label for="optionVWO2" [forRadioButton]="true">Two</label>
+          <br>
+          <input soho-radiobutton (change)="onChange($event)"
+            soho-trackdirty
+            id="optionVWO3" type="radio" name="optionsGroupVWO" value="3" />
+          <label soho-label for="optionVWO3" [forRadioButton]="true">Three</label>
+          <br>
+          <input soho-radiobutton (change)="onChange($event)" [disabled]="isDisabled"
+            soho-trackdirty
+            id="optionVWO4" type="radio" name="optionsGroupVWO" value="4" />
+          <label soho-label for="optionVWO4" [forRadioButton]="true">Four Disabled</label>
         </div>
       </div>
-      <div class="row">
-        <div class="four columns">
-          <h3>Horizontal without model</h3>
-          <div class="field">
-            <label soho-label >Select delivery method</label>
-            <input soho-radiobutton (change)="onChange($event)"
-              soho-trackdirty
-              id="option1HWO" type="radio" name="optionsGroupHWO" value="1" />
-            <label soho-label for="option1HWO" [forRadioButton]="true">One</label>
-            <input soho-radiobutton (change)="onChange($event)"
-              soho-trackdirty
-              id="option2HWO" type="radio" name="optionsGroupHWO" value="2" />
-            <label soho-label for="option2HWO" [forRadioButton]="true">Two</label>
-            <input soho-radiobutton (change)="onChange($event)"
-              soho-trackdirty
-              id="option3HWO" type="radio" name="optionsGroupHWO" value="3" checked />
-            <label soho-label for="option3HWO" [forRadioButton]="true">Three</label>
-            <input soho-radiobutton (change)="onChange($event)" [disabled]="isDisabled"
-              soho-trackdirty
-              id="option4HWO" type="radio" name="optionsGroupHWO" value="4" />
-            <label soho-label for="option4HWO" [forRadioButton]="true">Four Disabled</label>
-          </div>
+      <div class="four columns">
+        <div class="field">
+          <label soho-label>Vertical with model</label>
+          <input soho-radiobutton (change)="onChange($event)"
+            soho-trackdirty
+            id="optionVWM1" type="radio" attr.name="optionsGroupVWM" [value]="1"
+            [(ngModel)]="model.vertical.value"
+            [formControlName]="fieldSpec.vertical.bindId" />
+          <label soho-label for="optionVWM1" [forRadioButton]="true">One</label>
+          <br>
+          <input soho-radiobutton (change)="onChange($event)"
+            soho-trackdirty
+            id="optionVWM2" type="radio" attr.name="optionsGroupVWM" value="2"
+            [(ngModel)]="model.vertical.value"
+            [formControlName]="fieldSpec.vertical.bindId" />
+          <label soho-label for="optionVWM2" [forRadioButton]="true">Two</label>
+          <br>
+          <input soho-radiobutton (change)="onChange($event)"
+            soho-trackdirty
+            id="optionVWM3" type="radio" attr.name="optionsGroupVWM" [value]="codeValue"
+            [(ngModel)]="model.vertical.value"
+            [formControlName]="fieldSpec.vertical.bindId" />
+          <label soho-label for="optionVWM3" [forRadioButton]="true">Three</label>
+          <br>
+          <input soho-radiobutton (change)="onChange($event)" [disabled]="isDisabled"
+            soho-trackdirty
+            id="optionVWM4" type="radio" attr.name="optionsGroupVWM" value="4"
+            [(ngModel)]="model.vertical.value"
+            [formControlName]="fieldSpec.vertical.bindId" />
+          <label soho-label for="optionVWM4" [forRadioButton]="true">Four Disabled</label>
         </div>
-        <div class="four columns">
-          <h3>Horizontal with model</h3>
-          <div class="field radio-group">
-            <label soho-label>Select delivery method</label>
-            <input soho-radiobutton (change)="onChange($event)"
+      </div>
+      <div class="four columns">
+        <div class="field radio-group field-radio">
+          <label soho-label>Dynamic {{fieldSpec.F1Field.displayAsHorizontal ? 'horizontal' : 'vertical'}}</label>
+          <ng-template ngFor let-item [ngForOf]="fieldSpec.F1Field.stateValues" let-indx="index">
+            <input
+              soho-radiobutton (change)="onChange($event)" [disabled]="fieldSpec.F1Field.displayAsDisplayOnly"
               soho-trackdirty
-              id="option1HWM" type="radio" attr.name="optionsHWM" value="1"
-              [(ngModel)]="model.horizontal.value"
-              [formControlName]="fieldSpec.horizontal.bindId" />
-            <label soho-label for="option1HWM" [forRadioButton]="true">One</label>
-            <input soho-radiobutton (change)="onChange($event)"
-              soho-trackdirty
-              id="option2HWM" type="radio" attr.name="optionsHWM" value="2"
-              [(ngModel)]="model.horizontal.value"
-              [formControlName]="fieldSpec.horizontal.bindId" />
-            <label soho-label for="option2HWM" [forRadioButton]="true">Two</label>
-            <input soho-radiobutton (change)="onChange($event)"
-              soho-trackdirty
-              id="option3HWM" type="radio" attr.name="optionsHWM" value="3"
-              [(ngModel)]="model.horizontal.value"
-              [formControlName]="fieldSpec.horizontal.bindId" />
-            <label soho-label for="option3HWM" [forRadioButton]="true">Three</label>
-            <input soho-radiobutton (change)="onChange($event)" [disabled]="isDisabled"
-              soho-trackdirty
-              id="option4HWM" type="radio" attr.name="optionsHWM" value="4"
-              [(ngModel)]="model.horizontal.value"
-              [formControlName]="fieldSpec.horizontal.bindId" />
-            <label soho-label for="option4HWM" [forRadioButton]="true">Four Disabled</label>
-          </div>
-        </div>
-        <div class="four columns">
-          <h3>Dynamic {{fieldSpec.F2Field.displayAsHorizontal ? 'horizontal' : 'vertical'}}</h3>
-          <div class="field radio-group field-radio">
-            <label soho-label>{{fieldSpec.F2Field.label}}</label>
-            <ng-template ngFor let-item [ngForOf]="fieldSpec.F2Field.stateValues" let-indx="index">
-              <input soho-radiobutton (change)="onChange($event)" [disabled]="fieldSpec.F2Field.displayAsDisplayOnly"
-                soho-trackdirty
-                id="{{fieldSpec.F2Field.bindId}}_{{indx}}_Option"
-                type="radio"
-                attr.name="{{fieldSpec.F2Field.bindId}}_Group"
-                value="{{item?.value}}"
-                [(ngModel)]="model.F2Field.value"
-                [formControlName]="fieldSpec.F2Field.bindId" />
-              <label soho-label [forRadioButton]="true"
-                for="{{fieldSpec.F2Field.bindId}}_{{indx}}_Option">{{item?.label}}
-              </label>
-              <br *ngIf="!fieldSpec.F2Field.displayAsHorizontal"/>
-            </ng-template>
-          </div>
+              id="{{fieldSpec.F1Field.bindId}}_{{indx}}_Option"
+              type="radio"
+              attr.name="{{fieldSpec.F1Field.bindId}}_Group"
+              value="{{item?.value}}"
+              [(ngModel)]="model.F1Field.value"
+              [formControlName]="fieldSpec.F1Field.bindId" />
+            <label soho-label [forRadioButton]="true"
+              attr.for="{{fieldSpec.F1Field.bindId}}_{{indx}}_Option">{{item?.label}}
+            </label>
+            <br *ngIf="!fieldSpec.F1Field.displayAsHorizontal"/>
+          </ng-template>
         </div>
       </div>
     </div>
-  </form>
-  <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
-  <div *ngIf="showModel">
-    <hr>
-    <h3>{{ model | json }}</h3>
+
+    <div class="row">
+      <div class="four columns">
+        <div class="field">
+          <label soho-label>Horizontal without model</label>
+          <input soho-radiobutton (change)="onChange($event)"
+            soho-trackdirty
+            id="option1HWO" type="radio" name="optionsGroupHWO" value="1" />
+          <label soho-label for="option1HWO" [forRadioButton]="true">One</label>
+          <input soho-radiobutton (change)="onChange($event)"
+            soho-trackdirty
+            id="option2HWO" type="radio" name="optionsGroupHWO" value="2" />
+          <label soho-label for="option2HWO" [forRadioButton]="true">Two</label>
+          <input soho-radiobutton (change)="onChange($event)"
+            soho-trackdirty
+            id="option3HWO" type="radio" name="optionsGroupHWO" value="3" checked />
+          <label soho-label for="option3HWO" [forRadioButton]="true">Three</label>
+          <input soho-radiobutton (change)="onChange($event)" [disabled]="isDisabled"
+            soho-trackdirty
+            id="option4HWO" type="radio" name="optionsGroupHWO" value="4" />
+          <label soho-label for="option4HWO" [forRadioButton]="true">Four Disabled</label>
+        </div>
+
+      </div>
+      <div class="four columns">
+        <div class="field radio-group">
+          <label soho-label>Horizontal with model</label>
+          <input soho-radiobutton (change)="onChange($event)"
+            soho-trackdirty
+            id="option1HWM" type="radio" attr.name="optionsHWM" value="1"
+            [(ngModel)]="model.horizontal.value"
+            [formControlName]="fieldSpec.horizontal.bindId" />
+          <label soho-label for="option1HWM" [forRadioButton]="true">One</label>
+          <input soho-radiobutton (change)="onChange($event)"
+            soho-trackdirty
+            id="option2HWM" type="radio" attr.name="optionsHWM" value="2"
+            [(ngModel)]="model.horizontal.value"
+            [formControlName]="fieldSpec.horizontal.bindId" />
+          <label soho-label for="option2HWM" [forRadioButton]="true">Two</label>
+          <input soho-radiobutton (change)="onChange($event)"
+            soho-trackdirty
+            id="option3HWM" type="radio" attr.name="optionsHWM" value="3"
+            [(ngModel)]="model.horizontal.value"
+            [formControlName]="fieldSpec.horizontal.bindId" />
+          <label soho-label for="option3HWM" [forRadioButton]="true">Three</label>
+          <input soho-radiobutton (change)="onChange($event)" [disabled]="isDisabled"
+            soho-trackdirty
+            id="option4HWM" type="radio" attr.name="optionsHWM" value="4"
+            [(ngModel)]="model.horizontal.value"
+            [formControlName]="fieldSpec.horizontal.bindId" />
+          <label soho-label for="option4HWM" [forRadioButton]="true">Four Disabled</label>
+        </div>
+      </div>
+      <div class="four columns">
+        <div class="field radio-group field-radio">
+          <label soho-label>Dynamic {{fieldSpec.F2Field.displayAsHorizontal ? 'horizontal' : 'vertical'}}</label>
+          <ng-template ngFor let-item [ngForOf]="fieldSpec.F2Field.stateValues" let-indx="index">
+            <input soho-radiobutton (change)="onChange($event)" [disabled]="fieldSpec.F2Field.displayAsDisplayOnly"
+              soho-trackdirty
+              id="{{fieldSpec.F2Field.bindId}}_{{indx}}_Option"
+              type="radio"
+              attr.name="{{fieldSpec.F2Field.bindId}}_Group"
+              value="{{item?.value}}"
+              [(ngModel)]="model.F2Field.value"
+              [formControlName]="fieldSpec.F2Field.bindId" />
+            <label soho-label [forRadioButton]="true"
+              for="{{fieldSpec.F2Field.bindId}}_{{indx}}_Option">{{item?.label}}
+            </label>
+            <br *ngIf="!fieldSpec.F2Field.displayAsHorizontal"/>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="twelve columns">
+        <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+        <div *ngIf="showModel">
+          <hr>
+          <h3>{{ model | json }}</h3>
+        </div>
+      </div>
+    </div>
+
   </div>
-</div>
+</form>
