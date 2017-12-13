@@ -37,7 +37,7 @@
    /**
     *  Set true to use panels with header selection
     */
-   allowPanels?: boolean;
+   hasPanels?: boolean;
 
    /**
     * Sets the color scheme to inverse

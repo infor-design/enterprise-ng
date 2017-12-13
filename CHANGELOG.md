@@ -83,14 +83,34 @@
 
 ### Breaking Changes
 
+* 2017-12-12 - KH  - Changed soho-accordion-pane.component.html from.. 
+  
+  ```angular2html
+  <div class="accordion-content">
+    <ng-content></ng-content>
+  </div>
+  ``` 
+   to 
+  ```angular2html
+  <ng-content></ng-content>
+  ```
+  The wrapper for `accordion-content` should be part of the transclusion coming from the application. For example.. accordion.demo.html
+  ```angular2html
+    <soho-accordion-pane>
+        <div class="accordion-content">
+        ... your content
+      </div>
+    </soho-accordion-pane>
+  ```
+  
 * 2017-11-10 - BTH - PR-XXX - When using `@angular/cli` 1.5, the cli no longer automatically determines the typescript files to compile, and as `@infor/sohoxi-angular` is not distributed as a compiled package the module must be added to the top level  `tsconfig.json` for inclusion in the build.  For example:
 
-```json
- "include": [
-  "src/**/*",
-  "node_modules/@infor/sohoxi-angular/index.ts"
- ]
-```
+  ```json
+   "include": [
+    "src/**/*",
+    "node_modules/@infor/sohoxi-angular/index.ts"
+   ]
+  ```
 
 * 2017-10-06 - PWP - PR-471 - Changed 2 soho-datagrid.component functions to match changes made to datagrid.js in sohoxi/PR-2049: selectedRows() now returns selected row. selectRows() selects rows.
 

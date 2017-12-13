@@ -37,9 +37,6 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
   // All header panels.
   @ContentChildren(SohoAccordionHeaderComponent) headers: QueryList<SohoAccordionHeaderComponent>;
 
-  // All panes
-  @ContentChildren(SohoAccordionPaneComponent) panes: QueryList<SohoAccordionPaneComponent>;
-
   // -------------------------------------------
   // Options Block
   // -------------------------------------------
@@ -151,12 +148,12 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
   /**
    * Display accordion with panels
    */
-  @Input() public set allowPanels(bool: boolean) {
-    this.options.allowPanels = bool;
+  @Input() public set hasPanels(bool: boolean) {
+    this.options.hasPanels = bool;
   }
 
-  public get allowPanels(): boolean {
-    return this.options.allowPanels;
+  public get hasPanels(): boolean {
+    return this.options.hasPanels;
   }
 
   /**
@@ -311,14 +308,6 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
   // Lifecycle Events
   // ------------------------------------------
   ngAfterViewInit() {
-
-    // If using panels exclude the content class from the pane
-    if (this.panes.length > 0 && this.allowPanels) {
-      this.panes.forEach((pane: SohoAccordionPaneComponent) => {
-        // SetTimeout to prevent expression changed after checked error
-        setTimeout(() => { pane.contentClass = false; }, 1);
-      });
-    }
 
     // Wrap the element in a jQuery selector.
     this.jQueryElement = jQuery(this.element.nativeElement.childNodes[0]);
