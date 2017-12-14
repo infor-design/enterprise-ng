@@ -110,9 +110,6 @@ interface SohoDataGridOptions {
   /** Size of a page options */
   pagesizes?: number[];
 
-  /** whether to show the page size selector or not */
-  showPageSizeSelector?: boolean; // Will show page size selector
-
   /** Remove ability to go to a specific page. */
   indeterminate?: boolean;
 
@@ -121,6 +118,9 @@ interface SohoDataGridOptions {
 
   /** If true, hides the pager if there's only one page worth of results. */
   hidePagerOnOnePage?: boolean;
+
+  /** whether to show the page size selector or not */
+  showPageSizeSelector?: boolean; // Will show page size selector
 
   /** Add filter bar? */
   filterable?: boolean;
@@ -146,7 +146,7 @@ interface SohoDataGridOptions {
   /** Allows you to reorder rows. Requires rowReorder formatter. */
   rowReorder?: boolean;
 
-  /**  */
+  /**  If true the dirty indicator will be shown on the rows when they change */
   showDirty?: boolean;
 
   /** Only allows one expandable row at a time. */
@@ -207,6 +207,15 @@ interface SohoDataGridOptions {
   * editors / formatters.
   */
   onEditCell?: SohoDataGridEditCellFunction;
+
+  /**
+  * A callback function that fires when expanding rows.
+  * To be used when expandableRow is true.
+  * The function gets eventData about the row and grid and a response
+  * function callback. Call the response function with markup to append
+  * and delay opening the row.
+  */
+  onExpandRow?: SohoDataGridExpandRowFunction;
 
   /**
    * An empty message will be displayed when there are no rows in the grid.
@@ -275,7 +284,6 @@ interface SohoDataGridEmptyMessageButtonOptions {
   click?: Function;
 }
 
-
 /**
  * Soho Data Grid Paging Options.
  *
@@ -315,6 +323,34 @@ interface SohoDataGridEditCellFunctionArgs extends SohoDataGridPostRenderCellArg
   container: any;
   e: any;
   item: any;
+}
+
+type SohoDataGridExpandRowEventData = (
+
+  /** Grid API */
+  api: SohoDataGridStatic,
+
+  /** Row id. */
+  row: any,
+
+  /** DOM Container nativeElement */
+  detail: any,
+
+  /** Column Definition. */
+  columnDef: SohoDataGridColumn,
+
+  /** Row data */
+  item: Object
+
+) => any;
+
+type SohoDataGridExpandRowResponseFunction = (
+  markup: string
+) => void;
+
+interface SohoDataGridExpandRowFunction  {
+  eventData: SohoDataGridExpandRowEventData;
+  response: SohoDataGridExpandRowResponseFunction;
 }
 
 /**
