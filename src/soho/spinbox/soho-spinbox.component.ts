@@ -77,7 +77,7 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
     if (this.spinbox) {
       this.spinbox.updateVal(value);
     }
-    this.value = <number> value;
+    this.value = value as number;
   }
 
   constructor(
@@ -106,7 +106,7 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
     const newValue = this.jQueryElement.val();
     if (this.internalValue !== newValue) {
       // Update the model ...
-      this.internalValue = <number>this.jQueryElement.val();
+      this.internalValue = this.jQueryElement.val() as number;
 
       // ... then emit the changed value.
       this.change.emit(this.internalValue);

@@ -201,7 +201,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> impl
    * Handle the control being changed.
    */
   onChange(event: SohoDatePickerEvent) {
-    this.internalValue = <any>this.datepicker.element.val();
+    this.internalValue = this.datepicker.element.val() as any;
 
     // Set the date on the event.
     event.data = this.internalValue;

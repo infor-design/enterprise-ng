@@ -86,7 +86,7 @@ export class ChartDemoComponent implements OnInit {
 
   public onChange(event: Event) {
     const element = $(event.currentTarget);
-    const chartType: ChartTypes = <ChartTypes>element.filter(':checked').val();
+    const chartType: ChartTypes = element.filter(':checked').val() as ChartTypes;
     if (chartType === this.currentChartType) {
       // dont do anything if the chart is the same type
       return;
@@ -125,7 +125,7 @@ export class ChartDemoComponent implements OnInit {
   }
 
   public onChangeIndex(event: Event) {
-    this.selectedIndex = parseInt(<string>$(event.currentTarget).filter(':checked').val(), 10);
+    this.selectedIndex = parseInt($(event.currentTarget).filter(':checked').val() as string, 10);
   }
 
   onSelected(chartEvent: ChartEvent) {

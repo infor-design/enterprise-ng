@@ -46,7 +46,7 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
   onKeyUp(event: KeyboardEvent, val) {
     // This is required if masking is used, otherwise the
     // the form binding does not see updates.
-    this.internalValue = <string>this.jQueryElement.val();
+    this.internalValue = this.jQueryElement.val() as string;
   }
 
   ngAfterViewInit() {
@@ -74,7 +74,7 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
   onChange(event: any[]) {
     if (!event) {
       // sometimes the event is not available
-      this.internalValue = <string>this.jQueryElement.val();
+      this.internalValue = this.jQueryElement.val() as string;
       super.writeValue(this.internalValue);
       return;
     }

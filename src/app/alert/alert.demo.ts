@@ -23,7 +23,7 @@ export class AlertDemoComponent {
 
   public onChange(event: Event) {
     const element = $(event.currentTarget);
-    this.currentValidationType = <SohoAlertType>element.val();
+    this.currentValidationType = element.val() as SohoAlertType;
   }
 
   addMessage() {
