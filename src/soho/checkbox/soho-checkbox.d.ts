@@ -5,5 +5,5 @@
  * interface of the Soho jQuery checkbox control.
  */
 
-interface SohoCheckBoxEvent extends JQueryEventObject {
+interface SohoCheckBoxEvent extends JQuery.Event {
 }

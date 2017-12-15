@@ -251,7 +251,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
    */
   // tslint:disable-next-line:no-output-rename
   @Output('updated')
-  public updatedEvent: EventEmitter<Object> = new EventEmitter<JQueryEventObject>();
+  public updatedEvent: EventEmitter<Object> = new EventEmitter<JQuery.Event>();
 
   // ------------------------------------------------------------------------
   // Constructor
@@ -265,7 +265,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.swaplist(this._options);
 
     this.jQueryElement
-      .on('swapupdate', (event: JQueryEventObject, items: SohoSwapListItem[]) => this.updatedEvent.emit(event));
+      .on('swapupdate', (event: JQuery.Event, items: SohoSwapListItem[]) => this.updatedEvent.emit(event));
 
     this.swaplist = this.jQueryElement.data('swaplist');
 

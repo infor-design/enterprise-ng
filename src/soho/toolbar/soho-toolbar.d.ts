@@ -70,7 +70,7 @@ interface SohoToolbarStatic {
 
 interface SohoToolbarSelectedEvent {
   /** The raw event object passed from jQuery. */
-  event: JQueryEventObject;
+  event: JQuery.Event;
 
   /** The element that caused the event. */
   item: HTMLButtonElement | HTMLAnchorElement | HTMLInputElement;
@@ -93,7 +93,7 @@ interface SohoToolbarMenuItemEvent extends SohoToolbarButtonEvent {
   event: SohoToolbarButtonEvent;
 }
 
-interface SohoToolbarEvent extends JQueryEventObject {}
+interface SohoToolbarEvent extends JQuery.Event {}
 
 /**
  * Configuration options.

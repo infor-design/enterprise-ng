@@ -119,6 +119,7 @@
 
   // Extra SoHo Options
   "no-consecutive-blank-lines": true,
+  "no-angle-bracket-type-assertion": true,
 
   // The rule have the following arguments:
   // [ENABLED, "attribute" | "element", "selectorPrefix" | ["listOfPrefixes"], "camelCase" | "kebab-case"]

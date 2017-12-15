@@ -387,15 +387,15 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
 
     // bind to jquery events and emit as angular events
     this.jQueryElement
-    .on('beforeactivate', ((event: JQueryEventObject) => { this.beforeActivate.emit(event); }))
-    .on('activated', ((event: JQueryEventObject) => { this.activated.emit(event); }))
-    .on('afteractivate', ((event: JQueryEventObject) => { this.afterActivate.emit(event); }))
-    .on('selected', (event: JQueryEventObject, item: HTMLButtonElement | HTMLAnchorElement) => {
+    .on('beforeactivate', ((event: JQuery.Event) => { this.beforeActivate.emit(event); }))
+    .on('activated', ((event: JQuery.Event) => { this.activated.emit(event); }))
+    .on('afteractivate', ((event: JQuery.Event) => { this.afterActivate.emit(event); }))
+    .on('selected', (event: JQuery.Event, item: HTMLButtonElement | HTMLAnchorElement) => {
       this.selected.emit({ event, item });
     });
 
     // Returns original button info on mouseover event
-    this.jQueryElement.find('.more').on('mouseover', 'li.submenu', ((event: JQueryEventObject) => {
+    this.jQueryElement.find('.more').on('mouseover', 'li.submenu', ((event: JQuery.Event) => {
       const originalButton: HTMLButtonElement = jQuery(event.target).data('originalButton');
 
       if (originalButton !== undefined) {

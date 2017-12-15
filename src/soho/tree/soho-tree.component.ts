@@ -392,9 +392,9 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     // Initialize any event handlers.
     this.jQueryElement
-      .on('selected', (e: JQueryEventObject, args: SohoTreeEvent) => this.selected.next(args))
-      .on('expand', (e: JQueryEventObject, args: SohoTreeEvent) => this.expand.next(args))
-      .on('collapse', (e: JQueryEventObject, args: SohoTreeEvent) => this.collapse.next(args));
+      .on('selected', (e: JQuery.Event, args: SohoTreeEvent) => this.selected.next(args))
+      .on('expand', (e: JQuery.Event, args: SohoTreeEvent) => this.expand.next(args))
+      .on('collapse', (e: JQuery.Event, args: SohoTreeEvent) => this.collapse.next(args));
   }
 
   ngOnDestroy() {
