@@ -106,6 +106,10 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    */
   @Input() set anchor(anchor: SohoEditorAnchor) {
     this.options.anchor = anchor;
+    if (this.editor) {
+      this.editor.settings.anchor = anchor;
+      this.editor.updated();
+    }
   }
 
   /**
@@ -120,7 +124,11 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    */
   @Input() set buttons(buttons: SohoEditorButtons) {
     this.options.buttons = buttons;
-    this.jQueryElement.trigger('updated');
+
+    if (this.editor) {
+      this.editor.settings.buttons = buttons;
+      this.editor.updated();
+    }
   }
 
   // -------------------------------------------

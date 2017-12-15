@@ -12,6 +12,12 @@ import { SohoAlertDirective } from '../../soho/alert';
 export class AlertDemoComponent {
   @ViewChildren(SohoAlertDirective) alerts: QueryList<SohoAlertDirective>;
 
+  public model = {
+    date:        '12/12/2016',
+    text:        'abcdef',
+    outputField: ''
+  };
+
   private message = 'Message is ';
   private currentValidationType: SohoAlertType = 'error';
 
@@ -24,6 +30,21 @@ export class AlertDemoComponent {
     this.alerts.forEach((alert: SohoAlertDirective) => {
       alert.addInlineMessage(this.message + this.currentValidationType, this.currentValidationType);
     });
+  }
+
+  getMessage() {
+    let outputField = '';
+
+    // for demo purposes, concatenate the message(s) from each alert for display
+    this.alerts.forEach((alert: SohoAlertDirective) => {
+      const message = alert.getMessage(this.currentValidationType);
+
+      if (message !== undefined) {
+        outputField += message + '\n';
+      }
+    });
+
+    this.model.outputField = outputField;
   }
 
   removeMessage() {

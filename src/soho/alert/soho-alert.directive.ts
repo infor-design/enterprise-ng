@@ -34,12 +34,11 @@ export class SohoAlertDirective implements AfterViewInit {
 
   /**
    * Returns the data object data-errormessage
-   *
-   * @returns {JQuery}
+   * @deprecated use getMessage() instead
+   * @returns {string}
    */
-  // TODO: consider a method for getting a message of SohoAlertType
-  get errorMessage() {
-    return this.jQueryElement.getErrorMessage(this._options);
+  get errorMessage(): string {
+    return this.getMessage('error');
   }
 
   constructor(private el: ElementRef) {
@@ -76,7 +75,22 @@ export class SohoAlertDirective implements AfterViewInit {
   }
 
   /**
-   * Removes the error message and/or tooltip error
+   * Gets the message of the type specified
+   *
+   * @param type; defaults to 'error'
+   * @returns {string}
+   */
+  getMessage(type?: SohoAlertType): string {
+    if (this.jQueryElement) {
+      this.type = type || 'error';
+      return this.jQueryElement.getMessage(this._options);
+    }
+
+    return '';
+  }
+
+  /**
+   * Removes the error message
    * @deprecated use removeMessage() instead
    */
   removeError() {
@@ -84,7 +98,7 @@ export class SohoAlertDirective implements AfterViewInit {
   }
 
   /**
-   * Removes the message of the type specified and/or tooltip error
+   * Removes the message of the type specified
    *
    * @param type; defaults to 'error'
    */
@@ -93,6 +107,10 @@ export class SohoAlertDirective implements AfterViewInit {
     this.message = '';
   }
 
+  /**
+   * Removes the message for all types
+   *
+   */
   removeAllMessages() {
     this.removeMessage('error');
     this.removeMessage('alert');
@@ -106,6 +124,8 @@ export class SohoAlertDirective implements AfterViewInit {
    * @param alignToTop (boolean) optional - true (default) element will be aligned to the top of the visible area of the scrollable ancestor
    */
   scrollIntoView(alignToTop?: boolean) {
-    this.jQueryElement.scrollIntoView(alignToTop, this._options);
+    if (this.jQueryElement) {
+      this.jQueryElement.scrollIntoView(alignToTop, this._options);
+    }
   }
 }
