@@ -21,7 +21,7 @@ interface SohoInputValidateStatic {
  * Type safe Input Validate event object.
  */
 interface SohoInputValidateEvent extends JQuery.Event {
-  event: JQuery.Event,
+  event: JQuery.Event;
   validation: any;
 }
 

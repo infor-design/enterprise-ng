@@ -15,20 +15,44 @@ export class AlertDemoComponent {
   public model = {
     date:        '12/12/2016',
     text:        'abcdef',
-    outputField: ''
+    outputField: '',
+    isAlert:     false
   };
+  showModel = true;
 
-  private message = 'Message is ';
+  private message = 'Message';
   private currentValidationType: SohoAlertType = 'error';
 
-  public onChange(event: Event) {
+  onChange(event: Event) {
     const element = $(event.currentTarget);
     this.currentValidationType = element.val() as SohoAlertType;
   }
 
+  onError(event: SohoInputValidateEvent) {
+    console.log([ 'onError', event.validation.field.getAttribute('id'), event.validation.message ]);
+  }
+
+  onAlert(event: SohoInputValidateEvent) {
+    console.log([ 'onAlert', event.validation.field.getAttribute('id'), event.validation.message ]);
+  }
+
+  onConfirm(event: SohoInputValidateEvent) {
+    console.log([ 'onConfirm', event.validation.field.getAttribute('id'), event.validation.message ]);
+  }
+
+  onInfo(event: SohoInputValidateEvent) {
+    console.log([ 'onInfo', event.validation.field.getAttribute('id'), event.validation.message ]);
+  }
+
+  onValid(event: SohoInputValidateEvent) {
+    console.log([ 'onValid', event.validation.field.getAttribute('id'), event.validation.message ]);
+  }
+
   addMessage() {
     this.alerts.forEach((alert: SohoAlertDirective) => {
-      alert.addInlineMessage(this.message + this.currentValidationType, this.currentValidationType);
+      const alertText = (this.model.isAlert) ? ' is alert,' : '';
+      alert.addInlineMessage(this.message + alertText + ' type is ' + this.currentValidationType,
+        this.currentValidationType, this.model.isAlert);
     });
   }
 

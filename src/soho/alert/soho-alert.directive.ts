@@ -32,6 +32,12 @@ export class SohoAlertDirective implements AfterViewInit {
     this._options.type = type;
   }
 
+  /** Set message with or without control color */
+  @Input()
+  public set isAlert(isAlert: boolean) {
+    this._options.isAlert = isAlert;
+  }
+
   /**
    * Returns the data object data-errormessage
    * @deprecated use getMessage() instead
@@ -68,9 +74,11 @@ export class SohoAlertDirective implements AfterViewInit {
    *
    * @param message
    * @param type; defaults to 'error'
+   * @param isAlert; defaults to false
    */
-  addInlineMessage(message: string, type?: SohoAlertType) {
+  addInlineMessage(message: string, type?: SohoAlertType, isAlert?: boolean) {
     this.type = type || 'error';
+    this.isAlert = isAlert || false;
     this.message = message;
   }
 
