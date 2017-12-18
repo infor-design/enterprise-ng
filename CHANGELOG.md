@@ -1,7 +1,7 @@
-
 ## Whats New
 
 * 2017-12-18 - PWP - Added wrapper for empty message component.
+* 2017-12-15 - CWF - SOHO-6856: Upgraded JQuery types from 2.0.46 to 3.2.16 to match our use of jQuery 3
 * 2017-12-06 - MHH - SOHO-7228: Added support for lazy loading the context menu's popup menu.
 * 2017-12-06 - MAF - SOHO-7216: Added support for SohoAlert.
 * 2017-11-07 - BTH - SOHO-6797/SOHO-7015/SOHO-6263: Added support for component formatters and editors for datagrid.
@@ -83,6 +83,8 @@
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2017-12-15 - CWF - PR-532 - Projects may need to update the version of `@types/jquery` in their `package.json` file to match sohoxi-angular's version: `"@types/jquery": "~3.2.16"`
 
 * 2017-12-12 - KH  - Changed soho-accordion-pane.component.html from.. 
   
