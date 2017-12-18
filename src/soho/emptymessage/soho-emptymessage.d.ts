@@ -27,7 +27,7 @@ interface SohoEmptyMessageOptions {
   info?: string;
 
   /**
-   * Icon, to diplay (see svg-empty) - must be the full icon name.
+   * Icon, to display (see svg-empty) - must be the full icon name.
    */
   icon?: string;
 
@@ -35,7 +35,6 @@ interface SohoEmptyMessageOptions {
    * Button options - note this cannot be a Soho Angular Component.
    */
   button?: SohoEmptyMessageButtonOptions;
-
 }
 
 /**
