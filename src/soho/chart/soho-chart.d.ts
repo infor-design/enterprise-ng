@@ -155,7 +155,7 @@ interface ChartLabel {
 }
 
 interface ChartEvent {
-  event: JQueryEventObject;
+  event: JQuery.Event;
   ui?: any;
   data?: any;
 }

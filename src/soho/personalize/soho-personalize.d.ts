@@ -12,8 +12,8 @@ interface SohoPersonalizeOptions {
   theme?: string
 }
 
-interface SohoPersonalizeEvent extends JQueryEventObject {
-  data: string;
+interface SohoPersonalizeEvent extends JQuery.Event {
+  data: any;
 }
 
 /**

@@ -2,7 +2,8 @@ interface TrackDirtyStatic {
   // destroy();
 }
 
-interface SohoTrackDirtyEvent extends JQueryEventObject { // tslint:ignore
+interface SohoTrackDirtyEvent extends JQuery.Event { // tslint:ignore
+  currentTarget: HTMLElement
 }
 
 /**

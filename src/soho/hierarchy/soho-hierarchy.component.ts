@@ -106,7 +106,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
 
     // Initialize any event handlers.
     this.jQueryElement
-        .on('selected', ( (e: JQueryEventObject, args: SohoHierarchyEvent) => {
+        .on('selected', ( (e: JQuery.Event, args: SohoHierarchyEvent) => {
           this.selected.next(args);
         }));
 

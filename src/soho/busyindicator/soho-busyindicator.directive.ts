@@ -182,8 +182,8 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, OnDestroy {
 
     // Initialise any event handlers.
     this.jQueryElement
-      .on('afterstart', (e: JQueryEventObject) => this.onAfterStart(e))
-      .on('close', (e: JQueryEventObject) => this.onClose(e));
+      .on('afterstart', (e: JQuery.Event) => this.onAfterStart(e))
+      .on('close', (e: JQuery.Event) => this.onClose(e));
   }
 
   /**
@@ -203,14 +203,14 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, OnDestroy {
   /**
    * Publishes the event, after annotating the event.
    */
-  private onAfterStart(event: JQueryEventObject) {
+  private onAfterStart(event: JQuery.Event) {
     this.afterstart.next({ type: 'afterstart', component: this, event: event });
   }
 
   /**
    * Publishes the vent, after annotating the event.
    */
-  private onClose(event: JQueryEventObject) {
+  private onClose(event: JQuery.Event) {
     this.closeEvent.next({ type: 'close', component: this, event: event });
   }
 }
@@ -226,5 +226,5 @@ export interface SohoBusyIndicatorEvent {
   component: SohoBusyIndicatorDirective;
 
   /** Full JQuery Event. */
-  event: JQueryEventObject;
+  event: JQuery.Event;
 }

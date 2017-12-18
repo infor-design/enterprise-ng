@@ -1,3 +1,4 @@
+
 ## Whats New
 
 * 2017-12-18 - PWP - Added wrapper for empty message component
@@ -83,6 +84,8 @@
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2017-12-15 - CWF - PR-532 - Projects may need to update the version of `@types/jquery` in their `package.json` file to match sohoxi-angular's version: `"@types/jquery": "~3.2.16"`
 
 * 2017-12-12 - KH  - Changed soho-accordion-pane.component.html from.. 
   

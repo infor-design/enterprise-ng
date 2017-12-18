@@ -183,7 +183,7 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
   }
 
   onChange(event: SohoSliderEvent) {
-    const newValue = this.jQueryElement.val();
+    const newValue = this.jQueryElement.val() as number;
     if (this.internalValue !== newValue) {
       // Update the model ...
       this.internalValue = newValue;

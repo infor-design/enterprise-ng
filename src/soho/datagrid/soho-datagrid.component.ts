@@ -1639,20 +1639,20 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
     // Initialise any event handlers.
     this.jQueryElement
-      .on('selected', (e: JQueryEventObject, args: SohoDataGridSelectedRow[]) => this.selected.next({ e, rows: args }))
-      .on('cellchange', (e: JQueryEventObject, args: SohoDataGridCellChangeEvent) => this.cellchange.next(args))
-      .on('removerow', (e: JQueryEventObject, args: SohoDataGridRowRemoveEvent) => { this.rowRemove.next(args); })
-      .on('addrow', (e: JQueryEventObject, args: SohoDataGridAddRowEvent) => { this.rowAdd.next(args); })
-      .on('filtered', (e: JQueryEventObject, args: any) => { this.filtered.next(args); })
-      .on('sorted', (e: JQueryEventObject, args: SohoDataGridSortedEvent) => { this.sorted.next(args); })
-      .on('expandrow', (e: JQueryEventObject, args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
-      .on('collapserow', (e: JQueryEventObject, args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
-      .on('rowactivated', (e: JQueryEventObject, args: SohoDataGridRowActivatedEvent) => { this.rowActivated.next(args); })
-      .on('rowdeactivated', (e: JQueryEventObject, args: SohoDataGridRowDeactivatedEvent) => { this.rowDeactivated.next(args); })
-      .on('click', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.rowClicked.next(args); })
-      .on('dblclick', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.rowDoubleClicked.next(args); })
-      .on('contextmenu', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.contextMenu.next(args); })
-      .on('rowreorder', (e: JQueryEventObject, args: SohoDataGridRowReorderedEvent) => { this.rowReordered.next(args); });
+      .on('selected', (e: JQuery.Event, args: SohoDataGridSelectedRow[]) => this.selected.next({ e, rows: args }))
+      .on('cellchange', (e: JQuery.Event, args: SohoDataGridCellChangeEvent) => this.cellchange.next(args))
+      .on('removerow', (e: JQuery.Event, args: SohoDataGridRowRemoveEvent) => { this.rowRemove.next(args); })
+      .on('addrow', (e: JQuery.Event, args: SohoDataGridAddRowEvent) => { this.rowAdd.next(args); })
+      .on('filtered', (e: JQuery.Event, args: any) => { this.filtered.next(args); })
+      .on('sorted', (e: JQuery.Event, args: SohoDataGridSortedEvent) => { this.sorted.next(args); })
+      .on('expandrow', (e: JQuery.Event, args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
+      .on('collapserow', (e: JQuery.Event, args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
+      .on('rowactivated', (e: JQuery.Event, args: SohoDataGridRowActivatedEvent) => { this.rowActivated.next(args); })
+      .on('rowdeactivated', (e: JQuery.Event, args: SohoDataGridRowDeactivatedEvent) => { this.rowDeactivated.next(args); })
+      .on('click', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.rowClicked.next(args); })
+      .on('dblclick', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.rowDoubleClicked.next(args); })
+      .on('contextmenu', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.contextMenu.next(args); })
+      .on('rowreorder', (e: JQuery.Event, args: SohoDataGridRowReorderedEvent) => { this.rowReordered.next(args); });
   }
 
   /**
