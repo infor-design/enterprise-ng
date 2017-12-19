@@ -247,7 +247,7 @@ export class ChartDemoService {
 
     scatterData.filter((dataItem: SohoDataSetItem) => {
       dataItem.data.filter((data: SohoChartData) => {
-        const bc: BubbleCordinates = <BubbleCordinates>data.value;
+        const bc: BubbleCordinates = data.value as BubbleCordinates;
         bc.z = 1;
       });
     });

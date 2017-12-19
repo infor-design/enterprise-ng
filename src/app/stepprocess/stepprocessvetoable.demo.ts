@@ -26,7 +26,7 @@ export class StepProcessVetoableDemoComponent {
   onBeforeSelectStep(event: BeforeSelectStepEvent) {
     this.showBusyIndicator = true;
 
-    const result: BeforeSelectStepResult = <any> {};
+    const result: BeforeSelectStepResult = {} as any;
 
     if (event.currentStepId === 'profile' && this.vetoStep2) {
 

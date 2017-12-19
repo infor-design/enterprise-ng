@@ -28,7 +28,7 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
      */
     const pageSize = 5;
 
-    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
+    const gridOptions: SohoDataGridOptions = {
       columns: this.datagridPagingService.getColumns(),
       selectable: 'single',
       paging: true,

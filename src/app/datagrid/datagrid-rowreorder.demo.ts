@@ -24,7 +24,7 @@ export class DataGridRowReorderDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) datagrid: SohoDataGridComponent;
 
   constructor(gridService: SohoDataGridService) {
-    (<DataGridDemoService> gridService).addColumn({
+    (gridService as DataGridDemoService).addColumn({
       id: 'rowReorder',
       name: '',
       field: 'id',
