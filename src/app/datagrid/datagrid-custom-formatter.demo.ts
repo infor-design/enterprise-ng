@@ -121,7 +121,7 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       click: (e, args) => this.onClick(args),
       contentVisible: (row, cell, data, col, item) => this.isContentVisible(row, cell, data, col, item)
     });
-    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions>{
+    const gridOptions: SohoDataGridOptions = {
       columns: columns,
       dataset: PAGING_DATA,
       selectable: 'single',

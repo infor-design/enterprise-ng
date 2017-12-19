@@ -32,7 +32,7 @@ export class DataGridMixedSelectionDemoComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
+    const gridOptions: SohoDataGridOptions = {
       columns: PAGING_COLUMNS,
       dataset: PAGING_DATA,
       selectable: 'mixed',

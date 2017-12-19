@@ -234,7 +234,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
     */
   @Input()
   public set showFullAccessCard(value: boolean) {
-      this._showFullAccessCard = value === null || <any>value === 'true';
+      this._showFullAccessCard = value === null || value as any === 'true';
   }
 
   /**

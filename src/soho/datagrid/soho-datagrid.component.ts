@@ -1579,7 +1579,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     const transientContainer = $('<div></div>').appendTo(editor.args.container);
 
     // Create the component, in the container.
-    const componentRef = <ComponentRef<SohoDataGridCellEditor>> factory.create(i, [], transientContainer[0]);
+    const componentRef = factory.create(i, [], transientContainer[0]) as SohoDataGridCellEditor as ComponentRef;
 
     // Copy into it any column level Inputs, these are optional but allow
     // column specific overrides to be defined.
@@ -1739,15 +1739,15 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
  * for more details about creating an enum of strings.
  */
 export enum SohoGridColumnFilterTypes {
-  Text = <any>'text',
-  Checkbox = <any>'checkbox',
-  Contents = <any>'contents',
-  Date = <any>'date',
-  Decimal = <any>'decimal',
-  Integer = <any>'integer',
-  Lookup = <any>'lookup',
-  Percent = <any>'percent',
-  Select = <any>'select'
+  Text     = 'text',
+  Checkbox = 'checkbox',
+  Contents = 'contents',
+  Date     = 'date',
+  Decimal  = 'decimal',
+  Integer  = 'integer',
+  Lookup   = 'lookup',
+  Percent  = 'percent',
+  Select   = 'select'
 }
 
 /**

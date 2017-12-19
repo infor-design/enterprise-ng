@@ -56,7 +56,7 @@ export class DataGridStandardFormatterDemoComponent implements AfterViewInit {
 
     const columns = [ ...PAGING_COLUMNS, statusColumn, ratedColumn ];
 
-    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
+    const gridOptions: SohoDataGridOptions = {
       columns: columns,
       dataset: PAGING_DATA,
       selectable: 'single',
