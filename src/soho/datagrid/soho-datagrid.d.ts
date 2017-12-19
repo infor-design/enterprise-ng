@@ -594,7 +594,7 @@ interface SohoDataGridColumn {
   /** Content visible function*/
   contentVisible?: SohoDataGridColumnContentVisibleFunction;
 
-  /** If false the column will not be inculded in export */
+  /** If false the column will not be included in export */
   exportable?: boolean
 }
 
