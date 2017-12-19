@@ -15,6 +15,7 @@ import { SohoDataGridModule } from './datagrid/soho-datagrid.module';
 import { SohoDatePickerModule } from './datepicker/soho-datepicker.module';
 import { SohoDropDownModule } from './dropdown/soho-dropdown.module';
 import { SohoEditorModule } from './editor/soho-editor.module';
+import { SohoEmptyMessageModule} from './emptymessage/soho-emptymessage.module';
 import { SohoErrorModule } from './error/soho-error.module';
 import { SohoExpandableAreaModule } from './expandablearea/soho-expandablearea.module';
 import { SohoFieldOptionsModule } from './field-options/soho-field-options.module';
@@ -74,6 +75,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoDatePickerModule,
     SohoDropDownModule,
     SohoEditorModule,
+    SohoEmptyMessageModule,
     SohoErrorModule,
     SohoExpandableAreaModule,
     SohoFieldOptionsModule,
@@ -134,6 +136,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoDatePickerModule,
     SohoDropDownModule,
     SohoEditorModule,
+    SohoEmptyMessageModule,
     SohoErrorModule,
     SohoExpandableAreaModule,
     SohoFieldOptionsModule,

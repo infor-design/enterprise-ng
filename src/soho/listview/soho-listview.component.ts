@@ -213,6 +213,15 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     }
   }
 
+  /** External function that can be used to provide an empty  message when no data is available. */
+  @Input() set emptyMessage(value: SohoEmptyMessageOptions) {
+    this.options.emptyMessage = value;
+    if (this.jQueryElement && this.listview) {
+      this.listview.settings.emptyMessage = value;
+      this.listview.updated();
+    }
+  }
+
   /** External function that can be used to provide a datasource, or a URL. */
   @Input() set source(value: SohoListViewSourceFunction | string) {
     this.options.source = value;
@@ -509,5 +518,4 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
   private get itemCount(): number {
     return this.items.length;
   }
-
 }

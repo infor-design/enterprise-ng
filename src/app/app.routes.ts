@@ -47,6 +47,7 @@ import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
+import { EmptyMessageDemoComponent } from './emptymessage/emptymessage.demo';
 import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { FieldOptionsDemoComponent } from './field-options/field-options.demo';
@@ -115,6 +116,7 @@ import { ValidationFormEventDemoComponent } from './validation/validation-form-e
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 import { WizardDemoComponent } from './wizard/wizard.demo';
+import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
 
 export const routes: Routes = [
   { path: '',                                       component: ExpandableAreaDemoComponent }, // default
@@ -136,7 +138,8 @@ export const routes: Routes = [
   { path: 'contextual-action-panel',                component: ContextualActionPanelDemoComponent },
   { path: 'datagrid-breadcrumb',                    component: DataGridBreadcrumbDemoComponent },
   { path: 'datagrid-content',                       component: DataGridContentDemoComponent },
-  { path: 'datagrid-dynamic',                       component: DataGridDynamicDemoComponent },
+  { path: 'datagrid-empty-message',                 component: DataGridEmptyMessageDemoComponent },
+  { path: 'datagrid-editors',                       component: DataGridEditorsDemoComponent },
   { path: 'datagrid-editors',                       component: DataGridEditorsDemoComponent },
   { path: 'datagrid-fixedheader',                   component: DataGridFixedHeaderDemoComponent },
   { path: 'datagrid-groupedheader',                 component: DataGridGroupedHeaderDemoComponent },
@@ -154,7 +157,7 @@ export const routes: Routes = [
   { path: 'datagrid-code-block-editor',             component: DataGridCodeBlockEditorDemoComponent },
   { path: 'datagrid-custom-formatter',              component: DataGridCustomFormatterDemoComponent },
   { path: 'datagrid-custom-formatter-service',      component: DataGridCustomFormatterServiceDemoComponent },
-  { path: 'datagrid-rowreorder',                   component: DataGridRowReorderDemoComponent },
+  { path: 'datagrid-rowreorder',                    component: DataGridRowReorderDemoComponent },
   { path: 'datagrid-standard-formatter',            component: DataGridStandardFormatterDemoComponent },
   { path: 'datepicker',                             component: DatepickerDemoComponent },
   { path: 'dropdown',                               component: DropdownDemoComponent },
@@ -164,6 +167,7 @@ export const routes: Routes = [
   { path: 'dropdown-multi',                         component: DropdownMultiselectDemoComponent },
   { path: 'dropdown-simple',                        component: DropdownSimpleDemoComponent },
   { path: 'editor',                                 component: EditorDemoComponent },
+  { path: 'emptymessage',                           component: EmptyMessageDemoComponent},
   { path: 'error',                                  component: ErrorDemoComponent },
   { path: 'expandablearea',                         component: ExpandableAreaDemoComponent },
   { path: 'expandablearea-footer',                  component: ExpandableAreaFooterDemoComponent },

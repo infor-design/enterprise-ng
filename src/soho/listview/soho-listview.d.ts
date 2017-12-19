@@ -35,6 +35,13 @@ interface SohoListViewOptions {
   /** Select on focus? */
   selectOnFocus?: boolean;
 
+  /**
+   * An empty message will be displayed when there are no rows in the listview.
+   * This only works when using a dataset and template. If you are using content projection
+   * you will need to manage the empty message in your own angular template.
+   */
+  emptyMessage?: SohoEmptyMessageOptions;
+
   /** URL or source function. */
   source?: SohoListViewSourceFunction | string;
 

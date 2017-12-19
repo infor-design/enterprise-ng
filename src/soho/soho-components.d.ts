@@ -18,6 +18,7 @@
 /// <reference path="./datepicker/soho-datepicker.d.ts" />
 /// <reference path="./dropdown/soho-dropdown.d.ts" />
 /// <reference path="./editor/soho-editor.d.ts" />
+/// <reference path="./emptymessage/soho-emptymessage.d.ts" />
 /// <reference path="./error/soho-error.d.ts" />
 /// <reference path="./expandablearea/soho-expandablearea.d.ts" />
 /// <reference path="./fileupload/soho-fileupload.d.ts" />

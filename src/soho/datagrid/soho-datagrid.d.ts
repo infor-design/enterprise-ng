@@ -219,69 +219,10 @@ interface SohoDataGridOptions {
 
   /**
    * An empty message will be displayed when there are no rows in the grid.
-   * This accepts an object of the form SohoDataGridEmptyMessageOptions, set
+   * This accepts an object of the form SohoEmptyMessageOptions, set
    * this to null for no message or it will default to 'No Data Found with an icon.'
    */
-  emptyMessage?: SohoDataGridEmptyMessageOptions;
-}
-
-/**
- * Example:
- *
- * { title: 'No Data Available',
- *    info: 'Make a selection on the list above to see results',
- *    icon: 'icon-empty-no-data',
- *  button: {text: 'Run Query', cssClass: '' }
- *   click: <function>}
- * }
- *
- */
-interface SohoDataGridEmptyMessageOptions {
-  /**
-   * Title text.
-   */
-  title?: string;
-
-  /**
-   * Informational text.
-   */
-  info?: string;
-
-  /**
-   * Icon, to diplay (see svg-empty) - must be the full icon name.
-   */
-  icon?: string;
-
-  /**
-   * Button options - note this cannot be a Soho Angular Component.
-   */
-  button?: SohoDataGridEmptyMessageButtonOptions;
-
-}
-
-/**
- * Button definition.
- */
-interface SohoDataGridEmptyMessageButtonOptions {
-  /**
-   * Button text.
-   */
-  text: string;
-
-  /**
-   * Class of button.
-   */
-  cssClass?: string;
-
-  /**
-   * Element button for id.
-   */
-  id?: string;
-
-  /**
-   * Click function - @todo not working
-   */
-  click?: Function;
+  emptyMessage?: SohoEmptyMessageOptions;
 }
 
 /**

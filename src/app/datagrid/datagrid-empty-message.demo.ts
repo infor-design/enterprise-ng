@@ -24,7 +24,7 @@ export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
 
   public hasData: boolean;
 
-  emptyMessage: SohoDataGridEmptyMessageOptions = {
+  emptyMessage: SohoEmptyMessageOptions = {
     title: 'Server Error',
     info: 'The target server returned an error',
     icon: 'icon-empty-error-loading', // needs to be the full SVG name
