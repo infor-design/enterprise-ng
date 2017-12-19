@@ -1579,7 +1579,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     const transientContainer = $('<div></div>').appendTo(editor.args.container);
 
     // Create the component, in the container.
-    const componentRef = factory.create(i, [], transientContainer[0]) as SohoDataGridCellEditor as ComponentRef;
+    const componentRef = factory.create(i, [], transientContainer[0]) as ComponentRef<SohoDataGridCellEditor>;
 
     // Copy into it any column level Inputs, these are optional but allow
     // column specific overrides to be defined.

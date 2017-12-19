@@ -67,7 +67,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
           this.sohoDataGridComponent.selectRow(selectedIndex === -1 ? 0 : selectedIndex);
         });
       }
-    };
+    } as SohoDataGridOptions;
 
     this.sohoDataGridComponent.gridOptions = gridOptions;
   }
