@@ -18,8 +18,11 @@ export class SohoInputValidateDirective implements AfterViewInit {
 
   private validator: SohoInputValidateStatic;
 
-  @Output() valid = new EventEmitter<SohoInputValidateEvent>();
   @Output() error = new EventEmitter<SohoInputValidateEvent>();
+  @Output() alert = new EventEmitter<SohoInputValidateEvent>();
+  @Output() confirm = new EventEmitter<SohoInputValidateEvent>();
+  @Output() info = new EventEmitter<SohoInputValidateEvent>();
+  @Output() valid = new EventEmitter<SohoInputValidateEvent>();
 
   constructor(private el: ElementRef) {
   }
@@ -43,6 +46,27 @@ export class SohoInputValidateDirective implements AfterViewInit {
         message: validation.message
       };
       this.error.emit(event);
+    })
+    .on('alert', (event: SohoInputValidateEvent, validation) => {
+      event.validation = {
+        field:   validation.field[0],
+        message: validation.message
+      };
+      this.alert.emit(event);
+    })
+    .on('confirm', (event: SohoInputValidateEvent, validation) => {
+      event.validation = {
+        field:   validation.field[0],
+        message: validation.message
+      };
+      this.confirm.emit(event);
+    })
+    .on('info', (event: SohoInputValidateEvent, validation) => {
+      event.validation = {
+        field:   validation.field[0],
+        message: validation.message
+      };
+      this.info.emit(event);
     })
     .on('valid', (event: SohoInputValidateEvent, validation) => {
       event.validation = {

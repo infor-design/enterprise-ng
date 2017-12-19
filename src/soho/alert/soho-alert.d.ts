@@ -16,6 +16,11 @@ interface SohoAlertOptions {
 
   /** */
   type?: SohoAlertType;
+
+  /**
+   * If true, does not display control border color, control text color, and control icon color.
+   */
+  isAlert?: boolean;
 }
 
 /**
