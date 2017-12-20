@@ -1,4 +1,11 @@
-import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  ChangeDetectorRef,
+  Directive,
+  ElementRef,
+  Input
+} from '@angular/core';
 
 /**
  * Angular Wrapper for the SohoEmptyMessage Control.
@@ -7,7 +14,7 @@ import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
   selector: '[soho-emptymessage]', // tslint:disable-line
   exportAs: 'soho-emptymessage'
 })
-export class SohoEmptyMessageDirective implements AfterViewInit {
+export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewInit {
 
   /**
    * The `emptyMessage` option.
@@ -23,6 +30,7 @@ export class SohoEmptyMessageDirective implements AfterViewInit {
     this._emptyMessageOptions = options;
     if (this.jQueryElement) {
       this.emptymessage.settings = options;
+      this.markForCheck();
     }
   }
 
@@ -41,6 +49,7 @@ export class SohoEmptyMessageDirective implements AfterViewInit {
     this._emptyMessageOptions.title = title;
     if (this.emptymessage) {
       this.emptymessage.settings.title = title;
+      this.markForCheck();
     }
   }
 
@@ -59,6 +68,7 @@ export class SohoEmptyMessageDirective implements AfterViewInit {
     this._emptyMessageOptions.info = info;
     if (this.emptymessage) {
       this.emptymessage.settings.info = info;
+      this.markForCheck();
     }
   }
 
@@ -77,6 +87,7 @@ export class SohoEmptyMessageDirective implements AfterViewInit {
     this._emptyMessageOptions.icon = icon;
     if (this.emptymessage) {
       this.emptymessage.settings.icon = icon;
+      this.markForCheck();
     }
   }
 
@@ -95,6 +106,7 @@ export class SohoEmptyMessageDirective implements AfterViewInit {
     this._emptyMessageOptions.button = button;
     if (this.emptymessage) {
       this.emptymessage.settings.button = button;
+      this.markForCheck();
     }
   }
 
@@ -112,8 +124,12 @@ export class SohoEmptyMessageDirective implements AfterViewInit {
   private _emptyMessageOptions: SohoEmptyMessageOptions = {};
   private jQueryElement: JQuery;
   private emptymessage: SohoEmptyMessageStatic;
+  private updateComponent = false;
 
-  constructor(private element: ElementRef) {}
+  constructor(
+    private changeDetector: ChangeDetectorRef,
+    private element: ElementRef,
+  ) {}
 
   /**
    * After the control has been initialised and the view is ready,
@@ -123,5 +139,28 @@ export class SohoEmptyMessageDirective implements AfterViewInit {
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.emptymessage(this.emptyMessageOptions);
     this.emptymessage = this.jQueryElement.data('emptymessage');
+  }
+
+  /**
+   *
+   */
+  ngAfterViewChecked() {
+    if (this.updateComponent) {
+      this.emptymessage.updated();
+      this.updateComponent = false;
+    }
+  }
+
+  /**
+   * Marks the components as requiring a rebuild after the next update.
+   */
+  private markForCheck() {
+
+    this.updateComponent = true;
+
+    // ... make sure the change detector kicks in, otherwise if the inputs
+    // were change programmatially the component may not be eligible for
+    // updating.
+    this.changeDetector.markForCheck();
   }
 }
