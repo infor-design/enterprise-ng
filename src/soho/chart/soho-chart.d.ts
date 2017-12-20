@@ -48,6 +48,7 @@ interface SohoChartData {
   selected?: boolean;
   abbrName?: string;
   ref?: any;
+  target?: number;
 }
 
 interface SohoChartDataName {
@@ -90,9 +91,9 @@ interface SohoChartPercentText {
   color1?: string;
   color2?: string;
 }
-type ChartTypes = 'pie' | 'bar' | 'bar-stacked' | 'bar-normalized' | 'bar-grouped' | 'bubble' |
+type ChartTypes = 'pie' | 'bar' | 'bar-stacked' | 'bar-normalized' | 'bar-grouped' | 'bubble' | 'scatter' |
   'column-stacked' |'column' | 'column-grouped' | 'column-positive-negative' | 'donut' | 'line' |
-  'area' | 'bullet' | 'completion' | 'completion-target' | 'targeted-achievement';
+  'area' | 'bullet' | 'completion' | 'completion-target' | 'targeted-achievement' | 'column-positive-negative';
 
 type SohoChartDataArray = Array<SohoChartData>;
 
@@ -105,6 +106,8 @@ interface SohoDataSetItem {
   centerLabel?: string;
   selected?: boolean;
   ref?: any;
+  legends?: PosNegLegends;
+  colors?: PosNegColors;
 }
 
 type SohoDataSet = Array<SohoDataSetItem>;
@@ -112,6 +115,18 @@ type SohoDataSet = Array<SohoDataSetItem>;
 interface SohoChartLabel {
   name: string;
   value: BubbleCordinateLabels;
+}
+
+interface PosNegLegends {
+  target: string;
+  positive: string;
+  negative: string;
+}
+
+interface PosNegColors {
+  target: string;
+  positive: string;
+  negative: string;
 }
 
 interface BubbleCordinates {
@@ -140,7 +155,7 @@ interface ChartLabel {
 }
 
 interface ChartEvent {
-  event: JQueryEventObject;
+  event: JQuery.Event;
   ui?: any;
   data?: any;
 }

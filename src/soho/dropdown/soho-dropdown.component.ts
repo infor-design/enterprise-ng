@@ -114,14 +114,101 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
 
   /**
    * Flag to move the selected values to the top of the dropdown
+   *
+   * @deprecated use moveSelected
    */
   @Input()
   public set moveSelectedToTop(moveSelectedToTop: boolean) {
+    console.warn(`'moveSelectedToTop' has been deprecated, please use 'moveSelected'.`);
     this.options.moveSelectedToTop = moveSelectedToTop;
   }
 
   public get moveSelectedToTop(): boolean {
     return this.options.moveSelectedToTop;
+  }
+
+  @Input()
+  public set moveSelected(moveSelected: SohoDropDownMoveSelectedOptions) {
+    this.options.moveSelected = moveSelected;
+    if (this.dropdown) {
+      this.dropdown.settings.moveSelected = moveSelected;
+      this.dropdown.updated();
+    }
+  }
+
+  public get moveSelected(): SohoDropDownMoveSelectedOptions {
+    return this.options.moveSelected;
+  }
+
+  @Input()
+  public set showEmptyGroupHeaders(showEmptyGroupHeaders: boolean) {
+    this.options.showEmptyGroupHeaders = showEmptyGroupHeaders;
+    if (this.dropdown) {
+      this.dropdown.settings.showEmptyGroupHeaders = showEmptyGroupHeaders;
+      this.dropdown.updated();
+    }
+  }
+
+  public get showEmptyGroupHeaders(): boolean {
+    return this.options.showEmptyGroupHeaders;
+  }
+
+  @Input()
+  public set sourceArguments(sourceArguments: any) {
+    this.options.sourceArguments = sourceArguments;
+    if (this.dropdown) {
+      this.dropdown.settings.sourceArguments = sourceArguments;
+      this.dropdown.updated();
+    }
+  }
+
+  public get sourceArguments(): any {
+    return this.options.sourceArguments;
+  }
+
+  @Input()
+  public set reloadSourceOnOpen(reloadSourceOnOpen: boolean) {
+    this.options.reloadSourceOnOpen = reloadSourceOnOpen;
+    if (this.dropdown) {
+      this.dropdown.settings.reloadSourceOnOpen = reloadSourceOnOpen;
+      this.dropdown.updated();
+    }
+  }
+
+  public get reloadSourceOnOpen(): boolean {
+    return this.options.reloadSourceOnOpen;
+  }
+
+  /**
+   * If set the width of the dropdown is limited to this pixel width.
+   * Use 300 for the 300 px size fields. Default is size of the largest data.
+   */
+  @Input()
+  public set maxWidth(maxWidth: number) {
+    this.options.maxWidth = maxWidth;
+    if (this.dropdown) {
+      // @todo this property can not be updated once the control
+      // has been initialised.
+      this.dropdown.settings.maxWidth = maxWidth;
+      this.dropdown.updated();
+    }
+  }
+
+  public get maxWidth(): number {
+    return this.options.maxWidth;
+  }
+
+  @Input()
+  public set filterMode(filterMode: SohoDropDownFilterModeOptions) {
+    this.options.filterMode = filterMode;
+    if (this.dropdown) {
+      this.dropdown.settings.filterMode = filterMode;
+      this.dropdown.updated();
+    }
+  }
+
+  public get filterMode(): SohoDropDownFilterModeOptions {
+    return this.options.filterMode;
   }
 
   /**
@@ -152,7 +239,7 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   public set noSearch(noSearch: boolean) {
     // Assume any value is true to allow the noSearch attribute to be added
     // without a boolean value.
-    const value = noSearch !== null && <any>noSearch !== 'false';
+    const value = noSearch !== null && noSearch as any !== 'false';
     this.options.noSearch = value;
     if (this.dropdown) {
       this.dropdown.settings.noSearch = value;
@@ -181,13 +268,13 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
    * Called when the dropdown value changes
    */
   @Output()
-  change: EventEmitter<JQueryEventObject> = new EventEmitter<JQueryEventObject>();
+  change: EventEmitter<JQuery.Event> = new EventEmitter<JQuery.Event>();
 
   /**
    * Called when the dropdown updates in some way.
    */
   @Output('updated') // tslint:disable-line
-  updatedEvent: EventEmitter<Object> = new EventEmitter<JQueryEventObject>();
+  updatedEvent: EventEmitter<Object> = new EventEmitter<JQuery.Event>();
 
   /**
    * Bind attributes to the host select element
@@ -229,8 +316,8 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.dropdown(this.options);
     this.jQueryElement
-      .on('change', (event: JQueryEventObject) => this.onChange(event))
-      .on('updated', (event: JQueryEventObject) => this.updatedEvent.emit(event));
+      .on('change', (event: JQuery.Event) => this.onChange(event))
+      .on('updated', (event: JQuery.Event) => this.updatedEvent.emit(event));
     this.dropdown = this.jQueryElement.data('dropdown');
   }
 

@@ -6,6 +6,19 @@ import { FormsModule } from '@angular/forms';
 import { SohoHyperlinkModule } from './soho-hyperlink.module';
 import { SohoHyperlinkComponent } from './soho-hyperlink.component';
 
+@Component ({
+  template: `
+    <a soho-hyperlink href="#">More Information Hyperlink</a><br><br><br><br>
+    <a soho-hyperlink="show-visited" href="#">More Information Hyperlink</a><br><br><br><br>
+    <a soho-hyperlink="forward-caret" isCaretRight="true" href="#"  ><span>Hyperlink with Directional Caret </span></a>
+    <a soho-hyperlink="back-caret" href="#"  isCaretLeft="true"><span>Back to Search Results</span></a>
+    `
+})
+
+class SohoHyperlinkTestComponent {
+  @ViewChild(SohoHyperlinkComponent) hyperlink: SohoHyperlinkComponent;
+}
+
 describe ('Soho Hyperlink Unit tests', () => {
   let hyperlink:   SohoHyperlinkComponent;
   let comp:     SohoHyperlinkTestComponent;
@@ -76,16 +89,3 @@ describe ('Soho Hyperlink Unit tests', () => {
     fixture.detectChanges();
   });
 });
-
-@Component ({
-  template: `
-    <a soho-hyperlink href="#">More Information Hyperlink</a><br><br><br><br>
-    <a soho-hyperlink="show-visited" href="#">More Information Hyperlink</a><br><br><br><br>
-    <a soho-hyperlink="forward-caret" isCaretRight="true" href="#"  ><span>Hyperlink with Directional Caret </span></a>
-    <a soho-hyperlink="back-caret" href="#"  isCaretLeft="true"><span>Back to Search Results</span></a>
-    `
-})
-
-class SohoHyperlinkTestComponent {
-  @ViewChild(SohoHyperlinkComponent) hyperlink: SohoHyperlinkComponent;
-}

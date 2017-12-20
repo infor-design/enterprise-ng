@@ -14,7 +14,7 @@
 // fileaborted [file]
 // filecompleteuploading [file]
 
-interface SohoFileUploadAdvancedEvent extends JQueryEventObject {
+interface SohoFileUploadAdvancedEvent extends JQuery.Event {
 }
 
 interface SohoFileUploadAdvancedStatus {

@@ -33,8 +33,22 @@
    * of tab contents on open.
    */
   source?: Function;
-}
 
+   /**
+    *  Set true to use panels with header selection
+    */
+   hasPanels?: boolean;
+
+   /**
+    * Sets the color scheme to inverse
+    */
+   inverse?: boolean;
+
+   /**
+    * Sets the color scheme to alternate
+    */
+   alternate?: boolean;
+ }
 
 /**
  * This interface represents the public API exposed by the
@@ -90,9 +104,10 @@ interface JQueryStatic {
  */
 interface JQuery {
   accordion(options?: SohoAccordionOptions): SohoAccordionStatic;
+  on(events: string,
+    handler: JQuery.EventHandlerBase<any, SohoAccordionEvent>): this;
 }
 
-interface SohoAccordionEvent extends JQueryEventObject {
+interface SohoAccordionEvent extends JQuery.Event {
   anchor: HTMLAnchorElement;
 }
-

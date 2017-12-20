@@ -30,7 +30,7 @@ interface SohoPopupMenuOptions {
   attachToBody?: boolean;
 
   /** beforeOpen - ajax callback for open event */
-  beforeOpen?: any;
+  beforeOpen?: SohoPopupMenuSourceFunction;
 
   /** Switches aria to use listbox construct instead of menu construct (internal). */
   ariaListbox?: boolean;
@@ -53,7 +53,7 @@ interface SohoPopupMenuOptions {
  * Interface for the jQuery event emitted
  */
 interface SohoPopupMenuEvent {
-  e: JQueryEventObject;
+  e: JQuery.Event;
   /**
    * the relevant element for the given event
    */
@@ -101,5 +101,20 @@ interface SohoPopupmenuOffset {
 interface SohoPopupmenuPlacementOpts {
   containerOffsetX: number;
   containerOffsetY: number;
-  strategies: Array<string>
+  strategies: Array<string>;
 }
+
+/**
+ * Function prototype for the source function.
+ */
+type SohoPopupMenuSourceFunction = (
+  response: SohoPopupMenuResponseFunction,
+  options: any
+) => void;
+
+/**
+ * Function prototype for the response function.
+ */
+type SohoPopupMenuResponseFunction = (
+  data: any[]
+) => void;

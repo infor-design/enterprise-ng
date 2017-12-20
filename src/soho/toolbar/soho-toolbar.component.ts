@@ -96,16 +96,6 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
   ) {}
 
   ngAfterViewInit() {
-    // ------------------------------------------------------------------------
-    // Use setTimeOut so that the search field control isn't initialized
-    // with the toolbarsearchfield inputs until after the toolbar is created.
-    // ------------------------------------------------------------------------
-    setTimeout(() => {
-      this.initSohoControl();
-    }, 1);
-  }
-
-  private initSohoControl() {
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.toolbarsearchfield(this.options);
 
@@ -273,6 +263,12 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
   }
 
   /**
+   * Whether to display the overflow more-button or not regardless of
+   * overflow content.
+   */
+  @HostBinding('class.no-actions-button') @Input() noActionsButton = false;
+
+  /**
    * Set the has more button component option, this is used
    * to define if the more button is expected to exist in the toolbar logic.
    */
@@ -382,6 +378,8 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
   ) {}
 
   ngAfterViewInit() {
+    this.options.noSearchfieldReinvoke = true;
+
     // Assign element to local variable
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.toolbar(this.options);
@@ -389,15 +387,15 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
 
     // bind to jquery events and emit as angular events
     this.jQueryElement
-    .on('beforeactivate', ((event: JQueryEventObject) => { this.beforeActivate.emit(event); }))
-    .on('activated', ((event: JQueryEventObject) => { this.activated.emit(event); }))
-    .on('afteractivate', ((event: JQueryEventObject) => { this.afterActivate.emit(event); }))
-    .on('selected', (event: JQueryEventObject, item: HTMLButtonElement | HTMLAnchorElement) => {
+    .on('beforeactivate', ((event: JQuery.Event) => { this.beforeActivate.emit(event); }))
+    .on('activated', ((event: JQuery.Event) => { this.activated.emit(event); }))
+    .on('afteractivate', ((event: JQuery.Event) => { this.afterActivate.emit(event); }))
+    .on('selected', (event: JQuery.Event, item: HTMLButtonElement | HTMLAnchorElement) => {
       this.selected.emit({ event, item });
     });
 
     // Returns original button info on mouseover event
-    this.jQueryElement.find('.more').on('mouseover', 'li.submenu', ((event: JQueryEventObject) => {
+    this.jQueryElement.find('.more').on('mouseover', 'li.submenu', ((event: JQuery.Event) => {
       const originalButton: HTMLButtonElement = jQuery(event.target).data('originalButton');
 
       if (originalButton !== undefined) {

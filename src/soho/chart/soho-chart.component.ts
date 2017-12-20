@@ -41,51 +41,38 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
 
   @Input() set type(type: ChartTypes) {
     this._chartOptions.type = type;
-    if (this.jQueryElement) {
-      this.updated();
-    }
   }
 
   @Input() set axisLabels(axisLabels: AxisLabels) {
     this._chartOptions.axisLabels = axisLabels;
-    if (this.jQueryElement) {
-      this.updated();
-    }
   }
 
   @Input() set showLegend(showLegend: boolean) {
     this._chartOptions.showLegend = showLegend;
-    if (this.jQueryElement) {
-      this.updated();
+  }
+
+  @Input() set hideLabels(hideLabels: boolean) {
+    if (this._chartOptions.labels) {
+      this._chartOptions.labels.hideLabels = !hideLabels;
+    } else {
+      this._chartOptions['labels'] = {hideLabels: !hideLabels};
     }
   }
 
   @Input() set formatterString(formatterString: string) {
     this._chartOptions.formatterString = formatterString;
-    if (this.jQueryElement) {
-      this.updated();
-    }
   }
 
   @Input() set chartLabel(chartLabel: ChartLabel) {
     this._chartOptions.chartLabel = chartLabel;
-    if (this.jQueryElement) {
-      this.updated();
-    }
   }
 
   @Input() set chartredrawOnResizeLabel(redrawOnResize: boolean) {
     this._chartOptions.redrawOnResize = redrawOnResize;
-    if (this.jQueryElement) {
-      this.updated();
-    }
   }
 
   @Input() set chartAnimate(animate: boolean) {
     this._chartOptions.animate = animate;
-    if (this.jQueryElement) {
-      this.updated();
-    }
   }
 
   // ------------------------------------------------------------------------
@@ -122,11 +109,11 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
 
     this.chart = this.jQueryElement.data('chart');
 
-    this.jQueryElement.on('selected', (event: JQueryEventObject, ui: any, data: any) => {
+    this.jQueryElement.on('selected', (event: JQuery.Event, ui: any, data: any) => {
       this.selected.emit({ event, ui, data });
-    }).on('unselected', (event: JQueryEventObject, ui: any, data: any) => {
+    }).on('unselected', (event: JQuery.Event, ui: any, data: any) => {
       this.unselected.emit({ event, ui, data });
-    }).on('rendered', (event: JQueryEventObject, ui: any, data: any) => {
+    }).on('rendered', (event: JQuery.Event, ui: any, data: any) => {
       this.rendered.emit({ event, ui, data });
     }).on('contextmenu', (event, ui, data) => {
       this.contextmenu.emit({ event, ui, data });

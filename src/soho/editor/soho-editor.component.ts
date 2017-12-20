@@ -106,6 +106,10 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    */
   @Input() set anchor(anchor: SohoEditorAnchor) {
     this.options.anchor = anchor;
+    if (this.editor) {
+      this.editor.settings.anchor = anchor;
+      this.editor.updated();
+    }
   }
 
   /**
@@ -120,7 +124,11 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    */
   @Input() set buttons(buttons: SohoEditorButtons) {
     this.options.buttons = buttons;
-    this.jQueryElement.trigger('updated');
+
+    if (this.editor) {
+      this.editor.settings.buttons = buttons;
+      this.editor.updated();
+    }
   }
 
   // -------------------------------------------
@@ -173,8 +181,8 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (e: JQueryEventObject, args: SohoEditorEvent) => this.onChange(args));
-    this.jQueryElement.on('updated', (e: JQueryEventObject, args: SohoEditorEvent) => this.updated.next(args));
+    this.jQueryElement.on('change', (e: JQuery.Event, args: SohoEditorEvent) => this.onChange(args));
+    this.jQueryElement.on('updated', (e: JQuery.Event, args: SohoEditorEvent) => this.updated.next(args));
 
     if (this.internalValue) {
       this.jQueryElement.val(this.internalValue);

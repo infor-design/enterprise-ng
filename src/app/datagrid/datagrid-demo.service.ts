@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 import {
   SohoDataGridService,
@@ -13,10 +14,9 @@ declare var Formatters: any;
 export class DataGridDemoService extends SohoDataGridService {
 
   private columns: Array<SohoDataGridColumn> = Array<SohoDataGridColumn>();
-  private data: Array<any> = Array<any>();
+  public data: Array<any> = Array<any>();
 
   public addColumn(column: SohoDataGridColumn) {
-    console.log('settings');
     this.getColumns().unshift(column);
   }
 
@@ -65,6 +65,31 @@ export class DataGridDemoService extends SohoDataGridService {
         field: 'productId',
         formatter: Formatters.Readonly
       });
+
+    /*
+      It is possible to use the card here but its not the prefered approach.
+
+      this.columns.push({
+        id: 'productDesc',
+        filterType: <any>SohoGridColumnFilterTypes.Text,
+        name: 'Product Desc',
+        sortable: false,
+        field: 'productName',
+        formatter: Formatters.Template,
+        template: '<p class="datagrid-row-heading">{{productId}}</p><p class="datagrid-row-subheading">{{productName}}</p>',
+        click: (e: any, args: any) => { console.log('link was clicked', args); }
+      });
+
+    */
+
+    this.columns.push({
+      id: 'productDesc',
+      filterType: <any>SohoGridColumnFilterTypes.Text,
+      name: 'Product Desc',
+      sortable: false,
+      field: 'productName',
+      formatter: Formatters.Text,
+    });
 
     this.columns.push({
       id: 'productDesc',

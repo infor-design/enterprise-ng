@@ -78,5 +78,13 @@ export class ColorPickerDemoComponent implements OnInit {
   toggleLabel() {
     this.showLabel = !this.showLabel;
     this.colorpicker.showLabel = this.showLabel;
+
+    // Clear the value since we cant easily toggle
+    // the label value on the fly with this setting
+    this.model = {
+      color: '',
+      label: ''
+    };
+
   }
 }

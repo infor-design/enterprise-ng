@@ -52,6 +52,22 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
     }
   }
 
+  /** beforeOpen - ajax callback for open event */
+  @Input() set beforeOpen(beforeOpen: SohoPopupMenuSourceFunction) {
+    this.options.beforeOpen = beforeOpen;
+    if (this.contextMenu) {
+      this.contextMenu.settings.beforeOpen = beforeOpen;
+    }
+  }
+
+  get beforeOpen(): SohoPopupMenuSourceFunction {
+    if (this.contextMenu) {
+      return this.contextMenu.settings.beforeOpen;
+    }
+
+    return this.options.beforeOpen;
+  }
+
   constructor(private element: ElementRef) {}
 
   ngAfterViewInit() {
@@ -61,10 +77,10 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
 
     // Add listeners to emit events
     this.jQueryElement
-      .on('selected',   (e: JQueryEventObject, args: JQuery) => this.selected.next({ e, args }))
-      .on('beforeopen', (e: JQueryEventObject, args: JQuery) => this.beforeopen.emit({ e, args }))
-      .on('close',      (e: JQueryEventObject, args: JQuery) => this.close.emit({ e, args }))
-      .on('open',       (e: JQueryEventObject, args: JQuery) => this.open.emit({ e, args }));
+      .on('selected',   (e: JQuery.Event, args: JQuery) => this.selected.next({ e, args }))
+      .on('beforeopen', (e: JQuery.Event, args: JQuery) => this.beforeopen.emit({ e, args }))
+      .on('close',      (e: JQuery.Event, args: JQuery) => this.close.emit({ e, args }))
+      .on('open',       (e: JQuery.Event, args: JQuery) => this.open.emit({ e, args }));
   }
 
   updated() {

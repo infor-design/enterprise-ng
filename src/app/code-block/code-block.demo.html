@@ -1,0 +1,202 @@
+<div class="row top-padding">
+
+  <div class="twelve columns">
+    <div class="field">
+      <label soho-label >Compound Field Lookup</label>
+      <div lm-code-block>
+
+        <div class="field">
+          <label soho-label for="ledger">Ledger</label>
+          <input soho-lookup soho-field-options name="ledger" id="ledger" value="CORE" size="4"
+            [autoWidth]="true"
+            [(ngModel)]="model.ledger"
+            [columns]="columns"
+            [dataset]="ledgerData"
+            field="column1">
+
+          <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click" [beforeOpen]="onBeforeContextMenuOpen"
+            (selected)="onSelected($event)"></button>
+          <ul class="popupmenu"></ul>
+        </div>
+
+        <div class="field">
+          <label soho-label for="accounting-entity">Accounting Entity</label>
+          <input soho-lookup soho-field-options name="accounting-entity" id="accounting-entity" type="text" value="1001" size="4"
+            [autoWidth]="true"
+            [(ngModel)]="model.accountingEntity"
+            [columns]="columns"
+            [dataset]="accountingData"
+            field="column1"
+            (selected)="onSelected($event)">
+
+          <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click" [beforeOpen]="onBeforeContextMenuOpen"
+            (selected)="onSelected($event)"></button>
+          <ul class="popupmenu"></ul>
+        </div>
+
+        <div class="field">
+          <label soho-label for="accounting-unit">Accounting Unit</label>
+          <input soho-lookup soho-field-options name="accounting-unit" id="accounting-unit" type="text" value="99 CORP" size="6"
+            [autoWidth]="true"
+            [(ngModel)]="model.accountingUnit"
+            [columns]="columns"
+            [dataset]="accountingData"
+            field="column1"
+            (selected)="onSelected($event)">
+
+          <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click" [beforeOpen]="onBeforeContextMenuOpen"
+            (selected)="onSelected($event)"></button>
+          <ul class="popupmenu"></ul>
+        </div>
+
+        <div class="field">
+          <label soho-label for="cost-center">Cost Center</label>
+          <input soho-lookup soho-field-options name="cost-center" id="cost-center" type="text" value="102" size="3"
+            [autoWidth]="true"
+            [(ngModel)]="model.costCenter"
+            [columns]="columns"
+            [dataset]="costCenterData"
+            field="column1"
+            (selected)="onSelected($event)">
+
+          <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click" [beforeOpen]="onBeforeContextMenuOpen"
+            (selected)="onSelected($event)"></button>
+          <ul class="popupmenu"></ul>
+        </div>
+
+        <div class="field">
+            <label soho-label for="department">Department</label>
+            <input soho-lookup soho-field-options name="department" id="department" type="text" value="102" size="3"
+              [autoWidth]="true"
+              [(ngModel)]="model.department"
+              [columns]="columns"
+              [dataset]="departmentData"
+              field="column1"
+              (selected)="onSelected($event)">
+
+            <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click" [beforeOpen]="onBeforeContextMenuOpen"
+              (selected)="onSelected($event)"></button>
+            <ul class="popupmenu"></ul>
+          </div>
+
+      </div>
+    </div>
+
+    <div class="field">
+      <label soho-label >Compound Field Additional types</label>
+      <div lm-code-block>
+
+        <div class="field">
+          <label soho-label for="ledger2">Ledger</label>
+          <input soho-lookup soho-field-options name="ledger" id="ledger2" value="CORE" size="4" readOnly
+            [autoWidth]="true"
+            [(ngModel)]="model.ledger"
+            [columns]="columns"
+            [dataset]="ledgerData"
+            field="column1">
+
+          <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click" [beforeOpen]="onBeforeContextMenuOpen"
+            (selected)="onSelected($event)"></button>
+          <ul class="popupmenu"></ul>
+        </div>
+
+        <div class="field is-fieldoptions">
+          <label soho-label for="AlphaField">AlphaField</label>
+          <span class="lookup-wrapper">
+            <input id="AlphaField" name="AlphaField"
+              soho-field-options
+              [(ngModel)]="model.AlphaField" value="ABC" size="4">
+
+            <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click" [beforeOpen]="onBeforeContextMenuOpen"
+              (selected)="onSelected($event)"></button>
+            <ul class="popupmenu"></ul>
+          </span>
+        </div>
+
+        <div class="field">
+          <label soho-label for="DateField">Date Field</label>
+          <input id="DateField" name="DateField"
+            [(ngModel)]="model.DateField" value="12/01/2017" size="10"
+            soho-field-options
+            soho-datepicker dateFormat="MM/dd/yyyy" mode="standard"
+          >
+
+          <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click" [beforeOpen]="onBeforeContextMenuOpen"
+            (selected)="onSelected($event)"></button>
+          <ul class="popupmenu"></ul>
+        </div>
+
+        <div class="field">
+          <label soho-label for="DropdownField">Dropdown Field</label>
+          <select class="dropdown" id="DropdownField" name="DropdownField"
+            [(ngModel)]="model.DropdownField"
+            soho-dropdown  soho-field-options
+          >
+            <option *ngFor="let option of ['Option #1', 'Option #2', 'Option #3']" [value]="option">{{option}}</option>
+          </select>
+
+          <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click" [beforeOpen]="onBeforeContextMenuOpen"
+            (selected)="onSelected($event)"></button>
+          <ul class="popupmenu"></ul>
+        </div>
+
+        <div class="field">
+
+          <input soho-checkbox soho-field-options type="checkbox" [attr.id]="id1" name="checkbox1" [(ngModel)]="model.CheckBoxField">
+          <label soho-label [attr.for]="id1" [forCheckBox]="true">Unchecked</label>
+
+          <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click" [beforeOpen]="onBeforeContextMenuOpen"
+            (selected)="onSelected($event)"></button>
+          <ul class="popupmenu"></ul>
+        </div>
+
+        <div class="field">
+          <label soho-label for="PercentField" >Percent Field</label>
+          <input id="PercentField" name="PercentField" alignRight="true" [(ngModel)]="model.PercentField" value="123 %"
+            soho-field-options soho-input
+            soho-mask [process]="'number'" [allowThousandsSeparator]="true" [allowDecimal]="true" [integerLimit]="3"
+            [decimalLimit]="0" [symbols]="symbols" [suffix]="'%'"
+          >
+
+          <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click" [beforeOpen]="onBeforeContextMenuOpen"
+            (selected)="onSelected($event)"></button>
+          <ul class="popupmenu"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label soho-label >Compound Field Readonly</label>
+      <div lm-code-block [readonly]="true">
+
+          <div class="field">
+            <label soho-label for="ledger">Ledger</label>
+            <span class="data">CORE</span>
+          </div>
+
+          <div class="field">
+            <label soho-label for="accounting-entity">Accounting Entity</label>
+            <span class="data">1001</span>
+          </div>
+
+          <div class="field">
+            <label soho-label for="accounting-unit">Accounting Unit</label>
+            <span class="data">99 CORP</span>
+          </div>
+
+          <div class="field">
+            <label soho-label for="cost-center">Cost Center</label>
+            <span class="data">102</span>
+          </div>
+
+          <div class="field">
+            <label soho-label for="department">Department</label>
+            <span class="data">102</span>
+          </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -188,7 +188,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   private stepprocess: SohoStepProcessStatic;
 
   // The internal stepsOptions object used to construct the stepproces control
-  private stepProcessOptions: SohoStepProcessOptions = <SohoStepProcessOptions> {};
+  private stepProcessOptions: SohoStepProcessOptions = {};
 
   // beforeStepSelect callback that is adapted to an Angular EventEmittier
   private beforeSelectStepDeferred: JQueryDeferred<boolean> = $.Deferred();
@@ -211,10 +211,10 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
       // not sure what it would mean to have a multiple observers potentially
       // calling the response function.
       if (this.beforeSelectStep.observers.length !== 1) {
-        console.log('stepprocess: only 1 observer is allowed for the beforeSelectStep event emitter');
+        console.warn('stepprocess: only 1 observer is allowed for the beforeSelectStep event emitter');
       }
 
-      const beforeSelectStepEvent: BeforeSelectStepEvent = <any> {};
+      const beforeSelectStepEvent: BeforeSelectStepEvent = {} as any;
 
       // ------------------------------------------------------------------------------
       // The first beforeSelectStep is called before the this.stepprocess can be set.
@@ -239,7 +239,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   private beforeSelectStepResponse = (response: BeforeSelectStepResult) => {
     if (response.overrideTargetStepId) {
       const stepLinkToSelect = $('.js-step-link[href="#' + response.overrideTargetStepId + '"]');
-      this.beforeSelectStepDeferred.resolve(response.continue, stepLinkToSelect);
+      this.beforeSelectStepDeferred.resolve(response.continue, stepLinkToSelect as any);
     } else {
       this.beforeSelectStepDeferred.resolve(response.continue);
     }

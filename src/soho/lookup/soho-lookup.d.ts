@@ -49,6 +49,9 @@ interface SohoLookupOptions {
 
   /** A function that fires to let you validate form items on open and select. */
   validator?: SohoLookupValidatorFunction;
+
+  /** Set the width of the input to the width of the selection */
+  autoWidth?: boolean;
 }
 
 /** Selection criteria. */
@@ -67,7 +70,7 @@ type SohoDataGridMatchFunction = (
 ) => boolean;
 
 type SohoLookupClickFunction = (
-  e: JQueryEventObject,
+  e: JQuery.Event,
   lookup: SohoLookupStatic
 ) => void;
 

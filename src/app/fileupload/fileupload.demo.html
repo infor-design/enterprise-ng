@@ -5,22 +5,22 @@
         <div class="twelve columns">
 
           <div class="field">
-            <label [for]="name1">{{text}}</label>
+            <label [for]="name1">Normal Input</label>
             <soho-fileupload [id]="name1" [name]="name1"></soho-fileupload>
           </div>
 
           <div class="field">
-            <label [for]="name4">{{text}}</label>
+            <label [for]="name4">Limit File Types</label>
             <soho-fileupload [name]="name4" [accept]="fileLimits"></soho-fileupload>
           </div>
 
           <div class="field">
-            <label [for]="name2">{{text}}</label>
+            <label [for]="name2">Disabled</label>
             <soho-fileupload [name]="name2" [disabled]="true"></soho-fileupload>
           </div>
 
           <div class="field">
-            <label [for]="name3">{{text}}</label>
+            <label [for]="name3">Readonly</label>
             <soho-fileupload [name]="name3" [readonly]="true"></soho-fileupload>
           </div>
 

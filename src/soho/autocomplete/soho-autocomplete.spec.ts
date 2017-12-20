@@ -31,6 +31,29 @@ describe('Soho AutoComplete Unit Tests', () => {
   });
 });
 
+@Component({
+  template: `<input soho-autocomplete [source]="source">`
+})
+class SohoAutoCompleteTestComponent {
+  @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
+
+  public source = (term: string, response: any) => {
+    const states = [
+      'Alaska',
+      'Arizona',
+      'California',
+      'Colorado',
+      'Minnesota',
+      'North Dakota',
+      'Oregon',
+      'Washington',
+      'Wyoming'
+    ];
+
+    response(term, states);
+  }
+}
+
 describe('Soho Autocomplete Render', () => {
   let autocomplete:  SohoAutoCompleteComponent;
   let component: SohoAutoCompleteTestComponent;
@@ -60,26 +83,3 @@ describe('Soho Autocomplete Render', () => {
   });
 
 });
-
-@Component({
-  template: `<input soho-autocomplete [source]="source">`
-})
-class SohoAutoCompleteTestComponent {
-  @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
-
-  public source = (term: string, response: any) => {
-    const states = [
-      'Alaska',
-      'Arizona',
-      'California',
-      'Colorado',
-      'Minnesota',
-      'North Dakota',
-      'Oregon',
-      'Washington',
-      'Wyoming'
-    ];
-
-    response(term, states);
-  }
-}

@@ -88,7 +88,7 @@ interface SohoTabsStatic {
   destroy(): void;
 }
 
-interface SohoTabsEvent extends JQueryEventObject {
+interface SohoTabsEvent extends JQuery.Event {
   tab: any;
 }
 
@@ -101,4 +101,6 @@ interface JQueryStatic {
 
 interface JQuery {
   tabs(options?: SohoTabsOptions): JQuery;
+  on(events: string,
+    handler: JQuery.EventHandlerBase<any, SohoTabsEvent>): this;
 }

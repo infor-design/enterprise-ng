@@ -177,6 +177,23 @@ export const STATUS_LOOKUP_OPTIONS = {
 
 export const EDITORS_COLUMNS: any[] = [
   {
+    id: 'selectionCheckbox',
+    sortable: false,
+    resizable: false,
+    formatter: Formatters.SelectionCheckbox,
+    align: 'center'
+  },
+
+  {
+    id: 'rowStatus',
+    sortable: false,
+    resizable: false,
+    formatter: Formatters.Status,
+    width: 10,
+    align: 'center'
+  },
+
+  {
     id: 'productId',
     name: 'Product Id',
     field: 'productId',
@@ -240,12 +257,47 @@ export class DataGridEditorsDemoComponent implements AfterViewInit {
     this.sohoDataGridComponent.gridOptions = {
       columns: EDITORS_COLUMNS,
       dataset: EDITORS_DATA,
-      selectable: 'single',
+      clickToSelect: false,
+      selectable: 'multiple',
       idProperty: 'productId',
       editable: true,
       rowHeight: 'short',
       filterable: true,
+      showDirty: true,
     };
+  }
+
+  showErrors() {
+    // show error on dirty rows
+    // would be done when make a call to the back end and a row has
+    // an error, want to use rowStatus to show the row in error
+    // but this clears the dirtyRows
+    let dirtyRows: Array<any> = this.sohoDataGridComponent.dirtyRows();
+    alert('dirtyRows().length = ' + dirtyRows.length);
+    for (let i = 0, l = dirtyRows.length; i < l; i++) {
+      var dirtyRow = dirtyRows[i];
+      if (dirtyRow.rowStatus.icon === 'dirty') {
+        this.sohoDataGridComponent.rowStatus(dirtyRow.id, 'dirtyerror', 'Testing');
+      } else {
+        this.sohoDataGridComponent.rowStatus(dirtyRow.id, 'error', 'Testing');
+      }
+    }
+    dirtyRows = this.sohoDataGridComponent.dirtyRows();
+    alert('dirtyRows().length = ' + dirtyRows.length);
+  }
+
+  clearStatus() {
+    let dirtyRows: Array<any> = this.sohoDataGridComponent.dirtyRows();
+    let allRows: Array<any> = this.sohoDataGridComponent.dataset;
+    alert('dirtyRows().length = ' + dirtyRows.length);
+    for (let i = 0, l = allRows.length; i < l; i++) {
+      var row = allRows[i];
+      if (row.rowStatus && row.rowStatus.icon === 'dirtyerror') {
+        this.sohoDataGridComponent.rowStatus(row.id, 'dirty', '');
+      } else {
+        this.sohoDataGridComponent.rowStatus(row.id, '', '');
+      }
+    }
   }
 
   export (e: any) {

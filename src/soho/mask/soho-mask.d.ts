@@ -36,7 +36,7 @@ type SohoMaskShowSymbol = false | 'currency' | 'percent';
 interface SohoMaskDefinitions { [key: string]: RegExp; }
 
 /** */
-interface SohoMaskEvent extends JQueryEventObject {
+interface SohoMaskEvent extends JQuery.Event {
 }
 
 interface SohoMaskPatternOptions {

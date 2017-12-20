@@ -71,6 +71,7 @@ export class LookupDemoComponent {
   constructor() {
     this.setupProducts();
   }
+
   requestData(filter?: string, page?: number, pagesize?: number): Promise<FakeResponse> {
     // This acts as a fake response from the server, therefore all computations
     // would be done server-side
@@ -100,6 +101,7 @@ export class LookupDemoComponent {
       }, 1000);
     });
   }
+
   setupProducts() {
     this.columns_product = [];
     this.columns_multi = [];
@@ -120,9 +122,11 @@ export class LookupDemoComponent {
     });
 
   }
+
   toggleModel() {
     this.showModel = !this.showModel;
   }
+
   /**
    * If source is used for a datagrid, then the datagrid is expected to be paged.
    * This means we need to pass an options of 'paged: true' to the datagrid, this
@@ -135,6 +139,34 @@ export class LookupDemoComponent {
       req.total = result.total;
       response(result.data, req);
     });
+  }
+
+  // Example of calling before show to cancel the opening by returning false
+  onBeforeShow = (api, response) => {
+    console.log(this);
+    // 1. Do something like an ajax call.
+
+    // 2. if no rows and you dont want to open
+    return false; // and we will never open
+
+    // 3. If there was rows (in this example we dont show this)
+    // 4. Set the dynamic columns and _dataset
+    // api.settings.options.columns = data[0].columns;
+    // api.settings.options.dataset = data[0].dataset;
+    // 5. And the response which will open the dialog
+    // response();
+  }
+
+  // Example of custom displaying
+  onField = (row, field, grid) => {
+    console.log(row, field, grid, this);
+    return row.productId + '|' + row.productName;
+  }
+
+  // Example of custom matching
+  onMatch(value, row, field, grid) {
+    console.log(row, field, grid);
+    return ((row.productId + '|' + row.productName) === value);
   }
 
   onDirty(event: SohoTrackDirtyEvent) {

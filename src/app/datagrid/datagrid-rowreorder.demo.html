@@ -1,0 +1,14 @@
+
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Data Grid - Row Reorder</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="twelve columns demo" role="main">
+    <section soho-busyindicator class="scrollable contained-scrolling-right-bottom" style="height: 100%">
+      <div soho-datagrid selectable="true" filterable="true" rowReorder="true" (rowClicked)="onRowClicked($event)" (rowReordered)="onRowReordered($event)"></div>
+    </section>
+  </div>
+</div>

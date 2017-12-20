@@ -68,6 +68,7 @@ export class SohoPopupMenuItemComponent {
   @HostBinding('class.is-checked') @Input() isChecked: boolean;
   @HostBinding('class.is-selectable') @Input() isSelectable = false;
   @HostBinding('class.is-disabled') @Input() isDisabled = false;
+  @HostBinding('class.submenu') @Input() subMenu = false;
 }
 
 /**
@@ -175,14 +176,14 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
   }
 
   /** beforeOpen - ajax callback for open event */
-  @Input() set beforeOpen(beforeOpen: any) {
+  @Input() set beforeOpen(beforeOpen: SohoPopupMenuSourceFunction) {
     this._popupMenuOptions.beforeOpen = beforeOpen;
     if (this.popupmenu) {
       this.popupmenu.settings.beforeOpen = beforeOpen;
     }
   }
 
-  get beforeOpen(): any {
+  get beforeOpen(): SohoPopupMenuSourceFunction {
     if (this.popupmenu) {
       return this.popupmenu.settings.beforeOpen;
     }
@@ -320,12 +321,12 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
 
     // Initialise any event handlers.
     this.jQueryElement
-    .on('selected',            (e: JQueryEventObject, args: JQuery) => this.selected.next({ e, args }))
-    .on('popupmenuafterplace', (e: JQueryEventObject, args: JQuery) => this.popupmenuafterplace.next({ e, args }))
-    .on('beforeopen',          (e: JQueryEventObject, args: JQuery) => this.beforeopen.next({ e, args }))
-    .on('open',                (e: JQueryEventObject, args: JQuery) => this.open.next({ e, args }))
-    .on('afteropen',           (e: JQueryEventObject, args: JQuery) => this.afteropen.next({ e, args }))
-    .on('close',               (e: JQueryEventObject, args: JQuery) => this.closeEvent.next({ e, args }));
+    .on('selected',            (e: JQuery.Event, args: JQuery) => this.selected.next({ e, args }))
+    .on('popupmenuafterplace', (e: JQuery.Event, args: JQuery) => this.popupmenuafterplace.next({ e, args }))
+    .on('beforeopen',          (e: JQuery.Event, args: JQuery) => this.beforeopen.next({ e, args }))
+    .on('open',                (e: JQuery.Event, args: JQuery) => this.open.next({ e, args }))
+    .on('afteropen',           (e: JQuery.Event, args: JQuery) => this.afteropen.next({ e, args }))
+    .on('close',               (e: JQuery.Event, args: JQuery) => this.closeEvent.next({ e, args }));
   }
 
   /**

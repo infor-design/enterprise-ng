@@ -5,6 +5,10 @@
  * interface of the Soho dropdown control.
  */
 
+ type SohoDropDownMoveSelectedOptions = 'group' | 'all' | 'none';
+
+ type SohoDropDownFilterModeOptions = false | 'startsWith' | 'contains';
+
 /**
  * Drop Down Options
  */
@@ -20,14 +24,31 @@ interface SohoDropDownOptions {
   cssClass?: string;
 
   /**
+   * Search mode to use between 'startsWith' and 'contains', false will not allow client side filter
+   */
+  filterMode?: SohoDropDownFilterModeOptions;
+
+  /**
+   * If true, displays <optgroup> headers in the list even if no selectable options are present underneath.
+   */
+  showEmptyGroupHeaders?: boolean;
+
+  /**
    * If in multiple mode, this setting sets a limit on the number of items that can be selected.
    */
   maxSelected?: number;
 
   /**
    * When the menu is opened, displays all selected options at the top of the list
+   *
+   * @deprecated - please use 'moveSelected'.
    */
   moveSelectedToTop?: boolean;
+
+  /**
+   * Controls where selected items are displayed.
+   */
+  moveSelected?: SohoDropDownMoveSelectedOptions;
 
   /**
    * If true, turns the dropdown into a multiple selection box; otherwise
@@ -48,6 +69,18 @@ interface SohoDropDownOptions {
   source?: SohoDropDownSourceFunction | Object | string;
 
   /**
+   * If a source method is defined, this flexible object can be passed into
+   * the source method, and augmented with parameters specific to the implementation.
+   */
+  sourceArguments?: any;
+
+  /**
+   * If set to true, will always perform an ajax call whenever the list is opened.  If false,
+   * the first AJAX call's results are cached.
+   */
+  reloadSourceOnOpen?: boolean;
+
+  /**
    * Allow an empty value to be selected, representing no selection.
    */
   empty?: boolean;
@@ -56,6 +89,12 @@ interface SohoDropDownOptions {
    * Typing Buffer Delay
    */
   delay?: number;
+
+  /**
+   * If set the width of the dropdown is limited to this pixel width.
+   * Fx 300 for the 300 px size fields. Default is size of the largest data.
+   */
+  maxWidth?: number;
 
 }
 
@@ -77,7 +116,7 @@ type SohoDropDownResponseFunction = (
 /**
  * Type safe dropdown event object.
  */
-interface SohoDropDownEvent extends JQueryEventObject {
+interface SohoDropDownEvent extends JQuery.Event {
 }
 
 /**

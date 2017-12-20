@@ -34,15 +34,19 @@ export class DataGridCustomFormatterServiceDemoComponent implements AfterViewIni
     /**
      * Add a column for the custom formatter
      */
-    PAGING_COLUMNS.push({
+    const columns: SohoDataGridColumn[] = [];
+
+    PAGING_COLUMNS.forEach(element => columns.push(element));
+
+    columns.push({
       id: 'custom-formatter',
       name: 'Custom Formatter',
       field: '',
       formatter: this.RandomIntegerFormatter
     });
 
-    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
-      columns: PAGING_COLUMNS,
+    const gridOptions: SohoDataGridOptions = {
+      columns: columns,
       dataset: PAGING_DATA,
       selectable: 'single',
       paging: true,

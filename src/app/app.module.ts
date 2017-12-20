@@ -18,6 +18,7 @@ import { SohoComponentsModule } from '../soho/soho-components.module';
 
 import { AboutDemoComponent } from './about/about.demo';
 import { AccordionDemoComponent } from './accordion/accordion.demo';
+import { AccordionPanelsDemoComponent } from './accordion/accordion-panels.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
@@ -25,25 +26,56 @@ import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/applica
 import { ApplicationMenuLazyService } from './application-menu/application-menu-lazy-service.demo';
 import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
+import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo';
 import { ButtonDemoComponent } from './button/button.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
+import { CodeBlockComponent } from './code-block/code-block.component';
+import { CodeBlockDemoComponent } from './code-block/code-block.demo';
 import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoModule } from './contextual-action-panel/contextual-action-panel.demo.module';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
-import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
+import {
+  DataGridAngularEditorDemoComponent,
+  DemoCellInputEditorComponent,
+  DemoCellDatePickerEditorComponent
+} from './datagrid/datagrid-angular-editor.demo';
+import {
+  DataGridAngularFormatterDemoComponent,
+  PriceCellFormatterComponent,
+  ButtonCellFormatterComponent
+} from './datagrid/datagrid-angular-formatter.demo';
+import {
+  DataGridAngularCardFormatterDemoComponent,
+  CardFormatterComponent
+} from './datagrid/datagrid-angular-card-formatter.demo';
+import { DataGridCardDemoComponent } from './datagrid/datagrid-card.demo';
+import {
+  DataGridCodeBlockFormatterDemoComponent
+} from './datagrid/datagrid-code-block-formatter.demo';
+import {
+  DataGridCodeBlockEditorDemoComponent,
+  CodeBlockEditorComponent
+} from './datagrid/datagrid-code-block-editor.demo';
+import {
+  DataGridCustomFormatterDemoComponent,
+  DemoCellFormatterComponent,
+  DemoCellIntegerFormatterComponent
+} from './datagrid/datagrid-custom-formatter.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
+import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
 import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-header.demo';
 import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-selection.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
+import { DataGridRowReorderDemoComponent } from './datagrid/datagrid-rowreorder.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
@@ -57,9 +89,11 @@ import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
+import { EmptyMessageDemoComponent } from './emptymessage/emptymessage.demo';
 import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
+import { FieldOptionsDemoComponent } from './field-options/field-options.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
@@ -140,29 +174,44 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     AppComponent,
     AboutDemoComponent,
     AccordionDemoComponent,
+    AccordionPanelsDemoComponent,
     AlertDemoComponent,
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,
     ApplicationMenuLazyMenuDemoComponent,
     AutocompleteDemoComponent,
     BusyIndicatorDemoComponent,
+    BusyIndicatorDemoBodyComponent,
     ButtonDemoComponent,
+    CardFormatterComponent,
     ChartDemoComponent,
     CheckBoxDemoComponent,
     ColorPickerDemoComponent,
+    CodeBlockComponent,
+    CodeBlockDemoComponent,
+    CodeBlockEditorComponent,
     CompletionChartDemoComponent,
     ContextMenuDemoComponent,
     DataGridBreadcrumbDemoComponent,
+    DataGridCardDemoComponent,
     DataGridContentDemoComponent,
+    DataGridAngularEditorDemoComponent,
+    DataGridAngularFormatterDemoComponent,
+    DataGridAngularCardFormatterDemoComponent,
+    DataGridCodeBlockFormatterDemoComponent,
+    DataGridCodeBlockEditorDemoComponent,
     DataGridCustomFormatterDemoComponent,
     DataGridCustomFormatterServiceDemoComponent,
+    DemoCellDatePickerEditorComponent,
     DataGridDynamicDemoComponent,
     DataGridEditorsDemoComponent,
+    DataGridEmptyMessageDemoComponent,
     DataGridFixedHeaderDemoComponent,
     DataGridGroupedHeaderDemoComponent,
     DataGridMixedSelectionDemoComponent,
     DataGridPagingIndeterminateDemoComponent,
     DataGridPagingServiceDemoComponent,
+    DataGridRowReorderDemoComponent,
     DataGridServiceDemoComponent,
     DataGridSettingsDemoComponent,
     DataGridStandardFormatterDemoComponent,
@@ -170,6 +219,11 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     DataGridTreeGridDemoComponent,
     DataGridGroupableDemoComponent,
     DatepickerDemoComponent,
+    DemoCellInputEditorComponent,
+    DemoCellFormatterComponent,
+    DemoCellIntegerFormatterComponent,
+    PriceCellFormatterComponent,
+    ButtonCellFormatterComponent,
     DropdownAsyncBusyDemoComponent,
     DropdownAsyncDemoComponent,
     DropdownDemoComponent,
@@ -177,9 +231,11 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     DropdownMultiselectDemoComponent,
     DropdownSimpleDemoComponent,
     EditorDemoComponent,
+    EmptyMessageDemoComponent,
     ErrorDemoComponent,
     ExpandableAreaDemoComponent,
     ExpandableAreaFooterDemoComponent,
+    FieldOptionsDemoComponent,
     FileUploadAdvancedDemoComponent,
     FileUploadDemoComponent,
     HeaderTabsDemoComponent,
@@ -271,7 +327,14 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ApplicationMenuLazyService
   ],
   entryComponents: [
-
+    DemoCellDatePickerEditorComponent,
+    DemoCellInputEditorComponent,
+    DemoCellFormatterComponent,
+    DemoCellIntegerFormatterComponent,
+    ButtonCellFormatterComponent,
+    PriceCellFormatterComponent,
+    CodeBlockEditorComponent,
+    CardFormatterComponent
   ],
   bootstrap: [AppComponent]
 })

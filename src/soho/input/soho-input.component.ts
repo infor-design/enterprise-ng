@@ -19,7 +19,7 @@ import {
   template:  '<ng-content></ng-content>',
   providers: [ provideControlValueAccessor(SohoInputComponent) ]
 })
-export class SohoInputComponent extends BaseControlValueAccessor<any> implements AfterViewInit, OnDestroy {
+export class SohoInputComponent extends BaseControlValueAccessor<string> implements AfterViewInit, OnDestroy {
 
   /**
    * Available Soho Template events as Output (EventEmitters passing the event)
@@ -46,7 +46,7 @@ export class SohoInputComponent extends BaseControlValueAccessor<any> implements
   onKeyUp(event: KeyboardEvent, val) {
     // This is required if masking is used, otherwise the
     // the form binding does not see updates.
-    this.internalValue = this.jQueryElement.val();
+    this.internalValue = this.jQueryElement.val() as string;
   }
 
   ngAfterViewInit() {
@@ -71,16 +71,15 @@ export class SohoInputComponent extends BaseControlValueAccessor<any> implements
   /**
    * Handle the control being changed.
    */
-  onChange(event: any) {
-    // console.log(`onChange: ${event} - "${this.jQueryElement.val()}"`)
+  onChange(event: any[]) {
     if (!event) {
       // sometimes the event is not available
-      this.internalValue = this.jQueryElement.val();
+      this.internalValue = this.jQueryElement.val() as string;
       super.writeValue(this.internalValue);
       return;
     }
 
-    this.change.emit(this.internalValue);
+    this.change.emit(event);
   }
 
   /**
@@ -97,5 +96,17 @@ export class SohoInputComponent extends BaseControlValueAccessor<any> implements
       // in the control.
       this.jQueryElement.val(value);
     }
+  }
+
+  getValue(): string {
+    return this.internalValue;
+  }
+
+  setValue(value: string) {
+    this.writeValue(value);
+  }
+
+  focus() {
+    this.element.nativeElement.focus();
   }
 }

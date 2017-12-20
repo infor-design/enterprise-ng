@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Default</h2>
+    <soho-accordion
+      [allowOnePane]="true"
+      [hasPanels]="true"
+      (beforeexpand)="onBeforeExpand($event)"
+      (beforecollapse)="onBeforeCollapse($event)"
+      (beforeselect)="onBeforeSelect($event)"
+      (afterexpand)="onAfterExpand($event)"
+      (selected)="onSelected($event)"
+      (followlink)="onFollowlink($event)"
+      (expand)="onExpand($event)"
+      (collapse)="onCollapse($event)"
+      (aftercollapse)="onAfterCollapse($event)"
+    >
+      <ng-container *ngTemplateOutlet="AccordionContent"></ng-container>
+    </soho-accordion>
+  </div>
+</div>
+
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Alternate</h2>
+    <soho-accordion
+      [allowOnePane]="true"
+      [hasPanels]="true"
+      [alternate]="true"
+      (beforeexpand)="onBeforeExpand($event)"
+      (beforecollapse)="onBeforeCollapse($event)"
+      (beforeselect)="onBeforeSelect($event)"
+      (afterexpand)="onAfterExpand($event)"
+      (selected)="onSelected($event)"
+      (followlink)="onFollowlink($event)"
+      (expand)="onExpand($event)"
+      (collapse)="onCollapse($event)"
+      (aftercollapse)="onAfterCollapse($event)"
+    >
+      <ng-container *ngTemplateOutlet="AccordionContent"></ng-container>
+    </soho-accordion>
+  </div>
+</div>
+
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Inverse</h2>
+    <soho-accordion
+      [allowOnePane]="true"
+      [hasPanels]="true"
+      [inverse]="true"
+      (beforeexpand)="onBeforeExpand($event)"
+      (beforecollapse)="onBeforeCollapse($event)"
+      (beforeselect)="onBeforeSelect($event)"
+      (afterexpand)="onAfterExpand($event)"
+      (selected)="onSelected($event)"
+      (followlink)="onFollowlink($event)"
+      (expand)="onExpand($event)"
+      (collapse)="onCollapse($event)"
+      (aftercollapse)="onAfterCollapse($event)"
+    >
+      <ng-container *ngTemplateOutlet="AccordionContent"></ng-container>
+    </soho-accordion>
+  </div>
+</div>
+
+<ng-template #AccordionContent>
+  <soho-accordion-header>Warehouse Location A</soho-accordion-header>
+  <soho-accordion-pane>
+    <soho-accordion-header>Item 1</soho-accordion-header>
+    <soho-accordion-header>Item 2</soho-accordion-header>
+  </soho-accordion-pane>
+  <soho-accordion-header>Warehouse Location B</soho-accordion-header>
+  <soho-accordion-pane>
+    <soho-accordion-header>Item 1</soho-accordion-header>
+    <soho-accordion-header>Item 2</soho-accordion-header>
+  </soho-accordion-pane>
+</ng-template>

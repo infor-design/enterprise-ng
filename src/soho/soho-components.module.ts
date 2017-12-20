@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { SohoAboutModule } from './about/soho-about.module';
 import { SohoAccordionModule } from './accordion/soho-accordion.module';
+import { SohoAlertModule } from './alert/soho-alert.module';
 import { SohoApplicationMenuModule } from './application-menu/soho-application-menu.module';
 import { SohoAutoCompleteModule } from './autocomplete/soho-autocomplete.module';
 import { SohoBusyIndicatorModule } from './busyindicator/soho-busyindicator.module';
@@ -14,8 +15,10 @@ import { SohoDataGridModule } from './datagrid/soho-datagrid.module';
 import { SohoDatePickerModule } from './datepicker/soho-datepicker.module';
 import { SohoDropDownModule } from './dropdown/soho-dropdown.module';
 import { SohoEditorModule } from './editor/soho-editor.module';
+import { SohoEmptyMessageModule} from './emptymessage/soho-emptymessage.module';
 import { SohoErrorModule } from './error/soho-error.module';
 import { SohoExpandableAreaModule } from './expandablearea/soho-expandablearea.module';
+import { SohoFieldOptionsModule } from './field-options/soho-field-options.module';
 import { SohoFileUploadAdvancedModule } from './fileupload-advanced/soho-fileupload-advanced.module';
 import { SohoFileUploadModule } from './fileupload/soho-fileupload.module';
 import { SohoHeaderModule } from './header/soho-header.module';
@@ -58,6 +61,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
   imports: [
     SohoAboutModule,
     SohoAccordionModule,
+    SohoAlertModule,
     SohoApplicationMenuModule,
     SohoAutoCompleteModule,
     SohoBusyIndicatorModule,
@@ -71,8 +75,10 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoDatePickerModule,
     SohoDropDownModule,
     SohoEditorModule,
+    SohoEmptyMessageModule,
     SohoErrorModule,
     SohoExpandableAreaModule,
+    SohoFieldOptionsModule,
     SohoFileUploadAdvancedModule,
     SohoFileUploadModule,
     SohoHeaderModule,
@@ -116,6 +122,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
   exports: [
     SohoAboutModule,
     SohoAccordionModule,
+    SohoAlertModule,
     SohoApplicationMenuModule,
     SohoAutoCompleteModule,
     SohoBusyIndicatorModule,
@@ -129,8 +136,10 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoDatePickerModule,
     SohoDropDownModule,
     SohoEditorModule,
+    SohoEmptyMessageModule,
     SohoErrorModule,
     SohoExpandableAreaModule,
+    SohoFieldOptionsModule,
     SohoFileUploadAdvancedModule,
     SohoFileUploadModule,
     SohoHeaderModule,

@@ -70,6 +70,9 @@ interface SohoPagerPagingInfo {
 
   /** Preserve the selected page (passed from pager to grid) */
   preserveSelected?: boolean;
+
+  /** Causes the pager to become completely hidden if both firstPage and lastPage are true */
+  hideDisabledPagers?: boolean;
 }
 
 interface SohoPagerStatic {
