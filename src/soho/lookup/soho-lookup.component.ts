@@ -55,6 +55,10 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     this._options.field = value;
   }
 
+  @Input() set match(match: SohoDataGridMatchFunction) {
+    this._options.match = match;
+  }
+
   // Make sure you bind the context to the function
   @Input() set click(value: SohoLookupClickFunction) {
     this._options.click = value;
@@ -201,7 +205,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       return;
     }
     let val = '';
-    let toProcess: Object[] = <Object[]>value;
+    let toProcess: Object[] = value as Object[];
     if (!Array.isArray(toProcess)) {
       toProcess = [toProcess];
     }
@@ -212,12 +216,12 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
       if (typeof toProcess[i] === 'object') {
         if (typeof this._options.field === 'function') {
-          current = (<SohoLookupFieldFunction>this._options.field)(toProcess[i], this.lookup.element, this.lookup.grid);
+          current = (this._options.field as SohoLookupFieldFunction)(toProcess[i], this.lookup.element, this.lookup.grid);
         } else {
-          current = (<any>toProcess[i])[<string>this._options.field];
+          current = (toProcess[i] as any)[this._options.field as string];
         }
       } else {
-        current = <string>toProcess[i];
+        current = toProcess[i] as string;
       }
 
       val += (i !== 0 ? ',' : '') + current;

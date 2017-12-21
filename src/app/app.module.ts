@@ -18,6 +18,7 @@ import { SohoComponentsModule } from '../soho/soho-components.module';
 
 import { AboutDemoComponent } from './about/about.demo';
 import { AccordionDemoComponent } from './accordion/accordion.demo';
+import { AccordionPanelsDemoComponent } from './accordion/accordion-panels.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
@@ -88,6 +89,7 @@ import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
+import { EmptyMessageDemoComponent } from './emptymessage/emptymessage.demo';
 import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
@@ -172,6 +174,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     AppComponent,
     AboutDemoComponent,
     AccordionDemoComponent,
+    AccordionPanelsDemoComponent,
     AlertDemoComponent,
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,
@@ -228,6 +231,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     DropdownMultiselectDemoComponent,
     DropdownSimpleDemoComponent,
     EditorDemoComponent,
+    EmptyMessageDemoComponent,
     ErrorDemoComponent,
     ExpandableAreaDemoComponent,
     ExpandableAreaFooterDemoComponent,

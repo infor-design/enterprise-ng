@@ -24,7 +24,7 @@ export class DataGridRowReorderDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) datagrid: SohoDataGridComponent;
 
   constructor(gridService: SohoDataGridService) {
-    (<DataGridDemoService> gridService).addColumn({
+    (gridService as DataGridDemoService).addColumn({
       id: 'rowReorder',
       name: '',
       field: 'id',
@@ -39,8 +39,7 @@ export class DataGridRowReorderDemoComponent implements AfterViewInit {
   }
 
   onRowReordered(event: SohoDataGridRowReorderedEvent) {
-    console.log('startIndex: ' + event.startIndex);
-    console.log('endIndex: ' + event.endIndex);
+    console.log('startIndex: ' + event.startIndex, 'endIndex: ' + event.endIndex);
   }
 
   onRowClicked(event: SohoDataGridRowClicked) {

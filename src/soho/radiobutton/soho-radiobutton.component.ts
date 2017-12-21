@@ -49,7 +49,7 @@ export class SohoRadioButtonComponent implements AfterViewInit {
     return 'radio';
   }
 
-  /** Sets the class attribute for the radio button */
+  /** Sets the class attribute for the radio button. */
   @HostBinding('class.radio') get isRadioButton() {
     return true;
   }
@@ -66,7 +66,7 @@ export class SohoRadioButtonComponent implements AfterViewInit {
    * ---------------------------------------------------
    */
 
-  /** JQuery Control. */
+  /** JQuery Component */
   private jQueryElement: JQuery;
 
   /**
@@ -79,26 +79,25 @@ export class SohoRadioButtonComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
-    // no control initializer for radiobutton
-
+    // There is no control initializer for radiobutton, since its css based
     if (this.value) {
       this.jQueryElement.val(this.value);
     }
 
     this.jQueryElement
-      .on('change', (event: JQueryEventObject) => this.onChange(event));
+      .on('change', (event: SohoRadioButtonEvent) => this.onChange(event));
   }
 
-  onChange(event: JQueryEventObject) {
+  onChange(event: SohoRadioButtonEvent) {
     const newValue = this.jQueryElement.val();
 
-    // Update the model ...
+    // Update the model
     this.value = newValue;
 
-    // Update the data.
+    // Update the data
     event.data = newValue;
 
-    // ... then emit the changed value. (!)
+    // Finally emit the changed value
     this.change.emit(event);
   }
 }

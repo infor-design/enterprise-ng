@@ -324,7 +324,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   // An internal tabsOptions object that gets updated by using
   // the component's Inputs()
-  private _tabsOptions: SohoTabsOptions = <SohoTabsOptions> {};
+  private _tabsOptions: SohoTabsOptions = {} as SohoTabsOptions;
 
   /**
    * Keep track of current tab content for change detection.

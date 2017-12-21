@@ -41,11 +41,14 @@ export interface ExtendedSohoDataGridCellEditor extends SohoDataGridCellEditor {
   // The args passed to the editor
   args: SohoDataGridEditCellFunctionArgs;
 
-  // @todo - talk to Tim on what this means.
+  // This is the input element (single) within the field
   input: JQuery;
 
-  // @todo - talk to Tim on what this means.
+  // Use the direct value from the dataset vs the formatted value
   useValue: boolean;
+
+  // The parent class of the inner editor. Used to determine if open or not.
+  className: string;
 
   /**
    * Initialise the edit control with the given component.  The control
@@ -64,8 +67,11 @@ export class SohoAngularEditorAdapter implements ExtendedSohoDataGridCellEditor 
 
   input: JQuery;
 
-  // @todo - talk to Tim on what this means.
+  // Use the direct value from the dataset vs the formatted value
   useValue = true;
+
+  // The parent class of the inner editor. Used to determine if open or not.
+  className: string;
 
   constructor(
     public component: Type<SohoDataGridCellEditor>,
@@ -79,7 +85,10 @@ export class SohoAngularEditorAdapter implements ExtendedSohoDataGridCellEditor 
     // The Soho datagrid wants an input control, otherwise it wont accept the editor
     // as a component.
     // @todo talk to Tim about removing this requirement.
-    this.input = $(this.componentRef.location.nativeElement).find('input');
+    this.input = $(this.componentRef.location.nativeElement).find('input:first');
+    this.className = this.componentRef.instance
+        && this.componentRef.instance.className
+        ? this.componentRef.instance.className : '.editor';
   }
 
   val(value?: any): any {
@@ -947,7 +956,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * The `emptyMessage` data grid option.
    */
-  @Input() set emptyMessage(emptyMessage: SohoDataGridEmptyMessageOptions) {
+  @Input() set emptyMessage(emptyMessage: SohoEmptyMessageOptions) {
     /** Check for undefined/null and reset to the default message */
     emptyMessage = emptyMessage ||
       {title: (Locale ? Locale.translate('NoData') : 'No Data Available'), info: '', icon: 'icon-empty-no-data'};
@@ -959,7 +968,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
-  get emptyMessage(): SohoDataGridEmptyMessageOptions {
+  get emptyMessage(): SohoEmptyMessageOptions {
     return this._gridOptions.emptyMessage;
   }
 
@@ -1570,7 +1579,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     const transientContainer = $('<div></div>').appendTo(editor.args.container);
 
     // Create the component, in the container.
-    const componentRef = <ComponentRef<SohoDataGridCellEditor>> factory.create(i, [], transientContainer[0]);
+    const componentRef = factory.create(i, [], transientContainer[0]) as ComponentRef<SohoDataGridCellEditor>;
 
     // Copy into it any column level Inputs, these are optional but allow
     // column specific overrides to be defined.
@@ -1630,20 +1639,20 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
     // Initialise any event handlers.
     this.jQueryElement
-      .on('selected', (e: JQueryEventObject, args: SohoDataGridSelectedRow[]) => this.selected.next({ e, rows: args }))
-      .on('cellchange', (e: JQueryEventObject, args: SohoDataGridCellChangeEvent) => this.cellchange.next(args))
-      .on('removerow', (e: JQueryEventObject, args: SohoDataGridRowRemoveEvent) => { this.rowRemove.next(args); })
-      .on('addrow', (e: JQueryEventObject, args: SohoDataGridAddRowEvent) => { this.rowAdd.next(args); })
-      .on('filtered', (e: JQueryEventObject, args: any) => { this.filtered.next(args); })
-      .on('sorted', (e: JQueryEventObject, args: SohoDataGridSortedEvent) => { this.sorted.next(args); })
-      .on('expandrow', (e: JQueryEventObject, args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
-      .on('collapserow', (e: JQueryEventObject, args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
-      .on('rowactivated', (e: JQueryEventObject, args: SohoDataGridRowActivatedEvent) => { this.rowActivated.next(args); })
-      .on('rowdeactivated', (e: JQueryEventObject, args: SohoDataGridRowDeactivatedEvent) => { this.rowDeactivated.next(args); })
-      .on('click', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.rowClicked.next(args); })
-      .on('dblclick', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.rowDoubleClicked.next(args); })
-      .on('contextmenu', (e: JQueryEventObject, args: SohoDataGridRowClicked) => { this.contextMenu.next(args); })
-      .on('rowreorder', (e: JQueryEventObject, args: SohoDataGridRowReorderedEvent) => { this.rowReordered.next(args); });
+      .on('selected', (e: JQuery.Event, args: SohoDataGridSelectedRow[]) => this.selected.next({ e, rows: args }))
+      .on('cellchange', (e: JQuery.Event, args: SohoDataGridCellChangeEvent) => this.cellchange.next(args))
+      .on('removerow', (e: JQuery.Event, args: SohoDataGridRowRemoveEvent) => { this.rowRemove.next(args); })
+      .on('addrow', (e: JQuery.Event, args: SohoDataGridAddRowEvent) => { this.rowAdd.next(args); })
+      .on('filtered', (e: JQuery.Event, args: any) => { this.filtered.next(args); })
+      .on('sorted', (e: JQuery.Event, args: SohoDataGridSortedEvent) => { this.sorted.next(args); })
+      .on('expandrow', (e: JQuery.Event, args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
+      .on('collapserow', (e: JQuery.Event, args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
+      .on('rowactivated', (e: JQuery.Event, args: SohoDataGridRowActivatedEvent) => { this.rowActivated.next(args); })
+      .on('rowdeactivated', (e: JQuery.Event, args: SohoDataGridRowDeactivatedEvent) => { this.rowDeactivated.next(args); })
+      .on('click', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.rowClicked.next(args); })
+      .on('dblclick', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.rowDoubleClicked.next(args); })
+      .on('contextmenu', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.contextMenu.next(args); })
+      .on('rowreorder', (e: JQuery.Event, args: SohoDataGridRowReorderedEvent) => { this.rowReordered.next(args); });
   }
 
   /**
@@ -1730,15 +1739,15 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
  * for more details about creating an enum of strings.
  */
 export enum SohoGridColumnFilterTypes {
-  Text = <any>'text',
-  Checkbox = <any>'checkbox',
-  Contents = <any>'contents',
-  Date = <any>'date',
-  Decimal = <any>'decimal',
-  Integer = <any>'integer',
-  Lookup = <any>'lookup',
-  Percent = <any>'percent',
-  Select = <any>'select'
+  Text     = 'text',
+  Checkbox = 'checkbox',
+  Contents = 'contents',
+  Date     = 'date',
+  Decimal  = 'decimal',
+  Integer  = 'integer',
+  Lookup   = 'lookup',
+  Percent  = 'percent',
+  Select   = 'select'
 }
 
 /**

@@ -4,6 +4,7 @@
 // tslint:disable
 /// <reference path="./about/soho-about.d.ts" />
 /// <reference path="./accordion/soho-accordion.d.ts" />
+/// <reference path="./alert/soho-alert.d.ts" />
 /// <reference path="./application-menu/soho-application-menu.d.ts" />
 /// <reference path="./autocomplete/soho-autocomplete.d.ts" />
 /// <reference path="./busyindicator/soho-busyindicator.d.ts" />
@@ -17,6 +18,7 @@
 /// <reference path="./datepicker/soho-datepicker.d.ts" />
 /// <reference path="./dropdown/soho-dropdown.d.ts" />
 /// <reference path="./editor/soho-editor.d.ts" />
+/// <reference path="./emptymessage/soho-emptymessage.d.ts" />
 /// <reference path="./error/soho-error.d.ts" />
 /// <reference path="./expandablearea/soho-expandablearea.d.ts" />
 /// <reference path="./fileupload/soho-fileupload.d.ts" />

@@ -192,6 +192,7 @@ export class DemoCellInputEditorComponent implements SohoDataGridCellEditor {
   @ViewChild(SohoInputComponent) input: SohoInputComponent;
 
   value: string;
+  className: string;
 
   constructor( @Inject('args') public args: SohoDataGridPostRenderCellArgs) {
     this.value = args.value;
@@ -229,9 +230,10 @@ export class DemoCellDatePickerEditorComponent implements SohoDataGridCellEditor
   constructor( @Inject('args') public args: SohoDataGridPostRenderCellArgs) {
   }
 
+  className: 'datepicker';
+
   val(value?: any) {
     if (value) {
-      console.log(`DemoCellDatePickerEditorComponent: ${value}`)
       this.datePicker.setValue(value);
     }
     return this.datePicker.getValue();

@@ -2,6 +2,7 @@ import {
   Component,
   ViewChild,
   AfterViewInit,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { SohoDataGridComponent } from '@infor/sohoxi-angular';
@@ -11,7 +12,8 @@ import { DataGridDemoService } from './datagrid-demo.service';
 @Component({
   selector: 'soho-datagrid-empty-message-demo',
   templateUrl: './datagrid-empty-message.demo.html',
-  providers: [ DataGridDemoService ]
+  providers: [ DataGridDemoService ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
@@ -22,7 +24,7 @@ export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
 
   public hasData: boolean;
 
-  emptyMessage: SohoDataGridEmptyMessageOptions = {
+  emptyMessage: SohoEmptyMessageOptions = {
     title: 'Server Error',
     info: 'The target server returned an error',
     icon: 'icon-empty-error-loading', // needs to be the full SVG name

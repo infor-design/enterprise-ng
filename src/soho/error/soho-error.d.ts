@@ -3,8 +3,12 @@
  *
  * This file contains the Typescript mappings for the public
  * interface of the Soho jQuery error control.
+ * @deprecated - use SohoAlert instead
  */
 
+/**
+ * @deprecated - use SohoAlert instead
+ */
 interface SohoErrorOptions {
   /** */
   message?: string;
@@ -19,6 +23,7 @@ interface SohoErrorOptions {
 /**
  * This interface represents the public API exposed by the
  * Error.
+ * @deprecated - use SohoAlert instead
  */
 interface SohoErrorStatic {
   /** Access to the control's options block. */

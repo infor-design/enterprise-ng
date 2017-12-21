@@ -14,19 +14,21 @@ interface SohoEditorButtons {
  * Editor Options
  */
 interface SohoEditorOptions {
-    buttons?: SohoEditorButtons;
-    delay?: number;
-    firstHeader?: string;
-    secondHeader?: string;
-    placeholder?: string;
-    anchor?: SohoEditorAnchor;
-    image?: SohoEditorOptionsImage;
+  buttons?: SohoEditorButtons;
+  delay?: number;
+  firstHeader?: string;
+  secondHeader?: string;
+  placeholder?: string;
+  anchor?: SohoEditorAnchor;
+  image?: SohoEditorOptionsImage;
 }
 
 interface SohoEditorAnchor {
   url?: string;
   class?: string;
   target?: 'Same window'|'New window'| any;
+  isClickable?: boolean;
+  showIsClickable?: boolean;
 }
 
 /**
@@ -43,25 +45,32 @@ interface SohoEditorOptionsImage {
 interface SohoEditorStatic {
 
   /**
+   * Current in use options.
+   */
+  settings: SohoEditorOptions;
+
+  /**
    * Disable the editor.
-   *
-   * @memberOf SohoEditorStatic
    */
   disable(): void;
 
   /**
    * Enable the editor.
-   *
-   * @memberOf SohoEditorStatic
    */
   enable(): void;
 
+  /**
+   * Make the editor readonly.
+   */
   readonly(): void;
 
   /**
+   * Refresh the editor with new settings.
+   */
+  updated(): void;
+
+  /**
    * Destroy any resource created by the control.
-   *
-   * @memberOf SohoEditorStatic
    */
   destroy(): void;
 }

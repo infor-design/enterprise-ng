@@ -6,6 +6,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './radiobutton.demo.html'
 })
 export class RadioButtonDemoComponent implements OnInit {
+
   public dataView: any = {
     F1Field: {
       value: '3'
@@ -20,6 +21,7 @@ export class RadioButtonDemoComponent implements OnInit {
       value: '2'
     }
   };
+
   public fieldSpec: any = {
     F1Field: {
       bindId: 'F1Field',
@@ -50,9 +52,11 @@ export class RadioButtonDemoComponent implements OnInit {
       bindId: 'vertical'
     }
   };
+
   public model: any = {};
   public showModel = true;
   public form: FormGroup;
+  public codeValue = 'test1';
 
   constructor() {
   }
@@ -63,7 +67,7 @@ export class RadioButtonDemoComponent implements OnInit {
     const keys = Object.keys(this.fieldSpec);
 
     Object.keys(this.fieldSpec).map( (item, index, ary) => {
-      this.model[item] = { value: this.dataView[item].value };
+      this.model[item] = {value: this.dataView[item].value};
       group[item] = new FormControl();
     });
 
@@ -78,7 +82,7 @@ export class RadioButtonDemoComponent implements OnInit {
     this.showModel = !this.showModel;
   }
 
-  onChange(event: JQueryEventObject) {
+  onChange(event: JQuery.Event) {
     console.log(`'RadioButtonDemoComponent.onChange ${event.data}`);
   }
 }

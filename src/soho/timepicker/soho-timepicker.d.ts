@@ -22,7 +22,7 @@ interface SohoTimePickerOptions {
   roundToInterval: boolean;
 }
 
-interface SohoTimePickerEvent extends BaseJQueryEventObject {
+interface SohoTimePickerEvent extends JQuery.Event {
 }
 
 /**

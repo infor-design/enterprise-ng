@@ -23,7 +23,7 @@ interface SohoColorPickerOptions {
   editable: boolean;
 }
 
-interface SohoColorPickerEvent extends BaseJQueryEventObject {
+interface SohoColorPickerEvent extends JQuery.Event {
 }
 
 /**

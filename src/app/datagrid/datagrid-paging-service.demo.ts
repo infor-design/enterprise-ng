@@ -28,7 +28,7 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
      */
     const pageSize = 5;
 
-    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
+    const gridOptions: SohoDataGridOptions = {
       columns: this.datagridPagingService.getColumns(),
       selectable: 'single',
       paging: true,
@@ -68,8 +68,12 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
     // });
   }
 
-  export(e: any) {
+  exportExcel(e: any) {
     this.sohoDataGridComponent.exportToExcel('', '', this.datagridPagingService.getAllData());
+  }
+
+  exportCsv(e: any) {
+    this.sohoDataGridComponent.exportToCsv('', this.datagridPagingService.getAllData());
   }
 
   onRowClicked(event: SohoDataGridRowClicked) {

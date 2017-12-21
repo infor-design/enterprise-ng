@@ -22,15 +22,39 @@ import {
   CodeBlockComponent
 } from '../code-block/code-block.component';
 
+export const CodeBlockFormatter = (row, cell, value, col, rowData, api): string => {
+  /* tslint:disable */
+  return `
+    <span class="code-block">
+
+        <label for="ledger" soho-label="" class="label">Ledger</label>
+        <span class="data">CORE</span>
+
+        <label for="accounting-entity" soho-label="" class="label">Accounting Entity</label>
+        <span class="data">1001</span>
+
+        <label for="accounting-unit" soho-label="" class="label">Accounting Unit</label>
+        <span class="data">99 CORP</span>
+
+        <label for="cost-center" soho-label="" class="label">Cost Center</label>
+        <span class="data">102</span>
+
+        <label for="department" soho-label="" class="label">Department</label>
+        <span class="data">102</span>
+
+  </span>`;
+  /* tslint:enable */
+};
+
 @Component({
   //  template: `<div lm-code-block [(ngModel)]="value"></div>`
   // TODO: Probably use an ngIf and insert these from data
   template: `
-      <div lm-code-block ngDefaultControl>
+      <div lm-code-block>
 
           <div class="field">
             <label soho-label for="ledger">Ledger</label>
-            <input soho-lookup soho-field-options name="ledger" id="ledger" value="CORE" size="4"
+            <input soho-lookup soho-field-options #focusRef name="ledger" id="ledger" value="CORE" size="4"
               [autoWidth]="true"
               [(ngModel)]="model.ledger"
               [columns]="columns"
@@ -150,6 +174,7 @@ export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
   @ViewChild(CodeBlockComponent) codeblock: CodeBlockComponent;
 
   value: string;
+  public className = '.code-block';
 
   public model = {
     ledger: 'CORE',
@@ -161,7 +186,6 @@ export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
 
   constructor( @Inject('args') public args: SohoDataGridPostRenderCellArgs) {
     this.value = args.value;
-    console.log(args);
   }
 
   // @region Soho Editor Implementation
@@ -196,12 +220,12 @@ export const COLUMNS: SohoDataGridColumn[] = [
     editor: Editors.Input
   },
 
-  {
-    id: 'code-block',
-    name: 'Code Block',
-    field: 'code-block',
+  { id: 'codeBlock', name: 'Code Block',
     sortable: false,
+    formatter: CodeBlockFormatter,
     filterType: 'text',
+    expandOnActivate: true,
+    textOverflow: 'ellipsis',
     editorComponent: CodeBlockEditorComponent,
     editorComponentInputs: {}
   }
@@ -209,7 +233,8 @@ export const COLUMNS: SohoDataGridColumn[] = [
 
 @Component({
   selector: 'soho-datagrid-code-block-editor',
-  templateUrl: './datagrid-code-block-editor.demo.html'
+  templateUrl: './datagrid-code-block-editor.demo.html',
+  styleUrls: ['../code-block/code-block.formatter.css']
 })
 export class DataGridCodeBlockEditorDemoComponent implements AfterViewInit {
 

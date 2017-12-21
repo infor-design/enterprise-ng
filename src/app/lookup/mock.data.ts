@@ -29,7 +29,7 @@ export const productsData = [
     activity:  'Inspect and Repair',
     quantity: 1,
     price: 120.99,
-    status: <any>null,
+    status: null as any,
     orderDate: new Date(2014, 6, 3),
     action: 'Action',
   }, {

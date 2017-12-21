@@ -55,5 +55,5 @@ interface JQuery {
 /**
  * Type safe event.
  */
-interface SohoExpandableAreaEvent extends JQueryEventObject {
+interface SohoExpandableAreaEvent extends JQuery.Event {
 }

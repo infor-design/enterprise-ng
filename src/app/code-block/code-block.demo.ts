@@ -1,7 +1,6 @@
 import {
   Component,
   OnInit,
-  ChangeDetectionStrategy, ViewChild
 } from '@angular/core';
 
 import {
@@ -23,8 +22,18 @@ export class CodeBlockDemoComponent implements OnInit {
     accountingEntity: '1001',
     accountingUnit: '99 CORP',
     costCenter: '102',
-    department: '102'
+    department: '102',
+    AlphaField: 'ABC',
+    DateField: '12/01/2017',
+    DropdownField: 'Option #1',
+    CheckBoxField: 'false',
+    PercentField: '123 %'
   };
+
+  private MENU_RESPONSE_HTML = '' +
+    '<li><a href="#" id="ShowFieldHistory">Show Field History</a></li>' +
+    '<li><a href="#" id="ShowPendingChanges">Show Pending Changes</a></li>' +
+    '';
 
   public columns = columns;
   public ledgerData = ledgerData;
@@ -32,7 +41,19 @@ export class CodeBlockDemoComponent implements OnInit {
   public departmentData = departmentData;
   public costCenterData = costCenterData;
 
+  private isPopupBuilt = false;
+
   constructor() { }
   ngOnInit() { }
 
+  onBeforeContextMenuOpen = (response: AjaxBeforeOpenResponseFunction, options: any) => {
+    if (!this.isPopupBuilt) {
+      response(this.MENU_RESPONSE_HTML);
+      return;
+    }
+  }
+
+  onSelected($event) {
+    alert($event.args[0].id + ' clicked');
+  }
 }

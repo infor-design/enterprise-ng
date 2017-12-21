@@ -24,16 +24,16 @@ export class SohoAccordionHeaderComponent implements AfterViewInit {
   jQueryElement: JQuery;
 
   @HostBinding('class.is-disabled') isDisabled = false;
-
   @HostBinding('style.display') get isBlockDisplay() { return 'block'; }
   @HostBinding('class.accordion-header') get isAccordionHeader() { return true; }
+  @HostBinding('class.is-expanded') @Input() isExpanded = false;
 
   /**
    * Constructor.
    *
    * @param elementRef - the element matching the component's selector.
    */
-  constructor(private elementRef: ElementRef) {
+  constructor(public elementRef: ElementRef) {
   }
 
   // ------------------------------------------

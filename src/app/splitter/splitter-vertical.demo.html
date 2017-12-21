@@ -1,5 +1,5 @@
 ﻿<div class="two-column no-scroll" role="main">
-  <div class="sidebar scrollable">
+  <div class="sidebar scrollable" style="width: 20%">
     <div class="panel-header">
       <div class="toolbar standalone">
         <div class="title">
@@ -14,12 +14,12 @@
       </div>
     </div>
     <ul soho-tree></ul>
-    <soho-splitter [isSplitterRight]="true" [collapseButton]="true">
+    <soho-splitter [isSplitterRight]="true" [collapseButton]="true" [save]="false">
       <div class="panel-header"></div>
     </soho-splitter>
   </div>
 
-  <div class="scrollable-area no-scroll">
+  <div class="scrollable-area no-scroll" style="width: 80%">
     <div soho-datagrid></div>
   </div>
 </div>

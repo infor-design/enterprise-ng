@@ -64,7 +64,7 @@ export class DataGridCodeBlockFormatterDemoComponent {
     { id: 'companyId', name: 'Company', field: 'companyId', width: 200},
     { id: 'companyName', name: 'Name', field: 'companyName', width: 200},
     { id: 'codeBlock', name: 'Code Block',
-      sortable: false, postRender: true,
+      sortable: false,
       formatter: CodeBlockFormatter,
       expandOnActivate: true,
       textOverflow: 'ellipsis'

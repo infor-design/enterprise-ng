@@ -1,6 +1,5 @@
 import {
   Component,
-  AfterViewInit,
   OnDestroy,
   ElementRef,
   HostBinding,
@@ -22,34 +21,19 @@ import {
         </button>
 
         <button type="button" class="btn-actions code-block-actions btn-menu"
-          soho-context-menu trigger="click">
+          soho-context-menu trigger="click" [beforeOpen]="onBeforeContextMenuOpen"
+          (selected)="onSelected($event)">
           <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
             <use xlink:href="#icon-more"></use>
           </svg>
           <span>Launch</span>
         </button>
-        <ul soho-popupmenu>
-          <li soho-popupmenu-item><a soho-popupmenu-label>Show Field History</a></li>
-          <li soho-popupmenu-item><a soho-popupmenu-label>Show Pending Changes</a></li>
-          <li soho-popupmenu-item>
-            <a soho-popupmenu-label>Drill Around</a>
-            <ul soho-popupmenu>
-              <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 1</a></li>
-              <li soho-popupmenu-item><a soho-popupmenu-label>Sub Menu 2</a></li>
-            </ul>
-          </li>
-          <li soho-popupmenu-separator singleSelectableSection="true"></li>
-          <li soho-popupmenu-heading>Options</li>
-          <li soho-popupmenu-item
-          (click)="toggleLabels()" [isChecked]="!hideLabels" isSelectable="true">
-              <a soho-popupmenu-label>Show Labels</a>
-          </li>
-        </ul>
+        <ul class="popupmenu"></ul>
       </div>
     </div>`,
   styleUrls: ['./code-block.component.css']
 })
-export class CodeBlockComponent implements AfterViewInit, OnDestroy {
+export class CodeBlockComponent implements OnDestroy {
 
   @HostBinding('class.hide-labels') hideLabels = false;
 
@@ -62,24 +46,54 @@ export class CodeBlockComponent implements AfterViewInit, OnDestroy {
 
   isReadOnly = false;
 
+  private MENU_RESPONSE_HTML = '' +
+    '<li><a href="#" id="ShowFieldHistory">Show Field History</a></li>' +
+    '<li><a href="#" id="ShowPendingChanges">Show Pending Changes</a></li>' +
+    '<li class="submenu">' +
+    '<a href="#">Drill Points</a>' +
+    '<ul class="popupmenu"></ul>' +
+    '</li>' +
+    '<li class="separator"></li>' +
+    '<li class="heading">Options</li>' +
+    '<li class="is-selectable"><a href="#" id="ShowLabels">Show Labels</a></li>' +
+    '';
+
+  private SUBMENU_RESPONSE_HTML = '' +
+    '<li><a href="#" id="DrillOne">Drill Point One</a></li>' +
+    '<li><a href="#" id="DrillTwo">Drill Point Two</a></li>' +
+    '';
+
   constructor(private elementRef: ElementRef) {
-
-    // TODO: Add focus within poly fill for IE 11
-    // https://gist.github.com/aFarkas/a7e0d85450f323d5e164
-  }
-
-  ngAfterViewInit() {
-    console.log(this.elementRef);
   }
 
   ngOnDestroy() {
   }
 
   focus () {
-    console.log('Do Focus');
+    // Using jquery to focus the element as ViewChildren is not working
+    $('input:first', this.elementRef.nativeElement).focus();
   }
 
   toggleLabels() {
     setTimeout(() => this.hideLabels = !this.hideLabels);
+  }
+
+  onBeforeContextMenuOpen = (response: AjaxBeforeOpenResponseFunction, options: any) => {
+    if (options.hasOwnProperty('contextElement')) {
+      response(this.SUBMENU_RESPONSE_HTML);
+      return;
+    } else {
+      response(this.MENU_RESPONSE_HTML);
+      return;
+    }
+  }
+
+  onSelected($event) {
+    const buttonId = $event.args[0].id;
+    if (buttonId === 'ShowLabels') {
+      this.toggleLabels();
+    } else {
+      alert(buttonId + ' clicked');
+    }
   }
 }

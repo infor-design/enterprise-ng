@@ -168,6 +168,68 @@ export class ChartDemoService {
     }]
   }];
 
+  private posNegData: SohoDataSet = [{
+    data: [{
+      name: 'Jan',
+      value: 4000,
+      target: 13000
+    }, {
+      name: 'Feb',
+      value: 9000,
+      target: 11000
+    }, {
+      name: 'Mar',
+      value: 2000,
+      target: 7000
+    }, {
+      name: 'Apr',
+      value: 4000,
+      target: 8000
+    }, {
+      name: 'May',
+      value: 2000,
+      target: 14000
+    }, {
+      name: 'Jun',
+      value: 4000,
+      target: 9000
+    }, {
+      name: 'Jul',
+      value: -8000,
+      target: 12000
+    }, {
+      name: 'AUG',
+      value: -6000,
+      target: 5000
+    }, {
+      name: 'SEP',
+      value: -1000,
+      target: 7000
+    }, {
+      name: 'OCT',
+      value: -12000,
+      target: 13000
+    }, {
+      name: 'NOV',
+      value: -7000,
+      target: 6000
+    }, {
+      name: 'DEC',
+      value: -3000,
+      target: 7000
+    }],
+    legends: {
+      target: 'Revenue',
+      positive: 'Profit',
+      negative: 'Loss'
+    },
+    colors: {
+      target: 'neutral',
+      positive: 'good',
+      negative: 'error'
+    }
+  }];
+
   public getBasicData(): SohoDataSet {
     return this.basicData;
   }
@@ -180,7 +242,24 @@ export class ChartDemoService {
     return this.bubbleData;
   }
 
+  public getScatterData(): SohoDataSet {
+    const scatterData = JSON.parse(JSON.stringify(this.bubbleData));
+
+    scatterData.filter((dataItem: SohoDataSetItem) => {
+      dataItem.data.filter((data: SohoChartData) => {
+        const bc: BubbleCordinates = data.value as BubbleCordinates;
+        bc.z = 1;
+      });
+    });
+
+    return scatterData;
+  }
+
   public getPieData(): SohoDataSet {
     return this.pieData;
+  }
+
+  public getPosNegData(): SohoDataSet {
+    return this.posNegData;
   }
 }

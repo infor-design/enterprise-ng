@@ -298,8 +298,8 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
     // Initialize any event handlers.
     this.jQueryElement
       .on('beforeactivate', ((e: any) => this.onBeforeActivate(e)))
-      .on('activated', (e: JQueryEventObject, tick: JQuery) => this.onActivated(tick))
-      .on('afteractivated', (e: JQueryEventObject, tick: JQuery) => this.afteractivated.next({ tick: tick }));
+      .on('activated', (e: JQuery.Event, tick: JQuery) => this.onActivated(tick))
+      .on('afteractivated', (e: JQuery.Event, tick: JQuery) => this.afteractivated.next({ tick: tick }));
 
     // Reset the cached steps if the list of steps changes.
     if (this.header) {

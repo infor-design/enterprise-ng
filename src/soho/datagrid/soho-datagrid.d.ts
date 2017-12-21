@@ -110,9 +110,6 @@ interface SohoDataGridOptions {
   /** Size of a page options */
   pagesizes?: number[];
 
-  /** whether to show the page size selector or not */
-  showPageSizeSelector?: boolean; // Will show page size selector
-
   /** Remove ability to go to a specific page. */
   indeterminate?: boolean;
 
@@ -121,6 +118,9 @@ interface SohoDataGridOptions {
 
   /** If true, hides the pager if there's only one page worth of results. */
   hidePagerOnOnePage?: boolean;
+
+  /** whether to show the page size selector or not */
+  showPageSizeSelector?: boolean; // Will show page size selector
 
   /** Add filter bar? */
   filterable?: boolean;
@@ -146,7 +146,7 @@ interface SohoDataGridOptions {
   /** Allows you to reorder rows. Requires rowReorder formatter. */
   rowReorder?: boolean;
 
-  /**  */
+  /**  If true the dirty indicator will be shown on the rows when they change */
   showDirty?: boolean;
 
   /** Only allows one expandable row at a time. */
@@ -209,72 +209,21 @@ interface SohoDataGridOptions {
   onEditCell?: SohoDataGridEditCellFunction;
 
   /**
+  * A callback function that fires when expanding rows.
+  * To be used when expandableRow is true.
+  * The function gets eventData about the row and grid and a response
+  * function callback. Call the response function with markup to append
+  * and delay opening the row.
+  */
+  onExpandRow?: SohoDataGridExpandRowFunction;
+
+  /**
    * An empty message will be displayed when there are no rows in the grid.
-   * This accepts an object of the form SohoDataGridEmptyMessageOptions, set
+   * This accepts an object of the form SohoEmptyMessageOptions, set
    * this to null for no message or it will default to 'No Data Found with an icon.'
    */
-  emptyMessage?: SohoDataGridEmptyMessageOptions;
+  emptyMessage?: SohoEmptyMessageOptions;
 }
-
-/**
- * Example:
- *
- * { title: 'No Data Available',
- *    info: 'Make a selection on the list above to see results',
- *    icon: 'icon-empty-no-data',
- *  button: {text: 'Run Query', cssClass: '' }
- *   click: <function>}
- * }
- *
- */
-interface SohoDataGridEmptyMessageOptions {
-  /**
-   * Title text.
-   */
-  title?: string;
-
-  /**
-   * Informational text.
-   */
-  info?: string;
-
-  /**
-   * Icon, to diplay (see svg-empty) - must be the full icon name.
-   */
-  icon?: string;
-
-  /**
-   * Button options - note this cannot be a Soho Angular Component.
-   */
-  button?: SohoDataGridEmptyMessageButtonOptions;
-
-}
-
-/**
- * Button definition.
- */
-interface SohoDataGridEmptyMessageButtonOptions {
-  /**
-   * Button text.
-   */
-  text: string;
-
-  /**
-   * Class of button.
-   */
-  cssClass?: string;
-
-  /**
-   * Element button for id.
-   */
-  id?: string;
-
-  /**
-   * Click function - @todo not working
-   */
-  click?: Function;
-}
-
 
 /**
  * Soho Data Grid Paging Options.
@@ -317,6 +266,34 @@ interface SohoDataGridEditCellFunctionArgs extends SohoDataGridPostRenderCellArg
   item: any;
 }
 
+type SohoDataGridExpandRowEventData = (
+
+  /** Grid API */
+  api: SohoDataGridStatic,
+
+  /** Row id. */
+  row: any,
+
+  /** DOM Container nativeElement */
+  detail: any,
+
+  /** Column Definition. */
+  columnDef: SohoDataGridColumn,
+
+  /** Row data */
+  item: Object
+
+) => any;
+
+type SohoDataGridExpandRowResponseFunction = (
+  markup: string
+) => void;
+
+interface SohoDataGridExpandRowFunction  {
+  eventData: SohoDataGridExpandRowEventData;
+  response: SohoDataGridExpandRowResponseFunction;
+}
+
 /**
  * Type definition of the post render cell callback.
  */
@@ -351,8 +328,8 @@ type SohoDataGridSortFunction = (
 type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' | 'integer' | 'percent' | 'select' | 'time';
 
 interface SohoDataGridCellEditor {
+  className: string;
   val(value?: any): any;
-
   focus(): void;
 }
 
@@ -616,6 +593,9 @@ interface SohoDataGridColumn {
 
   /** Content visible function*/
   contentVisible?: SohoDataGridColumnContentVisibleFunction;
+
+  /** If false the column will not be included in export */
+  exportable?: boolean
 }
 
 interface SohoDataGridColumnNumberFormat {
@@ -808,7 +788,7 @@ interface SohoDataGridSelectedRow {
 interface SohoDataGridRowClicked {
   cell: number;
   item: any;
-  originalEvent: JQueryEventObject;
+  originalEvent: JQuery.Event;
   row: number;
 }
 

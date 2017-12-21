@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 
 import { SohoAccordionHeaderComponent } from './soho-accordion-header.component';
+import { SohoAccordionPaneComponent } from './soho-accordion-pane.component';
 
 /**
  * Angular Wrapper for the Soho Accordion control.
@@ -40,8 +41,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
   // Options Block
   // -------------------------------------------
 
-  private options: SohoAccordionOptions = {
-  };
+  private options: SohoAccordionOptions = {};
 
   // -------------------------------------------
   // Private Member Data
@@ -94,7 +94,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
       this.accordion.updated();
     }
   }
-  public get allowOnePanel() {
+  public get allowOnePane() {
     return this.options.allowOnePane;
   }
 
@@ -143,6 +143,39 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
       this.accordion.settings.source = this.options.source;
       this.accordion.updated();
     }
+  }
+
+  /**
+   * Display accordion with panels
+   */
+  @Input() public set hasPanels(bool: boolean) {
+    this.options.hasPanels = bool;
+  }
+
+  public get hasPanels(): boolean {
+    return this.options.hasPanels;
+  }
+
+  /**
+   * Set the color scheme to inverse
+   */
+  @Input() public set inverse(bool: boolean) {
+    this.options.inverse = bool;
+  }
+
+  public get inverse(): boolean {
+    return this.options.inverse;
+  }
+
+  /**
+   * Set the color scheme to alternate
+   */
+  @Input() public set alternate(bool: boolean) {
+    this.options.alternate = bool;
+  }
+
+  public get alternate(): boolean {
+    return this.options.alternate;
   }
 
   /**
@@ -262,10 +295,20 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  /**
+   * Call to notify the accordion about any dom changes
+   */
+  public updated(): void {
+    if (this.accordion) {
+      this.accordion.updated();
+    }
+  }
+
   // ------------------------------------------
   // Lifecycle Events
   // ------------------------------------------
   ngAfterViewInit() {
+
     // Wrap the element in a jQuery selector.
     this.jQueryElement = jQuery(this.element.nativeElement.childNodes[0]);
 
