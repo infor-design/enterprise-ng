@@ -156,13 +156,6 @@
   dependencies:
     tslib "^1.7.1"
 
-"@infor/sohoxi@^4.3.4-rc":
-  version "4.3.4-rc"
-  resolved "http://npm.infor.com:4873/@infor%2fsohoxi/-/sohoxi-4.3.4-rc.tgz#6a0c01d47c69159edb9595243d975adaeaae2e25"
-  dependencies:
-    d3 "^3.4.6"
-    jquery "^3.1.1"
-
 "@ngtools/json-schema@1.1.0", "@ngtools/json-schema@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@ngtools/json-schema/-/json-schema-1.1.0.tgz#c3a0c544d62392acc2813a42c8a0dc6f58f86922"
