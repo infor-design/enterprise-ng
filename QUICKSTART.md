@@ -11,14 +11,14 @@ run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **@angular/cli** to create, build and run the application.  
 
-At the time of writing the version of **@angular/cli** used was 1.5.0 with **angular** 5.0.1.
+At the time of writing the version of **@angular/cli** used was 1.6.2 with **angular** 5.1.2.
 
 ## Step 0 : Install Pre-Prerequisites
 
 From a command prompt, run:
 
 ```
-npm install -g @angular/cli@1.5.0
+npm install -g @angular/cli@1.6.2
 ```
 
 ## Step 1 : Create and Configure the Project
@@ -47,16 +47,16 @@ You can add the dependencies directly into the `project.json` file, however it i
 In a terminal window, in the project folder:
 
 1. Type `npm install jquery@3.1.1 -S`
-2. Type `npm install @infor/sohoxi@4.3.3-rc -S`
-3. Type `npm install @infor/sohoxi-angular@4.3.3-rc -S`
-4. Type `npm install @types/jquery@2.0.46", -D`
+2. Type `npm install @infor/sohoxi@4.4.0-rc -S`
+3. Type `npm install @infor/sohoxi-angular@4.4.0-rc -S`
+4. Type `npm install @types/jquery@3.2.16", -D`
 5. Type `npm install merge-stream -D`
 
-This includes all the packages we need to create this simple quick start application.
+This includes all the packages we need to create this simple quickstart application.
 
 ## Step 3 : Configure @angular/cli
 
-The next step is to configure angular-cli to include the SohoXI libraries into the output.
+The next step is to configure angular-cli to include the SoHoXI libraries into the output.
 
 Edit `.angular-cli.json`, change the `scripts` as follows:
 ```json
@@ -67,15 +67,8 @@ Edit `.angular-cli.json`, change the `scripts` as follows:
 "../node_modules/@infor/sohoxi/dist/js/d3.js"
 ],
 ```
-Also, add `"node_modules/@infor/sohoxi-angular/index.ts"` to the include property, as follows:
 
-```json
-"include": [
-  "src/**/*",
-  "node_modules/@infor/sohoxi-angular/index.ts"
-]
-```
-## Step 4 : Configure TypeScript:
+### Step 4 : Configure TypeScript:
 
 Edit `src/tsconfig.app.json`, update/add the `types` property:
 ```json
@@ -85,8 +78,17 @@ Edit `src/tsconfig.app.json`, update/add the `types` property:
   "node"
 ]
 ```
+Also, add `node_modules/@infor/sohoxi-angular/index.ts` to the `include` property, as follows:
+```json
+"include": [
+  "src/**/*",
+  "node_modules/@infor/sohoxi-angular/index.ts"
+]
+```
+
+This is required as the compiler will not compile code outside the src source folder by default.
 ## Step 5 : SoHoXI Assets
-**@angular/cli** needs to copy assets from node_modules into the compiled output.
+**@angular/cli** needs to include assets from node_modules into the compiled output.
 
 To configure this edit the `.angular-cli.json` assets section.
 ```

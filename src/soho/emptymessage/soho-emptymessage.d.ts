@@ -77,11 +77,6 @@ interface SohoEmptyMessageStatic {
   settings: SohoEmptyMessageOptions;
 
   /**
-   * Causes the empty  message to be rebuilt when input changes.
-   */
-  updated(): void;
-
-  /**
    * Releases all resources managed by the empty message.
    */
   destroy(): void;

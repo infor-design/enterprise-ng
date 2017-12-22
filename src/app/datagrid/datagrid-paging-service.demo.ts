@@ -68,12 +68,8 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
     // });
   }
 
-  exportExcel(e: any) {
+  export(e: any) {
     this.sohoDataGridComponent.exportToExcel('', '', this.datagridPagingService.getAllData());
-  }
-
-  exportCsv(e: any) {
-    this.sohoDataGridComponent.exportToCsv('', this.datagridPagingService.getAllData());
   }
 
   onRowClicked(event: SohoDataGridRowClicked) {

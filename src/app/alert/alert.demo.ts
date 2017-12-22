@@ -82,4 +82,8 @@ export class AlertDemoComponent {
       alert.removeAllMessages();
     });
   }
+
+  toggleModel() {
+    this.showModel = !this.showModel;
+  }
 }
