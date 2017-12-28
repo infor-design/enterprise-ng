@@ -63,6 +63,10 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
     this._chartOptions.formatterString = formatterString;
   }
 
+  @Input() set legendFormatter(legendFormatter: string) {
+    this._chartOptions.legendFormatter = legendFormatter;
+  }
+
   @Input() set chartLabel(chartLabel: ChartLabel) {
     this._chartOptions.chartLabel = chartLabel;
   }
