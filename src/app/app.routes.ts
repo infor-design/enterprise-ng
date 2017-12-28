@@ -138,6 +138,7 @@ export const routes: Routes = [
   { path: 'contextual-action-panel',                component: ContextualActionPanelDemoComponent },
   { path: 'datagrid-breadcrumb',                    component: DataGridBreadcrumbDemoComponent },
   { path: 'datagrid-content',                       component: DataGridContentDemoComponent },
+  { path: 'datagrid-dynamic',                       component: DataGridDynamicDemoComponent },
   { path: 'datagrid-empty-message',                 component: DataGridEmptyMessageDemoComponent },
   { path: 'datagrid-editors',                       component: DataGridEditorsDemoComponent },
   { path: 'datagrid-editors',                       component: DataGridEditorsDemoComponent },
