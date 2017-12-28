@@ -9,6 +9,7 @@ interface SohoChartOptions {
   labels?: ChartLabel;
   redrawOnResize?: boolean;
   animate?: boolean;
+  legendFormatter?: string;
 }
 
 /**
