@@ -115,10 +115,9 @@
 
 :host ::ng-deep .dropdown {
   height: 28px !important;
-
   margin-right: 18px;
   line-height: 50px;
-  padding: 4px 30px 4px 8px;
+  padding: 4px 0;
   border-width: 0;
 }
 
@@ -136,7 +135,7 @@
 }
 
 :host ::ng-deep div.field + .field-checkbox {
-  margin-bottom: 0px !important;
+  margin-bottom: -3px !important;
 }
 
 :host ::ng-deep .lookup:focus {
@@ -199,7 +198,8 @@
   visibility: hidden;
 }
 
-:host ::ng-deep input.is-active {
+:host ::ng-deep input.is-active,
+:host ::ng-deep .dropdown.is-open {
   padding-right: 10px;
 }
 
@@ -208,7 +208,7 @@
   visibility: hidden;
   left: -15px;
   margin-right: -22px;
-  top: 1px;
+  top: 0px;
 }
 
 /* Readonly Styles */
