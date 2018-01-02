@@ -73,7 +73,7 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
   // -------------------------------------------
 
   /**
-   * Ticks for the settings - this does not reslly work yet (i think).
+   * Ticks for the settings - this does not really work yet (i think).
    */
   @Input()
   set ticks(ticks: SohoWizardTick[]) {
