@@ -2,6 +2,7 @@
 ## Whats New
 
 * 2018-01-02 - BTHH - PR-555 - Upgraded to @angular/cli 1.6.3.
+* 2017-12-29 - TJM - Added siblings option to datagrid
 * 2017-12-18 - PWP - Added wrapper for empty message component
 * 2017-12-15 - CWF - SOHO-6856: Upgraded JQuery types from 2.0.46 to 3.2.16 to match our use of jQuery 3
 * 2017-12-06 - MHH - SOHO-7228: Added support for lazy loading the context menu's popup menu.
@@ -88,14 +89,14 @@
 
 * 2017-12-15 - CWF - PR-532 - Projects may need to update the version of `@types/jquery` in their `package.json` file to match sohoxi-angular's version: `"@types/jquery": "~3.2.16"`
 
-* 2017-12-12 - KH  - Changed soho-accordion-pane.component.html from.. 
-  
+* 2017-12-12 - KH  - Changed soho-accordion-pane.component.html from..
+
   ```angular2html
   <div class="accordion-content">
     <ng-content></ng-content>
   </div>
-  ``` 
-   to 
+  ```
+   to
   ```angular2html
   <ng-content></ng-content>
   ```
@@ -107,7 +108,7 @@
       </div>
     </soho-accordion-pane>
   ```
-  
+
 * 2017-11-10 - BTH - PR-XXX - When using `@angular/cli` 1.5, the cli no longer automatically determines the typescript files to compile, and as `@infor/sohoxi-angular` is not distributed as a compiled package the module must be added to the top level  `tsconfig.json` for inclusion in the build.  For example:
 
   ```json
