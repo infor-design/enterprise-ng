@@ -11,7 +11,7 @@ run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **@angular/cli** to create, build and run the application.  
 
-At the time of writing the version of **@angular/cli** used was 1.6.2 with **angular** 5.1.2.
+At the time of writing the version of **@angular/cli** used was 1.6.3 with **angular** 5.1.2.
 
 ## Step 0 : Install Pre-Prerequisites
 
