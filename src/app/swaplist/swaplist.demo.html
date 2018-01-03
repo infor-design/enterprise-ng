@@ -15,8 +15,6 @@
           <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
 
           <button soho-menu-button menu="action-popupmenu"
-            ng-init="results = 'Bob'"
-            ng-model="results"
             (selected)="onValidationResultsSelected($event)">Validation Results: {{validationResults}}</button>
             <ul soho-popupmenu id="action-popupmenu">
               <li soho-popupmenu-separator singleSelectableSection="true"></li>
