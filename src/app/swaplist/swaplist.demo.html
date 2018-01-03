@@ -8,10 +8,22 @@
             [availableCardTitle]="'Choose from these'"
             [availableItems]="availableDemoItems"
             [selectedItems]="selectedDemoItems"
+            (beforeswap)="onBeforeswap($event)"
             (updated)="onUpdated($event)">
           </soho-swaplist>
 
           <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+
+          <button soho-menu-button menu="action-popupmenu"
+            ng-init="results = 'Bob'"
+            ng-model="results"
+            (selected)="onValidationResultsSelected($event)">Validation Results: {{validationResults}}</button>
+            <ul soho-popupmenu id="action-popupmenu">
+              <li soho-popupmenu-separator singleSelectableSection="true"></li>
+              <li soho-popupmenu-item isChecked="true" isSelectable="true"><a soho-popupmenu-label data-result="true">true</a></li>
+              <li soho-popupmenu-item isSelectable="true"><a soho-popupmenu-label data-result="false">false</a></li>
+            </ul>
+
           <div *ngIf="showModel" class="row">
             <h2>Selected Items:</h2>
             <h3 *ngFor="let item of selectedItems">{{ item | json }}</h3>

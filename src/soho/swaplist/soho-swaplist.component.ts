@@ -247,6 +247,13 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   }
 
   /**
+   * Called before swap item/s.
+   */
+  // tslint:disable-next-line:no-output-rename
+  @Output('beforeswap')
+  public beforeswapEvent: EventEmitter<Object> = new EventEmitter<JQuery.Event>();
+
+  /**
    * Called when the swap list updates in some way.
    */
   // tslint:disable-next-line:no-output-rename
@@ -265,6 +272,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.swaplist(this._options);
 
     this.jQueryElement
+      .on('beforeswap', (event: JQuery.Event, items: SohoSwapListItem[]) => this.beforeswapEvent.emit(event))
       .on('swapupdate', (event: JQuery.Event, items: SohoSwapListItem[]) => this.updatedEvent.emit(event));
 
     this.swaplist = this.jQueryElement.data('swaplist');
