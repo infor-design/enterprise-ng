@@ -1,6 +1,6 @@
 import {
   Component,
-  OnInit,
+  OnInit
 } from '@angular/core';
 
 import {
@@ -42,6 +42,8 @@ export class CodeBlockDemoComponent implements OnInit {
   public costCenterData = costCenterData;
 
   private isPopupBuilt = false;
+
+  public id1 = 'checkbox1';
 
   constructor() { }
   ngOnInit() { }
