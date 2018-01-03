@@ -265,6 +265,18 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   }
 
   /**
+   * Initialize the showSelectAll value for multi-select drop downs
+   */
+  @Input()
+  public set showSelectAll(selectAll: boolean) {
+    this.options.showSelectAll = selectAll;
+  }
+
+  public get showSelectAll(): boolean {
+    return this.options.showSelectAll;
+  }
+
+  /**
    * Called when the dropdown value changes
    */
   @Output()
