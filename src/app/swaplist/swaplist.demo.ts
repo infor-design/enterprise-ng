@@ -42,11 +42,12 @@ export class SwapListDemoComponent implements OnInit, OnDestroy {
     this.sohoHeaderRef.instance.sectionTitle = 'SwapList Basic Demo';
   }
 
-  onSelected(event: any) {
+  onSelected(event) {
     console.log(this.swapListComponent.selectedItems);
   }
 
-  onBeforeswap(event: any) {
+  onBeforeswap(event) {
+    console.log(event)
     if (event) {
       event.result = this.validationResults;
 
@@ -61,7 +62,7 @@ export class SwapListDemoComponent implements OnInit, OnDestroy {
   }
 
   onValidationResultsSelected(event: SohoContextMenuEvent) {
-    this.validationResults = this.getRsults(event.args);
+    this.validationResults = this.getResults(event.args);
   }
 
   toggleModel() {
@@ -72,7 +73,7 @@ export class SwapListDemoComponent implements OnInit, OnDestroy {
     this.sohoHeaderRef.instance.sectionTitle = '';
   }
 
-  getRsults(el): boolean {
+  getResults(el) {
     return (el.attr('data-result') === 'true');
   }
 
