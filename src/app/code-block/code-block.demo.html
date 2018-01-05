@@ -155,7 +155,7 @@
           <input id="PercentField" name="PercentField" alignRight="true" [(ngModel)]="model.PercentField" value="123 %"
             soho-field-options soho-input
             soho-mask [process]="'number'" [allowThousandsSeparator]="true" [allowDecimal]="true" [integerLimit]="3"
-            [decimalLimit]="0" [symbols]="'symbols'" [suffix]="'%'"
+            [decimalLimit]="0" [suffix]="'%'"
           >
 
           <button soho-button="icon" icon="more" class="btn-actions btn-menu" soho-context-menu trigger="click" [beforeOpen]="onBeforeContextMenuOpen"
