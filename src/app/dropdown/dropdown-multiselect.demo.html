@@ -37,6 +37,20 @@
       <div class="row">
         <div class="four columns">
           <div class="field">
+            <label for="states-multi" class="label">States - Stays Open and Select All</label>
+            <select soho-dropdown name="states-multi-select-all" multiple [closeOnSelect]="false" [showSelectAll]="true" [(ngModel)]="model.multi">
+              <option value="AL">Alabama</option>
+              <option value="CA">California</option>
+              <option value="DE">Delaware</option>
+              <option value="NY">New York</option>
+              <option value="WY">Wyoming</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="four columns">
+          <div class="field">
             <label for="states-multi-source-alpha" class="label">Using alpha source & tooltip</label>
             <select soho-dropdown name="states-multi-source-alpha" multiple [source]="sourceAlpha"
               soho-tooltip content="{{stateAsText}}" [(ngModel)]="model.multiSourceAlpha.value">

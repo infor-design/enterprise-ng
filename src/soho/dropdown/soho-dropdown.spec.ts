@@ -141,4 +141,18 @@ describe('Soho Dropdown Render', () => {
     // @todo does not work yet
     expect(el.style.maxWidth).toBe('');
   });
+
+  it('@Input() showSelectAll', () => {
+    expect(el.hasAttribute('multiple')).toBeFalsy();
+    expect(el.classList.contains('multiselect')).toBe(false);
+    expect(de.query(By.css('a#dropdown-select-all-anchor'))).toBeNull();
+
+    dropdown.showSelectAll = true;
+    dropdown.multiple = true;
+    fixture.detectChanges();
+
+    expect(el.hasAttribute('multiple')).toBeTruthy();
+    expect(el.classList).toContain('multiselect');
+    expect(de.query(By.css('a#dropdown-select-all-anchor'))).toBeDefined();
+  });
 });
