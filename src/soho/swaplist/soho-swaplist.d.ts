@@ -85,3 +85,11 @@ interface JQueryStatic {
 interface JQuery {
   swaplist(options: SohoSwapListOptions): JQuery;
 }
+
+interface SohoSwapListBeforeSwapEvent extends JQuery.Event {
+  items?: SohoSwapListItem[];
+}
+
+interface SohoSwapListSwapUpdateEvent extends JQuery.Event {
+  items?: SohoSwapListItem[];
+}

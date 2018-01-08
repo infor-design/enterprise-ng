@@ -47,7 +47,6 @@ export class SwapListDemoComponent implements OnInit, OnDestroy {
   }
 
   onBeforeswap(event) {
-    console.log(event)
     if (event) {
       event.result = this.validationResults;
 
