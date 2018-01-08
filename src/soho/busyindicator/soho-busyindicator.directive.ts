@@ -164,6 +164,13 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, OnDestroy {
     }
   }
 
+  public isActive(): boolean {
+    if (this.busyindicator) {
+      return this.busyindicator.isActive();
+    }
+    return false;
+  }
+
   // ------------------------------------------
   // Lifecycle Events
   // ------------------------------------------
