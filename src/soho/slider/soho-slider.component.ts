@@ -54,6 +54,9 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
     }
   }
   public get value(): number[] {
+    if (this.slider) {
+      return this.slider.value();
+    }
     return this.options.value;
   }
 
