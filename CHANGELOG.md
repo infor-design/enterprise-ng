@@ -1,6 +1,7 @@
 
 ## Whats New
 
+* 2018-01-03 - MHH - SOHO-7296 Angular Soho DropDown - add support for showSelectAll option on multi-select
 * 2018-01-02 - BTHH - PR-555 - Upgraded to @angular/cli 1.6.3.
 * 2017-12-29 - TJM - Added siblings option to datagrid
 * 2017-12-18 - PWP - Added wrapper for empty message component

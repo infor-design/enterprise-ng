@@ -96,6 +96,11 @@ interface SohoDropDownOptions {
    */
   maxWidth?: number;
 
+  /**
+   * Show the select all text/option.
+   */
+  showSelectAll?: boolean;
+
 }
 
 /**
