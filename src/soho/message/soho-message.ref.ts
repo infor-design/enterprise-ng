@@ -1,6 +1,6 @@
 import { Subject } from 'rxjs/Subject';
 
-import { SohoModalDialogVetoableEventGuard } from '../modal-dialog';
+import { SohoModalDialogVetoableEventGuard } from '../modal-dialog/soho-modal-dialog.ref';
 
 /**
  * Wrapper for the jQuery modal control.
