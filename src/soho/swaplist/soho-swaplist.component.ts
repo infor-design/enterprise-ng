@@ -251,14 +251,14 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
    */
   // tslint:disable-next-line:no-output-rename
   @Output('beforeswap')
-  public beforeswapEvent: EventEmitter<Object> = new EventEmitter();
+  public beforeSwapEvent = new EventEmitter<SohoSwapListBeforeSwapEvent>();
 
   /**
    * Called when the swap list updates in some way.
    */
   // tslint:disable-next-line:no-output-rename
   @Output('updated')
-  public updatedEvent: EventEmitter<Object> = new EventEmitter();
+  public updateEvent = new EventEmitter<SohoSwapListSwapUpdateEvent>();
 
   // ------------------------------------------------------------------------
   // Constructor
@@ -335,12 +335,12 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
 
   private onBeforeSwap(event: SohoSwapListBeforeSwapEvent, items: SohoSwapListItem[]) {
     event.items = items;
-    this.beforeswapEvent.emit(event);
+    this.beforeSwapEvent.emit(event);
   }
 
   private onSwapUpdate(event: SohoSwapListSwapUpdateEvent, items: SohoSwapListItem[]) {
     event.items = items;
-    this.updatedEvent.emit(event);
+    this.updateEvent.emit(event);
   }
 
 }
