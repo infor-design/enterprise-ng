@@ -102,6 +102,7 @@ import { ToastDemoComponent } from './toast/toast.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
+import { ToolbarMoreActionsAjaxDemoComponent } from './toolbar/toolbar-more-actions-ajax.demo';
 import { ToolbarPresetMoreActionsDemoComponent } from './toolbar/toolbar-preset-more-actions.demo';
 import { ToolbarRightAlignedDemoComponent } from './toolbar/toolbar-right-aligned.demo';
 import { ToolbarStateComponent } from './toolbar/toolbar-state.component';
@@ -222,6 +223,7 @@ export const routes: Routes = [
   { path: 'timepicker',                             component: TimePickerDemoComponent },
   { path: 'toast',                                  component: ToastDemoComponent },
   { path: 'toolbar-all-icons',                      component: ToolbarAllIconsDemoComponent },
+  { path: 'toolbar-more-actions-ajax',              component: ToolbarMoreActionsAjaxDemoComponent },
   { path: 'toolbar-preset-more-actions',            component: ToolbarPresetMoreActionsDemoComponent },
   { path: 'toolbar-basic',                          component: ToolbarBasicDemoComponent },
   { path: 'toolbar-datadriven',                     component: ToolbarDataDrivenDemoComponent },
