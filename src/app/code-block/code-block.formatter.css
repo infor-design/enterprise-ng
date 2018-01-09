@@ -11,7 +11,8 @@
 :host ::ng-deep .datagrid .is-active .code-block {
   display: inline-block;
   line-height: inherit !important;
-  top: -5px;
+  top: -3px;
+  width: calc(100% - 78px);
 }
 
 :host ::ng-deep .datagrid .code-block label {
@@ -49,4 +50,33 @@
   margin-right: 0;
   position: relative;
   top: 1px;
+}
+
+:host ::ng-deep .datagrid td.is-editing .code-block input.lookup {
+  border-color: transparent;
+  padding: 0;
+  transition: margin .5s ease, left .5s ease, padding .5s ease, width .5s ease;
+  width: initial;
+  vertical-align: middle;
+}
+
+:host ::ng-deep .datagrid td.is-editing .lookup-wrapper {
+  padding-left: 0;
+  vertical-align: middle;
+}
+
+:host ::ng-deep .datagrid td.is-editing .field::after {
+  content: '';
+}
+
+:host ::ng-deep .datagrid td.is-editing .code-block input.lookup ~ .trigger .icon {
+  width: 18px;
+}
+
+:host ::ng-deep .datagrid td.is-editing .code-block input.lookup ~ .trigger {
+  top: -6px;
+}
+
+:host ::ng-deep .datagrid td.is-editing .datagrid-cell-wrapper:focus {
+  outline: none;
 }

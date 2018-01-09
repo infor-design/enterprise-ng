@@ -51,7 +51,9 @@
   border: 1px solid #368ac0;
 }
 
-:host ::ng-deep .field.is-active .field-options:not([disabled]) {
+:host ::ng-deep .field.is-active .field-options:not([disabled]),
+:host ::ng-deep .datepicker.is-open,
+:host ::ng-deep .field.is-active div.dropdown:not(.is-open) {
   border-color: transparent !important;
   box-shadow: none !important;
 }
@@ -103,7 +105,8 @@
   top: -1px;
 }
 
-:host ::ng-deep input {
+:host ::ng-deep input, :host ::ng-deep .field-options.datepicker,
+:host ::ng-deep .dropdown {
   border-color: transparent;
   padding-left: 0;
   transition: margin .5s ease, left .5s ease, padding .5s ease, width .5s ease;
@@ -112,18 +115,27 @@
 
 :host ::ng-deep .dropdown {
   height: 28px !important;
+  margin-right: 18px;
+  line-height: 50px;
+  padding: 4px 0;
+  border-width: 0;
+}
+
+:host ::ng-deep div.dropdown + .icon {
+  right: 24px;
+  visibility: hidden;
 }
 
 :host ::ng-deep .is-number-mask {
   text-align: left;
 }
 
-:host ::ng-deep .lookup {
+:host ::ng-deep .lookup, :host ::ng-deep input {
   padding: 0;
 }
 
 :host ::ng-deep div.field + .field-checkbox {
-  margin-bottom: 0px !important;
+  margin-bottom: -3px !important;
 }
 
 :host ::ng-deep .lookup:focus {
@@ -161,7 +173,8 @@
   fill: #5c5c5c !important;
 }
 
-:host ::ng-deep .lookup-wrapper.is-active + .trigger {
+:host ::ng-deep .lookup-wrapper.is-active + .trigger,
+:host ::ng-deep .datepicker.is-active + .icon {
   visibility: visible;
 }
 
@@ -180,11 +193,13 @@
   visibility: visible;
 }
 
-:host ::ng-deep .field.is-active::before {
+:host ::ng-deep .field.is-active::before,
+:host ::ng-deep .datepicker + .icon {
   visibility: hidden;
 }
 
-:host ::ng-deep input.is-active {
+:host ::ng-deep input.is-active,
+:host ::ng-deep .dropdown.is-open {
   padding-right: 10px;
 }
 
@@ -193,7 +208,7 @@
   visibility: hidden;
   left: -15px;
   margin-right: -22px;
-  top: 1px;
+  top: 0px;
 }
 
 /* Readonly Styles */
@@ -208,7 +223,18 @@
   top: -3px;
 }
 
+:host ::ng-deep .field .checkbox-label {
+  margin-right: 18px;
+}
+
 /* Editor overrides */
 :host-context(.datagrid) .code-block {
   border: none;
+}
+
+:host-context(.datagrid) .btn-actions {
+  height: 30px;
+  min-height: 30px;
+  min-width: 30px;
+  width: 30px;
 }

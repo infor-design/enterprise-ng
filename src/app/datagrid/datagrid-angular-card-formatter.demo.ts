@@ -13,7 +13,7 @@ import {
   template: `<soho-datagrid-card-demo [dataSet]="data"></soho-datagrid-card-demo>`
 })
 export class CardFormatterComponent {
-  private data;
+  public data;
 
   constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {
     this.data = args.value.cardData;

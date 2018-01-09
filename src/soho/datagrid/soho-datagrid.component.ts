@@ -436,7 +436,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * Whether selection is enabled.
    *
-   * @param selectable valid values are: 'multiple', 'single', 'mixed', and false.
+   * @param selectable valid values are: 'multiple', 'single', 'mixed', 'siblings' and false.
    */
   @Input() set selectable(selectable: any) {
     this._gridOptions.selectable = selectable;

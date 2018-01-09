@@ -199,6 +199,52 @@ export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
   focus() {
     this.codeblock.focus();
   }
+
+  get columns(): SohoDataGridColumn[] {
+    return COLUMNS; // tslint:disable-line
+  }
+
+  ledgerData(): any[] {
+    return [];
+  }
+
+  accountingData(): any[] {
+    return [];
+  }
+
+  departmentData(): any[] {
+    return [];
+  }
+
+  costCenterData(): any[] {
+    return [];
+  }
+
+}
+
+@Component({
+  selector: 'soho-datagrid-code-block-editor',
+  templateUrl: './datagrid-code-block-editor.demo.html',
+  styleUrls: ['../code-block/code-block.formatter.css']
+})
+export class DataGridCodeBlockEditorDemoComponent implements AfterViewInit {
+
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+
+  constructor() { }
+
+  ngAfterViewInit(): void {
+
+    this.sohoDataGridComponent.gridOptions = {
+      columns: COLUMNS, // tslint:disable-line
+      dataset: CODE_BLOCK_DATA,
+      selectable: 'single',
+      idProperty: 'productId',
+      editable: true,
+      filterable: true
+    };
+
+  }
 }
 
 export const COLUMNS: SohoDataGridColumn[] = [
@@ -230,28 +276,3 @@ export const COLUMNS: SohoDataGridColumn[] = [
     editorComponentInputs: {}
   }
 ];
-
-@Component({
-  selector: 'soho-datagrid-code-block-editor',
-  templateUrl: './datagrid-code-block-editor.demo.html',
-  styleUrls: ['../code-block/code-block.formatter.css']
-})
-export class DataGridCodeBlockEditorDemoComponent implements AfterViewInit {
-
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
-
-  constructor() { }
-
-  ngAfterViewInit(): void {
-
-    this.sohoDataGridComponent.gridOptions = {
-      columns: COLUMNS,
-      dataset: CODE_BLOCK_DATA,
-      selectable: 'single',
-      idProperty: 'productId',
-      editable: true,
-      filterable: true
-    };
-
-  }
-}

@@ -12,11 +12,13 @@ type SohoDataGridRowHeight = 'short' | 'medium' | 'normal';
 
 /**
  * Selection options.
- * Mixed mode allows for single row activated state with multipl selection checkbox states.
+ * Mixed mode allows for single row activated state with multiple selection checkbox states.
  * rowdeactivated and rowactivated events are fired for the Activated mode of a row.
  * Use is-rowactivated in your markup to set activated state
+ *
+ * Siblings mode is used with treeGrid to give a mode where adgacent siblings are selected.
  */
-type SohoDataGridSelectable = boolean | 'single' | 'multiple' | 'mixed';
+type SohoDataGridSelectable = boolean | 'single' | 'multiple' | 'mixed' | 'siblings';
 
 /**
  * Settings for the Soho datagrid control.
@@ -593,6 +595,9 @@ interface SohoDataGridColumn {
 
   /** Content visible function*/
   contentVisible?: SohoDataGridColumnContentVisibleFunction;
+
+  /** If false the column will not be included in export */
+  exportable?: boolean
 }
 
 interface SohoDataGridColumnNumberFormat {
