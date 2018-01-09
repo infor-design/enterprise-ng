@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'span[soho-searchfield-wrapper]', // tslint:disable-line
+  selector: '[soho-searchfield-wrapper]', // tslint:disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoSearchFieldWrapperComponent {
