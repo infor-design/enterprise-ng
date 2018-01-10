@@ -52,6 +52,12 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  /**
+   * Is the application menu filterable?
+   */
+  @Input()
+  public filterable: boolean;
+
   // -------------------------------------------
   // Host Bindings
   // -------------------------------------------
@@ -82,6 +88,9 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
   // This event is fired when the visibility of the application menu is changed,
   // is it also called when the item is changed programmatically.
   @Output() visibility = new EventEmitter<boolean>();
+
+  // This event is fired when the application menu is filtered.
+  @Output() filtered = new EventEmitter<any[]>();
 
   // Constructor.
   constructor(private elementRef: ElementRef) {
@@ -162,7 +171,8 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
     const options: SohoApplicationMenuOptions = {
       breakpoint: this.breakpoint,
       openOnLarge: this.openOnLarge,
-      triggers: this._triggers
+      triggers: this._triggers,
+      filterable: this.filterable
     };
 
     // Initialise the SoHoXi control.
@@ -176,7 +186,8 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
     // Initialise any event handlers.
     this.jQueryElement
       .on('expand', () => this.visibility.next(true))
-      .on('collapse', () => this.visibility.next(false));
+      .on('collapse', () => this.visibility.next(false))
+      .on('filtered', (e, results: any[]) => this.filtered.next(results));
   }
 
   /**
