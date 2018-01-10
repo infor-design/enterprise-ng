@@ -148,6 +148,7 @@ import { ToastDemoComponent } from './toast/toast.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
+import { ToolbarMoreActionsAjaxDemoComponent } from './toolbar/toolbar-more-actions-ajax.demo';
 import { ToolbarPresetMoreActionsDemoComponent } from './toolbar/toolbar-preset-more-actions.demo';
 import { ToolbarStateComponent } from './toolbar/toolbar-state.component';
 import { ToolbarStateDemoComponent } from './toolbar/toolbar-state.demo';
@@ -289,6 +290,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ToolbarAllIconsDemoComponent,
     ToolbarBasicDemoComponent,
     ToolbarDataDrivenDemoComponent,
+    ToolbarMoreActionsAjaxDemoComponent,
     ToolbarStateComponent,
     ToolbarStateDemoComponent,
     ToolbarPresetMoreActionsDemoComponent,
