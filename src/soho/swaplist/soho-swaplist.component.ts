@@ -247,11 +247,18 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   }
 
   /**
+   * Called before swap item/s.
+   */
+  // tslint:disable-next-line:no-output-rename
+  @Output('beforeswap')
+  public beforeSwapEvent = new EventEmitter<SohoSwapListBeforeSwapEvent>();
+
+  /**
    * Called when the swap list updates in some way.
    */
   // tslint:disable-next-line:no-output-rename
   @Output('updated')
-  public updatedEvent: EventEmitter<Object> = new EventEmitter<JQuery.Event>();
+  public updateEvent = new EventEmitter<SohoSwapListSwapUpdateEvent>();
 
   // ------------------------------------------------------------------------
   // Constructor
@@ -265,7 +272,8 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.swaplist(this._options);
 
     this.jQueryElement
-      .on('swapupdate', (event: JQuery.Event, items: SohoSwapListItem[]) => this.updatedEvent.emit(event));
+    .on('beforeswap', (event: JQuery.Event, items: SohoSwapListItem[]) => this.onBeforeSwap(event, items))
+    .on('swapupdate', (event: JQuery.Event, items: SohoSwapListItem[]) => this.onSwapUpdate(event, items));
 
     this.swaplist = this.jQueryElement.data('swaplist');
 
@@ -323,6 +331,16 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
       results.push({ id: item.id, value: item.value, text: item.text });
     }
     return results;
+  }
+
+  private onBeforeSwap(event: SohoSwapListBeforeSwapEvent, items: SohoSwapListItem[]) {
+    event.items = items;
+    this.beforeSwapEvent.emit(event);
+  }
+
+  private onSwapUpdate(event: SohoSwapListSwapUpdateEvent, items: SohoSwapListItem[]) {
+    event.items = items;
+    this.updateEvent.emit(event);
   }
 
 }

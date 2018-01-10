@@ -20,6 +20,7 @@ export class SwapListDemoComponent implements OnInit, OnDestroy {
   selectedDemoItems: any[] = [];
 
   showModel = false;
+  validationResults = true;
 
   constructor(private sohoHeaderRef: HeaderDynamicDemoRefService) {
     this.availableDemoItems.push(
@@ -41,12 +42,26 @@ export class SwapListDemoComponent implements OnInit, OnDestroy {
     this.sohoHeaderRef.instance.sectionTitle = 'SwapList Basic Demo';
   }
 
-  onSelected(event: any) {
+  onSelected(event) {
     console.log(this.swapListComponent.selectedItems);
+  }
+
+  onBeforeswap(event) {
+    if (event) {
+      event.result = this.validationResults;
+
+      if (!this.validationResults) {
+        console.log('No swap, validation fail');
+      }
+    }
   }
 
   onUpdated(event: any) {
     console.log(this.swapListComponent.selectedItems);
+  }
+
+  onValidationResultsSelected(event: SohoContextMenuEvent) {
+    this.validationResults = this.getResults(event.args);
   }
 
   toggleModel() {
@@ -55,6 +70,10 @@ export class SwapListDemoComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sohoHeaderRef.instance.sectionTitle = '';
+  }
+
+  getResults(el) {
+    return (el.attr('data-result') === 'true');
   }
 
   get selectedItems(): SohoSwapListItem[] {
