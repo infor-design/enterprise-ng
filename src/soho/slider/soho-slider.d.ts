@@ -82,6 +82,11 @@ interface SohoSliderStatic {
   updated(): void;
 
   /**
+   * get the low and high value of the slider.
+   */
+  value(): number[];
+
+  /**
    * Sets the new low value and high value of the slider.
    */
   setValue(lowVal: number, highVal: number): number[];
