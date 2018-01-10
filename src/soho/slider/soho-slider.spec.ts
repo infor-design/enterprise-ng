@@ -75,7 +75,7 @@ describe ('Soho Slider Render', () => {
     expect(el.classList).toContain('slider');
     expect(el.getAttribute('min')).toEqual(slider.min.toString());
     expect(el.getAttribute('max')).toEqual(slider.max.toString());
-    expect(el.getAttribute('value')).toEqual(slider.value.toString());
+    expect(el.getAttribute('value')).toEqual(slider.value[0].toString());
   });
 
   it('Slider disabled', () => {
