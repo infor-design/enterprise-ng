@@ -663,6 +663,9 @@ interface SohoDataGridStatic {
   /** Used to set the sort indicator on a column when disableClientSort is set to true */
   setSortIndicator(columnId: string, ascending: boolean): void;
 
+  /** Use to change datagrid empty message */
+  setEmptyMessage(emptyMessage: SohoEmptyMessageOptions): void;
+
   /**
    * Sets the column and direction to sort the dataset on.
    *
