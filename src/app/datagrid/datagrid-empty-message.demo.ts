@@ -6,7 +6,6 @@ import {
 } from '@angular/core';
 
 import { SohoDataGridComponent } from '@infor/sohoxi-angular';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { DataGridDemoService } from './datagrid-demo.service';
 
 @Component({
@@ -18,33 +17,41 @@ import { DataGridDemoService } from './datagrid-demo.service';
 export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
 
-  public get toggleButtonName() {
-    return this.hasData ? 'Clear Data' : 'Add Data';
-  }
-
-  public hasData: boolean;
-
-  emptyMessage: SohoEmptyMessageOptions = {
+  private static EMPTY_MSG_SERVER_ERROR: SohoEmptyMessageOptions = {
     title: 'Server Error',
     info: 'The target server returned an error',
     icon: 'icon-empty-error-loading', // needs to be the full SVG name
     button: { text: 'Retry', click: () => { alert('try again'); } }
   };
 
-  get data() {
-   return this.hasData ? this.service.data : [];
-  }
+  private static EMPTY_MSG_NO_MATCHES: SohoEmptyMessageOptions = {
+    title: 'No Matches',
+    info: 'No products found that match your query',
+    icon: 'icon-empty-no-orders', // needs to be the full SVG name
+    button: { text: 'Retry', click: () => { alert('try again'); } }
+  };
+
+  public hasData: boolean;
+  public emptyMessage: SohoEmptyMessageOptions = DataGridEmptyMessageDemoComponent.EMPTY_MSG_SERVER_ERROR;
 
   constructor(private service: DataGridDemoService) { }
 
   ngAfterViewInit() {
   }
 
+  public get toggleButtonName() {
+    return this.hasData ? 'Clear Data' : 'Add Data';
+  }
+
+  public get data() {
+    return this.hasData ? this.service.data : [];
+  }
+
   public get columns(): SohoDataGridColumn[] {
     return this.service.getColumns();
   }
 
-  makeChange() {
+  public makeChange() {
     this.hasData = !this.hasData;
   }
 
@@ -52,26 +59,21 @@ export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
    * Sets the empty message to a different one from the default, or
    * the one defined in the markup.
    */
-  changeMessage() {
-    this.dataGrid.emptyMessage = {
-      title: 'No Matches',
-      info: 'No products found that match your query',
-      icon: 'icon-empty-no-orders', // needs to be the full SVG name
-      button: { text: 'Retry', click: () => { alert('try again'); } }
-    };
+  public changeMessage() {
+    this.emptyMessage = DataGridEmptyMessageDemoComponent.EMPTY_MSG_NO_MATCHES;
   }
 
   /**
    * Sets the message back to the starting message defined in the markup.
    */
-  resetMessage() {
-    this.dataGrid.emptyMessage = this.emptyMessage;
+  public resetMessage() {
+    this.emptyMessage = DataGridEmptyMessageDemoComponent.EMPTY_MSG_SERVER_ERROR;
   }
 
   /**
    * Sets the message to the default - this can be null or undefined.
    */
-  defaultMessage() {
-    this.dataGrid.emptyMessage = null;
+  public defaultMessage() {
+    this.emptyMessage = null;
   }
 }
