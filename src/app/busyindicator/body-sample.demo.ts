@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   ViewChild,
+  OnInit
 } from '@angular/core';
 
 import {
@@ -12,20 +13,27 @@ import {
 
 @Component({
   selector: 'soho-busyindicator-demo',
-  templateUrl: './body-sample.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './body-sample.demo.html'
 })
-export class BusyIndicatorDemoBodyComponent {
+export class BusyIndicatorDemoBodyComponent implements OnInit {
 
-  message = 'I am waiting ... ';
+  message = 'Initial loading...';
 
   delay = 1000;
 
   transparentOverlay = false;
+  showInitially = true;
 
   @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
 
   constructor(private elementRef: ElementRef) {
+  }
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.showInitially = false;
+      this.message = 'Timed loading...';
+    }, 5000);
   }
 
   start() {
@@ -37,8 +45,8 @@ export class BusyIndicatorDemoBodyComponent {
   }
 
   timer() {
-    this.busyIndicator.activated = true;
-    setTimeout((f: any) => this.busyIndicator.activated = false, 10000);
+    this.start();
+    setTimeout((f: any) => this.stop(), 5000);
   }
 
   onAfterStart(event: SohoBusyIndicatorEvent) {
