@@ -58,6 +58,10 @@
   box-shadow: none !important;
 }
 
+:host ::ng-deep .field.is-active .field-options:not([disabled]) {
+  margin-right: 0;
+}
+
 /* Make Label and Input Inline */
 :host ::ng-deep .lookup-wrapper,
 :host ::ng-deep .label {
@@ -153,7 +157,9 @@
 }
 
 /* Make Elements Sit Well Next to Each other */
-:host ::ng-deep .field-options {
+:host ::ng-deep .field-options,
+:host ::ng-deep .field.is-active .field-options:not([disabled]).lookup,
+:host ::ng-deep .field.is-active .field-options:not([disabled]).datepicker {
   margin-left: 3px;
   margin-right: 18px;
 }
@@ -161,8 +167,6 @@
 :host ::ng-deep .trigger {
   visibility: hidden;
   margin-left: -33px;
-  position: relative;
-  top: -3px;
 }
 
 :host ::ng-deep input.is-active + .trigger {
@@ -211,6 +215,11 @@
   top: 0px;
 }
 
+
+:host ::ng-deep .field.is-fieldoptions .lookup-wrapper .btn-actions {
+  left: -15px;
+}
+
 /* Readonly Styles */
 :host ::ng-deep .data {
   padding-left: 3px;
@@ -225,6 +234,14 @@
 
 :host ::ng-deep .field .checkbox-label {
   margin-right: 18px;
+}
+
+:host ::ng-deep .dropdown-sm {
+  width: auto;
+}
+
+:host-context(.dropdown-list) .dropdown-search {
+  width: 100px;
 }
 
 /* Editor overrides */
