@@ -1,0 +1,28 @@
+<div class="row top-padding">
+  <div class="one-half column">
+    <div class="field">
+      <label soho-label for="item-desc">Text Field</label>
+      <input soho-field-options soho-popdown type="text" id="item-desc" name="item-desc">
+      <soho-popdown-contents>
+        <table [ngStyle]="{'width': '100%'}">
+          <tbody>
+            <tr>
+              <th *ngFor="let header of TABLE.headers">
+                <label>{{header}}</label>
+              </th>
+            </tr>
+            <tr *ngFor="let row of TABLE.data">
+              <td *ngFor="let column of row">
+                <label>{{column}}</label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </soho-popdown-contents>
+      <button soho-button="icon" icon="more" class="btn-actions btn-menu"
+              soho-context-menu trigger="click" [beforeOpen]="onBeforeContextMenuOpen"
+              (selected)="onSelected($event)"></button>
+      <ul class="popupmenu"></ul>
+    </div>
+  </div>
+</div>

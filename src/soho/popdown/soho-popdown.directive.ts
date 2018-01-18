@@ -28,4 +28,8 @@ export class SohoPopDownDirective implements AfterViewInit, OnDestroy {
       this.popdown.destroy();
     }
   }
+
+  open() {
+    this.popdown.open();
+  }
 }

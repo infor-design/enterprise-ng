@@ -15,8 +15,6 @@ import { DataGridDemoService } from './datagrid-demo.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
-  @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
-
   private static EMPTY_MSG_SERVER_ERROR: SohoEmptyMessageOptions = {
     title: 'Server Error',
     info: 'The target server returned an error',
@@ -30,6 +28,8 @@ export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
     icon: 'icon-empty-no-orders', // needs to be the full SVG name
     button: { text: 'Retry', click: () => { alert('try again'); } }
   };
+
+  @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
 
   public hasData: boolean;
   public emptyMessage: SohoEmptyMessageOptions = DataGridEmptyMessageDemoComponent.EMPTY_MSG_SERVER_ERROR;

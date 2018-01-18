@@ -18,6 +18,9 @@ interface SohoPopDownStatic {
 
   /** Destroy the markup and any other resources.  */
   destroy(): void;
+
+  /** Open the popdown*/
+  open(): void;
 }
 
 /**
