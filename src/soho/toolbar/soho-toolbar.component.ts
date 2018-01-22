@@ -12,15 +12,19 @@ import {
   OnDestroy,
 } from '@angular/core';
 
-// copied wrapper component from soho-searchfield.component.ts. not sure it's needed.
-// @Component({
-//   selector: 'span[soho-toolbar-searchfield-wrapper]', // tslint:disable-line
-//   template: `<ng-content></ng-content>`
-// })
-// export class SohoToolbarSearchFieldWrapperComponent {
-//   @HostBinding('class.searchfield-wrapper') get isSearchfieldWrapper() { return true; }
-//   @HostBinding('class.toolbar-searchfield-wrapper') get isToolbarSearchfieldWrapper() { return true; }
-// }
+/**
+ * needed in case you are using an *ngIf to display and remove the toolbar search field.
+ * Otherwise sohoxi will create a wrapper and angular will not know how to handle the
+ * element structure change.
+ */
+@Component({
+  selector: 'span[soho-toolbar-searchfield-wrapper]', // tslint:disable-line
+  template: `<ng-content></ng-content>`
+})
+export class SohoToolbarSearchFieldWrapperComponent {
+  @HostBinding('class.searchfield-wrapper') get isSearchfieldWrapper() { return true; }
+  @HostBinding('class.toolbar-searchfield-wrapper') get isToolbarSearchfieldWrapper() { return true; }
+}
 
 @Component({
   selector: 'input[soho-toolbar-searchfield]', // tslint:disable-line

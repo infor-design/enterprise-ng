@@ -10,6 +10,7 @@ import {
   SohoPageTitleComponent,
   SohoToolbarMoreButtonComponent,
   SohoToolbarSearchFieldComponent,
+  SohoToolbarSearchFieldWrapperComponent,
 } from './soho-toolbar.component';
 
 @NgModule({
@@ -23,6 +24,7 @@ import {
     SohoPageTitleComponent,
     SohoToolbarMoreButtonComponent,
     SohoToolbarSearchFieldComponent,
+    SohoToolbarSearchFieldWrapperComponent,
   ],
   exports: [
     SohoToolbarComponent,
@@ -33,6 +35,7 @@ import {
     SohoPageTitleComponent,
     SohoToolbarMoreButtonComponent,
     SohoToolbarSearchFieldComponent,
+    SohoToolbarSearchFieldWrapperComponent,
   ]
 })
 export class SohoToolbarModule {}
