@@ -97,6 +97,7 @@ import { FieldOptionsDemoComponent } from './field-options/field-options.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
+import { HeaderToggleButtonsDemoComponent } from './header/header-toggle-buttons.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
 import { HierarchyDemoComponent } from './hierarchy/hierarchy.demo';
@@ -240,6 +241,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     FileUploadAdvancedDemoComponent,
     FileUploadDemoComponent,
     HeaderTabsDemoComponent,
+    HeaderToggleButtonsDemoComponent,
     HeaderToolbarAndTabsDemoComponent,
     HeaderToolbarDemoComponent,
     HierarchyDemoComponent,
