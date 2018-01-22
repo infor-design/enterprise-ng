@@ -196,8 +196,10 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, OnDestroy {
       .on('afterstart', (e: JQuery.Event) => this.onAfterStart(e))
       .on('close', (e: JQuery.Event) => this.onClose(e));
 
-    // Initial state
-    this.activated = this.initiallyActive;
+    // Initial busy state if set to true
+    if (this.initiallyActive) {
+      this.activated = true;
+    }
   }
 
   /**
