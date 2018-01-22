@@ -236,12 +236,13 @@
   margin-right: 18px;
 }
 
-:host ::ng-deep .dropdown-sm {
-  width: auto;
+:host ::ng-deep .field .dropdown-wrapper {
+  width: 80px;
+  transition: width .5s ease;
 }
 
-:host-context(.dropdown-list) .dropdown-search {
-  width: 100px;
+:host ::ng-deep .field.is-active .dropdown-wrapper {
+  width: 200px;
 }
 
 /* Editor overrides */
