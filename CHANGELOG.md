@@ -1,6 +1,7 @@
 
 ## Whats New
 
+* 2018-01-23 - BTH - Upgraded to @angular/cli 1.6.5 and updated corresponding dependencies.
 * 2018-01-18 - MHH - SOHO-7354: 4.0 Popdown expose the open method
 * 2018-01-03 - MHH - SOHO-7296 Angular Soho DropDown - add support for showSelectAll option on multi-select
 * 2018-01-02 - BTHH - PR-555 - Upgraded to @angular/cli 1.6.3.
