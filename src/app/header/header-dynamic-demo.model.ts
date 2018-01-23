@@ -23,6 +23,10 @@ export interface HeaderDynamicButtonOptions {
   // The text for the button.
   text?: string;
   // The icon for the button.
+  type?: string;
+  // The type of button 'primary,secondary,tertiaty,icon'
+  istoggle?: boolean;
+  // Is icon toggle
   icon?: string;
   // Is the button disabled
   disabled?: boolean;
@@ -31,6 +35,10 @@ export interface HeaderDynamicButtonOptions {
   // The href to run when clicked.
   href?: string;
   // Data to keep associated with this button.
+  toggleOnIcon?: string;
+  // The button is On.
+  toggleOffIcon?: string;
+  // The button is Off.
   data: any;
   // Whether this button has a dropdown menu with menu items.
   menu?: Array<HeaderDynamicButtonOptions>;

@@ -55,6 +55,7 @@ import { FieldOptionsPopdownDemoComponent } from './field-options/field-options-
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
+import { HeaderToggleButtonsDemoComponent } from './header/header-toggle-buttons.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
 import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
 import { HierarchyDemoComponent } from './hierarchy/hierarchy.demo';
@@ -179,6 +180,7 @@ export const routes: Routes = [
   { path: 'fileupload-advanced',                    component: FileUploadAdvancedDemoComponent },
   { path: 'fileupload',                             component: FileUploadDemoComponent },
   { path: 'header-tabs',                            component: HeaderTabsDemoComponent },
+  { path: 'header-toggle-buttons',                  component: HeaderToggleButtonsDemoComponent },
   { path: 'header-toolbar',                         component: HeaderToolbarDemoComponent },
   { path: 'header-toolbar-tabs',                    component: HeaderToolbarAndTabsDemoComponent },
   { path: 'hierarchy',                              component: HierarchyDemoComponent },
