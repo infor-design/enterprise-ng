@@ -61,10 +61,11 @@ The next step is to configure angular-cli to include the SoHoXI libraries into t
 Edit `.angular-cli.json`, change the `scripts` as follows:
 ```json
 "scripts": [
-"../node_modules/jquery/dist/jquery.js",
-"../node_modules/@infor/sohoxi/dist/js/sohoxi.js",
-"../node_modules/@infor/sohoxi/dist/js/cultures/en-US.js",
-"../node_modules/@infor/sohoxi/dist/js/d3.v4.js"
+  "../node_modules/jquery/dist/jquery.js",
+  "../node_modules/@infor/sohoxi/dist/js/sohoxi.js",
+  "../node_modules/@infor/sohoxi/dist/js/sohoxi-migrate-4.4.0.js",
+  "../node_modules/@infor/sohoxi/dist/js/cultures/en-US.js",
+  "../node_modules/@infor/sohoxi/dist/js/d3.v4.js"
 ],
 ```
 
