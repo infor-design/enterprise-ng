@@ -18,7 +18,7 @@ export class FieldOptionsPopdownDemoComponent {
     '<li><a href="#" id="ShowPendingChanges">Show Pending Changes</a></li>' +
     '';
 
-  private TABLE = {
+  public TABLE = {
     headers: ['Date', 'Value', 'User ID', 'Name'],
     data: [['5/12/2010', 'Drew', '1075', '1075']]
   };
