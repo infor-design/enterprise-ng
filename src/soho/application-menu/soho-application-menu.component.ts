@@ -30,7 +30,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
   @Input()
   public breakpoint: SohoApplicationMenuBreakPoint;
 
-  // Open on resize?
+  // Sets Open on resize
   @Input()
   public set openOnLarge(openOnLarge: boolean) {
     this._openOnLarge = openOnLarge;
@@ -42,7 +42,14 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
   };
 
   public get openOnLarge() {
-    return this.applicationmenu.settings.openOnLarge;
+    if (this.applicationmenu) {
+      return this.applicationmenu.settings.openOnLarge;
+    }
+
+    // If called before the component has completed
+    // initialisation, return the current value from the
+    // options.
+    return this._openOnLarge;
   }
 
   // A list of jQuery elements which trigger the openning and closing
