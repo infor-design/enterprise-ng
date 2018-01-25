@@ -1,4 +1,3 @@
-
 :host {
   transition: height 0.5s ease;
   width: 100%;
@@ -51,15 +50,9 @@
   border: 1px solid #368ac0;
 }
 
-:host ::ng-deep .field.is-active .field-options:not([disabled]),
-:host ::ng-deep .datepicker.is-open,
-:host ::ng-deep .field.is-active div.dropdown:not(.is-open) {
+:host ::ng-deep .field.is-active .field-options:not([disabled]) {
   border-color: transparent !important;
   box-shadow: none !important;
-}
-
-:host ::ng-deep .field.is-active .field-options:not([disabled]) {
-  margin-right: 0;
 }
 
 /* Make Label and Input Inline */
@@ -109,37 +102,25 @@
   top: -1px;
 }
 
-:host ::ng-deep input, :host ::ng-deep .field-options.datepicker,
-:host ::ng-deep .dropdown {
+/* Add a : After the label */
+:host ::ng-deep .label::after {
+  content: ':';
+}
+
+:host ::ng-deep input{
   border-color: transparent;
   padding-left: 0;
   transition: margin .5s ease, left .5s ease, padding .5s ease, width .5s ease;
   width: initial;
 }
 
-:host ::ng-deep .dropdown {
-  height: 28px !important;
-  margin-right: 18px;
-  line-height: 50px;
-  padding: 4px 0;
-  border-width: 0;
-}
-
-:host ::ng-deep div.dropdown + .icon {
-  right: 24px;
-  visibility: hidden;
-}
-
 :host ::ng-deep .is-number-mask {
   text-align: left;
 }
 
-:host ::ng-deep .lookup, :host ::ng-deep input {
+:host ::ng-deep .lookup,
+:host ::ng-deep input {
   padding: 0;
-}
-
-:host ::ng-deep div.field + .field-checkbox {
-  margin-bottom: -3px !important;
 }
 
 :host ::ng-deep .lookup:focus {
@@ -151,17 +132,34 @@
   background-color: transparent;
 }
 
-/* Add a : After the label */
-:host ::ng-deep .label::after {
-  content: ':';
-}
-
 /* Make Elements Sit Well Next to Each other */
-:host ::ng-deep .field-options,
+:host ::ng-deep .field .field-options:not([disabled]).lookup,
 :host ::ng-deep .field.is-active .field-options:not([disabled]).lookup,
-:host ::ng-deep .field.is-active .field-options:not([disabled]).datepicker {
+:host ::ng-deep .field .field-options:not([disabled]),
+:host ::ng-deep .field .field-options:not([disabled]).datepicker,
+:host ::ng-deep .field.is-active .field-options:not([disabled]).datepicker,
+:host ::ng-deep .field .dropdown-wrapper  {
   margin-left: 3px;
   margin-right: 18px;
+}
+
+:host ::ng-deep .field.is-active .field-options:not([disabled]) {
+  margin-right: 9px;
+}
+
+:host ::ng-deep .field input.field-options:not([disabled]).lookup.is-active,
+:host ::ng-deep .field.is-active .field-options:not([disabled]).datepicker {
+  padding-right: 10px;
+}
+
+:host ::ng-deep .field.is-active::before,
+:host ::ng-deep .datepicker + .icon {
+  visibility: hidden;
+}
+
+:host ::ng-deep .datepicker.is-active + .icon {
+  visibility: visible;
+  z-index: 2;
 }
 
 :host ::ng-deep .trigger {
@@ -177,9 +175,26 @@
   fill: #5c5c5c !important;
 }
 
-:host ::ng-deep .lookup-wrapper.is-active + .trigger,
-:host ::ng-deep .datepicker.is-active + .icon {
+:host ::ng-deep .lookup-wrapper.is-active + .trigger{
   visibility: visible;
+}
+
+/* Adjust the Field Options */
+:host ::ng-deep .btn-actions {
+  visibility: hidden;
+  left: -15px;
+  margin-right: -22px;
+  top: 0px;
+  z-index: 1;
+}
+
+:host ::ng-deep .field.is-fieldoptions .lookup-wrapper .btn-actions {
+  left: -15px;
+}
+
+:host ::ng-deep .field-options.checkbox ~ .btn-actions,
+:host ::ng-deep .field-options.dropdown ~ .btn-actions {
+  top: 0;
 }
 
 :host ::ng-deep input.is-active + .trigger + .btn-actions {
@@ -197,27 +212,8 @@
   visibility: visible;
 }
 
-:host ::ng-deep .field.is-active::before,
-:host ::ng-deep .datepicker + .icon {
+:host ::ng-deep .field.is-active::before {
   visibility: hidden;
-}
-
-:host ::ng-deep input.is-active,
-:host ::ng-deep .dropdown.is-open {
-  padding-right: 10px;
-}
-
-/* Adjust the Field Options */
-:host ::ng-deep .btn-actions {
-  visibility: hidden;
-  left: -15px;
-  margin-right: -22px;
-  top: 0px;
-}
-
-
-:host ::ng-deep .field.is-fieldoptions .lookup-wrapper .btn-actions {
-  left: -15px;
 }
 
 /* Readonly Styles */
@@ -232,27 +228,43 @@
   top: -3px;
 }
 
+/* Style Datepicker alignment */
+:host ::ng-deep .field-options.datepicker {
+  width: initial;
+}
+
+/* Style Checkbox alignment */
 :host ::ng-deep .field .checkbox-label {
   margin-right: 18px;
 }
 
-:host ::ng-deep .field .dropdown-wrapper {
+:host ::ng-deep div.field + .field-checkbox {
+  margin-bottom: -3px !important;
+}
+
+/* Style Dropdown & alignment */
+:host ::ng-deep .dropdown {
+  height: 32px !important;
+  padding: 8px 0;
+  border-width: 0;
+  vertical-align: top;
+}
+
+:host ::ng-deep .field .dropdown-sm {
+  width: 63px;
+  transition: width 0.5s ease;
+}
+
+:host ::ng-deep .field.is-active .dropdown-sm {
   width: 80px;
-  transition: width .5s ease;
 }
 
-:host ::ng-deep .field.is-active .dropdown-wrapper {
-  width: 200px;
+:host ::ng-deep .dropdown + .icon {
+  right: 24px;
+  visibility: hidden;
 }
 
-/* Editor overrides */
-:host-context(.datagrid) .code-block {
-  border: none;
-}
-
-:host-context(.datagrid) .btn-actions {
-  height: 30px;
-  min-height: 30px;
-  min-width: 30px;
-  width: 30px;
+:host ::ng-deep .field.is-active div.dropdown:not(.is-open) {
+  border-width: 0;
+  box-shadow: none;
 }
