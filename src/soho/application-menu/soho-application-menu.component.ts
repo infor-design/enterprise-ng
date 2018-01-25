@@ -32,7 +32,18 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
 
   // Open on resize?
   @Input()
-  public openOnLarge: boolean;
+  public set openOnLarge(openOnLarge: boolean) {
+    this._openOnLarge = openOnLarge;
+
+    if (this.applicationmenu) {
+      this.applicationmenu.settings.openOnLarge = this._openOnLarge;
+      this.updated();
+    }
+  };
+
+  public get openOnLarge() {
+    return this.applicationmenu.settings.openOnLarge;
+  }
 
   // A list of jQuery elements which trigger the openning and closing
   // application menu.
@@ -42,7 +53,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
     if (triggers) {
       let i = triggers.length;
       while (i--) {
-        this._triggers.push(jQuery(triggers[i]));
+        this._triggers.push(jQuery(triggers[ i ]));
       }
 
       if (this.applicationmenu) {
@@ -65,6 +76,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class') get classes() {
     return 'application-menu';
   }
+
   /**
    * This will let the Soho controls bind the application menu trigger naturally
    */
@@ -85,9 +97,15 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
   // List of jQuery triggers.
   private _triggers: Array<any> = [];
 
+  // Open on resize
+  private _openOnLarge: boolean;
+
   // This event is fired when the visibility of the application menu is changed,
   // is it also called when the item is changed programmatically.
   @Output() visibility = new EventEmitter<boolean>();
+
+  // This event is fired when the visibility of the application menu is changed
+  @Output() menuVisibility = new EventEmitter<boolean>();
 
   // This event is fired when the application menu is filtered.
   @Output() filtered = new EventEmitter<any[]>();
@@ -115,8 +133,8 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
   /**
    * Returns true if the menu is open, otherwise false.
    */
-  public isOpen() {
-    this.applicationmenu.hasClass('is-open');
+  public isOpen(): boolean {
+    return this.applicationmenu.isOpen();
   }
 
   /**
@@ -170,7 +188,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
 
     const options: SohoApplicationMenuOptions = {
       breakpoint: this.breakpoint,
-      openOnLarge: this.openOnLarge,
+      openOnLarge: this._openOnLarge,
       triggers: this._triggers,
       filterable: this.filterable
     };
@@ -185,9 +203,11 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
 
     // Initialise any event handlers.
     this.jQueryElement
-      .on('expand', () => this.visibility.next(true))
-      .on('collapse', () => this.visibility.next(false))
-      .on('filtered', (e, results: any[]) => this.filtered.next(results));
+    .on('expand', () => this.visibility.next(true))
+    .on('collapse', () => this.visibility.next(false))
+    .on('filtered', (e, results: any[]) => this.filtered.next(results))
+    .on('applicationmenuopen', () => this.menuVisibility.next(true))
+    .on('applicationmenuclose', () => this.menuVisibility.next(false));
   }
 
   /**
