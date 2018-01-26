@@ -17,8 +17,11 @@ export class HeaderToggleButtonsDemoComponent implements OnInit, OnDestroy {
 
   private toolbarOptions: HeaderDynamicToolbarOptions = {
     toolbarButtons: [
-      { id: 'heart-filled', type: 'icon', istoggle: true, icon: 'heart-filled', toggleOnIcon: 'heart-filled', toggleOffIcon: 'heart-outlined', data: '{\'btn\': \'heart-filled\'}' },
-      { id: 'filter', text: 'Filter', type: 'tertiary', istoggle: true, icon: 'filter', data: '{\'btn\': \'filter\'}' }
+      { id: 'heart-filled', type: 'icon', istoggle: true, icon: 'heart-filled',
+        toggleOnIcon: 'heart-filled', toggleOffIcon: 'heart-outlined',
+        data: '{\'btn\': \'heart-filled\'}' },
+      { id: 'filter', text: 'Filter', type: 'tertiary', istoggle: true,
+        icon: 'filter', data: '{\'btn\': \'filter\'}' }
     ]
   };
 

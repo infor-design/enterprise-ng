@@ -39,7 +39,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
       this.applicationmenu.settings.openOnLarge = this._openOnLarge;
       this.updated();
     }
-  };
+  }
 
   public get openOnLarge() {
     if (this.applicationmenu) {
