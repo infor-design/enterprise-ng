@@ -142,7 +142,7 @@ export class SohoStepContentPanelComponent {
 export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.step-process-container') isStepProcessContainer = true;
   @HostBinding('class.two-column') isTwoColumn = true;
-  @HostBinding('class.fixed') isFixed= true;
+  @HostBinding('class.fixed') isFixed = true;
   @HostBinding('class.page-container') isPageContainer = true;
   @HostBinding('class.no-scroll') isNoScroll = true;
   @HostBinding('attr.role') main = 'main';

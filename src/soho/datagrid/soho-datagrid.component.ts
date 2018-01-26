@@ -964,7 +964,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this._gridOptions.emptyMessage = emptyMessage;
     if (this.jQueryElement) {
       this.datagrid.settings.emptyMessage = emptyMessage;
-      this.markForRefresh('emptyMessage', RefreshHintFlags.Rebuild);
+      this.datagrid.setEmptyMessage(emptyMessage);
     }
   }
 

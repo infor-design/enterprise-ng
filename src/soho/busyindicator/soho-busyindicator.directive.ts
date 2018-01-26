@@ -37,6 +37,8 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, OnDestroy {
   // Reference to the jQuery control.
   private jQueryElement: JQuery;
 
+  private initiallyActive: boolean;
+
   // Reference to the SoHoXi control api.
   private busyindicator: SohoBusyIndicatorStatic;
 
@@ -105,6 +107,8 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, OnDestroy {
       } else {
         this.busyindicator.close(true);
       }
+    } else {
+      this.initiallyActive = value;
     }
   }
 
@@ -191,6 +195,11 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, OnDestroy {
     this.jQueryElement
       .on('afterstart', (e: JQuery.Event) => this.onAfterStart(e))
       .on('close', (e: JQuery.Event) => this.onClose(e));
+
+    // Initial busy state if set to true
+    if (this.initiallyActive) {
+      this.activated = true;
+    }
   }
 
   /**

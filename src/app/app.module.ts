@@ -94,6 +94,7 @@ import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 import { FieldOptionsDemoComponent } from './field-options/field-options.demo';
+import { FieldOptionsPopdownDemoComponent } from './field-options/field-options-popdown.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
@@ -238,6 +239,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ExpandableAreaDemoComponent,
     ExpandableAreaFooterDemoComponent,
     FieldOptionsDemoComponent,
+    FieldOptionsPopdownDemoComponent,
     FileUploadAdvancedDemoComponent,
     FileUploadDemoComponent,
     HeaderTabsDemoComponent,
