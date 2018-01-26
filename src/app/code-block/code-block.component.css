@@ -251,12 +251,16 @@
 }
 
 :host ::ng-deep .field .dropdown-sm {
-  width: 63px;
-  transition: width 0.5s ease;
+  width: auto;
+  min-width: 61px;
+  max-width: 100px;
+  padding-right: 0;
+  transition: padding 0.5s ease;
 }
 
-:host ::ng-deep .field.is-active .dropdown-sm {
-  width: 80px;
+:host ::ng-deep .field .dropdown-sm.is-open {
+  padding-right: 28px;
+  transition: padding 0.5s ease;
 }
 
 :host ::ng-deep .dropdown + .icon {
