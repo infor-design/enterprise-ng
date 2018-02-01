@@ -111,6 +111,7 @@
   border-color: transparent;
   padding-left: 0;
   transition: margin .5s ease, left .5s ease, padding .5s ease, width .5s ease;
+  width: auto; /* IE doesnt support initial */
   width: initial;
 }
 
@@ -141,6 +142,20 @@
 :host ::ng-deep .field .dropdown-wrapper  {
   margin-left: 3px;
   margin-right: 18px;
+}
+
+/* Support for IE, Edge and FF */
+.ie :host ::ng-deep .field .field-options:not([disabled]).lookup,
+.is-firefox :host ::ng-deep .field .field-options:not([disabled]).lookup,
+.ie :host ::ng-deep .field.is-active .field-options:not([disabled]).lookup,
+.is-firefox :host ::ng-deep .field.is-active .field-options:not([disabled]).lookup,
+.ie :host ::ng-deep .field .field-options:not([disabled]),
+.is-firefox :host ::ng-deep .field .field-options:not([disabled]),
+.ie :host ::ng-deep .field .field-options:not([disabled]).datepicker,
+.is-firefox :host ::ng-deep .field .field-options:not([disabled]).datepicker,
+.ie :host ::ng-deep .field.is-active .field-options:not([disabled]).datepicker,
+.is-firefox :host ::ng-deep .field.is-active .field-options:not([disabled]).datepicker {
+  margin-right: 0px;
 }
 
 :host ::ng-deep .field.is-active .field-options:not([disabled]) {
@@ -230,6 +245,7 @@
 
 /* Style Datepicker alignment */
 :host ::ng-deep .field-options.datepicker {
+  width: auto; /* IE doesnt support initial */
   width: initial;
 }
 
