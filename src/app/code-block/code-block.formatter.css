@@ -13,7 +13,7 @@
   display: inline-block;
   line-height: inherit !important;
   top: -3px;
-  width: calc(100% - 78px);
+  width: calc(100% - 104px);
 }
 
 :host ::ng-deep .datagrid .code-block label {

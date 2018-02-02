@@ -20,7 +20,7 @@ import {
           <span>Launch</span>
         </button>
 
-        <button type="button" class="btn-actions code-block-actions btn-menu"
+        <button type="button" class="btn-icon btn-actions code-block-actions btn-menu"
           soho-context-menu trigger="click" [beforeOpen]="onBeforeContextMenuOpen"
           (selected)="onSelected($event)">
           <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
