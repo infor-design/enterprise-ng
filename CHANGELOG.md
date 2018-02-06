@@ -90,7 +90,7 @@
 
 ### Breaking Changes
 
-* 2017-12-15 - TJM -SOHO-6976 - Projects may need to the .angular-cli.json to pull in the newly renamed d3.v4.js script and add sohoxi-migrate-4.4.0.js (until we remove global references). Globals should be moved to the Soho. namespace fx Formatters -> Soho.Formatters
+* 2017-12-15 - TJM -SOHO-6976 - Projects may need to the .angular-cli.json to pull in the newly renamed d3.v4.js script and add sohoxi-migrate-4.4.0.js until global references are removed. Globals should be moved to the Soho. namespace fx Formatters -> Soho.Formatters (see SOHO-7457 for entire list).
 
 * 2017-12-15 - CWF - PR-532 - Projects may need to update the version of `@types/jquery` in their `package.json` file to match sohoxi-angular's version: `"@types/jquery": "~3.2.16"`
 
