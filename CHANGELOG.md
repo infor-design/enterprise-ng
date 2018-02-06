@@ -1,6 +1,6 @@
 
 ## Whats New
-
+* 2018-02-06 - TJM - Upgraded to d3v4 and Soho 4.4.0 Es6 Branch including migration script
 * 2018-01-23 - BTH - Upgraded to @angular/cli 1.6.5 and updated corresponding dependencies.
 * 2018-01-18 - MHH - SOHO-7354: 4.0 Popdown expose the open method
 * 2018-01-03 - MHH - SOHO-7296 Angular Soho DropDown - add support for showSelectAll option on multi-select
@@ -89,6 +89,8 @@
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2017-12-15 - TJM -SOHO-6976 - Projects may need to the .angular-cli.json to pull in the newly renamed d3.v4.js script and add sohoxi-migrate-4.4.0.js (until we remove global references). Globals should be moved to the Soho. namespace fx Formatters -> Soho.Formatters
 
 * 2017-12-15 - CWF - PR-532 - Projects may need to update the version of `@types/jquery` in their `package.json` file to match sohoxi-angular's version: `"@types/jquery": "~3.2.16"`
 
