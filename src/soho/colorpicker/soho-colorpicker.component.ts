@@ -189,7 +189,7 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
    */
   writeValue(value: any) {
     super.writeValue(value);
-    if (this.colorpicker) {
+    if (this.colorpicker && value !== null) {
       // The processing is required to ensure we use the correct format
       // in the control.
       this.colorpicker.element.val(value);

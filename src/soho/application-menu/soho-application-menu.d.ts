@@ -73,6 +73,12 @@ interface SohoApplicationMenuStatic {
   hasClass(clazz: string): boolean;
 
   /**
+   * Checks if the application menu is open.
+   *
+   */
+  isOpen(): boolean;
+
+  /**
    * Cleans up any markup.
    */
   destroy();

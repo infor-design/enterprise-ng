@@ -1,11 +1,10 @@
-
-<div class="row top-padding">
-  <div class="twelve columns">
+<div class="row">
+  <form>
     <div class="field">
-        <label for="bgcolor" class="label">Background Color</label>
-        <input soho-colorpicker name="bgcolor" [(ngModel)]="model.color" (change)="onChange($event)"/>
-      </div>
-  </div>
+      <label for="bgcolor" class="label">Background Color</label>
+      <input soho-colorpicker name="bgcolor" [(ngModel)]="model.color" (change)="onChange($event)" />
+    </div>
+  </form>
 </div>
 
 <div class="row">
@@ -18,7 +17,8 @@
     <button soho-button (click)="toggleLabel()">{{showLabel ? 'Show Hex Value' : 'Show Label'}}</button>
     <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
     <div *ngIf="showModel">
-      <br><h3>{{ model | json }}</h3>
+      <br>
+      <h3>{{ model | json }}</h3>
     </div>
   </div>
 </div>

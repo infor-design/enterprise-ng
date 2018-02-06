@@ -1,5 +1,6 @@
 /* Grid Formatter Adjustments */
 :host ::ng-deep .datagrid .code-block {
+  border: none;
   display: block;
   line-height: inherit;
   text-overflow: inherit;
@@ -12,7 +13,7 @@
   display: inline-block;
   line-height: inherit !important;
   top: -3px;
-  width: calc(100% - 78px);
+  width: calc(100% - 104px);
 }
 
 :host ::ng-deep .datagrid .code-block label {
@@ -21,7 +22,7 @@
   overflow: hidden;
   white-space: nowrap;
   position: relative;
-  top: 0;
+  top: -1px;
   margin-bottom: 0;
   vertical-align: middle;
 }
@@ -38,11 +39,11 @@
   margin-bottom: 0;
   position: relative;
   top: 0;
-  vertical-align: middle;
   white-space: nowrap;
 }
 
-:host ::ng-deep .datagrid .code-block .data:not(:last-of-type)::after {
+:host ::ng-deep .datagrid .code-block .data:not(:last-of-type)::after,
+:host ::ng-deep .datagrid td.is-editing .code-block .data:not(:last-of-type)::after {
   content: '•';
   color: #5C5C5C;
   font-size: 18px;
@@ -54,29 +55,41 @@
 
 :host ::ng-deep .datagrid td.is-editing .code-block input.lookup {
   border-color: transparent;
-  padding: 0;
+  padding: 0 2px 0 0;
   transition: margin .5s ease, left .5s ease, padding .5s ease, width .5s ease;
+  width: auto; /* IE doesnt support initial */
   width: initial;
-  vertical-align: middle;
+  vertical-align: baseline;
 }
 
-:host ::ng-deep .datagrid td.is-editing .lookup-wrapper {
+:host ::ng-deep .datagrid td.is-editing .code-block .lookup-wrapper {
   padding-left: 0;
-  vertical-align: middle;
+  padding-top: 0;
+  vertical-align: baseline;
 }
 
-:host ::ng-deep .datagrid td.is-editing .field::after {
+:host ::ng-deep .datagrid td.is-editing .code-block .field {
+  margin-right: 0;
+}
+
+:host ::ng-deep .datagrid td.is-editing .code-block .field::after {
   content: '';
 }
 
 :host ::ng-deep .datagrid td.is-editing .code-block input.lookup ~ .trigger .icon {
+  top: 8px;
   width: 18px;
 }
 
 :host ::ng-deep .datagrid td.is-editing .code-block input.lookup ~ .trigger {
-  top: -6px;
+  margin-top: 0;
 }
 
-:host ::ng-deep .datagrid td.is-editing .datagrid-cell-wrapper:focus {
+:host ::ng-deep .datagrid td.is-editing .code-block .datagrid-cell-wrapper:focus {
   outline: none;
+}
+
+:host ::ng-deep .datagrid td.is-editing .code-block .lookup-wrapper .trigger {
+  margin-left: -33px;
+  margin-top: 0;
 }

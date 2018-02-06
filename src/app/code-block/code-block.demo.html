@@ -130,7 +130,7 @@
           <label soho-label for="DropdownField">Dropdown Field</label>
           <select class="dropdown" id="DropdownField" name="DropdownField"
             [(ngModel)]="model.DropdownField" class="dropdown-sm"
-            soho-dropdown  soho-field-options
+            soho-dropdown  soho-field-options [maxWidth]="100"
           >
             <option *ngFor="let option of ['Option #1', 'Option #2', 'Option #3']" [value]="option">{{option}}</option>
           </select>
