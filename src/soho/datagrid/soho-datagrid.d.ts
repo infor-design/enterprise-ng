@@ -430,6 +430,15 @@ type SohoDataGridColumnIsEditableFunction = (
   rowData: Object
 ) => boolean;
 
+type SohoDataGridColumnColSpanFunction = (
+  row: number,
+  cell: any,
+  fieldValue: any,
+  columnDef: SohoDataGridColumn,
+  rowData: Object,
+  api: SohoDataGridStatic
+) => number;
+
 interface SohoDataGridColumnClickData {
   /** Index of the row clicked. */
   row: number;
@@ -556,6 +565,9 @@ interface SohoDataGridColumn {
 
   /** Column function to dynamically set the readonly property on cells based on row data. */
   isEditable?: SohoDataGridColumnIsEditableFunction;
+
+  /** Column function to dynamically set the colspan property on cells based on row data. */
+  colspan?: SohoDataGridColumnColSpanFunction;
 
   /** special display formatting for a numeric column */
   numberFormat?: SohoDataGridColumnNumberFormat;
