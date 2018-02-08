@@ -47,7 +47,7 @@ export class SohoAlertDirective implements AfterViewInit {
     return this.getMessage('error');
   }
 
-  constructor(private el: ElementRef) {
+  constructor(public elementRef: ElementRef) {
     this._options.inline = true;
   }
 
@@ -56,7 +56,7 @@ export class SohoAlertDirective implements AfterViewInit {
    * get the SoHoXi controls to activate any alerts.
    */
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.el.nativeElement);
+    this.jQueryElement = jQuery(this.elementRef.nativeElement);
   }
 
   // public methods
