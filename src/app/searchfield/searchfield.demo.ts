@@ -22,7 +22,7 @@ export class SohoSearchFieldDemoComponent implements OnInit {
     filterMode: 'contains',
     delay: 500,
     source: (query, done) => {
-      this.arrayBasedData().subscribe((items) => {
+      this.objectBasedData().subscribe((items) => {
           done(query, items);
       });
     }
