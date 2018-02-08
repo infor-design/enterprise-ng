@@ -430,7 +430,7 @@ type SohoDataGridColumnIsEditableFunction = (
   rowData: Object
 ) => boolean;
 
-type SohoDataGridColumnGetColSpanFunction = (
+type SohoDataGridColumnColSpanFunction = (
   row: number,
   cell: any,
   fieldValue: any,
@@ -567,7 +567,7 @@ interface SohoDataGridColumn {
   isEditable?: SohoDataGridColumnIsEditableFunction;
 
   /** Column function to dynamically set the colspan property on cells based on row data. */
-  getColSpan?: SohoDataGridColumnGetColSpanFunction;
+  colspan?: SohoDataGridColumnColSpanFunction;
 
   /** special display formatting for a numeric column */
   numberFormat?: SohoDataGridColumnNumberFormat;
