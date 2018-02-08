@@ -1,0 +1,12 @@
+<div class="row top-padding">
+  <div class="twelve columns">
+    <label for="searchfield" class="audible">Search</label>
+    <input soho-searchfield
+       id="searchfield"
+       name="searchfield"
+       class="searchfield"
+       [options]="searchfieldOptions"
+       [(ngModel)]="model.searchValue"
+       (change)="onChange($event)"/>
+  </div>
+</div>
