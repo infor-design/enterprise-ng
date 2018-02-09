@@ -123,7 +123,7 @@ import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
 import { ProgressDemoComponent } from './progress/progress.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
-import { SohoSearchFieldDemoComponent } from './searchfield/searchfield.demo';
+import { SearchFieldDemoComponent } from './searchfield/searchfield.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
 import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
 import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
@@ -267,7 +267,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     PopupMenuDemoComponent,
     ProgressDemoComponent,
     RadioButtonDemoComponent,
-    SohoSearchFieldDemoComponent,
+    SearchFieldDemoComponent,
     SliderDemoComponent,
     SohoHeaderDynamicDemoComponent,
     SohoHeaderDemoComponent,

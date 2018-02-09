@@ -11,11 +11,11 @@ import {Observable} from 'rxjs/Observable';
   selector: 'soho-searchfield-demo',
   templateUrl: './searchfield.demo.html'
 })
-export class SohoSearchFieldDemoComponent implements OnInit {
-  @ViewChild(SohoSearchFieldComponent) slider: SohoSearchFieldComponent;
+export class SearchFieldDemoComponent implements OnInit {
+  @ViewChild(SohoSearchFieldComponent) searchfield: SohoSearchFieldComponent;
 
   /**
-   * Binadable Model value for getting what was typed in the search box.
+   * Bindable Model value for getting what was typed in the search box.
    */
   public model = {
     searchValue: ''
@@ -40,12 +40,12 @@ export class SohoSearchFieldDemoComponent implements OnInit {
   /**
    * Change event we link to in this example.
    */
-  onChange(event: SohoSliderEvent) {
+  onChange(event: SohoSearchFieldEvent) {
     console.log('Search Changed' + event.type);
   }
 
   /**
-   * We us an observable with a callback that returns objects in the form: value, label.
+   * We use an observable with a callback that returns objects in the form: value, label.
    */
   objectBasedData(): Observable<Array<object>> {
     return Observable.of([
