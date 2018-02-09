@@ -5,7 +5,6 @@
  * interface of the Soho jQuery searchfield control.
  */
 
-
 /**
  * Configuration options.
  */
@@ -38,6 +37,13 @@ interface SohoSearchFieldStatic {
 
   /** Clear */
   clear(): void;
+}
+
+/**
+ * Type safe SearchField event object.
+ */
+interface SohoSearchFieldEvent extends JQuery.Event {
+  data: any;
 }
 
 /**

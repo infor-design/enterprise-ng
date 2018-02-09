@@ -79,6 +79,7 @@ import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
 import { ProgressDemoComponent } from './progress/progress.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
+import { SearchFieldDemoComponent } from './searchfield/searchfield.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
@@ -204,6 +205,7 @@ export const routes: Routes = [
   { path: 'popupmenu',                              component: PopupMenuDemoComponent },
   { path: 'progress',                               component: ProgressDemoComponent },
   { path: 'radiobutton',                            component: RadioButtonDemoComponent},
+  { path: 'searchfield',                            component: SearchFieldDemoComponent },
   { path: 'slider',                                 component: SliderDemoComponent },
   { path: 'splitter-horizontal',                    component: SplitterHorizontalDemoComponent },
   { path: 'splitter-vertical',                      component: SplitterVerticalDemoComponent },
