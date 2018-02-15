@@ -92,7 +92,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
 
   onSelected(e: SohoDataGridSelectedEvent) {
     const selectedRows = e.rows.map(row => row.idx).join(', ');
-    this.toastService.show({title: 'Sel1ected', message: "Rows Selected: " + selectedRows});
+    this.toastService.show({title: 'Se1ected', message: 'Rows Selected: ' + selectedRows});
   }
 
   onOpenFilterRow(e: SohoDataGridOpenFilterRowEvent) {
