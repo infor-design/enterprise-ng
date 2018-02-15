@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import {
   SohoDataGridComponent,
+  SohoToastService,
 } from '@infor/sohoxi-angular';
 import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indeterminate-demo.service';
 
@@ -20,7 +21,10 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
 
   public showPageSizeSelector = true;
 
-  constructor(private datagridPagingService: DataGridPagingIndeterminateDemoService) {}
+  constructor(
+    private datagridPagingService: DataGridPagingIndeterminateDemoService,
+    private toastService: SohoToastService,
+  ) {}
 
   ngAfterViewInit(): void {
     const gridOptions: SohoDataGridOptions = {
@@ -48,6 +52,9 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
       filterable: true,
 
       source: (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
+        if (request.type === 'filtered') {
+          this.toastService.show({title: 'Filter', message: 'gridsource with filtered type called'});
+        }
         this.datagridPagingService.getData(request).subscribe((result: any) => {
           request.firstPage = result.firstPage;
           request.lastPage = result.lastPage;
@@ -81,5 +88,22 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
 
   onShowPageSizeSelector() {
     this.showPageSizeSelector = !this.showPageSizeSelector;
+  }
+
+  onSelected(e: SohoDataGridSelectedEvent) {
+    const selectedRows = e.rows.map(row => row.idx).join(', ');
+    this.toastService.show({title: 'Sel1ected', message: "Rows Selected: " + selectedRows});
+  }
+
+  onOpenFilterRow(e: SohoDataGridOpenFilterRowEvent) {
+    this.toastService.show({title: 'Filter', message: 'filter row opened'});
+  }
+
+  onCloseFilterRow(e: SohoDataGridCloseFilterRowEvent) {
+    this.toastService.show({title: 'Filter', message: 'filter row closed'});
+  }
+
+  toggleFilterRow() {
+    this.sohoDataGridComponent.toggleFilterRow();
   }
 }

@@ -845,6 +845,11 @@ interface SohoDataGridAddRowEvent {
   value: any;
   oldValue: any;
 }
+interface SohoDataGridOpenFilterRowEvent {
+}
+
+interface SohoDataGridCloseFilterRowEvent {
+}
 
 /**
  * Move to toolbar!

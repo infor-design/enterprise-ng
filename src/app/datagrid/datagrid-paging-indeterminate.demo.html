@@ -5,6 +5,7 @@
     <div class="field">
       <button soho-button (click)="onShowPageSizeSelector()">Toggle Show Page Size Selector</button>
       <button soho-button (click)="onRefresh()">Refresh</button>
+      <button soho-button (click)="toggleFilterRow()">Toggle Filter Row</button>
     </div>
   </div>
 </div>
@@ -13,6 +14,9 @@
 <div class="row top-padding">
   <div class="twelve columns demo" role="main">
     <div soho-datagrid
+      (selected)="onSelected($event)"
+      (openFilterRow)="onOpenFilterRow($event)"
+      (closeFilterRow)="onCloseFilterRow($event)"
       [showPageSizeSelector]="this.showPageSizeSelector"
     ></div>
   </div>

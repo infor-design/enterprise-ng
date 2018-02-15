@@ -39,6 +39,14 @@ export class DataGridServiceDemoComponent implements AfterContentInit, AfterView
     this.toastService.show({title: 'Selected', message: e.productId});
   }
 
+  onOpenFilterRow(e: SohoDataGridOpenFilterRowEvent) {
+    this.toastService.show({title: 'Filterbar', message: 'filter row opened'});
+  }
+
+  onCloseFilterRow(e: SohoDataGridCloseFilterRowEvent) {
+    this.toastService.show({title: 'Filterbar', message: 'filter row closed'});
+  }
+
   busy() {
     this.busyIndicator.activated = true;
   }

@@ -1036,6 +1036,12 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   @Output()
   rowReordered = new EventEmitter<SohoDataGridRowReorderedEvent>();
 
+  @Output()
+  openFilterRow = new EventEmitter<SohoDataGridOpenFilterRowEvent>();
+
+  @Output()
+  closeFilterRow = new EventEmitter<SohoDataGridCloseFilterRowEvent>();
+
   // -------------------------------------------
   // Host Bindings
   // -------------------------------------------
@@ -1652,7 +1658,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       .on('click', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.rowClicked.next(args); })
       .on('dblclick', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.rowDoubleClicked.next(args); })
       .on('contextmenu', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.contextMenu.next(args); })
-      .on('rowreorder', (e: JQuery.Event, args: SohoDataGridRowReorderedEvent) => { this.rowReordered.next(args); });
+      .on('rowreorder', (e: JQuery.Event, args: SohoDataGridRowReorderedEvent) => { this.rowReordered.next(args); })
+      .on('openfilterrow', (e: JQuery.Event, args: SohoDataGridOpenFilterRowEvent) => { this.openFilterRow.next(args); })
+      .on('closefilterrow', (e: JQuery.Event, args: SohoDataGridCloseFilterRowEvent) => { this.closeFilterRow.next(args); });
   }
 
   /**
