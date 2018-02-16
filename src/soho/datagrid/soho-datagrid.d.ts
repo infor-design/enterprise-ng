@@ -602,6 +602,12 @@ interface SohoDataGridColumn {
 
   /** If false the column will not be included in export */
   exportable?: boolean;
+
+  /**
+   *  Option for tree datagrid
+   *  If false children nodes will not be selected when the parent node is selected
+   */
+  selectChildren?: boolean;
 }
 
 interface SohoDataGridColumnNumberFormat {
