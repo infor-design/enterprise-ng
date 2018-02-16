@@ -223,6 +223,12 @@ interface SohoDataGridOptions {
    * this to null for no message or it will default to 'No Data Found with an icon.'
    */
   emptyMessage?: SohoEmptyMessageOptions;
+
+  /**
+   *  Option for tree datagrid
+   *  If false children nodes will not be selected when the parent node is selected
+   */
+  selectChildren?: boolean;
 }
 
 /**
@@ -595,7 +601,7 @@ interface SohoDataGridColumn {
   contentVisible?: SohoDataGridColumnContentVisibleFunction;
 
   /** If false the column will not be included in export */
-  exportable?: boolean
+  exportable?: boolean;
 }
 
 interface SohoDataGridColumnNumberFormat {
