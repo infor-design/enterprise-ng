@@ -129,7 +129,6 @@ export class SohoListViewMicroComponent {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterViewChecked {
-  @HostBinding('attr.d')
   @ContentChildren(SohoListViewItemComponent) items: QueryList<SohoListViewItemComponent>;
 
   /**
