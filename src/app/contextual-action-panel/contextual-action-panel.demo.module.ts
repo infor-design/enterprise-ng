@@ -8,13 +8,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SohoComponentsModule } from '@infor/sohoxi-angular';
 
 import { ContextualActionPanelDemoComponent } from './contextual-action-panel.demo';
-
+import { NestedModalDialogComponent } from './nested-modal-dialog.component';
 import { ContextualActionPanelComponent } from './contextual-action-panel.component';
 
 @NgModule({
   declarations: [
     ContextualActionPanelComponent,
-    ContextualActionPanelDemoComponent
+    ContextualActionPanelDemoComponent,
+    NestedModalDialogComponent
   ],
   exports: [
   ],
@@ -29,6 +30,7 @@ import { ContextualActionPanelComponent } from './contextual-action-panel.compon
   ],
   entryComponents: [
     ContextualActionPanelComponent,
+    NestedModalDialogComponent
   ],
 })
 export class ContextualActionPanelDemoModule {}

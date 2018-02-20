@@ -6,10 +6,13 @@ import {
 
 import {
   SohoContextualActionPanelService,
-  SohoContextualActionPanelRef
+  SohoContextualActionPanelRef,
+  SohoModalDialogService,
+  SohoModalDialogRef
 } from '@infor/sohoxi-angular';
 
 import { ContextualActionPanelComponent } from './contextual-action-panel.component';
+import { NestedModalDialogComponent } from './nested-modal-dialog.component';
 
 @Component({
   selector: 'soho-contextual-action-panel.demo',
@@ -37,7 +40,7 @@ export class ContextualActionPanelDemoComponent {
    *
    * @param panelService - the modal dialog service.
    */
-  constructor(private panelService: SohoContextualActionPanelService) {
+  constructor(private panelService: SohoContextualActionPanelService, private modalService: SohoModalDialogService) {
   }
 
   openPanel() {
