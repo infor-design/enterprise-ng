@@ -129,13 +129,14 @@ export class SohoListViewMicroComponent {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterViewChecked {
-
- @ContentChildren(SohoListViewItemComponent) items: QueryList<SohoListViewItemComponent>;
+  @ContentChildren(SohoListViewItemComponent) items: QueryList<SohoListViewItemComponent>;
 
   /**
    * String of classes to append to the class for the list-view div element
    */
   @Input() class: string;
+
+  @Input() sohoListviewElementId: string;
 
   /**
    * Force a update to fire next viewChecked.

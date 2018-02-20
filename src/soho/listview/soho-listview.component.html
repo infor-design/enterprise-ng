@@ -4,7 +4,7 @@
 </div>
 <ng-content select="div.[soho-listview-search]"></ng-content>
 <ng-content select="soho-toolbar.contextual-toolbar,div.[soho-toolbar].contextual-toolbar"></ng-content>
-<div #listview [class]="listClass">
+<div #listview [class]="listClass" [attr.id]="sohoListviewElementId" >
   <ul>
     <ng-content select="li[soho-listview-item]"></ng-content>
   </ul>

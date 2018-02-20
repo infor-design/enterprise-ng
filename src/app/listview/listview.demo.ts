@@ -40,6 +40,8 @@ export class ListViewDemoComponent {
   ];
   public descCounter = 0;
 
+  public listElementId = "id-1";
+
   constructor() {
     this.demoTasks = [];
     this.loadTasks = [];
