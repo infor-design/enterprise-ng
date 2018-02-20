@@ -99,8 +99,8 @@ interface JQueryStatic {
   tabs: SohoTabsStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement extends Node = HTMLElement> {
   tabs(options?: SohoTabsOptions): JQuery;
   on(events: string,
-    handler: JQuery.EventHandlerBase<any, SohoTabsEvent>): this;
+    handler: JQuery.EventHandlerBase<TElement, SohoTabsEvent>): this;
 }

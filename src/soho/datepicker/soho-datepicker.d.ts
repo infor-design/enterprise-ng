@@ -105,8 +105,8 @@ interface JQueryStatic {
   datepicker: SohoDatePickerStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement extends Node = HTMLElement> {
   datepicker(options: SohoDatePickerOptions): JQuery;
   on(events: string,
-    handler: JQuery.EventHandlerBase<any, SohoDatePickerEvent>): this;
+    handler: JQuery.EventHandlerBase<TElement, SohoDatePickerEvent>): this;
 }
