@@ -5,7 +5,7 @@
         <h2 class="card-title">Tasks - Simple</h2>
       </div>
       <div class="card-content">
-        <soho-listview #simpleSelectListView>
+        <soho-listview #simpleSelectListView [sohoListviewElementId]="listElementId">
           <li soho-listview-item *ngFor="let data of demoTasks" [disabled]="data.disabled" [selected]="data.selected">
             Task #{{data.task}}
           </li>
