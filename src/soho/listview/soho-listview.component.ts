@@ -68,7 +68,7 @@ export class SohoListViewItemComponent implements AfterViewInit {
    *
    * @param element - the element.
    */
-  constructor(private element: ElementRef) {
+  constructor(public element: ElementRef) {
   }
 
   /**
