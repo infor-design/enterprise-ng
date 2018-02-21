@@ -1,18 +1,18 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
+  ContentChildren,
   ElementRef,
   EventEmitter,
+  HostBinding,
   Input,
-  Output,
   OnDestroy,
-  ChangeDetectionStrategy,
+  Output,
   QueryList,
-  ContentChildren, HostBinding
 } from '@angular/core';
 
 import { SohoAccordionHeaderComponent } from './soho-accordion-header.component';
-import { SohoAccordionPaneComponent } from './soho-accordion-pane.component';
 
 /**
  * Angular Wrapper for the Soho Accordion control.
