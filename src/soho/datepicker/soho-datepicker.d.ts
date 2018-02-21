@@ -76,8 +76,7 @@ interface SohoDatePickerStatic {
   /** Underlying element. */
   element: JQuery;
 
-  /** Will be transformed to getCurrentDate() - see SOHO-7507 */
-  currentDate: Date;
+  getCurrentDate(): Date;
   
   // Sets the value of the date picker.
   setValue(value: Date, trigger?: boolean): void;
