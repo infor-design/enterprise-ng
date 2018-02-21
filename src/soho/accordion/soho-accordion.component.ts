@@ -1,18 +1,18 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
+  ContentChildren,
   ElementRef,
   EventEmitter,
+  HostBinding,
   Input,
-  Output,
   OnDestroy,
-  ChangeDetectionStrategy,
+  Output,
   QueryList,
-  ContentChildren
 } from '@angular/core';
 
 import { SohoAccordionHeaderComponent } from './soho-accordion-header.component';
-import { SohoAccordionPaneComponent } from './soho-accordion-pane.component';
 
 /**
  * Angular Wrapper for the Soho Accordion control.
@@ -34,6 +34,10 @@ import { SohoAccordionPaneComponent } from './soho-accordion-pane.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
+  @HostBinding('class.has-subheader-separators') get classHasSubheaderSeparators() {
+    return this.hasSubheaderSeparators;
+  }
+
   // All header panels.
   @ContentChildren(SohoAccordionHeaderComponent) headers: QueryList<SohoAccordionHeaderComponent>;
 
@@ -177,6 +181,8 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
   public get alternate(): boolean {
     return this.options.alternate;
   }
+
+  @Input() public hasSubheaderSeparators: boolean;
 
   /**
    * Constructor.
