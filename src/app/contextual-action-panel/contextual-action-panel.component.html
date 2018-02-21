@@ -60,5 +60,9 @@
       <input type="checkbox" id="po-box" name="po-box" class="checkbox" checked/>
       <label for="po-box" class="checkbox-label">Freight</label>
     </div>
+    <button id="open-nested-btn" soho-button (click)="openNested()">Nested</button>
   </div>
 </div>
+
+<!-- div #panelPlaceholder will contain the child component -->
+<div class="modal" #panelPlaceholder></div>
