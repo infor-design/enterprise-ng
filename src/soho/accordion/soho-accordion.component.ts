@@ -34,9 +34,6 @@ import { SohoAccordionHeaderComponent } from './soho-accordion-header.component'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
-  @HostBinding('class.has-subheader-separators') get classHasSubheaderSeparators() {
-    return this.hasSubheaderSeparators;
-  }
 
   // All header panels.
   @ContentChildren(SohoAccordionHeaderComponent) headers: QueryList<SohoAccordionHeaderComponent>;
