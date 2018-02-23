@@ -7,21 +7,21 @@ import { Component } from '@angular/core';
 
 export class ToolbarMoreActionsAjaxDemoComponent {
 
-  private MENU_RESPONSE_HTML = '' +
-    '<li><a href="#" id="OptionOne" data-action="Pre-defined option 1">Pre-defined option 1</a></li>' +
-    '<li><a href="#" id="OptionTwo" data-action="Pre-defined option 2">Pre-defined option 2</a></li>' +
-    '<li class="submenu">' +
-    '<a href="#" id="OptionThree" data-action="Pre-defined option 3">Pre-defined option 3</a>' +
-    '<ul class="popupmenu"></ul>' +
-    '</li>' +
-    '<li><a href="#" id="OptionFour" data-action="Pre-defined option 4">Pre-defined option 4</a></li>' +
-    '';
+  private MENU_RESPONSE_HTML = `
+    <li><a href="#" id="AJAXOptionOne" data-action="AJAX Option 1">AJAX Option 1</a></li>
+    <li><a href="#" id="AJAXOptionTwo" data-action="AJAX Option 2">AJAX Option 2</a></li>
+    <li class="submenu">
+      <a href="#" id="AJAXOptionThree" data-action="AJAX Option 3">AJAX Option 3</a>
+      <ul class="popupmenu"></ul>
+    </li>
+    <li><a href="#" id="AJAXOptionFour" data-action="AJAX Option 4">AJAX Option 4</a></li>
+  `;
 
-  private SUBMENU_RESPONSE_HTML = '' +
-    '<li><a href="#" id="SubOptionOne" data-action="Pre-defined sub-option 1">Pre-defined sub-option 1</a></li>' +
-    '<li><a href="#" id="SubOptionTwo" data-action="Pre-defined sub-option 2">Pre-defined sub-option 2</a></li>' +
-    '<li><a href="#" id="SubOptionThree" data-action="Pre-defined sub-option 3">Pre-defined sub-option 3</a></li>' +
-    '';
+  private SUBMENU_RESPONSE_HTML = `
+    <li><a href="#" id="SubOptionOne" data-action="AJAX sub-option 1">AJAX sub-option 1</a></li>
+    <li><a href="#" id="SubOptionTwo" data-action="AJAX sub-option 2">AJAX sub-option 2</a></li>
+    <li><a href="#" id="SubOptionThree" data-action="AJAX sub-option 3">AJAX sub-option 3</a></li>
+  `;
 
   onSelected(event) {
     const data = event.event.currentTarget.dataset.action;

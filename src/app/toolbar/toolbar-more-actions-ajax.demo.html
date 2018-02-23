@@ -5,7 +5,8 @@
       [maxVisibleButtons]="6"
       [hasMoreButton]="true"
       [favorButtonset]="true"
-      (selected)="onSelected($event)">
+      (selected)="onSelected($event)"
+      [moreMenuSettings]="{ beforeOpen: onBeforeContextMenuOpen }">
 
       <soho-toolbar-title>
         <span soho-toolbar-section-title>Toolbar with Pre-Defined "More Actions" Menu</span>
@@ -26,18 +27,6 @@
         <div class="popupmenu-wrapper">
           <ul soho-popupmenu id="my-popupmenu-element" class="popupmenu" [beforeOpen]="onBeforeContextMenuOpen">
             <li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined option 1</a></li>
-            <li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined option 2</a></li>
-            <li soho-popupmenu-item class="submenu">
-              <a soho-popupmenu-label>Pre-defined option 3</a>
-              <!--<div class="wrapper">-->
-                <!--<ul soho-popupmenu class="popupmenu">-->
-                  <!--<li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined sub-option 1</a></li>-->
-                  <!--<li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined sub-option 2</a></li>-->
-                  <!--<li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined sub-option 3</a></li>-->
-                <!--</ul>-->
-              <!--</div>-->
-            </li>
-            <li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined option 4</a></li>
           </ul>
         </div>
       </soho-toolbar-more-button>
