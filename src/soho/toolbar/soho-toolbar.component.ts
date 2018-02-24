@@ -343,6 +343,19 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
   }
 
   /**
+   * Allows a moreMenuSettings object to be propagated down into the Toolbar.
+   * the jQuery Toolbar component handles passing these settings into the More Actions
+   * menu's jQuery Popupmenu.
+   */
+  @Input() set moreMenuSettings(value: SohoPopupMenuOptions) {
+    this.options.moreMenuSettings = value;
+    if (this.toolbar) {
+      this.toolbar.settings.moreMenuSettings = value;
+      this.markForRefresh();
+    }
+  }
+
+  /**
    * The beforeactivate event is fired whenever a toolbar is activated giving the event handler a chance
    * to "veto" the tab selection change.
    * @type {EventEmitter<Object>}

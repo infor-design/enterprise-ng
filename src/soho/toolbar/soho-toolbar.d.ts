@@ -46,6 +46,11 @@ interface SohoToolbarOptions {
    * duplication of resize events, add/remove CSS classes, etc that happen due to a component repaint.
    */
   noSearchfieldReinvoke?: boolean;
+
+  /**
+   * Settings that get passed to the Toolbar.
+   */
+  moreMenuSettings?: SohoPopupMenuOptions;
 }
 
 /**
