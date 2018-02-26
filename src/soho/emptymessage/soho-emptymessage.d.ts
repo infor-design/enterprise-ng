@@ -35,7 +35,17 @@ interface SohoEmptyMessageOptions {
    * Button options - note this cannot be a Soho Angular Component.
    */
   button?: SohoEmptyMessageButtonOptions;
+
+  /**
+   * graphite or azure for now until personalization works
+   */
+  color?: EmptyMessageColor;
 }
+
+/**
+ * valid colors for the empty message color.
+ */
+type EmptyMessageColor = 'graphite' | 'azure';
 
 /**
  * Button definition.

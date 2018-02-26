@@ -19,14 +19,16 @@ export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
     title: 'Server Error',
     info: 'The target server returned an error',
     icon: 'icon-empty-error-loading', // needs to be the full SVG name
-    button: { text: 'Retry', click: () => { alert('try again'); } }
+    button: { text: 'Retry', click: () => { alert('try again'); } },
+    color: 'graphite'
   };
 
   private static EMPTY_MSG_NO_MATCHES: SohoEmptyMessageOptions = {
     title: 'No Matches',
     info: 'No products found that match your query',
     icon: 'icon-empty-no-orders', // needs to be the full SVG name
-    button: { text: 'Retry', click: () => { alert('try again'); } }
+    button: { text: 'Retry', click: () => { alert('try again'); } },
+    color: 'azure'
   };
 
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
