@@ -121,6 +121,26 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     return this._emptyMessageOptions.button;
   }
 
+  @Input() set color(color: EmptyMessageColor) {
+    this._emptyMessageOptions.color = color;
+    if (this.emptymessage) {
+      this.emptymessage.settings.color = color;
+      this.markForCheck();
+    }
+  }
+
+  get color(): EmptyMessageColor {
+    if (this.emptymessage) {
+      return this.emptymessage.settings.color;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._emptyMessageOptions.color;
+  }
+
+
   private _emptyMessageOptions: SohoEmptyMessageOptions = {};
   private jQueryElement: JQuery;
   private emptymessage: SohoEmptyMessageStatic;
