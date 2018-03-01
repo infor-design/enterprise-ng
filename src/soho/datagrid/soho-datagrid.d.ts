@@ -678,11 +678,17 @@ interface SohoDataGridStatic {
   /** Updates the data displayed in the given row. */
   updateRow(idx: number, rowData: Object): void;
 
-  /** Hides the column at the given index.  */
-  hideColumn(idx: string): void;
+  /** 
+   * Hides the column at the given index.  
+   * @param {string} id The id of the column to show.
+   */
+  hideColumn(id: string): void;
 
-  /** Shows the column at the given index.  */
-  showColumn(idx: string): void;
+  /** 
+   * Shows the column at the given index.  
+   * @param {string} id The id of the column to hide.
+   */
+  showColumn(id: string): void;
 
   /** Validate all rows and cells in the entire grid if they have validation on the column */
   validateAll(): void;
