@@ -10,7 +10,8 @@
     "types": [
       "jasmine",
       "jquery",
-      "node"
+      "node",
+      "lscache"
     ]
   },
   "exclude": [
