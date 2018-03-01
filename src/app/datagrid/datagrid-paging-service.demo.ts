@@ -36,10 +36,10 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
      */
     const pageSize = 5;
 
-    this.uniqueId = "datagrid-paging-demo";
-    let columnString = lscache.get(this.uniqueId + 'columns') ? JSON.stringify(lscache.get(this.uniqueId + 'columns')) : undefined;
+    this.uniqueId = 'datagrid-paging-demo';
+    const columnString = lscache.get(this.uniqueId + 'columns') ? JSON.stringify(lscache.get(this.uniqueId + 'columns')) : undefined;
 
-    let savedColumns;
+    const savedColumns;
     if (columnString) {
       this.savedColumns = this.sohoDataGridComponent.columnsFromString(columnString);
     }
@@ -49,7 +49,6 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
     this.savedPagesize = lscache.get(this.uniqueId + 'pagesize');
     this.savedActivePage = lscache.get(this.uniqueId + 'activePage');
     this.savedFilter = lscache.get(this.uniqueId + 'filter') ? lscache.get(this.uniqueId + 'filter') : null;
-
     const gridOptions: SohoDataGridOptions = {
       columns: this.datagridPagingService.getColumns(),
       selectable: 'single',
