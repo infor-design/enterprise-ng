@@ -39,7 +39,6 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
     this.uniqueId = 'datagrid-paging-demo';
     const columnString = lscache.get(this.uniqueId + 'columns') ? JSON.stringify(lscache.get(this.uniqueId + 'columns')) : undefined;
 
-    const savedColumns;
     if (columnString) {
       this.savedColumns = this.sohoDataGridComponent.columnsFromString(columnString);
     }
