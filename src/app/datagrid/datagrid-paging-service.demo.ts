@@ -37,7 +37,7 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
     const pageSize = 5;
 
     this.uniqueId = 'datagrid-paging-demo';
-    const columnString = localStorage[this.uniqueId + 'columns'] ? JSON.stringify(localStorage[this.uniqueId + 'columns']) : undefined;
+    const columnString = lscache.get(this.uniqueId + 'columns') ? JSON.stringify(lscache.get(this.uniqueId + 'columns')) : undefined;
 
     const savedColumns;
     if (columnString) {
