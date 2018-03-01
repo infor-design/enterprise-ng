@@ -17,6 +17,14 @@ import { DataGridPagingServiceDemoService } from './datagrid-paging-service-demo
 })
 export class DataGridPagingServiceDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  private uniqueId: string;
+
+  private savedColumns: Object;
+  private savedRowHeight: string;
+  private savedSortOrder: string;
+  private savedPagesize: string;
+  private savedActivePage: string;
+  private savedFilter: string;
 
   constructor(private datagridPagingService: DataGridPagingServiceDemoService) {}
 
@@ -27,6 +35,20 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
      * DataGrid ngAfterViewInit.
      */
     const pageSize = 5;
+
+    this.uniqueId = "datagrid-paging-demo";
+    let columnString = lscache.get(this.uniqueId + 'columns') ? JSON.stringify(lscache.get(this.uniqueId + 'columns')) : undefined;
+
+    let savedColumns;
+    if (columnString) {
+      this.savedColumns = this.sohoDataGridComponent.columnsFromString(columnString);
+    }
+
+    this.savedRowHeight = lscache.get(this.uniqueId + 'rowHeight');
+    this.savedSortOrder = lscache.get(this.uniqueId + 'sortOrder') ? lscache.get(this.uniqueId + 'sortOrder') : null;
+    this.savedPagesize = lscache.get(this.uniqueId + 'pagesize');
+    this.savedActivePage = lscache.get(this.uniqueId + 'activePage');
+    this.savedFilter = lscache.get(this.uniqueId + 'filter') ? lscache.get(this.uniqueId + 'filter') : null;
 
     const gridOptions: SohoDataGridOptions = {
       columns: this.datagridPagingService.getColumns(),
@@ -78,5 +100,20 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
 
   onRowClicked(event: SohoDataGridRowClicked) {
     console.log('onRowClicked event is: ' + event);
+  }
+
+  onSettingsChanged(event: SohoDataGridSettingsChangedEvent) {
+    // Save Each Setting in Local storage
+    lscache.set(this.uniqueId + 'columns', JSON.stringify(event.columns));
+    lscache.set(this.uniqueId + 'rowHeight', event.rowHeight);
+    lscache.set(this.uniqueId + 'sortOrder', JSON.stringify(event.sortOrder));
+    lscache.set(this.uniqueId + 'pagesize', event.pagesize);
+    lscache.set(this.uniqueId + 'activePage', event.activePage);
+    lscache.set(this.uniqueId + 'filter', JSON.stringify(event.filter));
+  }
+
+  onRendered(event: SohoDataGridRenderedEvent) {
+    this.sohoDataGridComponent.restoreUserSettings({activePage: this.savedActivePage, columns: this.savedColumns,
+      rowHeight: this.savedRowHeight, sortOrder: this.savedSortOrder, pagesize: this.savedPagesize, filter: this.savedFilter});
   }
 }
