@@ -679,10 +679,13 @@ interface SohoDataGridStatic {
   updateRow(idx: number, rowData: Object): void;
 
   /** Hides the column at the given index.  */
-  hideColumn(idx: number): void;
+  hideColumn(idx: string): void;
 
   /** Shows the column at the given index.  */
-  showColumn(idx: number): void;
+  showColumn(idx: string): void;
+
+  /** Validate all rows and cells in the entire grid if they have validation on the column */
+  validateAll(): void;
 
   /** Used to set the sort indicator on a column when disableClientSort is set to true */
   setSortIndicator(columnId: string, ascending: boolean): void;
