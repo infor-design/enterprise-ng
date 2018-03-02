@@ -669,6 +669,12 @@ interface SohoDataGridStatic {
   /** Updates the columns displayed on the grid. */
   updateColumns(columns: SohoDataGridColumn[], columnGroups: SohoDataGridColumnGroup[]): void;
 
+  /** Parse a JSON array with columns and return the column object. */
+  columnsFromString(columns: string): Object;
+
+  /** Restore user Settings */
+  restoreUserSettings(settings: any): void;
+
   /** The grouping  name of the given column idx. */
   getColumnGroup(idx: number): string;
 
@@ -872,6 +878,15 @@ interface SohoDataGridOpenFilterRowEvent {
 interface SohoDataGridCloseFilterRowEvent {
 }
 
+interface SohoDataGridSettingsChangedEvent {
+  columns?: SohoDataGridColumn[];
+  rowHeight?: SohoDataGridRowHeight;
+  sortOrder?: { columnId: string, ascending?: boolean };
+  pagesize?: number;
+  activePage?: string;
+  filter?: Array<SohoDataGridFilterCondition>;
+}
+
 /**
  * Move to toolbar!
  */
@@ -948,6 +963,10 @@ interface SohoDataGridRowActivatedEvent {
 }
 
 interface SohoDataGridRowDeactivatedEvent extends SohoDataGridRowActivatedEvent { }
+
+interface SohoDataGridRenderedEvent {
+
+}
 
 interface SohoDataGridFilterCondition {
   columnId?: 'all' | string;
