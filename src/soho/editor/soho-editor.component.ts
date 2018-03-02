@@ -131,6 +131,13 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
+  /**
+   * onLinkClick Callback for Editor clicks
+   */
+  @Input() set onLinkClick(value: (e: JQuery.Event, elem: any) => void) {
+    this.options.onLinkClick = value;
+  }
+
   // -------------------------------------------
   // Component Output
   // -------------------------------------------

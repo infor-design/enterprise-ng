@@ -21,6 +21,7 @@ interface SohoEditorOptions {
   placeholder?: string;
   anchor?: SohoEditorAnchor;
   image?: SohoEditorOptionsImage;
+  onLinkClick?: (e: JQuery.Event, elem: any) => void;
 }
 
 interface SohoEditorAnchor {
@@ -73,6 +74,7 @@ interface SohoEditorStatic {
    * Destroy any resource created by the control.
    */
   destroy(): void;
+
 }
 
 /**
