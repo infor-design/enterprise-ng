@@ -28,6 +28,7 @@ export class MaskDemoComponent {
     signeddecimal:        '-123456.78',
     signedpercent:        '-85.23',
     signedcurrency:       '-876543.21',
+    alphamask:            'abc12',
     custommask:           'ZZZ'
   };
   private _symbols: SohoMaskPatternSymbols = {

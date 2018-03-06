@@ -14,6 +14,14 @@
             <input id="no-mask" name="no-mask" alignRight="true" maxlength="5" [(ngModel)]="model.nomask"/>
           </div>
           <div class="field">
+            <label soho-label for="alpha-mask" >Alpha-Numeric Mask</label>
+            <input id="alpha-mask" name="alpha-mask"
+              soho-mask
+              [sohoPattern]="'*****'"
+              maxlength="5"
+              [(ngModel)]="model.alphamask"/>
+          </div>
+          <div class="field">
             <label soho-label for="custom-mask" >Custom</label>
             <input id="custom-mask" name="custom-mask" [(ngModel)]="model.custommask" soho-input
               soho-mask maxlength="5" [definitions]="definitions" [sohoPattern]="'UUU'"/>
