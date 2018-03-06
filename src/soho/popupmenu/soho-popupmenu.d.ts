@@ -116,5 +116,5 @@ type SohoPopupMenuSourceFunction = (
  * Function prototype for the response function.
  */
 type SohoPopupMenuResponseFunction = (
-  data: any[]
+  data: any
 ) => void;
