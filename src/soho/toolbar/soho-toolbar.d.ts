@@ -62,7 +62,7 @@ interface SohoToolbarStatic {
   settings: SohoToolbarOptions;
 
   /** Updates the control with the new settings. */
-  updated(object?: SohoToolbarOptions): void;
+  updated(settings?: SohoToolbarOptions): void;
 
   /** Manually trigger a resize of the Toolbar's container elements. */
   handleResize(): void;
