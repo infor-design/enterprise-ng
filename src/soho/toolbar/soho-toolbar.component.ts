@@ -437,9 +437,9 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     }
   }
 
-  updated() {
+  updated(settings) {
     if (this.toolbar) {
-      this.toolbar.updated();
+      this.toolbar.updated(settings);
     }
   }
 
