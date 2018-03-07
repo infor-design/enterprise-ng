@@ -37,7 +37,9 @@ export class SohoTabTitleComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabCountComponent {
-  @HostBinding('class.count') get isTabCount() { return true; }
+  constructor(private element: ElementRef) {
+    element.nativeElement.classList.add('count');
+  }
 }
 
 /**
@@ -49,7 +51,9 @@ export class SohoTabCountComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabSeparatorComponent {
-  @HostBinding('class.separator') get isSeparator() { return true; }
+  constructor(private element: ElementRef) {
+    element.nativeElement.classList.add('separator');
+  }
 }
 
 /**
@@ -61,7 +65,10 @@ export class SohoTabSeparatorComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabPanelContainerComponent {
-  @HostBinding('class.tab-panel-container') isTabPanelContainer = true;
+  constructor(private element: ElementRef) {
+    this.element.nativeElement.classList.add('tab-panel-container');
+  }
+
   @HostBinding('class.scrollable-y') @Input() verticalScrolling;
 }
 
@@ -74,7 +81,10 @@ export class SohoTabPanelContainerComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabPanelComponent {
-  @HostBinding('class.tab-panel') isTabPanel = true;
+  constructor(private element: ElementRef) {
+    element.nativeElement.classList.add('tab-panel');
+  }
+
   @HostBinding('attr.id')        @Input() tabId: string;
   @HostBinding('attr.contained') @Input() contained: string;
 }
@@ -88,7 +98,10 @@ export class SohoTabPanelComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabComponent {
-  @HostBinding('class.tab') get isTab() { return true; }
+  constructor(private element: ElementRef) {
+    element.nativeElement.classList.add('tab');
+  }
+
   @HostBinding('class.dismissible') @Input() dismissible = false;
   @HostBinding('class.is-selected') @Input() selected = false;
   @HostBinding('class.is-disabled') @Input() disabled = false;
@@ -105,7 +118,9 @@ export class SohoTabComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabListComponent {
-  @HostBinding('class.tab-list') isTabList = true;
+  constructor(private element: ElementRef) {
+    element.nativeElement.classList.add('tab-list');
+  }
 }
 
 /**
@@ -117,7 +132,10 @@ export class SohoTabListComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabListContainerComponent {
-  @HostBinding('class.tab-list-container') isTabListContainer = true;
+  constructor(private element: ElementRef) {
+    element.nativeElement.classList.add('tab-list-container');
+  }
+
   @HostBinding('class.scrollable-y') @Input() verticalScrolling;
 }
 
@@ -130,7 +148,6 @@ export class SohoTabListContainerComponent {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
-  @HostBinding('class.tab-container') get isTabContainer() { return true; }
   @HostBinding('class.vertical')      get isVertical()     { return this.vertical; }
   @HostBinding('class.module-tabs')   get isModuleTabs()   { return this.moduleTabs; }
   @HostBinding('class.header-tabs')   get isHeaderTabs()   { return this.headerTabs; }
@@ -167,7 +184,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   /**
    * The callback function called before a tab is closed.
    * Return false to prevent the tab from closing.
-  */
+   */
   @Input() beforeCloseCallback: Function;
 
   @Input() set tabsOptions(tabsOptions: SohoTabsOptions) {
@@ -260,6 +277,13 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
     }
   }
 
+  /**
+   * if you would like to run the updated() function yourself instead of having
+   * this tabs component check for you set this input to true. The advantage to
+   * this is that if you know when to update you can be more efficient.
+   */
+  @Input() disableAutoUpdatedCall = false;
+
   // ------------------------------------------------------------------------
   // @Outputs
   // ------------------------------------------------------------------------
@@ -332,8 +356,18 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
    * rebuild teh jquery tab control, if only the titles changed
    * then we can call tabs.handleResize to update the selection
    * style and the overflow.
+   * NOTE: only used when disableAutoUpdatedCall is false
    */
   private tabCount: number;
+
+  /**
+   * NOTE: only used when disableAutoUpdatedCall is false
+   */
+  private tabIds: Array<string>;
+
+  /**
+   * NOTE: only used when disableAutoUpdatedCall is false
+   */
   private tabTitles: Array<string>;
 
   /**
@@ -341,43 +375,36 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
    *
    * @param elementRef - the element matching the component's selector.
    */
-  constructor(private element: ElementRef) {}
+  constructor(private element: ElementRef) {
+    element.nativeElement.classList.add('tab-container');
+  }
 
   ngAfterViewInit() {
-    // The markup for tab panels are now moved outside the soho-tabs and into their own
-    // <div class=tab-panel-container> element. This causes issues in this lifecycle event
-    // since we try to initialize the jquery tabs() before the soho-tab-panel-container has
-    // had a chance to apply it's host bindings in the case there is an ngIf in an upper
-    // element: Specifically applying the tab-panel-container
-    // class which is needed for the jquery component to initialize properly.
+    // assign element to local variable
+    this.jQueryElement = jQuery(this.element.nativeElement);
 
-    setTimeout(() => {
-      // assign element to local variable
-      this.jQueryElement = jQuery(this.element.nativeElement);
-
-      // bind to jquery events and emit as angular events
-      this.jQueryElement
-      .on('beforeactivated', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.beforeActivated.emit(event); }))
-      .on('activated', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.activated.emit(event); }))
-      .on('afteractivate', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.afterActivate.emit(event); }))
-      .on('beforeclose', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.beforeClose.emit(event);
-        if (this.beforeCloseCallback) {
-          return this.beforeCloseCallback(event, tab);
+    // bind to jquery events and emit as angular events
+    this.jQueryElement
+    .on('beforeactivated', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.beforeActivated.emit(event); }))
+    .on('activated', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.activated.emit(event); }))
+    .on('afteractivate', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.afterActivate.emit(event); }))
+    .on('beforeclose', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.beforeClose.emit(event);
+      if (this.beforeCloseCallback) {
+        return this.beforeCloseCallback(event, tab);
       }}))
-      .on('close', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.close.emit(event); }))
-      .on('afterclose', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.afterClose.emit(event); }))
-      .on('tab-added', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.tabAdded.emit(event); }));
+    .on('close', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.close.emit(event); }))
+    .on('afterclose', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.afterClose.emit(event); }))
+    .on('tab-added', ((event: SohoTabsEvent, tab) => { event.tab = tab[0]; this.tabAdded.emit(event); }));
 
-      // initialize the tabs plugin
-      this.jQueryElement.tabs(this._tabsOptions);
-      this.tabs = this.jQueryElement.data('tabs');
+    // initialize the tabs plugin
+    this.jQueryElement.tabs(this._tabsOptions);
+    this.tabs = this.jQueryElement.data('tabs');
 
-      this.updateTabInfo();
-    });
+    this.updateTabInfo();
   }
 
   ngAfterViewChecked(): void {
-    if (!this.jQueryElement) {
+    if (this.disableAutoUpdatedCall || !this.jQueryElement) {
       return;
     }
 
@@ -386,23 +413,43 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
       return;
     }
 
+    const tabTitles = this.getTabTitles($liList);
+    if (!tabTitles) {
+      return;
+    }
+
+    const tabIds = this.getTabIds();
+    if (!tabIds) {
+      return;
+    }
+
     if (this.tabCount !== $liList.length) {
       /* Must rebuild the tab control if the tab count changes */
       this.tabs.updated();
       this.tabCount = $liList.length;
       this.tabTitles = this.getTabTitles($liList);
-    } else {
-      /*
-       * if only tab titles change then call handleResize.
-       * It will update the tabs selection style and the overflow
-       */
-      const tabTitles = this.getTabTitles($liList);
-      for (let i = 0; i < tabTitles.length; i++) {
-        if (tabTitles[ i ] !== this.tabTitles[ i ]) {
-          this.tabs.handleResize();
-          this.tabTitles = tabTitles;
-          break;
-        }
+      this.tabIds = tabIds;
+      return;
+    }
+
+    for (let i = 0; i < tabIds.length; i++) {
+      if (tabIds[ i ] !== this.tabIds[ i ]) {
+        this.tabs.updated();
+        this.tabIds = tabIds;
+        this.tabTitles = this.getTabTitles($liList);
+        return;
+      }
+    }
+
+    /*
+     * if only tab titles change then call handleResize.
+     * It will update the tabs selection style and the overflow
+     */
+    for (let i = 0; i < tabTitles.length; i++) {
+      if (tabTitles[ i ] !== this.tabTitles[ i ]) {
+        this.tabs.handleResize();
+        this.tabTitles = tabTitles;
+        return;
       }
     }
   }
@@ -415,13 +462,23 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   private updateTabInfo() {
+    if (this.disableAutoUpdatedCall) {
+      return;
+    }
+
     const $liList: JQuery = this.getTabLiList();
     this.tabCount = $liList.length;
     this.tabTitles = this.getTabTitles($liList);
+    this.tabIds = this.getTabIds();
   }
 
   private getTabLiList() {
     return this.jQueryElement.find('.tab-list').find('li');
+  }
+
+  private getTabIds(): Array<string> {
+    const anchorList = this.jQueryElement.find('.tab-list').find('a').toArray();
+    return anchorList.map(anchor => anchor.getAttribute('href').substring(1));
   }
 
   private getTabTitles($liList?: JQuery): Array<string> {
@@ -442,6 +499,13 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
    */
   public updated(): void {
     this.tabs.updated();
+  }
+
+  /**
+   * Call resize manually when tab titles change so that the underline width matches.
+   */
+  public handleResize(): void {
+    this.tabs.handleResize();
   }
 
   /**
@@ -522,7 +586,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
    */
   getOverflowTabs(): Array<JQuery> {
     // TODO: getVisibleTabs seems to return a jQuery array, what to return instead?
-   return this.tabs.getOverflowTabs();
+    return this.tabs.getOverflowTabs();
   }
 
   /**
