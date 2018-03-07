@@ -380,14 +380,6 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   ngAfterViewInit() {
-    // The markup for tab panels are now moved outside the soho-tabs and into their own
-    // <div class=tab-panel-container> element. This causes issues in this lifecycle event
-    // since we try to initialize the jquery tabs() before the soho-tab-panel-container has
-    // had a chance to apply it's host bindings in the case there is an ngIf in an upper
-    // element: Specifically applying the tab-panel-container
-    // class which is needed for the jquery component to initialize properly.
-
-    // setTimeout(() => {
     // assign element to local variable
     this.jQueryElement = jQuery(this.element.nativeElement);
 
@@ -409,7 +401,6 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
     this.tabs = this.jQueryElement.data('tabs');
 
     this.updateTabInfo();
-    // });
   }
 
   ngAfterViewChecked(): void {
@@ -508,6 +499,13 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
    */
   public updated(): void {
     this.tabs.updated();
+  }
+
+  /**
+   * Call resize manually when tab titles change so that the underline width matches.
+   */
+  public handleResize(): void {
+    this.tabs.handleResize();
   }
 
   /**
