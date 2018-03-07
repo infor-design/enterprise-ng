@@ -260,6 +260,13 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
     }
   }
 
+  /**
+   * Boolean to maintain backwards compatibility with code in AfterViewInit
+   * The tabs count may not change, but tab panels can change. Calling update manually instead.
+   * @type {boolean}
+   */
+  @Input() updateTabsOnCountChange = true;
+
   // ------------------------------------------------------------------------
   // @Outputs
   // ------------------------------------------------------------------------
@@ -386,22 +393,24 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
       return;
     }
 
-    if (this.tabCount !== $liList.length) {
-      /* Must rebuild the tab control if the tab count changes */
-      this.tabs.updated();
-      this.tabCount = $liList.length;
-      this.tabTitles = this.getTabTitles($liList);
-    } else {
-      /*
-       * if only tab titles change then call handleResize.
-       * It will update the tabs selection style and the overflow
-       */
-      const tabTitles = this.getTabTitles($liList);
-      for (let i = 0; i < tabTitles.length; i++) {
-        if (tabTitles[ i ] !== this.tabTitles[ i ]) {
-          this.tabs.handleResize();
-          this.tabTitles = tabTitles;
-          break;
+    if (this.updateTabsOnCountChange) {
+      if (this.tabCount !== $liList.length) {
+        /* Must rebuild the tab control if the tab count changes */
+        this.tabs.updated();
+        this.tabCount = $liList.length;
+        this.tabTitles = this.getTabTitles($liList);
+      } else {
+        /*
+         * if only tab titles change then call handleResize.
+         * It will update the tabs selection style and the overflow
+         */
+        const tabTitles = this.getTabTitles($liList);
+        for (let i = 0; i < tabTitles.length; i++) {
+          if (tabTitles[ i ] !== this.tabTitles[ i ]) {
+            this.tabs.handleResize();
+            this.tabTitles = tabTitles;
+            break;
+          }
         }
       }
     }
@@ -442,6 +451,23 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
    */
   public updated(): void {
     this.tabs.updated();
+  }
+
+  /**
+   * If updateTabsOnCountChange is not set,
+   * call updateTabsAndPanels manually to update the tabs and panels.
+   * Besides Angular component and JQuery object are out of sync because of timing issue.
+   * Use case: Landmark tab panels have visible when conditions. And as data state changes,
+   * a different set of tab panels will be made available. The count may or may not change.
+   */
+  public updateTabsAndPanels(): void {
+    const $liList = this.getTabLiList();
+    if (!$liList) {
+      return;
+    }
+    this.tabs.updated();
+    this.tabCount = $liList.length;
+    this.tabTitles = this.getTabTitles($liList);
   }
 
   /**
