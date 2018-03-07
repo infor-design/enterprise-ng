@@ -64,12 +64,6 @@ export class TabsDynamicDemoComponent implements OnInit {
 
     this.tabs = this.tabsData[this.currentTabsIndex];
     this.currentTabTitleChangeNumber = 1;
-
-    if (this.tabsData[this.currentTabsIndex].length === this.tabsData[this.currentTabsIndex - 1].length) {
-      setTimeout(() => {
-        this.sohoTabsComponent.updateTabsAndPanels();
-      }, 1);
-    }
   }
 
   onChangeTitles() {
