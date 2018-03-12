@@ -9,33 +9,43 @@ type SohoBlockGridSelectable = boolean | 'single' | 'multiple' | 'mixed';
 /**
  * BlockGrid Options
  */
-
 interface SohoBlockGridOptions {
   /** Defines the data to use, must be specified for this component. */
   dataset?: Object[];
 
+  /** Selection Mode Property */
   selectable?: SohoBlockGridSelectable;
  }
 
+/**
+ * BlockGrid Api.
+ */
 interface SohoBlockGrid {
   settings: SohoBlockGridOptions;
 
-  /** Run selection over a block item */
+  /** Select a block */
   selectBlock(activeBlock: any[], isCheckbox: boolean): void;
 
-  /** Select the blockgrid */
-  selected(jQuery): void;
-
-  /** Unselect the blockgrid */
-  unselected(jQuery): void;
-
   /** Updates the blockgrid with any new settings. */
-  updated(): void;
+  updated(settings: SohoBlockGridOptions): void;
 
   /** Destroys the control on completion. */
   destroy(): void;
 }
 
+/**
+ * BlockGrid events.
+ */
+interface SohoBlockGridActivateEvent extends JQuery.Event {
+  row: number;
+  item: any[];
+}
+
+interface SohoBlockGridSelectEvent extends JQuery.Event {
+  selectedRows: number;
+  action: string;
+}
+
 interface JQuery {
-  blockgrid(options?: SohoBlockGridOptions): JQuery
+  blockgrid(options?: SohoBlockGridOptions): JQuery;
 }

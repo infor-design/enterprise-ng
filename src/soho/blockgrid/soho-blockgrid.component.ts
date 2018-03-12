@@ -25,19 +25,22 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
     this.options.dataset = dataset;
   }
 
+  /** Defines the selection type. */
   @Input() set selectable(selectable: any) {
     this.options.selectable = selectable;
   }
   private jQueryElement: JQuery;
-  private blockgrid: any;
+  private blockgrid: SohoBlockGrid;
   constructor(private element: ElementRef) { }
 
+  /** Setup */
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.blockgrid(this.options);
     this.blockgrid = this.jQueryElement.data('blockgrid');
   }
 
+  /** Tear Down */
   ngOnDestroy() {
     if (this.blockgrid) {
       this.blockgrid.destroy();
@@ -45,9 +48,9 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  /** For async methods, reinit blockgrid `source` setting. */
-  public updated(): SohoBlockGridComponent {
-    this.blockgrid.updated();
+  /** Reinit blockgrid settings */
+  public updated(settings: any): SohoBlockGridComponent {
+    this.blockgrid.updated(settings);
     return this;
   }
 }
