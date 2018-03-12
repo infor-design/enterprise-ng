@@ -7,6 +7,9 @@ import { AccordionPanelsDemoComponent } from './accordion/accordion-panels.demo'
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
+import { BlockGridMixedSelectionDemoComponent } from './blockgrid/blockgrid-mixed-selection.demo';
+import { BlockGridMultiSelectionDemoComponent } from './blockgrid/blockgrid-multi-selection.demo';
+import { BlockGridSingleSelectionDemoComponent } from './blockgrid/blockgrid-single-selection.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo';
 import { ButtonDemoComponent } from './button/button.demo';
@@ -130,6 +133,9 @@ export const routes: Routes = [
   { path: 'alert',                                  component: AlertDemoComponent},
   { path: 'application-lazy-menu',                  component: ApplicationMenuLazyDemoComponent},
   { path: 'autocomplete',                           component: AutocompleteDemoComponent },
+  { path: 'blockgrid-mixed-selection',             component: BlockGridMixedSelectionDemoComponent},
+  { path: 'blockgrid-multi-selection',             component: BlockGridMultiSelectionDemoComponent},
+  { path: 'blockgrid-single-selection',             component: BlockGridSingleSelectionDemoComponent},
   { path: 'button',                                 component: ButtonDemoComponent },
   { path: 'busyindicator',                          component: BusyIndicatorDemoComponent },
   { path: 'busyindicatorbody',                      component: BusyIndicatorDemoBodyComponent },

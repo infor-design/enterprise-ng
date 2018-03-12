@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="twelve columns">
+    <h1 class="section-title">Block Grid Multiple Selection</h1>
+    <div soho-blockgrid
+      [dataset]="data"
+      [selectable]="'multiple'"
+      (selected)="onSelected($event)"
+      (deselected)="onDeselected($event)">
+    </div>
+  </div>
+</div>
