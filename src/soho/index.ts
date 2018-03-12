@@ -38,6 +38,7 @@ export * from './personalize/index';
 export * from './popdown/index';
 export * from './popupmenu/index';
 export * from './progress/index';
+export * from './radar/index';
 export * from './radiobutton/index';
 export * from './searchfield/index';
 export * from './slider/index';
