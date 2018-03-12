@@ -3,6 +3,7 @@ export * from './accordion/index';
 export * from './alert/index';
 export * from './application-menu/index';
 export * from './autocomplete/index';
+export * from './blockgrid/index';
 export * from './busyindicator/index';
 export * from './button/index';
 export * from './chart/index';

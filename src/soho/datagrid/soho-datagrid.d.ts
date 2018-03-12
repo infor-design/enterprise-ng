@@ -939,6 +939,12 @@ interface JQueryStatic {
 
 interface JQuery {
   datagrid(options?: SohoDataGridOptions): JQuery;
+  on(events: 'cellchange', handler: JQuery.EventHandlerBase<this, SohoDataGridCellChangeEvent>): this;
+  on(events: 'activecellchange', handler: JQuery.EventHandlerBase<this, SohoDataGridCellChangeEvent>): this;
+  on(events: 'rowremove', handler: JQuery.EventHandlerBase<this, SohoDataGridRowRemoveEvent>): this;
+  on(events: 'settingschanged', handler: JQuery.EventHandlerBase<this, SohoDataGridSettingsChangedEvent>): this;
+  on(events: 'rendered', handler: JQuery.EventHandlerBase<this, SohoDataGridRenderedEvent>): this;
+  on(events: 'addrow', handler: JQuery.EventHandlerBase<this, SohoDataGridAddRowEvent>): this;
 }
 
 interface SohoDataGridRowExpandEvent {

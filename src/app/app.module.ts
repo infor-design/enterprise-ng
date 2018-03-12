@@ -25,6 +25,9 @@ import { ApplicationMenuLazyDemoComponent } from './application-menu/application
 import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/application-menu-lazy-menu.demo';
 import { ApplicationMenuLazyService } from './application-menu/application-menu-lazy-service.demo';
 import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
+import { BlockGridMixedSelectionDemoComponent } from './blockgrid/blockgrid-mixed-selection.demo';
+import { BlockGridMultiSelectionDemoComponent } from './blockgrid/blockgrid-multi-selection.demo';
+import { BlockGridSingleSelectionDemoComponent } from './blockgrid/blockgrid-single-selection.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo';
 import { ButtonDemoComponent } from './button/button.demo';
@@ -185,6 +188,9 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ApplicationMenuLazyDemoComponent,
     ApplicationMenuLazyMenuDemoComponent,
     AutocompleteDemoComponent,
+    BlockGridMixedSelectionDemoComponent,
+    BlockGridMultiSelectionDemoComponent,
+    BlockGridSingleSelectionDemoComponent,
     BusyIndicatorDemoComponent,
     BusyIndicatorDemoBodyComponent,
     ButtonDemoComponent,
