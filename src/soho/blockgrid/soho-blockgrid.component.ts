@@ -20,15 +20,32 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
   /** Options. */
   private options: SohoBlockGridOptions = {};
 
+  @HostBinding('class.blockgrid') get isBlockGrid() {
+    return true;
+  }
+
   /** Defines the data to use, must be specified for this component. */
   @Input() set dataset(dataset: Array<any>) {
     this.options.dataset = dataset;
+
+    if (this.blockgrid) {
+      this.blockgrid.settings.dataset = dataset;
+      this.blockgrid.updated(this.blockgrid.settings);
+    }
   }
 
   /** Defines the selection type. */
   @Input() set selectable(selectable: any) {
     this.options.selectable = selectable;
+    if (this.blockgrid) {
+      this.blockgrid.settings.selectable = selectable;
+      this.blockgrid.updated(this.blockgrid.settings);
+    }
   }
+
+  /* Events*/
+  @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+
   private jQueryElement: JQuery;
   private blockgrid: SohoBlockGrid;
   constructor(private element: ElementRef) { }
@@ -38,6 +55,9 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.blockgrid(this.options);
     this.blockgrid = this.jQueryElement.data('blockgrid');
+
+    // Setup the events
+    this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
   }
 
   /** Tear Down */
@@ -53,4 +73,6 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
     this.blockgrid.updated(settings);
     return this;
   }
+
+
 }

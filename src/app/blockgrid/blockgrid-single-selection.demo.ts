@@ -15,7 +15,17 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlockGridSingleSelectionDemoComponent {
+
   constructor(private elementRef: ElementRef) {
   }
+
   public data = DATA;
+
+  onSelected(args) {
+    console.log('onSelected', args);
+  }
+
+  onDeselected(args) {
+    console.log('onDeselect', args);
+  }
 }

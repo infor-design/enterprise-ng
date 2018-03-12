@@ -27,23 +27,10 @@ interface SohoBlockGrid {
   selectBlock(activeBlock: any[], isCheckbox: boolean): void;
 
   /** Updates the blockgrid with any new settings. */
-  updated(settings: SohoBlockGridOptions): void;
+  updated(settings?: SohoBlockGridOptions): void;
 
   /** Destroys the control on completion. */
   destroy(): void;
-}
-
-/**
- * BlockGrid events.
- */
-interface SohoBlockGridActivateEvent extends JQuery.Event {
-  row: number;
-  item: any[];
-}
-
-interface SohoBlockGridSelectEvent extends JQuery.Event {
-  selectedRows: number;
-  action: string;
 }
 
 interface JQuery {
