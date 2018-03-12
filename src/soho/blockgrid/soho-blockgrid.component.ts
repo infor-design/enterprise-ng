@@ -45,6 +45,9 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
   /* Events*/
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+  @Output() deselected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+  @Output() activated: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+  @Output() deactivated: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   private jQueryElement: JQuery;
   private blockgrid: SohoBlockGrid;
@@ -58,6 +61,9 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
     // Setup the events
     this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
+    this.jQueryElement.on('deselected', (...args) => this.deselected.emit(args));
+    this.jQueryElement.on('activated', (...args) => this.activated.emit(args));
+    this.jQueryElement.on('deactivated', (...args) => this.deactivated.emit(args));
   }
 
   /** Tear Down */
@@ -73,6 +79,5 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
     this.blockgrid.updated(settings);
     return this;
   }
-
 
 }
