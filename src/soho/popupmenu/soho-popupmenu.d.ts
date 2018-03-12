@@ -69,7 +69,7 @@ interface SohoPopupMenuStatic {
   getSelected(): any;
 
   /** Updates the control to reflect the settings. */
-  updated(): void;
+  updated(object?: SohoPopupMenuOptions): void;
 
   /** Tear down the markup for the control */
   teardown(): void;
@@ -116,5 +116,5 @@ type SohoPopupMenuSourceFunction = (
  * Function prototype for the response function.
  */
 type SohoPopupMenuResponseFunction = (
-  data: any[]
+  data: any
 ) => void;

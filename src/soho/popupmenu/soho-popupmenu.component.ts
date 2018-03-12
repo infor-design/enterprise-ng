@@ -341,9 +341,9 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
   /**
    * Updates the control to reflect the settings.
    */
-  updated(): void {
+  updated(settings): void {
     if (this.popupmenu) {
-      this.popupmenu.updated();
+      this.popupmenu.updated(settings);
     }
   }
 
