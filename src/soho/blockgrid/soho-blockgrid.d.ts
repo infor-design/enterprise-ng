@@ -24,10 +24,10 @@ interface SohoBlockGrid {
   selectBlock(activeBlock: any[], isCheckbox: boolean): void;
 
   /** Select the blockgrid */
-  selected(jQuery): void;
+  selected(): void;
 
   /** Unselect the blockgrid */
-  unselected(jQuery): void;
+  unselected(): void;
 
   /** Updates the blockgrid with any new settings. */
   updated(): void;

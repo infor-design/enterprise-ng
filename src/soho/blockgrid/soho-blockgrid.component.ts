@@ -20,16 +20,28 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
   /** Options. */
   private options: SohoBlockGridOptions = {};
 
+  @HostBinding('class') get classes() {
+    return 'blockgrid';
+  }
+
   /** Defines the data to use, must be specified for this component. */
   @Input() set dataset(dataset: Array<any>) {
     this.options.dataset = dataset;
+    if (this.blockgrid) {
+      this.blockgrid.settings.dataset = dataset;
+      this.blockgrid.updated();
+    }
   }
 
   @Input() set selectable(selectable: any) {
     this.options.selectable = selectable;
+    if (this.blockgrid) {
+      this.blockgrid.settings.selectable = selectable;
+      this.blockgrid.updated();
+    }
   }
   private jQueryElement: JQuery;
-  private blockgrid: any;
+  private blockgrid: SohoBlockGrid;
   constructor(private element: ElementRef) { }
 
   ngAfterViewInit() {
