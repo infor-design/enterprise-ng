@@ -34,6 +34,20 @@ interface SohoSwapListOptions {
 }
 
 /**
+ * Swap List Moved items and containers info
+ */
+interface SohoSwapListMoved {
+  /** Container info where items moved From. */
+  from?: any;
+
+  /** Container info where items moved To. */
+  to?: any;
+
+  /** Moved items. */
+  items?: SohoSwapListItem[];
+}
+
+/**
  * This interface represents the public API exposed by the
  * swaplist.
  */
@@ -87,9 +101,9 @@ interface JQuery {
 }
 
 interface SohoSwapListBeforeSwapEvent extends JQuery.Event {
-  items?: SohoSwapListItem[];
+  moved?: SohoSwapListMoved;
 }
 
 interface SohoSwapListSwapUpdateEvent extends JQuery.Event {
-  items?: SohoSwapListItem[];
+  moved?: SohoSwapListMoved;
 }

@@ -57,7 +57,8 @@ export class SwapListDemoComponent implements OnInit, OnDestroy {
   }
 
   onUpdated(event: any) {
-    console.log(this.swapListComponent.selectedItems);
+    console.log('Moved: ', event.moved);
+    console.log('Selected Items: ', this.swapListComponent.selectedItems);
   }
 
   onValidationResultsSelected(event: SohoContextMenuEvent) {

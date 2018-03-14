@@ -272,8 +272,8 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.swaplist(this._options);
 
     this.jQueryElement
-    .on('beforeswap', (event: JQuery.Event, items: SohoSwapListItem[]) => this.onBeforeSwap(event, items))
-    .on('swapupdate', (event: JQuery.Event, items: SohoSwapListItem[]) => this.onSwapUpdate(event, items));
+    .on('beforeswap', (event: JQuery.Event, moved: SohoSwapListMoved) => this.onBeforeSwap(event, moved))
+    .on('swapupdate', (event: JQuery.Event, moved: SohoSwapListMoved) => this.onSwapUpdate(event, moved));
 
     this.swaplist = this.jQueryElement.data('swaplist');
 
@@ -333,14 +333,13 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
     return results;
   }
 
-  private onBeforeSwap(event: SohoSwapListBeforeSwapEvent, items: SohoSwapListItem[]) {
-    event.items = items;
+  private onBeforeSwap(event: SohoSwapListBeforeSwapEvent, moved: SohoSwapListMoved) {
+    event.moved = moved;
     this.beforeSwapEvent.emit(event);
   }
 
-  private onSwapUpdate(event: SohoSwapListSwapUpdateEvent, items: SohoSwapListItem[]) {
-    event.items = items;
+  private onSwapUpdate(event: SohoSwapListSwapUpdateEvent, moved: SohoSwapListMoved) {
+    event.moved = moved;
     this.updateEvent.emit(event);
   }
-
 }
