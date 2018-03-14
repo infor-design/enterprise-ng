@@ -25,7 +25,7 @@
             <input name="numeric" [(ngModel)]="model.numeric"
               soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
               soho-input
-              soho-mask [sohoPattern]="'###'" [mode]="'number'" [negative]="false" [number]="true"/>
+              soho-mask [sohoPattern]="'###'" [process]="'number'" [negative]="false" [number]="true"/>
           </div>
         </div>
       </div>

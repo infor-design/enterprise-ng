@@ -33,7 +33,7 @@ export class SwapListTestService extends SohoSwapListService {
   private additionalDemoItems: SohoSwapListItem[] = [];
 
   getData(): Observable<SohoSwapListOptions> {
-    console.log(this.options.available);
+    // console.log(this.options.available);
     return Observable.of(this.options);
   }
 
@@ -113,11 +113,11 @@ class SohoSwapListServiceTestComponent implements OnInit {
   }
 
   onSelected(event: any) {
-    console.log(this.swaplist.selectedItems);
+    // console.log(this.swaplist.selectedItems);
   }
 
   onUpdated(event: any) {
-    console.log(this.swaplist.selectedItems);
+    // console.log(this.swaplist.selectedItems);
   }
 
   updateData() {

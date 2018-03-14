@@ -12,8 +12,7 @@ import {
 
 @Component({
   selector: '[soho-radar]', // tslint:disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  template: '<ng-content></ng-content>'
 })
 
 export class SohoRadarComponent implements AfterViewInit, OnDestroy {
@@ -35,8 +34,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
   }
 
   /* Events*/
-  @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
-  @Output() rendered: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+  @Output() selected: EventEmitter<Object> = new EventEmitter<Object>();
 
   private jQueryElement: JQuery;
   private radar: SohoRadar;
@@ -51,8 +49,10 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
     this.radar = this.jQueryElement.data('radar');
 
     // Setup the events
-    this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
-    this.jQueryElement.on('rendered', (...args) => this.rendered.emit(args));
+    this.jQueryElement.on('selected', (...args) => {
+      console.log(args);
+      this.selected.emit(args);
+    });
   }
 
   /** Tear Down */

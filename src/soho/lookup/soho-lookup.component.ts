@@ -154,6 +154,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       this.lookup.element.val(this.internalValue);
     }
   }
+
   ngOnDestroy() {
     // Necessary clean up step (add additional here)
     if (this.lookup) {
@@ -161,9 +162,11 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       this.lookup = null;
     }
   }
+
   isMultiselect(): boolean {
     return this.multiselect !== false || (this.options && this.options.selectable === 'multiple');
   }
+
   modalOpened(args: any[]) {
     /**
      * Temporary fix for inability for grid to async call data and resize modal on returned
@@ -190,7 +193,8 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    */
   onChange(event: SohoLookupChangeEvent[]) {
     this.parseValue(event);
-    this.change.emit(this.internalValue);
+    event.values = this.internalValue;
+    this.change.emit(event);
   }
 
   /**

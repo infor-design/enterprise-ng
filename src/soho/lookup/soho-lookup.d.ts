@@ -134,11 +134,12 @@ type SohoLookupValidatorFunction = (
   grid: SohoDataGridStatic
 ) => void;
 
-/** @todo verify this - but I think it's the selected row structure from the grid. */
+/** Selected row structure from the lookup api. */
 interface SohoLookupChangeEvent {
   data: Object;
   elem: HTMLElement[];
   idx: number;
+  value: string;
 }
 
 /**

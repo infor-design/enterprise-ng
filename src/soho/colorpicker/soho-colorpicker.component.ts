@@ -121,6 +121,12 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
   get showLabel() {
     return this.isShowLabel;
   }
+  getLabelValue() {
+    return this.colorpicker.getLabelValue();
+  }
+  getHexValue() {
+    return this.colorpicker.getHexValue();
+  }
 
   /**
    * Bind attributes to the host input element

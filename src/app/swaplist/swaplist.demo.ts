@@ -43,7 +43,7 @@ export class SwapListDemoComponent implements OnInit, OnDestroy {
   }
 
   onSelected(event) {
-    console.log(this.swapListComponent.selectedItems);
+    // console.log(this.swapListComponent.selectedItems);
   }
 
   onBeforeswap(event) {

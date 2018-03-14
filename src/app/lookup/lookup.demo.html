@@ -5,11 +5,12 @@
         <div class="field">
           <label soho-label for="product_single">Products (Single Select) with mask</label>
           <input soho-lookup
-            soho-mask [sohoPattern]="'#######'" [mode]="'number'" [negative]="false" [number]="true"
+            soho-mask [sohoPattern]="'#######'" [process]="'number'" [negative]="false" [number]="true"
             soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
             [(ngModel)]="model.single"
             [columns]="columns_product"
             [dataset]="data_product"
+            (change)="onChange($event)"
             field="productId"
             name="product_single" />
         </div>
@@ -18,7 +19,7 @@
         <div class="field">
           <label soho-label for="product_single_exists">Products (Single Select) with mask with existing value</label>
           <input soho-lookup
-            soho-mask [sohoPattern]="'#######'" [mode]="'number'" [negative]="false" [number]="true"
+            soho-mask [sohoPattern]="'#######'" [process]="'number'" [negative]="false" [number]="true"
             soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
             [(ngModel)]="model.singleexists"
             [columns]="columns_product"
@@ -34,7 +35,7 @@
         <div class="field">
           <label soho-label for="product_single_object">Products (Single Select Stored as Object) with mask</label>
           <input soho-lookup
-            soho-mask [sohoPattern]="'#######'" [mode]="'number'" [negative]="false" [number]="true"
+            soho-mask [sohoPattern]="'#######'" [process]="'number'" [negative]="false" [number]="true"
             soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
             [(ngModel)]="model.singleobject"
             [columns]="columns_product"
@@ -48,7 +49,7 @@
         <div class="field">
           <label soho-label for="product_single_object_exists">Products (Single Select Stored as Object) with mask with existing value</label>
           <input soho-lookup
-            soho-mask [sohoPattern]="'#######'" [mode]="'number'" [negative]="false" [number]="true"
+            soho-mask [sohoPattern]="'#######'" [process]="'number'" [negative]="false" [number]="true"
             soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
             [(ngModel)]="model.singleobjectexists"
             [columns]="columns_product"
@@ -68,6 +69,7 @@
             [(ngModel)]="model.multi"
             [columns]="columns_multi"
             [dataset]="data_product"
+            (change)="onChange($event)"
             multiselect
             [toolbar]="{
           results: true,
