@@ -1,0 +1,25 @@
+<div class="row top-padding">
+  <div class="two-thirds column">
+      <div class="widget">
+        <div class="widget-header">
+          <h2 class="widget-title">Radar Chart Title</h2>
+        </div>
+        <div class="widget-content">
+          <div soho-radar
+            [dataset]="radarData"
+            [showAxisLabels]="false"
+            (selected)="onSelected($event)"
+            (deselected)="onDeselected($event)"
+            (rendered)="onRendered($event)"
+            (radar)="onRadar($event)">
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="twelve columns">
+    <button soho-button (click)="update()">Update</button>
+  </div>
+</div>

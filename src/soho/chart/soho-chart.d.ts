@@ -31,7 +31,7 @@ interface JQueryStatic {
 }
 
 interface JQuery {
-  chart(options?: SohoChartOptions): JQuery;
+  chart(options?: SohoChartOptions | SohoRadarOptions): JQuery;
 }
 
 interface SohoChartData {
@@ -94,7 +94,7 @@ interface SohoChartPercentText {
 }
 type ChartTypes = 'pie' | 'bar' | 'bar-stacked' | 'bar-normalized' | 'bar-grouped' | 'bubble' | 'scatter' |
   'column-stacked' |'column' | 'column-grouped' | 'column-positive-negative' | 'donut' | 'line' |
-  'area' | 'bullet' | 'completion' | 'completion-target' | 'targeted-achievement' | 'column-positive-negative';
+  'area' | 'bullet' | 'completion' | 'radar' | 'completion-target' | 'targeted-achievement' | 'column-positive-negative';
 
 type SohoChartDataArray = Array<SohoChartData>;
 
@@ -111,7 +111,7 @@ interface SohoDataSetItem {
   colors?: PosNegColors;
 }
 
-type SohoDataSet = Array<SohoDataSetItem>;
+type SohoDataSet = Array<SohoDataSetItem> | Array<any>;
 
 interface SohoChartLabel {
   name: string;

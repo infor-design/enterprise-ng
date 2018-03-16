@@ -47,7 +47,7 @@
             <input id="NumericField" name="NumericField" formControlName="NumericField"
               [(ngModel)]="model.NumericField.value" attr.data-validate="{{isRequired('NumericField')}}"
               soho-input
-              soho-mask [mode]="'number'" [sohoPattern]="'###.##'"
+              soho-mask [process]="'number'" [sohoPattern]="'###.##'"
               soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
             >
             <p>{{status('NumericField')}}</p>

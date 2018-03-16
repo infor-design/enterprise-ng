@@ -1,5 +1,6 @@
 
 ## Whats New
+* 2018-03-13 - TJM - Added radar wrapper
 * 2018-02-06 - TJM - Upgraded to d3v4 and Soho 4.4.0 Es6 Branch including migration script
 * 2018-01-23 - BTH - Upgraded to @angular/cli 1.6.5 and updated corresponding dependencies.
 * 2018-01-18 - MHH - SOHO-7354: 4.0 Popdown expose the open method
@@ -89,6 +90,8 @@
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2018-03-13 - TJM - The lookup's on change event did not have the data elements and was just firing with the value. This is changed, but if you were relying on the value there you may need to adjust your code to use the values attribute.
 
 * 2017-12-15 - TJM -SOHO-6976 - Projects may need to change .angular-cli.json to pull in the newly renamed d3.v4.js script and add the sohoxi-migrate-4.4.0.js script. This is needed unless global references are changed. Globals should be moved to the Soho namespace for example Formatters -> Soho.Formatters (see SOHO-7457 for entire list).
 

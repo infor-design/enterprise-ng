@@ -22,6 +22,21 @@ import {
 export class SohoColorPickerComponent extends BaseControlValueAccessor<any> implements AfterViewInit, OnDestroy {
 
   /**
+   * Local variables
+   */
+  private jQueryElement: any;
+  private colorpicker: any;
+  private isEditable: boolean = null;
+  private isDisabled: boolean = null;
+  private isReadOnly: boolean = null;
+  private isShowLabel: boolean = null;
+  private options: SohoColorPickerOptions = {
+    colors: undefined,
+    showLabel: false,
+    editable: true
+  };
+
+  /**
    * Indicates the color list
    */
   @Input() set colors(colors: Array<SohoColorOption>) {
@@ -121,6 +136,12 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
   get showLabel() {
     return this.isShowLabel;
   }
+  getLabelValue() {
+    return this.colorpicker.getLabelValue();
+  }
+  getHexValue() {
+    return this.colorpicker.getHexValue();
+  }
 
   /**
    * Bind attributes to the host input element
@@ -128,21 +149,6 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
   @HostBinding('class.colorpicker') get isColorpicker() {
     return true;
   }
-
-  /**
-   * Local variables
-   */
-  private jQueryElement: any;
-  private colorpicker: any;
-  private isEditable: boolean = null;
-  private isDisabled: boolean = null;
-  private isReadOnly: boolean = null;
-  private isShowLabel: boolean = null;
-  private options: SohoColorPickerOptions = {
-    colors: undefined,
-    showLabel: false,
-    editable: true
-  };
 
   constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
     super(changeDetectionRef);

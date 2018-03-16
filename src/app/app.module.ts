@@ -125,6 +125,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
 import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
 import { ProgressDemoComponent } from './progress/progress.demo';
+import { RadarDemoComponent } from './radar/radar.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 import { SearchFieldDemoComponent } from './searchfield/searchfield.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
@@ -272,6 +273,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     PopDownDemoComponent,
     PopupMenuDemoComponent,
     ProgressDemoComponent,
+    RadarDemoComponent,
     RadioButtonDemoComponent,
     SearchFieldDemoComponent,
     SliderDemoComponent,

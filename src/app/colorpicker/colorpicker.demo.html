@@ -1,10 +1,12 @@
-<div class="row">
-  <form>
-    <div class="field">
-      <label for="bgcolor" class="label">Background Color</label>
-      <input soho-colorpicker name="bgcolor" [(ngModel)]="model.color" (change)="onChange($event)" />
-    </div>
-  </form>
+<div class="row top-padding">
+  <div class="twelve columns">
+    <form>
+      <div class="field">
+        <label for="bgcolor" class="label">Background Color</label>
+        <input soho-colorpicker name="bgcolor" [(ngModel)]="model.color" (change)="onChange($event)" />
+      </div>
+    </form>
+  </div>
 </div>
 
 <div class="row">

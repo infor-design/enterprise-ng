@@ -12,7 +12,7 @@
       <!-- note both fields are the same except for the soho-input/soho-mask stuff -->
       <label class="center-block">Required & Masked:
         <input class="form-control" formControlName="masked"
-          soho-input soho-mask [mode]="'number'" [sohoPattern]="'###.##'">
+          soho-input soho-mask [process]="'number'" [sohoPattern]="'###.##'">
       </label>
 
       <h3>Is Masked Control valid?: {{ demoForm.controls.masked.valid | json }}</h3>

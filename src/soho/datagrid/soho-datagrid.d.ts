@@ -684,14 +684,14 @@ interface SohoDataGridStatic {
   /** Updates the data displayed in the given row. */
   updateRow(idx: number, rowData: Object): void;
 
-  /** 
-   * Hides the column at the given index.  
+  /**
+   * Hides the column at the given index.
    * @param {string} id The id of the column to show.
    */
   hideColumn(id: string): void;
 
-  /** 
-   * Shows the column at the given index.  
+  /**
+   * Shows the column at the given index.
    * @param {string} id The id of the column to hide.
    */
   showColumn(id: string): void;

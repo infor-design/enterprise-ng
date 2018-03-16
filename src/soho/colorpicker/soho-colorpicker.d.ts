@@ -31,7 +31,22 @@ interface SohoColorPickerEvent extends JQuery.Event {
  * Soho control.
  */
 interface SohoColorPickerStatic {
-  show(): void;
+
+  /* Lets you know if the component is currently disabled */
+  disabled: boolean;
+
+  /* Lets you know if the component is currently readonly */
+  readonly: boolean;
+
+  /* Lets you know if the component is currently in show label mode */
+  showLabel: boolean;
+
+  /* Gets the currently set label, regardless of showLabel mode */
+  getLabelValue(): string;
+
+  /* Gets the currently set label, regardless of showLabel mode */
+  getHexValue(): string;
+
 }
 
 /**

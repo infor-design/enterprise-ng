@@ -176,4 +176,8 @@ export class LookupDemoComponent {
   onPristine(event: SohoTrackDirtyEvent) {
     console.log('lookup.onPristine');
   }
+
+  onChange(e: any, args: any) {
+    console.log('lookup.onchange', e, args);
+  }
 }

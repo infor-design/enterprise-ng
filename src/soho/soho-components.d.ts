@@ -43,6 +43,7 @@
 /// <reference path="./popdown/soho-popdown.d.ts" />
 /// <reference path="./popupmenu/soho-popupmenu.d.ts" />
 /// <reference path="./progress/soho-progress.d.ts" />
+/// <reference path="./radar/soho-radar.d.ts" />
 /// <reference path="./radiobutton/soho-radiobutton.d.ts" />
 /// <reference path="./searchfield/soho-searchfield.d.ts" />
 /// <reference path="./slider/soho-slider.d.ts" />

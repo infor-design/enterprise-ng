@@ -33,7 +33,7 @@ class SohoCustomMaskTestComponent {
   template: `
   <div>
     <form [formGroup]="demoForm">
-      <input soho-mask formControlName="ctrl" [sohoPattern]="'###'" [mode]="'number'"/>
+      <input soho-mask formControlName="ctrl" [integerLimit]="3" [process]="'number'"/>
     </form>
   </div>`
 })
