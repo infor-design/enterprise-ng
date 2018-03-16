@@ -7,7 +7,10 @@
         <div class="widget-content">
           <div soho-radar
             [dataset]="radarData"
+            [showAxisLabels]="false"
             (selected)="onSelected($event)"
+            (deselected)="onDeselected($event)"
+            (rendered)="onRendered($event)"
             (radar)="onRadar($event)">
           </div>
         </div>

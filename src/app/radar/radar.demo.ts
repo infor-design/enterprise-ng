@@ -57,12 +57,16 @@ export class RadarDemoComponent implements OnInit {
   constructor() { }
   ngOnInit() {}
 
-  onRender(event: Event) {
-    console.log('Soho Radar onRender');
+  onRendered(event: Event) {
+    console.log('Soho Radar: onRender', event);
   }
 
   onSelected(event: Event) {
-    console.log('Soho Radar Selected');
+    console.log('Soho Radar: Selected', event);
+  }
+
+  onDeSelected(event: Event) {
+    console.log('Soho Radar: Deselected', event);
   }
 
   update() {

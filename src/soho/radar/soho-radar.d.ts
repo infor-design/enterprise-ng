@@ -61,7 +61,7 @@ interface SohoRadarOptions {
   colors?: any[];
 
   /** If false no tooltips will be shown. */
-  showTooltips?: boolean[];
+  showTooltips?: boolean;
 
   /** A setting that controls the tooltip values and format. */
   tooltip?: SohoRadarTooltipOptions;
@@ -86,6 +86,12 @@ interface SohoRadarTooltipOptions {
 
   /** The d3.formatter string. */
   formatter?: string;
+}
+
+interface SohoRadarSelectEvent {
+  elem: HTMLElement[];
+  data: any[];
+  index: number;
 }
 
 /**
