@@ -152,7 +152,7 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
 @Component({
   selector: 'soho-toolbar-more-button',
   template: `
-    <button class="btn-actions page-changer" type="button">
+    <button class="btn-actions page-changer" type="button" [attr.disabled]="isDisabled ? 'disabled' : null">
       <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
         <use xlink:href="#icon-more"></use>
       </svg>
@@ -170,6 +170,7 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
 })
 export class SohoToolbarMoreButtonComponent {
   @HostBinding('class.more') get isMoreButton() { return true; }
+  @Input() isDisabled = false;
 }
 
 /**
