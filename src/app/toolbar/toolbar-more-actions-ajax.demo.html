@@ -2,7 +2,7 @@
   <div class="full-width column">
 
     <soho-toolbar
-      [maxVisibleButtons]="6"
+      [maxVisibleButtons]="4"
       [hasMoreButton]="true"
       [favorButtonset]="true"
       (selected)="onSelected($event)"
@@ -13,20 +13,32 @@
       </soho-toolbar-title>
 
       <soho-toolbar-button-set>
-        <!-- search field -->
-        <label class="audible" attr.for="my-search-field">Search</label>
-        <input soho-toolbar-searchfield id="my-search-field" placeholder="Search" title="Search" name="Search"/>
+        <button soho-button="btn" icon="print" data-action="{'button':'print'}">
+          <span>Print</span>
+        </button>
 
-        <!-- buttons -->
-        <button soho-button="icon" icon="filter" title="Filter" isToggle=true data-action="{'button':'filter'}">
-          <span>Filter</span>
+        <button soho-button="btn" icon="settings" data-action="{'button':'settings'}">
+          <span>Settings</span>
+        </button>
+
+        <button soho-button="btn" icon="save" data-action="{'button':'save'}">
+          <span>Save</span>
+        </button>
+
+        <button soho-button="btn" icon="mail" data-action="{'button':'email'}">
+          <span>Send as Email</span>
         </button>
       </soho-toolbar-button-set>
 
       <soho-toolbar-more-button>
         <div class="popupmenu-wrapper">
           <ul soho-popupmenu id="my-popupmenu-element" class="popupmenu" [beforeOpen]="onBeforeContextMenuOpen">
-            <li soho-popupmenu-item><a soho-popupmenu-label>Pre-defined option 1</a></li>
+            <li soho-popupmenu-item>
+              <a soho-popupmenu-label>Pre-defined option 1</a>
+            </li>
+            <li soho-popupmenu-item>
+              <a soho-popupmenu-label>Pre-defined option 2</a>
+            </li>
           </ul>
         </div>
       </soho-toolbar-more-button>
