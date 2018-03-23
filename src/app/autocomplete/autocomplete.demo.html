@@ -3,7 +3,8 @@
     <h2>Set source as string, update from cities to states</h2>
     <div class="field">
       <label for="autocomplete-default">States</label>
-      <input id="autocomplete-default" soho-autocomplete [attr.data-autocomplete]="url" type="text">
+      <input id="autocomplete-default" soho-autocomplete soho-mask [sohoPattern]="'********************'" [attr.data-autocomplete]="url" type="text" [(ngModel)]="selectedState">
+      Model: {{selectedState}}
     </div>
     <h2>Set source as a function</h2>
     <div class="field">
@@ -22,4 +23,3 @@
     </div>
   </div>
 </div>
-
