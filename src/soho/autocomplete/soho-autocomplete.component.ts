@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
@@ -8,15 +9,22 @@ import {
   Input,
   OnDestroy,
   Output,
+  HostListener
 } from '@angular/core';
+
+import {
+  BaseControlValueAccessor,
+  provideControlValueAccessor
+} from '../utils/base-control-value-accessor';
 
 @Component({
   selector: 'input[soho-autocomplete]', // tslint:disable-line
   template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [ provideControlValueAccessor(SohoAutoCompleteComponent) ]
 })
 
-export class SohoAutoCompleteComponent implements AfterViewInit, OnDestroy {
+export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> implements AfterViewInit, OnDestroy {
   /** Options. */
   private options: SohoAutoCompleteOptions = {};
 
@@ -60,6 +68,11 @@ export class SohoAutoCompleteComponent implements AfterViewInit, OnDestroy {
     this.options.autoSelectFirstItem = autoSelectFirstItem;
   }
 
+  /**
+   * Available Soho Template events as Output (EventEmitters passing the event)
+   * Should match the Soho event names for the component
+   */
+  @Output() change: EventEmitter<SohoInputEvent[]> = new EventEmitter<SohoInputEvent[]>();
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   @HostBinding('class.autocomplete') get isAutoComplete() { return true; }
@@ -67,12 +80,33 @@ export class SohoAutoCompleteComponent implements AfterViewInit, OnDestroy {
   private jQueryElement: JQuery;
   private autocomplete: any;
 
-  constructor(private element: ElementRef) { }
+  constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
+    super(changeDetectionRef);
+  }
+
+  @HostListener('keyup', ['$event'])
+  onKeyUp(event: KeyboardEvent, val) {
+    // This is required if masking is used, otherwise the
+    // the form binding does not see updates.
+    this.internalValue = this.jQueryElement.val() as string;
+  }
+
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
+
+    // Bind to jQueryElement's events
+    this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
+    this.jQueryElement
+      .on('change', (e: any, args: any[]) => this.onChange(args));
+
+    // Invoke the Autocomplete
     this.jQueryElement.autocomplete(this.options);
     this.autocomplete = this.jQueryElement.data('autocomplete');
-    this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
+
+    // Make sure the value of the control is set appropriately.
+    if (this.internalValue) {
+      this.jQueryElement.val(this.internalValue);
+    }
   }
 
   ngOnDestroy() {
@@ -80,6 +114,44 @@ export class SohoAutoCompleteComponent implements AfterViewInit, OnDestroy {
       this.autocomplete.destroy();
       this.autocomplete = null;
     }
+  }
+
+  /**
+   * Handle the control being changed.
+   */
+  onChange(event: any[]) {
+    if (!event) {
+      // sometimes the event is not available
+      this.internalValue = this.jQueryElement.val() as string;
+      super.writeValue(this.internalValue);
+      return;
+    }
+
+    this.change.emit(event);
+  }
+
+  /**
+   * Override writeValue to allow the mask input
+   * element to be updated correctly.
+   *
+   * @param value - the new value
+   */
+  writeValue(value: any) {
+    super.writeValue(value);
+
+    if (this.jQueryElement) {
+      // The processing is required to ensure we use the correct format
+      // in the control.
+      this.jQueryElement.val(value);
+    }
+  }
+
+  getValue(): string {
+    return this.internalValue;
+  }
+
+  setValue(value: string) {
+    this.writeValue(value);
   }
 
    /** For async methods, reinit autocomplete `source` setting. */
