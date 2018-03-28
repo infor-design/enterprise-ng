@@ -415,6 +415,7 @@ declare var Formatters: {
   Tree: SohoDataGridColumnFormatterFunction;
   RowReorder: SohoDataGridColumnFormatterFunction;
   TargetedAchievement: SohoDataGridColumnFormatterFunction;
+  Editor: SohoDataGridColumnFormatterFunction;
 };
 
 // declare var Formatters as SohoDataGridColumnFormatters;
@@ -616,6 +617,12 @@ interface SohoDataGridColumn {
 
   /** If false the column will not be included in export */
   exportable?: boolean;
+
+  /** Restrict row height to a single line for cells containing rich text */
+  singleline?: boolean;
+
+  /** Tooltip for the content of a column cell. */
+  contentTooltip?: boolean;
 
   /**
    *  Option for tree datagrid
