@@ -10,6 +10,7 @@ import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
 import { BlockGridMixedSelectionDemoComponent } from './blockgrid/blockgrid-mixed-selection.demo';
 import { BlockGridMultiSelectionDemoComponent } from './blockgrid/blockgrid-multi-selection.demo';
 import { BlockGridSingleSelectionDemoComponent } from './blockgrid/blockgrid-single-selection.demo';
+import { BulletDemoComponent } from './bullet/bullet.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo';
 import { ButtonDemoComponent } from './button/button.demo';
@@ -70,6 +71,7 @@ import { HomePageScenarioCDemoComponent } from './homepage/homepage-scenario-c.d
 import { HyperlinkDemoComponent } from './hyperlink/hyperlink.demo';
 import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
+import { LineDemoComponent } from './line/line.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
@@ -78,6 +80,7 @@ import { MaskLegacyDemoComponent } from './mask/mask-legacy.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
+import { PieDemoComponent } from './pie/pie.demo';
 import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
 import { ProgressDemoComponent } from './progress/progress.demo';
@@ -85,6 +88,7 @@ import { RadarDemoComponent } from './radar/radar.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 import { SearchFieldDemoComponent } from './searchfield/searchfield.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
+import { SparklineDemoComponent } from './sparkline/sparkline.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
 import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
@@ -134,9 +138,10 @@ export const routes: Routes = [
   { path: 'alert',                                  component: AlertDemoComponent},
   { path: 'application-lazy-menu',                  component: ApplicationMenuLazyDemoComponent},
   { path: 'autocomplete',                           component: AutocompleteDemoComponent },
-  { path: 'blockgrid-mixed-selection',             component: BlockGridMixedSelectionDemoComponent},
-  { path: 'blockgrid-multi-selection',             component: BlockGridMultiSelectionDemoComponent},
+  { path: 'blockgrid-mixed-selection',              component: BlockGridMixedSelectionDemoComponent},
+  { path: 'blockgrid-multi-selection',              component: BlockGridMultiSelectionDemoComponent},
   { path: 'blockgrid-single-selection',             component: BlockGridSingleSelectionDemoComponent},
+  { path: 'bullet',                                 component: BulletDemoComponent },
   { path: 'button',                                 component: ButtonDemoComponent },
   { path: 'busyindicator',                          component: BusyIndicatorDemoComponent },
   { path: 'busyindicatorbody',                      component: BusyIndicatorDemoBodyComponent },
@@ -184,7 +189,7 @@ export const routes: Routes = [
   { path: 'expandablearea',                         component: ExpandableAreaDemoComponent },
   { path: 'expandablearea-footer',                  component: ExpandableAreaFooterDemoComponent },
   { path: 'field-options',                          component: FieldOptionsDemoComponent },
-  { path: 'field-options-popdown',                          component: FieldOptionsPopdownDemoComponent },
+  { path: 'field-options-popdown',                  component: FieldOptionsPopdownDemoComponent },
   { path: 'fileupload-advanced',                    component: FileUploadAdvancedDemoComponent },
   { path: 'fileupload',                             component: FileUploadDemoComponent },
   { path: 'header-tabs',                            component: HeaderTabsDemoComponent },
@@ -200,6 +205,7 @@ export const routes: Routes = [
   { path: 'hyperlink',                              component: HyperlinkDemoComponent },
   { path: 'icon',                                   component: IconDemoComponent },
   { path: 'label',                                  component: LabelDemoComponent },
+  { path: 'line',                                   component: LineDemoComponent },
   { path: 'listview',                               component: ListViewDemoComponent },
   { path: 'lookup',                                 component: LookupDemoComponent },
   { path: 'lookup-validation',                      component: LookupValidationDemoComponent },
@@ -208,6 +214,7 @@ export const routes: Routes = [
   { path: 'menu-button',                            component: MenuButtonDemoComponent },
   { path: 'message',                                component: MessageDemoComponent },
   { path: 'modal-dialog',                           component: ModalDialogDemoComponent },
+  { path: 'pie',                                    component: PieDemoComponent },
   { path: 'popdown',                                component: PopDownDemoComponent},
   { path: 'popupmenu',                              component: PopupMenuDemoComponent },
   { path: 'progress',                               component: ProgressDemoComponent },
@@ -215,6 +222,7 @@ export const routes: Routes = [
   { path: 'radiobutton',                            component: RadioButtonDemoComponent},
   { path: 'searchfield',                            component: SearchFieldDemoComponent },
   { path: 'slider',                                 component: SliderDemoComponent },
+  { path: 'sparkline',                              component: SparklineDemoComponent },
   { path: 'splitter-horizontal',                    component: SplitterHorizontalDemoComponent },
   { path: 'splitter-vertical',                      component: SplitterVerticalDemoComponent },
   { path: 'step-process',                           component: StepProcessDemoComponent },
