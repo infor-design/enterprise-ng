@@ -71,7 +71,6 @@ class SohoPieTestComponent {
 }
 
 describe('Soho Pie Chart Render', () => {
-  let radar:  SohoPieComponent;
   let component: SohoPieTestComponent;
   let fixture:   ComponentFixture<SohoPieTestComponent>;
   let de:        DebugElement;
@@ -85,7 +84,6 @@ describe('Soho Pie Chart Render', () => {
 
     fixture = TestBed.createComponent(SohoPieTestComponent);
     component = fixture.componentInstance;
-    pie = component.pie;
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-pie]')).nativeElement;

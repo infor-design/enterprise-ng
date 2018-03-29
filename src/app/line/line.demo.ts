@@ -12,7 +12,7 @@ export class LineDemoComponent implements OnInit {
 
   public lineData = [{
     data: [
-      {name: 'Jan', value: 12, depth: 4}, 
+      {name: 'Jan', value: 12, depth: 4},
       {name: 'Feb', value: 11},
       {name: 'Mar', value: 14},
       {name: 'Apr', value: 10},
@@ -44,10 +44,9 @@ export class LineDemoComponent implements OnInit {
     name: 'Component C',
     id: '3'
   }];
-  
+
   constructor() {}
 
   ngOnInit() {}
 
 }
-  

@@ -39,9 +39,9 @@ export class PieDemoComponent implements OnInit {
         tooltip: 'Item F <b>{{percent}}</b>'
     }]
   }];
-  
+
   constructor() {}
-  
+
   ngOnInit() {}
 
   onRendered(event: Event) {
@@ -56,4 +56,3 @@ export class PieDemoComponent implements OnInit {
     console.log('Soho Radar: Deselected', event);
   }
 }
-  

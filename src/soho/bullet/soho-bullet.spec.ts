@@ -37,27 +37,35 @@ class SohoBulletTestComponent {
   @ViewChild(SohoBulletComponent) bullet: SohoBulletComponent;
 
   public bulletData1 = [{
-    data: [
-      {'title': 'Revenue','subtitle': 'US$, in thousands','ranges': [150, 225, 300, 400, 600], 'measures': [220,270], 'markers': [250], url: 'http://someplace.com',
+    data: [{
+      'title': 'Revenue',
+      'subtitle': 'US$, in thousands',
+      'ranges': [150, 225, 300, 400, 600],
+      'measures': [220, 270],
+      'markers': [250], url: 'http://someplace.com',
         tooltip: ['<b>Poor</b> 150', '<b>Ok</b> 225', '<b>Good</b> 300', '<b>Excellent</b> 400', '<b>Revenue</b> 600']}
     ],
-    barColors: ['#C0EDE3', '#8ED1C6', '#69ADA3', '#448D83', '#206B62'], //http://107.170.15.202:4000{{basepath}}controls/colors
+    barColors: ['#C0EDE3', '#8ED1C6', '#69ADA3', '#448D83', '#206B62'],
     lineColors: ['#000000', '#000000', '#000000'],
     markerColors: ['#000000']
   }];
 
   public bulletData2 = [{
-    data: [
-      {'title': 'Profit', 'subtitle': '%', 'ranges': [20,25,30], 'measures': [17,21], 'markers': [26]}
+    data: [{
+      'title': 'Profit',
+      'subtitle': '%',
+      'ranges': [20, 25, 30],
+      'measures': [17, 21],
+      'markers': [26]
+      }
     ],
-    barColors: ['#ADD8EB', '#69B5DD', '#368AC0'], //http://107.170.15.202:4000{{basepath}}controls/colors
+    barColors: ['#ADD8EB', '#69B5DD', '#368AC0'],
     lineColors: ['#000000', '#000000', '#000000'],
     markerColors: ['#000000']
   }];
 }
 
 describe('Soho Bullet Chart Render', () => {
-  let sparkline:  SohoBulletComponent;
   let component: SohoBulletComponent;
   let fixture:   ComponentFixture<SohoBulletComponent>;
   let de:        DebugElement;
@@ -71,7 +79,6 @@ describe('Soho Bullet Chart Render', () => {
 
     fixture = TestBed.createComponent(SohoBulletComponent);
     component = fixture.componentInstance;
-    bullet = component.bullet;
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-bullet]')).nativeElement;
