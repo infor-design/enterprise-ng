@@ -66,19 +66,21 @@ class SohoBulletTestComponent {
 }
 
 describe('Soho Bullet Chart Render', () => {
-  let component: SohoBulletComponent;
-  let fixture:   ComponentFixture<SohoBulletComponent>;
+  let bullet: SohoBulletComponent;
+  let component: SohoBulletTestComponent;
+  let fixture:   ComponentFixture<SohoBulletTestComponent>;
   let de:        DebugElement;
   let el:        HTMLElement;
 
   beforeEach( () => {
     TestBed.configureTestingModule({
-      declarations: [ SohoBulletComponent ],
+      declarations: [ SohoBulletTestComponent ],
       imports: [ FormsModule, SohoBulletModule ]
     });
 
-    fixture = TestBed.createComponent(SohoBulletComponent);
+    fixture = TestBed.createComponent(SohoBulletTestComponent);
     component = fixture.componentInstance;
+    bullet = component.bullet;
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-bullet]')).nativeElement;

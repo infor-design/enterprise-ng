@@ -1,4 +1,3 @@
-import {} from 'jasmine';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';
@@ -6,29 +5,6 @@ import { FormsModule } from '@angular/forms';
 
 import { SohoSparklineModule } from './soho-sparkline.module';
 import { SohoSparklineComponent } from './soho-sparkline.component';
-
-describe('Soho Sparkline Unit Tests', () => {
-  let comp:     SohoSparklineComponent;
-  let fixture:  ComponentFixture<SohoSparklineComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
-
-  beforeEach( () => {
-    TestBed.configureTestingModule({
-      declarations: [ SohoSparklineComponent ]
-    });
-
-    fixture = TestBed.createComponent(SohoSparklineComponent);
-    comp = fixture.componentInstance;
-
-    de = fixture.debugElement;
-    el = de.nativeElement;
-  });
-
-  it('Check Content', () => {
-    expect(el.nodeName).toEqual('DIV');
-  });
-});
 
 @Component({
   template: `<div soho-sparkline [dataset]="data">`
@@ -62,27 +38,56 @@ class SohoSparklineTestComponent {
   }];
 }
 
+describe('Soho Sparkline Unit Tests', () => {
+  let comp:     SohoSparklineComponent;
+  let fixture:  ComponentFixture<SohoSparklineComponent>;
+  let de:       DebugElement;
+  let el:       HTMLElement;
+
+  beforeEach( () => {
+    TestBed.configureTestingModule({
+      declarations: [ SohoSparklineComponent ]
+    });
+
+    fixture = TestBed.createComponent(SohoSparklineComponent);
+    comp = fixture.componentInstance;
+    fixture.detectChanges();
+
+    de = fixture.debugElement;
+    el = de.nativeElement;
+  });
+
+  it('Check Content', () => {
+    expect(el.nodeName).toEqual('DIV');
+  });
+});
+
 describe('Soho Sparkline Chart Render', () => {
-  let component: SohoSparklineComponent;
-  let fixture:   ComponentFixture<SohoSparklineComponent>;
+  let sparkline: SohoSparklineComponent;
+  let component: SohoSparklineTestComponent;
+  let fixture:   ComponentFixture<SohoSparklineTestComponent>;
   let de:        DebugElement;
   let el:        HTMLElement;
 
   beforeEach( () => {
     TestBed.configureTestingModule({
-      declarations: [ SohoSparklineComponent ],
+      declarations: [ SohoSparklineTestComponent ],
       imports: [ FormsModule, SohoSparklineModule ]
     });
 
-    fixture = TestBed.createComponent(SohoSparklineComponent);
+    fixture = TestBed.createComponent(SohoSparklineTestComponent);
     component = fixture.componentInstance;
+    sparkline = component.sparkline;
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-sparkline]')).nativeElement;
 
+    fixture.detectChanges();
   });
 
   it('Check HTML content', () => {
+    fixture.detectChanges();
+    debugger;
     expect(el.hasAttribute('soho-sparkline')).toBeTruthy('soho-sparkline');
   });
 
