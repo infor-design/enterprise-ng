@@ -63,7 +63,6 @@ class SohoSparklineTestComponent {
 }
 
 describe('Soho Sparkline Chart Render', () => {
-  let sparkline:  SohoSparklineComponent;
   let component: SohoSparklineComponent;
   let fixture:   ComponentFixture<SohoSparklineComponent>;
   let de:        DebugElement;
@@ -77,7 +76,6 @@ describe('Soho Sparkline Chart Render', () => {
 
     fixture = TestBed.createComponent(SohoSparklineComponent);
     component = fixture.componentInstance;
-    sparkline = component.sparkline;
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-sparkline]')).nativeElement;
