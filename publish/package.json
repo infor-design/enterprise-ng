@@ -1,6 +1,6 @@
 {
   "name": "@infor/sohoxi-angular",
-  "version": "4.5.0",
+  "version": "4.6.0-rc",
   "description": "Hook & Loop - SoHo XI Angular Controls",
   "author": "Hook & Loop",
   "license": "MIT",
@@ -15,7 +15,7 @@
   },
   "private": false,
   "dependencies": {
-    "@infor/sohoxi": "^4.5.0",
+    "@infor/sohoxi": "^4.6.0-rc",
     "classlist.js": "^1.1.20150312",
     "jquery": "3.1.1"
   },
