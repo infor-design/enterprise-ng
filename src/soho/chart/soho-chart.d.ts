@@ -31,7 +31,7 @@ interface JQueryStatic {
 }
 
 interface JQuery {
-  chart(options?: SohoChartOptions | SohoRadarOptions): JQuery;
+  chart(options?: SohoChartOptions | SohoRadarOptions | SohoLineOptions | SohoPieOptions | SohoBulletOptions | SohoSparklineOptions): JQuery;
 }
 
 interface SohoChartData {

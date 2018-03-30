@@ -28,6 +28,7 @@ import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
 import { BlockGridMixedSelectionDemoComponent } from './blockgrid/blockgrid-mixed-selection.demo';
 import { BlockGridMultiSelectionDemoComponent } from './blockgrid/blockgrid-multi-selection.demo';
 import { BlockGridSingleSelectionDemoComponent } from './blockgrid/blockgrid-single-selection.demo';
+import { BulletDemoComponent } from './bullet/bullet.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo';
 import { ButtonDemoComponent } from './button/button.demo';
@@ -114,6 +115,7 @@ import { HyperlinkDemoComponent } from './hyperlink/hyperlink.demo';
 import { SohoHeaderDemoComponent } from './header/header.demo';
 import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
+import { LineDemoComponent } from './line/line.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
@@ -122,6 +124,7 @@ import { MaskLegacyDemoComponent } from './mask/mask-legacy.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
+import { PieDemoComponent } from './pie/pie.demo';
 import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
 import { ProgressDemoComponent } from './progress/progress.demo';
@@ -131,6 +134,7 @@ import { SearchFieldDemoComponent } from './searchfield/searchfield.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
 import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
 import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
+import { SparklineDemoComponent } from './sparkline/sparkline.demo';
 import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
@@ -191,6 +195,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     BlockGridMixedSelectionDemoComponent,
     BlockGridMultiSelectionDemoComponent,
     BlockGridSingleSelectionDemoComponent,
+    BulletDemoComponent,
     BusyIndicatorDemoComponent,
     BusyIndicatorDemoBodyComponent,
     ButtonDemoComponent,
@@ -263,6 +268,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     HyperlinkDemoComponent,
     IconDemoComponent,
     LabelDemoComponent,
+    LineDemoComponent,
     ListViewDemoComponent,
     LookupDemoComponent,
     LookupValidationDemoComponent,
@@ -270,6 +276,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     MaskLegacyDemoComponent,
     MenuButtonDemoComponent,
     MessageDemoComponent,
+    PieDemoComponent,
     PopDownDemoComponent,
     PopupMenuDemoComponent,
     ProgressDemoComponent,
@@ -280,6 +287,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     SohoHeaderDynamicDemoComponent,
     SohoHeaderDemoComponent,
     SohoMastheadDemoComponent,
+    SparklineDemoComponent,
     SpinboxDemoComponent,
     SplitterHorizontalDemoComponent,
     SplitterVerticalDemoComponent,

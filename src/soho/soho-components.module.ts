@@ -4,6 +4,7 @@ import { SohoAccordionModule } from './accordion/soho-accordion.module';
 import { SohoAlertModule } from './alert/soho-alert.module';
 import { SohoApplicationMenuModule } from './application-menu/soho-application-menu.module';
 import { SohoAutoCompleteModule } from './autocomplete/soho-autocomplete.module';
+import { SohoBulletModule } from './bullet/soho-bullet.module';
 import { SohoBlockGridModule } from './blockgrid/soho-blockgrid.module';
 import { SohoBusyIndicatorModule } from './busyindicator/soho-busyindicator.module';
 import { SohoButtonModule } from './button/soho-button.module';
@@ -30,6 +31,7 @@ import { SohoIconModule } from './icon/soho-icon.module';
 import { SohoInputModule } from './input/soho-input.module';
 import { SohoInputValidateModule } from './input-validate/soho-input-validate.module';
 import { SohoLabelModule } from './label/soho-label.module';
+import { SohoLineModule } from './line/soho-line.module';
 import { SohoListViewModule } from './listview/soho-listview.module';
 import { SohoLookupModule } from './lookup/soho-lookup.module';
 import { SohoMaskModule } from './mask/soho-mask.module';
@@ -38,6 +40,7 @@ import { SohoMenuButtonModule } from './menu-button/soho-menu-button.module';
 import { SohoMessageModule } from './message/soho-message.module';
 import { SohoModalDialogModule } from './modal-dialog/soho-modal-dialog.module';
 import { SohoPersonalizeModule } from './personalize/soho-personalize.module';
+import { SohoPieModule } from './pie/soho-pie.module';
 import { SohoProgressModule } from './progress/soho-progress.module';
 import { SohoPopDownModule } from './popdown/soho-popdown.module';
 import { SohoPopupMenuModule } from './popupmenu/soho-popupmenu.module';
@@ -45,6 +48,7 @@ import { SohoRadarModule } from './radar/soho-radar.module';
 import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
 import { SohoSearchFieldModule } from './searchfield/soho-searchfield.module';
 import { SohoSliderModule } from './slider/soho-slider.module';
+import { SohoSparklineModule } from './sparkline/soho-sparkline.module';
 import { SohoSplitterModule } from './splitter/soho-splitter.module';
 import { SohoSpinboxModule } from './spinbox/soho-spinbox.module';
 import { SohoStepProcessModule } from './stepprocess/soho-stepprocess.module';
@@ -67,6 +71,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoApplicationMenuModule,
     SohoAutoCompleteModule,
     SohoBlockGridModule,
+    SohoBulletModule,
     SohoBusyIndicatorModule,
     SohoButtonModule,
     SohoChartModule,
@@ -92,6 +97,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoInputModule,
     SohoInputValidateModule,
     SohoLabelModule,
+    SohoLineModule,
     SohoListViewModule,
     SohoLookupModule,
     SohoMaskModule,
@@ -100,12 +106,14 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoMessageModule,
     SohoModalDialogModule,
     SohoPersonalizeModule,
+    SohoPieModule,
     SohoPopDownModule,
     SohoPopupMenuModule,
     SohoProgressModule,
     SohoRadarModule,
     SohoRadioButtonModule,
     SohoSearchFieldModule,
+    SohoSparklineModule,
     SohoSplitterModule,
     SohoSliderModule,
     SohoSpinboxModule,
@@ -130,6 +138,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoApplicationMenuModule,
     SohoAutoCompleteModule,
     SohoBlockGridModule,
+    SohoBulletModule,
     SohoBusyIndicatorModule,
     SohoButtonModule,
     SohoChartModule,
@@ -155,6 +164,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoInputModule,
     SohoInputValidateModule,
     SohoLabelModule,
+    SohoLineModule,
     SohoListViewModule,
     SohoLookupModule,
     SohoMaskModule,
@@ -162,6 +172,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoMenuButtonModule,
     SohoModalDialogModule,
     SohoPersonalizeModule,
+    SohoPieModule,
     SohoPopDownModule,
     SohoPopupMenuModule,
     SohoProgressModule,
@@ -169,6 +180,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoRadioButtonModule,
     SohoSearchFieldModule,
     SohoSliderModule,
+    SohoSparklineModule,
     SohoSplitterModule,
     SohoSpinboxModule,
     SohoStepProcessModule,
