@@ -87,7 +87,6 @@ describe('Soho Sparkline Chart Render', () => {
 
   it('Check HTML content', () => {
     fixture.detectChanges();
-    debugger;
     expect(el.hasAttribute('soho-sparkline')).toBeTruthy('soho-sparkline');
   });
 
