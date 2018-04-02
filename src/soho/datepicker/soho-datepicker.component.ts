@@ -1,12 +1,13 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
   HostBinding,
   Input,
   OnDestroy,
-  Output, ChangeDetectorRef,
+  Output,
 } from '@angular/core';
 import {
   BaseControlValueAccessor,
@@ -16,6 +17,7 @@ import {
 @Component({
   selector: 'input[soho-datepicker]', // tslint:disable-line
   template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoDatePickerComponent)]
 })
 export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> implements AfterViewInit, OnDestroy {
@@ -175,8 +177,8 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> impl
     return !!this.options.showTime;
   }
 
-  constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
-    super(changeDetectionRef);
+  constructor(private element: ElementRef) {
+    super();
   }
 
   ngAfterViewInit() {

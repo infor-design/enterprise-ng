@@ -1,6 +1,6 @@
 import {
   AfterViewInit,
-  ChangeDetectorRef,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -18,6 +18,7 @@ import {
 @Component({
   selector: '[soho-editor]', // tslint:disable-line
   template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ provideControlValueAccessor(SohoEditorComponent) ]
 })
 export class SohoEditorComponent extends BaseControlValueAccessor<any> implements AfterViewInit, OnDestroy {
@@ -172,8 +173,8 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   // Reference to the SoHoXi control api.
   private editor: SohoEditorStatic;
 
-  constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
-    super(changeDetectionRef);
+  constructor(private element: ElementRef) {
+    super();
   }
 
   ngAfterViewInit() {

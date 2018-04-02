@@ -1,6 +1,6 @@
 import {
   AfterViewInit,
-  ChangeDetectorRef,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -18,6 +18,7 @@ import {
 @Component({
   selector: 'input[soho-lookup]', // tslint:disable-line
   template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoLookupComponent)]
 })
 export class SohoLookupComponent extends BaseControlValueAccessor<any> implements AfterViewInit, OnDestroy {
@@ -107,8 +108,8 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   /** Initial dataset */
   private _dataset: Object[];
 
-  constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
-    super(changeDetectionRef);
+  constructor(private element: ElementRef) {
+    super();
   }
 
   ngAfterViewInit() {

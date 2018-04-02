@@ -1,18 +1,19 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
   Input,
   Output,
-  OnDestroy
+  OnDestroy,
 } from '@angular/core';
 
 @Component({
   selector: 'soho-fileupload',
-  templateUrl: './soho-fileupload.component.html'
+  templateUrl: './soho-fileupload.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   /**
    * Local variables

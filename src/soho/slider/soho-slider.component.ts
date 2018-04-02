@@ -1,12 +1,14 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
   HostBinding,
   Input,
   OnDestroy,
-  Output, AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef,
+  Output,
 } from '@angular/core';
 
 import {
@@ -117,10 +119,8 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
   private slider: SohoSliderStatic;
   private options: SohoSliderOptions = {};
 
-  constructor(
-    private element: ElementRef,
-    changeDetectorRef: ChangeDetectorRef) {
-    super(changeDetectorRef);
+  constructor(private element: ElementRef) {
+    super();
   }
 
   @Input() set disabled(value: boolean) {

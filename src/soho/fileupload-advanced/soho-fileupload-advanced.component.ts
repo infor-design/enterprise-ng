@@ -1,17 +1,19 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
   Input,
   Output,
   OnDestroy,
-  HostBinding
+  HostBinding,
 } from '@angular/core';
 
 @Component({
   selector: 'soho-fileupload-advanced,div[soho-fileupload-advanced]',
-  templateUrl: './soho-fileupload-advanced.component.html'
+  templateUrl: './soho-fileupload-advanced.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy {
