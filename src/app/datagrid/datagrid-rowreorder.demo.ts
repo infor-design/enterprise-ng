@@ -30,7 +30,7 @@ export class DataGridRowReorderDemoComponent implements AfterViewInit {
       field: 'id',
       align: 'center',
       sortable: false,
-      formatter: Formatters.RowReorder,
+      formatter: Soho.Formatters.RowReorder,
       width: 80
     });
   }

@@ -20,10 +20,28 @@ interface SohoTreeOptions {
   /** Only applicable when selectable is 'multiple' */
   hideCheckboxes?: boolean;
 
-  /**
-   * The initial data set to display, should contain
-   * at least one node.
-   */
+  /** Context Menu to add to nodes */
+  menuId?: string;
+
+  /** The icon used when a tree folder node is open. */
+  folderIconOpen?: string;
+
+  /** The icon used when a tree folder node is open. */
+  folderIconClosed?: string;
+
+  /** If `true`, allows nodes to become sortable (reorderable) */
+  sortable?: string;
+
+  /** If defined as a function, fires that function as a callback before the selection on a node occurs. */
+  onBeforeSelect?: Function;
+
+  /** If defined as a function, fires that function as a node is expanded. */
+  onExpand?: Function;
+
+  /** If defined as a function, fires that function as a node is collapsed. */
+  onCollapse?: Function;
+
+  /** The initial data set to display, should contain at least one node. */
   dataset?: SohoTreeNode[];
 
   /** Function used to provide the source of the tree data. */

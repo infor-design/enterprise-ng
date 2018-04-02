@@ -42,7 +42,7 @@ export class DataGridDemoService extends SohoDataGridService {
       sortable: false,
       resizable: false,
       width: 50,
-      formatter: Formatters.SelectionCheckbox,
+      formatter: Soho.Formatters.SelectionCheckbox,
       align: 'center'
     });
 
@@ -51,7 +51,7 @@ export class DataGridDemoService extends SohoDataGridService {
       hidden: true,
       name: 'Drill In',
       field: '',
-      formatter: Formatters.Drilldown,
+      formatter: Soho.Formatters.Drilldown,
       cssClass: 'l-center-text',
       click: (e: any, args: any) => { console.log('clicked', args); },
       reorderable: false
@@ -63,7 +63,7 @@ export class DataGridDemoService extends SohoDataGridService {
         hidden: true,
         name: 'Product Id',
         field: 'productId',
-        formatter: Formatters.Readonly
+        formatter: Soho.Formatters.Readonly
       });
 
     /*
@@ -75,7 +75,7 @@ export class DataGridDemoService extends SohoDataGridService {
         name: 'Product Desc',
         sortable: false,
         field: 'productName',
-        formatter: Formatters.Template,
+        formatter: Soho.Formatters.Template,
         template: '<p class="datagrid-row-heading">{{productId}}</p><p class="datagrid-row-subheading">{{productName}}</p>',
         click: (e: any, args: any) => { console.log('link was clicked', args); }
       });
@@ -88,7 +88,7 @@ export class DataGridDemoService extends SohoDataGridService {
       name: 'Product Desc',
       sortable: false,
       field: 'productName',
-      formatter: Formatters.Text,
+      formatter: Soho.Formatters.Text,
     });
 
     this.columns.push({
@@ -97,7 +97,7 @@ export class DataGridDemoService extends SohoDataGridService {
       name: 'Product Desc',
       sortable: false,
       field: 'productName',
-      formatter: Formatters.Template,
+      formatter: Soho.Formatters.Template,
       template: '<p class="datagrid-row-heading">{{productId}}</p><p class="datagrid-row-subheading">{{productName}}</p>',
       click: (e: any, args: any) => { console.log('link was clicked', args); }
     });
@@ -121,7 +121,7 @@ export class DataGridDemoService extends SohoDataGridService {
       hidden: true,
       name: 'Password',
       field: 'activity',
-      formatter: Formatters.Password,
+      formatter: Soho.Formatters.Password,
       inputType: 'password'
     });
 
@@ -130,15 +130,15 @@ export class DataGridDemoService extends SohoDataGridService {
       name: 'Actual long Price',
       filterType: <any>SohoGridColumnFilterTypes.Decimal,
       field: 'price',
-      formatter: Formatters.Decimal
+      formatter: Soho.Formatters.Decimal
     });
 
     this.columns.push({
-      id: 'price2', hidden: true, name: 'Actual long Price', align: 'right', field: 'price', formatter: Formatters.Decimal
+      id: 'price2', hidden: true, name: 'Actual long Price', align: 'right', field: 'price', formatter: Soho.Formatters.Decimal
     });
 
     this.columns.push({
-      id: 'price2', hidden: true, name: 'Price', field: 'price', formatter: Formatters.Integer
+      id: 'price2', hidden: true, name: 'Price', field: 'price', formatter: Soho.Formatters.Integer
     });
 
     this.columns.push({
@@ -147,7 +147,7 @@ export class DataGridDemoService extends SohoDataGridService {
       name: 'Price - special formatted',
       filterType: <any>SohoGridColumnFilterTypes.Decimal,
       field: 'price',
-      formatter: Formatters.Decimal,
+      formatter: Soho.Formatters.Decimal,
       numberFormat: { minimumFractionDigits: 0, maximumFractionDigits: 6 }
     });
 
@@ -157,7 +157,7 @@ export class DataGridDemoService extends SohoDataGridService {
       name: 'Order Date',
       filterType: <any>SohoGridColumnFilterTypes.Date,
       field: 'orderDate',
-      formatter: Formatters.Date,
+      formatter: Soho.Formatters.Date,
       dateFormat: Locale.calendar().dateFormat.datetime // @todo
     });
 
@@ -167,7 +167,7 @@ export class DataGridDemoService extends SohoDataGridService {
       filterType: <any>SohoGridColumnFilterTypes.Select,
       options: [{ value: "ok", label: "OKAY" }, { value: "OK", label: "BIG OKAY" }, { value: "error", label: "ERROR" }, { value: "success", label: "SUCCESS" }],
       field: 'status',
-      formatter: Formatters.Dropdown
+      formatter: Soho.Formatters.Dropdown
     });
 
     this.columns.push(
@@ -176,15 +176,15 @@ export class DataGridDemoService extends SohoDataGridService {
         hidden: true,
         name: 'Alert',
         field: 'quantity',
-        formatter: Formatters.Alert,
+        formatter: Soho.Formatters.Alert,
         ranges: [{ 'min': 0, 'max': 8, 'classes': 'info', 'text': ' ' }, { 'min': 9, 'max': 1000, 'classes': 'error', 'text': 'value' }]
       });
 
-    this.columns.push({ id: 'ordered', hidden: true, name: 'Ordered', field: 'ordered', formatter: Formatters.Checkbox });
+    this.columns.push({ id: 'ordered', hidden: true, name: 'Ordered', field: 'ordered', formatter: Soho.Formatters.Checkbox });
     this.columns.push({ id: '', hidden: false, name: 'Actions', field: '',
-      formatter: Formatters.Actions, menuId: 'grid-actions-menu', selected: (e, a) => { this.onActionHandler(a); } });
-    this.columns.push({ id: 'nested', hidden: true, name: 'Nested Prop', field: 'setting.optionOne', formatter: Formatters.Text });
-    this.columns.push({ id: 'comment', hidden: true, name: 'Comment', field: 'comment', formatter: Formatters.Textarea, width: 100 });
+      formatter: Soho.Formatters.Actions, menuId: 'grid-actions-menu', selected: (e, a) => { this.onActionHandler(a); } });
+    this.columns.push({ id: 'nested', hidden: true, name: 'Nested Prop', field: 'setting.optionOne', formatter: Soho.Formatters.Text });
+    this.columns.push({ id: 'comment', hidden: true, name: 'Comment', field: 'comment', formatter: Soho.Formatters.Textarea, width: 100 });
 
     this.data.push({ id: 1, productId: 2142201, productName: 'Compressor', activity: 'Assemble Paint', quantity: 1, price: 210.99, status: 'ok', orderDate: new Date(2014, 12, 8), action: 'Action', ordered: 1, setting: { optionOne: 'One', optionTwo: 'One' } });
     this.data.push({ id: 2, productId: 2241202, productName: 'Different Compressor', activity: 'Inspect and Repair', quantity: 2, price: 210.99, status: '', orderDate: new Date(2015, 7, 3), action: 'On Hold', ordered: true, setting: { optionOne: 'One', optionTwo: 'One' } });

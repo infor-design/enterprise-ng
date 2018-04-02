@@ -151,14 +151,14 @@ export const LOOKUP_COLUMNS = [
     id: 'status',
     name: 'Status',
     field: 'status',
-    formatter: Formatters.Text,
+    formatter: Soho.Formatters.Text,
     sortable: false
   },
   {
     id: 'description',
     name: 'Description',
     field: 'description',
-    formatter: Formatters.Text,
+    formatter: Soho.Formatters.Text,
     sortable: false
   }
 ];
@@ -252,7 +252,7 @@ export const EDITORS_COLUMNS: SohoDataGridColumn[] = [
     sortable: false,
     filterType: 'integer',
     width: 100,
-    formatter: Formatters.Readonly
+    formatter: Soho.Formatters.Readonly
   },
 
   {
@@ -262,8 +262,8 @@ export const EDITORS_COLUMNS: SohoDataGridColumn[] = [
     sortable: false,
     filterType: 'text',
     width: 100,
-    formatter: Formatters.Lookup,
-    editor: Editors.Lookup,
+    formatter: Soho.Formatters.Lookup,
+    editor: Soho.Editors.Lookup,
     editorOptions: STATUS_LOOKUP_OPTIONS
   },
 
@@ -281,17 +281,17 @@ export const EDITORS_COLUMNS: SohoDataGridColumn[] = [
     name: 'Order Date',
     field: 'orderDate',
     sortable: false,
-    formatter: Formatters.Date,
+    formatter: Soho.Formatters.Date,
     dateFormat: 'M/d/yyyy',
     editorComponent: DemoCellDatePickerEditorComponent,
     editorComponentInputs: {}
   }
 
 
-  //{ id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text',    width: 150, formatter: Formatters.Hyperlink },
-  //{ id: 'activity',    name: 'Activity',     field: 'activity',    sortable: false, filterType: 'text',    width: 150, formatter: Formatters.Text, editor: Editors.Lookup, editorOptions: LOOKUP_OPTIONS },
-  //{ id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', width: 125, formatter: Formatters.Decimal },
-  //{ id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',                formatter: Formatters.Date, dateFormat: 'M/d/yyyy' }
+  //{ id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text',    width: 150, formatter: Soho.Formatters.Hyperlink },
+  //{ id: 'activity',    name: 'Activity',     field: 'activity',    sortable: false, filterType: 'text',    width: 150, formatter: Soho.Formatters.Text, editor: Soho.Editors.Lookup, editorOptions: LOOKUP_OPTIONS },
+  //{ id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', width: 125, formatter: Soho.Formatters.Decimal },
+  //{ id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',                formatter: Soho.Formatters.Date, dateFormat: 'M/d/yyyy' }
 ];
 
 

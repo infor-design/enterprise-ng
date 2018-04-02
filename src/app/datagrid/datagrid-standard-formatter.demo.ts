@@ -30,7 +30,7 @@ export class DataGridStandardFormatterDemoComponent implements AfterViewInit {
       name: 'Status',
       field: 'status',
       width: 100,
-      formatter: Formatters.Alert,
+      formatter: Soho.Formatters.Alert,
       options: [
         { id: 'Active',  value: 'Active',  label: 'Active' },
         { id: 'Inactive', value: 'Inactive', label: 'Inactive' },
@@ -50,7 +50,7 @@ export class DataGridStandardFormatterDemoComponent implements AfterViewInit {
       name: 'Rated',
       field: 'rated',
       width: 40,
-      formatter: Formatters.TargetedAchievement,   // Formatters.Text,
+      formatter: Soho.Formatters.TargetedAchievement,   // Soho.Formatters.Text,
       showPercentText: true,
     };
 

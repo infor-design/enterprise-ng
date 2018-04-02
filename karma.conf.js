@@ -31,7 +31,6 @@ module.exports = function (config) {
       { pattern: './node_modules/jquery/dist/jquery.js', watched: false  },
       { pattern: './node_modules/@infor/sohoxi/dist/js/d3.v4.js', watched: false  },
       { pattern: './node_modules/@infor/sohoxi/dist/js/sohoxi.js', watched: false },
-      { pattern: './node_modules/@infor/sohoxi/dist/js/sohoxi-migrate-4.4.0.js', watched: false },
       { pattern: './node_modules/@infor/sohoxi/dist/js/cultures/en-US.js', watched: false },
       { pattern: './src/test.ts', watched: false },
       { pattern: './node_modules/@infor/sohoxi/dist/css/light-theme.css', watched: false },

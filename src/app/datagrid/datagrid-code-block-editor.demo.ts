@@ -254,7 +254,7 @@ export const COLUMNS: SohoDataGridColumn[] = [
     field: 'companyId',
     filterType: 'text',
     width: 200,
-    editor: Editors.Input
+    editor: Soho.Editors.Input
   },
 
   {
@@ -263,7 +263,7 @@ export const COLUMNS: SohoDataGridColumn[] = [
     field: 'companyName',
     filterType: 'text',
     width: 200,
-    editor: Editors.Input
+    editor: Soho.Editors.Input
   },
 
   { id: 'codeBlock', name: 'Code Block',

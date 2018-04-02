@@ -20,7 +20,7 @@ export class AppComponent {
 
   constructor() {
     // @todo Set the locale here, to ensure all the values are setup.
-    Locale.set('en-US');
+    Soho.Locale.set('en-US');
     this.setInitialPersonalization();
   }
   setInitialPersonalization() {

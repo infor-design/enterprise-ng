@@ -32,13 +32,13 @@ export class DataGridAngularCardFormatterDemoComponent {
     },
     { id: 'productId',   name: 'Product Id',   field: 'productId',
       sortable: false, filterType: 'integer',
-      formatter: Formatters.Readonly },
+      formatter: Soho.Formatters.Readonly },
     { id: 'button-formatter', name: 'Edit', text: 'Edit Row',
       sortable: false, icon: 'edit', align: 'center',
-      formatter: Formatters.Button, click: (e, args) => this.onClick(args) },
+      formatter: Soho.Formatters.Button, click: (e, args) => this.onClick(args) },
     { id: 'price',  name: 'Price (std fmt)', field: 'price',
       sortable: false, filterType: 'decimal',
-      formatter: Formatters.Decimal }
+      formatter: Soho.Formatters.Decimal }
   ];
 
   public data = CARD_DATA;
