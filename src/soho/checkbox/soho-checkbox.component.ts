@@ -1,17 +1,19 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   HostBinding,
   ElementRef,
   EventEmitter,
   Input,
   OnDestroy,
-  Output
+  Output,
 } from '@angular/core';
 
 @Component({
   selector: '[soho-checkbox]', // tslint:disable-line
-  template: `<ng-content></ng-content>`
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
 

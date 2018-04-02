@@ -1,12 +1,12 @@
 import {
   AfterViewInit,
-  ChangeDetectorRef,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
   OnDestroy,
   Output,
-  HostListener
+  HostListener,
 } from '@angular/core';
 
 import {
@@ -17,6 +17,7 @@ import {
 @Component({
   selector:  'input[soho-input]', // tslint:disable-line
   template:  '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ provideControlValueAccessor(SohoInputComponent) ]
 })
 export class SohoInputComponent extends BaseControlValueAccessor<string> implements AfterViewInit, OnDestroy {
@@ -38,8 +39,8 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
    * @param element the owning element.
    * @param changeDetectionRef change detection.
    */
-  constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
-    super(changeDetectionRef);
+  constructor(private element: ElementRef) {
+    super();
   }
 
   @HostListener('keyup', ['$event'])

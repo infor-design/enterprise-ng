@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -12,6 +13,7 @@ import {
 @Component({
   selector: 'textarea[soho-textarea]', // tslint:disable-line
   template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTextAreaComponent implements AfterViewInit, OnDestroy {
 
