@@ -7,6 +7,7 @@
 /// <reference path="./alert/soho-alert.d.ts" />
 /// <reference path="./application-menu/soho-application-menu.d.ts" />
 /// <reference path="./autocomplete/soho-autocomplete.d.ts" />
+/// <reference path="./bar/soho-bar.d.ts" />
 /// <reference path="./blockgrid/soho-blockgrid.d.ts" />
 /// <reference path="./bullet/soho-bullets.d.ts" />
 /// <reference path="./busyindicator/soho-busyindicator.d.ts" />

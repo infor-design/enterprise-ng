@@ -6,10 +6,15 @@ import { AccordionDemoComponent } from './accordion/accordion.demo';
 import { AccordionPanelsDemoComponent } from './accordion/accordion-panels.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
+import { AreaDemoComponent } from './area/area.demo';
 import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
+import { BarDemoComponent } from './bar/bar.demo';
+import { BarStackedDemoComponent } from './bar-stacked/bar-stacked.demo';
+import { BarGroupedDemoComponent } from './bar-grouped/bar-grouped.demo';
 import { BlockGridMixedSelectionDemoComponent } from './blockgrid/blockgrid-mixed-selection.demo';
 import { BlockGridMultiSelectionDemoComponent } from './blockgrid/blockgrid-multi-selection.demo';
 import { BlockGridSingleSelectionDemoComponent } from './blockgrid/blockgrid-single-selection.demo';
+import { BubbleDemoComponent } from './bubble/bubble.demo';
 import { BulletDemoComponent } from './bullet/bullet.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo';
@@ -137,10 +142,15 @@ export const routes: Routes = [
   { path: 'accordion-panels',                       component: AccordionPanelsDemoComponent},
   { path: 'alert',                                  component: AlertDemoComponent},
   { path: 'application-lazy-menu',                  component: ApplicationMenuLazyDemoComponent},
+  { path: 'area',                                   component: AreaDemoComponent },
   { path: 'autocomplete',                           component: AutocompleteDemoComponent },
+  { path: 'bar',                                    component: BarDemoComponent },
+  { path: 'bar-grouped',                            component: BarGroupedDemoComponent },
+  { path: 'bar-stacked',                            component: BarStackedDemoComponent },
   { path: 'blockgrid-mixed-selection',              component: BlockGridMixedSelectionDemoComponent},
   { path: 'blockgrid-multi-selection',              component: BlockGridMultiSelectionDemoComponent},
   { path: 'blockgrid-single-selection',             component: BlockGridSingleSelectionDemoComponent},
+  { path: 'bubble',                                 component: BubbleDemoComponent },
   { path: 'bullet',                                 component: BulletDemoComponent },
   { path: 'button',                                 component: ButtonDemoComponent },
   { path: 'busyindicator',                          component: BusyIndicatorDemoComponent },

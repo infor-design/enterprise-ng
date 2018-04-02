@@ -4,6 +4,7 @@ import { SohoAccordionModule } from './accordion/soho-accordion.module';
 import { SohoAlertModule } from './alert/soho-alert.module';
 import { SohoApplicationMenuModule } from './application-menu/soho-application-menu.module';
 import { SohoAutoCompleteModule } from './autocomplete/soho-autocomplete.module';
+import { SohoBarModule } from './bar/soho-bar.module';
 import { SohoBulletModule } from './bullet/soho-bullet.module';
 import { SohoBlockGridModule } from './blockgrid/soho-blockgrid.module';
 import { SohoBusyIndicatorModule } from './busyindicator/soho-busyindicator.module';
@@ -70,6 +71,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoAlertModule,
     SohoApplicationMenuModule,
     SohoAutoCompleteModule,
+    SohoBarModule,
     SohoBlockGridModule,
     SohoBulletModule,
     SohoBusyIndicatorModule,
@@ -137,6 +139,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoAlertModule,
     SohoApplicationMenuModule,
     SohoAutoCompleteModule,
+    SohoBarModule,
     SohoBlockGridModule,
     SohoBulletModule,
     SohoBusyIndicatorModule,
