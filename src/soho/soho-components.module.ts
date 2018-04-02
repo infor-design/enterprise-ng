@@ -12,6 +12,7 @@ import { SohoButtonModule } from './button/soho-button.module';
 import { SohoChartModule } from './chart/soho-chart.module';
 import { SohoCheckBoxModule } from './checkbox/soho-checkbox.module';
 import { SohoColorPickerModule } from './colorpicker/soho-colorpicker.module';
+import { SohoColumnModule } from './column/soho-column.module';
 import { SohoContextMenuModule } from './context-menu/soho-context-menu.module';
 import { SohoContextualActionPanelModule } from './contextual-action-panel/soho-contextual-action-panel.module';
 import { SohoDataGridModule } from './datagrid/soho-datagrid.module';
@@ -79,6 +80,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoChartModule,
     SohoCheckBoxModule,
     SohoColorPickerModule,
+    SohoColumnModule,
     SohoContextualActionPanelModule,
     SohoContextMenuModule,
     SohoDataGridModule,
@@ -147,6 +149,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoChartModule,
     SohoCheckBoxModule,
     SohoColorPickerModule,
+    SohoColumnModule,
     SohoContextMenuModule,
     SohoContextualActionPanelModule,
     SohoDataGridModule,

@@ -23,6 +23,9 @@ import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { CodeBlockDemoComponent } from './code-block/code-block.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
+import { ColumnDemoComponent } from './column/column.demo';
+import { ColumnGroupedDemoComponent } from './column-grouped/column-grouped.demo';
+import { ColumnStackedDemoComponent } from './column-stacked/column-stacked.demo';
 import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoComponent } from './contextual-action-panel/contextual-action-panel.demo';
@@ -159,6 +162,9 @@ export const routes: Routes = [
   { path: 'checkbox',                               component: CheckBoxDemoComponent },
   { path: 'code-block',                             component: CodeBlockDemoComponent },
   { path: 'colorpicker',                            component: ColorPickerDemoComponent },
+  { path: 'column',                                 component: ColumnDemoComponent },
+  { path: 'column-grouped',                         component: ColumnGroupedDemoComponent},
+  { path: 'column-stacked',                         component: ColumnStackedDemoComponent},
   { path: 'completion-chart',                       component: CompletionChartDemoComponent },
   { path: 'context-menu',                           component: ContextMenuDemoComponent },
   { path: 'contextual-action-panel',                component: ContextualActionPanelDemoComponent },

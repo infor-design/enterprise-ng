@@ -15,6 +15,7 @@
 /// <reference path="./chart/soho-chart.d.ts" />
 /// <reference path="./checkbox/soho-checkbox.d.ts" />
 /// <reference path="./colorpicker/soho-colorpicker.d.ts" />
+/// <reference path="./column/soho-column.d.ts" />
 /// <reference path="./context-menu/soho-context-menu.d.ts" />
 /// <reference path="./contextual-action-panel/soho-contextual-action-panel.d.ts" />
 /// <reference path="./datagrid/soho-datagrid.d.ts" />

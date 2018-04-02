@@ -25,6 +25,7 @@ export class BarDemoComponent implements OnInit {
     name: ''
   }];
 
+  public barType = 'bar';
   constructor() {}
 
   ngOnInit() {}

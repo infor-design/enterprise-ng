@@ -40,6 +40,9 @@ import { ButtonDemoComponent } from './button/button.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
+import { ColumnDemoComponent } from './column/column.demo';
+import { ColumnGroupedDemoComponent } from './column-grouped/column-grouped.demo';
+import { ColumnStackedDemoComponent } from './column-stacked/column-stacked.demo';
 import { CodeBlockComponent } from './code-block/code-block.component';
 import { CodeBlockDemoComponent } from './code-block/code-block.demo';
 import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
@@ -213,6 +216,9 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ChartDemoComponent,
     CheckBoxDemoComponent,
     ColorPickerDemoComponent,
+    ColumnDemoComponent,
+    ColumnGroupedDemoComponent,
+    ColumnStackedDemoComponent,
     CodeBlockComponent,
     CodeBlockDemoComponent,
     CodeBlockEditorComponent,
