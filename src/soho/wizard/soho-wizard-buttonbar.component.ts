@@ -1,14 +1,11 @@
 import {
   Component,
+  ChangeDetectorRef,
   ChangeDetectionStrategy,
   HostBinding,
-  ContentChildren,
-  QueryList,
   Input,
-  ChangeDetectorRef
 } from '@angular/core';
 
-import { SohoWizardTickComponent } from './soho-wizard-tick.component';
 import { SohoWizardComponent } from './soho-wizard.component';
 
 /**
@@ -100,10 +97,10 @@ export class SohoWizardButtonbarComponent {
 
   @HostBinding('class.buttonset') isButtonBar = false;
 
-  constructor(private wizard: SohoWizardComponent, private cd: ChangeDetectorRef) {
+  constructor(private wizard: SohoWizardComponent, private changeDetectorRef: ChangeDetectorRef) {
     // Ensures all the button are redrawn, keeping track of their enabled state.
     this.wizard.afteractivated.subscribe(() => {
-      this.cd.markForCheck();
+      this.changeDetectorRef.markForCheck();
     });
   }
 }

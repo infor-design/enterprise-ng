@@ -8,7 +8,6 @@ import {
   Input,
   OnDestroy,
   Output,
-  ChangeDetectorRef
 } from '@angular/core';
 
 import {
@@ -80,10 +79,8 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
     this.value = value as number;
   }
 
-  constructor(
-    private element: ElementRef,
-    changeDetectorRef: ChangeDetectorRef) {
-    super(changeDetectorRef);
+  constructor(private element: ElementRef) {
+    super();
   }
 
   ngAfterViewInit() {

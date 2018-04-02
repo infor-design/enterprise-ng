@@ -35,8 +35,6 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
     }
   }
 
-  constructor(private _changeDetectionRef: ChangeDetectorRef) {}
-
   /**
    * When touched.
    */

@@ -1,6 +1,7 @@
 
 ## Whats New
 * 2018-04-02 - TJM - Removed the need for the soho-migrate script
+* 2018-04-02 - PWP - Made last input components all ChangeDetectionStrategy.ONPUSH
 * 2018-03-13 - TJM - Added radar wrapper
 * 2018-02-06 - TJM - Upgraded to d3v4 and Soho 4.4.0 Es6 Branch including migration script
 * 2018-01-23 - BTH - Upgraded to @angular/cli 1.6.5 and updated corresponding dependencies.

@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -7,7 +8,6 @@ import {
   Input,
   OnDestroy,
   Output,
-  ChangeDetectorRef
 } from '@angular/core';
 import {
   BaseControlValueAccessor,
@@ -17,6 +17,7 @@ import {
 @Component({
   selector: 'input[soho-timepicker]', // tslint:disable-line
   template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoTimePickerComponent)]
 })
 export class SohoTimePickerComponent extends BaseControlValueAccessor<any> implements AfterViewInit, OnDestroy {
@@ -138,8 +139,8 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
     return true;
   }
 
-  constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
-    super(changeDetectionRef);
+  constructor(private element: ElementRef) {
+    super();
   }
 
   ngAfterViewInit() {

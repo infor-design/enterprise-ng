@@ -1,18 +1,20 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
   Input,
   Output,
-  OnDestroy
+  OnDestroy,
 } from '@angular/core';
 
 @Component({
   selector: 'soho-fileupload',
-  templateUrl: './soho-fileupload.component.html'
+  templateUrl: './soho-fileupload.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   /**
    * Local variables
@@ -39,6 +41,8 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
         this.isReadOnly = false;
       }
     }
+
+    this.changeDetectorRef.markForCheck();
   }
 
   /**
@@ -57,6 +61,8 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
         this.isReadOnly = false;
       }
     }
+
+    this.changeDetectorRef.markForCheck();
   }
 
   /**
@@ -103,7 +109,7 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   // Reference to the SoHoXi control api.
   private fileUpload: SohoFileUploadStatic;
 
-  constructor(private element: ElementRef) {}
+  constructor(private element: ElementRef, private changeDetectorRef: ChangeDetectorRef) {}
 
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);

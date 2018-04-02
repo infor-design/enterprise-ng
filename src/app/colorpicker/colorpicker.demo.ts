@@ -88,6 +88,5 @@ export class ColorPickerDemoComponent implements OnInit {
       color: '',
       label: ''
     };
-
   }
 }

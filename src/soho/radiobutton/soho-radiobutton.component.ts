@@ -1,21 +1,13 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
   HostBinding,
   Input,
   Output,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef
 } from '@angular/core';
-
-import {
-  BaseControlValueAccessor,
-  provideControlValueAccessor
-} from '../utils/base-control-value-accessor';
-
-import { RadioControlValueAccessor } from '@angular/forms';
 
 /**
  * This component does not extend the ControlValueAccessor

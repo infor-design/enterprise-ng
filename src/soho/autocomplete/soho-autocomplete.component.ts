@@ -1,6 +1,5 @@
 import {
   AfterViewInit,
-  ChangeDetectorRef,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
@@ -80,8 +79,8 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
   private jQueryElement: JQuery;
   private autocomplete: any;
 
-  constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
-    super(changeDetectionRef);
+  constructor(private element: ElementRef) {
+    super();
   }
 
   @HostListener('keyup', ['$event'])
