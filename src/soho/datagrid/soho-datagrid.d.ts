@@ -151,6 +151,9 @@ interface SohoDataGridOptions {
   /**  If true the dirty indicator will be shown on the rows when they change */
   showDirty?: boolean;
 
+  /** Allow to hide the checkbox header (true to show, false to hide) */
+  showSelectAllCheckBox?: boolean;
+
   /** Only allows one expandable row at a time. */
   allowOneExpandedRow?: boolean;
 
@@ -364,6 +367,64 @@ declare var Editors: {
   Favorite: SohoDataGridColumnEditorFunction;
 };
 
+declare var Soho: {
+  Formatters: {
+    Text: SohoDataGridColumnFormatterFunction;
+    Input: SohoDataGridColumnFormatterFunction;
+    Placeholder: SohoDataGridColumnFormatterFunction;
+    Ellipsis: SohoDataGridColumnFormatterFunction;
+    Password: SohoDataGridColumnFormatterFunction;
+    Readonly: SohoDataGridColumnFormatterFunction;
+    Date: SohoDataGridColumnFormatterFunction;
+    Time: SohoDataGridColumnFormatterFunction;
+    Autocomplete: SohoDataGridColumnFormatterFunction;
+    Lookup: SohoDataGridColumnFormatterFunction;
+    Decimal: SohoDataGridColumnFormatterFunction;
+    Integer: SohoDataGridColumnFormatterFunction;
+    Hyperlink: SohoDataGridColumnFormatterFunction;
+    Template: SohoDataGridColumnFormatterFunction;
+    Drilldown: SohoDataGridColumnFormatterFunction;
+    RowReorder: SohoDataGridColumnFormatterFunction;
+    Checkbox: SohoDataGridColumnFormatterFunction;
+    SelectionCheckbox: SohoDataGridColumnFormatterFunction;
+    Actions: SohoDataGridColumnFormatterFunction;
+    Textarea: SohoDataGridColumnFormatterFunction;
+    Editor: SohoDataGridColumnFormatterFunction;
+    Expander: SohoDataGridColumnFormatterFunction;
+    GroupRow: SohoDataGridColumnFormatterFunction;
+    GroupFooterRow: SohoDataGridColumnFormatterFunction;
+    SummaryRow: SohoDataGridColumnFormatterFunction;
+    Tree: SohoDataGridColumnFormatterFunction;
+    ClassRange: SohoDataGridColumnFormatterFunction;
+    Badge: SohoDataGridColumnFormatterFunction;
+    Tag: SohoDataGridColumnFormatterFunction;
+    Alert: SohoDataGridColumnFormatterFunction;
+    Image: SohoDataGridColumnFormatterFunction;
+    Color: SohoDataGridColumnFormatterFunction;
+    Colorpicker: SohoDataGridColumnFormatterFunction;
+    Button: SohoDataGridColumnFormatterFunction;
+    Dropdown: SohoDataGridColumnFormatterFunction;
+    Spinbox: SohoDataGridColumnFormatterFunction;
+    Favorite: SohoDataGridColumnFormatterFunction;
+    Status: SohoDataGridColumnFormatterFunction;
+    TargetedAchievement: SohoDataGridColumnFormatterFunction;
+  };
+
+  Editors: {
+    // Supports, Text, Numeric, Integer via mask
+    Input: SohoDataGridColumnEditorFunction;
+    Textarea: SohoDataGridColumnEditorFunction;
+    Checkbox: SohoDataGridColumnEditorFunction;
+    Dropdown: SohoDataGridColumnEditorFunction;
+    Date: SohoDataGridColumnEditorFunction;
+    Lookup: SohoDataGridColumnEditorFunction;
+    Autocomplete: SohoDataGridColumnEditorFunction;
+    Favorite: SohoDataGridColumnEditorFunction;
+  };
+
+  Locale: SohoLocaleStatic;
+};
+
 type SohoDataGridColumnFormatterFunction = (
   /** Row number. */
   row: number,
@@ -385,10 +446,14 @@ type SohoDataGridColumnFormatterFunction = (
 ) => any;
 
 declare var Formatters: {
-  /** Text base column data. */
   Text: SohoDataGridColumnFormatterFunction;
+  Input: SohoDataGridColumnFormatterFunction;
+  Placeholder: SohoDataGridColumnFormatterFunction;
+  Ellipsis: SohoDataGridColumnFormatterFunction;
+  Password: SohoDataGridColumnFormatterFunction;
   Readonly: SohoDataGridColumnFormatterFunction;
   Date: SohoDataGridColumnFormatterFunction;
+  Time: SohoDataGridColumnFormatterFunction;
   Autocomplete: SohoDataGridColumnFormatterFunction;
   Lookup: SohoDataGridColumnFormatterFunction;
   Decimal: SohoDataGridColumnFormatterFunction;
@@ -396,29 +461,31 @@ declare var Formatters: {
   Hyperlink: SohoDataGridColumnFormatterFunction;
   Template: SohoDataGridColumnFormatterFunction;
   Drilldown: SohoDataGridColumnFormatterFunction;
-  Password: SohoDataGridColumnFormatterFunction;
-  Textarea: SohoDataGridColumnFormatterFunction;
+  RowReorder: SohoDataGridColumnFormatterFunction;
   Checkbox: SohoDataGridColumnFormatterFunction;
   SelectionCheckbox: SohoDataGridColumnFormatterFunction;
   Actions: SohoDataGridColumnFormatterFunction;
+  Textarea: SohoDataGridColumnFormatterFunction;
+  Editor: SohoDataGridColumnFormatterFunction;
   Expander: SohoDataGridColumnFormatterFunction;
+  GroupRow: SohoDataGridColumnFormatterFunction;
+  GroupFooterRow: SohoDataGridColumnFormatterFunction;
+  SummaryRow: SohoDataGridColumnFormatterFunction;
+  Tree: SohoDataGridColumnFormatterFunction;
   ClassRange: SohoDataGridColumnFormatterFunction;
   Badge: SohoDataGridColumnFormatterFunction;
   Tag: SohoDataGridColumnFormatterFunction;
   Alert: SohoDataGridColumnFormatterFunction;
   Image: SohoDataGridColumnFormatterFunction;
   Color: SohoDataGridColumnFormatterFunction;
+  Colorpicker: SohoDataGridColumnFormatterFunction;
   Button: SohoDataGridColumnFormatterFunction;
   Dropdown: SohoDataGridColumnFormatterFunction;
+  Spinbox: SohoDataGridColumnFormatterFunction;
   Favorite: SohoDataGridColumnFormatterFunction;
   Status: SohoDataGridColumnFormatterFunction;
-  Tree: SohoDataGridColumnFormatterFunction;
-  RowReorder: SohoDataGridColumnFormatterFunction;
   TargetedAchievement: SohoDataGridColumnFormatterFunction;
-  Editor: SohoDataGridColumnFormatterFunction;
 };
-
-// declare var Formatters as SohoDataGridColumnFormatters;
 
 type SohoDataGridColumnHrefFunction = (
   row: any,
@@ -946,8 +1013,7 @@ interface JQueryStatic {
 
 interface JQuery {
   datagrid(options?: SohoDataGridOptions): JQuery;
-  on(events: 'cellchange', handler: JQuery.EventHandlerBase<this, SohoDataGridCellChangeEvent>): this;
-  on(events: 'activecellchange', handler: JQuery.EventHandlerBase<this, SohoDataGridCellChangeEvent>): this;
+  on(events: 'cellchange' | 'activecellchange', handler: JQuery.EventHandlerBase<this, SohoDataGridCellChangeEvent>): this;
   on(events: 'rowremove', handler: JQuery.EventHandlerBase<this, SohoDataGridRowRemoveEvent>): this;
   on(events: 'settingschanged', handler: JQuery.EventHandlerBase<this, SohoDataGridSettingsChangedEvent>): this;
   on(events: 'rendered', handler: JQuery.EventHandlerBase<this, SohoDataGridRenderedEvent>): this;

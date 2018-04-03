@@ -81,7 +81,7 @@ export const productsColumns = [
     name: 'Product Id',
     field: 'productId',
     width: 140,
-    formatter: Formatters.Readonly
+    formatter: Soho.Formatters.Readonly
   },
   {
     id: 'productName',
@@ -89,7 +89,7 @@ export const productsColumns = [
     sortable: false,
     field: 'productName',
     width: 250,
-    formatter: Formatters.Hyperlink
+    formatter: Soho.Formatters.Hyperlink
   },
   {
     id: 'activity',
@@ -109,13 +109,13 @@ export const productsColumns = [
     name: 'Price',
     field: 'price',
     width: 125,
-    formatter: Formatters.Decimal
+    formatter: Soho.Formatters.Decimal
   },
   {
     id: 'orderDate',
     name: 'Order Date',
     field: 'orderDate',
-    formatter: Formatters.Date,
+    formatter: Soho.Formatters.Date,
     dateFormat: 'M/d/yyyy'
   },
 ];
@@ -125,6 +125,6 @@ export const checkboxColumn = {
   sortable: false,
   resizable: false,
   width: 50,
-  formatter: Formatters.SelectionCheckbox,
+  formatter: Soho.Formatters.SelectionCheckbox,
   align: 'center',
 };

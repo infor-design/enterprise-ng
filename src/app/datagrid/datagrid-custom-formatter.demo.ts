@@ -108,7 +108,7 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       sortable: false,
       icon: 'edit',
       align: 'center',
-      formatter: Formatters.Button,
+      formatter: Soho.Formatters.Button,
       click: (e, args) => this.onClick(args)
     });
     columns.push({
@@ -117,7 +117,7 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       text: 'Visible button',
       sortable: false,
       align: 'center',
-      formatter: Formatters.Button,
+      formatter: Soho.Formatters.Button,
       click: (e, args) => this.onClick(args),
       contentVisible: (row, cell, data, col, item) => this.isContentVisible(row, cell, data, col, item)
     });
@@ -163,5 +163,5 @@ function MyCustomFormatter(
   value = api.settings.userObject.getRandomNumber();
 
   // use a standard formatter to format that value.
-  return Formatters.Integer(row, cell, value, column, item, api);
+  return Soho.Formatters.Integer(row, cell, value, column, item, api);
 }

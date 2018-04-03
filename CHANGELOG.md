@@ -1,5 +1,6 @@
 
 ## Whats New
+* 2018-04-02 - TJM - Removed the need for the soho-migrate script
 * 2018-04-02 - PWP - Made last input components all ChangeDetectionStrategy.ONPUSH
 * 2018-03-13 - TJM - Added radar wrapper
 * 2018-02-06 - TJM - Upgraded to d3v4 and Soho 4.4.0 Es6 Branch including migration script
@@ -91,6 +92,10 @@
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2018-04-02 - TJM - This should still be working if you do include  the sohoxi-migrate-4.4.0.js.
+But noted as a breaking change. In 4.6.0 we updated the Locale, Editors and Formatters so that they
+will work without the migrate script. You should update your code as well. Change Locale to Soho.Locale and Editors to Soho.Editors and Formatters to Soho.Formatters. For now both types are left in but if using the one without the Soho prefix you should include sohoxi-migrate-4.4.0.js
 
 * 2018-03-13 - TJM - The lookup's on change event did not have the data elements and was just firing with the value. This is changed, but if you were relying on the value there you may need to adjust your code to use the values attribute.
 

@@ -9,7 +9,7 @@ export class DataGridCustomFormatterService {
 
   public randomIntegerFormatter(row, cell, value, column, item, api) {
     const newValue = this.getRandomNumber();
-    return Formatters.Integer(row, cell, newValue, column, item, api);
+    return Soho.Formatters.Integer(row, cell, newValue, column, item, api);
   }
 
   /**
