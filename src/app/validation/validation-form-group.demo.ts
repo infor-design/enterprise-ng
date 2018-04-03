@@ -17,6 +17,7 @@ export class ValidationFormGroupDemoComponent implements AfterViewInit {
 
   public maskedValue = '111.1';
   public notmaskedValue = '111.1';
+  public datevalue;
 
   private formErrors = {
     'masked': '',
@@ -34,7 +35,8 @@ export class ValidationFormGroupDemoComponent implements AfterViewInit {
     // note - both controls have the .required validator.
     this.demoForm = this.formBuilder.group({
       masked: [this.maskedValue, [Validators.required, Validators.minLength(1)]],
-      notmasked: [this.notmaskedValue, [Validators.required, Validators.minLength(1), Validators.maxLength(10)]]
+      notmasked: [this.notmaskedValue, [Validators.required, Validators.minLength(1), Validators.maxLength(10)]],
+      datepick: [this.datevalue]
     });
 
     this.demoForm.valueChanges
