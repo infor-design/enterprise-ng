@@ -18,45 +18,45 @@ export class ColumnGroupedDemoComponent implements OnInit {
     data: [{
       name: 'Jan', value: 12
     }, {
-        name: 'Feb', value: 11
+      name: 'Feb', value: 11
     }, {
-        name: 'Mar', value: 14
+      name: 'Mar', value: 14
     }, {
-        name: 'Apr', value: 10
+      name: 'Apr', value: 10
     }, {
-        name: 'May', value: 14
+      name: 'May', value: 14
     }, {
-        name: 'Jun', value: 8
+      name: 'Jun', value: 8
     }],
     name: 'Component A'
   }, {
-  data: [{
+    data: [{
       name: 'Jan', value: 22
-  }, {
+    }, {
       name: 'Feb', value: 21
-  }, {
+    }, {
       name: 'Mar', value: 24
-  }, {
+    }, {
       name: 'Apr', value: 20
-  }, {
+    }, {
       name: 'May', value: 24
-  }, {
+    }, {
       name: 'Jun', value: 28
-  }],
-  name: 'Component B'
+    }],
+    name: 'Component B'
   }, {
     data: [{
-        name: 'Jan', value: 32
+      name: 'Jan', value: 32
     }, {
-        name: 'Feb', value: 31
+      name: 'Feb', value: 31
     }, {
-        name: 'Mar', value: 34
+      name: 'Mar', value: 34
     }, {
-        name: 'Apr', value: 30
+      name: 'Apr', value: 30
     }, {
-        name: 'May', value: 34
+      name: 'May', value: 34
     }, {
-        name: 'Jun', value: 38
+      name: 'Jun', value: 38
     }],
     name: 'Component C'
   }];

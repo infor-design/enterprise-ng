@@ -9,8 +9,8 @@
  * Column Options
  */
 interface SohoColumnOptions {
-	/** Chart Type */ 
-	type?: string;
+  /** Chart Type */ 
+  type?: string;
 	
   /** Defines the data to use, must be specified for this component. */
   dataset?: Object[];
@@ -57,7 +57,7 @@ interface SohoColumn{
   updated(settings?: SohoColumnOptions): void;
 
   /** Gets the currently selected element */
-  getSelected(o: SohoColumnOptions, isToggle?: boolean);
+  getSelected(settings?: SohoColumnOptions, isToggle?: boolean);
 
   /** Sets the currently selected element */
   setSelected();

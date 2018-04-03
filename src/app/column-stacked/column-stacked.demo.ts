@@ -18,81 +18,81 @@ export class ColumnStackedDemoComponent implements OnInit {
     data: [{
       name: 'Jan', value: 12,
     }, {
-        name: 'Feb', value: 11
+      name: 'Feb', value: 11
     }, {
-        name: 'Mar', value: 14
+      name: 'Mar', value: 14
     }, {
-        name: 'Apr', value: 10
+      name: 'Apr', value: 10
     }, {
-        name: 'May', value: 14
+      name: 'May', value: 14
     }, {
-        name: 'Jun', value: 8
+      name: 'Jun', value: 8
     }, {
-        name: 'Jul', value: 7
+      name: 'Jul', value: 7
     }, {
-        name: 'Aug', value: 10
+      name: 'Aug', value: 10
     }, {
-        name: 'Sep', value: 9
+      name: 'Sep', value: 9
     }, {
-        name: 'Oct', value: 8
+      name: 'Oct', value: 8
     }, {
-        name: 'Nov', value: 10
+      name: 'Nov', value: 10
     }, {
-        name: 'Dec', value: 6
+      name: 'Dec', value: 6
     }],
     name: 'Component A'
-    }, {
+  }, {
     data: [{
-        name: 'Jan', value: 22
+      name: 'Jan', value: 22
     }, {
-        name: 'Feb', value: 21
+      name: 'Feb', value: 21
     }, {
-        name: 'Mar', value: 24
+      name: 'Mar', value: 24
     }, {
-        name: 'Apr', value: 20
+      name: 'Apr', value: 20
     }, {
-        name: 'May', value: 24
+      name: 'May', value: 24
     }, {
-        name: 'Jun', value: 28
+      name: 'Jun', value: 28
     }, {
-        name: 'Jul', value: 27
+      name: 'Jul', value: 27
     }, {
-        name: 'Aug', value: 20
+      name: 'Aug', value: 20
     }, {
-        name: 'Sep', value: 29
+      name: 'Sep', value: 29
     }, {
-        name: 'Oct', value: 28
+      name: 'Oct', value: 28
     }, {
-        name: 'Nov', value: 20
+      name: 'Nov', value: 20
     }, {
-        name: 'Dec', value: 26
+      name: 'Dec', value: 26
     }],
     name: 'Component B'
-    }, {
+  }, {
     data: [{
-        name: 'Jan', value: 32
+      name: 'Jan', value: 32
     }, {
-        name: 'Feb', value: 31
+      name: 'Feb', value: 31
     }, {
-        name: 'Mar', value: 34
+      name: 'Mar', value: 34
     }, {
-        name: 'Apr', value: 30
+      name: 'Apr', value: 30
     }, {
-        name: 'May', value: 34
+      name: 'May', value: 34
     }, {
-        name: 'Jun', value: 38
+      name: 'Jun', value: 38
     }, {
-        name: 'Jul', value: 37
+      name: 'Jul', value: 37
     }, {
-        name: 'Aug', value: 30
+      name: 'Aug', value: 30
     }, {
-        name: 'Sep', value: 39
+      name: 'Sep', value: 39
     }, {
-        name: 'Oct', value: 38
+      name: 'Oct', value: 38
     }, {
-        name: 'Nov', value: 30
+      name: 'Nov', value: 30
     }, {
-        name: 'Dec', value: 36
+      name: 'Dec', value: 36
     }],
     name: 'Component C'
   }];

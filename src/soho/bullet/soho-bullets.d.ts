@@ -9,7 +9,6 @@
  * Bullet Options
  */
 interface SohoBulletOptions {
-
   /** Chart Type */
   type?: string;
 
@@ -35,7 +34,6 @@ interface SohoDatasetOptions {
  * Bullet Api.
  */
 interface SohoBullet {
-
   /** The settings option */
   settings: SohoBulletOptions;
 

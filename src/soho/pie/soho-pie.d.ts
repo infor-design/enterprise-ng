@@ -97,7 +97,7 @@ interface SohoPie{
   updated(settings?: SohoPieOptions): void;
   
   /** Gets the currently selected element */
-  getSelected(o: SohoPieOptions, isToggle?: boolean);
+  getSelected(settings?: SohoPieOptions, isToggle?: boolean);
 
   /** Sets the currently selected element */
   setSelected();

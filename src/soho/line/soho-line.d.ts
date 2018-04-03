@@ -77,7 +77,7 @@ interface SohoLine {
 	updated(settings?: SohoLineOptions): void;
 
 	/** Gets the currently selected element */
-  getSelected(o: SohoLineOptions, isToggle?: boolean);
+  getSelected(settings?: SohoLineOptions, isToggle?: boolean);
 
   /** Sets the currently selected element */
   setSelected();
