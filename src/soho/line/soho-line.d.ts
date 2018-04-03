@@ -77,13 +77,13 @@ interface SohoLine {
 	updated(settings?: SohoLineOptions): void;
 
 	/** Gets the currently selected element */
-  getSelected(settings?: SohoLineOptions, isToggle?: boolean);
+	getSelected(settings?: SohoLineOptions, isToggle?: boolean);
 
-  /** Sets the currently selected element */
-  setSelected();
+	/** Sets the currently selected element */
+	setSelected();
 
-  /** Toggles the currently selected element */
-  toggleSelected();
+	/** Toggles the currently selected element */
+	toggleSelected();
 
 	/** Destroys the control on completion. */
 	destroy(): void;

@@ -50,10 +50,10 @@ interface SohoColumnSelectEvent {
  * Column Api.
  */
 interface SohoColumn{
-	/** The settings option */
-	settings: SohoColumnOptions;
+  /** The settings option */
+  settings: SohoColumnOptions;
 
-	/** Updates the column with any new settings and data. */
+  /** Updates the column with any new settings and data. */
   updated(settings?: SohoColumnOptions): void;
 
   /** Gets the currently selected element */
@@ -65,8 +65,8 @@ interface SohoColumn{
   /** Toggles the currently selected element */
   toggleSelected();
 
-	/** Destroys the control on completion. */
-	destroy(): void;
+  /** Destroys the control on completion. */
+  destroy(): void;
 }
 
 interface JQuery {
