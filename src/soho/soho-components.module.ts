@@ -4,6 +4,7 @@ import { SohoAccordionModule } from './accordion/soho-accordion.module';
 import { SohoAlertModule } from './alert/soho-alert.module';
 import { SohoApplicationMenuModule } from './application-menu/soho-application-menu.module';
 import { SohoAutoCompleteModule } from './autocomplete/soho-autocomplete.module';
+import { SohoBarModule } from './bar/soho-bar.module';
 import { SohoBulletModule } from './bullet/soho-bullet.module';
 import { SohoBlockGridModule } from './blockgrid/soho-blockgrid.module';
 import { SohoBusyIndicatorModule } from './busyindicator/soho-busyindicator.module';
@@ -11,6 +12,7 @@ import { SohoButtonModule } from './button/soho-button.module';
 import { SohoChartModule } from './chart/soho-chart.module';
 import { SohoCheckBoxModule } from './checkbox/soho-checkbox.module';
 import { SohoColorPickerModule } from './colorpicker/soho-colorpicker.module';
+import { SohoColumnModule } from './column/soho-column.module';
 import { SohoContextMenuModule } from './context-menu/soho-context-menu.module';
 import { SohoContextualActionPanelModule } from './contextual-action-panel/soho-contextual-action-panel.module';
 import { SohoDataGridModule } from './datagrid/soho-datagrid.module';
@@ -70,6 +72,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoAlertModule,
     SohoApplicationMenuModule,
     SohoAutoCompleteModule,
+    SohoBarModule,
     SohoBlockGridModule,
     SohoBulletModule,
     SohoBusyIndicatorModule,
@@ -77,6 +80,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoChartModule,
     SohoCheckBoxModule,
     SohoColorPickerModule,
+    SohoColumnModule,
     SohoContextualActionPanelModule,
     SohoContextMenuModule,
     SohoDataGridModule,
@@ -137,6 +141,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoAlertModule,
     SohoApplicationMenuModule,
     SohoAutoCompleteModule,
+    SohoBarModule,
     SohoBlockGridModule,
     SohoBulletModule,
     SohoBusyIndicatorModule,
@@ -144,6 +149,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoChartModule,
     SohoCheckBoxModule,
     SohoColorPickerModule,
+    SohoColumnModule,
     SohoContextMenuModule,
     SohoContextualActionPanelModule,
     SohoDataGridModule,

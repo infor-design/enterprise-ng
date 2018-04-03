@@ -90,14 +90,14 @@ interface SohoPieSelectEvent {
  * Pie Api.
  */
 interface SohoPie{
-	/** The settings option */
-	settings: SohoPieOptions;
+  /** The settings option */
+  settings: SohoPieOptions;
 
-	/** Updates the pie with any new settings and data. */
+  /** Updates the pie with any new settings and data. */
   updated(settings?: SohoPieOptions): void;
   
   /** Gets the currently selected element */
-  getSelected(o: SohoPieOptions, isToggle?: boolean);
+  getSelected(settings?: SohoPieOptions, isToggle?: boolean);
 
   /** Sets the currently selected element */
   setSelected();
@@ -105,8 +105,8 @@ interface SohoPie{
   /** Toggles the currently selected element */
   toggleSelected();
 
-	/** Destroys the control on completion. */
-	destroy(): void;
+  /** Destroys the control on completion. */
+  destroy(): void;
 }
 
 interface JQuery {

@@ -24,10 +24,15 @@ import { ApplicationMenuDemoComponent } from './application-menu/application-men
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/application-menu-lazy-menu.demo';
 import { ApplicationMenuLazyService } from './application-menu/application-menu-lazy-service.demo';
+import { AreaDemoComponent } from './area/area.demo';
 import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
+import { BarDemoComponent } from './bar/bar.demo';
+import { BarGroupedDemoComponent } from './bar-grouped/bar-grouped.demo';
+import { BarStackedDemoComponent } from './bar-stacked/bar-stacked.demo';
 import { BlockGridMixedSelectionDemoComponent } from './blockgrid/blockgrid-mixed-selection.demo';
 import { BlockGridMultiSelectionDemoComponent } from './blockgrid/blockgrid-multi-selection.demo';
 import { BlockGridSingleSelectionDemoComponent } from './blockgrid/blockgrid-single-selection.demo';
+import { BubbleDemoComponent } from './bubble/bubble.demo';
 import { BulletDemoComponent } from './bullet/bullet.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo';
@@ -35,6 +40,9 @@ import { ButtonDemoComponent } from './button/button.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
+import { ColumnDemoComponent } from './column/column.demo';
+import { ColumnGroupedDemoComponent } from './column-grouped/column-grouped.demo';
+import { ColumnStackedDemoComponent } from './column-stacked/column-stacked.demo';
 import { CodeBlockComponent } from './code-block/code-block.component';
 import { CodeBlockDemoComponent } from './code-block/code-block.demo';
 import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
@@ -191,10 +199,15 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,
     ApplicationMenuLazyMenuDemoComponent,
+    AreaDemoComponent,
     AutocompleteDemoComponent,
+    BarDemoComponent,
+    BarGroupedDemoComponent,
+    BarStackedDemoComponent,
     BlockGridMixedSelectionDemoComponent,
     BlockGridMultiSelectionDemoComponent,
     BlockGridSingleSelectionDemoComponent,
+    BubbleDemoComponent,
     BulletDemoComponent,
     BusyIndicatorDemoComponent,
     BusyIndicatorDemoBodyComponent,
@@ -203,6 +216,9 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ChartDemoComponent,
     CheckBoxDemoComponent,
     ColorPickerDemoComponent,
+    ColumnDemoComponent,
+    ColumnGroupedDemoComponent,
+    ColumnStackedDemoComponent,
     CodeBlockComponent,
     CodeBlockDemoComponent,
     CodeBlockEditorComponent,

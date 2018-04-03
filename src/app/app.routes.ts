@@ -6,10 +6,15 @@ import { AccordionDemoComponent } from './accordion/accordion.demo';
 import { AccordionPanelsDemoComponent } from './accordion/accordion-panels.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
+import { AreaDemoComponent } from './area/area.demo';
 import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
+import { BarDemoComponent } from './bar/bar.demo';
+import { BarStackedDemoComponent } from './bar-stacked/bar-stacked.demo';
+import { BarGroupedDemoComponent } from './bar-grouped/bar-grouped.demo';
 import { BlockGridMixedSelectionDemoComponent } from './blockgrid/blockgrid-mixed-selection.demo';
 import { BlockGridMultiSelectionDemoComponent } from './blockgrid/blockgrid-multi-selection.demo';
 import { BlockGridSingleSelectionDemoComponent } from './blockgrid/blockgrid-single-selection.demo';
+import { BubbleDemoComponent } from './bubble/bubble.demo';
 import { BulletDemoComponent } from './bullet/bullet.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo';
@@ -18,6 +23,9 @@ import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { CodeBlockDemoComponent } from './code-block/code-block.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
+import { ColumnDemoComponent } from './column/column.demo';
+import { ColumnGroupedDemoComponent } from './column-grouped/column-grouped.demo';
+import { ColumnStackedDemoComponent } from './column-stacked/column-stacked.demo';
 import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoComponent } from './contextual-action-panel/contextual-action-panel.demo';
@@ -137,10 +145,15 @@ export const routes: Routes = [
   { path: 'accordion-panels',                       component: AccordionPanelsDemoComponent},
   { path: 'alert',                                  component: AlertDemoComponent},
   { path: 'application-lazy-menu',                  component: ApplicationMenuLazyDemoComponent},
+  { path: 'area',                                   component: AreaDemoComponent },
   { path: 'autocomplete',                           component: AutocompleteDemoComponent },
+  { path: 'bar',                                    component: BarDemoComponent },
+  { path: 'bar-grouped',                            component: BarGroupedDemoComponent },
+  { path: 'bar-stacked',                            component: BarStackedDemoComponent },
   { path: 'blockgrid-mixed-selection',              component: BlockGridMixedSelectionDemoComponent},
   { path: 'blockgrid-multi-selection',              component: BlockGridMultiSelectionDemoComponent},
   { path: 'blockgrid-single-selection',             component: BlockGridSingleSelectionDemoComponent},
+  { path: 'bubble',                                 component: BubbleDemoComponent },
   { path: 'bullet',                                 component: BulletDemoComponent },
   { path: 'button',                                 component: ButtonDemoComponent },
   { path: 'busyindicator',                          component: BusyIndicatorDemoComponent },
@@ -149,6 +162,9 @@ export const routes: Routes = [
   { path: 'checkbox',                               component: CheckBoxDemoComponent },
   { path: 'code-block',                             component: CodeBlockDemoComponent },
   { path: 'colorpicker',                            component: ColorPickerDemoComponent },
+  { path: 'column',                                 component: ColumnDemoComponent },
+  { path: 'column-grouped',                         component: ColumnGroupedDemoComponent},
+  { path: 'column-stacked',                         component: ColumnStackedDemoComponent},
   { path: 'completion-chart',                       component: CompletionChartDemoComponent },
   { path: 'context-menu',                           component: ContextMenuDemoComponent },
   { path: 'contextual-action-panel',                component: ContextualActionPanelDemoComponent },
