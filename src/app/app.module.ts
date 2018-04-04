@@ -94,6 +94,7 @@ import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-stan
 import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
+import { DonutDemoComponent } from './donut/donut.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
 import { DropdownAsyncDemoComponent } from './dropdown/dropdown-async.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
@@ -254,6 +255,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     DemoCellInputEditorComponent,
     DemoCellFormatterComponent,
     DemoCellIntegerFormatterComponent,
+    DonutDemoComponent,
     PriceCellFormatterComponent,
     ButtonCellFormatterComponent,
     DropdownAsyncBusyDemoComponent,
