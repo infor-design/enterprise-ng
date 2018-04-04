@@ -158,13 +158,11 @@ describe('Soho Swap List Unit Tests', () => {
     expect(el.classList).toContain('swaplist');
   });
 
-  fit('Check Default \'name\' property', () => {
-    debugger;
+  it('Check Default \'name\' property', () => {
     expect(comp.name).toContain('soho-swaplist');
   });
 
-  fit('Check setting \'name\' property.', () => {
-    debugger;
+  it('Check setting \'name\' property.', () => {
     comp.name = 'swaplist-1';
     expect(comp.name).toEqual('swaplist-1');
     expect(comp.id).toEqual('swaplist-1');

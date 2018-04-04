@@ -13,7 +13,8 @@ import { Component } from '@angular/core';
 })
 export class WizardDemoConfirmationPageComponent {
   public columns: SohoDataGridColumn[] = [
-    { id: 'selectionCheckbox', sortable: false, resizable: false, width: 50, formatter: Soho.Formatters.SelectionCheckbox, align: 'center' },
+    { id: 'selectionCheckbox', sortable: false, resizable: false, width: 50,
+      formatter: Soho.Formatters.SelectionCheckbox, align: 'center' },
     { id: 'filename', name: 'File Name', field: 'filename', formatter: Soho.Formatters.Text, width: '200px' },
     { id: 'filetype', name: 'File Type', field: 'filetype', formatter: Soho.Formatters.Text },
     { id: 'filesize', name: 'File Size', field: 'filesize', formatter: Soho.Formatters.Text }
