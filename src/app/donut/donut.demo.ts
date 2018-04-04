@@ -29,14 +29,14 @@ export class DonutDemoComponent implements OnInit {
   ngOnInit() {}
 
   onRendered(event: Event) {
-    console.log('Soho Radar: onRender', event);
+    console.log('Soho Donut: onRender', event);
   }
 
   onSelected(event: Event) {
-    console.log('Soho Radar: Selected', event);
+    console.log('Soho Donut: Selected', event);
   }
 
   onDeSelected(event: Event) {
-    console.log('Soho Radar: Deselected', event);
+    console.log('Soho Donut: Deselected', event);
   }
 }
