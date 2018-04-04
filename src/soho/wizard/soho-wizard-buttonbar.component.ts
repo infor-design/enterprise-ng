@@ -76,20 +76,20 @@ export class SohoWizardButtonbarComponent {
   @Input()
   public buttons = [
     { id:       'previous',
-      text:     Locale.translate('Previous'),
+      text:     Soho.Locale.translate('Previous'),
       click:    () => { this.wizard.previous(); },
       disabled: () => !this.wizard.hasPrevious(),
       position: 'middle'
     },
     { id:        'next',
-      text:      Locale.translate('Next'),
+      text:      Soho.Locale.translate('Next'),
       click:     () => { this.wizard.next(); },
       disabled:  () => !this.wizard.hasNext(),
       isDefault: true,
       position:  'middle'
     },
     { id:        'finish',
-      text:      'Finish', // Locale.translate('Finish'),
+      text:      'Finish', // Soho.Locale.translate('Finish'),
       click:     () => { this.wizard.finish(); },
       disabled:  () => this.wizard.hasFinished(),
       position:  'right'

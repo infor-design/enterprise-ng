@@ -32,10 +32,10 @@ export class MaskDemoComponent {
     custommask:           'ZZZ'
   };
   private _symbols: SohoMaskPatternSymbols = {
-    currency: Locale.currentLocale.data.currencySign,
-    decimal: Locale.currentLocale.data.numbers.decimal,
-    negative: Locale.currentLocale.data.numbers.minusSign,
-    thousands: Locale.currentLocale.data.numbers.group
+    currency: Soho.Locale.currentLocale.data.currencySign,
+    decimal: Soho.Locale.currentLocale.data.numbers.decimal,
+    negative: Soho.Locale.currentLocale.data.numbers.minusSign,
+    thousands: Soho.Locale.currentLocale.data.numbers.group
   };
   private _patternOptions: SohoMaskPatternOptions = {
     allowDecimal: true,

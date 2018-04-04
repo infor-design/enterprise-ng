@@ -158,7 +158,7 @@ export class DataGridDemoService extends SohoDataGridService {
       filterType: <any>SohoGridColumnFilterTypes.Date,
       field: 'orderDate',
       formatter: Soho.Formatters.Date,
-      dateFormat: Locale.calendar().dateFormat.datetime // @todo
+      dateFormat: Soho.Locale.calendar().dateFormat.datetime // @todo
     });
 
     this.columns.push({

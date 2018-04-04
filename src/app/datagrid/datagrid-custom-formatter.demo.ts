@@ -27,7 +27,7 @@ import { SohoIconUtils } from '../../soho/utils/soho-icon.utils';
 export const LMFavorite = (row, cell, value, col, rowData, api): string => {
   const isChecked: boolean = (rowData && rowData.price > 200); // jshint ignore:line
   const icon = isChecked ? 'star-filled' : 'star-outlined';
-  return '<span class="audible">' + Locale.translate('Favorite') +
+  return '<span class="audible">' + Soho.Locale.translate('Favorite') +
     '</span><span class="icon-favorite">' + SohoIconUtils.createIcon({ icon: icon }) + '</span>';
 };
 

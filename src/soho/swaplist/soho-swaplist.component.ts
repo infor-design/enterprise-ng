@@ -136,27 +136,27 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
 
   /** Default title for available items card. */
   @Input()
-  public availableCardTitle = Locale.translate('Available');
+  public availableCardTitle = Soho.Locale.translate('Available');
 
   /** Default title for selected items card. */
   @Input()
-  public selectedCardTitle = Locale.translate('Selected');
+  public selectedCardTitle = Soho.Locale.translate('Selected');
 
   /** Default title for additional items card. */
   @Input()
-  public fullAccessCardTitle = Locale.translate('AdditionalItems');
+  public fullAccessCardTitle = Soho.Locale.translate('AdditionalItems');
 
   /** Default button text for select. */
   @Input()
-  public btnMoveToSelect = Locale.translate('Select');
+  public btnMoveToSelect = Soho.Locale.translate('Select');
 
   /** Default button text for move to left. */
   @Input()
-  public btnMoveToLeft = Locale.translate('MoveToLeft');
+  public btnMoveToLeft = Soho.Locale.translate('MoveToLeft');
 
   /** Default button text for  move to right. */
   @Input()
-  public btnMoveToRight = Locale.translate('MoveToRight');
+  public btnMoveToRight = Soho.Locale.translate('MoveToRight');
 
   /**
     * Set available card items.

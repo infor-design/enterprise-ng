@@ -22,7 +22,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
   @Input() set emptyMessageOptions(options: SohoEmptyMessageOptions) {
     /** Check for undefined/null and reset to the default message */
     options = options || {
-      title: (Locale ? Locale.translate('NoData') : 'No Data Available'),
+      title: (Soho.Locale ? Soho.Locale.translate('NoData') : 'No Data Available'),
       info: '',
       icon: 'icon-empty-no-data'
     };

@@ -45,7 +45,7 @@ export class ModalDialogDemoComponent {
       .modal<ExampleModalDialogComponent>(ExampleModalDialogComponent, this.placeholder)
       .buttons([
         { id: 'cancel-button',
-          text: Locale.translate('Cancel'),
+          text: Soho.Locale.translate('Cancel'),
           click: (e, modal) => { modal.isCancelled = true; dialogRef.close('CANCEL'); } },
         {
           text: 'Submit', click: (e, modal) => {
