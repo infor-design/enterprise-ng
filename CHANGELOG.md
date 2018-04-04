@@ -1,5 +1,6 @@
 
 ## Whats New
+* 2018-04-04 - MHH - SOHO-7756: Allow soho-emptymessage projection in list view
 * 2018-04-02 - TJM - Removed the need for the soho-migrate script
 * 2018-04-02 - PWP - Made last input components all ChangeDetectionStrategy.ONPUSH
 * 2018-03-13 - TJM - Added radar wrapper
