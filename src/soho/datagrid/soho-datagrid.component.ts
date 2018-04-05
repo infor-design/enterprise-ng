@@ -1048,6 +1048,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   @Output()
   rendered = new EventEmitter<SohoDataGridRenderedEvent>();
 
+  @Output()
+  afterRender = new EventEmitter<SohoDataGridAfterRenderEvent>();
+
   // -------------------------------------------
   // Host Bindings
   // -------------------------------------------
@@ -1682,6 +1685,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       .on('openfilterrow', (e: JQuery.Event, args: SohoDataGridOpenFilterRowEvent) => { this.openFilterRow.next(args); })
       .on('removerow', (e: JQuery.Event, args: SohoDataGridRowRemoveEvent) => { this.rowRemove.next(args); })
       .on('rendered', (e: JQuery.Event, args: SohoDataGridRenderedEvent) => { this.rendered.next(args); })
+      .on('afterrender', (e: JQuery.Event, args: SohoDataGridAfterRenderEvent) => { this.afterRender.next(args); })
       .on('rowactivated', (e: JQuery.Event, args: SohoDataGridRowActivatedEvent) => { this.rowActivated.next(args); })
       .on('rowdeactivated', (e: JQuery.Event, args: SohoDataGridRowDeactivatedEvent) => { this.rowDeactivated.next(args); })
       .on('rowreorder', (e: JQuery.Event, args: SohoDataGridRowReorderedEvent) => { this.rowReordered.next(args); })
