@@ -1047,6 +1047,10 @@ interface SohoDataGridRenderedEvent {
 
 }
 
+interface SohoDataGridAfterRenderEvent {
+
+}
+
 interface SohoDataGridFilterCondition {
   columnId?: 'all' | string;
   format?: string;
