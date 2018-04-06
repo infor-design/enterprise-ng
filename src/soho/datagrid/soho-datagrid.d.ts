@@ -839,6 +839,12 @@ interface SohoDataGridStatic {
 
   activatedRow(): SohoDataGridRowActivated;
 
+  /**
+  * Toggle the current selection state from on to off.
+  * @param  {number} idx The row to select/unselect
+  */
+  toggleRowSelection(idx: number): void;
+
   setActiveCell(idx: number, idx2: number): void;
 
   renderHeader(): void;
