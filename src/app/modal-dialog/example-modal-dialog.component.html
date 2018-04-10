@@ -1,9 +1,10 @@
 <div>
   <small class="alert-text">Escalated (2X)</small>
   <h2>{{model.header}}</h2>
-  <p>Contact sales representative with the updated purchase order <br>before submission to corporate.</p>
+  <p>Contact sales representative with the updated purchase order
+    <br>before submission to corporate.</p>
   <div class="field">
-    <label for="txt-comment" class="audible">Comments</label>
-    <textarea soho-textarea id="txt-comment" name="txt-comment" class="textarea-lg" [(ngModel)]="model.comment"></textarea>
+    <label for="counter" class="label">Counter</label>
+    <textarea soho-textarea maxlength="90" name="counter" [(ngModel)]="model.counterText"></textarea>
   </div>
 </div>
