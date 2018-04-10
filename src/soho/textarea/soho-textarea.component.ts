@@ -10,12 +10,18 @@ import {
   Output,
 } from '@angular/core';
 
+import {
+  BaseControlValueAccessor,
+  provideControlValueAccessor
+} from '../utils/base-control-value-accessor';
+
 @Component({
   selector: 'textarea[soho-textarea]', // tslint:disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [ provideControlValueAccessor(SohoTextAreaComponent) ]
 })
-export class SohoTextAreaComponent implements AfterViewInit, OnDestroy {
+export class SohoTextAreaComponent extends BaseControlValueAccessor<string> implements AfterViewInit, OnDestroy {
 
   // -------------------------------------------
   // Options Block
@@ -143,6 +149,7 @@ export class SohoTextAreaComponent implements AfterViewInit, OnDestroy {
   private textarea: SohoTextAreaStatic;
 
   constructor(private element: ElementRef) {
+    super();
   }
 
   ngAfterViewInit() {
@@ -153,11 +160,31 @@ export class SohoTextAreaComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.textarea(this.options);
     this.textarea = this.jQueryElement.data('textarea');
 
+    if (this.isReadOnly) {
+      this.textarea.readonly();
+    }
+
+    if (this.isDisabled) {
+      this.textarea.disable();
+    }
+
     /**
      * Bind to jQueryElement's events
      */
     this.jQueryElement.on('change', (e: any, args: SohoTextAreaEvent) => this.onChange.next(args));
     this.jQueryElement.on('updated', (e: any, args: SohoTextAreaEvent) => this.onUpdated.next(args));
+  }
+
+  /**
+   * Override writeValue to allow the input to count correctly
+   * @param value - the new value
+   */
+  writeValue(value: any) {
+    super.writeValue(value);
+
+    if (this.jQueryElement) {
+      this.jQueryElement.val(value);
+    }
   }
 
   ngOnDestroy() {

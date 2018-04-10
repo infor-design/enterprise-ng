@@ -30,12 +30,12 @@
 
         <div class="field">
           <label for="readonly" class="label">Read Only</label>
-          <textarea soho-textarea name="readonly" [readonly]="true" [(ngModel)]="model.readonlyText"></textarea>
+          <textarea soho-textarea name="readonly" [readonly]="'true'" [(ngModel)]="model.readonlyText"></textarea>
         </div>
 
         <div class="field">
           <label for="disable" class="label">Disable</label>
-          <textarea soho-textarea [disabled]="true" name="disable" [(ngModel)]="model.disableText"></textarea>
+          <textarea soho-textarea [disabled]="'true'" name="disable" [(ngModel)]="model.disableText"></textarea>
         </div>
 
         <div class="field">
