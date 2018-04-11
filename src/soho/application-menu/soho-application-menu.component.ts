@@ -52,6 +52,28 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
     return this._openOnLarge;
   }
 
+  // Allows the menu to become closed after an actionable header has been selected
+  @Input()
+  public set dismissOnClickMobile(dismissOnClickMobile: boolean) {
+    this._dismissOnClickMobile = dismissOnClickMobile;
+
+    if (this.applicationmenu) {
+      this.applicationmenu.settings.dismissOnClickMobile = this._dismissOnClickMobile;
+      this.updated();
+    }
+  }
+
+  public get dismissOnClickMobile() {
+    if (this.applicationmenu) {
+      return this.applicationmenu.settings.dismissOnClickMobile;
+    }
+
+    // If called before the component has completed
+    // initialisation, return the current value from the
+    // options.
+    return this._dismissOnClickMobile;
+  }
+
   // A list of jQuery elements which trigger the openning and closing
   // application menu.
   @Input()
@@ -106,6 +128,9 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
 
   // Open on resize
   private _openOnLarge: boolean;
+
+  // Dismiss the menu when an item is clicked in the mobile breakpoints
+  private _dismissOnClickMobile: boolean;
 
   // This event is fired when the visibility of the application menu is changed,
   // is it also called when the item is changed programmatically.
@@ -195,6 +220,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
 
     const options: SohoApplicationMenuOptions = {
       breakpoint: this.breakpoint,
+      dismissOnClickMobile: this._dismissOnClickMobile,
       openOnLarge: this._openOnLarge,
       triggers: this._triggers,
       filterable: this.filterable
