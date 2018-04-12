@@ -6,9 +6,9 @@
       </div>
       <div class="widget-content">
         <div soho-treemap
-          (rendered)="onRendered($event)"
-          [dataset]="treemapData">
-        </div>{{treemapData | json}}
+          [dataset]="treemapData"
+          (rendered)="onRendered($event)">
+        </div>
       </div>
     </div>
   </div>

@@ -9,8 +9,8 @@
  * Tree Map Options
  */
 interface SohoTreemapOptions {
-	/** Chart Type */
-	type?: string;
+  /** Chart Type */
+  type?: string;
 
   /** Defines the data to use, must be specified for this component. */
   dataset?: Object[];
