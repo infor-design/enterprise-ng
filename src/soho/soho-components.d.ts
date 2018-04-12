@@ -65,5 +65,6 @@
 /// <reference path="./tooltip/soho-tooltip.d.ts" />
 /// <reference path="./trackdirty/soho-trackdirty.d.ts" />
 /// <reference path="./tree/soho-tree.d.ts" />
+/// <reference path="./treemap/soho-treemap.d.ts" />
 /// <reference path="./utils/soho-utils.d.ts" />
 /// <reference path="./wizard/soho-wizard.d.ts" />
