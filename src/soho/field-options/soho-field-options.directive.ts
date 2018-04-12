@@ -47,8 +47,10 @@ export class SohoFieldOptionsDirective implements AfterViewInit, OnDestroy {
   /** Destructor. */
   ngOnDestroy() {
     if (this.fieldOptions) {
-      this.fieldOptions.destroy();
-      this.fieldOptions = null;
+      this.ngZone.runOutsideAngular(() => {
+        this.fieldOptions.destroy();
+        this.fieldOptions = null;
+      });
     }
   }
 }
