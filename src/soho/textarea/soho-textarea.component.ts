@@ -183,7 +183,7 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     super.writeValue(value);
 
     if (this.jQueryElement) {
-      this.jQueryElement.val(value);
+      this.jQueryElement.val(value).trigger('keyup');
     }
   }
 
