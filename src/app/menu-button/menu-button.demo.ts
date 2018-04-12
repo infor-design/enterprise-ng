@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { SohoMenuButtonComponent } from '@infor/sohoxi-angular';
 
 @Component({
@@ -8,6 +8,12 @@ import { SohoMenuButtonComponent } from '@infor/sohoxi-angular';
 export class MenuButtonDemoComponent implements OnInit, AfterViewInit {
   @ViewChild('ajax')ajaxMenuButton: SohoMenuButtonComponent;
   public menuButtons: Array<any>;
+
+  private SUBMENU_RESPONSE_HTML = `
+    <li><a href="#" id="SubOptionOne" data-action="AJAX sub-option 1">AJAX sub-option 1</a></li>
+    <li><a href="#" id="SubOptionTwo" data-action="AJAX sub-option 2">AJAX sub-option 2</a></li>
+    <li><a href="#" id="SubOptionThree" data-action="AJAX sub-option 3">AJAX sub-option 3</a></li>
+  `;
 
   disabledEntryClicked() {
     alert('Should not be Allowed');
@@ -29,22 +35,32 @@ export class MenuButtonDemoComponent implements OnInit, AfterViewInit {
     console.log(event, 'onOpen');
   }
 
-  ajaxMenuItems = (fn: AjaxBeforeOpenResponseFunction) => {
-    const ajaxMenuItemList = [
-      {label: 'Ajax Option #1'},
-      {label: 'Ajax Option #2'},
-      {label: 'Ajax Option #3'},
-    ];
+  ajaxMenuItems = (fn: AjaxBeforeOpenResponseFunction, options: any) => {
+    if (options.hasOwnProperty('contextElement')) {
+      fn(this.SUBMENU_RESPONSE_HTML);
+    } else {
+      const ajaxMenuItemList = [
+        { label: 'Ajax Option #1' },
+        { label: 'Ajax Option #2' },
+        { label: 'Ajax Option #3' },
+      ];
 
-    let content = '';
-    ajaxMenuItemList.forEach(item => {
-      content += `
+      let content = '';
+      ajaxMenuItemList.forEach(item => {
+        content += `
             <li>
               <a href="#">${item.label}</a>
             </li>
             `;
-    });
-    fn(content);
+      });
+      content += `
+            <li class="submenu">
+              <a href="#">Ajax Option #4</a>
+               <ul class="popupmenu"></ul>
+            </li>
+            `;
+      fn(content);
+    }
    }
 
   ngOnInit() {
