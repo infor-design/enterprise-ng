@@ -2,9 +2,9 @@ import {
   AfterViewInit,
   Directive,
   ElementRef,
-  EventEmitter,
+  HostBinding,
   OnDestroy,
-  HostBinding
+  NgZone,
 } from '@angular/core';
 
 @Directive({
@@ -23,23 +23,34 @@ export class SohoFieldOptionsDirective implements AfterViewInit, OnDestroy {
   private jQueryElement: JQuery;
   private fieldOptions: SohoFieldOptionsStatic;
 
-  constructor(private element: ElementRef) {
-    this._options = {
-    };
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone,
+  ) {
+    this._options = {};
   }
 
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
-    this.jQueryElement.fieldoptions(this._options);
-
-    this.fieldOptions = this.jQueryElement.data('field-options');
+    // -----------------------------------------------------------------------
+    // Must run outside angular so that timeouts in the soho code won't cause
+    // a ViewCheck in angular. Not running outside angular results in
+    // unnecessary cycles causing the app to lock up (when lots of field-option
+    // objects are used) until all the timeouts have resolved.
+    // -----------------------------------------------------------------------
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
+      this.jQueryElement.fieldoptions(this._options);
+      this.fieldOptions = this.jQueryElement.data('field-options');
+    });
   }
 
   /** Destructor. */
   ngOnDestroy() {
     if (this.fieldOptions) {
-      this.fieldOptions.destroy();
-      this.fieldOptions = null;
+      this.ngZone.runOutsideAngular(() => {
+        this.fieldOptions.destroy();
+        this.fieldOptions = null;
+      });
     }
   }
 }
