@@ -5,17 +5,25 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  HostBinding,
   Input,
   Output,
-  OnDestroy,
+  OnDestroy
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-fileupload',
-  templateUrl: './soho-fileupload.component.html',
+  selector: 'input[soho-fileupload]',  // tslint:disable-line
+  template:  '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
+  @HostBinding('class.fileupload') get isFileUpload() {
+    return true;
+  }
+  @HostBinding('attr.type') get isFileUploadType() {
+    return 'file';
+  }
+
   /**
    * Local variables
    */
@@ -65,28 +73,13 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
     this.changeDetectorRef.markForCheck();
   }
 
-  /**
-   * @param name
-   */
-  @Input() name: string;
-
-  /**
-   * @param accepts filetypes
-   */
-  @Input() accept: string;
-
-  /**
-   * @param accepts string.
-   */
-  @Input() id: string;
-
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
   /**
    * Called when the fileupload value changes
    */
-  @Output() onChange = new EventEmitter<SohoTextAreaEvent>();
+  @Output() onChange = new EventEmitter<SohoFileUploadEvent>();
 
   // -------------------------------------------
   // Public API
@@ -115,7 +108,7 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
     // Initialize the SohoXi Control
-    const $fileUpload = this.jQueryElement.find('input').fileupload();
+    const $fileUpload = this.jQueryElement.fileupload();
     this.fileUpload = $fileUpload.data('fileupload');
 
     /**
@@ -128,6 +121,12 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
     if (this.fileUpload) {
       this.fileUpload.destroy();
       this.fileUpload = null;
+    }
+  }
+
+  clearUploadFile() {
+    if (this.fileUpload) {
+      this.fileUpload.clearUploadFile();
     }
   }
 }

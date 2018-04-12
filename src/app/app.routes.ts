@@ -66,6 +66,7 @@ import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.dem
 import { FieldOptionsDemoComponent } from './field-options/field-options.demo';
 import { FieldOptionsPopdownDemoComponent } from './field-options/field-options-popdown.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
+import { FileUploadLMDemoComponent } from './fileupload/fileupload-lm.demo';
 import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToggleButtonsDemoComponent } from './header/header-toggle-buttons.demo';
@@ -209,6 +210,7 @@ export const routes: Routes = [
   { path: 'field-options',                          component: FieldOptionsDemoComponent },
   { path: 'field-options-popdown',                  component: FieldOptionsPopdownDemoComponent },
   { path: 'fileupload-advanced',                    component: FileUploadAdvancedDemoComponent },
+  { path: 'fileupload-lm',                          component: FileUploadLMDemoComponent },
   { path: 'fileupload',                             component: FileUploadDemoComponent },
   { path: 'header-tabs',                            component: HeaderTabsDemoComponent },
   { path: 'header-toggle-buttons',                  component: HeaderToggleButtonsDemoComponent },

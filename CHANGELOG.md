@@ -1,5 +1,6 @@
 
 ## Whats New
+* 2018-04-12 - MAF - SOHO-7711: 4.0 File upload component - Refactor to support directive usage
 * 2018-04-04 - MHH - SOHO-7756: Allow soho-emptymessage projection in list view
 * 2018-04-02 - TJM - Removed the need for the soho-migrate script
 * 2018-04-02 - PWP - Made last input components all ChangeDetectionStrategy.ONPUSH
@@ -93,6 +94,8 @@
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2018-04-12 - MAF - SOHO-7711: 4.0 File upload component refactor to support directive usage - changed to <input soho-fileupload /> from <soho-fileupload>
 
 * 2018-04-02 - TJM - This should still be working if you do include  the sohoxi-migrate-4.4.0.js.
 But noted as a breaking change. In 4.6.0 we updated the Locale, Editors and Formatters so that they
