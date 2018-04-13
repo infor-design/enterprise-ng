@@ -55,15 +55,26 @@ export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     if (this.trackDirty) {
-// TODO: waiting on SOHO-4819
-//      this.trackDirty.destroy();
+     this.trackDirty.destroy();
       this.trackDirty = null;
+    }
+  }
+
+  changeDirty() {
+    if (this.trackDirty) {
+      this.jQueryElement.trigger('change.dirty');
     }
   }
 
   resetDirty() {
     if (this.trackDirty) {
-      this.jQueryElement.trigger('resetdirty');
+      this.jQueryElement.trigger('resetdirty.dirty');
+    }
+  }
+
+  updated() {
+    if (this.trackDirty) {
+      this.trackDirty.updated();
     }
   }
 }

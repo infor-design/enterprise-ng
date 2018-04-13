@@ -109,6 +109,7 @@ import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablear
 import { FieldOptionsDemoComponent } from './field-options/field-options.demo';
 import { FieldOptionsPopdownDemoComponent } from './field-options/field-options-popdown.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
+import { FileUploadLMDemoComponent } from './fileupload/fileupload-lm.demo';
 import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToggleButtonsDemoComponent } from './header/header-toggle-buttons.demo';
@@ -273,6 +274,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     FieldOptionsPopdownDemoComponent,
     FileUploadAdvancedDemoComponent,
     FileUploadDemoComponent,
+    FileUploadLMDemoComponent,
     HeaderTabsDemoComponent,
     HeaderToggleButtonsDemoComponent,
     HeaderToolbarAndTabsDemoComponent,

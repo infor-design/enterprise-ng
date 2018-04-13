@@ -5,6 +5,10 @@
  * interface of the Soho jQuery file upload control.
  */
 
+interface SohoFileUploadOptions {
+  // no-op - no settings defined
+}
+
 interface SohoFileUploadEvent extends JQuery.Event {
 }
 
@@ -18,7 +22,9 @@ interface SohoFileUploadEvent extends JQuery.Event {
  */
 interface SohoFileUploadStatic {
   /** Options. */
-  settings: SohoTextAreaOptions;
+  settings?: SohoFileUploadOptions;
+
+  clearUploadFile(): void;
 
   enable(): void;
 
@@ -34,5 +40,5 @@ interface JQueryStatic {
 }
 
 interface JQuery {
-  fileupload(options?: SohoTextAreaOptions): JQuery;
+  fileupload(options?: SohoFileUploadOptions): JQuery;
 }
