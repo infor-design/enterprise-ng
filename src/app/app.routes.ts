@@ -162,7 +162,7 @@ export const routes: Routes = [
   { path: 'busyindicatorbody',                      component: BusyIndicatorDemoBodyComponent },
   { path: 'chart',                                  component: ChartDemoComponent },
   { path: 'checkbox',                               component: CheckBoxDemoComponent },
-  { path: 'circlepager',               component: CirclepagerDemoComponent },
+  { path: 'circlepager',                            component: CirclepagerDemoComponent },
   { path: 'code-block',                             component: CodeBlockDemoComponent },
   { path: 'colorpicker',                            component: ColorPickerDemoComponent },
   { path: 'column',                                 component: ColumnDemoComponent },

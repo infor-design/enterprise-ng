@@ -33,7 +33,7 @@ export class SohoCirclepagerComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-    /** First showing slide/group, an 0-based integer */
+  /** First showing slide/group, an 0-based integer */
   @Input() set startingSlide(value: number) {
     this.options.startingSlide = value;
 
