@@ -9,7 +9,6 @@ import {
   OnDestroy,
   Output,
 } from '@angular/core';
-
 import {
   BaseControlValueAccessor,
   provideControlValueAccessor
@@ -117,15 +116,12 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
-  /**
-   * Called when the textarea value changes
-   */
-  @Output() onChange = new EventEmitter<SohoTextAreaEvent>();
 
   /**
    * Called when the textarea updates in some way
    */
   @Output() onUpdated = new EventEmitter<SohoTextAreaEvent>();
+  @Output() change: EventEmitter<SohoTextAreaEvent[]> = new EventEmitter<SohoTextAreaEvent[]>();
 
   // -------------------------------------------
   // Public API
@@ -157,6 +153,7 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     this.jQueryElement = jQuery(this.element.nativeElement);
 
     // Initialise the SohoXi Control
+    this.jQueryElement.val(this.internalValue);
     this.jQueryElement.textarea(this.options);
     this.textarea = this.jQueryElement.data('textarea');
 
@@ -168,11 +165,29 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
       this.textarea.disable();
     }
 
+    if (this.internalValue) {
+      this.jQueryElement.val(this.internalValue);
+    }
+
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (e: any, args: SohoTextAreaEvent) => this.onChange.next(args));
+    this.jQueryElement.on('change', (e: any, args: any[]) => this.onChange(args));
     this.jQueryElement.on('updated', (e: any, args: SohoTextAreaEvent) => this.onUpdated.next(args));
+  }
+
+  /**
+   * Handle the control being changed.
+   */
+  onChange(event: any[]) {
+    if (!event) {
+      // sometimes the event is not available
+      this.internalValue = this.jQueryElement.val() as string;
+      super.writeValue(this.internalValue);
+      return;
+    }
+
+    this.change.emit(event);
   }
 
   /**
@@ -183,7 +198,8 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     super.writeValue(value);
 
     if (this.jQueryElement) {
-      this.jQueryElement.val(value).trigger('keyup');
+      this.jQueryElement.val(value);
+      this.textarea.updateCounter();
     }
   }
 

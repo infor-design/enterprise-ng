@@ -20,14 +20,14 @@ interface SohoDatePickerOptions {
   /** An integer from 1 to 60; multiples of this value are displayed as options in the minutes dropdown. */
   minuteInterval?: number;
 
+  /** An integer from 1 to 60; multiples of this value are displayed as options in the seconds dropdown. */
+  secondInterval?: number;
+
   /** Indicates the entry mode. */
   mode?: SohoDatePickerMode;
 
   /** If a non-matching minutes value is entered, will round the minutes value to the nearest interval on the blur event. */
   roundToInterval?: number;
-
-  /** The html markup for the time picker. */
-  timepickerMarkup?: string;
 
   /** The pattern used to format the date; or a locale to use. */
   dateFormat?: string;
@@ -38,8 +38,72 @@ interface SohoDatePickerOptions {
   /** A date or range of dates that are enabled/disabled. */
   disable?: SohoDatePickerDisable;
 
-  /** Day with which the calendar starts (0=sunday, 1=monday ...) */
-  firstDayOfWeek?: number;
+  /** If true a legend is show to associate dates. */
+  showLegend?: boolean;
+
+  /** If true the internal validation is disabled. */
+  customValidation?: boolean;
+
+  /** If true the month and year will render as dropdowns. */
+  showMonthYearPicker?: boolean;
+
+  /** If true the days portion of the calendar will be hidden. */
+  hideDays?: boolean;
+
+  /** The number of months in each direction to show in the dropdown for months (when initially opening) */
+  advanceMonths?: boolean;
+
+  /** The number of months in each direction to show in the dropdown for months (when initially opening) */
+  legend?: SohoDatePickerLegend;
+
+  /** Use range of two dates options. */
+  useRange?:  boolean;
+
+  /** Use range of two dates options. */
+  rane?:  SohoDatePickerRange;
+
+  /** Use range of two dates options. */
+  calendarName?:  'gregorian'|'islamic-umalqura';
+
+  /** If true the dates will use UTC format. This is only partially
+   * implemented https://jira.infor.com/browse/SOHO-3437 */
+  useUTC?: boolean;
+}
+
+/* Options for the legend */
+interface SohoDatePickerRange {
+  /** Start date in range. **/
+  start?: Date;
+
+  /** End date in range. **/
+  end?: Date;
+
+  /** Visual separator between two dates. **/
+  separator?: string;
+
+  /** Minimum days to be in range. **/
+  minDays?: number;
+
+  /** Maximum days to be in range. **/
+  maxDays?: number;
+
+  /**  Range only in forward direction. **/
+  selectForward?: boolean;
+
+  /**  Range only in backward direction. **/
+  selectBackward?: boolean;
+
+  /**  Include disable dates in range of dates. **/
+  includeDisabled?: boolean;
+
+}
+
+/* Options for the legend */
+interface SohoDatePickerLegend {
+  name?: string;
+  color?: string;
+  dates?: Date[];
+  dayOfWeek?: number[];
 }
 
 /**
