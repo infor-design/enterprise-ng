@@ -35,6 +35,7 @@ interface SohoTextareaEvent extends SohoTextAreaEvent {
 interface SohoTextAreaStatic {
   /** Options. */
   settings: SohoTextAreaOptions;
+  element: JQuery;
 
   enable(): void;
 
@@ -43,13 +44,15 @@ interface SohoTextAreaStatic {
   readonly(): void;
 
   destroy();
+
+  updateCounter();
 }
 
 /**
  * JQuery Integration
  */
-
 interface JQueryStatic {
+  element: SohoTextAreaStatic;
 }
 
 interface JQuery {

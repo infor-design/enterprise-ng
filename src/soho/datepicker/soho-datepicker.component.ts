@@ -70,24 +70,12 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> impl
   }
 
   /**
-   * Indicates the html markup for the timepicker.
-   */
-  @Input() set timepickerMarkup(timePickerMarkup: string) {
-    this.options.timepickerMarkup = timePickerMarkup;
-  }
-  /**
    * Indicates the pattern for the date format or the value of 'locale'.
    */
   @Input() set dateFormat(dateFormat: string) {
     this.options.dateFormat = dateFormat;
   }
 
-  /**
-   * Indicates the day of week the calendar starts with (0=sunday, 1=monday ...)
-   */
-  @Input() set firstDayOfWeek(firstDayOfWeek: number) {
-    this.options.firstDayOfWeek = firstDayOfWeek;
-  }
   /**
    * Indicates a placeholder for an empty value; defaults to false.
    */

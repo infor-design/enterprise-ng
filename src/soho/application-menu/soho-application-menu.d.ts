@@ -27,6 +27,9 @@ interface SohoApplicationMenuOptions {
   /** Open the menu when the screen width is larger that the breakpoint. */
   openOnLarge: boolean;
 
+  /** Allows the menu to become closed after an actionable header has been selected */
+  dismissOnClickMobile: boolean;
+
   /** The controls which can trigger the display state of the application menu. */
   triggers: any[];
 }

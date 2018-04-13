@@ -1,35 +1,53 @@
-
-  <form>
-
-      <div class="row top-padding">
-        <div class="twelve columns">
-
-          <div class="field">
-            <label [for]="name1">Normal Input</label>
-            <soho-fileupload [id]="name1" [name]="name1"></soho-fileupload>
-          </div>
-
-          <div class="field">
-            <label [for]="name4">Limit File Types</label>
-            <soho-fileupload [name]="name4" [accept]="fileLimits"></soho-fileupload>
-          </div>
-
-          <div class="field">
-            <label [for]="name2">Disabled</label>
-            <soho-fileupload [name]="name2" [disabled]="true"></soho-fileupload>
-          </div>
-
-          <div class="field">
-            <label [for]="name3">Readonly</label>
-            <soho-fileupload [name]="name3" [readonly]="true"></soho-fileupload>
-          </div>
-
-          <br/>
-          <button soho-button [disabled]="fileUploadReadOnly" (click)="setReadonly()">Read Only</button>
-          <button soho-button [disabled]="fileUploadDisabled" (click)="setDisable()">Disable</button>
-          <button soho-button [disabled]="!fileUploadDisabled && !fileUploadReadOnly" (click)="setEnable()">Enable</button>
-
+<form>
+  <div class="row top-padding">
+    <div class="row">
+      <div class="twelve columns">
+        <div class="field">
+          <label soho-label for={{name1}}>Normal Input</label>
+          <input
+            soho-fileupload [disabled]="isDisabled" [readonly]="isReadOnly"
+            id="{{name1}}" name={{name1}} accept="true"
+          />
         </div>
-      </div>
 
-  </form>
+        <div class="field">
+          <label soho-label for={{name2}}>Normal Input - Track Dirty</label>
+          <input
+            soho-fileupload
+            soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
+            id={{name2}} name={{name2}} accept="true"
+          />
+        </div>
+
+        <div class="field">
+          <label soho-label for={{name3}}>Normal Input - Track Dirty with existing value</label>
+          <input
+            soho-fileupload
+            soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
+            id={{name3}} name={{name3}} accept="true" value="add-employee.png" original="add-employee.png"
+          />
+        </div>
+
+        <div class="field">
+          <label soho-label for={{name4}}>Limit File Types - {{limitLabel}}</label>
+          <input soho-fileupload id={{name4}} name={{name4}} accept="{{fileLimits}}"/>
+        </div>
+
+        <div class="field">
+          <label soho-label for={{name5}}>Disabled</label>
+          <input soho-fileupload id={{name5}} name={{name5}} disabled="true"/>
+        </div>
+
+        <div class="field">
+          <label soho-label for={{name6}}>Readonly</label>
+          <input soho-fileupload id={{name6}} name={{name6}} readonly="true"/>
+        </div>
+
+        <br/>
+        <button soho-button [disabled]="fileUploadReadOnly" (click)="setReadonly()">Read Only</button>
+        <button soho-button [disabled]="fileUploadDisabled" (click)="setDisable()">Disable</button>
+        <button soho-button [disabled]="!fileUploadDisabled && !fileUploadReadOnly" (click)="setEnable()">Enable</button>
+      </div>
+    </div>
+  </div>
+</form>

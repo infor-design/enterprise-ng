@@ -6,24 +6,36 @@ import { FormsModule } from '@angular/forms';
 import { SohoFileUploadModule } from './soho-fileupload.module';
 import { SohoFileUploadComponent } from './soho-fileupload.component';
 
-describe('Soho File upload Unit Tests', () => {
-  let comp:     SohoFileUploadComponent;
-  let fixture:  ComponentFixture<SohoFileUploadComponent>;
+@Component({
+  template: `
+  <label soho-label for="{{name}}">{{text}}</label>
+  <input soho-fileupload name="{{name}}" />
+  `
+})
+class SohoFileUploadTestComponent {
+  @ViewChild(SohoFileUploadComponent) fileupload: SohoFileUploadComponent;
+  public name = 'File';
+  public text = 'File Upload';
+}
+
+describe('Soho File Upload Unit Tests', () => {
+  let comp:     SohoFileUploadTestComponent;
+  let fixture:  ComponentFixture<SohoFileUploadTestComponent>;
   let de:       DebugElement;
   let el:       HTMLElement;
 
   beforeEach( () => {
     TestBed.configureTestingModule({
-      declarations: [ SohoFileUploadComponent ]
+      declarations: [ SohoFileUploadTestComponent ]
     });
-    // .compileComponents(); // compile template and css;
 
-    fixture = TestBed.createComponent(SohoFileUploadComponent);
+    fixture = TestBed.createComponent(SohoFileUploadTestComponent);
     comp = fixture.componentInstance;
-    fixture.detectChanges();
 
-    de = fixture.debugElement.query(By.css('input'));
+    de = fixture.debugElement.query(By.css('input[soho-fileupload]'));
     el = de.nativeElement;
+
+    fixture.detectChanges();
   });
 
   it('Check Content', () => {
@@ -37,18 +49,7 @@ describe('Soho File upload Unit Tests', () => {
   // Add more method tests.
 });
 
-@Component({
-  template: `
-  <label [for]="name">{{text}}</label>
-  <soho-fileupload [name]="name"></soho-fileupload>`
-})
-class SohoFileUploadTestComponent {
-  @ViewChild(SohoFileUploadComponent) fileupload: SohoFileUploadComponent;
-  public name = 'File';
-  public text = 'File Upload';
-}
-
-describe('Soho File upload Render', () => {
+describe('Soho File Upload Render', () => {
   let fileupload:  SohoFileUploadComponent;
   let component:   SohoFileUploadTestComponent;
   let fixture:     ComponentFixture<SohoFileUploadTestComponent>;
@@ -65,33 +66,22 @@ describe('Soho File upload Render', () => {
     component = fixture.componentInstance;
     fileupload = component.fileupload;
 
-    de = fixture.debugElement.query(By.css('input'));
+    de = fixture.debugElement.query(By.css('input[soho-fileupload]'));
     el = de.nativeElement;
 
     fixture.detectChanges();
   });
 
   it('@Input() disabled', () => {
-    fixture.detectChanges();
     fileupload.disabled = true;
-    fixture.detectChanges();
     expect(el.hasAttribute('disabled')).toBeTruthy();
     fileupload.disabled = false;
-    fixture.detectChanges();
   });
 
   it('@Input() readonly', () => {
-    fixture.detectChanges();
     fileupload.readonly = true;
-    fixture.detectChanges();
-    expect(el.hasAttribute('readonly')).toBeTruthy();
+    // sohoxi control sets 'readonly' on textInput and 'disabled' on fileInput
+    expect(el.hasAttribute('disabled')).toBeTruthy();
     fileupload.readonly = false;
-    fixture.detectChanges();
   });
-
-  it('@Input() name', () => {
-    fixture.detectChanges();
-    expect(el.getAttribute('name')).toBe(component.name);
-  });
-
 });

@@ -9,10 +9,11 @@ import { Component } from '@angular/core';
 })
 export class ExampleModalDialogComponent {
 
-  public model = { // tslint:disable-line
+   public model = {
     header: 'Default Header Text',
-    counterText: 'This text cannot exceed 90 chars',
+    comment: 'This task needs to be escalated to maximum priority and delivered by the end of this week.',
   };
+
   constructor() {
   }
 }

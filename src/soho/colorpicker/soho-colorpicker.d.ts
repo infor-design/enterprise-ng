@@ -52,7 +52,6 @@ interface SohoColorPickerStatic {
 /**
  * JQuery Integration
  */
-
 interface JQueryStatic {
   colorpicker: SohoColorPickerStatic;
 }

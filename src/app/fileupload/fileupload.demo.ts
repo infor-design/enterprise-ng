@@ -5,33 +5,31 @@ import {
 } from '@angular/core';
 
 import { SohoFileUploadComponent } from '../../soho/fileupload';
+import { SohoTrackDirtyDirective } from '../../soho/trackdirty';
 
 @Component({
   selector: 'soho-fileupload-demo',
-  templateUrl: './fileupload.demo.html',
+  templateUrl: './fileupload.demo.html'
 })
 export class FileUploadDemoComponent implements OnInit {
 
   @ViewChild(SohoFileUploadComponent) fileupload: SohoFileUploadComponent;
+  @ViewChild(SohoTrackDirtyDirective) trackdirty: SohoTrackDirtyDirective;
 
-  public text = 'Upload a File';
   public limitLabel = 'Limited to xls, xlsx and csv';
   public name1 = 'file-name';
-  public name2 = 'file-name-disabled';
-  public name3 = 'file-name-readonly';
+  public name2 = 'file-name-track-dirty';
+  public name3 = 'file-name-track-dirty-existing';
   public name4 = 'file-name-limits';
+  public name5 = 'file-name-disabled';
+  public name6 = 'file-name-readonly';
   public fileLimits = '.cvs,.xls,.xlsx';
 
-  public showModel = false;
   public fileUploadDisabled = false;
   public fileUploadReadOnly = false;
 
   constructor() { }
   ngOnInit() { }
-
-  toggleModel() {
-    this.showModel = !this.showModel;
-  }
 
   setEnable() {
     this.fileupload.disabled = false;
@@ -51,5 +49,17 @@ export class FileUploadDemoComponent implements OnInit {
 
   onUpdated(event: SohoFileUploadEvent) {
     console.log('FileUploadDemoComponent.onUpdated');
+  }
+
+  onAfterResetDirty(event: SohoTrackDirtyEvent) {
+    console.log('onAfterResetDirty');
+  }
+
+  onDirty(event: SohoTrackDirtyEvent) {
+    console.log('onDirty');
+  }
+
+  onPristine(event: SohoTrackDirtyEvent) {
+    console.log('onPristine');
   }
 }
