@@ -178,6 +178,7 @@ import { TooltipDemoComponent } from './tooltip/tooltip.demo';
 import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
 import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
+import { TreemapDemoComponent } from './treemap/treemap.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
@@ -341,6 +342,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     TrackDirtyDemoComponent,
     TreeContentDemoComponent,
     TreeDynamicDemoComponent,
+    TreemapDemoComponent,
     TreeServiceDemoComponent,
     TreeSourceDemoComponent,
     ValidationFormDemoComponent,

@@ -59,6 +59,7 @@ export * from './toolbar/index';
 export * from './tooltip/index';
 export * from './trackdirty/index';
 export * from './tree/index';
+export * from './treemap/index';
 export * from './utils/index';
 export * from './wizard/index';
 
