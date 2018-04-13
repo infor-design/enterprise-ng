@@ -84,7 +84,7 @@ class SohoTreemapTestComponent {
   }];
 }
 
-describe('Soho Tree Map Chart Render', () => {
+describe('Soho Tree Map Render', () => {
   let treemap:  SohoTreemapComponent;
   let component: SohoTreemapTestComponent;
   let fixture:   ComponentFixture<SohoTreemapTestComponent>;

@@ -10,8 +10,7 @@ import {
 })
 export class TreemapDemoComponent implements OnInit {
 
-  public treemapData = [{
-    data: [{
+  public treemapData = {
       'name': 'Storage Utilization (78 GB)',
       'children': [
       {
@@ -54,8 +53,7 @@ export class TreemapDemoComponent implements OnInit {
           ]
         }]
       }]
-    }]
-  }];
+    };
 
   constructor() {}
 

@@ -115,7 +115,7 @@ export class SohoTreemapComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement = jQuery(this.element.nativeElement);
 
     // this.options.type = 'treemap';
-    this.jQueryElement.chart(this.options);
+    this.jQueryElement.treemap(this.options);
     this.treemap = this.jQueryElement.data('treemap');
 
     // Setup the events
