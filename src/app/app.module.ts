@@ -39,6 +39,7 @@ import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo
 import { ButtonDemoComponent } from './button/button.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
+import { CirclepagerDemoComponent } from './circlepager/circlepager.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
 import { ColumnDemoComponent } from './column/column.demo';
 import { ColumnGroupedDemoComponent } from './column-grouped/column-grouped.demo';
@@ -216,6 +217,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     CardFormatterComponent,
     ChartDemoComponent,
     CheckBoxDemoComponent,
+    CirclepagerDemoComponent,
     ColorPickerDemoComponent,
     ColumnDemoComponent,
     ColumnGroupedDemoComponent,
