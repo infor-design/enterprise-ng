@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { SohoCirclepagerModule } from './soho-circlepager.module';
 import { SohoCirclepagerComponent } from './soho-circlepager.component';
 
-describe('Soho Bar Unit Tests', () => {
+describe('Soho Circle Pager Unit Tests', () => {
   let comp:     SohoCirclepagerComponent;
   let fixture:  ComponentFixture<SohoCirclepagerComponent>;
   let de:       DebugElement;

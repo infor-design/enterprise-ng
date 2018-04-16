@@ -53,9 +53,6 @@ export class SohoCirclepagerComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  /** Events */
-  @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
-
   private jQueryElement: JQuery;
   private circlepager: SohoCirclepager;
   constructor(private element: ElementRef) {}
@@ -65,9 +62,6 @@ export class SohoCirclepagerComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.circlepager(this.options);
     this.circlepager = this.jQueryElement.data('circlepager');
-
-    // Setup the events
-    this.jQueryElement.on('rendered', (...args) => this.rendered.emit(args));
   }
 
   /** Tear Down */
