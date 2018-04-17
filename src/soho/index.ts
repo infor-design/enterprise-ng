@@ -9,6 +9,7 @@ export * from './busyindicator/index';
 export * from './button/index';
 export * from './chart/index';
 export * from './checkbox/index';
+export * from './circlepager/index';
 export * from './colorpicker/index';
 export * from './context-menu/index';
 export * from './contextual-action-panel/index';

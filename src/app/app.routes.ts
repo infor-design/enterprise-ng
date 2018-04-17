@@ -21,6 +21,7 @@ import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo
 import { ButtonDemoComponent } from './button/button.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
+import { CirclepagerDemoComponent } from './circlepager/circlepager.demo';
 import { CodeBlockDemoComponent } from './code-block/code-block.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
 import { ColumnDemoComponent } from './column/column.demo';
@@ -163,6 +164,7 @@ export const routes: Routes = [
   { path: 'busyindicatorbody',                      component: BusyIndicatorDemoBodyComponent },
   { path: 'chart',                                  component: ChartDemoComponent },
   { path: 'checkbox',                               component: CheckBoxDemoComponent },
+  { path: 'circlepager',                            component: CirclepagerDemoComponent },
   { path: 'code-block',                             component: CodeBlockDemoComponent },
   { path: 'colorpicker',                            component: ColorPickerDemoComponent },
   { path: 'column',                                 component: ColumnDemoComponent },

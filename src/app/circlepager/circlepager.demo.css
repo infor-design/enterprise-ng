@@ -1,0 +1,21 @@
+:host .card-content {
+  height: 450px;
+}
+:host .slide-content {
+  height: 450px;
+  padding: 350px 20px 20px 20px;
+  text-align: center;
+  width: 100%;
+}
+:host .slides .slide-content {
+  background-size: 550px 300px !important;
+}
+:host .slides .slide:nth-child(1) .slide-content {
+  background: url('http://random-ize.com/random-art-gallery/the-last-supper.jpg') 50% 20px no-repeat;
+}
+:host .slides .slide:nth-child(2) .slide-content {
+  background: url('http://random-ize.com/random-art-gallery/nozze-di-cana.jpg') 50% 20px no-repeat;
+}
+:host .slides .slide:nth-child(3) .slide-content {
+  background: url('http://random-ize.com/random-art-gallery/the-persistence-of-memory.jpg') 50% 20px no-repeat;
+}

@@ -14,6 +14,7 @@
 /// <reference path="./button/soho-button.d.ts" />
 /// <reference path="./chart/soho-chart.d.ts" />
 /// <reference path="./checkbox/soho-checkbox.d.ts" />
+/// <reference path="./circlepager/soho-circlepager.d.ts" />
 /// <reference path="./colorpicker/soho-colorpicker.d.ts" />
 /// <reference path="./column/soho-column.d.ts" />
 /// <reference path="./context-menu/soho-context-menu.d.ts" />
