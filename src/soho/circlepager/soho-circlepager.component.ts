@@ -17,7 +17,7 @@ import {
 
 export class SohoCirclepagerComponent implements AfterViewInit, OnDestroy {
   /** Options. */
-  private options: SohoCirclepagerOptions = {};
+  private settings: SohoCirclepagerOptions = {};
 
   @HostBinding('class.circlepager') get isCirclePager() {
     return true;
@@ -25,7 +25,7 @@ export class SohoCirclepagerComponent implements AfterViewInit, OnDestroy {
 
   /** The number of slides to show in one view / pane. */
   @Input() set slidesToShow(value: number) {
-    this.options.slidesToShow = value;
+    this.settings.slidesToShow = value;
 
     if (this.circlepager) {
       this.circlepager.settings.slidesToShow = value;
@@ -35,7 +35,7 @@ export class SohoCirclepagerComponent implements AfterViewInit, OnDestroy {
 
   /** First showing slide/group, an 0-based integer */
   @Input() set startingSlide(value: number) {
-    this.options.startingSlide = value;
+    this.settings.startingSlide = value;
 
     if (this.circlepager) {
       this.circlepager.settings.startingSlide = value;
@@ -45,7 +45,7 @@ export class SohoCirclepagerComponent implements AfterViewInit, OnDestroy {
 
   /** Setting loop: true will loop back after next/previous reached to end */
   @Input() set loop(value: boolean) {
-    this.options.loop = value;
+    this.settings.loop = value;
 
     if (this.circlepager) {
       this.circlepager.settings.loop = value;
@@ -60,7 +60,7 @@ export class SohoCirclepagerComponent implements AfterViewInit, OnDestroy {
   /** Setup */
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
-    this.jQueryElement.circlepager(this.options);
+    this.jQueryElement.circlepager(this.settings);
     this.circlepager = this.jQueryElement.data('circlepager');
   }
 

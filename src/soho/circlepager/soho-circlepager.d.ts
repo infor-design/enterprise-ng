@@ -9,9 +9,6 @@
  * Circle Pager Options
  */
 interface SohoCirclepagerOptions {
-  /** Defines the data to use, must be specified for this component. */
-  dataset?: Object[];
-
   /** The number of slides to show in one view / pane. */
   slidesToShow?: number;
 
@@ -37,5 +34,5 @@ interface SohoCirclepager{
 }
 
 interface JQuery {
-  circlepager(options?: SohoCirclepagerOptions): JQuery;
+  circlepager(settings?: SohoCirclepagerOptions): JQuery;
 }
