@@ -26,6 +26,7 @@ import { CodeBlockDemoComponent } from './code-block/code-block.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
 import { ColumnDemoComponent } from './column/column.demo';
 import { ColumnGroupedDemoComponent } from './column-grouped/column-grouped.demo';
+import { ColumnGroupedXaxisTwolineDemoComponent } from './column-grouped/column-grouped-xaxis-twoline.demo';
 import { ColumnStackedDemoComponent } from './column-stacked/column-stacked.demo';
 import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
@@ -169,6 +170,7 @@ export const routes: Routes = [
   { path: 'colorpicker',                            component: ColorPickerDemoComponent },
   { path: 'column',                                 component: ColumnDemoComponent },
   { path: 'column-grouped',                         component: ColumnGroupedDemoComponent},
+  { path: 'column-grouped-xaxis-twoline',           component: ColumnGroupedXaxisTwolineDemoComponent},
   { path: 'column-stacked',                         component: ColumnStackedDemoComponent},
   { path: 'completion-chart',                       component: CompletionChartDemoComponent },
   { path: 'context-menu',                           component: ContextMenuDemoComponent },

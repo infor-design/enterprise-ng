@@ -43,6 +43,7 @@ import { CirclepagerDemoComponent } from './circlepager/circlepager.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
 import { ColumnDemoComponent } from './column/column.demo';
 import { ColumnGroupedDemoComponent } from './column-grouped/column-grouped.demo';
+import { ColumnGroupedXaxisTwolineDemoComponent } from './column-grouped/column-grouped-xaxis-twoline.demo';
 import { ColumnStackedDemoComponent } from './column-stacked/column-stacked.demo';
 import { CodeBlockComponent } from './code-block/code-block.component';
 import { CodeBlockDemoComponent } from './code-block/code-block.demo';
@@ -223,6 +224,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ColorPickerDemoComponent,
     ColumnDemoComponent,
     ColumnGroupedDemoComponent,
+    ColumnGroupedXaxisTwolineDemoComponent,
     ColumnStackedDemoComponent,
     CodeBlockComponent,
     CodeBlockDemoComponent,
