@@ -1,7 +1,5 @@
 import {
   AfterViewInit,
-  ChangeDetectorRef,
-  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -11,18 +9,11 @@ import {
   Output,
 } from '@angular/core';
 
-import {
-  BaseControlValueAccessor,
-  provideControlValueAccessor
-} from '../utils/base-control-value-accessor';
-
 @Component({
   selector: 'textarea[soho-textarea]', // tslint:disable-line
   template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ provideControlValueAccessor(SohoTextAreaComponent) ]
 })
-export class SohoTextAreaComponent extends BaseControlValueAccessor<string> implements AfterViewInit, OnDestroy {
+export class SohoTextAreaComponent implements AfterViewInit, OnDestroy {
 
   // -------------------------------------------
   // Options Block
@@ -149,8 +140,7 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
   // Reference to the SoHoXi control api.
   private textarea: SohoTextAreaStatic;
 
-  constructor(private element: ElementRef, private changeDetectionRef: ChangeDetectorRef) {
-    super(changeDetectionRef);
+  constructor(private element: ElementRef) {
   }
 
   ngAfterViewInit() {
@@ -161,31 +151,11 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     this.jQueryElement.textarea(this.options);
     this.textarea = this.jQueryElement.data('textarea');
 
-    if (this.isReadOnly) {
-      this.textarea.readonly();
-    }
-
-    if (this.isDisabled) {
-      this.textarea.disable();
-    }
-
     /**
      * Bind to jQueryElement's events
      */
     this.jQueryElement.on('change', (e: any, args: SohoTextAreaEvent) => this.onChange.next(args));
     this.jQueryElement.on('updated', (e: any, args: SohoTextAreaEvent) => this.onUpdated.next(args));
-  }
-
-  /**
-   * Override writeValue to allow the input to count correctly
-   * @param value - the new value
-   */
-  writeValue(value: any) {
-    super.writeValue(value);
-
-    if (this.jQueryElement) {
-      this.jQueryElement.val(value).trigger('keyup');
-    }
   }
 
   ngOnDestroy() {
