@@ -49,6 +49,7 @@ import { SohoPopDownModule } from './popdown/soho-popdown.module';
 import { SohoPopupMenuModule } from './popupmenu/soho-popupmenu.module';
 import { SohoRadarModule } from './radar/soho-radar.module';
 import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
+import { SohoRatingModule } from './rating/soho-rating.module';
 import { SohoSearchFieldModule } from './searchfield/soho-searchfield.module';
 import { SohoSliderModule } from './slider/soho-slider.module';
 import { SohoSparklineModule } from './sparkline/soho-sparkline.module';
@@ -119,6 +120,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoProgressModule,
     SohoRadarModule,
     SohoRadioButtonModule,
+    SohoRatingModule,
     SohoSearchFieldModule,
     SohoSparklineModule,
     SohoSplitterModule,
@@ -189,6 +191,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoProgressModule,
     SohoRadarModule,
     SohoRadioButtonModule,
+    SohoRatingModule,
     SohoSearchFieldModule,
     SohoSliderModule,
     SohoSparklineModule,

@@ -141,6 +141,7 @@ import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
 import { ProgressDemoComponent } from './progress/progress.demo';
 import { RadarDemoComponent } from './radar/radar.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
+import { RatingDemoComponent } from './rating/rating.demo';
 import { SearchFieldDemoComponent } from './searchfield/searchfield.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
 import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
@@ -305,6 +306,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ProgressDemoComponent,
     RadarDemoComponent,
     RadioButtonDemoComponent,
+    RatingDemoComponent,
     SearchFieldDemoComponent,
     SliderDemoComponent,
     SohoHeaderDynamicDemoComponent,
