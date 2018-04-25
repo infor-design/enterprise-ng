@@ -127,6 +127,9 @@ interface SohoDataGridOptions {
   /** Add filter bar? */
   filterable?: boolean;
 
+  /** Enable Column Filtering as you stop typing in inputs */
+  filterWhenTyping?: boolean;
+
   /** Disable Filter Logic client side and let your server do it */
   disableClientFilter?: boolean;
 
