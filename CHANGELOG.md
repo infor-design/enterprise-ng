@@ -1,5 +1,6 @@
 
 ## Whats New
+* 2018-04-25 - MHH - SOHO-7851: 4.0 Datagrid filter expose the filterWhenTyping setting
 * 2018-04-12 - MAF - SOHO-7711: 4.0 File upload component - Refactor to support directive usage
 * 2018-04-04 - MHH - SOHO-7756: Allow soho-emptymessage projection in list view
 * 2018-04-02 - TJM - Removed the need for the soho-migrate script
