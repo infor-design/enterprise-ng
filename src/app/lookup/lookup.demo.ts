@@ -177,7 +177,7 @@ export class LookupDemoComponent {
     console.log('lookup.onPristine');
   }
 
-  onChange(e: any, args: any) {
-    console.log('lookup.onchange', e, args);
+  onChange(event: any) {
+    console.log('lookup.onchange', event);
   }
 }

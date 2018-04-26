@@ -40,7 +40,7 @@ export class ValidationFormGroupDemoComponent implements AfterViewInit {
     });
 
     this.demoForm.valueChanges
-      .subscribe(data => this.onValueChanged(data));
+    .subscribe(data => this.onValueChanged(data));
   }
 
   onValueChanged(data?: any) {
@@ -49,6 +49,10 @@ export class ValidationFormGroupDemoComponent implements AfterViewInit {
 
   onSubmit() {
     console.log('in onSubmit');
+  }
+
+  onChange(event: any) {
+    console.log('in onChange');
   }
 }
 
