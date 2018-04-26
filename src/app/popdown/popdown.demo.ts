@@ -80,15 +80,15 @@ export class PopDownDemoComponent {
   }
 
   public onSelected(event) {
-	this.selectedStates = [];
-	if (event.length > 1 && event[1].selectedItems !== undefined) {
-		event[1].selectedItems.forEach((item)=> {
-			const data = $(item).attr('data');
-			console.info(data);
-			this.selectedStates.push(data);
-		});
-		this.changeDetector.detectChanges();
-	}
+    this.selectedStates = [];
+    if (event.length > 1 && event[1].selectedItems !== undefined) {
+      event[1].selectedItems.forEach((item) => {
+        const data = $(item).attr('data');
+        console.log(data);
+        this.selectedStates.push(data);
+      });
+      this.changeDetector.detectChanges();
+    }
   }
 
   public onClickOK($event) {

@@ -12,7 +12,8 @@ interface SohoPopDownOptions {
   /**
    * Forces the popdown to stay open
    */
-  keepOpen: boolean;
+  keepOpen?: boolean;
+
 }
 
 interface SohoPopDownStatic {

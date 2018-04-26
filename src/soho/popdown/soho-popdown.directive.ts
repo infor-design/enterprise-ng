@@ -17,7 +17,7 @@ export class SohoPopDownDirective implements AfterViewInit, OnDestroy {
 
   private popdown: SohoPopDownStatic;
 
-  private popdownOptions = <SohoPopDownOptions>{};
+  private popdownOptions: SohoPopDownOptions = {};
 
   @Input()
   set keepOpen(keepOpen: boolean) {
