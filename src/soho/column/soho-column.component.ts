@@ -122,6 +122,16 @@ export class SohoColumnComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  /** Settings for the chart xAxis. */
+  @Input() set xAxis(value: object) {
+    this.options.xAxis = value;
+
+    if (this.column) {
+      this.column.settings.xAxis = value;
+      this.column.updated(this.column.settings);
+    }
+  }
+
   /** Events */
   @Output() selected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();
   @Output() unselected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();

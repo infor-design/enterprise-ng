@@ -9,9 +9,9 @@
  * Column Options
  */
 interface SohoColumnOptions {
-  /** Chart Type */ 
+  /** Chart Type */
   type?: string;
-	
+
   /** Defines the data to use, must be specified for this component. */
   dataset?: Object[];
 
@@ -38,6 +38,9 @@ interface SohoColumnOptions {
 
   /** An empty message will be displayed when there is no chart data. */
   emptyMessage?: object[];
+
+  /** A series of options for the xAxis. */
+  xAxis?: object;
 }
 
 interface SohoColumnSelectEvent {
@@ -49,7 +52,7 @@ interface SohoColumnSelectEvent {
 /**
  * Column Api.
  */
-interface SohoColumn{
+interface SohoColumn {
   /** The settings option */
   settings: SohoColumnOptions;
 
