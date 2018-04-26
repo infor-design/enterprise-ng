@@ -83,5 +83,32 @@
     </div>
   </soho-popdown-contents>
 </div>
+<div class="twelve columns">
+  <button soho-button="tertiary" icon="filter" keepOpen="true" soho-popdown #statesPopDown>States</button>
+  <soho-popdown-contents>
+    <div class="widget">
+      <div class="widget-header">
+        <h2 class="widget-title">Choose States<span class="extra">({{selectedStates.length}} Items)</span></h2>
+      </div>
+      <div class="widget-content" style="height: 400px; overflow:hidden;">
+        <div style="height:360px; overflow-y: auto; overflow-x: hidden;">
+          <soho-listview [dataset]="visibleStates" [searchable]="false" selectable="multiple" (selected)="onSelected($event)" (unselected)="onSelected($event)">
+            <li soho-listview-item *ngFor="let data of visibleStates" [attr.data]="data">
+              <p soho-listview-header>{{data}}</p>
+            </li>
+          </soho-listview>
+        </div>
+        <div style="padding: 14px 8px 4px 14px;">
+          <input soho-checkbox type="checkbox" id="matchedOnly" name="matchedOnly" [(ngModel)]="showSelectedOnly">
+          <label for="matchedOnly">Show selected states only</label>
+        </div>
+      </div>
+      <div class="widget-footer modal-buttonset">
+        <button type="button" class="btn-modal-primary" style="width: 50%;" (click)="onClickOK()">OK</button>
+        <button type="button" class="btn-modal-secondary" style="width: 50%;" (click)="onClickCancel()">Cancel</button>
+      </div>
+    </div>
+  </soho-popdown-contents>
+</div>
 </div>
 
