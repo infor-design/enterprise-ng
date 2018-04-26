@@ -12,31 +12,31 @@ export class PieDemoComponent implements OnInit {
 
   public pieData = [{
     data: [{
-        name: 'Item A',
-        value: 10.1,
-        id: 'ca',
-        tooltip: 'Item A <b>{{percent}}</b>'
+      name: 'Item A',
+      value: 10.1,
+      id: 'ca',
+      tooltip: 'Item A <b>{{percent}}</b>'
     }, {
-        name: 'Item B',
-        value: 12.2,
-        id: 'cb',
-        tooltip: 'Item B <b>{{percent}}</b>'
+      name: 'Item B',
+      value: 12.2,
+      id: 'cb',
+      tooltip: 'Item B <b>{{percent}}</b>'
     }, {
-        name: 'Item C',
-        value: 14.35,
-        tooltip: 'Item C <b>{{percent}}</b>'
+      name: 'Item C',
+      value: 14.35,
+      tooltip: 'Item C <b>{{percent}}</b>'
     }, {
-        name: 'Item D',
-        value: 15.6,
-        tooltip: 'Item D <b>{{percent}}</b>'
+      name: 'Item D',
+      value: 15.6,
+      tooltip: 'Item D <b>{{percent}}</b>'
     }, {
-        name: 'Item E',
-        value: 21.6,
-        tooltip: 'Item E <b>{{percent}}</b>'
+      name: 'Item E',
+      value: 21.6,
+      tooltip: 'Item E <b>{{percent}}</b>'
     }, {
-        name: 'Item F',
-        value: 41.6,
-        tooltip: 'Item F <b>{{percent}}</b>'
+      name: 'Item F',
+      value: 41.6,
+      tooltip: 'Item F <b>{{percent}}</b>'
     }]
   }];
 
@@ -52,7 +52,7 @@ export class PieDemoComponent implements OnInit {
     console.log('Soho Radar: Selected', event);
   }
 
-  onDeSelected(event: Event) {
+  onDeselected(event: Event) {
     console.log('Soho Radar: Deselected', event);
   }
 }

@@ -36,7 +36,7 @@ export class DonutDemoComponent implements OnInit {
     console.log('Soho Donut: Selected', event);
   }
 
-  onDeSelected(event: Event) {
+  onDeselected(event: Event) {
     console.log('Soho Donut: Deselected', event);
   }
 }

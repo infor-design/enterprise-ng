@@ -65,6 +65,14 @@ export class RadarDemoComponent implements OnInit {
     console.log('Soho Radar: Selected', event);
   }
 
+  onRadar(event: Event) {
+    console.log('Soho Radar: onRadar', event);
+  }
+
+  onDeselected(event: Event) {
+    console.log('Soho Radar: onDeselected', event);
+  }
+
   onDeSelected(event: Event) {
     console.log('Soho Radar: Deselected', event);
   }
