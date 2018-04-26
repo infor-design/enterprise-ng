@@ -5,7 +5,19 @@
  * interface of the Soho jQuery popdown control.
  */
 
+ /**
+  * Settings for the soho popdown control
+  */
+interface SohoPopDownOptions {
+  /**
+   * Forces the popdown to stay open
+   */
+  keepOpen: boolean;
+}
+
 interface SohoPopDownStatic {
+  /** Control options */
+  settings: SohoPopDownOptions;
 
   /** Returns the selected html element. */
   getSelected(): any;
@@ -21,6 +33,9 @@ interface SohoPopDownStatic {
 
   /** Open the popdown*/
   open(): void;
+
+  /** Close the popdown*/
+  close(): void;
 }
 
 /**
@@ -31,5 +46,5 @@ interface JQueryStatic {
 }
 
 interface JQuery {
-  popdown(): JQuery;
+  popdown(options?: SohoPopDownOptions): JQuery;
 }
