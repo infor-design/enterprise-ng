@@ -97,6 +97,7 @@ import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
 import { ProgressDemoComponent } from './progress/progress.demo';
 import { RadarDemoComponent } from './radar/radar.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
+import { RatingDemoComponent } from './rating/rating.demo';
 import { SearchFieldDemoComponent } from './searchfield/searchfield.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
 import { SparklineDemoComponent } from './sparkline/sparkline.demo';
@@ -243,6 +244,7 @@ export const routes: Routes = [
   { path: 'progress',                               component: ProgressDemoComponent },
   { path: 'radar',                                  component: RadarDemoComponent},
   { path: 'radiobutton',                            component: RadioButtonDemoComponent},
+  { path: 'rating',                                 component: RatingDemoComponent},
   { path: 'searchfield',                            component: SearchFieldDemoComponent },
   { path: 'slider',                                 component: SliderDemoComponent },
   { path: 'sparkline',                              component: SparklineDemoComponent },
