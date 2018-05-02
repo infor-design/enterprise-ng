@@ -79,6 +79,8 @@ import {
   DemoCellFormatterComponent,
   DemoCellIntegerFormatterComponent
 } from './datagrid/datagrid-custom-formatter.demo';
+import { DataGridLookupClickDemoComponent } from './datagrid/datagrid-lookup-click-function.demo';
+import { DataGridLookupDialogDemoComponent } from './datagrid/datagrid-lookup-dialog.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
@@ -248,6 +250,8 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     DataGridEmptyMessageDemoComponent,
     DataGridFixedHeaderDemoComponent,
     DataGridGroupedHeaderDemoComponent,
+    DataGridLookupDialogDemoComponent,
+    DataGridLookupClickDemoComponent,
     DataGridMixedSelectionDemoComponent,
     DataGridPagingIndeterminateDemoComponent,
     DataGridPagingServiceDemoComponent,

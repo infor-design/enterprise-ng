@@ -40,6 +40,10 @@ import { DataGridCodeBlockEditorDemoComponent } from './datagrid/datagrid-code-b
 import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
+
+import { DataGridLookupClickDemoComponent } from './datagrid/datagrid-lookup-click-function.demo';
+import { DataGridLookupDialogDemoComponent } from './datagrid/datagrid-lookup-dialog.demo';
+
 import { DataGridRowReorderDemoComponent } from './datagrid/datagrid-rowreorder.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
@@ -198,6 +202,8 @@ export const routes: Routes = [
   { path: 'datagrid-code-block-editor',             component: DataGridCodeBlockEditorDemoComponent },
   { path: 'datagrid-custom-formatter',              component: DataGridCustomFormatterDemoComponent },
   { path: 'datagrid-custom-formatter-service',      component: DataGridCustomFormatterServiceDemoComponent },
+  { path: 'datagrid-lookup-click-function',         component: DataGridLookupClickDemoComponent },
+  { path: 'datagrid-lookup-dialog',                 component: DataGridLookupDialogDemoComponent },
   { path: 'datagrid-rowreorder',                    component: DataGridRowReorderDemoComponent },
   { path: 'datagrid-standard-formatter',            component: DataGridStandardFormatterDemoComponent },
   { path: 'datepicker',                             component: DatepickerDemoComponent },
