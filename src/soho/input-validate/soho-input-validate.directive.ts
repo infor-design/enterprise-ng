@@ -1,4 +1,4 @@
-import { AfterViewInit, Directive, ElementRef, EventEmitter, Output } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, EventEmitter, Input, OnChanges, Output, Renderer, SimpleChanges } from '@angular/core';
 
 /**
  * Angular Wrapper for the SoHo Input Validate Directive.
@@ -9,7 +9,7 @@ import { AfterViewInit, Directive, ElementRef, EventEmitter, Output } from '@ang
 @Directive({
   selector: 'form[soho-input-validate], input[soho-input-validate], input[data-validate], input[data-validate-on="submit"], textarea[data-validate], select[data-validate]' // tslint:disable-line
 })
-export class SohoInputValidateDirective implements AfterViewInit {
+export class SohoInputValidateDirective implements AfterViewInit, OnChanges {
 
   /**
    * Local variables
@@ -18,13 +18,20 @@ export class SohoInputValidateDirective implements AfterViewInit {
 
   private validator: SohoInputValidateStatic;
 
+  @Input("data-validate") dataValidate: string;
+
   @Output() error = new EventEmitter<SohoInputValidateEvent>();
   @Output() alert = new EventEmitter<SohoInputValidateEvent>();
   @Output() confirm = new EventEmitter<SohoInputValidateEvent>();
   @Output() info = new EventEmitter<SohoInputValidateEvent>();
   @Output() valid = new EventEmitter<SohoInputValidateEvent>();
 
-  constructor(private el: ElementRef) {
+  constructor(private el: ElementRef, private renderer: Renderer) {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes["dataValidate"] !== undefined) {
+      this.setElementAttribute("data-validate", this.dataValidate);
+    }
   }
 
   /**
@@ -75,5 +82,15 @@ export class SohoInputValidateDirective implements AfterViewInit {
       };
       this.valid.emit(event);
     });
+  }
+
+  private setElementAttribute(name, value) {
+    if (value !== undefined) {
+      this.renderer.setElementAttribute(
+        this.el.nativeElement,
+        name,
+        value === null ? '' : value
+      );
+    }
   }
 }
