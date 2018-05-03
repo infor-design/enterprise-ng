@@ -40,6 +40,9 @@ interface SohoContextualActionPanelOptions {
 
   /** Identifier for the panel. */
   id?: string;
+
+  /** If true the title will be centered. */
+  centerTitle?: boolean;
 }
 
 interface SohoContextualActionPanelButton {

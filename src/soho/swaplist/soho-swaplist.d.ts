@@ -17,6 +17,7 @@ interface SohoSwapListItem {
 
   /** Is this item disabled. */
   disabled?: boolean;
+
 }
 
 /**
@@ -31,6 +32,9 @@ interface SohoSwapListOptions {
 
   /** Optional  Additional items. */
   additional?: SohoSwapListItem[];
+
+  /** Is this list searchable. */
+  searchable?: boolean;
 }
 
 /**

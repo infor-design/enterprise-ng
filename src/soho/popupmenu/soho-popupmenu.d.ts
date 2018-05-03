@@ -35,14 +35,18 @@ interface SohoPopupMenuOptions {
   /** Switches aria to use listbox construct instead of menu construct (internal). */
   ariaListbox?: boolean;
 
-  /**
-   * By default, menus open up underneath their target element.  Set this to true to
-   * use mouse coordinates for positioning a menu inside of its target element.
-   */
-  useCoordsForClick?: boolean;
-
   /** Can pass in the event object so you can do a right click with immediate */
   eventObj?: any;
+
+  /** If true you can explicitly set an arrow on the menu. */
+  showArrow?: boolean;
+
+  /** If set to false, focus will not be returned to the calling element. It usually should be for accessibility purposes. */
+  returnFocus?: boolean;
+
+  /** By default, menus open up underneath their target element.
+    Set this to true to use mouse coordinates for positioning a menu inside of its target element. */
+  useCoordsForClick?: boolean;
 
   placementOpts?: SohoPopupmenuPlacementOpts;
 

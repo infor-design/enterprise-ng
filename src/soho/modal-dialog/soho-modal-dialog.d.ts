@@ -53,6 +53,9 @@ interface SohoModalOptions {
 
   // Extra frame height.
   frameHeight?: number;
+
+  /** If true the new flex toolbar will be used (For CAP)**/
+  useFlexToolbar?: boolean;
 }
 
 interface SohoModalButton {
@@ -80,6 +83,9 @@ interface SohoModalButton {
 
   /** Click handler. */
   click?: SohoModalButtonClickFunction;
+
+  /** Align the button (CAP Centered Tooltip) **/
+  align?: 'left' | 'center' | 'right';
 }
 
 /**
