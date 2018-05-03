@@ -63,7 +63,7 @@ export class DataGridLookupDialogDemoComponent implements AfterViewInit {
     console.log('onSelected()', e);
 
     if (e.rows.length > 0) {
-      let lookupSelectionEvent = new DataGridLookupSelectionEvent(this, e.rows);
+      const lookupSelectionEvent = new DataGridLookupSelectionEvent(this, e.rows);
       this.lookupSelection.emit(lookupSelectionEvent);
     }
   }

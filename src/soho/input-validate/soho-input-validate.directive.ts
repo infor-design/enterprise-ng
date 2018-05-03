@@ -18,7 +18,7 @@ export class SohoInputValidateDirective {
 
   private validator: SohoInputValidateStatic;
 
-  @HostBinding('attr.data-validate') @Input('data-validate') dataValidate: string;
+  @HostBinding('attr.data-validate') @Input('data-validate') dataValidate: string;   // tslint:disable-line
 
   @Output() error = new EventEmitter<SohoInputValidateEvent>();
   @Output() alert = new EventEmitter<SohoInputValidateEvent>();
@@ -33,7 +33,7 @@ export class SohoInputValidateDirective {
    * After the control has been initialised and the view is ready,
    * get the SoHoXi controls to activate any validations.
    */
-  ngAfterViewInit() {
+  ngAfterViewInit() {  // tslint:disable-line
     this.jQueryElement = jQuery(this.el.nativeElement);
 
     this.jQueryElement.validate();

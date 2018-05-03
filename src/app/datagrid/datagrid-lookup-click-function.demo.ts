@@ -80,10 +80,10 @@ export class DataGridLookupClickDemoComponent implements AfterViewInit {
       .open()
       .apply((lookupDialog: DataGridLookupDialogDemoComponent) => {
         lookupDialog.lookupSelection.subscribe((event: DataGridLookupSelectionEvent) => {
-          let result: Array<any> = event.rows;
+          const result: Array<any> = event.rows;
           if (result && Array.isArray(result) && result.length > 0) {
-            let dataView = result[ 0 ].data;
-            let value = dataView[ sourceField ] as string;
+            const dataView = result[ 0 ].data;
+            const value = dataView[ sourceField ] as string;
 
             // TODO: Tim is there a better solution to move
             // the selected value into the lookup input element?
@@ -92,13 +92,13 @@ export class DataGridLookupClickDemoComponent implements AfterViewInit {
           }
 
           dialogRef.close();
-        })
+        });
       });
   }
 }
 
 function LMLookupClickFunction(event: any, lookup: SohoLookupStatic, clickArguments: any) {
-  let lookupClickDemoComponent = clickArguments.grid.settings.userObject;
-  let sourceField = clickArguments.column.field;
+  const lookupClickDemoComponent = clickArguments.grid.settings.userObject;
+  const sourceField = clickArguments.column.field;
   lookupClickDemoComponent.listLookupClick(lookup, sourceField);
 }

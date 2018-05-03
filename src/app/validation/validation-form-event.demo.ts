@@ -38,7 +38,7 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
   public form: FormGroup;
 
   public events: any = {};
-  
+
   constructor(private changeDetector: ChangeDetectorRef) {
   }
 
@@ -156,8 +156,8 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
     let msg = 'Event: {';
     if (this.events[key] !== undefined) {
       const event = this.events[key];
-      msg += 'type:' + event["type"] + ', ';
-      msg += 'time:' + event["timeStamp"];
+      msg += 'type:' + event['type'] + ', ';
+      msg += 'time:' + event['timeStamp'];
     }
     msg += '}';
     return msg;

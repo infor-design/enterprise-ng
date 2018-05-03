@@ -5,4 +5,3 @@ export class DataGridLookupSelectionEvent {
               public rows: Array<any>) {
   }
 }
-
