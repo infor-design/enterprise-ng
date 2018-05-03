@@ -26,15 +26,14 @@ export class SohoInputValidateDirective {
   @Output() info = new EventEmitter<SohoInputValidateEvent>();
   @Output() valid = new EventEmitter<SohoInputValidateEvent>();
 
-  constructor(private el: ElementRef) {}
-
+  constructor(private el: ElementRef) {    
+  }
 
   /**
    * After the control has been initialised and the view is ready,
    * get the SoHoXi controls to activate any validations.
    */
   ngAfterViewInit() {
-    
     this.jQueryElement = jQuery(this.el.nativeElement);
 
     this.jQueryElement.validate();
@@ -79,5 +78,4 @@ export class SohoInputValidateDirective {
       this.valid.emit(event);
     });
   }
-
 }
