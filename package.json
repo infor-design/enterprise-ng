@@ -1,6 +1,6 @@
 {
   "name": "@infor/sohoxi-angular",
-  "version": "4.6.0-rc",
+  "version": "4.6.0",
   "description": "Hook & Loop - SoHo XI Angular Controls",
   "author": "Hook & Loop",
   "license": "UNLICENSED",
@@ -34,11 +34,11 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
-    "@infor/sohoxi": "^4.6.0-rc",
+    "@infor/sohoxi": "^4.6.0",
     "@types/lscache": "^1.0.7",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
-    "jquery": "3.1.1",
+    "jquery": "3.3.1",
     "lscache": "^1.0.7",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
