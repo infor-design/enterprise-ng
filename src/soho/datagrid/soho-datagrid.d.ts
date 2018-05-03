@@ -578,6 +578,9 @@ interface SohoDataGridColumn {
   /** Icon to use. */
   icon?: string;
 
+  /** Icon file to use. */
+  iconFile?: string;
+
   /** Name of the editor to instantiate (using new), or a SohoDataGridColumnEditorFunction. */
   editor?: SohoDataGridColumnEditorFunction | string;
 
