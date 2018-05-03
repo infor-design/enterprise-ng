@@ -1,4 +1,4 @@
-import { AfterViewInit, Directive, ElementRef, EventEmitter, Input, OnChanges, Output, Renderer, SimpleChanges } from '@angular/core';
+import { HostBinding, Directive, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 
 /**
  * Angular Wrapper for the SoHo Input Validate Directive.
@@ -9,7 +9,7 @@ import { AfterViewInit, Directive, ElementRef, EventEmitter, Input, OnChanges, O
 @Directive({
   selector: 'form[soho-input-validate], input[soho-input-validate], input[data-validate], input[data-validate-on="submit"], textarea[data-validate], select[data-validate]' // tslint:disable-line
 })
-export class SohoInputValidateDirective implements AfterViewInit, OnChanges {
+export class SohoInputValidateDirective {
 
   /**
    * Local variables
@@ -18,7 +18,7 @@ export class SohoInputValidateDirective implements AfterViewInit, OnChanges {
 
   private validator: SohoInputValidateStatic;
 
-  @Input("data-validate") dataValidate: string;
+  @HostBinding('attr.data-validate') @Input('data-validate') dataValidate: string;
 
   @Output() error = new EventEmitter<SohoInputValidateEvent>();
   @Output() alert = new EventEmitter<SohoInputValidateEvent>();
@@ -26,19 +26,15 @@ export class SohoInputValidateDirective implements AfterViewInit, OnChanges {
   @Output() info = new EventEmitter<SohoInputValidateEvent>();
   @Output() valid = new EventEmitter<SohoInputValidateEvent>();
 
-  constructor(private el: ElementRef, private renderer: Renderer) {}
+  constructor(private el: ElementRef) {}
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes["dataValidate"] !== undefined) {
-      this.setElementAttribute("data-validate", this.dataValidate);
-    }
-  }
 
   /**
    * After the control has been initialised and the view is ready,
    * get the SoHoXi controls to activate any validations.
    */
   ngAfterViewInit() {
+    
     this.jQueryElement = jQuery(this.el.nativeElement);
 
     this.jQueryElement.validate();
@@ -84,13 +80,4 @@ export class SohoInputValidateDirective implements AfterViewInit, OnChanges {
     });
   }
 
-  private setElementAttribute(name, value) {
-    if (value !== undefined) {
-      this.renderer.setElementAttribute(
-        this.el.nativeElement,
-        name,
-        value === null ? '' : value
-      );
-    }
-  }
 }
