@@ -26,7 +26,7 @@ export class SohoInputValidateDirective {
   @Output() info = new EventEmitter<SohoInputValidateEvent>();
   @Output() valid = new EventEmitter<SohoInputValidateEvent>();
 
-  constructor(private el: ElementRef) {    
+  constructor(private el: ElementRef) {
   }
 
   /**
