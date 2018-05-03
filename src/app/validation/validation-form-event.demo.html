@@ -27,15 +27,30 @@
         </div>
       </div>
 
+	    <div class="row">
+        <div class="six columns">
+          <div class="field">
+            <label soho-label [required]="model.EventField.required" for="EventField">EventField</label>  
+            <input id="EventField" name="EventField" formControlName="EventField"
+              [(ngModel)]="model.EventField.value" [data-validate]="isRequired('EventField')"
+              soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
+              (error)="onValidationEvent($event)" (valid)="onValidationEvent($event)"
+            >
+            <p>{{status('EventField')}}<br>{{event('EventField')}}</p>
+          </div>
+        </div>
+      </div>
+
       <div class="row">
         <div class="six columns">
           <div class="field">
             <label soho-label [required]="model.AlphaField.required" for="AlphaField">AlphaField</label>
             <input id="AlphaField" name="AlphaField" formControlName="AlphaField"
               [(ngModel)]="model.AlphaField.value" attr.data-validate="{{isRequired('AlphaField')}}"
-              soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
+              soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)" 
+              (error)="onValidationEvent($event)" (valid)="onValidationEvent($event)"
             >
-            <p>{{status('AlphaField')}}</p>
+            <p>{{status('AlphaField')}}<br>{{event('AlphaField')}}</p>
           </div>
         </div>
       </div>

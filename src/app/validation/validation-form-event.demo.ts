@@ -12,6 +12,10 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
   @ViewChild(SohoErrorDirective) errorDirective: SohoErrorDirective;
 
   public dataView: any = {
+    EventField:    {
+      value: 'event',
+      required: true
+    },
     AlphaField:    {
       value:    'abc',
       required: true
@@ -33,6 +37,8 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
   public showModel = true;
   public form: FormGroup;
 
+  public events: any = {};
+  
   constructor(private changeDetector: ChangeDetectorRef) {
   }
 
@@ -144,5 +150,23 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
 
   toggleModel() {
     this.showModel = !this.showModel;
+  }
+
+  event(key?: string): string {
+    let msg = 'Event: {';
+    if (this.events[key] !== undefined) {
+      const event = this.events[key];
+      msg += 'type:' + event["type"] + ', ';
+      msg += 'time:' + event["timeStamp"];
+    }
+    msg += '}';
+    return msg;
+  }
+
+  onValidationEvent(event) {
+    const id = event.target.id;
+    const type = event.type;
+    const timeStamp = event.timeStamp;
+    this.events[id] = {type, timeStamp};
   }
 }
