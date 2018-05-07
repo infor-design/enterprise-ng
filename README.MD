@@ -4,11 +4,7 @@ Starting at the end of release `4.6.0`, we moved the Soho XI codebase to Github 
 
 There are two ways to go about using Github for development (as the [Bitbucket](http://git.infor.com/projects/SOHO/repos/angular-components/browse) will eventually be deprecated):
 
-1. You can go to https://github.com/infor-design/enterprise-ng and download/clone/fork the repo.
-
-or
-
-2. If you already have our codebase locally, you can simply [change your remote's url](https://help.github.com/articles/changing-a-remote-s-url) to point to the new repository on Github.
+You can go to https://github.com/infor-design/enterprise-ng and fork the repo.
 
 
 **Note:** More information on contributing can be found in the @infor-design/enterprise repo [here](https://github.com/infor-design/enterprise/blob/master/docs/CONTRIBUTING.md).
