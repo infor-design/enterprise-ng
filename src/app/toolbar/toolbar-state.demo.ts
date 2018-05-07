@@ -1,4 +1,6 @@
 import {
+  AfterViewChecked,
+  ChangeDetectionStrategy,
   Component,
   Input,
   OnInit,
@@ -10,15 +12,17 @@ import { SohoToolbarComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'toolbar-state-demo', // tslint:disable-line
-  templateUrl: './toolbar-state.demo.html'
+  templateUrl: './toolbar-state.demo.html',
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ToolbarStateDemoComponent implements OnInit {
+export class ToolbarStateDemoComponent implements AfterViewChecked, OnInit {
 
   public _inHeader: boolean;
   public _sectionTitle: string;
   public _pageTitle: string;
   public _buttons: Array<LMToolbarButton>;
   public _maxVisibleButtons: number;
+  private updateToolbar = false;
 
   @ViewChild('SohoToolbarComponent') sohoToolbar: SohoToolbarComponent;
 
@@ -28,23 +32,28 @@ export class ToolbarStateDemoComponent implements OnInit {
 
   @Input() set sectionTitle(sectionTitle: string) {
     this._sectionTitle = sectionTitle;
+    this.updateToolbar = true;
   }
 
   @Input() set pageTitle(pageTitle: string) {
     this._pageTitle = pageTitle;
+    this.updateToolbar = true;
   }
 
   @Input() set buttons(buttons: Array<LMToolbarButton>) {
     this._buttons = buttons;
-
-    if (this.sohoToolbar) {
-      setTimeout(() => {
-        this.sohoToolbar.updated();
-      }, 1);
-    }
+    this._maxVisibleButtons = this._buttons.length;
+    this.updateToolbar = true;
   }
 
   ngOnInit() {
     this._maxVisibleButtons = this._buttons.length;
+  }
+
+  ngAfterViewChecked() {
+    if (this.updateToolbar) {
+      this.sohoToolbar.updated();
+      this.updateToolbar = false;
+    }
   }
 }

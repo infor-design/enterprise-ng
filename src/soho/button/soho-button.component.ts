@@ -6,6 +6,7 @@ import {
   HostBinding,
   HostListener,
   Input,
+  NgZone,
   OnDestroy,
   OnInit,
 } from '@angular/core';
@@ -222,11 +223,11 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   }
 
   /**
-    * Constructor.
-    *
-    * @param elementRef - the element matching the component's selector.
-    */
-  constructor(private element: ElementRef) {
+   * Constructor.
+   *
+   * @param elementRef - the element matching the component's selector.
+   */
+  constructor(private element: ElementRef, private ngZone: NgZone) {
   }
 
   // ------------------------------------------
@@ -247,31 +248,34 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   }
 
   ngAfterViewInit() {
-    // Wrap the element in a jQuery selector.
-    this.jQueryElement = jQuery(this.element.nativeElement);
 
-    // Initialise the Soho control.
-    this.jQueryElement.button(this._buttonOptions);
+    this.ngZone.runOutsideAngular(() => {
+      // Wrap the element in a jQuery selector.
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    // Initialize title attribute as a soho tooltip
-    if (this.jQueryElement.has('[title]') && !this.jQueryElement.has('[popover]')) {
-      this.jQueryElement.tooltip();
-    }
+      // Initialise the Soho control.
+      this.jQueryElement.button(this._buttonOptions);
 
-    // Once the control is initialised, extract the control
-    // plug-in from the element.  The element name is defined
-    // by the plug-in, but in this case is 'button'.
-    this.button = this.jQueryElement.data('button');
-
-    if (this.state !== undefined) {
-      // turn off the default handling of the favorite icon switching
-      // in the sohoxi controls (button.js). This is so that only this
-      // button-component handles the switching of the toggle icon for
-      // favorite.
-      if (this.buttonType === SohoButtonComponent.FAVORITE) {
-        this.jQueryElement.off('click.favorite');
+      // Initialize title attribute as a soho tooltip
+      if (this.jQueryElement.has('[title]') && !this.jQueryElement.has('[popover]')) {
+        this.jQueryElement.tooltip();
       }
-    }
+
+      // Once the control is initialised, extract the control
+      // plug-in from the element.  The element name is defined
+      // by the plug-in, but in this case is 'button'.
+      this.button = this.jQueryElement.data('button');
+
+      if (this.state !== undefined) {
+        // turn off the default handling of the favorite icon switching
+        // in the sohoxi controls (button.js). This is so that only this
+        // button-component handles the switching of the toggle icon for
+        // favorite.
+        if (this.buttonType === SohoButtonComponent.FAVORITE) {
+          this.jQueryElement.off('click.favorite');
+        }
+      }
+    });
 
     // There are no 'extra' event handler for button.
   }
@@ -280,10 +284,15 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    * Destructor.
    */
   ngOnDestroy() {
-    if (this.button) {
-      this.button.destroy();
-      this.button = null;
-    }
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.button) {
+        this.button.destroy();
+        this.button = null;
+      }
+    });
   }
 
   get hasIcon() {
@@ -306,8 +315,10 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    * @deprecated use isToggle and isTogglePressed instead.
    */
   public isPressed(): boolean {
-    const pressed = this.element.nativeElement.getAttribute('aria-pressed');
-    this._isPressed = (pressed === true || pressed === 'true');
-    return this._isPressed;
+    return this.ngZone.runOutsideAngular(() => {
+      const pressed = this.element.nativeElement.getAttribute('aria-pressed');
+      this._isPressed = (pressed === true || pressed === 'true');
+      return this._isPressed;
+    });
   }
 }

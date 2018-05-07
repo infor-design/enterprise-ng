@@ -45,11 +45,12 @@ export class BusyIndicatorDemoComponent {
       console.log(`${event.type} - ${event.event.currentTarget}`);
   }
 
-  onClose(event: SohoBusyIndicatorEvent) {
+  onComplete(event: SohoBusyIndicatorEvent) {
       console.log(`${event.type} - ${event.event.currentTarget}`);
   }
 
   onSubmit() {
+    this.busyIndicator.open();
     console.log('submit');
   }
 }

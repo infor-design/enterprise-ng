@@ -1,5 +1,4 @@
 import {
-  ChangeDetectionStrategy,
   Component,
   ElementRef,
   ViewChild,
@@ -53,7 +52,7 @@ export class BusyIndicatorDemoBodyComponent implements OnInit {
       console.log(`${event.type} - ${event.event.currentTarget}`);
   }
 
-  onClose(event: SohoBusyIndicatorEvent) {
+  onComplete(event: SohoBusyIndicatorEvent) {
       console.log(`${event.type} - ${event.event.currentTarget}`);
   }
 

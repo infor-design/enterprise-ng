@@ -5,7 +5,7 @@ import {
   ElementRef,
   EventEmitter,
   HostBinding,
-  Input,
+  Input, NgZone,
   OnDestroy,
   Output,
 } from '@angular/core';
@@ -272,6 +272,21 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
     return this._popupMenuOptions.offset;
   }
 
+  /**
+   * A initial setting only of the events you'd like to have hooked up in the agnular wrapper.
+   * This aids in reducing change detection as each bound event that gets called (whether you
+   * are interested in it or not) causes change detection to get called which causes the screen
+   * to re-render each time.
+   *
+   * This is backward compatible if you don't use the registerForEvents input. If you want no
+   * events hooked up then use registerForEvent="". Otherwise just specify the events you want
+   * hooked up to sohoxi from this angular component.
+   *
+   * @type {string} a space delimited list of the events to be hooked up to sohoxi.
+   *       example: "activated afterActivated tabAdded"
+   */
+  @Input() registerForEvents = undefined;
+
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
@@ -307,26 +322,62 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
 
   private _popupMenuOptions: SohoPopupMenuOptions = {};
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef, private ngZone: NgZone) {}
 
   ngAfterViewInit() {
-    // Wrap for later.
-    this.jQueryElement = jQuery(this.elementRef.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
+      // Wrap for later.
+      this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
-    // Initialise the SohoXi control.
-    this.jQueryElement.popupmenu(this._popupMenuOptions);
+      // Initialise the SohoXi control.
+      this.jQueryElement.popupmenu(this._popupMenuOptions);
 
-    // Once the control is initialised, extract the control plug-in from the element.
-    this.popupmenu = this.jQueryElement.data('popupmenu');
+      // Once the control is initialised, extract the control plug-in from the element.
+      this.popupmenu = this.jQueryElement.data('popupmenu');
 
-    // Initialise any event handlers.
-    this.jQueryElement
-    .on('selected',            (e: JQuery.Event, args: JQuery) => this.selected.next({ e, args }))
-    .on('popupmenuafterplace', (e: JQuery.Event, args: JQuery) => this.popupmenuafterplace.next({ e, args }))
-    .on('beforeopen',          (e: JQuery.Event, args: JQuery) => this.beforeopen.next({ e, args }))
-    .on('open',                (e: JQuery.Event, args: JQuery) => this.open.next({ e, args }))
-    .on('afteropen',           (e: JQuery.Event, args: JQuery) => this.afteropen.next({ e, args }))
-    .on('close',               (e: JQuery.Event, args: JQuery) => this.closeEvent.next({ e, args }));
+      // bind to jquery events and emit as angular events
+      this.hookupRegisteredEvents();
+    });
+  }
+
+  private hookupRegisteredEvents() {
+    NgZone.assertNotInAngularZone();
+
+    let eventsToRegister = null;
+    if (this.registerForEvents !== undefined) {
+      eventsToRegister = this.registerForEvents.split(' ');
+    }
+
+    // if no events are registered then all event will be bound for backward compatibility.
+    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'selected')) {
+      this.jQueryElement.on('selected', (e: JQuery.Event, args: JQuery) =>
+        this.ngZone.run(() => setTimeout(() => this.selected.emit({ e, args }), 1)));
+    }
+
+    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'popupmenuafterplace')) {
+      this.jQueryElement.on('popupmenuafterplace', (e: JQuery.Event, args: JQuery) =>
+        this.ngZone.run(() => setTimeout(() => this.popupmenuafterplace.emit({e, args}), 1)));
+    }
+
+    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'beforeopen')) {
+      this.jQueryElement.on('beforeopen', (e: JQuery.Event, args: JQuery) =>
+        this.ngZone.run(() => setTimeout(() => this.beforeopen.emit({e, args}), 1)));
+    }
+
+    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'open')) {
+      this.jQueryElement.on('open', (e: JQuery.Event, args: JQuery) =>
+        this.ngZone.run(() => setTimeout(() => this.open.emit({e, args}), 1)));
+    }
+
+    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'afteropen')) {
+      this.jQueryElement.on('afteropen', (e: JQuery.Event, args: JQuery) =>
+        this.ngZone.run(() => setTimeout(() => this.afteropen.emit({e, args}), 1)));
+    }
+
+    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'close')) {
+      this.jQueryElement.on('close', (e: JQuery.Event, args: JQuery) =>
+        this.ngZone.run(() => setTimeout(() => this.closeEvent.emit({e, args}), 1)));
+    }
   }
 
   /**
@@ -334,7 +385,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
    */
   getSelected(): any {
     if (this.popupmenu) {
-      return this.popupmenu.getSelected();
+      return this.ngZone.runOutsideAngular(() => this.popupmenu.getSelected());
     }
   }
 
@@ -343,7 +394,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
    */
   updated(settings): void {
     if (this.popupmenu) {
-      this.popupmenu.updated(settings);
+      this.ngZone.runOutsideAngular(() => this.popupmenu.updated(settings));
     }
   }
 
@@ -352,7 +403,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
    */
   teardown(): void {
     if (this.popupmenu) {
-      this.popupmenu.teardown();
+      this.ngZone.runOutsideAngular(() => this.popupmenu.teardown());
     }
   }
 
@@ -363,7 +414,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
    */
   close(isCancelled?: boolean, noFocus?: boolean): void {
     if (this.popupmenu) {
-      this.popupmenu.close(isCancelled, noFocus);
+      this.ngZone.runOutsideAngular(() => this.popupmenu.close(isCancelled, noFocus));
     }
   }
 
@@ -371,9 +422,14 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
    * Destroy the markup and any other resources.
    */
   destroy() {
-    if (this.popupmenu) {
-      this.popupmenu.destroy();
-    }
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.popupmenu) {
+        this.popupmenu.destroy();
+      }
+    });
   }
 
   /**
