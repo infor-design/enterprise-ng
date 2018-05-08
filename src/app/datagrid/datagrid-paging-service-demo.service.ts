@@ -1,10 +1,13 @@
 
-import {of as observableOf,  Observable } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
-
 import { SohoDataGridService } from '@infor/sohoxi-angular';
-import { PAGING_COLUMNS, PAGING_DATA } from './datagrid-paging-data';
+
+import {
+  PAGING_COLUMNS,
+  PAGING_DATA
+} from './datagrid-paging-data';
 
 @Injectable()
 export class DataGridPagingServiceDemoService extends SohoDataGridService {
@@ -25,7 +28,7 @@ export class DataGridPagingServiceDemoService extends SohoDataGridService {
     const end: number = begin + req.pagesize;
     const data: Array<any> = this.data.slice(begin, end);
     const result: any = { total: 100, data: data };
-    return observableOf(result);
+    return of(result);
   }
 
   getAllData (): Array<any> {
