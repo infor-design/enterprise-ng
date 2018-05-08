@@ -148,6 +148,8 @@ import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablear
 import { WizardDemoComponent } from './wizard/wizard.demo';
 import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
 
+import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
+
 export const routes: Routes = [
   { path: '',                                       component: ExpandableAreaDemoComponent }, // default
   { path: 'about',                                  component: AboutDemoComponent },
@@ -294,7 +296,10 @@ export const routes: Routes = [
   { path: 'validation',                             component: ValidationFormDemoComponent},
   { path: 'validation-event',                       component: ValidationFormEventDemoComponent},
   { path: 'validation-group',                       component: ValidationFormGroupDemoComponent},
-  { path: 'wizard',                                 component: WizardDemoComponent}
+  { path: 'wizard',                                 component: WizardDemoComponent },
+
+  { path: 'test-tabs-basic',                        component: TestTabsBasicComponent },
+
 ];
 
 export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes);

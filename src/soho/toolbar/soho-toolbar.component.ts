@@ -9,7 +9,7 @@ import {
   HostBinding,
   Input,
   Output,
-  OnDestroy,
+  OnDestroy, NgZone,
 } from '@angular/core';
 
 /**
@@ -97,43 +97,56 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
   constructor(
     private changeDetector: ChangeDetectorRef,
     private element: ElementRef,
+    private ngZone: NgZone
   ) {}
 
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
-    this.jQueryElement.toolbarsearchfield(this.options);
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
+      this.jQueryElement.toolbarsearchfield(this.options);
 
-    // Initialize title attribute as a soho tooltip
-    if (this.jQueryElement.has('[title]')) {
-      this.jQueryElement.tooltip();
-    }
+      // Initialize title attribute as a soho tooltip
+      if (this.jQueryElement.has('[title]')) {
+        this.jQueryElement.tooltip();
+      }
 
-    this.toolbarsearchfield = this.jQueryElement.data('toolbarsearchfield');
+      this.toolbarsearchfield = this.jQueryElement.data('toolbarsearchfield');
 
-    /**
-     * Bind to jQueryElement's events
-     */
-    this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
-    this.jQueryElement.on('cleared', (...args) => this.cleared.emit(args));
+      /**
+       * Bind to jQueryElement's events
+       */
+      this.jQueryElement.on('selected', (...args) =>
+        this.ngZone.run(() => setTimeout(() => this.selected.emit(args), 1)));
+
+      this.jQueryElement.on('cleared', (...args) =>
+        this.ngZone.run(() => setTimeout(() => this.cleared.emit(args), 1)));
+    });
   }
 
   ngAfterViewChecked() {
     if (this.searchFieldChanged) {
-      this.toolbarsearchfield.updated();
+      this.ngZone.runOutsideAngular(() => this.toolbarsearchfield.updated());
       this.searchFieldChanged = false;
     }
   }
 
   ngOnDestroy() {
     // Necessary clean up step (add additional here)
-    if (this.toolbarsearchfield) {
-      this.toolbarsearchfield.destroy();
-      this.toolbarsearchfield = undefined;
-    }
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        // clean up attached events.
+        this.jQueryElement.off();
+      }
+      if (this.toolbarsearchfield) {
+        // destroy the soho component.
+        this.toolbarsearchfield.destroy();
+        this.toolbarsearchfield = undefined;
+      }
+    });
   }
 
   clear(): void {
-    this.toolbarsearchfield.clear();
+    this.ngZone.runOutsideAngular(() => this.toolbarsearchfield.clear());
   }
 
   private markForRefresh() {
@@ -152,20 +165,20 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
 @Component({
   selector: 'soho-toolbar-more-button',
   template: `
-    <button class="btn-actions page-changer" type="button" [attr.disabled]="isDisabled ? 'disabled' : null">
-      <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#icon-more"></use>
-      </svg>
-      <span class="audible" data-translate="text">More</span>
-    </button>
-    <!-- TODO: look into handling this through soho-button
-    <button soho-button="actions" pageChanger="true" icon="more">
-      <span class="audible" data-translate="text">More</span>
-    </button>
-    -->
+              <button class="btn-actions page-changer" type="button" [attr.disabled]="isDisabled ? 'disabled' : null">
+                <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+                  <use xlink:href="#icon-more"></use>
+                </svg>
+                <span class="audible" data-translate="text">More</span>
+              </button>
+              <!-- TODO: look into handling this through soho-button
+              <button soho-button="actions" pageChanger="true" icon="more">
+                <span class="audible" data-translate="text">More</span>
+              </button>
+              -->
 
-    <ng-content></ng-content>
-  `,
+              <ng-content></ng-content>
+            `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarMoreButtonComponent {
@@ -203,15 +216,15 @@ export class SohoSectionTitleComponent {
 @Component({
   selector: 'button[soho-nav-button]', // tslint:disable-line
   template: `
-      <span class="icon app-header">
+              <span class="icon app-header">
         <span class="one"></span>
         <span class="two"></span>
         <span class="three"></span>
       </span>
-      <span class="audible">
+              <span class="audible">
         <ng-content></ng-content>
       </span>
-  `,
+            `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarNavButtonComponent {
@@ -357,11 +370,26 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
   }
 
   /**
+   * A initial setting only of the events you'd like to have hooked up in the agnular wrapper.
+   * This aids in reducing change detection as each bound event that gets called (whether you
+   * are interested in it or not) causes change detection to get called which causes the screen
+   * to re-render each time.
+   *
+   * This is backward compatible if you don't use the registerForEvents input. If you want no
+   * events hooked up then use registerForEvent="". Otherwise just specify the events you want
+   * hooked up to sohoxi from this angular component.
+   *
+   * @type {string} a space delimited list of the events to be hooked up to sohoxi.
+   *       example: "activated afterActivated tabAdded"
+   */
+  @Input() registerForEvents = undefined;
+
+  /**
    * The beforeactivate event is fired whenever a toolbar is activated giving the event handler a chance
    * to "veto" the tab selection change.
    * @type {EventEmitter<Object>}
    */
-  @Output() beforeActivate: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
+  @Output() beforeActivated: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
 
   /**
    * The activated event is if the beforeActivate succeeds.
@@ -373,7 +401,7 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
    * The afteractivate event is fired after the toolbar has been activated.
    * @type {EventEmitter<Object>}
    */
-  @Output() afterActivate: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
+  @Output() afterActivated: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
 
   /**
    * The selected event is fired when a toolbar button has been clicked.
@@ -392,61 +420,96 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
 
   constructor(
     private changeDetector: ChangeDetectorRef,
-    private element: ElementRef
+    private element: ElementRef,
+    private ngZone: NgZone
   ) {}
 
   ngAfterViewInit() {
-    this.options.noSearchfieldReinvoke = true;
+    this.ngZone.runOutsideAngular(() => {
+      this.options.noSearchfieldReinvoke = true;
 
-    // Assign element to local variable
-    this.jQueryElement = jQuery(this.element.nativeElement);
-    this.jQueryElement.toolbar(this.options);
-    this.toolbar = this.jQueryElement.data('toolbar');
+      // Assign element to local variable
+      this.jQueryElement = jQuery(this.element.nativeElement);
+      this.jQueryElement.toolbar(this.options);
+      this.toolbar = this.jQueryElement.data('toolbar');
 
-    // bind to jquery events and emit as angular events
-    this.jQueryElement
-    .on('beforeactivate', ((event: JQuery.Event) => { this.beforeActivate.emit(event); }))
-    .on('activated', ((event: JQuery.Event) => { this.activated.emit(event); }))
-    .on('afteractivate', ((event: JQuery.Event) => { this.afterActivate.emit(event); }))
-    .on('selected', (event: JQuery.Event, item: HTMLButtonElement | HTMLAnchorElement) => {
-      this.selected.emit({ event, item });
+      // bind to jquery events and emit as angular events
+      this.hookupRegisteredEvents();
+
+      this.toolbar = this.jQueryElement.data('toolbar');
     });
-
-    // Returns original button info on mouseover event
-    this.jQueryElement.find('.more').on('mouseover', 'li.submenu', ((event: JQuery.Event) => {
-      const originalButton: HTMLButtonElement = jQuery(event.target).data('originalButton');
-
-      if (originalButton !== undefined) {
-        this.menuItemMouseOver.emit(originalButton);
-      }
-    }));
-
-    this.toolbar = this.jQueryElement.data('toolbar');
   }
 
   ngAfterViewChecked() {
     if (this.toolbarChanged) {
-      this.toolbar.updated();
+      this.updated();
       this.toolbarChanged = false;
     }
   }
 
   ngOnDestroy() {
-    if (this.toolbar) {
-      this.toolbar.destroy();
-      this.toolbar = null;
+    // call outside the angular zone so change detection isn't triggered by the soho component.
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.toolbar) {
+        this.toolbar.destroy();
+        this.toolbar = null;
+      }
+    });
+  }
+
+  private hookupRegisteredEvents() {
+    NgZone.assertNotInAngularZone();
+
+    let eventsToRegister = null;
+    if (this.registerForEvents !== undefined) {
+      eventsToRegister = this.registerForEvents.split(' ');
+    }
+
+    // if no events are registered then all event will be bound for backward compatibility.
+    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'beforeactivated')) {
+      this.jQueryElement.on('beforeactivated', (event: JQuery.Event) =>
+        this.ngZone.run(() => setTimeout(() => this.beforeActivated.emit(event), 1)));
+    }
+
+    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'activated')) {
+      this.jQueryElement.on('activated', (event: JQuery.Event) =>
+        this.ngZone.run(() => setTimeout(() => this.activated.emit(event), 1)));
+    }
+
+    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'afteractivated')) {
+      this.jQueryElement.on('afteractivated', (event: JQuery.Event) =>
+        this.ngZone.run(() => setTimeout(() => this.afterActivated.emit(event), 1)));
+    }
+
+    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'selected')) {
+      this.jQueryElement.on('selected', (event: JQuery.Event, item: HTMLButtonElement | HTMLAnchorElement) =>
+        this.ngZone.run(() => setTimeout(() => this.selected.emit({event, item}), 1)));
+    }
+
+    // Returns original button info on mouseover event
+    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'mouseover')) {
+      this.jQueryElement.find('.more').on('mouseover', 'li.submenu', ((event: JQuery.Event) => {
+        const originalButton: HTMLButtonElement = jQuery(event.target).data('originalButton');
+
+        if (originalButton !== undefined) {
+          this.ngZone.run(() => setTimeout(() => this.menuItemMouseOver.emit(originalButton), 1));
+        }
+      }));
     }
   }
 
   updated(settings?) {
     if (this.toolbar) {
-      this.toolbar.updated(settings);
+      this.ngZone.runOutsideAngular(() => this.toolbar.updated(settings));
     }
   }
 
   handleResize() {
     if (this.toolbar) {
-      this.toolbar.handleResize();
+      this.ngZone.runOutsideAngular(() => this.toolbar.handleResize());
     }
   }
 

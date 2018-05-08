@@ -1,6 +1,9 @@
 <soho-toolbar
   #SohoToolbarComponent
-  [maxVisibleButtons]="_maxVisibleButtons">
+  [maxVisibleButtons]="_maxVisibleButtons"
+  favorButtonset="true"
+  resizeContainers="true"
+>
 
   <soho-toolbar-title>
 
@@ -25,15 +28,28 @@
   <soho-toolbar-button-set>
     <!-- buttons -->
     <ng-template ngFor let-b [ngForOf]="_buttons">
-      <button soho-button="icon" *ngIf="!b.menu && b.state.visible" icon="{{b?.icon}}" attr.data-button="{{b?.data}}" [attr.disabled]="b.state.disabled ? true : null">{{b?.text}}</button>
+
+      <ng-container *ngIf="b?.icon; else TextButton">
+        <button soho-button="icon" *ngIf="!b.menu && b.state.visible" icon="{{b?.icon}}" attr.data-button="{{b?.data}}" [attr.disabled]="b.state.disabled ? true : null">{{b?.text}}</button>
+      </ng-container>
+      <ng-template #TextButton>
+        <button soho-button="btn" *ngIf="!b.menu && b.state.visible" icon="{{b?.icon}}" attr.data-button="{{b?.data}}" [attr.disabled]="b.state.disabled ? true : null">{{b?.text}}</button>
+      </ng-template>
 
       <ng-template [ngIf]="b.menu && b.state.visible">
         <button soho-menu-button [icon]="b?.icon" attr.data-button="{{b?.data}}" title="{{b?.title}}" [attr.disabled]="b.state.disabled ? true : null"></button>
-        <ul class="popupmenu">
-          <li *ngFor="let i of b.menu">
-            <a href="#" attr.data-button="{{i?.data}}">{{i?.text}}</a>
-          </li>
-        </ul>
+        <!--
+        Must include wrapper popup menu wrapper when using inside an ngIf statement. See ng-template [ngIf] above. Angular
+        keeps track of elements when an ngIf is used. If the element get moved by soho then angular will be out of sync
+        and throw an exception
+        -->
+        <div class="popupmenu-wrapper bottom" role="application" aria-hidden="true">
+          <ul class="popupmenu">
+            <li *ngFor="let i of b.menu">
+              <a href="#" attr.data-button="{{i?.data}}">{{i?.text}}</a>
+            </li>
+          </ul>
+        </div>
       </ng-template>
 
     </ng-template>
