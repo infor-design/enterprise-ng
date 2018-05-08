@@ -41,7 +41,8 @@
     "jquery": "3.3.1",
     "lscache": "^1.0.7",
     "rxjs": "6.1.0",
-    "zone.js": "0.8.26"
+    "zone.js": "0.8.26",
+    "rxjs-compat": "^6.0.0-rc.0"
   },
   "devDependencies": {
     "@angular/cli": "^6.0.0",

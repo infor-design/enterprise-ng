@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, AfterViewInit, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { SohoDropDownComponent, SohoBusyIndicatorDirective } from '@infor/sohoxi-angular';
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'soho-dropdown-demo',

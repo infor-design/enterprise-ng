@@ -15,7 +15,7 @@ import {
   QueryList,
 } from '@angular/core';
 
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Helper Component for the ExpandableAreaComponent
