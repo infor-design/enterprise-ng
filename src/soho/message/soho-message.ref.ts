@@ -1,4 +1,4 @@
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 
 import { SohoModalDialogVetoableEventGuard } from '../modal-dialog/soho-modal-dialog.ref';
 

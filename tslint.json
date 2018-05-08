@@ -15,6 +15,7 @@
     "forin": true,
     "import-blacklist": [
       true,
+      "rxjs",
       "rxjs/Rx"
     ],
     "import-spacing": true,

@@ -3,7 +3,7 @@ import {
   Component,
   OnDestroy
 } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
 import { HeaderDynamicToolbarOptions } from '../header/header-dynamic-demo.model';
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
