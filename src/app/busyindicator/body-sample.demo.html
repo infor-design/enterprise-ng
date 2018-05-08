@@ -1,4 +1,9 @@
-<div soho-busyindicator [activated]="showInitially" [blockUI]="true" [text]="message">
+<div soho-busyindicator
+     registerForEvents="complete afterstart" (complete)="onComplete" (afterstart)="onAfterStart"
+     [activated]="showInitially"
+     [blockUI]="true"
+     [text]="message"
+>
   <button soho-button (click)="timer()" style="margin: 20px">Start Timer</button>
 
   <div class="row">

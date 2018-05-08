@@ -1,6 +1,10 @@
 
 ## Whats New
 * 2018-05-08 - BTH - Upgraded to @angular 6.0.0 and @angular/cli 6.0.0
+* 2018-05-07 - PWP - SOHO-7923: Refactored several components and directives to run outside angular
+  - refactored `soho-busy-indicator.directive.ts`, `soho-button.component.ts` , `soho-context-menu.directive.ts`,
+  `soho-expandablearea.component.ts`, `soho-popupmenu.component.ts`, `soho-tabs.component.ts`, and `soho-toolbar.component.ts`
+  - added backward compatible `registerForEvents` input to indicate which events should be hooked up from the angular component/directive to it's soho jquery counterpart.
 * 2018-04-25 - MHH - SOHO-7851: 4.0 Datagrid filter expose the filterWhenTyping setting
 * 2018-04-12 - MAF - SOHO-7711: 4.0 File upload component - Refactor to support directive usage
 * 2018-04-04 - MHH - SOHO-7756: Allow soho-emptymessage projection in list view
@@ -99,7 +103,9 @@
 
 * 2018-05-08 - BTH - Upgraded to @angular 6.0.0 and @angular/cli 6.0.0  
 It is recommended that consumers of the the **enterprise-ng** components also upgrade their applications to version 6 of @angular and @angular/cli.  The easiest way to do this is to follow the instructions at https://update.angular.io/.
-  
+
+* 2018-05-07 - PWP - SOHO-7923: Refactored several components and directives to run outside angular
+changed soho-busyindicator.directive.ts' 'close' event to 'complete' to match the jquery component - busyindecator.js  
 
 * 2018-04-12 - MAF - SOHO-7711: 4.0 File upload component refactor to support directive usage - changed to <input soho-fileupload /> from <soho-fileupload>
 
