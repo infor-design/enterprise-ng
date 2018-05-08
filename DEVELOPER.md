@@ -155,7 +155,7 @@ Then we handle the AfterViewEvent.
 ```typescript
 ngAfterViewInit() {
   this.ngZone.runOutsideAngular(() => {
-    // initialize the jqueyr component outside of angular.
+    // initialize the jquery component outside of angular.
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.widget(this.options);
     this.widet = this.jQueryElement.data('widget');
