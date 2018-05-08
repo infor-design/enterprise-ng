@@ -1,5 +1,5 @@
 import { ComponentRef } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 
 /**
  * Wrapper for the jQuery panel control.
