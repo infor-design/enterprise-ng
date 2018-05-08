@@ -3,13 +3,13 @@
 ### Install
 - [Setup SSH key for using git](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html) (faster but not required)
 - PC users suggest [ComEmu](https://conemu.github.io/) which works a bit better than CMD.
-- Get the latest **Node.js** release from https://nodejs.org/en/.
+- Get the latest LTS **Node.js** release from https://nodejs.org/en/ (version 8 or later)
 - Get an Editor like Visual Studio Code (https://code.visualstudio.com/) or [Atom](https://atom.io/) or your fav.
 
 ### Initial Setup with npm 5
 
-- Clone The main repo fx `git clone ssh://git@git.infor.com:7999/soho/angular-components.git`
-- Open a command prompt to angular-components
+- Clone The main repo fx `git clone https://github.com/infor-design/enterprise-ng.git`
+- Open a command prompt to enterprise-ng
 - Type `npm config set @infor:registry http://npm.infor.com:4873`
 - Type `npm install -g @angular/cli@latest`
 - Type `npm i`
@@ -18,8 +18,8 @@
 
 ### Initial Setup yarn
 
-- Clone The main repo fx `git clone ssh://git@git.infor.com:7999/soho/angular-components.git`
-- Open a command prompt to angular-components
+- Clone The main repo fx `git clone https://github.com/infor-design/enterprise-ng.git`
+- Open a command prompt to enterprise-ng
 - Type `npm config set @infor:registry http://npm.infor.com:4873`
 - Type `npm install -g @angular/cli@latest`
 - Type `yarn`
@@ -28,7 +28,9 @@
 
 ## Component Structure
 
-A brief overview of a simple component in the Soho Angular Component project.  The intention is to define the contract between the Soho jQuery controls and the Soho Angular Components.
+This section gives a brief overview of a component in the **enterprise ng** project.  
+
+The intention is to define the contract between the **enterprise** jQuery controls and their angular counterparts.
 ### Structure
 
 ```
@@ -41,14 +43,14 @@ soho\
     sogo-widget.spec.ts
     README.md (optional)
 ```
-The typing file (soho-widget.d.ts) contains the public API for the underlying SoHoXi jQuery controls, it also contains some internal information required to get the component working.
+The typing file (soho-widget.d.ts) contains the public API for the underlying **enterprise** jQuery controls, it also contains some internal information required to get the component working.
 
 ```typescript
 /**
  * Soho widget Control Typings.
  *
  * This file contains the Typescript mappings for the public
- * interface of the Soho jQuery widget control.
+ * interface of the enterprise jQuery control.
  */
 
 /** Configuration options. */
@@ -83,11 +85,11 @@ The types defined in here attempt to represent the interface exposed by the wrap
  - Functions Prototypes (for source and response functions)
  - Events (for triggered events)
 
-It is **important** that the typings files accurately represent the underlying SoHoXi jQuery control, so any changes made by the SoHo team must be made to the corresponding typing file.
+It is **important** that the typings files accurately represent the underlying **enterprise** jQuery control, so any changes made to  the **enterprise** controls must be made to the corresponding typing file.
 
 ### The Component
 
-The structure of a very simple Soho Angular Component that wraps a ficticious jQuery Control called widget is defined below:
+The structure of a very simple **enterprise-ng** Component that wraps a ficticious jQuery Control called **widget** is defined below:
 
 ```typescript
 @Component({

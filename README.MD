@@ -33,7 +33,7 @@ Agreed on project scaffolding (using CLI and Typescript). Agreed on [shared Repo
 http://jira/browse/SOHO-4016. You can also use it to see whats been done.
 
 ## Agreed so far
-* Will use Typescript 2.3.x
+* Will use Typescript 2.7.x
 * Will wrap Soho XI controls
 * Two Tracks: Track 1: Wrap Current Controls, Track 2: Es6 refactor of core controls keeping directives updated
 * Will be supported by the H&L team in collaboration with multiple teams

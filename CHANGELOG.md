@@ -1,5 +1,6 @@
 
 ## Whats New
+* 2018-05-08 - BTH - Upgraded to @angular 6.0.0 and @angular/cli 6.0.0
 * 2018-04-25 - MHH - SOHO-7851: 4.0 Datagrid filter expose the filterWhenTyping setting
 * 2018-04-12 - MAF - SOHO-7711: 4.0 File upload component - Refactor to support directive usage
 * 2018-04-04 - MHH - SOHO-7756: Allow soho-emptymessage projection in list view
@@ -95,6 +96,10 @@
  * SohoListViewComponent now uses Soho Control defaults for 'options'
 
 ### Breaking Changes
+
+* 2018-05-08 - BTH - Upgraded to @angular 6.0.0 and @angular/cli 6.0.0  
+It is recommended that consumers of the the **enterprise-ng** components also upgrade their applications to version 6 of @angular and @angular/cli.  The easiest way to do this is to follow the instructions at https://update.angular.io/.
+  
 
 * 2018-04-12 - MAF - SOHO-7711: 4.0 File upload component refactor to support directive usage - changed to <input soho-fileupload /> from <soho-fileupload>
 

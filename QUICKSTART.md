@@ -1,41 +1,41 @@
-# SoHoXi-Angular QuickStart Guide
+# enterprise-ng QuickStart Guide
 
-This quickstart guide demonstrates how to build and run a simple Angular application using the SoHoXi Angular Component package (**@infor/sohoxi-angular**).
+This quickstart guide demonstrates how to build and run a simple Angular application using the **enterprise-ng** package (**@infor/sohoxi-angular**).
 
 You can download the latest version of the code from [quickstart](http://git.infor.com/scm/soho/sohoxi-angular-quickstart.git).
 
 ## Prerequisites
 
-If **Node.js** and npm aren't already on your machine, install them. These examples require Node 6.9.0 or higher and NPM 3 or higher. To check which version you are using,
+If **Node.js** and **npm** are not already on your machine, install them. These examples require Node 8.11 or higher and NPM 3 or higher. To check which version you are using,
 run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **@angular/cli** to create, build and run the application.  
 
-At the time of writing the version of **@angular/cli** used was 1.6.3 with **angular** 5.1.2.
+At the time of writing the version of **@angular/cli** used was 6.0.0 with **angular** 6.0.0.
 
 ## Step 0 : Install Pre-Prerequisites
 
 From a command prompt, run:
 
 ```
-npm install -g @angular/cli@1.6.2
+npm install -g @angular/cli@6.0.0
 ```
 
 ## Step 1 : Create and Configure the Project
 
 ### Create the project folder
 
-Using a terminal/console window, use **@angular/cli** to initialise the project, creating scaffolding for the application (in this case **sohoxi-angular-quickstart**):
+Using a terminal/console window, use **@angular/cli** to initialise the project, creating scaffolding for the application (in this case **enterprise-ng-quickstart**):
 
 ```
-ng new sohoxi-angular-quickstart
+ng new enterprise-ng-quickstart
 ```
 
 (Note: `ng init` has been removed.)
 
 ## Step 2 : Install Packages
 
-The project will need access to the Infor NPM registy to be able to pull down the latest *SohoXI* component libraries for jQuery and Angular.
+The project will need access to the Infor NPM registy to be able to pull down the latest Infor Design Lab *enterprise* component libraries for jQuery and Angular.
 
 The easiest way to achieve this is to create the file `.npmrc` at the root of the project, and edit the file to include:
 
@@ -47,8 +47,8 @@ You can add the dependencies directly into the `project.json` file, however it i
 In a terminal window, in the project folder:
 
 1. Type `npm install jquery@3.1.1 -S`
-2. Type `npm install @infor/sohoxi@4.4.0-rc -S`
-3. Type `npm install @infor/sohoxi-angular@4.4.0-rc -S`
+2. Type `npm install @infor/sohoxi@4.6.0 -S`
+3. Type `npm install @infor/sohoxi-angular@4.6.0 -S`
 4. Type `npm install @types/jquery@3.2.16", -D`
 5. Type `npm install merge-stream -D`
 
@@ -56,7 +56,7 @@ This includes all the packages we need to create this simple quickstart applicat
 
 ## Step 3 : Configure @angular/cli
 
-The next step is to configure angular-cli to include the SoHoXI libraries into the output.
+The next step is to configure angular-cli to include the IDL enterprise libraries into the output.
 
 Edit `.angular-cli.json`, change the `scripts` as follows:
 ```json
@@ -87,10 +87,10 @@ Also, add `node_modules/@infor/sohoxi-angular/index.ts` to the `include` propert
 ```
 
 This is required as the compiler will not compile code outside the src source folder by default.
-## Step 5 : SoHoXI Assets
+## Step 5 : Enterprise Controls Assets
 **@angular/cli** needs to include assets from node_modules into the compiled output.
 
-To configure this edit the `.angular-cli.json` assets section.
+To configure this edit the `angular-cli.json` assets section.
 ```
   "assets": [
     { "glob": "**/*", "input": "../node_modules/@infor/sohoxi/dist/css", "output": "./assets/sohoxi/css" }
