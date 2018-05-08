@@ -27,8 +27,9 @@
       [text]="message"
       [displayDelay]="delay"
       [timeToComplete]="20000"
+      registerForEvents="afterstart complete"
       (afterstart)="onAfterStart($event)"
-      (close)="onClose($event)"
+      (complete)="onComplete($event)"
     >
 
       <div class="field">

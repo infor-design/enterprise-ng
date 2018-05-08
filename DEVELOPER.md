@@ -109,7 +109,7 @@ The inputs define the properties exposed by the component for integration with o
   this.options.count = value;
   if (this.widget) {
     this.widget.settings.count = value;
-    this.widget.updated();
+    this.ngZone.runOutsideAngular(() => this.widget.updated());
   }
 }
 ```
@@ -132,40 +132,56 @@ private widget: SohoWidgetStatic;
 ```
 **METHODS**
 
-Expose the methods provided by the component wrapper.
+Expose the methods provided by the component wrapper. Ensure any soho control code is running outside of angular.
 
 ```typescript
 makeWidget(): void {
-  this.widget.makeWidget();
+  this.ngZone.runOutsideAngular(() => this.widget.makeWidget());
 }
 ```
 
 **LIFE CYCLE**
 
-The constructor needs to store the injected element reference.
+The constructor needs to store the injected element reference. NgZone is also required so
+any soho control code can be placed outside of angular so change detection doesn't run 
+unnecessarily (This can happen due to soho registering dom event, calling setTimeout, and resolving Promises).
 
 ```typescript
-constructor(private element: ElementRef) {}
+constructor(private element: ElementRef, private ngZone: NgZone) {}
 ```
 
 Then we handle the AfterViewEvent.
 
 ```typescript
 ngAfterViewInit() {
-  this.jQueryElement = jQuery(this.element.nativeElement);
-  this.jQueryElement.widget(this.options);
-  this.widet = this.jQueryElement.data('widget');
-  this.jQueryElement
-    .on('built', (e: JQueryObjectEvent, widgetId: string) => this.built.next({widgetId}));
+  this.ngZone.runOutsideAngular(() => {
+    // initialize the jquery component outside of angular.
+    this.jQueryElement = jQuery(this.element.nativeElement);
+    this.jQueryElement.widget(this.options);
+    this.widet = this.jQueryElement.data('widget');
+    
+    this.jQueryElement.on('built', (e: JQueryObjectEvent, widgetId: string) =>
+      NgZone.assertNotInAngularZone();
+    
+      // Ensure that any events comeing from soho are emitted from inside angular.
+      // emit the event from a timeout so that change detection will run.
+      this.ngZone.run(() => setTimeout(() => this.built.emit({widgetId}), 1));
+  })
 }
 ```
 Finally, the destructor.
 ```typescript
   ngOnDestroy() {
-    if (this.widget) {
-      this.widget.destroy();
-      this.widget = null;
-    }
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        // don't forget to remove any event listeners from the jquery element.
+        this.jQueryElement.off();
+      }
+      if (this.widget) {
+        this.widget.destroy();
+        this.widget = null;
+      }
+    });
   }
 ```
 ## HTML

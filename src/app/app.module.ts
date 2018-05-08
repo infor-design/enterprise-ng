@@ -197,6 +197,8 @@ import { WizardDemoSelectFilePageComponent } from './wizard/wizard-selected-file
 import { WizardDemoTargetFolderPageComponent } from './wizard/wizard-target-folder-page.demo';
 import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validation-rules-page.demo';
 
+import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -364,7 +366,9 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     WizardDemoTargetFolderPageComponent,
     WizardDemoBackupRulePageComponent,
     WizardDemoResultPageComponent,
-    WizardDemoValidationRulesPageComponent
+    WizardDemoValidationRulesPageComponent,
+
+    TestTabsBasicComponent,
   ],
   imports: [
     AppRoutingModule,
