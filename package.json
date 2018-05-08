@@ -1,16 +1,5 @@
 {
-  "name": "@infor/sohoxi-angular",
-  "version": "4.6.0",
-  "description": "Hook & Loop - SoHo XI Angular Controls",
-  "author": "Hook & Loop",
-  "license": "UNLICENSED",
-  "module": "index.ts",
-  "typings": "index.d.ts",
-  "angular-cli": {},
-  "publishConfig": {
-    "scope": "@infor",
-    "registry": "http://npm.infor.com/"
-  },
+  "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -23,7 +12,6 @@
     "publish-nightly": "gulp publish && npm publish publish --tag nightly",
     "prepublishOnly": "tsc -p ./ --outDir dist/"
   },
-  "private": false,
   "dependencies": {
     "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",
