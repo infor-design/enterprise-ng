@@ -6,8 +6,10 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
+import {
+  Subject,
+  Observable
+} from 'rxjs';
 
 import { SohoTreeComponent } from '@infor/sohoxi-angular';
 

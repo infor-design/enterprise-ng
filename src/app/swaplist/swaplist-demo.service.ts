@@ -1,11 +1,7 @@
-﻿import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Injectable } from '@angular/core';
+import { of, Observable } from 'rxjs';
 
-import {
-    SohoSwapListService
-} from '../../soho/swaplist';
-
-declare var Formatters: any;
+import { SohoSwapListService } from '../../soho/swaplist';
 
 @Injectable()
 export class SwapListDemoService extends SohoSwapListService {
@@ -16,7 +12,7 @@ export class SwapListDemoService extends SohoSwapListService {
 
   getData(): Observable<SohoSwapListOptions> {
     console.log(this.options.available);
-    return Observable.of(this.options);
+    return of(this.options);
   }
 
   constructor() {

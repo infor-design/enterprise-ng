@@ -1,3 +1,10 @@
+
+import {
+  of,
+  Observable,
+  BehaviorSubject
+} from 'rxjs';
+
 import {
   Component,
   ViewChild,
@@ -5,10 +12,6 @@ import {
   Output,
   EventEmitter,
 } from '@angular/core';
-
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import 'rxjs/add/observable/of';
 
 import { SohoDataGridComponent } from '@infor/sohoxi-angular';
 import { SohoBusyIndicatorDirective } from '@infor/sohoxi-angular';
@@ -39,7 +42,7 @@ export class DataGridLookupDialogDemoComponent implements AfterViewInit {
   }
 
   public get columns(): Observable<SohoDataGridColumn[]> {
-    return Observable.of(this.service.getColumns());
+    return of(this.service.getColumns());
   }
 
   addRows() {
