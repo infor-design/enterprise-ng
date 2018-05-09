@@ -3,7 +3,7 @@ import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-dropdown-demo',
-  templateUrl: './dropdown.demo.html',
+  templateUrl: './dropdown.demo.html'
 })
 export class DropdownDemoComponent implements OnInit {
   @ViewChildren(SohoDropDownComponent) dropDowns: QueryList<SohoDropDownComponent>;
@@ -18,7 +18,7 @@ export class DropdownDemoComponent implements OnInit {
   sourceoptions: Array<Object> = [];
   public counter = 0;
   public model = {
-    single: '',
+    single: 'AL',
     readOnly: 'DE',
     source: '',
     modifiable: this.options[3],
@@ -56,7 +56,7 @@ export class DropdownDemoComponent implements OnInit {
     this.dropDownReadOnly = true;
   }
 
-  source(response: any, searchTerm: any) {
+  source = (response: SohoDropDownResponseFunction, searchTerm: any) => {
     const states = [
       { value: 'AK', label: 'Alaska'},
       { value: 'AZ', label: 'Arizona'},
@@ -70,7 +70,8 @@ export class DropdownDemoComponent implements OnInit {
     ];
 
     this.sourceoptions = states;
+    // this.model.source = this.sourceoptions[3];
 
-    response(states);
+    response(states, true);
   }
 }
