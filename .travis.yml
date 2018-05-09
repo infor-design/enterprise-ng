@@ -6,11 +6,10 @@ cache:
     - node_modules
 install:
   - npm install
+before_script:
   - npm install -g angular-cli codecov
-
-jobs:
-  include:
-    - stage: build dev
-      script: npm run build && npm run lint && npm test && codecov
-    - stage: build prod
-      script: npm run build --aot --prod && npm run lint && npm test
+script:
+  - npm run lint
+  - npm test
+after_success:
+  - codecov
