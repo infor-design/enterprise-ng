@@ -11,11 +11,6 @@ install:
 jobs:
   include:
     - stage: build dev
-      script: npm run build
-      script: npm run lint
-      script: npm test
-      script: codecov
+      script: npm run build && npm run lint && npm test && codecov
     - stage: build prod
-      script: npm run build --aot --prod
-      script: npm run lint
-      script: npm test
+      script: npm run build --aot --prod && npm run lint && npm test
