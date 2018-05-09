@@ -9,8 +9,8 @@ install:
 before_script:
   - npm install -g angular-cli codecov
 script:
-  - npm run build
   - npm run lint
+  - npm run build
   - npm run test
 after_success:
   - codecov
