@@ -45,7 +45,8 @@ export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
       stateValues: []
     }
   };
-  public model: any = {};
+  public model: any = {
+  };
   public showModel = false;
   public form: FormGroup;
 
@@ -96,7 +97,8 @@ export class DropdownLMDemoComponent implements OnInit, AfterViewInit {
     ];
 
     this.fieldSpec.SourceField.stateValues = states;
+    this.model.SourceField.value = states[2];
 
-    response(states);
+    response(states, true);
   }
 }

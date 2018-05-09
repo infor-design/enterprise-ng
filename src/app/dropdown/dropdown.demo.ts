@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList, ChangeDetectionStrategy } from '@angular/core';
 import { SohoDropDownComponent } from '@infor/sohoxi-angular';
 
 @Component({
   selector: 'soho-dropdown-demo',
   templateUrl: './dropdown.demo.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownDemoComponent implements OnInit {
   @ViewChildren(SohoDropDownComponent) dropDowns: QueryList<SohoDropDownComponent>;
@@ -18,7 +19,7 @@ export class DropdownDemoComponent implements OnInit {
   sourceoptions: Array<Object> = [];
   public counter = 0;
   public model = {
-    single: '',
+    single: 'AL',
     readOnly: 'DE',
     source: '',
     modifiable: this.options[3],

@@ -63,7 +63,7 @@ export class DropdownAsyncDemoComponent implements AfterViewInit {
     // has not been updated yet, so push it onto the event queue.
     setTimeout(() => {
       // Force the control to refresh - reloading the options.
-      this.dropdown.updated();
+      // this.dropdown.updated();
     });
   }
 }

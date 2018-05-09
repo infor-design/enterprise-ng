@@ -39,7 +39,7 @@
     <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
     <div *ngIf="showModel">
         <hr>
-        <h3>{{ model | json }}</h3>
+        <h3>{{ model.value | json }}</h3>
         <h3>{{ model2.value | json }}</h3>
     </div>
 </div>

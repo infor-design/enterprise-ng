@@ -8,13 +8,19 @@ import {
   Input,
   OnDestroy,
   Output,
+  NgZone,
+  Self,
+  Host,
+  Optional,
+  InjectionToken,
+  forwardRef,
+  AfterViewChecked,
 } from '@angular/core';
 import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'select[soho-dropdown]', // tslint:disable-line
   template: '<ng-content></ng-content>',
-  providers: [NgModel],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
@@ -27,7 +33,8 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
    * Local variables
    */
   private isDisabled: boolean = null;
-  private isReadOnly: boolean =  null;
+
+  private isReadOnly: boolean = null;
 
   /**
    * Selector for originating element.
@@ -312,35 +319,78 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
     return this.options.multiple;
   }
 
-  constructor(private element: ElementRef, private model?: NgModel) {
-    if (this.model) {
-      this.model.valueChanges.subscribe(() => {
-        // @BUG event causes the dropdown to be closed (even when closeOnSelect = false),
-        // so as a workaround ignore changes if the dialog is open and close disabled.
-        if (this.dropdown && !this.dropdown.isOpen() && this.dropdown.settings.closeOnSelect) {
-          this.dropdown.updated();
-        }
+  /**
+   * @description
+   * Constructor.
+   *
+   * @param element the associated element.
+   * @param model the model
+   * @param ngZone the angular zone
+   */
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone) {
+  }
+
+  ngAfterViewInit() {
+    // call outside the angular zone so change detection
+    // isn't triggered by the soho component.
+    this.ngZone.runOutsideAngular(() => {
+      // assign element to local variable
+      this.jQueryElement = jQuery(this.element.nativeElement);
+
+      // initialise the dropdown control
+      this.jQueryElement.dropdown(this.options);
+
+      // extract the api
+      this.dropdown = this.jQueryElement.data('dropdown');
+
+      // @todo - add event binding control so we don't bind if not required.
+      this.jQueryElement
+        .on('change', (event: JQuery.Event) => this.onChange(event))
+        .on('updated', (event: JQuery.Event) => this.updatedEvent.emit(event));
+
+      setTimeout(() => {
+        this.updated();
+      }, 1);
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.jQueryElement) {
+      // call outside the angular zone so change detection isn't
+      // triggered by the soho component.
+      this.ngZone.runOutsideAngular(() => {
+        // remove the event listeners on this element.
+        this.jQueryElement.off();
+
+        // Destroy any widget resources.
+        this.dropdown.destroy();
+        this.dropdown = null;
       });
     }
   }
 
-  ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
-    this.jQueryElement.dropdown(this.options);
-    this.jQueryElement
-      .on('change', (event: JQuery.Event) => this.onChange(event))
-      .on('updated', (event: JQuery.Event) => this.updatedEvent.emit(event));
-    this.dropdown = this.jQueryElement.data('dropdown');
+  private onUpdated(event: any) {
+    // this.ngZone.runOutsideAngular(() => this.dropdown.selectValue(this.controlValueAccessor2.value));
+    this.updatedEvent.next(event);
   }
-
-  ngOnDestroy() {
-    if (this.dropdown) {
-      this.dropdown.destroy();
-      this.dropdown = null;
-    }
-  }
-
+  /**
+   * @description
+   *
+   * The dropdown has changed value.
+   *
+   * @param event
+   */
   private onChange(event: any) {
+    // Update the model.
+    // this.onChangeFn(this.jQueryElement.val());
+
+    // Set the data on the event.
+    // event.data = this.innerValue;
+    event.data = this.jQueryElement.val();
+
+    // Inform all listeners.
     this.change.emit(event);
   }
 
@@ -349,7 +399,12 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
    * soho dropdown control so it updates its value labels.
    */
   public updated(): SohoDropDownComponent {
-    this.dropdown.updated();
+    if (this.dropdown) {
+      this.ngZone.runOutsideAngular(() => {
+        this.dropdown.selectValue(this.jQueryElement.val());
+        this.dropdown.updated();
+      });
+    }
     return this;
   }
 
@@ -362,10 +417,10 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   @Input() set disabled(value: boolean) {
     if (this.dropdown) {
       if (value) {
-        this.dropdown.disable();
+        this.ngZone.runOutsideAngular(() => { this.dropdown.disable(); });
         this.isDisabled = true;
       } else {
-        this.dropdown.enable();
+        this.ngZone.runOutsideAngular(() => { this.dropdown.enable(); });
         this.isDisabled = false;
         this.isReadOnly = false;
       }
@@ -389,6 +444,8 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   }
 
   /**
+   * @description
+   *
    * Soho-dropdown is not a native element - need this to set focus programmatically.
    * 'name' attribute must be set on the control for this to work correctly.
    */
@@ -396,4 +453,18 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.trigger('activated');
   }
 
+  /**
+   * @description
+   *
+   * Sets the value of the dropdown.
+   *
+   * This is the model value that is to be set.
+   * @param value
+   */
+  public selectValue(value: any): void {
+    if (this.dropdown) {
+      // @todo lookup model value!
+      this.dropdown.selectValue(value);
+    }
+  }
 }

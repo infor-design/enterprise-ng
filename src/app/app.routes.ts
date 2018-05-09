@@ -147,6 +147,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 import { WizardDemoComponent } from './wizard/wizard.demo';
 import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
+import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo';
 
 import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
 
@@ -215,6 +216,7 @@ export const routes: Routes = [
   { path: 'dropdown-async',                         component: DropdownAsyncDemoComponent },
   { path: 'dropdown-lm',                            component: DropdownLMDemoComponent },
   { path: 'dropdown-multi',                         component: DropdownMultiselectDemoComponent },
+  { path: 'dropdown-reactive',                      component: DropdownReactiveDemoComponent },
   { path: 'dropdown-simple',                        component: DropdownSimpleDemoComponent },
   { path: 'editor',                                 component: EditorDemoComponent },
   { path: 'emptymessage',                           component: EmptyMessageDemoComponent},
