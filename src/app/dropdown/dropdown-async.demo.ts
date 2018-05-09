@@ -6,7 +6,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 
 import { SohoDropDownComponent } from '@infor/sohoxi-angular';
 

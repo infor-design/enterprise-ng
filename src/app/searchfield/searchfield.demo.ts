@@ -1,5 +1,3 @@
-
-import {of as observableOf, Observable} from 'rxjs';
 import {
   Component,
   OnInit,
@@ -7,6 +5,7 @@ import {
 } from '@angular/core';
 
 import { SohoSearchFieldComponent } from '@infor/sohoxi-angular';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'soho-searchfield-demo',
@@ -49,7 +48,7 @@ export class SearchFieldDemoComponent implements OnInit {
    * We use an observable with a callback that returns objects in the form: value, label.
    */
   objectBasedData(): Observable<Array<object>> {
-    return observableOf([
+    return Observable.of([
       {value: '1', label: 'Baby'},
       {value: '2', label: 'Shoes'},
       {value: '3', label: 'Mens'},
@@ -64,7 +63,7 @@ export class SearchFieldDemoComponent implements OnInit {
    * A straight array will also work (change line 31)
    */
   arrayBasedData(): Observable<Array<string>> {
-    return observableOf([
+    return Observable.of([
         'Baby', 'Shoes', 'Mens', 'Womens', 'Bath', 'Home', 'Outdoors'
     ]);
   }
