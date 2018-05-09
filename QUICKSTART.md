@@ -1,6 +1,6 @@
 # enterprise-ng QuickStart Guide
 
-This quickstart guide demonstrates how to build and run a simple Angular application using the **enterprise-ng** package (**@infor/sohoxi-angular**).
+This quickstart guide demonstrates how to build and run a simple Angular application using the **enterprise-ng** components (**@infor/sohoxi-angular**).
 
 You can download the latest version of the code from [quickstart](http://git.infor.com/scm/soho/sohoxi-angular-quickstart.git).
 

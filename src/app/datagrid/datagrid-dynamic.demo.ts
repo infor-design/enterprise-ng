@@ -1,18 +1,24 @@
 
-import { of,  Observable,  BehaviorSubject } from 'rxjs';
+import {
+  of,
+  Observable,
+  BehaviorSubject
+} from 'rxjs';
+
 import {
   Component,
   ViewChild,
   AfterViewInit,
 } from '@angular/core';
 
+import {
+  SohoDataGridComponent,
+  SohoPopupMenuComponent
+} from '@infor/sohoxi-angular';
 
-import { SohoDataGridComponent, SohoPopupMenuComponent } from '@infor/sohoxi-angular';
 import { SohoBusyIndicatorDirective } from '@infor/sohoxi-angular';
 
-import {
-  DataGridDemoService
-} from './datagrid-demo.service';
+import { DataGridDemoService } from './datagrid-demo.service';
 
 @Component({
   selector: 'soho-datagrid-dynamic-demo',

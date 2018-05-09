@@ -1,12 +1,16 @@
 
-import {throwError as observableThrowError,  Observable } from 'rxjs';
+import {
+  throwError,
+  Observable
+} from 'rxjs';
 
-import {catchError, map} from 'rxjs/operators';
+import {
+  catchError,
+  map
+} from 'rxjs/operators';
+
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-
-
-
 
 @Injectable()
 export class HierarchyDemoService {
@@ -16,10 +20,10 @@ export class HierarchyDemoService {
   public getHierarchyData(): Observable<any> {
     return this.http.get('./app/demodata/hierarchy.demo.json').pipe(
     map((res: any) => res.json()),
-    catchError(error => this.handleError(error)),);
+    catchError(error => this.handleError(error)));
   }
 
   private handleError(error: Response) {
-    return observableThrowError(error || 'Server error');
+    return throwError(error || 'Server error');
   }
 }
