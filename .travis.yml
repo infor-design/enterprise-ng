@@ -10,8 +10,9 @@ cache:
 install:
   - npm install
 before_script:
-  - npm install -g angular-cli
+  - npm install -g angular-cli codecov
 script:
   - npm build
   - npm run lint
   - npm test
+  - codecov
