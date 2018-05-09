@@ -1,7 +1,7 @@
 {
   "name": "ids-enterprise-ng",
   "slug": "ids-enterprise-ng",
-  "version": "4.6.0",
+  "version": "4.7.0-dev",
   "description": "Infor Design System (IDS) Enterprise Angular Components",
   "repository": {
     "type": "git",
