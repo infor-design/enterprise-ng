@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [{
           "glob": "**/*",
-          "input": "../node_modules/@infor/sohoxi/dist/css",
+          "input": "../node_modules/ids-enterprise/dist/css",
           "output": "./assets/sohoxi/css"
         },
         "./app/demodata"
@@ -26,9 +26,9 @@
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
-        "../node_modules/@infor/sohoxi/dist/js/d3.v4.js",
-        "../node_modules/@infor/sohoxi/dist/js/sohoxi.js",
-        "../node_modules/@infor/sohoxi/dist/js/cultures/en-US.js",
+        "../node_modules/ids-enterprise/dist/js/d3.v4.js",
+        "../node_modules/ids-enterprise/dist/js/sohoxi.js",
+        "../node_modules/ids-enterprise/dist/js/cultures/en-US.js",
         "../node_modules/lscache/lscache.js"
       ],
       "environmentSource": "environments/environment.ts",
