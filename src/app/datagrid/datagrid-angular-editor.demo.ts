@@ -14,7 +14,7 @@ import {
   SohoDataGridComponent,
   SohoInputComponent,
   SohoDatePickerComponent
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 export const EDITORS_DATA: any[] = [
   {

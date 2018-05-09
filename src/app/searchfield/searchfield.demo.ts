@@ -4,7 +4,7 @@ import {
   ViewChild,
 } from '@angular/core';
 
-import { SohoSearchFieldComponent } from '@infor/sohoxi-angular';
+import { SohoSearchFieldComponent } from 'ids-enterprise-ng';
 import {Observable} from 'rxjs/Observable';
 
 @Component({

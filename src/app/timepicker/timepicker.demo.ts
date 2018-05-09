@@ -6,7 +6,7 @@ import {
 
 import {
   SohoTimePickerComponent
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-timepicker-demo',

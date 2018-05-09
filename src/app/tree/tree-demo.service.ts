@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-import { SohoTreeService } from '@infor/sohoxi-angular';
+import { SohoTreeService } from 'ids-enterprise-ng';
 
 import { TreeDemoData } from './tree-data.demo';
 

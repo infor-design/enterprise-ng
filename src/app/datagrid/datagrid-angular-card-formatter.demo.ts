@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 import {
   SohoButtonComponent,
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 import {
   CARD_DATA
 } from './datagrid-paging-data';

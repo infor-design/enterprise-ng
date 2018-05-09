@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { SohoHierarchyComponent } from '@infor/sohoxi-angular';
+import { SohoHierarchyComponent } from 'ids-enterprise-ng';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HierarchyDemoService } from './hierarchy.demo.service';
 

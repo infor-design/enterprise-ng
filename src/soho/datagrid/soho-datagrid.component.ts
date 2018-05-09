@@ -27,7 +27,7 @@ import {
 import { ArgumentHelper } from '../utils/argument.helper';
 
 import { SohoDataGridService } from './soho-datagrid.service';
-import { SohoComponentsModule } from '@infor/sohoxi-angular';
+import { SohoComponentsModule } from 'ids-enterprise-ng';
 
 export type SohoDataGridType = 'auto' | 'content-only';
 

@@ -9,7 +9,7 @@ import {
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 
-import { SohoTreeComponent } from '@infor/sohoxi-angular';
+import { SohoTreeComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-tree-dynamic-demo',
