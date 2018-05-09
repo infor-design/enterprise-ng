@@ -15,7 +15,7 @@
   },
   "private": false,
   "dependencies": {
-    "@infor/sohoxi": "^4.6.0",
+    "ids-enterprise": "^4.7.0-dev",
     "classlist.js": "^1.1.20150312",
     "jquery": "3.3.1"
   },
