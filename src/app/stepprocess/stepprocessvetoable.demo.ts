@@ -3,7 +3,7 @@ import {
   Component,
 } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'soho-stepprocessvetoable-demo',
