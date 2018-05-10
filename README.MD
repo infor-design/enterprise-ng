@@ -14,7 +14,7 @@ or
 **Note:** More information on contributing can be found in the @infor-design/enterprise repo [here](https://github.com/infor-design/enterprise/blob/master/docs/CONTRIBUTING.md).
 
 
-# SoHo XI Directives for Angular
+# Infor Design System's Enterprise Directives for Angular
 
 This repository serves as the central shared location for a crowd-sourced cross-Infor Angular Typescript repo of Xi control wrapped components.
 
