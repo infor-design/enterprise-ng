@@ -15,7 +15,7 @@ import {
 import {
   SohoSwapListComponent,
   SohoBusyIndicatorDirective
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 import { SwapListDemoService } from './swaplist-demo.service';
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';

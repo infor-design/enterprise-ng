@@ -6,7 +6,7 @@ import {
 
 import {
   SohoRadarComponent
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-sparkline-demo',

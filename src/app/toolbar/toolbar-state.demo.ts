@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 
 import { LMToolbarButton } from './toolbar-state.service';
-import { SohoToolbarComponent } from '@infor/sohoxi-angular';
+import { SohoToolbarComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'toolbar-state-demo', // tslint:disable-line

@@ -5,7 +5,7 @@
   ViewChild
 } from '@angular/core';
 
-import { SohoSwapListComponent } from '@infor/sohoxi-angular';
+import { SohoSwapListComponent } from 'ids-enterprise-ng';
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
 @Component({

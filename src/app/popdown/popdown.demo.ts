@@ -3,7 +3,7 @@ import { Component, ViewChild, ChangeDetectorRef, ChangeDetectionStrategy, } fro
 import {
   SohoPopDownDirective,
   SohoListViewComponent
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-popdown-demo',

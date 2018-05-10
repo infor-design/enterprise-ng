@@ -5,7 +5,7 @@ import {
   Component,
   ViewChild
 } from '@angular/core';
-import { SohoAutoCompleteComponent } from '@infor/sohoxi-angular';
+import { SohoAutoCompleteComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'autocomplete-demo', // tslint:disable-line

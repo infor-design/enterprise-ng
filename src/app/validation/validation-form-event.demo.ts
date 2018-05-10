@@ -1,7 +1,7 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { SohoTrackDirtyDirective } from 'soho/trackdirty';
-import { SohoErrorDirective } from '@infor/sohoxi-angular';
+import { SohoErrorDirective } from 'ids-enterprise-ng';
 
 @Component({
   selector:    'soho-validation-form-event-demo',

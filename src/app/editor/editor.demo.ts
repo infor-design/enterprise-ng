@@ -9,7 +9,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 import {
   SohoEditorComponent
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-editor-demo',

@@ -48,7 +48,7 @@
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/angular/angular
 │  └─ publisher: angular
-├─ @infor/sohoxi-angular@4.2.5
+├─ ids-enterprise-ng@4.2.5
 │  ├─ licenses: MIT
 │  └─ publisher: Hook & Loop
 ├─ @infor/sohoxi@4.2.5-develop

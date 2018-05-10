@@ -17,7 +17,7 @@ import {
   SohoDataGridComponent,
   SohoButtonComponent,
   SohoComponentsModule
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 import {
   PAGING_COLUMNS,
   PAGING_DATA
