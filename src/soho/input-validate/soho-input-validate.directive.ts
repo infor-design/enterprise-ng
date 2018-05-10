@@ -26,7 +26,7 @@ export class SohoInputValidateDirective implements AfterViewInit {
   @Output() info = new EventEmitter<SohoInputValidateEvent>();
   @Output() valid = new EventEmitter<SohoInputValidateEvent>();
 
-  constructor(private el: ElementRef, @Attribute("data-validate") dataValidateAttr) {
+  constructor(private el: ElementRef, @Attribute('data-validate') dataValidateAttr) {   // tslint:disable-line
     this.dataValidate = dataValidateAttr;
   }
 
