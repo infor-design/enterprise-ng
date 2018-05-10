@@ -1381,6 +1381,15 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Sets the active cell.
+   * @param idx The index of the row of the cell to set active.
+   * @param idx2 The index of the cell to set active.
+   */
+  public setActiveCell(idx: number, idx2: number): void {
+    this.datagrid.setActiveCell(idx, idx2);
+  }
+
+  /**
    * Scrolls the row at <b>idx</b> into view in the view port.
    * @param idx The index of the row to scroll into view.
    */
