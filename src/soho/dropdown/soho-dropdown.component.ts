@@ -23,12 +23,15 @@ import { NgModel } from '@angular/forms';
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
-  runUpdatedOnCheck: any;
+export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   /**
    * Used to provide unnamed controls with a unique id.
    */
   private static counter = 0;
+    /**
+   * Flag to force an update of the control after the view is created.
+   */
+  private runUpdatedOnCheck: boolean;
 
   /**
    * Local variables
@@ -357,8 +360,14 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
 
   ngAfterViewChecked() {
     if (this.runUpdatedOnCheck) {
-       this.updated();
-       this.runUpdatedOnCheck = false;
+      this.ngZone.runOutsideAngular(() => {
+        // We need to update the control AFTER the model
+        // has been updated (assuming there is one).
+        setTimeout(() => {
+          this.updated();
+        });
+        this.runUpdatedOnCheck = false;
+      });
     }
  }
 
