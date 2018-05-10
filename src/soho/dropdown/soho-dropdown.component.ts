@@ -24,6 +24,7 @@ import { NgModel } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
+  runUpdatedOnCheck: any;
   /**
    * Used to provide unnamed controls with a unique id.
    */
@@ -350,25 +351,28 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
         .on('change', (event: JQuery.Event) => this.onChange(event))
         .on('updated', (event: JQuery.Event) => this.updatedEvent.emit(event));
 
-      setTimeout(() => {
-        this.updated();
-      }, 1);
+      this.runUpdatedOnCheck = true;
     });
   }
 
+  ngAfterViewChecked() {
+    if (this.runUpdatedOnCheck) {
+       this.updated();
+       this.runUpdatedOnCheck = false;
+    }
+ }
+
   ngOnDestroy() {
-    if (this.jQueryElement) {
-      // call outside the angular zone so change detection isn't
-      // triggered by the soho component.
-      this.ngZone.runOutsideAngular(() => {
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
         // remove the event listeners on this element.
         this.jQueryElement.off();
+      }
 
-        // Destroy any widget resources.
-        this.dropdown.destroy();
-        this.dropdown = null;
+      // Destroy any widget resources.
+      this.dropdown.destroy();
+      this.dropdown = null;
       });
-    }
   }
 
   private onUpdated(event: any) {
@@ -464,7 +468,9 @@ export class SohoDropDownComponent implements AfterViewInit, OnDestroy {
   public selectValue(value: any): void {
     if (this.dropdown) {
       // @todo lookup model value!
-      this.dropdown.selectValue(value);
+      this.ngZone.runOutsideAngular(() => {
+        this.dropdown.selectValue(value);
+      });
     }
   }
 }

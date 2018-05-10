@@ -34,7 +34,7 @@
     "@angular/platform-browser": "6.0.0",
     "@angular/platform-browser-dynamic": "6.0.0",
     "@angular/router": "6.0.0",
-    "@infor/sohoxi": "^4.6.0",
+    "ids-enterprise": "^4.7.0-dev",
     "@types/lscache": "^1.0.7",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
