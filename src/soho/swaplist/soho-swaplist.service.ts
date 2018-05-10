@@ -1,4 +1,4 @@
-﻿import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 /**
  * Dynamic Soho SwapList Service contract.
