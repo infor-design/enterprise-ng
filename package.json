@@ -7,8 +7,8 @@
     "test": "ng test --watch=false --browsers=PhantomJS --reporters=bamboo,mocha --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "publish-dev": "gulp publish && npm publish publish --tag dev --force",
-    "publish-prod": "gulp publish && npm publish publish --force",
+    "publish-dev": "gulp publish && npm publish publish --tag dev",
+    "publish-prod": "gulp publish && npm publish publish",
     "publish-nightly": "gulp publish && npm publish publish --tag nightly",
     "prepublishOnly": "tsc -p ./ --outDir dist/"
   },
