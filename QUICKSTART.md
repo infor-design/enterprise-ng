@@ -92,14 +92,14 @@ This is required as the compiler will not compile code outside the src source fo
 To configure this edit the `angular-cli.json` assets section.
 ```
   "assets": [
-    { "glob": "**/*", "input": "../node_modules/ids-enterprise/dist/css", "output": "./assets/sohoxi/css" }
+    { "glob": "**/*", "input": "./node_modules/ids-enterprise/dist/css", "output": "./assets/ids-enterprise/css" }
   ],
 ```
 The link in the following to the `src/index.html` file would be the output folder..
 ```
 <head>
   ...
-  <link rel="stylesheet" id="stylesheet" href="/assets/sohoxi/css/light-theme.css" type="text/css">
+  <link rel="stylesheet" id="stylesheet" href="/assets/ids-enterprise/css/light-theme.css" type="text/css">
 </head>
 ```
 
