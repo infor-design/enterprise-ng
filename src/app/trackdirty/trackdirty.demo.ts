@@ -9,7 +9,7 @@ import {
   SohoInputComponent,
   SohoLookupComponent,
   SohoTrackDirtyDirective
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 /**
  * This example:

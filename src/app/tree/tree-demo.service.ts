@@ -6,7 +6,7 @@ import {
 
 import { Injectable } from '@angular/core';
 
-import { SohoTreeService } from '@infor/sohoxi-angular';
+import { SohoTreeService } from 'ids-enterprise-ng';
 
 import { TreeDemoData } from './tree-data.demo';
 

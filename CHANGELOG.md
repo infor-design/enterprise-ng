@@ -1,5 +1,8 @@
 
 ## Whats New
+* 2018-05-10 - CRL - NPM packages changes
+  - The new package is now available open sourced on npmjs
+  - The packages new name is `ids-enterprise-ng` and is [here](https://www.npmjs.com/package/ids-enterprise-ng) 
 * 2018-05-08 - BTH - Upgraded to @angular 6.0.0 and @angular/cli 6.0.0
 * 2018-05-07 - PWP - SOHO-7923: Refactored several components and directives to run outside angular
   - refactored `soho-busy-indicator.directive.ts`, `soho-button.component.ts` , `soho-context-menu.directive.ts`,

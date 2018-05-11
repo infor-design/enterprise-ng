@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { SohoComponentsModule } from '@infor/sohoxi-angular';
+import { SohoComponentsModule } from 'ids-enterprise-ng';
 
 import { ContextualActionPanelDemoComponent } from './contextual-action-panel.demo';
 import { NestedModalDialogComponent } from './nested-modal-dialog.component';

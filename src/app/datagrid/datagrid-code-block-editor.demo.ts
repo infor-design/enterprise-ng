@@ -12,7 +12,7 @@ import {
 
 import {
   SohoDataGridComponent,
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 import {
   CODE_BLOCK_DATA

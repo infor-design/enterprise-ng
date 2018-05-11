@@ -222,7 +222,7 @@ export class SohoWidgetModule {}
 
 Angular-CLI uses **jasmine** to handle unit testing.  Simply add your unit test code to a file called **soho-widget.spec.ts** in the same folder as component.
 
-These unit tests are run are part of the Continuous Integration build when code is pushed into the sohoxi-angular repository.
+These unit tests are run are part of the Continuous Integration build when code is pushed into the IDS enterprise-ng repository.
 
 ## Pulling it all together
 
@@ -260,4 +260,4 @@ import { SohoWidgetModule } from './widget/soho-widget.module';
 export class SohoComponentsModule {}
 ```
 
-To integrate this into your application simply include the **@infor/sohoxi-angular** package into your application, and include the **SohoComponentsModule** into your application module definition.  For further details, see the QuickStart guide.
+To integrate this into your application simply include the **ids-enterprise-ng** package into your application, and include the **SohoComponentsModule** into your application module definition.  For further details, see the QuickStart guide.

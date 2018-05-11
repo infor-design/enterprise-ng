@@ -8,7 +8,7 @@ import {
 import {
   SohoBusyIndicatorDirective,
   SohoBusyIndicatorEvent
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-busyindicator-demo',

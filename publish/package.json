@@ -1,25 +1,29 @@
 {
-  "name": "@infor/sohoxi-angular",
-  "version": "4.6.0",
-  "description": "Hook & Loop - SoHo XI Angular Controls",
+  "name": "ids-enterprise-ng",
+  "slug": "ids-enterprise-ng",
+  "version": "4.7.0-dev",
+  "description": "Infor Design System (IDS) Enterprise Angular Components",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infor-design/enterprise-ng.git"
+  },
+  "keywords": [
+    "infor design system",
+    "infor design system enterprise angular"
+  ],
   "author": "Hook & Loop",
   "license": "MIT",
-  "module": "index.ts",
-  "typings": "index.d.ts",
-  "angular-cli": {},
-  "publishConfig": {
-    "scope": "@infor",
-    "registry": "http://npm.infor.com/"
+  "bugs": {
+    "url": "https://github.com/infor-design/enterprise-ng/issues"
   },
+  "homepage": "https://github.com/infor-design/enterprise-ng",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "private": false,
   "dependencies": {
     "ids-enterprise": "^4.7.0-dev",
     "classlist.js": "^1.1.20150312",
     "jquery": "3.3.1"
-  },
-  "devDependencies": {
-  },
-  "optionalDependencies": {}
+  }
 }
+
