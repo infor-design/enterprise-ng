@@ -104,27 +104,37 @@
 ### Breaking Changes
 
 * 2018-05-08 - CRL - NPM packages changes for Enterprise Components for Angular
-
-Applications will be need to change all import lines that specify **@infor/sohoxi-angular** to **ids-enterprise-ng**. For example:
-```typescript 
-import { SohoButton } from '@infor/sohoxi-angular';
+The `angular.json` file requires changes to reference the new packages, spefifically:
+```json
+"assets": [
+  { 
+    "glob": "**/*",
+    "input": "./node_modules/ids-enterprise/dist/css",
+    "output": "./assets/ids-enterprise/css"
+  }
+]
 ```
-changes to 
+```json
+"scripts": [
+    "./node_modules/jquery/dist/jquery.js",
+    "./node_modules/ids-enterprise/dist/js/sohoxi.js",
+    "./node_modules/ids-enterprise/dist/js/cultures/en-US.js",
+    "./node_modules/ids-enterprise/dist/js/d3.v4.js"
+  ]
+```
+Applications will be need to change all import lines that specify **@infor/sohoxi-angular** to **ids-enterprise-ng**. For example:
 ```typescript
 import { SohoButton } from 'ids-enterprise-ng';
 ```
- * **package.json** must be updated to import, both **ids-enterprise** and **ids-enterprise-ng**.
-
- ```json
- "@infor/sohoxi": "^4.6.0",
- "@infor/sohoxi-angular": "^4.6.0",
- ```
-changes to
+**package.json** must be updated to import **ids-enterprise** and **ids-enterprise-ng**.
 ```json
   "ids-enterprise": "^4.7.0",
   "ids-enterprise-ng": "^4.7.0",
 ```
-
+**index.html** may required updates if assets are being included, for example:
+```html
+<link rel="stylesheet" id="stylesheet" href="/assets/ids-enterprise/css/light-theme.css" type="text/css">
+```
 * 2018-05-08 - BTH - Upgraded to @angular 6.0.0 and @angular/cli 6.0.0  
 It is recommended that consumers of the the **ids-enterprise-ng** components also upgrade their applications to version 6 of @angular and @angular/cli.  The easiest way to do this is to follow the instructions at https://update.angular.io/.
 
