@@ -63,7 +63,7 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
   registerOnChange(fn: (_: T) => void): void {
     this._onChangeCallback = () => {
       fn(this.internalValue);
-    }
+    };
   }
 
   /**

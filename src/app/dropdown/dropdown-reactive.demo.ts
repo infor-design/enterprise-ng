@@ -54,4 +54,3 @@ export class DropdownReactiveDemoComponent {
     this.showModel = !this.showModel;
   }
 }
-
