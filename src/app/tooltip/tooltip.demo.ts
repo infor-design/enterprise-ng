@@ -7,7 +7,7 @@ import {
 
 import {
   SohoTooltipDirective
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-tooltip-demo',

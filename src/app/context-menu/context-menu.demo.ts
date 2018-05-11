@@ -4,7 +4,7 @@ import {
   ViewChild,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { SohoTextAreaComponent } from '@infor/sohoxi-angular';
+import { SohoTextAreaComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-content-menu-demo',

@@ -7,7 +7,7 @@ import {
 import {
   SohoModalDialogService,
   SohoModalDialogRef
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 import { ExampleModalDialogComponent } from './example-modal-dialog.component';
 import { NestedModalDialogComponent } from './nested-modal-dialog.component';

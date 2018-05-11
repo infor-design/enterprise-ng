@@ -8,7 +8,7 @@ import {
 
 import { ApplicationMenuLazyService } from './application-menu-lazy-service.demo';
 
-import { SohoApplicationMenuComponent } from '@infor/sohoxi-angular';
+import { SohoApplicationMenuComponent } from 'ids-enterprise-ng';
 import { ApplicationMenuLazyMenuDemoComponent } from './application-menu-lazy-menu.demo';
 
 @Component({

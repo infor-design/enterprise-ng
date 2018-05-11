@@ -9,7 +9,7 @@ import {
   SohoContextualActionPanelRef,
   SohoModalDialogService,
   SohoModalDialogRef
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 import { NestedModalDialogComponent } from './nested-modal-dialog.component';
 /**

@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { SohoMenuButtonComponent } from '@infor/sohoxi-angular';
+import { SohoMenuButtonComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-menu-button-demo',

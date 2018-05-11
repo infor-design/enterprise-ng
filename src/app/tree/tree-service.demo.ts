@@ -8,7 +8,7 @@ import {
 import {
   SohoTreeComponent,
   SohoTreeService
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 import { TreeDemoService } from './tree-demo.service';
 

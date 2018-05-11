@@ -6,7 +6,7 @@ import {
 
 import {
   SohoColorPickerComponent
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-colorpicker-demo',

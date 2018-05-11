@@ -12,9 +12,9 @@ import { DataGridDemoService } from './datagrid-demo.service';
 import {
   SohoDataGridComponent,
   SohoDataGridService
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
-import { SohoBusyIndicatorDirective } from '@infor/sohoxi-angular';
+import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-datagrid-breadcrumb-demo',

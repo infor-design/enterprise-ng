@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewChildren, QueryList } from '@angular/core';
-import { SohoDropDownComponent } from '@infor/sohoxi-angular';
+import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector:        'soho-dropdown-multiselect-demo',

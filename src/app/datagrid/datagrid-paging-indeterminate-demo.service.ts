@@ -6,7 +6,7 @@ import {
 
 import { Injectable } from '@angular/core';
 
-import { SohoDataGridService } from '@infor/sohoxi-angular';
+import { SohoDataGridService } from 'ids-enterprise-ng';
 
 import {
   PAGING_DATA,

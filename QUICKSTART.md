@@ -1,8 +1,8 @@
 # enterprise-ng QuickStart Guide
 
-This quickstart guide demonstrates how to build and run a simple Angular application using the **enterprise-ng** components (**@infor/sohoxi-angular**).
+This quickstart guide demonstrates how to build and run a simple Angular application using the **enterprise-ng** components (**ids-enterprise-ng**).
 
-You can download the latest version of the code from [quickstart](http://git.infor.com/scm/soho/sohoxi-angular-quickstart.git).
+You can download the latest version of the code from [quickstart](https://github.com/infor-design/enterprise-ng-quickstart).
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ In a terminal window, in the project folder:
 
 1. Type `npm install jquery@3.1.1 -S`
 2. Type `npm install @infor/sohoxi@4.6.0 -S`
-3. Type `npm install @infor/sohoxi-angular@4.6.0 -S`
+3. Type `npm install ids-enterprise-ng@4.6.0 -S`
 4. Type `npm install @types/jquery@3.2.16", -D`
 5. Type `npm install merge-stream -D`
 
@@ -78,11 +78,11 @@ Edit `src/tsconfig.app.json`, update/add the `types` property:
   "node"
 ]
 ```
-Also, add `node_modules/@infor/sohoxi-angular/index.ts` to the `include` property, as follows:
+Also, add `node_modules/ids-enterprise-ng/index.ts` to the `include` property, as follows:
 ```json
 "include": [
   "src/**/*",
-  "node_modules/@infor/sohoxi-angular/index.ts"
+  "node_modules/ids-enterprise-ng/index.ts"
 ]
 ```
 
@@ -157,7 +157,7 @@ Type `npm install --save classlist.js` to add classlist package.
 ## Add the SohoComponentsModule
 Edit `src/app/app.module.ts`:
 ```typescript
-import { SohoComponentsModule } from '@infor/sohoxi-angular';
+import { SohoComponentsModule } from 'ids-enterprise-ng';
 ```
 Add ```SohoComponentsModule``` to the imports.
 
