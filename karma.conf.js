@@ -12,8 +12,7 @@ module.exports = function (config) {
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma'),
       require('karma-phantomjs-launcher'),
-      require('karma-mocha-reporter'),
-      require('karma-bamboo-reporter')
+      require('karma-mocha-reporter')
     ],
     client:{
       clearContext: false // leave Jasmine Spec Runner output visible in browser
@@ -32,7 +31,6 @@ module.exports = function (config) {
       { pattern: './node_modules/ids-enterprise/dist/js/d3.v4.js', watched: false  },
       { pattern: './node_modules/ids-enterprise/dist/js/sohoxi.js', watched: false },
       { pattern: './node_modules/ids-enterprise/dist/js/cultures/en-US.js', watched: false },
-      { pattern: './src/test.ts', watched: false },
       { pattern: './node_modules/ids-enterprise/dist/css/light-theme.css', watched: false },
     ],
     preprocessors: {
@@ -63,7 +61,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome' ],
+    browsers: ['PhantomJS' ],
     browserDisconnectTimeout : 20000, // default 2000
     browserDisconnectTolerance : 1, // default 0
     browserNoActivityTimeout : 100000, //default 10000

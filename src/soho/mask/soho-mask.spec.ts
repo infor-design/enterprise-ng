@@ -15,7 +15,7 @@ import { FormsModule, FormControl, FormBuilder, FormGroup, Validators, ReactiveF
 
 import { SohoMaskDirective } from './soho-mask.directive';
 import { SohoMaskModule } from './soho-mask.module';
-import { SohoInputModule } from 'soho/input';
+import { SohoInputModule } from '../input';
 
 @Component({
   template: `
