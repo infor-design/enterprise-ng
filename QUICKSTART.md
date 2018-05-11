@@ -1,6 +1,6 @@
-# 'enterprise-ng' QuickStart Guide
+# Infor Design System's Enterprise Components for Angular QuickStart Guide
 
-This quickstart guide demonstrates how to build and run a simple Angular application using the **enterprise-ng** components (**ids-enterprise-ng**).
+This quickstart guide demonstrates how to build and run a simple Angular application using the **Enterprise Components for Angular** (**ids-enterprise-ng**).
 
 You can download the latest version of the code from [quickstart](https://github.com/infor-design/enterprise-ng-quickstart.git).
 

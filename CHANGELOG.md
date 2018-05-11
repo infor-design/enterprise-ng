@@ -1,4 +1,3 @@
-
 ## Whats New
 * 2018-05-10 - CRL - NPM packages changes
   - The new package is now available open sourced on npmjs
@@ -104,7 +103,7 @@
 
 ### Breaking Changes
 
-* 2018-05-08 - CRL - NPM packages changes
+* 2018-05-08 - CRL - NPM packages changes for Enterprise Components for Angular
 
 Applications will be need to change all import lines that specify **@infor/sohoxi-angular** to **ids-enterprise-ng**. For example:
 ```typescript 
