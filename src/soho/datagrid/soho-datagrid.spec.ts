@@ -201,6 +201,7 @@ describe('Soho DataGrid Render', () => {
     component = fixture.componentInstance;
 
     datagrid = component.datagrid;
+    datagrid.treeGrid = true;
 
     de = fixture.debugElement;
     el = de.query(By.css('div[soho-datagrid]')).nativeElement;
