@@ -1,4 +1,4 @@
-## Development Environment
+## Enterprise Components for Angular Development Environment
 
 ### Install
 - [Setup SSH key for using git](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html) (faster but not required)
@@ -10,7 +10,6 @@
 
 - Clone The main repo fx `git clone https://github.com/infor-design/enterprise-ng.git`
 - Open a command prompt to enterprise-ng
-- Type `npm config set @infor:registry http://npm.infor.com:4873`
 - Type `npm install -g @angular/cli@latest`
 - Type `npm i`
 - Type `ng build`
@@ -20,7 +19,6 @@
 
 - Clone The main repo fx `git clone https://github.com/infor-design/enterprise-ng.git`
 - Open a command prompt to enterprise-ng
-- Type `npm config set @infor:registry http://npm.infor.com:4873`
 - Type `npm install -g @angular/cli@latest`
 - Type `yarn`
 - Type `ng build`
