@@ -106,25 +106,21 @@
 
 * 2018-05-08 - CRL - NPM packages changes
 
-Existing applications will be required  to change any import lines to specify **ids-enterprise-ng** rather than **@infor/sohoxi-angular**. 
-
-For example:
+Applications will be need to change all import lines that specify **@infor/sohoxi-angular** to **ids-enterprise-ng**. For example:
 ```typescript 
 import { SohoButton } from '@infor/sohoxi-angular';
 ```
-to 
+changes to 
 ```typescript
 import { SohoButton } from 'ids-enterprise-ng';
 ```
- * The **package.json** file will need ot be updated to import, both **ids-enterprise** and **ids-enterprise-ng**.
+ * **package.json** must be updated to import, both **ids-enterprise** and **ids-enterprise-ng**.
 
  ```json
  "@infor/sohoxi": "^4.6.0",
  "@infor/sohoxi-angular": "^4.6.0",
  ```
-
- to 
-
+changes to
 ```json
   "ids-enterprise": "^4.7.0",
   "ids-enterprise-ng": "^4.7.0",
