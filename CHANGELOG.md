@@ -104,8 +104,34 @@
 
 ### Breaking Changes
 
+* 2018-05-08 - CRL - NPM packages changes
+
+Existing applications will be required  to change any import lines to specify **ids-enterprise-ng** rather than **@infor/sohoxi-angular**. 
+
+For example:
+```typescript 
+import { SohoButton } from '@infor/sohoxi-angular';
+```
+to 
+```typescript
+import { SohoButton } from 'ids-enterprise-ng';
+```
+ * The **package.json** file will need ot be updated to import, both **ids-enterprise** and **ids-enterprise-ng**.
+
+ ```json
+ "@infor/sohoxi": "^4.6.0",
+ "@infor/sohoxi-angular": "^4.6.0",
+ ```
+
+ to 
+
+```json
+  "ids-enterprise": "^4.7.0",
+  "ids-enterprise-ng": "^4.7.0",
+```
+
 * 2018-05-08 - BTH - Upgraded to @angular 6.0.0 and @angular/cli 6.0.0  
-It is recommended that consumers of the the **enterprise-ng** components also upgrade their applications to version 6 of @angular and @angular/cli.  The easiest way to do this is to follow the instructions at https://update.angular.io/.
+It is recommended that consumers of the the **ids-enterprise-ng** components also upgrade their applications to version 6 of @angular and @angular/cli.  The easiest way to do this is to follow the instructions at https://update.angular.io/.
 
 * 2018-05-07 - PWP - SOHO-7923: Refactored several components and directives to run outside angular
 changed soho-busyindicator.directive.ts' 'close' event to 'complete' to match the jquery component - busyindecator.js  

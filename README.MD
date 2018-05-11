@@ -1,201 +1,211 @@
-# 'enterprise-ng' QuickStart Guide
+# :tada: Infor Design System's Enterprise Directives for Angular Has Moved to Github! :tada:
+(formerly "SoHo XI Directives")
 
-:warning: NOTE: this guide is currently linked to version 4.6.0 of the enterprise controls. :warning:
+Starting at the end of release `4.6.0`, we moved the Soho XI codebase to Github and the Angular repo is following! What this means is now anyone can view and contribute to the codebase.
 
-You can use the 4.6.0 controls, but you will need to install the `rxjs-compat` package, and make some changes to the ids-enterprise-ng package.
-:construction:
+There are two ways to go about using Github for development (as the [Bitbucket](http://git.infor.com/projects/SOHO/repos/angular-components/browse) will eventually be deprecated):
 
-This quickstart guide demonstrates how to build and run a simple Angular application using the **enterprise-ng** components (**ids-enterprise-ng**).
+1. You can go to https://github.com/infor-design/enterprise-ng and download/clone/fork the repo.
 
-You can download the latest version of the code from [quickstart](https://github.com/infor-design/enterprise-ng-quickstart.git).
+or
 
-## Prerequisites
+2. If you already have our codebase locally, you can simply [change your remote's url](https://help.github.com/articles/changing-a-remote-s-url) to point to the new repository on Github.
 
-If **Node.js** and **npm** are not already on your machine, install them. These examples require Node 8.11 or higher and NPM 3 or higher. To check which version you are using,
-run `node -v` and `npm -v` in a terminal window.
 
-This quick start guide uses **@angular/cli** to create, build and run the application.
+**Note:** More information on contributing can be found in the @infor-design/enterprise repo [here](https://github.com/infor-design/enterprise/blob/master/docs/CONTRIBUTING.md).
 
-At the time of writing the version of **@angular/cli** used was 6.0.0 with **angular** 6.0.0.
 
-## Step 0 : Install Pre-Prerequisites
+# Infor Design System's Enterprise Directives for Angular
 
-From a command prompt, run:
+This repository serves as the central shared location for a crowd-sourced cross-Infor Angular Typescript repo of Xi control wrapped components.
 
-```
-npm install -g @angular/cli
-```
+  - avoids many teams building the same things - inefficient and asking Xi Team for different flavors of the same thing
+  - divide the work to get more done
+  - net new teams get huge gains
+  - great way to learn new things about angular and typescript, and code/architecture conventions
+  - includes wrappers and demos (usage) to get new teams and developers up to speed faster
+  - built-in feedback look from dev to H&L and back
 
-## Step 1 : Create and Configure the Project
+This is a working group supported by the core H&L team,  bringing together the various efforts of teams each creating their own angular directives.
 
-### Create the project folder
+The goal is that this will make Angular easier to support for all teams and easier to extend as the library develops and to prevent multiple teams doing the same work. At the moment the project is being shaped during "Knights of the angular table" calls. Contact andrew.lipetzky@infor.com if interested in joining the call its open to anyone how wants to contribute.
 
-Using a terminal/console window, use **@angular/cli** to initialise the project, creating scaffolding for the application (in this case **enterprise-ng-quickstart**):
+The team is using https://slack.com/ for a communication forum.  We have created a [SoHo XI area | http://sohoxi-dev.slack.com/] for discussions related to the components.  There are https://sohoxi-dev.slack.com/messages/general/ and https://sohoxi-dev.slack.com/messages/angular-components/ channels for those discussion topics.  It is becoming more active every day.
 
-```
-ng new enterprise-ng-quickstart
-```
+## Current Status
 
-## Step 2 : Install Packages
+Agreed on project scaffolding (using CLI and Typescript). Agreed on [shared Repo location |http://jira/browse/SOHO-4016] this master epic has all subtasks related to on going work
+http://jira/browse/SOHO-4016. You can also use it to see whats been done.
 
-The project will need access to the Infor NPM registy to be able to pull down the latest Infor Design System (IDS) *enterprise* component libraries for jQuery and Angular.
+## Agreed so far
+* Will use Typescript 2.7.x
+* Will wrap Soho XI controls
+* Two Tracks: Track 1: Wrap Current Controls, Track 2: Es6 refactor of core controls keeping directives updated
+* Will be supported by the H&L team in collaboration with multiple teams
+* Will use https://cli.angular.io/
+* Will use Angular Style guide: https://angular.io/styleguide
+* Group discussion location https://sohoxi-dev.slack.com/messages/angular-components/
+* Use editor config, eslint and tslint
+* Share location for issues / tasks is this Epic's sub tasks http://jira/browse/SOHO-4016
 
-You can add the dependencies directly into the `project.json` file, however it is more reliable to add them using the command line.
-In a terminal window, in the project folder:
+## Active Teams
 
-1. Type `npm install jquery@3.1.1 -S`
-2. Type `npm install ids-enterprise`
-3. Type `npm install ids-enterprise-ng`
-4. Type `npm install @types/jquery@3.2.16 -D`
-5. Type `npm install merge-stream -D`
+* CRM (US - Arizona)
+* Landmark (US - St. Paul)
+* Sun Systems (UK)
+* H&L (US NYC + PA)
+* M3 Graphical Lot Tracker (Sweden, US - Penn)
+* M3 Sales Hub, Automotive Exchange (US – East)
+* Plus a couple of others.  Hard to keep track, Add your name with a Pull Request :)
 
-This includes all the packages we need to create this simple quickstart application.
+Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (SE), Mongoose, GT Nexus, ION
 
-## Step 3 : Configure @angular/cli
+#### Feature status:
 
-The next step is to configure angular-cli to include the IDL enterprise libraries into the output.
+| Feature                 | Status                              | Docs         | Issue              |
+|-------------------------|-------------------------------------|--------------|--------------------|
+| accordion               |                           Available |  [README][3] | [SOHO-4344][#4344] |
+| application-menu        |                           Available |            - | [SOHO-3950][#3950] |
+| autocomplete            |                           Available |            - | [SOHO-6759][#6759] |
+| busyindicator           |                           Available |            - | [SOHO-4096][#4096] |
+| button                  |                           Available |            - | [SOHO-4556][#4556] |
+| checkbox                |                           Available |            - | [SOHO-4617][#4617] |
+| colorpicker             |                           Available |            - | [SOHO-6503][#6503] |
+| context-menu            |                           Available |            - | [SOHO-4557][#4557] |
+| contextual-action-panel |                           Available |  [README][0] | [SOHO-5909][#5909] |
+| datagrid                |                           Available |  [README][4] | [SOHO-4049][#4049] |
+| datepicker              |                           Available |            - | [SOHO-4489][#4489] |
+| dropdown                |                           Available |            - | [SOHO-4050][#4050] |
+| editor                  |                           Available |            - | [SOHO-4559][#4559] |
+| error                   |                           Available |            - |                  - |
+| expandablearea          |                           Available |            - | [SOHO-4017][#4017] |
+| fieldOptions            |                           Available |            - | [SOHO-6265][#6265] |
+| fileupload              |                           Available |            - | [SOHO-4560][#4560] |
+| fileupload-advanced     |                           Available |            - | [SOHO-5124][#5214] |
+| fieldset                |                             Pending |            - | [SOHO-4561][#4561] |
+| header                  |                           Available |            - |                  - |
+| homepage                |                           Available |            - |                  - |
+| hyperlink               |                           Available |            - | [SOHO-4562][#4562] |
+| icon                    |                           Available |            - |              - |
+| input                   |                           Available |            - |              - |
+| input-validate          |                           Available |            - |              - |
+| label                   |                           Available |            - | [SOHO-4570][#4570] |
+| lightbox                |                     Not Implemented |            - | [SOHO-5127][#5127] |
+| listview                |                           Available | [README][2]  | [SOHO-4040][#4040] |
+| locale                  |                           Available |            - | [SOHO-4470][#4470] |
+| lookup                  |                           Available |            - | [SOHO-4052][#4052] |
+| mask                    |                           Available |            - | [SOHO-3895][#3895] |
+| masthead                |                           Available |            - |              - |
+| menu-button             |                           Available |            - | [SOHO-4049][#4089] |
+| message                 |                           Available |           -  |              - |
+| modal-dalog             |                           Available | [README][1]  | [SOHO-4734][#4734]|
+| pager                   |                           Available |           -  |              - |
+| personalize             |                           Available |           -  |              - |
+| popdown                 |                           Available |           -  | [SOHO-4653][#4563] |
+| popupmenu               |                           Available |           -  | [SOHO-4342][#4342] |
+| progress                |                           Available |           -  | [SOHO-4342][#4342] |
+| rating                  |                             Pending |           -  | [SOHO-5126][#5126] |
+| radiobutton             |                           Available |           -  | [SOHO-4562][#4562] |
+| searchfield             |                           Available |           -  | [SOHO-4422][#4422] |
+| slider                  |                           Available |           -  | [SOHO-4565][#4565] |
+| spinbox                 |                           Available |           -  | [SOHO-5125][#5125] |
+| splitter                |                           Available |           -  | [SOHO-4402][#4402] |
+| stepprocess             |                           Available |           -  | [SOHO-4999][#4999] |
+| swaplist                |                           Available |           -  | [SOHO-5122][#5122] |
+| tabs                    |                           Available |           -  |              - |
+| textarea                |                           Available |           -  |              - |
+| timepicker              |                           Available |           -  |              - |
+| theming                 |                     Partial Support |           -  |              - |
+| toast                   |                           Available |           -  |              - |
+| toolbar                 |                           Available |           -  |              - |
+| tooltip                 |                           Available |           -  |              - |
+| trackdirty              |                           Available |           -  |              - |
+| tree                    |                           Available |           -  | [SOHO-4043][#4083] |
+| treegrid                |                           Available |           -  | [SOHO-4722][#4722] |
+| wizard                  |                         In-progress |           -  | [SOHO-6317][#6317] |
 
-Edit `angular-cli.json`, change the `scripts` elements as follows:
-```json
-"scripts": [
-  "./node_modules/jquery/dist/jquery.js",
-  "./node_modules/ids-enterprise/dist/js/sohoxi.js",
-  "./node_modules/ids-enterprise/dist/js/cultures/en-US.js",
-  "./node_modules/ids-enterprise/dist/js/d3.v4.js"
-],
-```
 
-Change both the *test* and *build* architecture sections.
+[0]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/contextual-action-panel/README.md
+[1]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/modal-dialog/README.md
+[2]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/listview/README.md
+[3]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/accordion/README.md
+[4]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/datagrid/README.md
+[#6759]: http://jira/browse/SOHO-6759
+[#4344]: http://jira/browse/SOHO-4344
+[#5909]: http://jira/browse/SOHO-5909
+[#3895]: http://jira/browse/SOHO-3895
+[#3950]: http://jira/browse/SOHO-3950
+[#4017]: http://jira/browse/SOHO-4017
+[#4040]: http://jira/browse/SOHO-4040
+[#4049]: http://jira/browse/SOHO-4049
+[#4050]: http://jira/browse/SOHO-4050
+[#4052]: http://jira/browse/SOHO-4052
+[#4083]: http://jira/browse/SOHO-4083
+[#4089]: http://jira/browse/SOHO-4089
+[#4096]: http://jira/browse/SOHO-4096
+[#4097]: http://jira/browse/SOHO-4097
+[#4342]: http://jira/browse/SOHO-4342
+[#4402]: http://jira/browse/SOHO-4402
+[#4422]: http://jira/browse/SOHO-4422
+[#4470]: http://jira/browse/SOHO-4470
+[#4489]: http://jira/browse/SOHO-4489
+[#4556]: http://jira/browse/SOHO-4556
+[#4557]: http://jira/browse/SOHO-4557
+[#4559]: http://jira/browse/SOHO-4559
+[#4560]: http://jira/browse/SOHO-4560
+[#4561]: http://jira/browse/SOHO-4561
+[#4562]: http://jira/browse/SOHO-4562
+[#4563]: http://jira/browse/SOHO-4563
+[#4564]: http://jira/browse/SOHO-4564
+[#4565]: http://jira/browse/SOHO-4565
+[#4570]: http://jira/browse/SOHO-4570
+[#4616]: http://jira/browse/SOHO-4616
+[#4617]: http://jira/browse/SOHO-4617
+[#4722]: http://jira/browse/SOHO-4722
+[#4734]: http://jira/browse/SOHO-4734
+[#4999]: http://jira/browse/SOHO-4999
+[#5122]: http://jira/browse/SOHO-5122
+[#5124]: http://jira/browse/SOHO-5124
+[#5125]: http://jira/browse/SOHO-5125
+[#5126]: http://jira/browse/SOHO-5126
+[#5127]: http://jira/browse/SOHO-5127
+[#5214]: http://jira/browse/SOHO-5214
+[#6317]: http://jira/browse/SOHO-6317
+[#6265]: http://jira/browse/SOHO-6265
+[#6503]: http://jira/browse/SOHO-6503
 
-### Step 4 : Configure TypeScript:
+## Previous Repos
 
-Edit `src/tsconfig.app.json`, update/add the `types` property:
-```json
-"types": [
-  "jasmine",
-  "jquery",
-  "node"
-]
+When we decided on project structure and approach. We collecting and compare repositories for the various teams and use what we all decide is the best. The following repos were considered and discussed.
 
-In the root tsconfig file add:
-```
-Also, add `node_modules/ids-enterprise-ng/index.ts` to the `include` property, as follows:
-```json
-"include": [
-  "src/**/*",
-  "node_modules/ids-enterprise-ng/index.ts"
-]
-```
+* http://git.infor.com/users/twallace/repos/angular-components/browse - Tyler (CRM)
+* http://git.infor.com/users/ppatton/repos/angular-components/browse - Landmark
+* http://git.infor.com/projects/LMS/repos/angular-wrappers/browse - LMS
+* http://git.infor.com/users/tharper/repos/sunsystems-reporting/browse - Sun Systems
+* http://git.infor.com/projects/INFORCRM/repos/angular-crm/browse - Full CRM Repo
+*
+Many chose Angular Cli, so this was the resulting decision.
 
-This is required as the compiler will not compile code outside the src source folder by default.
--->
-## Step 5 : Enterprise Controls Assets
-**@angular/cli** needs to include assets from node_modules into the compiled output.
+## Other Resources
 
-To configure this edit the `angular-cli.json` assets section.
-```
-  "assets": [
-    { "glob": "**/*", "input": "../node_modules/ids-enterprise/dist/css", "output": "./assets/sohoxi/css" }
-  ],
-```
-The link in the following to the `src/index.html` file would be the output folder..
-```
-<head>
-  ...
-  <link rel="stylesheet" id="stylesheet" href="/assets/sohoxi/css/light-theme.css" type="text/css">
-</head>
-```
+Check out these resources to get yourself familiar with some of the code and processes used here:
 
-## Step 6 : Making Sure it Works
-Run the app to test it.
-```ng serve```
-Check you get the default page when you browse to http://localhost:4200/.
+[Angular 2.0 Style Guide]( https://github.com/johnpapa/angular-styleguide/blob/master/a2/README.md) - Angular 2.0 style guide we follow.
 
-## Step 7 : Unit Testing
-Edit the file `karma.conf.js`, adding any extra JavaScript libraries to the file property, for example:
-```json
-files: [
- { pattern: './node_modules/jquery/dist/jquery.js', watched: false  },
- { pattern: './node_modules/ids-enterprise/dist/js/sohoxi.js', watched: false },
- { pattern: './node_modules/ids-enterprise/dist/js/cultures/en-US.js', watched: false },
- { pattern: './src/test.ts', watched: false }
-],
-```
-Run the unit tests:
-```
-ng test
-```
-This will open a Chrome window, and run the tests from there.
+[RxJS and Functional Reactive Programming](http://blog.jhades.org/angular-2-application-architecture-building-applications-using-rxjs-and-functional-reactive-programming-vs-redux/) - Example Implementation
 
-## Add polyfills
+[MockBackend for Angular 2](http://plnkr.co/edit/7LWALD?p=preview) - Plunkr on setting up a MockBackend
 
-If you plan on using IE11, then it is advisable to include a number of polyfills used to plug holes in IEs JavaScript support.
+[RxJS and Observables](http://blog.jhades.org/functional-reactive-programming-for-angular-2-developers-rxjs-and-observables/) - General Overview
 
-Edit the file `src/polyfills.js`, and uncomment all the import lines below
+[Angular Member's RxJS App State](http://victorsavkin.com/post/137821436516/managing-state-in-angular-2-applications) - RxJS and Observable method
 
-```typescript
-/** IE9, IE10 and IE11 requires all of the following polyfills. **/
-import 'core-js/es6/symbol';
-import 'core-js/es6/object';
-import 'core-js/es6/function';
-import 'core-js/es6/parse-int';
-import 'core-js/es6/parse-float';
-import 'core-js/es6/number';
-import 'core-js/es6/math';
-import 'core-js/es6/string';
-import 'core-js/es6/date';
-import 'core-js/es6/array';
-import 'core-js/es6/regexp';
-import 'core-js/es6/map';
-import 'core-js/es6/weak-map';
-import 'core-js/es6/set';
+[Angular 2 In Production Today](http://blog.jhades.org/how-to-run-angular-2-in-production-today/) - Angular 2 Build Process
 
-/** IE10 and IE11 requires the following for NgClass support on SVG elements */
-import 'classlist.js';  // Run `npm install --save classlist.js`.
-```
+[Awesome Angular 2](https://www.npmjs.com/package/awesome-angular2) - Compiled list of Angular 2 resources
 
-Type `npm install --save classlist.js` to add classlist package.
+[Angular 2 Documentation](https://angular.io/docs/ts/latest/) - Angular 2 Library
 
-## Add the SohoComponentsModule
-Edit `src/app/app.module.ts`:
-```typescript
-import { SohoComponentsModule } from 'ids-enterprise-ng';
-```
-Add ```SohoComponentsModule``` to the imports.
+[RxJS](http://reactivex.io/) - Library's Site
 
-```typescript
-@NgModule({
-  ...
-  declarations: [],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    SohoComponentsModule
-  ]
-  ...
-)}
-```
-
-## Add a SoHoXi Component
-
-Add a button to `app.component.html`, by appending the following code snippet:
-```
-<button soho-button (click)="clicked()">Click Me!</button>
-```
-Add the clicked handler to `app.component.ts`, as follows:
-```typescript
-public clicked() {
-    alert('Clicked me!');
-}
-```
-
-Then from a command line run (you can use `ng serve`):
-```
-npm run start
-```
-Check you get the button when you browse to http://localhost:4200/.
-
-# What Next
-
-Now implement the rest of your application, using the components provided, of which a list can be found [here](??)
+[Angular 2.0 Best Practices]( https://blog.budacode.com/2016/06/27/angular-2-best-practises/?utm_source=hackernews&utm_medium=social&utm_campaign=angular2-best-practises) - Angular 2.0 Best Practices
