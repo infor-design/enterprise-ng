@@ -25,7 +25,7 @@
     "@types/lscache": "^1.0.7",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
-    "ids-enterprise": "^4.7.0-dev",
+    "ids-enterprise": "^4.7.0-dev.180511",
     "jquery": "3.3.1",
     "lscache": "^1.0.7",
     "rxjs": "6.1.0",
