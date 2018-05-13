@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SohoIconComponent, SohoIconUseComponent } from './soho-icon.component';
-import { SohoIconsComponent } from './soho-icons.component';
-import { SohoIconsEmptyComponent } from './soho-icons-empty.component';
-import { SohoIconsExtendedComponent } from './soho-icons-extended.component';
+import { SohoIconsComponent } from './svg/soho-icons.component';
+import { SohoIconsEmptyComponent } from './svg/soho-icons-empty.component';
+import { SohoIconsExtendedComponent } from './svg/soho-icons-extended.component';
 
 @NgModule({
   imports: [ CommonModule ],
