@@ -59,15 +59,15 @@ gulp.task('publish-copy', function() {
 
 gulp.task('publish-replace', function() {
   var icons = gulp.src(['./publish/soho/icon/soho-icons.component.ts'])
-    .pipe(replace('../../../node_modules/ids-enterprise/dist/svg/svg.html', '../../../sohoxi/dist/svg/svg.html'))
+    .pipe(replace('../../../node_modules/ids-enterprise/dist/svg/svg.html', '../../../ids-enterprise/dist/svg/svg.html'))
     .pipe(gulp.dest('./publish/soho/icon/'));
 
   var extended = gulp.src(['./publish/soho/icon/soho-icons-extended.component.ts'])
-    .pipe(replace('../../../node_modules/ids-enterprise/dist/svg/svg-extended.html', '../../../sohoxi/dist/svg/svg-extended.html'))
+    .pipe(replace('../../../node_modules/ids-enterprise/dist/svg/svg-extended.html', '../../../ids-enterprise/dist/svg/svg-extended.html'))
     .pipe(gulp.dest('./publish/soho/icon/'));
 
   var empty = gulp.src(['./publish/soho/icon/soho-icons-empty.component.ts'])
-    .pipe(replace('../../../node_modules/ids-enterprise/dist/svg/svg-empty.html', '../../../sohoxi/dist/svg/svg-empty.html'))
+    .pipe(replace('../../../node_modules/ids-enterprise/dist/svg/svg-empty.html', '../../../ids-enterprise/dist/svg/svg-empty.html'))
     .pipe(gulp.dest('./publish/soho/icon/'));
 
   return merge(empty, extended, icons);

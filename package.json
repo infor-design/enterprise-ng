@@ -7,6 +7,7 @@
     "test": "ng test --browsers=PhantomJS --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "publish": "gulp publish",
     "publish-dev": "gulp publish && npm publish publish --tag dev",
     "publish-prod": "gulp publish && npm publish publish",
     "publish-nightly": "gulp publish && npm publish publish --tag nightly",

@@ -1,4 +1,5 @@
 ## Whats New
+* 2018-05-14 - BTH - Fixed 'svg' file inclusion
 * 2018-05-10 - CRL - NPM packages changes
   - The new package is now available open sourced on npmjs
   - The packages new name is `ids-enterprise-ng` and is [here](https://www.npmjs.com/package/ids-enterprise-ng) 
@@ -128,8 +129,8 @@ import { SohoButton } from 'ids-enterprise-ng';
 ```
 **package.json** must be updated to import **ids-enterprise** and **ids-enterprise-ng**.
 ```json
-  "ids-enterprise": "^4.7.0",
-  "ids-enterprise-ng": "^4.7.0",
+ "ids-enterprise": "^4.7.0-dev.20180511",
+ "ids-enterprise-ng": "^4.7.0-dev.20180511",
 ```
 **index.html** may required updates if assets are being included, for example:
 ```html

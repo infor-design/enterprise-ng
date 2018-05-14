@@ -6,7 +6,7 @@
 - Get the latest LTS **Node.js** release from https://nodejs.org/en/ (version 8 or later)
 - Get an Editor like Visual Studio Code (https://code.visualstudio.com/) or [Atom](https://atom.io/) or your fav.
 
-### Initial Setup with npm 5
+### Initial Setup with npm
 
 - Clone The main repo fx `git clone https://github.com/infor-design/enterprise-ng.git`
 - Open a command prompt to enterprise-ng
@@ -15,7 +15,7 @@
 - Type `ng build`
 - Type `ng serve`
 
-### Initial Setup yarn
+### Initial Setup with yarn
 
 - Clone The main repo fx `git clone https://github.com/infor-design/enterprise-ng.git`
 - Open a command prompt to enterprise-ng

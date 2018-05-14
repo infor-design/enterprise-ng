@@ -20,7 +20,7 @@
               {
                 "glob": "**/*",
                 "input": "node_modules/ids-enterprise/dist/css",
-                "output": "/assets/sohoxi/css"
+                "output": "/assets/ids-enterprise/css"
               },
               "src/app/demodata"
             ],
