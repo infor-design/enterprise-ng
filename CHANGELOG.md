@@ -1,4 +1,5 @@
 ## Whats New
+* 2018-05-14 - BTH - Fixed 'svg' file inclusion
 * 2018-05-10 - CRL - NPM packages changes
   - The new package is now available open sourced on npmjs
   - The packages new name is `ids-enterprise-ng` and is [here](https://www.npmjs.com/package/ids-enterprise-ng) 

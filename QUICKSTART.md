@@ -112,10 +112,10 @@ Check you get the default page when you browse to http://localhost:4200/.
 Edit the file `karma.conf.js`, adding any extra JavaScript libraries to the file property, for example:
 ```json
 files: [
- { pattern: './node_modules/jquery/dist/jquery.js', watched: false  },
- { pattern: './node_modules/ids-enterprise/dist/js/sohoxi.js', watched: false },
- { pattern: './node_modules/ids-enterprise/dist/js/cultures/en-US.js', watched: false },
- { pattern: './src/test.ts', watched: false }
+ { "pattern": "./node_modules/jquery/dist/jquery.js", "watched": false  },
+ { "pattern": "./node_modules/ids-enterprise/dist/js/sohoxi.js", "watched": false },
+ { "pattern": "./node_modules/ids-enterprise/dist/js/cultures/en-US.js", "watched": false },
+ { "pattern": "./src/test.ts", "watched": false }
 ],
 ```
 Run the unit tests:
