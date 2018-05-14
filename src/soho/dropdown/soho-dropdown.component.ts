@@ -16,12 +16,11 @@ import {
   forwardRef,
   AfterViewChecked,
 } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { NgModel, NgControl, ControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'select[soho-dropdown]', // tslint:disable-line
-  template: '<ng-content></ng-content>',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  template: '<ng-content></ng-content>'
 })
 export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   /**
@@ -32,6 +31,8 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Flag to force an update of the control after the view is created.
    */
   private runUpdatedOnCheck: boolean;
+
+  private valueAccessor: IdsDropDownControlValueAccessor;
 
   /**
    * Local variables
@@ -333,7 +334,14 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    */
   constructor(
     private element: ElementRef,
-    private ngZone: NgZone) {
+    private ngZone: NgZone,
+    @Self() @Optional() public ngControl: NgControl) {
+
+      if (this.ngControl) {
+        this.valueAccessor = new IdsDropDownControlValueAccessor(this.ngControl.valueAccessor, this);
+
+        this.ngControl.valueAccessor = this.valueAccessor;
+      }
   }
 
   ngAfterViewInit() {
@@ -352,7 +360,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       // @todo - add event binding control so we don't bind if not required.
       this.jQueryElement
         .on('change', (event: JQuery.Event) => this.onChange(event))
-        .on('updated', (event: JQuery.Event) => this.updatedEvent.emit(event));
+        .on('updated', (event: JQuery.Event) => this.onUpdated(event));
 
       this.runUpdatedOnCheck = true;
     });
@@ -385,7 +393,10 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   }
 
   private onUpdated(event: any) {
-    // this.ngZone.runOutsideAngular(() => this.dropdown.selectValue(this.controlValueAccessor2.value));
+    event.data = this.jQueryElement.val();
+
+    this.valueAccessor._onChange(event.data);
+    this.valueAccessor.writeValue(event.data);
     this.updatedEvent.next(event);
   }
   /**
@@ -396,12 +407,12 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * @param event
    */
   private onChange(event: any) {
-    // Update the model.
-    // this.onChangeFn(this.jQueryElement.val());
-
     // Set the data on the event.
     // event.data = this.innerValue;
     event.data = this.jQueryElement.val();
+
+    this.valueAccessor._onChange(event.data);
+    this.valueAccessor.writeValue(event.data);
 
     // Inform all listeners.
     this.change.emit(event);
@@ -481,5 +492,30 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
         this.dropdown.selectValue(value);
       });
     }
+  }
+}
+
+
+class IdsDropDownControlValueAccessor implements ControlValueAccessor {
+
+  public _onChange: Function;
+
+  constructor(private delegate: ControlValueAccessor,
+  private dropdown: SohoDropDownComponent) {}
+
+  writeValue(obj: any): void {
+    //this.dropdown.selectValue(obj);
+    this.delegate.writeValue(obj);
+  }
+  registerOnChange(fn: any): void {
+    this._onChange = fn;
+    this.delegate.registerOnChange(fn);
+  }
+
+  registerOnTouched(fn: any): void {
+    this.delegate.registerOnTouched(fn);
+  }
+  setDisabledState?(isDisabled: boolean): void {
+    this.delegate.setDisabledState(isDisabled);
   }
 }

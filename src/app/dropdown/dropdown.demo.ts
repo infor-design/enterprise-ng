@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChildren, QueryList, ChangeDetectionStrategy } from 'ids-enterprise-ng';
-import { SohoDropDownComponent } from '@infor/sohoxi-angular';
+import { Component, OnInit, ViewChildren, QueryList, ChangeDetectionStrategy } from '@angular/core';
+import { SohoDropDownComponent } from 'soho/dropdown';
 
 @Component({
   selector: 'soho-dropdown-demo',
@@ -72,6 +72,6 @@ export class DropdownDemoComponent implements OnInit {
 
     this.sourceoptions = states;
 
-    response(states);
+    response(states, true);
   }
 }
