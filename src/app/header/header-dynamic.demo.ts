@@ -9,8 +9,8 @@ import {
   ToolbarSearchField
 } from './header-dynamic-demo.model';
 import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
-import { SohoToolbarComponent } from '@infor/sohoxi-angular';
-import { SohoTabsComponent } from '@infor/sohoxi-angular';
+import { SohoToolbarComponent } from 'ids-enterprise-ng';
+import { SohoTabsComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-header-dynamic-demo',

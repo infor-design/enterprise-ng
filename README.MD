@@ -1,4 +1,5 @@
-# :tada: SoHo XI Directives for Angular Has Moved to Github! :tada:
+# :tada: Infor Design System's Enterprise Components for Angular Has Moved to Github! :tada:
+(formerly "SoHo XI Directives")
 
 Starting at the end of release `4.6.0`, we moved the Soho XI codebase to Github and the Angular repo is following! What this means is now anyone can view and contribute to the codebase.
 
@@ -14,7 +15,7 @@ or
 **Note:** More information on contributing can be found in the @infor-design/enterprise repo [here](https://github.com/infor-design/enterprise/blob/master/docs/CONTRIBUTING.md).
 
 
-# SoHo XI Directives for Angular
+# Infor Design System's Enterprise Components for Angular
 
 This repository serves as the central shared location for a crowd-sourced cross-Infor Angular Typescript repo of Xi control wrapped components.
 

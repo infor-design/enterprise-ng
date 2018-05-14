@@ -10,7 +10,7 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
 
 import {
     SohoSwapListComponent
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 @Component({
     selector: 'soho-swaplist-dynamic-demo',

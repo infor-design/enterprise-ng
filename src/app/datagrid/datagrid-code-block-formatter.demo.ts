@@ -10,7 +10,7 @@ import {
 import {
   SohoDataGridComponent,
   SohoButtonComponent
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 import {
   CodeBlockComponent
 } from '../code-block/code-block.component';

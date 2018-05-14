@@ -3,7 +3,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { SohoDatePickerComponent } from '@infor/sohoxi-angular';
+import { SohoDatePickerComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-datepicker-demo',

@@ -10,7 +10,7 @@
     "experimentalDecorators": true,
     "target": "es5",
     "paths": {
-      "@infor/sohoxi-angular": ["./src/soho"]
+      "ids-enterprise-ng": ["./src/soho"]
     },
     "typeRoots": [
       "node_modules/@types"

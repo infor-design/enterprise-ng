@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChildren, QueryList, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList, ChangeDetectionStrategy } from 'ids-enterprise-ng';
 import { SohoDropDownComponent } from '@infor/sohoxi-angular';
 
 @Component({

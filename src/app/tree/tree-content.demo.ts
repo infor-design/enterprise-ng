@@ -5,7 +5,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import { SohoTreeComponent } from '@infor/sohoxi-angular';
+import { SohoTreeComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-tree-content-demo',

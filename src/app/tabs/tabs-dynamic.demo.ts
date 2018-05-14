@@ -4,7 +4,7 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { SohoTabsComponent } from '@infor/sohoxi-angular';
+import { SohoTabsComponent } from 'ids-enterprise-ng';
 
 /**
  * This sample:

@@ -11,7 +11,7 @@ import {
   SohoWizardComponent,
   SohoProgressComponent,
   SohoToastService
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 import { WizardDemoResultPageComponent } from './wizard-result-page.demo';
 

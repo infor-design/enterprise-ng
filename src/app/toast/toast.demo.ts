@@ -3,7 +3,7 @@ import {
   OnInit
 } from '@angular/core';
 
-import { SohoToastService } from '@infor/sohoxi-angular';
+import { SohoToastService } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-toast-demo',

@@ -6,7 +6,7 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { SohoTreeComponent } from '@infor/sohoxi-angular';
+import { SohoTreeComponent } from 'ids-enterprise-ng';
 import { TreeDemoData } from './tree-data.demo';
 
 @Component({

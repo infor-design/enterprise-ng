@@ -1,5 +1,5 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { SohoStepProcessComponent } from '@infor/sohoxi-angular';
+import { SohoStepProcessComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-stepprocessbuttondisable-demo',

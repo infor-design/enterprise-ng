@@ -10,7 +10,7 @@ import {
 import {
   SohoDataGridComponent,
   SohoDataGridService
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 import { DataGridDemoService } from './datagrid-demo.service';
 
