@@ -10,8 +10,7 @@
     "publish": "gulp publish",
     "publish-dev": "gulp publish && npm publish publish --tag dev",
     "publish-prod": "gulp publish && npm publish publish",
-    "publish-nightly": "gulp publish && npm publish publish --tag nightly",
-    "prepublishOnly": "tsc -p ./ --outDir dist/"
+    "publish-nightly": "gulp publish && npm publish publish --tag nightly"
   },
   "dependencies": {
     "@angular/animations": "6.0.0",
