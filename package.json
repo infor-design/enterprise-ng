@@ -9,8 +9,7 @@
     "e2e": "ng e2e",
     "publish": "gulp publish",
     "publish-dev": "gulp publish && npm publish publish --tag dev",
-    "publish-prod": "gulp publish && npm publish publish",
-    "publish-nightly": "gulp publish && npm publish publish --tag nightly"
+    "publish-prod": "gulp publish && npm publish publish"
   },
   "dependencies": {
     "@angular/animations": "6.0.0",
