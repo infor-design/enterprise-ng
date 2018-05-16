@@ -1,24 +1,26 @@
-# enterprise-ng QuickStart Guide
+# Infor Design System's Enterprise Components for Angular QuickStart Guide
 
-This quickstart guide demonstrates how to build and run a simple Angular application using the **enterprise-ng** package (**@infor/sohoxi-angular**).
+This quickstart guide demonstrates how to build and run a simple Angular application using the **Enterprise Components for Angular** (**ids-enterprise-ng**).
 
-You can download the latest version of the code from [quickstart](http://git.infor.com/scm/soho/sohoxi-angular-quickstart.git).
+You can download the latest version of the code from [quickstart](https://github.com/infor-design/enterprise-ng-quickstart.git).
 
 ## Prerequisites
 
 If **Node.js** and **npm** are not already on your machine, install them. These examples require Node 8.11 or higher and NPM 3 or higher. To check which version you are using,
 run `node -v` and `npm -v` in a terminal window.
 
-This quick start guide uses **@angular/cli** to create, build and run the application.  
+This quick start guide uses **@angular/cli** to create, build and run the application.
 
 At the time of writing the version of **@angular/cli** used was 6.0.0 with **angular** 6.0.0.
+
+:warning: You can use the olders 4.6.0 controls, but you will need to install the `rxjs-compat` package, and make some changes to the *ids-enterprise-ng* package.  This is not recommended.
 
 ## Step 0 : Install Pre-Prerequisites
 
 From a command prompt, run:
 
 ```
-npm install -g @angular/cli@6.0.0
+npm install -g @angular/cli
 ```
 
 ## Step 1 : Create and Configure the Project
@@ -31,25 +33,17 @@ Using a terminal/console window, use **@angular/cli** to initialise the project,
 ng new enterprise-ng-quickstart
 ```
 
-(Note: `ng init` has been removed.)
-
 ## Step 2 : Install Packages
 
-The project will need access to the Infor NPM registy to be able to pull down the latest Infor Design Lab *enterprise* component libraries for jQuery and Angular.
-
-The easiest way to achieve this is to create the file `.npmrc` at the root of the project, and edit the file to include:
-
-```
-@infor:registry=http://npm.infor.com:4873
-```
+The project will need access to the Infor NPM registy to be able to pull down the latest Infor Design System (IDS) *enterprise* component libraries for jQuery and Angular.
 
 You can add the dependencies directly into the `project.json` file, however it is more reliable to add them using the command line.
 In a terminal window, in the project folder:
 
 1. Type `npm install jquery@3.1.1 -S`
-2. Type `npm install @infor/sohoxi@4.6.0 -S`
-3. Type `npm install @infor/sohoxi-angular@4.6.0 -S`
-4. Type `npm install @types/jquery@3.2.16", -D`
+2. Type `npm install ids-enterprise`
+3. Type `npm install ids-enterprise-ng`
+4. Type `npm install @types/jquery@3.2.16 -D`
 5. Type `npm install merge-stream -D`
 
 This includes all the packages we need to create this simple quickstart application.
@@ -58,15 +52,17 @@ This includes all the packages we need to create this simple quickstart applicat
 
 The next step is to configure angular-cli to include the IDL enterprise libraries into the output.
 
-Edit `.angular-cli.json`, change the `scripts` as follows:
+Edit `angular-cli.json`, change the `scripts` elements as follows:
 ```json
 "scripts": [
-  "../node_modules/jquery/dist/jquery.js",
-  "../node_modules/@infor/sohoxi/dist/js/sohoxi.js",
-  "../node_modules/@infor/sohoxi/dist/js/cultures/en-US.js",
-  "../node_modules/@infor/sohoxi/dist/js/d3.v4.js"
+  "./node_modules/jquery/dist/jquery.js",
+  "./node_modules/ids-enterprise/dist/js/sohoxi.js",
+  "./node_modules/ids-enterprise/dist/js/cultures/en-US.js",
+  "./node_modules/ids-enterprise/dist/js/d3.v4.js"
 ],
 ```
+
+Change both the *test* and *build* architecture sections.
 
 ### Step 4 : Configure TypeScript:
 
@@ -77,30 +73,33 @@ Edit `src/tsconfig.app.json`, update/add the `types` property:
   "jquery",
   "node"
 ]
+
+In the root tsconfig file add:
 ```
-Also, add `node_modules/@infor/sohoxi-angular/index.ts` to the `include` property, as follows:
+Also, add `node_modules/ids-enterprise-ng/index.ts` to the `include` property, as follows:
 ```json
 "include": [
   "src/**/*",
-  "node_modules/@infor/sohoxi-angular/index.ts"
+  "node_modules/ids-enterprise-ng/index.ts"
 ]
 ```
 
 This is required as the compiler will not compile code outside the src source folder by default.
+-->
 ## Step 5 : Enterprise Controls Assets
 **@angular/cli** needs to include assets from node_modules into the compiled output.
 
 To configure this edit the `angular-cli.json` assets section.
 ```
   "assets": [
-    { "glob": "**/*", "input": "../node_modules/@infor/sohoxi/dist/css", "output": "./assets/sohoxi/css" }
+    { "glob": "**/*", "input": "./node_modules/ids-enterprise/dist/css", "output": "./assets/ids-enterprise/css" }
   ],
 ```
 The link in the following to the `src/index.html` file would be the output folder..
 ```
 <head>
   ...
-  <link rel="stylesheet" id="stylesheet" href="/assets/sohoxi/css/light-theme.css" type="text/css">
+  <link rel="stylesheet" id="stylesheet" href="/assets/ids-enterprise/css/light-theme.css" type="text/css">
 </head>
 ```
 
@@ -113,10 +112,10 @@ Check you get the default page when you browse to http://localhost:4200/.
 Edit the file `karma.conf.js`, adding any extra JavaScript libraries to the file property, for example:
 ```json
 files: [
- { pattern: './node_modules/jquery/dist/jquery.js', watched: false  },
- { pattern: './node_modules/@infor/sohoxi/dist/js/sohoxi.js', watched: false },
- { pattern: './node_modules/@infor/sohoxi/dist/js/cultures/en-US.js', watched: false },
- { pattern: './src/test.ts', watched: false }
+ { "pattern": "./node_modules/jquery/dist/jquery.js", "watched": false  },
+ { "pattern": "./node_modules/ids-enterprise/dist/js/sohoxi.js", "watched": false },
+ { "pattern": "./node_modules/ids-enterprise/dist/js/cultures/en-US.js", "watched": false },
+ { "pattern": "./src/test.ts", "watched": false }
 ],
 ```
 Run the unit tests:
@@ -157,7 +156,7 @@ Type `npm install --save classlist.js` to add classlist package.
 ## Add the SohoComponentsModule
 Edit `src/app/app.module.ts`:
 ```typescript
-import { SohoComponentsModule } from '@infor/sohoxi-angular';
+import { SohoComponentsModule } from 'ids-enterprise-ng';
 ```
 Add ```SohoComponentsModule``` to the imports.
 

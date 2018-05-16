@@ -1,4 +1,4 @@
-﻿import {
+import {
   Component,
   ElementRef,
   OnInit,
@@ -7,13 +7,15 @@
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import {
+  Observable,
+  BehaviorSubject
+} from 'rxjs';
 
 import {
   SohoSwapListComponent,
   SohoBusyIndicatorDirective
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 import { SwapListDemoService } from './swaplist-demo.service';
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';

@@ -48,7 +48,7 @@
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/angular/angular
 │  └─ publisher: angular
-├─ @infor/sohoxi-angular@4.2.5
+├─ ids-enterprise-ng@4.2.5
 │  ├─ licenses: MIT
 │  └─ publisher: Hook & Loop
 ├─ @infor/sohoxi@4.2.5-develop
@@ -342,7 +342,7 @@
 │  ├─ repository: https://github.com/mcavage/node-asn1
 │  ├─ publisher: Mark Cavage
 │  ├─ email: mcavage@gmail.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/asn1/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/asn1/LICENSE
 ├─ asn1@0.2.3
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/mcavage/node-asn1
@@ -392,12 +392,12 @@
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/caolan/async
 │  ├─ publisher: Caolan McMahon
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/form-data/node_modules/async/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/form-data/node_modules/async/LICENSE
 ├─ async@1.2.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/caolan/async
 │  ├─ publisher: Caolan McMahon
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/async/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/async/LICENSE
 ├─ async@1.5.2
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/caolan/async
@@ -426,7 +426,7 @@
 │  ├─ publisher: Mikeal Rogers
 │  ├─ email: mikeal.rogers@gmail.com
 │  ├─ url: http://www.futurealoof.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/aws-sign2/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/aws-sign2/LICENSE
 ├─ aws-sign2@0.6.0
 │  ├─ licenses: Apache-2.0
 │  ├─ repository: https://github.com/mikeal/aws-sign
@@ -527,7 +527,7 @@
 ├─ bl@0.9.5
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/rvagg/bl
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/bl/LICENSE.md
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/bl/LICENSE.md
 ├─ bl@1.1.2
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/rvagg/bl
@@ -535,7 +535,7 @@
 ├─ bl@1.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/rvagg/bl
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/tar-stream/node_modules/bl/LICENSE.md
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/tar-stream/node_modules/bl/LICENSE.md
 ├─ blank-object@1.0.2
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/stefanpenner/blank-object
@@ -577,7 +577,7 @@
 │  ├─ publisher: Eran Hammer
 │  ├─ email: eran@hueniverse.com
 │  ├─ url: http://hueniverse.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/boom/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/boom/LICENSE
 ├─ boom@2.10.1
 │  ├─ licenses: BSD-3-Clause
 │  ├─ repository: https://github.com/hapijs/boom
@@ -684,11 +684,11 @@
 │  ├─ repository: https://github.com/brianloveswords/buffer-crc32
 │  ├─ publisher: Brian J. Brennan
 │  ├─ email: brianloveswords@gmail.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/buffer-crc32/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/buffer-crc32/LICENSE
 ├─ buffer-shims@1.0.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/calvinmetcalf/buffer-shims
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/buffer-shims/license.md
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/buffer-shims/license.md
 ├─ buffer-xor@1.0.3
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/crypto-browserify/buffer-xor
@@ -984,7 +984,7 @@
 │  ├─ publisher: Felix Geisendörfer
 │  ├─ email: felix@debuggable.com
 │  ├─ url: http://debuggable.com/
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/combined-stream/License
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/combined-stream/License
 ├─ combined-stream@1.0.5
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/felixge/node-combined-stream
@@ -1124,7 +1124,7 @@
 │  ├─ publisher: Isaac Z. Schlueter
 │  ├─ email: i@izs.me
 │  ├─ url: http://blog.izs.me/
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/core-util-is/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/core-util-is/LICENSE
 ├─ create-ecdh@4.0.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/crypto-browserify/createECDH
@@ -1155,7 +1155,7 @@
 │  ├─ publisher: Eran Hammer
 │  ├─ email: eran@hueniverse.com
 │  ├─ url: http://hueniverse.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/cryptiles/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/cryptiles/LICENSE
 ├─ cryptiles@2.0.5
 │  ├─ licenses: BSD-3-Clause
 │  ├─ repository: https://github.com/hapijs/cryptiles
@@ -1235,7 +1235,7 @@
 │  ├─ repository: https://github.com/rmustacc/node-ctype
 │  ├─ publisher: Robert Mustacchi
 │  ├─ email: rm@fingolfin.org
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/ctype/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/ctype/LICENSE
 ├─ currently-unhandled@0.4.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/jamestalmage/currently-unhandled
@@ -1348,7 +1348,7 @@
 │  ├─ publisher: Felix Geisendörfer
 │  ├─ email: felix@debuggable.com
 │  ├─ url: http://debuggable.com/
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/delayed-stream/License
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/delayed-stream/License
 ├─ delayed-stream@1.0.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/felixge/node-delayed-stream
@@ -1554,7 +1554,7 @@
 │  ├─ repository: https://github.com/mafintosh/end-of-stream
 │  ├─ publisher: Mathias Buus
 │  ├─ email: mathiasbuus@gmail.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/end-of-stream/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/end-of-stream/LICENSE
 ├─ engine.io-client@1.6.9
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/socketio/engine.io-client
@@ -1808,7 +1808,7 @@
 │  ├─ repository: https://github.com/andrewrk/node-fd-slicer
 │  ├─ publisher: Andrew Kelley
 │  ├─ email: superjoe30@gmail.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/fd-slicer/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/fd-slicer/LICENSE
 ├─ figures@1.7.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/sindresorhus/figures
@@ -1925,7 +1925,7 @@
 │  ├─ publisher: Mikeal Rogers
 │  ├─ email: mikeal.rogers@gmail.com
 │  ├─ url: http://www.futurealoof.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/forever-agent/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/forever-agent/LICENSE
 ├─ forever-agent@0.6.1
 │  ├─ licenses: Apache-2.0
 │  ├─ repository: https://github.com/mikeal/forever-agent
@@ -1939,7 +1939,7 @@
 │  ├─ publisher: Felix Geisendörfer
 │  ├─ email: felix@debuggable.com
 │  ├─ url: http://debuggable.com/
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/form-data/License
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/form-data/License
 ├─ form-data@1.0.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/form-data/form-data
@@ -2318,7 +2318,7 @@
 │  ├─ publisher: Eran Hammer
 │  ├─ email: eran@hueniverse.com
 │  ├─ url: http://hueniverse.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/hawk/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/hawk/LICENSE
 ├─ hawk@3.1.3
 │  ├─ licenses: BSD-3-Clause
 │  ├─ repository: https://github.com/hueniverse/hawk
@@ -2346,7 +2346,7 @@
 │  ├─ publisher: Eran Hammer
 │  ├─ email: eran@hueniverse.com
 │  ├─ url: http://hueniverse.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/hoek/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/hoek/LICENSE
 ├─ hoek@2.16.3
 │  ├─ licenses: BSD-3-Clause
 │  ├─ repository: https://github.com/hapijs/hoek
@@ -2420,7 +2420,7 @@
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/joyent/node-http-signature
 │  ├─ publisher: Joyent, Inc
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/http-signature/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/http-signature/LICENSE
 ├─ http-signature@1.1.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/joyent/node-http-signature
@@ -2517,7 +2517,7 @@
 ├─ inherits@2.0.3
 │  ├─ licenses: ISC
 │  ├─ repository: https://github.com/isaacs/inherits
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/inherits/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/inherits/LICENSE
 ├─ ini@1.3.4
 │  ├─ licenses: ISC
 │  ├─ repository: https://github.com/isaacs/ini
@@ -2566,7 +2566,7 @@
 │  ├─ repository: https://github.com/jonschlinkert/is-absolute
 │  ├─ publisher: Jon Schlinkert
 │  ├─ url: https://github.com/jonschlinkert
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/is-absolute/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/is-absolute/LICENSE
 ├─ is-absolute@0.2.6
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/jonschlinkert/is-absolute
@@ -2928,7 +2928,7 @@
 │  ├─ publisher: Isaac Z. Schlueter
 │  ├─ email: i@izs.me
 │  ├─ url: http://blog.izs.me
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/json-stringify-safe/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/json-stringify-safe/LICENSE
 ├─ json3@3.2.6
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/bestiejs/json3
@@ -3503,7 +3503,7 @@
 │  ├─ publisher: John-David Dalton
 │  ├─ email: john.david.dalton@gmail.com
 │  ├─ url: http://allyoucanleet.com/
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/lodash/LICENSE.txt
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/lodash/LICENSE.txt
 ├─ lodash@4.16.6
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/lodash/lodash
@@ -3686,7 +3686,7 @@
 ├─ mime-db@1.12.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/jshttp/mime-db
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/mime-db/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/mime-db/LICENSE
 ├─ mime-db@1.25.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/jshttp/mime-db
@@ -3697,11 +3697,11 @@
 │  ├─ publisher: Jonathan Ong
 │  ├─ email: me@jongleberry.com
 │  ├─ url: http://jongleberry.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/mime-types/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/mime-types/LICENSE
 ├─ mime-types@2.0.14
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/jshttp/mime-types
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/form-data/node_modules/mime-types/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/form-data/node_modules/mime-types/LICENSE
 ├─ mime-types@2.1.13
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/jshttp/mime-types
@@ -3764,14 +3764,14 @@
 │  ├─ publisher: James Halliday
 │  ├─ email: mail@substack.net
 │  ├─ url: http://substack.net
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/mkdirp/node_modules/minimist/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/mkdirp/node_modules/minimist/LICENSE
 ├─ minimist@1.1.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/substack/minimist
 │  ├─ publisher: James Halliday
 │  ├─ email: mail@substack.net
 │  ├─ url: http://substack.net
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/minimist/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/minimist/LICENSE
 ├─ minimist@1.2.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/substack/minimist
@@ -3785,7 +3785,7 @@
 │  ├─ publisher: James Halliday
 │  ├─ email: mail@substack.net
 │  ├─ url: http://substack.net
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/mkdirp/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/mkdirp/LICENSE
 ├─ mkdirp@0.5.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/substack/node-mkdirp
@@ -3899,7 +3899,7 @@
 │  ├─ repository: https://github.com/broofa/node-uuid
 │  ├─ publisher: Robert Kieffer
 │  ├─ email: robert@broofa.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/node-uuid/LICENSE.md
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/node-uuid/LICENSE.md
 ├─ nopt@3.0.6
 │  ├─ licenses: ISC
 │  ├─ repository: https://github.com/npm/nopt
@@ -3972,7 +3972,7 @@
 │  ├─ publisher: Mikeal Rogers
 │  ├─ email: mikeal.rogers@gmail.com
 │  ├─ url: http://www.futurealoof.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/oauth-sign/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/oauth-sign/LICENSE
 ├─ oauth-sign@0.8.2
 │  ├─ licenses: Apache-2.0
 │  ├─ repository: https://github.com/mikeal/oauth-sign
@@ -4041,7 +4041,7 @@
 │  ├─ publisher: Isaac Z. Schlueter
 │  ├─ email: i@izs.me
 │  ├─ url: http://blog.izs.me/
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/once/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/once/LICENSE
 ├─ once@1.4.0
 │  ├─ licenses: ISC
 │  ├─ repository: https://github.com/isaacs/once
@@ -4274,7 +4274,7 @@
 │  ├─ repository: https://github.com/andrewrk/node-pend
 │  ├─ publisher: Andrew Kelley
 │  ├─ email: superjoe30@gmail.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/pend/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/pend/LICENSE
 ├─ phantomjs-prebuilt@2.1.13
 │  ├─ licenses: Apache-2.0
 │  ├─ repository: https://github.com/Medium/phantomjs
@@ -4537,7 +4537,7 @@
 ├─ process-nextick-args@1.0.7
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/calvinmetcalf/process-nextick-args
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/process-nextick-args/license.md
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/process-nextick-args/license.md
 ├─ process-relative-require@1.0.0
 │  ├─ licenses: ISC
 │  ├─ repository: https://github.com/ember-cli/process-relative-require
@@ -4554,7 +4554,7 @@
 │  ├─ repository: https://github.com/visionmedia/node-progress
 │  ├─ publisher: TJ Holowaychuk
 │  ├─ email: tj@vision-media.ca
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/progress/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/progress/LICENSE
 ├─ promise-map-series@0.2.3
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/joliss/promise-map-series
@@ -4617,7 +4617,7 @@
 ├─ qs@2.3.3
 │  ├─ licenses: BSD
 │  ├─ repository: https://github.com/hapijs/qs
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/qs/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/qs/LICENSE
 ├─ qs@6.2.0
 │  ├─ licenses: BSD-3-Clause
 │  ├─ repository: https://github.com/ljharb/qs
@@ -4720,7 +4720,7 @@
 │  ├─ publisher: Isaac Z. Schlueter
 │  ├─ email: i@izs.me
 │  ├─ url: http://blog.izs.me/
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/readable-stream/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/readable-stream/LICENSE
 ├─ readable-stream@1.1.14
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/isaacs/readable-stream
@@ -4739,7 +4739,7 @@
 ├─ readable-stream@2.2.2
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/nodejs/readable-stream
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/tar-stream/node_modules/readable-stream/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/tar-stream/node_modules/readable-stream/LICENSE
 ├─ readdirp@2.1.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/thlorenz/readdirp
@@ -4900,7 +4900,7 @@
 │  ├─ repository: https://github.com/request/request
 │  ├─ publisher: Mikeal Rogers
 │  ├─ email: mikeal.rogers@gmail.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/request/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/request/LICENSE
 ├─ request@2.74.0
 │  ├─ licenses: Apache-2.0
 │  ├─ repository: https://github.com/request/request
@@ -5051,7 +5051,7 @@
 │  ├─ repository: https://github.com/vvo/selenium-standalone
 │  ├─ publisher: Vincent Voyer
 │  ├─ email: vincent@zeroload.net
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/selenium-standalone/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/selenium-standalone/LICENSE
 ├─ selenium-webdriver@2.53.3
 │  ├─ licenses: Apache-2.0
 │  ├─ repository: https://github.com/SeleniumHQ/selenium
@@ -5159,7 +5159,7 @@
 │  ├─ publisher: Eran Hammer
 │  ├─ email: eran@hueniverse.com
 │  ├─ url: http://hueniverse.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/sntp/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/sntp/LICENSE
 ├─ sntp@1.0.9
 │  ├─ licenses: BSD
 │  ├─ repository: https://github.com/hueniverse/sntp
@@ -5330,14 +5330,14 @@
 ├─ string_decoder@0.10.31
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/rvagg/string_decoder
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/string_decoder/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/string_decoder/LICENSE
 ├─ stringstream@0.0.5
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/mhart/StringStream
 │  ├─ publisher: Michael Hart
 │  ├─ email: michael.hart.au@gmail.com
 │  ├─ url: http://github.com/mhart
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/stringstream/LICENSE.txt
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/stringstream/LICENSE.txt
 ├─ strip-ansi@2.0.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/sindresorhus/strip-ansi
@@ -5460,7 +5460,7 @@
 │  ├─ repository: https://github.com/mafintosh/tar-stream
 │  ├─ publisher: Mathias Buus
 │  ├─ email: mathiasbuus@gmail.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/tar-stream/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/tar-stream/LICENSE
 ├─ tar@2.2.1
 │  ├─ licenses: ISC
 │  ├─ repository: https://github.com/isaacs/node-tar
@@ -5566,7 +5566,7 @@
 │  ├─ repository: https://github.com/salesforce/tough-cookie
 │  ├─ publisher: Jeremy Stashewsky
 │  ├─ email: jstashewsky@salesforce.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/tough-cookie/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/tough-cookie/LICENSE
 ├─ trim-newlines@1.0.0
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/sindresorhus/trim-newlines
@@ -5619,7 +5619,7 @@
 │  ├─ publisher: Mikeal Rogers
 │  ├─ email: mikeal.rogers@gmail.com
 │  ├─ url: http://www.futurealoof.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/tunnel-agent/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/tunnel-agent/LICENSE
 ├─ tweetnacl@0.14.4
 │  ├─ licenses: SEE LICENSE IN COPYING.txt
 │  ├─ repository: https://github.com/dchest/tweetnacl-js
@@ -5741,7 +5741,7 @@
 │  ├─ repository: https://github.com/medialize/URI.js
 │  ├─ publisher: Rodney Rehm
 │  ├─ url: http://rodneyrehm.de
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/urijs/LICENSE.txt
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/urijs/LICENSE.txt
 ├─ url-loader@0.5.7
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/webpack/url-loader
@@ -5790,7 +5790,7 @@
 │  ├─ publisher: Nathan Rajlich
 │  ├─ email: nathan@tootallnate.net
 │  ├─ url: http://n8.io/
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/util-deprecate/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/util-deprecate/LICENSE
 ├─ util@0.10.3
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/defunctzombie/node-util
@@ -5981,7 +5981,7 @@
 │  ├─ publisher: Isaac Z. Schlueter
 │  ├─ email: i@izs.me
 │  ├─ url: http://blog.izs.me
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/which/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/which/LICENSE
 ├─ which@1.2.12
 │  ├─ licenses: ISC
 │  ├─ repository: https://github.com/isaacs/node-which
@@ -6040,7 +6040,7 @@
 │  ├─ publisher: Isaac Z. Schlueter
 │  ├─ email: i@izs.me
 │  ├─ url: http://blog.izs.me/
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/wrappy/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/wrappy/LICENSE
 ├─ write-file-atomic@1.3.1
 │  ├─ licenses: ISC
 │  ├─ repository: https://github.com/iarna/write-file-atomic
@@ -6090,7 +6090,7 @@
 │  ├─ repository: https://github.com/Raynos/xtend
 │  ├─ publisher: Raynos
 │  ├─ email: raynos2@gmail.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/xtend/LICENCE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/xtend/LICENCE
 ├─ y18n@3.2.1
 │  ├─ licenses: ISC
 │  ├─ repository: https://github.com/yargs/y18n
@@ -6139,7 +6139,7 @@
 │  ├─ repository: https://github.com/thejoshwolfe/yauzl
 │  ├─ publisher: Josh Wolfe
 │  ├─ email: thejoshwolfe@gmail.com
-│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/@infor/sohoxi/node_modules/yauzl/LICENSE
+│  └─ licenseFile: /Users/tmcconechy/Dev/angular-components/node_modules/ids-enterprise/node_modules/yauzl/LICENSE
 ├─ yeast@0.1.2
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/unshiftio/yeast

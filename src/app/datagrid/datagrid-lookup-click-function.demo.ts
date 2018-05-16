@@ -18,7 +18,7 @@ import {
   SohoComponentsModule,
   SohoModalDialogService,
   SohoModalDialogRef
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 import {
   PAGING_COLUMNS,
   PAGING_DATA

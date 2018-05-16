@@ -115,7 +115,8 @@ type SohoDropDownSourceFunction = (
  * Function prototype for the response function.
  */
 type SohoDropDownResponseFunction = (
-  data: any[]
+  data: any[],
+  create?: boolean
 ) => void;
 
 /**
@@ -162,6 +163,11 @@ interface SohoDropDownStatic {
    * Destroys any resources created by the control.
    */
   destroy(): void;
+
+  /**
+   * Set the selected option on the dropdown.
+   */
+  selectValue(value: any): void;
 }
 
 /**

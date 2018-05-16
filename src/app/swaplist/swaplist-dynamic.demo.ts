@@ -1,17 +1,16 @@
-﻿import {
+import {
     Component,
     OnInit,
     OnDestroy,
     ViewChild
 } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable ,  BehaviorSubject } from 'rxjs';
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
 import {
     SohoSwapListComponent
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 @Component({
     selector: 'soho-swaplist-dynamic-demo',

@@ -1,4 +1,4 @@
-## Development Environment
+## Enterprise Components for Angular Development Environment
 
 ### Install
 - [Setup SSH key for using git](https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html) (faster but not required)
@@ -6,21 +6,19 @@
 - Get the latest LTS **Node.js** release from https://nodejs.org/en/ (version 8 or later)
 - Get an Editor like Visual Studio Code (https://code.visualstudio.com/) or [Atom](https://atom.io/) or your fav.
 
-### Initial Setup with npm 5
+### Initial Setup with npm
 
 - Clone The main repo fx `git clone https://github.com/infor-design/enterprise-ng.git`
 - Open a command prompt to enterprise-ng
-- Type `npm config set @infor:registry http://npm.infor.com:4873`
 - Type `npm install -g @angular/cli@latest`
 - Type `npm i`
 - Type `ng build`
 - Type `ng serve`
 
-### Initial Setup yarn
+### Initial Setup with yarn
 
 - Clone The main repo fx `git clone https://github.com/infor-design/enterprise-ng.git`
 - Open a command prompt to enterprise-ng
-- Type `npm config set @infor:registry http://npm.infor.com:4873`
 - Type `npm install -g @angular/cli@latest`
 - Type `yarn`
 - Type `ng build`
@@ -222,7 +220,7 @@ export class SohoWidgetModule {}
 
 Angular-CLI uses **jasmine** to handle unit testing.  Simply add your unit test code to a file called **soho-widget.spec.ts** in the same folder as component.
 
-These unit tests are run are part of the Continuous Integration build when code is pushed into the sohoxi-angular repository.
+These unit tests are run are part of the Continuous Integration build when code is pushed into the IDS enterprise-ng repository.
 
 ## Pulling it all together
 
@@ -260,4 +258,4 @@ import { SohoWidgetModule } from './widget/soho-widget.module';
 export class SohoComponentsModule {}
 ```
 
-To integrate this into your application simply include the **@infor/sohoxi-angular** package into your application, and include the **SohoComponentsModule** into your application module definition.  For further details, see the QuickStart guide.
+To integrate this into your application simply include the **ids-enterprise-ng** package into your application, and include the **SohoComponentsModule** into your application module definition.  For further details, see the QuickStart guide.

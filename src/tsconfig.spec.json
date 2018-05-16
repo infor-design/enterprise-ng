@@ -6,7 +6,7 @@
     "target": "es5",
     "baseUrl": "",
     "paths": {
-      "@infor/sohoxi-angular": ["soho"]
+      "ids-enterprise-ng": ["soho"]
     },
     "types": [
       "jasmine",
@@ -15,7 +15,8 @@
     ]
   },
   "files": [
-    "test.ts"
+    "test.ts",
+    "polyfills.ts"
   ],
   "include": [
     "**/*.spec.ts",

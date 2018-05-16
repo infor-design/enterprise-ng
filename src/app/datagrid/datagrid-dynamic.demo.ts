@@ -1,19 +1,24 @@
+
+import {
+  of,
+  Observable,
+  BehaviorSubject
+} from 'rxjs';
+
 import {
   Component,
   ViewChild,
   AfterViewInit,
 } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import 'rxjs/add/observable/of';
-
-import { SohoDataGridComponent, SohoPopupMenuComponent } from '@infor/sohoxi-angular';
-import { SohoBusyIndicatorDirective } from '@infor/sohoxi-angular';
-
 import {
-  DataGridDemoService
-} from './datagrid-demo.service';
+  SohoDataGridComponent,
+  SohoPopupMenuComponent
+} from 'ids-enterprise-ng';
+
+import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
+
+import { DataGridDemoService } from './datagrid-demo.service';
 
 @Component({
   selector: 'soho-datagrid-dynamic-demo',
@@ -42,7 +47,7 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
   }
 
   public get columns(): Observable<SohoDataGridColumn[]> {
-    return Observable.of(this.service.getColumns());
+    return of(this.service.getColumns());
   }
 
   addRows() {

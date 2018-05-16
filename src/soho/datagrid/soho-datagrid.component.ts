@@ -27,7 +27,7 @@ import {
 import { ArgumentHelper } from '../utils/argument.helper';
 
 import { SohoDataGridService } from './soho-datagrid.service';
-import { SohoComponentsModule } from '@infor/sohoxi-angular';
+import { SohoComponentsModule } from 'ids-enterprise-ng';
 
 export type SohoDataGridType = 'auto' | 'content-only';
 
@@ -1378,6 +1378,15 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   activatedRow(): SohoDataGridRowActivated {
     return this.datagrid.activatedRow();
+  }
+
+  /**
+   * Sets the active cell.
+   * @param idx The index of the row of the cell to set active.
+   * @param idx2 The index of the cell to set active.
+   */
+  public setActiveCell(idx: number, idx2: number): void {
+    this.datagrid.setActiveCell(idx, idx2);
   }
 
   /**

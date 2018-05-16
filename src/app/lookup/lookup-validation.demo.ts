@@ -6,7 +6,7 @@ import {
   productsData
 } from './mock.data';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { SohoLookupComponent } from '@infor/sohoxi-angular';
+import { SohoLookupComponent } from 'ids-enterprise-ng';
 
 export interface FakeResponse {
   response: number;

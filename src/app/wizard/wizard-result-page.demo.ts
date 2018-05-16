@@ -8,7 +8,7 @@ import {
   SohoProgressComponent,
   SohoWizardPageComponent,
   SohoBusyIndicatorDirective
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 import { WizardDemoComponent } from './wizard.demo';
 

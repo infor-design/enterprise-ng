@@ -8,6 +8,8 @@ import {
   ControlValueAccessor
 } from '@angular/forms';
 
+export const NOOP: any = () => {};
+
 /**
  * Base class for new components that need to support NgForms.
  */
@@ -17,10 +19,10 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
   private _value: T;
 
   /** ControlValueAccessor method called when the attached control has changed, */
-  private _onChangeCallback: (_: T) => void = () => {};
+  protected _onChangeCallback: (_: T) => void = NOOP;
 
   /** ControlValueAccessor method called when the attached control has touched. */
-  private _onTouchedCallback: () => void = () => {};
+  private _onTouchedCallback: () => void = NOOP;
 
   /** Gets the value for the control. */
   protected get internalValue(): T {
@@ -52,15 +54,16 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
    * Write a new value to the element.
    */
   writeValue(value: T) {
-      this._value = value;
-      this._onChangeCallback(value);
+    this._value = value;
   }
 
   /**
    * Set the function to be called when the control receives a change event.
    */
   registerOnChange(fn: (_: T) => void): void {
-    this._onChangeCallback = fn;
+    this._onChangeCallback = () => {
+      fn(this.internalValue);
+    };
   }
 
   /**

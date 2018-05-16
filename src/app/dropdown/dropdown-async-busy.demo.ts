@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, AfterViewInit, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { SohoDropDownComponent, SohoBusyIndicatorDirective } from '@infor/sohoxi-angular';
-import { Subject } from 'rxjs/Subject';
+import { SohoDropDownComponent, SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'soho-dropdown-demo',
@@ -27,7 +27,7 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
       { value: 'WY', label: 'Wyoming' }
     ];
   public model = { value: 'MN' };
-  public model2 = { value: 'MN', label: 'Minnesota' };
+  public model2 = { value: 'ND', label: 'North Dakota' };
 
   public childrenPreload: Subject<any> = new Subject<any>();
   public childrenOnClick: Array<any>;
@@ -57,14 +57,14 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
     dropdown2.updated();
   }
 
-  onSource(callback) {
+  onSource = (response: SohoDropDownResponseFunction, searchTerm: any) => {
     if (!this.itemsAvailable) {
       this.itemsAvailable = true;
       setTimeout(() => {
-        callback(this.states);
+        response(this.states, true);
       }, 2000);
     } else {
-      callback(this.states);
+      response(this.states);
     }
   }
 
@@ -74,7 +74,6 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
     // setTimeout simulates the behaviour of a rest service
     setTimeout(() => {
       subject.next(this.states);
-      this.changeDetectorRef.detectChanges();
       dropdown.updated();
       busyIndicator.activated = false;
     }, 2000);

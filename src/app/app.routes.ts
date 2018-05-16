@@ -62,7 +62,6 @@ import { DonutDemoComponent } from './donut/donut.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
 import { DropdownAsyncDemoComponent } from './dropdown/dropdown-async.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
-import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
@@ -147,6 +146,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 import { WizardDemoComponent } from './wizard/wizard.demo';
 import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
+import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo';
 
 import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
 
@@ -213,8 +213,8 @@ export const routes: Routes = [
   { path: 'dropdown',                               component: DropdownDemoComponent },
   { path: 'dropdown-async-busy',                    component: DropdownAsyncBusyDemoComponent },
   { path: 'dropdown-async',                         component: DropdownAsyncDemoComponent },
-  { path: 'dropdown-lm',                            component: DropdownLMDemoComponent },
   { path: 'dropdown-multi',                         component: DropdownMultiselectDemoComponent },
+  { path: 'dropdown-reactive',                      component: DropdownReactiveDemoComponent },
   { path: 'dropdown-simple',                        component: DropdownSimpleDemoComponent },
   { path: 'editor',                                 component: EditorDemoComponent },
   { path: 'emptymessage',                           component: EmptyMessageDemoComponent},

@@ -6,7 +6,7 @@ import {
 
 @Component({
   selector: 'soho-icons',
-  templateUrl: '../../../node_modules/@infor/sohoxi/dist/svg/svg.html',
+  templateUrl: '../../../node_modules/ids-enterprise/dist/svg/svg.html',
 })
 export class SohoIconsComponent {
   @HostBinding('style.display') none = 'none';

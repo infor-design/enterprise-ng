@@ -7,7 +7,7 @@ import {
 import {
   SohoDataGridComponent,
   SohoBusyIndicatorDirective
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-datagrid-content-demo',
