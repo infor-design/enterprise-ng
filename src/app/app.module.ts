@@ -102,7 +102,6 @@ import { DonutDemoComponent } from './donut/donut.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
 import { DropdownAsyncDemoComponent } from './dropdown/dropdown-async.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
-import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
@@ -275,7 +274,6 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     DropdownAsyncBusyDemoComponent,
     DropdownAsyncDemoComponent,
     DropdownDemoComponent,
-    DropdownLMDemoComponent,
     DropdownMultiselectDemoComponent,
     DropdownReactiveDemoComponent,
     DropdownSimpleDemoComponent,

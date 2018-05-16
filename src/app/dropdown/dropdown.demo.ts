@@ -3,8 +3,7 @@ import { SohoDropDownComponent } from 'soho/dropdown';
 
 @Component({
   selector: 'soho-dropdown-demo',
-  templateUrl: './dropdown.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './dropdown.demo.html'
 })
 export class DropdownDemoComponent implements OnInit {
   @ViewChildren(SohoDropDownComponent) dropDowns: QueryList<SohoDropDownComponent>;
@@ -21,7 +20,7 @@ export class DropdownDemoComponent implements OnInit {
   public model = {
     single: 'AL',
     readOnly: 'DE',
-    source: '',
+    source: null,
     modifiable: this.options[3],
   };
   public showModel = false;
@@ -57,7 +56,7 @@ export class DropdownDemoComponent implements OnInit {
     this.dropDownReadOnly = true;
   }
 
-  source(response: any, searchTerm: any) {
+  source = (response: SohoDropDownResponseFunction, searchTerm: any) => {
     const states = [
       { value: 'AK', label: 'Alaska'},
       { value: 'AZ', label: 'Arizona'},
@@ -71,6 +70,7 @@ export class DropdownDemoComponent implements OnInit {
     ];
 
     this.sourceoptions = states;
+    this.model.source = this.sourceoptions[3];
 
     response(states, true);
   }

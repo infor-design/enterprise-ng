@@ -29,7 +29,7 @@
                         displayDelay="0"
                         [formControlName]="'testControl2'"
                         [(ngModel)]="model2.value"
-                        [source]="onSource.bind(context)">
+                        [source]="onSource">
                         <option *ngFor="let child of childrenOnClick" [value]="child.value">{{child.label}}</option>
                     </select>
                 </div>

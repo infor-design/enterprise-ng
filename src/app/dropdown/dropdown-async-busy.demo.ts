@@ -57,14 +57,14 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
     dropdown2.updated();
   }
 
-  onSource(callback) {
+  onSource = (response: SohoDropDownResponseFunction, searchTerm: any) => {
     if (!this.itemsAvailable) {
       this.itemsAvailable = true;
       setTimeout(() => {
-        callback(this.states, true);
+        response(this.states, true);
       }, 2000);
     } else {
-      callback(this.states);
+      response(this.states);
     }
   }
 

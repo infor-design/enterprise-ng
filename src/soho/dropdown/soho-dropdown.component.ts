@@ -15,6 +15,7 @@ import {
   InjectionToken,
   forwardRef,
   AfterViewChecked,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { NgModel, NgControl, ControlValueAccessor } from '@angular/forms';
 
@@ -27,12 +28,12 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Used to provide unnamed controls with a unique id.
    */
   private static counter = 0;
-    /**
-   * Flag to force an update of the control after the view is created.
-   */
+  /**
+ * Flag to force an update of the control after the view is created.
+ */
   private runUpdatedOnCheck: boolean;
 
-  private valueAccessor: IdsDropDownControlValueAccessor;
+  private valueAccessor: SohoDropDownControlValueAccessorDelegator;
 
   /**
    * Local variables
@@ -269,7 +270,13 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    */
   @Input()
   public set source(source: SohoDropDownSourceFunction | Object | string) {
-    this.options.source = source;
+    if (typeof source === 'function') {
+      this.options.source = (...args) => {
+       this.ngZone.run(() => (source as Function)(...args));
+      };
+    } else {
+      this.options.source = source;
+    }
   }
 
   public get source(): SohoDropDownSourceFunction | Object | string {
@@ -325,23 +332,26 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   }
 
   /**
-   * @description
-   * Constructor.
-   *
-   * @param element the associated element.
-   * @param model the model
-   * @param ngZone the angular zone
+   * Creates an instance of SohoDropDownComponent.
+   * @param {ElementRef} element the element this component encapsultes.
+   * @param {NgZone} ngZone
+   * @param {NgControl} ngControl
+   * @memberof SohoDropDownComponent
    */
   constructor(
     private element: ElementRef,
     private ngZone: NgZone,
     @Self() @Optional() public ngControl: NgControl) {
 
-      if (this.ngControl) {
-        this.valueAccessor = new IdsDropDownControlValueAccessor(this.ngControl.valueAccessor, this);
+      // Is the control using a form control and/or model?
+    if (this.ngControl) {
+      // Wrap the accessor to allow updates to be pushed,
+      // but also use the standard accessors provided by angular.
+      this.valueAccessor = new SohoDropDownControlValueAccessorDelegator(this.ngControl.valueAccessor, this);
 
-        this.ngControl.valueAccessor = this.valueAccessor;
-      }
+      // ... change the accessor to use ours.
+      this.ngControl.valueAccessor = this.valueAccessor;
+    }
   }
 
   ngAfterViewInit() {
@@ -360,7 +370,8 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       // @todo - add event binding control so we don't bind if not required.
       this.jQueryElement
         .on('change', (event: JQuery.Event) => this.onChange(event))
-        .on('updated', (event: JQuery.Event) => this.onUpdated(event));
+        .on('updated', (event: JQuery.Event) => this.onUpdated(event))
+        .on('requestend', (event: JQuery.Event, data: any) => this.onRequestEnd(event, data));
 
       this.runUpdatedOnCheck = true;
     });
@@ -377,7 +388,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
         this.runUpdatedOnCheck = false;
       });
     }
- }
+  }
 
   ngOnDestroy() {
     this.ngZone.runOutsideAngular(() => {
@@ -389,33 +400,62 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       // Destroy any widget resources.
       this.dropdown.destroy();
       this.dropdown = null;
-      });
+    });
   }
 
-  private onUpdated(event: any) {
-    event.data = this.jQueryElement.val();
-
-    this.valueAccessor._onChange(event.data);
-    this.valueAccessor.writeValue(event.data);
-    this.updatedEvent.next(event);
-  }
   /**
-   * @description
+   * Event handler for the 'requestend' event on the dropdown 'component'.
    *
-   * The dropdown has changed value.
+   * @private
+   * @param {JQuery.Event} event the standard jQuery event.
+   * @param {*} data any data passed by the dropdown (todo the type)
+   * @memberof SohoDropDownComponent
+   */
+  private onRequestEnd(event: JQuery.Event, data: any) {
+
+    // When the request for data has completed, make sure we
+    // let the model know, by using the value accessor.
+    // Make sure calls to angular are made in the right zone.
+    this.ngZone.run(() => {
+      // This may be the string representation of the data,
+      // in which case we need to convert to real data!
+      this.valueAccessor.writeValue(this.jQueryElement.val());
+      this.valueAccessor.onChangeFn(this.valueAccessor.value);
+    });
+  }
+
+  private onUpdated(event: JQuery.Event) {
+    const val = this.jQueryElement.val();
+    this.ngZone.run(() => {
+      this.valueAccessor.writeValue(val);
+      this.valueAccessor.onChangeFn(this.valueAccessor.value);
+
+      this.updatedEvent.next(event);
+    });
+  }
+
+  /**
+   * Event handler for the 'changed' event on the dropdown component.
    *
-   * @param event
+   * @private
+   * @param {*} event the standard jQuery event.
+   * @memberof SohoDropDownComponent
    */
   private onChange(event: any) {
-    // Set the data on the event.
-    // event.data = this.innerValue;
-    event.data = this.jQueryElement.val();
+    const val = this.jQueryElement.val();
+    console.log(`onChange(${JSON.stringify(val)})`);
+    // Make sure calls to angular are made in the right zone.
+    this.ngZone.run(() => {
+      // Update the model and fires any change detection.
+      this.valueAccessor.writeValue(val);
+      this.valueAccessor.onChangeFn(this.valueAccessor.value);
 
-    this.valueAccessor._onChange(event.data);
-    this.valueAccessor.writeValue(event.data);
+      // Set the data on the event.
+      event.data = this.valueAccessor.value;
 
-    // Inform all listeners.
-    this.change.emit(event);
+      // Inform all listeners.
+      this.change.emit(event);
+    });
   }
 
   /**
@@ -474,7 +514,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * 'name' attribute must be set on the control for this to work correctly.
    */
   public setFocus(): void {
-    this.jQueryElement.trigger('activated');
+    if (this.jQueryElement) {
+      this.ngZone.runOutsideAngular(() => {
+        this.jQueryElement.trigger('activated');
+      });
+    }
   }
 
   /**
@@ -487,7 +531,6 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    */
   public selectValue(value: any): void {
     if (this.dropdown) {
-      // @todo lookup model value!
       this.ngZone.runOutsideAngular(() => {
         this.dropdown.selectValue(value);
       });
@@ -495,20 +538,53 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   }
 }
 
+/**
+ * Provides a 'wrapper' around the {ControlValueAccessor} added by
+ * angular when handling `select` elements.
+ *
+ * This class allows the {SohoDropDownComponent} to interoperate with
+ * the {ControlValueAccessor}.  Specifically, providing access to the
+ * onChange function, which we must call when the value of the dropdown
+ * is modified.
+ *
+ * @class IdsDropDownControlValueAccessor
+ * @implements {ControlValueAccessor}
+ */
+class SohoDropDownControlValueAccessorDelegator implements ControlValueAccessor {
+  /**
+   * Current value.
+   *
+   * @type {*}
+   * @memberof SohoDropDownControlValueAccessorDelegator
+   */
+  public value: any;
+  /**
+   * The Function to call when the value of the control changes.
+   */
+  public onChangeFn: Function;
 
-class IdsDropDownControlValueAccessor implements ControlValueAccessor {
+  /**
+   * Creates an instance of SohoDropDownControlValueAccessorDelegate.
+   *
+   * @param {ControlValueAccessor} delegate the value accessor
+   * @param {SohoDropDownComponent} dropdown the dropdown linked to the accessor
+   * @memberof SohoDropDownControlValueAccessorDelegate
+   */
+  constructor(
+    private delegate: ControlValueAccessor,
+    private dropdown: SohoDropDownComponent) { }
 
-  public _onChange: Function;
+  writeValue(value: any): void {
+    console.log(`writeValue ${JSON.stringify(value)}`);
+    this.delegate.writeValue(value);
 
-  constructor(private delegate: ControlValueAccessor,
-  private dropdown: SohoDropDownComponent) {}
-
-  writeValue(obj: any): void {
-    //this.dropdown.selectValue(obj);
-    this.delegate.writeValue(obj);
+    // Get the actual value back from the
+    // delegate.
+    this.value = (this.delegate as any).value;
+    console.log(`${JSON.stringify(this.value)}`);
   }
   registerOnChange(fn: any): void {
-    this._onChange = fn;
+    this.onChangeFn = fn;
     this.delegate.registerOnChange(fn);
   }
 

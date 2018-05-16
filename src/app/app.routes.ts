@@ -62,7 +62,6 @@ import { DonutDemoComponent } from './donut/donut.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
 import { DropdownAsyncDemoComponent } from './dropdown/dropdown-async.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
-import { DropdownLMDemoComponent } from './dropdown/dropdown-lm.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
@@ -214,7 +213,6 @@ export const routes: Routes = [
   { path: 'dropdown',                               component: DropdownDemoComponent },
   { path: 'dropdown-async-busy',                    component: DropdownAsyncBusyDemoComponent },
   { path: 'dropdown-async',                         component: DropdownAsyncDemoComponent },
-  { path: 'dropdown-lm',                            component: DropdownLMDemoComponent },
   { path: 'dropdown-multi',                         component: DropdownMultiselectDemoComponent },
   { path: 'dropdown-reactive',                      component: DropdownReactiveDemoComponent },
   { path: 'dropdown-simple',                        component: DropdownSimpleDemoComponent },

@@ -104,7 +104,7 @@ export class DropdownMultiselectDemoComponent implements OnInit {
     this.dropDownReadOnly = true;
   }
 
-  sourceAlpha = (response: any, searchTerm: any) => {
+  sourceAlpha = (response: SohoDropDownResponseFunction, searchTerm: any) => {
     // uses statesAlpha array as response
     // rebuild options using current model value to set the selected state
     const values = this.model.multiSourceAlpha.value;
@@ -124,7 +124,7 @@ export class DropdownMultiselectDemoComponent implements OnInit {
     }, 1);
   }
 
-  sourceNumeric = (response: any, searchTerm: any) => {
+  sourceNumeric = (response: SohoDropDownResponseFunction, searchTerm: any) => {
     // uses statesNumeric array as response
     // rebuild options using current model value to set the selected state
     const values = this.model.multiSourceNumeric.value;

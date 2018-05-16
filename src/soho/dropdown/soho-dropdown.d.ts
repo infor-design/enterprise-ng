@@ -115,7 +115,8 @@ type SohoDropDownSourceFunction = (
  * Function prototype for the response function.
  */
 type SohoDropDownResponseFunction = (
-  data: any[]
+  data: any[],
+  create?: boolean
 ) => void;
 
 /**
