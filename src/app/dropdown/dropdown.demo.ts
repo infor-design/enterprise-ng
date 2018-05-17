@@ -20,7 +20,7 @@ export class DropdownDemoComponent implements OnInit {
   public model = {
     single: 'AL',
     readOnly: 'DE',
-    source: null,
+    source: '',
     modifiable: this.options[3],
   };
   public showModel = false;
@@ -70,7 +70,7 @@ export class DropdownDemoComponent implements OnInit {
     ];
 
     this.sourceoptions = states;
-    this.model.source = this.sourceoptions[3];
+    // this.model.source = this.sourceoptions[3];
 
     response(states, true);
   }

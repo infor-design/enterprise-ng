@@ -64,7 +64,7 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
         response(this.states, true);
       }, 2000);
     } else {
-      response(this.states);
+      response(this.states, false);
     }
   }
 
