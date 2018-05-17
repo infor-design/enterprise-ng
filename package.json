@@ -7,11 +7,9 @@
     "test": "ng test --browsers=PhantomJS --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "publish": "gulp publish",
-    "publish-dev": "gulp publish && npm publish publish --tag dev",
-    "publish-prod": "gulp publish && npm publish publish",
-    "publish-nightly": "gulp publish && npm publish publish --tag nightly",
-    "prepublishOnly": "tsc -p ./ --outDir dist/"
+    "publish-setup": "cd ./publish && npm run prepublishOnly && cd ../",
+    "publish-dev": "npm publish publish/ --tag dev",
+    "publish-prod": "npm publish publish/"
   },
   "dependencies": {
     "@angular/animations": "6.0.2",

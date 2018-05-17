@@ -29,7 +29,7 @@ gulp.task("copy-assets", gulp.series('clean', function () {
 
 /**
  * Generate a folder with just the needed files for an npm publish.
- * The publish action is in the npm scripts (npm run publish)
+ * The publish action is in the npm scripts (npm run publish-setup)
  */
 gulp.task('publish-clean', function() {
  return del(['publish/**/*', '!publish/package.json']);

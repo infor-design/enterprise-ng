@@ -853,6 +853,9 @@ interface SohoDataGridStatic {
 
   setActiveCell(idx: number, idx2: number): void;
 
+  /** Returns an array of row numbers for the rows containing the value for the specified field */
+  findRowsByValue(fieldName: string, value: any): number[];
+
   renderHeader(): void;
 
   renderRows(): void;
