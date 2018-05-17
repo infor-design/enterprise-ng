@@ -5,7 +5,7 @@
     "module": "es2015",
     "baseUrl": "",
     "paths": {
-      "@infor/sohoxi-angular": ["soho"]
+      "ids-enterprise-ng": ["soho"]
     },
     "types": [
       "jasmine",

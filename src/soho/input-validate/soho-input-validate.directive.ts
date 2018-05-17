@@ -1,4 +1,4 @@
-import { HostBinding, Directive, ElementRef, EventEmitter, Input, Output } from '@angular/core';
+import { AfterViewInit, Attribute, Directive, ElementRef, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 
 /**
  * Angular Wrapper for the SoHo Input Validate Directive.
@@ -9,7 +9,7 @@ import { HostBinding, Directive, ElementRef, EventEmitter, Input, Output } from 
 @Directive({
   selector: 'form[soho-input-validate], input[soho-input-validate], input[data-validate], input[data-validate-on="submit"], textarea[data-validate], select[data-validate]' // tslint:disable-line
 })
-export class SohoInputValidateDirective {
+export class SohoInputValidateDirective implements AfterViewInit {
 
   /**
    * Local variables
@@ -26,7 +26,8 @@ export class SohoInputValidateDirective {
   @Output() info = new EventEmitter<SohoInputValidateEvent>();
   @Output() valid = new EventEmitter<SohoInputValidateEvent>();
 
-  constructor(private el: ElementRef) {
+  constructor(private el: ElementRef, @Attribute('data-validate') dataValidateAttr) {   // tslint:disable-line
+    this.dataValidate = dataValidateAttr;
   }
 
   /**

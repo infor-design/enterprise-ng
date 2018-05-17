@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
-import { SohoAccordionComponent } from '@infor/sohoxi-angular';
+import { SohoAccordionComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'accordion-demo', // tslint:disable-line

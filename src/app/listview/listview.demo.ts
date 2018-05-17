@@ -5,7 +5,7 @@ import {
 
  import {
    SohoListViewComponent
- } from '@infor/sohoxi-angular';
+ } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-listview-demo',

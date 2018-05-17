@@ -3,7 +3,7 @@ import {
   OnInit, HostBinding, ElementRef, ViewChild
 } from '@angular/core';
 import { ChartDemoService } from './chart-demo.service';
-import { SohoChartComponent } from '@infor/sohoxi-angular';
+import { SohoChartComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-chart-demo',

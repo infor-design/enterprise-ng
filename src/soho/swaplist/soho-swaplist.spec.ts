@@ -14,10 +14,10 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
+import { Observable, of } from 'rxjs';
 
 import { FormsModule } from '@angular/forms';
+
 import { SohoSwapListModule } from './soho-swaplist.module';
 import { SohoSwapListComponent } from './soho-swaplist.component';
 
@@ -34,7 +34,7 @@ export class SwapListTestService extends SohoSwapListService {
 
   getData(): Observable<SohoSwapListOptions> {
     // console.log(this.options.available);
-    return Observable.of(this.options);
+    return of(this.options);
   }
 
   constructor() {
@@ -304,7 +304,7 @@ describe('Soho Swap List Service', () => {
 
     // Setup spy on the `getData` method
     spy = spyOn(service, 'getData')
-      .and.returnValue(Observable.of(options));
+      .and.returnValue(of(options));
 
     com = component.swaplist;
     de = fixture.debugElement;

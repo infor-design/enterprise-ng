@@ -6,9 +6,9 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 
-import { SohoDropDownComponent } from '@infor/sohoxi-angular';
+import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 import { MOCK_STATES } from './dropdown-mock.data';
 

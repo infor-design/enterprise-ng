@@ -9,7 +9,7 @@ import {
 import {
   SohoDataGridComponent,
   SohoButtonComponent,
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 import {
   PAGING_DATA
 } from './datagrid-paging-data';

@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { of,  Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
 
 import {
   SohoDataGridService,
@@ -28,7 +27,7 @@ export class DataGridDemoService extends SohoDataGridService {
   }
 
   getData(req: SohoDataGridSourceRequest): Observable<Array<any>> {
-    return Observable.of(this.data);
+    return of(this.data);
   }
 
   constructor() {

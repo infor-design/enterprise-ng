@@ -73,15 +73,21 @@ describe('Soho File Upload Render', () => {
   });
 
   it('@Input() disabled', () => {
+    fixture.detectChanges();
     fileupload.disabled = true;
+    fixture.detectChanges();
     expect(el.hasAttribute('disabled')).toBeTruthy();
     fileupload.disabled = false;
+    fixture.detectChanges();
   });
 
   it('@Input() readonly', () => {
+    fixture.detectChanges();
     fileupload.readonly = true;
+    fixture.detectChanges();
     // sohoxi control sets 'readonly' on textInput and 'disabled' on fileInput
     expect(el.hasAttribute('disabled')).toBeTruthy();
     fileupload.readonly = false;
+    fixture.detectChanges();
   });
 });

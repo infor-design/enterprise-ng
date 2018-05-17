@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import {
   SohoMessageService,
   SohoMessageRef
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-message.demo',

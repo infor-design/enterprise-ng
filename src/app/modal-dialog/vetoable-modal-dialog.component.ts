@@ -5,7 +5,7 @@ import {
 import {
   SohoModalDialogRef,
   SohoModalDialogVetoableEventGuard
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 /**
  * This is an example of a vetoable dialog component, that can be instantiated

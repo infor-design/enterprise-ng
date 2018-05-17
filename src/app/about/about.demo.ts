@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import {
   SohoAboutService,
   SohoAboutRef
-} from '@infor/sohoxi-angular';
+} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-about.demo',

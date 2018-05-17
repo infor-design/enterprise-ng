@@ -1,9 +1,17 @@
+
+import {
+  of,
+  Observable
+} from 'rxjs';
+
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
+import { SohoDataGridService } from 'ids-enterprise-ng';
 
-import { SohoDataGridService } from '@infor/sohoxi-angular';
-import { PAGING_DATA, PAGING_COLUMNS } from './datagrid-paging-data';
+import {
+  PAGING_DATA,
+  PAGING_COLUMNS
+} from './datagrid-paging-data';
 
 declare var Formatters: any;
 
@@ -43,6 +51,6 @@ export class DataGridPagingIndeterminateDemoService extends SohoDataGridService 
       lastPage: this.endIndex >= this.data.length - 1
     };
 
-    return Observable.of(result);
+    return of(result);
   }
 }

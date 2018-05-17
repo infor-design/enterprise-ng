@@ -1,9 +1,12 @@
+
+import {
+  of,
+  Observable
+} from 'rxjs';
+
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-
-import { SohoTreeService } from '@infor/sohoxi-angular';
+import { SohoTreeService } from 'ids-enterprise-ng';
 
 import { TreeDemoData } from './tree-data.demo';
 
@@ -17,10 +20,10 @@ export class TreeDemoService extends SohoTreeService {
   }
 
   getRootTreeNodes(): Observable<SohoTreeNode[]> {
-    return Observable.of(this.demoData.getRootTreeNodes());
+    return of(this.demoData.getRootTreeNodes());
   }
 
   getTreeNodes(node: SohoTreeNode): Observable<SohoTreeNode[]> {
-    return Observable.of(this.demoData.getTreeNodes(node));
+    return of(this.demoData.getTreeNodes(node));
   }
 }
