@@ -1394,7 +1394,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @param value The value to use in search.
    */
   findRowsByValue(fieldName: string, value: any): number[] {
-    return this.datagrid.findRowsByValue(fieldName, value)
+    return this.datagrid.findRowsByValue(fieldName, value);
   }
 
   /**
