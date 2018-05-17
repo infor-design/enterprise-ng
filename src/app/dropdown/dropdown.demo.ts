@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
-import { SohoDropDownComponent } from 'ids-enterprise-ng';
+import { Component, OnInit, ViewChildren, QueryList, ChangeDetectionStrategy } from '@angular/core';
+import { SohoDropDownComponent } from 'soho/dropdown';
 
 @Component({
   selector: 'soho-dropdown-demo',
