@@ -1389,6 +1389,15 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Returns an array of row numbers for the rows containing the value for the specified field.
+   * @param fieldName The field name to search.
+   * @param value The value to use in search.
+   */
+  findRowsByValue(fieldName: string, value: any): number[] {
+    return this.datagrid.findRowsByValue(fieldName, value)
+  }
+
+  /**
    * Programmatically trigger a call to the datagrid.settings.source
    * function with the given pagerType.
    * @param pagerType - a valid pager type.
