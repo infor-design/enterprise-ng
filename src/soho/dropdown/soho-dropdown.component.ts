@@ -13,7 +13,8 @@ import {
   Optional,
   InjectionToken,
   forwardRef,
-  AfterViewChecked
+  AfterViewChecked,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import {
@@ -24,7 +25,8 @@ import {
 
 @Component({
   selector: 'select[soho-dropdown]', // tslint:disable-line
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   /**
