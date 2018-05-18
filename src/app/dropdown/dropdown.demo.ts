@@ -70,7 +70,6 @@ export class DropdownDemoComponent implements OnInit {
     ];
 
     this.sourceoptions = states;
-    // this.model.source = this.sourceoptions[3];
 
     response(states, true);
   }
