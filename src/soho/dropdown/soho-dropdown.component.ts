@@ -75,7 +75,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     this.options.closeOnSelect = closeOnSelect;
     if (this.dropdown) {
       this.dropdown.settings.closeOnSelect = closeOnSelect;
-      this.dropdown.updated();
+      this.markForRefresh();
     }
   }
 
@@ -151,7 +151,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     this.options.moveSelected = moveSelected;
     if (this.dropdown) {
       this.dropdown.settings.moveSelected = moveSelected;
-      this.dropdown.updated();
+      this.markForRefresh();
     }
   }
 
@@ -164,7 +164,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     this.options.showEmptyGroupHeaders = showEmptyGroupHeaders;
     if (this.dropdown) {
       this.dropdown.settings.showEmptyGroupHeaders = showEmptyGroupHeaders;
-      this.dropdown.updated();
+      this.markForRefresh();
     }
   }
 
@@ -177,7 +177,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     this.options.sourceArguments = sourceArguments;
     if (this.dropdown) {
       this.dropdown.settings.sourceArguments = sourceArguments;
-      this.dropdown.updated();
+      this.markForRefresh();
     }
   }
 
@@ -190,7 +190,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     this.options.reloadSourceOnOpen = reloadSourceOnOpen;
     if (this.dropdown) {
       this.dropdown.settings.reloadSourceOnOpen = reloadSourceOnOpen;
-      this.dropdown.updated();
+      this.markForRefresh();
     }
   }
 
@@ -209,7 +209,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       // @todo this property can not be updated once the control
       // has been initialised.
       this.dropdown.settings.maxWidth = maxWidth;
-      this.dropdown.updated();
+      this.markForRefresh();
     }
   }
 
@@ -222,7 +222,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     this.options.filterMode = filterMode;
     if (this.dropdown) {
       this.dropdown.settings.filterMode = filterMode;
-      this.dropdown.updated();
+      this.markForRefresh();
     }
   }
 
@@ -238,7 +238,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     this.options.multiple = multiple;
     if (this.dropdown) {
       this.dropdown.settings.multiple = multiple;
-      this.dropdown.updated();
+      this.markForRefresh();
     }
   }
 
@@ -262,7 +262,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     this.options.noSearch = value;
     if (this.dropdown) {
       this.dropdown.settings.noSearch = value;
-      this.dropdown.updated();
+      this.markForRefresh();
     }
   }
 
@@ -466,8 +466,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   public updated(): SohoDropDownComponent {
     if (this.dropdown) {
       // Calling updated when an item is selected, looses the selection!
-      this.ngZone.runOutsideAngular( () => {this.dropdown.updated();
-      });
+      this.ngZone.runOutsideAngular( () => this.dropdown.updated() );
     }
     return this;
   }
@@ -539,6 +538,20 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       });
     }
   }
+
+   /**
+   * Marks the components as requiring a rebuild after the next update.
+   *
+   */
+  markForRefresh() {
+    // Run updated on the next updated check.
+    this.runUpdatedOnCheck = true;
+
+    // ... make sure the change detector kicks in, otherwise if the inputs
+    // were change programmatially the component may not be eligible for
+    // updating.
+    this.ref.markForCheck();
+  }
 }
 
 /**
@@ -580,7 +593,7 @@ class SohoDropDownControlValueAccessorDelegator implements ControlValueAccessor 
     this.delegate.writeValue(value);
 
     // @todo reduce the number of calls to this!
-    setTimeout(() => this.dropdown.updated());
+    this.dropdown.markForRefresh();
   }
 
   registerOnChange(fn: any): void {
