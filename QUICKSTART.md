@@ -73,10 +73,8 @@ Edit `src/tsconfig.app.json`, update/add the `types` property:
   "jquery",
   "node"
 ]
-
-In the root `tsconfig` file add:
 ```
-Also, add `node_modules/ids-enterprise-ng/**/*` to the `include` property, as follows:
+In the root `tsconfig.json` file add `node_modules/ids-enterprise-ng/**/*` to the `include` property, as follows:
 ```json
 "include": [
   "src/**/*",
