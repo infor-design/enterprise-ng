@@ -13,7 +13,7 @@ interface SohoTreemapOptions {
   type?: string;
 
   /** Defines the data to use, must be specified for this component. */
-  dataset?: Object[];
+  dataset?: Object;
 
   /** If false, the component will not resize when resizing the page. */
   redrawOnResize?: boolean;

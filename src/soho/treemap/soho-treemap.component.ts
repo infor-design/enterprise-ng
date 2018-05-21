@@ -24,7 +24,7 @@ export class SohoTreemapComponent implements AfterViewInit, OnDestroy {
   }
 
   /** Defines the data to use, must be specified for this component. */
-  @Input() set dataset(dataset: Array<any>) {
+  @Input() set dataset(dataset: Object) {
     this.options.dataset = dataset;
 
     if (this.treemap) {
