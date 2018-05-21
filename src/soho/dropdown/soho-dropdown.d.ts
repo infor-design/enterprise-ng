@@ -116,7 +116,7 @@ type SohoDropDownSourceFunction = (
  */
 type SohoDropDownResponseFunction = (
   data: any[],
-  create?: boolean
+  isManagedByTemplate?: boolean
 ) => void;
 
 /**

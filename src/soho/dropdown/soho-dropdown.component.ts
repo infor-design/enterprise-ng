@@ -14,7 +14,8 @@ import {
   InjectionToken,
   forwardRef,
   AfterViewChecked,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
+  ChangeDetectorRef
 } from '@angular/core';
 
 import {
@@ -340,7 +341,8 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   constructor(
     private element: ElementRef,
     private ngZone: NgZone,
-    @Self() @Optional() public ngControl: NgControl) {
+    @Self() @Optional() public ngControl: NgControl,
+    private ref: ChangeDetectorRef) {
 
     // Is the control using a form control and/or ngModel?
     if (this.ngControl) {
@@ -372,7 +374,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       this.jQueryElement
         .on('change', (event: JQuery.Event) => this.onChanged(event))
         .on('updated', (event: JQuery.Event) => this.onUpdated(event))
-        .on('requestend', (event: JQuery.Event, data: any) => this.onRequestEnd(event, data));
+        .on('requestend', (event: JQuery.Event, searchTerm: string, data: any[]) => this.onRequestEnd(event, searchTerm, data));
 
       this.runUpdatedOnCheck = true;
     });
@@ -412,11 +414,14 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * @param {*} data any data passed by the dropdown (todo the type)
    * @memberof SohoDropDownComponent
    */
-  private onRequestEnd(event: JQuery.Event, data: any) {
-
+  private onRequestEnd(event: JQuery.Event, searchTerm: string, data: any[]) {
     // When the request for data has completed, make sure we
     // update the 'dropdown' control.
-    this.ngZone.run(() => setTimeout(() => this.updated()));
+    this.ngZone.run(() => {
+      setTimeout(() => this.updated());
+      this.ref.markForCheck();
+    });
+
   }
 
   private onUpdated(event: JQuery.Event) {
@@ -461,7 +466,10 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    */
   public updated(): SohoDropDownComponent {
     if (this.dropdown) {
-      this.ngZone.runOutsideAngular(() => this.dropdown.updated() );
+      // Calling updated when an item is selected, looses the selection!
+      this.ngZone.runOutsideAngular(() => {
+        this.dropdown.updated();
+      });
     }
     return this;
   }
@@ -520,8 +528,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    *
    * Sets the value of the dropdown.
    *
+   * @todo this may need to involve mapping from actual value
+   * if ngModel is used.
+   *
    * This is the model value that is to be set.
-   * @param value
+   * @param value - the internal value to select
    */
   public selectValue(value: any): void {
     if (this.dropdown) {
@@ -569,12 +580,7 @@ class SohoDropDownControlValueAccessorDelegator implements ControlValueAccessor 
   writeValue(value: any): void {
     // Just pass it on.
     this.delegate.writeValue(value);
-  }
-
-  convertToOptionValue(value: any): string {
-    const delegate = (this.delegate as any);
-    const id = delegate._getOptionId(value);
-    return this._buildValueString(id, value);
+    setTimeout(() => this.dropdown.updated());
   }
 
   registerOnChange(fn: any): void {
@@ -588,17 +594,33 @@ class SohoDropDownControlValueAccessorDelegator implements ControlValueAccessor 
   registerOnTouched(fn: any): void {
     this.delegate.registerOnTouched(fn);
   }
+
   setDisabledState?(isDisabled: boolean): void {
     this.delegate.setDisabledState(isDisabled);
   }
 
   /**
+   * Convert the 'real' value into the corresponding
+   * option value.
+   *
+   * @private
+   * @param {*} value the value of the option; must not be null.
+   * @returns {string} the string optipnValue of the otion elemen.
+   * @memberof SohoDropDownControlValueAccessorDelegator
+   */
+  convertToOptionValue(value: any): string {
+    const delegate = (this.delegate as any);
+    const id = delegate._getOptionId(value);
+    return this.buildValueString(id, value);
+  }
+
+  /**
    * Copy of the "valuestring" builder used by the Angular
    * Select and MultiSelect
-   * @param id
-   * @param value
+   * @param id option id (ordinal)
+   * @param value the actual value
    */
-  _buildValueString(id, value) {
+  private buildValueString(id, value) {
     if (id == null) {
       return '' + value;
     }

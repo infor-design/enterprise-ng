@@ -1,11 +1,17 @@
-import { Component, OnInit, ViewChildren, QueryList, ChangeDetectionStrategy } from '@angular/core';
-import { SohoDropDownComponent } from 'soho/dropdown';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  QueryList,
+  ViewChildren
+} from '@angular/core';
+import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'soho-dropdown-demo',
-  templateUrl: './dropdown.demo.html'
+  templateUrl: './dropdown.demo.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DropdownDemoComponent implements OnInit {
+export class DropdownDemoComponent {
   @ViewChildren(SohoDropDownComponent) dropDowns: QueryList<SohoDropDownComponent>;
 
   public options: Array<Object> = [
@@ -18,24 +24,30 @@ export class DropdownDemoComponent implements OnInit {
   sourceoptions: Array<Object> = [];
   public counter = 0;
   public model = {
-    single: 'AL',
+    single: '',
     readOnly: 'DE',
     source: '',
     modifiable: this.options[3],
+    sourceAlpha: {
+      value: 'MN',
+      options: [
+        { value: 'MN', label: 'Minnesota' },
+      ]
+    }
   };
-  public showModel = false;
+  public showModel = true;
   public dropDownDisabled = false;
   public dropDownReadOnly = false;
 
-  constructor() { }
-  ngOnInit() { }
   onAddOption() {
     this.options.push({ value: 'test' + this.counter, text: 'Test ' + this.counter });
     this.counter++;
   }
+
   onRemoveOption() {
     this.options.pop();
   }
+
   toggleModel() {
     this.showModel = !this.showModel;
   }
@@ -56,21 +68,23 @@ export class DropdownDemoComponent implements OnInit {
     this.dropDownReadOnly = true;
   }
 
-  source = (response: SohoDropDownResponseFunction, searchTerm: any) => {
+  source = (response: any, searchTerm: any) => {
     const states = [
-      { value: 'AK', label: 'Alaska'},
-      { value: 'AZ', label: 'Arizona'},
-      { value: 'CA', label: 'California'},
-      { value: 'CO', label: 'Colorado'},
-      { value: 'MN', label: 'Minnesota'},
-      { value: 'ND', label: 'North Dakota'},
-      { value: 'OR', label: 'Oregon'},
-      { value: 'WA', label: 'Washington'},
-      { value: 'WY', label: 'Wyoming'}
+      { value: 'AK', label: 'Alaska' },
+      { value: 'AZ', label: 'Arizona' },
+      { value: 'CA', label: 'California' },
+      { value: 'CO', label: 'Colorado' },
+      { value: 'MN', label: 'Minnesota' },
+      { value: 'ND', label: 'North Dakota' },
+      { value: 'OR', label: 'Oregon' },
+      { value: 'WA', label: 'Washington' },
+      { value: 'WY', label: 'Wyoming' }
     ];
 
-    this.sourceoptions = states;
+    this.model.sourceAlpha.options = states;
 
-    response(states, true);
+    setTimeout(() => {
+      response(states, true);
+    }, 1);
   }
 }

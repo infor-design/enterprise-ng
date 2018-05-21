@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, AfterViewInit, OnInit, ViewChildren, QueryList } from '@angular/core';
+import { ChangeDetectorRef, Component, AfterViewInit, OnInit, ViewChildren, QueryList, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { SohoDropDownComponent, SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 import { Subject } from 'rxjs';
@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 @Component({
   selector: 'soho-dropdown-demo',
   templateUrl: './dropdown-async-busy.demo.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
   @ViewChildren(SohoDropDownComponent) dropDownComponents: QueryList<SohoDropDownComponent>;
@@ -13,7 +14,6 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
 
   public showModel = true;
   public form: FormGroup;
-  public context = this;
   public itemsAvailable = false;
   public states = [
       { value: 'AK', label: 'Alaska' },
@@ -60,13 +60,15 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
   onSource = (response: SohoDropDownResponseFunction, searchTerm: any) => {
     if (!this.itemsAvailable) {
       this.itemsAvailable = true;
+      this.childrenOnClick = this.states;
       setTimeout(() => {
-        this.childrenOnClick = this.states;
         response(this.states, true);
+        // this.dropDownComponents.toArray()[0].selectValue('MN');
+        // this.changeDetectorRef.markForCheck();
       }, 2000);
     } else {
       this.childrenOnClick = this.states;
-      response(this.states);
+      response(this.states, true);
     }
   }
 
@@ -76,7 +78,6 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
     // setTimeout simulates the behaviour of a rest service
     setTimeout(() => {
       subject.next(this.states);
-      dropdown.updated();
       busyIndicator.activated = false;
     }, 2000);
   }

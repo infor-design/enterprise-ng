@@ -54,7 +54,7 @@
             <label for="states-multi-source-alpha" class="label">Using alpha source & tooltip</label>
             <select soho-dropdown name="states-multi-source-alpha" multiple [source]="sourceAlpha"
               soho-tooltip content="{{stateAsText}}" [(ngModel)]="model.multiSourceAlpha.value">
-              <option *ngFor="let option of model.multiSourceAlpha.options" selected={{option.selected}} [value]="option.value">{{option.label}}</option>
+              <option *ngFor="let option of model.multiSourceAlpha.options" selected="{{option.selected}}" [value]="option.value">{{option.label}}</option>
             </select>
           </div>
         </div>
@@ -63,7 +63,7 @@
             <label for="states-multi-source-alpha-ro" class="label">Readonly using alpha source & tooltip</label>
             <select soho-dropdown name="states-multi-source-alpha-ro" readOnly multiple [source]="sourceAlpha"
               soho-tooltip content="{{stateAsText}}" [(ngModel)]="model.multiSourceAlpha.value">
-              <option *ngFor="let option of model.multiSourceAlpha.options" selected={{option.selected}} [value]="option.value">{{option.label}}</option>
+              <option *ngFor="let option of model.multiSourceAlpha.options" selected="{{option.selected}}" [value]="option.value">{{option.label}}</option>
             </select>
           </div>
         </div>
@@ -71,7 +71,7 @@
           <div class="field">
             <label for="states-multi-source-numeric" class="label">Using numeric source</label>
             <select soho-dropdown name="states-multi-source-numeric" multiple [source]="sourceNumeric" [(ngModel)]="model.multiSourceNumeric.value">
-              <option *ngFor="let option of model.multiSourceNumeric.options" selected={{option.selected}} [value]="option.value">{{option.label}}</option>
+              <option *ngFor="let option of model.multiSourceNumeric.options" selected="{{option.selected}}" [value]="option.value">{{option.label}}</option>
             </select>
           </div>
         </div>

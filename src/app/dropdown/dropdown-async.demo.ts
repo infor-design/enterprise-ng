@@ -58,12 +58,12 @@ export class DropdownAsyncDemoComponent implements AfterViewInit {
     // Push the data out ...
     this.options.next(MOCK_STATES);
 
-    // When the data has been loaded we need to make sure the dropdown
-    // reflects the changes, we can't just call update now as the view
-    // has not been updated yet, so push it onto the event queue.
-    setTimeout(() => {
-      // Force the control to refresh - reloading the options.
-      this.dropdown.updated();
-    });
+    // // When the data has been loaded we need to make sure the dropdown
+    // // reflects the changes, we can't just call update now as the view
+    // // has not been updated yet, so push it onto the event queue.
+    // setTimeout(() => {
+    //   // Force the control to refresh - reloading the options.
+    //   this.dropdown.updated();
+    // });
   }
 }
