@@ -36,9 +36,6 @@ export class DropdownSimpleDemoComponent implements AfterViewInit {
     // setTimeout simulates the behaviour of a rest service
     setTimeout(() => {
       this.options = MOCK_STATES;
-      setTimeout((f) => {
-        this.dropDownComponent.updated();
-      }, 1000);
     });
   }
 }
