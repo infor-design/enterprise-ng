@@ -342,7 +342,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     private element: ElementRef,
     private ngZone: NgZone,
     @Self() @Optional() public ngControl: NgControl,
-    private ref: ChangeDetectorRef) {
+    public ref: ChangeDetectorRef) {
 
     // Is the control using a form control and/or ngModel?
     if (this.ngControl) {
@@ -418,7 +418,6 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     // When the request for data has completed, make sure we
     // update the 'dropdown' control.
     this.ngZone.run(() => {
-      setTimeout(() => this.updated());
       this.ref.markForCheck();
     });
 
@@ -467,8 +466,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   public updated(): SohoDropDownComponent {
     if (this.dropdown) {
       // Calling updated when an item is selected, looses the selection!
-      this.ngZone.runOutsideAngular(() => {
-        this.dropdown.updated();
+      this.ngZone.runOutsideAngular( () => {this.dropdown.updated();
       });
     }
     return this;
@@ -580,6 +578,8 @@ class SohoDropDownControlValueAccessorDelegator implements ControlValueAccessor 
   writeValue(value: any): void {
     // Just pass it on.
     this.delegate.writeValue(value);
+
+    // @todo reduce the number of calls to this!
     setTimeout(() => this.dropdown.updated());
   }
 
