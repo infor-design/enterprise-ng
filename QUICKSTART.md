@@ -84,7 +84,7 @@ Also, add `node_modules/ids-enterprise-ng/**/*` to the `include` property, as fo
 ]
 ```
 
-This is required as the compiler will not compile typescript code outside the src source folder by default.  
+This is required as the compiler will not compile typescript code outside the src folder (by default).  
 
 ## Step 5 : Enterprise Controls Assets
 **@angular/cli** needs to include assets from node_modules into the compiled output.
