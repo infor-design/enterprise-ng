@@ -74,18 +74,18 @@ Edit `src/tsconfig.app.json`, update/add the `types` property:
   "node"
 ]
 
-In the root tsconfig file add:
+In the root `tsconfig` file add:
 ```
-Also, add `node_modules/ids-enterprise-ng/index.ts` to the `include` property, as follows:
+Also, add `node_modules/ids-enterprise-ng/**/*` to the `include` property, as follows:
 ```json
 "include": [
   "src/**/*",
-  "node_modules/ids-enterprise-ng/index.ts"
+  "node_modules/ids-enterprise-ng/**/*""
 ]
 ```
 
-This is required as the compiler will not compile code outside the src source folder by default.
--->
+This is required as the compiler will not compile typescript code outside the src source folder by default.  
+
 ## Step 5 : Enterprise Controls Assets
 **@angular/cli** needs to include assets from node_modules into the compiled output.
 
