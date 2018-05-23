@@ -33,6 +33,11 @@
         <textarea soho-textarea name="required" [(ngModel)]="requiredText" data-validate="required"></textarea>
       </div>
 
+      <div class="field">
+        <button soho-button="primary" (click)="onClickTrigger($event)">Trigger Validation</button>
+        <button soho-button="primary" (click)="onClickReset()">Reset </button>
+      </div>
+
     </form>
   </div>
   <div class="one-half column ">
