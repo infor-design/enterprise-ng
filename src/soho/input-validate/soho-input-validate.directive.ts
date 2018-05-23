@@ -39,6 +39,8 @@ export class SohoInputValidateDirective implements AfterViewInit {
 
     this.jQueryElement.validate();
 
+    this.validator = this.jQueryElement.data('validate');
+
     /**
      * Bind to jQueryElement's events
      */
@@ -78,5 +80,19 @@ export class SohoInputValidateDirective implements AfterViewInit {
       };
       this.valid.emit(event);
     });
+  }
+
+  /**
+   * Remove the message from the field if there is one and mark the field valid
+   */
+  public removeMessage(type) {
+    this.validator.removeMessage(this.jQueryElement, type);
+  }
+
+  /**
+   * Trigger validation of the field
+   */
+  public validate(event) {
+    this.validator.validate(this.jQueryElement, false, event);
   }
 }
