@@ -168,6 +168,7 @@ import { TabsDismissibleDemoComponent } from './tabs/tabs-dismissible.demo';
 import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
+import { TagDemoComponent } from './tag/tag.demo';
 import { TextareaDemoComponent } from './textarea/textarea.demo';
 import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
@@ -339,6 +340,7 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     TabsDropdownDemoComponent,
     TabsDynamicDemoComponent,
     TabsVerticalDemoComponent,
+    TagDemoComponent,
     TextareaDemoComponent,
     TimePickerDemoComponent,
     ToastDemoComponent,
