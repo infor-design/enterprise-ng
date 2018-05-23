@@ -38,6 +38,7 @@ export class SohoRatingComponent implements AfterViewInit, OnDestroy {
   ngOnDestroy() {
     if (this.rating) {
       this.rating.destroy();
+      this.jQueryElement.off();
       this.rating = null;
     }
   }
