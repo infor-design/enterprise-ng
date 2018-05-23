@@ -46,8 +46,9 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
   }
 
   private onAfterTagRemove(e: JQuery.Event) {
-    // @todo find a better value to return, the event is ?
-    this.ngZone.run(() => this.afterRemove.next(e) );
+    this.ngZone.run(() => {
+      setTimeout(() => this.afterRemove.next(e));
+     });
   }
 
   ngOnDestroy() {
@@ -163,12 +164,16 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  private onBeforeTagRemove(e: JQuery.Event, element: HTMLElement) {
-    this.ngZone.run(() => this.beforeRemove.next(e) );
+  private onBeforeTagRemove(event: JQuery.Event, element: HTMLElement) {
+    this.ngZone.run(() => {
+      setTimeout(() => this.beforeRemove.next(event));
+     });
   }
 
   private onClick(e: JQuery.Event) {
-    this.ngZone.run(() => this.click.next(e) );
+    this.ngZone.run(() => {
+      setTimeout(() => this.click.next(e));
+    });
   }
 
   /**
