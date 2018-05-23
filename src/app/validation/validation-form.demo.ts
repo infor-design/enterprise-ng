@@ -13,7 +13,7 @@ import { SohoInputValidateDirective } from 'soho/input-validate';
 })
 export class ValidationFormDemoComponent {
 
-  @ViewChildren(SohoInputValidateDirective) validateDirectives : QueryList<SohoInputValidateDirective>;
+  @ViewChildren(SohoInputValidateDirective) validateDirectives: QueryList<SohoInputValidateDirective>;
 
   email_addr: string;
   credit_card: string;
@@ -31,14 +31,14 @@ export class ValidationFormDemoComponent {
   }
 
   public onClickTrigger(event) {
-    this.validateDirectives.forEach((item)=> {
+    this.validateDirectives.forEach((item) => {
       item.validate(event);
     });
   }
 
   public onClickReset() {
-    this.validateDirectives.forEach((item)=> {
-      item.removeMessage("error");
+    this.validateDirectives.forEach((item) => {
+      item.removeMessage('error');
     });
   }
 }
