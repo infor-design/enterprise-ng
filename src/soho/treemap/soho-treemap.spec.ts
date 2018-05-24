@@ -37,7 +37,7 @@ class SohoTreemapTestComponent {
   @ViewChild(SohoTreemapComponent) treemap: SohoTreemapComponent;
 
   public data = [{
-    data: [{
+    data: {
       'name': 'Storage Utilization (78 GB)',
       'children': [
       {
@@ -80,7 +80,7 @@ class SohoTreemapTestComponent {
           ]
         }]
       }]
-    }]
+    }
   }];
 }
 
@@ -103,6 +103,7 @@ describe('Soho Tree Map Render', () => {
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-treemap]')).nativeElement;
+    fixture.detectChanges();
 
   });
 
