@@ -1,0 +1,26 @@
+<div class="row top-padding">
+  <div class="twelve columns">
+    <div class="field">
+      <div soho-tag-list (afterRemove)="afterRemove($event)">
+        <span soho-tag>#Tagged</span>
+        <span soho-tag="secondary">#Tagged</span>
+        <span soho-tag="error"><span class="audible">Error</span>Delayed</span>
+        <span soho-tag="good">Open Order</span>
+        <span soho-tag="alert"><span class="audible">Alert</span>Help Order</span>
+        <a href="#" soho-tag [isClickable]="true" (click)="onClick($event)">#Clickable</a>
+        <a href="#" soho-tag [isDismissible]="true">#Dismissible</a>
+      </div>
+
+      <br/>
+
+      <div soho-tag-list (afterRemove)="afterRemove($event)">
+        <a href="#" soho-tag="secondary" [isDismissible]="true">#Administrative Assistant</a>
+        <a href="#" soho-tag="secondary" [isDismissible]="true">#Office Manager </a>
+        <a href="#" soho-tag="secondary" [isDismissible]="true">#US:MN:St. Paul</a>
+        <a href="#" soho-tag="secondary" [isDismissible]="true">#Full-Time</a>
+        <a href="#" soho-tag="secondary" [isDismissible]="true">#Marketting</a>
+        <a href="#" soho-tag="secondary" [isDismissible]="true">#000453</a>
+      </div>
+    </div>
+  </div>
+</div>

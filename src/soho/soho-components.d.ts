@@ -60,6 +60,7 @@
 /// <reference path="./stepprocess/soho-stepprocess.d.ts" />
 /// <reference path="./swaplist/soho-swaplist.d.ts" />
 /// <reference path="./tabs/soho-tabs.d.ts" />
+/// <reference path="./tag/soho-tag.d.ts" />
 /// <reference path="./textarea/soho-textarea.d.ts" />
 /// <reference path="./timepicker/soho-timepicker.d.ts" />
 /// <reference path="./toast/soho-toast.d.ts" />
