@@ -136,6 +136,14 @@ import { SohoButton } from 'ids-enterprise-ng';
 ```html
 <link rel="stylesheet" id="stylesheet" href="/assets/ids-enterprise/css/light-theme.css" type="text/css">
 ```
+**tsconfig.json** must be updated to point to the new `ids-enterprise-ng` package.  Add `node_modules/ids-enterprise-ng/**/*` to the `include` property, as follows:
+
+```json
+"include": [
+  "src/**/*",
+  "node_modules/ids-enterprise-ng/**/*"
+]
+```
 * 2018-05-08 - BTH - Upgraded to @angular 6.0.0 and @angular/cli 6.0.0  
 It is recommended that consumers of the the **ids-enterprise-ng** components also upgrade their applications to version 6 of @angular and @angular/cli.  The easiest way to do this is to follow the instructions at https://update.angular.io/.
 

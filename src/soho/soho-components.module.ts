@@ -58,6 +58,7 @@ import { SohoSpinboxModule } from './spinbox/soho-spinbox.module';
 import { SohoStepProcessModule } from './stepprocess/soho-stepprocess.module';
 import { SohoSwapListModule } from './swaplist/soho-swaplist.module';
 import { SohoTabsModule } from './tabs/soho-tabs.module';
+import { SohoTagModule } from './tag/soho-tag.module';
 import { SohoTextAreaModule } from './textarea/soho-textarea.module';
 import { SohoTimePickerModule } from './timepicker/soho-timepicker.module';
 import { SohoToastModule } from './toast/soho-toast.module';
@@ -129,6 +130,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoStepProcessModule,
     SohoSwapListModule,
     SohoTabsModule,
+    SohoTagModule,
     SohoTextAreaModule,
     SohoTimePickerModule,
     SohoToastModule,
@@ -139,8 +141,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoTreemapModule,
     SohoWizardModule
   ],
-  declarations: [
-  ],
+  declarations: [],
   exports: [
     SohoAboutModule,
     SohoAccordionModule,
@@ -200,6 +201,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoStepProcessModule,
     SohoSwapListModule,
     SohoTabsModule,
+    SohoTagModule,
     SohoTextAreaModule,
     SohoTimePickerModule,
     SohoToastModule,

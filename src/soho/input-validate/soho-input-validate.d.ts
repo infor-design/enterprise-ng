@@ -14,6 +14,12 @@ interface SohoInputValidateStatic {
   /** Underlying element. */
   element: JQuery;
 
+  /** Remove the message from the field if there is one and mark the field valid */
+  removeMessage(field, type): void;
+
+  /** Trigger validation of the field */
+  validate(field, showTooltip, event): void;
+  
   destroy(): void;
 }
 
