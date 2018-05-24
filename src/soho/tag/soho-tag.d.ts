@@ -6,19 +6,19 @@
  */
 
 /**
- * Rating Options
+ * Tag Options
  */
 interface SohoTagOptions {
 }
 
 /**
- * Rating Api.
+ * Tag Api.
  */
 interface SohoTag {
   /** The settings option */
   settings: SohoTagOptions;
 
-  /** Updates the rating with any new settings and data */
+  /** Updates the Tag with any new settings and data */
   updated(settings?: SohoTagOptions): void;
 
   /** Destroys the control on completion. */
