@@ -8,21 +8,21 @@
           <div class="field">
             <label for="statechange" class="label">State Change</label>
             <input soho-datepicker name="statechange" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" [(ngModel)]="model.standard" (change)="onChange($event)"/>
-            <div>
-              <button soho-button [disabled]="datepickerReadOnly" (click)="setReadonly()">Read Only</button>
-              <button soho-button [disabled]="datepickerDisabled" (click)="setDisable()">Disable</button>
-              <button soho-button [disabled]="!datepickerDisabled && !datepickerReadOnly" (click)="setEnable()">Enable</button>
-            </div>
+          </div>
+          <div>
+            <button soho-button [disabled]="datepickerReadOnly" (click)="setReadonly()">Read Only</button>
+            <button soho-button [disabled]="datepickerDisabled" (click)="setDisable()">Disable</button>
+            <button soho-button [disabled]="!datepickerDisabled && !datepickerReadOnly" (click)="setEnable()">Enable</button>
           </div>
         </div>
         <div class="four columns">
           <div class="field">
             <label for="readonly" class="label">Read Only</label>
-            <input soho-datepicker name="readonly" dateFormat="MM/dd/yyyy" [readonly]="true" mode="standard" placeholder="MM/dd/yyyy" [(ngModel)]="model.standard" (change)="onChange($event)"/>
+            <input soho-datepicker name="readonly" dateFormat="MM/dd/yyyy" readonly="true" mode="standard" placeholder="MM/dd/yyyy" [(ngModel)]="model.standard" (change)="onChange($event)"/>
           </div>
           <div class="field">
             <label for="disable" class="label">Disable</label>
-            <input soho-datepicker name="disable" dateFormat="MM/dd/yyyy" [disabled]="true" mode="standard" placeholder="MM/dd/yyyy" [(ngModel)]="model.standard" (change)="onChange($event)"/>
+            <input soho-datepicker name="disable" dateFormat="MM/dd/yyyy" disabled="true" mode="standard" placeholder="MM/dd/yyyy" [(ngModel)]="model.standard" (change)="onChange($event)"/>
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
         <div class="four columns">
           <div class="field">
             <label for="datetime" class="label">Standard Date with Timepicker</label>
-            <input soho-datepicker name="datetime" dateFormat="MM/dd/yyyy" timeFormat="HH:mm:ss" showTime="true" mode="standard" placeholder="MM/dd/yyyy HH:mm:ss" [(ngModel)]="model.datetime" (change)="onChange($event)"/>
+            <input soho-datepicker name="datetime" dateFormat="MM/dd/yyyy" timeFormat="HH:mm:ss" showTime="true" mode="standard" placeholder="MM/dd/yyyy HH:mm:ss" [(ngModel)]="model.datetime" (change)="onChange($event)" class="input-mm"/>
           </div>
         </div>
       </div>
@@ -74,6 +74,14 @@
             <input soho-datepicker name="validrange" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy"
               [disable]="disableOptions"
               [(ngModel)]="model.validrange" (change)="onChange($event)"/>
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="field">
+            <label for="validrange" class="label">dd.MM.yyyy HH:mm (Mar 09 2018 - Apr 09 2018)</label>
+            <input soho-datepicker name="datetime2" dateFormat="dd.MM.yyyy" timeFormat="HH:mm" showTime="true" mode="standard" placeholder="dd.MM.yyyy HH:mm"
+              [disable]="disableOptions2"
+              [(ngModel)]="model.datetime2" (change)="onChange($event)" class="input-mm"/>
           </div>
         </div>
       </div>
