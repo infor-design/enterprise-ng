@@ -5,6 +5,7 @@ import {
   ElementRef,
   EventEmitter,
   HostBinding,
+  HostListener,
   Input,
   OnDestroy,
   Output
@@ -110,6 +111,12 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
   constructor(private element: ElementRef) {
     super();
+  }
+
+  @HostListener('keyup', ['$event'])
+  onKeyUp(event: KeyboardEvent, val) {
+    // This is required, otherwise the the form binding does not see updates.
+    this.internalValue = this.jQueryElement.val() as string;
   }
 
   ngAfterViewInit() {

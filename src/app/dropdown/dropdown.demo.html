@@ -29,8 +29,8 @@
         </div>
         <div class="field">
           <label for="states-source" class="label">States - From Source</label>
-          <select soho-dropdown name="states-source" [source]="source" [(ngModel)]="model.source">
-            <option *ngFor="let option of sourceoptions" [ngValue]="option">{{option.text}}</option>
+          <select soho-dropdown name="states-source" [source]="source" [(ngModel)]="model.sourceAlpha.value">
+            <option *ngFor="let option of model.sourceAlpha.options" [value]="option.value">{{option.label}}</option>
           </select>
         </div>
         <div class="field">

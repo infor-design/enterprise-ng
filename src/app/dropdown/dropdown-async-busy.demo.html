@@ -13,8 +13,7 @@
                         soho-busyindicator
                         blockUI="true"
                         displayDelay="0"
-                        [formControlName]="'testControl'"
-                        [(ngModel)]="model.value">
+                        [formControlName]="'testControl'">
                         <option *ngFor="let child of childrenPreload | async" [value]="child.value">{{child.label}}</option>
                     </select>
                 </div>
@@ -28,8 +27,7 @@
                         blockUI="true"
                         displayDelay="0"
                         [formControlName]="'testControl2'"
-                        [(ngModel)]="model2.value"
-                        [source]="onSource.bind(context)">
+                        [source]="onSource">
                         <option *ngFor="let child of childrenOnClick" [value]="child.value">{{child.label}}</option>
                     </select>
                 </div>
@@ -39,7 +37,6 @@
     <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
     <div *ngIf="showModel">
         <hr>
-        <h3>{{ model | json }}</h3>
-        <h3>{{ model2.value | json }}</h3>
+        <h3>{{ form.value | json }}</h3>
     </div>
 </div>
