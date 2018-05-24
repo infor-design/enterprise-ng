@@ -28,7 +28,7 @@ Tags are simple span elements with the class `tag`. They can be mixed in with ot
 ## Example
 
 For example:
-```angular2html
+```html
 <div soho-tag-list>
   <span soho-tag>#Tagged</span>
   <span soho-tag="secondary">#Tagged</span>

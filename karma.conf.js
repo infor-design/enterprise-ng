@@ -55,13 +55,17 @@ module.exports = function (config) {
       'PhantomJS_custom': {
         base: 'PhantomJS',
         debug: true
+      },
+       ChromeDebug: {
+          base: 'Chrome',
+          flags: [ '--remote-debugging-port=9333' ]
       }
     },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['PhantomJS', 'Chrome' ],
+    browsers: ['PhantomJS' ],
     browserDisconnectTimeout : 20000, // default 2000
     browserDisconnectTolerance : 1, // default 0
     browserNoActivityTimeout : 100000, //default 10000

@@ -75,7 +75,7 @@ describe('Soho Tag Render', () => {
     expect(el.classList).toContain('tag');
   });
 
-  it('Check \"class\" ', () => {
+  it('Check \"error\" ', () => {
     fixture.detectChanges();
 
     tag.sohoTag = 'error';
@@ -83,6 +83,32 @@ describe('Soho Tag Render', () => {
     fixture.detectChanges();
 
     expect(el.classList).toContain('error');
+    expect(el.classList).toContain('tag');
   });
+
+  it('Check \"default\" ', () => {
+    fixture.detectChanges();
+
+    tag.sohoTag = undefined;
+
+    fixture.detectChanges();
+
+    expect(el.classList).not.toContain('error');
+    expect(el.classList).not.toContain('secondary');
+    expect(el.classList).not.toContain('alert');
+    expect(el.classList).not.toContain('error');
+    expect(el.classList).toContain('tag');
+  });
+
+  // it('check `click`', async(() => {
+  //     spyOn(tag, 'click');
+
+  //     const button = el.querySelector('button');
+  //     button.click();
+
+  //     fixture.whenStable().then(() => {
+  //       expect(tag.click).toHaveBeenCalled();
+  //     });
+  // }));
 
 });

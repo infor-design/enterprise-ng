@@ -8,14 +8,29 @@ import {
   OnDestroy,
   NgZone,
   Output,
-  EventEmitter
+  EventEmitter,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
+/**
+ * Support Tag types.
+ *
+ * `error` displayed as an error (for example with a red background).
+ * `good` displayed to mean correct or valid (for example with a green background).
+ * `alert` displayed as an alert (for example with a yellow background).
+ * `secondary` displayed as grey - like a secondary button.
+ *
+ * Leaving the value off the element displays the element in it's default state.
+ *
+ * Note: You should not use color alone to indicate state, this should be either
+ * supplemented with off-screen labels or visual labels near the element explaining the state.
+ */
 export type SohoTagType = 'error' | 'good' | 'alert' | 'secondary' | undefined;
 
 @Component({
   selector: '[soho-tag-list]', // tslint:disable-line
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoTagListComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.tag-list') get isTagList() {
@@ -27,19 +42,33 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
    */
   @Output() afterRemove = new EventEmitter<SohoTagAfterRemoveEvent>();
 
+  /**
+   * The wrapped jQuery element.
+   *
+   * @private
+   * @type {JQuery}
+   * @memberof SohoTagListComponent
+   */
   private jQueryElement: JQuery;
 
+  /**
+   * Creates an instance of SohoTagListComponent.
+   *
+   * @param {ElementRef} element wrapped element.
+   * @param {NgZone} ngZone angular zone.
+   * @memberof SohoTagListComponent
+   */
   constructor(
     private element: ElementRef,
     private ngZone: NgZone) { }
 
   ngAfterViewInit() {
-    // call outside the angular zone so change detection
+    // Call outside the angular zone so change detection
     // isn't triggered by the soho component.
     this.ngZone.runOutsideAngular(() => {
-      // assign element to local variable
       this.jQueryElement = jQuery(this.element.nativeElement);
 
+      // Add event handlers for the outer tag list.
       this.jQueryElement
         .on('aftertagremove', (e: JQuery.Event) => this.onAfterTagRemove(e) );
     });
@@ -47,7 +76,7 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
 
   private onAfterTagRemove(e: JQuery.Event) {
     this.ngZone.run(() => {
-      setTimeout(() => this.afterRemove.next(e));
+      setTimeout(() => this.afterRemove.next(e), 1);
      });
   }
 
@@ -61,9 +90,27 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
   }
 }
 
+/**
+ * Angular Support for elements styled as SohoXi tags.  The styling can be
+ * controlled using the additional tag type, specified on element.
+ *
+ * They can be mixed in with other elements like lists, grids and search fields.
+ *
+ *<pre>
+ * {@code
+ * <span soho-tag='error'>#Error</span>
+ * }
+ *</pre>
+ * @export
+ * @class SohoTagListComponent
+ * @implements {AfterViewInit}
+ * @implements {OnDestroy}
+ */
+
 @Component({
   selector: '[soho-tag]', // tslint:disable-line
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoTagComponent implements AfterViewInit, OnDestroy {
  // -------------------------------------------
@@ -166,13 +213,13 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
 
   private onBeforeTagRemove(event: JQuery.Event, element: HTMLElement) {
     this.ngZone.run(() => {
-      setTimeout(() => this.beforeRemove.next(event));
+      setTimeout(() => this.beforeRemove.next(event), 1);
      });
   }
 
-  private onClick(e: JQuery.Event) {
+  private onClick(event: JQuery.Event) {
     this.ngZone.run(() => {
-      setTimeout(() => this.click.next(e));
+      setTimeout(() => this.click.next(event), 1);
     });
   }
 
@@ -198,8 +245,10 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
       }
 
       // Destroy any widget resources.
-      this.tag.destroy();
-      this.tag = null;
+      if (this.tag) {
+        this.tag.destroy();
+        this.tag = null;
+      }
     });
   }
 }
