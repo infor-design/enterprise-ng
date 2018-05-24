@@ -19,7 +19,8 @@ export class DatepickerDemoComponent implements OnInit {
     anniversary: '',
     birthday: '',
     year: '',
-    datetime: ''
+    datetime: '',
+    datetime2: '05.04.2018 16:15'
   };
   public showModel = false;
   public datepickerDisabled = false;
@@ -29,6 +30,13 @@ export class DatepickerDemoComponent implements OnInit {
     dates: '',
     minDate: '12/31/2015',
     maxDate: '1/1/2017',
+    dayOfWeek: []
+  };
+
+  public disableOptions2: SohoDatePickerDisable = {
+    dates: '',
+    minDate: new Date(2018, 2, 8),
+    maxDate: new Date(2018, 3, 10),
     dayOfWeek: []
   };
 
