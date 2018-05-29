@@ -702,6 +702,9 @@ interface SohoDataGridColumn {
    *  If false children nodes will not be selected when the parent node is selected
    */
   selectChildren?: boolean;
+
+  /** Enforce a max length when editing this column */
+  maxLength?: boolean;
 }
 
 interface SohoDataGridColumnNumberFormat {
