@@ -73,6 +73,10 @@ interface BeforeSelectStepResult {
   overrideTargetStepId?: string;
 }
 
+interface SohoStepSaveCloseEvent {
+  currentStepId?: string;
+}
+
 type StepDirection = 'prev' | 'next' | 'none';
 
 interface BeforeSelectStepEvent {
