@@ -2,10 +2,11 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  EventEmitter,
   HostBinding,
   Input,
-  OnDestroy, Output, EventEmitter,
-} from '@angular/core';
+  OnDestroy,
+  Output } from '@angular/core';
 
 /**************************************************************
  * STEP LIST TITLE
@@ -161,6 +162,12 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  @Input() set nextButtonLabel(label: string) {
+    if (this.jQueryElement) {
+      this.jQueryElement.find('.js-step-link-next').html(label);
+    }
+  }
+
   @Input() set nextButtonEnable(enabled: boolean) {
     if (this.jQueryElement) {
       this.jQueryElement.find('.js-step-link-next').prop('disabled', !enabled);
@@ -173,11 +180,18 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  @Input() set saveCloseButtonEnable(enabled: boolean) {
+    if (this.jQueryElement) {
+      this.jQueryElement.find('.js-btn-save-changes').prop('disabled', !enabled);
+    }
+  }
+
   // ------------------------------------------------------------------------
   // @Outputs
   // ------------------------------------------------------------------------
 
   @Output() beforeSelectStep = new EventEmitter<BeforeSelectStepEvent>();
+  @Output() onSaveClose: EventEmitter<SohoStepSaveCloseEvent> = new EventEmitter<SohoStepSaveCloseEvent>();
 
   // ------------------------------------------------------------------------
 
@@ -202,6 +216,8 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.stepprocess(this.stepProcessOptions);
     this.stepprocess = this.jQueryElement.data('stepprocess');
+    this.jQueryElement.find('.js-btn-save-changes').
+    on('click', (e: JQuery.Event) => { this.fireOnSaveClose(); });
   }
 
   private beforeSelectStepPromise = (args: { stepLink: JQuery, isStepping: StepDirection }): JQueryPromise<boolean> => {
@@ -226,7 +242,12 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
         beforeSelectStepEvent.currentStepId = $selectedStep.children('a').attr('href').substring(1);
       }
 
-      beforeSelectStepEvent.targetStepId = $(args.stepLink).attr('href').substring(1);
+      if (args.stepLink) {
+        beforeSelectStepEvent.targetStepId = $(args.stepLink).attr('href').substring(1);
+      } else {
+        beforeSelectStepEvent.targetStepId = beforeSelectStepEvent.currentStepId;
+      }
+
       beforeSelectStepEvent.isStepping = args.isStepping;
       beforeSelectStepEvent.response = this.beforeSelectStepResponse;
       this.beforeSelectStep.emit(beforeSelectStepEvent);
@@ -243,6 +264,13 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     } else {
       this.beforeSelectStepDeferred.resolve(response.continue);
     }
+  }
+
+  private fireOnSaveClose(): void {
+    const $selectedStep = this.stepprocess.getSelectedStep();
+    const currentStepId = $selectedStep.children('a').attr('href').substring(1);
+    const event: SohoStepSaveCloseEvent = {currentStepId: currentStepId};
+    this.onSaveClose.emit(event);
   }
 
   ngOnDestroy() {
