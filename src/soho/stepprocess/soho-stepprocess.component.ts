@@ -1,4 +1,12 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, HostBinding, Input, OnDestroy, Output } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostBinding,
+  Input,
+  OnDestroy,
+  Output } from '@angular/core';
 
 /**************************************************************
  * STEP LIST TITLE
