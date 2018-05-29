@@ -216,7 +216,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
       // Initialise any event handlers.
       this.hookupRegisteredEvents();
 
-      // Initial busy state if set to true
+      // Set initial state
       // get back into the angular zone so the setTimeout will trigger change detection.
       this.ngZone.run(() => this.activated = this.initiallyActive);
     });
