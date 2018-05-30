@@ -22,7 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "ids-enterprise": "^4.7.0-dev.20180523",
+    "ids-enterprise": "^4.7.0-beta",
     "classlist.js": "^1.1.20150312",
     "jquery": "3.3.1"
   }
