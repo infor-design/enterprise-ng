@@ -97,7 +97,7 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | mask                    |                           Available |            - | [SOHO-3895][#3895] |
 | masthead                |                           Available |            - |              - |
 | menu-button             |                           Available |            - | [SOHO-4049][#4089] |
-| message                 |                           Available |           -  |              - |
+| message                 |                           Available |            -  |              - |
 | modal-dalog             |                           Available | [README][1]  | [SOHO-4734][#4734]|
 | pager                   |                           Available |           -  |              - |
 | personalize             |                           Available |           -  |              - |
@@ -112,6 +112,7 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 | splitter                |                           Available |           -  | [SOHO-4402][#4402] |
 | stepprocess             |                           Available |           -  | [SOHO-4999][#4999] |
 | swaplist                |                           Available |           -  | [SOHO-5122][#5122] |
+| tag                     |                           Available | [README][5]  | [SOHO-8005][#8005] |
 | tabs                    |                           Available |           -  |              - |
 | textarea                |                           Available |           -  |              - |
 | timepicker              |                           Available |           -  |              - |
@@ -130,6 +131,7 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 [2]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/listview/README.md
 [3]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/accordion/README.md
 [4]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/datagrid/README.md
+[5]: http://git.infor.com/projects/SOHO/repos/angular-components/browse/src/soho/tag/README.md
 [#6759]: http://jira/browse/SOHO-6759
 [#4344]: http://jira/browse/SOHO-4344
 [#5909]: http://jira/browse/SOHO-5909
@@ -173,6 +175,7 @@ Other teams staying informed or involved in the past: LMS, Ming.le Home Pages (S
 [#6317]: http://jira/browse/SOHO-6317
 [#6265]: http://jira/browse/SOHO-6265
 [#6503]: http://jira/browse/SOHO-6503
+[#8005]: http://jira/browse/SOHO-8005
 
 ## Previous Repos
 
