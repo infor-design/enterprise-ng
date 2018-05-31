@@ -28,13 +28,19 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
   private jQueryElement: any;
   private colorpicker: any;
   private isEditable: boolean = null;
+  private isUppercase: boolean = null;
+  private isClearable: boolean = null;
   private isDisabled: boolean = null;
   private isReadOnly: boolean = null;
   private isShowLabel: boolean = null;
   private options: SohoColorPickerOptions = {
     colors: undefined,
     showLabel: false,
-    editable: true
+    editable: true,
+    uppercase: true,
+    colorOnly: false,
+    clearable: true,
+    clearableText: null
   };
 
   /**
@@ -87,6 +93,41 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
       }
     }
   }
+
+  /**
+   * Enables or disables forceing upper case hex.
+   */
+  @Input() set uppercase(value: boolean) {
+    this.isUppercase = value;
+    this.options.uppercase = value;
+
+    if (this.colorpicker) {
+      this.colorpicker.settings.uppercase = value;
+    }
+
+    if (this.colorpicker) {
+      this.colorpicker.updated(this.options);
+    }
+  }
+
+  /**
+   * Enables or disables the clear option.
+   */
+  @Input() set clearable(value: boolean) {
+    this.isClearable = value;
+    this.options.clearable = value;
+
+    if (this.colorpicker) {
+      this.colorpicker.settings.clearable = value;
+    }
+
+    if (this.colorpicker) {
+      this.colorpicker.updated(this.options);
+    }
+  }
+
+// colorOnly: false,
+// clearableText: null
 
   /**
    * Sets the control to readonly
