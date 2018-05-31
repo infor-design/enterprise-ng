@@ -33,6 +33,8 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
   private isDisabled: boolean = null;
   private isReadOnly: boolean = null;
   private isShowLabel: boolean = null;
+  private isColorOnly: boolean = null;
+  private clearableTextString = '';
   private options: SohoColorPickerOptions = {
     colors: undefined,
     showLabel: false,
@@ -126,8 +128,37 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
     }
   }
 
-// colorOnly: false,
-// clearableText: null
+  /**
+   * Enables or disables the colorOnly option.
+   */
+  @Input() set colorOnly(value: boolean) {
+    this.isColorOnly = value;
+    this.options.colorOnly = value;
+
+    if (this.colorpicker) {
+      this.colorpicker.settings.colorOnly = value;
+    }
+
+    if (this.colorpicker) {
+      this.colorpicker.updated(this.options);
+    }
+  }
+
+  /**
+   * Sets the clearableText option.
+   */
+  @Input() set clearableText(value: string) {
+    this.clearableTextString = value;
+    this.options.clearableText = value;
+
+    if (this.colorpicker) {
+      this.colorpicker.settings.clearableText = value;
+    }
+
+    if (this.colorpicker) {
+      this.colorpicker.updated(this.options);
+    }
+  }
 
   /**
    * Sets the control to readonly
