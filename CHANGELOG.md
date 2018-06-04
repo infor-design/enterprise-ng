@@ -1,5 +1,7 @@
 ## Whats New
 * 2018-06-01 - TJM - Updated colorpicker to use ngZone and added a few missing settings. This effects the constructor so may effect those using AOT.
+* 2018-05-30 - BTH - Upgraded to latest angular/cli release.
+* 2018-05-23 - BTH - Added 'tag' support.
 * 2018-05-14 - BTH - Fixed 'svg' file inclusion
 * 2018-05-10 - CRL - NPM packages changes
   - The new package is now available open sourced on npmjs
