@@ -359,17 +359,12 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
 
 /**
  * Provides a 'wrapper' around the {ControlValueAccessor} added by
- * angular when handling `select` elements.
+ * angular when handling changing color.s
  *
  * This class allows the {SohoColorPickerComponent} to interoperate with
  * the {ControlValueAccessor}.  Specifically, providing access to the
  * onChange function, which we must call when the value of the colorpicker
  * is modified.
- *
- * It also exposes the encoding used storing complex objects as
- * values in the 'option' elements.
- *
- * See https://github.com/angular/angular/blob/master/packages/forms/src/directives/select_multiple_control_value_accessor.ts.
  *
  * @class SohoColorPickerComponentValueAccessorDelegator
  * @implements {ControlValueAccessor}
