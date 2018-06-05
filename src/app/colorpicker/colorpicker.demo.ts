@@ -40,7 +40,6 @@ export class ColorPickerDemoComponent implements OnInit {
       color: this.colorpicker.getHexValue(),
       label: this.colorpicker.getLabelValue()
     };
-    console.log(event, this.model);
   }
 
   setEnable() {
