@@ -24,6 +24,7 @@ export class ColorPickerDemoComponent implements OnInit {
   public colorPickerDisabled = false;
   public colorPickerReadOnly = false;
   public colorPickerEditable = true;
+  public colorPickerClearable = true;
   public showLabel = false;
 
   constructor() { }
@@ -60,6 +61,11 @@ export class ColorPickerDemoComponent implements OnInit {
   setReadonly() {
     this.colorpicker.readonly = true;
     this.colorPickerReadOnly = this.colorpicker.readonly;
+  }
+
+  setClearable() {
+    this.colorPickerClearable = !this.colorPickerClearable;
+    this.colorpicker.clearable = this.colorPickerClearable;
   }
 
   changeColors() {

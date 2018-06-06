@@ -21,6 +21,18 @@ interface SohoColorPickerOptions {
 
   /** If false only allow setting the value from the list (No typing) */
   editable: boolean;
+
+  /** If false, lower case hex is allowed. If true upper case hex is allowed. If showLabel is true this setting is ignored. */
+  uppercase: boolean;
+
+  /** If true the field will be shrunk to only show the color portion. */
+  colorOnly: boolean;
+
+  /** If true will add clearable option. */
+  clearable: boolean;
+
+  /** The text to show in the clearable item's tooltip. */
+  clearableText: string;
 }
 
 interface SohoColorPickerEvent extends JQuery.Event {
