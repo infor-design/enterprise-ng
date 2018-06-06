@@ -21,11 +21,8 @@ export class ValidationFormGroupDemoComponent implements AfterViewInit {
   public notmaskedValue = '111.1';
   public datevalue;
   public timevalue;
-
   public dropdownvValue = 'ND';
-
   public colorpickValue;
-
   public options = MOCK_STATES;
 
   private formErrors = {
