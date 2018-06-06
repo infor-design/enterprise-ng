@@ -13,6 +13,7 @@ import { FormArray, FormBuilder, FormGroup, Validators, ValidatorFn, AbstractCon
 })
 export class ValidationFormGroupDemoComponent implements AfterViewInit {
 
+  form: void;
   demoForm: FormGroup;
 
   public maskedValue = '111.1';
@@ -40,7 +41,17 @@ export class ValidationFormGroupDemoComponent implements AfterViewInit {
     });
 
     this.demoForm.valueChanges
-    .subscribe(data => this.onValueChanged(data));
+      .subscribe(data => this.onValueChanged(data));
+
+    this.demoForm.disable();
+  }
+
+  toggleDisableForm() {
+    if (this.demoForm.disabled) {
+      this.demoForm.enable();
+    } else {
+      this.demoForm.disable();
+    }
   }
 
   onValueChanged(data?: any) {

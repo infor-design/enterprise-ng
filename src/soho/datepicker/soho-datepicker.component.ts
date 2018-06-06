@@ -215,6 +215,16 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> impl
     }
   }
 
+  /**
+   * This function is called when the control status changes to or from "DISABLED".
+   * Depending on the value, it will enable or disable the appropriate DOM element.
+   *
+   * @param isDisabled
+   */
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+
   ngOnDestroy() {
     if (this.datepicker) {
       if (this.datepicker) {

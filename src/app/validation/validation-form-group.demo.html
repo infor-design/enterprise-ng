@@ -27,6 +27,8 @@
         <input soho-datepicker name="standard" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" formControlName="datepick" (change)="onChange($event)"/>
       </div>
 
+      <button soho-button="tertiary" (click)="toggleDisableForm()">Toggle Disable Form</button>
+
       <h3>Is Non Masked Control valid?: {{ demoForm.controls.notmasked.valid | json }}</h3>
       <h3>Form valid?: {{ demoForm.status | json }}</h3>
 
