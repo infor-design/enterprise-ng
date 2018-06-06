@@ -114,7 +114,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   }
 
   /**
-   * Enables or disables forceing upper case hex.
+   * Enables or disables forces upper case hex.
    */
   @Input() set uppercase(value: boolean) {
     this.isUppercase = value;
