@@ -76,8 +76,59 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
 
   @HostBinding('class.autocomplete') get isAutoComplete() { return true; }
 
+  // -------------------------------------------
+  // Public API
+  // -------------------------------------------
+
+  get disabled() {
+    return this.isDisabled;
+  }
+  get readonly() {
+    return this.isReadOnly;
+  }
+
+  /**
+   * Local variables
+   */
+  private isDisabled: boolean = null;
+  private isReadOnly: boolean =  null;
   private jQueryElement: JQuery;
-  private autocomplete: any;
+  private autocomplete: SohoAutoCompleteStatic;
+
+      // -------------------------------------------
+  // Component Input
+  // -------------------------------------------
+  /**
+   * @param value
+   */
+  @Input() set disabled(value: boolean) {
+    if (this.autocomplete) {
+      if (value) {
+        this.autocomplete.disable();
+        this.isDisabled = true;
+      } else {
+        this.autocomplete.enable();
+        this.isDisabled = false;
+        this.isReadOnly = false;
+      }
+    }
+  }
+
+    /**
+   * @param value
+   */
+  @Input() set readonly(value: boolean) {
+    if (this.autocomplete) {
+      if (value) {
+        this.autocomplete.readonly();
+        this.isReadOnly = true;
+      } else {
+        this.autocomplete.enable();
+        this.isDisabled = false;
+        this.isReadOnly = false;
+      }
+    }
+  }
 
   constructor(private element: ElementRef) {
     super();
@@ -157,5 +208,19 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
   public updated(): SohoAutoCompleteComponent {
     this.autocomplete.updated();
     return this;
+  }
+
+  /**
+   * This function is called when the control status changes to or from "DISABLED".
+   * Depending on the value, it will enable or disable the appropriate DOM element.
+   *
+   * @param isDisabled
+   */
+  setDisabledState(isDisabled: boolean): void {
+    if (isDisabled) {
+      this.autocomplete.disable();
+    } else {
+      this.autocomplete.enable();
+    }
   }
 }

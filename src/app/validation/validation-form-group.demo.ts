@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 
 import { FormArray, FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import { MOCK_STATES } from '../dropdown/dropdown-mock.data';
 
 @Component({
   selector: 'soho-validation-form-group-demo',
@@ -19,6 +20,13 @@ export class ValidationFormGroupDemoComponent implements AfterViewInit {
   public maskedValue = '111.1';
   public notmaskedValue = '111.1';
   public datevalue;
+  public timevalue;
+
+  public dropdownvValue = 'ND';
+
+  public colorpickValue;
+
+  public options = MOCK_STATES;
 
   private formErrors = {
     'masked': '',
@@ -37,7 +45,10 @@ export class ValidationFormGroupDemoComponent implements AfterViewInit {
     this.demoForm = this.formBuilder.group({
       masked: [this.maskedValue, [Validators.required, Validators.minLength(1)]],
       notmasked: [this.notmaskedValue, [Validators.required, Validators.minLength(1), Validators.maxLength(10)]],
-      datepick: [this.datevalue]
+      datepick: [this.datevalue],
+      timepick: [this.timevalue],
+      dropdown: [this.dropdownvValue],
+      colorpick: [this.colorpickValue]
     });
 
     this.demoForm.valueChanges

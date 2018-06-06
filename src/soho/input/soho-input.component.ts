@@ -30,9 +30,15 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
    */
   @Output() change: EventEmitter<SohoInputEvent[]> = new EventEmitter<SohoInputEvent[]>();
 
-  @HostBinding('attr.disabled')
-  @Input()
-  isDisabled = undefined;
+  /**
+   * Input controls managed their disabled state via the 'disabled' attribute.
+   * We use null as the default, rather than false, to ensure the attribute is
+   * not displayed.
+   *
+   * @memberof SohoInputComponent
+   */
+  @HostBinding('attr.disabled') @Input()
+  isDisabled = null;
 
   /**
    * Local variables
@@ -112,7 +118,7 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
    * @param isDisabled
    */
   setDisabledState(isDisabled: boolean): void {
-    this.isDisabled = isDisabled ? true : undefined;
+    this.isDisabled = isDisabled ? true : null;
   }
 
   getValue(): string {

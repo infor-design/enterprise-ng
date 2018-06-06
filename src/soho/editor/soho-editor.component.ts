@@ -211,6 +211,10 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     this.change.emit(this.internalValue);
   }
 
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+
   ngOnDestroy() {
     if (this.editor) {
       this.editor.destroy();

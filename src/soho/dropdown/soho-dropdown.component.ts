@@ -608,7 +608,14 @@ class SohoDropDownControlValueAccessorDelegator implements ControlValueAccessor 
     this.delegate.registerOnTouched(fn);
   }
 
-  setDisabledState?(isDisabled: boolean): void {
+  /**
+   * Update the jQuery widget with the request disabled state.
+   *
+   * @param {boolean} isDisabled true if the control should be disabled; otherwise false.
+   * @memberof SohoDropDownControlValueAccessorDelegator
+   */
+  setDisabledState(isDisabled: boolean): void {
+    this.dropdown.disabled = isDisabled;
     this.delegate.setDisabledState(isDisabled);
   }
 

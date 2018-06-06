@@ -8,6 +8,7 @@ import {
   Input,
   OnDestroy,
   Output,
+  AfterViewChecked,
 } from '@angular/core';
 import {
   BaseControlValueAccessor,
@@ -20,7 +21,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoColorPickerComponent)]
 })
-export class SohoColorPickerComponent extends BaseControlValueAccessor<any> implements AfterViewInit, OnDestroy {
+export class SohoColorPickerComponent extends BaseControlValueAccessor<any> implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   /**
    * Local variables
@@ -176,6 +177,10 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
     }
   }
 
+  ngAfterViewChecked() {
+    this.disabled = this.isDisabled;
+  }
+
   /**
    * Handle the control being changed.
    */
@@ -202,6 +207,16 @@ export class SohoColorPickerComponent extends BaseControlValueAccessor<any> impl
       this.colorpicker.element.val(value);
       this.colorpicker.setColor(value);
     }
+  }
+
+  /**
+   * This function is called when the control status changes to or from "DISABLED".
+   * Depending on the value, it will enable or disable the appropriate DOM element.
+   *
+   * @param isDisabled
+   */
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 
   ngOnDestroy() {

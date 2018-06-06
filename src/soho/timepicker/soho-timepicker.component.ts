@@ -8,6 +8,7 @@ import {
   Input,
   OnDestroy,
   Output,
+  AfterViewChecked,
 } from '@angular/core';
 import {
   BaseControlValueAccessor,
@@ -20,7 +21,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoTimePickerComponent)]
 })
-export class SohoTimePickerComponent extends BaseControlValueAccessor<any> implements AfterViewInit, OnDestroy {
+export class SohoTimePickerComponent extends BaseControlValueAccessor<any> implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   /**
    * Local variables
@@ -95,7 +96,6 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
   /**
    * Sets the control to readonly
    */
-  // TODO: waiting on SOHO-4875 - 4.0 Timepicker - Needs to support readonly() method
   @Input() set readonly(value: boolean) {
     this.isReadOnly = value;
 
@@ -161,6 +161,11 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
     }
   }
 
+  ngAfterViewChecked() {
+    // Make sure the control is disabled, if required.
+    this.disabled = this.isDisabled;
+  }
+
   /**
    * Handle the control being changed.
    */
@@ -187,6 +192,16 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
       // in the control.
       this.timepicker.element.val(value);
     }
+  }
+
+    /**
+   * This function is called when the control status changes to or from "DISABLED".
+   * Depending on the value, it will enable or disable the appropriate DOM element.
+   *
+   * @param isDisabled
+   */
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 
   ngOnDestroy() {

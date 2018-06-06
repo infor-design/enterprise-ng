@@ -97,6 +97,10 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     return true;
   }
 
+  @HostBinding('attr.disabled')
+  @Input()
+  isDisabled = undefined;
+
   /**
    * Local variables
    */
@@ -216,6 +220,11 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     // event[0].value = this.internalValue;
 
     this.change.emit(event);
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    // Update the jQuery widget with the requested disabled state.
+    this.isDisabled = isDisabled ? true : undefined;
   }
 
   /**

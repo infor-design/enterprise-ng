@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormGroup, FormBuilder } from '@angular/forms';
 
 import { SohoDropDownModule } from './soho-dropdown.module';
 import { SohoDropDownComponent } from './soho-dropdown.component';
@@ -16,27 +16,64 @@ class SohoDropDownTestComponent {
   @ViewChild(SohoDropDownComponent) dropdown: SohoDropDownComponent;
   selectedOption = 'ND';
   public options = [
-      { value: 'AK', label: 'Alaska' },
-      { value: 'AZ', label: 'Arizona' },
-      { value: 'CA', label: 'California' },
-      { value: 'CO', label: 'Colorado' },
-      { value: 'MN', label: 'Minnesota' },
-      { value: 'ND', label: 'North Dakota' },
-      { value: 'OR', label: 'Oregon' },
-      { value: 'WA', label: 'Washington' },
-      { value: 'WY', label: 'Wyoming' }
-    ];
+    { value: 'AK', label: 'Alaska' },
+    { value: 'AZ', label: 'Arizona' },
+    { value: 'CA', label: 'California' },
+    { value: 'CO', label: 'Colorado' },
+    { value: 'MN', label: 'Minnesota' },
+    { value: 'ND', label: 'North Dakota' },
+    { value: 'OR', label: 'Oregon' },
+    { value: 'WA', label: 'Washington' },
+    { value: 'WY', label: 'Wyoming' }
+  ];
+}
+
+@Component({
+  template: `
+  <form>
+    <select soho-dropdown formControlName="state>
+      <option *ngFor="let state of states" [value]="state.value">{{state.label}}</option>
+    </select>
+  </form>`
+})
+class SohoDropDownReactiveFormTestComponent {
+  @ViewChild(SohoDropDownComponent) dropdown: SohoDropDownComponent;
+
+  public options = [
+    { value: 'AK', label: 'Alaska' },
+    { value: 'AZ', label: 'Arizona' },
+    { value: 'CA', label: 'California' },
+    { value: 'CO', label: 'Colorado' },
+    { value: 'MN', label: 'Minnesota' },
+    { value: 'ND', label: 'North Dakota' },
+    { value: 'OR', label: 'Oregon' },
+    { value: 'WA', label: 'Washington' },
+    { value: 'WY', label: 'Wyoming' }
+  ];
+
+  formGroup: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.formGroup = this.createForm();
+    this.formGroup.disable();
+  }
+
+  private createForm() {
+    return this.formBuilder.group({
+      state: 'ND'
+    });
+  }
 }
 
 describe('Soho Dropdown Unit Tests', () => {
-  let comp:     SohoDropDownComponent;
-  let fixture:  ComponentFixture<SohoDropDownComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let comp: SohoDropDownComponent;
+  let fixture: ComponentFixture<SohoDropDownComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoDropDownComponent ]
+      declarations: [SohoDropDownComponent]
     });
 
     fixture = TestBed.createComponent(SohoDropDownComponent);
@@ -67,16 +104,16 @@ describe('Soho Dropdown Unit Tests', () => {
 });
 
 describe('Soho Dropdown Render', () => {
-  let dropdown:  SohoDropDownComponent;
+  let dropdown: SohoDropDownComponent;
   let component: SohoDropDownTestComponent;
-  let fixture:   ComponentFixture<SohoDropDownTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoDropDownTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoDropDownTestComponent ],
-      imports: [ FormsModule, SohoDropDownModule ]
+      declarations: [SohoDropDownTestComponent],
+      imports: [FormsModule, SohoDropDownModule]
     });
 
     fixture = TestBed.createComponent(SohoDropDownTestComponent);
@@ -154,5 +191,48 @@ describe('Soho Dropdown Render', () => {
     expect(el.hasAttribute('multiple')).toBeTruthy();
     expect(el.classList).toContain('multiselect');
     expect(de.query(By.css('a#dropdown-select-all-anchor'))).toBeDefined();
+  });
+
+  it('@Input() disable', () => {
+    dropdown.disabled = true;
+    fixture.detectChanges();
+
+    expect(el.hasAttribute('disabled')).toBeTruthy();
+  });
+});
+
+describe('Soho Dropdown Reactive Forms', () => {
+  let dropdown: SohoDropDownComponent;
+  let component: SohoDropDownReactiveFormTestComponent;
+  let fixture: ComponentFixture<SohoDropDownReactiveFormTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [SohoDropDownTestComponent],
+      imports: [FormsModule, SohoDropDownModule]
+    });
+
+    fixture = TestBed.createComponent(SohoDropDownReactiveFormTestComponent);
+    component = fixture.componentInstance;
+    dropdown = component.dropdown;
+
+    de = fixture.debugElement;
+    el = de.query(By.css('select[soho-dropdown]')).nativeElement;
+
+    fixture.detectChanges();
+  });
+
+  it('Check "disabled"', () => {
+    component.formGroup.disable();
+    fixture.detectChanges();
+
+    expect(el.hasAttribute('disabled')).toBeTruthy('disabled');
+
+    component.formGroup.enable();
+    fixture.detectChanges();
+
+    expect(el.hasAttribute('disabled')).toBeFalsy('disabled');
   });
 });
