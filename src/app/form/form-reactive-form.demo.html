@@ -3,7 +3,9 @@
     <h2 class="fieldset-title">Form - Reactive Forms Demo</h2>
   </div>
 </div>
-<br><br><br>
+<br>
+<br>
+<br>
 
 <div class="example-section" role="main">
 
@@ -12,17 +14,18 @@
 
       <div class="field">
         <label for="standard" class="label">Text Input</label>
-        <input class="form-control" formControlName="input" (change)="onChange($event)"/>
+        <input class="form-control" formControlName="input" (change)="onChange($event)" />
       </div>
 
       <div class="field">
         <label for="standard" class="label">Standard Date</label>
-        <input soho-datepicker name="standard" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" formControlName="datepick" (change)="onChange($event)"/>
+        <input soho-datepicker name="standard" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" formControlName="datepick"
+          (change)="onChange($event)" />
       </div>
 
       <div class="field">
         <label for="standardtime" class="label">Standard Time</label>
-        <input soho-timepicker name="standardtime" formControlName="timepick" (change)="onChange($event)"/>
+        <input soho-timepicker name="standardtime" formControlName="timepick" (change)="onChange($event)" />
       </div>
 
       <div class="field">
@@ -42,6 +45,29 @@
         <label soho-label for="checkbox" [forCheckBox]="true">Checked</label>
       </div>
 
+      <div class="field">
+        <label for="autocomplete">States</label>
+        <input id="autocomplete" soho-autocomplete type="text" [source]="autocompleteUrl" formControlName="autocomplete" (selected)="onSelected($event)">
+      </div>
+
+      <div class="field">
+        <label for="slider-regular">Slider</label>
+        <input soho-slider id="slider-regular" name="slider-regular" min="0" max="100" type="range" formControlName="slider" (change)="onChange($event)"
+        />
+      </div>
+
+      <div class="field">
+        <label soho-label for="lookup">Lookup</label>
+        <input soho-lookup formControlName="lookup" [columns]="lookupColumns" [dataset]="lookupData" field="productId" name="lookup"
+        />
+      </div>
+
+      <div class="field">
+        <span class="label">Editor</span>
+        <div soho-editor id="editor1" role="textbox" aria-multiline="true" aria-label="editor" formControlName="editor">
+        </div>
+      </div>
+
       <button soho-button="tertiary" (click)="toggleDisableForm()">Toggle Disable Form</button>
 
       <h3>Form valid?: {{ demoForm.status | json }}</h3>
@@ -52,6 +78,9 @@
       <h3>Dropdown Value: {{ demoForm.controls.dropdown.value | json }}</h3>
       <h3>Colour Value: {{ demoForm.controls.colorpick.value | json }}</h3>
       <h3>Checkbox Value: {{ demoForm.controls.checkbox.value | json }}</h3>
+      <h3>Autocomplete Value: {{ demoForm.controls.autocomplete.value | json }}</h3>
+      <h3>Slider Value: {{ demoForm.controls.slider.value | json }}</h3>
+      <h3>Lookup Value: {{ demoForm.controls.lookup.value | json }}</h3>
     </div>
   </form>
 </div>

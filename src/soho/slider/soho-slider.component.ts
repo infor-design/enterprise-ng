@@ -170,6 +170,8 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
 
   ngAfterViewChecked() {
     if (this.slider) {
+      // Ensure the default disabled flag is applied.
+      this.disabled = this.isDisabled;
       // Delay updated a bit so the class is also set for updated to render correctly.
       if (this.isVerticalOriginal !== this.isVertical) {
         this.slider.updated();

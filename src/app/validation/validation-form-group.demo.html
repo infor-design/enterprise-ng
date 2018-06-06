@@ -27,40 +27,12 @@
         <input soho-datepicker name="standard" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" formControlName="datepick" (change)="onChange($event)"/>
       </div>
 
-      <div class="field">
-        <label for="standardtime" class="label">Standard Time</label>
-        <input soho-timepicker name="standardtime" formControlName="timepick" (change)="onChange($event)"/>
-      </div>
-
-      <div class="field">
-        <label for="states" class="label">States</label>
-        <select soho-dropdown name="states" formControlName="dropdown">
-          <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="bgcolor" class="label">Background Color</label>
-        <input soho-colorpicker name="bgcolor" formControlName="colorpick" (change)="onChange($event)" />
-      </div>
-
-      <div class="field">
-        <input soho-checkbox type="checkbox" id="checkbox" name="checkbox" formControlName="checkbox" (change)="onChange($event)">
-        <label soho-label for="checkbox" [forCheckBox]="true">Checked</label>
-      </div>
-
-      <button soho-button="tertiary" (click)="toggleDisableForm()">Toggle Disable Form</button>
-
       <h3>Is Non Masked Control valid?: {{ demoForm.controls.notmasked.valid | json }}</h3>
       <h3>Form valid?: {{ demoForm.status | json }}</h3>
 
       <h3>Masked Value: {{ demoForm.controls.masked.value | json }}</h3>
       <h3>NotMasked Value: {{ demoForm.controls.notmasked.value | json }}</h3>
       <h3>Date Value: {{ demoForm.controls.datepick.value | json }}</h3>
-      <h3>Time Value: {{ demoForm.controls.timepick.value | json }}</h3>
-      <h3>Dropdown Value: {{ demoForm.controls.dropdown.value | json }}</h3>
-      <h3>Colour Value: {{ demoForm.controls.colorpick.value | json }}</h3>
-      <h3>Checkbox Value: {{ demoForm.controls.checkbox.value | json }}</h3>
     </div>
   </form>
 </div>

@@ -14,13 +14,22 @@ import {
   AbstractControl
 } from '@angular/forms';
 
+import { DomSanitizer } from '@angular/platform-browser';
+
 import { MOCK_STATES } from '../dropdown/dropdown-mock.data';
+import { productsColumns, productsData } from '../lookup/mock.data';
 
 @Component({
   selector: 'soho-reactive-form.demo',
   templateUrl: './form-reactive-form.demo.html'
 })
 export class FormReactiveFormDemoComponent implements AfterViewInit {
+
+  // tslint:disable-next-line:max-line-length
+  editorValue = null;
+  autocompleteValue: any;
+
+  public autocompleteUrl = 'http://localhost:4200/app/demodata/states.demo.json?term=';
 
   form: void;
   demoForm: FormGroup;
@@ -31,10 +40,21 @@ export class FormReactiveFormDemoComponent implements AfterViewInit {
   public dropdownvValue = 'ND';
   public colorpickValue;
 
-  public checked: boolean;
+  public sliderValue: number;
+
+  public checkedValue: boolean;
+
+  public lookupValue;
+
   public options = MOCK_STATES;
 
-  constructor(private elementRef: ElementRef, private formBuilder: FormBuilder) {
+  public lookupColumns = productsColumns;
+
+  public lookupData = productsData;
+
+  constructor(private elementRef: ElementRef, private formBuilder: FormBuilder, sanitizer: DomSanitizer) {
+    // tslint:disable-next-line:max-line-length
+    this.editorValue = sanitizer.bypassSecurityTrustHtml(`<a href="http://en.wikipedia.org/wiki/e-commerce" class="hyperlink">e-commerce action-items</a>, reintermediate, ecologies paradigms wireless share life-hacks create innovative harness. Evolve solutions rich-clientAPIs synergies harness relationships virtual vertical facilitate end-to-end, wireless, evolve synergistic synergies.</p> <p>Cross-platform, evolve, ROI scale cultivate eyeballs addelivery, e-services content cross-platform leverage extensible viral incentivize integrateAJAX-enabled sticky evolve magnetic cultivate leverage; cutting-edge. Innovate, end-to-end podcasting, whiteboard streamline e-business social; compelling, "cross-media exploit infomediaries innovative integrate integrateAJAX-enabled." Killer interactive reinvent, cultivate widgets leverage morph.</p>`)
     this.createForm();
   }
 
@@ -49,7 +69,11 @@ export class FormReactiveFormDemoComponent implements AfterViewInit {
       timepick: [this.timevalue],
       dropdown: [this.dropdownvValue],
       colorpick: [this.colorpickValue],
-      checkbox: [this.checked]
+      checkbox: [this.checkedValue],
+      autocomplete: [this.autocompleteValue],
+      slider: [this.sliderValue],
+      lookup: [this.lookupValue],
+      editor: [this.editorValue]
     });
 
     this.demoForm.valueChanges

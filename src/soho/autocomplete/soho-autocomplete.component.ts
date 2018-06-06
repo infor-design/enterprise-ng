@@ -8,7 +8,8 @@ import {
   Input,
   OnDestroy,
   Output,
-  HostListener
+  HostListener,
+  AfterViewChecked
 } from '@angular/core';
 
 import {
@@ -23,7 +24,7 @@ import {
   providers: [ provideControlValueAccessor(SohoAutoCompleteComponent) ]
 })
 
-export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> implements AfterViewInit, OnDestroy {
+export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> implements AfterViewInit, AfterViewChecked, OnDestroy {
   /** Options. */
   private options: SohoAutoCompleteOptions = {};
 
@@ -102,17 +103,20 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
    * @param value
    */
   @Input() set disabled(value: boolean) {
-    if (this.autocomplete) {
-      if (value) {
+    if (value) {
+      if (this.autocomplete) {
         this.autocomplete.disable();
-        this.isDisabled = true;
-      } else {
+      }
+      this.isDisabled = true;
+     } else {
+      if (this.autocomplete) {
         this.autocomplete.enable();
-        this.isDisabled = false;
-        this.isReadOnly = false;
+      }
+      this.isDisabled = false;
+      this.isReadOnly = false;
       }
     }
-  }
+
 
     /**
    * @param value
@@ -157,6 +161,10 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
     if (this.internalValue) {
       this.jQueryElement.val(this.internalValue);
     }
+  }
+
+  ngAfterViewChecked() {
+    this.disabled = this.isDisabled;
   }
 
   ngOnDestroy() {
@@ -217,10 +225,6 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
    * @param isDisabled
    */
   setDisabledState(isDisabled: boolean): void {
-    if (isDisabled) {
-      this.autocomplete.disable();
-    } else {
-      this.autocomplete.enable();
-    }
+    this.disabled = isDisabled;
   }
 }
