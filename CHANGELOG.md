@@ -1,10 +1,11 @@
 ## Whats New
+* 2018-06-01 - TJM - Updated colorpicker to use ngZone and added a few missing settings. This effects the constructor so may effect those using AOT.
 * 2018-05-30 - BTH - Upgraded to latest angular/cli release.
 * 2018-05-23 - BTH - Added 'tag' support.
 * 2018-05-14 - BTH - Fixed 'svg' file inclusion
 * 2018-05-10 - CRL - NPM packages changes
   - The new package is now available open sourced on npmjs
-  - The packages new name is `ids-enterprise-ng` and is [here](https://www.npmjs.com/package/ids-enterprise-ng) 
+  - The packages new name is `ids-enterprise-ng` and is [here](https://www.npmjs.com/package/ids-enterprise-ng)
 * 2018-05-08 - BTH - Upgraded to @angular 6.0.0 and @angular/cli 6.0.0
 * 2018-05-07 - PWP - SOHO-7923: Refactored several components and directives to run outside angular
   - refactored `soho-busy-indicator.directive.ts`, `soho-button.component.ts` , `soho-context-menu.directive.ts`,
@@ -110,7 +111,7 @@
 The `angular.json` file requires changes to reference the new packages, spefifically:
 ```json
 "assets": [
-  { 
+  {
     "glob": "**/*",
     "input": "./node_modules/ids-enterprise/dist/css",
     "output": "./assets/ids-enterprise/css"
