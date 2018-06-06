@@ -1,6 +1,6 @@
 <div class="row">
   <div class="twelve columns">
-    <h2 class="fieldset-title">Validation Form - Group</h2>
+    <h2 class="fieldset-title">Form - Reactive Forms Demo</h2>
   </div>
 </div>
 <br><br><br>
@@ -9,18 +9,11 @@
 
   <form [formGroup]="demoForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <!-- note both fields are the same except for the soho-input/soho-mask stuff -->
-      <label class="center-block">Required & Masked:
-        <input class="form-control" formControlName="masked"
-          soho-input soho-mask [process]="'number'" [sohoPattern]="'###.##'">
-      </label>
 
-      <h3>Is Masked Control valid?: {{ demoForm.controls.masked.valid | json }}</h3>
-
-      <label class="center-block">Required & Not Masked:
-        <input soho-input class="form-control" formControlName="notmasked">
-      </label>
-      <br/>
+      <div class="field">
+        <label for="standard" class="label">Text Input</label>
+        <input class="form-control" formControlName="input" (change)="onChange($event)"/>
+      </div>
 
       <div class="field">
         <label for="standard" class="label">Standard Date</label>
@@ -51,11 +44,9 @@
 
       <button soho-button="tertiary" (click)="toggleDisableForm()">Toggle Disable Form</button>
 
-      <h3>Is Non Masked Control valid?: {{ demoForm.controls.notmasked.valid | json }}</h3>
       <h3>Form valid?: {{ demoForm.status | json }}</h3>
 
-      <h3>Masked Value: {{ demoForm.controls.masked.value | json }}</h3>
-      <h3>NotMasked Value: {{ demoForm.controls.notmasked.value | json }}</h3>
+      <h3>Input Value: {{ demoForm.controls.input.value | json }}</h3>
       <h3>Date Value: {{ demoForm.controls.datepick.value | json }}</h3>
       <h3>Time Value: {{ demoForm.controls.timepick.value | json }}</h3>
       <h3>Dropdown Value: {{ demoForm.controls.dropdown.value | json }}</h3>

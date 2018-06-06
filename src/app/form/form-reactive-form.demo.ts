@@ -5,20 +5,27 @@ import {
   AfterViewInit
 } from '@angular/core';
 
-import { FormArray, FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ValidatorFn,
+  AbstractControl
+} from '@angular/forms';
+
 import { MOCK_STATES } from '../dropdown/dropdown-mock.data';
 
 @Component({
-  selector: 'soho-validation-form-group-demo',
-  templateUrl: './validation-form-group.demo.html'
+  selector: 'soho-reactive-form.demo',
+  templateUrl: './form-reactive-form.demo.html'
 })
-export class ValidationFormGroupDemoComponent implements AfterViewInit {
+export class FormReactiveFormDemoComponent implements AfterViewInit {
 
   form: void;
   demoForm: FormGroup;
 
-  public maskedValue = '111.1';
-  public notmaskedValue = '111.1';
+  public inputValue = 'Hello World!';
   public datevalue;
   public timevalue;
   public dropdownvValue = 'ND';
@@ -26,11 +33,6 @@ export class ValidationFormGroupDemoComponent implements AfterViewInit {
 
   public checked: boolean;
   public options = MOCK_STATES;
-
-  private formErrors = {
-    'masked': '',
-    'notmasked': ''
-  };
 
   constructor(private elementRef: ElementRef, private formBuilder: FormBuilder) {
     this.createForm();
@@ -42,8 +44,7 @@ export class ValidationFormGroupDemoComponent implements AfterViewInit {
   createForm() {
     // note - both controls have the .required validator.
     this.demoForm = this.formBuilder.group({
-      masked: [this.maskedValue, [Validators.required, Validators.minLength(1)]],
-      notmasked: [this.notmaskedValue, [Validators.required, Validators.minLength(1), Validators.maxLength(10)]],
+      input: [this.inputValue],
       datepick: [this.datevalue],
       timepick: [this.timevalue],
       dropdown: [this.dropdownvValue],
@@ -76,13 +77,4 @@ export class ValidationFormGroupDemoComponent implements AfterViewInit {
   onChange(event: any) {
     console.log('in onChange');
   }
-}
-
-export function customValidator(): ValidatorFn {
-  return (control: AbstractControl): { [key: string]: any } => {
-    console.log(`Custom Validator ${control.valid} - ${control.value}`);
-    const name = control.value;
-
-    return name && name.length > 0 ? null : ['Error'];
-  };
 }
