@@ -117,7 +117,6 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
       }
     }
 
-
     /**
    * @param value
    */
