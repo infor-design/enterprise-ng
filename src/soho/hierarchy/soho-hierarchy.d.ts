@@ -64,8 +64,15 @@ interface SohoHierarchyStatic {
 interface SohoHierarchyEvent {
   id: string;
   data: any;
-  eventType: 'add' | 'expand' | 'collapse' | 'selected' | 'rightClick' | 'back';
+  eventType: 'add' | 'expand' | 'collapse' | 'selected' | 'rightClick' | 'back' | 'forward';
   targetInfo: SohoHierarchyTarget;
+  isForwardEvent?: boolean;
+  isBackEvent?: boolean;
+  isAddEvent?: boolean;
+  isExpandEvent?: boolean;
+  isCollapseEvent?: boolean;
+  isSelectedEvent?: boolean;
+  allowLazyLoad?: boolean;
 }
 
 interface SohoHierarchyTarget {
