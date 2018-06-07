@@ -25,6 +25,8 @@ import { productsColumns, productsData } from '../lookup/mock.data';
 })
 export class FormReactiveFormDemoComponent implements AfterViewInit {
 
+  textAreaValue: 'Hello World';
+  radiobuttonValue: any;
   // tslint:disable-next-line:max-line-length
   editorValue = null;
   autocompleteValue: any;
@@ -73,7 +75,9 @@ export class FormReactiveFormDemoComponent implements AfterViewInit {
       autocomplete: [this.autocompleteValue],
       slider: [this.sliderValue],
       lookup: [this.lookupValue],
-      editor: [this.editorValue]
+      editor: [this.editorValue],
+      radiobutton: [this.radiobuttonValue],
+      textarea: [this.textAreaValue]
     });
 
     this.demoForm.valueChanges
