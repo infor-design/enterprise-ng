@@ -13,9 +13,8 @@ These are steps to publish to npmjs.com manually, using the `publish-dev` npm sc
 
 2. Update to the latest `ids-enterprise` nightly package
     -  `npm i ids-enterprise@dev --save` to update the root "./package.json"
-    - Manually update the `./publish/package.json` to use that same Enterprise version that was installed in root.
 
-3. Change the enterprise-ng "version" in `publish/package.json` to be in the format you want and save.
+3. Change the enterprise-ng "version" in `package.json` to be in the format you want and save.
     - “dev” builds append the date: `X.Y.Z-dev.YYYYMMDD`, `"version": "3.7.0-dev.20180523"`
   
 **!! It is recommend to avoid committing and pushing these files if it is a true “nightly” !!**

@@ -32,7 +32,7 @@ gulp.task("copy-assets", gulp.series('clean', function () {
  * The publish action is in the npm scripts (npm run publish-setup)
  */
 gulp.task('publish-clean', function() {
- return del(['publish/**/*', '!publish/package.json']);
+ return del(['publish/**/*']);
 });
 
 gulp.task('publish-copy', function() {
