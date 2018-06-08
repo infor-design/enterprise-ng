@@ -36,7 +36,7 @@ gulp.task('publish-clean', function() {
 });
 
 gulp.task('publish-copy', function() {
-  var folder = gulp.src('./src/soho/**')
+  var folder = gulp.src('./src/soho/**/!(*.spec.ts)')
       .pipe(gulp.dest('./publish/soho'));
 
   var idx = gulp.src(['./index.d.ts'])
