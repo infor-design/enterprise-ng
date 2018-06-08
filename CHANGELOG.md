@@ -8,7 +8,7 @@
 
 ### <a name="version-4.7.0-features">Features</a>
 
-- `[General]` Upgraded to latest angular/cli release (6 `BTH`
+- `[General]` Upgraded to latest angular/cli release (Version 6) `BTH`
 - `[Tag]` Added Tag support `BTH`
 - `[General]` The new package is now available open sourced on ([npmjs](https://www.npmjs.com/package/ids-enterprise-ng)) , the new package name is `ids-enterprise-ng`
 * `[Datagrid]` 4.0 Datagrid filter expose the filterWhenTyping setting `MHH` ([SOHO-7851](https://jira.infor.com/browse/SOHO-7851))
