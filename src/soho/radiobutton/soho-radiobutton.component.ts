@@ -46,8 +46,14 @@ export class SohoRadioButtonComponent implements AfterViewInit {
     return true;
   }
 
-  /** Sets the element to disabled. */
-  @HostBinding('attr.disabled') @Input() disabled: boolean;
+  /**
+   * Due to conflicts with the ReactiveForms API, this Input
+   * and HostBinding has been removed, in favour of using
+   * [attr.disabled]="isDisabled".
+   */
+ @Input() set disabled(value: boolean) {
+   console.warn('The property `disabled` has been removed, please use [attr.disabled]="disable"');
+ }
 
   /** Sets the element to indicate checked. */
   @HostBinding('attr.checked') @Input() checked: boolean;

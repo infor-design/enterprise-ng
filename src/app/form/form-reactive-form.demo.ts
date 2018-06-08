@@ -25,29 +25,24 @@ import { productsColumns, productsData } from '../lookup/mock.data';
 })
 export class FormReactiveFormDemoComponent implements AfterViewInit {
 
-  textAreaValue: 'Hello World';
-  radiobuttonValue: any;
-  // tslint:disable-next-line:max-line-length
-  editorValue = null;
-  autocompleteValue: any;
-
-  public autocompleteUrl = 'http://localhost:4200/app/demodata/states.demo.json?term=';
+  public model = {
+    textAreaValue: 'Hello World',
+    radiobuttonValue: '4',
+    editorValue: '',
+    autocompleteValue: '',
+    autocompleteUrl: 'http://localhost:4200/app/demodata/states.demo.json?term=',
+    inputValue: 'Hello World!',
+    datevalue: '',
+    timevalue: '',
+    dropdownvValue: 'ND',
+    colorpickValue: '',
+    sliderValue: 1,
+    checkedValue: true,
+    lookupValue: ''
+  };
 
   form: void;
   demoForm: FormGroup;
-
-  public inputValue = 'Hello World!';
-  public datevalue;
-  public timevalue;
-  public dropdownvValue = 'ND';
-  public colorpickValue;
-
-  public sliderValue: number;
-
-  public checkedValue: boolean;
-
-  public lookupValue;
-
   public options = MOCK_STATES;
 
   public lookupColumns = productsColumns;
@@ -56,7 +51,7 @@ export class FormReactiveFormDemoComponent implements AfterViewInit {
 
   constructor(private elementRef: ElementRef, private formBuilder: FormBuilder, sanitizer: DomSanitizer) {
     // tslint:disable-next-line:max-line-length
-    this.editorValue = sanitizer.bypassSecurityTrustHtml(`<a href="http://en.wikipedia.org/wiki/e-commerce" class="hyperlink">e-commerce action-items</a>, reintermediate, ecologies paradigms wireless share life-hacks create innovative harness. Evolve solutions rich-clientAPIs synergies harness relationships virtual vertical facilitate end-to-end, wireless, evolve synergistic synergies.</p> <p>Cross-platform, evolve, ROI scale cultivate eyeballs addelivery, e-services content cross-platform leverage extensible viral incentivize integrateAJAX-enabled sticky evolve magnetic cultivate leverage; cutting-edge. Innovate, end-to-end podcasting, whiteboard streamline e-business social; compelling, "cross-media exploit infomediaries innovative integrate integrateAJAX-enabled." Killer interactive reinvent, cultivate widgets leverage morph.</p>`);
+    this.model.editorValue = `<a href="http://en.wikipedia.org/wiki/e-commerce" class="hyperlink">e-commerce action-items</a>, reintermediate, ecologies paradigms wireless share life-hacks create innovative harness. Evolve solutions rich-clientAPIs synergies harness relationships virtual vertical facilitate end-to-end, wireless, evolve synergistic synergies.</p> <p>Cross-platform, evolve, ROI scale cultivate eyeballs addelivery, e-services content cross-platform leverage extensible viral incentivize integrateAJAX-enabled sticky evolve magnetic cultivate leverage; cutting-edge. Innovate, end-to-end podcasting, whiteboard streamline e-business social; compelling, "cross-media exploit infomediaries innovative integrate integrateAJAX-enabled." Killer interactive reinvent, cultivate widgets leverage morph.</p>`;
     this.createForm();
   }
 
@@ -66,18 +61,18 @@ export class FormReactiveFormDemoComponent implements AfterViewInit {
   createForm() {
     // note - both controls have the .required validator.
     this.demoForm = this.formBuilder.group({
-      input: [this.inputValue],
-      datepick: [this.datevalue],
-      timepick: [this.timevalue],
-      dropdown: [this.dropdownvValue],
-      colorpick: [this.colorpickValue],
-      checkbox: [this.checkedValue],
-      autocomplete: [this.autocompleteValue],
-      slider: [this.sliderValue],
-      lookup: [this.lookupValue],
-      editor: [this.editorValue],
-      radiobutton: [this.radiobuttonValue],
-      textarea: [this.textAreaValue]
+      input: [this.model.inputValue],
+      datepick: [this.model.datevalue],
+      timepick: [this.model.timevalue],
+      dropdown: [this.model.dropdownvValue],
+      colorpick: [this.model.colorpickValue],
+      checkbox: [this.model.checkedValue],
+      autocomplete: [this.model.autocompleteValue],
+      slider: [this.model.sliderValue],
+      lookup: [this.model.lookupValue],
+      editor: [this.model.editorValue],
+      radiobutton: [this.model.radiobuttonValue],
+      textarea: [this.model.textAreaValue]
     });
 
     this.demoForm.valueChanges

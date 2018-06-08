@@ -70,16 +70,16 @@
 
       <div class="field">
         <label soho-label>Radio Button</label>
-        <input soho-radiobutton (change)="onChange($event)" id="optionVWO1" type="radio" name="radiobutton" value="1" formControlName="radiobutton"/>
+        <input soho-radiobutton type="radio" formControlName="radiobutton" id="optionVWO1" value="1" />
         <label soho-label for="optionVWO1" [forRadioButton]="true">One</label>
         <br>
-        <input soho-radiobutton (change)="onChange($event)" id="optionVWO2" type="radio" name="radiobutton" value="2" formControlName="radiobutton"/>
+        <input soho-radiobutton type="radio" formControlName="radiobutton" id="optionVWO2" value="2" />
         <label soho-label for="optionVWO2" [forRadioButton]="true">Two</label>
         <br>
-        <input soho-radiobutton (change)="onChange($event)"   id="optionVWO3" type="radio" name="radiobutton" value="3" formControlName="radiobutton"/>
+        <input soho-radiobutton type="radio" formControlName="radiobutton" id="optionVWO3" value="3" />
         <label soho-label for="optionVWO3" [forRadioButton]="true">Three</label>
         <br>
-        <input soho-radiobutton (change)="onChange($event)" [disabled]="isDisabled" id="optionVWO4" type="radio" name="radiobutton" value="4" formControlName="radiobutton"/>
+        <input soho-radiobutton type="radio" formControlName="radiobutton" id="optionVWO4" value="4" />
         <label soho-label for="optionVWO4" [forRadioButton]="true">Four Disabled</label>
       </div>
 

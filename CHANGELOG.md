@@ -1,4 +1,5 @@
 ## Whats New
+* 2018-06-08 - BTH - Fixed component support for ReactiveForms, specifically for 'disabled' and 'value'.
 * 2018-06-01 - TJM - Updated colorpicker to use ngZone and added a few missing settings. This effects the constructor so may effect those using AOT.
 * 2018-05-30 - BTH - Upgraded to latest angular/cli release.
 * 2018-05-23 - BTH - Added 'tag' support.
@@ -107,6 +108,8 @@
 
 ### Breaking Changes
 
+* 2018-06-08 - BTHH - The `disabled` attribute on soho-radiobutton has been deprecated, 
+any code using this feature will need to be refactored to use `[attr.disabled]='isDisabled'`.
 * 2018-05-08 - CRL - NPM packages changes for Enterprise Components for Angular
 The `angular.json` file requires changes to reference the new packages, spefifically:
 ```json

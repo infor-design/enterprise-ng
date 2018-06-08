@@ -26,12 +26,8 @@ import { fakeAsync, tick } from '@angular/core/testing';
 @Component({
   template: `
   <form [formGroup]="formGroup">
-    <div class="field">
-      <input soho-radiobutton type="radio" id="1" value="1" checked formControlName="radio" />
-      <label soho-label for="2" [forRadioButton]="true">One</label>
-      <input soho-radiobutton type="radio" id="2" value="2" formControlName="radio"/>
-      <label soho-label for="1" [forRadioButton]="true">Two</label>
-    </div>
+    <input soho-radiobutton type="radio" id="1" value="1" formControlName="radio" />
+    <input soho-radiobutton type="radio" id="2" value="2" formControlName="radio"/>
   </form>`
 })
 class SohoRadioButtonReactiveFormTestComponent {
@@ -78,24 +74,14 @@ describe('Soho RadioButton Reactive Form', () => {
     el2 = de.query(By.css('input[soho-radiobutton][value="2"]')).nativeElement;
 
     fixture.detectChanges();
-    fixture.detectChanges();fixture.detectChanges();
-
-
   });
 
-  it('..', fakeAsync(() => {
-    fixture.detectChanges();
-    tick();
-    expect(el1.hasAttribute('disabled')).toBeTruthy('disabled by default');
-    expect(el2.hasAttribute('disabled')).toBeTruthy('disabled by default');
-  }));
-
-  it('Check "disabled" by default.', () => {
+  it('is disabled by default.', () => {
     expect(el1.hasAttribute('disabled')).toBeTruthy('disabled by default');
     expect(el2.hasAttribute('disabled')).toBeTruthy('disabled by default');
   });
 
-  it('Check enable().', () => {
+  it('is enabled after call to enable().', () => {
     component.formGroup.enable();
     fixture.detectChanges();
 
@@ -103,7 +89,7 @@ describe('Soho RadioButton Reactive Form', () => {
     expect(el2.hasAttribute('disabled')).toBeFalsy('enable() removes disabled flag');
   });
 
-  it('Check "disabled".', () => {
+  it('is disabled after call to disable().', () => {
     component.formGroup.enable();
     fixture.detectChanges();
     component.formGroup.disable();
@@ -113,15 +99,16 @@ describe('Soho RadioButton Reactive Form', () => {
     expect(el2.hasAttribute('disabled')).toBeTruthy('disable() adds disabled flag');
   });
 
-  it('Check default selected".', () => {
-    // Enable te control.
+  it('initial value is selected.', () => {
     component.formGroup.enable();
+
     fixture.detectChanges();
 
-    expect(el1.hasAttribute('selected')).toBeTruthy('radio 1 should be selected');
-    expect(el2.hasAttribute('selected')).toBeFalsy('radio 2 should not be selected');
+    expect(el1.checked).toBeTruthy('radio 1 should be selected ' + el1.attributes);
+    expect(el2.checked).toBeFalsy('radio 2 should not be selected');
   });
-  it('Check "value update".', () => {
+
+  it('control updated when model updated.', () => {
     // Enable te control.
     component.formGroup.enable();
     fixture.detectChanges();
@@ -129,7 +116,7 @@ describe('Soho RadioButton Reactive Form', () => {
     component.formGroup.controls['radio'].setValue('2');
     fixture.detectChanges();
 
-    expect(el1.hasAttribute('selected')).toBeFalsy('radio 1 should not be selected');
-    expect(el2.hasAttribute('selected')).toBeTruthy('radio 2 should be selected');
+    expect(el1.checked).toBeFalsy('radio 1 should not be selected ' + el1.attributes);
+    expect(el2.checked).toBeTruthy('radio 2 should be selected');
   });
 });
