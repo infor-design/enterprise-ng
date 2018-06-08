@@ -17,22 +17,24 @@ import {
   FormBuilder
 } from '@angular/forms';
 
-import { SohoDatePickerModule } from './soho-datepicker.module';
+import { SohoAutoCompleteModule } from './soho-autocomplete.module';
 import { SohoLabelModule } from '../label/soho-label.module';
-import { SohoDatePickerComponent } from './soho-datepicker.component';
+import { SohoAutoCompleteComponent } from './soho-autocomplete.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { fakeAsync, tick } from '@angular/core/testing';
 
 @Component({
   template: `
   <form [formGroup]="formGroup">
-    <input soho-datepicker name="datepicker" formControlName="datepicker" />
+  <input soho-autocomplete type="text" [source]="autocompleteUrl" formControlName="autocomplete">
   </form>`
 })
-class SohoDatePickerReactiveFormTestComponent {
-  public datepickerValue = '';
+class SohoAutoCompleteReactiveFormTestComponent {
+  public value = 'ND';
 
-  @ViewChild(SohoDatePickerComponent) dropdown: SohoDatePickerComponent;
+  autocompleteUrl = 'http://localhost:4200/app/demodata/states.demo.json?term=';
+
+  @ViewChild(SohoAutoCompleteComponent) dropdown: SohoAutoCompleteComponent;
 
   public formGroup: FormGroup;
 
@@ -45,32 +47,31 @@ class SohoDatePickerReactiveFormTestComponent {
 
   private createForm() {
     return this.formBuilder.group({
-      datepicker: [this.datepickerValue]
+      autocomplete: [this.value]
     });
   }
 }
 
-describe('SohoDatePickerComponent on Reactive Form', () => {
-  let dropdown: SohoDatePickerComponent;
-  let component: SohoDatePickerReactiveFormTestComponent;
-  let fixture: ComponentFixture<SohoDatePickerReactiveFormTestComponent>;
+describe('SohoAutoCompleteComponent on Reactive Form', () => {
+  let dropdown: SohoAutoCompleteComponent;
+  let component: SohoAutoCompleteReactiveFormTestComponent;
+  let fixture: ComponentFixture<SohoAutoCompleteReactiveFormTestComponent>;
   let de: DebugElement;
-  let el: HTMLTextAreaElement;
+  let el: HTMLDivElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SohoDatePickerReactiveFormTestComponent],
-      imports: [ReactiveFormsModule, FormsModule, SohoDatePickerModule, SohoLabelModule]
+      declarations: [SohoAutoCompleteReactiveFormTestComponent],
+      imports: [ReactiveFormsModule, FormsModule, SohoAutoCompleteModule, SohoLabelModule]
     });
 
-    fixture = TestBed.createComponent(SohoDatePickerReactiveFormTestComponent);
+    fixture = TestBed.createComponent(SohoAutoCompleteReactiveFormTestComponent);
     component = fixture.componentInstance;
     dropdown = component.dropdown;
 
     de = fixture.debugElement;
-    el = de.query(By.css('input[soho-datepicker]')).nativeElement;
+    el = de.query(By.css('input[soho-autocomplete]')).nativeElement;
 
-    fixture.detectChanges();
     fixture.detectChanges();
   });
 
@@ -94,14 +95,21 @@ describe('SohoDatePickerComponent on Reactive Form', () => {
     expect(el.hasAttribute('disabled')).toBeTruthy('disable() adds disabled flag');
   });
 
-  it('updates after Form Control model change.', () => {
+  it('is initialised with model value.', () => {
+    component.formGroup.enable();
+    fixture.detectChanges();
+
+    expect($(el).val()).toEqual('ND');
+  });
+
+  it('control updated when model updated.', () => {
     // Enable te control.
     component.formGroup.enable();
     fixture.detectChanges();
 
-    component.formGroup.controls['datepicker'].setValue('12/12/2016');
+    component.formGroup.controls['autocomplete'].setValue('WY');
     fixture.detectChanges();
 
-    expect(el.value).toEqual('12/12/2016');
+    expect($(el).val()).toEqual('WY');
   });
 });

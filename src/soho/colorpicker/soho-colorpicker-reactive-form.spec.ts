@@ -17,22 +17,22 @@ import {
   FormBuilder
 } from '@angular/forms';
 
-import { SohoDatePickerModule } from './soho-datepicker.module';
+import { SohoColorPickerModule } from './soho-colorpicker.module';
 import { SohoLabelModule } from '../label/soho-label.module';
-import { SohoDatePickerComponent } from './soho-datepicker.component';
+import { SohoColorPickerComponent } from './soho-colorpicker.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { fakeAsync, tick } from '@angular/core/testing';
 
 @Component({
   template: `
   <form [formGroup]="formGroup">
-    <input soho-datepicker name="datepicker" formControlName="datepicker" />
+    <input soho-colorpicker name="bgcolor" formControlName="colorpick" />
   </form>`
 })
-class SohoDatePickerReactiveFormTestComponent {
-  public datepickerValue = '';
+class SohoColorPickerReactiveFormTestComponent {
+  public colorpickValue = 'red';
 
-  @ViewChild(SohoDatePickerComponent) dropdown: SohoDatePickerComponent;
+  @ViewChild(SohoColorPickerComponent) dropdown: SohoColorPickerComponent;
 
   public formGroup: FormGroup;
 
@@ -45,30 +45,30 @@ class SohoDatePickerReactiveFormTestComponent {
 
   private createForm() {
     return this.formBuilder.group({
-      datepicker: [this.datepickerValue]
+      colorpick: [this.colorpickValue]
     });
   }
 }
 
-describe('SohoDatePickerComponent on Reactive Form', () => {
-  let dropdown: SohoDatePickerComponent;
-  let component: SohoDatePickerReactiveFormTestComponent;
-  let fixture: ComponentFixture<SohoDatePickerReactiveFormTestComponent>;
+describe('SohoColorPicker on ReactiveForm', () => {
+  let dropdown: SohoColorPickerComponent;
+  let component: SohoColorPickerReactiveFormTestComponent;
+  let fixture: ComponentFixture<SohoColorPickerReactiveFormTestComponent>;
   let de: DebugElement;
-  let el: HTMLTextAreaElement;
+  let el: HTMLDivElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SohoDatePickerReactiveFormTestComponent],
-      imports: [ReactiveFormsModule, FormsModule, SohoDatePickerModule, SohoLabelModule]
+      declarations: [SohoColorPickerReactiveFormTestComponent],
+      imports: [ReactiveFormsModule, FormsModule, SohoColorPickerModule, SohoLabelModule]
     });
 
-    fixture = TestBed.createComponent(SohoDatePickerReactiveFormTestComponent);
+    fixture = TestBed.createComponent(SohoColorPickerReactiveFormTestComponent);
     component = fixture.componentInstance;
     dropdown = component.dropdown;
 
     de = fixture.debugElement;
-    el = de.query(By.css('input[soho-datepicker]')).nativeElement;
+    el = de.query(By.css('input[soho-colorpicker]')).nativeElement;
 
     fixture.detectChanges();
     fixture.detectChanges();
@@ -94,14 +94,21 @@ describe('SohoDatePickerComponent on Reactive Form', () => {
     expect(el.hasAttribute('disabled')).toBeTruthy('disable() adds disabled flag');
   });
 
-  it('updates after Form Control model change.', () => {
+  it('is initialised with model value.', () => {
+    component.formGroup.enable();
+    fixture.detectChanges();
+
+    expect($(el).val()).toEqual('#RED');
+  });
+
+  it('control updated when model updated.', () => {
     // Enable te control.
     component.formGroup.enable();
     fixture.detectChanges();
 
-    component.formGroup.controls['datepicker'].setValue('12/12/2016');
+    component.formGroup.controls['colorpick'].setValue('blue');
     fixture.detectChanges();
 
-    expect(el.value).toEqual('12/12/2016');
+    expect($(el).val()).toEqual('blue');
   });
 });

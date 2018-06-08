@@ -219,6 +219,18 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   }
 
   /**
+   *
+   * @param value Handle model updates.
+   */
+  writeValue(value: any) {
+    if (this.jQueryElement && this.internalValue !== value) {
+      this.jQueryElement.val(value);
+    }
+    super.writeValue(value);
+
+  }
+
+  /**
    * This function is called when the control status changes to or from "DISABLED".
    * Depending on the value, it will enable or disable the appropriate DOM element.
    *

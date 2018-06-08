@@ -17,20 +17,25 @@ import {
   FormBuilder
 } from '@angular/forms';
 
-import { SohoInputModule } from './soho-input.module';
-import { SohoInputComponent } from './soho-input.component';
+import { SohoLookupModule } from './soho-lookup.module';
+import { SohoLookupComponent } from './soho-lookup.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { productsColumns, productsData } from '../../app/lookup/mock.data';
 
 @Component({
   template: `
   <form [formGroup]="formGroup">
-    <input soho-input formControlName="input">
+    <input soho-lookup formControlName="lookup" [columns]="lookupColumns" [dataset]="lookupData" field="productId" name="lookup" />
   </form>`
 })
-class SohoInputReactiveFormTestComponent {
-  @ViewChild(SohoInputComponent) dropdown: SohoInputComponent;
+class SohoLookupReactiveFormTestComponent {
+  @ViewChild(SohoLookupComponent) dropdown: SohoLookupComponent;
 
   formGroup: FormGroup;
+
+  public lookupColumns = productsColumns;
+
+  public lookupData = productsData;
 
   constructor(private formBuilder: FormBuilder) {
     this.formGroup = this.createForm();
@@ -41,30 +46,30 @@ class SohoInputReactiveFormTestComponent {
 
   private createForm() {
     return this.formBuilder.group({
-      input: 'Hello World'
+      lookup: '2542205'
     });
   }
 }
 
-describe('SohoInputComponent on Reactive Form', () => {
-  let dropdown: SohoInputComponent;
-  let component: SohoInputReactiveFormTestComponent;
-  let fixture: ComponentFixture<SohoInputReactiveFormTestComponent>;
+describe('SohoLookupComponent on ReactiveForm', () => {
+  let dropdown: SohoLookupComponent;
+  let component: SohoLookupReactiveFormTestComponent;
+  let fixture: ComponentFixture<SohoLookupReactiveFormTestComponent>;
   let de: DebugElement;
   let el: HTMLInputElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SohoInputReactiveFormTestComponent],
-      imports: [ReactiveFormsModule, FormsModule, SohoInputModule]
+      declarations: [SohoLookupReactiveFormTestComponent],
+      imports: [ReactiveFormsModule, FormsModule, SohoLookupModule]
     });
 
-    fixture = TestBed.createComponent(SohoInputReactiveFormTestComponent);
+    fixture = TestBed.createComponent(SohoLookupReactiveFormTestComponent);
     component = fixture.componentInstance;
     dropdown = component.dropdown;
 
     de = fixture.debugElement;
-    el = de.query(By.css('input[soho-input]')).nativeElement;
+    el = de.query(By.css('input[soho-lookup]')).nativeElement;
 
     fixture.detectChanges();
   });
@@ -99,7 +104,7 @@ describe('SohoInputComponent on Reactive Form', () => {
 
     fixture.detectChanges();
 
-    expect(el.value).toEqual('Hello World');
+    expect(el.value).toEqual('2542205');
   });
 
   it('control updated when model updated.', () => {
@@ -107,9 +112,9 @@ describe('SohoInputComponent on Reactive Form', () => {
     component.formGroup.enable();
     fixture.detectChanges();
 
-    component.formGroup.controls['input'].setValue('Good Bye');
+    component.formGroup.controls['lookup'].setValue(2642205);
     fixture.detectChanges();
 
-    expect(el.value).toEqual('Good Bye');
+    expect(el.value).toEqual('2642205');
   });
 });

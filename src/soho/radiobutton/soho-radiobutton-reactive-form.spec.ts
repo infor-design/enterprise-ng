@@ -51,7 +51,7 @@ class SohoRadioButtonReactiveFormTestComponent {
   }
 }
 
-describe('Soho RadioButton Reactive Form', () => {
+describe('SohoRadioButtonComponent on ReactiveForm', () => {
   let dropdown: SohoRadioButtonComponent;
   let component: SohoRadioButtonReactiveFormTestComponent;
   let fixture: ComponentFixture<SohoRadioButtonReactiveFormTestComponent>;

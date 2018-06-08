@@ -349,8 +349,8 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       // Wrap the accessor to allow updates to be pushed,
       // but also use the standard accessors provided by angular.
       this.valueAccessor =
-        new SohoDropDownControlValueAccessorDelegator( // tslint:disable-line
-          this.ngControl.valueAccessor, this); // tslint:disable-line
+        new SohoDropDownControlValueAccessorDelegator(
+          this.ngControl.valueAccessor, this);
 
       // ... change the accessor on the control to use ours.
       this.ngControl.valueAccessor = this.valueAccessor;
@@ -541,7 +541,6 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
 
    /**
    * Marks the components as requiring a rebuild after the next update.
-   *
    */
   markForRefresh() {
     // Run updated on the next updated check.

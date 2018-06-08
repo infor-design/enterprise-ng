@@ -46,7 +46,7 @@ class SohoDropDownReactiveFormTestComponent {
   }
 }
 
-describe('Soho Dropdown Reactive Forms', () => {
+describe('SohoDropdownComponent on ReactiveForms', () => {
   let dropdown: SohoDropDownComponent;
   let component: SohoDropDownReactiveFormTestComponent;
   let fixture: ComponentFixture<SohoDropDownReactiveFormTestComponent>;
@@ -78,14 +78,14 @@ describe('Soho Dropdown Reactive Forms', () => {
     expect(el.hasAttribute('disabled')).toBeFalsy('disabled');
   });
 
-  it('Check "enable".', () => {
+  it('is enabled after call to enable()', () => {
     component.formGroup.enable();
     fixture.detectChanges();
 
     expect(el.hasAttribute('disabled')).toBeFalsy('disabled');
   });
 
-  it('Check "disabled".', () => {
+  it('is disabled after call to disable().', () => {
     component.formGroup.enable();
     fixture.detectChanges();
     component.formGroup.disable();
@@ -94,13 +94,13 @@ describe('Soho Dropdown Reactive Forms', () => {
     expect(el.hasAttribute('disabled')).toBeTruthy('disabled');
   });
 
-  it('Check "value updates".', () => {
+  it('control updated when model updated.', () => {
     // Enable te control.
     component.formGroup.enable();
     fixture.detectChanges();
 
     component.formGroup.controls['state'].setValue('WY');
 
-    // expect(component.dropdown.jQueryElement.val()).toBeTruthy('WY');
+    expect($(el).val()).toEqual('WY');
   });
 });
