@@ -1,15 +1,15 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
   HostBinding,
+  HostListener,
   Input,
   OnDestroy,
-  Output,
-  HostListener,
-  AfterViewChecked
+  Output
 } from '@angular/core';
 
 import {

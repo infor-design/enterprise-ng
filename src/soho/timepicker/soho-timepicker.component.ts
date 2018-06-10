@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
@@ -7,9 +8,9 @@ import {
   HostBinding,
   Input,
   OnDestroy,
-  Output,
-  AfterViewChecked,
+  Output
 } from '@angular/core';
+
 import {
   BaseControlValueAccessor,
   provideControlValueAccessor

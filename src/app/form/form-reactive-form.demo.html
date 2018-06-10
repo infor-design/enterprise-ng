@@ -88,6 +88,11 @@
         <textarea soho-textarea maxlength="90" name="textarea" formControlName="textarea"></textarea>
       </div>
 
+      <div class="field">
+        <label for="spinbox">Spinbox</label>
+        <input soho-spinbox name="spinbox" min="-50" max="50" formControlName="spinbox" />
+      </div>
+
       <button soho-button="tertiary" (click)="toggleDisableForm()">Toggle Disable Form</button>
 
       <h3>Form valid?: {{ demoForm.status | json }}</h3>
@@ -102,6 +107,8 @@
       <h3>Slider Value: {{ demoForm.controls.slider.value | json }}</h3>
       <h3>Lookup Value: {{ demoForm.controls.lookup.value | json }}</h3>
       <h3>RadioButton Value: {{ demoForm.controls.radiobutton.value | json }}</h3>
+      <h3>TextArea Value: {{ demoForm.controls.textarea.value | json }}</h3>
+      <h3>Spinbox Value: {{ demoForm.controls.spinbox.value | json }}</h3>
     </div>
   </form>
 </div>

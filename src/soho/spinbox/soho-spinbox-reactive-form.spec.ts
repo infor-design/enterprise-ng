@@ -17,24 +17,22 @@ import {
   FormBuilder
 } from '@angular/forms';
 
-import { SohoAutoCompleteModule } from './soho-autocomplete.module';
+import { SohoSpinboxModule } from './soho-spinbox.module';
 import { SohoLabelModule } from '../label/soho-label.module';
-import { SohoAutoCompleteComponent } from './soho-autocomplete.component';
+import { SohoSpinboxComponent } from './soho-spinbox.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { fakeAsync, tick } from '@angular/core/testing';
 
 @Component({
   template: `
   <form [formGroup]="formGroup">
-  <input soho-autocomplete type="text" [source]="autocompleteUrl" formControlName="autocomplete">
+    <input soho-spinbox name="spinbox" min="-50" max="50" formControlName="spinbox" />
   </form>`
 })
-class SohoAutoCompleteReactiveFormTestComponent {
-  public value = 'ND';
+class SohoSpinboxReactiveFormTestComponent {
+  public value = 25;
 
-  autocompleteUrl = 'http://localhost:4200/app/demodata/states.demo.json?term=';
-
-  @ViewChild(SohoAutoCompleteComponent) dropdown: SohoAutoCompleteComponent;
+  @ViewChild(SohoSpinboxComponent) dropdown: SohoSpinboxComponent;
 
   public formGroup: FormGroup;
 
@@ -47,30 +45,30 @@ class SohoAutoCompleteReactiveFormTestComponent {
 
   private createForm() {
     return this.formBuilder.group({
-      autocomplete: [this.value]
+      spinbox: [this.value]
     });
   }
 }
 
-describe('§SohoAutoCompleteComponent on Reactive Form', () => {
-  let dropdown: SohoAutoCompleteComponent;
-  let component: SohoAutoCompleteReactiveFormTestComponent;
-  let fixture: ComponentFixture<SohoAutoCompleteReactiveFormTestComponent>;
+describe('SohoSpinboxComponent on ReactiveForm', () => {
+  let dropdown: SohoSpinboxComponent;
+  let component: SohoSpinboxReactiveFormTestComponent;
+  let fixture: ComponentFixture<SohoSpinboxReactiveFormTestComponent>;
   let de: DebugElement;
-  let el: HTMLDivElement;
+  let el: HTMLInputElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SohoAutoCompleteReactiveFormTestComponent],
-      imports: [ReactiveFormsModule, FormsModule, SohoAutoCompleteModule, SohoLabelModule]
+      declarations: [SohoSpinboxReactiveFormTestComponent],
+      imports: [ReactiveFormsModule, FormsModule, SohoSpinboxModule, SohoLabelModule]
     });
 
-    fixture = TestBed.createComponent(SohoAutoCompleteReactiveFormTestComponent);
+    fixture = TestBed.createComponent(SohoSpinboxReactiveFormTestComponent);
     component = fixture.componentInstance;
     dropdown = component.dropdown;
 
     de = fixture.debugElement;
-    el = de.query(By.css('input[soho-autocomplete]')).nativeElement;
+    el = de.query(By.css('input[soho-spinbox]')).nativeElement;
 
     fixture.detectChanges();
   });
@@ -95,11 +93,12 @@ describe('§SohoAutoCompleteComponent on Reactive Form', () => {
     expect(el.hasAttribute('disabled')).toBeTruthy('disable() adds disabled flag');
   });
 
-  it('is initialised with model value.', () => {
+  it('initial value is correct.', () => {
     component.formGroup.enable();
+
     fixture.detectChanges();
 
-    expect($(el).val()).toEqual('ND');
+    expect(el.value).toEqual('25');
   });
 
   it('control updated when model updated.', () => {
@@ -107,9 +106,9 @@ describe('§SohoAutoCompleteComponent on Reactive Form', () => {
     component.formGroup.enable();
     fixture.detectChanges();
 
-    component.formGroup.controls['autocomplete'].setValue('WY');
+    component.formGroup.controls['spinbox'].setValue(30);
     fixture.detectChanges();
 
-    expect($(el).val()).toEqual('WY');
+    expect(el.value).toEqual('30');
   });
 });

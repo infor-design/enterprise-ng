@@ -38,7 +38,8 @@ export class FormReactiveFormDemoComponent implements AfterViewInit {
     colorpickValue: '',
     sliderValue: 1,
     checkedValue: true,
-    lookupValue: ''
+    lookupValue: '',
+    spinbox: 0
   };
 
   form: void;
@@ -72,7 +73,8 @@ export class FormReactiveFormDemoComponent implements AfterViewInit {
       lookup: [this.model.lookupValue],
       editor: [this.model.editorValue],
       radiobutton: [this.model.radiobuttonValue],
-      textarea: [this.model.textAreaValue]
+      textarea: [this.model.textAreaValue],
+      spinbox: [this.model.spinbox]
     });
 
     this.demoForm.valueChanges

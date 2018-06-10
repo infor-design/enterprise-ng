@@ -26,14 +26,11 @@ import { fakeAsync, tick } from '@angular/core/testing';
 @Component({
   template: `
   <form [formGroup]="formGroup">
-    <div class="field">
-      <label for="textarea" class="label">Textarea</label>
-      <textarea soho-textarea maxlength="90" name="textarea" formControlName="textarea"></textarea>
-    </div>
+    <textarea soho-textarea maxlength="90" name="textarea" formControlName="textarea"></textarea>
   </form>`
 })
 class SohoTextAreaReactiveFormTestComponent {
-  public textareaValue = '1';
+  public value = '1';
 
   @ViewChild(SohoTextAreaComponent) dropdown: SohoTextAreaComponent;
 
@@ -48,7 +45,7 @@ class SohoTextAreaReactiveFormTestComponent {
 
   private createForm() {
     return this.formBuilder.group({
-      textarea: [this.textareaValue]
+      textarea: [this.value]
     });
   }
 }
