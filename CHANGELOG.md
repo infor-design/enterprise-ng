@@ -2,6 +2,7 @@
 
 ### Fixes
 
+- `[General]` NPM package file structure changed due to switching to using one package.json file ([Pull Request 92](https://github.com/infor-design/enterprise-ng/pull/92))
 - `[Component]` Example note item for future release. `INI` ([#88](https://github.com/infor-design/enterprise-ng/issues/88))
 
 ## <a name="version-4.7.0">4.7.0</a>
