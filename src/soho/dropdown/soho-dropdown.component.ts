@@ -349,7 +349,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       // Wrap the accessor to allow updates to be pushed,
       // but also use the standard accessors provided by angular.
       this.valueAccessor =
-        new SohoDropDownControlValueAccessorDelegator(
+        new SohoDropDownControlValueAccessorDelegator( // tslint:disable-line
           this.ngControl.valueAccessor, this);
 
       // ... change the accessor on the control to use ours.
