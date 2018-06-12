@@ -25,8 +25,7 @@ import {
   providers: [provideControlValueAccessor(SohoTimePickerComponent)]
 })
 export class SohoTimePickerComponent extends BaseControlValueAccessor<any> implements AfterViewInit, AfterViewChecked, OnDestroy {
-
-  runUpdatedOnCheck: boolean;
+  private runUpdatedOnCheck: boolean;
   /**
    * Local variables
    */
@@ -95,11 +94,6 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
       return;
     }
 
-    // Avoid calling enable unless we really have to!
-    if (this.isDisabled === value) {
-       return;
-    }
-
     // Set the status locally (for refreshing)
     this.isDisabled = value;
 
@@ -127,11 +121,6 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
     // and readonly().
     if (this.timepicker == null) {
       this.isReadOnly = value;
-      return;
-    }
-
-    // Avoid calling enable unless we really have to!
-    if (this.isReadOnly === value) {
       return;
     }
 
@@ -220,15 +209,21 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
   ngAfterViewChecked() {
     if (this.runUpdatedOnCheck) {
       // Ensure the enabled/disabled flags are set.
-      this.disabled = this.isDisabled;
-      this.readonly = this.isReadOnly;
+      if (this.isDisabled !== null) {
+        this.disabled = this.isDisabled;
+      }
+      if (this.isReadOnly !== null) {
+        this.readonly = this.isReadOnly;
+      }
 
       this.ngZone.runOutsideAngular(() => {
         // We need to update the control AFTER the model
         // has been updated (assuming there is one), so
         // execute updated after angular has generated
         // the model and the view markup.
-        setTimeout(() => this.timepicker.updated());
+        if (this.timepicker) {
+          this.timepicker.updated();
+        }
         this.runUpdatedOnCheck = false;
       });
     }
@@ -289,7 +284,6 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
  */
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
-    this.markForRefresh();
   }
 
   /**
