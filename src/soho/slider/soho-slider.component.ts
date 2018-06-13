@@ -170,6 +170,8 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
 
   ngAfterViewChecked() {
     if (this.slider) {
+      // Ensure the default disabled flag is applied.
+      this.disabled = this.isDisabled;
       // Delay updated a bit so the class is also set for updated to render correctly.
       if (this.isVerticalOriginal !== this.isVertical) {
         this.slider.updated();
@@ -200,5 +202,15 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
   onUpdated(event: SohoSliderEvent) {
     event.data = this.jQueryElement.val();
     this.updated.emit(event);
+  }
+
+  /**
+   * This function is called when the control status changes to or from "DISABLED".
+   * Depending on the value, it will enable or disable the appropriate DOM element.
+   *
+   * @param isDisabled
+   */
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 }

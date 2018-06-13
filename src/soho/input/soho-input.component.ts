@@ -7,6 +7,8 @@ import {
   OnDestroy,
   Output,
   HostListener,
+  HostBinding,
+  Input
 } from '@angular/core';
 
 import {
@@ -27,6 +29,16 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
    * Should match the Soho event names for the component
    */
   @Output() change: EventEmitter<SohoInputEvent[]> = new EventEmitter<SohoInputEvent[]>();
+
+  /**
+   * Input controls managed their disabled state via the 'disabled' attribute.
+   * We use null as the default, rather than false, to ensure the attribute is
+   * not displayed.
+   *
+   * @memberof SohoInputComponent
+   */
+  @HostBinding('attr.disabled') @Input()
+  isDisabled = null;
 
   /**
    * Local variables
@@ -97,6 +109,16 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
       // in the control.
       this.jQueryElement.val(value);
     }
+  }
+
+   /**
+   * This function is called when the control status changes to or from "DISABLED".
+   * Depending on the value, it will enable or disable the appropriate DOM element.
+   *
+   * @param isDisabled
+   */
+  setDisabledState(isDisabled: boolean): void {
+    this.isDisabled = isDisabled ? true : null;
   }
 
   getValue(): string {

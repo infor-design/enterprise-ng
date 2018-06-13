@@ -38,15 +38,14 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
    */
   @Input() set disabled(value: boolean) {
     this.isDisabled = value;
+    this.isDisabled = false;
+    this.isReadOnly = false;
 
     if (this.fileUpload) {
       if (value) {
         this.fileUpload.disable();
-        this.isDisabled = true;
       } else {
         this.fileUpload.enable();
-        this.isDisabled = false;
-        this.isReadOnly = false;
       }
     }
 

@@ -350,7 +350,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       // but also use the standard accessors provided by angular.
       this.valueAccessor =
         new SohoDropDownControlValueAccessorDelegator( // tslint:disable-line
-          this.ngControl.valueAccessor, this); // tslint:disable-line
+          this.ngControl.valueAccessor, this);
 
       // ... change the accessor on the control to use ours.
       this.ngControl.valueAccessor = this.valueAccessor;
@@ -541,7 +541,6 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
 
    /**
    * Marks the components as requiring a rebuild after the next update.
-   *
    */
   markForRefresh() {
     // Run updated on the next updated check.
@@ -608,7 +607,14 @@ class SohoDropDownControlValueAccessorDelegator implements ControlValueAccessor 
     this.delegate.registerOnTouched(fn);
   }
 
-  setDisabledState?(isDisabled: boolean): void {
+  /**
+   * Update the jQuery widget with the request disabled state.
+   *
+   * @param {boolean} isDisabled true if the control should be disabled; otherwise false.
+   * @memberof SohoDropDownControlValueAccessorDelegator
+   */
+  setDisabledState(isDisabled: boolean): void {
+    this.dropdown.disabled = isDisabled;
     this.delegate.setDisabledState(isDisabled);
   }
 

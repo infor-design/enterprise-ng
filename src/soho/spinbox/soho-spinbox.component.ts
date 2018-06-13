@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   Component,
   ChangeDetectionStrategy,
@@ -8,6 +9,7 @@ import {
   Input,
   OnDestroy,
   Output,
+  NgZone
 } from '@angular/core';
 
 import {
@@ -21,20 +23,27 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoSpinboxComponent)]
 })
-export class SohoSpinboxComponent extends BaseControlValueAccessor<number> implements AfterViewInit, OnDestroy {
+export class SohoSpinboxComponent extends BaseControlValueAccessor<number> implements AfterViewInit, AfterViewChecked, OnDestroy {
 
-  @Input() set disabled(disabled: boolean) {
+  /** Disabled flag - used by initialisation. */
+  internalIsDisabled: boolean;
+  private runUpdatedOnCheck: boolean;
+
+  @Input() set disabled(value: boolean) {
+    this.internalIsDisabled = value;
     if (this.spinbox) {
-      if (disabled) {
-        this.spinbox.disable();
+      if (value) {
+        this.ngZone.runOutsideAngular(() => this.spinbox.disable());
       } else {
-        this.spinbox.enable();
+        this.ngZone.runOutsideAngular(() => this.spinbox.enable());
       }
+    } else {
+      this.runUpdatedOnCheck = true;
     }
   }
 
   get disabled(): boolean {
-    return this.spinbox.isDisabled();
+    return this.internalIsDisabled;
   }
 
   @Output() change = new EventEmitter<number>();
@@ -66,7 +75,10 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
   }
 
   @HostBinding('attr.step') @Input() step: boolean;
-  @HostBinding('attr.disabled') @Input() isDisabled: boolean;
+
+  @Input() set attrDisabled(value: boolean) {
+    console.warn(`soho-spinbox 'disabled' input has been deprecated, please use '[attr.disabled]'.`);
+  }
 
   private options: SohoSpinboxOptions = {};
   private jQueryElement: JQuery;
@@ -79,35 +91,77 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
     this.value = value as number;
   }
 
-  constructor(private element: ElementRef) {
+  /**
+   * Creates an instance of SohoSpinboxComponent.
+   *
+   * @param {ElementRef} element matched element.
+   * @param {NgZone} ngZone angular zone.
+   * @memberof SohoSpinboxComponent
+   */
+  constructor(private element: ElementRef, private ngZone: NgZone) {
     super();
   }
 
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
-    this.jQueryElement.spinbox(this.options);
+    // call outside the angular zone so change detection
+    // isn't triggered by the soho component.
+    this.ngZone.runOutsideAngular(() => {
+      // assign element to local variable
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    // Bind to jQueryElement's events
-    this.jQueryElement
-      .on('change', (event: SohoSpinboxEvent) => this.onChange(event));
+      // initialise the spinbox control
+      this.jQueryElement.spinbox(this.options);
 
-    this.spinbox = this.jQueryElement.data('spinbox');
+      // extract the api
+      this.spinbox = this.jQueryElement.data('spinbox');
 
-    // Make sure the value of the control is set appropriately.
-    if (this.internalValue) {
-      this.jQueryElement.val(this.internalValue);
+      // @todo - add event binding control so we don't bind if not required.
+      this.jQueryElement
+        .on('change', (event: SohoSpinboxEvent) => this.onChange(event));
+
+      // Make sure the value of the control is set appropriately.
+      if (this.internalValue) {
+        this.jQueryElement.val(this.internalValue);
+      }
+
+      this.runUpdatedOnCheck = true;
+    });
+  }
+
+  ngAfterViewChecked() {
+    if (this.runUpdatedOnCheck) {
+       // Enforce the initial disabled value (this handles the zone internall)
+       this.disabled = this.internalIsDisabled;
+       this.runUpdatedOnCheck = false;
     }
   }
 
-  onChange(event: SohoSpinboxEvent) {
-    const newValue = this.jQueryElement.val();
-    if (this.internalValue !== newValue) {
-      // Update the model ...
-      this.internalValue = this.jQueryElement.val() as number;
+  ngOnDestroy() {
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        // remove the event listeners on this element.
+        this.jQueryElement.off();
+      }
 
-      // ... then emit the changed value.
-      this.change.emit(this.internalValue);
-    }
+      // Destroy any widget resources.
+      this.spinbox.destroy();
+      this.spinbox = null;
+    });
+  }
+
+  onChange(event: SohoSpinboxEvent) {
+    // When the request for data has completed, make sure we
+    // update the 'dropdown' control.
+    this.ngZone.run(() => {
+      const newValue = this.jQueryElement.val();
+      if (this.internalValue !== newValue) {
+        // Update the model ...
+        this.internalValue = this.jQueryElement.val() as number;
+
+        // ... then emit the changed value.
+        this.change.emit(this.internalValue);
+      }
+    });
   }
 
   /**
@@ -125,10 +179,13 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
     }
   }
 
-  ngOnDestroy() {
-    if (this.spinbox) {
-      this.spinbox.destroy();
-      this.spinbox = null;
-    }
+  /**
+   * This function is called when the control status changes to or from "DISABLED".
+   * Depending on the value, it will enable or disable the appropriate DOM element.
+   *
+   * @param isDisabled
+   */
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 }

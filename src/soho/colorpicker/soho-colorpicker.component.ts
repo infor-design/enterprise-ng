@@ -284,6 +284,8 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   ngAfterViewChecked() {
     if (this.runUpdatedOnCheck) {
       this.ngZone.runOutsideAngular(() => {
+
+        // this.disabled = this.isDisabled;
         // We need to update the control AFTER the model
         // has been updated (assuming there is one), so
         // execute updated after angular has generated
@@ -334,6 +336,16 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   private onUpdated(event: JQuery.Event) {
     // Fire the event, in the angular zone.
     this.ngZone.run(() => this.updatedEvent.next(event) );
+  }
+
+  /**
+   * This function is called when the control status changes to or from "DISABLED".
+   * Depending on the value, it will enable or disable the appropriate DOM element.
+   *
+   * @param isDisabled
+   */
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 
   ngOnDestroy() {

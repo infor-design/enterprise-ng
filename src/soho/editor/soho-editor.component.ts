@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
@@ -7,7 +8,7 @@ import {
   HostBinding,
   Input,
   OnDestroy,
-  Output,
+  Output
 } from '@angular/core';
 
 import {
@@ -19,9 +20,9 @@ import {
   selector: '[soho-editor]', // tslint:disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ provideControlValueAccessor(SohoEditorComponent) ]
+  providers: [provideControlValueAccessor(SohoEditorComponent)]
 })
-export class SohoEditorComponent extends BaseControlValueAccessor<any> implements AfterViewInit, OnDestroy {
+export class SohoEditorComponent extends BaseControlValueAccessor<any> implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   // -------------------------------------------
   // Options Block
@@ -33,7 +34,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    * Local variables
    */
   private isDisabled: boolean = null;
-  private isReadOnly: boolean =  null;
+  private isReadOnly: boolean = null;
 
   @HostBinding('class.editor') get isEditor() {
     return true;
@@ -46,15 +47,17 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    * @param value
    */
   @Input() set disabled(value: boolean) {
-    if (this.editor) {
-      if (value) {
+    if (value) {
+      if (this.editor) {
         this.editor.disable();
-        this.isDisabled = true;
-      } else {
-        this.editor.enable();
-        this.isDisabled = false;
-        this.isReadOnly = false;
       }
+      this.isDisabled = true;
+    } else {
+      if (this.editor) {
+        this.editor.enable();
+      }
+      this.isDisabled = false;
+      this.isReadOnly = false;
     }
   }
 
@@ -197,6 +200,10 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
+  ngAfterViewChecked() {
+    this.disabled = this.isDisabled;
+  }
+
   /**
    * Handle the control being changed.
    */
@@ -209,6 +216,28 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     }
 
     this.change.emit(this.internalValue);
+  }
+
+  /**
+   *
+   * @param value Handle model updates.
+   */
+  writeValue(value: any) {
+    if (this.jQueryElement && this.internalValue !== value) {
+      this.jQueryElement.val(value);
+    }
+    super.writeValue(value);
+
+  }
+
+  /**
+   * This function is called when the control status changes to or from "DISABLED".
+   * Depending on the value, it will enable or disable the appropriate DOM element.
+   *
+   * @param isDisabled
+   */
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 
   ngOnDestroy() {

@@ -73,6 +73,7 @@ import { FieldOptionsPopdownDemoComponent } from './field-options/field-options-
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { FileUploadLMDemoComponent } from './fileupload/fileupload-lm.demo';
 import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
+import { FormReactiveFormDemoComponent } from './form/form-reactive-form.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToggleButtonsDemoComponent } from './header/header-toggle-buttons.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
@@ -220,6 +221,7 @@ export const routes: Routes = [
   { path: 'editor',                                 component: EditorDemoComponent },
   { path: 'emptymessage',                           component: EmptyMessageDemoComponent},
   { path: 'error',                                  component: ErrorDemoComponent },
+  { path: 'form-reactive',                          component: FormReactiveFormDemoComponent },
   { path: 'expandablearea',                         component: ExpandableAreaDemoComponent },
   { path: 'expandablearea-footer',                  component: ExpandableAreaFooterDemoComponent },
   { path: 'field-options',                          component: FieldOptionsDemoComponent },

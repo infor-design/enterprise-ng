@@ -54,6 +54,18 @@ interface SohoAutoCompleteOffset {
 
    /** Clear. */
    clear(): void;
+
+   /** Disable the control. */
+   disable() : void;
+
+   /** Enable the control. */
+   enable(): void;
+
+   /** Mark the control as readonly. */
+   readonly(): void;
+
+   /** Mark the control as updated.  */
+   updated(): void;
  }
 
 interface JQueryStatic {

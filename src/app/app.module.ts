@@ -115,6 +115,7 @@ import { FieldOptionsPopdownDemoComponent } from './field-options/field-options-
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { FileUploadLMDemoComponent } from './fileupload/fileupload-lm.demo';
 import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
+import { FormReactiveFormDemoComponent } from './form/form-reactive-form.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToggleButtonsDemoComponent } from './header/header-toggle-buttons.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
@@ -288,6 +289,7 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     FileUploadAdvancedDemoComponent,
     FileUploadDemoComponent,
     FileUploadLMDemoComponent,
+    FormReactiveFormDemoComponent,
     HeaderTabsDemoComponent,
     HeaderToggleButtonsDemoComponent,
     HeaderToolbarAndTabsDemoComponent,

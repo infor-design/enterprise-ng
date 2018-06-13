@@ -8,6 +8,7 @@ import {
   Input,
   OnDestroy,
   Output,
+  AfterViewChecked,
 } from '@angular/core';
 import {
   BaseControlValueAccessor,
@@ -20,7 +21,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoDatePickerComponent)]
 })
-export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> implements AfterViewInit, OnDestroy {
+export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   /**
    * Local variables
@@ -187,6 +188,11 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> impl
     }
   }
 
+  ngAfterViewChecked() {
+    // Make sure the control is disabled, if required.
+    this.disabled = this.isDisabled;
+  }
+
   /**
    * Handle the control being changed.
    */
@@ -213,6 +219,16 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> impl
       // in the control.
       this.datepicker.element.val(value);
     }
+  }
+
+  /**
+   * This function is called when the control status changes to or from "DISABLED".
+   * Depending on the value, it will enable or disable the appropriate DOM element.
+   *
+   * @param isDisabled
+   */
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 
   ngOnDestroy() {

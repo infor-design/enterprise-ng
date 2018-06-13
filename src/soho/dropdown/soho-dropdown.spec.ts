@@ -1,14 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormGroup, FormBuilder } from '@angular/forms';
 
 import { SohoDropDownModule } from './soho-dropdown.module';
 import { SohoDropDownComponent } from './soho-dropdown.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   template: `
-  <select soho-dropdown noSearch  [closeOnSelect]="true" [(ngModel)]="selectedOption">
+  <select soho-dropdown noSearch [closeOnSelect]="true" [(ngModel)]="selectedOption">
     <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
   </select>`
 })
@@ -16,27 +17,27 @@ class SohoDropDownTestComponent {
   @ViewChild(SohoDropDownComponent) dropdown: SohoDropDownComponent;
   selectedOption = 'ND';
   public options = [
-      { value: 'AK', label: 'Alaska' },
-      { value: 'AZ', label: 'Arizona' },
-      { value: 'CA', label: 'California' },
-      { value: 'CO', label: 'Colorado' },
-      { value: 'MN', label: 'Minnesota' },
-      { value: 'ND', label: 'North Dakota' },
-      { value: 'OR', label: 'Oregon' },
-      { value: 'WA', label: 'Washington' },
-      { value: 'WY', label: 'Wyoming' }
-    ];
+    { value: 'AK', label: 'Alaska' },
+    { value: 'AZ', label: 'Arizona' },
+    { value: 'CA', label: 'California' },
+    { value: 'CO', label: 'Colorado' },
+    { value: 'MN', label: 'Minnesota' },
+    { value: 'ND', label: 'North Dakota' },
+    { value: 'OR', label: 'Oregon' },
+    { value: 'WA', label: 'Washington' },
+    { value: 'WY', label: 'Wyoming' }
+  ];
 }
 
 describe('Soho Dropdown Unit Tests', () => {
-  let comp:     SohoDropDownComponent;
-  let fixture:  ComponentFixture<SohoDropDownComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let comp: SohoDropDownComponent;
+  let fixture: ComponentFixture<SohoDropDownComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoDropDownComponent ]
+      declarations: [SohoDropDownComponent]
     });
 
     fixture = TestBed.createComponent(SohoDropDownComponent);
@@ -67,16 +68,16 @@ describe('Soho Dropdown Unit Tests', () => {
 });
 
 describe('Soho Dropdown Render', () => {
-  let dropdown:  SohoDropDownComponent;
+  let dropdown: SohoDropDownComponent;
   let component: SohoDropDownTestComponent;
-  let fixture:   ComponentFixture<SohoDropDownTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoDropDownTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoDropDownTestComponent ],
-      imports: [ FormsModule, SohoDropDownModule ]
+      declarations: [SohoDropDownTestComponent],
+      imports: [FormsModule, SohoDropDownModule]
     });
 
     fixture = TestBed.createComponent(SohoDropDownTestComponent);
@@ -154,5 +155,12 @@ describe('Soho Dropdown Render', () => {
     expect(el.hasAttribute('multiple')).toBeTruthy();
     expect(el.classList).toContain('multiselect');
     expect(de.query(By.css('a#dropdown-select-all-anchor'))).toBeDefined();
+  });
+
+  it('@Input() disable', () => {
+    dropdown.disabled = true;
+    fixture.detectChanges();
+
+    expect(el.hasAttribute('disabled')).toBeTruthy();
   });
 });

@@ -1,0 +1,114 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Form - Reactive Forms Demo</h2>
+  </div>
+</div>
+<br>
+<br>
+<br>
+
+<div class="example-section" role="main">
+
+  <form [formGroup]="demoForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+
+      <div class="field">
+        <label for="standard" class="label">Text Input</label>
+        <input class="form-control" formControlName="input" (change)="onChange($event)" />
+      </div>
+
+      <div class="field">
+        <label for="standard" class="label">Standard Date</label>
+        <input soho-datepicker name="standard" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" formControlName="datepick"
+          (change)="onChange($event)" />
+      </div>
+
+      <div class="field">
+        <label for="standardtime" class="label">Standard Time</label>
+        <input soho-timepicker name="standardtime" formControlName="timepick" (change)="onChange($event)" />
+      </div>
+
+      <div class="field">
+        <label for="states" class="label">States</label>
+        <select soho-dropdown name="states" formControlName="dropdown">
+          <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="bgcolor" class="label">Background Color</label>
+        <input soho-colorpicker name="bgcolor" formControlName="colorpick" (change)="onChange($event)" />
+      </div>
+
+      <div class="field">
+        <input soho-checkbox type="checkbox" id="checkbox" name="checkbox" formControlName="checkbox" (change)="onChange($event)">
+        <label soho-label for="checkbox" [forCheckBox]="true">Checked</label>
+      </div>
+
+      <div class="field">
+        <label for="autocomplete">States</label>
+        <input id="autocomplete" soho-autocomplete type="text" [source]="autocompleteUrl" formControlName="autocomplete" (selected)="onSelected($event)">
+      </div>
+
+      <div class="field">
+        <label for="slider-regular">Slider</label>
+        <input soho-slider id="slider-regular" name="slider-regular" min="0" max="100" type="range" formControlName="slider" (change)="onChange($event)"
+        />
+      </div>
+
+      <div class="field">
+        <label soho-label for="lookup">Lookup</label>
+        <input soho-lookup formControlName="lookup" [columns]="lookupColumns" [dataset]="lookupData" field="productId" name="lookup"
+        />
+      </div>
+
+      <div class="field">
+        <span class="label">Editor</span>
+        <div soho-editor id="editor" role="textbox" aria-multiline="true" aria-label="editor" formControlName="editor">
+        </div>
+      </div>
+
+      <div class="field">
+        <label soho-label>Radio Button</label>
+        <input soho-radiobutton type="radio" formControlName="radiobutton" id="optionVWO1" value="1" />
+        <label soho-label for="optionVWO1" [forRadioButton]="true">One</label>
+        <br>
+        <input soho-radiobutton type="radio" formControlName="radiobutton" id="optionVWO2" value="2" />
+        <label soho-label for="optionVWO2" [forRadioButton]="true">Two</label>
+        <br>
+        <input soho-radiobutton type="radio" formControlName="radiobutton" id="optionVWO3" value="3" />
+        <label soho-label for="optionVWO3" [forRadioButton]="true">Three</label>
+        <br>
+        <input soho-radiobutton type="radio" formControlName="radiobutton" id="optionVWO4" value="4" />
+        <label soho-label for="optionVWO4" [forRadioButton]="true">Four Disabled</label>
+      </div>
+
+      <div class="field">
+        <label for="textarea" class="label">Textarea</label>
+        <textarea soho-textarea maxlength="90" name="textarea" formControlName="textarea"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="spinbox">Spinbox</label>
+        <input soho-spinbox name="spinbox" min="-50" max="50" formControlName="spinbox" />
+      </div>
+
+      <button soho-button="tertiary" (click)="toggleDisableForm()">Toggle Disable Form</button>
+
+      <h3>Form valid?: {{ demoForm.status | json }}</h3>
+
+      <h3>Input Value: {{ demoForm.controls.input.value | json }}</h3>
+      <h3>Date Value: {{ demoForm.controls.datepick.value | json }}</h3>
+      <h3>Time Value: {{ demoForm.controls.timepick.value | json }}</h3>
+      <h3>Dropdown Value: {{ demoForm.controls.dropdown.value | json }}</h3>
+      <h3>Colour Value: {{ demoForm.controls.colorpick.value | json }}</h3>
+      <h3>Checkbox Value: {{ demoForm.controls.checkbox.value | json }}</h3>
+      <h3>Autocomplete Value: {{ demoForm.controls.autocomplete.value | json }}</h3>
+      <h3>Slider Value: {{ demoForm.controls.slider.value | json }}</h3>
+      <h3>Lookup Value: {{ demoForm.controls.lookup.value | json }}</h3>
+      <h3>RadioButton Value: {{ demoForm.controls.radiobutton.value | json }}</h3>
+      <h3>TextArea Value: {{ demoForm.controls.textarea.value | json }}</h3>
+      <h3>Spinbox Value: {{ demoForm.controls.spinbox.value | json }}</h3>
+    </div>
+  </form>
+</div>

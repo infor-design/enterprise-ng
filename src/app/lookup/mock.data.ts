@@ -1,6 +1,3 @@
-// import { Formatters } from '../../components';
-declare const Formatters: any;
-
 export const productsData = [
   {
     id: 1,
