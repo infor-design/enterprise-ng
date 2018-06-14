@@ -47,7 +47,7 @@
 
       <div class="field">
         <label for="autocomplete">States</label>
-        <input id="autocomplete" soho-autocomplete type="text" [source]="autocompleteUrl" formControlName="autocomplete" (selected)="onSelected($event)">
+        <input id="autocomplete" soho-autocomplete type="text" [source]="model.autocompleteUrl" formControlName="autocomplete" (selected)="onValueChanged($event)">
       </div>
 
       <div class="field">
