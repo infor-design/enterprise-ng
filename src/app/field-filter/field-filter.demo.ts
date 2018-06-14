@@ -40,10 +40,10 @@ export class FieldFilterDemoComponent {
     dataset: [
     { value: 'equals', text: 'Equals', icon: 'filter-equals' },
     { value: 'does-not-equal', text: 'Does Not Equal', icon: 'filter-does-not-equal' },
-    { value: 'before', text: 'Before', icon: 'filter-less-than' },
-    { value: 'on-or-before', text: 'On Or Before', icon: 'filter-less-equals' },
-    { value: 'after', text: 'After', icon: 'filter-greater-than' },
-    { value: 'on-or-after', text: 'On Or After', icon: 'filter-greater-equals' }]
+    { value: 'less-than', text: 'Less Than', icon: 'filter-less-than' },
+    { value: 'less-equals', text: 'Less Or Equals', icon: 'filter-less-equals' },
+    { value: 'greater-than', text: 'Greater Than', icon: 'filter-greater-than' },
+    { value: 'greater-equals', text: 'Greater Or Equals', icon: 'filter-greater-equals' }]
   };
 
   public filterSettingsWithRange: SohoFieldFilterSettings = {
@@ -51,10 +51,10 @@ export class FieldFilterDemoComponent {
     { value: 'equals', text: 'Equals', icon: 'filter-equals' },
     { value: 'in-range', text: 'In Range', icon: 'filter-in-range' },
     { value: 'does-not-equal', text: 'Does Not Equal', icon: 'filter-does-not-equal' },
-    { value: 'before', text: 'Before', icon: 'filter-less-than' },
-    { value: 'on-or-before', text: 'On Or Before', icon: 'filter-less-equals' },
-    { value: 'after', text: 'After', icon: 'filter-greater-than' },
-    { value: 'on-or-after', text: 'On Or After', icon: 'filter-greater-equals' }]
+      { value: 'less-than', text: 'Less Than', icon: 'filter-less-than' },
+      { value: 'less-equals', text: 'Less Or Equals', icon: 'filter-less-equals' },
+      { value: 'greater-than', text: 'Greater Than', icon: 'filter-greater-than' },
+      { value: 'greater-equals', text: 'Greater Or Equals', icon: 'filter-greater-equals' }]
   };
 
   public dateMode = 'standard';

@@ -1,5 +1,6 @@
 import {
-  AfterViewInit,
+  AfterViewChecked,
+  AfterViewInit, ChangeDetectorRef,
   Directive,
   ElementRef,
   EventEmitter,
@@ -12,29 +13,33 @@ import {
 @Directive({
   selector: '[soho-field-filter]' // tslint:disable-line
 })
-export class SohoFieldFilterDirective implements AfterViewInit, OnDestroy {
+export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit, OnDestroy {
 
   @Input() set fieldSettings(settings: SohoFieldFilterSettings) {
     if (settings) {
       this._settings = settings;
+      this.markForRefresh();
     }
   }
 
   @Input() set fieldDropdownDataSet(dataset: Array<SohoFieldFilterOption>) {
     if (dataset) {
       this._settings.dataset = dataset;
+      this.markForRefresh();
     }
   }
 
   @Input() set dropdownOpts(options: SohoDropDownOptions) {
     if (options) {
       this._settings.dropdownOpts = options;
+      this.markForRefresh();
     }
   }
 
   @Input() set template(template: string) {
     if (template) {
       this._settings.template = template;
+      this.markForRefresh();
     }
   }
 
@@ -52,11 +57,29 @@ export class SohoFieldFilterDirective implements AfterViewInit, OnDestroy {
    */
   private jQueryElement: JQuery;
   private fieldFilter: SohoFieldFilterStatic;
+  private runUpdatedOnCheck: boolean;
 
   constructor(
+    private ref: ChangeDetectorRef,
     private element: ElementRef,
     private ngZone: NgZone,
   ) {  }
+
+  ngAfterViewChecked() {
+    if (this.runUpdatedOnCheck) {
+
+      this.ngZone.runOutsideAngular(() => {
+        // We need to update the control AFTER the model
+        // has been updated (assuming there is one), so
+        // execute updated after angular has generated
+        // the model and the view markup.
+        if (this.fieldFilter) {
+          this.fieldFilter.updated(this._settings);
+        }
+        this.runUpdatedOnCheck = false;
+      });
+    }
+  }
 
   ngAfterViewInit() {
     // -----------------------------------------------------------------------
@@ -78,10 +101,21 @@ export class SohoFieldFilterDirective implements AfterViewInit, OnDestroy {
   ngOnDestroy() {
     if (this.fieldFilter) {
       this.ngZone.runOutsideAngular(() => {
+        this.jQueryElement.off();
         this.fieldFilter.destroy();
         this.fieldFilter = null;
       });
     }
+  }
+
+  markForRefresh() {
+    // Run updated on the next updated check.
+    this.runUpdatedOnCheck = true;
+
+    // ... make sure the change detector kicks in, otherwise if the inputs
+    // were change programmatically the component may not be eligible for
+    // updating.
+    this.ref.markForCheck();
   }
 
   private onFiltered(event: SohoFieldFilteredEvent, args) {
