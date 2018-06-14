@@ -50,7 +50,7 @@ class SohoDatePickerReactiveFormTestComponent {
   }
 }
 
-describe('SohoDatePickerComponent on Reactive Form', () => {
+fdescribe('SohoDatePickerComponent on Reactive Form', () => {
   let dropdown: SohoDatePickerComponent;
   let component: SohoDatePickerReactiveFormTestComponent;
   let fixture: ComponentFixture<SohoDatePickerReactiveFormTestComponent>;

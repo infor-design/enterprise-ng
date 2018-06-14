@@ -66,22 +66,34 @@
             <input soho-datepicker name="year" dateFormat="yyyy" mode="standard" placeholder="yyyy" [(ngModel)]="model.year" (change)="onChange($event)"/>
           </div>
         </div>
+        <div class="four columns">
+          <div class="field">
+            <label for="range" class="label">Date with Range (set via mode)</label>
+            <input soho-datepicker name="range" dateFormat="MM/dd/yyyy" mode="range" placeholder="MM/dd/yyyy" [(ngModel)]="model.range" (change)="onChange($event)"/>
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="field">
+            <label for="range2" class="label">Date with Range (set via range)</label>
+            <input soho-datepicker name="range2" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" [range]="rangeOptions" [(ngModel)]="model.range2" (change)="onChange($event)"/>
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="four columns">
           <div class="field">
             <label for="validrange" class="label">Valid Range 2016</label>
             <input soho-datepicker name="validrange" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy"
-              [disable]="disableOptions"
-              [(ngModel)]="model.validrange" (change)="onChange($event)"/>
+                   [disable]="disableOptions"
+                   [(ngModel)]="model.validrange" (change)="onChange($event)"/>
           </div>
         </div>
         <div class="four columns">
           <div class="field">
             <label for="validrange" class="label">dd.MM.yyyy HH:mm (Mar 09 2018 - Apr 09 2018)</label>
             <input soho-datepicker name="datetime2" dateFormat="dd.MM.yyyy" timeFormat="HH:mm" showTime="true" mode="standard" placeholder="dd.MM.yyyy HH:mm"
-              [disable]="disableOptions2"
-              [(ngModel)]="model.datetime2" (change)="onChange($event)" class="input-mm"/>
+                   [disable]="disableOptions2"
+                   [(ngModel)]="model.datetime2" (change)="onChange($event)" class="input-mm"/>
           </div>
         </div>
       </div>

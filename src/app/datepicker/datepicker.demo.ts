@@ -20,7 +20,9 @@ export class DatepickerDemoComponent implements OnInit {
     birthday: '',
     year: '',
     datetime: '',
-    datetime2: '05.04.2018 16:15'
+    datetime2: '05.04.2018 16:15',
+    range: '12/12/2016 - 12/26/2016',
+    range2: '1/12/2017 - 1/16/2017'
   };
   public showModel = false;
   public datepickerDisabled = false;
@@ -38,6 +40,12 @@ export class DatepickerDemoComponent implements OnInit {
     minDate: new Date(2018, 2, 8),
     maxDate: new Date(2018, 3, 10),
     dayOfWeek: []
+  };
+
+  public rangeOptions: SohoDatePickerRange = {
+    start: new Date(2016, 12, 12),
+    end: new Date(2016, 12, 16),
+    useRange: true
   };
 
   constructor() { }

@@ -1,0 +1,50 @@
+
+<div class="row top-padding">
+  <div class="one-half column">
+
+    <div class="field">
+      <label soho-label for="filter-text">Text Field</label>
+      <input soho-field-filter [fieldSettings]="filterSettings" type="text" id="filter-text" name="filter-text" class="input-sm" [(ngModel)]="model.text.value" (filtered)="onFiltered($event)">
+      <p>Value: {{model.text.value}} <br> FilterType: {{model.text.filterType}}</p>
+    </div>
+
+    <div class="field">
+      <label soho-label for="example-dropdown">Dropdown</label>
+      <select soho-dropdown soho-field-filter [fieldSettings]="filterSettings" id="example-dropdown" name="example-dropdown" class="input-mm" [(ngModel)]="model.dropdown.value" (filtered)="onFiltered($event)">
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+      </select>
+      <p>Value: {{model.dropdown.value}}<br> FilterType: {{model.dropdown.filterType}}</p>
+    </div>
+
+    <div class="field">
+      <label for="example-multiselect" class="label">Multiselect</label>
+      <select soho-dropdown soho-field-filter [fieldSettings]="filterSettings" id="example-multiselect" name="example-multiselect" multiple [(ngModel)]="model.multiselect.value" (filtered)="onFiltered($event)">
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+      </select>
+      <p>Value: {{model.multiselect.value}}<br> FilterType: {{model.multiselect.filterType}}</p>
+    </div>
+
+    <div class="field">
+      <label soho-label for="product-lookup">Lookup</label>
+      <input soho-lookup soho-field-filter [fieldSettings]="filterSettings" name="product-lookup" id="product-lookup" type="text" class="input-sm" [(ngModel)]="model.lookup.value" (filtered)="onFiltered($event)">
+      <p>Value: {{model.lookup.value}}<br> FilterType: {{model.lookup.filterType}}</p>
+    </div>
+
+    <div class="field">
+      <label soho-label for="date-with-range">Date With Range</label>
+      <input soho-datepicker soho-field-filter [fieldSettings]="filterSettingsWithRange" name="date-with-range" id="date-with-range" dateFormat="MM/dd/yyyy" mode="{{dateMode}}" placeholder="MM/dd/yyyy" [(ngModel)]="model.dateRange.value" (filtered)="onFiltered($event)"/>
+      <p>Value: {{model.dateRange.value}}<br> FilterType: {{model.dateRange.filterType}}</p>
+    </div>
+
+    <div class="field">
+      <label soho-label for="date-without-range">Date Without Range</label>
+      <input soho-datepicker soho-field-filter [fieldSettings]="filterSettings" name="date-without-range" id="date-without-range" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" [(ngModel)]="model.date.value" (filtered)="onFiltered($event)"/>
+      <p>Value: {{model.date.value}}<br> FilterType: {{model.date.filterType}}</p>
+    </div>
+
+  </div>
+</div>

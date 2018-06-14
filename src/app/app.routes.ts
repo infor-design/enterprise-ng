@@ -68,6 +68,7 @@ import { EditorDemoComponent } from './editor/editor.demo';
 import { EmptyMessageDemoComponent } from './emptymessage/emptymessage.demo';
 import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
+import { FieldFilterDemoComponent } from './field-filter/field-filter.demo';
 import { FieldOptionsDemoComponent } from './field-options/field-options.demo';
 import { FieldOptionsPopdownDemoComponent } from './field-options/field-options-popdown.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
@@ -224,6 +225,7 @@ export const routes: Routes = [
   { path: 'form-reactive',                          component: FormReactiveFormDemoComponent },
   { path: 'expandablearea',                         component: ExpandableAreaDemoComponent },
   { path: 'expandablearea-footer',                  component: ExpandableAreaFooterDemoComponent },
+  { path: 'field-filter',                           component: FieldFilterDemoComponent },
   { path: 'field-options',                          component: FieldOptionsDemoComponent },
   { path: 'field-options-popdown',                  component: FieldOptionsPopdownDemoComponent },
   { path: 'fileupload-advanced',                    component: FileUploadAdvancedDemoComponent },
