@@ -57,12 +57,9 @@ interface SohoDatePickerOptions {
   legend?: SohoDatePickerLegend;
 
   /** Use range of two dates options. */
-  useRange?:  boolean;
+  range?:  SohoDatePickerRange;
 
-  /** Use range of two dates options. */
-  rane?:  SohoDatePickerRange;
-
-  /** Use range of two dates options. */
+  /** Calendar name. */
   calendarName?:  'gregorian'|'islamic-umalqura';
 
   /** If true the dates will use UTC format. This is only partially
@@ -96,6 +93,8 @@ interface SohoDatePickerRange {
   /**  Include disable dates in range of dates. **/
   includeDisabled?: boolean;
 
+  /** Use range of two dates options. */
+  useRange?:  boolean;
 }
 
 /* Options for the legend */
@@ -152,6 +151,8 @@ interface SohoDatePickerStatic {
 
   disable(): void;
 
+  updated(SohoDatePickerOptions): void;
+
   // SOHO-4777 - 4.0 Datepicker - Needs destroy method.
   destroy(): void;
 }
@@ -174,5 +175,5 @@ interface JQueryStatic {
 interface JQuery<TElement extends Node = HTMLElement> {
   datepicker(options: SohoDatePickerOptions): JQuery;
   on(events: string,
-    handler: JQuery.EventHandlerBase<TElement, SohoDatePickerEvent>): this;
+     handler: JQuery.EventHandlerBase<TElement, SohoDatePickerEvent>): this;
 }

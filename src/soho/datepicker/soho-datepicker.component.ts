@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
@@ -8,7 +9,6 @@ import {
   Input,
   OnDestroy,
   Output,
-  AfterViewChecked,
 } from '@angular/core';
 import {
   BaseControlValueAccessor,
@@ -21,7 +21,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoDatePickerComponent)]
 })
-export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> implements AfterViewInit, AfterViewChecked, OnDestroy {
+export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> implements AfterViewChecked, AfterViewInit, OnDestroy {
 
   /**
    * Local variables
@@ -35,8 +35,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> impl
   private isReadOnly: boolean = null;
 
   private options: SohoDatePickerOptions = {};
-  // TODO: waiting on SOHO-4839 : 4.0 DatePicker - Needs to support an update() method
-  //  so options can be changed after initialization
+
   /**
    * Indicates to display the timepicker; defaults to false.
    */
@@ -61,6 +60,29 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> impl
    */
   @Input() set mode(mode: SohoDatePickerMode) {
     this.options.mode = mode;
+
+    if (mode === 'range') {
+      if (this.options.range) {
+        this.options.range.useRange = true;
+      } else {
+        this.options.range = {};
+        this.options.range.useRange = true;
+      }
+    }
+    if (this.datepicker) {
+      this.datepicker.updated(this.options);
+    }
+  }
+
+  /**
+   * Use range of two dates options.
+   */
+  @Input() set range(range: SohoDatePickerRange) {
+    this.options.range = range;
+
+    if (this.datepicker) {
+      this.datepicker.updated(this.options);
+    }
   }
 
   /**

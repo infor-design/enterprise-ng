@@ -110,6 +110,7 @@ import { EmptyMessageDemoComponent } from './emptymessage/emptymessage.demo';
 import { ErrorDemoComponent } from './error/error.demo';
 import { ExpandableAreaDemoComponent } from './expandablearea/expandablearea.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
+import { FieldFilterDemoComponent } from './field-filter/field-filter.demo';
 import { FieldOptionsDemoComponent } from './field-options/field-options.demo';
 import { FieldOptionsPopdownDemoComponent } from './field-options/field-options-popdown.demo';
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
@@ -284,6 +285,7 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     ErrorDemoComponent,
     ExpandableAreaDemoComponent,
     ExpandableAreaFooterDemoComponent,
+    FieldFilterDemoComponent,
     FieldOptionsDemoComponent,
     FieldOptionsPopdownDemoComponent,
     FileUploadAdvancedDemoComponent,

@@ -26,6 +26,7 @@
 /// <reference path="./emptymessage/soho-emptymessage.d.ts" />
 /// <reference path="./error/soho-error.d.ts" />
 /// <reference path="./expandablearea/soho-expandablearea.d.ts" />
+/// <reference path="./field-filter/soho-field-filter.d.ts" />
 /// <reference path="./fileupload/soho-fileupload.d.ts" />
 /// <reference path="./fileupload-advanced/soho-fileupload-advanced.d.ts" />
 /// <reference path="./hierarchy/soho-hierarchy.d.ts" />
