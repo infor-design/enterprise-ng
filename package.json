@@ -25,6 +25,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "prepublishOnly": "npx gulp publish",
+    "release:dev": "release-it minor --preRelease=dev --no-src.tag --no-github.release",
     "release:beta": "release-it minor --preRelease=beta",
     "release:rc": "release-it minor --preRelease=rc",
     "release:final": "release-it minor"
