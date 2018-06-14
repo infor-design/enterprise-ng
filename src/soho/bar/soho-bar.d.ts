@@ -9,9 +9,9 @@
  * Bar Options
  */
 interface SohoBarOptions {
-  /** Chart Type */ 
+  /** Chart Type */
   type?: string;
-	
+
   /** Defines the data to use, must be specified for this component. */
   dataset?: Object[];
 
@@ -72,7 +72,7 @@ interface SohoBarSelectEvent {
 /**
  * Bar Api.
  */
-interface SohoBar{
+interface SohoBar {
   /** The settings option */
   settings: SohoBarOptions;
 
@@ -83,13 +83,25 @@ interface SohoBar{
   getSelected(settings?: SohoBarOptions, isToggle?: boolean);
 
   /** Sets the currently selected element */
-  setSelected();
+  setSelected(selected: SohoBarSelected);
 
   /** Toggles the currently selected element */
-  toggleSelected();
+  toggleSelected(selected: SohoBarSelected);
 
   /** Destroys the control on completion. */
   destroy(): void;
+}
+
+type SohoBarSelected = SohoBarFieldSelected | SohoBarGroupSelected;
+
+interface SohoBarFieldSelected {
+  fieldName: string;
+  fieldValue: any;
+}
+
+interface SohoBarGroupSelected {
+  groupName: string;
+  groupValue: any;
 }
 
 interface JQuery {

@@ -3,6 +3,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
+import {SohoBarComponent} from '../../soho/bar';
 
 @Component({
   selector: 'soho-bar-demo',
@@ -10,6 +11,9 @@ import {
 })
 export class BarStackedDemoComponent implements OnInit {
 
+  @ViewChild(SohoBarComponent) sohoBarComponent: SohoBarComponent;
+
+  private selection: SohoBarSelected  = {fieldName: 'name', fieldValue: '2009'};
   public barStackedData = [{
     data: [{
       name: '2008',
@@ -42,4 +46,13 @@ export class BarStackedDemoComponent implements OnInit {
 
   ngOnInit() {}
 
+  setChartSelection() {
+    const SohoBarSelected: SohoBarSelected = this.selection;
+    this.sohoBarComponent.setSelected(SohoBarSelected);
+  }
+
+  toggleChartSelection () {
+    const SohoBarSelected: SohoBarSelected = this.selection
+    this.sohoBarComponent.toggleSelected(SohoBarSelected);
+  }
 }

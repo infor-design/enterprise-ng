@@ -225,4 +225,16 @@ export class SohoBarComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  public setSelected(selected: SohoBarSelected) {
+    this.bar.setSelected(selected);
+  }
+
+  public toggleSelected(selected: SohoBarSelected) {
+    this.bar.toggleSelected(selected);
+  }
+
+  public getSelected():  SohoBarSelected {
+    return this.bar.getSelected();
+  }
+
 }

@@ -7,6 +7,7 @@ import {
 import {
   SohoRadarComponent
 } from 'ids-enterprise-ng';
+import {SohoColumnComponent} from "../../soho/column";
 
 @Component({
   selector: 'soho-column-demo',
@@ -14,6 +15,9 @@ import {
 })
 export class ColumnGroupedDemoComponent implements OnInit {
 
+  @ViewChild(SohoColumnComponent) sohoColumnComponent: SohoColumnComponent;
+
+  private selection: SohoColumnSelected  = {groupName: 'name', groupValue: 'Component B'};
   public columnGroupedData = [{
     data: [{
       name: 'Jan', value: 12
@@ -65,4 +69,14 @@ export class ColumnGroupedDemoComponent implements OnInit {
 
   constructor() {}
   ngOnInit() {}
+
+  setChartSelection() {
+    const SohoColumnSelected: SohoColumnSelected = this.selection;
+    this.sohoColumnComponent.setSelected(SohoColumnSelected);
+  }
+
+  toggleChartSelection () {
+    const SohoColumnSelected: SohoColumnSelected = this.selection;
+    this.sohoColumnComponent.toggleSelected(SohoColumnSelected);
+  }
 }

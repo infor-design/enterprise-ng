@@ -3,6 +3,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
+import {SohoPieComponent} from '../../soho/pie';
 
 @Component({
   selector: 'soho-pie-demo',
@@ -10,6 +11,9 @@ import {
 })
 export class DonutDemoComponent implements OnInit {
 
+  @ViewChild(SohoPieComponent) sohoPieComponent: SohoPieComponent;
+
+  private selection: SohoPieSelected  = {fieldName: 'name', fieldValue: 'Component B'};
   public donutData = [{
     data: [{
       name: 'Component A',
@@ -38,5 +42,15 @@ export class DonutDemoComponent implements OnInit {
 
   onDeselected(event: Event) {
     console.log('Soho Donut: Deselected', event);
+  }
+
+  setChartSelection() {
+    const sohoPieSelected: SohoPieSelected = this.selection;
+    this.sohoPieComponent.setSelected(sohoPieSelected);
+  }
+
+  toggleChartSelection () {
+    const sohoPieSelected: SohoPieSelected = this.selection;
+    this.sohoPieComponent.toggleSelected(sohoPieSelected);
   }
 }
