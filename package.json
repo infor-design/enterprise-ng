@@ -1,5 +1,4 @@
 {
-  "private": true,
   "name": "ids-enterprise-ng",
   "slug": "ids-enterprise-ng",
   "version": "4.8.0-dev",
@@ -26,8 +25,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "prepublishOnly": "npx gulp publish",
-    "publish-dev": "npm publish publish/ --tag dev",
-    "publish-prod": "npm publish publish/"
+    "release:beta": "release-it minor --preRelease=beta",
+    "release:rc": "release-it minor --preRelease=rc",
+    "release:final": "release-it minor"
   },
   "files": [
     "publish"
