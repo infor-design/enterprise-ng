@@ -659,7 +659,7 @@ interface SohoDataGridColumn {
   mask?: string;
 
   /** The newer style object pattern mask for the column*/
-  maskOptions?: any[];
+  maskOptions?: SohoMaskOptions;
 
   /** Call the grids `onPostRenderCell` function for cells in this column after they are rendered. */
   postRender?: boolean;
