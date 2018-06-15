@@ -19,6 +19,26 @@ npm view ids-enterprise-ng versions
 
 - Verify the [changelog](docs/changelog) is up-to-date
 
+## Make sure you have [credential] is setup in .gitconfig
+   Try adding this into your git config
+```
+   [credential]
+       helper = wincred
+```    
+or via console
+
+```
+   git config --global credential.helper wincred
+```
+##Make sure you have a GITHUB_ACCESS_TOKEN configured
+- Get a token <https://github.com/settings/tokens>
+  - click the `Generate new token` button
+  - click ONLY the repo scope 
+  - scroll to the bottom and click the `Generate token` button
+  - NOTE: Save your token somewhere so it doesn't get lost.
+- Set your environment variable from your command window
+  - `set GITHUB_ACCESS_TOKEN="<your token here>"`
+ 
 ## Update the version of ids-enterprise
 
 - <https://github.com/infor-design/enterprise>
