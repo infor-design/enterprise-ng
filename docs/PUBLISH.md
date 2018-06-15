@@ -1,6 +1,6 @@
 # Dev Ops and Release Publishing Tasks and Notes
 
-## Prerequisites:
+## Prerequisites
 
 - collaborator permissions with our npmjs.com organization
 - correct permissions on github
@@ -27,7 +27,8 @@ npm view ids-enterprise-ng versions
 
 ## Steps using release-it
 
-- `npm install release-it -g`
+- `npm install release-it -g`- Export your existing token or [Generate a token](https://github.com/webpro/release-it#%EF%B8%8F-github-release) (save this tokens somewhere for future releases - do not commit it)
+    - `export GITHUB_ACCESS_TOKEN="{YOUR TOKEN}"` to set the token (its `export` for OSX)
 - Checkout the release branch and `git pull --tags`
 - Type of releases:
     - `npm run release:dev` - dev (Note: Will NOT git tag or github release)
