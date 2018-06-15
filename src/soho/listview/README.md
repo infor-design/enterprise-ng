@@ -22,13 +22,11 @@ In the markup for the hosting component add:
 </soho-listview>
 ```
 
-
 ## Properties
 
 | Name | Description |
 | `selectedItems` | Returns an array of numbers, based on the index position of the selected items in the listview. |
 | `sorted` | Returns an array of numbers, based on the index position of the selected items in the listview. |
-
 
 ## Methods
 
@@ -60,7 +58,6 @@ In the markup for the hosting component add:
 This example shows a simple `listview` component with a search field
 
 ```html
-
 <div soho-listview-search *ngIf="searchable && !searchfieldRef"></div>
 <div soho-listview-search *ngIf="searchable && searchfieldRef" [buildSearch]="false">
   <ng-content select="input[soho-searchfield]"></ng-content>
@@ -72,5 +69,4 @@ This example shows a simple `listview` component with a search field
     <ng-content select="li[soho-listview-item]"></ng-content>
   </ul>
 </div>
-
 ```

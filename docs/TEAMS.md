@@ -8,7 +8,7 @@
 - M3 Sales Hub, Automotive Exchange (US – East)
 - Plus a couple of others.  Hard to keep track, Add your name with a Pull Request :+1:
 
-## Other teams staying informed or involved in the past:
+## Other teams staying informed or involved in the past
 
 - LMS
 - Ming.le Home Pages (SE)
