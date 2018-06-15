@@ -17,7 +17,7 @@ The goal is that this will make Angular easier to support for all teams and easi
 
 ## Enterprise components
 
-See the [list of features](FEATURES.md) for details about the included and planned component covereage.
+See the [list of features](docs/FEATURES.md) for details about the included and planned component covereage.
 
 ## Strategy
 
