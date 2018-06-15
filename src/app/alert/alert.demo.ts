@@ -12,21 +12,26 @@ import { SohoAlertDirective } from '../../soho/alert';
 export class AlertDemoComponent {
   @ViewChildren(SohoAlertDirective) alerts: QueryList<SohoAlertDirective>;
 
-  public model = {
-    date:        '12/12/2016',
-    text:        'abcdef',
-    outputField: '',
-    isAlert:     false
+  public model: {
+    date:          string,
+    text:          string,
+    outputField:   string,
+    isAlert:       boolean,
+    triggerEvents: boolean,
+    type:          SohoAlertType,
+    icon:          string
+  } = {
+    date:          '12/12/2016',
+    text:          'abcdef',
+    outputField:   '',
+    isAlert:       false,
+    triggerEvents: true,
+    type:          'error',
+    icon:          'mail'
   };
   showModel = true;
-
-  private message = 'Message';
-  private currentValidationType: SohoAlertType = 'error';
-
-  onChange(event: Event) {
-    const element = $(event.currentTarget);
-    this.currentValidationType = element.val() as SohoAlertType;
-  }
+  showDefinedOptions = true;
+  private types = ['error', 'alert', 'confirm', 'info', 'icon'];
 
   onError(event: SohoInputValidateEvent) {
     console.log([ 'onError', event.validation.field.getAttribute('id'), event.validation.message ]);
@@ -40,6 +45,10 @@ export class AlertDemoComponent {
     console.log([ 'onConfirm', event.validation.field.getAttribute('id'), event.validation.message ]);
   }
 
+  onIcon(event: SohoInputValidateEvent) {
+    console.log([ 'onIcon', event.validation.field.getAttribute('id'), event.validation.message ]);
+  }
+
   onInfo(event: SohoInputValidateEvent) {
     console.log([ 'onInfo', event.validation.field.getAttribute('id'), event.validation.message ]);
   }
@@ -51,21 +60,28 @@ export class AlertDemoComponent {
   addMessage() {
     this.alerts.forEach((alert: SohoAlertDirective) => {
       const alertText = (this.model.isAlert) ? ' is alert,' : '';
-      alert.addInlineMessage(this.message + alertText + ' type is ' + this.currentValidationType,
-        this.currentValidationType, this.model.isAlert);
+      const icon = (this.model.type === 'icon') ? this.model.icon : undefined;
+      alert.addInlineMessage('Message' + alertText + ' type is ' + this.model.type,
+        this.model.type, this.model.isAlert, this.model.triggerEvents, icon);
     });
   }
 
   getMessage() {
     let outputField = '';
 
-    // for demo purposes, concatenate the message(s) from each alert for display
+    // for demo purposes, concatenate the displayed message(s) from each alert
     this.alerts.forEach((alert: SohoAlertDirective) => {
-      const message = alert.getMessage(this.currentValidationType);
+      const id = (alert.elementRef.nativeElement as Element).getAttribute('id');
 
-      if (message !== undefined) {
-        outputField += message + '\n';
-      }
+      this.types.forEach( (type: SohoAlertType) => {
+        const message = alert.getMessage(type);
+
+        if (message !== undefined) {
+          outputField += id + ' - ' + message + '\n';
+        }
+      });
+
+      outputField += '\n';
     });
 
     this.model.outputField = outputField;
@@ -73,17 +89,35 @@ export class AlertDemoComponent {
 
   removeMessage() {
     this.alerts.forEach((alert: SohoAlertDirective) => {
-      alert.removeMessage(this.currentValidationType);
+      alert.removeMessage(this.model.type, this.model.triggerEvents);
     });
   }
 
   removeAllMesssages() {
     this.alerts.forEach((alert: SohoAlertDirective) => {
-      alert.removeAllMessages();
+      alert.removeAllMessages(this.model.triggerEvents);
     });
   }
 
   toggleModel() {
     this.showModel = !this.showModel;
+  }
+
+  // sets option properties to default values or to undefined to test the directive setting the defaults
+  // (icon value of 'mail' is the default value for this demo only)
+  toggleOptions() {
+    this.showDefinedOptions = !this.showDefinedOptions;
+
+    if (this.showDefinedOptions) {
+      this.model.type = 'error';
+      this.model.isAlert = false;
+      this.model.triggerEvents = true;
+      this.model.icon = 'mail';
+    } else {
+      this.model.type = undefined;
+      this.model.isAlert = undefined;
+      this.model.triggerEvents = undefined;
+      this.model.icon = undefined;
+    }
   }
 }

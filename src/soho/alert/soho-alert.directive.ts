@@ -1,4 +1,4 @@
-import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
+import {AfterViewInit, Directive, ElementRef, Input, NgZone} from '@angular/core';
 
 /**
  * Angular Wrapper for the SohoAlert Directive.
@@ -18,24 +18,38 @@ export class SohoAlertDirective implements AfterViewInit {
   public set message(message: string) {
     this._options.message = message;
     if (this.jQueryElement) {
-      if (message) {
-        this.jQueryElement.addMessage(this._options);
-      } else {
-        this.jQueryElement.removeMessage(this._options);
-      }
+      this.ngZone.runOutsideAngular(() => {
+        if (message) {
+          this.jQueryElement.addMessage(this._options);
+        } else {
+          this.jQueryElement.removeMessage(this._options);
+        }
+      });
     }
   }
 
   /** Set message with the SohoAlertType. */
   @Input()
   public set type(type: SohoAlertType) {
-    this._options.type = type;
+    this._options.type = type || 'error';
   }
 
   /** Set message with or without control color */
   @Input()
   public set isAlert(isAlert: boolean) {
-    this._options.isAlert = isAlert;
+    this._options.isAlert = isAlert || false;
+  }
+
+  /** Set message whether to trigger events */
+  @Input()
+  public set triggerEvents(triggerEvents: boolean) {
+    this._options.triggerEvents = (typeof triggerEvents !== 'boolean') ? true : triggerEvents;
+  }
+
+  /** Set message with or without custom icon */
+  @Input()
+  public set icon(icon: string) {
+    this._options.icon = icon;
   }
 
   /**
@@ -47,7 +61,10 @@ export class SohoAlertDirective implements AfterViewInit {
     return this.getMessage('error');
   }
 
-  constructor(public elementRef: ElementRef) {
+  constructor(
+    public elementRef: ElementRef,
+    private ngZone: NgZone,
+  ) {
     this._options.inline = true;
   }
 
@@ -56,7 +73,9 @@ export class SohoAlertDirective implements AfterViewInit {
    * get the SoHoXi controls to activate any alerts.
    */
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.elementRef.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.elementRef.nativeElement);
+    });
   }
 
   // public methods
@@ -72,25 +91,29 @@ export class SohoAlertDirective implements AfterViewInit {
   /**
    * Adds an inline message of the type specified
    *
-   * @param message
-   * @param type; defaults to 'error'
-   * @param isAlert; defaults to false
+   * @param {string} message
+   * @param {SohoAlertType} type optional - 'error' (default)
+   * @param {boolean} isAlert optional - false (default)
+   * @param {boolean} triggerEvents optional - true (default)
+   * @param {string} icon optional
    */
-  addInlineMessage(message: string, type?: SohoAlertType, isAlert?: boolean) {
-    this.type = type || 'error';
-    this.isAlert = isAlert || false;
+  addInlineMessage(message: string, type?: SohoAlertType, isAlert?: boolean, triggerEvents?: boolean, icon?: string) {
+    this.type = type;
+    this.isAlert = isAlert;
+    this.triggerEvents = triggerEvents;
+    this.icon = icon;
     this.message = message;
   }
 
   /**
    * Gets the message of the type specified
    *
-   * @param type; defaults to 'error'
+   * @param {SohoAlertType} type optional - 'error' default
    * @returns {string}
    */
   getMessage(type?: SohoAlertType): string {
     if (this.jQueryElement) {
-      this.type = type || 'error';
+      this.type = type;
       return this.jQueryElement.getMessage(this._options);
     }
 
@@ -108,28 +131,32 @@ export class SohoAlertDirective implements AfterViewInit {
   /**
    * Removes the message of the type specified
    *
-   * @param type; defaults to 'error'
+   * @param {SohoAlertType} type optional - 'error' (default)
+   * @param {boolean} triggerEvents optional - true (default) triggers events
    */
-  removeMessage(type?: SohoAlertType) {
-    this.type = type || 'error';
+  removeMessage(type?: SohoAlertType, triggerEvents?: boolean) {
+    this.type = type;
+    this.triggerEvents = triggerEvents;
     this.message = '';
   }
 
   /**
    * Removes the message for all types
    *
+   * @param {boolean} triggerEvents optional - true (default) triggers events
    */
-  removeAllMessages() {
-    this.removeMessage('error');
-    this.removeMessage('alert');
-    this.removeMessage('confirm');
-    this.removeMessage('info');
+  removeAllMessages(triggerEvents?: boolean) {
+    this.removeMessage('error', triggerEvents);
+    this.removeMessage('alert', triggerEvents);
+    this.removeMessage('confirm', triggerEvents);
+    this.removeMessage('info', triggerEvents);
+    this.removeMessage('icon', triggerEvents);
   }
 
   /**
    * Scrolls the element into the visible area of the browser window
    *
-   * @param alignToTop (boolean) optional - true (default) element will be aligned to the top of the visible area of the scrollable ancestor
+   * @param {boolean} alignToTop optional - true (default) element will be aligned to the top of the visible area of the scrollable ancestor
    */
   scrollIntoView(alignToTop?: boolean) {
     if (this.jQueryElement) {

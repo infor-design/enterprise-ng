@@ -5,7 +5,7 @@
  * interface of the Soho jQuery alert control.
  */
 
-type SohoAlertType = 'error' | 'alert' | 'confirm' | 'info';
+type SohoAlertType = 'error' | 'alert' | 'confirm' | 'info' | 'icon';
 
 interface SohoAlertOptions {
   /** */
@@ -21,6 +21,14 @@ interface SohoAlertOptions {
    * If true, does not display control border color, control text color, and control icon color.
    */
   isAlert?: boolean;
+
+  /**
+   * If true, events will be triggered
+   */
+  triggerEvents?: boolean;
+
+  /** */
+  icon?: string;
 }
 
 /**
