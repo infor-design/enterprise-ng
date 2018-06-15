@@ -11,16 +11,11 @@ This repository serves as the central shared location for a crowd-sourced cross-
 
 This is a working group supported by the core H&L team,  bringing together the various efforts of teams each creating their own angular directives.
 
-The goal is that this will make Angular easier to support for all teams and easier to extend as the library develops and to prevent multiple teams doing the same work. At the moment the project is being shaped during "Knights of the angular table" calls. Contact andrew.lipetzky@infor.com if interested in joining the call its open to anyone how wants to contribute.
+If you're an Infor employee, you can join our MS Teams Group for updates.
 
-The team is using [slack](https://slack.com/) for a communication forum.  We have created a [SoHo XI area](http://sohoxi-dev.slack.com/) for discussions related to the components.
+The goal is that this will make Angular easier to support for all teams and easier to extend as the library develops and to prevent multiple teams doing the same work. At the moment the project is being shaped during "Knights of the angular table" calls.
 
-There are <https://sohoxi-dev.slack.com/messages/general/> and <https://sohoxi-dev.slack.com/messages/angular-components/> channels for those discussion topics.  It is becoming more active every day.
-
-## Current Status
-
-Agreed on project scaffolding (using CLI and Typescript). Agreed on [shared Repo location](http://jira/browse/SOHO-4016) this master epic has all subtasks related to on going work
-<http://jira/browse/SOHO-4016>. You can also use it to see whats been done.
+Contact andrew.lipetzky@infor.com if interested in joining the call its open to anyone how wants to contribute.
 
 ## Agreed so far
 
