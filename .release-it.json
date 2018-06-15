@@ -1,6 +1,6 @@
 {
-  "dry-run": true,
-  "requireCleanWorkingDir": true,
+  "dry-run": false,
+  "requireCleanWorkingDir": false,
   "non-interactive": false,
   "verbose": false,
   "pkgFiles": ["package.json"],
