@@ -19,8 +19,8 @@ npm view ids-enterprise-ng versions
 
 - Verify the [changelog](docs/changelog) is up-to-date
 
-## Make sure you have [credential] setup in .gitconfig
-   Try adding this into your git config
+## Make sure you have [credential] setup in .gitconfig  (Windows Users)
+Try adding this into your git config
 ```
    [credential]
        helper = wincred
