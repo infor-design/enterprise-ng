@@ -4,11 +4,11 @@
 
 This directive provides access from Angular to the SohoXi `validate` JQuery control.
 
-The `validate` control can execute the internal or custom Validation rules on an element or on a form. 
+The `validate` control can execute the internal or custom Validation rules on an element or on a form.
 
 ### Usage
 
-To add a `validate` to a component requires adding the module `SohoInputValidate` into the hosting component. If you 
+To add a `validate` to a component requires adding the module `SohoInputValidate` into the hosting component. If you
 have included the top level Soho module then this will be included already.
 
 The `validate` control can be used at the form level and at the element level. One reason an application would want to
@@ -16,16 +16,18 @@ use form level validation is to reduce the number of listeners for the `error` a
 level is more efficient than listening at each input element.
 
 For form level validation, add the following on the hosting component:
+
 ```angular2html
-<form 
+<form
   soho-input-validate (error)="onError($event)" (valid)="onValid($event)">
   ...
 </form>
 ```
- 
+
 For element level validation, add the following on the hosting component:
+
 ```angular2html
-<input 
+<input
   soho-input-validate (error)="onError($event)" (valid)="onValid($event)">
 ```
 
@@ -49,6 +51,7 @@ This example shows how validation can be used on a simple form using the `valida
 It uses `Form Group` and `Form Control` to handle form state and does not use a `Validator` on the `Form Control`.
 
 #### Template
+
 Add the `soho-input-validate` directive to the `form` element.
 
 ```angular2html
@@ -60,7 +63,7 @@ Add the `soho-input-validate` directive to the `form` element.
 ```
 
 For each required field, add the `required` attribute for the `soho-label` component on the `label` element. For this example,
-the model for each field contains the required property. 
+the model for each field contains the required property.
 
 ```angular2html
 <label soho-label [required]="model.AlphaField.required" for="AlphaField">AlphaField</label>
@@ -78,9 +81,10 @@ using the `isRequired()` method to set the attribute value.
 ```
 
 #### Code
-Add the two `soho-input-validate` events. For this example, the events will update the corresponding `Form Control` either 
+
+Add the two `soho-input-validate` events. For this example, the events will update the corresponding `Form Control` either
 setting or removing the error state using the `formControlName` attribute for the key to the `Form Control`. In this case,
-the demo is only concerned about the error state of the form and not the actual error message. Applications that are 
+the demo is only concerned about the error state of the form and not the actual error message. Applications that are
 concerned about the error message could easily set the error message on the Form Control.
 
 ```typescript
@@ -132,6 +136,7 @@ get disableSave(): boolean {
   return true;
 }
 ```
+
 #### Testing
 
 Using the `validation-form-event` demo, test the validation by placing focus in the AlphaField and then tabbing through
@@ -147,6 +152,7 @@ Once all required fields have values and their Status is `dirty` and `valid`, th
 Changing or adding a `required` property in the `dataView` object should be reflected when the form reloads.
 
 ### Possible future topics
-* Using a custom validator (Soho Xi)
-* Using a Form Control Validator (ValidatorFn)
-* Using soho-error with soho-input-validate
+
+- Using a custom validator (Soho Xi)
+- Using a Form Control Validator (ValidatorFn)
+- Using soho-error with soho-input-validate

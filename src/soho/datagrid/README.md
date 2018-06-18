@@ -1,14 +1,12 @@
 # SoHoXi Angular Component : DataGrid
 
-## Description
-
 This component provides access from Angular to the SoHoXi `datagrid` control.
 
 This component searches for an element with the attribute `soho-datagrid` in the parent's DOM tree, initialising it with
 the Soho datagrid control.  The data is provided either by a component input or an implementation
 of the DataGridService interface, by specifying an implementation on the hosting component, i.e.
 
-# Angular Services
+## Angular Services
 
 | Name | Description |
 | --- | --- |
@@ -35,8 +33,6 @@ The 'datagrid' component provides a number of options to control its behaviour, 
 | rowHeight | Sets the row height in the data grid to be 'normal', 'medium' or 'short'. |
 | selectable | If true selection can be used, other if false selection is disabled. |
 
-
-
 Changes to these properties will dynamically update the component.
 
 ## Outputs
@@ -51,27 +47,25 @@ This component fires the following events.
 | Name | Description |
 | --- | --- |
 
-## Examples
+### Examples
 
-
-
-# Custom 'Angular' Cell Formatters
+## Custom 'Angular' Cell Formatters
 
 For more complex scenarios, support is available to use components as cell formatters.  This is done with two new properties on `SohoDataGridColumn`.
 
 ```typescript
-{ id: 'price2', 
-  name: 'Price (ng fmt)', 
+{ id: 'price2',
+  name: 'Price (ng fmt)',
   field: 'price',
-  component: PriceCellFormatterComponent, 
-  componentInputs: {} 
+  component: PriceCellFormatterComponent,
+  componentInputs: {}
 }
 ```
 
-The `component` will provide the rendering for the cell when it is displayed.  
+The `component` will provide the rendering for the cell when it is displayed.
 
-Access to the parameters passed to a standard JQuery formatter are provided as an optionally injectable service, called `args`.  You can also prime the component using the `componentInputs` settings, which assigns values to the components inputs at creation time. 
-
+Access to the parameters passed to a standard JQuery formatter are provided as an optionally injectable service, called `args`.
+You can also prime the component using the `componentInputs` settings, which assigns values to the components inputs at creation time.
 
 ```typescript
 @Component({
@@ -82,14 +76,11 @@ export class PriceCellFormatterComponent {
 }
 ```
 
-# NOTE
+**Note:** Remember to add the component to an accessible module, and as this component is dynamically created it must also be added to `EntryComponents`.
 
-Remember to add the component to an accessible module, and as this component is dynamically created it must also be added to `EntryComponents`.
-
-# Custom 'Angular' Cell Editors 
+## Custom 'Angular' Cell Editors
 
 For more complex scenarios, support is available to use components as cell editors.  This is done with two new properties on `SohoDataGridColumn`.
-
 
 ```typescript
  {
@@ -103,9 +94,9 @@ For more complex scenarios, support is available to use components as cell edito
   }
   ```
 
-The `editorComponent` will provide the rendering for the cell when it is edited.  
+The `editorComponent` will provide the rendering for the cell when it is edited.
 
-Access to the parameters passed to a standard JQuery editor are provided as an optionally injectable service, called `args`.  You can also prime the component using the `editorComponentInputs` settings, which assigns values to the components inputs at creation time. 
+Access to the parameters passed to a standard JQuery editor are provided as an optionally injectable service, called `args`.  You can also prime the component using the `editorComponentInputs` settings, which assigns values to the components inputs at creation time.
 
 The component MUST implement the `SohoDataGridCellEditor` interface, which defines the contract needed to work as an editor.
 

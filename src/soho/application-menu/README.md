@@ -4,13 +4,4 @@
 
 This component provides access from Angular to the SoHoXi `applicationmenu` JQuery control.
 
-The Application Menu ... 
-
-### Usage
-
-
-
-
-
-
-
+The Application Menu ...

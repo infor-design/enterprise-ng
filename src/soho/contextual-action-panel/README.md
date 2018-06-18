@@ -100,7 +100,7 @@ This example show how a simple contextual action panel component can be instanti
     .open());
 ```
 
-### Using `apply` to set values on the panel instance.
+### Using `apply` to set values on the panel instance
 
 To allow the public properties and methods of a panel to be accessed as
 part of the panel creation process, the `apply` method exists on `SohoContextualActionPanelRef`
