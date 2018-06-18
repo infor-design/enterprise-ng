@@ -7,7 +7,7 @@ import {
 import {
   SohoRadarComponent
 } from 'ids-enterprise-ng';
-import {SohoColumnComponent} from "../../soho/column";
+import {SohoColumnComponent} from '../../soho/column';
 
 @Component({
   selector: 'soho-column-demo',
