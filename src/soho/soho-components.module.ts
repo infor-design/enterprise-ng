@@ -23,6 +23,7 @@ import { SohoEditorModule } from './editor/soho-editor.module';
 import { SohoEmptyMessageModule} from './emptymessage/soho-emptymessage.module';
 import { SohoErrorModule } from './error/soho-error.module';
 import { SohoExpandableAreaModule } from './expandablearea/soho-expandablearea.module';
+import { SohoFieldFilterModule } from './field-filter/soho-field-filter.module';
 import { SohoFieldOptionsModule } from './field-options/soho-field-options.module';
 import { SohoFileUploadAdvancedModule } from './fileupload-advanced/soho-fileupload-advanced.module';
 import { SohoFileUploadModule } from './fileupload/soho-fileupload.module';
@@ -95,6 +96,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoEmptyMessageModule,
     SohoErrorModule,
     SohoExpandableAreaModule,
+    SohoFieldFilterModule,
     SohoFieldOptionsModule,
     SohoFileUploadAdvancedModule,
     SohoFileUploadModule,
@@ -167,6 +169,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoEmptyMessageModule,
     SohoErrorModule,
     SohoExpandableAreaModule,
+    SohoFieldFilterModule,
     SohoFieldOptionsModule,
     SohoFileUploadAdvancedModule,
     SohoFileUploadModule,

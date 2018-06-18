@@ -2,6 +2,7 @@
 
 ### Features
 
+- `[FieldFilter]` Created the angular wrapper for the Field Filter controls `MHH`
 ### Fixes
 
 - `[General]` NPM package file structure changed due to switching to using one package.json file ([Pull Request 92](https://github.com/infor-design/enterprise-ng/pull/92))
