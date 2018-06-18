@@ -10,7 +10,7 @@ category or section header, and the second level provides the associated options
 
 ### Usage
 
-To use the Soho accordion, you must make sure the `SohoComponentsModule` is included in 
+To use the Soho accordion, you must make sure the `SohoComponentsModule` is included in
 the application your component resides in.
 
 In the markup for you angular component, simply add elements named `soho-accordion`, for example:
@@ -78,6 +78,8 @@ This component fires the following events.
 
 ## Examples
 
+<!-- markdownlint-disable MD013 -->
+
 ```html
 <soho-accordion [allowOnePane]="false" (selected)="onSelected($event)">
   <soho-accordion-header>Favourites</soho-accordion-header>
@@ -94,9 +96,6 @@ This component fires the following events.
   <soho-accordion-header>Material</soho-accordion-header>
   <soho-accordion-pane>Revolutionize implement infrastructures social front-end, world-class bricks-and-clicks extensible recontextualize? User-contributed e-business relationships widgets bleeding-edge transform, "viral world-class, unleash sexy embrace cross-media best-of-breed wireless, functionalities." Markets, "transition architectures, redefine infomediaries world-class back-end harness, mindshare blogospheres; schemas disintermediate rich," benchmark integrated markets blogging synergies dynamic social back-end convergence. Reinvent A-list A-list B2C rss-capable, mesh bandwidth mission-critical disintermediate strategize networks distributed integrated bleeding-edge rss-capable partnerships incubate, web-enabled e-markets. A-list channels enhance citizen-media, value solutions beta-test platforms enable interfaces, transition interfaces one-to-one expedite scalable.</soho-accordion-pane>
 </soho-accordion>
-
 ```
 
- 
-
-
+<!-- markdownlint-enable MD013 -->

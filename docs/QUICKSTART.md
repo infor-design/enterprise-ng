@@ -19,7 +19,7 @@ At the time of writing the version of **@angular/cli** used was 6.0.0 with **ang
 
 From a command prompt, run:
 
-```
+```sh
 npm install -g @angular/cli
 ```
 
@@ -29,7 +29,7 @@ npm install -g @angular/cli
 
 Using a terminal/console window, use **@angular/cli** to initialise the project, creating scaffolding for the application (in this case **enterprise-ng-quickstart**):
 
-```
+```sh
 ng new enterprise-ng-quickstart
 ```
 
@@ -53,6 +53,7 @@ This includes all the packages we need to create this simple quickstart applicat
 The next step is to configure angular-cli to include the IDL enterprise libraries into the output.
 
 Edit `angular-cli.json`, change the `scripts` elements as follows:
+
 ```json
 "scripts": [
   "./node_modules/jquery/dist/jquery.js",
@@ -64,9 +65,10 @@ Edit `angular-cli.json`, change the `scripts` elements as follows:
 
 Change both the *test* and *build* architecture sections.
 
-### Step 4 : Configure TypeScript:
+### Step 4 : Configure TypeScript
 
 Edit `src/tsconfig.app.json`, update/add the `types` property:
+
 ```json
 "types": [
   "jasmine",
@@ -74,7 +76,9 @@ Edit `src/tsconfig.app.json`, update/add the `types` property:
   "node"
 ]
 ```
+
 In the root `tsconfig.json` file add `node_modules/ids-enterprise-ng/**/*` to the `include` property, as follows:
+
 ```json
 "include": [
   "src/**/*",
@@ -82,19 +86,23 @@ In the root `tsconfig.json` file add `node_modules/ids-enterprise-ng/**/*` to th
 ]
 ```
 
-This is required as the compiler will not compile typescript code outside the src folder (by default).  
+This is required as the compiler will not compile typescript code outside the src folder (by default).
 
 ## Step 5 : Enterprise Controls Assets
+
 **@angular/cli** needs to include assets from node_modules into the compiled output.
 
 To configure this edit the `angular-cli.json` assets section.
-```
+
+```json
   "assets": [
     { "glob": "**/*", "input": "./node_modules/ids-enterprise/dist/css", "output": "./assets/ids-enterprise/css" }
   ],
 ```
+
 The link in the following to the `src/index.html` file would be the output folder..
-```
+
+```html
 <head>
   ...
   <link rel="stylesheet" id="stylesheet" href="/assets/ids-enterprise/css/light-theme.css" type="text/css">
@@ -102,12 +110,19 @@ The link in the following to the `src/index.html` file would be the output folde
 ```
 
 ## Step 6 : Making Sure it Works
+
 Run the app to test it.
-```ng serve```
-Check you get the default page when you browse to http://localhost:4200/.
+
+```sh
+ng serve
+```
+
+Check you get the default page when you browse to <http://localhost:4200/>.
 
 ## Step 7 : Unit Testing
+
 Edit the file `karma.conf.js`, adding any extra JavaScript libraries to the file property, for example:
+
 ```json
 files: [
  { "pattern": "./node_modules/jquery/dist/jquery.js", "watched": false  },
@@ -116,10 +131,13 @@ files: [
  { "pattern": "./src/test.ts", "watched": false }
 ],
 ```
+
 Run the unit tests:
-```
+
+```sh
 ng test
 ```
+
 This will open a Chrome window, and run the tests from there.
 
 ## Add polyfills
@@ -152,10 +170,13 @@ import 'classlist.js';  // Run `npm install --save classlist.js`.
 Type `npm install --save classlist.js` to add classlist package.
 
 ## Add the SohoComponentsModule
+
 Edit `src/app/app.module.ts`:
+
 ```typescript
 import { SohoComponentsModule } from 'ids-enterprise-ng';
 ```
+
 Add ```SohoComponentsModule``` to the imports.
 
 ```typescript
@@ -175,10 +196,13 @@ Add ```SohoComponentsModule``` to the imports.
 ## Add a SoHoXi Component
 
 Add a button to `app.component.html`, by appending the following code snippet:
-```
+
+```html
 <button soho-button (click)="clicked()">Click Me!</button>
 ```
+
 Add the clicked handler to `app.component.ts`, as follows:
+
 ```typescript
 public clicked() {
     alert('Clicked me!');
@@ -186,11 +210,13 @@ public clicked() {
 ```
 
 Then from a command line run (you can use `ng serve`):
-```
+
+```sh
 npm run start
 ```
-Check you get the button when you browse to http://localhost:4200/.
 
-# What Next
+Check you get the button when you browse to <http://localhost:4200/>.
+
+## What Next
 
 Now implement the rest of your application, using the components provided, of which a list can be found [here](??)

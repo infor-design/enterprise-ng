@@ -4,21 +4,21 @@
 
 This component provides access from Angular to the SoHoXi `modal` JQuery control.
 
-Modal dialogs allow users to enter a few key pieces of information without moving to a different page or task. 
+Modal dialogs allow users to enter a few key pieces of information without moving to a different page or task.
 
 ### Usage
 
-Creating modal dialogs requires the injection of the service `SohoModalDialogService` into the hosting component. 
-To access this service, you will need to inject `SohoModalDialogService` into the constructor of the relevant class. 
+Creating modal dialogs requires the injection of the service `SohoModalDialogService` into the hosting component.
+To access this service, you will need to inject `SohoModalDialogService` into the constructor of the relevant class.
 If this is a class managed by Angular (such as a Component) then adding the following will work:
 
 ```typescript
 constructor(private modalService: SohoModalDialogService) {
 }
 ```
-   
-Angular requires a placeholder component to parent the 
-dialog component when it is instantiated.  The location of the component 
+
+Angular requires a placeholder component to parent the
+dialog component when it is instantiated.  The location of the component
 is up to the calling application, but in this example the hosting component
 is used.
 
@@ -44,7 +44,7 @@ this.dialog = this.modalService
 This returns a typed implementation of `SohoModalDialogRef`.
 
 **NOTE:**  Angular needs to be able to find the dynamic dialog component for it to be able to
-instantiate it, so you **MUST** add the component into the *entryComponents* of the hosting 
+instantiate it, so you **MUST** add the component into the *entryComponents* of the hosting
 module. For example:
 
 ```typescript
@@ -77,7 +77,7 @@ export class ExampleModuleDialogModule {}
 | `frameHeight(number)` | Sets the extra frame height for the dialog. |
 | `title(string)` | Sets the title for the dialog. |
 | `buttons(SohoModalButton[])` | Sets the button to use for the modal dialog. |
-| `id(string)` | Sets the element id for the modal dialog. | 
+| `id(string)` | Sets the element id for the modal dialog. |
 | `trigger(SohoModalTriggerType)` | Sets the trigger for the modal dialog. |
 | `isAlert(boolean)` | Sets the isAlert option - controls the styling and assessibility. |
 | `content(string | JQuery)` | Defines the content of the dialog, if not using an Angular component. |
@@ -124,8 +124,8 @@ openMessage() {
 
 ### Setting the dialog result
 
-Setting the `dialogResult` can be achieved in several ways, the simpliest is to 
-use the `close` method on `SohoModalDialogRef` in your button handler, which takes the 
+Setting the `dialogResult` can be achieved in several ways, the simpliest is to
+use the `close` method on `SohoModalDialogRef` in your button handler, which takes the
 dialog result as an argument.  This is set on the dialog reference and then passed into
 the `afterClose` event handler.
 
@@ -133,10 +133,10 @@ Alternatively, you can call the `setDialogResult` method on the dialog reference
 also takes a dialog result as an argument.  This allow the closing of the dialog to be
 decoupled from the result.
 
-The `dialogResult` could be the _model_ used by the underlying component, or a simple status 
-indicator, such as `OK` or `CANCELLED`.  
+The `dialogResult` could be the _model_ used by the underlying component, or a simple status
+indicator, such as `OK` or `CANCELLED`.
 
-Here is an example for a simple message returning a status as a result: 
+Here is an example for a simple message returning a status as a result:
 
 ```typescript
 openMessage() {
@@ -152,9 +152,10 @@ openMessage() {
   });
 }
 ```
+
 To provide access to any model present on the underlying dialog component, a reference to
-this component is passed to the `beforeClose`, `closed` and `afterClose` callbacks.  This 
-reference can then be used to interogate the public properties of that `dialogComponent`.  
+this component is passed to the `beforeClose`, `closed` and `afterClose` callbacks.  This
+reference can then be used to interogate the public properties of that `dialogComponent`.
 
 ```typescript
 dialogRef.afterClose((result: any, ref: SohoModalDialogRef<ExampleModalDialogComponent>, dialogComponent: ExampleModalDialogComponent) => {
@@ -162,12 +163,12 @@ dialogRef.afterClose((result: any, ref: SohoModalDialogRef<ExampleModalDialogCom
 });
 ```
 
-Access to the `dialogComponent` is also possible from the `SohoModalDialogRef` using the `componentDialog` property.  
+Access to the `dialogComponent` is also possible from the `SohoModalDialogRef` using the `componentDialog` property.
 
 ### Vetoable Closure using 'beforeClose'
 
-To veto the closure of a modal dialog, the `SohoModalDialogRef` calls the `beforeClose` guard function.  If this function returns `false` 
-the dialog will not be closed.  The `beforeClose` guard can be configured on a modal (or message) dialog. In this example, the closure of 
+To veto the closure of a modal dialog, the `SohoModalDialogRef` calls the `beforeClose` guard function.  If this function returns `false`
+the dialog will not be closed.  The `beforeClose` guard can be configured on a modal (or message) dialog. In this example, the closure of
 the dialog is allowed if the underlying model is valid or the dialogResult has been set to 'CANCEL' (in the cancel button).
 
 ```typescript
@@ -178,7 +179,6 @@ this.modalService
      { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
   .beforeClose( (dialogRef) => dialogRef.dialogComponent.isModelValid || dialogRef.dialogResult === 'CANCEL' );
   .open();
-
 ```
 
 The `beforeClose` guard function is defined as follows:
@@ -187,14 +187,14 @@ The `beforeClose` guard function is defined as follows:
 (dialogRef: SohoModalDialogRef<T>) => boolean;
 ```
 
-Alternatively, the dialog component can implement the `SohoModalDialogVetoableEventGuard` 
+Alternatively, the dialog component can implement the `SohoModalDialogVetoableEventGuard`
 interface, see the application demos for an example.
 
-### Using `apply` to set values on the dialog instance.
+### Using `apply` to set values on the dialog instance
 
 To allow the public properties and methods of a dialog to be accessed as
 part of the dialog creation process, the `apply` method exists on `SohoModalDialogRef`
-to allow the caller full access to the instance of the given component before 
+to allow the caller full access to the instance of the given component before
 (or after) it is displayed, for example:
 
 ```typescript
@@ -212,10 +212,3 @@ The apply methods takes a function, with the following prototype:
 ```
 
 where T is the type of the dialog component.
-
-
-
-
-
-
-
