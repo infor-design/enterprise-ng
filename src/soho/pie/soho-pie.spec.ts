@@ -31,7 +31,7 @@ describe('Soho Radar Unit Tests', () => {
 });
 
 @Component({
-  template: `<div soho-pie [dataset]="data">`
+  template: `<div soho-pie [dataset]="data"></div>`
 })
 class SohoPieTestComponent {
   @ViewChild(SohoPieComponent) pie: SohoPieComponent;

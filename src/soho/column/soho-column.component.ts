@@ -162,4 +162,15 @@ export class SohoColumnComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  public setSelected(selected: SohoColumnSelected) {
+    this.column.setSelected(selected);
+  }
+
+  public toggleSelected(selected: SohoColumnSelected) {
+    this.column.toggleSelected(selected);
+  }
+
+  public getSelected() {
+    this.column.getSelected();
+  }
 }
