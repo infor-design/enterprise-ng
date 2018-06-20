@@ -11,6 +11,7 @@
     "mdlint:docs": "npx markdownlint docs/ && npx markdownlint README.md",
     "e2e": "ng e2e",
     "publish-setup": "cd ./publish && npm run prepublishOnly && cd ../",
+    "update-enterprise": "node ./scripts/update-ids-enterprise.js",
     "release:beta": "release-it minor --preRelease=beta",
     "release:rc": "release-it minor --preRelease=rc",
     "release:final": "release-it minor"
@@ -28,7 +29,7 @@
     "@types/lscache": "^1.0.7",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
-    "ids-enterprise": "^4.8.0-dev.20180619",
+    "ids-enterprise": "^4.8.0-dev.20180620",
     "jquery": "3.3.1",
     "lscache": "^1.0.7",
     "rxjs": "6.2.0",
@@ -51,6 +52,7 @@
     "gulp-replace": "^0.5.4",
     "gulp-string-replace": "^1.0.0",
     "htmlhint": "^0.9.13",
+    "inquirer": "^6.0.0",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~2.0.2",
@@ -65,6 +67,7 @@
     "markdownlint-cli": "^0.10.0",
     "merge-stream": "^1.0.1",
     "protractor": "~5.1.2",
+    "slash": "^2.0.0",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "typescript": "~2.7.2"
