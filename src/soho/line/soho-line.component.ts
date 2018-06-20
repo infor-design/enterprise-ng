@@ -180,4 +180,15 @@ export class SohoLineComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  public setSelected(selected: SohoLineSelected) {
+    this.line.setSelected(selected);
+  }
+
+  public toggleSelected(selected: SohoLineSelected) {
+    this.line.toggleSelected(selected);
+  }
+
+  public getSelected() {
+    this.line.getSelected();
+  }
 }

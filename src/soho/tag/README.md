@@ -6,11 +6,11 @@ This component provides access from Angular to the `tag` JQuery control.
 
 ### Usage
 
-To add a `tag` to a component requires adding the module `SohoTagModule` into the hosting component. If you 
+To add a `tag` to a component requires adding the module `SohoTagModule` into the hosting component. If you
 have included the top level Soho module then this will be already included.
 
 Tags are simple span elements with the class `tag`. They can be mixed in with other elements like lists, grids and search fields. You can optionally add a few classes to add color or status such as `error` for red, `good` to be green and `alert` for yellow. Since you should not use color alone to indicate state, this should be either supplemented with off-screen labels or visual labels near the element explaining the state.
- 
+
 ## Methods
 
 | Name | Description |
@@ -28,6 +28,7 @@ Tags are simple span elements with the class `tag`. They can be mixed in with ot
 ## Example
 
 For example:
+
 ```html
 <div soho-tag-list>
   <span soho-tag>#Tagged</span>
@@ -39,5 +40,3 @@ For example:
   <a href="#" soho-tag [isDismissible]="true">#Clickable</a>
 </div>
 ```
-
-

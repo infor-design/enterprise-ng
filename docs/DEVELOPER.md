@@ -1,11 +1,12 @@
-## Enterprise Components for Angular Development Environment
+# Enterprise Components for Angular Development Environment
 
-### Install
+## Install
+
 - PC users suggest [ComEmu](https://conemu.github.io/) which works a bit better than CMD.
-- Get the latest LTS **Node.js** release from https://nodejs.org/en/ (version 8 or later)
-- Get an Editor like Visual Studio Code (https://code.visualstudio.com/) or [Atom](https://atom.io/) or your fav.
+- Get the latest LTS **Node.js** release from <https://nodejs.org/en/> (version 8 or later)
+- Get an Editor like [Visual Studio Code](https://code.visualstudio.com/) or [Atom](https://atom.io/) or your fav.
 
-### Initial Setup with npm
+## Initial Setup with npm
 
 - Clone The main repo fx `git clone https://github.com/infor-design/enterprise-ng.git`
 - Open a command prompt to enterprise-ng
@@ -14,7 +15,7 @@
 - Type `ng build`
 - Type `ng serve`
 
-### Initial Setup with yarn
+## Initial Setup with yarn
 
 - Clone The main repo fx `git clone https://github.com/infor-design/enterprise-ng.git`
 - Open a command prompt to enterprise-ng
@@ -25,12 +26,12 @@
 
 ## Component Structure
 
-This section gives a brief overview of a component in the **enterprise ng** project.  
-
+This section gives a brief overview of a component in the **enterprise ng** project.
 The intention is to define the contract between the **enterprise** jQuery controls and their angular counterparts.
+
 ### Structure
 
-```
+```text
 soho\
   mywidget\
     soho-widget.d.ts
@@ -40,6 +41,7 @@ soho\
     sogo-widget.spec.ts
     README.md (optional)
 ```
+
 The typing file (soho-widget.d.ts) contains the public API for the underlying **enterprise** jQuery controls, it also contains some internal information required to get the component working.
 
 ```typescript
@@ -75,12 +77,13 @@ interface JQuery {
   widget(options?: SohoWidgetOptions): JQuery;
 }
 ```
+
 The types defined in here attempt to represent the interface exposed by the wrapped control, including:
 
- - Simple types (number, string, ...)
- - Union types (enums)
- - Functions Prototypes (for source and response functions)
- - Events (for triggered events)
+- Simple types (number, string, ...)
+- Union types (enums)
+- Functions Prototypes (for source and response functions)
+- Events (for triggered events)
 
 It is **important** that the typings files accurately represent the underlying **enterprise** jQuery control, so any changes made to  the **enterprise** controls must be made to the corresponding typing file.
 
@@ -96,7 +99,8 @@ The structure of a very simple **enterprise-ng** Component that wraps a ficticio
 })
 export class SohoWidgetComponent extends AfterViewInit, OnDestroy {
 ```
-**INPUTS**
+
+#### INPUTS
 
 The inputs define the properties exposed by the component for integration with other Angular Components.  In this case we have the general *options* input and one for each discreet option, in this case *count*.
 
@@ -112,24 +116,31 @@ The inputs define the properties exposed by the component for integration with o
   }
 }
 ```
-**OUTPUTS**
+
+#### OUTPUTS
 
 The outputs are the events emitted by the component.
+
 ```typescript
 @Output() built = new EventEmitter<SohoWidgetBuiltEvent>();
 ```
-**HOST BINDINGS**
+
+#### HOST BINDINGS
 
 Then any host bindings required to annoate the markup, such as classes, or attributes.  Some of these may of course be controlled by other properties.
+
 ```typescript
 @HostBinding('class.soho-widget') get isWidget() { return true; }
-```   
+```
+
 Then private member data:
+
 ```typescript
 private element: JQuery;
 private widget: SohoWidgetStatic;
 ```
-**METHODS**
+
+#### METHODS
 
 Expose the methods provided by the component wrapper. Ensure any soho control code is running outside of angular.
 
@@ -139,10 +150,10 @@ makeWidget(): void {
 }
 ```
 
-**LIFE CYCLE**
+#### LIFE CYCLE
 
 The constructor needs to store the injected element reference. NgZone is also required so
-any soho control code can be placed outside of angular so change detection doesn't run 
+any soho control code can be placed outside of angular so change detection doesn't run
 unnecessarily (This can happen due to soho registering dom event, calling setTimeout, and resolving Promises).
 
 ```typescript
@@ -158,17 +169,20 @@ ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
     this.jQueryElement.widget(this.options);
     this.widet = this.jQueryElement.data('widget');
-    
+
     this.jQueryElement.on('built', (e: JQueryObjectEvent, widgetId: string) =>
       NgZone.assertNotInAngularZone();
-    
+
       // Ensure that any events comeing from soho are emitted from inside angular.
       // emit the event from a timeout so that change detection will run.
       this.ngZone.run(() => setTimeout(() => this.built.emit({widgetId}), 1));
   })
 }
+
 ```
+
 Finally, the destructor.
+
 ```typescript
   ngOnDestroy() {
     this.ngZone.runOutsideAngular(() => {
@@ -183,6 +197,7 @@ Finally, the destructor.
     });
   }
 ```
+
 ## HTML
 
 The HTML file should include any markup required for the control to work.
@@ -196,7 +211,7 @@ The HTML file should include any markup required for the control to work.
 
 Create the file `soho-widget.module.ts` and add the following:
 
-```
+```ts
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -224,18 +239,21 @@ These unit tests are run are part of the Continuous Integration build when code 
 ## Pulling it all together
 
 The component is then added into the consolidated typings using the top level typing file:
-```
+
+```text
 soho\
   soho-components.d.ts
 ```
+
 This file includes a reference to each of the typings files defined within each component, e.g.
+
 ```typescript
 /// <reference path="./widget/soho-widget.d.ts" />
 ```
 
 Add the component to the top level `soho-components.module.ts` file, by adding the widget component's module.
 
-```
+```ts
 import { NgModule } from '@angular/core';
 
 ...

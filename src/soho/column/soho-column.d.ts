@@ -63,13 +63,25 @@ interface SohoColumn {
   getSelected(settings?: SohoColumnOptions, isToggle?: boolean);
 
   /** Sets the currently selected element */
-  setSelected();
+  setSelected(selected: SohoColumnSelected);
 
   /** Toggles the currently selected element */
-  toggleSelected();
+  toggleSelected(selected: SohoColumnSelected);
 
   /** Destroys the control on completion. */
   destroy(): void;
+}
+
+type SohoColumnSelected = SohoColumnFieldSelected | SohoColumnGroupSelected;
+
+interface SohoColumnFieldSelected {
+  fieldName: string;
+  fieldValue: any;
+}
+
+interface SohoColumnGroupSelected {
+  groupName: string;
+  groupValue: any;
 }
 
 interface JQuery {

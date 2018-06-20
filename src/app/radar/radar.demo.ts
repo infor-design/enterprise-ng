@@ -4,9 +4,7 @@ import {
   ViewChild
 } from '@angular/core';
 
-import {
-  SohoRadarComponent
-} from 'ids-enterprise-ng';
+import {SohoRadarComponent} from '../../soho/radar';
 
 @Component({
   selector: 'soho-radar-demo',
@@ -14,8 +12,9 @@ import {
 })
 export class RadarDemoComponent implements OnInit {
 
-  @ViewChild(SohoRadarComponent) colorpicker: SohoRadarComponent;
+  @ViewChild(SohoRadarComponent) sohoRadarComponent: SohoRadarComponent;
 
+  private selection: SohoRadarSelected  = {fieldName: 'name', fieldValue: 'Samsung'};
   public radarData = [{
     data: [
       {name: 'Battery Life', value: 0.22},
@@ -109,7 +108,16 @@ export class RadarDemoComponent implements OnInit {
       name: 'Smartphone',
       id: '3'
     }];
+  }
 
+  setChartSelection() {
+    const sohoRadarSelected: SohoRadarSelected = this.selection;
+    this.sohoRadarComponent.setSelected(sohoRadarSelected);
+  }
+
+  toggleChartSelection () {
+    const sohoRadarSelected: SohoRadarSelected = this.selection;
+    this.sohoRadarComponent.toggleSelected(sohoRadarSelected);
   }
 
 }

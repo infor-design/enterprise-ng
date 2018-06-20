@@ -3,6 +3,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
+import {SohoPieComponent} from '../../soho/pie';
 
 @Component({
   selector: 'soho-pie-demo',
@@ -10,6 +11,9 @@ import {
 })
 export class PieDemoComponent implements OnInit {
 
+  @ViewChild(SohoPieComponent) sohoPieComponent: SohoPieComponent;
+
+  private selection: SohoPieSelected  = {fieldName: 'name', fieldValue: 'Item C'};
   public pieData = [{
     data: [{
       name: 'Item A',
@@ -54,5 +58,15 @@ export class PieDemoComponent implements OnInit {
 
   onDeselected(event: Event) {
     console.log('Soho Radar: Deselected', event);
+  }
+
+  setChartSelection() {
+    const sohoPieSelected: SohoPieSelected = this.selection;
+    this.sohoPieComponent.setSelected(sohoPieSelected);
+  }
+
+  toggleChartSelection () {
+    const sohoPieSelected: SohoPieSelected = this.selection;
+    this.sohoPieComponent.toggleSelected(sohoPieSelected);
   }
 }

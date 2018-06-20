@@ -9,21 +9,21 @@
  * Pie Options
  */
 interface SohoPieOptions {
-	/** Chart Type */ 
-	type?: string;
-	
+  /** Chart Type */
+  type?: string;
+
   /** Defines the data to use, must be specified for this component. */
   dataset?: Object[];
 
   /** If true it renders as a donut chart. */
   isDonut?: boolean;
- 
+
   /** Controls the animation speed. */
   animationSpeed?: number;
 
   /** true|false - will do or not do the animation and 'initial' will do only first time the animation. */
   animate?: any;
-  
+
   /** If true, the component will not resize when resizing the page. There is tooltip values provided.
     * It will not be shown. If you still want lines at the lower breakpoint you can set this to true */
   redrawOnResize?: boolean;
@@ -48,7 +48,7 @@ interface SohoPieOptions {
 
   /** A setting that controls the legend values and format. */
   legend?: SohoPieLegendOptions;
- 
+
   /** If false now tooltips will be shown */
   showTooltips?: boolean;
 
@@ -89,24 +89,29 @@ interface SohoPieSelectEvent {
 /**
  * Pie Api.
  */
-interface SohoPie{
+interface SohoPie {
   /** The settings option */
   settings: SohoPieOptions;
 
   /** Updates the pie with any new settings and data. */
   updated(settings?: SohoPieOptions): void;
-  
+
   /** Gets the currently selected element */
   getSelected(settings?: SohoPieOptions, isToggle?: boolean);
 
   /** Sets the currently selected element */
-  setSelected();
+  setSelected(selected: SohoPieSelected);
 
   /** Toggles the currently selected element */
-  toggleSelected();
+  toggleSelected(selected: SohoPieSelected);
 
   /** Destroys the control on completion. */
   destroy(): void;
+}
+
+interface SohoPieSelected {
+  fieldName: string;
+  fieldValue: any;
 }
 
 interface JQuery {

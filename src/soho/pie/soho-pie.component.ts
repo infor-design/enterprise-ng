@@ -195,4 +195,15 @@ export class SohoPieComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  public setSelected(selected: SohoPieSelected) {
+    this.pie.setSelected(selected);
+  }
+
+  public toggleSelected(selected: SohoPieSelected) {
+    this.pie.toggleSelected(selected);
+  }
+
+  public getSelected() {
+    this.pie.getSelected();
+  }
 }

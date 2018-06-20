@@ -8,7 +8,8 @@ File Upload Advanced allow users to drag and drop multiple files for uploading.
 
 ### Usage
 
-To add a `fileuploadadvanced` to a component requires adding the module `SohoFileUploadAdvancedModule` into the hosting component.  If you have included the top level SoHo module them this will be included already.
+To add a `fileuploadadvanced` to a component requires adding the module `SohoFileUploadAdvancedModule` into the hosting component.
+If you have included the top level SoHo module them this will be included already.
 
 In the markup for the hosting component add:
 
@@ -16,7 +17,9 @@ In the markup for the hosting component add:
 <soho-fileupload-advanced>
 </soho-fileupload-advanced>
 ```
+
 or
+
 ```html
 <div soho-fileupload-advanced></div>
 ```
@@ -43,6 +46,7 @@ or
 ## Callbacks
 
 The `send` method takes:
+
 - `formData` - of type `FormData` which contains the file stream data.
 - `status` - callback - access to the `statusbar` used by the upload operation
 
@@ -56,13 +60,13 @@ The `send` method takes:
 
 | Name | Description |
 | --- | --- |
-| `filesdragenter` | Fired when dragged file(s)enter the control, passing the File. |
-| `filesdropped ` | Fired when dragged file(s) are dropped, passing the File. |
-| `beforecreatestatus ` | Fired before the status bar is created, passing the File. |
-| `aftercreatestatus ` | Fired after the status bar is created, passing the File. |
-| `fileprogress ` | Fired as the file is uploaded, passing the File. |
-| `fileaborted ` | Fired if the upload was aborted, passing the File. |
-| `filecompleteduploading ` | Fired when the upload completes, passing the File. |
+| `filesdragenter`| Fired when dragged file(s)enter the control, passing the File. |
+| `filesdropped` | Fired when dragged file(s) are dropped, passing the File. |
+| `beforecreatestatus` | Fired before the status bar is created, passing the File. |
+| `aftercreatestatus` | Fired after the status bar is created, passing the File. |
+| `fileprogress` | Fired as the file is uploaded, passing the File. |
+| `fileaborted` | Fired if the upload was aborted, passing the File. |
+| `filecompleteduploading` | Fired when the upload completes, passing the File. |
 
 ## Examples
 

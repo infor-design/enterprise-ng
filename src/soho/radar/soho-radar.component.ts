@@ -266,4 +266,15 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  public setSelected(selected: SohoRadarSelected) {
+    this.radar.setSelected(selected);
+  }
+
+  public toggleSelected(selected: SohoRadarSelected) {
+    this.radar.toggleSelected(selected);
+  }
+
+  public getSelected() {
+    this.radar.getSelected();
+  }
 }

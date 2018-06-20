@@ -7,6 +7,7 @@ import {
 import {
   SohoRadarComponent
 } from 'ids-enterprise-ng';
+import {SohoColumnComponent} from '../../soho/column';
 
 @Component({
   selector: 'soho-column-demo',
@@ -14,6 +15,9 @@ import {
 })
 export class ColumnDemoComponent implements OnInit {
 
+  @ViewChild(SohoColumnComponent) sohoColumnComponent: SohoColumnComponent;
+
+  private selection: SohoColumnSelected  = {fieldName: 'name', fieldValue: 'Equipment'};
   public columnData = [{
     data: [{
       name: 'Automotive',
@@ -58,4 +62,14 @@ export class ColumnDemoComponent implements OnInit {
 
   constructor() {}
   ngOnInit() {}
+
+  setChartSelection() {
+    const SohoColumnSelected: SohoColumnSelected = this.selection;
+    this.sohoColumnComponent.setSelected(SohoColumnSelected);
+  }
+
+  toggleChartSelection () {
+    const SohoColumnSelected: SohoColumnSelected = this.selection;
+    this.sohoColumnComponent.toggleSelected(SohoColumnSelected);
+  }
 }

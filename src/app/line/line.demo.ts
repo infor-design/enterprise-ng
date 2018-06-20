@@ -3,6 +3,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
+import {SohoLineComponent} from '../../soho/line';
 
 @Component({
   selector: 'soho-line-demo',
@@ -10,6 +11,9 @@ import {
 })
 export class LineDemoComponent implements OnInit {
 
+  @ViewChild(SohoLineComponent) sohoLineComponent: SohoLineComponent;
+
+  private selection: SohoLineSelected  = {groupIndex: 0, fieldName: 'name', fieldValue: 'Category B'};
   public lineData = [{
     data: [
       {name: 'Jan | 2018', value: 12, depth: 4},
@@ -62,4 +66,13 @@ export class LineDemoComponent implements OnInit {
     };
   }
 
+  setChartSelection() {
+    const sohoLineSelected: SohoLineSelected = this.selection;
+    this.sohoLineComponent.setSelected(sohoLineSelected);
+  }
+
+  toggleChartSelection () {
+    const sohoLineSelected: SohoLineSelected = this.selection;
+    this.sohoLineComponent.toggleSelected(sohoLineSelected);
+  }
 }
