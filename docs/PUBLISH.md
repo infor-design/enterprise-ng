@@ -13,13 +13,23 @@ npm info ids-enterprise-ng dist-tags
 npm view ids-enterprise-ng versions
 ```
 
-## Steps for Cutting a Release
+## Dev Releases
+
+To do a dev release, publish a dated semever to npm.
+
+1. Make sure you are on `master` and its clean
+1. Change the `package.json` version to append the date, i.e. `4.7.0-dev.YYYYMMDD`
+1. Save the `package.json` file (**DO NOT** commit it)
+1. `npm publish --tag=dev`
+1. Undo the version change/reset your branch
+
+## Official, Tagged Releases
 
 ### Documentation
 
 Verify the [changelog](docs/changelog) is up-to-date
 
-### Make sure you have [credential] setup in .gitconfig  (Windows Users)
+### Make sure you have [credential] setup in .gitconfig  (Windows Users Only)
 
 Try adding this into your git config
 
@@ -53,19 +63,19 @@ or via console
 
 ### Release
 
-- Make sure you have release-it installed (`npm install release-it -g`)
-- Checkout the release branch and `git pull --tags`
-- Type of releases:
-    - `npm run release:dev` - dev (Note: Will NOT git tag or github release)
+1. Make sure you have release-it installed (`npm install release-it -g`)
+1. Checkout the release branch and `git pull --tags`
+1. Run a release cmd:
     - `npm run release:beta` - beta
     - `npm run release:rc` - release candidate normally the final testing branch before the release
     - `release:final` - the release itself
     - **Always** verify the release version when the script asks
 
-- If doing a final release, follow up with:
-    - Merge back into `master`
-    - PR the master version to the proper "dev" version
-        - i.e. if we just released `4.7.0`, master will now be `4.8.0-dev`
+For a final release, finish with:
+
+1. Merge back into `master`
+1. PR the master version to the proper "dev" version
+    - i.e. if we just released `4.7.0`, master will now be `4.8.0-dev`
 
 ### Test Npm packages
 
