@@ -33,6 +33,8 @@
 # Publish
 publish/*
 publish/soho/**
+-!publish/package.json
+
 
 # misc
 /.sass-cache
