@@ -18,13 +18,16 @@ npm view ids-enterprise-ng versions
 To do a dev release, publish a dated semever to npm.
 
 1. Make sure you are on `master` and its clean
-1. Change the `publish/package.json` version to append the date, i.e. `4.7.0-dev.YYYYMMDD`
-1. Save the `package.json` file (**DO NOT** commit it)
-1. Update to a specific version of `ids-enterprise` (optional)
-    - Do an npm install for that version
-    - Also update the version in the `publish/package.json` manuall to match `./package.json`
-1. `npm publish --tag=dev`
-1. Undo the version changes/reset your branch unless you specifically want to commit and push
+1. Update the dev version
+    ```sh
+    npm run version-bump:dev
+    ```
+1. (optional) Update enterprise `npm run update-enterprise`
+1. `npm publish publish/ --tag=dev`
+1. Undo the version changes/reset your branch (unless you specifically want to commit and push - rare)
+    ```sh
+    git reset --hard
+    ```
 
 ## Official, Tagged Releases
 
