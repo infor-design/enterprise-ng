@@ -10,7 +10,7 @@
     "mdlint:src": "npx markdownlint src",
     "mdlint:docs": "npx markdownlint docs/ && npx markdownlint README.md",
     "e2e": "ng e2e",
-    "publish-setup": "cd ./publish && npm run prepublishOnly && cd ../",
+    "call-prepublishOnly": "cd ./publish && npm run prepublishOnly && cd ../",
     "update-enterprise": "node ./scripts/update-ids-enterprise.js",
     "version-bump:dev": "node ./scripts/version-append-date",
     "release:beta": "cd publish/ && release-it minor --preRelease=beta",
