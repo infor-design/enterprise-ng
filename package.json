@@ -13,9 +13,9 @@
     "publish-setup": "cd ./publish && npm run prepublishOnly && cd ../",
     "update-enterprise": "node ./scripts/update-ids-enterprise.js",
     "version-bump:dev": "node ./scripts/version-append-date",
-    "release:beta": "release-it minor --preRelease=beta",
-    "release:rc": "release-it minor --preRelease=rc",
-    "release:final": "release-it minor"
+    "release:beta": "cd publish/ && release-it minor --preRelease=beta",
+    "release:rc": "cd publish/ && release-it minor --preRelease=rc",
+    "release:final": "cd publish/ && release-it minor"
   },
   "dependencies": {
     "@angular/animations": "6.0.4",

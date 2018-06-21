@@ -13,21 +13,29 @@ npm info ids-enterprise-ng dist-tags
 npm view ids-enterprise-ng versions
 ```
 
-## Dev Releases
+## Dev Publish to NPM
 
-To do a dev release, publish a dated semever to npm.
+These releases are dated (semver proper) and ONLY published to npm, not github.
 
-1. Make sure you are on `master` and its clean
+1. Make sure you are on a clean `master` branch
 1. Update the dev version
     ```sh
     npm run version-bump:dev
     ```
-1. (optional) Update enterprise `npm run update-enterprise`
-1. `npm publish publish/ --tag=dev`
+1. Update enterprise (optional)
+    ```sh
+    npm run update-enterprise
+    ```
+1. Publish to NPM
+    ```sh
+    npm publish publish/ --tag=dev
+    ```
 1. Undo the version changes/reset your branch (unless you specifically want to commit and push - rare)
     ```sh
     git reset --hard
     ```
+
+*Note:* Typically you will NOT commit any of the above changes.
 
 ## Official, Tagged Releases
 
@@ -63,14 +71,16 @@ or via console
 
 ### Update the version of ids-enterprise
 
-- <https://github.com/infor-design/enterprise>
-- `npm i ids-enterprise@<tag> --save` (tags: "dev", "beta", "rc", "latest")
-- Get PR merged in and pushed
+1. Update enterprise
+    ```sh
+    npm run update-enterprise
+    ```
+1. Get PR merged
 
 ### Release
 
 1. Make sure you have release-it installed (`npm install release-it -g`)
-1. Checkout the release branch and `git pull --tags`
+1. Checkout the release branch (`X.Y.Z`) and `git pull --tags`
 1. Run a release cmd:
     - `npm run release:beta` - beta
     - `npm run release:rc` - release candidate normally the final testing branch before the release
@@ -79,16 +89,6 @@ or via console
 
 For a final release, finish with:
 
-1. Merge back into `master`
+1. Merge the release branch (`X.Y.Z`) back into `master` but keep branch (`X.Y.Z`)
 1. PR the master version to the proper "dev" version
     - i.e. if we just released `4.7.0`, master will now be `4.8.0-dev`
-
-### Test Npm packages
-
-```bash
-npm view ids-enterprise-ng versions
-npm view ids-enterprise-angular versions
-
-npm info ids-enterprise-angular dist-tags
-npm info ids-enterprise-ng dist-tags
-```
