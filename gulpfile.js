@@ -68,20 +68,4 @@ gulp.task('publish-copy', function() {
   return merge(folder, idx, ts, other);
 });
 
-gulp.task('publish-replace', function() {
-  var icons = gulp.src(['./publish/soho/icon/soho-icons.component.ts'])
-    .pipe(replace('../../../node_modules/ids-enterprise/dist/svg/svg.html', '../../../ids-enterprise/dist/svg/svg.html'))
-    .pipe(gulp.dest('./publish/soho/icon/'));
-
-  var extended = gulp.src(['./publish/soho/icon/soho-icons-extended.component.ts'])
-    .pipe(replace('../../../node_modules/ids-enterprise/dist/svg/svg-extended.html', '../../../ids-enterprise/dist/svg/svg-extended.html'))
-    .pipe(gulp.dest('./publish/soho/icon/'));
-
-  var empty = gulp.src(['./publish/soho/icon/soho-icons-empty.component.ts'])
-    .pipe(replace('../../../node_modules/ids-enterprise/dist/svg/svg-empty.html', '../../../ids-enterprise/dist/svg/svg-empty.html'))
-    .pipe(gulp.dest('./publish/soho/icon/'));
-
-  return merge(empty, extended, icons);
-});
-
-gulp.task('publish', gulp.series('publish-clean', 'publish-copy', 'publish-replace'));
+gulp.task('publish', gulp.series('publish-clean', 'publish-copy'));
