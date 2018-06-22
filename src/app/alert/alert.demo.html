@@ -1,36 +1,48 @@
-<form soho-input-validate (error)="onError($event)" (alert)="onAlert($event)"
-  (confirm)="onConfirm($event)" (info)="onInfo($event)" (valid)="onValid($event)"
+<form soho-input-validate registerForEvents="error alert confirm info icon valid"
+  (error)="onError($event)" (alert)="onAlert($event)" (confirm)="onConfirm($event)"
+  (info)="onInfo($event)" (icon)="onIcon($event)" (valid)="onValid($event)"
 >
   <div class="row top-padding">
-    <div class="twelve columns">
+    <div class="six columns">
       <div class="field">
         <label soho-label>Type of Alert</label>
-        <input soho-radiobutton name="options-group" id="option1" value="error" (change)="onChange($event)" checked />
+        <input soho-radiobutton type="radio" name="options-group" id="option1" value="error" [(ngModel)]="model.type" />
         <label soho-label for="option1" [forRadioButton]="true">Error</label>
-        <input soho-radiobutton name="options-group" id="option2" value="alert" (change)="onChange($event)"/>
+        <input soho-radiobutton type="radio" name="options-group" id="option2" value="alert" [(ngModel)]="model.type"/>
         <label soho-label for="option2" [forRadioButton]="true">Alert</label>
-        <input soho-radiobutton name="options-group" id="option3" value="confirm" (change)="onChange($event)"/>
+        <input soho-radiobutton type="radio" name="options-group" id="option3" value="confirm" [(ngModel)]="model.type"/>
         <label soho-label for="option3" [forRadioButton]="true">Confirm</label>
-        <input soho-radiobutton name="options-group" id="option4" value="info" (change)="onChange($event)"/>
+        <input soho-radiobutton type="radio" name="options-group" id="option4" value="info" [(ngModel)]="model.type"/>
         <label soho-label for="option4" [forRadioButton]="true">Info</label>
+        <input soho-radiobutton type="radio" name="options-group" id="option5" value="icon" [(ngModel)]="model.type"/>
+        <label soho-label for="option5" [forRadioButton]="true">Icon</label>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="twelve columns">
-      <div class="field">
-        <button soho-button (click)="addMessage()">Add Inline Message</button>
-        <button soho-button (click)="removeMessage()">Remove Message</button>
-        <button soho-button (click)="removeAllMesssages()">Clear All Messages</button>
-        <button soho-button (click)="getMessage()">Get Message</button>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="twelve columns">
+    <div class="two columns">
       <div class="field">
         <input soho-checkbox type="checkbox" id="is-alert" name="is-alert" [(ngModel)]="model.isAlert">
         <label soho-label for="is-alert" [forCheckBox]="true">Is Alert</label>
+      </div>
+    </div>
+    <div class="two columns">
+      <div class="field">
+        <input soho-checkbox type="checkbox" id="trigger-events" name="trigger-events" [(ngModel)]="model.triggerEvents">
+        <label soho-label for="trigger-events" [forCheckBox]="true">Trigger Events</label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="twelve columns">
+      <div class="field">
+        <button soho-button (click)="addMessage()" soho-tooltip [title]="'Add a message of the type specified'">Add Inline Message</button>
+        <button soho-button (click)="removeMessage()" soho-tooltip [title]="'Remove a message of the type specified'">Remove Message</button>
+        <button soho-button (click)="removeAllMesssages()" soho-tooltip [title]="'Clear messages for all types'">Clear All Messages</button>
+        <button soho-button (click)="getMessage()" soho-tooltip [title]="'Get the messages for all types that are displayed'">Get Message</button>
+        <button soho-button (click)="toggleOptions()"
+          soho-tooltip title="{{showDefinedOptions ? 'Set options to undefined to test the directive setting the defaults' : 'Set options to default settings'}}"
+        >{{showDefinedOptions ? 'Set Options Undefined' : 'Set Options Defined'}}</button>
       </div>
     </div>
   </div>
@@ -48,12 +60,12 @@
     <div class="six columns">
       <div class="field">
         <label soho-label for="output-field">Result of Get Message</label>
-        <textarea soho-textarea class="input-full" name="output-field" id="output-field" readonly [(ngModel)]="model.outputField"></textarea>
+        <textarea soho-textarea class="input-full" name="output-field" id="output-field" [resizable]="true" readonly [(ngModel)]="model.outputField"></textarea>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="six columns">
+    <div class="twelve columns">
       <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
       <div *ngIf="showModel">
         <hr>

@@ -19,7 +19,7 @@ interface SohoInputValidateStatic {
 
   /** Trigger validation of the field */
   validate(field, showTooltip, event): void;
-  
+
   destroy(): void;
 }
 
@@ -43,4 +43,3 @@ interface JQuery<TElement extends Node = HTMLElement> {
   on(events: string,
     handler: JQuery.EventHandlerBase<TElement, SohoInputValidateEvent>): this;
 }
-
