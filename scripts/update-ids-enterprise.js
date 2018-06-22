@@ -51,6 +51,7 @@ function executeUpdate(cmd) {
   const exec = require('child_process').exec
   const updateProcess = exec(cmd, () => {
     syncPackageJsonVersions();
+    copySvgIcons();
   });
   updateProcess.stdout.pipe(process.stdout);
 }
@@ -70,7 +71,6 @@ function syncPackageJsonVersions() {
 
   fs.writeFile(publPkgJsonPath, publPkgJsonStr, 'utf8', () => {
     console.log('updated 1 package in publish/package.json');
-    copySvgIcons();
   });
 }
 
@@ -84,6 +84,8 @@ function copySvgIcons() {
     fs.copyFile(sourcePath + fileName, destPath + fileName, (err) => {
        if (err) {
         throw err;
+       } else {
+         console.log(`updated 1 file src/soho/icon/${fileName}`);
        }
    });
   };
@@ -92,7 +94,6 @@ function copySvgIcons() {
   copy('svg-patterns.html');
   copy('svg.html');
   copy('svg-empty.html');
-  console.log('Updating Svg Icons...');
 }
 
 // -------------------------------------
