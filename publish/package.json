@@ -26,7 +26,7 @@
   "dependencies": {
     "@angular/cli": "6.0.7",
     "classlist.js": "^1.1.20150312",
-    "ids-enterprise": "^4.8.0-dev.20180620",
+    "ids-enterprise": "^4.8.0-dev.20180621",
     "jquery": "3.3.1"
   }
 }
