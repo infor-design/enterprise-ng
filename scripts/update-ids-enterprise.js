@@ -70,11 +70,33 @@ function syncPackageJsonVersions() {
 
   fs.writeFile(publPkgJsonPath, publPkgJsonStr, 'utf8', () => {
     console.log('updated 1 package in publish/package.json');
+    copySvgIcons();
   });
+}
+
+/**
+ * Copy the svg icon blocks into the soho-icons component.
+ */
+function copySvgIcons() {
+  const sourcePath = `${rootPath}/node_modules/ids-enterprise/dist/svg/`;
+  const destPath = `${rootPath}/src/soho/icon/`;
+  const copy = function(fileName) {
+    fs.copyFile(sourcePath + fileName, destPath + fileName, (err) => {
+       if (err) {
+        throw err;
+       }
+   });
+  };
+
+  copy('svg-extended.html');
+  copy('svg-patterns.html');
+  copy('svg.html');
+  copy('svg-empty.html');
+  console.log('Updating Svg Icons...');
 }
 
 // -------------------------------------
 //   Main
 // -------------------------------------
-console.log("Update ids-enterprise version...");
+console.log('Update ids-enterprise version...');
 chooseVersionTag(tagArr);

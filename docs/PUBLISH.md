@@ -71,11 +71,14 @@ or via console
 
 ### Update the version of ids-enterprise
 
+This will update the versions used in both package.json files. And also will update the icons that
+are copied into src/soho/icon.
+
 1. Update enterprise
     ```sh
     npm run update-enterprise
     ```
-1. Get PR merged
+1. Create a PR to be merged
 
 ### Release
 
