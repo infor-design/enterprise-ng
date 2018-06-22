@@ -32,7 +32,12 @@ gulp.task("copy-assets", gulp.series('clean', function () {
  * The publish action is in the npm scripts (npm run publish-setup)
  */
 gulp.task('publish-clean', function() {
- return del(['publish/**/*']);
+ return del([
+   'publish/**/*',
+   '!publish/package.json',
+   '!publish/.release-it.json',
+   '!publish/.npmignore'
+  ]);
 });
 
 gulp.task('publish-copy', function() {
@@ -51,26 +56,16 @@ gulp.task('publish-copy', function() {
     }))
     .pipe(gulp.dest('./publish'));
 
-  var other = gulp.src(['./src/polyfills.ts', 'README.MD', './src/typings.d.ts'])
-      .pipe(gulp.dest('./publish'));
+  var other = gulp.src([
+    'README.md',
+    'LICENSE',
+    'docs/CHANGELOG.MD',
+    './src/polyfills.ts',
+    './src/typings.d.ts'
+  ])
+  .pipe(gulp.dest('./publish'));
 
   return merge(folder, idx, ts, other);
 });
 
-gulp.task('publish-replace', function() {
-  var icons = gulp.src(['./publish/soho/icon/soho-icons.component.ts'])
-    .pipe(replace('../../../node_modules/ids-enterprise/dist/svg/svg.html', '../../../ids-enterprise/dist/svg/svg.html'))
-    .pipe(gulp.dest('./publish/soho/icon/'));
-
-  var extended = gulp.src(['./publish/soho/icon/soho-icons-extended.component.ts'])
-    .pipe(replace('../../../node_modules/ids-enterprise/dist/svg/svg-extended.html', '../../../ids-enterprise/dist/svg/svg-extended.html'))
-    .pipe(gulp.dest('./publish/soho/icon/'));
-
-  var empty = gulp.src(['./publish/soho/icon/soho-icons-empty.component.ts'])
-    .pipe(replace('../../../node_modules/ids-enterprise/dist/svg/svg-empty.html', '../../../ids-enterprise/dist/svg/svg-empty.html'))
-    .pipe(gulp.dest('./publish/soho/icon/'));
-
-  return merge(empty, extended, icons);
-});
-
-gulp.task('publish', gulp.series('publish-clean', 'publish-copy', 'publish-replace'));
+gulp.task('publish', gulp.series('publish-clean', 'publish-copy'));

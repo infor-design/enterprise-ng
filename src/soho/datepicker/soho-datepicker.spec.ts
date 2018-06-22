@@ -46,6 +46,7 @@ describe('Soho Datepicker Unit Tests', () => {
 
     de = fixture.debugElement;
     el = de.nativeElement;
+    Soho.Locale.set('en-US');
   }));
 
   it('Check events', async(() => {

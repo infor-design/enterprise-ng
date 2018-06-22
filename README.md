@@ -1,5 +1,9 @@
 # Infor Design System's Enterprise Components for Angular
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![npm version](https://badge.fury.io/js/ids-enterprise-ng.svg)](https://badge.fury.io/js/ids-enterprise-ng)
+[![Build Status](https://travis-ci.com/infor-design/enterprise-ng.svg?branch=master)](https://travis-ci.com/infor-design/enterprise-ng)
+
 This repository serves as the central shared location for a crowd-sourced cross-Infor Angular Typescript repo of Xi control wrapped components.
 
 - avoids many teams building the same things - inefficient and asking Xi Team for different flavors of the same thing
