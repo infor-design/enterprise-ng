@@ -45,6 +45,7 @@ interface SohoFieldFilterOption {
          'sort-a-to-z' | 'sort-z-to-a';
   text: string;
   icon: string;
+  selected ?: boolean;
 }
 
 interface SohoFieldFilteredEvent extends JQuery.Event {
