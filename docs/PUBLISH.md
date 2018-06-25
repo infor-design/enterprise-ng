@@ -45,29 +45,11 @@ Verify the [changelog](docs/changelog) is up-to-date
 
 ### Make sure you have [credential] setup in .gitconfig  (Windows Users Only)
 
-Try adding this into your git config
-
-```yml
-   [credential]
-       helper = wincred
-```
-
-or via console
-
-```sh
-   git config --global credential.helper wincred
-```
+Details on [infor-design/enterprise/docs/PUBLISH.md](https://github.com/infor-design/enterprise/blob/master/docs/PUBLISH.md#make-sure-you-have-credential-setup-in-gitconfig--windows-users-only)
 
 ### Make sure you have a GITHUB_ACCESS_TOKEN configured
 
-- Get a token <https://github.com/settings/tokens>
-    - click the `Generate new token` button
-    - click ONLY the repo scope
-    - scroll to the bottom and click the `Generate token` button
-    - NOTE: Save your token somewhere so it doesn't get lost.
-- Set your environment variable from your command window
-    - (mac) `export GITHUB_ACCESS_TOKEN="<your token here>"`
-    - (windows) `set GITHUB_ACCESS_TOKEN="<your token here>"`
+Details on [infor-design/enterprise/docs/PUBLISH.md](https://github.com/infor-design/enterprise/blob/master/docs/PUBLISH.md#make-sure-you-have-a-github_access_token-configured)
 
 ### Update the version of ids-enterprise
 
@@ -95,3 +77,4 @@ For a final release, finish with:
 1. Merge the release branch (`X.Y.Z`) back into `master` but keep branch (`X.Y.Z`)
 1. PR the master version to the proper "dev" version
     - i.e. if we just released `4.7.0`, master will now be `4.8.0-dev`
+1. "Protect" the release branch with github settings
