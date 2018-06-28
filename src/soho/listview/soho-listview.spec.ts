@@ -137,4 +137,8 @@ describe('Soho ListView Render', () => {
     fixture.detectChanges();
   });
 
+  it('Content changes whem model changed', () => {
+
+  });
+
 });
