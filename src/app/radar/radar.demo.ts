@@ -14,7 +14,9 @@ export class RadarDemoComponent implements OnInit {
 
   @ViewChild(SohoRadarComponent) sohoRadarComponent: SohoRadarComponent;
 
-  private selection: SohoRadarSelected  = {fieldName: 'name', fieldValue: 'Samsung'};
+//  private selection: SohoRadarSelected  = {fieldName: 'name', fieldValue: 'Samsung'};
+  private selection: SohoRadarSelected  = {index: 1};
+
   public radarData = [{
     data: [
       {name: 'Battery Life', value: 0.22},

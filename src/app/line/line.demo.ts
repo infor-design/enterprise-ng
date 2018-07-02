@@ -13,7 +13,9 @@ export class LineDemoComponent implements OnInit {
 
   @ViewChild(SohoLineComponent) sohoLineComponent: SohoLineComponent;
 
-  private selection: SohoLineSelected  = {groupIndex: 0, fieldName: 'name', fieldValue: 'Category B'};
+  private selection: SohoLineSelected  = {groupIndex: 2};
+  // private selection: SohoLineSelected  = {groupName: 'name', groupValue: 'Component A'};
+  // private selection: SohoLineSelected  = {groupName: 'id', groupValue: '1'};
   public lineData = [{
     data: [
       {name: 'Jan | 2018', value: 12, depth: 4},

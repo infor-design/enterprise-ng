@@ -13,7 +13,9 @@ export class BarStackedDemoComponent implements OnInit {
 
   @ViewChild(SohoBarComponent) sohoBarComponent: SohoBarComponent;
 
-  private selection: SohoBarSelected  = {fieldName: 'name', fieldValue: '2009'};
+//  private selection: SohoBarSelected  = {fieldName: 'name', fieldValue: '2009'};
+  private selection: SohoBarSelected  = {index: 0};
+
   public barStackedData = [{
     data: [{
       name: '2008',

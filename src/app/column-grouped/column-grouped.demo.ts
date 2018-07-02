@@ -4,9 +4,6 @@ import {
   ViewChild
 } from '@angular/core';
 
-import {
-  SohoRadarComponent
-} from 'ids-enterprise-ng';
 import {SohoColumnComponent} from '../../soho/column';
 
 @Component({
@@ -17,7 +14,9 @@ export class ColumnGroupedDemoComponent implements OnInit {
 
   @ViewChild(SohoColumnComponent) sohoColumnComponent: SohoColumnComponent;
 
-  private selection: SohoColumnSelected  = {groupName: 'name', groupValue: 'Component B'};
+//  private selection: SohoColumnSelected  = {groupName: 'name', groupValue: 'Component C'};
+  private selection: SohoColumnSelected  = {groupIndex: 1};
+
   public columnGroupedData = [{
     data: [{
       name: 'Jan', value: 12

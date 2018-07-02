@@ -14,6 +14,8 @@ export class BarDemoComponent implements OnInit {
   @ViewChild(SohoBarComponent) sohoBarComponent: SohoBarComponent;
 
   private selection: SohoBarSelected  = {fieldName: 'name', fieldValue: 'Category B'};
+//  private selection: SohoBarSelected  = {index: 0};
+
   public barData = [{
     data: [{
       name: 'Category A',

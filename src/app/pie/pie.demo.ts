@@ -13,7 +13,8 @@ export class PieDemoComponent implements OnInit {
 
   @ViewChild(SohoPieComponent) sohoPieComponent: SohoPieComponent;
 
-  private selection: SohoPieSelected  = {fieldName: 'name', fieldValue: 'Item C'};
+//  private selection: SohoPieSelected  = {fieldName: 'name', fieldValue: 'Item D'};
+  private selection: SohoPieSelected  = {index: 1};
   public pieData = [{
     data: [{
       name: 'Item A',

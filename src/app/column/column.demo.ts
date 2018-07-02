@@ -4,9 +4,6 @@ import {
   ViewChild
 } from '@angular/core';
 
-import {
-  SohoRadarComponent
-} from 'ids-enterprise-ng';
 import {SohoColumnComponent} from '../../soho/column';
 
 @Component({
@@ -18,6 +15,8 @@ export class ColumnDemoComponent implements OnInit {
   @ViewChild(SohoColumnComponent) sohoColumnComponent: SohoColumnComponent;
 
   private selection: SohoColumnSelected  = {fieldName: 'name', fieldValue: 'Equipment'};
+//  private selection: SohoColumnSelected  = {index: 6};
+
   public columnData = [{
     data: [{
       name: 'Automotive',

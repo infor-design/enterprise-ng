@@ -13,7 +13,9 @@ export class DonutDemoComponent implements OnInit {
 
   @ViewChild(SohoPieComponent) sohoPieComponent: SohoPieComponent;
 
-  private selection: SohoPieSelected  = {fieldName: 'name', fieldValue: 'Component B'};
+  private selection: SohoPieSelected  = {fieldName: 'name', fieldValue: 'Component A'};
+//  private selection: SohoPieSelected  = {index: 1};
+
   public donutData = [{
     data: [{
       name: 'Component A',

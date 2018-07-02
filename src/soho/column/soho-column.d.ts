@@ -75,13 +75,17 @@ interface SohoColumn {
 type SohoColumnSelected = SohoColumnFieldSelected | SohoColumnGroupSelected;
 
 interface SohoColumnFieldSelected {
-  fieldName: string;
-  fieldValue: any;
+  // USe either index or fieldName and fieldValue;
+  fieldName?: string;
+  fieldValue?: any;
+  index?: number;
 }
 
 interface SohoColumnGroupSelected {
-  groupName: string;
-  groupValue: any;
+  // USe either index or groupName and groupValue;
+  groupName?: string;
+  groupValue?: any;
+  groupIndex?: number;
 }
 
 interface JQuery {

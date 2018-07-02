@@ -119,8 +119,10 @@ interface SohoRadar {
 }
 
 interface SohoRadarSelected {
-  fieldName: string;
-  fieldValue: any;
+  // Use either index or fieldName and fieldValue
+  fieldName?: string;
+  fieldValue?: any;
+  index?: number;
 }
 
 interface JQuery {

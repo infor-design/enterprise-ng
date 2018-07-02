@@ -13,7 +13,9 @@ export class BarGroupedDemoComponent implements OnInit {
 
   @ViewChild(SohoBarComponent) sohoBarComponent: SohoBarComponent;
 
-  private selection: SohoBarSelected  = {groupName: 'name', groupValue: 'Component B'};
+  // private selection: SohoBarSelected  = {groupName: 'name', groupValue: 'Component B'};
+  private selection: SohoBarSelected  = {groupIndex: 2};
+
   public barGroupedData = [{
     data: [{
       name: 'Jan', value: 12,

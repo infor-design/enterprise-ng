@@ -13,7 +13,10 @@ export class AreaDemoComponent implements OnInit {
 
   @ViewChild(SohoLineComponent) sohoLineComponent: SohoLineComponent;
 
-  private selection: SohoLineSelected  = {groupIndex: 0, fieldName: 'name', fieldValue: 'Category B'};
+  // private selection: SohoLineSelected  = {groupIndex: 1};
+  // private selection: SohoLineSelected  = {groupName: 'name', groupValue: 'Component A'};
+  private selection: SohoLineSelected  = {groupName: 'id', groupValue: '3'};
+
   public areaData = [{
     data: [
       {name: 'Jan', value: 12, depth: 4},

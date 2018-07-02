@@ -13,7 +13,9 @@ export class BubbleDemoComponent implements OnInit {
 
   @ViewChild(SohoLineComponent) sohoLineComponent: SohoLineComponent;
 
-  private selection: SohoLineSelected  = {groupIndex: 0, fieldName: 'name', fieldValue: 'Series 02'};
+  private selection: SohoLineSelected  = {groupIndex: 0};
+//  private selection: SohoLineSelected  = {groupName: 'name', groupValue: 'Series 02'};
+
   public bubbleData = [{
     data: [{
       name: 'January',

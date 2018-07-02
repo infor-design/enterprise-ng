@@ -95,13 +95,17 @@ interface SohoBar {
 type SohoBarSelected = SohoBarFieldSelected | SohoBarGroupSelected;
 
 interface SohoBarFieldSelected {
-  fieldName: string;
-  fieldValue: any;
+  // use either index or fieldName and fieldValue
+  fieldName?: string;
+  fieldValue?: any;
+  index?: number;
 }
 
 interface SohoBarGroupSelected {
-  groupName: string;
-  groupValue: any;
+  // use either groupIndex or groupName and groupValue
+  groupIndex?: number;
+  groupName?: string;
+  groupValue?: any;
 }
 
 interface JQuery {
