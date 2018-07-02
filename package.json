@@ -14,8 +14,8 @@
     "update-enterprise": "node ./scripts/update-ids-enterprise.js",
     "version-bump:dev": "node ./scripts/version-append-date",
     "release:beta": "cd publish/ && release-it minor --preRelease=beta",
-    "release:rc": "cd publish/ && release-it minor --preRelease=rc",
-    "release:final": "cd publish/ && release-it minor"
+    "release:rc": "cd publish/ && release-it --preRelease=rc",
+    "release:final": "cd publish/ && release-it"
   },
   "dependencies": {
     "@angular/animations": "6.0.4",
