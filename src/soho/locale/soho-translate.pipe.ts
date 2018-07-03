@@ -4,7 +4,8 @@ import {
 } from '@angular/core';
 
 @Pipe({
-  name: 'translate'
+  name: 'translate',
+  pure: false
 })
 export class SohoTranslatePipe implements PipeTransform {
   /**

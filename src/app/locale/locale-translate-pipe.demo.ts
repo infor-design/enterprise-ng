@@ -41,15 +41,9 @@ export class LocaleTranslatePipeDemoComponent implements AfterContentChecked {
       console.log(value);
 
       this.ngZone.runOutsideAngular(() => {
-
         Soho.Locale.set(value).done(() => {
-
           this.ngZone.run(() => {
-
-            this.demoForm.controls.get['locale'].value = value;
             this.ref.markForCheck();
-            console.log(this.locale);
-
           });
         });
       });
