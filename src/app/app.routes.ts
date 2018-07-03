@@ -90,6 +90,7 @@ import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
 import { LineDemoComponent } from './line/line.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
+import { LocaleTranslatePipeDemoComponent } from './locale/locale-translate-pipe.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
@@ -246,6 +247,7 @@ export const routes: Routes = [
   { path: 'label',                                  component: LabelDemoComponent },
   { path: 'line',                                   component: LineDemoComponent },
   { path: 'listview',                               component: ListViewDemoComponent },
+  { path: 'locale-translate-pipe',                  component: LocaleTranslatePipeDemoComponent },
   { path: 'lookup',                                 component: LookupDemoComponent },
   { path: 'lookup-validation',                      component: LookupValidationDemoComponent },
   { path: 'mask',                                   component: MaskDemoComponent },

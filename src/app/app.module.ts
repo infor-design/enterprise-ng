@@ -133,6 +133,7 @@ import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
 import { LineDemoComponent } from './line/line.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
+import { LocaleTranslatePipeDemoComponent } from './locale/locale-translate-pipe.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
@@ -307,6 +308,7 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     LabelDemoComponent,
     LineDemoComponent,
     ListViewDemoComponent,
+    LocaleTranslatePipeDemoComponent,
     LookupDemoComponent,
     LookupValidationDemoComponent,
     MaskDemoComponent,

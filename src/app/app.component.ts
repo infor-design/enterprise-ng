@@ -19,8 +19,8 @@ export class AppComponent {
   public personalizeOptions: SohoPersonalizeOptions = {};
 
   constructor() {
-    // @todo Set the locale here, to ensure all the values are setup.
-    Soho.Locale.set('en-US');
+    Soho.Locale.culturesPath = '/assets/ids-enterprise/js/cultures/';
+    Soho.Locale.set('ch-CH');
     this.setInitialPersonalization();
   }
   setInitialPersonalization() {

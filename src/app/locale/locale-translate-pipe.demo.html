@@ -1,0 +1,22 @@
+<div class="row top-padding">
+  <div class="two-thirds column">
+    <form [formGroup]="demoForm" (ngSubmit)="onSubmit()">
+
+      <div class="field">
+        <label for="locales" class="label">Locales</label>
+        <select soho-dropdown noSearch name="locales" formControlName="locale">
+          <option *ngFor="let locale of locales" [value]="locale.value">{{locale.label}}</option>
+        </select>
+      </div>
+
+      <p>Some Text {{'Yes'|translate}} - in {{locale}}</p>
+
+      <p>Locale: {{demoForm.controls.locale.value}}</p>
+
+      <p>Translated: {{translate('Close')}}</p>
+
+      <button soho-button="primary">{{'Yes'|translate}}</button>
+      <button soho-button="secondary">{{'No'|translate}}</button>
+    </form>
+  </div>
+</div>
