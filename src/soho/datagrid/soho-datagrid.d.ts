@@ -358,19 +358,7 @@ type SohoDataGridColumnEditorFunction = (
   item?: any
 ) => SohoDataGridCellEditor;
 
-declare var Editors: {
-  // Supports, Text, Numeric, Integer via mask
-  Input: SohoDataGridColumnEditorFunction;
-  Textarea: SohoDataGridColumnEditorFunction;
-  Checkbox: SohoDataGridColumnEditorFunction;
-  Dropdown: SohoDataGridColumnEditorFunction;
-  Date: SohoDataGridColumnEditorFunction;
-  Lookup: SohoDataGridColumnEditorFunction;
-  Autocomplete: SohoDataGridColumnEditorFunction;
-  Favorite: SohoDataGridColumnEditorFunction;
-};
-
-declare var Soho: {
+interface SohoStatic {
   Formatters: {
     Text: SohoDataGridColumnFormatterFunction;
     Input: SohoDataGridColumnFormatterFunction;
@@ -411,8 +399,7 @@ declare var Soho: {
     Favorite: SohoDataGridColumnFormatterFunction;
     Status: SohoDataGridColumnFormatterFunction;
     TargetedAchievement: SohoDataGridColumnFormatterFunction;
-  };
-
+  },
   Editors: {
     // Supports, Text, Numeric, Integer via mask
     Input: SohoDataGridColumnEditorFunction;
@@ -423,10 +410,8 @@ declare var Soho: {
     Lookup: SohoDataGridColumnEditorFunction;
     Autocomplete: SohoDataGridColumnEditorFunction;
     Favorite: SohoDataGridColumnEditorFunction;
-  };
-
-  Locale: SohoLocaleStatic;
-};
+  }
+}
 
 type SohoDataGridColumnFormatterFunction = (
   /** Row number. */
