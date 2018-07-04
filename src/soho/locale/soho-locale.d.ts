@@ -48,7 +48,7 @@ interface SohoLocaleStatic {
   getCulturesPath(): string;
   isRTL(): boolean;
   numbers(): any;
-  parseDate(dateString: string, dateFormat: string, isStrict: boolean): Date;
+  parseDate(dateString: string, dateFormat?: string, isStrict?: boolean): Date;
   parseNumber(input: string): number;
   set(locale: string): any;
   setCurrentLocale(name: string, data: any): void;

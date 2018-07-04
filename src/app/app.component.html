@@ -3,14 +3,15 @@
 <soho-icons-ext></soho-icons-ext>
 <soho-icons-empty></soho-icons-empty>
 <soho-masthead-demo></soho-masthead-demo>
-<nav soho-application-menu class="is-pesonalizable" [filterable]="true" [openOnLarge]="true" [dismissOnClickMobile]="true">
+
+<nav *ngIf="initialised" soho-application-menu class="is-pesonalizable" [filterable]="true" [openOnLarge]="true" [dismissOnClickMobile]="true">
   <div soho-searchfield-wrapper>
     <label class="audible" for="application-menu-searchfield">Search</label>
     <input soho-searchfield id="application-menu-searchfield" [clearable]=true />
   </div>
   <application-menu-demo></application-menu-demo>
 </nav>
-<div class="page-container no-scroll">
+<div *ngIf="initialised" class="page-container no-scroll">
   <soho-header-dynamic-demo></soho-header-dynamic-demo>
   <div id="maincontent" class="page-container scrollable" role="main">
       <router-outlet></router-outlet>

@@ -70,7 +70,6 @@ import { SohoTrackDirtyModule } from './trackdirty/soho-trackdirty.module';
 import { SohoTreeModule } from './tree/soho-tree.module';
 import { SohoTreemapModule } from './treemap/soho-treemap.module';
 import { SohoWizardModule } from './wizard/soho-wizard.module';
-import { SohoTranslatePipe } from './locale/soho-translate.pipe';
 
 @NgModule({
   imports: [

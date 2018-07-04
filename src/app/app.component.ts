@@ -14,13 +14,19 @@ import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.se
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
+
+  public initialised = false;
+
   @HostBinding('class.no-scroll') get isNoScroll() { return true; }
 
   public personalizeOptions: SohoPersonalizeOptions = {};
 
   constructor() {
     Soho.Locale.culturesPath = '/assets/ids-enterprise/js/cultures/';
-    Soho.Locale.set('ch-CH');
+    Soho.Locale.set('en-US').done(() => {
+      console.log('Locale set');
+      this.initialised = true;
+    });
     this.setInitialPersonalization();
   }
   setInitialPersonalization() {
