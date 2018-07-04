@@ -3,20 +3,47 @@
     <form [formGroup]="demoForm" (ngSubmit)="onSubmit()">
 
       <div class="field">
-        <label for="locales" class="label">Locales</label>
+        <label soho-label for="locales">Locales</label>
         <select soho-dropdown noSearch name="locales" formControlName="locale">
-          <option *ngFor="let locale of locales" [value]="locale.value">{{locale.label}}</option>
+          <option *ngFor="let locale of locales" [ngValue]="locale.value">{{locale.label}}</option>
         </select>
       </div>
+      <h3>{{demoForm.controls.locale.value}}</h3>
+      <br/>
+      <hr>
+      <br/>
+      <div class="field">
+        <label for="datepicker" class="label">Date</label>
+        <input soho-datepicker name="datepicker" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" formControlName="datepicker" />
+      </div>
 
-      <p>Some Text {{'Yes'|translate}} - in {{locale}}</p>
-
-      <p>Locale: {{demoForm.controls.locale.value}}</p>
-
-      <p>Translated: {{translate('Close')}}</p>
-
-      <button soho-button="primary">{{'Yes'|translate}}</button>
-      <button soho-button="secondary">{{'No'|translate}}</button>
+      <h3>{{model.datevalue|sohoFormatDate}}</h3>
+      <h3>{{model.datevalue|sohoFormatDate:{date:'long'} }}</h3>
+      <h3>{{model.datevalue|sohoFormatDate:{date:'short'} }}</h3>
+      <h3>{{model.datevalue|sohoFormatDate:{pattern:'yy/MM/dd'} }}</h3>
+      <br/>
+      <hr>
+      <br/>
+      <div class="field">
+          <label soho-label for="number" >Number</label>
+          <input id="number" name="number" alignRight="true" soho-input soho-mask [process]="'number'" [integerLimit]="5" formControlName="number" />
+      </div>
+      <h3>{{model.number|sohoFormatNumber}}</h3>
+      <br/>
+      <hr>
+      <br/>
+      <div class="field">
+          <label soho-label for="resourceKey">Resource</label>
+          <input id="resourceKey" name="resourceKey" soho-input formControlName="resourceKey" />
+      </div>
+      <h3>{{model.resourceKey|sohoTranslate}}</h3>
+      <br/>
+      <hr>
+      <br/>
+      <div style="text-align: center;">
+        <button soho-button="primary">{{'Yes'|sohoTranslate}}</button>
+        <button soho-button="secondary">{{'No'|sohoTranslate}}</button>
+      </div>
     </form>
   </div>
 </div>
