@@ -37,8 +37,13 @@ export class LocaleTranslatePipeDemoComponent {
   };
 
   constructor(private formBuilder: FormBuilder, private ref: ChangeDetectorRef, private ngZone: NgZone) {
+
+    // Make sure the locale is set.
     this.model.locale = Soho.Locale.currentLocale.name;
 
+    // Create the demo form, and initialise with the model data.
+    // Normally, this would be a two step process, setting
+    // the data on a load event or via nsxs.
     this.demoForm = this.formBuilder.group({
       locale: [this.model.locale],
       datepicker: [this.model.datevalue],
@@ -46,7 +51,12 @@ export class LocaleTranslatePipeDemoComponent {
       resourceKey: [this.model.resourceKey]
     });
 
+    // Listen for changes to the reactive form ...
     this.demoForm.valueChanges.subscribe(() => {
+      // ... and assign the data to the model.
+      // Ideally this would be sone in the submit, but for the
+      // purpose of this demo do it on every change.
+      this.model = Object.assign({}, this.model, this.demoForm.value);
       this.ref.markForCheck();
     });
 
@@ -66,7 +76,8 @@ export class LocaleTranslatePipeDemoComponent {
               // ... once loaded, back into the angular zone ...
               this.ngZone.run(
                 () => {
-                  // ... update the display to ensure all controls are updated.
+                  // ... update the display to ensure all controls are updated with the
+                  // new locale.
                   this.ref.markForCheck();
                 }
               );

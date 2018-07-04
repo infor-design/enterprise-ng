@@ -8,19 +8,24 @@
           <option *ngFor="let locale of locales" [ngValue]="locale.value">{{locale.label}}</option>
         </select>
       </div>
-      <h3>{{demoForm.controls.locale.value}}</h3>
+      <div class="field">
+        <input soho-textarea [readOnly]='true' value="{{demoForm.controls.locale.value}}"/>
+      </div>
       <br/>
       <hr>
       <br/>
       <div class="field">
         <label for="datepicker" class="label">Date</label>
-        <input soho-datepicker name="datepicker" dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" formControlName="datepicker" />
+        <input soho-datepicker name="datepicker" formControlName="datepicker" />
       </div>
 
-      <h3>{{model.datevalue|sohoFormatDate}}</h3>
-      <h3>{{model.datevalue|sohoFormatDate:{date:'long'} }}</h3>
-      <h3>{{model.datevalue|sohoFormatDate:{date:'short'} }}</h3>
-      <h3>{{model.datevalue|sohoFormatDate:{pattern:'yy/MM/dd'} }}</h3>
+      <div class="field">
+        <input soho-textarea [readOnly]='true' value="{{model.datevalue|sohoFormatDate}}"/>
+        <input soho-textarea [readOnly]='true' value="{{model.datevalue|sohoFormatDate:{date:'long'} }}"/>
+        <input soho-textarea [readOnly]='true' value="{{model.datevalue|sohoFormatDate:{date:'short'} }}"/>
+        <input soho-textarea [readOnly]='true' value="{{model.datevalue|sohoFormatDate:{pattern:'d/M/yyyy HH:mm:ss'} }}"/>
+
+      </div>
       <br/>
       <hr>
       <br/>
@@ -28,7 +33,11 @@
           <label soho-label for="number" >Number</label>
           <input id="number" name="number" alignRight="true" soho-input soho-mask [process]="'number'" [integerLimit]="5" formControlName="number" />
       </div>
-      <h3>{{model.number|sohoFormatNumber}}</h3>
+      <div class="field">
+        <input soho-textarea [readOnly]='true' value="{{model.number|sohoFormatNumber}}"/>
+        <input soho-textarea [readOnly]='true' value="{{model.number|sohoFormatNumber:{style: 'currency'} }}"/>
+        <input soho-textarea [readOnly]='true' value="{{model.number|sohoFormatNumber:{style: 'precent'} }}"/>
+      </div>
       <br/>
       <hr>
       <br/>
@@ -36,7 +45,9 @@
           <label soho-label for="resourceKey">Resource</label>
           <input id="resourceKey" name="resourceKey" soho-input formControlName="resourceKey" />
       </div>
-      <h3>{{model.resourceKey|sohoTranslate}}</h3>
+      <div class="field">
+        <input soho-textarea [readOnly]='true' value="{{model.resourceKey|sohoTranslate}}"/>
+      </div>
       <br/>
       <hr>
       <br/>
