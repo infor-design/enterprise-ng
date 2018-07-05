@@ -7,20 +7,24 @@ import {
   ChangeDetectionStrategy
  } from '@angular/core';
 
+import {
+  FormGroup,
+  FormBuilder
+} from '@angular/forms';
+
  import {
    SohoListViewComponent
  } from 'ids-enterprise-ng';
-import { FormGroup } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'soho-translate-pipe-demo',
-  templateUrl: './locale-translate-pipe.demo.html',
+  selector: 'soho-locale-pipe-demo',
+  templateUrl: './locale-pipe.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LocaleTranslatePipeDemoComponent {
+export class LocalePipeDemoComponent {
 
   demoForm: FormGroup;
+
   public locales = [
     { value: 'en-US', label: 'English (American)' },
     { value: 'en-GB', label: 'English (British)' },
@@ -31,12 +35,15 @@ export class LocaleTranslatePipeDemoComponent {
 
   public model = {
     locale: '',
-    datevalue: new Date(),
+    datepicker: new Date(),
     number: 1000,
     resourceKey: 'Ok'
   };
 
-  constructor(private formBuilder: FormBuilder, private ref: ChangeDetectorRef, private ngZone: NgZone) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private ref: ChangeDetectorRef,
+    private ngZone: NgZone) {
 
     // Make sure the locale is set.
     this.model.locale = Soho.Locale.currentLocale.name;
@@ -46,7 +53,7 @@ export class LocaleTranslatePipeDemoComponent {
     // the data on a load event or via nsxs.
     this.demoForm = this.formBuilder.group({
       locale: [this.model.locale],
-      datepicker: [this.model.datevalue],
+      datepicker: [this.model.datepicker],
       number: [this.model.number],
       resourceKey: [this.model.resourceKey]
     });
@@ -56,7 +63,13 @@ export class LocaleTranslatePipeDemoComponent {
       // ... and assign the data to the model.
       // Ideally this would be sone in the submit, but for the
       // purpose of this demo do it on every change.
-      this.model = Object.assign({}, this.model, this.demoForm.value);
+      this.model.number = this.demoForm.controls['number'].value;
+      this.model.resourceKey = this.demoForm.controls['resourceKey'].value;
+      this.ref.markForCheck();
+    });
+
+    this.demoForm.controls['datepicker'].valueChanges.subscribe((value) => {
+      this.model.datepicker = Soho.Locale.parseDate(value) || new Date();
       this.ref.markForCheck();
     });
 
@@ -81,8 +94,7 @@ export class LocaleTranslatePipeDemoComponent {
                   this.ref.markForCheck();
                 }
               );
-           }
-          );
+           });
         });
       }
     });

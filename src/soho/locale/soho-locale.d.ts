@@ -43,8 +43,8 @@ interface SohoLocaleStatic {
   addCulture(locale: string, data: any): void;
   calendar(): {dateFormat: any, timeFormat: string};
   cultureInHead(): boolean;
-  formatDate(value: string | Date, attribs: any): string;
-  formatNumber(number: number | string, options: any): string;
+  formatDate(value: string | Date, attribs?: any): string;
+  formatNumber(number: number | string, options?: any): string;
   getCulturesPath(): string;
   isRTL(): boolean;
   numbers(): any;
