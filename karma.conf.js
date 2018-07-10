@@ -65,7 +65,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['PhantomJS' ],
+    browsers: ['ChromeHeadless' ],
     browserDisconnectTimeout : 20000, // default 2000
     browserDisconnectTolerance : 1, // default 0
     browserNoActivityTimeout : 100000, //default 10000
