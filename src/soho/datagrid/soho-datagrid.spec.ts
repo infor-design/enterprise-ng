@@ -120,6 +120,19 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(comp.gridOptions.groupable).toEqual({ fields: ['accountType'], aggregator: 'sum' });
     expect(comp.groupable).toEqual({ fields: ['accountType'], aggregator: 'sum' });
   });
+
+  it('check stretchColumn', () => {
+    fixture.detectChanges();
+
+    expect(comp.gridOptions.stretchColumn).toEqual('last');
+    expect(comp.stretchColumn).toBe('last');
+
+    comp.stretchColumn  = 'accountType';
+
+    expect(comp.gridOptions.stretchColumn).toEqual('accountType');
+    expect(comp.stretchColumn).toEqual('accountType');
+  });
+
 });
 
 @Component({

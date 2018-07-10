@@ -925,6 +925,31 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * The name of the column stretched to fill the width of the datagrid,
+   * or 'last' where the last column will be stretched to fill the
+   * remaining space.
+   *
+   * @param stretchColumn - the name of the column to stretch; or 'last',
+   */
+  @Input() set stretchColumn(stretchColumn: string) {
+    this._gridOptions.stretchColumn = stretchColumn;
+    if (this.jQueryElement) {
+      this.datagrid.settings.stretchColumn = stretchColumn;
+      this.markForRefresh('stretchColumn', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
+   * The name of the column to stretch, or 'last' if the
+   * last column is stretched.
+   *
+   * @memberof SohoDataGridComponent
+   */
+  get stretchColumn() {
+    return this._gridOptions.stretchColumn;
+  }
+
+  /**
    * Whether to show the page size selector or not.
    */
   @Input() set showPageSizeSelector(showPageSizeSelector: boolean) {
@@ -1089,7 +1114,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   // An internal gridOptions object that gets updated by using
   // the component's Inputs()
-  private _gridOptions: SohoDataGridOptions = {};
+  private _gridOptions: SohoDataGridOptions = {
+    stretchColumn: 'last' // default value
+  };
 
   // Provides hints to the component after the next refresh.
   private refreshHint: RefreshHintFlags = RefreshHintFlags.None;
