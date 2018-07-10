@@ -46,6 +46,13 @@ interface SohoDataGridOptions {
   /** List of columns definitions. */
   columns?: SohoDataGridColumn[];
 
+  /**
+   * The name of the column stretched to fill the width of the datagrid,
+   * or 'last' where the last column will be stretched to fill the
+   * remaining space.
+   */
+  stretchColumn?: string;
+
   /** Initial dataset. */
   dataset?: Object[];
 
