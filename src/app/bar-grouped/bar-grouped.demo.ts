@@ -13,6 +13,7 @@ export class BarGroupedDemoComponent implements OnInit {
 
   @ViewChild(SohoBarComponent) sohoBarComponent: SohoBarComponent;
 
+  // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   // private selection: SohoBarSelected  = {groupName: 'name', groupValue: 'Component B'};
   private selection: SohoBarSelected  = {groupIndex: 2};
 

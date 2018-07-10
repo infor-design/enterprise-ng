@@ -13,9 +13,11 @@ export class LineDemoComponent implements OnInit {
 
   @ViewChild(SohoLineComponent) sohoLineComponent: SohoLineComponent;
 
+  // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   private selection: SohoLineSelected  = {groupIndex: 2};
-  // private selection: SohoLineSelected  = {groupName: 'name', groupValue: 'Component A'};
+  // private selection: SohoLineSelected  = {groupName: 'name', groupValue: 'Coponent A'};
   // private selection: SohoLineSelected  = {groupName: 'id', groupValue: '1'};
+
   public lineData = [{
     data: [
       {name: 'Jan | 2018', value: 12, depth: 4},

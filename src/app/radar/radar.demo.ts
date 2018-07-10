@@ -14,7 +14,8 @@ export class RadarDemoComponent implements OnInit {
 
   @ViewChild(SohoRadarComponent) sohoRadarComponent: SohoRadarComponent;
 
-//  private selection: SohoRadarSelected  = {fieldName: 'name', fieldValue: 'Samsung'};
+  // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
+  // private selection: SohoRadarSelected  = {fieldName: 'name', fieldValue: 'Samsung'};
   private selection: SohoRadarSelected  = {index: 1};
 
   public radarData = [{

@@ -13,6 +13,7 @@ export class AreaDemoComponent implements OnInit {
 
   @ViewChild(SohoLineComponent) sohoLineComponent: SohoLineComponent;
 
+  // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   // private selection: SohoLineSelected  = {groupIndex: 1};
   // private selection: SohoLineSelected  = {groupName: 'name', groupValue: 'Component A'};
   private selection: SohoLineSelected  = {groupName: 'id', groupValue: '3'};

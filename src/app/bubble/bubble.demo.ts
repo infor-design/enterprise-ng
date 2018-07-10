@@ -13,8 +13,9 @@ export class BubbleDemoComponent implements OnInit {
 
   @ViewChild(SohoLineComponent) sohoLineComponent: SohoLineComponent;
 
+  // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   private selection: SohoLineSelected  = {groupIndex: 0};
-//  private selection: SohoLineSelected  = {groupName: 'name', groupValue: 'Series 02'};
+  // private selection: SohoLineSelected  = {groupName: 'name', groupValue: 'Series 02'};
 
   public bubbleData = [{
     data: [{

@@ -14,8 +14,9 @@ export class ColumnDemoComponent implements OnInit {
 
   @ViewChild(SohoColumnComponent) sohoColumnComponent: SohoColumnComponent;
 
+  // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   private selection: SohoColumnSelected  = {fieldName: 'name', fieldValue: 'Equipment'};
-//  private selection: SohoColumnSelected  = {index: 6};
+  // private selection: SohoColumnSelected  = {index: 6};
 
   public columnData = [{
     data: [{

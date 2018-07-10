@@ -14,7 +14,8 @@ export class ColumnGroupedDemoComponent implements OnInit {
 
   @ViewChild(SohoColumnComponent) sohoColumnComponent: SohoColumnComponent;
 
-//  private selection: SohoColumnSelected  = {groupName: 'name', groupValue: 'Component C'};
+  // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
+  // private selection: SohoColumnSelected  = {groupName: 'name', groupValue: 'Component C'};
   private selection: SohoColumnSelected  = {groupIndex: 1};
 
   public columnGroupedData = [{
