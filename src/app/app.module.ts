@@ -97,6 +97,7 @@ import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
 import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
+import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagrid-treegrid-dynamicfiltering.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DonutDemoComponent } from './donut/donut.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
@@ -266,6 +267,7 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     DataGridStandardFormatterDemoComponent,
     DataGridToolbarDemoComponent,
     DataGridTreeGridDemoComponent,
+    DatagridTreegridDynamicfilteringDemoComponent,
     DataGridGroupableDemoComponent,
     DatepickerDemoComponent,
     DemoCellInputEditorComponent,

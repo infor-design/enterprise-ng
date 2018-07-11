@@ -152,6 +152,7 @@ import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-mes
 import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo';
 
 import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
+import {DatagridTreegridDynamicfilteringDemoComponent} from './datagrid/datagrid-treegrid-dynamicfiltering.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -200,6 +201,7 @@ export const routes: Routes = [
   { path: 'datagrid-service',                       component: DataGridServiceDemoComponent },
   { path: 'datagrid-settings',                      component: DataGridSettingsDemoComponent },
   { path: 'datagrid-treegrid',                      component: DataGridTreeGridDemoComponent },
+  { path: 'datagrid-treegrid-dynamicfilter',        component: DatagridTreegridDynamicfilteringDemoComponent },
   { path: 'datagrid-angular-editor',                component: DataGridAngularEditorDemoComponent },
   { path: 'datagrid-angular-card-formatter',        component: DataGridAngularCardFormatterDemoComponent },
   { path: 'datagrid-angular-formatter',             component: DataGridAngularFormatterDemoComponent },
