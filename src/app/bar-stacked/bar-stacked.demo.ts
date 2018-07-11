@@ -13,7 +13,10 @@ export class BarStackedDemoComponent implements OnInit {
 
   @ViewChild(SohoBarComponent) sohoBarComponent: SohoBarComponent;
 
-  private selection: SohoBarSelected  = {fieldName: 'name', fieldValue: '2009'};
+  // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
+  // private selection: SohoBarSelected  = {fieldName: 'name', fieldValue: '2009'};
+  private selection: SohoBarSelected  = {index: 0};
+
   public barStackedData = [{
     data: [{
       name: '2008',

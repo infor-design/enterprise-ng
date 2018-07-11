@@ -90,9 +90,10 @@ interface SohoLine {
 }
 
 interface SohoLineSelected {
-  groupIndex: number;
-  fieldName: string;
-  fieldValue: any;
+  // Use either groupIndex or groupName and groupValue
+  groupIndex?: number;
+  groupName?: string;
+  groupValue?: any;
 }
 
 interface JQuery {

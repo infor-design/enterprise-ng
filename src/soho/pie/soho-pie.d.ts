@@ -110,8 +110,10 @@ interface SohoPie {
 }
 
 interface SohoPieSelected {
-  fieldName: string;
-  fieldValue: any;
+  // Use either index or fieldName and fieldValue
+  fieldName?: string;
+  fieldValue?: any;
+  index?: number;
 }
 
 interface JQuery {

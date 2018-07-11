@@ -13,7 +13,10 @@ export class BarDemoComponent implements OnInit {
 
   @ViewChild(SohoBarComponent) sohoBarComponent: SohoBarComponent;
 
+  // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   private selection: SohoBarSelected  = {fieldName: 'name', fieldValue: 'Category B'};
+  // private selection: SohoBarSelected  = {index: 0};
+
   public barData = [{
     data: [{
       name: 'Category A',
