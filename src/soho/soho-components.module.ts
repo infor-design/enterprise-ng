@@ -37,6 +37,7 @@ import { SohoInputValidateModule } from './input-validate/soho-input-validate.mo
 import { SohoLabelModule } from './label/soho-label.module';
 import { SohoLineModule } from './line/soho-line.module';
 import { SohoListViewModule } from './listview/soho-listview.module';
+import { SohoLocaleModule } from './locale/soho-locale.module';
 import { SohoLookupModule } from './lookup/soho-lookup.module';
 import { SohoMaskModule } from './mask/soho-mask.module';
 import { SohoMastheadModule } from './masthead/soho-masthead.module';
@@ -110,6 +111,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoLabelModule,
     SohoLineModule,
     SohoListViewModule,
+    SohoLocaleModule,
     SohoLookupModule,
     SohoMaskModule,
     SohoMastheadModule,
@@ -183,6 +185,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoLabelModule,
     SohoLineModule,
     SohoListViewModule,
+    SohoLocaleModule,
     SohoLookupModule,
     SohoMaskModule,
     SohoMastheadModule,

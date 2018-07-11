@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { map } from 'rxjs/operators';
 
 import { SohoDatePickerModule, SohoDatePickerComponent } from './index';
+import { tick } from '@angular/core/testing';
 
 @Component({
   template: `
@@ -34,7 +35,7 @@ describe('Soho Datepicker Unit Tests', () => {
   let de:       DebugElement;
   let el:       HTMLInputElement;
 
-  beforeEach(async(() => {
+  beforeEach(async((done) => {
     TestBed.configureTestingModule({
       declarations: [ TestDatePickerComponent ],
       imports: [ FormsModule, ReactiveFormsModule, SohoDatePickerModule ]
@@ -46,7 +47,9 @@ describe('Soho Datepicker Unit Tests', () => {
 
     de = fixture.debugElement;
     el = de.nativeElement;
-    Soho.Locale.set('en-US');
+    Soho.Locale.set('en-US').done(() => {
+
+    });
   }));
 
   it('Check events', async(() => {

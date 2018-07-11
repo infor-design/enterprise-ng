@@ -154,7 +154,7 @@ import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo
 import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
 
 export const routes: Routes = [
-  { path: '',                                       component: ExpandableAreaDemoComponent }, // default
+  { path: '', redirectTo: '', pathMatch: 'full' }, // default
   { path: 'about',                                  component: AboutDemoComponent },
   { path: 'accordion',                              component: AccordionDemoComponent},
   { path: 'accordion-panels',                       component: AccordionPanelsDemoComponent},
@@ -246,6 +246,7 @@ export const routes: Routes = [
   { path: 'label',                                  component: LabelDemoComponent },
   { path: 'line',                                   component: LineDemoComponent },
   { path: 'listview',                               component: ListViewDemoComponent },
+  { path: 'locale-pipe',                            loadChildren: 'app/locale/locale-demo.module#LocaleDemoModule'},
   { path: 'lookup',                                 component: LookupDemoComponent },
   { path: 'lookup-validation',                      component: LookupValidationDemoComponent },
   { path: 'mask',                                   component: MaskDemoComponent },

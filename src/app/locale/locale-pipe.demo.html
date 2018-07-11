@@ -1,0 +1,59 @@
+<div class="row top-padding">
+  <div class="two-thirds column">
+    <form [formGroup]="demoForm" (ngSubmit)="onSubmit()">
+
+      <div class="field">
+        <label soho-label for="locales">Locales</label>
+        <select soho-dropdown noSearch name="locales" formControlName="locale">
+          <option *ngFor="let locale of locales" [ngValue]="locale.value">{{locale.label}}</option>
+        </select>
+      </div>
+      <div class="field">
+        <input soho-textarea [readOnly]="true" value="{{demoForm.controls.locale.value}}"/>
+      </div>
+      <br/>
+      <hr>
+      <br/>
+      <div class="field">
+        <label for="datepicker" class="label">Date</label>
+        <input soho-datepicker name="datepicker" formControlName="datepicker" />
+      </div>
+
+      <div class="field">
+        <input soho-textarea [readOnly]="true" value="{{model.datepicker|sohoFormatDate}}"/>
+        <input soho-textarea [readOnly]="true" value="{{model.datepicker|sohoFormatDate:{date:'long'} }}"/>
+        <input soho-textarea [readOnly]="true" value="{{model.datepicker|sohoFormatDate:{date:'short'} }}"/>
+        <input soho-textarea [readOnly]="true" value="{{model.datepicker|sohoFormatDate:{pattern:'d/M/yyyy HH:mm:ss'} }}"/>
+      </div>
+      <br/>
+      <hr>
+      <br/>
+      <div class="field">
+          <label soho-label for="number" >Number</label>
+          <input id="number" name="number" alignRight="true" soho-input soho-mask [process]="'number'" [integerLimit]="5" formControlName="number" />
+      </div>
+      <div class="field">
+        <input soho-textarea [readOnly]="true" value="{{model.number|sohoFormatNumber}}"/>
+        <input soho-textarea [readOnly]="true" value="{{model.number|sohoFormatNumber:{style: 'currency'} }}"/>
+        <input soho-textarea [readOnly]="true" value="{{model.number|sohoFormatNumber:{style: 'precent'} }}"/>
+      </div>
+      <br/>
+      <hr>
+      <br/>
+      <div class="field">
+          <label soho-label for="resourceKey">Resource</label>
+          <input id="resourceKey" name="resourceKey" soho-input formControlName="resourceKey" />
+      </div>
+      <div class="field">
+        <input soho-textarea [readOnly]="true" value="{{model.resourceKey|sohoTranslate}}"/>
+      </div>
+      <br/>
+      <hr>
+      <br/>
+      <div style="text-align: center;">
+        <button soho-button="primary">{{'Yes'|sohoTranslate}}</button>
+        <button soho-button="secondary">{{'No'|sohoTranslate}}</button>
+      </div>
+    </form>
+  </div>
+</div>

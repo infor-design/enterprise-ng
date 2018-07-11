@@ -51,8 +51,8 @@ interface SohoLocaleStatic {
   addCulture(locale: string, data: any): void;
   calendar(): {dateFormat: any, timeFormat: string};
   cultureInHead(): boolean;
-  formatDate(value: string | Date, attribs: any): string;
-  formatNumber(number: number | string, options: any): string;
+  formatDate(value: string | Date, attribs?: any): string;
+  formatNumber(number: number | string, options?: any): string;
 
   /**
    * Get the path to the directory with the cultures
@@ -62,7 +62,7 @@ interface SohoLocaleStatic {
   getCulturesPath(): string;
   isRTL(): boolean;
   numbers(): any;
-  parseDate(dateString: string, dateFormat: string, isStrict: boolean): Date;
+  parseDate(dateString: string, dateFormat?: string, isStrict?: boolean): Date;
   parseNumber(input: string): number;
   set(locale: string): any;
   setCurrentLocale(name: string, data: any): void;
