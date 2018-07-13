@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { SohoDataGridComponent, SohoDataGridToggleRowEvent } from 'ids-enterprise-ng';
 import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 import { DatagridTreegridServiceDemo } from './datagrid-treegrid-service.demo';
