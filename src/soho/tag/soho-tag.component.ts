@@ -45,18 +45,18 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
   /**
    * The wrapped jQuery element.
    *
-   * @private
-   * @type {JQuery}
-   * @memberof SohoTagListComponent
+   *
+   *
+   *
    */
   private jQueryElement: JQuery;
 
   /**
    * Creates an instance of SohoTagListComponent.
    *
-   * @param {ElementRef} element wrapped element.
-   * @param {NgZone} ngZone angular zone.
-   * @memberof SohoTagListComponent
+   * @param element wrapped element.
+   * @param ngZone angular zone.
+   *
    */
   constructor(
     private element: ElementRef,
@@ -102,9 +102,9 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
  * }
  *</pre>
  * @export
- * @class SohoTagListComponent
- * @implements {AfterViewInit}
- * @implements {OnDestroy}
+ *
+ *
+ *
  */
 
 @Component({
@@ -181,9 +181,9 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
   /**
    * Creates an instance of SohoTagComponent.
    *
-   * @param {ElementRef} element
-   * @param {NgZone} ngZone
-   * @memberof SohoTagComponent
+   * @param element
+   * @param ngZone
+   *
    */
   constructor(
     private element: ElementRef,
@@ -235,7 +235,7 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
   /**
    * Destroys the component.
    *
-   * @memberof SohoTagComponent
+   *
    */
   ngOnDestroy() {
     this.ngZone.runOutsideAngular(() => {

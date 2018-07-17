@@ -94,9 +94,9 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
   /**
    * Creates an instance of SohoSpinboxComponent.
    *
-   * @param {ElementRef} element matched element.
-   * @param {NgZone} ngZone angular zone.
-   * @memberof SohoSpinboxComponent
+   * @param element matched element.
+   * @param ngZone angular zone.
+   * 
    */
   constructor(private element: ElementRef, private ngZone: NgZone) {
     super();

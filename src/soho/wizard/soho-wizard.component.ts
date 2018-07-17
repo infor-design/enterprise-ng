@@ -55,16 +55,16 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
   /**
    * Reference to the underlying container for the pages.
    *
-   * @type {SohoWizardPagesComponent}
-   * @memberof SohoWizardComponent
+   * 
+   * 
    */
   @ContentChild(SohoWizardPagesComponent) pagesContainer: SohoWizardPagesComponent;
 
   /**
    * Reference to the header, container for the ticks.
    *
-   * @type {SohoWizardHeaderComponent}
-   * @memberof SohoWizardComponent
+   * 
+   * 
    */
   @ContentChild(SohoWizardHeaderComponent) header: SohoWizardHeaderComponent;
 
@@ -147,9 +147,9 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
   /**
    * Ordered list of steps.
    *
-   * @private
-   * @type {SohoWizardTickComponent[]}
-   * @memberof SohoWizardComponent
+   * 
+   * 
+   * 
    */
   private _steps: SohoWizardTickComponent[];
 
@@ -192,7 +192,7 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
   /**
    * Attempts to move to the next step, if allowed.
    *
-   * @memberof SohoWizardComponent
+   * 
    */
   public next() {
     // This is a bit grim ... but we need to rely on ticks for the state.
@@ -207,7 +207,7 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
   /**
    * Attempts to move to the previous step, if allowed.
    *
-   * @memberof SohoWizardComponent
+   * 
    */
   public previous() {
     let currentIndex = this.currentIndex();
@@ -219,7 +219,7 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
   /**
    * Attempts to move to the last step, if allowed.
    *
-   * @memberof SohoWizardComponent
+   * 
    */
   public last() {
     const step = this.stepAt(this.stepCount() - 1);
@@ -229,7 +229,7 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
   /**
    * Attempts to move to the last step, and finish the wizard.
    *
-   * @memberof SohoWizardComponent
+   * 
    */
   public finish() {
     // Mark the wizard as finished.
@@ -245,8 +245,8 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
   /**
    * Is there another step after the current step?
    *
-   * @returns {boolean} true if there is another step; otherwise false.
-   * @memberof SohoWizardComponent
+   * @return  true if there is another step; otherwise false.
+   * 
    */
   public hasNext(): boolean {
     return !this.finished && this.currentIndex() < this.stepCount() - 1;
@@ -263,8 +263,8 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
    * Returns true if the process has finished,
    * otherwise false.
    *
-   * @returns {boolean}
-   * @memberof SohoWizardComponent
+   * @return 
+   * 
    */
   public hasFinished(): boolean {
     return this.finished;
@@ -322,7 +322,7 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
    * Handle component destruction by clearing down the SoHo
    * wizard component.
    *
-   * @memberof SohoWizardComponent
+   * 
    */
   ngOnDestroy() {
     if (this.wizard) {

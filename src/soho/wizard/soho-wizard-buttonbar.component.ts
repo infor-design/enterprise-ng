@@ -109,38 +109,38 @@ interface SohoWizardButton {
   /**
    * Id for the button element.
    *
-   * @type {string}
-   * @memberof SohoWizardButton
+   *
+   *
    */
   id?: string;
 
   /**
    * Text used inside the button.
    *
-   * @type {string}
-   * @memberof SohoWizardButton
+   *
+   *
    */
   text: string;
 
   /**
    * Click handler.
    *
-   * @memberof SohoWizardButton
+   *
    */
   click: () => void;
 
   /**
    * Disable callback.
    *
-   * @memberof SohoWizardButton
+   *
    */
   disabled?: () => boolean;
 
   /**
    * Location in the buttonbar.
    *
-   * @type {('left' | 'middle' | 'right')}
-   * @memberof SohoWizardButton
+   *
+   *
    */
   position?: 'left' | 'middle' | 'right';
 }

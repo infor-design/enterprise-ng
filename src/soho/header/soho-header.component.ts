@@ -22,7 +22,7 @@ export class SohoHeaderComponent implements AfterViewInit {
 
   /**
    * This event is fired when the status of the header is changed.
-   * @type {EventEmitter<any>}
+   * 
    */
   @Output() updated = new EventEmitter<any>();
 

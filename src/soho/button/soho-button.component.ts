@@ -1,3 +1,5 @@
+/// <reference path="./soho-button.d.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -143,7 +145,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   /**
    * Sets the expandable-expander class to be placed on the button for the
    * soho-expandablearea to use as it's expand/collapse trigger
-   * @type {boolean}
+   *
    */
   @Input() expandableExpander = false;
 

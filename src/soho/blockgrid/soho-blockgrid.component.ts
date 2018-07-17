@@ -1,3 +1,5 @@
+/// <reference path="./soho-blockgrid.d.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

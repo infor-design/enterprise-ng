@@ -44,9 +44,9 @@ interface SohoLocaleStatic {
   /**
    * Internally stores a new culture file for future use.
    *
-   * @param {string} locale the 4-character Locale ID
-   * @param {object} data translation data and locale-specific functions, such as calendars.
-   * @returns {void}
+   * @param locale the 4-character Locale ID
+   * @param data translation data and locale-specific functions, such as calendars.
+   * @return
    */
   addCulture(locale: string, data: any): void;
   calendar(): {dateFormat: any, timeFormat: string};
@@ -57,7 +57,7 @@ interface SohoLocaleStatic {
   /**
    * Get the path to the directory with the cultures
    *
-   * @returns {string} path containing culture files.
+   * @returns path containing culture files.
    */
   getCulturesPath(): string;
   isRTL(): boolean;
@@ -70,17 +70,17 @@ interface SohoLocaleStatic {
   /**
    * Overridable culture messages
    *
-   * @param {string} key  The key to search for on the string.
-   * @param {boolean} [showAsUndefined] causes a translated phrase to be
+   * @param key  The key to search for on the string.
+   * @param [showAsUndefined] causes a translated phrase to be
     instead of defaulting to the default locale's version of the string.
-   * @returns {string|undefined} a translated string, or nothing, depending on configuration
+   * @return  a translated string, or nothing, depending on configuration
    */
   translate(key: string, showAsUndefined?: string): string;
 
   /**
    * Translate Day Period
-   * @param {string} period should be "am", "pm", "AM", "PM", or "i"
-   * @returns {string} the translated day period.
+   * @param period should be "am", "pm", "AM", "PM", or "i"
+   * @returns the translated day period.
    */
   translateDayPeriod(period: string): string;
 }

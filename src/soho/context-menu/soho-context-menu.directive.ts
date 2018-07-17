@@ -70,7 +70,7 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
    * events hooked up then use registerForEvent="". Otherwise just specify the events you want
    * hooked up to sohoxi from this angular component.
    *
-   * @type {string} a space delimited list of the events to be hooked up to sohoxi.
+   *  a space delimited list of the events to be hooked up to sohoxi.
    *       example: "activated afterActivated tabAdded"
    */
   @Input() registerForEvents = undefined;

@@ -1,3 +1,5 @@
+/// <reference path="./soho-autocomplete.d.ts" />
+
 import {
   AfterViewChecked,
   AfterViewInit,
@@ -138,7 +140,7 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
   }
 
   @HostListener('keyup', ['$event'])
-  onKeyUp(event: KeyboardEvent, val) {
+  onKeyUp(event: KeyboardEvent) {
     // This is required if masking is used, otherwise the
     // the form binding does not see updates.
     this.internalValue = this.jQueryElement.val() as string;
@@ -148,8 +150,8 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
     this.jQueryElement = jQuery(this.element.nativeElement);
 
     // Bind to jQueryElement's events
-    this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
     this.jQueryElement
+      .on('selected', (...args) => this.selected.emit(args))
       .on('change', (e: any, args: any[]) => this.onChange(args));
 
     // Invoke the Autocomplete

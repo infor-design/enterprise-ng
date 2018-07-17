@@ -1,3 +1,5 @@
+/// <reference path="./soho-accordion.d.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -25,8 +27,6 @@ import { SohoAccordionHeaderComponent } from './soho-accordion-header.component'
  * The Accordion is a grouped set of collapsible panels used to navigate sections of
  * related content. Each panel consists of two levels: the top level identifies the
  * category or section header, and the second level provides the associated options.
- *
- * @class SohoAccordionComponent
  */
 @Component({
   selector: 'soho-accordion',
@@ -52,11 +52,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
   private jQueryElement: JQuery;
 
   /**
-   * References to theSoho contgrol api.
-   *
-   * @private
-   * @type {SohoAccordionStatic}
-   * @memberof SohoAccordionComponent
+   * References to the Soho control api.
    */
   private accordion: SohoAccordionStatic;
 
@@ -86,7 +82,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    *
    * If set to true, allows only one pane of the Accordion to be open at a time.
    *
-   * @memberof SohoAccordionComponent
+   *
    */
   @Input() public set allowOnePane(allowOnePane: boolean) {
     this.options.allowOnePane = typeof (allowOnePane) === 'boolean' && allowOnePane;
@@ -103,7 +99,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    * Displays a "Chevron" icon that sits off to the right-most side of a top-level accordion header.
    * Used in place of an Expander (+/-) if enabled.
    *
-   * @memberof SohoAccordionComponent
+   *
    */
   @Input() public set displayChevron(displayChevron: boolean) {
     this.options.displayChevron = typeof (displayChevron) === 'boolean' && displayChevron;
@@ -120,7 +116,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    * Can be set to false if routing is externally handled, otherwise
    * links are handled normally.
    *
-   * @memberof SohoAccordionComponent
+   *
    */
   @Input() public set rerouteOnLinkClick(rerouteOnLinkClick: boolean) {
     this.options.rerouteOnLinkClick = typeof (rerouteOnLinkClick) === 'boolean' && rerouteOnLinkClick;
@@ -136,7 +132,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
   /**
    * A callback function that when implemented provided a call back for "ajax loading" of tab contents on open.
    *
-   * @memberof SohoAccordionComponent
+   *
    */
   @Input() public set source(source: Function) {
     this.options.source = source;
@@ -198,9 +194,8 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    *
    * @todo - how best to access the headers?
    *
-   * @param {number} index
-   * @returns {SohoAccordionHeaderComponent}
-   * @memberof SohoAccordionComponent
+   * @param index - the index of the accordion header.
+   * @return
    */
   public getHeader(index: number): SohoAccordionHeaderComponent {
     return this.headers.toArray()[index];
@@ -208,7 +203,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
 
   /**
    * Expand the given Panel on the Accordion.
-   * @param {Object} header &nbsp;-&nbsp; the header component
+   * @param header &nbsp;-&nbsp; the header component
    */
   public expand(header: SohoAccordionHeaderComponent): void {
     if (this.accordion) {
@@ -218,7 +213,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
 
   /**
    * Collapse the given Panel on the Accordion.
-   * @param {Object} header &nbsp;-&nbsp; the jquery header element
+   * @param header &nbsp;-&nbsp; the jquery header element
    */
   public collapse(header: SohoAccordionHeaderComponent): void {
     if (this.accordion) {
@@ -238,7 +233,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
   /**
    * Collapses all the expanded panels.
    *
-   * @memberof SohoAccordionComponent
+   *
    */
   public collapseAll(): void {
     if (this.accordion) {
@@ -290,7 +285,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
   /**
    * Toggle the given Panel on the Accordion between expanded and collapsed
    *
-   * @param {Object} header &nbsp;-&nbsp; the jquery header element
+   * @param header &nbsp;-&nbsp; the jquery header element
    */
   public toggle(header: SohoAccordionHeaderComponent): void {
     if (this.accordion) {
@@ -338,8 +333,6 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
 
   /**
    * Destructor.
-   *
-   * @memberof SohoAccordionComponent
    */
   ngOnDestroy(): void {
     if (this.accordion) {

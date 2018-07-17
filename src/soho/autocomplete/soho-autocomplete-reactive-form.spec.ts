@@ -1,3 +1,5 @@
+/// <reference path="./soho-autocomplete.d.ts" />
+
 import {
   ComponentFixture,
   TestBed
@@ -21,7 +23,6 @@ import { SohoAutoCompleteModule } from './soho-autocomplete.module';
 import { SohoLabelModule } from '../label/soho-label.module';
 import { SohoAutoCompleteComponent } from './soho-autocomplete.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { fakeAsync, tick } from '@angular/core/testing';
 
 @Component({
   template: `
@@ -34,7 +35,7 @@ class SohoAutoCompleteReactiveFormTestComponent {
 
   autocompleteUrl = 'http://localhost:4200/app/demodata/states.demo.json?term=';
 
-  @ViewChild(SohoAutoCompleteComponent) dropdown: SohoAutoCompleteComponent;
+  @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
 
   public formGroup: FormGroup;
 
@@ -53,7 +54,7 @@ class SohoAutoCompleteReactiveFormTestComponent {
 }
 
 describe('§SohoAutoCompleteComponent on Reactive Form', () => {
-  let dropdown: SohoAutoCompleteComponent;
+  let autocomplete: SohoAutoCompleteComponent;
   let component: SohoAutoCompleteReactiveFormTestComponent;
   let fixture: ComponentFixture<SohoAutoCompleteReactiveFormTestComponent>;
   let de: DebugElement;
@@ -67,7 +68,7 @@ describe('§SohoAutoCompleteComponent on Reactive Form', () => {
 
     fixture = TestBed.createComponent(SohoAutoCompleteReactiveFormTestComponent);
     component = fixture.componentInstance;
-    dropdown = component.dropdown;
+    autocomplete = component.autocomplete;
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-autocomplete]')).nativeElement;

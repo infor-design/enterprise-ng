@@ -27,8 +27,8 @@ export class SohoWizardHeaderComponent {
   /**
    * List of ticks in the control.
    *
-   * @type {QueryList<SohoWizardTickComponent>}
-   * @memberof SohoWizardHeaderComponent
+   * 
+   * 
    */
   @ContentChildren(SohoWizardTickComponent) steps: QueryList<SohoWizardTickComponent>;
 

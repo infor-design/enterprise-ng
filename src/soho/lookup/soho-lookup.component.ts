@@ -118,7 +118,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   @HostListener('keyup', ['$event'])
-  onKeyUp(event: KeyboardEvent, val) {
+  onKeyUp(event: KeyboardEvent) {
     // This is required, otherwise the the form binding does not see updates.
     this.internalValue = this.jQueryElement.val() as string;
   }

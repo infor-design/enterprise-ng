@@ -67,7 +67,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
 
   /**
    * Leaf is selected
-   * @type {EventEmitter<SohoHierarchyEvent>}
+   * 
    */
   @Output() selected = new EventEmitter<SohoHierarchyEvent>();
 
@@ -75,7 +75,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
 
   /**
    * Used to add new data lazily when a leaf is expanded
-   * @param {string} id should match the leaf id in the DOM
+   * @param id should match the leaf id in the DOM
    */
   add(id: string, dataset: Array<any>, newData: Array<any>) {
     this.hierarchy.add(id, dataset, newData);

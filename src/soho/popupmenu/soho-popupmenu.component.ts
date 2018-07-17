@@ -282,7 +282,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
    * events hooked up then use registerForEvent="". Otherwise just specify the events you want
    * hooked up to sohoxi from this angular component.
    *
-   * @type {string} a space delimited list of the events to be hooked up to sohoxi.
+   *  a space delimited list of the events to be hooked up to sohoxi.
    *       example: "activated afterActivated tabAdded"
    */
   @Input() registerForEvents = undefined;
@@ -409,8 +409,8 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
 
   /**
    * Closes the popup menu
-   * @param {boolean} isCancelled
-   * @param {boolean} noFocus
+   * @param isCancelled
+   * @param noFocus
    */
   close(isCancelled?: boolean, noFocus?: boolean): void {
     if (this.popupmenu) {

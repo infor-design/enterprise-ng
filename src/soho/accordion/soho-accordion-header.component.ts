@@ -1,3 +1,5 @@
+/// <reference path="./soho-accordion.d.ts" />
+
 import {
   Component,
   HostBinding,

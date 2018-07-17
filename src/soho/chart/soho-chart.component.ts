@@ -1,3 +1,5 @@
+/// <reference path="./soho-chart.d.ts" />
+
 import {
   AfterViewInit,
   Component,

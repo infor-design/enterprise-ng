@@ -1,4 +1,6 @@
-import {AfterViewInit, Directive, ElementRef, Input, NgZone} from '@angular/core';
+/// <reference path="./soho-alert.d.ts" />
+
+import { AfterViewInit, Directive, ElementRef, Input, NgZone } from '@angular/core';
 
 /**
  * Angular Wrapper for the SohoAlert Directive.
@@ -55,7 +57,7 @@ export class SohoAlertDirective implements AfterViewInit {
   /**
    * Returns the data object data-errormessage
    * @deprecated use getMessage() instead
-   * @returns {string}
+   * @return error
    */
   get errorMessage(): string {
     return this.getMessage('error');
@@ -91,11 +93,11 @@ export class SohoAlertDirective implements AfterViewInit {
   /**
    * Adds an inline message of the type specified
    *
-   * @param {string} message
-   * @param {SohoAlertType} type optional - 'error' (default)
-   * @param {boolean} isAlert optional - false (default)
-   * @param {boolean} triggerEvents optional - true (default)
-   * @param {string} icon optional
+   * @param message
+   * @param type optional - 'error' (default)
+   * @param isAlert optional - false (default)
+   * @param triggerEvents optional - true (default)
+   * @param icon optional
    */
   addInlineMessage(message: string, type?: SohoAlertType, isAlert?: boolean, triggerEvents?: boolean, icon?: string) {
     this.type = type;
@@ -108,8 +110,8 @@ export class SohoAlertDirective implements AfterViewInit {
   /**
    * Gets the message of the type specified
    *
-   * @param {SohoAlertType} type optional - 'error' default
-   * @returns {string}
+   * @param type optional - 'error' default
+   * @return
    */
   getMessage(type?: SohoAlertType): string {
     if (this.jQueryElement) {
@@ -131,8 +133,8 @@ export class SohoAlertDirective implements AfterViewInit {
   /**
    * Removes the message of the type specified
    *
-   * @param {SohoAlertType} type optional - 'error' (default)
-   * @param {boolean} triggerEvents optional - true (default) triggers events
+   * @param type optional - 'error' (default)
+   * @param triggerEvents optional - true (default) triggers events
    */
   removeMessage(type?: SohoAlertType, triggerEvents?: boolean) {
     this.type = type;
@@ -143,7 +145,7 @@ export class SohoAlertDirective implements AfterViewInit {
   /**
    * Removes the message for all types
    *
-   * @param {boolean} triggerEvents optional - true (default) triggers events
+   * @param triggerEvents optional - true (default) triggers events
    */
   removeAllMessages(triggerEvents?: boolean) {
     this.removeMessage('error', triggerEvents);
@@ -156,7 +158,7 @@ export class SohoAlertDirective implements AfterViewInit {
   /**
    * Scrolls the element into the visible area of the browser window
    *
-   * @param {boolean} alignToTop optional - true (default) element will be aligned to the top of the visible area of the scrollable ancestor
+   * @param alignToTop optional - true (default) element will be aligned to the top of the visible area of the scrollable ancestor
    */
   scrollIntoView(alignToTop?: boolean) {
     if (this.jQueryElement) {

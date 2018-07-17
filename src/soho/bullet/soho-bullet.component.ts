@@ -1,3 +1,5 @@
+/// <reference path="./soho-bullet.d.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

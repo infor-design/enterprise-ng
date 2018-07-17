@@ -4,14 +4,14 @@ interface SohoHierarchyLegend {
 }
 
 /*
-  * @param {String} legend  Pass in custom markdown for the legend structure.
-  * @param {String} legendKey  Key to use for the legend matching
-  * @param {String} dataset  Hierarchical Data to display
-  * @param {Boolean} newData  New data to be inserted into the hierarchy dataset ?
-  * @param {String} templateId  Additional product name information to display
-  * @param {Boolean} mobileView  If true will only show mobile view, by default using device info to determine.
-  * @param {String} beforeExpand  A callback that fires before node expansion of a node.
-  * @param {Boolean} paging Display hierarchy for paging if true
+  * @param legend  Pass in custom markdown for the legend structure.
+  * @param legendKey  Key to use for the legend matching
+  * @param dataset  Hierarchical Data to display
+  * @param newData  New data to be inserted into the hierarchy dataset ?
+  * @param templateId  Additional product name information to display
+  * @param mobileView  If true will only show mobile view, by default using device info to determine.
+  * @param beforeExpand  A callback that fires before node expansion of a node.
+  * @param paging Display hierarchy for paging if true
  */
 
 interface SohoHierarchyOptions {

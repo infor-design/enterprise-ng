@@ -182,25 +182,25 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * set to true to show a secondary style for the tabs
-   * @type {boolean}
+   *
    */
   @Input() alternate = false;
 
   /**
    * set to true to display the tabs vertically to the left of the tab-panel
-   * @type {boolean}
+   *
    */
   @Input() vertical = false;
 
   /**
    * set to true to display the tabs as module tabs
-   * @type {boolean}
+   *
    */
   @Input() moduleTabs = false;
 
   /**
    * set to true to display the tabs as header tabs
-   * @type {boolean}
+   *
    */
   @Input() headerTabs = false;
 
@@ -219,7 +219,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
   /**
    * If set to true, creates a button at the end of the tab list that can be used to add an empty tab and panel.
-   * @type {boolean}
+   *
    */
   @Input() set addTabButton(addTabButton: boolean) {
     this._tabsOptions.addTabButton = addTabButton;
@@ -254,7 +254,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * If true, will change the selected tab on invocation based on the URL that exists after the hash
-   * @type {boolean}
+   *
    */
   @Input() set changeTabOnHashChange(changeTabOnHashChange: boolean) {
     this._tabsOptions.changeTabOnHashChange = changeTabOnHashChange;
@@ -278,7 +278,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * set to true to allow tab count markup <span class=tabcount>#</span>.
-   * @type {boolean}
+   *
    */
   @Input() set tabCounts(tabCounts: boolean) {
     this._tabsOptions.tabCounts = tabCounts;
@@ -290,7 +290,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * If Vertical Tabs & true, will automatically switch to Horizontal Tabs on smaller breakpoints.
-   * @type {boolean}
+   *
    */
   @Input() set verticalResponsive(verticalResponsive: boolean) {
     this._tabsOptions.verticalResponsive = verticalResponsive;
@@ -317,7 +317,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
    * events hooked up then use registerForEvent="". Otherwise just specify the events you want
    * hooked up to sohoxi from this angular component.
    *
-   * @type {string} a space delimited list of the events to be hooked up to sohoxi.
+   *  a space delimited list of the events to be hooked up to sohoxi.
    *       example: "activated afterActivated tabAdded"
    */
   @Input() registerForEvents = undefined;
@@ -329,50 +329,44 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   /**
    * The beforeactivated event is fired whenever a tab is selected giving the event handler a chance
    * to "veto" the tab selection change.
-   * @type {EventEmitter<Object>}
+   *
    */
   @Output() beforeActivated = new EventEmitter<SohoTabsEvent>();
 
   /**
    * The beforeactivate event is deprecated in favor of `beforeactivated`.
    * @deprecated
-   * @type {EventEmitter<Object>}
    */
   @Output() beforeActivate = new DeprecatedEventEmitter<SohoTabsEvent>('beforeactivate', 'beforeactivated');
 
   /**
    * The activated event is fired whenever a tab is selected (or "activated");
-   * @type {EventEmitter<Object>}
    */
   @Output() activated = new EventEmitter<SohoTabsEvent>();
 
   /**
    * The afteractivate event is fired after the has been activated.
-   * @type {EventEmitter<Object>}
    */
   @Output() afterActivated = new EventEmitter<SohoTabsEvent>();
 
   /**
    * fired before a tab closes
-   * @type {EventEmitter<Object>}
    */
   @Output() beforeClose = new EventEmitter<SohoTabsEvent>();
 
   /**
    * fired when a tab closes
-   * @type {EventEmitter<Object>}
    */
   @Output() close = new EventEmitter<SohoTabsEvent>();
 
   /**
    * fired after a tab closes
-   * @type {EventEmitter<Object>}
    */
   @Output() afterClose = new EventEmitter<SohoTabsEvent>();
 
   /**
    * fire when a new tab is added.
-   * @type {EventEmitter<Object>}
+   *
    */
   @Output() tabAdded = new EventEmitter<SohoTabsEvent>();
 
@@ -690,7 +684,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * Return the the currenlty active/selected tab.
-   * @returns {JQuery} A JQuery object of the active tab element.
+   * @return  A JQuery object of the active tab element.
    */
   getActiveTab(): JQuery {
     // call outside the angular zone so change detection isn't triggered by the soho component.
@@ -700,7 +694,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * Returns the visible tabs
-   * @returns {Array<JQuery>} An array of JQuery objects of the visible tab elements
+   * @return  An array of JQuery objects of the visible tab elements
    */
   getVisibleTabs(): Array<JQuery> {
     // call outside the angular zone so change detection isn't triggered by the soho component.
@@ -710,7 +704,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * Returns the overflow tabs
-   * @returns {Array<JQuery>} An array of JQuery objects of the overflow tab elements
+   * @return  An array of JQuery objects of the overflow tab elements
    */
   getOverflowTabs(): Array<JQuery> {
     // call outside the angular zone so change detection isn't triggered by the soho component.

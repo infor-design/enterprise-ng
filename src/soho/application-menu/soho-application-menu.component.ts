@@ -1,3 +1,5 @@
+/// <reference path="./soho-application-menu.d.ts" />
+
 import {
   AfterViewInit,
   Component,
@@ -248,6 +250,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
    */
   public ngOnDestroy() {
     if (this.applicationmenu) {
+      this.jQueryElement.off();
       this.applicationmenu.destroy();
       this.applicationmenu = null;
     }

@@ -35,7 +35,7 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
    * We use null as the default, rather than false, to ensure the attribute is
    * not displayed.
    *
-   * @memberof SohoInputComponent
+   *
    */
   @HostBinding('attr.disabled') @Input()
   isDisabled = null;
@@ -56,7 +56,7 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
   }
 
   @HostListener('keyup', ['$event'])
-  onKeyUp(event: KeyboardEvent, val) {
+  onKeyUp(event: KeyboardEvent) {
     // This is required if masking is used, otherwise the
     // the form binding does not see updates.
     this.internalValue = this.jQueryElement.val() as string;

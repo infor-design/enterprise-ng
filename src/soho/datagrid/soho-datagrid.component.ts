@@ -15,11 +15,7 @@ import {
   ComponentFactoryResolver,
   Injector,
   ApplicationRef,
-  Compiler,
-  NgModule,
   ComponentRef,
-  ComponentFactory,
-  Provider,
   ReflectiveInjector,
   Type
 } from '@angular/core';
@@ -27,7 +23,6 @@ import {
 import { ArgumentHelper } from '../utils/argument.helper';
 
 import { SohoDataGridService } from './soho-datagrid.service';
-import { SohoComponentsModule } from 'ids-enterprise-ng';
 
 export type SohoDataGridType = 'auto' | 'content-only';
 
@@ -943,7 +938,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * The name of the column to stretch, or 'last' if the
    * last column is stretched.
    *
-   * @memberof SohoDataGridComponent
+   *
    */
   get stretchColumn() {
     return this._gridOptions.stretchColumn;
@@ -1140,7 +1135,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     private resolver: ComponentFactoryResolver,
     private injector: Injector,
     private app: ApplicationRef,
-    private compiler: Compiler,
     @Optional() protected datagridService: SohoDataGridService) {
 
   }
@@ -1463,8 +1457,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Updates the columns and columnGroups displayed on the grid.
-   * @param {SohoDataGridColumn[]} columns The datagrid columns to update.
-   * @param {SohoDataGridColumnGroup[]} columnGroups The column groups to update.
+   * @param columns The datagrid columns to update.
+   * @param columnGroups The column groups to update.
    */
   updateColumns(columns: SohoDataGridColumn[], columnGroups: SohoDataGridColumnGroup[]): void {
     this.datagrid.updateColumns(columns, columnGroups);
@@ -1472,8 +1466,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Parse a JSON array with columns and return the column object.
-   * @param  {string} columnStr The json represntation of the column object.
-   * @returns {array} The array of columns.
+   * @param columnStr The json represntation of the column object.
+   * @return  The array of columns.
    */
   columnsFromString(columns: string) {
     return this.datagrid.columnsFromString(columns);
@@ -1481,8 +1475,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Restore the user settings from local Storage or as passed in.
-   * @param  {object} settings The object containing the settings to use.
-   * @returns {void}
+   * @param settings The object containing the settings to use.
+   * @return
    */
   restoreUserSettings(settings: any): void {
     this.datagrid.restoreUserSettings(settings);
@@ -1630,7 +1624,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @param container the container.
    * @param args the args
    */
-  private onDestroyCell(container: JQuery, args: SohoDataGridPostRenderCellArgs) {
+  private onDestroyCell(container: any, args: SohoDataGridPostRenderCellArgs) {
     const idx = this.cellComponents.findIndex((c) => args.row === c.row && args.cell === c.cell);
     if (idx > -1) {
       this.cellComponents[idx].component.destroy();
@@ -1717,26 +1711,25 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
     // Initialise any event handlers.
     this.jQueryElement
-      .on('addrow', (e: JQuery.Event, args: SohoDataGridAddRowEvent) => { this.rowAdd.next(args); })
-
-      .on('cellchange', (e: JQuery.Event, args: SohoDataGridCellChangeEvent) => this.cellchange.next(args))
-      .on('click', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.rowClicked.next(args); })
-      .on('closefilterrow', (e: JQuery.Event, args: SohoDataGridCloseFilterRowEvent) => { this.closeFilterRow.next(args); })
-      .on('collapserow', (e: JQuery.Event, args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
-      .on('contextmenu', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.contextMenu.next(args); })
-      .on('dblclick', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.rowDoubleClicked.next(args); })
-      .on('expandrow', (e: JQuery.Event, args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
-      .on('filtered', (e: JQuery.Event, args: any) => { this.filtered.next(args); })
-      .on('openfilterrow', (e: JQuery.Event, args: SohoDataGridOpenFilterRowEvent) => { this.openFilterRow.next(args); })
-      .on('removerow', (e: JQuery.Event, args: SohoDataGridRowRemoveEvent) => { this.rowRemove.next(args); })
-      .on('rendered', (e: JQuery.Event, args: SohoDataGridRenderedEvent) => { this.rendered.next(args); })
-      .on('afterrender', (e: JQuery.Event, args: SohoDataGridAfterRenderEvent) => { this.afterRender.next(args); })
-      .on('rowactivated', (e: JQuery.Event, args: SohoDataGridRowActivatedEvent) => { this.rowActivated.next(args); })
-      .on('rowdeactivated', (e: JQuery.Event, args: SohoDataGridRowDeactivatedEvent) => { this.rowDeactivated.next(args); })
-      .on('rowreorder', (e: JQuery.Event, args: SohoDataGridRowReorderedEvent) => { this.rowReordered.next(args); })
+      .on('addrow', (args: SohoDataGridAddRowEvent) => { this.rowAdd.next(args); })
+      .on('cellchange', (args: SohoDataGridCellChangeEvent) => this.cellchange.next(args))
+      .on('click', (args: SohoDataGridRowClicked) => this.rowClicked.next(args))
+      .on('closefilterrow', (args: SohoDataGridCloseFilterRowEvent) => { this.closeFilterRow.next(args); })
+      .on('collapserow', (args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
+      .on('contextmenu', (args: SohoDataGridRowClicked) => { this.contextMenu.next(args); })
+      .on('dblclick', (args: SohoDataGridRowClicked) => { this.rowDoubleClicked.next(args); })
+      .on('expandrow', (args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
+      .on('filtered', (args: any) => { this.filtered.next(args); })
+      .on('openfilterrow', (args: SohoDataGridOpenFilterRowEvent) => { this.openFilterRow.next(args); })
+      .on('removerow', (args: SohoDataGridRowRemoveEvent) => { this.rowRemove.next(args); })
+      .on('rendered', (args: SohoDataGridRenderedEvent) => { this.rendered.next(args); })
+      .on('afterrender', (args: SohoDataGridAfterRenderEvent) => { this.afterRender.next(args); })
+      .on('rowactivated', (args: SohoDataGridRowActivatedEvent) => { this.rowActivated.next(args); })
+      .on('rowdeactivated', (args: SohoDataGridRowDeactivatedEvent) => { this.rowDeactivated.next(args); })
+      .on('rowreorder', (args: SohoDataGridRowReorderedEvent) => { this.rowReordered.next(args); })
       .on('selected', (e: JQuery.Event, args: SohoDataGridSelectedRow[]) => this.selected.next({ e, rows: args }))
-      .on('settingschanged', (e: JQuery.Event, args: SohoDataGridSettingsChangedEvent) => { this.settingsChanged.next(args); })
-      .on('sorted', (e: JQuery.Event, args: SohoDataGridSortedEvent) => { this.sorted.next(args); });
+      .on('settingschanged', (args: SohoDataGridSettingsChangedEvent) => { this.settingsChanged.next(args); })
+      .on('sorted', (args: SohoDataGridSortedEvent) => { this.sorted.next(args); });
   }
 
   /**

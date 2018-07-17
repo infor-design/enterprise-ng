@@ -236,10 +236,10 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
 
   /**
    * Creates an instance of SohoColorPickerComponent.
-   * @param {ElementRef} element the element this component encapsulates.
-   * @param {NgZone} ngZone the angualar zone for this component
-   * @param {NgControl} ngControl any associated form control (optional)
-   * @memberof SohoColorPickerComponent
+   * @param element the element this component encapsulates.
+   * @param ngZone the angualar zone for this component
+   * @param ngControl any associated form control (optional)
+   *
    */
   constructor(
     private element: ElementRef,
@@ -299,9 +299,8 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   /**
    * Event handler for the 'changed' event on the 'colorpicker' component.
    *
-   * @private
-   * @param {*} event the standard jQuery event.
-   * @memberof SohoColorPickerComponent
+   *
+   * @param event the standard jQuery event.
    */
   private onChanged(event: any) {
     // This code does not work properly if run in the angular zone.
@@ -377,9 +376,6 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
  * the {ControlValueAccessor}.  Specifically, providing access to the
  * onChange function, which we must call when the value of the colorpicker
  * is modified.
- *
- * @class SohoColorPickerComponentValueAccessorDelegator
- * @implements {ControlValueAccessor}
  */
 class SohoColorPickerComponentValueAccessorDelegator implements ControlValueAccessor {
   /**
@@ -390,9 +386,8 @@ class SohoColorPickerComponentValueAccessorDelegator implements ControlValueAcce
   /**
    * Creates an instance of SohoColorPickerComponentValueAccessorDelegate.
    *
-   * @param {ControlValueAccessor} delegate the value accessor
-   * @param {SohoColorPickerComponent} colorpicker the colorpicker linked to the accessor
-   * @memberof SohoColorPickerComponentValueAccessorDelegate
+   * @param delegate the value accessor
+   * @param colorpicker the colorpicker linked to the accessor
    */
   constructor(
     private delegate: ControlValueAccessor,

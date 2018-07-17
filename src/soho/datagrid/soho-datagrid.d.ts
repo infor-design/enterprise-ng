@@ -761,13 +761,13 @@ interface SohoDataGridStatic {
 
   /**
    * Hides the column at the given index.
-   * @param {string} id The id of the column to show.
+   * @param id The id of the column to show.
    */
   hideColumn(id: string): void;
 
   /**
    * Shows the column at the given index.
-   * @param {string} id The id of the column to hide.
+   * @param id The id of the column to hide.
    */
   showColumn(id: string): void;
 
@@ -842,7 +842,7 @@ interface SohoDataGridStatic {
 
   /**
   * Toggle the current selection state from on to off.
-  * @param  {number} idx The row to select/unselect
+  * @param {number} idx The row to select/unselect
   */
   toggleRowSelection(idx: number): void;
 
@@ -1028,6 +1028,15 @@ interface JQuery {
   on(events: 'settingschanged', handler: JQuery.EventHandlerBase<this, SohoDataGridSettingsChangedEvent>): this;
   on(events: 'rendered', handler: JQuery.EventHandlerBase<this, SohoDataGridRenderedEvent>): this;
   on(events: 'addrow', handler: JQuery.EventHandlerBase<this, SohoDataGridAddRowEvent>): this;
+  on(events: 'click', handler: JQuery.EventHandlerBase<this, SohoDataGridRowClicked>): this;
+  on(events: 'collapserow', handler: JQuery.EventHandlerBase<this, SohoDataGridRowCollapseEvent>): this;
+  on(events: 'contextmenu' | 'dblclick', handler: JQuery.EventHandlerBase<this, SohoDataGridRowClicked>): this;
+  on(events: 'removerow', handler: JQuery.EventHandlerBase<this, SohoDataGridRowRemoveEvent>): this;
+  on(events: 'rowreorder', handler: JQuery.EventHandlerBase<this, SohoDataGridRowReorderedEvent>): this;
+  on(events: 'sorted', handler: JQuery.EventHandlerBase<this, SohoDataGridSortedEvent>): this;
+  on(events: 'expandrow', handler: JQuery.EventHandlerBase<this, SohoDataGridRowExpandEvent>): this;
+  on(events: 'rowactivated', handler: JQuery.EventHandlerBase<this, SohoDataGridRowActivatedEvent>): this;
+  on(events: 'rowdeactivated', handler: JQuery.EventHandlerBase<this, SohoDataGridRowDeactivatedEvent>): this;
 }
 
 interface SohoDataGridRowExpandEvent {

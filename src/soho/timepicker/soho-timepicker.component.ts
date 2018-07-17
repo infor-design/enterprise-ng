@@ -168,10 +168,10 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
   /**
    * Creates an instance of SohoTimePickerComponent.
    *
-   * @param {ElementRef} element the element this component encapsulates.
-   * @param {NgZone} ngZone the angular zone for this component.
-   * @param {ChangeDetectorRef} ref reference to the change detector
-   * @memberof SohoTimePickerComponent
+   * @param element the element this component encapsulates.
+   * @param ngZone the angular zone for this component.
+   * @param ref reference to the change detector
+   * 
    */
   constructor(private element: ElementRef,
     private ngZone: NgZone,

@@ -25,16 +25,16 @@
   /**
    * href key.
    *
-   * @type {string}
-   * @memberof SohoWizardTick
+   * 
+   * 
    */
   href?: string;
 
   /**
    * Label string to display under the tick.
    *
-   * @type {string}
-   * @memberof SohoWizardTick
+   * 
+   * 
    */
   label?: string;
  }
@@ -46,8 +46,8 @@ interface SohoWizardOptions {
   /**
    * Optional model driven list of ticks to display.
    *
-   * @type {SohoWizardTick[]}
-   * @memberof SohoWizardOptions
+   * 
+   * 
    */
   ticks?: SohoWizardTick[];
 }
@@ -63,9 +63,9 @@ interface SohoWizardStatic {
   /**
    * Activates a tick - based on the index or jquery element.
    *
-   * @param {*} e
-   * @param {(number | JQuery)} tick
-   * @memberof SohoWizardStatic
+   * @param e
+   * @param tick
+   * 
    */
   activate(e: any, tick: number | JQuery): void;
 

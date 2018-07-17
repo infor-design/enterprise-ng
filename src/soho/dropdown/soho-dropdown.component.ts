@@ -51,9 +51,9 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   /**
    * Selector for originating element.
    *
-   * @private
-   * @type {JQuery}
-   * @memberOf SohoDropDownComponent
+   *
+   *
+   *
    */
   private jQueryElement: JQuery;
 
@@ -333,10 +333,10 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
 
   /**
    * Creates an instance of SohoDropDownComponent.
-   * @param {ElementRef} element the element this component encapsulates.
-   * @param {NgZone} ngZone the angualar zone for this component
-   * @param {NgControl} ngControl any associated form control (optional)
-   * @memberof SohoDropDownComponent
+   * @param element the element this component encapsulates.
+   * @param ngZone the angualar zone for this component
+   * @param ngControl any associated form control (optional)
+   *
    */
   constructor(
     private element: ElementRef,
@@ -409,10 +409,10 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   /**
    * Event handler for the 'requestend' event on the dropdown 'component'.
    *
-   * @private
-   * @param {JQuery.Event} event the standard jQuery event.
-   * @param {*} data any data passed by the dropdown (todo the type)
-   * @memberof SohoDropDownComponent
+   *
+   * @param event the standard jQuery event.
+   * @param data any data passed by the dropdown (todo the type)
+   *
    */
   private onRequestEnd(event: JQuery.Event, searchTerm: string, data: any[]) {
     // When the request for data has completed, make sure we
@@ -431,9 +431,9 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   /**
    * Event handler for the 'changed' event on the 'dropdown' component.
    *
-   * @private
-   * @param {*} event the standard jQuery event.
-   * @memberof SohoDropDownComponent
+   *
+   * @param event the standard jQuery event.
+   *
    */
   private onChanged(event: any) {
     // This code does not work properly if run in the angular zone.
@@ -569,8 +569,8 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
  *
  * See https://github.com/angular/angular/blob/master/packages/forms/src/directives/select_multiple_control_value_accessor.ts.
  *
- * @class SohoDropDownControlValueAccessorDelegator
- * @implements {ControlValueAccessor}
+ *
+ *
  */
 class SohoDropDownControlValueAccessorDelegator implements ControlValueAccessor {
   /**
@@ -581,9 +581,9 @@ class SohoDropDownControlValueAccessorDelegator implements ControlValueAccessor 
   /**
    * Creates an instance of SohoDropDownControlValueAccessorDelegate.
    *
-   * @param {ControlValueAccessor} delegate the value accessor
-   * @param {SohoDropDownComponent} dropdown the dropdown linked to the accessor
-   * @memberof SohoDropDownControlValueAccessorDelegate
+   * @param delegate the value accessor
+   * @param dropdown the dropdown linked to the accessor
+   *
    */
   constructor(
     private delegate: ControlValueAccessor,
@@ -612,8 +612,8 @@ class SohoDropDownControlValueAccessorDelegator implements ControlValueAccessor 
   /**
    * Update the jQuery widget with the request disabled state.
    *
-   * @param {boolean} isDisabled true if the control should be disabled; otherwise false.
-   * @memberof SohoDropDownControlValueAccessorDelegator
+   * @param isDisabled true if the control should be disabled; otherwise false.
+   *
    */
   setDisabledState(isDisabled: boolean): void {
     this.dropdown.disabled = isDisabled;
@@ -624,10 +624,10 @@ class SohoDropDownControlValueAccessorDelegator implements ControlValueAccessor 
    * Convert the 'real' value into the corresponding
    * option value.
    *
-   * @private
-   * @param {*} value the value of the option; must not be null.
-   * @returns {string} the string optipnValue of the otion elemen.
-   * @memberof SohoDropDownControlValueAccessorDelegator
+   *
+   * @param value the value of the option; must not be null.
+   * @returns the string optipnValue of the otion elemen.
+   *
    */
   convertToOptionValue(value: any): string {
     const delegate = (this.delegate as any);

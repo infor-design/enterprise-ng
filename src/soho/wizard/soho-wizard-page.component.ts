@@ -36,7 +36,7 @@ export class SohoWizardPageComponent implements AfterViewInit {
    * displaying all the pages for a moment.  The wizard will
    * ensure only a single page is displayed.
    *
-   * @memberof SohoWizardPageComponent
+   * 
    */
   @HostBinding('class.hidden') hidden = true; // tslint: ignore-line
 
@@ -52,8 +52,8 @@ export class SohoWizardPageComponent implements AfterViewInit {
   /**
    * Constructor.
    *
-   * @param {ElementRef} el owning DOM element
-   * @memberof SohoWizardPageComponent
+   * @param el owning DOM element
+   * 
    */
   constructor(private el: ElementRef) {
   }
@@ -68,8 +68,8 @@ export class SohoWizardPageComponent implements AfterViewInit {
    * I'd have rather done this with an event, but we end up
    * with a circular dependency.
    *
-   * @param {SohoWizardEvent} e
-   * @memberof SohoWizardPageComponent
+   * @param e
+   * 
    */
   fireActivated(e: SohoWizardEvent) {
     this.activated.next(e);

@@ -379,7 +379,7 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
    * events hooked up then use registerForEvent="". Otherwise just specify the events you want
    * hooked up to sohoxi from this angular component.
    *
-   * @type {string} a space delimited list of the events to be hooked up to sohoxi.
+   *  a space delimited list of the events to be hooked up to sohoxi.
    *       example: "activated afterActivated tabAdded"
    */
   @Input() registerForEvents = undefined;
@@ -387,25 +387,21 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
   /**
    * The beforeactivate event is fired whenever a toolbar is activated giving the event handler a chance
    * to "veto" the tab selection change.
-   * @type {EventEmitter<Object>}
    */
   @Output() beforeActivated: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
 
   /**
    * The activated event is if the beforeActivate succeeds.
-   * @type {EventEmitter<Object>}
    */
   @Output() activated: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
 
   /**
    * The afteractivate event is fired after the toolbar has been activated.
-   * @type {EventEmitter<Object>}
    */
   @Output() afterActivated: EventEmitter<SohoToolbarEvent> = new EventEmitter<SohoToolbarEvent>();
 
   /**
    * The selected event is fired when a toolbar button has been clicked.
-   * @type {EventEmitter<SohoToolbarSelectedEvent>}
    */
   @Output() selected: EventEmitter<SohoToolbarSelectedEvent> = new EventEmitter<SohoToolbarSelectedEvent>();
 

@@ -14,10 +14,10 @@ export class SohoFormatNumberPipe implements PipeTransform {
   /**
    * Formats the given date using the soho locale formats.
    *
-   * @param {string} value the date (or string), must not be null.
-   * @param {string} attribs optional, additional formatting settings.
-   * @returns {string} the translated resource string or undefined.
-   * @memberof SohoTranslatePipe
+   * @param value the date (or string), must not be null.
+   * @param attribs optional, additional formatting settings.
+   * @returns the translated resource string or undefined.
+   *
    */
   transform(value: string | number, attribs?: any): string {
     return Soho.Locale.formatNumber(value, attribs);

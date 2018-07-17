@@ -66,4 +66,4 @@ export * from './treemap/index';
 export * from './utils/index';
 export * from './wizard/index';
 
-export { SohoComponentsModule } from './soho-components.module';
+export * from './soho-components.module';
