@@ -406,7 +406,7 @@ interface SohoStatic {
     Favorite: SohoDataGridColumnFormatterFunction;
     Status: SohoDataGridColumnFormatterFunction;
     TargetedAchievement: SohoDataGridColumnFormatterFunction;
-  },
+  };
   Editors: {
     // Supports, Text, Numeric, Integer via mask
     Input: SohoDataGridColumnEditorFunction;
@@ -417,7 +417,7 @@ interface SohoStatic {
     Lookup: SohoDataGridColumnEditorFunction;
     Autocomplete: SohoDataGridColumnEditorFunction;
     Favorite: SohoDataGridColumnEditorFunction;
-  }
+  };
 }
 
 type SohoDataGridColumnFormatterFunction = (
@@ -733,7 +733,7 @@ interface SohoDataGridStatic {
   pager: SohoPagerStatic;
 
   /** Updates the dataset displayed by the data grid. */
-  updateDataset(dataset: Object[]): void;
+  updateDataset(dataset: Object[], pagerInfo?: SohoPagerPagingInfo): void;
 
   /** Sets the row height on the datagrid. */
   rowHeight(rowHeight: SohoDataGridRowHeight): void;
@@ -956,6 +956,13 @@ interface SohoDataGridAddRowEvent {
   value: any;
   oldValue: any;
 }
+
+interface SohoDataGridOpenFilteredEvent {
+  conditions: SohoDataGridFilterCondition;
+  op: string;
+  trigger: string;
+}
+
 interface SohoDataGridOpenFilterRowEvent {
 }
 

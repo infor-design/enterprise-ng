@@ -16,18 +16,13 @@ import {
   Injector,
   ApplicationRef,
   Compiler,
-  NgModule,
   ComponentRef,
-  ComponentFactory,
-  Provider,
   ReflectiveInjector,
   Type
 } from '@angular/core';
 
 import { ArgumentHelper } from '../utils/argument.helper';
-
 import { SohoDataGridService } from './soho-datagrid.service';
-import { SohoComponentsModule } from 'ids-enterprise-ng';
 
 export type SohoDataGridType = 'auto' | 'content-only';
 
@@ -299,10 +294,17 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   @Input() set dataset(dataset: Array<any>) {
     this._gridOptions.dataset = dataset;
     if (this.jQueryElement) {
+      const pagerInfo: SohoPagerPagingInfo = {};
       this.datagrid.settings.dataset = dataset;
 
+      // TreeGrid does not have paging
+      // set as active page so datagrid headers aren't rebuilt
+      if (this.treeGrid) {
+        pagerInfo.activePage = -1;
+      }
+
       // @todo do we need hints as this may be bundled up with other changes.
-      this.datagrid.updateDataset(dataset);
+      this.datagrid.updateDataset(dataset, pagerInfo);
     }
   }
 

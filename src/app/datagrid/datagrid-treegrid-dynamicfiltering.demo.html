@@ -1,0 +1,25 @@
+﻿﻿<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Data Grid - TreeGrid Dynamic Filter</h2>
+    <div class="row">
+      <div class="field">
+        <button soho-button (click)="toggleFilterRow()">Toggle Filter Row</button>
+        <button soho-button (click)="clearFilter()">Clear Filter</button>
+        <button soho-button (click)="onReset()">Reset Data</button>
+      </div>
+    </div>
+  </div>
+  <div class="row top-padding">
+    <div class="twelve columns demo" role="main">
+      <section class="scrollable contained-scrolling-right-bottom" style="height: 100%">
+        <div soho-busyindicator soho-datagrid
+             selectable="single"
+             [treeGrid]="true"
+             [columns]="columns"
+             [dataset]="data"
+             (filtered)="onFiltered($event)">
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
