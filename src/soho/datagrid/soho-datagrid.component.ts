@@ -1,3 +1,5 @@
+/// <reference path="./soho-datagrid.d.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

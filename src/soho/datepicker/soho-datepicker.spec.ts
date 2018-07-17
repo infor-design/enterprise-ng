@@ -1,3 +1,5 @@
+/// <reference path="./soho-datepicker.d.ts" />
+
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Component, DebugElement, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';

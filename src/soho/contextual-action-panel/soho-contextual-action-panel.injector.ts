@@ -1,3 +1,5 @@
+/// <reference path="./soho-contextual-action-panel.d.ts" />
+
 import { Injector } from '@angular/core';
 
 import { SohoContextualActionPanelRef } from './soho-contextual-action-panel.ref';

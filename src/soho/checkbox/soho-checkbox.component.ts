@@ -1,3 +1,5 @@
+/// <reference path="./soho-checkbox.d.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

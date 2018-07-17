@@ -1,3 +1,5 @@
+/// <reference path="./soho-error.d.ts" />
+
 import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
 
 /**
@@ -53,7 +55,7 @@ export class SohoErrorDirective implements AfterViewInit {
   /**
    * Returns the data object data-errormessage
    * @deprecated - use SohoAlert instead
-   * @return 
+   * @return
    */
   get errorMessage() {
     return this.jQueryElement.getErrorMessage(this._options);

@@ -1,3 +1,5 @@
+/// <reference path="./soho-circlepager.d.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

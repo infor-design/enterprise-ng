@@ -1,3 +1,5 @@
+/// <reference path="./soho-dropdown.d.ts" />
+
 import {
   AfterViewInit,
   Component,

@@ -1,3 +1,5 @@
+/// <reference path="./soho-datepicker.d.ts" />
+
 import {
   ComponentFixture,
   TestBed

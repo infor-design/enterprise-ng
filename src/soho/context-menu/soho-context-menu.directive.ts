@@ -1,3 +1,5 @@
+/// <reference path="./soho-context-menu.d.ts" />
+
 import {
   AfterViewInit,
   Directive,

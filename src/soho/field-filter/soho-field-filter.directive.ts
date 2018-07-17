@@ -1,3 +1,5 @@
+/// <reference path="./soho-field-filter.d.ts" />
+
 import {
   AfterViewChecked,
   AfterViewInit, ChangeDetectorRef,

@@ -1,3 +1,5 @@
+/// <reference path="./soho-colorpicker.d.ts" />
+
 import {
   ComponentFixture,
   TestBed

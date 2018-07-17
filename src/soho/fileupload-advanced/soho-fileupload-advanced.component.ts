@@ -1,3 +1,5 @@
+/// <reference path="./soho-fileupload-advanced.d.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

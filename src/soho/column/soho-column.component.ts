@@ -1,3 +1,5 @@
+/// <reference path="./soho-column.d.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

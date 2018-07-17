@@ -1,3 +1,5 @@
+/// <reference path="./soho-emptymessage.d.ts" />
+
 import {
   AfterViewChecked,
   AfterViewInit,

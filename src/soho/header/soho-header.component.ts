@@ -1,3 +1,5 @@
+/// <reference path="./soho-header.d.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -22,7 +24,7 @@ export class SohoHeaderComponent implements AfterViewInit {
 
   /**
    * This event is fired when the status of the header is changed.
-   * 
+   *
    */
   @Output() updated = new EventEmitter<any>();
 

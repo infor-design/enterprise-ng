@@ -1,3 +1,5 @@
+/// <reference path="./soho-contextual-action-panel.d.ts" />
+
 import {
   ViewContainerRef,
   Injectable,
