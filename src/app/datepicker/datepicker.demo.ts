@@ -57,18 +57,15 @@ export class DatepickerDemoComponent implements OnInit {
     console.log('DatePickerDemoComponent.onChange: type=' + event.type);
   }
   setEnable() {
-// TODO: waiting on SOHO-4834
     this.datepicker.disabled = false;
     this.datepickerDisabled = this.datepicker.disabled;
     this.datepickerReadOnly = this.datepicker.readonly;
   }
   setDisable() {
-// TODO: waiting on SOHO-4834
     this.datepicker.disabled = true;
     this.datepickerDisabled = this.datepicker.disabled;
   }
   setReadonly() {
-// TODO: waiting on SOHO-4834
     this.datepicker.readonly = true;
     this.datepickerReadOnly = this.datepicker.readonly;
   }
