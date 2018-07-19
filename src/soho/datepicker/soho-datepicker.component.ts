@@ -114,7 +114,6 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> impl
   /**
    * Enables or disables the control
    */
-  // TODO: waiting on SOHO-4834 - 4.0 Datepicker - Needs to support enable(), disable(), and readonly() methods
   @Input() set disabled(value: boolean) {
     this.isDisabled = value;
 
@@ -133,7 +132,6 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<Date> impl
   /**
    * Sets the control to readonly
    */
-  // TODO: waiting on SOHO-4834 - 4.0 Datepicker - Needs to support enable(), disable(), and readonly() methods
   @Input() set readonly(value: boolean) {
     this.isReadOnly = value;
 
