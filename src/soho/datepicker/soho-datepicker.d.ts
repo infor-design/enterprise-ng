@@ -146,14 +146,12 @@ interface SohoDatePickerStatic {
 
   readonly(): void;
 
-  // TODO: waiting on SOHO-4834 - 4.0 Datepicker - Needs to support enable(), disable(), and readonly() methods
   enable(): void;
 
   disable(): void;
 
-  updated(SohoDatePickerOptions): void;
+  updated(settings?: SohoDatePickerOptions): void;
 
-  // SOHO-4777 - 4.0 Datepicker - Needs destroy method.
   destroy(): void;
 }
 
@@ -172,8 +170,6 @@ interface JQueryStatic {
   datepicker: SohoDatePickerStatic;
 }
 
-interface JQuery<TElement extends Node = HTMLElement> {
-  datepicker(options: SohoDatePickerOptions): JQuery;
-  on(events: string,
-     handler: JQuery.EventHandlerBase<TElement, SohoDatePickerEvent>): this;
+interface JQuery {
+  datepicker(options?: SohoDatePickerOptions): JQuery;
 }
