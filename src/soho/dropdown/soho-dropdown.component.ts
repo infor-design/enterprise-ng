@@ -206,12 +206,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Determines the frequency of reloading data from an external source
    */
   @Input()
-  public set reload(reload: string) {
-    const reloadTypes = ['none', 'open', 'typeahead'];
-    if (reloadTypes.indexOf(reload) === -1) {
-      reload = reloadTypes[0];
-    }
-
+  public set reload(reload: SohoDropDownReloadStyles) {
     this.options.reload = reload;
     if (this.dropdown) {
       this.dropdown.settings.reload = reload;
@@ -219,7 +214,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     }
   }
 
-  public get reload(): string {
+  public get reload(): SohoDropDownReloadStyles {
     return this.options.reload;
   }
 
