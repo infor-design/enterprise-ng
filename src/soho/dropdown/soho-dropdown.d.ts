@@ -75,8 +75,21 @@ interface SohoDropDownOptions {
   sourceArguments?: any;
 
   /**
+   * Determines the frequency of reloading data from an external source.
+   * If no source method is defined, this doesn't do anything.
+   * Possible settings:
+   * - `none`: do not reload from source after initially loading one time.
+   * - `open`: only reload from source whenever the list is opened.
+   * - `typeahead`: reload whenever the list is opened, and when a search term is keyed in.
+   */
+  reload?: string;
+
+  /**
    * If set to true, will always perform an ajax call whenever the list is opened.  If false,
    * the first AJAX call's results are cached.
+   * @deprecated as of v4.9.0.
+   * Use `reload` set to "none" for false or "open" for true.
+   * The jQuery component has fallb
    */
   reloadSourceOnOpen?: boolean;
 

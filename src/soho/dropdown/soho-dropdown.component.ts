@@ -185,6 +185,10 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     return this.options.sourceArguments;
   }
 
+  /**
+   * @deprecated as of v4.9.0
+   * use `reload` instead.
+   */
   @Input()
   public set reloadSourceOnOpen(reloadSourceOnOpen: boolean) {
     this.options.reloadSourceOnOpen = reloadSourceOnOpen;
@@ -196,6 +200,27 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
 
   public get reloadSourceOnOpen(): boolean {
     return this.options.reloadSourceOnOpen;
+  }
+
+  /**
+   * Determines the frequency of reloading data from an external source
+   */
+  @Input()
+  public set reload(reload: string) {
+    const reloadTypes = ['none', 'open', 'typeahead'];
+    if (reloadTypes.indexOf(reload) === -1) {
+      reload = reloadTypes[0];
+    }
+
+    this.options.reload = reload;
+    if (this.dropdown) {
+      this.dropdown.settings.reload = reload;
+      this.markForRefresh();
+    }
+  }
+
+  public get reload(): string {
+    return this.options.reload;
   }
 
   /**
