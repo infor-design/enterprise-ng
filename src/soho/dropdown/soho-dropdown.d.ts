@@ -84,7 +84,7 @@ interface SohoDropDownOptions {
    * - `open`: only reload from source whenever the list is opened.
    * - `typeahead`: reload whenever the list is opened, and when a search term is keyed in.
    */
-  reload?: SohoDropDownReloadStyles;
+  reload: SohoDropDownReloadStyles;
 
   /**
    * If set to true, will always perform an ajax call whenever the list is opened.  If false,

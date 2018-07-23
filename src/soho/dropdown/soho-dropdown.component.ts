@@ -65,7 +65,9 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   /**
    * Block of options, use the accessors to modify.
    */
-  private options: SohoDropDownOptions = {};
+  private options: SohoDropDownOptions = {
+    reload: 'none'
+  };
 
   /**
    * Sets the dropdown to close on selecting a value (helpful for multi-select)
