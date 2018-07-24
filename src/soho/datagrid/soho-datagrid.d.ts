@@ -411,11 +411,16 @@ interface SohoStatic {
     // Supports, Text, Numeric, Integer via mask
     Input: SohoDataGridColumnEditorFunction;
     Textarea: SohoDataGridColumnEditorFunction;
+    Editor: SohoDataGridColumnEditorFunction;
     Checkbox: SohoDataGridColumnEditorFunction;
+    Colorpicker: SohoDataGridColumnEditorFunction;
     Dropdown: SohoDataGridColumnEditorFunction;
     Date: SohoDataGridColumnEditorFunction;
+    Fileupload: SohoDataGridColumnEditorFunction;
+    Time: SohoDataGridColumnEditorFunction;
     Lookup: SohoDataGridColumnEditorFunction;
     Autocomplete: SohoDataGridColumnEditorFunction;
+    Spinbox: SohoDataGridColumnEditorFunction;
     Favorite: SohoDataGridColumnEditorFunction;
   };
 }
