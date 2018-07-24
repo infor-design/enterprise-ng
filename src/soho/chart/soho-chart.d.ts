@@ -1,4 +1,3 @@
-
 interface SohoChartOptions {
   dataset?: SohoDataSet;
   type?: ChartTypes;

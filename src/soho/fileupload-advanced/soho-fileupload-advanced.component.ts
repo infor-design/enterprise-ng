@@ -1,4 +1,4 @@
-/// <reference path="./soho-fileupload-advanced.d.ts" />
+/// <reference path="soho-fileupload-advanced.d.ts" />
 
 import {
   AfterViewInit,

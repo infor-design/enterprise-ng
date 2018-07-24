@@ -1,7 +1,7 @@
 import {Component } from '@angular/core';
 
 @Component({
-  selector: 'soho-progress-demo',
+  selector: 'app-progress-demo',
   templateUrl: './progress.demo.html'
 })
 

@@ -6,7 +6,7 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-about.demo',
+  selector: 'app-about.demo',
   templateUrl: './about.demo.html'
 })
 export class AboutDemoComponent {
@@ -25,9 +25,9 @@ export class AboutDemoComponent {
 
     this.about = this.aboutService
       .about()
-      .appName('SoHo Xi')
-      .productName('Angular Components')
-      .version('ver. 4.3.1')
+      .appName('Infor Design')
+      .productName('Enterprise Angular Components')
+      .version('ver. 4.9.0')
       .content('<p>Fashionable components for fashionable applications.</p>')
       .open();
   }

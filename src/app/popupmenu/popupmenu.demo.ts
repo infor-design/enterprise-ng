@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'soho-popupmenu-demo',
+  selector: 'app-popupmenu-demo',
   templateUrl: './popupmenu.demo.html',
 })
 export class PopupMenuDemoComponent {

@@ -1,3 +1,5 @@
+/// <reference path="soho-tag.d.ts" />
+
 import {
   Component,
   OnInit,

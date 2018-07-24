@@ -1,4 +1,6 @@
-﻿import {
+﻿/// <reference path="soho-splitter.d.ts" />
+
+import {
   AfterViewInit,
   Component,
   ElementRef,

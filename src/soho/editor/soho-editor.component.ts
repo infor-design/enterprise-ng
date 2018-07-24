@@ -1,4 +1,4 @@
-/// <reference path="./soho-editor.d.ts" />
+/// <reference path="soho-editor.d.ts" />
 
 import {
   AfterViewChecked,

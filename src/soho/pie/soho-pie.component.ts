@@ -1,3 +1,5 @@
+/// <reference path="soho-pie.d.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

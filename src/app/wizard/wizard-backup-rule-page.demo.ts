@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'demo-backup-rule-page',
+  selector: 'app-backup-rule-page',
   templateUrl: './wizard-backup-rule-page.demo.html',
   styles: [
     `:host {

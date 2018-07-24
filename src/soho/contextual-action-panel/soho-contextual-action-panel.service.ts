@@ -1,4 +1,4 @@
-/// <reference path="./soho-contextual-action-panel.d.ts" />
+/// <reference path="soho-contextual-action-panel.d.ts" />
 
 import {
   ViewContainerRef,

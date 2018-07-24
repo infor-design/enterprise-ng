@@ -1,3 +1,5 @@
+/// <reference path="soho-menu-button.d.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

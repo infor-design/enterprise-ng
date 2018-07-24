@@ -8,7 +8,7 @@ import {
 import { FormArray, FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
 @Component({
-  selector: 'soho-validation-form-group-demo',
+  selector: 'app-validation-form-group-demo',
   templateUrl: './validation-form-group.demo.html'
 })
 export class ValidationFormGroupDemoComponent implements AfterViewInit {

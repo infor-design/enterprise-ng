@@ -1,4 +1,4 @@
-/// <reference path="./soho-context-menu.d.ts" />
+/// <reference path="soho-context-menu.d.ts" />
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, DebugElement, EventEmitter, Output } from '@angular/core';

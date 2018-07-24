@@ -1,4 +1,4 @@
-/// <reference path="./soho-application-menu.d.ts" />
+/// <reference path="soho-application-menu.d.ts"/>
 
 import {
   AfterViewInit,

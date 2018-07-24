@@ -1,3 +1,5 @@
+/// <reference path="soho-radiobutton.d.ts" />
+
 import {
   ComponentFixture,
   TestBed

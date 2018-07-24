@@ -1,3 +1,5 @@
+/// <reference path="soho-mask.d.ts" />
+
 import {
   AfterViewInit,
   Directive,
@@ -270,6 +272,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
 
   /**
    * Indicates special formatting rules may apply to the mask.
+   *
    * @deprecated use process instead
    */
   @Input() set mode(value: SohoMaskMode) {

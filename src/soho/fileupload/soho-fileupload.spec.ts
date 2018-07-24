@@ -1,4 +1,4 @@
-/// <reference path="./soho-fileupload.d.ts" />
+/// <reference path="soho-fileupload.d.ts" />
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';

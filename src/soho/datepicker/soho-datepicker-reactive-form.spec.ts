@@ -1,4 +1,4 @@
-/// <reference path="./soho-datepicker.d.ts" />
+/// <reference path="soho-datepicker.d.ts" />
 
 import {
   ComponentFixture,

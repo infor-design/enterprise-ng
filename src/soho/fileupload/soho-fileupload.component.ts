@@ -1,4 +1,4 @@
-/// <reference path="./soho-fileupload.d.ts" />
+/// <reference path="soho-fileupload.d.ts" />
 
 import {
   AfterViewInit,
@@ -77,10 +77,11 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
+
   /**
    * Called when the fileupload value changes
    */
-  @Output() onChange = new EventEmitter<SohoFileUploadEvent>();
+  @Output() change = new EventEmitter<SohoFileUploadEvent>();
 
   // -------------------------------------------
   // Public API
@@ -115,7 +116,7 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (event: SohoFileUploadEvent) => this.onChange.emit(event));
+    this.jQueryElement.on('change', (event: SohoFileUploadEvent) => this.change.emit(event));
   }
 
   ngOnDestroy() {

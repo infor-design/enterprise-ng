@@ -1,4 +1,4 @@
-/// <reference path="./soho-dropdown.d.ts" />
+/// <reference path="soho-dropdown.d.ts" />
 
 import {
   AfterViewInit,

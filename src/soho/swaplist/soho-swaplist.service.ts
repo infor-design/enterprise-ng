@@ -1,3 +1,5 @@
+/// <reference path="soho-swaplist.d.ts" />
+
 import { Observable } from 'rxjs';
 
 /**

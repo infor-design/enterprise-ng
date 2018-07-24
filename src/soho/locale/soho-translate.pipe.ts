@@ -1,3 +1,5 @@
+/// <reference path="soho-locale.d.ts" />
+
 import {
   Pipe,
   PipeTransform

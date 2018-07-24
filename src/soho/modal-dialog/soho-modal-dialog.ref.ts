@@ -1,3 +1,5 @@
+/// <reference path="soho-modal-dialog.d.ts" />
+
 import { ComponentRef } from '@angular/core';
 import { Subject } from 'rxjs';
 
@@ -499,6 +501,7 @@ export type SohoModalDialogEventVetoFunction<T> = (dialogRef: SohoModalDialogRef
 /**
  * Contract for all SohoModalDialogComponents.
  */
+// tslint:disable-next-line:no-empty-interface
 export interface SohoModalComponent<T> {
 }
 

@@ -6,7 +6,7 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-popdown-demo',
+  selector: 'app-popdown-demo',
   templateUrl: './popdown.demo.html',
 })
 export class PopDownDemoComponent {

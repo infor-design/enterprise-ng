@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import {
   SohoDataGridService,
   SohoGridColumnFilterTypes
-} from '../../soho/datagrid';
+} from 'ids-enterprise-ng';
 
 declare var Formatters: any;
 

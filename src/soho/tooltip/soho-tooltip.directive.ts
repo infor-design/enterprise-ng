@@ -1,3 +1,5 @@
+/// <reference path="soho-tooltip.d.ts" />
+
 import {
   AfterViewInit,
   Directive,

@@ -13,7 +13,7 @@ import {
 import { SohoSearchFieldComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-searchfield-demo',
+  selector: 'app-searchfield-demo',
   templateUrl: './searchfield.demo.html'
 })
 export class SearchFieldDemoComponent implements OnInit {

@@ -3,10 +3,11 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-import {SohoLineComponent} from '../../soho/line';
+
+import { SohoLineComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-line-demo',
+  selector: 'app-line-demo',
   templateUrl: './bubble.demo.html',
 })
 export class BubbleDemoComponent implements OnInit {

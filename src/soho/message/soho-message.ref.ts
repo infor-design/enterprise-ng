@@ -1,3 +1,5 @@
+/// <reference path="soho-message.d.ts" />
+
 import { Subject } from 'rxjs';
 
 import { SohoModalDialogVetoableEventGuard } from '../modal-dialog/soho-modal-dialog.ref';

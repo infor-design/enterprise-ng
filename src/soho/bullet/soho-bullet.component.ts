@@ -1,4 +1,4 @@
-/// <reference path="./soho-bullet.d.ts" />
+/// <reference path="soho-bullet.d.ts" />
 
 import {
   AfterViewInit,

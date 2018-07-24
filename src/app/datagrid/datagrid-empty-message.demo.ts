@@ -9,7 +9,7 @@ import { SohoDataGridComponent } from 'ids-enterprise-ng';
 import { DataGridDemoService } from './datagrid-demo.service';
 
 @Component({
-  selector: 'soho-datagrid-empty-message-demo',
+  selector: 'app-datagrid-empty-message-demo',
   templateUrl: './datagrid-empty-message.demo.html',
   providers: [ DataGridDemoService ],
   changeDetection: ChangeDetectionStrategy.OnPush

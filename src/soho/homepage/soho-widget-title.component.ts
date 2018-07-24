@@ -1,3 +1,5 @@
+/// <reference path="soho-homepage.d.ts" />
+
 import {
   Component,
   HostBinding,

@@ -4,10 +4,10 @@ import {
   ViewChild
 } from '@angular/core';
 
-import {SohoRadarComponent} from '../../soho/radar';
+import {SohoRadarComponent} from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-radar-demo',
+  selector: 'app-radar-demo',
   templateUrl: './radar.demo.html',
 })
 export class RadarDemoComponent implements OnInit {

@@ -1,9 +1,3 @@
-interface JQueryStatic {
-}
-
-interface JQuery {
-}
-
 interface SohoStatic {
 }
 

@@ -1,3 +1,5 @@
+/// <reference path="soho-wizard.d.ts" />
+
 import {
   Component,
   ChangeDetectorRef,

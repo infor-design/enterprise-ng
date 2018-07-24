@@ -1,3 +1,5 @@
+/// <reference path="soho-stepprocess.d.ts" />
+
 import {
   AfterViewInit,
   Component,
@@ -191,7 +193,8 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   // ------------------------------------------------------------------------
 
   @Output() beforeSelectStep = new EventEmitter<BeforeSelectStepEvent>();
-  @Output() onSaveClose: EventEmitter<SohoStepSaveCloseEvent> = new EventEmitter<SohoStepSaveCloseEvent>();
+
+  @Output() saveClose: EventEmitter<SohoStepSaveCloseEvent> = new EventEmitter<SohoStepSaveCloseEvent>();
 
   // ------------------------------------------------------------------------
 
@@ -270,7 +273,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     const $selectedStep = this.stepprocess.getSelectedStep();
     const currentStepId = $selectedStep.children('a').attr('href').substring(1);
     const event: SohoStepSaveCloseEvent = {currentStepId: currentStepId};
-    this.onSaveClose.emit(event);
+    this.saveClose.emit(event);
   }
 
   ngOnDestroy() {

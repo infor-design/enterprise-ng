@@ -1,3 +1,5 @@
+/// <reference path="soho-lookup.d.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

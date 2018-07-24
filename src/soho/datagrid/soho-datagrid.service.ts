@@ -1,4 +1,4 @@
-/// <reference path="./soho-datagrid.d.ts" />
+/// <reference path="soho-datagrid.d.ts" />
 
 import { Observable } from 'rxjs';
 

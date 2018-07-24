@@ -1,9 +1,10 @@
+/// <reference path="soho-utils.d.ts" />
 
 export class SohoIconUtils {
   /**
    * Returns the RAW HTML for creating a new icon in string form
    * @param params
-   * @return 
+   * @return icon
    */
   static createIcon(params: any): string {
     return $.createIcon(params);
@@ -12,7 +13,7 @@ export class SohoIconUtils {
   /**
    * Returns a jQuery-wrapped element containing a new icon
    * @param options
-   * @return 
+   * @return
    */
   static createIconElement(options: any): JQuery {
     return $($.createIcon(options));
@@ -21,7 +22,7 @@ export class SohoIconUtils {
   /**
    * Returns just the path part
    * @param options
-   * @return 
+   * @return
    */
   static createIconPath(options: any): string {
     return $.createIconPath(options);

@@ -223,7 +223,7 @@ export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
 }
 
 @Component({
-  selector: 'soho-datagrid-code-block-editor',
+  selector: 'app-datagrid-code-block-editor',
   templateUrl: './datagrid-code-block-editor.demo.html',
   styleUrls: ['../code-block/code-block.formatter.css']
 })

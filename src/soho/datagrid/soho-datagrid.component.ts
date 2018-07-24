@@ -17,13 +17,13 @@ import {
   ComponentFactoryResolver,
   Injector,
   ApplicationRef,
+  Compiler,
   ComponentRef,
   ReflectiveInjector,
   Type
 } from '@angular/core';
 
 import { ArgumentHelper } from '../utils/argument.helper';
-
 import { SohoDataGridService } from './soho-datagrid.service';
 
 export type SohoDataGridType = 'auto' | 'content-only';
@@ -296,10 +296,17 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   @Input() set dataset(dataset: Array<any>) {
     this._gridOptions.dataset = dataset;
     if (this.jQueryElement) {
+      const pagerInfo: SohoPagerPagingInfo = {};
       this.datagrid.settings.dataset = dataset;
 
+      // TreeGrid does not have paging
+      // set as active page so datagrid headers aren't rebuilt
+      if (this.treeGrid) {
+        pagerInfo.activePage = -1;
+      }
+
       // @todo do we need hints as this may be bundled up with other changes.
-      this.datagrid.updateDataset(dataset);
+      this.datagrid.updateDataset(dataset, pagerInfo);
     }
   }
 
@@ -1597,7 +1604,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
     // Create an injector that will provide the arguments for the
     // component.
-    const injector = ReflectiveInjector.resolveAndCreate([{ provide: 'args', useValue: args }], this.injector);
+    // const injector = ReflectiveInjector.resolveAndCreate([{ provide: 'args', useValue: args }], this.injector);
+    const injector = Injector.create([{ provide: 'args', useValue: args }], this.injector);
 
     // Create the component, in the container.
     const component = factory.create(injector, [], container);
@@ -1644,7 +1652,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
     // Create an injector that will provide the arguments for the
     // component.
-    const i = ReflectiveInjector.resolveAndCreate([{ provide: 'args', useValue: editor.args }], this.injector);
+    // const i = ReflectiveInjector.resolveAndCreate([{ provide: 'args', useValue: editor.args }], this.injector);
+    const i = Injector.create([{ provide: 'args', useValue: editor.args }], this.injector);
 
     // Warning!! the dynamic component is not added inside the container,
     // but as a sibling, so when it's destroyed it takes any siblings  with

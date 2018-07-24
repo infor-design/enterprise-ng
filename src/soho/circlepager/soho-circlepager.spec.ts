@@ -1,4 +1,4 @@
-/// <reference path="./soho-circlepager.d.ts" />
+/// <reference path="soho-circlepager.d.ts" />
 
 import { } from 'jasmine';
 import { ComponentFixture, TestBed } from '@angular/core/testing';

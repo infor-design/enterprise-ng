@@ -1,6 +1,11 @@
-/// <reference path="./soho-error.d.ts" />
+/// <reference path="soho-error.d.ts" />
 
-import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
+import {
+  AfterViewInit,
+  Directive,
+  ElementRef,
+  Input
+} from '@angular/core';
 
 /**
  * Angular Wrapper for the SoHo Error Directive.

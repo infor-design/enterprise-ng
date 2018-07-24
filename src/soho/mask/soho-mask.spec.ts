@@ -1,3 +1,5 @@
+/// <reference path="soho-mask.d.ts" />
+
 import {
   ComponentFixture,
   TestBed

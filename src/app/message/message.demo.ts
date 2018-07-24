@@ -6,7 +6,7 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-message.demo',
+  selector: 'app-message-demo',
   templateUrl: './message.demo.html'
 })
 export class MessageDemoComponent {

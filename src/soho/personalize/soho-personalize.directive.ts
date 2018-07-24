@@ -1,3 +1,5 @@
+/// <reference path="soho-personalize.d.ts" />
+
 import {
   AfterViewInit,
   Directive,

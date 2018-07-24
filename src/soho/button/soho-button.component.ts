@@ -1,4 +1,4 @@
-/// <reference path="./soho-button.d.ts" />
+/// <reference path="soho-button.d.ts" />
 
 import {
   AfterViewInit,

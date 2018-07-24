@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'demo-target-folder-page',
+  selector: 'app-target-folder-page',
   templateUrl: './wizard-target-folder-page.demo.html',
   styles: [
     `:host {

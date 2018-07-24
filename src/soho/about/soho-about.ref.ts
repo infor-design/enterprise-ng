@@ -1,5 +1,4 @@
-
-/// <reference path="./soho-about.d.ts" />
+/// <reference path="soho-about.d.ts" />
 
 import { Subject } from 'rxjs';
 

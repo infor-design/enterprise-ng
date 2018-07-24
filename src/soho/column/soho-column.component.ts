@@ -1,4 +1,4 @@
-/// <reference path="./soho-column.d.ts" />
+/// <reference path="soho-column.d.ts" />
 
 import {
   AfterViewInit,

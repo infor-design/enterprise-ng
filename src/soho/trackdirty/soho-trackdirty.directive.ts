@@ -1,3 +1,5 @@
+/// <reference path="soho-trackdirty.d.ts" />
+
 import {
   AfterViewInit,
   Directive,
@@ -9,6 +11,7 @@ import {
 } from '@angular/core';
 
 @Directive({
+  // tslint:disable-next-line:directive-selector
   selector: '[soho-trackdirty]'
 })
 export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {

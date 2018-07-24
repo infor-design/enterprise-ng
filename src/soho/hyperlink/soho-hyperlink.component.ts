@@ -1,3 +1,5 @@
+/// <reference path="soho-hyperlink.d.ts" />
+
 import {
   AfterViewInit,
   Component,

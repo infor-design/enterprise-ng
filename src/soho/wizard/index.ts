@@ -5,3 +5,4 @@ export { SohoWizardHeaderComponent } from './soho-wizard-header.component';
 export { SohoWizardPagesComponent } from './soho-wizard-pages.component';
 export { SohoWizardPageComponent } from './soho-wizard-page.component';
 export { SohoWizardButtonbarComponent } from './soho-wizard-buttonbar.component';
+export { SohoWizardModule } from './soho-wizard.module';

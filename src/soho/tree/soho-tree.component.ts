@@ -1,3 +1,5 @@
+/// <reference path="soho-tree.d.ts"/>
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

@@ -4,17 +4,19 @@ import {
   Component,
   ViewChild
 } from '@angular/core';
+
 import {
   SohoDataGridComponent,
+  SohoIconUtils
 } from 'ids-enterprise-ng';
+
 import {
   PAGING_COLUMNS,
   PAGING_DATA
 } from './datagrid-paging-data';
-import { SohoIconUtils } from '../../soho/utils/soho-icon.utils';
 
 @Component({
-  selector: 'soho-datagrid-standard-formatter-demo',
+  selector: 'app-datagrid-standard-formatter-demo',
   templateUrl: './datagrid-standard-formatter.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -14,7 +14,7 @@ import { NestedModalDialogComponent } from './nested-modal-dialog.component';
 import { VetoableModalDialogComponent } from './vetoable-modal-dialog.component';
 
 @Component({
-  selector: 'soho-modal-dialog.demo',
+  selector: 'app-modal-dialog-demo',
   templateUrl: './modal-dialog.demo.html'
 })
 export class ModalDialogDemoComponent {

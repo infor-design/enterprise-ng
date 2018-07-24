@@ -1,3 +1,5 @@
+/// <reference path="soho-radar.d.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

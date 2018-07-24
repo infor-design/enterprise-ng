@@ -1,3 +1,5 @@
+/// <reference path="soho-spinbox.d.ts" />
+
 import {
   AfterViewChecked,
   AfterViewInit,
@@ -96,7 +98,7 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
    *
    * @param element matched element.
    * @param ngZone angular zone.
-   * 
+   *
    */
   constructor(private element: ElementRef, private ngZone: NgZone) {
     super();

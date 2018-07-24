@@ -1,3 +1,5 @@
+/// <reference path="soho-progress.d.ts" />
+
 import {
   ComponentFixture,
   TestBed

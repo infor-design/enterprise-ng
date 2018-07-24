@@ -9,7 +9,7 @@ import {
  * - binding a method to a soho event
  */
 @Component({
-  selector: 'soho-tabs-datadriven-demo',
+  selector: 'app-tabs-datadriven-demo',
   templateUrl: './tabs-datadriven.demo.html',
 })
 export class TabsDataDrivenDemoComponent implements OnInit {

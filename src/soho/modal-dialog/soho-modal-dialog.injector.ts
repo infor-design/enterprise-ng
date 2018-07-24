@@ -1,3 +1,5 @@
+/// <reference path="soho-modal-dialog.d.ts" />
+
 import { Injector } from '@angular/core';
 
 import { SohoModalDialogRef } from './soho-modal-dialog.ref';
@@ -28,6 +30,7 @@ export class SohoModalDialogInjector implements Injector {
       return this.dialogRef;
     }
 
-    return this.baseInjector.get(token, notFoundValue);
+    // @todo `get` is deprecated, but it is unclear how to resolve.
+    return this.baseInjector.get(token, notFoundValue); // tslint:disable-line
   }
 }

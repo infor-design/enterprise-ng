@@ -22,7 +22,8 @@ import {
   PAGING_COLUMNS,
   PAGING_DATA
 } from './datagrid-paging-data';
-import { SohoIconUtils } from '../../soho/utils/soho-icon.utils';
+
+import { SohoIconUtils } from 'ids-enterprise-ng';
 
 export const LMFavorite = (row, cell, value, col, rowData, api): string => {
   const isChecked: boolean = (rowData && rowData.price > 200); // jshint ignore:line
@@ -55,7 +56,7 @@ export class DemoCellIntegerFormatterComponent {
 }
 
 @Component({
-  selector: 'soho-datagrid-custom-formatter-demo',
+  selector: 'app-datagrid-custom-formatter-demo',
   templateUrl: './datagrid-custom-formatter.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   entryComponents: [SohoButtonComponent],

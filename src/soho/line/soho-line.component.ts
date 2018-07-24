@@ -1,3 +1,5 @@
+/// <reference path="soho-line.d.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

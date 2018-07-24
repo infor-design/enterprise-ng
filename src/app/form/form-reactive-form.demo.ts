@@ -20,7 +20,7 @@ import { MOCK_STATES } from '../dropdown/dropdown-mock.data';
 import { productsColumns, productsData } from '../lookup/mock.data';
 
 @Component({
-  selector: 'soho-reactive-form.demo',
+  selector: 'app-reactive-form-demo',
   templateUrl: './form-reactive-form.demo.html'
 })
 export class FormReactiveFormDemoComponent implements AfterViewInit {

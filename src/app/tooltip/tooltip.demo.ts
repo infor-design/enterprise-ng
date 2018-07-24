@@ -10,7 +10,7 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-tooltip-demo',
+  selector: 'app-tooltip-demo',
   templateUrl: './tooltip.demo.html',
 })
 export class TooltipDemoComponent implements OnInit {

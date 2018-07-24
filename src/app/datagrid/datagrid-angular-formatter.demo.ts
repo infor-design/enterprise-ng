@@ -38,7 +38,7 @@ export class PriceCellFormatterComponent {
 }
 
 @Component({
-  selector: 'soho-datagrid-angular-formatter-demo',
+  selector: 'app-datagrid-angular-formatter-demo',
   templateUrl: './datagrid-angular-formatter.demo.html',
   entryComponents: [SohoButtonComponent],
 })

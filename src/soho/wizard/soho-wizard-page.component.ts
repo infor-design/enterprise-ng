@@ -1,3 +1,5 @@
+/// <reference path="soho-wizard.d.ts" />
+
 import {
   HostBinding,
   Input,
@@ -36,7 +38,7 @@ export class SohoWizardPageComponent implements AfterViewInit {
    * displaying all the pages for a moment.  The wizard will
    * ensure only a single page is displayed.
    *
-   * 
+   *
    */
   @HostBinding('class.hidden') hidden = true; // tslint: ignore-line
 
@@ -53,7 +55,7 @@ export class SohoWizardPageComponent implements AfterViewInit {
    * Constructor.
    *
    * @param el owning DOM element
-   * 
+   *
    */
   constructor(private el: ElementRef) {
   }
@@ -69,7 +71,7 @@ export class SohoWizardPageComponent implements AfterViewInit {
    * with a circular dependency.
    *
    * @param e
-   * 
+   *
    */
   fireActivated(e: SohoWizardEvent) {
     this.activated.next(e);

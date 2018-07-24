@@ -15,7 +15,7 @@ import { ContextualActionPanelComponent } from './contextual-action-panel.compon
 import { NestedModalDialogComponent } from './nested-modal-dialog.component';
 
 @Component({
-  selector: 'soho-contextual-action-panel.demo',
+  selector: 'app-contextual-action-panel-demo',
   templateUrl: './contextual-action-panel.demo.html'
 })
 export class ContextualActionPanelDemoComponent {

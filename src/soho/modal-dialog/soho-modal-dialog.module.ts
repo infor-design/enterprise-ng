@@ -1,3 +1,5 @@
+/// <reference path="soho-modal-dialog.d.ts" />
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 

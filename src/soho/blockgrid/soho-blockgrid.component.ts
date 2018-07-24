@@ -1,4 +1,4 @@
-/// <reference path="./soho-blockgrid.d.ts" />
+/// <reference path="soho-blockgrid.d.ts" />
 
 import {
   AfterViewInit,

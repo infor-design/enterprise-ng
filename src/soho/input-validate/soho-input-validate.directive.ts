@@ -1,4 +1,9 @@
-import { AfterViewInit, Attribute, Directive, ElementRef, EventEmitter, HostBinding, Input, NgZone, Output } from '@angular/core';
+/// <reference path="soho-input-validate.d.ts" />
+
+import {
+  AfterViewInit, Attribute, Directive, ElementRef,
+  EventEmitter, HostBinding, Input, NgZone, Output
+} from '@angular/core';
 
 /**
  * Angular Wrapper for the SoHo Input Validate Directive.

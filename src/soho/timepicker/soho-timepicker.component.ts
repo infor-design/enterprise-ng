@@ -1,3 +1,5 @@
+/// <reference path="soho-timepicker.d.ts" />
+
 import {
   AfterViewChecked,
   AfterViewInit,
@@ -171,7 +173,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
    * @param element the element this component encapsulates.
    * @param ngZone the angular zone for this component.
    * @param ref reference to the change detector
-   * 
+   *
    */
   constructor(private element: ElementRef,
     private ngZone: NgZone,

@@ -1,3 +1,5 @@
+/// <reference path="soho-input-reactive-form.spec.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

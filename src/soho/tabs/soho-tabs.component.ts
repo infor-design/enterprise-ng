@@ -1,3 +1,5 @@
+/// <reference path="soho-tabs.d.ts" />
+
 import {
   AfterViewChecked,
   AfterViewInit,

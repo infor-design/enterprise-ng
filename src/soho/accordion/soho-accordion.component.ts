@@ -1,4 +1,4 @@
-/// <reference path="./soho-accordion.d.ts" />
+/// <reference path="soho-accordion.d.ts" />
 
 import {
   AfterViewInit,

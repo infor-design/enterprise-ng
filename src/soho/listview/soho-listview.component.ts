@@ -1,3 +1,5 @@
+/// <reference path="soho-listview.d.ts" />
+
 import {
   AfterViewInit,
   AfterViewChecked,

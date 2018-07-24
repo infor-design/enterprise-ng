@@ -1,4 +1,4 @@
-/// <reference path="./soho-emptymessage.d.ts" />
+/// <reference path="soho-emptymessage.d.ts"/>
 
 import {
   AfterViewChecked,

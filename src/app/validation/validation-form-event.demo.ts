@@ -1,10 +1,10 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
-import { SohoTrackDirtyDirective } from 'soho/trackdirty';
+import { SohoTrackDirtyDirective } from 'ids-enterprise-ng';
 import { SohoErrorDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector:    'soho-validation-form-event-demo',
+  selector:    'app-validation-form-event-demo',
   templateUrl: './validation-form-event.demo.html'
 })
 export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {

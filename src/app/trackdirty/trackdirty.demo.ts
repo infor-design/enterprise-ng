@@ -16,7 +16,7 @@ import {
  * - shows basic track dirty functionality on input elements with an angular template
  */
 @Component({
-  selector: 'soho-trackdirty-demo',
+  selector: 'app-trackdirty-demo',
   templateUrl: './trackdirty.demo.html'
 })
 export class TrackDirtyDemoComponent implements OnInit {

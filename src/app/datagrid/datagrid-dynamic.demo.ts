@@ -21,7 +21,7 @@ import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 import { DataGridDemoService } from './datagrid-demo.service';
 
 @Component({
-  selector: 'soho-datagrid-dynamic-demo',
+  selector: 'app-datagrid-dynamic-demo',
   templateUrl: './datagrid-dynamic.demo.html',
   providers: [DataGridDemoService],
 })

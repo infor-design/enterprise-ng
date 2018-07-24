@@ -1,4 +1,6 @@
-import {Component, HostBinding} from '@angular/core';
+/// <reference path="soho-popdown.d.ts" />
+
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'soho-popdown-contents', // tslint:disable-line

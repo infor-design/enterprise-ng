@@ -5,7 +5,7 @@ import { Component, HostBinding, Input } from '@angular/core';
  * - shows basic mask functionality on input elements with an angular template
  */
 @Component({
-  selector:    'soho-mask-demo',
+  selector: 'app-mask-demo',
   templateUrl: './mask.demo.html',
   styles:      [
       `

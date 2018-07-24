@@ -1,4 +1,6 @@
-﻿import {
+﻿/// <reference path="soho-swaplist.d.ts"/>
+
+import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,

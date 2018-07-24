@@ -1,3 +1,5 @@
+/// <reference path="soho-textarea.d.ts" />
+
 import {
   ComponentFixture,
   TestBed

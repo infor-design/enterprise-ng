@@ -1,4 +1,4 @@
-/// <reference path="./soho-bar.d.ts" />
+/// <reference path="soho-bar.d.ts" />
 
 import { } from 'jasmine';
 import { ComponentFixture, TestBed } from '@angular/core/testing';

@@ -1,3 +1,5 @@
+/// <reference path="soho-textarea.d.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -120,7 +122,9 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
   /**
    * Called when the textarea updates in some way
    */
-  @Output() onUpdated = new EventEmitter<SohoTextAreaEvent>();
+  @Output() updated = new EventEmitter<SohoTextAreaEvent>();
+
+  // @todo Change to 'changed'.
   @Output() change: EventEmitter<SohoTextAreaEvent[]> = new EventEmitter<SohoTextAreaEvent[]>();
 
   // -------------------------------------------
@@ -172,8 +176,9 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (e: any, args: any[]) => this.onChange(args));
-    this.jQueryElement.on('updated', (e: any, args: SohoTextAreaEvent) => this.onUpdated.next(args));
+    this.jQueryElement
+      .on('change', (e: any, args: any[]) => this.onChange(args))
+      .on('updated', (e: any, args: SohoTextAreaEvent) => this.updated.next(args));
   }
 
   /**

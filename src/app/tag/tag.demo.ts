@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'soho-tag-demo',
+  selector: 'app-tag-demo',
   templateUrl: './tag.demo.html'
 })
 export class TagDemoComponent implements OnInit {

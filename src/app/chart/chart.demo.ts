@@ -6,7 +6,7 @@ import { ChartDemoService } from './chart-demo.service';
 import { SohoChartComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-chart-demo',
+  selector: 'app-chart-demo',
   templateUrl: './chart.demo.html',
   providers: [ChartDemoService],
   styles: [`

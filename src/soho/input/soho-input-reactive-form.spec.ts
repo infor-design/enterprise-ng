@@ -1,3 +1,5 @@
+/// <reference path="soho-input.d.ts" />
+
 import {
   ComponentFixture,
   TestBed

@@ -13,7 +13,7 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-    selector: 'soho-swaplist-dynamic-demo',
+    selector: 'app-swaplist-dynamic-demo',
     templateUrl: './swaplist-dynamic.demo.html',
 })
 export class SwapListDynamicDemoComponent implements OnInit, OnDestroy {

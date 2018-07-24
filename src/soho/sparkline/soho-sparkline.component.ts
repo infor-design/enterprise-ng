@@ -1,3 +1,5 @@
+/// <reference path="soho-sparkline.d.ts" />
+
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

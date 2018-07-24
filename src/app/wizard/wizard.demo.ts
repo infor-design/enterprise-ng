@@ -16,7 +16,7 @@ import {
 import { WizardDemoResultPageComponent } from './wizard-result-page.demo';
 
 @Component({
-  selector: 'soho-wizard-demo',
+  selector: 'app-wizard-demo',
   templateUrl: './wizard.demo.html',
 })
 export class WizardDemoComponent {

@@ -1,3 +1,5 @@
+/// <reference path="../autocomplete/soho-autocomplete.d.ts" />
+
 /**
  * Soho Searchfield Control Typings.
  *

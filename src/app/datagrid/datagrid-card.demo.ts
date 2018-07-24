@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-datagrid-card-demo',
+  selector: 'app-datagrid-card-demo',
   templateUrl: './datagrid-card.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles : [`

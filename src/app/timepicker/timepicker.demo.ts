@@ -9,7 +9,7 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-timepicker-demo',
+  selector: 'app-timepicker-demo',
   templateUrl: './timepicker.demo.html',
 })
 export class TimePickerDemoComponent implements OnInit {

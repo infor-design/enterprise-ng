@@ -1,3 +1,5 @@
+/// <reference path="soho-message.d.ts" />
+
 import { Injectable } from '@angular/core';
 
 import { SohoMessageRef } from './soho-message.ref';

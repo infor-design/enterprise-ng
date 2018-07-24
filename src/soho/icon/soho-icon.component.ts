@@ -3,7 +3,7 @@ import {
   ElementRef,
   HostBinding,
   Input,
-  Renderer
+  Renderer2
 } from '@angular/core';
 
 @Component({
@@ -44,14 +44,14 @@ export class SohoIconComponent {
 
   constructor(
     private elementRef: ElementRef,
-    private renderer: Renderer
+    private renderer: Renderer2
   ) {}
 
   private setAlertIcon() {
     // This allows us to set a dynamic class to the class list
     // w/o overwriting other classes in the class list.
     if (this.alert && this.icon) {
-      this.renderer.setElementClass(this.elementRef.nativeElement, this.icon, true);
+      this.renderer.addClass(this.elementRef.nativeElement, this.icon);
     }
   }
 

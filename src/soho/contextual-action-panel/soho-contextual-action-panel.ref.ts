@@ -1,4 +1,4 @@
-/// <reference path="./soho-contextual-action-panel.d.ts" />
+/// <reference path="soho-contextual-action-panel.d.ts" />
 
 import { ComponentRef } from '@angular/core';
 import { Subject } from 'rxjs';
@@ -353,5 +353,6 @@ export type SohoContextualActionPanelEventFunction<T> = (result: any, panelRef: 
 /**
  * Contract for all SohoContextualActionPanelComponents.
  */
+// tslint:disable-next-line:no-empty-interface
 export interface SohoContextualActionPanelComponent<T> {
 }

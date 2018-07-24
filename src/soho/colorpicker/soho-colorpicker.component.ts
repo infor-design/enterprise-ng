@@ -1,4 +1,4 @@
-/// <reference path="./soho-colorpicker.d.ts" />
+/// <reference path="soho-colorpicker.d.ts" />
 
 import {
   AfterViewChecked,

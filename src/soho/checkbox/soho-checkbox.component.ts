@@ -1,4 +1,4 @@
-/// <reference path="./soho-checkbox.d.ts" />
+/// <reference path="soho-checkbox.d.ts" />
 
 import {
   AfterViewInit,

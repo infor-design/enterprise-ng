@@ -15,7 +15,7 @@ import { SohoTabsComponent } from 'ids-enterprise-ng';
  * - handling change detection to programatically update the soho control
  */
 @Component({
-  selector: 'soho-tabs-dynamic-sample-component',
+  selector: 'app-tabs-dynamic-sample-component',
   templateUrl: './tabs-dynamic.demo.html'
 })
 export class TabsDynamicDemoComponent implements OnInit {

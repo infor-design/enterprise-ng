@@ -1,4 +1,4 @@
-/// <reference path="./soho-circlepager.d.ts" />
+/// <reference path="soho-circlepager.d.ts" />
 
 import {
   AfterViewInit,

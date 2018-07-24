@@ -1,3 +1,5 @@
+/// <reference path="soho-popdown.d.ts" />
+
 import {
   AfterViewInit,
   Directive,

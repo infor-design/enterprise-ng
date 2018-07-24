@@ -1,3 +1,4 @@
+/// <reference path="soho-popupmenu.d.ts"/>
 
 import {
   AfterViewInit,

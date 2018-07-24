@@ -1,4 +1,4 @@
-/// <reference path="./soho-alert.d.ts" />
+/// <reference path="soho-alert.d.ts" />
 
 import { AfterViewInit, Directive, ElementRef, Input, NgZone } from '@angular/core';
 

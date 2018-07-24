@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
-  selector:    'soho-completion-chart-demo',
+  selector: 'app-completion-chart-demo',
   templateUrl: './completion-chart.demo.html'
 })
 

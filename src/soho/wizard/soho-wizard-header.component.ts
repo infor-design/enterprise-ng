@@ -1,3 +1,5 @@
+/// <reference path="soho-wizard.d.ts" />
+
 import {
   Component,
   ChangeDetectionStrategy,
@@ -27,8 +29,8 @@ export class SohoWizardHeaderComponent {
   /**
    * List of ticks in the control.
    *
-   * 
-   * 
+   *
+   *
    */
   @ContentChildren(SohoWizardTickComponent) steps: QueryList<SohoWizardTickComponent>;
 

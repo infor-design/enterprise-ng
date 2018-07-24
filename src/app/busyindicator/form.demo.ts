@@ -11,7 +11,7 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-busyindicator-demo',
+  selector: 'app-busyindicator-demo',
   templateUrl: './form.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
