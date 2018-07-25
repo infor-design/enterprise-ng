@@ -10,7 +10,7 @@ import { SohoDataGridComponent } from 'ids-enterprise-ng';
 import { DataGridPagingServiceDemoService } from './datagrid-paging-service-demo.service';
 
 @Component({
-  selector: 'soho-datagrid-paging-service-demo',
+  selector: 'app-datagrid-paging-service-demo',
   templateUrl: './datagrid-paging-service.demo.html',
   providers: [ DataGridPagingServiceDemoService ],
   changeDetection: ChangeDetectionStrategy.OnPush

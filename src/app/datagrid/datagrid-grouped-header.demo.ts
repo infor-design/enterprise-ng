@@ -10,7 +10,7 @@ import {
 import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indeterminate-demo.service';
 
 @Component({
-  selector: 'soho-datagrid-grouped-header-demo',
+  selector: 'app-datagrid-grouped-header-demo',
   templateUrl: './datagrid-grouped-header.demo.html',
   providers: [ DataGridPagingIndeterminateDemoService ],
   changeDetection: ChangeDetectionStrategy.OnPush

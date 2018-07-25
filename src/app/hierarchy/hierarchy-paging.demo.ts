@@ -4,7 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { HierarchyDemoService } from './hierarchy.demo.service';
 
 @Component({
-  selector: 'soho-hierarchy-paging-demo',
+  selector: 'app-hierarchy-paging-demo',
   templateUrl: './hierarchy-paging.demo.html',
   styleUrls: ['./hierarchy.demo.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -27,7 +27,7 @@ import { DataGridLookupDialogDemoComponent } from './datagrid-lookup-dialog.demo
 import { DataGridLookupSelectionEvent } from './datagrid-lookup-event.demo';
 
 @Component({
-  selector: 'soho-datagrid-lookup-click-function-demo',
+  selector: 'app-datagrid-lookup-click-function-demo',
   templateUrl: './datagrid-lookup-click-function.demo.html',
 })
 export class DataGridLookupClickDemoComponent implements AfterViewInit {

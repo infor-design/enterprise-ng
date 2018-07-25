@@ -1,9 +1,9 @@
 import {Component, ViewChild} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import { SohoDropDownComponent } from 'soho/dropdown';
+import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-dropdown-reactive-demo',
+  selector: 'app-dropdown-reactive-demo',
   template: `
   <div class="example-section">
   <form>

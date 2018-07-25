@@ -5,14 +5,14 @@ import {
 
 import {
   SohoErrorDirective
-} from '../../soho/error';
+} from 'ids-enterprise-ng';
 
 /**
  * This example:
  * - shows basic error functionality on input elements with an angular template
  */
 @Component({
-  selector: 'soho-error-demo',
+  selector: 'app-error-demo',
   templateUrl: './error.demo.html'
 })
 export class ErrorDemoComponent {

@@ -8,7 +8,7 @@ import { HeaderDynamicToolbarOptions } from '../header/header-dynamic-demo.model
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
 @Component({
-  selector: 'soho-header-demo',
+  selector: 'app-header-demo',
   templateUrl: './header-toggle-buttons.demo.html',
 })
 export class HeaderToggleButtonsDemoComponent implements OnInit, OnDestroy {

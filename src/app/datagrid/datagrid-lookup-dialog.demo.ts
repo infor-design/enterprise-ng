@@ -20,7 +20,7 @@ import { DataGridDemoService } from './datagrid-demo.service';
 import { DataGridLookupSelectionEvent } from './datagrid-lookup-event.demo';
 
 @Component({
-  selector: 'soho-datagrid-lookup-dialog-demo',
+  selector: 'app-datagrid-lookup-dialog-demo',
   templateUrl: './datagrid-lookup-dialog.demo.html',
   providers: [DataGridDemoService],
 })

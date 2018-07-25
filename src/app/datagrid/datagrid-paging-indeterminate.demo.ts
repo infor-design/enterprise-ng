@@ -11,7 +11,7 @@ import {
 import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indeterminate-demo.service';
 
 @Component({
-  selector: 'soho-datagrid-paging-indeterminate-demo',
+  selector: 'app-datagrid-paging-indeterminate-demo',
   templateUrl: './datagrid-paging-indeterminate.demo.html',
   providers: [ DataGridPagingIndeterminateDemoService ],
   changeDetection: ChangeDetectionStrategy.OnPush
