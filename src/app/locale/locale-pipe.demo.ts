@@ -17,7 +17,7 @@ import {
  } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-locale-pipe-demo',
+  selector: 'app-locale-pipe-demo',
   templateUrl: './locale-pipe.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

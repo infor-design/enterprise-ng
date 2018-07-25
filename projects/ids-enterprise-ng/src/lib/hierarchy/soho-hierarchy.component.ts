@@ -69,7 +69,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
 
   /**
    * Leaf is selected
-   * 
+   *
    */
   @Output() selected = new EventEmitter<SohoHierarchyEvent>();
 

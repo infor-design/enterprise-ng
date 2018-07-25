@@ -8,7 +8,7 @@ import {
  * - shows basic functionality on label elements with an angular template
  */
 @Component({
-  selector: 'soho-label-demo',
+  selector: 'app-label-demo',
   templateUrl: './label.demo.html'
 })
 export class LabelDemoComponent implements OnInit {

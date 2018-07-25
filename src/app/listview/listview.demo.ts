@@ -11,7 +11,7 @@ import { ContentType } from './content-type.model';
 import { ContentTypeService } from './content-type.service';
 
 @Component({
-  selector: 'soho-listview-demo',
+  selector: 'app-listview-demo',
   templateUrl: './listview.demo.html',
   styles: [`
     .smaller-width {

@@ -3,15 +3,15 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "module": "es2015",
-    "baseUrl": "",
-    "paths": {
-      "ids-enterprise-ng": ["soho"]
-    },
     "types": [
-      "jasmine",
-      "jquery",
-      "node",
-      "lscache"
+       "jasmine",
+       "jquery",
+       "node",
+       "lscache"
     ]
-  }
+  },
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts"
+  ]
 }

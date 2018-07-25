@@ -1740,7 +1740,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       .on('rowreorder', (args: SohoDataGridRowReorderedEvent) => { this.rowReordered.next(args); })
       .on('selected', (e: JQuery.Event, args: SohoDataGridSelectedRow[]) => this.selected.next({ e, rows: args }))
       .on('settingschanged', (args: SohoDataGridSettingsChangedEvent) => { this.settingsChanged.next(args); })
-      .on('sorted', (args: SohoDataGridSortedEvent) => { this.sorted.next(args); });
+      .on('sorted', (e: any, args: SohoDataGridSortedEvent) => { this.sorted.next(args); });
   }
 
   /**
