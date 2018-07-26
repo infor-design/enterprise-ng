@@ -11,7 +11,7 @@ run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **@angular/cli** to create, build and run the application.
 
-At the time of writing the version of **@angular/cli** used was 6.0.0 with **angular** 6.0.0.
+At the time of writing the version of **@angular/cli** used was 6.1.0 with **angular** 6.1.0.
 
 :warning: You can use the olders 4.6.0 controls, but you will need to install the `rxjs-compat` package, and make some changes to the *ids-enterprise-ng* package.  This is not recommended.
 
@@ -27,10 +27,11 @@ npm install -g @angular/cli
 
 ### Create the project folder
 
-Using a terminal/console window, use **@angular/cli** to initialise the project, creating scaffolding for the application (in this case **enterprise-ng-quickstart**):
+Using a terminal/console window, use **@angular/cli** to initialise the project, creating scaffolding for the application (in this case **ids-enterprise-ng-quickstart**):
 
 ```sh
-ng new enterprise-ng-quickstart
+ng new ids-enterprise-ng-quickstart
+cd ids-enterprise-ng-quickstart
 ```
 
 ## Step 2 : Install Packages
@@ -40,26 +41,34 @@ The project will need access to the Infor NPM registy to be able to pull down th
 You can add the dependencies directly into the `project.json` file, however it is more reliable to add them using the command line.
 In a terminal window, in the project folder:
 
-1. Type `npm install jquery@3.1.1 -S`
-2. Type `npm install ids-enterprise`
-3. Type `npm install ids-enterprise-ng`
-4. Type `npm install @types/jquery@3.2.16 -D`
-5. Type `npm install merge-stream -D`
+1. Type `npm install jquery@3.3.1 -S --save-exact`
+2. Type `npm install ids-enterprise -S`
+3. Type `npm install ids-enterprise-ng -S`
+4. Type `npm install @types/jquery@3.3.1 -D --save-exact`
+
+NOTE: You can also link to a local version of the `ids-enterprise(-ng)` using `npm link`.
+
+You may want to update to the latest @angular/cli and @angular packages:
+
+```sh
+ng update @angular/cli
+ng update @angular/code
+```
 
 This includes all the packages we need to create this simple quickstart application.
 
 ## Step 3 : Configure @angular/cli
 
-The next step is to configure angular-cli to include the IDL enterprise libraries into the output.
+The next step is to configure `angular-cli` to include the ids enterprise libraries into the output.
 
-Edit `angular-cli.json`, change the `scripts` elements as follows:
+Edit `angular.json`, change the `scripts` elements as follows:
 
 ```json
 "scripts": [
   "./node_modules/jquery/dist/jquery.js",
+  "./node_modules/ids-enterprise/dist/js/d3.v4.js",
   "./node_modules/ids-enterprise/dist/js/sohoxi.js",
-  "./node_modules/ids-enterprise/dist/js/cultures/en-US.js",
-  "./node_modules/ids-enterprise/dist/js/d3.v4.js"
+  "./node_modules/ids-enterprise/dist/js/cultures/en-US.js"
 ],
 ```
 
@@ -77,27 +86,29 @@ Edit `src/tsconfig.app.json`, update/add the `types` property:
 ]
 ```
 
-In the root `tsconfig.json` file add `node_modules/ids-enterprise-ng/**/*` to the `include` property, as follows:
-
-```json
-"include": [
-  "src/**/*",
-  "node_modules/ids-enterprise-ng/**/*""
-]
-```
-
-This is required as the compiler will not compile typescript code outside the src folder (by default).
-
 ## Step 5 : Enterprise Controls Assets
 
-**@angular/cli** needs to include assets from node_modules into the compiled output.
+**@angular/cli** needs to include assets from `node_modules` into the compiled output.
 
-To configure this edit the `angular-cli.json` assets section.
+To configure this edit the `angular.json` assets section.
+
+Change the `assets` to include the assets required by the underlying `ids-enterprise` widgets, as follows:
 
 ```json
-  "assets": [
-    { "glob": "**/*", "input": "./node_modules/ids-enterprise/dist/css", "output": "./assets/ids-enterprise/css" }
-  ],
+"assets": [
+    "src/favicon.ico",
+    "src/assets",
+    {
+    "glob": "**/*",
+    "input": "node_modules/ids-enterprise/dist/css",
+    "output": "/assets/ids-enterprise/css"
+    },
+    {
+    "glob": "**/*",
+    "input": "node_modules/ids-enterprise/dist/js/cultures",
+    "output": "/assets/ids-enterprise/js/cultures"
+    }
+]
 ```
 
 The link in the following to the `src/index.html` file would be the output folder..
@@ -107,6 +118,17 @@ The link in the following to the `src/index.html` file would be the output folde
   ...
   <link rel="stylesheet" id="stylesheet" href="/assets/ids-enterprise/css/light-theme.css" type="text/css">
 </head>
+```
+
+Set the locale path in `app.component.ts`:
+
+```typescript
+constructor() {
+    Soho.Locale.culturesPath = '/assets/ids-enterprise/js/cultures/';
+    Soho.Locale.set('en-US').done(() => {
+      console.log('Locale set');
+    });
+  }
 ```
 
 ## Step 6 : Making Sure it Works
@@ -120,17 +142,6 @@ ng serve
 Check you get the default page when you browse to <http://localhost:4200/>.
 
 ## Step 7 : Unit Testing
-
-Edit the file `karma.conf.js`, adding any extra JavaScript libraries to the file property, for example:
-
-```json
-files: [
- { "pattern": "./node_modules/jquery/dist/jquery.js", "watched": false  },
- { "pattern": "./node_modules/ids-enterprise/dist/js/sohoxi.js", "watched": false },
- { "pattern": "./node_modules/ids-enterprise/dist/js/cultures/en-US.js", "watched": false },
- { "pattern": "./src/test.ts", "watched": false }
-],
-```
 
 Run the unit tests:
 
@@ -185,8 +196,6 @@ Add ```SohoComponentsModule``` to the imports.
   declarations: [],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
     SohoComponentsModule
   ]
   ...
@@ -198,7 +207,9 @@ Add ```SohoComponentsModule``` to the imports.
 Add a button to `app.component.html`, by appending the following code snippet:
 
 ```html
-<button soho-button (click)="clicked()">Click Me!</button>
+<soho-icons></soho-icons>
+
+<button soho-button icon="alert" (click)="clicked()">{{'Alert' | sohoTranslate}}</button>
 ```
 
 Add the clicked handler to `app.component.ts`, as follows:

@@ -1,6 +1,5 @@
 import {
   Component,
-  QueryList,
   AfterViewInit,
   ViewChild,
   Inject,

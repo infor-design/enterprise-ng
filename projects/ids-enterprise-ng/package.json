@@ -1,9 +1,33 @@
 {
   "name": "ids-enterprise-ng",
-  "version": "4.9.1",
+  "slug": "ids-enterprise-ng",
+  "version": "4.10.0-dev",
   "peerDependencies": {
-    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
-    "ids-enterprise": "^4.8.0 || ^4.9.0"
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0 || ^6.1.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0 || ^6.1.0",
+    "ids-enterprise": "^4.8.0 || ^4.9.0",
+    "@angular/cli": "6.1.0",
+    "@types/jquery": "3.3.1",
+    "classlist.js": "^1.1.20150312",
+    "jquery": "3.3.1"
+  },
+  "description": "Infor Design System (IDS) Enterprise Angular Components",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infor-design/enterprise-ng.git"
+  },
+  "keywords": [
+    "infor design system",
+    "infor design system enterprise angular"
+  ],
+  "author": "Hook & Loop",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/infor-design/enterprise-ng/issues"
+  },
+  "homepage": "https://github.com/infor-design/enterprise-ng",
+  "scripts": {
+    "prepublishOnly": "cd ../ && npx gulp publish && cd ./publish",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

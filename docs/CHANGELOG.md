@@ -4,7 +4,27 @@
 
 ### Features
 
+- [`General`] NPM package now compiled into the Angular Package Format.  ([Pull Request 143](https://github.com/infor-design/enterprise-ng/pull/143))
+  - Introduced new sub-project `ids-enterprise-ng`.
+  - Moved angular components into a new sub-project.
+  - Refactored all components to include /// reference to corresponding typings.
+  - Removed all explicit type related JavaDoc - as this breaks the packager.  E.g. `@memberof`, `@type`, `{typename}` ...
+  - Fixed signature of `@HostListener` for `KeyUp` (as this broke the packager).
+  - Refactored all demo components to use `ids-enterprise-ng` package.
+  - Refactored all demo components selectors to start with `app-`
+  - Fixed tslint errors/warnings
+    - Deprecation of ReflectiveInjector -> Injector
+    - Invalid `@Output` event names (e.g. `onChange` and `SohoStepProcessComponent.onSaveClose`).
+    - Refactored usages of `Renderer` to `Renderer2`.
+  - Fixed `sorted` event handling on `datagrid` (other events look wrong too).
+  - Upgraded @angular/cli (to 6.1.0)
+  - Upgraded @angular/core (to 6.1.0)
+  - Upgraded QUICKSTART.md document.
+
+
 ### Fixes
+
+ -
 
 ### Chore & Maintenance
 

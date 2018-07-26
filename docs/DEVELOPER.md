@@ -27,12 +27,13 @@
 ## Component Structure
 
 This section gives a brief overview of a component in the **enterprise ng** project.
+
 The intention is to define the contract between the **enterprise** jQuery controls and their angular counterparts.
 
 ### Structure
 
 ```text
-soho\
+projects\ids-enterprise-ng\src\lib
   mywidget\
     soho-widget.d.ts
     soho-widget.component.ts
@@ -42,7 +43,7 @@ soho\
     README.md (optional)
 ```
 
-The typing file (soho-widget.d.ts) contains the public API for the underlying **enterprise** jQuery controls, it also contains some internal information required to get the component working.
+The typing file (`soho-widget.d.ts`) contains the public API for the underlying **enterprise** jQuery controls, it also contains some internal information required to get the component working.  This should be referenced in each component it is required in.
 
 ```typescript
 /**
@@ -92,6 +93,8 @@ It is **important** that the typings files accurately represent the underlying *
 The structure of a very simple **enterprise-ng** Component that wraps a ficticious jQuery Control called **widget** is defined below:
 
 ```typescript
+/// <reference path="soho-widget.d.ts"/>
+
 @Component({
   selector: 'soho-widget',
   template: './soho-widget.component.html',
@@ -238,20 +241,7 @@ These unit tests are run are part of the Continuous Integration build when code 
 
 ## Pulling it all together
 
-The component is then added into the consolidated typings using the top level typing file:
-
-```text
-soho\
-  soho-components.d.ts
-```
-
-This file includes a reference to each of the typings files defined within each component, e.g.
-
-```typescript
-/// <reference path="./widget/soho-widget.d.ts" />
-```
-
-Add the component to the top level `soho-components.module.ts` file, by adding the widget component's module.
+Add the new widget's module to the `SohoComponentsModule`:
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -274,5 +264,23 @@ import { SohoWidgetModule } from './widget/soho-widget.module';
 })
 export class SohoComponentsModule {}
 ```
+
+# Building
+
+To build and test the new component, you should add an application demo to the top level project, this involves:
+
+1. Adding a demo module, route and component in `src\app\widget`:
+  * `widget.demo.ts`
+  * `widget.demo.html`
+  * `widget.route.ts`
+  * `widget.module.ts`
+2. Adding a route to widget's demo module:
+  * ```json
+      { path: 'widget', loadChildren: './widget/widget-demo.module#WidgetDemoModule'}
+    ```
+3. Add a new entry to the application menu:
+  * ```html
+      <div class="accordion-header list-item"><a [routerLink]="['widget']"><span>Widgets</span></a></div>
+    ```
 
 To integrate this into your application simply include the **ids-enterprise-ng** package into your application, and include the **SohoComponentsModule** into your application module definition.  For further details, see the QuickStart guide.

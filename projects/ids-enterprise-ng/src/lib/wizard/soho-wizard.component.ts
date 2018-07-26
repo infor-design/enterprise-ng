@@ -13,7 +13,6 @@ import {
   OnInit,
   OnDestroy,
   ViewChildren,
-  QueryList,
   AfterContentInit,
   ViewChild,
   ContentChildren,

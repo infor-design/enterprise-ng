@@ -61,7 +61,7 @@
 | trackdirty              |                           Available |           -  |              - |
 | tree                    |                           Available |           -  | [SOHO-4043][#4083] |
 | treegrid                |                           Available |           -  | [SOHO-4722][#4722] |
-| wizard                  |                         In-progress |           -  | [SOHO-6317][#6317] |
+| wizard                  |                           Available |           -  | [SOHO-6317][#6317] |
 
 [0]: ../src/soho/contextual-action-panel/README.md
 [1]: ../src/soho/modal-dialog/README.md
