@@ -42,13 +42,13 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
 
   private isReadOnly: boolean = null;
 
-  private options: SohoDatePickerOptions = {};
+  private _options: SohoDatePickerOptions = {};
 
   /**
    * Indicates to display the timepicker; defaults to false.
    */
   @Input() set showTime(showTime: boolean) {
-    this.options.showTime = showTime;
+    this._options.showTime = showTime;
     if (this.datepicker) {
       this.markForRefresh();
     }
@@ -58,7 +58,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
    * Indicates the pattern for the time format.
    */
   @Input() set timeFormat(timeFormat: string) {
-    this.options.timeFormat = timeFormat;
+    this._options.timeFormat = timeFormat;
     if (this.datepicker) {
       this.markForRefresh();
     }
@@ -68,7 +68,17 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
    * An integer from 1 to 60; multiples of this value are displayed as options in the minutes dropdown.
    */
   @Input() set minuteInterval(minuteInterval: number) {
-    this.options.minuteInterval = minuteInterval;
+    this._options.minuteInterval = minuteInterval;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * An integer from 1 to 60; multiples of this value are displayed as options in the seconds dropdown.
+   */
+  @Input() set secondInterval(secondInterval: number) {
+    this._options.secondInterval = secondInterval;
     if (this.datepicker) {
       this.markForRefresh();
     }
@@ -78,14 +88,14 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
    * Indicates mode, either 'standard' or 'range'.
    */
   @Input() set mode(mode: SohoDatePickerMode) {
-    this.options.mode = mode;
+    this._options.mode = mode;
 
     if (mode === 'range') {
-      if (this.options.range) {
-        this.options.range.useRange = true;
+      if (this._options.range) {
+        this._options.range.useRange = true;
       } else {
-        this.options.range = {};
-        this.options.range.useRange = true;
+        this._options.range = {};
+        this._options.range.useRange = true;
       }
     }
     if (this.datepicker) {
@@ -97,7 +107,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
    * Use range of two dates options.
    */
   @Input() set range(range: SohoDatePickerRange) {
-    this.options.range = range;
+    this._options.range = range;
 
     if (this.datepicker) {
       this.markForRefresh();
@@ -107,8 +117,8 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   /**
    * If a non-matching minutes value is entered, will round the minutes value to the nearest interval on the blur event.
    */
-  @Input() set roundToInterval(roundToInterval: number) {
-    this.options.roundToInterval = roundToInterval;
+  @Input() set roundToInterval(roundToInterval: boolean) {
+    this._options.roundToInterval = roundToInterval;
 
     if (this.datepicker) {
       this.markForRefresh();
@@ -119,7 +129,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
    * Indicates the pattern for the date format or the value of 'locale'.
    */
   @Input() set dateFormat(dateFormat: string) {
-    this.options.dateFormat = dateFormat;
+    this._options.dateFormat = dateFormat;
     if (this.datepicker) {
       this.markForRefresh();
     }
@@ -128,8 +138,8 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   /**
    * Indicates a placeholder for an empty value; defaults to false.
    */
-  @Input() set placeholder(placeholder: boolean) {
-    this.options.placeholder = placeholder;
+  @Input() set placeholder(placeholder: string) {
+    this._options.placeholder = placeholder;
     if (this.datepicker) {
       this.markForRefresh();
     }
@@ -139,7 +149,97 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
    * Indicates an object containing a date or range of dates that are enabled or disabled.
    */
   @Input() set disable(disable: any) {
-    this.options.disable = disable;
+    this._options.disable = disable;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * Indicates a legend is shown to associate dates
+   */
+  @Input() set showLegend(showLegend: boolean) {
+    this._options.showLegend = showLegend;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * Indicates if the internal validation is disabled.
+   */
+  @Input() set customValidation(customValidation: boolean) {
+    this._options.customValidation = customValidation;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * Indicates if the month and year will render as dropdowns.
+   */
+  @Input() set showMonthYearPicker(showMonthYearPicker: boolean) {
+    this._options.showMonthYearPicker = showMonthYearPicker;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * Indicates if the days portion of the calendar will be hidden.
+   */
+  @Input() set hideDays(hideDays: boolean) {
+    this._options.hideDays = hideDays;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * The number of months in each direction to show in the dropdown for months (when initially opening)
+   */
+  @Input() set advanceMonths(advanceMonths: number) {
+    this._options.advanceMonths = advanceMonths;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * Options for how the legend displays
+   */
+  @Input() set legend(legend: Array<SohoDatePickerLegend>) {
+    this._options.legend = legend;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * Calendar's name. Currently just 'gregorian' or 'islamic-umalqura'
+   */
+  @Input() set calendarName(calendarName: SohoDatePickerCalendarName) {
+    this._options.calendarName = calendarName;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * Indicates if the dates will use UTC format
+   */
+  @Input() set useUTC(useUTC: boolean) {
+    this._options.useUTC = useUTC;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * Sets the options for the date picker
+   */
+  @Input() set options(options: SohoDatePickerOptions) {
+    this._options = options;
     if (this.datepicker) {
       this.markForRefresh();
     }
@@ -235,7 +335,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
     return true;
   }
   @HostBinding('class.timepicker') get isTimepicker() {
-    return !!this.options.showTime;
+    return !!this._options.showTime;
   }
 
   /**
@@ -261,7 +361,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
       this.jQueryElement = jQuery(this.element.nativeElement);
 
       // initialise the colorpicker control
-      this.jQueryElement.datepicker(this.options);
+      this.jQueryElement.datepicker(this._options);
 
       // extract the api
       this.datepicker = this.jQueryElement.data('datepicker');
