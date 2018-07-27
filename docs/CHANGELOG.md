@@ -11,7 +11,7 @@
     - Refactored all components to include `/// <reference path=""/>` to typings.
     - Refactored all demo components to use `ids-enterprise-ng` package.
     - Refactored all demo selectors to start with `app-`
-    - New build target '
+    - New build targets `build:lib`, `build:app`, `test:lib` and `pack:lib`.
 
 ### Fixes
 
