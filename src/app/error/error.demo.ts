@@ -16,7 +16,7 @@ import {
   templateUrl: './error.demo.html'
 })
 export class ErrorDemoComponent {
-  @ViewChild(SohoErrorDirective) public error: SohoErrorDirective; // tslint:ignore-line
+  @ViewChild(SohoErrorDirective) public error: SohoErrorDirective; // tslint:disable-line
 
   // tslint:disable-next-line:no-unused-variable
   public message = 'Field is required';

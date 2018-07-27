@@ -1653,7 +1653,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // Create an injector that will provide the arguments for the
     // component.
     // const i = ReflectiveInjector.resolveAndCreate([{ provide: 'args', useValue: editor.args }], this.injector);
-    const i = Injector.create([{ provide: 'args', useValue: editor.args }], this.injector);
+    const i = Injector.create([{
+      provide: 'args', useValue: editor.args
+    }], this.injector);
 
     // Warning!! the dynamic component is not added inside the container,
     // but as a sibling, so when it's destroyed it takes any siblings  with

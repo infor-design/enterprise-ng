@@ -5,27 +5,27 @@
 ### Features
 
 - [`General`] NPM package now compiled into the Angular Package Format.  ([Pull Request 143](https://github.com/infor-design/enterprise-ng/pull/143))
-  - Upgraded QUICKSTART.md document.
-  - Introduced new sub-project `ids-enterprise-ng`.
-  - Moved `soho` folder to sub-project, as `lib`.
-  - Refactored all components to include `/// <reference path=""/>` to typings.
-  - Refactored all demo components to use `ids-enterprise-ng` package.
-  - Refactored all demo selectors to start with `app-`
-  - New build target '
+    - Upgraded QUICKSTART.md document.
+    - Introduced new sub-project `ids-enterprise-ng`.
+    - Moved `soho` folder to sub-project, as `lib`.
+    - Refactored all components to include `/// <reference path=""/>` to typings.
+    - Refactored all demo components to use `ids-enterprise-ng` package.
+    - Refactored all demo selectors to start with `app-`
+    - New build target '
 
 ### Fixes
 
 ### Chore & Maintenance
 
- - `[DataGrid]` Changed use of deprecated `ReflectiveInjector` to `Injector`. `BTHH`
- - `[XXX]` Changed `onChange` event name to `change`. `BTHH`
- - `[StepProcess]` Changed `onSaveClose` event name to `saveClose`. `BTHH`
- - `[General]` Refactored usages of `Renderer` to `Renderer2`. `BTHH`
- - `[DataGrid]` Modified `sorted` event arguments on `datagrid`. `BTHH`
- - `[General]` Removed all explicit type JavaDoc, e.g. `@memberof`, `@type`, `{typename}`. `BTHH`
- - `[General]` Fixed signature of `@HostListener` for `KeyUp`. `BTHH`
- - `[General]` Upgraded @angular/cli (to 6.1.1) and @angular/core (to 6.1.0).
- - `[General]` Upgraded typeScript (to 2.9.2).
+- `[DataGrid]` Changed use of deprecated `ReflectiveInjector` to `Injector`. `BTHH`
+- `[Input]` Changed `onChange` event name to `change`. `BTHH`
+- `[StepProcess]` Changed `onSaveClose` event name to `saveClose`. `BTHH`
+- `[General]` Refactored usages of `Renderer` to `Renderer2`. `BTHH`
+- `[DataGrid]` Modified `sorted` event arguments on `datagrid`. `BTHH`
+- `[General]` Removed all explicit type JavaDoc, e.g. `@memberof`, `@type`, `{typename}`. `BTHH`
+- `[General]` Fixed signature of `@HostListener` for `KeyUp`. `BTHH`
+- `[General]` Upgraded @angular/cli (to 6.1.1) and @angular/core (to 6.1.0).
+- `[General]` Upgraded typeScript (to 2.9.2).
 
 ## v4.9.0
 

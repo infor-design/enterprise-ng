@@ -265,7 +265,7 @@ import { SohoWidgetModule } from './widget/soho-widget.module';
 export class SohoComponentsModule {}
 ```
 
-# Building
+## Building
 
 To build and test the new component, you should first need to to build the library:
 
@@ -275,21 +275,21 @@ npm run build:lib
 
 Then add an application demo to the top level project, this involves:
 
-1. Adding a demo module, route and component in `src\app\widget`:
-  * `widget.demo.ts`
-  * `widget.demo.html`
-  * `widget.route.ts`
-  * `widget.module.ts`
-2. Adding a route to widget's demo module:
-  * ```json
-      { path: 'widget', loadChildren: './widget/widget-demo.module#WidgetDemoModule'}
-    ```
-3. Add a new entry to the application menu:
-  * ```html
-      <div class="accordion-header list-item"><a [routerLink]="['widget']"><span>Widgets</span></a></div>
-    ```
+- Adding a demo module, route and component in `src\app\widget`:
+    - `widget.demo.ts`
+    - `widget.demo.html`
+    - `widget.route.ts`
+    - `widget.module.ts`
+- Adding a route to widget's demo module:
 
+```json
+ { path: 'widget', loadChildren: './widget/widget-demo.module#WidgetDemoModule'}
+```
 
+- Add a new entry to the application menu:
 
+```html
+<div class="accordion-header list-item"><a [routerLink]="['widget']"><span>Widgets</span></a></div>
+```
 
 To integrate this into your application simply include the **ids-enterprise-ng** package into your application, and include the **SohoComponentsModule** into your application module definition.  For further details, see the QuickStart guide.
