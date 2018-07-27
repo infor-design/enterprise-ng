@@ -141,7 +141,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   @Input()
   public set moveSelectedToTop(moveSelectedToTop: boolean) {
     console.warn(`'moveSelectedToTop' has been deprecated, please use 'moveSelected'.`);
-    this.options.moveSelectedToTop = moveSelectedToTop;
+    this.options.moveSelectedToTop = moveSelectedToTop;  // tslint:disable-line
   }
 
   public get moveSelectedToTop(): boolean {

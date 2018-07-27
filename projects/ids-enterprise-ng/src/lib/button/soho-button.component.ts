@@ -215,13 +215,13 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    * @deprecated no longer needed once this.toggle is removed.
    */
   @HostListener('click') toggleState() {
-    if (this.toggle) {
-      this.state = !this.state;
+    if (this.toggle) {  // tslint:disable-line
+      this.state = !this.state; // tslint:disable-line
     }
   }
 
   @HostBinding('attr.aria-pressed') get ariaPressed() {
-    return this.isPressed();
+    return this.isTogglePressed;
   }
 
   /**
@@ -243,7 +243,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
         this.toggleOnIcon = 'star-filled';
       } else {
         // deprecated in 4.3.0 sohoxi
-        this.toggle = 'star-outlined';
+        this.toggle = 'star-outlined'; // tslint:disable-line
         this.icon = 'star-filled';
       }
     }
@@ -268,7 +268,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
       // by the plug-in, but in this case is 'button'.
       this.button = this.jQueryElement.data('button');
 
-      if (this.state !== undefined) {
+      if (this.state !== undefined) { // tslint:disable-line
         // turn off the default handling of the favorite icon switching
         // in the sohoxi controls (button.js). This is so that only this
         // button-component handles the switching of the toggle icon for
@@ -303,10 +303,10 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
 
   get currentIcon() {
     if (this.isToggle && this.buttonOptions.toggleOnIcon && this.buttonOptions.toggleOffIcon) {
-      return this.isPressed() ? this.buttonOptions.toggleOnIcon : this.buttonOptions.toggleOffIcon;
+      return this.isTogglePressed ? this.buttonOptions.toggleOnIcon : this.buttonOptions.toggleOffIcon;
     }
 
-    if (this.toggle) {
+    if (this.toggle) { // tslint:disable-line
       return this.state ? this.icon : this.toggle;
     }
 

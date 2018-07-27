@@ -4,9 +4,9 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { 
-  SohoFileUploadComponent, 
-  SohoTrackDirtyDirective 
+import {
+  SohoFileUploadComponent,
+  SohoTrackDirtyDirective
 } from 'ids-enterprise-ng';
 
 @Component({

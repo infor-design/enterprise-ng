@@ -7,8 +7,8 @@
     "build": "ng build --prod ids-enterprise-ng && ng build",
     "build:lib": "ng build --prod ids-enterprise-ng",
     "build:app": "ng build",
-    "test:lib": "ng test ids-enterprise-ng --browsers=Chrome",
-    "test:app": "ng test --browsers=Chrome",
+    "test:lib": "ng test ids-enterprise-ng",
+    "test:app": "ng test",
     "pack:lib": "cd dist/ids-enterprise-ng && npm pack",
     "package": "npm run build_lib && npm run npm_pack",
     "test": "ng test ids-enterprise-ng --browsers=ChromeHeadless --code-coverage",
@@ -45,8 +45,8 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.7.0",
-    "@angular-devkit/build-ng-packagr": "~0.7.0",
+    "@angular-devkit/build-angular": "~0.7.1",
+    "@angular-devkit/build-ng-packagr": "~0.7.1",
     "@angular/cli": "~6.1.1",
     "@angular/compiler-cli": "^6.1.0",
     "@angular/language-service": "^6.1.0",

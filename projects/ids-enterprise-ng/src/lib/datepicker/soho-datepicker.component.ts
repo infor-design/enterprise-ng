@@ -325,7 +325,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
 
   public focus(): void {
     if (this.datepicker) {
-      this.datepicker.element.focus();
+      this.datepicker.element.trigger('focus');
     }
   }
 

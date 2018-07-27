@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ContentType } from './content-type.model';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable()
@@ -17,6 +17,6 @@ export class ContentTypeService {
 
   private handleError(err: HttpErrorResponse) {
     console.log(err.message);
-    return Observable.throw(err.message);
+    return throwError(err.message);
   }
 }

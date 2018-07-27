@@ -9,7 +9,7 @@ import { SohoErrorDirective } from 'ids-enterprise-ng';
 })
 export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
   @ViewChildren(SohoTrackDirtyDirective) trackDirtyComponents: QueryList<SohoTrackDirtyDirective>;
-  @ViewChild(SohoErrorDirective) errorDirective: SohoErrorDirective;
+  @ViewChild(SohoErrorDirective) errorDirective: SohoErrorDirective; // tslint:ignore-line
 
   public dataView: any = {
     EventField:    {
@@ -144,7 +144,7 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
   goToError() {
     // scroll element into view if there is an error
     if (this.errorDirective.errorMessage) {
-      this.errorDirective.scrollIntoView();
+      this.errorDirective.scrollIntoView(); // tslint:ignore-line
     }
   }
 

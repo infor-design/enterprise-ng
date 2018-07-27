@@ -281,7 +281,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
       // mimics functionality in sohoxi lookup insertRows()
       this.lookup.element.val(this.internalValue).trigger('change', [event]);
-      this.lookup.element.focus();
+      this.lookup.element.trigger('focus');
     }
   }
 

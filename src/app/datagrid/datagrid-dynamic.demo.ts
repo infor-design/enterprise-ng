@@ -115,7 +115,7 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
     // select right click row, unselect any other row first.
     // -----------------------------------------------------------------
     this.dataGrid.unSelectAllRows();
-    this.dataGrid.selectRow(e.row);
+    this.dataGrid.selectRows(e.row);
 
     // -----------------------------------------------------------------
     // build the right click menu items array dynamically. When the

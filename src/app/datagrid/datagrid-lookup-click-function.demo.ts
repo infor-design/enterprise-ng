@@ -88,7 +88,7 @@ export class DataGridLookupClickDemoComponent implements AfterViewInit {
             // TODO: Tim is there a better solution to move
             // the selected value into the lookup input element?
             sohoLookup.element.val(value);
-            sohoLookup.element.focus();
+            sohoLookup.element.trigger('focus');
           }
 
           dialogRef.close();

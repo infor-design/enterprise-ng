@@ -337,7 +337,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
    * backwards compatible with old 'data-show-currency'; value true equates to currency
    * @deprecated use prefix or suffix instead
    */
-  @Input() set showSymbol(value: SohoMaskShowSymbol) {
+  @Input() set showSymbol(value: SohoMaskShowSymbol) { // tslint:ignore-line
     console.warn('The showSymbol input is no longer supported, please use the prefix or suffix input instead.');
   }
 

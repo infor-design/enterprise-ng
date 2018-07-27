@@ -49,8 +49,8 @@ export class DataGridMixedSelectionDemoComponent implements AfterViewInit {
   }
 
   onActivateSelectedRow(event) {
-    if (this.sohoDataGridComponent.getSelectedRows().length > 0 && this.sohoDataGridComponent.getSelectedRows()[0].idx > -1) {
-      this.sohoDataGridComponent.activateRow(this.sohoDataGridComponent.getSelectedRows()[0].idx);
+    if (this.sohoDataGridComponent.selectedRows().length > 0 && this.sohoDataGridComponent.selectedRows()[0].idx > -1) {
+      this.sohoDataGridComponent.activateRow(this.sohoDataGridComponent.selectedRows()[0].idx);
     }
   }
 
