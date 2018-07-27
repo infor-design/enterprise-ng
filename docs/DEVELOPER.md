@@ -267,7 +267,13 @@ export class SohoComponentsModule {}
 
 # Building
 
-To build and test the new component, you should add an application demo to the top level project, this involves:
+To build and test the new component, you should first need to to build the library:
+
+```sh
+npm run build:lib
+```
+
+Then add an application demo to the top level project, this involves:
 
 1. Adding a demo module, route and component in `src\app\widget`:
   * `widget.demo.ts`
@@ -282,5 +288,8 @@ To build and test the new component, you should add an application demo to the t
   * ```html
       <div class="accordion-header list-item"><a [routerLink]="['widget']"><span>Widgets</span></a></div>
     ```
+
+
+
 
 To integrate this into your application simply include the **ids-enterprise-ng** package into your application, and include the **SohoComponentsModule** into your application module definition.  For further details, see the QuickStart guide.
