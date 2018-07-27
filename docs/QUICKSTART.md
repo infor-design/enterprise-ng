@@ -39,12 +39,13 @@ cd ids-enterprise-ng-quickstart
 The project will need access to the Infor NPM registy to be able to pull down the latest Infor Design System (IDS) *enterprise* component libraries for jQuery and Angular.
 
 You can add the dependencies directly into the `project.json` file, however it is more reliable to add them using the command line.
+
 In a terminal window, in the project folder:
 
 1. Type `npm install jquery@3.3.1 -S --save-exact`
-2. Type `npm install ids-enterprise -S`
-3. Type `npm install ids-enterprise-ng -S`
-4. Type `npm install @types/jquery@3.3.1 -D --save-exact`
+2. Type `npm install @types/jquery@3.3.1 -D --save-exact`
+3. Type `npm install ids-enterprise -S`
+4. Type `npm install ids-enterprise-ng -S`
 
 NOTE: You can also link to a local version of the `ids-enterprise(-ng)` using `npm link`.
 
@@ -190,7 +191,7 @@ import { SohoComponentsModule } from 'ids-enterprise-ng';
 
 Add ```SohoComponentsModule``` to the imports.
 
-```typescript
+```ts
 @NgModule({
   ...
   declarations: [],
