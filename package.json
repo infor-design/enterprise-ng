@@ -11,7 +11,7 @@
     "test:app": "ng test",
     "pack:lib": "cd dist/ids-enterprise-ng && npm pack",
     "package": "npm run build_lib && npm run npm_pack",
-    "test": "ng test ids-enterprise-ng --browsers=ChromeHeadless --code-coverage",
+    "test": "ng test ids-enterprise-ng --browsers=PhantomJs --code-coverage",
     "lint": "ng lint && npm run mdlint",
     "mdlint": "npm run mdlint:docs && npm run mdlint:src",
     "mdlint:src": "npx markdownlint src",
