@@ -3,5 +3,11 @@
   "dest": "../../dist/ids-enterprise-ng",
   "lib": {
     "entryFile": "src/public_api.ts"
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "angular",
+    "jquery",
+    "ids-enterprise",
+    "classlist.js"
+  ]
 }
