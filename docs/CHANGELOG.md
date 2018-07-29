@@ -4,8 +4,8 @@
 
 ### Features
 
-- [`General`] NPM package now compiled into the Angular Package Format.  ([Pull Request 143](https://github.com/infor-design/enterprise-ng/pull/143))
-    - Upgraded QUICKSTART.md document.
+- [`General`] NPM package now compiled into the Angular Package Format.  ([Pull Request 143](https://github.com/infor-design/enterprise-ng/pull/143)) `BTHH`
+    - Upgraded `QUICKSTART.md` document.
     - Introduced new sub-project `ids-enterprise-ng`.
     - Moved `soho` folder to sub-project, as `lib`.
     - Refactored all components to include `/// <reference path=""/>` to typings.

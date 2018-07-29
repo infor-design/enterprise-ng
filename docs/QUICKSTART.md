@@ -185,7 +185,7 @@ Type `npm install --save classlist.js` to add classlist package.
 
 Edit `src/app/app.module.ts`:
 
-```typescript
+```ts
 import { SohoComponentsModule } from 'ids-enterprise-ng';
 ```
 
