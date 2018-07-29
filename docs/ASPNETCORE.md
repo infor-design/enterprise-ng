@@ -19,11 +19,11 @@ Run `dotnet build` to verify the app builds correctly. On the first run, the bui
 
 Run `dotnet run` to start the app. A message similar to the following is logged:
 
-```Now listening on: http://localhost:<port>```
+```Now listening on: http://localhost:5000```
 
 Navigate to this URL in a browser.
 
-The app starts up an instance of the Angular CLI server in the background. A message similar to the following is logged: NG Live Development Server is listening on localhost:<otherport>, open your browser on http://localhost:<otherport>/. Ignore this message—it's not the URL for the combined ASP.NET Core and Angular CLI app.
+The app starts up an instance of the Angular CLI server in the background. A message similar to the following is logged: NG Live Development Server is listening on localhost:5000, open your browser on `http://localhost:5000/`. Ignore this message—it's not the URL for the combined ASP.NET Core and Angular CLI app.
 
 ## Upgrading to Angular / Angular CLI 6.1
 
@@ -32,18 +32,22 @@ The current SPA create and Angular 5 project, it is relatively easy to upgrade t
 Open a terminal / command prompt inside the ClientApp folder.
 
 ```sh
+
 npm i @angular/cli@latest
 ng update @angular/cli
 ng update @angular-devkit/build-angular
 ng update codelyzer
 npm install tsickle@latest --save-dev
 ng update @angular/core
+
 ```
 
 Ignore this error: (if it is still displayed - it will be fixed in @angular/compile-cli@6.1.1)
 
 ```sh
+
 npm WARN tsickle@0.30.0 requires a peer of typescript@>=2.4.2 <2.9 but none is installed. You must install peer dependencies yourself.
+
 ```
 
 ## Adding the Enterprise Controls
