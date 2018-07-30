@@ -54,4 +54,4 @@ npm WARN tsickle@0.30.0 requires a peer of typescript@>=2.4.2 <2.9 but none is i
 
 Following the instruction in the quickstart guide, from [Step 2](#Step2).  Note the root of the angular project is the *ClientApp* folder.
 
-[#Step2]:QUICKSTART.md
+[#Step2]:QUICKSTART.md#Step-2-:-Install-Packages
