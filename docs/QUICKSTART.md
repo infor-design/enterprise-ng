@@ -80,8 +80,7 @@ In the *test* section also add:
 "./node_modules/ids-enterprise/dist/js/cultures/en-US.js"
 ```
 
-otherwise the will not be loaded automatically.
-
+otherwise the locales will not be loaded.
 
 ### Step 4 : Configure TypeScript
 

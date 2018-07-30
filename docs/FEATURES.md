@@ -63,12 +63,12 @@
 | treegrid                |                           Available |           -  | [SOHO-4722][#4722] |
 | wizard                  |                           Available |           -  | [SOHO-6317][#6317] |
 
-[0]: ../src/soho/contextual-action-panel/README.md
-[1]: ../src/soho/modal-dialog/README.md
-[2]: ../src/soho/listview/README.md
-[3]: ../src/soho/accordion/README.md
-[4]: ../src/soho/datagrid/README.md
-[5]: ../src/soho/tag/README.md
+[0]: ../projects/ids-enterprise-ng/src/lib/contextual-action-panel/README.md
+[1]: ../projects/ids-enterprise-ng/src/lib/modal-dialog/README.md
+[2]: ../projects/ids-enterprise-ng/src/lib/listview/README.md
+[3]: ../projects/ids-enterprise-ng/src/lib/accordion/README.md
+[4]: ../projects/ids-enterprise-ng/src/lib/datagrid/README.md
+[5]: ../projects/ids-enterprise-ng/src/lib/tag/README.md
 [#6759]: http://jira/browse/SOHO-6759
 [#4344]: http://jira/browse/SOHO-4344
 [#5909]: http://jira/browse/SOHO-5909
