@@ -74,34 +74,26 @@ Edit `angular.json`, change the `scripts` elements as follows:
 
 Change both the *test* and *build* architecture sections.
 
-In the *test* section also add:
-
-```json
-"./node_modules/ids-enterprise/dist/js/cultures/en-US.js"
-```
-
-otherwise the locales will not be loaded.
-
 ### Step 4 : Configure TypeScript
 
-Edit `src/tsconfig.app.json`, update/add the `types` property:
+Edit `src/tsconfig.app.json` and `src/tsconfig.spec.json`, update/add the `types` property:
 
 ```json
 "types": [
-  "jasmine",
-  "jquery",
-  "node"
+  "jquery"
 ]
 ```
 
-If the release of `ids-enterprise-ng` you are using is not shipped using the *Angular Package Format*, then make the following changes to the root `tsconfig.json` file.
+(Don't delete any existing ones.)
+
+If the release of `ids-enterprise-ng` you are using is not shipped using the *Angular Package Format*, then make the following changes to  `src/tsconfig.app.json` file.
 
 Add `node_modules/ids-enterprise-ng/**/*` to the `include` property, as follows:
 
 ```json
 "include": [
-  "src/**/*",
-  "node_modules/ids-enterprise-ng/**/*""
+  "**/*",
+  "../node_modules/ids-enterprise-ng/**/*"
 ]
 ```
 
@@ -120,14 +112,14 @@ Change the `assets` to include the assets required by the underlying `ids-enterp
     "src/favicon.ico",
     "src/assets",
     {
-    "glob": "**/*",
-    "input": "node_modules/ids-enterprise/dist/css",
-    "output": "/assets/ids-enterprise/css"
+      "glob": "**/*",
+      "input": "node_modules/ids-enterprise/dist/css",
+      "output": "/assets/ids-enterprise/css"
     },
     {
-    "glob": "**/*",
-    "input": "node_modules/ids-enterprise/dist/js/cultures",
-    "output": "/assets/ids-enterprise/js/cultures"
+      "glob": "**/*",
+      "input": "node_modules/ids-enterprise/dist/js/cultures",
+      "output": "/assets/ids-enterprise/js/cultures"
     }
 ]
 ```

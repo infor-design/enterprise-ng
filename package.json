@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod ids-enterprise-ng && ng build",
-    "build:lib": "ng build --prod ids-enterprise-ng",
+    "build": "ng build ids-enterprise-ng && ng build",
+    "build:lib": "ng build ids-enterprise-ng",
     "build:app": "ng build",
     "test:lib": "ng test ids-enterprise-ng --watch=false",
     "test:app": "ng test --watch=false",

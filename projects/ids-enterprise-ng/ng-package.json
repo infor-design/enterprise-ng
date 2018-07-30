@@ -4,5 +4,11 @@
   "deleteDestPath": false,
   "lib": {
     "entryFile": "src/public_api.ts"
-  }
+  },
+  "whitelistedNonPeerDependencies": [
+    "angular",
+    "jquery",
+    "ids-enterprise",
+    "classlist.js"
+  ]
 }
