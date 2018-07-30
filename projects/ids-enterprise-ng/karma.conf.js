@@ -54,7 +54,7 @@ module.exports = function (config) {
         base: 'PhantomJS',
         debug: true
       },
-       ChromeDebug: {
+      ChromeDebug: {
           base: 'Chrome',
           flags: [ '--remote-debugging-port=9333' ]
       },

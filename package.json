@@ -42,7 +42,7 @@
     "jquery": "3.3.1",
     "lscache": "^1.2.0",
     "rxjs": "^6.2.2",
-    "zone.js": "^0.8.26"
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.7.1",

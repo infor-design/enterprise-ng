@@ -50,7 +50,7 @@ npm WARN tsickle@0.30.0 requires a peer of typescript@>=2.4.2 <2.9 but none is i
 
 ```
 
-## Adding the Enterprise Controls
+## Adding the IDS Enterprise Controls
 
-Following the instruction in the quickstart guide.
+Following the instruction in the quickstart guide, from [Step 2](QUICKSTART.md#Step-2-:-Install-Packages).  Not the root of the angular project is the *ClientApp* folder.
 

@@ -68,12 +68,20 @@ Edit `angular.json`, change the `scripts` elements as follows:
 "scripts": [
   "./node_modules/jquery/dist/jquery.js",
   "./node_modules/ids-enterprise/dist/js/d3.v4.js",
-  "./node_modules/ids-enterprise/dist/js/sohoxi.js",
-  "./node_modules/ids-enterprise/dist/js/cultures/en-US.js"
+  "./node_modules/ids-enterprise/dist/js/sohoxi.js"
 ],
 ```
 
 Change both the *test* and *build* architecture sections.
+
+In the *test* section also add:
+
+```json
+"./node_modules/ids-enterprise/dist/js/cultures/en-US.js"
+```
+
+otherwise the will not be loaded automatically.
+
 
 ### Step 4 : Configure TypeScript
 
