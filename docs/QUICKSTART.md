@@ -94,6 +94,19 @@ Edit `src/tsconfig.app.json`, update/add the `types` property:
 ]
 ```
 
+If the release of `ids-enterprise-ng` you are using is not shipped using the *Angular Package Format*, then make the following changes to the root `tsconfig.json` file.
+
+Add `node_modules/ids-enterprise-ng/**/*` to the `include` property, as follows:
+
+```json
+"include": [
+  "src/**/*",
+  "node_modules/ids-enterprise-ng/**/*""
+]
+```
+
+This is required as the compiler will not compile typescript code outside the src folder.
+
 ## Step 5 : Enterprise Controls Assets
 
 **@angular/cli** needs to include assets from `node_modules` into the compiled output.
