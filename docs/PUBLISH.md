@@ -65,7 +65,8 @@ are copied into src/soho/icon.
 ### Release
 
 1. Make sure you have release-it installed (`npm install release-it -g`)
-1. Checkout the release branch (`X.Y.Z`) and `git pull --tags`
+1. Checkout the release branch (`A.B.x`) and `git pull --tags`
+    - Set the master branch to the next minor dev version. For example if we made branch `4.9.x`, then the `master` publish/package.json version should now be changed to `4.10.0-dev`
 1. Run a release cmd:
     - `npm run release:beta` - beta
     - `npm run release:rc` - release candidate normally the final testing branch before the release
