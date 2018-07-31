@@ -27,7 +27,7 @@
     "@angular/cli": "6.0.7",
     "@types/jquery": "3.3.1",
     "classlist.js": "^1.1.20150312",
-    "ids-enterprise": "^4.9.0-rc.0",
+    "ids-enterprise": "^4.9.0-rc.1",
     "jquery": "3.3.1"
   }
 }
