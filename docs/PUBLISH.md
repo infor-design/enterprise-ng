@@ -67,6 +67,7 @@ are copied into src/soho/icon.
 1. Make sure you have release-it installed (`npm install release-it -g`)
 1. Checkout the release branch (`A.B.x`) and `git pull --tags`
     - Set the master branch to the next minor dev version. For example if we made branch `4.9.x`, then the `master` publish/package.json version should now be changed to `4.10.0-dev`
+    - "Protect" the release branch with github settings
 1. Run a release cmd:
     - `npm run release:beta` - beta
     - `npm run release:rc` - release candidate normally the final testing branch before the release
@@ -76,6 +77,3 @@ are copied into src/soho/icon.
 For a final release, finish with:
 
 1. Merge the release branch (`X.Y.Z`) back into `master` but keep branch (`X.Y.Z`)
-1. PR the master version to the proper "dev" version
-    - i.e. if we just released `4.7.0`, master will now be `4.8.0-dev`
-1. "Protect" the release branch with github settings
