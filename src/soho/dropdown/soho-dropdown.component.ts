@@ -65,7 +65,9 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   /**
    * Block of options, use the accessors to modify.
    */
-  private options: SohoDropDownOptions = {};
+  private options: SohoDropDownOptions = {
+    reload: 'none'
+  };
 
   /**
    * Sets the dropdown to close on selecting a value (helpful for multi-select)
@@ -185,6 +187,10 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     return this.options.sourceArguments;
   }
 
+  /**
+   * @deprecated as of v4.9.0
+   * use `reload` instead.
+   */
   @Input()
   public set reloadSourceOnOpen(reloadSourceOnOpen: boolean) {
     this.options.reloadSourceOnOpen = reloadSourceOnOpen;
@@ -196,6 +202,22 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
 
   public get reloadSourceOnOpen(): boolean {
     return this.options.reloadSourceOnOpen;
+  }
+
+  /**
+   * Determines the frequency of reloading data from an external source
+   */
+  @Input()
+  public set reload(reload: SohoDropDownReloadStyles) {
+    this.options.reload = reload;
+    if (this.dropdown) {
+      this.dropdown.settings.reload = reload;
+      this.markForRefresh();
+    }
+  }
+
+  public get reload(): SohoDropDownReloadStyles {
+    return this.options.reload;
   }
 
   /**

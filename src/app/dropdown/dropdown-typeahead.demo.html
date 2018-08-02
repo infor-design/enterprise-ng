@@ -1,0 +1,23 @@
+<div class="example-section">
+    <div class="row top-padding">
+      <h1>Dropdown configured for Typeahead Reloading</h1>
+      <span class="code-tag">Live Example</span>
+    </div>
+
+    <div class="row">
+      <form>
+        <div class="field">
+          <label for="states" class="label">States</label>
+          <select soho-dropdown name="states" [reload]="settings.reload" [source]="source" [(ngModel)]="model.value">
+          </select>
+        </div>
+      </form>
+    </div>
+
+  <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+
+  <div *ngIf="showModel">
+    <hr>
+    <h3>{{ model | json }}</h3>
+  </div>
+</div>
