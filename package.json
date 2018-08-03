@@ -21,7 +21,7 @@
     "postinstall": "npm run requirements-check"
   },
   "engines": {
-    "node": ">10.2.1 <11D.0.0",
+    "node": ">10.2.1 <11.0.0",
     "npm": ">6.0.0"
   },
   "dependencies": {
