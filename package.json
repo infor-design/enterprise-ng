@@ -16,7 +16,13 @@
     "release:dev": "npm run update-enterprise && npm run version-bump:dev && npm publish publish/ --tag=dev",
     "release:beta": "cd publish/ && release-it minor --preRelease=beta",
     "release:rc": "cd publish/ && release-it --preRelease=rc",
-    "release:final": "cd publish/ && release-it"
+    "release:final": "cd publish/ && release-it",
+    "requirements-check": "node scripts/check-node-version.js",
+    "postinstall": "npm run requirements-check"
+  },
+  "engines": {
+    "node": ">10.2.1 <11.0.0",
+    "npm": ">6.0.0"
   },
   "dependencies": {
     "@angular/animations": "6.0.4",
