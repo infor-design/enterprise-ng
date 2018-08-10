@@ -20,7 +20,7 @@
   "main": "index.ts",
   "types": "index.d.ts",
   "scripts": {
-    "prepublishOnly": "cd ../ && npx gulp publish && cd ./publish",
+    "prepublishOnly": "cd ../ && npm run build:lib && cd ./publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

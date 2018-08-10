@@ -5,11 +5,11 @@
   "verbose": false,
   "pkgFiles": ["package.json"],
   "increment": "patch",
-  "buildCommand": "cd ../ && npm run build && cd publish/",
+  "buildCommand": "",
   "src": {
     "commitMessage": "Release v%s",
     "tagAnnotation": "Release v%s",
-    "beforeStartCommand": "cd ../ && npm run lint && npm run test && cd publish/",
+    "beforeStartCommand": "cd ../ && npm run lint && npm run test:lib && cd publish/",
     "afterReleaseCommand": ""
   },
   "npm": {
