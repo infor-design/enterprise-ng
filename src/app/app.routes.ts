@@ -64,6 +64,7 @@ import { DropdownAsyncDemoComponent } from './dropdown/dropdown-async.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
+import { DropdownTypeaheadDemoComponent } from './dropdown/dropdown-typeahead.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
 import { EmptyMessageDemoComponent } from './emptymessage/emptymessage.demo';
 import { ErrorDemoComponent } from './error/error.demo';
@@ -221,6 +222,7 @@ export const routes: Routes = [
   { path: 'dropdown-multi',                         component: DropdownMultiselectDemoComponent },
   { path: 'dropdown-reactive',                      component: DropdownReactiveDemoComponent },
   { path: 'dropdown-simple',                        component: DropdownSimpleDemoComponent },
+  { path: 'dropdown-typeahead',                     component: DropdownTypeaheadDemoComponent },
   { path: 'editor',                                 component: EditorDemoComponent },
   { path: 'emptymessage',                           component: EmptyMessageDemoComponent},
   { path: 'error',                                  component: ErrorDemoComponent },

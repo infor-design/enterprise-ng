@@ -145,6 +145,15 @@ describe('Soho Dropdown Render', () => {
     expect(el.style.maxWidth).toBe('');
   });
 
+  it('@Input() reload', () => {
+    expect(dropdown.reload).toBe('none');
+
+    dropdown.reload = 'typeahead';
+    fixture.detectChanges();
+
+    expect(dropdown.reload).toBe('typeahead');
+  });
+
   it('@Input() showSelectAll', () => {
     expect(el.hasAttribute('multiple')).toBeFalsy();
     expect(el.classList.contains('multiselect')).toBe(false);

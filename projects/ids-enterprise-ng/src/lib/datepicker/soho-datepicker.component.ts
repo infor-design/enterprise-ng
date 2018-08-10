@@ -399,7 +399,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
         // execute updated after angular has generated
         // the model and the view markup.
         if (this.datepicker) {
-          this.datepicker.updated();
+          this.datepicker.updated(this._options);
         }
         this.runUpdatedOnCheck = false;
       });
