@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/infor-design/enterprise-ng",
   "scripts": {
-    "prepublishOnly": "cd ../ && npx gulp publish && cd ./publish",
+    "prepublishOnly": "cd ../ && npm run build:lib && cd ./publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
