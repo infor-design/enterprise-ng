@@ -54,7 +54,7 @@ Details on [infor-design/enterprise/docs/PUBLISH.md](https://github.com/infor-de
 ### Update the version of ids-enterprise
 
 This will update the versions used in both package.json files. And also will update the icons that
-are copied into src/soho/icon.
+are copied into src/app/icon.
 
 1. Update enterprise
     ```sh
