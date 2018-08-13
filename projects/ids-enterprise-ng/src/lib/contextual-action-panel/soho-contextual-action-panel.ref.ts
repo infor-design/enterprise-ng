@@ -61,7 +61,9 @@ export class SohoContextualActionPanelRef<T> {
   /**
    * Cached options.
    */
-  private _options: SohoContextualActionPanelOptions = {};
+  private _options: SohoContextualActionPanelOptions = {
+    trigger: 'immediate'
+  };
 
   /**
    * Sets the whole options block for this contextual action panel.

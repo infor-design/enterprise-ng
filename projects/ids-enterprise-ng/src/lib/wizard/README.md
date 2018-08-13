@@ -29,6 +29,7 @@ In the markup for the hosting component add:
 ## Properties
 
 | Name | Description |
+| --- | --- |
 | `ticks` | ticks items ! NOT SUPPORTED |
 | `currentTickId` | provides the id for the currently selected tick |
 | `beforeActivate` | function to call before a tick is acivated to allow the transition to be vetoed. |

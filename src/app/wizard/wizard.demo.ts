@@ -62,7 +62,18 @@ export class WizardDemoComponent {
     return this.wizard.currentTickId === 'confirmation';
   }
 
+  onBeforeActivated(e: SohoWizardEvent) {
+    console.log(`onBeforeActivated: The tick with the label ${e.tick.text()}`);
+    console.log(e);
+  }
+
   onActivated(e: SohoWizardEvent) {
-    console.log('The tick with the label e.tick.text()');
+    console.log(`onActivated: The tick with the label ${e.tick.text()}`);
+    console.log(e);
+  }
+
+  onAfterActivated(e: SohoWizardEvent) {
+    console.log(`onAfterActivated: The tick with the label ${e.tick.text()}`);
+    console.log(e);
   }
 }

@@ -58,8 +58,7 @@ export class DemoCellIntegerFormatterComponent {
 @Component({
   selector: 'app-datagrid-custom-formatter-demo',
   templateUrl: './datagrid-custom-formatter.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  entryComponents: [SohoButtonComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;

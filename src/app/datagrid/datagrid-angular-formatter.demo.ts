@@ -1,8 +1,5 @@
 import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
   Component,
-  ViewChild,
   OnDestroy,
   Inject
 } from '@angular/core';
@@ -39,8 +36,7 @@ export class PriceCellFormatterComponent {
 
 @Component({
   selector: 'app-datagrid-angular-formatter-demo',
-  templateUrl: './datagrid-angular-formatter.demo.html',
-  entryComponents: [SohoButtonComponent],
+  templateUrl: './datagrid-angular-formatter.demo.html'
 })
 export class DataGridAngularFormatterDemoComponent {
   public columns: SohoDataGridColumn[] = [

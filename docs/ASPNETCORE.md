@@ -35,10 +35,17 @@ Open a terminal / command prompt inside the ClientApp folder.
 
 npm i @angular/cli@latest
 ng update @angular/cli
+ng update @angular/core
+
+```
+
+You may get some error on upgrading due to missing or invalid peer dependencies, you can update these manually as follows:
+
+```sh
+
 ng update @angular-devkit/build-angular
 ng update codelyzer
 npm install tsickle@latest --save-dev
-ng update @angular/core
 
 ```
 

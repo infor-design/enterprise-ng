@@ -24,7 +24,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@angular/cli": "^6.1.0",
+    "@angular/cli": "^6.1.2",
     "@types/jquery": "3.3.1",
     "classlist.js": "^1.1.20150312",
     "ids-enterprise": "^4.10.0-dev.20180810",

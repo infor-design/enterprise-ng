@@ -22,8 +22,7 @@ export class CardFormatterComponent {
 
 @Component({
   selector: 'app-datagrid-angular-card-formatter-demo',
-  templateUrl: './datagrid-angular-card-formatter.demo.html',
-  entryComponents: [SohoButtonComponent],
+  templateUrl: './datagrid-angular-card-formatter.demo.html'
 })
 export class DataGridAngularCardFormatterDemoComponent {
   public columns: SohoDataGridColumn[] = [

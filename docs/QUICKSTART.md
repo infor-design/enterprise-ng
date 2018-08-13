@@ -6,8 +6,7 @@ You can download the latest version of the code from [quickstart](https://github
 
 ## Prerequisites
 
-If **Node.js** and **npm** are not already on your machine, install them. These examples require Node 8.11 or higher and NPM 3 or higher. To check which version you are using,
-run `node -v` and `npm -v` in a terminal window.
+If **Node.js** and **npm** are not already on your machine, install them. These examples require Node 8.11 or higher and NPM 3 or higher. To check which version you are using, run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **@angular/cli** to create, build and run the application.
 
@@ -47,16 +46,16 @@ In a terminal window, in the project folder:
 3. Type `npm install ids-enterprise -S`
 4. Type `npm install ids-enterprise-ng -S`
 
-NOTE: You can also link to a local version of the `ids-enterprise(-ng)` using `npm link`.
+NOTE: You can also npm link to a local version of the `ids-enterprise(-ng)` using `npm link`.  If you do this you must add `"preserveSymLinks":true`to the root `angular.json` file, as follows:
 
-You may want to update to the latest @angular/cli and @angular packages:
-
-```sh
-ng update @angular/cli
-ng update @angular/code
+```json
+"projects": {
+    "ids-enterprise-ng-quickstart": {
+      "architect": {
+        "build": {
+          "options": {
+            "preserveSymlinks": true,
 ```
-
-This includes all the packages we need to create this simple quickstart application.
 
 ## Step 3 : Configure @angular/cli
 
@@ -86,12 +85,23 @@ Edit `src/tsconfig.app.json` and `src/tsconfig.spec.json`, update/add the `types
 
 (Don't delete any existing ones.)
 
-If the release of `ids-enterprise-ng` you are using is not shipped using the *Angular Package Format*, then make the following changes to  `src/tsconfig.app.json` file.
+If the release of `ids-enterprise-ng` you are using is not using the *Angular Package Format*, then make the following changes to he`tsconfig.json` file.
 
 Add `node_modules/ids-enterprise-ng/**/*` to the `include` property, as follows:
 
 ```json
 "include": [
+  "src/**/*",
+  "node_modules/ids-enterprise-ng/**/*"
+]
+```
+
+Also change the `tsconfig.spec.json` file:
+
+```json
+"include": [
+  "**/*.spec.ts",
+  "**/*.d.ts",
   "**/*",
   "../node_modules/ids-enterprise-ng/**/*"
 ]
