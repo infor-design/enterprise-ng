@@ -71,6 +71,12 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
    */
   @Output() selected = new EventEmitter<SohoHierarchyEvent>();
 
+  /**
+   * Leaf is double clicked
+   * @type {EventEmitter<SohoHierarchyDoubleClickEvent>}
+   */
+  @Output() doubleClick = new EventEmitter<SohoHierarchyDoubleClickEvent>();
+
   constructor(private elementRef: ElementRef) {}
 
   /**
@@ -108,6 +114,11 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
     this.jQueryElement
         .on('selected', ( (e: JQuery.Event, args: SohoHierarchyEvent) => {
           this.selected.next(args);
+        }));
+
+    this.jQueryElement
+        .on ('dblclick', ( (e: JQuery.Event, args: SohoHierarchyDoubleClickEvent) => {
+          this.doubleClick.next(args);
         }));
 
     // Assign the hierarchy control

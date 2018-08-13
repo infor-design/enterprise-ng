@@ -64,7 +64,8 @@ interface SohoHierarchyStatic {
 interface SohoHierarchyEvent {
   id: string;
   data: any;
-  eventType: 'add' | 'expand' | 'collapse' | 'selected' | 'rightClick' | 'back' | 'forward';
+  actionReference: any;
+  eventType: 'add' | 'expand' | 'collapse' | 'selected' | 'rightClick' | 'back' | 'forward' | 'actions' | 'action';
   targetInfo: SohoHierarchyTarget;
   isForwardEvent?: boolean;
   isBackEvent?: boolean;
@@ -72,7 +73,20 @@ interface SohoHierarchyEvent {
   isExpandEvent?: boolean;
   isCollapseEvent?: boolean;
   isSelectedEvent?: boolean;
+  isActionsEvent?: boolean;
+  isActionEvent?: boolean;
   allowLazyLoad?: boolean;
+}
+
+interface SohoHierarchyAction {
+  value: string;
+  url?: string;
+  actionReference?: any;
+}
+
+interface SohoHierarchyDoubleClickEvent {
+  event: Event;
+  data: any;
 }
 
 interface SohoHierarchyTarget {
