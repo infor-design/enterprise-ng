@@ -1,12 +1,12 @@
 import { Component, QueryList, ViewChildren } from '@angular/core';
-import { SohoAlertDirective } from '../../soho/alert';
+import { SohoAlertDirective } from 'ids-enterprise-ng';
 
 /**
  * This example:
  * - shows basic alert functionality on input elements with an angular template
  */
 @Component({
-  selector:    'soho-alert-demo',
+  selector:    'app-alert-demo',
   templateUrl: 'alert.demo.html'
 })
 export class AlertDemoComponent {

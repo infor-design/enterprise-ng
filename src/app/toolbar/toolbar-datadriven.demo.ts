@@ -7,7 +7,7 @@ import {
 import {ToolbarDataDrivenDemoService} from './toolbar-datadriven-demo.service';
 
 @Component({
-    selector: 'soho-toolbar-datadriven-demo',
+    selector: 'app-toolbar-datadriven-demo',
     templateUrl: './toolbar-datadriven.demo.html',
     providers: [ToolbarDataDrivenDemoService]
 })

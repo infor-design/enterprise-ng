@@ -10,7 +10,7 @@ import {
 import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indeterminate-demo.service';
 
 @Component({
-  selector: 'soho-datagrid-fixed-header-demo',
+  selector: 'app-datagrid-fixed-header-demo',
   templateUrl: './datagrid-fixedheader.demo.html',
   providers: [ DataGridPagingIndeterminateDemoService ],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -51,7 +51,7 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewInit {
 
           /* Get the current selected row index for this page of records. */
           let selectedIndex = -1;
-          const selectedRow = this.sohoDataGridComponent.getSelectedRows();
+          const selectedRow = this.sohoDataGridComponent.selectedRows();
           if (selectedRow && selectedRow.length > 0 && selectedRow[0].idx !== -1) {
             selectedIndex = selectedRow[0].idx;
             this.sohoDataGridComponent.unSelectAllRows();
@@ -61,7 +61,7 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewInit {
           response(result.data, request);
 
           /* selected the row index of the new page of records */
-          this.sohoDataGridComponent.selectRow(selectedIndex === -1 ? 0 : selectedIndex);
+          this.sohoDataGridComponent.selectRows(selectedIndex === -1 ? 0 : selectedIndex);
         });
       }
     } as SohoDataGridOptions;

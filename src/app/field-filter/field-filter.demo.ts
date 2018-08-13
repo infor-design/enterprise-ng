@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
  * This example shows basic field filter functionality on input elements
  */
 @Component({
-  selector:    'soho-field-filter-demo',
+  selector: 'app-field-filter-demo',
   templateUrl: './field-filter.demo.html'
 })
 export class FieldFilterDemoComponent {

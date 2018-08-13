@@ -4,9 +4,36 @@
 
 ### Features
 
-- `[FieldFilter]` Created the angular wrapper for the Field Filter controls `MHH`
+- [`General`] NPM package now compiled into the Angular Package Format.  ([Pull Request 143](https://github.com/infor-design/enterprise-ng/pull/143)) `BTHH`
+    - Upgraded `QUICKSTART.md` document.
+    - Introduced new sub-project `ids-enterprise-ng`.
+    - Moved `soho` folder to sub-project, as `lib`.
+    - Refactored all components to include `/// <reference path=""/>` to typings.
+    - Refactored all demo components to use `ids-enterprise-ng` package.
+    - Refactored all demo selectors to start with `app-`
+    - New build targets `build:lib`, `build:app`, `test:lib` and `pack:lib`.
 
 ### Fixes
+
+### Chore & Maintenance
+
+- `[DataGrid]` Changed use of deprecated `ReflectiveInjector` to `Injector`. `BTHH`
+- `[Input]` Changed `onChange` event name to `change`. `BTHH`
+- `[StepProcess]` Changed `onSaveClose` event name to `saveClose`. `BTHH`
+- `[General]` Refactored usages of `Renderer` to `Renderer2`. `BTHH`
+- `[DataGrid]` Modified `sorted` event arguments on `datagrid`. `BTHH`
+- `[General]` Removed all explicit type JavaDoc, e.g. `@memberof`, `@type`, `{typename}`. `BTHH`
+- `[General]` Fixed signature of `@HostListener` for `KeyUp`. `BTHH`
+- `[General]` Upgraded @angular/cli (to 6.1.1) and @angular/core (to 6.1.0).
+- `[General]` Upgraded typeScript (to 2.9.2).
+
+## v4.9.0
+
+### v4.9.0 Features
+
+- `[FieldFilter]` Created the angular wrapper for the Field Filter controls `MHH`
+
+### v4.9.0 Fixes
 
 - `[General]` NPM package file structure changed due to switching to using one package.json file ([Pull Request 92](https://github.com/infor-design/enterprise-ng/pull/92))
 - `[Component]` Example note item for future release. `INI` ([#88](https://github.com/infor-design/enterprise-ng/issues/88))
@@ -15,8 +42,10 @@
 - `[Several]` Updated `timepicker` and `spinbox` to use `ngZone`. This effects the constructor so may effect those using AOT. `BTHH`
 - `[Several]` Added `setSelected`, `getSelected`, and `toggleSelected` to all the charts that support selection.   `SJW`
 - `[Several]` Updated `soho-alert.directive.ts` to support the icon type and `soho-input-validate.directive.ts` to support the icon event. Both were refactored to use `ngZone`. This effects the constructor so may effect those using AOT. `MAF` ([#90](https://github.com/infor-design/enterprise-ng/issues/90))
+- `[Datepicker]` Added support for running out of ngZone. This effects the constructor so may effect those using AOT. `TJM` ([#44](https://github.com/infor-design/enterprise-ng/issues/44))
+- `[Datepicker]` Updating the typings in soho-datepicker.d.ts to better reflect the datepicker.js in enterprise, and exposed all the datepicker.js options. This may effect users who are now passing in the incorrect option types for soho-datepicker. `MHH` ([#145](https://github.com/infor-design/enterprise-ng/issues/145))
 
-### Chore & Maintenance
+### v4.9.0 Chore & Maintenance
 
 - `[General]` Added a markdown linter for documentation consistency
 

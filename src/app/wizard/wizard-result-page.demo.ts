@@ -13,7 +13,7 @@ import {
 import { WizardDemoComponent } from './wizard.demo';
 
 @Component({
-  selector: 'demo-result-page',
+  selector: 'app-result-page',
   templateUrl: './wizard-result-page.demo.html',
   styles: [
     `:host {

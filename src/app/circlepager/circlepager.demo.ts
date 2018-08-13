@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-circlepager.demo',
+  selector: 'app-circlepager-demo',
   templateUrl: './circlepager.demo.html',
   styleUrls: ['./circlepager.demo.css'],
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -1,15 +1,15 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
-import { SohoTrackDirtyDirective } from 'soho/trackdirty';
+import { SohoTrackDirtyDirective } from 'ids-enterprise-ng';
 import { SohoErrorDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector:    'soho-validation-form-event-demo',
+  selector:    'app-validation-form-event-demo',
   templateUrl: './validation-form-event.demo.html'
 })
 export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
   @ViewChildren(SohoTrackDirtyDirective) trackDirtyComponents: QueryList<SohoTrackDirtyDirective>;
-  @ViewChild(SohoErrorDirective) errorDirective: SohoErrorDirective;
+  @ViewChild(SohoErrorDirective) errorDirective: SohoErrorDirective; // tslint:disable-line
 
   public dataView: any = {
     EventField:    {
@@ -129,22 +129,22 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
 
   addError() {
     // don't add an error if field already has an error
-    if (!this.errorDirective.errorMessage) {
-      this.errorDirective.addInlineError('Field is in error');
+    if (!this.errorDirective.errorMessage) { // tslint:disable-line
+      this.errorDirective.addInlineError('Field is in error'); // tslint:disable-line
     }
   }
 
   removeError() {
     // only remove an error if an error exists
-    if (this.errorDirective.errorMessage) {
-      this.errorDirective.removeError();
+    if (this.errorDirective.errorMessage) { // tslint:disable-line
+      this.errorDirective.removeError(); // tslint:disable-line
     }
   }
 
   goToError() {
     // scroll element into view if there is an error
-    if (this.errorDirective.errorMessage) {
-      this.errorDirective.scrollIntoView();
+    if (this.errorDirective.errorMessage) { // tslint:disable-line
+      this.errorDirective.scrollIntoView(); // tslint:disable-line
     }
   }
 

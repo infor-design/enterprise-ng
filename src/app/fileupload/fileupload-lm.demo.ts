@@ -4,14 +4,15 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { SohoFileUploadComponent } from '../../soho/fileupload';
-import { SohoTrackDirtyDirective } from '../../soho/trackdirty';
+import {
+  SohoFileUploadComponent,
+  SohoTrackDirtyDirective
+} from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-fileupload-lm-demo',
+  selector: 'app-fileupload-lm-demo',
   templateUrl: './fileupload-lm.demo.html',
-  styles:      [
-    `
+  styles: [`
       .hidden {
         display: none;
         visibility: hidden;

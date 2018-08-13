@@ -14,7 +14,7 @@ import {
 import { SohoTreeComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-tree-dynamic-demo',
+  selector: 'app-tree-dynamic-demo',
   templateUrl: './tree-dynamic.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

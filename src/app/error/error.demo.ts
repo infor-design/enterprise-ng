@@ -5,18 +5,18 @@ import {
 
 import {
   SohoErrorDirective
-} from '../../soho/error';
+} from 'ids-enterprise-ng';
 
 /**
  * This example:
  * - shows basic error functionality on input elements with an angular template
  */
 @Component({
-  selector: 'soho-error-demo',
+  selector: 'app-error-demo',
   templateUrl: './error.demo.html'
 })
 export class ErrorDemoComponent {
-  @ViewChild(SohoErrorDirective) public error: SohoErrorDirective;
+  @ViewChild(SohoErrorDirective) public error: SohoErrorDirective; // tslint:disable-line
 
   // tslint:disable-next-line:no-unused-variable
   public message = 'Field is required';

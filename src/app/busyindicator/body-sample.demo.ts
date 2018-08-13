@@ -11,7 +11,7 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-busyindicator-demo',
+  selector: 'app-busyindicator-demo',
   templateUrl: './body-sample.demo.html'
 })
 export class BusyIndicatorDemoBodyComponent implements OnInit {

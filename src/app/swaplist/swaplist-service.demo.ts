@@ -21,7 +21,7 @@ import { SwapListDemoService } from './swaplist-demo.service';
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
 @Component({
-  selector: 'soho-swaplist-service-demo',
+  selector: 'app-swaplist-service-demo',
   templateUrl: './swaplist-service.demo.html',
   providers: [SwapListDemoService],
   changeDetection: ChangeDetectionStrategy.OnPush

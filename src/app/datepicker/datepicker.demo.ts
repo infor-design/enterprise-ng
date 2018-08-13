@@ -6,7 +6,7 @@ import {
 import { SohoDatePickerComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-datepicker-demo',
+  selector: 'app-datepicker-demo',
   templateUrl: './datepicker.demo.html'
 })
 export class DatepickerDemoComponent implements OnInit {
@@ -48,27 +48,43 @@ export class DatepickerDemoComponent implements OnInit {
     useRange: true
   };
 
+  public datePickerOptions: SohoDatePickerOptions = {
+    showTime: true,
+    timeFormat: 'HH:mm:ss',
+    minuteInterval: 10,
+    secondInterval: 10,
+    roundToInterval: true,
+    dateFormat: 'mm/dd/yyyy',
+    placeholder: 'placeholder',
+    showLegend: true,
+    showMonthYearPicker: true,
+    advanceMonths: 3,
+    legend: [{name: 'Weekends', color: '#EFA836', dayOfWeek: [0, 6]}],
+    calendarName:  'gregorian'
+  };
+
   constructor() { }
   ngOnInit() { }
   toggleModel() {
     this.showModel = !this.showModel;
   }
+
   onChange(event: SohoDatePickerEvent) {
     console.log('DatePickerDemoComponent.onChange: type=' + event.type);
   }
+
   setEnable() {
-// TODO: waiting on SOHO-4834
     this.datepicker.disabled = false;
     this.datepickerDisabled = this.datepicker.disabled;
     this.datepickerReadOnly = this.datepicker.readonly;
   }
+
   setDisable() {
-// TODO: waiting on SOHO-4834
     this.datepicker.disabled = true;
     this.datepickerDisabled = this.datepicker.disabled;
   }
+
   setReadonly() {
-// TODO: waiting on SOHO-4834
     this.datepicker.readonly = true;
     this.datepickerReadOnly = this.datepicker.readonly;
   }

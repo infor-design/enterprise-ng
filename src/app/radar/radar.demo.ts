@@ -4,17 +4,20 @@ import {
   ViewChild
 } from '@angular/core';
 
-import {SohoRadarComponent} from '../../soho/radar';
+import {SohoRadarComponent} from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-radar-demo',
+  selector: 'app-radar-demo',
   templateUrl: './radar.demo.html',
 })
 export class RadarDemoComponent implements OnInit {
 
   @ViewChild(SohoRadarComponent) sohoRadarComponent: SohoRadarComponent;
 
-  private selection: SohoRadarSelected  = {fieldName: 'name', fieldValue: 'Samsung'};
+  // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
+  // private selection: SohoRadarSelected  = {fieldName: 'name', fieldValue: 'Samsung'};
+  private selection: SohoRadarSelected  = {index: 1};
+
   public radarData = [{
     data: [
       {name: 'Battery Life', value: 0.22},

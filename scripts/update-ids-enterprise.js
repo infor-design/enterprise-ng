@@ -79,13 +79,13 @@ function syncPackageJsonVersions() {
  */
 function copySvgIcons() {
   const sourcePath = `${rootPath}/node_modules/ids-enterprise/dist/svg/`;
-  const destPath = `${rootPath}/src/soho/icon/`;
+  const destPath = `${rootPath}/src/app/icon/`;
   const copy = function(fileName) {
     fs.copyFile(sourcePath + fileName, destPath + fileName, (err) => {
        if (err) {
         throw err;
        } else {
-         console.log(`updated 1 file src/soho/icon/${fileName}`);
+         console.log(`updated 1 file src/app/icon/${fileName}`);
        }
    });
   };

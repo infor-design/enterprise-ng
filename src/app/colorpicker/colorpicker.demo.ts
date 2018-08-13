@@ -9,7 +9,7 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-colorpicker-demo',
+  selector: 'app-colorpicker-demo',
   templateUrl: './colorpicker.demo.html',
 })
 export class ColorPickerDemoComponent implements OnInit {

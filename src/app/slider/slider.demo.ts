@@ -7,7 +7,7 @@ import {
 import { SohoSliderComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-slider-demo',
+  selector: 'app-slider-demo',
   templateUrl: './slider.demo.html',
   styles: [`pre{font-size: 15px}`] // set font size to be larger so pre tag content is more readable
 })

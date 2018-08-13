@@ -64,6 +64,7 @@ import { DropdownAsyncDemoComponent } from './dropdown/dropdown-async.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
+import { DropdownTypeaheadDemoComponent } from './dropdown/dropdown-typeahead.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
 import { EmptyMessageDemoComponent } from './emptymessage/emptymessage.demo';
 import { ErrorDemoComponent } from './error/error.demo';
@@ -152,9 +153,10 @@ import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-mes
 import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo';
 
 import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
+import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagrid-treegrid-dynamicfiltering.demo';
 
 export const routes: Routes = [
-  { path: '',                                       component: ExpandableAreaDemoComponent }, // default
+  { path: '', redirectTo: '', pathMatch: 'full' }, // default
   { path: 'about',                                  component: AboutDemoComponent },
   { path: 'accordion',                              component: AccordionDemoComponent},
   { path: 'accordion-panels',                       component: AccordionPanelsDemoComponent},
@@ -200,6 +202,7 @@ export const routes: Routes = [
   { path: 'datagrid-service',                       component: DataGridServiceDemoComponent },
   { path: 'datagrid-settings',                      component: DataGridSettingsDemoComponent },
   { path: 'datagrid-treegrid',                      component: DataGridTreeGridDemoComponent },
+  { path: 'datagrid-treegrid-dynamicfilter',        component: DatagridTreegridDynamicfilteringDemoComponent },
   { path: 'datagrid-angular-editor',                component: DataGridAngularEditorDemoComponent },
   { path: 'datagrid-angular-card-formatter',        component: DataGridAngularCardFormatterDemoComponent },
   { path: 'datagrid-angular-formatter',             component: DataGridAngularFormatterDemoComponent },
@@ -219,6 +222,7 @@ export const routes: Routes = [
   { path: 'dropdown-multi',                         component: DropdownMultiselectDemoComponent },
   { path: 'dropdown-reactive',                      component: DropdownReactiveDemoComponent },
   { path: 'dropdown-simple',                        component: DropdownSimpleDemoComponent },
+  { path: 'dropdown-typeahead',                     component: DropdownTypeaheadDemoComponent },
   { path: 'editor',                                 component: EditorDemoComponent },
   { path: 'emptymessage',                           component: EmptyMessageDemoComponent},
   { path: 'error',                                  component: ErrorDemoComponent },
@@ -246,6 +250,7 @@ export const routes: Routes = [
   { path: 'label',                                  component: LabelDemoComponent },
   { path: 'line',                                   component: LineDemoComponent },
   { path: 'listview',                               component: ListViewDemoComponent },
+  { path: 'locale-pipe',                            loadChildren: './locale/locale-demo.module#LocaleDemoModule'},
   { path: 'lookup',                                 component: LookupDemoComponent },
   { path: 'lookup-validation',                      component: LookupValidationDemoComponent },
   { path: 'mask',                                   component: MaskDemoComponent },

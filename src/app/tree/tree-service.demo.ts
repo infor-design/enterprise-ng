@@ -13,7 +13,7 @@ import {
 import { TreeDemoService } from './tree-demo.service';
 
 @Component({
-  selector: 'soho-tree-service-demo',
+  selector: 'app-tree-service-demo',
   templateUrl: './tree-service.demo.html',
   providers: [{ provide: SohoTreeService, useClass: TreeDemoService }],
   changeDetection: ChangeDetectionStrategy.OnPush

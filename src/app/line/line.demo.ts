@@ -3,17 +3,24 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-import {SohoLineComponent} from '../../soho/line';
+
+import {
+  SohoLineComponent
+} from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-line-demo',
+  selector: 'app-line-demo',
   templateUrl: './line.demo.html',
 })
 export class LineDemoComponent implements OnInit {
 
   @ViewChild(SohoLineComponent) sohoLineComponent: SohoLineComponent;
 
-  private selection: SohoLineSelected  = {groupIndex: 0, fieldName: 'name', fieldValue: 'Category B'};
+  // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
+  private selection: SohoLineSelected  = {groupIndex: 2};
+  // private selection: SohoLineSelected  = {groupName: 'name', groupValue: 'Coponent A'};
+  // private selection: SohoLineSelected  = {groupName: 'id', groupValue: '1'};
+
   public lineData = [{
     data: [
       {name: 'Jan | 2018', value: 12, depth: 4},

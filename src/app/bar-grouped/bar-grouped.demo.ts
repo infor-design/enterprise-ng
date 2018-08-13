@@ -3,17 +3,21 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-import {SohoBarComponent} from '../../soho/bar';
+
+import { SohoBarComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-bar-demo',
+  selector: 'app-bar-demo',
   templateUrl: './bar-grouped.demo.html',
 })
 export class BarGroupedDemoComponent implements OnInit {
 
   @ViewChild(SohoBarComponent) sohoBarComponent: SohoBarComponent;
 
-  private selection: SohoBarSelected  = {groupName: 'name', groupValue: 'Component B'};
+  // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
+  // private selection: SohoBarSelected  = {groupName: 'name', groupValue: 'Component B'};
+  private selection: SohoBarSelected  = {groupIndex: 2};
+
   public barGroupedData = [{
     data: [{
       name: 'Jan', value: 12,

@@ -9,7 +9,7 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-column-demo',
+  selector: 'app-column-demo',
   templateUrl: './column-grouped-xaxis-twoline.demo.html',
 })
 export class ColumnGroupedXaxisTwolineDemoComponent implements OnInit {

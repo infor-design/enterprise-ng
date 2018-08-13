@@ -7,6 +7,7 @@
 /obj
 /bin
 /src/assets/sohoxi
+*.tgz
 
 # dependencies
 /node_modules
@@ -43,8 +44,10 @@ publish/soho/**
 /coverage
 /libpeerconnection.log
 npm-debug.log
+yarn-error.log
 testem.log
 /typings
+package-lock.json
 
 # e2e
 /e2e/*.js

@@ -11,7 +11,7 @@ import {
 import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indeterminate-demo.service';
 
 @Component({
-  selector: 'soho-datagrid-paging-indeterminate-demo',
+  selector: 'app-datagrid-paging-indeterminate-demo',
   templateUrl: './datagrid-paging-indeterminate.demo.html',
   providers: [ DataGridPagingIndeterminateDemoService ],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -61,7 +61,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
 
           /* Get the current selected row index for this page of records. */
           let selectedIndex = -1;
-          const selectedRow = this.sohoDataGridComponent.getSelectedRows();
+          const selectedRow = this.sohoDataGridComponent.selectedRows();
           if (selectedRow && selectedRow.length > 0 && selectedRow[0].idx !== -1) {
             selectedIndex = selectedRow[0].idx;
             this.sohoDataGridComponent.unSelectAllRows();
@@ -71,7 +71,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
           response(result.data, request);
 
           /* selected the row index of the new page of records */
-          this.sohoDataGridComponent.selectRow(selectedIndex === -1 ? 0 : selectedIndex);
+          this.sohoDataGridComponent.selectRows(selectedIndex === -1 ? 0 : selectedIndex);
         });
       }
     } as SohoDataGridOptions;

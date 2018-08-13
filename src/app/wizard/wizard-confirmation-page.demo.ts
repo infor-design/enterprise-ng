@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'demo-confirmation-page',
+  selector: 'app-confirmation-page',
   templateUrl: './wizard-confirmation-page.demo.html',
   styles: [
     `:host {

@@ -21,7 +21,7 @@ import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 import { DataGridDemoService } from './datagrid-demo.service';
 
 @Component({
-  selector: 'soho-datagrid-dynamic-demo',
+  selector: 'app-datagrid-dynamic-demo',
   templateUrl: './datagrid-dynamic.demo.html',
   providers: [DataGridDemoService],
 })
@@ -115,7 +115,7 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
     // select right click row, unselect any other row first.
     // -----------------------------------------------------------------
     this.dataGrid.unSelectAllRows();
-    this.dataGrid.selectRow(e.row);
+    this.dataGrid.selectRows(e.row);
 
     // -----------------------------------------------------------------
     // build the right click menu items array dynamically. When the

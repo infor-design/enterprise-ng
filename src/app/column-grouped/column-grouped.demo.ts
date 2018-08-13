@@ -4,20 +4,20 @@ import {
   ViewChild
 } from '@angular/core';
 
-import {
-  SohoRadarComponent
-} from 'ids-enterprise-ng';
-import {SohoColumnComponent} from '../../soho/column';
+import { SohoColumnComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-column-demo',
+  selector: 'app-column-demo',
   templateUrl: './column-grouped.demo.html',
 })
 export class ColumnGroupedDemoComponent implements OnInit {
 
   @ViewChild(SohoColumnComponent) sohoColumnComponent: SohoColumnComponent;
 
-  private selection: SohoColumnSelected  = {groupName: 'name', groupValue: 'Component B'};
+  // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
+  // private selection: SohoColumnSelected  = {groupName: 'name', groupValue: 'Component C'};
+  private selection: SohoColumnSelected  = {groupIndex: 1};
+
   public columnGroupedData = [{
     data: [{
       name: 'Jan', value: 12

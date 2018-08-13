@@ -9,7 +9,7 @@ import {
 import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector:        'soho-dropdown-multiselect-demo',
+  selector: 'app-dropdown-multiselect-demo',
   templateUrl:     './dropdown-multiselect.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

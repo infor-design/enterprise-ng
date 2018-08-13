@@ -251,7 +251,6 @@ export const EDITORS_COLUMNS: SohoDataGridColumn[] = [
     field: 'productId',
     sortable: false,
     filterType: 'integer',
-    width: 100,
     formatter: Soho.Formatters.Readonly
   },
 
@@ -261,7 +260,6 @@ export const EDITORS_COLUMNS: SohoDataGridColumn[] = [
     field: 'status',
     sortable: false,
     filterType: 'text',
-    width: 100,
     formatter: Soho.Formatters.Lookup,
     editor: Soho.Editors.Lookup,
     editorOptions: STATUS_LOOKUP_OPTIONS
@@ -312,9 +310,10 @@ export class DataGridAngularEditorDemoComponent implements AfterViewInit {
       dataset: EDITORS_DATA,
       selectable: 'single',
       idProperty: 'productId',
+      stretchColumn: 'last',
       editable: true,
       isList: true,
-      filterable: true,
+      filterable: true
     };
   }
 }

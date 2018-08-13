@@ -5,7 +5,7 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-textarea-demo',
+  selector: 'app-textarea-demo',
   templateUrl: './textarea.demo.html',
   styles: [`pre{font-size: 15px}`] // set font size to be larger so pre tag content is more readable
 })

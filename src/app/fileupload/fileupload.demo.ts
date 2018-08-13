@@ -4,11 +4,13 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { SohoFileUploadComponent } from '../../soho/fileupload';
-import { SohoTrackDirtyDirective } from '../../soho/trackdirty';
+import {
+  SohoFileUploadComponent,
+  SohoTrackDirtyDirective
+} from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-fileupload-demo',
+  selector: 'app-fileupload-demo',
   templateUrl: './fileupload.demo.html'
 })
 export class FileUploadDemoComponent implements OnInit {

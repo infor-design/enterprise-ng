@@ -5,7 +5,7 @@
         <h2 class="card-title">Tasks - Simple</h2>
       </div>
       <div class="card-content">
-        <soho-listview #simpleSelectListView [sohoListviewElementId]="listElementId">
+        <soho-listview #simpleSelectListView>
           <li soho-listview-item *ngFor="let data of demoTasks" [disabled]="data.disabled" [selected]="data.selected">
             Task #{{data.task}}
           </li>
@@ -63,10 +63,8 @@
               <button soho-button="tertiary" title="Remove Selected Items">Remove</button>
             </soho-toolbar-button-set>
           </soho-toolbar>
-          <li soho-listview-item *ngFor="let data of demoTasks" [disabled]="data.disabled" [selected]="data.selected">
-            <p soho-listview-header>Task #{{data.task}}</p>
-            <p soho-listview-subheader>{{data.desc}}</p>
-            <p soho-listview-micro>DUE: {{data.date}}</p>
+          <li soho-listview-item *ngFor="let data of contentTypes" [disabled]="data.disabled" [selected]="data.selected">
+            <p soho-listview-header>{{data.name}}</p>
           </li>
         </soho-listview>
       </div>
@@ -103,7 +101,6 @@
       </div>
     </div>
   </div>
-
   <div class="two-thirds column">
     <button soho-button (click)="load()">Load</button>
     <div class="card">
@@ -114,9 +111,7 @@
         <soho-listview
           [dataset]="loadTasks"
           [searchable]="true"
-          [emptyMessage]="{ title: 'No Tasks Found', icon: 'icon-empty-no-data' }"
           (selected)="onSelected($event)">
-
           <input soho-searchfield placeholder="Search" [clearable]="true">
           <li soho-listview-item *ngFor="let data of loadTasks">
             <p soho-listview-header>Task #{{data.task}}</p>
@@ -163,62 +158,6 @@
           </li>
         </soho-listview>
       </div>
-    </div>
-  </div>
-
-  <div class="two-thirds column">
-    <button soho-button (click)="loadEmptyMessageData()">Load</button>
-    <button soho-button (click)="showEmptyMessage()">Show Empty Message</button>
-    <div class="card">
-      <div class="card-header">
-        <h2 class="card-title">Empty Message</h2>
-      </div>
-      <div class="card-content">
-        <ng-container *ngIf="emptyMessageData && emptyMessageData.length > 0; else ShowEmptyMessage">
-          <soho-listview (selected)="onSelected($event)">
-            <input soho-searchfield placeholder="Search" [clearable]="true">
-            <li soho-listview-item *ngFor="let data of emptyMessageData">
-              <p soho-listview-header>Task #{{data.task}}</p>
-              <p soho-listview-subheader>{{data.desc}}</p>
-              <p soho-listview-micro>DUE: {{data.date}}</p>
-            </li>
-          </soho-listview>
-        </ng-container>
-        <ng-template #ShowEmptyMessage>
-          <div soho-emptymessage
-            [title]="'No Tasks Found'"
-            [icon]="'icon-empty-no-data'">
-          </div>
-        </ng-template>
-      </div>
-    </div>
-  </div>
-
-  <div class="two-thirds column">
-    <div class="card">
-      <div class="card-header">
-        <h2 class="card-title">({{loadMoreTasks.length}} Results Showing)</h2>
-      </div>
-      <div class="card-content">
-        <ng-container>
-          <soho-listview
-            [dataset]="loadMoreTasks"
-            [searchable]="false">
-            <input soho-searchfield>
-            <li soho-listview-item *ngFor="let data of loadMoreTasks">
-              <p soho-listview-header>Task #{{data.task}}</p>
-              <p soho-listview-subheader>{{data.desc}}</p>
-              <p soho-listview-micro>DUE: {{data.date}}</p>
-            </li>
-          </soho-listview>
-        </ng-container>
-      </div>
-      <div class="card-footer center-text">
-        <button soho-button="tertiary" (click)="loadMore()">
-          <span>LOAD MORE</span>
-        </button>
-      </div>
-
     </div>
   </div>
 

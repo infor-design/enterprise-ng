@@ -4,20 +4,20 @@ import {
   ViewChild
 } from '@angular/core';
 
-import {
-  SohoRadarComponent
-} from 'ids-enterprise-ng';
-import {SohoColumnComponent} from '../../soho/column';
+import { SohoColumnComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-column-demo',
+  selector: 'app-column-demo',
   templateUrl: './column.demo.html',
 })
 export class ColumnDemoComponent implements OnInit {
 
   @ViewChild(SohoColumnComponent) sohoColumnComponent: SohoColumnComponent;
 
+  // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   private selection: SohoColumnSelected  = {fieldName: 'name', fieldValue: 'Equipment'};
+  // private selection: SohoColumnSelected  = {index: 6};
+
   public columnData = [{
     data: [{
       name: 'Automotive',

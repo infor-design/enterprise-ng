@@ -1,7 +1,7 @@
 import { Component, HostBinding } from '@angular/core';
 
 @Component({
-  selector: 'soho-masthead-demo',
+  selector: 'app-masthead-demo',
   templateUrl: './masthead.demo.html',
 })
 export class SohoMastheadDemoComponent {

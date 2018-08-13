@@ -4,7 +4,7 @@ import { HierarchyDemoService } from './hierarchy.demo.service';
 import { SohoHierarchyComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-hierarchy-demo',
+  selector: 'app-hierarchy-demo',
   templateUrl: './hierarchy.demo.html',
   styleUrls: ['./hierarchy.demo.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,

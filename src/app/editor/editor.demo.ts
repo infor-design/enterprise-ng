@@ -12,7 +12,7 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-editor-demo',
+  selector: 'app-editor-demo',
   templateUrl: './editor.demo.html',
   styles: [`pre{font-size: 15px}`] // set font size to be larger so pre tag content is more readable
 })

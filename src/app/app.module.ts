@@ -14,7 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
 
-import { SohoComponentsModule } from '../soho/soho-components.module';
+import { SohoComponentsModule } from 'ids-enterprise-ng';
 
 import { AboutDemoComponent } from './about/about.demo';
 import { AccordionDemoComponent } from './accordion/accordion.demo';
@@ -97,6 +97,7 @@ import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
 import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
+import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagrid-treegrid-dynamicfiltering.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DonutDemoComponent } from './donut/donut.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
@@ -105,6 +106,7 @@ import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
 import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
+import { DropdownTypeaheadDemoComponent } from './dropdown/dropdown-typeahead.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
 import { EmptyMessageDemoComponent } from './emptymessage/emptymessage.demo';
 import { ErrorDemoComponent } from './error/error.demo';
@@ -266,6 +268,7 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     DataGridStandardFormatterDemoComponent,
     DataGridToolbarDemoComponent,
     DataGridTreeGridDemoComponent,
+    DatagridTreegridDynamicfilteringDemoComponent,
     DataGridGroupableDemoComponent,
     DatepickerDemoComponent,
     DemoCellInputEditorComponent,
@@ -280,6 +283,7 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     DropdownMultiselectDemoComponent,
     DropdownReactiveDemoComponent,
     DropdownSimpleDemoComponent,
+    DropdownTypeaheadDemoComponent,
     EditorDemoComponent,
     EmptyMessageDemoComponent,
     ErrorDemoComponent,
@@ -381,7 +385,6 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     BrowserModule,
     CommonModule,
     FormsModule,
-    HttpModule,
     HttpClientModule,
     ModalDialogDemoModule,
     ContextualActionPanelDemoModule,

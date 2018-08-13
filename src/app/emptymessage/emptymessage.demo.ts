@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
  * - shows basic empty message component
  */
 @Component({
-  selector: 'soho-emptymessage-demo',
+  selector: 'app-emptymessage-demo',
   templateUrl: './emptymessage.demo.html'
 })
 export class EmptyMessageDemoComponent {

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'soho-toolbar-preset-more-actions-demo',
+  selector: 'app-toolbar-preset-more-actions-demo',
   templateUrl: './toolbar-preset-more-actions.demo.html'
 })
 

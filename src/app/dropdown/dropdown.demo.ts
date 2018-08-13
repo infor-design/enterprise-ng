@@ -7,7 +7,7 @@ import {
 import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-dropdown-demo',
+  selector: 'app-dropdown-demo',
   templateUrl: './dropdown.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
