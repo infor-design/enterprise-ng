@@ -74,8 +74,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
   @Output() selected = new EventEmitter<SohoHierarchyEvent>();
 
   /**
-   * Leaf is double clicked
-   * @type {EventEmitter<SohoHierarchyDoubleClickEvent>}
+   * Leaf is double clicked.
    */
   @Output() doubleClick = new EventEmitter<SohoHierarchyDoubleClickEvent>();
 
