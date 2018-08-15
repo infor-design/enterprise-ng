@@ -95,6 +95,15 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
     this.hierarchy.reload(this.options);
   }
 
+  /**
+   * Update actions for action menu on a leaf
+   * @param eventInfo
+   * @param updatedActions
+   */
+  updateActions(eventInfo: SohoHierarchyEvent, updatedActions: Array<SohoHierarchyAction>) {
+    this.hierarchy.updateActions(eventInfo, updatedActions);
+  }
+
   ngOnDestroy() {
     // Necessary clean up step (add additional here)
     if (this.hierarchy) {

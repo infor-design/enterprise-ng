@@ -57,6 +57,9 @@ interface SohoHierarchyStatic {
   /** Reload/ re-init hierarchy control */
   reload(options: SohoHierarchyOptions): void;
 
+  /** Updates actions for action menu on a leaf */
+  updateActions(eventInfo: SohoHierarchyEvent, updatedActions: Array<SohoHierarchyAction>): void;
+
   /** Destroys the control on completion. */
   destroy(): void;
 }

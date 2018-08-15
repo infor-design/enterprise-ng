@@ -52,7 +52,15 @@ export class HierarchyDemoComponent implements OnInit {
             <p class="subheading">{{Position}}</p>
             <p class="micro">{{EmploymentType}}</p>
            </div>
-
+           {{#menu}}
+            <button class="btn-actions btn-icon" type="button" data-init="false" id="btn-{{id}}">
+              <svg role="presentation" aria-hidden="true" focusable="false" class="icon">
+                <use xlink:href="#icon-more"></use>
+              </svg>
+              <span class="audible">More Info & Additional Actions</span>
+            </button>
+            <ul class="popupmenu"></ul>
+          {{/menu}}
            <button class="btn btn-icon" type="button">
             <svg role="presentation" aria-hidden="true" focusable="false" class="icon">
              <use xlink:href="#icon-caret-up"/>
@@ -82,6 +90,15 @@ export class HierarchyDemoComponent implements OnInit {
          this.lazyDataLoaded = true;
        });
      }
+
+     if (hierarchyEvent.isActionsEvent) {
+       const actions = [{value: 'action-1'}, {value: 'action-2'}];
+       this.sohoHierarchy.updateActions(hierarchyEvent, actions);
+     }
    }
+
+  onDoubleClick(event: SohoHierarchyDoubleClickEvent) {
+     console.log(event);
+  }
 
 }
