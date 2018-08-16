@@ -13,7 +13,10 @@
           "Position": "Administration",
           "EmploymentType": "FT",
           "Picture": "https://randomuser.me/api/portraits/med/women/4.jpg",
-          "isLeaf": true
+          "isLeaf": true,
+          "menu": {
+            "actions": []
+          }
         },
         {
           "id": "1_2",
@@ -36,7 +39,13 @@
               "Position": "Records Clerk",
               "EmploymentType": "C",
               "Picture": "https://randomuser.me/api/portraits/med/men/6.jpg",
-              "isLeaf": true
+              "isLeaf": true,
+              "menu": {
+                "details": [
+                  {"key": "Location", "value": "St. Paul"},
+                  {"key": "Phone", "value": "612-489-8529"}
+                ]
+              }
             },
             {
               "id": "1_3_2",

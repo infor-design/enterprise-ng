@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HierarchyDemoService } from './hierarchy.demo.service';
 import { SohoHierarchyComponent } from 'ids-enterprise-ng';
@@ -10,7 +10,7 @@ import { SohoHierarchyComponent } from 'ids-enterprise-ng';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [HierarchyDemoService]
 })
-export class HierarchyDemoComponent implements OnInit {
+export class HierarchyDemoComponent implements OnInit, AfterViewInit {
 
   @ViewChild('SohoHierarchy') sohoHierarchy: SohoHierarchyComponent;
 
@@ -52,7 +52,15 @@ export class HierarchyDemoComponent implements OnInit {
             <p class="subheading">{{Position}}</p>
             <p class="micro">{{EmploymentType}}</p>
            </div>
-
+           {{#menu}}
+            <button class="btn-actions btn-icon" type="button" data-init="false" id="btn-{{id}}">
+              <svg role="presentation" aria-hidden="true" focusable="false" class="icon">
+                <use xlink:href="#icon-more"></use>
+              </svg>
+              <span class="audible">More Info & Additional Actions</span>
+            </button>
+            <ul class="popupmenu"></ul>
+          {{/menu}}
            <button class="btn btn-icon" type="button">
             <svg role="presentation" aria-hidden="true" focusable="false" class="icon">
              <use xlink:href="#icon-caret-up"/>
@@ -71,6 +79,14 @@ export class HierarchyDemoComponent implements OnInit {
      });
    }
 
+   ngAfterViewInit() {
+     // Manually selects Partricia Clark
+     // SetTimeout to give soho control a moment to render
+     setTimeout(() => {
+       this.sohoHierarchy.selectLeaf('1_1');
+     }, 1);
+   }
+
    onSelected(hierarchyEvent: SohoHierarchyEvent) {
      console.log(hierarchyEvent.data, hierarchyEvent.eventType);
 
@@ -82,6 +98,15 @@ export class HierarchyDemoComponent implements OnInit {
          this.lazyDataLoaded = true;
        });
      }
+
+     if (hierarchyEvent.isActionsEvent) {
+       const actions = [{value: 'action-1'}, {value: 'action-2'}];
+       this.sohoHierarchy.updateActions(hierarchyEvent, actions);
+     }
    }
+
+  onDoubleClick(event: SohoHierarchyDoubleClickEvent) {
+     console.log(event);
+  }
 
 }
