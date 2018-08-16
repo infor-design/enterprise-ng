@@ -1,4 +1,4 @@
-import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HierarchyDemoService } from './hierarchy.demo.service';
 import { SohoHierarchyComponent } from 'ids-enterprise-ng';
@@ -84,7 +84,7 @@ export class HierarchyDemoComponent implements OnInit, AfterViewInit {
      // SetTimeout to give soho control a moment to render
      setTimeout(() => {
        this.sohoHierarchy.selectLeaf('1_1');
-     }, );
+     }, 1);
    }
 
    onSelected(hierarchyEvent: SohoHierarchyEvent) {
