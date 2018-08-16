@@ -104,6 +104,14 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
     this.hierarchy.updateActions(eventInfo, updatedActions);
   }
 
+  /**
+   * Manually select leaf by id
+   * @param leafId
+   */
+  selectLeaf(leafId: string) {
+    this.hierarchy.selectLeaf(leafId);
+  }
+
   ngOnDestroy() {
     // Necessary clean up step (add additional here)
     if (this.hierarchy) {

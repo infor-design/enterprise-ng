@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HierarchyDemoService } from './hierarchy.demo.service';
 import { SohoHierarchyComponent } from 'ids-enterprise-ng';
@@ -10,7 +10,7 @@ import { SohoHierarchyComponent } from 'ids-enterprise-ng';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [HierarchyDemoService]
 })
-export class HierarchyDemoComponent implements OnInit {
+export class HierarchyDemoComponent implements OnInit, AfterViewInit {
 
   @ViewChild('SohoHierarchy') sohoHierarchy: SohoHierarchyComponent;
 
@@ -77,6 +77,14 @@ export class HierarchyDemoComponent implements OnInit {
        this.data = data[0].initialDataSet;
        this.changeDetectorRef.markForCheck();
      });
+   }
+
+   ngAfterViewInit() {
+     // Manually selects Partricia Clark
+     // SetTimeout to give soho control a moment to render
+     setTimeout(() => {
+       this.sohoHierarchy.selectLeaf('1_1');
+     }, );
    }
 
    onSelected(hierarchyEvent: SohoHierarchyEvent) {
