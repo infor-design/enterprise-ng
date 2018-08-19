@@ -307,7 +307,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     }
 
     if (this.toggle) { // tslint:disable-line
-      return this.state ? this.icon : this.toggle;
+      return this.state ? this.icon : this.toggle; // tslint:disable-line
     }
 
     return this.icon;

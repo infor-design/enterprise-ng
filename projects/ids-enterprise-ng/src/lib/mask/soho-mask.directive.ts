@@ -275,7 +275,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
    *
    * @deprecated use process instead
    */
-  @Input() set mode(value: SohoMaskMode) {
+  @Input() set mode(value: SohoMaskMode) { // tslint:disable-line
     console.warn('The mode input has been renamed, please use the process input instead.');
 
     this._options.process = value;
@@ -337,7 +337,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
    * backwards compatible with old 'data-show-currency'; value true equates to currency
    * @deprecated use prefix or suffix instead
    */
-  @Input() set showSymbol(value: SohoMaskShowSymbol) { // tslint:ignore-line
+  @Input() set showSymbol(value: SohoMaskShowSymbol) { // tslint:disable-line
     console.warn('The showSymbol input is no longer supported, please use the prefix or suffix input instead.');
   }
 

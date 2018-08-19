@@ -30,6 +30,7 @@ export class SohoContextualActionPanelInjector implements Injector {
       return this.contextualActionPanelRef;
     }
 
+    // @todo from v4.0.0 use Type<T> or InjectionToken<T>
     return this.baseInjector.get(token, notFoundValue);
   }
 }

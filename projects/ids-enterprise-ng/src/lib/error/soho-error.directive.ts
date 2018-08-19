@@ -17,7 +17,7 @@ import {
 })
 export class SohoErrorDirective implements AfterViewInit {
 
-  private _options: SohoErrorOptions = {};
+  private _options: SohoErrorOptions = {}; // tslint:disable-line
   private jQueryElement: JQuery;
 
   constructor(private el: ElementRef) {
@@ -71,9 +71,9 @@ export class SohoErrorDirective implements AfterViewInit {
    * @deprecated - use SohoAlert instead
    */
   addInlineError(message: string) {
-    this.showTooltip = false;
-    this.inline = true;
-    this.message = message;
+    this.showTooltip = false; // tslint:disable-line
+    this.inline = true; // tslint:disable-line
+    this.message = message; // tslint:disable-line
   }
 
   /**
@@ -81,9 +81,9 @@ export class SohoErrorDirective implements AfterViewInit {
    * @deprecated - use SohoAlert instead
    */
   addTooltipError(message: string) {
-    this.showTooltip = true;
-    this.inline = false;
-    this.message = message;
+    this.showTooltip = true; // tslint:disable-line
+    this.inline = false; // tslint:disable-line
+    this.message = message; // tslint:disable-line
   }
 
   /**
@@ -91,7 +91,7 @@ export class SohoErrorDirective implements AfterViewInit {
    * @deprecated - use SohoAlert instead
    */
   removeError() {
-    this.message = '';
+    this.message = ''; // tslint:disable-line
   }
 
   /**
