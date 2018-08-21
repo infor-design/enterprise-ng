@@ -16,13 +16,13 @@
     "mdlint:src": "npx markdownlint ./projects/ids-enterprise-ng/src/",
     "mdlint:docs": "npx markdownlint docs/ && npx markdownlint README.md",
     "e2e": "ng e2e",
-    "call-prepublishOnly": "cd ./publish && npm run prepublishOnly && cd ../",
+    "call-prepublishOnly": "cd ./projects/ids-enterprise-ng/ && npm run prepublishOnly && cd ../../",
     "update-enterprise": "node ./scripts/update-ids-enterprise.js",
     "version-bump:dev": "node ./scripts/version-append-date",
-    "release:dev": "npm run update-enterprise && npm run version-bump:dev && npm publish publish/ --tag=dev",
-    "release:beta": "cd publish/ && release-it minor --preRelease=beta",
-    "release:rc": "cd publish/ && release-it --preRelease=rc",
-    "release:final": "cd publish/ && release-it"
+    "release:dev": "npm run update-enterprise && npm run version-bump:dev && npm publish projects/ids-enterprise-ng/ --tag=dev",
+    "release:beta": "cd ./projects/ids-enterprise-ng/ && release-it minor --preRelease=beta",
+    "release:rc": "cd ./projects/ids-enterprise-ng/ && release-it --preRelease=rc",
+    "release:final": "cd ./projects/ids-enterprise-ng/ && release-it"
   },
   "private": true,
   "dependencies": {

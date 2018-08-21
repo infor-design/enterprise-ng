@@ -16,8 +16,8 @@ const slash = require('slash');
 //   Constants
 // -------------------------------------
 const rootPath = slash(process.cwd());
-const rootPkgJsonPath = `${rootPath}/package.json`;
-const publPkgJsonPath = `${rootPath}/publish/package.json`;
+const rootPackageJsonPath = `${rootPath}/package.json`;
+const libPackageJsonPath = `${rootPath}/projects/ids-enterprise//package.json`;
 const tagArr = ['dev', 'beta', 'rc', 'latest'];
 
 // -------------------------------------
@@ -58,19 +58,19 @@ function executeUpdate(cmd) {
 
 /**
  * Copy the ids-enterprise package version from the root package.json
- * to the publish/package.json and the write it to the file
+ * to the library package.json and the write it to the file
  */
 function syncPackageJsonVersions() {
-  const rootPkgJson = require(rootPkgJsonPath);
-  const publPkgJson = require(publPkgJsonPath);
+  const rootPackageJson = require(rootPackageJsonPath);
+  const libPackageJson = require(libPackageJsonPath);
 
-  publPkgJson.dependencies['ids-enterprise'] = rootPkgJson.dependencies['ids-enterprise'];
+  libPackageJson.dependencies['ids-enterprise'] = rootPackageJson.dependencies['ids-enterprise'];
 
   // Make sure to write the trailing line to the file
-  const publPkgJsonStr = JSON.stringify(publPkgJson, null, 2) + `\n`;
+  const libPackageJsonStr = JSON.stringify(libPackageJson, null, 2) + `\n`;
 
-  fs.writeFile(publPkgJsonPath, publPkgJsonStr, 'utf8', () => {
-    console.log('updated 1 package in publish/package.json');
+  fs.writeFile(libPackageJsonPath, libPackageJsonStr, 'utf8', () => {
+    console.log('updated 1 package in package.json');
   });
 }
 

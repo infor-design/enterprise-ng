@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * @fileoverview Append the date to the publish/package.json version to have a date
+ * @fileoverview Append the date to the library package.json version
  * @example `node ./scripts/version-add-date.js`
  */
 
@@ -9,15 +9,14 @@
 //   Node Modules/Options
 // -------------------------------------
 const fs = require('fs');
-const inquirer = require('inquirer');
 const slash = require('slash');
 
 // -------------------------------------
 //   Constants
 // -------------------------------------
 const rootPath = slash(process.cwd());
-const publishPackageJsonPath = `${rootPath}/publish/package.json`;
-const publishPackageJson = require(publishPackageJsonPath);
+const libPackageJsonPath = `${rootPath}/projects/ids-enterprise/package.json`;
+const libPackageJson = require(libPackageJsonPath);
 const todaysDate = formatDate(new Date());
 const versionTag = 'dev';
 
@@ -63,15 +62,15 @@ function getBaseVersion(str) {
 // -------------------------------------
 //   Main
 // -------------------------------------
-if (publishPackageJson.version.indexOf('-dev') === -1) {
+if (libPackageJson.version.indexOf('-dev') === -1) {
   console.log('Error! Cannot append date to non-dev version. Are you on the master branch?');
   return false;
 }
 
-publishPackageJson.version = `${getBaseVersion(publishPackageJson.version)}.${todaysDate}`;
-const publPkgJsonStr = JSON.stringify(publishPackageJson, null, 2) + '\n';
+libPackageJson.version = `${getBaseVersion(libPackageJson.version)}.${todaysDate}`;
+const publPkgJsonStr = JSON.stringify(libPackageJson, null, 2) + '\n';
 
 // Write the file with the new version
-fs.writeFile(publishPackageJsonPath, publPkgJsonStr, 'utf8', () => {
+fs.writeFile(libPackageJsonPath, publPkgJsonStr, 'utf8', () => {
   executeUpdate('git status -sb && echo \n');
 });

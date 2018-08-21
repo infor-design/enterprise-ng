@@ -18,17 +18,9 @@ npm view ids-enterprise-ng versions
 These releases are dated (semver proper) and ONLY published to npm, not github.
 
 1. Make sure you are on a clean `master` branch
-1. Update the dev version
+1. Run the npm cmd to do a dev release:
     ```sh
-    npm run version-bump:dev
-    ```
-1. Update enterprise (optional)
-    ```sh
-    npm run update-enterprise
-    ```
-1. Publish to NPM
-    ```sh
-    npm publish publish/ --tag=dev
+    npm run release:dev
     ```
 1. Undo the version changes/reset your branch (unless you specifically want to commit and push - rare)
     ```sh
@@ -66,7 +58,7 @@ are copied into src/app/icon.
 
 1. Make sure you have release-it installed (`npm install release-it -g`)
 1. Checkout the release branch (`A.B.x`) and `git pull --tags`
-    - Set the master branch to the next minor dev version. For example if we made branch `4.9.x`, then the `master` publish/package.json version should now be changed to `4.10.0-dev`
+    - Set the master branch to the next minor dev version. For example if we made branch `4.9.x`, then the `master` projects/ids-enterprise-ng/package.json version should now be changed to `4.10.0-dev`
     - "Protect" the release branch with github settings
 1. Run a release cmd:
     - `npm run release:beta` - beta
