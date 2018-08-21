@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'soho-toolbar-basic-demo',
+  selector: 'app-toolbar-basic-demo',
   templateUrl: './toolbar-basic.demo.html'
 })
 export class ToolbarBasicDemoComponent {

@@ -13,7 +13,7 @@ import { SohoDropDownComponent } from 'ids-enterprise-ng';
 import { MOCK_STATES } from './dropdown-mock.data';
 
 @Component({
-  selector: 'soho-dropdown-simple-demo',
+  selector: 'app-dropdown-simple-demo',
   templateUrl: './dropdown-async.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

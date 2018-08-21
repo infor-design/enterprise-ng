@@ -250,7 +250,7 @@ export const routes: Routes = [
   { path: 'label',                                  component: LabelDemoComponent },
   { path: 'line',                                   component: LineDemoComponent },
   { path: 'listview',                               component: ListViewDemoComponent },
-  { path: 'locale-pipe',                            loadChildren: 'app/locale/locale-demo.module#LocaleDemoModule'},
+  { path: 'locale-pipe',                            loadChildren: './locale/locale-demo.module#LocaleDemoModule'},
   { path: 'lookup',                                 component: LookupDemoComponent },
   { path: 'lookup-validation',                      component: LookupValidationDemoComponent },
   { path: 'mask',                                   component: MaskDemoComponent },

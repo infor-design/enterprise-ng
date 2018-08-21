@@ -10,7 +10,7 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-datagrid-content-demo',
+  selector: 'app-datagrid-content-demo',
   templateUrl: './datagrid-content.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

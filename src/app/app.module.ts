@@ -14,7 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
 
-import { SohoComponentsModule } from '../soho/soho-components.module';
+import { SohoComponentsModule } from 'ids-enterprise-ng';
 
 import { AboutDemoComponent } from './about/about.demo';
 import { AccordionDemoComponent } from './accordion/accordion.demo';
@@ -385,7 +385,6 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     BrowserModule,
     CommonModule,
     FormsModule,
-    HttpModule,
     HttpClientModule,
     ModalDialogDemoModule,
     ContextualActionPanelDemoModule,

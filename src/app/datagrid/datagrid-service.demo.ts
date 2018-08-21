@@ -18,7 +18,7 @@ import { DataGridDemoService } from './datagrid-demo.service';
 import { SohoToastService } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-datagrid-service-demo',
+  selector: 'app-datagrid-service-demo',
   templateUrl: './datagrid-service.demo.html',
   providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService }, SohoToastService ],
   changeDetection: ChangeDetectionStrategy.OnPush

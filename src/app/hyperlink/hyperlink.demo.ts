@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'soho-hyperlink-demo',
+  selector: 'app-hyperlink-demo',
   templateUrl: './hyperlink.demo.html'
 })
 export class HyperlinkDemoComponent {

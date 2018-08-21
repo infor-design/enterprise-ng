@@ -13,7 +13,7 @@ export interface FakeResponse {
 }
 
 @Component({
-  selector: 'soho-lookup-demo',
+  selector: 'app-lookup-demo',
   templateUrl: './lookup.demo.html',
 })
 export class LookupDemoComponent {

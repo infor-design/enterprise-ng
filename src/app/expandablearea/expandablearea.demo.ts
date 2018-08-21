@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-expandablearea-demo',
+  selector: 'app-expandablearea-demo',
   templateUrl: './expandablearea.demo.html'
 })
 export class ExpandableAreaDemoComponent implements OnInit {

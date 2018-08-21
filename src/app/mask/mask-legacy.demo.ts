@@ -5,7 +5,7 @@ import { Component, HostBinding, Input } from '@angular/core';
  * - shows basic legacy mask functionality on input elements with an angular template
  */
 @Component({
-  selector:    'soho-mask-legacy-demo',
+  selector: 'app-mask-legacy-demo',
   templateUrl: './mask-legacy.demo.html',
   styles:      [
       `

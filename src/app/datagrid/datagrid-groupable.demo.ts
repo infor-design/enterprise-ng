@@ -15,7 +15,7 @@ import {
 import { DataGridDemoService } from './datagrid-demo.service';
 
 @Component({
-  selector: 'soho-datagrid-groupable-demo',
+  selector: 'app-datagrid-groupable-demo',
   templateUrl: './datagrid-groupable.demo.html',
   providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService } ],
   changeDetection: ChangeDetectionStrategy.OnPush

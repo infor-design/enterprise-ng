@@ -9,7 +9,7 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-bullet-demo',
+  selector: 'app-bullet-demo',
   templateUrl: './bullet.demo.html',
 })
 export class BulletDemoComponent implements OnInit {

@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { SohoMenuButtonComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-menu-button-demo',
+  selector: 'app-menu-button-demo',
   templateUrl: './menu-button.demo.html',
 })
 export class MenuButtonDemoComponent implements OnInit, AfterViewInit {

@@ -55,7 +55,7 @@ export const CodeBlockFormatter = (row, cell, value, col, rowData, api): string 
 };
 
 @Component({
-  selector: 'soho-datagrid-code-block-formatter-demo',
+  selector: 'app-datagrid-code-block-formatter-demo',
   templateUrl: './datagrid-code-block-formatter.demo.html',
   styleUrls: ['../code-block/code-block.formatter.css']
 })

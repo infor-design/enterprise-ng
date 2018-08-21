@@ -1,12 +1,18 @@
-import {Component, ViewChild} from '@angular/core';
-import {SohoPopDownDirective} from '../../soho/popdown/soho-popdown.directive';
+import {
+  Component,
+  ViewChild
+} from '@angular/core';
+
+import {
+  SohoPopDownDirective
+} from 'ids-enterprise-ng';
 
 /**
  * This example shows clicking on an entry in an ajax build context menu, opening up
  * a popdown
  */
 @Component({
-  selector:    'soho-field-options-popdown-demo',
+  selector:    'app-field-options-popdown-demo',
   templateUrl: './field-options-popdown.demo.html'
 })
 export class FieldOptionsPopdownDemoComponent {

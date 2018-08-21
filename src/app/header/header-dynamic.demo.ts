@@ -13,7 +13,7 @@ import { SohoToolbarComponent } from 'ids-enterprise-ng';
 import { SohoTabsComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-header-dynamic-demo',
+  selector: 'app-header-dynamic-demo',
   templateUrl: './header-dynamic.demo.html'
 })
 export class SohoHeaderDynamicDemoComponent {
@@ -67,13 +67,13 @@ export class SohoHeaderDynamicDemoComponent {
 
   /**
    * Used by the component template to decide when to display the tabs.
-   * @type {any}
+   *
    */
   public currentToolbarOptions: HeaderDynamicToolbarOptions = null;
 
   /**
    * Used by the component template to decide when to display the toolbar.
-   * @type {any}
+   *
    */
   public currentTabsOptions: HeaderDynamicTabsetOptions = null;
 
@@ -88,7 +88,7 @@ export class SohoHeaderDynamicDemoComponent {
 
   /**
    * Get the current toolbar options.
-   * @returns {HeaderDynamicToolbarOptions}
+   * @return
    */
   get toolbarOptions(): HeaderDynamicToolbarOptions {
     return this.currentToolbarOptions;
@@ -96,7 +96,7 @@ export class SohoHeaderDynamicDemoComponent {
 
   /**
    * Get the current toolbar options.
-   * @returns {HeaderDynamicToolbarOptions}
+   * @return
    */
   public get tabOptions(): HeaderDynamicTabsetOptions {
     return this.currentTabsOptions;

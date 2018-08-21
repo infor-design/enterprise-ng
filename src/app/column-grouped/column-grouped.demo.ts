@@ -4,10 +4,10 @@ import {
   ViewChild
 } from '@angular/core';
 
-import {SohoColumnComponent} from '../../soho/column';
+import { SohoColumnComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-column-demo',
+  selector: 'app-column-demo',
   templateUrl: './column-grouped.demo.html',
 })
 export class ColumnGroupedDemoComponent implements OnInit {

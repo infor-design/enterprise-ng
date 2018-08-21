@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'demo-select-files-page',
+  selector: 'app-select-files-page',
   templateUrl: './wizard-selected-files-page.demo.html',
   styles: [
     `:host {

@@ -3,10 +3,11 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-import {SohoBarComponent} from '../../soho/bar';
+
+import { SohoBarComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-bar-demo',
+  selector: 'app-bar-demo',
   templateUrl: './bar-stacked.demo.html',
 })
 export class BarStackedDemoComponent implements OnInit {

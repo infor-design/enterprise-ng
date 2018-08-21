@@ -5,10 +5,10 @@ import {
   ViewChildren
 } from '@angular/core';
 
-import { SohoInputValidateDirective } from 'soho/input-validate';
+import { SohoInputValidateDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-validation-form-demo',
+  selector: 'app-validation-form-demo',
   templateUrl: './validation-form.demo.html'
 })
 export class ValidationFormDemoComponent {

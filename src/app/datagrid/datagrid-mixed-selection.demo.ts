@@ -18,7 +18,7 @@ import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 import { PAGING_COLUMNS, PAGING_DATA } from './datagrid-paging-data';
 
 @Component({
-  selector: 'soho-datagrid-mixed-selection-demo',
+  selector: 'app-datagrid-mixed-selection-demo',
   templateUrl: './datagrid-mixed-selection.demo.html',
   providers: [{ provide: SohoDataGridService, useClass: DataGridDemoService }],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -49,8 +49,8 @@ export class DataGridMixedSelectionDemoComponent implements AfterViewInit {
   }
 
   onActivateSelectedRow(event) {
-    if (this.sohoDataGridComponent.getSelectedRows().length > 0 && this.sohoDataGridComponent.getSelectedRows()[0].idx > -1) {
-      this.sohoDataGridComponent.activateRow(this.sohoDataGridComponent.getSelectedRows()[0].idx);
+    if (this.sohoDataGridComponent.selectedRows().length > 0 && this.sohoDataGridComponent.selectedRows()[0].idx > -1) {
+      this.sohoDataGridComponent.activateRow(this.sohoDataGridComponent.selectedRows()[0].idx);
     }
   }
 

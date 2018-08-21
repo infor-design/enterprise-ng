@@ -7,7 +7,7 @@ import { HeaderDynamicTabsetOptions } from '../header/header-dynamic-demo.model'
 import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
 
 @Component({
-  selector: 'soho-tabs-header-demo',
+  selector: 'app-tabs-header-demo',
   templateUrl: './header-tabs.demo.html'
 })
 export class HeaderTabsDemoComponent implements AfterViewInit, OnDestroy {

@@ -12,7 +12,7 @@ import {
 } from './mock.data';
 
 @Component({
-  selector: 'soho-codeblock-demo',
+  selector: 'app-codeblock-demo',
   templateUrl: './code-block.demo.html'
 })
 export class CodeBlockDemoComponent implements OnInit {

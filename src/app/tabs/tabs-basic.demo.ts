@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
  * - Shows how to make a simple tab component with an angular template.
  */
 @Component({
-  selector: 'soho-tabs-basic-demo',
+  selector: 'app-tabs-basic-demo',
   templateUrl: './tabs-basic.demo.html',
 })
 export class TabsBasicDemoComponent {

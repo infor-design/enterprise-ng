@@ -15,7 +15,7 @@ export interface FakeResponse {
 }
 
 @Component({
-  selector: 'soho-lookup-demo',
+  selector: 'app-lookup-demo',
   templateUrl: './lookup-validation.demo.html',
 })
 export class LookupValidationDemoComponent implements AfterViewInit {

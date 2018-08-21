@@ -9,7 +9,7 @@ import { SohoSwapListComponent } from 'ids-enterprise-ng';
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
 @Component({
-  selector: 'soho-swaplist-demo',
+  selector: 'app-swaplist-demo',
   templateUrl: './swaplist.demo.html',
 })
 export class SwapListDemoComponent implements OnInit, OnDestroy {

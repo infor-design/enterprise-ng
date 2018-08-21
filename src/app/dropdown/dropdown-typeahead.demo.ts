@@ -13,7 +13,7 @@ import { SohoDropDownComponent } from 'ids-enterprise-ng';
 import { MOCK_ALL_STATES } from './dropdown-mock-all.data';
 
 @Component({
-  selector: 'soho-dropdown-typeahead-demo',
+  selector: 'app-dropdown-typeahead-demo',
   templateUrl: './dropdown-typeahead.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

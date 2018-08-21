@@ -10,7 +10,7 @@ import {
 } from './blockgrid-demo-data';
 
 @Component({
-  selector: 'soho-blockgrid-multi-selection.demo',
+  selector: 'app-blockgrid-multi-selection-demo',
   templateUrl: './blockgrid-multi-selection.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

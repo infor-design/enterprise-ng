@@ -10,12 +10,12 @@ import {
 } from 'rxjs/operators';
 
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class HierarchyDemoService {
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   public getHierarchyData(): Observable<any> {
     return this.http.get('./app/demodata/hierarchy.demo.json').pipe(

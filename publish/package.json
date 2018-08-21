@@ -12,7 +12,7 @@
     "infor design system enterprise angular"
   ],
   "author": "Hook & Loop",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/infor-design/enterprise-ng/issues"
   },
@@ -20,14 +20,14 @@
   "main": "index.ts",
   "types": "index.d.ts",
   "scripts": {
-    "prepublishOnly": "cd ../ && npx gulp publish && cd ./publish",
+    "prepublishOnly": "cd ../ && npm run build:lib && cd ./publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@angular/cli": "6.0.7",
+    "@angular/cli": "^6.1.2",
     "@types/jquery": "3.3.1",
     "classlist.js": "^1.1.20150312",
-    "ids-enterprise": "^4.9.0-dev.20180731",
+    "ids-enterprise": "^4.10.0-dev.20180810",
     "jquery": "3.3.1"
   }
 }

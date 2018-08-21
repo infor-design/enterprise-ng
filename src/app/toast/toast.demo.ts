@@ -6,7 +6,7 @@ import {
 import { SohoToastService } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-toast-demo',
+  selector: 'app-toast-demo',
   templateUrl: './toast.demo.html'
 })
 export class ToastDemoComponent implements OnInit {

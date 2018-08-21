@@ -9,7 +9,7 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-sparkline-demo',
+  selector: 'app-sparkline-demo',
   templateUrl: './sparkline.demo.html',
 })
 export class SparklineDemoComponent implements OnInit {

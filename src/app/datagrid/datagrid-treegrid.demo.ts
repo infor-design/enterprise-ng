@@ -4,7 +4,7 @@ import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 import { DatagridTreegridServiceDemo } from './datagrid-treegrid-service.demo';
 
 @Component({
-  selector: 'soho-datagrid-treegrid-demo',
+  selector: 'app-datagrid-treegrid-demo',
   templateUrl: './datagrid-treegrid.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ DatagridTreegridServiceDemo ]

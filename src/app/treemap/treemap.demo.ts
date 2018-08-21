@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-treemap-demo',
+  selector: 'app-treemap-demo',
   templateUrl: './treemap.demo.html',
 })
 export class TreemapDemoComponent implements OnInit {

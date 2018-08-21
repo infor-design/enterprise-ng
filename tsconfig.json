@@ -1,32 +1,33 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
-    "baseUrl": "src",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
-    "paths": {
-      "ids-enterprise-ng": ["./src/soho"]
-    },
     "typeRoots": [
       "node_modules/@types"
+    ],
+    "types": [
+      "jasmine",
+      "jquery",
+      "node"
     ],
     "lib": [
       "es2017",
       "dom"
     ],
-    "types": [
-      "jasmine",
-      "jquery",
-      "lscache",
-      "node"
-    ]
-  },
-  "include": [
-    "src/**/*"
-  ]
+    "paths": {
+      "ids-enterprise-ng": [
+        "dist/ids-enterprise-ng"
+      ],
+      "ids-enterprise-ng/*": [
+        "dist/ids-enterprise-ng/*"
+      ]
+    }
+  }
 }

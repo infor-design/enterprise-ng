@@ -3,10 +3,10 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-import {SohoLineComponent} from '../../soho/line';
+import {SohoLineComponent} from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-line-demo',
+  selector: 'app-line-demo',
   templateUrl: './area.demo.html',
 })
 export class AreaDemoComponent implements OnInit {

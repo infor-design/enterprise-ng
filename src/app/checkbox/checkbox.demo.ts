@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-checkbox-demo',
+  selector: 'app-checkbox-demo',
   templateUrl: './checkbox.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

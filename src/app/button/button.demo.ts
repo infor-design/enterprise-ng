@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-button-demo',
+  selector: 'app-button-demo',
   templateUrl: './button.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

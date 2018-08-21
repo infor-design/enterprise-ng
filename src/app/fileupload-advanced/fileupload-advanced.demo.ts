@@ -4,7 +4,7 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { SohoFileUploadAdvancedComponent } from '../../soho/fileupload-advanced';
+import { SohoFileUploadAdvancedComponent } from 'ids-enterprise-ng';
 import { HttpRequest } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { HttpEventType } from '@angular/common/http';
@@ -12,7 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { HttpResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'soho-fileupload-advanced-demo',
+  selector: 'app-fileupload-advanced-demo',
   templateUrl: './fileupload-advanced.demo.html',
 })
 export class FileUploadAdvancedDemoComponent implements OnInit {

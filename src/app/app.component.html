@@ -2,7 +2,7 @@
 <soho-icons></soho-icons>
 <soho-icons-ext></soho-icons-ext>
 <soho-icons-empty></soho-icons-empty>
-<soho-masthead-demo></soho-masthead-demo>
+<app-masthead-demo></app-masthead-demo>
 
 <nav *ngIf="initialised" soho-application-menu class="is-pesonalizable" [filterable]="true" [openOnLarge]="true" [dismissOnClickMobile]="true">
   <div soho-searchfield-wrapper>
@@ -12,7 +12,7 @@
   <application-menu-demo></application-menu-demo>
 </nav>
 <div *ngIf="initialised" class="page-container no-scroll">
-  <soho-header-dynamic-demo></soho-header-dynamic-demo>
+  <app-header-dynamic-demo></app-header-dynamic-demo>
   <div id="maincontent" class="page-container scrollable" role="main">
       <router-outlet></router-outlet>
   </div>

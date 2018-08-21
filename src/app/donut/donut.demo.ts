@@ -3,10 +3,10 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-import {SohoPieComponent} from '../../soho/pie';
+import {SohoPieComponent} from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'soho-pie-demo',
+  selector: 'app-pie-demo',
   templateUrl: './donut.demo.html',
 })
 export class DonutDemoComponent implements OnInit {

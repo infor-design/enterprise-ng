@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-header-demo',
+  selector: 'app-header-demo',
   templateUrl: './header.demo.html',
 })
 export class SohoHeaderDemoComponent {

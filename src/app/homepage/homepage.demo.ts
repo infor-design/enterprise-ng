@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector:    'soho-homepage-demo',
+  selector: 'app-homepage-demo',
   templateUrl: './homepage.demo.html',
 })
 export class HomePageDemoComponent {

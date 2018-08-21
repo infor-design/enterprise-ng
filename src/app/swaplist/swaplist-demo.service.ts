@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { of, Observable } from 'rxjs';
 
-import { SohoSwapListService } from '../../soho/swaplist';
+import { SohoSwapListService } from 'ids-enterprise-ng';
 
 @Injectable()
 export class SwapListDemoService extends SohoSwapListService {

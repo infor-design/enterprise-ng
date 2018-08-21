@@ -4,7 +4,7 @@ import { SohoDropDownComponent, SohoBusyIndicatorDirective } from 'ids-enterpris
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'soho-dropdown-demo',
+  selector: 'app-dropdown-demo',
   templateUrl: './dropdown-async-busy.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
