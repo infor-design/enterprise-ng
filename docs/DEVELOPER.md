@@ -12,7 +12,7 @@
 - Open a command prompt to enterprise-ng
 - Type `npm install -g @angular/cli@latest`
 - Type `npm i`
-- Type `ng build`
+- Type `npm run build`
 - Type `ng serve`
 
 ## Initial Setup with yarn
@@ -21,7 +21,7 @@
 - Open a command prompt to enterprise-ng
 - Type `npm install -g @angular/cli@latest`
 - Type `yarn`
-- Type `ng build`
+- Type `npm run build`
 - Type `ng serve`
 
 ## Component Structure
@@ -292,4 +292,30 @@ Then add an application demo to the top level project, this involves:
 <div class="accordion-header list-item"><a [routerLink]="['widget']"><span>Widgets</span></a></div>
 ```
 
+Run the application (in the test server) using `ng s`.
+
 To integrate this into your application simply include the **ids-enterprise-ng** package into your application, and include the **SohoComponentsModule** into your application module definition.  For further details, see the QuickStart guide.
+
+## Using mpn link
+
+Using npm link allows you to test the changes you have made in a real project.
+
+```sh
+npm run build
+cd dist\ids-enterprise-ng
+npm link
+```
+
+In your target application type:
+
+```sh
+npm link ids-enterprise-ng
+```
+
+Make sure you have added the following to the `angular.json` file.:
+
+```json
+"preserveSymlinks": true,
+```
+
+NOTE: if you run any `npm` command in the target project, the link will be reset.  So you would need to run the above command again.
