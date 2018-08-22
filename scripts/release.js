@@ -98,18 +98,21 @@ function releaseFinal() {
 }
 
 /**
- * Execute a command to do a "dev" version
+ * Execute a command to do a "dev" version or
+ * if dryRun is specified, run the pack cmd.
  */
 function releaseDev() {
   logAction('Releasing', 'a "dev" tag...');
   if (versionHasSuffix(libPackageJson.version)) {
-    let cmd = 'npm publish dist/ids-enterprise-ng --tag=dev';
+    let cmd = ['npm run build:lib'];
 
     if (argv.hasOwnProperty('dryRun')) {
-      cmd = 'npm run pack:lib';
-      logError(`DRY RUN!! using "${cmd}"`);
+      cmd .push('npm run pack:lib');
+      logError(`DRY RUN!! using "${cmd.join(' && ')}"`);
+    } else {
+      cmd.push('npm publish dist/ids-enterprise-ng --tag=dev');
     }
-    executeUpdate(cmd)
+    executeUpdate(cmd.join(' && '));
   } else {
     logError(`Cannot release a "dev" semver without a dated tag suffix (i.e. X.Y.Z-${tagSuffixFormat}).\nDid you execute "${chalk.cyan("npm run version-bump:dev")}"?`)
   }
