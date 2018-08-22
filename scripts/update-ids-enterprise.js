@@ -64,7 +64,7 @@ function syncPackageJsonVersions() {
   const rootPackageJson = require(rootPackageJsonPath);
   const libPackageJson = require(libPackageJsonPath);
 
-  libPackageJson.peerDependencies['ids-enterprise'] = rootPackageJson.dependencies['ids-enterprise'];
+  libPackageJson.dependencies['ids-enterprise'] = rootPackageJson.dependencies['ids-enterprise'];
 
   // Make sure to write the trailing line to the file
   const libPackageJsonStr = JSON.stringify(libPackageJson, null, 2) + `\n`;

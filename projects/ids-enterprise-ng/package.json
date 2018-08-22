@@ -3,13 +3,12 @@
   "slug": "ids-enterprise-ng",
   "version": "4.10.0-dev",
   "dependencies": {
-    "ids-enterprise": "4.10.0-dev.20180821",
+    "ids-enterprise": "^4.10.0-dev.20180822",
     "jquery": "3.3.1"
   },
   "peerDependencies": {
     "@angular/common": "^6.0.0",
-    "@angular/core": "^6.0.0",
-    "ids-enterprise": "^4.10.0-dev.20180822"
+    "@angular/core": "^6.0.0"
   },
   "devDependencies": {
     "@types/jquery": "3.3.1"
@@ -30,7 +29,7 @@
   },
   "homepage": "https://github.com/infor-design/enterprise-ng",
   "scripts": {
-    "prepublishOnly": "cd ../ && npm run build:lib && cd ./publish",
+    "prepublishOnly": "cd ../../ && npm run build:lib && cd ./projects/ids-enterprise-ng",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
