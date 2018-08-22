@@ -19,10 +19,21 @@ const rootPath = slash(process.cwd());
 const libPath = `${rootPath}/projects/ids-enterprise-ng`;
 const libPackageJsonPath = `${libPath}/package.json`;
 const libPackageJson = require(libPackageJsonPath);
+const tagSuffixFormat = 'dev.YYYYMMDD';
 
 // -------------------------------------
 //   Functions
 // -------------------------------------
+
+/**
+ * Checks to see if the current semver version of the package
+ * is a properly dated semver to prevent release "-dev" accidentally.
+ * @param {string} version - The semver of the package
+ */
+function versionHasSuffix(version) {
+  const versionTagSuffix = libPackageJson.version.split('-')[1];
+  return (versionTagSuffix.length === tagSuffixFormat.length);
+}
 
 /**
  * Executes the command on the cli
@@ -91,8 +102,12 @@ function releaseFinal() {
  */
 function releaseDev() {
   logAction('Releasing', 'a "dev" tag...');
-  const cmd = 'npm run update-enterprise && npm run version-bump:dev && npm publish projects/ids-enterprise-ng/ --tag=dev';
-  executeUpdate(cmd)
+  if (versionHasSuffix(libPackageJson.version)) {
+    const cmd = 'npm run update-enterprise && npm run version-bump:dev && npm publish projects/ids-enterprise-ng/ --tag=dev';
+    executeUpdate(cmd)
+  } else {
+    logError(`Cannot release a "dev" semver without a dated tag suffix\nsuch as X.Y.Z-${tagSuffixFormat}`)
+  }
 }
 
 // -------------------------------------
