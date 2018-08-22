@@ -5,7 +5,7 @@
   "verbose": false,
   "pkgFiles": ["package.json"],
   "increment": "patch",
-  "buildCommand": "",
+  "buildCommand": "npm run build:lib",
   "src": {
     "commitMessage": "Release v%s",
     "tagAnnotation": "Release v%s",
