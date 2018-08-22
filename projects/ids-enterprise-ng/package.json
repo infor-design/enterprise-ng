@@ -29,7 +29,6 @@
   },
   "homepage": "https://github.com/infor-design/enterprise-ng",
   "scripts": {
-    "prepublishOnly": "cd ../../ && npm run build:lib && cd ./projects/ids-enterprise-ng",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
