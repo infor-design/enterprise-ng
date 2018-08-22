@@ -43,8 +43,7 @@ In a terminal window, in the project folder:
 
 1. Type `npm install jquery@3.3.1 -S --save-exact`
 2. Type `npm install @types/jquery@3.3.1 -D --save-exact`
-3. Type `npm install ids-enterprise -S`
-4. Type `npm install ids-enterprise-ng -S`
+3. Type `npm install ids-enterprise-ng -S`
 
 NOTE: You can also npm link to a local version of the `ids-enterprise(-ng)` using `npm link`.  If you do this you must add `"preserveSymLinks":true`to the root `angular.json` file, as follows:
 
