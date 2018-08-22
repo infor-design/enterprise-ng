@@ -2,7 +2,7 @@
 
 - CRM (US - Arizona)
 - Landmark (US - St. Paul)
-- Sun Systems (UK)
+- SunSystems (UK and Shanghai)
 - H&L (US NYC + PA)
 - M3 Graphical Lot Tracker (Sweden, US - Penn)
 - M3 Sales Hub, Automotive Exchange (US – East)

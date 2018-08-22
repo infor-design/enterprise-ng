@@ -5,6 +5,7 @@
 ### Features
 
 - [`General`] NPM package now compiled into the Angular Package Format.  ([Pull Request 143](https://github.com/infor-design/enterprise-ng/pull/143)) `BTHH`
+    - See `UPGRADE.md` for upgrading details.
     - Upgraded `QUICKSTART.md` document.
     - Introduced new sub-project `ids-enterprise-ng`.
     - Moved `soho` folder to sub-project, as `lib`.
@@ -24,7 +25,7 @@
 - `[DataGrid]` Modified `sorted` event arguments on `datagrid`. `BTHH`
 - `[General]` Removed all explicit type JavaDoc, e.g. `@memberof`, `@type`, `{typename}`. `BTHH`
 - `[General]` Fixed signature of `@HostListener` for `KeyUp`. `BTHH`
-- `[General]` Upgraded @angular/cli (to 6.1.1) and @angular/core (to 6.1.0).
+- `[General]` Upgraded @angular/cli (to 6.1.4) and @angular/core (to 6.1.3).
 - `[General]` Upgraded typeScript (to 2.9.2).
 
 ## v4.9.0
