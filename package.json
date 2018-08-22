@@ -18,7 +18,7 @@
     "e2e": "ng e2e",
     "update-enterprise": "node ./scripts/update-ids-enterprise.js",
     "version-bump:dev": "node ./scripts/version-append-date",
-    "release:dev": "npm run update-enterprise && npm run version-bump:dev && node scripts/release.js",
+    "release:dev": "npm run update-enterprise && npm run version-bump:dev && npm run build:lib && node scripts/release.js",
     "release:beta": "node scripts/release.js --tag=beta",
     "release:rc": "node scripts/release.js --tag=rc",
     "release:final": "node scripts/release.js --tag=final"
