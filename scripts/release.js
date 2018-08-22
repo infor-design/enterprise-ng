@@ -103,7 +103,12 @@ function releaseFinal() {
 function releaseDev() {
   logAction('Releasing', 'a "dev" tag...');
   if (versionHasSuffix(libPackageJson.version)) {
-    const cmd = 'npm publish projects/ids-enterprise-ng/ --tag=dev';
+    let cmd = 'npm publish dist/ids-enterprise-ng --tag=dev';
+
+    if (argv.hasOwnProperty('dryRun')) {
+      cmd = 'npm run pack:lib';
+      logError(`DRY RUN!! using "${cmd}"`);
+    }
     executeUpdate(cmd)
   } else {
     logError(`Cannot release a "dev" semver without a dated tag suffix (i.e. X.Y.Z-${tagSuffixFormat}).\nDid you execute "${chalk.cyan("npm run version-bump:dev")}"?`)
