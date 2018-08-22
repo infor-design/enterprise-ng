@@ -31,12 +31,8 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# Publish
-publish/*
-publish/soho/**
-!publish/package.json
-!publish/.release-it.json
-!publish/.npmignore
+# Deprecated
+publish/**
 
 # misc
 /.sass-cache

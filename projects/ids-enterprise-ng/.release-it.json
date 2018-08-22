@@ -9,7 +9,7 @@
   "src": {
     "commitMessage": "Release v%s",
     "tagAnnotation": "Release v%s",
-    "beforeStartCommand": "cd ../ && npm run lint && npm run test:lib && cd publish/",
+    "beforeStartCommand": "cd ../../ && npm run lint && npm run test:lib && cd projects/ids-enterprise-ng/",
     "afterReleaseCommand": ""
   },
   "npm": {

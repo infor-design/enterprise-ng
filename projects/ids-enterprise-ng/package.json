@@ -3,7 +3,7 @@
   "slug": "ids-enterprise-ng",
   "version": "4.10.0-dev",
   "dependencies": {
-    "ids-enterprise": "4.10.0-dev.20180821",
+    "ids-enterprise": "^4.10.0-dev.20180822",
     "jquery": "3.3.1"
   },
   "peerDependencies": {
@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/infor-design/enterprise-ng",
   "scripts": {
-    "prepublishOnly": "cd ../ && npm run build:lib && cd ./publish",
+    "prepublishOnly": "cd ../../ && npm run build:lib && cd ./projects/ids-enterprise-ng",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
