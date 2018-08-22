@@ -15,7 +15,7 @@ const slash = require('slash');
 //   Constants
 // -------------------------------------
 const rootPath = slash(process.cwd());
-const libPackageJsonPath = `${rootPath}/projects/ids-enterprise/package.json`;
+const libPackageJsonPath = `${rootPath}/projects/ids-enterprise-ng/package.json`;
 const libPackageJson = require(libPackageJsonPath);
 const todaysDate = formatDate(new Date());
 const versionTag = 'dev';
