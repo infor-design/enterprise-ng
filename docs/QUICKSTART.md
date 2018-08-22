@@ -90,8 +90,7 @@ Add the `jquery` types into the `tsconfig.app.json` and `tsconfig.spec.json`.  F
 
 Don't remove any types already present!
 
-
-## Step 4 : Enterprise Controls Assets
+### Step 4 : Enterprise Controls Assets
 
 **@angular/cli** needs to include assets from `node_modules` into the compiled output.
 
