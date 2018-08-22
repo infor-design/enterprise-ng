@@ -3,13 +3,15 @@
   "slug": "ids-enterprise-ng",
   "version": "4.10.0-dev",
   "dependencies": {
-    "classlist.js": "^1.1.20150312",
     "ids-enterprise": "4.10.0-dev.20180821",
     "jquery": "3.3.1"
   },
   "peerDependencies": {
     "@angular/common": "^6.0.0",
     "@angular/core": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/jquery": "3.3.1"
   },
   "description": "Infor Design System (IDS) Enterprise Angular Components",
   "repository": {

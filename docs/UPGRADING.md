@@ -8,27 +8,38 @@ For information on how to create these libraries, see [Creating A Library][#CAL]
 
 Consuming the `ids-enterprise-ng` package will require changes to any projects referencing it.
 
+### Upgrade Angular and Angular/CLI
+
 These instructions assume you will be running the latest versions of `@angular/cli` and `@angular/core`. It is recommended that you review the information on <http://update.anguar.com> before updating.
 
 These are the steps for upgrading existing projects:
 
 ```sh
-npm install @angular/cli -g
 npm install @angular/cli
 ng update @angular/cli
 ng update @angular/core
+ng update
 ```
 
 You will need to fix any issues raised, as these will depend on the dependency tree created by the packages you use and what version you are upgrading from.
 
-Install the latest `ids-enterprise` and `ids-enterprise-ng` components.
+### Uninstall old dependencies
+
+These are now included as part of the ids-enterprise-ng package):
 
 ```sh
-npm install ids-enterprise -S
-npm install ids-enterprise-ng -S
+npm uninstall ids-enterprise -S
+npm uninstall jquery -S
+npm uninstall @types/jquery -S
 ```
 
-(Note: new projects don't need to include the `ids-enterprise` package directly, as it is a dependency provided by the `ids-enterprise-ng` package.)
+Install the latest `ids-enterprise-ng` components.
+
+```sh
+npm install ids-enterprise-ng@latest -S
+```
+
+### Remove compilation
 
 In the `tsconfig.ts` and `src/tsconfig.*.ts` files of your project, remove the compilation of the older `ids-enterprise-ng` package (if present), for example in:
 
@@ -40,6 +51,41 @@ In the `tsconfig.ts` and `src/tsconfig.*.ts` files of your project, remove the c
 ```
 
 remove `"./node_modules/ids-enterprise-ng/**/*"` from the `include` section.
+
+### Update assets
+
+In the `angular.json` update all references to `ids-enterprise` scripts and styles:
+
+```json
+"assets": [
+  "src/favicon.ico",
+  "src/assets",
+    {
+      "glob": "**/*",
+      "input": "node_modules/ids-enterprise-ng/node_modules/ids-enterprise/dist/css",
+      "output": "/assets/ids-enterprise/css"
+    },
+    {
+      "glob": "**/*",
+      "input": "node_modules/ids-enterprise-ng/node_modules/ids-enterprise/dist/js/cultures",
+      "output": "/assets/ids-enterprise/js/cultures"
+    }
+  ],
+"styles": [
+  "src/styles.css"
+],
+"scripts": [
+  "./node_modules/ids-enterprise-ng/node_modules/jquery/dist/jquery.js",
+  "./node_modules/ids-enterprise-ng/node_modules/ids-enterprise/dist/js/d3.v4.js",
+  "./node_modules/ids-enterprise-ng/node_modules/ids-enterprise/dist/js/sohoxi.js"
+]
+```
+
+Check both `test` and `build` configurations.
+
+### Build / Test / Serve
+
+At this point try building your app, you may want to try the `--prod` option too.
 
 ## Component Library Developers
 

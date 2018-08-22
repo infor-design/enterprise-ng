@@ -10,9 +10,7 @@ If **Node.js** and **npm** are not already on your machine, install them. These 
 
 This quick start guide uses **@angular/cli** to create, build and run the application.
 
-At the time of writing the version of **@angular/cli** used was 6.1.0 with **angular** 6.1.0.
-
-:warning: You can use the olders 4.6.0 controls, but you will need to install the `rxjs-compat` package, and make some changes to the *ids-enterprise-ng* package.  This is not recommended.
+At the time of writing the version of **@angular/cli** used was 6.1.4 with **angular** 6.1.3.
 
 ## Step 0 : Install Pre-Prerequisites
 
@@ -39,13 +37,13 @@ The project will need access to the Infor NPM registy to be able to pull down th
 
 You can add the dependencies directly into the `project.json` file, however it is more reliable to add them using the command line.
 
-In a terminal window, in the project folder:
+In a terminal window, in the project folder, type
 
-1. Type `npm install jquery@3.3.1 -S --save-exact`
-2. Type `npm install @types/jquery@3.3.1 -D --save-exact`
-3. Type `npm install ids-enterprise-ng -S`
+```sh
+npm install ids-enterprise-ng -S
+```
 
-NOTE: You can also npm link to a local version of the `ids-enterprise(-ng)` using `npm link`.  If you do this you must add `"preserveSymLinks":true`to the root `angular.json` file, as follows:
+NOTE: You can also npm link to a local version of the `ids-enterprise-ng` using `npm link`.  If you do this you must add `"preserveSymLinks":true`to the root `angular.json` file, as follows:
 
 ```json
 "projects": {
@@ -64,51 +62,36 @@ Edit `angular.json`, change the `scripts` elements as follows:
 
 ```json
 "scripts": [
-  "./node_modules/jquery/dist/jquery.js",
-  "./node_modules/ids-enterprise/dist/js/d3.v4.js",
-  "./node_modules/ids-enterprise/dist/js/sohoxi.js"
+  "./node_modules/ids-enterprise-ng/node_modules/jquery/dist/jquery.js",
+  "./node_modules/ids-enterprise-ng/node_modules/ids-enterprise/dist/js/d3.v4.js",
+  "./node_modules/ids-enterprise-ng/node_modules/ids-enterprise/dist/js/sohoxi.js"
 ],
 ```
 
 Change both the *test* and *build* architecture sections.
 
-### Step 4 : Configure TypeScript
-
-Edit `src/tsconfig.app.json` and `src/tsconfig.spec.json`, update/add the `types` property:
+Add the `jquery` types into the `tsconfig.app.json` and `tsconfig.spec.json`.  For example:
 
 ```json
-"types": [
-  "jquery"
-]
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "types": [
+      "jquery"
+    ]
+  },
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts"
+  ]
+}
 ```
 
-(Don't delete any existing ones.)
+Don't remove any types already present!
 
-If the release of `ids-enterprise-ng` you are using is not using the *Angular Package Format*, then make the following changes to he`tsconfig.json` file.
 
-Add `node_modules/ids-enterprise-ng/**/*` to the `include` property, as follows:
-
-```json
-"include": [
-  "src/**/*",
-  "node_modules/ids-enterprise-ng/**/*"
-]
-```
-
-Also change the `tsconfig.spec.json` file:
-
-```json
-"include": [
-  "**/*.spec.ts",
-  "**/*.d.ts",
-  "**/*",
-  "../node_modules/ids-enterprise-ng/**/*"
-]
-```
-
-This is required as the compiler will not compile typescript code outside the src folder.
-
-## Step 5 : Enterprise Controls Assets
+## Step 4 : Enterprise Controls Assets
 
 **@angular/cli** needs to include assets from `node_modules` into the compiled output.
 
@@ -122,12 +105,12 @@ Change the `assets` to include the assets required by the underlying `ids-enterp
     "src/assets",
     {
       "glob": "**/*",
-      "input": "node_modules/ids-enterprise/dist/css",
+      "input": "node_modules/ids-enterprise-ng/node_modules/ids-enterprise/dist/css",
       "output": "/assets/ids-enterprise/css"
     },
     {
       "glob": "**/*",
-      "input": "node_modules/ids-enterprise/dist/js/cultures",
+      "input": "node_modules/ids-enterprise-ng/node_modules/ids-enterprise/dist/js/cultures",
       "output": "/assets/ids-enterprise/js/cultures"
     }
 ]
@@ -147,13 +130,11 @@ Set the locale path in `app.component.ts`:
 ```typescript
 constructor() {
     Soho.Locale.culturesPath = '/assets/ids-enterprise/js/cultures/';
-    Soho.Locale.set('en-US').done(() => {
-      console.log('Locale set');
-    });
+    Soho.Locale.set('en-US');
   }
 ```
 
-## Step 6 : Making Sure it Works
+## Step 5 : Making Sure it Works
 
 Run the app to test it.
 
@@ -163,7 +144,7 @@ ng serve
 
 Check you get the default page when you browse to <http://localhost:4200/>.
 
-## Step 7 : Unit Testing
+## Step 6 : Unit Testing
 
 Run the unit tests:
 
@@ -200,7 +181,7 @@ import 'core-js/es6/set';
 import 'classlist.js';  // Run `npm install --save classlist.js`.
 ```
 
-Type `npm install --save classlist.js` to add classlist package.
+Type `npm install --save classlist.js` to add the classlist package.
 
 ## Add the SohoComponentsModule
 
