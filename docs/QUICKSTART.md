@@ -62,22 +62,13 @@ Edit `angular.json`, change the `scripts` elements as follows:
 
 ```json
 "scripts": [
-  "./node_modules/ids-enterprise-ng/node_modules/jquery/dist/jquery.js",
-  "./node_modules/ids-enterprise-ng/node_modules/ids-enterprise/dist/js/d3.v4.js",
-  "./node_modules/ids-enterprise-ng/node_modules/ids-enterprise/dist/js/sohoxi.js"
+  "./node_modules/jquery/dist/jquery.js",
+  "./node_modules/ids-enterprise/dist/js/d3.v4.js",
+  "./node_modules/ids-enterprise/dist/js/sohoxi.js"
 ],
 ```
 
 Change both the *test* and *build* architecture sections.
-
-In the root `tsconfig.json` add the extra types required by `ids-enterprise-ng`:
-
-```json
-"typeRoots": [
-  "node_modules/@types",
-  "node_modules/ids-enterprise-ng/node_modules/@types"
-]
-```
 
 Add the `jquery` types into the `tsconfig.app.json` and `tsconfig.spec.json`.  For example:
 
@@ -113,12 +104,12 @@ Change the `assets` to include the assets required by the underlying `ids-enterp
     "src/assets",
     {
       "glob": "**/*",
-      "input": "node_modules/ids-enterprise-ng/node_modules/ids-enterprise/dist/css",
+      "input": "./node_modules/ids-enterprise/dist/css",
       "output": "/assets/ids-enterprise/css"
     },
     {
       "glob": "**/*",
-      "input": "node_modules/ids-enterprise-ng/node_modules/ids-enterprise/dist/js/cultures",
+      "input": "./node_modules/ids-enterprise/dist/js/cultures",
       "output": "/assets/ids-enterprise/js/cultures"
     }
 ]
