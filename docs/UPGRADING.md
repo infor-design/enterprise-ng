@@ -39,17 +39,6 @@ Install the latest `ids-enterprise-ng` components.
 npm install ids-enterprise-ng@latest -S
 ```
 
-### Add addional types folder
-
-In the root `tsconfig.json` add:
-
-```json
-"typeRoots": [
-  "node_modules/@types",
-  "node_modules/ids-enterprise-ng/node_modules/@types"
-]
-```
-
 ### Remove compilation
 
 In the `tsconfig.ts` and `src/tsconfig.*.ts` files of your project, remove the compilation of the older `ids-enterprise-ng` package (if present), for example in:
@@ -62,37 +51,6 @@ In the `tsconfig.ts` and `src/tsconfig.*.ts` files of your project, remove the c
 ```
 
 remove `"./node_modules/ids-enterprise-ng/**/*"` from the `include` section.
-
-### Update assets
-
-In the `angular.json` update all references to `ids-enterprise` scripts and styles:
-
-```json
-"assets": [
-  "src/favicon.ico",
-  "src/assets",
-    {
-      "glob": "**/*",
-      "input": "node_modules/ids-enterprise-ng/node_modules/ids-enterprise/dist/css",
-      "output": "/assets/ids-enterprise/css"
-    },
-    {
-      "glob": "**/*",
-      "input": "node_modules/ids-enterprise-ng/node_modules/ids-enterprise/dist/js/cultures",
-      "output": "/assets/ids-enterprise/js/cultures"
-    }
-  ],
-"styles": [
-  "src/styles.css"
-],
-"scripts": [
-  "./node_modules/ids-enterprise-ng/node_modules/jquery/dist/jquery.js",
-  "./node_modules/ids-enterprise-ng/node_modules/ids-enterprise/dist/js/d3.v4.js",
-  "./node_modules/ids-enterprise-ng/node_modules/ids-enterprise/dist/js/sohoxi.js"
-]
-```
-
-Check both `test` and `build` configurations.
 
 ### Build / Test / Serve
 
