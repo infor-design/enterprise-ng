@@ -104,12 +104,12 @@ Change the `assets` to include the assets required by the underlying `ids-enterp
     "src/assets",
     {
       "glob": "**/*",
-      "input": "/node_modules/ids-enterprise/dist/css",
+      "input": "./node_modules/ids-enterprise/dist/css",
       "output": "/assets/ids-enterprise/css"
     },
     {
       "glob": "**/*",
-      "input": "/node_modules/ids-enterprise/dist/js/cultures",
+      "input": "./node_modules/ids-enterprise/dist/js/cultures",
       "output": "/assets/ids-enterprise/js/cultures"
     }
 ]
