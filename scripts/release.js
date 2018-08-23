@@ -63,6 +63,15 @@ function logError(msg) {
 }
 
 /**
+ * Execute a command to do a "alpha" version
+ */
+function releaseAlpha() {
+  logAction('Releasing', 'a "alpha" tag...');
+  const cmd = `cd ${libPath} && release-it minor --preRelease=alpha`;
+  executeUpdate(cmd)
+}
+
+/**
  * Execute a command to do a "beta" version
  */
 function releaseBeta() {
@@ -122,6 +131,9 @@ function releaseDev() {
 //   Main
 // -------------------------------------
 switch (argv.tag) {
+  case 'alpha':
+    releaseAlpha();
+    break;
   case 'beta':
     releaseBeta();
     break;
