@@ -14,7 +14,7 @@
   },
   "npm": {
     "publish": true,
-    "publishPath": "dist/ids-enterprise-ng/",
+    "publishPath": "../../dist/ids-enterprise-ng/",
     "tag": "latest"
   },
   "github": {
