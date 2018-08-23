@@ -5,7 +5,7 @@
   "verbose": false,
   "pkgFiles": ["package.json"],
   "increment": "patch",
-  "buildCommand": "npm run build:lib",
+  "buildCommand": "cd ../../ && npm run build:lib && cd projects/ids-enterprise-ng/",
   "src": {
     "commitMessage": "Release v%s",
     "tagAnnotation": "Release v%s",
