@@ -70,6 +70,15 @@ Edit `angular.json`, change the `scripts` elements as follows:
 
 Change both the *test* and *build* architecture sections.
 
+In the root `tsconfig.json` add the extra types required by `ids-enterprise-ng`:
+
+```json
+"typeRoots": [
+  "node_modules/@types",
+  "node_modules/ids-enterprise-ng/node_modules/@types"
+]
+```
+
 Add the `jquery` types into the `tsconfig.app.json` and `tsconfig.spec.json`.  For example:
 
 ```json
@@ -88,7 +97,7 @@ Add the `jquery` types into the `tsconfig.app.json` and `tsconfig.spec.json`.  F
 }
 ```
 
-Don't remove any types already present!
+warning: Don't remove any types already present!
 
 ### Step 4 : Enterprise Controls Assets
 

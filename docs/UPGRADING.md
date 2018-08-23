@@ -39,6 +39,17 @@ Install the latest `ids-enterprise-ng` components.
 npm install ids-enterprise-ng@latest -S
 ```
 
+### Add addional types folder
+
+In the root `tsconfig.json` add:
+
+```json
+"typeRoots": [
+  "node_modules/@types",
+  "node_modules/ids-enterprise-ng/node_modules/@types"
+]
+```
+
 ### Remove compilation
 
 In the `tsconfig.ts` and `src/tsconfig.*.ts` files of your project, remove the compilation of the older `ids-enterprise-ng` package (if present), for example in:
