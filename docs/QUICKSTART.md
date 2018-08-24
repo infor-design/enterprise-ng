@@ -124,15 +124,6 @@ The link in the following to the `src/index.html` file would be the output folde
 </head>
 ```
 
-Set the locale path in `app.component.ts`:
-
-```typescript
-constructor() {
-    Soho.Locale.culturesPath = '/assets/ids-enterprise/js/cultures/';
-    Soho.Locale.set('en-US');
-  }
-```
-
 ## Step 5 : Making Sure it Works
 
 Run the app to test it.
@@ -220,6 +211,15 @@ Add the clicked handler to `app.component.ts`, as follows:
 public clicked() {
     alert('Clicked me!');
 }
+```
+
+Set the locale path in `app.component.ts`:
+
+```typescript
+constructor() {
+    Soho.Locale.culturesPath = '/assets/ids-enterprise/js/cultures/';
+    Soho.Locale.set('en-US');
+  }
 ```
 
 Then from a command line run (you can use `ng serve`):
