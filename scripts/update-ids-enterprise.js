@@ -37,7 +37,7 @@ function chooseVersionTag(options) {
   }];
 
   inquirer.prompt(questionsArr).then(answers => {
-    const cmd = `npm i ids-enterprise@${answers.tag} -P`;
+    const cmd = `npm i ids-enterprise@${answers.tag} -P --save-exact`;
     console.log(`Running "${cmd}"...`);
     executeUpdate(cmd);
   });
