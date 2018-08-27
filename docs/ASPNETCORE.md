@@ -19,7 +19,9 @@ Run `dotnet build` to verify the app builds correctly. On the first run, the bui
 
 Run `dotnet run` to start the app. A message similar to the following is logged:
 
-```Now listening on: http://localhost:5000```
+```sh
+Now listening on: http://localhost:5000
+```
 
 Navigate to this URL in a browser.
 
@@ -36,25 +38,7 @@ Open a terminal / command prompt inside the ClientApp folder.
 npm i @angular/cli@latest
 ng update @angular/cli
 ng update @angular/core
-
-```
-
-You may get some error on upgrading due to missing or invalid peer dependencies, you can update these manually as follows:
-
-```sh
-
-ng update @angular-devkit/build-angular
-ng update codelyzer
-npm install tsickle@latest --save-dev
-
-```
-
-Ignore this error: (if it is still displayed - it will be fixed in @angular/compile-cli@6.1.1)
-
-```sh
-
-npm WARN tsickle@0.30.0 requires a peer of typescript@>=2.4.2 <2.9 but none is installed. You must install peer dependencies yourself.
-
+ng update
 ```
 
 ## Adding the IDS Enterprise Controls
