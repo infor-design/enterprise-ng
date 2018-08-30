@@ -36,6 +36,14 @@ export class SohoHeaderComponent implements AfterViewInit {
 
   constructor(private elementRef: ElementRef) {}
 
+  /**
+   * Used to manually remove the back button when
+   * Which is used in the header via the list/detail pattern
+   */
+  removeBackButton() {
+    this.header.removeBackButton();
+  }
+
   ngAfterViewInit() {
     // Wrap for later.
     this.jQueryElement = jQuery(this.elementRef.nativeElement);
