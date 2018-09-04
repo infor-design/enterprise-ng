@@ -1724,25 +1724,25 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
     // Initialise any event handlers.
     this.jQueryElement
-      .on('addrow', (args: SohoDataGridAddRowEvent) => { this.rowAdd.next(args); })
-      .on('cellchange', (args: SohoDataGridCellChangeEvent) => this.cellchange.next(args))
-      .on('click', (args: SohoDataGridRowClicked) => this.rowClicked.next(args))
-      .on('closefilterrow', (args: SohoDataGridCloseFilterRowEvent) => { this.closeFilterRow.next(args); })
-      .on('collapserow', (args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
-      .on('contextmenu', (args: SohoDataGridRowClicked) => { this.contextMenu.next(args); })
-      .on('dblclick', (args: SohoDataGridRowClicked) => { this.rowDoubleClicked.next(args); })
-      .on('expandrow', (args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
-      .on('filtered', (args: any) => { this.filtered.next(args); })
-      .on('openfilterrow', (args: SohoDataGridOpenFilterRowEvent) => { this.openFilterRow.next(args); })
-      .on('removerow', (args: SohoDataGridRowRemoveEvent) => { this.rowRemove.next(args); })
-      .on('rendered', (args: SohoDataGridRenderedEvent) => { this.rendered.next(args); })
-      .on('afterrender', (args: SohoDataGridAfterRenderEvent) => { this.afterRender.next(args); })
-      .on('rowactivated', (args: SohoDataGridRowActivatedEvent) => { this.rowActivated.next(args); })
-      .on('rowdeactivated', (args: SohoDataGridRowDeactivatedEvent) => { this.rowDeactivated.next(args); })
-      .on('rowreorder', (args: SohoDataGridRowReorderedEvent) => { this.rowReordered.next(args); })
-      .on('selected', (e: JQuery.Event, args: SohoDataGridSelectedRow[]) => this.selected.next({ e, rows: args }))
-      .on('settingschanged', (args: SohoDataGridSettingsChangedEvent) => { this.settingsChanged.next(args); })
-      .on('sorted', (e: any, args: SohoDataGridSortedEvent) => { this.sorted.next(args); });
+    .on('addrow', (e: JQuery.Event, args: SohoDataGridAddRowEvent) => { this.rowAdd.next(args); })
+    .on('cellchange', (e: JQuery.Event, args: SohoDataGridCellChangeEvent) => this.cellchange.next(args))
+    .on('click', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.rowClicked.next(args); })
+    .on('closefilterrow',(e: JQuery.Event, args: SohoDataGridCloseFilterRowEvent) => { this.closeFilterRow.next(args); })
+    .on('collapserow', (e: JQuery.Event, args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
+    .on('contextmenu', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.contextMenu.next(args); })
+    .on('dblclick', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.rowDoubleClicked.next(args); })
+    .on('expandrow', (e: JQuery.Event, args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
+    .on('filtered', (e: JQuery.Event, args: any) => { this.filtered.next(args); })
+    .on('openfilterrow', (e: JQuery.Event, args: SohoDataGridOpenFilterRowEvent) => { this.openFilterRow.next(args); })
+    .on('removerow', (e: JQuery.Event, args: SohoDataGridRowRemoveEvent) => { this.rowRemove.next(args); })
+    .on('rendered', (e: JQuery.Event, args: SohoDataGridRenderedEvent) => { this.rendered.next(args); })
+    .on('afterrender', (e: JQuery.Event, args: SohoDataGridAfterRenderEvent) => { this.afterRender.next(args); })
+    .on('rowactivated', (e: JQuery.Event, args: SohoDataGridRowActivatedEvent) => { this.rowActivated.next(args); })
+    .on('rowdeactivated', (e: JQuery.Event, args: SohoDataGridRowDeactivatedEvent) => { this.rowDeactivated.next(args); })
+    .on('rowreorder', (e: JQuery.Event, args: SohoDataGridRowReorderedEvent) => { this.rowReordered.next(args); })
+    .on('selected', (e: JQuery.Event, args: SohoDataGridSelectedRow[]) => this.selected.next({ e, rows: args }))
+    .on('settingschanged', (e: JQuery.Event, args: SohoDataGridSettingsChangedEvent) => { this.settingsChanged.next(args); })
+    .on('sorted', (e: JQuery.Event, args: SohoDataGridSortedEvent) => { this.sorted.next(args); });
   }
 
   /**

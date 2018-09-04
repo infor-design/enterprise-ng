@@ -1037,20 +1037,21 @@ interface JQueryStatic {
 
 interface JQuery {
   datagrid(options?: SohoDataGridOptions): JQuery;
-  on(events: 'cellchange' | 'activecellchange', handler: JQuery.EventHandlerBase<this, SohoDataGridCellChangeEvent>): this;
-  on(events: 'rowremove', handler: JQuery.EventHandlerBase<this, SohoDataGridRowRemoveEvent>): this;
-  on(events: 'settingschanged', handler: JQuery.EventHandlerBase<this, SohoDataGridSettingsChangedEvent>): this;
-  on(events: 'rendered', handler: JQuery.EventHandlerBase<this, SohoDataGridRenderedEvent>): this;
-  on(events: 'addrow', handler: JQuery.EventHandlerBase<this, SohoDataGridAddRowEvent>): this;
-  on(events: 'click', handler: JQuery.EventHandlerBase<this, SohoDataGridRowClicked>): this;
-  on(events: 'collapserow', handler: JQuery.EventHandlerBase<this, SohoDataGridRowCollapseEvent>): this;
-  on(events: 'contextmenu' | 'dblclick', handler: JQuery.EventHandlerBase<this, SohoDataGridRowClicked>): this;
-  on(events: 'removerow', handler: JQuery.EventHandlerBase<this, SohoDataGridRowRemoveEvent>): this;
-  on(events: 'rowreorder', handler: JQuery.EventHandlerBase<this, SohoDataGridRowReorderedEvent>): this;
-  on(events: 'sorted', handler: JQuery.EventHandlerBase<this, SohoDataGridSortedEvent>): this;
-  on(events: 'expandrow', handler: JQuery.EventHandlerBase<this, SohoDataGridRowExpandEvent>): this;
-  on(events: 'rowactivated', handler: JQuery.EventHandlerBase<this, SohoDataGridRowActivatedEvent>): this;
-  on(events: 'rowdeactivated', handler: JQuery.EventHandlerBase<this, SohoDataGridRowDeactivatedEvent>): this;
+  on(events: 'cellchange' | 'activecellchange', handler: JQuery.EventHandlerBase<any, SohoDataGridCellChangeEvent>): this;
+  on(events: 'rowremove', handler: JQuery.EventHandlerBase<any, SohoDataGridRowRemoveEvent>): this;
+  on(events: 'settingschanged', handler: JQuery.EventHandlerBase<any, SohoDataGridSettingsChangedEvent>): this;
+  on(events: 'rendered', handler: JQuery.EventHandlerBase<any, SohoDataGridRenderedEvent>): this;
+  on(events: 'addrow', handler: JQuery.EventHandlerBase<any, SohoDataGridAddRowEvent>): this;
+  on(events: 'click', handler: JQuery.EventHandlerBase<any, SohoDataGridRowClicked>): this;
+  on(events: 'collapserow', handler: JQuery.EventHandlerBase<any, SohoDataGridRowCollapseEvent>): this;
+  on(events: 'contextmenu' | 'dblclick', handler: JQuery.EventHandlerBase<any, SohoDataGridRowClicked>): this;
+  on(events: 'removerow', handler: JQuery.EventHandlerBase<any, SohoDataGridRowRemoveEvent>): this;
+  on(events: 'rowreorder', handler: JQuery.EventHandlerBase<any, SohoDataGridRowReorderedEvent>): this;
+  on(events: 'sorted', handler: JQuery.EventHandlerBase<any, SohoDataGridSortedEvent>): this;
+  on(events: 'expandrow', handler: JQuery.EventHandlerBase<any, SohoDataGridRowExpandEvent>): this;
+  on(events: 'rowactivated', handler: JQuery.EventHandlerBase<any, SohoDataGridRowActivatedEvent>): this;
+  on(events: 'rowdeactivated', handler: JQuery.EventHandlerBase<any, SohoDataGridRowDeactivatedEvent>):this;
+  on(events: 'selected', handler: JQuery.EventHandlerBase<any, SohoDataGridSelectedRow[]>): this;
 }
 
 interface SohoDataGridRowExpandEvent {
