@@ -1034,7 +1034,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   // This event is fired when the grid is filtered.
   @Output()
-  filtered = new EventEmitter<SohoDataGridAddRowEvent>();
+  filtered = new EventEmitter<SohoDataGridOpenFilteredEvent>();
 
   // This event is fired when a row in the grid is expanded.
   @Output()
@@ -1605,7 +1605,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // Create an injector that will provide the arguments for the
     // component.
     // const injector = ReflectiveInjector.resolveAndCreate([{ provide: 'args', useValue: args }], this.injector);
-    const injector = Injector.create([{ provide: 'args', useValue: args }], this.injector);
+    const injector = Injector.create({ providers: [{ provide: 'args', useValue: args }], parent: this.injector});
 
     // Create the component, in the container.
     const component = factory.create(injector, [], container);
@@ -1653,9 +1653,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // Create an injector that will provide the arguments for the
     // component.
     // const i = ReflectiveInjector.resolveAndCreate([{ provide: 'args', useValue: editor.args }], this.injector);
-    const i = Injector.create([{
-      provide: 'args', useValue: editor.args
-    }], this.injector);
+    const i = Injector.create({
+      providers: [{ provide: 'args', useValue: editor.args }],
+      parent: this.injector
+    });
 
     // Warning!! the dynamic component is not added inside the container,
     // but as a sibling, so when it's destroyed it takes any siblings  with
@@ -1727,7 +1728,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     .on('addrow', (e: any, args: SohoDataGridAddRowEvent) => { this.rowAdd.next(args); })
     .on('cellchange', (e: any, args: SohoDataGridCellChangeEvent) => this.cellchange.next(args))
     .on('click', (e: any, args: SohoDataGridRowClicked) => { this.rowClicked.next(args); })
-    .on('closefilterrow',(e: any, args: SohoDataGridCloseFilterRowEvent) => { this.closeFilterRow.next(args); })
+    .on('closefilterrow', (e: any, args: SohoDataGridCloseFilterRowEvent) => { this.closeFilterRow.next(args); })
     .on('collapserow', (e: any, args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
     .on('contextmenu', (e: any, args: SohoDataGridRowClicked) => { this.contextMenu.next(args); })
     .on('dblclick', (e: any, args: SohoDataGridRowClicked) => { this.rowDoubleClicked.next(args); })
