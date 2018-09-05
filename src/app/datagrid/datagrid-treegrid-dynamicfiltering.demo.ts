@@ -44,7 +44,7 @@ export class DatagridTreegridDynamicfilteringDemoComponent implements OnInit {
     this.data = this.data = this.treeService.getSimpleData();
   }
 
-  onFiltered(e: SohoDataGridOpenFilteredEvent) {
+  onFiltered(e: SohoDataGridFilteredEvent) {
     if (e.conditions[0] !== undefined) {
       // Emulate server side filtering
       // Reset data and replacing with new (mock) data from a server
