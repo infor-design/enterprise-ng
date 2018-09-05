@@ -964,9 +964,15 @@ interface SohoDataGridAddRowEvent {
   oldValue: any;
 }
 
+interface SohoDataGridFilteredEvent extends SohoDataGridOpenFilteredEvent {
+}
+
+/**
+ * @deprecated use SohoDataGridFilteredEvent instead
+ */
 interface SohoDataGridOpenFilteredEvent {
   conditions: SohoDataGridFilterCondition;
-  op: string;
+  op: 'apply' | 'clear';
   trigger: string;
 }
 

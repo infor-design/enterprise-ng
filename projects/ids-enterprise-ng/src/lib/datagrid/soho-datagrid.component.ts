@@ -1034,7 +1034,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   // This event is fired when the grid is filtered.
   @Output()
-  filtered = new EventEmitter<SohoDataGridOpenFilteredEvent>();
+  filtered = new EventEmitter<SohoDataGridFilteredEvent>();
 
   // This event is fired when a row in the grid is expanded.
   @Output()
