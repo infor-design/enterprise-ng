@@ -4,7 +4,7 @@
   "version": "4.11.0-dev",
   "dependencies": {
     "@types/jquery": "3.3.1",
-    "ids-enterprise": "4.10.0",
+    "ids-enterprise": "4.11.0-dev.20180905",
     "jquery": "3.3.1"
   },
   "peerDependencies": {
