@@ -11,10 +11,7 @@ import {
   Output,
   NgZone,
   Self,
-  Host,
   Optional,
-  InjectionToken,
-  forwardRef,
   AfterViewChecked,
   ChangeDetectionStrategy,
   ChangeDetectorRef

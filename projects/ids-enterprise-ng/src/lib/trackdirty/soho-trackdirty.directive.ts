@@ -5,7 +5,8 @@ import {
   Directive,
   ElementRef,
   EventEmitter,
-  HostBinding, NgZone,
+  HostBinding,
+  NgZone,
   OnDestroy,
   Output
 } from '@angular/core';
