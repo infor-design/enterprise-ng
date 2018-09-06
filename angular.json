@@ -13,6 +13,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "vendorSourceMap": true,
+            "sourceMap": true,
             "outputPath": "dist/ids-enterprise-ng-app",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -85,6 +87,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "sourceMap": true,
             "main": "src/test.ts",
             "karmaConfig": "src/karma.conf.js",
             "polyfills": "src/polyfills.ts",

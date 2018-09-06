@@ -138,7 +138,7 @@ describe('Soho DataGrid Unit Tests', () => {
 });
 
 @Component({
-  template: `<div soho-datagrid [columns]="columns" [dataset]="data" selectable="single" filterable="true"></div>`
+  template: `<div soho-datagrid [columns]="columns" [dataset]="data" selectable="multiple" filterable="true"></div>`
 })
 class SohoDataGridTestComponent {
   @ViewChild(SohoDataGridComponent) datagrid: SohoDataGridComponent;
@@ -250,7 +250,12 @@ describe('Soho DataGrid Render', () => {
     component.datagrid.selectRows([1]);
   });
 
-  it('check selected event', (done) => {
+  it('check selected event []', (done) => {
+
+    fixture.detectChanges();
+
+    component.datagrid.selectRows([1]);
+
     component.datagrid.selected.subscribe((event: SohoDataGridSelectedEvent) => {
       expect(event.rows).toEqual([]);
       done();
