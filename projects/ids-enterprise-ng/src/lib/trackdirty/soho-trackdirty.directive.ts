@@ -5,7 +5,7 @@ import {
   Directive,
   ElementRef,
   EventEmitter,
-  HostBinding,
+  HostBinding, NgZone,
   OnDestroy,
   Output
 } from '@angular/core';
@@ -37,47 +37,57 @@ export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
   private jQueryElement: JQuery;
   private trackDirty: TrackDirtyStatic;
 
-  constructor(private element: ElementRef) { }
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone,
+  ) { }
 
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    // no options available for control
-    this.jQueryElement.trackdirty();
+      // no options available for control
+      this.jQueryElement.trackdirty();
 
-    /**
-     * Bind to jQueryElement's events
-     */
-    this.jQueryElement.on('dirty', (event: SohoTrackDirtyEvent) => this.dirty.emit(event));
-    this.jQueryElement.on('pristine', (event: SohoTrackDirtyEvent) => this.pristine.emit(event));
-    this.jQueryElement.on('afterresetdirty', (event: SohoTrackDirtyEvent) => this.afterResetDirty.emit(event));
+      /**
+       * Bind to jQueryElement's events
+       */
+      this.jQueryElement.on('dirty', (event: SohoTrackDirtyEvent) =>
+        this.ngZone.run(() => setTimeout(() => this.dirty.emit(event), 1)));
 
-    // returns a boolean, not an object
-    this.trackDirty = this.jQueryElement.data('trackdirty');
+      this.jQueryElement.on('pristine', (event: SohoTrackDirtyEvent) =>
+        this.ngZone.run(() => setTimeout(() => this.pristine.emit(event), 1)));
+
+      this.jQueryElement.on('afterresetdirty', (event: SohoTrackDirtyEvent) =>
+        this.ngZone.run(() => setTimeout(() => this.afterResetDirty.emit(event),1 )));
+
+      // returns a boolean, not an object
+      this.trackDirty = this.jQueryElement.data('trackdirty');
+    })
   }
 
   ngOnDestroy() {
     if (this.trackDirty) {
-     this.trackDirty.destroy();
+      this.ngZone.runOutsideAngular(() => this.trackDirty.destroy());
       this.trackDirty = null;
     }
   }
 
   changeDirty() {
     if (this.trackDirty) {
-      this.jQueryElement.trigger('change.dirty');
+      this.ngZone.runOutsideAngular(() => this.jQueryElement.trigger('change.dirty'));
     }
   }
 
   resetDirty() {
     if (this.trackDirty) {
-      this.jQueryElement.trigger('resetdirty.dirty');
+      this.ngZone.runOutsideAngular(() => this.jQueryElement.trigger('resetdirty.dirty'));
     }
   }
 
   updated() {
     if (this.trackDirty) {
-      this.trackDirty.updated();
+      this.ngZone.runOutsideAngular(() => this.trackDirty.updated());
     }
   }
 }
