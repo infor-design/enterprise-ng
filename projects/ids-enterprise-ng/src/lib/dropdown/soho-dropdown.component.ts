@@ -11,10 +11,7 @@ import {
   Output,
   NgZone,
   Self,
-  Host,
   Optional,
-  InjectionToken,
-  forwardRef,
   AfterViewChecked,
   ChangeDetectionStrategy,
   ChangeDetectorRef
@@ -476,12 +473,12 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
         // ... update the model (which will fire change
         // detection if required).
         this.valueAccessor.onChangeFn(optionValue);
-      });
 
-      // @todo - this wants to be the real value, so we may need to look
-      // that up.
-      event.data = val;
-      this.change.emit(event);
+        // @todo - this wants to be the real value, so we may need to look
+        // that up.
+        event.data = val;
+        this.change.emit(event);
+      });
     }
   }
 
@@ -491,7 +488,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    */
   public updated(): SohoDropDownComponent {
     if (this.dropdown) {
-      // Calling updated when an item is selected, looses the selection!
+      // Calling updated when an item is selected, loses the selection!
       this.ngZone.runOutsideAngular(() => this.dropdown.updated());
     }
     return this;
