@@ -8,6 +8,107 @@ import { FormsModule } from '@angular/forms';
 import { SohoDataGridModule } from './soho-datagrid.module';
 import { SohoDataGridComponent } from './soho-datagrid.component';
 
+/* tslint:disable */
+const COLUMNS: SohoDataGridColumn[] = [
+  { id: 'selectionCheckbox', sortable: false, resizable: false, width: 50, formatter: Soho.Formatters.SelectionCheckbox, align: 'center', exportable: false },
+  { id: 'productId',   name: 'Product Id',   field: 'productId',   sortable: false, filterType: 'integer', width: 140, formatter: Soho.Formatters.Readonly },
+  { id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text',    width: 150, formatter: Soho.Formatters.Hyperlink },
+  { id: 'activity',    name: 'Activity',     field: 'activity',    sortable: false, filterType: 'text',    width: 125, hidden: true },
+  { id: 'quantity',    name: 'Quantity',     field: 'quantity',    sortable: false,                        width: 125 },
+  { id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', width: 125, formatter: Soho.Formatters.Decimal },
+  { id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',    formatter: Soho.Formatters.Date, dateFormat: 'M/d/yyyy' }
+];
+/* tslint:enable */
+
+/* tslint:disable */
+const DATA: any[] = [
+  {
+    id:          0,
+    productId:   214220,
+    productName: 'Compressor 1',
+    activity:    'Assemble Paint',
+    quantity:    1,
+    price:       210.99,
+    status:      'Active',
+    orderDate:   '2015-01-01T06:00:00.000Z',
+    action:      'Action',
+    rated:       .32
+  },
+  {
+    id:          1,
+    productId:   214221,
+    productName: 'Compressor 2',
+    activity:    'Assemble Paint',
+    quantity:    1.5,
+    price:       209.99,
+    status:      'Late',
+    orderDate:   '2015-01-02T06:00:00.000Z',
+    action:      'Action',
+    rated:       .76
+  },
+  {
+    id:          2,
+    productId:   214222,
+    productName: 'Compressor 3',
+    activity:    'Assemble Paint',
+    quantity:    2,
+    price:       208.99,
+    status:      'Active',
+    orderDate:   '2015-01-03T06:00:00.000Z',
+    action:      'Action',
+    rated:       .32
+  },
+  {
+    id:          3,
+    productId:   214223,
+    productName: 'Compressor 4',
+    activity:    'Assemble Paint',
+    quantity:    2.5,
+    price:       207.99,
+    status:      'Inactive',
+    orderDate:   '2015-01-04T06:00:00.000Z',
+    action:      'Action',
+    rated:       .53
+  },
+  {
+    id:          4,
+    productId:   214224,
+    productName: 'Compressor 5',
+    activity:    'Assemble Paint',
+    quantity:    3,
+    price:       206.99,
+    status:      'Inactive',
+    orderDate:   '2015-01-05T06:00:00.000Z',
+    action:      'Action',
+    rated:       .42
+  },
+  {
+    id:          5,
+    productId:   214225,
+    productName: 'Compressor 6',
+    activity:    'Assemble Paint',
+    quantity:    3.5,
+    price:       205.99,
+    status:      'Inactive',
+    orderDate:   '2015-01-06T06:00:00.000Z',
+    action:      'Action',
+    rated:       .88
+  },
+  {
+    id:          6,
+    productId:   214226,
+    productName: 'Compressor 7',
+    activity:    'Assemble Paint',
+    quantity:    4,
+    price:       204.99,
+    status:      'Active',
+    orderDate:   '2015-01-07T06:00:00.000Z',
+    action:      'Action',
+    rated:       .54
+  },
+];
+/* tslint:enable */
+
 describe('Soho DataGrid Unit Tests', () => {
   let comp: SohoDataGridComponent;
   let fixture: ComponentFixture<SohoDataGridComponent>;
@@ -250,7 +351,7 @@ describe('Soho DataGrid Render', () => {
     component.datagrid.selectRows([1]);
   });
 
-  it('check selected event []', (done) => {
+  xit('check selected event []', (done) => {
 
     fixture.detectChanges();
 
@@ -267,104 +368,3 @@ describe('Soho DataGrid Render', () => {
   });
 
 });
-
-/* tslint:disable */
-const COLUMNS: SohoDataGridColumn[] = [
-  { id: 'selectionCheckbox', sortable: false, resizable: false, width: 50, formatter: Soho.Formatters.SelectionCheckbox, align: 'center', exportable: false },
-  { id: 'productId',   name: 'Product Id',   field: 'productId',   sortable: false, filterType: 'integer', width: 140, formatter: Soho.Formatters.Readonly },
-  { id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text',    width: 150, formatter: Soho.Formatters.Hyperlink },
-  { id: 'activity',    name: 'Activity',     field: 'activity',    sortable: false, filterType: 'text',    width: 125, hidden: true },
-  { id: 'quantity',    name: 'Quantity',     field: 'quantity',    sortable: false,                        width: 125 },
-  { id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', width: 125, formatter: Soho.Formatters.Decimal },
-  { id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',    formatter: Soho.Formatters.Date, dateFormat: 'M/d/yyyy' }
-];
-/* tslint:enable */
-
-/* tslint:disable */
-const DATA: any[] = [
-  {
-    id:          0,
-    productId:   214220,
-    productName: 'Compressor 1',
-    activity:    'Assemble Paint',
-    quantity:    1,
-    price:       210.99,
-    status:      'Active',
-    orderDate:   '2015-01-01T06:00:00.000Z',
-    action:      'Action',
-    rated:       .32
-  },
-  {
-    id:          1,
-    productId:   214221,
-    productName: 'Compressor 2',
-    activity:    'Assemble Paint',
-    quantity:    1.5,
-    price:       209.99,
-    status:      'Late',
-    orderDate:   '2015-01-02T06:00:00.000Z',
-    action:      'Action',
-    rated:       .76
-  },
-  {
-    id:          2,
-    productId:   214222,
-    productName: 'Compressor 3',
-    activity:    'Assemble Paint',
-    quantity:    2,
-    price:       208.99,
-    status:      'Active',
-    orderDate:   '2015-01-03T06:00:00.000Z',
-    action:      'Action',
-    rated:       .32
-  },
-  {
-    id:          3,
-    productId:   214223,
-    productName: 'Compressor 4',
-    activity:    'Assemble Paint',
-    quantity:    2.5,
-    price:       207.99,
-    status:      'Inactive',
-    orderDate:   '2015-01-04T06:00:00.000Z',
-    action:      'Action',
-    rated:       .53
-  },
-  {
-    id:          4,
-    productId:   214224,
-    productName: 'Compressor 5',
-    activity:    'Assemble Paint',
-    quantity:    3,
-    price:       206.99,
-    status:      'Inactive',
-    orderDate:   '2015-01-05T06:00:00.000Z',
-    action:      'Action',
-    rated:       .42
-  },
-  {
-    id:          5,
-    productId:   214225,
-    productName: 'Compressor 6',
-    activity:    'Assemble Paint',
-    quantity:    3.5,
-    price:       205.99,
-    status:      'Inactive',
-    orderDate:   '2015-01-06T06:00:00.000Z',
-    action:      'Action',
-    rated:       .88
-  },
-  {
-    id:          6,
-    productId:   214226,
-    productName: 'Compressor 7',
-    activity:    'Assemble Paint',
-    quantity:    4,
-    price:       204.99,
-    status:      'Active',
-    orderDate:   '2015-01-07T06:00:00.000Z',
-    action:      'Action',
-    rated:       .54
-  },
-];
-/* tslint:enable */
