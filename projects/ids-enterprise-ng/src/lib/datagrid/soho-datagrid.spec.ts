@@ -8,6 +8,107 @@ import { FormsModule } from '@angular/forms';
 import { SohoDataGridModule } from './soho-datagrid.module';
 import { SohoDataGridComponent } from './soho-datagrid.component';
 
+/* tslint:disable */
+const COLUMNS: SohoDataGridColumn[] = [
+  { id: 'selectionCheckbox', sortable: false, resizable: false, width: 50, formatter: Soho.Formatters.SelectionCheckbox, align: 'center', exportable: false },
+  { id: 'productId',   name: 'Product Id',   field: 'productId',   sortable: false, filterType: 'integer', width: 140, formatter: Soho.Formatters.Readonly },
+  { id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text',    width: 150, formatter: Soho.Formatters.Hyperlink },
+  { id: 'activity',    name: 'Activity',     field: 'activity',    sortable: false, filterType: 'text',    width: 125, hidden: true },
+  { id: 'quantity',    name: 'Quantity',     field: 'quantity',    sortable: false,                        width: 125 },
+  { id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', width: 125, formatter: Soho.Formatters.Decimal },
+  { id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',    formatter: Soho.Formatters.Date, dateFormat: 'M/d/yyyy' }
+];
+/* tslint:enable */
+
+/* tslint:disable */
+const DATA: any[] = [
+  {
+    id:          0,
+    productId:   214220,
+    productName: 'Compressor 1',
+    activity:    'Assemble Paint',
+    quantity:    1,
+    price:       210.99,
+    status:      'Active',
+    orderDate:   '2015-01-01T06:00:00.000Z',
+    action:      'Action',
+    rated:       .32
+  },
+  {
+    id:          1,
+    productId:   214221,
+    productName: 'Compressor 2',
+    activity:    'Assemble Paint',
+    quantity:    1.5,
+    price:       209.99,
+    status:      'Late',
+    orderDate:   '2015-01-02T06:00:00.000Z',
+    action:      'Action',
+    rated:       .76
+  },
+  {
+    id:          2,
+    productId:   214222,
+    productName: 'Compressor 3',
+    activity:    'Assemble Paint',
+    quantity:    2,
+    price:       208.99,
+    status:      'Active',
+    orderDate:   '2015-01-03T06:00:00.000Z',
+    action:      'Action',
+    rated:       .32
+  },
+  {
+    id:          3,
+    productId:   214223,
+    productName: 'Compressor 4',
+    activity:    'Assemble Paint',
+    quantity:    2.5,
+    price:       207.99,
+    status:      'Inactive',
+    orderDate:   '2015-01-04T06:00:00.000Z',
+    action:      'Action',
+    rated:       .53
+  },
+  {
+    id:          4,
+    productId:   214224,
+    productName: 'Compressor 5',
+    activity:    'Assemble Paint',
+    quantity:    3,
+    price:       206.99,
+    status:      'Inactive',
+    orderDate:   '2015-01-05T06:00:00.000Z',
+    action:      'Action',
+    rated:       .42
+  },
+  {
+    id:          5,
+    productId:   214225,
+    productName: 'Compressor 6',
+    activity:    'Assemble Paint',
+    quantity:    3.5,
+    price:       205.99,
+    status:      'Inactive',
+    orderDate:   '2015-01-06T06:00:00.000Z',
+    action:      'Action',
+    rated:       .88
+  },
+  {
+    id:          6,
+    productId:   214226,
+    productName: 'Compressor 7',
+    activity:    'Assemble Paint',
+    quantity:    4,
+    price:       204.99,
+    status:      'Active',
+    orderDate:   '2015-01-07T06:00:00.000Z',
+    action:      'Action',
+    rated:       .54
+  },
+];
+/* tslint:enable */
+
 describe('Soho DataGrid Unit Tests', () => {
   let comp: SohoDataGridComponent;
   let fixture: ComponentFixture<SohoDataGridComponent>;
@@ -138,10 +239,7 @@ describe('Soho DataGrid Unit Tests', () => {
 });
 
 @Component({
-  template: `<div soho-datagrid
-              [columns]="columns"
-              [dataset]="data">
-             </div>`
+  template: `<div soho-datagrid [columns]="columns" [dataset]="data" selectable="multiple" filterable="true"></div>`
 })
 class SohoDataGridTestComponent {
   @ViewChild(SohoDataGridComponent) datagrid: SohoDataGridComponent;
@@ -149,50 +247,14 @@ class SohoDataGridTestComponent {
   _data: Object[];
   public get columns(): SohoDataGridColumn[] {
     if (!this._columns) {
-      this._columns = [];
-      /* tslint:disable */
-      this._columns.push({ id: 'selectionCheckbox', sortable: false, resizable: false, width: 50, formatter: Soho.Formatters.SelectionCheckbox, align: 'center' });
-      this._columns.push({ id: 'taskName', name: 'Task', field: 'taskName', expanded: 'expanded', formatter: Soho.Formatters.Tree, filterType: 'text', width: 250 });
-      this._columns.push({ id: 'id', name: 'Id', field: 'id', filterType: 'text', width: 25 });
-      this._columns.push({ id: 'desc', name: 'Description', field: 'desc', filterType: 'text', width: 200 });
-      this._columns.push({ id: 'comments', name: 'Comments', field: 'comments', formatter: Soho.Formatters.Hyperlink, filterType: 'text', width: 60 });
-      this._columns.push({ id: 'time', name: 'Time', field: 'time', filterType: 'time', width: 60 });
-      /* tslint:enable */
+      this._columns = COLUMNS;
     }
     return this._columns;
   }
 
   public get data(): any[] {
     if (!this._data) {
-      /* tslint:disable */
-      this._data = [
-        {
-          id: 1, escalated: 2, depth: 1, expanded: false, taskName: 'Follow up action with HMM Global', desc: '', comments: null, time: '', children: [
-            { id: 2, escalated: 1, depth: 2, taskName: 'Quotes due to expire', desc: 'Update pending quotes and send out again to customers.', comments: 3, time: '7:10 AM' },
-            { id: 3, escalated: 0, depth: 2, taskName: 'Follow up action with Universal Shipping Logistics Customers', desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '9:10 AM' },
-            { id: 4, escalated: 0, depth: 2, taskName: 'Follow up action with Acme Trucking', desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '14:10 PM' },
-          ]
-        },
-        { id: 5, escalated: 0, depth: 1, taskName: 'Follow up action with Residental Housing', desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '18:10 PM' },
-        { id: 6, escalated: 0, depth: 1, taskName: 'Follow up action with HMM Global', desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '20:10 PM' },
-        {
-          id: 7, escalated: 0, depth: 1, expanded: true, taskName: 'Follow up action with Residental Housing', desc: 'Contact sales representative with the updated purchase order.', comments: 2, time: '22:10 PM', children: [
-            { id: 8, escalated: 0, depth: 2, taskName: 'Follow up action with Universal HMM Logistics', desc: 'Contact sales representative.', comments: 2, time: '22:10 PM' },
-            { id: 9, escalated: 0, depth: 2, taskName: 'Follow up action with Acme Shipping', desc: 'Contact sales representative.', comments: 2, time: '22:10 PM' },
-            {
-              id: 10, escalated: 0, depth: 2, expanded: true, taskName: 'Follow up action with Residental Shipping Logistics ', desc: 'Contact sales representative.', comments: 2, time: '7:04 AM', children: [
-                { id: 11, escalated: 0, depth: 3, taskName: 'Follow up action with Universal Shipping Logistics Customers', desc: 'Contact sales representative.', comments: 2, time: '14:10 PM' },
-                {
-                  id: 12, escalated: 0, depth: 3, expanded: true, taskName: 'Follow up action with Acme Universal Logistics Customers', desc: 'Contact sales representative.', comments: 2, time: '7:04 AM', children: [
-                    { id: 13, escalated: 0, depth: 4, taskName: 'More Contact', desc: 'Contact sales representative.', comments: 2, time: '14:10 PM' },
-                    { id: 14, escalated: 0, depth: 4, taskName: 'More Follow up', desc: 'Contact sales representative.', comments: 2, time: '7:04 AM' },
-                  ]
-                },
-              ]
-            }
-          ]
-        }
-      ];
+      this._data = DATA;
     }
     return this._data;
   }
@@ -226,23 +288,6 @@ describe('Soho DataGrid Render', () => {
     fixture.detectChanges();
 
     expect(el.nodeName).toEqual('DIV');
-    // expect(el.id).toEqual(dropdown.id);
-    // expect(el.classList).toContain('dropdown');
-    // expect(el.hasAttribute('noSearch')).toBeTruthy('noSearch');
-
-    // expect(el.childElementCount).toBe(9);
-
-    // let i = 0;
-    // component.options.forEach(option => {
-    //   expect(el.children[i].nodeName).toBe('OPTION');
-    //   expect(el.children[i].getAttribute('value')).toBe(option.value);
-    //   expect(el.children[i++].innerHTML).toBe(option.label);
-    // });
-
-    // dropdown.noSearch = false;
-    // fixture.detectChanges();
-
-    // expect(el.hasAttribute('noSearch')).toBeTruthy('noSearch');
   });
 
   it('setting the dataset updates the grid', () => {
@@ -294,4 +339,32 @@ describe('Soho DataGrid Render', () => {
 
     component.datagrid.setSortColumn('desc');
   });
+
+  it('check selected event', (done) => {
+    component.datagrid.selected.subscribe((event: SohoDataGridSelectedEvent) => {
+      expect(event.rows[0].data).toEqual(DATA[1]);
+      done();
+    });
+
+    fixture.detectChanges();
+
+    component.datagrid.selectRows([1]);
+  });
+
+  xit('check selected event []', (done) => {
+
+    fixture.detectChanges();
+
+    component.datagrid.selectRows([1]);
+
+    component.datagrid.selected.subscribe((event: SohoDataGridSelectedEvent) => {
+      expect(event.rows).toEqual([]);
+      done();
+    });
+
+    fixture.detectChanges();
+
+    component.datagrid.selectRows([]);
+  });
+
 });
