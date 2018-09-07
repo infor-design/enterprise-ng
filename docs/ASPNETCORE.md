@@ -19,7 +19,9 @@ Run `dotnet build` to verify the app builds correctly. On the first run, the bui
 
 Run `dotnet run` to start the app. A message similar to the following is logged:
 
-```Now listening on: http://localhost:5000```
+```sh
+Now listening on: http://localhost:5000
+```
 
 Navigate to this URL in a browser.
 
