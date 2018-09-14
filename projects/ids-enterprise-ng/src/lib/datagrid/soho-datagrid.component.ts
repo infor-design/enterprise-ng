@@ -1549,8 +1549,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @param columnStr The json represntation of the column object.
    * @return  The array of columns.
    */
-  columnsFromString(columns: string) {
-    this.ngZone.runOutsideAngular(() => {
+  columnsFromString(columns: string): Object { // @todo typings for return value
+    return this.ngZone.runOutsideAngular(() => {
       return this.datagrid.columnsFromString(columns);
     });
   }
@@ -1665,6 +1665,41 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     });
   }
 
+  private onRowActivated(args: SohoDataGridRowActivatedEvent) {
+    this.ngZone.run(() => {
+      this.rowActivated.next(args);
+    });
+  }
+
+  private onRowDeactivated(args: SohoDataGridRowDeactivatedEvent) {
+    this.ngZone.run(() => {
+      this.rowDeactivated.next(args);
+    });
+  }
+
+  private onRowReordered(args: SohoDataGridRowReorderedEvent) {
+    this.ngZone.run(() => {
+      this.rowReordered.next(args);
+    });
+  }
+
+  private onSelected(args: SohoDataGridSelectedEvent) {
+    this.ngZone.run(() => {
+      this.selected.next(args);
+    });
+  }
+
+  private onSettingsChanged(args: SohoDataGridSettingsChangedEvent) {
+    this.ngZone.run(() => {
+      this.settingsChanged.next(args);
+    });
+  }
+
+  private onSorted(args: SohoDataGridSortedEvent) {
+    this.ngZone.run(() => {
+      this.sorted.next(args);
+    });
+  }
 
 
 
@@ -1885,12 +1920,12 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('removerow', (args: SohoDataGridRowRemoveEvent) => { this.onRowRemove(args); })
         .on('rendered', (args: SohoDataGridRenderedEvent) => { this.onRendered(args); })
         .on('afterrender', (args: SohoDataGridAfterRenderEvent) => { this.onAfterRendere(args); })
-        .on('rowactivated', (args: SohoDataGridRowActivatedEvent) => { this.rowActivated.next(args); })
-        .on('rowdeactivated', (args: SohoDataGridRowDeactivatedEvent) => { this.rowDeactivated.next(args); })
-        .on('rowreorder', (args: SohoDataGridRowReorderedEvent) => { this.rowReordered.next(args); })
-        .on('selected', (e: any, args: SohoDataGridSelectedRow[]) => this.selected.next({ e, rows: args }))
-        .on('settingschanged', (args: SohoDataGridSettingsChangedEvent) => { this.settingsChanged.next(args); })
-        .on('sorted', (args: SohoDataGridSortedEvent) => { this.sorted.next(args); });
+        .on('rowactivated', (args: SohoDataGridRowActivatedEvent) => { this.onRowActivated(args); })
+        .on('rowdeactivated', (args: SohoDataGridRowDeactivatedEvent) => { this.onRowDeactivated(args); })
+        .on('rowreorder', (args: SohoDataGridRowReorderedEvent) => { this.onRowReordered(args); })
+        .on('selected', (e: any, args: SohoDataGridSelectedRow[]) => this.onSelected({ e, rows: args }))
+        .on('settingschanged', (args: SohoDataGridSettingsChangedEvent) => { this.onSettingsChanged(args); })
+        .on('sorted', (args: SohoDataGridSortedEvent) => { this.onSorted(args); });
     });
   }
 
@@ -1900,6 +1935,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @todo possible add hints? Rebuild, Update, SetOption
    *
    * @param optionName - the option that was updated, (allowing specific handling)
+   * @param hint - the type of refresh required, update?.
    */
   private markForRefresh(optionName: string, hint: RefreshHintFlags) {
 
@@ -1922,6 +1958,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * for a particular input.
    */
   private updateControl(): void {
+
+    // Prevent nasty refreshes by running outside angular.
     this.ngZone.runOutsideAngular(() => {
       if (this.refreshHint & RefreshHintFlags.Rebuild) { // tslint:disable-line
         this.destroyDataGrid();
