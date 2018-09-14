@@ -1701,8 +1701,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     });
   }
 
-
-
   // ------------------------------------------
   // Lifecycle Events
   // ------------------------------------------
