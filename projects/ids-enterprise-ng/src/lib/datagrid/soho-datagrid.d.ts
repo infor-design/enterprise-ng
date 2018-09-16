@@ -928,7 +928,7 @@ interface SohoDataGridRowClicked {
 }
 
 interface SohoDataGridSelectedEvent {
-  e: any;
+  e: JQuery.Event;
   rows: SohoDataGridSelectedRow[];
 }
 
@@ -1050,7 +1050,9 @@ interface JQuery {
   on(events: 'addrow', handler: JQuery.EventHandlerBase<any, SohoDataGridAddRowEvent>): this;
   on(events: 'click', handler: JQuery.EventHandlerBase<any, SohoDataGridRowClicked>): this;
   on(events: 'collapserow', handler: JQuery.EventHandlerBase<any, SohoDataGridRowCollapseEvent>): this;
+  on(events: 'expandrow', handler: JQuery.EventHandlerBase<any, SohoDataGridRowExpandEvent>): this;
   on(events: 'contextmenu' | 'dblclick', handler: JQuery.EventHandlerBase<any, SohoDataGridRowClicked>): this;
+  on(events: 'filtered', handler: JQuery.EventHandlerBase<any, SohoDataGridOpenFilteredEvent>): this;
   on(events: 'removerow', handler: JQuery.EventHandlerBase<any, SohoDataGridRowRemoveEvent>): this;
   on(events: 'rowreorder', handler: JQuery.EventHandlerBase<any, SohoDataGridRowReorderedEvent>): this;
   on(events: 'sorted', handler: JQuery.EventHandlerBase<any, SohoDataGridSortedEvent>): this;

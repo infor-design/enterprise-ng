@@ -10,7 +10,7 @@ of the DataGridService interface, by specifying an implementation on the hosting
 
 | Name | Description |
 | --- | --- |
-| providers | A injectable service (derived from DataGridService) that can provide the rows and columns for the datagrid. |
+| providers | An injectable service (derived from DataGridService) that can provide the rows and columns for the datagrid. |
 
 ### Usage
 

@@ -149,7 +149,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   // (if defined) or via the Inputs, otherwise.
   static AUTO: SohoDataGridType = 'auto';
 
-  // 'content-only' where table elements are usedto define the
+  // 'content-only' where table elements are used to define the
   // columns and rows.
   static CONTENT_ONLY: SohoDataGridType = 'content-only';
 
@@ -426,8 +426,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     if (this.jQueryElement) {
       this.datagrid.settings.rowHeight = rowHeight;
 
-      // @todo add hints as this may be bundled up with other changes.
-      this.datagrid.rowHeight(rowHeight);
+      this.ngZone.runOutsideAngular(() => {
+        // @todo add hints as this may be bundled up with other changes.
+        this.datagrid.rowHeight(rowHeight);
+      });
     }
   }
 
@@ -1189,7 +1191,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   setSortColumn(columnId: string, ascending?: boolean): void {
     if (this.datagrid) {
-      this.datagrid.setSortColumn(columnId, ascending);
+      this.ngZone.runOutsideAngular(() => {
+        this.datagrid.setSortColumn(columnId, ascending);
+      });
     } else {
       throw new Error('datagrid not initialized');
     }
@@ -1635,7 +1639,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     });
   }
 
-  private onFiltered(args: any) { // @todo type!
+  private onFiltered(args: SohoDataGridFilteredEvent) {
     this.ngZone.run(() => {
       this.filtered.next(args);
     });
@@ -1913,7 +1917,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('collapserow', (args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
         .on('contextmenu', (args: SohoDataGridRowClicked) => { this.onContextMenu(args); })
         .on('expandrow', (args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
-        .on('filtered', (args: any) => { this.onFiltered(args); })
+        .on('filtered', (args: SohoDataGridFilteredEvent) => { this.onFiltered(args); })
         .on('openfilterrow', (args: SohoDataGridOpenFilterRowEvent) => { this.onOpenFilterRow(args); })
         .on('removerow', (args: SohoDataGridRowRemoveEvent) => { this.onRowRemove(args); })
         .on('rendered', (args: SohoDataGridRenderedEvent) => { this.onRendered(args); })
@@ -1922,8 +1926,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('rowdeactivated', (args: SohoDataGridRowDeactivatedEvent) => { this.onRowDeactivated(args); })
         .on('rowreorder', (args: SohoDataGridRowReorderedEvent) => { this.onRowReordered(args); })
         .on('selected', (e: any, args: SohoDataGridSelectedRow[]) => this.onSelected({ e, rows: args }))
-        .on('settingschanged', (args: SohoDataGridSettingsChangedEvent) => { this.onSettingsChanged(args); })
-        .on('sorted', (args: SohoDataGridSortedEvent) => { this.onSorted(args); });
+        .on('settingschanged', (e: any, args: SohoDataGridSettingsChangedEvent) => { this.onSettingsChanged(args); })
+        .on('sorted', (e: any, args: SohoDataGridSortedEvent) => { this.onSorted(args); });
     });
   }
 

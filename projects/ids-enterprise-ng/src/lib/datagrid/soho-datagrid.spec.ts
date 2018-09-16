@@ -302,6 +302,7 @@ describe('Soho DataGrid Render', () => {
   it('check setColumnSort(id, descending)', (done) => {
 
     component.datagrid.sorted.subscribe((sortedEvent: SohoDataGridSortedEvent) => {
+      console.log($`{sortedEvent}`);
       expect(sortedEvent.sortId).toEqual('desc');
       expect(sortedEvent.sortAsc).toBeTruthy();
       expect(sortedEvent.sortField).toEqual('desc');
@@ -311,6 +312,8 @@ describe('Soho DataGrid Render', () => {
     fixture.detectChanges();
 
     component.datagrid.setSortColumn('desc', true);
+
+    fixture.detectChanges();
   });
 
   it('check setColumnSort(id, ascending)', (done) => {
@@ -351,20 +354,21 @@ describe('Soho DataGrid Render', () => {
     component.datagrid.selectRows([1]);
   });
 
+  // To fix.
   xit('check selected event []', (done) => {
 
     fixture.detectChanges();
 
     component.datagrid.selectRows([1]);
 
-    component.datagrid.selected.subscribe((event: SohoDataGridSelectedEvent) => {
+    component.datagrid..subscribe((event: SohoDataGridSelectedEvent) => {
       expect(event.rows).toEqual([]);
       done();
     });
 
     fixture.detectChanges();
 
-    component.datagrid.selectRows([]);
+    component.datagrid.deactivateRow();
   });
 
 });

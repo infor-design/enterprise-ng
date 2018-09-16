@@ -264,6 +264,7 @@ export class DataGridEditorsDemoComponent implements AfterViewInit {
       rowHeight: 'short',
       filterable: true,
       showDirty: true,
+      stretchColumn: 'favorite'
     };
   }
 
