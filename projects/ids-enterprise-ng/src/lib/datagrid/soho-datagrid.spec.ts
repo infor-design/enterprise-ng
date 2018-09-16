@@ -361,7 +361,7 @@ describe('Soho DataGrid Render', () => {
 
     component.datagrid.selectRows([1]);
 
-    component.datagrid..subscribe((event: SohoDataGridSelectedEvent) => {
+    component.datagrid.selected.subscribe((event: SohoDataGridSelectedEvent) => {
       expect(event.rows).toEqual([]);
       done();
     });
