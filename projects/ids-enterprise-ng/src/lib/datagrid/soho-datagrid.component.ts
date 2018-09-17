@@ -1266,7 +1266,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this.datagrid.getHeaderRowColumn(fld);
   }
 
-  addRow(data: any, location?: 'top' | 'botton' | number) {
+  /**
+   * Adds a row of data to the datagrid at the given optional location.
+   *
+   * @param data the row of data to add.
+   * @param location the optional localtion, 'top' or 'bottom' or a number.
+   */
+  addRow(data: any, location?: 'top' | 'bottom' | number) {
     this.ngZone.runOutsideAngular(() => {
       this.datagrid.addRow(data, location);
     });
@@ -1697,30 +1703,45 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     });
   }
 
+  /**
+   * Event fired when a row is activated.
+   */
   private onRowActivated(args: SohoDataGridRowActivatedEvent) {
     this.ngZone.run(() => {
       this.rowActivated.next(args);
     });
   }
 
+  /**
+   * Event fired when a row is deactivated.
+   */
   private onRowDeactivated(args: SohoDataGridRowDeactivatedEvent) {
     this.ngZone.run(() => {
       this.rowDeactivated.next(args);
     });
   }
 
+  /**
+   * Event fired when a row is reordered.
+   */
   private onRowReordered(args: SohoDataGridRowReorderedEvent) {
     this.ngZone.run(() => {
       this.rowReordered.next(args);
     });
   }
 
+  /**
+   * Event fired when a row is selected.
+   */
   private onSelected(args: SohoDataGridSelectedEvent) {
     this.ngZone.run(() => {
       this.selected.next(args);
     });
   }
 
+  /**
+   * Event fired when settings are changed on the grid.
+   */
   private onSettingsChanged(args: SohoDataGridSettingsChangedEvent) {
     this.ngZone.run(() => {
       this.settingsChanged.next(args);
@@ -1728,8 +1749,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   * Sorted event handler.
-   * @param args sorted event arguments.
+   * Event fired when the data is sorted.
    */
   private onSorted(args: SohoDataGridSortedEvent) {
     this.ngZone.run(() => {
