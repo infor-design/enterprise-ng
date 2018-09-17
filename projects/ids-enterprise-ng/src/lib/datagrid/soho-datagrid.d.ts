@@ -804,7 +804,7 @@ interface SohoDataGridStatic {
 
   getHeaderRowColumn(fld: any): any;
 
-  addRow(data: Object, location: any): void;
+  addRow(data: Object, location?: 'top' | 'bottom' | number): void;
 
   removeRow(data: Object): void;
 

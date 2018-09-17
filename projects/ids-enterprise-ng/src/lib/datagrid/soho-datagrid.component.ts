@@ -1266,7 +1266,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this.datagrid.getHeaderRowColumn(fld);
   }
 
-  addRow(data: any, location: any) {
+  /**
+   * Adds a row of data to the datagrid at the given optional location.
+   *
+   * @param data the row of data to add.
+   * @param location the optional localtion, 'top' or 'bottom' or a number.
+   */
+  addRow(data: any, location?: 'top' | 'bottom' | number) {
     this.ngZone.runOutsideAngular(() => {
       this.datagrid.addRow(data, location);
     });
@@ -1599,8 +1605,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Event fired after a child row has been collapsed.
-   *
-   * @todo arguments.
    */
   private onCollapseRow(args: SohoDataGridRowCollapseEvent) {
     const event = { grid: this, ...args };
@@ -1609,96 +1613,144 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     });
   }
 
+  /**
+   * Event fired when a row has been added.
+   */
   private onRowAdd(args: SohoDataGridAddRowEvent) {
     this.ngZone.run(() => {
       this.rowAdd.next(args);
     });
   }
 
-  private onCellchange(args: SohoDataGridCellChangeEvent) {
+  /**
+   * Event fired when a cell has changed.
+   */
+  private onCellChange(args: SohoDataGridCellChangeEvent) {
     this.ngZone.run(() => {
       this.cellchange.next(args);
     });
   }
 
+  /**
+   * Event fired when a row has been clicked.
+   */
   private onRowClicked(args: SohoDataGridRowClicked) {
     this.ngZone.run(() => {
       this.rowClicked.next(args);
     });
   }
 
+  /**
+   * Event fired when the filter row is closed.
+   */
   private onCloseFilterRow(args: SohoDataGridCloseFilterRowEvent) {
     this.ngZone.run(() => {
       this.closeFilterRow.next(args);
     });
   }
 
+  /**
+   * Event fired when a context menu is is clicked.
+   */
   private onContextMenu(args: SohoDataGridRowClicked) {
     this.ngZone.run(() => {
       this.contextMenu.next(args);
     });
   }
 
+  /**
+   * Event fired when the data is filtered.
+   */
   private onFiltered(args: SohoDataGridFilteredEvent) {
     this.ngZone.run(() => {
       this.filtered.next(args);
     });
   }
 
+  /**
+   * Event fired when filter row opened.
+   */
   private onOpenFilterRow(args: SohoDataGridOpenFilterRowEvent) {
     this.ngZone.run(() => {
       this.openFilterRow.next(args);
     });
   }
 
+  /**
+   * Event fired when a row is removed.
+   */
   private onRowRemove(args: SohoDataGridRowRemoveEvent) {
     this.ngZone.run(() => {
       this.rowRemove.next(args);
     });
   }
 
+  /**
+   * Event fired when the data is rendered
+   */
   private onRendered(args: SohoDataGridRenderedEvent) {
     this.ngZone.run(() => {
       this.rendered.next(args);
     });
   }
 
+  /**
+   * Event fired when the data is filtered.
+   */
   private onAfterRendere(args: SohoDataGridAfterRenderEvent) {
     this.ngZone.run(() => {
       this.afterRender.next(args);
     });
   }
 
+  /**
+   * Event fired when a row is activated.
+   */
   private onRowActivated(args: SohoDataGridRowActivatedEvent) {
     this.ngZone.run(() => {
       this.rowActivated.next(args);
     });
   }
 
+  /**
+   * Event fired when a row is deactivated.
+   */
   private onRowDeactivated(args: SohoDataGridRowDeactivatedEvent) {
     this.ngZone.run(() => {
       this.rowDeactivated.next(args);
     });
   }
 
+  /**
+   * Event fired when a row is reordered.
+   */
   private onRowReordered(args: SohoDataGridRowReorderedEvent) {
     this.ngZone.run(() => {
       this.rowReordered.next(args);
     });
   }
 
+  /**
+   * Event fired when a row is selected.
+   */
   private onSelected(args: SohoDataGridSelectedEvent) {
     this.ngZone.run(() => {
       this.selected.next(args);
     });
   }
 
+  /**
+   * Event fired when settings are changed on the grid.
+   */
   private onSettingsChanged(args: SohoDataGridSettingsChangedEvent) {
     this.ngZone.run(() => {
       this.settingsChanged.next(args);
     });
   }
 
+  /**
+   * Event fired when the data is sorted.
+   */
   private onSorted(args: SohoDataGridSortedEvent) {
     this.ngZone.run(() => {
       this.sorted.next(args);
@@ -1910,21 +1962,21 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
       // Initialise any event handlers.
       this.jQueryElement
-        .on('addrow', (args: SohoDataGridAddRowEvent) => { this.onRowAdd(args); })
-        .on('cellchange', (args: SohoDataGridCellChangeEvent) => this.onCellchange(args))
-        .on('click', (args: SohoDataGridRowClicked) => { this.onRowClicked(args); })
-        .on('closefilterrow', (args: SohoDataGridCloseFilterRowEvent) => { this.onCloseFilterRow(args); })
-        .on('collapserow', (args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
-        .on('contextmenu', (args: SohoDataGridRowClicked) => { this.onContextMenu(args); })
-        .on('expandrow', (args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
-        .on('filtered', (args: SohoDataGridFilteredEvent) => { this.onFiltered(args); })
-        .on('openfilterrow', (args: SohoDataGridOpenFilterRowEvent) => { this.onOpenFilterRow(args); })
-        .on('removerow', (args: SohoDataGridRowRemoveEvent) => { this.onRowRemove(args); })
-        .on('rendered', (args: SohoDataGridRenderedEvent) => { this.onRendered(args); })
-        .on('afterrender', (args: SohoDataGridAfterRenderEvent) => { this.onAfterRendere(args); })
-        .on('rowactivated', (args: SohoDataGridRowActivatedEvent) => { this.onRowActivated(args); })
-        .on('rowdeactivated', (args: SohoDataGridRowDeactivatedEvent) => { this.onRowDeactivated(args); })
-        .on('rowreorder', (args: SohoDataGridRowReorderedEvent) => { this.onRowReordered(args); })
+        .on('addrow', (e: any, args: SohoDataGridAddRowEvent) => { this.onRowAdd(args); })
+        .on('cellchange', (e: any, args: SohoDataGridCellChangeEvent) => this.onCellChange(args))
+        .on('click', (e: any, args: SohoDataGridRowClicked) => { this.onRowClicked(args); })
+        .on('closefilterrow', (e: any, args: SohoDataGridCloseFilterRowEvent) => { this.onCloseFilterRow(args); })
+        .on('collapserow', (e: any, args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
+        .on('contextmenu', (e: any, args: SohoDataGridRowClicked) => { this.onContextMenu(args); })
+        .on('expandrow', (e: any, args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
+        .on('filtered', (e: any, args: SohoDataGridFilteredEvent) => { this.onFiltered(args); })
+        .on('openfilterrow', (e: any, args: SohoDataGridOpenFilterRowEvent) => { this.onOpenFilterRow(args); })
+        .on('removerow', (e: any, args: SohoDataGridRowRemoveEvent) => { this.onRowRemove(args); })
+        .on('rendered', (e: any, args: SohoDataGridRenderedEvent) => { this.onRendered(args); })
+        .on('afterrender', (e: any, args: SohoDataGridAfterRenderEvent) => { this.onAfterRendere(args); })
+        .on('rowactivated', (e: any, args: SohoDataGridRowActivatedEvent) => { this.onRowActivated(args); })
+        .on('rowdeactivated', (e: any, args: SohoDataGridRowDeactivatedEvent) => { this.onRowDeactivated(args); })
+        .on('rowreorder', (e: any, args: SohoDataGridRowReorderedEvent) => { this.onRowReordered(args); })
         .on('selected', (e: any, args: SohoDataGridSelectedRow[]) => this.onSelected({ e, rows: args }))
         .on('settingschanged', (e: any, args: SohoDataGridSettingsChangedEvent) => { this.onSettingsChanged(args); })
         .on('sorted', (e: any, args: SohoDataGridSortedEvent) => { this.onSorted(args); });
