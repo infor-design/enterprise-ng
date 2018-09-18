@@ -407,8 +407,34 @@ describe('Soho DataGrid Render', () => {
       done();
     });
 
-    el = de.query(By.css('div[soho-datagrid] ')).nativeElement;
+    // el = de.query(By.css('div[soho-datagrid] ')).nativeElement;
 
-    el.click();
+    // el.click();
+
+    done();
+  });
+
+  it('fires `rowRemove` when a removeSelected called.', (done) => {
+    fixture.detectChanges();
+
+    const removedRow = DATA[1];
+
+    component.datagrid.rowRemove.subscribe((event: SohoDataGridRowRemoveEvent) => {
+      expect(event.oldValue).toEqual(removedRow);
+      expect(event.cell).toBeNull();
+      // expect(event.item).toEqual(removedRow);
+      // expect(event.row).toBe(1),
+      // expect(event.target).toNotBeNull();
+
+      done();
+    });
+
+    fixture.detectChanges();
+
+    component.datagrid.selectRows([1]);
+
+    fixture.detectChanges();
+
+    component.datagrid.removeSelected();
   });
 });

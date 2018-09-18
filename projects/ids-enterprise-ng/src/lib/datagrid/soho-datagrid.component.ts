@@ -1977,7 +1977,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('expandrow', (e: any, args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
         .on('filtered', (e: any, args: SohoDataGridFilteredEvent) => { this.onFiltered(args); })
         .on('openfilterrow', (e: any, args: SohoDataGridOpenFilterRowEvent) => { this.onOpenFilterRow(args); })
-        .on('removerow', (e: any, args: SohoDataGridRowRemoveEvent) => { this.onRowRemove(args); })
+        .on('rowremove', (e: any, args: SohoDataGridRowRemoveEvent) => { this.onRowRemove(args); })
         .on('rendered', (e: any, args: SohoDataGridRenderedEvent) => { this.onRendered(args); })
         .on('afterrender', (e: any, args: SohoDataGridAfterRenderEvent) => { this.onAfterRendere(args); })
         .on('rowactivated', (e: any, args: SohoDataGridRowActivatedEvent) => { this.onRowActivated(args); })
