@@ -407,10 +407,8 @@ describe('Soho DataGrid Render', () => {
       done();
     });
 
-    // el = de.query(By.css('div[soho-datagrid] ')).nativeElement;
+    el = de.query(By.css('div[soho-datagrid] ')).nativeElement;
 
-    // el.click();
-
-    done();
+    el.click();
   });
 });
