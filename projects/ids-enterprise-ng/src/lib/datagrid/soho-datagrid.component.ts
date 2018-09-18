@@ -1585,10 +1585,14 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @todo paging - not yet fully implemented?
    */
   private onDataRequest(request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) {
-    this.datagridService.getData(request)
-      .subscribe((results: Object[]) => {
-        response(results, request);
-      });
+    // The request for data is made by the jQuery widget, so jump back into the angular zone.
+    this.ngZone.run(() =>
+      // ... request the data from the service ...
+      this.datagridService.getData(request)
+        .subscribe((results: Object[]) => {
+          // .. on receipt, pass the data back to the widget but outside the angular zone.
+          this.ngZone.runOutsideAngular(() => response(results, request));
+        }));
   }
 
   /**
@@ -1957,7 +1961,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
           });
       } else if (this.gridData) {
         // Not using a service, so use the pre-loaded data.
-        this.datagrid.loadData(this.gridData);
+        this.ngZone.runOutsideAngular(() => {
+          this.datagrid.loadData(this.gridData);
+        });
       }
 
       // Initialise any event handlers.
