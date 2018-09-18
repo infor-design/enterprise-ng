@@ -600,10 +600,11 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Input for the source function.
    *
-   * @param source
+   * @param source the dataset's source function.
    */
-  @Input() set source(source: any) {
+  @Input() set source(source: SohoDataGridSourceFunction) {
     this.updateSource(source);
     if (this.jQueryElement) {
       this.datagrid.settings.source = source;
@@ -1585,20 +1586,19 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @todo paging - not yet fully implemented?
    */
   private onDataRequest(request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) {
-    // The request for data is made by the jQuery widget, so jump back into the angular zone.
+    // The request for data is made by the datagrid, so jump back into the angular zone ...
     this.ngZone.run(() =>
       // ... request the data from the service ...
       this.datagridService.getData(request)
         .subscribe((results: Object[]) => {
-          // .. on receipt, pass the data back to the widget but outside the angular zone.
+          // .. on receipt, pass the data back to the datagrid but
+          // outside the angular zone.
           this.ngZone.runOutsideAngular(() => response(results, request));
         }));
   }
 
   /**
    * Event fired after a child row has been expanded.
-   *
-   * @todo arguments.
    */
   private onExpandRow(args: SohoDataGridRowExpandEvent) {
     const event = { grid: this, ...args };
