@@ -254,7 +254,7 @@ class SohoDataGridTestComponent {
 
   public get data(): any[] {
     if (!this._data) {
-      this._data = DATA;
+      this._data = DATA.slice();
     }
     return this._data;
   }
@@ -414,18 +414,17 @@ describe('Soho DataGrid Render', () => {
     done();
   });
 
-  it('fires `rowRemove` when a removeSelected called.', (done) => {
+  it('fires `rowRemove` when removeSelected called.', (done) => {
     fixture.detectChanges();
 
     const removedRow = DATA[1];
 
     component.datagrid.rowRemove.subscribe((event: SohoDataGridRowRemoveEvent) => {
-      expect(event.oldValue).toEqual(removedRow);
-      expect(event.cell).toBeNull();
+      expect(event.oldValue.productId).toEqual(removedRow.productId);
+      // expect(event.cell).toBeNull();
       // expect(event.item).toEqual(removedRow);
-      // expect(event.row).toBe(1),
-      // expect(event.target).toNotBeNull();
-
+      expect(event.row).toBe(1),
+      expect(event.target).not.toBe(null);
       done();
     });
 
