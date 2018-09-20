@@ -25,7 +25,7 @@ See the [list of features](docs/FEATURES.md) for details about the included and 
 
 ## Strategy
 
-- Will use Typescript 2.7.x
+- Will use Typescript 2.9.x
 - Will wrap Soho XI controls
 - Two Tracks: Track 1: Wrap Current Controls, Track 2: Es6 refactor of core controls keeping directives updated
 - Will be supported by the H&L team in collaboration with multiple teams
