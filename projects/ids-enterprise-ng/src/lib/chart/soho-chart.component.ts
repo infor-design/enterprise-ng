@@ -121,7 +121,7 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
       this.unselected.emit({ event, ui, data });
     }).on('rendered', (event: JQuery.Event, ui: any, data: any) => {
       this.rendered.emit({ event, ui, data });
-    }).on('contextmenu', (event, ui, data) => {
+    }).on('contextmenu', (event: JQuery.Event, ui: any, data: any) => {
       this.contextmenu.emit({ event, ui, data });
     });
   }
