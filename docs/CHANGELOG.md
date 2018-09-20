@@ -16,16 +16,21 @@
 
 ### Fixes
 
+- `[TextArea]` Added null guard to `SohoTextAreaComponent` when updating character counter before component initialised. `BTHH` ([Pull Request 186](https://github.com/infor-design/enterprise-ng/pull/186))
+- `[DataGrid]` Fixed `(rowremoved)` event `BTHH` ([#77](https://github.com/infor-design/enterprise-ng/issues/77))
+- `[DataGrid]` Fixed event arguments `BTHH` ([#156](https://github.com/infor-design/enterprise-ng/issues/156))
+- `[DataGrid]` Refactored datagrid to use `ngZone`. This effects the constructor so may effect those using AOT. `BTHH` ([#90](https://github.com/infor-design/enterprise-ng/issues/90))
+- `[DataGrid]` Added typings for `addRow`, this may be a breaking change should incorrect arguments currently be passed. `BTHH`
+
 ### Chore & Maintenance
 
 - `[DataGrid]` Changed use of deprecated `ReflectiveInjector` to `Injector`. `BTHH`
 - `[Input]` Changed `onChange` event name to `change`. `BTHH`
 - `[StepProcess]` Changed `onSaveClose` event name to `saveClose`. `BTHH`
 - `[General]` Refactored usages of `Renderer` to `Renderer2`. `BTHH`
-- `[DataGrid]` Modified `sorted` event arguments on `datagrid`. `BTHH`
 - `[General]` Removed all explicit type JavaDoc, e.g. `@memberof`, `@type`, `{typename}`. `BTHH`
 - `[General]` Fixed signature of `@HostListener` for `KeyUp`. `BTHH`
-- `[General]` Upgraded @angular/cli (to 6.1.4) and @angular/core (to 6.1.3).
+- `[General]` Upgraded @angular/cli (to 6.2.3) and @angular/core (to 6.1.8).
 - `[General]` Upgraded typeScript (to 2.9.2).
 
 ## v4.9.0

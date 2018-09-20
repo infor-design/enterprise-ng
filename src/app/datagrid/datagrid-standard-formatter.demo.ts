@@ -63,7 +63,8 @@ export class DataGridStandardFormatterDemoComponent implements AfterViewInit {
       dataset: PAGING_DATA,
       selectable: 'single',
       paging: true,
-      pagesize: 10
+      pagesize: 10,
+      stretchColumn: 'rated'
     };
 
     this.sohoDataGridComponent.gridOptions = gridOptions;
