@@ -1050,8 +1050,9 @@ interface JQuery {
   on(events: 'addrow', handler: JQuery.EventHandlerBase<any, SohoDataGridAddRowEvent>): this;
   on(events: 'click', handler: JQuery.EventHandlerBase<any, SohoDataGridRowClicked>): this;
   on(events: 'collapserow', handler: JQuery.EventHandlerBase<any, SohoDataGridRowCollapseEvent>): this;
+  on(events: 'dblclick', handler: JQuery.EventHandlerBase<any, SohoDataGridRowClicked>): this;
   on(events: 'expandrow', handler: JQuery.EventHandlerBase<any, SohoDataGridRowExpandEvent>): this;
-  on(events: 'contextmenu' | 'dblclick', handler: JQuery.EventHandlerBase<any, SohoDataGridRowClicked>): this;
+  on(events: 'contextmenu', handler: JQuery.EventHandlerBase<any, SohoDataGridRowClicked>): this;
   on(events: 'filtered', handler: JQuery.EventHandlerBase<any, SohoDataGridFilteredEvent>): this;
   on(events: 'removerow', handler: JQuery.EventHandlerBase<any, SohoDataGridRowRemoveEvent>): this;
   on(events: 'rowreorder', handler: JQuery.EventHandlerBase<any, SohoDataGridRowReorderedEvent>): this;
