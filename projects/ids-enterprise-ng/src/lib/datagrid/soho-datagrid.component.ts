@@ -1663,6 +1663,15 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Event fired when a context menu is is clicked.
+   */
+  private onDoubleClick(args: SohoDataGridRowClicked) {
+    this.ngZone.run(() => {
+      this.rowDoubleClicked.next(args);
+    });
+  }
+
+  /**
    * Event fired when the data is filtered.
    */
   private onFiltered(args: SohoDataGridFilteredEvent) {
@@ -1974,6 +1983,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('closefilterrow', (e: any, args: SohoDataGridCloseFilterRowEvent) => { this.onCloseFilterRow(args); })
         .on('collapserow', (e: any, args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
         .on('contextmenu', (e: any, args: SohoDataGridRowClicked) => { this.onContextMenu(args); })
+        .on('dblclick', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.onDoubleClick(args); })
         .on('expandrow', (e: any, args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
         .on('filtered', (e: any, args: SohoDataGridFilteredEvent) => { this.onFiltered(args); })
         .on('openfilterrow', (e: any, args: SohoDataGridOpenFilterRowEvent) => { this.onOpenFilterRow(args); })
