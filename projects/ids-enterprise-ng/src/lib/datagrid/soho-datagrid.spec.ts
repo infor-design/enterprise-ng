@@ -105,7 +105,7 @@ const DATA: any[] = [
     orderDate:   '2015-01-07T06:00:00.000Z',
     action:      'Action',
     rated:       .54
-  },
+  }
 ];
 /* tslint:enable */
 
@@ -254,7 +254,7 @@ class SohoDataGridTestComponent {
 
   public get data(): any[] {
     if (!this._data) {
-      this._data = DATA;
+      this._data = DATA.slice();
     }
     return this._data;
   }
@@ -278,7 +278,6 @@ describe('Soho DataGrid Render', () => {
     component = fixture.componentInstance;
 
     datagrid = component.datagrid;
-    datagrid.treeGrid = true;
 
     de = fixture.debugElement;
     el = de.query(By.css('div[soho-datagrid]')).nativeElement;
@@ -311,6 +310,8 @@ describe('Soho DataGrid Render', () => {
     fixture.detectChanges();
 
     component.datagrid.setSortColumn('desc', true);
+
+    fixture.detectChanges();
   });
 
   it('check setColumnSort(id, ascending)', (done) => {
@@ -351,20 +352,88 @@ describe('Soho DataGrid Render', () => {
     component.datagrid.selectRows([1]);
   });
 
-  xit('check selected event []', (done) => {
+  it('fires `addrow` when a new row is added', (done) => {
 
     fixture.detectChanges();
 
-    component.datagrid.selectRows([1]);
+    const newRow = {
+      id: 7,
+      productId: 895640,
+      productName: 'Cannondale SuperSix',
+      activity: 'Assembly',
+      quantity: 1,
+      price: 3499.99,
+      status: 'Active',
+      orderDate: '2018-09-17T08:10:00.000Z',
+      action: 'Action',
+      rated: .8
+    };
 
-    component.datagrid.selected.subscribe((event: SohoDataGridSelectedEvent) => {
-      expect(event.rows).toEqual([]);
+    component.datagrid.rowAdd.subscribe((event: SohoDataGridAddRowEvent) => {
+      expect(event.row).toEqual(0);
+      expect(event.cell).toEqual(0);
+      expect(event.value).toEqual(newRow, 'addrow');
+      expect(event.oldValue).toEqual({});
+      done();
+    });
+
+    component.datagrid.addRow(newRow, 'top');
+  });
+
+  it('fires `cellchange` when a cell is edited', (done) => {
+
+    fixture.detectChanges();
+
+    component.datagrid.cellchange.subscribe((event: SohoDataGridCellChangeEvent) => {
+      expect(event.row).toEqual(0);
+      expect(event.cell).toEqual(2);
+      expect(event.value).toEqual('Cannondale SuperSix 22');
+      // expect(event.oldValue).toEqual('Compressor 1');
+      done();
+    });
+
+    // This is the easiest way to cause the above event to fire.
+    (component.datagrid as any).datagrid.updateCellNode(0, 2, 'Cannondale SuperSix 22', false);
+  });
+
+  it('fires `rowclicked` when a cell clicked', (done) => {
+
+    fixture.detectChanges();
+
+    component.datagrid.rowClicked.subscribe((event: SohoDataGridRowClicked) => {
+      expect(event.row).toEqual(0);
+      expect(event.cell).toEqual(2);
+      expect(event.item).toEqual('');
+      done();
+    });
+
+    // el = de.query(By.css('div[soho-datagrid] ')).nativeElement;
+
+    // el.click();
+
+    done();
+  });
+
+  it('fires `rowRemove` when removeSelected called.', (done) => {
+    fixture.detectChanges();
+
+    const removedRow = DATA[1];
+
+    component.datagrid.rowRemove.subscribe((event: SohoDataGridRowRemoveEvent) => {
+      expect(event.oldValue.productId).toEqual(removedRow.productId);
+      // expect(event.cell).toBeNull();
+      // expect(event.item).toEqual(removedRow);
+      expect(event.row).toBe(1),
+      expect(event.target).not.toBe(null);
       done();
     });
 
     fixture.detectChanges();
 
-    component.datagrid.selectRows([]);
-  });
+    component.datagrid.selectRows([1]);
 
+    fixture.detectChanges();
+
+    component.datagrid.removeSelected();
+  });
 });

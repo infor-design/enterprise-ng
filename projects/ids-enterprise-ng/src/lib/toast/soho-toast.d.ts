@@ -31,6 +31,9 @@ interface SohoToastOptions {
 
   /** How long to display the toast popup for, in milliseconds.  */
   timeout?: number;
+
+  /** Allow anchor tags in message */
+  allowLink?: boolean
 }
 
 /**
