@@ -298,6 +298,29 @@ describe('Soho DataGrid Render', () => {
     expect(component.datagrid.dataset).toBe(testData);
   });
 
+  it('fires `rowRemove` when removeSelected called.', (done) => {
+    fixture.detectChanges();
+
+    const removedRow = DATA[1];
+
+    component.datagrid.rowRemove.subscribe((event: SohoDataGridRowRemoveEvent) => {
+      expect(event.oldValue.productId).toEqual(removedRow.productId);
+      // expect(event.cell).toBeNull();
+      // expect(event.item).toEqual(removedRow);
+      expect(event.row).toBe(1);
+      expect(event.target).not.toBe(null);
+      done();
+    });
+
+    fixture.detectChanges();
+
+    component.datagrid.selectRows([1]);
+
+    fixture.detectChanges();
+
+    component.datagrid.removeSelected();
+  });
+
   it('check setColumnSort(id, descending)', (done) => {
 
     component.datagrid.sorted.subscribe((sortedEvent: SohoDataGridSortedEvent) => {
@@ -412,28 +435,5 @@ describe('Soho DataGrid Render', () => {
     // el.click();
 
     done();
-  });
-
-  it('fires `rowRemove` when removeSelected called.', (done) => {
-    fixture.detectChanges();
-
-    const removedRow = DATA[1];
-
-    component.datagrid.rowRemove.subscribe((event: SohoDataGridRowRemoveEvent) => {
-      expect(event.oldValue.productId).toEqual(removedRow.productId);
-      // expect(event.cell).toBeNull();
-      // expect(event.item).toEqual(removedRow);
-      expect(event.row).toBe(1),
-      expect(event.target).not.toBe(null);
-      done();
-    });
-
-    fixture.detectChanges();
-
-    component.datagrid.selectRows([1]);
-
-    fixture.detectChanges();
-
-    component.datagrid.removeSelected();
   });
 });

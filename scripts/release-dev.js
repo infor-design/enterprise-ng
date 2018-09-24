@@ -32,7 +32,7 @@ const tagSuffixFormat = 'dev.YYYYMMDD';
  * @param {string} version - The semver of the package
  */
 function versionHasSuffix(version) {
-  const versionTagSuffix = libPackageJson.version.split('-')[1];
+  const versionTagSuffix = version.split('-')[1];
   return (versionTagSuffix.length === tagSuffixFormat.length);
 }
 
