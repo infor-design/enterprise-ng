@@ -10,7 +10,8 @@ import {
   HostBinding,
   Input,
   OnDestroy,
-  Output
+  Output,
+  NgZone
 } from '@angular/core';
 
 import {
@@ -51,12 +52,16 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   @Input() set disabled(value: boolean) {
     if (value) {
       if (this.editor) {
-        this.editor.disable();
+        this.ngZone.runOutsideAngular(() => {
+          this.editor.disable();
+        });
       }
       this.isDisabled = true;
     } else {
       if (this.editor) {
-        this.editor.enable();
+        this.ngZone.runOutsideAngular(() => {
+          this.editor.enable();
+        });
       }
       this.isDisabled = false;
       this.isReadOnly = false;
@@ -69,10 +74,14 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   @Input() set readonly(value: boolean) {
     if (this.editor) {
       if (value) {
-        this.editor.readonly();
+        this.ngZone.runOutsideAngular(() => {
+          this.editor.readonly();
+        });
         this.isReadOnly = true;
       } else {
-        this.editor.enable();
+        this.ngZone.runOutsideAngular(() => {
+          this.editor.enable();
+        });
         this.isDisabled = false;
         this.isReadOnly = false;
       }
@@ -114,7 +123,9 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     this.options.anchor = anchor;
     if (this.editor) {
       this.editor.settings.anchor = anchor;
-      this.editor.updated();
+      this.ngZone.runOutsideAngular(() => {
+        this.editor.updated();
+      });
     }
   }
 
@@ -133,7 +144,9 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
 
     if (this.editor) {
       this.editor.settings.buttons = buttons;
-      this.editor.updated();
+      this.ngZone.runOutsideAngular(() => {
+        this.editor.updated();
+      });
     }
   }
 
@@ -178,28 +191,37 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   // Reference to the SoHoXi control api.
   private editor: SohoEditorStatic;
 
-  constructor(private element: ElementRef) {
+  /**
+  * Creates an instance of SohoEditorComponent.
+  * @param element the element this component encapsulates.
+  * @param ngZone the angualar zone for this component.
+  */
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone) {
     super();
   }
 
   ngAfterViewInit() {
-    // Wrap the element in a jQuery selector.
-    this.jQueryElement = jQuery(this.element.nativeElement);
+    // call outside the angular zone so change detection
+    // isn't triggered by the soho component.
+    this.ngZone.runOutsideAngular(() => {
+      // Wrap the element in a jQuery selector.
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    // Initialise the SohoXi Control
-    this.jQueryElement.editor(this.options);
+      // Initialise the SohoXi Control
+      this.jQueryElement.editor(this.options);
 
-    this.editor = this.jQueryElement.data('editor');
+      this.editor = this.jQueryElement.data('editor');
 
-    /**
-     * Bind to jQueryElement's events
-     */
-    this.jQueryElement.on('change', (e: JQuery.Event, args: SohoEditorEvent) => this.onChange(args));
-    this.jQueryElement.on('updated', (e: JQuery.Event, args: SohoEditorEvent) => this.updated.next(args));
+      // Bind to jQueryElement's events
+      this.jQueryElement.on('change', (e: JQuery.Event, args: SohoEditorEvent) => this.onChange(args));
+      this.jQueryElement.on('updated', (e: JQuery.Event, args: SohoEditorEvent) => this.onUpdated(args));
 
-    if (this.internalValue) {
-      this.jQueryElement.val(this.internalValue);
-    }
+      if (this.internalValue) {
+        this.jQueryElement.val(this.internalValue);
+      }
+    });
   }
 
   ngAfterViewChecked() {
@@ -209,15 +231,22 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   /**
    * Handle the control being changed.
    */
-  onChange(event: any) {
-    if (!event) {
-      // sometimes the event is not available
-      this.internalValue = this.jQueryElement.val();
-      super.writeValue(this.internalValue);
-      return;
-    }
+  onChange(event: SohoEditorEvent) {
+    this.ngZone.run(() => {
+      if (!event) {
+        // sometimes the event is not available
+        this.internalValue = this.jQueryElement.val();
+        super.writeValue(this.internalValue);
+        return;
+      }
+      this.change.emit(this.internalValue);
+    });
+  }
 
-    this.change.emit(this.internalValue);
+  onUpdated(event: SohoEditorEvent) {
+    this.ngZone.run(() => {
+      this.updated.next(event);
+    });
   }
 
   /**
@@ -229,7 +258,6 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
       this.jQueryElement.val(value);
     }
     super.writeValue(value);
-
   }
 
   /**
@@ -243,9 +271,17 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   }
 
   ngOnDestroy() {
-    if (this.editor) {
-      this.editor.destroy();
-      this.editor = null;
-    }
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        // remove the event listeners on this element.
+        this.jQueryElement.off();
+      }
+
+      // Destroy any widget resources.
+      if (this.editor) {
+        this.editor.destroy();
+        this.editor = null;
+      }
+    });
   }
 }
