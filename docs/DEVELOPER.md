@@ -39,7 +39,7 @@ projects\ids-enterprise-ng\src\lib
     soho-widget.component.ts
     soho-widget.component.html
     soho-widget.module.ts
-    sogo-widget.spec.ts
+    soho-widget.spec.ts
     README.md (optional)
 ```
 
