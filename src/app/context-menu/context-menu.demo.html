@@ -1,7 +1,7 @@
 <div class="row"><span class="code-tag" style="margin-left: 20px;">Live Example</span>
 <div class="twelve columns">
   <!-- Input text field example. No soho components used-->
-  <div class="field">
+  <div class="field" *ngIf="showInputField">
     <label id="label1" name="label1" soho-label for="field1" >{{normalText}}</label>
     <input id="field1" name="field1" soho-context-menu menu="action-popupmenu" value="Right Click Here"
            (selected)="onSelected()"
@@ -9,6 +9,8 @@
            (close)="onClose()"
            (open)="onOpen()" />
   </div>
+
+  <button soho-button="tertiary" (click)="toggleField()">Toggle Input Field</button>
 
   <!-- Text area example. Soho-textarea component used-->
   <div class="field">

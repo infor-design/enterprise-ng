@@ -21,6 +21,7 @@ export class ContextMenuDemoComponent implements OnInit {
   public radioButtonLabel = `Radio Button Example`;
   public checkboxButtonLabel = `Check Box Example`;
   public richTextEditorLabel = `Rich Text Editor Example`;
+  public showInputField = true;
 
   public contextEntries: Array<ContextMenuEntries>;
 
@@ -37,6 +38,10 @@ export class ContextMenuDemoComponent implements OnInit {
   public editorModel = {
     editorText: `<p>Embrace <a href="http://en.wikipedia.org/wiki/e-commerce" class="hyperlink">e-commerce action-items</a>, reintermediate, ecologies paradigms wireless share life-hacks create innovative harness. Evolve solutions rich-clientAPIs synergies harness relationships virtual vertical facilitate end-to-end, wireless, evolve synergistic synergies.</p> <p>Cross-platform, evolve, ROI scale cultivate eyeballs addelivery, e-services content cross-platform leverage extensible viral incentivize integrateAJAX-enabled sticky evolve magnetic cultivate leverage; cutting-edge. Innovate, end-to-end podcasting, whiteboard streamline e-business social; compelling, "cross-media exploit infomediaries innovative integrate integrateAJAX-enabled." Killer interactive reinvent, cultivate widgets leverage morph.</p>`// tslint:disable-line
   };
+
+  public toggleField() {
+    this.showInputField = !this.showInputField;
+  }
 
   private buildContextMenu(): Array<ContextMenuEntries> {
     const entries: Array<ContextMenuEntries> = [];

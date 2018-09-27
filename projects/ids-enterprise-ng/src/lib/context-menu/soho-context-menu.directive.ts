@@ -139,8 +139,6 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
         this.jQueryElement.off();
       }
       if (this.contextMenu) {
-        // @todo raise an issue on this failing on removeData!
-        // this.menuButton.destroy();
         this.contextMenu.destroy();
         this.contextMenu = null;
       }
