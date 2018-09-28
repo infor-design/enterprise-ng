@@ -1,8 +1,22 @@
 # What's New with Enterprise-NG
 
-## master
+## v4.11.0
 
-### Features
+### 4.11.0 Fixes
+
+- `[TextArea]` Added null guard to `SohoTextAreaComponent` when updating character counter before component initialised. `BTHH` ([Pull Request 186](https://github.com/infor-design/enterprise-ng/pull/186))
+- `[DataGrid]` Fixed `(rowremoved)` event `BTHH` ([#77](https://github.com/infor-design/enterprise-ng/issues/77))
+- `[DataGrid]` Added typings for `addRow`, this may be a breaking change should incorrect arguments currently be passed. `BTHH`
+- `[Button]` Support for tooltips on disabled buttons. `BTHH` ([Pull Request 199](https://github.com/infor-design/enterprise-ng/pull/199))
+
+### 4.11.0 Chore & Maintenance
+
+- `[General]` Upgraded @angular/cli (to 6.2.3) and @angular/core (to 6.1.8).
+- `[General]` Upgraded typeScript (to 2.9.2).
+
+## v4.10.0
+
+### 4.10.0 Features
 
 - [`General`] NPM package now compiled into the Angular Package Format.  ([Pull Request 143](https://github.com/infor-design/enterprise-ng/pull/143)) `BTHH`
     - See `UPGRADING.md` for upgrade information.
@@ -14,25 +28,17 @@
     - Refactored all demo selectors to start with `app-`
     - New build targets `build:lib`, `build:app`, `test:lib` and `pack:lib`.
 
-### Fixes
-
-- `[TextArea]` Added null guard to `SohoTextAreaComponent` when updating character counter before component initialised. `BTHH` ([Pull Request 186](https://github.com/infor-design/enterprise-ng/pull/186))
-- `[DataGrid]` Fixed `(rowremoved)` event `BTHH` ([#77](https://github.com/infor-design/enterprise-ng/issues/77))
+### 4.10.0 Fixes
 - `[DataGrid]` Fixed event arguments `BTHH` ([#156](https://github.com/infor-design/enterprise-ng/issues/156))
 - `[DataGrid]` Refactored datagrid to use `ngZone`. This effects the constructor so may effect those using AOT. `BTHH` ([#90](https://github.com/infor-design/enterprise-ng/issues/90))
-- `[DataGrid]` Added typings for `addRow`, this may be a breaking change should incorrect arguments currently be passed. `BTHH`
-- `[Button]` Support for tooltips on disabled buttons. `BTHH` ([Pull Request 199](https://github.com/infor-design/enterprise-ng/pull/199))
-
-### Chore & Maintenance
-
-- `[DataGrid]` Changed use of deprecated `ReflectiveInjector` to `Injector`. `BTHH`
-- `[Input]` Changed `onChange` event name to `change`. `BTHH`
 - `[StepProcess]` Changed `onSaveClose` event name to `saveClose`. `BTHH`
 - `[General]` Refactored usages of `Renderer` to `Renderer2`. `BTHH`
 - `[General]` Removed all explicit type JavaDoc, e.g. `@memberof`, `@type`, `{typename}`. `BTHH`
 - `[General]` Fixed signature of `@HostListener` for `KeyUp`. `BTHH`
-- `[General]` Upgraded @angular/cli (to 6.2.3) and @angular/core (to 6.1.8).
-- `[General]` Upgraded typeScript (to 2.9.2).
+
+### 4.10.0 Chore & Maintenance
+- `[DataGrid]` Changed use of deprecated `ReflectiveInjector` to `Injector`. `BTHH`
+- `[Input]` Changed `onChange` event name to `change`. `BTHH`
 
 ## v4.9.0
 
