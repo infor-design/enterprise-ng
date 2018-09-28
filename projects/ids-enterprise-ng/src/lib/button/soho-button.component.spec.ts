@@ -2,10 +2,9 @@
 
 import {
   ComponentFixture,
-  TestBed
+  TestBed,
+  async
 } from '@angular/core/testing';
-
-import { By } from '@angular/platform-browser';
 
 import {
   Component,
@@ -13,15 +12,8 @@ import {
   ViewChild
 } from '@angular/core';
 
-import {
-  FormsModule,
-  FormGroup,
-  FormBuilder
-} from '@angular/forms';
-
 import { SohoButtonModule } from './soho-button.module';
 import { SohoTooltipModule } from '../tooltip/soho-tooltip.module';
-import { ReactiveFormsModule } from '@angular/forms';
 import { SohoButtonComponent } from './soho-button.component';
 
 @Component({
@@ -30,7 +22,7 @@ import { SohoButtonComponent } from './soho-button.component';
     <button soho-button="icon" icon="bullet-list" disabled soho-tooltip title="DATAGRID_VIEW">
       <div class="disabled-tooltip" title="DATAGRID_VIEW"></div>
     </button>
-  </siv>`
+  </div>`
 })
 class SohoButtonTestComponent {
   @ViewChild(SohoButtonComponent) button: SohoButtonComponent;
@@ -44,12 +36,11 @@ describe('Soho Button Unit Tests', () => {
   let component: SohoButtonTestComponent;
   let fixture: ComponentFixture<SohoButtonTestComponent>;
   let de: DebugElement;
-  let el: HTMLDivElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [SohoButtonTestComponent],
-      imports: [ReactiveFormsModule, FormsModule, SohoButtonModule, SohoTooltipModule]
+      imports: [SohoButtonModule, SohoTooltipModule]
     });
 
     fixture = TestBed.createComponent(SohoButtonTestComponent);
@@ -57,13 +48,21 @@ describe('Soho Button Unit Tests', () => {
     button = component.button;
 
     de = fixture.debugElement;
-    el = de.query(By.css('button[soho-button]')).nativeElement;
 
     fixture.detectChanges();
   });
 
-  it('is created', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should create the soho-button', async(() => {
+    expect(button).toBeTruthy();
+  }));
+
+  it(`should be an icon button`, async(() => {
+    expect(button.btnIcon).toBeTruthy('button should be `icon`');
+  }));
+
+  it('button span should be empty', async(() => {
+    const compiled = de.nativeElement;
+    expect(compiled.querySelector('span').textContent).toEqual('');
+  }));
 
 });

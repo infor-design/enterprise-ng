@@ -397,7 +397,7 @@ describe('Soho DataGrid Render', () => {
     (component.datagrid as any).datagrid.updateCellNode(0, 2, 'Cannondale SuperSix 22', false);
   });
 
-  fit('fires `rowclicked` when a cell clicked', (done) => {
+  it('fires `rowclicked` when a cell clicked', (done) => {
 
     fixture.detectChanges();
 
