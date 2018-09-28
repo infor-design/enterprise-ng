@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "vendorSourceMap": false,
+            "vendorSourceMap": true,
             "sourceMap": true,
             "outputPath": "dist/ids-enterprise-ng-app",
             "index": "src/index.html",

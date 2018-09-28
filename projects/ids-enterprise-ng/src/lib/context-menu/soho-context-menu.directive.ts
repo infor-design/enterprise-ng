@@ -139,7 +139,8 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
         this.jQueryElement.off();
       }
       if (this.contextMenu) {
-        this.contextMenu.destroy();
+        // The context menu is owned by the popup-menu component and should not
+        // be destroyed here, so just clear the member variable.
         this.contextMenu = null;
       }
     });

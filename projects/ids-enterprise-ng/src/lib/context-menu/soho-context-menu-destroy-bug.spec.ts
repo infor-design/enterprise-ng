@@ -1,7 +1,11 @@
 /// <reference path="soho-context-menu.d.ts" />
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component, DebugElement, EventEmitter, Output } from '@angular/core';
+import { Component, DebugElement } from '@angular/core';
+
+import { SohoInputModule } from '../input';
+import { SohoPopupMenuModule } from '../popupmenu';
+import { SohoContextMenuModule } from './soho-context-menu.module';
 
 @Component({
   template: `
@@ -23,7 +27,8 @@ describe('Soho Context Menu Destroy Bug Unit Tests', () => {
 
   beforeEach( () => {
     TestBed.configureTestingModule({
-      declarations: [ TestContextMenuDestroyBugComponent ]
+      declarations: [ TestContextMenuDestroyBugComponent ],
+      imports: [SohoInputModule, SohoPopupMenuModule, SohoContextMenuModule ]
     });
 
     fixture = TestBed.createComponent(TestContextMenuDestroyBugComponent);
@@ -33,16 +38,21 @@ describe('Soho Context Menu Destroy Bug Unit Tests', () => {
     el = de.nativeElement;
   });
 
-  fit('Check events', () => {
-    el.click();
+  it('Check opening a shared popupmenu after destroying one of them.', () => {
+    // Display the popupmenu ...
+    el.querySelector('input').click();
+    el.querySelector('input').click();
+
+    // Hide the first control
     comp.showInput = false;
     fixture.detectChanges();
-    el.click();
+
+    // Show the control
     comp.showInput = true;
     fixture.detectChanges();
 
-    el.click();
-
-
+    // Display the popupmenu ...
+    el.querySelector('input').click();
+    el.querySelector('input').click();
   });
 });
