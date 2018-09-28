@@ -31,7 +31,7 @@ class SohoButtonTestComponent {
   }
 }
 
-fdescribe('Soho Button Unit Tests', () => {
+describe('Soho Button Unit Tests', () => {
   let button: SohoButtonComponent;
   let component: SohoButtonTestComponent;
   let fixture: ComponentFixture<SohoButtonTestComponent>;
