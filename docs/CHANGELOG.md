@@ -29,6 +29,7 @@
     - New build targets `build:lib`, `build:app`, `test:lib` and `pack:lib`.
 
 ### 4.10.0 Fixes
+
 - `[DataGrid]` Fixed event arguments `BTHH` ([#156](https://github.com/infor-design/enterprise-ng/issues/156))
 - `[DataGrid]` Refactored datagrid to use `ngZone`. This effects the constructor so may effect those using AOT. `BTHH` ([#90](https://github.com/infor-design/enterprise-ng/issues/90))
 - `[StepProcess]` Changed `onSaveClose` event name to `saveClose`. `BTHH`
@@ -37,6 +38,7 @@
 - `[General]` Fixed signature of `@HostListener` for `KeyUp`. `BTHH`
 
 ### 4.10.0 Chore & Maintenance
+
 - `[DataGrid]` Changed use of deprecated `ReflectiveInjector` to `Injector`. `BTHH`
 - `[Input]` Changed `onChange` event name to `change`. `BTHH`
 
