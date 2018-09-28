@@ -29,16 +29,20 @@ describe('Soho Context Menu Destroy Bug Unit Tests', () => {
     fixture = TestBed.createComponent(TestContextMenuDestroyBugComponent);
     comp = fixture.componentInstance;
     fixture.detectChanges();
-
     de = fixture.debugElement;
     el = de.nativeElement;
   });
 
-  it('Check events', () => {
+  fit('Check events', () => {
     el.click();
     comp.showInput = false;
     fixture.detectChanges();
+    el.click();
+    comp.showInput = true;
+    fixture.detectChanges();
 
     el.click();
+
+
   });
 });
