@@ -11,7 +11,8 @@ import {
   Input,
   OnDestroy,
   Output,
-  NgZone
+  NgZone,
+  ChangeDetectorRef
 } from '@angular/core';
 
 import {
@@ -36,6 +37,11 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   /**
    * Local variables
    */
+  /**
+   * Flag to force an update of the control after the view is created.
+   */
+  private runUpdatedOnCheck: boolean;
+  
   private isDisabled: boolean = null;
   private isReadOnly: boolean = null;
 
@@ -46,45 +52,59 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   // -------------------------------------------
   // Component Input
   // -------------------------------------------
+
   /**
-   * @param value
+   * Enables or disables the control
    */
   @Input() set disabled(value: boolean) {
+    // Avoid setting the value if not required,
+    // this causes issue on component initialisation
+    // as enable() is called by both disabled()
+    // and readonly().
+    if (this.editor == null) {
+      this.isDisabled = value;
+      return;
+    }
+
+    // Set the status locally (for refreshing)
+    this.isDisabled = value;
+
     if (value) {
-      if (this.editor) {
-        this.ngZone.runOutsideAngular(() => {
-          this.editor.disable();
-        });
-      }
-      this.isDisabled = true;
+      this.ngZone.runOutsideAngular(() => {
+        this.editor.disable();
+      });
     } else {
-      if (this.editor) {
-        this.ngZone.runOutsideAngular(() => {
-          this.editor.enable();
-        });
-      }
-      this.isDisabled = false;
-      this.isReadOnly = false;
+      this.ngZone.runOutsideAngular(() => {
+        this.editor.enable();
+        this.isReadOnly = false;
+      });
     }
   }
 
   /**
-   * @param value
+   * Sets the control to readonly
    */
   @Input() set readonly(value: boolean) {
-    if (this.editor) {
-      if (value) {
-        this.ngZone.runOutsideAngular(() => {
-          this.editor.readonly();
-        });
-        this.isReadOnly = true;
-      } else {
-        this.ngZone.runOutsideAngular(() => {
-          this.editor.enable();
-        });
+    // Avoid setting the value if not required,
+    // this causes issue on component initialisation
+    // as enable() is called by both disabled()
+    // and readonly().
+    if (this.editor == null) {
+      this.isReadOnly = value;
+      return;
+    }
+
+    // Set the status locally (for refreshing)
+    this.isReadOnly = value;
+    console.log(`readonly = ${this.isReadOnly} ... `);
+    console.log(`disabled = ${this.isDisabled} ... `);
+    if (value) {
+      this.ngZone.runOutsideAngular(() => this.editor.readonly());
+    } else {
+      this.ngZone.runOutsideAngular(() => {
+        this.editor.enable();
         this.isDisabled = false;
-        this.isReadOnly = false;
-      }
+      });
     }
   }
 
@@ -107,6 +127,10 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    */
   @Input() set secondHeader(secondHeader: string) {
     this.options.secondHeader = secondHeader;
+    if (this.editor) {
+      this.editor.settings.secondHeader = secondHeader;
+      this.markForRefresh();
+    }
   }
 
   /**
@@ -114,6 +138,10 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    */
   @Input() set placeholder(placeholder: string) {
     this.options.placeholder = placeholder;
+    if (this.editor) {
+      this.editor.settings.placeholder = placeholder;
+      this.markForRefresh();
+    }
   }
 
   /**
@@ -123,9 +151,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     this.options.anchor = anchor;
     if (this.editor) {
       this.editor.settings.anchor = anchor;
-      this.ngZone.runOutsideAngular(() => {
-        this.editor.updated();
-      });
+      this.markForRefresh();
     }
   }
 
@@ -134,6 +160,10 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    */
   @Input() set image(image: SohoEditorOptionsImage) {
     this.options.image = image;
+    this.markForRefresh();
+    if (this.editor) {
+      this.editor.settings.image = image;
+    }
   }
 
   /**
@@ -144,9 +174,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
 
     if (this.editor) {
       this.editor.settings.buttons = buttons;
-      this.ngZone.runOutsideAngular(() => {
-        this.editor.updated();
-      });
+      this.markForRefresh();
     }
   }
 
@@ -155,6 +183,10 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    */
   @Input() set onLinkClick(value: (e: JQuery.Event, elem: any) => void) {
     this.options.onLinkClick = value;
+    if (this.editor) {
+      this.editor.settings.onLinkClick = value;
+      this.markForRefresh();
+    }
   }
 
   // -------------------------------------------
@@ -195,10 +227,12 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   * Creates an instance of SohoEditorComponent.
   * @param element the element this component encapsulates.
   * @param ngZone the angualar zone for this component.
+  * @param ref reference to the change detector
   */
   constructor(
     private element: ElementRef,
-    private ngZone: NgZone) {
+    private ngZone: NgZone,
+    private ref: ChangeDetectorRef) {
     super();
   }
 
@@ -221,24 +255,42 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
       if (this.internalValue) {
         this.jQueryElement.val(this.internalValue);
       }
+      this.runUpdatedOnCheck = true;
     });
   }
 
   ngAfterViewChecked() {
-    this.disabled = this.isDisabled;
+    if (this.runUpdatedOnCheck) {
+      // Ensure the enabled/disabled flags are set.
+      if (this.isDisabled !== null) {
+        this.disabled = this.isDisabled;
+      }
+      if (this.isReadOnly !== null) {
+        this.readonly = this.isReadOnly;
+      }
+
+      this.ngZone.runOutsideAngular(() => {
+        // We need to update the control AFTER the model
+        // has been updated (assuming there is one), so
+        // execute updated after angular has generated
+        // the model and the view markup.
+        if (this.editor) {
+          this.editor.updated();
+        }
+        this.runUpdatedOnCheck = false;
+      });
+    }
   }
 
   /**
    * Handle the control being changed.
    */
   onChange(event: SohoEditorEvent) {
+    this.internalValue = this.jQueryElement.val();
+
+    super.writeValue(this.internalValue);
+  
     this.ngZone.run(() => {
-      if (!event) {
-        // sometimes the event is not available
-        this.internalValue = this.jQueryElement.val();
-        super.writeValue(this.internalValue);
-        return;
-      }
       this.change.emit(this.internalValue);
     });
   }
@@ -283,5 +335,18 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
         this.editor = null;
       }
     });
+  }
+
+    /**
+   * Marks the components as requiring a rebuild after the next update.
+   */
+  markForRefresh() {
+    // Run updated on the next updated check.
+    this.runUpdatedOnCheck = true;
+
+    // ... make sure the change detector kicks in, otherwise if the inputs
+    // were change programmatially the component may not be eligible for
+    // updating.
+    this.ref.markForCheck();
   }
 }

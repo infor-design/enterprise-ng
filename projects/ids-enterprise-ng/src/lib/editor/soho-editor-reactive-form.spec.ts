@@ -23,13 +23,12 @@ import { SohoEditorModule } from './soho-editor.module';
 import { SohoLabelModule } from '../label/soho-label.module';
 import { SohoEditorComponent } from './soho-editor.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { fakeAsync, tick } from '@angular/core/testing';
 
 @Component({
   template: `
   <form [formGroup]="formGroup">
-    <div soho-editor id="editor" role="textbox" aria-multiline="true" aria-label="editor" formControlName="editor">
-    </div>
+  <div soho-editor id="editor" role="textbox" aria-multiline="true" aria-label="editor" formControlName="editor">
+  </div>
   </form>`
 })
 class SohoEditorReactiveFormTestComponent {
@@ -96,7 +95,7 @@ describe('SohoEditorComponent on Reactive Form', () => {
   });
 
   it('Check "value update".', () => {
-    // Enable te control.
+    // Enable the control.
     component.formGroup.enable();
     fixture.detectChanges();
 
@@ -106,7 +105,16 @@ describe('SohoEditorComponent on Reactive Form', () => {
     expect($(el).val()).toEqual('Hello World!');
   });
 
-  it('Check readonly.', () => {
+  fit('Check readonly.', () => {
+    fixture.detectChanges();
+    component.editor.readonly = true;
+    fixture.detectChanges();
+    expect($(el).hasClass('is-disabled')).toBeTruthy('readonly() should not of removed disabled flag');
+    expect($(el).hasClass('is-readonly')).toBeTruthy('readonly() of added readonly flag');
+  });
+
+  fit('Check readonly - from enabled.', () => {
+    component.editor.disabled = false;
     fixture.detectChanges();
     component.editor.readonly = true;
     fixture.detectChanges();
