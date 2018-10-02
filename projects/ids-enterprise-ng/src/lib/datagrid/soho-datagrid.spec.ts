@@ -298,29 +298,6 @@ describe('Soho DataGrid Render', () => {
     expect(component.datagrid.dataset).toBe(testData);
   });
 
-  it('fires `rowRemove` when removeSelected called.', (done) => {
-    fixture.detectChanges();
-
-    const removedRow = DATA[1];
-
-    component.datagrid.rowRemove.subscribe((event: SohoDataGridRowRemoveEvent) => {
-      expect(event.oldValue.productId).toEqual(removedRow.productId);
-      // expect(event.cell).toBeNull();
-      // expect(event.item).toEqual(removedRow);
-      expect(event.row).toBe(1);
-      expect(event.target).not.toBe(null);
-      done();
-    });
-
-    fixture.detectChanges();
-
-    component.datagrid.selectRows([1]);
-
-    fixture.detectChanges();
-
-    component.datagrid.removeSelected();
-  });
-
   it('check setColumnSort(id, descending)', (done) => {
 
     component.datagrid.sorted.subscribe((sortedEvent: SohoDataGridSortedEvent) => {
@@ -334,6 +311,7 @@ describe('Soho DataGrid Render', () => {
 
     component.datagrid.setSortColumn('desc', true);
 
+    fixture.detectChanges();
     fixture.detectChanges();
   });
 
@@ -366,7 +344,7 @@ describe('Soho DataGrid Render', () => {
 
   it('check selected event', (done) => {
     component.datagrid.selected.subscribe((event: SohoDataGridSelectedEvent) => {
-      expect(event.rows[0].data).toEqual(DATA[1]);
+      expect(event.rows[0].data).toEqual(component.data[1]);
       done();
     });
 
@@ -419,7 +397,7 @@ describe('Soho DataGrid Render', () => {
     (component.datagrid as any).datagrid.updateCellNode(0, 2, 'Cannondale SuperSix 22', false);
   });
 
-  it('fires `rowclicked` when a cell clicked', (done) => {
+  fit('fires `rowclicked` when a cell clicked', (done) => {
 
     fixture.detectChanges();
 
@@ -435,5 +413,30 @@ describe('Soho DataGrid Render', () => {
     // el.click();
 
     done();
+  });
+
+  it('fires `rowRemove` when removeSelected called.', (done) => {
+    fixture.detectChanges();
+
+    // Try removing row number 1 (second item)
+    const removedRow = component.data[1];
+
+    /*const sub = */component.datagrid.rowRemove.subscribe((event: SohoDataGridRowRemoveEvent) => {
+      // Make sure the correct row is removed.
+      expect(event.oldValue.productId).toEqual(removedRow.productId);
+      expect(event.row).toBe(1);
+      expect(event.target).not.toBe(null);
+
+      // sub.unsubscribe();
+      done();
+    });
+
+    fixture.detectChanges();
+
+    component.datagrid.selectRows([1]);
+
+    fixture.detectChanges();
+
+    component.datagrid.removeSelected();
   });
 });

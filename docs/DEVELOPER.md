@@ -39,7 +39,7 @@ projects\ids-enterprise-ng\src\lib
     soho-widget.component.ts
     soho-widget.component.html
     soho-widget.module.ts
-    sogo-widget.spec.ts
+    soho-widget.spec.ts
     README.md (optional)
 ```
 
@@ -130,7 +130,7 @@ The outputs are the events emitted by the component.
 
 #### HOST BINDINGS
 
-Then any host bindings required to annoate the markup, such as classes, or attributes.  Some of these may of course be controlled by other properties.
+Then any host bindings required to annotate the markup, such as classes, or attributes.  Some of these may of course be controlled by other properties.
 
 ```typescript
 @HostBinding('class.soho-widget') get isWidget() { return true; }
@@ -176,7 +176,7 @@ ngAfterViewInit() {
     this.jQueryElement.on('built', (e: JQueryObjectEvent, widgetId: string) =>
       NgZone.assertNotInAngularZone();
 
-      // Ensure that any events comeing from soho are emitted from inside angular.
+      // ensure that any events comeing from soho are emitted from inside angular.
       // emit the event from a timeout so that change detection will run.
       this.ngZone.run(() => setTimeout(() => this.built.emit({widgetId}), 1));
   })
@@ -267,7 +267,7 @@ export class SohoComponentsModule {}
 
 ## Building
 
-To build and test the new component, you should first need to to build the library:
+To build and test the new component, you should first need to build the library:
 
 ```sh
 npm run build:lib
@@ -312,7 +312,7 @@ In your target application type:
 npm link ids-enterprise-ng
 ```
 
-Make sure you have added the following to the `angular.json` file.:
+Make sure you have added the following to the `angular.json` file:
 
 ```json
 "preserveSymlinks": true,
