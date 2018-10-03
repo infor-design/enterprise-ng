@@ -18,4 +18,8 @@ Include:
 - test scenarios
 -->
 
-<!-- After submitting your PR, please check back to make sure tests pass on Travis. -->
+<!-- 
+Also Remember to...
+- Update the changelog (if needed)
+- Check back to make sure tests pass on Travis
+-->
