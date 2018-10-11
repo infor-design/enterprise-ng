@@ -10,7 +10,8 @@ import {
   HostBinding,
   Input,
   OnDestroy,
-  Output
+  Output,
+  NgZone
 } from '@angular/core';
 
 import {
@@ -49,18 +50,20 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    * @param value
    */
   @Input() set disabled(value: boolean) {
-    if (value) {
-      if (this.editor) {
-        this.editor.disable();
+    this.ngZone.runOutsideAngular(() => {
+      if (value) {
+        if (this.editor) {
+          this.editor.disable();
+        }
+        this.isDisabled = true;
+      } else {
+        if (this.editor) {
+          this.editor.enable();
+        }
+        this.isDisabled = false;
+        this.isReadOnly = false;
       }
-      this.isDisabled = true;
-    } else {
-      if (this.editor) {
-        this.editor.enable();
-      }
-      this.isDisabled = false;
-      this.isReadOnly = false;
-    }
+    });
   }
 
   /**
@@ -68,14 +71,16 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    */
   @Input() set readonly(value: boolean) {
     if (this.editor) {
-      if (value) {
-        this.editor.readonly();
-        this.isReadOnly = true;
-      } else {
-        this.editor.enable();
-        this.isDisabled = false;
-        this.isReadOnly = false;
-      }
+      this.ngZone.runOutsideAngular(() => {
+        if (value) {
+          this.editor.readonly();
+          this.isReadOnly = true;
+        } else {
+          this.editor.enable();
+          this.isDisabled = false;
+          this.isReadOnly = false;
+        }
+      });
     }
   }
 
@@ -113,8 +118,10 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   @Input() set anchor(anchor: SohoEditorAnchor) {
     this.options.anchor = anchor;
     if (this.editor) {
-      this.editor.settings.anchor = anchor;
-      this.editor.updated();
+      this.ngZone.runOutsideAngular(() => {
+        this.editor.settings.anchor = anchor;
+        this.editor.updated();
+      });
     }
   }
 
@@ -132,8 +139,10 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     this.options.buttons = buttons;
 
     if (this.editor) {
-      this.editor.settings.buttons = buttons;
-      this.editor.updated();
+      this.ngZone.runOutsideAngular(() => {
+        this.editor.settings.buttons = buttons;
+        this.editor.updated();
+      });
     }
   }
 
@@ -178,28 +187,32 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   // Reference to the SoHoXi control api.
   private editor: SohoEditorStatic;
 
-  constructor(private element: ElementRef) {
+  constructor(
+    private ngZone: NgZone,
+    private element: ElementRef) {
     super();
   }
 
   ngAfterViewInit() {
-    // Wrap the element in a jQuery selector.
-    this.jQueryElement = jQuery(this.element.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
+      // Wrap the element in a jQuery selector.
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    // Initialise the SohoXi Control
-    this.jQueryElement.editor(this.options);
+      // Initialise the SohoXi Control
+      this.jQueryElement.editor(this.options);
 
-    this.editor = this.jQueryElement.data('editor');
+      this.editor = this.jQueryElement.data('editor');
 
-    /**
-     * Bind to jQueryElement's events
-     */
-    this.jQueryElement.on('change', (e: JQuery.Event, args: SohoEditorEvent) => this.onChange(args));
-    this.jQueryElement.on('updated', (e: JQuery.Event, args: SohoEditorEvent) => this.updated.next(args));
+      /**
+       * Bind to jQueryElement's events
+       */
+      this.jQueryElement.on('change', (e: JQuery.Event, args: SohoEditorEvent) => this.onChange(args));
+      this.jQueryElement.on('updated', (e: JQuery.Event, args: SohoEditorEvent) => this.updated.next(args));
 
-    if (this.internalValue) {
-      this.jQueryElement.val(this.internalValue);
-    }
+      if (this.internalValue) {
+        this.jQueryElement.val(this.internalValue);
+      }
+    });
   }
 
   ngAfterViewChecked() {
@@ -210,14 +223,16 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    * Handle the control being changed.
    */
   onChange(event: any) {
-    if (!event) {
-      // sometimes the event is not available
-      this.internalValue = this.jQueryElement.val();
-      super.writeValue(this.internalValue);
-      return;
-    }
+    this.ngZone.runOutsideAngular(() => {
+      if (!event) {
+        // sometimes the event is not available
+        this.internalValue = this.jQueryElement.val();
+        super.writeValue(this.internalValue);
+        return;
+      }
 
-    this.change.emit(this.internalValue);
+      this.change.emit(this.internalValue);
+    });
   }
 
   /**
@@ -225,11 +240,12 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    * @param value Handle model updates.
    */
   writeValue(value: any) {
-    if (this.jQueryElement && this.internalValue !== value) {
-      this.jQueryElement.val(value);
-    }
-    super.writeValue(value);
-
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement && this.internalValue !== value) {
+        this.jQueryElement.val(value);
+      }
+      super.writeValue(value);
+    });
   }
 
   /**
@@ -244,8 +260,10 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
 
   ngOnDestroy() {
     if (this.editor) {
-      this.editor.destroy();
-      this.editor = null;
+      this.ngZone.runOutsideAngular(() => {
+        this.editor.destroy();
+        this.editor = null;
+      });
     }
   }
 }
