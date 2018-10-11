@@ -69,9 +69,6 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     // Set the status locally (for refreshing)
     this.isDisabled = value;
 
-    console.log(`D:readonly = ${this.isReadOnly} ... `);
-    console.log(`D:disabled = ${this.isDisabled} ... `);
-
     if (value) {
       this.ngZone.runOutsideAngular(() => {
         this.editor.disable();
@@ -99,8 +96,6 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
 
     // Set the status locally (for refreshing)
     this.isReadOnly = value;
-    console.log(`readonly = ${this.isReadOnly} ... `);
-    console.log(`disabled = ${this.isDisabled} ... `);
     if (value) {
       this.ngZone.runOutsideAngular(() => this.editor.readonly());
     } else {
