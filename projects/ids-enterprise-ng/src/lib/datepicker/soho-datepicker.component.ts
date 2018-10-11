@@ -454,7 +454,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
       if (this.jQueryElement) {
         this.jQueryElement.off();
       }
-      
+
       if (this.datepicker) {
         this.datepicker.destroy();
         this.datepicker = null;

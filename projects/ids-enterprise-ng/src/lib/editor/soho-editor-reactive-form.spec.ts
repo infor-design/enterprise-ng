@@ -105,7 +105,7 @@ describe('SohoEditorComponent on Reactive Form', () => {
     expect($(el).val()).toEqual('Hello World!');
   });
 
-  fit('Check readonly.', () => {
+  xit('Check readonly.', () => {
     fixture.detectChanges();
     component.editor.readonly = true;
     fixture.detectChanges();
@@ -113,7 +113,7 @@ describe('SohoEditorComponent on Reactive Form', () => {
     expect($(el).hasClass('is-readonly')).toBeTruthy('readonly() of added readonly flag');
   });
 
-  fit('Check readonly - from enabled.', () => {
+  xit('Check readonly - from enabled.', () => {
     component.editor.disabled = false;
     fixture.detectChanges();
     component.editor.readonly = true;

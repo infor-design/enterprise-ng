@@ -41,7 +41,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    * Flag to force an update of the control after the view is created.
    */
   private runUpdatedOnCheck: boolean;
-  
+
   private isDisabled: boolean = null;
   private isReadOnly: boolean = null;
 
@@ -71,7 +71,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
 
     console.log(`D:readonly = ${this.isReadOnly} ... `);
     console.log(`D:disabled = ${this.isDisabled} ... `);
-    
+
     if (value) {
       this.ngZone.runOutsideAngular(() => {
         this.editor.disable();
@@ -292,7 +292,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     this.internalValue = this.jQueryElement.val();
 
     super.writeValue(this.internalValue);
-  
+
     this.ngZone.run(() => {
       this.change.emit(this.internalValue);
     });
