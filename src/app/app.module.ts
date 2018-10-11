@@ -164,6 +164,7 @@ import { StepProcessVetoableDemoComponent } from './stepprocess/stepprocessvetoa
 import { SwapListDemoComponent } from './swaplist/swaplist.demo';
 import { SwapListDynamicDemoComponent } from './swaplist/swaplist-dynamic.demo';
 import { SwapListFullAccessDemoComponent } from './swaplist/swaplist-full-access.demo';
+import { SwapListSearchDemoComponent } from './swaplist/swaplist-search.demo';
 import { SwapListServiceDemoComponent } from './swaplist/swaplist-service.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
@@ -340,6 +341,7 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     SwapListDemoComponent,
     SwapListDynamicDemoComponent,
     SwapListFullAccessDemoComponent,
+    SwapListSearchDemoComponent,
     SwapListServiceDemoComponent,
     TabsBasicDemoComponent,
     TabsCountsDemoComponent,
