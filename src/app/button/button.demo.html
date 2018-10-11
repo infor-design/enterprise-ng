@@ -37,11 +37,13 @@
         <br>
         <br>
         <br>
-        <button soho-button icon="settings">Secondary Button</button>
+        <button soho-button icon="settings">
+          <div class="disabled-tooltip" title="DISABLED"></div>
+        </button>
         <br>
         <br>
         <br>
-        <button soho-button icon="user-profile" toggle="refresh" (click)="toggleHello()">{{shouldSayHi ? "Goodbye" : "Say Hello"}}</button> (deprecated in 4.3.x)
+        <button soho-button icon="user-profile" toggle="refresh"  (click)="toggleHello()">{{shouldSayHi ? "Goodbye" : "Say Hello"}}</button> (deprecated in 4.3.x)
       </div>
 
       <div class="three columns">
@@ -63,7 +65,9 @@
         <br>
         <br>
         <br>
-        <button soho-button="icon" icon="calendar" disabled>Date</button>
+        <button soho-button="icon" icon="calendar" disabled soho-tooltip>Date</button>
+        <button soho-button="icon" icon="bullet-list" disabled soho-tooltip title="DATAGRID_VIEW"><div class="disabled-tooltip" title="DATAGRID_VIEW"></div></button>
+        <button soho-button="icon" icon="bullet-list" soho-tooltip title="DATAGRID_VIEW"><div class="disabled-tooltip" title="DATAGRID_VIEW"></div></button>
       </div>
 
     </div>
