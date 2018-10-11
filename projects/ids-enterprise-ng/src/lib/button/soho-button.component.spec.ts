@@ -30,7 +30,7 @@ import { SohoButtonComponent } from './soho-button.component';
     <button soho-button="icon" icon="bullet-list" disabled soho-tooltip title="DATAGRID_VIEW">
       <div class="disabled-tooltip" title="DATAGRID_VIEW"></div>
     </button>
-  </siv>`
+  </div>`
 })
 class SohoButtonTestComponent {
   @ViewChild(SohoButtonComponent) button: SohoButtonComponent;
