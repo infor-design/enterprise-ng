@@ -449,12 +449,17 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   }
 
   ngOnDestroy() {
-    if (this.datepicker) {
+    this.ngZone.runOutsideAngular(() => {
+
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+
       if (this.datepicker) {
         this.datepicker.destroy();
         this.datepicker = null;
       }
-    }
+    });
   }
 
   /**
