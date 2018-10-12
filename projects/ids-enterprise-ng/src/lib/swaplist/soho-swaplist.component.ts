@@ -161,6 +161,25 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   public btnMoveToRight = Soho.Locale.translate('MoveToRight');
 
   /**
+    * Set searchable option for SohoSwapList.
+    *
+    * @param value option.
+    */
+  @Input()
+  public set searchable(value: boolean) {
+      this._options.searchable = value;
+  }
+
+  /**
+   * Return the searchable option for SohoSwapList.
+   *
+   * @return an boolean of searchable option.
+   */
+  public get searchable(): boolean {
+    return this._options.searchable;
+  }
+
+  /**
     * Set available card items.
     *
     * @param value item data.

@@ -22,8 +22,6 @@ export class SwapListSearchDemoComponent implements OnInit, OnDestroy {
   showModel = false;
   validationResults = true;
 
-  searchable: true;
-  
   constructor(private sohoHeaderRef: HeaderDynamicDemoRefService) {
     this.availableDemoItems.push(
       {id: 1, value: 'opt-1', text: 'Option A'},
