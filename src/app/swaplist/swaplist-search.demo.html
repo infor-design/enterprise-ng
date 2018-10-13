@@ -6,7 +6,9 @@
         <div class="field">
           <soho-swaplist id="demo-swaplist" searchable="true"
             [availableCardTitle]="'Choose from these'"
+            [availableCardSearchTitle]="'Search Available'"
             [availableItems]="availableDemoItems"
+            [selectedCardSearchTitle]="'Search Selected'"
             [selectedItems]="selectedDemoItems"
             (beforeswap)="onBeforeswap($event)"
             (updated)="onUpdated($event)">

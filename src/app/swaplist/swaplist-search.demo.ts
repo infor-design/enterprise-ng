@@ -42,7 +42,7 @@ export class SwapListSearchDemoComponent implements OnInit, OnDestroy {
     this.sohoHeaderRef.instance.sectionTitle = 'SwapList Search Demo';
   }
 
-  onSelected(event: any) {
+  onSelected() {
     console.log(this.swapListComponent.selectedItems);
   }
 
