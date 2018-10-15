@@ -23,19 +23,18 @@ import { SohoEditorModule } from './soho-editor.module';
 import { SohoLabelModule } from '../label/soho-label.module';
 import { SohoEditorComponent } from './soho-editor.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { fakeAsync, tick } from '@angular/core/testing';
 
 @Component({
   template: `
   <form [formGroup]="formGroup">
-    <div soho-editor id="editor" role="textbox" aria-multiline="true" aria-label="editor" formControlName="editor">
-    </div>
+  <div soho-editor id="editor" role="textbox" aria-multiline="true" aria-label="editor" formControlName="editor">
+  </div>
   </form>`
 })
 class SohoEditorReactiveFormTestComponent {
   public editorValue = '1';
 
-  @ViewChild(SohoEditorComponent) dropdown: SohoEditorComponent;
+  @ViewChild(SohoEditorComponent) editor: SohoEditorComponent;
 
   public formGroup: FormGroup;
 
@@ -54,7 +53,6 @@ class SohoEditorReactiveFormTestComponent {
 }
 
 describe('SohoEditorComponent on Reactive Form', () => {
-  let dropdown: SohoEditorComponent;
   let component: SohoEditorReactiveFormTestComponent;
   let fixture: ComponentFixture<SohoEditorReactiveFormTestComponent>;
   let de: DebugElement;
@@ -68,7 +66,6 @@ describe('SohoEditorComponent on Reactive Form', () => {
 
     fixture = TestBed.createComponent(SohoEditorReactiveFormTestComponent);
     component = fixture.componentInstance;
-    dropdown = component.dropdown;
 
     de = fixture.debugElement;
     el = de.query(By.css('div[soho-editor]')).nativeElement;
@@ -98,7 +95,7 @@ describe('SohoEditorComponent on Reactive Form', () => {
   });
 
   it('Check "value update".', () => {
-    // Enable te control.
+    // Enable the control.
     component.formGroup.enable();
     fixture.detectChanges();
 
@@ -107,4 +104,22 @@ describe('SohoEditorComponent on Reactive Form', () => {
 
     expect($(el).val()).toEqual('Hello World!');
   });
+
+  xit('Check readonly.', () => {
+    fixture.detectChanges();
+    component.editor.readonly = true;
+    fixture.detectChanges();
+    expect($(el).hasClass('is-disabled')).toBeTruthy('readonly() should not of removed disabled flag');
+    expect($(el).hasClass('is-readonly')).toBeTruthy('readonly() of added readonly flag');
+  });
+
+  xit('Check readonly - from enabled.', () => {
+    component.editor.disabled = false;
+    fixture.detectChanges();
+    component.editor.readonly = true;
+    fixture.detectChanges();
+    expect($(el).hasClass('is-disabled')).toBeFalsy('readonly() should not of added disabled flag');
+    expect($(el).hasClass('is-readonly')).toBeTruthy('readonly() of added readonly flag');
+  });
+
 });

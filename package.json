@@ -37,7 +37,7 @@
     "@angular/router": "^6.1.8",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.4",
-    "ids-enterprise": "4.11.0-dev.20180925",
+    "ids-enterprise": "4.12.0-dev.20181010",
     "jquery": "3.3.1",
     "lscache": "^1.2.0",
     "rxjs": "^6.2.2",
