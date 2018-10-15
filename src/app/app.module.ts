@@ -85,6 +85,7 @@ import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
 import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
+import { DataGridExportWithoutDataGridDemoComponent } from './datagrid/datagrid-export-without-datagrid.demo';
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
 import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-header.demo';
@@ -255,6 +256,7 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     DataGridDynamicDemoComponent,
     DataGridEditorsDemoComponent,
     DataGridEmptyMessageDemoComponent,
+    DataGridExportWithoutDataGridDemoComponent,
     DataGridFixedHeaderDemoComponent,
     DataGridGroupedHeaderDemoComponent,
     DataGridLookupDialogDemoComponent,
