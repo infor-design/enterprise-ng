@@ -81,4 +81,3 @@ export class SwapListSearchDemoComponent implements OnInit, OnDestroy {
     return this.swapListComponent.selectedItems;
   }
 }
-
