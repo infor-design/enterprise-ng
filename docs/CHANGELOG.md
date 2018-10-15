@@ -1,5 +1,9 @@
 # What's New with Enterprise-NG
 
+### Features
+
+- `[DataGrid]` Added support for excel utilities to export custom dataset without Datagrid `DV`
+
 ## v4.11.0
 
 ### 4.11.0 Fixes
