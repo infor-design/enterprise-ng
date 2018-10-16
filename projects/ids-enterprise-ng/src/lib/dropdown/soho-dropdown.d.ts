@@ -116,7 +116,17 @@ interface SohoDropDownOptions {
    */
   showSelectAll?: boolean;
 
+  /**
+   * Allows you to hook into the onKeyDown.
+   * If you do you can access the keydown event data.
+   * And optionally return false to cancel the keyDown action.
+   */
+  onKeyDown?: SohoDropDownKeyDownFunction;
 }
+
+type SohoDropDownKeyDownFunction = (
+  e: Event
+) => void;
 
 /**
  * Function prototype for the source function.

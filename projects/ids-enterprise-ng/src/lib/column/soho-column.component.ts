@@ -2,7 +2,6 @@
 
 import {
   AfterViewInit,
-  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -134,13 +133,23 @@ export class SohoColumnComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  /** Settings for the chart yAxis. */
+  @Input() set yAxis(value: object) {
+    this.options.yAxis = value;
+
+    if (this.column) {
+      this.column.settings.yAxis = value;
+      this.column.updated(this.column.settings);
+    }
+  }
+
   /** Events */
   @Output() selected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();
   @Output() unselected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
 
   private jQueryElement: JQuery;
-  private column: SohoColumn;
+  public column: SohoColumn;
   constructor(private element: ElementRef) { }
 
   /** Setup */

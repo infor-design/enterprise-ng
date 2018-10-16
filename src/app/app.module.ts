@@ -42,6 +42,7 @@ import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { CirclepagerDemoComponent } from './circlepager/circlepager.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
 import { ColumnDemoComponent } from './column/column.demo';
+import { ColumnYAxisDemoComponent } from './column/column-yaxis-format.demo';
 import { ColumnGroupedDemoComponent } from './column-grouped/column-grouped.demo';
 import { ColumnGroupedXaxisTwolineDemoComponent } from './column-grouped/column-grouped-xaxis-twoline.demo';
 import { ColumnStackedDemoComponent } from './column-stacked/column-stacked.demo';
@@ -234,6 +235,7 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     CirclepagerDemoComponent,
     ColorPickerDemoComponent,
     ColumnDemoComponent,
+    ColumnYAxisDemoComponent,
     ColumnGroupedDemoComponent,
     ColumnGroupedXaxisTwolineDemoComponent,
     ColumnStackedDemoComponent,

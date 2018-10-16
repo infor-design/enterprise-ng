@@ -25,6 +25,7 @@ import { CirclepagerDemoComponent } from './circlepager/circlepager.demo';
 import { CodeBlockDemoComponent } from './code-block/code-block.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
 import { ColumnDemoComponent } from './column/column.demo';
+import { ColumnYAxisDemoComponent } from './column/column-yaxis-format.demo';
 import { ColumnGroupedDemoComponent } from './column-grouped/column-grouped.demo';
 import { ColumnGroupedXaxisTwolineDemoComponent } from './column-grouped/column-grouped-xaxis-twoline.demo';
 import { ColumnStackedDemoComponent } from './column-stacked/column-stacked.demo';
@@ -182,6 +183,7 @@ export const routes: Routes = [
   { path: 'code-block',                             component: CodeBlockDemoComponent },
   { path: 'colorpicker',                            component: ColorPickerDemoComponent },
   { path: 'column',                                 component: ColumnDemoComponent },
+  { path: 'column-yaxis-format',                     component: ColumnYAxisDemoComponent },
   { path: 'column-grouped',                         component: ColumnGroupedDemoComponent},
   { path: 'column-grouped-xaxis-twoline',           component: ColumnGroupedXaxisTwolineDemoComponent},
   { path: 'column-stacked',                         component: ColumnStackedDemoComponent},

@@ -183,4 +183,14 @@ describe('Soho Tree Render', () => {
     expect(selectedNodes.length).toBe(1);
     expect(selectedNodes[0].id).toBe('node2');
   });
+
+  it('Check its possible to disable/enable', () => {
+    fixture.detectChanges();
+    tree.disable();
+
+    expect(el.querySelectorAll('a.is-disabled').length).toEqual(6);
+    tree.enable();
+
+    expect(el.querySelectorAll('a.is-disabled').length).toEqual(0);
+  });
 });
