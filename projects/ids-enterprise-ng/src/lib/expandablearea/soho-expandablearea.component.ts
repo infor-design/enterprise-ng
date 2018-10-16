@@ -278,32 +278,32 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   }
 
   private onBeforeExpand(event: SohoExpandableAreaEvent) {
-    // ensure we are back in a zone so that the timeout will trigger change detection.
+    // ensure we are back in the angular zone
     this.ngZone.run(() => this.beforeexpand.emit(event));
   }
 
   private onBeforeCollapse(event: SohoExpandableAreaEvent) {
-    // ensure we are back in a zone so that the timeout will trigger change detection.
+    // ensure we are back in the angular zone
     this.ngZone.run(() => this.beforecollapse.emit(event));
   }
 
   private onExpand(event: SohoExpandableAreaEvent) {
-    // ensure we are back in a zone so that the timeout will trigger change detection.
+    // ensure we are back in the angular zone
     this.ngZone.run(() => this.expand.emit(event));
   }
 
   private onCollapse(event: SohoExpandableAreaEvent) {
-    // ensure we are back in a zone so that the timeout will trigger change detection.
+    // ensure we are back in the angular zone
     this.ngZone.run(() => this.collapse.emit(event));
   }
 
   private onAfterExpand(event: SohoExpandableAreaEvent) {
-    // ensure we are back in a zone so that the timeout will trigger change detection.
+    // ensure we are back in the angular zone
     this.ngZone.run(() => this.afterexpand.emit(event));
   }
 
   private onAfterCollapse(event: SohoExpandableAreaEvent) {
-    // ensure we are back in a zone so that the timeout will trigger change detection.
+    // ensure we are back in the angular zone
     this.ngZone.run(() => this.aftercollapse.emit(event));
   }
 }

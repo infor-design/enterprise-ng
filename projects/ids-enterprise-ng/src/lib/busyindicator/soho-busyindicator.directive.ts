@@ -200,7 +200,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
       // defined by the plug-in, but in this case it is 'busyindicator'.
       this.busyindicator = this.jQueryElement.data('busyindicator');
 
-      // if no events are registered then all event will be bound for backward compatibility.
+      // Initialise any event handlers.
       this.jQueryElement.on('afterstart', (e: JQuery.Event) => this.onAfterStart(e));
       this.jQueryElement.on('complete', (e: JQuery.Event) => this.onComplete(e));
 
@@ -243,7 +243,6 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
    * Publishes the event, after annotating the event.
    */
   private onAfterStart(event: JQuery.Event) {
-    // ensure we are back in a zone so that the timeout will trigger change detection.
     this.ngZone.run(() =>
       this.afterstart.next({
         type: 'afterstart',
@@ -256,7 +255,6 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
    * Publishes the event, after annotating the event.
    */
   private onComplete(event: JQuery.Event) {
-    // ensure we are back in a zone so that the timeout will trigger change detection.
     this.ngZone.run(() =>
       this.complete.next({
         type: 'complete',

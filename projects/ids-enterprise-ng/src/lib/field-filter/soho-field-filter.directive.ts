@@ -121,7 +121,7 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
   }
 
   private onFiltered(event: SohoFieldFilteredEvent, args) {
-    // ensure we are back in a zone so that the timeout will trigger change detection.
+    // ensure we are back in the angular zone
     this.ngZone.run(() => {
       event.filterOption = args.data;
       this.filtered.emit(event);

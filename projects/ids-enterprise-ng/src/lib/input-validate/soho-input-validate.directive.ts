@@ -50,8 +50,7 @@ export class SohoInputValidateDirective implements AfterViewInit {
 
       this.jQueryElement.validate();
 
-      // Add listeners to emit events
-      // if no events are registered then all events will be bound for backward comparability
+      // Initialise any event handlers.
       this.jQueryElement.on('error', (event: SohoInputValidateEvent, validation) => this.ngZone.run(() => {
         event.validation = { field: validation.field[ 0 ], message: validation.message };
         this.error.emit(event);

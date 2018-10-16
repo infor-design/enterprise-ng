@@ -693,7 +693,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   private onBeforeActivated(event: SohoTabsEvent, tab) {
-    // ensure we are back in a zone so that the timeout will trigger change detection.
+    // ensure we are back in the angular zone
     this.ngZone.run(() => {
       event.tab = tab[ 0 ];
       this.beforeActivated.emit(event);
@@ -701,7 +701,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   private onActivated(event: SohoTabsEvent, tab) {
-    // ensure we are back in a zone so that the timeout will trigger change detection.
+    // ensure we are back in the angular zone
     this.ngZone.run(() => {
       event.tab = tab[ 0 ];
       this.activated.emit(event);
@@ -709,7 +709,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   private onAfterActivated(event: SohoTabsEvent, tab) {
-    // ensure we are back in a zone so that the timeout will trigger change detection.
+    // ensure we are back in the angular zone
     this.ngZone.run(() => {
       event.tab = tab[ 0 ];
       this.afterActivated.emit(event);
@@ -717,7 +717,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   private onBeforeClose(event: SohoTabsEvent, tab) {
-    // ensure we are back in a zone so that the timeout will trigger change detection.
+    // ensure we are back in the angular zone
     this.ngZone.run(() => {
       event.tab = tab[0];
       this.beforeClose.emit(event);
@@ -729,7 +729,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   private onClose(event: SohoTabsEvent, tab) {
-    // ensure we are back in a zone so that the timeout will trigger change detection.
+    // ensure we are back in the angular zone
     this.ngZone.run(() => {
       event.tab = tab[ 0 ];
       this.close.emit(event);
@@ -737,7 +737,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   private onAfterClose(event: SohoTabsEvent, tab) {
-    // ensure we are back in a zone so that the timeout will trigger change detection.
+    // ensure we are back in the angular zone
     this.ngZone.run(() => {
       event.tab = tab[ 0 ];
       this.afterClose.emit(event);
@@ -745,7 +745,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   private onTabAdded(event: SohoTabsEvent, tab) {
-    // ensure we are back in a zone so that the timeout will trigger change detection.
+    // ensure we are back in the angular zone
     this.ngZone.run(() => {
       event.tab = tab[ 0 ];
       this.tabAdded.emit(event);
