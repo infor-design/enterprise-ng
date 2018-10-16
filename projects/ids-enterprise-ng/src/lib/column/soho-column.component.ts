@@ -205,10 +205,10 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   public toggleSelected(selected: SohoColumnSelected) {
-    this.column.toggleSelected(selected);
+    this.ngZone.runOutsideAngular(() => this.column.toggleSelected(selected));
   }
 
   public getSelected() {
-    this.column.getSelected();
+    return this.ngZone.runOutsideAngular(() => this.column.getSelected());
   }
 }
