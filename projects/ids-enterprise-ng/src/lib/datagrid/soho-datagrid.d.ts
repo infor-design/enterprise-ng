@@ -246,6 +246,12 @@ interface SohoDataGridOptions {
    *  If false children nodes will not be selected when the parent node is selected
    */
   selectChildren?: boolean;
+
+  /**
+   *  Makes it possible to save selections when changing pages on server side paging.
+   *  You may want to also use showSelectAllCheckBox: false
+   */
+  allowSelectAcrossPages?: boolean;
 }
 
 /**
