@@ -2,19 +2,21 @@
 
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   HostBinding,
-  Input } from '@angular/core';
+  Input,
+  NgZone,
+  OnDestroy,
+} from '@angular/core';
 
 @Component({
   selector: 'div[soho-homepage]', // tslint:disable-line
-  template: `<div class="content">
-                <ng-content></ng-content>
-             </div>
-            `
+  template: `<div class="content"><ng-content></ng-content></div>`,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoHomePageComponent implements AfterViewInit {
+export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
 
   @Input() set homePageOptions(homePageOptions: SohoHomePageOptions) {
     this._homePageOptions = homePageOptions;
@@ -134,19 +136,37 @@ export class SohoHomePageComponent implements AfterViewInit {
 
   private _homePageOptions: SohoHomePageOptions = {};
 
-  constructor(private elementRef: ElementRef) {
-  }
+  constructor(
+    private elementRef: ElementRef,
+    private ngZone: NgZone,
+  ) { }
 
   ngAfterViewInit() {
-    // Wrap for later.
-    this.jQueryElement = jQuery(this.elementRef.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
 
-    // Initialise the SoHoXi control.
-    this.jQueryElement.homepage(this._homePageOptions);
+      // Wrap for later.
+      this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
-    // Once the control is initialised, extract the control
-    // plug-in from the element.  The element name is
-    // defined by the plug-in, but in this case is 'homepage'.
-    this.homePage = this.jQueryElement.data('homepage');
+      // Initialise the SoHoXi control.
+      this.jQueryElement.homepage(this._homePageOptions);
+
+      // Once the control is initialised, extract the control
+      // plug-in from the element.  The element name is
+      // defined by the plug-in, but in this case is 'homepage'.
+      this.homePage = this.jQueryElement.data('homepage');
+    });
+  }
+
+  ngOnDestroy() {
+    // call outside the angular zone so change detection isn't triggered by the soho component.
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.homePage) {
+        this.homePage.destroy();
+        this.homePage = null;
+      }
+    });
   }
 }

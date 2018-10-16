@@ -1,6 +1,7 @@
 /// <reference path="soho-pie.d.ts" />
 
 import {
+  AfterViewChecked,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
@@ -8,16 +9,18 @@ import {
   EventEmitter,
   HostBinding,
   Input,
+  NgZone,
   OnDestroy,
   Output,
 } from '@angular/core';
 
 @Component({
   selector: '[soho-pie]', // tslint:disable-line
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class SohoPieComponent implements AfterViewInit, OnDestroy {
+export class SohoPieComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   /** Options. */
   private options: SohoPieOptions = {};
 
@@ -31,7 +34,7 @@ export class SohoPieComponent implements AfterViewInit, OnDestroy {
 
     if (this.pie) {
       this.pie.settings.dataset = dataset;
-      this.pie.updated(this.pie.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -41,7 +44,7 @@ export class SohoPieComponent implements AfterViewInit, OnDestroy {
 
     if (this.pie) {
       this.pie.settings.isDonut = value;
-      this.pie.updated(this.pie.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -51,7 +54,7 @@ export class SohoPieComponent implements AfterViewInit, OnDestroy {
 
     if (this.pie) {
       this.pie.settings.animationSpeed = value;
-      this.pie.updated(this.pie.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -61,7 +64,7 @@ export class SohoPieComponent implements AfterViewInit, OnDestroy {
 
     if (this.pie) {
       this.pie.settings.animate = value;
-      this.pie.updated(this.pie.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -72,7 +75,7 @@ export class SohoPieComponent implements AfterViewInit, OnDestroy {
 
     if (this.pie) {
       this.pie.settings.redrawOnResize = value;
-      this.pie.updated(this.pie.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -82,7 +85,7 @@ export class SohoPieComponent implements AfterViewInit, OnDestroy {
 
     if (this.pie) {
       this.pie.settings.hideCenterLabel = value;
-      this.pie.updated(this.pie.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -92,7 +95,7 @@ export class SohoPieComponent implements AfterViewInit, OnDestroy {
 
     if (this.pie) {
       this.pie.settings.showLines = value;
-      this.pie.updated(this.pie.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -102,7 +105,7 @@ export class SohoPieComponent implements AfterViewInit, OnDestroy {
 
     if (this.pie) {
       this.pie.settings.showLinesMobile = value;
-      this.pie.updated(this.pie.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -112,7 +115,7 @@ export class SohoPieComponent implements AfterViewInit, OnDestroy {
 
     if (this.pie) {
       this.pie.settings.lines = value;
-      this.pie.updated(this.pie.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -122,7 +125,7 @@ export class SohoPieComponent implements AfterViewInit, OnDestroy {
 
     if (this.pie) {
       this.pie.settings.showLegend = value;
-      this.pie.updated(this.pie.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -132,7 +135,7 @@ export class SohoPieComponent implements AfterViewInit, OnDestroy {
 
     if (this.pie) {
       this.pie.settings.legendPlacement = value;
-      this.pie.updated(this.pie.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -142,7 +145,7 @@ export class SohoPieComponent implements AfterViewInit, OnDestroy {
 
     if (this.pie) {
       this.pie.settings.legend = value;
-      this.pie.updated(this.pie.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -152,7 +155,7 @@ export class SohoPieComponent implements AfterViewInit, OnDestroy {
 
     if (this.pie) {
       this.pie.settings.showTooltips = value;
-      this.pie.updated(this.pie.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -162,7 +165,7 @@ export class SohoPieComponent implements AfterViewInit, OnDestroy {
 
     if (this.pie) {
       this.pie.settings.tooltip = value;
-      this.pie.updated(this.pie.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -173,39 +176,63 @@ export class SohoPieComponent implements AfterViewInit, OnDestroy {
 
   private jQueryElement: JQuery;
   private pie: SohoPie;
-  constructor(private element: ElementRef) { }
+  private updateRequired = false;
+
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone,
+  ) { }
 
   /** Setup */
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
 
-    this.options.type = 'pie';
-    this.jQueryElement.chart(this.options);
-    this.pie = this.jQueryElement.data('pie');
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    // Setup the events
-    this.jQueryElement.on('selected', (e: any, args: SohoPieSelectEvent) => this.selected.emit(args));
-    this.jQueryElement.on('unselected', (e: any, args: SohoPieSelectEvent) => this.unselected.emit(args));
-    this.jQueryElement.on('rendered', (...args) => this.rendered.emit(args));
+      this.options.type = 'pie';
+      this.jQueryElement.chart(this.options);
+      this.pie = this.jQueryElement.data('pie');
+
+      // Setup the events
+      this.jQueryElement.on('selected', (e: any, args: SohoPieSelectEvent) =>
+        this.ngZone.run(() => this.selected.emit(args)));
+      this.jQueryElement.on('unselected', (e: any, args: SohoPieSelectEvent) =>
+        this.ngZone.run(() => this.unselected.emit(args)));
+      this.jQueryElement.on('rendered', (... args) =>
+        this.ngZone.run(() => this.rendered.emit(args)));
+    });
+  }
+
+  ngAfterViewChecked() {
+    if (this.pie && this.updateRequired) {
+      this.ngZone.runOutsideAngular(() => this.pie.updated(this.pie.settings));
+      this.updateRequired = false;
+    }
   }
 
   /** Tear Down */
   ngOnDestroy() {
-    if (this.pie) {
-      this.pie.destroy();
-      this.pie = null;
-    }
+    // call outside the angular zone so change detection isn't triggered by the soho component.
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.pie) {
+        this.pie.destroy();
+        this.pie = null;
+      }
+    });
   }
 
   public setSelected(selected: SohoPieSelected) {
-    this.pie.setSelected(selected);
+    this.ngZone.runOutsideAngular(() => this.pie.setSelected(selected));
   }
 
   public toggleSelected(selected: SohoPieSelected) {
-    this.pie.toggleSelected(selected);
+    this.ngZone.runOutsideAngular(() => this.pie.toggleSelected(selected));
   }
 
   public getSelected() {
-    this.pie.getSelected();
+    return this.ngZone.runOutsideAngular(() => this.pie.getSelected());
   }
 }

@@ -14,7 +14,7 @@
 | busyindicator           |            Available |            - | [SOHO-4096][#4096] |            Yes |
 | button                  |            Available |            - | [SOHO-4556][#4556] |            Yes |
 | checkbox                |            Available |            - | [SOHO-4617][#4617] |            Yes |
-| circlepager             |            Available |            - |                  - |             No |
+| circlepager             |            Available |            - |                  - |            Yes |
 | colorpicker             |            Available |            - | [SOHO-6503][#6503] |            Yes |
 | column                  |            Available |            - |                  - |            Yes |
 | context-menu            |            Available |            - | [SOHO-4557][#4557] |            Yes |
@@ -33,14 +33,14 @@
 | fieldset                |              Pending |            - | [SOHO-4561][#4561] |              - |
 | header                  |            Available |            - |                  - |             No |
 | hierarchy               |            Available |            - |                  - |             No |
-| homepage                |            Available |            - |                  - |             No |
+| homepage                |            Available |            - |                  - |            Yes |
 | hyperlink               |            Available |            - | [SOHO-4562][#4562] |             No |
 | icon                    |            Available |            - |                  - |             No |
 | input                   |            Available |            - |                  - |             No |
 | input-validate          |            Available |            - |                  - |            Yes |
 | label                   |            Available |            - | [SOHO-4570][#4570] |             No |
 | lightbox                |      Not Implemented |            - | [SOHO-5127][#5127] |              - |
-| line                    |            Available |            - |                  - |             No |
+| line                    |            Available |            - |                  - |            Yes |
 | listview                |            Available | [README][2]  | [SOHO-4040][#4040] |            Yes |
 | locale                  |            Available |            - | [SOHO-4470][#4470] |              - |
 | lookup                  |            Available |            - | [SOHO-4052][#4052] |             No |
@@ -50,7 +50,7 @@
 | message                 |            Available |            -  |                 - |              - |
 | modal-dialog            |            Available | [README][1]  | [SOHO-4734][#4734] |              - |
 | pager                   |              Pending |            - |                  - |             No |
-| pie                     |            Available |            - |                  - |             No |
+| pie                     |            Available |            - |                  - |            Yes |
 | personalize             |            Available |            - |                  - |             No |
 | popdown                 |            Available |            - | [SOHO-4653][#4563] |             No |
 | popupmenu               |            Available |            - | [SOHO-4342][#4342] |            Yes |
