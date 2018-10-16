@@ -142,21 +142,6 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
   }
 
   /**
-   * A initial setting only of the events you'd like to have hooked up in the agnular wrapper.
-   * This aids in reducing change detection as each bound event that gets called (whether you
-   * are interested in it or not) causes change detection to get called which causes the screen
-   * to re-render each time.
-   *
-   * This is backward compatible if you don't use the registerForEvents input. If you want no
-   * events hooked up then use registerForEvent="". Otherwise just specify the events you want
-   * hooked up to sohoxi from this angular component.
-   *
-   * a space delimited list of the events to be hooked up to sohoxi.
-   * example: "activated afterActivated tabAdded"
-   */
-  @Input() registerForEvents = undefined;
-
-  /**
    * Constructor.
    *
    * @param elementRef - the element matching the component's selector.
@@ -215,31 +200,13 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
       // defined by the plug-in, but in this case it is 'busyindicator'.
       this.busyindicator = this.jQueryElement.data('busyindicator');
 
-      // Initialise any event handlers.
-      this.hookupRegisteredEvents();
+      // if no events are registered then all event will be bound for backward compatibility.
+      this.jQueryElement.on('afterstart', (e: JQuery.Event) => this.onAfterStart(e));
+      this.jQueryElement.on('complete', (e: JQuery.Event) => this.onComplete(e));
 
       // Set initial state
-      // get back into the angular zone so the setTimeout will trigger change detection.
       this.ngZone.run(() => this.activated = this.initiallyActive);
     });
-  }
-
-  private hookupRegisteredEvents() {
-    NgZone.assertNotInAngularZone();
-
-    let eventsToRegister = null;
-    if (this.registerForEvents !== undefined) {
-      eventsToRegister = this.registerForEvents.split(' ');
-    }
-
-    // if no events are registered then all event will be bound for backward compatibility.
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'afterstart')) {
-      this.jQueryElement.on('afterstart', (e: JQuery.Event) => this.onAfterStart(e));
-    }
-
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'complete')) {
-      this.jQueryElement.on('complete', (e: JQuery.Event) => this.onComplete(e));
-    }
   }
 
   ngAfterViewChecked() {
@@ -276,22 +243,26 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
    * Publishes the event, after annotating the event.
    */
   private onAfterStart(event: JQuery.Event) {
-    NgZone.assertNotInAngularZone();
-
     // ensure we are back in a zone so that the timeout will trigger change detection.
-    this.ngZone.run(() => setTimeout(() =>
-      this.afterstart.next({ type: 'afterstart', component: this, event: event }), 1));
+    this.ngZone.run(() =>
+      this.afterstart.next({
+        type: 'afterstart',
+        component: this,
+        event: event
+      }));
   }
 
   /**
-   * Publishes the vent, after annotating the event.
+   * Publishes the event, after annotating the event.
    */
   private onComplete(event: JQuery.Event) {
-    NgZone.assertNotInAngularZone();
-
     // ensure we are back in a zone so that the timeout will trigger change detection.
-    this.ngZone.run(() => setTimeout(() =>
-      this.complete.next({ type: 'complete', component: this, event: event }), 1));
+    this.ngZone.run(() =>
+      this.complete.next({
+        type: 'complete',
+        component: this,
+        event: event
+      }));
   }
 }
 
