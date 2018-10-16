@@ -1,6 +1,7 @@
 /// <reference path="soho-line.d.ts" />
 
 import {
+  AfterViewChecked,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
@@ -8,16 +9,18 @@ import {
   EventEmitter,
   HostBinding,
   Input,
+  NgZone,
   OnDestroy,
   Output,
 } from '@angular/core';
 
 @Component({
   selector: '[soho-line]', // tslint:disable-line
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class SohoLineComponent implements AfterViewInit, OnDestroy {
+export class SohoLineComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   /** Options. */
   private options: SohoLineOptions = {};
 
@@ -31,7 +34,7 @@ export class SohoLineComponent implements AfterViewInit, OnDestroy {
 
     if (this.line) {
       this.line.settings.dataset = dataset;
-      this.line.updated(this.line.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -40,7 +43,7 @@ export class SohoLineComponent implements AfterViewInit, OnDestroy {
 
     if (this.line) {
       this.line.settings.tooltip = value;
-      this.line.updated(this.line.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -49,7 +52,7 @@ export class SohoLineComponent implements AfterViewInit, OnDestroy {
 
     if (this.line) {
       this.line.settings.isArea = value;
-      this.line.updated(this.line.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -58,7 +61,7 @@ export class SohoLineComponent implements AfterViewInit, OnDestroy {
 
     if (this.line) {
       this.line.settings.isBubble = value;
-      this.line.updated(this.line.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -67,7 +70,7 @@ export class SohoLineComponent implements AfterViewInit, OnDestroy {
 
     if (this.line) {
       this.line.settings.showLegend = value;
-      this.line.updated(this.line.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -76,7 +79,7 @@ export class SohoLineComponent implements AfterViewInit, OnDestroy {
 
     if (this.line) {
       this.line.settings.xAxis = value;
-      this.line.updated(this.line.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -85,7 +88,7 @@ export class SohoLineComponent implements AfterViewInit, OnDestroy {
 
     if (this.line) {
       this.line.settings.yAxis = value;
-      this.line.updated(this.line.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -94,7 +97,7 @@ export class SohoLineComponent implements AfterViewInit, OnDestroy {
 
     if (this.line) {
       this.line.settings.hideDots = value;
-      this.line.updated(this.line.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -103,7 +106,7 @@ export class SohoLineComponent implements AfterViewInit, OnDestroy {
 
     if (this.line) {
       this.line.settings.axisLabels = value;
-      this.line.updated(this.line.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -112,7 +115,7 @@ export class SohoLineComponent implements AfterViewInit, OnDestroy {
 
     if (this.line) {
       this.line.settings.animate = value;
-      this.line.updated(this.line.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -121,7 +124,7 @@ export class SohoLineComponent implements AfterViewInit, OnDestroy {
 
     if (this.line) {
       this.line.settings.redrawOnResize = value;
-      this.line.updated(this.line.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -130,7 +133,7 @@ export class SohoLineComponent implements AfterViewInit, OnDestroy {
 
     if (this.line) {
       this.line.settings.dots = value;
-      this.line.updated(this.line.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -139,7 +142,7 @@ export class SohoLineComponent implements AfterViewInit, OnDestroy {
 
     if (this.line) {
       this.line.settings.formatterString = value;
-      this.line.updated(this.line.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -148,7 +151,7 @@ export class SohoLineComponent implements AfterViewInit, OnDestroy {
 
     if (this.line) {
       this.line.settings.emptyMessage = value;
-      this.line.updated(this.line.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -158,39 +161,63 @@ export class SohoLineComponent implements AfterViewInit, OnDestroy {
 
   private jQueryElement: JQuery;
   private line: SohoLine;
-  constructor(private element: ElementRef) { }
+  private updateRequired = false;
+
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone,
+  ) { }
 
   /** Setup */
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
 
-    this.options.type = 'line';
-    this.jQueryElement.chart(this.options);
-    this.line = this.jQueryElement.data('line');
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    // Setup the events
-    this.jQueryElement.on('selected', (e: any, args: SohoLineSelectEvent) => this.selected.emit(args));
-    this.jQueryElement.on('unselected', (e: any, args: SohoLineSelectEvent) => this.unselected.emit(args));
-    this.jQueryElement.on('rendered', (...args) => this.rendered.emit(args));
+      this.options.type = 'line';
+      this.jQueryElement.chart(this.options);
+      this.line = this.jQueryElement.data('line');
+
+      // Setup the events
+      this.jQueryElement.on('selected', (e: any, args: SohoLineSelectEvent) =>
+        this.ngZone.run(() => this.selected.emit(args)));
+      this.jQueryElement.on('unselected', (e: any, args: SohoLineSelectEvent) =>
+        this.ngZone.run(() => this.unselected.emit(args)));
+      this.jQueryElement.on('rendered', (... args) =>
+        this.ngZone.run(() => this.rendered.emit(args)));
+    });
+  }
+
+  ngAfterViewChecked() {
+    if (this.line && this.updateRequired) {
+      this.line.updated(this.line.settings);
+      this.updateRequired = false;
+    }
   }
 
   /** Tear Down */
   ngOnDestroy() {
-    if (this.line) {
-      this.line.destroy();
-      this.line = null;
-    }
+    // call outside the angular zone so change detection isn't triggered by the soho component.
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.line) {
+        this.line.destroy();
+        this.line = null;
+      }
+    });
   }
 
   public setSelected(selected: SohoLineSelected) {
-    this.line.setSelected(selected);
+    this.ngZone.runOutsideAngular(() => this.line.setSelected(selected));
   }
 
   public toggleSelected(selected: SohoLineSelected) {
-    this.line.toggleSelected(selected);
+    this.ngZone.runOutsideAngular(() => this.line.toggleSelected(selected));
   }
 
   public getSelected() {
-    this.line.getSelected();
+    return this.ngZone.runOutsideAngular(() => this.line.getSelected());
   }
 }

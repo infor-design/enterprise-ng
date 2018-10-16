@@ -1,6 +1,7 @@
 /// <reference path="soho-column.d.ts" />
 
 import {
+  AfterViewChecked,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
@@ -8,16 +9,18 @@ import {
   EventEmitter,
   HostBinding,
   Input,
+  NgZone,
   OnDestroy,
   Output,
 } from '@angular/core';
 
 @Component({
   selector: '[soho-column]', // tslint:disable-line
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class SohoColumnComponent implements AfterViewInit, OnDestroy {
+export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   /** Options. */
   private options: SohoColumnOptions = {};
 
@@ -31,7 +34,7 @@ export class SohoColumnComponent implements AfterViewInit, OnDestroy {
 
     if (this.column) {
       this.column.settings.dataset = dataset;
-      this.column.updated(this.column.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -41,7 +44,7 @@ export class SohoColumnComponent implements AfterViewInit, OnDestroy {
 
     if (this.column) {
       this.column.settings.type = value;
-      this.column.updated(this.column.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -51,7 +54,7 @@ export class SohoColumnComponent implements AfterViewInit, OnDestroy {
 
     if (this.column) {
       this.column.settings.isStacked = value;
-      this.column.updated(this.column.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -61,7 +64,7 @@ export class SohoColumnComponent implements AfterViewInit, OnDestroy {
 
     if (this.column) {
       this.column.settings.showLegend = value;
-      this.column.updated(this.column.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -71,7 +74,7 @@ export class SohoColumnComponent implements AfterViewInit, OnDestroy {
 
     if (this.column) {
       this.column.settings.animate = value;
-      this.column.updated(this.column.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -81,7 +84,7 @@ export class SohoColumnComponent implements AfterViewInit, OnDestroy {
 
     if (this.column) {
       this.column.settings.redrawOnResize = value;
-      this.column.updated(this.column.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -91,7 +94,7 @@ export class SohoColumnComponent implements AfterViewInit, OnDestroy {
 
     if (this.column) {
       this.column.settings.format = value;
-      this.column.updated(this.column.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -100,7 +103,7 @@ export class SohoColumnComponent implements AfterViewInit, OnDestroy {
 
     if (this.column) {
       this.column.settings.formatterString = value;
-      this.column.updated(this.column.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -110,7 +113,7 @@ export class SohoColumnComponent implements AfterViewInit, OnDestroy {
 
     if (this.column) {
       this.column.settings.ticks = value;
-      this.column.updated(this.column.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -120,7 +123,7 @@ export class SohoColumnComponent implements AfterViewInit, OnDestroy {
 
     if (this.column) {
       this.column.settings.emptyMessage = value;
-      this.column.updated(this.column.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -130,6 +133,16 @@ export class SohoColumnComponent implements AfterViewInit, OnDestroy {
 
     if (this.column) {
       this.column.settings.xAxis = value;
+      this.updateRequired = true;
+    }
+  }
+
+  /** Settings for the chart yAxis. */
+  @Input() set yAxis(value: object) {
+    this.options.yAxis = value;
+
+    if (this.column) {
+      this.column.settings.yAxis = value;
       this.column.updated(this.column.settings);
     }
   }
@@ -140,32 +153,55 @@ export class SohoColumnComponent implements AfterViewInit, OnDestroy {
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
 
   private jQueryElement: JQuery;
-  private column: SohoColumn;
-  constructor(private element: ElementRef) { }
+  public column: SohoColumn;
+  private updateRequired = false;
+
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone,
+  ) { }
 
   /** Setup */
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    this.jQueryElement.chart(this.options);
-    this.column = this.jQueryElement.data('column');
+      this.jQueryElement.chart(this.options);
+      this.column = this.jQueryElement.data('column');
 
-    // Setup the events
-    this.jQueryElement.on('selected', (e: any, args: SohoColumnSelectEvent) => this.selected.emit(args));
-    this.jQueryElement.on('unselected', (e: any, args: SohoColumnSelectEvent) => this.unselected.emit(args));
-    this.jQueryElement.on('rendered', (...args) => this.rendered.emit(args));
+      // Setup the events
+      this.jQueryElement.on('selected', (e: any, args: SohoColumnSelectEvent) =>
+        this.ngZone.run(() => this.selected.emit(args)));
+      this.jQueryElement.on('unselected', (e: any, args: SohoColumnSelectEvent) =>
+        this.ngZone.run(() => this.unselected.emit(args)));
+      this.jQueryElement.on('rendered', (...args) =>
+        this.ngZone.run(() => this.rendered.emit(args)));
+    });
+  }
+
+  ngAfterViewChecked() {
+    if (this.column && this.updateRequired) {
+      this.column.updated(this.column.settings);
+      this.updateRequired = false;
+    }
   }
 
   /** Tear Down */
   ngOnDestroy() {
-    if (this.column) {
-      this.column.destroy();
-      this.column = null;
-    }
+    // call outside the angular zone so change detection isn't triggered by the soho component.
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.column) {
+        this.column.destroy();
+        this.column = null;
+      }
+    });
   }
 
   public setSelected(selected: SohoColumnSelected) {
-    this.column.setSelected(selected);
+    this.ngZone.runOutsideAngular(() => this.column.setSelected(selected));
   }
 
   public toggleSelected(selected: SohoColumnSelected) {

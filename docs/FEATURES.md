@@ -5,19 +5,18 @@
 |-------------------------|:--------------------:|:------------:|:------------------:|:--------------:|
 | about                   |            Available |            - |                  - |              - |
 | accordion               |            Available |  [README][3] | [SOHO-4344][#4344] |             No |
-| alert                   |            Available |            - |                  - |             No |
-| application-menu        |            Available |            - | [SOHO-3950][#3950] |             No |
+| alert                   |            Available |            - |                  - |            Yes |
 | application-menu        |            Available |            - | [SOHO-3950][#3950] |             No |
 | autocomplete            |            Available |            - | [SOHO-6759][#6759] |             No |
-| bar                     |            Available |            - |                  - |             No |
+| bar                     |            Available |            - |                  - |            Yes |
 | blockgrid               |            Available |            - |                    |            Yes |
-| bullet                  |            Available |            - |                  - |             No |
+| bullet                  |            Available |            - |                  - |            Yes |
 | busyindicator           |            Available |            - | [SOHO-4096][#4096] |            Yes |
 | button                  |            Available |            - | [SOHO-4556][#4556] |            Yes |
-| checkbox                |            Available |            - | [SOHO-4617][#4617] |             No |
+| checkbox                |            Available |            - | [SOHO-4617][#4617] |            Yes |
 | circlepager             |            Available |            - |                  - |             No |
 | colorpicker             |            Available |            - | [SOHO-6503][#6503] |            Yes |
-| column                  |            Available |            - |                  - |             No |
+| column                  |            Available |            - |                  - |            Yes |
 | context-menu            |            Available |            - | [SOHO-4557][#4557] |            Yes |
 | contextual-action-panel |            Available |  [README][0] | [SOHO-5909][#5909] |              - |
 | datagrid                |            Available |  [README][4] | [SOHO-4049][#4049] |            Yes |
@@ -56,18 +55,18 @@
 | popdown                 |            Available |            - | [SOHO-4653][#4563] |             No |
 | popupmenu               |            Available |            - | [SOHO-4342][#4342] |            Yes |
 | progress                |            Available |            - | [SOHO-4342][#4342] |             No |
-| radar                   |            Available |            - |                  - |             No |
+| radar                   |            Available |            - |                  - |            Yes |
 | radiobutton             |            Available |            - | [SOHO-4562][#4562] |             No |
 | rating                  |              Pending |            - | [SOHO-5126][#5126] |             No |
 | searchfield             |            Available |            - | [SOHO-4422][#4422] |             No |
 | slider                  |            Available |            - | [SOHO-4565][#4565] |             No |
-| sparkline               |            Available |            - |                  - |             No |
+| sparkline               |            Available |            - |                  - |            Yes |
 | spinbox                 |            Available |            - | [SOHO-5125][#5125] |            Yes |
 | splitter                |            Available |            - | [SOHO-4402][#4402] |             No |
 | stepprocess             |            Available |            - | [SOHO-4999][#4999] |             No |
 | swaplist                |            Available |            - | [SOHO-5122][#5122] |             No |
 | tag                     |            Available |  [README][5] | [SOHO-8005][#8005] |            Yes |
-| tabs                    |            Available |            - |                  - |             No |
+| tabs                    |            Available |            - |                  - |            Yes |
 | textarea                |            Available |            - |                  - |            Yes |
 | timepicker              |            Available |            - |                  - |            Yes |
 | theming                 |      Partial Support |            - |                  - |              - |
@@ -77,7 +76,7 @@
 | trackdirty              |            Available |            - |                  - |            Yes |
 | tree                    |            Available |            - | [SOHO-4043][#4083] |             No |
 | treegrid                |            Available |            - | [SOHO-4722][#4722] |            Yes |
-| treemap                 |            Available |            - |                  - |             No |
+| treemap                 |            Available |            - |                  - |            Yes |
 | wizard                  |            Available |            - | [SOHO-6317][#6317] |             No |
 
 [0]: ../projects/ids-enterprise-ng/src/lib/contextual-action-panel/README.md

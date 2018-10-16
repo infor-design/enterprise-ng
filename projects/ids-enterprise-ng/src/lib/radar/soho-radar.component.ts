@@ -1,6 +1,7 @@
 /// <reference path="soho-radar.d.ts" />
 
 import {
+  AfterViewChecked,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
@@ -8,16 +9,18 @@ import {
   EventEmitter,
   HostBinding,
   Input,
+  NgZone,
   OnDestroy,
   Output,
 } from '@angular/core';
 
 @Component({
   selector: '[soho-radar]', // tslint:disable-line
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class SohoRadarComponent implements AfterViewInit, OnDestroy {
+export class SohoRadarComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   /** Options. */
   private options: SohoRadarOptions = {};
 
@@ -31,7 +34,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.dataset = dataset;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -41,7 +44,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.redrawOnResize = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -51,7 +54,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.margin = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -61,7 +64,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.levels = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -71,7 +74,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.maxValue = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -82,7 +85,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.labelFactor = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -93,7 +96,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.wrapWidth = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -103,7 +106,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.opacityArea = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -113,7 +116,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.dotRadius = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -123,7 +126,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.opacityCircles = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -133,7 +136,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.strokeWidth = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -143,7 +146,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.roundStrokes = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -153,7 +156,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.showCrosslines = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -163,7 +166,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.showAxisLabels = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -173,7 +176,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.colors = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -183,7 +186,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.showTooltips = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -193,7 +196,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.tooltip = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -203,7 +206,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.axisFormatter = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -213,7 +216,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.showLegend = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -223,7 +226,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.legendPlacement = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -233,7 +236,7 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
     if (this.radar) {
       this.radar.settings.emptyMessage = value;
-      this.radar.updated(this.radar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -244,39 +247,62 @@ export class SohoRadarComponent implements AfterViewInit, OnDestroy {
 
   private jQueryElement: JQuery;
   private radar: SohoRadar;
-  constructor(private element: ElementRef) { }
+  private updateRequired = false;
+
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone,
+  ) { }
 
   /** Setup */
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    this.options.type = 'radar';
-    this.jQueryElement.chart(this.options);
-    this.radar = this.jQueryElement.data('radar');
+      this.options.type = 'radar';
+      this.jQueryElement.chart(this.options);
+      this.radar = this.jQueryElement.data('radar');
 
-    // Setup the events
-    this.jQueryElement.on('selected', (e: any, args: SohoRadarSelectEvent) => this.selected.emit(args));
-    this.jQueryElement.on('unselected', (e: any, args: SohoRadarSelectEvent) => this.unselected.emit(args));
-    this.jQueryElement.on('rendered', (...args) => this.rendered.emit(args));
+      // Setup the events
+      this.jQueryElement.on('selected', (e: any, args: SohoRadarSelectEvent) =>
+        this.ngZone.run(() => this.selected.emit(args)));
+      this.jQueryElement.on('unselected', (e: any, args: SohoRadarSelectEvent) =>
+        this.ngZone.run(() => this.unselected.emit(args)));
+      this.jQueryElement.on('rendered', (...args) =>
+        this.ngZone.run(() => this.rendered.emit(args)));
+    });
+  }
+
+  ngAfterViewChecked() {
+    if (this.radar && this.updateRequired) {
+      this.radar.updated(this.radar.settings);
+      this.updateRequired = false;
+    }
   }
 
   /** Tear Down */
   ngOnDestroy() {
-    if (this.radar) {
-      this.radar.destroy();
-      this.radar = null;
-    }
+    // call outside the angular zone so change detection isn't triggered by the soho component.
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.radar) {
+        this.radar.destroy();
+        this.radar = null;
+      }
+    });
   }
 
   public setSelected(selected: SohoRadarSelected) {
-    this.radar.setSelected(selected);
+    this.ngZone.runOutsideAngular(() => this.radar.setSelected(selected));
   }
 
   public toggleSelected(selected: SohoRadarSelected) {
-    this.radar.toggleSelected(selected);
+    this.ngZone.runOutsideAngular(() => this.radar.toggleSelected(selected));
   }
 
   public getSelected() {
-    this.radar.getSelected();
+    return this.ngZone.runOutsideAngular(() => this.radar.getSelected());
   }
 }

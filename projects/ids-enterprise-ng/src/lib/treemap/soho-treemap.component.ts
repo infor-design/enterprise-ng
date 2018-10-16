@@ -1,6 +1,7 @@
 /// <reference path="soho-treemap.d.ts" />
 
 import {
+  AfterViewChecked,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
@@ -8,16 +9,18 @@ import {
   EventEmitter,
   HostBinding,
   Input,
+  NgZone,
   OnDestroy,
   Output,
 } from '@angular/core';
 
 @Component({
   selector: '[soho-treemap]', // tslint:disable-line
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class SohoTreemapComponent implements AfterViewInit, OnDestroy {
+export class SohoTreemapComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   /** Options. */
   private options: SohoTreemapOptions = {};
 
@@ -31,7 +34,7 @@ export class SohoTreemapComponent implements AfterViewInit, OnDestroy {
 
     if (this.treemap) {
       this.treemap.settings.dataset = dataset;
-      this.treemap.updated(this.treemap.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -41,7 +44,7 @@ export class SohoTreemapComponent implements AfterViewInit, OnDestroy {
 
     if (this.treemap) {
       this.treemap.settings.redrawOnResize = value;
-      this.treemap.updated(this.treemap.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -51,7 +54,7 @@ export class SohoTreemapComponent implements AfterViewInit, OnDestroy {
 
     if (this.treemap) {
       this.treemap.settings.margin = value;
-      this.treemap.updated(this.treemap.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -61,7 +64,7 @@ export class SohoTreemapComponent implements AfterViewInit, OnDestroy {
 
     if (this.treemap) {
       this.treemap.settings.colors = value;
-      this.treemap.updated(this.treemap.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -71,7 +74,7 @@ export class SohoTreemapComponent implements AfterViewInit, OnDestroy {
 
     if (this.treemap) {
       this.treemap.settings.showLabel = value;
-      this.treemap.updated(this.treemap.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -81,7 +84,7 @@ export class SohoTreemapComponent implements AfterViewInit, OnDestroy {
 
     if (this.treemap) {
       this.treemap.settings.labelFormatter = value;
-      this.treemap.updated(this.treemap.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -91,7 +94,7 @@ export class SohoTreemapComponent implements AfterViewInit, OnDestroy {
 
     if (this.treemap) {
       this.treemap.settings.showTitle = value;
-      this.treemap.updated(this.treemap.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -101,7 +104,7 @@ export class SohoTreemapComponent implements AfterViewInit, OnDestroy {
 
     if (this.treemap) {
       this.treemap.settings.emptyMessage = value;
-      this.treemap.updated(this.treemap.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -110,26 +113,46 @@ export class SohoTreemapComponent implements AfterViewInit, OnDestroy {
 
   private jQueryElement: JQuery;
   private treemap: SohoTreemap;
-  constructor(private element: ElementRef) { }
+  private updateRequired = false;
+
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone,
+  ) { }
 
   /** Setup */
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    // this.options.type = 'treemap';
-    this.jQueryElement.treemap(this.options);
-    this.treemap = this.jQueryElement.data('treemap');
+      // this.options.type = 'treemap';
+      this.jQueryElement.treemap(this.options);
+      this.treemap = this.jQueryElement.data('treemap');
 
-    // Setup the events
-    this.jQueryElement.on('rendered', (...args) => this.rendered.emit(args));
+      // Setup the events
+      this.jQueryElement.on('rendered', (...args) =>
+        this.ngZone.run(() => this.rendered.emit(args)));
+    });
+  }
+
+  ngAfterViewChecked() {
+    if (this.treemap && this.updateRequired) {
+      this.treemap.updated(this.treemap.settings);
+      this.updateRequired = false;
+    }
   }
 
   /** Tear Down */
   ngOnDestroy() {
-    if (this.treemap) {
-      this.treemap.destroy();
-      this.treemap = null;
-    }
+    // call outside the angular zone so change detection isn't triggered by the soho component.
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.treemap) {
+        this.treemap.destroy();
+        this.treemap = null;
+      }
+    });
   }
-
 }
