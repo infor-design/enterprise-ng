@@ -125,7 +125,7 @@ export class SohoSparklineComponent implements AfterViewInit, AfterViewChecked, 
   }
   ngAfterViewChecked() {
     if (this.sparkline && this.updateRequired) {
-      this.sparkline.updated(this.sparkline.settings);
+      this.ngZone.runOutsideAngular(() => this.sparkline.updated(this.sparkline.settings));
       this.updateRequired = false;
     }
   }
