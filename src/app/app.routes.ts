@@ -48,6 +48,7 @@ import { DataGridLookupDialogDemoComponent } from './datagrid/datagrid-lookup-di
 import { DataGridRowReorderDemoComponent } from './datagrid/datagrid-rowreorder.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
+import { DataGridExportWithoutDataGridDemoComponent } from './datagrid/datagrid-export-without-datagrid.demo';
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
 import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-header.demo';
@@ -195,6 +196,7 @@ export const routes: Routes = [
   { path: 'datagrid-empty-message',                 component: DataGridEmptyMessageDemoComponent },
   { path: 'datagrid-editors',                       component: DataGridEditorsDemoComponent },
   { path: 'datagrid-editors',                       component: DataGridEditorsDemoComponent },
+  { path: 'datagrid-export-without-datagrid',       component: DataGridExportWithoutDataGridDemoComponent },
   { path: 'datagrid-fixedheader',                   component: DataGridFixedHeaderDemoComponent },
   { path: 'datagrid-groupedheader',                 component: DataGridGroupedHeaderDemoComponent },
   { path: 'datagrid-groupable',                     component: DataGridGroupableDemoComponent },

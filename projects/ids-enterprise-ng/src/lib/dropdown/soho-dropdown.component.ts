@@ -18,7 +18,6 @@ import {
 } from '@angular/core';
 
 import {
-  NgModel,
   NgControl,
   ControlValueAccessor
 } from '@angular/forms';
