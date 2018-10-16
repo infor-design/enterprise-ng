@@ -133,7 +133,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
 
     if (this.column) {
       this.column.settings.xAxis = value;
-      this.column.updated(this.column.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -143,7 +143,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
 
     if (this.column) {
       this.column.settings.yAxis = value;
-      this.column.updated(this.column.settings);
+      this.updateRequired = true;
     }
   }
 
