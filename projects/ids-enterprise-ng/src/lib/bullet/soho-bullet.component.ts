@@ -86,7 +86,7 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
 
   ngAfterViewChecked() {
     if (this.bullet && this.updateRequired) {
-      this.bullet.updated(this.bullet.settings);
+      this.ngZone.runOutsideAngular(() => this.bullet.updated(this.bullet.settings));
       this.updateRequired = false;
     }
   }

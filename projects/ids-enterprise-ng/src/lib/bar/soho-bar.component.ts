@@ -234,7 +234,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
 
   ngAfterViewChecked() {
     if (this.bar && this.updateRequired) {
-      this.bar.updated(this.bar.settings);
+      this.ngZone.runOutsideAngular(() => this.bar.updated(this.bar.settings));
       this.updateRequired = false;
     }
   }

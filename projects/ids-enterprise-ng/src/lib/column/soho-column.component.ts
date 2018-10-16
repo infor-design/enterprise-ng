@@ -181,7 +181,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
 
   ngAfterViewChecked() {
     if (this.column && this.updateRequired) {
-      this.column.updated(this.column.settings);
+      this.ngZone.runOutsideAngular(() => this.column.updated(this.column.settings));
       this.updateRequired = false;
     }
   }

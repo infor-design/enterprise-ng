@@ -190,7 +190,7 @@ export class SohoLineComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   ngAfterViewChecked() {
     if (this.line && this.updateRequired) {
-      this.line.updated(this.line.settings);
+      this.ngZone.runOutsideAngular(() => this.line.updated(this.line.settings));
       this.updateRequired = false;
     }
   }

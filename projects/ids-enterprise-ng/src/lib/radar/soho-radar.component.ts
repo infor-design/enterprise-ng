@@ -275,7 +275,7 @@ export class SohoRadarComponent implements AfterViewInit, AfterViewChecked, OnDe
 
   ngAfterViewChecked() {
     if (this.radar && this.updateRequired) {
-      this.radar.updated(this.radar.settings);
+      this.ngZone.runOutsideAngular(() => this.radar.updated(this.radar.settings));
       this.updateRequired = false;
     }
   }

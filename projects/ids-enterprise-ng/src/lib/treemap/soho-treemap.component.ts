@@ -137,7 +137,7 @@ export class SohoTreemapComponent implements AfterViewInit, AfterViewChecked, On
 
   ngAfterViewChecked() {
     if (this.treemap && this.updateRequired) {
-      this.treemap.updated(this.treemap.settings);
+      this.ngZone.runOutsideAngular(() => this.treemap.updated(this.treemap.settings));
       this.updateRequired = false;
     }
   }
