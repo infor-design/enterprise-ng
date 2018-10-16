@@ -212,14 +212,20 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     }
   }
 
+  /** Enable the tree */
   public enable(): void {
-    // @todo not working on Soho tree control
     this.isDisabled = false;
+    if (this.tree) {
+      this.tree.enable();
+    }
   }
 
+  /** Disables the tree from reacting to events. */
   public disable(): void {
-    // @todo not working on Soho tree control
     this.isDisabled = true;
+    if (this.tree) {
+      this.tree.disable();
+    }
   }
 
   public setFocus(node: SohoTreeNode) {
@@ -273,9 +279,30 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Remove the given node.
+   */
   public removeNode(node: SohoTreeNode) {
     if (this.tree) {
       this.tree.removeNode(node);
+    }
+  }
+
+  /**
+   * Preserves all nodes' enablement states in the Tree component
+   */
+  public preserveEnablementState() {
+    if (this.tree) {
+      return this.tree.preserveEnablementState();
+    }
+  }
+
+  /**
+   * Restores all nodes' original enablement states in the Tree component
+   */
+  public restoreEnablementState() {
+    if (this.tree) {
+      this.tree.restoreEnablementState();
     }
   }
 

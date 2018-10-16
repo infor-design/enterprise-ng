@@ -33,7 +33,8 @@ export class DropdownDemoComponent {
       options: [
         { value: 'MN', label: 'Minnesota' },
       ]
-    }
+    },
+    blank: ''
   };
   public showModel = true;
   public dropDownDisabled = false;

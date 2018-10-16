@@ -42,6 +42,12 @@
             <option *ngFor="let option of options" [ngValue]="option">{{option.text}}</option>
           </select>
         </div>
+        <div class="field">
+          <label for="placeholder-dropdown" class="label">With Placeholder</label>
+          <select soho-dropdown name="placeholder-dropdown" placeholder="Select a Value" [(ngModel)]="model.blank">
+            <option *ngFor="let option of options" >{{option.text}}</option>
+          </select>
+        </div>
       </div>
     </div>
   </form>

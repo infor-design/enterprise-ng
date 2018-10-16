@@ -96,6 +96,17 @@ interface SohoTreeNode {
 }
 
 /**
+ * This is an interface mapping for the EnablementStates array.
+ */
+interface SohoTreeEnablementStates {
+  /** Unique identifier for this node in the tree. */
+  nodeId?: string;
+
+  /** The state (enabled or disabled) */
+  state?: string;
+}
+
+/**
  * This interface represents the pub Api exposed by the
  * Soho tree control.
  */
@@ -169,6 +180,23 @@ interface SohoTreeStatic {
    * Destructor,
    */
   destroy(): void;
+
+  /** Disables the tree from reacting to events. */
+  disable(): void;
+
+  /** Enables the tree. */
+  enable(): void;
+
+  /**
+   * Preserves all nodes' enablement states in the Tree component
+   * @returns {array} of node objects containing attributes nodeId and state (enablement state)
+   */
+  preserveEnablementState(): SohoTreeNode[];
+
+  /**
+   * Restores all nodes' original enablement states in the Tree component
+   */
+  restoreEnablementState(): void;
 }
 
 interface SohoTreeEvent {

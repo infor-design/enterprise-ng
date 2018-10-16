@@ -133,7 +133,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
 
     if (this.column) {
       this.column.settings.xAxis = value;
-      this.updateRequired = true;
+      this.column.updated(this.column.settings);
     }
   }
 
