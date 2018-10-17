@@ -5,12 +5,13 @@
  * interface of the Soho jQuery Bar control.
  */
 
+type SohoBarTypes = 'bar' | 'bar-stacked' | 'bar-grouped';
 /**
  * Bar Options
  */
 interface SohoBarOptions {
   /** Chart Type */
-  type?: string;
+  type?: SohoBarTypes;
 
   /** Defines the data to use, must be specified for this component. */
   dataset?: Object[];
@@ -46,7 +47,7 @@ interface SohoBarOptions {
   useLogScale?: boolean;
 
   /** Settings for the chart ticks. Can set ticks: {format: d3Format, number: n} */
-  ticks?: object[];
+  ticks?: object;
 
   /** Show the in the axis lines or not. */
   showLines?: boolean;
@@ -60,7 +61,7 @@ interface SohoBarOptions {
   wrapWidth?: number;
 
   /** An empty message will be displayed when there is no chart data. */
-  emptyMessage?: object[];
+  emptyMessage?: SohoEmptyMessageOptions;
 }
 
 interface SohoBarSelectEvent {

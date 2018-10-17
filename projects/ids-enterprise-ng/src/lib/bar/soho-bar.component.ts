@@ -39,7 +39,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
   }
 
    /** Chart Type */
-  @Input() set type(value: string) {
+  @Input() set type(value: SohoBarTypes) {
     this.options.type = value;
 
     if (this.bar) {
@@ -149,7 +149,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
   }
 
   /** Settings for the chart ticks. Can set ticks: {format: d3Format, number: n} */
-  @Input() set ticks(value: object[]) {
+  @Input() set ticks(value: object) {
     this.options.ticks = value;
 
     if (this.bar) {
@@ -191,7 +191,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
   }
 
   /** An empty message will be displayed when there is no chart data. */
-  @Input() set emptyMessage(value: object[]) {
+  @Input() set emptyMessage(value: SohoEmptyMessageOptions) {
     this.options.emptyMessage = value;
 
     if (this.bar) {
