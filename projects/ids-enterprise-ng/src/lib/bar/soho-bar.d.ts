@@ -5,7 +5,7 @@
  * interface of the Soho jQuery Bar control.
  */
 
-type SohoBarTypes = 'bar' | 'bar-stacked' | 'bar-grouped';
+type SohoBarTypes = 'bar' | 'bar-stacked' | 'bar-grouped' | 'bar-normalized';
 /**
  * Bar Options
  */
