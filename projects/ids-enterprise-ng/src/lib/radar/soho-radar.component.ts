@@ -112,7 +112,7 @@ export class SohoRadarComponent implements AfterViewInit, AfterViewChecked, OnDe
 
   /**  The size of the colored circles of each blog. Set to zero to remove dots. */
   @Input() set dotRadius(value: number) {
-    this.options.opacityArea = value;
+    this.options.dotRadius = value;
 
     if (this.radar) {
       this.radar.settings.dotRadius = value;
