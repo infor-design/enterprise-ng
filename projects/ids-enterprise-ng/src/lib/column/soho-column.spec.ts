@@ -50,7 +50,7 @@ const columnData = [{
   }]
 }];
 
-fdescribe('Soho Column Unit Tests', () => {
+describe('Soho Column Unit Tests', () => {
   let fixture:  ComponentFixture<SohoColumnComponent>;
   let comp:     SohoColumnComponent;
   let de:       DebugElement;
