@@ -12,8 +12,8 @@
 - `[Dropdown]` Added a placeholder example (this was not working previously) ([#207](https://github.com/infor-design/enterprise-ng/issues/207)) `TJM`
 
 ### 4.12.0 Fixes
-- `[General]` Refactored a handful of components to use `ngZone`. This effects the constructor and how often change detection is called. `PWP`
 
+- `[General]` Refactored a handful of components to use `ngZone`. This effects the constructor and how often change detection is called. `PWP`
 
 ### 4.12.0 Chore & Maintenance
 
