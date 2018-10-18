@@ -34,7 +34,7 @@ interface SohoTreemapOptions {
   showTitle?: boolean;
 
   /** An empty message will be displayed when there is no chart data. */
-  emptyMessage?: Object[];
+  emptyMessage?: SohoEmptyMessageOptions;
 }
 
 /**

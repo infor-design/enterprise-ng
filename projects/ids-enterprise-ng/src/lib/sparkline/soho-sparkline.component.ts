@@ -39,7 +39,7 @@ export class SohoSparklineComponent implements AfterViewInit, AfterViewChecked, 
   }
 
    /** Chart Type */
-  @Input() set type(value: string) {
+  @Input() set type(value: SohoSparklineType) {
     this.options.type = value;
 
     if (this.sparkline) {
@@ -123,6 +123,7 @@ export class SohoSparklineComponent implements AfterViewInit, AfterViewChecked, 
         this.ngZone.run(() => this.rendered.emit(args)));
     });
   }
+
   ngAfterViewChecked() {
     if (this.sparkline && this.updateRequired) {
       this.ngZone.runOutsideAngular(() => this.sparkline.updated(this.sparkline.settings));

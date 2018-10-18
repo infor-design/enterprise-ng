@@ -99,7 +99,7 @@ export class SohoTreemapComponent implements AfterViewInit, AfterViewChecked, On
   }
 
   /** An empty message will be displayed when there is no chart data. */
-  @Input() set emptyMessage(value: object[]) {
+  @Input() set emptyMessage(value: SohoEmptyMessageOptions) {
     this.options.emptyMessage = value;
 
     if (this.treemap) {

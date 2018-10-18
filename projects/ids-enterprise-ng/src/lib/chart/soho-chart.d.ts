@@ -30,7 +30,8 @@ interface JQueryStatic {
 }
 
 interface JQuery {
-  chart(options?: SohoChartOptions | SohoRadarOptions | SohoLineOptions | SohoPieOptions | SohoBulletOptions | SohoSparklineOptions | SohoColumnOptions | SohoTreemapOptions): JQuery;
+  chart(options?: SohoChartOptions | SohoBarOptions | SohoRadarOptions | SohoLineOptions | SohoPieOptions |
+    SohoBulletOptions | SohoSparklineOptions | SohoColumnOptions | SohoTreemapOptions): JQuery;
 }
 
 interface SohoChartData {
@@ -91,9 +92,15 @@ interface SohoChartPercentText {
   color1?: string;
   color2?: string;
 }
-type ChartTypes = 'pie' | 'bar' | 'bar-stacked' | 'bar-normalized' | 'bar-grouped' | 'bubble' | 'scatter' |
-  'column-stacked' |'column' | 'column-grouped' | 'column-positive-negative' | 'donut' | 'line' |
-  'area' | 'bullet' | 'completion' | 'radar' | 'completion-target' | 'targeted-achievement' | 'column-positive-negative' | 'treemap';
+type ChartTypes =
+  /* soho-pie.component     */ 'pie' | 'donut' |
+  /* soho-bar.component     */ 'bar' | 'bar-stacked' | 'bar-normalized' | 'bar-grouped' |
+  /* soho-column.component  */ 'column-stacked' |'column' | 'column-grouped' | 'column-positive-negative' |
+  /* soho-line.component    */ 'bubble' | 'scatter' | 'line' | 'area' |
+  /* soho-bullet.component  */ 'bullet' |
+  /* soho-radar.component   */ 'radar' |
+  /* soho-treemap.component */ 'treemap' |
+  /* soho-chart.component   */ 'completion' | 'completion-target' | 'targeted-achievement';
 
 type SohoChartDataArray = Array<SohoChartData>;
 

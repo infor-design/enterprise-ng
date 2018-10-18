@@ -141,10 +141,10 @@ describe('Soho Bar Unit Tests', () => {
     // update required should be true after updating inputs after bar is built.
     expect((comp as any).updateRequired).toEqual(true);
 
-    const barUpdatedSpy = spyOn<any>((comp as any).bar, 'updated').and.callThrough();
+    const updatedSpy = spyOn<any>((comp as any).bar, 'updated').and.callThrough();
     fixture.detectChanges();
     expect((comp as any).updateRequired).toEqual(false);
-    expect(barUpdatedSpy).toHaveBeenCalledTimes(1);
+    expect(updatedSpy).toHaveBeenCalledTimes(1);
   });
 
   it('check public functions', () => {
