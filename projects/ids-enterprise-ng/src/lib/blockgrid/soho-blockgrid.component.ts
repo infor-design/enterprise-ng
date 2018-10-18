@@ -7,7 +7,7 @@ import {
   ElementRef,
   EventEmitter,
   HostBinding,
-  Input,
+  Input, NgZone,
   OnDestroy,
   Output,
 } from '@angular/core';
@@ -32,7 +32,7 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
     if (this.blockgrid) {
       this.blockgrid.settings.dataset = dataset;
-      this.blockgrid.updated(this.blockgrid.settings);
+      this.updated(this.blockgrid.settings);
     }
   }
 
@@ -41,7 +41,7 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
     this.options.selectable = selectable;
     if (this.blockgrid) {
       this.blockgrid.settings.selectable = selectable;
-      this.blockgrid.updated(this.blockgrid.settings);
+      this.updated(this.blockgrid.settings);
     }
   }
 
@@ -53,33 +53,56 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
   private jQueryElement: JQuery;
   private blockgrid: SohoBlockGrid;
-  constructor(private element: ElementRef) { }
+
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone
+  ) {}
 
   /** Setup */
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
-    this.jQueryElement.blockgrid(this.options);
-    this.blockgrid = this.jQueryElement.data('blockgrid');
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
+      this.jQueryElement.blockgrid(this.options);
+      this.blockgrid = this.jQueryElement.data('blockgrid');
 
-    // Setup the events
-    this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
-    this.jQueryElement.on('deselected', (...args) => this.deselected.emit(args));
-    this.jQueryElement.on('activated', (...args) => this.activated.emit(args));
-    this.jQueryElement.on('deactivated', (...args) => this.deactivated.emit(args));
+      // Setup the events
+      this.jQueryElement.on('selected', (... args) => this.onSelected(args));
+      this.jQueryElement.on('deselected', (... args) => this.onDeselected(args));
+      this.jQueryElement.on('activated', (... args) => this.onActivated(args));
+      this.jQueryElement.on('deactivated', (... args) => this.onDeactivated(args));
+    });
   }
 
   /** Tear Down */
   ngOnDestroy() {
-    if (this.blockgrid) {
-      this.blockgrid.destroy();
-      this.blockgrid = null;
-    }
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.blockgrid) {
+        this.blockgrid.destroy();
+        this.blockgrid = null;
+      }
+    });
   }
 
   /** Reinit blockgrid settings */
   public updated(settings: any): SohoBlockGridComponent {
-    this.blockgrid.updated(settings);
+    this.ngZone.runOutsideAngular(() => this.blockgrid.updated(settings));
     return this;
   }
 
+  private onSelected(args: any[]) {
+    this.ngZone.run(() => this.selected.emit(args));
+  }
+  private onDeselected(args: any[]) {
+    this.ngZone.run(() => this.deselected.emit(args));
+  }
+  private onActivated(args: any[]) {
+    this.ngZone.run(() => this.activated.emit(args));
+  }
+  private onDeactivated(args: any[]) {
+    this.ngZone.run(() => this.deactivated.emit(args));
+  }
 }

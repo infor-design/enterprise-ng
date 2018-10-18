@@ -1,23 +1,24 @@
 /// <reference path="soho-circlepager.d.ts" />
 
 import {
+  AfterViewChecked,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  EventEmitter,
   HostBinding,
+  NgZone,
   Input,
   OnDestroy,
-  Output,
 } from '@angular/core';
 
 @Component({
   selector: '[soho-circlepager]', // tslint:disable-line
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class SohoCirclepagerComponent implements AfterViewInit, OnDestroy {
+export class SohoCirclepagerComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   /** Options. */
   private settings: SohoCirclepagerOptions = {};
 
@@ -31,7 +32,7 @@ export class SohoCirclepagerComponent implements AfterViewInit, OnDestroy {
 
     if (this.circlepager) {
       this.circlepager.settings.slidesToShow = value;
-      this.circlepager.updated(this.circlepager.settings);
+      // todo: does this setting require an updated call to circlepager.js?
     }
   }
 
@@ -41,7 +42,7 @@ export class SohoCirclepagerComponent implements AfterViewInit, OnDestroy {
 
     if (this.circlepager) {
       this.circlepager.settings.startingSlide = value;
-      this.circlepager.updated(this.circlepager.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -51,26 +52,46 @@ export class SohoCirclepagerComponent implements AfterViewInit, OnDestroy {
 
     if (this.circlepager) {
       this.circlepager.settings.loop = value;
-      this.circlepager.updated(this.circlepager.settings);
+      this.updateRequired = true;
     }
   }
 
   private jQueryElement: JQuery;
   private circlepager: SohoCirclepager;
-  constructor(private element: ElementRef) {}
+  private updateRequired = false;
+
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone,
+  ) { }
 
   /** Setup */
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
-    this.jQueryElement.circlepager(this.settings);
-    this.circlepager = this.jQueryElement.data('circlepager');
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
+      this.jQueryElement.circlepager(this.settings);
+      this.circlepager = this.jQueryElement.data('circlepager');
+    });
+  }
+
+  ngAfterViewChecked() {
+    if (this.circlepager && this.updateRequired) {
+      this.ngZone.runOutsideAngular(() => this.circlepager.updated(this.circlepager.settings));
+      this.updateRequired = false;
+    }
   }
 
   /** Tear Down */
   ngOnDestroy() {
-    if (this.circlepager) {
-      this.circlepager.destroy();
-      this.circlepager = null;
-    }
+    // call outside the angular zone so change detection isn't triggered by the soho component.
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.circlepager) {
+        this.circlepager.destroy();
+        this.circlepager = null;
+      }
+    });
   }
 }

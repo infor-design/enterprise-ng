@@ -121,14 +121,10 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
   }
 
   private onFiltered(event: SohoFieldFilteredEvent, args) {
-    // events from soho should not be in the angular zone due to
-    // initializing the component outside angular.
-    NgZone.assertNotInAngularZone();
-
-    // ensure we are back in a zone so that the timeout will trigger change detection.
-    this.ngZone.run(() => setTimeout(() => {
+    // ensure we are back in the angular zone
+    this.ngZone.run(() => {
       event.filterOption = args.data;
       this.filtered.emit(event);
-    }, 1));
+    });
   }
 }

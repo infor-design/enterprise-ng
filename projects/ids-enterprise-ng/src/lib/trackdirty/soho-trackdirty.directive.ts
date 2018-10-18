@@ -54,13 +54,13 @@ export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
        * Bind to jQueryElement's events
        */
       this.jQueryElement.on('dirty', (event: SohoTrackDirtyEvent) =>
-        this.ngZone.run(() => setTimeout(() => this.dirty.emit(event), 1)));
+        this.ngZone.run(() => this.dirty.emit(event)));
 
       this.jQueryElement.on('pristine', (event: SohoTrackDirtyEvent) =>
-        this.ngZone.run(() => setTimeout(() => this.pristine.emit(event), 1)));
+        this.ngZone.run(() => this.pristine.emit(event)));
 
       this.jQueryElement.on('afterresetdirty', (event: SohoTrackDirtyEvent) =>
-        this.ngZone.run(() => setTimeout(() => this.afterResetDirty.emit(event), 1 )));
+        this.ngZone.run(() => this.afterResetDirty.emit(event)));
 
       // returns a boolean, not an object
       this.trackDirty = this.jQueryElement.data('trackdirty');

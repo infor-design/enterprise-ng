@@ -1,6 +1,7 @@
 /// <reference path="soho-bullet.d.ts" />
 
 import {
+  AfterViewChecked,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
@@ -8,16 +9,18 @@ import {
   EventEmitter,
   HostBinding,
   Input,
+  NgZone,
   OnDestroy,
   Output,
 } from '@angular/core';
 
 @Component({
   selector: '[soho-bullet]', // tslint:disable-line
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class SohoBulletComponent implements AfterViewInit, OnDestroy {
+export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   /** Options. */
   private options: SohoBulletOptions = {};
 
@@ -31,7 +34,7 @@ export class SohoBulletComponent implements AfterViewInit, OnDestroy {
 
     if (this.bullet) {
       this.bullet.settings.dataset = dataset;
-      this.bullet.updated(this.bullet.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -41,7 +44,7 @@ export class SohoBulletComponent implements AfterViewInit, OnDestroy {
 
     if (this.bullet) {
       this.bullet.settings.animate = value;
-      this.bullet.updated(this.bullet.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -52,7 +55,7 @@ export class SohoBulletComponent implements AfterViewInit, OnDestroy {
 
     if (this.bullet) {
       this.bullet.settings.redrawOnResize = value;
-      this.bullet.updated(this.bullet.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -60,26 +63,45 @@ export class SohoBulletComponent implements AfterViewInit, OnDestroy {
 
   private jQueryElement: JQuery;
   private bullet: SohoBullet;
-  constructor(private element: ElementRef) { }
+  private updateRequired = false;
 
-  /** Setup */
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone,
+  ) { }
+
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    this.options.type = 'bullet';
-    this.jQueryElement.chart(this.options);
-    this.bullet = this.jQueryElement.data('bullet');
+      this.options.type = 'bullet';
+      this.jQueryElement.chart(this.options);
+      this.bullet = this.jQueryElement.data('bullet');
 
-    // Setup the events
-    this.jQueryElement.on('rendered', (...args) => this.rendered.emit(args));
+      // Setup the events
+      this.jQueryElement.on('rendered', (... args) =>
+          this.ngZone.run(() => this.rendered.emit(args)));
+    });
+  }
+
+  ngAfterViewChecked() {
+    if (this.bullet && this.updateRequired) {
+      this.ngZone.runOutsideAngular(() => this.bullet.updated(this.bullet.settings));
+      this.updateRequired = false;
+    }
   }
 
   /** Tear Down */
   ngOnDestroy() {
-    if (this.bullet) {
-      this.bullet.destroy();
-      this.bullet = null;
-    }
+    // call outside the angular zone so change detection isn't triggered by the soho component.
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.bullet) {
+        this.bullet.destroy();
+        this.bullet = null;
+      }
+    });
   }
-
 }

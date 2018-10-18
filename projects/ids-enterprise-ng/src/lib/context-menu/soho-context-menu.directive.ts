@@ -62,21 +62,6 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
     }
   }
 
-  /**
-   * A initial setting only of the events you'd like to have hooked up in the agnular wrapper.
-   * This aids in reducing change detection as each bound event that gets called (whether you
-   * are interested in it or not) causes change detection to get called which causes the screen
-   * to re-render each time.
-   *
-   * This is backward compatible if you don't use the registerForEvents input. If you want no
-   * events hooked up then use registerForEvent="". Otherwise just specify the events you want
-   * hooked up to sohoxi from this angular component.
-   *
-   *  a space delimited list of the events to be hooked up to sohoxi.
-   *       example: "activated afterActivated tabAdded"
-   */
-  @Input() registerForEvents = undefined;
-
   get beforeOpen(): SohoPopupMenuSourceFunction {
     if (this.contextMenu) {
       return this.contextMenu.settings.beforeOpen;
@@ -94,35 +79,18 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
       this.contextMenu = this.jQueryElement.data('popupmenu');
 
       // Add listeners to emit events
-      this.hookupRegisteredEvents();
-    });
-  }
-
-  private hookupRegisteredEvents() {
-    NgZone.assertNotInAngularZone();
-
-    let eventsToRegister = null;
-    if (this.registerForEvents !== undefined) {
-      eventsToRegister = this.registerForEvents.split(' ');
-    }
-
-    // if no events are registered then all event will be bound for backward compatibility.
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'selected')) {
       this.jQueryElement.on('selected', (e: JQuery.Event, args: JQuery) =>
-        this.ngZone.run(() => setTimeout(() => this.selected.next({e, args}), 1)));
-    }
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'beforeopen')) {
+        this.ngZone.run(() => this.selected.next({e, args})));
+
       this.jQueryElement.on('beforeopen', (e: JQuery.Event, args: JQuery) =>
-        this.ngZone.run(() => setTimeout(() => this.beforeopen.emit({e, args}), 1)));
-    }
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'close')) {
+        this.ngZone.run(() => this.beforeopen.emit({e, args})));
+
       this.jQueryElement.on('close', (e: JQuery.Event, args: JQuery) =>
-        this.ngZone.run(() => setTimeout(() => this.close.emit({e, args}), 1)));
-    }
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'open')) {
+        this.ngZone.run(() => this.close.emit({e, args})));
+
       this.jQueryElement.on('open', (e: JQuery.Event, args: JQuery) =>
-        this.ngZone.run(() => setTimeout(() => this.open.emit({e, args}), 1)));
-    }
+        this.ngZone.run(() => this.open.emit({e, args})));
+    });
   }
 
   updated() {

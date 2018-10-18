@@ -1,6 +1,7 @@
 /// <reference path="soho-bar.d.ts"/>
 
 import {
+  AfterViewChecked,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
@@ -8,16 +9,18 @@ import {
   EventEmitter,
   HostBinding,
   Input,
+  NgZone,
   OnDestroy,
   Output,
 } from '@angular/core';
 
 @Component({
   selector: '[soho-bar]', // tslint:disable-line
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class SohoBarComponent implements AfterViewInit, OnDestroy {
+export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   /** Options. */
   private options: SohoBarOptions = {};
 
@@ -31,17 +34,17 @@ export class SohoBarComponent implements AfterViewInit, OnDestroy {
 
     if (this.bar) {
       this.bar.settings.dataset = dataset;
-      this.bar.updated(this.bar.settings);
+      this.updateRequired = true;
     }
   }
 
    /** Chart Type */
-  @Input() set type(value: string) {
+  @Input() set type(value: SohoBarType) {
     this.options.type = value;
 
     if (this.bar) {
       this.bar.settings.type = value;
-      this.bar.updated(this.bar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -51,7 +54,7 @@ export class SohoBarComponent implements AfterViewInit, OnDestroy {
 
     if (this.bar) {
       this.bar.settings.isStacked = value;
-      this.bar.updated(this.bar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -61,7 +64,7 @@ export class SohoBarComponent implements AfterViewInit, OnDestroy {
 
     if (this.bar) {
       this.bar.settings.isNormalized = value;
-      this.bar.updated(this.bar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -71,7 +74,7 @@ export class SohoBarComponent implements AfterViewInit, OnDestroy {
 
     if (this.bar) {
       this.bar.settings.isGrouped = value;
-      this.bar.updated(this.bar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -81,7 +84,7 @@ export class SohoBarComponent implements AfterViewInit, OnDestroy {
 
     if (this.bar) {
       this.bar.settings.showLegend = value;
-      this.bar.updated(this.bar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -91,7 +94,7 @@ export class SohoBarComponent implements AfterViewInit, OnDestroy {
 
     if (this.bar) {
       this.bar.settings.animate = value;
-      this.bar.updated(this.bar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -101,7 +104,7 @@ export class SohoBarComponent implements AfterViewInit, OnDestroy {
 
     if (this.bar) {
       this.bar.settings.redrawOnResize = value;
-      this.bar.updated(this.bar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -111,7 +114,7 @@ export class SohoBarComponent implements AfterViewInit, OnDestroy {
 
     if (this.bar) {
       this.bar.settings.formatterString = value;
-      this.bar.updated(this.bar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -121,7 +124,7 @@ export class SohoBarComponent implements AfterViewInit, OnDestroy {
 
     if (this.bar) {
       this.bar.settings.format = value;
-      this.bar.updated(this.bar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -131,7 +134,7 @@ export class SohoBarComponent implements AfterViewInit, OnDestroy {
 
     if (this.bar) {
       this.bar.settings.tooltip = value;
-      this.bar.updated(this.bar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -141,17 +144,17 @@ export class SohoBarComponent implements AfterViewInit, OnDestroy {
 
     if (this.bar) {
       this.bar.settings.useLogScale = value;
-      this.bar.updated(this.bar.settings);
+      this.updateRequired = true;
     }
   }
 
   /** Settings for the chart ticks. Can set ticks: {format: d3Format, number: n} */
-  @Input() set ticks(value: object[]) {
+  @Input() set ticks(value: object) {
     this.options.ticks = value;
 
     if (this.bar) {
       this.bar.settings.ticks = value;
-      this.bar.updated(this.bar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -161,7 +164,7 @@ export class SohoBarComponent implements AfterViewInit, OnDestroy {
 
     if (this.bar) {
       this.bar.settings.showLines = value;
-      this.bar.updated(this.bar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -172,7 +175,7 @@ export class SohoBarComponent implements AfterViewInit, OnDestroy {
 
     if (this.bar) {
       this.bar.settings.labelFactor = value;
-      this.bar.updated(this.bar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -183,17 +186,17 @@ export class SohoBarComponent implements AfterViewInit, OnDestroy {
 
     if (this.bar) {
       this.bar.settings.wrapWidth = value;
-      this.bar.updated(this.bar.settings);
+      this.updateRequired = true;
     }
   }
 
   /** An empty message will be displayed when there is no chart data. */
-  @Input() set emptyMessage(value: object[]) {
+  @Input() set emptyMessage(value: SohoEmptyMessageOptions) {
     this.options.emptyMessage = value;
 
     if (this.bar) {
       this.bar.settings.emptyMessage = value;
-      this.bar.updated(this.bar.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -204,39 +207,61 @@ export class SohoBarComponent implements AfterViewInit, OnDestroy {
 
   private jQueryElement: JQuery;
   private bar: SohoBar;
-  constructor(private element: ElementRef) { }
+  private updateRequired = false;
+
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone,
+  ) { }
 
   /** Setup */
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    this.jQueryElement.chart(this.options);
-    this.bar = this.jQueryElement.data('bar');
+      this.jQueryElement.chart(this.options);
+      this.bar = this.jQueryElement.data('bar');
 
-    // Setup the events
-    this.jQueryElement.on('selected', (e: any, args: SohoBarSelectEvent) => this.selected.emit(args));
-    this.jQueryElement.on('unselected', (e: any, args: SohoBarSelectEvent) => this.unselected.emit(args));
-    this.jQueryElement.on('rendered', (...args) => this.rendered.emit(args));
+      // Setup the events
+      this.jQueryElement.on('selected', (e: any, args: SohoBarSelectEvent) =>
+        this.ngZone.run(() => this.selected.emit(args)));
+      this.jQueryElement.on('unselected', (e: any, args: SohoBarSelectEvent) =>
+        this.ngZone.run(() => this.unselected.emit(args)));
+      this.jQueryElement.on('rendered', (...args) =>
+        this.ngZone.run(() => this.rendered.emit(args)));
+    });
+  }
+
+  ngAfterViewChecked() {
+    if (this.bar && this.updateRequired) {
+      this.ngZone.runOutsideAngular(() => this.bar.updated(this.bar.settings));
+      this.updateRequired = false;
+    }
   }
 
   /** Tear Down */
   ngOnDestroy() {
-    if (this.bar) {
-      this.bar.destroy();
-      this.bar = null;
-    }
+    // call outside the angular zone so change detection isn't triggered by the soho component.
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.bar) {
+        this.bar.destroy();
+        this.bar = null;
+      }
+    });
   }
 
   public setSelected(selected: SohoBarSelected) {
-    this.bar.setSelected(selected);
+    this.ngZone.runOutsideAngular(() => this.bar.setSelected(selected));
   }
 
   public toggleSelected(selected: SohoBarSelected) {
-    this.bar.toggleSelected(selected);
+    this.ngZone.runOutsideAngular(() => this.bar.toggleSelected(selected));
   }
 
   public getSelected():  SohoBarSelected {
-    return this.bar.getSelected();
+    return this.ngZone.runOutsideAngular(() => this.bar.getSelected());
   }
-
 }

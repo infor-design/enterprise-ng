@@ -1,6 +1,7 @@
 /// <reference path="soho-sparkline.d.ts" />
 
 import {
+  AfterViewChecked,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
@@ -8,16 +9,18 @@ import {
   EventEmitter,
   HostBinding,
   Input,
+  NgZone,
   OnDestroy,
   Output,
 } from '@angular/core';
 
 @Component({
   selector: '[soho-sparkline]', // tslint:disable-line
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class SohoSparklineComponent implements AfterViewInit, OnDestroy {
+export class SohoSparklineComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   /** Options. */
   private options: SohoSparklineOptions = {};
 
@@ -31,17 +34,17 @@ export class SohoSparklineComponent implements AfterViewInit, OnDestroy {
 
     if (this.sparkline) {
       this.sparkline.settings.dataset = dataset;
-      this.sparkline.updated(this.sparkline.settings);
+      this.updateRequired = true;
     }
   }
 
    /** Chart Type */
-  @Input() set type(value: string) {
+  @Input() set type(value: SohoSparklineType) {
     this.options.type = value;
 
     if (this.sparkline) {
       this.sparkline.settings.type = value;
-      this.sparkline.updated(this.sparkline.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -51,7 +54,7 @@ export class SohoSparklineComponent implements AfterViewInit, OnDestroy {
 
     if (this.sparkline) {
       this.sparkline.settings.colors = value;
-      this.sparkline.updated(this.sparkline.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -61,7 +64,7 @@ export class SohoSparklineComponent implements AfterViewInit, OnDestroy {
 
     if (this.sparkline) {
       this.sparkline.settings.isDots = value;
-      this.sparkline.updated(this.sparkline.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -71,7 +74,7 @@ export class SohoSparklineComponent implements AfterViewInit, OnDestroy {
 
     if (this.sparkline) {
       this.sparkline.settings.isPeakDot = value;
-      this.sparkline.updated(this.sparkline.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -81,7 +84,7 @@ export class SohoSparklineComponent implements AfterViewInit, OnDestroy {
 
     if (this.sparkline) {
       this.sparkline.settings.isMinMax = value;
-      this.sparkline.updated(this.sparkline.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -91,7 +94,7 @@ export class SohoSparklineComponent implements AfterViewInit, OnDestroy {
 
     if (this.sparkline) {
       this.sparkline.settings.isMedianRange = value;
-      this.sparkline.updated(this.sparkline.settings);
+      this.updateRequired = true;
     }
   }
 
@@ -100,25 +103,45 @@ export class SohoSparklineComponent implements AfterViewInit, OnDestroy {
 
   private jQueryElement: JQuery;
   private sparkline: SohoSparkline;
-  constructor(private element: ElementRef) { }
+  private updateRequired = false;
+
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone,
+  ) { }
 
   /** Setup */
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    this.jQueryElement.chart(this.options);
-    this.sparkline = this.jQueryElement.data('sparkline');
+      this.jQueryElement.chart(this.options);
+      this.sparkline = this.jQueryElement.data('sparkline');
 
-    // Setup the events
-    this.jQueryElement.on('rendered', (...args) => this.rendered.emit(args));
+      // Setup the events
+      this.jQueryElement.on('rendered', (...args) =>
+        this.ngZone.run(() => this.rendered.emit(args)));
+    });
+  }
+
+  ngAfterViewChecked() {
+    if (this.sparkline && this.updateRequired) {
+      this.ngZone.runOutsideAngular(() => this.sparkline.updated(this.sparkline.settings));
+      this.updateRequired = false;
+    }
   }
 
   /** Tear Down */
   ngOnDestroy() {
-    if (this.sparkline) {
-      this.sparkline.destroy();
-      this.sparkline = null;
-    }
+    // call outside the angular zone so change detection isn't triggered by the soho component.
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.sparkline) {
+        this.sparkline.destroy();
+        this.sparkline = null;
+      }
+    });
   }
-
 }

@@ -89,21 +89,6 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   // Expose Methods in case Angular needs to control the DOM, using Observables
   @Input() toggle: Observable<boolean>;
 
-  /**
-   * A initial setting only of the events you'd like to have hooked up in the agnular wrapper.
-   * This aids in reducing change detection as each bound event that gets called (whether you
-   * are interested in it or not) causes change detection to get called which causes the screen
-   * to re-render each time.
-   *
-   * This is backward compatible if you don't use the registerForEvents input. If you want no
-   * events hooked up then use registerForEvent="". Otherwise just specify the events you want
-   * hooked up to sohoxi from this angular component.
-   *
-   *  a space delimited list of the events to be hooked up to sohoxi.
-   *       example: "activated afterActivated tabAdded"
-   */
-  @Input() registerForEvents = undefined;
-
   // Get the header DOM element
   @ContentChild(forwardRef(() => ExpandableHeaderComponent)) // tslint:disable-line
   public header: ExpandableHeaderComponent = null;
@@ -152,7 +137,12 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
       }
 
       // Add listeners to emit events
-      this.hookupRegisteredEvents();
+      this.jQueryElement.on('beforeexpand', (event: SohoExpandableAreaEvent) => this.onBeforeExpand(event));
+      this.jQueryElement.on('beforecollapse', (event: SohoExpandableAreaEvent) => this.onBeforeCollapse(event));
+      this.jQueryElement.on('expand', (event: SohoExpandableAreaEvent) => this.onExpand(event));
+      this.jQueryElement.on('collapse', (event: SohoExpandableAreaEvent) => this.onCollapse(event));
+      this.jQueryElement.on('afterexpand', (event: SohoExpandableAreaEvent) => this.onAfterExpand(event));
+      this.jQueryElement.on('aftercollapse', (event: SohoExpandableAreaEvent) => this.onAfterCollapse(event));
 
       // Add listeners to emit events
       // Instantiate the element via jQuery
@@ -179,45 +169,12 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
         // This is necessary because hasFixedPane is part of the angular template and
         // hence angular needs to know about it.
         setTimeout(() => {
+          // todo @theo what do you think about this timeout?
           this.hasFixedPane = this.panes.filter(pane => pane.fixed).length !== 0;
           this.changeDetectorRef.markForCheck();
         });
       });
     });
-  }
-
-  private hookupRegisteredEvents() {
-    NgZone.assertNotInAngularZone();
-
-    let eventsToRegister = null;
-    if (this.registerForEvents !== undefined) {
-      eventsToRegister = this.registerForEvents.split(' ');
-    }
-
-    // if no events are registered then all event will be bound for backward compatibility.
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'beforeexpand')) {
-      this.jQueryElement.on('beforeexpand', (event: SohoExpandableAreaEvent) => this.onBeforeExpand(event));
-    }
-
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'beforecollapse')) {
-      this.jQueryElement.on('beforecollapse', (event: SohoExpandableAreaEvent) => this.onBeforeCollapse(event));
-    }
-
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'expand')) {
-      this.jQueryElement.on('expand', (event: SohoExpandableAreaEvent) => this.onExpand(event));
-    }
-
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'collapse')) {
-      this.jQueryElement.on('collapse', (event: SohoExpandableAreaEvent) => this.onCollapse(event));
-    }
-
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'afterexpand')) {
-      this.jQueryElement.on('afterexpand', (event: SohoExpandableAreaEvent) => this.onAfterExpand(event));
-    }
-
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'aftercollapse')) {
-      this.jQueryElement.on('aftercollapse', (event: SohoExpandableAreaEvent) => this.onAfterCollapse(event));
-    }
   }
 
   ngOnDestroy() {
@@ -321,44 +278,32 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   }
 
   private onBeforeExpand(event: SohoExpandableAreaEvent) {
-    NgZone.assertNotInAngularZone();
-
-    // ensure we are back in a zone so that the timeout will trigger change detection.
-    this.ngZone.run(() => setTimeout(() => this.beforeexpand.emit(event), 1));
+    // ensure we are back in the angular zone
+    this.ngZone.run(() => this.beforeexpand.emit(event));
   }
 
   private onBeforeCollapse(event: SohoExpandableAreaEvent) {
-    NgZone.assertNotInAngularZone();
-
-    // ensure we are back in a zone so that the timeout will trigger change detection.
-    this.ngZone.run(() => setTimeout(() => this.beforecollapse.emit(event), 1));
+    // ensure we are back in the angular zone
+    this.ngZone.run(() => this.beforecollapse.emit(event));
   }
 
   private onExpand(event: SohoExpandableAreaEvent) {
-    NgZone.assertNotInAngularZone();
-
-    // ensure we are back in a zone so that the timeout will trigger change detection.
-    this.ngZone.run(() => setTimeout(() => this.expand.emit(event), 1));
+    // ensure we are back in the angular zone
+    this.ngZone.run(() => this.expand.emit(event));
   }
 
   private onCollapse(event: SohoExpandableAreaEvent) {
-    NgZone.assertNotInAngularZone();
-
-    // ensure we are back in a zone so that the timeout will trigger change detection.
-    this.ngZone.run(() => setTimeout(() => this.collapse.emit(event), 1));
+    // ensure we are back in the angular zone
+    this.ngZone.run(() => this.collapse.emit(event));
   }
 
   private onAfterExpand(event: SohoExpandableAreaEvent) {
-    NgZone.assertNotInAngularZone();
-
-    // ensure we are back in a zone so that the timeout will trigger change detection.
-    this.ngZone.run(() => setTimeout(() => this.afterexpand.emit(event), 1));
+    // ensure we are back in the angular zone
+    this.ngZone.run(() => this.afterexpand.emit(event));
   }
 
   private onAfterCollapse(event: SohoExpandableAreaEvent) {
-    NgZone.assertNotInAngularZone();
-
-    // ensure we are back in a zone so that the timeout will trigger change detection.
-    this.ngZone.run(() => setTimeout(() => this.aftercollapse.emit(event), 1));
+    // ensure we are back in the angular zone
+    this.ngZone.run(() => this.aftercollapse.emit(event));
   }
 }
