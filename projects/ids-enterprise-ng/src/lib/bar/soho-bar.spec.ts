@@ -153,9 +153,8 @@ describe('Soho Bar Unit Tests', () => {
     fixture.detectChanges();
 
     comp.toggleSelected({ index: 1 });
-    console.log(comp.getSelected()[0].data.name);
 
-    // todo: selected bar element doesn't have index set correctly.
+    // todo: selected bar element doesn't have selected index set correctly.
     // expect(comp.getSelected()[0].data.index).toEqual(1);
     expect(comp.getSelected()[0].data.name).toEqual(barData[0].data[1].name);
 

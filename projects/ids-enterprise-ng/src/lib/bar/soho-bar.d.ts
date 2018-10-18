@@ -5,13 +5,13 @@
  * interface of the Soho jQuery Bar control.
  */
 
-type SohoBarTypes = 'bar' | 'bar-stacked' | 'bar-grouped' | 'bar-normalized';
+type SohoBarType = 'bar' | 'bar-stacked' | 'bar-grouped' | 'bar-normalized';
 /**
  * Bar Options
  */
 interface SohoBarOptions {
   /** Chart Type */
-  type?: SohoBarTypes;
+  type?: SohoBarType;
 
   /** Defines the data to use, must be specified for this component. */
   dataset?: Object[];

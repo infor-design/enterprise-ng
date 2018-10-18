@@ -39,7 +39,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
    /** Chart Type */
-  @Input() set type(value: string) {
+  @Input() set type(value: SohoColumnType) {
     this.options.type = value;
 
     if (this.column) {
@@ -108,7 +108,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** Settings for the chart ticks. Can set ticks: {format: d3Format, number: n} */
-  @Input() set ticks(value: object[]) {
+  @Input() set ticks(value: object) {
     this.options.ticks = value;
 
     if (this.column) {
@@ -118,7 +118,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** An empty message will be displayed when there is no chart data. */
-  @Input() set emptyMessage(value: object[]) {
+  @Input() set emptyMessage(value: SohoEmptyMessageOptions) {
     this.options.emptyMessage = value;
 
     if (this.column) {

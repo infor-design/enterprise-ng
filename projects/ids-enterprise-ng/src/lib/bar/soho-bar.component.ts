@@ -39,7 +39,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
   }
 
    /** Chart Type */
-  @Input() set type(value: SohoBarTypes) {
+  @Input() set type(value: SohoBarType) {
     this.options.type = value;
 
     if (this.bar) {

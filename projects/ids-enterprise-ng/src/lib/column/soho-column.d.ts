@@ -5,12 +5,13 @@
  * interface of the Soho jQuery Column control.
  */
 
+type SohoColumnType = 'column' | 'column-grouped' | 'column-stacked' | 'column-positive-negative' | 'column-positive-negative';
 /**
  * Column Options
  */
 interface SohoColumnOptions {
   /** Chart Type */
-  type?: string;
+  type?: SohoColumnType;
 
   /** Defines the data to use, must be specified for this component. */
   dataset?: Object[];
@@ -34,10 +35,10 @@ interface SohoColumnOptions {
   formatterString?: string;
 
   /** The number of ticks to show. */
-  ticks?: object[];
+  ticks?: object;
 
   /** An empty message will be displayed when there is no chart data. */
-  emptyMessage?: object[];
+  emptyMessage?: SohoEmptyMessageOptions;
 
   /** A series of options for the xAxis. */
   xAxis?: object;

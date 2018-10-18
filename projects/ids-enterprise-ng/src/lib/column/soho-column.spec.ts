@@ -8,9 +8,51 @@ import { FormsModule } from '@angular/forms';
 
 import { SohoColumnModule } from './soho-column.module';
 import { SohoColumnComponent } from './soho-column.component';
+import { SohoBarComponent } from '../bar';
 
-describe('Soho Column Unit Tests', () => {
+const columnData = [{
+  data: [{
+    name: 'Automotive',
+    shortName: 'Auto',
+    abbrName: 'A',
+    value: .8,
+    tooltip: 'Custom Tooltip - {{value}}'
+  }, {
+    name: 'Distribution',
+    shortName: 'Dist',
+    abbrName: 'D',
+    value: 10
+  }, {
+    name: 'Equipment',
+    shortName: 'Equip',
+    abbrName: 'E',
+    value: 14
+  }, {
+    name: 'Fashion',
+    shortName: 'Fash',
+    abbrName: 'F',
+    value: 10
+  }, {
+    name: 'Food',
+    shortName: 'Food',
+    abbrName: 'F',
+    value: 14
+  }, {
+    name: 'Healthcare',
+    shortName: 'Health',
+    abbrName: 'H',
+    value: 8.2
+  }, {
+    name: 'Other',
+    shortName: 'Other',
+    abbrName: 'O',
+    value: 7.9
+  }]
+}];
+
+fdescribe('Soho Column Unit Tests', () => {
   let fixture:  ComponentFixture<SohoColumnComponent>;
+  let comp:     SohoColumnComponent;
   let de:       DebugElement;
   let el:       HTMLElement;
 
@@ -20,13 +62,121 @@ describe('Soho Column Unit Tests', () => {
     });
 
     fixture = TestBed.createComponent(SohoColumnComponent);
-
+    comp = fixture.componentInstance;
     de = fixture.debugElement;
     el = de.nativeElement;
   });
 
   it('Check Content', () => {
     expect(el.nodeName).toEqual('DIV');
+  });
+
+  it('check inputs', () => {
+    const type = 'column';
+    const ticks = {number: 5, format: ',.1s'};
+    const xAxis = { ticks: { number: 5, format: 'd' } };
+    const yAxis = { ticks: 'auto' };
+    const emptyMessage: SohoEmptyMessageOptions = {
+      title: 'this chart has no data',
+      icon: 'icon-empty-no-data',
+    };
+
+    comp.dataset = columnData;
+    comp.type = type;
+    comp.isStacked = false;
+    comp.showLegend = false;
+    comp.animate = false;
+    comp.redrawOnResize = false;
+    comp.format = '.0f';
+    comp.formatterString = 'd';
+    comp.ticks = ticks;
+    comp.xAxis = xAxis;
+    comp.yAxis = yAxis;
+    comp.emptyMessage = emptyMessage;
+
+    // check options
+    expect((comp as any).options.dataset).toEqual(columnData);
+    expect((comp as any).options.type).toEqual(type);
+    expect((comp as any).options.isStacked).toEqual(false);
+    expect((comp as any).options.showLegend).toEqual(false);
+    expect((comp as any).options.animate).toEqual(false);
+    expect((comp as any).options.redrawOnResize).toEqual(false);
+    expect((comp as any).options.format).toEqual('.0f');
+    expect((comp as any).options.formatterString).toEqual('d');
+    expect((comp as any).options.ticks).toEqual(ticks);
+    expect((comp as any).options.xAxis).toEqual(xAxis);
+    expect((comp as any).options.yAxis).toEqual(yAxis);
+    expect((comp as any).options.emptyMessage).toEqual(emptyMessage);
+
+    // detect changes to cause bar chart to be built.
+    fixture.detectChanges();
+
+    // once bar chart is built setting input should cause bar.settings to update
+    const updatedColumnData = [ ...columnData];
+    updatedColumnData[0].data = [...updatedColumnData[0].data, {
+      name: 'Other',
+      shortName: 'Other',
+      abbrName: 'O',
+      value: 7.9
+    }];
+    const updatedTicks = {number: 5, format: ',.1s'};
+    const updatedEmptyMessage: SohoEmptyMessageOptions = {
+      title: 'nothing to display',
+      icon: 'icon-empty-no-data',
+    };
+    const updatedType = 'column-stacked';
+    const updatedXAxis = {};
+    const updatedYAxis = {};
+
+    comp.dataset = updatedColumnData;
+    comp.type = updatedType;
+    comp.isStacked = true;
+    comp.showLegend = true;
+    comp.animate = true;
+    comp.redrawOnResize = true;
+    comp.format = '.2f';
+    comp.formatterString = '%';
+    comp.ticks = updatedTicks;
+    comp.xAxis = updatedXAxis;
+    comp.yAxis = updatedYAxis;
+    comp.emptyMessage = updatedEmptyMessage;
+
+    // check bar settings
+    expect((comp as any).column.settings.dataset).toEqual(updatedColumnData);
+    expect((comp as any).column.settings.type).toEqual(updatedType);
+    expect((comp as any).column.settings.isStacked).toEqual(true);
+    expect((comp as any).column.settings.showLegend).toEqual(true);
+    expect((comp as any).column.settings.animate).toEqual(true);
+    expect((comp as any).column.settings.redrawOnResize).toEqual(true);
+    expect((comp as any).column.settings.format).toEqual('.2f');
+    expect((comp as any).column.settings.formatterString).toEqual('%');
+    expect((comp as any).column.settings.ticks).toEqual(updatedTicks);
+    expect((comp as any).column.settings.xAxis).toEqual(updatedXAxis);
+    expect((comp as any).column.settings.yAxis).toEqual(updatedYAxis);
+    expect((comp as any).column.settings.emptyMessage).toEqual(updatedEmptyMessage);
+
+    // update required should be true after updating inputs after bar is built.
+    expect((comp as any).updateRequired).toEqual(true);
+
+    const barUpdatedSpy = spyOn<any>((comp as any).column, 'updated').and.callThrough();
+    fixture.detectChanges();
+    expect((comp as any).updateRequired).toEqual(false);
+    expect(barUpdatedSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it('check public functions', () => {
+    comp.dataset = columnData;
+    comp.type = 'column';
+    fixture.detectChanges();
+
+    comp.toggleSelected({ index: 1 });
+
+    // todo: selected column element doesn't have selected index set correctly.
+    // expect(comp.getSelected()[0].data.index).toEqual(1);
+    expect(comp.getSelected()[0].data.name).toEqual(columnData[0].data[1].name);
+
+    comp.setSelected({ index: 2 });
+    expect(comp.getSelected()[0].data.name).toEqual(columnData[0].data[2].name);
   });
 });
 
@@ -50,45 +200,7 @@ class SohoColumnTestComponent {
 
   public chartType = 'column';
 
-  public data = [{
-    data: [{
-      name: 'Automotive',
-      shortName: 'Auto',
-      abbrName: 'A',
-      value: .8,
-      tooltip: 'Custom Tooltip - {{value}}'
-    }, {
-      name: 'Distribution',
-      shortName: 'Dist',
-      abbrName: 'D',
-      value: 10
-    }, {
-      name: 'Equipment',
-      shortName: 'Equip',
-      abbrName: 'E',
-      value: 14
-    }, {
-      name: 'Fashion',
-      shortName: 'Fash',
-      abbrName: 'F',
-      value: 10
-    }, {
-      name: 'Food',
-      shortName: 'Food',
-      abbrName: 'F',
-      value: 14
-    }, {
-      name: 'Healthcare',
-      shortName: 'Health',
-      abbrName: 'H',
-      value: 8.2
-    }, {
-      name: 'Other',
-      shortName: 'Other',
-      abbrName: 'O',
-      value: 7.9
-    }]
-  }];
+  public data = columnData;
 
   public _yAxis: object;
   @Input() set yAxis(yAxis: object) {
