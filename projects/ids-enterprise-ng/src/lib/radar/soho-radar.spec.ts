@@ -53,7 +53,7 @@ const updatedRadarData = [ ...radarData, {
   id: '4'
 }];
 
-fdescribe('Soho Radar Unit Tests', () => {
+describe('Soho Radar Unit Tests', () => {
   let comp:     SohoRadarComponent;
   let fixture:  ComponentFixture<SohoRadarComponent>;
   let de:       DebugElement;
