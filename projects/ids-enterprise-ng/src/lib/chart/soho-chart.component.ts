@@ -137,7 +137,7 @@ export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDe
   ngAfterViewChecked() {
     if (this.updateRequired) {
       this.updated();
-      this.updateRequired = true;
+      this.updateRequired = false;
     }
   }
 
