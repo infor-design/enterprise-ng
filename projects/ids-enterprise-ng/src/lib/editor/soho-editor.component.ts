@@ -335,7 +335,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     });
   }
 
-    /**
+ /**
    * Marks the components as requiring a rebuild after the next update.
    */
   markForRefresh() {
