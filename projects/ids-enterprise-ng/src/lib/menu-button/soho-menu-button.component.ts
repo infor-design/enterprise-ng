@@ -48,8 +48,10 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
 
   @Output() selected = new EventEmitter<SohoContextMenuEvent>();
   @Output() beforeopen = new EventEmitter<SohoContextMenuEvent>();
-  @Output() open = new EventEmitter<SohoContextMenuEvent>();
-  @Output() close = new EventEmitter<SohoContextMenuEvent>();
+  // tslint:disable-next-line:no-output-rename
+  @Output('open') open$ = new EventEmitter<SohoContextMenuEvent>();
+  // tslint:disable-next-line:no-output-rename
+  @Output('close') close$ = new EventEmitter<SohoContextMenuEvent>();
 
   // -------------------------------------------
   // Component Inputs
@@ -98,7 +100,7 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
     }
   }
 
-  @Input() set menu(menu: string) {
+  @Input() set menu(menu: string | JQuery<HTMLElement>) {
     this.options.menu = menu;
     if (this.menuButton) {
       this.menuButton.settings.menu = menu;
@@ -172,13 +174,13 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
 
   private onClose(e: JQuery.Event, args: JQuery) {
     this.ngZone.run(() => {
-      this.close.emit({ e, args });
+      this.close$.emit({ e, args });
     });
   }
 
   private onOpen(e: JQuery.Event, args: JQuery) {
     this.ngZone.run(() => {
-      this.open.emit({ e, args });
+      this.open$.emit({ e, args });
     });
   }
 
@@ -191,6 +193,18 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   teardown() {
     this.ngZone.runOutsideAngular(() => {
       this.menuButton.teardown();
+    });
+  }
+
+  public close(): void {
+    this.ngZone.runOutsideAngular(() => {
+      this.menuButton.close();
+    });
+  }
+
+  public open(event: JQuery.Event): void {
+    this.ngZone.runOutsideAngular(() => {
+      this.menuButton.open(event);
     });
   }
 

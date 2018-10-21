@@ -89,7 +89,11 @@ export class SohoCirclepagerComponent implements AfterViewInit, AfterViewChecked
         this.jQueryElement.off();
       }
       if (this.circlepager) {
-        this.circlepager.destroy();
+        try {
+          this.circlepager.destroy();
+        } catch (e) {
+          console.error(e);
+        }
         this.circlepager = null;
       }
     });
