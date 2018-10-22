@@ -43,7 +43,7 @@ interface SohoTooltipStatic {
 /**
  * JQuery Integration
  */
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   tooltip(options?: SohoTooltipOptions): JQuery;
 }
 

@@ -99,6 +99,6 @@ interface JQueryStatic {
   slider: SohoSliderStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   slider(options: SohoSliderOptions): JQuery;
 }

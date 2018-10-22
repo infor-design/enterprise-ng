@@ -92,6 +92,6 @@ interface SohoColumnGroupSelected {
   groupIndex?: number;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   column(options?: SohoColumnOptions): JQuery;
 }

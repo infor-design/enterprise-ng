@@ -8,7 +8,7 @@ interface SohoRadioButtonEvent extends JQuery.Event {
   data: any
 }
 
-interface JQuery<TElement extends Node = HTMLElement> {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   on(events: string,
     handler: JQuery.EventHandlerBase<TElement, SohoRadioButtonEvent>): this;
 }

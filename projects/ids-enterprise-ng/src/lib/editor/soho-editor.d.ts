@@ -84,7 +84,7 @@ interface JQueryStatic {
   editor: SohoEditorStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   editor(options?: SohoEditorOptions): JQuery;
 }
 

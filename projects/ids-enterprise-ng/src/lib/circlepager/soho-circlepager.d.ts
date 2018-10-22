@@ -33,6 +33,6 @@ interface SohoCirclepager{
   destroy(): void;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   circlepager(settings?: SohoCirclepagerOptions): JQuery;
 }

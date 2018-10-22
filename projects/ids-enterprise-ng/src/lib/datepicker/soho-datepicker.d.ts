@@ -178,6 +178,6 @@ interface JQueryStatic {
   datepicker: SohoDatePickerStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   datepicker(options?: SohoDatePickerOptions): JQuery;
 }

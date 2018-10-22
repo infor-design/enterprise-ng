@@ -55,6 +55,6 @@ interface JQueryStatic {
   element: SohoTextAreaStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   textarea(options?: SohoTextAreaOptions): JQuery;
 }

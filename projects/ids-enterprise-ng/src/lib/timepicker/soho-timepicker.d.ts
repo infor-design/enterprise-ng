@@ -56,6 +56,6 @@ interface JQueryStatic {
   timepicker: SohoTimePickerStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   timepicker(options?: SohoTimePickerOptions): JQuery;
 }

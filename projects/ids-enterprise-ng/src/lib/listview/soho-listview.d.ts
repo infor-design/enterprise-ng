@@ -142,6 +142,6 @@ interface JQueryStatic {
   listview: SohoListViewStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   listview(options?: SohoListViewOptions): JQuery;
 }

@@ -33,6 +33,6 @@ interface SohoBlockGrid {
   destroy(): void;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   blockgrid(options?: SohoBlockGridOptions): JQuery;
 }

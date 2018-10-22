@@ -1047,7 +1047,7 @@ interface JQueryStatic {
   datagrid: SohoDataGridStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   datagrid(options?: SohoDataGridOptions): JQuery;
   on(events: 'cellchange' | 'activecellchange', handler: JQuery.EventHandlerBase<any, SohoDataGridCellChangeEvent>): this;
   on(events: 'rowremove', handler: JQuery.EventHandlerBase<any, SohoDataGridRowRemoveEvent>): this;

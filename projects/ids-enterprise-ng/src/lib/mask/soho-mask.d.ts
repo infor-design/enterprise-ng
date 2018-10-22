@@ -202,6 +202,6 @@ interface JQueryStatic {
   mask: SohoMaskStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   mask(options?: SohoMaskOptions): JQuery;
 }

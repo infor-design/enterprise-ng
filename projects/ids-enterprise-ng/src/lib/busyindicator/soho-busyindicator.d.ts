@@ -70,6 +70,6 @@ interface JQueryStatic {
   busyindicator: SohoBusyIndicatorStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   busyindicator(options?: SohoBusyIndicatorOptions): JQuery;
 }

@@ -65,6 +65,6 @@ interface JQueryStatic {
   splitter: SohoSplitterStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   splitter(options?: SohoSplitterOptions): JQuery;
 }

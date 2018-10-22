@@ -57,7 +57,7 @@ interface JQueryStatic {
   stepprocess: SohoStepProcessStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   stepprocess(options?: SohoStepProcessOptions): JQuery;
 }
 

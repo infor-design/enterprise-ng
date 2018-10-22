@@ -122,7 +122,7 @@ interface SohoContextualActionPanelStatic {
 /**
  * Integration with jQuery
  */
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   contextualactionpanel(options: SohoContextualActionPanelOptions): JQuery;
 }
 

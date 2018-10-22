@@ -55,6 +55,6 @@ interface JQueryStatic {
   searchfield: SohoSearchFieldStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   searchfield(options?: SohoSearchFieldOptions): JQuery;
 }
