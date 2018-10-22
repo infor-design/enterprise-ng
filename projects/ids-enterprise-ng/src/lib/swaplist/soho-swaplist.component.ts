@@ -8,6 +8,7 @@ import {
   EventEmitter,
   HostBinding,
   Input,
+  NgZone,
   OnDestroy,
   Optional,
   Output,
@@ -46,52 +47,52 @@ export class SohoSwapListCardComponent {
   @HostBinding('class.swaplist') get isSwapList() { return true; }
 
   /** The type of card. */
-  private _type: SohoSwapListCardType;
+  private cardtype: SohoSwapListCardType;
 
   /** The title for the card. */
-  private _title: string;
+  private cardtitle: string;
 
   /** The show searchable for the search-field. */
-  private _showSearchable: boolean;
+  private showsearchable: boolean;
 
   /** The show searchable for the search-field. */
-  private _searchTitle: string;
+  private searchtitle: string;
 
   @Input()
   public set type(value: SohoSwapListCardType) {
-    this._type = value;
+    this.cardtype = value;
   }
 
   @Input()
   public set showSearchable(value: boolean) {
-    this._showSearchable = value;
+    this.showsearchable = value;
   }
 
   public get showSearchable(): boolean {
-    return this._showSearchable;
+    return this.showsearchable;
   }
 
   @Input()
   public set searchTitle(value: string) {
-    this._searchTitle = value;
+    this.searchtitle = value;
   }
 
   public get searchTitle(): string {
-    return this._searchTitle;
+    return this.searchtitle;
   }
 
   /**
    * Return the class to use for the card.
    */
   public get cardClass(): string {
-    return `card${this._type ? ` ${this._type}` : ''}`;
+    return `card${this.cardtype ? ` ${this.cardtype}` : ''}`;
   }
 
   /**
    * Return the card type to use for the card.
    */
   public get cardType(): string {
-    return this._type || '';
+    return this.cardtype || '';
   }
 
   /**
@@ -99,11 +100,11 @@ export class SohoSwapListCardComponent {
    */
   @Input()
   public set title(value: string) {
-    this._title = value;
+    this.cardtitle = value;
   }
 
   public get title(): string {
-    return this._title;
+    return this.cardtitle;
   }
 }
 
@@ -327,36 +328,43 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   // ------------------------------------------------------------------------
   // Constructor
   // ------------------------------------------------------------------------
-  constructor(private element: ElementRef,
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone,
                 @Optional() private swaplistService: SohoSwapListService) {
   }
 
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
-    this.jQueryElement.find('.searchfield').searchfield({ clearable: true });
-    this.jQueryElement.swaplist(this._options);
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
+      this.jQueryElement.find('.searchfield').searchfield({ clearable: true });
+      this.jQueryElement.swaplist(this._options);
 
-    this.jQueryElement
-      .on('beforeswap', (event: JQuery.Event, moved: SohoSwapListMoved) => this.onBeforeSwap(event, moved))
-      .on('swapupdate', (event: JQuery.Event, moved: SohoSwapListMoved) => this.onSwapUpdate(event, moved));
+      this.jQueryElement
+        .on('beforeswap', (event: JQuery.Event, moved: SohoSwapListMoved) => this.onBeforeSwap(event, moved))
+        .on('swapupdate', (event: JQuery.Event, moved: SohoSwapListMoved) => this.onSwapUpdate(event, moved));
 
-    this.swaplist = this.jQueryElement.data('swaplist');
+      this.swaplist = this.jQueryElement.data('swaplist');
 
-    if (this.swaplistService) {
-      this.swaplistService.getData().subscribe((d: SohoSwapListOptions) => {
-        this.updateDataset(d);
-      });
-    }
+      if (this.swaplistService) {
+        this.swaplistService.getData().subscribe((d: SohoSwapListOptions) => {
+          this.updateDataset(d);
+        });
+      }
+    })
   }
 
   /**
    * Destroys any resources created by the control.
    */
   ngOnDestroy() {
-    if (this.swaplist) {
-      this.swaplist.destroy();
-      this.swaplist = null;
-    }
+    this.ngZone.runOutsideAngular(() => {
+      if (this.swaplist) {
+        this.swaplist.destroy();
+        this.swaplist = null;
+        this.jQueryElement.off();
+      }
+    })
   }
 
   /**
@@ -365,7 +373,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
    */
   public updated() {
     if (this.swaplist) {
-      this.swaplist.updated();
+      this.ngZone.runOutsideAngular(() => this.swaplist.updated());
     }
   }
 
