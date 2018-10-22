@@ -309,21 +309,6 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
    */
   @Input() disableAutoUpdatedCall = false;
 
-  /**
-   * A initial setting only of the events you'd like to have hooked up in the agnular wrapper.
-   * This aids in reducing change detection as each bound event that gets called (whether you
-   * are interested in it or not) causes change detection to get called which causes the screen
-   * to re-render each time.
-   *
-   * This is backward compatible if you don't use the registerForEvents input. If you want no
-   * events hooked up then use registerForEvent="". Otherwise just specify the events you want
-   * hooked up to sohoxi from this angular component.
-   *
-   *  a space delimited list of the events to be hooked up to sohoxi.
-   *       example: "activated afterActivated tabAdded"
-   */
-  @Input() registerForEvents = undefined;
-
   // ------------------------------------------------------------------------
   // @Outputs
   // ------------------------------------------------------------------------
@@ -435,7 +420,13 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
       this.jQueryElement = jQuery(this.element.nativeElement);
 
       // bind to jquery events and emit as angular events
-      this.hookupRegisteredEvents();
+      this.jQueryElement.on('beforeactivated', (event: SohoTabsEvent, tab) => this.onBeforeActivated(event, tab));
+      this.jQueryElement.on('activated', (event: SohoTabsEvent, tab) => this.onActivated(event, tab));
+      this.jQueryElement.on('afteractivated', (event: SohoTabsEvent, tab) => this.onAfterActivated(event, tab));
+      this.jQueryElement.on('beforeclose', (event: SohoTabsEvent, tab) => this.onBeforeClose(event, tab));
+      this.jQueryElement.on('close', (event: SohoTabsEvent, tab) => this.onClose(event, tab));
+      this.jQueryElement.on('afterclose', (event: SohoTabsEvent, tab) => this.onAfterClose(event, tab));
+      this.jQueryElement.on('tab-added', (event: SohoTabsEvent, tab) => this.onTabAdded(event, tab));
 
       // initialize the tabs plugin
       this.jQueryElement.tabs(this._tabsOptions);
@@ -520,44 +511,6 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
         this.tabs = null;
       }
     });
-  }
-
-  private hookupRegisteredEvents() {
-    NgZone.assertNotInAngularZone();
-
-    let eventsToRegister = null;
-    if (this.registerForEvents !== undefined) {
-      eventsToRegister = this.registerForEvents.split(' ');
-    }
-
-    // if no events are registered then all event will be bound for backward compatibility.
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'beforeActivated')) {
-      this.jQueryElement.on('beforeactivated', (event: SohoTabsEvent, tab) => this.onBeforeActivated(event, tab));
-    }
-
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'activated')) {
-      this.jQueryElement.on('activated', (event: SohoTabsEvent, tab) => this.onActivated(event, tab));
-    }
-
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'afterActivated')) {
-      this.jQueryElement.on('afteractivated', (event: SohoTabsEvent, tab) => this.onAfterActivated(event, tab));
-    }
-
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'beforeClose')) {
-      this.jQueryElement.on('beforeclose', (event: SohoTabsEvent, tab) => this.onBeforeClose(event, tab));
-    }
-
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'close')) {
-      this.jQueryElement.on('close', (event: SohoTabsEvent, tab) => this.onClose(event, tab));
-    }
-
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'afterClose')) {
-      this.jQueryElement.on('afterclose', (event: SohoTabsEvent, tab) => this.onAfterClose(event, tab));
-    }
-
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'tabAdded')) {
-      this.jQueryElement.on('tab-added', (event: SohoTabsEvent, tab) => this.onTabAdded(event, tab));
-    }
   }
 
   private updateTabInfo() {
@@ -740,90 +693,62 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   private onBeforeActivated(event: SohoTabsEvent, tab) {
-    // events from soho should not be in the angular zone due to
-    // initializing the component outside angular.
-    NgZone.assertNotInAngularZone();
-
-    // ensure we are back in a zone so that the timeout will trigger change detection.
-    this.ngZone.run(() => setTimeout(() => {
+    // ensure we are back in the angular zone
+    this.ngZone.run(() => {
       event.tab = tab[ 0 ];
       this.beforeActivated.emit(event);
-    }, 1));
+    });
   }
 
   private onActivated(event: SohoTabsEvent, tab) {
-    // events from soho should not be in the angular zone due to
-    // initializing the component outside angular.
-    NgZone.assertNotInAngularZone();
-
-    // ensure we are back in a zone so that the timeout will trigger change detection.
-    this.ngZone.run(() => setTimeout(() => {
+    // ensure we are back in the angular zone
+    this.ngZone.run(() => {
       event.tab = tab[ 0 ];
       this.activated.emit(event);
-    }, 1));
+    });
   }
 
   private onAfterActivated(event: SohoTabsEvent, tab) {
-    // events from soho should not be in the angular zone due to
-    // initializing the component outside angular.
-    NgZone.assertNotInAngularZone();
-
-    // ensure we are back in a zone so that the timeout will trigger change detection.
-    this.ngZone.run(() => setTimeout(() => {
+    // ensure we are back in the angular zone
+    this.ngZone.run(() => {
       event.tab = tab[ 0 ];
       this.afterActivated.emit(event);
-    }, 1));
+    });
   }
 
   private onBeforeClose(event: SohoTabsEvent, tab) {
-    // events from soho should not be in the angular zone due to
-    // initializing the component outside angular.
-    NgZone.assertNotInAngularZone();
-
-    // ensure we are back in a zone so that the timeout will trigger change detection.
-    this.ngZone.run(() => setTimeout(() => {
+    // ensure we are back in the angular zone
+    this.ngZone.run(() => {
       event.tab = tab[0];
       this.beforeClose.emit(event);
 
       if (this.beforeCloseCallback) {
         return this.beforeCloseCallback(event, tab);
       }
-    }, 1));
+    });
   }
 
   private onClose(event: SohoTabsEvent, tab) {
-    // events from soho should not be in the angular zone due to
-    // initializing the component outside angular.
-    NgZone.assertNotInAngularZone();
-
-    // ensure we are back in a zone so that the timeout will trigger change detection.
-    this.ngZone.run(() => setTimeout(() => {
+    // ensure we are back in the angular zone
+    this.ngZone.run(() => {
       event.tab = tab[ 0 ];
       this.close.emit(event);
-    }, 1));
+    });
   }
 
   private onAfterClose(event: SohoTabsEvent, tab) {
-    // events from soho should not be in the angular zone due to
-    // initializing the component outside angular.
-    NgZone.assertNotInAngularZone();
-
-    // ensure we are back in a zone so that the timeout will trigger change detection.
-    this.ngZone.run(() => setTimeout(() => {
+    // ensure we are back in the angular zone
+    this.ngZone.run(() => {
       event.tab = tab[ 0 ];
       this.afterClose.emit(event);
-    }, 1));
+    });
   }
 
   private onTabAdded(event: SohoTabsEvent, tab) {
-    // events from soho should not be in the angular zone due to
-    // initializing the component outside angular.
-    NgZone.assertNotInAngularZone();
-
-    // ensure we are back in a zone so that the timeout will trigger change detection.
-    this.ngZone.run(() => setTimeout(() => {
+    // ensure we are back in the angular zone
+    this.ngZone.run(() => {
       event.tab = tab[ 0 ];
       this.tabAdded.emit(event);
-    }, 1));
+    });
   }
 }

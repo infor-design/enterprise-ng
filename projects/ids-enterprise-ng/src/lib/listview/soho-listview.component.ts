@@ -15,7 +15,7 @@ import {
   Output,
   ViewChild,
   forwardRef,
-  QueryList
+  QueryList, NgZone
 } from '@angular/core';
 
 import { ArgumentHelper } from '../utils/argument.helper';
@@ -70,8 +70,7 @@ export class SohoListViewItemComponent implements AfterViewInit {
    *
    * @param element - the element.
    */
-  constructor(public element: ElementRef) {
-  }
+  constructor(public element: ElementRef) {}
 
   /**
    * The index of the list view item in it's parent.
@@ -164,7 +163,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     this.options.description = value;
     if (this.jQueryElement && this.listview) {
       this.listview.settings.description = value;
-      this.listview.updated();
+      this.updateRequired = true;
     }
   }
 
@@ -173,7 +172,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     this.options.pagesize = value;
     if (this.jQueryElement && this.listview) {
       this.listview.settings.pagesize = value;
-      this.listview.updated();
+      this.updateRequired = true;
     }
   }
 
@@ -182,7 +181,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     this.options.paging = value;
     if (this.jQueryElement && this.listview) {
       this.listview.settings.paging = value;
-      this.listview.updated();
+      this.updateRequired = true;
     }
   }
 
@@ -191,7 +190,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     this.options.searchable = value;
     if (this.jQueryElement && this.listview) {
       this.listview.settings.searchable = value;
-      this.listview.updated();
+      this.updateRequired = true;
     }
   }
   get searchable() {
@@ -203,7 +202,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     this.options.selectable = value;
     if (this.jQueryElement && this.listview) {
       this.listview.settings.selectable = value;
-      this.listview.updated();
+      this.updateRequired = true;
     }
   }
 
@@ -212,7 +211,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     this.options.selectOnFocus = value;
     if (this.jQueryElement && this.listview) {
       this.listview.settings.selectOnFocus = value;
-      this.listview.updated();
+      this.updateRequired = true;
     }
   }
 
@@ -221,7 +220,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     this.options.emptyMessage = value;
     if (this.jQueryElement && this.listview) {
       this.listview.settings.emptyMessage = value;
-      this.listview.updated();
+      this.updateRequired = true;
     }
   }
 
@@ -230,7 +229,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     this.options.source = value;
     if (this.jQueryElement && this.listview) {
       this.listview.settings.source = value;
-      this.listview.updated();
+      this.updateRequired = true;
     }
   }
 
@@ -239,7 +238,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     this.options.source = value;
     if (this.jQueryElement && this.listview) {
       this.listview.settings.source = value;
-      this.listview.updated();
+      this.updateRequired = true;
     }
   }
 
@@ -247,7 +246,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     this.options.disableItemDeactivation = value;
     if (this.jQueryElement && this.listview) {
       this.listview.settings.disableItemDeactivation = value;
-      this.listview.updated();
+      this.updateRequired = true;
     }
   }
   get disableItemDeactivation() {
@@ -342,61 +341,67 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * Local variables
    */
   private jQueryElement: JQuery;
-
   private listview: SohoListViewStatic;
-
   private options: SohoListViewOptions = {};
 
   /**
    * Constructor.
    */
-  constructor(private element: ElementRef) {}
+  constructor(
+    private ngZone: NgZone,
+    private element: ElementRef
+  ) {}
 
   ngAfterViewInit() {
     if (!this.listViewRef) {
       throw Error('Unable to find listview reference...');
     }
-    // Found a searchfield in the template, set searchable to true
-    if (this.searchfieldRef) {
-      this.options.searchable = true;
-    }
 
-    this.jQueryElement = jQuery(this.listViewRef.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
+      // Found a searchfield in the template, set searchable to true
+      if (this.searchfieldRef) {
+        this.options.searchable = true;
+      }
 
-    this.jQueryElement.listview(this.options);
+      this.jQueryElement = jQuery(this.listViewRef.nativeElement);
+      this.jQueryElement.listview(this.options);
+      this.listview = this.jQueryElement.data('listview');
 
-    this.listview = this.jQueryElement.data('listview');
-
-    /**
-     * Bind to jQueryElement's events
-     */
-    this.jQueryElement.on('rendered', (...args) => this.rendered.emit(args));
-    this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
-    this.jQueryElement.on('unselected', (...args) => this.unselected.emit(args));
-    this.jQueryElement.on('deselected', (...args) => this.deselected.emit(args));
-    this.jQueryElement.on('itemactivated', (...args) => this.itemactivated.emit(args));
-    this.jQueryElement.on('itemdeactivated', (...args) => this.itemdeactivated.emit(args));
-    this.jQueryElement.on('click', (...args) => this.click.emit(args));
-    this.jQueryElement.on('dblclick', (...args) => this.dblclick.emit(args));
-    this.jQueryElement.on('contextmenu', (...args) => this.contextmenu.emit(args));
-    this.jQueryElement.on('sorted', (...args) => this.sorted.emit(args));
+      /**
+       * Bind to jQueryElement's events
+       */
+      this.jQueryElement.on('rendered', (...args) => this.ngZone.run(() => this.rendered.emit(args)));
+      this.jQueryElement.on('selected', (...args) => this.ngZone.run(() => this.selected.emit(args)));
+      this.jQueryElement.on('unselected', (...args) => this.ngZone.run(() => this.unselected.emit(args)));
+      this.jQueryElement.on('deselected', (...args) => this.ngZone.run(() => this.deselected.emit(args)));
+      this.jQueryElement.on('itemactivated', (...args) => this.ngZone.run(() => this.itemactivated.emit(args)));
+      this.jQueryElement.on('itemdeactivated', (...args) => this.ngZone.run(() => this.itemdeactivated.emit(args)));
+      this.jQueryElement.on('click', (...args) => this.ngZone.run(() => this.click.emit(args)));
+      this.jQueryElement.on('dblclick', (...args) => this.ngZone.run(() => this.dblclick.emit(args)));
+      this.jQueryElement.on('contextmenu', (...args) => this.ngZone.run(() => this.contextmenu.emit(args)));
+      this.jQueryElement.on('sorted', (...args) => this.ngZone.run(() => this.sorted.emit(args)));
+    });
 
     this.items.changes.subscribe(() => { this.updateRequired = true; });
   }
 
   ngAfterViewChecked() {
     if (this.updateRequired) {
-      this.listview.updated();
+      this.ngZone.runOutsideAngular(() => this.listview.updated());
       this.updateRequired = false;
     }
   }
 
   ngOnDestroy() {
-    // Necessary clean up step (add additional here)
-    if (this.listview) {
-      this.listview.destroy();
-      this.listview = null;
-    }
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.listview) {
+        this.listview.destroy();
+        this.listview = null;
+      }
+    });
   }
 
   get listClass() {
@@ -411,14 +416,14 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * Clear all the currently selected listview items that are selected.
    */
   clearAllSelected() {
-    this.listview.clearAllSelected();
+    this.ngZone.runOutsideAngular(() => this.listview.clearAllSelected());
   }
 
   /**
    * Toggle the selected listview items between all and none.
    */
   toggleAll () {
-    this.listview.toggleAll();
+    this.ngZone.runOutsideAngular(() => this.listview.toggleAll());
   }
 
   /**
@@ -428,7 +433,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * @throws Error if the argument is null, or contains out of range indices then any error is thrown.
    */
   remove(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
-    this.apply((e) => this.listview.remove(e), index);
+    this.apply((e) => this.ngZone.runOutsideAngular(() => this.listview.remove(e)), index);
   }
 
   /**
@@ -438,7 +443,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * @throws Error if the argument is null, or contains out of range indices then any error is thrown.
    */
   unselect(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
-    this.apply((e) => this.listview.unselect(e), index);
+    this.apply((e) => this.ngZone.runOutsideAngular(() => this.listview.deselect(e)), index);
   }
   /**
    * Selects the list item (or list items) identified by their index or jQuery element.
@@ -449,21 +454,21 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * @throws Error if the argument is null, or contains out of range indices then any error is thrown.
    */
   select(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
-    this.apply((e) => this.listview.select(e), index);
+    this.apply((e) => this.ngZone.runOutsideAngular(() => this.listview.select(e)), index);
   }
 
   /**
    * Activate the given list item.
    */
   activateItem(item: SohoListViewItemReference): void {
-    this.apply((e) => this.listview.activateItem(e), item);
+    this.apply((e) => this.ngZone.runOutsideAngular(() => this.listview.activateItem(e)), item);
   }
 
   /**
    * Return an object containing info about the currently activated item.
    */
   activatedItem(): any {
-    return this.listview.activatedItem();
+    return this.ngZone.runOutsideAngular(() => this.listview.activatedItem());
   }
 
   /**
@@ -471,14 +476,14 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * activated item will be deactivated.
    */
   deactivateItem(item?: SohoListViewItemReference): void {
-    this.listview.deactivateItem(item);
+    this.ngZone.runOutsideAngular(() => this.listview.deactivateItem(item));
   }
 
   /**
    * Toggle Activation on the given list item.
    */
   toggleItemActivation(item: SohoListViewItemReference): void {
-    this.apply((e) => this.listview.toggleItemActivation(e), item);
+    this.apply((e) => this.ngZone.runOutsideAngular(() => this.listview.toggleItemActivation(e)), item);
   }
 
   /**

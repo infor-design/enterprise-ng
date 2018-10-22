@@ -25,6 +25,7 @@ import { CirclepagerDemoComponent } from './circlepager/circlepager.demo';
 import { CodeBlockDemoComponent } from './code-block/code-block.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
 import { ColumnDemoComponent } from './column/column.demo';
+import { ColumnYAxisDemoComponent } from './column/column-yaxis-format.demo';
 import { ColumnGroupedDemoComponent } from './column-grouped/column-grouped.demo';
 import { ColumnGroupedXaxisTwolineDemoComponent } from './column-grouped/column-grouped-xaxis-twoline.demo';
 import { ColumnStackedDemoComponent } from './column-stacked/column-stacked.demo';
@@ -47,6 +48,7 @@ import { DataGridLookupDialogDemoComponent } from './datagrid/datagrid-lookup-di
 import { DataGridRowReorderDemoComponent } from './datagrid/datagrid-rowreorder.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
+import { DataGridExportWithoutDataGridDemoComponent } from './datagrid/datagrid-export-without-datagrid.demo';
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
 import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-header.demo';
@@ -182,6 +184,7 @@ export const routes: Routes = [
   { path: 'code-block',                             component: CodeBlockDemoComponent },
   { path: 'colorpicker',                            component: ColorPickerDemoComponent },
   { path: 'column',                                 component: ColumnDemoComponent },
+  { path: 'column-yaxis-format',                     component: ColumnYAxisDemoComponent },
   { path: 'column-grouped',                         component: ColumnGroupedDemoComponent},
   { path: 'column-grouped-xaxis-twoline',           component: ColumnGroupedXaxisTwolineDemoComponent},
   { path: 'column-stacked',                         component: ColumnStackedDemoComponent},
@@ -194,6 +197,7 @@ export const routes: Routes = [
   { path: 'datagrid-empty-message',                 component: DataGridEmptyMessageDemoComponent },
   { path: 'datagrid-editors',                       component: DataGridEditorsDemoComponent },
   { path: 'datagrid-editors',                       component: DataGridEditorsDemoComponent },
+  { path: 'datagrid-export-without-datagrid',       component: DataGridExportWithoutDataGridDemoComponent },
   { path: 'datagrid-fixedheader',                   component: DataGridFixedHeaderDemoComponent },
   { path: 'datagrid-groupedheader',                 component: DataGridGroupedHeaderDemoComponent },
   { path: 'datagrid-groupable',                     component: DataGridGroupableDemoComponent },

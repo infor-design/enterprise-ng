@@ -5,7 +5,7 @@ import {
   Component,
   ElementRef,
   Input,
-  OnDestroy, EventEmitter, Output,
+  OnDestroy, EventEmitter, Output, NgZone, AfterViewChecked,
 } from '@angular/core';
 
 @Component({
@@ -13,12 +13,12 @@ import {
   template: ' '
 })
 
-export class SohoChartComponent implements AfterViewInit, OnDestroy {
+export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   @Input() set chartOptions(chartOptions: SohoChartOptions) {
       this._chartOptions = chartOptions;
       if (this.jQueryElement) {
-        this.updated();
+        this.updateRequired = true;
       }
   }
 
@@ -37,7 +37,7 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
     this._chartOptions.dataset = dataset;
 
     if (this.jQueryElement) {
-      this.updated();
+      this.updateRequired = true;
     }
   }
 
@@ -103,27 +103,42 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
   // Reference to the soho chart control api.
   private chart: SohoChartStatic;
 
-  constructor(private elementRef: ElementRef) {
+  private updateRequired = false;
 
-  }
+  constructor(
+    private elementRef: ElementRef,
+    private ngZone: NgZone,
+  ) {}
 
   ngAfterViewInit() {
-    // Wrap for later.
-    this.jQueryElement = jQuery(this.elementRef.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
+      // Wrap for later.
+      this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
-    this.jQueryElement.chart(this._chartOptions);
+      this.jQueryElement.chart(this._chartOptions);
 
-    this.chart = this.jQueryElement.data('chart');
+      this.chart = this.jQueryElement.data('chart');
 
-    this.jQueryElement.on('selected', (event: JQuery.Event, ui: any, data: any) => {
-      this.selected.emit({ event, ui, data });
-    }).on('unselected', (event: JQuery.Event, ui: any, data: any) => {
-      this.unselected.emit({ event, ui, data });
-    }).on('rendered', (event: JQuery.Event, ui: any, data: any) => {
-      this.rendered.emit({ event, ui, data });
-    }).on('contextmenu', (event: JQuery.Event, ui: any, data: any) => {
-      this.contextmenu.emit({ event, ui, data });
+      // bind to jquery events and emit as angular events
+      this.jQueryElement.on('selected', (event: JQuery.Event, ui: any, data: any) =>
+        this.ngZone.run(() => this.selected.emit({ event, ui, data })));
+
+      this.jQueryElement.on('unselected', (event: JQuery.Event, ui: any, data: any) =>
+        this.ngZone.run(() => this.unselected.emit({ event, ui, data })));
+
+      this.jQueryElement.on('rendered', (event: JQuery.Event, ui: any, data: any) =>
+        this.ngZone.run(() => this.rendered.emit({ event, ui, data })));
+
+      this.jQueryElement.on('contextmenu', (event: JQuery.Event, ui: any, data: any) =>
+        this.ngZone.run(() => this.contextmenu.emit({ event, ui, data })));
     });
+  }
+
+  ngAfterViewChecked() {
+    if (this.updateRequired) {
+      this.updated();
+      this.updateRequired = false;
+    }
   }
 
   ngOnDestroy() {
@@ -134,28 +149,32 @@ export class SohoChartComponent implements AfterViewInit, OnDestroy {
   }
 
   updated() {
-    this.jQueryElement.chart(this._chartOptions);
-    this.chart = this.jQueryElement.data('chart');
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement.chart(this._chartOptions);
+      this.chart = this.jQueryElement.data('chart');
+    });
   }
 
   getSelected() {
     if (this.jQueryElement) {
-      return this.chart.getSelected();
+      return this.ngZone.runOutsideAngular(() => this.chart.getSelected());
     }
     return undefined;
   }
 
   setSelectRef(ref: any): void {
-    if (this.jQueryElement) {
-      let selectOptions: ChartSelectionOptions;
-      if (this._chartOptions.type.indexOf('grouped') >= 0 || this._chartOptions.type === 'column') {
-        selectOptions = {groupName: 'ref', groupValue: ref};
-      } else {
-        selectOptions = {fieldName: 'ref', fieldValue: ref};
-      }
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        let selectOptions: ChartSelectionOptions;
+        if (this._chartOptions.type.indexOf('grouped') >= 0 || this._chartOptions.type === 'column') {
+          selectOptions = {groupName: 'ref', groupValue: ref};
+        } else {
+          selectOptions = {fieldName: 'ref', fieldValue: ref};
+        }
 
-      this.chart.setSelected(selectOptions);
-    }
+        this.chart.setSelected(selectOptions);
+      }
+    });
   }
 
   setSelectDataIndex(selectIndex: number) {

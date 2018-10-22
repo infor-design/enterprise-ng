@@ -42,6 +42,7 @@ import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { CirclepagerDemoComponent } from './circlepager/circlepager.demo';
 import { ColorPickerDemoComponent } from './colorpicker/colorpicker.demo';
 import { ColumnDemoComponent } from './column/column.demo';
+import { ColumnYAxisDemoComponent } from './column/column-yaxis-format.demo';
 import { ColumnGroupedDemoComponent } from './column-grouped/column-grouped.demo';
 import { ColumnGroupedXaxisTwolineDemoComponent } from './column-grouped/column-grouped-xaxis-twoline.demo';
 import { ColumnStackedDemoComponent } from './column-stacked/column-stacked.demo';
@@ -85,6 +86,7 @@ import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
 import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
+import { DataGridExportWithoutDataGridDemoComponent } from './datagrid/datagrid-export-without-datagrid.demo';
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
 import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-header.demo';
@@ -234,6 +236,7 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     CirclepagerDemoComponent,
     ColorPickerDemoComponent,
     ColumnDemoComponent,
+    ColumnYAxisDemoComponent,
     ColumnGroupedDemoComponent,
     ColumnGroupedXaxisTwolineDemoComponent,
     ColumnStackedDemoComponent,
@@ -256,6 +259,7 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     DataGridDynamicDemoComponent,
     DataGridEditorsDemoComponent,
     DataGridEmptyMessageDemoComponent,
+    DataGridExportWithoutDataGridDemoComponent,
     DataGridFixedHeaderDemoComponent,
     DataGridGroupedHeaderDemoComponent,
     DataGridLookupDialogDemoComponent,

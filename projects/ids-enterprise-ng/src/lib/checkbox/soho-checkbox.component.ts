@@ -8,6 +8,7 @@ import {
   ElementRef,
   EventEmitter,
   Input,
+  NgZone,
   OnDestroy,
   Output,
 } from '@angular/core';
@@ -65,19 +66,27 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
    *
    * @param elementRef - the element matching the component's selector.
    */
-  constructor(private elementRef: ElementRef) {
+  constructor(
+    private elementRef: ElementRef,
+    private ngZone: NgZone
+  ) {
   }
 
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.elementRef.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
-    /**
-     * Bind to jQueryElement's events
-     */
-    this.jQueryElement.on('change', (event: SohoCheckBoxEvent) => this.changeEvent.emit(event));
-    this.jQueryElement.on('updated', (event: SohoCheckBoxEvent) => this.updateEvent.emit(event));
+      /**
+       * Bind to jQueryElement's events
+       */
+      this.jQueryElement.on('change', (event: SohoCheckBoxEvent) =>
+        this.ngZone.run(() => this.changeEvent.emit(event)));
 
-    // no control initializer for checkbox
+      this.jQueryElement.on('updated', (event: SohoCheckBoxEvent) =>
+        this.ngZone.run(() => this.updateEvent.emit(event)));
+
+      // no control initializer for checkbox
+    });
   }
 
   /**

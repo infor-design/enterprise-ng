@@ -45,6 +45,14 @@ export class TreeContentDemoComponent {
     this.tree.selectNode('home');
   }
 
+  enable() {
+    this.tree.enable();
+  }
+
+  disable() {
+    this.tree.disable();
+  }
+
   addNode() {
     const tn: SohoTreeNode = {text: 'New Item 1.2', disabled: true};
     this.tree.addNode(tn, this.selected);

@@ -119,10 +119,10 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
        * Bind to jQueryElement's events
        */
       this.jQueryElement.on('selected', (...args) =>
-        this.ngZone.run(() => setTimeout(() => this.selected.emit(args), 1)));
+        this.ngZone.run(() => this.selected.emit(args)));
 
       this.jQueryElement.on('cleared', (...args) =>
-        this.ngZone.run(() => setTimeout(() => this.cleared.emit(args), 1)));
+        this.ngZone.run(() => this.cleared.emit(args)));
     });
   }
 
@@ -373,21 +373,6 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
   }
 
   /**
-   * A initial setting only of the events you'd like to have hooked up in the agnular wrapper.
-   * This aids in reducing change detection as each bound event that gets called (whether you
-   * are interested in it or not) causes change detection to get called which causes the screen
-   * to re-render each time.
-   *
-   * This is backward compatible if you don't use the registerForEvents input. If you want no
-   * events hooked up then use registerForEvent="". Otherwise just specify the events you want
-   * hooked up to sohoxi from this angular component.
-   *
-   *  a space delimited list of the events to be hooked up to sohoxi.
-   *       example: "activated afterActivated tabAdded"
-   */
-  @Input() registerForEvents = undefined;
-
-  /**
    * The beforeactivate event is fired whenever a toolbar is activated giving the event handler a chance
    * to "veto" the tab selection change.
    */
@@ -433,7 +418,25 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
       this.toolbar = this.jQueryElement.data('toolbar');
 
       // bind to jquery events and emit as angular events
-      this.hookupRegisteredEvents();
+      this.jQueryElement.on('beforeactivated', (event: JQuery.Event) =>
+        this.ngZone.run(() => this.beforeActivated.emit(event)));
+
+      this.jQueryElement.on('activated', (event: JQuery.Event) =>
+        this.ngZone.run(() => this.activated.emit(event)));
+
+      this.jQueryElement.on('afteractivated', (event: JQuery.Event) =>
+        this.ngZone.run(() => this.afterActivated.emit(event)));
+
+      this.jQueryElement.on('selected', (event: JQuery.Event, item: HTMLButtonElement | HTMLAnchorElement) =>
+        this.ngZone.run(() => this.selected.emit({event, item})));
+
+      // Returns original button info on mouseover event
+      this.jQueryElement.find('.more').on('mouseover', 'li.submenu', ((event: JQuery.Event) => {
+        const originalButton: HTMLButtonElement = jQuery(event.target).data('originalButton');
+        if (originalButton !== undefined) {
+          this.ngZone.run(() => this.menuItemMouseOver.emit(originalButton));
+        }
+      }));
 
       this.toolbar = this.jQueryElement.data('toolbar');
     });
@@ -457,47 +460,6 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
         this.toolbar = null;
       }
     });
-  }
-
-  private hookupRegisteredEvents() {
-    NgZone.assertNotInAngularZone();
-
-    let eventsToRegister = null;
-    if (this.registerForEvents !== undefined) {
-      eventsToRegister = this.registerForEvents.split(' ');
-    }
-
-    // if no events are registered then all event will be bound for backward compatibility.
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'beforeactivated')) {
-      this.jQueryElement.on('beforeactivated', (event: JQuery.Event) =>
-        this.ngZone.run(() => setTimeout(() => this.beforeActivated.emit(event), 1)));
-    }
-
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'activated')) {
-      this.jQueryElement.on('activated', (event: JQuery.Event) =>
-        this.ngZone.run(() => setTimeout(() => this.activated.emit(event), 1)));
-    }
-
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'afteractivated')) {
-      this.jQueryElement.on('afteractivated', (event: JQuery.Event) =>
-        this.ngZone.run(() => setTimeout(() => this.afterActivated.emit(event), 1)));
-    }
-
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'selected')) {
-      this.jQueryElement.on('selected', (event: JQuery.Event, item: HTMLButtonElement | HTMLAnchorElement) =>
-        this.ngZone.run(() => setTimeout(() => this.selected.emit({event, item}), 1)));
-    }
-
-    // Returns original button info on mouseover event
-    if (this.registerForEvents === undefined || eventsToRegister.some(event => event === 'mouseover')) {
-      this.jQueryElement.find('.more').on('mouseover', 'li.submenu', ((event: JQuery.Event) => {
-        const originalButton: HTMLButtonElement = jQuery(event.target).data('originalButton');
-
-        if (originalButton !== undefined) {
-          this.ngZone.run(() => setTimeout(() => this.menuItemMouseOver.emit(originalButton), 1));
-        }
-      }));
-    }
   }
 
   updated(settings?) {

@@ -239,6 +239,20 @@ Angular-CLI uses **jasmine** to handle unit testing.  Simply add your unit test 
 
 These unit tests are run are part of the Continuous Integration build when code is pushed into the IDS enterprise-ng repository.
 
+To run the tests simply run the command:
+
+```sh
+ng test
+```
+
+If you need to debug unit tests.
+
+- Put a `fit(` on the test to focus the test.
+- Place a `debugger` statement in the code where you want to debug.
+- Run the tests with the command `ng test ids-enterprise-ng --browsers=Chrome`
+- press the debugger button in the browser
+- open dev tools and refresh the page
+
 ## Pulling it all together
 
 Add the new widget's module to the `SohoComponentsModule`:

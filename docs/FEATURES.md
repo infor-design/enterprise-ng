@@ -1,67 +1,83 @@
+
 # Feature status
 
-| Feature                 | Status                              | Docs         | Issue              |
-|-------------------------|-------------------------------------|--------------|--------------------|
-| accordion               |                           Available |  [README][3] | [SOHO-4344][#4344] |
-| application-menu        |                           Available |            - | [SOHO-3950][#3950] |
-| autocomplete            |                           Available |            - | [SOHO-6759][#6759] |
-| busyindicator           |                           Available |            - | [SOHO-4096][#4096] |
-| button                  |                           Available |            - | [SOHO-4556][#4556] |
-| checkbox                |                           Available |            - | [SOHO-4617][#4617] |
-| colorpicker             |                           Available |            - | [SOHO-6503][#6503] |
-| context-menu            |                           Available |            - | [SOHO-4557][#4557] |
-| contextual-action-panel |                           Available |  [README][0] | [SOHO-5909][#5909] |
-| datagrid                |                           Available |  [README][4] | [SOHO-4049][#4049] |
-| datepicker              |                           Available |            - | [SOHO-4489][#4489] |
-| dropdown                |                           Available |            - | [SOHO-4050][#4050] |
-| editor                  |                           Available |            - | [SOHO-4559][#4559] |
-| error                   |                           Available |            - |                  - |
-| expandablearea          |                           Available |            - | [SOHO-4017][#4017] |
-| fieldOptions            |                           Available |            - | [SOHO-6265][#6265] |
-| fileupload              |                           Available |            - | [SOHO-4560][#4560] |
-| fileupload-advanced     |                           Available |            - | [SOHO-5124][#5214] |
-| fieldset                |                             Pending |            - | [SOHO-4561][#4561] |
-| header                  |                           Available |            - |                  - |
-| homepage                |                           Available |            - |                  - |
-| hyperlink               |                           Available |            - | [SOHO-4562][#4562] |
-| icon                    |                           Available |            - |              - |
-| input                   |                           Available |            - |              - |
-| input-validate          |                           Available |            - |              - |
-| label                   |                           Available |            - | [SOHO-4570][#4570] |
-| lightbox                |                     Not Implemented |            - | [SOHO-5127][#5127] |
-| listview                |                           Available | [README][2]  | [SOHO-4040][#4040] |
-| locale                  |                           Available |            - | [SOHO-4470][#4470] |
-| lookup                  |                           Available |            - | [SOHO-4052][#4052] |
-| mask                    |                           Available |            - | [SOHO-3895][#3895] |
-| masthead                |                           Available |            - |              - |
-| menu-button             |                           Available |            - | [SOHO-4049][#4089] |
-| message                 |                           Available |            -  |              - |
-| modal-dalog             |                           Available | [README][1]  | [SOHO-4734][#4734]|
-| pager                   |                           Available |           -  |              - |
-| personalize             |                           Available |           -  |              - |
-| popdown                 |                           Available |           -  | [SOHO-4653][#4563] |
-| popupmenu               |                           Available |           -  | [SOHO-4342][#4342] |
-| progress                |                           Available |           -  | [SOHO-4342][#4342] |
-| rating                  |                             Pending |           -  | [SOHO-5126][#5126] |
-| radiobutton             |                           Available |           -  | [SOHO-4562][#4562] |
-| searchfield             |                           Available |           -  | [SOHO-4422][#4422] |
-| slider                  |                           Available |           -  | [SOHO-4565][#4565] |
-| spinbox                 |                           Available |           -  | [SOHO-5125][#5125] |
-| splitter                |                           Available |           -  | [SOHO-4402][#4402] |
-| stepprocess             |                           Available |           -  | [SOHO-4999][#4999] |
-| swaplist                |                           Available |           -  | [SOHO-5122][#5122] |
-| tag                     |                           Available | [README][5]  | [SOHO-8005][#8005] |
-| tabs                    |                           Available |           -  |              - |
-| textarea                |                           Available |           -  |              - |
-| timepicker              |                           Available |           -  |              - |
-| theming                 |                     Partial Support |           -  |              - |
-| toast                   |                           Available |           -  |              - |
-| toolbar                 |                           Available |           -  |              - |
-| tooltip                 |                           Available |           -  |              - |
-| trackdirty              |                           Available |           -  |              - |
-| tree                    |                           Available |           -  | [SOHO-4043][#4083] |
-| treegrid                |                           Available |           -  | [SOHO-4722][#4722] |
-| wizard                  |                           Available |           -  | [SOHO-6317][#6317] |
+| Feature                 | Status               | Docs         | Issue              | Zone Compliant |
+|-------------------------|:--------------------:|:------------:|:------------------:|:--------------:|
+| about                   |            Available |            - |                  - |              - |
+| accordion               |            Available |  [README][3] | [SOHO-4344][#4344] |             No |
+| alert                   |            Available |            - |                  - |            Yes |
+| application-menu        |            Available |            - | [SOHO-3950][#3950] |             No |
+| autocomplete            |            Available |            - | [SOHO-6759][#6759] |             No |
+| bar                     |            Available |            - |                  - |            Yes |
+| blockgrid               |            Available |            - |                    |            Yes |
+| bullet                  |            Available |            - |                  - |            Yes |
+| busyindicator           |            Available |            - | [SOHO-4096][#4096] |            Yes |
+| button                  |            Available |            - | [SOHO-4556][#4556] |            Yes |
+| checkbox                |            Available |            - | [SOHO-4617][#4617] |            Yes |
+| circlepager             |            Available |            - |                  - |            Yes |
+| colorpicker             |            Available |            - | [SOHO-6503][#6503] |            Yes |
+| column                  |            Available |            - |                  - |            Yes |
+| context-menu            |            Available |            - | [SOHO-4557][#4557] |            Yes |
+| contextual-action-panel |            Available |  [README][0] | [SOHO-5909][#5909] |              - |
+| datagrid                |            Available |  [README][4] | [SOHO-4049][#4049] |            Yes |
+| datepicker              |            Available |            - | [SOHO-4489][#4489] |            Yes |
+| dropdown                |            Available |            - | [SOHO-4050][#4050] |            Yes |
+| editor                  |            Available |            - | [SOHO-4559][#4559] |            Yes |
+| emptymessage            |            Available |            - |                  - |             No |
+| error                   |            Available |            - |                  - |             No |
+| expandablearea          |            Available |            - | [SOHO-4017][#4017] |            Yes |
+| fieldOptions            |            Available |            - | [SOHO-6265][#6265] |            Yes |
+| field-filter            |            Available |            - |                  - |             No |
+| fileupload              |            Available |            - | [SOHO-4560][#4560] |             No |
+| fileupload-advanced     |            Available |            - | [SOHO-5124][#5214] |             No |
+| fieldset                |              Pending |            - | [SOHO-4561][#4561] |              - |
+| header                  |            Available |            - |                  - |             No |
+| hierarchy               |            Available |            - |                  - |             No |
+| homepage                |            Available |            - |                  - |            Yes |
+| hyperlink               |            Available |            - | [SOHO-4562][#4562] |             No |
+| icon                    |            Available |            - |                  - |             No |
+| input                   |            Available |            - |                  - |             No |
+| input-validate          |            Available |            - |                  - |            Yes |
+| label                   |            Available |            - | [SOHO-4570][#4570] |             No |
+| lightbox                |      Not Implemented |            - | [SOHO-5127][#5127] |              - |
+| line                    |            Available |            - |                  - |            Yes |
+| listview                |            Available | [README][2]  | [SOHO-4040][#4040] |            Yes |
+| locale                  |            Available |            - | [SOHO-4470][#4470] |              - |
+| lookup                  |            Available |            - | [SOHO-4052][#4052] |             No |
+| mask                    |            Available |            - | [SOHO-3895][#3895] |             No |
+| masthead                |            Available |            - |                  - |              - |
+| menu-button             |            Available |            - | [SOHO-4049][#4089] |             No |
+| message                 |            Available |            -  |                 - |              - |
+| modal-dialog            |            Available | [README][1]  | [SOHO-4734][#4734] |              - |
+| pager                   |              Pending |            - |                  - |             No |
+| pie                     |            Available |            - |                  - |            Yes |
+| personalize             |            Available |            - |                  - |             No |
+| popdown                 |            Available |            - | [SOHO-4653][#4563] |             No |
+| popupmenu               |            Available |            - | [SOHO-4342][#4342] |            Yes |
+| progress                |            Available |            - | [SOHO-4342][#4342] |             No |
+| radar                   |            Available |            - |                  - |            Yes |
+| radiobutton             |            Available |            - | [SOHO-4562][#4562] |             No |
+| rating                  |              Pending |            - | [SOHO-5126][#5126] |             No |
+| searchfield             |            Available |            - | [SOHO-4422][#4422] |             No |
+| slider                  |            Available |            - | [SOHO-4565][#4565] |             No |
+| sparkline               |            Available |            - |                  - |            Yes |
+| spinbox                 |            Available |            - | [SOHO-5125][#5125] |            Yes |
+| splitter                |            Available |            - | [SOHO-4402][#4402] |             No |
+| stepprocess             |            Available |            - | [SOHO-4999][#4999] |             No |
+| swaplist                |            Available |            - | [SOHO-5122][#5122] |             No |
+| tag                     |            Available |  [README][5] | [SOHO-8005][#8005] |            Yes |
+| tabs                    |            Available |            - |                  - |            Yes |
+| textarea                |            Available |            - |                  - |            Yes |
+| timepicker              |            Available |            - |                  - |            Yes |
+| theming                 |      Partial Support |            - |                  - |              - |
+| toast                   |            Available |            - |                  - |              - |
+| toolbar                 |            Available |            - |                  - |            Yes |
+| tooltip                 |            Available |            - |                  - |             No |
+| trackdirty              |            Available |            - |                  - |            Yes |
+| tree                    |            Available |            - | [SOHO-4043][#4083] |             No |
+| treegrid                |            Available |            - | [SOHO-4722][#4722] |            Yes |
+| treemap                 |            Available |            - |                  - |            Yes |
+| wizard                  |            Available |            - | [SOHO-6317][#6317] |             No |
 
 [0]: ../projects/ids-enterprise-ng/src/lib/contextual-action-panel/README.md
 [1]: ../projects/ids-enterprise-ng/src/lib/modal-dialog/README.md
