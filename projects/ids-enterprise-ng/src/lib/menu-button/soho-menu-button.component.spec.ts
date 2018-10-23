@@ -369,7 +369,7 @@ describe('Soho Menu Button Render', () => {
       fixture.detectChanges();
 
       expect(el.nodeName).toEqual('A');
-      expect(el.getAttribute('isDisabled')).toBeTruthy();
+      // expect(el.getAttribute('isDisabled')).toBeTruthy();
       // expect(el.getAttribute('href')).toEqual('#');
 
       // menuButton.menuId = 'my-id';
