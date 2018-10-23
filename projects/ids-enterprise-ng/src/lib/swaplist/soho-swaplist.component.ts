@@ -351,7 +351,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
           this.updateDataset(d);
         });
       }
-    })
+    });
   }
 
   /**
@@ -364,7 +364,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
         this.swaplist = null;
         this.jQueryElement.off();
       }
-    })
+    });
   }
 
   /**
