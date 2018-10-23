@@ -8,6 +8,7 @@ import {
   EventEmitter,
   HostBinding,
   Input,
+  NgZone,
   OnDestroy,
   Optional,
   Output,
@@ -32,6 +33,11 @@ export type SohoSwapListCardType = 'available' | 'selected' | 'full-access';
           </div>
         </div>
         <div class="card-content">
+          <div class="listview-search" *ngIf="showSearchable">
+            <label class="audible" for="searchfield-{{cardType}}">{{searchTitle}}</label>
+            <input class="searchfield" placeholder="{{searchTitle}}" name="searchfield-{{cardType}}"
+             id="searchfield-{{cardType}}" data-init="false">
+          </div>
           <div class="listview"></div>
         </div>
       </div>`,
@@ -41,26 +47,52 @@ export class SohoSwapListCardComponent {
   @HostBinding('class.swaplist') get isSwapList() { return true; }
 
   /** The type of card. */
-  private _type: SohoSwapListCardType;
+  private cardtype: SohoSwapListCardType;
 
   /** The title for the card. */
-  private _title: string;
+  private cardtitle: string;
+
+  /** The show searchable for the search-field. */
+  private showsearchable: boolean;
+
+  /** The show searchable for the search-field. */
+  private searchtitle: string;
 
   @Input()
   public set type(value: SohoSwapListCardType) {
-    this._type = value;
+    this.cardtype = value;
+  }
+
+  @Input()
+  public set showSearchable(value: boolean) {
+    this.showsearchable = value;
+  }
+
+  public get showSearchable(): boolean {
+    return this.showsearchable;
+  }
+
+  @Input()
+  public set searchTitle(value: string) {
+    this.searchtitle = value;
+  }
+
+  public get searchTitle(): string {
+    return this.searchtitle;
   }
 
   /**
    * Return the class to use for the card.
    */
   public get cardClass(): string {
-    let cardClasses = 'card';
+    return `card${this.cardtype ? ` ${this.cardtype}` : ''}`;
+  }
 
-    if (this._type) {
-      cardClasses += ' ' + this._type;
-    }
-    return cardClasses;
+  /**
+   * Return the card type to use for the card.
+   */
+  public get cardType(): string {
+    return this.cardtype || '';
   }
 
   /**
@@ -68,11 +100,11 @@ export class SohoSwapListCardComponent {
    */
   @Input()
   public set title(value: string) {
-    this._title = value;
+    this.cardtitle = value;
   }
 
   public get title(): string {
-    return this._title;
+    return this.cardtitle;
   }
 }
 
@@ -101,21 +133,21 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   private _showFullAccessCard = false;
 
   /**
-  * Assign the id for the control
-  * (maps to the name to use on a label's 'for' attribute)
-  */
+   * Assign the id for the control
+   * (maps to the name to use on a label's 'for' attribute)
+   */
   @HostBinding('id') get id() {
-      return this.name;
+    return this.name;
   }
 
   /** Adds the 'swaplist' class required by the SoHoXi control. */
   @HostBinding('class.swaplist') get isSwapList() {
-      return true;
+    return true;
   }
 
   /** Adds the 'one-third' class required when full access is set. */
   @HostBinding('class.one-third') get isOneThird() {
-      return this.showFullAccessCard;
+    return this.showFullAccessCard;
   }
 
   /** The component used to represent the available items. */
@@ -148,6 +180,18 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   @Input()
   public fullAccessCardTitle = Soho.Locale.translate('AdditionalItems');
 
+  /** Default search title for available items card. */
+  @Input()
+  public availableCardSearchTitle = Soho.Locale.translate('SearchAvailable');
+
+  /** Default search title for selected items card. */
+  @Input()
+  public selectedCardSearchTitle = Soho.Locale.translate('SearchSelected');
+
+  /** Default search title for additional items card. */
+  @Input()
+  public fullAccessCardSearchTitle = Soho.Locale.translate('SearchAdditionalItems');
+
   /** Default button text for select. */
   @Input()
   public btnMoveToSelect = Soho.Locale.translate('Select');
@@ -161,17 +205,36 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   public btnMoveToRight = Soho.Locale.translate('MoveToRight');
 
   /**
-    * Set available card items.
-    *
-    * @param value item data.
-    */
+   * Set searchable option for SohoSwapList.
+   *
+   * @param value option.
+   */
+  @Input()
+  public set searchable(value: boolean) {
+    this._options.searchable = value;
+  }
+
+  /**
+   * Return the searchable option for SohoSwapList.
+   *
+   * @return an boolean of searchable option.
+   */
+  public get searchable(): boolean {
+    return this._options.searchable;
+  }
+
+  /**
+   * Set available card items.
+   *
+   * @param value item data.
+   */
   @Input()
   public set availableItems(value: SohoSwapListItem[]) {
-      this._options.available = value;
-      if (this.swaplist) {
-          this.swaplist.settings.available = value;
-          this.swaplist.updated();
-      }
+    this._options.available = value;
+    if (this.swaplist) {
+      this.swaplist.settings.available = value;
+      this.swaplist.updated();
+    }
   }
 
   /**
@@ -180,21 +243,21 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
    * @return an array of SohoSwapListItem.
    */
   public get availableItems(): SohoSwapListItem[] {
-      return this.ConvertToModel(this.swaplist.getAvailable());
+    return this.ConvertToModel(this.swaplist.getAvailable());
   }
 
   /**
-    * Set selected card items.
-    *
-    * @param value item data.
-    */
+   * Set selected card items.
+   *
+   * @param value item data.
+   */
   @Input()
   public set selectedItems(value: SohoSwapListItem[]) {
-      this._options.selected = value;
-      if (this.swaplist) {
-          this.swaplist.settings.selected = value;
-          this.swaplist.updated();
-      }
+    this._options.selected = value;
+    if (this.swaplist) {
+      this.swaplist.settings.selected = value;
+      this.swaplist.updated();
+    }
   }
 
   /**
@@ -203,21 +266,21 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
    * @return an array of SohoSwapListItem.
    */
   public get selectedItems(): SohoSwapListItem[] {
-      return this.ConvertToModel(this.swaplist.getSelected());
+    return this.ConvertToModel(this.swaplist.getSelected());
   }
 
   /**
-    * Set additional card items.
-    *
-    * @param value item data.
-    */
+   * Set additional card items.
+   *
+   * @param value item data.
+   */
   @Input()
   public set additionalItems(value: SohoSwapListItem[]) {
-      this._options.additional = value;
-      if (this.swaplist) {
-          this.swaplist.settings.additional = value;
-          this.swaplist.updated();
-      }
+    this._options.additional = value;
+    if (this.swaplist) {
+      this.swaplist.settings.additional = value;
+      this.swaplist.updated();
+    }
   }
 
   /**
@@ -226,17 +289,17 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
    * @return an array of SohoSwapListItem.
    */
   public get additionalItems(): SohoSwapListItem[] {
-      return this.ConvertToModel(this.swaplist.getAdditional());
+    return this.ConvertToModel(this.swaplist.getAdditional());
   }
 
   /**
-    * Set flag to display third card full access card or not.
-    *
-    * @param value the value to show full access card.
-    */
+   * Set flag to display third card full access card or not.
+   *
+   * @param value the value to show full access card.
+   */
   @Input()
   public set showFullAccessCard(value: boolean) {
-      this._showFullAccessCard = value === null || value as any === 'true';
+    this._showFullAccessCard = value === null || value as any === 'true';
   }
 
   /**
@@ -245,7 +308,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
    * @return boolean value.
    */
   public get showFullAccessCard(): boolean {
-      return this._showFullAccessCard;
+    return this._showFullAccessCard;
   }
 
   /**
@@ -265,44 +328,52 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   // ------------------------------------------------------------------------
   // Constructor
   // ------------------------------------------------------------------------
-  constructor(private element: ElementRef,
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone,
                 @Optional() private swaplistService: SohoSwapListService) {
   }
 
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
-    this.jQueryElement.swaplist(this._options);
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
+      this.jQueryElement.find('.searchfield').searchfield({ clearable: true });
+      this.jQueryElement.swaplist(this._options);
 
-    this.jQueryElement
-    .on('beforeswap', (event: JQuery.Event, moved: SohoSwapListMoved) => this.onBeforeSwap(event, moved))
-    .on('swapupdate', (event: JQuery.Event, moved: SohoSwapListMoved) => this.onSwapUpdate(event, moved));
+      this.jQueryElement
+        .on('beforeswap', (event: JQuery.Event, moved: SohoSwapListMoved) => this.onBeforeSwap(event, moved))
+        .on('swapupdate', (event: JQuery.Event, moved: SohoSwapListMoved) => this.onSwapUpdate(event, moved));
 
-    this.swaplist = this.jQueryElement.data('swaplist');
+      this.swaplist = this.jQueryElement.data('swaplist');
 
-    if (this.swaplistService) {
+      if (this.swaplistService) {
         this.swaplistService.getData().subscribe((d: SohoSwapListOptions) => {
-            this.updateDataset(d);
+          this.updateDataset(d);
         });
-    }
+      }
+    });
   }
 
   /**
-  * Destroys any resources created by the control.
-  */
+   * Destroys any resources created by the control.
+   */
   ngOnDestroy() {
-    if (this.swaplist) {
-      this.swaplist.destroy();
-      this.swaplist = null;
-    }
+    this.ngZone.runOutsideAngular(() => {
+      if (this.swaplist) {
+        this.swaplist.destroy();
+        this.swaplist = null;
+        this.jQueryElement.off();
+      }
+    });
   }
 
   /**
-  * In case the list data is being bound asynchronously or modified on the fly,
-  * you will need to trigger updated on so it updates the list(s).
-  */
+   * In case the list data is being bound asynchronously or modified on the fly,
+   * you will need to trigger updated on so it updates the list(s).
+   */
   public updated() {
     if (this.swaplist) {
-      this.swaplist.updated();
+      this.ngZone.runOutsideAngular(() => this.swaplist.updated());
     }
   }
 
@@ -322,10 +393,10 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   }
 
   /**
-    * Converts the list of items into a list of swaplist items.
-    *
-    * @param items data to convert to item model.
-    */
+   * Converts the list of items into a list of swaplist items.
+   *
+   * @param items data to convert to item model.
+   */
   private ConvertToModel(items: any[]): SohoSwapListItem[] {
     const results = [];
     for (let i = 0; i < items.length; i++) {
