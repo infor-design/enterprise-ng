@@ -8,7 +8,7 @@ import {
   EventEmitter,
   HostBinding,
   HostListener,
-  Input,
+  Input, NgZone,
   OnDestroy,
   Output
 } from '@angular/core';
@@ -115,7 +115,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   /** Initial dataset */
   private _dataset: Object[];
 
-  constructor(private element: ElementRef) {
+  constructor(private element: ElementRef, private ngZone: NgZone) {
     super();
   }
 
@@ -126,55 +126,62 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    // The default options for the data grid, which will
-    // be overriden by the options provided by the caller
-    // on a field by field basis.
-    const datagridConfig: SohoDataGridOptions = {
-      cellNavigation: false,
-      columns: this.columns,
-      dataset: this._dataset ? this._dataset : [],
-      selectable: this.isMultiselect() ? 'multiple' : 'single',
-      toolbar: Object.assign({
-        actions: true,
-        advancedFilter: false,
-        dateFilter: false,
-        fullWidth: true,
-        keywordFilter: true,
-        results: true,
-        rowHeight: true,
-        views: false,
-      }, this.toolbar),
-      source: this.source
-    };
+      // The default options for the data grid, which will
+      // be overriden by the options provided by the caller
+      // on a field by field basis.
+      const datagridConfig: SohoDataGridOptions = {
+        cellNavigation: false,
+        columns: this.columns,
+        dataset: this._dataset ? this._dataset : [],
+        selectable: this.isMultiselect() ? 'multiple' : 'single',
+        toolbar: Object.assign({
+          actions: true,
+          advancedFilter: false,
+          dateFilter: false,
+          fullWidth: true,
+          keywordFilter: true,
+          results: true,
+          rowHeight: true,
+          views: false,
+        }, this.toolbar),
+        source: this.source
+      };
 
-    this._options.options = Object.assign(datagridConfig, this.options);
+      this._options.options = Object.assign(datagridConfig, this.options);
 
-    this.jQueryElement.lookup(this._options);
+      this.jQueryElement.lookup(this._options);
 
-    /**
-     * Bind to jQueryElement's events
-     */
-    this.jQueryElement.on('afteropen', (...args: any[]) => this.modalOpened(args));
-    this.jQueryElement.on('beforeopen', () => this.beforeopen.emit(null));
-    this.jQueryElement.on('open', () => this.open.emit(null));
-    this.jQueryElement.on('change', (e: any, args: SohoLookupChangeEvent[]) => this.onChange(args));
-    this.jQueryElement.on('blur', (e: any) => this.touched());
+      /**
+       * Bind to jQueryElement's events
+       */
+      this.jQueryElement.on('afteropen', (...args: any[]) => this.modalOpened(args));
+      this.jQueryElement.on('beforeopen', () => this.ngZone.run(() => this.beforeopen.emit(null)));
+      this.jQueryElement.on('open', () => this.ngZone.run(() => this.open.emit(null)));
+      this.jQueryElement.on('change', (e: any, args: SohoLookupChangeEvent[]) => this.onChange(args));
+      this.jQueryElement.on('blur', (e: any) => this.ngZone.run(() => this.touched()));
 
-    this.lookup = this.jQueryElement.data('lookup');
+      this.lookup = this.jQueryElement.data('lookup');
 
-    if (this.internalValue) {
-      this.lookup.element.val(this.internalValue);
-    }
+      if (this.internalValue) {
+        this.lookup.element.val(this.internalValue);
+      }
+    });
   }
 
   ngOnDestroy() {
-    // Necessary clean up step (add additional here)
-    if (this.lookup) {
-      this.lookup.destroy();
-      this.lookup = null;
-    }
+    // call outside the angular zone so change detection isn't triggered by the soho component.
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.lookup) {
+        this.lookup.destroy();
+        this.lookup = null;
+      }
+    });
   }
 
   isMultiselect(): boolean {
@@ -182,46 +189,50 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   modalOpened(args: any[]) {
-    /**
-     * Temporary fix for inability for grid to async call data and resize modal on returned
-     * values (only necessary when the page size is large enough to make the datagrid larger
-     * than the current modal content window height):
-     * jira/browse/SOHO-4347
-     */
-    if (args[1] && args[2]) {
+    this.ngZone.run(() => {
+      /**
+       * Temporary fix for inability for grid to async call data and resize modal on returned
+       * values (only necessary when the page size is large enough to make the datagrid larger
+       * than the current modal content window height):
+       * jira/browse/SOHO-4347
+       */
+      if (args[1] && args[2]) {
 
-      const datagrid: SohoDataGridStatic = args[1],
-        modal: SohoModalStatic = args[2];
+        const datagrid: SohoDataGridStatic = args[1],
+          modal: SohoModalStatic = args[2];
 
-      if (datagrid.pager) {
-        datagrid.pager.element.on('afterpaging', () => {
-          modal.resize();
-        });
+        if (datagrid.pager) {
+          datagrid.pager.element.on('afterpaging', () => {
+            modal.resize();
+          });
+        }
       }
-    }
-    this.afteropen.emit(args);
+      this.afteropen.emit(args);
+    });
   }
 
   /**
    * Handle the control being changed.
    */
   onChange(event: SohoLookupChangeEvent[]) {
-    this.parseValue(event);
-    if (!event) {
-      // prevent undefined exception when event is undefined.
-      return;
-    }
+    this.ngZone.run(() => {
+      this.parseValue(event);
+      if (!event) {
+        // prevent undefined exception when event is undefined.
+        return;
+      }
 
-    // todo: why is this here, value is not defined anywhere, not sure where it's used so reluctant to remove it.
-    event.values = this.internalValue;
+      // todo: why is this here, value is not defined anywhere, not sure where it's used so reluctant to remove it.
+      event.values = this.internalValue;
 
-    // todo: theo: thinking it should be this instead - Phillip 2018/04/02
-    // if (!event) {
-    //   event = [{}];
-    // }
-    // event[0].value = this.internalValue;
+      // todo: theo: thinking it should be this instead - Phillip 2018/04/02
+      // if (!event) {
+      //   event = [{}];
+      // }
+      // event[0].value = this.internalValue;
 
-    this.change.emit(event);
+      this.change.emit(event);
+    });
   }
 
   setDisabledState(isDisabled: boolean): void {

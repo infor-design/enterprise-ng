@@ -1,14 +1,17 @@
 /// <reference path="soho-application-menu.d.ts"/>
 
 import {
+  AfterViewChecked,
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
+  ElementRef,
+  EventEmitter,
   HostBinding,
+  Input,
   OnDestroy,
   Output,
-  EventEmitter,
-  ElementRef,
-  Input
+  NgZone,
 } from '@angular/core';
 
 /**
@@ -20,9 +23,10 @@ import {
  */
 @Component({
   selector: 'nav[soho-application-menu]', // tslint:disable-line
-  templateUrl: './soho-application-menu.component.html'
+  templateUrl: './soho-application-menu.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
+export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   // -------------------------------------------
   // Component Inputs
@@ -39,7 +43,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
 
     if (this.applicationmenu) {
       this.applicationmenu.settings.openOnLarge = this._openOnLarge;
-      this.updated();
+      this.updateRequired = true;
     }
   }
 
@@ -61,7 +65,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
 
     if (this.applicationmenu) {
       this.applicationmenu.settings.dismissOnClickMobile = this._dismissOnClickMobile;
-      this.updated();
+      this.updateRequired = true;
     }
   }
 
@@ -89,7 +93,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
 
       if (this.applicationmenu) {
         this.applicationmenu.settings.triggers = this._triggers;
-        this.updated();
+        this.updateRequired = true;
       }
     }
   }
@@ -144,9 +148,14 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
   // This event is fired when the application menu is filtered.
   @Output() filtered = new EventEmitter<any[]>();
 
+  // flag the need to update the soho/ep control in ngAfterViewChecked.
+  private updateRequired = false;
+
   // Constructor.
-  constructor(private elementRef: ElementRef) {
-  }
+  constructor(
+    private elementRef: ElementRef,
+    private ngZone: NgZone,
+  ) {}
 
   // -------------------------------------------
   // Public API
@@ -156,26 +165,26 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
    * Close the menu.
    */
   public closeMenu() {
-    this.applicationmenu.closeMenu();
+    this.ngZone.runOutsideAngular(() => this.applicationmenu.closeMenu());
   }
 
   /** Open the menu. */
   public openMenu() {
-    this.applicationmenu.openMenu();
+    this.ngZone.runOutsideAngular(() => this.applicationmenu.openMenu());
   }
 
   /**
    * Returns true if the menu is open, otherwise false.
    */
   public isOpen(): boolean {
-    return this.applicationmenu.isOpen();
+    return this.ngZone.runOutsideAngular(() => this.applicationmenu.isOpen());
   }
 
   /**
    * Notifies application menu that it has been updated
    */
   public updated() {
-    this.applicationmenu.updated();
+    this.ngZone.runOutsideAngular(() => this.applicationmenu.updated());
   }
 
   /*
@@ -188,11 +197,13 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
     const $accordion = $applicationMenu.accordion;
     const accordion = $accordion.data('accordion');
 
-    setTimeout(() => {
-      accordion.updated();
-      const header = jQuery(target).closest('.accordion-header');
-      accordion.expand(header);
-    }, 1);
+    this.ngZone.runOutsideAngular(() => {
+      setTimeout(() => {
+        accordion.updated();
+        const header = jQuery(target).closest('.accordion-header');
+        accordion.expand(header);
+      }, 1);
+    });
   }
 
   /*
@@ -205,11 +216,13 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
 
     accordion.headers = $accordion.find('.accordion-header');
 
-    setTimeout(() => {
-      accordion.updated();
-      accordion.toggle(jQuery(header));
-      accordion.select(jQuery(header));
-    }, 1);
+    this.ngZone.runOutsideAngular(() => {
+      setTimeout(() => {
+        accordion.updated();
+        accordion.toggle(jQuery(header));
+        accordion.select(jQuery(header));
+      }, 1);
+    });
   }
 
   // ------------------------------------------
@@ -217,42 +230,56 @@ export class SohoApplicationMenuComponent implements AfterViewInit, OnDestroy {
   // ------------------------------------------
 
   ngAfterViewInit() {
-    // Wrap for later.
-    this.jQueryElement = jQuery(this.elementRef.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
+      // Wrap for later.
+      this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
-    const options: SohoApplicationMenuOptions = {
-      breakpoint: this.breakpoint,
-      dismissOnClickMobile: this._dismissOnClickMobile,
-      openOnLarge: this._openOnLarge,
-      triggers: this._triggers,
-      filterable: this.filterable
-    };
+      const options: SohoApplicationMenuOptions = {
+        breakpoint: this.breakpoint,
+        dismissOnClickMobile: this._dismissOnClickMobile,
+        openOnLarge: this._openOnLarge,
+        triggers: this._triggers,
+        filterable: this.filterable
+      };
 
-    // Initialise the SoHoXi control.
-    this.jQueryElement.applicationmenu(options);
+      // Initialise the SoHoXi control.
+      this.jQueryElement.applicationmenu(options);
 
-    // Once the control is initialised, extract the control
-    // plug-in from the element.  The element name is
-    // defined by the plug-in, but in this case is 'expandablearea'.
-    this.applicationmenu = this.jQueryElement.data('applicationmenu');
+      // Once the control is initialised, extract the control
+      // plug-in from the element.  The element name is
+      // defined by the plug-in, but in this case is 'expandablearea'.
+      this.applicationmenu = this.jQueryElement.data('applicationmenu');
 
-    // Initialise any event handlers.
-    this.jQueryElement
-      .on('expand', () => this.visibility.next(true))
-      .on('collapse', () => this.visibility.next(false))
-      .on('filtered', (e, results: any[]) => this.filtered.next(results))
-      .on('applicationmenuopen', () => this.menuVisibility.next(true))
-      .on('applicationmenuclose', () => this.menuVisibility.next(false));
+      // Initialise any event handlers.
+      this.jQueryElement
+      .on('expand', () => this.ngZone.run(() => this.visibility.next(true)))
+      .on('collapse', () => this.ngZone.run(() => this.visibility.next(false)))
+      .on('filtered', (e, results: any[]) => this.ngZone.run(() => this.filtered.next(results)))
+      .on('applicationmenuopen', () => this.ngZone.run(() => this.menuVisibility.next(true)))
+      .on('applicationmenuclose', () => this.ngZone.run(() => this.menuVisibility.next(false)));
+    });
+  }
+
+  ngAfterViewChecked() {
+    if (this.applicationmenu && this.updateRequired) {
+      this.ngZone.runOutsideAngular(() => this.applicationmenu.updated());
+      this.updateRequired = false;
+    }
   }
 
   /**
    * Destructor.
    */
-  public ngOnDestroy() {
-    if (this.applicationmenu) {
-      this.jQueryElement.off();
-      this.applicationmenu.destroy();
-      this.applicationmenu = null;
-    }
+  ngOnDestroy() {
+    // call outside the angular zone so change detection isn't triggered by the soho component.
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.applicationmenu) {
+        this.applicationmenu.destroy();
+        this.applicationmenu = null;
+      }
+    });
   }
 }
