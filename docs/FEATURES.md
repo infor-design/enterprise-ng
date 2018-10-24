@@ -6,7 +6,7 @@
 | about                   |            Available |            - |                  - |              - |
 | accordion               |            Available |  [README][3] | [SOHO-4344][#4344] |             No |
 | alert                   |            Available |            - |                  - |            Yes |
-| application-menu        |            Available |            - | [SOHO-3950][#3950] |             No |
+| application-menu        |            Available |            - | [SOHO-3950][#3950] |            Yes |
 | autocomplete            |            Available |            - | [SOHO-6759][#6759] |             No |
 | bar                     |            Available |            - |                  - |            Yes |
 | blockgrid               |            Available |            - |                    |            Yes |
@@ -43,7 +43,7 @@
 | line                    |            Available |            - |                  - |            Yes |
 | listview                |            Available | [README][2]  | [SOHO-4040][#4040] |            Yes |
 | locale                  |            Available |            - | [SOHO-4470][#4470] |              - |
-| lookup                  |            Available |            - | [SOHO-4052][#4052] |             No |
+| lookup                  |            Available |            - | [SOHO-4052][#4052] |            Yes |
 | mask                    |            Available |            - | [SOHO-3895][#3895] |             No |
 | masthead                |            Available |            - |                  - |              - |
 | menu-button             |            Available |            - | [SOHO-4049][#4089] |             No |
