@@ -17,6 +17,16 @@
       <li soho-popupmenu-item isSelectable="true"><a soho-popupmenu-label>Protect Sheet Rules</a></li>
     </ul>
 
+    <button soho-menu-button icon="user" menu="action-popupmenu2"
+      (selected)="onSelected($event)"
+      [showArrow]="false">
+    </button>
+    <ul soho-popupmenu id="action-popupmenu2">
+      <li><a soho-popupmenu-label>Admin</a></li>
+      <li soho-popupmenu-separator></li>
+      <li soho-popupmenu-item><a id="signout">Sign out</a></li>
+    </ul>
+
     <button soho-menu-button icon="pie-chart" pie-chart="" menu="charts-menu"
             (selected)="onSelected($event)"
             (beforeopen)="onBeforeOpen($event)"

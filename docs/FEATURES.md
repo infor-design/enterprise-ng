@@ -46,7 +46,7 @@
 | lookup                  |            Available |            - | [SOHO-4052][#4052] |            Yes |
 | mask                    |            Available |            - | [SOHO-3895][#3895] |             No |
 | masthead                |            Available |            - |                  - |              - |
-| menu-button             |            Available |            - | [SOHO-4049][#4089] |             No |
+| menu-button             |            Available |            - | [SOHO-4049][#4089] |            Yes |
 | message                 |            Available |            -  |                 - |              - |
 | modal-dialog            |            Available | [README][1]  | [SOHO-4734][#4734] |              - |
 | pager                   |              Pending |            - |                  - |             No |
