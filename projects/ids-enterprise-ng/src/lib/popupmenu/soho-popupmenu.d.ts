@@ -78,9 +78,24 @@ interface SohoPopupMenuStatic {
   /** Tear down the markup for the control */
   teardown(): void;
 
-  /** Closes the popup menu control */
+  /**
+   * Close the open menu
+   * @param {boolean} isCancelled Internally set option used if the operation is a cancel.
+   *  Wont matter for manual api call.
+   * @param {boolean} [noFocus] Do not return focus to the calling element (fx a button)
+   */
 
-   close(isCancelled?: boolean, noFocus?: boolean): void;
+  close(isCancelled?: boolean, noFocus?: boolean): void;
+
+   /**
+   * Opens the popupmenu, including repopulating data and setting up visual delays, if necessary.
+   *
+   * @param {jQuery.Event} e the event that caused the menu to open
+   * @param {boolean} ajaxReturn set to true if the open routine should not include a source call
+   * @param {boolean} useDelay set to true if the menu should open on a delay (used in mobile environments where a software keybord is present)
+   * @returns {void}
+   */
+  open(e: JQuery.Event, ajaxReturn?: boolean, useDelay?: boolean): void;
 
   /** Destroy the markup and any other resources. */
   destroy(): void;
