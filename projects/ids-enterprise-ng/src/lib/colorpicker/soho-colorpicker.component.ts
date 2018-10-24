@@ -305,9 +305,6 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
    * @param event the standard jQuery event.
    */
   private onChanged(event: any) {
-    // This code does not work properly if run in the angular zone.
-    NgZone.assertNotInAngularZone();
-
     // Retrieve the value from the 'colorpicker' component.
     const internalValue = this.colorpicker.element.val();
 
