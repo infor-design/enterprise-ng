@@ -17,6 +17,9 @@
 
 ### 4.12.0 Chore & Maintenance
 
+- `[General]` `d3` and `@types/d3` version 4.13 added as a dependency for the `ids-enterprise-ng` package.  
+    Developers should change their angular.json files to refer to the installed version of d3 (and their types) and not the copy in the `enterprise` folder.
+
 ## v4.11.0
 
 ### 4.11.0 Fixes
