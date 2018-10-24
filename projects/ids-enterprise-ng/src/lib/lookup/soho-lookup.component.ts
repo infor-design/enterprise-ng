@@ -8,7 +8,8 @@ import {
   EventEmitter,
   HostBinding,
   HostListener,
-  Input, NgZone,
+  Input,
+  NgZone,
   OnDestroy,
   Output
 } from '@angular/core';
