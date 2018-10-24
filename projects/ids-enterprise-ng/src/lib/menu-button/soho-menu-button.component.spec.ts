@@ -212,7 +212,6 @@ describe('Soho Menu Button Unit Tests', () => {
   });
 });
 
-
 @Component({
   template: `<button soho-menu-button icon="user" menu="action-popupmenu"></button>
 <ul soho-popupmenu id="action-popupmenu">
