@@ -7,8 +7,9 @@
   },
   "whitelistedNonPeerDependencies": [
     "angular",
-    "jquery",
+    "classlist.js",
+    "d3",
     "ids-enterprise",
-    "classlist.js"
+    "jquery"
   ]
 }
