@@ -63,7 +63,7 @@ Edit `angular.json`, change the `scripts` elements as follows:
 ```json
 "scripts": [
   "./node_modules/jquery/dist/jquery.js",
-  "./node_modules/ids-enterprise/dist/js/d3.v4.js",
+  "./node_modules/d3/build/d3.js",  
   "./node_modules/ids-enterprise/dist/js/sohoxi.js"
 ],
 ```
