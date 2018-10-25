@@ -181,10 +181,6 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
 
   /**
    * Creates an instance of SohoTagComponent.
-   *
-   * @param element
-   * @param ngZone
-   *
    */
   constructor(
     private element: ElementRef,

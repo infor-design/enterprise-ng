@@ -12,6 +12,8 @@ Consuming the `ids-enterprise-ng` package will require changes to any projects r
 
 These instructions assume you will be running the latest versions of `@angular/cli` and `@angular/core`. It is recommended that you review the information on <http://update.anguar.com> before updating.
 
+Note: The libraries are currently compiled using angular 7, and so require all consumers to use the same major version.
+
 These are the steps for upgrading existing projects:
 
 ```sh

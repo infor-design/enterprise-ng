@@ -35,9 +35,7 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
   // Component Input
   // -------------------------------------------
-  /**
-   * @param disabled
-   */
+
   @Input() set disabled(value: boolean) {
     this.isDisabled = value;
     this.isDisabled = false;
@@ -54,9 +52,6 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
     this.changeDetectorRef.markForCheck();
   }
 
-  /**
-   * @param readonly
-   */
   @Input() set readonly(value: boolean) {
     this.isReadOnly = value;
 

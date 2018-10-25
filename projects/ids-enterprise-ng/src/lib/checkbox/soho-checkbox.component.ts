@@ -41,9 +41,6 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
     return this.partial ? 'mixed' : null;
   }
 
-  /**
-   * @param checked
-   */
   @HostBinding('attr.checked') @Input() checked: boolean;
 
   // -------------------------------------------

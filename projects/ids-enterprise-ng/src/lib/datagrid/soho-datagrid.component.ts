@@ -213,8 +213,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   *
-   * @param cellNavigation
+   * If true allows
    */
   @Input() set cellNavigation(cellNavigation: boolean) {
     this._gridOptions.cellNavigation = cellNavigation;
@@ -263,8 +262,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   *
-   * @param alternateRowShading
+   * If true, displays the rows in the grid using alternate shading, otherwise
+   * all the rows use the same shading.
    */
   @Input() set alternateRowShading(alternateRowShading: boolean) {
     this._gridOptions.alternateRowShading = alternateRowShading;
@@ -334,8 +333,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * If true the columns can be reorders; otherwise if false they are fixed.
-   *
-   * @param columnReorder
    */
   @Input() set columnReorder(columnReorder: boolean) {
     this._gridOptions.columnReorder = columnReorder;
@@ -357,8 +354,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   *
-   * @param editable
+   * If true, the grid allows edits, otherwise if false edits are disabled.
    */
   @Input() set editable(editable: boolean) {
     this._gridOptions.editable = editable;
@@ -379,10 +375,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.editable;
   }
 
-  /**
-   *
-   * @param isList
-   */
   @Input() set isList(isList: boolean) {
     this._gridOptions.isList = isList;
     if (this.jQueryElement) {
@@ -404,10 +396,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.isList;
   }
 
-  /**
-   *
-   * @param menuId
-   */
   @Input() set menuId(menuId: any) {
     this._gridOptions.menuId = menuId;
     if (this.jQueryElement) {
@@ -458,10 +446,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.selectable;
   }
 
-  /**
-   *
-   * @param clickToSelect
-   */
   @Input() set clickToSelect(clickToSelect: boolean) {
     this._gridOptions.clickToSelect = clickToSelect;
     if (this.jQueryElement) {
@@ -481,10 +465,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.clickToSelect;
   }
 
-  /**
-   *
-   * @param toolbar
-   */
   @Input() set toolbar(toolbar: SohoToolbarOptions) {
     this._gridOptions.toolbar = toolbar;
     if (this.jQueryElement) {
@@ -493,10 +473,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
-  /**
- *
- * @param saveUserSettings
- */
   @Input() set saveUserSettings(settingsForSave: SohoDataGridSaveUserSettings) {
     this._gridOptions.saveUserSettings = settingsForSave;
     if (this.jQueryElement) {
@@ -504,10 +480,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
-  /**
-   *
-   * @param paging
-   */
   @Input() set paging(paging: boolean) {
     this._gridOptions.paging = paging;
     if (this.jQueryElement) {
@@ -528,10 +500,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.paging;
   }
 
-  /**
-   *
-   * @param pagesize
-   */
   @Input() set pagesize(pagesize: number) {
     this._gridOptions.pagesize = pagesize;
     if (this.jQueryElement) {
@@ -540,10 +508,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
-  /**
-   *
-   * @param pagesizes
-   */
   @Input() set pagesizes(pagesizes: Array<number>) {
     this._gridOptions.pagesizes = pagesizes;
     if (this.jQueryElement) {
@@ -552,10 +516,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
-  /**
-   *
-   * @param indeterminate
-   */
   @Input() set indeterminate(indeterminate: boolean) {
     this._gridOptions.indeterminate = indeterminate;
     if (this.jQueryElement) {
@@ -564,10 +524,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
-  /**
-   *
-   * @param actionableMode
-   */
   @Input() set actionableMode(actionableMode: boolean) {
     this._gridOptions.actionableMode = actionableMode;
     if (this.jQueryElement) {
@@ -587,10 +543,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.actionableMode;
   }
 
-  /**
-   *
-   * @param saveColumns
-   */
   @Input() set saveColumns(saveColumns: boolean) {
     this._gridOptions.saveColumns = saveColumns;
     if (this.jQueryElement) {

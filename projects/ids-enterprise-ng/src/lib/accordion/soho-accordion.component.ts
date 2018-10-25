@@ -195,7 +195,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    * @todo - how best to access the headers?
    *
    * @param index - the index of the accordion header.
-   * @return
+   * @return the header at the given index.
    */
   public getHeader(index: number): SohoAccordionHeaderComponent {
     return this.headers.toArray()[index];

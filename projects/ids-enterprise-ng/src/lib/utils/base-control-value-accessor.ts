@@ -76,8 +76,6 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
   /**
    * This function is called when the control status changes to or from "DISABLED".
    * Depending on the value, it will enable or disable the appropriate DOM element.
-   *
-   * @param isDisabled
    */
   setDisabledState(isDisabled: boolean): void {
     // NOP

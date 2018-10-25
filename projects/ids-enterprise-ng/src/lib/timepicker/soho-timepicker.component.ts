@@ -84,7 +84,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
   }
 
   /**
-   * @param disabled
+   * Sets the control to be disabled or not.
    */
   @Input() set disabled(value: boolean) {
     // Avoid setting the value if not required,
@@ -113,8 +113,6 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
 
   /**
    * Sets the control to readonly
-   *
-  * @param readonly
    */
   @Input() set readonly(value: boolean) {
     // Avoid setting the value if not required,
@@ -279,18 +277,16 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
   }
 
   /**
- * This function is called when the control status changes to or from "DISABLED".
- * Depending on the value, it will enable or disable the appropriate DOM element.
- *
- * @param isDisabled
- */
+   * This function is called when the control status changes to or from "DISABLED".
+   * Depending on the value, it will enable or disable the appropriate DOM element.
+   */
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
 
   /**
- * Marks the components as requiring a rebuild after the next update.
- */
+   * Marks the components as requiring a rebuild after the next update.
+   */
   markForRefresh() {
     // Run updated on the next updated check.
     this.runUpdatedOnCheck = true;
