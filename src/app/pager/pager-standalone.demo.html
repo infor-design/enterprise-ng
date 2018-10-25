@@ -17,7 +17,7 @@
         [nextPageTooltip]="model.nextPageTooltip"
         [lastPageTooltip]="model.lastPageTooltip"
 
-        [(showPageSizeSelector)]="!model.hidePageSizeSelector"
+        [showPageSizeSelector]="!model.hidePageSizeSelector"
         [pageSize]="model.pageSize"
         [pageSizes]="model.pageSizes"
 
@@ -67,7 +67,7 @@
 
         <div class="field">
           <input soho-checkbox type="checkbox" id="hide-pagesize" [(ngModel)]="model.hidePageSizeSelector" [ngModelOptions]="{standalone: true}">
-          <label soho-label for="hide-pagesize" [forCheckBox]="true">Show Page Size Selector</label>
+          <label soho-label for="hide-pagesize" [forCheckBox]="true">Hide Page Size Selector</label>
         </div>
 
       </form>
