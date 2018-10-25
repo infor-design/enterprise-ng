@@ -63,7 +63,8 @@ export class DataGridLookupClickDemoComponent implements AfterViewInit {
       userObject: this
     };
 
-    this.sohoDataGridComponent.gridOptions = gridOptions;
+    // in ngAfterViewInit/Checked must set inputs from a timeout so that change detection is executed.
+    setTimeout(() => this.sohoDataGridComponent.gridOptions = gridOptions);
   }
 
   public listLookupClick(sohoLookup: SohoLookupStatic, sourceField: string) {

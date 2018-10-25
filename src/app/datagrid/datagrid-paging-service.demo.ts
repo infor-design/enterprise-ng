@@ -74,7 +74,7 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
       });
     };
 
-    this.sohoDataGridComponent.gridOptions = gridOptions;
+    setTimeout(() => this.sohoDataGridComponent.gridOptions = gridOptions);
 
     /*
      * Options2 - LOAD INITIAL DATA DIRECTLY - bypass the initial type in the

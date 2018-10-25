@@ -2065,7 +2065,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       this._gridOptions.source
         = (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => this.onDataRequest(request, response);
     } else {
-      this._gridOptions.source = source;
+      this._gridOptions.source = (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
+        this.ngZone.run(() => source(request, response));
+      };
     }
   }
 

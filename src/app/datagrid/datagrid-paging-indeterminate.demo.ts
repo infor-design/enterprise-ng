@@ -52,31 +52,33 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
       filterable: true,
 
       source: (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
-        if (request.type === 'filtered') {
-          this.toastService.show({title: 'Filter', message: 'gridsource with filtered type called'});
-        }
-        this.datagridPagingService.getData(request).subscribe((result: any) => {
-          request.firstPage = result.firstPage;
-          request.lastPage = result.lastPage;
-
-          /* Get the current selected row index for this page of records. */
-          let selectedIndex = -1;
-          const selectedRow = this.sohoDataGridComponent.selectedRows();
-          if (selectedRow && selectedRow.length > 0 && selectedRow[0].idx !== -1) {
-            selectedIndex = selectedRow[0].idx;
-            this.sohoDataGridComponent.unSelectAllRows();
+        setTimeout(() => {
+          if (request.type === 'filtered') {
+            this.toastService.show({title: 'Filter', message: 'gridsource with filtered type called'});
           }
+          this.datagridPagingService.getData(request).subscribe((result: any) => {
+            request.firstPage = result.firstPage;
+            request.lastPage = result.lastPage;
 
-          /* Put the data into the data grid */
-          response(result.data, request);
+            /* Get the current selected row index for this page of records. */
+            let selectedIndex = -1;
+            const selectedRow = this.sohoDataGridComponent.selectedRows();
+            if (selectedRow && selectedRow.length > 0 && selectedRow[0].idx !== -1) {
+              selectedIndex = selectedRow[0].idx;
+              this.sohoDataGridComponent.unSelectAllRows();
+            }
 
-          /* selected the row index of the new page of records */
-          this.sohoDataGridComponent.selectRows(selectedIndex === -1 ? 0 : selectedIndex);
+            /* Put the data into the data grid */
+            response(result.data, request);
+
+            /* selected the row index of the new page of records */
+            this.sohoDataGridComponent.selectRows(selectedIndex === -1 ? 0 : selectedIndex);
+          });
         });
       }
     } as SohoDataGridOptions;
 
-    this.sohoDataGridComponent.gridOptions = gridOptions;
+    setTimeout(() => this.sohoDataGridComponent.gridOptions = gridOptions);
   }
 
   onRefresh() {

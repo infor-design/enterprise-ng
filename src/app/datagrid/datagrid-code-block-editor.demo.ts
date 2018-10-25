@@ -234,16 +234,17 @@ export class DataGridCodeBlockEditorDemoComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit(): void {
-
-    this.sohoDataGridComponent.gridOptions = {
-      columns: COLUMNS, // tslint:disable-line
-      dataset: CODE_BLOCK_DATA,
-      selectable: 'single',
-      idProperty: 'productId',
-      editable: true,
-      filterable: true
-    };
-
+    // in ngAfterViewInit/Checked must set inputs from a timeout so that change detection is executed.
+    setTimeout(() => {
+      this.sohoDataGridComponent.gridOptions = {
+        columns: COLUMNS, // tslint:disable-line
+        dataset: CODE_BLOCK_DATA,
+        selectable: 'single',
+        idProperty: 'productId',
+        editable: true,
+        filterable: true
+      };
+    });
   }
 }
 

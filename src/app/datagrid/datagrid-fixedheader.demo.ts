@@ -45,27 +45,29 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewInit {
       filterable: true,
 
       source: (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
-        this.datagridPagingService.getData(request).subscribe((result: any) => {
-          request.firstPage = result.firstPage;
-          request.lastPage = result.lastPage;
+        setTimeout(() => {
+          this.datagridPagingService.getData(request).subscribe((result: any) => {
+            request.firstPage = result.firstPage;
+            request.lastPage = result.lastPage;
 
-          /* Get the current selected row index for this page of records. */
-          let selectedIndex = -1;
-          const selectedRow = this.sohoDataGridComponent.selectedRows();
-          if (selectedRow && selectedRow.length > 0 && selectedRow[0].idx !== -1) {
-            selectedIndex = selectedRow[0].idx;
-            this.sohoDataGridComponent.unSelectAllRows();
-          }
+            /* Get the current selected row index for this page of records. */
+            let selectedIndex = -1;
+            const selectedRow = this.sohoDataGridComponent.selectedRows();
+            if (selectedRow && selectedRow.length > 0 && selectedRow[0].idx !== -1) {
+              selectedIndex = selectedRow[0].idx;
+              this.sohoDataGridComponent.unSelectAllRows();
+            }
 
-          /* Put the data into the data grid */
-          response(result.data, request);
+            /* Put the data into the data grid */
+            response(result.data, request);
 
-          /* selected the row index of the new page of records */
-          this.sohoDataGridComponent.selectRows(selectedIndex === -1 ? 0 : selectedIndex);
+            /* selected the row index of the new page of records */
+            this.sohoDataGridComponent.selectRows(selectedIndex === -1 ? 0 : selectedIndex);
+          });
         });
       }
     } as SohoDataGridOptions;
 
-    this.sohoDataGridComponent.gridOptions = gridOptions;
+    setTimeout(() => this.sohoDataGridComponent.gridOptions = gridOptions);
   }
 }

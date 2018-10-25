@@ -67,6 +67,7 @@ export class DataGridStandardFormatterDemoComponent implements AfterViewInit {
       stretchColumn: 'rated'
     };
 
-    this.sohoDataGridComponent.gridOptions = gridOptions;
+    // in ngAfterViewInit/Checked must set inputs from a timeout so that change detection is executed.
+    setTimeout(() => this.sohoDataGridComponent.gridOptions = gridOptions);
   }
 }

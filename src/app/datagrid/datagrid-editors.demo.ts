@@ -253,19 +253,21 @@ export class DataGridEditorsDemoComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit(): void {
-
-    this.sohoDataGridComponent.gridOptions = {
-      columns: EDITORS_COLUMNS,
-      dataset: EDITORS_DATA,
-      clickToSelect: false,
-      selectable: 'multiple',
-      idProperty: 'productId',
-      editable: true,
-      rowHeight: 'short',
-      filterable: true,
-      showDirty: true,
-      stretchColumn: 'favorite'
-    };
+    // in ngAfterViewInit/Checked must set inputs from a timeout so that change detection is executed.
+    setTimeout(() => {
+      this.sohoDataGridComponent.gridOptions = {
+        columns: EDITORS_COLUMNS,
+        dataset: EDITORS_DATA,
+        clickToSelect: false,
+        selectable: 'multiple',
+        idProperty: 'productId',
+        editable: true,
+        rowHeight: 'short',
+        filterable: true,
+        showDirty: true,
+        stretchColumn: 'favorite'
+      };
+    })
   }
 
   showErrors() {
