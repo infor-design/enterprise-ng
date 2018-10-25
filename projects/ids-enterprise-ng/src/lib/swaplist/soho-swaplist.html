@@ -1,13 +1,13 @@
 ﻿<div>
-  <soho-swaplist-card type="available" title="{{availableCardTitle}}">
+  <soho-swaplist-card type="available" title="{{availableCardTitle}}" searchTitle="{{availableCardSearchTitle}}" showSearchable={{searchable}}>
     <button soho-button="btn" icon="right-arrow" moveToSelected=true title="{{btnMoveToSelect}}"></button>
   </soho-swaplist-card>
-  <soho-swaplist-card type="selected" title="{{selectedCardTitle}}">
+  <soho-swaplist-card type="selected" title="{{selectedCardTitle}}" searchTitle="{{selectedCardSearchTitle}}" showSearchable={{searchable}}>
     <button soho-button="btn" icon="left-arrow" moveToLeft=true title="{{btnMoveToLeft}}"></button>
     <button *ngIf="showFullAccessCard" soho-button="btn" icon="right-arrow" moveToRight=true title="{{btnMoveToRight}}">
     </button>
   </soho-swaplist-card>
-  <soho-swaplist-card *ngIf="showFullAccessCard" type="full-access" title="{{fullAccessCardTitle}}">
+  <soho-swaplist-card *ngIf="showFullAccessCard" type="full-access" title="{{fullAccessCardTitle}}" searchTitle="{{fullAccessCardSearchTitle}}" showSearchable={{searchable}}>
      <button soho-button="btn" icon="left-arrow" moveToSelected=true title="{{btnMoveToLeft}}"></button>
   </soho-swaplist-card>
 </div>

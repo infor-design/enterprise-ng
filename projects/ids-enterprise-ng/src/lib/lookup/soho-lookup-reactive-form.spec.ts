@@ -10,6 +10,8 @@ import { By } from '@angular/platform-browser';
 import {
   Component,
   DebugElement,
+  EventEmitter,
+  Input,
   ViewChild
 } from '@angular/core';
 
@@ -97,6 +99,18 @@ export const productsData = [
   },
 ];
 
+export const updatedProductsData = [ ...productsData, {
+  id: 7,
+  productId: 2642207,
+  productName: 'Some other Compressor',
+  activity:  'Buy it!',
+  quantity: 54,
+  price: 220.99,
+  status: 'OK',
+  orderDate: new Date(2016, 6, 9),
+  action: 'Ready',
+}];
+
 export const productsColumns = [
   {
     id: 'productId',
@@ -164,7 +178,7 @@ class SohoLookupReactiveFormTestComponent {
 
   public lookupColumns = productsColumns;
 
-  public lookupData = productsData;
+  @Input() public lookupData = productsData;
 
   constructor(private formBuilder: FormBuilder) {
     this.formGroup = this.createForm();
@@ -186,6 +200,15 @@ describe('SohoLookupComponent on ReactiveForm', () => {
   let fixture: ComponentFixture<SohoLookupReactiveFormTestComponent>;
   let de: DebugElement;
   let el: HTMLInputElement;
+
+  const testFireEvent = (eventEmitter: EventEmitter<any>, functionName: string, eventName: string) => {
+    component.formGroup.enable();
+    fixture.detectChanges();
+
+    const eventEmitterSpy = spyOn<any>(eventEmitter, functionName);
+    (component.dropdown as any).jQueryElement.trigger(eventName);
+    expect(eventEmitterSpy).toHaveBeenCalledTimes(1);
+  };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -212,7 +235,7 @@ describe('SohoLookupComponent on ReactiveForm', () => {
     expect(el.hasAttribute('disabled')).toBeFalsy('disabled');
   });
 
-  it('is enabkled after call to enable().', () => {
+  it('is enabled after call to enable().', () => {
     component.formGroup.enable();
     fixture.detectChanges();
 
@@ -245,5 +268,42 @@ describe('SohoLookupComponent on ReactiveForm', () => {
     fixture.detectChanges();
 
     expect(el.value).toEqual('2642205');
+  });
+
+  it('check rest of inputs', () => {
+    component.formGroup.enable();
+    fixture.detectChanges();
+
+    component.dropdown.editable = false;
+    component.dropdown.autoWidth = false;
+    component.dropdown.title = 'some title';
+    component.dropdown.beforeShow = () => {};
+    component.dropdown.match = () => true;
+    component.dropdown.click = () => {};
+
+    fixture.detectChanges();
+
+    expect((component.dropdown as any)._options.editable).toBe(false);
+    expect((component.dropdown as any)._options.autoWidth).toBe(false);
+    expect((component.dropdown as any)._options.title).toBe('some title');
+  });
+
+  it('should fire beforeopen event', () => {
+    testFireEvent((component.dropdown as any).beforeopen, 'emit', 'beforeopen');
+  });
+
+  it('should fire open event', () => {
+    testFireEvent((component.dropdown as any).open, 'emit', 'open');
+  });
+
+  // todo this.lookup.grid is undefined during this test. See lookup @Input dataset for details.
+  xit('control data updates when new data is set', () => {
+    component.formGroup.enable();
+    fixture.detectChanges();
+
+    expect(component.dropdown).toBeDefined('is not defined');
+    expect((component.dropdown as any).lookup).toBeDefined('lookup is not defined');
+    component.lookupData = updatedProductsData;
+    fixture.detectChanges();
   });
 });

@@ -456,9 +456,6 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    *
    */
   private onChanged(event: any) {
-    // This code does not work properly if run in the angular zone.
-    NgZone.assertNotInAngularZone();
-
     // Retrieve the value from the 'dropdown' component.
     const val = this.jQueryElement.val();
 
