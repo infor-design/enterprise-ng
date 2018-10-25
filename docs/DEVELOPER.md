@@ -74,7 +74,7 @@ interface JQueryStatic {
   widget: SohoWidgetStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   widget(options?: SohoWidgetOptions): JQuery;
 }
 ```
