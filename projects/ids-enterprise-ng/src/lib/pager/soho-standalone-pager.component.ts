@@ -114,6 +114,13 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
     this.ngZone.runOutsideAngular(() => {
       this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
+      // -----------------------------------------------------------------------------------
+      // Workaround for pagesizeevent not being fired unless the onPageSizeChange property
+      // is set. Once that is fixed in soho/ep then this can be removed.
+      // -----------------------------------------------------------------------------------
+      (this.options as any).onPageSizeChange = () => {};
+      // -----------------------------------------------------------------------------------
+
       this.options.type = 'standalone';
       this.jQueryElement.pager(this.options);
       this.pager = this.jQueryElement.data('pager');
