@@ -184,7 +184,7 @@ export const routes: Routes = [
   { path: 'code-block',                             component: CodeBlockDemoComponent },
   { path: 'colorpicker',                            component: ColorPickerDemoComponent },
   { path: 'column',                                 component: ColumnDemoComponent },
-  { path: 'column-yaxis-format',                     component: ColumnYAxisDemoComponent },
+  { path: 'column-yaxis-format',                    component: ColumnYAxisDemoComponent },
   { path: 'column-grouped',                         component: ColumnGroupedDemoComponent},
   { path: 'column-grouped-xaxis-twoline',           component: ColumnGroupedXaxisTwolineDemoComponent},
   { path: 'column-stacked',                         component: ColumnStackedDemoComponent},
