@@ -1,0 +1,86 @@
+<div class="page-container">
+  <div class="row">
+    <div class="six columns">
+      <div soho-standalone-pager
+        [showFirstButton]="!model.hideFirstButton"
+        [showPreviousButton]="!model.hidePreviousButton"
+        [showNextButton]="!model.hideNextButton"
+        [showLastButton]="!model.hideLastButton"
+
+        [enableFirstButton]="!model.disableFirstButton"
+        [enablePreviousButton]="!model.disablePreviousButton"
+        [enableNextButton]="!model.disableNextButton"
+        [enableLastButton]="!model.disableLastButton"
+
+        [firstPageTooltip]="model.firstPageTooltip"
+        [previousPageTooltip]="model.previousPageTooltip"
+        [nextPageTooltip]="model.nextPageTooltip"
+        [lastPageTooltip]="model.lastPageTooltip"
+
+        [(showPageSizeSelector)]="!model.hidePageSizeSelector"
+        [pageSize]="model.pageSize"
+        [pageSizes]="model.pageSizes"
+
+        (firstPage)="onFirstPage($event)"
+        (previousPage)="onPreviousPage($event)"
+        (nextPage)="onNextPage($event)"
+        (lastPage)="onLastPage($event)"
+        (pageSizeChange)="onPageSizeChange($event)"
+      ></div>
+    </div>
+    <div class="six columns">
+      <form>
+
+        <div class="field">
+          <input soho-checkbox type="checkbox" id="hide-first-button" [(ngModel)]="model.hideFirstButton" [ngModelOptions]="{standalone: true}">
+          <label soho-label for="hide-first-button" [forCheckBox]="true">Hide First Button</label>
+        </div>
+        <div class="field">
+          <input soho-checkbox type="checkbox" id="hide-previous-button" [(ngModel)]="model.hidePreviousButton" [ngModelOptions]="{standalone: true}">
+          <label soho-label for="hide-previous-button" [forCheckBox]="true">Hide Previous Button</label>
+        </div>
+        <div class="field">
+          <input soho-checkbox type="checkbox" id="hide-next-button" [(ngModel)]="model.hideNextButton" [ngModelOptions]="{standalone: true}">
+          <label soho-label for="hide-next-button" [forCheckBox]="true">Hide Next Button</label>
+        </div>
+        <div class="field">
+          <input soho-checkbox type="checkbox" id="hide-last-button" [(ngModel)]="model.hideLastButton" [ngModelOptions]="{standalone: true}">
+          <label soho-label for="hide-last-button" [forCheckBox]="true">Hide Last Button</label>
+        </div>
+
+        <div class="field">
+          <input soho-checkbox type="checkbox" id="disable-first-button" [(ngModel)]="model.disableFirstButton" [ngModelOptions]="{standalone: true}">
+          <label soho-label for="disable-first-button" [forCheckBox]="true">Disable First Button</label>
+        </div>
+        <div class="field">
+          <input soho-checkbox type="checkbox" id="disable-previous-button" [(ngModel)]="model.disablePreviousButton" [ngModelOptions]="{standalone: true}">
+          <label soho-label for="disable-previous-button" [forCheckBox]="true">Disable Previous Button</label>
+        </div>
+        <div class="field">
+          <input soho-checkbox type="checkbox" id="disable-next-button" [(ngModel)]="model.disableNextButton" [ngModelOptions]="{standalone: true}">
+          <label soho-label for="disable-next-button" [forCheckBox]="true">Disable Next Button</label>
+        </div>
+        <div class="field">
+          <input soho-checkbox type="checkbox" id="disable-last-button" [(ngModel)]="model.disableLastButton" [ngModelOptions]="{standalone: true}">
+          <label soho-label for="disable-last-button" [forCheckBox]="true">Disable Last Button</label>
+        </div>
+
+        <div class="field">
+          <input soho-checkbox type="checkbox" id="hide-pagesize" [(ngModel)]="model.hidePageSizeSelector" [ngModelOptions]="{standalone: true}">
+          <label soho-label for="hide-pagesize" [forCheckBox]="true">Show Page Size Selector</label>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="twelve columns">
+      <hr>
+      <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+      <h3 *ngIf="showModel">
+        <pre>{{ model | json }}</pre>
+      </h3>
+    </div>
+  </div>
+</div>
