@@ -6,14 +6,18 @@
 
 -
 
-### 4.12.0 Fixes
+### 4.13.0 Fixes
 
 -
 
-### 4.12.0 Chore & Maintenance
+### 4.13.0 Chore & Maintenance
 
-- `[General]` Upgraded @angular/cli (to 7.0.x) and @angular/core (to 7.0.x).  Angular now support Node 10.  `BTHH` ([Pull Request x](https://github.com/infor-design/enterprise-ng/pull/xxx))
+- `[General]` Upgraded @angular/cli (to 7.0.x) and @angular/core (to 7.0.x).  `BTHH` ([Pull Request xxx](https://github.com/infor-design/enterprise-ng/pull/xxx))
+  - support for Node 10
+  - support for TypeScript 3.x
+  - see UPGRADING.md for detail on upgrading your application.
 - `[General]` Upgraded typeScript (to 3.1.x). `BTHH`
+  - `@types/jquery` has been updated to 3.3.21.
 
 ## v4.12.0
 

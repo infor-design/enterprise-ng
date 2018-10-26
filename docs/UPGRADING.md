@@ -18,12 +18,37 @@ These are the steps for upgrading existing projects:
 
 ```sh
 npm install @angular/cli
-ng update @angular/cli
-ng update @angular/core
+ng update @angular/cli @angular/core
 ng update
 ```
 
 You will need to fix any issues raised, as these will depend on the dependency tree created by the packages you use and what version you are upgrading from.
+
+#### Angular 7
+
+When upgrading (depending on your dependencies) the update will not work, this is often because one of the packages has a dependency on an older version of typescript.  If this is the case, install typescript 3.1.3 first, as follows:
+
+```sh
+npm i typescript@3.1.3
+```
+
+Then try again.
+
+Other packages may not be updated automatically, the following failed when updating the quick start application:
+
+* codelyzer - the recommended version at the time of writing is ~4.5.0
+* @angular-devkit/build-angular - the recommended version at the time of writing is ~0.10.0
+
+Simply update these manually:
+
+```sh
+npm i codelyzer@4.5.0
+npm i @angular-devkit/build-angular@0.10.0
+```
+
+Then try again.
+
+If your project include sub-projects (or libraries) then you may find other issue similar to the above, the general approach is to determine the package with the issue and install a compatible version first.
 
 ### Uninstall old dependencies
 
@@ -33,6 +58,8 @@ These are now included as part of the ids-enterprise-ng package):
 npm uninstall ids-enterprise -S
 npm uninstall jquery -S
 npm uninstall @types/jquery -S
+npm uninstall d3 -S
+npm uninstall @types/d3 -S
 ```
 
 Install the latest `ids-enterprise-ng` components.
