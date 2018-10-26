@@ -26,7 +26,7 @@ You will need to fix any issues raised, as these will depend on the dependency t
 
 #### Angular 7
 
-When upgrading (depending on your dependencies) the update will not work, this is often because one of the packages has a dependency on an older version of typescript.  If this is the case, install typescript 3.1.3 first, as follows:
+When updating (and depending on your dependencies) the update may not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install TypeScript 3.1.3 first, as follows:
 
 ```sh
 npm i typescript@3.1.3
@@ -34,7 +34,7 @@ npm i typescript@3.1.3
 
 Then try again.
 
-Other packages may not be updated automatically, the following failed when updating the quick start application:
+Also note that some packages may not be updated automatically, for example the following failed when updating the `ids-enterprise-quickstart` application:
 
 - codelyzer - the recommended version at the time of writing is ~4.5.0
 - @angular-devkit/build-angular - the recommended version at the time of writing is ~0.10.0
@@ -48,7 +48,7 @@ npm i @angular-devkit/build-angular@0.10.0
 
 Then try again.
 
-If your project include sub-projects (or libraries) then you may find other issue similar to the above, the general approach is to determine the package with the issue and install a compatible version first.
+If your project includes sub-projects (`angular/cli` libraries) then you may find additional issues similar to the above, the general approach is to determine the package with the compatibility problem and install a compatible version before running `ng update`.
 
 ### Uninstall old dependencies
 

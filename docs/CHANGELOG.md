@@ -11,9 +11,10 @@
 - `[General]` Upgraded @angular/cli (to 7.0.x) and @angular/core (to 7.0.x).  `BTHH` ([Pull Request xxx](https://github.com/infor-design/enterprise-ng/pull/xxx))
     - support for Node 10
     - support for TypeScript 3.x
-    - see UPGRADING.md for detail on upgrading your application.
+    - `UPGRADING.md` has been upated with details on upgrading your application to angular 7.
 - `[General]` Upgraded typeScript (to 3.1.x). `BTHH`
     - `@types/jquery` has been updated to 3.3.21.
+
 
 ## v4.12.0
 
