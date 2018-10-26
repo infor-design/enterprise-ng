@@ -15,7 +15,6 @@
 - `[General]` Upgraded typeScript (to 3.1.x). `BTHH`
     - `@types/jquery` has been updated to 3.3.21.
 
-
 ## v4.12.0
 
 ### 4.12.0 Features
