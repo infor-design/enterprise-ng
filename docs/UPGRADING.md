@@ -36,8 +36,8 @@ Then try again.
 
 Other packages may not be updated automatically, the following failed when updating the quick start application:
 
-* codelyzer - the recommended version at the time of writing is ~4.5.0
-* @angular-devkit/build-angular - the recommended version at the time of writing is ~0.10.0
+- codelyzer - the recommended version at the time of writing is ~4.5.0
+- @angular-devkit/build-angular - the recommended version at the time of writing is ~0.10.0
 
 Simply update these manually:
 
