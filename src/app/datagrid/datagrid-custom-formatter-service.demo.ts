@@ -1,7 +1,7 @@
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
-  Component,
+  Component, OnInit,
   ViewChild
 } from '@angular/core';
 import {
@@ -19,18 +19,18 @@ import { DataGridCustomFormatterService } from './datagrid-custom-formatter.serv
   providers: [ DataGridCustomFormatterService ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataGridCustomFormatterServiceDemoComponent implements AfterViewInit {
+export class DataGridCustomFormatterServiceDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+
+  gridOptions: SohoDataGridOptions = undefined;
 
   RandomIntegerFormatter = (row, cell, value, column, item, api): string => {
     return this.formatterService.randomIntegerFormatter(row, cell, value, column, item, api);
   }
 
-  constructor(
-    private formatterService: DataGridCustomFormatterService
-  ) {}
+  constructor(private formatterService: DataGridCustomFormatterService) {}
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     /**
      * Add a column for the custom formatter
      */
@@ -45,15 +45,12 @@ export class DataGridCustomFormatterServiceDemoComponent implements AfterViewIni
       formatter: this.RandomIntegerFormatter
     });
 
-    const gridOptions: SohoDataGridOptions = {
+    this.gridOptions = {
       columns: columns,
       dataset: PAGING_DATA,
       selectable: 'single',
       paging: true,
       pagesize: 10,
     };
-
-    // in ngAfterViewInit/Checked must set inputs from a timeout so that change detection is executed.
-    setTimeout(() => this.sohoDataGridComponent.gridOptions = gridOptions);
   }
 }

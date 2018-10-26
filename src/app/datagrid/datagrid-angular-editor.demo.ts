@@ -1,17 +1,11 @@
 import {
   Component,
-  ContentChild,
   ViewChild,
-  AfterViewInit,
-  ComponentRef,
-  ElementRef,
-  Input,
   Inject,
-  OnDestroy
+  OnInit
 } from '@angular/core';
 
 import {
-  SohoDataGridComponent,
   SohoInputComponent,
   SohoDatePickerComponent
 } from 'ids-enterprise-ng';
@@ -284,38 +278,25 @@ export const EDITORS_COLUMNS: SohoDataGridColumn[] = [
     editorComponent: DemoCellDatePickerEditorComponent,
     editorComponentInputs: {}
   }
-
-
-  //{ id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text',    width: 150, formatter: Soho.Formatters.Hyperlink },
-  //{ id: 'activity',    name: 'Activity',     field: 'activity',    sortable: false, filterType: 'text',    width: 150, formatter: Soho.Formatters.Text, editor: Soho.Editors.Lookup, editorOptions: LOOKUP_OPTIONS },
-  //{ id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', width: 125, formatter: Soho.Formatters.Decimal },
-  //{ id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',                formatter: Soho.Formatters.Date, dateFormat: 'M/d/yyyy' }
 ];
-
 
 @Component({
   selector: 'soho-datagrid-angular-editor',
   templateUrl: './datagrid-angular-editor.demo.html'
 })
-export class DataGridAngularEditorDemoComponent implements AfterViewInit {
+export class DataGridAngularEditorDemoComponent implements OnInit {
+  gridOptions: SohoDataGridOptions = undefined;
 
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
-
-  constructor() { }
-
-  ngAfterViewInit(): void {
-    // in ngAfterViewInit/Checked must set inputs from a timeout so that change detection is executed.
-    setTimeout(() => {
-      this.sohoDataGridComponent.gridOptions = {
-        columns: EDITORS_COLUMNS,
-        dataset: EDITORS_DATA,
-        selectable: 'single',
-        idProperty: 'productId',
-        stretchColumn: 'last',
-        editable: true,
-        isList: true,
-        filterable: true
-      };
-    });
+  ngOnInit() {
+    this.gridOptions = {
+      columns: EDITORS_COLUMNS,
+      dataset: EDITORS_DATA,
+      selectable: 'single',
+      idProperty: 'productId',
+      stretchColumn: 'last',
+      editable: true,
+      isList: true,
+      filterable: true
+    };
   }
 }

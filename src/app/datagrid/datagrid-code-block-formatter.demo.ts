@@ -1,32 +1,5 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ViewChild,
-  OnDestroy,
-  Inject
-} from '@angular/core';
-import {
-  SohoDataGridComponent,
-  SohoButtonComponent
-} from 'ids-enterprise-ng';
-import {
-  CodeBlockComponent
-} from '../code-block/code-block.component';
-import {
-  PAGING_DATA
-} from './datagrid-paging-data';
-import {
-  CODE_BLOCK_DATA
-} from '../demodata/code-block-data';
-import {
-  columns,
-  ledgerData,
-  accountingData,
-  departmentData,
-  costCenterData
-} from '../code-block/mock.data';
+import { Component } from '@angular/core';
+import { CODE_BLOCK_DATA } from '../demodata/code-block-data';
 
 export const CodeBlockFormatter = (row, cell, value, col, rowData, api): string => {
   console.log(rowData);

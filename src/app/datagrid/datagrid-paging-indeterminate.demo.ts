@@ -1,7 +1,8 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
+  ChangeDetectionStrategy, ChangeDetectorRef,
+  Component, NgZone, OnInit,
   ViewChild
 } from '@angular/core';
 import {
@@ -16,18 +17,23 @@ import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indete
   providers: [ DataGridPagingIndeterminateDemoService ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
+export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecked, OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
   public showPageSizeSelector = true;
+  public gridOptions = undefined;
+  private selectedRow = 0;
+  private updateSelectedRow = false;
 
   constructor(
+    private changeDetectorRef: ChangeDetectorRef,
+    private ngZone: NgZone,
     private datagridPagingService: DataGridPagingIndeterminateDemoService,
     private toastService: SohoToastService,
   ) {}
 
-  ngAfterViewInit(): void {
-    const gridOptions: SohoDataGridOptions = {
+  ngOnInit(): void {
+    this.gridOptions = {
       columns: this.datagridPagingService.getColumns(),
       selectable: 'single',
       paging: true,
@@ -37,48 +43,37 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewInit {
       rowHeight: 'short', // short, medium or normal
       sortable: false,
       showPageSizeSelector: this.showPageSizeSelector,
-
-      /**
-       * cause source method to be called with req.type of 'sorted' so that
-       * the server can be called to do sorting.
-       */
       disableClientSort: true,
-
-      /**
-       * Cause source method to be called with req.type of 'filtered' so that
-       * the server can be called to do filtering.
-       */
       disableClientFilter: true,
       filterable: true,
-
-      source: (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
-        setTimeout(() => {
-          if (request.type === 'filtered') {
-            this.toastService.show({title: 'Filter', message: 'gridsource with filtered type called'});
-          }
-          this.datagridPagingService.getData(request).subscribe((result: any) => {
-            request.firstPage = result.firstPage;
-            request.lastPage = result.lastPage;
-
-            /* Get the current selected row index for this page of records. */
-            let selectedIndex = -1;
-            const selectedRow = this.sohoDataGridComponent.selectedRows();
-            if (selectedRow && selectedRow.length > 0 && selectedRow[0].idx !== -1) {
-              selectedIndex = selectedRow[0].idx;
-              this.sohoDataGridComponent.unSelectAllRows();
-            }
-
-            /* Put the data into the data grid */
-            response(result.data, request);
-
-            /* selected the row index of the new page of records */
-            this.sohoDataGridComponent.selectRows(selectedIndex === -1 ? 0 : selectedIndex);
-          });
-        });
-      }
+      source: this.dataGridSource
     } as SohoDataGridOptions;
+  }
 
-    setTimeout(() => this.sohoDataGridComponent.gridOptions = gridOptions);
+  ngAfterViewChecked() {
+    if (this.sohoDataGridComponent && this.updateSelectedRow) {
+      this.sohoDataGridComponent.selectRows([this.selectedRow]);
+      this.updateSelectedRow = false;
+    }
+  }
+
+  private dataGridSource = (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
+    if (request.type === 'filtered') {
+      this.toastService.show({title: 'Filter', message: 'gridsource with filtered type called'});
+    }
+    this.datagridPagingService.getData(request).subscribe((result: any) => {
+      request.firstPage = result.firstPage;
+      request.lastPage = result.lastPage;
+
+      const selectedRows = this.sohoDataGridComponent ? this.sohoDataGridComponent.selectedRows() : undefined;
+      this.selectedRow = selectedRows !== undefined ? selectedRows[0].idx : 0;
+
+      /* Put the data into the data grid */
+      this.ngZone.runOutsideAngular(() => response(result.data, request));
+
+      this.updateSelectedRow = true;
+      this.changeDetectorRef.markForCheck();
+    });
   }
 
   onRefresh() {

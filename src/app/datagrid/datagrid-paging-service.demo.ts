@@ -1,7 +1,7 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  OnInit,
   ViewChild
 } from '@angular/core';
 
@@ -15,7 +15,7 @@ import { DataGridPagingServiceDemoService } from './datagrid-paging-service-demo
   providers: [ DataGridPagingServiceDemoService ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataGridPagingServiceDemoComponent implements AfterViewInit {
+export class DataGridPagingServiceDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
   private uniqueId: string;
 
@@ -25,10 +25,11 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
   private savedPagesize: string;
   private savedActivePage: string;
   private savedFilter: string;
+  public gridOptions = undefined;
 
   constructor(private datagridPagingService: DataGridPagingServiceDemoService) {}
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     /*
      * initialize component after datagrid's AfterViewInit. Since we are
      * higher in the component hierarchy our ngAfterViewInit is called after
@@ -37,55 +38,29 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
     const pageSize = 5;
 
     this.uniqueId = 'datagrid-paging-demo';
-    const columnString = lscache.get(this.uniqueId + 'columns') ? JSON.stringify(lscache.get(this.uniqueId + 'columns')) : undefined;
-
-    if (columnString) {
-      this.savedColumns = this.sohoDataGridComponent.columnsFromString(columnString);
-    }
 
     this.savedRowHeight = lscache.get(this.uniqueId + 'rowHeight');
     this.savedSortOrder = lscache.get(this.uniqueId + 'sortOrder') ? lscache.get(this.uniqueId + 'sortOrder') : null;
     this.savedPagesize = lscache.get(this.uniqueId + 'pagesize');
     this.savedActivePage = lscache.get(this.uniqueId + 'activePage');
     this.savedFilter = lscache.get(this.uniqueId + 'filter') ? lscache.get(this.uniqueId + 'filter') : null;
-    const gridOptions: SohoDataGridOptions = {
-      columns: this.datagridPagingService.getColumns(),
-      selectable: 'single',
-      paging: true,
-      pagesize: pageSize,
-      pagesizes: [ 5, 10, 25 ],
+    this.gridOptions = {
+      columns:       this.datagridPagingService.getColumns(),
+      selectable:    'single',
+      paging:        true,
+      pagesize:      pageSize,
+      pagesizes:     [ 5, 10, 25 ],
       indeterminate: false,
-      rowHeight: 'medium', // short, medium or normal
+      rowHeight:     'medium', // short, medium or normal
+      source:        this.dataGridSource
     };
+  }
 
-    gridOptions.source = (req: SohoDataGridSourceRequest, response: any) => {
-
-      /*
-       * Option1: COMMENT OUT THE RETURN - when getting an initial page request. The
-       * getDataService will recognize the 'initial' paging type and return the first page of data.
-       */
-      // if (req.type === 'initial') {
-      //   return;
-      // }
-
-      this.datagridPagingService.getData(req).subscribe((result: any) => {
-        req.total = result.total;
-        response(result.data, req);
-      });
-    };
-
-    setTimeout(() => this.sohoDataGridComponent.gridOptions = gridOptions);
-
-    /*
-     * Options2 - LOAD INITIAL DATA DIRECTLY - bypass the initial type in the
-     * source function and load directly into:
-     * NOTE: only seems to work with indeterminate paging. Perhaps a something
-     * missing in the SohoDataGridSourceRequest object?!?
-     */
-    // let initialRequest: SohoDataGridSourceRequest = { activePage: 1, pagesize: pageSize, type: '', total: 100, filterExpr: []};
-    // this.datagridPagingService.getData(initialRequest).subscribe((result: any) => {
-    //   this.sohoDataGridComponent.data = result.data;
-    // });
+  private dataGridSource = (req: SohoDataGridSourceRequest, response: any) => {
+    this.datagridPagingService.getData(req).subscribe((result: any) => {
+      req.total = result.total;
+      response(result.data, req);
+    });
   }
 
   exportExcel(e: any) {
@@ -111,6 +86,12 @@ export class DataGridPagingServiceDemoComponent implements AfterViewInit {
   }
 
   onRendered(event: SohoDataGridRenderedEvent) {
+    const columnString = lscache.get(this.uniqueId + 'columns') ? JSON.stringify(lscache.get(this.uniqueId + 'columns')) : undefined;
+
+    if (columnString) {
+      this.savedColumns = this.sohoDataGridComponent.columnsFromString(columnString);
+    }
+
     this.sohoDataGridComponent.restoreUserSettings({activePage: this.savedActivePage, columns: this.savedColumns,
       rowHeight: this.savedRowHeight, sortOrder: this.savedSortOrder, pagesize: this.savedPagesize, filter: this.savedFilter});
   }

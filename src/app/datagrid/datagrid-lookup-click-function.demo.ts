@@ -1,28 +1,6 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  ViewChild,
-  ComponentFactoryResolver,
-  ViewContainerRef,
-  Injector,
-  ApplicationRef,
-  NgModule,
-  Compiler,
-  OnDestroy,
-  Input,
-  Inject
-} from '@angular/core';
-import {
-  SohoDataGridComponent,
-  SohoComponentsModule,
-  SohoModalDialogService,
-  SohoModalDialogRef
-} from 'ids-enterprise-ng';
-import {
-  PAGING_COLUMNS,
-  PAGING_DATA
-} from './datagrid-paging-data';
+import { Component, ViewChild, ViewContainerRef, OnInit } from '@angular/core';
+import { SohoDataGridComponent, SohoModalDialogService, } from 'ids-enterprise-ng';
+import { PAGING_COLUMNS, PAGING_DATA } from './datagrid-paging-data';
 import { DataGridLookupDialogDemoComponent } from './datagrid-lookup-dialog.demo';
 import { DataGridLookupSelectionEvent } from './datagrid-lookup-event.demo';
 
@@ -30,14 +8,15 @@ import { DataGridLookupSelectionEvent } from './datagrid-lookup-event.demo';
   selector: 'app-datagrid-lookup-click-function-demo',
   templateUrl: './datagrid-lookup-click-function.demo.html',
 })
-export class DataGridLookupClickDemoComponent implements AfterViewInit {
+export class DataGridLookupClickDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
   @ViewChild('modalPlaceholder', { read: ViewContainerRef }) modalPlaceholder: ViewContainerRef;
 
-  constructor(private modalService: SohoModalDialogService) {
-  }
+  gridOptions = undefined;
 
-  ngAfterViewInit(): void {
+  constructor(private modalService: SohoModalDialogService) {}
+
+  ngOnInit(): void {
     /**
      * Add a column to demonstrate the lookup click function
      * don't want to change the existing data in datagrid-paging-data.
@@ -53,7 +32,7 @@ export class DataGridLookupClickDemoComponent implements AfterViewInit {
       editorOptions: {editable: true, click: LMLookupClickFunction},
     });
 
-    const gridOptions: SohoDataGridOptions = {
+    this.gridOptions = {
       columns: columns,
       dataset: PAGING_DATA,
       selectable: 'mixed',
@@ -62,9 +41,6 @@ export class DataGridLookupClickDemoComponent implements AfterViewInit {
       editable: true,
       userObject: this
     };
-
-    // in ngAfterViewInit/Checked must set inputs from a timeout so that change detection is executed.
-    setTimeout(() => this.sohoDataGridComponent.gridOptions = gridOptions);
   }
 
   public listLookupClick(sohoLookup: SohoLookupStatic, sourceField: string) {

@@ -1,7 +1,7 @@
 import {
   Component,
   ViewChild,
-  AfterViewInit
+  OnInit
  } from '@angular/core';
 
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
@@ -246,28 +246,25 @@ export const EDITORS_COLUMNS: any[] = [
   selector: 'soho-datagrid-editors',
   templateUrl: './datagrid-editors.demo.html'
 })
-export class DataGridEditorsDemoComponent implements AfterViewInit {
+export class DataGridEditorsDemoComponent implements OnInit {
 
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
-  constructor() { }
+  gridOptions = null;
 
-  ngAfterViewInit(): void {
-    // in ngAfterViewInit/Checked must set inputs from a timeout so that change detection is executed.
-    setTimeout(() => {
-      this.sohoDataGridComponent.gridOptions = {
-        columns: EDITORS_COLUMNS,
-        dataset: EDITORS_DATA,
-        clickToSelect: false,
-        selectable: 'multiple',
-        idProperty: 'productId',
-        editable: true,
-        rowHeight: 'short',
-        filterable: true,
-        showDirty: true,
-        stretchColumn: 'favorite'
-      };
-    })
+  ngOnInit(): void {
+    this.gridOptions = {
+      columns: EDITORS_COLUMNS,
+      dataset: EDITORS_DATA,
+      clickToSelect: false,
+      selectable: 'multiple',
+      idProperty: 'productId',
+      editable: true,
+      rowHeight: 'short',
+      filterable: true,
+      showDirty: true,
+      stretchColumn: 'favorite'
+    };
   }
 
   showErrors() {

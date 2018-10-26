@@ -2,14 +2,11 @@ import {
   Component,
   ViewChild,
   ChangeDetectionStrategy,
-  AfterViewInit
 } from '@angular/core';
-
 import {
   SohoDataGridComponent,
   SohoDataGridService
 } from 'ids-enterprise-ng';
-
 import {
   DataGridDemoService
 } from './datagrid-demo.service';
@@ -20,7 +17,7 @@ import {
   providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService } ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataGridRowReorderDemoComponent implements AfterViewInit {
+export class DataGridRowReorderDemoComponent {
   @ViewChild(SohoDataGridComponent) datagrid: SohoDataGridComponent;
 
   constructor(gridService: SohoDataGridService) {
@@ -33,9 +30,6 @@ export class DataGridRowReorderDemoComponent implements AfterViewInit {
       formatter: Soho.Formatters.RowReorder,
       width: 80
     });
-  }
-
-  ngAfterViewInit() {
   }
 
   onRowReordered(event: SohoDataGridRowReorderedEvent) {

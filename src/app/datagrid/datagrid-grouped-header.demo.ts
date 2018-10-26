@@ -1,4 +1,13 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, NgZone, ViewChild } from '@angular/core';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  NgZone,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 import { SohoDataGridComponent, } from 'ids-enterprise-ng';
 import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indeterminate-demo.service';
 
@@ -8,39 +17,32 @@ import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indete
   providers: [ DataGridPagingIndeterminateDemoService ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataGridGroupedHeaderDemoComponent implements AfterViewInit {
+export class DataGridGroupedHeaderDemoComponent implements AfterViewChecked, OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
-  public gridOptions = null;
+  gridOptions = null;
+  selectedRow = 0;
+  updateSelectedRow = false;
 
   constructor(
+    private changeDetectorRef: ChangeDetectorRef,
+    private ngZone: NgZone,
     private datagridPagingService: DataGridPagingIndeterminateDemoService,
-    private ngZone: NgZone
   ) {}
 
-  private dataGridSource = (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
-    this.datagridPagingService.getData(request).subscribe((result: any) => {
-      request.firstPage = result.firstPage;
-      request.lastPage = result.lastPage;
-
-      /* Get the current selected row index for this page of records. */
-      let selectedIndex = -1;
-      const selectedRow = this.sohoDataGridComponent.selectedRows();
-      if (selectedRow && selectedRow.length > 0 && selectedRow[0].idx !== -1) {
-        selectedIndex = selectedRow[0].idx;
-        this.sohoDataGridComponent.unSelectAllRows();
-      }
-
-      /* Put the data into the data grid */
-      this.ngZone.runOutsideAngular(() => response(result.data, request));
-
-      /* selected the row index of the new page of records */
-      this.sohoDataGridComponent.selectRows(selectedIndex === -1 ? 0 : selectedIndex);
-    });
+  ngOnInit(): void {
+    this.gridOptions = this.buildGridOptions();
   }
 
-  ngAfterViewInit(): void {
-    const gridOptions: SohoDataGridOptions = <SohoDataGridOptions> {
+  ngAfterViewChecked() {
+    if (this.sohoDataGridComponent && this.updateSelectedRow) {
+      this.sohoDataGridComponent.selectRows([this.selectedRow]);
+      this.updateSelectedRow = false;
+    }
+  }
+
+  private buildGridOptions(): SohoDataGridOptions {
+    return {
       columns: this.datagridPagingService.getColumns(),
       selectable: 'single',
       paging: true,
@@ -52,27 +54,26 @@ export class DataGridGroupedHeaderDemoComponent implements AfterViewInit {
       columnGroups: [{ colspan: 3, id: 'firstGroup', name: 'Grouped Headers'},
         {colspan: 1, id: '', name: ''},
         {colspan: 2, id: 'secondGroup', name: 'Grouped Headers 2'}],// tslint:disable-line
-
-      /**
-       * cause source method to be called with req.type of 'sorted' so that
-       * the server can be called to do sorting.
-       */
       disableClientSort: true,
-
-      /**
-       * Cause source method to be called with req.type of 'filtered' so that
-       * the server can be called to do filtering.
-       */
       disableClientFilter: true,
       filterable: true,
+      source: this.dataGridSource
+    } as SohoDataGridOptions;
+  }
 
-      source: (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
-        // run from a timeout to ensure change detection runs and the viewChildd sohoDataGridComponent is created
-        setTimeout(() => this.dataGridSource(request, response));
-      }
-    };
+  private dataGridSource = (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
+    this.datagridPagingService.getData(request).subscribe((result: any) => {
+      request.firstPage = result.firstPage;
+      request.lastPage = result.lastPage;
 
-    // in ngAfterViewInit/Checked must set inputs from a timeout so that change detection is executed.
-    setTimeout(() => this.sohoDataGridComponent.gridOptions = gridOptions);
+      const selectedRows = this.sohoDataGridComponent ? this.sohoDataGridComponent.selectedRows() : undefined;
+      this.selectedRow = selectedRows !== undefined ? selectedRows[0].idx : 0;
+
+      /* Put the data into the data grid */
+      this.ngZone.runOutsideAngular(() => response(result.data, request));
+
+      this.updateSelectedRow = true;
+      this.changeDetectorRef.markForCheck();
+    });
   }
 }
