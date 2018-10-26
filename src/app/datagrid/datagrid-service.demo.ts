@@ -1,9 +1,7 @@
 import {
   Component,
-  AfterContentInit,
   ElementRef,
   ViewChild,
-  AfterViewInit,
   ChangeDetectionStrategy
 } from '@angular/core';
 
@@ -23,16 +21,10 @@ import { SohoToastService } from 'ids-enterprise-ng';
   providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService }, SohoToastService ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataGridServiceDemoComponent implements AfterContentInit, AfterViewInit {
+export class DataGridServiceDemoComponent {
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
   @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
   constructor(private el: ElementRef, private toastService: SohoToastService) {
-  }
-
-  ngAfterContentInit() {
-  }
-
-  ngAfterViewInit() {
   }
 
   onSelected(e: any) {

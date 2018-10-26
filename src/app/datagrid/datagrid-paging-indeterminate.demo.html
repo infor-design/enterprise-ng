@@ -14,6 +14,8 @@
 <div class="row top-padding">
   <div class="twelve columns demo" role="main">
     <div soho-datagrid
+      *ngIf="gridOptions"
+      [gridOptions]="gridOptions"
       (selected)="onSelected($event)"
       (openFilterRow)="onOpenFilterRow($event)"
       (closeFilterRow)="onCloseFilterRow($event)"

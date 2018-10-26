@@ -2062,10 +2062,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // If a source property has not been defined, and a service has
     // use the data service to load the data dynamically for paging.
     if (!source && this.datagridService) {
-      this._gridOptions.source
-        = (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => this.onDataRequest(request, response);
-    } else {
-      this._gridOptions.source = source;
+      this._gridOptions.source = (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
+        this.onDataRequest(request, response);
+      };
+    } else if (source && typeof source === 'function') {
+      this._gridOptions.source = (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
+        this.ngZone.run(() => source(request, response));
+      };
     }
   }
 
