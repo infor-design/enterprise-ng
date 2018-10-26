@@ -8,7 +8,7 @@
 
 ### 4.13.0 Chore & Maintenance
 
-- `[General]` Upgraded @angular/cli (to 7.0.x) and @angular/core (to 7.0.x).  `BTHH` ([Pull Request xxx](https://github.com/infor-design/enterprise-ng/pull/xxx))
+- `[General]` Upgraded @angular/cli (to 7.0.x) and @angular/core (to 7.0.x).  `BTHH` ([Pull Request 227](https://github.com/infor-design/enterprise-ng/pull/227))
     - support for Node 10
     - support for TypeScript 3.x
     - `UPGRADING.md` has been upated with details on upgrading your application to angular 7.
