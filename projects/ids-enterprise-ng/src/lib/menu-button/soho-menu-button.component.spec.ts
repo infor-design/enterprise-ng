@@ -22,7 +22,7 @@ import {
 
 import { SohoIconModule } from '../icon';
 
-fdescribe('Soho Menu Button Unit Tests', () => {
+describe('Soho Menu Button Unit Tests', () => {
   let comp: SohoMenuButtonComponent;
   let fixture: ComponentFixture<SohoMenuButtonComponent>;
   let de: DebugElement;
@@ -323,8 +323,8 @@ fdescribe('Soho Menu Button Unit Tests', () => {
 });
 
 @Component({
-  template: `<button soho-menu-button icon="user" menu="action-popupmenu" titlx="Charts">
-    <span titlx="foo">Hello</span>
+  template: `<button soho-menu-button icon="user" menu="action-popupmenu" title="Charts">
+    <span title="foo">Hello</span>
   </button>
 <ul soho-popupmenu id="action-popupmenu">
   <li><a soho-popupmenu-label>Admin</a></li>
@@ -336,7 +336,7 @@ export class TestSohoMenuButtonComponent {
   @ViewChild(SohoMenuButtonComponent) menuButton;
 }
 
-fdescribe('Soho Menu Button Render', () => {
+describe('Soho Menu Button Render', () => {
   let menuButton: SohoMenuButtonComponent;
   let component: TestSohoMenuButtonComponent;
   let fixture: ComponentFixture<TestSohoMenuButtonComponent>;
