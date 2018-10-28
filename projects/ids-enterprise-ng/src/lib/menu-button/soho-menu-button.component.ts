@@ -152,9 +152,7 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   ngAfterViewChecked() {
     if (this.runUpdatedOnCheck) {
       this.ngZone.runOutsideAngular(() => {
-        if (this.menuButton) {
-          this.menuButton.updated();
-        }
+        this.menuButton.updated();
         this.runUpdatedOnCheck = false;
       });
     }
@@ -202,9 +200,9 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
     });
   }
 
-  public open(event: JQuery.Event): void {
+  public open(event: JQuery.Event, ajaxReturn?: boolean, useDelay?: boolean): void {
     this.ngZone.runOutsideAngular(() => {
-      this.menuButton.open(event);
+      this.menuButton.open(event, ajaxReturn, useDelay);
     });
   }
 
