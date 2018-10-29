@@ -11,7 +11,7 @@ import {
   Input,
   OnDestroy,
   Output,
-  NgZone, ChangeDetectorRef,
+  NgZone,
 } from '@angular/core';
 
 /**
