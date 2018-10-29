@@ -11,7 +11,7 @@ import {
   Input,
   OnDestroy,
   Output,
-  NgZone,
+  NgZone, ChangeDetectorRef,
 } from '@angular/core';
 
 /**
@@ -217,11 +217,9 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
     accordion.headers = $accordion.find('.accordion-header');
 
     this.ngZone.runOutsideAngular(() => {
-      setTimeout(() => {
-        accordion.updated();
-        accordion.toggle(jQuery(header));
-        accordion.select(jQuery(header));
-      }, 1);
+      accordion.updated();
+      accordion.toggle(jQuery(header));
+      accordion.select(jQuery(header));
     });
   }
 
