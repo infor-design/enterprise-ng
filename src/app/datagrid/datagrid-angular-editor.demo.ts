@@ -1,13 +1,8 @@
 import {
   Component,
-  ContentChild,
   ViewChild,
   AfterViewInit,
-  ComponentRef,
-  ElementRef,
-  Input,
   Inject,
-  OnDestroy
 } from '@angular/core';
 
 import {

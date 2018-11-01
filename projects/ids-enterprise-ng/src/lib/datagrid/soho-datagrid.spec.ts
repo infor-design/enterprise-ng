@@ -315,6 +315,32 @@ describe('Soho DataGrid Render', () => {
     fixture.detectChanges();
   });
 
+  it('check rendered', (done) => {
+    component.datagrid.rendered.subscribe((renderedEvent: SohoDataGridRenderedEvent) => {
+      expect(renderedEvent).not.toBeNull();
+      done();
+    });
+
+    fixture.detectChanges();
+
+    component.datagrid.setSortColumn('desc', true);
+
+    fixture.detectChanges();
+  });
+
+  it('check afterrender', (done) => {
+    component.datagrid.afterRender.subscribe((afterRenderEvent: SohoDataGridAfterRenderEvent) => {
+      expect(afterRenderEvent).not.toBeNull();
+      done();
+    });
+
+    fixture.detectChanges();
+
+    component.datagrid.setSortColumn('desc', true);
+
+    fixture.detectChanges();
+  });
+
   it('check setColumnSort(id, ascending)', (done) => {
 
     component.datagrid.sorted.subscribe((sortedEvent: SohoDataGridSortedEvent) => {
