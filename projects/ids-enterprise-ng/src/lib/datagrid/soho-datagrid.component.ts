@@ -1900,33 +1900,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         this.onEditCell(editor);
       };
 
-      // Initialise the SohoXi control.
-      this.jQueryElement.datagrid(this._gridOptions);
-
-      // Once the control is initialised, extract the control
-      // plug-in from the element.  The element name is
-      // defined by the plug-in, but in this case is 'datagrid'.
-      this.datagrid = this.jQueryElement.data('datagrid');
-
-      // If "auto" and there's a service, get the columns from it.
-      // (may want to check if columns have already been set? Error?)
-      if (this.datagridType === SohoDataGridComponent.AUTO && this.datagridService) {
-        // Bootstrap from service, note this is not async.
-        this.columns = this.datagridService.getColumns();
-        // Once the columns are set, request the data (paging?)
-        this.datagridService.getData(null)
-          .subscribe((data: any[]) => {
-            this.ngZone.runOutsideAngular(() => {
-              this.datagrid.loadData(data);
-            });
-          });
-      } else if (this.gridData) {
-        // Not using a service, so use the pre-loaded data.
-        this.ngZone.runOutsideAngular(() => {
-          this.datagrid.loadData(this.gridData);
-        });
-      }
-
       // Initialise any event handlers.
       this.jQueryElement
         .on('addrow', (e: any, args: SohoDataGridAddRowEvent) => { this.onRowAdd(args); })
@@ -1948,7 +1921,34 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('selected', (e: any, args: SohoDataGridSelectedRow[]) => this.onSelected({ e, rows: args }))
         .on('settingschanged', (e: any, args: SohoDataGridSettingsChangedEvent) => { this.onSettingsChanged(args); })
         .on('sorted', (e: any, args: SohoDataGridSortedEvent) => { this.onSorted(args); });
-    });
+      });
+
+      // Initialise the SohoXi control.
+      this.jQueryElement.datagrid(this._gridOptions);
+
+      // Once the control is initialised, extract the control
+      // plug-in from the element.  The element name is
+      // defined by the plug-in, but in this case is 'datagrid'.
+      this.datagrid = this.jQueryElement.data('datagrid');
+
+    // If "auto" and there's a service, get the columns from it.
+    // (may want to check if columns have already been set? Error?)
+    if (this.datagridType === SohoDataGridComponent.AUTO && this.datagridService) {
+      // Bootstrap from service, note this is not async.
+      this.columns = this.datagridService.getColumns();
+      // Once the columns are set, request the data (paging?)
+      this.datagridService.getData(null)
+        .subscribe((data: any[]) => {
+          this.ngZone.runOutsideAngular(() => {
+            this.datagrid.loadData(data);
+          });
+        });
+    } else if (this.gridData) {
+      // Not using a service, so use the pre-loaded data.
+      this.ngZone.runOutsideAngular(() => {
+        this.datagrid.loadData(this.gridData);
+      });
+    }
   }
 
   /**

@@ -710,6 +710,9 @@ interface SohoDataGridColumn {
 
   /** Enforce a max length when editing this column */
   maxLength?: boolean;
+
+  /** Validators to assign to any editable columns. */
+  validate?: string;
 }
 
 interface SohoDataGridColumnNumberFormat {
