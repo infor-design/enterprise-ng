@@ -88,6 +88,8 @@ interface SohoHierarchyAction {
   value: string;
   url?: string;
   actionReference?: any;
+  data?: any;
+  disabled?: boolean;
 }
 
 interface SohoHierarchyDoubleClickEvent {

@@ -15,7 +15,20 @@
           "Picture": "https://randomuser.me/api/portraits/med/women/4.jpg",
           "isLeaf": true,
           "menu": {
-            "actions": []
+            "details": [
+              {"key": "Location", "value": "St. Paul"},
+              {"key": "Phone", "value": "612-489-8529"}
+            ],
+            "actions": [
+              {"value": "Profile", "url": "#", "data": {"id":"Profile","label":"Profile","type":"action","index":1}},
+              {"value": "Change Pay Rate", "url": "#", "data": {}, "disabled": true},
+              {"value": "Add work assignment", "url" : "#", "data": {}},
+              {"value": "Promote", "url" : "#", "data": {}},
+              {"value": "Transfer", "url" : "#", "data": {}},
+              {"value": "Terminate", "url" : "#", "data": {}},
+              {"value": "Update", "url" : "#", "data": {}},
+              {"value": "Options", "url" : "#", "data": {}, "menu": [{"value": "Sub Item", "url" : "#", "data": {}}]}
+            ]
           }
         },
         {
@@ -52,7 +65,23 @@
               "Name": "Julie Dawes",
               "Position": "Records Clerk",
               "EmploymentType": "PT",
-              "Picture": "https://randomuser.me/api/portraits/med/women/5.jpg"
+              "Picture": "https://randomuser.me/api/portraits/med/women/5.jpg",
+              "menu": {
+                "details": [
+                  {"key": "Location", "value": "St. Paul"},
+                  {"key": "Phone", "value": "612-489-8529"}
+                ],
+                "actions": [
+                  {"value": "Profile", "url": "#", "data": {"id":"Profile","label":"Profile","type":"action","index":1}},
+                  {"value": "Change Pay Rate", "url": "#", "data": {}, "disabled": true},
+                  {"value": "Add work assignment", "url" : "#", "data": {}},
+                  {"value": "Promote", "url" : "#", "data": {}},
+                  {"value": "Transfer", "url" : "#", "data": {}},
+                  {"value": "Terminate", "url" : "#", "data": {}},
+                  {"value": "Update", "url" : "#", "data": {}},
+                  {"value": "Options", "url" : "#", "data": {}, "menu": [{"value": "Sub Item", "url" : "#", "data": {}}]}
+                ]
+              }
             },
             {
               "id": "1_3_3",
