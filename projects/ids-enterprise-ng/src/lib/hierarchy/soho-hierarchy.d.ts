@@ -108,6 +108,6 @@ interface JQueryStatic {
   hierarchy: SohoHierarchyStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   hierarchy(options?: SohoHierarchyOptions): JQuery;
 }

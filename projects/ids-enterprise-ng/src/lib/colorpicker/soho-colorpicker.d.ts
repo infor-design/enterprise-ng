@@ -68,6 +68,6 @@ interface JQueryStatic {
   colorpicker: SohoColorPickerStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   colorpicker(options?: SohoColorPickerOptions): JQuery;
 }

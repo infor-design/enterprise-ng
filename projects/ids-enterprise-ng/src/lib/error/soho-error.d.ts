@@ -36,7 +36,7 @@ interface SohoErrorStatic {
   destroy(): void;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   addError(options?: SohoErrorOptions): JQuery;
 
   removeError(options?: SohoErrorOptions): JQuery;

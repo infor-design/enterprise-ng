@@ -67,7 +67,7 @@ interface SohoMessageStatic {
 /**
  * Integration with jQuery
  */
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   message(options: SohoMessageOptions): JQuery;
 }
 

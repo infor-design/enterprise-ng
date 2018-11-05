@@ -109,6 +109,6 @@ interface SohoBarGroupSelected {
   groupValue?: any;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   bar(options?: SohoBarOptions): JQuery;
 }

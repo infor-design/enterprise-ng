@@ -138,7 +138,7 @@ interface JQueryStatic {
   toolbarsearchfield: SohoToolbarSearchFieldStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   toolbar(options?: SohoToolbarOptions): JQuery;
   toolbarsearchfield(options?: SohoToolbarSearchFieldOptions): JQuery;
 }

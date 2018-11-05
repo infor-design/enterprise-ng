@@ -25,16 +25,16 @@
   /**
    * href key.
    *
-   * 
-   * 
+   *
+   *
    */
   href?: string;
 
   /**
    * Label string to display under the tick.
    *
-   * 
-   * 
+   *
+   *
    */
   label?: string;
  }
@@ -46,8 +46,8 @@ interface SohoWizardOptions {
   /**
    * Optional model driven list of ticks to display.
    *
-   * 
-   * 
+   *
+   *
    */
   ticks?: SohoWizardTick[];
 }
@@ -65,7 +65,7 @@ interface SohoWizardStatic {
    *
    * @param e
    * @param tick
-   * 
+   *
    */
   activate(e: any, tick: number | JQuery): void;
 
@@ -89,6 +89,6 @@ interface JQueryStatic {
   wizard: SohoWizardStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   wizard(options?: SohoWizardOptions): JQuery;
 }

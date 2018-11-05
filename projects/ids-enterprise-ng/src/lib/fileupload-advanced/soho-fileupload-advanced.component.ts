@@ -31,9 +31,9 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
   // -------------------------------------------
   // Component Input
   // -------------------------------------------
+
   /**
    * Set the disabled state of the control.
-   * @param disabled
    */
   @Input() set disabled(value: boolean) {
     this.isDisabled = value;

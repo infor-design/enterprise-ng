@@ -493,9 +493,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   // -------------------------------------------
   // Component Input
   // -------------------------------------------
-  /**
-   * @param disabled
-   */
+
   @Input() set disabled(value: boolean) {
     if (this.dropdown) {
       if (value) {
@@ -509,9 +507,6 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     }
   }
 
-  /**
-   * @param readonly
-   */
   @Input() set readonly(value: boolean) {
     if (this.dropdown) {
       if (value) {

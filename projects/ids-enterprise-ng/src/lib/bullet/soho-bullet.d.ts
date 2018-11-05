@@ -44,6 +44,6 @@ interface SohoBullet {
   destroy(): void;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   bullet(options?: SohoBulletOptions): JQuery;
 }

@@ -313,9 +313,9 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   // private methods
+
   /**
    * Evaluate the event param and parse the value
-   * @param event
    */
   private parseValue(event: SohoLookupChangeEvent[]) {
     if (!event) {

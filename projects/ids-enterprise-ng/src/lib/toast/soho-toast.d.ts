@@ -52,6 +52,6 @@ interface JQueryStatic {
   toast: SohoToastStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   toast(options?: SohoToastOptions): JQuery;
 }

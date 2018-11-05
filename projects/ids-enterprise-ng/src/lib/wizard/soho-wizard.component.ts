@@ -258,9 +258,6 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
   /**
    * Returns true if the process has finished,
    * otherwise false.
-   *
-   * @return
-   *
    */
   public hasFinished(): boolean {
     return this.finished;

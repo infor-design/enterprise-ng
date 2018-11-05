@@ -22,6 +22,6 @@ interface JQueryStatic {
   progress: SohoProgressStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   progress(options?: SohoProgressOptions): JQuery;
 }

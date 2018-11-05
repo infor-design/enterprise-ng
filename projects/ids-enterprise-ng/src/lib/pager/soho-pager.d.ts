@@ -90,6 +90,6 @@ interface JQueryStatic {
   pager: SohoPagerStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   pager(options?: SohoPagerOptions): JQuery;
 }

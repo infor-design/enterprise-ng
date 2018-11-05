@@ -106,23 +106,14 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
-  /**
-   * @param delay
-   */
   @Input() set delay(delay: number) {
     this.options.delay = delay;
   }
 
-  /**
-   * @param firstHeader
-   */
   @Input() set firstHeader(firstHeader: string) {
     this.options.firstHeader = firstHeader;
   }
 
-  /**
-   * @param secondHeader
-   */
   @Input() set secondHeader(secondHeader: string) {
     this.options.secondHeader = secondHeader;
     if (this.editor) {
@@ -131,10 +122,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
-  /**
-   * @param placeholder
-   */
-  @Input() set placeholder(placeholder: string) {
+ @Input() set placeholder(placeholder: string) {
     this.options.placeholder = placeholder;
     if (this.editor) {
       this.editor.settings.placeholder = placeholder;
@@ -142,9 +130,6 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
-  /**
-   * @param anchor
-   */
   @Input() set anchor(anchor: SohoEditorAnchor) {
     this.options.anchor = anchor;
     if (this.editor) {
@@ -153,9 +138,6 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
-  /**
-   * @param image
-   */
   @Input() set image(image: SohoEditorOptionsImage) {
     this.options.image = image;
     this.markForRefresh();
@@ -164,9 +146,6 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
-  /**
-   * @param buttons
-   */
   @Input() set buttons(buttons: SohoEditorButtons) {
     this.options.buttons = buttons;
 
@@ -313,8 +292,6 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   /**
    * This function is called when the control status changes to or from "DISABLED".
    * Depending on the value, it will enable or disable the appropriate DOM element.
-   *
-   * @param isDisabled
    */
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;

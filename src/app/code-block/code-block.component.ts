@@ -37,9 +37,6 @@ export class CodeBlockComponent implements OnDestroy {
 
   @HostBinding('class.hide-labels') hideLabels = false;
 
-  /**
-   * @param readonly
-   */
   @Input() set readonly(value: boolean) {
     this.isReadOnly = value;
   }

@@ -52,8 +52,6 @@ describe('Soho Menu Button Unit Tests', () => {
 
     comp.showArrow = false;
 
-    fixture.detectChanges();
-
     expect((comp as any).options.showArrow).toBeFalsy();
     expect((comp as any).menuButton.settings.showArrow).toBeFalsy();
     expect(spy).toHaveBeenCalled();
@@ -64,11 +62,19 @@ describe('Soho Menu Button Unit Tests', () => {
 
     comp.showArrow = true;
 
-    fixture.detectChanges();
-
     expect((comp as any).options.showArrow).toBeTruthy();
     expect((comp as any).menuButton.settings.showArrow).toBeTruthy();
     expect(spy).toHaveBeenCalled();
+  });
+
+  it('check showArrow sets option to true, when no menuButton set', () => {
+    const spy = spyOn((comp as any).ref, 'markForCheck');
+
+    (comp as any).menuButton = undefined;
+    comp.showArrow = true;
+
+    expect((comp as any).options.showArrow).toBeTruthy();
+    expect(spy).toHaveBeenCalledTimes(0);
   });
 
   it('check autoFocus sets options to false', () => {
@@ -81,6 +87,18 @@ describe('Soho Menu Button Unit Tests', () => {
     expect((comp as any).options.autoFocus).toBeFalsy();
     expect((comp as any).menuButton.settings.autoFocus).toBeFalsy();
     expect(spy).toHaveBeenCalled();
+  });
+
+  it('check autoFocus sets options to false, before menuButton initialised.', () => {
+    const spy = spyOn((comp as any).ref, 'markForCheck');
+
+    (comp as any).menuButton = undefined;
+    comp.autoFocus = false;
+
+    fixture.detectChanges();
+
+    expect((comp as any).options.autoFocus).toBeFalsy();
+    expect(spy).toHaveBeenCalledTimes(0);
   });
 
   it('check autoFocus sets option to true', () => {
@@ -107,6 +125,18 @@ describe('Soho Menu Button Unit Tests', () => {
     expect(spy).toHaveBeenCalled();
   });
 
+  it('check mouseFocus sets options to false, when menuButton not set', () => {
+    const spy = spyOn((comp as any).ref, 'markForCheck');
+
+    (comp as any).menuButton = undefined;
+    comp.mouseFocus = false;
+
+    fixture.detectChanges();
+
+    expect((comp as any).options.mouseFocus).toBeFalsy();
+    expect(spy).toHaveBeenCalledTimes(0);
+  });
+
   it('check mouseFocus sets option to true', () => {
     const spy = spyOn((comp as any).ref, 'markForCheck');
 
@@ -124,11 +154,19 @@ describe('Soho Menu Button Unit Tests', () => {
 
     comp.returnFocus = false;
 
-    fixture.detectChanges();
-
     expect((comp as any).options.returnFocus).toBeFalsy();
     expect((comp as any).menuButton.settings.returnFocus).toBeFalsy();
     expect(spy).toHaveBeenCalled();
+  });
+
+  it('check returnFocus sets options to false, without menuButton.', () => {
+    const spy = spyOn((comp as any).ref, 'markForCheck');
+
+    (comp as any).menuButton = undefined;
+    comp.returnFocus = false;
+
+    expect((comp as any).options.returnFocus).toBeFalsy();
+    expect(spy).toHaveBeenCalledTimes(0);
   });
 
   it('check returnFocus sets option to true', () => {
@@ -136,11 +174,19 @@ describe('Soho Menu Button Unit Tests', () => {
 
     comp.returnFocus = true;
 
-    fixture.detectChanges();
-
     expect((comp as any).options.returnFocus).toBeTruthy();
     expect((comp as any).menuButton.settings.returnFocus).toBeTruthy();
     expect(spy).toHaveBeenCalled();
+  });
+
+  it('check returnFocus sets option to true, without menuButton', () => {
+    const spy = spyOn((comp as any).ref, 'markForCheck');
+
+    (comp as any).menuButton = undefined;
+    comp.returnFocus = true;
+
+    expect((comp as any).options.returnFocus).toBeTruthy();
+    expect(spy).toHaveBeenCalledTimes(0);
   });
 
   it('check trigger sets option', () => {
@@ -148,11 +194,19 @@ describe('Soho Menu Button Unit Tests', () => {
 
     comp.trigger = 'click';
 
-    fixture.detectChanges();
-
     expect((comp as any).options.trigger).toEqual('click');
     expect((comp as any).menuButton.settings.trigger).toEqual('click');
     expect(spy).toHaveBeenCalled();
+  });
+
+  it('check trigger sets option', () => {
+    const spy = spyOn((comp as any).ref, 'markForCheck');
+
+    (comp as any).menuButton = undefined;
+    comp.trigger = 'click';
+
+    expect((comp as any).options.trigger).toEqual('click');
+    expect(spy).toHaveBeenCalledTimes(0);
   });
 
   it('check menu sets options', () => {
@@ -160,11 +214,19 @@ describe('Soho Menu Button Unit Tests', () => {
 
     comp.menu = 'mymenu';
 
-    fixture.detectChanges();
-
     expect((comp as any).options.menu).toEqual('mymenu');
     expect((comp as any).menuButton.settings.menu).toEqual('mymenu');
     expect(spy).toHaveBeenCalled();
+  });
+
+  it('check menu sets options, without menuButton', () => {
+    const spy = spyOn((comp as any).ref, 'markForCheck');
+
+    (comp as any).menuButton = undefined;
+    comp.menu = 'mymenu';
+
+    expect((comp as any).options.menu).toEqual('mymenu');
+    expect(spy).toHaveBeenCalledTimes(0);
   });
 
   it('check ajaxBeforeOpenFunction sets options', () => {
@@ -172,48 +234,98 @@ describe('Soho Menu Button Unit Tests', () => {
 
     comp.ajaxBeforeOpenFunction = () => { };
 
-    fixture.detectChanges();
-
     expect((comp as any).options.ajaxBeforeOpenFunction).not.toBeNull('mymenu');
     expect((comp as any).menuButton.settings.ajaxBeforeOpenFunction).not.toBeNull('mymenu');
     expect(spy).toHaveBeenCalledTimes(0);
   });
 
-  it('check fires `selected`', () => {
-    const spy = spyOn((comp as any), 'onSelected');
+  it('check ajaxBeforeOpenFunction sets options', () => {
+    const spy = spyOn((comp as any).ref, 'markForCheck');
 
-    // @todo - work out how to fake the call from enterprise.
+    (comp as any).menuButton = undefined;
+    comp.ajaxBeforeOpenFunction = () => { };
+
+    expect((comp as any).options.ajaxBeforeOpenFunction).not.toBeNull('mymenu');
+    expect(spy).toHaveBeenCalledTimes(0);
+  });
+
+  it('check fires `selected`', () => {
+    const spy = spyOn((comp as any), 'onSelected').and.callThrough();
+
+    const selectionResult = []; // list of selected anchors.
+    // Emulate the event being triggered (args?)
+    (comp as any).jQueryElement.trigger('selected', selectionResult);
+
+    // Check it was caled
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 
   it('check open', () => {
-    // comp.open(new JQuery.Event());
+    const spy = spyOn((comp as any).menuButton, 'open').and.callFake(() => {});
+
+    const mockEvent = $.Event('open');
+    comp.open(mockEvent);
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 
   it('check close', () => {
+    const spy = spyOn((comp as any).menuButton, 'close').and.callFake(() => {});
+
     comp.close();
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 
-  xit('check beforeopen is called when the menu is opened.', () => {
-    const spy = spyOn((comp as any), 'onBeforeOpen');
+  it('check updated', () => {
+    const spy = spyOn((comp as any).menuButton, 'updated').and.callThrough();
 
-    // @todo - work out how to fake the call from enterprise.
+    comp.updated();
+
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 
-  xit('check afteropen', () => {
-    // @todo - work out how to fake the call from enterprise.
+  it('check teardown', () => {
+    const spy = spyOn((comp as any).menuButton, 'teardown').and.callThrough();
+
+    comp.teardown();
+
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 
-  xit('check close', () => {
-    // @todo - work out how to fake the call from enterprise.
+  it('check beforeopen is called when the menu is opened.', () => {
+    const spy = spyOn((comp as any), 'onBeforeOpen').and.callThrough();
+
+    // Emulate the event being triggered (args?)
+    (comp as any).jQueryElement.trigger('beforeopen');
+
+    // Check it was caled
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 
-  xit('check open', () => {
-    // @todo - work out how to fake the call from enterprise.
+  it('check close', () => {
+    const spy = spyOn((comp as any), 'onClose').and.callThrough();
+
+    // Emulate the event being triggered (args?)
+    (comp as any).jQueryElement.trigger('close', el);
+
+    // Check it was caled
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  it('check open', () => {
+    const spy = spyOn((comp as any), 'onOpen').and.callThrough();
+
+    // Emulate the event being triggered (args?)
+    (comp as any).jQueryElement.trigger('open');
+
+    // Check it was caled
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 });
 
 @Component({
-  template: `<button soho-menu-button icon="user" menu="action-popupmenu"></button>
+  template: `<button soho-menu-button icon="user" menu="action-popupmenu" title="Charts">
+    <span title="foo">Hello</span>
+  </button>
 <ul soho-popupmenu id="action-popupmenu">
   <li><a soho-popupmenu-label>Admin</a></li>
   <li soho-popupmenu-separator></li>

@@ -149,6 +149,6 @@ interface JQueryStatic {
   lookup: SohoLookupStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   lookup(options?: SohoLookupOptions): JQuery;
 }

@@ -88,7 +88,6 @@ export class SohoHeaderDynamicDemoComponent {
 
   /**
    * Get the current toolbar options.
-   * @return
    */
   get toolbarOptions(): HeaderDynamicToolbarOptions {
     return this.currentToolbarOptions;
@@ -96,7 +95,6 @@ export class SohoHeaderDynamicDemoComponent {
 
   /**
    * Get the current toolbar options.
-   * @return
    */
   public get tabOptions(): HeaderDynamicTabsetOptions {
     return this.currentTabsOptions;

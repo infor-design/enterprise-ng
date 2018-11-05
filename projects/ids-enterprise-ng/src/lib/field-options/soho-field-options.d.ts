@@ -19,6 +19,6 @@ interface SohoFieldOptionsStatic {
   destroy(): void;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   fieldoptions(options?: SohoFieldOptionsSettings): JQuery;
 }

@@ -28,6 +28,6 @@ interface JQueryStatic {
   button: SohoButtonStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   button(options?: SohoButtonOptions): JQuery;
 }

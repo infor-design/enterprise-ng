@@ -93,7 +93,7 @@ describe('Soho Basic Tabs Render', () => {
   });
 
   it('Check HTML content', () => {
-    const tabsElement: Element = el.children[0];
+    const tabsElement = el.children[0];
     expect(tabsElement.nodeName).toBe('DIV');
 
     // check attributes
@@ -104,19 +104,19 @@ describe('Soho Basic Tabs Render', () => {
     expect(tabsElement.classList).toContain('tab-container');
 
     // check div.tab-list-container element
-    const tabListContainerElementList: NodeListOf<Element> = tabsElement.getElementsByClassName('tab-list-container');
+    const tabListContainerElementList = tabsElement.getElementsByClassName('tab-list-container');
     expect(tabListContainerElementList.length).toBe(1);
     expect(tabListContainerElementList[0].nodeName).toBe('DIV');
 
     // check ul element
-    const tabListElementList: NodeListOf<HTMLUListElement> = tabListContainerElementList[0].getElementsByTagName('ul');
+    const tabListElementList = tabListContainerElementList[0].getElementsByTagName('ul');
 
     expect(tabListElementList.length).toBe(1);
     expect(tabListElementList[0].getAttribute('soho-tab-list')).not.toBeNull();
     expect(tabListElementList[0].classList).toContain('tab-list');
 
     // check lis
-    const tabListElementListItems: NodeListOf<HTMLLIElement> = tabListElementList[0].getElementsByTagName('li');
+    const tabListElementListItems = tabListElementList[0].getElementsByTagName('li');
     expect(tabListElementListItems.length).toBe(2);
 
     // first li
@@ -124,7 +124,7 @@ describe('Soho Basic Tabs Render', () => {
     expect(tabListElementListItems[0].getAttribute('soho-tab')).not.toBeNull();
 
     // first anchor
-    let anchorElementList: NodeListOf<HTMLAnchorElement> = tabListElementListItems[0].getElementsByTagName('a');
+    let anchorElementList = tabListElementListItems[0].getElementsByTagName('a');
     expect(anchorElementList.length).toBe(1);
     expect(anchorElementList[0].getAttribute('soho-tab-title')).not.toBeNull();
     let tabId: string = anchorElementList[0].getAttribute('tabId');
