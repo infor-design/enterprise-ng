@@ -169,8 +169,8 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   }
 
   /** Open the menu. */
-  public openMenu() {
-    this.ngZone.runOutsideAngular(() => this.applicationmenu.openMenu());
+  public openMenu(noFocus?: boolean, userOpened?: boolean, openedByClass?: boolean) {
+    this.ngZone.runOutsideAngular(() => this.applicationmenu.openMenu(noFocus, userOpened, openedByClass));
   }
 
   /**

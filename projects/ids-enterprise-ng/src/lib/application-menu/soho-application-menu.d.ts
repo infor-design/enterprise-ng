@@ -46,7 +46,7 @@ interface SohoApplicationMenuStatic {
    *
    * param noFocus - if set the current focus is not modified.
    */
-  openMenu(noFocus?: boolean): void;
+  openMenu(noFocus?: boolean, userOpened?: boolean, openedByClass?: boolean): void;
 
   /**
    * Closes the application menu.

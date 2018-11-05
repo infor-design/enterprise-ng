@@ -1,4 +1,5 @@
 <button soho-button id="application-lazy-menu-trigger">Open Lazy App Menu</button>
+<button soho-button id="manual-trigger" (click)="openMenu()">Open Lazy App Menu Manual</button>
 
 <nav id="applicationMenuLazy" soho-application-menu [triggers]="triggers">
   <div class="accordion panel inverse" data-options="{'allowOnePane': true}">
