@@ -1,13 +1,15 @@
+<div soho-personalize [options]="personalizeOptions" (changetheme)="onChangeTheme($event)" (changecolors)="onChangeColors($event)">
+
 <a href="#maincontent" class="skip-link" data-translate="text">SkipToMain</a>
 <soho-icons></soho-icons>
 <soho-icons-ext></soho-icons-ext>
 <soho-icons-empty></soho-icons-empty>
 <app-masthead-demo></app-masthead-demo>
 
-<nav *ngIf="initialised" soho-application-menu class="is-pesonalizable" [filterable]="true" [openOnLarge]="true" [dismissOnClickMobile]="true">
+<nav *ngIf="initialised" soho-application-menu class="is-personalizable" [filterable]="true" [openOnLarge]="true" [dismissOnClickMobile]="true">
   <div soho-searchfield-wrapper>
     <label class="audible" for="application-menu-searchfield">Search</label>
-    <input soho-searchfield id="application-menu-searchfield" [clearable]=true />
+    <input soho-searchfield id="application-menu-searchfield" [clearable]="true" />
   </div>
   <application-menu-demo></application-menu-demo>
 </nav>
@@ -18,4 +20,4 @@
   </div>
 </div>
 
-<div soho-personalize [options]="personalizeOptions" (changetheme)="onChangeTheme($event)" (changecolors)="onChangeColors($event)"></div>
+</div>
