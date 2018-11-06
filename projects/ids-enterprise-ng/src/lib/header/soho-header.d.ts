@@ -54,7 +54,7 @@ interface JQueryStatic {
   header: SohoHeaderStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   header(): JQuery;
 }
 

@@ -39,6 +39,6 @@ interface JQueryStatic {
   fileupload: SohoFileUploadStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   fileupload(options?: SohoFileUploadOptions): JQuery;
 }

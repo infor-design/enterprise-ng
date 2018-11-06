@@ -90,7 +90,7 @@ export class SohoAlertDirective implements AfterViewInit {
   /**
    * Adds an inline error message
    * @deprecated use addInlineMessage() instead
-   * @param message
+   * @param message the error message to add.
    */
   addInlineError(message: string) {
     this.addInlineMessage(message, 'error');
@@ -99,7 +99,7 @@ export class SohoAlertDirective implements AfterViewInit {
   /**
    * Adds an inline message of the type specified
    *
-   * @param message
+   * @param message the message to add.
    * @param type optional - 'error' (default)
    * @param isAlert optional - false (default)
    * @param triggerEvents optional - true (default)
@@ -117,7 +117,7 @@ export class SohoAlertDirective implements AfterViewInit {
    * Gets the message of the type specified
    *
    * @param type optional - 'error' default
-   * @return
+   * @return returns the message for the given type.
    */
   getMessage(type?: SohoAlertType): string {
     if (this.jQueryElement) {

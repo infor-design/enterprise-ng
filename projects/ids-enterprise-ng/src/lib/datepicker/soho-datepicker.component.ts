@@ -441,8 +441,6 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   /**
    * This function is called when the control status changes to or from "DISABLED".
    * Depending on the value, it will enable or disable the appropriate DOM element.
-   *
-   * @param isDisabled
    */
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;

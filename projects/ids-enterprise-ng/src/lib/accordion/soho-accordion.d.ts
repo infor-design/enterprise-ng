@@ -102,7 +102,7 @@ interface JQueryStatic {
  *
  * @interface JQuery
  */
-interface JQuery<TElement extends Node = HTMLElement> {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   accordion(options?: SohoAccordionOptions): SohoAccordionStatic;
   on(events: string,
     handler: JQuery.EventHandlerBase<TElement, SohoAccordionEvent>): this;

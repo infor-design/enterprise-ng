@@ -125,6 +125,6 @@ interface SohoRadarSelected {
   index?: number;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   radar(options?: SohoRadarOptions): JQuery;
 }

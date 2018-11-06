@@ -6,6 +6,6 @@
 interface SohoHyperlinkEvent extends JQuery.Event {
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   hideFocus(): JQuery;
 }

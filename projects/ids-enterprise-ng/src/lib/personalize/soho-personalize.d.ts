@@ -22,6 +22,6 @@ interface SohoPersonalizeEvent extends JQuery.Event {
 interface JQueryStatic {
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   personalize(options?: SohoPersonalizeOptions): JQuery;
 }

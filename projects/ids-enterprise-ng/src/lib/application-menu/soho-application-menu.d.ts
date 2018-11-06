@@ -91,6 +91,6 @@ interface JQueryStatic {
   applicationmenu: SohoApplicationMenuStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   applicationmenu(options?: SohoApplicationMenuOptions): JQuery;
 }

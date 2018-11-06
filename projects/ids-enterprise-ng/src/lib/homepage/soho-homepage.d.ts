@@ -45,6 +45,6 @@ interface JQueryStatic {
   homepage: SohoHomePageStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   homepage(options?: SohoHomePageOptions): JQuery;
 }

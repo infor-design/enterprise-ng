@@ -140,7 +140,7 @@ interface SohoModalStatic {
 /**
  * Integration with jQuery
  */
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   modal(options: SohoModalOptions): JQuery;
 }
 

@@ -108,7 +108,7 @@ interface JQueryStatic {
   popupmenu: SohoPopupMenuStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   popupmenu(options?: SohoPopupMenuOptions): JQuery;
 }
 

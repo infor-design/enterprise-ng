@@ -58,7 +58,7 @@ interface JQueryStatic {
   expandablearea: SohoExpandableAreaStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   expandablearea(options?: SohoExpandableAreaOptions): JQuery;
 }
 

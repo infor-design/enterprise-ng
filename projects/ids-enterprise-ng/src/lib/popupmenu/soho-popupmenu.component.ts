@@ -371,8 +371,6 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
 
   /**
    * Closes the popup menu
-   * @param isCancelled
-   * @param noFocus
    */
   close(isCancelled?: boolean, noFocus?: boolean): void {
     if (this.popupmenu) {

@@ -72,6 +72,6 @@ interface JQueryStatic {
   autocomplete: SohoAutoCompleteStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   autocomplete(options?: SohoAutoCompleteOptions): JQuery
 }

@@ -96,6 +96,6 @@ interface SohoLineSelected {
   groupValue?: any;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   line(options?: SohoLineOptions): JQuery;
 }

@@ -15,6 +15,6 @@ interface JQueryStatic {
   trackdirty: TrackDirtyStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   trackdirty(): JQuery;
 }

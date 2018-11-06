@@ -38,7 +38,7 @@ interface JQueryStatic {
   validation: SohoInputValidateStatic;
 }
 
-interface JQuery<TElement extends Node = HTMLElement> {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   validate(): JQuery;
   on(events: string,
     handler: JQuery.EventHandlerBase<TElement, SohoInputValidateEvent>): this;

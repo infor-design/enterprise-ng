@@ -202,6 +202,6 @@ interface JQueryStatic {
   dropdown: SohoDropDownStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   dropdown(options: SohoDropDownOptions): JQuery;
 }

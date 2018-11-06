@@ -116,6 +116,6 @@ interface SohoPieSelected {
   index?: number;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   pie(options?: SohoPieOptions): JQuery;
 }

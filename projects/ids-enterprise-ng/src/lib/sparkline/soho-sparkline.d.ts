@@ -54,6 +54,6 @@ interface SohoSparkline {
   destroy(): void;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   sparkline(options?: SohoSparklineOptions): JQuery;
 }

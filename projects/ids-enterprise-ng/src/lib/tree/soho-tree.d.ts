@@ -215,6 +215,6 @@ interface JQueryStatic {
   tree: SohoTreeStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   tree(options?: SohoTreeOptions): JQuery;
 }

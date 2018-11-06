@@ -89,6 +89,6 @@ interface SohoStatic {
   Locale: SohoLocaleStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   initialize(locale: string): JQuery;
 }

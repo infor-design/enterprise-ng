@@ -100,7 +100,7 @@ interface JQueryStatic {
   swaplist: SohoSwapListStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   swaplist(options: SohoSwapListOptions): JQuery;
 }
 

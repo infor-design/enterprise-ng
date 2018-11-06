@@ -39,9 +39,7 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
   // -------------------------------------------
   // Component Input
   // -------------------------------------------
-  /**
-   * @param disabled
-   */
+
   @Input() set disabled(value: boolean) {
     this.isDisabled = value;
 
@@ -57,9 +55,6 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     }
   }
 
-  /**
-   * @param readonly
-   */
   @Input() set readonly(value: boolean) {
     this.isReadOnly = value;
 
@@ -75,42 +70,24 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     }
   }
 
-  /**
-   * @param resizable
-   */
   @HostBinding('class.resizable')
   @Input() resizable: boolean = null;
 
-  /**
-   * @param maxlength
-   */
   @HostBinding('attr.maxlength')
   @Input() maxlength: number;
 
-  /**
-   * @param characterCounter
-   */
   @Input() set characterCounter(characterCounter: boolean) {
     this.options.characterCounter = characterCounter;
   }
 
-  /**
-   * @param printable
-   */
   @Input() set printable(printable: boolean) {
     this.options.printable = printable;
   }
 
-  /**
-   * @param charRemainingText
-   */
   @Input() set charRemainingText(charRemainingText: string) {
     this.options.charRemainingText = charRemainingText;
   }
 
-  /**
-   * @param charMaxText
-   */
   @Input() set charMaxText(charMaxText: string) {
     this.options.charMaxText = charMaxText;
   }
@@ -213,8 +190,6 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
   /**
    * This function is called when the control status changes to or from "DISABLED".
    * Depending on the value, it will enable or disable the appropriate DOM element.
-   *
-   * @param isDisabled
    */
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;

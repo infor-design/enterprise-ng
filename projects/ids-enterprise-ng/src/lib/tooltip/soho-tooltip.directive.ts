@@ -26,8 +26,8 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges
   // Component Input options
   // -------------------------------------------
   /**
- * @param content
- */
+   * @param content the content of the tooltip
+   */
   @Input() set content(content: string) {
     this.options.content = content;
     if (this.tooltip) {
@@ -36,91 +36,88 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges
   }
 
   /**
-   * @param offset
+   * @param offset offset
    */
   @Input() set offset(offset: number) {
     this.options.offset = offset;
   }
 
   /**
-   * @param placement
+   * @param placement the orientation of the tooltip based on the source component.
    */
   @Input() set placement(placement: SohoTooltipOffset) {
     this.options.placement = placement;
   }
 
-  /**
-   * @param trigger
-   */
   @Input() set trigger(trigger: string) {
     this.options.trigger = trigger;
   }
 
   /**
-   * @param tooltipTitle
+   * @param tooltipTitle the title of the tooltip.
    */
   @Input() set title(title: string) {
     this.options.title = title;
   }
 
   /**
-   * @param beforeShow
+   * @param beforeShow before show.
    */
   @Input() set beforeShow(beforeShow: any) {
     this.options.beforeShow = beforeShow;
   }
 
   /**
-   * @param popover
+   * @param popover is this a popover?
    */
   @Input() set popover(popover: boolean) {
     this.options.popover = popover;
   }
 
   /**
-   * @param closebutton
+   * @param closebutton display the close button?
    */
   @Input() set closebutton(closebutton: boolean) {
     this.options.closebutton = closebutton;
   }
 
   /**
-   * @param isError
+   * @param isError is this an error tooltip.
    */
   @Input() set isError(isError: boolean) {
     this.options.isError = isError;
   }
 
   /**
-   * @param isErrorColor
+   * @param isErrorColor use the error color.
    */
   @Input() set isErrorColor(isErrorColor: boolean) {
     this.options.isErrorColor = isErrorColor;
   }
 
   /**
-   * @param tooltipElement
+   * @param tooltipElement tooptip element
    */
   @Input() set tooltipElement(tooltipElement: any) {
     this.options.tooltipElement = tooltipElement;
   }
 
   /**
-   * @param keepOpen
+   * @param keepOpen keep the tooltip open?
    */
   @Input() set keepOpen(keepOpen: boolean) {
     this.options.keepOpen = keepOpen;
   }
 
   /**
-   * @param extraClass
+   * @param extraClass additional classes
    */
   @Input() set extraClass(extraClass: string) {
     this.options.extraClass = extraClass;
   }
 
   /**
-   * @param maxWidth
+   * @param maxWidth the maximum width of the tooltip in pixels.
    */
   @Input() set maxWidth(maxWidth: number) {
     this.options.maxWidth = maxWidth;
