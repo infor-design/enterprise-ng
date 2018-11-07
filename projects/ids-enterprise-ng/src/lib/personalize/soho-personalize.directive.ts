@@ -71,7 +71,7 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
     // call outside the angular zone so change detection
     // isn't triggered by the soho component.
     this.ngZone.runOutsideAngular(() => {
-      // assign element to local variable - not this must attach to a root#
+      // assign element to local variable - not this must attach to a root
       // element in this case 'body'
       this.jQueryElement = jQuery('body');
 
@@ -82,9 +82,9 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
        */
       this.jQueryElement
         .on('changetheme.personalize',
-          (ev: JQuery.Event, theme: string) => { console.log(`changetheme.personalize`); this.onChangeTheme(ev, theme); })
+          (ev: JQuery.Event, theme: string) => { this.onChangeTheme(ev, theme); })
         .on('changecolors.personalize',
-          (ev: JQuery.Event, colors: any) => { console.log(`changecolors.personalize`); this.onChangeColors(ev, colors); });
+          (ev: JQuery.Event, colors: any) => { this.onChangeColors(ev, colors); });
 
       // extract the api
       this.personalize = this.jQueryElement.data('personalize');
