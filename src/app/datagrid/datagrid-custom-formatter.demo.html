@@ -14,7 +14,7 @@
 <br>
 <div class="row top-padding">
   <div class="twelve columns demo" role="main">
-    <div soho-datagrid>
+    <div soho-datagrid *ngIf="gridOptions" [gridOptions]="gridOptions">
     </div>
   </div>
 </div>

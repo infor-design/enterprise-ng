@@ -23,10 +23,13 @@
         </button>
       </div>
     </div>
-    <div soho-datagrid id="datagrid-header"
-        [disableRowDeactivation]="disableRowDeactivation"
-        (rowActivated)="onRowActivated($event)"
-        (rowDeactivated)="onRowDeactivated($event)"
+    <div soho-datagrid
+      *ngIf="gridOptions"
+      id="datagrid-header"
+      [gridOptions]="gridOptions"
+      [disableRowDeactivation]="disableRowDeactivation"
+      (rowActivated)="onRowActivated($event)"
+      (rowDeactivated)="onRowDeactivated($event)"
     ></div>
 
   </div>

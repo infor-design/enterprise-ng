@@ -1,23 +1,10 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  ViewChild,
-  ComponentFactoryResolver,
-  ViewContainerRef,
-  Injector,
-  ApplicationRef,
-  NgModule,
-  Compiler,
   OnDestroy,
-  Input,
-  Inject
+  Inject,
+  OnInit
 } from '@angular/core';
-import {
-  SohoDataGridComponent,
-  SohoButtonComponent,
-  SohoComponentsModule
-} from 'ids-enterprise-ng';
 import {
   PAGING_COLUMNS,
   PAGING_DATA
@@ -60,12 +47,13 @@ export class DemoCellIntegerFormatterComponent {
   templateUrl: './datagrid-custom-formatter.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
-
-  constructor() {
-  }
+export class DataGridCustomFormatterDemoComponent implements OnInit {
   visible: boolean;
+  gridOptions: SohoDataGridOptions = undefined;
+
+  ngOnInit(): void {
+    this.gridOptions = this.buildGridOptions();
+  }
 
   onClick(args) {
     console.log('click');
@@ -80,7 +68,7 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
     return this.visible;
   }
 
-  ngAfterViewInit(): void {
+  private buildGridOptions(): SohoDataGridOptions {
     /**
      * Add a column for the custom formatter
      */
@@ -121,7 +109,8 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
       click: (e, args) => this.onClick(args),
       contentVisible: (row, cell, data, col, item) => this.isContentVisible(row, cell, data, col, item)
     });
-    const gridOptions: SohoDataGridOptions = {
+
+    return {
       columns: columns,
       dataset: PAGING_DATA,
       selectable: 'single',
@@ -133,8 +122,6 @@ export class DataGridCustomFormatterDemoComponent implements AfterViewInit {
        */
       userObject: this
     };
-
-    this.sohoDataGridComponent.gridOptions = gridOptions;
   }
 
   /**

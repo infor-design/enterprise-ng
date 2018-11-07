@@ -11,7 +11,6 @@
     </soho-toolbar-button-set>
   </soho-toolbar>
 
-  <div soho-datagrid class="scrollable-area">
-  </div>
+  <div soho-datagrid *ngIf="gridOptions" [gridOptions]="gridOptions"></div>
 
 </div>

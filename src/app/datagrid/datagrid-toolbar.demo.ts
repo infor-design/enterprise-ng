@@ -13,7 +13,7 @@
   templateUrl: './datagrid-toolbar.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataGridToolbarDemoComponent implements OnInit, AfterViewInit, AfterContentInit {
+export class DataGridToolbarDemoComponent {
 
   // Breadcrumbs.
   @Input() breadcrumbs: Breadcrumb[];
@@ -24,14 +24,6 @@ export class DataGridToolbarDemoComponent implements OnInit, AfterViewInit, Afte
 
   selectBreadcrumb(breadcrumb: Breadcrumb) {
     console.log('Selected ${breadcrumb.friendlyName}');
-  }
-
-  ngOnInit() {
-  }
-
-  ngAfterViewInit() {}
-
-  ngAfterContentInit() {
   }
 
   private buildBreadcrumbs() {
