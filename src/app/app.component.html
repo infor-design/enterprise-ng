@@ -14,6 +14,11 @@
 <div *ngIf="initialised" class="page-container no-scroll">
   <app-header-dynamic-demo></app-header-dynamic-demo>
   <div id="maincontent" class="page-container scrollable" role="main">
+      <div class="row render-row">
+        <p>Render loop count is: {{renderLoopCount}}</p>
+        <button class="btn" (click)="onStartRenderLoop()">Start RenderLoop</button>
+        <button class="btn" (click)="onStopRenderLoop()">Stop RenderLoop</button>
+      </div>
       <router-outlet></router-outlet>
   </div>
 </div>
