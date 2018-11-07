@@ -153,6 +153,7 @@ import { SearchFieldDemoComponent } from './searchfield/searchfield.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
 import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
 import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
+import { SohoRenderLoopService } from '../../projects/ids-enterprise-ng/src/lib/renderLoop';
 import { SparklineDemoComponent } from './sparkline/sparkline.demo';
 import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
@@ -203,7 +204,6 @@ import { WizardDemoResultPageComponent } from './wizard/wizard-result-page.demo'
 import { WizardDemoSelectFilePageComponent } from './wizard/wizard-selected-files-page.demo';
 import { WizardDemoTargetFolderPageComponent } from './wizard/wizard-target-folder-page.demo';
 import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validation-rules-page.demo';
-import {SohoRenderLoopService} from '../../projects/ids-enterprise-ng/src/lib/renderLoop';
 
 @NgModule({
   declarations: [
