@@ -1,7 +1,8 @@
 import {
   AfterViewChecked,
   Component,
-  HostBinding, OnInit,
+  HostBinding,
+  OnInit,
   ViewEncapsulation,
 } from '@angular/core';
 
