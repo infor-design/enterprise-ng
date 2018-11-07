@@ -1,18 +1,9 @@
 import {
   Component,
-  ContentChild,
   ViewChild,
-  AfterViewInit,
-  ComponentRef,
-  ElementRef,
-  Input,
   Inject,
-  OnDestroy
+  OnInit
 } from '@angular/core';
-
-import {
-  SohoDataGridComponent,
-} from 'ids-enterprise-ng';
 
 import {
   CODE_BLOCK_DATA
@@ -219,7 +210,6 @@ export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
   costCenterData(): any[] {
     return [];
   }
-
 }
 
 @Component({
@@ -227,15 +217,11 @@ export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
   templateUrl: './datagrid-code-block-editor.demo.html',
   styleUrls: ['../code-block/code-block.formatter.css']
 })
-export class DataGridCodeBlockEditorDemoComponent implements AfterViewInit {
+export class DataGridCodeBlockEditorDemoComponent implements OnInit {
+  gridOptions = null;
 
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
-
-  constructor() { }
-
-  ngAfterViewInit(): void {
-
-    this.sohoDataGridComponent.gridOptions = {
+  ngOnInit(): void {
+    this.gridOptions = {
       columns: COLUMNS, // tslint:disable-line
       dataset: CODE_BLOCK_DATA,
       selectable: 'single',
@@ -243,7 +229,6 @@ export class DataGridCodeBlockEditorDemoComponent implements AfterViewInit {
       editable: true,
       filterable: true
     };
-
   }
 }
 

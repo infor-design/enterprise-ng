@@ -4,10 +4,6 @@ import {
   Inject
 } from '@angular/core';
 import {
-  SohoDataGridComponent,
-  SohoButtonComponent,
-} from 'ids-enterprise-ng';
-import {
   PAGING_DATA
 } from './datagrid-paging-data';
 
