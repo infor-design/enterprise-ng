@@ -21,6 +21,7 @@
 
 ### 4.12.0 Features
 
+- `[Pager]` Added pager-standalone component `PWP`
 - `[DataGrid]` Added support for excel utilities to export custom dataset without Datagrid `DV`
 - `[DataGrid]` Added allowSelectAcrossPages option for multiselect. ([#207](https://github.com/infor-design/enterprise-ng/issues/207)) `TJM`
 - `[Dropdown]` Added onKeyDown option for dropdown key events. ([#207](https://github.com/infor-design/enterprise-ng/issues/207)) `TJM`

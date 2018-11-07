@@ -4,7 +4,7 @@ import {
   ElementRef,
   ViewChild,
   AfterViewInit,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy, OnInit
 } from '@angular/core';
 
 import { DataGridDemoService } from './datagrid-demo.service';
@@ -14,7 +14,6 @@ import {
   SohoDataGridService
 } from 'ids-enterprise-ng';
 
-import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 import { PAGING_COLUMNS, PAGING_DATA } from './datagrid-paging-data';
 
 @Component({
@@ -23,16 +22,17 @@ import { PAGING_COLUMNS, PAGING_DATA } from './datagrid-paging-data';
   providers: [{ provide: SohoDataGridService, useClass: DataGridDemoService }],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataGridMixedSelectionDemoComponent implements AfterViewInit {
+export class DataGridMixedSelectionDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
+  public gridOptions = undefined;
   public disableRowDeactivation = true;
   public get rowDeactivationLabel() {
     return (this.disableRowDeactivation ? 'Enable ' : 'Disable ') + 'Row Deactivation';
   }
 
-  ngAfterViewInit(): void {
-    const gridOptions: SohoDataGridOptions = {
+  ngOnInit(): void {
+    this.gridOptions = {
       columns: PAGING_COLUMNS,
       dataset: PAGING_DATA,
       selectable: 'mixed',
@@ -40,8 +40,6 @@ export class DataGridMixedSelectionDemoComponent implements AfterViewInit {
       pagesize: 10,
       disableRowDeactivation: this.disableRowDeactivation
     };
-
-    this.sohoDataGridComponent.gridOptions = gridOptions;
   }
 
   onRowDeactivationToggle(event) {

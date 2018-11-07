@@ -1,7 +1,7 @@
 import {
   Component,
   ViewChild,
-  AfterViewInit
+  OnInit
  } from '@angular/core';
 
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
@@ -246,15 +246,14 @@ export const EDITORS_COLUMNS: any[] = [
   selector: 'soho-datagrid-editors',
   templateUrl: './datagrid-editors.demo.html'
 })
-export class DataGridEditorsDemoComponent implements AfterViewInit {
+export class DataGridEditorsDemoComponent implements OnInit {
 
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
-  constructor() { }
+  gridOptions = null;
 
-  ngAfterViewInit(): void {
-
-    this.sohoDataGridComponent.gridOptions = {
+  ngOnInit(): void {
+    this.gridOptions = {
       columns: EDITORS_COLUMNS,
       dataset: EDITORS_DATA,
       clickToSelect: false,
