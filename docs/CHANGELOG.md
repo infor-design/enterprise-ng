@@ -20,7 +20,7 @@
 ### 4.12.0 Features
 
 - `[Pager]` Added pager-standalone component `PWP`
-- `[App]` Added a service to control renderLoop. A global timer used by enterprise to control animations. To disable init on load, add ` window['SohoConfig'] = { renderLoop: { noAutoStart: true }};` to index.html. See index.html. See app.component.ts for example on how to manually start. ([#214](https://github.com/infor-design/enterprise-ng/issues/214)) `KOH`
+- `[App]` Added a service to control renderLoop. A global timer used by enterprise to control animations. See index.html for usage example. See app.component.ts for example on how to manually start. ([#214](https://github.com/infor-design/enterprise-ng/issues/214)) `KOH`
 - `[DataGrid]` Added support for excel utilities to export custom dataset without Datagrid `DV`
 - `[DataGrid]` Added allowSelectAcrossPages option for multiselect. ([#207](https://github.com/infor-design/enterprise-ng/issues/207)) `TJM`
 - `[Dropdown]` Added onKeyDown option for dropdown key events. ([#207](https://github.com/infor-design/enterprise-ng/issues/207)) `TJM`
