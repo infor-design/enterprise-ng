@@ -638,7 +638,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   /**
-   * Return the the currenlty active/selected tab.
+   * Return the currenlty active/selected tab.
    * @return  A JQuery object of the active tab element.
    */
   getActiveTab(): JQuery {

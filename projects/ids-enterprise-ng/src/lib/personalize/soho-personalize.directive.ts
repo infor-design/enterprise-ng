@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 
 /**
- * Angular Wrapper for the the enterprise personalise widget.
+ * Angular Wrapper for the enterprise personalise widget.
  *
  * This component searches for an element with the attribute
  * 'soho-personalize'.
