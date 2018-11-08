@@ -1,10 +1,7 @@
 import {
   Component,
-  AfterContentInit,
-  ElementRef,
   ViewChild,
-  AfterViewInit,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy, OnInit
 } from '@angular/core';
 
 import {
@@ -20,7 +17,7 @@ import { DataGridDemoService } from './datagrid-demo.service';
   providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService } ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataGridGroupableDemoComponent implements AfterViewInit {
+export class DataGridGroupableDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
 
   private _groupColumn: string;
@@ -47,7 +44,7 @@ export class DataGridGroupableDemoComponent implements AfterViewInit {
     this._groupColumn = this.groups[0].value;
   }
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.dataGrid.groupable = {fields: [this.groupColumn], aggregator: 'sum'};
   }
 

@@ -100,6 +100,7 @@ import { MaskLegacyDemoComponent } from './mask/mask-legacy.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
+import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PieDemoComponent } from './pie/pie.demo';
 import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
@@ -263,6 +264,7 @@ export const routes: Routes = [
   { path: 'menu-button',                            component: MenuButtonDemoComponent },
   { path: 'message',                                component: MessageDemoComponent },
   { path: 'modal-dialog',                           component: ModalDialogDemoComponent },
+  { path: 'pager-standalone',                       component: PagerStandaloneDemoComponent },
   { path: 'pie',                                    component: PieDemoComponent },
   { path: 'popdown',                                component: PopDownDemoComponent},
   { path: 'popupmenu',                              component: PopupMenuDemoComponent },
