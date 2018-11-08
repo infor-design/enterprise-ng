@@ -1,14 +1,16 @@
 import {
+  AfterViewChecked,
   Component,
   HostBinding,
   ViewEncapsulation,
   ViewChild,
   AfterViewInit,
-  OnInit,
+  OnInit
 } from '@angular/core';
 
 import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.service';
 import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
+import { SohoRenderLoopService } from '../../projects/ids-enterprise-ng/src/lib/renderLoop';
 
 @Component({
   selector: 'body', // tslint:disable-line
@@ -17,17 +19,18 @@ import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
   providers: [ HeaderDynamicDemoRefService ],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
   @ViewChild(SohoPersonalizeDirective) personalize: SohoPersonalizeDirective;
 
   public initialised = false;
+  public renderLoopCount = 0;
 
   @HostBinding('class.no-scroll') get isNoScroll() { return true; }
 
   public personalizeOptions: SohoPersonalizeOptions = {};
 
-  constructor() {
+  constructor(private renderLoop: SohoRenderLoopService) {
     Soho.Locale.culturesPath = '/assets/ids-enterprise/js/cultures/';
     Soho.Locale.set('en-US').done(() => {
       console.log('Locale set');
@@ -36,10 +39,24 @@ export class AppComponent implements AfterViewInit {
 
     // this.setInitialPersonalization();
   }
+
+  ngOnInit() {
+    // Init render loop manually for Angular applications
+    // Ensures requestAnimationFrame is running outside of Angular Zone
+    this.renderLoop.start();
+  }
+
   ngAfterViewInit(): void {
     // Has to run after the view has been initialised otherwise
     // the personalise component is not ready.
     this.setInitialPersonalization();
+  }
+
+  ngAfterViewChecked() {
+    // Display the current render loop in real time
+    setTimeout(() => {
+      this.renderLoopCount = this.renderLoop.getCurrentCount();
+    });
   }
 
   setInitialPersonalization() {
@@ -70,6 +87,7 @@ export class AppComponent implements AfterViewInit {
     //   }
     // }
   }
+
   onChangeTheme(ev: SohoChangeThemePersonalizeEvent) {
     console.log('Theme changed: ', ev);
     localStorage.setItem('soho_theme', ev.theme);
@@ -77,5 +95,13 @@ export class AppComponent implements AfterViewInit {
   onChangeColors(ev: SohoChangeColorsPersonalizeEvent) {
     console.log('Colors changed: ', ev);
     localStorage.setItem('soho_color', JSON.stringify(ev.colors));
+  }
+
+  onStartRenderLoop() {
+    this.renderLoop.start();
+  }
+
+  onStopRenderLoop() {
+    this.renderLoop.stop();
   }
 }

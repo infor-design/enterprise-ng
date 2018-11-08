@@ -10,6 +10,7 @@
     - `UPGRADING.md` has been updated with details on upgrading your application to angular 7.
 - `[General]` Upgraded Typescript (to 3.1.x). `BTHH`
     - `@types/jquery` has been updated to 3.3.21.
+- `[App]` Added a service to control renderLoop. A global timer used by enterprise to control animations. See index.html for usage example. See app.component.ts for example on how to manually start. ([#214](https://github.com/infor-design/enterprise-ng/issues/214)) `KOH`
 
 ### 5.0.0 Fixes
 
