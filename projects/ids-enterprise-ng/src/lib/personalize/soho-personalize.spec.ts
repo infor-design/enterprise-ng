@@ -13,69 +13,38 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { FormsModule, FormControl, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-
 import { SohoPersonalizeDirective } from './soho-personalize.directive';
 import { SohoPersonalizeModule } from './soho-personalize.module';
 
 @Component({
   template: `
-  <div soho-personalize (onChangeTheme)="onChangeTheme" (onChangeColours)="onChangeTheme" >
-    <input soho-input soho-mask [sohoPattern]="'UUU'" [definitions]="definitions" />
-  </div>`
+  <html>
+    <body>
+      <div soho-personalize></div>
+    </body>
+  </html>`
 })
-class SohoCustomMaskTestComponent {
-  @ViewChild(SohoMaskDirective) input: SohoMaskDirective;
-
-  public definitions: SohoMaskDefinitions = {'U': /[A-Z]/};
+class SohoPersonalizeTestComponent {
+  @ViewChild(SohoPersonalizeDirective) personalize: SohoPersonalizeDirective;
 }
 
-@Component({
-  template: `
-  <div>
-    <form [formGroup]="demoForm">
-      <input soho-mask formControlName="ctrl" [integerLimit]="3" [process]="'number'"/>
-    </form>
-  </div>`
-})
-class SohoMaskTestComponent {
-  @ViewChild(SohoMaskDirective) input: SohoMaskDirective;
+describe('Soho Personalize Render', () => {
+  let component: SohoPersonalizeTestComponent;
+  let fixture: ComponentFixture<SohoPersonalizeTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  public value: string;
-
-  public demoForm: FormGroup;
-
-  constructor(public formBuilder: FormBuilder) {
-    this.createForm();
-  }
-
-  createForm() {
-    // note - both controls have the .required validator.
-    this.demoForm = this.formBuilder.group({
-      ctrl: ['111', [Validators.required, Validators.minLength(2), Validators.maxLength(5)]],
-    });
-  }
-}
-
-describe('Soho Mask Render', () => {
-  let input:     SohoMaskDirective;
-  let component: SohoMaskTestComponent;
-  let fixture:   ComponentFixture<SohoMaskTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
-
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoMaskTestComponent ],
-      imports: [ FormsModule, ReactiveFormsModule, SohoMaskModule, SohoInputModule ]
+      declarations: [SohoPersonalizeTestComponent],
+      imports: [SohoPersonalizeModule]
     });
 
-    fixture = TestBed.createComponent(SohoMaskTestComponent);
+    fixture = TestBed.createComponent(SohoPersonalizeTestComponent);
     component = fixture.componentInstance;
-    input = component.input;
 
     de = fixture.debugElement;
-    el = de.query(By.css('input[soho-mask]')).nativeElement;
+    el = de.query(By.css('div[soho-personalize]')).nativeElement;
 
     fixture.detectChanges();
   });
@@ -83,63 +52,33 @@ describe('Soho Mask Render', () => {
   it('Check HTML content', () => {
     fixture.detectChanges();
 
+    expect(component.personalize).not.toBeNull();
   });
 
-  it('should update control with new input', () => {
-    const inp = fixture.debugElement.query(By.css('input'));
-    expect(inp.nativeElement.value).toEqual('111');
+  it('Check setting theme updates the component', () => {
+    fixture.detectChanges();
 
-    component.demoForm.controls['ctrl'].setValue('222');
-    inp.nativeElement.value = '222';
-
-    expect(inp.nativeElement.value).toEqual('222');
-
-    expect(component.demoForm.controls['ctrl'].value).toBe('222');
-    expect(component.demoForm.controls['ctrl'].valid).toBeTruthy();
-  });
-
-  it('should update control with new input invalid', () => {
-    const inp = fixture.debugElement.query(By.css('input'));
-    expect(inp.nativeElement.value).toEqual('111');
-    expect(component.demoForm.controls['ctrl'].valid).toBeTruthy();
-
-    component.demoForm.controls['ctrl'].setValue('555555');
-
-    expect(inp.nativeElement.value).toEqual('555555');
-
-    expect(component.demoForm.controls['ctrl'].value).toBe('555555');
-    expect(component.demoForm.controls['ctrl'].valid).toBeFalsy();
-  });
-});
-
-describe('Soho Custom Mask Render', () => {
-  let input:     SohoMaskDirective;
-  let component: SohoCustomMaskTestComponent;
-  let fixture:   ComponentFixture<SohoCustomMaskTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
-
-  beforeEach( () => {
-    TestBed.configureTestingModule({
-      declarations: [ SohoCustomMaskTestComponent ],
-      imports: [ FormsModule, ReactiveFormsModule, SohoMaskModule, SohoInputModule ]
-    });
-
-    fixture = TestBed.createComponent(SohoCustomMaskTestComponent);
-    component = fixture.componentInstance;
-    input = component.input;
-
-    de = fixture.debugElement;
-    el = de.query(By.css('input[soho-mask]')).nativeElement;
+    component.personalize.theme = 'dark';
 
     fixture.detectChanges();
+
+    expect(component.personalize.options.theme).toEqual('dark');
   });
 
-  it('Check HTML content', () => {
-    fixture.detectChanges();
-    input.definitions = {'U': /[A-Z]/};
+  it('Check seetting colors updates the component', () => {
+    component.personalize.colors = 'FF0000';
 
-    // TODO - interact
+    fixture.detectChanges();
+
+    expect(component.personalize.options.colors).toEqual('FF0000');
+  });
+
+  it('Check event handler when theme changed', () => {
+    const eventEmitterSpy = spyOn<any>(component.personalize, 'onChangeTheme');
+    $('body').trigger('changetheme', 'dark');
+
+    // Interestingly this is called three times!
+    expect(eventEmitterSpy).toHaveBeenCalled();
   });
 
 });

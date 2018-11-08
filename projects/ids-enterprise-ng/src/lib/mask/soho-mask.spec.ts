@@ -13,7 +13,7 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { FormsModule, FormControl, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
 import { SohoMaskDirective } from './soho-mask.directive';
 import { SohoMaskModule } from './soho-mask.module';

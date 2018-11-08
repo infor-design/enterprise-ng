@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 
 /**
- * Angular Wrapper for the SoHo Personalise Directive.
+ * Angular Wrapper for the the enterprise personalise widget.
  *
  * This component searches for an element with the attribute
  * 'soho-personalize'.
@@ -29,7 +29,7 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
   private jQueryElement: JQuery<HTMLElement>;
 
   /** Options. */
-  @Input() options: SohoPersonalizeOptions = {};
+  @Input() public options: SohoPersonalizeOptions = {};
 
   /** The starting colour. */
   @Input() set colors(colors: string | SohoPersonalizeColors) {
@@ -59,7 +59,6 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
    * Constructor.
    */
   constructor(
-    private element: ElementRef,
     private ngZone: NgZone) {
   }
 
@@ -75,7 +74,12 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
       // element in this case 'body'
       this.jQueryElement = jQuery('body');
 
-      // initialise the colorpicker control
+      // Check the element has attached to the body.
+      if (this.jQueryElement.length === 0) {
+        throw Error('No body found');
+      }
+
+      // initialise the control
       const api = this.jQueryElement.personalize(this.options);
       /**
        * Bind to jQueryElement's events
