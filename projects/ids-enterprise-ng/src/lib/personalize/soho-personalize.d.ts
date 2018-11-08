@@ -66,7 +66,7 @@ interface SohoPersonalizeStatic {
  * JQuery Integration
  */
 interface JQueryStatic {
-  // personalization: SohoPersonalizeStatic;
+  personalize: SohoPersonalizeStatic;
 }
 
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
