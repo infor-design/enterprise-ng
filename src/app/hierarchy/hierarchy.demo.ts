@@ -14,30 +14,30 @@ export class HierarchyDemoComponent implements OnInit, AfterViewInit {
 
   @ViewChild('SohoHierarchy') sohoHierarchy: SohoHierarchyComponent;
 
-   public data: Array<any>;
-   public legend: Array<SohoHierarchyLegend>;
-   public leafTemplate: any;
-   public leafTemplateId = 'hierarchyChartTemplate';
-   public legendKey = 'EmploymentType';
+  public data: Array<any>;
+  public legend: Array<SohoHierarchyLegend>;
+  public leafTemplate: any;
+  public leafTemplateId = 'hierarchyChartTemplate';
+  public legendKey = 'EmploymentType';
 
-   // Flag to allow the lazy load data to only be used once
-   private lazyDataLoaded = false;
+  // Flag to allow the lazy load data to only be used once
+  private lazyDataLoaded = false;
 
-   constructor(
+  constructor(
     private domSanitizer: DomSanitizer,
     private hierarchyService: HierarchyDemoService,
     private changeDetectorRef: ChangeDetectorRef
-   ) {}
+  ) {}
 
-   ngOnInit() {
-     this.legend = [
-       { 'value': 'FT', 'label': 'Full Time' },
-       { 'value': 'PT', 'label': 'Part Time' },
-       { 'value': 'C', 'label': 'Contractor' },
-       { 'value': 'O', 'label': 'Open Position' }
-     ];
+  ngOnInit() {
+    this.legend = [
+      { 'value': 'FT', 'label': 'Full Time' },
+      { 'value': 'PT', 'label': 'Part Time' },
+      { 'value': 'C', 'label': 'Contractor' },
+      { 'value': 'O', 'label': 'Open Position' }
+    ];
 
-     const leafTemplate = `
+    const leafTemplate = `
         <script type="text/html" id="${this.leafTemplateId}">
          <div class="leaf {{colorClass}}" id="{{id}}">
            {{#Picture}}
@@ -71,42 +71,44 @@ export class HierarchyDemoComponent implements OnInit, AfterViewInit {
        </script>
       `;
 
-     this.leafTemplate = this.domSanitizer.bypassSecurityTrustHtml(leafTemplate);
+    this.leafTemplate = this.domSanitizer.bypassSecurityTrustHtml(leafTemplate);
 
-     this.hierarchyService.getHierarchyData().subscribe((data) => {
-       this.data = data[0].initialDataSet;
-       this.changeDetectorRef.markForCheck();
-     });
-   }
+    this.hierarchyService.getHierarchyData().subscribe((data) => {
+      this.data = data[0].initialDataSet;
+      this.changeDetectorRef.markForCheck();
+    });
+  }
 
-   ngAfterViewInit() {
-     // Manually selects Partricia Clark
-     // SetTimeout to give soho control a moment to render
-     setTimeout(() => {
-       this.sohoHierarchy.selectLeaf('1_1');
-     }, 1);
-   }
+  ngAfterViewInit() {
+    // Manually selects Partricia Clark
+    // SetTimeout to give soho control a moment to render
+    setTimeout(() => {
+      this.sohoHierarchy.selectLeaf('1_1');
+    }, 1);
+  }
 
-   onSelected(hierarchyEvent: SohoHierarchyEvent) {
-     console.log(hierarchyEvent.data, hierarchyEvent.eventType);
+  onSelected(hierarchyEvent: SohoHierarchyEvent) {
+    console.log(hierarchyEvent.data, hierarchyEvent.eventType);
 
-     if (hierarchyEvent.eventType === 'expand' && !this.lazyDataLoaded) {
-       this.hierarchyService.getHierarchyData().subscribe((data) => {
-         const newData = data[0].lazyDataSet;
-         this.sohoHierarchy.add(hierarchyEvent.data.id, this.data, newData);
-         this.changeDetectorRef.markForCheck();
-         this.lazyDataLoaded = true;
-       });
-     }
+    if (hierarchyEvent.eventType === 'expand' && !this.lazyDataLoaded) {
+      this.hierarchyService.getHierarchyData().subscribe((data) => {
+        const newData = data[0].lazyDataSet;
+        this.sohoHierarchy.add(hierarchyEvent.data.id, this.data, newData);
+        this.changeDetectorRef.markForCheck();
+        this.lazyDataLoaded = true;
+      });
+    }
 
-     if (hierarchyEvent.isActionsEvent) {
-       const actions = [{value: 'action-1'}, {value: 'action-2'}];
-       this.sohoHierarchy.updateActions(hierarchyEvent, actions);
-     }
-   }
+    // For demo purposes ignore updating original actions for id '1_3_2'
+    // This one is used to illustrate a sub menu and disabled state
+    if (hierarchyEvent.isActionsEvent && (hierarchyEvent.data.id !== '1_3_2' && hierarchyEvent.data.id !== '1_1')) {
+      const actions = [{value: 'action-1'}, {value: 'action-2'}];
+      this.sohoHierarchy.updateActions(hierarchyEvent, actions);
+    }
+  }
 
   onDoubleClick(event: SohoHierarchyDoubleClickEvent) {
-     console.log(event);
+    console.log(event);
   }
 
 }

@@ -1,5 +1,24 @@
 # What's New with Enterprise-NG
 
+## v5.0.0
+
+### 5.0.0 Features
+
+- `[General]` Upgraded @angular/cli (to 7.0.x) and @angular/core (to 7.0.x).  `BTHH` ([Pull Request 227](https://github.com/infor-design/enterprise-ng/pull/227))
+    - support for Node 10
+    - support for TypeScript 3.x
+    - `UPGRADING.md` has been updated with details on upgrading your application to angular 7.
+- `[General]` Upgraded Typescript (to 3.1.x). `BTHH`
+    - `@types/jquery` has been updated to 3.3.21.
+- `[App]` Added a service to control renderLoop. A global timer used by enterprise to control animations. See index.html for usage example. See app.component.ts for example on how to manually start. ([#214](https://github.com/infor-design/enterprise-ng/issues/214)) `KOH`
+
+### 5.0.0 Fixes
+
+- `[Personalize]` - Added `setTheme` and `setColors` to `SohoPersonalizeDirtective`
+    - refactored to use `ngZone` - This effects the constructor and how often change detection is called. `BTHH` ([Pull Request 262](https://github.com/infor-design/enterprise-ng/pull/262))).
+
+### 5.0.0 Chore & Maintenance
+
 ## v4.13.0
 
 ### 4.13.0 Features
@@ -10,17 +29,11 @@
 
 ### 4.13.0 Chore & Maintenance
 
-- `[General]` Upgraded @angular/cli (to 7.0.x) and @angular/core (to 7.0.x).  `BTHH` ([Pull Request 227](https://github.com/infor-design/enterprise-ng/pull/227))
-    - support for Node 10
-    - support for TypeScript 3.x
-    - `UPGRADING.md` has been updated with details on upgrading your application to angular 7.
-- `[General]` Upgraded typeScript (to 3.1.x). `BTHH`
-    - `@types/jquery` has been updated to 3.3.21.
-
 ## v4.12.0
 
 ### 4.12.0 Features
 
+- `[Pager]` Added pager-standalone component `PWP`
 - `[DataGrid]` Added support for excel utilities to export custom dataset without Datagrid `DV`
 - `[DataGrid]` Added allowSelectAcrossPages option for multiselect. ([#207](https://github.com/infor-design/enterprise-ng/issues/207)) `TJM`
 - `[Dropdown]` Added onKeyDown option for dropdown key events. ([#207](https://github.com/infor-design/enterprise-ng/issues/207)) `TJM`

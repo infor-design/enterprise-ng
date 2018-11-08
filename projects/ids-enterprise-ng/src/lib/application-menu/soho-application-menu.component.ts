@@ -169,8 +169,8 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   }
 
   /** Open the menu. */
-  public openMenu() {
-    this.ngZone.runOutsideAngular(() => this.applicationmenu.openMenu());
+  public openMenu(noFocus?: boolean, userOpened?: boolean, openedByClass?: boolean) {
+    this.ngZone.runOutsideAngular(() => this.applicationmenu.openMenu(noFocus, userOpened, openedByClass));
   }
 
   /**
@@ -217,11 +217,9 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
     accordion.headers = $accordion.find('.accordion-header');
 
     this.ngZone.runOutsideAngular(() => {
-      setTimeout(() => {
-        accordion.updated();
-        accordion.toggle(jQuery(header));
-        accordion.select(jQuery(header));
-      }, 1);
+      accordion.updated();
+      accordion.toggle(jQuery(header));
+      accordion.select(jQuery(header));
     });
   }
 
