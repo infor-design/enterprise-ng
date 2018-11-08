@@ -1,5 +1,3 @@
-<div soho-personalize [options]="personalizeOptions" (changetheme)="onChangeTheme($event)" (changecolors)="onChangeColors($event)">
-
 <a href="#maincontent" class="skip-link" data-translate="text">SkipToMain</a>
 <soho-icons></soho-icons>
 <soho-icons-ext></soho-icons-ext>
@@ -19,5 +17,5 @@
       <router-outlet></router-outlet>
   </div>
 </div>
-
+<div soho-personalize [options]="personalizeOptions" (changetheme)="onChangeTheme($event)" (changecolors)="onChangeColors($event)">
 </div>
