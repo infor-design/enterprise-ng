@@ -1,5 +1,23 @@
 # What's New with Enterprise-NG
 
+## v5.0.0
+
+### 5.0.0 Features
+
+- `[General]` Upgraded @angular/cli (to 7.0.x) and @angular/core (to 7.0.x).  `BTHH` ([Pull Request 227](https://github.com/infor-design/enterprise-ng/pull/227))
+    - support for Node 10
+    - support for TypeScript 3.x
+    - `UPGRADING.md` has been updated with details on upgrading your application to angular 7.
+- `[General]` Upgraded Typescript (to 3.1.x). `BTHH`
+    - `@types/jquery` has been updated to 3.3.21.
+
+### 5.0.0 Fixes
+
+- `[Personalize]` - Added `setTheme` and `setColors` to `SohoPersonalizeDirtective`
+    - refactored to use `ngZone` - This effects the constructor and how often change detection is called. `BTHH` ([Pull Request 262](https://github.com/infor-design/enterprise-ng/pull/262))).
+
+### 5.0.0 Chore & Maintenance
+
 ## v4.13.0
 
 ### 4.13.0 Features
@@ -7,13 +25,6 @@
 ### 4.13.0 Fixes
 
 ### 4.13.0 Chore & Maintenance
-
-- `[General]` Upgraded @angular/cli (to 7.0.x) and @angular/core (to 7.0.x).  `BTHH` ([Pull Request 227](https://github.com/infor-design/enterprise-ng/pull/227))
-    - support for Node 10
-    - support for TypeScript 3.x
-    - `UPGRADING.md` has been upated with details on upgrading your application to angular 7.
-- `[General]` Upgraded typeScript (to 3.1.x). `BTHH`
-    - `@types/jquery` has been updated to 3.3.21.
 
 ## v4.12.0
 
