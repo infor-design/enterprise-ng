@@ -13,7 +13,7 @@
 
 ### 5.0.0 Fixes
 
- - `[Personalize]` - Added `setTheme` and `setColors` to `SohoPersonaliseDirtective`
+ - `[Personalize]` - Added `setTheme` and `setColors` to `SohoPersonalizeDirtective`
    - refactored to use `ngZone` - This effects the constructor and how often change detection is called. `BTHH` ([Pull Request 262](https://github.com/infor-design/enterprise-ng/pull/262))).
 
 ### 5.0.0 Chore & Maintenance
