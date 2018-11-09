@@ -93,7 +93,7 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
     this.ngZone.runOutsideAngular(() => {
       this.jQueryElement = jQuery(this.element.nativeElement);
       this.jQueryElement.fieldfilter(this._settings);
-      this.fieldFilter = this.jQueryElement.data('field-filter');
+      this.fieldFilter = this.jQueryElement.data('fieldfilter');
 
       this.jQueryElement.on('filtered', (event: SohoFieldFilteredEvent, args: any) => this.onFiltered(event, args));
     });
