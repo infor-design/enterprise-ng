@@ -19,7 +19,7 @@ const context = require.context('./', true, /\.spec\.ts$/);
 // And load the modules.
 context.keys().map(context);
 
-// HACK: Chrome 59 disconnects if there are too many synchronous tests in a row
+// HACK: Chrome XX disconnects if there are too many synchronous tests in a row
 // because it appears to lock up the thread that communicates to Karma's socket
 // This async beforeEach gets called on every spec and releases the JS thread long
 // enough for the socket to continue to communicate.
