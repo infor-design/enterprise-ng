@@ -81,6 +81,8 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
 
   ngOnDestroy() {
     // No jQuery control.
+    this.jQueryElement.off();
+    this.jQueryElement.remove();
   }
 
   /**
