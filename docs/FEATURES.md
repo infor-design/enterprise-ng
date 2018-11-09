@@ -51,7 +51,7 @@
 | modal-dialog            |                      Available | [README][1]  | [SOHO-4734][#4734] |              - |
 | pager                   | Available (indeterminate only) |            - |                  - |            Yes |
 | pie                     |                      Available |            - |                  - |            Yes |
-| personalize             |                      Available |            - |                  - |             No |
+| personalize             |                      Available |            - |                  - |            Yes |
 | popdown                 |                      Available |            - | [SOHO-4653][#4563] |             No |
 | popupmenu               |                      Available |            - | [SOHO-4342][#4342] |            Yes |
 | progress                |                      Available |            - | [SOHO-4342][#4342] |             No |
