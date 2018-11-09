@@ -6,9 +6,7 @@ import {
 } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -156,6 +154,7 @@ import { SearchFieldDemoComponent } from './searchfield/searchfield.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
 import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
 import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
+import { SohoRenderLoopService } from '../../projects/ids-enterprise-ng/src/lib/renderLoop';
 import { SparklineDemoComponent } from './sparkline/sparkline.demo';
 import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
@@ -177,6 +176,7 @@ import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
 import { TagDemoComponent } from './tag/tag.demo';
+import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
 import { TextareaDemoComponent } from './textarea/textarea.demo';
 import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
@@ -205,8 +205,6 @@ import { WizardDemoResultPageComponent } from './wizard/wizard-result-page.demo'
 import { WizardDemoSelectFilePageComponent } from './wizard/wizard-selected-files-page.demo';
 import { WizardDemoTargetFolderPageComponent } from './wizard/wizard-target-folder-page.demo';
 import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validation-rules-page.demo';
-
-import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
 
 @NgModule({
   declarations: [
@@ -357,6 +355,7 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     TabsDynamicDemoComponent,
     TabsVerticalDemoComponent,
     TagDemoComponent,
+    TestTabsBasicComponent,
     TextareaDemoComponent,
     TimePickerDemoComponent,
     ToastDemoComponent,
@@ -385,8 +384,6 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     WizardDemoBackupRulePageComponent,
     WizardDemoResultPageComponent,
     WizardDemoValidationRulesPageComponent,
-
-    TestTabsBasicComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -401,7 +398,8 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
-    ApplicationMenuLazyService
+    ApplicationMenuLazyService,
+    SohoRenderLoopService
   ],
   entryComponents: [
     DemoCellDatePickerEditorComponent,
