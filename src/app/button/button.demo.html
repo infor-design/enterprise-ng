@@ -106,16 +106,16 @@
       <br>
       <br>
       <br>
-      <button soho-button="tertiary" isToggle="true" toggleOnIcon="heart-filled" toggleOffIcon="heart-outlined" title="Love It">Love It</button>
+      <button soho-button="tertiary" [isTogglePressed]="true" isToggle="true" toggleOnIcon="heart-filled" toggleOffIcon="heart-outlined" title="Love It">Love It</button>
     </div>
 
     <div class="three columns">
       <span class="label">Icon</span>
-      <button soho-button="icon" isToggle="true" icon="heart-filled">Action</button>
+      <button soho-button="icon" isToggle="true" icon="heart-filled">Love It</button>
       <br>
       <br>
       <br>
-      <button soho-button="icon" isToggle="true" toggleOnIcon="heart-filled" toggleOffIcon="heart-outlined" title="Love It">Love It</button>
+      <button soho-button="icon" [isTogglePressed]="false" isToggle="true" toggleOnIcon="heart-filled" toggleOffIcon="heart-outlined" title="Love It">Love It</button>
     </div>
 
   </div>
