@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit, AfterViewChecked } from '@angular/core';
+import { Component, HostBinding, OnInit, AfterViewChecked, AfterViewInit } from '@angular/core';
 
 import { SohoRenderLoopService } from 'ids-enterprise-ng';
 
@@ -15,13 +15,9 @@ export class SohoMastheadDemoComponent implements OnInit, AfterViewChecked {
   @HostBinding('class.masthead') get isMasthead() { return true; }
   @HostBinding('style.display') get isDisplayBlock() { return 'block'; }
 
-  constructor(
-    private readonly renderLoop: SohoRenderLoopService) { }
+  constructor(private readonly renderLoop: SohoRenderLoopService) { }
 
   ngOnInit() {
-    // Init render loop manually for Angular applications
-    // Ensures requestAnimationFrame is running outside of Angular Zone
-    this.renderLoop.start();
   }
 
   ngAfterViewChecked() {
@@ -39,7 +35,5 @@ export class SohoMastheadDemoComponent implements OnInit, AfterViewChecked {
       this.renderLoop.start();
     }
     this.running = !this.running;
-
-    console.log(`${this.running}`);
   }
 }

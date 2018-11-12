@@ -7,7 +7,10 @@ import {
 } from '@angular/core';
 
 import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.service';
-import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
+import {
+  SohoPersonalizeDirective,
+  SohoRenderLoopService
+} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'body', // tslint:disable-line
@@ -26,12 +29,16 @@ export class AppComponent implements AfterViewInit {
 
   public personalizeOptions: SohoPersonalizeOptions = {};
 
-  constructor() {
+  constructor(private readonly renderLoop: SohoRenderLoopService) {
     Soho.Locale.culturesPath = '/assets/ids-enterprise/js/cultures/';
     Soho.Locale.set('en-US').done(() => {
       console.log('Locale set');
       this.initialised = true;
     });
+
+    // Init render loop manually for Angular applications
+    // Ensures requestAnimationFrame is running outside of Angular Zone
+    this.renderLoop.start();
   }
 
   ngAfterViewInit(): void {

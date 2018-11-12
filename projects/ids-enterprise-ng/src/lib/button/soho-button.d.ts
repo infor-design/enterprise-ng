@@ -11,6 +11,7 @@
 interface SohoButtonOptions {
   toggleOnIcon?: string;
   toggleOffIcon?: string;
+  replaceText?: boolean;
 }
 
 /**
@@ -18,6 +19,7 @@ interface SohoButtonOptions {
  * button.
  */
 interface SohoButtonStatic {
+  settings: SohoButtonOptions;
   destroy(): void;
 }
 
