@@ -1,7 +1,9 @@
 <div class="row top-padding">
   <div class="twelve columns">
 
-    <button soho-menu-button menu="action-popupmenu"
+    <button soho-button (click)="toggleBtn()">Toggle</button>
+
+    <button soho-menu-button *ngIf="toggle" menu="action-popupmenu"
             (selected)="onSelected($event)"
             (beforeopen)="onBeforeOpen($event)"
             (close)="onClose($event)"

@@ -9,6 +9,9 @@
 
   <soho-toolbar-button-set>
 
+    <button soho-button [isToggle]="true" toggleOnIcon="heart-filled" toggleOffIcon="heart-outlined"
+      [isTogglePressed]="running" (click)="toggleRenderLoop()">{{renderLoopCount}}</button>
+
     <button soho-button="icon" icon="user">
       <span class="audible">User</span>
     </button>

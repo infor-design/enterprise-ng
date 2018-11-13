@@ -9,11 +9,17 @@ export class MenuButtonDemoComponent implements OnInit, AfterViewInit {
   @ViewChild('ajax')ajaxMenuButton: SohoMenuButtonComponent;
   public menuButtons: Array<any>;
 
+  public toggle: boolean;
+
   private SUBMENU_RESPONSE_HTML = `
     <li><a href="#" id="SubOptionOne" data-action="AJAX sub-option 1">AJAX sub-option 1</a></li>
     <li><a href="#" id="SubOptionTwo" data-action="AJAX sub-option 2">AJAX sub-option 2</a></li>
     <li><a href="#" id="SubOptionThree" data-action="AJAX sub-option 3">AJAX sub-option 3</a></li>
   `;
+
+  toggleBtn() {
+    this.toggle = !this.toggle;
+  }
 
   disabledEntryClicked() {
     alert('Should not be Allowed');
