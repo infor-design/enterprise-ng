@@ -109,7 +109,7 @@ const DATA: any[] = [
 ];
 /* tslint:enable */
 
-fdescribe('Soho DataGrid Unit Tests', () => {
+describe('Soho DataGrid Unit Tests', () => {
   let comp: SohoDataGridComponent;
   let fixture: ComponentFixture<SohoDataGridComponent>;
   let de: DebugElement;
