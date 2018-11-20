@@ -41,6 +41,9 @@ interface SohoPopupMenuOptions {
   /** If true you can explicitly set an arrow on the menu. */
   showArrow?: boolean;
 
+  /** Hides menu arrow usually displayed to the right of the menu/icon. */
+  hideMenuArrow?: boolean;
+
   /** If set to false, focus will not be returned to the calling element. It usually should be for accessibility purposes. */
   returnFocus?: boolean;
 

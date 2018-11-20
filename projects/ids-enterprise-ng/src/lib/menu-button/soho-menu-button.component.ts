@@ -84,6 +84,14 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
     }
   }
 
+  @Input() set hideMenuArrow(value: boolean) {
+    this.options.hideMenuArrow = value;
+    if (this.menuButton) {
+      this.menuButton.settings.hideMenuArrow = value;
+      this.markForRefresh();
+    }
+  }
+
   @Input() set returnFocus(value: boolean) {
     this.options.returnFocus = value;
     if (this.menuButton) {

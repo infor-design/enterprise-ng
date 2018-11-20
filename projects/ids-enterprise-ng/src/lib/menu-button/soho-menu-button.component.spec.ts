@@ -77,6 +77,37 @@ describe('Soho Menu Button Unit Tests', () => {
     expect(spy).toHaveBeenCalledTimes(0);
   });
 
+
+  it('check hideMenuArrow', () => {
+    const spy = spyOn((comp as any).ref, 'markForCheck');
+
+    comp.hideMenuArrow = false;
+
+    expect((comp as any).options.hideMenuArrow).toBeFalsy();
+    expect((comp as any).menuButton.settings.hideMenuArrow).toBeFalsy();
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('check hideMenuArrow sets option to true', () => {
+    const spy = spyOn((comp as any).ref, 'markForCheck');
+
+    comp.hideMenuArrow = true;
+
+    expect((comp as any).options.hideMenuArrow).toBeTruthy();
+    expect((comp as any).menuButton.settings.hideMenuArrow).toBeTruthy();
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('check hideMenuArrow sets option to true, when no menuButton set', () => {
+    const spy = spyOn((comp as any).ref, 'markForCheck');
+
+    (comp as any).menuButton = undefined;
+    comp.hideMenuArrow = true;
+
+    expect((comp as any).options.hideMenuArrow).toBeTruthy();
+    expect(spy).toHaveBeenCalledTimes(0);
+  });
+
   it('check autoFocus sets options to false', () => {
     const spy = spyOn((comp as any).ref, 'markForCheck');
 
