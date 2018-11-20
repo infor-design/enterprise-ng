@@ -52,6 +52,7 @@ export * from './progress/index';
 export * from './radar/index';
 export * from './rating/index';
 export * from './radiobutton/index';
+export * from './renderLoop/index';
 export * from './searchfield/index';
 export * from './slider/index';
 export * from './sparkline/index';
