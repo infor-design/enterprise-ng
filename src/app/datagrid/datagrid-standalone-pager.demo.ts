@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, } from '@angular/core';
+import { Component, NgZone, OnInit, ViewChild, } from '@angular/core';
 import { SohoDataGridComponent, } from 'ids-enterprise-ng';
 import { DatagridStandalonePagerDemoService } from './datagrid-standalone-pager-demo.service';
 
@@ -18,7 +18,14 @@ export class DatagridStandalonePagerDemoComponent implements OnInit {
   isFirstPage = true;
   isLastPage = true;
 
-  constructor(private datagridPagingService: DatagridStandalonePagerDemoService) {}
+  // need to keep track of last filter and sort as setting data removes the visual state for these.
+  private currentConditions: SohoDataGridFilterCondition[];
+  private currentSort: SohoDataGridSortedEvent;
+
+  constructor(
+    private ngZone: NgZone,
+    private datagridPagingService: DatagridStandalonePagerDemoService
+  ) {}
 
   ngOnInit(): void {
     this.columns = this.datagridPagingService.getColumns();
@@ -47,21 +54,16 @@ export class DatagridStandalonePagerDemoComponent implements OnInit {
   }
 
   onSortPage(event: SohoDataGridSortedEvent): void {
-    console.log('onSortPage', event);
     const result = this.datagridPagingService.sortPage();
+    this.currentSort = event;
     this.updateTemplateVariables(result);
 
-    // todo: for disableClientSort setting data resets the sort - reset them here
-    setTimeout(() => this.sohoDataGridComponent.setSortIndicator(event.sortId, event.sortAsc));
   }
 
   onFilterPage(event: SohoDataGridFilteredEvent): void {
-    console.log('onFilterPage', event);
     const result = this.datagridPagingService.filterPage();
+    this.currentConditions = [...event.conditions];
     this.updateTemplateVariables(result);
-
-    // todo: for disableClientFilter setting data resets the filter conditions - reset them here
-    setTimeout(() => this.sohoDataGridComponent.setFilterConditions(event.conditions));
   }
 
   onPageSizeChange(args: any[]) {
@@ -74,6 +76,18 @@ export class DatagridStandalonePagerDemoComponent implements OnInit {
     this.data = result.data;
     this.isFirstPage = result.firstPage;
     this.isLastPage = result.lastPage;
+
+    this.ngZone.runOutsideAngular(() => setTimeout(() => {
+      if (this.currentConditions) {
+        // todo: for disableClientFilter setting data resets the filter conditions - reset them here
+        setTimeout(() => this.sohoDataGridComponent.setFilterConditions(this.currentConditions));
+      }
+
+      if (this.currentSort) {
+        // todo: for disableClientSort setting data resets the sort - reset them here
+        setTimeout(() => this.sohoDataGridComponent.setSortIndicator(this.currentSort.sortId, this.currentSort.sortAsc));
+      }
+    }));
   }
 
   onShowPageSizeSelector() {
