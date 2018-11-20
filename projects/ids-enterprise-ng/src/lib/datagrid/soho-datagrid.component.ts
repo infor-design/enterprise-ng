@@ -353,6 +353,42 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.columnReorder;
   }
 
+  @Input() set disableClientSort(disableClientSort: boolean) {
+    this._gridOptions.disableClientSort = disableClientSort;
+    if (this.datagrid) {
+      this.datagrid.settings.disableClientSort = disableClientSort;
+    }
+  }
+
+  get disableClientSort(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.disableClientSort;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.disableClientSort;
+  }
+
+  @Input() set disableClientFilter(disableClientFilter: boolean) {
+    this._gridOptions.disableClientFilter = disableClientFilter;
+    if (this.datagrid) {
+      this.datagrid.settings.disableClientFilter = disableClientFilter;
+    }
+  }
+
+  get disableClientFilter(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.disableClientFilter;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.disableClientFilter;
+  }
+
   /**
    * If true, the grid allows edits, otherwise if false edits are disabled.
    */

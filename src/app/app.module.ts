@@ -90,6 +90,7 @@ import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.de
 import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-header.demo';
 import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-selection.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
+import { DatagridStandalonePagerDemoComponent } from './datagrid/datagrid-standalone-pager.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 import { DataGridRowReorderDemoComponent } from './datagrid/datagrid-rowreorder.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
@@ -265,6 +266,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     DataGridLookupClickDemoComponent,
     DataGridMixedSelectionDemoComponent,
     DataGridPagingIndeterminateDemoComponent,
+    DatagridStandalonePagerDemoComponent,
     DataGridPagingServiceDemoComponent,
     DataGridRowReorderDemoComponent,
     DataGridServiceDemoComponent,

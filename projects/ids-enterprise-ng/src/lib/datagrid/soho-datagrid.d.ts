@@ -986,7 +986,7 @@ interface SohoDataGridFilteredEvent extends SohoDataGridOpenFilteredEvent {
  * @deprecated use SohoDataGridFilteredEvent instead
  */
 interface SohoDataGridOpenFilteredEvent {
-  conditions: SohoDataGridFilterCondition;
+  conditions: SohoDataGridFilterCondition[];
   op: 'apply' | 'clear';
   trigger: string;
 }

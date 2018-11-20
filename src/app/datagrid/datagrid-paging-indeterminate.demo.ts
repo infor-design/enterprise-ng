@@ -21,7 +21,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
   public showPageSizeSelector = true;
-  public gridOptions = undefined;
+  public gridOptions: SohoDataGridOptions = undefined;
   private selectedRow = 0;
   private updateSelectedRow = false;
 
