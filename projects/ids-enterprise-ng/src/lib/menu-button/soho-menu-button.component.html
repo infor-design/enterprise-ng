@@ -1,3 +1,3 @@
 <svg soho-icon *ngIf="icon" [icon]="icon"></svg>
 <ng-content></ng-content>
-<svg soho-icon [icon]="'dropdown'"></svg>
+<svg *ngIf="!hideMenuArrow" soho-icon [icon]="'dropdown'"></svg>

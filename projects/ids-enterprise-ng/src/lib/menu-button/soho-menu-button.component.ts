@@ -31,11 +31,16 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   /** The enterprise widget api. */
   private menuButton: SohoPopupMenuStatic;
 
+  /** The button widget api */
+  private button: SohoButtonStatic;
+
   // -------------------------------------------
   // Default options block
   // -------------------------------------------
 
   private options: SohoPopupMenuOptions = {};
+
+  private buttonOptions: SohoButtonOptions = {};
 
   /**
    * Flag to force an update of the control after the view is created.
@@ -84,14 +89,6 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
     }
   }
 
-  @Input() set hideMenuArrow(value: boolean) {
-    this.options.hideMenuArrow = value;
-    if (this.menuButton) {
-      this.menuButton.settings.hideMenuArrow = value;
-      this.markForRefresh();
-    }
-  }
-
   @Input() set returnFocus(value: boolean) {
     this.options.returnFocus = value;
     if (this.menuButton) {
@@ -124,6 +121,18 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
     }
   }
 
+  @Input() set hideMenuArrow(value: boolean) {
+    this.buttonOptions.hideMenuArrow = value;
+    if (this.button) {
+      this.button.settings.hideMenuArrow = value;
+      // todo: how to update the button when hideMenuArrow changes?
+    }
+  }
+
+  get hideMenuArrow(): boolean {
+    return this.buttonOptions.hideMenuArrow;
+  }
+
   constructor(
     private element: ElementRef,
     private ref: ChangeDetectorRef,
@@ -136,6 +145,12 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
 
       // Wrap the element in a jQuery selector.
       this.jQueryElement = jQuery(this.element.nativeElement);
+
+      // Initialise the soho-button widget.
+      this.jQueryElement.button(this.buttonOptions);
+
+      // Retrieve the soho button api.
+      this.button = this.jQueryElement.data('button');
 
       // Initialise the SohoXi Control
       this.jQueryElement.popupmenu(this.options);
@@ -226,6 +241,11 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
         // @todo raise an issue on this failing on removeData!
         this.menuButton.destroy();
         this.menuButton = null;
+      }
+
+      if (this.button) {
+        this.button.destroy();
+        this.button = null;
       }
     });
   }

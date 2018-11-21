@@ -96,8 +96,20 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     this._buttonOptions.replaceText = replaceText;
     if (this.jQueryElement) {
       this.button.settings.replaceText = replaceText;
-      // todo: how to update the button replaceText changes?
+      // todo: how to update the button when replaceText changes?
     }
+  }
+
+  @Input() set hideMenuArrow(value: boolean) {
+    this._buttonOptions.hideMenuArrow = value;
+    if (this.button) {
+      this.button.settings.hideMenuArrow = value;
+      // todo: how to update the button when hideMenuArrow changes?
+    }
+  }
+
+  get hideMenuArrow() {
+    return this._buttonOptions.hideMenuArrow;
   }
 
   /**
