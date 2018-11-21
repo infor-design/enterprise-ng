@@ -702,6 +702,12 @@ interface SohoDataGridColumn {
   /** Tooltip for the content of a column cell. */
   contentTooltip?: boolean;
 
+  /** Minimum width of the column (in pixels). */
+  minWidth?: number;
+
+  /** If true the text will be transformed to upper case in readonly view. Also in edit mode uppercase will be enforced. */
+  uppercase?: boolean;
+
   /**
    *  Option for tree datagrid
    *  If false children nodes will not be selected when the parent node is selected
