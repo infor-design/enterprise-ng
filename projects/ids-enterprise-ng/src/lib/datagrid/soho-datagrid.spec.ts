@@ -179,6 +179,8 @@ describe('Soho DataGrid Unit Tests', () => {
     comp.saveColumns = false;
     // comp.source = null;
     comp.filterable = false;
+    comp.disableClientFilter = false;
+    comp.disableClientSort = false;
     comp.treeGrid = false;
     comp.rowReorder = false;
     comp.showDirty = false;
@@ -199,6 +201,8 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(comp.paging).toEqual(false);
     expect(comp.actionableMode).toEqual(false);
     expect(comp.filterable).toEqual(false);
+    expect(comp.disableClientFilter).toEqual(false);
+    expect(comp.disableClientSort).toEqual(false);
     expect(comp.treeGrid).toEqual(false);
     expect(comp.rowReorder).toEqual(false);
     expect(comp.showDirty).toEqual(false);
@@ -243,6 +247,8 @@ describe('Soho DataGrid Unit Tests', () => {
     comp.actionableMode = true;
     comp.saveColumns = true;
     comp.filterable = true;
+    comp.disableClientFilter = true;
+    comp.disableClientSort = true;
     comp.treeGrid = true;
     comp.rowReorder = true;
     comp.showDirty = true;
@@ -262,6 +268,8 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(comp.paging).toEqual(true);
     expect(comp.actionableMode).toEqual(true);
     expect(comp.filterable).toEqual(true);
+    expect(comp.disableClientFilter).toEqual(true);
+    expect(comp.disableClientSort).toEqual(true);
     expect(comp.treeGrid).toEqual(true);
     expect(comp.rowReorder).toEqual(true);
     expect(comp.showDirty).toEqual(true);
