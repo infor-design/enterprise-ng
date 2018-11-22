@@ -54,6 +54,7 @@ import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.de
 import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-header.demo';
 import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-selection.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
+import { DatagridStandalonePagerDemoComponent } from './datagrid/datagrid-standalone-pager.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
@@ -207,6 +208,7 @@ export const routes: Routes = [
   { path: 'datagrid-paging-service',                component: DataGridPagingServiceDemoComponent },
   { path: 'datagrid-service',                       component: DataGridServiceDemoComponent },
   { path: 'datagrid-settings',                      component: DataGridSettingsDemoComponent },
+  { path: 'datagrid-standalone-pager',              component: DatagridStandalonePagerDemoComponent },
   { path: 'datagrid-treegrid',                      component: DataGridTreeGridDemoComponent },
   { path: 'datagrid-treegrid-dynamicfilter',        component: DatagridTreegridDynamicfilteringDemoComponent },
   { path: 'datagrid-angular-editor',                component: DataGridAngularEditorDemoComponent },
