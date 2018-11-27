@@ -29,23 +29,23 @@ export class PagerStandaloneDemoComponent {
 
   showModel = false;
 
-  onFirstPage() {
+  onFirstPage(_: any) {
     console.log('onFirstPage');
   }
 
-  onLastPage() {
+  onLastPage(_: any) {
     console.log('onLastPage');
   }
 
-  onPreviousPage() {
+  onPreviousPage(_: any) {
     console.log('onPreviousPage');
   }
 
-  onNextPage() {
+  onNextPage(_: any) {
     console.log('onNextPage');
   }
 
-  onPageSizeChange() {
+  onPageSizeChange(_: any) {
     console.log('onPageSizeChange');
   }
 

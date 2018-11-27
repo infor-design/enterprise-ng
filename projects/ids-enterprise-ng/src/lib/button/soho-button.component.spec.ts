@@ -86,4 +86,34 @@ describe('Soho Button Unit Tests', () => {
     expect((button as any)._buttonOptions.toggleOnIcon).toEqual('heart');
   });
 
+  it('check hideMenuArrow', () => {
+    // const spy = spyOn((component as any).ref, 'markForCheck');
+
+    button.hideMenuArrow = false;
+
+    expect((button as any)._buttonOptions.hideMenuArrow).toBeFalsy();
+    expect((button as any).button.settings.hideMenuArrow).toBeFalsy();
+    // expect(spy).toHaveBeenCalled();
+  });
+
+  it('check hideMenuArrow sets option to true', () => {
+    // const spy = spyOn((component as any).ref, 'markForCheck');
+
+    button.hideMenuArrow = true;
+
+    expect((button as any)._buttonOptions.hideMenuArrow).toBeTruthy();
+    expect((button as any).button.settings.hideMenuArrow).toBeTruthy();
+    // expect(spy).toHaveBeenCalled();
+  });
+
+  it('check hideMenuArrow sets option to true, when no menuButton set', () => {
+    // const spy = spyOn((component as any).ref, 'markForCheck');
+
+    (button as any).button = undefined;
+    button.hideMenuArrow = true;
+
+    expect((button as any)._buttonOptions.hideMenuArrow).toBeTruthy();
+    // expect(spy).toHaveBeenCalledTimes(0);
+  });
+
 });

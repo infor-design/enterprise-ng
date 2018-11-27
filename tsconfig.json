@@ -9,6 +9,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "importHelpers": true,
     "target": "es5",
     "typeRoots": [
       "node_modules/@types"
@@ -29,6 +30,12 @@
       "ids-enterprise-ng/*": [
         "dist/ids-enterprise-ng/*"
       ]
+
+    // For auto code compile use this.
+    // "paths": {
+    //   "ids-enterprise-ng": [
+    //     "projects/ids-enterprise-ng/src/public_api"
+    //   ]
     }
   }
 }

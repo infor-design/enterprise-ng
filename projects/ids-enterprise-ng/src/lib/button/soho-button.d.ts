@@ -12,6 +12,10 @@ interface SohoButtonOptions {
   toggleOnIcon?: string;
   toggleOffIcon?: string;
   replaceText?: boolean;
+
+  
+  /** Hides menu arrow usually displayed to the right of a menu button/icon. */
+  hideMenuArrow?: boolean;
 }
 
 /**

@@ -2,7 +2,9 @@
 
 import {
   ComponentFixture,
-  TestBed
+  TestBed,
+  tick,
+  fakeAsync
 } from '@angular/core/testing';
 
 import { By } from '@angular/platform-browser';
@@ -75,6 +77,36 @@ describe('Soho Menu Button Unit Tests', () => {
 
     expect((comp as any).options.showArrow).toBeTruthy();
     expect(spy).toHaveBeenCalledTimes(0);
+  });
+
+  it('check hideMenuArrow', () => {
+    // const spy = spyOn((comp as any).ref, 'markForCheck');
+
+    comp.hideMenuArrow = false;
+
+    expect((comp as any).buttonOptions.hideMenuArrow).toBeFalsy();
+    expect((comp as any).button.settings.hideMenuArrow).toBeFalsy();
+    // expect(spy).toHaveBeenCalled();
+  });
+
+  it('check hideMenuArrow sets option to true', () => {
+    // const spy = spyOn((comp as any).ref, 'markForCheck');
+
+    comp.hideMenuArrow = true;
+
+    expect((comp as any).buttonOptions.hideMenuArrow).toBeTruthy();
+    expect((comp as any).button.settings.hideMenuArrow).toBeTruthy();
+    // expect(spy).toHaveBeenCalled();
+  });
+
+  it('check hideMenuArrow sets option to true, when no menuButton set', () => {
+    // const spy = spyOn((comp as any).ref, 'markForCheck');
+
+    (comp as any).menuButton = undefined;
+    comp.hideMenuArrow = true;
+
+    expect((comp as any).buttonOptions.hideMenuArrow).toBeTruthy();
+    // expect(spy).toHaveBeenCalledTimes(0);
   });
 
   it('check autoFocus sets options to false', () => {
@@ -364,5 +396,23 @@ describe('Soho Menu Button Render', () => {
 
     expect(el.nodeName).toEqual('A');
   });
+
+  it('Check Item HTML content', fakeAsync(() => {
+    fixture.detectChanges();
+
+    let icon = de.query(By.css('svg.icon-dropdown.icon'));
+
+    expect(icon).toBeDefined();
+
+    menuButton.hideMenuArrow = true;
+
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+
+    icon = de.query(By.css('svg.icon-dropdown.icon'));
+
+    expect(icon).toBeNull();
+  }));
 
 });

@@ -5,13 +5,14 @@
         "name": "ng serve",
         "type": "chrome",
         "request": "launch",
-        "url": "http://localhost:4200/#",
+        "url": "http://localhost:4200/",
         "webRoot": "${workspaceFolder}",
+        // "webRoot": "${workspaceFolder}/projects/ids-enterprise-ng"
         "sourceMapPathOverrides": {
-          "webpack:/./*": "${webRoot}/*",
-          "webpack:/src/*": "${webRoot}/src/*",
-          "webpack:/*": "*",
-          "webpack:/./~/*": "${webRoot}/node_modules/*"
+          "webpack:///ng://ids-enterprise-ng/lib/*": "${workspaceFolder}/projects/ids-enterprise-ng/src/lib/*",
+          "webpack:///./projects/ids-enterprise-ng/src/lib/*": "${workspaceFolder}/projects/ids-enterprise-ng/src/lib/*",
+          "webpack:///node_modules/ids-enterprise/dist/js/sohoxi.js": "${workspaceFolder}/node_modules/ids-enterprise/dist/js/sohoxi.js",
+          "webpack:///./src/*": "${workspaceFolder}/src/*",
         }
       },
       {
@@ -21,10 +22,10 @@
         "url": "http://localhost:9876/debug.html",
         "webRoot": "${workspaceFolder}",
         "sourceMapPathOverrides": {
-          "webpack:/./*": "${webRoot}/*",
-          "webpack:/src/*": "${webRoot}/src/*",
-          "webpack:/*": "*",
-          "webpack:/./~/*": "${webRoot}/node_modules/*"
+          "webpack:///ng://ids-enterprise-ng/lib/*": "${workspaceFolder}/projects/ids-enterprise-ng/src/lib/*",
+          "webpack:///./projects/ids-enterprise-ng/src/lib/*": "${workspaceFolder}/projects/ids-enterprise-ng/src/lib/*",
+          "webpack:///node_modules/ids-enterprise/dist/js/sohoxi.js": "${workspaceFolder}/node_modules/ids-enterprise/dist/js/sohoxi.js",
+          "src/lib/*": "${workspaceFolder}/projects/ids-enterprise-ng/src/lib/*"
         }
       },
       {
