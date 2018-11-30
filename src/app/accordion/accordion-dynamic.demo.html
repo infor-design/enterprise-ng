@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Dynamic Accordion</h2>
+    <div class="field1">
+      <button soho-button (click)="addMore()">Add More</button>
+    </div>
+  </div>
+</div>
+<br /><br /><br />
+<soho-accordion [allowOnePane]="true">
+  <ng-container *ngFor="let item of sampleData">
+    <ng-container *ngTemplateOutlet="accordionDynamicDemoTemplate; context: {item: item}"></ng-container>
+  </ng-container>
+</soho-accordion>
+
+<ng-template #accordionDynamicDemoTemplate let-item="item">
+    <soho-accordion-header isExpanded="item.expanded">
+        <span>{{ item.header }}</span>
+    </soho-accordion-header>
+    <soho-accordion-pane>
+      <div class="accordion-content">{{ item.content }}</div>
+    </soho-accordion-pane>
+</ng-template>

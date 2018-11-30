@@ -8,12 +8,12 @@ import {
 @Component({
   selector: 'soho-accordion-pane',
   templateUrl: './soho-accordion-pane.component.html',
-  styles: [`
-    :host {
-        display: block;
-        height: auto;
-    }
-  `]
+  // styles: [`
+  //   :host {
+  //       display: block;
+  //       height: auto;
+  //   }
+  // `]
 })
 export class SohoAccordionPaneComponent {
   @HostBinding('class.accordion-pane') get isAccordionPane() { return true; }

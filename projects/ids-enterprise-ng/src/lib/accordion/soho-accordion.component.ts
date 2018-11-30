@@ -7,7 +7,6 @@ import {
   ContentChildren,
   ElementRef,
   EventEmitter,
-  HostBinding,
   Input,
   OnDestroy,
   Output,
@@ -335,6 +334,11 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    * Destructor.
    */
   ngOnDestroy(): void {
+    if (this.jQueryElement) {
+      this.jQueryElement.off();
+      this.jQueryElement = null;
+    }
+
     if (this.accordion) {
       this.accordion.destroy();
       this.accordion = null;

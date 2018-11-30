@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AboutDemoComponent } from './about/about.demo';
 import { AccordionDemoComponent } from './accordion/accordion.demo';
+import { AccordionDynamicDemoComponent } from './accordion/accordion-dynamic.demo';
 import { AccordionPanelsDemoComponent } from './accordion/accordion-panels.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
@@ -163,8 +164,7 @@ import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagr
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
   { path: 'about',                                  component: AboutDemoComponent },
-  { path: 'accordion',                              component: AccordionDemoComponent},
-  { path: 'accordion-panels',                       component: AccordionPanelsDemoComponent},
+  { path: 'accordion',                              loadChildren: './accordion/accordion-demo.module#AccordionDemoModule'},
   { path: 'alert',                                  component: AlertDemoComponent},
   { path: 'application-lazy-menu',                  component: ApplicationMenuLazyDemoComponent},
   { path: 'area',                                   component: AreaDemoComponent },

@@ -15,8 +15,6 @@ import { AppRoutingModule } from './app.routes';
 import { SohoComponentsModule } from 'ids-enterprise-ng';
 
 import { AboutDemoComponent } from './about/about.demo';
-import { AccordionDemoComponent } from './accordion/accordion.demo';
-import { AccordionPanelsDemoComponent } from './accordion/accordion-panels.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
@@ -211,8 +209,6 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
   declarations: [
     AppComponent,
     AboutDemoComponent,
-    AccordionDemoComponent,
-    AccordionPanelsDemoComponent,
     AlertDemoComponent,
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,
