@@ -14,7 +14,7 @@
 </soho-accordion>
 
 <ng-template #accordionDynamicDemoTemplate let-item="item">
-    <soho-accordion-header isExpanded="item.expanded">
+    <soho-accordion-header [isExpanded]="item.expanded">
         <span>{{ item.header }}</span>
     </soho-accordion-header>
     <soho-accordion-pane>

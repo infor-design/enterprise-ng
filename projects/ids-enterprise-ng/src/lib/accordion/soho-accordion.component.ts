@@ -295,9 +295,13 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
   /**
    * Call to notify the accordion about any dom changes
    */
-  public updated(): void {
+  public updated(headers?: JQuery[], settings?: SohoAccordionOptions): void {
+    if (settings) {
+      this.options = Soho.utils.mergeSettings(this.element[0], settings, this.options);
+    }
+
     if (this.accordion) {
-      this.accordion.updated();
+      this.accordion.updated(headers, settings);
     }
   }
 
