@@ -20,6 +20,7 @@
 - `[Accordion]` - refactored to use `ngZone` - This effects the constructor and how often change detection is called. `BTHH` ([Pull Request xxx]
 
 ### 5.0.0 Chore & Maintenance
+
 - `[Accordion]` - Added `accordion-dynamic.demo` to show how to create dynamic contents. `BTHH` ([Pull Request xxx])
 
 ## v4.13.0
