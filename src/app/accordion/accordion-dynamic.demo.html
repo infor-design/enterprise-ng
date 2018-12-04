@@ -7,7 +7,7 @@
   </div>
 </div>
 <br /><br /><br />
-<soho-accordion [allowOnePane]="true">
+<soho-accordion [allowOnePane]="false">
   <ng-container *ngFor="let item of sampleData">
     <ng-container *ngTemplateOutlet="accordionDynamicDemoTemplate; context: {item: item}"></ng-container>
   </ng-container>

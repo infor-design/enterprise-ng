@@ -1,13 +1,14 @@
 /// <reference path="soho-accordion.d.ts" />
 
 import {
+  AfterViewChecked,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   ContentChildren,
   ElementRef,
   EventEmitter,
-  Input,
+  Input, NgZone,
   OnDestroy,
   Output,
   QueryList,
@@ -32,7 +33,7 @@ import { SohoAccordionHeaderComponent } from './soho-accordion-header.component'
   templateUrl: './soho-accordion.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
+export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   // All header panels.
   @ContentChildren(SohoAccordionHeaderComponent) headers: QueryList<SohoAccordionHeaderComponent>;
@@ -54,6 +55,11 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    * References to the Soho control api.
    */
   private accordion: SohoAccordionStatic;
+
+  /**
+   * used to call updated from the afterViewChecked lifecycle event.
+   */
+  private updateRequired = true;
 
   // -------------------------------------------
   // Component Output
@@ -87,7 +93,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
     this.options.allowOnePane = typeof (allowOnePane) === 'boolean' && allowOnePane;
     if (this.accordion) {
       this.accordion.settings.allowOnePane = this.options.allowOnePane;
-      this.accordion.updated();
+      this.updateRequired = true;
     }
   }
   public get allowOnePane() {
@@ -104,7 +110,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
     this.options.displayChevron = typeof (displayChevron) === 'boolean' && displayChevron;
     if (this.accordion) {
       this.accordion.settings.displayChevron = this.options.displayChevron;
-      this.accordion.updated();
+      this.updateRequired = true;
     }
   }
   public get displayChevron() {
@@ -121,7 +127,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
     this.options.rerouteOnLinkClick = typeof (rerouteOnLinkClick) === 'boolean' && rerouteOnLinkClick;
     if (this.accordion) {
       this.accordion.settings.rerouteOnLinkClick = this.options.rerouteOnLinkClick;
-      this.accordion.updated();
+      this.updateRequired = true;
     }
   }
   public get rerouteOnLinkClick() {
@@ -137,7 +143,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
     this.options.source = source;
     if (this.accordion) {
       this.accordion.settings.source = this.options.source;
-      this.accordion.updated();
+      this.updateRequired = true;
     }
   }
 
@@ -146,6 +152,10 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    */
   @Input() public set hasPanels(bool: boolean) {
     this.options.hasPanels = bool;
+    if (this.accordion) {
+      this.accordion.settings.allowOnePane = this.options.allowOnePane;
+      this.updateRequired = true;
+    }
   }
 
   public get hasPanels(): boolean {
@@ -155,8 +165,12 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
   /**
    * Set the color scheme to inverse
    */
-  @Input() public set inverse(bool: boolean) {
-    this.options.inverse = bool;
+  @Input() public set inverse(inverse: boolean) {
+    this.options.inverse = inverse;
+    if (this.accordion) {
+      this.accordion.settings.inverse = this.options.inverse;
+      this.updateRequired = true;
+    }
   }
 
   public get inverse(): boolean {
@@ -168,6 +182,10 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    */
   @Input() public set alternate(bool: boolean) {
     this.options.alternate = bool;
+    if (this.accordion) {
+      this.accordion.settings.alternate = this.options.alternate;
+      this.updateRequired = true;
+    }
   }
 
   public get alternate(): boolean {
@@ -181,8 +199,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    *
    * @param elementRef - the element matching the component's selector.
    */
-  constructor(private element: ElementRef) {
-  }
+  constructor(private element: ElementRef, private ngZone: NgZone) {}
 
   // -------------------------------------------
   // Public API
@@ -206,7 +223,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    */
   public expand(header: SohoAccordionHeaderComponent): void {
     if (this.accordion) {
-      this.accordion.expand(header.jQueryElement);
+      this.ngZone.runOutsideAngular(() => this.accordion.expand(header.jQueryElement));
     }
   }
 
@@ -216,7 +233,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    */
   public collapse(header: SohoAccordionHeaderComponent): void {
     if (this.accordion) {
-      this.accordion.collapse(header.jQueryElement);
+      this.ngZone.runOutsideAngular(() => this.accordion.collapse(header.jQueryElement));
     }
   }
 
@@ -225,7 +242,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    */
   public expandAll(): void {
     if (this.accordion) {
-      this.accordion.expandAll();
+      this.ngZone.runOutsideAngular(() => this.accordion.expandAll());
     }
   }
 
@@ -236,7 +253,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    */
   public collapseAll(): void {
     if (this.accordion) {
-      this.accordion.collapseAll();
+      this.ngZone.runOutsideAngular(() => this.accordion.collapseAll());
     }
   }
 
@@ -245,7 +262,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    */
   public disable() {
     if (this.accordion) {
-      this.accordion.disable();
+      this.ngZone.runOutsideAngular(() => this.accordion.disable());
     }
   }
   /**
@@ -253,7 +270,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    */
   public enable() {
     if (this.accordion) {
-      this.accordion.enable();
+      this.ngZone.runOutsideAngular(() => this.accordion.enable());
     }
   }
 
@@ -263,10 +280,11 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    *
    * @param header the accordion header panel to check.
    */
-  public isDisabled(header: SohoAccordionHeaderComponent) {
+  public isDisabled(header: SohoAccordionHeaderComponent): boolean {
     if (this.accordion) {
-      this.accordion.isDisabled(header.jQueryElement);
+      return this.ngZone.runOutsideAngular(() => this.accordion.isDisabled(header.jQueryElement));
     }
+    return false;
   }
 
   /**
@@ -275,10 +293,11 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    *
    * @param header the accordion header panel to check.
    */
-  public isExpanded(header: SohoAccordionHeaderComponent) {
+  public isExpanded(header: SohoAccordionHeaderComponent): boolean {
     if (this.accordion) {
-      this.accordion.isExpanded(header.jQueryElement);
+      return this.ngZone.runOutsideAngular(() => this.accordion.isExpanded(header.jQueryElement));
     }
+    return false;
   }
 
   /**
@@ -288,7 +307,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
    */
   public toggle(header: SohoAccordionHeaderComponent): void {
     if (this.accordion) {
-      this.accordion.toggle(header.jQueryElement);
+      this.ngZone.runOutsideAngular(() => this.accordion.toggle(header.jQueryElement));
     }
   }
 
@@ -301,7 +320,7 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
     }
 
     if (this.accordion) {
-      this.accordion.updated(headers, settings);
+      this.ngZone.runOutsideAngular(() => this.accordion.updated(headers, this.options));
     }
   }
 
@@ -310,42 +329,61 @@ export class SohoAccordionComponent implements AfterViewInit, OnDestroy {
   // ------------------------------------------
   ngAfterViewInit() {
 
-    // Wrap the element in a jQuery selector.
-    this.jQueryElement = jQuery(this.element.nativeElement.childNodes[0]);
+    this.ngZone.runOutsideAngular(() => {
+      // Wrap the element in a jQuery selector.
+      this.jQueryElement = jQuery(this.element.nativeElement.childNodes[0]);
 
-    // Initialise the event handlers.
-    this.jQueryElement
-      .on('beforeexpand', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.beforeexpandEvent.emit(event); })
-      .on('beforecollapse', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.beforecollapseEvent.emit(event); })
-      .on('beforeselect', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.beforeselectEvent.emit(event); })
-      .on('selected', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.selectedEvent.emit(event); })
-      .on('followlink', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.followlinkEvent.emit(event); })
-      .on('expand', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.expandEvent.emit(event); })
-      .on('afterexpand', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.afterexpandEvent.emit(event); })
-      .on('collapse', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.collapseEvent.emit(event); })
-      .on('aftercollapse', (event: SohoAccordionEvent, anchor) => { event.anchor = anchor; this.aftercollapseEvent.emit(event); });
+      // Initialise the event handlers.
+      this.jQueryElement
+        .on('beforeexpand', (event: SohoAccordionEvent, anchor) =>
+          this.ngZone.run(() => { event.anchor = anchor; this.beforeexpandEvent.emit(event); }))
+        .on('beforecollapse', (event: SohoAccordionEvent, anchor) =>
+          this.ngZone.run(() => { event.anchor = anchor; this.beforecollapseEvent.emit(event); }))
+        .on('beforeselect', (event: SohoAccordionEvent, anchor) =>
+          this.ngZone.run(() => { event.anchor = anchor; this.beforeselectEvent.emit(event); }))
+        .on('selected', (event: SohoAccordionEvent, anchor) =>
+          this.ngZone.run(() => { event.anchor = anchor; this.selectedEvent.emit(event); }))
+        .on('followlink', (event: SohoAccordionEvent, anchor) =>
+          this.ngZone.run(() => { event.anchor = anchor; this.followlinkEvent.emit(event); }))
+        .on('expand', (event: SohoAccordionEvent, anchor) =>
+          this.ngZone.run(() => { event.anchor = anchor; this.expandEvent.emit(event); }))
+        .on('afterexpand', (event: SohoAccordionEvent, anchor) =>
+          this.ngZone.run(() => { event.anchor = anchor; this.afterexpandEvent.emit(event); }))
+        .on('collapse', (event: SohoAccordionEvent, anchor) =>
+          this.ngZone.run(() => { event.anchor = anchor; this.collapseEvent.emit(event); }))
+        .on('aftercollapse', (event: SohoAccordionEvent, anchor) =>
+          this.ngZone.run(() => { event.anchor = anchor; this.aftercollapseEvent.emit(event); }));
 
-    // Initialise the SohoXi Control
-    this.jQueryElement.accordion(this.options);
+      // Initialise the SohoXi Control
+      this.jQueryElement.accordion(this.options);
 
-    // Once the control is initialised, extract the control
-    // plug-in from the element.  The element name is
-    // defined by the plug-in, but in this case it is 'accordion'.
-    this.accordion = this.jQueryElement.data('accordion');
+      // Once the control is initialised, extract the control
+      // plug-in from the element.  The element name is
+      // defined by the plug-in, but in this case it is 'accordion'.
+      this.accordion = this.jQueryElement.data('accordion');
+    });
+  }
+
+  ngAfterViewChecked() {
+    if (this.updateRequired) {
+      this.updated();
+      this.updateRequired = false;
+    }
   }
 
   /**
    * Destructor.
    */
   ngOnDestroy(): void {
-    if (this.jQueryElement) {
-      this.jQueryElement.off();
-      this.jQueryElement = null;
-    }
-
-    if (this.accordion) {
-      this.accordion.destroy();
-      this.accordion = null;
-    }
+    // call outside the angular zone so change detection isn't triggered by the soho component.
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.accordion) {
+        this.accordion.destroy();
+        this.accordion = null;
+      }
+    });
   }
 }

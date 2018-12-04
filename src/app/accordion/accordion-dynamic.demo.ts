@@ -24,9 +24,7 @@ export class AccordionDynamicDemoComponent implements AfterViewInit {
   addMore() {
     this.sampleData.forEach((d) => { d.expanded = false; });
     const idx = this.sampleData.length + 1;
-    this.sampleData.push({ header: 'Header ' + idx, content: 'I\'ve added another header ' + idx, expanded: true });
-
-    // Need to update the component when the data is changed.
-    setTimeout(() => { this.accordion.updated(); }, 0);
+    this.sampleData.push({ header: 'Header ' + idx, content: 'I\'ve added some more header ' + idx, expanded: true });
+    this.accordion.updated();
   }
 }
