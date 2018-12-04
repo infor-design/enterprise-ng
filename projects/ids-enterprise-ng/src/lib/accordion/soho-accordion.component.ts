@@ -12,9 +12,11 @@ import {
   OnDestroy,
   Output,
   QueryList,
+  ViewChildren,
 } from '@angular/core';
 
 import { SohoAccordionHeaderComponent } from './soho-accordion-header.component';
+import { SohoAccordionPaneComponent } from './soho-accordion-pane.component';
 
 /**
  * Angular Wrapper for the Soho Accordion control.
@@ -36,7 +38,8 @@ import { SohoAccordionHeaderComponent } from './soho-accordion-header.component'
 export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   // All header panels.
-  @ContentChildren(SohoAccordionHeaderComponent) headers: QueryList<SohoAccordionHeaderComponent>;
+  @ViewChildren(SohoAccordionHeaderComponent) headers: QueryList<SohoAccordionHeaderComponent>;
+  @ViewChildren(SohoAccordionPaneComponent) panes: QueryList<SohoAccordionPaneComponent>;
 
   // -------------------------------------------
   // Options Block
@@ -198,6 +201,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    * Constructor.
    *
    * @param elementRef - the element matching the component's selector.
+   * @param ngZone - zone access.
    */
   constructor(private element: ElementRef, private ngZone: NgZone) {}
 
@@ -363,7 +367,6 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
       this.accordion = this.jQueryElement.data('accordion');
     });
   }
-
   ngAfterViewChecked() {
     if (this.updateRequired) {
       this.updated();
