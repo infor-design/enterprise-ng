@@ -214,6 +214,19 @@ export class SohoSectionTitleComponent {
 }
 
 /**
+ * soho selection count.
+ */
+@Component({
+  selector: 'div[soho-selection-count]', // tslint:disable-line
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoSelectionCountComponent {
+  @HostBinding('class.title') get isTitle() { return true; }
+  @HostBinding('class.selection-count') get isSelectionCount() { return true; }
+}
+
+/**
  * Soho toolbar Navigation button
  */
 @Component({
