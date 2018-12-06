@@ -1,11 +1,31 @@
-import { Component, AfterViewInit, ViewChild, QueryList } from '@angular/core';
-import {  SohoAccordionHeaderComponent, SohoAccordionComponent } from 'ids-enterprise-ng';
+import {
+  Component,
+  AfterViewInit,
+  ViewChild,
+  QueryList,
+  ContentChildren,
+  forwardRef
+} from '@angular/core';
+
+import {
+  SohoAccordionHeaderComponent,
+  SohoAccordionComponent,
+  SohoAccordionPaneComponent
+} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'accordion-dynamic-demo', // tslint:disable-line
   templateUrl: './accordion-dynamic.demo.html',
 })
 export class AccordionDynamicDemoComponent implements AfterViewInit {
+
+  // tslint:disable-next-line:no-forward-ref
+  @ContentChildren(forwardRef(() => SohoAccordionHeaderComponent))
+  headers: QueryList<SohoAccordionHeaderComponent>;
+
+  // tslint:disable-next-line:no-forward-ref
+  @ContentChildren(forwardRef(() => SohoAccordionPaneComponent))
+  panes: QueryList<SohoAccordionPaneComponent>;
 
   public sampleData = [
     { id: 1, header: 'Header 1', content: 'This is the content of header 1', expanded: false  },
@@ -47,18 +67,20 @@ export class AccordionDynamicDemoComponent implements AfterViewInit {
       });
     }
 
-    setTimeout(() => {
-      this.accordion.updated();
-    });
+    setTimeout(() => { this.accordion.updated(); });
   }
 
   public onExpand(event: SohoAccordionEvent) {
     const header = this.sampleData.find((h) => `${h.id}` === event.anchor[0].parentElement.id);
 
     if (header) {
-      // Can't find the header component.
+      this.headers.forEach((h) => this.accordion.collapse(h));
+
       // this.accordion.collapse(header)
       header.expanded = true;
+
+      setTimeout(() => { this.accordion.updated(); });
+
     }
   }
 
@@ -67,6 +89,8 @@ export class AccordionDynamicDemoComponent implements AfterViewInit {
 
     if (header) {
       header.expanded = false;
+
+      setTimeout(() => { this.accordion.updated(); });
     }
 
   }

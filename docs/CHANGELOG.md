@@ -22,6 +22,7 @@
 ### 5.0.0 Chore & Maintenance
 
 - `[Accordion]` - Added `accordion-dynamic.demo` to show how to create dynamic contents. `BTHH` ([Pull Request xxx])
+    - 'accordion demo' is now a lazy loaded module.
 
 ## v4.13.0
 

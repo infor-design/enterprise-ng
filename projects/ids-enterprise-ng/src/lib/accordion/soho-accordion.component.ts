@@ -13,6 +13,7 @@ import {
   Output,
   QueryList,
   ViewChildren,
+  forwardRef,
 } from '@angular/core';
 
 import { SohoAccordionHeaderComponent } from './soho-accordion-header.component';
@@ -37,9 +38,15 @@ import { SohoAccordionPaneComponent } from './soho-accordion-pane.component';
 })
 export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 
-  // All header panels.
-  @ViewChildren(SohoAccordionHeaderComponent) headers: QueryList<SohoAccordionHeaderComponent>;
-  @ViewChildren(SohoAccordionPaneComponent) panes: QueryList<SohoAccordionPaneComponent>;
+  // All headers.
+  // tslint:disable-next-line:no-forward-ref
+  @ContentChildren(forwardRef(() => SohoAccordionHeaderComponent))
+  headers: QueryList<SohoAccordionHeaderComponent>;
+
+  // All panes.
+  // tslint:disable-next-line:no-forward-ref
+  @ContentChildren(forwardRef(() => SohoAccordionPaneComponent))
+  panes: QueryList<SohoAccordionPaneComponent>;
 
   // -------------------------------------------
   // Options Block
@@ -332,6 +339,11 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   // Lifecycle Events
   // ------------------------------------------
   ngAfterViewInit() {
+
+    console.log(`Headers:`);
+    this.headers.forEach((h, i) => console.log(`#${i} - ${h}`));
+    console.log(`Pane:`);
+    this.panes.forEach((h, i) => console.log(` #${i} -${h}`));
 
     this.ngZone.runOutsideAngular(() => {
       // Wrap the element in a jQuery selector.
