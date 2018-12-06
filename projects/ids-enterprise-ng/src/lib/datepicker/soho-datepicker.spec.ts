@@ -12,6 +12,7 @@ import { SohoDatePickerModule, SohoDatePickerComponent } from './index';
       name="statechange"
       [options]="_options"
       [showTime]="_showTime"
+      [useCurrentTime]="_useCurrentTime"
       [timeFormat]="_timeFormat"
       [minuteInterval]="_minuteInterval"
       [secondInterval]="_secondInterval"
@@ -54,6 +55,15 @@ class TestDatePickerComponent {
     this._showTime = showTime;
     if (this.datepicker) {
       this.datepicker.showTime = this._showTime;
+    }
+  }
+
+  public _useCurrentTime: boolean;
+
+  @Input() set useCurrentTime(useCurrentTime: boolean) {
+    this._useCurrentTime = useCurrentTime;
+    if (this.datepicker) {
+      this.datepicker.useCurrentTime = this._useCurrentTime;
     }
   }
 
@@ -244,6 +254,7 @@ describe('Soho Datepicker Unit Tests', () => {
 
     const testOptions: SohoDatePickerOptions = {
       showTime: true,
+      useCurrentTime: true,
       timeFormat: 'HH:mm:ss',
       minuteInterval: 10,
       secondInterval: 10,
@@ -259,6 +270,7 @@ describe('Soho Datepicker Unit Tests', () => {
 
     const testOptionsTwo: SohoDatePickerOptions = {
       showTime: true,
+      useCurrentTime: true,
       timeFormat: 'HH:mm',
       minuteInterval: 5,
       secondInterval: 5,
@@ -293,6 +305,7 @@ describe('Soho Datepicker Unit Tests', () => {
 
       // settings via individual methods
       comp.showTime = true;
+      comp.useCurrentTime = true;
       comp.timeFormat = 'HH:mm';
       comp.minuteInterval = 5;
       comp.secondInterval = 5;

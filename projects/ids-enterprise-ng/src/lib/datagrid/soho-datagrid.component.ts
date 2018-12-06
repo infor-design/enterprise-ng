@@ -1525,10 +1525,11 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * Trigger export of grid data to CSV formatted file.
    * @param fileName The prefix name to be used for the exported file.
    * @param customDs A datasource to override the default.
+   * @param separator The seperator to use in the cvs file, defaults to 'sep=,'
    */
-  exportToCsv(fileName: string, customDs: Object[]): void {
+  exportToCsv(fileName: string, customDs: Object[], separator: string = 'sep=,'): void {
     this.ngZone.runOutsideAngular(() => {
-      this.datagrid.exportToCsv(fileName, customDs);
+      this.datagrid.exportToCsv(fileName, customDs, separator);
     });
   }
 

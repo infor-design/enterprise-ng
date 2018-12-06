@@ -67,7 +67,7 @@ interface SohoEmptyMessageButtonOptions {
   id?: string;
 
   /**
-   * Click function - @todo not working
+   * Click function
    */
   click?: Function;
 }

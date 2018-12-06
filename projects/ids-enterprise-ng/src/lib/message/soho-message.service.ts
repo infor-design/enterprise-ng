@@ -39,6 +39,30 @@ export class SohoMessageService {
    * @return the message reference.
    */
   error(options?: SohoMessageOptions): SohoMessageRef {
-    return new SohoMessageRef().options(options).isError(true);
+    return new SohoMessageRef().options(options).status('error');
+  }
+
+  /**
+   * Creates an alert message, defined by the given options.
+   *
+   * The dialog won't be open until open is called on the returned instance,
+   * see the message ref api for further methods.
+   *
+   * @return the message reference.
+   */
+  alert(options?: SohoMessageOptions): SohoMessageRef {
+    return new SohoMessageRef().options(options).status('alert');
+  }
+
+  /**
+   * Creates an confirm (positive) message, defined by the given options.
+   *
+   * The dialog won't be open until open is called on the returned instance,
+   * see the message ref api for further methods.
+   *
+   * @return the message reference.
+   */
+  confirm(options?: SohoMessageOptions): SohoMessageRef {
+    return new SohoMessageRef().options(options).status('confirm');
   }
 }

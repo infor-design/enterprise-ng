@@ -55,6 +55,17 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
       this.markForRefresh();
     }
   }
+
+  /**
+   * If true current time will be used for the time portion otherwise 12:00 midnight is used.
+   */
+  @Input() set useCurrentTime(useCurrentTime: boolean) {
+    this._options.useCurrentTime = useCurrentTime;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
   /**
    * Indicates the pattern for the time format.
    */
