@@ -14,6 +14,8 @@
 - Type `npm run build`
 - Type `npm start`
 
+Optionally, the Angular CLI can be installed globally by using `npm install -g @angular/cli` but is not recommended since the global version may become out-of-sync with the version depended on by this library.
+
 ## Initial Setup with yarn
 
 - Clone The main repo fx `git clone https://github.com/infor-design/enterprise-ng.git`
