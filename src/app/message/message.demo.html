@@ -1,11 +1,11 @@
-<div class="row">
+<div class="row top-padding">
   <div class="twelve columns">
-    <h2 class="fieldset-title">Soho Message</h2>
-    <div class="field">
-      <button id="open-alert-btn" soho-button (click)="openAlert()" [disabled]="dialog">Alert</button>
-      <button id="open-error-btn" soho-button (click)="openError()" [disabled]="dialog">Error</button>
-    </div>
-  </div>
+    <button id="open-error-btn" soho-button (click)="openError()" [disabled]="dialog">Error Example</button><br /><br />
+    <button id="open-alert-btn" soho-button (click)="openAlert()" [disabled]="dialog">Alert Example</button><br /><br />
+    <button id="open-confirm-btn" soho-button (click)="openConfirm()" [disabled]="dialog">Confirm Example</button><br /><br />
+    <button id="open-complete-btn" soho-button (click)="openComplete()" [disabled]="dialog">Complete Example</button><br /><br />
+    <button id="open-confirmation-btn" soho-button (click)="openConfirmation()" [disabled]="dialog">Confirmation Example</button><br /><br />
+</div>
 </div>
 <br/>
 <div class="row">
@@ -13,6 +13,5 @@
     <p>
       Last close result: {{closeResult}}
     </p>
-
   </div>
 </div>

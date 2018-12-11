@@ -881,7 +881,7 @@ interface SohoDataGridStatic {
 
   exportToExcel(fileName: string, worksheetName: string, customDs: Object[]): void;
 
-  exportToCsv(fileName: string, customDs: Object[]): void;
+  exportToCsv(fileName: string, customDs: Object[], separator: string): void;
 
   /**
    * Returns an array of all the rows in the grid marked as dirty.
