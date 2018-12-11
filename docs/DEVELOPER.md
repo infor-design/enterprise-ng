@@ -10,19 +10,17 @@
 
 - Clone The main repo fx `git clone https://github.com/infor-design/enterprise-ng.git`
 - Open a command prompt to enterprise-ng
-- Type `npm install -g @angular/cli@latest`
 - Type `npm i`
 - Type `npm run build`
-- Type `ng serve`
+- Type `npm start`
 
 ## Initial Setup with yarn
 
 - Clone The main repo fx `git clone https://github.com/infor-design/enterprise-ng.git`
 - Open a command prompt to enterprise-ng
-- Type `npm install -g @angular/cli@latest`
 - Type `yarn`
 - Type `npm run build`
-- Type `ng serve`
+- Type `npm start`
 
 ## Component Structure
 
