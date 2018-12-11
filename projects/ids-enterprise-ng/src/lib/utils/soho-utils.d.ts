@@ -8,7 +8,7 @@ interface SohoUtilsExcelStatic {
    * Export the grid contents to csv
    * @param fileName The desired export filename in the download.
    * @param customDs An optional customized version of the data to use.
-   * @param separator The seperator to use in the cvs file, defaults to 'sep=,'
+   * @param separator The separator to use in the cvs file, defaults to 'sep=,'
    * @param self The grid api to use (if customDs is not used)
    * @returns void
    */
