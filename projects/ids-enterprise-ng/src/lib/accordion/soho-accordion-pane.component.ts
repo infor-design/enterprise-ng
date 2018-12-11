@@ -8,6 +8,7 @@ import {
 @Component({
   selector: 'soho-accordion-pane',
   templateUrl: './soho-accordion-pane.component.html',
+  // This assumes not expanded ... need this to be dynamic!
   styles: [`
     :host {
       display: none;
@@ -16,4 +17,8 @@ import {
 })
 export class SohoAccordionPaneComponent {
   @HostBinding('class.accordion-pane') get isAccordionPane() { return true; }
+
+  constructor() {
+    console.log(`SohoAccordionPaneComponent`);
+  }
 }

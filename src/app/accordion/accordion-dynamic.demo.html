@@ -2,19 +2,20 @@
   <div class="twelve columns">
     <h2 class="fieldset-title">Dynamic Accordion</h2>
     <div class="field1">
-      <button soho-button (click)="addMore()">Add More</button>
+      <button soho-button (click)="addMore()">Add Header</button>
+      <button soho-button (click)="toggleAllowOnePane()">Set 'AllowOnePane' to {{this.allowOnePane ? "false" : "true"}}</button>
     </div>
   </div>
 </div>
 <br /><br /><br />
-<soho-accordion [allowOnePane]="true">
+<soho-accordion [allowOnePane]="allowOnePane" (expand)="onExpand($event)" (collapse)="onCollapse($event)">
   <ng-container *ngFor="let item of sampleData">
     <ng-container *ngTemplateOutlet="accordionDynamicDemoTemplate; context: {item: item}"></ng-container>
   </ng-container>
 </soho-accordion>
 
 <ng-template #accordionDynamicDemoTemplate let-item="item">
-    <soho-accordion-header [isExpanded]="item.expanded">
+    <soho-accordion-header [id]="item.id" [isExpanded]="item.expanded">
         <span>{{ item.header }}</span>
     </soho-accordion-header>
     <soho-accordion-pane>
