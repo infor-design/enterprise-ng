@@ -70,7 +70,7 @@ type SohoDataGridMatchFunction = (
 ) => boolean;
 
 type SohoLookupClickFunction = (
-  e: JQuery.Event,
+  e: JQuery.TriggeredEvent,
   lookup: SohoLookupStatic
 ) => void;
 

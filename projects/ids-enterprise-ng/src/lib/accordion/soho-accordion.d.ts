@@ -108,6 +108,6 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
     handler: JQuery.EventHandlerBase<TElement, SohoAccordionEvent>): this;
 }
 
-interface SohoAccordionEvent extends JQuery.Event {
+interface SohoAccordionEvent extends JQuery.TriggeredEvent {
   anchor: HTMLAnchorElement;
 }

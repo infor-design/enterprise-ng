@@ -1,5 +1,19 @@
 # What's New with Enterprise-NG
 
+## v5.1.0
+
+### 5.1.0 Features
+
+### 5.1.0 Fixes
+
+- `[Accordion]` - refactored to use `ngZone` - This effects the constructor and how often change detection is called. `BTHH` ([Pull Request 290]
+
+### 5.1.0 Chore & Maintenance
+
+- `[Accordion]` - Added `accordion-dynamic.demo` to show how to create dynamic contents. `BTHH` ([Pull Request 290])
+    - 'accordion demo' is now a lazy loaded module.
+- `[General]` - Upgraded @types\jquery to 3.3.24 and changed `JQuery.Event` to `JQuery.TriggeredEvent`. `BTHH`
+
 ## v5.0.0
 
 ### 5.0.0 Features

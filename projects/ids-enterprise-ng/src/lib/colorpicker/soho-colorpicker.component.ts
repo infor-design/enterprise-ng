@@ -208,7 +208,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
    * Called when the colorpicker updates in some way.
    */
   @Output('updated')  // tslint:disable-line
-  updatedEvent: EventEmitter<Object> = new EventEmitter<JQuery.Event>();
+  updatedEvent: EventEmitter<Object> = new EventEmitter<JQuery.TriggeredEvent>();
 
   /**
    * Public API
@@ -277,7 +277,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
 
       // Add event binding
       this.jQueryElement
-        .on('change', (event: JQuery.Event) => this.onChanged(event));
+        .on('change', (event: JQuery.TriggeredEvent) => this.onChanged(event));
 
       this.runUpdatedOnCheck = true;
     });
@@ -331,7 +331,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
     return this;
   }
 
-  private onUpdated(event: JQuery.Event) {
+  private onUpdated(event: JQuery.TriggeredEvent) {
     // Fire the event, in the angular zone.
     this.ngZone.run(() => this.updatedEvent.next(event) );
   }

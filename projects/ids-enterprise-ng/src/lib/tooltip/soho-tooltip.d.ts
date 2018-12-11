@@ -24,7 +24,7 @@ interface SohoTooltipOptions {
 /**
  * Customised event object.
  */
-interface SohoTooltipEvent extends JQuery.Event {
+interface SohoTooltipEvent extends JQuery.TriggeredEvent {
 
 }
 

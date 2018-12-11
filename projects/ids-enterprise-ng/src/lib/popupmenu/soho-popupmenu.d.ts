@@ -57,7 +57,7 @@ interface SohoPopupMenuOptions {
  * Interface for the jQuery event emitted
  */
 interface SohoPopupMenuEvent {
-  e: JQuery.Event;
+  e: JQuery.TriggeredEvent;
   /**
    * the relevant element for the given event
    */
@@ -90,12 +90,12 @@ interface SohoPopupMenuStatic {
    /**
    * Opens the popupmenu, including repopulating data and setting up visual delays, if necessary.
    *
-   * @param {jQuery.Event} e the event that caused the menu to open
+   * @param {JQuery.TriggeredEvent} e the event that caused the menu to open
    * @param {boolean} ajaxReturn set to true if the open routine should not include a source call
    * @param {boolean} useDelay set to true if the menu should open on a delay (used in mobile environments where a software keybord is present)
    * @returns {void}
    */
-  open(e: JQuery.Event, ajaxReturn?: boolean, useDelay?: boolean): void;
+  open(e: JQuery.TriggeredEvent, ajaxReturn?: boolean, useDelay?: boolean): void;
 
   /** Destroy the markup and any other resources. */
   destroy(): void;

@@ -1945,7 +1945,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('closefilterrow', (e: any, args: SohoDataGridCloseFilterRowEvent) => { this.onCloseFilterRow(args); })
         .on('collapserow', (e: any, args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
         .on('contextmenu', (e: any, args: SohoDataGridRowClicked) => { this.onContextMenu(args); })
-        .on('dblclick', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.onDoubleClick(args); })
+        .on('dblclick', (e: JQuery.TriggeredEvent, args: SohoDataGridRowClicked) => { this.onDoubleClick(args); })
         .on('expandrow', (e: any, args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
         .on('filtered', (e: any, args: SohoDataGridFilteredEvent) => { this.onFiltered(args); })
         .on('openfilterrow', (e: any, args: SohoDataGridOpenFilterRowEvent) => { this.onOpenFilterRow(args); })

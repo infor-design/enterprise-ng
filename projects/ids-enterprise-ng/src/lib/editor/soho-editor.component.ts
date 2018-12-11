@@ -158,7 +158,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   /**
    * onLinkClick Callback for Editor clicks
    */
-  @Input() set onLinkClick(value: (e: JQuery.Event, elem: any) => void) {
+  @Input() set onLinkClick(value: (e: JQuery.TriggeredEvent, elem: any) => void) {
     this.options.onLinkClick = value;
     if (this.editor) {
       this.editor.settings.onLinkClick = value;
@@ -226,8 +226,8 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
       this.editor = this.jQueryElement.data('editor');
 
       // Bind to jQueryElement's events
-      this.jQueryElement.on('change', (e: JQuery.Event, args: SohoEditorEvent) => this.onChange(args));
-      this.jQueryElement.on('updated', (e: JQuery.Event, args: SohoEditorEvent) => this.onUpdated(args));
+      this.jQueryElement.on('change', (e: JQuery.TriggeredEvent, args: SohoEditorEvent) => this.onChange(args));
+      this.jQueryElement.on('updated', (e: JQuery.TriggeredEvent, args: SohoEditorEvent) => this.onUpdated(args));
 
       if (this.internalValue) {
         this.jQueryElement.val(this.internalValue);

@@ -341,8 +341,8 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
       this.jQueryElement.swaplist(this._options);
 
       this.jQueryElement
-        .on('beforeswap', (event: JQuery.Event, moved: SohoSwapListMoved) => this.onBeforeSwap(event, moved))
-        .on('swapupdate', (event: JQuery.Event, moved: SohoSwapListMoved) => this.onSwapUpdate(event, moved));
+        .on('beforeswap', (event: JQuery.TriggeredEvent, moved: SohoSwapListMoved) => this.onBeforeSwap(event, moved))
+        .on('swapupdate', (event: JQuery.TriggeredEvent, moved: SohoSwapListMoved) => this.onSwapUpdate(event, moved));
 
       this.swaplist = this.jQueryElement.data('swaplist');
 

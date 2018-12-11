@@ -162,7 +162,7 @@ interface ChartLabel {
 }
 
 interface ChartEvent {
-  event: JQuery.Event;
+  event: JQuery.TriggeredEvent;
   ui?: any;
   data?: any;
 }

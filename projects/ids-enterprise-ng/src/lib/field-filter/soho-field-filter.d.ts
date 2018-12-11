@@ -48,6 +48,6 @@ interface SohoFieldFilterOption {
   selected ?: boolean;
 }
 
-interface SohoFieldFilteredEvent extends JQuery.Event {
+interface SohoFieldFilteredEvent extends JQuery.TriggeredEvent {
   filterOption?: SohoFieldFilterOption;
 }

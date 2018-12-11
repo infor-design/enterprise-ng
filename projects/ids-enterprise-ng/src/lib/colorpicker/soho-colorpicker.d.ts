@@ -35,7 +35,7 @@ interface SohoColorPickerOptions {
   clearableText: string;
 }
 
-interface SohoColorPickerEvent extends JQuery.Event {
+interface SohoColorPickerEvent extends JQuery.TriggeredEvent {
 }
 
 /**

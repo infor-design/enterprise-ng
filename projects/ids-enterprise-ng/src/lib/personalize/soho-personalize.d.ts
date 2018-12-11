@@ -15,7 +15,7 @@ interface SohoPersonalizeOptions {
   font?: string;
 }
 
-interface SohoPersonalizeEvent extends JQuery.Event {
+interface SohoPersonalizeEvent extends JQuery.TriggeredEvent {
   data: any;
 }
 

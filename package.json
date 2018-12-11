@@ -55,7 +55,7 @@
     "@types/d3": "4.13.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
-    "@types/jquery": "3.3.22",
+    "@types/jquery": "3.3.24",
     "@types/lscache": "^1.0.29",
     "@types/node": "~8.9.4",
     "chalk": "^2.4.1",

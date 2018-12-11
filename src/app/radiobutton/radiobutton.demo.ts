@@ -82,7 +82,7 @@ export class RadioButtonDemoComponent implements OnInit {
     this.showModel = !this.showModel;
   }
 
-  onChange(event: JQuery.Event) {
+  onChange(event: JQuery.TriggeredEvent) {
     console.log(`'RadioButtonDemoComponent.onChange ${event.data}`);
   }
 }

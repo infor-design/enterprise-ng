@@ -65,5 +65,5 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
 /**
  * Type safe event.
  */
-interface SohoExpandableAreaEvent extends JQuery.Event {
+interface SohoExpandableAreaEvent extends JQuery.TriggeredEvent {
 }

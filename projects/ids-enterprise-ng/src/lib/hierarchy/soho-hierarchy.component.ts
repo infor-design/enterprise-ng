@@ -127,12 +127,12 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
 
     // Initialize any event handlers.
     this.jQueryElement
-        .on('selected', ( (e: JQuery.Event, args: SohoHierarchyEvent) => {
+        .on('selected', ( (e: JQuery.TriggeredEvent, args: SohoHierarchyEvent) => {
           this.selected.next(args);
         }));
 
     this.jQueryElement
-        .on ('dblclick', ( (e: JQuery.Event, args: SohoHierarchyDoubleClickEvent) => {
+        .on ('dblclick', ( (e: JQuery.TriggeredEvent, args: SohoHierarchyDoubleClickEvent) => {
           this.doubleClick.next(args);
         }));
 

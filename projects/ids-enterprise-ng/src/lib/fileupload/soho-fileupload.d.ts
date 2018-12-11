@@ -9,7 +9,7 @@ interface SohoFileUploadOptions {
   // no-op - no settings defined
 }
 
-interface SohoFileUploadEvent extends JQuery.Event {
+interface SohoFileUploadEvent extends JQuery.TriggeredEvent {
 }
 
 /**

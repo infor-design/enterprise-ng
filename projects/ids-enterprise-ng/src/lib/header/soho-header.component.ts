@@ -57,6 +57,6 @@ export class SohoHeaderComponent implements AfterViewInit {
     this.header = this.jQueryElement.data('header');
 
     // Initialize any event handlers.
-    this.jQueryElement.on('updated', (e: JQuery.Event, args: any) => { this.updated.emit(args); });
+    this.jQueryElement.on('updated', (e: JQuery.TriggeredEvent, args: any) => { this.updated.emit(args); });
   }
 }

@@ -79,16 +79,16 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
       this.contextMenu = this.jQueryElement.data('popupmenu');
 
       // Add listeners to emit events
-      this.jQueryElement.on('selected', (e: JQuery.Event, args: JQuery) =>
+      this.jQueryElement.on('selected', (e: JQuery.TriggeredEvent, args: JQuery) =>
         this.ngZone.run(() => this.selected.next({e, args})));
 
-      this.jQueryElement.on('beforeopen', (e: JQuery.Event, args: JQuery) =>
+      this.jQueryElement.on('beforeopen', (e: JQuery.TriggeredEvent, args: JQuery) =>
         this.ngZone.run(() => this.beforeopen.emit({e, args})));
 
-      this.jQueryElement.on('close', (e: JQuery.Event, args: JQuery) =>
+      this.jQueryElement.on('close', (e: JQuery.TriggeredEvent, args: JQuery) =>
         this.ngZone.run(() => this.close.emit({e, args})));
 
-      this.jQueryElement.on('open', (e: JQuery.Event, args: JQuery) =>
+      this.jQueryElement.on('open', (e: JQuery.TriggeredEvent, args: JQuery) =>
         this.ngZone.run(() => this.open.emit({e, args})));
     });
   }

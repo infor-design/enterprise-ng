@@ -1,4 +1,4 @@
-interface SohoSpinboxEvent extends JQuery.Event {
+interface SohoSpinboxEvent extends JQuery.TriggeredEvent {
 }
 
 /*

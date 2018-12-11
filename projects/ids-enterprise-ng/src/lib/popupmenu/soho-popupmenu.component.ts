@@ -322,22 +322,22 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
       this.popupmenu = this.jQueryElement.data('popupmenu');
 
       // bind to jquery events and emit as angular events
-      this.jQueryElement.on('selected', (e: JQuery.Event, args: JQuery) =>
+      this.jQueryElement.on('selected', (e: JQuery.TriggeredEvent, args: JQuery) =>
         this.ngZone.run(() => this.selected.emit({ e, args })));
 
-      this.jQueryElement.on('popupmenuafterplace', (e: JQuery.Event, args: JQuery) =>
+      this.jQueryElement.on('popupmenuafterplace', (e: JQuery.TriggeredEvent, args: JQuery) =>
         this.ngZone.run(() => this.popupmenuafterplace.emit({e, args})));
 
-      this.jQueryElement.on('beforeopen', (e: JQuery.Event, args: JQuery) =>
+      this.jQueryElement.on('beforeopen', (e: JQuery.TriggeredEvent, args: JQuery) =>
         this.ngZone.run(() => this.beforeopen.emit({e, args})));
 
-      this.jQueryElement.on('open', (e: JQuery.Event, args: JQuery) =>
+      this.jQueryElement.on('open', (e: JQuery.TriggeredEvent, args: JQuery) =>
         this.ngZone.run(() => this.open.emit({e, args})));
 
-      this.jQueryElement.on('afteropen', (e: JQuery.Event, args: JQuery) =>
+      this.jQueryElement.on('afteropen', (e: JQuery.TriggeredEvent, args: JQuery) =>
         this.ngZone.run(() => this.afteropen.emit({e, args})));
 
-      this.jQueryElement.on('close', (e: JQuery.Event, args: JQuery) =>
+      this.jQueryElement.on('close', (e: JQuery.TriggeredEvent, args: JQuery) =>
         this.ngZone.run(() => this.closeEvent.emit({e, args})));
     });
   }

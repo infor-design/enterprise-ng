@@ -147,7 +147,7 @@ type SohoDropDownResponseFunction = (
 /**
  * Type safe dropdown event object.
  */
-interface SohoDropDownEvent extends JQuery.Event {
+interface SohoDropDownEvent extends JQuery.TriggeredEvent {
 }
 
 /**
