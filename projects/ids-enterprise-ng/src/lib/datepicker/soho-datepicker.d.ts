@@ -16,6 +16,9 @@ interface SohoDatePickerOptions {
   /** Include the time in the date picker; defaults to false (in the soho control). */
   showTime?: boolean;
 
+  /**  If true current time will be used for the time portion otherwise 12:00 midnight is used. */
+  useCurrentTime?: boolean;
+
   /** Time format, e.g. HH:mm:ss.*/
   timeFormat?: string;
 

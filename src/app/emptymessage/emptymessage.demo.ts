@@ -9,4 +9,12 @@ import { Component } from '@angular/core';
   templateUrl: './emptymessage.demo.html'
 })
 export class EmptyMessageDemoComponent {
+
+  public buttonSettings = {
+    id: 'test',
+    text: 'Retry',
+    click: () => {
+      alert('Do the thing');
+    }
+  };
 }

@@ -5,7 +5,7 @@
   "dependencies": {
     "@types/jquery": "3.3.21",
     "@types/d3": "4.13.0",
-    "ids-enterprise": "4.13.0-beta.0",
+    "ids-enterprise": "4.13.0-rc.2",
     "jquery": "3.3.1",
     "d3": "4.13.0"
   },
