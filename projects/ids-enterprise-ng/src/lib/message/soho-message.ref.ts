@@ -96,10 +96,26 @@ export class SohoMessageRef {
   }
 
   /**
+   * Sets the 'status' of the modal control.
+   */
+  status(status: string): SohoMessageRef {
+    this._options.status = status;
+    return this;
+  }
+
+  /**
    * Sets the 'cssClass' of the modal control.
    */
   cssClass(cssClass: string): SohoMessageRef {
     this._options.cssClass = cssClass;
+    return this;
+  }
+
+  /**
+   * Sets the 'cssClass' of the modal control.
+   */
+  allowedTags(allowedTags: string): SohoMessageRef {
+    this._options.allowedTags = allowedTags;
     return this;
   }
 
