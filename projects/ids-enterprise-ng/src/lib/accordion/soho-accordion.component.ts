@@ -152,6 +152,10 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
     }
   }
 
+  public get source(): Function {
+    return this.options.source;
+  }
+
   /**
    * Display accordion with panels
    */

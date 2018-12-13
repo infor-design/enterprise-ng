@@ -13,8 +13,6 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
-
 import { SohoAccordionModule } from './soho-accordion.module';
 import { SohoAccordionComponent } from './soho-accordion.component';
 
@@ -39,7 +37,7 @@ class SohoAccordionTestComponent {
   }
 }
 
-describe('Soho Accordion Unit Tests', () => {
+fdescribe('Soho Accordion Unit Tests', () => {
   let accordion: SohoAccordionComponent;
   let component: SohoAccordionTestComponent;
   let fixture: ComponentFixture<SohoAccordionTestComponent>;
@@ -74,6 +72,11 @@ describe('Soho Accordion Unit Tests', () => {
 
     accordion.displayChevron = false;
     expect(accordion.options.displayChevron).toBeFalsy();
+
+    (accordion as any).acordion = undefined;
+
+    accordion.displayChevron = true;
+    expect(accordion.options.displayChevron).toBeTruthy();
   });
 
   it('can get and set allowOnePane', () => {
@@ -144,6 +147,79 @@ describe('Soho Accordion Unit Tests', () => {
     accordion.hasSubheaderSeparators = false;
 
     expect(accordion.hasSubheaderSeparators).toBeFalsy();
+  });
+
+  it('can get and set source', () => {
+    expect(accordion.source).toBeUndefined();
+    accordion.source = () => [];
+
+    expect(accordion.source).toBeDefined();
+  });
+
+  it('can expand', () => {
+    const header = accordion.getHeader(0);
+
+    expect(header).toBeDefined();
+    accordion.expand(header);
+  });
+
+  it('can expandAll', () => {
+    accordion.expandAll();
+  });
+
+  it('can collapseAll be called', () => {
+    accordion.collapseAll();
+  });
+
+  it('can disable', () => {
+    accordion.disable();
+  });
+
+  it('can enable', () => {
+    accordion.enable();
+  });
+
+  it('can toggle', () => {
+    const header = accordion.getHeader(0);
+
+    expect(header).toBeDefined();
+    accordion.toggle(header);
+  });
+
+  it('can isExpanded be called', () => {
+    const header = accordion.getHeader(0);
+
+    expect(header).toBeDefined();
+
+    const result = accordion.isExpanded(header);
+  });
+
+  it('can isDisabled be called', () => {
+    const header = accordion.getHeader(0);
+
+    expect(header).toBeDefined();
+
+    const result = accordion.isDisabled(header);
+  });
+
+  it('can collapse be called', () => {
+    const header = accordion.getHeader(0);
+
+    expect(header).toBeDefined();
+
+    const result = accordion.collapse(header);
+  });
+
+  it('can be updated', () => {
+    accordion.updated();
+  });
+
+  it('can be updated with new options', () => {
+    const spy = spyOn((component as any).accordion, 'updated');
+    const options: SohoAccordionOptions = { allowOnePane: true, hasPanels: true };
+    accordion.updated(undefined, options);
+
+    expect(spy).toHaveBeenCalled();
   });
 
 });
