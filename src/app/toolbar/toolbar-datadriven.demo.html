@@ -4,51 +4,25 @@
 
     <soho-toolbar
       #sohoToolbar
-      [maxVisibleButtons]="6"
-      (selected)="onSelected($event)"
-      (menuItemMouseOver)="onMenuItemMouseOver($event)">
+      [maxVisibleButtons]="6">
 
       <soho-toolbar-title>
-
-        <!-- in header -->
-        <button *ngIf="inHeader" class="btn-icon application-menu-trigger" type="button">
-          <span class="audible">Show navigation</span>
-          <span class="icon app-header">
-            <span class="one"></span>
-            <span class="two"></span>
-            <span class="three"></span>
-          </span>
-        </button>
-        <h1 *ngIf="inHeader" class="titleHeader">
-          <span class="page-title">{{pageTitle}}</span>
-          <span class="section-title">{{sectionTitle}}</span>
-        </h1>
-
-        <!-- if not in the header -->
-        <span *ngIf="!inHeader" class="page-title">{{sectionTitle}}</span>
+        <span class="page-title">{{sectionTitle}}</span>
       </soho-toolbar-title>
 
       <soho-toolbar-button-set>
-        <!-- search field -->
-        <!--TODO: need a search field component to override behaviour - theo, phillip -->
-        <label *ngIf="searchField" class="audible" attr.for="{{searchField.id}}">{{searchField.label}}</label>
-        <input *ngIf="searchField" soho-toolbar-searchfield class="searchfield" id="{{searchField.id}}" placeholder="{{searchField.label}}" name="{{searchField.label}}"/>
+        <div class="searchfield-wrapper toolbar-searchfield-wrapper">
+          <label *ngIf="searchField" class="audible" attr.for="{{searchField.id}}">{{searchField.label}}</label>
+          <input *ngIf="searchField" soho-toolbar-searchfield class="searchfield" id="{{searchField.id}}" placeholder="{{searchField.label}}" name="{{searchField.label}}"/>
+        </div>
 
-        <!-- buttons -->
-        <ng-template ngFor let-button [ngForOf]="buttons">
-          <button *ngIf="!button.menu" soho-button="btn" icon="{{button?.icon}}" id="{{button?.id}}" class="{{button?.cssClass}}" attr.data-action="{{button?.data}}">{{button?.text}}</button>
-          <button *ngIf="button.menu" id="{{button?.id}}" soho-menu-button [icon]="button?.icon" attr.data-action="{{button?.data}}">
-            <span>{{button?.text}}</span>
-          </button>
-
-          <!-- dropdown menus for buttons -->
-          <ul *ngIf="button.menu" class="popupmenu">
-            <li *ngFor="let item of button.menu" id="{{item?.id}}">
-              <a href="" attr.data-action="{{item?.data}}">{{item?.text}}</a>
-            </li>
-          </ul>
-
-        </ng-template>
+        <!-- This example being dynamic doesnt work yet so removed for now -->
+        <button soho-menu-button>
+          <span>Action One</span>
+        </button>
+        <button soho-menu-button>
+          <span>Action Two</span>
+        </button>
       </soho-toolbar-button-set>
 
       <soho-toolbar-more-button></soho-toolbar-more-button>
