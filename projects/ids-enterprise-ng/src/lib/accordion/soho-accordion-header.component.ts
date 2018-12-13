@@ -36,7 +36,6 @@ export class SohoAccordionHeaderComponent implements AfterViewInit {
    * @param elementRef - the element matching the component's selector.
    */
   constructor(public elementRef: ElementRef) {
-    console.log(`SohoAccordionHeaderComponent`);
   }
 
   // ------------------------------------------

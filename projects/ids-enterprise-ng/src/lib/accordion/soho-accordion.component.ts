@@ -12,7 +12,6 @@ import {
   OnDestroy,
   Output,
   QueryList,
-  ViewChildren,
   forwardRef,
 } from '@angular/core';
 
@@ -52,7 +51,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   // Options Block
   // -------------------------------------------
 
-  private options: SohoAccordionOptions = {};
+  public options: SohoAccordionOptions = {};
 
   // -------------------------------------------
   // Private Member Data
@@ -67,7 +66,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   private accordion: SohoAccordionStatic;
 
   /**
-   * used to call updated from the afterViewChecked lifecycle event.
+   * Used to call updated from the afterViewChecked lifecycle event.
    */
   private updateRequired = true;
 
@@ -95,15 +94,13 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    *
    * Defaults to true.
    *
-   * If set to true, allows only one pane of the Accordion to be open at a time.
-   *
-   *
+   * If set to true, allows only one pane of the accordion to be open at a time.
    */
   @Input() public set allowOnePane(allowOnePane: boolean) {
     this.options.allowOnePane = typeof (allowOnePane) === 'boolean' && allowOnePane;
     if (this.accordion) {
       this.accordion.settings.allowOnePane = this.options.allowOnePane;
-      this.updateRequired = true;
+      this.markForUpdate();
     }
   }
   public get allowOnePane() {
@@ -120,7 +117,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
     this.options.displayChevron = typeof (displayChevron) === 'boolean' && displayChevron;
     if (this.accordion) {
       this.accordion.settings.displayChevron = this.options.displayChevron;
-      this.updateRequired = true;
+      this.markForUpdate();
     }
   }
   public get displayChevron() {
@@ -137,7 +134,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
     this.options.rerouteOnLinkClick = typeof (rerouteOnLinkClick) === 'boolean' && rerouteOnLinkClick;
     if (this.accordion) {
       this.accordion.settings.rerouteOnLinkClick = this.options.rerouteOnLinkClick;
-      this.updateRequired = true;
+      this.markForUpdate();
     }
   }
   public get rerouteOnLinkClick() {
@@ -146,25 +143,23 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
 
   /**
    * A callback function that when implemented provided a call back for "ajax loading" of tab contents on open.
-   *
-   *
    */
   @Input() public set source(source: Function) {
     this.options.source = source;
     if (this.accordion) {
       this.accordion.settings.source = this.options.source;
-      this.updateRequired = true;
+      this.markForUpdate();
     }
   }
 
   /**
    * Display accordion with panels
    */
-  @Input() public set hasPanels(bool: boolean) {
-    this.options.hasPanels = bool;
+  @Input() public set hasPanels(hasPanels: boolean) {
+    this.options.hasPanels = hasPanels;
     if (this.accordion) {
-      this.accordion.settings.allowOnePane = this.options.allowOnePane;
-      this.updateRequired = true;
+      this.accordion.settings.hasPanels = this.options.hasPanels;
+      this.markForUpdate();
     }
   }
 
@@ -179,7 +174,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
     this.options.inverse = inverse;
     if (this.accordion) {
       this.accordion.settings.inverse = this.options.inverse;
-      this.updateRequired = true;
+      this.markForUpdate();
     }
   }
 
@@ -194,7 +189,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
     this.options.alternate = bool;
     if (this.accordion) {
       this.accordion.settings.alternate = this.options.alternate;
-      this.updateRequired = true;
+      this.markForUpdate();
     }
   }
 
@@ -339,12 +334,6 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   // Lifecycle Events
   // ------------------------------------------
   ngAfterViewInit() {
-
-    console.log(`Headers:`);
-    this.headers.forEach((h, i) => console.log(`#${i} - ${h}`));
-    console.log(`Pane:`);
-    this.panes.forEach((h, i) => console.log(` #${i} -${h}`));
-
     this.ngZone.runOutsideAngular(() => {
       // Wrap the element in a jQuery selector.
       this.jQueryElement = jQuery(this.element.nativeElement.childNodes[0]);
@@ -400,5 +389,9 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
         this.accordion = null;
       }
     });
+  }
+
+  private markForUpdate(): void {
+    this.updateRequired = true;
   }
 }

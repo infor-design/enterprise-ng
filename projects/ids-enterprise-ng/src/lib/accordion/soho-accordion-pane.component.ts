@@ -17,8 +17,4 @@ import {
 })
 export class SohoAccordionPaneComponent {
   @HostBinding('class.accordion-pane') get isAccordionPane() { return true; }
-
-  constructor() {
-    console.log(`SohoAccordionPaneComponent`);
-  }
 }
