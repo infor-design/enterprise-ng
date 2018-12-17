@@ -79,6 +79,7 @@ import {
 import { DataGridLookupClickDemoComponent } from './datagrid/datagrid-lookup-click-function.demo';
 import { DataGridLookupDialogDemoComponent } from './datagrid/datagrid-lookup-dialog.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
+import { DataGridDirtyIndicationDemoComponent } from './datagrid/datagrid-dirty-indication.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
 import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
@@ -252,6 +253,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     DataGridCustomFormatterDemoComponent,
     DataGridCustomFormatterServiceDemoComponent,
     DemoCellDatePickerEditorComponent,
+    DataGridDirtyIndicationDemoComponent,
     DataGridDynamicDemoComponent,
     DataGridEditorsDemoComponent,
     DataGridEmptyMessageDemoComponent,

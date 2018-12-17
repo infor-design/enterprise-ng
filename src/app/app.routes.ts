@@ -47,6 +47,7 @@ import { DataGridLookupClickDemoComponent } from './datagrid/datagrid-lookup-cli
 import { DataGridLookupDialogDemoComponent } from './datagrid/datagrid-lookup-dialog.demo';
 
 import { DataGridRowReorderDemoComponent } from './datagrid/datagrid-rowreorder.demo';
+import { DataGridDirtyIndicationDemoComponent } from './datagrid/datagrid-dirty-indication.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
 import { DataGridExportWithoutDataGridDemoComponent } from './datagrid/datagrid-export-without-datagrid.demo';
@@ -195,6 +196,7 @@ export const routes: Routes = [
   { path: 'contextual-action-panel',                component: ContextualActionPanelDemoComponent },
   { path: 'datagrid-breadcrumb',                    component: DataGridBreadcrumbDemoComponent },
   { path: 'datagrid-content',                       component: DataGridContentDemoComponent },
+  { path: 'datagrid-dirty-indication',              component: DataGridDirtyIndicationDemoComponent },
   { path: 'datagrid-dynamic',                       component: DataGridDynamicDemoComponent },
   { path: 'datagrid-empty-message',                 component: DataGridEmptyMessageDemoComponent },
   { path: 'datagrid-editors',                       component: DataGridEditorsDemoComponent },

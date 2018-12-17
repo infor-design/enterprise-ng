@@ -1285,6 +1285,47 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Returns an array of the dirty cells in the grid.
+   *
+   * @return an array of the dirty cells in the grid.
+   */
+  dirtyCells(): Array<any> {
+    return this.ngZone.runOutsideAngular(() => {
+      return this.datagrid.dirtyCells();
+    });
+  }
+
+  /**
+   * Clear all dirty cells.
+   */
+  clearDirty(): void {
+    return this.ngZone.runOutsideAngular(() => {
+      this.datagrid.clearDirty();
+    });
+  }
+
+  /**
+   * Clear all dirty cells in given row.
+   * @param row - the row number (idx) of the row.
+   */
+  clearDirtyRow(row: number): void {
+    return this.ngZone.runOutsideAngular(() => {
+      this.datagrid.clearDirtyRow(row);
+    });
+  }
+
+  /**
+   * Clear dirty on given cell.
+   * @param row - the row number (idx) of the row
+   * @param cell - the cell number (idx) of the cell
+   */
+  clearDirtyCell(row: number, cell: number): void {
+    return this.ngZone.runOutsideAngular(() => {
+      this.datagrid.clearDirtyCell(row, cell);
+    });
+  }
+
+  /**
    * Sets the status of a given row in the grid.
    *
    * @param idx - the row number (idx) of the row
