@@ -46,9 +46,6 @@ interface SohoDatePickerOptions {
   /** If true a legend is show to associate dates. */
   showLegend?: boolean;
 
-  /** If true the internal validation is disabled. */
-  customValidation?: boolean;
-
   /** If true the month and year will render as dropdowns. */
   showMonthYearPicker?: boolean;
 
