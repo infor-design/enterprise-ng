@@ -28,6 +28,7 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
   // Options Block
   // -------------------------------------------
 
+  private textStatic: SohoTextAreaStatic;
   private options: SohoTextAreaOptions = {};
 
   /**
@@ -73,8 +74,38 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
   @HostBinding('class.resizable')
   @Input() resizable: boolean = null;
 
-  @HostBinding('attr.maxlength')
-  @Input() maxlength: number;
+  @Input() set maxLength(maxLength: number) {
+    this.options.maxLength = maxLength;
+    if (this.textStatic) {
+      this.textStatic.settings.maxLength = maxLength;
+    }
+  }
+
+  get maxLength() {
+    return this.options.maxLength;
+  }
+
+  @Input() set autoGrow(autoGrow: boolean) {
+    this.options.autoGrow = autoGrow;
+    if (this.textStatic) {
+      this.textStatic.settings.autoGrow = autoGrow;
+    }
+  }
+
+  get autoGrow() {
+    return this.options.autoGrow;
+  }
+
+  @Input() set autoGrowMaxHeight(autoGrowMaxHeight: number) {
+    this.options.autoGrowMaxHeight = autoGrowMaxHeight;
+    if (this.textStatic) {
+      this.textStatic.settings.autoGrowMaxHeight = autoGrowMaxHeight;
+    }
+  }
+
+  get autoGrowMaxHeight() {
+    return this.options.autoGrowMaxHeight;
+  }
 
   @Input() set characterCounter(characterCounter: boolean) {
     this.options.characterCounter = characterCounter;
