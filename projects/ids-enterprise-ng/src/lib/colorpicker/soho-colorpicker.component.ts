@@ -52,6 +52,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   private isReadOnly: boolean = null;
   private isShowLabel: boolean = null;
   private isColorOnly: boolean = null;
+  private hasCustomColor: boolean = null;
   private clearableTextString = '';
   private options: SohoColorPickerOptions = {
     colors: undefined,
@@ -60,7 +61,8 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
     uppercase: true,
     colorOnly: false,
     clearable: true,
-    clearableText: null
+    clearableText: null,
+    customColors: false
   };
 
   /**
@@ -137,6 +139,19 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
 
     if (this.colorpicker) {
       this.colorpicker.settings.clearable = value;
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * Enables or disables the clear option.
+   */
+  @Input() set customColors(value: boolean) {
+    this.hasCustomColor = value;
+    this.options.customColors = value;
+
+    if (this.colorpicker) {
+      this.colorpicker.settings.customColors = value;
       this.markForRefresh();
     }
   }

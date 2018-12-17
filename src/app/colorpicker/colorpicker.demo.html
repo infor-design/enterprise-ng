@@ -3,7 +3,11 @@
     <form>
       <div class="field">
         <label for="bgcolor" class="label">Background Color</label>
-        <input soho-colorpicker name="bgcolor" [(ngModel)]="model.color" (change)="onChange($event)" />
+        <input soho-colorpicker name="bgcolor" data-options="{clearable: false, customColors: true, colors: [
+          {label: 'Grape', value: '2578a9', number: '10'},
+          {label: 'Blueberry', value: '368ac0', number: '08'},
+          {label: 'Banana', value: 'efa836', number: '09'}
+        ]}" [(ngModel)]="model.color" (change)="onChange($event)" />
       </div>
     </form>
   </div>
