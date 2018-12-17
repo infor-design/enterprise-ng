@@ -938,12 +938,12 @@ interface SohoDataGridSelectedRow {
 interface SohoDataGridRowClicked {
   cell: number;
   item: any;
-  originalEvent: JQuery.Event;
+  originalEvent: JQuery.TriggeredEvent;
   row: number;
 }
 
 interface SohoDataGridSelectedEvent {
-  e: JQuery.Event;
+  e: JQuery.TriggeredEvent;
   rows: SohoDataGridSelectedRow[];
 }
 

@@ -1,4 +1,4 @@
-interface SohoProgressEvent extends JQuery.Event {
+interface SohoProgressEvent extends JQuery.TriggeredEvent {
 }
 
 /*

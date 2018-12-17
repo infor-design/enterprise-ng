@@ -86,9 +86,9 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
        */
       this.jQueryElement
         .on('changetheme.personalize',
-          (ev: JQuery.Event, theme: string) => { this.onChangeTheme(ev, theme); })
+          (ev: JQuery.TriggeredEvent, theme: string) => { this.onChangeTheme(ev, theme); })
         .on('changecolors.personalize',
-          (ev: JQuery.Event, colors: any) => { this.onChangeColors(ev, colors); });
+          (ev: JQuery.TriggeredEvent, colors: any) => { this.onChangeColors(ev, colors); });
 
       // extract the api
       this.personalize = this.jQueryElement.data('personalize');
@@ -96,7 +96,7 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
 
   }
 
-  onChangeTheme(e: JQuery.Event, theme: string) {
+  onChangeTheme(e: JQuery.TriggeredEvent, theme: string) {
     this.ngZone.run(() => {
       const event = e as SohoChangeThemePersonalizeEvent;
       event.theme = theme;
@@ -106,7 +106,7 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
     });
   }
 
-  onChangeColors(e: JQuery.Event, colors: any) {
+  onChangeColors(e: JQuery.TriggeredEvent, colors: any) {
     this.ngZone.run(() => {
       const event = e as SohoChangeColorsPersonalizeEvent;
       event.colors = colors;

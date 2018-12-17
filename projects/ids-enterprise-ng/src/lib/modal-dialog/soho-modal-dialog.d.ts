@@ -93,7 +93,7 @@ interface SohoModalButton {
  */
 type SohoModalButtonClickFunction = (
   /** The event object. */
-  e: JQuery.Event,
+  e: JQuery.TriggeredEvent,
 
   /** The jQuery control.  */
   model: SohoModalStatic) => void;

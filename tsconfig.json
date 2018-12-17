@@ -37,5 +37,8 @@
     //     "projects/ids-enterprise-ng/src/public_api"
     //   ]
     }
-  }
+  },
+  "exclude": [
+    "dist"
+  ]
 }

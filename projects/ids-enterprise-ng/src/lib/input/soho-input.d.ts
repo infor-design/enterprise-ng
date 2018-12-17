@@ -5,5 +5,5 @@
  * interface of the Soho jQuery input control.
  */
 
-interface SohoInputEvent extends JQuery.Event {
+interface SohoInputEvent extends JQuery.TriggeredEvent {
 }

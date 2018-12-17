@@ -70,7 +70,7 @@ interface SohoContextualActionPanelButton {
  */
 type SohoContextualActionPanelButtonClickFunction = (
   /** The event object. */
-  e: JQuery.Event,
+  e: JQuery.TriggeredEvent,
 
   /** The jQuery control.  */
   contextualactionpanel: SohoContextualActionPanelStatic) => void;

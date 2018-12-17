@@ -165,10 +165,10 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
 
       // Add listeners to emit events
       this.jQueryElement
-        .on('selected', (e: JQuery.Event, args: JQuery) => this.onSelected(e, args))
-        .on('beforeopen', (e: JQuery.Event, args: JQuery) => this.onBeforeOpen(e, args))
-        .on('close', (e: JQuery.Event, args: JQuery) => this.onClose(e, args))
-        .on('open', (e: JQuery.Event, args: JQuery) => this.onOpen(e, args));
+        .on('selected', (e: JQuery.TriggeredEvent, args: JQuery) => this.onSelected(e, args))
+        .on('beforeopen', (e: JQuery.TriggeredEvent, args: JQuery) => this.onBeforeOpen(e, args))
+        .on('close', (e: JQuery.TriggeredEvent, args: JQuery) => this.onClose(e, args))
+        .on('open', (e: JQuery.TriggeredEvent, args: JQuery) => this.onOpen(e, args));
     });
   }
 
@@ -181,25 +181,25 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
     }
   }
 
-  private onSelected(e: JQuery.Event, args: JQuery) {
+  private onSelected(e: JQuery.TriggeredEvent, args: JQuery) {
     this.ngZone.run(() => {
       this.selected.emit({ e, args });
     });
   }
 
-  private onBeforeOpen(e: JQuery.Event, args: JQuery) {
+  private onBeforeOpen(e: JQuery.TriggeredEvent, args: JQuery) {
     this.ngZone.run(() => {
       this.beforeopen.emit({ e, args });
     });
   }
 
-  private onClose(e: JQuery.Event, args: JQuery) {
+  private onClose(e: JQuery.TriggeredEvent, args: JQuery) {
     this.ngZone.run(() => {
       this.close$.emit({ e, args });
     });
   }
 
-  private onOpen(e: JQuery.Event, args: JQuery) {
+  private onOpen(e: JQuery.TriggeredEvent, args: JQuery) {
     this.ngZone.run(() => {
       this.open$.emit({ e, args });
     });
@@ -223,7 +223,7 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
     });
   }
 
-  public open(event: JQuery.Event, ajaxReturn?: boolean, useDelay?: boolean): void {
+  public open(event: JQuery.TriggeredEvent, ajaxReturn?: boolean, useDelay?: boolean): void {
     this.ngZone.runOutsideAngular(() => {
       this.menuButton.open(event, ajaxReturn, useDelay);
     });

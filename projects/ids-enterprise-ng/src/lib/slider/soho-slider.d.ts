@@ -47,7 +47,7 @@ interface SohoSliderTick {
 /**
  * Type safe Slider event object.
  */
-interface SohoSliderEvent extends JQuery.Event {
+interface SohoSliderEvent extends JQuery.TriggeredEvent {
   data: any;
 }
 

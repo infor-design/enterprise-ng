@@ -19,7 +19,7 @@ interface SohoTextAreaOptions {
   charMaxText?: string;
 }
 
-interface SohoTextAreaEvent extends JQuery.Event {
+interface SohoTextAreaEvent extends JQuery.TriggeredEvent {
 }
 
 /**

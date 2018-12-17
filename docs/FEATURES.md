@@ -4,7 +4,7 @@
 | Feature                 |           Status               | Docs         | Issue              | Zone Compliant |
 |-------------------------|:------------------------------:|:------------:|:------------------:|:--------------:|
 | about                   |                      Available |            - |                  - |              - |
-| accordion               |                      Available |  [README][3] | [SOHO-4344][#4344] |             No |
+| accordion               |                      Available |  [README][3] | [SOHO-4344][#4344] |            Yes |
 | alert                   |                      Available |            - |                  - |            Yes |
 | application-menu        |                      Available |            - | [SOHO-3950][#3950] |            Yes |
 | autocomplete            |                      Available |            - | [SOHO-6759][#6759] |             No |
