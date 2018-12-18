@@ -122,7 +122,7 @@ describe('Soho TextArea Reactive Form', () => {
     // check options
     expect((component.dropdown as any).options.maxLength).toEqual(10);
     expect((component.dropdown as any).options.autoGrow).toEqual(false);
-    expect((component.dropdown as any).options.autoGrowToMaxHeight).toEqual(0);
+    expect((component.dropdown as any).options.autoGrowMaxHeight).toEqual(0);
 
     fixture.detectChanges(); // detect changes to cause text area to be built.
 
@@ -133,6 +133,6 @@ describe('Soho TextArea Reactive Form', () => {
 
     expect((component.dropdown as any).options.maxLength).toEqual(20);
     expect((component.dropdown as any).options.autoGrow).toEqual(true);
-    expect((component.dropdown as any).options.autoGrowToMaxHeight).toEqual(40);
+    expect((component.dropdown as any).options.autoGrowMaxHeight).toEqual(40);
   });
 });
