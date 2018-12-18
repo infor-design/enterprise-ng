@@ -27,7 +27,6 @@ import { SohoDatePickerModule, SohoDatePickerComponent } from './index';
       [mode]="_mode"
       [range]="_range"
       [disable]="_disable"
-      [customValidation]="_customValidation"
       [hideDays]="_hideDays"
       [useUTC]="_useUTC"
       [(ngModel)]="model"
@@ -176,14 +175,6 @@ class TestDatePickerComponent {
     this._disable = disable;
     if (this.datepicker) {
       this.datepicker.disable = this._disable;
-    }
-  }
-
-  public _customValidation:  boolean;
-  @Input() set customValidation(customValidation:  boolean) {
-    this._customValidation = customValidation;
-    if (this.datepicker) {
-      this.datepicker.customValidation = this._customValidation;
     }
   }
 
