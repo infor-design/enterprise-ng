@@ -279,7 +279,6 @@ describe('Soho Datepicker Unit Tests', () => {
         maxDate: '1/1/2017',
         dayOfWeek: []
       },
-      customValidation: false,
       hideDays: true,
       useUTC: false
     };
@@ -314,7 +313,6 @@ describe('Soho Datepicker Unit Tests', () => {
         maxDate: '1/1/2017',
         dayOfWeek: []
       };
-      comp.customValidation = false;
       comp.hideDays = true;
       comp.useUTC = false;
 
