@@ -973,11 +973,14 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * The `emptyMessage` data grid option.
+   * Use null or undefined to remove any empty message.
    */
-  @Input() set emptyMessage(emptyMessage: SohoEmptyMessageOptions) {
-    /** Check for undefined/null and reset to the default message */
-    emptyMessage = emptyMessage ||
-      {title: (Soho.Locale ? Soho.Locale.translate('NoData') : 'No Data Available'), info: '', icon: 'icon-empty-no-data'};
+  @Input() set emptyMessage(emptyMessage: SohoEmptyMessageOptions | null | undefined) {
+    // Check for undefined/null and reset to the default message
+    if (!emptyMessage) {
+      // soho only takes a null here so making it so any !emptyMessage gets set to null
+      emptyMessage = null;
+    }
 
     this._gridOptions.emptyMessage = emptyMessage;
     if (this.jQueryElement) {
