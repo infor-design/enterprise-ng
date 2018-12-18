@@ -6,6 +6,7 @@
 
 ### 5.1.0 Fixes
 
+- `[DataGrid]` - changed emptyMessage setter so it will remove any empty message if passed a null or undefined. `PWP`
 - `[Accordion]` - refactored to use `ngZone` - This effects the constructor and how often change detection is called. `BTHH` ([Pull Request 290]
 
 ### 5.1.0 Chore & Maintenance
