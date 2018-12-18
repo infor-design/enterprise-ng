@@ -112,4 +112,27 @@ describe('Soho TextArea Reactive Form', () => {
 
     expect(el.value).toEqual('2');
   });
+
+  it('check inputs', () => {
+    // test values at initial construction
+    dropdown.maxLength = 10;
+    dropdown.autoGrow = false;
+    dropdown.autoGrowMaxHeight = 0;
+
+    // check options
+    expect((component.dropdown as any).options.maxLength).toEqual(10);
+    expect((component.dropdown as any).options.autoGrow).toEqual(false);
+    expect((component.dropdown as any).options.autoGrowToMaxHeight).toEqual(0);
+
+    fixture.detectChanges(); // detect changes to cause text area to be built.
+
+    // test changing the values after initial construction
+    dropdown.maxLength = 20;
+    dropdown.autoGrow = true;
+    dropdown.autoGrowMaxHeight = 40;
+
+    expect((component.dropdown as any).options.maxLength).toEqual(20);
+    expect((component.dropdown as any).options.autoGrow).toEqual(true);
+    expect((component.dropdown as any).options.autoGrowToMaxHeight).toEqual(40);
+  });
 });
