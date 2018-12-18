@@ -27,7 +27,6 @@ import { SohoDatePickerModule, SohoDatePickerComponent } from './index';
       [mode]="_mode"
       [range]="_range"
       [disable]="_disable"
-      [customValidation]="_customValidation"
       [hideDays]="_hideDays"
       [useUTC]="_useUTC"
       [(ngModel)]="model"
@@ -179,14 +178,6 @@ class TestDatePickerComponent {
     }
   }
 
-  public _customValidation:  boolean;
-  @Input() set customValidation(customValidation:  boolean) {
-    this._customValidation = customValidation;
-    if (this.datepicker) {
-      this.datepicker.customValidation = this._customValidation;
-    }
-  }
-
   public _hideDays:  boolean;
   @Input() set hideDays(hideDays:  boolean) {
     this._hideDays = hideDays;
@@ -288,7 +279,6 @@ describe('Soho Datepicker Unit Tests', () => {
         maxDate: '1/1/2017',
         dayOfWeek: []
       },
-      customValidation: false,
       hideDays: true,
       useUTC: false
     };
@@ -323,7 +313,6 @@ describe('Soho Datepicker Unit Tests', () => {
         maxDate: '1/1/2017',
         dayOfWeek: []
       };
-      comp.customValidation = false;
       comp.hideDays = true;
       comp.useUTC = false;
 

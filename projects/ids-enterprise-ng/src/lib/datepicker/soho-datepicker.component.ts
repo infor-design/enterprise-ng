@@ -178,16 +178,6 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   }
 
   /**
-   * Indicates if the internal validation is disabled.
-   */
-  @Input() set customValidation(customValidation: boolean) {
-    this._options.customValidation = customValidation;
-    if (this.datepicker) {
-      this.markForRefresh();
-    }
-  }
-
-  /**
    * Indicates if the month and year will render as dropdowns.
    */
   @Input() set showMonthYearPicker(showMonthYearPicker: boolean) {
