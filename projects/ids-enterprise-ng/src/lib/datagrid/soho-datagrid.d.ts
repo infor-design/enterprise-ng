@@ -864,7 +864,7 @@ interface SohoDataGridStatic {
 
   /**
   * Toggle the current selection state from on to off.
-  * @param {number} idx The row to select/unselect
+  * @param number idx The row to select/unselect
   */
   toggleRowSelection(idx: number): void;
 
@@ -889,6 +889,31 @@ interface SohoDataGridStatic {
    * @return an array of all the rows in the grid marked as dirty.
    */
   dirtyRows(): Array<any>;
+
+  /**
+   * Returns an array of all the cells in the grid marked as dirty.
+   *
+   * @return an array of all the cells in the grid marked as dirty.
+   */
+  dirtyCells(): Array<any>;
+
+  /**
+   * Clear all dirty cells.
+   */
+  clearDirty(): void;
+
+  /**
+   * Clear all dirty cells in given row.
+   * @param row - the row number (idx) of the row.
+   */
+  clearDirtyRow(row: number): void;
+
+  /**
+   * Clear dirty on given cell.
+   * @param row - the row number (idx) of the row
+   * @param cell - the cell number (idx) of the cell
+   */
+  clearDirtyCell(row: number, cell: number): void;
 
   /**
    * Sets the status of a given row in the grid.
@@ -1071,7 +1096,7 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   on(events: 'sorted', handler: JQuery.EventHandlerBase<any, SohoDataGridSortedEvent>): this;
   on(events: 'expandrow', handler: JQuery.EventHandlerBase<any, SohoDataGridRowExpandEvent>): this;
   on(events: 'rowactivated', handler: JQuery.EventHandlerBase<any, SohoDataGridRowActivatedEvent>): this;
-  on(events: 'rowdeactivated', handler: JQuery.EventHandlerBase<any, SohoDataGridRowDeactivatedEvent>):this;
+  on(events: 'rowdeactivated', handler: JQuery.EventHandlerBase<any, SohoDataGridRowDeactivatedEvent>): this;
   on(events: 'selected', handler: JQuery.EventHandlerBase<any, SohoDataGridSelectedRow[]>): this;
 }
 
