@@ -43,6 +43,16 @@
           <textarea soho-textarea name="required" [(ngModel)]="model.requiredText" data-validate="required"></textarea>
         </div>
 
+        <div class="field">
+          <label for="growInfinite" class="label">Grow (Infinite)</label>
+          <textarea soho-textarea name="growInfinite" [autoGrow]="true" [(ngModel)]="model.growableText"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="growFinite" class="label">Grow (Finite)</label>
+          <textarea soho-textarea name="growFinite" [autoGrow]="true" [autoGrowMaxHeight]="300" [(ngModel)]="model.growableText"></textarea>
+        </div>
+
       </div>
     </div>
   </form>
