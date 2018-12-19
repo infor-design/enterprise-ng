@@ -12,10 +12,6 @@ import {
   FormBuilder
 } from '@angular/forms';
 
- import {
-   SohoListViewComponent
- } from 'ids-enterprise-ng';
-
 @Component({
   selector: 'app-locale-pipe-demo',
   templateUrl: './locale-pipe.demo.html',
