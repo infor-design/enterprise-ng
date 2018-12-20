@@ -399,7 +399,6 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     LocaleInitializerModule
   ],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '/' },
     ApplicationMenuLazyService,
     SohoRenderLoopService
   ],
