@@ -3,7 +3,7 @@
   "scripts": {
     "ng-high-memory": "node --max_old_space_size=8000 npx ng",
     "ng": "npx ng",
-    "start": "npx ng serve",
+    "start": "npx ng serve --serve-path=/ids-enterprise-ng-demo",
     "build": "npm run build:lib && npm run build:app",
     "build:lib": "npx ng build ids-enterprise-ng --prod",
     "build:app": "npx ng build",
