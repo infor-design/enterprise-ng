@@ -150,6 +150,10 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
    * */
   @Output() selected = new EventEmitter<SohoTreeEvent>();
 
+  @Output() sortstart = new EventEmitter<SohoTreeEvent>();
+
+  @Output() sortend = new EventEmitter<SohoTreeEvent>();
+
   // -------------------------------------------
   // Host Bindings
   // -------------------------------------------
@@ -423,7 +427,9 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     this.jQueryElement
       .on('selected', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.selected.next(args))
       .on('expand', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.expand.next(args))
-      .on('collapse', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.collapse.next(args));
+      .on('collapse', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.collapse.next(args))
+      .on('sortstart', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.sortstart.next(args))
+      .on('sortend', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.sortend.next(args));
   }
 
   ngOnDestroy() {
