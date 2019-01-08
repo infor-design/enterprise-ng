@@ -217,4 +217,7 @@ interface JQueryStatic {
 
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   tree(options?: SohoTreeOptions): JQuery;
+
+  on(events: 'sortstart', handler: JQuery.EventHandlerBase<any, SohoTreeEvent>): this;
+  on(events: 'sortend', handler: JQuery.EventHandlerBase<any, SohoTreeEvent>): this;
 }
