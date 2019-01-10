@@ -93,6 +93,12 @@ interface SohoTreeNode {
 
   /**  */
   focus?: boolean;
+
+  // hide check box for particular node
+  hideCheckbox?: boolean;
+
+  // specify type of control to render for node
+  type?: string;  //supported type- dropdown, anchor
 }
 
 /**
@@ -162,6 +168,11 @@ interface SohoTreeStatic {
   selectNode(node: SohoTreeNode, focus: boolean): void;
 
   /**
+   * Unselect node.
+   */
+  unSelectedNode(node: SohoTreeNode, focus: boolean): void;
+
+  /**
    * Returns an array of selected nodes.
    */
   getSelectedNodes(): SohoTreeNode[];
@@ -169,7 +180,7 @@ interface SohoTreeStatic {
   /**
    * Add the node to the given location.
    */
-  addNode(node: SohoTreeNode, location: 'bottom' | 'top' | JQuery): void;
+  addNode(node: SohoTreeNode, location: 'bottom' | 'top' | JQuery, isBeforeOrAfter: string): void;
 
   /**
    * Toggle the node expanded or collapsed.
