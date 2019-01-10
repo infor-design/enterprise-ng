@@ -715,7 +715,7 @@ interface SohoDataGridColumn {
   selectChildren?: boolean;
 
   /** Enforce a max length when editing this column */
-  maxLength?: boolean;
+  maxLength?: number;
 
   /** Validators to assign to any editable columns. */
   validate?: string;
