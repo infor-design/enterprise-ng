@@ -1329,6 +1329,40 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Clear all error for a given cell in a row
+   * @param row The row index.
+   * @param cell The cell index.
+   */
+  clearAllCellError(row: number, cell: number): void {
+    this.ngZone.runOutsideAngular(() => this.datagrid.clearAllCellError(row, cell));
+  }
+
+  /**
+   * Clear a cell with an error of a given type
+   * @param row The row index.
+   * @param cell The cell index.
+   * @param type of error.
+   */
+  clearCellError(row: number, cell: number, type: any): void {
+    this.ngZone.runOutsideAngular(() => this.datagrid.clearCellError(row, cell, type));
+  }
+
+  /**
+   * Clear a row level all errors, alerts, info messages
+   * @param row The row index.
+   */
+  clearRowError(row: number): void {
+    this.ngZone.runOutsideAngular(() => this.datagrid.clearRowError(row));
+  }
+
+  /**
+   * Clear all errors, alerts and info messages in entire datagrid.
+   */
+  clearAllErrors(): void {
+    this.ngZone.runOutsideAngular(() => this.datagrid.clearAllErrors());
+  }
+
+  /**
    * Sets the status of a given row in the grid.
    *
    * @param idx - the row number (idx) of the row
