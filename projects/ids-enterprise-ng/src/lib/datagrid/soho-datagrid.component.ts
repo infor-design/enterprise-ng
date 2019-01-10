@@ -297,12 +297,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       const pagerInfo: SohoPagerPagingInfo = {};
       this.datagrid.settings.dataset = dataset;
 
-      // TreeGrid does not have paging
-      // set as active page so datagrid headers aren't rebuilt
-      if (this.treeGrid) {
-        pagerInfo.activePage = -1;
-      }
-
       this.ngZone.runOutsideAngular(() => {
         // @todo do we need hints as this may be bundled up with other changes.
         this.datagrid.updateDataset(dataset, pagerInfo);
