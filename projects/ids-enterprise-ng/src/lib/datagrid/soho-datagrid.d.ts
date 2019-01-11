@@ -715,7 +715,7 @@ interface SohoDataGridColumn {
   selectChildren?: boolean;
 
   /** Enforce a max length when editing this column */
-  maxLength?: boolean;
+  maxLength?: number;
 
   /** Validators to assign to any editable columns. */
   validate?: string;
@@ -914,6 +914,32 @@ interface SohoDataGridStatic {
    * @param cell - the cell number (idx) of the cell
    */
   clearDirtyCell(row: number, cell: number): void;
+
+  /**
+   * Clear all error for a given cell in a row
+   * @param row The row index.
+   * @param cell The cell index.
+   */
+  clearAllCellError(row: number, cell: number): void;
+
+  /**
+   * Clear a cell with an error of a given type
+   * @param row The row index.
+   * @param cell The cell index.
+   * @param type of error.
+   */
+  clearCellError(row: number, cell: number, type: any): void;
+
+  /**
+   * Clear a row level all errors, alerts, info messages
+   * @param row The row index.
+   */
+  clearRowError(row: number): void;
+
+  /**
+   * Clear all errors, alerts and info messages in entire datagrid.
+   */
+  clearAllErrors(): void;
 
   /**
    * Sets the status of a given row in the grid.
