@@ -128,6 +128,22 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     }
   }
 
+  /** Show icon on node opened */
+  @Input() set folderIconOpen(folderIconOpen: string) {
+    this.options.folderIconOpen = folderIconOpen;
+    if (this.tree) {
+      this.tree.settings.folderIconOpen = folderIconOpen;
+    }
+  }
+
+  /** Show icon on node closed */
+  @Input() set folderIconClosed(folderIconClosed: string) {
+    this.options.folderIconClosed = folderIconClosed;
+    if (this.tree) {
+      this.tree.settings.folderIconClosed = folderIconClosed;
+    }
+  }
+
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
@@ -149,6 +165,22 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
    * selected is passed in the argument passed to the handler.
    * */
   @Output() selected = new EventEmitter<SohoTreeEvent>();
+
+  @Output() sortstart = new EventEmitter<SohoTreeEvent>();
+
+  @Output() sortend = new EventEmitter<SohoTreeEvent>();
+
+  /**
+  * This event is fired when context menu is selected, the SohoTreeNode
+  * selected is passed in the argument passed to the handler.
+  * */
+  @Output() menuselect = new EventEmitter<SohoTreeEvent>();
+
+  /**
+   * This event is fired on context menu opening, the SohoTreeNode
+   * selected is passed in the argument passed to the handler.
+   * */
+  @Output() menuopen = new EventEmitter<SohoTreeEvent>();
 
   // -------------------------------------------
   // Host Bindings
@@ -322,6 +354,21 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   /**
+   * Set the selected note based in the id of the node.  If the node
+   * does not exist an exception is thrown.
+   */
+  public unSelectedNode(id: string, focus = false) {
+    ArgumentHelper.checkNotEmpty('id', id);
+
+    const treeNode: SohoTreeNode = this.tree.findById(id);
+    if (treeNode && treeNode.node) {
+      this.tree.unSelectedNode(treeNode.node, focus);
+    } else {
+      throw Error(`Node ${id} does not exist`);
+    }
+  }
+
+  /**
    * Returns a list of selected tree nodes, or an
    * empty array if the tree has not been initialised
    * yet.
@@ -343,10 +390,10 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   /**
    * Adds a node to the tree.
    */
-  public addNode(treeNode: SohoTreeNode, location: any = 'bottom') {
+  public addNode(treeNode: SohoTreeNode, location: any = 'bottom', isBeforeOrAfter = '') {
     ArgumentHelper.checkNotNull('treeNode', treeNode);
 
-    this.tree.addNode(treeNode, location);
+    this.tree.addNode(treeNode, location, isBeforeOrAfter);
   }
 
   /**
@@ -423,7 +470,11 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     this.jQueryElement
       .on('selected', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.selected.next(args))
       .on('expand', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.expand.next(args))
-      .on('collapse', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.collapse.next(args));
+      .on('collapse', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.collapse.next(args))
+      .on('sortstart', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.sortstart.next(args))
+      .on('sortend', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.sortend.next(args))
+      .on('menuselect', (e: JQuery.Event, args: SohoTreeEvent) => this.menuselect.next(args))
+      .on('menuopen', (e: JQuery.Event, args: SohoTreeEvent) => this.menuopen.next(args));
   }
 
   ngOnDestroy() {

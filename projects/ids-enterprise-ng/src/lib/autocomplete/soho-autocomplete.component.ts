@@ -77,6 +77,8 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
   @Output() change: EventEmitter<SohoInputEvent[]> = new EventEmitter<SohoInputEvent[]>();
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
+  @Output() beforeopen: EventEmitter<SohoAutoCompleteEvent> = new EventEmitter<SohoAutoCompleteEvent>();
+
   @HostBinding('class.autocomplete') get isAutoComplete() { return true; }
 
   // -------------------------------------------
@@ -147,7 +149,8 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
     // Bind to jQueryElement's events
     this.jQueryElement
       .on('selected', (...args) => this.selected.emit(args))
-      .on('change', (e: any, args: any[]) => this.onChange(args));
+      .on('change', (e: any, args: any[]) => this.onChange(args))
+      .on('beforeopen', (e: any, args: SohoAutoCompleteEvent) => this.beforeopen.emit(args));
 
     // Invoke the Autocomplete
     this.jQueryElement.autocomplete(this.options);

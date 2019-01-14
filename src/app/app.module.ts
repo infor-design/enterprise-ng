@@ -205,6 +205,7 @@ import { WizardDemoResultPageComponent } from './wizard/wizard-result-page.demo'
 import { WizardDemoSelectFilePageComponent } from './wizard/wizard-selected-files-page.demo';
 import { WizardDemoTargetFolderPageComponent } from './wizard/wizard-target-folder-page.demo';
 import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validation-rules-page.demo';
+import { LocaleInitializerModule } from './locale-initializer/locale-initializer.module';
 
 @NgModule({
   declarations: [
@@ -394,10 +395,10 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
     ModalDialogDemoModule,
     ContextualActionPanelDemoModule,
     ReactiveFormsModule,
-    SohoComponentsModule
+    SohoComponentsModule,
+    LocaleInitializerModule
   ],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '/' },
     ApplicationMenuLazyService,
     SohoRenderLoopService
   ],

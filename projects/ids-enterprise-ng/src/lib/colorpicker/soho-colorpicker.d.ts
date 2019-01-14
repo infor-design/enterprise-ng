@@ -33,6 +33,9 @@ interface SohoColorPickerOptions {
 
   /** The text to show in the clearable item's tooltip. */
   clearableText: string;
+
+  /** If true the colorpicker will permit custom colors in the palette. */
+  customColors: boolean;
 }
 
 interface SohoColorPickerEvent extends JQuery.TriggeredEvent {

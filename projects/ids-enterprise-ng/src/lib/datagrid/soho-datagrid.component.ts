@@ -297,12 +297,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       const pagerInfo: SohoPagerPagingInfo = {};
       this.datagrid.settings.dataset = dataset;
 
-      // TreeGrid does not have paging
-      // set as active page so datagrid headers aren't rebuilt
-      if (this.treeGrid) {
-        pagerInfo.activePage = -1;
-      }
-
       this.ngZone.runOutsideAngular(() => {
         // @todo do we need hints as this may be bundled up with other changes.
         this.datagrid.updateDataset(dataset, pagerInfo);
@@ -1326,6 +1320,40 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this.ngZone.runOutsideAngular(() => {
       this.datagrid.clearDirtyCell(row, cell);
     });
+  }
+
+  /**
+   * Clear all error for a given cell in a row
+   * @param row The row index.
+   * @param cell The cell index.
+   */
+  clearAllCellError(row: number, cell: number): void {
+    this.ngZone.runOutsideAngular(() => this.datagrid.clearAllCellError(row, cell));
+  }
+
+  /**
+   * Clear a cell with an error of a given type
+   * @param row The row index.
+   * @param cell The cell index.
+   * @param type of error.
+   */
+  clearCellError(row: number, cell: number, type: any): void {
+    this.ngZone.runOutsideAngular(() => this.datagrid.clearCellError(row, cell, type));
+  }
+
+  /**
+   * Clear a row level all errors, alerts, info messages
+   * @param row The row index.
+   */
+  clearRowError(row: number): void {
+    this.ngZone.runOutsideAngular(() => this.datagrid.clearRowError(row));
+  }
+
+  /**
+   * Clear all errors, alerts and info messages in entire datagrid.
+   */
+  clearAllErrors(): void {
+    this.ngZone.runOutsideAngular(() => this.datagrid.clearAllErrors());
   }
 
   /**
