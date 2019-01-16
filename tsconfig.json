@@ -5,9 +5,11 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
+    "module": "es2015",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "importHelpers": true,
     "target": "es5",
     "typeRoots": [
       "node_modules/@types"
@@ -18,7 +20,7 @@
       "node"
     ],
     "lib": [
-      "es2017",
+      "es2018",
       "dom"
     ],
     "paths": {
@@ -28,6 +30,15 @@
       "ids-enterprise-ng/*": [
         "dist/ids-enterprise-ng/*"
       ]
+
+    // For auto code compile use this.
+    // "paths": {
+    //   "ids-enterprise-ng": [
+    //     "projects/ids-enterprise-ng/src/public_api"
+    //   ]
     }
-  }
+  },
+  "exclude": [
+    "dist"
+  ]
 }

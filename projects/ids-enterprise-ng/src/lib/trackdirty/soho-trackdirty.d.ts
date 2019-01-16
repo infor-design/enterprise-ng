@@ -3,7 +3,7 @@ interface TrackDirtyStatic {
   updated(): void;
 }
 
-interface SohoTrackDirtyEvent extends JQuery.Event { // tslint:ignore
+interface SohoTrackDirtyEvent extends JQuery.TriggeredEvent { // tslint:ignore
   currentTarget: HTMLElement;
 }
 
@@ -15,6 +15,6 @@ interface JQueryStatic {
   trackdirty: TrackDirtyStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   trackdirty(): JQuery;
 }

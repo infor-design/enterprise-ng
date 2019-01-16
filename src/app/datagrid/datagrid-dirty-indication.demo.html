@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Data Grid - Dirty Indication Demo</h2>
+    <p>Make changes to any cells it should add dirty indicator to the cell<p>
+    <p>
+      Dirty cells can be clear by clicking the button &quot;Clear Dirty&quot;<br>
+      &ndash; Specific Cell (row: {{row}}, cell: {{cell}})<br>
+      &ndash; All Cells in Row (row: {{row}})<br>
+      &ndash; All (all cells in grid)
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="twelve columns">
+
+    <soho-toolbar>
+      <soho-toolbar-title>
+        <span soho-toolbar-section-title></span>
+      </soho-toolbar-title>
+      <soho-toolbar-button-set>
+        <button soho-menu-button menu="action-popupmenu"
+          (selected)="onClearDirtySelected($event)">Clear Dirty</button>
+          <ul soho-popupmenu id="action-popupmenu">
+            <li soho-popupmenu-item><a soho-popupmenu-label data-action="specific-cell">Specific Cell (row: {{row}}, cell: {{cell}})</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label data-action="all-cells-in-row">All Cells in Row (row: {{row}})</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label data-action="all">All</a></li>
+          </ul>
+      </soho-toolbar-button-set>
+    </soho-toolbar>
+
+    <soho-toolbar maxVisibleButtons="4" class="contextual-toolbar is-hidden">
+      <soho-toolbar-title>
+        <div soho-selection-count>0 Selected</div>
+      </soho-toolbar-title>
+      <soho-toolbar-button-set>
+        <button class="btn" type="button">
+          <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+            <use xlink:href="#icon-link"></use>
+          </svg>
+          <span>Item 1</span>
+        </button>
+      </soho-toolbar-button-set>
+    </soho-toolbar>
+
+    <div soho-datagrid
+      *ngIf="gridOptions"
+      [gridOptions]="gridOptions"
+    ></div>
+
+  </div>
+</div>

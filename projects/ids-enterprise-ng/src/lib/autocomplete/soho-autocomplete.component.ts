@@ -23,7 +23,7 @@ import {
   selector: 'input[soho-autocomplete]', // tslint:disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ provideControlValueAccessor(SohoAutoCompleteComponent) ]
+  providers: [provideControlValueAccessor(SohoAutoCompleteComponent)]
 })
 
 export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> implements AfterViewInit, AfterViewChecked, OnDestroy {
@@ -77,6 +77,8 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
   @Output() change: EventEmitter<SohoInputEvent[]> = new EventEmitter<SohoInputEvent[]>();
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
+  @Output() beforeopen: EventEmitter<SohoAutoCompleteEvent> = new EventEmitter<SohoAutoCompleteEvent>();
+
   @HostBinding('class.autocomplete') get isAutoComplete() { return true; }
 
   // -------------------------------------------
@@ -94,34 +96,29 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
    * Local variables
    */
   private isDisabled: boolean = null;
-  private isReadOnly: boolean =  null;
+  private isReadOnly: boolean = null;
   private jQueryElement: JQuery;
   private autocomplete: SohoAutoCompleteStatic;
 
-      // -------------------------------------------
+  // -------------------------------------------
   // Component Input
   // -------------------------------------------
-  /**
-   * @param value
-   */
+
   @Input() set disabled(value: boolean) {
     if (value) {
       if (this.autocomplete) {
         this.autocomplete.disable();
       }
       this.isDisabled = true;
-     } else {
+    } else {
       if (this.autocomplete) {
         this.autocomplete.enable();
       }
       this.isDisabled = false;
       this.isReadOnly = false;
-      }
     }
+  }
 
-    /**
-   * @param value
-   */
   @Input() set readonly(value: boolean) {
     if (this.autocomplete) {
       if (value) {
@@ -152,7 +149,8 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
     // Bind to jQueryElement's events
     this.jQueryElement
       .on('selected', (...args) => this.selected.emit(args))
-      .on('change', (e: any, args: any[]) => this.onChange(args));
+      .on('change', (e: any, args: any[]) => this.onChange(args))
+      .on('beforeopen', (e: any, args: SohoAutoCompleteEvent) => this.beforeopen.emit(args));
 
     // Invoke the Autocomplete
     this.jQueryElement.autocomplete(this.options);
@@ -213,7 +211,7 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
     this.writeValue(value);
   }
 
-   /** For async methods, reinit autocomplete `source` setting. */
+  /** For async methods, reinit autocomplete `source` setting. */
   public updated(): SohoAutoCompleteComponent {
     this.autocomplete.updated();
     return this;
@@ -222,8 +220,6 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
   /**
    * This function is called when the control status changes to or from "DISABLED".
    * Depending on the value, it will enable or disable the appropriate DOM element.
-   *
-   * @param isDisabled
    */
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;

@@ -147,7 +147,7 @@ type SohoDropDownResponseFunction = (
 /**
  * Type safe dropdown event object.
  */
-interface SohoDropDownEvent extends JQuery.Event {
+interface SohoDropDownEvent extends JQuery.TriggeredEvent {
 }
 
 /**
@@ -202,6 +202,6 @@ interface JQueryStatic {
   dropdown: SohoDropDownStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   dropdown(options: SohoDropDownOptions): JQuery;
 }

@@ -10,12 +10,61 @@
 /**
  * Pager options.
  */
-type SohoPagerType = 'list' | 'table' | string;
+type SohoPagerType = 'list' | 'table' | 'standalone' | string;
 
 /**
  * Pager location.
  */
 type SohoPagerPosition = 'bottom' | 'top';
+
+interface SohoStandalonePagerOptions {
+  type?: 'standalone';
+
+  /** curreent pagesize of page chooser dropdown  */
+  pagesize?: number;
+
+  /** list of possible page sizes for the page chooser dropdown */
+  pagesizes?: number[];
+
+  /** display first button */
+  showFirstButton?: boolean;
+
+  /** display last button */
+  showLastButton?: boolean;
+
+  /** display previous button */
+  showPreviousButton?: boolean;
+
+  /** display next button */
+  showNextButton?: boolean;
+
+  /** display page size selector field */
+  showPageSizeSelector?: boolean;
+
+  /** enable first button */
+  enableFirstButton?: boolean;
+
+  /** enable next button */
+  enableLastButton?: boolean;
+
+  /** enable previous button */
+  enablePreviousButton?: boolean;
+
+  /** enable next button */
+  enableNextButton?: boolean;
+
+  /** first button tooltip */
+  firstPageTooltip?: string;
+
+  /** last button tooltip */
+  lastPageTooltip?: string;
+
+  /** previous button tooltip */
+  previousPageTooltip?: string;
+
+  /** next button tooltip */
+  nextPageTooltip?: string;
+}
 
 /**
  * Soho Page control options.
@@ -83,13 +132,27 @@ interface SohoPagerStatic {
   element: JQuery;
 }
 
+interface SohoStandalonePagerStatic {
+  /** Accessible settings - for updates. */
+  settings: SohoStandalonePagerOptions;
+
+  /** Internal jQuery element. */
+  element: JQuery;
+
+  /** call updated when options change after the pager has been initialized */
+  updated(SohoStandalonePagerOptions): void;
+
+  /** call from ngOnDestroy to ensure any resources the pager uses are cleaned up */
+  destroy();
+}
+
 /**
  * JQuery Integration
  */
 interface JQueryStatic {
-  pager: SohoPagerStatic;
+  pager: SohoPagerStatic | SohoStandalonePagerStatic;
 }
 
-interface JQuery {
-  pager(options?: SohoPagerOptions): JQuery;
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
+  pager(options?: SohoPagerOptions | SohoStandalonePagerOptions): JQuery;
 }

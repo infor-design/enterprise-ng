@@ -27,7 +27,7 @@ interface SohoFieldFilterStatic {
   updated(SohoFieldFilterSettings): void;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   fieldfilter(settings?: SohoFieldFilterSettings): JQuery;
 }
 
@@ -48,6 +48,6 @@ interface SohoFieldFilterOption {
   selected ?: boolean;
 }
 
-interface SohoFieldFilteredEvent extends JQuery.Event {
+interface SohoFieldFilteredEvent extends JQuery.TriggeredEvent {
   filterOption?: SohoFieldFilterOption;
 }

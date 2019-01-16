@@ -25,10 +25,10 @@ interface SohoTag {
   destroy(): void;
 }
 
-interface SohoTagBeforeRemoveEvent extends JQuery.Event {}
+interface SohoTagBeforeRemoveEvent extends JQuery.TriggeredEvent {}
 
-interface SohoTagAfterRemoveEvent extends JQuery.Event {}
+interface SohoTagAfterRemoveEvent extends JQuery.TriggeredEvent {}
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   tag(options?: SohoTagOptions): JQuery;
 }

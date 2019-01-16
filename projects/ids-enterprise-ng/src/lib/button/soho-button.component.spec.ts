@@ -13,11 +13,7 @@ import {
   ViewChild
 } from '@angular/core';
 
-import {
-  FormsModule,
-  FormGroup,
-  FormBuilder
-} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { SohoButtonModule } from './soho-button.module';
 import { SohoTooltipModule } from '../tooltip/soho-tooltip.module';
@@ -64,6 +60,60 @@ describe('Soho Button Unit Tests', () => {
 
   it('is created', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('can get and set replaceText', () => {
+    expect(button.replaceText).toBeUndefined();
+
+    button.replaceText = true;
+    expect((button as any)._buttonOptions.replaceText).toBeTruthy();
+
+    button.replaceText = false;
+    expect((button as any)._buttonOptions.replaceText).toBeFalsy();
+  });
+
+  it('can get and set toggleOffIcon', () => {
+    expect(button.toggleOffIcon).toBeUndefined();
+    button.toggleOffIcon = 'heart';
+
+    expect((button as any)._buttonOptions.toggleOffIcon).toEqual('heart');
+  });
+
+  it('can get and set toggleOnIcon', () => {
+    expect(button.toggleOnIcon).toBeUndefined();
+    button.toggleOnIcon = 'heart';
+
+    expect((button as any)._buttonOptions.toggleOnIcon).toEqual('heart');
+  });
+
+  it('check hideMenuArrow', () => {
+    // const spy = spyOn((component as any).ref, 'markForCheck');
+
+    button.hideMenuArrow = false;
+
+    expect((button as any)._buttonOptions.hideMenuArrow).toBeFalsy();
+    expect((button as any).button.settings.hideMenuArrow).toBeFalsy();
+    // expect(spy).toHaveBeenCalled();
+  });
+
+  it('check hideMenuArrow sets option to true', () => {
+    // const spy = spyOn((component as any).ref, 'markForCheck');
+
+    button.hideMenuArrow = true;
+
+    expect((button as any)._buttonOptions.hideMenuArrow).toBeTruthy();
+    expect((button as any).button.settings.hideMenuArrow).toBeTruthy();
+    // expect(spy).toHaveBeenCalled();
+  });
+
+  it('check hideMenuArrow sets option to true, when no menuButton set', () => {
+    // const spy = spyOn((component as any).ref, 'markForCheck');
+
+    (button as any).button = undefined;
+    button.hideMenuArrow = true;
+
+    expect((button as any)._buttonOptions.hideMenuArrow).toBeTruthy();
+    // expect(spy).toHaveBeenCalledTimes(0);
   });
 
 });

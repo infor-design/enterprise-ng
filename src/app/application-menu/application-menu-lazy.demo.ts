@@ -54,4 +54,7 @@ export class ApplicationMenuLazyDemoComponent implements AfterViewInit, OnInit {
       this.applicationMenu.updated();
     }
   }
+  public openMenu() {
+    this.applicationMenu.openMenu(undefined, true, undefined);
+  }
 }

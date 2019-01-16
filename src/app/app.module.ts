@@ -6,9 +6,7 @@ import {
 } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -17,8 +15,6 @@ import { AppRoutingModule } from './app.routes';
 import { SohoComponentsModule } from 'ids-enterprise-ng';
 
 import { AboutDemoComponent } from './about/about.demo';
-import { AccordionDemoComponent } from './accordion/accordion.demo';
-import { AccordionPanelsDemoComponent } from './accordion/accordion-panels.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuDemoComponent } from './application-menu/application-menu.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
@@ -83,6 +79,7 @@ import {
 import { DataGridLookupClickDemoComponent } from './datagrid/datagrid-lookup-click-function.demo';
 import { DataGridLookupDialogDemoComponent } from './datagrid/datagrid-lookup-dialog.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
+import { DataGridDirtyIndicationDemoComponent } from './datagrid/datagrid-dirty-indication.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
 import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
@@ -92,6 +89,7 @@ import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.de
 import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-header.demo';
 import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-selection.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
+import { DatagridStandalonePagerDemoComponent } from './datagrid/datagrid-standalone-pager.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 import { DataGridRowReorderDemoComponent } from './datagrid/datagrid-rowreorder.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
@@ -144,6 +142,7 @@ import { MaskLegacyDemoComponent } from './mask/mask-legacy.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
+import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PieDemoComponent } from './pie/pie.demo';
 import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
@@ -155,6 +154,7 @@ import { SearchFieldDemoComponent } from './searchfield/searchfield.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
 import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
 import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
+import { SohoRenderLoopService } from '../../projects/ids-enterprise-ng/src/lib/renderLoop';
 import { SparklineDemoComponent } from './sparkline/sparkline.demo';
 import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
@@ -176,6 +176,7 @@ import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
 import { TagDemoComponent } from './tag/tag.demo';
+import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
 import { TextareaDemoComponent } from './textarea/textarea.demo';
 import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
@@ -204,15 +205,12 @@ import { WizardDemoResultPageComponent } from './wizard/wizard-result-page.demo'
 import { WizardDemoSelectFilePageComponent } from './wizard/wizard-selected-files-page.demo';
 import { WizardDemoTargetFolderPageComponent } from './wizard/wizard-target-folder-page.demo';
 import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validation-rules-page.demo';
-
-import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
+import { LocaleInitializerModule } from './locale-initializer/locale-initializer.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutDemoComponent,
-    AccordionDemoComponent,
-    AccordionPanelsDemoComponent,
     AlertDemoComponent,
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,
@@ -256,6 +254,7 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     DataGridCustomFormatterDemoComponent,
     DataGridCustomFormatterServiceDemoComponent,
     DemoCellDatePickerEditorComponent,
+    DataGridDirtyIndicationDemoComponent,
     DataGridDynamicDemoComponent,
     DataGridEditorsDemoComponent,
     DataGridEmptyMessageDemoComponent,
@@ -266,6 +265,7 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     DataGridLookupClickDemoComponent,
     DataGridMixedSelectionDemoComponent,
     DataGridPagingIndeterminateDemoComponent,
+    DatagridStandalonePagerDemoComponent,
     DataGridPagingServiceDemoComponent,
     DataGridRowReorderDemoComponent,
     DataGridServiceDemoComponent,
@@ -322,6 +322,7 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     MaskLegacyDemoComponent,
     MenuButtonDemoComponent,
     MessageDemoComponent,
+    PagerStandaloneDemoComponent,
     PieDemoComponent,
     PopDownDemoComponent,
     PopupMenuDemoComponent,
@@ -355,6 +356,7 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     TabsDynamicDemoComponent,
     TabsVerticalDemoComponent,
     TagDemoComponent,
+    TestTabsBasicComponent,
     TextareaDemoComponent,
     TimePickerDemoComponent,
     ToastDemoComponent,
@@ -383,8 +385,6 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     WizardDemoBackupRulePageComponent,
     WizardDemoResultPageComponent,
     WizardDemoValidationRulesPageComponent,
-
-    TestTabsBasicComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -395,11 +395,12 @@ import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
     ModalDialogDemoModule,
     ContextualActionPanelDemoModule,
     ReactiveFormsModule,
-    SohoComponentsModule
+    SohoComponentsModule,
+    LocaleInitializerModule
   ],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '/' },
-    ApplicationMenuLazyService
+    ApplicationMenuLazyService,
+    SohoRenderLoopService
   ],
   entryComponents: [
     DemoCellDatePickerEditorComponent,

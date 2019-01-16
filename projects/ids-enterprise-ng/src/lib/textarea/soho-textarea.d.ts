@@ -17,9 +17,18 @@ interface SohoTextAreaOptions {
 
   /** Text to display for maximum characters. */
   charMaxText?: string;
+
+  /** Sets the max character length available for a textarea.  */
+  maxLength?: number;
+  
+  /** Sets the trigger to make textarea growable.  */
+  autoGrow?: boolean;
+
+  /** Sets the maximum ceiling of growable textarea. */
+  autoGrowMaxHeight?: number;
 }
 
-interface SohoTextAreaEvent extends JQuery.Event {
+interface SohoTextAreaEvent extends JQuery.TriggeredEvent {
 }
 
 /**
@@ -55,6 +64,6 @@ interface JQueryStatic {
   element: SohoTextAreaStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   textarea(options?: SohoTextAreaOptions): JQuery;
 }

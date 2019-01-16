@@ -9,7 +9,7 @@ interface SohoFileUploadOptions {
   // no-op - no settings defined
 }
 
-interface SohoFileUploadEvent extends JQuery.Event {
+interface SohoFileUploadEvent extends JQuery.TriggeredEvent {
 }
 
 /**
@@ -39,6 +39,6 @@ interface JQueryStatic {
   fileupload: SohoFileUploadStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   fileupload(options?: SohoFileUploadOptions): JQuery;
 }

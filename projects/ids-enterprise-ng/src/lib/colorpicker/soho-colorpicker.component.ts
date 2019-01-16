@@ -52,6 +52,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   private isReadOnly: boolean = null;
   private isShowLabel: boolean = null;
   private isColorOnly: boolean = null;
+  private hasCustomColor: boolean = null;
   private clearableTextString = '';
   private options: SohoColorPickerOptions = {
     colors: undefined,
@@ -60,7 +61,8 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
     uppercase: true,
     colorOnly: false,
     clearable: true,
-    clearableText: null
+    clearableText: null,
+    customColors: false
   };
 
   /**
@@ -142,6 +144,19 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   }
 
   /**
+   * Enables or disables the clear option.
+   */
+  @Input() set customColors(value: boolean) {
+    this.hasCustomColor = value;
+    this.options.customColors = value;
+
+    if (this.colorpicker) {
+      this.colorpicker.settings.customColors = value;
+      this.markForRefresh();
+    }
+  }
+
+  /**
    * Enables or disables the colorOnly option.
    */
   @Input() set colorOnly(value: boolean) {
@@ -208,7 +223,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
    * Called when the colorpicker updates in some way.
    */
   @Output('updated')  // tslint:disable-line
-  updatedEvent: EventEmitter<Object> = new EventEmitter<JQuery.Event>();
+  updatedEvent: EventEmitter<Object> = new EventEmitter<JQuery.TriggeredEvent>();
 
   /**
    * Public API
@@ -277,7 +292,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
 
       // Add event binding
       this.jQueryElement
-        .on('change', (event: JQuery.Event) => this.onChanged(event));
+        .on('change', (event: JQuery.TriggeredEvent) => this.onChanged(event));
 
       this.runUpdatedOnCheck = true;
     });
@@ -331,7 +346,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
     return this;
   }
 
-  private onUpdated(event: JQuery.Event) {
+  private onUpdated(event: JQuery.TriggeredEvent) {
     // Fire the event, in the angular zone.
     this.ngZone.run(() => this.updatedEvent.next(event) );
   }
@@ -339,8 +354,6 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   /**
    * This function is called when the control status changes to or from "DISABLED".
    * Depending on the value, it will enable or disable the appropriate DOM element.
-   *
-   * @param isDisabled
    */
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;

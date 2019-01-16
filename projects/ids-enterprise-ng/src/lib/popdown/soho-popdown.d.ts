@@ -46,6 +46,6 @@ interface JQueryStatic {
   popdown: SohoPopDownStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   popdown(options?: SohoPopDownOptions): JQuery;
 }

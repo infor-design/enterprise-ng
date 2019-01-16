@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class DatagridTreegridServiceDemo {
@@ -6,7 +8,7 @@ export class DatagridTreegridServiceDemo {
   private _columns: SohoDataGridColumn[];
   private _data: Object[];
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   public getColumns(): SohoDataGridColumn[] {
     if (!this._columns) {
@@ -83,5 +85,9 @@ export class DatagridTreegridServiceDemo {
       {id: 16, alpha: 'N'},
       {id: 17, alpha: 'O'}
     ]
+  }
+
+  public getInitialFilterDemoData(): Observable<any> {
+    return this.http.get('./app/demodata/tree-filtering.demo.json');
   }
 }

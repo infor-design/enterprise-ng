@@ -70,7 +70,7 @@ interface SohoContextualActionPanelButton {
  */
 type SohoContextualActionPanelButtonClickFunction = (
   /** The event object. */
-  e: JQuery.Event,
+  e: JQuery.TriggeredEvent,
 
   /** The jQuery control.  */
   contextualactionpanel: SohoContextualActionPanelStatic) => void;
@@ -122,7 +122,7 @@ interface SohoContextualActionPanelStatic {
 /**
  * Integration with jQuery
  */
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   contextualactionpanel(options: SohoContextualActionPanelOptions): JQuery;
 }
 

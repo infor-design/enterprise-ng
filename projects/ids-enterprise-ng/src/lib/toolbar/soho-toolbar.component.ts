@@ -109,7 +109,7 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
       this.jQueryElement.toolbarsearchfield(this.options);
 
       // Initialize title attribute as a soho tooltip
-      if (this.jQueryElement.has('[title]')) {
+      if (this.jQueryElement.attr('title')) {
         this.jQueryElement.tooltip();
       }
 
@@ -211,6 +211,19 @@ export class SohoPageTitleComponent {
 })
 export class SohoSectionTitleComponent {
   @HostBinding('class.section-title') get isSectionTitle() { return true; }
+}
+
+/**
+ * soho selection count.
+ */
+@Component({
+  selector: 'div[soho-selection-count]', // tslint:disable-line
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoSelectionCountComponent {
+  @HostBinding('class.title') get isTitle() { return true; }
+  @HostBinding('class.selection-count') get isSelectionCount() { return true; }
 }
 
 /**
@@ -418,20 +431,20 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
       this.toolbar = this.jQueryElement.data('toolbar');
 
       // bind to jquery events and emit as angular events
-      this.jQueryElement.on('beforeactivated', (event: JQuery.Event) =>
+      this.jQueryElement.on('beforeactivated', (event: JQuery.TriggeredEvent) =>
         this.ngZone.run(() => this.beforeActivated.emit(event)));
 
-      this.jQueryElement.on('activated', (event: JQuery.Event) =>
+      this.jQueryElement.on('activated', (event: JQuery.TriggeredEvent) =>
         this.ngZone.run(() => this.activated.emit(event)));
 
-      this.jQueryElement.on('afteractivated', (event: JQuery.Event) =>
+      this.jQueryElement.on('afteractivated', (event: JQuery.TriggeredEvent) =>
         this.ngZone.run(() => this.afterActivated.emit(event)));
 
-      this.jQueryElement.on('selected', (event: JQuery.Event, item: HTMLButtonElement | HTMLAnchorElement) =>
+      this.jQueryElement.on('selected', (event: JQuery.TriggeredEvent, item: HTMLButtonElement | HTMLAnchorElement) =>
         this.ngZone.run(() => this.selected.emit({event, item})));
 
       // Returns original button info on mouseover event
-      this.jQueryElement.find('.more').on('mouseover', 'li.submenu', ((event: JQuery.Event) => {
+      this.jQueryElement.find('.more').on('mouseover', 'li.submenu', ((event: JQuery.TriggeredEvent) => {
         const originalButton: HTMLButtonElement = jQuery(event.target).data('originalButton');
         if (originalButton !== undefined) {
           this.ngZone.run(() => this.menuItemMouseOver.emit(originalButton));

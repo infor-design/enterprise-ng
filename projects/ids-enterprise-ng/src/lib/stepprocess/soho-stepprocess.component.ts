@@ -220,7 +220,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.stepprocess(this.stepProcessOptions);
     this.stepprocess = this.jQueryElement.data('stepprocess');
     this.jQueryElement.find('.js-btn-save-changes').
-    on('click', (e: JQuery.Event) => { this.fireOnSaveClose(); });
+    on('click', (e: JQuery.TriggeredEvent) => { this.fireOnSaveClose(); });
   }
 
   private beforeSelectStepPromise = (args: { stepLink: JQuery, isStepping: StepDirection }): JQueryPromise<boolean> => {

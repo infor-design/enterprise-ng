@@ -120,16 +120,16 @@ export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDe
       this.chart = this.jQueryElement.data('chart');
 
       // bind to jquery events and emit as angular events
-      this.jQueryElement.on('selected', (event: JQuery.Event, ui: any, data: any) =>
+      this.jQueryElement.on('selected', (event: JQuery.TriggeredEvent, ui: any, data: any) =>
         this.ngZone.run(() => this.selected.emit({ event, ui, data })));
 
-      this.jQueryElement.on('unselected', (event: JQuery.Event, ui: any, data: any) =>
+      this.jQueryElement.on('unselected', (event: JQuery.TriggeredEvent, ui: any, data: any) =>
         this.ngZone.run(() => this.unselected.emit({ event, ui, data })));
 
-      this.jQueryElement.on('rendered', (event: JQuery.Event, ui: any, data: any) =>
+      this.jQueryElement.on('rendered', (event: JQuery.TriggeredEvent, ui: any, data: any) =>
         this.ngZone.run(() => this.rendered.emit({ event, ui, data })));
 
-      this.jQueryElement.on('contextmenu', (event: JQuery.Event, ui: any, data: any) =>
+      this.jQueryElement.on('contextmenu', (event: JQuery.TriggeredEvent, ui: any, data: any) =>
         this.ngZone.run(() => this.contextmenu.emit({ event, ui, data })));
     });
   }

@@ -1,4 +1,4 @@
-interface SohoSpinboxEvent extends JQuery.Event {
+interface SohoSpinboxEvent extends JQuery.TriggeredEvent {
 }
 
 /*
@@ -25,6 +25,6 @@ interface JQueryStatic {
   spinbox: SohoSpinboxStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   spinbox(options?: SohoSpinboxOptions): JQuery;
 }

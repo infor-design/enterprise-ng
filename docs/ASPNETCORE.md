@@ -2,7 +2,7 @@
 
 ## Creating an ASP.NET Core SPA Application
 
-Install the .NET Core 2.1 SDK.
+Install the .NET Core 2.2.x SDK.
 
 You can check what version of donet you have using the command `dotnet --version`.
 

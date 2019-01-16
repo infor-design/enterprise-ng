@@ -88,6 +88,8 @@ interface SohoHierarchyAction {
   value: string;
   url?: string;
   actionReference?: any;
+  data?: any;
+  disabled?: boolean;
 }
 
 interface SohoHierarchyDoubleClickEvent {
@@ -108,6 +110,6 @@ interface JQueryStatic {
   hierarchy: SohoHierarchyStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   hierarchy(options?: SohoHierarchyOptions): JQuery;
 }

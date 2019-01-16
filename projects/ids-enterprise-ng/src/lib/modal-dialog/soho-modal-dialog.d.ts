@@ -93,7 +93,7 @@ interface SohoModalButton {
  */
 type SohoModalButtonClickFunction = (
   /** The event object. */
-  e: JQuery.Event,
+  e: JQuery.TriggeredEvent,
 
   /** The jQuery control.  */
   model: SohoModalStatic) => void;
@@ -140,7 +140,7 @@ interface SohoModalStatic {
 /**
  * Integration with jQuery
  */
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   modal(options: SohoModalOptions): JQuery;
 }
 

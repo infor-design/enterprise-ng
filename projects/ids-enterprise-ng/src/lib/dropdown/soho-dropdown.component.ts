@@ -319,13 +319,13 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Called when the dropdown value changes
    */
   @Output()
-  change: EventEmitter<JQuery.Event> = new EventEmitter<JQuery.Event>();
+  change: EventEmitter<JQuery.TriggeredEvent> = new EventEmitter<JQuery.TriggeredEvent>();
 
   /**
    * Called when the dropdown updates in some way.
    */
   @Output('updated') // tslint:disable-line
-  updatedEvent: EventEmitter<Object> = new EventEmitter<JQuery.Event>();
+  updatedEvent: EventEmitter<Object> = new EventEmitter<JQuery.TriggeredEvent>();
 
   /**
    * Bind attributes to the host select element
@@ -392,9 +392,9 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
 
       // @todo - add event binding control so we don't bind if not required.
       this.jQueryElement
-        .on('change', (event: JQuery.Event) => this.onChanged(event))
-        .on('updated', (event: JQuery.Event) => this.onUpdated(event))
-        .on('requestend', (event: JQuery.Event, searchTerm: string, data: any[]) => this.onRequestEnd(event, searchTerm, data));
+        .on('change', (event: JQuery.TriggeredEvent) => this.onChanged(event))
+        .on('updated', (event: JQuery.TriggeredEvent) => this.onUpdated(event))
+        .on('requestend', (event: JQuery.TriggeredEvent, searchTerm: string, data: any[]) => this.onRequestEnd(event, searchTerm, data));
 
       this.runUpdatedOnCheck = true;
     });
@@ -434,7 +434,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * @param data any data passed by the dropdown (todo the type)
    *
    */
-  private onRequestEnd(event: JQuery.Event, searchTerm: string, data: any[]) {
+  private onRequestEnd(event: JQuery.TriggeredEvent, searchTerm: string, data: any[]) {
     // When the request for data has completed, make sure we
     // update the 'dropdown' control.
     this.ngZone.run(() => {
@@ -443,7 +443,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
 
   }
 
-  private onUpdated(event: JQuery.Event) {
+  private onUpdated(event: JQuery.TriggeredEvent) {
     // Fire the event, in the angular zone.
     this.ngZone.run(() => this.updatedEvent.next(event));
   }
@@ -493,9 +493,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   // -------------------------------------------
   // Component Input
   // -------------------------------------------
-  /**
-   * @param disabled
-   */
+
   @Input() set disabled(value: boolean) {
     if (this.dropdown) {
       if (value) {
@@ -509,9 +507,6 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     }
   }
 
-  /**
-   * @param readonly
-   */
   @Input() set readonly(value: boolean) {
     if (this.dropdown) {
       if (value) {

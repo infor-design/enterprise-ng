@@ -10,18 +10,45 @@ Consuming the `ids-enterprise-ng` package will require changes to any projects r
 
 ### Upgrade Angular and Angular/CLI
 
-These instructions assume you will be running the latest versions of `@angular/cli` and `@angular/core`. It is recommended that you review the information on <http://update.anguar.com> before updating.
+These instructions assume you will be running the latest versions of `@angular/cli` and `@angular/core`. It is recommended that you review the information on <https://update.angular.io> before updating.
+
+Note: The libraries are currently compiled using angular 7, and so require all consumers to use the same major version.
 
 These are the steps for upgrading existing projects:
 
 ```sh
 npm install @angular/cli
-ng update @angular/cli
-ng update @angular/core
+ng update @angular/cli @angular/core
 ng update
 ```
 
 You will need to fix any issues raised, as these will depend on the dependency tree created by the packages you use and what version you are upgrading from.
+
+#### Angular 7
+
+When updating (and depending on your dependencies) the update may not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install TypeScript 3.1.3 first, as follows:
+
+```sh
+npm i typescript@3.1.3
+```
+
+Then try again.
+
+Also note that some packages may not be updated automatically, for example the following failed when updating the `ids-enterprise-quickstart` application:
+
+- codelyzer - the recommended version at the time of writing is ~4.5.0
+- @angular-devkit/build-angular - the recommended version at the time of writing is ~0.10.0
+
+Simply update these manually:
+
+```sh
+npm i codelyzer@4.5.0
+npm i @angular-devkit/build-angular@0.10.0
+```
+
+Then try again.
+
+If your project includes sub-projects (`angular/cli` libraries) then you may find additional issues similar to the above, the general approach is to determine the package with the compatibility problem and install a compatible version before running `ng update`.
 
 ### Uninstall old dependencies
 
@@ -31,6 +58,8 @@ These are now included as part of the ids-enterprise-ng package):
 npm uninstall ids-enterprise -S
 npm uninstall jquery -S
 npm uninstall @types/jquery -S
+npm uninstall d3 -S
+npm uninstall @types/d3 -S
 ```
 
 Install the latest `ids-enterprise-ng` components.

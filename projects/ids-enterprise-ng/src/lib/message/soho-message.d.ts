@@ -28,8 +28,14 @@ interface SohoMessageOptions {
   /** Width in pixels or auto. */
   width?: number | 'auto';
 
+  /** The type of icon to show. */
+  status?: string;
+
   /** Additional dialog styling. */
   cssClass?: string;
+
+  /** Set allowed tags */
+  allowedTags?: string;
 
   /** The buttons to create. */
   buttons?: SohoModalButton[];
@@ -67,7 +73,7 @@ interface SohoMessageStatic {
 /**
  * Integration with jQuery
  */
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   message(options: SohoMessageOptions): JQuery;
 }
 

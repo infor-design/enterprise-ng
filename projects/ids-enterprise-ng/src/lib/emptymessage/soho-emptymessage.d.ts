@@ -67,7 +67,7 @@ interface SohoEmptyMessageButtonOptions {
   id?: string;
 
   /**
-   * Click function - @todo not working
+   * Click function
    */
   click?: Function;
 }
@@ -100,7 +100,7 @@ interface SohoEmptyMessageStatic {
 /**
  * Integration with jQuery
  */
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   emptymessage(options: SohoEmptyMessageOptions): JQuery;
 }
 

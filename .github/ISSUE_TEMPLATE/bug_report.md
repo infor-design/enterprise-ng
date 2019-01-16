@@ -17,6 +17,9 @@ Steps to reproduce the behavior:
 **Expected behavior**
 A clear and concise description of what you expected to happen.
 
+**Version**
+- ids-enterprise-ng: [e.g. v4.9.0 or v4.10.0]
+
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 

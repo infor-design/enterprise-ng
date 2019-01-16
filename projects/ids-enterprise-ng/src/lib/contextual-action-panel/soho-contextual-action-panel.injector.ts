@@ -10,9 +10,6 @@ import { SohoContextualActionPanelRef } from './soho-contextual-action-panel.ref
 export class SohoContextualActionPanelInjector implements Injector {
   /**
    * Constructor.
-   *
-   * @param contextualActionPanelRef
-   * @param baseInjector
    */
   constructor(
     private contextualActionPanelRef: SohoContextualActionPanelRef<any>,

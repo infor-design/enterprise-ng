@@ -24,7 +24,7 @@ interface SohoTooltipOptions {
 /**
  * Customised event object.
  */
-interface SohoTooltipEvent extends JQuery.Event {
+interface SohoTooltipEvent extends JQuery.TriggeredEvent {
 
 }
 
@@ -43,7 +43,7 @@ interface SohoTooltipStatic {
 /**
  * JQuery Integration
  */
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   tooltip(options?: SohoTooltipOptions): JQuery;
 }
 

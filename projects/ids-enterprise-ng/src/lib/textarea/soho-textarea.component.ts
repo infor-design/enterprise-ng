@@ -28,6 +28,7 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
   // Options Block
   // -------------------------------------------
 
+  private textStatic: SohoTextAreaStatic;
   private options: SohoTextAreaOptions = {};
 
   /**
@@ -39,9 +40,7 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
   // -------------------------------------------
   // Component Input
   // -------------------------------------------
-  /**
-   * @param disabled
-   */
+
   @Input() set disabled(value: boolean) {
     this.isDisabled = value;
 
@@ -57,9 +56,6 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     }
   }
 
-  /**
-   * @param readonly
-   */
   @Input() set readonly(value: boolean) {
     this.isReadOnly = value;
 
@@ -75,42 +71,54 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     }
   }
 
-  /**
-   * @param resizable
-   */
   @HostBinding('class.resizable')
   @Input() resizable: boolean = null;
 
-  /**
-   * @param maxlength
-   */
-  @HostBinding('attr.maxlength')
-  @Input() maxlength: number;
+  @Input() set maxLength(maxLength: number) {
+    this.options.maxLength = maxLength;
+    if (this.textStatic) {
+      this.textStatic.settings.maxLength = maxLength;
+    }
+  }
 
-  /**
-   * @param characterCounter
-   */
+  get maxLength() {
+    return this.options.maxLength;
+  }
+
+  @Input() set autoGrow(autoGrow: boolean) {
+    this.options.autoGrow = autoGrow;
+    if (this.textStatic) {
+      this.textStatic.settings.autoGrow = autoGrow;
+    }
+  }
+
+  get autoGrow() {
+    return this.options.autoGrow;
+  }
+
+  @Input() set autoGrowMaxHeight(autoGrowMaxHeight: number) {
+    this.options.autoGrowMaxHeight = autoGrowMaxHeight;
+    if (this.textStatic) {
+      this.textStatic.settings.autoGrowMaxHeight = autoGrowMaxHeight;
+    }
+  }
+
+  get autoGrowMaxHeight() {
+    return this.options.autoGrowMaxHeight;
+  }
+
   @Input() set characterCounter(characterCounter: boolean) {
     this.options.characterCounter = characterCounter;
   }
 
-  /**
-   * @param printable
-   */
   @Input() set printable(printable: boolean) {
     this.options.printable = printable;
   }
 
-  /**
-   * @param charRemainingText
-   */
   @Input() set charRemainingText(charRemainingText: string) {
     this.options.charRemainingText = charRemainingText;
   }
 
-  /**
-   * @param charMaxText
-   */
   @Input() set charMaxText(charMaxText: string) {
     this.options.charMaxText = charMaxText;
   }
@@ -213,8 +221,6 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
   /**
    * This function is called when the control status changes to or from "DISABLED".
    * Depending on the value, it will enable or disable the appropriate DOM element.
-   *
-   * @param isDisabled
    */
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;

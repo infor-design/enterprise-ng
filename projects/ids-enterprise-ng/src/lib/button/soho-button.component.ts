@@ -81,15 +81,35 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   @Input() set toggleOnIcon(toggleOnIcon: string) {
     this._buttonOptions.toggleOnIcon = toggleOnIcon;
     if (this.jQueryElement) {
-      // todo: how to update the button when toggleOnIcon change?
+      // todo: how to update the button when toggleOnIcon changes?
     }
   }
 
   @Input() set toggleOffIcon(toggleOffIcon: string) {
     this._buttonOptions.toggleOffIcon = toggleOffIcon;
     if (this.jQueryElement) {
-      // todo: how to update the button when toggleOffIcon change?
+      // todo: how to update the button when toggleOffIcon changes?
     }
+  }
+
+  @Input() set replaceText(replaceText: boolean) {
+    this._buttonOptions.replaceText = replaceText;
+    if (this.jQueryElement) {
+      this.button.settings.replaceText = replaceText;
+      // todo: how to update the button when replaceText changes?
+    }
+  }
+
+  @Input() set hideMenuArrow(value: boolean) {
+    this._buttonOptions.hideMenuArrow = value;
+    if (this.button) {
+      this.button.settings.hideMenuArrow = value;
+      // todo: how to update the button when hideMenuArrow changes?
+    }
+  }
+
+  get hideMenuArrow() {
+    return this._buttonOptions.hideMenuArrow;
   }
 
   /**
@@ -279,7 +299,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
       }
     });
 
-    // There are no 'extra' event handler for button.
+    // There are no 'extra' event handlers for button.
   }
 
   /**

@@ -1,7 +1,9 @@
 <div class="row top-padding">
   <div class="twelve columns">
 
-    <button soho-menu-button menu="action-popupmenu"
+    <button soho-button (click)="toggleBtn()">Toggle</button>
+
+    <button soho-menu-button *ngIf="toggle" menu="action-popupmenu"
             (selected)="onSelected($event)"
             (beforeopen)="onBeforeOpen($event)"
             (close)="onClose($event)"
@@ -17,11 +19,8 @@
       <li soho-popupmenu-item isSelectable="true"><a soho-popupmenu-label>Protect Sheet Rules</a></li>
     </ul>
 
-    <button soho-menu-button icon="user" menu="action-popupmenu2"
-      (selected)="onSelected($event)"
-      [showArrow]="false">
-    </button>
-    <ul soho-popupmenu id="action-popupmenu2">
+    <button soho-menu-button icon="user" menu="user-popupmenu" data-options="{'hideMenuArrow': true}" [hideMenuArrow]="true" (selected)="onSelected($event)"></button>
+    <ul soho-popupmenu id="user-popupmenu">
       <li><a soho-popupmenu-label>Admin</a></li>
       <li soho-popupmenu-separator></li>
       <li soho-popupmenu-item><a id="signout">Sign out</a></li>
@@ -49,7 +48,6 @@
       <li soho-popupmenu-item id="bubble"><a soho-popupmenu-label>Bubble Chart</a></li>
     </ul>
 
-    <!-- dynamic -->
     <ng-template ngFor let-b [ngForOf]="menuButtons">
       <button soho-menu-button [icon]="b?.icon">
         <span>{{b?.label}}</span>
@@ -61,7 +59,6 @@
       </ul>
     </ng-template>
 
-    <!-- ajax menu button -->
     <button #ajax soho-menu-button menu="ajax-popup"
       (selected)="onSelected($event)">
       <span>Ajax Menu</span>

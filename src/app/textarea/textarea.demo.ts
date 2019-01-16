@@ -20,6 +20,7 @@ export class TextareaDemoComponent implements OnInit {
     disableText: 'This text is disable',
     readonlyText: 'This text is readonly',
     modifiableText: 'This text is modifiable',
+    growableText: 'This text is growable'
   };
   public showModel = false;
   public textAreaDisabled = false;

@@ -51,6 +51,6 @@ interface SohoTreemap{
   destroy(): void;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   treemap(options?: SohoTreemapOptions): JQuery;
 }

@@ -46,7 +46,7 @@ interface SohoApplicationMenuStatic {
    *
    * param noFocus - if set the current focus is not modified.
    */
-  openMenu(noFocus?: boolean): void;
+  openMenu(noFocus?: boolean, userOpened?: boolean, openedByClass?: boolean): void;
 
   /**
    * Closes the application menu.
@@ -57,7 +57,7 @@ interface SohoApplicationMenuStatic {
    * Add and remove application nav menu triggers.
    *
    * @param triggers - list of triggers
-   * @param remove - if set the the triggers will be removed.
+   * @param remove - if set the triggers will be removed.
    * @param norebuild - if set this control's events won't automatically be rebound to include
    *                    the new triggers.
    */
@@ -91,6 +91,6 @@ interface JQueryStatic {
   applicationmenu: SohoApplicationMenuStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   applicationmenu(options?: SohoApplicationMenuOptions): JQuery;
 }

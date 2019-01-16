@@ -1,7 +1,7 @@
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
-  Component,
+  Component, OnInit,
   ViewChild
 } from '@angular/core';
 
@@ -20,10 +20,15 @@ import {
   templateUrl: './datagrid-standard-formatter.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DataGridStandardFormatterDemoComponent implements AfterViewInit {
+export class DataGridStandardFormatterDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
-  ngAfterViewInit(): void {
+  gridOptions = undefined;
+  ngOnInit(): void {
+    this.gridOptions = this.buildGridOptions();
+  }
+
+  private buildGridOptions() {
     /**
      * Add a column for the custom formatter
      */
@@ -58,7 +63,7 @@ export class DataGridStandardFormatterDemoComponent implements AfterViewInit {
 
     const columns = [ ...PAGING_COLUMNS, statusColumn, ratedColumn ];
 
-    const gridOptions: SohoDataGridOptions = {
+    return {
       columns: columns,
       dataset: PAGING_DATA,
       selectable: 'single',
@@ -66,7 +71,5 @@ export class DataGridStandardFormatterDemoComponent implements AfterViewInit {
       pagesize: 10,
       stretchColumn: 'rated'
     };
-
-    this.sohoDataGridComponent.gridOptions = gridOptions;
   }
 }

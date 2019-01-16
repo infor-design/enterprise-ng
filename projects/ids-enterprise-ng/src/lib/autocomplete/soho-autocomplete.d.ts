@@ -48,6 +48,11 @@ interface SohoAutoCompleteOffset {
   left?: number | string;
 }
 
+interface SohoAutoCompleteEvent {
+  elem?: HTMLElement;
+  value?: string;
+}
+
  interface SohoAutoCompleteStatic {
    /** Destructor. */
    destroy(): void;
@@ -72,6 +77,8 @@ interface JQueryStatic {
   autocomplete: SohoAutoCompleteStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   autocomplete(options?: SohoAutoCompleteOptions): JQuery
+
+  on(events: 'beforeopen', handler: JQuery.EventHandlerBase<any, SohoAutoCompleteEvent>): this;
 }

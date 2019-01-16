@@ -1,4 +1,4 @@
-interface SohoProgressEvent extends JQuery.Event {
+interface SohoProgressEvent extends JQuery.TriggeredEvent {
 }
 
 /*
@@ -22,6 +22,6 @@ interface JQueryStatic {
   progress: SohoProgressStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   progress(options?: SohoProgressOptions): JQuery;
 }

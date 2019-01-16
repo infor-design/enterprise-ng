@@ -98,8 +98,6 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
 
   /**
    * Update actions for action menu on a leaf
-   * @param eventInfo
-   * @param updatedActions
    */
   updateActions(eventInfo: SohoHierarchyEvent, updatedActions: Array<SohoHierarchyAction>) {
     this.hierarchy.updateActions(eventInfo, updatedActions);
@@ -107,7 +105,6 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
 
   /**
    * Manually select leaf by id
-   * @param leafId
    */
   selectLeaf(leafId: string) {
     this.hierarchy.selectLeaf(leafId);
@@ -130,12 +127,12 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
 
     // Initialize any event handlers.
     this.jQueryElement
-        .on('selected', ( (e: JQuery.Event, args: SohoHierarchyEvent) => {
+        .on('selected', ( (e: JQuery.TriggeredEvent, args: SohoHierarchyEvent) => {
           this.selected.next(args);
         }));
 
     this.jQueryElement
-        .on ('dblclick', ( (e: JQuery.Event, args: SohoHierarchyDoubleClickEvent) => {
+        .on ('dblclick', ( (e: JQuery.TriggeredEvent, args: SohoHierarchyDoubleClickEvent) => {
           this.doubleClick.next(args);
         }));
 

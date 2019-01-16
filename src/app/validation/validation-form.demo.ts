@@ -38,7 +38,7 @@ export class ValidationFormDemoComponent {
 
   public onClickReset() {
     this.validateDirectives.forEach((item) => {
-      item.removeMessage('error');
+      item.removeMessage({ id: 'required', type: 'error' });
     });
   }
 }

@@ -72,11 +72,11 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
 
       // Add event handlers for the outer tag list.
       this.jQueryElement
-        .on('aftertagremove', (e: JQuery.Event) => this.onAfterTagRemove(e) );
+        .on('aftertagremove', (e: JQuery.TriggeredEvent) => this.onAfterTagRemove(e) );
     });
   }
 
-  private onAfterTagRemove(e: JQuery.Event) {
+  private onAfterTagRemove(e: JQuery.TriggeredEvent) {
     this.ngZone.run(() =>
       this.afterRemove.next(e));
   }
@@ -181,10 +181,6 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
 
   /**
    * Creates an instance of SohoTagComponent.
-   *
-   * @param element
-   * @param ngZone
-   *
    */
   constructor(
     private element: ElementRef,
@@ -207,17 +203,17 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
       // this.jQueryElement
 
       this.jQueryElement
-        .on('beforetagremove', (e: JQuery.Event, element: HTMLElement) => this.onBeforeTagRemove(e, element) )
-        .on('click', (e: JQuery.Event) => this.onClick(e) );
+        .on('beforetagremove', (e: JQuery.TriggeredEvent, element: HTMLElement) => this.onBeforeTagRemove(e, element) )
+        .on('click', (e: JQuery.TriggeredEvent) => this.onClick(e) );
     });
   }
 
-  private onBeforeTagRemove(event: JQuery.Event, element: HTMLElement) {
+  private onBeforeTagRemove(event: JQuery.TriggeredEvent, element: HTMLElement) {
     this.ngZone.run(() =>
       this.beforeRemove.next(event));
   }
 
-  private onClick(event: JQuery.Event) {
+  private onClick(event: JQuery.TriggeredEvent) {
     this.ngZone.run(() =>
       this.click.next(event));
   }

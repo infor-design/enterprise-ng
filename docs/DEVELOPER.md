@@ -10,19 +10,19 @@
 
 - Clone The main repo fx `git clone https://github.com/infor-design/enterprise-ng.git`
 - Open a command prompt to enterprise-ng
-- Type `npm install -g @angular/cli@latest`
 - Type `npm i`
 - Type `npm run build`
-- Type `ng serve`
+- Type `npm start`
+
+Optionally, the Angular CLI can be installed globally by using `npm install -g @angular/cli` but is not recommended since the global version may become out-of-sync with the version depended on by this library.
 
 ## Initial Setup with yarn
 
 - Clone The main repo fx `git clone https://github.com/infor-design/enterprise-ng.git`
 - Open a command prompt to enterprise-ng
-- Type `npm install -g @angular/cli@latest`
 - Type `yarn`
 - Type `npm run build`
-- Type `ng serve`
+- Type `npm start`
 
 ## Component Structure
 
@@ -74,7 +74,7 @@ interface JQueryStatic {
   widget: SohoWidgetStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   widget(options?: SohoWidgetOptions): JQuery;
 }
 ```

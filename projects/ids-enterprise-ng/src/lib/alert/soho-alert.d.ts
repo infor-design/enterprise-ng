@@ -46,7 +46,7 @@ interface SohoAlertStatic {
   destroy(): void;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   addError(options?: SohoAlertOptions): JQuery;
 
   addMessage(options?: SohoAlertOptions): JQuery;

@@ -47,7 +47,7 @@ interface SohoSliderTick {
 /**
  * Type safe Slider event object.
  */
-interface SohoSliderEvent extends JQuery.Event {
+interface SohoSliderEvent extends JQuery.TriggeredEvent {
   data: any;
 }
 
@@ -99,6 +99,6 @@ interface JQueryStatic {
   slider: SohoSliderStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   slider(options: SohoSliderOptions): JQuery;
 }

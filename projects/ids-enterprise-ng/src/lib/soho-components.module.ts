@@ -44,6 +44,7 @@ import { SohoMastheadModule } from './masthead/soho-masthead.module';
 import { SohoMenuButtonModule } from './menu-button/soho-menu-button.module';
 import { SohoMessageModule } from './message/soho-message.module';
 import { SohoModalDialogModule } from './modal-dialog/soho-modal-dialog.module';
+import { SohoPagerModule } from './pager/soho-pager.module';
 import { SohoPersonalizeModule } from './personalize/soho-personalize.module';
 import { SohoPieModule } from './pie/soho-pie.module';
 import { SohoProgressModule } from './progress/soho-progress.module';
@@ -52,6 +53,7 @@ import { SohoPopupMenuModule } from './popupmenu/soho-popupmenu.module';
 import { SohoRadarModule } from './radar/soho-radar.module';
 import { SohoRadioButtonModule } from './radiobutton/soho-radiobutton.module';
 import { SohoRatingModule } from './rating/soho-rating.module';
+import { SohoRenderLoopModule } from './renderLoop/soho-render-loop.module';
 import { SohoSearchFieldModule } from './searchfield/soho-searchfield.module';
 import { SohoSliderModule } from './slider/soho-slider.module';
 import { SohoSparklineModule } from './sparkline/soho-sparkline.module';
@@ -118,6 +120,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoMenuButtonModule,
     SohoMessageModule,
     SohoModalDialogModule,
+    SohoPagerModule,
     SohoPersonalizeModule,
     SohoPieModule,
     SohoPopDownModule,
@@ -126,6 +129,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoRadarModule,
     SohoRadioButtonModule,
     SohoRatingModule,
+    SohoRenderLoopModule,
     SohoSearchFieldModule,
     SohoSparklineModule,
     SohoSplitterModule,
@@ -191,6 +195,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoMastheadModule,
     SohoMenuButtonModule,
     SohoModalDialogModule,
+    SohoPagerModule,
     SohoPersonalizeModule,
     SohoPieModule,
     SohoPopDownModule,
@@ -199,6 +204,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoRadarModule,
     SohoRadioButtonModule,
     SohoRatingModule,
+    SohoRenderLoopModule,
     SohoSearchFieldModule,
     SohoSliderModule,
     SohoSparklineModule,

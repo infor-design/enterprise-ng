@@ -15,10 +15,12 @@
     <button soho-button [disabled]="colorPickerDisabled" (click)="setDisable()">Disable</button>
     <button soho-button (click)="setEditable()">Make {{colorPickerEditable ? 'Not' : ''}} Editable</button>
     <button soho-button [disabled]="!colorPickerDisabled && !colorPickerReadOnly" (click)="setEnable()">Enable</button>
+    <button soho-button (click)="changeCustomColors()">Custom Colors</button>
     <button soho-button (click)="changeColors()">Change Colors</button>
     <button soho-button (click)="toggleLabel()">{{showLabel ? 'Show Hex Value' : 'Show Label'}}</button>
     <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
     <button soho-button (click)="setClearable()">{{colorPickerClearable ? 'Hide' : 'Show'}} Clear Option</button>
+
     <div *ngIf="showModel">
       <br>
       <h3>{{ model | json }}</h3>

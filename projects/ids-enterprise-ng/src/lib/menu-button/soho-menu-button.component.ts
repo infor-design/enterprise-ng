@@ -31,11 +31,16 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   /** The enterprise widget api. */
   private menuButton: SohoPopupMenuStatic;
 
+  /** The button widget api */
+  private button: SohoButtonStatic;
+
   // -------------------------------------------
   // Default options block
   // -------------------------------------------
 
   private options: SohoPopupMenuOptions = {};
+
+  private buttonOptions: SohoButtonOptions = {};
 
   /**
    * Flag to force an update of the control after the view is created.
@@ -116,6 +121,18 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
     }
   }
 
+  @Input() set hideMenuArrow(value: boolean) {
+    this.buttonOptions.hideMenuArrow = value;
+    if (this.button) {
+      this.button.settings.hideMenuArrow = value;
+      // todo: how to update the button when hideMenuArrow changes?
+    }
+  }
+
+  get hideMenuArrow(): boolean {
+    return this.buttonOptions.hideMenuArrow;
+  }
+
   constructor(
     private element: ElementRef,
     private ref: ChangeDetectorRef,
@@ -128,6 +145,12 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
 
       // Wrap the element in a jQuery selector.
       this.jQueryElement = jQuery(this.element.nativeElement);
+
+      // Initialise the soho-button widget.
+      this.jQueryElement.button(this.buttonOptions);
+
+      // Retrieve the soho button api.
+      this.button = this.jQueryElement.data('button');
 
       // Initialise the SohoXi Control
       this.jQueryElement.popupmenu(this.options);
@@ -142,43 +165,41 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
 
       // Add listeners to emit events
       this.jQueryElement
-        .on('selected', (e: JQuery.Event, args: JQuery) => this.onSelected(e, args))
-        .on('beforeopen', (e: JQuery.Event, args: JQuery) => this.onBeforeOpen(e, args))
-        .on('close', (e: JQuery.Event, args: JQuery) => this.onClose(e, args))
-        .on('open', (e: JQuery.Event, args: JQuery) => this.onOpen(e, args));
+        .on('selected', (e: JQuery.TriggeredEvent, args: JQuery) => this.onSelected(e, args))
+        .on('beforeopen', (e: JQuery.TriggeredEvent, args: JQuery) => this.onBeforeOpen(e, args))
+        .on('close', (e: JQuery.TriggeredEvent, args: JQuery) => this.onClose(e, args))
+        .on('open', (e: JQuery.TriggeredEvent, args: JQuery) => this.onOpen(e, args));
     });
   }
 
   ngAfterViewChecked() {
     if (this.runUpdatedOnCheck) {
       this.ngZone.runOutsideAngular(() => {
-        if (this.menuButton) {
-          this.menuButton.updated();
-        }
+        this.menuButton.updated();
         this.runUpdatedOnCheck = false;
       });
     }
   }
 
-  private onSelected(e: JQuery.Event, args: JQuery) {
+  private onSelected(e: JQuery.TriggeredEvent, args: JQuery) {
     this.ngZone.run(() => {
       this.selected.emit({ e, args });
     });
   }
 
-  private onBeforeOpen(e: JQuery.Event, args: JQuery) {
+  private onBeforeOpen(e: JQuery.TriggeredEvent, args: JQuery) {
     this.ngZone.run(() => {
       this.beforeopen.emit({ e, args });
     });
   }
 
-  private onClose(e: JQuery.Event, args: JQuery) {
+  private onClose(e: JQuery.TriggeredEvent, args: JQuery) {
     this.ngZone.run(() => {
       this.close$.emit({ e, args });
     });
   }
 
-  private onOpen(e: JQuery.Event, args: JQuery) {
+  private onOpen(e: JQuery.TriggeredEvent, args: JQuery) {
     this.ngZone.run(() => {
       this.open$.emit({ e, args });
     });
@@ -202,9 +223,9 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
     });
   }
 
-  public open(event: JQuery.Event): void {
+  public open(event: JQuery.TriggeredEvent, ajaxReturn?: boolean, useDelay?: boolean): void {
     this.ngZone.runOutsideAngular(() => {
-      this.menuButton.open(event);
+      this.menuButton.open(event, ajaxReturn, useDelay);
     });
   }
 
@@ -220,6 +241,11 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
         // @todo raise an issue on this failing on removeData!
         this.menuButton.destroy();
         this.menuButton = null;
+      }
+
+      if (this.button) {
+        this.button.destroy();
+        this.button = null;
       }
     });
   }

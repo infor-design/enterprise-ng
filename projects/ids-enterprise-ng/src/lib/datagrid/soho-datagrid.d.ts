@@ -702,6 +702,12 @@ interface SohoDataGridColumn {
   /** Tooltip for the content of a column cell. */
   contentTooltip?: boolean;
 
+  /** Minimum width of the column (in pixels). */
+  minWidth?: number;
+
+  /** If true the text will be transformed to upper case in readonly view. Also in edit mode uppercase will be enforced. */
+  uppercase?: boolean;
+
   /**
    *  Option for tree datagrid
    *  If false children nodes will not be selected when the parent node is selected
@@ -709,7 +715,10 @@ interface SohoDataGridColumn {
   selectChildren?: boolean;
 
   /** Enforce a max length when editing this column */
-  maxLength?: boolean;
+  maxLength?: number;
+
+  /** Validators to assign to any editable columns. */
+  validate?: string;
 }
 
 interface SohoDataGridColumnNumberFormat {
@@ -855,7 +864,7 @@ interface SohoDataGridStatic {
 
   /**
   * Toggle the current selection state from on to off.
-  * @param {number} idx The row to select/unselect
+  * @param number idx The row to select/unselect
   */
   toggleRowSelection(idx: number): void;
 
@@ -872,7 +881,7 @@ interface SohoDataGridStatic {
 
   exportToExcel(fileName: string, worksheetName: string, customDs: Object[]): void;
 
-  exportToCsv(fileName: string, customDs: Object[]): void;
+  exportToCsv(fileName: string, customDs: Object[], separator: string): void;
 
   /**
    * Returns an array of all the rows in the grid marked as dirty.
@@ -880,6 +889,57 @@ interface SohoDataGridStatic {
    * @return an array of all the rows in the grid marked as dirty.
    */
   dirtyRows(): Array<any>;
+
+  /**
+   * Returns an array of all the cells in the grid marked as dirty.
+   *
+   * @return an array of all the cells in the grid marked as dirty.
+   */
+  dirtyCells(): Array<any>;
+
+  /**
+   * Clear all dirty cells.
+   */
+  clearDirty(): void;
+
+  /**
+   * Clear all dirty cells in given row.
+   * @param row - the row number (idx) of the row.
+   */
+  clearDirtyRow(row: number): void;
+
+  /**
+   * Clear dirty on given cell.
+   * @param row - the row number (idx) of the row
+   * @param cell - the cell number (idx) of the cell
+   */
+  clearDirtyCell(row: number, cell: number): void;
+
+  /**
+   * Clear all error for a given cell in a row
+   * @param row The row index.
+   * @param cell The cell index.
+   */
+  clearAllCellError(row: number, cell: number): void;
+
+  /**
+   * Clear a cell with an error of a given type
+   * @param row The row index.
+   * @param cell The cell index.
+   * @param type of error.
+   */
+  clearCellError(row: number, cell: number, type: any): void;
+
+  /**
+   * Clear a row level all errors, alerts, info messages
+   * @param row The row index.
+   */
+  clearRowError(row: number): void;
+
+  /**
+   * Clear all errors, alerts and info messages in entire datagrid.
+   */
+  clearAllErrors(): void;
 
   /**
    * Sets the status of a given row in the grid.
@@ -929,12 +989,12 @@ interface SohoDataGridSelectedRow {
 interface SohoDataGridRowClicked {
   cell: number;
   item: any;
-  originalEvent: JQuery.Event;
+  originalEvent: JQuery.TriggeredEvent;
   row: number;
 }
 
 interface SohoDataGridSelectedEvent {
-  e: JQuery.Event;
+  e: JQuery.TriggeredEvent;
   rows: SohoDataGridSelectedRow[];
 }
 
@@ -977,7 +1037,7 @@ interface SohoDataGridFilteredEvent extends SohoDataGridOpenFilteredEvent {
  * @deprecated use SohoDataGridFilteredEvent instead
  */
 interface SohoDataGridOpenFilteredEvent {
-  conditions: SohoDataGridFilterCondition;
+  conditions: SohoDataGridFilterCondition[];
   op: 'apply' | 'clear';
   trigger: string;
 }
@@ -1047,7 +1107,7 @@ interface JQueryStatic {
   datagrid: SohoDataGridStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   datagrid(options?: SohoDataGridOptions): JQuery;
   on(events: 'cellchange' | 'activecellchange', handler: JQuery.EventHandlerBase<any, SohoDataGridCellChangeEvent>): this;
   on(events: 'rowremove', handler: JQuery.EventHandlerBase<any, SohoDataGridRowRemoveEvent>): this;
@@ -1062,7 +1122,7 @@ interface JQuery {
   on(events: 'sorted', handler: JQuery.EventHandlerBase<any, SohoDataGridSortedEvent>): this;
   on(events: 'expandrow', handler: JQuery.EventHandlerBase<any, SohoDataGridRowExpandEvent>): this;
   on(events: 'rowactivated', handler: JQuery.EventHandlerBase<any, SohoDataGridRowActivatedEvent>): this;
-  on(events: 'rowdeactivated', handler: JQuery.EventHandlerBase<any, SohoDataGridRowDeactivatedEvent>):this;
+  on(events: 'rowdeactivated', handler: JQuery.EventHandlerBase<any, SohoDataGridRowDeactivatedEvent>): this;
   on(events: 'selected', handler: JQuery.EventHandlerBase<any, SohoDataGridSelectedRow[]>): this;
 }
 

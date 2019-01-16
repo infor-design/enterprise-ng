@@ -1,0 +1,55 @@
+
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Data Grid - Standalone Pager</h2>
+    <div class="field">
+      <button soho-button (click)="onShowPageSizeSelector()">Toggle Show Page Size Selector</button>
+      <button soho-button (click)="toggleFilterRow()">Toggle Filter Row</button>
+    </div>
+  </div>
+</div>
+
+<br>
+<div class="row top-padding">
+  <div class="twelve columns demo" role="main">
+    <div soho-datagrid
+      [columns]="columns"
+      [dataset]="data"
+
+      [rowHeight]="'short'"
+      [selectable]="'single'"
+      [disableClientSort]="true"
+      [disableClientFilter]="true"
+      [filterable]="true"
+
+      (sorted)="onSortPage($event)"
+      (filtered)="onFilterPage($event)"
+    ></div>
+    <div soho-standalone-pager
+      showFirstButton="true"
+      showPreviousButton="true"
+      showNextButton="true"
+      showLastButton="true"
+
+      [enableFirstButton]="!isFirstPage"
+      [enablePreviousButton]="!isFirstPage"
+      [enableNextButton]="!isLastPage"
+      [enableLastButton]="!isLastPage"
+
+      [firstPageTooltip]="'FirstPage' | sohoTranslate"
+      [previousPageTooltip]="'PreviousPage' | sohoTranslate"
+      [nextPageTooltip]="'NextPage' | sohoTranslate"
+      [lastPageTooltip]="'LastPage' | sohoTranslate"
+
+      [pageSize]="pageSize"
+      [pageSizes]="pageSizes"
+      [showPageSizeSelector]="showPageSizeSelector"
+
+      (firstPage)="onFirstPage()"
+      (previousPage)="onPreviousPage()"
+      (nextPage)="onNextPage()"
+      (lastPage)="onLastPage()"
+      (pageSizeChange)="onPageSizeChange($event)"
+    ></div>
+  </div>
+</div>

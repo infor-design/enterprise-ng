@@ -10,7 +10,7 @@ If **Node.js** and **npm** are not already on your machine, install them. These 
 
 This quick start guide uses **@angular/cli** to create, build and run the application.
 
-At the time of writing the version of **@angular/cli** used was 6.1.4 with **angular** 6.1.3.
+At the time of writing the version of **@angular/cli** used was 7.0.2 with **angular** 7.0.2.
 
 ## Step 0 : Install Pre-Prerequisites
 
@@ -63,7 +63,7 @@ Edit `angular.json`, change the `scripts` elements as follows:
 ```json
 "scripts": [
   "./node_modules/jquery/dist/jquery.js",
-  "./node_modules/d3/build/d3.js",  
+  "./node_modules/d3/build/d3.js",
   "./node_modules/ids-enterprise/dist/js/sohoxi.js"
 ],
 ```

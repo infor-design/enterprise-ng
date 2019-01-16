@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AboutDemoComponent } from './about/about.demo';
 import { AccordionDemoComponent } from './accordion/accordion.demo';
+import { AccordionDynamicDemoComponent } from './accordion/accordion-dynamic.demo';
 import { AccordionPanelsDemoComponent } from './accordion/accordion-panels.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
@@ -46,6 +47,7 @@ import { DataGridLookupClickDemoComponent } from './datagrid/datagrid-lookup-cli
 import { DataGridLookupDialogDemoComponent } from './datagrid/datagrid-lookup-dialog.demo';
 
 import { DataGridRowReorderDemoComponent } from './datagrid/datagrid-rowreorder.demo';
+import { DataGridDirtyIndicationDemoComponent } from './datagrid/datagrid-dirty-indication.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
 import { DataGridExportWithoutDataGridDemoComponent } from './datagrid/datagrid-export-without-datagrid.demo';
@@ -54,6 +56,7 @@ import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.de
 import { DataGridGroupedHeaderDemoComponent } from './datagrid/datagrid-grouped-header.demo';
 import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-selection.demo';
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
+import { DatagridStandalonePagerDemoComponent } from './datagrid/datagrid-standalone-pager.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
@@ -100,6 +103,7 @@ import { MaskLegacyDemoComponent } from './mask/mask-legacy.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
+import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PieDemoComponent } from './pie/pie.demo';
 import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
@@ -161,8 +165,7 @@ import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagr
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
   { path: 'about',                                  component: AboutDemoComponent },
-  { path: 'accordion',                              component: AccordionDemoComponent},
-  { path: 'accordion-panels',                       component: AccordionPanelsDemoComponent},
+  { path: 'accordion',                              loadChildren: './accordion/accordion-demo.module#AccordionDemoModule'},
   { path: 'alert',                                  component: AlertDemoComponent},
   { path: 'application-lazy-menu',                  component: ApplicationMenuLazyDemoComponent},
   { path: 'area',                                   component: AreaDemoComponent },
@@ -184,7 +187,7 @@ export const routes: Routes = [
   { path: 'code-block',                             component: CodeBlockDemoComponent },
   { path: 'colorpicker',                            component: ColorPickerDemoComponent },
   { path: 'column',                                 component: ColumnDemoComponent },
-  { path: 'column-yaxis-format',                     component: ColumnYAxisDemoComponent },
+  { path: 'column-yaxis-format',                    component: ColumnYAxisDemoComponent },
   { path: 'column-grouped',                         component: ColumnGroupedDemoComponent},
   { path: 'column-grouped-xaxis-twoline',           component: ColumnGroupedXaxisTwolineDemoComponent},
   { path: 'column-stacked',                         component: ColumnStackedDemoComponent},
@@ -193,6 +196,7 @@ export const routes: Routes = [
   { path: 'contextual-action-panel',                component: ContextualActionPanelDemoComponent },
   { path: 'datagrid-breadcrumb',                    component: DataGridBreadcrumbDemoComponent },
   { path: 'datagrid-content',                       component: DataGridContentDemoComponent },
+  { path: 'datagrid-dirty-indication',              component: DataGridDirtyIndicationDemoComponent },
   { path: 'datagrid-dynamic',                       component: DataGridDynamicDemoComponent },
   { path: 'datagrid-empty-message',                 component: DataGridEmptyMessageDemoComponent },
   { path: 'datagrid-editors',                       component: DataGridEditorsDemoComponent },
@@ -206,6 +210,7 @@ export const routes: Routes = [
   { path: 'datagrid-paging-service',                component: DataGridPagingServiceDemoComponent },
   { path: 'datagrid-service',                       component: DataGridServiceDemoComponent },
   { path: 'datagrid-settings',                      component: DataGridSettingsDemoComponent },
+  { path: 'datagrid-standalone-pager',              component: DatagridStandalonePagerDemoComponent },
   { path: 'datagrid-treegrid',                      component: DataGridTreeGridDemoComponent },
   { path: 'datagrid-treegrid-dynamicfilter',        component: DatagridTreegridDynamicfilteringDemoComponent },
   { path: 'datagrid-angular-editor',                component: DataGridAngularEditorDemoComponent },
@@ -263,6 +268,7 @@ export const routes: Routes = [
   { path: 'menu-button',                            component: MenuButtonDemoComponent },
   { path: 'message',                                component: MessageDemoComponent },
   { path: 'modal-dialog',                           component: ModalDialogDemoComponent },
+  { path: 'pager-standalone',                       component: PagerStandaloneDemoComponent },
   { path: 'pie',                                    component: PieDemoComponent },
   { path: 'popdown',                                component: PopDownDemoComponent},
   { path: 'popupmenu',                              component: PopupMenuDemoComponent },

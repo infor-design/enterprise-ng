@@ -44,7 +44,7 @@ interface SohoSearchFieldStatic {
 /**
  * Type safe SearchField event object.
  */
-interface SohoSearchFieldEvent extends JQuery.Event {
+interface SohoSearchFieldEvent extends JQuery.TriggeredEvent {
   data: any;
 }
 
@@ -55,6 +55,6 @@ interface JQueryStatic {
   searchfield: SohoSearchFieldStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   searchfield(options?: SohoSearchFieldOptions): JQuery;
 }

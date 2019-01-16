@@ -16,6 +16,9 @@ interface SohoDatePickerOptions {
   /** Include the time in the date picker; defaults to false (in the soho control). */
   showTime?: boolean;
 
+  /**  If true current time will be used for the time portion otherwise 12:00 midnight is used. */
+  useCurrentTime?: boolean;
+
   /** Time format, e.g. HH:mm:ss.*/
   timeFormat?: string;
 
@@ -42,9 +45,6 @@ interface SohoDatePickerOptions {
 
   /** If true a legend is show to associate dates. */
   showLegend?: boolean;
-
-  /** If true the internal validation is disabled. */
-  customValidation?: boolean;
 
   /** If true the month and year will render as dropdowns. */
   showMonthYearPicker?: boolean;
@@ -166,7 +166,7 @@ interface SohoDatePickerStatic {
 /**
  * Type safe date picker event object.
  */
-interface SohoDatePickerEvent extends JQuery.Event {
+interface SohoDatePickerEvent extends JQuery.TriggeredEvent {
   data: any;
   elem: HTMLElement[];
 }
@@ -178,6 +178,6 @@ interface JQueryStatic {
   datepicker: SohoDatePickerStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   datepicker(options?: SohoDatePickerOptions): JQuery;
 }

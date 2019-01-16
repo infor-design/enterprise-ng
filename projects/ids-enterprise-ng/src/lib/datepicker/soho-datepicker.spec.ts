@@ -12,6 +12,7 @@ import { SohoDatePickerModule, SohoDatePickerComponent } from './index';
       name="statechange"
       [options]="_options"
       [showTime]="_showTime"
+      [useCurrentTime]="_useCurrentTime"
       [timeFormat]="_timeFormat"
       [minuteInterval]="_minuteInterval"
       [secondInterval]="_secondInterval"
@@ -26,7 +27,6 @@ import { SohoDatePickerModule, SohoDatePickerComponent } from './index';
       [mode]="_mode"
       [range]="_range"
       [disable]="_disable"
-      [customValidation]="_customValidation"
       [hideDays]="_hideDays"
       [useUTC]="_useUTC"
       [(ngModel)]="model"
@@ -54,6 +54,15 @@ class TestDatePickerComponent {
     this._showTime = showTime;
     if (this.datepicker) {
       this.datepicker.showTime = this._showTime;
+    }
+  }
+
+  public _useCurrentTime: boolean;
+
+  @Input() set useCurrentTime(useCurrentTime: boolean) {
+    this._useCurrentTime = useCurrentTime;
+    if (this.datepicker) {
+      this.datepicker.useCurrentTime = this._useCurrentTime;
     }
   }
 
@@ -169,14 +178,6 @@ class TestDatePickerComponent {
     }
   }
 
-  public _customValidation:  boolean;
-  @Input() set customValidation(customValidation:  boolean) {
-    this._customValidation = customValidation;
-    if (this.datepicker) {
-      this.datepicker.customValidation = this._customValidation;
-    }
-  }
-
   public _hideDays:  boolean;
   @Input() set hideDays(hideDays:  boolean) {
     this._hideDays = hideDays;
@@ -244,6 +245,7 @@ describe('Soho Datepicker Unit Tests', () => {
 
     const testOptions: SohoDatePickerOptions = {
       showTime: true,
+      useCurrentTime: true,
       timeFormat: 'HH:mm:ss',
       minuteInterval: 10,
       secondInterval: 10,
@@ -259,6 +261,7 @@ describe('Soho Datepicker Unit Tests', () => {
 
     const testOptionsTwo: SohoDatePickerOptions = {
       showTime: true,
+      useCurrentTime: true,
       timeFormat: 'HH:mm',
       minuteInterval: 5,
       secondInterval: 5,
@@ -276,7 +279,6 @@ describe('Soho Datepicker Unit Tests', () => {
         maxDate: '1/1/2017',
         dayOfWeek: []
       },
-      customValidation: false,
       hideDays: true,
       useUTC: false
     };
@@ -293,6 +295,7 @@ describe('Soho Datepicker Unit Tests', () => {
 
       // settings via individual methods
       comp.showTime = true;
+      comp.useCurrentTime = true;
       comp.timeFormat = 'HH:mm';
       comp.minuteInterval = 5;
       comp.secondInterval = 5;
@@ -310,7 +313,6 @@ describe('Soho Datepicker Unit Tests', () => {
         maxDate: '1/1/2017',
         dayOfWeek: []
       };
-      comp.customValidation = false;
       comp.hideDays = true;
       comp.useUTC = false;
 

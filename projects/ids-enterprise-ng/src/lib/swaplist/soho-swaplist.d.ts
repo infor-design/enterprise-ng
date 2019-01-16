@@ -100,14 +100,14 @@ interface JQueryStatic {
   swaplist: SohoSwapListStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   swaplist(options: SohoSwapListOptions): JQuery;
 }
 
-interface SohoSwapListBeforeSwapEvent extends JQuery.Event {
+interface SohoSwapListBeforeSwapEvent extends JQuery.TriggeredEvent {
   moved?: SohoSwapListMoved;
 }
 
-interface SohoSwapListSwapUpdateEvent extends JQuery.Event {
+interface SohoSwapListSwapUpdateEvent extends JQuery.TriggeredEvent {
   moved?: SohoSwapListMoved;
 }

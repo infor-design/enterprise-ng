@@ -29,7 +29,7 @@ interface JQueryStatic {
   chart: SohoChartStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   chart(options?: SohoChartOptions | SohoBarOptions | SohoRadarOptions | SohoLineOptions | SohoPieOptions |
     SohoBulletOptions | SohoSparklineOptions | SohoColumnOptions | SohoTreemapOptions): JQuery;
 }
@@ -162,7 +162,7 @@ interface ChartLabel {
 }
 
 interface ChartEvent {
-  event: JQuery.Event;
+  event: JQuery.TriggeredEvent;
   ui?: any;
   data?: any;
 }

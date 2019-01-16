@@ -21,7 +21,7 @@ interface SohoEditorOptions {
   placeholder?: string;
   anchor?: SohoEditorAnchor;
   image?: SohoEditorOptionsImage;
-  onLinkClick?: (e: JQuery.Event, elem: any) => void;
+  onLinkClick?: (e: JQuery.TriggeredEvent, elem: any) => void;
 }
 
 interface SohoEditorAnchor {
@@ -84,7 +84,7 @@ interface JQueryStatic {
   editor: SohoEditorStatic;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   editor(options?: SohoEditorOptions): JQuery;
 }
 

@@ -55,6 +55,17 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
       this.markForRefresh();
     }
   }
+
+  /**
+   * If true current time will be used for the time portion otherwise 12:00 midnight is used.
+   */
+  @Input() set useCurrentTime(useCurrentTime: boolean) {
+    this._options.useCurrentTime = useCurrentTime;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
   /**
    * Indicates the pattern for the time format.
    */
@@ -161,16 +172,6 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
    */
   @Input() set showLegend(showLegend: boolean) {
     this._options.showLegend = showLegend;
-    if (this.datepicker) {
-      this.markForRefresh();
-    }
-  }
-
-  /**
-   * Indicates if the internal validation is disabled.
-   */
-  @Input() set customValidation(customValidation: boolean) {
-    this._options.customValidation = customValidation;
     if (this.datepicker) {
       this.markForRefresh();
     }
@@ -441,8 +442,6 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   /**
    * This function is called when the control status changes to or from "DISABLED".
    * Depending on the value, it will enable or disable the appropriate DOM element.
-   *
-   * @param isDisabled
    */
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;

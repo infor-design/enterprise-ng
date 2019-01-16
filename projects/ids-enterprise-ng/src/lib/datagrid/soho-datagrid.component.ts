@@ -213,8 +213,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   *
-   * @param cellNavigation
+   * If true allows
    */
   @Input() set cellNavigation(cellNavigation: boolean) {
     this._gridOptions.cellNavigation = cellNavigation;
@@ -263,8 +262,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   *
-   * @param alternateRowShading
+   * If true, displays the rows in the grid using alternate shading, otherwise
+   * all the rows use the same shading.
    */
   @Input() set alternateRowShading(alternateRowShading: boolean) {
     this._gridOptions.alternateRowShading = alternateRowShading;
@@ -298,12 +297,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       const pagerInfo: SohoPagerPagingInfo = {};
       this.datagrid.settings.dataset = dataset;
 
-      // TreeGrid does not have paging
-      // set as active page so datagrid headers aren't rebuilt
-      if (this.treeGrid) {
-        pagerInfo.activePage = -1;
-      }
-
       this.ngZone.runOutsideAngular(() => {
         // @todo do we need hints as this may be bundled up with other changes.
         this.datagrid.updateDataset(dataset, pagerInfo);
@@ -334,8 +327,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * If true the columns can be reorders; otherwise if false they are fixed.
-   *
-   * @param columnReorder
    */
   @Input() set columnReorder(columnReorder: boolean) {
     this._gridOptions.columnReorder = columnReorder;
@@ -356,9 +347,44 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.columnReorder;
   }
 
+  @Input() set disableClientSort(disableClientSort: boolean) {
+    this._gridOptions.disableClientSort = disableClientSort;
+    if (this.datagrid) {
+      this.datagrid.settings.disableClientSort = disableClientSort;
+    }
+  }
+
+  get disableClientSort(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.disableClientSort;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.disableClientSort;
+  }
+
+  @Input() set disableClientFilter(disableClientFilter: boolean) {
+    this._gridOptions.disableClientFilter = disableClientFilter;
+    if (this.datagrid) {
+      this.datagrid.settings.disableClientFilter = disableClientFilter;
+    }
+  }
+
+  get disableClientFilter(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.disableClientFilter;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.disableClientFilter;
+  }
+
   /**
-   *
-   * @param editable
+   * If true, the grid allows edits, otherwise if false edits are disabled.
    */
   @Input() set editable(editable: boolean) {
     this._gridOptions.editable = editable;
@@ -379,10 +405,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.editable;
   }
 
-  /**
-   *
-   * @param isList
-   */
   @Input() set isList(isList: boolean) {
     this._gridOptions.isList = isList;
     if (this.jQueryElement) {
@@ -404,10 +426,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.isList;
   }
 
-  /**
-   *
-   * @param menuId
-   */
   @Input() set menuId(menuId: any) {
     this._gridOptions.menuId = menuId;
     if (this.jQueryElement) {
@@ -458,10 +476,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.selectable;
   }
 
-  /**
-   *
-   * @param clickToSelect
-   */
   @Input() set clickToSelect(clickToSelect: boolean) {
     this._gridOptions.clickToSelect = clickToSelect;
     if (this.jQueryElement) {
@@ -481,10 +495,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.clickToSelect;
   }
 
-  /**
-   *
-   * @param toolbar
-   */
   @Input() set toolbar(toolbar: SohoToolbarOptions) {
     this._gridOptions.toolbar = toolbar;
     if (this.jQueryElement) {
@@ -493,10 +503,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
-  /**
- *
- * @param saveUserSettings
- */
   @Input() set saveUserSettings(settingsForSave: SohoDataGridSaveUserSettings) {
     this._gridOptions.saveUserSettings = settingsForSave;
     if (this.jQueryElement) {
@@ -504,10 +510,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
-  /**
-   *
-   * @param paging
-   */
   @Input() set paging(paging: boolean) {
     this._gridOptions.paging = paging;
     if (this.jQueryElement) {
@@ -528,10 +530,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.paging;
   }
 
-  /**
-   *
-   * @param pagesize
-   */
   @Input() set pagesize(pagesize: number) {
     this._gridOptions.pagesize = pagesize;
     if (this.jQueryElement) {
@@ -540,10 +538,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
-  /**
-   *
-   * @param pagesizes
-   */
   @Input() set pagesizes(pagesizes: Array<number>) {
     this._gridOptions.pagesizes = pagesizes;
     if (this.jQueryElement) {
@@ -552,10 +546,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
-  /**
-   *
-   * @param indeterminate
-   */
   @Input() set indeterminate(indeterminate: boolean) {
     this._gridOptions.indeterminate = indeterminate;
     if (this.jQueryElement) {
@@ -564,10 +554,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
-  /**
-   *
-   * @param actionableMode
-   */
   @Input() set actionableMode(actionableMode: boolean) {
     this._gridOptions.actionableMode = actionableMode;
     if (this.jQueryElement) {
@@ -587,10 +573,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.actionableMode;
   }
 
-  /**
-   *
-   * @param saveColumns
-   */
   @Input() set saveColumns(saveColumns: boolean) {
     this._gridOptions.saveColumns = saveColumns;
     if (this.jQueryElement) {
@@ -985,11 +967,14 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * The `emptyMessage` data grid option.
+   * Use null or undefined to remove any empty message.
    */
-  @Input() set emptyMessage(emptyMessage: SohoEmptyMessageOptions) {
-    /** Check for undefined/null and reset to the default message */
-    emptyMessage = emptyMessage ||
-      {title: (Soho.Locale ? Soho.Locale.translate('NoData') : 'No Data Available'), info: '', icon: 'icon-empty-no-data'};
+  @Input() set emptyMessage(emptyMessage: SohoEmptyMessageOptions | null | undefined) {
+    // Check for undefined/null and reset to the default message
+    if (!emptyMessage) {
+      // soho only takes a null here so making it so any !emptyMessage gets set to null
+      emptyMessage = null;
+    }
 
     this._gridOptions.emptyMessage = emptyMessage;
     if (this.jQueryElement) {
@@ -1297,6 +1282,81 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Returns an array of the dirty cells in the grid.
+   *
+   * @return an array of the dirty cells in the grid.
+   */
+  dirtyCells(): Array<any> {
+    return this.ngZone.runOutsideAngular(() => {
+      return this.datagrid.dirtyCells();
+    });
+  }
+
+  /**
+   * Clear all dirty cells.
+   */
+  clearDirty(): void {
+    return this.ngZone.runOutsideAngular(() => {
+      this.datagrid.clearDirty();
+    });
+  }
+
+  /**
+   * Clear all dirty cells in given row.
+   * @param row - the row number (idx) of the row.
+   */
+  clearDirtyRow(row: number): void {
+    return this.ngZone.runOutsideAngular(() => {
+      this.datagrid.clearDirtyRow(row);
+    });
+  }
+
+  /**
+   * Clear dirty on given cell.
+   * @param row - the row number (idx) of the row
+   * @param cell - the cell number (idx) of the cell
+   */
+  clearDirtyCell(row: number, cell: number): void {
+    return this.ngZone.runOutsideAngular(() => {
+      this.datagrid.clearDirtyCell(row, cell);
+    });
+  }
+
+  /**
+   * Clear all error for a given cell in a row
+   * @param row The row index.
+   * @param cell The cell index.
+   */
+  clearAllCellError(row: number, cell: number): void {
+    this.ngZone.runOutsideAngular(() => this.datagrid.clearAllCellError(row, cell));
+  }
+
+  /**
+   * Clear a cell with an error of a given type
+   * @param row The row index.
+   * @param cell The cell index.
+   * @param type of error.
+   */
+  clearCellError(row: number, cell: number, type: any): void {
+    this.ngZone.runOutsideAngular(() => this.datagrid.clearCellError(row, cell, type));
+  }
+
+  /**
+   * Clear a row level all errors, alerts, info messages
+   * @param row The row index.
+   */
+  clearRowError(row: number): void {
+    this.ngZone.runOutsideAngular(() => this.datagrid.clearRowError(row));
+  }
+
+  /**
+   * Clear all errors, alerts and info messages in entire datagrid.
+   */
+  clearAllErrors(): void {
+    this.ngZone.runOutsideAngular(() => this.datagrid.clearAllErrors());
+  }
+
+  /**
    * Sets the status of a given row in the grid.
    *
    * @param idx - the row number (idx) of the row
@@ -1537,10 +1597,11 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * Trigger export of grid data to CSV formatted file.
    * @param fileName The prefix name to be used for the exported file.
    * @param customDs A datasource to override the default.
+   * @param separator The separator to use in the cvs file, defaults to 'sep=,'
    */
-  exportToCsv(fileName: string, customDs: Object[]): void {
+  exportToCsv(fileName: string, customDs: Object[], separator: string = 'sep=,'): void {
     this.ngZone.runOutsideAngular(() => {
-      this.datagrid.exportToCsv(fileName, customDs);
+      this.datagrid.exportToCsv(fileName, customDs, separator);
     });
   }
 
@@ -1948,33 +2009,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         this.onEditCell(editor);
       };
 
-      // Initialise the SohoXi control.
-      this.jQueryElement.datagrid(this._gridOptions);
-
-      // Once the control is initialised, extract the control
-      // plug-in from the element.  The element name is
-      // defined by the plug-in, but in this case is 'datagrid'.
-      this.datagrid = this.jQueryElement.data('datagrid');
-
-      // If "auto" and there's a service, get the columns from it.
-      // (may want to check if columns have already been set? Error?)
-      if (this.datagridType === SohoDataGridComponent.AUTO && this.datagridService) {
-        // Bootstrap from service, note this is not async.
-        this.columns = this.datagridService.getColumns();
-        // Once the columns are set, request the data (paging?)
-        this.datagridService.getData(null)
-          .subscribe((data: any[]) => {
-            this.ngZone.runOutsideAngular(() => {
-              this.datagrid.loadData(data);
-            });
-          });
-      } else if (this.gridData) {
-        // Not using a service, so use the pre-loaded data.
-        this.ngZone.runOutsideAngular(() => {
-          this.datagrid.loadData(this.gridData);
-        });
-      }
-
       // Initialise any event handlers.
       this.jQueryElement
         .on('addrow', (e: any, args: SohoDataGridAddRowEvent) => { this.onRowAdd(args); })
@@ -1983,7 +2017,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('closefilterrow', (e: any, args: SohoDataGridCloseFilterRowEvent) => { this.onCloseFilterRow(args); })
         .on('collapserow', (e: any, args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
         .on('contextmenu', (e: any, args: SohoDataGridRowClicked) => { this.onContextMenu(args); })
-        .on('dblclick', (e: JQuery.Event, args: SohoDataGridRowClicked) => { this.onDoubleClick(args); })
+        .on('dblclick', (e: JQuery.TriggeredEvent, args: SohoDataGridRowClicked) => { this.onDoubleClick(args); })
         .on('expandrow', (e: any, args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
         .on('filtered', (e: any, args: SohoDataGridFilteredEvent) => { this.onFiltered(args); })
         .on('openfilterrow', (e: any, args: SohoDataGridOpenFilterRowEvent) => { this.onOpenFilterRow(args); })
@@ -1996,7 +2030,34 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('selected', (e: any, args: SohoDataGridSelectedRow[]) => this.onSelected({ e, rows: args }))
         .on('settingschanged', (e: any, args: SohoDataGridSettingsChangedEvent) => { this.onSettingsChanged(args); })
         .on('sorted', (e: any, args: SohoDataGridSortedEvent) => { this.onSorted(args); });
-    });
+      });
+
+      // Initialise the SohoXi control.
+      this.jQueryElement.datagrid(this._gridOptions);
+
+      // Once the control is initialised, extract the control
+      // plug-in from the element.  The element name is
+      // defined by the plug-in, but in this case is 'datagrid'.
+      this.datagrid = this.jQueryElement.data('datagrid');
+
+    // If "auto" and there's a service, get the columns from it.
+    // (may want to check if columns have already been set? Error?)
+    if (this.datagridType === SohoDataGridComponent.AUTO && this.datagridService) {
+      // Bootstrap from service, note this is not async.
+      this.columns = this.datagridService.getColumns();
+      // Once the columns are set, request the data (paging?)
+      this.datagridService.getData(null)
+        .subscribe((data: any[]) => {
+          this.ngZone.runOutsideAngular(() => {
+            this.datagrid.loadData(data);
+          });
+        });
+    } else if (this.gridData) {
+      // Not using a service, so use the pre-loaded data.
+      this.ngZone.runOutsideAngular(() => {
+        this.datagrid.loadData(this.gridData);
+      });
+    }
   }
 
   /**
@@ -2062,10 +2123,13 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // If a source property has not been defined, and a service has
     // use the data service to load the data dynamically for paging.
     if (!source && this.datagridService) {
-      this._gridOptions.source
-        = (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => this.onDataRequest(request, response);
-    } else {
-      this._gridOptions.source = source;
+      this._gridOptions.source = (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
+        this.onDataRequest(request, response);
+      };
+    } else if (source && typeof source === 'function') {
+      this._gridOptions.source = (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
+        this.ngZone.run(() => source(request, response));
+      };
     }
   }
 

@@ -48,6 +48,7 @@ export class EditorDemoComponent implements AfterViewInit {
         'separator', 'justifyLeft', 'justifyCenter', 'justifyRight',
         'separator', 'quote', 'orderedlist', 'unorderedlist',
         'separator', 'anchor',
+        'separator', 'clearFormatting',
         'separator', 'source'
       ],
       source: [

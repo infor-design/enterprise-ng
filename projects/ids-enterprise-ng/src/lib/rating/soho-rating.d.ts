@@ -31,6 +31,6 @@ interface SohoRating {
   destroy(): void;
 }
 
-interface JQuery {
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   rating(options?: SohoRatingOptions): JQuery;
 }

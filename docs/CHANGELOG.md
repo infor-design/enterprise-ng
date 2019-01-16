@@ -1,9 +1,64 @@
 # What's New with Enterprise-NG
 
+## v5.1.0
+
+### 5.1.0 Features
+
+- `[Datagrid]` 4.0 Datagrid expose error row clear functions `PWP` ([#314](https://github.com/infor-design/enterprise-ng/issues/314))
+
+### 5.1.0 Fixes
+
+- `[DataGrid]` - changed emptyMessage setter so it will remove any empty message if passed a null or undefined. `PWP` ([Pull Request 305](https://github.com/infor-design/enterprise-ng/pull/305))
+- `[Accordion]` - refactored to use `ngZone` - This effects the constructor and how often change detection is called. `BTHH` ([Pull Request 290](https://github.com/infor-design/enterprise-ng/pull/290))
+- `[TextArea]` - added configuration option for maxLength so it will have a restriction in maximum character input. `JT` ([Pull Request 302])
+- `[TextArea]` - added configuration option for maxGrow so it will expand if the characters exceed the height of the textarea. `JT` ([Pull Request 302])
+- `[ColorPicker]` - added configuration option for customColor to have the ability to input colors outside the allowed color options. `JT` ([Pull Request 301])
+- `[DatePicker]` - remove configuration for customValidation. `JT` ([Pull Request 300])
+
+### 5.1.0 Chore & Maintenance
+
+- `[Accordion]` - Added `accordion-dynamic.demo` to show how to create dynamic contents. `BTHH` ([Pull Request 290](https://github.com/infor-design/enterprise-ng/pull/290))
+    - 'accordion demo' is now a lazy loaded module.
+- `[General]` - Upgraded @types\jquery to 3.3.24 and changed `JQuery.Event` to `JQuery.TriggeredEvent`. `BTHH`
+
+## v5.0.0
+
+### 5.0.0 Features
+
+- `[General]` Upgraded @angular/cli (to 7.0.x) and @angular/core (to 7.0.x).  `BTHH` ([Pull Request 227](https://github.com/infor-design/enterprise-ng/pull/227))
+    - support for Node 10
+    - support for TypeScript 3.x
+    - `UPGRADING.md` has been updated with details on upgrading your application to angular 7.
+- `[General]` Upgraded Typescript (to 3.1.x). `BTHH`
+    - `@types/jquery` has been updated to 3.3.21.
+- `[App]` Added a service to control renderLoop. A global timer used by enterprise to control animations. See index.html for usage example. See app.component.ts for example on how to manually start. ([#214](https://github.com/infor-design/enterprise-ng/issues/214)) `KOH`
+- `[General]` Added Breakpoints typedef for ids-enterprise breakpoints.js api ([#258](https://github.com/infor-design/enterprise-ng/issues/258))`PWP`
+- `[Message]` Add new settings for message dialog (alert/info type) ([#245](https://github.com/infor-design/enterprise-ng/issues/245)) `TJM`
+- `[Editor]` Add new icon for clear formatting button in the editor ([#245](https://github.com/infor-design/enterprise-ng/issues/245)) `TJM`
+- `[Datepicker]` Added useCurrentTime setting ([#245](https://github.com/infor-design/enterprise-ng/issues/245)) `TJM`
+- `[Export]` Added separator option ([#245](https://github.com/infor-design/enterprise-ng/issues/245)) `TJM`
+- `[EmptyMessage]` Add ability to run code on click on empty message ([#245](https://github.com/infor-design/enterprise-ng/issues/245)) `TJM`
+
+### 5.0.0 Fixes
+
+- `[Personalize]` - Added `setTheme` and `setColors` to `SohoPersonalizeDirtective`
+    - refactored to use `ngZone` - This effects the constructor and how often change detection is called. `BTHH` ([Pull Request 262](https://github.com/infor-design/enterprise-ng/pull/262))).
+
+### 5.0.0 Chore & Maintenance
+
+## v4.13.0
+
+### 4.13.0 Features
+
+### 4.13.0 Fixes
+
+### 4.13.0 Chore & Maintenance
+
 ## v4.12.0
 
 ### 4.12.0 Features
 
+- `[Pager]` Added pager-standalone component `PWP`
 - `[DataGrid]` Added support for excel utilities to export custom dataset without Datagrid `DV`
 - `[DataGrid]` Added allowSelectAcrossPages option for multiselect. ([#207](https://github.com/infor-design/enterprise-ng/issues/207)) `TJM`
 - `[Dropdown]` Added onKeyDown option for dropdown key events. ([#207](https://github.com/infor-design/enterprise-ng/issues/207)) `TJM`
@@ -17,7 +72,7 @@
 
 ### 4.12.0 Chore & Maintenance
 
-- `[General]` `d3` and `@types/d3` version 4.13 added as a dependency for the `ids-enterprise-ng` package.  
+- `[General]` `d3` and `@types/d3` version 4.13 added as a dependency for the `ids-enterprise-ng` package.
     Developers should change their angular.json files to refer to the installed version of d3 (and their types) and not the copy in the `enterprise` folder.
 
 ## v4.11.0
