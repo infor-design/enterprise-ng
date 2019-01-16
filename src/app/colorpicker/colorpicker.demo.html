@@ -3,7 +3,7 @@
     <form>
       <div class="field">
         <label for="bgcolor" class="label">Background Color</label>
-        <input soho-colorpicker name="bgcolor" [(ngModel)]="model.color" (change)="onChange($event)" />
+        <input soho-colorpicker name="bgcolor" [editable]="true" [disabled]="false" [(ngModel)]="model.color" (change)="onChange($event)" />
       </div>
     </form>
   </div>
