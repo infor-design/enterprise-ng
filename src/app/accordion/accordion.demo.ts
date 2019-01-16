@@ -9,13 +9,6 @@ export class AccordionDemoComponent implements AfterViewInit {
 
   @ViewChild(SohoAccordionComponent) accordion: SohoAccordionComponent;
 
-  public model: {
-    sortBy:   string,
-  } = {
-    sortBy:   ''
-  };
-  showModel = false;
-
   onBeforeCollapse(args) {
     console.log('Collapsed!', args);
   }
