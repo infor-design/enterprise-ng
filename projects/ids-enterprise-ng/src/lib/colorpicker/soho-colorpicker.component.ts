@@ -237,6 +237,9 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   get disabled() {
     return this.isDisabled;
   }
+  get editable() {
+    return this.isEditable;
+  }
   get readonly() {
     return this.isReadOnly;
   }
