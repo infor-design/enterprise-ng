@@ -26,7 +26,7 @@ You will need to fix any issues raised, as these will depend on the dependency t
 
 #### Angular 7
 
-When updating (and depending on your dependencies) the update may not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install TypeScript 3.1.3 first, as follows:
+When updating (and depending on your dependencies) the update *may* not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install TypeScript 3.1.3 first, as follows:
 
 ```sh
 npm i typescript@3.1.3
