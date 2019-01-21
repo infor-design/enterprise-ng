@@ -29,7 +29,7 @@ The app starts up an instance of the Angular CLI server in the background. A mes
 
 ## Upgrading to Angular / Angular CLI 7.2
 
-The current SPA create and Angular 6 project, it is relatively easy to upgrade this to 7.2.
+The current SPA create an Angular 6 project, but it is relatively easy to upgrade this to 7.2.
 
 Open a terminal / command prompt inside the ClientApp folder.
 

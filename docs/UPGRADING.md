@@ -26,24 +26,24 @@ You will need to fix any issues raised, as these will depend on the dependency t
 
 #### Angular 7
 
-When updating (and depending on your dependencies) the update *may* not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install TypeScript 3.1.3 first, as follows:
+When updating (and depending on your dependencies) the update *may* not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install TypeScript 3.2.2 first, as follows:
 
 ```sh
-npm i typescript@3.1.3
+npm i typescript@3.2.2
 ```
 
 Then try again.
 
 Also note that some packages may not be updated automatically, for example the following failed when updating the `ids-enterprise-quickstart` application:
 
-- codelyzer - the recommended version at the time of writing is ~4.5.0
-- @angular-devkit/build-angular - the recommended version at the time of writing is ~0.10.0
+- codelyzer - the recommended version at the time of writing is ~4.6.0
+- @angular-devkit/build-angular - the recommended version at the time of writing is ~0.12.0
 
 Simply update these manually:
 
 ```sh
-npm i codelyzer@4.5.0
-npm i @angular-devkit/build-angular@0.10.0
+npm i codelyzer@4.6.0
+npm i @angular-devkit/build-angular@0.12.0
 ```
 
 Then try again.
