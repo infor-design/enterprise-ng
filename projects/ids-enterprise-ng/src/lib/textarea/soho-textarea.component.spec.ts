@@ -37,12 +37,12 @@ describe('Soho TextArea Unit Tests', () => {
   template: `<input soho-textarea (ngModelChange)="onTextChange()" [(ngModel)]="model">`
 })
 class SohoTextAreaTestComponent {
+  @ViewChild(SohoTextAreaComponent) textarea: SohoTextAreaComponent;
+
   public model: string;
 
   public onTextChange() {
   }
-
-  @ViewChild(SohoTextAreaComponent) textarea: SohoTextAreaComponent;
 }
 
 describe('Soho Rating Chart Render', () => {
