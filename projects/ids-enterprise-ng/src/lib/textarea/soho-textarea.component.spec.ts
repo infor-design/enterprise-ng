@@ -1,13 +1,14 @@
 /// <reference path="soho-textarea.d.ts" />
 
 import { } from 'jasmine';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, tick, fakeAsync, async } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { SohoTextAreaModule } from './soho-textarea.module';
 import { SohoTextAreaComponent } from './soho-textarea.component';
+import { text } from 'd3';
 
 describe('Soho TextArea Unit Tests', () => {
   let comp:     SohoTextAreaComponent;
@@ -33,9 +34,14 @@ describe('Soho TextArea Unit Tests', () => {
 });
 
 @Component({
-  template: `<input soho-textarea>`
+  template: `<input soho-textarea (ngModelChange)="onTextChange()" [(ngModel)]="model">`
 })
 class SohoTextAreaTestComponent {
+  public model: string;
+
+  public onTextChange() {
+  }
+
   @ViewChild(SohoTextAreaComponent) textarea: SohoTextAreaComponent;
 }
 
@@ -44,7 +50,7 @@ describe('Soho Rating Chart Render', () => {
   let component: SohoTextAreaTestComponent;
   let fixture:   ComponentFixture<SohoTextAreaTestComponent>;
   let de:        DebugElement;
-  let el:        HTMLElement;
+  let el:        HTMLTextAreaElement;
 
   beforeEach( () => {
     TestBed.configureTestingModule({
@@ -64,5 +70,19 @@ describe('Soho Rating Chart Render', () => {
   it('Check HTML content', () => {
     expect(el.hasAttribute('soho-textarea')).toBeTruthy('soho-textarea');
   });
+
+  it('set model on input event', async(() => {
+    const spy = spyOn(component, 'onTextChange');
+
+    fixture.detectChanges();
+
+    el.value = 'New Value!';
+    el.dispatchEvent(new Event('input'));
+
+    fixture.whenStable().then(() => {
+      expect(component.model).toBe('New Value!');
+      expect(spy).toHaveBeenCalled();
+    });
+  }));
 
 });
