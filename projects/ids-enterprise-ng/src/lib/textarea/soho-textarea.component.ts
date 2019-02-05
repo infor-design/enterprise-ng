@@ -10,6 +10,7 @@ import {
   Input,
   OnDestroy,
   Output,
+  HostListener
 } from '@angular/core';
 import {
   BaseControlValueAccessor,
@@ -155,6 +156,17 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
 
   // Reference to the SoHoXi control api.
   private textarea: SohoTextAreaStatic;
+
+  /**
+   * Specific host listener for textarea.
+   *
+   * @param textarea the HTML element
+   */
+  @HostListener('input', ['$event', '$event.target']) oninput(event: SohoTextAreaEvent, textarea: HTMLTextAreaElement) {
+    this.internalValue = textarea.value;
+    super.writeValue(this.internalValue);
+    this.change.emit([event]);
+  }
 
   constructor(private element: ElementRef) {
     super();

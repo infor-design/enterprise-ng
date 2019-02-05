@@ -53,6 +53,11 @@
           <textarea soho-textarea name="growFinite" [autoGrow]="true" [autoGrowMaxHeight]="300" [(ngModel)]="model.growableText"></textarea>
         </div>
 
+        <div class="field">
+          <textarea soho-textarea maxlength="90" name="counter"
+            (ngModelChange)="onTextChange()" [(ngModel)]="model.counterText"></textarea>
+        </div>
+
       </div>
     </div>
   </form>

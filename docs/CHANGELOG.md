@@ -14,6 +14,7 @@
 - `[TextArea]` - added configuration option for maxGrow so it will expand if the characters exceed the height of the textarea. `JT` ([Pull Request 302])
 - `[ColorPicker]` - added configuration option for customColor to have the ability to input colors outside the allowed color options. `JT` ([Pull Request 301])
 - `[DatePicker]` - remove configuration for customValidation. `JT` ([Pull Request 300])
+- `[TextArea]` - input events now cause ngModel update events to be fired. `BTHH`  ([Pull Request 345](https://github.com/infor-design/enterprise-ng/pull/345))
 
 ### 5.1.0 Chore & Maintenance
 

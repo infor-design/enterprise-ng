@@ -34,7 +34,7 @@ import { fakeAsync, tick } from '@angular/core/testing';
 class SohoTextAreaReactiveFormTestComponent {
   public value = '1';
 
-  @ViewChild(SohoTextAreaComponent) dropdown: SohoTextAreaComponent;
+  @ViewChild(SohoTextAreaComponent) textarea: SohoTextAreaComponent;
 
   public formGroup: FormGroup;
 
@@ -53,7 +53,7 @@ class SohoTextAreaReactiveFormTestComponent {
 }
 
 describe('Soho TextArea Reactive Form', () => {
-  let dropdown: SohoTextAreaComponent;
+  let textarea: SohoTextAreaComponent;
   let component: SohoTextAreaReactiveFormTestComponent;
   let fixture: ComponentFixture<SohoTextAreaReactiveFormTestComponent>;
   let de: DebugElement;
@@ -67,7 +67,7 @@ describe('Soho TextArea Reactive Form', () => {
 
     fixture = TestBed.createComponent(SohoTextAreaReactiveFormTestComponent);
     component = fixture.componentInstance;
-    dropdown = component.dropdown;
+    textarea = component.textarea;
 
     de = fixture.debugElement;
     el = de.query(By.css('textarea[soho-textarea]')).nativeElement;
@@ -115,24 +115,24 @@ describe('Soho TextArea Reactive Form', () => {
 
   it('check inputs', () => {
     // test values at initial construction
-    dropdown.maxLength = 10;
-    dropdown.autoGrow = false;
-    dropdown.autoGrowMaxHeight = 0;
+    textarea.maxLength = 10;
+    textarea.autoGrow = false;
+    textarea.autoGrowMaxHeight = 0;
 
     // check options
-    expect((component.dropdown as any).options.maxLength).toEqual(10);
-    expect((component.dropdown as any).options.autoGrow).toEqual(false);
-    expect((component.dropdown as any).options.autoGrowMaxHeight).toEqual(0);
+    expect((component.textarea as any).options.maxLength).toEqual(10);
+    expect((component.textarea as any).options.autoGrow).toEqual(false);
+    expect((component.textarea as any).options.autoGrowMaxHeight).toEqual(0);
 
     fixture.detectChanges(); // detect changes to cause text area to be built.
 
     // test changing the values after initial construction
-    dropdown.maxLength = 20;
-    dropdown.autoGrow = true;
-    dropdown.autoGrowMaxHeight = 40;
+    textarea.maxLength = 20;
+    textarea.autoGrow = true;
+    textarea.autoGrowMaxHeight = 40;
 
-    expect((component.dropdown as any).options.maxLength).toEqual(20);
-    expect((component.dropdown as any).options.autoGrow).toEqual(true);
-    expect((component.dropdown as any).options.autoGrowMaxHeight).toEqual(40);
+    expect((component.textarea as any).options.maxLength).toEqual(20);
+    expect((component.textarea as any).options.autoGrow).toEqual(true);
+    expect((component.textarea as any).options.autoGrowMaxHeight).toEqual(40);
   });
 });
