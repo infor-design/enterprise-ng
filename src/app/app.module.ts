@@ -25,6 +25,7 @@ import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
 import { BarDemoComponent } from './bar/bar.demo';
 import { BarGroupedDemoComponent } from './bar-grouped/bar-grouped.demo';
 import { BarStackedDemoComponent } from './bar-stacked/bar-stacked.demo';
+import { BlockGridCustomContentDemoComponent } from './blockgrid/blockgrid-custom-content.demo';
 import { BlockGridMixedSelectionDemoComponent } from './blockgrid/blockgrid-mixed-selection.demo';
 import { BlockGridMultiSelectionDemoComponent } from './blockgrid/blockgrid-multi-selection.demo';
 import { BlockGridSingleSelectionDemoComponent } from './blockgrid/blockgrid-single-selection.demo';
@@ -220,6 +221,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     BarDemoComponent,
     BarGroupedDemoComponent,
     BarStackedDemoComponent,
+    BlockGridCustomContentDemoComponent,
     BlockGridMixedSelectionDemoComponent,
     BlockGridMultiSelectionDemoComponent,
     BlockGridSingleSelectionDemoComponent,

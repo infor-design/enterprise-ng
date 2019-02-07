@@ -12,6 +12,7 @@ import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
 import { BarDemoComponent } from './bar/bar.demo';
 import { BarStackedDemoComponent } from './bar-stacked/bar-stacked.demo';
 import { BarGroupedDemoComponent } from './bar-grouped/bar-grouped.demo';
+import { BlockGridCustomContentDemoComponent } from './blockgrid/blockgrid-custom-content.demo';
 import { BlockGridMixedSelectionDemoComponent } from './blockgrid/blockgrid-mixed-selection.demo';
 import { BlockGridMultiSelectionDemoComponent } from './blockgrid/blockgrid-multi-selection.demo';
 import { BlockGridSingleSelectionDemoComponent } from './blockgrid/blockgrid-single-selection.demo';
@@ -173,6 +174,7 @@ export const routes: Routes = [
   { path: 'bar',                                    component: BarDemoComponent },
   { path: 'bar-grouped',                            component: BarGroupedDemoComponent },
   { path: 'bar-stacked',                            component: BarStackedDemoComponent },
+  { path: 'blockgrid-custom-content',               component: BlockGridCustomContentDemoComponent},
   { path: 'blockgrid-mixed-selection',              component: BlockGridMixedSelectionDemoComponent},
   { path: 'blockgrid-multi-selection',              component: BlockGridMultiSelectionDemoComponent},
   { path: 'blockgrid-single-selection',             component: BlockGridSingleSelectionDemoComponent},
