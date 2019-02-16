@@ -4,14 +4,12 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  ContentChildren,
   ElementRef,
   EventEmitter,
   HostBinding,
   Input, NgZone,
   OnDestroy,
   Output,
-  QueryList,
 } from '@angular/core';
 
 @Component({
@@ -27,8 +25,6 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.blockgrid') get isBlockGrid() {
     return true;
   }
-
-  @ContentChildren('.block') blockChildren: QueryList<ElementRef>;
 
   /** Defines the data to use, must be specified for this component. */
   @Input() set dataset(dataset: Array<any>) {
