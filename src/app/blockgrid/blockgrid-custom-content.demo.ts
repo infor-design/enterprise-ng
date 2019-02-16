@@ -20,7 +20,6 @@ import {
 export class BlockGridCustomContentDemoComponent implements AfterViewInit {
 
   @ViewChild(SohoBlockGridComponent) blockGrid: SohoBlockGridComponent;
-  // @ViewChildren('BlockChild') blockChildren: QueryList<ElementRef>;
 
   public data = DATA;
 
