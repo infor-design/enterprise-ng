@@ -4,7 +4,6 @@
  * This file contains the Typescript mappings for the public
  * interface of the Soho jQuery BlockGrid control.
  */
-// @ts-ignore
 type SohoBlockGridSelectable = boolean | 'single' | 'multiple' | 'mixed';
 
 /**
