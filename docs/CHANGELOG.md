@@ -4,6 +4,7 @@
 
 ### 5.1.0 Features
 
+- `[Blockgrid]` Added activateBlock and selectBlocks apis to blockgrid component `PWP` ([362](https://github.com/infor-design/enterprise-ng/issues/362)'
 - `[Datagrid]` 4.0 Datagrid expose error row clear functions `PWP` ([#314](https://github.com/infor-design/enterprise-ng/issues/314))
 
 ### 5.1.0 Fixes
