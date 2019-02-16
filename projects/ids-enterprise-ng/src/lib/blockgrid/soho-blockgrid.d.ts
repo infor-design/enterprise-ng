@@ -4,6 +4,7 @@
  * This file contains the Typescript mappings for the public
  * interface of the Soho jQuery BlockGrid control.
  */
+// @ts-ignore
 type SohoBlockGridSelectable = boolean | 'single' | 'multiple' | 'mixed';
 
 /**
@@ -15,7 +16,7 @@ interface SohoBlockGridOptions {
 
   /** Selection Mode Property */
   selectable?: SohoBlockGridSelectable;
- }
+}
 
 /**
  * BlockGrid Api.
@@ -24,7 +25,7 @@ interface SohoBlockGrid {
   settings: SohoBlockGridOptions;
 
   /** Select a block */
-  selectBlock(activeBlock: any[], isCheckbox: boolean): void;
+  selectBlock(activeBlock: JQuery<Node | Node[]>, isCheckbox: boolean): void;
 
   /** Updates the blockgrid with any new settings. */
   updated(settings?: SohoBlockGridOptions): void;

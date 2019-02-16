@@ -4,12 +4,14 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  ContentChildren,
   ElementRef,
   EventEmitter,
   HostBinding,
   Input, NgZone,
   OnDestroy,
   Output,
+  QueryList,
 } from '@angular/core';
 
 @Component({
@@ -25,6 +27,8 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.blockgrid') get isBlockGrid() {
     return true;
   }
+
+  @ContentChildren('.block') blockChildren: QueryList<ElementRef>;
 
   /** Defines the data to use, must be specified for this component. */
   @Input() set dataset(dataset: Array<any>) {
@@ -91,6 +95,25 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
   public updated(settings: any): SohoBlockGridComponent {
     this.ngZone.runOutsideAngular(() => this.blockgrid.updated(settings));
     return this;
+  }
+
+  public activateBlock(idx: number): void {
+    this.ngZone.runOutsideAngular(() => {
+      const blockChildren: NodeList = this.element.nativeElement.querySelectorAll('.block');
+      if (!blockChildren || idx < -1 || idx >= blockChildren.length) {
+        return; // safety check
+      }
+
+      this.blockgrid.selectBlock($(blockChildren[idx]),false);
+    });
+  }
+
+  public selectBlocks(idx: number[]) {
+    this.ngZone.runOutsideAngular(() => {
+      const blockChildren: NodeList = this.element.nativeElement.querySelectorAll('.block');
+      const blockChildrenArray = Array.from(blockChildren).filter((blockChild, index) => idx.includes(index));
+      this.blockgrid.selectBlock($(blockChildrenArray), true);
+    });
   }
 
   private onSelected(args: any[]) {
