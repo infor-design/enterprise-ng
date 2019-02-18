@@ -1,5 +1,6 @@
 import {
   Component,
+  OnInit,
   ViewChild
  } from '@angular/core';
 
@@ -20,7 +21,7 @@ import { ContentTypeService } from './content-type.service';
   `],
   providers: [ContentTypeService]
 })
-export class ListViewDemoComponent {
+export class ListViewDemoComponent implements OnInit {
 
   @ViewChild('singleSelectListView') singleSelectListView: SohoListViewComponent;
 
@@ -63,6 +64,10 @@ export class ListViewDemoComponent {
     this.demoTasks.push({task: '063010', date: '10/11/2015' , desc: 'Special fields test - New item has been created.'});
     this.demoTasks.push({task: '063011', date: '10/11/2015' , desc: 'Call TMZ Inc at 5 PM'});
     this.demoTasks.push({task: '063012', date: '07/08/2015' , desc: 'Part #6212132 has low inventory level'});
+  }
+
+  ngOnInit() {
+    this.singleSelectListView.clearAllSelected();
   }
 
   addItems() {

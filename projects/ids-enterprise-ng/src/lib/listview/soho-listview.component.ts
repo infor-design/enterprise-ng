@@ -416,14 +416,18 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * Clear all the currently selected listview items that are selected.
    */
   clearAllSelected() {
-    this.ngZone.runOutsideAngular(() => this.listview.clearAllSelected());
+    if (this.listview) {
+      this.ngZone.runOutsideAngular(() => this.listview.clearAllSelected());
+    }
   }
 
   /**
    * Toggle the selected listview items between all and none.
    */
   toggleAll () {
-    this.ngZone.runOutsideAngular(() => this.listview.toggleAll());
+    if (this.listview) {
+      this.ngZone.runOutsideAngular(() => this.listview.toggleAll());
+    }
   }
 
   /**
