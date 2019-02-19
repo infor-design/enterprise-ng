@@ -110,7 +110,7 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
   public activateBlock(idx: number): void {
     this.ngZone.runOutsideAngular(() => {
       const blockChildren: NodeList = this.element.nativeElement.querySelectorAll('.block');
-      if (!blockChildren || idx < -1 || idx >= blockChildren.length) {
+      if (!blockChildren || idx <= -1 || idx >= blockChildren.length) {
         return; // safety check
       }
 
