@@ -10,7 +10,7 @@
       (deselected)="onDeselected($event)"
     >
       <ng-container *ngFor="let item of data; let i = index">
-        <div #BlockChild class="block is-selectable card" role="listitem" tabindex="0" attr.idx="{{i}}">
+        <div class="block is-selectable card" role="listitem" tabindex="0" attr.idx="{{i}}">
           <input type="checkbox" aria-hidden="true" role="presentation" class="checkbox" id="checkbox{{i}}" tabindex="0" attr.idx="{{i}}">
           <label for="checkbox{{i}}" class="checkbox-label"><span class="audible">Select</span></label>
           <img alt="Placeholder Image" src="{{item.image}}" class="image-round">
