@@ -12,6 +12,7 @@
     "pack:lib": "cd dist/ids-enterprise-ng && npm pack",
     "package": "npm run build:lib && npm pack",
     "test": "npx ng test ids-enterprise-ng --code-coverage --watch=false",
+    "testdebug": "npx ng test ids-enterprise-ng --code-coverage --watch=true --browsers Chrome",
     "lint": "npx ng lint && npm run mdlint",
     "mdlint": "npm run mdlint:docs && npm run mdlint:src",
     "mdlint:src": "npx markdownlint ./projects/ids-enterprise-ng/src/",

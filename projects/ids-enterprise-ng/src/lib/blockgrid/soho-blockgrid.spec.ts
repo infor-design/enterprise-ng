@@ -98,19 +98,40 @@ describe('Soho blockgrid Unit Tests', () => {
     fixture.detectChanges(); // detect changes to cause the blockgrid component to be built.
     expect((comp as any).blockgrid).not.toBeUndefined();
 
+    // check activateBlock happy path
     const selectBlockSpy = spyOn((comp as any).blockgrid, 'selectBlock');
     comp.activateBlock(1);
     expect(selectBlockSpy).toHaveBeenCalledTimes(1);
     expect(selectBlockSpy.calls.mostRecent().args.length).toEqual(2);
     expect(selectBlockSpy.calls.mostRecent().args[1]).toEqual(false);
 
+    // check activateBlock safety checks
     selectBlockSpy.calls.reset();
+    comp.activateBlock(-1); // lower out of bounds index
+    expect(selectBlockSpy).not.toHaveBeenCalled();
+    comp.activateBlock(5); // upper out of bounds index
+    expect(selectBlockSpy).not.toHaveBeenCalled();
 
-    comp.selectBlocks([2, 3]);
+    // check deactivateBlock
+    selectBlockSpy.calls.reset();
+    comp.deactivateBlock();
     expect(selectBlockSpy).toHaveBeenCalledTimes(1);
+    expect(selectBlockSpy.calls.mostRecent().args.length).toEqual(2);
+    expect(selectBlockSpy.calls.mostRecent().args[1]).toEqual(false);
+
+    selectBlockSpy.calls.reset();
+    comp.selectBlocks([2, 3]);
     expect(selectBlockSpy).toHaveBeenCalledTimes(1);
     expect(selectBlockSpy.calls.mostRecent().args.length).toEqual(2);
     expect(selectBlockSpy.calls.mostRecent().args[1]).toEqual(true);
+
+    // todo: Cannot test deselectBlock functionality. No EP API in blockgrid.js is available. 2/19/2019
+  });
+
+  it('Check ngDestroy safety check for coverage', () => {
+    // since no jquery component will be created here the destroy method
+    // should cause the safety checks to be covered.
+    comp.ngOnDestroy();
   });
 });
 
