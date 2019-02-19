@@ -16,7 +16,7 @@ const blockGridTestData = [
   { img: 'https://randomuser.me/api/portraits/med/women/12.jpg', maintxt: 'Sheena Taylor', subtxt: 'Infor, Architect' }
 ];
 
-fdescribe('Soho blockgrid Unit Tests', () => {
+describe('Soho blockgrid Unit Tests', () => {
   let comp:     SohoBlockGridComponent;
   let fixture:  ComponentFixture<SohoBlockGridComponent>;
   let de:       DebugElement;
@@ -121,7 +121,7 @@ class SohoBlockGridTestComponent {
   public data = blockGridTestData;
   @ViewChild(SohoBlockGridComponent) blockgrid: SohoBlockGridComponent;
 }
-fdescribe('Soho blockgrid Render', () => {
+describe('Soho blockgrid Render', () => {
   let blockgrid:  SohoBlockGridComponent;
   let component: SohoBlockGridTestComponent;
   let fixture:   ComponentFixture<SohoBlockGridTestComponent>;
