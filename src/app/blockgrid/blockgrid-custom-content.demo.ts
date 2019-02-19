@@ -1,8 +1,12 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  ViewChild,
 } from '@angular/core';
-
+import {
+  SohoBlockGridComponent
+} from 'ids-enterprise-ng';
 import {
   DATA
 } from './blockgrid-demo-data';
@@ -13,9 +17,16 @@ import {
   styleUrls: ['./blockgrid-custom-content.demo.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BlockGridCustomContentDemoComponent {
+export class BlockGridCustomContentDemoComponent implements AfterViewInit {
+
+  @ViewChild(SohoBlockGridComponent) blockGrid: SohoBlockGridComponent;
 
   public data = DATA;
+
+  ngAfterViewInit() {
+    this.blockGrid.activateBlock(1);
+    this.blockGrid.selectBlocks([3, 4, 10]);
+  }
 
   onSelected(args) {
     console.log('onSelected', args);
