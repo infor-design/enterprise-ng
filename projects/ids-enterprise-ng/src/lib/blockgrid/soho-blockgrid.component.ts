@@ -7,7 +7,8 @@ import {
   ElementRef,
   EventEmitter,
   HostBinding,
-  Input, NgZone,
+  Input,
+  NgZone,
   OnDestroy,
   Output,
 } from '@angular/core';
@@ -17,17 +18,15 @@ import {
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-
 export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
-  /** Options. */
-  private options: SohoBlockGridOptions = {};
 
   @HostBinding('class.blockgrid') get isBlockGrid() {
     return true;
   }
 
   /** Defines the data to use, must be specified for this component. */
-  @Input() set dataset(dataset: Array<any>) {
+  @Input()
+  public set dataset(dataset: Array<any>) {
     this.options.dataset = dataset;
 
     if (this.blockgrid) {
@@ -35,14 +34,27 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
       this.updated(this.blockgrid.settings);
     }
   }
+  public get dataset(): Array<any> {
+    if (!this.blockgrid) {
+      return this.options.dataset;
+    }
+    return this.blockgrid.settings.dataset;
+  }
 
   /** Defines the selection type. */
-  @Input() set selectable(selectable: any) {
+  @Input()
+  public set selectable(selectable: SohoBlockGridSelectable) {
     this.options.selectable = selectable;
     if (this.blockgrid) {
       this.blockgrid.settings.selectable = selectable;
       this.updated(this.blockgrid.settings);
     }
+  }
+  public get selectable(): SohoBlockGridSelectable {
+    if (!this.blockgrid) {
+      return this.options.selectable;
+    }
+    return this.blockgrid.settings.selectable;
   }
 
   /* Events*/
@@ -51,6 +63,8 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
   @Output() activated: EventEmitter<Object[]> = new EventEmitter<Object[]>();
   @Output() deactivated: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
+  /** Options. */
+  private options: SohoBlockGridOptions = {};
   private jQueryElement: JQuery;
   private blockgrid: SohoBlockGrid;
 
