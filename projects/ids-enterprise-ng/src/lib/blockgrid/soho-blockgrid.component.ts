@@ -118,6 +118,10 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
     });
   }
 
+  public deactivateBlock(): void {
+    this.blockgrid.selectBlock($(), false);
+  }
+
   public selectBlocks(idx: number[]) {
     this.ngZone.runOutsideAngular(() => {
       const blockChildren: NodeList = this.element.nativeElement.querySelectorAll('.block');
