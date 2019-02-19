@@ -424,7 +424,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
   /**
    * Toggle the selected listview items between all and none.
    */
-  toggleAll () {
+  toggleAll() {
     if (this.listview) {
       this.ngZone.runOutsideAngular(() => this.listview.toggleAll());
     }

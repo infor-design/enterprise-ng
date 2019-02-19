@@ -15,6 +15,7 @@
 - `[ColorPicker]` - added configuration option for customColor to have the ability to input colors outside the allowed color options. `JT` ([Pull Request 301])
 - `[DatePicker]` - remove configuration for customValidation. `JT` ([Pull Request 300])
 - `[TextArea]` - input events now cause ngModel update events to be fired. `BTHH`  ([Pull Request 345](https://github.com/infor-design/enterprise-ng/pull/345))
+- `[ListView]` - added safety checks for both `clearAllSelected()` and `toggleAll()` methods. `NBCP`  ([Pull Request 364](https://github.com/infor-design/enterprise-ng/pull/364))
 
 ### 5.1.0 Chore & Maintenance
 

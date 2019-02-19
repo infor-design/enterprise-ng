@@ -76,6 +76,30 @@ describe('Soho Listview Unit Tests', () => {
     expect(el.classList).toContain('listview');
   });
 
+  it('should only call clearAllSelected when listView is available', () => {
+    const clearAllSelectedSpy = spyOn(comp['listview'], 'clearAllSelected');
+    comp.clearAllSelected();
+    expect(clearAllSelectedSpy).toHaveBeenCalledTimes(1);
+
+    comp['listview'] = null;
+    clearAllSelectedSpy.calls.reset();
+
+    comp.clearAllSelected();
+    expect(clearAllSelectedSpy).not.toHaveBeenCalled();
+  });
+
+  it('should only call toggleAll when listView is available', () => {
+    const toggleAllSpy = spyOn(comp['listview'], 'toggleAll');
+    comp.toggleAll();
+    expect(toggleAllSpy).toHaveBeenCalledTimes(1);
+
+    comp['listview'] = null;
+    toggleAllSpy.calls.reset();
+
+    comp.clearAllSelected();
+    expect(toggleAllSpy).not.toHaveBeenCalled();
+  });
+
   // Add more method tests.
 });
 
@@ -161,5 +185,4 @@ describe('Soho ListView Render', () => {
         expect(input.classList.contains('listview-selection-checkbox')).toBeTruthy('is listview-selection-checkbox');
       });
   });
-
 });
