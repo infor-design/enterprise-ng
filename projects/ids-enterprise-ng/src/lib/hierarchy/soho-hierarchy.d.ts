@@ -36,6 +36,21 @@ interface SohoHierarchyOptions {
 }
 
 /**
+ * structure used for stacked layout type.
+ */
+interface SohoStackedHierarchyData<T> {
+
+  /** used for stacked layout */
+  ancestorPath?: T[] | null;
+
+  /** used for stacked layout */
+  centeredNode?: T;
+
+  /** used for stacked layout */
+  children?: T[];
+}
+
+/**
  *  id: leaf id
  *  isLeaf: has no children
  *  isExpanded: leaf is expanded
