@@ -1072,6 +1072,10 @@ interface SohoToolbarOptions {
   rowHeight?: boolean;
   title?: string;
   views?: boolean;
+  resetLayout?: boolean;
+  exportToExcel?: boolean;
+  fullWidth?: boolean;
+  contextualToolbar?: boolean;
 }
 
 /**
