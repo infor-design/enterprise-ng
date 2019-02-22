@@ -7,6 +7,7 @@
 - `[Blockgrid]` Added activateBlock and selectBlocks apis to blockgrid component `PWP` ([362](https://github.com/infor-design/enterprise-ng/issues/362)'
 - `[Datagrid]` 4.0 Datagrid expose error row clear functions `PWP` ([#314](https://github.com/infor-design/enterprise-ng/issues/314))
 - `[General]` Upgraded @angular/cli (to 7.3.2) and @angular/core (to 7.2.5).  `BTHH` ([Pull Request 386](https://github.com/infor-design/enterprise-ng/pull/386))
+- `[DataGrid]` Added a few missing toolbar options to the types.  `TJM` ([#336](https://github.com/infor-design/enterprise-ng/issues/336))
 
 ### 5.1.0 Fixes
 
