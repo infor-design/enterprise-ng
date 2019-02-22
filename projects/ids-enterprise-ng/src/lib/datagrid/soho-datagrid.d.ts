@@ -12,6 +12,8 @@
  */
 type SohoDataGridRowHeight = 'short' | 'medium' | 'normal';
 
+type SohoDataGridTextAlign = 'left' | 'center' | 'right';
+
 /**
  * Selection options.
  * Mixed mode allows for single row activated state with multiple selection checkbox states.
@@ -719,6 +721,9 @@ interface SohoDataGridColumn {
 
   /** Validators to assign to any editable columns. */
   validate?: string;
+
+  /** align the header text */
+  headerAlign?: SohoDataGridTextAlign;
 }
 
 interface SohoDataGridColumnNumberFormat {
