@@ -90,8 +90,8 @@ class TestDatePickerComponent {
     }
   }
 
-  public _firstDayOfWeek: number;
-  @Input() set firstDayOfWeek(firstDayOfWeek: number) {
+  public _firstDayOfWeek: SohoDatePickerDayOfWeek;
+  @Input() set firstDayOfWeek(firstDayOfWeek: SohoDatePickerDayOfWeek) {
     this._firstDayOfWeek = firstDayOfWeek;
     if (this.datepicker) {
       this.datepicker.firstDayOfWeek = this._firstDayOfWeek;
