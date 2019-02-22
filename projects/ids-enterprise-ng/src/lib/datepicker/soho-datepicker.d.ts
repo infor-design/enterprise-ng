@@ -67,6 +67,14 @@ interface SohoDatePickerOptions {
   /** If true the dates will use UTC format. This is only partially
    * implemented https://jira.infor.com/browse/SOHO-3437 */
   useUTC?: boolean;
+
+  /** Set first day of the week. '1' would be Monday.
+   * valid values are: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+   * sunday = 0
+   * monday = 1
+   * tuesday = 2
+   */
+  firstDayOfWeek?: number; // 0 | 1 | 2 | 3 | 4 | 5 | 6;
 }
 
 /* Options for the legend */
