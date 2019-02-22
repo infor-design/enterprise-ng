@@ -90,6 +90,14 @@ class TestDatePickerComponent {
     }
   }
 
+  public _firstDayOfWeek: SohoDatePickerDayOfWeek;
+  @Input() set firstDayOfWeek(firstDayOfWeek: SohoDatePickerDayOfWeek) {
+    this._firstDayOfWeek = firstDayOfWeek;
+    if (this.datepicker) {
+      this.datepicker.firstDayOfWeek = this._firstDayOfWeek;
+    }
+  }
+
   public _roundToInterval: boolean;
   @Input() set roundToInterval(roundToInterval: boolean) {
     this._roundToInterval = roundToInterval;
@@ -249,6 +257,7 @@ describe('Soho Datepicker Unit Tests', () => {
       timeFormat: 'HH:mm:ss',
       minuteInterval: 10,
       secondInterval: 10,
+      firstDayOfWeek: 0,
       roundToInterval: true,
       dateFormat: 'mm/dd/yyyy',
       placeholder: 'placeholder',
@@ -265,6 +274,7 @@ describe('Soho Datepicker Unit Tests', () => {
       timeFormat: 'HH:mm',
       minuteInterval: 5,
       secondInterval: 5,
+      firstDayOfWeek: 1,
       roundToInterval: false,
       dateFormat: 'MMMM dd',
       placeholder: 'a different placeholder',
@@ -299,6 +309,7 @@ describe('Soho Datepicker Unit Tests', () => {
       comp.timeFormat = 'HH:mm';
       comp.minuteInterval = 5;
       comp.secondInterval = 5;
+      comp.firstDayOfWeek = 1;
       comp.roundToInterval = false;
       comp.dateFormat = 'MMMM dd';
       comp.placeholder = 'a different placeholder';

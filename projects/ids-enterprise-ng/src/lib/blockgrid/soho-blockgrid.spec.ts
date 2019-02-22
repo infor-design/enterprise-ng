@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 import { SohoBlockGridModule } from './soho-blockgrid.module';
 import { SohoBlockGridComponent } from './soho-blockgrid.component';
+import { TestHelper } from '../utils';
 
 const blockGridTestData = [
   { img: 'https://randomuser.me/api/portraits/med/women/8.jpg', maintxt: 'Sheena Taylor', subtxt: 'Infor, Developer' },
@@ -21,13 +22,6 @@ describe('Soho blockgrid Unit Tests', () => {
   let fixture:  ComponentFixture<SohoBlockGridComponent>;
   let de:       DebugElement;
   let el:       HTMLElement;
-
-  // todo ppatton, theo, this is also in soho-standalone-pager.componet.spec.ts - maybe consider test helper class
-  const testFireEvent = (eventEmitter: EventEmitter<any>, functionName: string, eventName: string) => {
-    const eventEmitterSpy = spyOn<any>(eventEmitter, functionName);
-    (comp as any).jQueryElement.trigger(eventName);
-    expect(eventEmitterSpy).toHaveBeenCalledTimes(1);
-  };
 
   beforeEach( () => {
     TestBed.configureTestingModule({
@@ -84,10 +78,10 @@ describe('Soho blockgrid Unit Tests', () => {
     fixture.detectChanges();
     expect((comp as any).blockgrid).not.toBeUndefined();
 
-    testFireEvent((comp as any).selected, 'emit', 'selected');
-    testFireEvent((comp as any).deselected, 'emit', 'deselected');
-    testFireEvent((comp as any).activated, 'emit', 'activated');
-    testFireEvent((comp as any).deactivated, 'emit', 'deactivated');
+    TestHelper.testFireEvent(comp['element'].nativeElement, 'selected', comp['selected']);
+    TestHelper.testFireEvent(comp['element'].nativeElement, 'deselected', comp['deselected']);
+    TestHelper.testFireEvent(comp['element'].nativeElement, 'activated', comp['activated']);
+    TestHelper.testFireEvent(comp['element'].nativeElement, 'deactivated', comp['deactivated']);
   });
 
   it('Check public functions', () => {

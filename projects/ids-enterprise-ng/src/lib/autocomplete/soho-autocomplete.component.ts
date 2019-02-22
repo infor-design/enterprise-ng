@@ -45,6 +45,11 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
     this.options.template = template;
   }
 
+  /** if true, causes filter results that don't match case to be thrown out. */
+  @Input() set caseSensitive(caseSensitive: boolean) {
+    this.options.caseSensitive = caseSensitive;
+  }
+
   /** Filters based on the first character('startsWidth') of the string, or the entire string('contains') */
   @Input() set filterMode(filterMode: SohoAutoCompleteFilterMode) {
     this.options.filterMode = filterMode;

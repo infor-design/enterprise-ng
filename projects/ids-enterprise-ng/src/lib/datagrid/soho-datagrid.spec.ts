@@ -16,7 +16,7 @@ const COLUMNS: SohoDataGridColumn[] = [
   { id: 'activity',    name: 'Activity',     field: 'activity',    sortable: false, filterType: 'text',    width: 125, hidden: true },
   { id: 'quantity',    name: 'Quantity',     field: 'quantity',    sortable: false,                        width: 125 },
   { id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', width: 125, formatter: Soho.Formatters.Decimal },
-  { id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',    formatter: Soho.Formatters.Date, dateFormat: 'M/d/yyyy' }
+  { id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',    headerAlign: 'right', formatter: Soho.Formatters.Date, dateFormat: 'M/d/yyyy' }
 ];
 /* tslint:enable */
 

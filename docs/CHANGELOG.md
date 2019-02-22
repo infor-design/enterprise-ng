@@ -4,21 +4,24 @@
 
 ### 5.1.0 Features
 
+- `[AutoComplete]` Added caseSensitive option to autocomplete component `PWP` ([362](https://github.com/infor-design/enterprise-ng/issues/362)'
 - `[Blockgrid]` Added activateBlock and selectBlocks apis to blockgrid component `PWP` ([362](https://github.com/infor-design/enterprise-ng/issues/362)'
-- `[Datagrid]` 4.0 Datagrid expose error row clear functions `PWP` ([#314](https://github.com/infor-design/enterprise-ng/issues/314))
+- `[DataGrid]` 4.0 Datagrid expose error row clear functions `PWP` ([#314](https://github.com/infor-design/enterprise-ng/issues/314))
+- `[DataGrid]` Added a few missing toolbar options to the types. `TJM` ([#336](https://github.com/infor-design/enterprise-ng/issues/336))
+- `[DataGrid]` Added headerAlign option to datagrid column. `PWP` ([#304](https://github.com/infor-design/enterprise-ng/issues/304))
+- `[DatePicker]` Added firstDayOfWeek option to date picker component `PWP` ([362](https://github.com/infor-design/enterprise-ng/issues/362)'
 - `[General]` Upgraded @angular/cli (to 7.3.2) and @angular/core (to 7.2.5).  `BTHH` ([Pull Request 386](https://github.com/infor-design/enterprise-ng/pull/386))
-- `[DataGrid]` Added a few missing toolbar options to the types.  `TJM` ([#336](https://github.com/infor-design/enterprise-ng/issues/336))
 
 ### 5.1.0 Fixes
 
-- `[DataGrid]` - changed emptyMessage setter so it will remove any empty message if passed a null or undefined. `PWP` ([Pull Request 305](https://github.com/infor-design/enterprise-ng/pull/305))
 - `[Accordion]` - refactored to use `ngZone` - This effects the constructor and how often change detection is called. `BTHH` ([Pull Request 290](https://github.com/infor-design/enterprise-ng/pull/290))
+- `[ColorPicker]` - added configuration option for customColor to have the ability to input colors outside the allowed color options. `JT` ([Pull Request 301])
+- `[DataGrid]` - changed emptyMessage setter so it will remove any empty message if passed a null or undefined. `PWP` ([Pull Request 305](https://github.com/infor-design/enterprise-ng/pull/305))
+- `[DatePicker]` - remove configuration for customValidation. `JT` ([Pull Request 300])
+- `[ListView]` - added safety checks for both `clearAllSelected()` and `toggleAll()` methods. `NBCP`  ([Pull Request 364](https://github.com/infor-design/enterprise-ng/pull/364))
 - `[TextArea]` - added configuration option for maxLength so it will have a restriction in maximum character input. `JT` ([Pull Request 302])
 - `[TextArea]` - added configuration option for maxGrow so it will expand if the characters exceed the height of the textarea. `JT` ([Pull Request 302])
-- `[ColorPicker]` - added configuration option for customColor to have the ability to input colors outside the allowed color options. `JT` ([Pull Request 301])
-- `[DatePicker]` - remove configuration for customValidation. `JT` ([Pull Request 300])
 - `[TextArea]` - input events now cause ngModel update events to be fired. `BTHH`  ([Pull Request 345](https://github.com/infor-design/enterprise-ng/pull/345))
-- `[ListView]` - added safety checks for both `clearAllSelected()` and `toggleAll()` methods. `NBCP`  ([Pull Request 364](https://github.com/infor-design/enterprise-ng/pull/364))
 
 ### 5.1.0 Chore & Maintenance
 
