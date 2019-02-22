@@ -64,7 +64,7 @@ describe('Soho AutoComplete Unit Tests', () => {
     fixture.detectChanges();
     expect(comp['autocomplete']).not.toBeUndefined();
 
-    const autoCompleteElement = comp['element'].nativeElement
+    const autoCompleteElement = comp['element'].nativeElement;
     TestHelper.testFireEvent(autoCompleteElement, 'selected', comp['selected']);
     TestHelper.testFireEvent(autoCompleteElement, 'beforeopen', comp['beforeopen']);
     // TestHelper.testFireEvent(autoCompleteElement, 'change', comp['change']);
