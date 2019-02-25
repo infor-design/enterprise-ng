@@ -1419,7 +1419,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   clearFilter(): void {
     this.ngZone.runOutsideAngular(() => {
-      this.datagrid.clearFilter();
+      if (this.datagrid) {
+        this.datagrid.clearFilter();
+      }
     });
   }
 
