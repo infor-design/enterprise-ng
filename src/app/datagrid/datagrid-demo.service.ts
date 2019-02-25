@@ -3,8 +3,7 @@ import { of,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 import {
-  SohoDataGridService,
-  SohoGridColumnFilterTypes
+  SohoDataGridService
 } from 'ids-enterprise-ng';
 
 declare var Formatters: any;
@@ -83,7 +82,7 @@ export class DataGridDemoService extends SohoDataGridService {
 
     this.columns.push({
       id: 'productDesc',
-      filterType: <any>SohoGridColumnFilterTypes.Text,
+      filterType: 'text',
       name: 'Product Desc',
       sortable: false,
       field: 'productName',
@@ -92,7 +91,7 @@ export class DataGridDemoService extends SohoDataGridService {
 
     this.columns.push({
       id: 'productDesc',
-      filterType: <any>SohoGridColumnFilterTypes.Text,
+      filterType: 'text',
       name: 'Product Desc',
       sortable: false,
       field: 'productName',
@@ -104,14 +103,14 @@ export class DataGridDemoService extends SohoDataGridService {
     this.columns.push({
       id: 'activity',
       name: 'Activity',
-      filterType: <any>SohoGridColumnFilterTypes.Text,
+      filterType: 'text',
       field: 'activity'
     });
 
     this.columns.push({
       id: 'quantity',
       name: 'Quantity',
-      filterType: <any>SohoGridColumnFilterTypes.Text,
+      filterType: 'text',
       field: 'quantity'
     });
 
@@ -127,7 +126,7 @@ export class DataGridDemoService extends SohoDataGridService {
     this.columns.push({
       id: 'price1',
       name: 'Actual long Price',
-      filterType: <any>SohoGridColumnFilterTypes.Decimal,
+      filterType: 'decimal',
       field: 'price',
       formatter: Soho.Formatters.Decimal
     });
@@ -144,7 +143,7 @@ export class DataGridDemoService extends SohoDataGridService {
       id: 'price4',
       hidden: true,
       name: 'Price - special formatted',
-      filterType: <any>SohoGridColumnFilterTypes.Decimal,
+      filterType: 'decimal',
       field: 'price',
       formatter: Soho.Formatters.Decimal,
       numberFormat: { minimumFractionDigits: 0, maximumFractionDigits: 6 }
@@ -154,7 +153,7 @@ export class DataGridDemoService extends SohoDataGridService {
       id: 'orderDate',
       width: 300,
       name: 'Order Date',
-      filterType: <any>SohoGridColumnFilterTypes.Date,
+      filterType: 'date',
       field: 'orderDate',
       formatter: Soho.Formatters.Date,
       dateFormat: Soho.Locale.calendar().dateFormat.datetime // @todo
@@ -163,7 +162,7 @@ export class DataGridDemoService extends SohoDataGridService {
     this.columns.push({
       id: 'status',
       name: 'Status',
-      filterType: <any>SohoGridColumnFilterTypes.Select,
+      filterType: 'select',
       options: [{ value: "ok", label: "OKAY" }, { value: "OK", label: "BIG OKAY" }, { value: "error", label: "ERROR" }, { value: "success", label: "SUCCESS" }],
       field: 'status',
       formatter: Soho.Formatters.Dropdown

@@ -356,7 +356,13 @@ type SohoDataGridSortFunction = (
   ascending: boolean
 ) => boolean;
 
-type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' | 'integer' | 'percent' | 'select' | 'time';
+type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' |
+  'integer' | 'lookup' | 'percent' | 'select' | 'time';
+
+type SohoDataGridColumnFilterConditions = 'contains' | 'does-not-contain' | 'equals' | 'does-not-equal' | 'is-empty' |
+  'is-not-empty' | 'selected-notselected' | 'selected' | 'not-selected' | 'equals' | 'does-not-equal' |
+  'is-empty' | 'is-not-empty' | 'in-range' | 'less-than' | 'less-equals' | 'greater-than' |
+  'greater-equals' | 'end-with' | 'does-not-end-with' | 'start-with' | 'does-not-start-with';
 
 interface SohoDataGridCellEditor {
   className: string;
@@ -596,6 +602,9 @@ interface SohoDataGridColumn {
 
   // 'checkbox', 'date', 'decimal', 'contents', 'select' otherwise a string.
   filterType?: SohoDataGridColumnFilterType | string;
+
+  /** Limit filter conditions to a prescribed set of conditionals.  */
+  filterConditions?: SohoDataGridColumnFilterConditions[];
 
   /** Column formatter function.  */
   filterFormatter?: SohoDataGridColumnFormatterFunction | string;
