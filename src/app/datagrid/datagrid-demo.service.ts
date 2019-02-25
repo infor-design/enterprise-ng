@@ -64,22 +64,6 @@ export class DataGridDemoService extends SohoDataGridService {
         formatter: Soho.Formatters.Readonly
       });
 
-    /*
-      It is possible to use the card here but its not the prefered approach.
-
-      this.columns.push({
-        id: 'productDesc',
-        filterType: <any>SohoGridColumnFilterTypes.Text,
-        name: 'Product Desc',
-        sortable: false,
-        field: 'productName',
-        formatter: Soho.Formatters.Template,
-        template: '<p class="datagrid-row-heading">{{productId}}</p><p class="datagrid-row-subheading">{{productName}}</p>',
-        click: (e: any, args: any) => { console.log('link was clicked', args); }
-      });
-
-    */
-
     this.columns.push({
       id: 'productDesc',
       filterType: 'text',
@@ -111,7 +95,8 @@ export class DataGridDemoService extends SohoDataGridService {
       id: 'quantity',
       name: 'Quantity',
       filterType: 'text',
-      field: 'quantity'
+      field: 'quantity',
+      filterConditions: ['equals', 'contains']
     });
 
     this.columns.push({
