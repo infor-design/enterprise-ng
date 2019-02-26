@@ -2148,24 +2148,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 }
 
 /**
- * Enumeration of the Soho Datagrid FilterTypes.
- * Note: integer, percent and lookup are not yet implemented the soho datagrid.js
- * See http://stackoverflow.com/questions/15490560/create-an-enum-with-string-values-in-typescript
- * for more details about creating an enum of strings.
- */
-export enum SohoGridColumnFilterTypes {
-  Text     = 'text',
-  Checkbox = 'checkbox',
-  Contents = 'contents',
-  Date     = 'date',
-  Decimal  = 'decimal',
-  Integer  = 'integer',
-  Lookup   = 'lookup',
-  Percent  = 'percent',
-  Select   = 'select'
-}
-
-/**
  * Details of the 'expandrow' and 'collapserow' events.
  */
 export interface SohoDataGridToggleRowEvent extends SohoDataGridRowExpandEvent {

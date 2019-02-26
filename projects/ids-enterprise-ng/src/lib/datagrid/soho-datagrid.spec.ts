@@ -12,7 +12,7 @@ import { SohoDataGridComponent } from './soho-datagrid.component';
 const COLUMNS: SohoDataGridColumn[] = [
   { id: 'selectionCheckbox', sortable: false, resizable: false, width: 50, formatter: Soho.Formatters.SelectionCheckbox, align: 'center', exportable: false },
   { id: 'productId',   name: 'Product Id',   field: 'productId',   sortable: false, filterType: 'integer', width: 140, formatter: Soho.Formatters.Readonly },
-  { id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text',    width: 150, formatter: Soho.Formatters.Hyperlink },
+  { id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text', filterConditions: ['equals', 'contains'],  width: 150, formatter: Soho.Formatters.Hyperlink },
   { id: 'activity',    name: 'Activity',     field: 'activity',    sortable: false, filterType: 'text',    width: 125, hidden: true },
   { id: 'quantity',    name: 'Quantity',     field: 'quantity',    sortable: false,                        width: 125 },
   { id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', width: 125, formatter: Soho.Formatters.Decimal },
