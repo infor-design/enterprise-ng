@@ -37,7 +37,7 @@ class SohoAccordionTestComponent {
   }
 }
 
-fdescribe('Soho Accordion Unit Tests', () => {
+describe('Soho Accordion Unit Tests', () => {
   let accordion: SohoAccordionComponent;
   let component: SohoAccordionTestComponent;
   let fixture: ComponentFixture<SohoAccordionTestComponent>;
