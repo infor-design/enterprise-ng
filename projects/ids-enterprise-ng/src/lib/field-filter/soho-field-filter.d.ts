@@ -21,6 +21,19 @@ interface SohoFieldFilterStatic {
   /** Access to the control's settings block. */
   settings: SohoFieldFilterSettings;
 
+  /**
+   * Get current filter type
+   * @returns {object} The current filter type
+   */
+  getFilterType(): any;
+
+  /**
+   * Set filter type to given value
+   * @param {number|string} value to be set, index or value.
+   * @returns {void}
+   */
+  setFilterType(value: any);
+
   /** Destructor. */
   destroy(): void;
 
