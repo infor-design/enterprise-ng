@@ -213,6 +213,37 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * The value of the frozenColumns option - returns the requested
+   * value if the control has not been created yet.
+   */
+  get frozenColumns(): SohoDataGridFrozenColumns {
+    if (this.datagrid) {
+      return this.datagrid.settings.frozenColumns;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.frozenColumns;
+  }
+
+  /**
+   * Sets the frozenColumns settings - will force a grid rebuild if the component has already been
+   * created.
+   *
+   * @param frozenColumns - the frozenColumns settings.
+   */
+  @Input() set frozenColumns(frozenColumns: SohoDataGridFrozenColumns) {
+    this._gridOptions.frozenColumns = frozenColumns;
+    if (this.datagrid) {
+      this.datagrid.settings.frozenColumns = frozenColumns;
+
+      // Force all a full rebuild of the control.
+      this.markForRefresh('frozenColumns', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
    * If true allows
    */
   @Input() set cellNavigation(cellNavigation: boolean) {

@@ -153,12 +153,14 @@ describe('Soho DataGrid Unit Tests', () => {
     const pageSizes = [10, 20, 30];
     const toolbar = {};
     const saveUserSettings = {};
+    let frozenColumns: SohoDataGridFrozenColumns = {};
 
     comp.data = DATA;
     comp.columns = COLUMNS;
 
     comp.uniqueId = 'id1';
     comp.idProperty = 'id1';
+    comp.frozenColumns = frozenColumns;
     comp.cellNavigation = false;
     comp.rowNavigation = false;
     comp.alternateRowShading = false;
@@ -190,6 +192,7 @@ describe('Soho DataGrid Unit Tests', () => {
 
     expect(comp.uniqueId).toEqual('id1');
     expect(comp.idProperty).toEqual('id1');
+    expect(comp.frozenColumns).toEqual(frozenColumns);
     expect(comp.cellNavigation).toEqual(false);
     expect(comp.rowNavigation).toEqual(false);
     expect(comp.alternateRowShading).toEqual(false);
@@ -220,11 +223,17 @@ describe('Soho DataGrid Unit Tests', () => {
     expect((comp as any).refreshHint).toEqual(0);
 
     fixture.detectChanges();
+    expect(comp['datagrid']).toBeDefined('datagrid should be defined')
+
+    frozenColumns = {
+      left: ['selectionCheckbox'],
+      right: ['orderDate']
+    };
 
     // change some values and verify vlaue getters
     comp.data = DATA;
     comp.columns = COLUMNS;
-
+    comp.frozenColumns = frozenColumns;
     comp.uniqueId = 'id2';
     comp.idProperty = 'id2';
     comp.cellNavigation = true;
@@ -257,6 +266,7 @@ describe('Soho DataGrid Unit Tests', () => {
 
     expect(comp.uniqueId).toEqual('id2');
     expect(comp.idProperty).toEqual('id2');
+    expect(comp.frozenColumns).toEqual(frozenColumns);
     expect(comp.cellNavigation).toEqual(true);
     expect(comp.rowNavigation).toEqual(true);
     expect(comp.alternateRowShading).toEqual(true);

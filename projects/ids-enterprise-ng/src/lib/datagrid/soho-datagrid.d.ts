@@ -24,6 +24,11 @@ type SohoDataGridTextAlign = 'left' | 'center' | 'right';
  */
 type SohoDataGridSelectable = boolean | 'single' | 'multiple' | 'mixed' | 'siblings';
 
+interface SohoDataGridFrozenColumns {
+  left?: any[];
+  right?: any[];
+}
+
 /**
  * Settings for the Soho datagrid control.
  */
@@ -59,6 +64,9 @@ interface SohoDataGridOptions {
 
   /** Initial dataset. */
   dataset?: Object[];
+
+  /** set frozen columns */
+  frozenColumns?: SohoDataGridFrozenColumns;
 
   /** Allow column reorder. */
   columnReorder?: boolean;
