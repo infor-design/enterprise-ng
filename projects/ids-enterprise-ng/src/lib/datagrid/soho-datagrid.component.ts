@@ -1864,6 +1864,31 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     });
   }
 
+  /**
+   * Returns the row dom jQuery node.
+   * @param  row The row index.
+   * @param  includeGroups If true groups are taken into account.
+   * @return The dom jQuery node
+   */
+  rowNode(row: number, includeGroups: boolean): any {
+    return this.ngZone.runOutsideAngular(() => {
+      return this.datagrid.rowNode(row, includeGroups);
+    })
+  }
+
+  /**
+   * Returns the cell dom node.
+   * @param  row The row index.
+   * @param  cell The cell index.
+   * @param  includeGroups If true groups are taken into account.
+   * @return The dom node
+   */
+  cellNode(row: number, cell: number, includeGroups: boolean): any {
+    return this.ngZone.runOutsideAngular(() => {
+      return this.datagrid.cellNode(row, cell, includeGroups);
+    })
+  }
+
   // ------------------------------------------
   // Lifecycle Events
   // ------------------------------------------
