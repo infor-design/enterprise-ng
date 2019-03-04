@@ -25,6 +25,7 @@
 - `[TextArea]` - added configuration option for maxLength so it will have a restriction in maximum character input. `JT` ([Pull Request 302])
 - `[TextArea]` - added configuration option for maxGrow so it will expand if the characters exceed the height of the textarea. `JT` ([Pull Request 302])
 - `[TextArea]` - input events now cause ngModel update events to be fired. `BTHH`  ([Pull Request 345](https://github.com/infor-design/enterprise-ng/pull/345))
+- `[TrackDirty]` - added exportAs directive property.
 
 ### 5.1.0 Chore & Maintenance
 
