@@ -99,7 +99,7 @@ describe('Standalone Pager Unit Tests', () => {
     expect((comp as any).pager.settings.lastPageTooltip).toEqual('Disabled Last Page');
     expect((comp as any).pager.settings.showPageSizeSelector).toEqual(false);
     expect((comp as any).pager.settings.pagesize).toEqual(20);
-    expect((comp as any).pager.settings.pagesizes).toEqual([]);
+    expect((comp as any).pager.settings.pagesizes).toEqual([ 5, 10, 15, 20 ]);
 
     expect((comp as any).updateRequired).toEqual(false);
     expect(updatedSpy).toHaveBeenCalledTimes(1);
