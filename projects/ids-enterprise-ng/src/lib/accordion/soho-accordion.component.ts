@@ -202,7 +202,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   }
 
   /**
-   * Set the color scheme to alternate
+   * Enables tooltips for longer text that is handled with ellipsis
    */
   @Input() public set enableTooltips(enableTooltips: boolean) {
     this.options.enableTooltips = enableTooltips;
