@@ -104,8 +104,8 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
    * returns {object} The current filter type
    */
   public getFilterType(): any {
-    return this.ngZone.runOutsideAngular(() => this.fieldFilter.getFilterType());
-  }
+    this.ngZone.runOutsideAngular(() => this.fieldFilter.getFilterType());
+  };
 
   /**
    * Set filter type to given value
