@@ -1873,7 +1873,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   rowNode(row: number, includeGroups: boolean): any {
     return this.ngZone.runOutsideAngular(() => {
       return this.datagrid.rowNode(row, includeGroups);
-    })
+    });
   }
 
   /**
@@ -1886,7 +1886,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   cellNode(row: number, cell: number, includeGroups: boolean): any {
     return this.ngZone.runOutsideAngular(() => {
       return this.datagrid.cellNode(row, cell, includeGroups);
-    })
+    });
   }
 
   // ------------------------------------------
