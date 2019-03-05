@@ -24,6 +24,11 @@ type SohoDataGridTextAlign = 'left' | 'center' | 'right';
  */
 type SohoDataGridSelectable = boolean | 'single' | 'multiple' | 'mixed' | 'siblings';
 
+interface SohoDataGridFrozenColumns {
+  left?: any[];
+  right?: any[];
+}
+
 /**
  * Settings for the Soho datagrid control.
  */
@@ -59,6 +64,9 @@ interface SohoDataGridOptions {
 
   /** Initial dataset. */
   dataset?: Object[];
+
+  /** set frozen columns */
+  frozenColumns?: SohoDataGridFrozenColumns;
 
   /** Allow column reorder. */
   columnReorder?: boolean;
@@ -254,6 +262,17 @@ interface SohoDataGridOptions {
    *  You may want to also use showSelectAllCheckBox: false
    */
   allowSelectAcrossPages?: boolean;
+
+  /**
+   * if true:
+   * and if only parent got match then add all children nodes too
+   * or if one or more child node got match then add parent node and all the children nodes
+   * if false:
+   * and if only parent got match then make expand/collapse button to be collapsed, disabled
+   * and do not add any children nodes
+   * or if one or more child node got match then add parent node and only matching children nodes
+   */
+  allowChildExpandOnMatch?: boolean;
 }
 
 /**
@@ -357,7 +376,7 @@ type SohoDataGridSortFunction = (
 ) => boolean;
 
 type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' |
-  'integer' | 'lookup' | 'percent' | 'select' | 'time';
+  'integer' | 'lookup' | 'percent' | 'select' | 'time' | 'lookup';
 
 type SohoDataGridColumnFilterConditions = 'contains' | 'does-not-contain' | 'equals' | 'does-not-equal' | 'is-empty' |
   'is-not-empty' | 'selected-notselected' | 'selected' | 'not-selected' | 'equals' | 'does-not-equal' |
@@ -963,6 +982,23 @@ interface SohoDataGridStatic {
    * @param tooltip - string value for tooltip message e.g. 'Error'
    */
   rowStatus(idx: number, status: string, tooltip: string): void;
+
+  /**
+   * Returns the row dom jQuery node.
+   * @param  row The row index.
+   * @param  includeGroups If true groups are taken into account.
+   * @return The dom jQuery node
+   */
+  rowNode(row: number, includeGroups: boolean): any;
+
+  /**
+   * Returns the cell dom node.
+   * @param  row The row index.
+   * @param  cell The cell index.
+   * @param  includeGroups If true groups are taken into account.
+   * @return The dom node
+   */
+  cellNode(row: number, cell: number, includeGroups: boolean): any;
 
   /**
    * Destructor,

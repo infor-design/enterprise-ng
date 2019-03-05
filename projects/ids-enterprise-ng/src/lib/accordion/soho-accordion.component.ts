@@ -201,6 +201,21 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
     return this.options.alternate;
   }
 
+  /**
+   * Enables tooltips for longer text that is handled with ellipsis
+   */
+  @Input() public set enableTooltips(enableTooltips: boolean) {
+    this.options.enableTooltips = enableTooltips;
+    if (this.accordion) {
+      this.accordion.settings.enableTooltips = this.options.enableTooltips;
+      this.markForUpdate();
+    }
+  }
+
+  public get enableTooltips(): boolean {
+    return this.options.enableTooltips;
+  }
+
   @Input() public hasSubheaderSeparators: boolean;
 
   /**

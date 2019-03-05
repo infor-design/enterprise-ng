@@ -22,6 +22,8 @@ interface SohoEditorOptions {
   anchor?: SohoEditorAnchor;
   image?: SohoEditorOptionsImage;
   onLinkClick?: (e: JQuery.TriggeredEvent, elem: any) => void;
+  showHtmlView?: boolean;
+  preview?: boolean;
 }
 
 interface SohoEditorAnchor {

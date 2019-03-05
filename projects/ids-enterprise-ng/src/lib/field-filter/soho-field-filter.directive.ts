@@ -99,6 +99,23 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
     });
   }
 
+  /**
+   * Get current filter type
+   * returns {object} The current filter type
+   */
+  public getFilterType(): any {
+    this.ngZone.runOutsideAngular(() => this.fieldFilter.getFilterType());
+  }
+
+  /**
+   * Set filter type to given value
+   * param {number|string} value to be set, index or value.
+   * returns {void}
+   */
+  public setFilterType(value: any) {
+    this.ngZone.runOutsideAngular(() => this.fieldFilter.setFilterType(value));
+  }
+
   /** Destructor. */
   ngOnDestroy() {
     if (this.fieldFilter) {
