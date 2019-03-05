@@ -223,7 +223,7 @@ describe('Soho DataGrid Unit Tests', () => {
     expect((comp as any).refreshHint).toEqual(0);
 
     fixture.detectChanges();
-    expect(comp['datagrid']).toBeDefined('datagrid should be defined');
+    expect(comp['datagrid']).toBeDefined('datagrid should be defined')
 
     frozenColumns = {
       left: ['selectionCheckbox'],
