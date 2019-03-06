@@ -1,0 +1,25 @@
+<div class="row top-padding">
+  <div class="twelve columns">
+
+    <div soho-toolbar-flex id="test-toolbar" (selected)="onSelected($event)">
+      <soho-toolbar-flex-section [isTitle]="true">
+        <h2>Test Toolbar Searchfield</h2>
+      </soho-toolbar-flex-section>
+      <soho-toolbar-flex-section [isSearch]="true">
+        <input soho-toolbar-flex-searchfield
+               placeholder="Search..."
+               [clearable]="true"
+               [collapsible]="false"
+               [options]="searchfieldOptions"
+               [(ngModel)]="model.searchValue"
+               (change)="onChange($event)"/>
+      </soho-toolbar-flex-section>
+      <soho-toolbar-flex-section [isButtonSet]="true">
+        <button soho-button id="test-button" data-action="{'button':'test button'}">
+          <span>Test Button</span>
+        </button>
+      </soho-toolbar-flex-section>
+    </div>
+
+  </div>
+</div>
