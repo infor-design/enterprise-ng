@@ -14,6 +14,7 @@
 - `[DataGrid]` Removed unused enum SohoGridColumnFilterTypes. If using this you should use `filterType: 'text'` instead. `TJM` ([#350](https://github.com/infor-design/enterprise-ng/issues/350))
 - `[DatePicker]` Added firstDayOfWeek option to date picker component `PWP` ([362](https://github.com/infor-design/enterprise-ng/issues/362)'
 - `[General]` Upgraded @angular/cli (to 7.3.2) and @angular/core (to 7.2.5).  `BTHH` ([Pull Request 386](https://github.com/infor-design/enterprise-ng/pull/386))
+- `[ToolbarFlex]` Implemented the wrapper for the toolbar flex component.  `BTHH` ([Pull Request 316](https://github.com/infor-design/enterprise-ng/issues/316))
 
 ### 5.1.0 Fixes
 
