@@ -138,6 +138,21 @@ describe('Soho Accordion Unit Tests', () => {
     expect(spy).toHaveBeenCalled();
   });
 
+  it('can get and set enableTooltips', () => {
+    const spy = spyOn((component as any).accordion, 'markForUpdate');
+
+    expect(accordion.enableTooltips).toBeUndefined();
+    accordion.enableTooltips = true;
+
+    expect(accordion.options.enableTooltips).toBeTruthy();
+
+    accordion.enableTooltips = false;
+
+    expect(accordion.options.enableTooltips).toBeFalsy();
+
+    expect(spy).toHaveBeenCalled();
+  });
+
   it('can get and set hasSubheaderSeparators', () => {
     expect(accordion.hasSubheaderSeparators).toBeUndefined();
     accordion.hasSubheaderSeparators = true;
