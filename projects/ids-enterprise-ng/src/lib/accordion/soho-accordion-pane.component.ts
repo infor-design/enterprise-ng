@@ -7,13 +7,7 @@ import {
 
 @Component({
   selector: 'soho-accordion-pane',
-  templateUrl: './soho-accordion-pane.component.html',
-  // This assumes not expanded ... need this to be dynamic!
-  styles: [`
-    :host {
-      display: none;
-      height: 0px;`
-    ]
+  templateUrl: './soho-accordion-pane.component.html'
 })
 export class SohoAccordionPaneComponent {
   @HostBinding('class.accordion-pane') get isAccordionPane() { return true; }
