@@ -27,7 +27,7 @@ export class ListViewCustomContentDemoComponent implements OnInit {
     this.data = this.data1;
   }
   changeToDataSet2() {
-    this.data = this.data2
+    this.data = this.data2;
   }
   makeMultipleSelection() {
     this.sohoListViewComponent.selectable = 'multiple';
