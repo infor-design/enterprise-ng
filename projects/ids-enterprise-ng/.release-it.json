@@ -1,16 +1,16 @@
 {
   "dry-run": false,
-  "requireCleanWorkingDir": true,
   "non-interactive": false,
   "verbose": false,
   "pkgFiles": ["package.json"],
-  "increment": "patch",
-  "buildCommand": "cd ../../ && npm run build:lib && cd projects/ids-enterprise-ng/",
-  "src": {
-    "commitMessage": "Release v%s",
-    "tagAnnotation": "Release v%s",
-    "beforeStartCommand": "cd ../../ && npm run lint && npm run test:lib && cd projects/ids-enterprise-ng/",
-    "afterReleaseCommand": ""
+  "scripts": {
+    "beforeStart": "cd ../../ && npm run lint && npm run test:lib && cd projects/ids-enterprise-ng/",
+    "afterBump": "cd ../../ && npm run build:lib && cd projects/ids-enterprise-ng/"
+  },
+  "git": {
+      "requireCleanWorkingDir": true,
+      "commitMessage": "Release v%s",
+      "tagAnnotation": "Release v%s"
   },
   "npm": {
     "publish": true,
