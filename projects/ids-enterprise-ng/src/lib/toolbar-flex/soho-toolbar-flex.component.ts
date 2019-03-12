@@ -18,8 +18,7 @@ import {
 @Component({
   selector: 'input[soho-toolbar-flex-searchfield]', // tslint:disable-line
   template: '<div #toolbarFlexSearchField><ng-content></ng-content></div>',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
   /** Options. */
