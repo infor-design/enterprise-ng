@@ -78,7 +78,7 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement: JQuery<HTMLElement>;
   private toolbarFlexSearchField: SohoToolbarFlexSearchFieldStatic;
   private searchFieldChanged = false;
 
@@ -262,7 +262,7 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
   @Output() selected: EventEmitter<SohoToolbarFlexSelectedEvent> = new EventEmitter<SohoToolbarFlexSelectedEvent>();
 
   private options: SohoToolbarFlexOptions = {};
-  private jQueryElement: JQuery;
+  private jQueryElement: JQuery<HTMLElement>;
   private toolbarFlex: SohoToolbarFlexStatic;
   private toolbarFlexChanged: boolean;
 
