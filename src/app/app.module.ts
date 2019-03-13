@@ -136,6 +136,7 @@ import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
 import { LineDemoComponent } from './line/line.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
+import { ListViewCustomContentDemoComponent } from './listview/listview.custom-content.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
@@ -317,6 +318,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     IconDemoComponent,
     LabelDemoComponent,
     LineDemoComponent,
+    ListViewCustomContentDemoComponent,
     ListViewDemoComponent,
     LookupDemoComponent,
     LookupValidationDemoComponent,

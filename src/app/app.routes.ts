@@ -2,9 +2,6 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { AboutDemoComponent } from './about/about.demo';
-import { AccordionDemoComponent } from './accordion/accordion.demo';
-import { AccordionDynamicDemoComponent } from './accordion/accordion-dynamic.demo';
-import { AccordionPanelsDemoComponent } from './accordion/accordion-panels.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { AreaDemoComponent } from './area/area.demo';
@@ -97,6 +94,7 @@ import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
 import { LineDemoComponent } from './line/line.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
+import { ListViewCustomContentDemoComponent } from './listview/listview.custom-content.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
@@ -262,6 +260,7 @@ export const routes: Routes = [
   { path: 'label',                                  component: LabelDemoComponent },
   { path: 'line',                                   component: LineDemoComponent },
   { path: 'listview',                               component: ListViewDemoComponent },
+  { path: 'listview-custom',                        component: ListViewCustomContentDemoComponent },
   { path: 'locale-pipe',                            loadChildren: './locale/locale-demo.module#LocaleDemoModule'},
   { path: 'lookup',                                 component: LookupDemoComponent },
   { path: 'lookup-validation',                      component: LookupValidationDemoComponent },
