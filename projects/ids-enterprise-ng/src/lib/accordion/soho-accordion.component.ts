@@ -68,7 +68,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   /**
    * Used to call updated from the afterViewChecked lifecycle event.
    */
-  private updateRequired = true;
+  private updateRequired: boolean;
 
   // -------------------------------------------
   // Component Output
