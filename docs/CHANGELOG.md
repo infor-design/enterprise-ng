@@ -1,5 +1,17 @@
 # What's New with Enterprise-NG
 
+## v5.2.0
+
+### 5.2.0 Features
+
+- `[ListView]` - Added listview-custom-content demo to show content projected into a list view (not inside a .card) `PWP`  ([Pull Request 384](https://github.com/infor-design/enterprise-ng/pull/384))
+
+### 5.2.0 Fixes
+
+- `[ListView]` - Added optional SohoListViewOptions arg to updated() function in listview.d.ts `PWP`  ([Pull Request 384](https://github.com/infor-design/enterprise-ng/pull/384))
+
+### 5.2.0 Chore & Maintenance
+
 ## v5.1.0
 
 ### 5.1.0 Features
