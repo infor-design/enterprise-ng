@@ -5,6 +5,7 @@
 ### 5.2.0 Features
 
 - `[ListView]` - Added listview-custom-content demo to show content projected into a list view (not inside a .card) `PWP`  ([Pull Request 384](https://github.com/infor-design/enterprise-ng/pull/384))
+- `[ToolbarFlex]` Implemented the wrapper for the toolbar flex component.  `MHH` ([Pull Request 316](https://github.com/infor-design/enterprise-ng/issues/316))
 
 ### 5.2.0 Fixes
 

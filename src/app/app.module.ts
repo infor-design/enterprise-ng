@@ -185,6 +185,9 @@ import { ToastDemoComponent } from './toast/toast.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
+import { ToolbarFlexBasicDemoComponent } from './toolbar-flex/toolbar-flex-basic.demo';
+import { ToolbarFlexMoreActionsAjaxDemoComponent } from './toolbar-flex/toolbar-flex-more-actions-ajax.demo';
+import { ToolbarFlexSearchfieldDemoComponent } from './toolbar-flex/toolbar-flex-searchfield.demo';
 import { ToolbarMoreActionsAjaxDemoComponent } from './toolbar/toolbar-more-actions-ajax.demo';
 import { ToolbarPresetMoreActionsDemoComponent } from './toolbar/toolbar-preset-more-actions.demo';
 import { ToolbarStateComponent } from './toolbar/toolbar-state.component';
@@ -367,6 +370,9 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     ToolbarAllIconsDemoComponent,
     ToolbarBasicDemoComponent,
     ToolbarDataDrivenDemoComponent,
+    ToolbarFlexBasicDemoComponent,
+    ToolbarFlexMoreActionsAjaxDemoComponent,
+    ToolbarFlexSearchfieldDemoComponent,
     ToolbarMoreActionsAjaxDemoComponent,
     ToolbarStateComponent,
     ToolbarStateDemoComponent,

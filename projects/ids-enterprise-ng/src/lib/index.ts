@@ -66,6 +66,7 @@ export * from './textarea/index';
 export * from './timepicker/index';
 export * from './toast/index';
 export * from './toolbar/index';
+export * from './toolbar-flex/index';
 export * from './tooltip/index';
 export * from './trackdirty/index';
 export * from './tree/index';

@@ -139,6 +139,9 @@ import { ToastDemoComponent } from './toast/toast.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
+import { ToolbarFlexBasicDemoComponent } from './toolbar-flex/toolbar-flex-basic.demo';
+import { ToolbarFlexMoreActionsAjaxDemoComponent } from './toolbar-flex/toolbar-flex-more-actions-ajax.demo';
+import { ToolbarFlexSearchfieldDemoComponent } from './toolbar-flex/toolbar-flex-searchfield.demo';
 import { ToolbarMoreActionsAjaxDemoComponent } from './toolbar/toolbar-more-actions-ajax.demo';
 import { ToolbarPresetMoreActionsDemoComponent } from './toolbar/toolbar-preset-more-actions.demo';
 import { ToolbarRightAlignedDemoComponent } from './toolbar/toolbar-right-aligned.demo';
@@ -310,6 +313,9 @@ export const routes: Routes = [
   { path: 'toolbar-datadriven',                     component: ToolbarDataDrivenDemoComponent },
   { path: 'toolbar-state',                          component: ToolbarStateComponent },
   { path: 'toolbar-right-aligned',                  component: ToolbarRightAlignedDemoComponent },
+  { path: 'toolbar-flex-basic',                     component: ToolbarFlexBasicDemoComponent },
+  { path: 'toolbar-flex-more-actions-ajax',         component: ToolbarFlexMoreActionsAjaxDemoComponent },
+  { path: 'toolbar-flex-searchfield',               component: ToolbarFlexSearchfieldDemoComponent },
   { path: 'tooltip',                                component: TooltipDemoComponent },
   { path: 'trackdirty',                             component: TrackDirtyDemoComponent },
   { path: 'tree-content',                           component: TreeContentDemoComponent },

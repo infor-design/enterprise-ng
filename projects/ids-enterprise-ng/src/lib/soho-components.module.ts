@@ -66,6 +66,7 @@ import { SohoTagModule } from './tag/soho-tag.module';
 import { SohoTextAreaModule } from './textarea/soho-textarea.module';
 import { SohoTimePickerModule } from './timepicker/soho-timepicker.module';
 import { SohoToastModule } from './toast/soho-toast.module';
+import { SohoToolbarFlexModule } from './toolbar-flex/soho-toolbar-flex.module';
 import { SohoToolbarModule } from './toolbar/soho-toolbar.module';
 import { SohoTooltipModule } from './tooltip/soho-tooltip.module';
 import { SohoTrackDirtyModule } from './trackdirty/soho-trackdirty.module';
@@ -143,6 +144,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoTimePickerModule,
     SohoToastModule,
     SohoToolbarModule,
+    SohoToolbarFlexModule,
     SohoTooltipModule,
     SohoTrackDirtyModule,
     SohoTreeModule,
@@ -218,6 +220,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoTimePickerModule,
     SohoToastModule,
     SohoToolbarModule,
+    SohoToolbarFlexModule,
     SohoTooltipModule,
     SohoTrackDirtyModule,
     SohoTreeModule,
