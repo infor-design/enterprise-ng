@@ -98,7 +98,7 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
         this.jQueryElement.tooltip();
       }
 
-      this.toolbarFlexSearchField = this.jQueryElement.data('toolbarsearchfield');
+      this.toolbarFlexSearchField = this.jQueryElement.data('searchfield');
 
       /**
        * Bind to jQueryElement's events
@@ -137,6 +137,11 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
     this.ngZone.runOutsideAngular(() => this.toolbarFlexSearchField.clear());
   }
 
+  // for testing
+  get searchField(): SohoToolbarFlexSearchFieldStatic {
+    return this.toolbarFlexSearchField;
+  }
+
   private markForRefresh() {
     this.searchFieldChanged = true;
 
@@ -162,8 +167,8 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarFlexMoreButtonComponent {
-  @HostBinding('class.more') get isMoreButton() { return true; }
-  @HostBinding('class.toolbar-section') get isToolbarSection() { return true; }
+  @HostBinding('class.more') isMoreButton = true;
+  @HostBinding('class.toolbar-section') isToolbarSection = true;
   @Input() isDisabled = false;
   @Input() ajaxBeforeFunction: Function;
   @Input() menuId: string;
@@ -178,7 +183,7 @@ export class SohoToolbarFlexMoreButtonComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarFlexPageTitleComponent {
-  @HostBinding('class.page-title') get isPageTitle() { return true; }
+  @HostBinding('class.page-title') isPageTitle = true;
 }
 
 /**
@@ -190,7 +195,7 @@ export class SohoToolbarFlexPageTitleComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarFlexSectionTitleComponent {
-  @HostBinding('class.section-title') get isSectionTitle() { return true; }
+  @HostBinding('class.section-title') isSectionTitle = true;
 }
 
 /**
@@ -202,7 +207,7 @@ export class SohoToolbarFlexSectionTitleComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarFlexSectionComponent {
-  @HostBinding('class.toolbar-section') get isToolbarSection() { return true; }
+  @HostBinding('class.toolbar-section') isToolbarSection = true;
   @Input() @HostBinding('class.favor') isTitleFavor = false;
   @Input() @HostBinding('class.title') isTitle = false;
   @Input() @HostBinding('class.buttonset') isButtonSet = false;
@@ -227,9 +232,9 @@ export class SohoToolbarFlexSectionComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarFlexNavButtonComponent {
-  @HostBinding('class.btn-icon') get isIconButton() { return true; }
-  @HostBinding('class.application-menu-trigger') get isAppMenuTrigger() { return true; }
-  @HostBinding('attr.type') get typeAttr() { return 'button'; }
+  @HostBinding('class.btn-icon') isIconButton = true;
+  @HostBinding('class.application-menu-trigger') isAppMenuTrigger = true;
+  @HostBinding('attr.type') typeAttr = 'button';
 }
 
 /**
@@ -241,7 +246,7 @@ export class SohoToolbarFlexNavButtonComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
-  @HostBinding('class.flex-toolbar') get isToolbar() { return true; }
+  @HostBinding('class.flex-toolbar') isToolbar = true;
 
   /**
    * Allows a moreMenuSettings object to be propagated down into the Toolbar Flex.
@@ -249,7 +254,7 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
    * menu's jQuery Popupmenu.
    */
   @Input() set moreMenuBeforeOpenFunction(beforeOpen: AjaxBeforeMoreMenuOpenFunction) {
-    this.options.beforeMoreMenuOpen = beforeOpen;
+    this._options.beforeMoreMenuOpen = beforeOpen;
     if (this.toolbarFlex) {
       this.toolbarFlex.settings.beforeMoreMenuOpen = beforeOpen;
       this.markForRefresh();
@@ -261,7 +266,7 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
    */
   @Output() selected: EventEmitter<SohoToolbarFlexSelectedEvent> = new EventEmitter<SohoToolbarFlexSelectedEvent>();
 
-  private options: SohoToolbarFlexOptions = {};
+  private _options: SohoToolbarFlexOptions = {};
   private jQueryElement: JQuery<HTMLElement>;
   private toolbarFlex: SohoToolbarFlexStatic;
   private toolbarFlexChanged: boolean;
@@ -277,15 +282,13 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
 
       // Assign element to local variable
       this.jQueryElement = jQuery(this.element.nativeElement);
-      this.jQueryElement.toolbarflex(this.options);
-      this.toolbarFlex = this.jQueryElement.data('toolbarflex');
+      this.jQueryElement.toolbarflex(this._options);
+      this.toolbarFlex = this.jQueryElement.data('toolbarFlex');
 
       this.jQueryElement.on('selected', (event: JQuery.TriggeredEvent, item: HTMLButtonElement | HTMLAnchorElement) =>
         this.ngZone.run(() => {
           this.selected.emit({event, item});
         }));
-
-      this.toolbarFlex = this.jQueryElement.data('toolbarflex');
     });
   }
 
@@ -313,6 +316,11 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
     if (this.toolbarFlex) {
       this.ngZone.runOutsideAngular(() => this.toolbarFlex.updated(settings));
     }
+  }
+
+  // For testing
+  get options(): SohoToolbarFlexOptions {
+    return this._options;
   }
 
   private markForRefresh() {
