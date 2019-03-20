@@ -3,7 +3,7 @@ import {
   HostBinding,
   ViewEncapsulation,
   ViewChild,
-  AfterViewInit
+  AfterViewInit, NgZone
 } from '@angular/core';
 
 import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.service';
@@ -24,6 +24,8 @@ export class AppComponent implements AfterViewInit {
   @ViewChild(SohoPersonalizeDirective) personalize: SohoPersonalizeDirective;
 
   @HostBinding('class.no-scroll') get isNoScroll() { return true; }
+
+  public useUpliftIcons = false;
 
   public personalizeOptions: SohoPersonalizeOptions = {};
 
@@ -52,6 +54,8 @@ export class AppComponent implements AfterViewInit {
   }
 
   onChangeTheme(ev: SohoChangeThemePersonalizeEvent) {
+    NgZone.assertInAngularZone();
+    this.useUpliftIcons = ev.theme === "uplift";
     console.log('Theme changed: ', ev);
     localStorage.setItem('soho_theme', ev.theme);
   }
