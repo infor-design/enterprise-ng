@@ -2,7 +2,7 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import {Component, DebugElement, Input, ViewChild} from '@angular/core';
+import {Component, DebugElement, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {SohoToolbarFlexComponent, SohoToolbarFlexSearchFieldComponent} from './soho-toolbar-flex.component';
 import {SohoToolbarFlexModule} from './soho-toolbar-flex.module';
@@ -68,6 +68,9 @@ class SohoToolbarFlexTestComponent {
   @ViewChild(SohoToolbarFlexComponent) toolbarFlex: SohoToolbarFlexComponent;
   @ViewChild(SohoToolbarFlexSearchFieldComponent) searchField: SohoToolbarFlexSearchFieldComponent;
 
+  @Output() selected = new EventEmitter<SohoToolbarFlexSelectedEvent>();
+  @Output() change = new EventEmitter<SohoSearchFieldEvent>();
+
   private MENU_RESPONSE_HTML = `
     <li><a href="#" id="AJAXOptionOne" data-action="{'button':'AJAX Option 1'}">AJAX Option 1</a></li>
     <li><a href="#" id="AJAXOptionTwo" data-action="{'button':'AJAX Option 2'}">AJAX Option 2</a></li>
@@ -116,18 +119,12 @@ class SohoToolbarFlexTestComponent {
     return;
   }
 
-  onSelected(event) {
-    let data = '';
-    if (event.item.type === 'actionbutton' || event.item.type === 'menubutton') {
-      data = event.item.selectedAnchor[0].dataset.action;
-    } else {
-      data = event.item.element.dataset.action;
-    }
-    console.log(data);
+  onSelected(event: SohoToolbarFlexSelectedEvent) {
+    this.selected.emit(event);
   }
 
   onChange(event: SohoSearchFieldEvent) {
-    console.log('Search Changed ' + this.model.searchValue);
+    this.change.emit(event);
   }
 }
 
