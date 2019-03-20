@@ -1,7 +1,4 @@
 {
-  "dry-run": false,
-  "non-interactive": false,
-  "verbose": false,
   "pkgFiles": ["package.json"],
   "scripts": {
     "beforeStart": "cd ../../ && npm run lint && npm run test:lib && cd projects/ids-enterprise-ng/",
@@ -9,8 +6,8 @@
   },
   "git": {
       "requireCleanWorkingDir": true,
-      "commitMessage": "Release v%s",
-      "tagAnnotation": "Release v%s"
+      "commitMessage": "Release v${version}",
+      "tagAnnotation": "Release v${version}"
   },
   "npm": {
     "publish": true,
@@ -19,7 +16,7 @@
   },
   "github": {
     "release": true,
-    "releaseName": "v%s",
+    "releaseName": "v${version}",
     "tokenRef": "GITHUB_ACCESS_TOKEN"
   }
 }

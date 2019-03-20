@@ -63,6 +63,36 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">All headers expanded on initial load</h2>
+    <soho-accordion
+      [allowOnePane]="false"
+      [hasPanels]="true"
+      (beforeexpand)="onBeforeExpand($event)"
+      (beforecollapse)="onBeforeCollapse($event)"
+      (beforeselect)="onBeforeSelect($event)"
+      (afterexpand)="onAfterExpand($event)"
+      (selected)="onSelected($event)"
+      (followlink)="onFollowlink($event)"
+      (expand)="onExpand($event)"
+      (collapse)="onCollapse($event)"
+      (aftercollapse)="onAfterCollapse($event)"
+    >
+      <soho-accordion-header [isExpanded]="true">Warehouse Location A</soho-accordion-header>
+      <soho-accordion-pane>
+        <soho-accordion-header>Item 1</soho-accordion-header>
+        <soho-accordion-header>Item 2</soho-accordion-header>
+      </soho-accordion-pane>
+      <soho-accordion-header [isExpanded]="true">Warehouse Location B</soho-accordion-header>
+      <soho-accordion-pane>
+        <soho-accordion-header>Item 1</soho-accordion-header>
+        <soho-accordion-header>Item 2</soho-accordion-header>
+      </soho-accordion-pane>
+    </soho-accordion>
+  </div>
+</div>
+
 <ng-template #AccordionContent>
   <soho-accordion-header>Warehouse Location A</soho-accordion-header>
   <soho-accordion-pane>
