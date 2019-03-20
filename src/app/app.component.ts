@@ -54,8 +54,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   onChangeTheme(ev: SohoChangeThemePersonalizeEvent) {
-    NgZone.assertInAngularZone();
-    this.useUpliftIcons = ev.theme === "uplift";
+    this.useUpliftIcons = ev.theme === 'uplift';
     console.log('Theme changed: ', ev);
     localStorage.setItem('soho_theme', ev.theme);
   }
