@@ -4,6 +4,8 @@
 
 ### 5.2.0 Features
 
+- `[DemoApp]` - Added ability to switch to beta of new uplift theme. NOTE: not yet to be included in your released application `PWP`  ([#398](https://github.com/infor-design/enterprise-ng/issues/398))`
+- `[IconsUplift]` - Added SohoIconsUpliftComponent to pull in uplift theme icons `PWP`  ([#398](https://github.com/infor-design/enterprise-ng/issues/398))
 - `[ListView]` - Added listview-custom-content demo to show content projected into a list view (not inside a .card) `PWP`  ([Pull Request 384](https://github.com/infor-design/enterprise-ng/pull/384))
 - `[ToolbarFlex]` Implemented the wrapper for the toolbar flex component.  `MHH` ([Pull Request 316](https://github.com/infor-design/enterprise-ng/issues/316))
 
@@ -12,6 +14,8 @@
 - `[ListView]` - Added optional SohoListViewOptions arg to updated() function in listview.d.ts `PWP`  ([Pull Request 384](https://github.com/infor-design/enterprise-ng/pull/384))
 
 ### 5.2.0 Chore & Maintenance
+
+- `[IconsExt]` - Removed SohoIconsExtendedComponent as all icons are included in SohoIconsComponent `PWP`  ([#398](https://github.com/infor-design/enterprise-ng/issues/398))
 
 ## v5.1.0
 

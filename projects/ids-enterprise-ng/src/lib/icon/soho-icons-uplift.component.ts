@@ -5,9 +5,9 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-icons-ext',
-  templateUrl: 'svg-extended.html',
+  selector: 'soho-icons-uplift',
+  templateUrl: 'theme-uplift-svg.html',
 })
-export class SohoIconsExtendedComponent {
+export class SohoIconsUpliftComponent {
   @HostBinding('style.display') none = 'none';
 }
