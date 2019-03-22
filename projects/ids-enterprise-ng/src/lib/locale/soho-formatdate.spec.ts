@@ -2,7 +2,7 @@
 
 import { SohoFormatDatePipe } from './soho-formatdate.pipe';
 
-fdescribe('Pipe: Default', () => {
+describe('Pipe: Default', () => {
   let pipe: SohoFormatDatePipe;
 
   beforeEach(() => {

@@ -2,7 +2,7 @@
 
 import { SohoTranslatePipe } from './soho-translate.pipe';
 
-fdescribe('Pipe: SohoTranslatePipe', () => {
+describe('Pipe: SohoTranslatePipe', () => {
   let pipe: SohoTranslatePipe;
 
   beforeEach(() => {

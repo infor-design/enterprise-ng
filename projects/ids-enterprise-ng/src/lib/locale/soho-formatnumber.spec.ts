@@ -2,7 +2,7 @@
 
 import { SohoFormatNumberPipe } from './soho-formatnumber.pipe';
 
-fdescribe('Pipe: Default', () => {
+describe('Pipe: Default', () => {
   let pipe: SohoFormatNumberPipe;
 
   beforeEach(() => {
