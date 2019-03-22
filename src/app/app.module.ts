@@ -119,6 +119,7 @@ import { FieldOptionsPopdownDemoComponent } from './field-options/field-options-
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { FileUploadLMDemoComponent } from './fileupload/fileupload-lm.demo';
 import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
+import { FormCompactDemoComponent } from './form-compact/form-compact.demo';
 import { FormReactiveFormDemoComponent } from './form/form-reactive-form.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToggleButtonsDemoComponent } from './header/header-toggle-buttons.demo';
@@ -307,6 +308,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     FileUploadDemoComponent,
     FileUploadLMDemoComponent,
     FormReactiveFormDemoComponent,
+    FormCompactDemoComponent,
     HeaderTabsDemoComponent,
     HeaderToggleButtonsDemoComponent,
     HeaderToolbarAndTabsDemoComponent,

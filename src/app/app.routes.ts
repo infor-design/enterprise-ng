@@ -79,6 +79,7 @@ import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { FileUploadLMDemoComponent } from './fileupload/fileupload-lm.demo';
 import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
 import { FormReactiveFormDemoComponent } from './form/form-reactive-form.demo';
+import { FormCompactDemoComponent } from './form-compact/form-compact.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToggleButtonsDemoComponent } from './header/header-toggle-buttons.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
@@ -248,6 +249,7 @@ export const routes: Routes = [
   { path: 'fileupload-advanced',                    component: FileUploadAdvancedDemoComponent },
   { path: 'fileupload-lm',                          component: FileUploadLMDemoComponent },
   { path: 'fileupload',                             component: FileUploadDemoComponent },
+  { path: 'form-compact',                           component: FormCompactDemoComponent },
   { path: 'header-tabs',                            component: HeaderTabsDemoComponent },
   { path: 'header-toggle-buttons',                  component: HeaderToggleButtonsDemoComponent },
   { path: 'header-toolbar',                         component: HeaderToolbarDemoComponent },
