@@ -26,6 +26,7 @@ export * from './field-filter/index';
 export * from './field-options/index';
 export * from './fileupload/index';
 export * from './fileupload-advanced/index';
+export * from './form-compact/index';
 export * from './hierarchy/index';
 export * from './header/index';
 export * from './homepage/index';
