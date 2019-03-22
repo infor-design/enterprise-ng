@@ -3,23 +3,38 @@
  */
 
 interface SohoLocaleData {
-  language: string;
+  name: string;
+  calendars: SohoLocaleCalendar[];
+  currencySign: string;
+  currentFormat: SohoLocaleCurrencyFormat;
+  numbers: any;
+  data: any;
+}
+
+interface SohoLanguageData {
+  name: string;
   englishName: string;
   nativeName: string;
   direction: 'left-to-right' | 'right-to-left';
-  calendars: SohoLocaleCalendar[];
-  currencySign: string;
-  currentFormat: SohoLocaleCurencyFormat;
-  numbers: any;
   messages: SohoLocaleMessage[];
 }
 
-interface SohoLocaleCurencyFormat {
+interface SohoLocaleCurrencyFormat {
   percentSign: string;
   percentFormat: string;
   minusSign: string;
   decimal: string;
   group: string;
+  groupSizes: [3, 3];
+}
+
+interface SohoLocaleNumberData {
+  percentSign: string;
+  percentFormat: string;
+  minusSign: string;
+  decimal: string;
+  group: string;
+  groupSizes: [3, 3];
 }
 
 interface SohoLocaleMessage {
@@ -29,53 +44,69 @@ interface SohoLocaleMessage {
 
 interface SohoLocaleCalendar {
   name: string;
-  dataFormat: any;
+  dateFormat: any;
   days: string[];
   months: string[];
   timeFormat: string;
   dayPeriods: string[];
+  firstDayofWeek: number;
 }
 
 interface SohoLocaleStatic {
   cultures: any;
   culturesPath: string;
-  currentLocale: { name: string, data: any };
+  currentLocale: SohoLocaleData;
+  currentLanguage: SohoLanguageData;
+  languages: any;
+  defaultLocales: any;
+  supportedLocales: any;
+  defaultLocale: string;
 
   /**
    * Internally stores a new culture file for future use.
-   *
    * @param locale the 4-character Locale ID
    * @param data translation data and locale-specific functions, such as calendars.
-   * @return
    */
   addCulture(locale: string, data: any): void;
-  calendar(): {dateFormat: any, timeFormat: string};
+  calendar(locale?: string, name?: string): SohoLocaleCalendar;
   cultureInHead(): boolean;
   formatDate(value: string | Date, attribs?: any): string;
-  formatNumber(number: number | string, options?: any): string;
+  formatNumber(number: number | string, attribs?: any): string;
+  getTimeZone(date: Date, timeZoneName?: string): string;
+  dateToTimeZone(date: Date, timeZone?: string, timeZoneName?: string): Date;
+  dateToUTC(date: Date): Date;
+  toLocaleString(number: number, locale: string, options?: any): string;
+  convertNumberToEnglish(string: string): number;
+  isValidDate(date: Date): boolean;
 
   /**
    * Get the path to the directory with the cultures
-   *
    * @returns path containing culture files.
    */
   getCulturesPath(): string;
   isRTL(): boolean;
-  numbers(): any;
+  numbers(): SohoLocaleNumberData;
   parseDate(dateString: string, dateFormat?: string, isStrict?: boolean): Date;
   parseNumber(input: string): number;
   set(locale: string): any;
-  setCurrentLocale(name: string, data: any): void;
+  getLocale(locale: string): any;
+  setLanguage(language: string): any;
 
   /**
    * Overridable culture messages
-   *
    * @param key  The key to search for on the string.
-   * @param [showAsUndefined] causes a translated phrase to be
-    instead of defaulting to the default locale's version of the string.
+   * @param  [options|string] A list of options, supported are a non default locale
+   * and showAsUndefined which causes a translated phrase to be shown in square brackets
+   * instead of defaulting to the default locale's version of the string.
+   * For backwards compatiblity sending in true or false will set showAsUndefined.
    * @return  a translated string, or nothing, depending on configuration
    */
-  translate(key: string, showAsUndefined?: string): string;
+  translate(key: string, options?: any): string;
+
+  /**
+   * Add an object full of translations to the given language.
+   */
+  extendTranslations(language: string, messages?: any): void;
 
   /**
    * Translate Day Period

@@ -6,12 +6,18 @@
 
 - `[ListView]` - Added listview-custom-content demo to show content projected into a list view (not inside a .card) `PWP`  ([Pull Request 384](https://github.com/infor-design/enterprise-ng/pull/384))
 - `[ToolbarFlex]` Implemented the wrapper for the toolbar flex component.  `MHH` ([Pull Request 316](https://github.com/infor-design/enterprise-ng/issues/316))
+- `[Compact Form]` Implemented the wrapper for the compact form component.  `TJM` ([1699](https://github.com/infor-design/enterprise-ng/issues/1699))
+- `[Datagrid]` Added support for the beforerowactivated event. `TJM` ([1021](https://github.com/infor-design/enterprise-ng/issues/1699))
+- `[Locale]` Added support for new api methods, for timezones, split locale and language, functions that run outside the current locale. `TJM` ([402](https://github.com/infor-design/enterprise-ng/issues/402))
+- `[Locale]` Added support for the moved language location. This used to be in `Soho.Locale.cultures[this.locale]` now please use `Soho.Locale.extendTranslations`.  `TJM` ([1552](https://github.com/infor-design/enterprise-ng/issues/1552))
 
 ### 5.2.0 Fixes
 
 - `[ListView]` - Added optional SohoListViewOptions arg to updated() function in listview.d.ts `PWP`  ([Pull Request 384](https://github.com/infor-design/enterprise-ng/pull/384))
 
 ### 5.2.0 Chore & Maintenance
+
+- `[General]` Updated to use Enterprise 4.17 release.  `TJM` ([CHANGELOG](https://github.com/infor-design/enterprise/blob/master/docs/CHANGELOG.md))
 
 ## v5.1.0
 

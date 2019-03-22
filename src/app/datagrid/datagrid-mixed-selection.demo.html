@@ -55,6 +55,7 @@
       id="datagrid-header"
       [gridOptions]="gridOptions"
       [disableRowDeactivation]="disableRowDeactivation"
+      (beforeRowActivated)="onBeforeRowActivated($event)"
       (rowActivated)="onRowActivated($event)"
       (rowDeactivated)="onRowDeactivated($event)"
     ></div>
