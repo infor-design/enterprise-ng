@@ -65,11 +65,8 @@ module.exports = function (config) {
         flags: [
           '--disable-setuid-sandbox',
           '--no-sandbox', // required to run without privileges in docker
-          '--user-data-dir=/tmp/chrome-test-profile',
-          '--disable-web-security',
           '--no-proxy-server',
-          '--enable-logging',
-          '--v=1'
+          '--enable-logging'
         ]
       }
     },
