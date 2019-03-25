@@ -79,6 +79,7 @@
     "merge-stream": "^1.0.1",
     "ng-packagr": "^4.7.0",
     "protractor": "~5.4.0",
+    "puppeteer": "^1.13.0",
     "release-it": "^10.2.0",
     "slash": "^2.0.0",
     "ts-node": "~7.0.0",
