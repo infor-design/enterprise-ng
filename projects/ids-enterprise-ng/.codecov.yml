@@ -1,0 +1,2 @@
+ignore:
+  - "../../node_modules/ids-enterprise/dist/js/cultures/*.js"  # ignore locale files from ids
