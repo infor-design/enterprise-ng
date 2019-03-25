@@ -64,7 +64,11 @@ module.exports = function (config) {
       },
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
-        flags: ['--no-sandbox']
+        flags: [
+         '--disable-web-security',
+         '--disable-gpu',
+         '--no-sandbox'
+       ]
       }
     },
     port: 9876,
