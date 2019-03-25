@@ -20,11 +20,8 @@
 
 ### 5.2.0 Chore & Maintenance
 
-<<<<<<< HEAD
 - `[IconsExt]` - Removed SohoIconsExtendedComponent as all icons are included in SohoIconsComponent `PWP`  ([#398](https://github.com/infor-design/enterprise-ng/issues/398))
-=======
 - `[General]` Updated to use Enterprise 4.17 release.  `TJM` ([CHANGELOG](https://github.com/infor-design/enterprise/blob/master/docs/CHANGELOG.md))
->>>>>>> ad72ef78... Added missing features from 4.17
 
 ## v5.1.0
 
