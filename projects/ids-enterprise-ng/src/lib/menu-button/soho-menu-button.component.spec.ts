@@ -66,7 +66,7 @@ describe('Soho Menu Button Unit Tests', () => {
 
     expect((comp as any).options.showArrow).toBeTruthy();
     expect((comp as any).menuButton.settings.showArrow).toBeTruthy();
-    expect(spy).toHaveBeenCalled();
+    expect(spy.calls.count()).toEqual(1);
   });
 
   it('check showArrow sets option to true, when no menuButton set', () => {
