@@ -128,7 +128,7 @@ class SohoToolbarFlexTestComponent {
   }
 }
 
-describe('Soho Toolbar Flex Tests', () => {
+xdescribe('Soho Toolbar Flex Tests', () => {
   let toolbarflex: SohoToolbarFlexComponent;
   let component: SohoToolbarFlexTestComponent;
   let fixture: ComponentFixture<SohoToolbarFlexTestComponent>;
