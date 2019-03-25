@@ -54,21 +54,13 @@ module.exports = function (config) {
       outputFile: 'tests/results.txt'
     },
     customLaunchers: {
-      'PhantomJS_custom': {
-        base: 'PhantomJS',
-        debug: true
-      },
       ChromeDebug: {
           base: 'Chrome',
           flags: [ '--remote-debugging-port=9333' ]
       },
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
-        flags: [
-         '--disable-web-security',
-         '--disable-gpu',
-         '--no-sandbox'
-       ]
+        flags: ['--no-sandbox', '--js-flags="--max_old_space_size=4096"']
       }
     },
     port: 9876,
@@ -76,10 +68,10 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['ChromeHeadlessNoSandbox'],
-    captureTimeout: 210000,
+    captureTimeout: 21000,
     browserDisconnectTolerance: 10, //this one helps
-    browserDisconnectTimeout : 210000,
-    browserNoActivityTimeout : 210000,
+    browserDisconnectTimeout : 21000,
+    browserNoActivityTimeout : 21000,
     singleRun: false
   });
 };
