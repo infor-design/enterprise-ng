@@ -235,9 +235,9 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
 
   /** Html Template String. */
   @Input() set template(value: string) {
-    this.options.source = value;
+    this.options.template = value;
     if (this.jQueryElement && this.listview) {
-      this.listview.settings.source = value;
+      this.listview.settings.template = value;
       this.updateRequired = true;
     }
   }
