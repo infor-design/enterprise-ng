@@ -17,16 +17,18 @@ export interface Translation {
   providedIn: 'root'
 })
 export class LocaleInitializerService {
+  language: string;
+
   /**
    * Constructor.
-   *
    * @param locale the locale being displayed.
    * @param baseHref the base url of the web app
    */
   constructor(
     @Inject(LOCALE_ID) private readonly locale: string,
     @Inject(APP_BASE_HREF) private readonly baseHref: string) {
-      console.log(`locale=${locale}, baseHref=${baseHref}`);
+      this.language = this.locale.substr(0, 2);
+      console.log(`locale=${locale}, baseHref=${baseHref}, language=${this.language}`);
     }
 
   /**
@@ -42,7 +44,6 @@ export class LocaleInitializerService {
       // augment those provided by the enterprise controls.
 
       const base = Soho.Locale.cultures[this.locale];
-
       // This is an example of extending the resources provided by
       // the enterprise controls, and made available to the sohoTranslate
       // pipe.  These can be loaded explicitly, or via an http
@@ -55,10 +56,7 @@ export class LocaleInitializerService {
       };
 
       // ... once loaded (async if required), merge the translations into the core set.
-      Soho.Locale.cultures[this.locale] = extend(true, {}, base, {
-        messages: translations
-      });
-
+      Soho.Locale.extendTranslations(this.language, translations);
       console.log('Enterprise Locale Initialised.');
     });
   }

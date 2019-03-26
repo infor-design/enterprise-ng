@@ -1067,6 +1067,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   sorted = new EventEmitter<SohoDataGridSortedEvent>();
 
   @Output()
+  beforeRowActivated = new EventEmitter<SohoDataGridRowActivated>();
+
+  @Output()
   rowActivated = new EventEmitter<SohoDataGridRowActivated>();
 
   @Output()
@@ -1804,9 +1807,18 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * Event fired when the data is filtered.
    */
-  private onAfterRendere(args: SohoDataGridAfterRenderEvent) {
+  private onAfterRender(args: SohoDataGridAfterRenderEvent) {
     this.ngZone.run(() => {
       this.afterRender.next(args);
+    });
+  }
+
+  /**
+   * Event fired when a row is activated.
+   */
+  private onBeforeRowActivated(args: SohoDataGridRowActivatedEvent) {
+    this.ngZone.run(() => {
+      this.beforeRowActivated.next(args);
     });
   }
 
@@ -2081,7 +2093,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('openfilterrow', (e: any, args: SohoDataGridOpenFilterRowEvent) => { this.onOpenFilterRow(args); })
         .on('rowremove', (e: any, args: SohoDataGridRowRemoveEvent) => { this.onRowRemove(args); })
         .on('rendered', (e: any, args: SohoDataGridRenderedEvent) => { this.onRendered(args); })
-        .on('afterrender', (e: any, args: SohoDataGridAfterRenderEvent) => { this.onAfterRendere(args); })
+        .on('afterrender', (e: any, args: SohoDataGridAfterRenderEvent) => { this.onAfterRender(args); })
+        .on('beforerowactivated', (e: any, args: SohoDataGridRowActivatedEvent) => { this.onBeforeRowActivated(args); })
         .on('rowactivated', (e: any, args: SohoDataGridRowActivatedEvent) => { this.onRowActivated(args); })
         .on('rowdeactivated', (e: any, args: SohoDataGridRowDeactivatedEvent) => { this.onRowDeactivated(args); })
         .on('rowreorder', (e: any, args: SohoDataGridRowReorderedEvent) => { this.onRowReordered(args); })

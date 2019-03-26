@@ -27,6 +27,7 @@ import { SohoFieldFilterModule } from './field-filter/soho-field-filter.module';
 import { SohoFieldOptionsModule } from './field-options/soho-field-options.module';
 import { SohoFileUploadAdvancedModule } from './fileupload-advanced/soho-fileupload-advanced.module';
 import { SohoFileUploadModule } from './fileupload/soho-fileupload.module';
+import { SohoFormCompactModule } from './form-compact/soho-form-compact.module';
 import { SohoHeaderModule } from './header/soho-header.module';
 import { SohoHierarchyModule } from './hierarchy/soho-hierarchy.module';
 import { SohoHomePageModule } from './homepage/soho-homepage.module';
@@ -104,6 +105,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoFieldOptionsModule,
     SohoFileUploadAdvancedModule,
     SohoFileUploadModule,
+    SohoFormCompactModule,
     SohoHeaderModule,
     SohoHierarchyModule,
     SohoHomePageModule,
@@ -181,6 +183,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoFieldOptionsModule,
     SohoFileUploadAdvancedModule,
     SohoFileUploadModule,
+    SohoFormCompactModule,
     SohoHeaderModule,
     SohoHierarchyModule,
     SohoHomePageModule,

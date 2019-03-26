@@ -6,8 +6,6 @@ import {
   SohoDataGridService
 } from 'ids-enterprise-ng';
 
-declare var Formatters: any;
-
 @Injectable()
 export class DataGridDemoService extends SohoDataGridService {
 

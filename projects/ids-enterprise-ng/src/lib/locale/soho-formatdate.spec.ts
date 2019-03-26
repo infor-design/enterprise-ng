@@ -19,4 +19,18 @@ describe('Pipe: Default', () => {
         done();
       });
   });
+
+  it('Should format dates in a different locale', (done) => {
+    Soho.Locale.culturesPath = '/assets/ids-enterprise/js/cultures/';
+    Soho.Locale.set('en-US');
+    Soho.Locale.getLocale('nl-NL').done(
+      () => {
+        // Note date is year, month, day
+        expect(Soho.Locale.currentLocale.name).toEqual('en-US');
+        expect(Soho.Locale.currentLocale.name).toEqual('en-US');
+        expect(pipe.transform(new Date(2000, 10, 8))).toEqual('11/8/2000');
+        expect(pipe.transform(new Date(2000, 10, 8), { date: 'short', locale: 'nl-NL' })).toEqual('08-11-2000');
+        done();
+      });
+  });
 });
