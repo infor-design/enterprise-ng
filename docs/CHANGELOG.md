@@ -7,6 +7,7 @@
 - `[DemoApp]` - Added ability to switch to beta of new uplift theme. NOTE: not yet to be included in your released application `PWP`  ([#398](https://github.com/infor-design/enterprise-ng/issues/398))`
 - `[IconsUplift]` - Added SohoIconsUpliftComponent to pull in uplift theme icons `PWP`  ([#398](https://github.com/infor-design/enterprise-ng/issues/398))
 - `[ListView]` - Added listview-custom-content demo to show content projected into a list view (not inside a .card) `PWP`  ([Pull Request 384](https://github.com/infor-design/enterprise-ng/pull/384))
+- `[ListView]` - Fixed an the `template` input because it was mapped to the wrong setting. `TJM`  ([#406](https://github.com/infor-design/enterprise-ng/pull/406))
 - `[ToolbarFlex]` Implemented the wrapper for the toolbar flex component.  `MHH` ([Pull Request 316](https://github.com/infor-design/enterprise-ng/issues/316))
 - `[Compact Form]` Implemented the wrapper for the compact form component.  `TJM` ([1699](https://github.com/infor-design/enterprise-ng/issues/1699))
 - `[Datagrid]` Added support for the beforerowactivated event. `TJM` ([1021](https://github.com/infor-design/enterprise-ng/issues/1699))
