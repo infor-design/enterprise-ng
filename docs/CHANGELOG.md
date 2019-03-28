@@ -18,6 +18,7 @@
 ### 5.2.0 Fixes
 
 - `[ListView]` - Added optional SohoListViewOptions arg to updated() function in listview.d.ts `PWP`  ([Pull Request 384](https://github.com/infor-design/enterprise-ng/pull/384))
+- `[Datagrid]` - Added hideable option to datagrid column typings.
 
 ### 5.2.0 Chore & Maintenance
 
