@@ -1664,6 +1664,15 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Reset Columns to defaults (used on restore menu item).
+   */
+  resetColumns(): void {
+    return this.ngZone.runOutsideAngular(() => {
+      this.datagrid.resetColumns();
+    });
+  }
+
+  /**
    * Restore the user settings from local Storage or as passed in.
    * @param settings The object containing the settings to use.
    */

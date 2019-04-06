@@ -802,6 +802,9 @@ interface SohoDataGridStatic {
   /** Parse a JSON array with columns and return the column object. */
   columnsFromString(columns: string): Object;
 
+  /** Reset Columns to defaults (used on restore menu item). */
+  resetColumns(): void;
+
   /** Restore user Settings */
   restoreUserSettings(settings: any): void;
 

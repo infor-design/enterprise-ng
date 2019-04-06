@@ -59,6 +59,7 @@ import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-s
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
+import { DataGridTestSettingsDemoComponent } from './datagrid/datagrid-test-settings.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DonutDemoComponent } from './donut/donut.demo';
@@ -165,6 +166,7 @@ import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo
 import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
 import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagrid-treegrid-dynamicfiltering.demo';
 
+
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
   { path: 'about',                                  component: AboutDemoComponent },
@@ -212,6 +214,7 @@ export const routes: Routes = [
   { path: 'datagrid-mixed-selection',               component: DataGridMixedSelectionDemoComponent },
   { path: 'datagrid-paging-indeterminate',          component: DataGridPagingIndeterminateDemoComponent },
   { path: 'datagrid-paging-service',                component: DataGridPagingServiceDemoComponent },
+  { path: 'datagrid-test-settings',                 component: DataGridTestSettingsDemoComponent },
   { path: 'datagrid-service',                       component: DataGridServiceDemoComponent },
   { path: 'datagrid-settings',                      component: DataGridSettingsDemoComponent },
   { path: 'datagrid-standalone-pager',              component: DatagridStandalonePagerDemoComponent },

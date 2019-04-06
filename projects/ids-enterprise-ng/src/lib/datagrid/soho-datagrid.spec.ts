@@ -316,6 +316,16 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(comp.gridOptions.uniqueId).toEqual('MyApp');
   });
 
+  fit('check resetColumns', () => {
+    fixture.detectChanges();
+
+    const spy = spyOn((comp as any).datagrid, 'resetColumns');
+
+    comp.resetColumns();
+
+    expect(spy).toHaveBeenCalled();
+  });
+
   it('check rowReorder', () => {
     fixture.detectChanges();
 

@@ -27,8 +27,8 @@ export class DataGridServiceDemoComponent {
   constructor(private el: ElementRef, private toastService: SohoToastService) {
   }
 
-  onSelected(e: any) {
-    this.toastService.show({title: 'Selected', message: e.productId});
+  onSelected(e: SohoDataGridSelectedEvent) {
+    this.toastService.show({title: 'Selected', message: `${e.rows[0].data.productId}`});
   }
 
   onOpenFilterRow(e: SohoDataGridOpenFilterRowEvent) {
