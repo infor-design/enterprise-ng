@@ -1,6 +1,5 @@
 # What's New with Enterprise-NG
 
-
 ## v5.2.1
 
 ### 5.2.1 Fixes
