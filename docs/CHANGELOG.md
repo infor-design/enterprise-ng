@@ -1,5 +1,12 @@
 # What's New with Enterprise-NG
 
+
+## v5.2.1
+
+### 5.2.1 Fixes
+
+- [General] - Bug fixes from updating to the latest ids-enteprise package `CRL` ([ids-enterprise@4.17.1](https://github.com/infor-design/enterprise/releases/tag/4.17.1)
+
 ## v5.2.0
 
 ### 5.2.0 Features
