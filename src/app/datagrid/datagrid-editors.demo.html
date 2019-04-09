@@ -13,6 +13,11 @@
 <br>
 <div class="row top-padding">
   <div class="twelve columns demo" role="main">
-    <div soho-datagrid *ngIf="gridOptions" [gridOptions]="gridOptions"></div>
+    <div soho-datagrid *ngIf="gridOptions"
+    [gridOptions]="gridOptions"
+    (beforeentereditmode)="onBeforeEnterEditMode($event)"
+    (entereditmode)="onEnterEditMode($event)"
+    (exiteditmode)="onExitEditMode($event)">
+  </div>
   </div>
 </div>

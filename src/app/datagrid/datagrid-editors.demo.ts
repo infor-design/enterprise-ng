@@ -304,4 +304,17 @@ export class DataGridEditorsDemoComponent implements OnInit {
     this.sohoDataGridComponent.exportToExcel('', '', null);
   }
 
+  public onBeforeEnterEditMode(event: SohoDataGridEditModeEvent) {
+    console.log(event);
+  }
+
+  public onEnterEditMode(event: SohoDataGridEditModeEvent) {
+    console.log(event);
+  }
+
+  public onExitEditMode(event:  SohoDataGridEditModeEvent) {
+    console.log(event);
+  }
+
+
 }

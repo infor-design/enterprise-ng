@@ -4,12 +4,6 @@
     <div class="field">
       <button soho-button (click)="resetColumns()">Reset Columns</button>
       <button soho-button (click)="personalizeColumns()">Personalize</button>
-      <!--
-        <button soho-button (click)="busy()">Busy</button>
-        <button soho-button (click)="toggleFilterRow()">Toggle Filter Row</button>
-        <button soho-button (click)="clearFilter()">Clear Filter</button>
-        <button soho-button (click)="sortColumn()">Sort Column</button>
-      -->
     </div>
   </div>
 </div>
@@ -59,13 +53,13 @@
 
                 <li soho-popupmenu-separator></li>
                 <li soho-popupmenu-heading>{{'Filter' | sohoTranslate}}</li>
-                <li soho-popupmenu-item>
+                <li soho-popupmenu-item [isIndented]="true">
                     <a soho-popupmenu-label href="#" data-option="show-filter-row">{{'ShowFilterRow' | sohoTranslate}}</a>
                 </li>
-                <li soho-popupmenu-item>
+                <li soho-popupmenu-item [isIndented]="true">
                     <a soho-popupmenu-label href="#" data-option="run-filter">{{'RunFilter' | sohoTranslate}}</a>
                 </li>
-                <li soho-popupmenu-item>
+                <li soho-popupmenu-item [isIndented]="true">
                     <a soho-popupmenu-label href="#" data-option="clear-filter">{{'ClearFilter' | sohoTranslate}}</a>
                 </li>
 
