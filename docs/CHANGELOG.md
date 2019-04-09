@@ -8,6 +8,7 @@
 
 - [General] - Added 'resetColumns' to the datagrid component. `BTHH` ([#413](https://github.com/infor-design/enterprise-ng/issues/413))`
 - [General] - Added 'entereditmode', 'exiteditmode' and 'beforeentereditmode' event outputs from component.  `BTHH` ([#410](https://github.com/infor-design/enterprise-ng/issues/410))`
+- [Datepicker] - Adds an example to show custom validation to the datepicker test page. `TJM` ([#411](https://github.com/infor-design/enterprise-ng/issues/411)
 
 ## v5.2.1
 
