@@ -76,6 +76,7 @@ export class DataGridDemoService extends SohoDataGridService {
       filterType: 'text',
       name: 'Product Desc',
       sortable: false,
+      hideable: false,
       field: 'productName',
       formatter: Soho.Formatters.Template,
       template: '<p class="datagrid-row-heading">{{productId}}</p><p class="datagrid-row-subheading">{{productName}}</p>',
