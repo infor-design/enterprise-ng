@@ -1,5 +1,10 @@
 # What's New with Enterprise-NG
 
+## v5.3.0
+
+### 5.3.0 Fixes
+
+- [Datepicker] - Adds an example to show custom validation to the datepicker test page. `TJM` ([#411](https://github.com/infor-design/enterprise-ng/issues/411)
 
 ## v5.2.1
 
