@@ -1020,7 +1020,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.emptyMessage;
   }
 
-    /**
+  /**
    * Defines the source type of the grid, either:
    *
    * - "content-only" where table elements are provided in the body.
@@ -1735,7 +1735,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   * Event fired after edit mode is exitted on an editor.
+   * Event fired after edit mode is activated on an editor.
    * @param args the event argumentss
    */
   private onExitEditMode(args: SohoDataGridEditModeEvent) {
@@ -1746,7 +1746,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   * Event fired before edit mode is exitted on an editor.
+   * Event fired before edit mode is activated on an editor.
    * @param args the event argumentss
    */
   private onBeforeEnterEditMode(args: SohoDataGridEditModeEvent) {
@@ -1757,7 +1757,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   * Event fired before edit mode is exitted on an editor.
+   * Event fired when edit mode is activated on an editor.
    * @param args the event argumentss
    */
   private onEnterEditMode(args: SohoDataGridEditModeEvent) {

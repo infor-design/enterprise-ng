@@ -781,7 +781,7 @@ interface SohoGridCellOption {
  * Soho datagrid control.
  */
 interface SohoDataGridStatic {
-  x/** Control options. */
+  /** Control options. */
   settings: SohoDataGridOptions;
 
   /** Overridable sort function. */
