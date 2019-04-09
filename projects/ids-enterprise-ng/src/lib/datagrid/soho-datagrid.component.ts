@@ -1020,7 +1020,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.emptyMessage;
   }
 
-  /**
+    /**
    * Defines the source type of the grid, either:
    *
    * - "content-only" where table elements are provided in the body.
@@ -1058,6 +1058,18 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   // This event is fired when a row in the grid is expanded.
   @Output()
   expandrow = new EventEmitter<SohoDataGridToggleRowEvent>();
+
+  // This event is fired when a cell in the grid is edit.
+  @Output()
+  exiteditmode = new EventEmitter<SohoDataGridEditModeEvent>();
+
+  // This event id fired before edit mode is started.
+  @Output()
+  beforeentereditmode = new EventEmitter<SohoDataGridEditModeEvent>();
+
+  // This event id fired when edit mode is started.
+  @Output()
+  entereditmode = new EventEmitter<SohoDataGridEditModeEvent>();
 
   // This event is fired when a row in the grid is collapsed.
   @Output()
@@ -1673,6 +1685,15 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Open the personalize dialog.
+   */
+  personalizeColumns(): void {
+    return this.ngZone.runOutsideAngular(() => {
+      this.datagrid.personalizeColumns();
+    });
+  }
+
+  /**
    * Restore the user settings from local Storage or as passed in.
    * @param settings The object containing the settings to use.
    */
@@ -1710,6 +1731,39 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     const event = { grid: this, ...args };
     this.ngZone.run(() => {
       this.expandrow.next(event);
+    });
+  }
+
+  /**
+   * Event fired after edit mode is exitted on an editor.
+   * @param args the event argumentss
+   */
+  private onExitEditMode(args: SohoDataGridEditModeEvent) {
+    const event = { grid: this, ...args };
+    this.ngZone.run(() => {
+      this.exiteditmode.next(event);
+    });
+  }
+
+  /**
+   * Event fired before edit mode is exitted on an editor.
+   * @param args the event argumentss
+   */
+  private onBeforeEnterEditMode(args: SohoDataGridEditModeEvent) {
+    const event = { grid: this, ...args };
+    this.ngZone.run(() => {
+      this.beforeentereditmode.next(event);
+    });
+  }
+
+  /**
+   * Event fired before edit mode is exitted on an editor.
+   * @param args the event argumentss
+   */
+  private onEnterEditMode(args: SohoDataGridEditModeEvent) {
+    const event = { grid: this, ...args };
+    this.ngZone.run(() => {
+      this.entereditmode.next(event);
     });
   }
 
@@ -2097,6 +2151,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('collapserow', (e: any, args: SohoDataGridRowCollapseEvent) => { this.onCollapseRow(args); })
         .on('contextmenu', (e: any, args: SohoDataGridRowClicked) => { this.onContextMenu(args); })
         .on('dblclick', (e: JQuery.TriggeredEvent, args: SohoDataGridRowClicked) => { this.onDoubleClick(args); })
+        .on('beforeentereditmode', (e: any, args: SohoDataGridEditModeEvent) => { this.onBeforeEnterEditMode(args); })
+        .on('exiteditmode', (e: any, args: SohoDataGridEditModeEvent) => { this.onExitEditMode(args); })
+        .on('entereditmode', (e: any, args: SohoDataGridEditModeEvent) => { this.onEnterEditMode(args); })
         .on('expandrow', (e: any, args: SohoDataGridRowExpandEvent) => { this.onExpandRow(args); })
         .on('filtered', (e: any, args: SohoDataGridFilteredEvent) => { this.onFiltered(args); })
         .on('openfilterrow', (e: any, args: SohoDataGridOpenFilterRowEvent) => { this.onOpenFilterRow(args); })

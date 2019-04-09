@@ -574,7 +574,6 @@ type SohoDataGridColumnContentVisibleFunction = (
   columnDef: SohoDataGridColumn,
   item: any
 ) => boolean;
-
 /**
  * This is an interface mapping for the grid column defined
  * within the Soho jQuery Control.
@@ -588,6 +587,7 @@ interface SohoDataGridColumn {
 
   /** Field in the row to display. */
   field?: string;
+
 
   /** Is this column visible? */
   hidden?: boolean;
@@ -778,7 +778,7 @@ interface SohoGridCellOption {
  * Soho datagrid control.
  */
 interface SohoDataGridStatic {
-  /** Control options. */
+  x/** Control options. */
   settings: SohoDataGridOptions;
 
   /** Overridable sort function. */
@@ -804,6 +804,9 @@ interface SohoDataGridStatic {
 
   /** Reset Columns to defaults (used on restore menu item). */
   resetColumns(): void;
+
+  /** Open the personalize dialog (private -  but to allow custom access?) */
+  personalizeColumns(): void;
 
   /** Restore user Settings */
   restoreUserSettings(settings: any): void;
@@ -1227,4 +1230,30 @@ interface SohoDataGridColumnGroup {
   id: string;
   name: string;
   align?: 'left' | 'right' | 'align';
+}
+
+ interface SohoDataGridEditModeEvent {
+    /** Row index contaning editor. */
+  row: number;
+
+  /** Column number. */
+  cell: number,
+
+  /** Row data */
+  item: any,
+
+  /** HTMLElement of the owning cell */
+  target: HTMLElement,
+
+  /** The cell value. */
+  value: any,
+
+  /** The original cell value. */
+  oldValue: any,
+
+  /** The column definition. */
+  column: SohoDataGridColumn,
+
+  /** The cell editor object. */
+  editor: SohoDataGridCellEditor
 }

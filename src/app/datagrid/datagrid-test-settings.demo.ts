@@ -28,4 +28,11 @@ export class DataGridTestSettingsDemoComponent {
   public resetColumns() {
     this.datagrid.resetColumns();
   }
+
+  public personalizeColumns() {
+    this.datagrid.personalizeColumns();
+  }
+
+  public onSelected(event) {
+  }
 }

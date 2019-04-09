@@ -62,14 +62,14 @@ export class DataGridDemoService extends SohoDataGridService {
         formatter: Soho.Formatters.Readonly
       });
 
-    this.columns.push({
-      id: 'productDesc',
-      filterType: 'text',
-      name: 'Product Desc',
-      sortable: false,
-      field: 'productName',
-      formatter: Soho.Formatters.Text,
-    });
+    // this.columns.push({
+    //   id: 'productDesc',
+    //   filterType: 'text',
+    //   name: 'Product Desc',
+    //   sortable: false,
+    //   field: 'productName',
+    //   formatter: Soho.Formatters.Text,
+    // });
 
     this.columns.push({
       id: 'productDesc',

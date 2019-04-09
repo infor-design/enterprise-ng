@@ -1,5 +1,13 @@
 # What's New with Enterprise-NG
 
+## v5.3.0
+
+### 5.3.0 Fixes
+
+### 5.3.0 Features
+
+- [General] - Added 'resetColumns' to the datagrid component. `BTHH` ([#413](https://github.com/infor-design/enterprise-ng/issues/413))`
+- [General] - Added 'entereditmode', 'exiteditmode' and 'beforeentereditmode' event outputs from component.  `BTHH` ([#410](https://github.com/infor-design/enterprise-ng/issues/410))`
 
 ## v5.2.1
 
