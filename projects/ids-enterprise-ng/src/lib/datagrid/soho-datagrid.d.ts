@@ -752,6 +752,9 @@ interface SohoDataGridColumn {
 
   /** align the header text */
   headerAlign?: SohoDataGridTextAlign;
+
+  /** If false the column will be disabled in personalization dialog */
+  hideable?: boolean;
 }
 
 interface SohoDataGridColumnNumberFormat {
