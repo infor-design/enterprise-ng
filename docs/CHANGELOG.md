@@ -6,9 +6,9 @@
 
 ### 5.3.0 Features
 
-- [DataGrid] - Added 'resetColumns' and 'personalizeColumns' to the datagrid component. `BTHH` ([#413](https://github.com/infor-design/enterprise-ng/issues/413))`
-- [DataGrid] - Added 'entereditmode', 'exiteditmode' and 'beforeentereditmode' event outputs from component.  `BTHH` ([#410](https://github.com/infor-design/enterprise-ng/issues/410))`
-- [PopupMenu] - Added 'isIndented' to soho-popupmenu-item. `BTHH` ([#413](https://github.com/infor-design/enterprise-ng/issues/413))`
+- [DataGrid] - Added 'resetColumns' and 'personalizeColumns' to the datagrid component. `BTHH` ([#413](https://github.com/infor-design/enterprise-ng/issues/413))
+- [DataGrid] - Added 'entereditmode', 'exiteditmode' and 'beforeentereditmode' event outputs from component.  `BTHH` ([#410](https://github.com/infor-design/enterprise-ng/issues/410))
+- [PopupMenu] - Added 'isIndented' to soho-popupmenu-item. `BTHH` ([#413](https://github.com/infor-design/enterprise-ng/issues/413))
 - [Datepicker] - Adds an example to show custom validation to the datepicker test page. `TJM` ([#411](https://github.com/infor-design/enterprise-ng/issues/411)
 
 ## v5.2.1

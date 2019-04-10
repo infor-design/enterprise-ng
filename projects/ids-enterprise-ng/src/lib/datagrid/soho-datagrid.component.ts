@@ -1059,15 +1059,15 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   @Output()
   expandrow = new EventEmitter<SohoDataGridToggleRowEvent>();
 
-  // This event is fired when a cell in the grid is edit.
+  // This event is fired when edit mode is exited.
   @Output()
   exiteditmode = new EventEmitter<SohoDataGridEditModeEvent>();
 
-  // This event id fired before edit mode is started.
+  // This event is fired before edit mode is started.
   @Output()
   beforeentereditmode = new EventEmitter<SohoDataGridEditModeEvent>();
 
-  // This event id fired when edit mode is started.
+  // This event is fired when edit mode is entered.
   @Output()
   entereditmode = new EventEmitter<SohoDataGridEditModeEvent>();
 
@@ -1676,7 +1676,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   * Reset Columns to defaults (used on restore menu item).
+   * Reset columns to their defaults (used on restore menu item).
    */
   resetColumns(): void {
     return this.ngZone.runOutsideAngular(() => {
@@ -1736,7 +1736,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Event fired after edit mode is activated on an editor.
-   * @param args the event argumentss
+   * @param args the event arguments
    */
   private onExitEditMode(args: SohoDataGridEditModeEvent) {
     const event = { grid: this, ...args };
@@ -1747,7 +1747,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Event fired before edit mode is activated on an editor.
-   * @param args the event argumentss
+   * @param args the event arguments
    */
   private onBeforeEnterEditMode(args: SohoDataGridEditModeEvent) {
     const event = { grid: this, ...args };
@@ -1758,7 +1758,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Event fired when edit mode is activated on an editor.
-   * @param args the event argumentss
+   * @param args the event arguments
    */
   private onEnterEditMode(args: SohoDataGridEditModeEvent) {
     const event = { grid: this, ...args };
@@ -1877,7 +1877,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   * Event fired when a row is activated.
+   * Event fired before a row is activated.
    */
   private onBeforeRowActivated(args: SohoDataGridRowActivatedEvent) {
     this.ngZone.run(() => {
