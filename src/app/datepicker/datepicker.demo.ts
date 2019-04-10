@@ -94,7 +94,7 @@ export class DatepickerDemoComponent implements OnInit {
   }
 
   registerCustomValidator() {
-    $.fn['validation']['rules']['customRule'] = {
+    Soho.Validation.rules['customRule'] = {
       check: function (value: any, field: any, grid: any) {
         console.log(value, field, grid);
         return false;
