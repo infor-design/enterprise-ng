@@ -6,6 +6,11 @@
 
 - [Datepicker] - Adds an example to show custom validation to the datepicker test page. `TJM` ([#411](https://github.com/infor-design/enterprise-ng/issues/411)
 
+### 5.3.0 Features
+
+- [DemoApp] - Added `PersonalizeMenuComponent` example. `BTHH` ([Pull Request 425](https://github.com/infor-design/enterprise-ng/pull/425))
+- [DemoApp] - Added open status persistence to the demo's application menu. `BTHH` ([Pull Request 425](https://github.com/infor-design/enterprise-ng/pull/425))
+
 ## v5.2.1
 
 ### 5.2.1 Fixes
