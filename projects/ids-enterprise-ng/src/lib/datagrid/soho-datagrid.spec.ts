@@ -316,6 +316,16 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(comp.gridOptions.uniqueId).toEqual('MyApp');
   });
 
+  it('check resetColumns', () => {
+    fixture.detectChanges();
+
+    const spy = spyOn((comp as any).datagrid, 'resetColumns');
+
+    comp.resetColumns();
+
+    expect(spy).toHaveBeenCalled();
+  });
+
   it('check rowReorder', () => {
     fixture.detectChanges();
 
@@ -447,6 +457,72 @@ describe('Soho DataGrid Render', () => {
     component.datagrid.dataset = testData;
 
     expect(component.datagrid.dataset).toBe(testData);
+  });
+
+  it('check exiteditmode', (done) => {
+    fixture.detectChanges();
+
+    component.datagrid.exiteditmode.subscribe((exiteditedEvent: SohoDataGridEditModeEvent) => {
+      expect(exiteditedEvent.cell).toEqual(2);
+      done();
+    });
+
+    // Emulate the jQuery component firing the 'exiteditmode' event.
+    (component.datagrid as any).jQueryElement.triggerHandler(
+      'exiteditmode', [{
+        row: 1,
+        cell: 2,
+        item: {},
+        target: null,
+        value: 'value',
+        oldValue: null,
+        column: {},
+        editor: null
+      }]);
+  });
+
+  it('check beforentereditmode', (done) => {
+    fixture.detectChanges();
+
+    component.datagrid.beforeentereditmode.subscribe((editModeEvent: SohoDataGridEditModeEvent) => {
+      expect(editModeEvent.cell).toEqual(2);
+      done();
+    });
+
+    // Emulate the jQuery component firing the 'exiteditmode' event.
+    (component.datagrid as any).jQueryElement.triggerHandler(
+      'beforeentereditmode', [{
+        row: 1,
+        cell: 2,
+        item: {},
+        target: null,
+        value: 'value',
+        oldValue: null,
+        column: {},
+        editor: null
+      }]);
+  });
+
+  it('check entereditmode', (done) => {
+    fixture.detectChanges();
+
+    component.datagrid.entereditmode.subscribe((editModeEvent: SohoDataGridEditModeEvent) => {
+      expect(editModeEvent.cell).toEqual(2);
+      done();
+    });
+
+    // Emulate the jQuery component firing the 'exiteditmode' event.
+    (component.datagrid as any).jQueryElement.triggerHandler(
+      'entereditmode', [{
+        row: 1,
+        cell: 2,
+        item: {},
+        target: null,
+        value: 'value',
+        oldValue: null,
+        column: {},
+        editor: null
+      }]);
   });
 
   it('check setColumnSort(id, descending)', (done) => {

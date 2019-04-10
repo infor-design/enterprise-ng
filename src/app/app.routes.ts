@@ -48,6 +48,7 @@ import { DataGridRowReorderDemoComponent } from './datagrid/datagrid-rowreorder.
 import { DataGridDirtyIndicationDemoComponent } from './datagrid/datagrid-dirty-indication.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
+import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
 import { DataGridExportWithoutDataGridDemoComponent } from './datagrid/datagrid-export-without-datagrid.demo';
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
@@ -59,13 +60,16 @@ import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-s
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
+import { DataGridTestSettingsDemoComponent } from './datagrid/datagrid-test-settings.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
+import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagrid-treegrid-dynamicfiltering.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DonutDemoComponent } from './donut/donut.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
 import { DropdownAsyncDemoComponent } from './dropdown/dropdown-async.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
+import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { DropdownTypeaheadDemoComponent } from './dropdown/dropdown-typeahead.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
@@ -134,6 +138,7 @@ import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
 import { TagDemoComponent } from './tag/tag.demo';
+import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
 import { TextareaDemoComponent } from './textarea/textarea.demo';
 import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
@@ -159,11 +164,6 @@ import { ValidationFormEventDemoComponent } from './validation/validation-form-e
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 import { WizardDemoComponent } from './wizard/wizard.demo';
-import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
-import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo';
-
-import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
-import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagrid-treegrid-dynamicfiltering.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -212,6 +212,7 @@ export const routes: Routes = [
   { path: 'datagrid-mixed-selection',               component: DataGridMixedSelectionDemoComponent },
   { path: 'datagrid-paging-indeterminate',          component: DataGridPagingIndeterminateDemoComponent },
   { path: 'datagrid-paging-service',                component: DataGridPagingServiceDemoComponent },
+  { path: 'datagrid-test-settings',                 component: DataGridTestSettingsDemoComponent },
   { path: 'datagrid-service',                       component: DataGridServiceDemoComponent },
   { path: 'datagrid-settings',                      component: DataGridSettingsDemoComponent },
   { path: 'datagrid-standalone-pager',              component: DatagridStandalonePagerDemoComponent },

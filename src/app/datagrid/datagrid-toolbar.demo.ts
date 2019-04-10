@@ -1,8 +1,5 @@
 ﻿import {
   Component,
-  OnInit,
-  AfterContentInit,
-  AfterViewInit,
   ElementRef,
   Input,
   ChangeDetectionStrategy

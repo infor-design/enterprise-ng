@@ -3,7 +3,7 @@ import {
   HostBinding,
   ViewEncapsulation,
   ViewChild,
-  AfterViewInit, NgZone
+  AfterViewInit
 } from '@angular/core';
 
 import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.service';
