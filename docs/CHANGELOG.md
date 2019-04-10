@@ -8,8 +8,8 @@
 
 ### 5.3.0 Features
 
-- [DemoApp] - Added `PersonalizeMenuComponent` example. `BTHH` ([Pull Request xxx](https://github.com/infor-design/enterprise-ng/pull/xxx))
-- [DemoApp] - Added open status persistence to the demo's application menu. `BTHH` ([Pull Request xxx](https://github.com/infor-design/enterprise-ng/pull/xxx))
+- [DemoApp] - Added `PersonalizeMenuComponent` example. `BTHH` ([Pull Request 425](https://github.com/infor-design/enterprise-ng/pull/425))
+- [DemoApp] - Added open status persistence to the demo's application menu. `BTHH` ([Pull Request 425](https://github.com/infor-design/enterprise-ng/pull/425))
 
 ## v5.2.1
 
