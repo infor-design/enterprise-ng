@@ -6,6 +6,7 @@
 
 ### 5.3.0 Features
 
+- [AppMenu] - Added isPersonalizable input for setting the is-personalization class on the EP app-menu element. `PWP`
 - [DataGrid] - Added 'resetColumns' and 'personalizeColumns' to the datagrid component. `BTHH` ([#413](https://github.com/infor-design/enterprise-ng/issues/413))
 - [DataGrid] - Added 'entereditmode', 'exiteditmode' and 'beforeentereditmode' event outputs from component.  `BTHH` ([#410](https://github.com/infor-design/enterprise-ng/issues/410))
 - [PopupMenu] - Added 'isIndented' to soho-popupmenu-item. `BTHH` ([#413](https://github.com/infor-design/enterprise-ng/issues/413))
