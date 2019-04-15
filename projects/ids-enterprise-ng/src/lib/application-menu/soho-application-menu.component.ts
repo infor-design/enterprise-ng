@@ -108,9 +108,9 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   // Host Bindings
   // -------------------------------------------
 
-  @HostBinding('class') get classes() {
-    return 'application-menu';
-  }
+  @HostBinding('class.application-menu') appMenu = true;
+
+  @HostBinding('class.is-personalizable') @Input() isPersonalizable = false;
 
   /**
    * This will let the Soho controls bind the application menu trigger naturally
