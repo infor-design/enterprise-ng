@@ -2,8 +2,6 @@
 
 ## v5.3.0
 
-
-
 ### 5.3.0 Features
 
 - `[AppMenu]` - Added 'isPersonalizable' input for setting the is-personalization class on the EP app-menu element. `PWP`
@@ -18,7 +16,8 @@
 ### 5.3.0 Fixes
 
 ### 4.3.0 Chore & Maintenance
-- `[AppMenu]` - deprecated visibility event, use accordionExpand and accordionCollapse instead. `PWP` ([#434](https://github.com/infor-design/enterprise-ng/issues/434)) 
+
+- `[AppMenu]` - deprecated visibility event, use accordionExpand and accordionCollapse instead. `PWP` ([#434](https://github.com/infor-design/enterprise-ng/issues/434))
 
 ## v5.2.1
 

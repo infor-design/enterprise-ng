@@ -139,7 +139,6 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
    */
   @Output() visibility = new EventEmitter<any>();
 
-
   /**
    * This event is fired when a menu accordion is expamded
    * The event include the anchor element.
