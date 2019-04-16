@@ -135,7 +135,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   /**
    * This event is fired when the visibility of the application menu is changed,
    * is it also called when the item is changed programmatically.
-   * @deprecated
+   * @deprecated use accordionExpand and accordionCollapse events instead
    */
   @Output() visibility = new EventEmitter<any>();
 
