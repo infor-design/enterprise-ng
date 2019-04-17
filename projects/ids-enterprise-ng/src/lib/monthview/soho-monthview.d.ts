@@ -22,16 +22,22 @@ interface SohoMonthViewRenderMonthEvent {
   response: any;
 }
 
+interface SohoMonthViewSelectedEvent {
+  node: Node,
+  key: string;
+  day: number;
+  month: number;
+  year: number;
+  close: boolean;
+}
+
 /**
  * MonthView Options
  */
 interface SohoMonthViewOptions {
-  month?: [];
-  year?: [];
-  upcomingEventDays?: [];
+  month?: number;
+  year?: number;
   showMonthYearPicker?: boolean;
-  onSelected?: any;
-  onRenderMonth?: any;
 }
 
 /**
@@ -40,9 +46,12 @@ interface SohoMonthViewOptions {
  */
 interface SohoMonthViewStatic {
   settings: SohoMonthViewOptions;
-  updated(settings: SohoMonthViewOptions): void;
+  updated(): void;
   destroy(): void;
   getDayEvents(date?: string): any;
+  showMonth(month: number, year: number): void;
+  selectDay(date: string | object, closePopup?: boolean): void;
+  selectToday(): void;
 }
 
 /**
@@ -54,10 +63,7 @@ interface JQueryStatic {
 
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   monthview(options?: SohoMonthViewOptions): JQuery;
-}
 
-/**
- * Type safe event.
- */
-interface SohoMonthViewEvent extends JQuery.TriggeredEvent {
+  on(events: 'selected', handler: JQuery.EventHandlerBase<any, SohoMonthViewSelectedEvent>): this;
+  on(events: 'monthrendered', handler: JQuery.EventHandlerBase<any, SohoMonthViewRenderMonthEvent>): this;
 }

@@ -26,6 +26,8 @@ export class MonthViewDemoComponent implements OnInit {
   }
 
   onRenderMonth(event: SohoMonthViewRenderMonthEvent) {
+    console.log('onRenderMonth', [event]);
+
     this.monthViewService.getCalendarEventTypes().subscribe((types) => {
       this.eventTypes = types;
       this.monthViewService.getCalendarEvents().subscribe((events) => {
@@ -33,5 +35,9 @@ export class MonthViewDemoComponent implements OnInit {
         event.response(this.events, this.eventTypes);
       });
     });
+  }
+
+  onSelected(event: SohoMonthViewSelectedEvent) {
+    console.log('onSelected', [event]);
   }
 }
