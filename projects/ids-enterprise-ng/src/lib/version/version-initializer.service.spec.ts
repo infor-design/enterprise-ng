@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { SohoVersionInitializerService } from './version-initializer.service';
 
-describe('SunSystemsI18nInitialiserService', () => {
+describe('Soho Version Initialiser Service', () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [
     ],

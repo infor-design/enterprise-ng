@@ -1,6 +1,6 @@
 import { SohoVersionInitializerModule } from './version-initializer.module';
 
-describe('SunSystemsAuthModule', () => {
+describe('Soho Version Initializer Module', () => {
   let module: SohoVersionInitializerModule;
 
   beforeEach(() => {
