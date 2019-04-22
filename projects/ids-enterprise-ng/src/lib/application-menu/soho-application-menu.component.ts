@@ -88,7 +88,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
     if (triggers) {
       let i = triggers.length;
       while (i--) {
-        this._triggers.push(jQuery(triggers[ i ]));
+        this._triggers.push(jQuery(triggers[i]));
       }
 
       if (this.applicationmenu) {
@@ -103,6 +103,34 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
    */
   @Input()
   public filterable: boolean;
+
+  /**
+   *
+   * @param switcherFunction
+   * Menu switcher expand setting to provide callback
+   */
+  @Input()
+  public set onExpandSwitcher(expandSwitcher: SohoApplicationMenuExpandSwitcherFunction) {
+    this._onExpandSwitcher = expandSwitcher;
+    if (this.applicationmenu) {
+      this.applicationmenu.settings.onExpandSwitcher = this._onExpandSwitcher;
+      this.updateRequired = true;
+    }
+  }
+
+  /**
+   *
+   * @param switcherFunction
+   * Menu switcher collapse setting to provide callback
+   */
+  @Input()
+  public set onCollapseSwitcher(collapseSwitcher: SohoApplicationMenuCollapseSwitcherFunction) {
+    this._onCollapseSwitcher = collapseSwitcher;
+    if (this.applicationmenu) {
+      this.applicationmenu.settings.onCollapseSwitcher = this._onCollapseSwitcher;
+      this.updateRequired = true;
+    }
+  }
 
   // -------------------------------------------
   // Host Bindings
@@ -138,9 +166,21 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   // Dismiss the menu when an item is clicked in the mobile breakpoints
   private _dismissOnClickMobile: boolean;
 
+  // Menu switcher expand callback
+  private _onExpandSwitcher: SohoApplicationMenuExpandSwitcherFunction;
+
+  // Menu switcher collapse callback
+  private _onCollapseSwitcher: SohoApplicationMenuCollapseSwitcherFunction;
+
   // This event is fired when the visibility of the application menu is changed,
   // is it also called when the item is changed programmatically.
   @Output() visibility = new EventEmitter<boolean>();
+
+  // This event is fired when a menu accordion is expamded
+  @Output() menuAccordionExpand = new EventEmitter<any>();
+
+  // This event is fired when a menu accordion is collapsed
+  @Output() menuAccordionCollapse = new EventEmitter<boolean>();
 
   // This event is fired when the visibility of the application menu is changed
   @Output() menuVisibility = new EventEmitter<boolean>();
@@ -185,6 +225,10 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
    */
   public updated() {
     this.ngZone.runOutsideAngular(() => this.applicationmenu.updated());
+  }
+
+  public closeExpandableArea() {
+    this.ngZone.runOutsideAngular(() => this.applicationmenu.closeExpandableArea());
   }
 
   /*
@@ -237,7 +281,9 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
         dismissOnClickMobile: this._dismissOnClickMobile,
         openOnLarge: this._openOnLarge,
         triggers: this._triggers,
-        filterable: this.filterable
+        filterable: this.filterable,
+        onExpandSwitcher: this._onExpandSwitcher,
+        onCollapseSwitcher: this._onCollapseSwitcher
       };
 
       // Initialise the SoHoXi control.
@@ -250,11 +296,11 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
 
       // Initialise any event handlers.
       this.jQueryElement
-      .on('expand', () => this.ngZone.run(() => this.visibility.next(true)))
-      .on('collapse', () => this.ngZone.run(() => this.visibility.next(false)))
-      .on('filtered', (e, results: any[]) => this.ngZone.run(() => this.filtered.next(results)))
-      .on('applicationmenuopen', () => this.ngZone.run(() => this.menuVisibility.next(true)))
-      .on('applicationmenuclose', () => this.ngZone.run(() => this.menuVisibility.next(false)));
+        .on('expand', (e, results: any[]) => this.ngZone.run(() => this.menuAccordionExpand.next(results)))
+        .on('collapse', () => this.ngZone.run(() => this.menuAccordionCollapse.next(true)))
+        .on('filtered', (e, results: any[]) => this.ngZone.run(() => this.filtered.next(results)))
+        .on('applicationmenuopen', () => this.ngZone.run(() => this.menuVisibility.next(true)))
+        .on('applicationmenuclose', () => this.ngZone.run(() => this.menuVisibility.next(false)));
     });
   }
 
