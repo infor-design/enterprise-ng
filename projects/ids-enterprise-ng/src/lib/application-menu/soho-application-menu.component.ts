@@ -88,7 +88,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
     if (triggers) {
       let i = triggers.length;
       while (i--) {
-        this._triggers.push(jQuery(triggers[i]));
+        this._triggers.push(jQuery(triggers[ i ]));
       }
 
       if (this.applicationmenu) {
