@@ -58,7 +58,7 @@ describe('Soho Monthview Unit Tests', () => {
     expect((comp as any).updateRequired).toEqual(true);
 
     // spy on updated() function to make sure it's called as a result of the updateRequired flag.
-    const pieUpdatedSpy = spyOn<any>(comp["monthview"], 'updated').and.callThrough();
+    const pieUpdatedSpy = spyOn<any>(comp['monthview'], 'updated').and.callThrough();
 
     fixture.detectChanges();
     expect((comp as any).updateRequired).toEqual(false);

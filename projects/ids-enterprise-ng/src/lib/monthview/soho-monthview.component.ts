@@ -98,7 +98,7 @@ export class SohoMonthViewComponent implements AfterViewInit, AfterViewChecked, 
       // Add listeners to emit events
       this.jQueryElement
       .on('selected', (event: SohoMonthViewSelectedEvent) => this.onSelectedEvent(event))
-      .on('monthrendered', (event: SohoMonthViewRenderMonthEvent) => this.onMonthRenderedEvent(event))
+      .on('monthrendered', (event: SohoMonthViewRenderMonthEvent) => this.onMonthRenderedEvent(event));
     });
   }
 
