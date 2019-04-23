@@ -98,6 +98,34 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
    */
   @Input() public filterable: boolean;
 
+  /**
+   *
+   * @param expandSwitcher
+   * Menu switcher expand setting to provide callback
+   */
+  @Input()
+  public set onExpandSwitcher(expandSwitcher: SohoApplicationMenuExpandSwitcherFunction) {
+    this._onExpandSwitcher = expandSwitcher;
+    if (this.applicationmenu) {
+      this.applicationmenu.settings.onExpandSwitcher = this._onExpandSwitcher;
+      this.updateRequired = true;
+    }
+  }
+
+  /**
+   *
+   * @param collapseSwitcher
+   * Menu switcher collapse setting to provide callback
+   */
+  @Input()
+  public set onCollapseSwitcher(collapseSwitcher: SohoApplicationMenuCollapseSwitcherFunction) {
+    this._onCollapseSwitcher = collapseSwitcher;
+    if (this.applicationmenu) {
+      this.applicationmenu.settings.onCollapseSwitcher = this._onCollapseSwitcher;
+      this.updateRequired = true;
+    }
+  }
+
   // -------------------------------------------
   // Host Bindings
   // -------------------------------------------
@@ -131,6 +159,12 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
 
   /** Dismiss the menu when an item is clicked in the mobile breakpoints */
   private _dismissOnClickMobile: boolean;
+
+  /** Menu switcher expand callback  */
+  private _onExpandSwitcher: SohoApplicationMenuExpandSwitcherFunction;
+
+  /** Menu switcher collapse callback  */
+  private _onCollapseSwitcher: SohoApplicationMenuCollapseSwitcherFunction;
 
   /**
    * This event is fired when the visibility of the application menu is changed,
@@ -195,6 +229,10 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
     this.ngZone.runOutsideAngular(() => this.applicationmenu.updated());
   }
 
+  public closeExpandableArea() {
+    this.ngZone.runOutsideAngular(() => this.applicationmenu.closeExpandableArea());
+  }
+
   /*
    * Updates Accordion when menus have been lazily loaded
    * TODO: Ed or Tim, there doesn't appear to be a public function for something like this
@@ -245,7 +283,9 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
         dismissOnClickMobile: this._dismissOnClickMobile,
         openOnLarge: this._openOnLarge,
         triggers: this._triggers,
-        filterable: this.filterable
+        filterable: this.filterable,
+        onExpandSwitcher: this._onExpandSwitcher,
+        onCollapseSwitcher: this._onCollapseSwitcher
       };
 
       // Initialise the SoHoXi control.
