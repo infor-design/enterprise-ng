@@ -84,7 +84,7 @@ interface SohoApplicationMenuStatic {
    */
   updated(): void;
 
-  closeExpandableArea(): void;
+  closeSwitcherPanel(): void;
 
   /**
    * Has this control got the defined class.

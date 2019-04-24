@@ -229,8 +229,8 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
     this.ngZone.runOutsideAngular(() => this.applicationmenu.updated());
   }
 
-  public closeExpandableArea() {
-    this.ngZone.runOutsideAngular(() => this.applicationmenu.closeExpandableArea());
+  public closeSwitcherPanel() {
+    this.ngZone.runOutsideAngular(() => this.applicationmenu.closeSwitcherPanel());
   }
 
   /*
