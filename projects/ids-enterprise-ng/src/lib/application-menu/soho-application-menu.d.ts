@@ -84,6 +84,9 @@ interface SohoApplicationMenuStatic {
    */
   updated(): void;
 
+  /**
+   * Closes the panel area controlled by switcher
+   */
   closeSwitcherPanel(): void;
 
   /**
