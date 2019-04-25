@@ -3,6 +3,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+
 import { SohoDatePickerComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -64,7 +65,10 @@ export class DatepickerDemoComponent implements OnInit {
   };
 
   constructor() { }
-  ngOnInit() { }
+  ngOnInit() {
+    this.registerCustomValidator();
+  }
+
   toggleModel() {
     this.showModel = !this.showModel;
   }
@@ -87,5 +91,17 @@ export class DatepickerDemoComponent implements OnInit {
   setReadonly() {
     this.datepicker.readonly = true;
     this.datepickerReadOnly = this.datepicker.readonly;
+  }
+
+  registerCustomValidator() {
+    Soho.Validation.rules['customRule'] = {
+      check: function (value: any, field: any, grid: any) {
+        console.log(value, field, grid);
+        return false;
+      },
+      id: 'custom',
+      type: 'error',
+      message: 'Test Error - Anything you enter will be wrong'
+    };
   }
 }

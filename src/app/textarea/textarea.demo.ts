@@ -48,4 +48,8 @@ export class TextareaDemoComponent implements OnInit {
     this.textarea.readonly = true;
     this.textAreaReadOnly = this.textarea.readonly;
   }
+
+  onTextChange() {
+    console.log(`onTextChange()`);
+  }
 }

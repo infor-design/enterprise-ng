@@ -9,7 +9,7 @@
   <br>
   <div class="scrollable-area no-scroll">
     <app-datagrid-toolbar-demo></app-datagrid-toolbar-demo>
-    <div soho-busyindicator soho-datagrid (selected)="onSelected($event)" selectable="multiple" filterable="true">
+    <div soho-busyindicator soho-datagrid (selected)="onSelected($event)" selectable="multiple" filterable="true" [toolbar]="{ personalize: true }">
     </div>
   </div>
 </div>

@@ -54,8 +54,20 @@ interface SohoModalOptions {
   // Extra frame height.
   frameHeight?: number;
 
+  // Extra frame width.
+  frameWidth?: number;
+
   /** If true the new flex toolbar will be used (For CAP)**/
   useFlexToolbar?: boolean;
+
+  /** If true the an x will be shown on the modal**/
+  showCloseBtn?: boolean;
+
+  // The maximum width to show for the modal, regardless of content.
+  maxWidth?: number;
+
+  // A call back function for showing the modal
+  beforeShow?: any;
 }
 
 interface SohoModalButton {

@@ -60,23 +60,17 @@ describe('Soho Menu Button Unit Tests', () => {
   });
 
   it('check showArrow sets option to true', () => {
-    const spy = spyOn((comp as any).ref, 'markForCheck');
-
     comp.showArrow = true;
 
     expect((comp as any).options.showArrow).toBeTruthy();
     expect((comp as any).menuButton.settings.showArrow).toBeTruthy();
-    expect(spy).toHaveBeenCalled();
   });
 
   it('check showArrow sets option to true, when no menuButton set', () => {
-    const spy = spyOn((comp as any).ref, 'markForCheck');
-
     (comp as any).menuButton = undefined;
     comp.showArrow = true;
 
     expect((comp as any).options.showArrow).toBeTruthy();
-    expect(spy).toHaveBeenCalledTimes(0);
   });
 
   it('check hideMenuArrow', () => {

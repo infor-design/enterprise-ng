@@ -62,7 +62,8 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
     colorOnly: false,
     clearable: true,
     clearableText: null,
-    customColors: false
+    customColors: false,
+    disabled: false
   };
 
   /**
@@ -82,6 +83,11 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
    */
   @Input() set disabled(value: boolean) {
     this.isDisabled = value;
+    this.options.disabled = value;
+
+    if (this.colorpicker) {
+      this.colorpicker.settings.disabled = value;
+    }
 
     if (this.colorpicker) {
       if (value) {
@@ -230,6 +236,9 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
    */
   get disabled() {
     return this.isDisabled;
+  }
+  get editable() {
+    return this.isEditable;
   }
   get readonly() {
     return this.isReadOnly;

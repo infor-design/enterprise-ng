@@ -1,9 +1,6 @@
 import {
   Component,
-  AfterContentInit,
-  ElementRef,
   ViewChild,
-  AfterViewInit,
   ChangeDetectionStrategy, OnInit
 } from '@angular/core';
 
@@ -56,9 +53,14 @@ export class DataGridMixedSelectionDemoComponent implements OnInit {
     this.sohoDataGridComponent.deactivateRow();
   }
 
+  onBeforeRowActivated(event) {
+    console.log('onBeforeRowActivated: ' + event);
+  }
+
   onRowActivated(event) {
     console.log('onRowActivated: ' + event);
   }
+
   onRowDeactivated(event) {
     console.log('onRowDeactivated: ' + event);
   }

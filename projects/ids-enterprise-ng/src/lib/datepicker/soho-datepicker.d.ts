@@ -9,6 +9,7 @@ type SohoDatePickerMode = 'standard' | 'range';
 
 type SohoDatePickerCalendarName = 'gregorian' | 'islamic-umalqura';
 
+type SohoDatePickerDayOfWeek = 0 | 1 | 2 | 3 | 4 | 5 | 6;
 /**
  * Date Picker Options
  */
@@ -67,6 +68,9 @@ interface SohoDatePickerOptions {
   /** If true the dates will use UTC format. This is only partially
    * implemented https://jira.infor.com/browse/SOHO-3437 */
   useUTC?: boolean;
+
+  /** Set first day of the week. '1' would be Monday. */
+  firstDayOfWeek?: SohoDatePickerDayOfWeek;
 }
 
 /* Options for the legend */

@@ -36,22 +36,21 @@
   <soho-accordion-header [isExpanded]="true">Sort By</soho-accordion-header>
   <soho-accordion-pane>
     <div class="accordion-content">
-      <div class="radio-group">
-        <input type="radio" class="radio" name="sort" id="sort-recent" value="recent">
-        <label for="sort-recent" class="radio-label">Recently Added</label>
+      <div class="field">
+        <input soho-radiobutton id="sort-recent" type="radio" name="sort" value="sort-recent" />
+        <label soho-label for="sort-recent" forRadioButton="'true'">Recently Added</label>
         <br>
-        <input type="radio" class="radio" name="sort" id="sort-price-low-high" value="price-low-high" checked="">
-        <label for="sort-price-low-high" class="radio-label">Price: Low – High</label>
+        <input soho-radiobutton id="sort-price-low-high" type="radio" name="sort" value="price-low-high" />
+        <label soho-label for="sort-price-low-high" forRadioButton="'true'">Price: Low – High</label>
         <br>
-        <input type="radio" class="radio" name="sort" id="sort-price-high-low" value="price-high-low">
-        <label for="sort-price-high-low" class="radio-label">Price: High – Low</label>
+        <input soho-radiobutton id="sort-price-high-low" type="radio" name="sort" value="sort-price-high-low" />
+        <label soho-label for="sort-price-high-low" forRadioButton="'true'">Price: High – Low</label>
         <br>
-        <input type="radio" class="radio" name="sort" id="sort-alphabetical" value="alphabetical">
-        <label for="sort-alphabetical" class="radio-label">Alphabetical</label>
+        <input soho-radiobutton id="sort-alphabetical" type="radio" name="sort" value="sort-alphabetical" />
+        <label soho-label for="sort-alphabetical" forRadioButton="'true'">Alphabetical</label>
         <br>
-        <input type="radio" class="radio" name="sort" id="sort-stock" value="stock">
-        <label for="sort-stock" class="radio-label">In Stock</label>
-        <br>
+        <input soho-radiobutton id="sort-stock" type="radio" name="sort" value="sort-stock" />
+        <label soho-label for="sort-stock" forRadioButton="'true'">In Stock</label>
       </div>
     </div>
   </soho-accordion-pane>

@@ -97,6 +97,17 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   }
 
   /**
+   * Change the datepickers first day of the week.
+   * An integer from 0 - 6 where 0 = Sunday, 1 = Monday, etc...
+   */
+  @Input() set firstDayOfWeek(firstDayOfWeek: SohoDatePickerDayOfWeek) {
+    this._options.firstDayOfWeek = firstDayOfWeek;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
    * Indicates mode, either 'standard' or 'range'.
    */
   @Input() set mode(mode: SohoDatePickerMode) {

@@ -12,11 +12,11 @@ import { SohoDataGridComponent } from './soho-datagrid.component';
 const COLUMNS: SohoDataGridColumn[] = [
   { id: 'selectionCheckbox', sortable: false, resizable: false, width: 50, formatter: Soho.Formatters.SelectionCheckbox, align: 'center', exportable: false },
   { id: 'productId',   name: 'Product Id',   field: 'productId',   sortable: false, filterType: 'integer', width: 140, formatter: Soho.Formatters.Readonly },
-  { id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text',    width: 150, formatter: Soho.Formatters.Hyperlink },
+  { id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text', filterConditions: ['equals', 'contains'],  width: 150, formatter: Soho.Formatters.Hyperlink },
   { id: 'activity',    name: 'Activity',     field: 'activity',    sortable: false, filterType: 'text',    width: 125, hidden: true },
   { id: 'quantity',    name: 'Quantity',     field: 'quantity',    sortable: false,                        width: 125 },
   { id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', width: 125, formatter: Soho.Formatters.Decimal },
-  { id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',    formatter: Soho.Formatters.Date, dateFormat: 'M/d/yyyy' }
+  { id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',    headerAlign: 'right', formatter: Soho.Formatters.Date, dateFormat: 'M/d/yyyy' }
 ];
 /* tslint:enable */
 
@@ -153,12 +153,14 @@ describe('Soho DataGrid Unit Tests', () => {
     const pageSizes = [10, 20, 30];
     const toolbar = {};
     const saveUserSettings = {};
+    let frozenColumns: SohoDataGridFrozenColumns = {};
 
     comp.data = DATA;
     comp.columns = COLUMNS;
 
     comp.uniqueId = 'id1';
     comp.idProperty = 'id1';
+    comp.frozenColumns = frozenColumns;
     comp.cellNavigation = false;
     comp.rowNavigation = false;
     comp.alternateRowShading = false;
@@ -190,6 +192,7 @@ describe('Soho DataGrid Unit Tests', () => {
 
     expect(comp.uniqueId).toEqual('id1');
     expect(comp.idProperty).toEqual('id1');
+    expect(comp.frozenColumns).toEqual(frozenColumns);
     expect(comp.cellNavigation).toEqual(false);
     expect(comp.rowNavigation).toEqual(false);
     expect(comp.alternateRowShading).toEqual(false);
@@ -220,11 +223,17 @@ describe('Soho DataGrid Unit Tests', () => {
     expect((comp as any).refreshHint).toEqual(0);
 
     fixture.detectChanges();
+    expect(comp['datagrid']).toBeDefined('datagrid should be defined');
+
+    frozenColumns = {
+      left: ['selectionCheckbox'],
+      right: ['orderDate']
+    };
 
     // change some values and verify vlaue getters
     comp.data = DATA;
     comp.columns = COLUMNS;
-
+    comp.frozenColumns = frozenColumns;
     comp.uniqueId = 'id2';
     comp.idProperty = 'id2';
     comp.cellNavigation = true;
@@ -257,6 +266,7 @@ describe('Soho DataGrid Unit Tests', () => {
 
     expect(comp.uniqueId).toEqual('id2');
     expect(comp.idProperty).toEqual('id2');
+    expect(comp.frozenColumns).toEqual(frozenColumns);
     expect(comp.cellNavigation).toEqual(true);
     expect(comp.rowNavigation).toEqual(true);
     expect(comp.alternateRowShading).toEqual(true);
@@ -304,6 +314,16 @@ describe('Soho DataGrid Unit Tests', () => {
 
     expect(comp.uniqueId).toEqual('MyApp');
     expect(comp.gridOptions.uniqueId).toEqual('MyApp');
+  });
+
+  it('check resetColumns', () => {
+    fixture.detectChanges();
+
+    const spy = spyOn((comp as any).datagrid, 'resetColumns');
+
+    comp.resetColumns();
+
+    expect(spy).toHaveBeenCalled();
   });
 
   it('check rowReorder', () => {
@@ -437,6 +457,72 @@ describe('Soho DataGrid Render', () => {
     component.datagrid.dataset = testData;
 
     expect(component.datagrid.dataset).toBe(testData);
+  });
+
+  it('check exiteditmode', (done) => {
+    fixture.detectChanges();
+
+    component.datagrid.exiteditmode.subscribe((exiteditedEvent: SohoDataGridEditModeEvent) => {
+      expect(exiteditedEvent.cell).toEqual(2);
+      done();
+    });
+
+    // Emulate the jQuery component firing the 'exiteditmode' event.
+    (component.datagrid as any).jQueryElement.triggerHandler(
+      'exiteditmode', [{
+        row: 1,
+        cell: 2,
+        item: {},
+        target: null,
+        value: 'value',
+        oldValue: null,
+        column: {},
+        editor: null
+      }]);
+  });
+
+  it('check beforentereditmode', (done) => {
+    fixture.detectChanges();
+
+    component.datagrid.beforeentereditmode.subscribe((editModeEvent: SohoDataGridEditModeEvent) => {
+      expect(editModeEvent.cell).toEqual(2);
+      done();
+    });
+
+    // Emulate the jQuery component firing the 'exiteditmode' event.
+    (component.datagrid as any).jQueryElement.triggerHandler(
+      'beforeentereditmode', [{
+        row: 1,
+        cell: 2,
+        item: {},
+        target: null,
+        value: 'value',
+        oldValue: null,
+        column: {},
+        editor: null
+      }]);
+  });
+
+  it('check entereditmode', (done) => {
+    fixture.detectChanges();
+
+    component.datagrid.entereditmode.subscribe((editModeEvent: SohoDataGridEditModeEvent) => {
+      expect(editModeEvent.cell).toEqual(2);
+      done();
+    });
+
+    // Emulate the jQuery component firing the 'exiteditmode' event.
+    (component.datagrid as any).jQueryElement.triggerHandler(
+      'entereditmode', [{
+        row: 1,
+        cell: 2,
+        item: {},
+        target: null,
+        value: 'value',
+        oldValue: null,
+        column: {},
+        editor: null
+      }]);
   });
 
   it('check setColumnSort(id, descending)', (done) => {
@@ -588,13 +674,12 @@ describe('Soho DataGrid Render', () => {
     // Try removing row number 1 (second item)
     const removedRow = component.data[1];
 
-    /*const sub = */component.datagrid.rowRemove.subscribe((event: SohoDataGridRowRemoveEvent) => {
+    component.datagrid.rowRemove.subscribe((event: SohoDataGridRowRemoveEvent) => {
       // Make sure the correct row is removed.
       expect(event.oldValue.productId).toEqual(removedRow.productId);
       expect(event.row).toBe(1);
       expect(event.target).not.toBe(null);
 
-      // sub.unsubscribe();
       done();
     });
 

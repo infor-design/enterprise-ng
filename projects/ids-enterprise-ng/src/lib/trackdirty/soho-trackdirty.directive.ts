@@ -13,7 +13,8 @@ import {
 
 @Directive({
   // tslint:disable-next-line:directive-selector
-  selector: '[soho-trackdirty]'
+  selector: '[soho-trackdirty]',
+  exportAs: 'soho-trackdirty'
 })
 export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
 

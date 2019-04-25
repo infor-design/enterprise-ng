@@ -27,7 +27,7 @@
             <label soho-label for={{name3}}>File</label>
             <input
               soho-fileupload
-              soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
+              soho-trackdirty #trackDirty="soho-trackdirty" (pristine)="onPristine($event)" (dirty)="onDirty($event)" (afterResetDirty)="onAfterResetDirty($event)"
               id={{name3}} name={{name3}} accept="true" value="" [attr.original]="fileName"
             />
           </div>

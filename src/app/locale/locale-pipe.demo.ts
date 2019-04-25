@@ -1,7 +1,5 @@
 import {
   Component,
-  ViewChild,
-  AfterContentChecked,
   ChangeDetectorRef,
   NgZone,
   ChangeDetectionStrategy

@@ -1,7 +1,8 @@
 import {
   Component,
   OnInit,
-  ViewChild
+  ViewChild,
+  AfterViewInit
 } from '@angular/core';
 
 import {
@@ -12,7 +13,7 @@ import {
   selector: 'app-colorpicker-demo',
   templateUrl: './colorpicker.demo.html',
 })
-export class ColorPickerDemoComponent implements OnInit {
+export class ColorPickerDemoComponent implements OnInit, AfterViewInit {
 
   @ViewChild(SohoColorPickerComponent) colorpicker: SohoColorPickerComponent;
 
@@ -27,8 +28,14 @@ export class ColorPickerDemoComponent implements OnInit {
   public colorPickerClearable = true;
   public showLabel = false;
 
-  constructor() { }
+  constructor() {}
 
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.colorPickerDisabled = this.colorpicker.disabled;
+      this.colorPickerEditable = this.colorpicker.editable;
+    }, 300);
+  }
   ngOnInit() {}
 
   toggleModel() {
@@ -42,10 +49,9 @@ export class ColorPickerDemoComponent implements OnInit {
     };
   }
 
-  setEnable() {
-    this.colorpicker.disabled = false;
-    this.colorPickerDisabled = this.colorpicker.disabled;
-    this.colorPickerReadOnly = this.colorpicker.readonly;
+  setStatus() {
+    this.colorPickerDisabled = !this.colorPickerDisabled;
+    this.colorpicker.disabled = this.colorPickerDisabled;
   }
 
   setEditable() {
@@ -53,14 +59,9 @@ export class ColorPickerDemoComponent implements OnInit {
     this.colorpicker.editable = this.colorPickerEditable;
   }
 
-  setDisable() {
-    this.colorpicker.disabled = true;
-    this.colorPickerDisabled = this.colorpicker.disabled;
-  }
-
   setReadonly() {
-    this.colorpicker.readonly = true;
-    this.colorPickerReadOnly = this.colorpicker.readonly;
+    this.colorPickerReadOnly = !this.colorPickerReadOnly;
+    this.colorpicker.readonly = this.colorPickerReadOnly;
   }
 
   setClearable() {

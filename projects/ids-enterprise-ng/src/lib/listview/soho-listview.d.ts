@@ -86,7 +86,7 @@ interface SohoListViewStatic {
   clearAllSelected(): void;
 
   /** Updates the busy indicator with any new settings. */
-  updated(): void;
+  updated(options?: SohoListViewOptions): void;
 
   /** Destroy the component on completion. */
   destroy(): void;

@@ -1,10 +1,16 @@
 interface SohoStatic {
   renderLoop: SohoRenderLoop;
   breakpoints: SohoBreakpointsStatic;
+  Validation: SohoValidationRules;
 }
 
 interface SohoConfig {
   renderLoop: SohoConfigRenderLoop;
+}
+
+interface SohoValidationRules {
+  rules: object;
+  ValidationTypes: Array<object>;
 }
 
 interface SohoRenderLoop {

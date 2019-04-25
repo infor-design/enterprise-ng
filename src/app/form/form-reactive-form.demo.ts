@@ -1,17 +1,12 @@
 import {
   Component,
   ElementRef,
-  OnInit,
   AfterViewInit
 } from '@angular/core';
 
 import {
-  FormArray,
   FormBuilder,
   FormGroup,
-  Validators,
-  ValidatorFn,
-  AbstractControl
 } from '@angular/forms';
 
 import { DomSanitizer } from '@angular/platform-browser';
@@ -79,8 +74,6 @@ export class FormReactiveFormDemoComponent implements AfterViewInit {
 
     this.demoForm.valueChanges
       .subscribe(data => this.onValueChanged(data));
-
-    this.demoForm.disable();
   }
 
   toggleDisableForm() {

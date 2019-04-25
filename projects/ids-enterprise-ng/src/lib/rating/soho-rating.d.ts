@@ -19,10 +19,10 @@ interface SohoRating {
   settings: SohoRatingOptions;
 
   /** Set component to readonly */
-  readonly(): void
+  readonly(): void;
 
   /** Set component to enable */
-  enable():void
+  enable(): void;
 
   /** Updates the rating with any new settings and data */
   updated(settings?: SohoRatingOptions): void;

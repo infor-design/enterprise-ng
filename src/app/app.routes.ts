@@ -2,9 +2,6 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { AboutDemoComponent } from './about/about.demo';
-import { AccordionDemoComponent } from './accordion/accordion.demo';
-import { AccordionDynamicDemoComponent } from './accordion/accordion-dynamic.demo';
-import { AccordionPanelsDemoComponent } from './accordion/accordion-panels.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { AreaDemoComponent } from './area/area.demo';
@@ -12,6 +9,7 @@ import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
 import { BarDemoComponent } from './bar/bar.demo';
 import { BarStackedDemoComponent } from './bar-stacked/bar-stacked.demo';
 import { BarGroupedDemoComponent } from './bar-grouped/bar-grouped.demo';
+import { BlockGridCustomContentDemoComponent } from './blockgrid/blockgrid-custom-content.demo';
 import { BlockGridMixedSelectionDemoComponent } from './blockgrid/blockgrid-mixed-selection.demo';
 import { BlockGridMultiSelectionDemoComponent } from './blockgrid/blockgrid-multi-selection.demo';
 import { BlockGridSingleSelectionDemoComponent } from './blockgrid/blockgrid-single-selection.demo';
@@ -50,6 +48,7 @@ import { DataGridRowReorderDemoComponent } from './datagrid/datagrid-rowreorder.
 import { DataGridDirtyIndicationDemoComponent } from './datagrid/datagrid-dirty-indication.demo';
 import { DataGridDynamicDemoComponent } from './datagrid/datagrid-dynamic.demo';
 import { DataGridEditorsDemoComponent } from './datagrid/datagrid-editors.demo';
+import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
 import { DataGridExportWithoutDataGridDemoComponent } from './datagrid/datagrid-export-without-datagrid.demo';
 import { DataGridFixedHeaderDemoComponent } from './datagrid/datagrid-fixedheader.demo';
 import { DataGridGroupableDemoComponent } from './datagrid/datagrid-groupable.demo';
@@ -61,13 +60,16 @@ import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-s
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
+import { DataGridTestSettingsDemoComponent } from './datagrid/datagrid-test-settings.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
+import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagrid-treegrid-dynamicfiltering.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DonutDemoComponent } from './donut/donut.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
 import { DropdownAsyncDemoComponent } from './dropdown/dropdown-async.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
+import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { DropdownTypeaheadDemoComponent } from './dropdown/dropdown-typeahead.demo';
 import { EditorDemoComponent } from './editor/editor.demo';
@@ -81,6 +83,7 @@ import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { FileUploadLMDemoComponent } from './fileupload/fileupload-lm.demo';
 import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
 import { FormReactiveFormDemoComponent } from './form/form-reactive-form.demo';
+import { FormCompactDemoComponent } from './form-compact/form-compact.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToggleButtonsDemoComponent } from './header/header-toggle-buttons.demo';
 import { HeaderToolbarAndTabsDemoComponent } from './header/header-toolbar-and-tabs.demo';
@@ -96,6 +99,7 @@ import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
 import { LineDemoComponent } from './line/line.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
+import { ListViewCustomContentDemoComponent } from './listview/listview.custom-content.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
@@ -134,12 +138,16 @@ import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
 import { TagDemoComponent } from './tag/tag.demo';
+import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
 import { TextareaDemoComponent } from './textarea/textarea.demo';
 import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
+import { ToolbarFlexBasicDemoComponent } from './toolbar-flex/toolbar-flex-basic.demo';
+import { ToolbarFlexMoreActionsAjaxDemoComponent } from './toolbar-flex/toolbar-flex-more-actions-ajax.demo';
+import { ToolbarFlexSearchfieldDemoComponent } from './toolbar-flex/toolbar-flex-searchfield.demo';
 import { ToolbarMoreActionsAjaxDemoComponent } from './toolbar/toolbar-more-actions-ajax.demo';
 import { ToolbarPresetMoreActionsDemoComponent } from './toolbar/toolbar-preset-more-actions.demo';
 import { ToolbarRightAlignedDemoComponent } from './toolbar/toolbar-right-aligned.demo';
@@ -156,11 +164,6 @@ import { ValidationFormEventDemoComponent } from './validation/validation-form-e
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 import { WizardDemoComponent } from './wizard/wizard.demo';
-import { DataGridEmptyMessageDemoComponent } from './datagrid/datagrid-empty-message.demo';
-import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo';
-
-import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
-import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagrid-treegrid-dynamicfiltering.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -173,6 +176,7 @@ export const routes: Routes = [
   { path: 'bar',                                    component: BarDemoComponent },
   { path: 'bar-grouped',                            component: BarGroupedDemoComponent },
   { path: 'bar-stacked',                            component: BarStackedDemoComponent },
+  { path: 'blockgrid-custom-content',               component: BlockGridCustomContentDemoComponent},
   { path: 'blockgrid-mixed-selection',              component: BlockGridMixedSelectionDemoComponent},
   { path: 'blockgrid-multi-selection',              component: BlockGridMultiSelectionDemoComponent},
   { path: 'blockgrid-single-selection',             component: BlockGridSingleSelectionDemoComponent},
@@ -208,6 +212,7 @@ export const routes: Routes = [
   { path: 'datagrid-mixed-selection',               component: DataGridMixedSelectionDemoComponent },
   { path: 'datagrid-paging-indeterminate',          component: DataGridPagingIndeterminateDemoComponent },
   { path: 'datagrid-paging-service',                component: DataGridPagingServiceDemoComponent },
+  { path: 'datagrid-test-settings',                 component: DataGridTestSettingsDemoComponent },
   { path: 'datagrid-service',                       component: DataGridServiceDemoComponent },
   { path: 'datagrid-settings',                      component: DataGridSettingsDemoComponent },
   { path: 'datagrid-standalone-pager',              component: DatagridStandalonePagerDemoComponent },
@@ -245,6 +250,7 @@ export const routes: Routes = [
   { path: 'fileupload-advanced',                    component: FileUploadAdvancedDemoComponent },
   { path: 'fileupload-lm',                          component: FileUploadLMDemoComponent },
   { path: 'fileupload',                             component: FileUploadDemoComponent },
+  { path: 'form-compact',                           component: FormCompactDemoComponent },
   { path: 'header-tabs',                            component: HeaderTabsDemoComponent },
   { path: 'header-toggle-buttons',                  component: HeaderToggleButtonsDemoComponent },
   { path: 'header-toolbar',                         component: HeaderToolbarDemoComponent },
@@ -260,6 +266,7 @@ export const routes: Routes = [
   { path: 'label',                                  component: LabelDemoComponent },
   { path: 'line',                                   component: LineDemoComponent },
   { path: 'listview',                               component: ListViewDemoComponent },
+  { path: 'listview-custom',                        component: ListViewCustomContentDemoComponent },
   { path: 'locale-pipe',                            loadChildren: './locale/locale-demo.module#LocaleDemoModule'},
   { path: 'lookup',                                 component: LookupDemoComponent },
   { path: 'lookup-validation',                      component: LookupValidationDemoComponent },
@@ -309,6 +316,9 @@ export const routes: Routes = [
   { path: 'toolbar-datadriven',                     component: ToolbarDataDrivenDemoComponent },
   { path: 'toolbar-state',                          component: ToolbarStateComponent },
   { path: 'toolbar-right-aligned',                  component: ToolbarRightAlignedDemoComponent },
+  { path: 'toolbar-flex-basic',                     component: ToolbarFlexBasicDemoComponent },
+  { path: 'toolbar-flex-more-actions-ajax',         component: ToolbarFlexMoreActionsAjaxDemoComponent },
+  { path: 'toolbar-flex-searchfield',               component: ToolbarFlexSearchfieldDemoComponent },
   { path: 'tooltip',                                component: TooltipDemoComponent },
   { path: 'trackdirty',                             component: TrackDirtyDemoComponent },
   { path: 'tree-content',                           component: TreeContentDemoComponent },
