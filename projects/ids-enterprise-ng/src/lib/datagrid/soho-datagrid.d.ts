@@ -12,6 +12,8 @@
  */
 type SohoDataGridRowHeight = 'short' | 'medium' | 'normal';
 
+type SohoDataGridTextAlign = 'left' | 'center' | 'right';
+
 /**
  * Selection options.
  * Mixed mode allows for single row activated state with multiple selection checkbox states.
@@ -21,6 +23,11 @@ type SohoDataGridRowHeight = 'short' | 'medium' | 'normal';
  * Siblings mode is used with treeGrid to give a mode where adgacent siblings are selected.
  */
 type SohoDataGridSelectable = boolean | 'single' | 'multiple' | 'mixed' | 'siblings';
+
+interface SohoDataGridFrozenColumns {
+  left?: any[];
+  right?: any[];
+}
 
 /**
  * Settings for the Soho datagrid control.
@@ -57,6 +64,9 @@ interface SohoDataGridOptions {
 
   /** Initial dataset. */
   dataset?: Object[];
+
+  /** set frozen columns */
+  frozenColumns?: SohoDataGridFrozenColumns;
 
   /** Allow column reorder. */
   columnReorder?: boolean;
@@ -252,6 +262,17 @@ interface SohoDataGridOptions {
    *  You may want to also use showSelectAllCheckBox: false
    */
   allowSelectAcrossPages?: boolean;
+
+  /**
+   * if true:
+   * and if only parent got match then add all children nodes too
+   * or if one or more child node got match then add parent node and all the children nodes
+   * if false:
+   * and if only parent got match then make expand/collapse button to be collapsed, disabled
+   * and do not add any children nodes
+   * or if one or more child node got match then add parent node and only matching children nodes
+   */
+  allowChildExpandOnMatch?: boolean;
 }
 
 /**
@@ -354,7 +375,13 @@ type SohoDataGridSortFunction = (
   ascending: boolean
 ) => boolean;
 
-type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' | 'integer' | 'percent' | 'select' | 'time';
+type SohoDataGridColumnFilterType = 'text' | 'checkbox' | 'contents' | 'date' | 'decimal' |
+  'integer' | 'lookup' | 'percent' | 'select' | 'time' | 'lookup';
+
+type SohoDataGridColumnFilterConditions = 'contains' | 'does-not-contain' | 'equals' | 'does-not-equal' | 'is-empty' |
+  'is-not-empty' | 'selected-notselected' | 'selected' | 'not-selected' | 'equals' | 'does-not-equal' |
+  'is-empty' | 'is-not-empty' | 'in-range' | 'less-than' | 'less-equals' | 'greater-than' |
+  'greater-equals' | 'end-with' | 'does-not-end-with' | 'start-with' | 'does-not-start-with';
 
 interface SohoDataGridCellEditor {
   className: string;
@@ -547,7 +574,6 @@ type SohoDataGridColumnContentVisibleFunction = (
   columnDef: SohoDataGridColumn,
   item: any
 ) => boolean;
-
 /**
  * This is an interface mapping for the grid column defined
  * within the Soho jQuery Control.
@@ -561,6 +587,7 @@ interface SohoDataGridColumn {
 
   /** Field in the row to display. */
   field?: string;
+
 
   /** Is this column visible? */
   hidden?: boolean;
@@ -594,6 +621,9 @@ interface SohoDataGridColumn {
 
   // 'checkbox', 'date', 'decimal', 'contents', 'select' otherwise a string.
   filterType?: SohoDataGridColumnFilterType | string;
+
+  /** Limit filter conditions to a prescribed set of conditionals.  */
+  filterConditions?: SohoDataGridColumnFilterConditions[];
 
   /** Column formatter function.  */
   filterFormatter?: SohoDataGridColumnFormatterFunction | string;
@@ -719,6 +749,12 @@ interface SohoDataGridColumn {
 
   /** Validators to assign to any editable columns. */
   validate?: string;
+
+  /** align the header text */
+  headerAlign?: SohoDataGridTextAlign;
+
+  /** If false the column will be disabled in personalization dialog */
+  hideable?: boolean;
 }
 
 interface SohoDataGridColumnNumberFormat {
@@ -768,6 +804,12 @@ interface SohoDataGridStatic {
 
   /** Parse a JSON array with columns and return the column object. */
   columnsFromString(columns: string): Object;
+
+  /** Reset Columns to defaults (used on restore menu item). */
+  resetColumns(): void;
+
+  /** Open the personalize dialog (private -  but to allow custom access?) */
+  personalizeColumns(): void;
 
   /** Restore user Settings */
   restoreUserSettings(settings: any): void;
@@ -951,6 +993,23 @@ interface SohoDataGridStatic {
   rowStatus(idx: number, status: string, tooltip: string): void;
 
   /**
+   * Returns the row dom jQuery node.
+   * @param  row The row index.
+   * @param  includeGroups If true groups are taken into account.
+   * @return The dom jQuery node
+   */
+  rowNode(row: number, includeGroups: boolean): any;
+
+  /**
+   * Returns the cell dom node.
+   * @param  row The row index.
+   * @param  cell The cell index.
+   * @param  includeGroups If true groups are taken into account.
+   * @return The dom node
+   */
+  cellNode(row: number, cell: number, includeGroups: boolean): any;
+
+  /**
    * Destructor,
    */
   destroy(): void;
@@ -1072,6 +1131,10 @@ interface SohoToolbarOptions {
   rowHeight?: boolean;
   title?: string;
   views?: boolean;
+  resetLayout?: boolean;
+  exportToExcel?: boolean;
+  fullWidth?: boolean;
+  contextualToolbar?: boolean;
 }
 
 /**
@@ -1121,7 +1184,7 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   on(events: 'rowreorder', handler: JQuery.EventHandlerBase<any, SohoDataGridRowReorderedEvent>): this;
   on(events: 'sorted', handler: JQuery.EventHandlerBase<any, SohoDataGridSortedEvent>): this;
   on(events: 'expandrow', handler: JQuery.EventHandlerBase<any, SohoDataGridRowExpandEvent>): this;
-  on(events: 'rowactivated', handler: JQuery.EventHandlerBase<any, SohoDataGridRowActivatedEvent>): this;
+  on(events: 'rowactivated | beforerowactivated', handler: JQuery.EventHandlerBase<any, SohoDataGridRowActivatedEvent>): this;
   on(events: 'rowdeactivated', handler: JQuery.EventHandlerBase<any, SohoDataGridRowDeactivatedEvent>): this;
   on(events: 'selected', handler: JQuery.EventHandlerBase<any, SohoDataGridSelectedRow[]>): this;
 }
@@ -1169,4 +1232,31 @@ interface SohoDataGridColumnGroup {
   colspan: number;
   id: string;
   name: string;
+  align?: 'left' | 'right' | 'align';
+}
+
+ interface SohoDataGridEditModeEvent {
+    /** Row index contaning editor. */
+  row: number;
+
+  /** Column number. */
+  cell: number,
+
+  /** Row data */
+  item: any,
+
+  /** HTMLElement of the owning cell */
+  target: HTMLElement,
+
+  /** The cell value. */
+  value: any,
+
+  /** The original cell value. */
+  oldValue: any,
+
+  /** The column definition. */
+  column: SohoDataGridColumn,
+
+  /** The cell editor object. */
+  editor: SohoDataGridCellEditor
 }

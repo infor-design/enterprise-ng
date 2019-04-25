@@ -23,7 +23,7 @@ import {
 export class FileUploadLMDemoComponent implements OnInit {
 
   @ViewChild(SohoFileUploadComponent) fileupload: SohoFileUploadComponent;
-  @ViewChild(SohoTrackDirtyDirective) trackdirty: SohoTrackDirtyDirective;
+  @ViewChild('trackDirty') trackdirty: SohoTrackDirtyDirective;
 
   public name3 = 'file-name-track-dirty-existing';
   public fileName = 'add-employee.png';

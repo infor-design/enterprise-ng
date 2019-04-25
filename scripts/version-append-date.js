@@ -46,8 +46,14 @@ function formatDate (date) {
  */
 function executeUpdate(cmd) {
   const exec = require('child_process').exec
-  const updateProcess = exec(cmd);
-  updateProcess.stdout.pipe(process.stdout);
+  const updateProcess = exec(cmd, (err, stdout, stderr) => {
+    if (err) {
+      logError(`exec error: ${err}`);
+      return;
+    }
+    console.log(stdout);
+    console.log(stderr);
+  });
 }
 
 /**

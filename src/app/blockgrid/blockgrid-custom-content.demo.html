@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="twelve columns">
+
+    <h1 class="section-title">Block Grid Custom Content Demo</h1>
+    <div soho-blockgrid
+      [selectable]="'mixed'"
+      (activated)="onActivated($event)"
+      (deactivated)="onDeactivated($event)"
+      (selected)="onSelected($event)"
+      (deselected)="onDeselected($event)"
+    >
+      <ng-container *ngFor="let item of data; let i = index">
+        <div class="block is-selectable card" role="listitem" tabindex="0" attr.idx="{{i}}">
+          <input type="checkbox" aria-hidden="true" role="presentation" class="checkbox" id="checkbox{{i}}" tabindex="0" attr.idx="{{i}}">
+          <label for="checkbox{{i}}" class="checkbox-label"><span class="audible">Select</span></label>
+          <img alt="Placeholder Image" src="{{item.image}}" class="image-round">
+          <div>
+            <span class="title">{{item.title}}</span>
+            <br>
+            <span class="sub-title">{{item.subtitle}}</span>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+  </div>
+</div>

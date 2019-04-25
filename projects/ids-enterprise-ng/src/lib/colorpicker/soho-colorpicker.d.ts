@@ -36,6 +36,9 @@ interface SohoColorPickerOptions {
 
   /** If true the colorpicker will permit custom colors in the palette. */
   customColors: boolean;
+
+  /** If true the colorpicker will be disabled. */
+  disabled: boolean;
 }
 
 interface SohoColorPickerEvent extends JQuery.TriggeredEvent {

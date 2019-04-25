@@ -48,6 +48,11 @@
     * Sets the color scheme to alternate
     */
    alternate?: boolean;
+
+   /**
+    * Enables tooltips for longer text that is handled with ellipsis
+    */
+   enableTooltips?: boolean;
  }
 
 /**

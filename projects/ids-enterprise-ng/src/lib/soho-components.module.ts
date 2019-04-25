@@ -27,6 +27,7 @@ import { SohoFieldFilterModule } from './field-filter/soho-field-filter.module';
 import { SohoFieldOptionsModule } from './field-options/soho-field-options.module';
 import { SohoFileUploadAdvancedModule } from './fileupload-advanced/soho-fileupload-advanced.module';
 import { SohoFileUploadModule } from './fileupload/soho-fileupload.module';
+import { SohoFormCompactModule } from './form-compact/soho-form-compact.module';
 import { SohoHeaderModule } from './header/soho-header.module';
 import { SohoHierarchyModule } from './hierarchy/soho-hierarchy.module';
 import { SohoHomePageModule } from './homepage/soho-homepage.module';
@@ -66,6 +67,7 @@ import { SohoTagModule } from './tag/soho-tag.module';
 import { SohoTextAreaModule } from './textarea/soho-textarea.module';
 import { SohoTimePickerModule } from './timepicker/soho-timepicker.module';
 import { SohoToastModule } from './toast/soho-toast.module';
+import { SohoToolbarFlexModule } from './toolbar-flex/soho-toolbar-flex.module';
 import { SohoToolbarModule } from './toolbar/soho-toolbar.module';
 import { SohoTooltipModule } from './tooltip/soho-tooltip.module';
 import { SohoTrackDirtyModule } from './trackdirty/soho-trackdirty.module';
@@ -103,6 +105,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoFieldOptionsModule,
     SohoFileUploadAdvancedModule,
     SohoFileUploadModule,
+    SohoFormCompactModule,
     SohoHeaderModule,
     SohoHierarchyModule,
     SohoHomePageModule,
@@ -143,6 +146,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoTimePickerModule,
     SohoToastModule,
     SohoToolbarModule,
+    SohoToolbarFlexModule,
     SohoTooltipModule,
     SohoTrackDirtyModule,
     SohoTreeModule,
@@ -179,6 +183,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoFieldOptionsModule,
     SohoFileUploadAdvancedModule,
     SohoFileUploadModule,
+    SohoFormCompactModule,
     SohoHeaderModule,
     SohoHierarchyModule,
     SohoHomePageModule,
@@ -218,6 +223,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoTimePickerModule,
     SohoToastModule,
     SohoToolbarModule,
+    SohoToolbarFlexModule,
     SohoTooltipModule,
     SohoTrackDirtyModule,
     SohoTreeModule,

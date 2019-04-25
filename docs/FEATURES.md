@@ -27,6 +27,7 @@
 | error                   |                      Available |            - |                  - |             No |
 | expandablearea          |                      Available |            - | [SOHO-4017][#4017] |            Yes |
 | fieldOptions            |                      Available |            - | [SOHO-6265][#6265] |            Yes |
+| form-compact            |                      Available |            - |                  - |            Yes |
 | field-filter            |                      Available |            - |                  - |             No |
 | fileupload              |                      Available |            - | [SOHO-4560][#4560] |             No |
 | fileupload-advanced     |                      Available |            - | [SOHO-5124][#5214] |             No |

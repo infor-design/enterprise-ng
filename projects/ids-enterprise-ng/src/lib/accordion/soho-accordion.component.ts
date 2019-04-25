@@ -68,7 +68,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   /**
    * Used to call updated from the afterViewChecked lifecycle event.
    */
-  private updateRequired = true;
+  private updateRequired: boolean;
 
   // -------------------------------------------
   // Component Output
@@ -199,6 +199,21 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
 
   public get alternate(): boolean {
     return this.options.alternate;
+  }
+
+  /**
+   * Enables tooltips for longer text that is handled with ellipsis
+   */
+  @Input() public set enableTooltips(enableTooltips: boolean) {
+    this.options.enableTooltips = enableTooltips;
+    if (this.accordion) {
+      this.accordion.settings.enableTooltips = this.options.enableTooltips;
+      this.markForUpdate();
+    }
+  }
+
+  public get enableTooltips(): boolean {
+    return this.options.enableTooltips;
   }
 
   @Input() public hasSubheaderSeparators: boolean;
