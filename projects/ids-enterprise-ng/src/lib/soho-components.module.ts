@@ -45,6 +45,7 @@ import { SohoMastheadModule } from './masthead/soho-masthead.module';
 import { SohoMenuButtonModule } from './menu-button/soho-menu-button.module';
 import { SohoMessageModule } from './message/soho-message.module';
 import { SohoModalDialogModule } from './modal-dialog/soho-modal-dialog.module';
+import { SohoMonthViewModule } from './monthview/soho-monthview.module';
 import { SohoPagerModule } from './pager/soho-pager.module';
 import { SohoPersonalizeModule } from './personalize/soho-personalize.module';
 import { SohoPieModule } from './pie/soho-pie.module';
@@ -124,6 +125,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoMenuButtonModule,
     SohoMessageModule,
     SohoModalDialogModule,
+    SohoMonthViewModule,
     SohoPagerModule,
     SohoPersonalizeModule,
     SohoPieModule,
@@ -201,6 +203,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoMastheadModule,
     SohoMenuButtonModule,
     SohoModalDialogModule,
+    SohoMonthViewModule,
     SohoPagerModule,
     SohoPersonalizeModule,
     SohoPieModule,
