@@ -1,16 +1,27 @@
-language:
-  node_js
-  - 9
+language: node_js
+# Leave node_js version blank to
+# use version in `.nvmrc`
+node_js:
 cache:
   directories:
     - node_modules
+env:
+  - TEST_SUITE=lint
+  - TEST_SUITE=functional
 install:
   - npm install
 before_script:
   - npm install -g codecov
+  - if [ $TEST_SUITE != lint ]; then npm run build; fi
 script:
-  - npm run lint
-  - npm run build
-  - npm run test
+  - if [ $TEST_SUITE = lint ]; then npm run lint; fi
+  - if [ $TEST_SUITE = functional ]; then npm run test; fi
 after_success:
   - codecov
+
+# Safelist
+# only allow master and release branches like 4.10.x
+branches:
+  only:
+  - master
+  - /(\d).(\d*).x/i
