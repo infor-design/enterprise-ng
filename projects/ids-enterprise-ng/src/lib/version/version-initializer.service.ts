@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 
-// @todo unable to load the version from a file not included as a module in the package.
-// const version = require('../../../../package.json').version;
-// const version = process.env.npm_package_version;
-const version = '5.2.1';
+import { version } from './../../version.json';
 
 /**
  * Initialise the locale service BEFORE the root application component is
