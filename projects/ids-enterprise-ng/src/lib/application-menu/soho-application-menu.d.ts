@@ -17,6 +17,18 @@ type SohoApplicationMenuBreakPoint =
   'tablet-to-desktop' |
   'desktop-to-extralarge';
 
+type SohoApplicationMenuExpandSwitcherFunction = (
+  applicationMenu: any,
+  element: HTMLElement,
+  settings: any
+) => void;
+
+type SohoApplicationMenuCollapseSwitcherFunction = (
+  applicationMenu: any,
+  element: HTMLElement,
+  settings: any
+) => void;
+
 interface SohoApplicationMenuOptions {
   /** Defines the point at which the application should be displayed - depends on device. */
   breakpoint: SohoApplicationMenuBreakPoint;
@@ -32,6 +44,10 @@ interface SohoApplicationMenuOptions {
 
   /** The controls which can trigger the display state of the application menu. */
   triggers: any[];
+
+  onExpandSwitcher?: SohoApplicationMenuExpandSwitcherFunction;
+
+  onCollapseSwitcher?: SohoApplicationMenuCollapseSwitcherFunction;
 }
 
 /**
@@ -67,6 +83,11 @@ interface SohoApplicationMenuStatic {
    * Updates the control based on the new settings.
    */
   updated(): void;
+
+  /**
+   * Closes the panel area controlled by switcher
+   */
+  closeSwitcherPanel(): void;
 
   /**
    * Has this control got the defined class.
