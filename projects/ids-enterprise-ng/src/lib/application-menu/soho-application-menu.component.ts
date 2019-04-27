@@ -292,6 +292,9 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
       };
 
       // Initialise the SoHoXi control.
+      if (this._triggers.length === 0) {
+        this._triggers.push($('.application-menu-trigger'));
+      }
       this.jQueryElement.applicationmenu(options);
 
       // Once the control is initialised, extract the control
