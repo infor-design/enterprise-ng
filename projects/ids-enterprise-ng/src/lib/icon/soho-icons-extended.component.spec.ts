@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SohoIconsExtendedComponent } from './soho-icons-extended.component';
 
-describe('SohoEditorComponent', () => {
+describe('SohoIconsExtendedComponent', () => {
   let component: SohoIconsExtendedComponent;
   let fixture: ComponentFixture<SohoIconsExtendedComponent>;
 
