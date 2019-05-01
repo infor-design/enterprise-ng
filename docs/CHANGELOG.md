@@ -17,6 +17,8 @@
 
 ### 5.3.0 Fixes
 
+- `[Icons]` - Reverted removal of `soho-icons-ext` to conform to semantic version conventions. `BTHH` ([#458](https://github.com/infor-design/enterprise-ng/pull/458)
+
 ### 4.3.0 Chore & Maintenance
 
 - `[AppMenu]` - deprecated visibility event, use accordionExpand and accordionCollapse instead. `PWP` ([#434](https://github.com/infor-design/enterprise-ng/issues/434))
