@@ -166,6 +166,22 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
+  @Input() set showHtmlView(showHtmlView: boolean) {
+    this.options.showHtmlView = showHtmlView;
+    if (this.editor) {
+      this.editor.settings.showHtmlView = showHtmlView;
+      this.markForRefresh();
+    }
+  }
+
+  @Input() set preview(preview: boolean) {
+    this.options.preview = preview;
+    if (this.editor) {
+      this.editor.settings.preview = preview;
+      this.markForRefresh();
+    }
+  }
+
   // -------------------------------------------
   // Component Output
   // -------------------------------------------

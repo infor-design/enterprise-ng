@@ -98,10 +98,10 @@ function copySvgIcons() {
    });
   };
 
-  copy('svg-extended.html');
   copy('svg-patterns.html');
   copy('svg.html');
   copy('svg-empty.html');
+  copy('theme-uplift-svg.html');
 }
 
 // -------------------------------------

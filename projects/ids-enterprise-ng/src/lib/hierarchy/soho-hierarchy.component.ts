@@ -59,14 +59,27 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
     return this.options.templateId;
   }
 
+  /**
+   * @deprecated use layout = 'paging' instead.
+   */
   @Input() set paging(bool: boolean) {
     this.options.paging = bool;
   }
 
+  /**
+   * @deprecated use layout = 'paging' instead.
+   */
   get paging(): boolean {
     return this.options.paging;
   }
 
+  @Input() set layout(layout: SohoHierarchyLayoutType) {
+    this.options.layout = layout;
+  }
+
+  get layout(): SohoHierarchyLayoutType {
+    return this.options.layout;
+  }
   /**
    * Leaf is selected
    *

@@ -9,7 +9,8 @@ import {
 import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.service';
 import {
   SohoPersonalizeDirective,
-  SohoRenderLoopService
+  SohoRenderLoopService,
+  SohoApplicationMenuComponent
 } from 'ids-enterprise-ng';
 
 @Component({
@@ -20,10 +21,24 @@ import {
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements AfterViewInit {
+  /**
+   * Local Storage Key
+   */
+  private static IS_APPLICATION_MENU_OPEN_KEY = 'is-application-menu-open';
+
+  @ViewChild(SohoApplicationMenuComponent)
+  public applicationMenu: SohoApplicationMenuComponent;
 
   @ViewChild(SohoPersonalizeDirective) personalize: SohoPersonalizeDirective;
 
   @HostBinding('class.no-scroll') get isNoScroll() { return true; }
+
+  /**
+   * Include the uplift icons only if required by the current theme, this
+   * is not quite perfect, as we need to listen for the theme change here.
+   * Maybe wrap all the icons into their own component?
+   */
+  public useUpliftIcons = false;
 
   public personalizeOptions: SohoPersonalizeOptions = {};
 
@@ -34,29 +49,37 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // Has to run after the view has been initialised otherwise
-    // the personalise component is not ready.
-    this.setInitialPersonalization();
+
+    /**
+    * Note: If using an input like [triggers]="[ '.application-menu-trigger' ]"
+    * hookup the app menu trigger once the afterViewInit is called. This will
+    * ensure that the toolbar has had a chance to create the application-menu-trugger
+    * button.
+    * this.applicationMenu.triggers = [ '.application-menu-trigger' ];
+    */
+    if (this.isApplicationMenuOpen) {
+      this.applicationMenu.openMenu(true, true);
+    } else {
+      this.applicationMenu.closeMenu();
+    }
   }
 
-  setInitialPersonalization() {
-    const theme = localStorage.getItem('soho_theme');
-    let colors = localStorage.getItem('soho_color');
-    if (theme) {
-      this.personalize.theme = theme;
-    }
-    if (colors) {
-      colors = JSON.parse(colors);
-      this.personalize.colors = colors;
-    }
+  public get isApplicationMenuOpen(): boolean {
+    const valueString = localStorage.getItem(AppComponent.IS_APPLICATION_MENU_OPEN_KEY);
+    return valueString ? (valueString === 'true') : true;
+  }
+
+  public set isApplicationMenuOpen(open: boolean) {
+    localStorage.setItem(AppComponent.IS_APPLICATION_MENU_OPEN_KEY, open ? 'true' : 'false');
   }
 
   onChangeTheme(ev: SohoChangeThemePersonalizeEvent) {
-    console.log('Theme changed: ', ev);
-    localStorage.setItem('soho_theme', ev.theme);
+    this.useUpliftIcons = ev.theme === 'uplift';
   }
-  onChangeColors(ev: SohoChangeColorsPersonalizeEvent) {
-    console.log('Colors changed: ', ev);
-    localStorage.setItem('soho_color', JSON.stringify(ev.colors));
+
+  public onMenuVisibility(visible: boolean): void {
+    if (this.isApplicationMenuOpen !== visible) {
+      this.isApplicationMenuOpen = visible;
+    }
   }
 }

@@ -1,0 +1,28 @@
+
+.block {
+  display: inline-flex;
+}
+
+.blockgrid .block {
+  text-align: left !important; /* needed to override blockgrid text alignment  */
+  width: 275px !important;
+  height: 95px !important;
+  min-height: 95px !important; /* needed to override card height */
+  padding: 10px;
+  border: 1px solid #bdbdbd !important; /* needed because blockgrid removes the border */
+}
+
+.blockgrid .block img {
+  margin-right: 10px;
+}
+
+.title {
+  margin-top: 10px;
+  font-size: 1.4em;
+  white-space: nowrap
+}
+
+.sub-title {
+  font-size: 1.2em;
+  white-space: nowrap
+}

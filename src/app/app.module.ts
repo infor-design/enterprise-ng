@@ -1,8 +1,7 @@
 ﻿import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {
-  CommonModule,
-  APP_BASE_HREF
+  CommonModule
 } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
@@ -25,6 +24,7 @@ import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
 import { BarDemoComponent } from './bar/bar.demo';
 import { BarGroupedDemoComponent } from './bar-grouped/bar-grouped.demo';
 import { BarStackedDemoComponent } from './bar-stacked/bar-stacked.demo';
+import { BlockGridCustomContentDemoComponent } from './blockgrid/blockgrid-custom-content.demo';
 import { BlockGridMixedSelectionDemoComponent } from './blockgrid/blockgrid-mixed-selection.demo';
 import { BlockGridMultiSelectionDemoComponent } from './blockgrid/blockgrid-multi-selection.demo';
 import { BlockGridSingleSelectionDemoComponent } from './blockgrid/blockgrid-single-selection.demo';
@@ -95,6 +95,7 @@ import { DataGridRowReorderDemoComponent } from './datagrid/datagrid-rowreorder.
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
+import { DataGridTestSettingsDemoComponent } from './datagrid/datagrid-test-settings.demo';
 import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagrid-treegrid-dynamicfiltering.demo';
@@ -118,6 +119,7 @@ import { FieldOptionsPopdownDemoComponent } from './field-options/field-options-
 import { FileUploadDemoComponent } from './fileupload/fileupload.demo';
 import { FileUploadLMDemoComponent } from './fileupload/fileupload-lm.demo';
 import { FileUploadAdvancedDemoComponent } from './fileupload-advanced/fileupload-advanced.demo';
+import { FormCompactDemoComponent } from './form-compact/form-compact.demo';
 import { FormReactiveFormDemoComponent } from './form/form-reactive-form.demo';
 import { HeaderTabsDemoComponent } from './header/header-tabs.demo';
 import { HeaderToggleButtonsDemoComponent } from './header/header-toggle-buttons.demo';
@@ -135,6 +137,7 @@ import { IconDemoComponent } from './icon/icon.demo';
 import { LabelDemoComponent } from './label/label.demo';
 import { LineDemoComponent } from './line/line.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
+import { ListViewCustomContentDemoComponent } from './listview/listview.custom-content.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
@@ -142,7 +145,9 @@ import { MaskLegacyDemoComponent } from './mask/mask-legacy.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
+import { MonthViewDemoComponent } from './monthview/monthview.demo';
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
+import { PersonalizeMenuComponent } from './personalize-menu/personalize-menu.component';
 import { PieDemoComponent } from './pie/pie.demo';
 import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
@@ -183,6 +188,9 @@ import { ToastDemoComponent } from './toast/toast.demo';
 import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
+import { ToolbarFlexBasicDemoComponent } from './toolbar-flex/toolbar-flex-basic.demo';
+import { ToolbarFlexMoreActionsAjaxDemoComponent } from './toolbar-flex/toolbar-flex-more-actions-ajax.demo';
+import { ToolbarFlexSearchfieldDemoComponent } from './toolbar-flex/toolbar-flex-searchfield.demo';
 import { ToolbarMoreActionsAjaxDemoComponent } from './toolbar/toolbar-more-actions-ajax.demo';
 import { ToolbarPresetMoreActionsDemoComponent } from './toolbar/toolbar-preset-more-actions.demo';
 import { ToolbarStateComponent } from './toolbar/toolbar-state.component';
@@ -220,6 +228,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     BarDemoComponent,
     BarGroupedDemoComponent,
     BarStackedDemoComponent,
+    BlockGridCustomContentDemoComponent,
     BlockGridMixedSelectionDemoComponent,
     BlockGridMultiSelectionDemoComponent,
     BlockGridSingleSelectionDemoComponent,
@@ -271,6 +280,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     DataGridServiceDemoComponent,
     DataGridSettingsDemoComponent,
     DataGridStandardFormatterDemoComponent,
+    DataGridTestSettingsDemoComponent,
     DataGridToolbarDemoComponent,
     DataGridTreeGridDemoComponent,
     DatagridTreegridDynamicfilteringDemoComponent,
@@ -301,6 +311,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     FileUploadDemoComponent,
     FileUploadLMDemoComponent,
     FormReactiveFormDemoComponent,
+    FormCompactDemoComponent,
     HeaderTabsDemoComponent,
     HeaderToggleButtonsDemoComponent,
     HeaderToolbarAndTabsDemoComponent,
@@ -315,6 +326,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     IconDemoComponent,
     LabelDemoComponent,
     LineDemoComponent,
+    ListViewCustomContentDemoComponent,
     ListViewDemoComponent,
     LookupDemoComponent,
     LookupValidationDemoComponent,
@@ -322,7 +334,9 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     MaskLegacyDemoComponent,
     MenuButtonDemoComponent,
     MessageDemoComponent,
+    MonthViewDemoComponent,
     PagerStandaloneDemoComponent,
+    PersonalizeMenuComponent,
     PieDemoComponent,
     PopDownDemoComponent,
     PopupMenuDemoComponent,
@@ -363,6 +377,9 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     ToolbarAllIconsDemoComponent,
     ToolbarBasicDemoComponent,
     ToolbarDataDrivenDemoComponent,
+    ToolbarFlexBasicDemoComponent,
+    ToolbarFlexMoreActionsAjaxDemoComponent,
+    ToolbarFlexSearchfieldDemoComponent,
     ToolbarMoreActionsAjaxDemoComponent,
     ToolbarStateComponent,
     ToolbarStateDemoComponent,

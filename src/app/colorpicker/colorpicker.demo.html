@@ -3,27 +3,51 @@
     <form>
       <div class="field">
         <label for="bgcolor" class="label">Background Color</label>
-        <input soho-colorpicker name="bgcolor" [(ngModel)]="model.color" (change)="onChange($event)" />
+        <input soho-colorpicker name="bgcolor" [editable]="true" [disabled]="false" [(ngModel)]="model.color" (change)="onChange($event)" />
       </div>
     </form>
   </div>
 </div>
 
 <div class="row">
-  <div class="twelve columns">
-    <button soho-button [disabled]="colorPickerReadOnly" (click)="setReadonly()">Read Only</button>
-    <button soho-button [disabled]="colorPickerDisabled" (click)="setDisable()">Disable</button>
-    <button soho-button (click)="setEditable()">Make {{colorPickerEditable ? 'Not' : ''}} Editable</button>
-    <button soho-button [disabled]="!colorPickerDisabled && !colorPickerReadOnly" (click)="setEnable()">Enable</button>
-    <button soho-button (click)="changeCustomColors()">Custom Colors</button>
-    <button soho-button (click)="changeColors()">Change Colors</button>
-    <button soho-button (click)="toggleLabel()">{{showLabel ? 'Show Hex Value' : 'Show Label'}}</button>
-    <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
-    <button soho-button (click)="setClearable()">{{colorPickerClearable ? 'Hide' : 'Show'}} Clear Option</button>
-
-    <div *ngIf="showModel">
-      <br>
-      <h3>{{ model | json }}</h3>
+    <div class="four columns">
+      <div class="field">
+          <label soho-label>Read Only: {{ colorPickerReadOnly }}</label>
+          <label soho-label>Disable: {{ colorPickerDisabled }}</label>
+          <label soho-label>Editable: {{ colorPickerEditable }}</label>
+      </div>
     </div>
+</div>
+
+<div class="row">
+  <div class="four columns">
+    <div class="field">
+        <button soho-button (click)="setReadonly()">Read Only</button>
+        <br><br>
+        <button soho-button (click)="setStatus()">{{colorPickerDisabled ? 'Enable' : 'Disable'}}</button>
+        <br><br>
+        <button soho-button (click)="setEditable()">Make {{colorPickerEditable ? 'Not' : ''}} Editable</button>
+    </div>
+  </div>
+  <div class="four columns">
+    <div class="field">
+        <button soho-button (click)="changeCustomColors()">Custom Colors</button>
+        <br><br>
+        <button soho-button (click)="changeColors()">Change Colors</button>
+        <br><br>
+        <button soho-button (click)="toggleLabel()">{{showLabel ? 'Show Hex Value' : 'Show Label'}}</button>
+    </div>
+  </div>
+  <div class="four columns">
+    <div class="field">
+        <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+        <br><br>
+        <button soho-button (click)="setClearable()">{{colorPickerClearable ? 'Hide' : 'Show'}} Clear Option</button>
+        <br><br>
+        <div *ngIf="showModel">
+          <br>
+          <h3>{{ model | json }}</h3>
+        </div>
+    </div>    
   </div>
 </div>

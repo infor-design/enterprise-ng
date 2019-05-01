@@ -10,7 +10,7 @@ If **Node.js** and **npm** are not already on your machine, install them. These 
 
 This quick start guide uses **@angular/cli** to create, build and run the application.
 
-At the time of writing the version of **@angular/cli** used was 7.0.2 with **angular** 7.0.2.
+At the time of writing the version of **@angular/cli** used was 7.2.2 with **angular** 7.2.2.
 
 ## Step 0 : Install Pre-Prerequisites
 

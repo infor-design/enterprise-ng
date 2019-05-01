@@ -1,18 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement, EventEmitter } from '@angular/core';
 import { SohoStandalonePagerComponent } from './soho-standalone-pager.component';
+import { TestHelper } from '../utils';
 
 describe('Standalone Pager Unit Tests', () => {
   let comp: SohoStandalonePagerComponent;
   let fixture: ComponentFixture<SohoStandalonePagerComponent>;
   let de: DebugElement;
   let el: HTMLElement;
-
-  const testFireEvent = (eventEmitter: EventEmitter<any>, functionName: string, eventName: string) => {
-    const eventEmitterSpy = spyOn<any>(eventEmitter, functionName);
-    (comp as any).jQueryElement.trigger(eventName);
-    expect(eventEmitterSpy).toHaveBeenCalledTimes(1);
-  };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -104,7 +99,7 @@ describe('Standalone Pager Unit Tests', () => {
     expect((comp as any).pager.settings.lastPageTooltip).toEqual('Disabled Last Page');
     expect((comp as any).pager.settings.showPageSizeSelector).toEqual(false);
     expect((comp as any).pager.settings.pagesize).toEqual(20);
-    expect((comp as any).pager.settings.pagesizes).toEqual([]);
+    expect((comp as any).pager.settings.pagesizes).toEqual([ 5, 10, 15, 20 ]);
 
     expect((comp as any).updateRequired).toEqual(false);
     expect(updatedSpy).toHaveBeenCalledTimes(1);
@@ -121,11 +116,12 @@ describe('Standalone Pager Unit Tests', () => {
 
     fixture.detectChanges();
 
-    testFireEvent((comp as any).firstPage, 'emit', 'firstpage');
-    testFireEvent((comp as any).lastPage, 'emit', 'lastpage');
-    testFireEvent((comp as any).previousPage, 'emit', 'previouspage');
-    testFireEvent((comp as any).nextPage, 'emit', 'nextpage');
-    testFireEvent((comp as any).pageSizeChange, 'emit', 'pagesizechange');
+    const pagerElement = comp['elementRef'].nativeElement;
+    TestHelper.testFireEvent(pagerElement, 'firstpage', comp['firstPage']);
+    TestHelper.testFireEvent(pagerElement, 'lastpage', comp['lastPage']);
+    TestHelper.testFireEvent(pagerElement, 'previouspage', comp['previousPage']);
+    TestHelper.testFireEvent(pagerElement, 'nextpage', comp['nextPage']);
+    TestHelper.testFireEvent(pagerElement, 'pagesizechange', comp['pageSizeChange']);
   });
 
   it('Check onDestroy', () => {

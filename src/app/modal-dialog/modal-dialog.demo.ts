@@ -30,7 +30,7 @@ export class ModalDialogDemoComponent {
   public closeResult: string;
 
   public title = 'Example Modal Dialog';
-  public isAlert = true;
+  public isAlert = false;
 
   /**
    * Constructor.

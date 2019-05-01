@@ -3,6 +3,7 @@ interface SohoHierarchyLegend {
   label: string;
 }
 
+type SohoHierarchyLayoutType = 'horizontal' | 'paging' | 'mobileOnly' | 'stacked';
 /*
   * @param legend  Pass in custom markdown for the legend structure.
   * @param legendKey  Key to use for the legend matching
@@ -18,11 +19,35 @@ interface SohoHierarchyOptions {
   dataset?: Array<any>;
   newData?: Array<any>;
   templateId?: string;
+
+  /**
+   * @deprecated use layout = 'mobileOnly' instead.
+   */
   mobileView?: boolean;
   legend?: Array<SohoHierarchyLegend>;
   legendKey?: string;
   beforeExpand?: Function;
+
+  /**
+   * @deprecated use layout = 'paging' instead.
+   */
   paging?: boolean;
+  layout?: SohoHierarchyLayoutType;
+}
+
+/**
+ * structure used for stacked layout type.
+ */
+interface SohoStackedHierarchyData<T> {
+
+  /** used for stacked layout */
+  ancestorPath?: T[] | null;
+
+  /** used for stacked layout */
+  centeredNode?: T;
+
+  /** used for stacked layout */
+  children?: T[];
 }
 
 /**
@@ -36,6 +61,12 @@ interface SohoHierarchyData extends SohoHierarchyDataState {
   id?: string;
   children?: Array<any>;
   isLeaf?: boolean;
+
+  /** used for stacked layout */
+  ancestorPath?: SohoHierarchyData[] | null;
+
+  /** used for stacked layout */
+  centeredNode?: SohoHierarchyData[];
 }
 
 interface SohoHierarchyDataState {

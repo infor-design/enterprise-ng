@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="full-width column">
+
+    <soho-toolbar-flex
+      [moreMenuBeforeOpenFunction]="onBeforeContextMenuOpen"
+      (selected)="onSelected($event)">
+
+      <soho-toolbar-flex-section [isTitle]="true">
+        <h2>Toolbar with Ajax "More Actions" Menu</h2>
+      </soho-toolbar-flex-section>
+
+      <soho-toolbar-flex-section [isButtonSet]="true">
+        <button soho-button="btn" icon="settings" data-action="{'button':'settings'}">
+          <span>Settings</span>
+        </button>
+
+        <button soho-button="btn" icon="save" data-action="{'button':'save'}">
+          <span>Save</span>
+        </button>
+
+        <button soho-button="btn" icon="mail" data-action="{'button':'email'}">
+          <span>Send as Email</span>
+        </button>
+
+        <button soho-menu-button
+          id="menu-button"
+          [ajaxBeforeOpenFunction]="onBeforeMenuButtonOpen"
+          [menu]="'menuButtonPopupmenu'">
+          <span>Menu Button</span>
+        </button>
+        <ul class="popupmenu" id="menuButtonPopupmenu">
+          <li><a href="#">Print Item One</a></li>
+          <li><a href="#">Print Item Two</a></li>
+          <li><a href="#">Print Item Three</a> </li>
+          <li><a href="#">Printer Item Four</a></li>
+        </ul>
+      </soho-toolbar-flex-section>
+
+      <soho-toolbar-flex-more-button>
+        <ul class="popupmenu">
+          <li>Placeholder</li>
+        </ul>
+      </soho-toolbar-flex-more-button>
+    </soho-toolbar-flex>
+
+  </div>
+</div>

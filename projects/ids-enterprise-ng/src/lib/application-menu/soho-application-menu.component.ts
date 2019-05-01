@@ -33,12 +33,10 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   // -------------------------------------------
 
   /** Breakpoint. */
-  @Input()
-  public breakpoint: SohoApplicationMenuBreakPoint;
+  @Input() public breakpoint: SohoApplicationMenuBreakPoint;
 
-  // Sets Open on resize
-  @Input()
-  public set openOnLarge(openOnLarge: boolean) {
+  /** Sets Open on resize */
+  @Input() public set openOnLarge(openOnLarge: boolean) {
     this._openOnLarge = openOnLarge;
 
     if (this.applicationmenu) {
@@ -58,9 +56,8 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
     return this._openOnLarge;
   }
 
-  // Allows the menu to become closed after an actionable header has been selected
-  @Input()
-  public set dismissOnClickMobile(dismissOnClickMobile: boolean) {
+  /** Allows the menu to become closed after an actionable header has been selected */
+  @Input() public set dismissOnClickMobile(dismissOnClickMobile: boolean) {
     this._dismissOnClickMobile = dismissOnClickMobile;
 
     if (this.applicationmenu) {
@@ -80,10 +77,8 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
     return this._dismissOnClickMobile;
   }
 
-  // A list of jQuery elements which trigger the openning and closing
-  // application menu.
-  @Input()
-  public set triggers(triggers: string[]) {
+  /** A list of jQuery elements which trigger the openning and closing application menu. */
+  @Input() public set triggers(triggers: string[]) {
 
     if (triggers) {
       let i = triggers.length;
@@ -101,16 +96,43 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   /**
    * Is the application menu filterable?
    */
+  @Input() public filterable: boolean;
+
+  /**
+   *
+   * @param expandSwitcher
+   * Menu switcher expand setting to provide callback
+   */
   @Input()
-  public filterable: boolean;
+  public set onExpandSwitcher(expandSwitcher: SohoApplicationMenuExpandSwitcherFunction) {
+    this._onExpandSwitcher = expandSwitcher;
+    if (this.applicationmenu) {
+      this.applicationmenu.settings.onExpandSwitcher = this._onExpandSwitcher;
+      this.updateRequired = true;
+    }
+  }
+
+  /**
+   *
+   * @param collapseSwitcher
+   * Menu switcher collapse setting to provide callback
+   */
+  @Input()
+  public set onCollapseSwitcher(collapseSwitcher: SohoApplicationMenuCollapseSwitcherFunction) {
+    this._onCollapseSwitcher = collapseSwitcher;
+    if (this.applicationmenu) {
+      this.applicationmenu.settings.onCollapseSwitcher = this._onCollapseSwitcher;
+      this.updateRequired = true;
+    }
+  }
 
   // -------------------------------------------
   // Host Bindings
   // -------------------------------------------
 
-  @HostBinding('class') get classes() {
-    return 'application-menu';
-  }
+  @HostBinding('class.application-menu') appMenu = true;
+
+  @HostBinding('class.is-personalizable') @Input() isPersonalizable = false;
 
   /**
    * This will let the Soho controls bind the application menu trigger naturally
@@ -123,32 +145,52 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   // Private Member Data
   // -------------------------------------------
 
-  // Reference to the jQuery element.
+  /** Reference to the jQuery element. */
   private jQueryElement: JQuery;
 
-  // Reference to the annotated SoHoXi control
+  /** Reference to the annotated SoHoXi control */
   private applicationmenu: SohoApplicationMenuStatic;
 
-  // List of jQuery triggers.
+  /** List of jQuery triggers. */
   private _triggers: Array<any> = [];
 
-  // Open on resize
+  /** Open on resize */
   private _openOnLarge: boolean;
 
-  // Dismiss the menu when an item is clicked in the mobile breakpoints
+  /** Dismiss the menu when an item is clicked in the mobile breakpoints */
   private _dismissOnClickMobile: boolean;
 
-  // This event is fired when the visibility of the application menu is changed,
-  // is it also called when the item is changed programmatically.
-  @Output() visibility = new EventEmitter<boolean>();
+  /** Menu switcher expand callback  */
+  private _onExpandSwitcher: SohoApplicationMenuExpandSwitcherFunction;
 
-  // This event is fired when the visibility of the application menu is changed
+  /** Menu switcher collapse callback  */
+  private _onCollapseSwitcher: SohoApplicationMenuCollapseSwitcherFunction;
+
+  /**
+   * This event is fired when the visibility of the application menu is changed,
+   * is it also called when the item is changed programmatically.
+   * @deprecated use accordionExpand and accordionCollapse events instead
+   */
+  @Output() visibility = new EventEmitter<any>();
+
+  /**
+   * This event is fired when a menu accordion is expamded
+   * The event include the anchor element.
+   */
+  @Output() accordionExpand = new EventEmitter<any>();
+
+  /**
+   * This event is fired when a menu accordion is collapsed
+   */
+  @Output() accordionCollapse = new EventEmitter<boolean>();
+
+  /** This event is fired when the visibility of the application menu is changed */
   @Output() menuVisibility = new EventEmitter<boolean>();
 
-  // This event is fired when the application menu is filtered.
+  /** This event is fired when the application menu is filtered. */
   @Output() filtered = new EventEmitter<any[]>();
 
-  // flag the need to update the soho/ep control in ngAfterViewChecked.
+  /** flag the need to update the soho/ep control in ngAfterViewChecked. */
   private updateRequired = false;
 
   // Constructor.
@@ -185,6 +227,13 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
    */
   public updated() {
     this.ngZone.runOutsideAngular(() => this.applicationmenu.updated());
+  }
+
+  /**
+   * Closes the panel area controlled by switcher
+   */
+  public closeSwitcherPanel() {
+    this.ngZone.runOutsideAngular(() => this.applicationmenu.closeSwitcherPanel());
   }
 
   /*
@@ -237,7 +286,9 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
         dismissOnClickMobile: this._dismissOnClickMobile,
         openOnLarge: this._openOnLarge,
         triggers: this._triggers,
-        filterable: this.filterable
+        filterable: this.filterable,
+        onExpandSwitcher: this._onExpandSwitcher,
+        onCollapseSwitcher: this._onCollapseSwitcher
       };
 
       // Initialise the SoHoXi control.
@@ -250,6 +301,8 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
 
       // Initialise any event handlers.
       this.jQueryElement
+      .on('expand', (e, results: any[]) => this.ngZone.run(() => this.accordionExpand.next(results)))
+      .on('collapse', () => this.ngZone.run(() => this.accordionCollapse.next(true)))
       .on('expand', () => this.ngZone.run(() => this.visibility.next(true)))
       .on('collapse', () => this.ngZone.run(() => this.visibility.next(false)))
       .on('filtered', (e, results: any[]) => this.ngZone.run(() => this.filtered.next(results)))

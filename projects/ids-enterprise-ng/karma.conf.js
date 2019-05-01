@@ -1,5 +1,7 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
+const process = require('process');
+process.env.CHROME_BIN = require('puppeteer').executablePath();
 
 module.exports = function (config) {
   config.set({
@@ -31,6 +33,10 @@ module.exports = function (config) {
       { pattern: '../../node_modules/d3/build/d3.js', watched: false  },
       { pattern: '../../node_modules/ids-enterprise/dist/js/sohoxi.js', watched: false },
       { pattern: '../../node_modules/ids-enterprise/dist/js/cultures/en-US.js', watched: false },
+      { pattern: '../../node_modules/ids-enterprise/dist/js/cultures/it-IT.js', watched: false },
+      { pattern: '../../node_modules/ids-enterprise/dist/js/cultures/nl-NL.js', watched: false },
+      { pattern: '../../node_modules/ids-enterprise/dist/js/cultures/hi-IN.js', watched: false },
+      { pattern: '../../node_modules/ids-enterprise/dist/js/cultures/sv-SE.js', watched: false },
       { pattern: '../../node_modules/ids-enterprise/dist/css/light-theme.css', watched: false },
     ],
     preprocessors: {
@@ -50,17 +56,18 @@ module.exports = function (config) {
       outputFile: 'tests/results.txt'
     },
     customLaunchers: {
-      'PhantomJS_custom': {
-        base: 'PhantomJS',
-        debug: true
-      },
       ChromeDebug: {
           base: 'Chrome',
           flags: [ '--remote-debugging-port=9333' ]
       },
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
-        flags: ['--no-sandbox']
+        flags: [
+          '--disable-setuid-sandbox',
+          '--no-sandbox', // required to run without privileges in docker
+          '--no-proxy-server',
+          '--enable-logging'
+        ]
       }
     },
     port: 9876,
@@ -68,10 +75,10 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['ChromeHeadlessNoSandbox'],
-    captureTimeout: 210000,
+    captureTimeout: 21000,
     browserDisconnectTolerance: 10, //this one helps
-    browserDisconnectTimeout : 210000,
-    browserNoActivityTimeout : 210000,
+    browserDisconnectTimeout : 21000,
+    browserNoActivityTimeout : 21000,
     singleRun: false
   });
 };

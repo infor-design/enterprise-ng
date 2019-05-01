@@ -76,6 +76,30 @@ describe('Soho Listview Unit Tests', () => {
     expect(el.classList).toContain('listview');
   });
 
+  it('should only call clearAllSelected when listView is available', () => {
+    const clearAllSelectedSpy = spyOn(comp['listview'], 'clearAllSelected');
+    comp.clearAllSelected();
+    expect(clearAllSelectedSpy).toHaveBeenCalledTimes(1);
+
+    comp['listview'] = null;
+    clearAllSelectedSpy.calls.reset();
+
+    comp.clearAllSelected();
+    expect(clearAllSelectedSpy).not.toHaveBeenCalled();
+  });
+
+  it('should only call toggleAll when listView is available', () => {
+    const toggleAllSpy = spyOn(comp['listview'], 'toggleAll');
+    comp.toggleAll();
+    expect(toggleAllSpy).toHaveBeenCalledTimes(1);
+
+    comp['listview'] = null;
+    toggleAllSpy.calls.reset();
+
+    comp.clearAllSelected();
+    expect(toggleAllSpy).not.toHaveBeenCalled();
+  });
+
   // Add more method tests.
 });
 
@@ -139,7 +163,6 @@ describe('Soho ListView Render', () => {
   });
 
   it('Content changes when model changed', () => {
-
     component.listItems = [
       { task: '073001', error: true, date: '10/11/2015', desc: 'Special fields test - New item has been created.' },
       { task: '073002', date: '10/11/2015', desc: 'Part #4212132 has low inventory level', disabled: true }];
@@ -151,15 +174,8 @@ describe('Soho ListView Render', () => {
       const ul = el.children[0];
       expect(ul.childElementCount).toBe(2);
 
-      let i = 0;
       component.listItems.forEach(listItem => {
-        const li = ul.children[i++];
-        expect(li.nodeName).toBe('LI');
-
-        const input = li.children[0];
-        expect(input.nodeName).toBe('LABEL');  // The selection box is display as a label.
-        expect(input.classList.contains('listview-selection-checkbox')).toBeTruthy('is listview-selection-checkbox');
+        expect(ul.children.length).toBe(2);
       });
   });
-
 });
