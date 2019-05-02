@@ -2,6 +2,7 @@
   "pkgFiles": ["package.json"],
   "scripts": {
     "beforeStart": "cd ../../ && npm run lint && npm run test:lib && cd projects/ids-enterprise-ng/",
+    "beforeBump": "cd ../../ &&  npm run sync:lib && cd projects/ids-enterprise-ng/",
     "afterBump": "cd ../../ && npm run build:lib && cd projects/ids-enterprise-ng/"
   },
   "git": {
