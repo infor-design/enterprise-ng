@@ -20,13 +20,13 @@ interface SohoNotificationOptions {
   type: SohoNotificationType;
 
   /** The parent string selector where the notification prepends. */
-  parent: string;
+  parent?: string;
 
   /** The link string url for the hyperlink. */
-  link: string;
+  link?: string;
 
   /** The text to show in the hyperlink. Leave empty for no link. */
-  linkText: string;
+  linkText?: string;
 }
 
 /**
