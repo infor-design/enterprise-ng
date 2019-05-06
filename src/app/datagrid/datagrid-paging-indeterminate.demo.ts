@@ -59,7 +59,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
 
   private dataGridSource = (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
     if (request.type === 'filtered') {
-      this.toastService.show({title: 'Filter', message: 'gridsource with filtered type called'});
+      console.log('gridsource with filtered type called');
     }
     this.datagridPagingService.getData(request).subscribe((result: any) => {
       request.firstPage = result.firstPage;
@@ -89,15 +89,15 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
 
   onSelected(e: SohoDataGridSelectedEvent) {
     const selectedRows = e.rows.map(row => row.idx).join(', ');
-    this.toastService.show({title: 'Se1ected', message: 'Rows Selected: ' + selectedRows});
+    console.log('Rows Selected', selectedRows);
   }
 
   onOpenFilterRow(e: SohoDataGridOpenFilterRowEvent) {
-    this.toastService.show({title: 'Filter', message: 'filter row opened'});
+    console.log('Filter row opened');
   }
 
   onCloseFilterRow(e: SohoDataGridCloseFilterRowEvent) {
-    this.toastService.show({title: 'Filter', message: 'filter row closed'});
+    console.log('Filter row closed');
   }
 
   toggleFilterRow() {

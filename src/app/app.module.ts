@@ -146,6 +146,7 @@ import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
 import { MonthViewDemoComponent } from './monthview/monthview.demo';
+import { NotificationDemoComponent } from './notification/notification.demo';
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PersonalizeMenuComponent } from './personalize-menu/personalize-menu.component';
 import { PieDemoComponent } from './pie/pie.demo';
@@ -335,6 +336,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     MenuButtonDemoComponent,
     MessageDemoComponent,
     MonthViewDemoComponent,
+    NotificationDemoComponent,
     PagerStandaloneDemoComponent,
     PersonalizeMenuComponent,
     PieDemoComponent,
