@@ -69,6 +69,9 @@ interface SohoMaskPatternOptions {
 
   /** The symbols to use for the formatted number. */
   symbols?: SohoMaskPatternSymbols;
+
+  /** if defined, uses a custom locale string for formatting */
+  locale?: string;
 }
 
 interface SohoMaskPatternSymbols {

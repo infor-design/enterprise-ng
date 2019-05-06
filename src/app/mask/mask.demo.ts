@@ -1,4 +1,5 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, Input, NgZone } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 /**
  * This example:
@@ -7,6 +8,7 @@ import { Component, HostBinding, Input } from '@angular/core';
 @Component({
   selector: 'app-mask-demo',
   templateUrl: './mask.demo.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styles:      [
       `
       .alignRight {
@@ -18,7 +20,20 @@ import { Component, HostBinding, Input } from '@angular/core';
 export class MaskDemoComponent {
   @HostBinding('class.alignRight') @Input() alignRight = false;
 
+  demoForm: FormGroup;
+
+  public locales = [
+    { value: 'en-US', label: 'English (American)' },
+    { value: 'en-GB', label: 'English (British)' },
+    { value: 'zh-CN', label: 'Chinese (Simplified)' },
+    { value: 'pt-BR', label: 'Portugese (Brazillian)' },
+    { value: 'fr-FR', label: 'French (France)' },
+    { value: 'es-US', label: 'Spanish (American)' }
+  ];
+
+
   public model = {
+    locale: '',
     nomask:               '123456',
     number:               '123',
     decimal:              '123456.78',
@@ -27,7 +42,7 @@ export class MaskDemoComponent {
     signednumber:         '-123',
     signeddecimal:        '-123456.78',
     signedpercent:        '-85.23',
-    signedcurrency:       '-876543.21',
+    signedcurrency:       '-9876543.21',
     alphamask:            'abc12',
     custommask:           'ZZZ'
   };
@@ -41,9 +56,10 @@ export class MaskDemoComponent {
     allowDecimal: true,
     allowNegative: true,
     allowThousandsSeparator: true,
-    integerLimit: 6,
+    integerLimit: 9,
     decimalLimit: 2,
-    symbols: this._symbols
+    symbols: this._symbols,
+    locale: 'es-US'
   };
   private _options: SohoMaskOptions = {
     process: 'number',
@@ -59,7 +75,49 @@ export class MaskDemoComponent {
    */
   public definitions = { 'U': /[A-Z]/ };
 
-  constructor() {
+  constructor(
+    private formBuilder: FormBuilder,
+    private ref: ChangeDetectorRef,
+    private ngZone: NgZone
+  ) {
+    this.model.locale = Soho.Locale.currentLocale.name;
+
+    this.demoForm = this.formBuilder.group({
+      locale: [ this.model.locale ]
+    });
+
+    // The locale selector requires the locale to be updated on the
+    // Soho Locale object, this is done via a valueChanges listener.
+    this.demoForm.controls['locale'].valueChanges.subscribe((value) => {
+
+      /// Really changed?
+      if (Soho.Locale.currentLocale.name !== value) {
+
+        // ... as we're calling into jQuery code run outside
+        // of angular ...
+        this.ngZone.runOutsideAngular(() => {
+          // ... setting the locale, and waiting for the locale to load ...
+          Soho.Locale.set(value).done(
+            () => {
+              // ... once loaded, back into the angular zone ...
+              this.ngZone.run(
+                () => {
+                  // ... update the display to ensure all controls are updated with the
+                  // new locale.
+                  this.model.locale = value;
+
+                  // todo: updating the options object causes the MaskAPI to be lost.
+                  // mast-input.js init() adds the MastAPI but calling updated(settings) does not.
+                  // this._options.patternOptions.locale = value;
+                  // this._options = Object.assign({}, this._options);
+
+                  this.ref.markForCheck();
+                }
+              );
+            });
+        });
+      }
+    });
   }
 
   pipe = (processResult, opts) => {
@@ -86,5 +144,4 @@ export class MaskDemoComponent {
   onMaskWrite(event: SohoMaskEvent) {
     console.log('MaskDemoComponent.onMaskWrite');
   }
-
 }

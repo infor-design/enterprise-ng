@@ -223,6 +223,15 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
     }
   }
 
+  /** The symbols to use for the formatted number. */
+  @Input() set locale(value: string) {
+    this._options.patternOptions.locale = value;
+    if (this.mask) {
+      this.mask.settings.patternOptions.locale = this._options.patternOptions.locale;
+      this.mask.updated();
+    }
+  }
+
   /** The currency symbol to use for the formatted number. */
   @Input() set currencySymbol(value: string) {
     this._options.patternOptions.symbols.currency = value;
