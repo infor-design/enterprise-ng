@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, Input, NgZone } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  HostBinding,
+  Input,
+  NgZone
+} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 /**
@@ -33,14 +40,14 @@ export class MaskDemoComponent {
 
 
   public model = {
-    locale: '',
+    locale:               'en-US',
     nomask:               '123456',
     number:               '123',
     decimal:              '123456.78',
     percent:              '85.23',
     currency:             '876543.21',
     signednumber:         '-123',
-    signeddecimal:        '-123456.78',
+    signeddecimal:        '-1234567.89',
     signedpercent:        '-85.23',
     signedcurrency:       '-9876543.21',
     alphamask:            'abc12',
@@ -59,7 +66,7 @@ export class MaskDemoComponent {
     integerLimit: 9,
     decimalLimit: 2,
     symbols: this._symbols,
-    locale: 'es-US'
+    locale: 'en-US'
   };
   private _options: SohoMaskOptions = {
     process: 'number',
@@ -97,24 +104,21 @@ export class MaskDemoComponent {
         // of angular ...
         this.ngZone.runOutsideAngular(() => {
           // ... setting the locale, and waiting for the locale to load ...
-          Soho.Locale.set(value).done(
-            () => {
-              // ... once loaded, back into the angular zone ...
-              this.ngZone.run(
-                () => {
-                  // ... update the display to ensure all controls are updated with the
-                  // new locale.
-                  this.model.locale = value;
+          Soho.Locale.set(value).done(() => {
+            // ... once loaded, back into the angular zone ...
+            this.ngZone.run(() => {
+              // ... update the display to ensure all controls are updated with the
+              // new locale.
+              this.model.locale = value;
 
-                  // todo: updating the options object causes the MaskAPI to be lost.
-                  // mast-input.js init() adds the MastAPI but calling updated(settings) does not.
-                  // this._options.patternOptions.locale = value;
-                  // this._options = Object.assign({}, this._options);
+              // todo: updating the options object causes the MaskAPI to be lost.
+              // mast-input.js init() adds the MastAPI but calling updated(settings) does not.
+              this._options.patternOptions.locale = value;
+              this._options = Object.assign({}, this._options);
 
-                  this.ref.markForCheck();
-                }
-              );
+              this.ref.markForCheck();
             });
+          });
         });
       }
     });

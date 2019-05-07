@@ -192,7 +192,7 @@ interface SohoMaskStatic {
   settings: SohoMaskOptions;
 
   /** Tears dwn the control and recreates it. */
-  updated(): void;
+  updated(settings?: SohoMaskOptions): void;
 
   /** Destructor. */
   destroy(): void;
