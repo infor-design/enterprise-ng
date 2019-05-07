@@ -218,16 +218,24 @@ export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
   styleUrls: ['../code-block/code-block.formatter.css']
 })
 export class DataGridCodeBlockEditorDemoComponent implements OnInit {
-  gridOptions = null;
+  gridOptions: SohoDataGridOptions = null;
 
   ngOnInit(): void {
+    const tooltipCallback = (cell: number, value: any): string => {
+      return 'Test: ' + value;
+    };
+
+    COLUMNS[1].tooltip = tooltipCallback;
+    COLUMNS[2].tooltip = tooltipCallback;
+
     this.gridOptions = {
       columns: COLUMNS, // tslint:disable-line
       dataset: CODE_BLOCK_DATA,
       selectable: 'single',
       idProperty: 'productId',
       editable: true,
-      filterable: true
+      filterable: true,
+      enableTooltips: true
     };
   }
 }
@@ -254,6 +262,7 @@ export const COLUMNS: SohoDataGridColumn[] = [
   { id: 'codeBlock', name: 'Code Block',
     sortable: false,
     formatter: CodeBlockFormatter,
+    field: 'codeBlock',
     filterType: 'text',
     expandOnActivate: true,
     textOverflow: 'ellipsis',
