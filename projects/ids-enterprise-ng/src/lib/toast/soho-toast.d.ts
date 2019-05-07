@@ -1,6 +1,5 @@
 ﻿/**
  * Soho Toast Popup.
- *
  * This file contains the Typescript mappings for the public
  * interface of the Soho jQuery toast control.
  */
@@ -33,7 +32,7 @@ interface SohoToastOptions {
   timeout?: number;
 
   /** Allow anchor tags in message */
-  allowLink?: boolean
+  allowLink?: boolean;
 }
 
 /**
@@ -47,7 +46,6 @@ interface SohoToastStatic {
 /**
  * JQuery Integration
  */
-
 interface JQueryStatic {
   toast: SohoToastStatic;
 }

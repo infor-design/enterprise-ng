@@ -1,4 +1,4 @@
-/// <reference path="soho-toast.d.ts" />
+/// <reference path="./soho-toast.d.ts" />
 
 import { Injectable } from '@angular/core';
 
