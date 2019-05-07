@@ -38,7 +38,6 @@ export class MaskDemoComponent {
     { value: 'es-US', label: 'Spanish (American)' }
   ];
 
-
   public model = {
     locale:               'en-US',
     nomask:               '123456',
