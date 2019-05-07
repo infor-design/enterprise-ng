@@ -12,6 +12,7 @@
 - `[Datepicker]` - Adds an example to show custom validation to the datepicker test page. `TJM` ([#411](https://github.com/infor-design/enterprise-ng/issues/411)
 - `[DemoApp]` - Added `PersonalizeMenuComponent` example. `BTHH` ([Pull Request 425](https://github.com/infor-design/enterprise-ng/pull/425))
 - `[DemoApp]` - Added open status persistence to the demo's application menu. `BTHH` ([Pull Request 425](https://github.com/infor-design/enterprise-ng/pull/425))
+- `[Mask]` - Respect `groupSize` and other settings of defined locale in Mask components. `PWP` ([Pull Request 468](https://github.com/infor-design/enterprise-ng/pull/468))
 - `[PopupMenu]` - Added 'isIndented' to soho-popupmenu-item. `BTHH` ([#413](https://github.com/infor-design/enterprise-ng/issues/413))
 - `[General]` - Added `data-ids-enterprise-ng-version` to the html tag on module startup. `BTHH` ([Pull Request 438](https://github.com/infor-design/enterprise-ng/pull/438))
 
