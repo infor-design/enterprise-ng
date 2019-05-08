@@ -24,7 +24,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   @Input() set options(value: SohoMaskOptions | string) {
     this._options = (typeof value === 'string') ? JSON.parse(value) : value;
     if (this.mask) {
-      // After the mast has been created do not overwrite the mask.settings.
+      // After the mask has been created do not overwrite the mask.settings.
       // That will cause certain required defaults to go missing out of the mask.settings object.
       // Instead just call updated() with the new _options. The mask-input.js update() function
       // merges the new setting in w/o losing any important default.
@@ -226,7 +226,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
     }
   }
 
-  /** The symbols to use for the formatted number. */
+  /** The locale to use for the formatted number. */
   @Input() set locale(value: string) {
     this._options.patternOptions.locale = value;
     if (this.mask) {
