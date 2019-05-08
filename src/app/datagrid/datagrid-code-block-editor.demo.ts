@@ -259,10 +259,11 @@ export const COLUMNS: SohoDataGridColumn[] = [
     editor: Soho.Editors.Input
   },
 
-  { id: 'codeBlock', name: 'Code Block',
+  { id: 'codeBlock',
+    name: 'Code Block',
+    field: 'codeBlock',
     sortable: false,
     formatter: CodeBlockFormatter,
-    field: 'codeBlock',
     filterType: 'text',
     expandOnActivate: true,
     textOverflow: 'ellipsis',
