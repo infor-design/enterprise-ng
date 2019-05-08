@@ -755,6 +755,9 @@ interface SohoDataGridColumn {
 
   /** If false the column will be disabled in personalization dialog */
   hideable?: boolean;
+
+  /** call back to handle custom tooltips for the column header */
+  tooltip?: (cell: number, value: any) => string;
 }
 
 interface SohoDataGridColumnNumberFormat {
