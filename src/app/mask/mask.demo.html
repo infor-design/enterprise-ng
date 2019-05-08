@@ -1,83 +1,126 @@
 <div class="example-section">
+
+  <div class="row">
+    <h1>Mask</h1>
+    <span class="code-tag">Live Example</span>
+  </div>
+
   <form>
     <div class="row">
-      <h1>Mask</h1>
-      <span class="code-tag">Live Example</span>
+      <div class="two columns">
+        <div class="field">
+          <label soho-label for="no-mask-no-model" >No mask, no model</label>
+          <input id="no-mask-no-model" name="no-mask-no-model" alignRight="true" maxlength="5" />
+        </div>
+        <div class="field">
+          <label soho-label for="no-mask" >No mask</label>
+          <input id="no-mask" name="no-mask" alignRight="true" maxlength="5" [(ngModel)]="model.nomask"/>
+        </div>
+        <div class="field">
+          <label soho-label for="alpha-mask" >Alpha-Numeric Mask</label>
+          <input id="alpha-mask" name="alpha-mask"
+            soho-input
+            soho-mask
+            [sohoPattern]="'*****'"
+            maxlength="5"
+            [(ngModel)]="model.alphamask"/>
+        </div>
+        <div class="field">
+          <label soho-label for="custom-mask" >Custom</label>
+          <input id="custom-mask" name="custom-mask" [(ngModel)]="model.custommask" soho-input
+            soho-mask maxlength="5" [definitions]="definitions" [sohoPattern]="'UUU'"/>
+        </div>
+      </div>
+      <div class="two columns">
+        <div class="field">
+          <label soho-label for="number" >+ Number (3)</label>
+          <input id="number" name="number" alignRight="true" [(ngModel)]="model.number" soho-input
+            soho-mask [process]="'number'" [integerLimit]="3" (write)="onMaskWrite($event)"/>
+        </div>
+        <div class="field">
+          <label soho-label for="decimal" >+ Decimal (6.2)</label>
+          <input id="decimal" name="decimal" alignRight="true" [(ngModel)]="model.decimal" soho-input
+            soho-mask [process]="'number'" [allowThousandsSeparator]="true" [allowDecimal]="true" [integerLimit]="6"
+            [decimalLimit]="2" [symbols]="symbols" (write)="onMaskWrite($event)"/>
+        </div>
+        <div class="field">
+          <label soho-label for="percent" >+ Percent (3.2)</label>
+          <input id="percent" name="percent" alignRight="true" [(ngModel)]="model.percent" soho-input
+            soho-mask [process]="'number'" [allowThousandsSeparator]="true" [allowDecimal]="true" [integerLimit]="3"
+            [decimalLimit]="2" [symbols]="symbols" [suffix]="'%'" (write)="onMaskWrite($event)"/>
+        </div>
+        <div class="field">
+          <label soho-label for="currency" >+ Currency (6.2)</label>
+          <input id="currency" name="currency" alignRight="true" [(ngModel)]="model.currency" soho-input
+            soho-mask [process]="'number'" [allowThousandsSeparator]="true" [allowDecimal]="true" [integerLimit]="6"
+            [decimalLimit]="2" [symbols]="symbols" [prefix]="'$'" (write)="onMaskWrite($event)"/>
+        </div>
+      </div>
+
+
+      <div class="two columns">
+        <div class="field">
+          <label soho-label for="signed-number" >+- Number (3)</label>
+          <input id="signed-number" name="signed-number" alignRight="true" [(ngModel)]="model.signednumber" soho-input
+            soho-mask [process]="'number'" [integerLimit]="3" [allowNegative]="true" [symbols]="symbols" (write)="onMaskWrite($event)"/>
+        </div>
+        <div class="field">
+          <label soho-label for="signed-decimal" >+- Decimal (9.2)</label>
+          <input #MaskField id="signed-decimal" name="signed-decimal" alignRight="true" [(ngModel)]="model.signeddecimal" soho-input
+            soho-mask [options]="options" (write)="onMaskWrite($event)"/>
+        </div>
+        <div class="field">
+          <label soho-label for="signed-percent" >+- Percent (3.2)</label>
+          <input id="signed-percent" name="signed-percent" alignRight="true" [(ngModel)]="model.signedpercent" soho-input
+            soho-mask [process]="'number'" [allowNegative]="true" [allowThousandsSeparator]="true" [allowDecimal]="true"
+            [integerLimit]="3" [decimalLimit]="2" [symbols]="symbols" [suffix]="'%'" (write)="onMaskWrite($event)"/>
+        </div>
+        <div class="field">
+          <label soho-label for="signed-currency" >+- Currency (9.2)</label>
+          <input id="signed-currency" name="signed-currency" alignRight="true" [(ngModel)]="model.signedcurrency" soho-input
+            soho-mask [process]="'number'" [allowNegative]="true" [allowThousandsSeparator]="true" [allowDecimal]="true"
+            [integerLimit]="9" [decimalLimit]="2" (write)="onMaskWrite($event)"/>
+        </div>
+      </div>
+
       <div class="row">
-        <div class="two columns">
-          <div class="field">
-            <label soho-label for="no-mask-no-model" >No mask, no model</label>
-            <input id="no-mask-no-model" name="no-mask-no-model" alignRight="true" maxlength="5" />
-          </div>
-          <div class="field">
-            <label soho-label for="no-mask" >No mask</label>
-            <input id="no-mask" name="no-mask" alignRight="true" maxlength="5" [(ngModel)]="model.nomask"/>
-          </div>
-          <div class="field">
-            <label soho-label for="alpha-mask" >Alpha-Numeric Mask</label>
-            <input id="alpha-mask" name="alpha-mask"
-              soho-input
-              soho-mask
-              [sohoPattern]="'*****'"
-              maxlength="5"
-              [(ngModel)]="model.alphamask"/>
-          </div>
-          <div class="field">
-            <label soho-label for="custom-mask" >Custom</label>
-            <input id="custom-mask" name="custom-mask" [(ngModel)]="model.custommask" soho-input
-              soho-mask maxlength="5" [definitions]="definitions" [sohoPattern]="'UUU'"/>
-          </div>
+        <br/>
+        <hr>
+        <br/>
+      </div>
+
+      <div class="row">
+        <div class="two-thirds column">
+          <form [formGroup]="demoForm">
+            <div class="field">
+              <label soho-label for="locales">Locales</label>
+              <select soho-dropdown noSearch id="locales" name="locales" formControlName="locale">
+                <option *ngFor="let locale of locales" [value]="locale.value">{{locale.label}}</option>
+              </select>
+            </div>
+            <div class="field">
+              <input soho-textarea [readOnly]="true" value="{{demoForm.controls.locale.value}}"/>
+            </div>
+          </form>
         </div>
-        <div class="two columns">
+      </div>
+
+      <div class="row">
+        <div class="two-thirds column">
           <div class="field">
-            <label soho-label for="number" >+ Number (3)</label>
-            <input id="number" name="number" alignRight="true" [(ngModel)]="model.number" soho-input
-              soho-mask [process]="'number'" [integerLimit]="3" (write)="onMaskWrite($event)"/>
-          </div>
-          <div class="field">
-            <label soho-label for="decimal" >+ Decimal (6.2)</label>
-            <input id="decimal" name="decimal" alignRight="true" [(ngModel)]="model.decimal" soho-input
-              soho-mask [process]="'number'" [allowThousandsSeparator]="true" [allowDecimal]="true" [integerLimit]="6"
-              [decimalLimit]="2" [symbols]="symbols" (write)="onMaskWrite($event)"/>
-          </div>
-          <div class="field">
-            <label soho-label for="percent" >+ Percent (3.2)</label>
-            <input id="percent" name="percent" alignRight="true" [(ngModel)]="model.percent" soho-input
-              soho-mask [process]="'number'" [allowThousandsSeparator]="true" [allowDecimal]="true" [integerLimit]="3"
-              [decimalLimit]="2" [symbols]="symbols" [suffix]="'%'" (write)="onMaskWrite($event)"/>
-          </div>
-          <div class="field">
-            <label soho-label for="currency" >+ Currency (6.2)</label>
-            <input id="currency" name="currency" alignRight="true" [(ngModel)]="model.currency" soho-input
-              soho-mask [process]="'number'" [allowThousandsSeparator]="true" [allowDecimal]="true" [integerLimit]="6"
-              [decimalLimit]="2" [symbols]="symbols" [prefix]="'$'" (write)="onMaskWrite($event)"/>
-          </div>
-        </div>
-        <div class="two columns">
-          <div class="field">
-            <label soho-label for="signed-number" >+- Number (3)</label>
-            <input id="signed-number" name="signed-number" alignRight="true" [(ngModel)]="model.signednumber" soho-input
-              soho-mask [process]="'number'" [integerLimit]="3" [allowNegative]="true" [symbols]="symbols" (write)="onMaskWrite($event)"/>
-          </div>
-          <div class="field">
-            <label soho-label for="signed-decimal" >+- Decimal (6.2)</label>
-            <input id="signed-decimal" name="signed-decimal" alignRight="true" [(ngModel)]="model.signeddecimal" soho-input
+            <label soho-label for="signed-decimal-locale" >+- Decimal (9.2) (uses options.Locale)</label>
+            <input id="signed-decimal-locale" name="signed-decimal-locale" alignRight="true" [(ngModel)]="model.signeddecimal" soho-input
               soho-mask [options]="options" (write)="onMaskWrite($event)"/>
           </div>
           <div class="field">
-            <label soho-label for="signed-percent" >+- Percent (3.2)</label>
-            <input id="signed-percent" name="signed-percent" alignRight="true" [(ngModel)]="model.signedpercent" soho-input
+            <label soho-label for="signed-currency-locale" >+- Currency (9.2) (uses input Locale)</label>
+            <input id="signed-currency-locale" name="signed-currency-locale" alignRight="true" [(ngModel)]="model.signedcurrency" soho-input
               soho-mask [process]="'number'" [allowNegative]="true" [allowThousandsSeparator]="true" [allowDecimal]="true"
-              [integerLimit]="3" [decimalLimit]="2" [symbols]="symbols" [suffix]="'%'" (write)="onMaskWrite($event)"/>
-          </div>
-          <div class="field">
-            <label soho-label for="signed-currency" >+- Currency (6.2)</label>
-            <input id="signed-currency" name="signed-currency" alignRight="true" [(ngModel)]="model.signedcurrency" soho-input
-              soho-mask [process]="'number'" [allowNegative]="true" [allowThousandsSeparator]="true" [allowDecimal]="true"
-              [integerLimit]="6" [decimalLimit]="2" [symbols]="symbols" [prefix]="'$'" [pipe]="pipe" (write)="onMaskWrite($event)"/>
+              [integerLimit]="9" [decimalLimit]="2" [locale]="model.locale" (write)="onMaskWrite($event)"/>
           </div>
         </div>
       </div>
+
     </div>
   </form>
   <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
