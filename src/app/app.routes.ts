@@ -148,6 +148,7 @@ import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
 import { ToolbarFlexBasicDemoComponent } from './toolbar-flex/toolbar-flex-basic.demo';
+import { ToolbarFlexDatagridDemoComponent } from './toolbar-flex/toolbar-flex-datagrid.demo';
 import { ToolbarFlexMoreActionsAjaxDemoComponent } from './toolbar-flex/toolbar-flex-more-actions-ajax.demo';
 import { ToolbarFlexSearchfieldDemoComponent } from './toolbar-flex/toolbar-flex-searchfield.demo';
 import { ToolbarMoreActionsAjaxDemoComponent } from './toolbar/toolbar-more-actions-ajax.demo';
@@ -321,6 +322,7 @@ export const routes: Routes = [
   { path: 'toolbar-state',                          component: ToolbarStateComponent },
   { path: 'toolbar-right-aligned',                  component: ToolbarRightAlignedDemoComponent },
   { path: 'toolbar-flex-basic',                     component: ToolbarFlexBasicDemoComponent },
+  { path: 'toolbar-flex-datagrid',                  component: ToolbarFlexDatagridDemoComponent },
   { path: 'toolbar-flex-more-actions-ajax',         component: ToolbarFlexMoreActionsAjaxDemoComponent },
   { path: 'toolbar-flex-searchfield',               component: ToolbarFlexSearchfieldDemoComponent },
   { path: 'tooltip',                                component: TooltipDemoComponent },

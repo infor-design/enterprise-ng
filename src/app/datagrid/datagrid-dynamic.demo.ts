@@ -23,7 +23,7 @@ import { DataGridDemoService } from './datagrid-demo.service';
 @Component({
   selector: 'app-datagrid-dynamic-demo',
   templateUrl: './datagrid-dynamic.demo.html',
-  providers: [DataGridDemoService],
+  providers: [DataGridDemoService]
 })
 export class DataGridDynamicDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
