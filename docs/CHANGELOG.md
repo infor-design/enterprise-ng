@@ -1,5 +1,14 @@
 # What's New with Enterprise-NG
 
+## v5.4.0
+
+### 5.4.0 Features
+
+### 5.4.0 Fixes
+
+- `[Icons]` - Change name of icon 'confirm' to 'success' to match breaking change made in EP. `PWP` ([#477](https://github.com/infor-design/enterprise-ng/pull/477))
+    - See EP changelog for more details -  https://github.com/infor-design/enterprise/blob/master/docs/CHANGELOG.md#v4150-fixes
+
 ## v5.3.0
 
 ### 5.3.0 Features
