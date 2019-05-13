@@ -7,7 +7,7 @@
 ### 5.4.0 Fixes
 
 - `[Icons]` - Change name of icon 'confirm' to 'success' to match breaking change made in EP. `PWP` ([#477](https://github.com/infor-design/enterprise-ng/pull/477))
-    - See EP changelog for more details -  https://github.com/infor-design/enterprise/blob/master/docs/CHANGELOG.md#v4150-fixes
+    - See [EP 4.15.0 changelog](https://github.com/infor-design/enterprise/blob/master/docs/CHANGELOG.md#v4150-fixes) for more details
 
 ## v5.3.0
 
