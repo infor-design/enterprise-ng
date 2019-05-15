@@ -9,6 +9,11 @@
 - `[Icons]` - Change name of icon 'confirm' to 'success' to match breaking change made in EP. `PWP` ([#477](https://github.com/infor-design/enterprise-ng/pull/477))
     - See [EP 4.15.0 changelog](https://github.com/infor-design/enterprise/blob/master/docs/CHANGELOG.md#v4150-fixes) for more details
 
+### 5.4.0 Chore & Maintenance
+
+- `[Toolbar]` - Added flex toolbar with datagrid demo. `BTHH` ([#474](https://github.com/infor-design/enterprise-ng/issues/474))
+- `[Locale]` - Modified locale initialisation to avoid loading issues. `BTHH` ([#485](https://github.com/infor-design/enterprise-ng/issues/485))
+
 ## v5.3.0
 
 ### 5.3.0 Features
