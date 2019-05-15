@@ -87,6 +87,11 @@ export class SohoMonthViewComponent implements AfterViewInit, AfterViewChecked, 
       // Wrap the element in a jQuery selector.
       this.jQueryElement = jQuery(this.element.nativeElement);
 
+      // Add listeners to emit events
+      this.jQueryElement
+      .on('selected', (event: SohoMonthViewSelectedEvent) => this.onSelectedEvent(event))
+      .on('monthrendered', (event: SohoMonthViewRenderMonthEvent) => this.onMonthRenderedEvent(event));
+
       // Initialise the Soho control.
       this.jQueryElement.monthview(this.options);
 
@@ -94,11 +99,6 @@ export class SohoMonthViewComponent implements AfterViewInit, AfterViewChecked, 
       // plug-in from the element.  The element name is defined
       // by the plug-in, but in this case is 'monthView'.
       this.monthview = this.jQueryElement.data('monthview');
-
-      // Add listeners to emit events
-      this.jQueryElement
-      .on('selected', (event: SohoMonthViewSelectedEvent) => this.onSelectedEvent(event))
-      .on('monthrendered', (event: SohoMonthViewRenderMonthEvent) => this.onMonthRenderedEvent(event));
     });
   }
 

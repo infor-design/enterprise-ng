@@ -33,6 +33,7 @@ import { BulletDemoComponent } from './bullet/bullet.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo';
 import { ButtonDemoComponent } from './button/button.demo';
+import { CalendarDemoComponent } from './calendar/calendar.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { CirclepagerDemoComponent } from './circlepager/circlepager.demo';
@@ -239,6 +240,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     BusyIndicatorDemoBodyComponent,
     ButtonDemoComponent,
     CardFormatterComponent,
+    CalendarDemoComponent,
     ChartDemoComponent,
     CheckBoxDemoComponent,
     CirclepagerDemoComponent,

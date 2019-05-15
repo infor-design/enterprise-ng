@@ -1,0 +1,368 @@
+/// <reference path="soho-calendar.d.ts" />
+
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  HostBinding,
+  ElementRef,
+  EventEmitter,
+  Input,
+  NgZone,
+  OnDestroy,
+  Output, ChangeDetectorRef,
+} from '@angular/core';
+
+@Component({
+  selector: '[soho-calendar]', // tslint:disable-line
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class SohoCalendarComponent implements AfterViewInit, OnDestroy {
+
+  @Input() set calendarOptions(calendarOptions: SohoCalendarOptions) {
+    this._calendarOptions = calendarOptions;
+
+    if (this.jQueryElement) {
+      // No need to set the 'settings' as the Rebuild will create
+      // a new control with the _gridOptions.
+      this.markForRefresh();
+    }
+  }
+  get calendarOptions(): SohoCalendarOptions {
+    if (this.calendar) {
+      return this.calendar.settings;
+    }
+
+    return this._calendarOptions;
+  }
+
+  /**
+   * An array of objects with data for the event types.
+   */
+  @Input() set eventTypes(eventTypes: SohoCalendarEventType[]) {
+    this._calendarOptions.eventTypes = eventTypes;
+    if (this.calendar) {
+      this.calendar.settings.eventTypes = eventTypes;
+      this.markForRefresh();
+    }
+  }
+  get eventTypes(): SohoCalendarEventType[] {
+    if (this.calendar) {
+      return this.calendar.settings.eventTypes;
+    }
+
+    return this._calendarOptions.eventTypes;
+  }
+
+  /**
+   * An array of objects with data for the events.
+   */
+  @Input() set events(events: SohoCalendarEvent[]) {
+    this._calendarOptions.events = events;
+    if (this.calendar) {
+      this.calendar.settings.events = events;
+      this.markForRefresh();
+    }
+  }
+  get events(): SohoCalendarEvent[] {
+    if (this.calendar) {
+      return this.calendar.settings.events;
+    }
+
+    return this._calendarOptions.events;
+  }
+
+  /**
+   * The name of the locale to use for this instance. If not set the current locale will be used.
+   */
+  @Input() set locale(locale: string) {
+    this._calendarOptions.locale = locale;
+    if (this.calendar) {
+      this.calendar.settings.locale = locale;
+      this.markForRefresh();
+    }
+  }
+  get locale(): string {
+    if (this.calendar) {
+      return this.calendar.settings.locale;
+    }
+
+    return this._calendarOptions.locale;
+  }
+
+  /**
+   * Initial month to show.
+   */
+  @Input() set month(month: number) {
+    this._calendarOptions.month = month;
+    if (this.calendar) {
+      this.calendar.settings.month = month;
+      this.markForRefresh();
+    }
+  }
+  get month(): number {
+    if (this.calendar) {
+      return this.calendar.settings.month;
+    }
+
+    return this._calendarOptions.month;
+  }
+
+  /**
+   * Initial year to show.
+   */
+  @Input() set year(year: number) {
+    this._calendarOptions.year = year;
+    if (this.calendar) {
+      this.calendar.settings.year = year;
+      this.markForRefresh();
+    }
+  }
+  get year(): number {
+    if (this.calendar) {
+      return this.calendar.settings.year;
+    }
+
+    return this._calendarOptions.year;
+  }
+
+  /**
+   * If false the dropdown to change views will not be shown.
+   */
+  @Input() set showViewChanger(showViewChanger: boolean) {
+    this._calendarOptions.showViewChanger = showViewChanger;
+    if (this.calendar) {
+      this.calendar.settings.showViewChanger = showViewChanger;
+      this.markForRefresh();
+    }
+  }
+  get showViewChanger(): boolean {
+    if (this.calendar) {
+      return this.calendar.settings.showViewChanger;
+    }
+
+    return this._calendarOptions.showViewChanger;
+  }
+
+  /**
+   * Fires when a month is rendered, allowing you to pass back events or event types to show.
+   */
+  @Input() set onRenderMonth(onRenderMonth: Function) {
+    this._calendarOptions.onRenderMonth = onRenderMonth;
+    if (this.calendar) {
+      this.calendar.settings.onRenderMonth = onRenderMonth;
+      this.markForRefresh();
+    }
+  }
+  get onRenderMonth(): Function {
+    if (this.calendar) {
+      return this.calendar.settings.onRenderMonth;
+    }
+
+    return this._calendarOptions.onRenderMonth;
+  }
+
+  /**
+   * Fires when a month day is clicked. Allowing you to do something.
+   */
+  @Input() set onSelected(onSelected: Function) {
+    this._calendarOptions.onSelected = onSelected;
+    if (this.calendar) {
+      this.calendar.settings.onSelected = onSelected;
+      this.markForRefresh();
+    }
+  }
+  get onSelected(): Function {
+    if (this.calendar) {
+      return this.calendar.settings.onSelected;
+    }
+
+    return this._calendarOptions.onSelected;
+  }
+
+  /**
+   * The ID of the template used for the events.
+   */
+  @Input() set template(template: string) {
+    this._calendarOptions.template = template;
+    if (this.calendar) {
+      this.calendar.settings.template = template;
+      this.markForRefresh();
+    }
+  }
+  get template(): string {
+    if (this.calendar) {
+      return this.calendar.settings.template;
+    }
+
+    return this._calendarOptions.template;
+  }
+
+  /**
+   * How many days in advance should we show in the upcoming events pane.
+   */
+  @Input() set upcomingEventDays(upcomingEventDays: number) {
+    this._calendarOptions.upcomingEventDays = upcomingEventDays;
+    if (this.calendar) {
+      this.calendar.settings.upcomingEventDays = upcomingEventDays;
+      this.markForRefresh();
+    }
+  }
+  get upcomingEventDays(): number {
+    if (this.calendar) {
+      return this.calendar.settings.upcomingEventDays;
+    }
+
+    return this._calendarOptions.upcomingEventDays;
+  }
+
+  /**
+   * The ID of the template used for the modal dialog on events.
+   */
+  @Input() set modalTemplate(modalTemplate: string) {
+    this._calendarOptions.modalTemplate = modalTemplate;
+    if (this.calendar) {
+      this.calendar.settings.modalTemplate = modalTemplate;
+      this.markForRefresh();
+    }
+  }
+  get modalTemplate(): string {
+    if (this.calendar) {
+      return this.calendar.settings.modalTemplate;
+    }
+
+    return this._calendarOptions.modalTemplate;
+  }
+
+  /**
+   * ID of the menu to use for an event right click context menu
+   */
+  @Input() set menuId(menuId: string) {
+    this._calendarOptions.menuId = menuId;
+    if (this.calendar) {
+      this.calendar.settings.menuId = menuId;
+      this.markForRefresh();
+    }
+  }
+  get menuId(): string {
+    if (this.calendar) {
+      return this.calendar.settings.menuId;
+    }
+
+    return this._calendarOptions.menuId;
+  }
+
+  /**
+   * Callback for the  right click context menu
+   */
+  @Input() set menuSelected(menuSelected: string) {
+    this._calendarOptions.menuSelected = menuSelected;
+    if (this.calendar) {
+      this.calendar.settings.menuSelected = menuSelected;
+      this.markForRefresh();
+    }
+  }
+  get menuSelected(): string {
+    if (this.calendar) {
+      return this.calendar.settings.menuSelected;
+    }
+
+    return this._calendarOptions.menuSelected;
+  }
+
+  /**
+   * Initial event properties for the new events dialog.
+   */
+  @Input() set newEventDefaults(newEventDefaults: SohoCalendarEvent) {
+    this._calendarOptions.newEventDefaults = newEventDefaults;
+    if (this.calendar) {
+      this.calendar.settings.newEventDefaults = newEventDefaults;
+      this.markForRefresh();
+    }
+  }
+  get newEventDefaults(): SohoCalendarEvent {
+    if (this.calendar) {
+      return this.calendar.settings.newEventDefaults;
+    }
+
+    return this._calendarOptions.newEventDefaults;
+  }
+
+  // -------------------------------------------
+  // Component Output
+  // -------------------------------------------
+  @Output() selected = new EventEmitter<any>();
+  @Output() monthRendered = new EventEmitter<any>();
+
+  /**
+   * Local variables
+   */
+  private jQueryElement: JQuery;
+  private calendar: SohoCalendar;
+  private _calendarOptions: SohoCalendarOptions = {};
+  private updateRequired: boolean;
+
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone,
+    public ref: ChangeDetectorRef
+  ) {}
+
+  ngAfterViewInit() {
+    this.ngZone.runOutsideAngular(() => {
+      // Wrap the element in a jQuery selector.
+      this.jQueryElement = jQuery(this.element.nativeElement);
+
+      // Add listeners to emit events
+      this.jQueryElement
+      .on('selected', (event: SohoMonthViewSelectedEvent) => this.onSelectedEvent(event))
+      .on('monthrendered', (event: SohoMonthViewRenderMonthEvent) => this.onMonthRenderedEvent(event));
+
+      // Initialise the Soho control.
+      this.jQueryElement.calendar(this._calendarOptions);
+
+      // Once the control is initialised, extract the control
+      // plug-in from the element.  The element name is defined
+      // by the plug-in, but in this case is 'calendar'.
+      this.calendar = this.jQueryElement.data('calendar');
+    });
+  }
+
+  onSelectedEvent(event: SohoMonthViewSelectedEvent) {
+    this.ngZone.run(() => this.selected.emit(event));
+  }
+
+  onMonthRenderedEvent(event: SohoMonthViewRenderMonthEvent) {
+    this.ngZone.run(() => this.monthRendered.emit(event));
+  }
+
+  /**
+   * Marks the components as requiring a rebuild after the next update.
+   */
+  markForRefresh() {
+    // Run updated on the next updated check.
+    this.updateRequired = true;
+
+    // ... make sure the change detector kicks in, otherwise if the inputs
+    // were change programmatically the component may not be eligible for
+    // updating.
+    this.ref.markForCheck();
+  }
+
+
+  /**
+   * Destructor.
+   */
+  ngOnDestroy() {
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.calendar) {
+        this.calendar.destroy();
+        this.calendar = null;
+      }
+    });
+  }
+}

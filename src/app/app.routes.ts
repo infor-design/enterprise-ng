@@ -18,6 +18,7 @@ import { BulletDemoComponent } from './bullet/bullet.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo';
 import { ButtonDemoComponent } from './button/button.demo';
+import { CalendarDemoComponent} from './calendar/calendar.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { CirclepagerDemoComponent } from './circlepager/circlepager.demo';
@@ -187,6 +188,7 @@ export const routes: Routes = [
   { path: 'button',                                 component: ButtonDemoComponent },
   { path: 'busyindicator',                          component: BusyIndicatorDemoComponent },
   { path: 'busyindicatorbody',                      component: BusyIndicatorDemoBodyComponent },
+  { path: 'calendar',                               component: CalendarDemoComponent },
   { path: 'chart',                                  component: ChartDemoComponent },
   { path: 'checkbox',                               component: CheckBoxDemoComponent },
   { path: 'circlepager',                            component: CirclepagerDemoComponent },
