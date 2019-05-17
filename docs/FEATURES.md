@@ -50,6 +50,7 @@
 | menu-button             |                      Available |            - | [SOHO-4049][#4089] |            Yes |
 | message                 |                      Available |            -  |                 - |              - |
 | modal-dialog            |                      Available | [README][1]  | [SOHO-4734][#4734] |              - |
+| notification            |                      Available | [README][1]  | [#461]             |            Yes |
 | pager                   | Available (indeterminate only) |            - |                  - |            Yes |
 | pie                     |                      Available |            - |                  - |            Yes |
 | personalize             |                      Available |            - |                  - |            Yes |

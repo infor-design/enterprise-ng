@@ -60,9 +60,9 @@ interface SohoTabsStatic {
 
   show(tabId: string): SohoTabsStatic;
 
-  disableTab(tabId: number): SohoTabsStatic;
+  disableTab(tabId: number | string): SohoTabsStatic;
 
-  enableTab(tabId: number): SohoTabsStatic;
+  enableTab(tabId: number | string): SohoTabsStatic;
 
   rename(tabId: string, name: string): void;
 

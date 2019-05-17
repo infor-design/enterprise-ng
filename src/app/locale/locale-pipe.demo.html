@@ -3,7 +3,7 @@
     <form [formGroup]="demoForm">
 
       <div class="field">
-        <label soho-label for="locales">Locales</label>
+        <label soho-label for="locales">{{'Locales'|sohoTranslate}}</label>
         <select soho-dropdown noSearch name="locales" formControlName="locale">
           <option *ngFor="let locale of locales" [ngValue]="locale.value">{{locale.label}}</option>
         </select>

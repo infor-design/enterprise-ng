@@ -212,26 +212,6 @@ export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
   }
 }
 
-@Component({
-  selector: 'app-datagrid-code-block-editor',
-  templateUrl: './datagrid-code-block-editor.demo.html',
-  styleUrls: ['../code-block/code-block.formatter.css']
-})
-export class DataGridCodeBlockEditorDemoComponent implements OnInit {
-  gridOptions = null;
-
-  ngOnInit(): void {
-    this.gridOptions = {
-      columns: COLUMNS, // tslint:disable-line
-      dataset: CODE_BLOCK_DATA,
-      selectable: 'single',
-      idProperty: 'productId',
-      editable: true,
-      filterable: true
-    };
-  }
-}
-
 export const COLUMNS: SohoDataGridColumn[] = [
   {
     id: 'companyId',
@@ -251,7 +231,9 @@ export const COLUMNS: SohoDataGridColumn[] = [
     editor: Soho.Editors.Input
   },
 
-  { id: 'codeBlock', name: 'Code Block',
+  { id: 'codeBlock',
+    name: 'Code Block',
+    field: 'codeBlock',
     sortable: false,
     formatter: CodeBlockFormatter,
     filterType: 'text',
@@ -261,3 +243,31 @@ export const COLUMNS: SohoDataGridColumn[] = [
     editorComponentInputs: {}
   }
 ];
+
+@Component({
+  selector: 'app-datagrid-code-block-editor',
+  templateUrl: './datagrid-code-block-editor.demo.html',
+  styleUrls: ['../code-block/code-block.formatter.css']
+})
+export class DataGridCodeBlockEditorDemoComponent implements OnInit {
+  gridOptions: SohoDataGridOptions = null;
+
+  ngOnInit(): void {
+    const tooltipCallback = (cell: number, value: any): string => {
+      return 'Test: ' + value;
+    };
+
+    COLUMNS[1].tooltip = tooltipCallback;
+    COLUMNS[2].tooltip = tooltipCallback;
+
+    this.gridOptions = {
+      columns: COLUMNS, // tslint:disable-line
+      dataset: CODE_BLOCK_DATA,
+      selectable: 'single',
+      idProperty: 'productId',
+      editable: true,
+      filterable: true,
+      enableTooltips: true
+    };
+  }
+}

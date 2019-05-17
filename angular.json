@@ -132,7 +132,8 @@
               "src/tsconfig.spec.json"
             ],
             "exclude": [
-              "**/node_modules/**"
+              "**/node_modules/**",
+              "**/version.json"
             ]
           }
         }
@@ -161,7 +162,8 @@
               "e2e/tsconfig.e2e.json"
             ],
             "exclude": [
-              "**/node_modules/**"
+              "**/node_modules/**",
+              "**/version.json"
             ]
           }
         }
@@ -201,7 +203,8 @@
               "projects/ids-enterprise-ng/tsconfig.spec.json"
             ],
             "exclude": [
-              "**/node_modules/**"
+              "**/node_modules/**",
+              "**/version.json"
             ]
           }
         }

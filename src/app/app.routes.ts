@@ -107,6 +107,8 @@ import { MaskLegacyDemoComponent } from './mask/mask-legacy.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
+import { MonthViewDemoComponent } from './monthview/monthview.demo';
+import { NotificationDemoComponent } from './notification/notification.demo';
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PieDemoComponent } from './pie/pie.demo';
 import { PopDownDemoComponent } from './popdown/popdown.demo';
@@ -146,6 +148,7 @@ import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
 import { ToolbarFlexBasicDemoComponent } from './toolbar-flex/toolbar-flex-basic.demo';
+import { ToolbarFlexDatagridDemoComponent } from './toolbar-flex/toolbar-flex-datagrid.demo';
 import { ToolbarFlexMoreActionsAjaxDemoComponent } from './toolbar-flex/toolbar-flex-more-actions-ajax.demo';
 import { ToolbarFlexSearchfieldDemoComponent } from './toolbar-flex/toolbar-flex-searchfield.demo';
 import { ToolbarMoreActionsAjaxDemoComponent } from './toolbar/toolbar-more-actions-ajax.demo';
@@ -275,6 +278,8 @@ export const routes: Routes = [
   { path: 'menu-button',                            component: MenuButtonDemoComponent },
   { path: 'message',                                component: MessageDemoComponent },
   { path: 'modal-dialog',                           component: ModalDialogDemoComponent },
+  { path: 'month-view',                             component: MonthViewDemoComponent },
+  { path: 'notification',                           component: NotificationDemoComponent },
   { path: 'pager-standalone',                       component: PagerStandaloneDemoComponent },
   { path: 'pie',                                    component: PieDemoComponent },
   { path: 'popdown',                                component: PopDownDemoComponent},
@@ -317,6 +322,7 @@ export const routes: Routes = [
   { path: 'toolbar-state',                          component: ToolbarStateComponent },
   { path: 'toolbar-right-aligned',                  component: ToolbarRightAlignedDemoComponent },
   { path: 'toolbar-flex-basic',                     component: ToolbarFlexBasicDemoComponent },
+  { path: 'toolbar-flex-datagrid',                  component: ToolbarFlexDatagridDemoComponent },
   { path: 'toolbar-flex-more-actions-ajax',         component: ToolbarFlexMoreActionsAjaxDemoComponent },
   { path: 'toolbar-flex-searchfield',               component: ToolbarFlexSearchfieldDemoComponent },
   { path: 'tooltip',                                component: TooltipDemoComponent },

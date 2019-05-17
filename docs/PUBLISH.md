@@ -19,10 +19,13 @@ These releases are dated (semver proper) and ONLY published to npm, not github.
 
 1. Make sure you are on a clean `master` branch
 1. Run the npm cmd to do a dev release:
+
     ```sh
     npm run release:dev
     ```
+
 1. Undo the version changes/reset your branch (unless you specifically want to commit and push - rare)
+
     ```sh
     git reset --hard
     ```
@@ -49,9 +52,11 @@ This will update the versions used in both package.json files. And also will upd
 are copied into src/app/icon.
 
 1. Update enterprise
+
     ```sh
     npm run update-enterprise
     ```
+
 1. Create a PR to be merged
 
 ### Release

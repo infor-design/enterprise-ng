@@ -4,6 +4,7 @@ import { SohoIconComponent, SohoIconUseComponent } from './soho-icon.component';
 import { SohoIconsComponent } from './soho-icons.component';
 import { SohoIconsEmptyComponent } from './soho-icons-empty.component';
 import { SohoIconsUpliftComponent } from './soho-icons-uplift.component';
+import { SohoIconsExtendedComponent } from './soho-icons-extended.component';
 
 @NgModule({
   imports: [ CommonModule ],
@@ -12,12 +13,15 @@ import { SohoIconsUpliftComponent } from './soho-icons-uplift.component';
     SohoIconUseComponent,
     SohoIconsComponent,
     SohoIconsEmptyComponent,
+// tslint:disable-next-line: deprecation
+    SohoIconsExtendedComponent,
     SohoIconsUpliftComponent
   ],
   exports: [
     SohoIconComponent,
     SohoIconsComponent,
     SohoIconsEmptyComponent,
+    SohoIconsExtendedComponent,
     SohoIconsUpliftComponent
   ]
 })

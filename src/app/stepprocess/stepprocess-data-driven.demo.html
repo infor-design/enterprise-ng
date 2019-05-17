@@ -10,14 +10,14 @@
 
       <li soho-step-list-item *ngIf="step.content">
         <a soho-step-list-item-anchor stepId="{{step.id}}">
-          <svg soho-icon icon="{{step.icon}}"></svg>
+          <svg soho-icon icon="{{step.icon}}" alert="true"></svg>
           <span soho-step-list-item-title>{{step.title}}</span>
         </a>
       </li>
 
       <li soho-step-list-item *ngIf="!step.content">
         <a soho-step-list-item-anchor stepId="{{step.id}}" *ngIf="step.substeps">
-          <svg soho-icon icon="{{step.icon}}"></svg>
+          <svg soho-icon icon="{{step.icon}}" alert="true"></svg>
           <span soho-step-list-item-title>{{step.title}}</span>
           <svg soho-icon icon="caret-down" class="icon-tree"></svg>
         </a>

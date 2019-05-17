@@ -145,6 +145,8 @@ import { MaskLegacyDemoComponent } from './mask/mask-legacy.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
+import { MonthViewDemoComponent } from './monthview/monthview.demo';
+import { NotificationDemoComponent } from './notification/notification.demo';
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PersonalizeMenuComponent } from './personalize-menu/personalize-menu.component';
 import { PieDemoComponent } from './pie/pie.demo';
@@ -188,6 +190,7 @@ import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
 import { ToolbarFlexBasicDemoComponent } from './toolbar-flex/toolbar-flex-basic.demo';
+import { ToolbarFlexDatagridDemoComponent } from './toolbar-flex/toolbar-flex-datagrid.demo';
 import { ToolbarFlexMoreActionsAjaxDemoComponent } from './toolbar-flex/toolbar-flex-more-actions-ajax.demo';
 import { ToolbarFlexSearchfieldDemoComponent } from './toolbar-flex/toolbar-flex-searchfield.demo';
 import { ToolbarMoreActionsAjaxDemoComponent } from './toolbar/toolbar-more-actions-ajax.demo';
@@ -333,6 +336,8 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     MaskLegacyDemoComponent,
     MenuButtonDemoComponent,
     MessageDemoComponent,
+    MonthViewDemoComponent,
+    NotificationDemoComponent,
     PagerStandaloneDemoComponent,
     PersonalizeMenuComponent,
     PieDemoComponent,
@@ -376,6 +381,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     ToolbarBasicDemoComponent,
     ToolbarDataDrivenDemoComponent,
     ToolbarFlexBasicDemoComponent,
+    ToolbarFlexDatagridDemoComponent,
     ToolbarFlexMoreActionsAjaxDemoComponent,
     ToolbarFlexSearchfieldDemoComponent,
     ToolbarMoreActionsAjaxDemoComponent,
