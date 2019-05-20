@@ -258,6 +258,12 @@ interface SohoDataGridOptions {
   selectChildren?: boolean;
 
   /**
+   * Callback before selecting a row that can be vetoed.
+   * If false is returned (async) then the nodes will not be selected.
+   */
+  onBeforeSelect?: SohoDataGridBeforeSelectFunction;
+
+  /**
    *  Makes it possible to save selections when changing pages on server side paging.
    *  You may want to also use showSelectAllCheckBox: false
    */
@@ -343,6 +349,14 @@ interface SohoDataGridExpandRowFunction  {
   eventData: SohoDataGridExpandRowEventData;
   response: SohoDataGridExpandRowResponseFunction;
 }
+
+interface SohoDataGridBeforeSelectFunction  {
+  eventData: SohoDataGridBeforeSelectEventData;
+}
+
+type SohoDataGridBeforeSelectEventData = (
+  node: JQuery, idx: number
+) => void;
 
 /**
  * Type definition of the post render cell callback.
@@ -574,6 +588,7 @@ type SohoDataGridColumnContentVisibleFunction = (
   columnDef: SohoDataGridColumn,
   item: any
 ) => boolean;
+
 /**
  * This is an interface mapping for the grid column defined
  * within the Soho jQuery Control.
@@ -587,7 +602,6 @@ interface SohoDataGridColumn {
 
   /** Field in the row to display. */
   field?: string;
-
 
   /** Is this column visible? */
   hidden?: boolean;

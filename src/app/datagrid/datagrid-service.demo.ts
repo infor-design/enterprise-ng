@@ -44,6 +44,10 @@ export class DataGridServiceDemoComponent {
     this.toastService.show({title: 'Filterbar', message: 'filter row closed'});
   }
 
+  onBeforeSelect(eventData: SohoDataGridBeforeSelectEventData) {
+   console.log(eventData, Soho.keyboard.pressedKeys);
+  }
+
   busy() {
     this.busyIndicator.activated = true;
   }
