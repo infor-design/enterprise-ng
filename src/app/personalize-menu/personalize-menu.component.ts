@@ -4,9 +4,15 @@ import {
   OnInit,
   HostBinding
 } from '@angular/core';
-import { Color } from './theme-color.model';
-import { Theme } from './theme.model';
 import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
+
+interface ThemeMenuItem extends SohoTheme {
+  selected?: boolean;
+}
+
+interface ColorMenuItem extends SohoPersonalizationColor {
+  selected?: boolean;
+}
 
 @Component({
   selector: 'app-personalize-menu',
@@ -26,27 +32,8 @@ export class PersonalizeMenuComponent implements OnInit {
    */
   @HostBinding('class.is-selectable') isSelectable = true;
 
-  /**
-   * Theme options - use the theme api?
-   */
-  public themes: Theme[] = [
-    { name: 'Light', value: 'light', selected: true },
-    { name: 'Dark', value: 'dark' },
-    { name: 'High-Contrast', value: 'high-contrast' },
-    { name: 'Uplift', value: 'uplift' }
-];
-
-  /**
-   * Colour options - use the theme api?
-   */
-  public colours: Color[] = [
-    { rgb: '#368AC0', name: 'Azure', selected: true },
-    { rgb: '#EFA836', name: 'Amber' },
-    { rgb: '#9279A6', name: 'Amethyst' },
-    { rgb: '#579E95', name: 'Turqoise' },
-    { rgb: '#76B051', name: 'Emerald' },
-    { rgb: '#5C5C5C', name: 'Graphite' }
-  ];
+  public themeMenuItems: ThemeMenuItem[];
+  public colourMenuItems: ColorMenuItem[];
 
   /**
    * Default Colour: this should really be based on the one selected in
@@ -82,18 +69,30 @@ export class PersonalizeMenuComponent implements OnInit {
     const currentTheme = this.personalize.theme = this.theme;
     const currentColour = this.personalize.colors = this.colour;
 
-    // Make sure only the current theme is marked as selected.
-    this.themes.forEach((theme) => {
-      theme.selected = (theme.value === currentTheme);
-    });
+    this.themeMenuItems = this.personalize.themes();
 
-    // Make sure only the current colour is marked as selected.
-    this.colours.forEach((colour) => {
-      // The colour is appearing as a real rgb value, so need to
-      colour.selected = (colour.rgb === currentColour);
+    const personalizationColors = this.personalize.personalizationColors()
+    this.colourMenuItems = Object.keys(personalizationColors).map(colorId => personalizationColors[colorId]);
+
+    this.setSelectedTheme(currentTheme);
+    this.setSelectedColor(currentColour);
+
+
+  }
+  setSelectedTheme(themeId: string) {
+    // Make sure only the current theme is marked as selected.
+    this.themeMenuItems.forEach((theme) => {
+      theme.selected = (theme.id === themeId);
     });
   }
 
+  setSelectedColor(color: string) {
+    // Make sure only the current colour is marked as selected.
+    this.colourMenuItems.forEach((colour) => {
+      // The colour is appearing as a real rgb value, so need to
+      colour.selected = (colour.value === color);
+    });
+  }
   /**
    * Handle the theme change event, by setting it in local storage.
    *
@@ -103,7 +102,7 @@ export class PersonalizeMenuComponent implements OnInit {
    * @param ev the personalisation event; never null.
    */
   public onChangeTheme(ev: SohoChangeThemePersonalizeEvent) {
-    this.theme = ev.data;
+    const themeId = ev.data;
   }
 
   /**

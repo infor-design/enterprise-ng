@@ -60,12 +60,14 @@ interface SohoBreakpointsStatic {
   isBelow: (breakpoint: string) => boolean;
 }
 
-interface Theme {
+interface SohoTheme {
   id: string;
   name: string;
 }
 
-interface PersonalizationColors {
+type SohoPersonalizationColors = { [key: string]: SohoPersonalizationColor };
+
+interface SohoPersonalizationColor {
   id: string; // id of the color
   name: string; // human readable name of the color
   value: string; // hex value of the color
@@ -76,26 +78,26 @@ interface SohoThemeStatic {
   /**
    * The theme currently set
    */
-  currentTheme: Theme;
+  currentTheme: SohoTheme;
 
   /**
    * Return a list of all the available themes.
    * @returns {array} The list of themes.
    */
-  themes: () => Theme[];
+  themes: () => SohoTheme[];
 
   /**
-   * Return the colors used in the current theme that are reccomended for personalization.
+   * Return the colors used in the current theme that are recommended for personalization.
    * @returns {object} An object full of the colors with id, name abd hex value.
    */
-  personalizationColors: () => PersonalizationColors[];
+  personalizationColors: () => SohoPersonalizationColors;
 
   /**
    * Set the current application theme.
    * @param {string} themeId The id of the theme.
    * @returns {Theme} the theme object just set as the theme.
    */
-  setTheme: (themeId: string) => Theme;
+  setTheme: (themeId: string) => SohoTheme;
 }
 
 declare var Soho: SohoStatic;
