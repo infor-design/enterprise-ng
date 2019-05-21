@@ -102,9 +102,9 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
   }
 
   /**
-   * @private used internally to set the color swatch for the color chooser.
+   * used internally to set the color swatch for the color chooser.
    */
   dataIcon(color: SohoPersonalizationColor): string {
-    return JSON.stringify({ icon: 'swatch', class: color.backgroundColorClass + ' swatch'})
+    return JSON.stringify({ icon: 'swatch', class: color.backgroundColorClass + ' swatch'});
   }
 }
