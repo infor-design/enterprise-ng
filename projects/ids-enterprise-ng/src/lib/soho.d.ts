@@ -71,7 +71,7 @@ interface SohoPersonalizationColor {
   id: string; // id of the color
   name: string; // human readable name of the color
   value: string; // hex value of the color
-  backgroundColorClass: string; // class that sets teh background color of an element
+  backgroundColorClass: string; // class that sets the background color of an element
 }
 
 interface SohoThemeStatic {
