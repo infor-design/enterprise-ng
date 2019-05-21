@@ -79,10 +79,10 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
       }
 
       this.jQueryElement
-      .on('themechanged',
-        (ev: JQuery.TriggeredEvent, theme: string) => { this.onChangeTheme(ev, theme); })
-      .on('colorschanged',
-        (ev: JQuery.TriggeredEvent, colors: any) => { this.onChangeColors(ev, colors); });
+        .on('themechanged',
+          (ev: JQuery.TriggeredEvent, theme: string) => { this.onChangeTheme(ev, theme); })
+        .on('colorschanged',
+          (ev: JQuery.TriggeredEvent, colors: any) => { this.onChangeColors(ev, colors); });
 
       /**
        * Bind to jQueryElement's events
