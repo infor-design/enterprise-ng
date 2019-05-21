@@ -58,7 +58,7 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
     this.colors = this.personalize.personalizationColors();
     this.model.colorId = 'default';
 
-    this.ref.markForCheck(); // mark for check so personalization.theme input in messaged
+    this.ref.markForCheck(); // mark for check so personalization.theme input is messaged
   }
 
   onChangeColor(event: SohoChangeColorsPersonalizeEvent) {
@@ -84,7 +84,7 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
     this.colors = this.personalize.personalizationColors();
     this.model.colorId = 'default';
 
-    this.ref.markForCheck(); // mark for check so personalization.theme input in messaged
+    this.ref.markForCheck(); // mark for check so personalization.theme input is messaged
   }
 
   onColorChange(event: JQuery.TriggeredEvent) {
@@ -96,7 +96,7 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
 
     const colorHex = this.personalize.personalizationColors()[colorId].value;
     this.personalize.colors = colorHex;
-    this.ref.markForCheck(); // mark for check so personalization.colors input in messaged
+    this.ref.markForCheck(); // mark for check so personalization.colors input is messaged
 
     // const colorIdArray = Object.keys(this.personalize.personalizationColors());
     // const colorId = colorIdArray.find(colorId => this.personalize.personalizationColors()[colorId].value === event.data.colors);

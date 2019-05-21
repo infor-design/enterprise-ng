@@ -4,7 +4,7 @@
 </li>
 <li soho-popupmenu-separator></li>
 <li soho-popupmenu-heading>Personalization</li>
-<li soho-popupmenu-item [isSelectable]="true" [isChecked]="color.selected" *ngFor="let color of colourMenuItems">
+<li soho-popupmenu-item [isSelectable]="true" [isChecked]="color.selected" *ngFor="let color of colorMenuItems">
   <a soho-popupmenu-label [attr.data-rgbcolor]="color.value">{{ color.name }}</a>
 </li>
 <div soho-personalize (changetheme)="onChangeTheme($event)" (changecolors)="onChangeColors($event)"></div>

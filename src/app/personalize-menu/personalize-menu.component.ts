@@ -33,13 +33,13 @@ export class PersonalizeMenuComponent implements OnInit {
   @HostBinding('class.is-selectable') isSelectable = true;
 
   public themeMenuItems: ThemeMenuItem[];
-  public colourMenuItems: ColorMenuItem[];
+  public colorMenuItems: ColorMenuItem[];
 
   /**
-   * Default Colour: this should really be based on the one selected in
+   * Default Color: this should really be based on the one selected in
    * the IDS Enterprise component code.
    */
-  private readonly DEFAULT_COLOUR = '#368AC0';
+  private readonly DEFAULT_COLOR = '#368AC0';
 
   /**
    * Default Theme: this should really be based on the one selected in
@@ -53,29 +53,29 @@ export class PersonalizeMenuComponent implements OnInit {
   private readonly IDS_ENTERPRISE_THEME_KEY = 'soho_theme';
 
   /**
-   * Storage key for the colour.
+   * Storage key for the color.
    */
-  private readonly IDS_ENTERPRISE_COLOUR_KEY = 'soho_color';
+  private readonly IDS_ENTERPRISE_COLOR_KEY = 'soho_color';
 
   /**
    * Initialize the component after Angular first displays the data-bound
    * properties and sets the any input properties.
    *
-   * In this case, initialises the data members: "colours" and "themes"
-   * with the currently selected theme/colour respectively.
+   * In this case, initialises the data members: "colors" and "themes"
+   * with the currently selected theme/color respectively.
    */
   public ngOnInit(): void {
     // Get the current values using the getters.
     const currentTheme = this.personalize.theme = this.theme;
-    const currentColour = this.personalize.colors = this.colour;
+    const currentColor = this.personalize.colors = this.color;
 
     this.themeMenuItems = this.personalize.themes();
 
     const personalizationColors = this.personalize.personalizationColors();
-    this.colourMenuItems = Object.keys(personalizationColors).map(colorId => personalizationColors[colorId]);
+    this.colorMenuItems = Object.keys(personalizationColors).map(colorId => personalizationColors[colorId]);
 
     this.setSelectedTheme(currentTheme);
-    this.setSelectedColor(currentColour);
+    this.setSelectedColor(currentColor);
   }
 
   setSelectedTheme(themeId: string) {
@@ -86,10 +86,10 @@ export class PersonalizeMenuComponent implements OnInit {
   }
 
   setSelectedColor(color: string) {
-    // Make sure only the current colour is marked as selected.
-    this.colourMenuItems.forEach((colour) => {
-      // The colour is appearing as a real rgb value, so need to
-      colour.selected = (colour.value === color);
+    // Make sure only the current color is marked as selected.
+    this.colorMenuItems.forEach((colorMenuItem) => {
+      // The color is appearing as a real rgb value, so need to
+      colorMenuItem.selected = (colorMenuItem.value === color);
     });
   }
   /**
@@ -107,7 +107,7 @@ export class PersonalizeMenuComponent implements OnInit {
   }
 
   /**
-   * Handle the colour change event, by setting is in local storage.
+   * Handle the color change event, by setting is in local storage.
    *
    * @todo may want to consider making the persistence of this
    * configurable, so we could use states.
@@ -117,7 +117,7 @@ export class PersonalizeMenuComponent implements OnInit {
 
   public onChangeColors(ev: SohoChangeColorsPersonalizeEvent) {
     const colorHex = ev.data.colors;
-    this.colour = colorHex;
+    this.color = colorHex;
     this.setSelectedColor(colorHex);
   }
 
@@ -140,19 +140,19 @@ export class PersonalizeMenuComponent implements OnInit {
   }
 
   /**
-   * Returns the currently selected colour, defaulting to
-   * a sensible default colour if one is not yet set.
+   * Returns the currently selected color, defaulting to
+   * a sensible default color if one is not yet set.
    */
-  public get colour(): string {
-    const color = localStorage.getItem(this.IDS_ENTERPRISE_COLOUR_KEY);
-    return color ? color : this.DEFAULT_COLOUR;
+  public get color(): string {
+    const color = localStorage.getItem(this.IDS_ENTERPRISE_COLOR_KEY);
+    return color ? color : this.DEFAULT_COLOR;
   }
 
   /**
-   * Set the current colour, storing it such that it perists between
+   * Set the current color, storing it such that it perists between
    * sessions.
    */
-  public set colour(colour: string) {
-    localStorage.setItem(this.IDS_ENTERPRISE_COLOUR_KEY, colour);
+  public set color(color: string) {
+    localStorage.setItem(this.IDS_ENTERPRISE_COLOR_KEY, color);
   }
 }

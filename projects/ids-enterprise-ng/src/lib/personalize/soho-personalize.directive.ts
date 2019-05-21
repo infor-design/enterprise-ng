@@ -24,7 +24,7 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
   /** Options. */
   @Input() public options: SohoPersonalizeOptions = {};
 
-  /** The starting colour. */
+  /** The starting color. */
   @Input() set colors(colors: string | SohoPersonalizeColors) {
     this.options.colors = colors;
     if (this.personalize) {
