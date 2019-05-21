@@ -3,9 +3,8 @@ import {
   OnInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  ViewChild, AfterViewInit
+  ViewChild
 } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
 
 @Component({
@@ -21,7 +20,6 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
   themes: SohoTheme[];
   colors: SohoPersonalizationColors;
   showModel = false;
-  demoForm: FormGroup;
 
   model = {
     themeId: ' ',
@@ -31,11 +29,9 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
   private currentThemeId;
   private currentColorId;
 
-  constructor(private formBuilder: FormBuilder, private ref: ChangeDetectorRef) {}
+  constructor(private ref: ChangeDetectorRef) {}
 
   ngOnInit() {
-
-    // this.buildFormGroup();
     this.themes = this.personalize.themes();
     this.colors = this.personalize.personalizationColors();
 
