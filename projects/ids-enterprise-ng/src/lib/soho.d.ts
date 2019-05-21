@@ -88,7 +88,7 @@ interface SohoThemeStatic {
 
   /**
    * Return the colors used in the current theme that are recommended for personalization.
-   * @returns {object} An object full of the colors with id, name abd hex value.
+   * @returns {object} An object full of the colors with id, name, and hex value.
    */
   personalizationColors: () => SohoPersonalizationColors;
 
