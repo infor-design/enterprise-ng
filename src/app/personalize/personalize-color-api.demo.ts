@@ -7,6 +7,10 @@ import {
 } from '@angular/core';
 import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
 
+interface DropDownColor extends SohoPersonalizationColor {
+  iconData?: string;
+}
+
 @Component({
   selector: 'app-personalize-color-api-demo',
   templateUrl: './personalize-color-api.demo.html',
@@ -16,7 +20,6 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
 
   @ViewChild(SohoPersonalizeDirective) personalize: SohoPersonalizeDirective;
 
-  JSON = JSON;
   themes: SohoTheme[];
   colors: SohoPersonalizationColors;
   showModel = false;
@@ -54,8 +57,6 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
 
     this.currentThemeId = themeId;
     this.model.themeId = themeId;
-
-    this.colors = this.personalize.personalizationColors();
     this.model.colorId = 'default';
 
     this.ref.markForCheck(); // mark for check so personalization.theme input is messaged
@@ -98,9 +99,12 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
     this.personalize.colors = colorHex;
     this.ref.markForCheck(); // mark for check so personalization.colors input is messaged
 
-    // const colorIdArray = Object.keys(this.personalize.personalizationColors());
-    // const colorId = colorIdArray.find(colorId => this.personalize.personalizationColors()[colorId].value === event.data.colors);
-    // this.model.colorId = colorId;
-    // // this.ref.markForCheck();
+  }
+
+  /**
+   * @private used internally to set the color swatch for the color chooser.
+   */
+  dataIcon(color: SohoPersonalizationColor): string {
+    return JSON.stringify({ icon: 'swatch', class: color.backgroundColorClass + ' swatch'})
   }
 }
