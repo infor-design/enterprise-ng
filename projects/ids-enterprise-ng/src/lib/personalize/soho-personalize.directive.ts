@@ -3,7 +3,6 @@
 import {
   AfterViewInit,
   Directive,
-  ElementRef,
   EventEmitter,
   Input,
   Output,
@@ -79,17 +78,17 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
         throw Error('No html tag found');
       }
 
-      /**
-       * Bind to jQueryElement's events
-       */
-      // initialise the control
-      const api = this.jQueryElement.personalize(this.options);
-
       this.jQueryElement
       .on('themechanged',
         (ev: JQuery.TriggeredEvent, theme: string) => { this.onChangeTheme(ev, theme); })
       .on('colorschanged',
         (ev: JQuery.TriggeredEvent, colors: any) => { this.onChangeColors(ev, colors); });
+
+      /**
+       * Bind to jQueryElement's events
+       */
+      // initialise the control
+      const api = this.jQueryElement.personalize(this.options);
 
       // extract the api
       this.personalize = this.jQueryElement.data('personalize');
