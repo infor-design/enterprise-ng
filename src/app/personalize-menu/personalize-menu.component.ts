@@ -71,13 +71,11 @@ export class PersonalizeMenuComponent implements OnInit {
 
     this.themeMenuItems = this.personalize.themes();
 
-    const personalizationColors = this.personalize.personalizationColors()
+    const personalizationColors = this.personalize.personalizationColors();
     this.colourMenuItems = Object.keys(personalizationColors).map(colorId => personalizationColors[colorId]);
 
     this.setSelectedTheme(currentTheme);
     this.setSelectedColor(currentColour);
-
-
   }
   setSelectedTheme(themeId: string) {
     // Make sure only the current theme is marked as selected.

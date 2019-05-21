@@ -67,7 +67,7 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
 
   onChangeColor(event: SohoChangeColorsPersonalizeEvent) {
     const colorIdArray = Object.keys(this.personalize.personalizationColors());
-    const colorId = colorIdArray.find(colorId => this.personalize.personalizationColors()[colorId].value === event.data.colors);
+    const colorId = colorIdArray.find(cid => this.personalize.personalizationColors()[cid].value === event.data.colors);
     if (colorId === this.currentColorId) {
       return; // color did not change
     }

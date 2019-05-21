@@ -49,7 +49,6 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
 
   @Output() changecolors = new EventEmitter<SohoChangeColorsPersonalizeEvent>();
 
-
   /** EP api */
   private personalize: SohoPersonalizeStatic;
 
@@ -102,11 +101,11 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
    */
   public get currentTheme(): SohoTheme {
     return Soho.theme.currentTheme;
-  };
+  }
 
   /**
    * Return a list of all the available themes.
-   * @returns {array} The list of themes.
+   * @returns The list of themes.
    */
   public themes(): SohoTheme[] {
     return Soho.theme.themes();
@@ -114,11 +113,11 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
 
   /**
    * Return the colors used in the current theme that are recommended for personalization.
-   * @returns {object} An object full of the colors with id, name abd hex value.
+   * @returns An object full of the colors with id, name abd hex value.
    */
   public personalizationColors(): SohoPersonalizationColors {
     return Soho.theme.personalizationColors();
-  };
+  }
 
   onChangeTheme(e: JQuery.TriggeredEvent, theme: string) {
     this.ngZone.run(() => {
