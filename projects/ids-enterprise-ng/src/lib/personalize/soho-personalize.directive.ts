@@ -112,7 +112,7 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
 
   /**
    * Return the colors used in the current theme that are recommended for personalization.
-   * @returns An object full of the colors with id, name abd hex value.
+   * @returns An object full of the colors with id, name, and hex value.
    */
   public personalizationColors(): SohoPersonalizationColors {
     return Soho.theme.personalizationColors();
