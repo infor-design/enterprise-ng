@@ -10,7 +10,7 @@
       <div class="field">
         <label for="theme" class="label">Theme</label>
         <select soho-dropdown soho-busyindicator noSearch id="theme" name="theme" (change)="onThemeChange($event)" [(ngModel)]="model.themeId">
-          <option *ngFor="let theme of themes" [value]="theme.id">{{theme.name}}</option>
+          <option *ngFor="let theme of themes" value="{{ theme.id }}">{{ theme.name }}</option>
         </select>
       </div>
     </div>
@@ -21,8 +21,8 @@
         <select soho-dropdown soho-busyindicator noSearch id="color" name="color" (change)="onColorChange($event)" [(ngModel)]="model.colorId">
           <option
             *ngFor="let color of colors | keyvalue"
-            attr.data-icon="{{ dataIcon(colors[color.key]) }}"
-            attr.data-hex="{{ colors[color.key].value }}"
+            data-icon="{{ dataIcon(colors[color.key]) }}"
+            data-hex="{{ colors[color.key].value }}"
             value="{{ colors[color.key].id }}"
           >
             {{ colors[color.key].name }}
