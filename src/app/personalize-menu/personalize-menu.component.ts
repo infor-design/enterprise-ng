@@ -77,6 +77,7 @@ export class PersonalizeMenuComponent implements OnInit {
     this.setSelectedTheme(currentTheme);
     this.setSelectedColor(currentColour);
   }
+
   setSelectedTheme(themeId: string) {
     // Make sure only the current theme is marked as selected.
     this.themeMenuItems.forEach((theme) => {
@@ -100,7 +101,9 @@ export class PersonalizeMenuComponent implements OnInit {
    * @param ev the personalisation event; never null.
    */
   public onChangeTheme(ev: SohoChangeThemePersonalizeEvent) {
-    const themeId = ev.data;
+    const themeId = ev.data.theme;
+    this.theme = themeId;
+    this.setSelectedTheme(themeId);
   }
 
   /**
@@ -113,7 +116,9 @@ export class PersonalizeMenuComponent implements OnInit {
    */
 
   public onChangeColors(ev: SohoChangeColorsPersonalizeEvent) {
-    this.colour = ev.data;
+    const colorHex = ev.data.colors;
+    this.colour = colorHex;
+    this.setSelectedColor(colorHex);
   }
 
   /**
