@@ -4,7 +4,7 @@
 
 ### 5.4.0 Features
 
-- `[Personlize]` - Changed soho-personalize directive to include theme and personalization color information. `PWP` ([#493](https://github.com/infor-design/enterprise-ng/pull/493))
+- `[Personalize]` - Changed soho-personalize directive to include theme and personalization color information. `PWP` ([#493](https://github.com/infor-design/enterprise-ng/pull/493))
 
 ### 5.4.0 Fixes
 
