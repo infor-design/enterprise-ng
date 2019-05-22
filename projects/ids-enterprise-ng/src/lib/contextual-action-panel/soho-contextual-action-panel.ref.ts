@@ -130,6 +130,20 @@ export class SohoContextualActionPanelRef<T> {
     }
     return this;
   }
+
+  /**
+   * Sets the 'centerTitle' that the panel control uses.
+   *
+   * @param centerTitle - Aligns title to center
+   */
+  centerTitle(centerTitle: boolean): SohoContextualActionPanelRef<T> {
+    this._options.centerTitle = centerTitle;
+    if (this.contextualactionpanel) {
+      this.contextualactionpanel.settings.centerTitle = centerTitle;
+    }
+    return this;
+  }
+
   /**
    * Sets the 'trigger' that the panel control uses.
    *
