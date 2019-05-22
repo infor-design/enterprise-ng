@@ -6,11 +6,20 @@
  */
 
 type SohoColumnType = 'column' | 'column-grouped' | 'column-stacked' | 'column-positive-negative' | 'column-positive-negative';
+
+/**
+ * The funcito ntype used for a custom tooltip in SohoChartOptions and SohoChartData.
+ * @param res the response function to send the custom html tooltip.
+ * @param args The data for the chart element being hovered on.
+ */
+type SohoChartCustomTooltipFunction = (res: Function, args: any) => void;
+
 /**
  * Column Options
  */
 interface SohoColumnOptions {
   /** Chart Type */
+
   type?: SohoColumnType;
 
   /** Defines the data to use, must be specified for this component. */
@@ -45,6 +54,8 @@ interface SohoColumnOptions {
 
   /** A series of options for the yAxis. */
   yAxis?: object;
+
+  tooltip?: string | SohoChartCustomTooltipFunction;
 }
 
 interface SohoColumnSelectEvent {
