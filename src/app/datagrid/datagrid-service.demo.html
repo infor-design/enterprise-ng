@@ -26,6 +26,7 @@
     <section soho-busyindicator class="scrollable contained-scrolling-right-bottom" style="height: 100%">
       <div soho-datagrid
         (selected)="onSelected($event)"
+        [onBeforeSelect]="onBeforeSelect"
         (openFilterRow)="onOpenFilterRow($event)"
         (closeFilterRow)="onCloseFilterRow($event)"
         selectable="multiple"

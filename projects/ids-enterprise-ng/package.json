@@ -5,8 +5,8 @@
   "dependencies": {
     "@types/jquery": "3.3.29",
     "@types/d3": "4.13.0",
-    "ids-enterprise": "4.19.0-dev.20190514",
-    "jquery": "3.4.0",
+    "ids-enterprise": "4.19.0-beta.0",
+    "jquery": "3.4.1",
     "d3": "4.13.0"
   },
   "peerDependencies": {

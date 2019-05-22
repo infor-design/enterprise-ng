@@ -1735,6 +1735,25 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Event fired after a child row has been expanded.
+   * @param idProperty string id
+   */
+  @Input() set onBeforeSelect(beforeSelectFunction: SohoDataGridBeforeSelectFunction) {
+    this._gridOptions.onBeforeSelect = beforeSelectFunction;
+    if (this.datagrid) {
+      this.datagrid.settings.onBeforeSelect = beforeSelectFunction;
+      this.markForRefresh('onBeforeSelect', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  get onBeforeSelect(): SohoDataGridBeforeSelectFunction {
+    if (this.datagrid) {
+      return this.datagrid.settings.onBeforeSelect;
+    }
+    return this._gridOptions.onBeforeSelect;
+  }
+
+  /**
    * Event fired after edit mode is activated on an editor.
    * @param args the event arguments
    */
