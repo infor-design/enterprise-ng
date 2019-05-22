@@ -5,6 +5,7 @@
 ### 5.4.0 Features
 
 - `[Personalize]` - Changed soho-personalize directive to include theme and personalization color information. `PWP` ([#493](https://github.com/infor-design/enterprise-ng/pull/493))
+- `[Icon & Button]` - Added ability to set an extra class on the icon to set the color. `PWP` ([#498](https://github.com/infor-design/enterprise-ng/pull/498))
 
 ### 5.4.0 Fixes
 
