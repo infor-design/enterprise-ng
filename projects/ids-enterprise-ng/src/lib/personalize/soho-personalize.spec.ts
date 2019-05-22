@@ -75,7 +75,7 @@ describe('Soho Personalize Render', () => {
 
   it('Check event handler when theme changed', () => {
     const eventEmitterSpy = spyOn<any>(component.personalize, 'onChangeTheme');
-    $('body').trigger('changetheme', 'dark');
+    $('html').trigger('themechanged', 'dark');
 
     // Interestingly this is called three times!
     expect(eventEmitterSpy).toHaveBeenCalled();

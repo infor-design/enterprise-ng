@@ -4,9 +4,15 @@ import {
   OnInit,
   HostBinding
 } from '@angular/core';
-import { Color } from './theme-color.model';
-import { Theme } from './theme.model';
 import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
+
+interface ThemeMenuItem extends SohoTheme {
+  selected?: boolean;
+}
+
+interface ColorMenuItem extends SohoPersonalizationColor {
+  selected?: boolean;
+}
 
 @Component({
   selector: 'app-personalize-menu',
@@ -26,33 +32,14 @@ export class PersonalizeMenuComponent implements OnInit {
    */
   @HostBinding('class.is-selectable') isSelectable = true;
 
-  /**
-   * Theme options - use the theme api?
-   */
-  public themes: Theme[] = [
-    { name: 'Light', value: 'light', selected: true },
-    { name: 'Dark', value: 'dark' },
-    { name: 'High-Contrast', value: 'high-contrast' },
-    { name: 'Uplift', value: 'uplift' }
-];
+  public themeMenuItems: ThemeMenuItem[];
+  public colorMenuItems: ColorMenuItem[];
 
   /**
-   * Colour options - use the theme api?
-   */
-  public colours: Color[] = [
-    { rgb: '#368AC0', name: 'Azure', selected: true },
-    { rgb: '#EFA836', name: 'Amber' },
-    { rgb: '#9279A6', name: 'Amethyst' },
-    { rgb: '#579E95', name: 'Turqoise' },
-    { rgb: '#76B051', name: 'Emerald' },
-    { rgb: '#5C5C5C', name: 'Graphite' }
-  ];
-
-  /**
-   * Default Colour: this should really be based on the one selected in
+   * Default Color: this should really be based on the one selected in
    * the IDS Enterprise component code.
    */
-  private readonly DEFAULT_COLOUR = '#368AC0';
+  private readonly DEFAULT_COLOR = '#368AC0';
 
   /**
    * Default Theme: this should really be based on the one selected in
@@ -66,34 +53,45 @@ export class PersonalizeMenuComponent implements OnInit {
   private readonly IDS_ENTERPRISE_THEME_KEY = 'soho_theme';
 
   /**
-   * Storage key for the colour.
+   * Storage key for the color.
    */
-  private readonly IDS_ENTERPRISE_COLOUR_KEY = 'soho_color';
+  private readonly IDS_ENTERPRISE_COLOR_KEY = 'soho_color';
 
   /**
    * Initialize the component after Angular first displays the data-bound
    * properties and sets the any input properties.
    *
-   * In this case, initialises the data members: "colours" and "themes"
-   * with the currently selected theme/colour respectively.
+   * In this case, initialises the data members: "colors" and "themes"
+   * with the currently selected theme/color respectively.
    */
   public ngOnInit(): void {
     // Get the current values using the getters.
     const currentTheme = this.personalize.theme = this.theme;
-    const currentColour = this.personalize.colors = this.colour;
+    const currentColor = this.personalize.colors = this.color;
 
+    this.themeMenuItems = this.personalize.themes();
+
+    const personalizationColors = this.personalize.personalizationColors();
+    this.colorMenuItems = Object.keys(personalizationColors).map(colorId => personalizationColors[colorId]);
+
+    this.setSelectedTheme(currentTheme);
+    this.setSelectedColor(currentColor);
+  }
+
+  setSelectedTheme(themeId: string) {
     // Make sure only the current theme is marked as selected.
-    this.themes.forEach((theme) => {
-      theme.selected = (theme.value === currentTheme);
-    });
-
-    // Make sure only the current colour is marked as selected.
-    this.colours.forEach((colour) => {
-      // The colour is appearing as a real rgb value, so need to
-      colour.selected = (colour.rgb === currentColour);
+    this.themeMenuItems.forEach((theme) => {
+      theme.selected = (theme.id === themeId);
     });
   }
 
+  setSelectedColor(color: string) {
+    // Make sure only the current color is marked as selected.
+    this.colorMenuItems.forEach((colorMenuItem) => {
+      // The color is appearing as a real rgb value, so need to
+      colorMenuItem.selected = (colorMenuItem.value === color);
+    });
+  }
   /**
    * Handle the theme change event, by setting it in local storage.
    *
@@ -103,11 +101,13 @@ export class PersonalizeMenuComponent implements OnInit {
    * @param ev the personalisation event; never null.
    */
   public onChangeTheme(ev: SohoChangeThemePersonalizeEvent) {
-    this.theme = ev.data;
+    const themeId = ev.data.theme;
+    this.theme = themeId;
+    this.setSelectedTheme(themeId);
   }
 
   /**
-   * Handle the colour change event, by setting is in local storage.
+   * Handle the color change event, by setting is in local storage.
    *
    * @todo may want to consider making the persistence of this
    * configurable, so we could use states.
@@ -116,7 +116,9 @@ export class PersonalizeMenuComponent implements OnInit {
    */
 
   public onChangeColors(ev: SohoChangeColorsPersonalizeEvent) {
-    this.colour = ev.data;
+    const colorHex = ev.data.colors;
+    this.color = colorHex;
+    this.setSelectedColor(colorHex);
   }
 
   /**
@@ -138,19 +140,19 @@ export class PersonalizeMenuComponent implements OnInit {
   }
 
   /**
-   * Returns the currently selected colour, defaulting to
-   * a sensible default colour if one is not yet set.
+   * Returns the currently selected color, defaulting to
+   * a sensible default color if one is not yet set.
    */
-  public get colour(): string {
-    const color = localStorage.getItem(this.IDS_ENTERPRISE_COLOUR_KEY);
-    return color ? color : this.DEFAULT_COLOUR;
+  public get color(): string {
+    const color = localStorage.getItem(this.IDS_ENTERPRISE_COLOR_KEY);
+    return color ? color : this.DEFAULT_COLOR;
   }
 
   /**
-   * Set the current colour, storing it such that it perists between
+   * Set the current color, storing it such that it perists between
    * sessions.
    */
-  public set colour(colour: string) {
-    localStorage.setItem(this.IDS_ENTERPRISE_COLOUR_KEY, colour);
+  public set color(color: string) {
+    localStorage.setItem(this.IDS_ENTERPRISE_COLOR_KEY, color);
   }
 }
