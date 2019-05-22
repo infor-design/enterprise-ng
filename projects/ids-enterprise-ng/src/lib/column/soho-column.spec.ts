@@ -130,9 +130,9 @@ describe('Soho Column Unit Tests', () => {
     const updatedXAxis = {};
     const updatedYAxis = {};
 
-    let customTooltip: SohoChartCustomTooltipFunction = (res: Function, args: any) => {
+    const customTooltip: SohoChartCustomTooltipFunction = (res: Function, args: any) => {
       const data = args.data || {};
-      const content = 'Name: '+ data.name +'<br>Value: '+ data.value;
+      const content = 'Name: ' + data.name + '<br>Value: ' + data.value;
       res(content);
     };
 
