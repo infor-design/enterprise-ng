@@ -1418,7 +1418,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * Return an array containing all of the currently modified rows, the type of modification
    * and the cells that are dirty and the data.
-   * @returns {array} An array showing the dirty row info.
+   * @returns An keyed object showing the dirty row info.
    */
   getModifiedRows(): SohoDataGridModifiedRows {
     return this.ngZone.runOutsideAngular(() => {
@@ -1428,14 +1428,14 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Set a cell to dirty and add the dirty icon visually.
-   * @param {number} row The row index
-   * @param {number} cell The cell index
-   * @param {boolean} toggle True to set it and false to remove it
+   * @param row The row index
+   * @param cell The cell index
+   * @param toggle True to set it and false to remove it
    */
   setDirtyIndicator(row: number, cell: number, toggle: boolean): void {
     this.ngZone.runOutsideAngular(() => {
       this.datagrid.setDirtyIndicator(row, cell, toggle);
-    })
+    });
   }
 
   /**
