@@ -281,6 +281,28 @@ interface SohoDataGridOptions {
   allowChildExpandOnMatch?: boolean;
 }
 
+type SohoDataGridModifiedRows = { [index: number]: SohoDataGridModifiedRow };
+
+/**
+ * returned by getModifiedRows
+ */
+interface SohoDataGridModifiedRow {
+  data: any;
+  row: number;
+  type: 'dirty' | 'in-progress' | 'error';
+  cells: SohoDataGridDirtyCell[];
+}
+
+
+interface SohoDataGridDirtyCell {
+  value: any;
+  coercedVal: any;
+  escapedCoercedVal: any;
+  cellNodeText: string;
+  cell: number;
+  column: SohoDataGridColumn;
+}
+
 /**
  * Soho Data Grid Paging Options.
  *
@@ -1008,6 +1030,21 @@ interface SohoDataGridStatic {
    * @param tooltip - string value for tooltip message e.g. 'Error'
    */
   rowStatus(idx: number, status: string, tooltip: string): void;
+
+  /**
+   * Return an array containing all of the currently modified rows, the type of modification
+   * and the cells that are dirty and the data.
+   * @returns An array showing the dirty row info.
+   */
+  getModifiedRows(): SohoDataGridModifiedRows;
+
+  /**
+   * Set a cell to dirty and add the dirty icon visually.
+   * @param row The row index
+   * @param cell The cell index
+   * @param toggle True to set it and false to remove it
+   */
+  setDirtyIndicator(row: number, cell: number, toggle: boolean): void;
 
   /**
    * Returns the row dom jQuery node.
