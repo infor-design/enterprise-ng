@@ -12,7 +12,7 @@ type SohoColumnType = 'column' | 'column-grouped' | 'column-stacked' | 'column-p
  * @param res the response function to send the custom html tooltip.
  * @param args The data for the chart element being hovered on.
  */
-type SohoChartCustomTooltipFunction = (res: Function, args: any) => void;
+type SohoColumnTooltipFunction = (res: Function, args: any) => void;
 
 /**
  * Column Options
@@ -55,7 +55,7 @@ interface SohoColumnOptions {
   /** A series of options for the yAxis. */
   yAxis?: object;
 
-  tooltip?: string | SohoChartCustomTooltipFunction;
+  tooltip?: string | SohoColumnTooltipFunction;
 }
 
 interface SohoColumnSelectEvent {
