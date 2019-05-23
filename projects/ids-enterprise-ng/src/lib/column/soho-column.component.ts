@@ -147,6 +147,16 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
     }
   }
 
+  /** Settings for the chart tooltip. */
+  @Input() set tooltip(tooltip: string | SohoColumnTooltipFunction) {
+    this.options.tooltip = tooltip;
+
+    if (this.column) {
+      this.column.settings.tooltip = tooltip;
+      this.updateRequired = true;
+    }
+  }
+
   /** Events */
   @Output() selected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();
   @Output() unselected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();
