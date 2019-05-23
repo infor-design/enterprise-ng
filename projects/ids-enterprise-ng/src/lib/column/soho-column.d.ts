@@ -8,7 +8,7 @@
 type SohoColumnType = 'column' | 'column-grouped' | 'column-stacked' | 'column-positive-negative' | 'column-positive-negative';
 
 /**
- * The funcito ntype used for a custom tooltip in SohoChartOptions and SohoChartData.
+ * The function type used for a dynamic tooltip in SohoChartOptions and SohoChartData.
  * @param res the response function to send the custom html tooltip.
  * @param args The data for the chart element being hovered on.
  */
