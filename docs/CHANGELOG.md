@@ -5,7 +5,7 @@
 ### 5.4.0 Features
 
 - `[Personalize]` - Changed soho-personalize directive to include theme and personalization color information. `PWP` ([#493](https://github.com/infor-design/enterprise-ng/pull/493))
-- `[Column Chart]` - Added custom or standard tooltip to inputs. `PWP` ([#496](https://github.com/infor-design/enterprise-ng/issues/496))
+- `[Column Chart]` - Added the ability to use both dynamic or simple string based tooltips. `PWP` ([#496](https://github.com/infor-design/enterprise-ng/issues/496))
 
 ### 5.4.0 Fixes
 
