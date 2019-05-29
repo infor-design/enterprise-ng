@@ -1,0 +1,37 @@
+<div class="example-section" xmlns="http://www.w3.org/1999/html">
+  <p></p>
+  <form>
+    <div class="row top-padding">
+      <div class="field">
+        <label for="theme" class="label">Theme</label>
+        <select soho-dropdown soho-busyindicator noSearch id="theme" name="theme" (change)="onThemeChange($event)" [(ngModel)]="model.themeId">
+          <option *ngFor="let theme of themes" value="{{ theme.id }}">{{ theme.name }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="color" class="label">Theme Colors</label>
+        <select soho-dropdown soho-busyindicator noSearch id="color" name="color" (change)="onColorChange($event)" [(ngModel)]="model.colorId">
+          <option
+            *ngFor="let color of colors | keyvalue"
+            attr.data-icon="{{ dataIcon(colors[color.key]) }}"
+            attr.data-hex="{{ colors[color.key].value }}"
+            value="{{ colors[color.key].id }}"
+          >
+            {{ colors[color.key].name }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+  </form>
+  <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+  <div *ngIf="showModel">
+    <hr>
+    <h3>{{ model | json }}</h3>
+  </div>
+</div>
+
+<div soho-personalize (changetheme)="onChangeTheme($event)" (changecolors)="onChangeColor($event)"></div>

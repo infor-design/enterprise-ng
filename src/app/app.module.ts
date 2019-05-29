@@ -149,6 +149,7 @@ import { MonthViewDemoComponent } from './monthview/monthview.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PersonalizeMenuComponent } from './personalize-menu/personalize-menu.component';
+import { PersonalizeColorApiDemoComponent } from './personalize/personalize-color-api.demo';
 import { PieDemoComponent } from './pie/pie.demo';
 import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
@@ -339,6 +340,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     MonthViewDemoComponent,
     NotificationDemoComponent,
     PagerStandaloneDemoComponent,
+    PersonalizeColorApiDemoComponent,
     PersonalizeMenuComponent,
     PieDemoComponent,
     PopDownDemoComponent,

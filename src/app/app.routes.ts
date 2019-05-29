@@ -110,6 +110,7 @@ import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
 import { MonthViewDemoComponent } from './monthview/monthview.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
+import { PersonalizeColorApiDemoComponent } from './personalize/personalize-color-api.demo';
 import { PieDemoComponent } from './pie/pie.demo';
 import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
@@ -281,6 +282,7 @@ export const routes: Routes = [
   { path: 'month-view',                             component: MonthViewDemoComponent },
   { path: 'notification',                           component: NotificationDemoComponent },
   { path: 'pager-standalone',                       component: PagerStandaloneDemoComponent },
+  { path: 'personalize-color-api',                  component: PersonalizeColorApiDemoComponent },
   { path: 'pie',                                    component: PieDemoComponent },
   { path: 'popdown',                                component: PopDownDemoComponent},
   { path: 'popupmenu',                              component: PopupMenuDemoComponent },

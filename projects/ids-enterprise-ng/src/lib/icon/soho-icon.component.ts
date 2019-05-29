@@ -24,12 +24,21 @@ export class SohoIconUseComponent {
   template: `<svg:use [icon]="icon"></svg:use>`
 })
 export class SohoIconComponent {
+
   @HostBinding('class.icon') isIcon = true;
   @HostBinding('attr.aria-hidden') ariaHidden = true;
   @HostBinding('attr.focusable') focusable = false;
   @HostBinding('attr.role') role = 'presentation';
   @Input() @HostBinding('class.icon-empty-state') isEmptyState = false;
 
+  /**
+   * Extra class that will be placed on the soho-icon element.
+   * Useful to set emerald06-color azure10-color to change the icon color.
+   */
+  @Input() set extraIconClass(extraIconClass: string) {
+    this._extraIconClass = extraIconClass;
+    this.setExtraIconsClass();
+  }
   @Input() set alert(alert: boolean) {
     this._alert = alert;
     this.setAlertIcon();
@@ -41,6 +50,7 @@ export class SohoIconComponent {
 
   private _alert: boolean;
   private _icon: string;
+  private _extraIconClass: string;
 
   constructor(
     private elementRef: ElementRef,
@@ -52,6 +62,12 @@ export class SohoIconComponent {
     // w/o overwriting other classes in the class list.
     if (this.alert && this.icon) {
       this.renderer.addClass(this.elementRef.nativeElement, this.icon);
+    }
+  }
+
+  private setExtraIconsClass() {
+    if (this._extraIconClass) {
+      this.renderer.addClass(this.elementRef.nativeElement, this._extraIconClass);
     }
   }
 

@@ -93,6 +93,7 @@ describe('Soho Column Unit Tests', () => {
     comp.xAxis = xAxis;
     comp.yAxis = yAxis;
     comp.emptyMessage = emptyMessage;
+    comp.tooltip = 'My Tooltip';
 
     // check options
     expect((comp as any).options.dataset).toEqual(columnData);
@@ -107,6 +108,7 @@ describe('Soho Column Unit Tests', () => {
     expect((comp as any).options.xAxis).toEqual(xAxis);
     expect((comp as any).options.yAxis).toEqual(yAxis);
     expect((comp as any).options.emptyMessage).toEqual(emptyMessage);
+    expect((comp as any).options.tooltip).toEqual('My Tooltip');
 
     // detect changes to cause bar chart to be built.
     fixture.detectChanges();
@@ -128,6 +130,12 @@ describe('Soho Column Unit Tests', () => {
     const updatedXAxis = {};
     const updatedYAxis = {};
 
+    const customTooltip: SohoColumnTooltipFunction = (res: Function, args: any) => {
+      const data = args.data || {};
+      const content = 'Name: ' + data.name + '<br>Value: ' + data.value;
+      res(content);
+    };
+
     comp.dataset = updatedColumnData;
     comp.type = updatedType;
     comp.isStacked = true;
@@ -140,6 +148,7 @@ describe('Soho Column Unit Tests', () => {
     comp.xAxis = updatedXAxis;
     comp.yAxis = updatedYAxis;
     comp.emptyMessage = updatedEmptyMessage;
+    comp.tooltip = customTooltip;
 
     // check bar settings
     expect((comp as any).column.settings.dataset).toEqual(updatedColumnData);
@@ -154,6 +163,7 @@ describe('Soho Column Unit Tests', () => {
     expect((comp as any).column.settings.xAxis).toEqual(updatedXAxis);
     expect((comp as any).column.settings.yAxis).toEqual(updatedYAxis);
     expect((comp as any).column.settings.emptyMessage).toEqual(updatedEmptyMessage);
+    expect((comp as any).column.settings.tooltip).toEqual(customTooltip);
 
     // update required should be true after updating inputs after bar is built.
     expect((comp as any).updateRequired).toEqual(true);

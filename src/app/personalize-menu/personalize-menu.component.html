@@ -1,10 +1,10 @@
 <li soho-popupmenu-heading>{{'Theme' | sohoTranslate}}</li>
-<li soho-popupmenu-item [isSelectable]="true" [isChecked]="theme.selected" *ngFor="let theme of themes">
-  <a soho-popupmenu-label [attr.data-theme]="theme.value">{{ theme.name }}</a>
+<li soho-popupmenu-item [isSelectable]="true" [isChecked]="theme.selected" *ngFor="let theme of themeMenuItems">
+  <a soho-popupmenu-label [attr.data-theme]="theme.id">{{ theme.name }}</a>
 </li>
 <li soho-popupmenu-separator></li>
 <li soho-popupmenu-heading>Personalization</li>
-<li soho-popupmenu-item [isSelectable]="true" [isChecked]="color.selected" *ngFor="let color of colours">
-  <a soho-popupmenu-label [attr.data-rgbcolor]="color.rgb">{{ color.name }}</a>
+<li soho-popupmenu-item [isSelectable]="true" [isChecked]="color.selected" *ngFor="let color of colorMenuItems">
+  <a soho-popupmenu-label [attr.data-rgbcolor]="color.value">{{ color.name }}</a>
 </li>
 <div soho-personalize (changetheme)="onChangeTheme($event)" (changecolors)="onChangeColors($event)"></div>

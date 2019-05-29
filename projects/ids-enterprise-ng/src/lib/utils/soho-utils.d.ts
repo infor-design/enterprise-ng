@@ -38,11 +38,15 @@ interface SohoUtilsStatic {
    */
   mergeSettings(element: HTMLElement|SVGElement|JQuery[],
     incomingOptions: Object|Function,
-    defaultOptions:Object|Function):Object;
+    defaultOptions: Object|Function): Object;
+}
+
+interface SohoUtilsKeyboard {
+  pressedKeys: Map<String, boolean>;
 }
 
 interface SohoStatic {
   excel: SohoUtilsExcelStatic;
-
+  keyboard: SohoUtilsKeyboard;
   utils: SohoUtilsStatic;
 }

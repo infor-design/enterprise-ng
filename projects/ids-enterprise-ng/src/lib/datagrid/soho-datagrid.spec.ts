@@ -350,6 +350,26 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(comp.showDirty).toBeTruthy();
   });
 
+  it('check getModifiedRows', () => {
+    fixture.detectChanges();
+
+    const spy = spyOn((comp as any).datagrid, 'getModifiedRows');
+
+    comp.getModifiedRows();
+
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  it('check setDirtyIndicator', () => {
+    fixture.detectChanges();
+
+    const spy = spyOn((comp as any).datagrid, 'setDirtyIndicator');
+
+    comp.setDirtyIndicator(0, 4, true);
+
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
   it('check virtualized', () => {
     // fixture.detectChanges();
 
