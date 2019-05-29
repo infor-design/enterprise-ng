@@ -22,8 +22,8 @@ export class SohoHeaderDynamicDemoComponent {
   @HostBinding('class.has-toolbar') get hasHeaderToolbar() { return !!this.toolbarOptions; }
   @HostBinding('class.has-tabs') get hasHeaderTabs() { return !!this.tabOptions; }
 
-  @ViewChild(SohoToolbarComponent) sohoToolbarComponent: SohoToolbarComponent;
-  @ViewChild(SohoTabsComponent) sohoTabsComponent: SohoTabsComponent;
+  @ViewChild(SohoToolbarComponent, { static: true }) sohoToolbarComponent: SohoToolbarComponent;
+  @ViewChild(SohoTabsComponent, { static: false }) sohoTabsComponent: SohoTabsComponent;
 
   /**
    * The current screen title

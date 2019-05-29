@@ -20,7 +20,7 @@ import { SohoTabsComponent } from 'ids-enterprise-ng';
 })
 export class TabsDynamicDemoComponent implements OnInit {
 
-  @ViewChild(SohoTabsComponent) sohoTabsComponent: SohoTabsComponent;
+  @ViewChild(SohoTabsComponent, { static: true }) sohoTabsComponent: SohoTabsComponent;
 
   public tabs: Array<any>;
   public currentTabsIndex = 1;

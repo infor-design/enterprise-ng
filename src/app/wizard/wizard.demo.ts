@@ -19,7 +19,7 @@ import { WizardDemoResultPageComponent } from './wizard-result-page.demo';
   templateUrl: './wizard.demo.html',
 })
 export class WizardDemoComponent {
-  @ViewChild(SohoWizardComponent) wizard: SohoWizardComponent;
+  @ViewChild(SohoWizardComponent, { static: true }) wizard: SohoWizardComponent;
 
   public buttons = [
     {

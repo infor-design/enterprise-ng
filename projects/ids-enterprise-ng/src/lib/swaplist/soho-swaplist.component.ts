@@ -151,16 +151,13 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   }
 
   /** The component used to represent the available items. */
-  @ContentChild('available')
-  private _availableCard: SohoSwapListCardComponent = null;
+  @CContentChild('available', /* TODO: add static flag */ {})  private _availableCard: SohoSwapListCardComponent = null;
 
   /** The component used to represent the selected items. */
-  @ContentChild('selected')
-  private _selectedCard: SohoSwapListCardComponent = null;
+  @CContentChild('selected', /* TODO: add static flag */ {})  private _selectedCard: SohoSwapListCardComponent = null;
 
   /** The component used to represent the full access (additional) items. */
-  @ContentChild('additional')
-  private _additionalCard: SohoSwapListCardComponent = null;
+  @CContentChild('additional', /* TODO: add static flag */ {})  private _additionalCard: SohoSwapListCardComponent = null;
 
   // ------------------------------------------------------------------------
   // @Inputs

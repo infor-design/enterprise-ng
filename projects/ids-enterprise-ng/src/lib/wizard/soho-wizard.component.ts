@@ -54,7 +54,7 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
    *
    *
    */
-  @ContentChild(SohoWizardPagesComponent) pagesContainer: SohoWizardPagesComponent;
+  @ContentChild(SohoWizardPagesComponent, /* TODO: add static flag */ {}) pagesContainer: SohoWizardPagesComponent;
 
   /**
    * Reference to the header, container for the ticks.
@@ -62,7 +62,7 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
    *
    *
    */
-  @ContentChild(SohoWizardHeaderComponent) header: SohoWizardHeaderComponent;
+  @ContentChild(SohoWizardHeaderComponent, /* TODO: add static flag */ {}) header: SohoWizardHeaderComponent;
 
   // -------------------------------------------
   // Inputs

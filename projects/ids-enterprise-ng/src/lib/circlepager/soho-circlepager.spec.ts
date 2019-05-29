@@ -67,7 +67,7 @@ describe('Soho Circle Pager Unit Tests', () => {
   template: `<div soho-circlepager></div>`
 })
 class SohoCirclepagerTestComponent {
-  @ViewChild(SohoCirclepagerComponent) circlepager: SohoCirclepagerComponent;
+  @ViewChild(SohoCirclepagerComponent, /* TODO: add static flag */ {}) circlepager: SohoCirclepagerComponent;
 }
 
 describe('Soho Circle Pager Render', () => {

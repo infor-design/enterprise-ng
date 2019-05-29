@@ -18,7 +18,7 @@ import {
     </soho-popdown-contents>`
 })
 class SohoPopDownDirectiveTestComponent {
-  @ViewChild(SohoPopDownContentsComponent) contents: SohoPopDownContentsComponent;
+  @ViewChild(SohoPopDownContentsComponent, /* TODO: add static flag */ {}) contents: SohoPopDownContentsComponent;
 }
 
 describe('Soho PopDown Unit Tests', () => {

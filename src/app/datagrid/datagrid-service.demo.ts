@@ -22,8 +22,8 @@ import { SohoToastService } from 'ids-enterprise-ng';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridServiceDemoComponent {
-  @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
-  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
   constructor(private el: ElementRef, private toastService: SohoToastService) {
   }
 

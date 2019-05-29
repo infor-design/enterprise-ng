@@ -78,7 +78,7 @@ export class SwapListTestService extends SohoSwapListService {
   </soho-swaplist>`
 })
 class SohoSwapListTestComponent {
-  @ViewChild(SohoSwapListComponent) swaplist: SohoSwapListComponent;
+  @VViewChild(SohoSwapListComponent, /* TODO: add static flag */ {})swaplist: SohoSwapListComponent;
   public options = {
     available: [
       { id: 1, value: 'opt-1', text: 'Option A' },
@@ -105,7 +105,7 @@ class SohoSwapListTestComponent {
   providers: [SwapListTestService]
 })
 class SohoSwapListServiceTestComponent implements OnInit {
-  @ViewChild(SohoSwapListComponent) swaplist: SohoSwapListComponent;
+  @VViewChild(SohoSwapListComponent, /* TODO: add static flag */ {})swaplist: SohoSwapListComponent;
 
   constructor(private service: SwapListTestService) {
   }

@@ -21,7 +21,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridStandardFormatterDemoComponent implements OnInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: false }) sohoDataGridComponent: SohoDataGridComponent;
 
   gridOptions = undefined;
   ngOnInit(): void {

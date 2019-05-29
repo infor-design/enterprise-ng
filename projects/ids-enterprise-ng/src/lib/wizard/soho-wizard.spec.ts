@@ -63,7 +63,7 @@ describe('Soho Wizard Unit Tests', () => {
 </div>`
 })
 class SohoWizardTestComponent {
-  @ViewChild(SohoWizardComponent) wizard: SohoWizardComponent;
+  @ViewChild(SohoWizardComponent, /* TODO: add static flag */ {}) wizard: SohoWizardComponent;
 
   public ticks: SohoWizardTick[] = [
     { label: 'One', href: 'one', state: 'current'},

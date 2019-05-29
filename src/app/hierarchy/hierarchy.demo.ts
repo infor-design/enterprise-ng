@@ -12,7 +12,7 @@ import { SohoHierarchyComponent } from 'ids-enterprise-ng';
 })
 export class HierarchyDemoComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('SohoHierarchy') sohoHierarchy: SohoHierarchyComponent;
+  @ViewChild('SohoHierarchy', { static: false }) sohoHierarchy: SohoHierarchyComponent;
 
   public data: Array<any>;
   public legend: Array<SohoHierarchyLegend>;

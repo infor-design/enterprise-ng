@@ -359,7 +359,7 @@ describe('Soho Menu Button Unit Tests', () => {
 </ul>`
 })
 export class TestSohoMenuButtonComponent {
-  @ViewChild(SohoMenuButtonComponent) menuButton;
+  @ViewChild(SohoMenuButtonComponent, /* TODO: add static flag */ {}) menuButton;
 }
 
 describe('Soho Menu Button Render', () => {

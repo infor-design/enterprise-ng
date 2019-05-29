@@ -10,9 +10,9 @@ import {
   templateUrl: './popdown.demo.html',
 })
 export class PopDownDemoComponent {
-  @ViewChild('statesPopDown', { read: SohoPopDownDirective })
+  @ViewChild('statesPopDown', { read: SohoPopDownDirective, static: true })
   public statesPopDown: SohoPopDownDirective;
-  @ViewChild(SohoListViewComponent) public stateViewList: SohoListViewComponent;
+  @ViewChild(SohoListViewComponent, { static: true }) public stateViewList: SohoListViewComponent;
 
   public showSelectedOnly = false;
 

@@ -33,7 +33,7 @@ import { SohoTabsComponent } from './soho-tabs.component';
   `
 })
 class SohoBasicTabsTestComponent {
-  @ViewChild(SohoTabsComponent) tabs: SohoTabsComponent;
+  @ViewChild(SohoTabsComponent, /* TODO: add static flag */ {}) tabs: SohoTabsComponent;
 }
 
 // describe('Soho Tabs- Unit Tests', () => {

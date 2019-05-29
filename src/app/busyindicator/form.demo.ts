@@ -23,7 +23,7 @@ export class BusyIndicatorDemoComponent {
 
   transparentOverlay = false;
 
-  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
 
   constructor(private elementRef: ElementRef) {
   }

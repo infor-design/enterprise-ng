@@ -31,7 +31,7 @@ import { SohoAccordionComponent } from './soho-accordion.component';
   `
 })
 class SohoAccordionTestComponent {
-  @ViewChild(SohoAccordionComponent) accordion: SohoAccordionComponent;
+  @ViewChild(SohoAccordionComponent, /* TODO: add static flag */ {}) accordion: SohoAccordionComponent;
 
   constructor() {
   }

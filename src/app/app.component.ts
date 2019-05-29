@@ -26,10 +26,10 @@ export class AppComponent implements AfterViewInit {
    */
   private static IS_APPLICATION_MENU_OPEN_KEY = 'is-application-menu-open';
 
-  @ViewChild(SohoApplicationMenuComponent)
+  @ViewChild(SohoApplicationMenuComponent, { static: true })
   public applicationMenu: SohoApplicationMenuComponent;
 
-  @ViewChild(SohoPersonalizeDirective) personalize: SohoPersonalizeDirective;
+  @ViewChild(SohoPersonalizeDirective, { static: true }) personalize: SohoPersonalizeDirective;
 
   @HostBinding('class.no-scroll') get isNoScroll() { return true; }
 

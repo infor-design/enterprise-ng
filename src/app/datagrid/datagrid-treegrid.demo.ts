@@ -10,8 +10,8 @@ import { DatagridTreegridServiceDemo } from './datagrid-treegrid-service.demo';
   providers: [ DatagridTreegridServiceDemo ]
 })
 export class DataGridTreeGridDemoComponent {
-  @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
-  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
+  @VViewChild(SohoDataGridComponent, { static: true })dataGrid: SohoDataGridComponent;
+  @VViewChild(SohoBusyIndicatorDirective, { static: true })busyIndicator: SohoBusyIndicatorDirective;
 
   events: any[] = [];
 

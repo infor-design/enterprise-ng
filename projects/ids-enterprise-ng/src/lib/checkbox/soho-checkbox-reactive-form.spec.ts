@@ -34,7 +34,7 @@ import { fakeAsync, tick } from '@angular/core/testing';
 class SohoCheckBoxReactiveFormTestComponent {
   public value = true;
 
-  @ViewChild(SohoCheckBoxComponent) dropdown: SohoCheckBoxComponent;
+  @ViewChild(SohoCheckBoxComponent, /* TODO: add static flag */ {}) dropdown: SohoCheckBoxComponent;
 
   public formGroup: FormGroup;
 

@@ -37,7 +37,7 @@ describe('Soho TextArea Unit Tests', () => {
   template: `<input soho-textarea (ngModelChange)="onTextChange()" [(ngModel)]="model">`
 })
 class SohoTextAreaTestComponent {
-  @ViewChild(SohoTextAreaComponent) textarea: SohoTextAreaComponent;
+  @ViewChild(SohoTextAreaComponent, /* TODO: add static flag */ {}) textarea: SohoTextAreaComponent;
 
   public model: string;
 

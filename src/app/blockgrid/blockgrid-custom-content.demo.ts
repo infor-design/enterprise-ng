@@ -19,7 +19,7 @@ import {
 })
 export class BlockGridCustomContentDemoComponent implements AfterViewInit {
 
-  @ViewChild(SohoBlockGridComponent) blockGrid: SohoBlockGridComponent;
+  @ViewChild(SohoBlockGridComponent, { static: true }) blockGrid: SohoBlockGridComponent;
 
   public data = DATA;
 

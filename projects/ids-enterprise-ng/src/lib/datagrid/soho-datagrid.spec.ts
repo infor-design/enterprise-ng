@@ -403,7 +403,7 @@ describe('Soho DataGrid Unit Tests', () => {
   template: `<div soho-datagrid [columns]="columns" [dataset]="data" selectable="multiple" filterable="true"></div>`
 })
 class SohoDataGridTestComponent {
-  @ViewChild(SohoDataGridComponent) datagrid: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, /* TODO: add static flag */ {}) datagrid: SohoDataGridComponent;
   _columns: SohoDataGridColumn[];
   _data: Object[];
   public get columns(): SohoDataGridColumn[] {

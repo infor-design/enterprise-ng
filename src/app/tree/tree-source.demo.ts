@@ -15,7 +15,7 @@ import { TreeDemoData } from './tree-data.demo';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeSourceDemoComponent implements AfterViewInit {
-  @ViewChild(SohoTreeComponent) tree: SohoTreeComponent;
+  @ViewChild(SohoTreeComponent, { static: true }) tree: SohoTreeComponent;
 
   public enabled = true;
 

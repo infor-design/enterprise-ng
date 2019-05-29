@@ -35,7 +35,7 @@ import { fakeAsync, tick } from '@angular/core/testing';
 class SohoRadioButtonReactiveFormTestComponent {
   public radioButtonValue = '1';
 
-  @ViewChild(SohoRadioButtonComponent) dropdown: SohoRadioButtonComponent;
+  @ViewChild(SohoRadioButtonComponent, /* TODO: add static flag */ {}) dropdown: SohoRadioButtonComponent;
 
   public formGroup: FormGroup;
 

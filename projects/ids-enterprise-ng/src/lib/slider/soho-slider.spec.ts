@@ -44,7 +44,7 @@ import { SohoSliderComponent } from './soho-slider.component';
 })
 
 class SohoSliderTestComponent {
-  @ViewChild(SohoSliderComponent) slider: SohoSliderComponent;
+  @ViewChild(SohoSliderComponent, /* TODO: add static flag */ {}) slider: SohoSliderComponent;
 }
 
 describe ('Soho Slider Render', () => {

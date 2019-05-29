@@ -208,7 +208,7 @@ describe('Soho Radar Unit Tests', () => {
   template: `<div soho-radar [dataset]="data"></div>`
 })
 class SohoRadarTestComponent {
-  @ViewChild(SohoRadarComponent) radar: SohoRadarComponent;
+  @ViewChild(SohoRadarComponent, /* TODO: add static flag */ {}) radar: SohoRadarComponent;
   public data = radarData;
 }
 

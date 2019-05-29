@@ -14,7 +14,7 @@ import {SohoMonthViewComponent} from 'ids-enterprise-ng';
 })
 export class MonthViewDemoComponent implements OnInit {
 
-  @ViewChild('SohoMonthViewComponent') sohoMonthView: SohoMonthViewComponent;
+  @ViewChild('SohoMonthViewComponent', { static: false }) sohoMonthView: SohoMonthViewComponent;
 
   public eventTypes: [];
   public events: [];

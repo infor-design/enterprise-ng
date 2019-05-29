@@ -36,7 +36,7 @@ describe('Soho Rating Unit Tests', () => {
   template: `<div soho-rating>`
 })
 class SohoRatingTestComponent {
-  @ViewChild(SohoRatingComponent) rating: SohoRatingComponent;
+  @ViewChild(SohoRatingComponent, /* TODO: add static flag */ {}) rating: SohoRatingComponent;
 }
 
 describe('Soho Rating Chart Render', () => {

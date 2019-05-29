@@ -134,7 +134,7 @@ describe('Soho blockgrid Unit Tests', () => {
 })
 class SohoBlockGridTestComponent {
   public data = blockGridTestData;
-  @ViewChild(SohoBlockGridComponent) blockgrid: SohoBlockGridComponent;
+  @ViewChild(SohoBlockGridComponent, /* TODO: add static flag */ {}) blockgrid: SohoBlockGridComponent;
 }
 describe('Soho blockgrid Render', () => {
   let blockgrid:  SohoBlockGridComponent;

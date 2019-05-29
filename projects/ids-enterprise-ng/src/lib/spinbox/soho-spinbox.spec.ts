@@ -15,7 +15,7 @@ import { SohoSpinboxComponent } from './soho-spinbox.component';
 })
 
 class SohoSpinboxTestComponent {
-  @ViewChild(SohoSpinboxComponent) spinbox: SohoSpinboxComponent;
+  @ViewChild(SohoSpinboxComponent, /* TODO: add static flag */ {}) spinbox: SohoSpinboxComponent;
 }
 
 describe ('Soho Spinbox Unit tests', () => {

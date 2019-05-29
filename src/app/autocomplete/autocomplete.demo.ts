@@ -27,7 +27,7 @@ export class AutocompleteDemoComponent implements AfterViewInit {
     'Wyoming'
   ];
 
-  @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
+  @ViewChild(SohoAutoCompleteComponent, { static: true }) autocomplete: SohoAutoCompleteComponent;
 
   private options: SohoAutoCompleteOptions;
 

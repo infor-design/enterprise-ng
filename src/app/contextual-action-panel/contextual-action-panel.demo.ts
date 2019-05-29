@@ -25,7 +25,7 @@ export class ContextualActionPanelDemoComponent {
    *
    * This can be the ViewContainerRef of this component, or another component.
    */
-  @ViewChild('panelPlaceholder', { read: ViewContainerRef })
+  @ViewChild('panelPlaceholder', { read: ViewContainerRef, static: true })
   placeholder: ViewContainerRef;
 
   /**

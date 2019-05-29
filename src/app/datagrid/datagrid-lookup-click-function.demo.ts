@@ -9,8 +9,8 @@ import { DataGridLookupSelectionEvent } from './datagrid-lookup-event.demo';
   templateUrl: './datagrid-lookup-click-function.demo.html',
 })
 export class DataGridLookupClickDemoComponent implements OnInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
-  @ViewChild('modalPlaceholder', { read: ViewContainerRef }) modalPlaceholder: ViewContainerRef;
+  @ViewChild(SohoDataGridComponent, { static: false }) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild('modalPlaceholder', { read: ViewContainerRef, static: true }) modalPlaceholder: ViewContainerRef;
 
   gridOptions = undefined;
 
