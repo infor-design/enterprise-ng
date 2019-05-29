@@ -18,7 +18,7 @@ interface DropDownColor extends SohoPersonalizationColor {
 })
 export class PersonalizeColorApiDemoComponent implements OnInit {
 
-  @ViewChild(SohoPersonalizeDirective) personalize: SohoPersonalizeDirective;
+  @ViewChild(SohoPersonalizeDirective, {static: false}) personalize: SohoPersonalizeDirective;
 
   themes: SohoTheme[];
   colors: SohoPersonalizationColors;

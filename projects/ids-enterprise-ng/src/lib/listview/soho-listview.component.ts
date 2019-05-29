@@ -334,7 +334,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
 
   // Used to locate the listViewReference in the HTML to init the component through jQuery
   @ViewChild('listview', { static: true }) listViewRef: ElementRef;
-  @ContentChild(forwardRef(() => SohoSearchFieldComponent), /* TODO: add static flag */ {}) // tslint:disable-line
+  @ContentChild(forwardRef(() => SohoSearchFieldComponent),  {static: false}) // tslint:disable-line
  // tslint:disable-line
   public searchfieldRef: SohoSearchFieldComponent = null;
 

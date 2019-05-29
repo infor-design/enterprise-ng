@@ -90,7 +90,7 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   @Input() toggle: Observable<boolean>;
 
   // Get the header DOM element
-  @ContentChild(forwardRef(() => ExpandableHeaderComponent), /* TODO: add static flag */ {}) // tslint:disable-line
+  @ContentChild(forwardRef(() => ExpandableHeaderComponent), { static: false}) // tslint:disable-line
  // tslint:disable-line
   public header: ExpandableHeaderComponent = null;
 
@@ -102,7 +102,7 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   // private _pane: ExpandablePaneComponent = null;
 
   // Get the pane DOM element
-  @ContentChild(forwardRef(() => ExpandableFooterComponent), /* TODO: add static flag */ {}) // tslint:disable-line
+  @ContentChild(forwardRef(() => ExpandableFooterComponent), { static: false}) // tslint:disable-line
  // tslint:disable-line
   public footer: ExpandablePaneComponent = null;
 
