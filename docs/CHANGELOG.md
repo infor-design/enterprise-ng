@@ -1,5 +1,18 @@
 # What's New with Enterprise-NG
 
+## v6.0.0
+
+### 6.0.0 Features
+
+- `[General]` Upgraded @angular/cli (to 8.0.x) and @angular/core (to 8.0.x).  `BTHH` ([Pull Request XXX](https://github.com/infor-design/enterprise-ng/pull/XXX))
+    - support for Node 10
+    - support for TypeScript 3.4.x
+    - `UPGRADING.md` has been updated with details on upgrading your application to angular 8.
+
+### 6.0.0 Fixes
+
+### 6.0.0 Chore & Maintenance
+
 ## v5.4.0
 
 ### 5.4.0 Features
