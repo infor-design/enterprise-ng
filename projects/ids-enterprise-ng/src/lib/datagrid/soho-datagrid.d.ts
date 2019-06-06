@@ -793,7 +793,7 @@ interface SohoDataGridColumn {
   hideable?: boolean;
 
   /** call back to handle custom tooltips for the column header */
-  tooltip?: (cell: number, value: any) => string;
+  tooltip?: (row: number, cell: number, value: any, col: SohoDataGridColumn, rowData: Object, api: SohoDataGridStatic) => string;
 }
 
 interface SohoDataGridColumnNumberFormat {
