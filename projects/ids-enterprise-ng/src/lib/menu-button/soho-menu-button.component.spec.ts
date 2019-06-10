@@ -401,8 +401,9 @@ describe('Soho Menu Button Render', () => {
     expect(el.nodeName).toEqual('A');
   });
 
+  // todo seems to fail intermittently on the last expect statement: expect(icon).toBeNull() - Phillip 6/4/19
+  // todo: this needs to be fixed in button.js so that updated() will tear down and reinit the component.
   xit('Check Item HTML content', fakeAsync(() => {
-    // todo: this needs to be fixed in button.js so that updated() will tear down and reinit the component.
     fixture.detectChanges();
 
     let icon = de.query(By.css('svg.icon-dropdown.icon'));
