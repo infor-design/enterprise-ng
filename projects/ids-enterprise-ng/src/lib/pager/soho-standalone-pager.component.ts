@@ -94,8 +94,8 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
     this.updateRequired = !!this.pager;
   }
 
-  @Input() set attachToBody(attachToBody: boolean) {
-    this.options.attachToBody = attachToBody;
+  @Input() set attachPageSizeMenuToBody(attachPageSizeMenuToBody: boolean) {
+    this.options.attachPageSizeMenuToBody = attachPageSizeMenuToBody;
     this.updateRequired = !!this.pager;
   }
 
