@@ -21,6 +21,9 @@
       <div *ngIf="showMultipleEditors">
         <div soho-editor id="editor2" role="textbox" aria-multiline="true" aria-label="Comments"></div>
         <div soho-editor id="editor3" role="textbox" aria-multiline="true" aria-label="Comments"></div>
+        <div soho-editor id="editor3" role="textbox" aria-multiline="true" aria-label="Comments"
+          (change)="onChange($event)"
+          (updated)="onUpdated($event)"></div>
       <!-- For More of a stress test
         <div soho-editor id="editor4" role="textbox" aria-multiline="true" aria-label="Comments"></div>
         <div soho-editor id="editor5" role="textbox" aria-multiline="true" aria-label="Comments"></div>
