@@ -64,6 +64,12 @@ interface SohoStandalonePagerOptions {
 
   /** next button tooltip */
   nextPageTooltip?: string;
+
+  /**
+   * whether to attach the popup menu to the body or not.
+   * This helps with safari iOS in many cases.
+   */
+  attachPageSizeMenuToBody?: boolean;
 }
 
 /**
