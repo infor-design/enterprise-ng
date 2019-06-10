@@ -255,6 +255,16 @@ describe('Soho Menu Button Unit Tests', () => {
     expect(spy).toHaveBeenCalledTimes(0);
   });
 
+  it('check attachToBody option', () => {
+    const spy = spyOn((comp as any).ref, 'markForCheck');
+
+    comp.attachToBody = true;
+
+    expect((comp as any).options.attachToBody).toEqual(true);
+    expect((comp as any).menuButton.settings.attachToBody).toEqual(true);
+    expect(spy).toHaveBeenCalled();
+  });
+
   it('check ajaxBeforeOpenFunction sets options', () => {
     const spy = spyOn((comp as any).ref, 'markForCheck');
 
