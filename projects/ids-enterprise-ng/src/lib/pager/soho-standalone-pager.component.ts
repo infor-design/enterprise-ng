@@ -94,6 +94,11 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
     this.updateRequired = !!this.pager;
   }
 
+  @Input() set attachToBody(attachToBody: boolean) {
+    this.options.attachToBody = attachToBody;
+    this.updateRequired = !!this.pager;
+  }
+
   @Output() firstPage: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() lastPage: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() previousPage: EventEmitter<Object> = new EventEmitter<Object>();
