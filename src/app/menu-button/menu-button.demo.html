@@ -35,6 +35,7 @@
       <li soho-popupmenu-item><a soho-popupmenu-label>Pie Chart</a></li>
       <li soho-popupmenu-item><a soho-popupmenu-label>Line Chart</a></li>
       <li soho-popupmenu-item><a soho-popupmenu-label>Bubble Chart</a></li>
+      <li soho-popupmenu-item *ngIf="showLastOption"><a soho-popupmenu-label (click)="showLastOption = !showLastOption">Click this to remove myself</a></li>
     </ul>
 
     <button soho-menu-button icon="line-chart" pie-chart="" title="Charts" menu="charts-menu2"

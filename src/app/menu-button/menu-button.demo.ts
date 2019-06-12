@@ -9,6 +9,7 @@ export class MenuButtonDemoComponent implements OnInit, AfterViewInit {
   @ViewChild('ajax', { static: true })ajaxMenuButton: SohoMenuButtonComponent;
   public menuButtons: Array<any>;
 
+  public showLastOption: boolean;
   public toggle: boolean;
 
   private SUBMENU_RESPONSE_HTML = `
@@ -70,6 +71,7 @@ export class MenuButtonDemoComponent implements OnInit, AfterViewInit {
    }
 
   ngOnInit() {
+    this.showLastOption = true;
     this.menuButtons = [
       {
         label: 'Add',

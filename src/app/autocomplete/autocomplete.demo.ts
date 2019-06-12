@@ -26,8 +26,12 @@ export class AutocompleteDemoComponent implements AfterViewInit {
     'Washington',
     'Wyoming'
   ];
-
-  @ViewChild(SohoAutoCompleteComponent, { static: true }) autocomplete: SohoAutoCompleteComponent;
+  public xssSource: SohoAutoCompleteSource = [
+    'Hello',
+    'World',
+    '<script>alert(1)</script>xss'
+  ];
+  @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
 
   private options: SohoAutoCompleteOptions;
 
