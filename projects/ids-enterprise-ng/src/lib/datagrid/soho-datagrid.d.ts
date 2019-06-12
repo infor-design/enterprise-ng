@@ -80,7 +80,7 @@ interface SohoDataGridOptions {
   /** Is the grid editable? */
   editable?: boolean;
 
-  /** Is the row disabled */
+  /** Allows you to provide a function so you can set some rows to disabled based on the data and/or the row index. */
   isRowDisabled?: SohoIsRowDisabledFunction;
 
   /** Makes a readonly "list". */

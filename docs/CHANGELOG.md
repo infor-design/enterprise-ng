@@ -4,7 +4,7 @@
 
 ### 5.5.0 Features
 
-- `[DataGrid]` Added `isDisabledRow` support to DataGrid. ([#472](https://github.com/infor-design/enterprise/issues/472))
+- `[DataGrid]` Added `isRowDisabled` support to DataGrid. ([#472](https://github.com/infor-design/enterprise/issues/472))
 
 ### 5.5.0 Fixes
 
