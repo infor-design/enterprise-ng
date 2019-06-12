@@ -150,6 +150,7 @@ import { MonthViewDemoComponent } from './monthview/monthview.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PersonalizeMenuComponent } from './personalize-menu/personalize-menu.component';
+import { PersonalizeColorApiDemoComponent } from './personalize/personalize-color-api.demo';
 import { PieDemoComponent } from './pie/pie.demo';
 import { PopDownDemoComponent } from './popdown/popdown.demo';
 import { PopupMenuDemoComponent } from './popupmenu/popupmenu.demo';
@@ -191,6 +192,7 @@ import { ToolbarAllIconsDemoComponent } from './toolbar/toolbar-all-icons.demo';
 import { ToolbarBasicDemoComponent } from './toolbar/toolbar-basic.demo';
 import { ToolbarDataDrivenDemoComponent } from './toolbar/toolbar-datadriven.demo';
 import { ToolbarFlexBasicDemoComponent } from './toolbar-flex/toolbar-flex-basic.demo';
+import { ToolbarFlexDatagridDemoComponent } from './toolbar-flex/toolbar-flex-datagrid.demo';
 import { ToolbarFlexMoreActionsAjaxDemoComponent } from './toolbar-flex/toolbar-flex-more-actions-ajax.demo';
 import { ToolbarFlexSearchfieldDemoComponent } from './toolbar-flex/toolbar-flex-searchfield.demo';
 import { ToolbarMoreActionsAjaxDemoComponent } from './toolbar/toolbar-more-actions-ajax.demo';
@@ -340,6 +342,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     MonthViewDemoComponent,
     NotificationDemoComponent,
     PagerStandaloneDemoComponent,
+    PersonalizeColorApiDemoComponent,
     PersonalizeMenuComponent,
     PieDemoComponent,
     PopDownDemoComponent,
@@ -382,6 +385,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     ToolbarBasicDemoComponent,
     ToolbarDataDrivenDemoComponent,
     ToolbarFlexBasicDemoComponent,
+    ToolbarFlexDatagridDemoComponent,
     ToolbarFlexMoreActionsAjaxDemoComponent,
     ToolbarFlexSearchfieldDemoComponent,
     ToolbarMoreActionsAjaxDemoComponent,

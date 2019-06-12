@@ -1,4 +1,4 @@
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule, APP_INITIALIZER, LOCALE_ID } from '@angular/core';
 import { CommonModule, PlatformLocation, APP_BASE_HREF } from '@angular/common';
 import {
   LocaleInitializerFactory,
@@ -24,6 +24,10 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
   imports: [CommonModule],
   declarations: [],
   providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'en-US'
+    },
     {
       provide: APP_INITIALIZER,
       useFactory: LocaleInitializerFactory,

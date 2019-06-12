@@ -108,6 +108,12 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     }
   }
 
+  /**
+   * Used to set an extra class on the soho-icon being used by soho-button.
+   * Useful to set emerald06-color azure10-color to change the icon color.
+   */
+  @Input() extraIconClass: string;
+
   get hideMenuArrow() {
     return this._buttonOptions.hideMenuArrow;
   }

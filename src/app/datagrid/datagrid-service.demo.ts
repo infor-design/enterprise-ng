@@ -28,7 +28,12 @@ export class DataGridServiceDemoComponent {
   }
 
   onSelected(e: SohoDataGridSelectedEvent) {
-    this.toastService.show({title: 'Selected', message: `${e.rows[0].data.productId}`});
+    if (e.rows && e.rows.length) {
+      this.toastService.show({
+        title: 'Selected',
+        message: e.rows.map(row => row.data ? row.data.productId : false).join(', ')
+      });
+    }
   }
 
   onOpenFilterRow(e: SohoDataGridOpenFilterRowEvent) {
@@ -37,6 +42,10 @@ export class DataGridServiceDemoComponent {
 
   onCloseFilterRow(e: SohoDataGridCloseFilterRowEvent) {
     this.toastService.show({title: 'Filterbar', message: 'filter row closed'});
+  }
+
+  public onBeforeSelect = (eventData: SohoDataGridBeforeSelectEventData) => {
+   console.log(eventData, Soho.keyboard.pressedKeys);
   }
 
   busy() {

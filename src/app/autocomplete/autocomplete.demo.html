@@ -22,5 +22,10 @@
       <label for="autocomplete-selected-event">States</label>
       <input id="autocomplete-selected-event" soho-autocomplete [source]="statesUrl" filterMode="contains" (selected)="onSelected($event)" type="text">
     </div>
+    <h2>Xss Autocomplete</h2>
+    <div class="field">
+      <label soho-label>Model: {{selected}}</label>
+      <input soho-autocomplete [source]="xssSource" filterMode="contains" [(ngModel)]="selected" placeholder="Search for <script">
+    </div>
   </div>
 </div>

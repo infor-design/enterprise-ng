@@ -258,6 +258,12 @@ interface SohoDataGridOptions {
   selectChildren?: boolean;
 
   /**
+   * Callback before selecting a row that can be vetoed.
+   * If false is returned (async) then the nodes will not be selected.
+   */
+  onBeforeSelect?: SohoDataGridBeforeSelectFunction;
+
+  /**
    *  Makes it possible to save selections when changing pages on server side paging.
    *  You may want to also use showSelectAllCheckBox: false
    */
@@ -273,6 +279,28 @@ interface SohoDataGridOptions {
    * or if one or more child node got match then add parent node and only matching children nodes
    */
   allowChildExpandOnMatch?: boolean;
+}
+
+type SohoDataGridModifiedRows = { [index: number]: SohoDataGridModifiedRow };
+
+/**
+ * returned by getModifiedRows
+ */
+interface SohoDataGridModifiedRow {
+  data: any;
+  row: number;
+  type: 'dirty' | 'in-progress' | 'error';
+  cells: SohoDataGridDirtyCell[];
+}
+
+
+interface SohoDataGridDirtyCell {
+  value: any;
+  coercedVal: any;
+  escapedCoercedVal: any;
+  cellNodeText: string;
+  cell: number;
+  column: SohoDataGridColumn;
 }
 
 /**
@@ -343,6 +371,14 @@ interface SohoDataGridExpandRowFunction  {
   eventData: SohoDataGridExpandRowEventData;
   response: SohoDataGridExpandRowResponseFunction;
 }
+
+interface SohoDataGridBeforeSelectFunction  {
+  eventData: SohoDataGridBeforeSelectEventData;
+}
+
+type SohoDataGridBeforeSelectEventData = (
+  node: JQuery, idx: number
+) => void;
 
 /**
  * Type definition of the post render cell callback.
@@ -574,6 +610,7 @@ type SohoDataGridColumnContentVisibleFunction = (
   columnDef: SohoDataGridColumn,
   item: any
 ) => boolean;
+
 /**
  * This is an interface mapping for the grid column defined
  * within the Soho jQuery Control.
@@ -587,7 +624,6 @@ interface SohoDataGridColumn {
 
   /** Field in the row to display. */
   field?: string;
-
 
   /** Is this column visible? */
   hidden?: boolean;
@@ -755,6 +791,9 @@ interface SohoDataGridColumn {
 
   /** If false the column will be disabled in personalization dialog */
   hideable?: boolean;
+
+  /** call back to handle custom tooltips for the column header */
+  tooltip?: (cell: number, value: any) => string;
 }
 
 interface SohoDataGridColumnNumberFormat {
@@ -991,6 +1030,21 @@ interface SohoDataGridStatic {
    * @param tooltip - string value for tooltip message e.g. 'Error'
    */
   rowStatus(idx: number, status: string, tooltip: string): void;
+
+  /**
+   * Return an array containing all of the currently modified rows, the type of modification
+   * and the cells that are dirty and the data.
+   * @returns An array showing the dirty row info.
+   */
+  getModifiedRows(): SohoDataGridModifiedRows;
+
+  /**
+   * Set a cell to dirty and add the dirty icon visually.
+   * @param row The row index
+   * @param cell The cell index
+   * @param toggle True to set it and false to remove it
+   */
+  setDirtyIndicator(row: number, cell: number, toggle: boolean): void;
 
   /**
    * Returns the row dom jQuery node.

@@ -3,7 +3,6 @@
 import {
   AfterViewInit,
   Directive,
-  ElementRef,
   EventEmitter,
   Input,
   Output,
@@ -22,16 +21,10 @@ import {
 })
 export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
 
-  /** EP api */
-  private personalize: SohoPersonalizeStatic;
-
-  /** jQuery Widget */
-  private jQueryElement: JQuery<HTMLElement>;
-
   /** Options. */
   @Input() public options: SohoPersonalizeOptions = {};
 
-  /** The starting colour. */
+  /** The starting color. */
   @Input() set colors(colors: string | SohoPersonalizeColors) {
     this.options.colors = colors;
     if (this.personalize) {
@@ -55,6 +48,12 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
 
   @Output() changecolors = new EventEmitter<SohoChangeColorsPersonalizeEvent>();
 
+  /** EP api */
+  private personalize: SohoPersonalizeStatic;
+
+  /** jQuery Widget */
+  private jQueryElement: JQuery<HTMLElement>;
+
   /**
    * Constructor.
    */
@@ -72,28 +71,51 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
     this.ngZone.runOutsideAngular(() => {
       // assign element to local variable - not this must attach to a root
       // element in this case 'body'
-      this.jQueryElement = jQuery('body');
+      this.jQueryElement = jQuery('html');
 
       // Check the element has attached to the body.
       if (this.jQueryElement.length === 0) {
-        throw Error('No body found');
+        throw Error('No html tag found');
       }
 
-      // initialise the control
-      const api = this.jQueryElement.personalize(this.options);
+      this.jQueryElement
+        .on('themechanged',
+          (ev: JQuery.TriggeredEvent, theme: string) => { this.onChangeTheme(ev, theme); })
+        .on('colorschanged',
+          (ev: JQuery.TriggeredEvent, colors: any) => { this.onChangeColors(ev, colors); });
+
       /**
        * Bind to jQueryElement's events
        */
-      this.jQueryElement
-        .on('changetheme.personalize',
-          (ev: JQuery.TriggeredEvent, theme: string) => { this.onChangeTheme(ev, theme); })
-        .on('changecolors.personalize',
-          (ev: JQuery.TriggeredEvent, colors: any) => { this.onChangeColors(ev, colors); });
+      // initialise the control
+      const api = this.jQueryElement.personalize(this.options);
 
       // extract the api
       this.personalize = this.jQueryElement.data('personalize');
     });
+  }
 
+  /**
+   * The theme currently set
+   */
+  public get currentTheme(): SohoTheme {
+    return Soho.theme.currentTheme;
+  }
+
+  /**
+   * Return a list of all the available themes.
+   * @returns The list of themes.
+   */
+  public themes(): SohoTheme[] {
+    return Soho.theme.themes();
+  }
+
+  /**
+   * Return the colors used in the current theme that are recommended for personalization.
+   * @returns An object full of the colors with id, name, and hex value.
+   */
+  public personalizationColors(): SohoPersonalizationColors {
+    return Soho.theme.personalizationColors();
   }
 
   onChangeTheme(e: JQuery.TriggeredEvent, theme: string) {
