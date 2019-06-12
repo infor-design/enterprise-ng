@@ -24,7 +24,6 @@ import {
 
 import { ArgumentHelper } from '../utils/argument.helper';
 import { SohoDataGridService } from './soho-datagrid.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 export type SohoDataGridType = 'auto' | 'content-only';
 
