@@ -1,5 +1,15 @@
 # What's New with Enterprise-NG
 
+## v5.5.0
+
+### 5.5.0 Features
+
+### 5.5.0 Fixes
+
+- `[Field Options]` Fixed an issue where example page was showing js error. ([#2348](https://github.com/infor-design/enterprise/issues/2348))
+
+### 5.5.0 Chore & Maintenance
+
 ## v5.4.0
 
 ### 5.4.0 Features
