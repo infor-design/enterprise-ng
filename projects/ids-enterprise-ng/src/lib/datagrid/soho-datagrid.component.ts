@@ -24,6 +24,7 @@ import {
 
 import { ArgumentHelper } from '../utils/argument.helper';
 import { SohoDataGridService } from './soho-datagrid.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 export type SohoDataGridType = 'auto' | 'content-only';
 
@@ -434,6 +435,25 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // initialisation, so return the current value from the
     // options.
     return this._gridOptions.editable;
+  }
+
+  @Input() set isRowDisabled(isRowDisabled: SohoIsRowDisabledFunction) {
+    this._gridOptions.isRowDisabled = isRowDisabled;
+    if (this.datagrid) {
+      this.datagrid.settings.isRowDisabled = isRowDisabled;
+      this.markForRefresh('isRowDisabled', RefreshHintFlags.RenderRows);
+    }
+  }
+
+  get isRowDisabled(): SohoIsRowDisabledFunction {
+    if (this.datagrid) {
+      return this.datagrid.settings.isRowDisabled;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.isRowDisabled;
   }
 
   @Input() set isList(isList: boolean) {

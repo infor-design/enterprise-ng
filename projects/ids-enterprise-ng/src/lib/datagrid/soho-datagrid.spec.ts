@@ -230,7 +230,7 @@ describe('Soho DataGrid Unit Tests', () => {
       right: ['orderDate']
     };
 
-    // change some values and verify vlaue getters
+    // change some values and verify value getters
     comp.data = DATA;
     comp.columns = COLUMNS;
     comp.frozenColumns = frozenColumns;
@@ -241,6 +241,7 @@ describe('Soho DataGrid Unit Tests', () => {
     comp.alternateRowShading = true;
     comp.columnReorder = true;
     comp.editable = true;
+    comp.isRowDisabled = (i) => i % 2 === 0;
     comp.isList = true;
     comp.menuId = 'id2';
     comp.rowHeight = 'medium';
@@ -272,6 +273,7 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(comp.alternateRowShading).toEqual(true);
     expect(comp.columnReorder).toEqual(true);
     expect(comp.editable).toEqual(true);
+    expect(comp.isRowDisabled).toBeDefined();
     expect(comp.isList).toEqual(true);
     expect(comp.selectable).toEqual(true);
     expect(comp.clickToSelect).toEqual(true);

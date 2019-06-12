@@ -80,6 +80,9 @@ interface SohoDataGridOptions {
   /** Is the grid editable? */
   editable?: boolean;
 
+  /** Is the row disabled */
+  isRowDisabled?: SohoIsRowDisabledFunction;
+
   /** Makes a readonly "list". */
   isList?: boolean;
 
@@ -400,6 +403,11 @@ type SohoDataGridResponseFunction = (
   results: Object[],
   request: SohoDataGridSourceRequest
 ) => void;
+
+type SohoIsRowDisabledFunction = (
+  actualIndex: number,
+  rowData: any
+) => boolean;
 
 type SohoDataGridResultsTextFunction = (
   source: any,
