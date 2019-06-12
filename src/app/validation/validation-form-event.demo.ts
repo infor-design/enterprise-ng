@@ -63,7 +63,7 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
   }
 
   onError(event: SohoInputValidateEvent) {
-    this.form.controls[ event.validation.field.getAttribute('formControlName') ].setErrors({ 'inError': true });
+    this.form.controls[ event.validation.field.getAttribute('formControlName') ].setErrors({ inError: true });
   }
 
   onValid(event: SohoInputValidateEvent) {
@@ -79,7 +79,7 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
 
       this.model[ item ] = {
         value:    this.dataView[ item ].value,
-        required: required
+        required
       };
 
       group[ item ] = new FormControl('');
@@ -156,8 +156,8 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
     let msg = 'Event: {';
     if (this.events[key] !== undefined) {
       const event = this.events[key];
-      msg += 'type:' + event['type'] + ', ';
-      msg += 'time:' + event['timeStamp'];
+      msg += 'type:' + event.type + ', ';
+      msg += 'time:' + event.timeStamp;
     }
     msg += '}';
     return msg;
