@@ -436,6 +436,28 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.editable;
   }
 
+  /**
+   * Input that defines a function which is used to determine if a row is disabled, or not.
+   */
+  @Input() set isRowDisabled(isRowDisabled: SohoIsRowDisabledFunction) {
+    this._gridOptions.isRowDisabled = isRowDisabled;
+    if (this.datagrid) {
+      this.datagrid.settings.isRowDisabled = isRowDisabled;
+      this.markForRefresh('isRowDisabled', RefreshHintFlags.RenderRows);
+    }
+  }
+
+  get isRowDisabled(): SohoIsRowDisabledFunction {
+    if (this.datagrid) {
+      return this.datagrid.settings.isRowDisabled;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.isRowDisabled;
+  }
+
   @Input() set isList(isList: boolean) {
     this._gridOptions.isList = isList;
     if (this.jQueryElement) {

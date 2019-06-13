@@ -39,6 +39,16 @@
         <input type="checkbox" class="checkbox" id="columnReorder" [(ngModel)]="datagrid.columnReorder">
         <label for="columnReorder" class="checkbox-label">Allow Column Reordering</label>
       </div>
+
+    <div class="field">
+      <input type="checkbox" class="checkbox" id="isList" [(ngModel)]="datagrid.isList">
+      <label for="isList" class="checkbox-label">Is List</label>
+  </div>
+
+  <div class="field">
+      <input type="checkbox" class="checkbox" id="paging" [(ngModel)]="datagrid.paging">
+      <label for="paging" class="checkbox-label">Paging</label>
+  </div>
     </div>
 
     <div class="three columns">
@@ -54,30 +64,17 @@
         <input type="checkbox" class="checkbox" id="rowReorder" [(ngModel)]="datagrid.rowReorder">
         <label for="rowReorder" class="checkbox-label">Allow Row Reordering</label>
       </div>
+      <div class="field">
+        <input type="checkbox" class="checkbox" id="isRowDisabled" [(ngModel)]="isRowDisabled">
+        <label for="isRowDisabled" class="checkbox-label">Disabled Rows</label>
+      </div>
+
+    <div class="field">
+        <input type="checkbox" class="checkbox" id="editable" [(ngModel)]="datagrid.editable">
+        <label for="editable" class="checkbox-label">Editable</label>
     </div>
 
-    <!--
-            <div class="field">
-                <input type="checkbox" class="checkbox" id="editable" [(ngModel)]="datagrid.editable">
-                <label for="editable" class="checkbox-label">Editable</label>
-            </div>
-
-            <div class="field">
-                <input type="checkbox" class="checkbox" id="isList" [(ngModel)]="datagrid.isList">
-                <label for="isList" class="checkbox-label">Is List</label>
-            </div>
-
-
-            <div class="field">
-                <input type="checkbox" class="checkbox" id="paging" [(ngModel)]="datagrid.paging">
-                <label for="paging" class="checkbox-label">Paging</label>
-            </div>
-
-            <div class="field">
-                <input type="checkbox" class="checkbox" id="actionMode" [(ngModel)]="datagrid.actionMode">
-                <label for="actionMode" class="checkbox-label">Action Mode</label>
-            </div>
-    -->
+    </div>
   </div>
 </div>
 
