@@ -12,6 +12,12 @@
             <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
           </select>
         </div>
+        <div class="field">
+          <label for="states" class="label">States (NgModel)</label>
+          <select soho-dropdown name="states" (update)="onUpdated($event)" (change)="onChange($event)" [(ngModel)]="model.selectedOption">
+            <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
+          </select>
+        </div>
       </div>
     </div>
   </form>

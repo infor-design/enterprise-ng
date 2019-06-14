@@ -102,7 +102,7 @@ describe('SohoEditorComponent on Reactive Form', () => {
     component.formGroup.controls['editor'].setValue('Hello World!');
     fixture.detectChanges();
 
-    expect($(el).val()).toEqual('Hello World!');
+    expect($(el).html()).toEqual('Hello World!');
   });
 
   xit('Check readonly.', () => {
