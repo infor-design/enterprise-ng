@@ -475,6 +475,12 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
         event.data = val;
         this.change.emit(event);
       });
+    } else {
+      // Always fire the event handler.
+      this.ngZone.run(() => {
+        event.data = val;
+        this.change.emit(event);
+      });
     }
   }
 
