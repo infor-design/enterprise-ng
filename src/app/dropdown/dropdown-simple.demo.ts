@@ -13,7 +13,7 @@ import { MOCK_STATES } from './dropdown-mock.data';
   templateUrl: './dropdown-simple.demo.html',
 })
 export class DropdownSimpleDemoComponent implements AfterViewInit {
-   @ViewChild(SohoDropDownComponent) dropDownComponent: SohoDropDownComponent;
+  @ViewChild(SohoDropDownComponent, { static: true }) dropDownComponent: SohoDropDownComponent;
 
   /** Defautl selected item.  */
   model = { selectedOption: 'ND' };
@@ -38,4 +38,13 @@ export class DropdownSimpleDemoComponent implements AfterViewInit {
       this.options = MOCK_STATES;
     });
   }
+
+  onUpdated(event: any) {
+    alert(event);
+  }
+
+  onChange(event: any) {
+    alert(event);
+  }
+
 }
