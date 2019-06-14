@@ -80,6 +80,9 @@ interface SohoDataGridOptions {
   /** Is the grid editable? */
   editable?: boolean;
 
+  /** Allows you to provide a function so you can set some rows to disabled based on the data and/or the row index. */
+  isRowDisabled?: SohoIsRowDisabledFunction;
+
   /** Makes a readonly "list". */
   isList?: boolean;
 
@@ -400,6 +403,11 @@ type SohoDataGridResponseFunction = (
   results: Object[],
   request: SohoDataGridSourceRequest
 ) => void;
+
+type SohoIsRowDisabledFunction = (
+  actualIndex: number,
+  rowData: any
+) => boolean;
 
 type SohoDataGridResultsTextFunction = (
   source: any,
@@ -793,7 +801,7 @@ interface SohoDataGridColumn {
   hideable?: boolean;
 
   /** call back to handle custom tooltips for the column header */
-  tooltip?: (cell: number, value: any) => string;
+  tooltip?: (row: number, cell: number, value: any, col: SohoDataGridColumn, rowData: Object, api: SohoDataGridStatic) => string;
 }
 
 interface SohoDataGridColumnNumberFormat {

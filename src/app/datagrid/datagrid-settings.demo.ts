@@ -34,6 +34,20 @@ export class DataGridSettingsDemoComponent {
     });
   }
 
+  set isRowDisabled(disabled: boolean) {
+    if (disabled) {
+      this.datagrid.isRowDisabled = () => {
+        return disabled;
+      };
+    } else {
+      this.datagrid.isRowDisabled = null;
+    }
+  }
+
+  get isRowDisabled(): boolean {
+    return !!this.datagrid.isRowDisabled;
+  }
+
   /**
    * Make several changes to the component in one go.
    */
@@ -41,5 +55,8 @@ export class DataGridSettingsDemoComponent {
     this.datagrid.isList = !this.datagrid.isList;
     this.datagrid.alternateRowShading = !this.datagrid.alternateRowShading;
     this.datagrid.cellNavigation = !this.datagrid.cellNavigation;
+    this.datagrid.isRowDisabled = (rowIndex, rowData) => {
+      return rowIndex % 2 === 0;
+    };
   }
 }

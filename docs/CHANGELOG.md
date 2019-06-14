@@ -12,6 +12,17 @@
 ### 6.0.0 Fixes
 
 ### 6.0.0 Chore & Maintenance
+## v5.5.0
+
+### 5.5.0 Features
+
+- `[DataGrid]` Added `isRowDisabled` support to DataGrid. ([#472](https://github.com/infor-design/enterprise/issues/472))
+
+### 5.5.0 Fixes
+
+- `[Field Options]` Fixed an issue where example page was showing js error. ([#2348](https://github.com/infor-design/enterprise/issues/2348))
+
+### 5.5.0 Chore & Maintenance
 
 ## v5.4.0
 
