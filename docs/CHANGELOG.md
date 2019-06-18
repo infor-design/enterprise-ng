@@ -4,11 +4,14 @@
 
 ### 5.5.0 Features
 
-- `[DataGrid]` Added `isRowDisabled` support to DataGrid. ([#472](https://github.com/infor-design/enterprise/issues/472))
+- `[DataGrid]` - Added `isRowDisabled` support to DataGrid. `BTHH` ([#472](https://github.com/infor-design/enterprise/issues/472))
 
 ### 5.5.0 Fixes
 
-- `[Field Options]` Fixed an issue where example page was showing js error. ([#2348](https://github.com/infor-design/enterprise/issues/2348))
+- `[Field Options]` - Fixed an issue where example page was showing js error. ([#2348](https://github.com/infor-design/enterprise/issues/2348))
+- `[DropDown]` - Ensured events are fired even when the component is not used with ngModel. `BTHH` ([#516](https://github.com/infor-design/enterprise/issues/516))
+- `[Editor]` - Changed `soho-editor` to use `html()` rather than `.val()`, fixing change event. `BTHH` ([#516](https://github.com/infor-design/enterprise-ng/issues/516))
+- `[DataGrid]` - Added `center` option for `align` on `SohoDataGridColumnGroup`. `BTHH` ([#520](https://github.com/infor-design/enterprise-ng/issues/520))
 
 ### 5.5.0 Chore & Maintenance
 
@@ -41,8 +44,8 @@
 - `[AppMenu]` - Added new events for accordion expansion that will include the element so it can be lazily loaded. `PWP` ([#434](https://github.com/infor-design/enterprise-ng/issues/434))
 - `[AppMenu]` - Added new settings for application menu switcher expand/collapse. `VW` ([#443](https://github.com/infor-design/enterprise-ng/issues/443))
 - `[DataGrid]` - Added 'resetColumns' and 'personalizeColumns' to the datagrid component. `BTHH` ([#413](https://github.com/infor-design/enterprise-ng/issues/413))
-- `[DataGrid]` - Added 'entereditmode', 'exiteditmode' and 'beforeentereditmode' event outputs from component.  `BTHH` ([#410](https://github.com/infor-design/enterprise-ng/issues/410))
-- `[DataGrid]` - Added NG support for EP tooltip callback function .  `PWP` ([#470](https://github.com/infor-design/enterprise-ng/pull/470))
+- `[DataGrid]` - Added 'entereditmode', 'exiteditmode' and 'beforeentereditmode' event outputs from component. `BTHH` ([#410](https://github.com/infor-design/enterprise-ng/issues/410))
+- `[DataGrid]` - Added NG support for EP tooltip callback function . `PWP` ([#470](https://github.com/infor-design/enterprise-ng/pull/470))
 - `[Datepicker]` - Adds an example to show custom validation to the datepicker test page. `TJM` ([#411](https://github.com/infor-design/enterprise-ng/issues/411)
 - `[DemoApp]` - Added `PersonalizeMenuComponent` example. `BTHH` ([Pull Request 425](https://github.com/infor-design/enterprise-ng/pull/425))
 - `[DemoApp]` - Added open status persistence to the demo's application menu. `BTHH` ([Pull Request 425](https://github.com/infor-design/enterprise-ng/pull/425))
@@ -69,26 +72,26 @@
 
 ### 5.2.0 Features
 
-- `[DemoApp]` - Added ability to switch to beta of new uplift theme. NOTE: not yet to be included in your released application `PWP`  ([#398](https://github.com/infor-design/enterprise-ng/issues/398))`
-- `[IconsUplift]` - Added SohoIconsUpliftComponent to pull in uplift theme icons `PWP`  ([#398](https://github.com/infor-design/enterprise-ng/issues/398))
-- `[ListView]` - Added listview-custom-content demo to show content projected into a list view (not inside a .card) `PWP`  ([Pull Request 384](https://github.com/infor-design/enterprise-ng/pull/384))
-- `[ListView]` - Fixed an the `template` input because it was mapped to the wrong setting. `TJM`  ([#406](https://github.com/infor-design/enterprise-ng/pull/406))
-- `[ToolbarFlex]` Implemented the wrapper for the toolbar flex component.  `MHH` ([Pull Request 316](https://github.com/infor-design/enterprise-ng/issues/316))
-- `[Compact Form]` Implemented the wrapper for the compact form component.  `TJM` ([1699](https://github.com/infor-design/enterprise-ng/issues/1699))
+- `[DemoApp]` - Added ability to switch to beta of new uplift theme. NOTE: not yet to be included in your released application `PWP` ([#398](https://github.com/infor-design/enterprise-ng/issues/398))`
+- `[IconsUplift]` - Added SohoIconsUpliftComponent to pull in uplift theme icons `PWP` ([#398](https://github.com/infor-design/enterprise-ng/issues/398))
+- `[ListView]` - Added listview-custom-content demo to show content projected into a list view (not inside a .card) `PWP` ([Pull Request 384](https://github.com/infor-design/enterprise-ng/pull/384))
+- `[ListView]` - Fixed an the `template` input because it was mapped to the wrong setting. `TJM` ([#406](https://github.com/infor-design/enterprise-ng/pull/406))
+- `[ToolbarFlex]` Implemented the wrapper for the toolbar flex component. `MHH` ([Pull Request 316](https://github.com/infor-design/enterprise-ng/issues/316))
+- `[Compact Form]` Implemented the wrapper for the compact form component. `TJM` ([1699](https://github.com/infor-design/enterprise-ng/issues/1699))
 - `[Datagrid]` Added support for the beforerowactivated event. `TJM` ([1021](https://github.com/infor-design/enterprise-ng/issues/1699))
 - `[Locale]` Added support for new api methods, for timezones, split locale and language, functions that run outside the current locale. `TJM` ([402](https://github.com/infor-design/enterprise-ng/issues/402))
-- `[Locale]` Added support for the moved language location. This used to be in `Soho.Locale.cultures[this.locale]` now please use `Soho.Locale.extendTranslations`.  `TJM` ([1552](https://github.com/infor-design/enterprise-ng/issues/1552))
+- `[Locale]` Added support for the moved language location. This used to be in `Soho.Locale.cultures[this.locale]` now please use `Soho.Locale.extendTranslations`. `TJM` ([1552](https://github.com/infor-design/enterprise-ng/issues/1552))
 - `[Form Compact]` Added support and directives and an eaxample of a reactive form for the new EP 4.17 Compact form styles. `TJM` ([1699](https://github.com/infor-design/enterprise-ng/issues/1699))
 
 ### 5.2.0 Fixes
 
-- `[ListView]` - Added optional SohoListViewOptions arg to updated() function in listview.d.ts `PWP`  ([Pull Request 384](https://github.com/infor-design/enterprise-ng/pull/384))
+- `[ListView]` - Added optional SohoListViewOptions arg to updated() function in listview.d.ts `PWP` ([Pull Request 384](https://github.com/infor-design/enterprise-ng/pull/384))
 - `[Datagrid]` - Added hideable option to datagrid column typings. `MRW` ([Pull Request 408](https://github.com/infor-design/enterprise-ng/pull/408))
 
 ### 5.2.0 Chore & Maintenance
 
-- `[IconsExt]` - Removed SohoIconsExtendedComponent as all icons are included in SohoIconsComponent `PWP`  ([#398](https://github.com/infor-design/enterprise-ng/issues/398))
-- `[General]` Updated to use Enterprise 4.17 release.  `TJM` ([CHANGELOG](https://github.com/infor-design/enterprise/blob/master/docs/CHANGELOG.md))
+- `[IconsExt]` - Removed SohoIconsExtendedComponent as all icons are included in SohoIconsComponent `PWP` ([#398](https://github.com/infor-design/enterprise-ng/issues/398))
+- `[General]` Updated to use Enterprise 4.17 release. `TJM` ([CHANGELOG](https://github.com/infor-design/enterprise/blob/master/docs/CHANGELOG.md))
 
 ## v5.1.0
 
@@ -103,7 +106,7 @@
 - `[DataGrid]` Added missing filterConditions type to datagrid column. This allows you to edit the filter dropdown conditions. `TJM` ([#350](https://github.com/infor-design/enterprise-ng/issues/350))
 - `[DataGrid]` Removed unused enum SohoGridColumnFilterTypes. If using this you should use `filterType: 'text'` instead. `TJM` ([#350](https://github.com/infor-design/enterprise-ng/issues/350))
 - `[DatePicker]` Added firstDayOfWeek option to date picker component `PWP` ([362](https://github.com/infor-design/enterprise-ng/issues/362))
-- `[General]` Upgraded @angular/cli (to 7.3.2) and @angular/core (to 7.2.5).  `BTHH` ([Pull Request 386](https://github.com/infor-design/enterprise-ng/pull/386))
+- `[General]` Upgraded @angular/cli (to 7.3.2) and @angular/core (to 7.2.5). `BTHH` ([Pull Request 386](https://github.com/infor-design/enterprise-ng/pull/386))
 
 ### 5.1.0 Fixes
 
@@ -112,10 +115,10 @@
 - `[ColorPicker]` - added configuration option for customColor to have the ability to input colors outside the allowed color options. `JT` ([Pull Request 301])
 - `[DataGrid]` - changed emptyMessage setter so it will remove any empty message if passed a null or undefined. `PWP` ([Pull Request 305](https://github.com/infor-design/enterprise-ng/pull/305))
 - `[DatePicker]` - remove configuration for customValidation. `JT` ([Pull Request 300])
-- `[ListView]` - added safety checks for both `clearAllSelected()` and `toggleAll()` methods. `NBCP`  ([Pull Request 364](https://github.com/infor-design/enterprise-ng/pull/364))
+- `[ListView]` - added safety checks for both `clearAllSelected()` and `toggleAll()` methods. `NBCP` ([Pull Request 364](https://github.com/infor-design/enterprise-ng/pull/364))
 - `[TextArea]` - added configuration option for maxLength so it will have a restriction in maximum character input. `JT` ([Pull Request 302])
 - `[TextArea]` - added configuration option for maxGrow so it will expand if the characters exceed the height of the textarea. `JT` ([Pull Request 302])
-- `[TextArea]` - input events now cause ngModel update events to be fired. `BTHH`  ([Pull Request 345](https://github.com/infor-design/enterprise-ng/pull/345))
+- `[TextArea]` - input events now cause ngModel update events to be fired. `BTHH` ([Pull Request 345](https://github.com/infor-design/enterprise-ng/pull/345))
 - `[TrackDirty]` - added exportAs directive property.
 
 ### 5.1.0 Chore & Maintenance
@@ -128,7 +131,7 @@
 
 ### 5.0.0 Features
 
-- `[General]` Upgraded @angular/cli (to 7.0.x) and @angular/core (to 7.0.x).  `BTHH` ([Pull Request 227](https://github.com/infor-design/enterprise-ng/pull/227))
+- `[General]` Upgraded @angular/cli (to 7.0.x) and @angular/core (to 7.0.x). `BTHH` ([Pull Request 227](https://github.com/infor-design/enterprise-ng/pull/227))
     - support for Node 10
     - support for TypeScript 3.x
     - `UPGRADING.md` has been updated with details on upgrading your application to angular 7.
@@ -197,7 +200,7 @@
 
 ### 4.10.0 Features
 
-- [`General`] NPM package now compiled into the Angular Package Format.  ([Pull Request 143](https://github.com/infor-design/enterprise-ng/pull/143)) `BTHH`
+- [`General`] NPM package now compiled into the Angular Package Format. ([Pull Request 143](https://github.com/infor-design/enterprise-ng/pull/143)) `BTHH`
     - See `UPGRADING.md` for upgrade information.
     - Upgraded `QUICKSTART.md` document.
     - Introduced new sub-project `ids-enterprise-ng`.
@@ -232,9 +235,9 @@
 - `[General]` NPM package file structure changed due to switching to using one package.json file ([Pull Request 92](https://github.com/infor-design/enterprise-ng/pull/92))
 - `[Component]` Example note item for future release. `INI` ([#88](https://github.com/infor-design/enterprise-ng/issues/88))
 - `[Several]` Added support for ReactiveForms. `BTHH` ([#86](https://github.com/infor-design/enterprise-ng/issues/86))
-    - Refactored `soho-autocomplete.component.ts`, `soho-checkbox.component.ts`, `color-picker.component.ts`, `soho-datepicker.component.ts`, `soho-dropdown.component.ts`, `soho-editor.component.ts`, `soho-input.component.ts`, `soho-lookup.component.ts`, `soho-radiobutton.component.ts`, `soho-slider.component.ts`, `soho-spinbox.component.ts`, `soho-textarea.component.ts` and `soho-timepicker.component.ts`,  to support `value`, `disabled` and `readonly`.
+    - Refactored `soho-autocomplete.component.ts`, `soho-checkbox.component.ts`, `color-picker.component.ts`, `soho-datepicker.component.ts`, `soho-dropdown.component.ts`, `soho-editor.component.ts`, `soho-input.component.ts`, `soho-lookup.component.ts`, `soho-radiobutton.component.ts`, `soho-slider.component.ts`, `soho-spinbox.component.ts`, `soho-textarea.component.ts` and `soho-timepicker.component.ts`, to support `value`, `disabled` and `readonly`.
 - `[Several]` Updated `timepicker` and `spinbox` to use `ngZone`. This effects the constructor so may effect those using AOT. `BTHH`
-- `[Several]` Added `setSelected`, `getSelected`, and `toggleSelected` to all the charts that support selection.   `SJW`
+- `[Several]` Added `setSelected`, `getSelected`, and `toggleSelected` to all the charts that support selection. `SJW`
 - `[Several]` Updated `soho-alert.directive.ts` to support the icon type and `soho-input-validate.directive.ts` to support the icon event. Both were refactored to use `ngZone`. This effects the constructor so may effect those using AOT. `MAF` ([#90](https://github.com/infor-design/enterprise-ng/issues/90))
 - `[Datepicker]` Added support for running out of ngZone. This effects the constructor so may effect those using AOT. `TJM` ([#44](https://github.com/infor-design/enterprise-ng/issues/44))
 - `[Datepicker]` Updating the typings in soho-datepicker.d.ts to better reflect the datepicker.js in enterprise, and exposed all the datepicker.js options. This may effect users who are now passing in the incorrect option types for soho-datepicker. `MHH` ([#145](https://github.com/infor-design/enterprise-ng/issues/145))
@@ -265,7 +268,7 @@
 
 ### v4.6.0 Fixes
 
-- `[FileUpload]`  File upload component - Refactor to support directive usage `MAF` ([SOHO-7711](https://jira.infor.com/browse/SOHO-7711))
+- `[FileUpload]` File upload component - Refactor to support directive usage `MAF` ([SOHO-7711](https://jira.infor.com/browse/SOHO-7711))
 - `[EmptyMessage]` Allow soho-emptymessage projection in list view `MHH` ([SOHO-7756](https://jira.infor.com/browse/SOHO-7756))
 - `[General]` Made last input components all ChangeDetectionStrategy.ONPUSH `PWP`
 - `[General]` Added radar wrapper `TJM`
