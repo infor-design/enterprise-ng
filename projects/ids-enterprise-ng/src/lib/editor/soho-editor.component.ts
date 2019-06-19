@@ -122,7 +122,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
- @Input() set placeholder(placeholder: string) {
+  @Input() set placeholder(placeholder: string) {
     this.options.placeholder = placeholder;
     if (this.editor) {
       this.editor.settings.placeholder = placeholder;
@@ -246,7 +246,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
       this.jQueryElement.on('updated', (e: JQuery.TriggeredEvent, args: SohoEditorEvent) => this.onUpdated(args));
 
       if (this.internalValue) {
-        this.jQueryElement.val(this.internalValue);
+        this.jQueryElement.html(this.internalValue);
       }
       this.runUpdatedOnCheck = true;
     });
@@ -279,7 +279,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    * Handle the control being changed.
    */
   onChange(event: SohoEditorEvent) {
-    this.internalValue = this.jQueryElement.val();
+    this.internalValue = this.jQueryElement.html();
 
     super.writeValue(this.internalValue);
 
@@ -300,7 +300,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
    */
   writeValue(value: any) {
     if (this.jQueryElement && this.internalValue !== value) {
-      this.jQueryElement.val(value);
+      this.jQueryElement.html(value);
     }
     super.writeValue(value);
   }
@@ -328,9 +328,9 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     });
   }
 
- /**
-   * Marks the components as requiring a rebuild after the next update.
-   */
+  /**
+    * Marks the components as requiring a rebuild after the next update.
+    */
   markForRefresh() {
     // Run updated on the next updated check.
     this.runUpdatedOnCheck = true;

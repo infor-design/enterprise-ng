@@ -13,7 +13,7 @@ import { MOCK_STATES } from './dropdown-mock.data';
   templateUrl: './dropdown-simple.demo.html',
 })
 export class DropdownSimpleDemoComponent implements AfterViewInit {
-   @ViewChild(SohoDropDownComponent) dropDownComponent: SohoDropDownComponent;
+  @ViewChild(SohoDropDownComponent, {}) dropDownComponent: SohoDropDownComponent;
 
   /** Defautl selected item.  */
   model = { selectedOption: 'ND' };
@@ -37,5 +37,13 @@ export class DropdownSimpleDemoComponent implements AfterViewInit {
     setTimeout(() => {
       this.options = MOCK_STATES;
     });
+  }
+
+  onUpdated(event: SohoDropDownEvent) {
+    console.log(`updated ${event.data}`);
+  }
+
+  onChange(event: SohoDropDownEvent) {
+    console.log(`updated ${event.data}`);
   }
 }
