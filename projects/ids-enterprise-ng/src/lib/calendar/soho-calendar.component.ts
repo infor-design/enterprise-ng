@@ -13,12 +13,29 @@ import {
   Output, ChangeDetectorRef,
 } from '@angular/core';
 
+/********************************************************************
+ * Internal component to support the calendar monthview element
+ *******************************************************************/
+@Component({
+  selector: 'div[soho-calendar-monthview]', // tslint:disable-line
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoCalendarMonthViewComponent {
+  @HostBinding('class.calendar-monthview') isCalendarMonthview = true;
+}
+
+/********************************************************************
+ * Main Calendar component
+ *******************************************************************/
 @Component({
   selector: '[soho-calendar]', // tslint:disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoCalendarComponent implements AfterViewInit, OnDestroy {
+
+  @HostBinding('class.calendar') isCalendar = true;
 
   @Input() set calendarOptions(calendarOptions: SohoCalendarOptions) {
     this._calendarOptions = calendarOptions;

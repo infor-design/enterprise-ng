@@ -6,7 +6,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ElementRef, EventEmitter,
+  ElementRef, EventEmitter, HostBinding,
   Input,
   NgZone,
   OnDestroy, Output
@@ -20,6 +20,8 @@ import {
 })
 
 export class SohoMonthViewComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
+  @HostBinding('class.calendar-monthview') isCalendarMonthView = true;
+
   /**
    * Initial month to show
    */
