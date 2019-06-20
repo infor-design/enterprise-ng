@@ -81,6 +81,10 @@
   width: 18px;
 }
 
+:host ::ng-deep .datagrid.short-rowheight td.is-editing .code-block input.lookup ~ .trigger .icon {
+  top: 7px;
+}
+
 :host ::ng-deep .datagrid td.is-editing .code-block input.lookup ~ .trigger {
   margin-top: 0;
 }

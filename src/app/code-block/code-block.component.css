@@ -10,6 +10,24 @@
   width: calc(100% - 58px);
 }
 
+.datagrid.short-rowheight .is-editing :host .code-block {
+  padding: 0;
+  margin-left: -7px;
+}
+
+.datagrid.short-rowheight .is-editing :host .code-block-actions {
+  height: 25px;
+  left: -10px;
+  min-height: 25px;
+  min-width: 25px;
+  width: 25px;
+}
+
+.datagrid.short-rowheight .is-editing :host .code-block-actions .icon {
+  height: 16px;
+  width: 16px;
+}
+
 /* Show Labels Functionality */
 :host(.hide-labels) ::ng-deep label {
   display: none;
@@ -76,6 +94,14 @@
   padding-bottom: 0;
   height: 34px;
   line-height: 34px;
+}
+
+.datagrid.short-rowheight .is-editing :host ::ng-deep .field {
+  padding-left: 7px;
+  margin-top: -5px;
+  margin-left: 0;
+  height: 25px;
+  line-height: 25px;
 }
 
 :host ::ng-deep .field:not(:last-of-type):not(.is-active)::after {

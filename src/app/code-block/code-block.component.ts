@@ -13,12 +13,14 @@ import {
         <ng-content></ng-content>
       </div>
       <div class="code-block-buttons">
+        <!--
         <button type="button" class="btn-icon hide-focus">
           <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
             <use xlink:href="#icon-launch"></use>
           </svg>
           <span>Launch</span>
         </button>
+        -->
 
         <button type="button" class="btn-icon btn-actions code-block-actions btn-menu"
           soho-context-menu trigger="click" [beforeOpen]="onBeforeContextMenuOpen"
