@@ -14,10 +14,34 @@ interface SohoCalendarEventType {
 }
 
 interface SohoCalendarEvent {
-  title: string;
-  subject: string,
-  isAllDay: boolean;
-  comments: string;
+  title?: string;
+  subject?: string,
+  isAllDay?: boolean;
+  startsLocale?: string;
+  endsLocale?: string;
+  type?: string;
+  duration?: string;
+  durationUnits?: string;
+  durationHours?: string;
+  status?: string;
+  comments?: string;
+  icon?: string;
+}
+
+interface SohoCalendarDateSelectedEvent {
+  close?: boolean;
+  day?: number;
+  key?: string;
+  month?: number;
+  node?: Node,
+  year?: number;
+}
+
+interface SohoCalendarRenderMonthEvent {
+  api: any;
+  elem: JQuery,
+  month: number,
+  year: number;
 }
 
 interface SohoCalendarOptions {
@@ -27,8 +51,8 @@ interface SohoCalendarOptions {
   month?: number;
   year?: number;
   showViewChanger?: boolean;
-  onRenderMonth?: Function;
-  onSelected?: Function;
+  onRenderMonth?: Function; // (node: any, response: (SohoCalendarEvent, SohoCalendarEventType) => void) => void;
+  onSelected?: Function; // (node: TNode, args: SohoCalendarDaySelectedEvent) => void;
   template?: string;
   upcomingEventDays?: number;
   modalTemplate?: string;
@@ -73,6 +97,18 @@ interface SohoCalendar {
   deleteEvent(event: SohoCalendarEvent): void;
 
   /**
+   * Show a modal used to add/edit events. This uses the modalTemplate setting for the modal contents.
+   * @param event The event object with common event properties for defaulting fields in the template.
+   * @param done The callback for when the modal closes.
+   */
+  showEventModal(event: any, done: Function): void;
+
+  /**
+   * @returns whether or not this Modal is currently being displayed
+   */
+  modalVisible(): boolean;
+
+  /**
    * Remove all events from the calendar
    */
   clearEvents(): void;
@@ -86,4 +122,7 @@ interface SohoCalendar {
 
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   calendar(options?: SohoCalendarOptions): JQuery;
+  on(events: 'selected', handler: JQuery.EventHandlerBase<any, SohoCalendarDateSelectedEvent>): this;
+  on(events: 'monthrendered', handler: JQuery.EventHandlerBase<any, SohoCalendarRenderMonthEvent>): this;
 }
+

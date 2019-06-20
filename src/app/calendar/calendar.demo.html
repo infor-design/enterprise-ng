@@ -1,15 +1,13 @@
-<!--
--->
 <div soho-calendar
     [month]="initialMonth"
     [year]="initialYear"
     [showViewChanger]="showViewChanger"
-    [eventTypes]="eventTypes"
-    [events]="events"
+    [onRenderMonth]="onRenderMonthCallback"
+    [onSelected]="onCalendarDateSelectedCallback"
+
     (monthRendered)="onRenderMonth($event)"
     (selected)="onSelected($event)"
     (dblclick)="onDblClick($event)"
 >
-  <!--<div class="calendar-monthview"></div>-->
   <div soho-calendar-monthview></div>
 </div>

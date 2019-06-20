@@ -1,8 +1,6 @@
 import {
-  AfterViewInit,
-  ChangeDetectionStrategy, ChangeDetectorRef,
-  Component, NgZone,
-  OnInit,
+  Component,
+  HostBinding,
   ViewChild,
 } from '@angular/core';
 import { CalendarDemoService } from './calendar.demo.service';
@@ -11,12 +9,15 @@ import { SohoCalendarComponent } from 'ids-enterprise-ng';
 @Component({
   selector: 'app-calendar-demo',
   templateUrl: './calendar.demo.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [CalendarDemoService]
 })
-export class CalendarDemoComponent implements OnInit, AfterViewInit {
+export class CalendarDemoComponent {
 
-  @ViewChild('SohoCalendarComponent') sohoCalendarComponent: SohoCalendarComponent;
+  @HostBinding('style.overflow') overflow = 'auto';
+  @HostBinding('style.height') height = 'auto';
+  @HostBinding('style.display') block = 'block';
+
+  @ViewChild(SohoCalendarComponent) sohoCalendarComponent: SohoCalendarComponent;
 
   public initialMonth = 1;
   public initialYear = 2019;
@@ -24,39 +25,31 @@ export class CalendarDemoComponent implements OnInit, AfterViewInit {
   public eventTypes: [];
   public events: [];
 
-  constructor(
-    private changeDetectorRef: ChangeDetectorRef,
-    private monthViewService: CalendarDemoService
-  ) {}
-
-  ngOnInit() {
-  }
-
-  ngAfterViewInit() {
-  }
-
-  onRenderMonth(event: SohoMonthViewRenderMonthEvent) {
+  public onRenderMonthCallback = (node: any, response: Function) => {
     this.monthViewService.getCalendarEventTypes().subscribe((types) => {
       this.monthViewService.getCalendarEvents().subscribe((events) => {
         this.eventTypes = types;
         this.events = events;
+        response(this.events, this.eventTypes);
       });
     });
+  };
 
-    // this.monthViewService.getCalendarEventTypes().subscribe((types) => {
-    //   this.eventTypes = types;
-    //   this.monthViewService.getCalendarEvents().subscribe((events) => {
-    //     this.events = events;
-    //     event.response(this.events, this.eventTypes);
-    //   });
-    // });
+  public onCalendarDateSelectedCallback = (node: Node, args: SohoCalendarDateSelectedEvent) => {
+    console.log('onCalendarEventSelectedCallback', args);
+  };
+
+  constructor(private monthViewService: CalendarDemoService) {}
+
+  onRenderMonth(event: SohoCalendarRenderMonthEvent) {
+    console.log('onRenderMonth', event);
   }
 
-  onSelected(event: SohoMonthViewSelectedEvent) {
-    console.log('onSelected', [event]);
+  onSelected(event: SohoCalendarDateSelectedEvent) {
+    console.log('onSelected', event);
   }
 
-  onDblClick(event: any) {
-    console.log('onDblClick', [event]);
+  onDblClick(event: MouseEvent) {
+    console.log('onDblClick', event);
   }
 }

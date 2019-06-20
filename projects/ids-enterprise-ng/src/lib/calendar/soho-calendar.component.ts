@@ -1,29 +1,19 @@
 /// <reference path="soho-calendar.d.ts" />
 
 import {
+  AfterViewChecked,
   AfterViewInit,
+  ChangeDetectorRef,
   ChangeDetectionStrategy,
   Component,
-  HostBinding,
   ElementRef,
   EventEmitter,
+  HostBinding,
   Input,
   NgZone,
   OnDestroy,
-  Output, ChangeDetectorRef,
+  Output,
 } from '@angular/core';
-
-/********************************************************************
- * Internal component to support the calendar monthview element
- *******************************************************************/
-@Component({
-  selector: 'div[soho-calendar-monthview]', // tslint:disable-line
-  template: `<ng-content></ng-content>`,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-})
-export class SohoCalendarMonthViewComponent {
-  @HostBinding('class.calendar-monthview') isCalendarMonthview = true;
-}
 
 /********************************************************************
  * Main Calendar component
@@ -33,7 +23,7 @@ export class SohoCalendarMonthViewComponent {
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoCalendarComponent implements AfterViewInit, OnDestroy {
+export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
 
   @HostBinding('class.calendar') isCalendar = true;
 
@@ -309,8 +299,8 @@ export class SohoCalendarComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
-  @Output() selected = new EventEmitter<any>();
-  @Output() monthRendered = new EventEmitter<any>();
+  @Output() selected = new EventEmitter<SohoCalendarDateSelectedEvent>();
+  @Output() monthRendered = new EventEmitter<SohoCalendarRenderMonthEvent>();
 
   /**
    * Local variables
@@ -333,8 +323,9 @@ export class SohoCalendarComponent implements AfterViewInit, OnDestroy {
 
       // Add listeners to emit events
       this.jQueryElement
-      .on('selected', (event: SohoMonthViewSelectedEvent) => this.onSelectedEvent(event))
-      .on('monthrendered', (event: SohoMonthViewRenderMonthEvent) => this.onMonthRenderedEvent(event));
+      .on('selected', (e: any, event: SohoCalendarDateSelectedEvent) => this.onSelectedEvent(event))
+      .on('monthrendered', (e: any, args: SohoCalendarRenderMonthEvent) => this.onMonthRenderedEvent(args));
+
 
       // Initialise the Soho control.
       this.jQueryElement.calendar(this._calendarOptions);
@@ -346,12 +337,97 @@ export class SohoCalendarComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  onSelectedEvent(event: SohoMonthViewSelectedEvent) {
+  ngAfterViewChecked() {
+    if (!this.calendar || !this.jQueryElement) {
+      return;
+    }
+
+    if (this.updateRequired) {
+      // call outside the angular zone so change detection isn't triggered by the soho component.
+      this.updated();
+      this.updateRequired = false;
+    }
+
+  }
+
+  onSelectedEvent(event: SohoCalendarDateSelectedEvent) {
     this.ngZone.run(() => this.selected.emit(event));
   }
 
-  onMonthRenderedEvent(event: SohoMonthViewRenderMonthEvent) {
+  onMonthRenderedEvent(event: SohoCalendarRenderMonthEvent) {
     this.ngZone.run(() => this.monthRendered.emit(event));
+  }
+
+  /**
+   * Get the current selected date on the calendar.
+   * @returns the currently selected date on the control.
+   */
+  currentDate(): Date {
+    return this.ngZone.runOutsideAngular(() => this.calendar.currentDate());
+  }
+
+  /**
+   * Get the events and date for the currently selected calendar day.
+   * @param date The date to find the events for.
+   * @returns dayEvents An object with all the events and the event date.
+   */
+  getDayEvents(date: Date): SohoCalendarEvent[] {
+    return this.ngZone.runOutsideAngular(() => this.calendar.getDayEvents(date));
+  }
+
+  /**
+   * Add a new event via the event object and show it if it should be visible in the calendar.
+   * @param event The event object with common event properties.
+   */
+  addEvent(event: SohoCalendarEvent): void {
+    this.ngZone.runOutsideAngular(() => this.calendar.addEvent(event));
+  };
+
+  /**
+   * Update an event via the event object and show it if it should be visible in the calendar.
+   * It uses the event id to do this.
+   * @param event The event object with common event properties.
+   */
+  updateEvent(event: SohoCalendarEvent): void {
+    this.ngZone.runOutsideAngular(() => this.calendar.updateEvent(event));
+  }
+
+  /**
+   * Remove an event from the dataset and page. It uses the id property.
+   * @param event The event object with common event properties.
+   */
+  deleteEvent(event: SohoCalendarEvent): void {
+    this.ngZone.runOutsideAngular(() => this.calendar.updateEvent(event));
+  }
+
+  /**
+   * Show a modal used to add/edit events. This uses the modalTemplate setting for the modal contents.
+   * @param event The event object with common event properties for defaulting fields in the template.
+   * @param done The callback for when the modal closes.
+   */
+  showEventModal(event: any, done: Function): void {
+    this.ngZone.runOutsideAngular(() => this.calendar.showEventModal(event, done));
+  };
+
+  /**
+   * @returns whether or not this Modal is currently being displayed
+   */
+  modalVisible(): boolean {
+    return this.ngZone.runOutsideAngular(() => this.calendar.modalVisible());
+  }
+
+  /**
+   * Remove all events from the calendar
+   */
+  clearEvents() {
+    this.ngZone.runOutsideAngular(() => this.calendar.clearEvents());
+  }
+
+  /**
+   * Handle updated settings and values.
+   */
+  updated() {
+    this.ngZone.runOutsideAngular(() => this.calendar.updated());
   }
 
   /**
@@ -366,7 +442,6 @@ export class SohoCalendarComponent implements AfterViewInit, OnDestroy {
     // updating.
     this.ref.markForCheck();
   }
-
 
   /**
    * Destructor.
