@@ -27,6 +27,12 @@ import {
 export class SohoInputComponent extends BaseControlValueAccessor<string> implements AfterViewInit, OnDestroy {
 
   /**
+   * todo: work around until landmark can change code to allow the initial format.
+   * Right now landmark initially formats the value to current locale.
+   */
+  @Input() fireInputEventKludge = true;
+
+  /**
    * Available Soho Template events as Output (EventEmitters passing the event)
    * Should match the Soho event names for the component
    */
@@ -116,12 +122,14 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
       // in the control.
       this.jQueryElement.val(value);
 
-      this.ngZone.runOutsideAngular(
-        () => {
-          setTimeout(() => {
-            this.element.nativeElement.dispatchEvent(new Event('input'));
+      if (this.fireInputEventKludge) {
+        this.ngZone.runOutsideAngular(
+          () => {
+            setTimeout(() => {
+              this.element.nativeElement.dispatchEvent(new Event('input'));
+            });
           });
-        });
+      }
     }
   }
 
