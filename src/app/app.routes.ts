@@ -342,8 +342,7 @@ export const routes: Routes = [
 ];
 
 /**
- * To test the application using the hashing routing strategy, awap the two lines below.
+ * To test the application using the hashing routing strategy, swap the two lines below.
  */
 // export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes, { useHash: true });
-
 export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes);
