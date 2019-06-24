@@ -1,7 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
-import {
-  SohoModalDialogRef
-} from 'ids-enterprise-ng';
+import { Component } from '@angular/core';
 
 /**
  * This is an example of a simple dialog component, that can be instantiated
