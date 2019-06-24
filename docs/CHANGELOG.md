@@ -8,7 +8,8 @@
 
 ### 5.5.0 Fixes
 
-- `[Field Options]` Fixed an issue where example page was showing js error. ([#2348](https://github.com/infor-design/enterprise/issues/2348))
+- `[Field Options]` - Fixed an issue where example page was showing js error. ([#2348](https://github.com/infor-design/enterprise/issues/2348))
+- `[Modal]` - Redundant `modal-dialog` markup removed on hash based route navigation. ([#308](https://github.com/infor-design/enterprise/issues/308))
 
 ### 5.5.0 Chore & Maintenance
 
