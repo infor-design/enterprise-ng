@@ -198,7 +198,7 @@ export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
   }
 
   focus() {
-    this.codeblock.focus();
+    this.codeblock.focus(event);
   }
 
   get columns(): SohoDataGridColumn[] {
@@ -251,7 +251,7 @@ export const COLUMNS: SohoDataGridColumn[] = [
     textOverflow: 'ellipsis',
     editorComponent: CodeBlockEditorComponent,
     editorComponentInputs: {},
-    width: 600
+    width: 570
   },
 
   {
