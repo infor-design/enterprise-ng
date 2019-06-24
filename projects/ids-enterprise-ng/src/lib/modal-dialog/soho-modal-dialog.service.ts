@@ -74,8 +74,8 @@ export class SohoModalDialogService {
    * @return the modal dialog reference.
    */
   public message<T>(content: string | JQuery): SohoModalDialogRef<T> {
-    // Without a component, there is not destroy callback to listen to
-    // to ensure the dialog's markup is removed.
+    // Without a component, there is no destroy callback to ensure
+    // the dialog's markup is removed.
     return new SohoModalDialogRef<T>()
       .content(content);
   }
