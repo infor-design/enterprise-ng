@@ -1,5 +1,3 @@
-/// <reference path=calendarsoho-calendar.d.ts" />
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, DebugElement, ViewChild } from '@angular/core';
 import { By } from '@angular/platform-browser';
@@ -291,5 +289,4 @@ fdescribe('Soho Bar Chart Render', () => {
 
   xit('check modalVisible function', () => {
   });
-
 });
