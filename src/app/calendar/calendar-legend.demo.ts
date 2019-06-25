@@ -32,9 +32,9 @@ export class CalendarLegendDemoComponent {
         response(this.events, this.eventTypes);
       });
     });
-  };
+  }
 
   public onCalendarDateSelectedCallback = (node: TNode, args: SohoCalendarDateSelectedEvent) => {
     console.log('onCalendarEventSelectedCallback', args);
-  };
+  }
 }

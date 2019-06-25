@@ -339,7 +339,6 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
       .on('selected', (e: any, event: SohoCalendarDateSelectedEvent) => this.onSelectedEvent(event))
       .on('monthrendered', (e: any, args: SohoCalendarRenderMonthEvent) => this.onMonthRenderedEvent(args));
 
-
       // Initialise the Soho control.
       this.jQueryElement.calendar(this._calendarOptions);
 
@@ -394,7 +393,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
    */
   addEvent(event: SohoCalendarEvent): void {
     this.ngZone.runOutsideAngular(() => this.calendar.addEvent(event));
-  };
+  }
 
   /**
    * Update an event via the event object and show it if it should be visible in the calendar.
@@ -420,7 +419,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
    */
   showEventModal(event: any, done: Function): void {
     this.ngZone.runOutsideAngular(() => this.calendar.showEventModal(event, done));
-  };
+  }
 
   /**
    * @returns whether or not this Modal is currently being displayed

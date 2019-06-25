@@ -1,4 +1,4 @@
-/// <reference path="soho-calendar.d.ts" />
+/// <reference path=calendarsoho-calendar.d.ts" />
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, DebugElement, ViewChild } from '@angular/core';
@@ -9,24 +9,24 @@ import { SohoCalendarModule } from './soho-calendar.module';
 import { TestHelper } from '../utils';
 
 const eventTypes: SohoCalendarEventType[] = [{
-  "id": "dto",
-  "label": "Discretionary Time Off",
-  "translationKey": "DiscretionaryTimeOff",
-  "color": "azure",
-  "checked": true,
-  "click": null
+  'id': 'dto',
+  'label': 'Discretionary Time Off',
+  'translationKey': 'DiscretionaryTimeOff',
+  'color': 'azure',
+  'checked': true,
+  'click': null
 }];
 const events: SohoCalendarEvent[] = [{
-  "id": "1",
-  "subject": "Discretionary Time Off",
-  "shortSubject": "DTO",
-  "comments": "Short getaway",
-  "location": "Us Office",
-  "status": "Draft",
-  "starts": "2018-08-22T00:00:00.000",
-  "ends": "2018-08-22T23:59:59.999",
-  "type": "dto",
-  "isAllDay": true
+  'id': '1',
+  'subject': 'Discretionary Time Off',
+  'shortSubject': 'DTO',
+  'comments': 'Short getaway',
+  'location': 'Us Office',
+  'status': 'Draft',
+  'starts': '2018-08-22T00:00:00.000',
+  'ends': '2018-08-22T23:59:59.999',
+  'type': 'dto',
+  'isAllDay': true
 }];
 
 describe('Soho Calendar Unit Tests', () => {
@@ -52,7 +52,7 @@ describe('Soho Calendar Unit Tests', () => {
 
     comp.eventTypes = eventTypes;
     comp.events = events;
-    comp.locale = "en-US";
+    comp.locale = 'en-US';
     comp.month = 7;
     comp.year = 2018;
     comp.showViewChanger = false;
@@ -61,14 +61,14 @@ describe('Soho Calendar Unit Tests', () => {
     comp.upcomingEventDays = 5;
     // comp.template = '';
     // comp.modalTemplate = 'abc';
-    // comp.menuId = "id1";
+    // comp.menuId = 'id1';
     // comp.menuSelected = ;
     // comp.newEventDefaults = ;
 
     // check options
     expect(comp.eventTypes).toEqual(eventTypes);
     expect(comp.events).toEqual(events);
-    expect(comp.locale).toEqual("en-US");
+    expect(comp.locale).toEqual('en-US');
     expect(comp.month).toEqual(7);
     expect(comp.year).toEqual(2018);
     expect(comp.showViewChanger).toEqual(false);
@@ -91,7 +91,7 @@ describe('Soho Calendar Unit Tests', () => {
 
     comp.eventTypes = updatedEventTypes;
     comp.events = updateEvents;
-    comp.locale = "en-GB";
+    comp.locale = 'en-GB';
     comp.month = 1;
     comp.year = 2019;
     comp.showViewChanger = true;
@@ -102,7 +102,7 @@ describe('Soho Calendar Unit Tests', () => {
     // check calendar settings
     expect((comp as any).calendar.settings.eventTypes).toEqual(updatedEventTypes);
     expect((comp as any).calendar.settings.events).toEqual(updateEvents);
-    expect((comp as any).calendar.settings.locale).toEqual("en-GB");
+    expect((comp as any).calendar.settings.locale).toEqual('en-GB');
     expect((comp as any).calendar.settings.month).toEqual(1);
     expect((comp as any).calendar.settings.year).toEqual(2019);
     expect((comp as any).calendar.settings.showViewChanger).toEqual(true);
@@ -131,7 +131,7 @@ class SohoCalendarTestComponent {
 
   public events: SohoCalendarEvent[];
   public eventTypes: SohoCalendarEventType[];
-  public locale = "en-US";
+  public locale = 'en-US';
   public month: number;
   public year: number;
 }
@@ -226,15 +226,15 @@ fdescribe('Soho Bar Chart Render', () => {
     fixture.detectChanges();
 
     const newEvent: SohoCalendarEvent = {
-      id: "6",
-      subject: "Discretionary Time Off",
-      shortSubject: "DTO",
-      comments: "Personal time",
-      location: "Canada Office",
-      status: "Approved",
-      starts: "2018-08-24T10:00:00.999",
-      ends: "2018-08-24T14:00:00.999",
-      type: "dto",
+      id: '6',
+      subject: 'Discretionary Time Off',
+      shortSubject: 'DTO',
+      comments: 'Personal time',
+      location: 'Canada Office',
+      status: 'Approved',
+      starts: '2018-08-24T10:00:00.999',
+      ends: '2018-08-24T14:00:00.999',
+      type: 'dto',
       isAllDay: false
     };
 
@@ -252,7 +252,7 @@ fdescribe('Soho Bar Chart Render', () => {
     fixture.detectChanges();
 
     const updateEvent: SohoCalendarEvent =
-      Object.assign(events[0], { comments: "Vacation Time", location: "Africa" });
+      Object.assign(events[0], { comments: 'Vacation Time', location: 'Africa' });
 
     const calUpdateEventSpy = spyOn<any>((comp as any).calendar, 'updateEvent').and.callThrough();
     calendar.updateEvent(updateEvent);
