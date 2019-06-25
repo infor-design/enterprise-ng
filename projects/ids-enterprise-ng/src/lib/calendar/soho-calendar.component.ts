@@ -384,7 +384,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
    * @param date The date to find the events for.
    * @returns dayEvents An object with all the events and the event date.
    */
-  getDayEvents(date: Date): SohoCalendarEvent[] {
+  getDayEvents(date: Date): SohoCalendarDayEvents {
     return this.ngZone.runOutsideAngular(() => this.calendar.getDayEvents(date));
   }
 
@@ -410,7 +410,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
    * @param event The event object with common event properties.
    */
   deleteEvent(event: SohoCalendarEvent): void {
-    this.ngZone.runOutsideAngular(() => this.calendar.updateEvent(event));
+    this.ngZone.runOutsideAngular(() => this.calendar.deleteEvent(event));
   }
 
   /**

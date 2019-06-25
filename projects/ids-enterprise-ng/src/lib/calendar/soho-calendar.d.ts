@@ -17,27 +17,55 @@ interface SohoCalendarMonthViewEvent {
   icon?: string;
 }
 
+/**
+ * returned by the getDayEvents() function
+  */
+
+interface SohoCalendarDayEvents {
+  date: Date;
+  elem: Node;
+  events: SohoCalendarEvent[];
+}
+
+type SohoCalendarColors = 'ruby' | 'azure' | 'amber' | 'emerald' | 'turquoise' | 'amethyst' | 'slate' | 'graphite';
+
 interface SohoCalendarEventType {
   id: string;
   label: string;
-  color: string;
+  color: SohoCalendarColors;
   checked: boolean;
   click: Function;
+  translationKey: string;
 }
 
 interface SohoCalendarEvent {
+  id?: string;
   title?: string;
-  subject?: string,
-  isAllDay?: boolean;
-  startsLocale?: string;
-  endsLocale?: string;
   type?: string;
+  subject?: string,
+  comments?: string;
+  color?: SohoCalendarColors;
+  icon?: 'icon-error-solid' | 'icon-success-solid' | 'icon-alert-solid' | 'icon-info-solid' | string;
+
   duration?: string;
   durationUnits?: string;
   durationHours?: string;
+  daysUntil?: number;
+
+  starts?: string;
+  startsLocale?: string;
+  startKey?: string;
+
+  ends?: string;
+  endsLocale?: string;
+  endKey?: string;
+
+  isAllDay?: boolean;
+  location?: string;
+  eventTypes?: SohoCalendarEventType[];
+  shortSubject?: string;
   status?: string;
-  comments?: string;
-  icon?: string;
+  isDays?: true
 }
 
 interface SohoCalendarDateSelectedEvent {
@@ -87,7 +115,7 @@ interface SohoCalendar {
    * @param date The date to find the events for.
    * @returns dayEvents An object with all the events and the event date.
    */
-  getDayEvents(date: Date): SohoCalendarEvent[];
+  getDayEvents(date: Date): SohoCalendarDayEvents;
 
   /**
    * Add a new event via the event object and show it if it should be visible in the calendar.
