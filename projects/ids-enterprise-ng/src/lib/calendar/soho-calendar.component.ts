@@ -16,6 +16,19 @@ import {
 } from '@angular/core';
 
 /********************************************************************
+ * Calendar Month View Element
+ *******************************************************************/
+// @ts-ignore
+@Component({
+  selector: 'div[soho-calendar-monthview]', // tslint:disable-line
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class SohoCalendarMonthViewComponent { // implements AfterViewInit, OnDestroy {
+  @HostBinding('class.calendar-monthview') isCalendarMonthView = true;
+}
+
+/********************************************************************
  * Main Calendar component
  *******************************************************************/
 @Component({

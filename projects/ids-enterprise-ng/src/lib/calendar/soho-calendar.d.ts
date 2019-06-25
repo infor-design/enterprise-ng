@@ -5,6 +5,18 @@
  * interface of the Soho jQuery calendar control.
  */
 
+interface SohoCalendarMonthViewEvent {
+  startsLocale: string;
+  endsLocale: string;
+  type: string;
+  duration: string;
+  durationUnits?: string;
+  durationHours?: string;
+  status: string;
+  comments: string;
+  icon?: string;
+}
+
 interface SohoCalendarEventType {
   id: string;
   label: string;

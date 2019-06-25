@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SohoCalendarComponent } from './soho-calendar.component';
-import { SohoCalendarMonthViewComponent } from './soho-calendar-monthview.component';
+import { SohoCalendarComponent, SohoCalendarMonthViewComponent } from './soho-calendar.component';
 
 @NgModule({
   imports: [
