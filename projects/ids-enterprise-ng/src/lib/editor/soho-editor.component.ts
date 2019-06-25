@@ -122,7 +122,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
- @Input() set placeholder(placeholder: string) {
+  @Input() set placeholder(placeholder: string) {
     this.options.placeholder = placeholder;
     if (this.editor) {
       this.editor.settings.placeholder = placeholder;
@@ -329,9 +329,9 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     });
   }
 
- /**
-   * Marks the components as requiring a rebuild after the next update.
-   */
+  /**
+    * Marks the components as requiring a rebuild after the next update.
+    */
   markForRefresh() {
     // Run updated on the next updated check.
     this.runUpdatedOnCheck = true;

@@ -255,6 +255,16 @@ describe('Soho Menu Button Unit Tests', () => {
     expect(spy).toHaveBeenCalledTimes(0);
   });
 
+  it('check attachToBody option', () => {
+    const spy = spyOn((comp as any).ref, 'markForCheck');
+
+    comp.attachToBody = true;
+
+    expect((comp as any).options.attachToBody).toEqual(true);
+    expect((comp as any).menuButton.settings.attachToBody).toEqual(true);
+    expect(spy).toHaveBeenCalled();
+  });
+
   it('check ajaxBeforeOpenFunction sets options', () => {
     const spy = spyOn((comp as any).ref, 'markForCheck');
 
@@ -392,6 +402,8 @@ describe('Soho Menu Button Render', () => {
   });
 
   // Issue with change detection
+  // todo seems to fail intermittently on the last expect statement: expect(icon).toBeNull() - Phillip 6/4/19
+  // todo: this needs to be fixed in button.js so that updated() will tear down and reinit the component.
   xit('Check Item HTML content', fakeAsync(() => {
     fixture.detectChanges();
 

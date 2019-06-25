@@ -125,12 +125,25 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
     this.buttonOptions.hideMenuArrow = value;
     if (this.button) {
       this.button.settings.hideMenuArrow = value;
-      // todo: how to update the button when hideMenuArrow changes?
+      this.markForRefresh();
+      // todo: menubutton.js updated() function doesn't seem to tear down the control and rebuild with new settings
     }
   }
 
   get hideMenuArrow(): boolean {
     return this.buttonOptions.hideMenuArrow;
+  }
+
+  @Input() set attachToBody(value: boolean) {
+    this.options.attachToBody = value;
+    if (this.menuButton) {
+      this.menuButton.settings.attachToBody = value;
+      this.markForRefresh();
+    }
+  }
+
+  get attachToBody(): boolean {
+    return this.options.attachToBody;
   }
 
   constructor(
