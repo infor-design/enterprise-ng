@@ -417,7 +417,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
    * @param event The event object with common event properties for defaulting fields in the template.
    * @param done The callback for when the modal closes.
    */
-  showEventModal(event: any, done: Function): void {
+  showEventModal(event: SohoCalendarEvent[], done: Function): void {
     this.ngZone.runOutsideAngular(() => this.calendar.showEventModal(event, done));
   }
 

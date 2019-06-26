@@ -141,7 +141,7 @@ interface SohoCalendar {
    * @param event The event object with common event properties for defaulting fields in the template.
    * @param done The callback for when the modal closes.
    */
-  showEventModal(event: any, done: Function): void;
+  showEventModal(event: SohoCalendarEvent[], done: Function): void;
 
   /**
    * @returns whether or not this Modal is currently being displayed

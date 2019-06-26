@@ -1,11 +1,9 @@
 import {
-  ChangeDetectorRef,
-  Component, HostBinding,
+  Component,
   ViewChild,
 } from '@angular/core';
 import { CalendarDemoService } from './calendar.demo.service';
 import { SohoCalendarComponent } from 'ids-enterprise-ng';
-import { TNode } from '@angular/core/src/render3/interfaces/node';
 
 @Component({
   selector: 'app-calendar-legend-demo',
@@ -24,7 +22,7 @@ export class CalendarLegendDemoComponent {
 
   constructor(private monthViewService: CalendarDemoService) {}
 
-  public onRenderMonthCallback = (node: any, response: Function) => {
+  public onRenderMonthCallback = (node: Node, response: Function) => {
     this.monthViewService.getCalendarEventTypes().subscribe((types) => {
       this.monthViewService.getCalendarEvents().subscribe((events) => {
         this.eventTypes = types;
@@ -34,7 +32,7 @@ export class CalendarLegendDemoComponent {
     });
   }
 
-  public onCalendarDateSelectedCallback = (node: TNode, args: SohoCalendarDateSelectedEvent) => {
+  public onCalendarDateSelectedCallback = (node: Node, args: SohoCalendarDateSelectedEvent) => {
     console.log('onCalendarEventSelectedCallback', args);
   }
 }

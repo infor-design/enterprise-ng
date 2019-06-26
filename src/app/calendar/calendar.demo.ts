@@ -25,7 +25,7 @@ export class CalendarDemoComponent {
   public eventTypes: [];
   public events: [];
 
-  public onRenderMonthCallback = (node: any, response: Function) => {
+  public onRenderMonthCallback = (node: Node, response: Function) => {
     this.monthViewService.getCalendarEventTypes().subscribe((types) => {
       this.monthViewService.getCalendarEvents().subscribe((events) => {
         this.eventTypes = types;
