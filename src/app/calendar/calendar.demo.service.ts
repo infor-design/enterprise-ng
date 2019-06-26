@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
 @Injectable()
-export class MonthViewDemoService {
+export class CalendarDemoService {
 
   constructor(private http: HttpClient) {}
 
