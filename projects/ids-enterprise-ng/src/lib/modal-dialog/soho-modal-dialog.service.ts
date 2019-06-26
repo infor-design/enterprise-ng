@@ -53,6 +53,13 @@ export class SohoModalDialogService {
     const dialogInjector = new SohoModalDialogInjector(modalDialogRef, this.injector);
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     const instance = parent.createComponent<T>(componentFactory, parent.length, dialogInjector);
+
+    // Make sure any dialog resources are freed when the component is destroyed,
+    // by calling 'close' on the modal dialog ref.
+    instance.onDestroy(() => {
+      modalDialogRef.close(true);
+    });
+
     instance.instance['options'] = options; // pass in any options/settings object to dialog()
     modalDialogRef.component = instance;
     return modalDialogRef;
@@ -67,6 +74,8 @@ export class SohoModalDialogService {
    * @return the modal dialog reference.
    */
   public message<T>(content: string | JQuery): SohoModalDialogRef<T> {
+    // Without a component, there is no destroy callback to ensure
+    // the dialog's markup is removed.
     return new SohoModalDialogRef<T>()
       .content(content);
   }
@@ -75,6 +84,4 @@ export class SohoModalDialogService {
 /**
  * Object with a "new"" method returning the type T.
  */
-export interface ComponentType<T> {
-  new (...args: any[]): T;
-}
+export type ComponentType<T> = new(...args: any[]) => T;

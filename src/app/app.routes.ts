@@ -313,6 +313,7 @@ export const routes: Routes = [
   { path: 'tabs-dynamic',                           component: TabsDynamicDemoComponent },
   { path: 'tabs-vertical',                          component: TabsVerticalDemoComponent },
   { path: 'tags',                                   component: TagDemoComponent },
+  { path: 'test-tabs-basic',                        component: TestTabsBasicComponent },
   { path: 'textarea',                               component: TextareaDemoComponent },
   { path: 'timepicker',                             component: TimePickerDemoComponent },
   { path: 'toast',                                  component: ToastDemoComponent },
@@ -337,10 +338,11 @@ export const routes: Routes = [
   { path: 'validation',                             component: ValidationFormDemoComponent},
   { path: 'validation-event',                       component: ValidationFormEventDemoComponent},
   { path: 'validation-group',                       component: ValidationFormGroupDemoComponent},
-  { path: 'wizard',                                 component: WizardDemoComponent },
-
-  { path: 'test-tabs-basic',                        component: TestTabsBasicComponent },
-
+  { path: 'wizard',                                 component: WizardDemoComponent }
 ];
 
+/**
+ * To test the application using the hashing routing strategy, swap the two lines below.
+ */
+// export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes, { useHash: true });
 export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes);
