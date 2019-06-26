@@ -5,6 +5,7 @@
 ### 5.5.0 Features
 
 - `[DataGrid]` - Added `isRowDisabled` support to DataGrid. `BTHH` ([#472](https://github.com/infor-design/enterprise/issues/472))
+- `[Calendar]` - Added first cut of read only Calendar. `PWP` ([#534](https://github.com/infor-design/enterprise-ng/pull/534))
 
 ### 5.5.0 Fixes
 
