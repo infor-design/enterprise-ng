@@ -198,7 +198,7 @@ export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
   }
 
   focus() {
-    this.codeblock.focus(event);
+    this.codeblock.focus();
   }
 
   get columns(): SohoDataGridColumn[] {

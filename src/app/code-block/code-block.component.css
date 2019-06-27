@@ -56,8 +56,8 @@
 
 /* Style Parent and inner Focus */
 :host .code-block.is-active {
-  border: 1px solid #368ac0;
-  box-shadow: 0 0 4px 3px rgba(54, 138, 192, .3);
+  /* border: 1px solid #368ac0;
+  box-shadow: 0 0 4px 3px rgba(54, 138, 192, .3); */
 }
 
 :host .code-block.is-active input {

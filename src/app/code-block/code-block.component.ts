@@ -68,8 +68,9 @@ export class CodeBlockComponent implements OnDestroy {
   ngOnDestroy() {
   }
 
-  focus($event?: any) {
+  focus() {
     // Using jquery to focus the element as ViewChildren is not working
+    const $event: MouseEventInit = event;
     const focusables = $(':focusable', this.elementRef.nativeElement);
     const target = $event && $event.shiftKey ? focusables.last() : focusables.first();
     target.trigger('focus');
