@@ -1,6 +1,6 @@
 import {
   Component,
-  OnInit ,
+  OnInit,
   ViewChild,
   AfterViewInit
 } from '@angular/core';
@@ -94,4 +94,7 @@ export class EditorDemoComponent implements AfterViewInit {
     this.editorReadOnly = this.editor.readonly;
   }
 
+  onChange(event: any) {
+    console.log(`changed: ${event}`);
+  }
 }
