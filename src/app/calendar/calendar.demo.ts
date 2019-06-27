@@ -17,7 +17,7 @@ export class CalendarDemoComponent {
   @HostBinding('style.height') height = 'auto';
   @HostBinding('style.display') block = 'block';
 
-  @ViewChild(SohoCalendarComponent) sohoCalendarComponent: SohoCalendarComponent;
+  @ViewChild(SohoCalendarComponent, { static: false }) sohoCalendarComponent: SohoCalendarComponent;
 
   public initialMonth = 1;
   public initialYear = 2019;
@@ -39,7 +39,7 @@ export class CalendarDemoComponent {
     console.log('onCalendarEventSelectedCallback', args);
   }
 
-  constructor(private monthViewService: CalendarDemoService) {}
+  constructor(private monthViewService: CalendarDemoService) { }
 
   onRenderMonth(event: SohoCalendarRenderMonthEvent) {
     console.log('onRenderMonth', event);

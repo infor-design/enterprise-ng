@@ -67,9 +67,6 @@ export class EditorDemoComponent implements AfterViewInit {
 
   }
 
-  onChange(event) {
-    alert(event);
-  }
   onUpdated(event) {
     alert(event);
   }
