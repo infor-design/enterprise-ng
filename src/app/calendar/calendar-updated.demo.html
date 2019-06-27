@@ -1,0 +1,13 @@
+<div soho-calendar
+    [month]="initialMonth"
+    [year]="initialYear"
+    [showViewChanger]="showViewChanger"
+    [eventTypes]="eventTypes"
+    [events]="events"
+
+    (monthRendered)="onRenderMonth($event)"
+    (selected)="onSelected($event)"
+    (dblclick)="onDblClick($event)"
+>
+  <div soho-calendar-monthview></div>
+</div>

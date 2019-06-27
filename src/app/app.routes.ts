@@ -18,6 +18,9 @@ import { BulletDemoComponent } from './bullet/bullet.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo';
 import { ButtonDemoComponent } from './button/button.demo';
+import { CalendarDemoComponent} from './calendar/calendar.demo';
+import { CalendarLegendDemoComponent } from './calendar/calendar-legend.demo';
+import { CalendarUpdatedDemoComponent } from './calendar/calendar-updated.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { CirclepagerDemoComponent } from './circlepager/circlepager.demo';
@@ -107,7 +110,6 @@ import { MaskLegacyDemoComponent } from './mask/mask-legacy.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
-import { MonthViewDemoComponent } from './monthview/monthview.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PersonalizeColorApiDemoComponent } from './personalize/personalize-color-api.demo';
@@ -189,6 +191,9 @@ export const routes: Routes = [
   { path: 'button',                                 component: ButtonDemoComponent },
   { path: 'busyindicator',                          component: BusyIndicatorDemoComponent },
   { path: 'busyindicatorbody',                      component: BusyIndicatorDemoBodyComponent },
+  { path: 'calendar-monthview',                     component: CalendarDemoComponent },
+  { path: 'calendar-monthview-legend',              component: CalendarLegendDemoComponent },
+  { path: 'calendar-updated',                       component: CalendarUpdatedDemoComponent },
   { path: 'chart',                                  component: ChartDemoComponent },
   { path: 'checkbox',                               component: CheckBoxDemoComponent },
   { path: 'circlepager',                            component: CirclepagerDemoComponent },
@@ -279,7 +284,6 @@ export const routes: Routes = [
   { path: 'menu-button',                            component: MenuButtonDemoComponent },
   { path: 'message',                                component: MessageDemoComponent },
   { path: 'modal-dialog',                           component: ModalDialogDemoComponent },
-  { path: 'month-view',                             component: MonthViewDemoComponent },
   { path: 'notification',                           component: NotificationDemoComponent },
   { path: 'pager-standalone',                       component: PagerStandaloneDemoComponent },
   { path: 'personalize-color-api',                  component: PersonalizeColorApiDemoComponent },
