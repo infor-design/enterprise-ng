@@ -33,6 +33,9 @@ import { BulletDemoComponent } from './bullet/bullet.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo';
 import { ButtonDemoComponent } from './button/button.demo';
+import { CalendarDemoComponent } from './calendar/calendar.demo';
+import { CalendarLegendDemoComponent } from './calendar/calendar-legend.demo';
+import { CalendarUpdatedDemoComponent } from './calendar/calendar-updated.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { CirclepagerDemoComponent } from './circlepager/circlepager.demo';
@@ -145,7 +148,6 @@ import { MaskLegacyDemoComponent } from './mask/mask-legacy.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
-import { MonthViewDemoComponent } from './monthview/monthview.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PersonalizeMenuComponent } from './personalize-menu/personalize-menu.component';
@@ -241,6 +243,9 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     BusyIndicatorDemoBodyComponent,
     ButtonDemoComponent,
     CardFormatterComponent,
+    CalendarDemoComponent,
+    CalendarLegendDemoComponent,
+    CalendarUpdatedDemoComponent,
     ChartDemoComponent,
     CheckBoxDemoComponent,
     CirclepagerDemoComponent,
@@ -337,7 +342,6 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     MaskLegacyDemoComponent,
     MenuButtonDemoComponent,
     MessageDemoComponent,
-    MonthViewDemoComponent,
     NotificationDemoComponent,
     PagerStandaloneDemoComponent,
     PersonalizeColorApiDemoComponent,

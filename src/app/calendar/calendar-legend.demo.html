@@ -1,0 +1,43 @@
+<div soho-calendar
+    [month]="initialMonth"
+    [year]="initialYear"
+    [showViewChanger]="showViewChanger"
+    [onRenderMonth]="onRenderMonthCallback"
+    [onSelected]="onCalendarDateSelectedCallback"
+>
+  <!--
+  legend/calendar-events markup here is causing a javascript error that stop the page from rendering.
+  ERROR RangeError: Maximum call stack size exceeded
+    at HideFocus.init (sohoxi.js:1296)
+    at new HideFocus (sohoxi.js:1280)
+    at HTMLInputElement.<anonymous> (sohoxi.js:1383)
+    at Function.each (jquery.js:367)
+    at jQuery.fn.init.each (jquery.js:202)
+    at jQuery.fn.init.$.fn.hideFocus (sohoxi.js:1378)
+    at invoke (sohoxi.js:85495)
+    at HTMLInputElement.<anonymous> (sohoxi.js:85815)
+    at Function.each (jquery.js:367)
+    at jQuery.fn.init.each (jquery.js:202)
+  -->
+  <div class="calendar-events">
+    <soho-accordion [allowOnePane]="false">
+
+      <soho-accordion-header [isExpanded]="true">
+        <a href="#"><span data-translate="text">Legend</span></a>
+      </soho-accordion-header>
+      <soho-accordion-pane>
+        <div class="calendar-event-types accordion-content"></div>
+      </soho-accordion-pane>
+
+      <soho-accordion-header [isExpanded]="true">
+        <a href="#"><span data-translate="text">UpComing</span></a>
+      </soho-accordion-header>
+      <soho-accordion-pane>
+        <div class="calendar-upcoming-events accordion-content"></div>
+      </soho-accordion-pane>
+
+    </soho-accordion>
+  </div>
+
+  <div soho-calendar-monthview></div>
+</div>
