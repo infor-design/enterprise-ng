@@ -12,6 +12,7 @@
 ### 6.0.0 Fixes
 
 ### 6.0.0 Chore & Maintenance
+
 ## v5.5.0
 
 ### 5.5.0 Features

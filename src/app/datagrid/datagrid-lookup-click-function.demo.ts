@@ -1,16 +1,21 @@
 import { Component, ViewChild, ViewContainerRef, OnInit } from '@angular/core';
-import { SohoDataGridComponent, SohoModalDialogService, } from 'ids-enterprise-ng';
+import {
+  SohoDataGridComponent,
+  SohoModalDialogService
+} from 'ids-enterprise-ng';
 import { PAGING_COLUMNS, PAGING_DATA } from './datagrid-paging-data';
 import { DataGridLookupDialogDemoComponent } from './datagrid-lookup-dialog.demo';
 import { DataGridLookupSelectionEvent } from './datagrid-lookup-event.demo';
 
 @Component({
   selector: 'app-datagrid-lookup-click-function-demo',
-  templateUrl: './datagrid-lookup-click-function.demo.html',
+  templateUrl: './datagrid-lookup-click-function.demo.html'
 })
 export class DataGridLookupClickDemoComponent implements OnInit {
-  @ViewChild(SohoDataGridComponent, { static: false }) sohoDataGridComponent: SohoDataGridComponent;
-  @ViewChild('modalPlaceholder', { read: ViewContainerRef, static: true }) modalPlaceholder: ViewContainerRef;
+  @ViewChild(SohoDataGridComponent, { static: false })
+  sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild('modalPlaceholder', { read: ViewContainerRef, static: true })
+  modalPlaceholder: ViewContainerRef;
 
   gridOptions = undefined;
 
@@ -29,7 +34,7 @@ export class DataGridLookupClickDemoComponent implements OnInit {
       name: 'Lookup Click',
       field: 'productId',
       editor: Soho.Editors.Lookup,
-      editorOptions: {editable: true, click: LMLookupClickFunction},
+      editorOptions: { editable: true, click: LMLookupClickFunction }
     });
 
     this.gridOptions = {
@@ -46,35 +51,47 @@ export class DataGridLookupClickDemoComponent implements OnInit {
   public listLookupClick(sohoLookup: SohoLookupStatic, sourceField: string) {
     const dialogRef = this.modalService
       .modal(DataGridLookupDialogDemoComponent, this.modalPlaceholder)
-      .buttons(
-        [
-          {
-            text: 'Cancel', click: () => {
+      .buttons([
+        {
+          text: 'Cancel',
+          click: () => {
             dialogRef.close('CANCEL');
-          }, isDefault: true
-          }])
+          },
+          isDefault: true
+        }
+      ])
       .title('Select Product')
       .open()
       .apply((lookupDialog: DataGridLookupDialogDemoComponent) => {
-        lookupDialog.lookupSelection.subscribe((event: DataGridLookupSelectionEvent) => {
-          const result: Array<any> = event.rows;
-          if (result && Array.isArray(result) && result.length > 0) {
-            const dataView = result[ 0 ].data;
-            const value = dataView[ sourceField ] as string;
+        lookupDialog.lookupSelection.subscribe(
+          (
+            event: DataGridLookupSelectionEvent<
+              DataGridLookupDialogDemoComponent
+            >
+          ) => {
+            const result: Array<any> = event.rows;
+            if (result && Array.isArray(result) && result.length > 0) {
+              const dataView = result[0].data;
+              const value = dataView[sourceField] as string;
 
-            // TODO: Tim is there a better solution to move
-            // the selected value into the lookup input element?
-            sohoLookup.element.val(value);
-            sohoLookup.element.trigger('focus');
+              // TODO: Tim is there a better solution to move
+              // the selected value into the lookup input element?
+              sohoLookup.element.val(value);
+              sohoLookup.element.trigger('focus');
+            }
+
+            dialogRef.close();
           }
-
-          dialogRef.close();
-        });
+        );
       });
   }
 }
 
-function LMLookupClickFunction(event: any, lookup: SohoLookupStatic, clickArguments: any) {
+function LMLookupClickFunction(
+  event: any,
+  lookup: SohoLookupStatic,
+  clickArguments: any
+) {
   const lookupClickDemoComponent = clickArguments.grid.settings.userObject;
   const sourceField = clickArguments.column.field;
   lookupClickDemoComponent.listLookupClick(lookup, sourceField);

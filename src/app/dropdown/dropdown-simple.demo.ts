@@ -1,19 +1,19 @@
-import { Component, AfterViewInit, ViewChild } from "@angular/core";
+import { Component, AfterViewInit, ViewChild } from '@angular/core';
 
-import { SohoDropDownComponent } from "ids-enterprise-ng";
+import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
-import { MOCK_STATES } from "./dropdown-mock.data";
+import { MOCK_STATES } from './dropdown-mock.data';
 
 @Component({
-  selector: "app-dropdown-simple-demo",
-  templateUrl: "./dropdown-simple.demo.html"
+  selector: 'app-dropdown-simple-demo',
+  templateUrl: './dropdown-simple.demo.html'
 })
 export class DropdownSimpleDemoComponent implements AfterViewInit {
   @ViewChild(SohoDropDownComponent, { static: false })
   dropDownComponent: SohoDropDownComponent;
 
   /** Defautl selected item.  */
-  model = { selectedOption: "ND" };
+  model = { selectedOption: 'ND' };
 
   showModel = false;
 
