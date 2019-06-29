@@ -370,12 +370,12 @@ type SohoDataGridExpandRowResponseFunction = (
   markup: string
 ) => void;
 
-interface SohoDataGridExpandRowFunction  {
+interface SohoDataGridExpandRowFunction {
   eventData: SohoDataGridExpandRowEventData;
   response: SohoDataGridExpandRowResponseFunction;
 }
 
-interface SohoDataGridBeforeSelectFunction  {
+interface SohoDataGridBeforeSelectFunction {
   eventData: SohoDataGridBeforeSelectEventData;
 }
 
@@ -1294,11 +1294,11 @@ interface SohoDataGridColumnGroup {
   colspan: number;
   id: string;
   name: string;
-  align?: 'left' | 'right' | 'align';
+  align?: 'left' | 'right' | 'center';
 }
 
- interface SohoDataGridEditModeEvent {
-    /** Row index contaning editor. */
+interface SohoDataGridEditModeEvent {
+  /** Row index contaning editor. */
   row: number;
 
   /** Column number. */

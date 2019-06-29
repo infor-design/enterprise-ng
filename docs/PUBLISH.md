@@ -68,9 +68,16 @@ are copied into src/app/icon.
 1. Run a release cmd:
     - `npm run release:beta` - beta
     - `npm run release:rc` - release candidate normally the final testing branch before the release
-    - `release:final` - the release itself
+    - `npm run release:final` - the release itself
     - **Always** verify the release version when the script asks
 
 For a final release, finish with:
 
-1. Merge the release branch (`X.Y.Z`) back into `master` but keep branch (`X.Y.Z`)
+1. Merge the release branch (`X.Y.Z`) back into `master` but keep branch (`X.Y.Z`) using the command:
+
+```sh
+git checkout master
+git pull origin master
+git merge <release branch>
+git push origin master
+```
