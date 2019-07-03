@@ -25,12 +25,10 @@ export class SohoModalDialogInjector implements Injector {
    * @param token - the token (what is being requested)
    * @param notFoundValue - was it found ?
    */
-  get(token: any, notFoundValue?: any): any {
-    if (token === SohoModalDialogRef) {
+   get(token: any, notFoundValue?: any): any {
+     if (token === SohoModalDialogRef) {
       return this.dialogRef;
     }
-
-    // @todo `get` is deprecated, but it is unclear how to resolve.
-    return this.baseInjector.get(token, notFoundValue); // tslint:disable-line
-  }
+    return this.baseInjector.get<any>(token, notFoundValue);
+   }
 }
