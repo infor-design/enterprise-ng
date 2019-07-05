@@ -28,14 +28,14 @@ const events: SohoCalendarEvent[] = [{
 }];
 
 describe('Soho Calendar Unit Tests', () => {
-  let comp:     SohoCalendarComponent;
-  let fixture:  ComponentFixture<SohoCalendarComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let comp: SohoCalendarComponent;
+  let fixture: ComponentFixture<SohoCalendarComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ SohoCalendarModule ]
+      imports: [SohoCalendarModule]
     });
 
     fixture = TestBed.createComponent(SohoCalendarComponent);
@@ -45,8 +45,8 @@ describe('Soho Calendar Unit Tests', () => {
   });
 
   it('check inputs', () => {
-    const onMonthRendered = () => {};
-    const onSelected = () => {};
+    const onMonthRendered = () => { };
+    const onSelected = () => { };
 
     comp.eventTypes = eventTypes;
     comp.events = events;
@@ -84,8 +84,8 @@ describe('Soho Calendar Unit Tests', () => {
 
     const updatedEventTypes = [...eventTypes];
     const updateEvents = [...events];
-    const onMonthRendered2 = () => {};
-    const onSelected2 = () => {};
+    const onMonthRendered2 = () => { };
+    const onSelected2 = () => { };
 
     comp.eventTypes = updatedEventTypes;
     comp.events = updateEvents;
@@ -125,7 +125,7 @@ describe('Soho Calendar Unit Tests', () => {
     </div>`
 })
 class SohoCalendarTestComponent {
-  @ViewChild(SohoCalendarComponent) calendar: SohoCalendarComponent;
+  @ViewChild(SohoCalendarComponent, { static: false }) calendar: SohoCalendarComponent;
 
   public events: SohoCalendarEvent[];
   public eventTypes: SohoCalendarEventType[];
@@ -135,16 +135,16 @@ class SohoCalendarTestComponent {
 }
 
 describe('Soho Bar Chart Render', () => {
-  let calendar:  SohoCalendarComponent;
-  let comp:      SohoCalendarTestComponent;
-  let fixture:   ComponentFixture<SohoCalendarTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let calendar: SohoCalendarComponent;
+  let comp: SohoCalendarTestComponent;
+  let fixture: ComponentFixture<SohoCalendarTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoCalendarTestComponent ],
-      imports: [ SohoCalendarModule ]
+      declarations: [SohoCalendarTestComponent],
+      imports: [SohoCalendarModule]
     });
 
     fixture = TestBed.createComponent(SohoCalendarTestComponent);

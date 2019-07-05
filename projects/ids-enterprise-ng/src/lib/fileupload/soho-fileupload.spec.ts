@@ -15,7 +15,7 @@ import { SohoFileUploadComponent } from './soho-fileupload.component';
   `
 })
 class SohoFileUploadTestComponent {
-  @ViewChild(SohoFileUploadComponent, /* TODO: add static flag */ {}) fileupload: SohoFileUploadComponent;
+  @ViewChild(SohoFileUploadComponent, {static: false}) fileupload: SohoFileUploadComponent;
   public name = 'File';
   public text = 'File Upload';
 }

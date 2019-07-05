@@ -18,7 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   </form>`
 })
 class SohoDropDownReactiveFormTestComponent {
-  @ViewChild(SohoDropDownComponent, /* TODO: add static flag */ {}) dropdown: SohoDropDownComponent;
+  @ViewChild(SohoDropDownComponent, {static: false}) dropdown: SohoDropDownComponent;
 
   public options = [
     { value: 'AK', label: 'Alaska' },

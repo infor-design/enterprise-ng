@@ -113,7 +113,7 @@ describe('Soho Sparkline Unit Tests', () => {
   template: `<div soho-sparkline [dataset]="data"></div>`
 })
 class SohoSparklineTestComponent {
-  @ViewChild(SohoSparklineComponent, /* TODO: add static flag */ {}) sparkline: SohoSparklineComponent;
+  @ViewChild(SohoSparklineComponent, {static: false}) sparkline: SohoSparklineComponent;
 
   public sparklineData1 = sparklineData1;
   public sparklineData2 = sparklineData2;

@@ -28,7 +28,7 @@ import { SohoProgressComponent } from './soho-progress.component';
 })
 
 class SohoProgressTestComponent {
-  @ViewChild(SohoProgressComponent, /* TODO: add static flag */ {}) progress: SohoProgressComponent;
+  @ViewChild(SohoProgressComponent, {static: false}) progress: SohoProgressComponent;
 }
 
 describe('Soho Progress Unit Tests', () => {

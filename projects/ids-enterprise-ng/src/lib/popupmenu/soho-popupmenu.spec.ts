@@ -19,7 +19,7 @@ import {
              <li soho-popupmenu-separator singleSelectableSection=true></li>`
 })
 class SohoPopupMenuSeparatorTestComponent {
-  @ViewChild(SohoPopupMenuSeparatorComponent, /* TODO: add static flag */ {}) separator: SohoPopupMenuSeparatorComponent;
+  @ViewChild(SohoPopupMenuSeparatorComponent, {static: false}) separator: SohoPopupMenuSeparatorComponent;
 }
 
 @Component({
@@ -27,7 +27,7 @@ class SohoPopupMenuSeparatorTestComponent {
              <li soho-popupmenu-heading>Heading One</li>`
 })
 class SohoPopupMenuHeadingTestComponent {
-  @ViewChild(SohoPopupMenuHeadingComponent, /* TODO: add static flag */ {}) heading: SohoPopupMenuHeadingComponent;
+  @ViewChild(SohoPopupMenuHeadingComponent, {static: false}) heading: SohoPopupMenuHeadingComponent;
 }
 
 @Component({
@@ -35,7 +35,7 @@ class SohoPopupMenuHeadingTestComponent {
              <li soho-popupmenu-item>Item One</li>`
 })
 class SohoPopupMenuItemTestComponent {
-  @ViewChild(SohoPopupMenuItemComponent, /* TODO: add static flag */ {}) item: SohoPopupMenuItemComponent;
+  @ViewChild(SohoPopupMenuItemComponent, {static: false}) item: SohoPopupMenuItemComponent;
 }
 
 @Component({
@@ -43,7 +43,7 @@ class SohoPopupMenuItemTestComponent {
              <a soho-popupmenu-label isDisabled="true" > Entry One</a>`
 })
 class SohoPopupMenuItemLabelTestComponent {
-  @ViewChild(SohoPopupMenuItemLabelComponent, /* TODO: add static flag */ {}) label: SohoPopupMenuItemLabelComponent;
+  @ViewChild(SohoPopupMenuItemLabelComponent, {static: false}) label: SohoPopupMenuItemLabelComponent;
 }
 
 describe('Soho Popup Menu Unit Tests', () => {

@@ -34,7 +34,7 @@ import { fakeAsync, tick } from '@angular/core/testing';
 class SohoColorPickerReactiveFormTestComponent {
   public colorpickValue = 'red';
 
-  @ViewChild(SohoColorPickerComponent, /* TODO: add static flag */ {}) dropdown: SohoColorPickerComponent;
+  @ViewChild(SohoColorPickerComponent, {static: false}) dropdown: SohoColorPickerComponent;
 
   public formGroup: FormGroup;
 

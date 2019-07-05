@@ -34,7 +34,7 @@ import { SohoDatePickerModule, SohoDatePickerComponent } from './index';
 `
 })
 class TestDatePickerComponent {
-  @ViewChild(SohoDatePickerComponent, /* TODO: add static flag */ {}) datepicker: SohoDatePickerComponent;
+  @ViewChild(SohoDatePickerComponent, {static: false}) datepicker: SohoDatePickerComponent;
 
   @Output() changed = new EventEmitter<SohoDatePickerEvent>();
 

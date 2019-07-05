@@ -88,7 +88,7 @@ describe('Soho Compact Form Unit Tests', () => {
 `
 })
 class SohoFormCompactTestComponent {
-  @ViewChild(SohoFormCompactComponent, /* TODO: add static flag */ {}) formcompact: SohoFormCompactComponent;
+  @ViewChild(SohoFormCompactComponent, {static: false}) formcompact: SohoFormCompactComponent;
 }
 
 describe('Soho Form Compact Render', () => {

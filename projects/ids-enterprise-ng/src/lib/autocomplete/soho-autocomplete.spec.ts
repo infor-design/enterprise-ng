@@ -75,7 +75,7 @@ describe('Soho AutoComplete Unit Tests', () => {
   template: `<input soho-autocomplete [source]="source">`
 })
 class SohoAutoCompleteTestComponent {
-  @ViewChild(SohoAutoCompleteComponent, /* TODO: add static flag */ {}) autocomplete: SohoAutoCompleteComponent;
+  @ViewChild(SohoAutoCompleteComponent, {static: false}) autocomplete: SohoAutoCompleteComponent;
 
   public source = (term: string, response: any) => {
     const states = [

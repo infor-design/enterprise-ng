@@ -29,7 +29,7 @@ import { SohoButtonComponent } from './soho-button.component';
   </div>`
 })
 class SohoButtonTestComponent {
-  @ViewChild(SohoButtonComponent, /* TODO: add static flag */ {}) button: SohoButtonComponent;
+  @ViewChild(SohoButtonComponent, {static: false}) button: SohoButtonComponent;
 
   constructor() {
   }

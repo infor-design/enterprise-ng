@@ -167,7 +167,7 @@ describe('Soho Bar Unit Tests', () => {
   template: `<div soho-bar [dataset]="data"></div>`
 })
 class SohoBarTestComponent {
-  @ViewChild(SohoBarComponent, /* TODO: add static flag */ {}) bar: SohoBarComponent;
+  @ViewChild(SohoBarComponent, {static: false}) bar: SohoBarComponent;
   public data = barData;
 }
 

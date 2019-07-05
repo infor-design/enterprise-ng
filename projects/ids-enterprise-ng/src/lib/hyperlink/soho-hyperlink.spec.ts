@@ -16,7 +16,7 @@ import { SohoHyperlinkComponent } from './soho-hyperlink.component';
 })
 
 class SohoHyperlinkTestComponent {
-  @ViewChild(SohoHyperlinkComponent, /* TODO: add static flag */ {}) hyperlink: SohoHyperlinkComponent;
+  @ViewChild(SohoHyperlinkComponent, {static: false}) hyperlink: SohoHyperlinkComponent;
 }
 
 describe ('Soho Hyperlink Unit tests', () => {

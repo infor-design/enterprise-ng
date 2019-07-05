@@ -26,7 +26,7 @@ import { SohoInputModule } from '../input';
   </div>`
 })
 class SohoCustomMaskTestComponent {
-  @ViewChild(SohoMaskDirective, /* TODO: add static flag */ {}) input: SohoMaskDirective;
+  @ViewChild(SohoMaskDirective, {static: false}) input: SohoMaskDirective;
 
   public definitions: SohoMaskDefinitions = {'U': /[A-Z]/};
 }
@@ -40,7 +40,7 @@ class SohoCustomMaskTestComponent {
   </div>`
 })
 class SohoMaskTestComponent {
-  @ViewChild(SohoMaskDirective, /* TODO: add static flag */ {}) input: SohoMaskDirective;
+  @ViewChild(SohoMaskDirective, {static: false}) input: SohoMaskDirective;
 
   public value: string;
 
