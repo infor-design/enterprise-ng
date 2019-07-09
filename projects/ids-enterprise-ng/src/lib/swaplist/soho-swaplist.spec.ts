@@ -135,7 +135,7 @@ class SohoSwapListServiceTestComponent implements OnInit {
   }
 }
 
-describe('Soho Swap List Unit Tests', () => {
+fdescribe('Soho Swap List Unit Tests', () => {
   let comp: SohoSwapListComponent;
   let fixture: ComponentFixture<SohoSwapListComponent>;
   let de: DebugElement;
@@ -182,7 +182,7 @@ describe('Soho Swap List Unit Tests', () => {
   // Add more method tests.
 });
 
-describe('Soho Swap List Render', () => {
+fdescribe('Soho Swap List Render', () => {
   let com: SohoSwapListComponent;
   let component: SohoSwapListTestComponent;
   let fixture: ComponentFixture<SohoSwapListTestComponent>;
@@ -197,9 +197,9 @@ describe('Soho Swap List Render', () => {
 
     fixture = TestBed.createComponent(SohoSwapListTestComponent);
     component = fixture.componentInstance;
-    com = component.swaplist;
     de = fixture.debugElement;
     fixture.detectChanges();
+    com = component.swaplist;
   });
 
   it('Check HTML content', () => {

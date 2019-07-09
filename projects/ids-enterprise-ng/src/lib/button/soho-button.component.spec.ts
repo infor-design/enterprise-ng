@@ -29,13 +29,13 @@ import { SohoButtonComponent } from './soho-button.component';
   </div>`
 })
 class SohoButtonTestComponent {
-  @ViewChild(SohoButtonComponent, { static: false }) button: SohoButtonComponent;
+  @ViewChild(SohoButtonComponent, { static: true }) button: SohoButtonComponent;
 
   constructor() {
   }
 }
 
-fdescribe('Soho Button Unit Tests', () => {
+describe('Soho Button Unit Tests', () => {
   let button: SohoButtonComponent;
   let component: SohoButtonTestComponent;
   let fixture: ComponentFixture<SohoButtonTestComponent>;
@@ -50,12 +50,12 @@ fdescribe('Soho Button Unit Tests', () => {
 
     fixture = TestBed.createComponent(SohoButtonTestComponent);
     component = fixture.componentInstance;
-    button = component.button;
-
-    de = fixture.debugElement;
-    el = de.query(By.css('button[soho-button]')).nativeElement;
 
     fixture.detectChanges();
+
+    button = component.button;
+    de = fixture.debugElement;
+    el = de.query(By.css('button[soho-button]')).nativeElement;
   });
 
   it('is created', () => {
