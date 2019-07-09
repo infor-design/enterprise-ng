@@ -16,14 +16,14 @@ import { SohoFieldFilterDirective } from './soho-field-filter.directive';
     </div>`
 })
 class SohoFieldFilterTestComponent {
-  @ViewChild(SohoFieldFilterDirective, {static: false}) sohoFieldFilter: SohoFieldFilterDirective;
+  @ViewChild(SohoFieldFilterDirective, { static: false }) sohoFieldFilter: SohoFieldFilterDirective;
 
   fieldSettings: SohoFieldFilterSettings;
   fieldDropdownDataSet: SohoFieldFilterOption[];
   dropdownOpts: SohoDropDownOptions;
   template: string;
 
-  filtered() {}
+  filtered() { }
 }
 
 describe('Directive: SohoFieldFilter', () => {
@@ -35,7 +35,7 @@ describe('Directive: SohoFieldFilter', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoFieldFilterDirective, SohoFieldFilterTestComponent ]
+      declarations: [SohoFieldFilterDirective, SohoFieldFilterTestComponent]
     });
 
     fixture = TestBed.createComponent(SohoFieldFilterTestComponent);
@@ -122,6 +122,6 @@ describe('Directive: SohoFieldFilter', () => {
     sohoFieldFilter['jQueryElement'].trigger('filtered', { data: 3 });
 
     expect(filteredSpy).toHaveBeenCalledTimes(1);
-    expect(filteredSpy.calls.mostRecent().args[0].filterOption).toEqual(3);
+    expect((filteredSpy.calls.mostRecent() as any).args[0].filterOption).toEqual(3);
   });
 });

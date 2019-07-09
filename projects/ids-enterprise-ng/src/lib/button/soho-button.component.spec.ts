@@ -29,13 +29,13 @@ import { SohoButtonComponent } from './soho-button.component';
   </div>`
 })
 class SohoButtonTestComponent {
-  @ViewChild(SohoButtonComponent, {static: false}) button: SohoButtonComponent;
+  @ViewChild(SohoButtonComponent, { static: false }) button: SohoButtonComponent;
 
   constructor() {
   }
 }
 
-describe('Soho Button Unit Tests', () => {
+fdescribe('Soho Button Unit Tests', () => {
   let button: SohoButtonComponent;
   let component: SohoButtonTestComponent;
   let fixture: ComponentFixture<SohoButtonTestComponent>;
