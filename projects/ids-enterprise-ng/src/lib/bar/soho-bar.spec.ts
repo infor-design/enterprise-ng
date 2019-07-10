@@ -39,6 +39,7 @@ describe('Soho Bar Unit Tests', () => {
     comp = fixture.componentInstance;
     de = fixture.debugElement;
     el = de.nativeElement;
+    fixture.detectChanges();
   });
 
   it('Check Content', () => {
@@ -69,6 +70,8 @@ describe('Soho Bar Unit Tests', () => {
     comp.labelFactor = 1;
     comp.wrapWidth = 180;
     comp.emptyMessage = emptyMessage;
+
+    fixture.detectChanges();
 
     // check options
     expect((comp as any).options.dataset).toEqual(barData);
@@ -119,6 +122,8 @@ describe('Soho Bar Unit Tests', () => {
     comp.wrapWidth = 200;
     comp.emptyMessage = updatedEmptyMessage;
 
+    fixture.detectChanges();
+
     // check bar settings
     expect((comp as any).bar.settings.dataset).toEqual(updatedBarData);
     expect((comp as any).bar.settings.type).toEqual('bar-grouped');
@@ -147,9 +152,10 @@ describe('Soho Bar Unit Tests', () => {
     expect(updatedSpy).toHaveBeenCalledTimes(1);
   });
 
-  it('check public functions', () => {
+  it('check public functions', async () => {
     comp.dataset = barData;
     comp.type = 'bar';
+
     fixture.detectChanges();
 
     comp.toggleSelected({ index: 1 });

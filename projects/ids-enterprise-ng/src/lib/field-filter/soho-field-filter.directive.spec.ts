@@ -41,11 +41,12 @@ describe('Directive: SohoFieldFilter', () => {
     fixture = TestBed.createComponent(SohoFieldFilterTestComponent);
     component = fixture.componentInstance;
 
-    updatedSpy = spyOn(sohoFieldFilter['fieldFilter'], 'updated');
-    sohoFieldFilter['_settings'] = {};
-
     fixture.detectChanges();
     sohoFieldFilter = component.sohoFieldFilter;
+
+    const sohFieldFilterAny = (sohoFieldFilter as any);
+    updatedSpy = spyOn(sohFieldFilterAny.fieldFilter, 'updated');
+    sohFieldFilterAny._settings = {};  // <--- should not really be playing with it's privates.
   });
 
   it('should update with fieldSettings', () => {
@@ -66,7 +67,7 @@ describe('Directive: SohoFieldFilter', () => {
 
     expect(updatedSpy).toHaveBeenCalledTimes(1);
     expect(updatedSpy).toHaveBeenCalledWith({ dataset });
-    expect(sohoFieldFilter['runUpdatedOnCheck']).toBeFalsy();
+    expect((sohoFieldFilter as any).runUpdatedOnCheck).toBeFalsy();
   });
 
   it('should update with dropdownOpts', () => {
@@ -76,7 +77,7 @@ describe('Directive: SohoFieldFilter', () => {
 
     expect(updatedSpy).toHaveBeenCalledTimes(1);
     expect(updatedSpy).toHaveBeenCalledWith({ dropdownOpts });
-    expect(sohoFieldFilter['runUpdatedOnCheck']).toBeFalsy();
+    expect((sohoFieldFilter as any).runUpdatedOnCheck).toBeFalsy();
   });
 
   it('should update with template', () => {
@@ -85,7 +86,7 @@ describe('Directive: SohoFieldFilter', () => {
 
     expect(updatedSpy).toHaveBeenCalledTimes(1);
     expect(updatedSpy).toHaveBeenCalledWith({ template: 'test' });
-    expect(sohoFieldFilter['runUpdatedOnCheck']).toBeFalsy();
+    expect((sohoFieldFilter as any).runUpdatedOnCheck).toBeFalsy();
   });
 
   it('should getFilterType', () => {
@@ -99,7 +100,7 @@ describe('Directive: SohoFieldFilter', () => {
   });
 
   it('should setFilterType', () => {
-    const setFilterTypeSpy = spyOn(sohoFieldFilter['fieldFilter'], 'setFilterType');
+    const setFilterTypeSpy = spyOn((sohoFieldFilter as any).fieldFilter, 'setFilterType');
     sohoFieldFilter.setFilterType(2);
 
     expect(setFilterTypeSpy).toHaveBeenCalledWith(2);
@@ -115,7 +116,7 @@ describe('Directive: SohoFieldFilter', () => {
   it('should markForRefresh', () => {
     sohoFieldFilter.markForRefresh();
 
-    expect(sohoFieldFilter['runUpdatedOnCheck']).toBeTruthy();
+    expect((sohoFieldFilter as any).runUpdatedOnCheck).toBeTruthy();
   });
 
   it('should fire filtered event', () => {

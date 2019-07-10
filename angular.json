@@ -118,7 +118,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "node_modules/ids-enterprise/dist/js/cultures",
+                "input": "./node_modules/ids-enterprise/dist/js/cultures",
                 "output": "/assets/ids-enterprise/js/cultures"
               },
               "src/app/demodata"

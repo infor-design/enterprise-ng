@@ -149,11 +149,12 @@ describe('Soho Bar Chart Render', () => {
 
     fixture = TestBed.createComponent(SohoCalendarTestComponent);
     comp = fixture.componentInstance;
-    calendar = comp.calendar;
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-calendar]')).nativeElement;
 
+    fixture.detectChanges();
+    calendar = comp.calendar;
   });
 
   it('Check HTML content', () => {
