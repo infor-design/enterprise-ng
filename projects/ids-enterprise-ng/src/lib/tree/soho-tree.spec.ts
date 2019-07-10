@@ -60,7 +60,7 @@ describe('Soho Tree Unit Tests', () => {
   template: `<ul soho-tree [dataset]="dataset"></ul>`
 })
 class SohoTreeTestComponent {
-  @ViewChild(SohoTreeComponent, {static: false}) tree: SohoTreeComponent;
+  @ViewChild(SohoTreeComponent, { static: false }) tree: SohoTreeComponent;
   _data: any[];
 
   public get dataset(): any[] {
@@ -124,10 +124,11 @@ describe('Soho Tree Render', () => {
     fixture = TestBed.createComponent(SohoTreeTestComponent);
     component = fixture.componentInstance;
 
-    tree = component.tree;
-
     de = fixture.debugElement;
     el = de.query(By.css('ul[soho-tree]')).nativeElement;
+
+    fixture.detectChanges();
+    tree = component.tree;
   });
 
   it('Check HTML content', () => {
@@ -140,12 +141,12 @@ describe('Soho Tree Render', () => {
     fixture.detectChanges();
 
     const testData = [{
-        'id': 'node1',
-        'text': 'Data One',
-        'open': false,
-        'selected': false,
-        'href': '/somelink/'
-      }];
+      'id': 'node1',
+      'text': 'Data One',
+      'open': false,
+      'selected': false,
+      'href': '/somelink/'
+    }];
 
     tree.dataset = testData;
 
@@ -175,7 +176,7 @@ describe('Soho Tree Render', () => {
     fixture.detectChanges();
 
     // An Error (Exception) is expected when we pass an invalid node name.
-    expect( () => { tree.selectNode('invalid'); }).toThrow(new Error(`Node invalid does not exist`));
+    expect(() => { tree.selectNode('invalid'); }).toThrow(new Error(`Node invalid does not exist`));
 
     // Make sure the nodes have not changed, in this case we have an
     // unfortunate dependency with the previous test!

@@ -10,14 +10,14 @@ import { SohoAutoCompleteComponent } from './soho-autocomplete.component';
 import { TestHelper } from '../utils';
 
 describe('Soho AutoComplete Unit Tests', () => {
-  let comp:     SohoAutoCompleteComponent;
-  let fixture:  ComponentFixture<SohoAutoCompleteComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let comp: SohoAutoCompleteComponent;
+  let fixture: ComponentFixture<SohoAutoCompleteComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoAutoCompleteComponent ]
+      declarations: [SohoAutoCompleteComponent]
     });
 
     fixture = TestBed.createComponent(SohoAutoCompleteComponent);
@@ -75,7 +75,7 @@ describe('Soho AutoComplete Unit Tests', () => {
   template: `<input soho-autocomplete [source]="source">`
 })
 class SohoAutoCompleteTestComponent {
-  @ViewChild(SohoAutoCompleteComponent, {static: false}) autocomplete: SohoAutoCompleteComponent;
+  @ViewChild(SohoAutoCompleteComponent, { static: false }) autocomplete: SohoAutoCompleteComponent;
 
   public source = (term: string, response: any) => {
     const states = [
@@ -95,26 +95,26 @@ class SohoAutoCompleteTestComponent {
 }
 
 describe('Soho Autocomplete Render', () => {
-  let autocomplete:  SohoAutoCompleteComponent;
+  let autocomplete: SohoAutoCompleteComponent;
   let component: SohoAutoCompleteTestComponent;
-  let fixture:   ComponentFixture<SohoAutoCompleteTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoAutoCompleteTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoAutoCompleteTestComponent ],
-      imports: [ FormsModule, SohoAutoCompleteModule ]
+      declarations: [SohoAutoCompleteTestComponent],
+      imports: [FormsModule, SohoAutoCompleteModule]
     });
 
     fixture = TestBed.createComponent(SohoAutoCompleteTestComponent);
     component = fixture.componentInstance;
-    autocomplete = component.autocomplete;
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-autocomplete]')).nativeElement;
 
     fixture.detectChanges();
+    autocomplete = component.autocomplete;
   });
 
   it('Check HTML content', () => {

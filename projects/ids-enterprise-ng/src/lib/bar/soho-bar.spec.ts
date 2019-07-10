@@ -25,14 +25,14 @@ const barData = [{
 }];
 
 describe('Soho Bar Unit Tests', () => {
-  let comp:     SohoBarComponent;
-  let fixture:  ComponentFixture<SohoBarComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let comp: SohoBarComponent;
+  let fixture: ComponentFixture<SohoBarComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoBarComponent ]
+      declarations: [SohoBarComponent]
     });
 
     fixture = TestBed.createComponent(SohoBarComponent);
@@ -46,7 +46,7 @@ describe('Soho Bar Unit Tests', () => {
   });
 
   it('check inputs', () => {
-    const ticks = {number: 10, format: ',.1s'};
+    const ticks = { number: 10, format: ',.1s' };
     const emptyMessage: SohoEmptyMessageOptions = {
       title: 'this chart has no data',
       icon: 'icon-empty-no-data',
@@ -93,9 +93,9 @@ describe('Soho Bar Unit Tests', () => {
     fixture.detectChanges();
 
     // once bar chart is built setting input should cause bar.settings to update
-    const updatedBarData = [ ...barData];
+    const updatedBarData = [...barData];
     updatedBarData[0].data = [...updatedBarData[0].data, { name: 'Category D', value: 415.21 }];
-    const updatedTicks = {number: 5, format: ',.1s'};
+    const updatedTicks = { number: 5, format: ',.1s' };
     const updatedEmptyMessage: SohoEmptyMessageOptions = {
       title: 'nothing to display',
       icon: 'icon-empty-no-data',
@@ -167,30 +167,31 @@ describe('Soho Bar Unit Tests', () => {
   template: `<div soho-bar [dataset]="data"></div>`
 })
 class SohoBarTestComponent {
-  @ViewChild(SohoBarComponent, {static: false}) bar: SohoBarComponent;
+  @ViewChild(SohoBarComponent, { static: false }) bar: SohoBarComponent;
   public data = barData;
 }
 
 describe('Soho Bar Chart Render', () => {
-  let bar:  SohoBarComponent;
+  let bar: SohoBarComponent;
   let component: SohoBarTestComponent;
-  let fixture:   ComponentFixture<SohoBarTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoBarTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoBarTestComponent ],
-      imports: [ FormsModule, SohoBarModule ]
+      declarations: [SohoBarTestComponent],
+      imports: [FormsModule, SohoBarModule]
     });
 
     fixture = TestBed.createComponent(SohoBarTestComponent);
     component = fixture.componentInstance;
-    bar = component.bar;
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-bar]')).nativeElement;
 
+    fixture.detectChanges();
+    bar = component.bar;
   });
 
   it('Check HTML content', () => {

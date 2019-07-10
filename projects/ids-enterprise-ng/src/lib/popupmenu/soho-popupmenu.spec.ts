@@ -151,12 +151,12 @@ describe('Soho Popup Menu Item Render', () => {
 
     fixture = TestBed.createComponent(SohoPopupMenuItemTestComponent);
     component = fixture.componentInstance;
-    item = component.item;
 
     de = fixture.debugElement;
     el = de.query(By.css('li[soho-popupmenu-item]')).nativeElement;
 
     fixture.detectChanges();
+    item = component.item;
   });
 
   it('Check Item HTML content', () => {

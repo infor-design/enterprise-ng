@@ -40,11 +40,12 @@ describe('Directive: SohoFieldFilter', () => {
 
     fixture = TestBed.createComponent(SohoFieldFilterTestComponent);
     component = fixture.componentInstance;
-    sohoFieldFilter = component.sohoFieldFilter;
 
-    fixture.detectChanges();
     updatedSpy = spyOn(sohoFieldFilter['fieldFilter'], 'updated');
     sohoFieldFilter['_settings'] = {};
+
+    fixture.detectChanges();
+    sohoFieldFilter = component.sohoFieldFilter;
   });
 
   it('should update with fieldSettings', () => {

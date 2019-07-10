@@ -16,9 +16,9 @@ describe('TagComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoTagComponent ]
+      declarations: [SohoTagComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -40,30 +40,30 @@ describe('TagComponent', () => {
   template: `<span soho-tag="secondary">tag</span>`
 })
 class SohoTagTestComponent {
-  @ViewChild(SohoTagComponent, {static: false}) tag: SohoTagComponent;
+  @ViewChild(SohoTagComponent, { static: false }) tag: SohoTagComponent;
 }
 
 describe('Soho Tag Render', () => {
-  let tag:        SohoTagComponent;
-  let component:  SohoTagTestComponent;
-  let fixture:    ComponentFixture<SohoTagTestComponent>;
-  let de:         DebugElement;
-  let el:         HTMLElement;
+  let tag: SohoTagComponent;
+  let component: SohoTagTestComponent;
+  let fixture: ComponentFixture<SohoTagTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoTagTestComponent ],
-      imports: [ SohoTagModule ]
+      declarations: [SohoTagTestComponent],
+      imports: [SohoTagModule]
     });
 
     fixture = TestBed.createComponent(SohoTagTestComponent);
     component = fixture.componentInstance;
-    tag = component.tag;
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-tag]')).nativeElement;
 
     fixture.detectChanges();
+    tag = component.tag;
   });
 
   it('Check HTML content', () => {

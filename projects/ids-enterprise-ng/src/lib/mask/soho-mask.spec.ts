@@ -26,9 +26,9 @@ import { SohoInputModule } from '../input';
   </div>`
 })
 class SohoCustomMaskTestComponent {
-  @ViewChild(SohoMaskDirective, {static: false}) input: SohoMaskDirective;
+  @ViewChild(SohoMaskDirective, { static: false }) input: SohoMaskDirective;
 
-  public definitions: SohoMaskDefinitions = {'U': /[A-Z]/};
+  public definitions: SohoMaskDefinitions = { 'U': /[A-Z]/ };
 }
 
 @Component({
@@ -40,7 +40,7 @@ class SohoCustomMaskTestComponent {
   </div>`
 })
 class SohoMaskTestComponent {
-  @ViewChild(SohoMaskDirective, {static: false}) input: SohoMaskDirective;
+  @ViewChild(SohoMaskDirective, { static: false }) input: SohoMaskDirective;
 
   public value: string;
 
@@ -59,16 +59,16 @@ class SohoMaskTestComponent {
 }
 
 describe('Soho Mask Render', () => {
-  let input:     SohoMaskDirective;
+  let input: SohoMaskDirective;
   let component: SohoMaskTestComponent;
-  let fixture:   ComponentFixture<SohoMaskTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoMaskTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoMaskTestComponent ],
-      imports: [ FormsModule, ReactiveFormsModule, SohoMaskModule, SohoInputModule ]
+      declarations: [SohoMaskTestComponent],
+      imports: [FormsModule, ReactiveFormsModule, SohoMaskModule, SohoInputModule]
     });
 
     fixture = TestBed.createComponent(SohoMaskTestComponent);
@@ -114,31 +114,31 @@ describe('Soho Mask Render', () => {
 });
 
 describe('Soho Custom Mask Render', () => {
-  let input:     SohoMaskDirective;
+  let input: SohoMaskDirective;
   let component: SohoCustomMaskTestComponent;
-  let fixture:   ComponentFixture<SohoCustomMaskTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoCustomMaskTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoCustomMaskTestComponent ],
-      imports: [ FormsModule, ReactiveFormsModule, SohoMaskModule, SohoInputModule ]
+      declarations: [SohoCustomMaskTestComponent],
+      imports: [FormsModule, ReactiveFormsModule, SohoMaskModule, SohoInputModule]
     });
 
     fixture = TestBed.createComponent(SohoCustomMaskTestComponent);
     component = fixture.componentInstance;
-    input = component.input;
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-mask]')).nativeElement;
 
     fixture.detectChanges();
+    input = component.input;
   });
 
   it('Check HTML content', () => {
     fixture.detectChanges();
-    input.definitions = {'U': /[A-Z]/};
+    input.definitions = { 'U': /[A-Z]/ };
 
     // TODO - interact
   });

@@ -36,7 +36,7 @@ import { SohoSliderComponent } from './soho-slider.component';
 //   });
 // });
 
-@Component ({
+@Component({
   template: `
     <input soho-slider id="slider-regular" name="slider-regular"
     min="0" max="100" type="range" value="40"/>
@@ -44,31 +44,30 @@ import { SohoSliderComponent } from './soho-slider.component';
 })
 
 class SohoSliderTestComponent {
-  @ViewChild(SohoSliderComponent, {static: false}) slider: SohoSliderComponent;
+  @ViewChild(SohoSliderComponent, { static: false }) slider: SohoSliderComponent;
 }
 
-describe ('Soho Slider Render', () => {
-  let slider:   SohoSliderComponent;
-  let comp:     SohoSliderTestComponent;
-  let fixture:  ComponentFixture<SohoSliderTestComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+describe('Soho Slider Render', () => {
+  let slider: SohoSliderComponent;
+  let comp: SohoSliderTestComponent;
+  let fixture: ComponentFixture<SohoSliderTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoSliderTestComponent ],
-      imports: [ FormsModule, SohoSliderModule ]
+      declarations: [SohoSliderTestComponent],
+      imports: [FormsModule, SohoSliderModule]
     });
 
     fixture = TestBed.createComponent(SohoSliderTestComponent);
     comp = fixture.componentInstance;
-    slider = comp.slider;
-    fixture.detectChanges();
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-slider]')).nativeElement;
 
     fixture.detectChanges();
+    slider = comp.slider;
   });
 
   it('Check slider element', () => {

@@ -1,6 +1,6 @@
 /// <reference path="soho-bullet.d.ts" />
 
-import {} from 'jasmine';
+import { } from 'jasmine';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';
@@ -16,7 +16,8 @@ const bulletData1 = [{
     'ranges': [150, 225, 300, 400, 600],
     'measures': [220, 270],
     'markers': [250], url: 'http://someplace.com',
-    tooltip: ['<b>Poor</b> 150', '<b>Ok</b> 225', '<b>Good</b> 300', '<b>Excellent</b> 400', '<b>Revenue</b> 600']}
+    tooltip: ['<b>Poor</b> 150', '<b>Ok</b> 225', '<b>Good</b> 300', '<b>Excellent</b> 400', '<b>Revenue</b> 600']
+  }
   ],
   barColors: ['#C0EDE3', '#8ED1C6', '#69ADA3', '#448D83', '#206B62'],
   lineColors: ['#000000', '#000000', '#000000'],
@@ -38,14 +39,14 @@ const bulletData2 = [{
 }];
 
 describe('Soho Bullet Unit Tests', () => {
-  let comp:     SohoBulletComponent;
-  let fixture:  ComponentFixture<SohoBulletComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let comp: SohoBulletComponent;
+  let fixture: ComponentFixture<SohoBulletComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoBulletComponent ]
+      declarations: [SohoBulletComponent]
     });
 
     fixture = TestBed.createComponent(SohoBulletComponent);
@@ -97,30 +98,31 @@ describe('Soho Bullet Unit Tests', () => {
   template: `<div soho-bullet [dataset]="data"></div>`
 })
 class SohoBulletTestComponent {
-  @ViewChild(SohoBulletComponent, {static: false}) bullet: SohoBulletComponent;
+  @ViewChild(SohoBulletComponent, { static: false }) bullet: SohoBulletComponent;
   public data = bulletData1;
 }
 
 describe('Soho Bullet Chart Render', () => {
   let bullet: SohoBulletComponent;
   let component: SohoBulletTestComponent;
-  let fixture:   ComponentFixture<SohoBulletTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoBulletTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoBulletTestComponent ],
-      imports: [ FormsModule, SohoBulletModule ]
+      declarations: [SohoBulletTestComponent],
+      imports: [FormsModule, SohoBulletModule]
     });
 
     fixture = TestBed.createComponent(SohoBulletTestComponent);
     component = fixture.componentInstance;
-    bullet = component.bullet;
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-bullet]')).nativeElement;
 
+    fixture.detectChanges();
+    bullet = component.bullet;
   });
 
   it('Check HTML content', () => {

@@ -11,100 +11,100 @@ import { SohoDataGridComponent } from './soho-datagrid.component';
 /* tslint:disable */
 const COLUMNS: SohoDataGridColumn[] = [
   { id: 'selectionCheckbox', sortable: false, resizable: false, width: 50, formatter: Soho.Formatters.SelectionCheckbox, align: 'center', exportable: false },
-  { id: 'productId',   name: 'Product Id',   field: 'productId',   sortable: false, filterType: 'integer', width: 140, formatter: Soho.Formatters.Readonly },
-  { id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text', filterConditions: ['equals', 'contains'],  width: 150, formatter: Soho.Formatters.Hyperlink },
-  { id: 'activity',    name: 'Activity',     field: 'activity',    sortable: false, filterType: 'text',    width: 125, hidden: true },
-  { id: 'quantity',    name: 'Quantity',     field: 'quantity',    sortable: false,                        width: 125 },
-  { id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', width: 125, formatter: Soho.Formatters.Decimal },
-  { id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',    headerAlign: 'right', formatter: Soho.Formatters.Date, dateFormat: 'M/d/yyyy' }
+  { id: 'productId', name: 'Product Id', field: 'productId', sortable: false, filterType: 'integer', width: 140, formatter: Soho.Formatters.Readonly },
+  { id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text', filterConditions: ['equals', 'contains'], width: 150, formatter: Soho.Formatters.Hyperlink },
+  { id: 'activity', name: 'Activity', field: 'activity', sortable: false, filterType: 'text', width: 125, hidden: true },
+  { id: 'quantity', name: 'Quantity', field: 'quantity', sortable: false, width: 125 },
+  { id: 'price', name: 'Price', field: 'price', sortable: false, filterType: 'decimal', width: 125, formatter: Soho.Formatters.Decimal },
+  { id: 'orderDate', name: 'Order Date', field: 'orderDate', sortable: false, filterType: 'date', headerAlign: 'right', formatter: Soho.Formatters.Date, dateFormat: 'M/d/yyyy' }
 ];
 /* tslint:enable */
 
 /* tslint:disable */
 const DATA: any[] = [
   {
-    id:          0,
-    productId:   214220,
+    id: 0,
+    productId: 214220,
     productName: 'Compressor 1',
-    activity:    'Assemble Paint',
-    quantity:    1,
-    price:       210.99,
-    status:      'Active',
-    orderDate:   '2015-01-01T06:00:00.000Z',
-    action:      'Action',
-    rated:       .32
+    activity: 'Assemble Paint',
+    quantity: 1,
+    price: 210.99,
+    status: 'Active',
+    orderDate: '2015-01-01T06:00:00.000Z',
+    action: 'Action',
+    rated: .32
   },
   {
-    id:          1,
-    productId:   214221,
+    id: 1,
+    productId: 214221,
     productName: 'Compressor 2',
-    activity:    'Assemble Paint',
-    quantity:    1.5,
-    price:       209.99,
-    status:      'Late',
-    orderDate:   '2015-01-02T06:00:00.000Z',
-    action:      'Action',
-    rated:       .76
+    activity: 'Assemble Paint',
+    quantity: 1.5,
+    price: 209.99,
+    status: 'Late',
+    orderDate: '2015-01-02T06:00:00.000Z',
+    action: 'Action',
+    rated: .76
   },
   {
-    id:          2,
-    productId:   214222,
+    id: 2,
+    productId: 214222,
     productName: 'Compressor 3',
-    activity:    'Assemble Paint',
-    quantity:    2,
-    price:       208.99,
-    status:      'Active',
-    orderDate:   '2015-01-03T06:00:00.000Z',
-    action:      'Action',
-    rated:       .32
+    activity: 'Assemble Paint',
+    quantity: 2,
+    price: 208.99,
+    status: 'Active',
+    orderDate: '2015-01-03T06:00:00.000Z',
+    action: 'Action',
+    rated: .32
   },
   {
-    id:          3,
-    productId:   214223,
+    id: 3,
+    productId: 214223,
     productName: 'Compressor 4',
-    activity:    'Assemble Paint',
-    quantity:    2.5,
-    price:       207.99,
-    status:      'Inactive',
-    orderDate:   '2015-01-04T06:00:00.000Z',
-    action:      'Action',
-    rated:       .53
+    activity: 'Assemble Paint',
+    quantity: 2.5,
+    price: 207.99,
+    status: 'Inactive',
+    orderDate: '2015-01-04T06:00:00.000Z',
+    action: 'Action',
+    rated: .53
   },
   {
-    id:          4,
-    productId:   214224,
+    id: 4,
+    productId: 214224,
     productName: 'Compressor 5',
-    activity:    'Assemble Paint',
-    quantity:    3,
-    price:       206.99,
-    status:      'Inactive',
-    orderDate:   '2015-01-05T06:00:00.000Z',
-    action:      'Action',
-    rated:       .42
+    activity: 'Assemble Paint',
+    quantity: 3,
+    price: 206.99,
+    status: 'Inactive',
+    orderDate: '2015-01-05T06:00:00.000Z',
+    action: 'Action',
+    rated: .42
   },
   {
-    id:          5,
-    productId:   214225,
+    id: 5,
+    productId: 214225,
     productName: 'Compressor 6',
-    activity:    'Assemble Paint',
-    quantity:    3.5,
-    price:       205.99,
-    status:      'Inactive',
-    orderDate:   '2015-01-06T06:00:00.000Z',
-    action:      'Action',
-    rated:       .88
+    activity: 'Assemble Paint',
+    quantity: 3.5,
+    price: 205.99,
+    status: 'Inactive',
+    orderDate: '2015-01-06T06:00:00.000Z',
+    action: 'Action',
+    rated: .88
   },
   {
-    id:          6,
-    productId:   214226,
+    id: 6,
+    productId: 214226,
     productName: 'Compressor 7',
-    activity:    'Assemble Paint',
-    quantity:    4,
-    price:       204.99,
-    status:      'Active',
-    orderDate:   '2015-01-07T06:00:00.000Z',
-    action:      'Action',
-    rated:       .54
+    activity: 'Assemble Paint',
+    quantity: 4,
+    price: 204.99,
+    status: 'Active',
+    orderDate: '2015-01-07T06:00:00.000Z',
+    action: 'Action',
+    rated: .54
   }
 ];
 /* tslint:enable */
@@ -414,7 +414,7 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(comp.gridOptions.stretchColumn).toEqual('last');
     expect(comp.stretchColumn).toBe('last');
 
-    comp.stretchColumn  = 'accountType';
+    comp.stretchColumn = 'accountType';
 
     expect(comp.gridOptions.stretchColumn).toEqual('accountType');
     expect(comp.stretchColumn).toEqual('accountType');
@@ -425,7 +425,7 @@ describe('Soho DataGrid Unit Tests', () => {
   template: `<div soho-datagrid [columns]="columns" [dataset]="data" selectable="multiple" filterable="true"></div>`
 })
 class SohoDataGridTestComponent {
-  @ViewChild(SohoDataGridComponent, {static: false}) datagrid: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: false }) datagrid: SohoDataGridComponent;
   _columns: SohoDataGridColumn[];
   _data: Object[];
   public get columns(): SohoDataGridColumn[] {
@@ -460,10 +460,11 @@ describe('Soho DataGrid Render', () => {
     fixture = TestBed.createComponent(SohoDataGridTestComponent);
     component = fixture.componentInstance;
 
-    datagrid = component.datagrid;
-
     de = fixture.debugElement;
     el = de.query(By.css('div[soho-datagrid]')).nativeElement;
+
+    fixture.detectChanges();
+    datagrid = component.datagrid;
   });
 
   it('Check HTML content', () => {
