@@ -33,11 +33,11 @@ export class CalendarDemoComponent {
         response(this.events, this.eventTypes);
       });
     });
-  };
+  }
 
   public onCalendarDateSelectedCallback = (node: Node, args: SohoCalendarDateSelectedEvent) => {
     console.log('onCalendarEventSelectedCallback', args);
-  };
+  }
 
   constructor(private monthViewService: CalendarDemoService, private toastService: SohoToastService) {}
 
