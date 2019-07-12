@@ -4,7 +4,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { CalendarDemoService } from './calendar.demo.service';
-import { SohoCalendarComponent } from 'ids-enterprise-ng';
+import { SohoCalendarComponent, SohoToastService } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-calendar-demo',
@@ -33,13 +33,13 @@ export class CalendarDemoComponent {
         response(this.events, this.eventTypes);
       });
     });
-  }
+  };
 
   public onCalendarDateSelectedCallback = (node: Node, args: SohoCalendarDateSelectedEvent) => {
     console.log('onCalendarEventSelectedCallback', args);
-  }
+  };
 
-  constructor(private monthViewService: CalendarDemoService) {}
+  constructor(private monthViewService: CalendarDemoService, private toastService: SohoToastService) {}
 
   onRenderMonth(event: SohoCalendarRenderMonthEvent) {
     console.log('onRenderMonth', event);
@@ -49,7 +49,13 @@ export class CalendarDemoComponent {
     console.log('onSelected', event);
   }
 
-  onDblClick(event: MouseEvent) {
-    console.log('onDblClick', event);
+  onEventClicked(event: SohoCalendarEventClickEvent) {
+    this.toastService.show({title: 'Calendar Test', message: 'Event "' + event.event.subject + '" Clicked' });
+    console.log('onEventClick', event);
+  }
+
+  onEventDblClicked(event: SohoCalendarEventClickEvent) {
+    this.toastService.show({title: 'Calendar Test', message: 'Event "' + event.event.subject + '" Double Clicked' });
+    console.log('onEventDblClick', event);
   }
 }

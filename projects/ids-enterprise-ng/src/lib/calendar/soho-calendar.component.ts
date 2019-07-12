@@ -314,6 +314,8 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   // -------------------------------------------
   @Output() selected = new EventEmitter<SohoCalendarDateSelectedEvent>();
   @Output() monthRendered = new EventEmitter<SohoCalendarRenderMonthEvent>();
+  @Output() eventClick = new EventEmitter<SohoCalendarEventClickEvent>();
+  @Output() eventDblClick = new EventEmitter<SohoCalendarEventClickEvent>();
 
   /**
    * Local variables
@@ -337,7 +339,9 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
       // Add listeners to emit events
       this.jQueryElement
       .on('selected', (e: any, event: SohoCalendarDateSelectedEvent) => this.onSelectedEvent(event))
-      .on('monthrendered', (e: any, args: SohoCalendarRenderMonthEvent) => this.onMonthRenderedEvent(args));
+      .on('monthrendered', (e: any, args: SohoCalendarRenderMonthEvent) => this.onMonthRenderedEvent(args))
+      .on('eventclick', (e: any, args: SohoCalendarEventClickEvent) => this.onEventClick(args))
+      .on('eventdblclick', (e: any, args: SohoCalendarEventClickEvent) => this.onEventDblClick(args));
 
       // Initialise the Soho control.
       this.jQueryElement.calendar(this._calendarOptions);
@@ -359,7 +363,6 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
       this.updated();
       this.updateRequired = false;
     }
-
   }
 
   onSelectedEvent(event: SohoCalendarDateSelectedEvent) {
@@ -368,6 +371,14 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
 
   onMonthRenderedEvent(event: SohoCalendarRenderMonthEvent) {
     this.ngZone.run(() => this.monthRendered.emit(event));
+  }
+
+  onEventClick(event: SohoCalendarEventClickEvent) {
+    this.ngZone.run(() => this.eventClick.emit(event));
+  }
+
+  onEventDblClick(event: SohoCalendarEventClickEvent) {
+    this.ngZone.run(() => this.eventDblClick.emit(event));
   }
 
   /**
