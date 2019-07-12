@@ -25,6 +25,8 @@
 - `[DataGrid]` - Added `center` option for `align` on `SohoDataGridColumnGroup`. `BTHH` ([#520](https://github.com/infor-design/enterprise-ng/issues/520))
 - `[DropDown]` - Ensured events are fired even when the component is not used with ngModel. `BTHH` ([#516](https://github.com/infor-design/enterprise/issues/516))
 - `[Editor]` - Changed `soho-editor` to use `html()` rather than `.val()`, fixing change event. `BTHH` ([#516](https://github.com/infor-design/enterprise-ng/issues/516))
+- `[DataGrid]` - Added `center` option for `align` on `SohoDataGridColumnGroup`. `BTHH` ([#520](https://github.com/infor-design/enterprise-ng/issues/520))
+- `[Datagrid]` Fixed an issue where code-block editor focus was not working. ([#526](https://github.com/infor-design/enterprise-ng/issues/526))
 - `[Field Options]` - Fixed an issue where example page was showing js error. ([#2348](https://github.com/infor-design/enterprise/issues/2348))
 - `[Modal]` - Redundant `modal-dialog` markup removed on hash based route navigation. ([#308](https://github.com/infor-design/enterprise/issues/308))
 

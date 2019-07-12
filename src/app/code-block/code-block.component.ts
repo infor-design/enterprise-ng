@@ -13,12 +13,14 @@ import {
         <ng-content></ng-content>
       </div>
       <div class="code-block-buttons">
+        <!--
         <button type="button" class="btn-icon hide-focus">
           <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
             <use xlink:href="#icon-launch"></use>
           </svg>
           <span>Launch</span>
         </button>
+        -->
 
         <button type="button" class="btn-icon btn-actions code-block-actions btn-menu"
           soho-context-menu trigger="click" [beforeOpen]="onBeforeContextMenuOpen"
@@ -68,7 +70,10 @@ export class CodeBlockComponent implements OnDestroy {
 
   focus() {
     // Using jquery to focus the element as ViewChildren is not working
-    $('input:first', this.elementRef.nativeElement).trigger('focus');
+    const $event: MouseEventInit = event;
+    const focusables = $(':focusable', this.elementRef.nativeElement);
+    const target = $event && $event.shiftKey ? focusables.last() : focusables.first();
+    target.trigger('focus');
   }
 
   toggleLabels() {
