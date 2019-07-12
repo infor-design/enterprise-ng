@@ -35,6 +35,7 @@
     trigger="immediate"
     [eventObj]="contextMenuEvent"
     [attachToBody]="true"
+    [removeOnDestroy]="true"
     (selected)="onMenuItemSelected($event)"
     (beforeopen)="onBeforeContextMenuOpen($event)"
     (close)="onContextMenuClose($event)"
