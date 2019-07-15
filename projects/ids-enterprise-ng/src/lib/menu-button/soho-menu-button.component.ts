@@ -146,6 +146,18 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
     return this.options.attachToBody;
   }
 
+  @Input() set removeOnDestroy(value: boolean) {
+    this.options.removeOnDestroy = value;
+    if (this.menuButton) {
+      this.menuButton.settings.removeOnDestroy = value;
+      this.markForRefresh();
+    }
+  }
+
+  get removeOnDestroy(): boolean {
+    return this.options.removeOnDestroy;
+  }
+
   constructor(
     private element: ElementRef,
     private ref: ChangeDetectorRef,
@@ -178,10 +190,10 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
 
       // Add listeners to emit events
       this.jQueryElement
-        .on('selected', (e: JQuery.TriggeredEvent, args: JQuery) => this.onSelected(e, args))
-        .on('beforeopen', (e: JQuery.TriggeredEvent, args: JQuery) => this.onBeforeOpen(e, args))
-        .on('close', (e: JQuery.TriggeredEvent, args: JQuery) => this.onClose(e, args))
-        .on('open', (e: JQuery.TriggeredEvent, args: JQuery) => this.onOpen(e, args));
+      .on('selected', (e: JQuery.TriggeredEvent, args: JQuery) => this.onSelected(e, args))
+      .on('beforeopen', (e: JQuery.TriggeredEvent, args: JQuery) => this.onBeforeOpen(e, args))
+      .on('close', (e: JQuery.TriggeredEvent, args: JQuery) => this.onClose(e, args))
+      .on('open', (e: JQuery.TriggeredEvent, args: JQuery) => this.onOpen(e, args));
     });
   }
 

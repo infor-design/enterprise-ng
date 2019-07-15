@@ -18,6 +18,8 @@
         [lastPageTooltip]="model.lastPageTooltip"
 
         [showPageSizeSelector]="!model.hidePageSizeSelector"
+        [attachPageSizeMenuToBody]="model.attachPageSizeMenuToBody"
+
         [pageSize]="model.pageSize"
         [pageSizes]="model.pageSizes"
 
@@ -69,7 +71,10 @@
           <input soho-checkbox type="checkbox" id="hide-pagesize" [(ngModel)]="model.hidePageSizeSelector" [ngModelOptions]="{standalone: true}">
           <label soho-label for="hide-pagesize" [forCheckBox]="true">Hide Page Size Selector</label>
         </div>
-
+        <div class="field">
+          <input soho-checkbox type="checkbox" id="attach-page-size-menu-to-body" [(ngModel)]="model.attachPageSizeMenuToBody" [ngModelOptions]="{standalone: true}">
+          <label soho-label for="attach-page-size-menu-to-body" [forCheckBox]="true">Attach Page Size Menu To Body</label>
+        </div>
       </form>
 
     </div>

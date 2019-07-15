@@ -45,12 +45,15 @@ interface SohoPopupMenuOptions {
   returnFocus?: boolean;
 
   /** By default, menus open up underneath their target element.
-    Set this to true to use mouse coordinates for positioning a menu inside of its target element. */
+   Set this to true to use mouse coordinates for positioning a menu inside of its target element. */
   useCoordsForClick?: boolean;
 
   placementOpts?: SohoPopupmenuPlacementOpts;
 
   offset?: SohoPopupmenuOffset;
+
+  /** If set to true, menu will be removed from the DOM when destroyed */
+  removeOnDestroy?: boolean;
 }
 
 /**
@@ -87,7 +90,7 @@ interface SohoPopupMenuStatic {
 
   close(isCancelled?: boolean, noFocus?: boolean): void;
 
-   /**
+  /**
    * Opens the popupmenu, including repopulating data and setting up visual delays, if necessary.
    *
    * @param {JQuery.TriggeredEvent} e the event that caused the menu to open
