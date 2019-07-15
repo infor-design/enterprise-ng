@@ -77,6 +77,12 @@ interface SohoCalendarDateSelectedEvent {
   year?: number;
 }
 
+interface SohoCalendarEventClickEvent {
+  month?: number;
+  year?: number;
+  event?: SohoCalendarEvent
+}
+
 interface SohoCalendarRenderMonthEvent {
   api: any;
   elem: JQuery,
@@ -164,5 +170,7 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   calendar(options?: SohoCalendarOptions): JQuery;
   on(events: 'selected', handler: JQuery.EventHandlerBase<any, SohoCalendarDateSelectedEvent>): this;
   on(events: 'monthrendered', handler: JQuery.EventHandlerBase<any, SohoCalendarRenderMonthEvent>): this;
+  on(events: 'eventclick', handler: JQuery.EventHandlerBase<any, SohoCalendarRenderMonthEvent>): this;
+  on(events: 'eventdblclick', handler: JQuery.EventHandlerBase<any, SohoCalendarRenderMonthEvent>): this;
 }
 
