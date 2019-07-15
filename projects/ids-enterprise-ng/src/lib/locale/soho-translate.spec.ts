@@ -9,8 +9,8 @@ describe('Pipe: SohoTranslatePipe', () => {
     pipe = new SohoTranslatePipe();
   });
 
-  it('returns Ok for Ok', () => {
-    expect(pipe.transform('Ok')).toBe('Ok');
+  it('returns OK for Ok', () => {
+    expect(pipe.transform('Ok')).toBe('OK');
   });
 
   it('providing no value returns [undefined]', () => {
@@ -24,19 +24,19 @@ describe('Pipe: SohoTranslatePipe', () => {
   it('be possible to extend a language', (done) => {
     Soho.Locale.culturesPath = '/assets/ids-enterprise/js/cultures/';
     Soho.Locale.set('it-IT')
-    .done(() => {
-      const lang = Soho.Locale.currentLanguage.name;
-      const newStrings = {
-        Thanks: { id: 'Thanks', value: 'Grazie', comment: ''},
-        YourWelcome: { id: 'YourWelcome', value: 'Prego', comment: ''}
-      };
+      .done(() => {
+        const lang = Soho.Locale.currentLanguage.name;
+        const newStrings = {
+          Thanks: { id: 'Thanks', value: 'Grazie', comment: '' },
+          YourWelcome: { id: 'YourWelcome', value: 'Prego', comment: '' }
+        };
 
-      if (Soho.Locale.languages[lang].messages !== undefined) {
-        Soho.Locale.extendTranslations(lang, newStrings);
-      }
+        if (Soho.Locale.languages[lang].messages !== undefined) {
+          Soho.Locale.extendTranslations(lang, newStrings);
+        }
 
-      expect(pipe.transform('Thanks')).toBe('Grazie');
-      done();
-    });
+        expect(pipe.transform('Thanks')).toBe('Grazie');
+        done();
+      });
   });
 });

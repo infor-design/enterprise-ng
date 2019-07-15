@@ -206,7 +206,7 @@ class TestDatePickerComponent {
   }
 }
 
-fdescribe('Soho Datepicker Unit Tests', () => {
+describe('Soho Datepicker Unit Tests', () => {
   let comp: TestDatePickerComponent;
   let fixture: ComponentFixture<TestDatePickerComponent>;
   let de: DebugElement;

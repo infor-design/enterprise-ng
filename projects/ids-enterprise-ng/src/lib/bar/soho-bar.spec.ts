@@ -1,9 +1,9 @@
 /// <reference path="soho-bar.d.ts" />
 
 import { } from 'jasmine';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Component, DebugElement, ViewChild } from '@angular/core';
+import { Component, DebugElement, ViewChild, NgZone } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { SohoBarModule } from './soho-bar.module';
@@ -24,7 +24,7 @@ const barData = [{
   name: ''
 }];
 
-describe('Soho Bar Unit Tests', () => {
+fdescribe('Soho Bar Unit Tests', () => {
   let comp: SohoBarComponent;
   let fixture: ComponentFixture<SohoBarComponent>;
   let de: DebugElement;
@@ -35,8 +35,19 @@ describe('Soho Bar Unit Tests', () => {
       declarations: [SohoBarComponent]
     });
 
+    // Ouch!
+    const ngZone = TestBed.get(NgZone);
+    spyOn(ngZone, 'runOutsideAngular').and.callFake((fn: Function) => {
+      console.error("Help!");
+      fn();
+    });
+
     fixture = TestBed.createComponent(SohoBarComponent);
+
     comp = fixture.componentInstance;
+
+    expect(comp).toBeDefined();
+
     de = fixture.debugElement;
     el = de.nativeElement;
     fixture.detectChanges();
@@ -123,6 +134,11 @@ describe('Soho Bar Unit Tests', () => {
     comp.emptyMessage = updatedEmptyMessage;
 
     fixture.detectChanges();
+    fixture.detectChanges();
+    fixture.detectChanges();
+    fixture.isStable();
+
+    expect((comp as any).bar).toBeDefined('bar widget not set on bar component');
 
     // check bar settings
     expect((comp as any).bar.settings.dataset).toEqual(updatedBarData);
@@ -152,11 +168,13 @@ describe('Soho Bar Unit Tests', () => {
     expect(updatedSpy).toHaveBeenCalledTimes(1);
   });
 
-  it('check public functions', async () => {
+  it('check public functions', () => {
     comp.dataset = barData;
     comp.type = 'bar';
 
     fixture.detectChanges();
+
+    expect((comp as any).bar).toBeDefined('bar widget not set on bar component');
 
     comp.toggleSelected({ index: 1 });
 
