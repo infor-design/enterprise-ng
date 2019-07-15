@@ -389,6 +389,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
       }
       if (this.popupmenu) {
         this.popupmenu.destroy();
+        this.popupmenu = null;
       }
     });
   }
