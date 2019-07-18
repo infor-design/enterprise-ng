@@ -1,5 +1,5 @@
 <div class="full-width scrollable-flex full-height">
-  <div soho-toolbar-flex [style.height]="'auto'">
+  <div soho-toolbar-flex>
     <soho-toolbar-flex-section [isTitle]="true">
       <nav class="breadcrumb">
         <ol aria-label="breadcrumb">
@@ -25,10 +25,10 @@
 
     <soho-toolbar-flex-more-button> </soho-toolbar-flex-more-button>
   </div>
-  <div class="scrollable-flex-content no-scroll" [style.height]="'100%'">
-    <div class="scrollable-flex" [style.height]="'100%'">
+  <div class="scrollable-flex-content no-scroll">
+    <div class="scrollable-flex height-100">
       <div class="scrollable-flex-content">
-        <div soho-datagrid electable="true" filterable="true"></div>
+        <div soho-datagrid selectable="multiple" filterable="true"></div>
       </div>
     </div>
   </div>
