@@ -427,7 +427,7 @@ describe('Soho DataGrid Unit Tests', () => {
     comp.commitCellEdit();
 
     expect(spy).toHaveBeenCalledTimes(1);
-  })
+  });
 });
 
 @Component({
@@ -452,6 +452,7 @@ class SohoDataGridTestComponent {
   }
 
 }
+
 describe('Soho DataGrid Render', () => {
   let datagrid: SohoDataGridComponent;
   let component: SohoDataGridTestComponent;
