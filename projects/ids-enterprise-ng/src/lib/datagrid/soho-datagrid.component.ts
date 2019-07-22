@@ -1370,6 +1370,15 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Commit the cell that's currently in edit mode.
+   */
+  commitCellEdit(): void {
+    return this.ngZone.runOutsideAngular(() => {
+      this.datagrid.commitCellEdit();
+    });
+  }
+
+  /**
    * Clear all dirty cells in given row.
    * @param row - the row number (idx) of the row.
    */
