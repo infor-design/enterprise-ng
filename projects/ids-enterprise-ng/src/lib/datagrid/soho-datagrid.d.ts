@@ -1031,6 +1031,11 @@ interface SohoDataGridStatic {
   clearAllErrors(): void;
 
   /**
+   * Commit the cell that's currently in edit mode.
+   */
+  commitCellEdit(): void;
+
+  /**
    * Sets the status of a given row in the grid.
    *
    * @param idx - the row number (idx) of the row

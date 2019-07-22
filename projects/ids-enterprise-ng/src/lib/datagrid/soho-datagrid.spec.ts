@@ -419,6 +419,15 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(comp.gridOptions.stretchColumn).toEqual('accountType');
     expect(comp.stretchColumn).toEqual('accountType');
   });
+
+  it ('check commitCellEdit', () => {
+    fixture.detectChanges();
+    const spy = spyOn((comp as any).datagrid, 'commitCellEdit');
+
+    comp.commitCellEdit();
+
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
 });
 
 @Component({
