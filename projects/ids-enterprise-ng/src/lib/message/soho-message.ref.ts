@@ -160,10 +160,10 @@ export class SohoMessageRef {
     this._placeholder.message(this._options);
 
     // Need a better way of locating the message dialog.
-    this.jQueryElement = this._placeholder.find('modal message');
+    this.jQueryElement = this._placeholder.find('.modal.message');
 
     // Get the api.
-    this._message = this.jQueryElement.data('message');
+    this._message = this.jQueryElement.data('modal');
 
     // Add listeners to control event (which are on the placeholder)
     this._placeholder.on('open', ((event: any) => { this.onOpen(event); }));
