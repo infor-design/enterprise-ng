@@ -4,7 +4,7 @@ import {
   SohoMessageService,
   SohoMessageRef
 } from 'ids-enterprise-ng';
-import {timer} from 'rxjs';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-message-demo',
