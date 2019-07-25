@@ -4,6 +4,7 @@ import {
   SohoMessageService,
   SohoMessageRef
 } from 'ids-enterprise-ng';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-message-demo',
@@ -121,6 +122,48 @@ export class MessageDemoComponent {
          console.log('opened');
       })
       .open();
+  }
+
+  openAndCloseProgramatically() {
+    const buttons = [{
+      text: 'Done',
+      click: (e, modal) => {
+        this.closeResult = 'Done';
+        this.dialog = null;
+        modal.close(true);
+      },
+      isDefault: true
+    }];
+
+    this.dialog = this.messageService
+      .message()
+      .title('<span>File Upload Complete</span>')
+      .message(`<span class="longer-message">
+          Your file "photo.png" was successfully uploaded to your personal folder and is now public for viewing.
+        </span>`)
+      .buttons(buttons)
+      .beforeClose(() => {
+        console.log('before close');
+        return true;
+      }).beforeOpen(() => {
+        console.log('before open');
+        return true;
+      }).opened(() => {
+        console.log('opened');
+      })
+      .open();
+
+    this.closeDialogProgramatically();
+  }
+
+  closeDialogProgramatically() {
+    timer(3000).subscribe(x => {
+      if (this.dialog) {
+        console.log('programaticallyClosed');
+        this.dialog.close();
+        this.dialog = null;
+      }
+    });
   }
 
 }
