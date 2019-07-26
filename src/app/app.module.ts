@@ -51,7 +51,6 @@ import { CompletionChartDemoComponent } from './completion-chart/completion-char
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoModule } from './contextual-action-panel/contextual-action-panel.demo.module';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
-import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import {
   DataGridAngularEditorDemoComponent,
   DemoCellInputEditorComponent,
@@ -262,7 +261,6 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     ContextMenuDemoComponent,
     DataGridBreadcrumbDemoComponent,
     DataGridCardDemoComponent,
-    DataGridContentDemoComponent,
     DataGridAngularEditorDemoComponent,
     DataGridAngularFormatterDemoComponent,
     DataGridAngularCardFormatterDemoComponent,

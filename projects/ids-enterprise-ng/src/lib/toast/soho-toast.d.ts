@@ -33,6 +33,9 @@ interface SohoToastOptions {
 
   /** Allow anchor tags in message */
   allowLink?: boolean;
+
+  /** Allows the user to drag/drop the toast container.*/
+  draggable?: boolean;
 }
 
 /**

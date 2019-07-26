@@ -1,5 +1,4 @@
 import {
-  ChangeDetectorRef,
   Component,
   ViewChild,
 } from '@angular/core';
@@ -20,19 +19,23 @@ export class CalendarUpdatedDemoComponent {
   public showViewChanger = false;
   public eventTypes: [];
   public events: [];
+  public eventsLoaded = false;
 
   constructor(
-    private changeDetectorRef: ChangeDetectorRef,
     private monthViewService: CalendarDemoService
   ) {}
 
   onRenderMonth(event: SohoCalendarRenderMonthEvent) {
     console.log('onRenderMonth', event);
+    if (this.eventsLoaded) {
+      return;
+    }
 
     this.monthViewService.getCalendarEventTypes().subscribe((types) => {
       this.monthViewService.getCalendarEvents().subscribe((events) => {
         this.eventTypes = types;
         this.events = events;
+        this.eventsLoaded = true;
       });
     });
   }
