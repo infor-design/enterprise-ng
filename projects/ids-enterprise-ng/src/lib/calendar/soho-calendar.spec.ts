@@ -134,12 +134,12 @@ class SohoCalendarTestComponent {
   public year: number;
 }
 
-describe('Soho Bar Chart Render', () => {
-  let calendar: SohoCalendarComponent;
-  let comp: SohoCalendarTestComponent;
-  let fixture: ComponentFixture<SohoCalendarTestComponent>;
-  let de: DebugElement;
-  let el: HTMLElement;
+describe('Soho Calendar Chart Render', () => {
+  let calendar:  SohoCalendarComponent;
+  let comp:      SohoCalendarTestComponent;
+  let fixture:   ComponentFixture<SohoCalendarTestComponent>;
+  let de:        DebugElement;
+  let el:        HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
