@@ -1,6 +1,6 @@
 /// <reference path="soho-bar.d.ts" />
 
-import { } from 'jasmine';
+import {} from 'jasmine';
 import { ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild, NgZone } from '@angular/core';
@@ -9,20 +9,26 @@ import { FormsModule } from '@angular/forms';
 import { SohoBarModule } from './soho-bar.module';
 import { SohoBarComponent } from './soho-bar.component';
 
-const barData = [{
-  data: [{
-    name: 'Category A',
-    value: 373,
-    url: 'test'
-  }, {
-    name: 'Category B',
-    value: 372
-  }, {
-    name: 'Category C',
-    value: 236.35
-  }],
-  name: ''
-}];
+const barData = [
+  {
+    data: [
+      {
+        name: 'Category A',
+        value: 373,
+        url: 'test'
+      },
+      {
+        name: 'Category B',
+        value: 372
+      },
+      {
+        name: 'Category C',
+        value: 236.35
+      }
+    ],
+    name: ''
+  }
+];
 
 describe('Soho Bar Unit Tests', () => {
   let comp: SohoBarComponent;
@@ -38,7 +44,6 @@ describe('Soho Bar Unit Tests', () => {
     // Ouch!
     const ngZone = TestBed.get(NgZone);
     spyOn(ngZone, 'runOutsideAngular').and.callFake((fn: Function) => {
-      console.error("Help!");
       fn();
     });
 
@@ -63,7 +68,7 @@ describe('Soho Bar Unit Tests', () => {
     const ticks = { number: 10, format: ',.1s' };
     const emptyMessage: SohoEmptyMessageOptions = {
       title: 'this chart has no data',
-      icon: 'icon-empty-no-data',
+      icon: 'icon-empty-no-data'
     };
 
     comp.dataset = barData;
@@ -110,11 +115,14 @@ describe('Soho Bar Unit Tests', () => {
 
     // once bar chart is built setting input should cause bar.settings to update
     const updatedBarData = [...barData];
-    updatedBarData[0].data = [...updatedBarData[0].data, { name: 'Category D', value: 415.21 }];
+    updatedBarData[0].data = [
+      ...updatedBarData[0].data,
+      { name: 'Category D', value: 415.21 }
+    ];
     const updatedTicks = { number: 5, format: ',.1s' };
     const updatedEmptyMessage: SohoEmptyMessageOptions = {
       title: 'nothing to display',
-      icon: 'icon-empty-no-data',
+      icon: 'icon-empty-no-data'
     };
 
     comp.dataset = updatedBarData;
@@ -140,7 +148,9 @@ describe('Soho Bar Unit Tests', () => {
     fixture.detectChanges();
     fixture.isStable();
 
-    expect((comp as any).bar).toBeDefined('bar widget not set on bar component');
+    expect((comp as any).bar).toBeDefined(
+      'bar widget not set on bar component'
+    );
 
     // check bar settings
     expect((comp as any).bar.settings.dataset).toEqual(updatedBarData);
@@ -159,12 +169,17 @@ describe('Soho Bar Unit Tests', () => {
     expect((comp as any).bar.settings.showLines).toEqual(true);
     expect((comp as any).bar.settings.labelFactor).toEqual(2);
     expect((comp as any).bar.settings.wrapWidth).toEqual(200);
-    expect((comp as any).bar.settings.emptyMessage).toEqual(updatedEmptyMessage);
+    expect((comp as any).bar.settings.emptyMessage).toEqual(
+      updatedEmptyMessage
+    );
 
     // update required should be true after updating inputs after bar is built.
     expect((comp as any).updateRequired).toEqual(true);
 
-    const updatedSpy = spyOn<any>((comp as any).bar, 'updated').and.callThrough();
+    const updatedSpy = spyOn<any>(
+      (comp as any).bar,
+      'updated'
+    ).and.callThrough();
     fixture.detectChanges();
     expect((comp as any).updateRequired).toEqual(false);
     expect(updatedSpy).toHaveBeenCalledTimes(1);
@@ -176,7 +191,9 @@ describe('Soho Bar Unit Tests', () => {
 
     fixture.detectChanges();
 
-    expect((comp as any).bar).toBeDefined('bar widget not set on bar component');
+    expect((comp as any).bar).toBeDefined(
+      'bar widget not set on bar component'
+    );
 
     comp.toggleSelected({ index: 1 });
 
@@ -190,7 +207,9 @@ describe('Soho Bar Unit Tests', () => {
 });
 
 @Component({
-  template: `<div soho-bar [dataset]="data"></div>`
+  template: `
+    <div soho-bar [dataset]="data"></div>
+  `
 })
 class SohoBarTestComponent {
   @ViewChild(SohoBarComponent, { static: false }) bar: SohoBarComponent;
