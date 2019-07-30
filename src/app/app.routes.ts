@@ -169,6 +169,7 @@ import { ValidationFormEventDemoComponent } from './validation/validation-form-e
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 import { WizardDemoComponent } from './wizard/wizard.demo';
+import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -176,6 +177,7 @@ export const routes: Routes = [
   { path: 'accordion',                              loadChildren: './accordion/accordion-demo.module#AccordionDemoModule'},
   { path: 'alert',                                  component: AlertDemoComponent},
   { path: 'application-lazy-menu',                  component: ApplicationMenuLazyDemoComponent},
+  { path: 'application-menu-roleswitcher',          component: ApplicationMenuRoleSwitcherDemoComponent},
   { path: 'area',                                   component: AreaDemoComponent },
   { path: 'autocomplete',                           component: AutocompleteDemoComponent },
   { path: 'bar',                                    component: BarDemoComponent },
