@@ -1,5 +1,13 @@
 # What's New with Enterprise-NG
 
+## v6.0.0
+
+### 6.0.0 Features
+
+### 6.0.0 Fixes
+
+- `[DataGrid]` - Expose groupRowFormatter in groupable settings. ([#558](https://github.com/infor-design/enterprise-ng/issues/558))
+
 ## v5.5.0
 
 ### 5.5.0 Features
