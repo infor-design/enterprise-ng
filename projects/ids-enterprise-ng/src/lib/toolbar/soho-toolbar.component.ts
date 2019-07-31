@@ -466,6 +466,7 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     // call outside the angular zone so change detection isn't triggered by the soho component.
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
+        this.jQueryElement.find('.more').off();
         this.jQueryElement.off();
       }
       if (this.toolbar) {
