@@ -4,9 +4,9 @@
 
 ### 6.0.0 Features
 
-- `[DataGrid]` - Expose groupRowFormatter in groupable settings. ([#558](https://github.com/infor-design/enterprise-ng/issues/558))
-
 ### 6.0.0 Fixes
+
+- `[DataGrid]` - Expose groupRowFormatter in groupable settings. ([#558](https://github.com/infor-design/enterprise-ng/issues/558))
 
 ## v5.5.0
 
