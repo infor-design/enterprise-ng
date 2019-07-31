@@ -1012,6 +1012,9 @@ interface SohoDataGridGroupable {
 
   // Type of aggregation.
   aggregator: SohoDataGridAggregator;
+
+  // Formatter for group row
+  groupRowFormatter?: SohoDataGridColumnFormatterFunction;
 }
 
 type SohoDataGridAggregator = 'sum' | 'max' | 'list' | string;
