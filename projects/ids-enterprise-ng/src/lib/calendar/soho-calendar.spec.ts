@@ -134,7 +134,7 @@ class SohoCalendarTestComponent {
   public year: number;
 }
 
-describe('Soho Bar Chart Render', () => {
+describe('Soho Calendar Chart Render', () => {
   let calendar:  SohoCalendarComponent;
   let comp:      SohoCalendarTestComponent;
   let fixture:   ComponentFixture<SohoCalendarTestComponent>;
