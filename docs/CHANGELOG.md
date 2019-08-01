@@ -12,11 +12,15 @@
 ### 6.0.0 Fixes
 
 ### 6.0.0 Chore & Maintenance
+### 6.0.0 Fixes
+
+- `[DataGrid]` - Expose groupRowFormatter in groupable settings. ([#558](https://github.com/infor-design/enterprise-ng/issues/558))
 
 ## v5.5.0
 
 ### 5.5.0 Features
 
+- `[ApplicationMenu]` - Added role switcher demo to application menu. `VW` ([#556](https://github.com/infor-design/enterprise-ng/issues/556))
 - `[DataGrid]` - Added `isRowDisabled` support to DataGrid. `BTHH` ([#472](https://github.com/infor-design/enterprise/issues/472))
 - `[Calendar]` - Added first cut of read only Calendar. `PWP` ([#534](https://github.com/infor-design/enterprise-ng/pull/534))
 
