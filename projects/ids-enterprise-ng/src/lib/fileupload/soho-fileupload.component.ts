@@ -119,6 +119,8 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
       this.fileUpload.destroy();
       this.fileUpload = null;
     }
+
+    this.jQueryElement.off();
   }
 
   clearUploadFile() {
