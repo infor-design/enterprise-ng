@@ -43,7 +43,7 @@
     "core-js": "^2.5.4",
     "d3": "4.13.0",
     "fix": "0.0.6",
-    "ids-enterprise": "4.20.0-rc.0",
+    "ids-enterprise": "4.20.0-rc.1",
     "jquery": "^3.4.1",
     "lscache": "^1.2.0",
     "rxjs": "~6.5.1",
