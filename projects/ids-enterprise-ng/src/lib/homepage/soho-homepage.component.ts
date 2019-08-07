@@ -18,6 +18,8 @@ import {
 })
 export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
 
+  @Input() maintainElementHeight: boolean;
+
   @Input() set homePageOptions(homePageOptions: SohoHomePageOptions) {
     this._homePageOptions = homePageOptions;
     if (this.jQueryElement) {
@@ -126,6 +128,13 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
     return this._homePageOptions.easing;
   }
 
+  // /**
+  //  * The resize event is fired whenever a tab is selected giving the event handler a chance
+  //  * to "veto" the tab selection change.
+  //  *
+  //  */
+  // @Output() resize = new EventEmitter<SohoHomePageResizeEvent>();
+
   @HostBinding('class.homepage') isHomepage = true;
 
   // Reference to the jQuery element.
@@ -146,6 +155,9 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
 
       // Wrap for later.
       this.jQueryElement = jQuery(this.elementRef.nativeElement);
+
+      this.jQueryElement.on('resize', (e, columns, stats: SohoHomePageResizeEvent) =>
+        this.onResize(stats));
 
       // Initialise the SoHoXi control.
       this.jQueryElement.homepage(this._homePageOptions);
@@ -168,5 +180,11 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
         this.homePage = null;
       }
     });
+  }
+
+  private onResize(stats: SohoHomePageResizeEvent) {
+    if (this.maintainElementHeight) {
+      (this.elementRef.nativeElement as HTMLElement).style.height = stats.containerHeight + 'px';
+    }
   }
 }

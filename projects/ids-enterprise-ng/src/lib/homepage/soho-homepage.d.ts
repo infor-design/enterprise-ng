@@ -45,6 +45,16 @@ interface JQueryStatic {
   homepage: SohoHomePageStatic;
 }
 
+// interface SohoHomePageResizeMatrix {
+// }
+interface SohoHomePageResizeEvent {
+  rows: number;
+  cols: number;
+  containerHeight: number;
+  matrix: any[];
+}
+
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   homepage(options?: SohoHomePageOptions): JQuery;
+  on(events: 'resize',  handler: JQuery.EventHandlerBase<any, any[]>): this;
 }
