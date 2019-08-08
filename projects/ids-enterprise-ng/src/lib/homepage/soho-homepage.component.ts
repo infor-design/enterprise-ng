@@ -17,6 +17,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
+  @HostBinding('style.height.px') get heightStyle() { return this.containerHeight; }
 
   @Input() maintainElementHeight: boolean;
 
@@ -145,6 +146,8 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
 
   private _homePageOptions: SohoHomePageOptions = {};
 
+  private containerHeight: number;
+
   constructor(
     private elementRef: ElementRef,
     private ngZone: NgZone,
@@ -157,7 +160,7 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
       this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
       this.jQueryElement.on('resize', (e, columns, stats: SohoHomePageResizeEvent) =>
-        this.onResize(stats));
+        this.ngZone.run(() => this.onResize(stats)));
 
       // Initialise the SoHoXi control.
       this.jQueryElement.homepage(this._homePageOptions);
@@ -183,8 +186,11 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
   }
 
   private onResize(stats: SohoHomePageResizeEvent) {
+
     if (this.maintainElementHeight) {
-      (this.elementRef.nativeElement as HTMLElement).style.height = stats.containerHeight + 'px';
+      setTimeout(() =>
+        this.containerHeight = stats.containerHeight);
+      // (this.elementRef.nativeElement as HTMLElement).style.height = stats.containerHeight + 'px';
     }
   }
 }
