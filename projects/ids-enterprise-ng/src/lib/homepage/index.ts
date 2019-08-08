@@ -4,3 +4,4 @@ export * from './soho-widget-content.component';
 export * from './soho-widget-header.component';
 export * from './soho-widget-title.component';
 export * from './soho-homepage.module';
+export * from './soho-homepage-sizer.directive';

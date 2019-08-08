@@ -6,6 +6,13 @@
  */
 type EasingType = 'blockslide' | 'linear' | 'swing';
 
+interface SohoHomePageResizeEvent {
+  rows: number;
+  cols: number;
+  containerHeight: number;
+  matrix: any[];
+}
+
 /**
  * Homepage Options
  */
@@ -43,15 +50,6 @@ interface SohoHomePageStatic {
  */
 interface JQueryStatic {
   homepage: SohoHomePageStatic;
-}
-
-// interface SohoHomePageResizeMatrix {
-// }
-interface SohoHomePageResizeEvent {
-  rows: number;
-  cols: number;
-  containerHeight: number;
-  matrix: any[];
 }
 
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
