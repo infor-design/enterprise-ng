@@ -51,7 +51,6 @@ import { CompletionChartDemoComponent } from './completion-chart/completion-char
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextualActionPanelDemoModule } from './contextual-action-panel/contextual-action-panel.demo.module';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
-import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import {
   DataGridAngularEditorDemoComponent,
   DemoCellInputEditorComponent,
@@ -219,6 +218,7 @@ import { WizardDemoSelectFilePageComponent } from './wizard/wizard-selected-file
 import { WizardDemoTargetFolderPageComponent } from './wizard/wizard-target-folder-page.demo';
 import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validation-rules-page.demo';
 import { LocaleInitializerModule } from './locale-initializer/locale-initializer.module';
+import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
 
 @NgModule({
   declarations: [
@@ -228,6 +228,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,
     ApplicationMenuLazyMenuDemoComponent,
+    ApplicationMenuRoleSwitcherDemoComponent,
     AreaDemoComponent,
     AutocompleteDemoComponent,
     BarDemoComponent,
@@ -262,7 +263,6 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     ContextMenuDemoComponent,
     DataGridBreadcrumbDemoComponent,
     DataGridCardDemoComponent,
-    DataGridContentDemoComponent,
     DataGridAngularEditorDemoComponent,
     DataGridAngularFormatterDemoComponent,
     DataGridAngularCardFormatterDemoComponent,
