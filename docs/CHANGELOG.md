@@ -1,5 +1,15 @@
 # What's New with Enterprise-NG
 
+## v5.6.0
+
+### 5.6.0 Features
+
+- `[HomePage]` - Added `soho-homepage-sizer` directive to set the homepage's element height. `PWP` ([#472](https://github.com/infor-design/enterprise/issues/472))
+
+### 5.6.0 Fixes
+
+### 5.6.0 Chore & Maintenance
+
 ## v5.5.0
 
 ### 5.5.0 Features
