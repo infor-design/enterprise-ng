@@ -3,13 +3,14 @@
 import {
   AfterViewInit,
   Directive,
-  ElementRef, HostBinding,
-  NgZone, OnDestroy
+  ElementRef,
+  HostBinding,
+  NgZone,
+  OnDestroy
 } from '@angular/core';
 
 /**
- * Angular Wrapper for the SohoAlert Directive.
- *
+ * Angular Directive for keeping a homepage elements height correctly up to date.
  */
 @Directive({
   selector: '[soho-homepage-sizer]', // tslint:disable-line
@@ -22,10 +23,6 @@ export class SohoHomepageSizerDirective implements AfterViewInit, OnDestroy {
 
   constructor(public elementRef: ElementRef, private ngZone: NgZone) {}
 
-  /**
-   * After the control has been initialised and the view is ready,
-   * get the SoHoXi controls to activate any alerts.
-   */
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
 
