@@ -4,6 +4,8 @@
 
 ### 6.0.0 Features
 
+- `[HomePage]` - Added `soho-homepage-sizer` directive to set the homepage's element height. `PWP` ([#571](https://github.com/infor-design/enterprise-ng/pull/571))
+
 ### 6.0.0 Fixes
 
 - `[DataGrid]` - Expose groupRowFormatter in groupable settings. ([#558](https://github.com/infor-design/enterprise-ng/issues/558))
