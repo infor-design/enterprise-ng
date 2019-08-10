@@ -9,6 +9,9 @@
   <!-- prevent render loop from initializing on load -->
   <script>
     window['SohoConfig'] = { renderLoop: { noAutoStart: true }};
+
+    // @todo remove this when the loading of locales can be delayed in Soho
+   // window['Soho'].Locale.culturesPath = `/ids-enterprise-ng-demo/assets/ids-enterprise/js/cultures/`;
   </script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">

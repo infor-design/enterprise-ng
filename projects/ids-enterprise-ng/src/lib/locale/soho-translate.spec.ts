@@ -10,7 +10,7 @@ describe('Pipe: SohoTranslatePipe', () => {
   });
 
   it('returns OK for Ok', () => {
-    expect(pipe.transform('Ok')).toBe('Ok');
+    expect(pipe.transform('Ok')).toBe('OK');
   });
 
   it('providing no value returns [undefined]', () => {

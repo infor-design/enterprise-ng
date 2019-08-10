@@ -40,33 +40,27 @@ export class LocaleInitializerService {
     // implicitly loaded default locale whilst the application's
     // LOCALE_ID is loaded, to avoid this the default locale is loaded
     // first.
-    await Soho.Locale.set('en-US')
-      // Then load the required locale.
-      .then(async () => {
-        // Wait for the locales to be loaded before starting the
-        // application.
-        await Soho.Locale.set(this.locale).then(() => {
-          const currentLanguageName = Soho.Locale.currentLanguage.name;
-          const currentLanguageNativeName = Soho.Locale.currentLanguage.nativeName;
+    await Soho.Locale.set(this.locale).then(() => {
+      const currentLanguageName = Soho.Locale.currentLanguage.name;
+      const currentLanguageNativeName = Soho.Locale.currentLanguage.nativeName;
 
-          console.log(`${currentLanguageNativeName} loaded.`);
+      console.log(`${currentLanguageNativeName} loaded.`);
 
-          // This is an example of extending the resources provided by
-          // the enterprise controls, and made available to the sohoTranslate
-          // pipe.  These can be loaded explicitly, or via an http
-          // call to the backend.
-          const translations: Translation[] = []; // <-- set this to the additional translations
-          translations['Locales'] = {
-            id: 'Locales',
-            value: 'Locales!',
-            comment: ''
-          };
+      // This is an example of extending the resources provided by
+      // the enterprise controls, and made available to the sohoTranslate
+      // pipe.  These can be loaded explicitly, or via an http
+      // call to the backend.
+      const translations: Translation[] = []; // <-- set this to the additional translations
+      translations['Locales'] = {
+        id: 'Locales',
+        value: 'Locales!',
+        comment: ''
+      };
 
-          // ... once loaded (async if required), merge the translations into the core set.
-          Soho.Locale.extendTranslations(currentLanguageName, translations);
-          console.log(`${currentLanguageNativeName} loaded and extended.`);
-        });
-      });
+      // ... once loaded (async if required), merge the translations into the core set.
+      Soho.Locale.extendTranslations(currentLanguageName, translations);
+      console.log(`${currentLanguageNativeName} loaded and extended.`);
+    });
   }
 }
 
