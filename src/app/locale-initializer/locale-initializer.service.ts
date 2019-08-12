@@ -34,6 +34,7 @@ export class LocaleInitializerService {
    * Initializes the locale for this web application.
    */
   async initialize() {
+    console.log(`Setting Soho.Locale.culturesPath = ${this.baseHref}assets/ids-enterprise/js/cultures/`);
     Soho.Locale.culturesPath = `${this.baseHref}assets/ids-enterprise/js/cultures/`;
 
     // The promise returned when setting the locale can relate to the

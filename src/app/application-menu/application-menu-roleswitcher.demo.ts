@@ -24,6 +24,7 @@ export class ApplicationMenuRoleSwitcherDemoComponent implements AfterViewInit, 
   public menu: Array<any> = [];
   public menuItems: Array<string> = [];
   public myRole: string;
+  public hasChangePasswordLink = true;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
   }

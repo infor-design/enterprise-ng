@@ -33,6 +33,8 @@ export class AutocompleteDemoComponent implements AfterViewInit {
   ];
   @ViewChild(SohoAutoCompleteComponent, { static: false }) autocomplete: SohoAutoCompleteComponent;
 
+  public selected: any;
+
   private options: SohoAutoCompleteOptions;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) { }
