@@ -12,7 +12,6 @@ import { SohoHierarchyComponent } from 'ids-enterprise-ng';
   selector: 'app-hierarchy-demo',
   templateUrl: './hierarchy.demo.html',
   styleUrls: ['./hierarchy.demo.css'],
-  // changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ HierarchyDemoService ]
 })
 export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
@@ -114,5 +113,4 @@ export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
   onDoubleClick(event: SohoHierarchyDoubleClickEvent) {
     console.log(event);
   }
-
 }

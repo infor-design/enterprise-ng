@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SohoHierarchyComponent } from 'ids-enterprise-ng';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HierarchyDemoService } from './hierarchy.demo.service';
@@ -7,12 +7,11 @@ import { HierarchyDemoService } from './hierarchy.demo.service';
   selector: 'app-hierarchy-paging-demo',
   templateUrl: './hierarchy-paging.demo.html',
   styleUrls: ['./hierarchy.demo.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [HierarchyDemoService]
 })
 export class HierarchyPagingDemoComponent implements OnInit {
 
-  @ViewChild('SohoHierarchy', { static: true }) sohoHierarchy: SohoHierarchyComponent;
+  @ViewChild('SohoHierarchy', { static: false }) sohoHierarchy: SohoHierarchyComponent;
 
   public data: Array<any>;
   public legend: Array<SohoHierarchyLegend>;
@@ -22,8 +21,7 @@ export class HierarchyPagingDemoComponent implements OnInit {
 
   constructor(
     private domSanitizer: DomSanitizer,
-    private hierarchyService: HierarchyDemoService,
-    private changeDetectorRef: ChangeDetectorRef
+    private hierarchyService: HierarchyDemoService
   ) {}
 
   ngOnInit() {
@@ -61,10 +59,8 @@ export class HierarchyPagingDemoComponent implements OnInit {
       `;
 
     this.leafTemplate = this.domSanitizer.bypassSecurityTrustHtml(leafTemplate);
-
     this.hierarchyService.getHierarchyData().subscribe((data) => {
-      this.data = data[0].pagingDataSet;
-      this.changeDetectorRef.markForCheck();
+      this.data = data[ 0 ].pagingDataSet;
     });
   }
 
@@ -73,14 +69,10 @@ export class HierarchyPagingDemoComponent implements OnInit {
 
     if (hierarchyEvent.eventType === 'back') {
       this.sohoHierarchy.reloadDataSet(hierarchyEvent.data.parentDataSet);
-      this.changeDetectorRef.markForCheck();
-
     } else if (!hierarchyEvent.data.isLoaded && !hierarchyEvent.data.isLeaf) {
-
       this.hierarchyService.getHierarchyData().subscribe((data) => {
         hierarchyEvent.data.children = data[0].lazyDataSet;
         this.sohoHierarchy.reloadDataSet(hierarchyEvent.data);
-        this.changeDetectorRef.markForCheck();
       });
     }
   }
