@@ -4,18 +4,17 @@ import {
   QueryList,
   ViewChildren,
   ChangeDetectorRef
-} from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { SohoInputValidateDirective } from "ids-enterprise-ng";
+} from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SohoInputValidateDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector: "app-validation-form-demo",
-  templateUrl: "./validation-form.demo.html"
+  selector: 'app-validation-form-demo',
+  templateUrl: './validation-form.demo.html'
 })
 export class ValidationFormDemoComponent {
-  @ViewChildren(SohoInputValidateDirective) validateDirectives: QueryList<
-    SohoInputValidateDirective
-  >;
+  @ViewChildren(SohoInputValidateDirective) validateDirectives: QueryList<SohoInputValidateDirective>;
+
   demoForm: FormGroup;
   email_addr: string;
   credit_card: string;
@@ -49,11 +48,11 @@ export class ValidationFormDemoComponent {
 
   public onClickReset() {
     this.validateDirectives.forEach(item => {
-      item.removeMessage({ id: "required", type: "error" });
+      item.removeMessage({ id: 'required', type: 'error' });
     });
   }
 
-  public onReset(event) {
+  public onReset() {
     this.demoForm.reset();
     ($('form') as any).resetForm();
   }
