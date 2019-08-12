@@ -12,7 +12,7 @@ import { HierarchyDemoService } from './hierarchy.demo.service';
 })
 export class HierarchyPagingDemoComponent implements OnInit {
 
-  @ViewChild('SohoHierarchy', { static: false }) sohoHierarchy: SohoHierarchyComponent;
+  @ViewChild('SohoHierarchy', { static: true }) sohoHierarchy: SohoHierarchyComponent;
 
   public data: Array<any>;
   public legend: Array<SohoHierarchyLegend>;
@@ -84,5 +84,4 @@ export class HierarchyPagingDemoComponent implements OnInit {
       });
     }
   }
-
 }
