@@ -13,7 +13,7 @@ import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
 })
 export class HeaderTabsDemoComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   public currentTabsOptions: HeaderDynamicTabsetOptions = undefined;
-  private showHeaderTabs = true;
+  private showHeaderTabs;
 
   constructor(private sohoHeaderRef: HeaderDynamicDemoRefService) {}
 
@@ -21,7 +21,7 @@ export class HeaderTabsDemoComponent implements AfterViewInit, AfterViewChecked,
     // ------------------------------------------------------------------------
     // After the view has been initialized then build and set the header tabs.
     // ------------------------------------------------------------------------
-    this.showHeaderTabs = true;
+    setTimeout(() => this.showHeaderTabs = true);
   }
 
   get isShowingHeaderTabs(): boolean {
