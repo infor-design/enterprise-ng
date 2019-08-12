@@ -114,7 +114,6 @@ export class TreeDynamicDemoComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.reset();
+    setTimeout(() => this.reset());
   }
-
 }
