@@ -2,7 +2,7 @@
 
 import {
   AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input,
-  OnDestroy, Output, EventEmitter
+  OnDestroy, Output, EventEmitter, NgZone
 } from '@angular/core';
 
 @Component({
@@ -91,14 +91,14 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
    */
   @Output() doubleClick = new EventEmitter<SohoHierarchyDoubleClickEvent>();
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef, private ngZone: NgZone) {}
 
   /**
    * Used to add new data lazily when a leaf is expanded
    * @param id should match the leaf id in the DOM
    */
   add(id: string, dataset: Array<any>, newData: Array<any>) {
-    this.hierarchy.add(id, dataset, newData);
+    this.ngZone.runOutsideAngular(() => this.hierarchy.add(id, dataset, newData));
   }
 
   /**
@@ -106,51 +106,49 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
    */
   reloadDataSet(dataSet:  Array<any>) {
     this.options.dataset = dataSet;
-    this.hierarchy.reload(this.options);
+    this.ngZone.runOutsideAngular(() => this.hierarchy.reload(this.options));
   }
 
   /**
    * Update actions for action menu on a leaf
    */
   updateActions(eventInfo: SohoHierarchyEvent, updatedActions: Array<SohoHierarchyAction>) {
-    this.hierarchy.updateActions(eventInfo, updatedActions);
+    this.ngZone.runOutsideAngular(() => this.hierarchy.updateActions(eventInfo, updatedActions));
   }
 
   /**
    * Manually select leaf by id
    */
   selectLeaf(leafId: string) {
-    this.hierarchy.selectLeaf(leafId);
+    this.ngZone.runOutsideAngular(() => this.hierarchy.selectLeaf(leafId));
   }
 
   ngOnDestroy() {
-    // Necessary clean up step (add additional here)
-    if (this.hierarchy) {
-      this.hierarchy.destroy();
-      this.hierarchy = null;
-    }
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.hierarchy) {
+        this.hierarchy.destroy();
+        this.hierarchy = null;
+      }
+    });
   }
 
   ngAfterViewInit() {
-    // Wrap the "unordered list" element in a jQuery selector.
-    this.jQueryElement = jQuery(this.elementRef.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
+      // Wrap the "unordered list" element in a jQuery selector.
+      this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
-    // Initialise the Soho control.
-    this.jQueryElement.hierarchy(this.options);
+      // Initialise the Soho control.
+      this.jQueryElement.hierarchy(this.options);
 
-    // Initialize any event handlers.
-    this.jQueryElement
-        .on('selected', ( (e: JQuery.TriggeredEvent, args: SohoHierarchyEvent) => {
-          this.selected.next(args);
-        }));
+      this.jQueryElement
+      .on('dblclick', ( (e: JQuery.TriggeredEvent, args: SohoHierarchyDoubleClickEvent) => this.ngZone.run(() => this.doubleClick.next(args))))
+      .on('selected', ( (e: JQuery.TriggeredEvent, args: SohoHierarchyEvent) => this.ngZone.run(() => this.selected.next(args))));
 
-    this.jQueryElement
-        .on ('dblclick', ( (e: JQuery.TriggeredEvent, args: SohoHierarchyDoubleClickEvent) => {
-          this.doubleClick.next(args);
-        }));
-
-    // Assign the hierarchy control
-    this.hierarchy = this.jQueryElement.data('hierarchy');
-
+      // Assign the hierarchy control
+      this.hierarchy = this.jQueryElement.data('hierarchy');
+    })
   }
 }
