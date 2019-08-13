@@ -8,34 +8,35 @@
 <div class="example-section" role="main">
 
   <div class="one-half column">
-    <form id="validation-form">
+    <form id="validation-form" [formGroup]="demoForm">
       <div class="field ">
         <label for="email_addr" class="required">Email Address</label>
-        <input id="email_addr" name="email_addr" type="text " data-validate="required" placeholder="someone@someplace.com" [(ngModel)]="email_addr"
-        />
+        <input id="email_addr" name="email_addr" type="text" data-validate="required"   placeholder="someone@someplace.com" [(ngModel)]="email_addr"
+        formControlName="email_addr"/>
       </div>
       <div class="field ">
         <label for="credit_card" class="required">Credit Card</label>
         <input id="credit_card" name="credit_card" type="text" data-validate="required" placeholder="xxxx-xxxx-xxxx-xxxx" [(ngModel)]="credit_card"
-        />
+        formControlName="credit_card"/>
       </div>
       <div class="field ">
         <label for="credit_code1">Credit Code (not required)</label>
-        <input id="credit_code1" name="credit_code1" type="number" [(ngModel)]="credit_code1" />
+        <input id="credit_code1" name="credit_code1" type="number" [(ngModel)]="credit_code1" formControlName="credit_code1" />
       </div>
       <div class="field ">
         <label for="credit_code2" class="required">Credit Code</label>
-        <input id="credit_code2" name="credit_code2" type="number" data-validate="required" [(ngModel)]="credit_code2" />
+        <input id="credit_code2" name="credit_code2" type="number" data-validate="required" [(ngModel)]="credit_code2"  formControlName="credit_code2"/>
       </div>
 
       <div class="field">
         <label for="required" class="label required">Required Text Area</label>
-        <textarea soho-textarea name="required" [(ngModel)]="requiredText" data-validate="required"></textarea>
+        <textarea soho-textarea name="required" [(ngModel)]="requiredText" data-validate="required" formControlName="required"></textarea>
       </div>
 
       <div class="field">
-        <button soho-button="primary" (click)="onClickTrigger($event)">Trigger Validation</button>
-        <button soho-button="primary" (click)="onClickReset()">Reset </button>
+        <button soho-button="secondary" (click)="onClickTrigger($event)">Trigger Validation</button>
+        <button soho-button="secondary" (click)="onClickReset()">Reset</button>
+        <button soho-button="secondary" (click)="onReset($event)">Reset Form</button>
       </div>
 
     </form>
