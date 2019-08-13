@@ -1,6 +1,6 @@
 /// <reference path="soho-modal-dialog.d.ts" />
 
-import { ComponentRef } from '@angular/core';
+import { ComponentRef, NgZone } from '@angular/core';
 import { Subject } from 'rxjs';
 
 /**
@@ -244,7 +244,7 @@ export class SohoModalDialogRef<T> {
   /**
    * Constructor.
    */
-  constructor() {
+  constructor(private ngZone: NgZone) {
   }
 
   /**
@@ -253,38 +253,40 @@ export class SohoModalDialogRef<T> {
    * @return the dialog ref.
    */
   open(): SohoModalDialogRef<T> {
-    if (!this.componentRef && !this._options.content) {
-      throw Error('componentRef or content must be initialised.');
-    }
+    return this.ngZone.runOutsideAngular(() => {
+      if (!this.componentRef && !this._options.content) {
+        throw Error('componentRef or content must be initialised.');
+      }
 
-    // Assume conent ...
-    let element: JQuery = $('body');
-    if (this.componentRef) {
-      // .. unless component supplied, in which case get a selector
-     // to the component and use that.
-      element = jQuery(this.componentRef.location.nativeElement);
-      this._options.content = element;
-    }
+      // Assume conent ...
+      let element: JQuery = $('body');
+      if (this.componentRef) {
+        // .. unless component supplied, in which case get a selector
+        // to the component and use that.
+        element = jQuery(this.componentRef.location.nativeElement);
+        this._options.content = element;
+      }
 
-    element.modal(this._options);
-    this.modal = element.data('modal');
+      element.modal(this._options);
+      this.modal = element.data('modal');
 
-    // When the modal is opened, it is moved to the body, so
-    // set the jQueryElement.
-    this.jQueryElement = this.modal.element;
+      // When the modal is opened, it is moved to the body, so
+      // set the jQueryElement.
+      this.jQueryElement = this.modal.element;
 
-    // Add listeners to control events
-    this.jQueryElement.on('close', ((event: any, isCancelled: boolean) => { this.onClose(event, isCancelled); }));
-    this.jQueryElement.on('afterclose', ((event: any) => { this.onAfterClose(event); }));
-    this.jQueryElement.on('open', ((event: any) => { this.onOpen(event); }));
-    this.jQueryElement.on('afteropen', ((event: any) => { this.onAfterOpen(event); }));
+      // Add listeners to control events
+      this.jQueryElement.on('close', ((event: any, isCancelled: boolean) => this.ngZone.run(() => this.onClose(event, isCancelled))));
+      this.jQueryElement.on('afterclose', ((event: any) => this.ngZone.run(() => this.onAfterClose(event))));
+      this.jQueryElement.on('open', ((event: any) => this.ngZone.run(() => this.onOpen(event))));
+      this.jQueryElement.on('afteropen', ((event: any) => this.ngZone.run(() => this.onAfterOpen(event))));
 
-    // These are vetoable events.
-    this.jQueryElement.on('beforeopen', ((event: any) => this.onBeforeOpen(event)));
-    this.jQueryElement.on('beforeclose', ((event: any) => this.onBeforeClose(event)));
-    this.jQueryElement.on('beforedestroy', ((event: any) => this.onBeforeDestroy(event)));
+      // These are vetoable events.
+      this.jQueryElement.on('beforeopen', ((event: any) => this.ngZone.run(() => this.onBeforeOpen(event))));
+      this.jQueryElement.on('beforeclose', ((event: any) => this.ngZone.run(() => this.onBeforeClose(event))));
+      this.jQueryElement.on('beforedestroy', ((event: any) => this.ngZone.run(() => this.onBeforeDestroy(event))));
 
-    return this;
+      return this;
+    });
   }
 
   /**
@@ -296,7 +298,7 @@ export class SohoModalDialogRef<T> {
   close(dialogResult?: any): SohoModalDialogRef<T> {
     this.dialogResult = dialogResult;
     if (this.modal) {
-      this.modal.close();
+      this.ngZone.runOutsideAngular(() => this.modal.close());
     }
     return this;
   }
@@ -376,7 +378,7 @@ export class SohoModalDialogRef<T> {
     return this;
   }
 
- /**
+  /**
    * Registers a before destroy guard.
    *
    * SOHO-4892 - Returning false from beforeOpen or beforeDestroy breaks dialogs
@@ -477,7 +479,7 @@ export class SohoModalDialogRef<T> {
     this.afterClose$.complete();
 
     // SOHO-4879 - Closing modal dialog does not remove the 'modal-page-container'
-    this.modal.destroy();
+    this.ngZone.runOutsideAngular(() => this.modal.destroy());
     this.modal = null;
   }
 }
