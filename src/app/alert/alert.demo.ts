@@ -31,7 +31,7 @@ export class AlertDemoComponent {
   };
   showModel = true;
   showDefinedOptions = true;
-  private types = ['error', 'alert', 'confirm', 'info', 'icon'];
+  private types = ['error', 'alert', 'success', 'info', 'icon'];
 
   onError(event: SohoInputValidateEvent) {
     console.log([ 'onError', event.validation.field.getAttribute('id'), event.validation.message ]);
@@ -41,8 +41,8 @@ export class AlertDemoComponent {
     console.log([ 'onAlert', event.validation.field.getAttribute('id'), event.validation.message ]);
   }
 
-  onConfirm(event: SohoInputValidateEvent) {
-    console.log([ 'onConfirm', event.validation.field.getAttribute('id'), event.validation.message ]);
+  onSuccess(event: SohoInputValidateEvent) {
+    console.log([ 'onSuccess', event.validation.field.getAttribute('id'), event.validation.message ]);
   }
 
   onIcon(event: SohoInputValidateEvent) {
