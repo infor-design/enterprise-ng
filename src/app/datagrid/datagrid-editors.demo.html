@@ -15,6 +15,7 @@
   <div class="twelve columns demo" role="main">
     <div soho-datagrid *ngIf="gridOptions"
     [gridOptions]="gridOptions"
+    (keydown)="onKeyDown($event)"
     (beforeentereditmode)="onBeforeEnterEditMode($event)"
     (entereditmode)="onEnterEditMode($event)"
     (exiteditmode)="onExitEditMode($event)">

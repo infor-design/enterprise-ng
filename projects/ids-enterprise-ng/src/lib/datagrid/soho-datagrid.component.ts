@@ -1081,6 +1081,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   @Output()
   expandrow = new EventEmitter<SohoDataGridToggleRowEvent>();
 
+  // This event is fired when a key is pressed
+  @Output()
+  keydown = new EventEmitter<SohoDataGridKeyDownEvent>();
+
   // This event is fired when edit mode is exited.
   @Output()
   exiteditmode = new EventEmitter<SohoDataGridEditModeEvent>();
@@ -1789,6 +1793,16 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Event fired after a key is pressed
+   */
+  private onKeyDown(e: JQuery.Event, args: SohoDataGridKeyDownArgs, response: Function) {
+    const event = { e, args, response };
+    this.ngZone.run(() => {
+      this.keydown.next(event);
+    });
+  }
+
+  /**
    * Event fired after a child row has been expanded.
    * @param idProperty string id
    */
@@ -2215,6 +2229,11 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         this.onEditCell(editor);
       };
 
+      // Add the keydown callback.
+      this._gridOptions.onKeyDown = (e: JQuery.Event, args: SohoDataGridKeyDownArgs, response: Function) => {
+        this.onKeyDown(e, args, response);
+      };
+
       // Initialise any event handlers.
       this.jQueryElement
         .on('addrow', (e: any, args: SohoDataGridAddRowEvent) => { this.onRowAdd(args); })
@@ -2362,4 +2381,14 @@ export interface SohoDataGridToggleRowEvent extends SohoDataGridRowExpandEvent {
   // The data grid component originating the call.
   grid: SohoDataGridComponent;
   args?: any;
+}
+
+/**
+ * Details of the 'keydown' event
+ */
+export interface SohoDataGridKeyDownEvent {
+  // The data grid component originating the call.
+  e: JQuery.Event;
+  args?: SohoDataGridKeyDownArgs;
+  response?: Function;
 }
