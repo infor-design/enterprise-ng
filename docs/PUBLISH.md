@@ -62,7 +62,7 @@ are copied into src/app/icon.
 ### Release
 
 1. Make sure you ran `npm run update-enterprise` to update the version (see previous section).
-2. Commit the update (see previous section).
+1. Commit the update (see previous section).
 1. Checkout the release branch (`#.#.x`) and `git pull --tags`
     - If you have just created the release branch, verify it is "Protected" in github settings
 1. Update ids-enteprise to the version it needs (see section above)
