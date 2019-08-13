@@ -6,11 +6,11 @@ You can download the latest version of the code from [quickstart](https://github
 
 ## Prerequisites
 
-If **Node.js** and **npm** are not already on your machine, install them. These examples require Node 8.11 or higher and NPM 3 or higher. To check which version you are using, run `node -v` and `npm -v` in a terminal window.
+If **Node.js** and **npm** are not already on your machine, install them. These examples require Node.js 10.9.0 or higher and NPM 3 or higher. To check which version you are using, run `node -v` and `npm -v` in a terminal window.
 
 This quick start guide uses **@angular/cli** to create, build and run the application.
 
-At the time of writing the version of **@angular/cli** used was 7.2.2 with **angular** 7.2.2.
+At the time of writing the version of **@angular/cli** used was 8.2.0 with **angular** 8.2.0.
 
 ## Step 0 : Install Pre-Prerequisites
 

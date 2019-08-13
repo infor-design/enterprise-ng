@@ -10,7 +10,7 @@ import {
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoHierarchyLeafTemplateComponent {}
+export class SohoHierarchyLeafTemplateComponent { }
 
 @Component({
   selector: 'figure[soho-hierarchy]', // tslint:disable-line
@@ -47,7 +47,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
     this.options.legendKey = key;
   }
 
-  get legendKey (): string {
+  get legendKey(): string {
     return this.options.legendKey;
   }
 
@@ -63,6 +63,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
    * @deprecated use layout = 'paging' instead.
    */
   @Input() set paging(bool: boolean) {
+    // tslint:disable-next-line: deprecation
     this.options.paging = bool;
   }
 
@@ -70,6 +71,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
    * @deprecated use layout = 'paging' instead.
    */
   get paging(): boolean {
+    // tslint:disable-next-line: deprecation
     return this.options.paging;
   }
 
@@ -91,7 +93,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
    */
   @Output() doubleClick = new EventEmitter<SohoHierarchyDoubleClickEvent>();
 
-  constructor(private elementRef: ElementRef, private ngZone: NgZone) {}
+  constructor(private elementRef: ElementRef, private ngZone: NgZone) { }
 
   /**
    * Used to add new data lazily when a leaf is expanded
@@ -104,7 +106,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
   /**
    *  Reload hierarchy with a new dataset
    */
-  reloadDataSet(dataSet:  Array<any>) {
+  reloadDataSet(dataSet: Array<any>) {
     this.options.dataset = dataSet;
     this.ngZone.runOutsideAngular(() => this.hierarchy.reload(this.options));
   }
@@ -144,11 +146,13 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
       this.jQueryElement.hierarchy(this.options);
 
       this.jQueryElement
-      .on('dblclick', ( (e: JQuery.TriggeredEvent, args: SohoHierarchyDoubleClickEvent) => this.ngZone.run(() => this.doubleClick.next(args))))
-      .on('selected', ( (e: JQuery.TriggeredEvent, args: SohoHierarchyEvent) => this.ngZone.run(() => this.selected.next(args))));
+        .on('dblclick', ((e: JQuery.TriggeredEvent, args: SohoHierarchyDoubleClickEvent) => {
+          return this.ngZone.run(() => this.doubleClick.next(args));
+        }))
+        .on('selected', ((e: JQuery.TriggeredEvent, args: SohoHierarchyEvent) => this.ngZone.run(() => this.selected.next(args))));
 
       // Assign the hierarchy control
       this.hierarchy = this.jQueryElement.data('hierarchy');
-    })
+    });
   }
 }

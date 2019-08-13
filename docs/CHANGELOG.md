@@ -9,9 +9,8 @@
     - support for TypeScript 3.4.x
     - `UPGRADING.md` has been updated with details on upgrading your application to angular 8.
 
-### 6.0.0 Fixes
-
 ### 6.0.0 Chore & Maintenance
+
 - `[Datagrid]` - Added an example showing adding a new row on last cell and hitting enter and types for onKeyDown. `TJM` ([#536](https://github.com/infor-design/enterprise-ng/pull/536))
 - `[HomePage]` - Added `soho-homepage-sizer` directive to set the homepage's element height. `PWP` ([#571](https://github.com/infor-design/enterprise-ng/pull/571))
 

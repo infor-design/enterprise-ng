@@ -78,12 +78,13 @@ export class CodeBlockComponent implements OnDestroy {
     '<li><a href="#" id="DrillTwo">Drill Point Two</a></li>' +
     '';
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef) { }
 
-  ngOnDestroy() {}
+  ngOnDestroy() { }
 
   focus() {
     // Using jquery to focus the element as ViewChildren is not working
+    // tslint:disable-next-line: deprecation
     const $event: MouseEventInit = event;
     const focusables = $(':focusable', this.elementRef.nativeElement);
     const target =
@@ -106,7 +107,7 @@ export class CodeBlockComponent implements OnDestroy {
       response(this.MENU_RESPONSE_HTML);
       return;
     }
-  };
+  }
 
   onSelected($event) {
     const buttonId = $event.args[0].id;

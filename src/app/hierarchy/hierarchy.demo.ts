@@ -12,7 +12,7 @@ import { SohoHierarchyComponent } from 'ids-enterprise-ng';
   selector: 'app-hierarchy-demo',
   templateUrl: './hierarchy.demo.html',
   styleUrls: ['./hierarchy.demo.css'],
-  providers: [ HierarchyDemoService ]
+  providers: [HierarchyDemoService]
 })
 export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
 
@@ -26,12 +26,12 @@ export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
 
   // Flag to allow the lazy load data to only be used once
   private lazyDataLoaded = false;
-  private initializing: boolean = true;
+  private initializing = true;
 
   constructor(
     private domSanitizer: DomSanitizer,
     private hierarchyService: HierarchyDemoService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.legend = [
@@ -105,7 +105,7 @@ export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
     // For demo purposes ignore updating original actions for id '1_3_2'
     // This one is used to illustrate a sub menu and disabled state
     if (hierarchyEvent.isActionsEvent && (hierarchyEvent.data.id !== '1_3_2' && hierarchyEvent.data.id !== '1_1')) {
-      const actions = [{value: 'action-1'}, {value: 'action-2'}];
+      const actions = [{ value: 'action-1' }, { value: 'action-2' }];
       this.sohoHierarchy.updateActions(hierarchyEvent, actions);
     }
   }
