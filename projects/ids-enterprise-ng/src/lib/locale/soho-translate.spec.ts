@@ -9,8 +9,12 @@ describe('Pipe: SohoTranslatePipe', () => {
     pipe = new SohoTranslatePipe();
   });
 
-  it('returns OK for Ok', () => {
-    expect(pipe.transform('Ok')).toBe('OK');
+  it('returns OK for Ok', (done) => {
+    Soho.Locale.set('en-US').done(
+      () => {
+        expect(pipe.transform('Ok')).toBe('Ok');
+        done();
+      });
   });
 
   it('providing no value returns [undefined]', () => {
