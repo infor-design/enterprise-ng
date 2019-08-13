@@ -4,7 +4,7 @@ import {
   ViewContainerRef,
   Injectable,
   Injector,
-  ComponentFactoryResolver
+  ComponentFactoryResolver, NgZone
 } from '@angular/core';
 
 import { ArgumentHelper } from '../utils/argument.helper';
@@ -27,7 +27,9 @@ export class SohoModalDialogService {
    */
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
-    private injector: Injector) {
+    private injector: Injector,
+    private ngZone: NgZone
+  ) {
   }
 
   /**
@@ -49,7 +51,7 @@ export class SohoModalDialogService {
     ArgumentHelper.checkNotNull('component', component);
     ArgumentHelper.checkNotNull('parent', parent);
 
-    const modalDialogRef = new SohoModalDialogRef<T>();
+    const modalDialogRef = new SohoModalDialogRef<T>(this.ngZone);
     const dialogInjector = new SohoModalDialogInjector(modalDialogRef, this.injector);
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     const instance = parent.createComponent<T>(componentFactory, parent.length, dialogInjector);
@@ -76,8 +78,7 @@ export class SohoModalDialogService {
   public message<T>(content: string | JQuery): SohoModalDialogRef<T> {
     // Without a component, there is no destroy callback to ensure
     // the dialog's markup is removed.
-    return new SohoModalDialogRef<T>()
-      .content(content);
+    return new SohoModalDialogRef<T>(this.ngZone).content(content);
   }
 }
 
