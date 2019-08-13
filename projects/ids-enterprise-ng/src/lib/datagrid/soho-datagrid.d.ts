@@ -239,6 +239,11 @@ interface SohoDataGridOptions {
   onEditCell?: SohoDataGridEditCellFunction;
 
   /**
+  * Vetoable Key Down Callback
+  */
+  onKeyDown?: SohoDataGridKeyDownFunction;
+
+  /**
   * A callback function that fires when expanding rows.
   * To be used when expandableRow is true.
   * The function gets eventData about the row and grid and a response
@@ -341,6 +346,20 @@ interface SohoDataGridPostRenderCellArgs {
   api: SohoDataGridStatic;
 }
 
+/**
+ * The arguments object passed to the onKeyDown callback.
+ */
+interface SohoDataGridKeyDownArgs {
+  /** Info about the active cell. */
+  activeCell: any;
+
+  /** The row index. */
+  row: number;
+
+  /** The cell index. */
+  cell: number;
+}
+
 interface SohoDataGridEditCellFunctionArgs extends SohoDataGridPostRenderCellArgs {
   container: any;
   e: any;
@@ -392,6 +411,12 @@ type SohoDataGridPostRenderCellFunction = (
 
 type SohoDataGridEditCellFunction = (
   editor: any
+) => void;
+
+type SohoDataGridKeyDownFunction = (
+  e: JQuery.Event,
+  args: SohoDataGridKeyDownArgs,
+  response: Function
 ) => void;
 
 type SohoDataGridSourceFunction = (
@@ -1310,23 +1335,29 @@ interface SohoDataGridEditModeEvent {
   row: number;
 
   /** Column number. */
-  cell: number,
+  cell: number;
 
   /** Row data */
-  item: any,
+  item: any;
 
   /** HTMLElement of the owning cell */
-  target: HTMLElement,
+  target: HTMLElement;
 
   /** The cell value. */
-  value: any,
+  value: any;
 
   /** The original cell value. */
-  oldValue: any,
+  oldValue: any;
 
   /** The column definition. */
-  column: SohoDataGridColumn,
+  column: SohoDataGridColumn;
 
   /** The cell editor object. */
-  editor: SohoDataGridCellEditor
+  editor: SohoDataGridCellEditor;
+}
+
+interface SohoDataGridKeyDownEvent {
+  e: JQuery.Event;
+  args: SohoDataGridKeyDownArgs;
+  response: Function;
 }
