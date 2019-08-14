@@ -40,6 +40,11 @@ interface SohoHomePageStatic {
   resize(): void;
 
   /**
+   * Refresh the layout.
+   */
+  refresh(animate?: boolean): void;
+
+  /**
    * Destroys any resources created by this control.
    */
   destroy(): void;
