@@ -257,7 +257,7 @@ export class SohoModalDialogRef<T> {
       throw Error('componentRef or content must be initialised.');
     }
 
-    return this.ngZone.runOutsideAngular(() => {
+    this.ngZone.runOutsideAngular(() => {
       // Assume conent ...
       let element: JQuery = $('body');
       if (this.componentRef) {
@@ -285,8 +285,9 @@ export class SohoModalDialogRef<T> {
       this.jQueryElement.on('beforeclose', ((event: any) => this.ngZone.run(() => this.onBeforeClose(event))));
       this.jQueryElement.on('beforedestroy', ((event: any) => this.ngZone.run(() => this.onBeforeDestroy(event))));
 
-      return this;
     });
+
+    return this;
   }
 
   /**
@@ -480,12 +481,14 @@ export class SohoModalDialogRef<T> {
 
     // SOHO-4879 - Closing modal dialog does not remove the 'modal-page-container'
     this.ngZone.runOutsideAngular(() => {
-      if (this.jQueryElement) {
-        this.jQueryElement.off();
-      }
       if (this.modal) {
+        // must destroy before turning off jquery events. modal.destroy relies on
+        // the onBeforeDestroy event.
         this.modal.destroy();
         this.modal = null;
+      }
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
       }
     });
   }
