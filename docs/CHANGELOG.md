@@ -4,8 +4,8 @@
 
 ### 6.0.0 Features
 
-- `[General]` Upgraded @angular/cli (to 8.0.x) and @angular/core (to 8.0.x).  `BTHH` ([Pull Request XXX](https://github.com/infor-design/enterprise-ng/pull/XXX))
-    - support for Node 10
+- `[General]` Upgraded @angular/cli (to 8.0.x) and @angular/core (to 8.0.x).  `BTHH` ([Pull Request 578](https://github.com/infor-design/enterprise-ng/pull/578))
+    - support for Node 10.9.0+
     - support for TypeScript 3.4.x
     - `UPGRADING.md` has been updated with details on upgrading your application to angular 8.
 
