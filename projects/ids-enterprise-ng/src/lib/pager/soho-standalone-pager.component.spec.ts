@@ -68,7 +68,6 @@ describe('Standalone Pager Unit Tests', () => {
     expect((comp as any).options.showPageSizeSelector).toEqual(true);
     expect((comp as any).options.pagesize).toEqual(10);
     expect((comp as any).options.pagesizes).toEqual([ 5, 10, 15, 20 ]);
-    expect((comp as any).options.attachPageSizeMenuToBody).toEqual(false);
 
     // detect changes to cause bar chart to be built.
     fixture.detectChanges();
@@ -103,7 +102,9 @@ describe('Standalone Pager Unit Tests', () => {
     expect((comp as any).pager.settings.showPageSizeSelector).toEqual(false);
     expect((comp as any).pager.settings.pagesize).toEqual(20);
     expect((comp as any).pager.settings.pagesizes).toEqual([ 5, 10, 15, 20 ]);
-    expect((comp as any).pager.settings.attachPageSizeMenuToBody).toEqual(true);
+
+    // attachPageSizeMenuToBody was changed to add attachToBody on pager.
+    // expect((comp as any).pager.settings.attachPageSizeMenuToBody).toEqual(true);
 
     expect((comp as any).updateRequired).toEqual(false);
     expect(updatedSpy).toHaveBeenCalledTimes(1);

@@ -40,7 +40,6 @@ import { DataGridAngularCardFormatterDemoComponent } from './datagrid/datagrid-a
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
 import { DataGridCodeBlockFormatterDemoComponent } from './datagrid/datagrid-code-block-formatter.demo';
 import { DataGridCodeBlockEditorDemoComponent } from './datagrid/datagrid-code-block-editor.demo';
-import { DataGridContentDemoComponent } from './datagrid/datagrid-content.demo';
 import { DataGridCustomFormatterDemoComponent } from './datagrid/datagrid-custom-formatter.demo';
 import { DataGridCustomFormatterServiceDemoComponent } from './datagrid/datagrid-custom-formatter-service.demo';
 
@@ -170,6 +169,7 @@ import { ValidationFormEventDemoComponent } from './validation/validation-form-e
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 import { WizardDemoComponent } from './wizard/wizard.demo';
+import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -177,6 +177,7 @@ export const routes: Routes = [
   { path: 'accordion',                              loadChildren: './accordion/accordion-demo.module#AccordionDemoModule'},
   { path: 'alert',                                  component: AlertDemoComponent},
   { path: 'application-lazy-menu',                  component: ApplicationMenuLazyDemoComponent},
+  { path: 'application-menu-roleswitcher',          component: ApplicationMenuRoleSwitcherDemoComponent},
   { path: 'area',                                   component: AreaDemoComponent },
   { path: 'autocomplete',                           component: AutocompleteDemoComponent },
   { path: 'bar',                                    component: BarDemoComponent },
@@ -208,7 +209,6 @@ export const routes: Routes = [
   { path: 'context-menu',                           component: ContextMenuDemoComponent },
   { path: 'contextual-action-panel',                component: ContextualActionPanelDemoComponent },
   { path: 'datagrid-breadcrumb',                    component: DataGridBreadcrumbDemoComponent },
-  { path: 'datagrid-content',                       component: DataGridContentDemoComponent },
   { path: 'datagrid-dirty-indication',              component: DataGridDirtyIndicationDemoComponent },
   { path: 'datagrid-dynamic',                       component: DataGridDynamicDemoComponent },
   { path: 'datagrid-empty-message',                 component: DataGridEmptyMessageDemoComponent },

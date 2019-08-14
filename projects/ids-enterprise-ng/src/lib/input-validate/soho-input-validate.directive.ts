@@ -27,7 +27,7 @@ export class SohoInputValidateDirective implements AfterViewInit {
 
   @Output() error = new EventEmitter<SohoInputValidateEvent>();
   @Output() alert = new EventEmitter<SohoInputValidateEvent>();
-  @Output() confirm = new EventEmitter<SohoInputValidateEvent>();
+  @Output() success = new EventEmitter<SohoInputValidateEvent>();
   @Output() icon = new EventEmitter<SohoInputValidateEvent>();
   @Output() info = new EventEmitter<SohoInputValidateEvent>();
   @Output() valid = new EventEmitter<SohoInputValidateEvent>();
@@ -61,9 +61,9 @@ export class SohoInputValidateDirective implements AfterViewInit {
         this.alert.emit(event);
       }));
 
-      this.jQueryElement.on('confirm', (event: SohoInputValidateEvent, validation) => this.ngZone.run(() => {
+      this.jQueryElement.on('success', (event: SohoInputValidateEvent, validation) => this.ngZone.run(() => {
         event.validation = { field: validation.field[ 0 ], message: validation.message };
-        this.confirm.emit(event);
+        this.success.emit(event);
       }));
 
       this.jQueryElement.on('icon', (event: SohoInputValidateEvent, validation) => this.ngZone.run(() => {

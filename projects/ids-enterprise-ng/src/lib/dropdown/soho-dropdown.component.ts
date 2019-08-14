@@ -186,23 +186,6 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   }
 
   /**
-   * @deprecated as of v4.9.0
-   * use `reload` instead.
-   */
-  @Input()
-  public set reloadSourceOnOpen(reloadSourceOnOpen: boolean) {
-    this.options.reloadSourceOnOpen = reloadSourceOnOpen;
-    if (this.dropdown) {
-      this.dropdown.settings.reloadSourceOnOpen = reloadSourceOnOpen;
-      this.markForRefresh();
-    }
-  }
-
-  public get reloadSourceOnOpen(): boolean {
-    return this.options.reloadSourceOnOpen;
-  }
-
-  /**
    * Determines the frequency of reloading data from an external source
    */
   @Input()
