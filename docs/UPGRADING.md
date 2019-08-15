@@ -17,7 +17,7 @@ Note: The libraries are currently compiled using angular 8, and so require all c
 These are the steps for upgrading existing projects:
 
 ```sh
-npm install @angular/cli@@latest
+npm install @angular/cli@latest
 ng update @angular/cli @angular/core
 ng update
 ```
