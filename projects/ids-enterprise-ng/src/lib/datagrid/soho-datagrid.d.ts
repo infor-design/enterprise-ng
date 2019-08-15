@@ -301,7 +301,6 @@ interface SohoDataGridModifiedRow {
   cells: SohoDataGridDirtyCell[];
 }
 
-
 interface SohoDataGridDirtyCell {
   value: any;
   coercedVal: any;

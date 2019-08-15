@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { SohoHomePageComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-homepage-demo',
   templateUrl: './homepage.demo.html',
 })
 export class HomePageDemoComponent {
+  @ViewChild(SohoHomePageComponent) homepage: SohoHomePageComponent;
 
   public demoTasks: Object[];
 
@@ -100,6 +102,5 @@ export class HomePageDemoComponent {
   onClose(event: any) {
   }
   onOpen(event: any) {
-
   }
 }
