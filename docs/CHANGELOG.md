@@ -4,6 +4,13 @@
 
 ### 6.0.0 Features
 
+- `[General]` Upgraded @angular/cli (to 8.0.x) and @angular/core (to 8.0.x).  `BTHH` ([Pull Request 578](https://github.com/infor-design/enterprise-ng/pull/578))
+    - support for Node 10.9.0+
+    - support for TypeScript 3.4.x
+    - `UPGRADING.md` has been updated with details on upgrading your application to angular 8.
+
+### 6.0.0 Chore & Maintenance
+
 - `[Datagrid]` - Added an example showing adding a new row on last cell and hitting enter and types for onKeyDown. `TJM` ([#536](https://github.com/infor-design/enterprise-ng/pull/536))
 - `[HomePage]` - Added `soho-homepage-sizer` directive to set the homepage's element height. `PWP` ([#571](https://github.com/infor-design/enterprise-ng/pull/571))
 - `[HomePage]` - Added `refresh` method types to the homepage API. `TJM` ([#2632](https://github.com/infor-design/enterprise/pull/2632))

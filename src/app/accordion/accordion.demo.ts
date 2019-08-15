@@ -7,7 +7,7 @@ import { SohoAccordionComponent } from 'ids-enterprise-ng';
 })
 export class AccordionDemoComponent implements AfterViewInit {
 
-  @ViewChild(SohoAccordionComponent) accordion: SohoAccordionComponent;
+  @ViewChild(SohoAccordionComponent, { static: true }) accordion: SohoAccordionComponent;
 
   onBeforeCollapse(args) {
     console.log('Collapsed!', args);

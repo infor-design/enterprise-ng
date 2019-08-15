@@ -143,6 +143,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   }
 
   public get moveSelectedToTop(): boolean {
+    // tslint:disable-next-line: deprecation
     return this.options.moveSelectedToTop;
   }
 

@@ -14,7 +14,7 @@ import { SohoTreeComponent } from 'ids-enterprise-ng';
 })
 export class TreeContentDemoComponent {
 
-  @ViewChild(SohoTreeComponent) tree: SohoTreeComponent;
+  @ViewChild(SohoTreeComponent, { static: true }) tree: SohoTreeComponent;
 
   // Is this component enabled.
   enabled = true;

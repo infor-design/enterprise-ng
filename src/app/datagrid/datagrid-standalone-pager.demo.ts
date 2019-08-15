@@ -8,7 +8,7 @@ import { DatagridStandalonePagerDemoService } from './datagrid-standalone-pager-
   providers: [ DatagridStandalonePagerDemoService ]
 })
 export class DatagridStandalonePagerDemoComponent implements OnInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: true }) sohoDataGridComponent: SohoDataGridComponent;
 
   data: any[];
   columns: SohoDataGridColumn[];

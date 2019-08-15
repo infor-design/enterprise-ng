@@ -8,38 +8,37 @@ import { FormsModule } from '@angular/forms';
 import { SohoSpinboxModule } from './soho-spinbox.module';
 import { SohoSpinboxComponent } from './soho-spinbox.component';
 
-@Component ({
+@Component({
   template: `
     <input soho-spinbox id="id-spin" name="stepped-spinbox" min="-99" max="99" value="0" step="3"/>
     `
 })
 
 class SohoSpinboxTestComponent {
-  @ViewChild(SohoSpinboxComponent) spinbox: SohoSpinboxComponent;
+  @ViewChild(SohoSpinboxComponent, { static: false }) spinbox: SohoSpinboxComponent;
 }
 
-describe ('Soho Spinbox Unit tests', () => {
-  let spinbox:   SohoSpinboxComponent;
-  let comp:     SohoSpinboxTestComponent;
-  let fixture:  ComponentFixture<SohoSpinboxTestComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+describe('Soho Spinbox Unit tests', () => {
+  let spinbox: SohoSpinboxComponent;
+  let comp: SohoSpinboxTestComponent;
+  let fixture: ComponentFixture<SohoSpinboxTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoSpinboxTestComponent ],
-      imports: [ FormsModule, SohoSpinboxModule ]
+      declarations: [SohoSpinboxTestComponent],
+      imports: [FormsModule, SohoSpinboxModule]
     });
 
     fixture = TestBed.createComponent(SohoSpinboxTestComponent);
     comp = fixture.componentInstance;
-    spinbox = comp.spinbox;
-    fixture.detectChanges();
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-spinbox]')).nativeElement;
 
     fixture.detectChanges();
+    spinbox = comp.spinbox;
   });
 
   it('Verify spinbox elements', () => {

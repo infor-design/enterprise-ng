@@ -30,6 +30,7 @@ module.exports = function (config) {
     browserDisconnectTolerance: 10, //this one helps
     browserDisconnectTimeout : 210000,
     browserNoActivityTimeout : 210000,
-    singleRun: true
+    singleRun: true,
+    restartOnFileChange: true
   });
 };

@@ -12,7 +12,7 @@ import { SohoCalendarComponent } from 'ids-enterprise-ng';
 })
 export class CalendarLegendDemoComponent {
 
-  @ViewChild('SohoCalendarComponent') sohoCalendarComponent: SohoCalendarComponent;
+  @ViewChild('SohoCalendarComponent', { static: false }) sohoCalendarComponent: SohoCalendarComponent;
 
   public initialMonth = 11;
   public initialYear = 2018;
@@ -20,7 +20,7 @@ export class CalendarLegendDemoComponent {
   public eventTypes: [];
   public events: [];
 
-  constructor(private monthViewService: CalendarDemoService) {}
+  constructor(private monthViewService: CalendarDemoService) { }
 
   public onRenderMonthCallback = (node: Node, response: Function) => {
     this.monthViewService.getCalendarEventTypes().subscribe((types) => {

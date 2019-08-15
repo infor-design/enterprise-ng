@@ -17,13 +17,14 @@ import { ApplicationMenuLazyMenuDemoComponent } from './application-menu-lazy-me
 })
 export class ApplicationMenuRoleSwitcherDemoComponent implements AfterViewInit, OnInit {
 
-  @ViewChild(SohoApplicationMenuComponent) applicationMenu: SohoApplicationMenuComponent;
-  @ViewChild(ApplicationMenuLazyMenuDemoComponent) private _lazyMenuComponent: ApplicationMenuLazyMenuDemoComponent;
+  @ViewChild(SohoApplicationMenuComponent, { static: false }) applicationMenu: SohoApplicationMenuComponent;
+  @ViewChild(ApplicationMenuLazyMenuDemoComponent, { static: false }) private _lazyMenuComponent: ApplicationMenuLazyMenuDemoComponent;
 
   public triggers: Array<string> = [];
   public menu: Array<any> = [];
   public menuItems: Array<string> = [];
   public myRole: string;
+  public hasChangePasswordLink = true;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
   }
@@ -51,6 +52,6 @@ export class ApplicationMenuRoleSwitcherDemoComponent implements AfterViewInit, 
 
       this.changeDetectorRef.detectChanges();
     }, 1000);
-      this.applicationMenu.closeSwitcherPanel();
+    this.applicationMenu.closeSwitcherPanel();
   }
 }

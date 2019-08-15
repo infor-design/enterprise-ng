@@ -1,9 +1,9 @@
 import {
   Component,
-  OnInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  ViewChild
+  ViewChild,
+  OnInit,
 } from '@angular/core';
 import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
 
@@ -18,7 +18,7 @@ interface DropDownColor extends SohoPersonalizationColor {
 })
 export class PersonalizeColorApiDemoComponent implements OnInit {
 
-  @ViewChild(SohoPersonalizeDirective) personalize: SohoPersonalizeDirective;
+  @ViewChild(SohoPersonalizeDirective, { static: true }) personalize: SohoPersonalizeDirective;
 
   themes: SohoTheme[];
   colors: SohoPersonalizationColors;

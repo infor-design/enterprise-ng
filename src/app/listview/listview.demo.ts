@@ -23,11 +23,11 @@ import { ContentTypeService } from './content-type.service';
 })
 export class ListViewDemoComponent implements OnInit {
 
-  @ViewChild('singleSelectListView') singleSelectListView: SohoListViewComponent;
+  @ViewChild('singleSelectListView', { static: true }) singleSelectListView: SohoListViewComponent;
 
-  @ViewChild('multipleSelectListView') multipleSelectListView: SohoListViewComponent;
+  @ViewChild('multipleSelectListView', { static: true }) multipleSelectListView: SohoListViewComponent;
 
-  @ViewChild('mixedSelectionListView') mixedSelectionListView: SohoListViewComponent;
+  @ViewChild('mixedSelectionListView', { static: true }) mixedSelectionListView: SohoListViewComponent;
 
   public errorMessage: any;
   public demoTasks: Object[];

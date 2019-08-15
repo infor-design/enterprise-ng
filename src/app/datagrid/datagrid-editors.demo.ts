@@ -248,7 +248,7 @@ export const EDITORS_COLUMNS: any[] = [
 })
 export class DataGridEditorsDemoComponent implements OnInit {
 
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: false }) sohoDataGridComponent: SohoDataGridComponent;
 
   gridOptions = null;
 

@@ -10,6 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import {
   SohoEditorComponent
 } from 'ids-enterprise-ng';
+import { AlertDemoComponent } from '../alert/alert.demo';
 
 @Component({
   selector: 'app-editor-demo',
@@ -18,7 +19,7 @@ import {
 })
 export class EditorDemoComponent implements AfterViewInit {
 
-  @ViewChild(SohoEditorComponent) editor: SohoEditorComponent;
+  @ViewChild(SohoEditorComponent, { static: false }) editor: SohoEditorComponent;
 
   public model;
   public showMultipleEditors = false;
@@ -64,6 +65,10 @@ export class EditorDemoComponent implements AfterViewInit {
       showIsClickable: true
     };
 
+  }
+
+  onUpdated(event) {
+    alert(event);
   }
 
   toggleModel() {

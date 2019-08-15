@@ -1,16 +1,11 @@
-
-import {
-  of,
-  Observable,
-  BehaviorSubject
-} from 'rxjs';
+import { of, Observable, BehaviorSubject } from 'rxjs';
 
 import {
   Component,
   ViewChild,
   AfterViewInit,
   Output,
-  EventEmitter,
+  EventEmitter
 } from '@angular/core';
 
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
@@ -22,20 +17,22 @@ import { DataGridLookupSelectionEvent } from './datagrid-lookup-event.demo';
 @Component({
   selector: 'app-datagrid-lookup-dialog-demo',
   templateUrl: './datagrid-lookup-dialog.demo.html',
-  providers: [DataGridDemoService],
+  providers: [DataGridDemoService]
 })
 export class DataGridLookupDialogDemoComponent implements AfterViewInit {
-  @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
-  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoDataGridComponent, { static: true })
+  dataGrid: SohoDataGridComponent;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true })
+  busyIndicator: SohoBusyIndicatorDirective;
 
-  @Output() lookupSelection = new EventEmitter<DataGridLookupSelectionEvent>();
+  @Output() lookupSelection = new EventEmitter<
+    DataGridLookupSelectionEvent<DataGridLookupDialogDemoComponent>
+  >();
 
   private _subject$ = new BehaviorSubject([]);
   public data = this._subject$.asObservable();
 
-  constructor(
-    private service: DataGridDemoService
-  ) {}
+  constructor(private service: DataGridDemoService) {}
 
   ngAfterViewInit() {
     setTimeout(() => this.addRows(), 1000);
@@ -49,7 +46,7 @@ export class DataGridLookupDialogDemoComponent implements AfterViewInit {
     this.service.getData(null).subscribe((d: any[]) => {
       this.busyIndicator.open();
       const newData = new Array<any>(...d);
-      newData.forEach((r) => r.orderDate = new Date());
+      newData.forEach(r => (r.orderDate = new Date()));
       this._subject$.next(newData);
       this.busyIndicator.close(true);
     });
@@ -58,7 +55,7 @@ export class DataGridLookupDialogDemoComponent implements AfterViewInit {
   busy() {
     if (this.busyIndicator) {
       this.busyIndicator.activated = true;
-      setTimeout(() => this.busyIndicator.activated = false, 2000);
+      setTimeout(() => (this.busyIndicator.activated = false), 2000);
     }
   }
 
@@ -66,7 +63,10 @@ export class DataGridLookupDialogDemoComponent implements AfterViewInit {
     console.log('onSelected()', e);
 
     if (e.rows.length > 0) {
-      const lookupSelectionEvent = new DataGridLookupSelectionEvent(this, e.rows);
+      const lookupSelectionEvent = new DataGridLookupSelectionEvent(
+        this,
+        e.rows
+      );
       this.lookupSelection.emit(lookupSelectionEvent);
     }
   }

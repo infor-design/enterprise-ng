@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   Component,
   OnDestroy,
@@ -10,9 +11,9 @@ import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
   selector: 'app-tabs-header-demo',
   templateUrl: './header-tabs.demo.html'
 })
-export class HeaderTabsDemoComponent implements AfterViewInit, OnDestroy {
+export class HeaderTabsDemoComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   public currentTabsOptions: HeaderDynamicTabsetOptions = undefined;
-  public isShowingHeaderTabs = false;
+  private showHeaderTabs;
 
   constructor(private sohoHeaderRef: HeaderDynamicDemoRefService) {}
 
@@ -20,49 +21,38 @@ export class HeaderTabsDemoComponent implements AfterViewInit, OnDestroy {
     // ------------------------------------------------------------------------
     // After the view has been initialized then build and set the header tabs.
     // ------------------------------------------------------------------------
-    this.showHeaderTabs();
+    setTimeout(() => this.showHeaderTabs = true);
+  }
+
+  get isShowingHeaderTabs(): boolean {
+    return !!this.sohoHeaderRef.instance.hasHeaderTabs;
   }
 
   ngOnDestroy() {
     // ------------------------------------------------------------------------
     // When the view is destroyed remove the header tabs.
     // ------------------------------------------------------------------------
-    this.removeHeaderTabs();
+    this.showTabs(false);
   }
 
   onToggleHeaderTabs($event) {
-    this.sohoHeaderRef.instance.hasHeaderTabs ?
-      this.removeHeaderTabs() :
-      this.showHeaderTabs();
+    this.showHeaderTabs = !this.isShowingHeaderTabs;
   }
 
-  /**
-   * Show the header toolbar.
-   * Set Input using toolbarOptions to have the header toolbar display.
-   */
-  private showHeaderTabs() {
-    if (!this.sohoHeaderRef.instance.hasHeaderTabs) {
-      this.currentTabsOptions = this.tabOptions;
-      this.sohoHeaderRef.instance.sectionTitle = 'Header Tabs Demo';
-      this.sohoHeaderRef.instance.tabOptions = this.currentTabsOptions;
-      this.isShowingHeaderTabs = true;
+  ngAfterViewChecked(): void {
+    if (this.showHeaderTabs && !this.isShowingHeaderTabs) {
+      setTimeout(() => this.showTabs(true));
+    }
+
+    if (!this.showHeaderTabs && this.isShowingHeaderTabs) {
+      setTimeout(() => this.showTabs(true));
     }
   }
 
-  /**
-   * put the default header toolbar back.
-   */
-  private removeHeaderTabs() {
-    // ----------------------------------------------------------------
-    // set Input using toolbarOptions instead of using a template.
-    // this.sohoHeaderRef.instance.showHeaderToolbar = false;
-    // ----------------------------------------------------------------
-    if (this.sohoHeaderRef.instance.hasHeaderTabs) {
-      this.currentTabsOptions = undefined;
-      this.sohoHeaderRef.instance.sectionTitle = null;
-      this.sohoHeaderRef.instance.tabOptions = undefined;
-      this.isShowingHeaderTabs = false;
-    }
+  showTabs(showTabs: boolean): void {
+    this.currentTabsOptions = showTabs ? this.tabOptions : undefined;
+    this.sohoHeaderRef.instance.sectionTitle = showTabs ? 'Header Tabs Demo' : null;
+    this.sohoHeaderRef.instance.tabOptions = this.currentTabsOptions;
   }
 
   private tabOptions: HeaderDynamicTabsetOptions = {

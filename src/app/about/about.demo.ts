@@ -23,11 +23,13 @@ export class AboutDemoComponent {
 
   openAbout() {
 
+    const VERSION_ATTR_NAME = 'data-ids-enterprise-ng-version';
+    const version = $('html').attr(VERSION_ATTR_NAME);
     this.about = this.aboutService
       .about()
       .appName('Infor Design')
       .productName('Enterprise Angular Components')
-      .version('ver. 4.9.0')
+      .version(`ver. ${version}`)
       .content('<p>Fashionable components for fashionable applications.</p>')
       .open();
   }

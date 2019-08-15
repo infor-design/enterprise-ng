@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   Component,
   OnDestroy,
@@ -12,16 +13,18 @@ import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
   selector: 'app-toolbar-tabs-header-demo',
   templateUrl: './header-toolbar-and-tabs.demo.html'
 })
-export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, OnDestroy {
+export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   public currentTabsOptions: HeaderDynamicTabsetOptions = undefined;
+  private showHeaderTabs: boolean;
+  private showHeaderToolbar: boolean;
 
   public get isShowingHeaderToolbar(): boolean {
-    return this.sohoHeaderRef.instance.toolbarOptions !== undefined;
+    return this.sohoHeaderRef.instance.hasHeaderToolbar;
   }
 
   public get isShowingHeaderTabs(): boolean {
-    return this.currentTabsOptions !== undefined;
+    return this.sohoHeaderRef.instance.hasHeaderTabs;
   }
 
   public tabsOptions: HeaderDynamicTabsetOptions = {
@@ -58,7 +61,9 @@ export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, OnDestr
     // ------------------------------------------------------------------------
     // After the view has been initialized then build and set the header tabs.
     // ------------------------------------------------------------------------
-    this.showHeaderToolbarAndTabs();
+    this.showHeaderTabs = true;
+    this.showHeaderToolbar = true;
+    this.sohoHeaderRef.instance.sectionTitle = 'Header Toolbar And Tabs Demo';
   }
 
   ngOnDestroy() {
@@ -66,82 +71,39 @@ export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, OnDestr
     // When the view is destroyed remove the header tabs.
     // todo ppatton do this when route is "unloaded" instead of using destroy?
     // ------------------------------------------------------------------------
-    this.removeHeaderToolbarAndTabs();
+    this.showHeaderTabs = false;
+    this.showHeaderToolbar = false;
   }
 
   onToggleHeaderTabs() {
-    this.sohoHeaderRef.instance.hasHeaderTabs ?
-      this.removeHeaderTabs() :
-      this.showHeaderTabs();
+    this.showHeaderTabs = !this.isShowingHeaderTabs;
   }
 
   onToggleHeaderToolbar() {
-    this.sohoHeaderRef.instance.hasHeaderToolbar ?
-      this.removeHeaderToolbar() :
-      this.showHeaderToolbar();
+    this.showHeaderToolbar = !this.isShowingHeaderToolbar;
   }
 
-  private showHeaderToolbarAndTabs() {
-    this.sohoHeaderRef.instance.sectionTitle = 'Header Toolbar And Tabs Demo';
-
-    if (!this.sohoHeaderRef.instance.hasHeaderTabs) {
-      this.showHeaderTabs();
+  ngAfterViewChecked(): void {
+    if (this.showHeaderTabs && !this.isShowingHeaderTabs) {
+      setTimeout(() => {
+        this.currentTabsOptions = this.tabsOptions;
+        this.sohoHeaderRef.instance.tabOptions = this.currentTabsOptions;
+      });
     }
 
-    if (!this.sohoHeaderRef.instance.hasHeaderToolbar) {
-      this.showHeaderToolbar();
-    }
-  }
-
-  private removeHeaderToolbarAndTabs() {
-    this.sohoHeaderRef.instance.sectionTitle = null;
-
-    if (this.sohoHeaderRef.instance.hasHeaderTabs) {
-      this.removeHeaderTabs();
+    if (!this.showHeaderTabs && this.isShowingHeaderTabs) {
+      setTimeout(() => {
+        this.currentTabsOptions = undefined;
+        this.sohoHeaderRef.instance.tabOptions = undefined;
+      });
     }
 
-    if (this.sohoHeaderRef.instance.hasHeaderToolbar) {
-      this.removeHeaderToolbar();
+    if (this.showHeaderToolbar && !this.isShowingHeaderToolbar) {
+      setTimeout(() => this.sohoHeaderRef.instance.toolbarOptions = this.toolbarOptions);
     }
-  }
 
-  /**
-   * Show the header toolbar.
-   * Set Input using toolbarOptions to have the header toolbar display.
-   */
-  private showHeaderToolbar() {
-    this.sohoHeaderRef.instance.toolbarOptions = this.toolbarOptions;
-  }
-
-  /**
-   * put the default header toolbar back.
-   */
-  private removeHeaderToolbar() {
-    this.sohoHeaderRef.instance.toolbarOptions = undefined;
-  }
-
-  /**
-   * Show the header toolbar.
-   * Set Input using toolbarOptions to have the header toolbar display.
-   */
-  private showHeaderTabs() {
-    if (!this.sohoHeaderRef.instance.hasHeaderTabs) {
-      this.currentTabsOptions = this.tabsOptions;
-      this.sohoHeaderRef.instance.tabOptions = this.currentTabsOptions;
-    }
-  }
-
-  /**
-   * put the default header toolbar back.
-   */
-  private removeHeaderTabs() {
-    // ----------------------------------------------------------------
-    // set Input using toolbarOptions instead of using a template.
-    // this.sohoHeaderRef.instance.showHeaderToolbar = false;
-    // ----------------------------------------------------------------
-    if (this.sohoHeaderRef.instance.hasHeaderTabs) {
-      this.currentTabsOptions = undefined;
-      this.sohoHeaderRef.instance.tabOptions = undefined;
+    if (!this.showHeaderToolbar && this.isShowingHeaderToolbar) {
+      setTimeout(() => this.sohoHeaderRef.instance.toolbarOptions = undefined);
     }
   }
 }

@@ -29,12 +29,12 @@ describe('Soho Wizard Unit Tests', () => {
     el = de.nativeElement;
 
     comp.ticks = [
-      { label: 'One', href: 'one', state: 'current'},
-      { label: 'Two', href: 'two'},
-      { label: 'Three', href: 'three'},
-      { label: 'Four', href: 'four'},
-      { label: 'Five', href: 'five'},
-      { label: 'Six', href: 'six'}
+      { label: 'One', href: 'one', state: 'current' },
+      { label: 'Two', href: 'two' },
+      { label: 'Three', href: 'three' },
+      { label: 'Four', href: 'four' },
+      { label: 'Five', href: 'five' },
+      { label: 'Six', href: 'six' }
     ];
   });
 
@@ -63,15 +63,15 @@ describe('Soho Wizard Unit Tests', () => {
 </div>`
 })
 class SohoWizardTestComponent {
-  @ViewChild(SohoWizardComponent) wizard: SohoWizardComponent;
+  @ViewChild(SohoWizardComponent, { static: false }) wizard: SohoWizardComponent;
 
   public ticks: SohoWizardTick[] = [
-    { label: 'One', href: 'one', state: 'current'},
-    { label: 'Two', href: 'two'},
-    { label: 'Three', href: 'three'},
-    { label: 'Four', href: 'four'},
-    { label: 'Five', href: 'five'},
-    { label: 'Six', href: 'six'}
+    { label: 'One', href: 'one', state: 'current' },
+    { label: 'Two', href: 'two' },
+    { label: 'Three', href: 'three' },
+    { label: 'Four', href: 'four' },
+    { label: 'Five', href: 'five' },
+    { label: 'Six', href: 'six' }
   ];
 }
 
@@ -91,10 +91,11 @@ describe('Soho Wizard Render', () => {
     fixture = TestBed.createComponent(SohoWizardTestComponent);
     component = fixture.componentInstance;
 
-    wizard = component.wizard;
-
     de = fixture.debugElement;
     el = de.query(By.css('div[soho-wizard]')).nativeElement;
+
+    fixture.detectChanges();
+    wizard = component.wizard;
   });
 
   it('Check HTML content', () => {

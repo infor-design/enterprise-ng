@@ -157,7 +157,7 @@ describe('Soho Line Unit Tests', () => {
   template: `<div soho-line [dataset]="data"></div>`
 })
 class SohoLineTestComponent {
-  @ViewChild(SohoLineComponent) line: SohoLineComponent;
+  @ViewChild(SohoLineComponent, {static: false}) line: SohoLineComponent;
   public data = [{}];
 }
 

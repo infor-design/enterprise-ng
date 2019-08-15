@@ -13,7 +13,7 @@ import { SohoAutoCompleteComponent } from 'ids-enterprise-ng';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AutocompleteDemoComponent implements AfterViewInit {
-  public url       = 'http://localhost:4200/app/demodata/cities.demo.json?term=';
+  public url = 'http://localhost:4200/app/demodata/cities.demo.json?term=';
   public statesUrl = 'http://localhost:4200/app/demodata/states.demo.json?term=';
   public states = [
     'Alaska',
@@ -31,11 +31,13 @@ export class AutocompleteDemoComponent implements AfterViewInit {
     'World',
     '<script>alert(1)</script>xss'
   ];
-  @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
+  @ViewChild(SohoAutoCompleteComponent, { static: false }) autocomplete: SohoAutoCompleteComponent;
+
+  public selected: any;
 
   private options: SohoAutoCompleteOptions;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {}
+  constructor(private changeDetectorRef: ChangeDetectorRef) { }
 
   ngAfterViewInit() {
     setTimeout(() => {

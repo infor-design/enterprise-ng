@@ -29,7 +29,7 @@ import { SohoButtonComponent } from './soho-button.component';
   </div>`
 })
 class SohoButtonTestComponent {
-  @ViewChild(SohoButtonComponent) button: SohoButtonComponent;
+  @ViewChild(SohoButtonComponent, { static: true }) button: SohoButtonComponent;
 
   constructor() {
   }
@@ -50,12 +50,12 @@ describe('Soho Button Unit Tests', () => {
 
     fixture = TestBed.createComponent(SohoButtonTestComponent);
     component = fixture.componentInstance;
-    button = component.button;
-
-    de = fixture.debugElement;
-    el = de.query(By.css('button[soho-button]')).nativeElement;
 
     fixture.detectChanges();
+
+    button = component.button;
+    de = fixture.debugElement;
+    el = de.query(By.css('button[soho-button]')).nativeElement;
   });
 
   it('is created', () => {

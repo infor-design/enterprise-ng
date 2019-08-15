@@ -12,7 +12,7 @@ import { SohoColumnComponent } from 'ids-enterprise-ng';
 })
 export class ColumnStackedDemoComponent implements OnInit {
 
-  @ViewChild(SohoColumnComponent) sohoColumnComponent: SohoColumnComponent;
+  @ViewChild(SohoColumnComponent, { static: true }) sohoColumnComponent: SohoColumnComponent;
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   private selection: SohoColumnSelected  = {fieldName: 'name', fieldValue: 'Mar'};

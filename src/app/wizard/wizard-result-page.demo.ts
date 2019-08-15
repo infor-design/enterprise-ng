@@ -24,9 +24,9 @@ import { WizardDemoComponent } from './wizard.demo';
 })
 export class WizardDemoResultPageComponent implements AfterViewInit {
 
-  @ViewChild(SohoProgressComponent) progress: SohoProgressComponent;
+  @ViewChild(SohoProgressComponent, { static: false }) progress: SohoProgressComponent;
 
-  @ViewChild(SohoBusyIndicatorDirective) busyindicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyindicator: SohoBusyIndicatorDirective;
 
   public current = 0;
 

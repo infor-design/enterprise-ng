@@ -5,7 +5,7 @@
         "name": "ng serve",
         "type": "chrome",
         "request": "launch",
-        "url": "http://localhost:4200/",
+        "url": "http://localhost:4200/ids-enterprise-ng-demo",
         "webRoot": "${workspaceFolder}",
         // "webRoot": "${workspaceFolder}/projects/ids-enterprise-ng"
         "sourceMapPathOverrides": {

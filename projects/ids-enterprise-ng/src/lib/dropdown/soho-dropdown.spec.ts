@@ -16,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   </select>`
 })
 class SohoDropDownTestComponent {
-  @ViewChild(SohoDropDownComponent) dropdown: SohoDropDownComponent;
+  @ViewChild(SohoDropDownComponent, { static: false }) dropdown: SohoDropDownComponent;
   selectedOption = 'ND';
   public options = [
     { value: 'AK', label: 'Alaska' },
@@ -84,12 +84,12 @@ describe('Soho Dropdown Render', () => {
 
     fixture = TestBed.createComponent(SohoDropDownTestComponent);
     component = fixture.componentInstance;
-    dropdown = component.dropdown;
 
     de = fixture.debugElement;
     el = de.query(By.css('select[soho-dropdown]')).nativeElement;
 
     fixture.detectChanges();
+    dropdown = component.dropdown;
   });
 
   it('Check HTML content', () => {

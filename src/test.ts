@@ -25,4 +25,4 @@ context.keys().map(context);
 // enough for the socket to continue to communicate.
 // The downside is that it creates a minor performance penalty of around 10-15%
 // increase in the time it takes to run out unit tests.
-beforeEach((done) => done());
+// beforeEach((done) => done());

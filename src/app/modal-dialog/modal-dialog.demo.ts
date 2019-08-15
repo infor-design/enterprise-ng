@@ -24,7 +24,7 @@ export class ModalDialogDemoComponent {
    *
    * This can be the ViewContainerRef of this component, or another component.
    */
-  @ViewChild('dialogPlaceholder', { read: ViewContainerRef })
+  @ViewChild('dialogPlaceholder', { read: ViewContainerRef, static: true })
   placeholder: ViewContainerRef;
 
   public closeResult: string;

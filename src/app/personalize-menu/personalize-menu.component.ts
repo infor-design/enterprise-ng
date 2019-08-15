@@ -19,7 +19,7 @@ interface ColorMenuItem extends SohoPersonalizationColor {
   templateUrl: './personalize-menu.component.html'
 })
 export class PersonalizeMenuComponent implements OnInit {
-  @ViewChild(SohoPersonalizeDirective)
+  @ViewChild(SohoPersonalizeDirective, { static: true })
   private personalize: SohoPersonalizeDirective;
 
   /**

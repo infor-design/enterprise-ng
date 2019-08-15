@@ -30,7 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   </form>`
 })
 class SohoInputReactiveFormTestComponent {
-  @ViewChild(SohoInputComponent) dropdown: SohoInputComponent;
+  @ViewChild(SohoInputComponent, {static: true}) dropdown: SohoInputComponent;
 
   formGroup: FormGroup;
 

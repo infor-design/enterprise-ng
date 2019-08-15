@@ -18,14 +18,14 @@ const blockGridTestData = [
 ];
 
 describe('Soho blockgrid Unit Tests', () => {
-  let comp:     SohoBlockGridComponent;
-  let fixture:  ComponentFixture<SohoBlockGridComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let comp: SohoBlockGridComponent;
+  let fixture: ComponentFixture<SohoBlockGridComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoBlockGridComponent ]
+      declarations: [SohoBlockGridComponent]
     });
 
     fixture = TestBed.createComponent(SohoBlockGridComponent);
@@ -134,27 +134,29 @@ describe('Soho blockgrid Unit Tests', () => {
 })
 class SohoBlockGridTestComponent {
   public data = blockGridTestData;
-  @ViewChild(SohoBlockGridComponent) blockgrid: SohoBlockGridComponent;
+  @ViewChild(SohoBlockGridComponent, { static: false }) blockgrid: SohoBlockGridComponent;
 }
 describe('Soho blockgrid Render', () => {
-  let blockgrid:  SohoBlockGridComponent;
+  let blockgrid: SohoBlockGridComponent;
   let component: SohoBlockGridTestComponent;
-  let fixture:   ComponentFixture<SohoBlockGridTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoBlockGridTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoBlockGridTestComponent ],
-      imports: [ FormsModule, SohoBlockGridModule ]
+      declarations: [SohoBlockGridTestComponent],
+      imports: [FormsModule, SohoBlockGridModule]
     });
 
     fixture = TestBed.createComponent(SohoBlockGridTestComponent);
     component = fixture.componentInstance;
-    blockgrid = component.blockgrid;
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-blockgrid]')).nativeElement;
+
+    fixture.detectChanges();
+    blockgrid = component.blockgrid;
   });
 
   it('Check HTML content', () => {

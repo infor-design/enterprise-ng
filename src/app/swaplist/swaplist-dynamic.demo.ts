@@ -17,7 +17,7 @@ import {
     templateUrl: './swaplist-dynamic.demo.html',
 })
 export class SwapListDynamicDemoComponent implements OnInit, OnDestroy {
-    @ViewChild(SohoSwapListComponent) swapListComponent: SohoSwapListComponent;
+    @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent: SohoSwapListComponent;
 
     private _subject1$ = new BehaviorSubject([]);
     public available = this._subject1$.asObservable();

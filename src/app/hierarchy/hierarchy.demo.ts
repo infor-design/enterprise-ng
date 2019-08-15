@@ -1,4 +1,9 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewChecked,
+  Component,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HierarchyDemoService } from './hierarchy.demo.service';
 import { SohoHierarchyComponent } from 'ids-enterprise-ng';
@@ -7,12 +12,11 @@ import { SohoHierarchyComponent } from 'ids-enterprise-ng';
   selector: 'app-hierarchy-demo',
   templateUrl: './hierarchy.demo.html',
   styleUrls: ['./hierarchy.demo.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [HierarchyDemoService]
 })
-export class HierarchyDemoComponent implements OnInit, AfterViewInit {
+export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
 
-  @ViewChild('SohoHierarchy') sohoHierarchy: SohoHierarchyComponent;
+  @ViewChild('SohoHierarchy', { static: false }) sohoHierarchy: SohoHierarchyComponent;
 
   public data: Array<any>;
   public legend: Array<SohoHierarchyLegend>;
@@ -22,12 +26,12 @@ export class HierarchyDemoComponent implements OnInit, AfterViewInit {
 
   // Flag to allow the lazy load data to only be used once
   private lazyDataLoaded = false;
+  private initializing = true;
 
   constructor(
     private domSanitizer: DomSanitizer,
-    private hierarchyService: HierarchyDemoService,
-    private changeDetectorRef: ChangeDetectorRef
-  ) {}
+    private hierarchyService: HierarchyDemoService
+  ) { }
 
   ngOnInit() {
     this.legend = [
@@ -75,16 +79,16 @@ export class HierarchyDemoComponent implements OnInit, AfterViewInit {
 
     this.hierarchyService.getHierarchyData().subscribe((data) => {
       this.data = data[0].initialDataSet;
-      this.changeDetectorRef.markForCheck();
     });
   }
 
-  ngAfterViewInit() {
+  ngAfterViewChecked(): void {
     // Manually selects Partricia Clark
     // SetTimeout to give soho control a moment to render
-    setTimeout(() => {
-      this.sohoHierarchy.selectLeaf('1_1');
-    }, 1);
+    if (this.initializing && this.data && this.sohoHierarchy) {
+      this.initializing = false;
+      setTimeout(() => this.sohoHierarchy.selectLeaf('1_1'));
+    }
   }
 
   onSelected(hierarchyEvent: SohoHierarchyEvent) {
@@ -94,7 +98,6 @@ export class HierarchyDemoComponent implements OnInit, AfterViewInit {
       this.hierarchyService.getHierarchyData().subscribe((data) => {
         const newData = data[0].lazyDataSet;
         this.sohoHierarchy.add(hierarchyEvent.data.id, this.data, newData);
-        this.changeDetectorRef.markForCheck();
         this.lazyDataLoaded = true;
       });
     }
@@ -102,7 +105,7 @@ export class HierarchyDemoComponent implements OnInit, AfterViewInit {
     // For demo purposes ignore updating original actions for id '1_3_2'
     // This one is used to illustrate a sub menu and disabled state
     if (hierarchyEvent.isActionsEvent && (hierarchyEvent.data.id !== '1_3_2' && hierarchyEvent.data.id !== '1_1')) {
-      const actions = [{value: 'action-1'}, {value: 'action-2'}];
+      const actions = [{ value: 'action-1' }, { value: 'action-2' }];
       this.sohoHierarchy.updateActions(hierarchyEvent, actions);
     }
   }
@@ -110,5 +113,4 @@ export class HierarchyDemoComponent implements OnInit, AfterViewInit {
   onDoubleClick(event: SohoHierarchyDoubleClickEvent) {
     console.log(event);
   }
-
 }

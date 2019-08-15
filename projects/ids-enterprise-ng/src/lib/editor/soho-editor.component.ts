@@ -223,7 +223,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   * @param ref reference to the change detector
   */
   constructor(
-    private element: ElementRef,
+    private element: ElementRef<HTMLElement>,
     private ngZone: NgZone,
     private ref: ChangeDetectorRef) {
     super();
@@ -242,8 +242,9 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
       this.editor = this.jQueryElement.data('editor');
 
       // Bind to jQueryElement's events
-      this.jQueryElement.on('change', (e: JQuery.TriggeredEvent, args: SohoEditorEvent) => this.onChange(args));
-      this.jQueryElement.on('updated', (e: JQuery.TriggeredEvent, args: SohoEditorEvent) => this.onUpdated(args));
+      this.jQueryElement
+        .on('change', (e: JQuery.TriggeredEvent, args: SohoEditorEvent) => this.onChange(args))
+        .on('updated', (e: JQuery.TriggeredEvent, args: SohoEditorEvent) => this.onUpdated(args));
 
       if (this.internalValue) {
         this.jQueryElement.html(this.internalValue);

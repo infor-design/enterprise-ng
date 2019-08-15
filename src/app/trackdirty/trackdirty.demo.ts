@@ -21,7 +21,7 @@ import {
 })
 export class TrackDirtyDemoComponent implements OnInit {
 
-  @ViewChild(SohoLookupComponent) sohoLookup: SohoLookupComponent;
+  @ViewChild(SohoLookupComponent, { static: true }) sohoLookup: SohoLookupComponent;
   @ViewChildren(SohoTrackDirtyDirective) trackDirtyComponents: QueryList<SohoTrackDirtyDirective>;
 
   public model = {

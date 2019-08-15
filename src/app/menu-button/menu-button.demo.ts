@@ -6,7 +6,7 @@ import { SohoMenuButtonComponent } from 'ids-enterprise-ng';
   templateUrl: './menu-button.demo.html',
 })
 export class MenuButtonDemoComponent implements OnInit, AfterViewInit {
-  @ViewChild('ajax')ajaxMenuButton: SohoMenuButtonComponent;
+  @ViewChild('ajax', { static: true })ajaxMenuButton: SohoMenuButtonComponent;
   public menuButtons: Array<any>;
 
   public showLastOption: boolean;

@@ -1,10 +1,10 @@
 # Enterprise Components for Angular Development Environment
 
-## Creating an ASP.NET Core SPA Application
+## Creating an ASP.NET MVC / Angular Application
 
-Install the .NET Core 2.2.x SDK.
+Install Visual Studio 2017+
 
-You can check what version of donet you have using the command `dotnet --version`.
+You can check what version of dotnet you have using the command `dotnet --version`.
 
 ```sh
 dotnet new angular -o ids-enterprise-ng-aspnetcore
@@ -27,9 +27,9 @@ Navigate to this URL in a browser.
 
 The app starts up an instance of the Angular CLI server in the background. A message similar to the following is logged: NG Live Development Server is listening on localhost:5000, open your browser on `http://localhost:5000/`. Ignore this message—it's not the URL for the combined ASP.NET Core and Angular CLI app.
 
-## Upgrading to Angular / Angular CLI 8.x
+## Upgrading to Angular / Angular CLI 8.2.2
 
-The current SPA create an Angular 6 project, but it is relatively easy to upgrade this to 8.x.
+The current SPA create an Angular 6 project, but it is relatively easy to upgrade this to 7.2.
 
 Open a terminal / command prompt inside the ClientApp folder.
 

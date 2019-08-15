@@ -23,7 +23,7 @@ export class BusyIndicatorDemoBodyComponent implements OnInit {
   transparentOverlay = false;
   showInitially = true;
 
-  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
 
   constructor(private elementRef: ElementRef) {
   }

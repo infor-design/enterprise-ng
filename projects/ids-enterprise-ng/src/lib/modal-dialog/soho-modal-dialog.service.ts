@@ -87,4 +87,4 @@ export class SohoModalDialogService {
 /**
  * Object with a "new"" method returning the type T.
  */
-export type ComponentType<T> = new(...args: any[]) => T;
+export type ComponentType<T> = new (...args: any[]) => T;

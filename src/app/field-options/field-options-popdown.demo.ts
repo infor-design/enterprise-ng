@@ -17,7 +17,7 @@ import {
 })
 export class FieldOptionsPopdownDemoComponent {
 
-  @ViewChild(SohoPopDownDirective) popdown: SohoPopDownDirective;
+  @ViewChild(SohoPopDownDirective, { static: true }) popdown: SohoPopDownDirective;
 
   private MENU_RESPONSE_HTML = '' +
     '<li><a href="#" id="ShowFieldHistory">Show Field History</a></li>' +
