@@ -27,9 +27,9 @@ Navigate to this URL in a browser.
 
 The app starts up an instance of the Angular CLI server in the background. A message similar to the following is logged: NG Live Development Server is listening on localhost:5000, open your browser on `http://localhost:5000/`. Ignore this message—it's not the URL for the combined ASP.NET Core and Angular CLI app.
 
-## Upgrading to Angular / Angular CLI 7.2
+## Upgrading to Angular / Angular CLI 8.x
 
-The current SPA create an Angular 6 project, but it is relatively easy to upgrade this to 7.2.
+The current SPA create an Angular 6 project, but it is relatively easy to upgrade this to 8.x.
 
 Open a terminal / command prompt inside the ClientApp folder.
 
