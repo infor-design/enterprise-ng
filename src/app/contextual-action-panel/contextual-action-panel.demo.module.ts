@@ -10,10 +10,14 @@ import { SohoComponentsModule } from 'ids-enterprise-ng';
 import { ContextualActionPanelDemoComponent } from './contextual-action-panel.demo';
 import { NestedModalDialogComponent } from './nested-modal-dialog.component';
 import { ContextualActionPanelComponent } from './contextual-action-panel.component';
+import { ContextualActionPanelSearchfieldComponent } from './contextual-action-panel-searchfield.component';
+import { ContextualActionPanelSearchfieldFlexComponent } from './contextual-action-panel-searchfield-flex.component';
 
 @NgModule({
   declarations: [
     ContextualActionPanelComponent,
+    ContextualActionPanelSearchfieldComponent,
+    ContextualActionPanelSearchfieldFlexComponent,
     ContextualActionPanelDemoComponent,
     NestedModalDialogComponent
   ],
@@ -30,7 +34,9 @@ import { ContextualActionPanelComponent } from './contextual-action-panel.compon
   ],
   entryComponents: [
     ContextualActionPanelComponent,
+    ContextualActionPanelSearchfieldComponent,
+    ContextualActionPanelSearchfieldFlexComponent,
     NestedModalDialogComponent
   ],
 })
-export class ContextualActionPanelDemoModule {}
+export class ContextualActionPanelDemoModule { }
