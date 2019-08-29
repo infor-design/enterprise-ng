@@ -103,4 +103,7 @@ export class HomePageDemoComponent {
   }
   onOpen(event: any) {
   }
+  onResize(args: SohoHomePageEvent) {
+    console.log(args);
+  }
 }

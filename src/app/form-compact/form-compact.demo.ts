@@ -16,20 +16,31 @@ import {
 export class FormCompactDemoComponent implements AfterViewInit {
 
   public model = {
-    field1: 'Equipment Inc.',
-    field2: 'Sub Title',
-    field3: 'More Info',
-    field4: 'More Info',
-    field5: '',
-    field6: 'Hello World!',
-    field7: 'Equipment Inc.',
-    field8: 'Text',
-    field9: '',
+    field1: 'Equipment Company',
+    field2: '',
+    field3: 'Equipment Company',
+    field4: 'Equipment Company',
+    field5: 'Equipment Company',
+    field6: 'Equipment Company',
+    field7: '',
+    field8: 'Equipment Company',
+    field9: 'Equipment Company',
     field10: 'Text',
-    field11: '',
+    field11: 'Text',
     field12: 'Text',
-    field13: '',
-    field14: 'Text'
+    field13: 'Text',
+    field14: 'Text',
+    field15: '',
+    field16: '',
+    field17: '',
+    field18: '',
+    field19: '',
+    field20: '',
+    category: 'kids',
+    checkbox1: false,
+    checkbox2: true,
+    checkbox3: true,
+    checkbox4: true
   };
   demoForm: FormGroup;
 
@@ -55,7 +66,18 @@ export class FormCompactDemoComponent implements AfterViewInit {
       field11: [this.model.field11],
       field12: [this.model.field12],
       field13: [this.model.field13],
-      field14: [this.model.field14]
+      field14: [this.model.field14],
+      field15: [this.model.field15],
+      field16: [this.model.field16],
+      field17: [this.model.field17],
+      field18: [this.model.field18],
+      field19: [this.model.field19],
+      field20: [this.model.field20],
+      category: [this.model.category],
+      checkbox1: [this.model.checkbox1],
+      checkbox2: [this.model.checkbox2],
+      checkbox3: [this.model.checkbox3],
+      checkbox4: [this.model.checkbox4]
     });
   }
 

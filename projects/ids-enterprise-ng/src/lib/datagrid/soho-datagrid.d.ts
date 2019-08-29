@@ -62,6 +62,11 @@ interface SohoDataGridOptions {
    */
   stretchColumn?: string;
 
+  /**
+   * If true, column will recalculate its width and stretch if required on column change.
+   */
+  stretchColumnOnChange?: boolean;
+
   /** Initial dataset. */
   dataset?: Object[];
 
@@ -109,6 +114,9 @@ interface SohoDataGridOptions {
 
   /** What height to make the rows? */
   rowHeight?: SohoDataGridRowHeight;
+
+  /** Sets the height of the row to something other then the three built in rowHeights. */
+  fixedRowHeight?: number;
 
   /** Sets the select-ability for the datagrid. */
   selectable?: SohoDataGridSelectable;
@@ -800,6 +808,9 @@ interface SohoDataGridColumn {
   /** Tooltip for the content of a column cell. */
   contentTooltip?: boolean;
 
+  /** Maximumn width of the column (in pixels). */
+  maxWidth?: number;
+
   /** Minimum width of the column (in pixels). */
   minWidth?: number;
 
@@ -826,6 +837,12 @@ interface SohoDataGridColumn {
 
   /** call back to handle custom tooltips for the column header */
   tooltip?: (row: number, cell: number, value: any, col: SohoDataGridColumn, rowData: Object, api: SohoDataGridStatic) => string;
+
+  /** Placeholder text to display in the field **/
+  placeholder?: string | Function;
+
+  /** call back to handle custom tooltips for the column header */
+  beforeCommitCellEdit?: (cell: number, row: number, rowData: Object, editor: SohoDataGridCellEditor, api: SohoDataGridStatic) => boolean;
 }
 
 interface SohoDataGridColumnNumberFormat {

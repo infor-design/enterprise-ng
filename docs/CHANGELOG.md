@@ -8,6 +8,7 @@
     - support for Node 10.9.0+
     - support for TypeScript 3.4.x
     - `UPGRADING.md` has been updated with details on upgrading your application to angular 8.
+- `[General]` Added all settings for ids-enterprise 4.20 and 4.2.1.  `TJM` ([#555](https://github.com/infor-design/enterprise-ng/pull/555))
 
 ### 6.0.0 Chore & Maintenance
 

@@ -7,7 +7,7 @@
 
  type SohoDropDownMoveSelectedOptions = 'group' | 'all' | 'none';
 
- type SohoDropDownFilterModeOptions = false | 'startsWith' | 'contains';
+ type SohoDropDownFilterModeOptions = 'contains' | 'startsWith' | 'keyword' | 'wordStartsWith' | 'phraseStartsWith';
 
  type SohoDropDownReloadStyles = 'none' | 'open' | 'typeahead';
 
