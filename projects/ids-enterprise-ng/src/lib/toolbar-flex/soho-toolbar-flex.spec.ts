@@ -254,7 +254,7 @@ describe('Soho Toolbar Flex Tests', () => {
 
       const spy = spyOn<any>(component.searchField.searchField, 'updated').and.callThrough();
 
-      component.searchField.options.filterMode = 'startsWith';
+      component.searchField.options.filterMode = 'wordStartsWith';
       component.searchField.source = (query, done) => {
         this.objectBasedData().subscribe((items) => {
           done(query, items);
@@ -269,7 +269,7 @@ describe('Soho Toolbar Flex Tests', () => {
       expect(component.searchField.options.clearable).toBeFalsy('search field clearable');
       expect(component.searchField.options.collapsible).toBeTruthy('search field not collapsible');
       expect(component.searchField.options.collapsibleOnMobile).toBeTruthy('search field not collapsible on mobile');
-      expect(component.searchField.options.filterMode).toBe('startsWith');
+      expect(component.searchField.options.filterMode).toBe('wordStartsWith');
       expect(component.searchField.options.source).toBeDefined();
 
     });
