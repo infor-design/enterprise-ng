@@ -8,6 +8,7 @@
     - support for Node 10.9.0+
     - support for TypeScript 3.4.x
     - `UPGRADING.md` has been updated with details on upgrading your application to angular 8.
+- `[Checkbox]` Added option to render checkbox as a `switch`. `BTHH` ([#](https://))
 
 ### 6.0.0 Chore & Maintenance
 

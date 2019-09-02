@@ -13,6 +13,12 @@ import {
   Output,
 } from '@angular/core';
 
+/**
+ * Wrapper for soho checkboxes.
+ *
+ * Note the control must have type="checkbox" for the values to be passed
+ * to and from any ng model instances.
+ */
 @Component({
   selector: '[soho-checkbox]', // tslint:disable-line
   template: `<ng-content></ng-content>`,
@@ -26,19 +32,27 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
   @Input() partial: boolean;
 
   /**
+   * Indicate that the checkbox is displayed as a switch.
+   */
+  @Input() switch = false;
+
+  /**
    * Bind attributes to the host input element
    */
   @HostBinding('attr.type') get isCheckBoxType() {
     return 'checkbox';
   }
   @HostBinding('class.checkbox') get isCheckBox() {
-    return true;
+    return !this.switch;
   }
   @HostBinding('class.partial') get isPartialCheckBox() {
     return this.partial ? true : false;
   }
   @HostBinding('attr.aria-checked') get isPartialAriaChecked() {
     return this.partial ? 'mixed' : null;
+  }
+  @HostBinding('class.switch') get isSwitch() {
+    return this.switch;
   }
 
   @HostBinding('attr.checked') @Input() checked: boolean;
