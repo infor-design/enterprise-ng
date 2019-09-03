@@ -20,6 +20,14 @@
           <input soho-checkbox type="checkbox" [attr.id]="id2" name="checkbox2" [(ngModel)]="model.checkBox2Value">
           <label soho-label [attr.for]="id2" [forCheckBox]="true">Checked</label>
         </div>
+
+        <div class="field">
+            <div class="switch">
+              <input soho-checkbox type="checkbox" [switch]="true" [attr.id]="id6" name="switch2" [(ngModel)]="model.checkBox2Value">
+              <label soho-label [attr.for]="id6" [forCheckBox]="true">Switched</label>
+            </div>
+          </div>
+
       </div>
       <div class="one-half column">
         <div class="field">
