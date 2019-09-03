@@ -843,6 +843,9 @@ interface SohoDataGridColumn {
 
   /** call back to handle custom tooltips for the column header */
   beforeCommitCellEdit?: (cell: number, row: number, rowData: Object, editor: SohoDataGridCellEditor, api: SohoDataGridStatic) => boolean;
+
+  /* Array of objects with a value and label to be used as options in the filter row dropdown. */
+  filterRowEditorOptions?: SohoGridCellOption[];
 }
 
 interface SohoDataGridColumnNumberFormat {
