@@ -61,3 +61,11 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   homepage(options?: SohoHomePageOptions): JQuery;
   on(events: 'resize',  handler: JQuery.EventHandlerBase<any, any[]>): this;
 }
+
+/**
+ * Soho Homepage Event
+ */
+interface SohoHomePageEvent {
+  columns?: number;
+  metadata?: object;
+}

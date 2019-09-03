@@ -59,7 +59,6 @@ export class DatepickerDemoComponent implements OnInit {
     placeholder: 'placeholder',
     showLegend: true,
     showMonthYearPicker: true,
-    advanceMonths: 3,
     legend: [{name: 'Weekends', color: '#EFA836', dayOfWeek: [0, 6]}],
     calendarName:  'gregorian'
   };

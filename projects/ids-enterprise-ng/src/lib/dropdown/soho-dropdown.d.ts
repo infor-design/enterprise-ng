@@ -7,7 +7,7 @@
 
  type SohoDropDownMoveSelectedOptions = 'group' | 'all' | 'none';
 
- type SohoDropDownFilterModeOptions = false | 'startsWith' | 'contains';
+ type SohoDropDownFilterModeOptions = false | 'contains' | 'keyword' | 'wordStartsWith' | 'phraseStartsWith';
 
  type SohoDropDownReloadStyles = 'none' | 'open' | 'typeahead';
 
@@ -26,7 +26,7 @@ interface SohoDropDownOptions {
   cssClass?: string;
 
   /**
-   * Search mode to use between 'startsWith' and 'contains', false will not allow client side filter
+   * Search mode to use between 'contains',  'keyword',  'wordStartsWith', 'phraseStartsWith false will not allow client side filter
    */
   filterMode?: SohoDropDownFilterModeOptions;
 

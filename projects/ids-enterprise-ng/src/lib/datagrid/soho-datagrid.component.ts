@@ -505,6 +505,19 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Sets the height of the row to something other then the three built in rowHeights.
+   *
+   * @param fixedRowHeight Any integer
+   */
+  @Input() set fixedRowHeight(fixedRowHeight: number) {
+    this._gridOptions.fixedRowHeight = fixedRowHeight;
+    if (this.jQueryElement) {
+      this.datagrid.settings.fixedRowHeight = fixedRowHeight;
+      this.markForRefresh('fixedRowHeight', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
    * Whether selection is enabled.
    *
    * @param selectable valid values are: 'multiple', 'single', 'mixed', 'siblings' and false.
@@ -982,11 +995,27 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * The name of the column to stretch, or 'last' if the
    * last column is stretched.
-   *
-   *
    */
   get stretchColumn() {
     return this._gridOptions.stretchColumn;
+  }
+
+  /**
+   * If true, column will recalculate its width and stretch if required on column change.
+   * @param stretchColumnOnChange - If false stretch logic wont run on column change.
+   */
+  @Input() set stretchColumnOnChange(stretchColumnOnChange: boolean) {
+    this._gridOptions.stretchColumnOnChange = stretchColumnOnChange;
+    if (this.jQueryElement) {
+      this.datagrid.settings.stretchColumnOnChange = stretchColumnOnChange;
+      this.markForRefresh('stretchColumnOnChange', RefreshHintFlags.Rebuild);
+    }
+  }
+  /**
+   * The current value of stretchColumnOnChange.
+   */
+  get stretchColumnOnChange() {
+    return this._gridOptions.stretchColumnOnChange;
   }
 
   /**

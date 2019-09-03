@@ -7,6 +7,8 @@ import {
   ElementRef,
   HostBinding,
   Input,
+  Output,
+  EventEmitter,
   NgZone,
   OnDestroy,
 } from '@angular/core';
@@ -17,6 +19,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
+
+  @Output() resize = new EventEmitter<SohoHomePageEvent>();
 
   @Input() set homePageOptions(homePageOptions: SohoHomePageOptions) {
     this._homePageOptions = homePageOptions;
@@ -160,6 +164,19 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
       // plug-in from the element.  The element name is
       // defined by the plug-in, but in this case is 'homepage'.
       this.homepage = this.jQueryElement.data('homepage');
+
+      this.jQueryElement
+        .on('resize', (e: JQuery.TriggeredEvent, columns: number, metadata: object ) => this.onResize(columns, metadata));
+    });
+  }
+
+  onResize(columns: number, metadata: object) {
+    const event: SohoHomePageEvent = {columns: null, metadata: null};
+    event.columns = columns;
+    event.metadata = metadata;
+
+    this.ngZone.run(() => {
+      this.resize.emit(event);
     });
   }
 

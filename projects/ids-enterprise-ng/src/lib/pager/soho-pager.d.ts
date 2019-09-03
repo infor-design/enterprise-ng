@@ -70,6 +70,12 @@ interface SohoStandalonePagerOptions {
    * This helps with safari iOS in many cases.
    */
   attachPageSizeMenuToBody?: boolean;
+
+  /**
+   * whether to attach the popup menu to the body or not.
+   * This helps with safari iOS in many cases.
+   */
+  pageSizeMenuSettings?: SohoPagerPageSizeMenuOptions;
 }
 
 /**
@@ -96,6 +102,10 @@ interface SohoPagerOptions {
 
   /**  Will not show anything that lets you go to a specific page.  */
   indeterminate?: boolean;
+}
+
+interface SohoPagerPageSizeMenuOptions {
+  attachToBody?: boolean;
 }
 
 /**

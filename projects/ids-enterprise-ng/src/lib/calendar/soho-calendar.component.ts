@@ -449,8 +449,8 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * Handle updated settings and values.
    */
-  updated() {
-    this.ngZone.runOutsideAngular(() => this.calendar.updated());
+  updated(settings?: SohoCalendarOptions) {
+    this.ngZone.runOutsideAngular(() => this.calendar.updated(settings));
   }
 
   /**

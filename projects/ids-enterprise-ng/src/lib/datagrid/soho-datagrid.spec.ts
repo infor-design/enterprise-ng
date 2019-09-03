@@ -17,7 +17,9 @@ const COLUMNS: SohoDataGridColumn[] = [
     width: 50,
     formatter: Soho.Formatters.SelectionCheckbox,
     align: 'center',
-    exportable: false
+    exportable: false,
+    minWidth: 100,
+    maxWidth: 200
   },
   {
     id: 'productId',
@@ -225,6 +227,7 @@ describe('Soho DataGrid Unit Tests', () => {
     comp.isList = false;
     comp.menuId = 'id1';
     comp.rowHeight = 'short';
+    comp.fixedRowHeight = null;
     comp.selectable = false;
     comp.clickToSelect = false;
     comp.toolbar = toolbar;
@@ -244,6 +247,7 @@ describe('Soho DataGrid Unit Tests', () => {
     comp.showDirty = false;
     comp.disableRowDeactivation = false;
     comp.stretchColumn = 'productName';
+    comp.stretchColumnOnChange = true;
     comp.userObject = {};
 
     expect(comp.uniqueId).toEqual('id1');
@@ -267,6 +271,7 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(comp.showDirty).toEqual(false);
     expect(comp.disableRowDeactivation).toEqual(false);
     expect(comp.stretchColumn).toEqual('productName');
+    expect(comp.stretchColumnOnChange).toEqual(true);
     expect(comp.userObject).toEqual({});
     expect((comp as any)._gridOptions.menuId).toEqual('id1'); // no getter
     expect((comp as any)._gridOptions.toolbar).toEqual(toolbar);
@@ -303,6 +308,7 @@ describe('Soho DataGrid Unit Tests', () => {
     comp.isList = true;
     comp.menuId = 'id2';
     comp.rowHeight = 'medium';
+    comp.fixedRowHeight = 70;
     comp.selectable = true;
     comp.clickToSelect = true;
     comp.clickToSelect = true;

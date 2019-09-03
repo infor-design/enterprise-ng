@@ -43,7 +43,7 @@ type SohoAutoCompleteResponseFunction = (term: string, data: any[]) => void;
 
 type SohoAutoCompleteSourceFunction = (term: string, response: SohoAutoCompleteResponseFunction) => void;
 
-type SohoAutoCompleteFilterMode = 'startsWith' | 'contains';
+type SohoAutoCompleteFilterMode = 'wordStartsWith' | 'contains' | 'keyword' | 'phraseStartsWith';
 
 type SohoAutoCompleteWidth = number | string;
 

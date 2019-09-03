@@ -89,7 +89,7 @@ interface SohoLocaleStatic {
   parseDate(dateString: string, dateFormat?: string, isStrict?: boolean): Date;
   parseNumber(input: string): number;
   set(locale: string): any;
-  getLocale(locale: string): any;
+  getLocale(locale: string, filename?: string): any;
   setLanguage(language: string): any;
 
   /**

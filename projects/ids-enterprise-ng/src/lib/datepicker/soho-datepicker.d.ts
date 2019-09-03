@@ -50,11 +50,14 @@ interface SohoDatePickerOptions {
   /** If true the month and year will render as dropdowns. */
   showMonthYearPicker?: boolean;
 
-  /** If true the days portion of the calendar will be hidden. */
+  /** The number of years ahead to show in the month/year picker should total 9 with yearsBack. */
   hideDays?: boolean;
 
-  /** The number of months in each direction to show in the dropdown for months (when initially opening) */
-  advanceMonths?: number;
+  /** If true the days portion of the calendar will be hidden. */
+  yearsAhead?: number;
+
+  /** The number of years back to show in the month/year picker should total 9 with yearsAhead. */
+  yearsBack?: number;
 
   /** The number of months in each direction to show in the dropdown for months (when initially opening) */
   legend?: Array<SohoDatePickerLegend>;

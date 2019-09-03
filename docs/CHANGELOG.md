@@ -2,12 +2,17 @@
 
 ## v6.0.0
 
+### 6.0.0 Breaking Changes
+
+- `[Autocomplete/Dropdown]` The filter options for startsWith have been split into two options, wordStartsWith and phaseStartsWith if using startsWith change to one of these two options, the original behavior of startsWith is wordStartsWith.  `TJM` ([#1606](https://github.com/infor-design/enterprise/issues/1606))
+
 ### 6.0.0 Features
 
 - `[General]` Upgraded @angular/cli (to 8.0.x) and @angular/core (to 8.0.x).  `BTHH` ([Pull Request 578](https://github.com/infor-design/enterprise-ng/pull/578))
     - support for Node 10.9.0+
     - support for TypeScript 3.4.x
     - `UPGRADING.md` has been updated with details on upgrading your application to angular 8.
+- `[General]` Added all settings for ids-enterprise 4.20 and 4.2.1.  `TJM` ([#555](https://github.com/infor-design/enterprise-ng/pull/555))
 - `[Checkbox]` Added option to render checkbox as a `switch`. `BTHH` ([#](https://))
 
 ### 6.0.0 Chore & Maintenance
