@@ -99,10 +99,10 @@ export class DataGridDemoService extends SohoDataGridService {
     });
 
     this.columns.push({
-      id: 'activity',
+      id: 'password',
       hidden: true,
       name: 'Password',
-      field: 'activity',
+      field: 'password',
       formatter: Soho.Formatters.Password,
       inputType: 'password'
     });
