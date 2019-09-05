@@ -19,7 +19,7 @@ import { TreeDemoService } from './tree-demo.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeServiceDemoComponent {
-  @ViewChild(SohoTreeComponent) tree: SohoTreeComponent;
+  @ViewChild(SohoTreeComponent, { static: true }) tree: SohoTreeComponent;
 
   enabled = true;
 

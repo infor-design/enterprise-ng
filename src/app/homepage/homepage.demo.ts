@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { SohoHomePageComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-homepage-demo',
   templateUrl: './homepage.demo.html',
 })
 export class HomePageDemoComponent {
+  @ViewChild(SohoHomePageComponent, { static: true }) homepage: SohoHomePageComponent;
 
   public demoTasks: Object[];
 
@@ -28,19 +30,19 @@ export class HomePageDemoComponent {
       name: 'Component F',
       value: 12.6
     }]
-}];
+  }];
 
   public barData = [
     {
       data: [
         {
-          name:  '2008',
+          name: '2008',
           value: 123
         }, {
-          name:  '2009',
+          name: '2009',
           value: 234
         }, {
-          name:  '2010',
+          name: '2010',
           value: 345
         }
       ],
@@ -48,13 +50,13 @@ export class HomePageDemoComponent {
     }, {
       data: [
         {
-          name:  '2008',
+          name: '2008',
           value: 235
         }, {
-          name:  '2009',
+          name: '2009',
           value: 267
         }, {
-          name:  '2010',
+          name: '2010',
           value: 573
         }
       ],
@@ -64,18 +66,18 @@ export class HomePageDemoComponent {
 
   constructor() {
     this.demoTasks = [];
-    this.demoTasks.push({task: '063001', error: true, date: '10/11/2015', desc: 'Special fields test - New item has been created.'});
-    this.demoTasks.push({task: '063002', date: '10/11/2015' , desc: 'Part #4212132 has low inventory level', disabled: true});
-    this.demoTasks.push({task: '063003', date: '10/07/2015' , desc: 'Check #112412 parts ordering.'});
-    this.demoTasks.push({task: '063004', date: '10/07/2015' , desc: 'Special fields test - New item has been created.'});
-    this.demoTasks.push({task: '063005', date: '10/11/2015' , desc: 'Call XYZ Inc at 5 PM'});
-    this.demoTasks.push({task: '063006', error: true, date: '10/11/2015' , desc: 'Part #4212132 has low inventory level'});
-    this.demoTasks.push({task: '063007', date: '07/11/2015' , desc: 'Special fields test - New item has been created.'});
-    this.demoTasks.push({task: '063008', date: '10/11/2015' , desc: 'Part #5212132 has low inventory level'});
-    this.demoTasks.push({task: '063009', date: '10/07/2015' , desc: 'Check #212412 parts ordering.'});
-    this.demoTasks.push({task: '063010', date: '10/11/2015' , desc: 'Special fields test - New item has been created.'});
-    this.demoTasks.push({task: '063011', date: '10/11/2015' , desc: 'Call TMZ Inc at 5 PM'});
-    this.demoTasks.push({task: '063012', date: '07/08/2015' , desc: 'Part #6212132 has low inventory level'});
+    this.demoTasks.push({ task: '063001', error: true, date: '10/11/2015', desc: 'Special fields test - New item has been created.' });
+    this.demoTasks.push({ task: '063002', date: '10/11/2015', desc: 'Part #4212132 has low inventory level', disabled: true });
+    this.demoTasks.push({ task: '063003', date: '10/07/2015', desc: 'Check #112412 parts ordering.' });
+    this.demoTasks.push({ task: '063004', date: '10/07/2015', desc: 'Special fields test - New item has been created.' });
+    this.demoTasks.push({ task: '063005', date: '10/11/2015', desc: 'Call XYZ Inc at 5 PM' });
+    this.demoTasks.push({ task: '063006', error: true, date: '10/11/2015', desc: 'Part #4212132 has low inventory level' });
+    this.demoTasks.push({ task: '063007', date: '07/11/2015', desc: 'Special fields test - New item has been created.' });
+    this.demoTasks.push({ task: '063008', date: '10/11/2015', desc: 'Part #5212132 has low inventory level' });
+    this.demoTasks.push({ task: '063009', date: '10/07/2015', desc: 'Check #212412 parts ordering.' });
+    this.demoTasks.push({ task: '063010', date: '10/11/2015', desc: 'Special fields test - New item has been created.' });
+    this.demoTasks.push({ task: '063011', date: '10/11/2015', desc: 'Call TMZ Inc at 5 PM' });
+    this.demoTasks.push({ task: '063012', date: '07/08/2015', desc: 'Part #6212132 has low inventory level' });
   }
 
   getBarChartData() {
@@ -100,6 +102,8 @@ export class HomePageDemoComponent {
   onClose(event: any) {
   }
   onOpen(event: any) {
-
+  }
+  onResize(args: SohoHomePageEvent) {
+    console.log(args);
   }
 }

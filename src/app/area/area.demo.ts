@@ -11,7 +11,7 @@ import {SohoLineComponent} from 'ids-enterprise-ng';
 })
 export class AreaDemoComponent implements OnInit {
 
-  @ViewChild(SohoLineComponent) sohoLineComponent: SohoLineComponent;
+  @ViewChild(SohoLineComponent, { static: true }) sohoLineComponent: SohoLineComponent;
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   // private selection: SohoLineSelected  = {groupIndex: 1};

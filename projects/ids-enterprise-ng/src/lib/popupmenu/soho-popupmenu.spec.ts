@@ -19,7 +19,7 @@ import {
              <li soho-popupmenu-separator singleSelectableSection=true></li>`
 })
 class SohoPopupMenuSeparatorTestComponent {
-  @ViewChild(SohoPopupMenuSeparatorComponent) separator: SohoPopupMenuSeparatorComponent;
+  @ViewChild(SohoPopupMenuSeparatorComponent, { static: false }) separator: SohoPopupMenuSeparatorComponent;
 }
 
 @Component({
@@ -27,7 +27,7 @@ class SohoPopupMenuSeparatorTestComponent {
              <li soho-popupmenu-heading>Heading One</li>`
 })
 class SohoPopupMenuHeadingTestComponent {
-  @ViewChild(SohoPopupMenuHeadingComponent) heading: SohoPopupMenuHeadingComponent;
+  @ViewChild(SohoPopupMenuHeadingComponent, { static: false }) heading: SohoPopupMenuHeadingComponent;
 }
 
 @Component({
@@ -35,7 +35,7 @@ class SohoPopupMenuHeadingTestComponent {
              <li soho-popupmenu-item>Item One</li>`
 })
 class SohoPopupMenuItemTestComponent {
-  @ViewChild(SohoPopupMenuItemComponent) item: SohoPopupMenuItemComponent;
+  @ViewChild(SohoPopupMenuItemComponent, { static: false }) item: SohoPopupMenuItemComponent;
 }
 
 @Component({
@@ -43,7 +43,7 @@ class SohoPopupMenuItemTestComponent {
              <a soho-popupmenu-label isDisabled="true" > Entry One</a>`
 })
 class SohoPopupMenuItemLabelTestComponent {
-  @ViewChild(SohoPopupMenuItemLabelComponent) label: SohoPopupMenuItemLabelComponent;
+  @ViewChild(SohoPopupMenuItemLabelComponent, { static: false }) label: SohoPopupMenuItemLabelComponent;
 }
 
 describe('Soho Popup Menu Unit Tests', () => {
@@ -151,12 +151,12 @@ describe('Soho Popup Menu Item Render', () => {
 
     fixture = TestBed.createComponent(SohoPopupMenuItemTestComponent);
     component = fixture.componentInstance;
-    item = component.item;
 
     de = fixture.debugElement;
     el = de.query(By.css('li[soho-popupmenu-item]')).nativeElement;
 
     fixture.detectChanges();
+    item = component.item;
   });
 
   it('Check Item HTML content', () => {
@@ -189,12 +189,12 @@ describe('Soho Popup Menu Item Label Render', () => {
 
     fixture = TestBed.createComponent(SohoPopupMenuItemLabelTestComponent);
     component = fixture.componentInstance;
+
+    fixture.detectChanges();
     label = component.label;
 
     de = fixture.debugElement;
     el = de.query(By.css('a[soho-popupmenu-label]')).nativeElement;
-
-    fixture.detectChanges();
   });
 
   it('Check Item HTML content', () => {

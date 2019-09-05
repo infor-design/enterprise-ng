@@ -195,7 +195,7 @@ describe('Soho Pie Unit Tests', () => {
   template: `<div soho-pie [dataset]="data"></div>`
 })
 class SohoPieTestComponent {
-  @ViewChild(SohoPieComponent) pie: SohoPieComponent;
+  @ViewChild(SohoPieComponent, {static: false}) pie: SohoPieComponent;
   public data = pieData;
 }
 

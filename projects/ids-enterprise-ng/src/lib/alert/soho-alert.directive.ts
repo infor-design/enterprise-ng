@@ -156,7 +156,7 @@ export class SohoAlertDirective implements AfterViewInit {
   removeAllMessages(triggerEvents?: boolean) {
     this.removeMessage('error', triggerEvents);
     this.removeMessage('alert', triggerEvents);
-    this.removeMessage('confirm', triggerEvents);
+    this.removeMessage('success', triggerEvents);
     this.removeMessage('info', triggerEvents);
     this.removeMessage('icon', triggerEvents);
   }

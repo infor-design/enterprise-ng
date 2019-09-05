@@ -4,11 +4,11 @@
   "newProjectRoot": "projects",
   "projects": {
     "ids-enterprise-ng-app": {
+      "projectType": "application",
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
-      "projectType": "application",
       "prefix": "app",
-      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -19,7 +19,8 @@
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "tsConfig": "tsconfig.app.json",
+            "aot": false,
             "assets": [
               "src/favicon.ico",
               "src/assets",
@@ -96,9 +97,9 @@
           "options": {
             "sourceMap": true,
             "main": "src/test.ts",
-            "karmaConfig": "src/karma.conf.js",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
               "node_modules/d3/build/d3.js",
@@ -117,7 +118,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "node_modules/ids-enterprise/dist/js/cultures",
+                "input": "./node_modules/ids-enterprise/dist/js/cultures",
                 "output": "/assets/ids-enterprise/js/cultures"
               },
               "src/app/demodata"
@@ -128,21 +129,16 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**",
               "**/version.json"
             ]
           }
-        }
-      }
-    },
-    "ids-enterprise-ng-app-e2e": {
-      "root": "e2e/",
-      "projectType": "application",
-      "architect": {
+        },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
@@ -154,25 +150,13 @@
               "devServerTarget": "ids-enterprise-ng-app:serve:production"
             }
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "**/version.json"
-            ]
-          }
         }
       }
     },
     "ids-enterprise-ng": {
+      "projectType": "library",
       "root": "projects/ids-enterprise-ng",
       "sourceRoot": "projects/ids-enterprise-ng/src",
-      "projectType": "library",
       "prefix": "soho",
       "architect": {
         "build": {

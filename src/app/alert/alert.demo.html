@@ -1,5 +1,5 @@
-<form soho-input-validate registerForEvents="error alert confirm info icon valid"
-  (error)="onError($event)" (alert)="onAlert($event)" (confirm)="onConfirm($event)"
+<form soho-input-validate
+  (error)="onError($event)" (alert)="onAlert($event)" (success)="onSuccess($event)"
   (info)="onInfo($event)" (icon)="onIcon($event)" (valid)="onValid($event)"
 >
   <div class="row top-padding">
@@ -10,8 +10,8 @@
         <label soho-label for="option1" [forRadioButton]="true">Error</label>
         <input soho-radiobutton type="radio" name="options-group" id="option2" value="alert" [(ngModel)]="model.type"/>
         <label soho-label for="option2" [forRadioButton]="true">Alert</label>
-        <input soho-radiobutton type="radio" name="options-group" id="option3" value="confirm" [(ngModel)]="model.type"/>
-        <label soho-label for="option3" [forRadioButton]="true">Confirm</label>
+        <input soho-radiobutton type="radio" name="options-group" id="option3" value="success" [(ngModel)]="model.type"/>
+        <label soho-label for="option3" [forRadioButton]="true">Success</label>
         <input soho-radiobutton type="radio" name="options-group" id="option4" value="info" [(ngModel)]="model.type"/>
         <label soho-label for="option4" [forRadioButton]="true">Info</label>
         <input soho-radiobutton type="radio" name="options-group" id="option5" value="icon" [(ngModel)]="model.type"/>

@@ -27,8 +27,8 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SwapListServiceDemoComponent implements OnInit, OnDestroy {
-  @ViewChild(SohoSwapListComponent) swapListComponent: SohoSwapListComponent;
-  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent: SohoSwapListComponent;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
 
   showModel = false;
   available: SohoSwapListItem[] = [];

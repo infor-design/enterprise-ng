@@ -21,7 +21,7 @@ import { NestedModalDialogComponent } from './nested-modal-dialog.component';
 })
 
 export class ContextualActionPanelComponent {
-  @ViewChild('panelPlaceholder', { read: ViewContainerRef })
+  @ViewChild('panelPlaceholder', { read: ViewContainerRef, static: true })
   placeholder: ViewContainerRef;
   public model = {
     header: 'Default Header Text',

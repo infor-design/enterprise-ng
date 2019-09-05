@@ -83,7 +83,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
     if (triggers) {
       let i = triggers.length;
       while (i--) {
-        this._triggers.push(jQuery(triggers[ i ]));
+        this._triggers.push(jQuery(triggers[i]));
       }
 
       if (this.applicationmenu) {
@@ -197,7 +197,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   constructor(
     private elementRef: ElementRef,
     private ngZone: NgZone,
-  ) {}
+  ) { }
 
   // -------------------------------------------
   // Public API
@@ -301,13 +301,15 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
 
       // Initialise any event handlers.
       this.jQueryElement
-      .on('expand', (e, results: any[]) => this.ngZone.run(() => this.accordionExpand.next(results)))
-      .on('collapse', () => this.ngZone.run(() => this.accordionCollapse.next(true)))
-      .on('expand', () => this.ngZone.run(() => this.visibility.next(true)))
-      .on('collapse', () => this.ngZone.run(() => this.visibility.next(false)))
-      .on('filtered', (e, results: any[]) => this.ngZone.run(() => this.filtered.next(results)))
-      .on('applicationmenuopen', () => this.ngZone.run(() => this.menuVisibility.next(true)))
-      .on('applicationmenuclose', () => this.ngZone.run(() => this.menuVisibility.next(false)));
+        .on('expand', (e, results: any[]) => this.ngZone.run(() => this.accordionExpand.next(results)))
+        .on('collapse', () => this.ngZone.run(() => this.accordionCollapse.next(true)))
+        // tslint:disable-next-line: deprecation
+        .on('expand', () => this.ngZone.run(() => this.visibility.next(true)))
+        // tslint:disable-next-line: deprecation
+        .on('collapse', () => this.ngZone.run(() => this.visibility.next(false)))
+        .on('filtered', (e, results: any[]) => this.ngZone.run(() => this.filtered.next(results)))
+        .on('applicationmenuopen', () => this.ngZone.run(() => this.menuVisibility.next(true)))
+        .on('applicationmenuclose', () => this.ngZone.run(() => this.menuVisibility.next(false)));
     });
   }
 

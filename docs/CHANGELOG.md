@@ -1,9 +1,38 @@
 # What's New with Enterprise-NG
 
+## v6.0.0
+
+### 6.0.0 Breaking Changes
+
+- `[Autocomplete/Dropdown]` The filter options for startsWith have been split into two options, wordStartsWith and phaseStartsWith if using startsWith change to one of these two options, the original behavior of startsWith is wordStartsWith.  `TJM` ([#1606](https://github.com/infor-design/enterprise/issues/1606))
+
+### 6.0.0 Features
+
+- `[General]` Upgraded @angular/cli (to 8.0.x) and @angular/core (to 8.0.x).  `BTHH` ([Pull Request 578](https://github.com/infor-design/enterprise-ng/pull/578))
+    - support for Node 10.9.0+
+    - support for TypeScript 3.4.x
+    - `UPGRADING.md` has been updated with details on upgrading your application to angular 8.
+- `[General]` Added all settings for ids-enterprise 4.20 and 4.2.1.  `TJM` ([#555](https://github.com/infor-design/enterprise-ng/pull/555))
+- `[Checkbox]` Added option to render checkbox as a `switch`. `BTHH` ([#](https://))
+
+### 6.0.0 Chore & Maintenance
+
+- `[Datagrid]` - Added an example showing adding a new row on last cell and hitting enter and types for onKeyDown. `TJM` ([#536](https://github.com/infor-design/enterprise-ng/pull/536))
+- `[HomePage]` - Added `soho-homepage-sizer` directive to set the homepage's element height. `PWP` ([#571](https://github.com/infor-design/enterprise-ng/pull/571))
+- `[HomePage]` - Added `refresh` method types to the homepage API. `TJM` ([#2632](https://github.com/infor-design/enterprise/pull/2632))
+
+### 6.0.0 Fixes
+
+- `[Alert]` - Fixed alert type of 'confirm' to 'success' to match breaking change made in EP. `MAF` ([#431](https://github.com/infor-design/enterprise-ng/issues/431))
+- `[DataGrid]` - Expose groupRowFormatter in groupable settings. ([#558](https://github.com/infor-design/enterprise-ng/issues/558))
+- `[InputValidate]` - Fixed event of 'confirm' to 'success' to match breaking change made in EP. `MAF` ([#431](https://github.com/infor-design/enterprise-ng/issues/431))
+- `[Dropdown]` - Removed unused and deprecated reloadOnSource settings to reduce lint errors. ([#536](https://github.com/infor-design/enterprise-ng/issues/536))
+
 ## v5.5.0
 
 ### 5.5.0 Features
 
+- `[ApplicationMenu]` - Added role switcher demo to application menu. `VW` ([#556](https://github.com/infor-design/enterprise-ng/issues/556))
 - `[DataGrid]` - Added `isRowDisabled` support to DataGrid. `BTHH` ([#472](https://github.com/infor-design/enterprise/issues/472))
 - `[Calendar]` - Added first cut of read only Calendar. `PWP` ([#534](https://github.com/infor-design/enterprise-ng/pull/534))
 

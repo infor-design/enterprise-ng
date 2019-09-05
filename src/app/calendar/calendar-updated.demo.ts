@@ -12,7 +12,7 @@ import { SohoCalendarComponent } from 'ids-enterprise-ng';
 })
 export class CalendarUpdatedDemoComponent {
 
-  @ViewChild('SohoCalendarComponent') sohoCalendarComponent: SohoCalendarComponent;
+  @ViewChild('SohoCalendarComponent', { static: false }) sohoCalendarComponent: SohoCalendarComponent;
 
   public initialMonth = 1;
   public initialYear = 2019;
@@ -23,7 +23,7 @@ export class CalendarUpdatedDemoComponent {
 
   constructor(
     private monthViewService: CalendarDemoService
-  ) {}
+  ) { }
 
   onRenderMonth(event: SohoCalendarRenderMonthEvent) {
     console.log('onRenderMonth', event);

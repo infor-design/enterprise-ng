@@ -31,7 +31,7 @@ import { SohoAccordionComponent } from './soho-accordion.component';
   `
 })
 class SohoAccordionTestComponent {
-  @ViewChild(SohoAccordionComponent) accordion: SohoAccordionComponent;
+  @ViewChild(SohoAccordionComponent, { static: false }) accordion: SohoAccordionComponent;
 
   constructor() {
   }
@@ -52,12 +52,12 @@ describe('Soho Accordion Unit Tests', () => {
 
     fixture = TestBed.createComponent(SohoAccordionTestComponent);
     component = fixture.componentInstance;
-    accordion = component.accordion;
 
     de = fixture.debugElement;
     el = de.query(By.css('soho-accordion')).nativeElement;
 
     fixture.detectChanges();
+    accordion = component.accordion;
   });
 
   it('is created', () => {

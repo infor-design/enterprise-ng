@@ -14,7 +14,7 @@ import {
 })
 export class PieDemoComponent implements OnInit {
 
-  @ViewChild(SohoPieComponent) sohoPieComponent: SohoPieComponent;
+  @ViewChild(SohoPieComponent, { static: true }) sohoPieComponent: SohoPieComponent;
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   // private selection: SohoPieSelected  = {fieldName: 'name', fieldValue: 'Item D'};

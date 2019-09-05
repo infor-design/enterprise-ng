@@ -18,7 +18,7 @@ import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indete
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecked, OnInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: false }) sohoDataGridComponent: SohoDataGridComponent;
 
   public showPageSizeSelector = true;
   public gridOptions: SohoDataGridOptions = undefined;
@@ -89,7 +89,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
 
   onSelected(e: SohoDataGridSelectedEvent) {
     const selectedRows = e.rows.map(row => row.idx).join(', ');
-    this.toastService.show({title: 'Se1ected', message: 'Rows Selected: ' + selectedRows});
+    this.toastService.show({title: 'Selected', message: 'Rows Selected: ' + selectedRows});
   }
 
   onOpenFilterRow(e: SohoDataGridOpenFilterRowEvent) {

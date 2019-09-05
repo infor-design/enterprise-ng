@@ -1,11 +1,9 @@
 <div class="example-section">
   <form>
-    <div class="row">
-      <h1>Simple Dropdown</h1>
-      <span class="code-tag">Live Example</span>
+    <div class="row top-padding">
       <div class="row">
         <div class="field">
-          <label for="states" class="label">States</label>
+          <label for="states" class="label">Simple Dropdown</label>
           <select soho-dropdown soho-busyindicator noSearch name="states"
             (update)="onUpdated($event)"
             (change)="onChange($event)">
@@ -13,7 +11,7 @@
           </select>
         </div>
         <div class="field">
-          <label for="states" class="label">States (NgModel)</label>
+          <label for="states" class="label">Dropdown using NgModel</label>
           <select soho-dropdown name="states" (update)="onUpdated($event)" (change)="onChange($event)" [(ngModel)]="model.selectedOption">
             <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
           </select>
@@ -22,8 +20,4 @@
     </div>
   </form>
   <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
-  <div *ngIf="showModel">
-    <hr>
-    <h3>{{ model | json }}</h3>
-  </div>
 </div>

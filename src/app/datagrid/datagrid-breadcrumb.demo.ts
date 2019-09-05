@@ -23,8 +23,8 @@ import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridBreadcrumbDemoComponent implements AfterContentInit, AfterViewInit {
-  @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
-  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
 
   constructor(private el: ElementRef,
     private service: SohoDataGridService) {

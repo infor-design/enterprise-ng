@@ -25,6 +25,7 @@ export class CheckBoxDemoComponent implements OnInit {
   public id3 = 'checkbox3';
   public id4 = 'checkbox4';
   public id5 = 'checkbox5';
+  public id6 = 'checkbox6';
 
   public checkBoxDisabled = false;
   constructor() { }

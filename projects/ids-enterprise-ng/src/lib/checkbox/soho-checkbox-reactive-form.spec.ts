@@ -23,7 +23,6 @@ import { SohoCheckBoxModule } from './soho-checkbox.module';
 import { SohoLabelModule } from '../label/soho-label.module';
 import { SohoCheckBoxComponent } from './soho-checkbox.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { fakeAsync, tick } from '@angular/core/testing';
 
 @Component({
   template: `
@@ -34,7 +33,7 @@ import { fakeAsync, tick } from '@angular/core/testing';
 class SohoCheckBoxReactiveFormTestComponent {
   public value = true;
 
-  @ViewChild(SohoCheckBoxComponent) dropdown: SohoCheckBoxComponent;
+  @ViewChild(SohoCheckBoxComponent, { static: false }) dropdown: SohoCheckBoxComponent;
 
   public formGroup: FormGroup;
 

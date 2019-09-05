@@ -25,7 +25,7 @@ import { SohoPersonalizeModule } from './soho-personalize.module';
   </html>`
 })
 class SohoPersonalizeTestComponent {
-  @ViewChild(SohoPersonalizeDirective) personalize: SohoPersonalizeDirective;
+  @ViewChild(SohoPersonalizeDirective, {static: false}) personalize: SohoPersonalizeDirective;
 }
 
 describe('Soho Personalize Render', () => {

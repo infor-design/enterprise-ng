@@ -15,7 +15,7 @@ import {
 })
 export class ListViewCustomContentDemoComponent implements OnInit {
 
-  @ViewChild(SohoListViewComponent) sohoListViewComponent: SohoListViewComponent;
+  @ViewChild(SohoListViewComponent, { static: true }) sohoListViewComponent: SohoListViewComponent;
   data1 = ['ONE', 'TWO', 'THREE'];
   data2 = ['Four', 'FIVE', 'SIX', 'SEVEN'];
   data = this.data1;

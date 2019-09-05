@@ -209,10 +209,20 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   }
 
   /**
-   * The number of months in each direction to show in the dropdown for months (when initially opening)
+   * The number of years ahead to show in the month/year picker should total 9 with yearsBack.
    */
-  @Input() set advanceMonths(advanceMonths: number) {
-    this._options.advanceMonths = advanceMonths;
+  @Input() set yearsAhead(yearsAhead: number) {
+    this._options.yearsAhead = yearsAhead;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * The number of years back to show in the month/year picker should total 9 with yearsAhead.
+   */
+  @Input() set yearsBack(yearsBack: number) {
+    this._options.yearsBack = yearsBack;
     if (this.datepicker) {
       this.markForRefresh();
     }

@@ -5,7 +5,7 @@
  * interface of the Soho jQuery alert control.
  */
 
-type SohoAlertType = 'error' | 'alert' | 'confirm' | 'info' | 'icon';
+type SohoAlertType = 'error' | 'alert' | 'success' | 'info' | 'icon';
 
 interface SohoAlertOptions {
   /** */

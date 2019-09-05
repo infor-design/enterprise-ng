@@ -15,20 +15,20 @@ import { SohoFileUploadComponent } from './soho-fileupload.component';
   `
 })
 class SohoFileUploadTestComponent {
-  @ViewChild(SohoFileUploadComponent) fileupload: SohoFileUploadComponent;
+  @ViewChild(SohoFileUploadComponent, { static: false }) fileupload: SohoFileUploadComponent;
   public name = 'File';
   public text = 'File Upload';
 }
 
 describe('Soho File Upload Unit Tests', () => {
-  let comp:     SohoFileUploadTestComponent;
-  let fixture:  ComponentFixture<SohoFileUploadTestComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let comp: SohoFileUploadTestComponent;
+  let fixture: ComponentFixture<SohoFileUploadTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoFileUploadTestComponent ]
+      declarations: [SohoFileUploadTestComponent]
     });
 
     fixture = TestBed.createComponent(SohoFileUploadTestComponent);
@@ -52,26 +52,26 @@ describe('Soho File Upload Unit Tests', () => {
 });
 
 describe('Soho File Upload Render', () => {
-  let fileupload:  SohoFileUploadComponent;
-  let component:   SohoFileUploadTestComponent;
-  let fixture:     ComponentFixture<SohoFileUploadTestComponent>;
-  let de:          DebugElement;
-  let el:          HTMLElement;
+  let fileupload: SohoFileUploadComponent;
+  let component: SohoFileUploadTestComponent;
+  let fixture: ComponentFixture<SohoFileUploadTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoFileUploadTestComponent ],
-      imports: [ FormsModule, SohoFileUploadModule ]
+      declarations: [SohoFileUploadTestComponent],
+      imports: [FormsModule, SohoFileUploadModule]
     });
 
     fixture = TestBed.createComponent(SohoFileUploadTestComponent);
     component = fixture.componentInstance;
-    fileupload = component.fileupload;
 
     de = fixture.debugElement.query(By.css('input[soho-fileupload]'));
     el = de.nativeElement;
 
     fixture.detectChanges();
+    fileupload = component.fileupload;
   });
 
   it('@Input() disabled', () => {

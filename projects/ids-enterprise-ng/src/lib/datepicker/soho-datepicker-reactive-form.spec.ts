@@ -34,7 +34,7 @@ import { fakeAsync, tick } from '@angular/core/testing';
 class SohoDatePickerReactiveFormTestComponent {
   public datepickerValue = '';
 
-  @ViewChild(SohoDatePickerComponent) dropdown: SohoDatePickerComponent;
+  @ViewChild(SohoDatePickerComponent, {static: false}) dropdown: SohoDatePickerComponent;
 
   public formGroup: FormGroup;
 

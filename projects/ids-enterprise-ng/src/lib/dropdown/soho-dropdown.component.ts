@@ -143,6 +143,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   }
 
   public get moveSelectedToTop(): boolean {
+    // tslint:disable-next-line: deprecation
     return this.options.moveSelectedToTop;
   }
 
@@ -183,23 +184,6 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
 
   public get sourceArguments(): any {
     return this.options.sourceArguments;
-  }
-
-  /**
-   * @deprecated as of v4.9.0
-   * use `reload` instead.
-   */
-  @Input()
-  public set reloadSourceOnOpen(reloadSourceOnOpen: boolean) {
-    this.options.reloadSourceOnOpen = reloadSourceOnOpen;
-    if (this.dropdown) {
-      this.dropdown.settings.reloadSourceOnOpen = reloadSourceOnOpen;
-      this.markForRefresh();
-    }
-  }
-
-  public get reloadSourceOnOpen(): boolean {
-    return this.options.reloadSourceOnOpen;
   }
 
   /**

@@ -12,30 +12,30 @@ import { SohoFileUploadAdvancedComponent } from './soho-fileupload-advanced.comp
   template: `<div soho-fileupload-advanced></div>`
 })
 class SohoFileUploadAdvancedTestComponent {
-  @ViewChild(SohoFileUploadAdvancedComponent) fileuploadadvanced: SohoFileUploadAdvancedComponent;
+  @ViewChild(SohoFileUploadAdvancedComponent, { static: false }) fileuploadadvanced: SohoFileUploadAdvancedComponent;
 }
 
 describe('Soho File Upload Advanced Render', () => {
-  let fileuploadadvanced:  SohoFileUploadAdvancedComponent;
-  let component:           SohoFileUploadAdvancedTestComponent;
-  let fixture:             ComponentFixture<SohoFileUploadAdvancedTestComponent>;
-  let de:                  DebugElement;
-  let el:                  HTMLElement;
+  let fileuploadadvanced: SohoFileUploadAdvancedComponent;
+  let component: SohoFileUploadAdvancedTestComponent;
+  let fixture: ComponentFixture<SohoFileUploadAdvancedTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoFileUploadAdvancedTestComponent ],
-      imports: [ FormsModule, SohoFileUploadAdvancedModule ]
+      declarations: [SohoFileUploadAdvancedTestComponent],
+      imports: [FormsModule, SohoFileUploadAdvancedModule]
     });
 
     fixture = TestBed.createComponent(SohoFileUploadAdvancedTestComponent);
     component = fixture.componentInstance;
-    fileuploadadvanced = component.fileuploadadvanced;
 
     de = fixture.debugElement.query(By.css('div[soho-fileupload-advanced]'));
     el = de.nativeElement;
 
     fixture.detectChanges();
+    fileuploadadvanced = component.fileuploadadvanced;
   });
 
   it('@Input() disabled', () => {

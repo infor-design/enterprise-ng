@@ -78,7 +78,8 @@ export class SwapListTestService extends SohoSwapListService {
   </soho-swaplist>`
 })
 class SohoSwapListTestComponent {
-  @ViewChild(SohoSwapListComponent) swaplist: SohoSwapListComponent;
+  @ViewChild(SohoSwapListComponent, { static: false }) swaplist: SohoSwapListComponent;
+
   public options = {
     available: [
       { id: 1, value: 'opt-1', text: 'Option A' },
@@ -105,7 +106,7 @@ class SohoSwapListTestComponent {
   providers: [SwapListTestService]
 })
 class SohoSwapListServiceTestComponent implements OnInit {
-  @ViewChild(SohoSwapListComponent) swaplist: SohoSwapListComponent;
+  @ViewChild(SohoSwapListComponent, { static: false }) swaplist: SohoSwapListComponent;
 
   constructor(private service: SwapListTestService) {
   }
@@ -196,9 +197,9 @@ describe('Soho Swap List Render', () => {
 
     fixture = TestBed.createComponent(SohoSwapListTestComponent);
     component = fixture.componentInstance;
-    com = component.swaplist;
     de = fixture.debugElement;
     fixture.detectChanges();
+    com = component.swaplist;
   });
 
   it('Check HTML content', () => {

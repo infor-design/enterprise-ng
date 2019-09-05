@@ -12,7 +12,7 @@ import { SohoDatePickerComponent } from 'ids-enterprise-ng';
 })
 export class DatepickerDemoComponent implements OnInit {
 
-  @ViewChild(SohoDatePickerComponent) datepicker: SohoDatePickerComponent;
+  @ViewChild(SohoDatePickerComponent, { static: true }) datepicker: SohoDatePickerComponent;
 
   public model = {
     standard: '12/12/2016',
@@ -59,7 +59,6 @@ export class DatepickerDemoComponent implements OnInit {
     placeholder: 'placeholder',
     showLegend: true,
     showMonthYearPicker: true,
-    advanceMonths: 3,
     legend: [{name: 'Weekends', color: '#EFA836', dayOfWeek: [0, 6]}],
     calendarName:  'gregorian'
   };

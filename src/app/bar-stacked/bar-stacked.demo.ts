@@ -12,7 +12,7 @@ import { SohoBarComponent } from 'ids-enterprise-ng';
 })
 export class BarStackedDemoComponent implements OnInit {
 
-  @ViewChild(SohoBarComponent) sohoBarComponent: SohoBarComponent;
+  @ViewChild(SohoBarComponent, { static: true }) sohoBarComponent: SohoBarComponent;
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   // private selection: SohoBarSelected  = {fieldName: 'name', fieldValue: '2009'};

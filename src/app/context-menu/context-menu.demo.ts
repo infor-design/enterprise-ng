@@ -13,7 +13,7 @@ import { SohoTextAreaComponent } from 'ids-enterprise-ng';
 })
 export class ContextMenuDemoComponent implements OnInit {
 
-  @ViewChild(SohoTextAreaComponent) textarea: SohoTextAreaComponent;
+  @ViewChild(SohoTextAreaComponent, { static: true }) textarea: SohoTextAreaComponent;
 
   public normalText = `Input Example`;
   public modText = `Enabled Text Area Example`;

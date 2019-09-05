@@ -59,6 +59,4 @@ export class SohoContextualActionPanelService {
 /**
  * Object with a "new"" method returning the type T.
  */
-export interface PanelComponentType<T> {
-  new (...args: any[]): T;
-}
+export type PanelComponentType<T> = new (...args: any[]) => T;

@@ -18,7 +18,7 @@ import { DataGridDemoService } from './datagrid-demo.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridGroupableDemoComponent implements OnInit {
-  @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
 
   private _groupColumn: string;
 

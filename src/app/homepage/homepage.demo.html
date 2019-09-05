@@ -1,4 +1,6 @@
-<div soho-homepage>
+<div soho-homepage
+  (resize)="onResize($event, $args)"
+>
 
     <div soho-widget widgetWidth="triple">
       <div soho-widget-header>
@@ -11,7 +13,6 @@
             [dataSet]="getBarChartData()"
             type="bar"
             showLegend="true"
-            formatterString = "'$,.2f'"
           >
           </div>
         </div>

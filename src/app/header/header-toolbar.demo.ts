@@ -75,7 +75,9 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
     if (this.sohoHeaderRef.instance.hasHeaderToolbar) {
       this.sohoHeaderRef.instance.sectionTitle = null;
       this.sohoHeaderRef.instance.toolbarOptions = undefined;
-      this.buttonClickedSubscription.unsubscribe();
+      if (this.buttonClickedSubscription) {
+        this.buttonClickedSubscription.unsubscribe();
+      }
     }
   }
 }

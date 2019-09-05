@@ -42,7 +42,7 @@ interface SohoCalendarEvent {
   id?: string;
   title?: string;
   type?: string;
-  subject?: string,
+  subject?: string;
   comments?: string;
   color?: SohoCalendarColors;
   icon?: 'icon-error-solid' | 'icon-success-solid' | 'icon-alert-solid' | 'icon-info-solid' | string;
@@ -65,7 +65,7 @@ interface SohoCalendarEvent {
   eventTypes?: SohoCalendarEventType[];
   shortSubject?: string;
   status?: string;
-  isDays?: true
+  isDays?: true;
 }
 
 interface SohoCalendarDateSelectedEvent {
@@ -73,27 +73,27 @@ interface SohoCalendarDateSelectedEvent {
   day?: number;
   key?: string;
   month?: number;
-  node?: Node,
+  node?: Node;
   year?: number;
 }
 
 interface SohoCalendarEventClickEvent {
   month?: number;
   year?: number;
-  event?: SohoCalendarEvent
+  event?: SohoCalendarEvent;
 }
 
 interface SohoCalendarRenderMonthEvent {
   api: any;
-  elem: JQuery,
-  month: number,
+  elem: JQuery;
+  month: number;
   year: number;
 }
 
 interface SohoCalendarOptions {
   eventTypes?: SohoCalendarEventType[];
   events?: SohoCalendarEvent[];
-  locale?: string,
+  locale?: string;
   month?: number;
   year?: number;
   showViewChanger?: boolean;
@@ -160,7 +160,7 @@ interface SohoCalendar {
   clearEvents(): void;
 
   /** Updates the calendar with any new settings. */
-  updated(): void;
+  updated(settings?: SohoCalendarOptions): void;
 
   /** Destroys the control on completion. */
   destroy(): void;
@@ -173,4 +173,3 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   on(events: 'eventclick', handler: JQuery.EventHandlerBase<any, SohoCalendarRenderMonthEvent>): this;
   on(events: 'eventdblclick', handler: JQuery.EventHandlerBase<any, SohoCalendarRenderMonthEvent>): this;
 }
-

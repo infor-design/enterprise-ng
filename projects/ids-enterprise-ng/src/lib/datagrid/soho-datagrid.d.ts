@@ -62,6 +62,11 @@ interface SohoDataGridOptions {
    */
   stretchColumn?: string;
 
+  /**
+   * If true, column will recalculate its width and stretch if required on column change.
+   */
+  stretchColumnOnChange?: boolean;
+
   /** Initial dataset. */
   dataset?: Object[];
 
@@ -109,6 +114,9 @@ interface SohoDataGridOptions {
 
   /** What height to make the rows? */
   rowHeight?: SohoDataGridRowHeight;
+
+  /** Sets the height of the row to something other then the three built in rowHeights. */
+  fixedRowHeight?: number;
 
   /** Sets the select-ability for the datagrid. */
   selectable?: SohoDataGridSelectable;
@@ -239,6 +247,11 @@ interface SohoDataGridOptions {
   onEditCell?: SohoDataGridEditCellFunction;
 
   /**
+  * Vetoable Key Down Callback
+  */
+  onKeyDown?: SohoDataGridKeyDownFunction;
+
+  /**
   * A callback function that fires when expanding rows.
   * To be used when expandableRow is true.
   * The function gets eventData about the row and grid and a response
@@ -296,7 +309,6 @@ interface SohoDataGridModifiedRow {
   cells: SohoDataGridDirtyCell[];
 }
 
-
 interface SohoDataGridDirtyCell {
   value: any;
   coercedVal: any;
@@ -339,6 +351,20 @@ interface SohoDataGridPostRenderCellArgs {
 
   /** The api for the datagrid. */
   api: SohoDataGridStatic;
+}
+
+/**
+ * The arguments object passed to the onKeyDown callback.
+ */
+interface SohoDataGridKeyDownArgs {
+  /** Info about the active cell. */
+  activeCell: any;
+
+  /** The row index. */
+  row: number;
+
+  /** The cell index. */
+  cell: number;
 }
 
 interface SohoDataGridEditCellFunctionArgs extends SohoDataGridPostRenderCellArgs {
@@ -392,6 +418,12 @@ type SohoDataGridPostRenderCellFunction = (
 
 type SohoDataGridEditCellFunction = (
   editor: any
+) => void;
+
+type SohoDataGridKeyDownFunction = (
+  e: JQuery.Event,
+  args: SohoDataGridKeyDownArgs,
+  response: Function
 ) => void;
 
 type SohoDataGridSourceFunction = (
@@ -776,6 +808,9 @@ interface SohoDataGridColumn {
   /** Tooltip for the content of a column cell. */
   contentTooltip?: boolean;
 
+  /** Maximumn width of the column (in pixels). */
+  maxWidth?: number;
+
   /** Minimum width of the column (in pixels). */
   minWidth?: number;
 
@@ -802,6 +837,15 @@ interface SohoDataGridColumn {
 
   /** call back to handle custom tooltips for the column header */
   tooltip?: (row: number, cell: number, value: any, col: SohoDataGridColumn, rowData: Object, api: SohoDataGridStatic) => string;
+
+  /** Placeholder text to display in the field **/
+  placeholder?: string | Function;
+
+  /** call back to handle custom tooltips for the column header */
+  beforeCommitCellEdit?: (cell: number, row: number, rowData: Object, editor: SohoDataGridCellEditor, api: SohoDataGridStatic) => boolean;
+
+  /* Array of objects with a value and label to be used as options in the filter row dropdown. */
+  filterRowEditorOptions?: SohoGridCellOption[];
 }
 
 interface SohoDataGridColumnNumberFormat {
@@ -1226,6 +1270,9 @@ interface SohoDataGridGroupable {
 
   // Type of aggregation.
   aggregator: SohoDataGridAggregator;
+
+  // Formatter for group row
+  groupRowFormatter?: SohoDataGridColumnFormatterFunction;
 }
 
 type SohoDataGridAggregator = 'sum' | 'max' | 'list' | string;
@@ -1307,23 +1354,29 @@ interface SohoDataGridEditModeEvent {
   row: number;
 
   /** Column number. */
-  cell: number,
+  cell: number;
 
   /** Row data */
-  item: any,
+  item: any;
 
   /** HTMLElement of the owning cell */
-  target: HTMLElement,
+  target: HTMLElement;
 
   /** The cell value. */
-  value: any,
+  value: any;
 
   /** The original cell value. */
-  oldValue: any,
+  oldValue: any;
 
   /** The column definition. */
-  column: SohoDataGridColumn,
+  column: SohoDataGridColumn;
 
   /** The cell editor object. */
-  editor: SohoDataGridCellEditor
+  editor: SohoDataGridCellEditor;
+}
+
+interface SohoDataGridKeyDownEvent {
+  e: JQuery.Event;
+  args: SohoDataGridKeyDownArgs;
+  response: Function;
 }

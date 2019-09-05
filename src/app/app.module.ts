@@ -218,6 +218,7 @@ import { WizardDemoSelectFilePageComponent } from './wizard/wizard-selected-file
 import { WizardDemoTargetFolderPageComponent } from './wizard/wizard-target-folder-page.demo';
 import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validation-rules-page.demo';
 import { LocaleInitializerModule } from './locale-initializer/locale-initializer.module';
+import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
 
 @NgModule({
   declarations: [
@@ -227,6 +228,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,
     ApplicationMenuLazyMenuDemoComponent,
+    ApplicationMenuRoleSwitcherDemoComponent,
     AreaDemoComponent,
     AutocompleteDemoComponent,
     BarDemoComponent,

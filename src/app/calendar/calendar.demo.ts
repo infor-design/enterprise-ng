@@ -17,7 +17,7 @@ export class CalendarDemoComponent {
   @HostBinding('style.height') height = 'auto';
   @HostBinding('style.display') block = 'block';
 
-  @ViewChild(SohoCalendarComponent) sohoCalendarComponent: SohoCalendarComponent;
+  @ViewChild(SohoCalendarComponent, { static: false }) sohoCalendarComponent: SohoCalendarComponent;
 
   public initialMonth = 1;
   public initialYear = 2019;
@@ -39,7 +39,7 @@ export class CalendarDemoComponent {
     console.log('onCalendarEventSelectedCallback', args);
   }
 
-  constructor(private monthViewService: CalendarDemoService, private toastService: SohoToastService) {}
+  constructor(private monthViewService: CalendarDemoService, private toastService: SohoToastService) { }
 
   onRenderMonth(event: SohoCalendarRenderMonthEvent) {
     console.log('onRenderMonth', event);
@@ -50,12 +50,12 @@ export class CalendarDemoComponent {
   }
 
   onEventClicked(event: SohoCalendarEventClickEvent) {
-    this.toastService.show({title: 'Calendar Test', message: 'Event "' + event.event.subject + '" Clicked' });
+    this.toastService.show({ title: 'Calendar Test', message: 'Event "' + event.event.subject + '" Clicked' });
     console.log('onEventClick', event);
   }
 
   onEventDblClicked(event: SohoCalendarEventClickEvent) {
-    this.toastService.show({title: 'Calendar Test', message: 'Event "' + event.event.subject + '" Double Clicked' });
+    this.toastService.show({ title: 'Calendar Test', message: 'Event "' + event.event.subject + '" Double Clicked' });
     console.log('onEventDblClick', event);
   }
 }

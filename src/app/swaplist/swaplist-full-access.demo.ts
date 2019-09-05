@@ -12,7 +12,7 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
   templateUrl: './swaplist-full-access.demo.html',
 })
 export class SwapListFullAccessDemoComponent implements OnInit {
-  @ViewChild(SohoSwapListComponent) swapListComponent: SohoSwapListComponent;
+  @ViewChild(SohoSwapListComponent, { static: true })swapListComponent: SohoSwapListComponent;
 
   availableDemoItems: SohoSwapListItem[] = [];
   selectedDemoItems: SohoSwapListItem[] = [];

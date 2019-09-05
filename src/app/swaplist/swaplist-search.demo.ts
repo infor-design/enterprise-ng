@@ -13,7 +13,7 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
   templateUrl: './swaplist-search.demo.html'
 })
 export class SwapListSearchDemoComponent implements OnInit, OnDestroy {
-  @ViewChild(SohoSwapListComponent) swapListComponent: SohoSwapListComponent; SohoBusyIndicatorDirective;
+  @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent: SohoSwapListComponent; SohoBusyIndicatorDirective;
 
   allDemoItems: any[] = [];
   availableDemoItems: any[] = [];

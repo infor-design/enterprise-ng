@@ -172,7 +172,7 @@ export const CodeBlockFormatter = (row, cell, value, col, rowData, api): string 
   `
 })
 export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
-  @ViewChild(CodeBlockComponent) codeblock: CodeBlockComponent;
+  @ViewChild(CodeBlockComponent, { static: true }) codeblock: CodeBlockComponent;
 
   value: string;
   public className = '.code-block';

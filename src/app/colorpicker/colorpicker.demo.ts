@@ -15,7 +15,7 @@ import {
 })
 export class ColorPickerDemoComponent implements OnInit, AfterViewInit {
 
-  @ViewChild(SohoColorPickerComponent) colorpicker: SohoColorPickerComponent;
+  @ViewChild(SohoColorPickerComponent, { static: true }) colorpicker: SohoColorPickerComponent;
 
   public model = { // tslint:disable-line
     color: '#1a1a1a',

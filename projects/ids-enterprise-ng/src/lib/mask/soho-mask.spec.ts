@@ -1,46 +1,58 @@
 /// <reference path="soho-mask.d.ts" />
 
-import {
-  ComponentFixture,
-  TestBed
-} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { By } from '@angular/platform-browser';
 
-import {
-  Component,
-  DebugElement,
-  ViewChild
-} from '@angular/core';
+import { Component, DebugElement, ViewChild } from '@angular/core';
 
-import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormsModule,
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule
+} from '@angular/forms';
 
 import { SohoMaskDirective } from './soho-mask.directive';
 import { SohoMaskModule } from './soho-mask.module';
 import { SohoInputModule } from '../input';
+import { SohoLocaleModule } from '../locale';
 
 @Component({
   template: `
-  <div>
-    <input soho-input soho-mask [sohoPattern]="'UUU'" [definitions]="definitions" />
-  </div>`
+    <div>
+      <input
+        soho-input
+        soho-mask
+        [sohoPattern]="'UUU'"
+        [definitions]="definitions"
+      />
+    </div>
+  `
 })
 class SohoCustomMaskTestComponent {
-  @ViewChild(SohoMaskDirective) input: SohoMaskDirective;
+  @ViewChild(SohoMaskDirective, { static: false }) input: SohoMaskDirective;
 
-  public definitions: SohoMaskDefinitions = {'U': /[A-Z]/};
+  public definitions: SohoMaskDefinitions = { U: /[A-Z]/ };
 }
 
 @Component({
   template: `
-  <div>
-    <form [formGroup]="demoForm">
-      <input soho-mask formControlName="ctrl" [integerLimit]="3" [process]="'number'"/>
-    </form>
-  </div>`
+    <div>
+      <form [formGroup]="demoForm">
+        <input
+          soho-mask
+          formControlName="ctrl"
+          [integerLimit]="3"
+          [process]="'number'"
+        />
+      </form>
+    </div>
+  `
 })
 class SohoMaskTestComponent {
-  @ViewChild(SohoMaskDirective) input: SohoMaskDirective;
+  @ViewChild(SohoMaskDirective, { static: false }) input: SohoMaskDirective;
 
   public value: string;
 
@@ -53,50 +65,62 @@ class SohoMaskTestComponent {
   createForm() {
     // note - both controls have the .required validator.
     this.demoForm = this.formBuilder.group({
-      ctrl: ['111', [Validators.required, Validators.minLength(2), Validators.maxLength(5)]],
+      ctrl: [
+        '111',
+        [Validators.required, Validators.minLength(2), Validators.maxLength(5)]
+      ]
     });
   }
 }
 
 describe('Soho Mask Render', () => {
-  let input:     SohoMaskDirective;
+  let input: SohoMaskDirective;
   let component: SohoMaskTestComponent;
-  let fixture:   ComponentFixture<SohoMaskTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoMaskTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoMaskTestComponent ],
-      imports: [ FormsModule, ReactiveFormsModule, SohoMaskModule, SohoInputModule ]
+      declarations: [SohoMaskTestComponent],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        SohoMaskModule,
+        SohoInputModule,
+        SohoLocaleModule
+      ]
     });
 
-    fixture = TestBed.createComponent(SohoMaskTestComponent);
-    component = fixture.componentInstance;
-    input = component.input;
+    Soho.Locale.set('en-US').done(() => {
+      fixture = TestBed.createComponent(SohoMaskTestComponent);
+      component = fixture.componentInstance;
+      de = fixture.debugElement;
+      el = de.query(By.css('input[soho-mask]')).nativeElement;
 
-    de = fixture.debugElement;
-    el = de.query(By.css('input[soho-mask]')).nativeElement;
-
-    fixture.detectChanges();
+      fixture.detectChanges();
+      input = component.input;
+    });
   });
 
   it('Check HTML content', () => {
     fixture.detectChanges();
-
   });
 
-  it('should update control with new input', () => {
+  it('should update control with new input', done => {
     const inp = fixture.debugElement.query(By.css('input'));
     expect(inp.nativeElement.value).toEqual('111');
 
     component.demoForm.controls['ctrl'].setValue('222');
     inp.nativeElement.value = '222';
 
+    fixture.detectChanges();
+
     expect(inp.nativeElement.value).toEqual('222');
 
     expect(component.demoForm.controls['ctrl'].value).toBe('222');
     expect(component.demoForm.controls['ctrl'].valid).toBeTruthy();
+    done();
   });
 
   it('should update control with new input invalid', () => {
@@ -114,33 +138,37 @@ describe('Soho Mask Render', () => {
 });
 
 describe('Soho Custom Mask Render', () => {
-  let input:     SohoMaskDirective;
+  let input: SohoMaskDirective;
   let component: SohoCustomMaskTestComponent;
-  let fixture:   ComponentFixture<SohoCustomMaskTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoCustomMaskTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoCustomMaskTestComponent ],
-      imports: [ FormsModule, ReactiveFormsModule, SohoMaskModule, SohoInputModule ]
+      declarations: [SohoCustomMaskTestComponent],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        SohoMaskModule,
+        SohoInputModule
+      ]
     });
 
     fixture = TestBed.createComponent(SohoCustomMaskTestComponent);
     component = fixture.componentInstance;
-    input = component.input;
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-mask]')).nativeElement;
 
     fixture.detectChanges();
+    input = component.input;
   });
 
   it('Check HTML content', () => {
     fixture.detectChanges();
-    input.definitions = {'U': /[A-Z]/};
+    input.definitions = { U: /[A-Z]/ };
 
     // TODO - interact
   });
-
 });

@@ -12,7 +12,7 @@ import { SohoColumnComponent } from 'ids-enterprise-ng';
 })
 export class ColumnYAxisDemoComponent implements OnInit {
 
-  @ViewChild(SohoColumnComponent) sohoColumnComponent: SohoColumnComponent;
+  @ViewChild(SohoColumnComponent, { static: true }) sohoColumnComponent: SohoColumnComponent;
 
   public columnData = [{
     data: [{

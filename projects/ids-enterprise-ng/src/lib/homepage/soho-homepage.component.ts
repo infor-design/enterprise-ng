@@ -7,6 +7,8 @@ import {
   ElementRef,
   HostBinding,
   Input,
+  Output,
+  EventEmitter,
   NgZone,
   OnDestroy,
 } from '@angular/core';
@@ -18,11 +20,10 @@ import {
 })
 export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
 
+  @Output() resize = new EventEmitter<SohoHomePageEvent>();
+
   @Input() set homePageOptions(homePageOptions: SohoHomePageOptions) {
     this._homePageOptions = homePageOptions;
-    if (this.jQueryElement) {
-      // this.homepage.updated(); ???
-    }
   }
   get homePageOptions(): SohoHomePageOptions {
     return this._homePageOptions;
@@ -33,8 +34,8 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
    */
   @Input() set columns(columns: number) {
     this._homePageOptions.columns = columns;
-    if (this.homePage) {
-      this.homePage.settings.columns = columns;
+    if (this.homepage) {
+      this.homepage.settings.columns = columns;
     }
   }
 
@@ -47,8 +48,8 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
    */
   @Input() set gutterSize(gutterSize: number) {
     this._homePageOptions.gutterSize = gutterSize;
-    if (this.homePage) {
-      this.homePage.settings.gutterSize = gutterSize;
+    if (this.homepage) {
+      this.homepage.settings.gutterSize = gutterSize;
     }
   }
 
@@ -61,8 +62,8 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
    */
   @Input() set widgetWidth(widgetWidth: number) {
     this._homePageOptions.widgetWidth = widgetWidth;
-    if (this.homePage) {
-      this.homePage.settings.widgetWidth = widgetWidth;
+    if (this.homepage) {
+      this.homepage.settings.widgetWidth = widgetWidth;
     }
   }
 
@@ -75,8 +76,8 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
    */
   @Input() set widgetHeight(widgetHeight: number) {
     this._homePageOptions.widgetHeight = widgetHeight;
-    if (this.homePage) {
-      this.homePage.settings.widgetHeight = widgetHeight;
+    if (this.homepage) {
+      this.homepage.settings.widgetHeight = widgetHeight;
     }
   }
 
@@ -89,8 +90,8 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
    */
   @Input() set animate(animate: boolean) {
     this._homePageOptions.animate = animate;
-    if (this.homePage) {
-      this.homePage.settings.animate = animate;
+    if (this.homepage) {
+      this.homepage.settings.animate = animate;
     }
   }
 
@@ -103,8 +104,8 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
    */
   @Input() set timeout(timeout: number) {
     this._homePageOptions.timeout = timeout;
-    if (this.homePage) {
-      this.homePage.settings.timeout = timeout;
+    if (this.homepage) {
+      this.homepage.settings.timeout = timeout;
     }
   }
 
@@ -117,8 +118,8 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
    */
   @Input() set easing(easing: EasingType) {
     this._homePageOptions.easing = easing;
-    if (this.homePage) {
-      this.homePage.settings.easing = easing;
+    if (this.homepage) {
+      this.homepage.settings.easing = easing;
     }
   }
 
@@ -132,7 +133,7 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
   private jQueryElement: JQuery;
 
   // Reference to the annotated SoHoXi control
-  private homePage: SohoHomePageStatic;
+  private homepage: SohoHomePageStatic;
 
   private _homePageOptions: SohoHomePageOptions = {};
 
@@ -140,6 +141,15 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
     private elementRef: ElementRef,
     private ngZone: NgZone,
   ) { }
+
+  /**
+   * Reset columns to their defaults (used on restore menu item).
+   */
+  refresh(animate?: boolean): void {
+    return this.ngZone.runOutsideAngular(() => {
+      this.homepage.refresh(animate);
+    });
+  }
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
@@ -153,7 +163,20 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
       // Once the control is initialised, extract the control
       // plug-in from the element.  The element name is
       // defined by the plug-in, but in this case is 'homepage'.
-      this.homePage = this.jQueryElement.data('homepage');
+      this.homepage = this.jQueryElement.data('homepage');
+
+      this.jQueryElement
+        .on('resize', (e: JQuery.TriggeredEvent, columns: number, metadata: object ) => this.onResize(columns, metadata));
+    });
+  }
+
+  onResize(columns: number, metadata: object) {
+    const event: SohoHomePageEvent = {columns: null, metadata: null};
+    event.columns = columns;
+    event.metadata = metadata;
+
+    this.ngZone.run(() => {
+      this.resize.emit(event);
     });
   }
 
@@ -163,9 +186,9 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
       if (this.jQueryElement) {
         this.jQueryElement.off();
       }
-      if (this.homePage) {
-        this.homePage.destroy();
-        this.homePage = null;
+      if (this.homepage) {
+        this.homepage.destroy();
+        this.homepage = null;
       }
     });
   }

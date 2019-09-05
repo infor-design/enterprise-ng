@@ -6,6 +6,13 @@
  */
 type EasingType = 'blockslide' | 'linear' | 'swing';
 
+interface SohoHomePageResizeEvent {
+  rows: number;
+  cols: number;
+  containerHeight: number;
+  matrix: any[];
+}
+
 /**
  * Homepage Options
  */
@@ -33,6 +40,11 @@ interface SohoHomePageStatic {
   resize(): void;
 
   /**
+   * Refresh the layout.
+   */
+  refresh(animate?: boolean): void;
+
+  /**
    * Destroys any resources created by this control.
    */
   destroy(): void;
@@ -47,4 +59,13 @@ interface JQueryStatic {
 
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   homepage(options?: SohoHomePageOptions): JQuery;
+  on(events: 'resize',  handler: JQuery.EventHandlerBase<any, any[]>): this;
+}
+
+/**
+ * Soho Homepage Event
+ */
+interface SohoHomePageEvent {
+  columns?: number;
+  metadata?: object;
 }

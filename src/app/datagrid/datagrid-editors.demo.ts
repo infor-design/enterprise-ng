@@ -248,7 +248,7 @@ export const EDITORS_COLUMNS: any[] = [
 })
 export class DataGridEditorsDemoComponent implements OnInit {
 
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: false }) sohoDataGridComponent: SohoDataGridComponent;
 
   gridOptions = null;
 
@@ -316,5 +316,15 @@ export class DataGridEditorsDemoComponent implements OnInit {
     console.log(event);
   }
 
+  private cnt = 1;
 
+  // Note: If we called this onKeyDown we would get the NG keydown firing as well.
+  public onKeyDown(event: SohoDataGridKeyDownEvent) {
+    if (event.e && event.e.which === 13 &&
+      this.sohoDataGridComponent.dataset.length - 1 === event.args.row && event.args.cell === 4) {
+      this.sohoDataGridComponent.addRow({id: (parseInt('214229', 10) + this.cnt).toString() }, 'bottom');
+      this.cnt++;
+      return event.response(false);
+    }
+  }
 }

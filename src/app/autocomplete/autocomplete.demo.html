@@ -1,28 +1,21 @@
 <div class="row top-padding">
   <div class="twelve columns">
-    <h2>Set source as string, update from cities to states</h2>
     <div class="field">
-      <label for="autocomplete-default">States</label>
-      <!--[(ngModel)]="selectedState"-->
+      <label for="autocomplete-default">Set source as string, update from cities to states</label>
       <input id="autocomplete-default" soho-autocomplete soho-mask [sohoPattern]="'********************'" [attr.data-autocomplete]="url" type="text"  (selected)="onSelected($event)">
-      <!--Model: {{selectedState}}-->
     </div>
-    <h2>Set source as a function</h2>
     <div class="field">
-      <label for="autocomplete-source">States</label>
+      <label for="autocomplete-source">Set source as a function</label>
       <input id="autocomplete-source" soho-autocomplete [source]="source" [autoSelectFirstItem]="true" type="text">
     </div>
-    <h2>Set filterMode as contains</h2>
-    <div class="field">
-      <label for="autocomplete-filtermode">States</label>
+      <div class="field">
+      <label for="autocomplete-filtermode">Set filterMode as contains</label>
       <input id="autocomplete-filtermode" soho-autocomplete [source]="statesUrl" filterMode="contains" type="text">
     </div>
-    <h2>Selected event fires</h2>
     <div class="field">
-      <label for="autocomplete-selected-event">States</label>
+      <label for="autocomplete-selected-event">Selected event fires</label>
       <input id="autocomplete-selected-event" soho-autocomplete [source]="statesUrl" filterMode="contains" (selected)="onSelected($event)" type="text">
     </div>
-    <h2>Xss Autocomplete</h2>
     <div class="field">
       <label soho-label>Model: {{selected}}</label>
       <input soho-autocomplete [source]="xssSource" filterMode="contains" [(ngModel)]="selected" placeholder="Search for <script">

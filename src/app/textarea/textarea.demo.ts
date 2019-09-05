@@ -11,7 +11,7 @@ import {
 })
 export class TextareaDemoComponent implements OnInit {
 
-  @ViewChild(SohoTextAreaComponent) textarea: SohoTextAreaComponent;
+  @ViewChild(SohoTextAreaComponent, { static: true }) textarea: SohoTextAreaComponent;
 
   public model = { // tslint:disable-line
     resizableText: 'This text is resizable',

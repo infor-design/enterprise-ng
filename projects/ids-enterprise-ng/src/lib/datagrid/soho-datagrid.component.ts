@@ -505,6 +505,19 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Sets the height of the row to something other then the three built in rowHeights.
+   *
+   * @param fixedRowHeight Any integer
+   */
+  @Input() set fixedRowHeight(fixedRowHeight: number) {
+    this._gridOptions.fixedRowHeight = fixedRowHeight;
+    if (this.jQueryElement) {
+      this.datagrid.settings.fixedRowHeight = fixedRowHeight;
+      this.markForRefresh('fixedRowHeight', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
    * Whether selection is enabled.
    *
    * @param selectable valid values are: 'multiple', 'single', 'mixed', 'siblings' and false.
@@ -982,11 +995,27 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * The name of the column to stretch, or 'last' if the
    * last column is stretched.
-   *
-   *
    */
   get stretchColumn() {
     return this._gridOptions.stretchColumn;
+  }
+
+  /**
+   * If true, column will recalculate its width and stretch if required on column change.
+   * @param stretchColumnOnChange - If false stretch logic wont run on column change.
+   */
+  @Input() set stretchColumnOnChange(stretchColumnOnChange: boolean) {
+    this._gridOptions.stretchColumnOnChange = stretchColumnOnChange;
+    if (this.jQueryElement) {
+      this.datagrid.settings.stretchColumnOnChange = stretchColumnOnChange;
+      this.markForRefresh('stretchColumnOnChange', RefreshHintFlags.Rebuild);
+    }
+  }
+  /**
+   * The current value of stretchColumnOnChange.
+   */
+  get stretchColumnOnChange() {
+    return this._gridOptions.stretchColumnOnChange;
   }
 
   /**
@@ -1080,6 +1109,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   // This event is fired when a row in the grid is expanded.
   @Output()
   expandrow = new EventEmitter<SohoDataGridToggleRowEvent>();
+
+  // This event is fired when a key is pressed
+  @Output()
+  keydown = new EventEmitter<SohoDataGridKeyDownEvent>();
 
   // This event is fired when edit mode is exited.
   @Output()
@@ -1789,6 +1822,16 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Event fired after a key is pressed
+   */
+  private onKeyDown(e: JQuery.Event, args: SohoDataGridKeyDownArgs, response: Function) {
+    const event = { e, args, response };
+    this.ngZone.run(() => {
+      this.keydown.next(event);
+    });
+  }
+
+  /**
    * Event fired after a child row has been expanded.
    * @param idProperty string id
    */
@@ -2215,6 +2258,11 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         this.onEditCell(editor);
       };
 
+      // Add the keydown callback.
+      this._gridOptions.onKeyDown = (e: JQuery.Event, args: SohoDataGridKeyDownArgs, response: Function) => {
+        this.onKeyDown(e, args, response);
+      };
+
       // Initialise any event handlers.
       this.jQueryElement
         .on('addrow', (e: any, args: SohoDataGridAddRowEvent) => { this.onRowAdd(args); })
@@ -2362,4 +2410,14 @@ export interface SohoDataGridToggleRowEvent extends SohoDataGridRowExpandEvent {
   // The data grid component originating the call.
   grid: SohoDataGridComponent;
   args?: any;
+}
+
+/**
+ * Details of the 'keydown' event
+ */
+export interface SohoDataGridKeyDownEvent {
+  // The data grid component originating the call.
+  e: JQuery.Event;
+  args?: SohoDataGridKeyDownArgs;
+  response?: Function;
 }

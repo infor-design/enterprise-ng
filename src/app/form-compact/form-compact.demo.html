@@ -27,6 +27,7 @@
   <section class="detail">
 
     <form class="form-compact" [formGroup]="demoForm">
+
       <div class="row">
         <div class="six columns">
 
@@ -46,15 +47,6 @@
             </div>
           </div>
 
-        </div>
-        <div class="six columns">
-
-          <div class="row">
-            <div class="twelve columns form-section-header">
-              Section Two
-            </div>
-          </div>
-
           <div class="row">
             <div class="six columns">
               <label for="field-03">Field 03</label>
@@ -68,12 +60,67 @@
 
           <div class="row">
             <div class="six columns">
-              <label class="required" for="field-05">Field 05</label>
+              <label for="field-05">Field 05</label>
               <input soho-input id="field-05" formControlName="field5" (change)="onChange($event)"/>
             </div>
             <div class="six columns">
               <label for="field-06">Field 06</label>
-              <input soho-input id="field-06" readonly formControlName="field6" (change)="onChange($event)"/>
+              <input soho-input id="field-06" formControlName="field6" readonly/>
+            </div>
+          </div>
+
+        </div>
+        <div class="six columns">
+
+          <div class="row">
+            <div class="twelve columns form-section-header">
+              Section Two
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="six columns">
+              <fieldset class="radio-group">
+                <legend>Select delivery method</legend>
+                <input soho-radiobutton type="radio" value="women" formControlName="category" />
+                <label for="option1" class="radio-label">Women</label>
+                <br/>
+                <input soho-radiobutton type="radio" value="menu" formControlName="category"/>
+                <label for="option2"  class="radio-label">Men</label>
+                <br/>
+                <input soho-radiobutton type="radio" value="home" formControlName="category" />
+                <label for="option3" class="radio-label">Home</label>
+                <br/>
+                <input soho-radiobutton type="radio" value="shoes" formControlName="category" disabled/>
+                <label for="option4" class="radio-label">Shoes</label>
+                <br/>
+                <input soho-radiobutton type="radio" value="kids" formControlName="category" />
+                <label for="option5" class="radio-label">Kids</label>
+                <br/>
+                <input soho-radiobutton type="radio" value="kitchen" formControlName="category" />
+                <label for="option6" class="radio-label">Kitchen</label>
+              </fieldset>
+            </div>
+            <div class="six columns">
+              <fieldset class="checkbox-group">
+                <legend>Checkbox Group</legend>
+                <div class="field field-checkbox">
+                  <input soho-checkbox type="checkbox" id="checkbox1"/>
+                  <label for="checkbox1" class="checkbox-label" formControlName="checkbox1">NY Resident</label>
+                </div>
+                <div class="field field-checkbox">
+                  <input soho-checkbox type="checkbox" id="checkbox2" formControlName="checkbox2"/>
+                  <label for="checkbox2" class="checkbox-label">Kings County Resident</label>
+                </div>
+                <div class="field field-checkbox">
+                  <input soho-checkbox type="checkbox" id="checkbox3" formControlName="checkbox3"/>
+                  <label for="checkbox3" class="checkbox-label">Park Slope Resident</label>
+                </div>
+                <div class="field field-checkbox">
+                  <input soho-checkbox type="checkbox" id="checkbox4" formControlName="checkbox4"/>
+                  <label for="checkbox4" class="checkbox-label">Prospect Heights Resident</label>
+                </div>
+              </fieldset>
             </div>
           </div>
 
@@ -81,52 +128,85 @@
       </div>
 
       <div class="row">
-        <div class="six columns form-section-header">
-          Section Three
+        <div class="six columns">
+
+          <div class="row">
+            <div class="twelve columns form-section-header">
+              Section Three
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="three columns">
+              <label for="field-07">A Long Label Name</label>
+              <input soho-input id="field-07" formControlName="field7"/>
+            </div>
+            <div class="three columns">
+              <label for="field-08">Field 08</label>
+              <input soho-input id="field-08" formControlName="field8"/>
+            </div>
+            <div class="three columns">
+              <label for="field-08">Field 09</label>
+              <input soho-input id="field-09" formControlName="field9"/>
+            </div>
+            <div class="three columns">
+              <label for="field-10">0000-0000-00</label>
+              <input soho-input id="field-10" formControlName="field10"/>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="six columns">
+              <label for="field-11">Field 11</label>
+              <input soho-input id="field-11" formControlName="field11"/>
+            </div>
+            <div class="six columns">
+              <label for="field-12">Field 12</label>
+              <input soho-input id="field-12" formControlName="field12"/>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="six columns">
+              <label for="field-13">Field 13</label>
+              <input soho-input id="field-13" formControlName="field13"/>
+            </div>
+            <div class="six columns">
+              <label for="field-14">Field 14</label>
+              <input soho-input id="field-14" formControlName="field14"/>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="six columns">
+              <label for="field-15" class="label">Field 15</label>
+              <input soho-timepicker id="field-15" formControlName="field15" timeFormat="h:mm a" mode="standard"/>
+            </div>
+            <div class="six columns">
+              <label for="field-16" class="label">Field-16</label>
+              <input soho-datepicker id="field-16" formControlName="field16"  dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy" />
+            </div>
+          </div>
+
+          <div class="row">
+          <div class="six columns">
+              <label soho-label for="field-17">Field 17</label>
+              <input soho-lookup field="field-17" name="field-17" id="field-17" formControlName="field17" />
+            </div>
+            <div class="six columns">
+              <label soho-label for="field-18">Field 18</label>
+              <input soho-input type="file" class="fileuploader" id="field-18" formControlName="field18"/>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <div class="row">
-        <div class="one-one-half columns">
-          <label for="field-07">A Long Label Name</label>
-          <input soho-input id="field-07" formControlName="field7" (change)="onChange($event)"/>
-        </div>
-        <div class="one-one-half columns">
-          <label for="field-08">Field 08</label>
-          <input soho-input id="field-08" formControlName="field8" (change)="onChange($event)"/>
-        </div>
-        <div class="one-one-half columns">
-          <label for="field-09">Field 09</label>
-          <input soho-input id="field-09" formControlName="field9" (change)="onChange($event)"/>
-        </div>
-        <div class="one-one-half columns">
-          <label for="field-10">0000-0000-00</label>
-          <input soho-input id="field-10" formControlName="field10" (change)="onChange($event)"/>
+      <div class="row hidden">
+        <div class="twelve columns">
+          <button type="submit">Submit</button>
         </div>
       </div>
-
-      <div class="row">
-        <div class="three columns">
-          <label for="field-11">Field 11</label>
-          <input soho-input id="field-11" formControlName="field11" (change)="onChange($event)"/>
-        </div>
-        <div class="three columns">
-          <label for="field-12">Field 12</label>
-          <input soho-input id="field-12" formControlName="field12" (change)="onChange($event)"/>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="three columns">
-          <label for="field-13">Field 13</label>
-          <input soho-input id="field-13" formControlName="field13" (change)="onChange($event)"/>
-        </div>
-        <div class="three columns">
-          <label for="field-14">Field 14</label>
-          <input soho-input id="field-14" formControlName="field14" (change)="onChange($event)"/>
-        </div>
-      </div>
-      <button type="submit" class="invisible">Submit</button>
     </form>
 
   </section>
