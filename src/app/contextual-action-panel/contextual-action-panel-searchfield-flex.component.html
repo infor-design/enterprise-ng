@@ -1,7 +1,7 @@
 <div class="modal-content" style="width: 90vw; height: 90vh">
   <div class="modal-header">
-    <soho-toolbar-flex>
-      <soho-toolbar-flex-section>
+    <soho-toolbar-flex class="flex-toolbar">
+      <soho-toolbar-flex-section [isTitle]="true">
         <h1>CAP Searchfield Demo</h1>
       </soho-toolbar-flex-section>
       <soho-toolbar-flex-section [isSearch]="true">
@@ -18,6 +18,7 @@
             </a>
           </li>
         </ul>
+
         <button soho-button="btn" icon="close" (click)="close()">Close</button>
       </soho-toolbar-flex-section>
     </soho-toolbar-flex>

@@ -3,7 +3,10 @@
     <soho-toolbar class="toolbar">
       <soho-toolbar-title style="margin-left: 0px; padding-left: 10px;">CAP Searchfield Demo</soho-toolbar-title>
       <soho-toolbar-button-set class="buttonset">
-        <input soho-toolbar-searchfield />
+        <span soho-toolbar-searchfield-wrapper>
+          <input soho-toolbar-searchfield [collapsible]="true" [clearable]="true"/>
+        </span>
+
         <button soho-menu-button soho-context-menu trigger="click" menu="cap-demo-popupmenu">
           Menu
         </button>
@@ -12,9 +15,9 @@
             <a soho-popupmenu-label>
               Item 1
             </a>
-            <button soho-button="icon" icon="delete"></button>
           </li>
         </ul>
+
         <button soho-button="btn" icon="close" (click)="close()">Close</button>
       </soho-toolbar-button-set>
     </soho-toolbar>

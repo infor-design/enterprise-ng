@@ -70,23 +70,23 @@ export class ContextualActionPanelDemoComponent {
       .contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
       .buttons(buttons)
       .title(this.title)
-      .initializeContent(true)
-      .open();
+      .open()
+      .initializeContent(true);
   }
 
   openSearchfieldPanel() {
     const panel = this.panelService.contextualactionpanel(ContextualActionPanelSearchfieldComponent, this.placeholder);
     panel
-      .initializeContent(true)
       .apply(component => component.panel = panel)
-      .open();
+      .open()
+      .initializeContent(true);
   }
 
   openSearchfieldFlexPanel() {
     const panel = this.panelService.contextualactionpanel(ContextualActionPanelSearchfieldFlexComponent, this.placeholder);
     panel
-      .initializeContent(true)
       .apply(component => component.panel = panel)
-      .open();
+      .open()
+      .initializeContent(true);
   }
 }
