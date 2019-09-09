@@ -13,6 +13,8 @@ import {
 
 import { ContextualActionPanelComponent } from './contextual-action-panel.component';
 import { NestedModalDialogComponent } from './nested-modal-dialog.component';
+import { ContextualActionPanelSearchfieldComponent } from './contextual-action-panel-searchfield.component';
+import { ContextualActionPanelSearchfieldFlexComponent } from './contextual-action-panel-searchfield-flex.component';
 
 @Component({
   selector: 'app-contextual-action-panel-demo',
@@ -54,7 +56,8 @@ export class ContextualActionPanelDemoComponent {
         }
       },
       {
-        cssClass: 'separator' },
+        cssClass: 'separator'
+      },
       {
         text: 'Close',
         cssClass: 'btn',
@@ -67,7 +70,23 @@ export class ContextualActionPanelDemoComponent {
       .contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
       .buttons(buttons)
       .title(this.title)
-      .initializeContent(true)
-      .open();
+      .open()
+      .initializeContent(true);
+  }
+
+  openSearchfieldPanel() {
+    const panel = this.panelService.contextualactionpanel(ContextualActionPanelSearchfieldComponent, this.placeholder);
+    panel
+      .apply(component => component.panel = panel)
+      .open()
+      .initializeContent(true);
+  }
+
+  openSearchfieldFlexPanel() {
+    const panel = this.panelService.contextualactionpanel(ContextualActionPanelSearchfieldFlexComponent, this.placeholder);
+    panel
+      .apply(component => component.panel = panel)
+      .open()
+      .initializeContent(true);
   }
 }

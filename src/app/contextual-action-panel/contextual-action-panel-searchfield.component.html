@@ -1,0 +1,32 @@
+<div class="modal-content" style="width: 90vw; height: 90vh">
+  <div class="modal-header">
+    <soho-toolbar class="toolbar">
+      <soho-toolbar-title style="margin-left: 0px; padding-left: 10px;">CAP Searchfield Demo</soho-toolbar-title>
+      <soho-toolbar-button-set class="buttonset">
+        <span soho-toolbar-searchfield-wrapper>
+          <input soho-toolbar-searchfield [collapsible]="true" [clearable]="true"/>
+        </span>
+
+        <button soho-menu-button soho-context-menu trigger="click" menu="cap-demo-popupmenu">
+          Menu
+        </button>
+        <ul soho-popupmenu id="cap-demo-popupmenu">
+          <li soho-popupmenu-item>
+            <a soho-popupmenu-label>
+              Item 1
+            </a>
+          </li>
+        </ul>
+
+        <button soho-button="btn" icon="close" (click)="close()">Close</button>
+      </soho-toolbar-button-set>
+    </soho-toolbar>
+  </div>
+  <div class="modal-body-wrapper">
+    <div class="row">
+      <div class="twelve-columns">
+        <h1>Hello CAP with searchfield!</h1>
+      </div>
+    </div>
+  </div>
+</div>
