@@ -1,4 +1,4 @@
-<div class="two-column no-scroll" role="main">
+<div class="full-width full-height scrollable-flex">
   <h2 class="fieldset-title">Soho Data Grid - Toolbar with Breadcrumb</h2>
   <div class="field">
     <button soho-button (click)="addRow()">Add Row</button>
@@ -7,7 +7,7 @@
     <button soho-button (click)="clearFilter()">Clear Filter</button>
   </div>
   <br>
-  <div class="scrollable-area no-scroll">
+  <div>
     <app-datagrid-toolbar-demo></app-datagrid-toolbar-demo>
     <div soho-busyindicator soho-datagrid (selected)="onSelected($event)" selectable="multiple" filterable="true" [toolbar]="{ personalize: true }">
     </div>
