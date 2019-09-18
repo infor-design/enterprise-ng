@@ -1,6 +1,6 @@
-<div class="full-width full-height scrollable-flex">
+<div class="noscroll">
   <form>
-    <div soho-toolbar-flex style="height: auto;">
+    <div soho-toolbar-flex>
       <soho-toolbar-flex-section [isTitle]="true">
         <nav class="breadcrumb">
           <ol aria-label="breadcrumb">
@@ -15,38 +15,17 @@
       </soho-toolbar-flex-section>
       <soho-toolbar-flex-section [isButtonSet]="true">
         <button soho-button="icon" icon="edit" id="edit-btn"></button>
-        <button
-          soho-button="icon"
-          type="submit"
-          icon="save"
-          id="save-btn"
-        ></button>
-        <button soho-button="icon" icon="cancel" id="cancel-btn"></button>
-        <button soho-button="icon" icon="close" id="add-btn"></button>
       </soho-toolbar-flex-section>
     </div>
     <div class="row">
       <div class="six columns">
         <div class="field">
           <label soho-label for="text-code">Code</label>
-          <input
-            soho-input
-            autofocus
-            soho-alert
-            name="text-code"
-            id="text-code"
-            maxlength="21"
-          />
+          <input soho-input autofocus soho-alert name="text-code" id="text-code" maxlength="21" />
         </div>
         <div class="field">
           <label soho-label for="text-name">Name</label>
-          <input
-            soho-input
-            soho-alert
-            name="text-name"
-            id="text-name"
-            maxlength="32"
-          />
+          <input soho-input soho-alert name="text-name" id="text-name" maxlength="32" />
         </div>
       </div>
       <div class="six columns">
@@ -84,8 +63,8 @@
               style="padding-top: 0px"
             >
               <div> <!-- <sunsystems-tenant-messages-list> -->
-                <div class="scrollable-flex">
-                  <div soho-toolbar-flex style="height: auto;">
+                <div>
+                  <div soho-toolbar-flex>
                     <soho-toolbar-flex-section [isTitle]="true">
                       <nav class="breadcrumb">
                         <ol aria-label="breadcrumb">
@@ -112,9 +91,9 @@
         </sunsystems-grid-personalise-menu> -->
                     </soho-toolbar-flex-more-button>
                   </div>
-                  <div class="scrollable-flex-content no-scroll">
-                    <div class="scrollable-flex">
-                      <div class="scrollable-flex-content">
+                  <div>
+                    <div>
+                      <div>
                         <div soho-datagrid [columns]="columns" [dataset]="dataset"
                            selectable="multiple"
                            stretchColumn="actionName"
