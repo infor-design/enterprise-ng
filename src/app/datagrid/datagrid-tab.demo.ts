@@ -6,6 +6,14 @@ import {
 
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
+enum MessageStatus {
+  Queued = 'Queued',
+  Running = 'Running',
+  Success = 'Success',
+  Error = 'Error',
+  Info = 'Info'
+}
+
 @Component({
   selector: 'app-datagrid-tab-demo',
   templateUrl: './datagrid-tab.demo.html',
@@ -112,22 +120,18 @@ export class DataGridTabDemoComponent {
       id: 'status', name: 'Status', field: 'status', width: 60,
       editor: Soho.Editors.Input,
       formatter: Soho.Formatters.Alert, options: [
-        { value: 'info', label: 'Info' },
-        { value: 'queued', label: 'Queued' },
-        { value: 'running', label: 'Running' },
-        { value: 'success', label: 'Success' },
-        { value: 'error', label: Soho.Locale.translate('MessageStatusErrorLabel') }
+        { value: MessageStatus.Info, label: 'Info' },
+        { value: MessageStatus.Queued, label: 'Queued' },
+        { value: MessageStatus.Running, label: 'Running' },
+        { value: MessageStatus.Success, label: 'Success' },
+        { value: MessageStatus.Error, label: Soho.Locale.translate('MessageStatusErrorLabel') }
       ],
       ranges: [
-        { value: 'info', classes: 'alert', text: 'Info' },
-        { value: 'queued', classes: 'new', text: 'Queued' },
-        {
-          value: 'running',
-          classes: 'in-progress',
-          text: 'running'
-        },
-        { value: 'success', classes: 'success', text: 'Success' },
-        { value: 'error', classes: 'error', text: 'Error' }
+        { value: MessageStatus.Info, classes: 'alert', text: 'Info' },
+        { value: MessageStatus.Queued, classes: 'new', text: 'Queued' },
+        { value: MessageStatus.Running, classes: 'in-progress', text: 'Running' },
+        { value: MessageStatus.Success, classes: 'success', text: 'Success' },
+        { value: MessageStatus.Error, classes: 'error', text: 'Error' }
       ]
     },
     {
