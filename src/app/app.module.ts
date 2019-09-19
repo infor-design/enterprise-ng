@@ -94,6 +94,7 @@ import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-pa
 import { DatagridStandalonePagerDemoComponent } from './datagrid/datagrid-standalone-pager.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
 import { DataGridRowReorderDemoComponent } from './datagrid/datagrid-rowreorder.demo';
+import { DataGridSaveUserSettingsDemoComponent } from './datagrid/datagrid-save-user-settings.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
@@ -285,6 +286,7 @@ import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/app
     DatagridStandalonePagerDemoComponent,
     DataGridPagingServiceDemoComponent,
     DataGridRowReorderDemoComponent,
+    DataGridSaveUserSettingsDemoComponent,
     DataGridServiceDemoComponent,
     DataGridSettingsDemoComponent,
     DataGridStandardFormatterDemoComponent,

@@ -1,12 +1,12 @@
 /* tslint:disable */
 export const PAGING_COLUMNS: SohoDataGridColumn[] = [
   { id: 'selectionCheckbox', sortable: false, resizable: false, width: 50, formatter: Soho.Formatters.SelectionCheckbox, align: 'center', exportable: false },
-  { id: 'productId',   name: 'Product Id',   field: 'productId',   sortable: false, filterType: 'integer', width: 140, formatter: Soho.Formatters.Readonly },
+  { id: 'productId',   name: 'Product Id',   field: 'productId',   sortable: false, filterType: 'text', formatter: Soho.Formatters.Readonly },
   { id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text', filterConditions: ['equals', 'contains'], width: 150, formatter: Soho.Formatters.Hyperlink },
-  { id: 'activity',    name: 'Activity',     field: 'activity',    sortable: false, filterType: 'text',    width: 125, hidden: true },
-  { id: 'quantity',    name: 'Quantity',     field: 'quantity',    sortable: false,                        width: 125 },
-  { id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', width: 125, formatter: Soho.Formatters.Decimal },
-  { id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',    formatter: Soho.Formatters.Date, dateFormat: 'M/d/yyyy' }
+  { id: 'activity',    name: 'Activity',     field: 'activity',    sortable: false, filterType: 'text',  hidden: true },
+  { id: 'quantity',    name: 'Quantity',     field: 'quantity',    sortable: false, filterType: 'integer' },
+  { id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', formatter: Soho.Formatters.Decimal },
+  { id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',  formatter: Soho.Formatters.Date, dateFormat: 'M/d/yyyy' }
 ];
 /* tslint:enable */
 
