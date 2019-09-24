@@ -99,6 +99,11 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
     this.updateRequired = !!this.pager;
   }
 
+  @Input() set smallPageSizeSelector(smallPageSizeSelector: boolean) {
+    this.options.smallPageSizeSelector = smallPageSizeSelector;
+    this.updateRequired = !!this.pager;
+  }
+
   @Input() set pageSizeMenuSettings(options: object) {
     this.options.pageSizeMenuSettings = options;
     this.updateRequired = !!this.pager;

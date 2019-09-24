@@ -23,6 +23,7 @@ export class PagerStandaloneDemoComponent {
     nextPageTooltip    : 'click to got to the last page of records',
 
     hidePageSizeSelector: false,
+    useSmallPageSizeSelector: false,
     pageSizeMenuSettings: {attachToBody: false},
 
     pageSize: 10,
