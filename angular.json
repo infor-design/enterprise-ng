@@ -78,7 +78,8 @@
           "options": {
             "browserTarget": "ids-enterprise-ng-app:build",
             "sourceMap": true,
-            "vendorSourceMap": true
+            "vendorSourceMap": true,
+            "servePath": "/ids-enterprise-ng-demo"
           },
           "configurations": {
             "production": {
