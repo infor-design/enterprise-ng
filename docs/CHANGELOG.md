@@ -1,5 +1,17 @@
 # What's New with Enterprise-NG
 
+## v6.1.0
+
+### 6.1.0 Breaking Changes
+
+### 6.1.0 Features
+
+- `[Pager]` Added smallPageSizeSelector option to soho-standalone-pager. `PWP` ([#612](https://github.com/infor-design/enterprise-ng/pull/612))
+
+### 6.1.0 Chore & Maintenance
+
+### 6.1.0 Fixes
+
 ## v6.0.0
 
 ### 6.0.0 Breaking Changes

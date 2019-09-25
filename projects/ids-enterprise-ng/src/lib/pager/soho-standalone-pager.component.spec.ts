@@ -49,6 +49,7 @@ describe('Standalone Pager Unit Tests', () => {
     comp.previousPageTooltip = 'Previous Page';
     comp.lastPageTooltip = 'Last Page';
     comp.showPageSizeSelector = true;
+    comp.smallPageSizeSelector = true;
     comp.pageSize = 10;
     comp.pageSizes = [ 5, 10, 15, 20 ];
     comp.pageSizeMenuSettings = {
@@ -67,6 +68,7 @@ describe('Standalone Pager Unit Tests', () => {
     expect((comp as any).options.previousPageTooltip).toEqual('Previous Page');
     expect((comp as any).options.lastPageTooltip).toEqual('Last Page');
     expect((comp as any).options.showPageSizeSelector).toEqual(true);
+    expect((comp as any).options.smallPageSizeSelector).toEqual(true);
     expect((comp as any).options.pagesize).toEqual(10);
     expect((comp as any).options.pagesizes).toEqual([ 5, 10, 15, 20 ]);
 
@@ -82,6 +84,7 @@ describe('Standalone Pager Unit Tests', () => {
     comp.previousPageTooltip = 'Disabled Previous Page';
     comp.lastPageTooltip = 'Disabled Last Page';
     comp.showPageSizeSelector = false;
+    comp.smallPageSizeSelector = false;
     comp.pageSize = 20;
     comp.pageSizes = [];
     comp.pageSizeMenuSettings = {
@@ -102,6 +105,7 @@ describe('Standalone Pager Unit Tests', () => {
     expect((comp as any).pager.settings.previousPageTooltip).toEqual('Disabled Previous Page');
     expect((comp as any).pager.settings.lastPageTooltip).toEqual('Disabled Last Page');
     expect((comp as any).pager.settings.showPageSizeSelector).toEqual(false);
+    expect((comp as any).pager.settings.smallPageSizeSelector).toEqual(false);
     expect((comp as any).pager.settings.pagesize).toEqual(20);
     expect((comp as any).pager.settings.pagesizes).toEqual([ 5, 10, 15, 20 ]);
 
