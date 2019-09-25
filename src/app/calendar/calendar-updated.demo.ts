@@ -25,6 +25,14 @@ export class CalendarUpdatedDemoComponent {
     private monthViewService: CalendarDemoService
   ) { }
 
+  public iconToolTip = (eventData: any) => {
+    console.log('iconToolTip');
+  }
+
+  public eventTooltip = (eventData: any) => {
+    console.log('iconToolTip');
+  }
+
   onRenderMonth(event: SohoCalendarRenderMonthEvent) {
     console.log('onRenderMonth', event);
     if (this.eventsLoaded) {

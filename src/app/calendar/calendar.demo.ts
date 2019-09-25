@@ -24,6 +24,8 @@ export class CalendarDemoComponent {
   public showViewChanger = false;
   public eventTypes: [];
   public events: [];
+  public iconTooltip = 'status';
+  public eventTooltip = 'comments';
 
   public onRenderMonthCallback = (node: Node, response: Function) => {
     this.monthViewService.getCalendarEventTypes().subscribe((types) => {
@@ -57,5 +59,12 @@ export class CalendarDemoComponent {
   onEventDblClicked(event: SohoCalendarEventClickEvent) {
     this.toastService.show({ title: 'Calendar Test', message: 'Event "' + event.event.subject + '" Double Clicked' });
     console.log('onEventDblClick', event);
+  }
+
+  onCalendarEventContextMenu(event: SohoCalendarEventClickEvent) {
+    if (event) {
+      this.toastService.show({ title: 'Calendar Test', message: 'Event "' + event.event.subject + '" ContextMenu' });
+      console.log('onEventContextMenu', event);
+    }
   }
 }
