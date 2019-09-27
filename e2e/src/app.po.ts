@@ -2,7 +2,7 @@ import { browser, by, element, ElementFinder } from 'protractor';
 
 export class AppPage {
   navigateTo(route?: string) {
-    const servePath: string = '/ids-enterprise-ng-demo/';
+    const servePath = '/ids-enterprise-ng-demo/';
     return browser.get(servePath + (route || ''));
   }
 
