@@ -1,11 +1,12 @@
 import { browser, by, element } from 'protractor';
 
 export class AppPage {
-  navigateTo() {
-    return browser.get('/');
+  navigateTo(route?: string) {
+    const servePath = '/ids-enterprise-ng-demo/';
+    return browser.get(servePath + (route || ''));
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getHeaderText() {
+    return element(by.css('app-header-dynamic-demo soho-toolbar h1 span')).getText();
   }
 }
