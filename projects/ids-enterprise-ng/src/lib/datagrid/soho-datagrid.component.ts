@@ -83,8 +83,8 @@ export class SohoAngularEditorAdapter implements ExtendedSohoDataGridCellEditor 
     // @todo talk to Tim about removing this requirement.
     this.input = $(this.componentRef.location.nativeElement).find('input:first');
     this.className = this.componentRef.instance
-        && this.componentRef.instance.className
-        ? this.componentRef.instance.className : '.editor';
+      && this.componentRef.instance.className
+      ? this.componentRef.instance.className : '.editor';
   }
 
   val(value?: any): any {
@@ -2160,7 +2160,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // Create an injector that will provide the arguments for the
     // component.
     // const injector = ReflectiveInjector.resolveAndCreate([{ provide: 'args', useValue: args }], this.injector);
-    const injector = Injector.create({ providers: [{ provide: 'args', useValue: args }], parent: this.injector});
+    const injector = Injector.create({ providers: [{ provide: 'args', useValue: args }], parent: this.injector });
 
     // Create the component, in the container.
     const component = factory.create(injector, [], container);
@@ -2288,15 +2288,15 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('selected', (e: any, args: SohoDataGridSelectedRow[]) => this.onSelected({ e, rows: args }))
         .on('settingschanged', (e: any, args: SohoDataGridSettingsChangedEvent) => { this.onSettingsChanged(args); })
         .on('sorted', (e: any, args: SohoDataGridSortedEvent) => { this.onSorted(args); });
-      });
+    });
 
-      // Initialise the SohoXi control.
-      this.jQueryElement.datagrid(this._gridOptions);
+    // Initialise the SohoXi control.
+    this.jQueryElement.datagrid(this._gridOptions);
 
-      // Once the control is initialised, extract the control
-      // plug-in from the element.  The element name is
-      // defined by the plug-in, but in this case is 'datagrid'.
-      this.datagrid = this.jQueryElement.data('datagrid');
+    // Once the control is initialised, extract the control
+    // plug-in from the element.  The element name is
+    // defined by the plug-in, but in this case is 'datagrid'.
+    this.datagrid = this.jQueryElement.data('datagrid');
 
     // If "auto" and there's a service, get the columns from it.
     // (may want to check if columns have already been set? Error?)
@@ -2395,7 +2395,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // Add an adapter for all the columns using an component as an editor.
     this._gridOptions.columns.forEach((c) => {
       if (c.editorComponent) {
-        c.editor = (row?: any, cell?: any, value?: any, container?: JQuery, col?: SohoDataGridColumn, e?: any, api?: any, item?: any) => {
+        // Use a `function expression` rather than an `arrow function` as the editor is used
+        // as constructor.
+        // tslint:disable-next-line: max-line-length
+        c.editor = function (row?: any, cell?: any, value?: any, container?: JQuery, col?: SohoDataGridColumn, e?: any, api?: any, item?: any) {
           return new SohoAngularEditorAdapter(c.editorComponent, { row, cell, value, container: container[0], col, e, api, item });
         };
       }
