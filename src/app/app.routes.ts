@@ -230,7 +230,7 @@ export const routes: Routes = [
   { path: 'datagrid-standalone-pager', component: DatagridStandalonePagerDemoComponent },
   { path: 'datagrid-treegrid', component: DataGridTreeGridDemoComponent },
   { path: 'datagrid-treegrid-dynamicfilter', component: DatagridTreegridDynamicfilteringDemoComponent },
-  { path: 'datagrid-tabs', component: DataGridTabDemoComponent },
+  { path: 'datagrid-tab', component: DataGridTabDemoComponent },
   { path: 'datagrid-angular-editor', component: DataGridAngularEditorDemoComponent },
   { path: 'datagrid-angular-card-formatter', component: DataGridAngularCardFormatterDemoComponent },
   { path: 'datagrid-angular-formatter', component: DataGridAngularFormatterDemoComponent },
