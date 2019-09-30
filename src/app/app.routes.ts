@@ -59,6 +59,7 @@ import { DataGridMixedSelectionDemoComponent } from './datagrid/datagrid-mixed-s
 import { DataGridPagingIndeterminateDemoComponent } from './datagrid/datagrid-paging-indeterminate.demo';
 import { DatagridStandalonePagerDemoComponent } from './datagrid/datagrid-standalone-pager.demo';
 import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-service.demo';
+import { DataGridSaveUserSettingsDemoComponent } from './datagrid/datagrid-save-user-settings.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
@@ -222,13 +223,14 @@ export const routes: Routes = [
   { path: 'datagrid-mixed-selection', component: DataGridMixedSelectionDemoComponent },
   { path: 'datagrid-paging-indeterminate', component: DataGridPagingIndeterminateDemoComponent },
   { path: 'datagrid-paging-service', component: DataGridPagingServiceDemoComponent },
+  { path: 'datagrid-save-user-settings', component: DataGridSaveUserSettingsDemoComponent },
   { path: 'datagrid-test-settings', component: DataGridTestSettingsDemoComponent },
   { path: 'datagrid-service', component: DataGridServiceDemoComponent },
   { path: 'datagrid-settings', component: DataGridSettingsDemoComponent },
   { path: 'datagrid-standalone-pager', component: DatagridStandalonePagerDemoComponent },
-  { path: 'datagrid-tab', component: DataGridTabDemoComponent },
   { path: 'datagrid-treegrid', component: DataGridTreeGridDemoComponent },
   { path: 'datagrid-treegrid-dynamicfilter', component: DatagridTreegridDynamicfilteringDemoComponent },
+  { path: 'datagrid-tabs', component: DataGridTabDemoComponent },
   { path: 'datagrid-angular-editor', component: DataGridAngularEditorDemoComponent },
   { path: 'datagrid-angular-card-formatter', component: DataGridAngularCardFormatterDemoComponent },
   { path: 'datagrid-angular-formatter', component: DataGridAngularFormatterDemoComponent },
