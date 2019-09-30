@@ -23,8 +23,6 @@ describe('Soho Wizard Unit Tests', () => {
 
     fixture = TestBed.createComponent(SohoWizardComponent);
     comp = fixture.componentInstance;
-    fixture.detectChanges();
-
     de = fixture.debugElement;
     el = de.nativeElement;
 
@@ -36,6 +34,8 @@ describe('Soho Wizard Unit Tests', () => {
       { label: 'Five', href: 'five' },
       { label: 'Six', href: 'six' }
     ];
+
+    fixture.detectChanges();
   });
 
   it('Check Empty Content', () => {
