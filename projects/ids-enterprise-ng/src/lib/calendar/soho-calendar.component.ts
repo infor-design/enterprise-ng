@@ -166,6 +166,42 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   }
 
   /**
+   * If false the mouseover text or day event will not be shown.
+   */
+  @Input() set eventTooltip(eventTooltip: string | SohoCalendarTooltipFunction) {
+    this._calendarOptions.eventTooltip = eventTooltip;
+    if (this.calendar) {
+      this.calendar.settings.eventTooltip = eventTooltip;
+      this.markForRefresh();
+    }
+  }
+  get eventTooltip(): string | SohoCalendarTooltipFunction {
+    if (this.calendar) {
+      return this.calendar.settings.eventTooltip;
+    }
+
+    return this._calendarOptions.eventTooltip;
+  }
+
+  /**
+   * If false the mouseover text for event icon will not be shown.
+   */
+  @Input() set iconTooltip(iconTooltip: string | SohoCalendarTooltipFunction) {
+    this._calendarOptions.iconTooltip = iconTooltip;
+    if (this.calendar) {
+      this.calendar.settings.iconTooltip = iconTooltip;
+      this.markForRefresh();
+    }
+  }
+  get iconTooltip(): string | SohoCalendarTooltipFunction {
+    if (this.calendar) {
+      return this.calendar.settings.iconTooltip;
+    }
+
+    return this._calendarOptions.iconTooltip;
+  }
+
+  /**
    * Fires when a month is rendered, allowing you to pass back events or event types to show.
    */
   @Input() set onRenderMonth(onRenderMonth: Function) {
@@ -316,6 +352,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   @Output() monthRendered = new EventEmitter<SohoCalendarRenderMonthEvent>();
   @Output() eventClick = new EventEmitter<SohoCalendarEventClickEvent>();
   @Output() eventDblClick = new EventEmitter<SohoCalendarEventClickEvent>();
+  @Output() eventContextMenu = new EventEmitter<SohoCalendarEventClickEvent>();
 
   /**
    * Local variables
@@ -341,7 +378,8 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
       .on('selected', (e: any, event: SohoCalendarDateSelectedEvent) => this.onSelectedEvent(event))
       .on('monthrendered', (e: any, args: SohoCalendarRenderMonthEvent) => this.onMonthRenderedEvent(args))
       .on('eventclick', (e: any, args: SohoCalendarEventClickEvent) => this.onEventClick(args))
-      .on('eventdblclick', (e: any, args: SohoCalendarEventClickEvent) => this.onEventDblClick(args));
+      .on('eventdblclick', (e: any, args: SohoCalendarEventClickEvent) => this.onEventDblClick(args))
+        .on('contextmenu', (e: any, args: SohoCalendarEventClickEvent) => this.onEventContextMenu(args));
 
       // Initialise the Soho control.
       this.jQueryElement.calendar(this._calendarOptions);
@@ -379,6 +417,10 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
 
   onEventDblClick(event: SohoCalendarEventClickEvent) {
     this.ngZone.run(() => this.eventDblClick.emit(event));
+  }
+
+  onEventContextMenu(event: SohoCalendarEventClickEvent) {
+    this.ngZone.run(() => this.eventContextMenu.emit(event));
   }
 
   /**

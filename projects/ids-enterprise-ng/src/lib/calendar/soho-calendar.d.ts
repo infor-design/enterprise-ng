@@ -29,6 +29,16 @@ interface SohoCalendarDayEvents {
 
 type SohoCalendarColors = 'ruby' | 'azure' | 'amber' | 'emerald' | 'turquoise' | 'amethyst' | 'slate' | 'graphite';
 
+interface SohoCalendarTooltipFunction {
+  eventData: SohoCalendarEventData;
+}
+
+type SohoCalendarEventData = (
+  month?: number,
+  year?: number,
+  event?: SohoCalendarEvent
+) => void;
+
 interface SohoCalendarEventType {
   id: string;
   label: string;
@@ -81,6 +91,7 @@ interface SohoCalendarEventClickEvent {
   month?: number;
   year?: number;
   event?: SohoCalendarEvent;
+  originalEvent?: JQuery.TriggeredEvent;
 }
 
 interface SohoCalendarRenderMonthEvent {
@@ -97,6 +108,8 @@ interface SohoCalendarOptions {
   month?: number;
   year?: number;
   showViewChanger?: boolean;
+  eventTooltip?: string | SohoCalendarTooltipFunction;
+  iconTooltip?: string | SohoCalendarTooltipFunction;
   onRenderMonth?: Function; // (node: any, response: (SohoCalendarEvent, SohoCalendarEventType) => void) => void;
   onSelected?: Function; // (node: TNode, args: SohoCalendarDaySelectedEvent) => void;
   template?: string;
@@ -170,6 +183,7 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   calendar(options?: SohoCalendarOptions): JQuery;
   on(events: 'selected', handler: JQuery.EventHandlerBase<any, SohoCalendarDateSelectedEvent>): this;
   on(events: 'monthrendered', handler: JQuery.EventHandlerBase<any, SohoCalendarRenderMonthEvent>): this;
-  on(events: 'eventclick', handler: JQuery.EventHandlerBase<any, SohoCalendarRenderMonthEvent>): this;
-  on(events: 'eventdblclick', handler: JQuery.EventHandlerBase<any, SohoCalendarRenderMonthEvent>): this;
+  on(events: 'eventclick', handler: JQuery.EventHandlerBase<any, SohoCalendarEventClickEvent>): this;
+  on(events: 'eventdblclick', handler: JQuery.EventHandlerBase<any, SohoCalendarEventClickEvent>): this;
+  on(events: 'contextmenu', handler: JQuery.EventHandlerBase<any, SohoCalendarEventClickEvent>): this;
 }
