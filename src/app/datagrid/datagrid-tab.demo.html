@@ -1,0 +1,125 @@
+<div class="full-width full-height">
+    <form class="height-100">
+      <div soho-toolbar-flex>
+        <soho-toolbar-flex-section [isTitle]="true">
+          <nav class="breadcrumb">
+            <ol aria-label="breadcrumb">
+              <li>
+                <a href="#" class="hyperlink hide-focus">Tenants</a>
+              </li>
+              <li class="current">
+                <span>INFOR_DEV</span>
+              </li>
+            </ol>
+          </nav>
+        </soho-toolbar-flex-section>
+        <soho-toolbar-flex-section [isButtonSet]="true">
+          <button soho-button="icon" icon="edit" id="edit-btn"></button>
+          <button
+            soho-button="icon"
+            type="submit"
+            icon="save"
+            id="save-btn"
+          ></button>
+          <button soho-button="icon" icon="cancel" id="cancel-btn"></button>
+          <button soho-button="icon" icon="close" id="add-btn"></button>
+        </soho-toolbar-flex-section>
+      </div>
+      <div class="row no-indent">
+        <div class="six columns">
+          <div class="field">
+            <label soho-label for="text-code">Code</label>
+            <input
+              soho-input
+              autofocus
+              soho-alert
+              name="text-code"
+              id="text-code"
+              maxlength="21"
+            />
+          </div>
+          <div class="field">
+            <label soho-label for="text-name">Name</label>
+            <input
+              soho-input
+              soho-alert
+              name="text-name"
+              id="text-name"
+              maxlength="32"
+            />
+          </div>
+        </div>
+        <div class="six columns">
+          <div class="field">
+            <label soho-label for="text-status">Status</label>
+            <input soho-input name="text-status" id="text-status" readonly />
+          </div>
+        </div>
+      </div>
+      <div class="row no-indent" style="height: calc(100% - 210px)">
+        <div class="twelve columns height-100">
+          <div class="height-100"> <!-- <sunsystems-tenant-form-tab> -->
+            <div soho-tabs>
+              <div soho-tab-list-container>
+                <ul soho-tab-list>
+                  <li soho-tab>
+                    <a soho-tab-title tabId="tabs-message-list">Databases</a>
+                  </li>
+                  <li soho-tab>
+                    <a soho-tab-title tabId="tabs-database-list">Messages</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div soho-tab-panel-container style="height: calc(100% - 40px)">
+              <div soho-tab-panel tabId="tabs-database-list" class="height-100">
+              <div> <!--<sunsystems-tenant-databases-list> -->
+              </div> <!-- </sunsystems-tenant-databases-list> -->
+              </div>
+              <div
+                soho-tab-panel
+                tabId="tabs-message-list"
+                class="height-100">
+                <div class="height-100"> <!-- <sunsystems-tenant-messages-list> -->
+                  <div soho-toolbar-flex>
+                    <soho-toolbar-flex-section [isTitle]="true">
+                      <nav class="breadcrumb">
+                        <ol aria-label="breadcrumb">
+                          <li class="current">
+                            <h2>(2 Results)</h2>
+                          </li>
+                        </ol>
+                      </nav>
+                    </soho-toolbar-flex-section>
+                    <soho-toolbar-flex-section [isButtonSet]="true">
+                      <button
+                        soho-button="icon"
+                        icon="refresh"
+                        id="refresh-btn"
+                      >
+                        <span>Refresh</span>
+                      </button>
+                    </soho-toolbar-flex-section>
+                    <soho-toolbar-flex-more-button>
+                      <!-- <sunsystems-grid-personalise-menu
+          filename="tenantMessages"
+          worsheetName="Messages"
+        >
+        </sunsystems-grid-personalise-menu> -->
+                    </soho-toolbar-flex-more-button>
+                  </div>
+                  <div soho-datagrid [columns]="columns" [dataset]="dataset"
+                     selectable="multiple"
+                     stretchColumn="actionName"
+                     treeGrid="true"
+                     columnReorder="true"
+                     filterable="true"
+                     indeterminate="false" style="height: calc(100% - 45px)"></div>
+                </div> <!-- </sunsystems-tenant-messages-list> -->
+              </div>
+            </div>
+          </div><!--</sunsystems-tenant-form-tab>-->
+        </div>
+      </div>
+    </form>
+  </div>

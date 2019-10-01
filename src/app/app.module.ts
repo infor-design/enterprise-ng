@@ -98,6 +98,7 @@ import { DataGridSaveUserSettingsDemoComponent } from './datagrid/datagrid-save-
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
+import { DataGridTabDemoComponent } from './datagrid/datagrid-tab.demo';
 import { DataGridTestSettingsDemoComponent } from './datagrid/datagrid-test-settings.demo';
 import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
@@ -290,6 +291,7 @@ import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/app
     DataGridServiceDemoComponent,
     DataGridSettingsDemoComponent,
     DataGridStandardFormatterDemoComponent,
+    DataGridTabDemoComponent,
     DataGridTestSettingsDemoComponent,
     DataGridToolbarDemoComponent,
     DataGridTreeGridDemoComponent,

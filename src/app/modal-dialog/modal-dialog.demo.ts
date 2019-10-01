@@ -12,6 +12,7 @@ import {
 import { ExampleModalDialogComponent } from './example-modal-dialog.component';
 import { NestedModalDialogComponent } from './nested-modal-dialog.component';
 import { VetoableModalDialogComponent } from './vetoable-modal-dialog.component';
+import { ModalDialogDataGridComponent } from './modal-dialog-datagrid.component';
 
 @Component({
   selector: 'app-modal-dialog-demo',
@@ -44,9 +45,11 @@ export class ModalDialogDemoComponent {
     const dialogRef = this.modalService
       .modal<ExampleModalDialogComponent>(ExampleModalDialogComponent, this.placeholder)
       .buttons([
-        { id: 'cancel-button',
+        {
+          id: 'cancel-button',
           text: Soho.Locale.translate('Cancel'),
-          click: (e, modal) => { modal.isCancelled = true; dialogRef.close('CANCEL'); } },
+          click: (e, modal) => { modal.isCancelled = true; dialogRef.close('CANCEL'); }
+        },
         {
           text: 'Submit', click: (e, modal) => {
             dialogRef.close('SUBMIT');
@@ -68,8 +71,8 @@ export class ModalDialogDemoComponent {
     const dialogRef = this.modalService
       .modal<NestedModalDialogComponent>(NestedModalDialogComponent, this.placeholder)
       .buttons(
-      [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-      { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
+        [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
+        { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose((result) => {
@@ -81,10 +84,10 @@ export class ModalDialogDemoComponent {
     const dialogRef = this.modalService
       .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
       .buttons(
-      [
-        { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-        { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }
-      ])
+        [
+          { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
+          { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }
+        ])
       .title(this.title)
       .open()
       .afterClose(result => {
@@ -96,10 +99,10 @@ export class ModalDialogDemoComponent {
     const dialogRef = this.modalService
       .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
       .buttons(
-      [
-        { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-        { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }
-      ])
+        [
+          { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
+          { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }
+        ])
       .title(this.title)
       .open()
       .beforeClose((ref) => ref.dialogResult === 'CANCEL')
@@ -112,9 +115,9 @@ export class ModalDialogDemoComponent {
     const dialogRef = this.modalService
       .modal(VetoableModalDialogComponent, this.placeholder)
       .buttons(
-      [
-        { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-        { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
+        [
+          { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
+          { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose(result => {
@@ -126,12 +129,25 @@ export class ModalDialogDemoComponent {
     const dialogRef = this.modalService
       .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
       .buttons(
-      [{ text: 'YES', click: () => { dialogRef.close('YES'); } },
-      { text: 'NO', click: () => { dialogRef.close('NO'); }, isDefault: true }])
+        [{ text: 'YES', click: () => { dialogRef.close('YES'); } },
+        { text: 'NO', click: () => { dialogRef.close('NO'); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose(result => {
         alert(`You selected ${result}`);
+        this.closeResult = result;
+      });
+  }
+
+  public openDialogDataGrid() {
+    const dialogRef = this.modalService
+      .modal(ModalDialogDataGridComponent, this.placeholder)
+      .buttons(
+        [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
+        { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
+      .title(this.title)
+      .open()
+      .afterClose(result => {
         this.closeResult = result;
       });
   }
