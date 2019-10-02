@@ -239,6 +239,16 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   }
 
   /**
+   * The name of the locale to use for this instance. If not set, the current locale will be used.
+   */
+  @Input() set locale(locale: string) {
+    this._options.locale = locale;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
    * Calendar's name. Currently just 'gregorian' or 'islamic-umalqura'
    */
   @Input() set calendarName(calendarName: SohoDatePickerCalendarName) {

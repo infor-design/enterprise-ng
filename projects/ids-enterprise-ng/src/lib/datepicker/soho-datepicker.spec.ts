@@ -22,6 +22,7 @@ import { SohoDatePickerModule, SohoDatePickerComponent } from './index';
       [showLegend]="_showLegend"
       [showMonthYearPicker]="_showMonthYearPicker"
       [legend]="_legend"
+      [locale]="_locale"
       [calendarName]="_calendarName"
       [mode]="_mode"
       [range]="_range"
@@ -144,6 +145,14 @@ class TestDatePickerComponent {
     this._legend = legend;
     if (this.datepicker) {
       this.datepicker.legend = this._legend;
+    }
+  }
+
+  public _locale: string;
+  @Input() set locale(locale: string) {
+    this._locale = locale;
+    if (this.datepicker) {
+      this.datepicker.locale = this._locale;
     }
   }
 
@@ -293,6 +302,7 @@ describe('Soho Datepicker Unit Tests', () => {
       showLegend: false,
       showMonthYearPicker: false,
       legend: [{ name: 'Mondays', color: '#EFA880', dayOfWeek: [1] }],
+      locale: 'ar-SA',
       calendarName: 'islamic-umalqura',
       disable: {
         dates: '',
@@ -329,6 +339,7 @@ describe('Soho Datepicker Unit Tests', () => {
       comp.showLegend = false;
       comp.showMonthYearPicker = false;
       comp.legend = [{ name: 'Mondays', color: '#EFA880', dayOfWeek: [1] }];
+      comp.locale = 'ar-SA';
       comp.calendarName = 'islamic-umalqura';
       comp.disable = {
         dates: '',
