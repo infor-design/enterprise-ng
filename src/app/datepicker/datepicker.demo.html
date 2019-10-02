@@ -135,6 +135,14 @@
                [(ngModel)]="model.validrange" (change)="onChange($event)"/>
       </div>
     </div>
+    <div class="four columns">
+      <div class="field">
+        <label for="setViaOptions" class="label">ar-SA islamic-umalqura in current locale</label>
+        <input soho-datepicker name="islamic-umalqura-date" id="islamic-umalqura-date"
+          [options]="umalquraOptions"
+          [(ngModel)]="model.umalqura" (change)="onChange($event)"/>
+      </div>
+    </div>
   </div>
   <div class="row">
     <div class="four columns">

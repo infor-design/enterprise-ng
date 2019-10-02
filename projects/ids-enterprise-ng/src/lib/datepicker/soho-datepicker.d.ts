@@ -65,6 +65,9 @@ interface SohoDatePickerOptions {
   /** Use range of two dates options. */
   range?:  SohoDatePickerRange;
 
+  /** The name of the locale to use for this instance. If not set, the current locale will be used. */
+  locale?: string;
+
   /** Calendar name. */
   calendarName?:  SohoDatePickerCalendarName;
 

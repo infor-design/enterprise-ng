@@ -23,7 +23,8 @@ export class DatepickerDemoComponent implements OnInit {
     datetime: '',
     datetime2: '05.04.2018 16:15',
     range: '12/12/2016 - 12/26/2016',
-    range2: '1/12/2017 - 1/16/2017'
+    range2: '1/12/2017 - 1/16/2017',
+    umalqura: ''
   };
   public showModel = false;
   public datepickerDisabled = false;
@@ -61,6 +62,14 @@ export class DatepickerDemoComponent implements OnInit {
     showMonthYearPicker: true,
     legend: [{name: 'Weekends', color: '#EFA836', dayOfWeek: [0, 6]}],
     calendarName:  'gregorian'
+  };
+
+  public umalquraOptions: SohoDatePickerOptions = {
+    mode: 'standard',
+    dateFormat: 'yyyy/MM/dd',
+    showMonthYearPicker: true,
+    calendarName:  'islamic-umalqura',
+    locale: 'ar-SA'
   };
 
   constructor() { }
