@@ -54,7 +54,6 @@ export class TabsDynamicDemoComponent implements OnInit {
 
   ngOnInit() {
     this.tabs = this.tabsData[this.currentTabsIndex];
-    console.log("this", this);
   }
 
   onChangeTabs() {
