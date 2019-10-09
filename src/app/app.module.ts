@@ -184,6 +184,7 @@ import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDismissibleDemoComponent } from './tabs/tabs-dismissible.demo';
 import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
+import { TabsModuleDemoComponent } from './tabs/tabs-module.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
 import { TagDemoComponent } from './tag/tag.demo';
 import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
@@ -381,6 +382,7 @@ import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/app
     TabsDismissibleDemoComponent,
     TabsDropdownDemoComponent,
     TabsDynamicDemoComponent,
+    TabsModuleDemoComponent,
     TabsVerticalDemoComponent,
     TagDemoComponent,
     TestTabsBasicComponent,

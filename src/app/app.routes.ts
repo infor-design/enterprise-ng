@@ -145,6 +145,7 @@ import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
 import { TagDemoComponent } from './tag/tag.demo';
 import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
+import { TabsModuleDemoComponent } from './tabs/tabs-module.demo';
 import { TextareaDemoComponent } from './textarea/textarea.demo';
 import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
@@ -322,6 +323,7 @@ export const routes: Routes = [
   { path: 'tabs-vertical', component: TabsVerticalDemoComponent },
   { path: 'tags', component: TagDemoComponent },
   { path: 'test-tabs-basic', component: TestTabsBasicComponent },
+  { path: 'tabs-module', component: TabsModuleDemoComponent },
   { path: 'textarea', component: TextareaDemoComponent },
   { path: 'timepicker', component: TimePickerDemoComponent },
   { path: 'toast', component: ToastDemoComponent },
