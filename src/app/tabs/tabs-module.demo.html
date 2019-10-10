@@ -1,0 +1,19 @@
+<div soho-tabs
+    moduleTabs="true"
+>
+  <div soho-tab-list-container>
+    <ul soho-tab-list>
+      <li soho-tab dismissible="true" *ngFor="let tab of data"><a soho-tab-title [tabId]="tab.id">{{ tab.title }}</a></li>
+    </ul>
+  </div>
+</div>
+
+<div soho-tab-panel-container>
+  <div soho-tab-panel *ngFor="let tab of data" [tabId]="tab.id">
+    <div class="row">
+      <div class="twelve columns">
+        <p>{{ tab.body }}</p>
+      </div>
+    </div>
+  </div>
+</div>
