@@ -52,6 +52,13 @@ interface SohoLocaleCalendar {
   firstDayofWeek: number;
 }
 
+interface SohoLocaleParseDateOptions {
+  dateFormat?: string;
+  pattern?: string;
+  locale?: string;
+  calendarName?: string;
+}
+
 interface SohoLocaleStatic {
   cultures: any;
   culturesPath: string;
@@ -86,7 +93,7 @@ interface SohoLocaleStatic {
   getCulturesPath(): string;
   isRTL(): boolean;
   numbers(): SohoLocaleNumberData;
-  parseDate(dateString: string, dateFormat?: string, isStrict?: boolean): Date;
+  parseDate(dateString: string, dateFormat?: string | SohoLocaleParseDateOptions, isStrict?: boolean): Date;
   parseNumber(input: string): number;
   set(locale: string): any;
   getLocale(locale: string, filename?: string): any;
