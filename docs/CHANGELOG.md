@@ -11,6 +11,8 @@
 
 ### 6.1.0 Chore & Maintenance
 
+- `[Locale]` - Added typings support for the parseDate dateFormat parameter when defined as an object. `MAF` ([#640](https://github.com/infor-design/enterprise-ng/issues/640))
+
 ### 6.1.0 Fixes
 
 ## v6.0.0
