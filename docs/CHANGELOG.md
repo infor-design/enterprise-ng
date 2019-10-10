@@ -7,7 +7,7 @@
 ### 6.1.0 Features
 
 - `[Pager]` Added smallPageSizeSelector option to soho-standalone-pager. `PWP` ([#612](https://github.com/infor-design/enterprise-ng/pull/612))
-- `[Tabs]` Added tabs module component sample page. ([#612](https://github.com/infor-design/enterprise-ng/issues/596))
+- `[Tabs]` Added tabs module component sample page. `EA` ([#612](https://github.com/infor-design/enterprise-ng/issues/596))
 
 ### 6.1.0 Chore & Maintenance
 

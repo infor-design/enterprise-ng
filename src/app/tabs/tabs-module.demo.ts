@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 })
 export class TabsModuleDemoComponent {
 
-  data: Array<any> = [
+  public data: Array<any> = [
     {
       id: 'order-1',
       title: 'Order 1',

@@ -142,10 +142,10 @@ import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDismissibleDemoComponent } from './tabs/tabs-dismissible.demo';
 import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
+import { TabsModuleDemoComponent } from './tabs/tabs-module.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
 import { TagDemoComponent } from './tag/tag.demo';
 import { TestTabsBasicComponent } from './tabs/test-tabs-basic.demo';
-import { TabsModuleDemoComponent } from './tabs/tabs-module.demo';
 import { TextareaDemoComponent } from './textarea/textarea.demo';
 import { TimePickerDemoComponent } from './timepicker/timepicker.demo';
 import { ToastDemoComponent } from './toast/toast.demo';
@@ -320,10 +320,10 @@ export const routes: Routes = [
   { path: 'tabs-dismissible', component: TabsDismissibleDemoComponent },
   { path: 'tabs-dropdown', component: TabsDropdownDemoComponent },
   { path: 'tabs-dynamic', component: TabsDynamicDemoComponent },
+  { path: 'tabs-module', component: TabsModuleDemoComponent },
   { path: 'tabs-vertical', component: TabsVerticalDemoComponent },
   { path: 'tags', component: TagDemoComponent },
   { path: 'test-tabs-basic', component: TestTabsBasicComponent },
-  { path: 'tabs-module', component: TabsModuleDemoComponent },
   { path: 'textarea', component: TextareaDemoComponent },
   { path: 'timepicker', component: TimePickerDemoComponent },
   { path: 'toast', component: ToastDemoComponent },
