@@ -6,7 +6,10 @@
 
 ### 6.1.0 Features
 
+- `[General]` Adds 4.22 version of ids-enterprise. `TJM` ([#637](https://github.com/infor-design/enterprise-ng/pull/637))
+- `[Charts]` Added contextmenu event to all chart types. `TJM` ([#637](https://github.com/infor-design/enterprise-ng/pull/637))
 - `[Pager]` Added smallPageSizeSelector option to soho-standalone-pager. `PWP` ([#612](https://github.com/infor-design/enterprise-ng/pull/612))
+- `[Wizard]` Added ability to show short labels on the wizard. `TJM` ([#637](https://github.com/infor-design/enterprise-ng/pull/637))
 
 ### 6.1.0 Chore & Maintenance
 
