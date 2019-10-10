@@ -7,7 +7,9 @@
       <div class="widget-content">
         <div soho-bar
           [dataset]="barData"
-          [type]="barType">
+          [type]="barType"
+          (rendered)="onRendered($event)"
+          (contextmenu)="onContextMenu($event, $args)">
         </div>
       </div>
     </div>
