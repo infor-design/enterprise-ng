@@ -66,9 +66,19 @@ interface SohoModalOptions {
   // The maximum width to show for the modal, regardless of content.
   maxWidth?: number;
 
+  // Force the modal to go full size.
+  fullsize?: SohoModalFullSize;
+
+  // The breakpoint when to go fullsize.
+  breakpoint?: SohoModalBreakPoint;
+
   // A call back function for showing the modal
   beforeShow?: any;
 }
+
+type SohoModalFullSize = false | 'responsive' | 'always';
+type SohoModalBreakPoint = 'phone' | 'slim' | 'phablet' |
+  'phone-to-tablet' | 'wide-tablet' | 'tablet-to-desktop' | 'desktop' | 'desktop-to-extralarge';
 
 interface SohoModalButton {
   /** An optional identifier for the button. */
@@ -95,6 +105,9 @@ interface SohoModalButton {
 
   /** Click handler. */
   click?: SohoModalButtonClickFunction;
+
+  /** class for the button. */
+  cssClass?: string;
 
   /** Align the button (CAP Centered Tooltip) **/
   align?: 'left' | 'center' | 'right';

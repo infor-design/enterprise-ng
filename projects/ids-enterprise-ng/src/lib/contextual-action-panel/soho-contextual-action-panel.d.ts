@@ -23,29 +23,40 @@ type SohoContextualActionPanelTriggerType = 'click' | 'immediate';
  * See the jQuery control for the defaults.
  */
 interface SohoContextualActionPanelOptions {
-  /** The string used as the title for the panel - not defaulted. */
-  title?: string;
-
   // The content, can be 'html' or a selector.
   content?: JQuery | string;
-
-  /** The buttons to create. */
-  buttons?: SohoContextualActionPanelButton[];
-
-  /** When to close/open? */
-  trigger?: SohoContextualActionPanelTriggerType;
 
   /** Initialize newly loaded content */
   initializeContent?: boolean;
 
-  /** Identifier for the panel. */
-  id?: string;
+  /** The string used as the title for the panel - not defaulted. */
+  title?: string;
 
-  /** If true the title will be centered. */
+  /** Settings to pass through to the modal */
+  modalSettings?: SohoModalOptions;
+
+  /** @deprecated settings should use modalSettings */
+  /** @deprecated The buttons to create (use modalSettings) */
+  buttons?: SohoContextualActionPanelButton[];
+  /** @deprecated When to close/open */
+  trigger?: SohoContextualActionPanelTriggerType;
+  /** @deprecated Identifier for the panel. */
+  id?: string;
+  /** @deprecated If true the title will be centered. */
   centerTitle?: boolean;
 }
 
-interface SohoContextualActionPanelButton {
+interface SohoContextualActionPanelButton  {
+  /** An optional identifier for the button. */
+  id?: string;
+
+  /** An optional name for the input control, not used unless type = 'input'. */
+  name?: string;
+
+  /** An optional type for the control, either undefined, 'button' or 'input'
+   * The 'input' type is used internally for searching. */
+  type?: 'input' | 'button';
+
   /** Text for the button. */
   text?: string;
 
@@ -63,6 +74,9 @@ interface SohoContextualActionPanelButton {
 
   /** Click handler. */
   click?: SohoContextualActionPanelButtonClickFunction;
+
+  /** Align the button (CAP Centered Tooltip) **/
+  align?: 'left' | 'center' | 'right';
 }
 
 /**

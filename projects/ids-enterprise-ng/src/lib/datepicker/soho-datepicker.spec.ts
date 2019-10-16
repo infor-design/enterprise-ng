@@ -1,7 +1,7 @@
 /// <reference path="soho-datepicker.d.ts" />
 
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { Component, DebugElement, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SohoDatePickerModule, SohoDatePickerComponent } from './index';
@@ -97,6 +97,22 @@ class TestDatePickerComponent {
     this._firstDayOfWeek = firstDayOfWeek;
     if (this.datepicker) {
       this.datepicker.firstDayOfWeek = this._firstDayOfWeek;
+    }
+  }
+
+  public _showToday: boolean;
+  @Input() set showToday(showToday: boolean) {
+    this._showToday = showToday;
+    if (this.datepicker) {
+      this.datepicker.showToday = this._showToday;
+    }
+  }
+
+  public _autoSize: boolean;
+  @Input() set autoSize(autoSize: boolean) {
+    this._autoSize = autoSize;
+    if (this.datepicker) {
+      this.datepicker.autoSize = this._autoSize;
     }
   }
 
@@ -220,7 +236,7 @@ class TestDatePickerComponent {
     }
   }
 
-  onChange(value) {
+  onChange(value: any) {
     this.changed.emit(value);
   }
 }
@@ -228,8 +244,6 @@ class TestDatePickerComponent {
 describe('Soho Datepicker Unit Tests', () => {
   let comp: TestDatePickerComponent;
   let fixture: ComponentFixture<TestDatePickerComponent>;
-  let de: DebugElement;
-  let el: HTMLInputElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -241,8 +255,6 @@ describe('Soho Datepicker Unit Tests', () => {
     comp = fixture.componentInstance;
     fixture.detectChanges();
 
-    de = fixture.debugElement;
-    el = de.nativeElement;
     Soho.Locale.set('en-US').done(() => {
       // We ought to wait!
     });
@@ -280,6 +292,7 @@ describe('Soho Datepicker Unit Tests', () => {
       minuteInterval: 10,
       secondInterval: 10,
       firstDayOfWeek: 0,
+      showToday: true,
       roundToInterval: true,
       dateFormat: 'mm/dd/yyyy',
       placeholder: 'placeholder',
