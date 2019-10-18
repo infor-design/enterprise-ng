@@ -4,12 +4,12 @@
        (beforeactivate)="onBeforeActivated($event)"
        (activated)="onActivated($event)">
     <div soho-wizard-header>
-      <a soho-wizard-tick tickId="select-files" current="true">Select Files</a>
-      <a soho-wizard-tick tickId="target-folder">Target Folder</a>
-      <a soho-wizard-tick tickId="backup-rule">Backup Rule</a>
-      <a soho-wizard-tick tickId="validation-rule">Validation Rule</a>
-      <a soho-wizard-tick tickId="confirmation">Confirmation</a>
-      <a soho-wizard-tick tickId="result" [disabled]="true">Result</a>
+      <a soho-wizard-tick tickId="select-files" shortLabel="Select" current="true">Select Files</a>
+      <a soho-wizard-tick tickId="target-folder" shortLabel="Target">Target Folder</a>
+      <a soho-wizard-tick tickId="backup-rule" shortLabel="Backup">Backup Rule</a>
+      <a soho-wizard-tick tickId="validation-rule" shortLabel="Rule">Validation Rule</a>
+      <a soho-wizard-tick tickId="confirmation" shortLabel="Conf.">Confirmation</a>
+      <a soho-wizard-tick tickId="result" shortLabel="Res." [disabled]="true">Result</a>
     </div>
     <div soho-wizard-pages>
       <div soho-wizard-page tickId="select-files" style="overflow:  hidden;">

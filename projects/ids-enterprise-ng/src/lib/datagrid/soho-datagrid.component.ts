@@ -1643,6 +1643,31 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Set the status of the checkbox on the header.
+   *
+   * @param state 'all', 'partial' or 'all'.
+   */
+  public setHeaderCheckboxState(state: SohoDataGridHeaderCheckboxState) {
+    const headerCheckbox = this.jQueryElement.find('.datagrid-header').find('.datagrid-checkbox');
+    if (headerCheckbox) {
+      if (state === 'partial') {
+        headerCheckbox.data('selected', 'partial')
+          .addClass('is-checked is-partial');
+      }
+
+      if (state === 'all') {
+        headerCheckbox.data('selected', 'all')
+          .addClass('is-checked').removeClass('is-partial');
+      }
+
+      if (state === 'none') {
+        headerCheckbox.data('selected', 'none')
+          .removeClass('is-checked is-partial');
+      }
+    }
+  }
+
+  /**
    * Activate the row of the passed-in idx.
    * NOTE: valid only when selection mode is 'mixed'
    */
@@ -2029,7 +2054,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
-   * Event fired when a row is selected.
+   * Event fired when a row is selected or deselected.
    */
   private onSelected(args: SohoDataGridSelectedEvent) {
     this.ngZone.run(() => {
@@ -2285,7 +2310,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('rowactivated', (e: any, args: SohoDataGridRowActivatedEvent) => { this.onRowActivated(args); })
         .on('rowdeactivated', (e: any, args: SohoDataGridRowDeactivatedEvent) => { this.onRowDeactivated(args); })
         .on('rowreorder', (e: any, args: SohoDataGridRowReorderedEvent) => { this.onRowReordered(args); })
-        .on('selected', (e: any, args: SohoDataGridSelectedRow[]) => this.onSelected({ e, rows: args }))
+        .on('selected',
+          (e: any,
+            args: SohoDataGridSelectedRow[],
+            type?: SohoDataGridSelectedEventType) => this.onSelected({ e, rows: args, type }))
         .on('settingschanged', (e: any, args: SohoDataGridSettingsChangedEvent) => { this.onSettingsChanged(args); })
         .on('sorted', (e: any, args: SohoDataGridSortedEvent) => { this.onSorted(args); });
     });

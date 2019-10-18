@@ -108,6 +108,26 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   }
 
   /**
+   * If true the field will be sized to the width of the date.
+   */
+  @Input() set autoSize(autoSize: boolean) {
+    this._options.autoSize = autoSize;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * Show the today button on the header.
+   */
+  @Input() set showToday(showToday: boolean) {
+    this._options.showToday = showToday;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
    * Indicates mode, either 'standard' or 'range'.
    */
   @Input() set mode(mode: SohoDatePickerMode) {

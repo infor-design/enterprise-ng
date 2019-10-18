@@ -5,11 +5,11 @@ import {
 } from '@angular/core';
 
 import {
-  SohoModalDialogService,
-  SohoModalDialogRef
+  SohoModalDialogService
 } from 'ids-enterprise-ng';
 
 import { ExampleModalDialogComponent } from './example-modal-dialog.component';
+import { FullSizeModalDialogComponent } from './example-fullsize-modal.component';
 import { NestedModalDialogComponent } from './nested-modal-dialog.component';
 import { VetoableModalDialogComponent } from './vetoable-modal-dialog.component';
 import { ModalDialogDataGridComponent } from './modal-dialog-datagrid.component';
@@ -65,6 +65,27 @@ export class ModalDialogDemoComponent {
       console.log(dialogComponent.model);
       this.closeResult = result;
     });
+  }
+
+  openFullSize() {
+    const dialogRef = this.modalService
+      .modal<FullSizeModalDialogComponent>(FullSizeModalDialogComponent, this.placeholder)
+      .buttons([
+        {
+          id: 'cancel-button',
+          text: Soho.Locale.translate('Cancel'),
+          click: () => { dialogRef.close('CANCEL'); }
+        },
+        {
+          text: 'Submit', click: () => { dialogRef.close('SUBMIT'); },
+          isDefault: true
+        }])
+      .title(this.title)
+      .isAlert(this.isAlert)
+      .fullsize('responsive')
+      .breakpoint('phablet')
+      .apply((dialogComponent) => { dialogComponent.model.header = 'Header Text Update!!'; })
+      .open();
   }
 
   openNested() {

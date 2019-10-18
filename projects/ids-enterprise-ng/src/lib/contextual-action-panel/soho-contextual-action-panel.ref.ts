@@ -79,9 +79,24 @@ export class SohoContextualActionPanelRef<T> {
 
     return this;
   }
+
+  /**
+   * Sets the whole options block for this contextual action panel.
+   *
+   * @param options - the options to set.
+   */
+  modalSettings(options: SohoModalOptions): SohoContextualActionPanelRef<T> {
+    this._options.modalSettings = options;
+
+    if (this.contextualactionpanel) {
+      this.contextualactionpanel.settings.modalSettings = options;
+    }
+
+    return this;
+  }
+
   /**
    * Sets the title of the panel.
-   *
    * @param title - the title of the panel.
    */
   title(title: string): SohoContextualActionPanelRef<T> {
@@ -94,7 +109,7 @@ export class SohoContextualActionPanelRef<T> {
 
   /**
    * Sets the buttons to use on the panel panel.
-   *
+   * @deprecated (use modalSettings)
    * @param buttons - list of buttons to display
    */
   buttons(buttons: SohoContextualActionPanelButton[]): SohoContextualActionPanelRef<T> {
@@ -107,7 +122,7 @@ export class SohoContextualActionPanelRef<T> {
 
   /**
    * Sets the 'id' that the panel control uses.
-   *
+   * @deprecated (use modalSettings)
    * @param id - the id.
    */
   id(id: string): SohoContextualActionPanelRef<T> {
@@ -133,7 +148,7 @@ export class SohoContextualActionPanelRef<T> {
 
   /**
    * Sets the 'centerTitle' that the panel control uses.
-   *
+   * @deprecated (use modalSettings)
    * @param centerTitle - Aligns title to center
    */
   centerTitle(centerTitle: boolean): SohoContextualActionPanelRef<T> {
@@ -146,7 +161,7 @@ export class SohoContextualActionPanelRef<T> {
 
   /**
    * Sets the 'trigger' that the panel control uses.
-   *
+   * @deprecated (use modalSettings)
    * @param trigger - when to open the panel.
    */
   trigger(trigger: SohoContextualActionPanelTriggerType): SohoContextualActionPanelRef<T> {

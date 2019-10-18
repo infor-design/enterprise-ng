@@ -16,7 +16,7 @@ import {
  */
 @Component({
   selector: 'a[soho-wizard-tick]', // tslint:disable-line
-  template: '<span class="label"><ng-content></ng-content></span>',
+  template: '<span class="label" attr.data-shortLabel="{{shortLabel}}"><ng-content></ng-content></span>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoWizardTickComponent implements AfterViewInit {
@@ -32,6 +32,11 @@ export class SohoWizardTickComponent implements AfterViewInit {
   @HostBinding('attr.href') get hrefAttr() {
     return this.tickId ? '#' + this.tickId : null;
   }
+
+  /**
+   * A shorter label.
+   */
+  @Input() public shortLabel: string;
 
   /**
    * The id, used to link back to the pages.

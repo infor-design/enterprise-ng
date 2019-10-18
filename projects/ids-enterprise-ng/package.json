@@ -5,13 +5,13 @@
   "dependencies": {
     "@types/jquery": "3.3.29",
     "@types/d3": "4.13.0",
-    "ids-enterprise": "4.23.0-dev.20191016",
+    "ids-enterprise": "4.23.0-dev.20191018",
     "jquery": "3.4.1",
     "d3": "4.13.0"
   },
   "peerDependencies": {
-    "@angular/common": "^8.1.0",
-    "@angular/core": "^8.1.0"
+    "@angular/common": "~8.2.11",
+    "@angular/core": "~8.2.11"
   },
   "description": "Infor Design System (IDS) Enterprise Angular Components",
   "repository": {
