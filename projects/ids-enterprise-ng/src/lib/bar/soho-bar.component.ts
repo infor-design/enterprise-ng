@@ -204,6 +204,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
   @Output() selected: EventEmitter<SohoBarSelectEvent> = new EventEmitter<SohoBarSelectEvent>();
   @Output() unselected: EventEmitter<SohoBarSelectEvent> = new EventEmitter<SohoBarSelectEvent>();
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
 
   private jQueryElement: JQuery;
   private bar: SohoBar;
@@ -229,6 +230,8 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
         this.ngZone.run(() => this.unselected.emit(args)));
       this.jQueryElement.on('rendered', (...args) =>
         this.ngZone.run(() => this.rendered.emit(args)));
+      this.jQueryElement.on('contextmenu', (...args) =>
+        this.ngZone.run(() => this.contextmenu.emit(args)));
     });
   }
 

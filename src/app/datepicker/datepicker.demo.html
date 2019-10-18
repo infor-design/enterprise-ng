@@ -143,6 +143,14 @@
           [(ngModel)]="model.umalqura" (change)="onChange($event)"/>
       </div>
     </div>
+    <div class="four columns">
+      <div class="field">
+        <label for="hide-today" class="label">Hide Today</label>
+        <input soho-datepicker name="hide-today" id="hide-today"
+          [showToday]="false"
+          [(ngModel)]="model.standard"/>
+      </div>
+    </div>
   </div>
   <div class="row">
     <div class="four columns">

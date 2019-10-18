@@ -98,3 +98,5 @@ For a final release, finish with:
     ```sh
     git push origin master
     ```
+
+1. Update the ids-enterprise-quickstart with the new versions

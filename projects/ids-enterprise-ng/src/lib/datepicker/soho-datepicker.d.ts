@@ -10,6 +10,7 @@ type SohoDatePickerMode = 'standard' | 'range';
 type SohoDatePickerCalendarName = 'gregorian' | 'islamic-umalqura';
 
 type SohoDatePickerDayOfWeek = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+
 /**
  * Date Picker Options
  */
@@ -65,11 +66,11 @@ interface SohoDatePickerOptions {
   /** Use range of two dates options. */
   range?:  SohoDatePickerRange;
 
-  /** The name of the locale to use for this instance. If not set, the current locale will be used. */
-  locale?: string;
-
   /** Calendar name. */
   calendarName?:  SohoDatePickerCalendarName;
+
+  /** The name of the locale to use for this instance. If not set, the current locale will be used. */
+  locale?: string;
 
   /** If true the dates will use UTC format. This is only partially
    * implemented https://jira.infor.com/browse/SOHO-3437 */
@@ -77,6 +78,12 @@ interface SohoDatePickerOptions {
 
   /** Set first day of the week. '1' would be Monday. */
   firstDayOfWeek?: SohoDatePickerDayOfWeek;
+
+  /** If true the field will be sized to the width of the date. */
+  autoSize?: boolean;
+
+  /** Show the today button on the header. */
+  showToday?: boolean;
 }
 
 /* Options for the legend */

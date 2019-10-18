@@ -46,4 +46,12 @@ export class BarDemoComponent implements OnInit {
     const SohoBarSelected: SohoBarSelected = this.selection;
     this.sohoBarComponent.toggleSelected(SohoBarSelected);
   }
+
+  onRendered(e) {
+    console.log('onRendered', e);
+  }
+
+  onContextMenu(args) {
+    console.log('onContextMenu', args);
+  }
 }

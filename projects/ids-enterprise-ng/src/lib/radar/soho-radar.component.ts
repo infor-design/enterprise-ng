@@ -244,6 +244,7 @@ export class SohoRadarComponent implements AfterViewInit, AfterViewChecked, OnDe
   @Output() selected: EventEmitter<SohoRadarSelectEvent> = new EventEmitter<SohoRadarSelectEvent>();
   @Output() unselected: EventEmitter<SohoRadarSelectEvent> = new EventEmitter<SohoRadarSelectEvent>();
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
 
   private jQueryElement: JQuery;
   private radar: SohoRadar;
@@ -270,6 +271,8 @@ export class SohoRadarComponent implements AfterViewInit, AfterViewChecked, OnDe
         this.ngZone.run(() => this.unselected.emit(args)));
       this.jQueryElement.on('rendered', (...args) =>
         this.ngZone.run(() => this.rendered.emit(args)));
+      this.jQueryElement.on('contextmenu', (...args) =>
+        this.ngZone.run(() => this.contextmenu.emit(args)));
     });
   }
 

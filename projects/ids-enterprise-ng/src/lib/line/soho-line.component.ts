@@ -158,6 +158,7 @@ export class SohoLineComponent implements AfterViewInit, AfterViewChecked, OnDes
   @Output() selected: EventEmitter<SohoLineSelectEvent> = new EventEmitter<SohoLineSelectEvent>();
   @Output() unselected: EventEmitter<SohoLineSelectEvent> = new EventEmitter<SohoLineSelectEvent>();
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
 
   private jQueryElement: JQuery;
   private line: SohoLine;
@@ -185,6 +186,8 @@ export class SohoLineComponent implements AfterViewInit, AfterViewChecked, OnDes
         this.ngZone.run(() => this.unselected.emit(args)));
       this.jQueryElement.on('rendered', (... args) =>
         this.ngZone.run(() => this.rendered.emit(args)));
+      this.jQueryElement.on('contextmenu', (...args) =>
+        this.ngZone.run(() => this.contextmenu.emit(args)));
     });
   }
 

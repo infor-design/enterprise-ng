@@ -7,14 +7,12 @@ import {
 import {
   SohoContextualActionPanelService,
   SohoContextualActionPanelRef,
-  SohoModalDialogService,
-  SohoModalDialogRef
 } from 'ids-enterprise-ng';
 
 import { ContextualActionPanelComponent } from './contextual-action-panel.component';
-import { NestedModalDialogComponent } from './nested-modal-dialog.component';
 import { ContextualActionPanelSearchfieldComponent } from './contextual-action-panel-searchfield.component';
 import { ContextualActionPanelSearchfieldFlexComponent } from './contextual-action-panel-searchfield-flex.component';
+import { ContextualActionPanelFullSizeComponent } from './contextual-action-panel-fullsize.component';
 
 @Component({
   selector: 'app-contextual-action-panel-demo',
@@ -42,7 +40,7 @@ export class ContextualActionPanelDemoComponent {
    *
    * @param panelService - the modal dialog service.
    */
-  constructor(private panelService: SohoContextualActionPanelService, private modalService: SohoModalDialogService) {
+  constructor(private panelService: SohoContextualActionPanelService) {
   }
 
   openPanel() {
@@ -51,7 +49,7 @@ export class ContextualActionPanelDemoComponent {
         text: 'Save',
         cssClass: 'btn',
         icon: '#icon-save',
-        click: (e, panel) => {
+        click: (_e: any, panel: any) => {
           panel.close(true);
         }
       },
@@ -62,7 +60,9 @@ export class ContextualActionPanelDemoComponent {
         text: 'Close',
         cssClass: 'btn',
         icon: '#icon-close',
-        click: (e, panel) => { panel.close(true); },
+        click: (_e: any, panel: any) => {
+          panel.close(true);
+        },
         isDefault: true
       }];
 
@@ -86,6 +86,38 @@ export class ContextualActionPanelDemoComponent {
     const panel = this.panelService.contextualactionpanel(ContextualActionPanelSearchfieldFlexComponent, this.placeholder);
     panel
       .apply(component => component.panel = panel)
+      .open()
+      .initializeContent(true);
+  }
+
+  openResponsive() {
+    const buttons = [
+      {
+        text: 'Save',
+        cssClass: 'btn',
+        icon: '#icon-save',
+        click: (_e: any, panel: any) => {
+          panel.close(true);
+        }
+      },
+      {
+        cssClass: 'separator'
+      },
+      {
+        text: 'Close',
+        cssClass: 'btn',
+        icon: '#icon-close',
+        click: (_e: any, panel: any) => {
+          panel.close(true);
+        },
+        isDefault: true
+      }];
+
+    this.panelRef = this.panelService
+      .contextualactionpanel(ContextualActionPanelFullSizeComponent, this.placeholder)
+      .modalSettings({ fullsize: 'responsive' , breakpoint: 'phablet' })
+      .buttons(buttons)
+      .title(this.title)
       .open()
       .initializeContent(true);
   }

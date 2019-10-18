@@ -60,6 +60,7 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
 
   private jQueryElement: JQuery;
   private bullet: SohoBullet;
@@ -81,6 +82,8 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
       // Setup the events
       this.jQueryElement.on('rendered', (... args) =>
           this.ngZone.run(() => this.rendered.emit(args)));
+      this.jQueryElement.on('contextmenu', (...args) =>
+        this.ngZone.run(() => this.contextmenu.emit(args)));
     });
   }
 

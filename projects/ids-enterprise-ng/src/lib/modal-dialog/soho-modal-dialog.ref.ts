@@ -173,6 +173,30 @@ export class SohoModalDialogRef<T> {
   }
 
   /**
+   * Sets the fullsize configuration that the modal control uses.
+   * @param fullsize - The full size configuration to use.
+   */
+  fullsize(fullsize: SohoModalFullSize): SohoModalDialogRef<T> {
+    this._options.fullsize = fullsize;
+    if (this.modal) {
+      this.modal.settings.fullsize = fullsize;
+    }
+    return this;
+  }
+
+  /**
+   * Sets the breakpoint configuration that the modal control uses in full size mode(s).
+   * @param breakpoint - The full size configuration to use.
+   */
+  breakpoint(breakpoint: SohoModalBreakPoint): SohoModalDialogRef<T> {
+    this._options.breakpoint = breakpoint;
+    if (this.modal) {
+      this.modal.settings.breakpoint = breakpoint;
+    }
+    return this;
+  }
+
+  /**
    * Sets the 'content' that the modal control uses.
    *
    * @param content - a selector or string representing the dialog content.
