@@ -1163,9 +1163,16 @@ interface SohoDataGridRowClicked {
   row: number;
 }
 
+type SohoDataGridHeaderCheckboxState = 'all' | 'none' | 'partial';
+
+type SohoDataGridSelectedEventType = 'deselectall' | 'selectall' | 'select' | 'deselect';
+
 interface SohoDataGridSelectedEvent {
   e: JQuery.TriggeredEvent;
   rows: SohoDataGridSelectedRow[];
+
+  /** What was the action that caused the event? */
+  type: SohoDataGridSelectedEventType;
 }
 
 interface SohoDataGridCellChangeEvent {
