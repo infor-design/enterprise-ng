@@ -13,6 +13,9 @@
 - `[Pager]` Added smallPageSizeSelector option to soho-standalone-pager. `PWP` ([#612](https://github.com/infor-design/enterprise-ng/pull/612))
 - `[Modal]` Added responsive break point settings. `TJM` ([#637](https://github.com/infor-design/enterprise-ng/pull/637))
 - `[Wizard]` Added ability to show short labels on the wizard. `TJM` ([#637](https://github.com/infor-design/enterprise-ng/pull/637))
+- `[Tabs]` Added tabs module component sample page. `EA` ([#612](https://github.com/infor-design/enterprise-ng/issues/596))
+- `[DataGrid]` Added 'type' parameter to selected event to allow event handlers to determine the source action of the event. `BTHH` (https://github.com/infor-design/enterprise-ng/pull/)
+- `[DataGrid]` Added 'setHeaderCheckboxType' method to datagrid to allow clients to control the status of the selection checkbox. `BTHH` (https://github.com/infor-design/enterprise-ng/pull/)
 
 ### 6.1.0 Chore & Maintenance
 

@@ -14,11 +14,12 @@ import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indete
 @Component({
   selector: 'app-datagrid-paging-indeterminate-demo',
   templateUrl: './datagrid-paging-indeterminate.demo.html',
-  providers: [ DataGridPagingIndeterminateDemoService ],
+  providers: [DataGridPagingIndeterminateDemoService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecked, OnInit {
-  @ViewChild(SohoDataGridComponent, { static: false }) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: false })
+  private sohoDataGridComponent: SohoDataGridComponent;
 
   public showPageSizeSelector = true;
   public gridOptions: SohoDataGridOptions = undefined;
@@ -30,7 +31,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
     private ngZone: NgZone,
     private datagridPagingService: DataGridPagingIndeterminateDemoService,
     private toastService: SohoToastService,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.gridOptions = {
@@ -38,7 +39,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
       selectable: 'single',
       paging: true,
       pagesize: 10,
-      pagesizes: [ 5, 10, 25, 100 ],
+      pagesizes: [5, 10, 25, 100],
       indeterminate: true,
       rowHeight: 'short', // short, medium or normal
       sortable: false,
@@ -59,7 +60,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
 
   private dataGridSource = (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
     if (request.type === 'filtered') {
-      this.toastService.show({title: 'Filter', message: 'gridsource with filtered type called'});
+      this.toastService.show({ title: 'Filter', message: 'gridsource with filtered type called' });
     }
     this.datagridPagingService.getData(request).subscribe((result: any) => {
       request.firstPage = result.firstPage;
@@ -78,7 +79,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
 
   onRefresh() {
     console.log('onRefresh() called');
-    this.sohoDataGridComponent.triggerSource('refresh', function() {
+    this.sohoDataGridComponent.triggerSource('refresh', function () {
       console.log('List Refresh Completed');
     });
   }
@@ -89,18 +90,22 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
 
   onSelected(e: SohoDataGridSelectedEvent) {
     const selectedRows = e.rows.map(row => row.idx).join(', ');
-    this.toastService.show({title: 'Selected', message: 'Rows Selected: ' + selectedRows});
+    this.toastService.show({ title: 'Selected', message: 'Rows Selected: ' + selectedRows + ' type ' + e.type });
   }
 
   onOpenFilterRow(e: SohoDataGridOpenFilterRowEvent) {
-    this.toastService.show({title: 'Filter', message: 'filter row opened'});
+    this.toastService.show({ title: 'Filter', message: 'filter row opened' });
   }
 
   onCloseFilterRow(e: SohoDataGridCloseFilterRowEvent) {
-    this.toastService.show({title: 'Filter', message: 'filter row closed'});
+    this.toastService.show({ title: 'Filter', message: 'filter row closed' });
   }
 
   toggleFilterRow() {
     this.sohoDataGridComponent.toggleFilterRow();
+  }
+
+  setHeaderCheckbox(state: SohoDataGridHeaderCheckboxState) {
+    this.sohoDataGridComponent.setHeaderCheckboxState(state);
   }
 }
