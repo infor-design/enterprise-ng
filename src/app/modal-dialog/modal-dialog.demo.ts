@@ -5,6 +5,7 @@ import {
 } from '@angular/core';
 
 import {
+  SohoModalService,
   SohoModalDialogService
 } from 'ids-enterprise-ng';
 
@@ -38,32 +39,39 @@ export class ModalDialogDemoComponent {
    *
    * @param dialogService - the modal dialog service.
    */
-  constructor(private modalService: SohoModalDialogService) {
-  }
+  constructor(
+    private modalService: SohoModalDialogService,
+    private newModalService: SohoModalService
+  ) {}
 
   openSimple() {
-    const dialogRef = this.modalService
-      .modal<ExampleModalDialogComponent>(ExampleModalDialogComponent, this.placeholder)
+    let comp;
+    const dialogRef = this.newModalService
+      .modal<ExampleModalDialogComponent>(ExampleModalDialogComponent)
       .buttons([
         {
           id: 'cancel-button',
           text: Soho.Locale.translate('Cancel'),
-          click: (e, modal) => { modal.isCancelled = true; dialogRef.close('CANCEL'); }
+          click: (e) => { dialogRef.close('CANCEL'); }
         },
         {
           text: 'Submit', click: (e, modal) => {
-            dialogRef.close('SUBMIT');
+            dialogRef.close(comp.model);
           }, isDefault: true
-        }])
+        }
+      ])
       .title(this.title)
       .isAlert(this.isAlert)
-      .apply((dialogComponent) => { dialogComponent.model.header = 'Header Text Update!!'; })
+      .apply((dialogComponent) => {
+        dialogComponent.model.header = 'Header Text Update!!';
+        comp = dialogComponent;
+      })
       .open();
 
     // Attach a listener to the afterClose event, which also gives you the result - if available.
-    dialogRef.afterClose((result, ref, dialogComponent) => {
-      console.log(dialogComponent.model);
-      this.closeResult = result;
+    dialogRef.afterClose((result) => {
+      console.log(result);
+      this.closeResult = result.comment;
     });
   }
 
