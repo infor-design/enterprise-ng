@@ -1745,9 +1745,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * Trigger export of grid data to Excel.
    * @param fileName The prefix name to be used for the exported file.
    * @param worksheetName The name to be used for the worksheet.
-   * @param customDs A datasource to override the default.
+   * @param customDs A datasource to override the default (deprecated)
    */
-  exportToExcel(fileName: string, worksheetName: string, customDs: Object[]): void {
+  exportToExcel(fileName: string, worksheetName?: string, customDs?: Object[]): void {
     this.ngZone.runOutsideAngular(() => {
       this.datagrid.exportToExcel(fileName, worksheetName, customDs);
     });
@@ -1759,7 +1759,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @param customDs A datasource to override the default.
    * @param separator The separator to use in the cvs file, defaults to 'sep=,'
    */
-  exportToCsv(fileName: string, customDs: Object[], separator: string = 'sep=,'): void {
+  exportToCsv(fileName: string, customDs?: Object[], separator: string = 'sep=,'): void {
     this.ngZone.runOutsideAngular(() => {
       this.datagrid.exportToCsv(fileName, customDs, separator);
     });

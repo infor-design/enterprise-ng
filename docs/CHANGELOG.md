@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v7.0.0
+
+### 7.1.0 Fixes
+
+- `[Datagrid]` Adds made the last two options on exportToExcel optional. Note that passing in a third option is incorrect and will give you no headers. `TJM` ([#654](https://github.com/infor-design/enterprise-ng/pull/654))
+
 ## v6.1.0
 
 ### 6.1.0 Breaking Changes
