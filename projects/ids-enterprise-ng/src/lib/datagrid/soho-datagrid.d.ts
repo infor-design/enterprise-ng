@@ -295,6 +295,9 @@ interface SohoDataGridOptions {
    * or if one or more child node got match then add parent node and only matching children nodes
    */
   allowChildExpandOnMatch?: boolean;
+
+  /* Html string for the expandable row area*/
+  rowTemplate?: string;
 }
 
 type SohoDataGridModifiedRows = { [index: number]: SohoDataGridModifiedRow };

@@ -62,6 +62,7 @@ import { DataGridPagingServiceDemoComponent } from './datagrid/datagrid-paging-s
 import { DataGridSaveUserSettingsDemoComponent } from './datagrid/datagrid-save-user-settings.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
+import { DataGridExpandableRowDemoComponent } from './datagrid/datagrid-expandable-row.demo';
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
 import { DataGridTabDemoComponent } from './datagrid/datagrid-tab.demo';
 import { DataGridTestSettingsDemoComponent } from './datagrid/datagrid-test-settings.demo';
@@ -228,6 +229,7 @@ export const routes: Routes = [
   { path: 'datagrid-test-settings', component: DataGridTestSettingsDemoComponent },
   { path: 'datagrid-service', component: DataGridServiceDemoComponent },
   { path: 'datagrid-settings', component: DataGridSettingsDemoComponent },
+  { path: 'datagrid-expandable-row', component: DataGridExpandableRowDemoComponent },
   { path: 'datagrid-standalone-pager', component: DatagridStandalonePagerDemoComponent },
   { path: 'datagrid-treegrid', component: DataGridTreeGridDemoComponent },
   { path: 'datagrid-treegrid-dynamicfilter', component: DatagridTreegridDynamicfilteringDemoComponent },
