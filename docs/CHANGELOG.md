@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v7.0.0
+
+### 7.0.0 Features
+
+- `[Modal]` Added a new SohoModalModule that would work almost similar to SohoModalDialogModule but fixes memory leak issues. `NBCP` ([#639](https://github.com/infor-design/enterprise-ng/pull/639))
+
 ## v6.1.0
 
 ### 6.1.0 Breaking Changes

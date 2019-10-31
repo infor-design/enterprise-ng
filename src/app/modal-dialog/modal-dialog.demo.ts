@@ -5,6 +5,7 @@ import {
 } from '@angular/core';
 
 import {
+  SohoModalRef,
   SohoModalService,
   SohoModalDialogService
 } from 'ids-enterprise-ng';
@@ -33,6 +34,7 @@ export class ModalDialogDemoComponent {
 
   public title = 'Example Modal Dialog';
   public isAlert = false;
+  public allowOpen = false;
 
   /**
    * Constructor.
@@ -44,35 +46,56 @@ export class ModalDialogDemoComponent {
     private newModalService: SohoModalService
   ) {}
 
+  private dialogRef: SohoModalRef<ExampleModalDialogComponent>;
   openSimple() {
-    let comp;
-    const dialogRef = this.newModalService
+    if (this.dialogRef) {
+      return this.dialogRef.open();
+    }
+
+    this.dialogRef = this.newModalService
       .modal<ExampleModalDialogComponent>(ExampleModalDialogComponent)
       .buttons([
         {
           id: 'cancel-button',
           text: Soho.Locale.translate('Cancel'),
-          click: (e) => { dialogRef.close('CANCEL'); }
+          click: (e) => { this.dialogRef.close('CANCEL'); }
         },
         {
           text: 'Submit', click: (e, modal) => {
-            dialogRef.close(comp.model);
+            this.dialogRef.close(this.dialogRef.componentDialog.model);
           }, isDefault: true
         }
       ])
       .title(this.title)
       .isAlert(this.isAlert)
-      .apply((dialogComponent) => {
-        dialogComponent.model.header = 'Header Text Update!!';
-        comp = dialogComponent;
+      .apply(() => {
+        this.dialogRef.componentDialog.model.header = 'Header Text Update!!';
       })
       .open();
 
     // Attach a listener to the afterClose event, which also gives you the result - if available.
-    dialogRef.afterClose((result) => {
-      console.log(result);
-      this.closeResult = result.comment;
-    });
+    this.dialogRef
+      .opened(() => console.log('dialog opened'))
+      .afterOpen(() => console.log('dialog afterOpen'))
+      .closed(() => console.log('dialog closed'))
+      .afterClose((result) => {
+        this.closeResult = result
+        console.log(`dialog afterClose result: {result}`);
+      })
+      .beforeOpen(() => this.allowOpen)
+      .beforeClose(() => this.dialogRef.componentDialog.allowClose)
+      .beforeDestroy(() => {
+        if (this.dialogRef.componentDialog.allowDestroy) {
+          this.dialogRef = null;
+          return true;
+        }
+        return false;
+      });
+  }
+
+  destroyModal() {
+    this.dialogRef.destroy();
+    this.dialogRef = null;
   }
 
   openFullSize() {

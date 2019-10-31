@@ -1,8 +1,14 @@
 <div class="row">
   <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Modal (NEW)</h2>
+    <div class="row">
+      <button id="openSimpleBtn" soho-button (click)="openSimple()">Open {{ dialogRef ? 'Existing' : 'New' }} Modal</button>
+      <input soho-checkbox type="checkbox" id="allow-open-checkbox" [(ngModel)]="allowOpen">
+      <label soho-label for="allow-open-checkbox" [forCheckBox]="true">Allow Open</label>
+    </div>
+    <button id="destroyBtn" soho-button (click)="destroyModal()" *ngIf="dialogRef">Destroy Modal</button>
     <h2 class="fieldset-title">Soho Modal Dialog</h2>
     <div class="field">
-      <button id="openSimpleBtn" soho-button (click)="openSimple()">Example</button>
       <button id="openFullSize" soho-button (click)="openFullSize()">Full on Tablet</button>
       <button id="open-nested-btn" soho-button (click)="openNested()">Nested</button>
       <button id="open-message-btn" soho-button (click)="openMessage()">Message</button>

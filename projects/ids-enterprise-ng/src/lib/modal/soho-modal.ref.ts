@@ -5,12 +5,12 @@ import {
   Injector,
   NgZone
 } from '@angular/core';
-import { fromEvent, Observable } from 'rxjs';
+import { fromEvent, Observable, Subject } from 'rxjs';
 import { map, tap, take, takeUntil } from 'rxjs/operators';
 import { ModalComponent } from './soho-modal.service';
 
 /**
- * Wrapper for the jQuery modal control.
+ * Modal reference object which gives you control over the jQuery modal.
  */
 export class SohoModalRef<T> {
 
@@ -18,24 +18,27 @@ export class SohoModalRef<T> {
   private jQueryElement: JQuery;
   private modal: SohoModalStatic;
   private _options: SohoModalOptions = {};
-  // result passed as param to close() method
-  private dialogResult: any;
+  // result returned in afterclose callback
+  public dialogResult: any;
 
   // Event Observables
   private open$: Observable<Event>;
   private afterOpen$: Observable<Event>;
   private close$: Observable<Event>;
-  private afterClose$: Observable<any>;
+  private afterCloseEventCallback: (result: any) => void;
 
   // vetoable event guards
-  private openEventGuard: (e: Event) => boolean;
-  private closeEventGuard: (e: Event) => boolean;
-  private destroyEventGuard: (e: Event) => boolean;
+  private openEventGuard: () => boolean;
+  private closeEventGuard: () => boolean;
+  private destroyEventGuard: () => boolean;
+
+  // fires right before modal gets destroyed
+  private destroyed$ = new Subject();
 
   /**
    * returns the component instance inside the modal
    */
-  public get componentDialog(): T {
+  get componentDialog(): T {
     if (this.componentRef) {
       return this.componentRef.instance;
     }
@@ -215,9 +218,6 @@ export class SohoModalRef<T> {
     return this;
   }
 
-  /**
-   * Constructor.
-   */
   constructor(
     private appRef: ApplicationRef,
     private componentFactoryResolver: ComponentFactoryResolver,
@@ -241,9 +241,9 @@ export class SohoModalRef<T> {
   }
 
   /**
-   * Handles destruction of component and modal
+   * Cleans up the listeners and component
    */
-  private destroy() {
+  private cleanup() {
     // Close vetoable event listeners
     this.jQueryElement.off('beforeopen');
     this.jQueryElement.off('beforeclose');
@@ -258,28 +258,35 @@ export class SohoModalRef<T> {
       });
     }
 
-    if (this.modal) {
-      // destroy modal
-      this.ngZone.runOutsideAngular(() => {
-        this.modal.destroy();
-        this.modal = null;
-      });
-    }
+    // destroys event listeners
+    this.ngZone.run(() => {
+      this.destroyed$.next();
+      this.destroyed$.complete();
+    });
+
+    return true;
   }
 
   /**
-   * Returns true or executes the event guard if it exists
-   * @param eventFn Veto function that returns boolean
-   * @param e       Event Object from JQuery
+   * Executes the callback function and returns its result, otherwise just returns true.
    */
-  private checkEventGuard(guardFn: (e: Event) => boolean, e: Event) {
-    return guardFn ? this.ngZone.run(() => guardFn(e)) : true;
+  private eventGuard(callbackFn: () => boolean, execIfTrue?: Function): boolean {
+    const result = callbackFn ? this.ngZone.run(() => callbackFn()) : true;
+    if (result && execIfTrue) {
+      this.ngZone.run(() => execIfTrue());
+    }
+    return result;
   }
 
   /**
    * Opens the modal
    */
   open(): SohoModalRef<T> {
+    if (this.modal) {
+      this.modal.open();
+      return this;
+    }
+
     this.jQueryElement = this.ngZone.runOutsideAngular(() => {
       const element = jQuery('body');
       element.modal(this._options);
@@ -292,16 +299,23 @@ export class SohoModalRef<T> {
     this.open$ = fromEvent(this.jQueryElement, 'open');
     this.afterOpen$ = fromEvent(this.jQueryElement, 'afteropen');
     this.close$ = fromEvent(this.jQueryElement, 'close');
-    this.afterClose$ = fromEvent(this.jQueryElement, 'afterclose').pipe(
-      take(1),
-      tap(() => this.destroy()),
-      map(() => this.dialogResult)
-    );
+
+    // Start modal destroy on afterclose
+    fromEvent(this.jQueryElement, 'afterclose').pipe(
+      takeUntil(this.destroyed$)
+    ).subscribe(() => {
+      // return dialog result to the afterClose callback
+      if (this.afterCloseEventCallback) {
+        this.ngZone.run(() => this.afterCloseEventCallback(this.dialogResult));
+      }
+      // start modal destroy
+      this.ngZone.runOutsideAngular(() => this.modal.destroy());
+    });
 
     // Setup vetoable event listeners
-    this.jQueryElement.on('beforeopen', (e: Event) => this.checkEventGuard(this.openEventGuard, e));
-    this.jQueryElement.on('beforeclose', (e: Event) => this.checkEventGuard(this.closeEventGuard, e));
-    this.jQueryElement.on('beforedestroy', (e: Event) => this.checkEventGuard(this.destroyEventGuard, e));
+    this.jQueryElement.on('beforeopen', () => this.eventGuard(this.openEventGuard));
+    this.jQueryElement.on('beforeclose', () => this.eventGuard(this.closeEventGuard));
+    this.jQueryElement.on('beforedestroy', () => this.eventGuard(this.destroyEventGuard, () => this.cleanup()));
 
     return this;
   }
@@ -317,19 +331,24 @@ export class SohoModalRef<T> {
   }
 
   /**
-   * Subscribes to the modal's event hooks and keeps it until afterclose event is fired
-   * @param observable$ the observable that listens to the event
-   * @param callback    the callback function
+   * Destroys the modal regardless if it's open/close
+   */
+  destroy(): SohoModalRef<T> {
+    this.modal.destroy();
+    return this;
+  }
+
+  /**
+   * Subscribes to event observables and executes callback hooks until destroyed
    */
   private executeCallback(observable$: Observable<Event>, callback: Function) {
-    // afterClose shall close all event subscriptions
-    observable$.pipe(takeUntil(this.afterClose$))
-      .subscribe((e: Event) => this.ngZone.run(() => callback(e, this, this.componentDialog)));
+    observable$.pipe(takeUntil(this.destroyed$))
+      .subscribe((e: Event) => this.ngZone.run(() => callback()));
   }
 
   /**
    * Executes the callback for the opened event
-   * @param eventFn opened event hook
+   * @param eventFn opened event callback hook
    */
   opened(eventFn: Function): SohoModalRef<T> {
     this.executeCallback(this.open$, eventFn);
@@ -338,7 +357,7 @@ export class SohoModalRef<T> {
 
   /**
    * Executes the callback for the after open event
-   * @param eventFn after open event hook
+   * @param eventFn after open event callback hook
    */
   afterOpen(eventFn: Function): SohoModalRef<T> {
     this.executeCallback(this.afterOpen$, eventFn);
@@ -347,7 +366,7 @@ export class SohoModalRef<T> {
 
   /**
    * Executes the callback for the closed event
-   * @param eventFn closed event hook
+   * @param eventFn closed event callback hook
    */
   closed(eventFn: Function): SohoModalRef<T> {
     this.executeCallback(this.close$, eventFn);
@@ -356,37 +375,48 @@ export class SohoModalRef<T> {
 
   /**
    * Executes the callback for the after close event return the dialog result
-   * @param eventFn after close event hook
+   * @param eventFn after close event callback hook
    */
-  afterClose(eventFn: Function): SohoModalRef<T> {
-    this.afterClose$.subscribe((result) => this.ngZone.run(() => eventFn(result, this)));
+  afterClose(eventFn: (result: any) => void): SohoModalRef<T> {
+    this.afterCloseEventCallback = eventFn;
     return this;
   }
 
   /**
-   * Sets beforeopen vetoable event guard
-   * @param eventFn function callback
+   * Sets beforeopen vetoable event guard.
+   * Prevents modal from opening if callback function returns false.
+   * WARNING:
+   * You'll need to call destroy() manually later to avoid memory leaks,
+   * as the modal still exists even when it's not displayed.
+   *
+   * @param callbackFn function callback
    */
-  beforeOpen(eventFn: (e: Event) => boolean): SohoModalRef<T> {
-    this.openEventGuard = eventFn;
+  beforeOpen(callbackFn: () => boolean): SohoModalRef<T> {
+    this.openEventGuard = callbackFn;
     return this;
   }
 
   /**
-   * Sets beforeclose vetoable event guard
-   * @param eventFn function callback
+   * Sets beforeclose vetoable event guard.
+   * Prevents modal from closing if callback function returns false.
+   * @param callbackFn function callback
    */
-  beforeClose(eventFn: (e: Event) => boolean): SohoModalRef<T> {
-    this.closeEventGuard = eventFn;
+  beforeClose(callbackFn: () => boolean): SohoModalRef<T> {
+    this.closeEventGuard = callbackFn;
     return this;
   }
 
   /**
-   * Sets beforedestroy vetoable event guard
-   * @param eventFn function callback
+   * Sets beforedestroy vetoable event guard.
+   * Prevents modal from being destroyed if callback function returns false.
+   * WARNING:
+   * You'll need to call destroy() manually later to avoid memory leaks,
+   * as the modal still exists even when it's not displayed.
+   *
+   * @param callbackFn function callback
    */
-  beforeDestroy(eventFn: (e: Event) => boolean): SohoModalRef<T> {
-    this.destroyEventGuard = eventFn;
+  beforeDestroy(callbackFn: () => boolean): SohoModalRef<T> {
+    this.destroyEventGuard = callbackFn;
     return this;
   }
 }

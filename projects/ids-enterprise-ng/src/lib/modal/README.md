@@ -1,100 +1,76 @@
-# SoHoXi Angular Component : Modal
+# SohoModalModule
 
 ## Description
 
-This component provides access from Angular to the SoHoXi `modal` JQuery control.
+This module provides Angular access to the SoHoXi `modal` JQuery control.
 
-Modal dialogs allow users to enter a few key pieces of information without moving to a different page or task.
+Modals allow users to view/enter information without moving to a different page or task.
 
-### Usage
+## Usage
 
-Creating modal dialogs requires the injection of the service `SohoModalDialogService` into the hosting component.
-To access this service, you will need to inject `SohoModalDialogService` into the constructor of the relevant class.
-If this is a class managed by Angular (such as a Component) then adding the following will work:
+Creating modals requires the injection of the service `SohoModalService` into the hosting component.
+To access this service, you will need to inject `SohoModalService` into the constructor of the relevant class.
 
 ```typescript
-constructor(private modalService: SohoModalDialogService) {
+constructor(private modalService: SohoModalService) {
 }
 ```
 
-Angular requires a placeholder component to parent the
-dialog component when it is instantiated.  The location of the component
-is up to the calling application, but in this example the hosting component
-is used.
-
-```typescript
-@ViewChild('dialogPlaceholder', { read: ViewContainerRef }) placeholder: ViewContainerRef;
-```
-
-In the markup for the hosting component add:
-
-```html
-<!-- div #dialogPlaceholder will contain the child component -->
-<div #dialogPlaceholder></div>
-```
-
-To open the dialog, the `modal` is called on the `SohoModalDialogService`, as follows:
+To open the dialog, call the `modal()` and `open()` method from `SohoModalService`, as follows:
 
 ```typescript
 this.dialog = this.modalService
-  .modal(ExampleModalDialogComponent, this.placeholder)
+  .modal(ExampleModalDialogComponent)
   .open();
 ```
 
-This returns a typed implementation of `SohoModalDialogRef`.
+This returns a typed implementation of `SohoModalRef`.
 
-**NOTE:**  Angular needs to be able to find the dynamic dialog component for it to be able to
-instantiate it, so you **MUST** add the component into the *entryComponents* of the hosting
-module. For example:
+**NOTE:**  Angular needs to be able to find the passed component into the `modal()` method.
+So you **MUST** add the component into the *entryComponents* of the hosting module. For example:
 
 ```typescript
 @NgModule({
   declarations: [ ExampleModalDialogComponent ],
-  exports: [],
-  imports: [ ..., SohoComonentsModule ],
-  providers: [],
-  entryComponents:[ ExampleModalDialogComponent ]
-  ]
+  imports: [ SohoComponentsModule ],
+  entryComponents: [ ExampleModalDialogComponent ]
 })
 export class ExampleModuleDialogModule {}
 ```
 
 ## Methods
 
+### SohoModalService
+
 | Name | Description |
 | --- | --- |
-| `modal` | Creates a modal dialog, under the placeholder, based on the given component. |
-| `message` | Creates a modal dialog using the html (or jQuery) content |
+| `modal<T>(component: ModalComponent<T>, settings = {} as SohoModalOptions)` | Creates a modal dialog intance that contains the given component |
+| `message<T>(content: string, settings = {} as SohoModalOptions)` | Creates a modal dialog using the string content |
 
-## SohoModalDialogRef
+### SohoModalRef
 
 | Name | Description |
 | --- | --- |
 | `open()` | Opens the dialog. |
-| `apply((c: T) => void)` | Executes the given function, with the instantiated component instance as an argument.  This is allow the concrete component to be interacted with. |
-| `close(boolean)` | Closes the modal dialog, if open.  The dialog is not closed fully until the 'afterClosed' event is fired. |
-| `options(SohoModalOptions)` | Applies the given Soho options to the modal, overrides all options. |
-| `frameHeight(number)` | Sets the extra frame height for the dialog. |
-| `title(string)` | Sets the title for the dialog. |
-| `buttons(SohoModalButton[])` | Sets the button to use for the modal dialog. |
-| `id(string)` | Sets the element id for the modal dialog. |
-| `trigger(SohoModalTriggerType)` | Sets the trigger for the modal dialog. |
-| `isAlert(boolean)` | Sets the isAlert option - controls the styling and assessibility. |
-| `content(string | JQuery)` | Defines the content of the dialog, if not using an Angular component. |
-| `cssClass(string)` | Extra CSS for the markup . |
-| `autoFocus(boolean)` | Auto Focus the dialog. TBC |
-| `beforeOpen(() => boolean)` | 'Registers a 'beforeOpen' callback, which can veto open. |
-| `afterOpen(Function)` | 'Registers an 'afterOpen' callback. |
-| `opened(Function)` | 'Registers an 'opened' callback - before the dialog is opend. |
-| `beforeClose((dialogRef: SohoModalDialogRef<T>) => boolean)` | 'Registers a 'beforeClose' callback, which can veto the close. |
-| `afterClose(Function)` | 'Registers an 'afterClose' callback. |
-| `closed(Function)` | 'Registers a 'closed' callback - before dialog is closed. |
+| `apply(fn: (component: T) => void)` | Executes the given function, with the instantiated component instance as an argument.  This is allow the concrete component to be interacted with. |
+| `close(dialogResult?: any)` | Closes the modal dialog, if open.  The dialog is not closed fully until the 'afterClosed' event is fired. |
+| `options(options: SohoModalOptions)` | Applies the given Soho options to the modal, overrides all options. |
+| `frameHeight(frameHeight: number)` | Sets the extra frame height for the dialog. |
+| `title(title: string)` | Sets the title for the dialog. |
+| `buttons(buttons: SohoModalButton[])` | Sets the button to use for the modal dialog. |
+| `id(id: string)` | Sets the element id for the modal dialog. |
+| `trigger(trigger: SohoModalTriggerType)` | Sets the trigger for the modal dialog. |
+| `isAlert(isAlert: boolean)` | Sets the isAlert option - controls the styling and assessibility. |
+| `content(content: string | JQuery)` | Defines the content of the dialog, if not using an Angular component. |
+| `cssClass(cssClass: string)` | Extra CSS for the markup . |
+| `autoFocus(autoFocus: boolean)` | Auto Focus the dialog. TBC |
+| `opened(eventFn: Function)` | 'Registers an 'opened' callback - before the dialog is opened. |
+| `afterOpen(eventFn: Function)` | 'Registers an 'afterOpen' callback. |
+| `closed(eventFn: Function)` | 'Registers a 'closed' callback - before dialog is closed. |
+| `afterClose(eventFn: (result: any))` | 'Registers an 'afterClose' callback that gets the dialog result. |
+| `beforeOpen(() => boolean)` | 'Registers a 'beforeOpen' callback, which can veto open. USE WITH CARE! |
+| `beforeClose(() => boolean)` | 'Registers a 'beforeClose' callback, which can veto the close. |
 | `beforeDestroy(() => boolean))` | 'Registers a 'beforeDestroy' guard - vetoing the destruction. USE WITH CARE! |
-
-## Events
-
-| Name | Description |
-| --- | --- |
 
 ## Examples
 
@@ -104,10 +80,16 @@ This example show how a simple modal dialog component can be instantiated.
 
 ```typescript
   this.dialog = this.modalService
-    .modal<ModalDialogComponent>(ModalDialogComponent, this.placeholder)
-    .buttons([{text: 'OK', click: () => { this.dialog.close(); }, isDefault: true}])
+    .modal(ModalDialogComponent)
+    .buttons([
+      {
+        text: 'OK',
+        click: () => { this.dialog.close(); },
+        isDefault: true
+      }
+    ])
     .title('My Dialog')
-    .open());
+    .open();
 ```
 
 ### Simple Message dialog
@@ -116,7 +98,13 @@ This example show how a simple modal dialog component can be instantiated.
 openMessage() {
   this.dialog = this.modalService
     .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
-    .buttons([{text: 'Submit', click: () => { this.dialog.close(); }, isDefault: true}])
+    .buttons([
+      {
+        text: 'Submit',
+        click: () => { this.dialog.close(); },
+        isDefault: true
+      }
+    ])
     .title('Confirmation')
     .open();
 }
@@ -125,13 +113,12 @@ openMessage() {
 ### Setting the dialog result
 
 Setting the `dialogResult` can be achieved in several ways, the simpliest is to
-use the `close` method on `SohoModalDialogRef` in your button handler, which takes the
+use the `close` method on `SohoModalRef` in your button handler, which takes the
 dialog result as an argument.  This is set on the dialog reference and then passed into
 the `afterClose` event handler.
 
-Alternatively, you can call the `setDialogResult` method on the dialog reference, which
-also takes a dialog result as an argument.  This allow the closing of the dialog to be
-decoupled from the result.
+Alternatively, you can also set it via the `dialogResult` public property of your `SohoModalRef` instance.
+This allow the closing of the dialog to be decoupled from the result.
 
 The `dialogResult` could be the _model_ used by the underlying component, or a simple status
 indicator, such as `OK` or `CANCELLED`.
@@ -149,61 +136,40 @@ openMessage() {
     .open()
     .afterClose(result => {
       console.log(`The result was ${result}`);
-  });
+    });
 }
 ```
 
-To provide access to any model present on the underlying dialog component, a reference to
-this component is passed to the `beforeClose`, `closed` and `afterClose` callbacks.  This
-reference can then be used to interogate the public properties of that `dialogComponent`.
-
-```typescript
-dialogRef.afterClose((result: any, ref: SohoModalDialogRef<ExampleModalDialogComponent>, dialogComponent: ExampleModalDialogComponent) => {
-  console.log(dialogComponent.model.someProperty);
-});
-```
-
-Access to the `dialogComponent` is also possible from the `SohoModalDialogRef` using the `componentDialog` property.
-
 ### Vetoable Closure using 'beforeClose'
 
-To veto the closure of a modal dialog, the `SohoModalDialogRef` calls the `beforeClose` guard function.  If this function returns `false`
+To veto the closure of a modal dialog, the `SohoModalRef` calls the `beforeClose` guard function.  If this function returns `false`
 the dialog will not be closed.  The `beforeClose` guard can be configured on a modal (or message) dialog. In this example, the closure of
 the dialog is allowed if the underlying model is valid or the dialogResult has been set to 'CANCEL' (in the cancel button).
 
 ```typescript
-this.modalService
-  .modal(ExampleModalDialogComponent, this.placeholder)
+this.dialogRef = this.modalService
+  .modal(ExampleModalDialogComponent)
   .buttons([
      { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
      { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
-  .beforeClose( (dialogRef) => dialogRef.dialogComponent.isModelValid || dialogRef.dialogResult === 'CANCEL' );
+  .beforeClose(() => this.dialogRef.dialogComponent.isModelValid || this.dialogRef.dialogResult === 'CANCEL' );
   .open();
 ```
 
-The `beforeClose` guard function is defined as follows:
-
-```typescript
-(dialogRef: SohoModalDialogRef<T>) => boolean;
-```
-
-Alternatively, the dialog component can implement the `SohoModalDialogVetoableEventGuard`
-interface, see the application demos for an example.
+`beforeOpen` and `beforeDestroy` also works in a similar manner.
 
 ### Using `apply` to set values on the dialog instance
 
-To allow the public properties and methods of a dialog to be accessed as
-part of the dialog creation process, the `apply` method exists on `SohoModalDialogRef`
-to allow the caller full access to the instance of the given component before
-(or after) it is displayed, for example:
+To allow access to the dialog component's public methods and properties, the `apply` method grants
+access to the instance of the given component before (or after) it is displayed, for example:
 
 ```typescript
 this.modalService
-  .modal(ExampleModalDialogComponent, this.placeholder)
+  .modal(ExampleModalDialogComponent)
   .buttons(buttons)
   .apply((c) => { c.value = 'Hello World!'; })
   .open();
-  ```
+```
 
 The apply methods takes a function, with the following prototype:
 
@@ -211,4 +177,15 @@ The apply methods takes a function, with the following prototype:
 (component: T) => void
 ```
 
-where T is the type of the dialog component.
+where T is the type of the component.
+Alternatively, you can also access the component via the `componentDialog` property.
+
+```typescript
+this.dialogRef = this.modalService
+  .modal(ExampleModalDialogComponent)
+  .buttons(buttons);
+...
+this.dialogRef.componentDialog.value = 'Hello World!';
+...
+this.dialogRef.open();
+```
