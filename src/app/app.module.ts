@@ -97,6 +97,7 @@ import { DataGridRowReorderDemoComponent } from './datagrid/datagrid-rowreorder.
 import { DataGridSaveUserSettingsDemoComponent } from './datagrid/datagrid-save-user-settings.demo';
 import { DataGridServiceDemoComponent } from './datagrid/datagrid-service.demo';
 import { DataGridSettingsDemoComponent } from './datagrid/datagrid-settings.demo';
+import { DataGridExpandableRowDemoComponent } from './datagrid/datagrid-expandable-row.demo';
 import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-standard-formatter.demo';
 import { DataGridTabDemoComponent } from './datagrid/datagrid-tab.demo';
 import { DataGridTestSettingsDemoComponent } from './datagrid/datagrid-test-settings.demo';
@@ -291,6 +292,7 @@ import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/app
     DataGridSaveUserSettingsDemoComponent,
     DataGridServiceDemoComponent,
     DataGridSettingsDemoComponent,
+    DataGridExpandableRowDemoComponent,
     DataGridStandardFormatterDemoComponent,
     DataGridTabDemoComponent,
     DataGridTestSettingsDemoComponent,
