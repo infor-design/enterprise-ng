@@ -62,14 +62,14 @@ export class ModalDialogDemoComponent {
         },
         {
           text: 'Submit', click: (e, modal) => {
-            this.dialogRef.close(this.dialogRef.componentDialog.model);
+            this.dialogRef.close(this.dialogRef.componentDialog.model.comment);
           }, isDefault: true
         }
       ])
       .title(this.title)
       .isAlert(this.isAlert)
-      .apply(() => {
-        this.dialogRef.componentDialog.model.header = 'Header Text Update!!';
+      .apply((componentDialog) => {
+        componentDialog.model.header = 'Header Text Update!!';
       })
       .open();
 
@@ -79,7 +79,7 @@ export class ModalDialogDemoComponent {
       .afterOpen(() => console.log('dialog afterOpen'))
       .closed(() => console.log('dialog closed'))
       .afterClose((result) => {
-        this.closeResult = result
+        this.closeResult = result;
         console.log(`dialog afterClose result: {result}`);
       })
       .beforeOpen(() => this.allowOpen)
