@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v7.0.0
+
+### 7.0.0 Features
+
+- `[Datagrid]` Added rowTemplate / expandable row example. `TJM` ([#https://github.com/infor-design/enterprise-ng/issues/606](https://github.com/infor-design/enterprise-ng/pull/https://github.com/infor-design/enterprise-ng/issues/606))
+
 ## v6.1.0
 
 ### 6.1.0 Breaking Changes
