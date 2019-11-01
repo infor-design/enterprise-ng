@@ -1,10 +1,10 @@
 # What's New with Enterprise-NG
 
-## v7.0.0
+## v6.2.0
 
-### 7.0.0 Features
+### 6.2.0 Fixes
 
-- `[Datagrid]` Added rowTemplate / expandable row example. `TJM` ([#https://github.com/infor-design/enterprise-ng/issues/606](https://github.com/infor-design/enterprise-ng/pull/https://github.com/infor-design/enterprise-ng/issues/606))
+- `[Datagrid]` Made the last two options on exportToExcel optional. Note that passing in a third option is incorrect and will give you no headers in the exported file, so generally shouldnt be used. `TJM` ([#654](https://github.com/infor-design/enterprise-ng/pull/654))
 
 ## v6.1.0
 

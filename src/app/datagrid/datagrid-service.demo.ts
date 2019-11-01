@@ -66,4 +66,9 @@ export class DataGridServiceDemoComponent {
 
   addRow() {
   }
+
+  export() {
+    this.dataGrid.exportToExcel('my-export');
+    this.dataGrid.exportToCsv('my-export');
+  }
 }
