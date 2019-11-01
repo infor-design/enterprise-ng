@@ -3,16 +3,22 @@
     <div class="row top-padding">
       <div class="row">
         <div class="field">
-          <label for="states" class="label">Simple Dropdown</label>
-          <select soho-dropdown soho-busyindicator noSearch name="states"
+          <label for="states1" class="label">Simple Dropdown</label>
+          <select soho-dropdown soho-busyindicator noSearch name="states1"
             (update)="onUpdated($event)"
             (change)="onChange($event)">
             <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
           </select>
         </div>
         <div class="field">
-          <label for="states" class="label">Dropdown using NgModel</label>
-          <select soho-dropdown name="states" (update)="onUpdated($event)" (change)="onChange($event)" [(ngModel)]="model.selectedOption">
+          <label for="states2" class="label">Dropdown using NgModel</label>
+          <select soho-dropdown name="states2" (update)="onUpdated($event)" (change)="onChange($event)" [(ngModel)]="model.selectedOption">
+            <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="states2" class="label">Dropdown xss test</label>
+          <select soho-dropdown name="states2" (update)="onUpdated($event)" (change)="onChange($event)" [(ngModel)]="model.selectedOptionXss">
             <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
           </select>
         </div>
