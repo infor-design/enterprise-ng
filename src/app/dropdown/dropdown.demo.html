@@ -6,7 +6,7 @@
       <div class="row">
         <div class="field">
           <label for="states" class="label">States</label>
-          <select soho-dropdown noSearch name="states" [(ngModel)]="model.single">
+          <select soho-dropdown noSearch name="states" [(ngModel)]="model.single" (keydown)="onKeyDown($event)">
             <option value="AL">Alabama</option>
             <option value="CA">California</option>
             <option value="DE" >Delaware</option>
