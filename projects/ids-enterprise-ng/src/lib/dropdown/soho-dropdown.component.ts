@@ -312,6 +312,12 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   updatedEvent: EventEmitter<Object> = new EventEmitter<JQuery.TriggeredEvent>();
 
   /**
+   * This event is fired when a key is pressed
+   */
+  @Output()
+  keydown = new EventEmitter<Event>();
+
+  /**
    * Bind attributes to the host select element
    */
 
@@ -367,6 +373,8 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     this.ngZone.runOutsideAngular(() => {
       // assign element to local variable
       this.jQueryElement = jQuery(this.element.nativeElement);
+
+      this.options.onKeyDown = (e: Event) => this.ngZone.run(() => this.keydown.next(e));
 
       // initialise the dropdown control
       this.jQueryElement.dropdown(this.options);
