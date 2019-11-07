@@ -50,7 +50,7 @@ export class DropdownDemoComponent {
   }
 
   onKeyDown(e: Event) {
-    console.log('keydown', e)
+    console.log('keydown', e);
   }
 
   toggleModel() {
