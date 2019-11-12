@@ -49,6 +49,10 @@ export class DropdownDemoComponent {
     this.options.pop();
   }
 
+  onKeyDown(e: Event) {
+    console.log('keydown', e);
+  }
+
   toggleModel() {
     this.showModel = !this.showModel;
   }
