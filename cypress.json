@@ -1,3 +1,5 @@
 {
-  "baseUrl": "http://localhost:4200/ids-enterprise-ng-demo"
+  "baseUrl": "http://localhost:4200/ids-enterprise-ng-demo",
+  "viewportWidth": 800,
+  "viewportHeight": 800
 }

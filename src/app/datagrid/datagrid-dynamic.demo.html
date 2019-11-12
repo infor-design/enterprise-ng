@@ -14,15 +14,16 @@
   <div class="twelve columns demo" role="main">
     <section class="scrollable contained-scrolling-right-bottom" style="height: 100%">
       <div soho-busyindicator soho-datagrid
-          (selected)="onSelected($event)"
-          (rowDoubleClicked)="onRowDoubleClicked($event)"
-          (rowClicked)="onRowClicked($event)"
-          (contextMenu)="onContextMenu($event)"
-          [columns]="columns | async"
-          [data]="data | async"
-          displayDelay="0"
-          selectable="multiple"
-          filterable="true"
+        menuId="{{contextMenuId}}"
+        (selected)="onSelected($event)"
+        (rowDoubleClicked)="onRowDoubleClicked($event)"
+        (rowClicked)="onRowClicked($event)"
+        (contextMenu)="onContextMenu($event)"
+        [columns]="columns | async"
+        [data]="data | async"
+        displayDelay="0"
+        selectable="multiple"
+        filterable="true"
       ></div>
     </section>
   </div>
