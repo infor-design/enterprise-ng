@@ -63,7 +63,7 @@ are copied into src/app/icon.
 
 1. Make sure you ran `npm run update-enterprise` to update the version (see previous section).
 1. Check if the angular dependencies need a minor update to latest. This is done by:
-    - `ng update @angular/cli @angular/core` - beta
+    - `ng update @angular/cli @angular/core`
     - Update peer dependencies in projects/ids-enterprise-ng/package.json
 1. Commit the update (see previous section).
 1. Checkout the release branch (`#.#.x`) and `git pull --tags`
