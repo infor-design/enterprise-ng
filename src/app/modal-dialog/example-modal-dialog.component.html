@@ -6,4 +6,12 @@
     <label for="txt-comment" class="audible">Comments</label>
     <textarea soho-textarea id="txt-comment" name="txt-comment" class="textarea-lg" [(ngModel)]="model.comment"></textarea>
   </div>
+  <div class="field">
+    <input soho-checkbox type="checkbox" id="allow-close" [(ngModel)]="allowClose">
+    <label soho-label for="allow-close" [forCheckBox]="true">Allow Close</label>
+  </div>
+  <div class="field">
+    <input soho-checkbox type="checkbox" id="allow-destroy" [(ngModel)]="allowDestroy">
+    <label soho-label for="allow-destroy" [forCheckBox]="true">Allow Destroy</label>
+  </div>
 </div>

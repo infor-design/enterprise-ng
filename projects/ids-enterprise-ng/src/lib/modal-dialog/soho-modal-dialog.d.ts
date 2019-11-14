@@ -150,6 +150,11 @@ interface SohoModalStatic {
   resize();
 
   /**
+   * Open the modal dialog.
+   */
+  open(): void;
+
+  /**
    * Close the modal dialog.
    *
    * @param destroy - destroy the html elements.
