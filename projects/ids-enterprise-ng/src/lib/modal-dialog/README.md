@@ -115,7 +115,7 @@ This example show how a simple modal dialog component can be instantiated.
 ```typescript
 openMessage() {
   this.dialog = this.modalService
-    .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
+    .message('<span class="message">Are you sure you want to delete this page?</span>')
     .buttons([{text: 'Submit', click: () => { this.dialog.close(); }, isDefault: true}])
     .title('Confirmation')
     .open();
@@ -141,7 +141,7 @@ Here is an example for a simple message returning a status as a result:
 ```typescript
 openMessage() {
   const dialog = this.modalService
-    .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
+    .message('<span class="message">Are you sure you want to delete this page?</span>')
     .buttons(
       [{ text: 'No', click: () => { dialog.close('I pressed YES'); } },
        { text: 'Yes', click: () => { dialog.close('I pressed NO'); }, isDefault: true }])

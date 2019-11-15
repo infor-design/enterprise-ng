@@ -41,15 +41,19 @@ export class MessageDemoComponent {
 
   openAlert() {
     const buttons = [
-      { text: 'Acknowledge', click: (e, modal) => {
+      {
+        text: 'Acknowledge', click: (e, modal) => {
           this.closeResult = 'Acknowledge';
           this.dialog = null;
           modal.close(true);
-      }, isDefault: true },
-      { text: 'Cancel', click: (e, modal) => {
-        this.closeResult = 'Cancel';
-        this.dialog = null; modal.close(true);
-      } }];
+        }, isDefault: true
+      },
+      {
+        text: 'Cancel', click: (e, modal) => {
+          this.closeResult = 'Cancel';
+          this.dialog = null; modal.close(true);
+        }
+      }];
 
     this.dialog = this.messageService
       .alert()
@@ -61,7 +65,7 @@ export class MessageDemoComponent {
 
   openConfirm() {
     const buttons = [
-      { text: 'Cancel', click: (e, modal) => { this.closeResult = 'Cancel'; this.dialog = null; modal.close(true);  }, isDefault: true },
+      { text: 'Cancel', click: (e, modal) => { this.closeResult = 'Cancel'; this.dialog = null; modal.close(true); }, isDefault: true },
       { text: 'Remove', click: (e, modal) => { this.closeResult = 'Remove'; this.dialog = null; modal.close(true); } }];
 
     this.dialog = this.messageService
@@ -86,40 +90,40 @@ export class MessageDemoComponent {
     this.dialog = this.messageService
       .message()
       .title('<span>File Upload Complete</span>')
-      .message(`<span class="longer-message">
+      .message(`<span class="message">
           Your file "photo.png" was successfully uploaded to your personal folder and is now public for viewing.
         </span>`)
       .buttons(buttons)
       .beforeClose(() => {
-         console.log('before close');
-         return true;
+        console.log('before close');
+        return true;
       }).beforeOpen(() => {
-         console.log('before open');
-         return true;
+        console.log('before open');
+        return true;
       }).opened(() => {
-         console.log('opened');
+        console.log('opened');
       })
       .open();
   }
 
   openConfirmation() {
     const buttons = [
-      { text: 'Yes', click: (e, modal) => { this.closeResult = 'Yes'; this.dialog = null; modal.close(true);  }, isDefault: true },
+      { text: 'Yes', click: (e, modal) => { this.closeResult = 'Yes'; this.dialog = null; modal.close(true); }, isDefault: true },
       { text: 'No', click: (e, modal) => { this.closeResult = 'No'; this.dialog = null; modal.close(true); } }];
 
     this.dialog = this.messageService
       .message()
       .title('<span>Delete this Application?</span>')
-      .message('<span class="longer-message">You are about to delete this application permanently. Would you like to proceed?</span>')
+      .message('<span class="message">You are about to delete this application permanently. Would you like to proceed?</span>')
       .buttons(buttons)
       .beforeClose(() => {
-         console.log('before close');
-         return true;
+        console.log('before close');
+        return true;
       }).beforeOpen(() => {
-         console.log('before open');
-         return true;
+        console.log('before open');
+        return true;
       }).opened(() => {
-         console.log('opened');
+        console.log('opened');
       })
       .open();
   }
@@ -138,7 +142,7 @@ export class MessageDemoComponent {
     this.dialog = this.messageService
       .message()
       .title('<span>File Upload Complete</span>')
-      .message(`<span class="longer-message">
+      .message(`<span class="message">
           Your file "photo.png" was successfully uploaded to your personal folder and is now public for viewing.
         </span>`)
       .buttons(buttons)

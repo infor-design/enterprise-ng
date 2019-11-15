@@ -34,7 +34,6 @@ export class NestedModalDialogComponent {
    * Constructor, taking the interface to the Soho Modal Dialog Api.
    */
   constructor(
-    private dialogRef: SohoModalDialogRef<NestedModalDialogComponent>,
     private dialog: SohoModalDialogService) {
   }
 
@@ -47,8 +46,8 @@ export class NestedModalDialogComponent {
       .modal(NestedModalDialogComponent, this.placeholder)
       .title(`Modal Dialog no. '${++NestedModalDialogComponent.s_depth}'.`)
       .buttons(
-        [{text: 'Cancel', click: (e, modal) => { modal.close(true); }},
-         {text: 'OK', click: (e, modal) => { modal.close(true); }, isDefault: true}])
+        [{ text: 'Cancel', click: (e, modal) => { modal.close(true); } },
+        { text: 'OK', click: (e, modal) => { modal.close(true); }, isDefault: true }])
       .afterClose((f) => { NestedModalDialogComponent.s_depth--; })
       .open();
   }
