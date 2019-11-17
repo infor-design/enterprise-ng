@@ -8,10 +8,6 @@ import { ComponentType } from '.';
 /**
  * Wrapper for the jQuery modal control.
  *
- * @todo Return a promise from open.
- * @todo async vetoable interface - is this possible?
- * @todo on the fly updating of dialog
- * @todo searchable dialog example
  */
 export class SohoModalDialogRef<T> {
   /** Component - if the content is derived from an existing component. */

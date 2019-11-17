@@ -4,7 +4,9 @@ import {
   ViewContainerRef,
   Injectable,
   Injector,
-  ComponentFactoryResolver
+  ComponentFactoryResolver,
+  ApplicationRef,
+  NgZone
 } from '@angular/core';
 
 import { ArgumentHelper } from '../utils/argument.helper';
@@ -20,12 +22,16 @@ export class SohoContextualActionPanelService {
   /**
    * Constructor.
    *
+   * @param appRef - application reference; must not be null.
    * @param componentFactoryResolver - used to create component factories for components dynamically.
    * @param injector - the current in scope injector, use as a delegate.
+   * @param ngZone - the angular zone; must not be null.
    */
   constructor(
-    private componentFactoryResolver: ComponentFactoryResolver,
-    private injector: Injector) {
+    private readonly appRef: ApplicationRef,
+    private readonly componentFactoryResolver: ComponentFactoryResolver,
+    private readonly injector: Injector,
+    private readonly ngZone: NgZone) {
   }
 
   /**
@@ -46,13 +52,10 @@ export class SohoContextualActionPanelService {
     ArgumentHelper.checkNotNull('component', component);
     ArgumentHelper.checkNotNull('parent', parent);
 
-    const panelRef = new SohoContextualActionPanelRef<T>();
-    const panelInjector = new SohoContextualActionPanelInjector(panelRef, this.injector);
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
-    const instance = parent.createComponent<T>(componentFactory, parent.length, panelInjector);
-    instance.instance['options'] = options; // pass in any options/settings object to panel()
-    panelRef.component = instance;
-    return panelRef;
+    options = options || {};
+
+    return new SohoContextualActionPanelRef<T>(
+      this.appRef, this.componentFactoryResolver, this.injector, this.ngZone, options);
   }
 }
 
