@@ -102,6 +102,7 @@ function copySvgIcons() {
   copy('svg.html');
   copy('svg-empty.html');
   copy('theme-uplift-svg.html');
+  copy('theme-uplift-svg-empty.html');
 }
 
 // -------------------------------------
