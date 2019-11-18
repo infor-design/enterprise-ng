@@ -1,41 +1,99 @@
-context('Datagrid Dynamic Tests', () => {
+describe('Datagrid Dynamic Tests', () => {
 
-  before(() => {
+  beforeEach(() => {
     cy.visit('/datagrid-dynamic');
-    // close side nav to maximize viewport for the main content
-    cy.get('.header > .toolbar > .title > .btn-icon').click();
+    // close side nav
+    cy.get('button[soho-nav-button]').click();
     // ensure datagrid is ready with busy indicator already hidden
     cy.get('table.datagrid tr').should('exist');
     cy.get('.overlay.busy').should('not.exist');
   });
 
-  // close the context menu
-  afterEach(() => {
-    cy.get('ul[soho-popupmenu] li:first>a').click();
-    cy.get('ul[soho-popupmenu]').should('not.be.visible');
+  describe('Context Menu Tests', () => {
+    it.only('should show context menus', () => {
+      // 1st context menu
+      // todo: replace with rightclick when it becomes stable
+      cy.get('table.datagrid tr:first').trigger('contextmenu')
+        .should('have.class', 'is-selected');
+      cy.get('tr.is-selected').should('have.length', 1);
+      cy.get('ul[soho-popupmenu]').should('be.visible')
+        .children().should('have.length', 5);
+
+      // close context menu
+      cy.get('ul[soho-popupmenu] li:first>a').click();
+      cy.get('ul[soho-popupmenu]').should('not.be.visible');
+
+      // 2nd context menu
+      cy.get('table.datagrid tr:nth-child(3)').trigger('contextmenu')
+        .should('have.class', 'is-selected');
+      cy.get('tr.is-selected').should('have.length', 1);
+      cy.get('ul[soho-popupmenu]').should('be.visible')
+        .children().should('have.length', 10);
+
+      // close context menu
+      cy.get('ul[soho-popupmenu] li:first>a').click();
+      cy.get('ul[soho-popupmenu]').should('not.be.visible');
+
+      // 3rd context menu
+      cy.get('table.datagrid tr:last').trigger('contextmenu')
+        .should('have.class', 'is-selected');
+      cy.get('tr.is-selected').should('have.length', 1);
+      cy.get('ul[soho-popupmenu]').should('be.visible')
+        .children().should('have.length', 3);
+
+      // close context menu
+      cy.get('ul[soho-popupmenu] li:first>a').click();
+      cy.get('ul[soho-popupmenu]').should('not.be.visible');
+    });
   });
 
-  it('should show 1st context menu', () => {
-    // rightclick is still buggy
-    cy.get('table.datagrid tr:first').trigger('contextmenu')
-      .should('have.class', 'is-selected');
-    cy.get('ul[soho-popupmenu]').should('be.visible')
-      .children().should('have.length', 5);
+  describe('Multiselect Tests', () => {
+    it('should select 1 or more rows', () => {
+      // select 1 row
+      cy.get('table.datagrid tr:first').click();
+      cy.get('th > .datagrid-checkbox-wrapper > .datagrid-checkbox')
+        .should('have.class', 'is-checked is-partial');
+      cy.get('tr.is-selected').should('have.length', 1);
+      // select another row
+      cy.get('table.datagrid tr:last').click();
+      cy.get('th > .datagrid-checkbox-wrapper > .datagrid-checkbox')
+        .should('have.class', 'is-checked is-partial');
+      cy.get('tr.is-selected').should('have.length', 2);
+    });
+
+    it('select/unselect all rows', () => {
+      // select all
+      cy.get('th > .datagrid-checkbox-wrapper').click();
+      cy.get('th > .datagrid-checkbox-wrapper > .datagrid-checkbox')
+        .should('have.class', 'is-checked')
+        .should('not.have.class', 'is-partial');
+      cy.get('tr.is-selected').should('have.length', 8);
+
+      // unselect all
+      cy.get('th > .datagrid-checkbox-wrapper > .datagrid-checkbox')
+        .should('have.class', 'is-checked')
+      cy.get('th > .datagrid-checkbox-wrapper').click();
+      cy.get('th > .datagrid-checkbox-wrapper > .datagrid-checkbox')
+        .should('not.have.class', 'is-checked is-partial');
+      cy.get('tr.is-selected').should('not.exist');
+    });
   });
 
-  it('should show 2nd context menu', () => {
-    // rightclick is still buggy
-    cy.get('table.datagrid tr:nth-child(3)').trigger('contextmenu')
-      .should('have.class', 'is-selected');
-    cy.get('ul[soho-popupmenu]').should('be.visible')
-      .children().should('have.length', 10);
-  });
+  describe('Filter Tests', () => {
+    it('should toggle filter row', () => {
+      cy.get('th .datagrid-filter-wrapper:not(.is-empty)').should('be.visible').should('have.length', 7);
+      cy.contains('Toggle Filter Row').click();
+      cy.get('th .datagrid-filter-wrapper:not(.is-empty)').should('not.be.visible');
+      cy.contains('Toggle Filter Row').click();
+      cy.get('th .datagrid-filter-wrapper:not(.is-empty)').should('be.visible');
+    });
 
-  it('should show 3rd context menu', () => {
-    // rightclick is still buggy
-    cy.get('table.datagrid tr:last').trigger('contextmenu')
-      .should('have.class', 'is-selected');
-    cy.get('ul[soho-popupmenu]').should('be.visible')
-      .children().should('have.length', 3);
+    it('should filter rows', () => {
+      cy.get('tr.datagrid-row').should('have.length', 8);
+      cy.get('th .datagrid-filter-wrapper:not(.is-empty)').first().type('some');
+      cy.get('tr.datagrid-row').should('have.length', 2);
+      cy.contains('Reset Filter').click();
+      cy.get('tr.datagrid-row').should('have.length', 8);
+    });
   });
 });
