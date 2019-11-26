@@ -73,8 +73,10 @@ export class AppComponent implements AfterViewInit {
     localStorage.setItem(AppComponent.IS_APPLICATION_MENU_OPEN_KEY, open ? 'true' : 'false');
   }
 
-  onChangeTheme(ev: SohoChangeThemePersonalizeEvent) {
-    this.useUpliftIcons = ev.theme === 'uplift';
+  onChangeTheme(ev: SohoPersonalizeEvent) {
+    this.useUpliftIcons = ev.data.theme === 'theme-uplift-light'
+      || ev.data.theme === 'theme-uplift-dark'
+      || ev.data.theme === 'theme-uplift-contrast';
   }
 
   public onMenuVisibility(visible: boolean): void {
