@@ -1,5 +1,7 @@
 # What's New with Enterprise-NG
 
+- `[Tree]` Expose unselected event. `MC` ([#https://github.com/infor-design/enterprise-ng/issues/670](https://github.com/infor-design/enterprise-ng/pull/https://github.com/infor-design/enterprise-ng/issues/670))
+
 ## v6.2.0
 
 ### 6.2.0 Fixes
