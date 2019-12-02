@@ -10,10 +10,9 @@ describe('Datagrid Dynamic Tests', () => {
   });
 
   describe('Context Menu Tests', () => {
-    it.only('should show context menus', () => {
+    it('should show context menus', () => {
       // 1st context menu
-      // todo: replace with rightclick when it becomes stable
-      cy.get('table.datagrid tr:first').trigger('contextmenu')
+      cy.get('table.datagrid tr:first').rightclick()
         .should('have.class', 'is-selected');
       cy.get('tr.is-selected').should('have.length', 1);
       cy.get('ul[soho-popupmenu]').should('be.visible')
@@ -24,7 +23,7 @@ describe('Datagrid Dynamic Tests', () => {
       cy.get('ul[soho-popupmenu]').should('not.be.visible');
 
       // 2nd context menu
-      cy.get('table.datagrid tr:nth-child(3)').trigger('contextmenu')
+      cy.get('table.datagrid tr:nth-child(3)').rightclick()
         .should('have.class', 'is-selected');
       cy.get('tr.is-selected').should('have.length', 1);
       cy.get('ul[soho-popupmenu]').should('be.visible')
@@ -35,7 +34,7 @@ describe('Datagrid Dynamic Tests', () => {
       cy.get('ul[soho-popupmenu]').should('not.be.visible');
 
       // 3rd context menu
-      cy.get('table.datagrid tr:last').trigger('contextmenu')
+      cy.get('table.datagrid tr:last').rightclick()
         .should('have.class', 'is-selected');
       cy.get('tr.is-selected').should('have.length', 1);
       cy.get('ul[soho-popupmenu]').should('be.visible')
