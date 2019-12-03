@@ -4,7 +4,7 @@
 
 ### 6.3.0 Fixes
 
-- `[Datagrid]` Added `enableTooltips` Input to datagrid. `BTHH` ([#XXX](https://github.com/infor-design/enterprise-ng/pull/XXX))
+- `[Datagrid]` Added `enableTooltips` Input to datagrid. `BTHH` ([#674](https://github.com/infor-design/enterprise-ng/pull/674))
 
 ## v6.2.0
 
