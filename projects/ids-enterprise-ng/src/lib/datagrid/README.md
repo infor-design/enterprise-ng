@@ -33,6 +33,7 @@ The 'datagrid' component provides a number of options to control its behaviour, 
 | rowHeight | Sets the row height in the data grid to be 'normal', 'medium' or 'short'. |
 | selectable | If true selection can be used, other if false selection is disabled. |
 | stretchColumn| The name of the column to stretch, if 'last' the last column is stretched. |
+| enableTooltips | Enable toolips on the cell values, at a cost of performance.. |
 
 Changes to these properties will dynamically update the component.
 
