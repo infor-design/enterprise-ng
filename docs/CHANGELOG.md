@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v6.3.0
+
+### 6.3.0 Fixes
+
+- `[Modal]` Merged SohoModalModule into SohoModalDialogModule keeping current API but fixing the memory leaks. `BTHH` ([#663](https://github.com/infor-design/enterprise-ng/pull/663))
+
 ## v6.2.0
 
 ### 6.2.0 Fixes
@@ -10,7 +16,6 @@
 - `[Datagrid]` Added the row template type and an example of expandable rows. `TJM` ([#606](https://github.com/infor-design/enterprise-ng/pull/606))
 - `[Datepicker]` Removed `autoSize` option, this was added for using calendar and is now no longer used. It Should not be used. keydown output EventEmitter. `NBCP` ([#660](https://github.com/infor-design/enterprise-ng/pull/660))
 - `[Dropdown]` Added keydown output EventEmitter. `NBCP` ([#658](https://github.com/infor-design/enterprise-ng/pull/658))
-- `[Modal]` Merged SohoModalModule into SohoModalDialogModule keeping current API but fixing the memory leaks. `BTHH` ([#663](https://github.com/infor-design/enterprise-ng/pull/663))
 - `[Datagrid]` Adding soho-icon-empty-uplift component. `MHH` ([#665](https://github.com/infor-design/enterprise-ng/issues/665))
 
 ## v6.1.0
