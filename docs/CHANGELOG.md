@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v6.3.0 (TBC)
+
+### 6.3.0 Fixes
+
+- `[Datagrid]` Added `enableTooltips` Input to datagrid. `BTHH` ([#XXX](https://github.com/infor-design/enterprise-ng/pull/XXX))
+
 ## v6.2.0
 
 ### 6.2.0 Fixes
