@@ -6,7 +6,7 @@
           <label soho-label for={{name1}}>Normal Input</label>
           <input
             soho-fileupload [disabled]="fileUploadDisabled" [readonly]="fileUploadReadOnly"
-            id="{{name1}}" name={{name1}} accept="true"
+            id="{{name1}}" name={{name1}} accept="true" (change)="onChange($event)"
           />
         </div>
 
