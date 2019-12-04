@@ -1072,6 +1072,22 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Enable toolips on the cell values, at a cost of performance.
+   */
+  @Input() set enableTooltips(value: boolean) {
+    this._gridOptions.enableTooltips = value;
+    if (this.jQueryElement) {
+      this.datagrid.settings.enableTooltips = value;
+
+      this.markForRefresh('enableTooltips', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  get enableTooltips(): boolean {
+    return this._gridOptions.enableTooltips;
+  }
+
+  /**
    * Defines the source type of the grid, either:
    *
    * - "content-only" where table elements are provided in the body.
@@ -1208,7 +1224,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   // An internal gridOptions object that gets updated by using
   // the component's Inputs()
   private _gridOptions: SohoDataGridOptions = {
-    stretchColumn: 'last' // default value
+    stretchColumn: 'last',
+    enableTooltips: false
   };
 
   // Provides hints to the component after the next refresh.
