@@ -1,7 +1,9 @@
 /// <reference path="soho-contextual-action-panel.d.ts" />
 
-import { ComponentRef } from '@angular/core';
+import { ComponentRef, ApplicationRef, ComponentFactoryResolver, Injector, NgZone } from '@angular/core';
 import { Subject } from 'rxjs';
+import { PanelComponentType } from '.';
+import { takeUntil } from 'rxjs/operators';
 
 /**
  * Wrapper for the jQuery panel control.
@@ -31,6 +33,9 @@ export class SohoContextualActionPanelRef<T> {
 
   /** Event fired after opening the panel panel. */
   private afterOpen$: Subject<any> = new Subject();
+
+  /** Handle resource tidy up of this class. */
+  private destroyed$ = new Subject();
 
   /**
    * The component displayed as the panel content.
@@ -202,11 +207,11 @@ export class SohoContextualActionPanelRef<T> {
     return this;
   }
 
- /**
-   * panel result property.
-   *
-   * @param panelResult - the stored result of the panel.
-   */
+  /**
+    * panel result property.
+    *
+    * @param panelResult - the stored result of the panel.
+    */
   set panelResult(panelResult: any) {
     this._panelResult = panelResult;
   }
@@ -217,7 +222,23 @@ export class SohoContextualActionPanelRef<T> {
   /**
    * Constructor.
    */
-  constructor() {
+  constructor(private appRef: ApplicationRef,
+    componentFactoryResolver: ComponentFactoryResolver,
+    private injector: Injector,
+    private ngZone: NgZone,
+    settings: SohoContextualActionPanelOptions,
+    panelComponent?: PanelComponentType<T>) {
+
+    this.options(settings);
+
+    if (panelComponent) {
+      this.componentRef = componentFactoryResolver
+        .resolveComponentFactory(panelComponent)
+        .create(this.injector);
+
+      appRef.attachView(this.componentRef.hostView);
+      this._options.content = jQuery(this.componentRef.location.nativeElement);
+    }
   }
 
   /**
@@ -226,25 +247,22 @@ export class SohoContextualActionPanelRef<T> {
    * @return the panel ref.
    */
   open(): SohoContextualActionPanelRef<T> {
+    if (this.contextualactionpanel) {
+      // this.contextualactionpanel.open();
+      return this;
+    }
+
     if (!this.componentRef && !this._options.content) {
       throw Error('componentRef or content must be initialised.');
     }
 
-    // Assume content...
-    let element: JQuery = $('body');
+    this.jQueryElement = this.ngZone.runOutsideAngular(() => {
+      const element = jQuery('body');
+      element.contextualactionpanel(this._options);
 
-    if (this.componentRef) {
-      // .. unless component supplied, in which case get a selector
-     // to the component and use that.
-      element = jQuery(this.componentRef.location.nativeElement);
-      this._options.content = element;
-    }
-
-    element.contextualactionpanel(this._options);
-    this.contextualactionpanel = element.data('contextualactionpanel');
-    // When the panel is opened, it is moved to the body, so
-    // set the jQueryElement.
-    this.jQueryElement = this.contextualactionpanel.element;
+      this.contextualactionpanel = element.data('contextualactionpanel');
+      return this.contextualactionpanel.element;
+    });
 
     // Add listeners to control events
     this.jQueryElement.on('close', ((event: any, isCancelled: boolean) => { this.onClose(event, isCancelled); }));
@@ -264,7 +282,9 @@ export class SohoContextualActionPanelRef<T> {
   close(panelResult?: any): SohoContextualActionPanelRef<T> {
     this.panelResult = panelResult;
     if (this.contextualactionpanel) {
-      this.contextualactionpanel.close();
+      this.ngZone.runOutsideAngular(() => {
+        this.contextualactionpanel.close();
+      });
     }
     return this;
   }
@@ -281,7 +301,7 @@ export class SohoContextualActionPanelRef<T> {
    * @param eventFn - the function to invoke when the panel is to be opened.
    */
   opened(eventFn: Function): SohoContextualActionPanelRef<T> {
-    this.open$.subscribe((f: any) => { eventFn(f, this); });
+    this.open$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => { eventFn(f, this); });
     return this;
   }
 
@@ -292,7 +312,7 @@ export class SohoContextualActionPanelRef<T> {
    * @param eventFn - the function to invoke when the panel is to be opened.
    */
   afterOpen(eventFn: Function): SohoContextualActionPanelRef<T> {
-    this.afterOpen$.subscribe((f: any) => { eventFn(f, this); });
+    this.afterOpen$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => { eventFn(f, this); });
     return this;
   }
 
@@ -304,7 +324,7 @@ export class SohoContextualActionPanelRef<T> {
    * @param eventFn - the function to invoke when the panel is to be closed.
    */
   closed(eventFn: SohoContextualActionPanelEventFunction<T>): SohoContextualActionPanelRef<T> {
-    this.close$.subscribe((result: any) => { eventFn(result, this, this.componentPanel); });
+    this.close$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => { eventFn(result, this, this.componentPanel); });
     return this;
   }
 
@@ -317,7 +337,7 @@ export class SohoContextualActionPanelRef<T> {
    * @param eventFn - the function to invoke after the panel has been closed.
    */
   afterClose(eventFn: SohoContextualActionPanelEventFunction<T>): SohoContextualActionPanelRef<T> {
-    this.afterClose$.subscribe((result: any) => { eventFn(result, this, this.componentPanel); });
+    this.afterClose$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => { eventFn(result, this, this.componentPanel); });
     return this;
   }
 
@@ -362,14 +382,29 @@ export class SohoContextualActionPanelRef<T> {
    */
   private onAfterClose(event: any) {
     // Pass the panel result back.
-    this.afterClose$.next(this.panelResult);
-    this.afterClose$.complete();
+    this.ngZone.run(() => {
+      this.afterClose$.next(this.panelResult);
+      this.afterClose$.complete();
+    });
+
+    if (this.jQueryElement) {
+      this.jQueryElement.off();
+    }
 
     this.contextualactionpanel.destroy();
     this.contextualactionpanel = null;
 
-    this.componentRef.destroy();
-    this.componentRef = null;
+    this.ngZone.run(() => {
+      if (this.componentRef) {
+        this.appRef.detachView(this.componentRef.hostView);
+        this.componentRef.destroy();
+        this.componentRef = null;
+      }
+
+      this.destroyed$.next();
+      this.destroyed$.complete();
+    });
+
   }
 }
 /**

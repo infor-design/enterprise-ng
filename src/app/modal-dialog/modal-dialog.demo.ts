@@ -44,7 +44,7 @@ export class ModalDialogDemoComponent {
   constructor(
     private modalService: SohoModalDialogService,
     private newModalService: SohoModalService
-  ) {}
+  ) { }
 
   private dialogRef: SohoModalRef<ExampleModalDialogComponent>;
   openSimple() {
@@ -101,22 +101,18 @@ export class ModalDialogDemoComponent {
   openFullSize() {
     const dialogRef = this.modalService
       .modal<FullSizeModalDialogComponent>(FullSizeModalDialogComponent, this.placeholder)
-      .buttons([
-        {
-          id: 'cancel-button',
-          text: Soho.Locale.translate('Cancel'),
-          click: () => { dialogRef.close('CANCEL'); }
-        },
-        {
-          text: 'Submit', click: () => { dialogRef.close('SUBMIT'); },
-          isDefault: true
-        }])
+      .buttons(
+        [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
+        { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
       .title(this.title)
       .isAlert(this.isAlert)
       .fullsize('responsive')
       .breakpoint('phablet')
       .apply((dialogComponent) => { dialogComponent.model.header = 'Header Text Update!!'; })
-      .open();
+      .open()
+      .afterClose(result => {
+        this.closeResult = result;
+      });
   }
 
   openNested() {
@@ -134,7 +130,7 @@ export class ModalDialogDemoComponent {
 
   openMessage() {
     const dialogRef = this.modalService
-      .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
+      .message('<span class="message">Are you sure you want to delete this page?</span>')
       .buttons(
         [
           { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
@@ -149,7 +145,7 @@ export class ModalDialogDemoComponent {
 
   openVetoableSimple() {
     const dialogRef = this.modalService
-      .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
+      .message('<span class="message">Are you sure you want to delete this page?</span>')
       .buttons(
         [
           { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
@@ -179,7 +175,7 @@ export class ModalDialogDemoComponent {
 
   openDialogResult() {
     const dialogRef = this.modalService
-      .message('<span class="longer-message">Are you sure you want to delete this page?</span>')
+      .message('<span class="message">Are you sure you want to delete this page?</span>')
       .buttons(
         [{ text: 'YES', click: () => { dialogRef.close('YES'); } },
         { text: 'NO', click: () => { dialogRef.close('NO'); }, isDefault: true }])

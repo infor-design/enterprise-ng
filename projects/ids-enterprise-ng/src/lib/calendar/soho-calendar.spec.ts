@@ -49,8 +49,8 @@ describe('Soho Calendar Unit Tests', () => {
   });
 
   it('check inputs', () => {
-    const onMonthRendered = () => {};
-    const onSelected = () => {};
+    const onMonthRendered = () => { };
+    const onSelected = () => { };
 
     comp.eventTypes = eventTypes;
     comp.events = events;
@@ -88,8 +88,8 @@ describe('Soho Calendar Unit Tests', () => {
 
     const updatedEventTypes = [...eventTypes];
     const updateEvents = [...events];
-    const onMonthRendered2 = () => {};
-    const onSelected2 = () => {};
+    const onMonthRendered2 = () => { };
+    const onSelected2 = () => { };
 
     comp.eventTypes = updatedEventTypes;
     comp.events = updateEvents;
@@ -329,7 +329,7 @@ describe('Soho Calendar Chart Render', () => {
     expect(clearEventsSpy).toHaveBeenCalledTimes(1);
   });
 
-  xit('check showEventModal function', () => {});
+  xit('check showEventModal function', () => { });
 
-  xit('check modalVisible function', () => {});
+  xit('check modalVisible function', () => { });
 });

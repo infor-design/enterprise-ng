@@ -23,7 +23,7 @@ export class VetoableModalDialogComponent implements SohoModalDialogVetoableEven
   /**
    * Constructor, taking the interface to the Soho Modal Dialog Api.
    */
-  constructor(private dialogRef: SohoModalDialogRef<VetoableModalDialogComponent>) {
+  constructor() {
   }
 
   beforeOpen(): boolean {
