@@ -5,6 +5,8 @@
 ### 6.3.0 Fixes
 
 - `[Modal]` Merged SohoModalModule into SohoModalDialogModule keeping current API but fixing the memory leaks. `BTHH` ([#663](https://github.com/infor-design/enterprise-ng/pull/663))
+- `[Datagrid]` Added `enableTooltips` Input to datagrid. `BTHH` ([#674](https://github.com/infor-design/enterprise-ng/pull/674))
+- `[FileUpload]` Fixed duplicate change event. `TJM` ([#672](https://github.com/infor-design/enterprise-ng/pull/672))
 
 ## v6.2.0
 

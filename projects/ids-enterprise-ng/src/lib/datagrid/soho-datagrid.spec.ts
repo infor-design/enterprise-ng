@@ -485,6 +485,19 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(comp.stretchColumn).toEqual('accountType');
   });
 
+  it('check enableTooltips', () => {
+    fixture.detectChanges();
+
+    // The default in the grid is false.
+    expect(comp.gridOptions.enableTooltips).toBeFalsy();
+    expect(comp.enableTooltips).toBeFalsy();
+
+    comp.enableTooltips = true;
+
+    expect(comp.gridOptions.enableTooltips).toBeTruthy();
+    expect(comp.enableTooltips).toBeTruthy();
+  });
+
   it('check commitCellEdit', () => {
     fixture.detectChanges();
     const spy = spyOn((comp as any).datagrid, 'commitCellEdit');
