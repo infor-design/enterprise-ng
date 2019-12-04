@@ -65,8 +65,8 @@ import { TestHelper } from '../utils';
   </soho-toolbar-flex>`
 })
 class SohoToolbarFlexTestComponent {
-  @ViewChild(SohoToolbarFlexComponent, { static: false }) toolbarFlex: SohoToolbarFlexComponent;
-  @ViewChild(SohoToolbarFlexSearchFieldComponent, { static: false }) searchField: SohoToolbarFlexSearchFieldComponent;
+  @ViewChild(SohoToolbarFlexComponent) toolbarFlex: SohoToolbarFlexComponent;
+  @ViewChild(SohoToolbarFlexSearchFieldComponent) searchField: SohoToolbarFlexSearchFieldComponent;
 
   @Output() selected = new EventEmitter<SohoToolbarFlexSelectedEvent>();
   @Output() change = new EventEmitter<SohoSearchFieldEvent>();

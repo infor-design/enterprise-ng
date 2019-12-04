@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-rating-demo',
-  templateUrl: './rating.demo.html'
+  templateUrl: 'rating.demo.html'
 })
 export class RatingDemoComponent implements OnInit {
 

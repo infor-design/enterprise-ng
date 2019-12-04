@@ -6,13 +6,13 @@ import { MOCK_STATES } from './dropdown-mock.data';
 
 @Component({
   selector: 'app-dropdown-simple-demo',
-  templateUrl: './dropdown-simple.demo.html'
+  templateUrl: 'dropdown-simple.demo.html'
 })
 export class DropdownSimpleDemoComponent implements AfterViewInit {
   @ViewChild(SohoDropDownComponent, { static: true }) dropDownComponent: SohoDropDownComponent;
 
   /** Defautl selected item.  */
-  model = { selectedOption: 'ND' };
+  model = { selectedOption: 'ND', selectedOptionXss: '<script>window.alert("dropdown xss")</script>XSS' };
 
   showModel = false;
 

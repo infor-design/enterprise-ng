@@ -11,7 +11,7 @@ import {
 
 @Component({
   selector: 'app-fileupload-lm-demo',
-  templateUrl: './fileupload-lm.demo.html',
+  templateUrl: 'fileupload-lm.demo.html',
   styles: [`
       .hidden {
         display: none;

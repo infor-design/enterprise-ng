@@ -13,7 +13,7 @@ import {
 
 @Component({
   selector: 'toolbar-state-component', // tslint:disable-line
-  templateUrl: './toolbar-state.component.html',
+  templateUrl: 'toolbar-state.component.html',
   providers: [ ToolbarStateService ]
 })
 export class ToolbarStateComponent implements OnInit {

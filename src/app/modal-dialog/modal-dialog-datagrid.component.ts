@@ -7,7 +7,7 @@ const groups = require('./groups.json');
  * numerous times using the SohoModalDialogService.
  */
 @Component({
-  templateUrl: './modal-dialog-datagrid.component.html'
+  templateUrl: 'modal-dialog-datagrid.component.html'
 })
 export class ModalDialogDataGridComponent {
   /**

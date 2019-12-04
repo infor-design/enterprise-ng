@@ -33,7 +33,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 class SohoCheckBoxReactiveFormTestComponent {
   public value = true;
 
-  @ViewChild(SohoCheckBoxComponent, { static: false }) dropdown: SohoCheckBoxComponent;
+  @ViewChild(SohoCheckBoxComponent) dropdown: SohoCheckBoxComponent;
 
   public formGroup: FormGroup;
 

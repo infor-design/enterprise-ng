@@ -3,7 +3,7 @@ import { SohoSpinboxComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-spinbox-demo',
-  templateUrl: './spinbox.demo.html'
+  templateUrl: 'spinbox.demo.html'
 })
 
 export class SpinboxDemoComponent {

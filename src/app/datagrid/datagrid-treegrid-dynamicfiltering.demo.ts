@@ -14,8 +14,8 @@ export class DatagridTreegridDynamicfilteringDemoComponent implements OnInit, Af
   public data = [];
   public gridOptions: SohoDataGridOptions;
 
-  @ViewChild(SohoDataGridComponent, { static: false }) dataGrid: SohoDataGridComponent;
-  @ViewChild(SohoBusyIndicatorDirective, { static: false }) busyIndicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
+  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
 
   constructor(
     private treeService: DatagridTreegridServiceDemo,

@@ -6,7 +6,7 @@ import {
 
 @Component({
   selector: 'app-treemap-demo',
-  templateUrl: './treemap.demo.html',
+  templateUrl: 'treemap.demo.html',
 })
 export class TreemapDemoComponent implements OnInit {
 

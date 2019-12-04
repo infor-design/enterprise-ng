@@ -10,7 +10,7 @@ import {
 
 @Component({
   selector: 'app-pie-demo',
-  templateUrl: './pie.demo.html',
+  templateUrl: 'pie.demo.html',
 })
 export class PieDemoComponent implements OnInit {
 

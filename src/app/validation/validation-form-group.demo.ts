@@ -9,7 +9,7 @@ import { FormArray, FormBuilder, FormGroup, Validators, ValidatorFn, AbstractCon
 
 @Component({
   selector: 'app-validation-form-group-demo',
-  templateUrl: './validation-form-group.demo.html'
+  templateUrl: 'validation-form-group.demo.html'
 })
 export class ValidationFormGroupDemoComponent implements AfterViewInit {
 

@@ -34,7 +34,7 @@ import { fakeAsync, tick } from '@angular/core/testing';
 class SohoSpinboxReactiveFormTestComponent {
   public value = 25;
 
-  @ViewChild(SohoSpinboxComponent, {static: false}) dropdown: SohoSpinboxComponent;
+  @ViewChild(SohoSpinboxComponent) dropdown: SohoSpinboxComponent;
 
   public formGroup: FormGroup;
 

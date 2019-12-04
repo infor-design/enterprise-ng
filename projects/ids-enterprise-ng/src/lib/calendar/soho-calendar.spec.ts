@@ -144,7 +144,7 @@ describe('Soho Calendar Unit Tests', () => {
   `
 })
 class SohoCalendarTestComponent {
-  @ViewChild(SohoCalendarComponent, { static: false })
+  @ViewChild(SohoCalendarComponent)
   calendar: SohoCalendarComponent;
 
   public events: SohoCalendarEvent[];

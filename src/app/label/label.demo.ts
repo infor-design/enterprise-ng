@@ -9,7 +9,7 @@ import {
  */
 @Component({
   selector: 'app-label-demo',
-  templateUrl: './label.demo.html'
+  templateUrl: 'label.demo.html'
 })
 export class LabelDemoComponent implements OnInit {
 

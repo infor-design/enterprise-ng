@@ -11,12 +11,12 @@ import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indete
 
 @Component({
   selector: 'app-datagrid-fixed-header-demo',
-  templateUrl: './datagrid-fixedheader.demo.html',
+  templateUrl: 'datagrid-fixedheader.demo.html',
   providers: [ DataGridPagingIndeterminateDemoService ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnInit {
-  @ViewChild(SohoDataGridComponent, { static: false }) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef,

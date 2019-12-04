@@ -14,7 +14,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
  */
 @Component({
   selector: 'app-mask-demo',
-  templateUrl: './mask.demo.html',
+  templateUrl: 'mask.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles:      [
       `

@@ -7,7 +7,7 @@ import {
 
 @Component({
   selector: 'app-about.demo',
-  templateUrl: './about.demo.html'
+  templateUrl: 'about.demo.html'
 })
 export class AboutDemoComponent {
   /** The about dialog reference. */

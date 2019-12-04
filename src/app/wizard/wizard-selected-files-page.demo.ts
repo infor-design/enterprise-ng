@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-select-files-page',
-  templateUrl: './wizard-selected-files-page.demo.html',
+  templateUrl: 'wizard-selected-files-page.demo.html',
   styles: [
     `:host {
       display:        flex;

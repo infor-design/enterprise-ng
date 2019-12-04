@@ -32,7 +32,7 @@ import { SohoAccordionPaneComponent } from './soho-accordion-pane.component';
  */
 @Component({
   selector: 'soho-accordion',
-  templateUrl: './soho-accordion.component.html',
+  templateUrl: 'soho-accordion.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, OnDestroy {

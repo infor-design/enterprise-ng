@@ -11,12 +11,12 @@ import { DataGridPagingServiceDemoService } from './datagrid-paging-service-demo
 
 @Component({
   selector: 'app-datagrid-paging-service-demo',
-  templateUrl: './datagrid-paging-service.demo.html',
+  templateUrl: 'datagrid-paging-service.demo.html',
   providers: [ DataGridPagingServiceDemoService ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridPagingServiceDemoComponent implements OnInit {
-  @ViewChild(SohoDataGridComponent, { static: false }) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
   private uniqueId: string;
 
   private savedColumns: Object;

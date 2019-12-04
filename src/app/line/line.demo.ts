@@ -10,7 +10,7 @@ import {
 
 @Component({
   selector: 'app-line-demo',
-  templateUrl: './line.demo.html',
+  templateUrl: 'line.demo.html',
 })
 export class LineDemoComponent implements OnInit {
 

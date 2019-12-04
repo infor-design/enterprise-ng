@@ -8,7 +8,7 @@ import { SohoCalendarComponent, SohoToastService } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-calendar-demo',
-  templateUrl: './calendar.demo.html',
+  templateUrl: 'calendar.demo.html',
   providers: [CalendarDemoService]
 })
 export class CalendarDemoComponent {
@@ -17,7 +17,7 @@ export class CalendarDemoComponent {
   @HostBinding('style.height') height = 'auto';
   @HostBinding('style.display') block = 'block';
 
-  @ViewChild(SohoCalendarComponent, { static: false }) sohoCalendarComponent: SohoCalendarComponent;
+  @ViewChild(SohoCalendarComponent) sohoCalendarComponent: SohoCalendarComponent;
 
   public initialMonth = 1;
   public initialYear = 2019;

@@ -9,7 +9,7 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
 
 @Component({
   selector: 'app-header-demo',
-  templateUrl: './header-toggle-buttons.demo.html',
+  templateUrl: 'header-toggle-buttons.demo.html',
 })
 export class HeaderToggleButtonsDemoComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.header') get isHeader() { return false; }

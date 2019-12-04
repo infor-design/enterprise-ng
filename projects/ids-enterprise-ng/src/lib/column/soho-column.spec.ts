@@ -206,7 +206,7 @@ describe('Soho Column Unit Tests', () => {
   </div>`
 })
 class SohoColumnTestComponent {
-  @ViewChild(SohoColumnComponent, {static: false}) column: SohoColumnComponent;
+  @ViewChild(SohoColumnComponent) column: SohoColumnComponent;
 
   public chartType = 'column';
 

@@ -7,7 +7,7 @@ import {
 
 @Component({
   selector: 'soho-accordion-pane',
-  templateUrl: './soho-accordion-pane.component.html'
+  templateUrl: 'soho-accordion-pane.component.html'
 })
 export class SohoAccordionPaneComponent {
   @HostBinding('class.accordion-pane') get isAccordionPane() { return true; }

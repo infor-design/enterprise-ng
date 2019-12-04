@@ -5,13 +5,13 @@ import { HierarchyDemoService } from './hierarchy.demo.service';
 
 @Component({
   selector: 'app-hierarchy-paging-demo',
-  templateUrl: './hierarchy-paging.demo.html',
+  templateUrl: 'hierarchy-paging.demo.html',
   styleUrls: ['./hierarchy.demo.css'],
   providers: [HierarchyDemoService]
 })
 export class HierarchyPagingDemoComponent implements OnInit {
 
-  @ViewChild('SohoHierarchy', { static: false }) sohoHierarchy: SohoHierarchyComponent;
+  @ViewChild('SohoHierarchy') sohoHierarchy: SohoHierarchyComponent;
 
   public data: Array<any>;
   public legend: Array<SohoHierarchyLegend>;

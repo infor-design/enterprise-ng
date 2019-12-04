@@ -9,7 +9,7 @@ import { SohoAutoCompleteComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'autocomplete-demo', // tslint:disable-line
-  templateUrl: './autocomplete.demo.html',
+  templateUrl: 'autocomplete.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AutocompleteDemoComponent implements AfterViewInit {
@@ -72,7 +72,7 @@ export class AutocompleteDemoComponent implements AfterViewInit {
     'World',
     '<script>alert(1)</script>xss'
   ];
-  @ViewChild(SohoAutoCompleteComponent, { static: false }) autocomplete: SohoAutoCompleteComponent;
+  @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
 
   public selected: any;
 

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-popupmenu-demo',
-  templateUrl: './popupmenu.demo.html',
+  templateUrl: 'popupmenu.demo.html',
 })
 export class PopupMenuDemoComponent {
 

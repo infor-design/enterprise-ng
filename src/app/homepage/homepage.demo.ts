@@ -3,7 +3,7 @@ import { SohoHomePageComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-homepage-demo',
-  templateUrl: './homepage.demo.html',
+  templateUrl: 'homepage.demo.html',
 })
 export class HomePageDemoComponent {
   @ViewChild(SohoHomePageComponent, { static: true }) homepage: SohoHomePageComponent;

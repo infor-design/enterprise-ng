@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-hyperlink-demo',
-  templateUrl: './hyperlink.demo.html'
+  templateUrl: 'hyperlink.demo.html'
 })
 export class HyperlinkDemoComponent {
 

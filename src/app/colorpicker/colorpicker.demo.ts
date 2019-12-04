@@ -11,7 +11,7 @@ import {
 
 @Component({
   selector: 'app-colorpicker-demo',
-  templateUrl: './colorpicker.demo.html',
+  templateUrl: 'colorpicker.demo.html',
 })
 export class ColorPickerDemoComponent implements OnInit, AfterViewInit {
 

@@ -11,7 +11,7 @@ import {
 
 @Component({
   selector: 'app-blockgrid-mixed-selection-demo',
-  templateUrl: './blockgrid-mixed-selection.demo.html',
+  templateUrl: 'blockgrid-mixed-selection.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlockGridMixedSelectionDemoComponent {

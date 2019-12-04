@@ -62,7 +62,7 @@ export class ExpandableFooterComponent {}
 
 @Component({
   selector: 'soho-expandable-area',
-  templateUrl: './soho-expandablearea.component.html',
+  templateUrl: 'soho-expandablearea.component.html',
   styles: [``],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -90,7 +90,8 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   @Input() toggle: Observable<boolean>;
 
   // Get the header DOM element
-  @ContentChild(forwardRef(() => ExpandableHeaderComponent), { static: false}) // tslint:disable-line
+  @ContentChild(forwardRef(() => ExpandableHeaderComponent)) // tslint:disable-line
+ // tslint:disable-line
  // tslint:disable-line
   public header: ExpandableHeaderComponent = null;
 
@@ -102,7 +103,8 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   // private _pane: ExpandablePaneComponent = null;
 
   // Get the pane DOM element
-  @ContentChild(forwardRef(() => ExpandableFooterComponent), { static: false}) // tslint:disable-line
+  @ContentChild(forwardRef(() => ExpandableFooterComponent)) // tslint:disable-line
+ // tslint:disable-line
  // tslint:disable-line
   public footer: ExpandablePaneComponent = null;
 

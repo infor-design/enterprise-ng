@@ -178,7 +178,7 @@ import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/app
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
   { path: 'about', component: AboutDemoComponent },
-  { path: 'accordion', loadChildren: './accordion/accordion-demo.module#AccordionDemoModule' },
+  { path: 'accordion', loadChildren: () => import('./accordion/accordion-demo.module').then(m => m.AccordionDemoModule) },
   { path: 'alert', component: AlertDemoComponent },
   { path: 'application-lazy-menu', component: ApplicationMenuLazyDemoComponent },
   { path: 'application-menu-roleswitcher', component: ApplicationMenuRoleSwitcherDemoComponent },
@@ -283,7 +283,7 @@ export const routes: Routes = [
   { path: 'line', component: LineDemoComponent },
   { path: 'listview', component: ListViewDemoComponent },
   { path: 'listview-custom', component: ListViewCustomContentDemoComponent },
-  { path: 'locale-pipe', loadChildren: './locale/locale-demo.module#LocaleDemoModule' },
+  { path: 'locale-pipe', loadChildren: () => import('./locale/locale-demo.module').then(m => m.LocaleDemoModule) },
   { path: 'lookup', component: LookupDemoComponent },
   { path: 'lookup-validation', component: LookupValidationDemoComponent },
   { path: 'mask', component: MaskDemoComponent },

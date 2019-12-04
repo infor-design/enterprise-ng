@@ -7,7 +7,7 @@ import { SohoBarComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-bar-demo',
-  templateUrl: './bar.demo.html',
+  templateUrl: 'bar.demo.html',
 })
 export class BarDemoComponent implements OnInit {
 

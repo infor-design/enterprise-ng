@@ -4,7 +4,7 @@ import { SohoRenderLoopService } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-masthead-demo',
-  templateUrl: './masthead.demo.html',
+  templateUrl: 'masthead.demo.html',
 })
 export class SohoMastheadDemoComponent implements OnInit, AfterViewChecked {
 

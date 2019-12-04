@@ -16,7 +16,7 @@ import { ContextualActionPanelFullSizeComponent } from './contextual-action-pane
 
 @Component({
   selector: 'app-contextual-action-panel-demo',
-  templateUrl: './contextual-action-panel.demo.html'
+  templateUrl: 'contextual-action-panel.demo.html'
 })
 export class ContextualActionPanelDemoComponent {
   /**

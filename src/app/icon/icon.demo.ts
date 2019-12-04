@@ -4,7 +4,7 @@ import {
 
 @Component({
   selector: 'app-icon-demo',
-  templateUrl: './icon.demo.html'
+  templateUrl: 'icon.demo.html'
 })
 export class IconDemoComponent {
 }

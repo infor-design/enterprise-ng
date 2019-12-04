@@ -244,11 +244,11 @@ export const EDITORS_COLUMNS: any[] = [
 
 @Component({
   selector: 'soho-datagrid-editors',
-  templateUrl: './datagrid-editors.demo.html'
+  templateUrl: 'datagrid-editors.demo.html'
 })
 export class DataGridEditorsDemoComponent implements OnInit {
 
-  @ViewChild(SohoDataGridComponent, { static: false }) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
   gridOptions = null;
 

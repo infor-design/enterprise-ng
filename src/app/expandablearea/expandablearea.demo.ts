@@ -5,7 +5,7 @@ import {
 
 @Component({
   selector: 'app-expandablearea-demo',
-  templateUrl: './expandablearea.demo.html'
+  templateUrl: 'expandablearea.demo.html'
 })
 export class ExpandableAreaDemoComponent implements OnInit {
 

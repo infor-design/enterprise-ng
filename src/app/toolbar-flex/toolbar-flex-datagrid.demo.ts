@@ -4,7 +4,7 @@ import { SohoDataGridService } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-toolbar-flex-datagrid-demo',
-  templateUrl: './toolbar-flex-datagrid.demo.html',
+  templateUrl: 'toolbar-flex-datagrid.demo.html',
   providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService } ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

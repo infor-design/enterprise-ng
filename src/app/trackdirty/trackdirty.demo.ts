@@ -17,7 +17,7 @@ import {
  */
 @Component({
   selector: 'app-trackdirty-demo',
-  templateUrl: './trackdirty.demo.html'
+  templateUrl: 'trackdirty.demo.html'
 })
 export class TrackDirtyDemoComponent implements OnInit {
 

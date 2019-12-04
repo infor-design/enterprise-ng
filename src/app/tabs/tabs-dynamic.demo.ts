@@ -16,7 +16,7 @@ import { SohoTabsComponent } from 'ids-enterprise-ng';
  */
 @Component({
   selector: 'app-tabs-dynamic-sample-component',
-  templateUrl: './tabs-dynamic.demo.html'
+  templateUrl: 'tabs-dynamic.demo.html'
 })
 export class TabsDynamicDemoComponent implements OnInit {
 

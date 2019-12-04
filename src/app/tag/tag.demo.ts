@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-tag-demo',
-  templateUrl: './tag.demo.html'
+  templateUrl: 'tag.demo.html'
 })
 export class TagDemoComponent implements OnInit {
 

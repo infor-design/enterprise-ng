@@ -149,7 +149,7 @@ describe('Soho Tree Map Unit Tests', () => {
   template: `<div soho-treemap [dataset]="data"></div>`
 })
 class SohoTreemapTestComponent {
-  @ViewChild(SohoTreemapComponent, {static: false}) treemap: SohoTreemapComponent;
+  @ViewChild(SohoTreemapComponent) treemap: SohoTreemapComponent;
   public data = treeData;
 }
 

@@ -9,7 +9,7 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
 
 @Component({
   selector: 'app-swaplist-three-demo',
-  templateUrl: './swaplist-full-access.demo.html',
+  templateUrl: 'swaplist-full-access.demo.html',
 })
 export class SwapListFullAccessDemoComponent implements OnInit {
   @ViewChild(SohoSwapListComponent, { static: true })swapListComponent: SohoSwapListComponent;

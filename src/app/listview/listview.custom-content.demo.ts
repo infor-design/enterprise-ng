@@ -11,7 +11,7 @@ import {
 // @ts-ignore
 @Component({
   selector: 'app-listview-custom-content-demo',
-  templateUrl: './listview.custom-content.demo.html',
+  templateUrl: 'listview.custom-content.demo.html',
 })
 export class ListViewCustomContentDemoComponent implements OnInit {
 

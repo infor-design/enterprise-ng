@@ -6,7 +6,7 @@ import { AfterViewChecked, Component, NgZone } from '@angular/core';
  */
 @Component({
   selector: 'test-tabs-basic', // tslint:disable-line
-  templateUrl: './test-tabs-basic.demo.html',
+  templateUrl: 'test-tabs-basic.demo.html',
 })
 export class TestTabsBasicComponent implements AfterViewChecked {
   private viewCheckCount = 0;

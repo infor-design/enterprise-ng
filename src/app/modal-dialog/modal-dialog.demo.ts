@@ -18,7 +18,7 @@ import { ModalDialogDataGridComponent } from './modal-dialog-datagrid.component'
 
 @Component({
   selector: 'app-modal-dialog-demo',
-  templateUrl: './modal-dialog.demo.html'
+  templateUrl: 'modal-dialog.demo.html'
 })
 export class ModalDialogDemoComponent {
   /**
@@ -43,10 +43,11 @@ export class ModalDialogDemoComponent {
    */
   constructor(
     private modalService: SohoModalDialogService,
-    private newModalService: SohoModalService
-  ) { }
+    private newModalService: SohoModalService) {
+  }
 
-  private dialogRef: SohoModalRef<ExampleModalDialogComponent>;
+  public dialogRef: SohoModalRef<ExampleModalDialogComponent>;
+
   openSimple() {
     if (this.dialogRef) {
       return this.dialogRef.open();

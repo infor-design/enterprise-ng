@@ -13,7 +13,7 @@ import {
 
 @Component({
   selector: 'app-codeblock-demo',
-  templateUrl: './code-block.demo.html'
+  templateUrl: 'code-block.demo.html'
 })
 export class CodeBlockDemoComponent implements OnInit {
 

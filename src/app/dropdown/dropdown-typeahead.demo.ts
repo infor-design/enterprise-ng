@@ -14,7 +14,7 @@ import { MOCK_ALL_STATES } from './dropdown-mock-all.data';
 
 @Component({
   selector: 'app-dropdown-typeahead-demo',
-  templateUrl: './dropdown-typeahead.demo.html',
+  templateUrl: 'dropdown-typeahead.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownTypeaheadDemoComponent implements AfterViewInit {

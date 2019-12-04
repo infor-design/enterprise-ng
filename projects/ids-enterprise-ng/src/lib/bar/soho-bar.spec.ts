@@ -212,7 +212,7 @@ describe('Soho Bar Unit Tests', () => {
   `
 })
 class SohoBarTestComponent {
-  @ViewChild(SohoBarComponent, { static: false }) bar: SohoBarComponent;
+  @ViewChild(SohoBarComponent) bar: SohoBarComponent;
   public data = barData;
 }
 

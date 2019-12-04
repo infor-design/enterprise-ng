@@ -11,7 +11,7 @@ import { DataGridDemoService } from '../datagrid/datagrid-demo.service';
 
 @Component({
   selector: 'app-splitter-vertical-demo',
-  templateUrl: './splitter-vertical.demo.html',
+  templateUrl: 'splitter-vertical.demo.html',
   providers: [
     { provide: SohoDataGridService, useClass: DataGridDemoService },
     { provide: SohoTreeService, useClass: TreeDemoService }],

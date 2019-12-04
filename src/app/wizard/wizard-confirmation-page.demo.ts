@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-confirmation-page',
-  templateUrl: './wizard-confirmation-page.demo.html',
+  templateUrl: 'wizard-confirmation-page.demo.html',
   styles: [
     `:host {
       display:        flex;

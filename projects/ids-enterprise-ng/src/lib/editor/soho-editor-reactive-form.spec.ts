@@ -34,7 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 class SohoEditorReactiveFormTestComponent {
   public editorValue = '1';
 
-  @ViewChild(SohoEditorComponent, {static: false}) editor: SohoEditorComponent;
+  @ViewChild(SohoEditorComponent) editor: SohoEditorComponent;
 
   public formGroup: FormGroup;
 

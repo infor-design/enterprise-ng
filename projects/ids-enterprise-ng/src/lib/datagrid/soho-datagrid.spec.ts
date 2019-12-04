@@ -507,7 +507,7 @@ describe('Soho DataGrid Unit Tests', () => {
   `
 })
 class SohoDataGridTestComponent {
-  @ViewChild(SohoDataGridComponent, { static: false })
+  @ViewChild(SohoDataGridComponent)
   datagrid: SohoDataGridComponent;
   _columns: SohoDataGridColumn[];
   _data: Object[];

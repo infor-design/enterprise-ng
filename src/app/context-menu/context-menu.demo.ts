@@ -8,7 +8,7 @@ import { SohoTextAreaComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-content-menu-demo',
-  templateUrl: './context-menu.demo.html',
+  templateUrl: 'context-menu.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContextMenuDemoComponent implements OnInit {

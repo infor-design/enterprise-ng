@@ -13,7 +13,7 @@ import {
  */
 @Component({
   selector:    'app-field-options-popdown-demo',
-  templateUrl: './field-options-popdown.demo.html'
+  templateUrl: 'field-options-popdown.demo.html'
 })
 export class FieldOptionsPopdownDemoComponent {
 

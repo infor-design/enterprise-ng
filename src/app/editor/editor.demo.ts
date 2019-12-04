@@ -14,12 +14,12 @@ import { AlertDemoComponent } from '../alert/alert.demo';
 
 @Component({
   selector: 'app-editor-demo',
-  templateUrl: './editor.demo.html',
+  templateUrl: 'editor.demo.html',
   styles: [`pre{font-size: 15px}`] // set font size to be larger so pre tag content is more readable
 })
 export class EditorDemoComponent implements AfterViewInit {
 
-  @ViewChild(SohoEditorComponent, { static: false }) editor: SohoEditorComponent;
+  @ViewChild(SohoEditorComponent) editor: SohoEditorComponent;
 
   public model;
   public showMultipleEditors = false;

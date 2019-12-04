@@ -7,7 +7,7 @@ import {SohoLineComponent} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-line-demo',
-  templateUrl: './area.demo.html',
+  templateUrl: 'area.demo.html',
 })
 export class AreaDemoComponent implements OnInit {
 

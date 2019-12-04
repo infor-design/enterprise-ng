@@ -17,7 +17,7 @@ import { NestedModalDialogComponent } from './nested-modal-dialog.component';
  * numerous times using the SohoContextualActionPanelService.
  */
 @Component({
-  templateUrl: './contextual-action-panel.component.html'
+  templateUrl: 'contextual-action-panel.component.html'
 })
 
 export class ContextualActionPanelComponent {

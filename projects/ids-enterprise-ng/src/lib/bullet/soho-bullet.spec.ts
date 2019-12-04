@@ -98,7 +98,7 @@ describe('Soho Bullet Unit Tests', () => {
   template: `<div soho-bullet [dataset]="data"></div>`
 })
 class SohoBulletTestComponent {
-  @ViewChild(SohoBulletComponent, { static: false }) bullet: SohoBulletComponent;
+  @ViewChild(SohoBulletComponent) bullet: SohoBulletComponent;
   public data = bulletData1;
 }
 

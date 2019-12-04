@@ -5,7 +5,7 @@ import { SohoErrorDirective } from 'ids-enterprise-ng';
 
 @Component({
   selector:    'app-validation-form-event-demo',
-  templateUrl: './validation-form-event.demo.html'
+  templateUrl: 'validation-form-event.demo.html'
 })
 export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
   @ViewChildren(SohoTrackDirtyDirective) trackDirtyComponents: QueryList<SohoTrackDirtyDirective>;

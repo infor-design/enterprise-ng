@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
  */
 @Component({
   selector: 'app-tabs-basic-demo',
-  templateUrl: './tabs-basic.demo.html',
+  templateUrl: 'tabs-basic.demo.html',
 })
 export class TabsBasicDemoComponent {
   onTabActivated(event) {

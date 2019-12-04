@@ -9,7 +9,7 @@ import { SohoTreeComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-tree-content-demo',
-  templateUrl: './tree-content.demo.html',
+  templateUrl: 'tree-content.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeContentDemoComponent {

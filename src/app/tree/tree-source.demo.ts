@@ -11,7 +11,7 @@ import { TreeDemoData } from './tree-data.demo';
 
 @Component({
   selector: 'app-tree-source-demo',
-  templateUrl: './tree-source.demo.html',
+  templateUrl: 'tree-source.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeSourceDemoComponent implements AfterViewInit {

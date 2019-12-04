@@ -6,7 +6,7 @@ import { Component, HostBinding } from '@angular/core';
  */
 @Component({
   selector: 'div[vertical-tabs-demo]', // tslint:disable-line
-  templateUrl: './tabs-vertical.demo.html'
+  templateUrl: 'tabs-vertical.demo.html'
 })
 export class TabsVerticalDemoComponent {
 

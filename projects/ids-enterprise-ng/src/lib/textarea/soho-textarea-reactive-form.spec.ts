@@ -34,7 +34,7 @@ import { fakeAsync, tick } from '@angular/core/testing';
 class SohoTextAreaReactiveFormTestComponent {
   public value = '1';
 
-  @ViewChild(SohoTextAreaComponent, { static: false }) textarea: SohoTextAreaComponent;
+  @ViewChild(SohoTextAreaComponent) textarea: SohoTextAreaComponent;
 
   public formGroup: FormGroup;
 

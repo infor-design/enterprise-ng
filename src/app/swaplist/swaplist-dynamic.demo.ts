@@ -14,7 +14,7 @@ import {
 
 @Component({
     selector: 'app-swaplist-dynamic-demo',
-    templateUrl: './swaplist-dynamic.demo.html',
+    templateUrl: 'swaplist-dynamic.demo.html',
 })
 export class SwapListDynamicDemoComponent implements OnInit, OnDestroy {
     @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent: SohoSwapListComponent;

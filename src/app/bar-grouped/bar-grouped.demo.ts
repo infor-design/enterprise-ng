@@ -8,7 +8,7 @@ import { SohoBarComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-bar-demo',
-  templateUrl: './bar-grouped.demo.html',
+  templateUrl: 'bar-grouped.demo.html',
 })
 export class BarGroupedDemoComponent implements OnInit {
 

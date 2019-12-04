@@ -7,7 +7,7 @@ import {SohoPieComponent} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-pie-demo',
-  templateUrl: './donut.demo.html',
+  templateUrl: 'donut.demo.html',
 })
 export class DonutDemoComponent implements OnInit {
 

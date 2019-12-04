@@ -5,7 +5,7 @@ import {
 
 @Component({
   selector: 'app-datagrid-card-demo',
-  templateUrl: './datagrid-card.demo.html',
+  templateUrl: 'datagrid-card.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles : [`
     .demo-card-row {

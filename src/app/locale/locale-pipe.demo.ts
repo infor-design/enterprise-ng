@@ -12,7 +12,7 @@ import {
 
 @Component({
   selector: 'app-locale-pipe-demo',
-  templateUrl: './locale-pipe.demo.html',
+  templateUrl: 'locale-pipe.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LocalePipeDemoComponent {

@@ -14,7 +14,7 @@ import {
 
 @Component({
   selector: 'soho-fileupload-advanced,div[soho-fileupload-advanced]',
-  templateUrl: './soho-fileupload-advanced.component.html',
+  templateUrl: 'soho-fileupload-advanced.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 

@@ -121,7 +121,7 @@ export class SohoListViewMicroComponent {
 
 @Component({
   selector: 'soho-listview',
-  templateUrl: './soho-listview.component.html',
+  templateUrl: 'soho-listview.component.html',
   styles: [`
     .smaller {
       width: 50%;
@@ -334,7 +334,8 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
 
   // Used to locate the listViewReference in the HTML to init the component through jQuery
   @ViewChild('listview', { static: true }) listViewRef: ElementRef;
-  @ContentChild(forwardRef(() => SohoSearchFieldComponent),  {static: false}) // tslint:disable-line
+  @ContentChild(forwardRef(() => SohoSearchFieldComponent)) // tslint:disable-line
+ // tslint:disable-line
  // tslint:disable-line
   public searchfieldRef: SohoSearchFieldComponent = null;
 

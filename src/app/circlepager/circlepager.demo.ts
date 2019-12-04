@@ -7,7 +7,7 @@ import {
 
 @Component({
   selector: 'app-circlepager-demo',
-  templateUrl: './circlepager.demo.html',
+  templateUrl: 'circlepager.demo.html',
   styleUrls: ['./circlepager.demo.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

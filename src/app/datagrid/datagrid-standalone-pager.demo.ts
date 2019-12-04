@@ -4,7 +4,7 @@ import { DatagridStandalonePagerDemoService } from './datagrid-standalone-pager-
 
 @Component({
   selector: 'app-datagrid-standalone-pager',
-  templateUrl: './datagrid-standalone-pager.demo.html',
+  templateUrl: 'datagrid-standalone-pager.demo.html',
   providers: [ DatagridStandalonePagerDemoService ]
 })
 export class DatagridStandalonePagerDemoComponent implements OnInit {

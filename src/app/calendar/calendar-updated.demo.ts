@@ -7,12 +7,12 @@ import { SohoCalendarComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-calendar-updated-demo',
-  templateUrl: './calendar-updated.demo.html',
+  templateUrl: 'calendar-updated.demo.html',
   providers: [CalendarDemoService]
 })
 export class CalendarUpdatedDemoComponent {
 
-  @ViewChild('SohoCalendarComponent', { static: false }) sohoCalendarComponent: SohoCalendarComponent;
+  @ViewChild('SohoCalendarComponent') sohoCalendarComponent: SohoCalendarComponent;
 
   public initialMonth = 1;
   public initialYear = 2019;
@@ -20,16 +20,17 @@ export class CalendarUpdatedDemoComponent {
   public eventTypes: [];
   public events: [];
   public eventsLoaded = false;
+  public iconTooltip = 'Tooltip';
 
   constructor(
     private monthViewService: CalendarDemoService
   ) { }
 
-  public iconToolTip = (eventData: any) => {
+  public iconToolTip = (eventData: any) => {
     console.log('iconToolTip');
   }
 
-  public eventTooltip = (eventData: any) => {
+  public eventTooltip = (eventData: any) => {
     console.log('iconToolTip');
   }
 

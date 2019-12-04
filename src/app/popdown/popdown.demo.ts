@@ -7,7 +7,7 @@ import {
 
 @Component({
   selector: 'app-popdown-demo',
-  templateUrl: './popdown.demo.html',
+  templateUrl: 'popdown.demo.html',
 })
 export class PopDownDemoComponent {
   @ViewChild('statesPopDown', { read: SohoPopDownDirective, static: true })

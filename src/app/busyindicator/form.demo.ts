@@ -12,7 +12,7 @@ import {
 
 @Component({
   selector: 'app-busyindicator-demo',
-  templateUrl: './form.demo.html',
+  templateUrl: 'form.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BusyIndicatorDemoComponent {

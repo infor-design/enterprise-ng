@@ -7,12 +7,12 @@ import { SohoCalendarComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-calendar-legend-demo',
-  templateUrl: './calendar-legend.demo.html',
+  templateUrl: 'calendar-legend.demo.html',
   providers: [CalendarDemoService]
 })
 export class CalendarLegendDemoComponent {
 
-  @ViewChild('SohoCalendarComponent', { static: false }) sohoCalendarComponent: SohoCalendarComponent;
+  @ViewChild('SohoCalendarComponent') sohoCalendarComponent: SohoCalendarComponent;
 
   public initialMonth = 11;
   public initialYear = 2018;

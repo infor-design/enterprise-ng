@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-dropdown-demo',
-  templateUrl: './dropdown-async-busy.demo.html',
+  templateUrl: 'dropdown-async-busy.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {

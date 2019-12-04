@@ -7,7 +7,7 @@
 
 @Component({
   selector: 'app-datagrid-toolbar-demo',
-  templateUrl: './datagrid-toolbar.demo.html',
+  templateUrl: 'datagrid-toolbar.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridToolbarDemoComponent {

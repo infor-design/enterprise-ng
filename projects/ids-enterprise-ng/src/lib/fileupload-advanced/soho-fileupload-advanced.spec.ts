@@ -12,7 +12,7 @@ import { SohoFileUploadAdvancedComponent } from './soho-fileupload-advanced.comp
   template: `<div soho-fileupload-advanced></div>`
 })
 class SohoFileUploadAdvancedTestComponent {
-  @ViewChild(SohoFileUploadAdvancedComponent, { static: false }) fileuploadadvanced: SohoFileUploadAdvancedComponent;
+  @ViewChild(SohoFileUploadAdvancedComponent) fileuploadadvanced: SohoFileUploadAdvancedComponent;
 }
 
 describe('Soho File Upload Advanced Render', () => {

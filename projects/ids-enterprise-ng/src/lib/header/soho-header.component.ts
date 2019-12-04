@@ -13,7 +13,7 @@ import {
 
 @Component({
   selector: 'soho-header',
-  templateUrl: './soho-header.component.html',
+  templateUrl: 'soho-header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoHeaderComponent implements AfterViewInit {

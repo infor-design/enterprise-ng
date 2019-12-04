@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-radiobutton-demo',
-  templateUrl: './radiobutton.demo.html'
+  templateUrl: 'radiobutton.demo.html'
 })
 export class RadioButtonDemoComponent implements OnInit {
 

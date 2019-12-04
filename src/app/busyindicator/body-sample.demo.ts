@@ -12,7 +12,7 @@ import {
 
 @Component({
   selector: 'app-busyindicator-demo',
-  templateUrl: './body-sample.demo.html'
+  templateUrl: 'body-sample.demo.html'
 })
 export class BusyIndicatorDemoBodyComponent implements OnInit {
 

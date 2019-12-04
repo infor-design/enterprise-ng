@@ -282,7 +282,7 @@ export const EDITORS_COLUMNS: SohoDataGridColumn[] = [
 
 @Component({
   selector: 'soho-datagrid-angular-editor',
-  templateUrl: './datagrid-angular-editor.demo.html'
+  templateUrl: 'datagrid-angular-editor.demo.html'
 })
 export class DataGridAngularEditorDemoComponent implements OnInit {
   gridOptions: SohoDataGridOptions = undefined;

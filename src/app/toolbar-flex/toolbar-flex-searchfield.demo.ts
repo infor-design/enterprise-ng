@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar-flex-searchfield-demo',
-  templateUrl: './toolbar-flex-searchfield.demo.html'
+  templateUrl: 'toolbar-flex-searchfield.demo.html'
 })
 export class ToolbarFlexSearchfieldDemoComponent {
 
