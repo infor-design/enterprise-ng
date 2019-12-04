@@ -64,4 +64,8 @@ export class FileUploadDemoComponent implements OnInit {
   onPristine(event: SohoTrackDirtyEvent) {
     console.log('onPristine');
   }
+
+  onChange(event: any) {
+    console.log('onChange', event);
+  }
 }

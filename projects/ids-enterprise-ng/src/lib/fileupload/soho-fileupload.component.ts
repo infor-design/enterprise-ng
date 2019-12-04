@@ -10,7 +10,8 @@ import {
   HostBinding,
   Input,
   Output,
-  OnDestroy
+  OnDestroy,
+  NgZone
 } from '@angular/core';
 
 @Component({
@@ -99,19 +100,29 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   // Reference to the SoHoXi control api.
   private fileUpload: SohoFileUploadStatic;
 
-  constructor(private element: ElementRef, private changeDetectorRef: ChangeDetectorRef) {}
+  constructor(
+    private element: ElementRef,
+    private changeDetectorRef: ChangeDetectorRef,
+    private ngZone: NgZone
+  ) {}
+
+  /** Called when the value changes. */
+  @Output() changeEvent = new EventEmitter<SohoFileUploadEvent>();
 
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
 
-    // Initialize the SohoXi Control
-    const $fileUpload = this.jQueryElement.fileupload();
-    this.fileUpload = $fileUpload.data('fileupload');
+      // Initialize the SohoXi Control
+      const $fileUpload = this.jQueryElement.fileupload();
+      this.fileUpload = $fileUpload.data('fileupload');
 
-    /**
-     * Bind to jQueryElement's events
-     */
-    this.jQueryElement.on('change', (event: SohoFileUploadEvent) => this.change.emit(event));
+      /**
+       * Bind to jQueryElement's events
+       */
+      this.jQueryElement.on('change', (event: SohoFileUploadEvent) =>
+          this.ngZone.run(() => this.changeEvent.emit(event)));
+    });
   }
 
   ngOnDestroy() {
