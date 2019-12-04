@@ -1,5 +1,5 @@
 
-import { of,  Observable } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 import {
@@ -80,14 +80,16 @@ export class DataGridDemoService extends SohoDataGridService {
       field: 'productName',
       formatter: Soho.Formatters.Template,
       template: '<p class="datagrid-row-heading">{{productId}}</p><p class="datagrid-row-subheading">{{productName}}</p>',
-      click: (e: any, args: any) => { console.log('link was clicked', args); }
+      click: (e: any, args: any) => { console.log('link was clicked', args); },
+      textOverflow: 'ellipsis'
     });
 
     this.columns.push({
       id: 'activity',
       name: 'Activity',
       filterType: 'text',
-      field: 'activity'
+      field: 'activity',
+      textOverflow: 'ellipsis'
     });
 
     this.columns.push({
@@ -163,8 +165,10 @@ export class DataGridDemoService extends SohoDataGridService {
       });
 
     this.columns.push({ id: 'ordered', hidden: true, name: 'Ordered', field: 'ordered', formatter: Soho.Formatters.Checkbox });
-    this.columns.push({ id: '', hidden: false, name: 'Actions', field: '',
-      formatter: Soho.Formatters.Actions, menuId: 'grid-actions-menu', selected: (e, a) => { this.onActionHandler(a); } });
+    this.columns.push({
+      id: '', hidden: false, name: 'Actions', field: '',
+      formatter: Soho.Formatters.Actions, menuId: 'grid-actions-menu', selected: (e, a) => { this.onActionHandler(a); }
+    });
     this.columns.push({ id: 'nested', hidden: true, name: 'Nested Prop', field: 'setting.optionOne', formatter: Soho.Formatters.Text });
     this.columns.push({ id: 'comment', hidden: true, name: 'Comment', field: 'comment', formatter: Soho.Formatters.Textarea, width: 100 });
 
