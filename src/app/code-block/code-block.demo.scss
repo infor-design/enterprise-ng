@@ -1,0 +1,28 @@
+:host {
+  .code-block {
+    display: inline-block;
+
+    .field {
+      display: inline-block;
+      margin-bottom: 0;
+
+      &:first-child {
+        margin-left: 5px;
+      }
+
+      &:last-of-type {
+        margin-right: 5px;
+      }
+
+      &:not(:last-of-type):after {
+        content: '•';
+        color: #5C5C5C;
+        font-size: 18px;
+        padding-left: 2px;
+        margin-right: 2px;
+        position: relative;
+        top: 1px;
+      }
+    }
+  }
+}
