@@ -29,6 +29,8 @@ interface SohoAlertOptions {
 
   /** */
   icon?: string;
+  
+  id?: string;
 }
 
 /**
