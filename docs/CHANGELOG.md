@@ -1,10 +1,23 @@
 # What's New with Enterprise-NG
 
+## v7.0.0
+
+### 7.0.0 Fixes
+
+### 7.0.0 Features
+
+- `[General]` Upgraded @angular/cli (to 9.0.x) and @angular/core (to 9.0.x).  `BTHH` ([Pull Request 578](https://github.com/infor-design/enterprise-ng/pull/xxx))
+    - support for Node 10.9.0+
+    - support for TypeScript 3.6.x
+    - support for ivy (ids-enterprise-ng is not compiled using ivy)
+    - `UPGRADING.md` has been updated with details on upgrading your application to angular 9.
+
 ## v6.3.0
 
 ### 6.3.0 Fixes
 
 - `[Modal]` Merged SohoModalModule into SohoModalDialogModule keeping current API but fixing the memory leaks. `BTHH` ([#663](https://github.com/infor-design/enterprise-ng/pull/663))
+- `[Datagrid]` Added sortFunction property to SohoDataGridColumn settings. ([#664](https://github.com/infor-design/enterprise-ng/issues/664))
 - `[Datagrid]` Added `enableTooltips` Input to datagrid. `BTHH` ([#674](https://github.com/infor-design/enterprise-ng/pull/674))
 - `[FileUpload]` Fixed duplicate change event. `TJM` ([#672](https://github.com/infor-design/enterprise-ng/pull/672))
 

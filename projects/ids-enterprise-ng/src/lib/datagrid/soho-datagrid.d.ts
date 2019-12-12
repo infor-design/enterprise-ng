@@ -641,6 +641,8 @@ interface SohoDataGridColumnClickData {
   originalEvent: Event;
 }
 
+type SohoDataGridColumnSortFunction = (v: any) => any;
+
 type SohoDataGridColumnClickFunction = (
   e: Event,
   args: SohoDataGridColumnClickData[]
@@ -673,6 +675,9 @@ interface SohoDataGridColumn {
 
   /** Is the column sortable? */
   sortable?: boolean;
+
+  /** Column sortable function? */
+  sortFunction?: SohoDataGridColumnSortFunction;
 
   /** Width of the column (in pixels) or a string value for the width. */
   width?: number | string;
