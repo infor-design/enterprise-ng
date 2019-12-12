@@ -39,7 +39,7 @@
     "@angular/platform-browser-dynamic": "~9.0.0-rc.6",
     "@angular/router": "~9.0.0-rc.6",
     "classlist.js": "^1.1.20150312",
-    "core-js": "^2.5.4",
+    "core-js": "^3.5.0",
     "d3": "4.13.0",
     "fix": "0.0.6",
     "ids-enterprise": "4.24.0-dev.20191209",
