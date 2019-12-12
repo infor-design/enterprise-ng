@@ -8,11 +8,11 @@ For information on how to create these libraries, see [Creating A Library][#CAL]
 
 Consuming the `ids-enterprise-ng` package will require changes to any projects referencing it.
 
-### Upgrade Angular and Angular/CLI
+### Upgrade angular and angular/cli
 
-These instructions assume you will be running the latest versions of `@angular/cli` and `@angular/core`. It is recommended that you review the information on <https://update.angular.io> before updating.
+These instructions assume you will be running the latest versions of `@angular/cli` and `@angular/core`. It is recommended that you review the information on <https://update.angular.io> before updating.  Also read <https://next.angular.io/guide/updating-to-version-9> for a detailed description of changes to angular.
 
-Note: The libraries are currently compiled using angular 8, and so require all consumers to use the same major version.
+Note: The libraries are currently compiled using angular 9, and so require all consumers to use the same major version.
 
 These are the steps for upgrading existing projects:
 
@@ -26,30 +26,13 @@ You will need to fix any issues raised, as these will depend on the dependency t
 
 #### Angular 8
 
-When updating (and depending on your dependencies) the update *may* not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install TypeScript 3.4.5 first, as follows:
+When updating (and depending on your dependencies) the update *may* not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install TypeScript 3.6.x first, as follows:
 
 ```sh
-npm i typescript@3.4.5
+npm i typescript@3.6.4
 ```
 
-Then try again.
-
-Also note that some packages may not be updated automatically, for example the following failed when updating the `ids-enterprise-quickstart` application:
-
-- codelyzer - the recommended version at the time of writing is ~4.6.0
-- @angular-devkit/build-angular - the recommended version at the time of writing is ~0.12.0
-
-Simply update these manually:
-
-```sh
-npm i codelyzer@5.0.1
-```
-
-Then try again.
-
-If your project includes sub-projects (`angular/cli` libraries) then you may find additional issues similar to the above, the general approach is to determine the package with the compatibility problem and install a compatible version before running `ng update`.
-
-### Uninstall old dependencies (for code upgrading from a version of ids-enterprise-ng before 5)
+### Uninstall old dependencies (for code upgrading from a version of ids-enterprise-ng before version 5)
 
 These are now included as part of the ids-enterprise-ng package):
 
