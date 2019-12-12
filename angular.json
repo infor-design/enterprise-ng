@@ -71,7 +71,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb",
-		  "maximumError": "10kb"
+                  "maximumError": "10kb"
                 }
               ]
             }
@@ -172,9 +172,9 @@
           },
           "configurations": {
             "production": {
-              "project": "projects/ids-enterprise-ng/ng-package.prod.json"
-            ,              "tsConfig": "projects/ids-enterprise-ng/tsconfig.lib.prod.json"
-}
+              "project": "projects/ids-enterprise-ng/ng-package.prod.json",
+              "tsConfig": "projects/ids-enterprise-ng/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {
@@ -201,5 +201,8 @@
       }
     }
   },
-  "defaultProject": "ids-enterprise-ng-app"
+  "defaultProject": "ids-enterprise-ng-app",
+  "cli": {
+    "analytics": "deda5b6f-0536-400b-81ca-445018af21f9"
+  }
 }
