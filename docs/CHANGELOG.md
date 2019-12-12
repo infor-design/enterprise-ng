@@ -9,7 +9,7 @@
 - `[General]` Upgraded @angular/cli (to 9.0.x) and @angular/core (to 9.0.x).  `BTHH` ([Pull Request 578](https://github.com/infor-design/enterprise-ng/pull/xxx))
     - support for Node 10.9.0+
     - support for TypeScript 3.6.x
-    - support for ivy (ids-enterprise-ng is not compiled using ivy)
+    - support for Ivy (ids-enterprise-ng is not compiled using ivy)
     - `UPGRADING.md` has been updated with details on upgrading your application to angular 9.
 
 ## v6.3.0
