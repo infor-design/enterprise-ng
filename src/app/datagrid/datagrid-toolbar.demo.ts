@@ -4,6 +4,7 @@
   Input,
   ChangeDetectionStrategy
 } from '@angular/core';
+import { SohoMessageService } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-datagrid-toolbar-demo',
@@ -15,7 +16,7 @@ export class DataGridToolbarDemoComponent {
   // Breadcrumbs.
   @Input() breadcrumbs: Breadcrumb[];
 
-  constructor(private element: ElementRef) {
+  constructor(private element: ElementRef, private messages: SohoMessageService) {
     this.breadcrumbs = this.buildBreadcrumbs();
   }
 
@@ -23,13 +24,25 @@ export class DataGridToolbarDemoComponent {
     console.log('Selected ${breadcrumb.friendlyName}');
   }
 
+  public onDelete() {
+    const opts: SohoMessageOptions = {
+      buttons: [
+        { text: 'Close', click: (e, modal) => { modal.close(true); }, isDefault: true }
+      ]
+    };
+    opts.message = 'Test Message. Testing 1.2';
+    this.messages
+      .confirm(opts)
+      .open();
+  }
+
   private buildBreadcrumbs() {
     const breadcrumbs = Array<Breadcrumb>();
 
-    breadcrumbs.push({ current: false, friendlyName: 'Root', path: '/', selectable: true});
-    breadcrumbs.push({ current: false, friendlyName: 'Level 1', path: '/1', selectable: true});
-    breadcrumbs.push({ current: false, friendlyName: 'Level 2', path: '/1/2', selectable: true});
-    breadcrumbs.push({ current: false, friendlyName: 'Level 3', path: '/1/2/3', selectable: true});
+    breadcrumbs.push({ current: false, friendlyName: 'Root', path: '/', selectable: true });
+    breadcrumbs.push({ current: false, friendlyName: 'Level 1', path: '/1', selectable: true });
+    breadcrumbs.push({ current: false, friendlyName: 'Level 2', path: '/1/2', selectable: true });
+    breadcrumbs.push({ current: false, friendlyName: 'Level 3', path: '/1/2/3', selectable: true });
 
     return breadcrumbs;
   }
