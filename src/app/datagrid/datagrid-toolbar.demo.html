@@ -13,14 +13,15 @@
 
   <soho-toolbar-button-set>
     <button id="refresh-item" soho-button="icon" icon="refresh">Refresh</button>
+    <button id="delete-item" soho-button="icon" icon="delete" (click)="onDelete()">delete</button>
 
     <div class="more">
       <button class="btn btn-actions" soho-button="icon" icon="more">
         <span class="audible">More Actions</span>
       </button>
       <ul class="popupmenu">
-        <li><a href="#">Refresh</a></li>
         <li><a data-option="personalize-columns" href="#">Personalize Columns</a></li>
+        <li><a data-option="reset-layout" href="#">Reset to Default</a></li>
         <li class="separator single-selectable-section"></li>
         <li class="heading">Row Height</li>
         <li class="is-selectable"><a data-option="row-short" href="#">Short</a></li>
