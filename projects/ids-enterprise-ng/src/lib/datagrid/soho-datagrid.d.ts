@@ -618,6 +618,14 @@ type SohoDataGridColumnIsEditableFunction = (
   rowData: Object
 ) => boolean;
 
+type SohoDataGridColumnCssClassFunction = (
+  row: number,
+  cell: any,
+  fieldValue: any,
+  columnDef: SohoDataGridColumn,
+  rowData: Object
+) => string;
+
 type SohoDataGridColumnColSpanFunction = (
   row: number,
   cell: any,
@@ -718,7 +726,7 @@ interface SohoDataGridColumn {
   options?: SohoGridCellOption[];
 
   /** css class  */
-  cssClass?: string;
+  cssClass?: SohoDataGridColumnCssClassFunction | string;
 
   /** @todo fix type from any.  */
   dateShowFormat?: any;
