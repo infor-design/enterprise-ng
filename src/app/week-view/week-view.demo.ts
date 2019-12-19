@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   HostBinding,
   ViewChild,
@@ -13,7 +12,7 @@ import { SohoCalendarComponent, SohoWeekViewComponent } from 'ids-enterprise-ng'
   providers: [WeekViewDemoService]
 })
 
-export class WeekViewDemoComponent implements AfterViewInit {
+export class WeekViewDemoComponent {
 
   @HostBinding('style.overflow') overflow = 'auto';
   @HostBinding('style.height') height = 'auto';
@@ -29,10 +28,6 @@ export class WeekViewDemoComponent implements AfterViewInit {
   public eventTypes: [];
   public events: [];
   public eventTooltip = 'overflow';
-
-  ngAfterViewInit(): void {
-    console.log("->", this);
-  }
 
   public onRenderWeekCallback = (node: Node, response: Function) => {
     this.weekViewService.getWeekViewEventTypes().subscribe((types) => {

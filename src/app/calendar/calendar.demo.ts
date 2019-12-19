@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   HostBinding,
   ViewChild,
@@ -12,11 +11,7 @@ import { SohoCalendarComponent, SohoToastService } from 'ids-enterprise-ng';
   templateUrl: './calendar.demo.html',
   providers: [CalendarDemoService]
 })
-export class CalendarDemoComponent implements AfterViewInit {
-
-  ngAfterViewInit(): void {
-    console.log("this", this);
-  }
+export class CalendarDemoComponent {
 
   @HostBinding('style.overflow') overflow = 'auto';
   @HostBinding('style.height') height = 'auto';
