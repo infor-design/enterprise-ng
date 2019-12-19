@@ -79,6 +79,7 @@
 | tree                    |                      Available |            - | [SOHO-4043][#4083] |             No |
 | treegrid                |                      Available |            - | [SOHO-4722][#4722] |            Yes |
 | treemap                 |                      Available |            - |                  - |            Yes |
+| week-view               |                      Available |            - | [#661]             |              - |
 | wizard                  |                      Available |            - | [SOHO-6317][#6317] |             No |
 
 [0]: ../projects/ids-enterprise-ng/src/lib/contextual-action-panel/README.md

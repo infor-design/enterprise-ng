@@ -76,6 +76,7 @@ export * from './trackdirty/index';
 export * from './tree/index';
 export * from './treemap/index';
 export * from './utils/index';
+export * from './week-view/index';
 export * from './wizard/index';
 
 export * from './soho-components.module';

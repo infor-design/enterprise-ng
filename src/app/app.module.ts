@@ -214,6 +214,7 @@ import { TreeSourceDemoComponent } from './tree/tree-source.demo';
 import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { ValidationFormEventDemoComponent } from './validation/validation-form-event.demo';
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
+import { WeekViewDemoComponent } from './week-view/week-view.demo';
 import { WizardDemoBackupRulePageComponent } from './wizard/wizard-backup-rule-page.demo';
 import { WizardDemoComponent } from './wizard/wizard.demo';
 import { WizardDemoConfirmationPageComponent } from './wizard/wizard-confirmation-page.demo';
@@ -413,6 +414,7 @@ import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/app
     ValidationFormDemoComponent,
     ValidationFormEventDemoComponent,
     ValidationFormGroupDemoComponent,
+    WeekViewDemoComponent,
     WizardDemoComponent,
     WizardDemoConfirmationPageComponent,
     WizardDemoSelectFilePageComponent,

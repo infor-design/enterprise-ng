@@ -172,6 +172,7 @@ import { ValidationFormDemoComponent } from './validation/validation-form.demo';
 import { ValidationFormEventDemoComponent } from './validation/validation-form-event.demo';
 import { ValidationFormGroupDemoComponent } from './validation/validation-form-group.demo';
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
+import { WeekViewDemoComponent } from './week-view/week-view.demo';
 import { WizardDemoComponent } from './wizard/wizard.demo';
 import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
 
@@ -350,6 +351,7 @@ export const routes: Routes = [
   { path: 'validation', component: ValidationFormDemoComponent },
   { path: 'validation-event', component: ValidationFormEventDemoComponent },
   { path: 'validation-group', component: ValidationFormGroupDemoComponent },
+  { path: 'week-view', component: WeekViewDemoComponent },
   { path: 'wizard', component: WizardDemoComponent }
 ];
 

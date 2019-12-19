@@ -8,6 +8,10 @@
 - `[Datagrid]` Added `enableTooltips` Input to datagrid. `BTHH` ([#674](https://github.com/infor-design/enterprise-ng/pull/674))
 - `[FileUpload]` Fixed duplicate change event. `TJM` ([#672](https://github.com/infor-design/enterprise-ng/pull/672))
 
+### 6.3.0 Features
+
+- `[Week View]` - Added week view component wrapper. `EA` ([#661](https://github.com/infor-design/enterprise-ng/issues/661))
+
 ## v6.2.0
 
 ### 6.2.0 Fixes
