@@ -166,6 +166,12 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
    * */
   @Output() selected = new EventEmitter<SohoTreeEvent>();
 
+  /**
+   * This event is fired when a node is unselected, the SohoTreeNode
+   * unselected is passed in the argument passed to the handler.
+   * */
+  @Output() unselected = new EventEmitter<SohoTreeEvent>();
+
   @Output() sortstart = new EventEmitter<SohoTreeEvent>();
 
   @Output() sortend = new EventEmitter<SohoTreeEvent>();
@@ -469,6 +475,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     // Initialize any event handlers.
     this.jQueryElement
       .on('selected', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.selected.next(args))
+      .on('unselected', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.unselected.next(args))
       .on('expand', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.expand.next(args))
       .on('collapse', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.collapse.next(args))
       .on('sortstart', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.sortstart.next(args))

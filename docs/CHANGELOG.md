@@ -1,5 +1,12 @@
 # What's New with Enterprise-NG
 
+## v6.4.0
+
+### 6.4.0 Fixes
+
+- `[Tree]` Expose unselected event. `MC` ([#https://github.com/infor-design/enterprise-ng/issues/670](https://github.com/infor-design/enterprise-ng/pull/https://github.com/infor-design/enterprise-ng/issues/670))
+- `[Datagrid]` Correct the cssClass type on columns to accept a function. `TJM`  ([#657](https://github.com/infor-design/enterprise-ng/issues/657))
+
 ## v6.3.0
 
 ### 6.3.0 Fixes
