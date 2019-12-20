@@ -15,6 +15,7 @@
 - `[Datagrid]` Added sortFunction property to SohoDataGridColumn settings. ([#664](https://github.com/infor-design/enterprise-ng/issues/664))
 - `[Datagrid]` Added `enableTooltips` Input to datagrid. `BTHH` ([#674](https://github.com/infor-design/enterprise-ng/pull/674))
 - `[FileUpload]` Fixed duplicate change event. `TJM` ([#672](https://github.com/infor-design/enterprise-ng/pull/672))
+- `[Treegrid]` Added Cube Viewer Demo. `AA` ([#694](https://github.com/infor-design/enterprise-ng/issues/694))
 
 ## v6.2.0
 

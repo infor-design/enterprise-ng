@@ -223,6 +223,7 @@ import { WizardDemoTargetFolderPageComponent } from './wizard/wizard-target-fold
 import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validation-rules-page.demo';
 import { LocaleInitializerModule } from './locale-initializer/locale-initializer.module';
 import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
+import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-cube.demo';
 
 @NgModule({
   declarations: [
@@ -298,6 +299,7 @@ import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/app
     DataGridTestSettingsDemoComponent,
     DataGridToolbarDemoComponent,
     DataGridTreeGridDemoComponent,
+    DataGridTreeGridCubeDemoComponent,
     DatagridTreegridDynamicfilteringDemoComponent,
     DataGridGroupableDemoComponent,
     DatepickerDemoComponent,
