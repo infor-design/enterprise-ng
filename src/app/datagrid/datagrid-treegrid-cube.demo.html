@@ -1,0 +1,35 @@
+<div class="two-column no-scroll" role="main">
+  <div class="sidebar scrollable" style="width: 40%">
+    <div class="panel-header">
+      <div class="toolbar standalone">
+        <div class="title">
+          <span>Candidate Analysis Cube</span>
+        </div>
+        <div class="buttonset">
+        </div>
+      </div>
+    </div>
+    <div soho-busyindicator soho-datagrid
+      (selected)="onSelected($event)"
+      selectable="siblings"
+      [treeGrid]="true"
+      [columns]="columns"
+      [dataset]="data">
+    </div>
+    <soho-splitter [isSplitterRight]="true" [collapseButton]="true" [save]="false">
+      <div class="panel-header"></div>
+    </soho-splitter>
+  </div>
+
+  <div class="scrollable-area no-scroll" style="width: 60%">
+    <div class="full-width chart-container" style="height:95%;padding: 0px;">
+      <div soho-chart
+        [type]="column"
+        [selectedIndex]="0"
+        [showLegend]="false"
+        [chartAnimate]="false"
+      >
+      </div>
+    </div>
+  </div>
+</div>

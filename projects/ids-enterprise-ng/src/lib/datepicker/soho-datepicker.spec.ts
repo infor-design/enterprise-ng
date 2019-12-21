@@ -264,7 +264,7 @@ describe('Soho Datepicker Unit Tests', () => {
 
     spyOn(comp, 'onChange');
 
-    const date = new Date('1978-11-18T12:00:00Z');
+    const date = new Date('1978-11-11T12:00:00Z');
 
     // comp.changed.map((x: SohoDatePickerEvent) => x.data).subscribe((x) => {
     //   expect(x).toBe(date, 'Incorrect value passed to event');
@@ -279,7 +279,7 @@ describe('Soho Datepicker Unit Tests', () => {
       expect(Soho.Locale.currentLocale.name).toEqual('en-US');
       expect(comp.onChange).toHaveBeenCalled();
       fixture.detectChanges();
-      expect(comp.model).toBe('11/18/1978', 'Model not updated to correct value.');
+      expect(comp.model).toBe('11/11/1978', 'Model not updated to correct value.');
     });
   }));
 

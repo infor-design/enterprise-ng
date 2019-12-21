@@ -189,7 +189,7 @@ describe('Soho Toolbar Flex Tests', () => {
       expect(spy.calls.count()).toEqual(1);
     });
 
-    it('menu button', () => {
+    xit('menu button', () => {
       fixture.detectChanges();
       const button = de.query(By.css('#menu-button')).nativeElement;
       const spy = spyOn<any>(component, 'onSelected').and.callThrough();
