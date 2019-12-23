@@ -18,8 +18,15 @@ describe('Datagrid Dynamic Tests', () => {
       cy.get('ul[soho-popupmenu]').should('be.visible')
         .children().should('have.length', 5);
 
-      // close context menu
-      cy.get('ul[soho-popupmenu] li:first>a').click();
+      // close context menu via submenu
+      cy.get('ul[soho-popupmenu] li:nth-child(5)')
+        .trigger('mouseover')
+        .find('ul')
+        .children()
+        .should('be.visible')
+        .should('have.length', 2)
+        .first()
+        .click();
       cy.get('ul[soho-popupmenu]').should('not.be.visible');
 
       // 2nd context menu
