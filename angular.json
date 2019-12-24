@@ -196,5 +196,8 @@
       }
     }
   },
-  "defaultProject": "ids-enterprise-ng-app"
+  "defaultProject": "ids-enterprise-ng-app",
+  "cli": {
+    "analytics": false
+  }
 }
