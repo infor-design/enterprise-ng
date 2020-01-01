@@ -34,7 +34,7 @@ describe('Pipe: Default', () => {
   it('Should be able to see number data', (done) => {
     Soho.Locale.culturesPath = '/assets/ids-enterprise/js/cultures/';
     Soho.Locale.set('en-US').done(() => {
-      expect(Soho.Locale.calendar().firstDayofWeek).toBeUndefined();
+      expect(Soho.Locale.calendar().firstDayofWeek).toEqual(0);
     });
 
     Soho.Locale.set('sv-SE').done(() => {
