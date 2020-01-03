@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 
 import { SohoWizardModule } from './soho-wizard.module';
 import { SohoWizardComponent } from './soho-wizard.component';
-import { SohoWizardTickComponent } from './soho-wizard-tick.component';
 
 describe('Soho Wizard Unit Tests', () => {
   let comp: SohoWizardComponent;
@@ -16,11 +15,13 @@ describe('Soho Wizard Unit Tests', () => {
   let de: DebugElement;
   let el: HTMLElement;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       declarations: [SohoWizardComponent]
-    });
+    }).compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(SohoWizardComponent);
     comp = fixture.componentInstance;
     de = fixture.debugElement;
@@ -38,11 +39,15 @@ describe('Soho Wizard Unit Tests', () => {
     fixture.detectChanges();
   });
 
-  it('Check Empty Content', () => {
+  it('should create', () => {
+    expect(comp).toBeDefined();
+  });
+
+  it('Check Empty Content', async (done) => {
+    fixture.detectChanges();
     expect(el.nodeName).toEqual('DIV');
-    // expect(el.id).toEqual('root1');
-    expect(el.hasAttribute('soho-wizard')).toBeTruthy();
     expect(el.classList).toContain('wizard');
+    done();
   });
 });
 

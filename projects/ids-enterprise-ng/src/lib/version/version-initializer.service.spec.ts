@@ -6,12 +6,12 @@ describe('Soho Version Initialiser Service', () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [
     ],
-     providers: [
+    providers: [
     ]
   }));
 
   it('should be created', () => {
-    const service: SohoVersionInitializerService = TestBed.get(SohoVersionInitializerService);
+    const service: SohoVersionInitializerService = TestBed.inject(SohoVersionInitializerService);
     expect(service).toBeTruthy();
   });
 });

@@ -72,7 +72,7 @@ describe('Soho Hyperlink Unit tests', () => {
 
   it('Hyperlink directional - caret right', () => {
     fixture.detectChanges();
-    expect(el2.classList[1]).toEqual('directional');
+    expect(el2.classList).toContain('directional');
     expect(el2.hasAttribute('isCaretRight')).toBeTruthy();
     fixture.detectChanges();
     expect(el2.children[1].classList[0]).toEqual('icon');
@@ -81,7 +81,7 @@ describe('Soho Hyperlink Unit tests', () => {
 
   it('Hyperlink back - caret left', () => {
     fixture.detectChanges();
-    expect(el3.classList[1]).toEqual('back');
+    expect(el3.classList).toContain('back');
     expect(el3.hasAttribute('isCaretLeft')).toBeTruthy();
     fixture.detectChanges();
     expect(el3.children[0].classList[0]).toEqual('icon');

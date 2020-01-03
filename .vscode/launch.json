@@ -25,7 +25,8 @@
           "webpack:///ng://ids-enterprise-ng/lib/*": "${workspaceFolder}/projects/ids-enterprise-ng/src/lib/*",
           "webpack:///./src/lib/*": "${workspaceFolder}/projects/ids-enterprise-ng/src/lib/*",
           "webpack:///node_modules/ids-enterprise/dist/js/sohoxi.js": "${workspaceFolder}/node_modules/ids-enterprise/dist/js/sohoxi.js",
-          "src/lib/*": "${workspaceFolder}/projects/ids-enterprise-ng/src/lib/*"
+          "src/lib/*": "${workspaceFolder}/projects/ids-enterprise-ng/src/lib/*",
+          "_karma_webpack_/*": "${workspaceFolder}/projects/ids-enterprise-ng/src/lib/*"
         }
       },
       {

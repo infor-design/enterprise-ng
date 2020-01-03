@@ -11,6 +11,7 @@
     - support for TypeScript 3.6.x
     - support for Ivy (ids-enterprise-ng is not compiled using ivy)
     - `UPGRADING.md` has been updated with details on upgrading your application to angular 9.
+
 ## v6.4.0
 
 ### 6.4.0 Fixes

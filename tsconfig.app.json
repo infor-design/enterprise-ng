@@ -9,6 +9,11 @@
        "lscache"
     ]
   },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "enableIvy": true
+  },
   "files": [
     "src/main.ts",
     "src/polyfills.ts"
