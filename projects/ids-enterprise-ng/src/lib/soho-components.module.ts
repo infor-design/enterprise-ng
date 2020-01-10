@@ -77,6 +77,7 @@ import { SohoTrackDirtyModule } from './trackdirty/soho-trackdirty.module';
 import { SohoTreeModule } from './tree/soho-tree.module';
 import { SohoTreemapModule } from './treemap/soho-treemap.module';
 import { SohoVersionInitializerModule } from './version/version-initializer.module';
+import { SohoWeekviewModule } from './weekview/soho-weekview.module';
 import { SohoWizardModule } from './wizard/soho-wizard.module';
 
 @NgModule({
@@ -158,6 +159,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoTrackDirtyModule,
     SohoTreeModule,
     SohoTreemapModule,
+    SohoWeekviewModule,
     SohoWizardModule
   ],
   declarations: [],
@@ -239,6 +241,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoTreeModule,
     SohoTreemapModule,
     SohoVersionInitializerModule,
+    SohoWeekviewModule,
     SohoWizardModule
   ]
 })

@@ -101,6 +101,14 @@ interface SohoCalendarRenderMonthEvent {
   year: number;
 }
 
+interface SohoCalendarWeekOptions {
+  firstDayOfWeek?: string;
+  showAllDay?: boolean;
+  showTimeLine?: boolean;
+  startHour?: number;
+  endHour?: number;
+}
+
 interface SohoCalendarOptions {
   eventTypes?: SohoCalendarEventType[];
   events?: SohoCalendarEvent[];
@@ -118,6 +126,7 @@ interface SohoCalendarOptions {
   menuId?: string;
   menuSelected?: string;
   newEventDefaults?: SohoCalendarEvent;
+  weekOptions?: SohoCalendarWeekOptions;
 }
 
 interface SohoCalendar {
