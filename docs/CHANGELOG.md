@@ -17,6 +17,10 @@
 - `[FileUpload]` Fixed duplicate change event. `TJM` ([#672](https://github.com/infor-design/enterprise-ng/pull/672))
 - `[Treegrid]` Added Cube Viewer Demo. `AA` ([#694](https://github.com/infor-design/enterprise-ng/issues/694))
 
+### 6.3.0 Features
+
+- `[Weekview]` - Added weekview component and its demo. `VW` ([#661](https://github.com/infor-design/enterprise-ng/issues/661))
+
 ## v6.2.0
 
 ### 6.2.0 Fixes

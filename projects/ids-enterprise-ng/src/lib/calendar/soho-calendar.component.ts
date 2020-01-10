@@ -16,6 +16,19 @@ import {
 } from '@angular/core';
 
 /********************************************************************
+ * Calendar Week View Element
+ *******************************************************************/
+// @ts-ignore
+@Component({
+  selector: 'div[soho-calendar-weekview]', // tslint:disable-line
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class SohoCalendarWeekViewComponent {
+  @HostBinding('class.calendar-weekview') isCalendarWeekView = true;
+}
+
+/********************************************************************
  * Calendar Month View Element
  *******************************************************************/
 // @ts-ignore
@@ -24,7 +37,7 @@ import {
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoCalendarMonthViewComponent { // implements AfterViewInit, OnDestroy {
+export class SohoCalendarMonthViewComponent {
   @HostBinding('class.calendar-monthview') isCalendarMonthView = true;
 }
 
@@ -55,6 +68,23 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
     }
 
     return this._calendarOptions;
+  }
+
+  @Input() set calendarWeekOptions(calendarWeekOptions: SohoCalendarWeekOptions) {
+    this._calendarWeekOptions = calendarWeekOptions;
+
+    if (this.jQueryElement) {
+      // No need to set the 'settings' as the Rebuild will create
+      // a new control with the _gridOptions.
+      this.markForRefresh();
+    }
+  }
+  get calendarWeekOptions(): SohoCalendarWeekOptions {
+    if (this.calendar) {
+      return this.calendar.settings.weekOptions;
+    }
+
+    return this._calendarWeekOptions;
   }
 
   /**
@@ -360,6 +390,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   private jQueryElement: JQuery;
   private calendar: SohoCalendar;
   private _calendarOptions: SohoCalendarOptions = {};
+  private _calendarWeekOptions: SohoCalendarWeekOptions = {};
   private updateRequired: boolean;
 
   constructor(
