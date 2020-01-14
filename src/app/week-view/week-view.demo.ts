@@ -6,24 +6,24 @@ import {
   ViewChild,
 } from '@angular/core';
 import { SohoToastService } from 'ids-enterprise-ng';
-import { SohoWeekviewComponent } from '../../../projects/ids-enterprise-ng/src/lib/weekview/soho-weekview.component';
-import { WeekviewDemoService } from './weekview.demo.service';
+import { SohoWeekViewComponent } from '../../../projects/ids-enterprise-ng/src/lib/week-view/soho-week-view.component';
+import { WeekViewDemoService } from './week-view.demo.service';
 
 export enum displayType { 'oneWeek', 'twoWeeks', 'oneDay', 'twoDays' }
 
 @Component({
-  selector: 'app-weekview-demo',
-  templateUrl: './weekview.demo.html',
+  selector: 'app-week-view-demo',
+  templateUrl: './week-view.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [WeekviewDemoService]
+  providers: [WeekViewDemoService]
 })
-export class WeekviewDemoComponent implements OnInit {
+export class WeekViewDemoComponent implements OnInit {
 
   @HostBinding('style.overflow') overflow = 'auto';
   @HostBinding('style.height') height = 'auto';
   @HostBinding('style.display') block = 'block';
 
-  @ViewChild(SohoWeekviewComponent, { static: true }) sohoWeekviewComponent: SohoWeekviewComponent;
+  @ViewChild(SohoWeekViewComponent, { static: true }) sohoWeekViewComponent: SohoWeekViewComponent;
 
   public startDate = new Date('2019-02-10');
   public endDate = new Date('2019-02-16');
@@ -51,11 +51,11 @@ export class WeekviewDemoComponent implements OnInit {
     });
   }
 
-  public onWeekviewDateSelectedCallback = (node: Node, args: SohoWeekviewDateSelectedEvent) => {
+  public onWeekviewDateSelectedCallback = (node: Node, args: SohoWeekViewDateSelectedEvent) => {
     console.log('onWeekviewDateSelectedCallback', args);
   }
 
-  constructor(private weekViewService: WeekviewDemoService,
+  constructor(private weekViewService: WeekViewDemoService,
               private toastService: SohoToastService,
               private changeDetectorRef: ChangeDetectorRef) { }
 
@@ -91,16 +91,16 @@ export class WeekviewDemoComponent implements OnInit {
     this.changeDetectorRef.markForCheck();
   }
 
-  onRenderWeek(event: SohoWeekviewRenderWeekEvent) {
+  onRenderWeek(event: SohoWeekViewRenderWeekEvent) {
     console.log('onRenderWeek', event);
   }
 
-  onEventClicked(event: SohoWeekviewClickEvent) {
+  onEventClicked(event: SohoWeekViewClickEvent) {
     this.toastService.show({ title: 'Calendar Test', message: 'Event "' + event.event.subject + '" Clicked' });
     console.log('onEventClick', event);
   }
 
-  onEventDblClicked(event: SohoWeekviewClickEvent) {
+  onEventDblClicked(event: SohoWeekViewClickEvent) {
     this.toastService.show({ title: 'Calendar Test', message: 'Event "' + event.event.subject + '" Double Clicked' });
     console.log('onEventDblClick', event);
   }

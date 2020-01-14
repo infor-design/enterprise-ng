@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SohoWeekviewComponent } from './soho-weekview.component';
+import { SohoWeekViewComponent } from './soho-week-view.component';
 
 @NgModule({
   imports: [
     CommonModule,
   ],
   declarations: [
-    SohoWeekviewComponent,
+    SohoWeekViewComponent,
   ],
   exports: [
-    SohoWeekviewComponent,
+    SohoWeekViewComponent,
   ]
 })
-export class SohoWeekviewModule {}
+export class SohoWeekViewModule {}
