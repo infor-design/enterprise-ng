@@ -20,7 +20,7 @@ import {
  *******************************************************************/
 // @ts-ignore
 @Component({
-  selector: 'div[soho-calendar-weekview]', // tslint:disable-line
+  selector: 'div[soho-calendar-week-view]', // tslint:disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -373,6 +373,42 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
     }
 
     return this._calendarOptions.newEventDefaults;
+  }
+
+  /**
+   * Call back for when the view changer is changed
+   */
+  @Input() set onChangeView(onChangeView: Function) {
+    this._calendarOptions.onChangeView = onChangeView;
+    if (this.calendar) {
+      this.calendar.settings.onChangeView = onChangeView;
+      this.markForRefresh();
+    }
+  }
+  get onChangeView(): Function {
+    if (this.calendar) {
+      return this.calendar.settings.onChangeView;
+    }
+
+    return this._calendarOptions.onChangeView;
+  }
+
+  /**
+   * Deterimines if the today button should be shown.
+   */
+  @Input() set showToday(showToday: boolean) {
+    this._calendarOptions.showToday = showToday;
+    if (this.calendar) {
+      this.calendar.settings.showToday = showToday;
+      this.markForRefresh();
+    }
+  }
+  get showToday(): boolean {
+    if (this.calendar) {
+      return this.calendar.settings.showToday;
+    }
+
+    return this._calendarOptions.showToday;
   }
 
   // -------------------------------------------

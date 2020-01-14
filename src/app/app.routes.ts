@@ -175,7 +175,7 @@ import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablear
 import { WizardDemoComponent } from './wizard/wizard.demo';
 import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
 import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-cube.demo';
-import { WeekviewDemoComponent } from './weekview/weekview.demo';
+import { WeekViewDemoComponent } from './week-view/week-view.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -353,7 +353,7 @@ export const routes: Routes = [
   { path: 'validation', component: ValidationFormDemoComponent },
   { path: 'validation-event', component: ValidationFormEventDemoComponent },
   { path: 'validation-group', component: ValidationFormGroupDemoComponent },
-  { path: 'weekview', component: WeekviewDemoComponent },
+  { path: 'week-view', component: WeekViewDemoComponent },
   { path: 'wizard', component: WizardDemoComponent }
 ];
 

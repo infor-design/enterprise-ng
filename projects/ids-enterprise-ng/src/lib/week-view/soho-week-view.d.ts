@@ -5,42 +5,42 @@
  * interface of the Soho jQuery Weekview control.
  */
 
-interface SohoWeekviewDayEvents {
+interface SohoWeekViewDayEvents {
   date: Date;
   elem: Node;
-  events: SohoWeekviewEvent[];
+  events: SohoWeekViewEvent[];
 }
 
 // @ts-ignore
-type SohoWeekviewColors = 'ruby' | 'azure' | 'amber' | 'emerald' | 'turquoise' | 'amethyst' | 'slate' | 'graphite';
+type SohoWeekViewColors = 'ruby' | 'azure' | 'amber' | 'emerald' | 'turquoise' | 'amethyst' | 'slate' | 'graphite';
 
-interface SohoWeekviewTooltipFunction {
-  eventData: SohoWeekviewEventData;
+interface SohoWeekViewTooltipFunction {
+  eventData: SohoWeekViewEventData;
 }
 
 // @ts-ignore
-type SohoWeekviewEventData = (
+type SohoWeekViewEventData = (
   month?: number,
   year?: number,
-  event?: SohoWeekviewEvent
+  event?: SohoWeekViewEvent
 ) => void;
 
-interface SohoWeekviewEventType {
+interface SohoWeekViewEventType {
   id: string;
   label: string;
-  color: SohoWeekviewColors;
+  color: SohoWeekViewColors;
   checked: boolean;
   click: Function;
   translationKey: string;
 }
 
-interface SohoWeekviewEvent {
+interface SohoWeekViewEvent {
   id?: string;
   title?: string;
   type?: string;
   subject?: string;
   comments?: string;
-  color?: SohoWeekviewColors;
+  color?: SohoWeekViewColors;
   icon?: 'icon-error-solid' | 'icon-success-solid' | 'icon-alert-solid' | 'icon-info-solid' | string;
 
   duration?: string;
@@ -58,13 +58,13 @@ interface SohoWeekviewEvent {
 
   isAllDay?: boolean;
   location?: string;
-  eventTypes?: SohoWeekviewEventType[];
+  eventTypes?: SohoWeekViewEventType[];
   shortSubject?: string;
   status?: string;
   isDays?: true;
 }
 
-interface SohoWeekviewDateSelectedEvent {
+interface SohoWeekViewDateSelectedEvent {
   close?: boolean;
   day?: number;
   key?: string;
@@ -73,29 +73,30 @@ interface SohoWeekviewDateSelectedEvent {
   year?: number;
 }
 
-interface SohoWeekviewClickEvent {
+interface SohoWeekViewClickEvent {
   month?: number;
   year?: number;
-  event?: SohoWeekviewEvent;
+  event?: SohoWeekViewEvent;
   originalEvent?: JQuery.TriggeredEvent;
 }
 
-interface SohoWeekviewRenderWeekEvent {
+interface SohoWeekViewRenderWeekEvent {
   api: any;
   elem: JQuery;
   month: number;
   year: number;
 }
 
-interface SohoWeekviewOptions {
-  eventTypes?: SohoWeekviewEventType[];
-  events?: SohoWeekviewEvent[];
+interface SohoWeekViewOptions {
+  eventTypes?: SohoWeekViewEventType[];
+  filteredTypes?: [];
+  events?: SohoWeekViewEvent[];
   locale?: string;
   showAllDay?: boolean;
   showToday?: boolean;
   showViewChanger?: boolean;
-  eventTooltip?: string | SohoWeekviewTooltipFunction;
-  iconTooltip?: string | SohoWeekviewTooltipFunction;
+  eventTooltip?: string | SohoWeekViewTooltipFunction;
+  iconTooltip?: string | SohoWeekViewTooltipFunction;
   onRenderWeek?: Function; // (node: any, response: (SohoWeekviewEvent, SohoWeekviewEventType) => void) => void;
   startDate?: Date;
   endDate?: Date;
@@ -105,10 +106,11 @@ interface SohoWeekviewOptions {
   firstDayOfWeek?: boolean;
   onChangeToWeekDay?: Function;
   onChangeWeek?: Function;
+  onChangeView?: Function;
 }
 
-interface SohoWeekview {
-  settings: SohoWeekviewOptions;
+interface SohoWeekView {
+  settings: SohoWeekViewOptions;
 
   /**
    * Get the current selected date on the Weekview.
@@ -121,7 +123,7 @@ interface SohoWeekview {
    * @param date The date to find the events for.
    * @returns dayEvents An object with all the events and the event date.
    */
-  getDayEvents(date: Date): SohoWeekviewDayEvents;
+  getDayEvents(date: Date): SohoWeekViewDayEvents;
 
   /**
    * Remove all events from the Weekview
@@ -129,19 +131,19 @@ interface SohoWeekview {
   clearEvents(): void;
 
   /** Updates the Weekview with any new settings. */
-  updated(settings?: SohoWeekviewOptions): void;
+  updated(settings?: SohoWeekViewOptions): void;
 
   /** Destroys the control on completion. */
   destroy(): void;
 }
 
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
-  weekview(options?: SohoWeekviewOptions): JQuery;
-  on(events: 'selected', handler: JQuery.EventHandlerBase<any, SohoWeekviewDateSelectedEvent>): this;
-  on(events: 'weekrendered', handler: JQuery.EventHandlerBase<any, SohoWeekviewRenderWeekEvent>): this;
-  on(events: 'eventclick', handler: JQuery.EventHandlerBase<any, SohoWeekviewClickEvent>): this;
+  weekview(options?: SohoWeekViewOptions): JQuery;
+  on(events: 'selected', handler: JQuery.EventHandlerBase<any, SohoWeekViewDateSelectedEvent>): this;
+  on(events: 'weekrendered', handler: JQuery.EventHandlerBase<any, SohoWeekViewRenderWeekEvent>): this;
+  on(events: 'eventclick', handler: JQuery.EventHandlerBase<any, SohoWeekViewClickEvent>): this;
   // tslint:disable-next-line:unified-signatures
-  on(events: 'eventdblclick', handler: JQuery.EventHandlerBase<any, SohoWeekviewClickEvent>): this;
+  on(events: 'eventdblclick', handler: JQuery.EventHandlerBase<any, SohoWeekViewClickEvent>): this;
   // tslint:disable-next-line:unified-signatures
-  on(events: 'contextmenu', handler: JQuery.EventHandlerBase<any, SohoWeekviewClickEvent>): this;
+  on(events: 'contextmenu', handler: JQuery.EventHandlerBase<any, SohoWeekViewClickEvent>): this;
 }

@@ -1,4 +1,4 @@
-/// <reference path="soho-weekview.d.ts" />
+/// <reference path="soho-week-view.d.ts" />
 
 import {
   AfterViewChecked,
@@ -19,15 +19,15 @@ import {
  * Weekview component
  *******************************************************************/
 @Component({
-  selector: 'div[soho-weekview]', // tslint:disable-line
+  selector: 'div[soho-week-view]', // tslint:disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
+export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
   @HostBinding('class.week-view') isWeekView = true;
 
-  @Input() set weekViewOptions(weekViewOptions: SohoWeekviewOptions) {
-    this._weekviewOptions = weekViewOptions;
+  @Input() set weekViewOptions(weekViewOptions: SohoWeekViewOptions) {
+    this._weekViewOptions = weekViewOptions;
 
     if (this.jQueryElement) {
       // No need to set the 'settings' as the Rebuild will create
@@ -36,57 +36,76 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
     }
   }
 
-  get weekViewOptions(): SohoWeekviewOptions {
+  get weekViewOptions(): SohoWeekViewOptions {
     if (this.weekView) {
       return this.weekView.settings;
     }
 
-    return this._weekviewOptions;
+    return this._weekViewOptions;
   }
 
   /**
    * An array of objects with data for the event types.
    */
-  @Input() set eventTypes(eventTypes: SohoWeekviewEventType[]) {
-    this._weekviewOptions.eventTypes = eventTypes;
+  @Input() set eventTypes(eventTypes: SohoWeekViewEventType[]) {
+    this._weekViewOptions.eventTypes = eventTypes;
     if (this.weekView) {
       this.weekView.settings.eventTypes = eventTypes;
       this.markForRefresh();
     }
   }
 
-  get eventTypes(): SohoWeekviewEventType[] {
+  get eventTypes(): SohoWeekViewEventType[] {
     if (this.weekView) {
       return this.weekView.settings.eventTypes;
     }
 
-    return this._weekviewOptions.eventTypes;
+    return this._weekViewOptions.eventTypes;
+  }
+
+  /**
+   * An array of objects with data for the filtered event types.
+   */
+  @Input() set filteredTypes(filteredTypes: []) {
+    this._weekViewOptions.filteredTypes = filteredTypes;
+    if (this.weekView) {
+      this.weekView.settings.filteredTypes = filteredTypes;
+      this.markForRefresh();
+    }
+  }
+
+  get filteredTypes(): [] {
+    if (this.weekView) {
+      return this.weekView.settings.filteredTypes;
+    }
+
+    return this._weekViewOptions.filteredTypes;
   }
 
   /**
    * An array of objects with data for the events.
    */
-  @Input() set events(events: SohoWeekviewEvent[]) {
-    this._weekviewOptions.events = events;
+  @Input() set events(events: SohoWeekViewEvent[]) {
+    this._weekViewOptions.events = events;
     if (this.weekView) {
       this.weekView.settings.events = events;
       this.markForRefresh();
     }
   }
 
-  get events(): SohoWeekviewEvent[] {
+  get events(): SohoWeekViewEvent[] {
     if (this.weekView) {
       return this.weekView.settings.events;
     }
 
-    return this._weekviewOptions.events;
+    return this._weekViewOptions.events;
   }
 
   /**
    * The name of the locale to use for this instance. If not set the current locale will be used.
    */
   @Input() set locale(locale: string) {
-    this._weekviewOptions.locale = locale;
+    this._weekViewOptions.locale = locale;
     if (this.weekView) {
       this.weekView.settings.locale = locale;
       this.markForRefresh();
@@ -98,14 +117,14 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
       return this.weekView.settings.locale;
     }
 
-    return this._weekviewOptions.locale;
+    return this._weekViewOptions.locale;
   }
 
   /**
    * Start of the week to show.
    */
   @Input() set startDate(startDate: Date) {
-    this._weekviewOptions.startDate = startDate;
+    this._weekViewOptions.startDate = startDate;
     if (this.weekView) {
       this.weekView.settings.startDate = startDate;
       this.markForRefresh();
@@ -117,14 +136,14 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
       return this.weekView.settings.startDate;
     }
 
-    return this._weekviewOptions.startDate;
+    return this._weekViewOptions.startDate;
   }
 
   /**
    * End of the week to show
    */
   @Input() set endDate(endDate: Date) {
-    this._weekviewOptions.endDate = endDate;
+    this._weekViewOptions.endDate = endDate;
     if (this.weekView) {
       this.weekView.settings.endDate = endDate;
       this.markForRefresh();
@@ -136,14 +155,14 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
       return this.weekView.settings.endDate;
     }
 
-    return this._weekviewOptions.endDate;
+    return this._weekViewOptions.endDate;
   }
 
   /**
    * Start of the hour to show.
    */
   @Input() set startHour(startHour: number) {
-    this._weekviewOptions.startHour = startHour;
+    this._weekViewOptions.startHour = startHour;
     if (this.weekView) {
       this.weekView.settings.startHour = startHour;
       this.markForRefresh();
@@ -155,14 +174,14 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
       return this.weekView.settings.startHour;
     }
 
-    return this._weekviewOptions.startHour;
+    return this._weekViewOptions.startHour;
   }
 
   /**
    * End of the hour to show
    */
   @Input() set endHour(endHour: number) {
-    this._weekviewOptions.endHour = endHour;
+    this._weekViewOptions.endHour = endHour;
     if (this.weekView) {
       this.weekView.settings.endHour = endHour;
       this.markForRefresh();
@@ -174,14 +193,14 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
       return this.weekView.settings.endHour;
     }
 
-    return this._weekviewOptions.endHour;
+    return this._weekViewOptions.endHour;
   }
 
   /**
    * Determines if the today button should be shown.
    */
   @Input() set showToday(showToday: boolean) {
-    this._weekviewOptions.showToday = showToday;
+    this._weekViewOptions.showToday = showToday;
     if (this.weekView) {
       this.weekView.settings.showToday = showToday;
       this.markForRefresh();
@@ -193,14 +212,14 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
       return this.weekView.settings.showToday;
     }
 
-    return this._weekviewOptions.showToday;
+    return this._weekViewOptions.showToday;
   }
 
   /**
    * Determines if the all day events row should be shown.
    */
   @Input() set showAllDay(showAllDay: boolean) {
-    this._weekviewOptions.showAllDay = showAllDay;
+    this._weekViewOptions.showAllDay = showAllDay;
     if (this.weekView) {
       this.weekView.settings.showAllDay = showAllDay;
       this.markForRefresh();
@@ -212,14 +231,14 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
       return this.weekView.settings.showAllDay;
     }
 
-    return this._weekviewOptions.showAllDay;
+    return this._weekViewOptions.showAllDay;
   }
 
   /**
    *  If false the dropdown to change views will not be shown.
    */
   @Input() set showViewChanger(showViewChanger: boolean) {
-    this._weekviewOptions.showViewChanger = showViewChanger;
+    this._weekViewOptions.showViewChanger = showViewChanger;
     if (this.weekView) {
       this.weekView.settings.showViewChanger = showViewChanger;
       this.markForRefresh();
@@ -231,14 +250,14 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
       return this.weekView.settings.showViewChanger;
     }
 
-    return this._weekviewOptions.showViewChanger;
+    return this._weekViewOptions.showViewChanger;
   }
 
   /**
    * Shows a bar across the current time.
    */
   @Input() set showTimeLine(showTimeLine: boolean) {
-    this._weekviewOptions.showTimeLine = showTimeLine;
+    this._weekViewOptions.showTimeLine = showTimeLine;
     if (this.weekView) {
       this.weekView.settings.showTimeLine = showTimeLine;
       this.markForRefresh();
@@ -250,14 +269,14 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
       return this.weekView.settings.showTimeLine;
     }
 
-    return this._weekviewOptions.showTimeLine;
+    return this._weekViewOptions.showTimeLine;
   }
 
   /**
    * Set first day of the week. '1' would be Monday.
    */
   @Input() set firstDayOfWeek(firstDayOfWeek: boolean) {
-    this._weekviewOptions.firstDayOfWeek = firstDayOfWeek;
+    this._weekViewOptions.firstDayOfWeek = firstDayOfWeek;
     if (this.weekView) {
       this.weekView.settings.firstDayOfWeek = firstDayOfWeek;
       this.markForRefresh();
@@ -269,14 +288,14 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
       return this.weekView.settings.firstDayOfWeek;
     }
 
-    return this._weekviewOptions.firstDayOfWeek;
+    return this._weekViewOptions.firstDayOfWeek;
   }
 
   /**
    * If false the mouseover text or day event will not be shown.
    */
   @Input() set eventTooltip(eventTooltip: string | SohoCalendarTooltipFunction) {
-    this._weekviewOptions.eventTooltip = eventTooltip;
+    this._weekViewOptions.eventTooltip = eventTooltip;
     if (this.weekView) {
       this.weekView.settings.eventTooltip = eventTooltip;
       this.markForRefresh();
@@ -288,14 +307,14 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
       return this.weekView.settings.eventTooltip;
     }
 
-    return this._weekviewOptions.eventTooltip;
+    return this._weekViewOptions.eventTooltip;
   }
 
   /**
    * If false the mouseover text for event icon will not be shown.
    */
   @Input() set iconTooltip(iconTooltip: string | SohoCalendarTooltipFunction) {
-    this._weekviewOptions.iconTooltip = iconTooltip;
+    this._weekViewOptions.iconTooltip = iconTooltip;
     if (this.weekView) {
       this.weekView.settings.iconTooltip = iconTooltip;
       this.markForRefresh();
@@ -307,14 +326,14 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
       return this.weekView.settings.iconTooltip;
     }
 
-    return this._weekviewOptions.iconTooltip;
+    return this._weekViewOptions.iconTooltip;
   }
 
   /**
    * Fires when a week view is rendered, allowing you to pass back events or event types to show.
    */
   @Input() set onRenderWeek(onRenderWeek: Function) {
-    this._weekviewOptions.onRenderWeek = onRenderWeek;
+    this._weekViewOptions.onRenderWeek = onRenderWeek;
     if (this.weekView) {
       this.weekView.settings.onRenderWeek = onRenderWeek;
       this.markForRefresh();
@@ -326,14 +345,14 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
       return this.weekView.settings.onRenderWeek;
     }
 
-    return this._weekviewOptions.onRenderWeek;
+    return this._weekViewOptions.onRenderWeek;
   }
 
   /**
    * Call back for when the view changer is changed.
    */
   @Input() set onChangeToWeekDay(onChangeToWeekDay: Function) {
-    this._weekviewOptions.onChangeToWeekDay = onChangeToWeekDay;
+    this._weekViewOptions.onChangeToWeekDay = onChangeToWeekDay;
     if (this.weekView) {
       this.weekView.settings.onChangeToWeekDay = onChangeToWeekDay;
       this.markForRefresh();
@@ -345,14 +364,14 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
       return this.weekView.settings.onChangeToWeekDay;
     }
 
-    return this._weekviewOptions.onChangeToWeekDay;
+    return this._weekViewOptions.onChangeToWeekDay;
   }
 
   /**
    * Call back for when the week is changed.
    */
   @Input() set onChangeWeek(onChangeWeek: Function) {
-    this._weekviewOptions.onChangeWeek = onChangeWeek;
+    this._weekViewOptions.onChangeWeek = onChangeWeek;
     if (this.weekView) {
       this.weekView.settings.onChangeWeek = onChangeWeek;
       this.markForRefresh();
@@ -364,7 +383,26 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
       return this.weekView.settings.onChangeWeek;
     }
 
-    return this._weekviewOptions.onChangeWeek;
+    return this._weekViewOptions.onChangeWeek;
+  }
+
+  /**
+   * Call back for when the view changer is changed.
+   */
+  @Input() set onChangeView(onChangeView: Function) {
+    this._weekViewOptions.onChangeView = onChangeView;
+    if (this.weekView) {
+      this.weekView.settings.onChangeView = onChangeView;
+      this.markForRefresh();
+    }
+  }
+
+  get onChangeView(): Function {
+    if (this.weekView) {
+      return this.weekView.settings.onChangeView;
+    }
+
+    return this._weekViewOptions.onChangeView;
   }
 
   constructor(
@@ -379,22 +417,22 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
-  @Output() selected = new EventEmitter<SohoWeekviewDateSelectedEvent>();
-  @Output() weekRendered = new EventEmitter<SohoWeekviewRenderWeekEvent>();
-  @Output() eventClick = new EventEmitter<SohoWeekviewClickEvent>();
-  @Output() eventDblClick = new EventEmitter<SohoWeekviewClickEvent>();
-  @Output() eventContextMenu = new EventEmitter<SohoWeekviewClickEvent>();
+  @Output() selected = new EventEmitter<SohoWeekViewDateSelectedEvent>();
+  @Output() weekRendered = new EventEmitter<SohoWeekViewRenderWeekEvent>();
+  @Output() eventClick = new EventEmitter<SohoWeekViewClickEvent>();
+  @Output() eventDblClick = new EventEmitter<SohoWeekViewClickEvent>();
+  @Output() eventContextMenu = new EventEmitter<SohoWeekViewClickEvent>();
 
   /**
    * Local variables
    */
   private jQueryElement: JQuery;
-  private weekView: SohoWeekview;
-  private _weekviewOptions: SohoWeekviewOptions = {};
+  private weekView: SohoWeekView;
+  private _weekViewOptions: SohoWeekViewOptions = {};
   private updateRequired: boolean;
 
-  @Input() weekviewOptions(weekviewOptions: SohoWeekviewOptions) {
-    this._weekviewOptions = weekviewOptions;
+  @Input() weekviewOptions(weekviewOptions: SohoWeekViewOptions) {
+    this._weekViewOptions = weekviewOptions;
 
     if (this.jQueryElement) {
       // No need to set the 'settings' as the Rebuild will create
@@ -410,13 +448,13 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
 
       // Add listeners to emit events
       this.jQueryElement
-        .on('weekrendered', (e: any, args: SohoWeekviewRenderWeekEvent) => this.onWeekRenderedEvent(args))
-        .on('eventclick', (e: any, args: SohoWeekviewClickEvent) => this.onEventClick(args))
-        .on('eventdblclick', (e: any, args: SohoWeekviewClickEvent) => this.onEventDblClick(args))
-        .on('contextmenu', (e: any, args: SohoWeekviewClickEvent) => this.onEventContextMenu(args));
+        .on('weekrendered', (e: any, args: SohoWeekViewRenderWeekEvent) => this.onWeekRenderedEvent(args))
+        .on('eventclick', (e: any, args: SohoWeekViewClickEvent) => this.onEventClick(args))
+        .on('eventdblclick', (e: any, args: SohoWeekViewClickEvent) => this.onEventDblClick(args))
+        .on('contextmenu', (e: any, args: SohoWeekViewClickEvent) => this.onEventContextMenu(args));
 
       // Initialise the Soho control.
-      this.jQueryElement.weekview(this._weekviewOptions);
+      this.jQueryElement.weekview(this._weekViewOptions);
 
       // Once the control is initialised, extract the control
       // plug-in from the element.  The element name is defined
@@ -437,19 +475,19 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
     }
   }
 
-  onWeekRenderedEvent(event: SohoWeekviewRenderWeekEvent) {
+  onWeekRenderedEvent(event: SohoWeekViewRenderWeekEvent) {
     this.ngZone.run(() => this.weekRendered.emit(event));
   }
 
-  onEventClick(event: SohoWeekviewClickEvent) {
+  onEventClick(event: SohoWeekViewClickEvent) {
     this.ngZone.run(() => this.eventClick.emit(event));
   }
 
-  onEventDblClick(event: SohoWeekviewClickEvent) {
+  onEventDblClick(event: SohoWeekViewClickEvent) {
     this.ngZone.run(() => this.eventDblClick.emit(event));
   }
 
-  onEventContextMenu(event: SohoWeekviewClickEvent) {
+  onEventContextMenu(event: SohoWeekViewClickEvent) {
     this.ngZone.run(() => this.eventContextMenu.emit(event));
   }
 
@@ -466,14 +504,14 @@ export class SohoWeekviewComponent implements AfterViewChecked, AfterViewInit, O
    * @param date The date to find the events for.
    * @returns dayEvents An object with all the events and the event date.
    */
-  getDayEvents(date: Date): SohoWeekviewDayEvents {
+  getDayEvents(date: Date): SohoWeekViewDayEvents {
     return this.ngZone.runOutsideAngular(() => this.weekView.getDayEvents(date));
   }
 
   /**
    * Handle updated settings and values.
    */
-  updated(settings?: SohoWeekviewOptions) {
+  updated(settings?: SohoWeekViewOptions) {
     this.ngZone.runOutsideAngular(() => this.weekView.updated(settings));
   }
 

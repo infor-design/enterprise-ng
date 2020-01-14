@@ -77,6 +77,6 @@ export * from './tree/index';
 export * from './treemap/index';
 export * from './utils/index';
 export * from './wizard/index';
-export * from './weekview/index';
+export * from './week-view/index';
 
 export * from './soho-components.module';
