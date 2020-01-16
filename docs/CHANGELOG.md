@@ -7,6 +7,10 @@
 - `[Tree]` Expose unselected event. `MC` ([#https://github.com/infor-design/enterprise-ng/issues/670](https://github.com/infor-design/enterprise-ng/pull/https://github.com/infor-design/enterprise-ng/issues/670))
 - `[Datagrid]` Correct the cssClass type on columns to accept a function. `TJM`  ([#657](https://github.com/infor-design/enterprise-ng/issues/657))
 
+### 6.4.0 Features
+
+- `[Week-view]` - Added weekview component and its demo. `VW` ([#661](https://github.com/infor-design/enterprise-ng/issues/661))
+
 ## v6.3.0
 
 ### 6.3.0 Fixes

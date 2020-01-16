@@ -224,6 +224,7 @@ import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validati
 import { LocaleInitializerModule } from './locale-initializer/locale-initializer.module';
 import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
 import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-cube.demo';
+import { WeekViewDemoComponent } from './week-view/week-view.demo';
 
 @NgModule({
   declarations: [
@@ -415,6 +416,7 @@ import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-
     ValidationFormDemoComponent,
     ValidationFormEventDemoComponent,
     ValidationFormGroupDemoComponent,
+    WeekViewDemoComponent,
     WizardDemoComponent,
     WizardDemoConfirmationPageComponent,
     WizardDemoSelectFilePageComponent,
