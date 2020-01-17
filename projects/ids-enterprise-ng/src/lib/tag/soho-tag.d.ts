@@ -9,6 +9,18 @@
  * Tag Options
  */
 interface SohoTagOptions {
+  audibleContent?: string;
+  clickable?: boolean;
+  clickHandler?: any;
+  content?: string;
+  disabled?: boolean;
+  dismissible?: boolean;
+  dismissHandler?: any;
+  href?: string;
+  id?: string;
+  parent?: HTMLElement;
+  style?: string;
+  value?: string;
 }
 
 /**
@@ -17,6 +29,8 @@ interface SohoTagOptions {
 interface SohoTag {
   /** The settings option */
   settings: SohoTagOptions;
+
+  element: HTMLElement;
 
   /** Updates the Tag with any new settings and data */
   updated(settings?: SohoTagOptions): void;

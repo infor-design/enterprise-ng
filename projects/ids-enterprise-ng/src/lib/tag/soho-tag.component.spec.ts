@@ -66,40 +66,46 @@ describe('Soho Tag Render', () => {
     tag = component.tag;
   });
 
+  afterEach(() => {
+    de.nativeElement.remove();
+  });
+
   it('Check HTML content', () => {
     expect(el.hasAttribute('soho-tag')).toBeTruthy('soho-tag');
   });
 
-  it('Check \"class\" ', () => {
+  fit('Check \"class\" ', () => {
     fixture.detectChanges();
 
-    expect(el.classList).toContain('secondary');
-    expect(el.classList).toContain('tag');
+    const topLevelElement = tag.tag.element;
+    expect(topLevelElement.classList).toContain('secondary');
+    expect(topLevelElement.classList).toContain('tag');
   });
 
-  it('Check \"error\" ', () => {
+  fit('Check \"error\" ', () => {
     fixture.detectChanges();
 
     tag.sohoTag = 'error';
 
     fixture.detectChanges();
 
-    expect(el.classList).toContain('error');
-    expect(el.classList).toContain('tag');
+    const topLevelElement = tag.tag.element;
+    expect(topLevelElement.classList).toContain('error');
+    expect(topLevelElement.classList).toContain('tag');
   });
 
-  it('Check \"default\" ', () => {
+  fit('Check \"default\" ', () => {
     fixture.detectChanges();
 
     tag.sohoTag = undefined;
 
     fixture.detectChanges();
 
-    expect(el.classList).not.toContain('error');
-    expect(el.classList).not.toContain('secondary');
-    expect(el.classList).not.toContain('alert');
-    expect(el.classList).not.toContain('error');
-    expect(el.classList).toContain('tag');
+    const topLevelElement = tag.tag.element;
+    expect(topLevelElement.classList).not.toContain('error');
+    expect(topLevelElement.classList).not.toContain('secondary');
+    expect(topLevelElement.classList).not.toContain('alert');
+    expect(topLevelElement.classList).toContain('tag');
   });
 
   // it('check `click`', async(() => {
