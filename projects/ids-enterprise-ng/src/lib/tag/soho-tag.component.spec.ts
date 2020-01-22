@@ -74,7 +74,7 @@ describe('Soho Tag Render', () => {
     expect(el.hasAttribute('soho-tag')).toBeTruthy('soho-tag');
   });
 
-  fit('Check \"class\" ', () => {
+  it('Check \"class\" ', () => {
     fixture.detectChanges();
 
     const topLevelElement = tag.tag.element;
@@ -82,7 +82,7 @@ describe('Soho Tag Render', () => {
     expect(topLevelElement.classList).toContain('tag');
   });
 
-  fit('Check \"error\" ', () => {
+  it('Check \"error\" ', () => {
     fixture.detectChanges();
 
     tag.sohoTag = 'error';
@@ -94,7 +94,7 @@ describe('Soho Tag Render', () => {
     expect(topLevelElement.classList).toContain('tag');
   });
 
-  fit('Check \"default\" ', () => {
+  it('Check \"default\" ', () => {
     fixture.detectChanges();
 
     tag.sohoTag = undefined;
