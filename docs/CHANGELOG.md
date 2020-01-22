@@ -2,6 +2,9 @@
 
 ## v6.4.0
 
+### 6.1.0 Breaking Changes
+- `[Calendar/Week-view]` - Removed "on" prefix on any of the inputs due to test error. `VW` ([#712](https://github.com/infor-design/enterprise-ng/pull/712))
+
 ### 6.4.0 Fixes
 
 - `[Tree]` Expose unselected event. `MC` ([#https://github.com/infor-design/enterprise-ng/issues/670](https://github.com/infor-design/enterprise-ng/pull/https://github.com/infor-design/enterprise-ng/issues/670))
