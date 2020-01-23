@@ -165,19 +165,24 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
     return this.tagType === SohoTagComponent.ERROR;
   }
 
-  @HostBinding('class.is-clickable') @Input() isClickable: boolean;
+  @HostBinding('class.is-linkable') @Input() isClickable: boolean;
 
   @HostBinding('class.is-dismissible') @Input() isDismissible: boolean;
 
   @Input('soho-tag') set sohoTag(type: SohoTagType) {
-    this.tagType = type ? type : SohoTagComponent.DEFAULT;
+    if (!type) {
+      type = SohoTagComponent.DEFAULT;
+    }
+    this.tagType = type;
+    this.options.style = type;
+    this.updated();
   }
 
   private tagType: SohoTagType;
 
   private jQueryElement: JQuery;
 
-  private tag: SohoTag;
+  tag: SohoTag;
 
   /**
    * Creates an instance of SohoTagComponent.
