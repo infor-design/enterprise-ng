@@ -234,14 +234,14 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * Fires when a month is rendered, allowing you to pass back events or event types to show.
    */
-  @Input() set onRenderMonth(onRenderMonth: Function) {
-    this._calendarOptions.onRenderMonth = onRenderMonth;
+  @Input() set renderMonthCallback(renderMonthCallback: Function) {
+    this._calendarOptions.onRenderMonth = renderMonthCallback;
     if (this.calendar) {
-      this.calendar.settings.onRenderMonth = onRenderMonth;
+      this.calendar.settings.onRenderMonth = renderMonthCallback;
       this.markForRefresh();
     }
   }
-  get onRenderMonth(): Function {
+  get renderMonthCallback(): Function {
     if (this.calendar) {
       return this.calendar.settings.onRenderMonth;
     }
@@ -252,14 +252,14 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * Fires when a month day is clicked. Allowing you to do something.
    */
-  @Input() set onSelected(onSelected: Function) {
-    this._calendarOptions.onSelected = onSelected;
+  @Input() set selectedCallback(selectedCallback: Function) {
+    this._calendarOptions.onSelected = selectedCallback;
     if (this.calendar) {
-      this.calendar.settings.onSelected = onSelected;
+      this.calendar.settings.onSelected = selectedCallback;
       this.markForRefresh();
     }
   }
-  get onSelected(): Function {
+  get selectedCallback(): Function {
     if (this.calendar) {
       return this.calendar.settings.onSelected;
     }
