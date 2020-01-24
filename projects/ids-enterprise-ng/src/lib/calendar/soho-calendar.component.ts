@@ -378,14 +378,14 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * Call back for when the view changer is changed
    */
-  @Input() set onChangeView(onChangeView: Function) {
-    this._calendarOptions.onChangeView = onChangeView;
+  @Input() set changeViewCallback(changeViewCallback: Function) {
+    this._calendarOptions.onChangeView = changeViewCallback;
     if (this.calendar) {
-      this.calendar.settings.onChangeView = onChangeView;
+      this.calendar.settings.onChangeView = changeViewCallback;
       this.markForRefresh();
     }
   }
-  get onChangeView(): Function {
+  get changeViewCallback(): Function {
     if (this.calendar) {
       return this.calendar.settings.onChangeView;
     }
