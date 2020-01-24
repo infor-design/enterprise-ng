@@ -3,6 +3,7 @@
 ## v6.4.0
 
 ### 6.4.0 Breaking Changes
+
 - `[Calendar]` - Removed "on" prefix on any of the inputs due to test error. `VW` ([#712](https://github.com/infor-design/enterprise-ng/pull/712))
 
 ### 6.4.0 Fixes
