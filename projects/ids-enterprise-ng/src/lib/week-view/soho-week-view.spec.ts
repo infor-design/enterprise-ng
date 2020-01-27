@@ -46,6 +46,8 @@ describe('Soho Week view Unit Tests', () => {
     comp = fixture.componentInstance;
     de = fixture.debugElement;
     el = de.nativeElement;
+
+    Soho.Locale.set('en-US');
   });
 
   it('check inputs', () => {
