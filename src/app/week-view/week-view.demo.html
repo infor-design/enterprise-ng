@@ -15,7 +15,7 @@
 <ng-container [ngSwitch]="demoType">
   <ng-container *ngSwitchCase="demoTypeEnum.oneWeek">
     <div soho-week-view
-         [onRenderWeek]="onRenderWeekCallback"
+         [renderWeekCallback]="onRenderWeekCallback"
          [startDate]="startDate"
          [endDate]="endDate"
          (weekRendered)="onRenderWeek($event)"
@@ -25,7 +25,7 @@
   </ng-container>
   <ng-container *ngSwitchCase="demoTypeEnum.twoWeeks">
     <div soho-week-view
-         [onRenderWeek]="onRenderWeekCallback"
+         [renderWeekCallback]="onRenderWeekCallback"
          [startDate]="startDate"
          [endDate]="endDate"
          (weekRendered)="onRenderWeek($event)"
@@ -35,7 +35,7 @@
   </ng-container>
   <ng-container *ngSwitchCase="demoTypeEnum.oneDay">
     <div soho-week-view
-         [onRenderWeek]="onRenderWeekCallback"
+         [renderWeekCallback]="onRenderWeekCallback"
          [startDate]="startDate"
          [endDate]="endDate"
          (weekRendered)="onRenderWeek($event)"
@@ -45,7 +45,7 @@
   </ng-container>
   <ng-container *ngSwitchCase="demoTypeEnum.twoDays">
     <div soho-week-view
-         [onRenderWeek]="onRenderWeekCallback"
+         [renderWeekCallback]="onRenderWeekCallback"
          [startDate]="startDate"
          [endDate]="endDate"
          (weekRendered)="onRenderWeek($event)"
