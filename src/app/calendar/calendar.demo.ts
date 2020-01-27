@@ -21,7 +21,7 @@ export class CalendarDemoComponent {
 
   public initialMonth = 1;
   public initialYear = 2019;
-  public showViewChanger = false;
+  public showViewChanger = true;
   public eventTypes: [];
   public events: [];
   public iconTooltip = 'status';

@@ -437,24 +437,6 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
-  it('check virtualized', () => {
-    // fixture.detectChanges();
-    // expect(comp.gridOptions.virtualized).toBeFalsy();
-    // expect(comp.virtualized).toBeFalsy();
-    // comp.virtualized = true;
-    // expect(comp.gridOptions.virtualized).toBeTruthy();
-    // expect(comp.virtualized).toBeTruthy();
-  });
-
-  it('check virtualRowBuffer', () => {
-    // fixture.detectChanges();
-    // expect(comp.gridOptions.virtualRowBuffer).toEqual(undefined);
-    // expect(comp.virtualRowBuffer).toEqual(10);
-    // comp.virtualRowBuffer = 20;
-    // expect(comp.gridOptions.virtualRowBuffer).toEqual(20);
-    // expect(comp.virtualRowBuffer).toEqual(20);
-  });
-
   it('check groupable', () => {
     fixture.detectChanges();
 

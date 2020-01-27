@@ -101,6 +101,14 @@ interface SohoCalendarRenderMonthEvent {
   year: number;
 }
 
+interface SohoCalendarWeekOptions {
+  firstDayOfWeek?: string;
+  showAllDay?: boolean;
+  showTimeLine?: boolean;
+  startHour?: number;
+  endHour?: number;
+}
+
 interface SohoCalendarOptions {
   eventTypes?: SohoCalendarEventType[];
   events?: SohoCalendarEvent[];
@@ -118,6 +126,9 @@ interface SohoCalendarOptions {
   menuId?: string;
   menuSelected?: string;
   newEventDefaults?: SohoCalendarEvent;
+  onChangeView?: Function;
+  showToday?: boolean;
+  weekOptions?: SohoCalendarWeekOptions;
 }
 
 interface SohoCalendar {
@@ -184,6 +195,8 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   on(events: 'selected', handler: JQuery.EventHandlerBase<any, SohoCalendarDateSelectedEvent>): this;
   on(events: 'monthrendered', handler: JQuery.EventHandlerBase<any, SohoCalendarRenderMonthEvent>): this;
   on(events: 'eventclick', handler: JQuery.EventHandlerBase<any, SohoCalendarEventClickEvent>): this;
+  // tslint:disable-next-line:unified-signatures
   on(events: 'eventdblclick', handler: JQuery.EventHandlerBase<any, SohoCalendarEventClickEvent>): this;
+  // tslint:disable-next-line:unified-signatures
   on(events: 'contextmenu', handler: JQuery.EventHandlerBase<any, SohoCalendarEventClickEvent>): this;
 }

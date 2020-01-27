@@ -1,0 +1,61 @@
+<div class="one column" [ngStyle]="{'width': '120px', 'padding-top': '20px', 'margin-right': '20px'}">
+  <div class="row">
+    <button soho-button [ngStyle]="{'width': '120px'}" (click)="showOneWeek()">1 Week</button><br><br>
+  </div>
+  <div class="row">
+    <button soho-button [ngStyle]="{'width': '120px'}" (click)="showTwoWeeks()">2 Weeks</button><br><br>
+  </div>
+  <div class="row">
+    <button soho-button [ngStyle]="{'width': '120px'}" (click)="showOneDay()">1 Day</button><br><br>
+  </div>
+  <div class="row">
+    <button soho-button [ngStyle]="{'width': '120px'}" (click)="showTwoDays()">2 Days</button><br>
+  </div>
+</div>
+<ng-container [ngSwitch]="demoType">
+  <ng-container *ngSwitchCase="demoTypeEnum.oneWeek">
+    <div soho-week-view
+         [onRenderWeek]="onRenderWeekCallback"
+         [startDate]="startDate"
+         [endDate]="endDate"
+         (weekRendered)="onRenderWeek($event)"
+         (eventClick)="onEventClicked($event)"
+         (eventDblClick)="onEventDblClicked($event)"
+    ></div>
+  </ng-container>
+  <ng-container *ngSwitchCase="demoTypeEnum.twoWeeks">
+    <div soho-week-view
+         [onRenderWeek]="onRenderWeekCallback"
+         [startDate]="startDate"
+         [endDate]="endDate"
+         (weekRendered)="onRenderWeek($event)"
+         (eventClick)="onEventClicked($event)"
+         (eventDblClick)="onEventDblClicked($event)"
+    ></div>
+  </ng-container>
+  <ng-container *ngSwitchCase="demoTypeEnum.oneDay">
+    <div soho-week-view
+         [onRenderWeek]="onRenderWeekCallback"
+         [startDate]="startDate"
+         [endDate]="endDate"
+         (weekRendered)="onRenderWeek($event)"
+         (eventClick)="onEventClicked($event)"
+         (eventDblClick)="onEventDblClicked($event)"
+    ></div>
+  </ng-container>
+  <ng-container *ngSwitchCase="demoTypeEnum.twoDays">
+    <div soho-week-view
+         [onRenderWeek]="onRenderWeekCallback"
+         [startDate]="startDate"
+         [endDate]="endDate"
+         (weekRendered)="onRenderWeek($event)"
+         (eventClick)="onEventClicked($event)"
+         (eventDblClick)="onEventDblClicked($event)"
+    ></div>
+  </ng-container>
+</ng-container>
+
+
+
+
+
