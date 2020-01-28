@@ -31,8 +31,9 @@ export class DatagridStandalonePagerDemoService {
 
   sortPage(isAscending: boolean): any {
     this.data.sort((o1, o2) => o1.id - o2.id);
-    if (!isAscending)
+    if (!isAscending) {
       this.data.reverse();
+    }
 
     return this.getData('initial', isAscending);
   }
