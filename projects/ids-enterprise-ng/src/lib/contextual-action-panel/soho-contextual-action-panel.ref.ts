@@ -127,8 +127,10 @@ export class SohoContextualActionPanelRef<T> {
    * @param buttons - list of buttons to display
    */
   buttons(buttons: SohoContextualActionPanelButton[]): SohoContextualActionPanelRef<T> {
+    // tslint:disable-next-line: deprecation
     this._options.buttons = buttons;
     if (this.contextualactionpanel) {
+      // tslint:disable-next-line: deprecation
       this.contextualactionpanel.settings.buttons = buttons;
     }
     return this;
@@ -140,8 +142,10 @@ export class SohoContextualActionPanelRef<T> {
    * @param id - the id.
    */
   id(id: string): SohoContextualActionPanelRef<T> {
+    // tslint:disable-next-line: deprecation
     this._options.id = id;
     if (this.contextualactionpanel) {
+      // tslint:disable-next-line: deprecation
       this.contextualactionpanel.settings.id = id;
     }
     return this;
@@ -166,8 +170,10 @@ export class SohoContextualActionPanelRef<T> {
    * @param centerTitle - Aligns title to center
    */
   centerTitle(centerTitle: boolean): SohoContextualActionPanelRef<T> {
+    // tslint:disable-next-line: deprecation
     this._options.centerTitle = centerTitle;
     if (this.contextualactionpanel) {
+      // tslint:disable-next-line: deprecation
       this.contextualactionpanel.settings.centerTitle = centerTitle;
     }
     return this;
@@ -179,8 +185,10 @@ export class SohoContextualActionPanelRef<T> {
    * @param trigger - when to open the panel.
    */
   trigger(trigger: SohoContextualActionPanelTriggerType): SohoContextualActionPanelRef<T> {
+    // tslint:disable-next-line: deprecation
     this._options.trigger = trigger;
     if (this.contextualactionpanel) {
+      // tslint:disable-next-line: deprecation
       this.contextualactionpanel.settings.trigger = trigger;
     }
     return this;
