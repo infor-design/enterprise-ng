@@ -74,6 +74,9 @@ interface SohoModalOptions {
 
   // A call back function for showing the modal
   beforeShow?: any;
+
+  /** Center the title of the dialog. */
+  centerTitle?: boolean
 }
 
 type SohoModalFullSize = false | 'responsive' | 'always';

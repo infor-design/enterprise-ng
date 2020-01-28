@@ -11,7 +11,6 @@ import {
 
 import { ArgumentHelper } from '../utils/argument.helper';
 import { SohoContextualActionPanelRef } from './soho-contextual-action-panel.ref';
-import { SohoContextualActionPanelInjector } from './soho-contextual-action-panel.injector';
 
 /**
  * This service is used to create a panel panel, based on the content
@@ -45,6 +44,7 @@ export class SohoContextualActionPanelService {
    *
    * @param component - the type of the component to instantiate; must not be null.
    * @param parent - the parent container; must not be null.
+   * @param options - the default options for the panel; optional.
    *
    * @return the panel reference.
    */
@@ -52,10 +52,8 @@ export class SohoContextualActionPanelService {
     ArgumentHelper.checkNotNull('component', component);
     ArgumentHelper.checkNotNull('parent', parent);
 
-    options = options || {};
-
     return new SohoContextualActionPanelRef<T>(
-      this.appRef, this.componentFactoryResolver, this.injector, this.ngZone, options);
+      this.appRef, this.componentFactoryResolver, this.injector, this.ngZone, options, component);
   }
 }
 
