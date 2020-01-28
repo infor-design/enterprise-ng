@@ -2,8 +2,8 @@
     [month]="initialMonth"
     [year]="initialYear"
     [showViewChanger]="showViewChanger"
-    [onRenderMonth]="onRenderMonthCallback"
-    [onSelected]="onCalendarDateSelectedCallback"
+    [renderMonthCallback]="onRenderMonthCallback"
+    [selectedCallback]="onCalendarDateSelectedCallback"
 
     (monthRendered)="onRenderMonth($event)"
     (selected)="onSelected($event)"
