@@ -54,7 +54,8 @@ export class SohoModalDialogService {
 
     options = options || {};
 
-    return new SohoModalDialogRef<T>(this.appRef, this.componentFactoryResolver, this.injector, this.ngZone, options, component);
+    return new SohoModalDialogRef<T>(
+      this.appRef, this.componentFactoryResolver, this.injector, this.ngZone, options, component);
   }
 
   /**
