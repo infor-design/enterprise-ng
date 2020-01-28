@@ -11,6 +11,7 @@
     - support for TypeScript 3.6.x
     - support for Ivy (ids-enterprise-ng is not compiled using ivy)
     - `UPGRADING.md` has been updated with details on upgrading your application to angular 9.
+    - there are issues with the svg icons when ivy is enabled in the hosting application, (see ([Angular Issue](https://github.com/angular/angular/issues/34256)), so Ivy will need to be disabled at this time.
 
 ## v6.4.0
 

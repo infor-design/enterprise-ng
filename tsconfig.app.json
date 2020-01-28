@@ -12,7 +12,7 @@
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
-    "enableIvy": true
+    "enableIvy": false
   },
   "files": [
     "src/main.ts",
