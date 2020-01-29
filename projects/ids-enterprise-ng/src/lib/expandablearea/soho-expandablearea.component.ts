@@ -31,7 +31,7 @@ import { Observable } from 'rxjs';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ExpandableHeaderComponent {}
+export class ExpandableHeaderComponent { }
 
 /**
  * Helper Component for the ExpandableAreaComponent
@@ -58,7 +58,7 @@ export class ExpandablePaneComponent {
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ExpandableFooterComponent {}
+export class ExpandableFooterComponent { }
 
 @Component({
   selector: 'soho-expandable-area',
@@ -90,9 +90,9 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   @Input() toggle: Observable<boolean>;
 
   // Get the header DOM element
-  @ContentChild(forwardRef(() => ExpandableHeaderComponent)) // tslint:disable-line
- // tslint:disable-line
- // tslint:disable-line
+  @ContentChild(forwardRef(() => ExpandableHeaderComponent), { static: true }) // tslint:disable-line
+  // tslint:disable-line
+  // tslint:disable-line
   public header: ExpandableHeaderComponent = null;
 
   // Get the pane DOM elements
@@ -103,9 +103,9 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   // private _pane: ExpandablePaneComponent = null;
 
   // Get the pane DOM element
-  @ContentChild(forwardRef(() => ExpandableFooterComponent)) // tslint:disable-line
- // tslint:disable-line
- // tslint:disable-line
+  @ContentChild(forwardRef(() => ExpandableFooterComponent), { static: true }) // tslint:disable-line
+  // tslint:disable-line
+  // tslint:disable-line
   public footer: ExpandablePaneComponent = null;
 
   // Add Events for Angular elements to listen to (can only have exposed events)
@@ -133,7 +133,7 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
       // Assign element to local variable
-      this.jQueryElement = jQuery(this.element.nativeElement.children[ 0 ]);
+      this.jQueryElement = jQuery(this.element.nativeElement.children[0]);
 
       // Attach handler for Open and Close listener
       if (this.toggle) {
@@ -151,7 +151,7 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
       // Add listeners to emit events
       // Instantiate the element via jQuery
       this.jQueryElement.expandablearea({
-        id:       this.id,
+        id: this.id,
         disabled: this.disabled,
         expanded: !this.closed,
       });

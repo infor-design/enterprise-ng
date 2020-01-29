@@ -151,13 +151,13 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   }
 
   /** The component used to represent the available items. */
-  @ContentChild('available', /* TODO: add static flag */ {static: true})  private _availableCard: SohoSwapListCardComponent = null;
+  @ContentChild('available', { static: true }) private _availableCard: SohoSwapListCardComponent = null;
 
   /** The component used to represent the selected items. */
-  @ContentChild('selected', /* TODO: add static flag */ {static: true})  private _selectedCard: SohoSwapListCardComponent = null;
+  @ContentChild('selected', { static: true }) private _selectedCard: SohoSwapListCardComponent = null;
 
   /** The component used to represent the full access (additional) items. */
-  @ContentChild('additional', /* TODO: add static flag */ {static: true})  private _additionalCard: SohoSwapListCardComponent = null;
+  @ContentChild('additional', { static: true }) private _additionalCard: SohoSwapListCardComponent = null;
 
   // ------------------------------------------------------------------------
   // @Inputs
@@ -328,7 +328,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   constructor(
     private element: ElementRef,
     private ngZone: NgZone,
-                @Optional() private swaplistService: SohoSwapListService) {
+    @Optional() private swaplistService: SohoSwapListService) {
   }
 
   ngAfterViewInit() {

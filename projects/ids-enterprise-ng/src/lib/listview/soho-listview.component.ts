@@ -70,7 +70,7 @@ export class SohoListViewItemComponent implements AfterViewInit {
    *
    * @param element - the element.
    */
-  constructor(public element: ElementRef) {}
+  constructor(public element: ElementRef) { }
 
   /**
    * The index of the list view item in it's parent.
@@ -316,9 +316,9 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    */
   @Output() click: EventEmitter<Object> = new EventEmitter<Object>();
 
-   /**
-   * Called once an item is double clicked. This isnt used that often.
-   */
+  /**
+  * Called once an item is double clicked. This isnt used that often.
+  */
   @Output() dblclick: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**
@@ -334,9 +334,9 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
 
   // Used to locate the listViewReference in the HTML to init the component through jQuery
   @ViewChild('listview', { static: true }) listViewRef: ElementRef;
-  @ContentChild(forwardRef(() => SohoSearchFieldComponent)) // tslint:disable-line
- // tslint:disable-line
- // tslint:disable-line
+  @ContentChild(forwardRef(() => SohoSearchFieldComponent), { static: true }) // tslint:disable-line
+  // tslint:disable-line
+  // tslint:disable-line
   public searchfieldRef: SohoSearchFieldComponent = null;
 
   /**
@@ -352,7 +352,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
   constructor(
     private ngZone: NgZone,
     private element: ElementRef
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     if (!this.listViewRef) {
@@ -498,14 +498,14 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * @param fn the function to apply - must take a SohoListViewReference.
    * @param index the index of list view item(s).
    */
-   private apply(fn: (index: SohoListViewItemReference) => void, index: SohoListViewItemReference | SohoListViewItemReference[]): void {
+  private apply(fn: (index: SohoListViewItemReference) => void, index: SohoListViewItemReference | SohoListViewItemReference[]): void {
     ArgumentHelper.checkNotNull('index', index);
 
     if (this.listview) {
       this.boundsCheck(index);
 
       if (index instanceof Array) {
-        index.forEach(element => fn(element) );
+        index.forEach(element => fn(element));
       } else {
         fn(index);
       }
@@ -518,14 +518,14 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * Verifies the given item reference is within allowable ranges.
    */
   private boundsCheck(index: SohoListViewItemReference | SohoListViewItemReference[]) {
-      if (typeof index === 'number') {
-        const indexNumber = index;
-        if (indexNumber < 0 || indexNumber >= this.itemCount) {
-          throw Error(`The item index '${index}' is out of bounds.`);
-        }
-      } else if (index instanceof Array) {
-        index.forEach(element => this.boundsCheck(element) );
+    if (typeof index === 'number') {
+      const indexNumber = index;
+      if (indexNumber < 0 || indexNumber >= this.itemCount) {
+        throw Error(`The item index '${index}' is out of bounds.`);
       }
+    } else if (index instanceof Array) {
+      index.forEach(element => this.boundsCheck(element));
+    }
   }
 
   /**
