@@ -1,4 +1,4 @@
-import { Component, NgZone, OnInit, ViewChild, } from '@angular/core';
+import { AfterViewInit, Component, NgZone, OnInit, ViewChild, } from '@angular/core';
 import { SohoDataGridComponent, } from 'ids-enterprise-ng';
 import { DatagridStandalonePagerDemoService } from './datagrid-standalone-pager-demo.service';
 
@@ -7,7 +7,7 @@ import { DatagridStandalonePagerDemoService } from './datagrid-standalone-pager-
   templateUrl: 'datagrid-standalone-pager.demo.html',
   providers: [ DatagridStandalonePagerDemoService ]
 })
-export class DatagridStandalonePagerDemoComponent implements OnInit {
+export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnInit {
   @ViewChild(SohoDataGridComponent, { static: true }) sohoDataGridComponent: SohoDataGridComponent;
 
   data: any[];
@@ -33,6 +33,10 @@ export class DatagridStandalonePagerDemoComponent implements OnInit {
     this.updateTemplateVariables(result);
   }
 
+  ngAfterViewInit(): void {
+    this.sohoDataGridComponent.setSortIndicator('productName', true);
+  }
+
   onFirstPage() {
     const result = this.datagridPagingService.initialPage(this.pageSize);
     this.updateTemplateVariables(result);
@@ -54,10 +58,9 @@ export class DatagridStandalonePagerDemoComponent implements OnInit {
   }
 
   onSortPage(event: SohoDataGridSortedEvent): void {
-    const result = this.datagridPagingService.sortPage();
+    const result = this.datagridPagingService.sortPage(event.sortAsc);
     this.currentSort = event;
     this.updateTemplateVariables(result);
-
   }
 
   onFilterPage(event: SohoDataGridFilteredEvent): void {

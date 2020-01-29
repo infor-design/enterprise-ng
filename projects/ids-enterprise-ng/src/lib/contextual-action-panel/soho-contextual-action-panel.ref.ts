@@ -67,7 +67,16 @@ export class SohoContextualActionPanelRef<T> {
    * Cached options.
    */
   private _options: SohoContextualActionPanelOptions = {
-    trigger: 'immediate'
+    content: null,
+    initializeContent: true, // initialize content before opening
+    title: 'Contextual Action Panel',
+    modalSettings: {
+      buttons: null,
+      centerTitle: false,
+      showCloseBtn: false,
+      trigger: 'immediate',
+      useFlexToolbar: false
+    }
   };
 
   /**
@@ -76,10 +85,10 @@ export class SohoContextualActionPanelRef<T> {
    * @param options - the options to set.
    */
   options(options: SohoContextualActionPanelOptions): SohoContextualActionPanelRef<T> {
-    this._options = options;
+    this._options = $.extend(true, this._options, options);
 
     if (this.contextualactionpanel) {
-      this.contextualactionpanel.settings = options;
+      this.contextualactionpanel.settings = this._options;
     }
 
     return this;
@@ -88,13 +97,13 @@ export class SohoContextualActionPanelRef<T> {
   /**
    * Sets the whole options block for this contextual action panel.
    *
-   * @param options - the options to set.
+   * @param modalSettings - the options to set.
    */
-  modalSettings(options: SohoModalOptions): SohoContextualActionPanelRef<T> {
-    this._options.modalSettings = options;
+  modalSettings(modalSettings: SohoModalOptions): SohoContextualActionPanelRef<T> {
+    this._options.modalSettings = $.extend(true, this._options.modalSettings, modalSettings);
 
     if (this.contextualactionpanel) {
-      this.contextualactionpanel.settings.modalSettings = options;
+      this.contextualactionpanel.settings.modalSettings = this._options.modalSettings;
     }
 
     return this;
@@ -133,8 +142,10 @@ export class SohoContextualActionPanelRef<T> {
    * @param id - the id.
    */
   id(id: string): SohoContextualActionPanelRef<T> {
+    // tslint:disable-next-line: deprecation
     this._options.id = id;
     if (this.contextualactionpanel) {
+      // tslint:disable-next-line: deprecation
       this.contextualactionpanel.settings.id = id;
     }
     return this;
@@ -159,8 +170,10 @@ export class SohoContextualActionPanelRef<T> {
    * @param centerTitle - Aligns title to center
    */
   centerTitle(centerTitle: boolean): SohoContextualActionPanelRef<T> {
+    // tslint:disable-next-line: deprecation
     this._options.centerTitle = centerTitle;
     if (this.contextualactionpanel) {
+      // tslint:disable-next-line: deprecation
       this.contextualactionpanel.settings.centerTitle = centerTitle;
     }
     return this;
@@ -233,7 +246,9 @@ export class SohoContextualActionPanelRef<T> {
     settings: SohoContextualActionPanelOptions,
     panelComponent?: PanelComponentType<T>) {
 
-    this.options(settings);
+    if (settings) {
+      this.options(settings);
+    }
 
     if (panelComponent) {
       this.componentRef = componentFactoryResolver

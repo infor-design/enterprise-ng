@@ -58,8 +58,8 @@ describe('Soho Calendar Unit Tests', () => {
     comp.month = 7;
     comp.year = 2018;
     comp.showViewChanger = false;
-    comp.onRenderMonth = onMonthRendered;
-    comp.onSelected = onSelected;
+    comp.renderMonthCallback = onMonthRendered;
+    comp.selectedCallback = onSelected;
     comp.upcomingEventDays = 5;
     // comp.template = '';
     // comp.modalTemplate = 'abc';
@@ -74,8 +74,8 @@ describe('Soho Calendar Unit Tests', () => {
     expect(comp.month).toEqual(7);
     expect(comp.year).toEqual(2018);
     expect(comp.showViewChanger).toEqual(false);
-    expect(comp.onRenderMonth).toEqual(onMonthRendered);
-    expect(comp.onSelected).toEqual(onSelected);
+    expect(comp.renderMonthCallback).toEqual(onMonthRendered);
+    expect(comp.selectedCallback).toEqual(onSelected);
     expect(comp.upcomingEventDays).toEqual(5);
     // expect((comp as any).options.template).toEqual();
     // expect((comp as any).options.modalTemplate).toEqual();
@@ -97,8 +97,8 @@ describe('Soho Calendar Unit Tests', () => {
     comp.month = 1;
     comp.year = 2019;
     comp.showViewChanger = true;
-    comp.onRenderMonth = onMonthRendered2;
-    comp.onSelected = onSelected2;
+    comp.renderMonthCallback = onMonthRendered2;
+    comp.selectedCallback = onSelected2;
     comp.upcomingEventDays = 2;
 
     // check calendar settings

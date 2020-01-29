@@ -27,10 +27,18 @@ export class DatagridStandalonePagerDemoService {
   nextPage(): any     { return this.getData('next');     }
   previousPage(): any { return this.getData('prev');     }
   lastPage(): any     { return this.getData('last');     }
-  sortPage(): any     { return this.getData('initial');  }
   filterPage(): any   { return this.getData('initial');  }
 
-  private getData(type: string): any {
+  sortPage(isAscending: boolean): any {
+    this.data.sort((o1, o2) => o1.id - o2.id);
+    if (!isAscending) {
+      this.data.reverse();
+    }
+
+    return this.getData('initial', isAscending);
+  }
+
+  private getData(type: string, sortAscending = true): any {
     switch (type) {
       case 'initial': this.beginIndex = 0; break;
       case 'first': this.beginIndex = 0; break;
@@ -38,7 +46,6 @@ export class DatagridStandalonePagerDemoService {
       case 'next': this.beginIndex = this.beginIndex + this.pageSize; break;
       case 'prev': this.beginIndex = this.beginIndex - this.pageSize; break;
 
-      case 'sorted': console.log('sorted stub called - implement me'); break;
       case 'filtered': console.log('filtered stub called - implement me'); break;
     }
 

@@ -11,9 +11,22 @@
     - support for TypeScript 3.6.x
     - support for Ivy (ids-enterprise-ng is not compiled using ivy)
     - `UPGRADING.md` has been updated with details on upgrading your application to angular 9.
-    - there are issues with the svg icons when ivy is enabled in the hosting application, (see ([Angular Issue](https://github.com/angular/angular/issues/34256)), so Ivy will need to be disabled at this time.
+    - there are issues with the svg icons when ivy is enabled in the hosting application, (see ([Angular Issue](https://github.com/angular/angular/issues/34256))), so Ivy will need to be disabled at this time.
+
+## v6.5.0
+
+### 6.5.0 Fixes
+
+- `[ContextualActionPanel]` Fixed default settings. `BTHH` ([#720](https://github.com/infor-design/enterprise-ng/issues/720]))
+- `[ModalDialog]` Added 'centreTitle' to SohoModalOptions. `BTHH`  ([#721](https://github.com/infor-design/enterprise-ng/pull/721]))
+
+### 6.5.0 Features
 
 ## v6.4.0
+
+### 6.4.0 Breaking Changes
+
+- `[Calendar]` - Removed "on" prefix on any of the inputs due to test error. `VW` ([#712](https://github.com/infor-design/enterprise-ng/pull/712))
 
 ### 6.4.0 Fixes
 
