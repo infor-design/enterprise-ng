@@ -561,8 +561,6 @@ export interface SohoModalComponent<T> {
 
 /**
  * Vetoable Event Handlers.
- *
- * @deprecated this interface will be remove in a future release of the IDS angular wrappers, please use the dialog methods.
  */
 export interface SohoModalDialogVetoableEventGuard<T> {
 

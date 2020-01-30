@@ -6,7 +6,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { SohoToastService } from 'ids-enterprise-ng';
-import { SohoWeekViewComponent } from '../../../projects/ids-enterprise-ng/src/lib/week-view/soho-week-view.component';
+import { SohoWeekViewComponent } from 'ids-enterprise-ng';
 import { WeekViewDemoService } from './week-view.demo.service';
 
 export enum displayType { 'oneWeek', 'twoWeeks', 'oneDay', 'twoDays' }
@@ -56,8 +56,8 @@ export class WeekViewDemoComponent implements OnInit {
   }
 
   constructor(private weekViewService: WeekViewDemoService,
-              private toastService: SohoToastService,
-              private changeDetectorRef: ChangeDetectorRef) { }
+    private toastService: SohoToastService,
+    private changeDetectorRef: ChangeDetectorRef) { }
 
   showOneWeek() {
     this.startDate = new Date('2019-02-10');

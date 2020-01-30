@@ -95,7 +95,7 @@ interface SohoModalButton {
   type?: 'input' | 'button';
 
   /** Text for the button. */
-  text: string;
+  text?: string;
 
   /** Validate */
   validate?: boolean;
