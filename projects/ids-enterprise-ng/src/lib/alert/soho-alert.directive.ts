@@ -36,6 +36,12 @@ export class SohoAlertDirective implements AfterViewInit {
     }
   }
 
+  /** Set id with the SohoAlertType. */
+  @Input()
+  public set id(id: string) {
+    this._options.id = id;
+  }
+
   /** Set message with the SohoAlertType. */
   @Input()
   public set type(type: SohoAlertType) {
