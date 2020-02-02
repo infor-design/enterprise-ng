@@ -68,8 +68,7 @@ export class ContextualActionPanelDemoComponent {
 
     this.panelRef = this.panelService
       .contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
-      .modalSettings({ buttons: buttons })
-      .title(this.title)
+      .modalSettings({ buttons: buttons, title: this.title })
       .open()
       .initializeContent(true);
   }
@@ -115,8 +114,7 @@ export class ContextualActionPanelDemoComponent {
 
     this.panelRef = this.panelService
       .contextualactionpanel(ContextualActionPanelFullSizeComponent, this.placeholder)
-      .modalSettings({ fullsize: 'responsive', breakpoint: 'phablet', buttons: buttons })
-      .title(this.title)
+      .modalSettings({ fullsize: 'responsive', breakpoint: 'phablet', buttons: buttons, title: this.title })
       .open()
       .initializeContent(true);
 
