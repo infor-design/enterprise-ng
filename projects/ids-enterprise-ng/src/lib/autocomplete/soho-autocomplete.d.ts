@@ -43,7 +43,8 @@ type SohoAutoCompleteResponseFunction = (term: string, data: any[]) => void;
 
 type SohoAutoCompleteSourceFunction = (term: string, response: SohoAutoCompleteResponseFunction) => void;
 
-type SohoAutoCompleteFilterMode = 'wordStartsWith' | 'contains' | 'keyword' | 'phraseStartsWith';
+// can be 'wordStartsWith', 'contains', 'keyword', or 'phraseStartsWith'
+type SohoAutoCompleteFilterMode = string;
 
 type SohoAutoCompleteWidth = number | string;
 
@@ -65,7 +66,7 @@ interface SohoAutoCompleteEvent {
    clear(): void;
 
    /** Disable the control. */
-   disable() : void;
+   disable(): void;
 
    /** Enable the control. */
    enable(): void;
@@ -82,7 +83,7 @@ interface JQueryStatic {
 }
 
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
-  autocomplete(options?: SohoAutoCompleteOptions): JQuery
+  autocomplete(options?: SohoAutoCompleteOptions): JQuery;
 
   on(events: 'beforeopen', handler: JQuery.EventHandlerBase<any, SohoAutoCompleteEvent>): this;
 }

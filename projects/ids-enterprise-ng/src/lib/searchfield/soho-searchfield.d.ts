@@ -29,6 +29,9 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
   /* *Has an X to clear? */
   clearable?: boolean;
 
+  /* Is able to be collapsed */
+  collapsible?: boolean;
+
   /* Can either be a number, or a function resolving a number */
   collapseSize?: ((api: SohoSearchFieldStatic) => number)|number;
 }
@@ -37,11 +40,23 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
  * Soho control seachfield api.
  */
 interface SohoSearchFieldStatic {
+  /** Category Button */
+  categoryButton?: JQuery;
+
+  /** Internal element reference */
+  element: JQuery;
+
+  /** If this component resides within a toolbar, this returns `true` */
+  toolbarParent?: boolean|undefined;
+
   /** Destructor. */
   destroy(): void;
 
   /** Clear */
   clear(): void;
+
+  /** Updated */
+  updated(settings?: SohoSearchFieldOptions): void;
 }
 
 /**
