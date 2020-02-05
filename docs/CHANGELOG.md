@@ -6,7 +6,7 @@
 
 - `[Demo]` Added support for running the demo app in Internet Explorer. `BTHH` ([#668](https://github.com/infor-design/enterprise-ng/issues/668]))
 
-### 6.5.0 Features
+### 6.6.0 Features
 
 ## v6.5.0
 
