@@ -70,6 +70,9 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "es5": {
+              "tsConfig": "tsconfig.es5.json"
             }
           }
         },
@@ -84,6 +87,9 @@
           "configurations": {
             "production": {
               "browserTarget": "ids-enterprise-ng-app:build:production"
+            },
+            "es5": {
+              "browserTarget": "ids-enterprise-ng-app:build:es5"
             }
           }
         },
