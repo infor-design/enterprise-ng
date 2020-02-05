@@ -64,6 +64,11 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
     this.options.template = value;
   }
 
+  /** Number representing a size that will be used when a collapsible Searchfield becomes collapsed. */
+  @Input() set collapseSize(value: ((api: SohoSearchFieldStatic) => number)|number) {
+    this.options.collapseSize = value;
+  }
+
   // ------------------------------------------------------------
 
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();

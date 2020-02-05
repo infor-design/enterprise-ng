@@ -28,6 +28,9 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
 
   /* *Has an X to clear? */
   clearable?: boolean;
+
+  /* Can either be a number, or a function resolving a number */
+  collapseSize?: ((api: SohoSearchFieldStatic) => number)|number;
 }
 
 /**
