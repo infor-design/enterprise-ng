@@ -124,7 +124,7 @@ describe('Soho Week view Unit Tests', () => {
   `
 })
 class SohoWeekViewTestComponent {
-  @ViewChild(SohoWeekViewComponent, {static: false})
+  @ViewChild(SohoWeekViewComponent)
   weekView: SohoWeekViewComponent;
 
   public events: SohoWeekViewEvent[];

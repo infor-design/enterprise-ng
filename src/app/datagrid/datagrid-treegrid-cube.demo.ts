@@ -9,8 +9,8 @@ import { SohoDataGridComponent } from 'ids-enterprise-ng';
 })
 
 export class DataGridTreeGridCubeDemoComponent implements OnInit, AfterViewInit {
-  @ViewChild(SohoChartComponent, { static: false }) sohoChartComponent: SohoChartComponent;
-  @ViewChild(SohoDataGridComponent, { static: false }) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoChartComponent) sohoChartComponent: SohoChartComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
   private _columns: SohoDataGridColumn[];
   private _data: any;
