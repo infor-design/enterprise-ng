@@ -163,6 +163,10 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
     // updating.
     this.changeDetector.markForCheck();
   }
+
+  updated(settings: SohoToolbarFlexSearchFieldOptions) {
+    this.ngZone.runOutsideAngular(() => this.toolbarFlexSearchField.updated(settings));
+  }
 }
 
 /**

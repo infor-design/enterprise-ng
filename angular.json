@@ -88,6 +88,9 @@
             "configurations": {
               "production": {
                 "browserTarget": "ids-enterprise-ng-app:build:production"
+              },
+              "es5": {
+                "browserTarget": "ids-enterprise-ng-app:build:es5"
               }
             }
           },
@@ -128,6 +131,9 @@
                 },
                 "src/app/demodata"
               ]
+            },
+            "es5": {
+              "tsConfig": "tsconfig.es5.json"
             }
           },
           "lint": {
@@ -206,3 +212,4 @@
       "analytics": "deda5b6f-0536-400b-81ca-445018af21f9"
     }
   }
+}

@@ -1,16 +1,50 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { SohoToolbarFlexSearchFieldComponent } from 'ids-enterprise-ng';
+
+/**
+ * Matches a function used in a similar IDS Enterprise test for checking
+ * the text size, and adjusting the size of the collapsed Searchfield accordingly.
+ */
+const collapseSizeOptions = [
+  undefined,
+  200,
+  function textbasedCollapseSize(api: SohoSearchFieldStatic) {
+    const charWidth = 10;
+    const frontPadding = 64;
+    let buttonSize = 0;
+    const contents = `${api.element.val()}`;
+
+    if ((api.categoryButton instanceof $) && api.categoryButton.length) {
+      const buttonStyle = window.getComputedStyle(api.categoryButton[0]);
+      const buttonWidth = api.categoryButton.width();
+      const buttonBorder = parseInt(buttonStyle.borderLeftWidth, 10) * 2;
+      const buttonPadding = parseInt(buttonStyle.paddingLeft, 10) +
+        parseInt(buttonStyle.paddingRight, 10);
+
+      buttonSize += (buttonWidth + buttonBorder + buttonPadding + 4);
+    }
+
+    // Can't be bigger than 300px.
+    const maxSize = 300;
+    const targetSize = (buttonSize > 0 ? buttonSize : frontPadding) + (charWidth * contents.length);
+
+    return targetSize < maxSize ? targetSize : maxSize;
+  }
+];
 
 @Component({
   selector: 'app-toolbar-flex-searchfield-demo',
   templateUrl: 'toolbar-flex-searchfield.demo.html'
 })
 export class ToolbarFlexSearchfieldDemoComponent {
+  @ViewChild(SohoToolbarFlexSearchFieldComponent, { static: false }) toolbarFlexSearchField: SohoToolbarFlexSearchFieldComponent;
 
   /**
    * Bindable Model value for getting what was typed in the search box.
    */
   public model = {
-    searchValue: ''
+    searchValue: '',
+    collapsible: false
   };
 
   /**
@@ -18,6 +52,8 @@ export class ToolbarFlexSearchfieldDemoComponent {
    */
   searchfieldOptions = {
     filterMode: 'contains',
+    collapsible: false,
+    collapseSize: collapseSizeOptions[0]
   };
 
   onSelected(event) {
@@ -31,9 +67,35 @@ export class ToolbarFlexSearchfieldDemoComponent {
   }
 
   /**
-   * Change event we link to in this example.
+   * Change Event, fired by the Searchfield, when its value is changed
    */
-  onChange(event: SohoSearchFieldEvent) {
-    alert('Search Changed ' + this.model.searchValue);
+  onValueChange(event: SohoSearchFieldEvent) {
+    console.log(`Searchfield Value Changed: ${this.model.searchValue}`);
+  }
+
+  /**
+   * Change Event, fired by the Checkbox that disables/enables collapsing of the Searchfield.
+   */
+  onCollapsibleChange(event: JQuery.TriggeredEvent) {
+    const value = event.target.checked;
+    this.searchfieldOptions.collapsible = value;
+    this.toolbarFlexSearchField.updated(this.searchfieldOptions);
+  }
+
+  /**
+   * Change Event, fired by the Radio Buttons that control `collapseSize`, when they are changed.
+   */
+  onCollapseSizeChange(event: JQuery.TriggeredEvent) {
+    const value = Number(event.target.value);
+    const mapping = {
+      0: 'undefined (CSS-Driven)',
+      1: 'Static Number (200)',
+      2: 'Function-based (Resolves to Number)'
+    };
+    const textValue = mapping[value];
+
+    this.searchfieldOptions.collapseSize = collapseSizeOptions[value];
+    this.toolbarFlexSearchField.updated(this.searchfieldOptions);
+    console.log(`Searchfield 'collapseSize' setting changed to ${textValue}`);
   }
 }
