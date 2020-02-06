@@ -11,6 +11,9 @@
 
 ### 6.5.0 Features
 
+- `[Searchfield]` Exposed the `collapseSize` setting for use with the IDS Enteprise Searchfield component ([#719](https://github.com/infor-design/enterprise-ng/issues/719))
+- `[Demo]` Added support for running the demo app in Internet Explorer. `BTHH` ([#668](https://github.com/infor-design/enterprise-ng/issues/668]))
+
 ## v6.4.0
 
 ### 6.4.0 Breaking Changes
