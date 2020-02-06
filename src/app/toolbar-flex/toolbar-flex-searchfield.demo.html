@@ -9,10 +9,10 @@
         <input soho-toolbar-flex-searchfield
                placeholder="Search..."
                [clearable]="true"
-               [collapsible]="false"
+               [collapsible]="model.collapsible"
                [options]="searchfieldOptions"
                [(ngModel)]="model.searchValue"
-               (change)="onChange($event)"/>
+               (change)="onValueChange($event)"/>
       </soho-toolbar-flex-section>
       <soho-toolbar-flex-section [isButtonSet]="true">
         <button soho-button id="test-button" data-action="{'button':'test button'}">
@@ -21,5 +21,29 @@
       </soho-toolbar-flex-section>
     </div>
 
+  </div>
+</div>
+
+<div class="row top-padding">
+  <div class="twelve columns">
+    <input id="optionCollapsible" soho-checkbox type="checkbox" name="doCollapseCheckbox" [(ngModel)]="model.collapsible" (change)="onCollapsibleChange($event)">
+    <label soho-label for="optionCollapsible" [forCheckBox]="true">Collapsible</label>
+  </div>
+</div>
+
+<div class="row top-padding">
+  <div class="twelve columns">
+    <label soho-label>Collapsible Size</label>
+    <input soho-radiobutton (change)="onCollapseSizeChange($event)"
+      id="optionCS1" type="radio" name="optionsGroupCS" value="0" checked />
+    <label soho-label for="optionCS1" [forRadioButton]="true">undefined (CSS-driven)</label>
+    <br>
+    <input soho-radiobutton (change)="onCollapseSizeChange($event)"
+      id="optionCS2" type="radio" name="optionsGroupCS" value="1" />
+    <label soho-label for="optionCS2" [forRadioButton]="true">Static Number (200)</label>
+    <br>
+    <input soho-radiobutton (change)="onCollapseSizeChange($event)"
+      id="optionCS3" type="radio" name="optionsGroupCS" value="2" />
+    <label soho-label for="optionCS3" [forRadioButton]="true">Function-based (resolves to Number)</label>
   </div>
 </div>

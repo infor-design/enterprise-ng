@@ -7,6 +7,7 @@ import {
   EventEmitter,
   HostBinding,
   Input,
+  NgZone,
   OnDestroy,
   Output,
 } from '@angular/core';
@@ -64,6 +65,11 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
     this.options.template = value;
   }
 
+  /** Number representing a size that will be used when a collapsible Searchfield becomes collapsed. */
+  @Input() set collapseSize(value: ((api: SohoSearchFieldStatic) => number)|number) {
+    this.options.collapseSize = value;
+  }
+
   // ------------------------------------------------------------
 
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
@@ -76,7 +82,11 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
   private jQueryElement: JQuery;
   private searchfield: SohoSearchFieldStatic;
 
-  constructor(private element: ElementRef) { }
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone
+  ) {}
+
   ngAfterViewInit() {
     // TODO: Figure out what element to send to jQuery to init the component
     this.jQueryElement = jQuery(this.element.nativeElement);
@@ -90,6 +100,7 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
 
     this.searchfield = this.jQueryElement.data('searchfield');
   }
+
   ngOnDestroy() {
     // Necessary clean up step (add additional here)
     if (this.searchfield) {
@@ -97,13 +108,12 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
       this.searchfield = null;
     }
   }
+
   clear(): void {
     this.searchfield.clear();
   }
-  // get classes() {
-  //   return 'searchfield';
-  // }
-  // get wrapperClasses() {
-  //   return 'searchfield-wrapper';
-  // }
+
+  updated(settings?: SohoSearchFieldOptions) {
+    this.ngZone.runOutsideAngular(() => this.searchfield.updated(settings));
+  }
 }
