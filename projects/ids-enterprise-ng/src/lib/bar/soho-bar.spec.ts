@@ -44,7 +44,7 @@ describe('Soho Bar Unit Tests', () => {
     // Ouch!
     const ngZone = TestBed.inject(NgZone);
     spyOn(ngZone, 'runOutsideAngular').and.callFake((fn: Function) => {
-      fn();
+      return fn();
     });
 
     fixture = TestBed.createComponent(SohoBarComponent);
