@@ -4,11 +4,13 @@
 
 ### 6.5.0 Fixes
 
-- `[Alert]` Added support for the id property. `DPB` ([#725](https://github.com/infor-design/enterprise-ng/issues/725]))
 - `[ContextualActionPanel]` Fixed default settings. `BTHH` ([#720](https://github.com/infor-design/enterprise-ng/issues/720]))
-- `[ModalDialog]` Added 'centreTitle' to SohoModalOptions. `BTHH`  ([#721](https://github.com/infor-design/enterprise-ng/pull/721]))
 
 ### 6.5.0 Features
+
+- `[Alert]` Added support for the id property. `DPB` ([#725](https://github.com/infor-design/enterprise-ng/issues/725]))
+- `[ModalDialog]` Added 'centreTitle' to SohoModalOptions. `BTHH`  ([#721](https://github.com/infor-design/enterprise-ng/pull/721]))
+- `[DropDown]` Added 'listclosed' and 'listopened' outputs to soho-dropdown. `BTHH`  ([#662](https://github.com/infor-design/enterprise-ng/issues/662]))
 
 ## v6.4.0
 
