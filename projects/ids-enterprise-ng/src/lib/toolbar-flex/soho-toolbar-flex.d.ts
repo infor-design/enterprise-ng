@@ -62,7 +62,7 @@ interface SohoToolbarFlexEvent extends JQuery.TriggeredEvent {}
 /**
  * Configuration options.
  */
-interface SohoToolbarFlexSearchFieldOptions extends SohoAutoCompleteOptions {
+interface SohoToolbarFlexSearchFieldOptions extends SohoSearchFieldOptions {
   /** Has an X to clear? */
   clearable?: boolean;
 
@@ -79,7 +79,7 @@ interface SohoToolbarFlexSearchFieldOptions extends SohoAutoCompleteOptions {
 interface SohoToolbarFlexSearchFieldStatic {
   settings: SohoToolbarSearchFieldOptions;
 
-  updated(): void;
+  updated(settings?: SohoToolbarFlexSearchFieldOptions): void;
 
   /** Destructor. */
   destroy(): void;

@@ -11,6 +11,8 @@
 - `[Alert]` Added support for the id property. `DPB` ([#725](https://github.com/infor-design/enterprise-ng/issues/725]))
 - `[ModalDialog]` Added 'centreTitle' to SohoModalOptions. `BTHH`  ([#721](https://github.com/infor-design/enterprise-ng/pull/721]))
 - `[DropDown]` Added 'listclosed' and 'listopened' outputs to soho-dropdown. `BTHH`  ([#662](https://github.com/infor-design/enterprise-ng/issues/662]))
+- `[ModalDialog]` Added 'centreTitle' to SohoModalOptions. `BTHH`  ([#721](https://github.com/infor-design/enterprise-ng/pull/721]))
+- `[Searchfield]` Exposed the `collapseSize` setting for use with the IDS Enteprise Searchfield component ([#719](https://github.com/infor-design/enterprise-ng/issues/719))
 - `[Demo]` Added support for running the demo app in Internet Explorer. `BTHH` ([#668](https://github.com/infor-design/enterprise-ng/issues/668]))
 
 ## v6.4.0
