@@ -22,6 +22,9 @@ import {
   ControlValueAccessor
 } from '@angular/forms';
 
+/**
+ * Angular wrapper for the `dropdown` widget in the ids-enterprise controls.
+ */
 @Component({
   selector: 'select[soho-dropdown]', // tslint:disable-line
   template: '<ng-content></ng-content>',
@@ -32,36 +35,29 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Used to provide unnamed controls with a unique id.
    */
   private static counter = 0;
+
   /**
- * Flag to force an update of the control after the view is created.
- */
+   * Flag to force an update of the control after the view is created.
+   */
   private runUpdatedOnCheck: boolean;
 
+  /**
+   * Integration with the Angular ControlValueAccessor for form controls.
+   */
   private valueAccessor: SohoDropDownControlValueAccessorDelegator;
 
   /**
-   * Local variables
-   */
-  private isDisabled: boolean = null;
-
-  private isReadOnly: boolean = null;
-
-  /**
    * Selector for originating element.
-   *
-   *
-   *
-   *
    */
   private jQueryElement: JQuery;
 
   /**
-   * Reference to the Soho Api.
+   * Reference to the IDS Enterprise Api.
    */
   private dropdown: SohoDropDownStatic;
 
   /**
-   * Block of options, use the accessors to modify.
+   * Default block of options, use the accessors to modify.
    */
   private options: SohoDropDownOptions = {
     reload: 'none'
@@ -302,20 +298,37 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   /**
    * Called when the dropdown value changes
    */
-  @Output()
-  change: EventEmitter<JQuery.TriggeredEvent> = new EventEmitter<JQuery.TriggeredEvent>();
+  // tslint:disable-next-line: no-output-rename
+  @Output('change')
+  change$ = new EventEmitter<JQuery.TriggeredEvent>();
 
   /**
    * Called when the dropdown updates in some way.
    */
-  @Output('updated') // tslint:disable-line
-  updatedEvent: EventEmitter<Object> = new EventEmitter<JQuery.TriggeredEvent>();
+  // tslint:disable-next-line: no-output-rename
+  @Output('updated')
+  updated$ = new EventEmitter<JQuery.TriggeredEvent>();
+
+  /**
+   * Fired when the dropdown list is closed.
+   */
+  // tslint:disable-next-line: no-output-rename
+  @Output('listclosed')
+  listClosed$ = new EventEmitter<SohoDropDownEvent>();
+
+  /**
+   * Fired when the dropdown list is opened.
+   */
+  // tslint:disable-next-line: no-output-rename
+  @Output('listopened')
+  listOpened$ = new EventEmitter<SohoDropDownEvent>();
 
   /**
    * This event is fired when a key is pressed
    */
-  @Output()
-  keydown = new EventEmitter<Event>();
+  // tslint:disable-next-line: no-output-rename
+  @Output('keydown')
+  keydown$ = new EventEmitter<Event>();
 
   /**
    * Bind attributes to the host select element
@@ -374,7 +387,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       // assign element to local variable
       this.jQueryElement = jQuery(this.element.nativeElement);
 
-      this.options.onKeyDown = (e: Event) => this.ngZone.run(() => this.keydown.next(e));
+      this.options.onKeyDown = (e: Event) => this.ngZone.run(() => this.keydown$.next(e));
 
       // initialise the dropdown control
       this.jQueryElement.dropdown(this.options);
@@ -386,7 +399,9 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       this.jQueryElement
         .on('change', (event: JQuery.TriggeredEvent) => this.onChanged(event))
         .on('updated', (event: JQuery.TriggeredEvent) => this.onUpdated(event))
-        .on('requestend', (event: JQuery.TriggeredEvent, searchTerm: string, data: any[]) => this.onRequestEnd(event, searchTerm, data));
+        .on('requestend', (event: JQuery.TriggeredEvent, searchTerm: string, data: any[]) => this.onRequestEnd(event, searchTerm, data))
+        .on('listclosed', (event: JQuery.TriggeredEvent, action: SohoDropDownEventActions) => this.onListClosed(event, action))
+        .on('listopened', (event: JQuery.TriggeredEvent) => this.onListOpened(event));
 
       this.runUpdatedOnCheck = true;
     });
@@ -437,7 +452,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
 
   private onUpdated(event: JQuery.TriggeredEvent) {
     // Fire the event, in the angular zone.
-    this.ngZone.run(() => this.updatedEvent.next(event));
+    this.ngZone.run(() => this.updated$.next(event));
   }
 
   /**
@@ -466,7 +481,31 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       // @todo - this wants to be the real value, so we may need to look
       // that up.
       event.data = val;
-      this.change.emit(event);
+      this.change$.emit(event);
+    });
+  }
+
+  /**
+   * Handles the 'listopened' event triggered by the underlying jQuery control.
+   *
+   * @param event the fired event.
+   */
+  private onListOpened(event: SohoDropDownEvent): void {
+    this.ngZone.run(() => {
+      this.listOpened$.emit(event);
+    });
+  }
+
+  /**
+   * Handles the 'listclosed' event triggered by the underlying jQuery control.
+   *
+   * @param event the fired event.
+   */
+  private onListClosed(event: SohoDropDownEvent, action: SohoDropDownEventActions): void {
+    this.ngZone.run(() => {
+      // Make sure the event is fixed up for dispatch
+      event.action = action;
+      this.listClosed$.emit(event);
     });
   }
 
@@ -490,11 +529,8 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     if (this.dropdown) {
       if (value) {
         this.ngZone.runOutsideAngular(() => this.dropdown.disable());
-        this.isDisabled = true;
       } else {
         this.ngZone.runOutsideAngular(() => this.dropdown.enable());
-        this.isDisabled = false;
-        this.isReadOnly = false;
       }
     }
   }
@@ -503,11 +539,8 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     if (this.dropdown) {
       if (value) {
         this.ngZone.runOutsideAngular(() => this.dropdown.readonly());
-        this.isReadOnly = true;
       } else {
         this.ngZone.runOutsideAngular(() => this.dropdown.enable());
-        this.isDisabled = false;
-        this.isReadOnly = false;
       }
     }
   }

@@ -7,11 +7,10 @@ import { FormsModule, FormGroup, FormBuilder } from '@angular/forms';
 
 import { SohoDropDownModule } from './soho-dropdown.module';
 import { SohoDropDownComponent } from './soho-dropdown.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   template: `
-  <select soho-dropdown noSearch [closeOnSelect]="true" [(ngModel)]="selectedOption">
+  <select soho-dropdown noSearch (listclosed)="onListClosed($event)" [closeOnSelect]="true" [(ngModel)]="selectedOption">
     <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
   </select>`
 })
@@ -29,6 +28,12 @@ class SohoDropDownTestComponent {
     { value: 'WA', label: 'Washington' },
     { value: 'WY', label: 'Wyoming' }
   ];
+
+  public lastEvent: SohoDropDownEvent;
+
+  public onListclosed(event: SohoDropDownEvent) {
+    this.lastEvent = event;
+  }
 }
 
 describe('Soho Dropdown Unit Tests', () => {
