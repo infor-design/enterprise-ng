@@ -26,10 +26,10 @@ You will need to fix any issues raised, as these will depend on the dependency t
 
 #### Angular 8
 
-When updating (and depending on your dependencies) the update *may* not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install TypeScript 3.6.x first, as follows:
+When updating (and depending on your dependencies) the update *may* not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install TypeScript 3.7.x first, as follows:
 
 ```sh
-npm i typescript@3.6.4
+npm i typescript@3.7.4
 ```
 
 ### Uninstall old dependencies (for code upgrading from a version of ids-enterprise-ng before version 5)
