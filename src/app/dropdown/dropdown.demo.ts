@@ -53,6 +53,17 @@ export class DropdownDemoComponent {
     console.log('keydown', e);
   }
 
+  onListClosed(e: SohoDropDownEvent) {
+    console.log(`listclosed: ${e.action}`);
+  }
+
+  onListOpened(e: SohoDropDownEvent) {
+    console.log(`listopened`);
+  }
+
+  onChange(e: SohoDropDownEvent) {
+    console.log(`change ${e.target}`);
+  }
   toggleModel() {
     this.showModel = !this.showModel;
   }
