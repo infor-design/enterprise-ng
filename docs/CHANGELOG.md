@@ -9,11 +9,17 @@
 
 ### 6.5.0 Features
 
+## v6.4.2
+
+### 6.4.2 Fixes
+
+- `[General]` - Added 4.25.2 patch. `TJM` ([#3458](https://github.com/infor-design/enterprise/issues/3458))
+
 ## v6.4.1
 
 ### 6.4.1 Fixes
 
-- `[Modal/Fileupload]` - Added 4.25.2 patch for a file uplaod/modal fix. `TJM` ([#3458](https://github.com/infor-design/enterprise/issues/3458))
+- `[General]` - Added 4.25.1 patch. `TJM` ([#3458](https://github.com/infor-design/enterprise/issues/3458))
 
 ## v6.4.0
 
