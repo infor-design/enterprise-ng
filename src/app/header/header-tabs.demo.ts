@@ -9,7 +9,7 @@ import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
 
 @Component({
   selector: 'app-tabs-header-demo',
-  templateUrl: './header-tabs.demo.html'
+  templateUrl: 'header-tabs.demo.html'
 })
 export class HeaderTabsDemoComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   public currentTabsOptions: HeaderDynamicTabsetOptions = undefined;

@@ -22,13 +22,13 @@ import { DataGridDemoService } from './datagrid-demo.service';
 
 @Component({
   selector: 'app-datagrid-dynamic-demo',
-  templateUrl: './datagrid-dynamic.demo.html',
+  templateUrl: 'datagrid-dynamic.demo.html',
   providers: [DataGridDemoService]
 })
 export class DataGridDynamicDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
   @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
-  @ViewChild(SohoPopupMenuComponent, { static: false }) popupMenu: SohoPopupMenuComponent;
+  @ViewChild(SohoPopupMenuComponent) popupMenu: SohoPopupMenuComponent;
 
   private _subject$ = new BehaviorSubject([]);
   public data = this._subject$.asObservable();

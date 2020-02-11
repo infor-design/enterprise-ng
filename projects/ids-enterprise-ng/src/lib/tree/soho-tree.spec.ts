@@ -60,7 +60,7 @@ describe('Soho Tree Unit Tests', () => {
   template: `<ul soho-tree [dataset]="dataset"></ul>`
 })
 class SohoTreeTestComponent {
-  @ViewChild(SohoTreeComponent, { static: false }) tree: SohoTreeComponent;
+  @ViewChild(SohoTreeComponent) tree: SohoTreeComponent;
   _data: any[];
 
   public get dataset(): any[] {

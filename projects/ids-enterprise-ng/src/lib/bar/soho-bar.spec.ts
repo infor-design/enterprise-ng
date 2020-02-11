@@ -1,6 +1,6 @@
 /// <reference path="soho-bar.d.ts" />
 
-import {} from 'jasmine';
+import { } from 'jasmine';
 import { ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild, NgZone } from '@angular/core';
@@ -42,9 +42,9 @@ describe('Soho Bar Unit Tests', () => {
     });
 
     // Ouch!
-    const ngZone = TestBed.get(NgZone);
+    const ngZone = TestBed.inject(NgZone);
     spyOn(ngZone, 'runOutsideAngular').and.callFake((fn: Function) => {
-      fn();
+      return fn();
     });
 
     fixture = TestBed.createComponent(SohoBarComponent);
@@ -212,7 +212,7 @@ describe('Soho Bar Unit Tests', () => {
   `
 })
 class SohoBarTestComponent {
-  @ViewChild(SohoBarComponent, { static: false }) bar: SohoBarComponent;
+  @ViewChild(SohoBarComponent) bar: SohoBarComponent;
   public data = barData;
 }
 

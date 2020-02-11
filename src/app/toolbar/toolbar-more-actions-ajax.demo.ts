@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar-more-actions-ajax-demo',
-  templateUrl: './toolbar-more-actions-ajax.demo.html'
+  templateUrl: 'toolbar-more-actions-ajax.demo.html'
 })
 
 export class ToolbarMoreActionsAjaxDemoComponent {

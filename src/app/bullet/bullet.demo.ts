@@ -10,7 +10,7 @@ import {
 
 @Component({
   selector: 'app-bullet-demo',
-  templateUrl: './bullet.demo.html',
+  templateUrl: 'bullet.demo.html',
 })
 export class BulletDemoComponent implements OnInit {
 

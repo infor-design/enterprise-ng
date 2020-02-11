@@ -1,7 +1,5 @@
 <div soho-homepage
-  (resize)="onResize($event, $args)"
->
-
+  (resize)="onResize($event)">
     <div soho-widget widgetWidth="triple">
       <div soho-widget-header>
         <div soho-widget-title tabIndex="0"><h2>Chart Title</h2></div>
@@ -12,13 +10,11 @@
           <div soho-chart
             [dataSet]="getBarChartData()"
             type="bar"
-            showLegend="true"
-          >
+            showLegend="true">
           </div>
         </div>
       </div>
     </div>
-
     <div soho-widget>
       <div soho-widget-header>
         <div soho-widget-title tabIndex="1"><h2>Tasks</h2></div>

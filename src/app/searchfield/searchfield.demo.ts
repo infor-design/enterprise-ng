@@ -14,7 +14,7 @@ import { SohoSearchFieldComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-searchfield-demo',
-  templateUrl: './searchfield.demo.html'
+  templateUrl: 'searchfield.demo.html'
 })
 export class SearchFieldDemoComponent implements OnInit {
   @ViewChild(SohoSearchFieldComponent, { static: true }) searchfield: SohoSearchFieldComponent;

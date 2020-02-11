@@ -15,7 +15,7 @@ import {
 
 @Component({
   selector: 'app-datagrid-test-settings-demo',
-  templateUrl: './datagrid-test-settings.demo.html',
+  templateUrl: 'datagrid-test-settings.demo.html',
   providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService } ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

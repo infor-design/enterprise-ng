@@ -13,7 +13,7 @@ import {
 
 @Component({
   selector: 'app-datagrid-rowreorder-demo',
-  templateUrl: './datagrid-rowreorder.demo.html',
+  templateUrl: 'datagrid-rowreorder.demo.html',
   providers: [ { provide: SohoDataGridService, useClass: DataGridDemoService } ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

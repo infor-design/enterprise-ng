@@ -11,7 +11,7 @@ import {
 
 @Component({
   selector: 'app-blockgrid-single-selection-demo',
-  templateUrl: './blockgrid-single-selection.demo.html',
+  templateUrl: 'blockgrid-single-selection.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlockGridSingleSelectionDemoComponent {

@@ -11,7 +11,7 @@ import {
 
 @Component({
   selector: 'app-form-compact-demo',
-  templateUrl: './form-compact.demo.html',
+  templateUrl: 'form-compact.demo.html',
 })
 export class FormCompactDemoComponent implements AfterViewInit {
 

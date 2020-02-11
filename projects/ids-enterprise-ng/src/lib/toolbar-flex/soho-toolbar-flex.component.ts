@@ -21,7 +21,12 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
-  /** Options. */
+  /**
+   * Options, overwriting any existing options already set on the component, and hence combining
+   * this Input with the othera is not recommended.
+   *
+   * (Note: could change this to use {...this._options,...value})
+  */
   @Input() options: SohoToolbarFlexSearchFieldOptions = {};
 
   /** Adds an X button for clearing the search value. */
@@ -46,6 +51,14 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
     this.options.collapsibleOnMobile = value;
     if (this.toolbarFlexSearchField) {
       this.toolbarFlexSearchField.settings.collapsibleOnMobile = value;
+      this.markForRefresh();
+    }
+  }
+
+  @Input() set filterMode(value: SohoAutoCompleteFilterMode) {
+    this.options.filterMode = value;
+    if (this.toolbarFlexSearchField) {
+      this.toolbarFlexSearchField.settings.filterMode = value;
       this.markForRefresh();
     }
   }
@@ -86,7 +99,7 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
     private changeDetector: ChangeDetectorRef,
     private element: ElementRef,
     private ngZone: NgZone
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
@@ -279,7 +292,7 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
     private changeDetector: ChangeDetectorRef,
     private element: ElementRef,
     private ngZone: NgZone
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
@@ -291,7 +304,7 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
 
       this.jQueryElement.on('selected', (event: JQuery.TriggeredEvent, item: HTMLButtonElement | HTMLAnchorElement) =>
         this.ngZone.run(() => {
-          this.selected.emit({event, item});
+          this.selected.emit({ event, item });
         }));
     });
   }

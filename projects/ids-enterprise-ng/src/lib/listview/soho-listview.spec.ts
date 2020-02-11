@@ -26,7 +26,7 @@ import {
               </soho-listview>`
 })
 class SohoListViewTestComponent {
-  @ViewChild(SohoListViewComponent, {static: false}) listview: SohoListViewComponent;
+  @ViewChild(SohoListViewComponent) listview: SohoListViewComponent;
   selectedTasks = [0, 1];
 
   public listItems = [

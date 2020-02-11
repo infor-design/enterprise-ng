@@ -18,7 +18,7 @@ import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-datagrid-breadcrumb-demo',
-  templateUrl: './datagrid-breadcrumb.demo.html',
+  templateUrl: 'datagrid-breadcrumb.demo.html',
   providers: [{ provide: SohoDataGridService, useClass: DataGridDemoService }],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

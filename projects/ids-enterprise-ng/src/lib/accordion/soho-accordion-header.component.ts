@@ -11,7 +11,7 @@ import {
 
 @Component({
   selector: 'soho-accordion-header',
-  templateUrl: './soho-accordion-header.component.html',
+  templateUrl: 'soho-accordion-header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoAccordionHeaderComponent implements AfterViewInit {

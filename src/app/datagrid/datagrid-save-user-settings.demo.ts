@@ -15,11 +15,11 @@ import {
 
 @Component({
   selector: 'app-datagrid-save-user-settings-demo',
-  templateUrl: './datagrid-save-user-settings.demo.html',
+  templateUrl: 'datagrid-save-user-settings.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridSaveUserSettingsDemoComponent implements AfterViewChecked, OnInit {
-  @ViewChild(SohoDataGridComponent, { static: false }) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
   constructor(
   ) {}

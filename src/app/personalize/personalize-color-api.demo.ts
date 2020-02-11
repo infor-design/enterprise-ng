@@ -13,7 +13,7 @@ interface DropDownColor extends SohoPersonalizationColor {
 
 @Component({
   selector: 'app-personalize-color-api-demo',
-  templateUrl: './personalize-color-api.demo.html',
+  templateUrl: 'personalize-color-api.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersonalizeColorApiDemoComponent implements OnInit {

@@ -5,7 +5,7 @@ import { DatagridTreegridServiceDemo } from './datagrid-treegrid-service.demo';
 
 @Component({
   selector: 'app-datagrid-treegrid-demo',
-  templateUrl: './datagrid-treegrid.demo.html',
+  templateUrl: 'datagrid-treegrid.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ DatagridTreegridServiceDemo ]
 })

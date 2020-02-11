@@ -16,7 +16,7 @@ import { SohoFieldFilterDirective } from './soho-field-filter.directive';
     </div>`
 })
 class SohoFieldFilterTestComponent {
-  @ViewChild(SohoFieldFilterDirective, { static: false }) sohoFieldFilter: SohoFieldFilterDirective;
+  @ViewChild(SohoFieldFilterDirective) sohoFieldFilter: SohoFieldFilterDirective;
 
   fieldSettings: SohoFieldFilterSettings;
   fieldDropdownDataSet: SohoFieldFilterOption[];

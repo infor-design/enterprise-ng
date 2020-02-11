@@ -8,7 +8,7 @@ import { SohoDatePickerComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-datepicker-demo',
-  templateUrl: './datepicker.demo.html'
+  templateUrl: 'datepicker.demo.html'
 })
 export class DatepickerDemoComponent implements OnInit {
 

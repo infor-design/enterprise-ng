@@ -14,7 +14,7 @@ import { ApplicationMenuLazyMenuDemoComponent } from './application-menu-lazy-me
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'application-menu-lazy-demo',
-  templateUrl: './application-menu-lazy.demo.html',
+  templateUrl: 'application-menu-lazy.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ApplicationMenuLazyDemoComponent implements AfterViewInit, OnInit {

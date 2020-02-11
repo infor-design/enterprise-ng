@@ -34,7 +34,7 @@ import { fakeAsync, tick } from '@angular/core/testing';
 class SohoTimePickerReactiveFormTestComponent {
   public timepickerValue = '12:00 AM';
 
-  @ViewChild(SohoTimePickerComponent, {static: false}) dropdown: SohoTimePickerComponent;
+  @ViewChild(SohoTimePickerComponent) dropdown: SohoTimePickerComponent;
 
   public formGroup: FormGroup;
 

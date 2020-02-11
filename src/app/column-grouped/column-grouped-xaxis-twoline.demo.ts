@@ -10,7 +10,7 @@ import {
 
 @Component({
   selector: 'app-column-demo',
-  templateUrl: './column-grouped-xaxis-twoline.demo.html',
+  templateUrl: 'column-grouped-xaxis-twoline.demo.html',
 })
 export class ColumnGroupedXaxisTwolineDemoComponent implements OnInit {
 

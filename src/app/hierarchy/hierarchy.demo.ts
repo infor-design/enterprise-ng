@@ -10,13 +10,13 @@ import { SohoHierarchyComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-hierarchy-demo',
-  templateUrl: './hierarchy.demo.html',
+  templateUrl: 'hierarchy.demo.html',
   styleUrls: ['./hierarchy.demo.css'],
   providers: [HierarchyDemoService]
 })
 export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
 
-  @ViewChild('SohoHierarchy', { static: false }) sohoHierarchy: SohoHierarchyComponent;
+  @ViewChild('SohoHierarchy') sohoHierarchy: SohoHierarchyComponent;
 
   public data: Array<any>;
   public legend: Array<SohoHierarchyLegend>;

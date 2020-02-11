@@ -40,7 +40,7 @@ describe('TagComponent', () => {
   template: `<span soho-tag="secondary">tag</span>`
 })
 class SohoTagTestComponent {
-  @ViewChild(SohoTagComponent, { static: false }) tag: SohoTagComponent;
+  @ViewChild(SohoTagComponent) tag: SohoTagComponent;
 }
 
 describe('Soho Tag Render', () => {

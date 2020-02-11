@@ -32,7 +32,7 @@ export class PriceCellFormatterComponent {
 
 @Component({
   selector: 'app-datagrid-angular-formatter-demo',
-  templateUrl: './datagrid-angular-formatter.demo.html'
+  templateUrl: 'datagrid-angular-formatter.demo.html'
 })
 export class DataGridAngularFormatterDemoComponent {
   public columns: SohoDataGridColumn[] = [

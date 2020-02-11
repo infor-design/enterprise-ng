@@ -13,7 +13,7 @@ import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-fileupload-advanced-demo',
-  templateUrl: './fileupload-advanced.demo.html',
+  templateUrl: 'fileupload-advanced.demo.html',
 })
 export class FileUploadAdvancedDemoComponent implements OnInit {
 

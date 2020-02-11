@@ -35,7 +35,7 @@ class SohoAutoCompleteReactiveFormTestComponent {
 
   autocompleteUrl = 'http://localhost:4200/app/demodata/states.demo.json?term=';
 
-  @ViewChild(SohoAutoCompleteComponent, {static: false}) autocomplete: SohoAutoCompleteComponent;
+  @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
 
   public formGroup: FormGroup;
 

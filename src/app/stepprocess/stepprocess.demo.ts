@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-stepprocess-demo',
-  templateUrl: './stepprocess.demo.html'
+  templateUrl: 'stepprocess.demo.html'
 })
 export class StepProcessDemoComponent {
   onSaveClose(event: SohoStepSaveCloseEvent) {

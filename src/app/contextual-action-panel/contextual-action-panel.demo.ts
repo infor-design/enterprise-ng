@@ -16,7 +16,7 @@ import { ContextualActionPanelFullSizeComponent } from './contextual-action-pane
 
 @Component({
   selector: 'app-contextual-action-panel-demo',
-  templateUrl: './contextual-action-panel.demo.html'
+  templateUrl: 'contextual-action-panel.demo.html'
 })
 export class ContextualActionPanelDemoComponent {
   /**
@@ -117,5 +117,7 @@ export class ContextualActionPanelDemoComponent {
       .modalSettings({ fullsize: 'responsive', breakpoint: 'phablet', buttons: buttons, title: this.title })
       .open()
       .initializeContent(true);
+
+    const button: SohoContextualActionPanelButton = { cssClass: 'separator' };
   }
 }

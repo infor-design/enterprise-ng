@@ -11,7 +11,7 @@ import {
 
 @Component({
   selector: 'app-blockgrid-multi-selection-demo',
-  templateUrl: './blockgrid-multi-selection.demo.html',
+  templateUrl: 'blockgrid-multi-selection.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlockGridMultiSelectionDemoComponent {

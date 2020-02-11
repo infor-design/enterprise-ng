@@ -11,7 +11,7 @@ import { SohoTreeService } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-splitter-horizontal-demo',
-  templateUrl: './splitter-horizontal.demo.html',
+  templateUrl: 'splitter-horizontal.demo.html',
   providers: [
     { provide: SohoDataGridService, useClass: DataGridDemoService },
     { provide: SohoTreeService, useClass: TreeDemoService }],

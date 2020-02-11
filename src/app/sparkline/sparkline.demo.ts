@@ -10,7 +10,7 @@ import {
 
 @Component({
   selector: 'app-sparkline-demo',
-  templateUrl: './sparkline.demo.html',
+  templateUrl: 'sparkline.demo.html',
 })
 export class SparklineDemoComponent implements OnInit {
 

@@ -16,7 +16,7 @@ import { DataGridLookupSelectionEvent } from './datagrid-lookup-event.demo';
 
 @Component({
   selector: 'app-datagrid-lookup-dialog-demo',
-  templateUrl: './datagrid-lookup-dialog.demo.html',
+  templateUrl: 'datagrid-lookup-dialog.demo.html',
   providers: [DataGridDemoService]
 })
 export class DataGridLookupDialogDemoComponent implements AfterViewInit {

@@ -16,7 +16,7 @@ import { productsColumns, productsData } from '../lookup/mock.data';
 
 @Component({
   selector: 'app-reactive-form-demo',
-  templateUrl: './form-reactive-form.demo.html'
+  templateUrl: 'form-reactive-form.demo.html'
 })
 export class FormReactiveFormDemoComponent implements AfterViewInit {
 

@@ -8,7 +8,7 @@ import { SohoColumnComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-column-yaxis-demo',
-  templateUrl: './column-yaxis-format.demo.html',
+  templateUrl: 'column-yaxis-format.demo.html',
 })
 export class ColumnYAxisDemoComponent implements OnInit {
 

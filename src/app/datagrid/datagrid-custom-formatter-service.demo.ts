@@ -15,12 +15,12 @@ import { DataGridCustomFormatterService } from './datagrid-custom-formatter.serv
 
 @Component({
   selector: 'app-datagrid-custom-formatter-service-demo',
-  templateUrl: './datagrid-custom-formatter-service.demo.html',
+  templateUrl: 'datagrid-custom-formatter-service.demo.html',
   providers: [ DataGridCustomFormatterService ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridCustomFormatterServiceDemoComponent implements OnInit {
-  @ViewChild(SohoDataGridComponent, { static: false }) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
   gridOptions: SohoDataGridOptions = undefined;
 

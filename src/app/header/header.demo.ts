@@ -5,7 +5,7 @@ import {
 
 @Component({
   selector: 'app-header-demo',
-  templateUrl: './header.demo.html',
+  templateUrl: 'header.demo.html',
 })
 export class SohoHeaderDemoComponent {
   @HostBinding('class.header') get isHeader() { return true; }

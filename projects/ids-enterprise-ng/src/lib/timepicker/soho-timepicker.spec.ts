@@ -15,7 +15,7 @@ import { map } from 'rxjs/operators';
 `
 })
 class TestTimepickerComponent {
-  @ViewChild(SohoTimePickerComponent, {static: false}) timepicker: SohoTimePickerComponent;
+  @ViewChild(SohoTimePickerComponent) timepicker: SohoTimePickerComponent;
 
   @Output() changed = new EventEmitter<SohoTimePickerEvent>();
 

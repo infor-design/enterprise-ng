@@ -14,7 +14,7 @@ import { WizardDemoComponent } from './wizard.demo';
 
 @Component({
   selector: 'app-result-page',
-  templateUrl: './wizard-result-page.demo.html',
+  templateUrl: 'wizard-result-page.demo.html',
   styles: [
     `:host {
       display:        flex;
@@ -24,7 +24,7 @@ import { WizardDemoComponent } from './wizard.demo';
 })
 export class WizardDemoResultPageComponent implements AfterViewInit {
 
-  @ViewChild(SohoProgressComponent, { static: false }) progress: SohoProgressComponent;
+  @ViewChild(SohoProgressComponent) progress: SohoProgressComponent;
 
   @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyindicator: SohoBusyIndicatorDirective;
 

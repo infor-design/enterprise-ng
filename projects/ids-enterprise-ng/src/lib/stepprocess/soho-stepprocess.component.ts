@@ -140,7 +140,7 @@ export class SohoStepContentPanelComponent {
  **************************************************************/
 @Component({
   selector: 'div[soho-stepprocess]', // tslint:disable-line
-  templateUrl: './soho-stepprocess.component.html',
+  templateUrl: 'soho-stepprocess.component.html',
 })
 export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.step-process-container') isStepProcessContainer = true;

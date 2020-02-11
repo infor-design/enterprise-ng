@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-stepprocessvetoable-demo',
-  templateUrl: './stepprocessvetoable.demo.html'
+  templateUrl: 'stepprocessvetoable.demo.html'
 })
 export class StepProcessVetoableDemoComponent {
 

@@ -10,7 +10,7 @@ import {
  */
 @Component({
   selector: 'app-tabs-datadriven-demo',
-  templateUrl: './tabs-datadriven.demo.html',
+  templateUrl: 'tabs-datadriven.demo.html',
 })
 export class TabsDataDrivenDemoComponent implements OnInit {
 

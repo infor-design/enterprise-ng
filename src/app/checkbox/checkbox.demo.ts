@@ -6,7 +6,7 @@ import {
 
 @Component({
   selector: 'app-checkbox-demo',
-  templateUrl: './checkbox.demo.html',
+  templateUrl: 'checkbox.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CheckBoxDemoComponent implements OnInit {

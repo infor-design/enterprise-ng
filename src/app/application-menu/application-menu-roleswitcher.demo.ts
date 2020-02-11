@@ -12,13 +12,13 @@ import { ApplicationMenuLazyMenuDemoComponent } from './application-menu-lazy-me
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'application-menu-roleswitcher-demo',
-  templateUrl: './application-menu-roleswitcher.demo.html',
+  templateUrl: 'application-menu-roleswitcher.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ApplicationMenuRoleSwitcherDemoComponent implements AfterViewInit, OnInit {
 
-  @ViewChild(SohoApplicationMenuComponent, { static: false }) applicationMenu: SohoApplicationMenuComponent;
-  @ViewChild(ApplicationMenuLazyMenuDemoComponent, { static: false }) private _lazyMenuComponent: ApplicationMenuLazyMenuDemoComponent;
+  @ViewChild(SohoApplicationMenuComponent) applicationMenu: SohoApplicationMenuComponent;
+  @ViewChild(ApplicationMenuLazyMenuDemoComponent) private _lazyMenuComponent: ApplicationMenuLazyMenuDemoComponent;
 
   public triggers: Array<string> = [];
   public menu: Array<any> = [];

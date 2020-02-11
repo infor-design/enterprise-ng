@@ -5,7 +5,7 @@ import { Component, HostBinding, Input } from '@angular/core';
  */
 @Component({
   selector: 'app-field-options-demo',
-  templateUrl: './field-options.demo.html'
+  templateUrl: 'field-options.demo.html'
 })
 export class FieldOptionsDemoComponent {
 

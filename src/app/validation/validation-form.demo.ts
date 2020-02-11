@@ -10,7 +10,7 @@ import { SohoInputValidateDirective } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-validation-form-demo',
-  templateUrl: './validation-form.demo.html'
+  templateUrl: 'validation-form.demo.html'
 })
 export class ValidationFormDemoComponent {
   @ViewChildren(SohoInputValidateDirective) validateDirectives: QueryList<SohoInputValidateDirective>;

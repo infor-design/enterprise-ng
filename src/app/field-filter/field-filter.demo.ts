@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
  */
 @Component({
   selector: 'app-field-filter-demo',
-  templateUrl: './field-filter.demo.html'
+  templateUrl: 'field-filter.demo.html'
 })
 export class FieldFilterDemoComponent {
 

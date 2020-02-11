@@ -48,7 +48,8 @@ export class SohoContextualActionPanelService {
    *
    * @return the panel reference.
    */
-  public contextualactionpanel<T>(component: PanelComponentType<T>, parent: ViewContainerRef, options?): SohoContextualActionPanelRef<T> {
+  public contextualactionpanel<T>(component: PanelComponentType<T>, parent: ViewContainerRef,
+    options?: SohoContextualActionPanelOptions): SohoContextualActionPanelRef<T> {
     ArgumentHelper.checkNotNull('component', component);
     ArgumentHelper.checkNotNull('parent', parent);
 

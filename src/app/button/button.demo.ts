@@ -6,7 +6,7 @@ import {
 
 @Component({
   selector: 'app-button-demo',
-  templateUrl: './button.demo.html',
+  templateUrl: 'button.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonDemoComponent implements OnInit {

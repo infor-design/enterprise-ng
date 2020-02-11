@@ -15,7 +15,7 @@ import { SohoDropDownComponent } from './soho-dropdown.component';
   </select>`
 })
 class SohoDropDownTestComponent {
-  @ViewChild(SohoDropDownComponent, { static: false }) dropdown: SohoDropDownComponent;
+  @ViewChild(SohoDropDownComponent) dropdown: SohoDropDownComponent;
   selectedOption = 'ND';
   public options = [
     { value: 'AK', label: 'Alaska' },

@@ -172,7 +172,7 @@ export const checkboxColumn = {
   </form>`
 })
 class SohoLookupReactiveFormTestComponent {
-  @ViewChild(SohoLookupComponent, {static: false}) dropdown: SohoLookupComponent;
+  @ViewChild(SohoLookupComponent) dropdown: SohoLookupComponent;
 
   formGroup: FormGroup;
 

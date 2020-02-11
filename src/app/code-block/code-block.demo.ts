@@ -3,7 +3,7 @@ import {
   Component, ElementRef,
   ViewChild
 } from '@angular/core';
-import {SohoPopDownContentsComponent, SohoPopDownDirective, SohoTooltipDirective} from 'ids-enterprise-ng';
+import { SohoPopDownContentsComponent, SohoPopDownDirective, SohoTooltipDirective } from 'ids-enterprise-ng';
 import { columns, ledgerData } from './mock.data';
 
 @Component({
@@ -17,21 +17,22 @@ export class CodeBlockDemoComponent implements AfterViewInit {
   @ViewChild('compound_field_popdown_contents', { static: true }) contents: ElementRef;
 
   public model = {
-    ledger: {title: 'Ledger', value: 'CORE'},
-    accountingEntity: {title: 'Accounting Entity', value: '1001'},
-    date: {title: 'Date', value: '12/04/2019'},
-    costCenter: {title: 'Cost Center', value: 'AL', options: [{ value: 'AL', text: 'Alabama' },
-        { value: 'CA', text: 'California' },
-        { value: 'DE', text: 'Delaware' },
-        { value: 'NY', text: 'New York' },
-        { value: 'WY', text: 'Wyoming' }]
+    ledger: { title: 'Ledger', value: 'CORE' },
+    accountingEntity: { title: 'Accounting Entity', value: '1001' },
+    date: { title: 'Date', value: '12/04/2019' },
+    costCenter: {
+      title: 'Cost Center', value: 'AL', options: [{ value: 'AL', text: 'Alabama' },
+      { value: 'CA', text: 'California' },
+      { value: 'DE', text: 'Delaware' },
+      { value: 'NY', text: 'New York' },
+      { value: 'WY', text: 'Wyoming' }]
     },
-    department: {title: 'Department', value: '102'},
-    AlphaField: {title: 'Alpha Field', value: 'ABC'},
-    DateField: {title: 'Date Field', value: '12/01/2017'},
-    DropdownField: {title: 'Dropdown Field', value: 'Option #1'},
-    CheckBoxField: {title: 'CheckBox Field', value: 'false'},
-    PercentField: {title: 'Percent Field', value: '123 %'}
+    department: { title: 'Department', value: '102' },
+    AlphaField: { title: 'Alpha Field', value: 'ABC' },
+    DateField: { title: 'Date Field', value: '12/01/2017' },
+    DropdownField: { title: 'Dropdown Field', value: 'Option #1' },
+    CheckBoxField: { title: 'CheckBox Field', value: 'false' },
+    PercentField: { title: 'Percent Field', value: '123 %' }
   };
 
   public firstFieldValue = '';
@@ -43,7 +44,7 @@ export class CodeBlockDemoComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit(): void {
-    if (this.popdown) {}
+    if (this.popdown) { }
   }
 
   onFocusCompoundField() {

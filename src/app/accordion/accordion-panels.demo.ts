@@ -3,7 +3,7 @@ import { SohoAccordionComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'accordion-panels-demo', // tslint:disable-line
-  templateUrl: './accordion-panels.demo.html',
+  templateUrl: 'accordion-panels.demo.html',
 })
 export class AccordionPanelsDemoComponent {
 

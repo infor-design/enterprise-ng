@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
  */
 @Component({
   selector: 'app-emptymessage-demo',
-  templateUrl: './emptymessage.demo.html'
+  templateUrl: 'emptymessage.demo.html'
 })
 export class EmptyMessageDemoComponent {
 

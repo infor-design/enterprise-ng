@@ -3,7 +3,7 @@ import { SohoAccordionComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'accordion-demo', // tslint:disable-line
-  templateUrl: './accordion.demo.html',
+  templateUrl: 'accordion.demo.html',
 })
 export class AccordionDemoComponent implements AfterViewInit {
 

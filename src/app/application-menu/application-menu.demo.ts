@@ -5,7 +5,7 @@ import {
 
 @Component({
   selector: 'application-menu-demo', // tslint:disable-line
-  templateUrl: './application-menu.demo.html',
+  templateUrl: 'application-menu.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ApplicationMenuDemoComponent {

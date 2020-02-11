@@ -4,7 +4,7 @@ import { ApplicationMenuLazyService } from './application-menu-lazy-service.demo
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'application-menu-lazy-menu',
-  templateUrl: './application-menu-lazy-menu.demo.html'
+  templateUrl: 'application-menu-lazy-menu.demo.html'
 })
 export class ApplicationMenuLazyMenuDemoComponent {
 

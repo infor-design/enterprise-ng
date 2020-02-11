@@ -16,7 +16,7 @@ enum MessageStatus {
 
 @Component({
   selector: 'app-datagrid-tab-demo',
-  templateUrl: './datagrid-tab.demo.html',
+  templateUrl: 'datagrid-tab.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridTabDemoComponent {

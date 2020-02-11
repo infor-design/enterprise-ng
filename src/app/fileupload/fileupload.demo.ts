@@ -11,7 +11,7 @@ import {
 
 @Component({
   selector: 'app-fileupload-demo',
-  templateUrl: './fileupload.demo.html'
+  templateUrl: 'fileupload.demo.html'
 })
 export class FileUploadDemoComponent implements OnInit {
 

@@ -5,7 +5,7 @@ import {
 
 @Component({
   selector: 'app-datagrid-export-without-datagrid-demo',
-  templateUrl: './datagrid-export-without-datagrid.demo.html',
+  templateUrl: 'datagrid-export-without-datagrid.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridExportWithoutDataGridDemoComponent {

@@ -32,7 +32,7 @@ import { SohoLocaleModule } from '../locale';
   `
 })
 class SohoCustomMaskTestComponent {
-  @ViewChild(SohoMaskDirective, { static: false }) input: SohoMaskDirective;
+  @ViewChild(SohoMaskDirective) input: SohoMaskDirective;
 
   public definitions: SohoMaskDefinitions = { U: /[A-Z]/ };
 }
@@ -52,7 +52,7 @@ class SohoCustomMaskTestComponent {
   `
 })
 class SohoMaskTestComponent {
-  @ViewChild(SohoMaskDirective, { static: false }) input: SohoMaskDirective;
+  @ViewChild(SohoMaskDirective) input: SohoMaskDirective;
 
   public value: string;
 

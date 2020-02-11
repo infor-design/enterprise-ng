@@ -2,7 +2,7 @@ import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'soho-masthead',
-  templateUrl: './soho-masthead.component.html',
+  templateUrl: 'soho-masthead.component.html',
   styles: [`
     :host {
       display: block;

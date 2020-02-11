@@ -12,7 +12,7 @@ import { SohoToolbarComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'toolbar-state-demo', // tslint:disable-line
-  templateUrl: './toolbar-state.demo.html',
+  templateUrl: 'toolbar-state.demo.html',
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ToolbarStateDemoComponent implements AfterViewChecked, OnInit {

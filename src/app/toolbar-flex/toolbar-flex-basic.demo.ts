@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar-flex-basic-demo',
-  templateUrl: './toolbar-flex-basic.demo.html'
+  templateUrl: 'toolbar-flex-basic.demo.html'
 })
 export class ToolbarFlexBasicDemoComponent {
   onSelected(event) {

@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-completion-chart-demo',
-  templateUrl: './completion-chart.demo.html'
+  templateUrl: 'completion-chart.demo.html'
 })
 
 export class CompletionChartDemoComponent implements OnInit, OnDestroy {

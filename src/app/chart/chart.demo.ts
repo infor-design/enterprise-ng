@@ -7,7 +7,7 @@ import { SohoChartComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-chart-demo',
-  templateUrl: './chart.demo.html',
+  templateUrl: 'chart.demo.html',
   providers: [ChartDemoService],
   styles: [`
     .radio-label {

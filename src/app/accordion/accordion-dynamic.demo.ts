@@ -14,7 +14,7 @@ import {
 
 @Component({
   selector: 'accordion-dynamic-demo', // tslint:disable-line
-  templateUrl: './accordion-dynamic.demo.html',
+  templateUrl: 'accordion-dynamic.demo.html',
 })
 export class AccordionDynamicDemoComponent {
 

@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
  */
 @Component({
   selector: 'app-tabs-counts-demo',
-  templateUrl: './tabs-counts.demo.html'
+  templateUrl: 'tabs-counts.demo.html'
 })
 export class TabsCountsDemoComponent { }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({ // @tslint:disable-line
   selector: 'app-pager-standalone-demo',
-  templateUrl: './pager-standalone.demo.html',
+  templateUrl: 'pager-standalone.demo.html',
 })
 export class PagerStandaloneDemoComponent {
 

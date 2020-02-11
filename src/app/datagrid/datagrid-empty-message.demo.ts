@@ -10,7 +10,7 @@ import { DataGridDemoService } from './datagrid-demo.service';
 
 @Component({
   selector: 'app-datagrid-empty-message-demo',
-  templateUrl: './datagrid-empty-message.demo.html',
+  templateUrl: 'datagrid-empty-message.demo.html',
   providers: [ DataGridDemoService ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -6,7 +6,7 @@ import { Component, HostBinding, Input } from '@angular/core';
  */
 @Component({
   selector: 'app-mask-legacy-demo',
-  templateUrl: './mask-legacy.demo.html',
+  templateUrl: 'mask-legacy.demo.html',
   styles:      [
       `
       .alignRight {

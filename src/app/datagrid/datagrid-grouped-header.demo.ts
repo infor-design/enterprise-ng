@@ -13,12 +13,12 @@ import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indete
 
 @Component({
   selector: 'app-datagrid-grouped-header-demo',
-  templateUrl: './datagrid-grouped-header.demo.html',
+  templateUrl: 'datagrid-grouped-header.demo.html',
   providers: [ DataGridPagingIndeterminateDemoService ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridGroupedHeaderDemoComponent implements AfterViewChecked, OnInit {
-  @ViewChild(SohoDataGridComponent, { static: false }) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
   gridOptions = null;
   selectedRow = 0;

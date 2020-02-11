@@ -52,7 +52,7 @@ import { TestHelper } from '../utils';
              placeholder="Search..."
              [clearable]="true"
              [collapsible]="false"
-             [options]="searchfieldOptions"
+             filterMode="contains"
              [(ngModel)]="model.searchValue"
              (change)="onChange($event)"/>
     </soho-toolbar-flex-section>
@@ -65,8 +65,8 @@ import { TestHelper } from '../utils';
   </soho-toolbar-flex>`
 })
 class SohoToolbarFlexTestComponent {
-  @ViewChild(SohoToolbarFlexComponent, { static: false }) toolbarFlex: SohoToolbarFlexComponent;
-  @ViewChild(SohoToolbarFlexSearchFieldComponent, { static: false }) searchField: SohoToolbarFlexSearchFieldComponent;
+  @ViewChild(SohoToolbarFlexComponent) toolbarFlex: SohoToolbarFlexComponent;
+  @ViewChild(SohoToolbarFlexSearchFieldComponent) searchField: SohoToolbarFlexSearchFieldComponent;
 
   @Output() selected = new EventEmitter<SohoToolbarFlexSelectedEvent>();
   @Output() change = new EventEmitter<SohoSearchFieldEvent>();
@@ -94,10 +94,6 @@ class SohoToolbarFlexTestComponent {
 
   model = {
     searchValue: ''
-  };
-
-  searchfieldOptions = {
-    filterMode: 'contains',
   };
 
   onBeforeMoreMenuOpen = (response: AjaxBeforeOpenResponseFunction, options: any) => {
@@ -129,7 +125,7 @@ class SohoToolbarFlexTestComponent {
 }
 
 describe('Soho Toolbar Flex Tests', () => {
-  let toolbarflex: SohoToolbarFlexComponent;
+  // let toolbarflex: SohoToolbarFlexComponent;
   let component: SohoToolbarFlexTestComponent;
   let fixture: ComponentFixture<SohoToolbarFlexTestComponent>;
   let de: DebugElement;
@@ -148,7 +144,7 @@ describe('Soho Toolbar Flex Tests', () => {
     el = de.query(By.css('soho-toolbar-flex')).nativeElement;
 
     fixture.detectChanges();
-    toolbarflex = component.toolbarFlex;
+    // toolbarflex = component.toolbarFlex;
   });
 
   it('Check HTML content', () => {
@@ -189,7 +185,7 @@ describe('Soho Toolbar Flex Tests', () => {
       expect(spy.calls.count()).toEqual(1);
     });
 
-    xit('menu button', () => {
+    it('menu button', () => {
       fixture.detectChanges();
       const button = de.query(By.css('#menu-button')).nativeElement;
       const spy = spyOn<any>(component, 'onSelected').and.callThrough();

@@ -280,7 +280,7 @@ export const COLUMNS: SohoDataGridColumn[] = [
 
 @Component({
   selector: 'app-datagrid-code-block-editor',
-  templateUrl: './datagrid-code-block-editor.demo.html',
+  templateUrl: 'datagrid-code-block-editor.demo.html',
   styleUrls: ['../code-block/code-block.formatter.css']
 })
 export class DataGridCodeBlockEditorDemoComponent implements OnInit {

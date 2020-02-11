@@ -17,11 +17,11 @@ import {
 
 @Component({
   selector: 'app-datagrid-standard-formatter-demo',
-  templateUrl: './datagrid-standard-formatter.demo.html',
+  templateUrl: 'datagrid-standard-formatter.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridStandardFormatterDemoComponent implements OnInit {
-  @ViewChild(SohoDataGridComponent, { static: false }) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
   gridOptions = undefined;
   ngOnInit(): void {

@@ -23,11 +23,11 @@ const customErrorFormatter = function(row, cell, value, col, item, api) {
 
 @Component({
   selector: 'app-datagrid-expandable-row-demo',
-  templateUrl: './datagrid-expandable-row.demo.html',
+  templateUrl: 'datagrid-expandable-row.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridExpandableRowDemoComponent implements AfterViewChecked, OnInit {
-  @ViewChild(SohoDataGridComponent, { static: false }) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
   constructor(
   ) {}

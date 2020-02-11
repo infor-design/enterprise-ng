@@ -13,12 +13,12 @@ import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indete
 
 @Component({
   selector: 'app-datagrid-paging-indeterminate-demo',
-  templateUrl: './datagrid-paging-indeterminate.demo.html',
+  templateUrl: 'datagrid-paging-indeterminate.demo.html',
   providers: [DataGridPagingIndeterminateDemoService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecked, OnInit {
-  @ViewChild(SohoDataGridComponent, { static: false })
+  @ViewChild(SohoDataGridComponent)
   private sohoDataGridComponent: SohoDataGridComponent;
 
   public showPageSizeSelector = true;
