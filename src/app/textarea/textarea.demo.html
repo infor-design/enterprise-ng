@@ -18,31 +18,15 @@
           <label for="resizable" class="label">Resizable</label>
           <textarea soho-textarea name="resizable" [resizable]="true" [(ngModel)]="model.resizableText"></textarea>
         </div>
-
+        <!--
         <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
         <div *ngIf="showModel">
           <pre>{{ model | json }}</pre>
         </div>
-
+        -->
       </div>
 
       <div class="one-half column">
-
-        <div class="field">
-          <label for="readonly" class="label">Read Only</label>
-          <textarea soho-textarea name="readonly" [readonly]="'true'" [(ngModel)]="model.readonlyText"></textarea>
-        </div>
-
-        <div class="field">
-          <label for="disable" class="label">Disable</label>
-          <textarea soho-textarea [disabled]="'true'" name="disable" [(ngModel)]="model.disableText"></textarea>
-        </div>
-
-        <div class="field">
-          <label for="required" class="label required">Required/Validation</label>
-          <textarea soho-textarea name="required" [(ngModel)]="model.requiredText" data-validate="required"></textarea>
-        </div>
-
         <div class="field">
           <label for="growInfinite" class="label">Grow (Infinite)</label>
           <textarea soho-textarea name="growInfinite" [autoGrow]="true" [(ngModel)]="model.growableText"></textarea>
@@ -50,14 +34,13 @@
 
         <div class="field">
           <label for="growFinite" class="label">Grow (Finite)</label>
-          <textarea soho-textarea name="growFinite" [autoGrow]="true" [autoGrowMaxHeight]="300" [(ngModel)]="model.growableText"></textarea>
+          <textarea soho-textarea name="growFinite" [autoGrow]="true" [autoGrowMaxHeight]="300" [(ngModel)]="model.growableText2"></textarea>
         </div>
 
         <div class="field">
           <textarea soho-textarea maxlength="90" name="counter"
             (ngModelChange)="onTextChange()" [(ngModel)]="model.counterText"></textarea>
         </div>
-
       </div>
     </div>
   </form>

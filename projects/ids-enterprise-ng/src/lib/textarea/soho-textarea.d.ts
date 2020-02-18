@@ -20,7 +20,7 @@ interface SohoTextAreaOptions {
 
   /** Sets the max character length available for a textarea.  */
   maxLength?: number;
-  
+
   /** Sets the trigger to make textarea growable.  */
   autoGrow?: boolean;
 
@@ -52,9 +52,11 @@ interface SohoTextAreaStatic {
 
   readonly(): void;
 
-  destroy();
+  destroy(): void;
 
-  updateCounter();
+  updateCounter(): void;
+
+  autoGrow(): void;
 }
 
 /**

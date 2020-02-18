@@ -20,7 +20,10 @@ export class TextareaDemoComponent implements OnInit {
     disableText: 'This text is disable',
     readonlyText: 'This text is readonly',
     modifiableText: 'This text is modifiable',
-    growableText: 'This text is growable'
+     /* tslint:disable */
+    growableText: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum hendrerit nunc sed mollis. Quisque pharetra venenatis aliquam. Nullam egestas cursus odio eget viverra. Phasellus nec ipsum tincidunt, tincidunt nunc dapibus, mattis neque. Nulla sodales faucibus orci vitae scelerisque. Pellentesque consequat vulputate ligula. Nam nec diam sit amet leo  fringilla viverra in eget augue. Suspendisse porttitor odio bibendum nulla tristique congue a eget justo. Fusce eu tristique congue`,
+     /* tslint:enable */
+    growableText2: `This text content cannot exceed 300px`
   };
   public showModel = false;
   public textAreaDisabled = false;

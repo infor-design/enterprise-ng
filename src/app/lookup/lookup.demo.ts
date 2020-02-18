@@ -180,4 +180,7 @@ export class LookupDemoComponent {
   onChange(event: any) {
     console.log('lookup.onchange', event);
   }
+  onAfterOpen(event: any) {
+    console.log('lookup.onAfterOpen', event);
+  }
 }

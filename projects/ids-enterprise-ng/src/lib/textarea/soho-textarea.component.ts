@@ -226,6 +226,7 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
       this.jQueryElement.val(value);
       if (this.textarea) {
         this.textarea.updateCounter();
+        this.textarea.autoGrow();
       }
     }
   }
