@@ -15,6 +15,7 @@
     - support for Ivy (ids-enterprise-ng is not compiled using ivy)
     - `UPGRADING.md` has been updated with details on upgrading your application to angular 9.
     - there are issues with the svg icons when ivy is enabled in the hosting application, (see ([Angular Issue](https://github.com/angular/angular/issues/34256))), so Ivy will need to be disabled at this time.
+- `[TextArea]` The text area will now grow on initial load and setting of data in the model. `TJM` ([#732](https://github.com/infor-design/enterprise-ng/issues/732]))
 
 ## v6.5.0
 
