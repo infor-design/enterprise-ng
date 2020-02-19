@@ -174,7 +174,7 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
  */
 @Component({
   selector: 'soho-toolbar-flex-more-button', // tslint:disable-line
-  template: `<button class="btn-actions">
+  template: `<button class="btn-actions" type="button" [attr.disabled]="isDisabled ? 'disabled' : null">
     <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
       <use xlink:href="#icon-more"></use>
     </svg>
@@ -186,6 +186,7 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
 export class SohoToolbarFlexMoreButtonComponent {
   @HostBinding('class.more') isMoreButton = true;
   @HostBinding('class.toolbar-section') isToolbarSection = true;
+  @Input() @HostBinding('class.page-changer') isPageChanger = false;
   @Input() isDisabled = false;
   @Input() ajaxBeforeFunction: Function;
   @Input() menuId: string;

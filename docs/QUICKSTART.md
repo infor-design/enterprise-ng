@@ -10,7 +10,7 @@ If **Node.js** and **npm** are not already on your machine, install them. These 
 
 This quick start guide uses **@angular/cli** to create, build and run the application.
 
-At the time of writing the version of **@angular/cli** used was 8.2.0 with **angular** 8.2.0.
+At the time of writing the version of **@angular/cli** used was 9.0.1 with **angular** 9.0.2.
 
 ## Step 0 : Install Pre-Prerequisites
 
@@ -28,6 +28,8 @@ Using a terminal/console window, use **@angular/cli** to initialise the project,
 
 ```sh
 ng new ids-enterprise-ng-quickstart
+? Would you like to add Angular routing? No
+? Which stylesheet format would you like to use? CSS
 cd ids-enterprise-ng-quickstart
 ```
 
@@ -43,7 +45,7 @@ In a terminal window, in the project folder, type
 npm install ids-enterprise-ng -S
 ```
 
-NOTE: You can also npm link to a local version of the `ids-enterprise-ng` using `npm link`.  If you do this you must add `"preserveSymLinks":true`to the root `angular.json` file, as follows:
+NOTE: You can also npm link to a local version of the `ids-enterprise-ng` using `npm link`.  If you do this you must add `"preserveSymLinks":true` to the root `angular.json` file, as follows:
 
 ```json
 "projects": {
@@ -144,28 +146,34 @@ ng test
 
 This will open a Chrome window, and run the tests from there.
 
-## Add polyfills
+## IE11
 
 If you plan on using IE11, then it is advisable to include a number of polyfills used to plug holes in IEs JavaScript support.
 
-Edit the file `src/polyfills.js`, and uncomment all the import lines below
+First, edit `./browsersupport`, enabling ie11 support.
+
+```properties
+IE 9-11 # For IE 9-11 support, remove .not'.
+```
+
+Edit the file `src/polyfills.js`, and uncomment all the import lines below:
 
 ```typescript
 /** IE9, IE10 and IE11 requires all of the following polyfills. **/
-import 'core-js/es6/symbol';
-import 'core-js/es6/object';
-import 'core-js/es6/function';
-import 'core-js/es6/parse-int';
-import 'core-js/es6/parse-float';
-import 'core-js/es6/number';
-import 'core-js/es6/math';
-import 'core-js/es6/string';
-import 'core-js/es6/date';
-import 'core-js/es6/array';
-import 'core-js/es6/regexp';
-import 'core-js/es6/map';
-import 'core-js/es6/weak-map';
-import 'core-js/es6/set';
+import 'core-js/es/symbol';
+import 'core-js/es/object';
+import 'core-js/es/function';
+import 'core-js/es/parse-int';
+import 'core-js/es/parse-float';
+import 'core-js/es/number';
+import 'core-js/es/math';
+import 'core-js/es/string';
+import 'core-js/es/date';
+import 'core-js/es/array';
+import 'core-js/es/regexp';
+import 'core-js/es/map';
+import 'core-js/es/weak-map';
+import 'core-js/es/set';
 
 /** IE10 and IE11 requires the following for NgClass support on SVG elements */
 import 'classlist.js';  // Run `npm install --save classlist.js`.
@@ -189,11 +197,26 @@ Add ```SohoComponentsModule``` to the imports.
   declarations: [],
   imports: [
     BrowserModule,
+    ...,
     SohoComponentsModule
   ]
   ...
 )}
 ```
+
+## Disable IVY
+
+The IVY compiler is not currently compatible with the SVG icons used by the applicationm, so for now disable the ivy compiler.
+
+Edit `tsconfig.json` and add `"enableIvy": false`, as follows:
+
+```json
+"angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "enableIvy": false
+  }
+  ```
 
 ## Add a SoHoXi Component
 
@@ -201,7 +224,6 @@ Add a button to `app.component.html`, by appending the following code snippet:
 
 ```html
 <soho-icons></soho-icons>
-
 <button soho-button icon="alert" (click)="clicked()">{{'Alert' | sohoTranslate}}</button>
 ```
 
@@ -213,6 +235,8 @@ public clicked() {
 }
 ```
 
+## Locale Setup
+
 Set the locale path in `app.component.ts`:
 
 ```typescript
@@ -221,6 +245,33 @@ constructor() {
     Soho.Locale.set('en-US');
   }
 ```
+
+NOTE: In the checked in code, the quickstart uses an APP_INITIALIZER to set the locale BEFORE the components are rendered, which is the recommended way of setting and loading locale data.  This allows the locale to be based on the browsers locale, via a service or explicitly in the app.module:
+
+```typescript
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+    imports: [
+        BrowserModule,
+        SohoLocaleModule,
+        SohoButtonModule,
+        SohoLocaleInitializerModule,
+        SohoComponentsModule
+    ],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'ar-EG'
+    }
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+## Run the application
 
 Then from a command line run (you can use `ng serve`):
 
