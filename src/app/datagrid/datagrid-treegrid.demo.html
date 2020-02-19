@@ -6,13 +6,14 @@
         <button soho-button (click)="makeChange()">Make Change</button>
         <button soho-button (click)="toggleFilterRow()">Toggle Filter Row</button>
         <button soho-button (click)="clearFilter()">Clear Filter</button>
+        <button soho-button (click)="toggleSelectAll()">Toggle Select All</button>
       </div>
     </div>
   </div>
-  <div class="row top-padding">
+  <div class="row">
     <div class="twelve columns demo" role="main">
-      <section class="scrollable contained-scrolling-right-bottom" style="height: 100%">
-        <div soho-busyindicator soho-datagrid
+      <section class="scrollable contained-scrolling-right-bottom height-100">
+        <div soho-datagrid
              (selected)="onSelected($event)"
              (expandrow)="onExpandRow($event)"
              (collapserow)="onCollapseRow($event)"
@@ -20,6 +21,7 @@
              [treeGrid]="true"
              [columns]="columns"
              [dataset]="data"
+             [showSelectAllCheckBox]="false"
              [stretchColumn]="'desc'"
              [toolbar]="{title: 'Tasks (Hierarchical)', results: true, personalize: true}"
              [filterable]="true">

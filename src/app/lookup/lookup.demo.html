@@ -11,6 +11,8 @@
             [columns]="columns_product"
             [dataset]="data_product"
             (change)="onChange($event)"
+            [beforeShow]="onBeforeShow"
+            (afteropen)="onAfterOpen($event)"
             field="productId"
             name="product_single" />
         </div>

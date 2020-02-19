@@ -531,6 +531,19 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+  @Input() set showSelectAllCheckBox(showSelectAllCheckBox: boolean) {
+    this._gridOptions.showSelectAllCheckBox = showSelectAllCheckBox;
+    if (this.jQueryElement) {
+      // Just changing the datagrid.settings.selectable updates the datagrid view.
+      this.datagrid.settings.showSelectAllCheckBox = showSelectAllCheckBox;
+      this.markForRefresh('showSelectAllCheckBox', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  get showSelectAllCheckBox() {
+    return this._gridOptions.showSelectAllCheckBox;
+  }
+
   get selectable(): any {
     if (this.datagrid) {
       return this.datagrid.settings.selectable;

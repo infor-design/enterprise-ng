@@ -4,9 +4,11 @@
 
 ### 7.0.0 Fixes
 
+- `[DataGrid]` Added `showSelectAllCheckBox` option.  `BTHH` ([Pull Request xxx](https://github.com/infor-design/enterprise-ng/pull/xxx))
+
 ### 7.0.0 Features
 
-- `[General]` Upgraded @angular/cli (to 9.0.x) and @angular/core (to 9.0.x).  `BTHH` ([Pull Request 578](https://github.com/infor-design/enterprise-ng/pull/xxx))
+- `[General]` Upgraded @angular/cli (to 9.0.x) and @angular/core (to 9.0.x).  `BTHH` ([Pull Request 578](https://github.com/infor-design/enterprise-ng/pull/578))
     - support for Node 10.13.0+
     - support for TypeScript 3.6.x & 3.7.x
     - support for Ivy (ids-enterprise-ng is not compiled using ivy)
