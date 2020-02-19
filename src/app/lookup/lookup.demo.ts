@@ -29,7 +29,7 @@ export class LookupDemoComponent {
       id: 1,
       productId: 2142201,
       productName: 'Compressor',
-      activity:  'Assemble Paint',
+      activity: 'Assemble Paint',
       quantity: 1,
       price: 210.99,
       status: 'OK',
@@ -43,7 +43,7 @@ export class LookupDemoComponent {
       id: 1,
       productId: 2142201,
       productName: 'Compressor',
-      activity:  'Assemble Paint',
+      activity: 'Assemble Paint',
       quantity: 1,
       price: 210.99,
       status: 'OK',
@@ -53,7 +53,7 @@ export class LookupDemoComponent {
       id: 4,
       productId: 2142204,
       productName: 'Another Compressor',
-      activity:  'Assemble Paint',
+      activity: 'Assemble Paint',
       quantity: 3,
       price: 210.99,
       status: 'OK',
@@ -80,7 +80,7 @@ export class LookupDemoComponent {
 
       if (filter) {
         // Server filtering
-        dataResult = productsData.filter( data => {
+        dataResult = productsData.filter(data => {
           return data.id.toString().includes(filter) ||
             data.productName.toLowerCase().includes(filter);
         });
@@ -108,7 +108,7 @@ export class LookupDemoComponent {
     this.data_product = [];
 
     // Some Sample Data
-    productsData.forEach( data => {
+    productsData.forEach(data => {
       this.data_product.push(data);
     });
 
@@ -135,7 +135,7 @@ export class LookupDemoComponent {
    */
   source(req: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) {
     const filter = req.filterExpr && req.filterExpr[0] && req.filterExpr[0].value;
-    this.requestData(filter, req.activePage, req.pagesize).then( result => {
+    this.requestData(filter, req.activePage, req.pagesize).then(result => {
       req.total = result.total;
       response(result.data, req);
     });
@@ -147,14 +147,14 @@ export class LookupDemoComponent {
     // 1. Do something like an ajax call.
 
     // 2. if no rows and you dont want to open
-    return false; // and we will never open
+    // return false; // and we will never open
 
     // 3. If there was rows (in this example we dont show this)
     // 4. Set the dynamic columns and _dataset
     // api.settings.options.columns = data[0].columns;
     // api.settings.options.dataset = data[0].dataset;
     // 5. And the response which will open the dialog
-    // response();
+    response([]);
   }
 
   // Example of custom displaying
@@ -179,5 +179,13 @@ export class LookupDemoComponent {
 
   onChange(event: any) {
     console.log('lookup.onchange', event);
+  }
+
+  onAfterOpen(event: any) {
+    console.log('lookup.onafteropen', event);
+  }
+
+  onBeforeOpen(event: any) {
+    console.log('lookup.onbeforeopen', event);
   }
 }
