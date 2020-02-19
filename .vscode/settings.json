@@ -15,7 +15,6 @@
     "[markdown]": {
         "editor.formatOnSave": false
     },
-    "prettier.eslintIntegration": true,
     "eslint.validate": [
         "javascript",
         "javascriptreact",

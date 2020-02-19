@@ -14,4 +14,8 @@ export class ToolbarFlexBasicDemoComponent {
     }
     alert(data);
   }
+
+  public onSubmit() {
+    console.log('submit');
+  }
 }

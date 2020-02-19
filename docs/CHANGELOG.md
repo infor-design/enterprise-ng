@@ -5,6 +5,7 @@
 ### 7.0.0 Fixes
 
 - `[DataGrid]` Added `showSelectAllCheckBox` option.  `BTHH` ([Pull Request xxx](https://github.com/infor-design/enterprise-ng/pull/xxx))
+- `[FlexToobar]` Stopped 'more' button being activated on form submit.   `BTHH` ([Pull Request xxx](https://github.com/infor-design/enterprise-ng/pull/xxx))
 
 ### 7.0.0 Features
 

@@ -1,5 +1,6 @@
-<div class="row top-padding">
-  <div class="twelve columns">
+<form onsubmit="onSubmit()">
+  <div class="row top-padding">
+    <div class="twelve columns">
 
     <!-- BEGIN Toolbar with All Buttons (Buttonset Favoring) -->
     <soho-toolbar-flex
@@ -30,7 +31,6 @@
         </ul>
 
         <button soho-button="icon" icon="settings" [disabled]="true">Settings</button>
-
         <button soho-button="icon" icon="delete">Delete</button>
       </soho-toolbar-flex-section>
 
@@ -49,8 +49,8 @@
     <!-- END Toolbar with All Buttons (Buttonset Favoring) -->
 
   </div>
-</div>
-<div class="row top-padding">
+  </div>
+  <div class="row top-padding">
   <div class="twelve columns">
 
     <!-- BEGIN Toolbar with All Buttons (Title Favoring) -->
@@ -100,8 +100,8 @@
     <!-- END Toolbar with All Buttons (Title Favoring) -->
 
   </div>
-</div>
-<div class="row top-padding">
+  </div>
+  <div class="row top-padding">
   <div class="twelve columns">
 
     <!-- BEGIN Toolbar similar to Header Toolbar -->
@@ -122,8 +122,8 @@
     <!-- END Toolbar similar to Header Toolbar -->
 
   </div>
-</div>
-<div class="row top-padding">
+  </div>
+  <div class="row top-padding">
   <div class="twelve columns">
 
     <!-- BEGIN Toolbar with Title Eyebrow -->
@@ -154,4 +154,15 @@
     <!-- END Toolbar with Title Eyebrow -->
 
   </div>
+
+  <div class="row top-padding">
+    <div class="twelve columns">
+
+        <fieldset>
+          <label for="simpleInput">Press OK in the input:</label>
+          <input soho-input id="simpleInput"/>
+        </fieldset>
+    </div>
 </div>
+  </div>
+</form>
