@@ -7,15 +7,15 @@ import { DatagridTreegridServiceDemo } from './datagrid-treegrid-service.demo';
   selector: 'app-datagrid-treegrid-demo',
   templateUrl: 'datagrid-treegrid.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ DatagridTreegridServiceDemo ]
+  providers: [DatagridTreegridServiceDemo]
 })
 export class DataGridTreeGridDemoComponent {
-  @ViewChild(SohoDataGridComponent, { static: true })dataGrid: SohoDataGridComponent;
-  @ViewChild(SohoBusyIndicatorDirective, { static: true })busyIndicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
 
   events: any[] = [];
 
-  constructor(private treeService: DatagridTreegridServiceDemo) {}
+  constructor(private treeService: DatagridTreegridServiceDemo) { }
 
   public get columns(): SohoDataGridColumn[] {
     return this.treeService.getColumns();
@@ -61,5 +61,10 @@ export class DataGridTreeGridDemoComponent {
     this.dataGrid.isList = !this.dataGrid.isList;
     this.dataGrid.alternateRowShading = !this.dataGrid.alternateRowShading;
     this.dataGrid.cellNavigation = !this.dataGrid.cellNavigation;
+  }
+
+  toggleSelectAll() {
+    this.dataGrid.showSelectAllCheckBox = !this.dataGrid.showSelectAllCheckBox;
+    console.log(`showSelectAllCheckBox=${this.dataGrid.showSelectAllCheckBox}`);
   }
 }

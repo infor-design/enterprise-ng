@@ -328,6 +328,7 @@ describe('Soho DataGrid Unit Tests', () => {
     comp.showDirty = true;
     comp.disableRowDeactivation = true;
     comp.userObject = {};
+    comp.showSelectAllCheckBox = false;
 
     expect(comp.uniqueId).toEqual('id2');
     expect(comp.idProperty).toEqual('id2');
@@ -351,6 +352,7 @@ describe('Soho DataGrid Unit Tests', () => {
     expect(comp.showDirty).toEqual(true);
     expect(comp.disableRowDeactivation).toEqual(true);
     expect(comp.userObject).toEqual({});
+    expect((comp as any).showSelectAllCheckBox).toBeFalsy();
     expect((comp as any).datagrid.settings.menuId).toEqual('id2'); // no getter
     expect((comp as any).datagrid.settings.toolbar).toEqual(toolbar);
     expect((comp as any).datagrid.settings.saveUserSettings).toEqual(
@@ -360,7 +362,7 @@ describe('Soho DataGrid Unit Tests', () => {
     expect((comp as any).datagrid.settings.pagesizes).toEqual(pageSizes);
     expect((comp as any).datagrid.settings.indeterminate).toEqual(true);
     expect((comp as any).datagrid.settings.saveColumns).toEqual(true);
-
+    expect((comp as any).datagrid.settings.showSelectAllCheckBox).toBeFalsy();
     expect((comp as any).refreshHint).toBeGreaterThan(0);
 
     // run detectChanges and verify refreshHint flag has been reset.
