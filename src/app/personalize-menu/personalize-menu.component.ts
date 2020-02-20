@@ -39,23 +39,23 @@ export class PersonalizeMenuComponent implements OnInit {
    * Default Color: this should really be based on the one selected in
    * the IDS Enterprise component code.
    */
-  private readonly DEFAULT_COLOR = '#368AC0';
+  private readonly DEFAULT_COLOR = '#368ac0';
 
   /**
    * Default Theme: this should really be based on the one selected in
    * the IDS Enterprise component code.
    */
-  private readonly DEFAULT_THEME = 'light';
+  private readonly DEFAULT_THEME = 'theme-soho-light';
 
   /**
    * Storage key for the theme.
    */
-  private readonly IDS_ENTERPRISE_THEME_KEY = 'soho_theme';
+  private readonly IDS_ENTERPRISE_THEME_KEY = 'ids_theme';
 
   /**
    * Storage key for the color.
    */
-  private readonly IDS_ENTERPRISE_COLOR_KEY = 'soho_color';
+  private readonly IDS_ENTERPRISE_COLOR_KEY = 'ids_color';
 
   /**
    * Initialize the component after Angular first displays the data-bound
@@ -117,8 +117,9 @@ export class PersonalizeMenuComponent implements OnInit {
 
   public onChangeColors(ev: SohoChangeColorsPersonalizeEvent) {
     const colorHex = ev.data.colors;
-    this.color = colorHex;
-    this.setSelectedColor(colorHex);
+    // Getting upper case colours and lower case colours, so assume lower.
+    this.color = (colorHex as string).toLowerCase();
+    this.setSelectedColor(this.color);
   }
 
   /**

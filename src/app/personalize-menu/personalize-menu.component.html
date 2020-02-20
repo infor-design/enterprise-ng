@@ -3,7 +3,7 @@
   <a soho-popupmenu-label [attr.data-theme]="theme.id">{{ theme.name }}</a>
 </li>
 <li soho-popupmenu-separator></li>
-<li soho-popupmenu-heading>Personalization</li>
+<li soho-popupmenu-heading>{{'Personalization' | sohoTranslate}}</li>
 <li soho-popupmenu-item [isSelectable]="true" [isChecked]="color.selected" *ngFor="let color of colorMenuItems">
   <a soho-popupmenu-label [attr.data-rgbcolor]="color.value">{{ color.name }}</a>
 </li>
