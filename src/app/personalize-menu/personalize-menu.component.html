@@ -1,10 +1,36 @@
-<li soho-popupmenu-heading>{{'Theme' | sohoTranslate}}</li>
-<li soho-popupmenu-item [isSelectable]="true" [isChecked]="theme.selected" *ngFor="let theme of themeMenuItems">
-  <a soho-popupmenu-label [attr.data-theme]="theme.id">{{ theme.name }}</a>
+<!--
+  For when we can loop
+  <li soho-popupmenu-heading>{{'Theme' | sohoTranslate}}</li>
+  <li soho-popupmenu-item [isSelectable]="true" [isChecked]="theme.selected" *ngFor="let theme of themeMenuItems">
+    <a soho-popupmenu-label [attr.data-theme]="theme.id">{{ theme.name }}</a>
+  </li>
+  <li soho-popupmenu-separator></li>
+  <li soho-popupmenu-heading>{{'Personalization' | sohoTranslate}}</li>
+  <li soho-popupmenu-item [isSelectable]="true" [isChecked]="color.selected" *ngFor="let color of colorMenuItems">
+    <a soho-popupmenu-label [attr.data-rgbcolor]="color.value">{{ color.name }}</a>
+  </li>
+  <div soho-personalize (changetheme)="onChangeTheme($event)" (changecolors)="onChangeColors($event)"></div>
+-->
+
+<li>
+  <a href="#">{{'Theme' | sohoTranslate}}</a>
+  <ul class="popupmenu">
+    <li class="is-selectable is-checked"><a href="#" data-theme-name="theme-soho" data-translate="text">Subtle</a></li>
+    <li class="is-selectable"><a href="#" data-theme-name="theme-uplift" data-translate="text">Vibrant</a></li>
+  </ul>
 </li>
-<li soho-popupmenu-separator></li>
-<li soho-popupmenu-heading>{{'Personalization' | sohoTranslate}}</li>
-<li soho-popupmenu-item [isSelectable]="true" [isChecked]="color.selected" *ngFor="let color of colorMenuItems">
-  <a soho-popupmenu-label [attr.data-rgbcolor]="color.value">{{ color.name }}</a>
+<li>
+  <a href="#">{{'Variant' | sohoTranslate}}</a>
+  <ul class="popupmenu">
+    <li class="is-selectable is-checked"><a href="#" data-theme-variant="light" data-translate="text">Light</a></li>
+    <li class="is-selectable"><a href="#" data-theme-variant="dark" data-translate="text">Dark</a></li>
+    <li class="is-selectable"><a href="#" data-theme-variant="contrast" data-translate="text">HighContrast</a></li>
+  </ul>
+</li>
+<li>
+  <a href="#">Colors</a>
+  <ul class="popupmenu">
+    <li class="personalization-colors"></li>
+  </ul>
 </li>
 <div soho-personalize (changetheme)="onChangeTheme($event)" (changecolors)="onChangeColors($event)"></div>

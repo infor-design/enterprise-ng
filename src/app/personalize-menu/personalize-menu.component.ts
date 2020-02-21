@@ -70,7 +70,7 @@ export class PersonalizeMenuComponent implements OnInit {
     const currentColor = this.personalize.colors = this.color;
 
     this.themeMenuItems = this.personalize.themes();
-
+    console.log(this.themeMenuItems);
     const personalizationColors = this.personalize.personalizationColors();
     this.colorMenuItems = Object.keys(personalizationColors).map(colorId => personalizationColors[colorId]);
 
