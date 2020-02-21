@@ -792,7 +792,7 @@ describe('Soho DataGrid Render', () => {
     done();
   });
 
-  fit('fires `rowRemove` when removeSelected called.', done => {
+  it('fires `rowRemove` when removeSelected called.', done => {
     fixture.detectChanges();
 
     // Try removing row number 1 (second item)
