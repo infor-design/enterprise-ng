@@ -789,15 +789,10 @@ describe('Soho DataGrid Render', () => {
       expect(event.item).toEqual('');
       done();
     });
-
-    // el = de.query(By.css('div[soho-datagrid] ')).nativeElement;
-
-    // el.click();
-
     done();
   });
 
-  xit('fires `rowRemove` when removeSelected called.', done => {
+  fit('fires `rowRemove` when removeSelected called.', done => {
     fixture.detectChanges();
 
     // Try removing row number 1 (second item)

@@ -1395,6 +1395,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     });
   }
 
+  /**
+   * Removes a row matching the data passed in from the data and grid.
+   * @param data the row of data to remove
+   */
   removeRow(data: any) {
     this.ngZone.runOutsideAngular(() => {
       this.datagrid.removeRow(data);
@@ -1494,6 +1498,23 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   clearAllErrors(): void {
     this.ngZone.runOutsideAngular(() => this.datagrid.clearAllErrors());
+  }
+
+  /** Validate all rows and cells in the entire grid if they have validation on the column */
+  showRowError(row: number, message: string, type: SohoAlertType): void {
+    this.ngZone.runOutsideAngular(() => this.datagrid.showRowError(row, message, type));
+  }
+
+  /** Validate all cells in a specific row */
+  validateRow(row: number): void {
+    this.ngZone.runOutsideAngular(() => this.datagrid.validateRow(row));
+  }
+
+  /**
+   * Set and show a message/error on the given row.
+   */
+  validateAll(): void {
+    this.ngZone.runOutsideAngular(() => this.datagrid.validateAll());
   }
 
   /**
