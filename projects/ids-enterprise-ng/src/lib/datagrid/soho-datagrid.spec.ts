@@ -791,30 +791,4 @@ describe('Soho DataGrid Render', () => {
     });
     done();
   });
-
-  it('fires `rowRemove` when removeSelected called.', done => {
-    fixture.detectChanges();
-
-    // Try removing row number 1 (second item)
-    const removedRow = component.data[1];
-
-    component.datagrid.rowRemove.subscribe(
-      (event: SohoDataGridRowRemoveEvent) => {
-        // Make sure the correct row is removed.
-        expect(event.oldValue.productId).toEqual(removedRow.productId);
-        expect(event.row).toBe(1);
-        expect(event.target).not.toBe(null);
-
-        done();
-      }
-    );
-
-    fixture.detectChanges();
-
-    component.datagrid.selectRows([1]);
-
-    fixture.detectChanges();
-
-    component.datagrid.removeSelected();
-  });
 });
