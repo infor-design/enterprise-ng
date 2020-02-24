@@ -72,7 +72,7 @@ export class ColorPickerDemoComponent implements OnInit, AfterViewInit {
   changeCustomColors() {
     const newColors = Array<SohoColorOption>();
     newColors.push({label: 'Grape', value: '2578a9', number: '10'} as SohoColorOption);
-    newColors.push({label: 'Blueberry', value: '368ac0', number: '08'});
+    newColors.push({label: 'Blueberry', value: '2578A9', number: '08'});
     newColors.push({label: 'Banana', value: 'efa836', number: '09'});
 
     this.colorpicker.customColors = true;

@@ -33,7 +33,7 @@ const bulletData2 = [{
     'markers': [26]
   }
   ],
-  barColors: ['#ADD8EB', '#69B5DD', '#368AC0'],
+  barColors: ['#ADD8EB', '#69B5DD', '#2578A9'],
   lineColors: ['#000000', '#000000', '#000000'],
   markerColors: ['#000000']
 }];

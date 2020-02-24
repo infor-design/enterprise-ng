@@ -39,7 +39,7 @@ export class PersonalizeMenuComponent implements OnInit {
    * Default Color: this should really be based on the one selected in
    * the IDS Enterprise component code.
    */
-  private readonly DEFAULT_COLOR = '#368ac0';
+  private readonly DEFAULT_COLOR = '#2578a9';
 
   /**
    * Default Theme: this should really be based on the one selected in
