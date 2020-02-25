@@ -945,6 +945,9 @@ interface SohoDataGridStatic {
   /** Validate all rows and cells in the entire grid if they have validation on the column */
   validateAll(): void;
 
+  /** Validate all cells in a specific row */
+  validateRow(row: number): void;
+
   /** Used to set the sort indicator on a column when disableClientSort is set to true */
   setSortIndicator(columnId: string, ascending: boolean): void;
 
@@ -1089,6 +1092,11 @@ interface SohoDataGridStatic {
    * Clear all errors, alerts and info messages in entire datagrid.
    */
   clearAllErrors(): void;
+
+  /**
+   * Set and show a message/error on the given row.
+   */
+  showRowError(row: number, message:string, type: SohoAlertType): void;
 
   /**
    * Commit the cell that's currently in edit mode.
