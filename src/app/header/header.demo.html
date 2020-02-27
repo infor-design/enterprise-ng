@@ -1,59 +1,22 @@
 <soho-header>
 
-  <soho-toolbar hasMoreButton="true">
+  <soho-toolbar-flex>
+    <button soho-toolbar-flex-nav-button>Show Navigation</button>
+    <soho-toolbar-flex-section [isTitle]="true">
+      <h2>
+        <span soho-toolbar-flex-page-title>The Official IDS Enterprise Angular Controls</span>
+        <span soho-toolbar-flex-section-title>Demo</span>
+      </h2>
+    </soho-toolbar-flex-section>
 
-    <soho-toolbar-title>
-      <button soho-nav-button>Show Navigation</button>
-      <h1>
-        <span soho-page-title>The Official IDS Enterprise Angular Controls</span>
-        <span soho-section-title>Demo</span>
-      </h1>
-    </soho-toolbar-title>
-
-    <soho-toolbar-button-set>
+    <soho-toolbar-flex-section [isButtonSet]="true">
       <input id="header-searchfield" class="searchfield" name="header-searchfield" />
       <button soho-button="icon" icon="add" title="Add"></button>
-    </soho-toolbar-button-set>
+    </soho-toolbar-flex-section>
 
-    <soho-toolbar-more-button>
-      <ul class="popupmenu is-selectable">
-        <li class="heading" role="presentation">Theme</li>
-        <li class="is-selectable is-checked"><a href="#" data-theme="grey-theme">Light</a></li>
-        <li class="is-selectable"><a href="#" data-theme="dark-theme">Dark</a></li>
-        <li class="is-selectable"><a href="#" data-theme="high-contrast-theme">High Contrast</a></li>
-        <li class="is-selectable"><a href="#" data-theme="uplift-theme">Uplift</a></li>
-        <li class="separator"></li>
-        <li class="heading" role="presentation">Personalization</li>
-        <li class="is-selectable is-checked"><a data-rgbcolor="" href="#">Default</a></li>
-        <li class="is-selectable"><a data-rgbcolor="#368AC0" href="#">Azure</a></li>
-        <li class="is-selectable"><a data-rgbcolor="#EFA836" href="#">Amber</a></li>
-        <li class="is-selectable"><a data-rgbcolor="#9279A6" href="#">Amethyst</a></li>
-        <li class="is-selectable"><a data-rgbcolor="#579E95" href="#">Turqoise</a></li>
-        <li class="is-selectable"><a data-rgbcolor="#76B051" href="#">Emerald</a></li>
-        <li class="is-selectable"><a data-rgbcolor="#5C5C5C" href="#">Graphite</a></li>
-      </ul>
-    </soho-toolbar-more-button>
+    <soho-toolbar-flex-more-button [isPageChanger]="true">
+    </soho-toolbar-flex-more-button>
 
-  </soho-toolbar>
+  </soho-toolbar-flex>
 
 </soho-header>
-
-    <!--
-    TODO: possible markup for a menu/popupmenu angular component
-    <ul soho-menu popupmenu="true" selectable="true">
-      <li soho-menu-item-heading>Theme</li>
-      <li soho-menu-item isSelectable="true" isChecked="true"><a href="#" data-theme="grey-theme" tabindex="-1" role="menuitemcheckbox" aria-checked="true">Light</a></li>
-      <li soho-menu-item isSelectable="true"><a href="#" data-theme="dark-theme" tabindex="-1" role="menuitem">Dark</a></li>
-      <li soho-menu-item isSelectable="true"><a href="#" data-theme="high-contrast-theme" tabindex="-1" role="menuitem">High Contrast</a></li>
-      <li soho-menu-item-separator></li>
-      <li soho-menu-item-heading>Personalization</li>
-      <li soho-menu-item isSelectable="true"><a data-rgbcolor="" href="#" tabindex="-1" role="menuitemcheckbox" aria-checked="true">Default</a></li>
-      <li soho-menu-item isSelectable="true"><a href="#" data-theme="grey-theme" tabindex="-1" role="menuitemcheckbox" aria-checked="true">Light</a></li>
-      <li soho-menu-item isSelectable="true"><a data-rgbcolor="#368AC0" href="#" tabindex="-1" role="menuitem">Azure</a></li>
-      <li soho-menu-item isSelectable="true" isChecked="true"><a data-rgbcolor="#9279A6" href="#" tabindex="-1" role="menuitem">Amethyst</a></li>
-      <li soho-menu-item isSelectable="true"><a data-rgbcolor="#579E95" href="#" tabindex="-1" role="menuitem">Turqoise</a></li>
-      <li soho-menu-item isSelectable="true"><a data-rgbcolor="#76B051" href="#" tabindex="-1" role="menuitem">Emerald</a></li>
-      <li soho-menu-item isSelectable="true"><a data-rgbcolor="#5C5C5C" href="#" tabindex="-1" role="menuitem">Graphite</a></li>
-    </ul>
--->
-
