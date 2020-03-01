@@ -47,10 +47,14 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     this.isDisabled = value;
     if (this.fileuploadadvanced) {
       if (value) {
-        this.fileuploadadvanced.disable();
+        this.ngZone.runOutsideAngular( () => {
+          this.fileuploadadvanced.disable();
+        });
         this.isDisabled = true;
       } else {
-        this.fileuploadadvanced.enable();
+        this.ngZone.runOutsideAngular( () => {
+          this.fileuploadadvanced.enable();
+        });
         this.isDisabled = false;
       }
     }
@@ -273,7 +277,6 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
   @Input() set errorMaxFilesInProcess(errorMaxFilesInProcess: string) {
     this.options.errorMaxFilesInProcess = errorMaxFilesInProcess;
     if (this.fileuploadadvanced) {
-      this.fileuploadadvanced.settings.errorMaxFilesInProcess = errorMaxFilesInProcess;
       this.fileuploadadvanced.updated(this.fileuploadadvanced.settings);
       this.markForRefresh();
     }
@@ -290,7 +293,6 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     this.options.errorMaxFileSize = errorMaxFilesSize;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.errorMaxFileSize = errorMaxFilesSize;
-      this.fileuploadadvanced.updated(this.fileuploadadvanced.settings);
       this.markForRefresh();
     }
   }
@@ -382,19 +384,28 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
         this.ngZone.run(() => { this.filesdropped.next(files); });
       })
       .on('beforecreatestatus', (args: JQuery.TriggeredEvent, files: File[]) => {
-        this.beforecreatestatus.next(files);
+        this.ngZone.run( () => {
+          this.beforecreatestatus.next(files); });
       })
       .on('aftercreatestatus', (args: JQuery.TriggeredEvent, files: File[]) => {
-        this.aftercreatestatus.next(files);
+        this.ngZone.run( () => {
+          this.aftercreatestatus.next(files);
+        });
       })
       .on('fileprogress', (args: JQuery.TriggeredEvent, files: File[]) => {
-        this.fileprogress.next(files);
+        this.ngZone.run( () => {
+          this.fileprogress.next(files);
+        });
       })
       .on('fileaborted', (args: JQuery.TriggeredEvent, files: File[]) => {
-        this.fileaborted.next(files);
+        this.ngZone.run( () => {
+          this.fileaborted.next(files);
+        });
       })
       .on('filecompleteuploading', (args: JQuery.TriggeredEvent, files: File[]) => {
-        this.filecompleteduploading.next(files);
+        this.ngZone.run( () => {
+          this.filecompleteduploading.next(files);
+        });
       });
 
     this.fileuploadadvanced = this.jQueryElement.data('fileuploadadvanced');
