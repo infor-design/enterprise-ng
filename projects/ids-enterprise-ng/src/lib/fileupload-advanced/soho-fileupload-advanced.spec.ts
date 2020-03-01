@@ -46,4 +46,8 @@ describe('Soho File Upload Advanced Render', () => {
     fileuploadadvanced.disabled = false;
     fixture.detectChanges();
   });
+
+  it('@Input() error', () => {
+    // Check setting error messages - needs to update component.
+  });
 });

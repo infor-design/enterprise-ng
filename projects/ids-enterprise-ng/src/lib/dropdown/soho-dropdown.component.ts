@@ -360,6 +360,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * @param ngZone the angualar zone for this component
    * @param ngControl any associated form control (optional)
    *
+   * @param ref
    */
   constructor(
     private element: ElementRef,

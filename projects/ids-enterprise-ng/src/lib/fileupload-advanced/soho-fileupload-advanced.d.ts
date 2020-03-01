@@ -72,6 +72,9 @@ interface SohoFileUploadAdvancedStatic {
   disable(): void;
 
   destroy(): void;
+
+  /** Resync the UI and Settings. */
+  updated(settings: SohoFileUploadAdvancedOptions): void;
 }
 
 interface JQueryStatic {

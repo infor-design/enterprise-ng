@@ -9,7 +9,7 @@ import {
   Input,
   Output,
   OnDestroy,
-  HostBinding,
+  HostBinding, AfterViewChecked, NgZone, ChangeDetectorRef,
 } from '@angular/core';
 
 @Component({
@@ -18,12 +18,20 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy {
+export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
+  /**
+   * Add class to host element to ensure correct styling and detection by EP controls.
+   */
   @HostBinding('class.fileupload-advanced') isFileUploadAdvanced = true;
 
   /**
    * Local variables
    */
+
+  /**
+   * Flag to force an update of the control after the view is created.
+   */
+  private runUpdatedOnCheck: boolean;
 
   /** Keeps track of the enabled / disabled state. */
   public isDisabled: boolean;
@@ -61,9 +69,10 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
     this.options.isStandalone = isStandaline;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.isStandalone = isStandaline;
-      // @todo provide an update method on the widget or destroy and recreate
+      this.markForRefresh();
     }
   }
+
   get isStandalone(): boolean {
     return this.options.isStandalone;
   }
@@ -77,9 +86,10 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
     this.options.allowedTypes = allowedTypes;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.allowedTypes = allowedTypes;
-      // @todo provide an update method on the widget or destroy and recreate
+      this.markForRefresh();
     }
   }
+
   get allowedTypes(): string {
     return this.options.allowedTypes;
   }
@@ -96,7 +106,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
     this.options.send = sendFn;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.send = sendFn;
-      // @todo provide an update method on the widget or destroy and recreate
+      this.markForRefresh();
     }
   }
 
@@ -113,7 +123,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
     this.options.maxFilesInProcess = maxFilesInProcess;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.maxFilesInProcess = maxFilesInProcess;
-      // @todo provide an update method on the widget or destroy and recreate
+      this.markForRefresh();
     }
   }
 
@@ -130,7 +140,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
     this.options.maxFileSize = maxFileSize;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.maxFileSize = maxFileSize;
-      // @todo provide an update method on the widget or destroy and recreate
+      this.markForRefresh();
     }
   }
 
@@ -147,7 +157,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
     this.options.fileName = fileName;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.fileName = fileName;
-      // @todo provide an update method on the widget or destroy and recreate
+      this.markForRefresh();
     }
   }
 
@@ -164,7 +174,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
     this.options.showBrowseButton = showBrowseButton;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.showBrowseButton = showBrowseButton;
-      // @todo provide an update method on the widget or destroy and recreate
+      this.markForRefresh();
     }
   }
 
@@ -181,7 +191,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
     this.options.textDropArea = textDropArea;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.textDropArea = textDropArea;
-      // @todo provide an update method on the widget or destroy and recreate
+      this.markForRefresh();
     }
   }
 
@@ -198,7 +208,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
     this.options.textDropAreaWithBrowse = textDropAreaWithBrowse;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.textDropAreaWithBrowse = textDropAreaWithBrowse;
-      // @todo provide an update method on the widget or destroy and recreate
+      this.markForRefresh();
     }
   }
 
@@ -215,7 +225,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
     this.options.textBtnCancel = textBtnCancel;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.textBtnCancel = textBtnCancel;
-      // @todo provide an update method on the widget or destroy and recreate
+      this.markForRefresh();
     }
   }
 
@@ -232,7 +242,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
     this.options.textBtnCloseError = textBtnCloseError;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.textBtnCloseError = textBtnCloseError;
-      // @todo provide an update method on the widget or destroy and recreate
+      this.markForRefresh();
     }
   }
 
@@ -240,7 +250,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
     return this.options.textBtnCloseError;
   }
 
-    /**
+  /**
    * Hidden text for remove button.
    *
    * @param textBtnRemove - Hidden text for remove button.
@@ -249,12 +259,44 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
     this.options.textBtnRemove = textBtnRemove;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.textBtnRemove = textBtnRemove;
-      // @todo provide an update method on the widget or destroy and recreate
+      this.markForRefresh();
     }
   }
 
   get textBtnRemove() {
     return this.options.textBtnRemove;
+  }
+
+  /**
+   *
+   */
+  @Input() set errorMaxFilesInProcess(errorMaxFilesInProcess: string) {
+    this.options.errorMaxFilesInProcess = errorMaxFilesInProcess;
+    if (this.fileuploadadvanced) {
+      this.fileuploadadvanced.settings.errorMaxFilesInProcess = errorMaxFilesInProcess;
+      this.fileuploadadvanced.updated(this.fileuploadadvanced.settings);
+      this.markForRefresh();
+    }
+  }
+
+  get errorMaxFilesInProcess(): string {
+    return this.options.errorMaxFilesInProcess;
+  }
+
+  /**
+   *
+   */
+  @Input() set errorMaxFileSize(errorMaxFilesSize: string) {
+    this.options.errorMaxFileSize = errorMaxFilesSize;
+    if (this.fileuploadadvanced) {
+      this.fileuploadadvanced.settings.errorMaxFileSize = errorMaxFilesSize;
+      this.fileuploadadvanced.updated(this.fileuploadadvanced.settings);
+      this.markForRefresh();
+    }
+  }
+
+  get errorMaxFileSize(): string {
+    return this.options.errorMaxFileSize;
   }
 
   // -------------------------------------------
@@ -278,7 +320,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
   /** Set of options for this control. */
   private options: SohoFileUploadAdvancedOptions = {};
 
-    // Reference to the jQuery control.
+  // Reference to the jQuery control.
   private jQueryElement: JQuery;
 
   // Reference to the SoHoXi control api.
@@ -289,11 +331,30 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
   // -------------------------------------------
 
   /**
+   * Updates the control by merging the given settings into
+   * the EP widget.
+   *
+   * @param settings the settings to merge.
+   */
+  updated(settings: SohoFileUploadAdvancedOptions): void {
+    if (this.fileuploadadvanced) {
+      this.ngZone.runOutsideAngular(() => {
+        this.fileuploadadvanced.updated(settings);
+      });
+      this.options = this.fileuploadadvanced.settings;
+    } else {
+      this.options = settings;
+    }
+  }
+
+  /**
    * Destroys the control.
    */
   destroy() {
     if (this.fileuploadadvanced) {
-      this.fileuploadadvanced.destroy();
+      this.ngZone.runOutsideAngular(() => {
+        this.fileuploadadvanced.destroy();
+      });
       this.fileuploadadvanced = null;
     }
   }
@@ -301,7 +362,10 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
   /**
    * Constructor.
    */
-  constructor(private element: ElementRef) { }
+  constructor(private element: ElementRef,
+              private ref: ChangeDetectorRef,
+              private ngZone: NgZone) {
+  }
 
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
@@ -309,21 +373,65 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, OnDestroy
     this.jQueryElement.fileuploadadvanced(this.options);
 
     this.jQueryElement
-      .on('filesdragenter', (e: JQuery.TriggeredEvent) => { this.filesdragenter.next(e); })
-      .on('filesdroped', (args: JQuery.TriggeredEvent, files: File[]) => { this.filesdropped.next(files); })
-      .on('beforecreatestatus', (args: JQuery.TriggeredEvent, files: File[]) => { this.beforecreatestatus.next(files); })
-      .on('aftercreatestatus', (args: JQuery.TriggeredEvent, files: File[]) => { this.aftercreatestatus.next(files); })
-      .on('fileprogress', (args: JQuery.TriggeredEvent, files: File[]) => { this.fileprogress.next(files); })
-      .on('fileaborted', (args: JQuery.TriggeredEvent, files: File[]) => { this.fileaborted.next(files); })
-      .on('filecompleteuploading', (args: JQuery.TriggeredEvent, files: File[]) => { this.filecompleteduploading.next(files); });
+      .on('filesdragenter', (e: JQuery.TriggeredEvent) => {
+        this.ngZone.run(() => {
+          this.filesdragenter.next(e);
+        });
+      })
+      .on('filesdroped', (args: JQuery.TriggeredEvent, files: File[]) => {
+        this.ngZone.run(() => { this.filesdropped.next(files); });
+      })
+      .on('beforecreatestatus', (args: JQuery.TriggeredEvent, files: File[]) => {
+        this.beforecreatestatus.next(files);
+      })
+      .on('aftercreatestatus', (args: JQuery.TriggeredEvent, files: File[]) => {
+        this.aftercreatestatus.next(files);
+      })
+      .on('fileprogress', (args: JQuery.TriggeredEvent, files: File[]) => {
+        this.fileprogress.next(files);
+      })
+      .on('fileaborted', (args: JQuery.TriggeredEvent, files: File[]) => {
+        this.fileaborted.next(files);
+      })
+      .on('filecompleteuploading', (args: JQuery.TriggeredEvent, files: File[]) => {
+        this.filecompleteduploading.next(files);
+      });
 
     this.fileuploadadvanced = this.jQueryElement.data('fileuploadadvanced');
   }
 
+  ngAfterViewChecked() {
+    if (this.runUpdatedOnCheck) {
+      this.ngZone.runOutsideAngular(() => {
+        // We need to update the control AFTER the model
+        // has been updated (assuming there is one), so
+        // execute updated after angular has generated
+        // the model and the view markup.
+        setTimeout(() => this.updated(this.options));
+        this.runUpdatedOnCheck = false;
+      });
+    }
+  }
+
   ngOnDestroy() {
     if (this.fileuploadadvanced) {
-      this.fileuploadadvanced.destroy();
+      this.ngZone.runOutsideAngular(() => {
+        this.fileuploadadvanced.destroy();
+      });
       this.fileuploadadvanced = null;
     }
+  }
+
+  /**
+   * Marks the components as requiring a rebuild after the next update.
+   */
+  markForRefresh() {
+    // Run updated on the next updated check.
+    this.runUpdatedOnCheck = true;
+
+    // ... make sure the change detector kicks in, otherwise if the inputs
+    // were change programmatically the component may not be eligible for
+    // updating.
+    this.ref.markForCheck();
   }
 }
