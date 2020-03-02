@@ -9,6 +9,13 @@
 
 ### 6.5.0 Features
 
+## v6.4.3
+
+### 6.4.3 Fixes
+
+- `[General]` - Added 4.25.4 patch 3505. `TJM` ([#3505](https://github.com/infor-design/enterprise/issues/3505))
+- `[General]` - Added 4.25.4 patch for 3503. `TJM` ([#3503](https://github.com/infor-design/enterprise/issues/3503))
+
 ## v6.4.2
 
 ### 6.4.2 Fixes
