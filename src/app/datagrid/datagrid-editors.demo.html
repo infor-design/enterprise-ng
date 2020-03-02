@@ -1,18 +1,32 @@
-<div class="row">
+<div class="row top-padding">
   <div class="twelve columns">
-    <h2 class="fieldset-title">Soho Data Grid - Editors</h2>
+    <p class="text-secondary">Soho Data Grid - Editors Demo</p>
+    <p>
+      Some cells in this example can be edited. There is an array of grid API actions in the demo actions menu that can be tested.
+    </p>
   </div>
 </div>
 
-<div class="field">
-  <button soho-button (click)="export($event)">Export to Excel</button>
-  <button soho-button (click)="showErrors()">Show Errors</button>
-  <button soho-button (click)="clearStatus()">Clear Status</button>
-</div>
-
-<br>
 <div class="row top-padding">
   <div class="twelve columns demo" role="main">
+    <soho-toolbar>
+      <soho-toolbar-title>
+        <span soho-toolbar-section-title></span>
+      </soho-toolbar-title>
+      <soho-toolbar-button-set>
+        <button soho-menu-button menu="action-popupmenu"
+          (selected)="onActionSelected($event)">Demo Actions</button>
+          <ul soho-popupmenu id="action-popupmenu">
+            <li soho-popupmenu-item><a soho-popupmenu-label data-action="export">Export to Excel</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label data-action="show-errors">Show Dirty Row Errors</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label data-action="clear-status">Clear Status and Errors</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label data-action="show-row-error">Show Row Error</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label data-action="validate-row">Validate Row 2</a></li>
+            <li soho-popupmenu-item><a soho-popupmenu-label data-action="validate-all">Validate All Rows</a></li>
+          </ul>
+      </soho-toolbar-button-set>
+    </soho-toolbar>
+
     <div soho-datagrid *ngIf="gridOptions"
     [gridOptions]="gridOptions"
     (keydown)="onKeyDown($event)"
