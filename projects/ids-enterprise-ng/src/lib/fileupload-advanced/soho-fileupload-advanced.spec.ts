@@ -16,7 +16,7 @@ class SohoFileUploadAdvancedTestComponent {
   @ViewChild(SohoFileUploadAdvancedComponent) fileuploadadvanced: SohoFileUploadAdvancedComponent;
 }
 
-fdescribe('Soho File Upload Advanced Render', () => {
+describe('Soho File Upload Advanced Render', () => {
   let fileuploadadvanced: SohoFileUploadAdvancedComponent;
   let component: SohoFileUploadAdvancedTestComponent;
   let fixture: ComponentFixture<SohoFileUploadAdvancedTestComponent>;
