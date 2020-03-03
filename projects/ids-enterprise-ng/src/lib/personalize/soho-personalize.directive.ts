@@ -87,8 +87,7 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
       /**
        * Bind to jQueryElement's events
        */
-      // initialise the control
-      const api = this.jQueryElement.personalize(this.options);
+      this.jQueryElement.personalize(this.options);
 
       // extract the api
       this.personalize = this.jQueryElement.data('personalize');
