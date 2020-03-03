@@ -357,9 +357,9 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   /**
    * Creates an instance of SohoDropDownComponent.
    * @param element the element this component encapsulates.
-   * @param ngZone the angualar zone for this component
+   * @param ngZone the angular zone for this component
    * @param ngControl any associated form control (optional)
-   *
+   * @param ref the change detector reference, must not be null.
    */
   constructor(
     private element: ElementRef,
