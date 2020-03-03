@@ -23,11 +23,8 @@ export const EDITORS_DATA: any[] = [
   {
     id:          1,
     productId:   214221,
-    productName: 'Compressor 2',
     activity:    'Assemble Paint',
-    quantity:    1.5,
     price:       209.99,
-    status:      'Late',
     orderDate:   '2015-01-02T06:00:00.000Z',
     action:      'Action',
     favorite:    false
@@ -49,7 +46,6 @@ export const EDITORS_DATA: any[] = [
     productId:   214223,
     productName: 'Compressor 4',
     activity:    'Assemble Paint',
-    quantity:    2.5,
     price:       207.99,
     status:      'Inactive',
     orderDate:   '2015-01-04T06:00:00.000Z',
@@ -204,6 +200,18 @@ export const EDITORS_COLUMNS: any[] = [
   },
 
   {
+    id: 'productName',
+    name: 'Product Name',
+    field: 'productName',
+    sortable: false,
+    filterType: 'text',
+    width: 150,
+    formatter: Soho.Formatters.Hyperlink,
+    required: true,
+    validate: 'required'
+  },
+
+  {
     id: 'status',
     name: 'Status',
     field: 'status',
@@ -222,7 +230,9 @@ export const EDITORS_COLUMNS: any[] = [
     sortable: false,
     filterType: 'number',
     width: 105,
-    editor: Soho.Editors.Input
+    editor: Soho.Editors.Input,
+    required: true,
+    validate: 'required'
   },
 
   {
@@ -234,9 +244,8 @@ export const EDITORS_COLUMNS: any[] = [
     showEmpty: true,
     formatter: Soho.Formatters.Favorite,
     editor: Soho.Editors.Favorite
-  },
+  }
 
-  //{ id: 'productName', name: 'Product Name', field: 'productName', sortable: false, filterType: 'text',    width: 150, formatter: Soho.Formatters.Hyperlink },
   //{ id: 'activity',    name: 'Activity',     field: 'activity',    sortable: false, filterType: 'text',    width: 150, formatter: Soho.Formatters.Text, editor: Soho.Editors.Lookup, editorOptions: LOOKUP_OPTIONS },
   //{ id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', width: 125, formatter: Soho.Formatters.Decimal },
   //{ id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',                formatter: Soho.Formatters.Date, dateFormat: 'M/d/yyyy' }
@@ -273,7 +282,7 @@ export class DataGridEditorsDemoComponent implements OnInit {
     // an error, want to use rowStatus to show the row in error
     // but this clears the dirtyRows
     let dirtyRows: Array<any> = this.sohoDataGridComponent.dirtyRows();
-    alert('dirtyRows().length = ' + dirtyRows.length);
+    console.log('dirtyRows().length = ' + dirtyRows.length);
     for (let i = 0, l = dirtyRows.length; i < l; i++) {
       var dirtyRow = dirtyRows[i];
       if (dirtyRow.rowStatus.icon === 'dirty') {
@@ -283,13 +292,49 @@ export class DataGridEditorsDemoComponent implements OnInit {
       }
     }
     dirtyRows = this.sohoDataGridComponent.dirtyRows();
-    alert('dirtyRows().length = ' + dirtyRows.length);
+    console.log('dirtyRows().length = ' + dirtyRows.length);
+  }
+
+
+  onActionSelected(event: SohoContextMenuEvent) {
+    const action = event.args.attr('data-action');
+
+    if (action === 'export') {
+     this.export();
+    }
+    if (action === 'show-errors') {
+     this.showErrors();
+    }
+    if (action === 'clear-status') {
+     this.clearStatus();
+    }
+    if (action === 'show-row-error') {
+     this.showRowError();
+    }
+    if (action === 'validate-row') {
+     this.validateRow();
+    }
+    if (action === 'validate-all') {
+     this.validateAll();
+    }
+  }
+
+  showRowError () {
+    this.sohoDataGridComponent.showRowError(2, 'This row has a custom error message.', 'error');
+  }
+
+  validateRow() {
+    this.sohoDataGridComponent.validateRow(1);
+  }
+
+  validateAll() {
+    this.sohoDataGridComponent.validateAll();
   }
 
   clearStatus() {
     let dirtyRows: Array<any> = this.sohoDataGridComponent.dirtyRows();
     let allRows: Array<any> = this.sohoDataGridComponent.dataset;
-    alert('dirtyRows().length = ' + dirtyRows.length);
+    console.log('dirtyRows().length = ' + dirtyRows.length);
     for (let i = 0, l = allRows.length; i < l; i++) {
       var row = allRows[i];
       if (row.rowStatus && row.rowStatus.icon === 'dirtyerror') {
@@ -298,9 +343,10 @@ export class DataGridEditorsDemoComponent implements OnInit {
         this.sohoDataGridComponent.rowStatus(row.id, '', '');
       }
     }
+    this.sohoDataGridComponent.clearAllErrors();
   }
 
-  export (e: any) {
+  export () {
     this.sohoDataGridComponent.exportToExcel('', '', null);
   }
 
