@@ -47,12 +47,12 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     this.isDisabled = value;
     if (this.fileuploadadvanced) {
       if (value) {
-        this.ngZone.runOutsideAngular( () => {
+        this.ngZone.runOutsideAngular(() => {
           this.fileuploadadvanced.disable();
         });
         this.isDisabled = true;
       } else {
-        this.ngZone.runOutsideAngular( () => {
+        this.ngZone.runOutsideAngular(() => {
           this.fileuploadadvanced.enable();
         });
         this.isDisabled = false;
@@ -365,8 +365,8 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
    * Constructor.
    */
   constructor(private element: ElementRef,
-              private ref: ChangeDetectorRef,
-              private ngZone: NgZone) {
+    private ref: ChangeDetectorRef,
+    private ngZone: NgZone) {
   }
 
   ngAfterViewInit() {
@@ -384,26 +384,27 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
         this.ngZone.run(() => { this.filesdropped.next(files); });
       })
       .on('beforecreatestatus', (args: JQuery.TriggeredEvent, files: File[]) => {
-        this.ngZone.run( () => {
-          this.beforecreatestatus.next(files); });
+        this.ngZone.run(() => {
+          this.beforecreatestatus.next(files);
+        });
       })
       .on('aftercreatestatus', (args: JQuery.TriggeredEvent, files: File[]) => {
-        this.ngZone.run( () => {
+        this.ngZone.run(() => {
           this.aftercreatestatus.next(files);
         });
       })
       .on('fileprogress', (args: JQuery.TriggeredEvent, files: File[]) => {
-        this.ngZone.run( () => {
+        this.ngZone.run(() => {
           this.fileprogress.next(files);
         });
       })
       .on('fileaborted', (args: JQuery.TriggeredEvent, files: File[]) => {
-        this.ngZone.run( () => {
+        this.ngZone.run(() => {
           this.fileaborted.next(files);
         });
       })
       .on('filecompleteuploading', (args: JQuery.TriggeredEvent, files: File[]) => {
-        this.ngZone.run( () => {
+        this.ngZone.run(() => {
           this.filecompleteduploading.next(files);
         });
       });
@@ -414,11 +415,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
   ngAfterViewChecked() {
     if (this.runUpdatedOnCheck) {
       this.ngZone.runOutsideAngular(() => {
-        // We need to update the control AFTER the model
-        // has been updated (assuming there is one), so
-        // execute updated after angular has generated
-        // the model and the view markup.
-        setTimeout(() => this.updated(this.options));
+        this.updated(this.options);
         this.runUpdatedOnCheck = false;
       });
     }

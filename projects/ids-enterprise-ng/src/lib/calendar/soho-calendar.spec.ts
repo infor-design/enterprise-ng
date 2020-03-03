@@ -175,6 +175,8 @@ describe('Soho Calendar Chart Render', () => {
 
     fixture.detectChanges();
     calendar = comp.calendar;
+
+    expect(calendar).toBeDefined();
   });
 
   it('Check HTML content', () => {

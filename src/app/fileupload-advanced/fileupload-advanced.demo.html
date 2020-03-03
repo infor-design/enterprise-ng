@@ -17,8 +17,8 @@
           </div>
 
           <div class="field">
-            <label soho-label for="upload2">Upload File with Events</label>
-            <soho-fileupload-advanced name="upload2" (filesdragenter)="onFilesdragenter($event)"></soho-fileupload-advanced>
+            <label soho-label>Upload File with Events</label>
+            <soho-fileupload-advanced (filesdragenter)="onFilesdragenter($event)" errorMaxFilesInProcess="Maximum files" errorMaxFileSize="Files too large"></soho-fileupload-advanced>
           </div>
 
           <div class="field">

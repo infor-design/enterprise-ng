@@ -39,7 +39,7 @@ export class FileUploadAdvancedDemoComponent implements OnInit {
     this.fileUploadDisabled = this.fileUploadAdvanced.disabled;
   }
 
-  onFilesdragenter(file: File[]) {
+  onFilesdragenter(event: JQuery.TriggeredEvent) {
     console.log('FileUploadAdvancedDemoComponent.onFileDropped');
   }
 
