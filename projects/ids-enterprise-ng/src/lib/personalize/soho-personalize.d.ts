@@ -25,18 +25,19 @@ interface SohoChangeThemePersonalizeEvent extends SohoPersonalizeEvent {
 
 interface SohoChangeColorsPersonalizeEvent extends SohoPersonalizeEvent {
   colors?: SohoPersonalizeColors;
+  isDefault?: boolean;
 }
 
 interface SohoPersonalizeColors {
   header?: string;
-  subheader?: string,
-  text?: string,
-  verticalBorder?: string,
-  horizontalBorder?: string,
-  inactive?: string,
-  hover?: string,
-  btnColorHeader?: string,
-  btnColorSubheader?: string
+  subheader?: string;
+  text?: string;
+  verticalBorder?: string;
+  horizontalBorder?: string;
+  inactive?: string;
+  hover?: string;
+  btnColorHeader?: string;
+  btnColorSubheader?: string;
 }
 
 interface SohoPersonalizeStatic {
@@ -50,14 +51,12 @@ interface SohoPersonalizeStatic {
 
  /**
   * Sets the personalization color(s)
-  *
   * @param colors The original hex color as a string or an object with all the Colors
   */
-  setColors(colors: SohoPersonalizeColors | string);
+  setColors(colors: SohoPersonalizeColors | string): void;
 
   /**
    * Teardown - Remove added markup and events
-   * @returns {void}
    */
   destroy(): void;
 }

@@ -36,12 +36,6 @@ export class PersonalizeMenuComponent implements OnInit {
   public colorMenuItems: ColorMenuItem[];
 
   /**
-   * Default Color: this should really be based on the one selected in
-   * the IDS Enterprise component code.
-   */
-  private readonly DEFAULT_COLOR = '#2578a9';
-
-  /**
    * Default Theme: this should really be based on the one selected in
    * the IDS Enterprise component code.
    */
@@ -70,12 +64,11 @@ export class PersonalizeMenuComponent implements OnInit {
     const currentColor = this.personalize.colors = this.color;
 
     this.themeMenuItems = this.personalize.themes();
-    console.log(this.themeMenuItems);
     const personalizationColors = this.personalize.personalizationColors();
     this.colorMenuItems = Object.keys(personalizationColors).map(colorId => personalizationColors[colorId]);
 
     this.setSelectedTheme(currentTheme);
-    this.setSelectedColor(currentColor);
+    this.setSelectedColor(currentColor, false);
   }
 
   setSelectedTheme(themeId: string) {
@@ -85,16 +78,24 @@ export class PersonalizeMenuComponent implements OnInit {
     });
   }
 
-  setSelectedColor(color: string) {
+  setSelectedColor(color: string, isDefault: boolean) {
     // Make sure only the current color is marked as selected.
     this.colorMenuItems.forEach((colorMenuItem) => {
       // The color is appearing as a real rgb value, so need to
-      colorMenuItem.selected = (colorMenuItem.value === color);
+      colorMenuItem.selected = (!isDefault && colorMenuItem.value === color);
     });
   }
+
+  /**
+   * Returns the currently selected color to "default".
+   */
+  setSelectedColorToDefault() {
+    this.color = '';
+    this.setSelectedColor('', true);
+  }
+
   /**
    * Handle the theme change event, by setting it in local storage.
-   *
    * @todo may want to consider making the persistence of this
    * configurable, so we could use a state pattern.
    *
@@ -118,8 +119,8 @@ export class PersonalizeMenuComponent implements OnInit {
   public onChangeColors(ev: SohoChangeColorsPersonalizeEvent) {
     const colorHex = ev.data.colors;
     // Getting upper case colours and lower case colours, so assume lower.
-    this.color = (colorHex as string).toLowerCase();
-    this.setSelectedColor(this.color);
+    this.color = ev.data.isDefault ? '' : (colorHex as string).toLowerCase();
+    this.setSelectedColor(this.color, true);
   }
 
   /**
@@ -146,7 +147,7 @@ export class PersonalizeMenuComponent implements OnInit {
    */
   public get color(): string {
     const color = localStorage.getItem(this.IDS_ENTERPRISE_COLOR_KEY);
-    return color ? color : this.DEFAULT_COLOR;
+    return color ? color : '';
   }
 
   /**
@@ -154,6 +155,10 @@ export class PersonalizeMenuComponent implements OnInit {
    * sessions.
    */
   public set color(color: string) {
+    if (color === '') {
+      localStorage.removeItem(this.IDS_ENTERPRISE_COLOR_KEY);
+      return;
+    }
     localStorage.setItem(this.IDS_ENTERPRISE_COLOR_KEY, color);
   }
 }
