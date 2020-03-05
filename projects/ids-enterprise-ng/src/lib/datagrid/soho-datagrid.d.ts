@@ -261,6 +261,18 @@ interface SohoDataGridOptions {
   onExpandRow?: SohoDataGridExpandRowFunction;
 
   /**
+  * A callback function that fires when expanding children for treegrid.
+  * delay opening to adjust children or false to break it.
+  */
+  onExpandChildren?: SohoDataGridExpandChildrenFunction;
+
+  /**
+  * A callback function that fires when collapseing children for treegrid.
+  * delay opening to adjust children or false to break it.
+  */
+  onCollapseChildren?: SohoDataGridCollapseChildrenFunction;
+
+  /**
    * An empty message will be displayed when there are no rows in the grid.
    * This accepts an object of the form SohoEmptyMessageOptions, set
    * this to null for no message or it will default to 'No Data Found with an icon.'
@@ -410,6 +422,22 @@ interface SohoDataGridBeforeSelectFunction {
 
 type SohoDataGridBeforeSelectEventData = (
   node: JQuery, idx: number
+) => void;
+
+interface SohoDataGridExpandChildrenFunction {
+  eventData: SohoDataGridExpandChildrenEventData;
+}
+
+type SohoDataGridExpandChildrenEventData = (
+  grid: SohoDataGridStatic, row: number, item: JQuery, rowData: object
+) => void;
+
+interface SohoDataGridCollapseChildrenFunction {
+  eventData: SohoDataGridCollapseChildrenEventData;
+}
+
+type SohoDataGridCollapseChildrenEventData = (
+  grid: SohoDataGridStatic, row: number, item: JQuery, rowData: object
 ) => void;
 
 /**

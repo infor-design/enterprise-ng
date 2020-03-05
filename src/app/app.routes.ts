@@ -67,6 +67,7 @@ import { DataGridStandardFormatterDemoComponent } from './datagrid/datagrid-stan
 import { DataGridTabDemoComponent } from './datagrid/datagrid-tab.demo';
 import { DataGridTestSettingsDemoComponent } from './datagrid/datagrid-test-settings.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
+import { DataGridTreeGridLazyDemoComponent } from './datagrid/datagrid-treegrid-lazy.demo';
 import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagrid-treegrid-dynamicfiltering.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DonutDemoComponent } from './donut/donut.demo';
@@ -234,6 +235,7 @@ export const routes: Routes = [
   { path: 'datagrid-expandable-row', component: DataGridExpandableRowDemoComponent },
   { path: 'datagrid-standalone-pager', component: DatagridStandalonePagerDemoComponent },
   { path: 'datagrid-treegrid', component: DataGridTreeGridDemoComponent },
+  { path: 'datagrid-treegrid-lazy', component: DataGridTreeGridLazyDemoComponent },
   { path: 'datagrid-treegrid-cube', component: DataGridTreeGridCubeDemoComponent },
   { path: 'datagrid-treegrid-dynamicfilter', component: DatagridTreegridDynamicfilteringDemoComponent },
   { path: 'datagrid-tab', component: DataGridTabDemoComponent },

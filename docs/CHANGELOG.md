@@ -13,6 +13,7 @@
 
 ### 7.0.0 Features
 
+- `[Datagrid]` Added support for api setting on expand and collapse children. ([#3274](https://github.com/infor-design/enterprise/issues/3274))
 - `[General]` Upgraded @angular/cli (to 9.0.x) and @angular/core (to 9.0.x).  `BTHH` ([Pull Request 578](https://github.com/infor-design/enterprise-ng/pull/578))
     - support for Node 10.13.0+
     - support for TypeScript 3.6.x & 3.7.x
