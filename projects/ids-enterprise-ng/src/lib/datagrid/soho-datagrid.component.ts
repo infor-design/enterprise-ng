@@ -1926,6 +1926,36 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.onBeforeSelect;
   }
 
+  @Input() set onExpandChildren(expandChildrenFunction: SohoDataGridExpandChildrenFunction) {
+    this._gridOptions.onExpandChildren = expandChildrenFunction;
+    if (this.datagrid) {
+      this.datagrid.settings.onExpandChildren = expandChildrenFunction;
+      this.markForRefresh('onExpandChildren', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  get onExpandChildren(): SohoDataGridExpandChildrenFunction {
+    if (this.datagrid) {
+      return this.datagrid.settings.onExpandChildren;
+    }
+    return this._gridOptions.onExpandChildren;
+  }
+
+  @Input() set onCollapseChildren(collapseChildrenFunction: SohoDataGridCollapseChildrenFunction) {
+    this._gridOptions.onCollapseChildren = collapseChildrenFunction;
+    if (this.datagrid) {
+      this.datagrid.settings.onCollapseChildren = collapseChildrenFunction;
+      this.markForRefresh('onCollapseChildren', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  get onCollapseChildren(): SohoDataGridCollapseChildrenFunction {
+    if (this.datagrid) {
+      return this.datagrid.settings.onCollapseChildren;
+    }
+    return this._gridOptions.onCollapseChildren;
+  }
+
   /**
    * Event fired after edit mode is activated on an editor.
    * @param args the event arguments

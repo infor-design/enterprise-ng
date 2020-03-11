@@ -1,21 +1,21 @@
 ﻿import { Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { SohoDataGridComponent, SohoDataGridToggleRowEvent } from 'ids-enterprise-ng';
 import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
-import { DatagridTreegridServiceDemo } from './datagrid-treegrid-service.demo';
+import { DatagridTreegridLazyServiceDemo } from './datagrid-treegrid-lazy-service.demo';
 
 @Component({
-  selector: 'app-datagrid-treegrid-demo',
-  templateUrl: 'datagrid-treegrid.demo.html',
+  selector: 'app-datagrid-treegrid-lazy-demo',
+  templateUrl: 'datagrid-treegrid-lazy.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [DatagridTreegridServiceDemo]
+  providers: [DatagridTreegridLazyServiceDemo]
 })
-export class DataGridTreeGridDemoComponent {
+export class DataGridTreeGridLazyDemoComponent {
   @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
   @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
 
   events: any[] = [];
 
-  constructor(private treeService: DatagridTreegridServiceDemo) { }
+  constructor(private treeService: DatagridTreegridLazyServiceDemo) { }
 
   public get columns(): SohoDataGridColumn[] {
     return this.treeService.getColumns();
@@ -25,12 +25,24 @@ export class DataGridTreeGridDemoComponent {
     return this.treeService.getData();
   }
 
-  toggleFilterRow() {
-    this.dataGrid.toggleFilterRow();
-  }
+  onExpandChildren(args: any) {
+    console.log(args);
 
-  clearFilter() {
-    this.dataGrid.clearFilter();
+    const someData: any[] = [{
+      id: 215,
+      escalated: 0,
+      taskName: 'Follow up action with Residental Housing',
+      desc: 'Contact sales representative with the updated purchase order.',
+      comments: 2,
+      time: '22:10 PM'
+    }];
+    const promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        args.grid.addChildren(args.row, someData);
+        resolve();
+      }, 1000);
+    });
+    return promise;
   }
 
   onSelected(e: SohoDataGridSelectedEvent) {
@@ -53,16 +65,5 @@ export class DataGridTreeGridDemoComponent {
   onCollapseRow(e: SohoDataGridToggleRowEvent) {
     const descr = e.rowData.taskName;
     this.events.push({ name: 'collapserow', descr, date: new Date() });
-  }
-
-  makeChange() {
-    this.dataGrid.isList = !this.dataGrid.isList;
-    this.dataGrid.alternateRowShading = !this.dataGrid.alternateRowShading;
-    this.dataGrid.cellNavigation = !this.dataGrid.cellNavigation;
-  }
-
-  toggleSelectAll() {
-    this.dataGrid.showSelectAllCheckBox = !this.dataGrid.showSelectAllCheckBox;
-    console.log(`showSelectAllCheckBox=${this.dataGrid.showSelectAllCheckBox}`);
   }
 }

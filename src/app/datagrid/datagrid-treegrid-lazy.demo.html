@@ -1,0 +1,45 @@
+﻿﻿<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Data Grid - TreeGrid Lazy Loading</h2>
+  </div>
+  <div class="row">
+    <div class="twelve columns demo" role="main">
+      <section class="scrollable contained-scrolling-right-bottom height-100">
+        <div soho-datagrid
+             (selected)="onSelected($event)"
+             (expandrow)="onExpandRow($event)"
+             (collapserow)="onCollapseRow($event)"
+             selectable="multiple"
+             [onExpandChildren]="onExpandChildren"
+             [treeGrid]="true"
+             [columns]="columns"
+             [dataset]="data"
+             [showSelectAllCheckBox]="false"
+             [stretchColumn]="'desc'"
+             [toolbar]="{title: 'Tasks (Hierarchical)', results: true, personalize: true}"
+             [filterable]="true">
+        </div>
+      </section>
+    </div>
+  </div>
+  <br/>
+  <div class="row" style="display:none">
+    <div class="two-thirds column">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Control Events</h2>
+        </div>
+        <div class="card-content">
+          <soho-listview style="display:none">
+            <li soho-listview-item *ngFor="let event of events" [disabled]="true">
+              <p soho-listview-header>Event '{{event.name}}'</p>
+              <p soho-listview-subheader>{{event.descr}}</p>
+              <p soho-listview-micro>Fired: {{event.fired}}</p>
+            </li>
+          </soho-listview>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
