@@ -3,16 +3,14 @@ import {
   ElementRef,
   HostBinding,
   Input,
-  Renderer2
 } from '@angular/core';
 
 @Component({
-  selector: 'svg:use', // tslint:disable-line
+  selector: 'use', // tslint:disable-line
   template: ``
 })
 export class SohoIconUseComponent {
-  @HostBinding('attr.xmlns:xlink') xmlnsXlink = 'http://www.w3.org/1999/xlink';
-  @HostBinding('attr.xlink:href') get href(): string {
+  @HostBinding('attr.href') get href(): string {
     return '#' + this.icon;
   }
 
@@ -54,20 +52,19 @@ export class SohoIconComponent {
 
   constructor(
     private elementRef: ElementRef,
-    private renderer: Renderer2
   ) {}
 
   private setAlertIcon() {
     // This allows us to set a dynamic class to the class list
     // w/o overwriting other classes in the class list.
     if (this.alert && this.icon) {
-      this.renderer.addClass(this.elementRef.nativeElement, this.icon);
+      this.elementRef.nativeElement.classList.add(this.icon);
     }
   }
 
   private setExtraIconsClass() {
     if (this._extraIconClass) {
-      this.renderer.addClass(this.elementRef.nativeElement, this._extraIconClass);
+      this.elementRef.nativeElement.classList.add(this._extraIconClass);
     }
   }
 
