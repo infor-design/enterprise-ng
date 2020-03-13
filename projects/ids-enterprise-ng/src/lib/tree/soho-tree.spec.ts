@@ -28,10 +28,10 @@ describe('Soho Tree Unit Tests', () => {
   });
 
   it('Check Empty Content', () => {
-    expect(el.nodeName).toEqual('DIV');
-    // expect(el.id).toEqual('root1');
-    expect(el.hasAttribute('soho-tree')).toBeTruthy();
-    expect(el.classList).toContain('tree');
+    fixture.whenStable().then(() => {
+      expect(el.nodeName).toEqual('DIV');
+      expect(el.classList).toContain('tree');
+    });
   });
 
   it('Check default value of dataset is []', () => {
