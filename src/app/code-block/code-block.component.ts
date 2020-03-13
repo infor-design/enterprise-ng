@@ -20,7 +20,7 @@ import {
         <!--
         <button type="button" class="btn-icon hide-focus">
           <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-            <use xlink:href="#icon-launch"></use>
+            <use href="#icon-launch"></use>
           </svg>
           <span>Launch</span>
         </button>
@@ -40,7 +40,7 @@ import {
             aria-hidden="true"
             role="presentation"
           >
-            <use xlink:href="#icon-more"></use>
+            <use href="#icon-more"></use>
           </svg>
           <span>Launch</span>
         </button>

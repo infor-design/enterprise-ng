@@ -170,7 +170,7 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
   template: `
               <button class="btn-actions" type="button" [attr.disabled]="isDisabled ? 'disabled' : null">
                 <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-                  <use xlink:href="#icon-more"></use>
+                  <use href="#icon-more"></use>
                 </svg>
                 <span class="audible" data-translate="text">More</span>
               </button>

@@ -59,7 +59,7 @@ export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
            {{#menu}}
             <button class="btn-actions btn-icon" type="button" data-init="false" id="btn-{{id}}">
               <svg role="presentation" aria-hidden="true" focusable="false" class="icon">
-                <use xlink:href="#icon-more"></use>
+                <use href="#icon-more"></use>
               </svg>
               <span class="audible">More Info & Additional Actions</span>
             </button>
@@ -67,7 +67,7 @@ export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
           {{/menu}}
            <button class="btn btn-icon" type="button">
             <svg role="presentation" aria-hidden="true" focusable="false" class="icon">
-             <use xlink:href="#icon-caret-up"/>
+             <use href="#icon-caret-up"/>
             </svg>
             <span class="audible">Expand/Collapse</span>
            </button>
