@@ -177,7 +177,7 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
   template: `<button class="btn-actions" [ngClass]="{'page-changer': isPageChanger}"
                      type="button" [attr.disabled]="isDisabled ? 'disabled' : null">
     <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-      <use xlink:href="#icon-more"></use>
+      <use href="#icon-more"></use>
     </svg>
     <span class="audible">More Actions</span>
   </button>

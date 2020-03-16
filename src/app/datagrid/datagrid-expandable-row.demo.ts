@@ -16,7 +16,7 @@ const customErrorFormatter = function(row, cell, value, col, item, api) {
    value = `<svg class="icon datagrid-alert-icon icon-alert"
           style="height: 15px; margin-right: 6px; top: -2px; position: relative;"
           focusable="false" aria-hidden="true" role="presentation">
-          <use xlink:href="#icon-alert"></use>
+          <use href="#icon-alert"></use>
         </svg><span>${value}</span>`;
    return Soho.Formatters.Expander(row, cell, value, col, item, api);
 };
@@ -59,7 +59,7 @@ export class DataGridExpandableRowDemoComponent implements AfterViewChecked, OnI
         <div class="datagrid-cell-layout">
           <div class="img-placeholder">
             <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-              <use xlink:href="#icon-camera"></use>
+              <use href="#icon-camera"></use>
             </svg>
           </div>
         </div>

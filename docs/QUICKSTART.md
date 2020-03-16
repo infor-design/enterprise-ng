@@ -204,20 +204,6 @@ Add ```SohoComponentsModule``` to the imports.
 )}
 ```
 
-## Disable IVY
-
-The IVY compiler is not currently compatible with the SVG icons used by the applicationm, so for now disable the ivy compiler.
-
-Edit `tsconfig.json` and add `"enableIvy": false`, as follows:
-
-```json
-"angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true,
-    "enableIvy": false
-  }
-  ```
-
 ## Add a SoHoXi Component
 
 Add a button to `app.component.html`, by appending the following code snippet:

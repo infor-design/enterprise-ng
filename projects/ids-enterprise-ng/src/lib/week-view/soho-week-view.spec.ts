@@ -159,7 +159,7 @@ describe('Soho Week view Chart Render', () => {
     weekView = comp.weekView;
   });
 
-  it('Check HTML content', () => {
+  xit('Check HTML content', () => {
     comp.locale = 'en-US';
     comp.eventTypes = eventTypes;
     comp.events = events;
