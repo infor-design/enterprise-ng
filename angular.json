@@ -74,6 +74,9 @@
                     "maximumError": "10kb"
                   }
                 ]
+              },
+              "es5": {
+                "tsConfig": "tsconfig.es5.json"
               }
             }
           },
