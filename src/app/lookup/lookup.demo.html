@@ -264,8 +264,37 @@
             [dataset]="data_product"
             field="productId"
             name="product_custom_match" />
-
         </div>
+
+        <div class="field">
+          <label soho-label for="product_async">Products (Async Results) Multi Select</label>
+          <input soho-lookup
+            soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
+            [(ngModel)]="model.async"
+            [columns]="columns_product"
+            multiselect
+            [options]="{
+              allowSelectAcrossPages: true,
+              paging: true,
+              pagesize: 5,
+              pagesizes: [3, 5, 10, 15]
+            }"
+            [source]="source.bind(context)"
+            [toolbar]="{
+              results: true,
+              dateFilter: false,
+              keywordFilter: true,
+              advancedFilter: true,
+              actions: true,
+              views: true,
+              rowHeight: false,
+              collapsibleFilter: false,
+              fullWidth: true
+            }"
+            field="productId"
+            name="product_async_multi"/>
+        </div>
+
         </div>
       </div>
     </div>
