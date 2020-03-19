@@ -25,6 +25,12 @@
     - there are issues with the svg icons when ivy is enabled in the hosting application, (see ([Angular Issue](https://github.com/angular/angular/issues/34256))), so Ivy will need to be disabled at this time.
 - `[TextArea]` The text area will now grow on initial load and setting of data in the model. `TJM` ([#732](https://github.com/infor-design/enterprise-ng/issues/732]))
 
+## v6.5.1
+
+### 6.5.1 Fixes
+
+- `[General]` Adds 4.26.2 patch release. `TJM`
+
 ## v6.5.0
 
 ### 6.5.0 Fixes
