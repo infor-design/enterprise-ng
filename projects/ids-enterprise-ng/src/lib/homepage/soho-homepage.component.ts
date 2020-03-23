@@ -186,7 +186,7 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
         .on('resize', (e: JQuery.TriggeredEvent, columns: number, metadata: object) => this.onResize(columns, metadata))
         .on('resizecard', (e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onResizeCard(card, metadata))
         .on('reordercard', (e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onReorderCard(card, metadata))
-        .on('removecard', (e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onRemoveCard(card, metadata))
+        .on('removecard', (e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onRemoveCard(card, metadata));
     });
   }
 
