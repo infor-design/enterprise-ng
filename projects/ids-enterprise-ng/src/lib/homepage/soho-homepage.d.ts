@@ -80,3 +80,11 @@ interface SohoHomePageEvent {
   columns?: number;
   metadata?: object;
 }
+
+/**
+ * Soho Homepage Edit Event
+ */
+interface SohoHomePageEditEvent {
+  card?: JQuery;
+  metadata?: object;
+}
