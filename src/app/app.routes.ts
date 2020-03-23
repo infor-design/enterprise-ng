@@ -97,6 +97,7 @@ import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
 import { HierarchyDemoComponent } from './hierarchy/hierarchy.demo';
 import { HierarchyPagingDemoComponent } from './hierarchy/hierarchy-paging.demo';
 import { HomePageDemoComponent } from './homepage/homepage.demo';
+import { HomePageEditableDemoComponent } from './homepage/homepage-editable.demo';
 import { HomePageScenarioADemoComponent } from './homepage/homepage-scenario-a.demo';
 import { HomePageScenarioBDemoComponent } from './homepage/homepage-scenario-b.demo';
 import { HomePageScenarioCDemoComponent } from './homepage/homepage-scenario-c.demo';
@@ -279,6 +280,7 @@ export const routes: Routes = [
   { path: 'hierarchy', component: HierarchyDemoComponent },
   { path: 'hierarchy-paging', component: HierarchyPagingDemoComponent },
   { path: 'homepage', component: HomePageDemoComponent },
+  { path: 'homepage-editable', component: HomePageEditableDemoComponent },
   { path: 'homepage-scenario-a', component: HomePageScenarioADemoComponent },
   { path: 'homepage-scenario-b', component: HomePageScenarioBDemoComponent },
   { path: 'homepage-scenario-c', component: HomePageScenarioCDemoComponent },

@@ -134,6 +134,7 @@ import { HeaderToolbarDemoComponent } from './header/header-toolbar.demo';
 import { HierarchyDemoComponent } from './hierarchy/hierarchy.demo';
 import { HierarchyPagingDemoComponent } from './hierarchy/hierarchy-paging.demo';
 import { HomePageDemoComponent } from './homepage/homepage.demo';
+import { HomePageEditableDemoComponent } from './homepage/homepage-editable.demo';
 import { HomePageScenarioADemoComponent } from './homepage/homepage-scenario-a.demo';
 import { HomePageScenarioBDemoComponent } from './homepage/homepage-scenario-b.demo';
 import { HomePageScenarioCDemoComponent } from './homepage/homepage-scenario-c.demo';
@@ -339,6 +340,7 @@ import { WeekViewDemoComponent } from './week-view/week-view.demo';
     HierarchyDemoComponent,
     HierarchyPagingDemoComponent,
     HomePageDemoComponent,
+    HomePageEditableDemoComponent,
     HomePageScenarioADemoComponent,
     HomePageScenarioBDemoComponent,
     HomePageScenarioCDemoComponent,

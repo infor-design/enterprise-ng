@@ -1,7 +1,8 @@
 import {
   Component,
   HostBinding,
-  Input } from '@angular/core';
+  Input
+} from '@angular/core';
 
 export type WidgetSize = 'single' | 'double' | 'triple' | 'quad';
 
@@ -22,6 +23,11 @@ export class SohoWidgetComponent {
       tmp += this.widgetHeight + '-height';
     }
 
+    if (this.removable != null && this.removable !== true) {
+      tmp += tmp ? ' ' : '';
+      tmp += 'no-remove';
+    }
+
     return tmp;
   }
 
@@ -29,4 +35,5 @@ export class SohoWidgetComponent {
 
   @Input() widgetWidth: WidgetSize;
   @Input() widgetHeight: WidgetSize | 'auto';
+  @Input() removable: boolean;
 }
