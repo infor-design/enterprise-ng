@@ -27,12 +27,14 @@ export class HomePageEditableDemoComponent {
 
   // Use arrow function for proper resolution of this in the callback
   public onBeforeRemoveCard = (event) => {
-    var result = new Promise((resolve, reject) => {
+    const result = new Promise((resolve, reject) => {
       const buttons = [
         {
           text: 'Cancel', click: (e, modal) => {
             modal.close(true);
-            this.toastService.show({ draggable: true, title: 'Widget Remove Cancelled', message: 'The user cancelled the remove operation.' });
+            this.toastService.show({
+              draggable: true, title: 'Widget Remove Cancelled', message: 'The user cancelled the remove operation.'
+            });
             reject();
           }, isDefault: true
         },
