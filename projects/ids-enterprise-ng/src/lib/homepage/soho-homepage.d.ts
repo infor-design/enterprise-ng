@@ -27,6 +27,7 @@ interface SohoHomePageOptions {
   columns?: number;
   editing?: boolean;
   easing?: EasingType;
+  onBeforeRemoveCard?: SohoHomePageBeforeRemoveCardFunction;
 }
 
 /**
@@ -88,3 +89,7 @@ interface SohoHomePageEditEvent {
   card?: JQuery;
   metadata?: object;
 }
+
+type SohoHomePageBeforeRemoveCardFunction = null | Function;
+
+
