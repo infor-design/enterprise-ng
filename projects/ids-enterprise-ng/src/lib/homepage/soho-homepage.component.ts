@@ -21,6 +21,9 @@ import {
 export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
 
   @Output() resize = new EventEmitter<SohoHomePageEvent>();
+  @Output() resizecard = new EventEmitter<SohoHomePageEditEvent>();
+  @Output() reordercard = new EventEmitter<SohoHomePageEditEvent>();
+  @Output() removecard = new EventEmitter<SohoHomePageEditEvent>();
 
   @Input() set homePageOptions(homePageOptions: SohoHomePageOptions) {
     this._homePageOptions = homePageOptions;
@@ -83,6 +86,38 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
 
   get widgetHeight(): number {
     return this._homePageOptions.widgetHeight;
+  }
+
+  /**
+   * Set edit for rearranging/reordering cards.
+   */
+  @Input() set editing(editing: boolean) {
+    this._homePageOptions.editing = editing;
+    if (this.homepage) {
+      this.homepage.setEdit(editing);
+    }
+  }
+
+  get editing(): boolean {
+    return this._homePageOptions.editing;
+  }
+
+  /**
+   * Event fired before a card is removed
+   * @param beforeSelectFunction Function callback
+   */
+  @Input() set onBeforeRemoveCard(beforeSelectFunction: SohoHomePageBeforeRemoveCardFunction) {
+    this._homePageOptions.onBeforeRemoveCard = beforeSelectFunction;
+    if (this.homepage) {
+      this.homepage.settings.onBeforeRemoveCard = beforeSelectFunction;
+    }
+  }
+
+  get onBeforeRemoveCard(): SohoHomePageBeforeRemoveCardFunction {
+    if (this.homepage) {
+      return this.homepage.settings.onBeforeRemoveCard;
+    }
+    return this._homePageOptions.onBeforeRemoveCard;
   }
 
   /**
@@ -166,17 +201,50 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
       this.homepage = this.jQueryElement.data('homepage');
 
       this.jQueryElement
-        .on('resize', (e: JQuery.TriggeredEvent, columns: number, metadata: object ) => this.onResize(columns, metadata));
+        .on('resize', (e: JQuery.TriggeredEvent, columns: number, metadata: object) => this.onResize(columns, metadata))
+        .on('resizecard', (e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onResizeCard(card, metadata))
+        .on('reordercard', (e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onReorderCard(card, metadata))
+        .on('removecard', (e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onRemoveCard(card, metadata));
     });
   }
 
   onResize(columns: number, metadata: object) {
-    const event: SohoHomePageEvent = {columns: null, metadata: null};
+    const event: SohoHomePageEvent = { columns: null, metadata: null };
     event.columns = columns;
     event.metadata = metadata;
 
     this.ngZone.run(() => {
       this.resize.emit(event);
+    });
+  }
+
+  onResizeCard(card: JQuery, metadata: object) {
+    const event: SohoHomePageEditEvent = { card: null, metadata: null };
+    event.card = card;
+    event.metadata = metadata;
+
+    this.ngZone.run(() => {
+      this.resizecard.emit(event);
+    });
+  }
+
+  onReorderCard(card: JQuery, metadata: object) {
+    const event: SohoHomePageEditEvent = { card: null, metadata: null };
+    event.card = card;
+    event.metadata = metadata;
+
+    this.ngZone.run(() => {
+      this.reordercard.emit(event);
+    });
+  }
+
+  onRemoveCard(card: JQuery, metadata: object) {
+    const event: SohoHomePageEditEvent = { card: null, metadata: null };
+    event.card = card;
+    event.metadata = metadata;
+
+    this.ngZone.run(() => {
+      this.removecard.emit(event);
     });
   }
 

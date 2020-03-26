@@ -11,6 +11,8 @@ interface SohoHomePageResizeEvent {
   cols: number;
   containerHeight: number;
   matrix: any[];
+  blocks: any[];
+  editing: boolean;
 }
 
 /**
@@ -23,7 +25,9 @@ interface SohoHomePageOptions {
   animate?: boolean;
   timeout?: number;
   columns?: number;
+  editing?: boolean;
   easing?: EasingType;
+  onBeforeRemoveCard?: SohoHomePageBeforeRemoveCardFunction;
 }
 
 /**
@@ -45,6 +49,11 @@ interface SohoHomePageStatic {
   refresh(animate?: boolean): void;
 
   /**
+   * Set edit for rearranging/reordering cards.
+   */
+  setEdit(edit: boolean): void;
+
+  /**
    * Destroys any resources created by this control.
    */
   destroy(): void;
@@ -59,7 +68,10 @@ interface JQueryStatic {
 
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   homepage(options?: SohoHomePageOptions): JQuery;
-  on(events: 'resize',  handler: JQuery.EventHandlerBase<any, any[]>): this;
+  on(events: 'resize', handler: JQuery.EventHandlerBase<any, any[]>): this;
+  on(events: 'resizecard', handler: JQuery.EventHandlerBase<any, any[]>): this;
+  on(events: 'reordercard', handler: JQuery.EventHandlerBase<any, any[]>): this;
+  on(events: 'removecard', handler: JQuery.EventHandlerBase<any, any[]>): this;
 }
 
 /**
@@ -69,3 +81,15 @@ interface SohoHomePageEvent {
   columns?: number;
   metadata?: object;
 }
+
+/**
+ * Soho Homepage Edit Event
+ */
+interface SohoHomePageEditEvent {
+  card?: JQuery;
+  metadata?: object;
+}
+
+type SohoHomePageBeforeRemoveCardFunction = null | Function;
+
+
