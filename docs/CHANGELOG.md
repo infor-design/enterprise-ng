@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v6.6.0
+
+### 6.6.0 Fixes
+
+- `[General]` Adds 4.27.x release. `TJM`
+
 ## v6.5.1
 
 ### 6.5.1 Fixes
