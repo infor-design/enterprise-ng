@@ -182,6 +182,15 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
+  @Input() set rows(rows: SohoEditorRows) {
+    this.options.rows = rows;
+
+    if (this.editor) {
+      this.editor.settings.rows = rows;
+      this.markForRefresh();
+    }
+  }
+
   // -------------------------------------------
   // Component Output
   // -------------------------------------------

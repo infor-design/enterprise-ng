@@ -10,6 +10,11 @@ interface SohoEditorButtons {
   source: Array<any>;
 }
 
+interface SohoEditorRows {
+  editor: number;
+  source: number;
+}
+
 /**
  * Editor Options
  */
@@ -24,6 +29,7 @@ interface SohoEditorOptions {
   onLinkClick?: (e: JQuery.TriggeredEvent, elem: any) => void;
   showHtmlView?: boolean;
   preview?: boolean;
+  rows?: SohoEditorRows;
 }
 
 interface SohoEditorAnchor {
