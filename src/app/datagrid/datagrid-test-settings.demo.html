@@ -74,7 +74,10 @@
         (selected)="onSelected($event)"
         columnReorder="true"
         filterable="true"
-        [toolbar]="true"
+        [toolbar]="{
+          results: true,
+          keywordFilter: true
+        }"
         [saveUserSettings]="{
           columns: true,
           rowHeight: true,
