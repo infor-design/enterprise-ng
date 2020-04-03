@@ -169,7 +169,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
       this.jQueryElement.find('.js-step-link-next').html(label);
     }
   }
-  
+
   @Input() set previousButtonLabel(label: string) {
     if (this.jQueryElement) {
       this.jQueryElement.find('.js-step-link-prev').html(label);
