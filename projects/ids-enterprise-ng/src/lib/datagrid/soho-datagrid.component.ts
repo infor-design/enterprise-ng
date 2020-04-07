@@ -1045,6 +1045,18 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * If true, hides the pager if there's only one page worth of results.
+   */
+  @Input() set hidePagerOnOnePage(hidePagerOnOnePage: boolean) {
+    this._gridOptions.hidePagerOnOnePage = hidePagerOnOnePage;
+    if (this.jQueryElement) {
+      this.datagrid.settings.hidePagerOnOnePage = hidePagerOnOnePage;
+
+      this.markForRefresh('hidePagerOnOnePage', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
    * The column groups
    *
    * As this method can be called before the control is
