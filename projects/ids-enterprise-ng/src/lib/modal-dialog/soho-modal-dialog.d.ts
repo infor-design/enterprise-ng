@@ -76,7 +76,16 @@ interface SohoModalOptions {
   beforeShow?: any;
 
   /** Center the title of the dialog. */
-  centerTitle?: boolean
+  centerTitle?: boolean;
+
+  /** Adds the ability to control the opacity of the background overlay. **/
+  overlayOpacity?: number;
+
+  /** If true, causes the modal's trigger element not to become focused once the modal is closed. **/
+  noRefocus?: boolean;
+
+  /** The modal's trigger element to keep refocused once the modal is closed.  **/
+  triggerButton?: any;
 }
 
 type SohoModalFullSize = false | 'responsive' | 'always';

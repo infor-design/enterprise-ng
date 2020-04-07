@@ -82,14 +82,60 @@ export class SohoModalDialogRef<T> {
 
   /**
    * Sets the frame height for the dialog.
-   *
    * @param frameHeight - the extra frame height to allow.
    */
   frameHeight(frameHeight: number): SohoModalDialogRef<T> {
     this._options.frameHeight = frameHeight;
     if (this.modal) {
       this.modal.settings.frameHeight = frameHeight;
-      // @todo - need an api on modal to update settings.
+    }
+    return this;
+  }
+
+  /**
+   * Sets the frame width for the dialog.
+   * @param frameWidth - the extra frame width to allow.
+   */
+  frameWidth(frameWidth: number): SohoModalDialogRef<T> {
+    this._options.frameWidth = frameWidth;
+    if (this.modal) {
+      this.modal.settings.frameWidth = frameWidth;
+    }
+    return this;
+  }
+
+  /**
+   * A call back function that can be used to return data for the modal. This is the callback form of the before show event.
+   * @param beforeShow - The callback function
+   */
+  beforeShow(beforeShow: any): SohoModalDialogRef<T> {
+    this._options.beforeShow = beforeShow;
+    if (this.modal) {
+      this.modal.settings.beforeShow = beforeShow;
+    }
+    return this;
+  }
+
+  /**
+   * If true, show a close icon button on the top right of the modal.
+   * @param showCloseBtn - if true the x will be shown.
+   */
+  showCloseBtn(showCloseBtn: boolean): SohoModalDialogRef<T> {
+    this._options.showCloseBtn = showCloseBtn;
+    if (this.modal) {
+      this.modal.settings.showCloseBtn = showCloseBtn;
+    }
+    return this;
+  }
+
+  /**
+   * Optional max width to add in pixels.
+   * @param maxWidth - The width in pixels
+   */
+  maxWidth(maxWidth: number): SohoModalDialogRef<T> {
+    this.modal.settings.maxWidth = maxWidth;
+    if (this.modal) {
+      this.modal.settings.maxWidth = maxWidth;
     }
     return this;
   }
@@ -184,6 +230,42 @@ export class SohoModalDialogRef<T> {
     this._options.breakpoint = breakpoint;
     if (this.modal) {
       this.modal.settings.breakpoint = breakpoint;
+    }
+    return this;
+  }
+
+  /**
+   * Controls the opacity of the background overlay.
+   * @param overlayOpacity - The percent between 0 and 1 of opacity to use.
+   */
+  overlayOpacity(overlayOpacity: number): SohoModalDialogRef<T> {
+    this._options.overlayOpacity = overlayOpacity;
+    if (this.modal) {
+      this.modal.settings.overlayOpacity = overlayOpacity;
+    }
+    return this;
+  }
+
+  /**
+   * If true, causes the modal's trigger element not to become focused once the modal is closed.
+   * @param noRefocus - If true, refocus
+   */
+  noRefocus(noRefocus: boolean): SohoModalDialogRef<T> {
+    this._options.noRefocus = noRefocus;
+    if (this.modal) {
+      this.modal.settings.noRefocus = noRefocus;
+    }
+    return this;
+  }
+
+  /**
+   * The modal's trigger element to keep refocused once the modal is closed. This can be html or jquery object or query selector as string.
+   * @param triggerButton - The element (for example a button) to refocus on close.
+   */
+  triggerButton(triggerButton: boolean): SohoModalDialogRef<T> {
+    this._options.triggerButton = triggerButton;
+    if (this.modal) {
+      this.modal.settings.triggerButton = triggerButton;
     }
     return this;
   }
