@@ -17,12 +17,12 @@ import { FullSizeModalDialogComponent } from './example-fullsize-modal.component
 
 @NgModule({
   declarations: [
+    FullSizeModalDialogComponent,
     NestedModalDialogComponent,
     ExampleModalDialogComponent,
     ModalDialogDemoComponent,
     VetoableModalDialogComponent,
-    ModalDialogDataGridComponent,
-    FullSizeModalDialogComponent
+    ModalDialogDataGridComponent
   ],
   exports: [
   ],
@@ -37,11 +37,11 @@ import { FullSizeModalDialogComponent } from './example-fullsize-modal.component
   ],
   entryComponents: [
     // You need to add any 'dynamic' components to the entry components otherwise the factory can't find them.
+    FullSizeModalDialogComponent,
     ExampleModalDialogComponent,
     NestedModalDialogComponent,
     VetoableModalDialogComponent,
-    ModalDialogDataGridComponent,
-    FullSizeModalDialogComponent
+    ModalDialogDataGridComponent
   ],
 })
 export class ModalDialogDemoModule { }
