@@ -1,9 +1,10 @@
 /// <reference path="soho-modal-dialog.d.ts" />
 
-import { ComponentRef, NgZone, ApplicationRef, ComponentFactoryResolver, Injector } from '@angular/core';
-import { Subject } from 'rxjs';
+import { ComponentRef, NgZone, ApplicationRef, ComponentFactoryResolver, Injector, ViewContainerRef } from '@angular/core';
+import { Subject, Subscription } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ComponentType } from '.';
+import { Router, NavigationEnd } from '@angular/router';
 
 /**
  * Wrapper for the jQuery modal control.
@@ -263,21 +264,45 @@ export class SohoModalDialogRef<T> {
    * @paran appRef - application reference used to insert the component.
    */
   constructor(
+    route: Router,
     private appRef: ApplicationRef,
     componentFactoryResolver: ComponentFactoryResolver,
     private injector: Injector,
     private ngZone: NgZone,
     settings: SohoModalOptions,
-    modalComponent?: ComponentType<T>) {
+    modalComponent?: ComponentType<T>,
+    parent?: ViewContainerRef,
+  ) {
     this.options(settings);
 
     if (modalComponent) {
-      this.componentRef = componentFactoryResolver
-        .resolveComponentFactory(modalComponent)
-        .create(this.injector);
+      const factory = componentFactoryResolver.resolveComponentFactory(modalComponent);
+
+      if (parent) {
+        this.componentRef = parent.createComponent(factory);
+      } else {
+        this.componentRef = factory.create(this.injector);
+        appRef.attachView(this.componentRef.hostView);
+      }
+
+      this.componentRef.onDestroy(() => {
+        console.log(`onDestroy of component called ${this.componentRef}`);
+        this.close();
+      });
+
+      route.events
+        .pipe(takeUntil(this.destroyed$))
+        .subscribe(e => {
+          if (e instanceof NavigationEnd) {
+            console.log(`NavigationEnd`);
+            this.modal.destroy();
+            this.componentRef.destroy();
+            this.close();
+          }
+        });
+
       this.eventGuard = this.componentRef.instance;
-      // Attach
-      appRef.attachView(this.componentRef.hostView);
+
       this._options.content = jQuery(this.componentRef.location.nativeElement);
     }
   }

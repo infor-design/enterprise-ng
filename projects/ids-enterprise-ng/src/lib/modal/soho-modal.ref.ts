@@ -220,20 +220,25 @@ export class SohoModalRef<T> {
 
   constructor(
     private appRef: ApplicationRef,
-    private componentFactoryResolver: ComponentFactoryResolver,
+    componentFactoryResolver: ComponentFactoryResolver,
     private injector: Injector,
     private ngZone: NgZone,
-    private settings: SohoModalOptions,
-    private modalComponent?: ModalComponent<T>
-  ) {
+    settings: SohoModalOptions,
+    modalComponent?: ModalComponent<T>) {
     this.options(settings);
 
     if (modalComponent) {
+
       // create component
       this.componentRef = componentFactoryResolver
         .resolveComponentFactory(modalComponent)
         .create(this.injector);
+
       appRef.attachView(this.componentRef.hostView);
+
+      this.componentRef.onDestroy(() => {
+        this.close();
+      });
 
       // set modal content
       this._options.content = jQuery(this.componentRef.location.nativeElement);

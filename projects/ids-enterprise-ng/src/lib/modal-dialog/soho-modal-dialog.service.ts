@@ -11,6 +11,7 @@ import {
 
 import { ArgumentHelper } from '../utils/argument.helper';
 import { SohoModalDialogRef } from './soho-modal-dialog.ref';
+import { Router } from '@angular/router';
 
 /**
  * This service is used to create a modal dialog, based on the content
@@ -25,12 +26,14 @@ export class SohoModalDialogService {
    * @param componentFactoryResolver - used to create component factories for components dynamically.
    * @param injector - the current in scope injector, use as a delegate.
    * @param ngZone - the angular zone; must not be null.
+   * @router
    */
   constructor(
     private readonly appRef: ApplicationRef,
     private readonly componentFactoryResolver: ComponentFactoryResolver,
     private readonly injector: Injector,
-    private readonly ngZone: NgZone) {
+    private readonly ngZone: NgZone,
+    private readonly router: Router) {
   }
 
   /**
@@ -55,7 +58,7 @@ export class SohoModalDialogService {
     options = options || {};
 
     return new SohoModalDialogRef<T>(
-      this.appRef, this.componentFactoryResolver, this.injector, this.ngZone, options, component);
+      this.router, this.appRef, this.componentFactoryResolver, this.injector, this.ngZone, options, component, parent);
   }
 
   /**
@@ -71,7 +74,7 @@ export class SohoModalDialogService {
 
     // Without a component, there is no destroy callback to ensure
     // the dialog's markup is removed.
-    return new SohoModalDialogRef<T>(this.appRef, this.componentFactoryResolver, this.injector, this.ngZone, settings);
+    return new SohoModalDialogRef<T>(this.router, this.appRef, this.componentFactoryResolver, this.injector, this.ngZone, settings);
   }
 }
 
