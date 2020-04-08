@@ -6,8 +6,9 @@ import {
   NgZone
 } from '@angular/core';
 import { fromEvent, Observable, Subject } from 'rxjs';
-import { map, tap, take, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { ModalComponent } from './soho-modal.service';
+import { Router, NavigationEnd } from '@angular/router';
 
 /**
  * Modal reference object which gives you control over the jQuery modal.
@@ -219,6 +220,7 @@ export class SohoModalRef<T> {
   }
 
   constructor(
+    router: Router,
     private appRef: ApplicationRef,
     componentFactoryResolver: ComponentFactoryResolver,
     private injector: Injector,
@@ -239,6 +241,14 @@ export class SohoModalRef<T> {
       this.componentRef.onDestroy(() => {
         this.close();
       });
+
+      router.events
+        .pipe(takeUntil(this.destroyed$))
+        .subscribe(e => {
+          if (e instanceof NavigationEnd) {
+            this.componentRef.destroy();
+          }
+        });
 
       // set modal content
       this._options.content = jQuery(this.componentRef.location.nativeElement);

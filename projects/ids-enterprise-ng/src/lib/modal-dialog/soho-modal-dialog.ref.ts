@@ -264,40 +264,36 @@ export class SohoModalDialogRef<T> {
    * @paran appRef - application reference used to insert the component.
    */
   constructor(
-    route: Router,
+    router: Router,
     private appRef: ApplicationRef,
     componentFactoryResolver: ComponentFactoryResolver,
     private injector: Injector,
     private ngZone: NgZone,
     settings: SohoModalOptions,
     modalComponent?: ComponentType<T>,
-    parent?: ViewContainerRef,
-  ) {
+    parent?: ViewContainerRef) {
     this.options(settings);
 
     if (modalComponent) {
-      const factory = componentFactoryResolver.resolveComponentFactory(modalComponent);
 
-      if (parent) {
-        this.componentRef = parent.createComponent(factory);
-      } else {
-        this.componentRef = factory.create(this.injector);
-        appRef.attachView(this.componentRef.hostView);
-      }
+      // Create component
+      this.componentRef = componentFactoryResolver
+        .resolveComponentFactory(modalComponent)
+        .create(this.injector);
+
+      appRef.attachView(this.componentRef.hostView);
 
       this.componentRef.onDestroy(() => {
-        console.log(`onDestroy of component called ${this.componentRef}`);
+        console.log(`componentRef.onDestroy of component called ${this.componentRef}`);
         this.close();
       });
 
-      route.events
+      router.events
         .pipe(takeUntil(this.destroyed$))
         .subscribe(e => {
           if (e instanceof NavigationEnd) {
             console.log(`NavigationEnd`);
-            this.modal.destroy();
             this.componentRef.destroy();
-            this.close();
           }
         });
 
@@ -513,6 +509,8 @@ export class SohoModalDialogRef<T> {
         // Tidy up all subscriptions.
         this.destroyed$.next();
         this.destroyed$.complete();
+
+        console.log(`onBeforeDestroy - published destroy event`);
 
         // Clean up references
         this.eventGuard = null;
