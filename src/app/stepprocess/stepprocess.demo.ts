@@ -1,12 +1,11 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { SohoStepProcessComponent } from 'ids-enterprise-ng';
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-stepprocess-demo',
   templateUrl: 'stepprocess.demo.html'
 })
 export class StepProcessDemoComponent {
-  nextLabel = "NEXT";
-  previousLabel = "PREVIOUS";
+  nextLabel = 'NEXT';
+  previousLabel = 'PREVIOUS';
 
   onSaveClose(event: SohoStepSaveCloseEvent) {
     console.log('onSaveClose fired');
