@@ -14,6 +14,25 @@ interface SohoPopDownOptions {
    */
   keepOpen?: boolean;
 
+  /**
+   * If defined, provides a way to place the popdown against an alternate element.
+   */
+  trigger?: any;
+
+  /**
+   * If true, when the popdown is opened, the first available input/button in its content area will be focused.
+   */
+  autoFocus?: boolean;
+
+  /**
+   * If true, popdown will be toggle soon focused on the popdown trigger.
+   */
+  toggleOnFocus?: boolean;
+
+  /**
+   * Hook to work with tabbing in and out of the popdown.
+   */
+  firstLastTab?: any;
 }
 
 interface SohoPopDownStatic {
@@ -31,6 +50,9 @@ interface SohoPopDownStatic {
 
   /** Destroy the markup and any other resources.  */
   destroy(): void;
+
+  /** Returns whether or not the popdown is open.  */
+  isOpen(): boolean;
 
   /** Open the popdown*/
   open(): void;

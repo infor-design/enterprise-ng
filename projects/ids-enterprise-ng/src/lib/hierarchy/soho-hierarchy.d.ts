@@ -19,19 +19,9 @@ interface SohoHierarchyOptions {
   dataset?: Array<any>;
   newData?: Array<any>;
   templateId?: string;
-
-  /**
-   * @deprecated use layout = 'mobileOnly' instead.
-   */
-  mobileView?: boolean;
   legend?: Array<SohoHierarchyLegend>;
   legendKey?: string;
   beforeExpand?: Function;
-
-  /**
-   * @deprecated use layout = 'paging' instead.
-   */
-  paging?: boolean;
   layout?: SohoHierarchyLayoutType;
 }
 
