@@ -20,7 +20,8 @@ export class TreeContentDemoComponent implements OnInit {
   selected: SohoTreeNode;
 
   ngOnInit(): void {
-    this.tree.options.menuId = 'tree-popupmenu';
+    // Can also set options here as well as in the inputs
+    // this.tree.options.menuId = 'tree-popupmenu';
   }
 
   constructor(private el: ElementRef) {
