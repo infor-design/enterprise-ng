@@ -1,7 +1,7 @@
 /// <reference path="soho-modal-dialog.d.ts" />
 
 import { ComponentRef, NgZone, ApplicationRef, ComponentFactoryResolver, Injector, ViewContainerRef } from '@angular/core';
-import { Subject, Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ComponentType } from '.';
 import { Router, NavigationEnd } from '@angular/router';
@@ -270,8 +270,7 @@ export class SohoModalDialogRef<T> {
     private injector: Injector,
     private ngZone: NgZone,
     settings: SohoModalOptions,
-    modalComponent?: ComponentType<T>,
-    parent?: ViewContainerRef) {
+    modalComponent?: ComponentType<T>) {
     this.options(settings);
 
     if (modalComponent) {
@@ -284,19 +283,20 @@ export class SohoModalDialogRef<T> {
       appRef.attachView(this.componentRef.hostView);
 
       this.componentRef.onDestroy(() => {
-        console.log(`componentRef.onDestroy of component called ${this.componentRef}`);
         this.close();
       });
 
+      // Add a subscription to the router to remove
+      // the dialog when the user navigates.
       router.events
         .pipe(takeUntil(this.destroyed$))
         .subscribe(e => {
           if (e instanceof NavigationEnd) {
-            console.log(`NavigationEnd`);
             this.componentRef.destroy();
           }
         });
 
+      // Initialise the event guart
       this.eventGuard = this.componentRef.instance;
 
       this._options.content = jQuery(this.componentRef.location.nativeElement);
