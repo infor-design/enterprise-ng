@@ -299,7 +299,10 @@ export class SohoModalDialogRef<T> {
 
       appRef.attachView(this.componentRef.hostView);
 
+      // Handle angular closing the component by closing the corresponding dialog.
       this.componentRef.onDestroy(() => {
+        // Disable the beforeClose veto capability when navigating.
+        this.eventGuard.beforeClose = null;
         this.close();
       });
 
@@ -315,6 +318,8 @@ export class SohoModalDialogRef<T> {
       .pipe(takeUntil(this.destroyed$))
       .subscribe(e => {
         if (this._closeOnNavigation && e instanceof NavigationEnd) {
+          // Disable the beforeClose veto capability when navigating.
+          this.eventGuard.beforeClose = null;
           if (this.modal) {
             this.modal.close(true);
           }

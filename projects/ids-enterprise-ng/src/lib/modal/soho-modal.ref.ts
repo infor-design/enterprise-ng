@@ -238,21 +238,23 @@ export class SohoModalRef<T> {
 
       appRef.attachView(this.componentRef.hostView);
 
+      // Handle angular closing the component by closing the corresponding dialog.
       this.componentRef.onDestroy(() => {
         this.close();
       });
 
-      router.events
-        .pipe(takeUntil(this.destroyed$))
-        .subscribe(e => {
-          if (e instanceof NavigationEnd) {
-            this.componentRef.destroy();
-          }
-        });
-
       // set modal content
       this._options.content = jQuery(this.componentRef.location.nativeElement);
     }
+
+    // Handle navigating, which should close the dialog too.
+    router.events
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(e => {
+        if (e instanceof NavigationEnd) {
+          this.componentRef.destroy();
+        }
+      });
   }
 
   /**

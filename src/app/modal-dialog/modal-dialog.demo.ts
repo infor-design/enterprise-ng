@@ -107,6 +107,8 @@ export class ModalDialogDemoComponent {
           { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
           { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }
         ])
+
+      // Don't close this dialog on navigation
       .closeOnNavigation(false)
       .title(this.title)
       .isAlert(this.isAlert)
