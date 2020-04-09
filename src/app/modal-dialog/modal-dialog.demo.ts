@@ -107,6 +107,7 @@ export class ModalDialogDemoComponent {
           { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
           { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }
         ])
+      .closeOnNavigation(false)
       .title(this.title)
       .isAlert(this.isAlert)
       .apply((dialogComponent) => { dialogComponent.model.header = 'Header Text Update!!'; })

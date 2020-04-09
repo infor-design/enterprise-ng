@@ -13,7 +13,7 @@
 - `[Personalize]` Fixed errors and updated the theme and variant switcher to have several submenus.   `TJM/BTHH` ([Pull Request 745](https://github.com/infor-design/enterprise-ng/pull/745))
 - `[Personalize]` Fixed a problem reseting the color to default and reloading the page.   `TJMH` ([Pull Request 751](https://github.com/infor-design/enterprise-ng/pull/751))
 - `[FileUploadAdvanced]` - Added `errorMaxFilesInProcess` and `errorMaxFileSize` inputs to component, and added zone compatibility.  `BTHH` ([Pull Request XXX](https://github.com/infor-design/enterprise-ng/pull/XXX))
-- `[ModalDialog]` - Modal dialogs are now closed when changing a navigation route. `BTHH` ([Pull Request 784](https://github.com/infor-design/enterprise-ng/pull/784))
+- `[ModalDialog]` - Modal dialogs can now be optionally closed when navigating. `BTHH` ([Pull Request 784](https://github.com/infor-design/enterprise-ng/pull/784))
 
 ### 7.0.0 Features
 
