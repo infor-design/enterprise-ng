@@ -108,13 +108,21 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     return this.options.selectable;
   }
 
-  /** Show selection checkboxes? */
+  /** Show/hide selection checkboxe */
   @Input() set hideCheckboxes(hideCheckboxes: boolean) {
     this.options.hideCheckboxes = hideCheckboxes;
     if (this.tree) {
       this.tree.settings.hideCheckboxes = hideCheckboxes;
       // @todo - make tree updatable when settings change,
       // this.tree.updated();
+    }
+  }
+
+  /** Show a menu when selected */
+  @Input() set menuId(menuId: string) {
+    this.options.menuId = menuId;
+    if (this.tree) {
+      this.tree.settings.menuId = menuId;
     }
   }
 
