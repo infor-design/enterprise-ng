@@ -99,6 +99,11 @@ export class ModalDialogDemoComponent {
     this.dialogRef = null;
   }
 
+  destroyModalDialog() {
+    this.dialogRef.destroy();
+    this.dialogRef = null;
+  }
+
   openFullSize() {
     const dialogRef = this.modalService
       .modal<FullSizeModalDialogComponent>(FullSizeModalDialogComponent, this.placeholder)
