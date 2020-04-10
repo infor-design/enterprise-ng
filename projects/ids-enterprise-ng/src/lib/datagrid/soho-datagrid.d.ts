@@ -116,7 +116,7 @@ interface SohoDataGridOptions {
   rowHeight?: SohoDataGridRowHeight;
 
   /** Sets the height of the row to something other then the three built in rowHeights. */
-  fixedRowHeight?: number;
+  fixedRowHeight?: number | string | Function;
 
   /** Sets the select-ability for the datagrid. */
   selectable?: SohoDataGridSelectable;

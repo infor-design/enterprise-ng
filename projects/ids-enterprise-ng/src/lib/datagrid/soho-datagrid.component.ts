@@ -507,9 +507,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * Sets the height of the row to something other then the three built in rowHeights.
    *
-   * @param fixedRowHeight Any integer
+   * @param fixedRowHeight A number, string or function.
    */
-  @Input() set fixedRowHeight(fixedRowHeight: number) {
+  @Input() set fixedRowHeight(fixedRowHeight: number | string | Function) {
     this._gridOptions.fixedRowHeight = fixedRowHeight;
     if (this.jQueryElement) {
       this.datagrid.settings.fixedRowHeight = fixedRowHeight;
