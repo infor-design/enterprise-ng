@@ -119,6 +119,11 @@ interface SohoDropDownOptions {
   showSelectAll?: boolean;
 
   /**
+   * Show the selected text items as tags.
+   */
+  showTags?: boolean;
+
+  /**
    * Allows you to hook into the onKeyDown.
    * If you do you can access the keydown event data.
    * And optionally return false to cancel the keyDown action.

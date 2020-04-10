@@ -22,8 +22,8 @@
     <ng-content select='div[soho-step-content-title]'></ng-content>
 
     <div class="actions phone-hidden">
-      <button soho-button='tertiary' class="btn-tertiary js-step-link-prev">Previous</button>
-      <button soho-button='tertiary' class="btn-tertiary js-step-link-next">Next</button>
+      <button soho-button='tertiary' class="btn-tertiary js-step-link-prev">{{previousButtonLabel}}</button>
+      <button soho-button='tertiary' class="btn-tertiary js-step-link-next">{{nextButtonLabel}}</button>
     </div>
   </div>
 
@@ -31,6 +31,6 @@
   <ng-content select="div[soho-step-content]"></ng-content>
     <div class="phone-action-bar phone-visible">
       <button soho-button="secondary" class="btn btn-secondary js-btn-save-changes">Save &amp; Close</button>
-      <button soho-button="primary" class="btn btn-primary js-step-link-next">Next</button>
+      <button soho-button="primary" class="btn btn-primary js-step-link-next">{{nextButtonLabel}}</button>
     </div>
 </div>

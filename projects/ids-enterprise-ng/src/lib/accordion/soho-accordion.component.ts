@@ -125,6 +125,20 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   }
 
   /**
+   * Changes the iconography used in accordion header expander buttons.
+   */
+  @Input() public set expanderDisplay(expanderDisplay: SohoAccordionExpanderType) {
+    this.options.expanderDisplay = typeof (expanderDisplay) === 'boolean' && expanderDisplay;
+    if (this.accordion) {
+      this.accordion.settings.expanderDisplay = this.options.expanderDisplay;
+      this.markForUpdate();
+    }
+  }
+  public get expanderDisplay() {
+    return this.options.expanderDisplay;
+  }
+
+  /**
    * Can be set to false if routing is externally handled, otherwise
    * links are handled normally.
    *
