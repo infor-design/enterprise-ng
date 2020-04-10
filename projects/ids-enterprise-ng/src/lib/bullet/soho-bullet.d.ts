@@ -5,6 +5,16 @@
  * interface of the Soho jQuery Bullet control.
  */
 
+interface SohoBulletFormatFunction {
+  d?: any;
+  i?: number;
+}
+
+interface SohoBulletFormatOptions {
+  ranges?: SohoBulletFormatFunction;
+  difference?: SohoBulletFormatFunction;
+}
+
 /**
  * Bullet Options
  */
@@ -20,6 +30,8 @@ interface SohoBulletOptions {
 
   /** If true, the component will not resize when resizing the page. */
   redrawOnResize?: boolean;
+
+  format?: SohoBulletFormatOptions;
 }
 
 interface SohoDatasetOptions {

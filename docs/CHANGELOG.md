@@ -5,6 +5,9 @@
 ### 7.0.0 Fixes
 
 - `[General]` Enabled Ivy with NG 9.0.  `BTHH` ([Issue #586](https://github.com/infor-design/enterprise-ng/issues/586))
+- `[General]` Added numerous missing settings from 4.23 to 4.27.  `TJM` ([Pull Request 743](https://github.com/infor-design/enterprise-ng/pull/743))
+- `[Datagrid]` Added missing showNewRowIndicator setting.  `TJM` ([Issue #430](https://github.com/infor-design/enterprise-ng/issues/430))
+- `[Popdown]` Added missing isOpen method.  `TJM` ([Issue #698](https://github.com/infor-design/enterprise-ng/issues/698))
 - `[DataGrid]` Added missing and/or fixed methods `validateAll`, `validateRow`, and `showRowError`.  `TJM` ([Issue #704](https://github.com/infor-design/enterprise-ng/issues/704))
 - `[DataGrid]` Added `showSelectAllCheckBox` option.  `BTHH` ([Pull Request 740](https://github.com/infor-design/enterprise-ng/pull/740))
 - `[DataGrid]` Added `hidePagerOnOnePage` input.  `TJM` ([Issue #771](https://github.com/infor-design/enterprise-ng/issues/771))

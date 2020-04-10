@@ -11,8 +11,8 @@
  * Possible row height options.
  */
 type SohoDataGridRowHeight = 'short' | 'medium' | 'normal';
-
 type SohoDataGridTextAlign = 'left' | 'center' | 'right';
+type SohoDataGridResizeMode = 'flex' | 'fit';
 
 /**
  * Selection options.
@@ -116,7 +116,7 @@ interface SohoDataGridOptions {
   rowHeight?: SohoDataGridRowHeight;
 
   /** Sets the height of the row to something other then the three built in rowHeights. */
-  fixedRowHeight?: number;
+  fixedRowHeight?: number | string | Function;
 
   /** Sets the select-ability for the datagrid. */
   selectable?: SohoDataGridSelectable;
@@ -183,6 +183,9 @@ interface SohoDataGridOptions {
 
   /**  If true the dirty indicator will be shown on the rows when they change */
   showDirty?: boolean;
+
+  /**  Changes the column resize behavior. */
+  resizeMode?: SohoDataGridResizeMode;
 
   /** Allow to hide the checkbox header (true to show, false to hide) */
   showSelectAllCheckBox?: boolean;
@@ -298,6 +301,11 @@ interface SohoDataGridOptions {
   allowSelectAcrossPages?: boolean;
 
   /**
+   * If true, the new row indicator will display after adding a row
+   */
+  showNewRowIndicator?: boolean;
+
+  /**
    * if true:
    * and if only parent got match then add all children nodes too
    * or if one or more child node got match then add parent node and all the children nodes
@@ -346,6 +354,7 @@ interface SohoDataGridSourceRequest extends SohoPagerPagingInfo {
   sortAsc?: boolean;
   sortField?: string;
   sortId?: string;
+  filterType?: string;
 }
 
 /**
@@ -1286,6 +1295,11 @@ interface SohoDataGridSettingsChangedEvent {
   filter?: Array<SohoDataGridFilterCondition>;
 }
 
+interface SohoDataGridToolbarFilterRowOptions {
+  showFilter?: boolean;
+  clearFilter?: boolean;
+}
+
 /**
  * Move to toolbar!
  */
@@ -1294,7 +1308,7 @@ interface SohoToolbarOptions {
   advancedFilter?: boolean;
   collapsibleFilter?: boolean;
   dateFilter?: boolean;
-  filterRow?: boolean;
+  filterRow?: boolean | SohoDataGridToolbarFilterRowOptions;
   keywordFilter?: boolean;
   personalize?: boolean;
   results?: boolean;

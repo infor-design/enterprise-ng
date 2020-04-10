@@ -818,6 +818,19 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+  /**
+   * Sets the resizeMode option to changes the column resize behavior.
+    * @param resizeMode - if true then dirty rows will be highlighted; otherwise they will not.
+   */
+  @Input() set resizeMode(value: SohoDataGridResizeMode) {
+    this._gridOptions.resizeMode = value;
+    if (this.datagrid) {
+      this.datagrid.settings.resizeMode = value;
+
+      this.markForRefresh('resizeMode', RefreshHintFlags.None);
+    }
+  }
+
   get disableRowDeactivation(): boolean {
     if (this.datagrid) {
       return this.datagrid.settings.disableRowDeactivation;
@@ -1930,12 +1943,29 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       this.markForRefresh('onBeforeSelect', RefreshHintFlags.Rebuild);
     }
   }
-
   get onBeforeSelect(): SohoDataGridBeforeSelectFunction {
     if (this.datagrid) {
       return this.datagrid.settings.onBeforeSelect;
     }
     return this._gridOptions.onBeforeSelect;
+  }
+
+  /**
+   *If true, the new row indicator will display after adding a row
+   * @param showNewRowIndicator boolean show new indicator setting
+   */
+  @Input() set showNewRowIndicator(showNewRowIndicator: boolean) {
+    this._gridOptions.showNewRowIndicator = showNewRowIndicator;
+    if (this.datagrid) {
+      this.datagrid.settings.showNewRowIndicator = showNewRowIndicator;
+      this.markForRefresh('showNewRowIndicator', RefreshHintFlags.None);
+    }
+  }
+  get showNewRowIndicator(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.showNewRowIndicator;
+    }
+    return this._gridOptions.showNewRowIndicator;
   }
 
   @Input() set onExpandChildren(expandChildrenFunction: SohoDataGridExpandChildrenFunction) {

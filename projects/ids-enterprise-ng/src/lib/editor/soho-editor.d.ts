@@ -41,15 +41,14 @@ interface SohoEditorAnchor {
 }
 
 /**
- * @interface SohoEditorOptionsImage
+ * Options for the Get Image Modal.
  */
 interface SohoEditorOptionsImage {
   url?: string;
 }
 
 /**
- * This interface represents the public API exposed by the
- * editor.
+ * This interface represents the public API exposed by the editor.
  */
 interface SohoEditorStatic {
 
