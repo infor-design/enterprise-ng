@@ -509,7 +509,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    *
    * @param fixedRowHeight Any integer
    */
-  @Input() set fixedRowHeight(fixedRowHeight: number) {
+  @Input() set fixedRowHeight(fixedRowHeight: number | string | Function) {
     this._gridOptions.fixedRowHeight = fixedRowHeight;
     if (this.jQueryElement) {
       this.datagrid.settings.fixedRowHeight = fixedRowHeight;
