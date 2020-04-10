@@ -61,14 +61,13 @@ are copied into src/app/icon.
 
 ### Release
 
-1. Make sure you ran `npm run update-enterprise` to update the version (see previous section).
+1. Make sure you ran `npm run update-enterprise` to update the version if it needs it (see previous section).
 1. Check if the angular dependencies need a minor update to latest. This is done by:
     - `ng update @angular/cli @angular/core`
     - Update peer dependencies in projects/ids-enterprise-ng/package.json
 1. Commit the update (see previous section).
 1. Checkout the release branch (`#.#.x`) and `git pull --tags`
     - If you have just created the release branch, verify it is "Protected" in github settings
-1. Update ids-enteprise to the version it needs (see section above)
 1. Run a release cmd:
     - `npm run release:beta` - beta
     - `npm run release:rc` - release candidate normally the final testing branch before the release
@@ -103,3 +102,5 @@ For a final release, finish with:
     ```
 
 1. Update the ids-enterprise-quickstart with the new versions
+    - Update the `ids-enterprise-ng` version to a final version
+    - Keep NG updated with `ng update @angular/cli @angular/core`
