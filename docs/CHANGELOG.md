@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v6.6.1
+
+### 6.6.1 Fixes
+
+- `[Icons]` Added a fix to support both `href` and `xlink:href` in icons. ([#3734](https://github.com/infor-design/enterprise/issues/3734))
+
 ## v6.6.0
 
 ### 6.6.0 Fixes
