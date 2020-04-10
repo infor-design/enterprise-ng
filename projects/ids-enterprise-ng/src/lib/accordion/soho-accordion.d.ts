@@ -6,6 +6,8 @@
  * category or section header, and the second level provides the associated options.
  */
 
+type SohoAccordionExpanderType = 'classic' | 'plus-minus' | 'chevron';
+
  /**
  * Soho Accordion Control Options
  */
@@ -22,6 +24,11 @@
    * accordion header.  Used in place of an Expander (+/-) if enabled.
    */
   displayChevron?: boolean;
+
+  /**
+   * Changes the iconography used in accordion header expander buttons.
+   */
+  expanderDisplay?: SohoAccordionExpanderType;
 
   /**
    * Set to false if routing is handled externally.
@@ -104,8 +111,6 @@ interface JQueryStatic {
 
 /**
  * jQuery integration.
- *
- * @interface JQuery
  */
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   accordion(options?: SohoAccordionOptions): SohoAccordionStatic;

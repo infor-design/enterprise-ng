@@ -1,9 +1,10 @@
 /// <reference path="soho-modal-dialog.d.ts" />
 
-import { ComponentRef, NgZone, ApplicationRef, ComponentFactoryResolver, Injector } from '@angular/core';
+import { ComponentRef, NgZone, ApplicationRef, ComponentFactoryResolver, Injector, ViewContainerRef } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ComponentType } from '.';
+import { Router, NavigationEnd } from '@angular/router';
 
 /**
  * Wrapper for the jQuery modal control.
@@ -16,6 +17,12 @@ export class SohoModalDialogRef<T> {
   /** Vetoable Event Guard */
   // tslint:disable-next-line: deprecation
   private eventGuard: SohoModalDialogVetoableEventGuard<T> = {};
+
+  /**
+   * Closes the modal dialogs if router navigation is detected, this prevents diaslogs from being
+   * left open when navigating.
+   */
+  private _closeOnNavigation = true;
 
   /** Selector referencing the modal-dialog after it has been moved to the dialog container. */
   private jQueryElement: JQuery;
@@ -318,12 +325,23 @@ export class SohoModalDialogRef<T> {
    * instance.
    *
    * @param component - the instantated instance.
-   * @return the dialof ref for onward assignment.
+   * @return the dialog ref for onward assignment.
    */
   apply(fn: (component: T) => void): SohoModalDialogRef<T> {
     if (fn && this.componentRef.instance) {
       fn(this.componentRef.instance);
     }
+    return this;
+  }
+
+  /**
+   * When set to true, this dialog is closed when navigation is detected.
+   *
+   * @param closeOnNavigation controls the close behaviour when navigating.
+   * @return the dialog ref for support a fluent api.
+   */
+  closeOnNavigation(closeOnNavigation: boolean): SohoModalDialogRef<T> {
+    this._closeOnNavigation = closeOnNavigation;
     return this;
   }
 
@@ -345,6 +363,7 @@ export class SohoModalDialogRef<T> {
    * @paran appRef - application reference used to insert the component.
    */
   constructor(
+    router: Router,
     private appRef: ApplicationRef,
     componentFactoryResolver: ComponentFactoryResolver,
     private injector: Injector,
@@ -354,14 +373,43 @@ export class SohoModalDialogRef<T> {
     this.options(settings);
 
     if (modalComponent) {
+
+      // Create component
       this.componentRef = componentFactoryResolver
         .resolveComponentFactory(modalComponent)
         .create(this.injector);
-      this.eventGuard = this.componentRef.instance;
-      // Attach
+
       appRef.attachView(this.componentRef.hostView);
+
+      // Handle angular closing the component by closing the corresponding dialog.
+      this.componentRef.onDestroy(() => {
+        // Disable the beforeClose veto capability when navigating.
+        this.eventGuard.beforeClose = null;
+        this.close();
+      });
+
+      // Initialise the event guart
+      this.eventGuard = this.componentRef.instance;
+
       this._options.content = jQuery(this.componentRef.location.nativeElement);
     }
+
+    // Add a subscription to the router to remove
+    // the dialog when the user navigates.
+    router.events
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(e => {
+        if (this._closeOnNavigation && e instanceof NavigationEnd) {
+          // Disable the beforeClose veto capability when navigating.
+          this.eventGuard.beforeClose = null;
+          if (this.modal) {
+            this.modal.close(true);
+          }
+          if (this.componentRef) {
+            this.componentRef.destroy();
+          }
+        }
+      });
   }
 
   /**

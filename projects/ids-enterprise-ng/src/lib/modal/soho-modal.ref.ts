@@ -6,8 +6,9 @@ import {
   NgZone
 } from '@angular/core';
 import { fromEvent, Observable, Subject } from 'rxjs';
-import { map, tap, take, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { ModalComponent } from './soho-modal.service';
+import { Router, NavigationEnd } from '@angular/router';
 
 /**
  * Modal reference object which gives you control over the jQuery modal.
@@ -219,25 +220,41 @@ export class SohoModalRef<T> {
   }
 
   constructor(
+    router: Router,
     private appRef: ApplicationRef,
-    private componentFactoryResolver: ComponentFactoryResolver,
+    componentFactoryResolver: ComponentFactoryResolver,
     private injector: Injector,
     private ngZone: NgZone,
-    private settings: SohoModalOptions,
-    private modalComponent?: ModalComponent<T>
-  ) {
+    settings: SohoModalOptions,
+    modalComponent?: ModalComponent<T>) {
     this.options(settings);
 
     if (modalComponent) {
+
       // create component
       this.componentRef = componentFactoryResolver
         .resolveComponentFactory(modalComponent)
         .create(this.injector);
+
       appRef.attachView(this.componentRef.hostView);
+
+      // Handle angular closing the component by closing the corresponding dialog.
+      this.componentRef.onDestroy(() => {
+        this.close();
+      });
 
       // set modal content
       this._options.content = jQuery(this.componentRef.location.nativeElement);
     }
+
+    // Handle navigating, which should close the dialog too.
+    router.events
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(e => {
+        if (e instanceof NavigationEnd) {
+          this.componentRef.destroy();
+        }
+      });
   }
 
   /**

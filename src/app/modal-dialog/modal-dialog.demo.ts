@@ -103,12 +103,15 @@ export class ModalDialogDemoComponent {
     const dialogRef = this.modalService
       .modal<FullSizeModalDialogComponent>(FullSizeModalDialogComponent, this.placeholder)
       .buttons(
-        [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-        { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
+        [
+          { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
+          { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }
+        ])
+
+      // Don't close this dialog on navigation
+      .closeOnNavigation(false)
       .title(this.title)
       .isAlert(this.isAlert)
-      .fullsize('responsive')
-      .breakpoint('phablet')
       .apply((dialogComponent) => { dialogComponent.model.header = 'Header Text Update!!'; })
       .open()
       .afterClose(result => {

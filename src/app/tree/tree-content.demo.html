@@ -14,7 +14,7 @@
 <br>
 <div class="row top-padding">
   <div class="twelve columns demo" role="main">
-      <ul soho-busyindicator [soho-tree]="'content-only'" (selected)="onSelected($event)">
+      <ul soho-busyindicator [soho-tree]="'content-only'" menuId="tree-popupmenu" (menuselect)="onMenuSelected($event)" (selected)="onSelected($event)">
         <li>
           <a href="#" id="home">Home</a>
         </li>
@@ -41,3 +41,8 @@
       </ul>
   </div>
 </div>
+
+<ul id="tree-popupmenu" class="popupmenu">
+ <li><a id="add" href="#" data-cmd="add">Add</a></li>
+ <li><a id="delete" href="#" data-cmd="delete">Delete</a></li>
+ </ul>

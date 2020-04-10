@@ -164,17 +164,9 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  @Input() set nextButtonLabel(label: string) {
-    if (this.jQueryElement) {
-      this.jQueryElement.find('.js-step-link-next').html(label);
-    }
-  }
+  @Input() nextButtonLabel = 'Next';
 
-  @Input() set previousButtonLabel(label: string) {
-    if (this.jQueryElement) {
-      this.jQueryElement.find('.js-step-link-prev').html(label);
-    }
-  }
+  @Input() previousButtonLabel = 'Previous';
 
   @Input() set nextButtonEnable(enabled: boolean) {
     if (this.jQueryElement) {

@@ -59,22 +59,6 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
     return this.options.templateId;
   }
 
-  /**
-   * @deprecated use layout = 'paging' instead.
-   */
-  @Input() set paging(bool: boolean) {
-    // tslint:disable-next-line: deprecation
-    this.options.paging = bool;
-  }
-
-  /**
-   * @deprecated use layout = 'paging' instead.
-   */
-  get paging(): boolean {
-    // tslint:disable-next-line: deprecation
-    return this.options.paging;
-  }
-
   @Input() set layout(layout: SohoHierarchyLayoutType) {
     this.options.layout = layout;
   }

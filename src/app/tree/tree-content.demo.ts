@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   ViewChild,
+  OnInit,
   ChangeDetectionStrategy
 } from '@angular/core';
 
@@ -12,14 +13,16 @@ import { SohoTreeComponent } from 'ids-enterprise-ng';
   templateUrl: 'tree-content.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TreeContentDemoComponent {
+export class TreeContentDemoComponent implements OnInit {
 
   @ViewChild(SohoTreeComponent, { static: true }) tree: SohoTreeComponent;
-
-  // Is this component enabled.
   enabled = true;
-
   selected: SohoTreeNode;
+
+  ngOnInit(): void {
+    // Can also set options here as well as in the inputs
+    // this.tree.options.menuId = 'tree-popupmenu';
+  }
 
   constructor(private el: ElementRef) {
   }
@@ -61,5 +64,10 @@ export class TreeContentDemoComponent {
   onSelected(treeEvent: SohoTreeEvent) {
     this.selected = treeEvent.data;
     console.log('Tree Event: ${this.selected}');
+  }
+
+  onMenuSelected(treeEvent: SohoTreeEvent) {
+    const cmd = (treeEvent as any).item[0].getAttribute('data-cmd');
+    console.log(`You selected command: ${cmd}`);
   }
 }

@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 
 import { SohoModalRef } from './soho-modal.ref';
+import { Router } from '@angular/router';
 
 /**
  * This service is used to create a modal that can
@@ -16,11 +17,12 @@ import { SohoModalRef } from './soho-modal.ref';
 export class SohoModalService {
 
   constructor(
+    private router: Router,
     private appRef: ApplicationRef,
     private componentFactoryResolver: ComponentFactoryResolver,
     private injector: Injector,
     private ngZone: NgZone
-  ) {}
+  ) { }
 
   /**
    * Creates a modal containing the given component,
@@ -34,7 +36,7 @@ export class SohoModalService {
    * @return the modal reference.
    */
   public modal<T>(component: ModalComponent<T>, settings = {} as SohoModalOptions): SohoModalRef<T> {
-    return new SohoModalRef<T>(this.appRef, this.componentFactoryResolver, this.injector, this.ngZone, settings, component);
+    return new SohoModalRef<T>(this.router, this.appRef, this.componentFactoryResolver, this.injector, this.ngZone, settings, component);
   }
 
   /**
@@ -50,7 +52,7 @@ export class SohoModalService {
    */
   public message<T>(content: string, settings = {} as SohoModalOptions): SohoModalRef<T> {
     settings.content = content;
-    return new SohoModalRef<T>(this.appRef, this.componentFactoryResolver, this.injector, this.ngZone, settings);
+    return new SohoModalRef<T>(this.router, this.appRef, this.componentFactoryResolver, this.injector, this.ngZone, settings);
   }
 }
 
