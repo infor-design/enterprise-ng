@@ -15,6 +15,7 @@
 - `[FlexToobar]` Stopped 'more' button being activated on form submit.   `BTHH` ([Pull Request 743](https://github.com/infor-design/enterprise-ng/pull/743))
 - `[Icon]` Changed to remove `Renderer2` and use `href` instead of `xlink:href`.  `BTHH` ([Issue #3611](https://github.com/infor-design/enterprise/issues/3611))
 - `[Lookup]` Updated example page to add async multiselect. ([#588](https://github.com/infor-design/enterprise-ng/issues/588))
+- `[Modal]` Added some missing settings and inputs. `TJM` ([#3562](https://github.com/infor-design/enterprise/issues/3562))
 - `[Popdown]` Added missing isOpen method.  `TJM` ([Issue #698](https://github.com/infor-design/enterprise-ng/issues/698))
 - `[Personalize]` Fixed errors and updated the theme and variant switcher to have several submenus.   `TJM/BTHH` ([Pull Request 745](https://github.com/infor-design/enterprise-ng/pull/745))
 - `[Personalize]` Fixed a problem reseting the color to default and reloading the page.   `TJMH` ([Pull Request 751](https://github.com/infor-design/enterprise-ng/pull/751))
