@@ -43,7 +43,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
   @Input() set dataset(data: Object[]) {
     this._dataset = data;
-    if (data && this.jQueryElement) {
+    if (data && this.jQueryElement && this.lookup.grid) {
       this.lookup.grid.loadData(data);
     }
   }
