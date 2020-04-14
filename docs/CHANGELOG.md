@@ -4,6 +4,12 @@
 
 ### 7.1.0 Fixes
 
+## v7.0.1
+
+### 7.0.1 Fixes
+
+- `[General]` Added 4.27.2 patch release. `TJM`
+
 ## v7.0.0
 
 ### 7.0.0 Fixes
