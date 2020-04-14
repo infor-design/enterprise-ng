@@ -1,5 +1,48 @@
 # What's New with Enterprise-NG
 
+## v7.1.0
+
+### 7.1.0 Fixes
+
+## v7.0.0
+
+### 7.0.0 Fixes
+
+- `[General]` Enabled Ivy with NG 9.1.  `BTHH` ([Issue #586](https://github.com/infor-design/enterprise-ng/issues/586))
+- `[General]` Enabled Ivy with NG 9.0.  `BTHH` ([Issue #586](https://github.com/infor-design/enterprise-ng/issues/586))
+- `[General]` Added numerous missing settings from 4.23 to 4.27.  `TJM` ([Pull Request 743](https://github.com/infor-design/enterprise-ng/pull/743))
+- `[Datagrid]` Added missing showNewRowIndicator setting.  `TJM` ([Issue #430](https://github.com/infor-design/enterprise-ng/issues/430))
+- `[DataGrid]` Added missing and/or fixed methods `validateAll`, `validateRow`, and `showRowError`.  `TJM` ([Issue #704](https://github.com/infor-design/enterprise-ng/issues/704))
+- `[DataGrid]` Added `showSelectAllCheckBox` option.  `BTHH` ([Pull Request 740](https://github.com/infor-design/enterprise-ng/pull/740))
+- `[DataGrid]` Added `hidePagerOnOnePage` input.  `TJM` ([Issue #771](https://github.com/infor-design/enterprise-ng/issues/771))
+- `[FileUploadAdvanced]` - Added `errorMaxFilesInProcess` and `errorMaxFileSize` inputs to component, and added zone compatibility.  `BTHH` ([Pull Request XXX](https://github.com/infor-design/enterprise-ng/pull/XXX))
+- `[FlexToobar]` Stopped 'more' button being activated on form submit.   `BTHH` ([Pull Request 743](https://github.com/infor-design/enterprise-ng/pull/743))
+- `[Icon]` Changed to remove `Renderer2` and use `href` instead of `xlink:href`.  `BTHH` ([Issue #3611](https://github.com/infor-design/enterprise/issues/3611))
+- `[Lookup]` Updated example page to add async multiselect. ([#588](https://github.com/infor-design/enterprise-ng/issues/588))
+- `[Modal]` Added some missing settings and inputs. `TJM` ([#3562](https://github.com/infor-design/enterprise/issues/3562))
+- `[Popdown]` Added missing isOpen method.  `TJM` ([Issue #698](https://github.com/infor-design/enterprise-ng/issues/698))
+- `[Personalize]` Fixed errors and updated the theme and variant switcher to have several submenus.   `TJM/BTHH` ([Pull Request 745](https://github.com/infor-design/enterprise-ng/pull/745))
+- `[Personalize]` Fixed a problem reseting the color to default and reloading the page.   `TJMH` ([Pull Request 751](https://github.com/infor-design/enterprise-ng/pull/751))
+- `[ModalDialog]` - Modal dialogs can now be optionally closed when navigating. `BTHH` ([Pull Request 784](https://github.com/infor-design/enterprise-ng/pull/784))
+
+### 7.0.0 Features
+
+- `[Datagrid]` Added support for api setting on expand and collapse children. ([#3274](https://github.com/infor-design/enterprise/issues/3274))
+- `[General]` Upgraded @angular/cli (to 9.0.x) and @angular/core (to 9.0.x).  `BTHH` ([Pull Request 578](https://github.com/infor-design/enterprise-ng/pull/578))
+    - support for Node 10.13.0+
+    - support for TypeScript 3.6.x & 3.7.x
+    - support for Ivy (ids-enterprise-ng is not compiled using ivy)
+    - `UPGRADING.md` has been updated with details on upgrading your application to angular 9.
+    - there are issues with the svg icons when ivy is enabled in the hosting application, (see ([Angular Issue](https://github.com/angular/angular/issues/34256))), so Ivy will need to be disabled at this time.
+- `[TextArea]` The text area will now grow on initial load and setting of data in the model. `TJM` ([#732](https://github.com/infor-design/enterprise-ng/issues/732]))
+- `[Homepage]` Exposed the editing functionality to allow widgets to be resized, reordered, and removed. `CRL` ([#768](https://github.com/infor-design/enterprise-ng/issues/768))
+
+## v6.6.2
+
+### 6.6.2 Fixes
+
+- `[General]` Added 4.27.2 patch release. `TJM`
+
 ## v6.6.1
 
 ### 6.6.1 Fixes
