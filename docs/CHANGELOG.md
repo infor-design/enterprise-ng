@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v7.0.1
+
+### 7.0.1 Fixes
+
+- `[General]` Added 4.27.2 patch release. `TJM`
+
 ## v7.0.0
 
 ### 7.0.0 Fixes
@@ -32,6 +38,12 @@
     - there are issues with the svg icons when ivy is enabled in the hosting application, (see ([Angular Issue](https://github.com/angular/angular/issues/34256))), so Ivy will need to be disabled at this time.
 - `[TextArea]` The text area will now grow on initial load and setting of data in the model. `TJM` ([#732](https://github.com/infor-design/enterprise-ng/issues/732]))
 - `[Homepage]` Exposed the editing functionality to allow widgets to be resized, reordered, and removed. `CRL` ([#768](https://github.com/infor-design/enterprise-ng/issues/768))
+
+## v6.6.2
+
+### 6.6.2 Fixes
+
+- `[General]` Added 4.27.2 patch release. `TJM`
 
 ## v6.6.1
 
