@@ -37,9 +37,13 @@
 - `[TextArea]` The text area will now grow on initial load and setting of data in the model. `TJM` ([#732](https://github.com/infor-design/enterprise-ng/issues/732]))
 - `[Homepage]` Exposed the editing functionality to allow widgets to be resized, reordered, and removed. `CRL` ([#768](https://github.com/infor-design/enterprise-ng/issues/768))
 
-## v6.6.1
+## v6.6.2
 
-### 6.6.1 Fixes
+### 6.6.2 Fixes
+
+- `[General]` Added 4.27.2 patch release. `TJM`
+
+## v6.6.1
 
 - `[Icons]` Added a fix to support both `href` and `xlink:href` in icons. ([#3734](https://github.com/infor-design/enterprise/issues/3734))
 
