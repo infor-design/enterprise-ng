@@ -45,7 +45,7 @@
 
 ## v6.6.3
 
-### 6.6.2 Fixes
+### 6.6.3 Fixes
 
 - `[General]` Added 4.27.3 patch release. `TJM`
 
