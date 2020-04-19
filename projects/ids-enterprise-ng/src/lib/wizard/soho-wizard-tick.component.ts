@@ -6,7 +6,8 @@ import {
   ChangeDetectionStrategy,
   AfterViewInit,
   HostBinding,
-  Input
+  Input,
+  HostListener
 } from '@angular/core';
 
 /**
@@ -43,6 +44,9 @@ export class SohoWizardTickComponent implements AfterViewInit {
    */
   @Input() public tickId: string;
 
+  /**
+   *
+   */
   @HostBinding('class.current')
   @Input() public current = false;
 
@@ -52,7 +56,18 @@ export class SohoWizardTickComponent implements AfterViewInit {
   @HostBinding('class.is-disabled')
   @Input() public disabled = false;
 
+  /**
+   * JQuery Element.
+   */
   public jQueryElement: JQuery;
+
+  /**
+   * Disable the click handler.
+   */
+  @HostListener('click', ['$event']) onClick(event: Event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
 
   public isCurrentTick(): boolean {
     // A step is selected if the element has the current class.
