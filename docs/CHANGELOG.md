@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v7.0.2
+
+### 7.0.2 Fixes
+
+- `[General]` Added 4.27.2 patch release. `TJM`
+
 ## v7.0.1
 
 ### 7.0.1 Fixes
