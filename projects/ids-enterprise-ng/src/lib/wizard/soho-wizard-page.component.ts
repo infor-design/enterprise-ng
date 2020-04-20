@@ -70,7 +70,7 @@ export class SohoWizardPageComponent implements AfterViewInit {
    * I'd have rather done this with an event, but we end up
    * with a circular dependency.
    *
-   * @param e - the soho wizaerd event.
+   * @param e - the soho wizard event.
    *
    */
   fireActivated(e: SohoWizardEvent) {
