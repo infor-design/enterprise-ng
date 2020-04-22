@@ -1,13 +1,14 @@
 <div class="row top-padding">
   <div class="twelve columns">
 
-    <button soho-button (click)="toggleBtn()">Toggle</button>
+    <button soho-button (click)="toggleBtn()">Toggle A new Button</button>
+    <button soho-button (click)="toggleDisabled()">Toggle Disabled</button>
 
     <button soho-menu-button *ngIf="toggle" menu="action-popupmenu"
             (selected)="onSelected($event)"
             (beforeopen)="onBeforeOpen($event)"
             (close)="onClose($event)"
-            (open)="onOpen($event)">Add Item</button>
+            (open)="onOpen($event)" [disabled]="isDisabled">Add Item</button>
     <ul soho-popupmenu id="action-popupmenu">
       <li ><a soho-popupmenu-label >Create a form</a></li>
       <li soho-popupmenu-separator></li>
@@ -19,14 +20,14 @@
       <li soho-popupmenu-item isSelectable="true"><a soho-popupmenu-label>Protect Sheet Rules</a></li>
     </ul>
 
-    <button soho-menu-button icon="user" menu="user-popupmenu" data-options="{'hideMenuArrow': true}" [hideMenuArrow]="true" (selected)="onSelected($event)"></button>
+    <button soho-menu-button icon="user" [disabled]="isDisabled" menu="user-popupmenu" data-options="{'hideMenuArrow': true}" [hideMenuArrow]="true" (selected)="onSelected($event)"></button>
     <ul soho-popupmenu id="user-popupmenu">
       <li><a soho-popupmenu-label>Admin</a></li>
       <li soho-popupmenu-separator></li>
       <li soho-popupmenu-item><a id="signout">Sign out</a></li>
     </ul>
 
-    <button soho-menu-button icon="pie-chart" pie-chart="" menu="charts-menu"
+    <button soho-menu-button icon="pie-chart" [disabled]="isDisabled" pie-chart="" menu="charts-menu"
             (selected)="onSelected($event)"
             (beforeopen)="onBeforeOpen($event)"
             (close)="onClose($event)"
@@ -38,7 +39,7 @@
       <li soho-popupmenu-item *ngIf="showLastOption"><a soho-popupmenu-label (click)="showLastOption = !showLastOption">Click this to remove myself</a></li>
     </ul>
 
-    <button soho-menu-button icon="line-chart" pie-chart="" title="Charts" menu="charts-menu2"
+    <button soho-menu-button icon="line-chart" [disabled]="isDisabled" pie-chart="" title="Charts" menu="charts-menu2"
             (selected)="onSelected($event)"
             (beforeopen)="onBeforeOpen($event)"
             (close)="onClose($event)"
@@ -50,7 +51,7 @@
     </ul>
 
     <ng-template ngFor let-b [ngForOf]="menuButtons">
-      <button soho-menu-button [icon]="b?.icon">
+      <button soho-menu-button [icon]="b?.icon" [disabled]="isDisabled">
         <span>{{b?.label}}</span>
       </button>
       <ul class="popupmenu">
@@ -61,7 +62,7 @@
     </ng-template>
 
     <button #ajax soho-menu-button menu="ajax-popup"
-      (selected)="onSelected($event)">
+      (selected)="onSelected($event)" [disabled]="isDisabled">
       <span>Ajax Menu</span>
     </button>
     <ul soho-popupmenu id="ajax-popup">

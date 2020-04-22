@@ -11,6 +11,7 @@ export class MenuButtonDemoComponent implements OnInit, AfterViewInit {
 
   public showLastOption: boolean;
   public toggle: boolean;
+  public isDisabled: boolean;
 
   private SUBMENU_RESPONSE_HTML = `
     <li><a href="#" id="SubOptionOne" data-action="AJAX sub-option 1">AJAX sub-option 1</a></li>
@@ -20,6 +21,10 @@ export class MenuButtonDemoComponent implements OnInit, AfterViewInit {
 
   toggleBtn() {
     this.toggle = !this.toggle;
+  }
+
+  toggleDisabled() {
+    this.isDisabled = !this.isDisabled;
   }
 
   disabledEntryClicked() {
