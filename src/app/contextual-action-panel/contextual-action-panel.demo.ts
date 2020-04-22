@@ -112,11 +112,17 @@ export class ContextualActionPanelDemoComponent {
         isDefault: true
       }];
 
+    // In openPanel(), change the first CAP opening so that panelRef can be provided with apply
     this.panelRef = this.panelService
-      .contextualactionpanel(ContextualActionPanelFullSizeComponent, this.placeholder)
-      .modalSettings({ fullsize: 'responsive', breakpoint: 'phablet', buttons: buttons, title: this.title })
-      .open()
-      .initializeContent(true);
+          .contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
+          .modalSettings({ buttons: buttons, title: this.title })
+          .initializeContent(true);
+
+    this.panelRef
+          .apply((ref) => {
+            ref.panelRef = this.panelRef;
+          })
+          .open();
 
     const button: SohoContextualActionPanelButton = { cssClass: 'separator' };
   }

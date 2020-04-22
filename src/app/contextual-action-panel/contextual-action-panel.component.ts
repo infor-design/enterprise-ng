@@ -47,4 +47,15 @@ export class ContextualActionPanelComponent {
         this.closeResult = result;
       });
   }
+
+ closeAndOpenSecondCAP() {
+    this.panelService
+      .contextualactionpanel(NestedModalDialogComponent, this.placeholder)
+      .open()
+      .initializeContent(true);
+
+    // If calling close() as below, this CAP will close and second will not open
+    // If removing close() below, this CAP will close and reopen itself (second CAP never opened)
+    this.panelRef.close();
+  }
 }

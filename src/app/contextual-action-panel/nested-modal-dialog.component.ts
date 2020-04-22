@@ -33,10 +33,7 @@ export class NestedModalDialogComponent {
   /**
    * Constructor, taking the interface to the Soho Modal Dialog Api.
    */
-  constructor(
-    private dialogRef: SohoModalDialogRef<NestedModalDialogComponent>,
-    private dialog: SohoModalDialogService) {
-  }
+  constructor(private dialog: SohoModalDialogService) {  }
 
   public get depth(): number {
     return NestedModalDialogComponent.s_depth;
