@@ -6,11 +6,18 @@
 
 - `[Wizard]` Prevent page refresh on selecting wizard ticks.  `BTHH` ([Pull Request #797](https://github.com/infor-design/enterprise-ng/pull/797))
 
+## v7.0.3
+
+### 7.0.3 Fixes
+
+- `[General]` Added 4.27.4 patch release. `TJM`
+- `[General]` Bump minor version of NG. `TJM`
+
 ## v7.0.2
 
 ### 7.0.2 Fixes
 
-- `[General]` Added 4.27.2 patch release. `TJM`
+- `[General]` Added 4.27.3 patch release. `TJM`
 
 ## v7.0.1
 
