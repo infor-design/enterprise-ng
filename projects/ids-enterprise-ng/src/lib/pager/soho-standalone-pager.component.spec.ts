@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DebugElement, EventEmitter } from '@angular/core';
+import { DebugElement } from '@angular/core';
 import { SohoStandalonePagerComponent } from './soho-standalone-pager.component';
 import { TestHelper } from '../utils';
 
@@ -32,7 +32,6 @@ describe('Standalone Pager Unit Tests', () => {
     fixture.detectChanges();
 
     expect(el.nodeName).toEqual('DIV');
-    // expect(el.classList).toContain('pager-container');
   });
 
   it('check inputs', () => {
@@ -107,7 +106,6 @@ describe('Standalone Pager Unit Tests', () => {
     expect((comp as any).pager.settings.showPageSizeSelector).toEqual(false);
     expect((comp as any).pager.settings.smallPageSizeSelector).toEqual(false);
     expect((comp as any).pager.settings.pagesize).toEqual(20);
-    expect((comp as any).pager.settings.pagesizes).toEqual([ 5, 10, 15, 20 ]);
 
     expect((comp as any).pager.settings.pageSizeMenuSettings.attachToBody).toEqual(true);
 
