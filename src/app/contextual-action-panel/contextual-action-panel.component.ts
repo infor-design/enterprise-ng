@@ -7,11 +7,12 @@ import {
 import {
   SohoContextualActionPanelService,
   SohoContextualActionPanelRef,
-  SohoModalDialogService,
-  SohoModalDialogRef
+  SohoModalDialogService
 } from 'ids-enterprise-ng';
 
 import { NestedModalDialogComponent } from './nested-modal-dialog.component';
+import { NestedContextualActionPanelComponent } from './nested-contextualaction-panel.component';
+
 /**
  * This is an example of a contextual action panel component, that can be instantiated
  * numerous times using the SohoContextualActionPanelService.
@@ -49,13 +50,34 @@ export class ContextualActionPanelComponent {
   }
 
  closeAndOpenSecondCAP() {
+    const buttons = [
+      {
+        text: 'Save',
+        cssClass: 'btn',
+        icon: '#icon-save',
+        click: (_e: any, panel: any) => {
+          panel.close(true);
+        }
+      },
+      {
+        cssClass: 'separator'
+      },
+      {
+        text: 'Close',
+        cssClass: 'btn',
+        icon: '#icon-close',
+        click: (_e: any, panel: any) => {
+          panel.close(true);
+        },
+        isDefault: true
+      }];
+
     this.panelService
-      .contextualactionpanel(NestedModalDialogComponent, this.placeholder)
+      .contextualactionpanel(NestedContextualActionPanelComponent, this.placeholder)
+      .modalSettings({ buttons: buttons, title: 'Nested CAP'})
       .open()
       .initializeContent(true);
 
-    // If calling close() as below, this CAP will close and second will not open
-    // If removing close() below, this CAP will close and reopen itself (second CAP never opened)
     this.panelRef.close();
   }
 }

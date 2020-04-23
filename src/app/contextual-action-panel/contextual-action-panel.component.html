@@ -60,8 +60,12 @@
       <input type="checkbox" id="po-box" name="po-box" class="checkbox" checked/>
       <label for="po-box" class="checkbox-label">Freight</label>
     </div>
-    <button id="open-nested-btn" soho-button (click)="openNested()">Nested</button>
-    <button soho-button (click)="closeAndOpenSecondCAP()">Switch to another CAP</button>
+    <div class="field">
+      <button id="open-nested-btn" soho-button (click)="openNested()">Nested</button>
+    </div>
+    <div class="field">
+      <button soho-button (click)="closeAndOpenSecondCAP()">Switch to another CAP</button>
+    </div>
   </div>
 </div>
 
