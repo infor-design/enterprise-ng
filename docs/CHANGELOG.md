@@ -37,9 +37,16 @@
 - `[TextArea]` The text area will now grow on initial load and setting of data in the model. `TJM` ([#732](https://github.com/infor-design/enterprise-ng/issues/732]))
 - `[Homepage]` Exposed the editing functionality to allow widgets to be resized, reordered, and removed. `CRL` ([#768](https://github.com/infor-design/enterprise-ng/issues/768))
 
+## v6.6.4
+
+### 6.6.4 Fixes
+
+- `[General]` Added 4.27.4 patch release. `TJM`
+- `[General]` Added showTags types in dropdown. `TJM`
+
 ## v6.6.3
 
-### 6.6.2 Fixes
+### 6.6.3 Fixes
 
 - `[General]` Added 4.27.3 patch release. `TJM`
 

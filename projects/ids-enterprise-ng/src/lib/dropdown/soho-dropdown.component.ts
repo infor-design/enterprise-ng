@@ -296,6 +296,18 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   }
 
   /**
+   * Initialize the showTags value for multi-select drop downs
+   */
+  @Input()
+  public set showTags(showTags: boolean) {
+    this.options.showTags = showTags;
+  }
+
+  public get showTags(): boolean {
+    return this.options.showTags;
+  }
+
+  /**
    * Called when the dropdown value changes
    */
   // tslint:disable-next-line: no-output-rename
