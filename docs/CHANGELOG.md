@@ -5,6 +5,7 @@
 ### 7.0.3 Fixes
 
 - `[General]` Added 4.27.4 patch release. `TJM`
+- `[General]` Bump minor version of NG. `TJM`
 
 ## v7.0.2
 
