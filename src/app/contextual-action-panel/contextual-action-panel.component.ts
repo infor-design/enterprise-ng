@@ -77,7 +77,5 @@ export class ContextualActionPanelComponent {
       .modalSettings({ buttons: buttons, title: 'Nested CAP'})
       .open()
       .initializeContent(true);
-
-    this.panelRef.close();
   }
 }
