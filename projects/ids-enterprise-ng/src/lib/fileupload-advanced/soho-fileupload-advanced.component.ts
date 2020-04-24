@@ -314,6 +314,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
   @Output() fileprogress = new EventEmitter<File[]>();
   @Output() fileaborted = new EventEmitter<File[]>();
   @Output() filecompleteduploading = new EventEmitter<File[]>();
+  @Output() fileremoved = new EventEmitter<File[]>();
 
   // -------------------------------------------
   // Private Member Data
@@ -406,6 +407,11 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
       .on('filecompleteuploading', (args: JQuery.TriggeredEvent, files: File[]) => {
         this.ngZone.run(() => {
           this.filecompleteduploading.next(files);
+        });
+      })
+      .on('fileremoved', (args: JQuery.TriggeredEvent, files: File[]) => {
+        this.ngZone.run(() => {
+          this.fileremoved.next(files);
         });
       });
 

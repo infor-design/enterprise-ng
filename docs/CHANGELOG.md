@@ -8,6 +8,10 @@
 
 ## v7.0.3
 
+### 7.0.3 Features
+
+- `[FileUploadAdvanced]` Added support to fire event `fileremoved` for attached file removed. ([#3548](https://github.com/infor-design/enterprise/issues/3548))
+
 ### 7.0.3 Fixes
 
 - `[General]` Added 4.27.4 patch release. `TJM`
