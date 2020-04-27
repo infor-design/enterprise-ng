@@ -17,6 +17,11 @@
           </div>
 
           <div class="field">
+            <label soho-label>Maximum of two(2) files can be upload in total</label>
+            <soho-fileupload-advanced maxFiles="2"></soho-fileupload-advanced>
+          </div>
+
+          <div class="field">
             <label soho-label>FilesDragEnter Event and Custom Errors</label>
             <soho-fileupload-advanced (filesdragenter)="onFilesdragenter($event)" errorMaxFilesInProcess="Maximum files" errorMaxFileSize="Files too large"></soho-fileupload-advanced>
           </div>

@@ -119,7 +119,24 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
   }
 
   /**
-   * Restricts the number of files that can be retrieved.
+   * Restricts the number of files that can be retrieved in total.
+   *
+   * @param maxFiles - max files cab be upload.
+   */
+  @Input() set maxFiles(maxFiles: number) {
+    this.options.maxFiles = maxFiles;
+    if (this.fileuploadadvanced) {
+      this.fileuploadadvanced.settings.maxFiles = maxFiles;
+      this.markForRefresh();
+    }
+  }
+
+  get maxFiles() {
+    return this.options.maxFiles;
+  }
+
+  /**
+   * Restricts the number of files that can be retrieved while in process.
    *
    * @param maxFilesInProcess - the callback function responsible to uploading the file.
    */
@@ -269,6 +286,21 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
 
   get textBtnRemove() {
     return this.options.textBtnRemove;
+  }
+
+  /**
+   *
+   */
+  @Input() set errorMaxFiles(errorMaxFiles: string) {
+    this.options.errorMaxFiles = errorMaxFiles;
+    if (this.fileuploadadvanced) {
+      this.fileuploadadvanced.updated(this.fileuploadadvanced.settings);
+      this.markForRefresh();
+    }
+  }
+
+  get errorMaxFiles(): string {
+    return this.options.errorMaxFiles;
   }
 
   /**
