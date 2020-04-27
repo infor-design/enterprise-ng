@@ -1,13 +1,12 @@
-<soho-toolbar noActionsButton="true" maxVisibleButtons="4">
-
-  <soho-toolbar-title>
-     <button soho-button="icon" icon="logo" id="logo-homepage" tabindex="0">
+<soho-toolbar-flex noActionsButton="true" maxVisibleButtons="4">
+  <soho-toolbar-flex-section [isTitle]="true">
+    <button soho-button="icon" icon="logo" id="logo-homepage" tabindex="0">
       <span class="audible">Go To Home</span>
     </button>
     <h1 class="masthead-appname">IDS Enterprise Angular Components</h1>
-  </soho-toolbar-title>
+  </soho-toolbar-flex-section>
 
-  <soho-toolbar-button-set>
+  <soho-toolbar-flex-section [isButtonSet]="true">
 
     <button soho-button [isToggle]="true" toggleOnIcon="heart-filled" toggleOffIcon="heart-outlined"
       [isTogglePressed]="running" (click)="toggleRenderLoop()">{{renderLoopCount}}</button>
@@ -28,8 +27,26 @@
       <span class="audible">Expand App Tray</span>
     </button>
 
-  </soho-toolbar-button-set>
+    <button soho-menu-button menu="action-popupmenu" id="user-signout">
+      <div class="image-user-status">
+        <img [src]="DEFAULT_IMAGE_URL" class="image-round" style="width: 28px; height: 28px; border-radius: 50%;">
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation"
+          style="width: 10px; height: 10px; margin-left: -12px; top: 2px">
+          <use href="#icon-user-status-available"></use>
+        </svg>
+      </div>
+    </button>
+    <ul soho-popupmenu id="action-popupmenu">
+      <li>
+        <a soho-popupmenu-label>
+          <img id="picture" class="drop-down-profile-picture" [src]="DEFAULT_IMAGE_URL" alt="image" style="width: 28px; height: 28px; border-radius: 50%;">
+          John Smith
+        </a>
+      </li>
+      <li soho-popupmenu-separator></li>
+      <li soho-popupmenu-item><a id="signout">Sign out</a></li>
+    </ul>
 
+  </soho-toolbar-flex-section>
 
-
-</soho-toolbar>
+</soho-toolbar-flex>

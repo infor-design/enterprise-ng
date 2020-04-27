@@ -109,27 +109,19 @@ export class ModalDialogDemoComponent {
       .modal<FullSizeModalDialogComponent>(FullSizeModalDialogComponent, this.placeholder)
       .buttons(
         [
-          { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-          { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }
+          { text: 'Cancel', click: (modal) => { dialogRef.close('CANCEL'); } },
+          { text: 'Submit', click: (modal) => { dialogRef.close('SUBMIT'); }, isDefault: true }
         ])
 
-      // Don't close this dialog on navigation
-      .closeOnNavigation(false)
-      .title(this.title)
-      .isAlert(this.isAlert)
-      .apply((dialogComponent) => { dialogComponent.model.header = 'Header Text Update!!'; })
-      .open()
-      .afterClose(result => {
-        this.closeResult = result;
-      });
+      .open();
   }
 
   openNested() {
     const dialogRef = this.modalService
       .modal<NestedModalDialogComponent>(NestedModalDialogComponent, this.placeholder)
       .buttons(
-        [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-        { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
+        [{ text: 'Cancel', click: (_, modal) => { modal.close(); } },
+        { text: 'Submit', click: (_, modal) => { modal.close(); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose((result) => {
