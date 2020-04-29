@@ -249,7 +249,7 @@ If you need to debug unit tests.
 
 - Put a `fit(` on the test to focus the test.
 - Place a `debugger` statement in the code where you want to debug.
-- Run the tests with the command `npm run testdebug`
+- Run the tests with the command `npm run test:debug`
 - press the debugger button in the browser
 - open dev tools and refresh the page
 
