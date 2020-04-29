@@ -84,7 +84,6 @@ describe('Soho Line Unit Tests', () => {
   });
 
   it('check inputs', () => {
-    debugger;
     const tooltip = 'A Tooltip';
     const dots = {number: 10, format: ',.1s'};
     const xAxis = { ticks: { number: 5, format: 'd' } };
