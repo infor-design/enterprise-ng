@@ -38,7 +38,9 @@ interface SohoFileUploadAdvancedOptions {
   standaloneClass?: string;
   // Restrict file types(ie. 'jpg|png|gif') ['*' all types]
   allowedTypes?: string;
-  // Max number of files can be uploaded
+  // Max number of files can be uploaded in total
+  maxFiles?: number;
+  // Max number of files can be uploaded while in process
   maxFilesInProcess?: number;
   // max file size in bytes, -1 for unlimited
   maxFileSize?: number;
@@ -56,6 +58,7 @@ interface SohoFileUploadAdvancedOptions {
   textBtnRemove?: string;
   errorAllowedTypes?: string;
   errorMaxFileSize?: string;
+  errorMaxFiles?: string;
   errorMaxFilesInProcess?: string;
 }
 

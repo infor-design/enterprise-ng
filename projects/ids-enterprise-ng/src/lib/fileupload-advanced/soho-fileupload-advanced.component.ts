@@ -119,7 +119,24 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
   }
 
   /**
-   * Restricts the number of files that can be retrieved.
+   * Restricts the number of files that can be retrieved in total.
+   *
+   * @param maxFiles - max files cab be upload.
+   */
+  @Input() set maxFiles(maxFiles: number) {
+    this.options.maxFiles = maxFiles;
+    if (this.fileuploadadvanced) {
+      this.fileuploadadvanced.settings.maxFiles = maxFiles;
+      this.markForRefresh();
+    }
+  }
+
+  get maxFiles() {
+    return this.options.maxFiles;
+  }
+
+  /**
+   * Restricts the number of files that can be retrieved while in process.
    *
    * @param maxFilesInProcess - the callback function responsible to uploading the file.
    */
@@ -274,6 +291,21 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
   /**
    *
    */
+  @Input() set errorMaxFiles(errorMaxFiles: string) {
+    this.options.errorMaxFiles = errorMaxFiles;
+    if (this.fileuploadadvanced) {
+      this.fileuploadadvanced.updated(this.fileuploadadvanced.settings);
+      this.markForRefresh();
+    }
+  }
+
+  get errorMaxFiles(): string {
+    return this.options.errorMaxFiles;
+  }
+
+  /**
+   *
+   */
   @Input() set errorMaxFilesInProcess(errorMaxFilesInProcess: string) {
     this.options.errorMaxFilesInProcess = errorMaxFilesInProcess;
     if (this.fileuploadadvanced) {
@@ -314,6 +346,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
   @Output() fileprogress = new EventEmitter<File[]>();
   @Output() fileaborted = new EventEmitter<File[]>();
   @Output() filecompleteduploading = new EventEmitter<File[]>();
+  @Output() fileremoved = new EventEmitter<File[]>();
 
   // -------------------------------------------
   // Private Member Data
@@ -406,6 +439,11 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
       .on('filecompleteuploading', (args: JQuery.TriggeredEvent, files: File[]) => {
         this.ngZone.run(() => {
           this.filecompleteduploading.next(files);
+        });
+      })
+      .on('fileremoved', (args: JQuery.TriggeredEvent, files: File[]) => {
+        this.ngZone.run(() => {
+          this.fileremoved.next(files);
         });
       });
 

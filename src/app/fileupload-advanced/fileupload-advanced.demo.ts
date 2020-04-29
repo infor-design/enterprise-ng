@@ -4,7 +4,7 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { SohoFileUploadAdvancedComponent } from 'ids-enterprise-ng';
+import { SohoFileUploadAdvancedComponent, SohoToastService } from 'ids-enterprise-ng';
 import { HttpRequest } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { HttpEventType } from '@angular/common/http';
@@ -22,7 +22,7 @@ export class FileUploadAdvancedDemoComponent implements OnInit {
   public showModel = false;
   public fileUploadDisabled = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private toastService: SohoToastService) { }
   ngOnInit() { }
 
   toggleModel() {
@@ -37,6 +37,20 @@ export class FileUploadAdvancedDemoComponent implements OnInit {
   setDisable() {
     this.fileUploadAdvanced.disabled = true;
     this.fileUploadDisabled = this.fileUploadAdvanced.disabled;
+  }
+
+  onFileAborted(file: File) {
+    this.toastService.show({
+      title: 'File Aborted',
+      message: file && file.name ? file.name : ''
+    });
+  }
+
+  onFileRemoved(file: File) {
+    this.toastService.show({
+      title: 'File Removed',
+      message: file && file.name ? file.name : ''
+    });
   }
 
   onFilesdragenter(event: JQuery.TriggeredEvent) {

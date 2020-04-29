@@ -2,7 +2,7 @@
   <form>
 
       <div class="row top-padding">
-        <div class="twelve columns">
+        <div class="six columns">
 
           <div class="buttonbar">
             <button soho-button [disabled]="fileUploadDisabled" (click)="setDisable()">Disable</button>
@@ -17,12 +17,24 @@
           </div>
 
           <div class="field">
-            <label soho-label>Upload File with Events</label>
+            <label soho-label>Maximum of two(2) files can be upload in total</label>
+            <soho-fileupload-advanced maxFiles="2"></soho-fileupload-advanced>
+          </div>
+
+          <div class="field">
+            <label soho-label>FilesDragEnter Event and Custom Errors</label>
             <soho-fileupload-advanced (filesdragenter)="onFilesdragenter($event)" errorMaxFilesInProcess="Maximum files" errorMaxFileSize="Files too large"></soho-fileupload-advanced>
           </div>
 
           <div class="field">
-            <label soho-label>Upload File with Send</label>
+            <label soho-label>FileAborted and FileRemoved Events</label>
+            <soho-fileupload-advanced
+              (fileaborted)="onFileAborted($event)"
+              (fileremoved)="onFileRemoved($event)"></soho-fileupload-advanced>
+          </div>
+
+          <div class="field">
+            <label soho-label>Send Method</label>
             <soho-fileupload-advanced [disabled]="fileUploadDisabled" [send]="onSend"></soho-fileupload-advanced>
           </div>
 
