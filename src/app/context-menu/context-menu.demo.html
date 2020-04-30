@@ -85,8 +85,8 @@
   <!-- Context menu used in all examples (except the menu button)-->
   <ul soho-popupmenu id="action-popupmenu" >
     <li soho-popupmenu-item *ngFor="let menuEntry of contextEntries" [isDisabled]="menuEntry.disabled">
-      <a soho-popupmenu-label *ngIf="!menuEntry.url" menuId="{{menuEntry.id}}"  >{{menuEntry.displayString}}</a>
-      <a soho-popupmenu-label *ngIf="menuEntry.url" menuUrl="{{menuEntry.url}}" >{{menuEntry.displayString}}</a>
+      <a soho-popupmenu-label *ngIf="!menuEntry.url" menuId="{{menuEntry.id}}">{{menuEntry.displayString}}<span class="shortcut-text">{{menuEntry.shortcut}}</span></a>
+      <a soho-popupmenu-label *ngIf="menuEntry.url" menuUrl="{{menuEntry.url}}">{{menuEntry.displayString}}<span class="shortcut-text">{{menuEntry.shortcut}}</span></a>
     </li>
   </ul>
 
