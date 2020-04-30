@@ -3,12 +3,22 @@
  */
 
 interface SohoLocaleData {
-  name: string;
   calendars: SohoLocaleCalendar[];
-  currencySign: string;
   currentFormat: SohoLocaleCurrencyFormat;
-  numbers: any;
-  data: any;
+  currencySign: string;
+  direction: string;
+  englishName: string;
+  nativeName: string;
+  language: string;
+  messages: SohoLocaleMessages;
+  name: string;
+  numbers: SohoLocaleNumberData;
+}
+
+interface SohoCurrentLocale {
+  dataName: string;
+  name: string;
+  data?: SohoLocaleData;
 }
 
 interface SohoLanguageData {
@@ -16,7 +26,7 @@ interface SohoLanguageData {
   englishName: string;
   nativeName: string;
   direction: 'left-to-right' | 'right-to-left';
-  messages: SohoLocaleMessage[];
+  messages: SohoLocaleMessages;
 }
 
 interface SohoLocaleCurrencyFormat {
@@ -29,17 +39,24 @@ interface SohoLocaleCurrencyFormat {
 }
 
 interface SohoLocaleNumberData {
-  percentSign: string;
-  percentFormat: string;
-  minusSign: string;
   decimal: string;
   group: string;
   groupSizes: [3, 3];
+  minusSign: string;
+  percentFormat: string;
+  percentPrefix: string;
+  percentSign: string;
+  percentSuffix: string;
 }
 
 interface SohoLocaleMessage {
-  key: string;
-  data: { id: string, value: string, comment: string };
+  id: string;
+  value: string;
+  comment?: string;
+}
+
+interface SohoLocaleMessages {
+  [id: string]: SohoLocaleMessage;
 }
 
 interface SohoLocaleCalendar {
@@ -62,7 +79,7 @@ interface SohoLocaleParseDateOptions {
 interface SohoLocaleStatic {
   cultures: any;
   culturesPath: string;
-  currentLocale: SohoLocaleData;
+  currentLocale: SohoCurrentLocale;
   currentLanguage: SohoLanguageData;
   languages: any;
   defaultLocales: any;

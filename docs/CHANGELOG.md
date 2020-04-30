@@ -4,6 +4,7 @@
 
 ### 7.1.0 Fixes
 
+- `[Locale]` The types for locale where incorrect so fixed them and added some new ones.  `TJM` ([Issue #756](https://github.com/infor-design/enterprise-ng/issues/756))
 - `[Wizard]` Prevent page refresh on selecting wizard ticks.  `BTHH` ([Pull Request #797](https://github.com/infor-design/enterprise-ng/pull/797))
 
 ## v7.0.3
