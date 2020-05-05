@@ -4,6 +4,7 @@
 
 ### 7.1.0 Fixes
 
+- `[ContextualActionPanel]` The contextual action panel turned off all body events messing up other components attached to body so namespaced these.  `TJM` ([Issue #811](https://github.com/infor-design/enterprise-ng/issues/811))
 - `[Locale]` The types for locale where incorrect so fixed them and added some new ones.  `TJM` ([Issue #756](https://github.com/infor-design/enterprise-ng/issues/756))
 - `[Wizard]` Prevent page refresh on selecting wizard ticks.  `BTHH` ([Pull Request #797](https://github.com/infor-design/enterprise-ng/pull/797))
 

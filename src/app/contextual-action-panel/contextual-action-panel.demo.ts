@@ -78,8 +78,8 @@ export class ContextualActionPanelDemoComponent {
       .afterOpen(() => {
         console.log('After Open Fires');
       })
-      .close(() => {
-        console.log('Close Fires');
+      .closed(() => {
+        console.log('Closed Fires');
       })
       .afterClose(() => {
         console.log('After Close Fires');
