@@ -77,6 +77,7 @@ are copied into src/app/icon.
     - For example if we made branch `4.9.x`, then the `master` projects/ids-enterprise-ng/package.json version should now be changed to `4.10.0-dev`
 1. Run `npm run sync:lib` after setting the master branch version
 1. Commit the version change and push to master
+1. Bump the changelog
 
 For a final release, finish with:
 
