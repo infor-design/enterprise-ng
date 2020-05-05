@@ -46,7 +46,7 @@ export class DataGridPagingServiceDemoComponent implements OnInit {
     this.savedFilter = lscache.get(this.uniqueId + 'filter') ? lscache.get(this.uniqueId + 'filter') : null;
     this.gridOptions = {
       columns:       this.datagridPagingService.getColumns(),
-      selectable:    'single',
+      selectable:    'multiple',
       paging:        true,
       pagesize:      pageSize,
       pagesizes:     [ 5, 10, 25 ],

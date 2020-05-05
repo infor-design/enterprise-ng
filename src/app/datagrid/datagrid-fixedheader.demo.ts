@@ -42,17 +42,14 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
   private buildGridOptions(): SohoDataGridOptions {
     return {
       columns: this.datagridPagingService.getColumns(),
-      selectable: 'single',
+      selectable: 'multiple',
       paging: true,
-      pagesize: 25,
+      pagesize: 100,
       pagesizes: [ 5, 10, 25, 100 ],
       indeterminate: true,
-      rowHeight: 'short', // short, medium or normal
-      sortable: false,
+      rowHeight: 'short',
       filterable: true,
-      source: this.dataGridOptions,
-      disableClientSort: true,
-      disableClientFilter: true,
+      source: this.dataGridOptions
     } as SohoDataGridOptions;
   }
 
