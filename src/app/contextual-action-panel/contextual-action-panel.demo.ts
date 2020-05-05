@@ -71,7 +71,19 @@ export class ContextualActionPanelDemoComponent {
       .contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
       .modalSettings({ buttons: buttons, title: this.title })
       .open()
-      .initializeContent(true);
+      .initializeContent(true)
+      .opened(() => {
+        console.log('Open Fires');
+      })
+      .afterOpen(() => {
+        console.log('After Open Fires');
+      })
+      .close(() => {
+        console.log('Close Fires');
+      })
+      .afterClose(() => {
+        console.log('After Close Fires');
+      });
   }
 
   openPanel2() {
