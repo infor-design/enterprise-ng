@@ -153,6 +153,18 @@ interface SohoDatePickerDisable {
    * It requires minDate and maxDate for the feature to activate.
    */
   restrictMonths?: boolean;
+
+  /**
+   * Restrict month selections on datepicker.
+   * It requires minDate and maxDate for the feature to activate.
+   */
+  callback?: SohoDatePickerDisableDatesCallback;
+}
+
+interface SohoDatePickerDisableDatesCallback {
+  year?: number;
+  month?: number;
+  day?: number;
 }
 
 /**

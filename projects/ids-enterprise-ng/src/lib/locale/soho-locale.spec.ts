@@ -1,5 +1,5 @@
 /// <reference path="soho-locale.d.ts" />
-fdescribe('Soho Locale Types Tests', () => {
+describe('Soho Locale Types Tests', () => {
 
   it('Validate Types and Translations', (done) => {
     Soho.Locale.set('en-US').done(() => {

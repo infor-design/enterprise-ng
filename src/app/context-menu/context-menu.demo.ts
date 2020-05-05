@@ -42,18 +42,21 @@ export class ContextMenuDemoComponent implements OnInit {
     const entries: Array<ContextMenuEntries> = [];
 
     entries.push({
-      displayString       : 'Cut',
-      disabled : false
+      displayString       : 'Cutx',
+      disabled : false,
+      shortcut: '⌘+X'
     });
 
     entries.push({
       displayString       : 'Copy',
-      disabled : false
+      disabled : false,
+      shortcut: '⌘+C'
     });
 
     entries.push({
       displayString       : 'Paste',
-      disabled : false
+      disabled : false,
+      shortcut: '⌘+V'
     });
 
     entries.push({
@@ -117,4 +120,5 @@ export interface ContextMenuEntries {
   id?: string;
   url?: string;
   disabled?: boolean;
+  shortcut?: string;
 }
