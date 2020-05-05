@@ -1348,7 +1348,7 @@ interface SohoDataGridGroupable {
   groupRowFormatter?: SohoDataGridColumnFormatterFunction;
 }
 
-type SohoDataGridAggregator = 'sum' | 'max' | 'list' | string;
+type SohoDataGridAggregator = 'sum' | 'min' | 'max' | 'list' | 'avg' | 'count' | string;
 
 /**
  * JQuery Integration

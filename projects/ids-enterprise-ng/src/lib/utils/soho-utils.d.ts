@@ -49,4 +49,11 @@ interface SohoStatic {
   excel: SohoUtilsExcelStatic;
   keyboard: SohoUtilsKeyboard;
   utils: SohoUtilsStatic;
+
+  /**
+   * Check if given element is within the viewport.
+   * @param {object} element The element to check
+   * @returns {boolean} whether or not the element is in the viewport.
+   */
+  isInViewport(element: HTMLElement): boolean;
 }
