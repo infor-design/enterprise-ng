@@ -7,7 +7,8 @@ import {
 import {
   SohoModalRef,
   SohoModalService,
-  SohoModalDialogService
+  SohoModalDialogService,
+  SohoModalDialogRef
 } from 'ids-enterprise-ng';
 
 import { ExampleModalDialogComponent } from './example-modal-dialog.component';
@@ -42,19 +43,18 @@ export class ModalDialogDemoComponent {
    * @param dialogService - the modal dialog service.
    */
   constructor(
-    private modalService: SohoModalDialogService,
-    private newModalService: SohoModalService) {
+    private modalService: SohoModalDialogService) {
   }
 
-  public dialogRef: SohoModalRef<ExampleModalDialogComponent>;
+  public dialogRef: SohoModalDialogRef<ExampleModalDialogComponent>;
 
   openSimple() {
     if (this.dialogRef) {
       return this.dialogRef.open();
     }
 
-    this.dialogRef = this.newModalService
-      .modal<ExampleModalDialogComponent>(ExampleModalDialogComponent)
+    this.dialogRef = this.modalService
+      .modal<ExampleModalDialogComponent>(ExampleModalDialogComponent, this.placeholder)
       .buttons([
         {
           id: 'cancel-button',
@@ -112,8 +112,16 @@ export class ModalDialogDemoComponent {
           { text: 'Cancel', click: (modal) => { dialogRef.close('CANCEL'); } },
           { text: 'Submit', click: (modal) => { dialogRef.close('SUBMIT'); }, isDefault: true }
         ])
-
       .open();
+
+    const bs = dialogRef.buttonsetAPI;
+    const a = bs.at(1);
+
+    bs.disabled = true;
+
+    const str = a.toData(false);
+
+    console.log(str);
   }
 
   openNested() {

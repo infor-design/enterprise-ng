@@ -1,3 +1,4 @@
+/// <reference path="../buttonset/soho-buttonset.d.ts" />
 /**
  * Soho Modal Dialog Control.
  *
@@ -165,6 +166,11 @@ interface SohoModalStatic {
    * Open the modal dialog.
    */
   open(): void;
+
+  /**
+   * API for interacting with the buttons on the dialog.
+   */
+  buttonsetAPI: SohoButtonsetApi;
 
   /**
    * Close the modal dialog.

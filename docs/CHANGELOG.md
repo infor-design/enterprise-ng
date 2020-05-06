@@ -2,6 +2,10 @@
 
 ## v7.2.0
 
+### 7.2.0 Features
+
+- `[ModalDialog]` Added support the new buttonsetAPI on modal.  `BTHH` ([Issue #xxx](https://github.com/infor-design/enterprise-ng/issues/xxx))
+
 ### 7.2.0 Fixes
 
 ## v7.1.0

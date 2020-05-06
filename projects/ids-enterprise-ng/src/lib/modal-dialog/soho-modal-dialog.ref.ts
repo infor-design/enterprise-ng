@@ -61,6 +61,15 @@ export class SohoModalDialogRef<T> {
     return null;
   }
 
+  /**
+   * The buttonset API for the modal dialog.
+   *
+   * @returns the buttonset API for the modal dialog, if initialised.
+   */
+  public get buttonsetAPI(): SohoButtonsetApi {
+    return this.modal ? this.modal.buttonsetAPI : undefined;
+  }
+
   // -------------------------------------------
   // Default options block
   // -------------------------------------------
@@ -460,6 +469,14 @@ export class SohoModalDialogRef<T> {
     if (this.modal) {
       this.ngZone.runOutsideAngular(() => this.modal.close());
     }
+    return this;
+  }
+
+  /**
+   * Destroys the modal dialog.
+   */
+  destroy(): SohoModalDialogRef<T> {
+    this.modal.destroy();
     return this;
   }
 
