@@ -18,6 +18,7 @@ import { BulletDemoComponent } from './bullet/bullet.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo';
 import { ButtonDemoComponent } from './button/button.demo';
+import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
 import { CalendarDemoComponent } from './calendar/calendar.demo';
 import { CalendarLegendDemoComponent } from './calendar/calendar-legend.demo';
 import { CalendarUpdatedDemoComponent } from './calendar/calendar-updated.demo';
@@ -198,6 +199,7 @@ export const routes: Routes = [
   { path: 'bubble', component: BubbleDemoComponent },
   { path: 'bullet', component: BulletDemoComponent },
   { path: 'button', component: ButtonDemoComponent },
+  { path: 'buttonset', component: ButtonsetDemoComponent },
   { path: 'busyindicator', component: BusyIndicatorDemoComponent },
   { path: 'busyindicatorbody', component: BusyIndicatorDemoBodyComponent },
   { path: 'calendar-monthview', component: CalendarDemoComponent },

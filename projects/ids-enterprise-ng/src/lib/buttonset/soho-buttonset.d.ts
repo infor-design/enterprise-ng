@@ -8,7 +8,7 @@
  * Soho Component is included in this file.
  */
 
-interface SohoButtonsetSettings {
+interface SohoButtonsetOptions {
   /**
    * The list of buttons definitions - is this a copy from the modal?
    */
@@ -29,7 +29,13 @@ interface SohoButtonsetSettings {
 /**
  * The API for a `buttonset` instance.
  */
-declare class SohoButtonsetApi {
+declare class SohoButtonsetStatic {
+  /** Settings. */
+  settings: SohoButtonsetOptions;
+
+  /** underlying HTML Element */
+  element?: HTMLElement;
+
   /**
    * Button api instances for the the buttons in the buttonset.
    */
@@ -87,7 +93,7 @@ declare class SohoButtonsetApi {
    * @param settings The settings you would like to modify.
    * @returns This component's API.
    */
-  updated(settings: SohoButtonsetSettings): SohoButtonsetApi;
+  updated(settings: SohoButtonsetOptions): SohoButtonsetStatic;
 
   /**
    * Teardown and remove any added markup and events.
@@ -95,3 +101,13 @@ declare class SohoButtonsetApi {
   destroy(): void;
 }
 
+/**
+ * JQuery Integration
+ */
+interface JQueryStatic {
+  buttonset: SohoButtonsetStatic;
+}
+
+interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
+  buttonset(options?: SohoButtonsetOptions): JQuery;
+}

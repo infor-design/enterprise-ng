@@ -66,7 +66,7 @@ export class SohoModalDialogRef<T> {
    *
    * @returns the buttonset API for the modal dialog, if initialised.
    */
-  public get buttonsetAPI(): SohoButtonsetApi {
+  public get buttonsetAPI(): SohoButtonsetStatic {
     return this.modal ? this.modal.buttonsetAPI : undefined;
   }
 

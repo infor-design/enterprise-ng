@@ -170,7 +170,7 @@ interface SohoModalStatic {
   /**
    * API for interacting with the buttons on the dialog.
    */
-  buttonsetAPI: SohoButtonsetApi;
+  buttonsetAPI: SohoButtonsetStatic;
 
   /**
    * Close the modal dialog.
