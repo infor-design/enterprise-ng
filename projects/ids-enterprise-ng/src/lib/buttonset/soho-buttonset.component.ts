@@ -11,7 +11,6 @@ import {
   AfterViewChecked,
   ChangeDetectorRef,
 } from '@angular/core';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'div[soho-buttonset]', // tslint:disable-line
@@ -39,7 +38,9 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
   /**
    * Constructor.
    *
-   * @param elementRef - the element matching the component's selector.
+   * @param element - the element matching the component's selector.
+   * @param ref - change detector reference for the component.
+   * @param ngZone - angular zone.
    */
   constructor(
     private element: ElementRef,
@@ -53,6 +54,8 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
 
   /**
    * The list of buttons definitions.
+   *
+   * @params buttons - list of modal button definitions to use.
    */
   @Input()
   set buttons(buttons: SohoModalButton[]) {
@@ -121,19 +124,23 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
   @Input()
   set disabled(val: boolean) {
     if (this.buttonset) {
-      this.buttonset.disabled = val;
+      this.ngZone.runOutsideAngular(() => {
+        this.buttonset.disabled = val;
+      });
     }
   }
 
   /**
    * Adds a new button to the Buttonset.
    *
-   * @param settings containing
+   * @param button button definition.
    * @param [doAddDOM=false] if true, appends the new element to the Buttonset container after creation/update.
    */
-  public add(settings: SohoModalButton, doAddDOM?: boolean): void {
+  public add(button: SohoButtonOptions, doAddDOM?: boolean): void {
     if (this.buttonset) {
-      this.buttonset.add(settings, doAddDOM);
+      this.ngZone.runOutsideAngular(() => {
+        this.buttonset.add(button, doAddDOM);
+      });
     } else {
       throw Error('buttonset not initialised');
     }
@@ -147,7 +154,9 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
    */
   public remove(buttonAPI?: SohoButtonStatic | HTMLButtonElement | string, doRemoveDOM?: boolean): void {
     if (this.buttonset) {
-      this.buttonset.remove(buttonAPI, doRemoveDOM);
+      this.ngZone.runOutsideAngular(() => {
+        this.buttonset.remove(buttonAPI, doRemoveDOM);
+      });
     } else {
       throw Error('buttonset not initialised');
     }
@@ -160,7 +169,9 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
    */
   public removeAll(doRemoveDOM?: boolean): void {
     if (this.buttonset) {
-      this.buttonset.removeAll(doRemoveDOM);
+      this.ngZone.runOutsideAngular(() => {
+        this.buttonset.removeAll(doRemoveDOM);
+      });
     } else {
       throw Error('buttonset not initialised');
     }
@@ -174,7 +185,9 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
    */
   public at(idx: number): SohoButtonStatic {
     if (this.buttonset) {
-      return this.buttonset.at(idx);
+      return this.ngZone.runOutsideAngular(() => {
+        return this.buttonset.at(idx);
+      });
     } else {
       throw Error('buttonset not initialised');
     }
@@ -189,7 +202,9 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
    */
   public toData(addContextElement: boolean): string {
     if (this.buttonset) {
-      return this.buttonset.toData(addContextElement);
+      return this.ngZone.runOutsideAngular(() => {
+        return this.buttonset.toData(addContextElement);
+      });
     } else {
       throw Error('buttonset not initialised');
     }
@@ -203,7 +218,9 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
    */
   public updated(settings: SohoButtonsetOptions): SohoButtonsetStatic {
     if (this.buttonset) {
-      this.buttonset.updated(settings);
+      this.ngZone.runOutsideAngular(() => {
+        this.buttonset.updated(settings);
+      });
 
       // .. as the settings are merged, grab those used by the widget.
       this.settings = this.buttonset.settings;
@@ -219,7 +236,9 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
    */
   public destroy(): void {
     if (this.buttonset) {
-      this.buttonset.destroy();
+      this.ngZone.runOutsideAngular(() => {
+        this.buttonset.destroy();
+      });
       this.buttonset = null;
     } else {
       throw Error('buttonset not initialised');

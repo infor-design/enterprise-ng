@@ -9,6 +9,8 @@
  * Button Options
  */
 interface SohoButtonOptions {
+  /** An optional identifier for the button. */
+  id?: string;
 
   /** The icon to use for on state toggle buttons. */
   toggleOnIcon?: string;
@@ -31,8 +33,17 @@ interface SohoButtonOptions {
   /** ripple */
   ripple?: boolean,
 
+  // **** Added for buttonse **/
   /** validate? */
   validate?: boolean
+
+  audible?: boolean;
+
+  text?: string;
+
+  icon?: string;
+
+  disabled?: boolean;
 }
 
 /**

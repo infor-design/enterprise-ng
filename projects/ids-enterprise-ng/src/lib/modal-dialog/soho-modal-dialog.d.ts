@@ -93,9 +93,9 @@ type SohoModalFullSize = false | 'responsive' | 'always';
 type SohoModalBreakPoint = 'phone' | 'slim' | 'phablet' |
   'phone-to-tablet' | 'wide-tablet' | 'tablet-to-desktop' | 'desktop' | 'desktop-to-extralarge';
 
-interface SohoModalButton {
+interface SohoModalButton extends SohoButtonOptions {
   /** An optional identifier for the button. */
-  id?: string;
+  // id?: string;
 
   /** An optional name for the input control, not used unless type = 'input'. */
   name?: string;

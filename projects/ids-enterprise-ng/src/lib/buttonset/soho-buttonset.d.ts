@@ -12,7 +12,7 @@ interface SohoButtonsetOptions {
   /**
    * The list of buttons definitions - is this a copy from the modal?
    */
-  buttons?: SohoModalButton[];
+  buttons?: SohoButtonOptions[];
 
   /**
    * Detect existing button in the markup rather than generating
@@ -23,7 +23,7 @@ interface SohoButtonsetOptions {
   /**
    * Styles to add to any generated button markup.
    */
-  style?: string[];
+  style?: string;
 }
 
 /**
@@ -54,7 +54,7 @@ declare class SohoButtonsetStatic {
    * @param settings containing
    * @param [doAddDOM=false] if true, appends the new element to the Buttonset container after creation/update.
    */
-  add(settings: SohoModalButton, doAddDOM?: boolean): void;
+  add(settings: SohoButtonOptions, doAddDOM?: boolean): void;
 
   /**
    * Removes a button from the buttonset.
