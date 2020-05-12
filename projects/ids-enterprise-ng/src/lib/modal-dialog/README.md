@@ -17,27 +17,11 @@ constructor(private modalService: SohoModalDialogService) {
 }
 ```
 
-Angular requires a placeholder component to parent the
-dialog component when it is instantiated.  The location of the component
-is up to the calling application, but in this example the hosting component
-is used.
-
-```typescript
-@ViewChild('dialogPlaceholder', { read: ViewContainerRef }) placeholder: ViewContainerRef;
-```
-
-In the markup for the hosting component add:
-
-```html
-<!-- div #dialogPlaceholder will contain the child component -->
-<div #dialogPlaceholder></div>
-```
-
-To open the dialog, the `modal` is called on the `SohoModalDialogService`, as follows:
+To open the dialog, call the `modal` and `open()` methods from `SohoModalDialogService`, as follows:
 
 ```typescript
 this.dialog = this.modalService
-  .modal(ExampleModalDialogComponent, this.placeholder)
+  .modal(ExampleModalDialogComponent)
   .open();
 ```
 

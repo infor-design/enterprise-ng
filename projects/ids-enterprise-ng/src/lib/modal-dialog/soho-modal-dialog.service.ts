@@ -51,7 +51,7 @@ export class SohoModalDialogService {
    *
    * @return the modal dialog reference.
    */
-  public modal<T>(component: ComponentType<T>, parent: ViewContainerRef, options?: SohoModalOptions): SohoModalDialogRef<T> {
+  public modal<T>(component: ComponentType<T>, parent?: ViewContainerRef, options?: SohoModalOptions): SohoModalDialogRef<T> {
     ArgumentHelper.checkNotNull('component', component);
 
     if (parent) {
