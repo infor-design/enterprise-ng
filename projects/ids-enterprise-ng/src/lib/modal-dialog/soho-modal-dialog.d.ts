@@ -1,4 +1,3 @@
-/// <reference path="../buttonset/soho-buttonset.d.ts" />
 /**
  * Soho Modal Dialog Control.
  *
@@ -93,9 +92,9 @@ type SohoModalFullSize = false | 'responsive' | 'always';
 type SohoModalBreakPoint = 'phone' | 'slim' | 'phablet' |
   'phone-to-tablet' | 'wide-tablet' | 'tablet-to-desktop' | 'desktop' | 'desktop-to-extralarge';
 
-interface SohoModalButton extends SohoButtonOptions {
+interface SohoModalButton {
   /** An optional identifier for the button. */
-  // id?: string;
+  id?: string;
 
   /** An optional name for the input control, not used unless type = 'input'. */
   name?: string;

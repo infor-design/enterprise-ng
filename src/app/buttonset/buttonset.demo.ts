@@ -1,12 +1,10 @@
 import {
   Component,
   ChangeDetectionStrategy,
-  ViewChild,
-  ɵɵupdateSyntheticHostBinding
+  ViewChild
 } from '@angular/core';
 import { SohoButtonsetComponent } from 'projects/ids-enterprise-ng/src/lib';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-buttonset-demo',
@@ -15,19 +13,18 @@ import { threadId } from 'worker_threads';
 })
 export class ButtonsetDemoComponent {
 
-  const autoIconTypes = ['btn-toggle', 'btn-actions', 'icon-favorite'];
-  const defaultStyleTypes = ['btn-icon', 'btn-menu', 'btn-actions', 'btn-toggle'];
-  const idCount = 0;
+  autoIconTypes = ['btn-toggle', 'btn-actions', 'icon-favorite'];
+  defaultStyleTypes = ['btn-icon', 'btn-menu', 'btn-actions', 'btn-toggle'];
+  idCount = 0;
 
-  const newSettings: SohoButtonOptions = {
-
+  newSettings: SohoButtonOptions = {
   };
 
   // const toggleIconsRollout = $('.toggle-icons-rollout');
   // const standardIconsRollout = $('.standard-icons-rollout');
   // const btnCount = $('#button-count');
 
-  const defaultButtons = [
+  defaultButtons = [
     {
       id: 'btn-0',
       text: 'Button 0'
@@ -73,6 +70,9 @@ export class ButtonsetDemoComponent {
       toggleIcon: ''
     }
   };
+  standardIconsRollout: any;
+  btnCount: any;
+  toggleIconsRollout: any;
 
   constructor(private formBuilder: FormBuilder) {
     this.demoForm = this.formBuilder.group({
@@ -278,51 +278,4 @@ export class ButtonsetDemoComponent {
       firstStyleOpt.next().prop('selected', true);
     }
   }
-
-
-  // setPageState();
-
-  // Change the style of the Buttonset itself
-  $('[name="buttonset-style"]').on('change.test', function() {
-    this.setButtonsetStyle();
-  });
-
-  // Set the Text Value (Input)
-  $('#btn-text').on('input.test blur.test', function() {
-    this.setText();
-  });
-
-  // Set the text to audible/not audible only
-  $('#btn-audible').on('change.test', function() {
-    this.setAudible();
-  });
-
-  // Set the button's disabled state
-  $('#btn-disabled').on('change.test', function() {
-    this.setDisabled();
-  });
-
-  // Set the Button Style (Dropdown)
-  $('#btn-style').on('change.test', function(e) {
-    this.setStyle();
-    this.setPageState();
-  });
-
-  // Set the Button Type (Dropdown)
-  $('#btn-type').on('change.test', function(e) {
-    this.setType();
-    this.setPageState();
-  });
-
-  // Set the standard icon type
-  $('#btn-icon-def').on('change.test', function(e) {
-    this.setIcon();
-  });
-
-  // Set the toggle icon type
-  $('#btn-toggle-icon-def').on('change.test', function(e) {
-    this.setToggleIcons();
-  });
-
-
 }
