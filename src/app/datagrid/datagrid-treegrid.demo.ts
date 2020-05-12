@@ -18,7 +18,7 @@ export class DataGridTreeGridDemoComponent {
   constructor(private treeService: DatagridTreegridServiceDemo) { }
 
   public get columns(): SohoDataGridColumn[] {
-    return this.treeService.getColumns();
+    return this.treeService.getColumns().slice(1);
   }
 
   public get data(): any[] {
@@ -53,6 +53,10 @@ export class DataGridTreeGridDemoComponent {
   onCollapseRow(e: SohoDataGridToggleRowEvent) {
     const descr = e.rowData.taskName;
     this.events.push({ name: 'collapserow', descr, date: new Date() });
+  }
+
+  onRowActivated(e: SohoDataGridToggleRowEvent) {
+    console.log(e);
   }
 
   makeChange() {
