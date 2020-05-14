@@ -1,7 +1,8 @@
 import {
   Component,
   ElementRef,
-  AfterViewInit
+  AfterViewInit,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import {
@@ -16,7 +17,8 @@ import { productsColumns, productsData } from '../lookup/mock.data';
 
 @Component({
   selector: 'app-reactive-form-demo',
-  templateUrl: 'form-reactive-form.demo.html'
+  templateUrl: 'form-reactive-form.demo.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormReactiveFormDemoComponent implements AfterViewInit {
 

@@ -58,14 +58,14 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
    * @params buttons - list of modal button definitions to use.
    */
   @Input()
-  set buttons(buttons: SohoButtonOptions[]) {
+  public set buttons(buttons: SohoButtonOptions[]) {
     this.settings.buttons = buttons;
     if (this.buttonset) {
       this.markForRefresh();
     }
   }
 
-  get buttons(): SohoButtonOptions[] {
+  public get buttons(): SohoButtonOptions[] {
     if (this.buttonset) {
       return this.buttonset.settings.buttons;
     } else {

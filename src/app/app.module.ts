@@ -227,6 +227,7 @@ import { LocaleInitializerModule } from './locale-initializer/locale-initializer
 import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
 import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-cube.demo';
 import { WeekViewDemoComponent } from './week-view/week-view.demo';
+import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
 
 @NgModule({
   declarations: [
@@ -251,6 +252,7 @@ import { WeekViewDemoComponent } from './week-view/week-view.demo';
     BusyIndicatorDemoComponent,
     BusyIndicatorDemoBodyComponent,
     ButtonDemoComponent,
+    ButtonsetDemoComponent,
     CardFormatterComponent,
     CalendarDemoComponent,
     CalendarLegendDemoComponent,

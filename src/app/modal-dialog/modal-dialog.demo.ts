@@ -106,7 +106,8 @@ export class ModalDialogDemoComponent {
 
   openFullSize() {
     const dialogRef = this.modalService
-      .modal<FullSizeModalDialogComponent>(FullSizeModalDialogComponent, this.placeholder)
+      .modal<FullSizeModalDialogComponent>(FullSizeModalDialogComponent)
+      .title(this.title)
       .buttons(
         [
           { text: 'Cancel', click: (modal) => { dialogRef.close('CANCEL'); } },
