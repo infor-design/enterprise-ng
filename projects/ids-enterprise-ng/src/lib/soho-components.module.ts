@@ -45,7 +45,6 @@ import { SohoMaskModule } from './mask/soho-mask.module';
 import { SohoMastheadModule } from './masthead/soho-masthead.module';
 import { SohoMenuButtonModule } from './menu-button/soho-menu-button.module';
 import { SohoMessageModule } from './message/soho-message.module';
-import { SohoModalModule } from './modal/soho-modal.module';
 import { SohoModalDialogModule } from './modal-dialog/soho-modal-dialog.module';
 import { SohoNotificationModule } from './notification/soho-notification.module';
 import { SohoPagerModule } from './pager/soho-pager.module';
@@ -128,7 +127,6 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoMastheadModule,
     SohoMenuButtonModule,
     SohoMessageModule,
-    SohoModalModule,
     SohoModalDialogModule,
     SohoNotificationModule,
     SohoPagerModule,
@@ -209,7 +207,6 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoMaskModule,
     SohoMastheadModule,
     SohoMenuButtonModule,
-    SohoModalModule,
     SohoModalDialogModule,
     SohoNotificationModule,
     SohoPagerModule,
