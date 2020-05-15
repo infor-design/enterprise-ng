@@ -4,6 +4,8 @@
 
 ### 7.2.0 Fixes
 
+- `[Datagrid]` Update the dynamic datagrid example to not show the browser contextmenu.  `TJM` ([#817](https://github.com/infor-design/enterprise/issues/817))
+
 ## v7.1.0
 
 ### 7.1.0 Fixes
