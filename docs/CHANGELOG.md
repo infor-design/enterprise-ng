@@ -4,6 +4,8 @@
 
 ### 7.2.0 Fixes
 
+- `[Modal]` The modal dialog had a second wrapper added (SohoModal vs SohoModalDialog), it was decided to stick with one, the existing SohoModalDialog.  `TJM` ([Issue #776](https://github.com/infor-design/enterprise-ng/issues/776))
+
 ## v7.1.0
 
 ### 7.1.0 Fixes
