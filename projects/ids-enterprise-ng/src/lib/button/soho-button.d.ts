@@ -56,9 +56,11 @@ declare class SohoButtonStatic {
   /**  */
   element: HTMLButtonElement;
 
-  disable(): void;
-
   destroy(): void;
+
+  get disabled(); boolean;
+
+  set disabled(bal: boolean);
 
   /**
    * whether or not this is a valid toggle button in a pressed state.

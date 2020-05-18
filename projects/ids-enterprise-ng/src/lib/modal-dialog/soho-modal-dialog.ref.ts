@@ -491,7 +491,7 @@ export class SohoModalDialogRef<T> {
    *
    * @param eventFn - the function to call before openning the dialog.
    */
-  beforeOpen(eventFn: () => boolean): SohoModalDialogRef<T> {
+  beforeOpen(eventFn: (dialogRef?: SohoModalDialogRef<T>) => boolean): SohoModalDialogRef<T> {
     this.eventGuard.beforeOpen = eventFn;
     return this;
   }
@@ -591,7 +591,7 @@ export class SohoModalDialogRef<T> {
    */
   private onBeforeOpen(event: any): boolean {
     const fn: Function = this.eventGuard.beforeOpen;
-    return fn ? fn.call(this.eventGuard) : true;
+    return fn ? fn.call(this.eventGuard, this) : true;
   }
 
   /**
@@ -721,7 +721,7 @@ export interface SohoModalDialogVetoableEventGuard<T> {
    *
    * @return false to veto the open action; otherwise true.
    */
-  beforeOpen?(): boolean;
+  beforeOpen?(dialogRef: SohoModalDialogRef<T>): boolean;
 
   /**
    * Invoked before a modal is closed, allowing the close to be vetoed.
