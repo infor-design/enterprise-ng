@@ -116,13 +116,8 @@ export class ModalDialogDemoComponent {
       .open();
 
     const bs = dialogRef.buttonsetAPI;
-    const a = bs.at(1);
-
+    const a = bs.at(0);
     bs.disabled = true;
-
-    const str = a.toData(false);
-
-    console.log(str);
   }
 
   openNested() {

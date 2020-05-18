@@ -51,13 +51,21 @@ export class ButtonsetDemoComponent implements AfterViewInit {
   @ViewChild(SohoButtonsetComponent)
   public buttonset: SohoButtonsetComponent;
 
+  public get buttonCount() {
+    if (this.buttonset) {
+      return this.buttonset.buttonAPIs.length;
+    } else {
+      return this.defaultButtons.length;
+    }
+  }
+
   public demoForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
     this.demoForm = this.formBuilder.group({
       bthCount: [0],
       buttonsetStyle: ['default'],
-      btnText: [''],
+      btnText: ['', Validators.required],
       audible: [false],
       disabled: [false],
       style: ['default'],
@@ -74,20 +82,38 @@ export class ButtonsetDemoComponent implements AfterViewInit {
         this.handleButtonWidths();
       });
 
-    this.demoForm.statusChanges.subscribe(
-      (v) => {
-        Object.keys(this.demoForm.controls).forEach(key => {
-          const c: AbstractControl = this.demoForm.get(key);
-          this.demoForm.controls
-          if (key !== 'btnText') {
-            if (c.valid) {
-              c.enable();
-            } else {
-              c.disable();
-            }
-          }
-        });
-      });
+    this.demoForm.controls['type'].valueChanges.subscribe((val) => {
+      if (val === 'btn-icon') {
+        const iconCtrl = this.demoForm.controls['icon'];
+        if (iconCtrl.value === '') {
+          this.demoForm.controls['icon'].setValue('icon-settings');
+        }
+      }
+
+      if (val === 'btn-actions') {
+        this.demoForm.controls['audible'].disable();
+      } else {
+        this.demoForm.controls['audible'].enable();
+      }
+
+      if (val === 'btn-toggle') {
+        const toggleIconCtrl = this.demoForm.controls['toggleIcon'];
+        toggleIconCtrl.enable();
+        if (toggleIconCtrl.value === '') {
+          toggleIconCtrl.setValue('circles');
+        }
+      } else {
+        const toggleIconCtrl = this.demoForm.controls['toggleIcon'];
+        toggleIconCtrl.disable();
+      }
+
+      if (this.isStyledType) {
+        const styleCtrl = this.demoForm.controls['style'];
+        if (styleCtrl.value === 'default') {
+          this.demoForm.controls['style'].setValue('btn');
+        }
+      }
+    });
   }
 
   ngAfterViewInit() {
@@ -95,11 +121,10 @@ export class ButtonsetDemoComponent implements AfterViewInit {
     this.buttonset.updated({ buttons: this.defaultButtons });
   }
 
-  // Removes all buttons from the buttonset
   public reset() {
+    // Removes all buttons from the buttonset
     this.buttonset.removeAll(true);
     this.demoForm.reset();
-    this.setPageState();
   }
 
   submit() {
@@ -116,7 +141,7 @@ export class ButtonsetDemoComponent implements AfterViewInit {
     this.setToggleIcons();
 
     this.buttonset.add(this.newSettings, true);
-    this.setPageState();
+    this.handleButtonWidths();
   }
 
   public setIcon() {
@@ -180,69 +205,21 @@ export class ButtonsetDemoComponent implements AfterViewInit {
     }
   }
 
-  // Sets the current state of some of the page controls
-  public setPageState() {
-    // this.demoForm.controls.btnCount.setValue(this.buttonset.buttons.length);
-    this.handleButtonWidths();
+  public get isToggleButton() {
+    return this.demoForm.controls['type'].value === 'btn-toggle';
+  }
 
-    // If the type is toggle, hide the
-    this.demoForm.controls['type'].valueChanges.subscribe((val: string) => {
-      if (val === 'btn-toggle') {
-        this.demoForm.controls['icon'].disable();
-        this.demoForm.controls['toggleIcon'].enable();
-      }
+  public get isIconBtn() {
+    return this.demoForm.controls['type'].value === 'btn-icon';
+  }
 
-      const cannotHaveIcons = this.autoIconTypes.indexOf(val) > -1;
-      this.demoForm.controls['icon'].disable();
+  public get cannotHaveIcons() {
+    const val = this.demoForm.controls['type'].value;
+    return this.autoIconTypes.indexOf(val) > -1;
+  }
 
-
-    });
-
-    // disable = this.demoForm.controls.
-
-    // // Disable the Toggle Button definitions if we're not working with a Toggle Button
-    // const isToggleBtn = (val === 'btn-toggle');
-    // this.toggleIconsRollout[isToggleBtn ? 'removeClass' : 'addClass']('hidden');
-    // this.toggleIconsRollout.children('input, select').each(function (i, input: HTMLButtonElement) {
-    //   input.disabled = !isToggleBtn;
-    //   const api = $(input).data('dropdown');
-    //   if ($(input).is('.dropdown') && api) {
-    //     api.pseudoElem[isToggleBtn ? 'removeClass' : 'addClass']('is-disabled');
-    //   }
-    // });
-
-    // Disable the Standard Icon Button definitions if the type doesn't support a user-definable 'icon' setting.
-    // const cannotHaveIcons = this.autoIconTypes.indexOf(val) > -1;
-    // this.standardIconsRollout[cannotHaveIcons ? 'addClass' : 'removeClass']('hidden');
-    // this.standardIconsRollout.children('input, select').each(function (i, input: HTMLInputElement) {
-    //   input.disabled = cannotHaveIcons;
-    //   const api = $(input).data('dropdown');
-    //   if ($(input).is('.dropdown') && api) {
-    //     api.pseudoElem[cannotHaveIcons ? 'addClass' : 'removeClass']('is-disabled');
-    //   }
-    // });
-
-    // If explicitly choosing an icon button, you MUST have an icon.
-    // const isIconBtn = (val === 'btn-icon');
-    // const firstIconOpt = $('#btn-icon-def').find('option:first-child');
-    // firstIconOpt.prop('disabled', isIconBtn);
-    // if (isIconBtn && firstIconOpt.prop('selected')) {
-    //   firstIconOpt.prop('selected', false);
-    //   firstIconOpt.next().prop('selected', true);
-    // }
-
-    // // On an "actions" button, there's always an `#icon-more`, so there's no way to turn icons off.
-    // const isActionBtn = (val === 'btn-actions');
-    // const isAudibleBtn = $('#btn-audible');
-    // isAudibleBtn.prop('disabled', isActionBtn);
-
-    // Disable the `default` Button Type if no styled button "type" is selected.
-    // const isStyledType = this.defaultStyleTypes.indexOf(val) > -1;
-    // const firstStyleOpt = $('#btn-style').find('option:first-child');
-    // firstStyleOpt.prop('disabled', !isStyledType);
-    // if (isStyledType && firstStyleOpt.prop('selected')) {
-    //   firstStyleOpt.prop('selected', false);
-    //   firstStyleOpt.next().prop('selected', true);
-    // }
+  public get isStyledType() {
+    const val = this.demoForm.controls['type'].value;
+    return this.defaultStyleTypes.indexOf(val) > -1;
   }
 }

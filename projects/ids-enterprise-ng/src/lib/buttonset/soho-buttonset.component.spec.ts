@@ -2,7 +2,9 @@
 
 import {
   ComponentFixture,
-  TestBed
+  TestBed,
+  tick,
+  fakeAsync
 } from '@angular/core/testing';
 
 import { By } from '@angular/platform-browser';
@@ -25,14 +27,14 @@ import { SohoButtonsetComponent } from './soho-buttonset.component';
   </div>`
 })
 class SohoButtonsetTestComponent {
-  @ViewChild(SohoButtonsetComponent, { static: true }) button: SohoButtonsetComponent;
+  @ViewChild(SohoButtonsetComponent, { static: true }) buttonset: SohoButtonsetComponent;
 
   constructor() {
   }
 }
 
-describe('Soho Button Unit Tests', () => {
-  let button: SohoButtonsetComponent;
+fdescribe('Soho Button Unit Tests', () => {
+  let buttonset: SohoButtonsetComponent;
   let component: SohoButtonsetTestComponent;
   let fixture: ComponentFixture<SohoButtonsetTestComponent>;
   let de: DebugElement;
@@ -49,7 +51,7 @@ describe('Soho Button Unit Tests', () => {
 
     fixture.detectChanges();
 
-    button = component.button;
+    buttonset = component.buttonset;
     de = fixture.debugElement;
     el = de.query(By.css('div[soho-buttonset]')).nativeElement;
   });
@@ -58,58 +60,39 @@ describe('Soho Button Unit Tests', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('can get and set replaceText', () => {
-  //   expect(button.replaceText).toBeUndefined();
+  it('expect not buttons by default', () => {
+    expect(buttonset.buttonAPIs.length).toBe(0);
+  });
 
-  //   button.replaceText = true;
-  //   expect((button as any)._buttonOptions.replaceText).toBeTruthy();
+  it('add a button', () => {
+    buttonset.add({ id: 'btn-0', text: 'Button 0' }, true);
 
-  //   button.replaceText = false;
-  //   expect((button as any)._buttonOptions.replaceText).toBeFalsy();
-  // });
+    expect(buttonset.buttonAPIs.length).toBe(1);
+  });
 
-  // it('can get and set toggleOffIcon', () => {
-  //   expect(button.toggleOffIcon).toBeUndefined();
-  //   button.toggleOffIcon = 'heart';
+  it('get a button at', () => {
+    buttonset.add({ id: 'btn-0', text: 'Button 0' }, true);
+    const btn = buttonset.at(0);
 
-  //   expect((button as any)._buttonOptions.toggleOffIcon).toEqual('heart');
-  // });
+    expect(btn.settings.id).toBe('btn-0');
+  });
 
-  // it('can get and set toggleOnIcon', () => {
-  //   expect(button.toggleOnIcon).toBeUndefined();
-  //   button.toggleOnIcon = 'heart';
+  it('get buttonAPIs', (() => {
+    buttonset.add({ id: 'btn-0', text: 'Button 0' }, true);
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      expect(buttonset.buttons.length).toBe(1, 'buttons');
+      expect(buttonset.buttonAPIs.length).toBe(1, 'buttonAPIs');
+    });
+  }));
 
-  //   expect((button as any)._buttonOptions.toggleOnIcon).toEqual('heart');
-  // });
-
-  // it('check hideMenuArrow', () => {
-  //   // const spy = spyOn((component as any).ref, 'markForCheck');
-
-  //   button.hideMenuArrow = false;
-
-  //   expect((button as any)._buttonOptions.hideMenuArrow).toBeFalsy();
-  //   expect((button as any).button.settings.hideMenuArrow).toBeFalsy();
-  //   // expect(spy).toHaveBeenCalled();
-  // });
-
-  // it('check hideMenuArrow sets option to true', () => {
-  //   // const spy = spyOn((component as any).ref, 'markForCheck');
-
-  //   button.hideMenuArrow = true;
-
-  //   expect((button as any)._buttonOptions.hideMenuArrow).toBeTruthy();
-  //   expect((button as any).button.settings.hideMenuArrow).toBeTruthy();
-  //   // expect(spy).toHaveBeenCalled();
-  // });
-
-  // it('check hideMenuArrow sets option to true, when no menuButton set', () => {
-  //   // const spy = spyOn((component as any).ref, 'markForCheck');
-
-  //   (button as any).button = undefined;
-  //   button.hideMenuArrow = true;
-
-  //   expect((button as any)._buttonOptions.hideMenuArrow).toBeTruthy();
-  //   // expect(spy).toHaveBeenCalledTimes(0);
-  // });
+  it('set buttons', fakeAsync(() => {
+    buttonset.buttons = [{ id: 'btn-0', text: 'Button 0' }, { id: 'btn-1', text: 'Button 1' }];
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      expect(buttonset.buttons.length).toBe(2);
+      expect(buttonset.buttonAPIs.length).toBe(2);
+    });
+  }));
 
 });

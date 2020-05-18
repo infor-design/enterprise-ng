@@ -2,7 +2,7 @@
   <div class="six columns">
     <form [formGroup]="demoForm">
       <div class="form-group">
-      <p>Current Button Count: <span id="button-count">{{buttonset?.buttonsAPIs?.length}}</span></p>
+      <p>Current Button Count: <span id="button-count">{{buttonCount}}</span></p>
       <p></p>
 
       <div class="radio-group">
@@ -34,7 +34,7 @@
       <div class="field">
         <label soho-label for="btn-style">Button Style</label>
         <select soho-dropdown formControlName="style" id="btn-style">
-          <option value="default" disabled>Default (none)</option>
+          <option value="default" [disabled]="isStyledType">Default (none)</option>
           <option value="btn" selected>Standard Button (btn)</option>
           <option value="btn-primary">Primary (btn-primary)</option>
           <option value="btn-secondary">Secondary (btn-secondary)</option>
@@ -55,10 +55,10 @@
         </select>
       </div>
 
-      <div class="field standard-icons-rollout">
+      <div class="field standard-icons-rollout" *ngIf="!cannotHaveIcons">
         <label soho-label for="btn-icon-def">Pick an icon:</label>
         <select soho-dropdown formControlName="icon" id="btn-icon-def">
-          <option value="" data-icon="{ icon: 'empty-circle', class: 'demo-icon-empty' }" selected>No Icon</option>
+          <option value="" data-icon="{ icon: 'empty-circle', class: 'demo-icon-empty' }" [disabled]="isIconBtn">No Icon</option>
           <option value="icon-settings" data-icon="{ icon: 'settings' }">Settings</option>
           <option value="icon-mail" data-icon="{ icon: 'mail' }">Mail</option>
           <option value="icon-user-profile" data-icon="{ icon: 'user-profile' }">User Profile</option>
@@ -68,7 +68,7 @@
         </select>
       </div>
 
-      <div class="field toggle-icons-rollout">
+      <div class="field toggle-icons-rollout" *ngIf="isToggleButton">
         <label for="btn-toggle-icon-def">Pick a set of toggle icons:</label>
         <select soho-dropdown formControlName="toggleIcon" id="btn-toggle-icon-def">
           <option value="circles" data-icon="{ icon: 'confirm' }">Empty Circle/Confirm</option>
@@ -78,10 +78,10 @@
       </div>
 
       <div class="field">
-        <button soho-button="secondary" id="reset" type="reset">
+        <button soho-button="secondary" id="reset" type="reset" (click)="reset()">
           <span>Reset</span>
         </button>
-        <button soho-button="primary" id="submit" type="submit" (click)="submit()">
+        <button soho-button="primary" id="submit" [disabled]="demoForm.valid ? undefined : true" type="submit" (click)="submit()">
           <span>Submit</span>
         </button>
       </div>

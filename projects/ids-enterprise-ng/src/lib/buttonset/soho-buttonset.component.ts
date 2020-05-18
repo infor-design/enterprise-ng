@@ -217,14 +217,14 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
    * @returns This component's API.
    */
   public updated(settings: SohoButtonsetOptions): SohoButtonsetStatic {
+    if (settings) {
+      this.settings = Soho.utils.mergeSettings(this.element[0], settings, this.settings);
+    }
+
     if (this.buttonset) {
       this.ngZone.runOutsideAngular(() => {
-        this.buttonset.updated(settings);
+        this.buttonset.updated(this.settings);
       });
-
-      // .. as the settings are merged, grab those used by the widget.
-      this.settings = this.buttonset.settings;
-
       return this.buttonset;
     } else {
       throw Error('buttonset not initialised');
@@ -263,7 +263,7 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
       this.buttonset = this.jQueryElement.data('buttonset');
 
       // .. as the settings are merged, grab those used by the widget.
-      this.settings = this.buttonset.settings;
+      // this.settings = this.buttonset.settings;
     });
 
     // There are no 'extra' event handlers for buttonset.
@@ -276,8 +276,10 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
         // has been updated (assuming there is one), so
         // execute updated after angular has generated
         // the model and the view markup.
-        setTimeout(() => this.updated(this.settings));
-        this.runUpdatedOnCheck = false;
+        setTimeout(() => {
+          this.updated(this.settings);
+          this.runUpdatedOnCheck = false;
+        });
       });
     }
   }
