@@ -45,6 +45,12 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
     }
   }
 
+  @Input() set selectedFilterType(type: SohoFieldFilterOperator) {
+    if (this.fieldFilter) {
+      this.setFilterType(type);
+    }
+  }
+
   @Output() filtered: EventEmitter<SohoFieldFilteredEvent> = new EventEmitter<SohoFieldFilteredEvent>();
 
   // default to only equals
@@ -112,7 +118,7 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
    * param {number|string} value to be set, index or value.
    * returns {void}
    */
-  public setFilterType(value: any) {
+  public setFilterType(value: SohoFieldFilterOperator | number) {
     this.ngZone.runOutsideAngular(() => this.fieldFilter.setFilterType(value));
   }
 
