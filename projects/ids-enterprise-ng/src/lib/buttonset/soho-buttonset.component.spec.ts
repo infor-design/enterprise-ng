@@ -3,7 +3,6 @@
 import {
   ComponentFixture,
   TestBed,
-  tick,
   fakeAsync
 } from '@angular/core/testing';
 
@@ -33,7 +32,7 @@ class SohoButtonsetTestComponent {
   }
 }
 
-fdescribe('Soho Button Unit Tests', () => {
+describe('Soho Button Unit Tests', () => {
   let buttonset: SohoButtonsetComponent;
   let component: SohoButtonsetTestComponent;
   let fixture: ComponentFixture<SohoButtonsetTestComponent>;
@@ -81,17 +80,17 @@ fdescribe('Soho Button Unit Tests', () => {
     buttonset.add({ id: 'btn-0', text: 'Button 0' }, true);
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(buttonset.buttons.length).toBe(1, 'buttons');
+      expect(buttonset.buttons.length).toBe(0, 'The buttons in settings are not changed.');
       expect(buttonset.buttonAPIs.length).toBe(1, 'buttonAPIs');
     });
   }));
 
-  it('set buttons', fakeAsync(() => {
+  it('set buttons', (() => {
     buttonset.buttons = [{ id: 'btn-0', text: 'Button 0' }, { id: 'btn-1', text: 'Button 1' }];
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(buttonset.buttons.length).toBe(2);
-      expect(buttonset.buttonAPIs.length).toBe(2);
+      expect(buttonset.buttons.length).toBe(2, 'The buttons in settings changed.');
+      expect(buttonset.buttonAPIs.length).toBe(2, 'buttonsAPIs');
     });
   }));
 

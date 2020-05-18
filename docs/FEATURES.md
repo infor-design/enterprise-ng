@@ -13,6 +13,7 @@
 | bullet                  |                      Available |            - |                  - |            Yes |
 | busyindicator           |                      Available |            - | [SOHO-4096][#4096] |            Yes |
 | button                  |                      Available |            - | [SOHO-4556][#4556] |            Yes |
+| buttonset               |                      Available |            - |        [781][#781] |            Yes |
 | checkbox                |                      Available |            - | [SOHO-4617][#4617] |            Yes |
 | circlepager             |                      Available |            - |                  - |            Yes |
 | colorpicker             |                      Available |            - | [SOHO-6503][#6503] |            Yes |
@@ -71,7 +72,7 @@
 | tabs                    |                      Available |            - |                  - |            Yes |
 | textarea                |                      Available |            - |                  - |            Yes |
 | timepicker              |                      Available |            - |                  - |            Yes |
-| theming                 |                Partial Support |            - |                  - |              - |
+| theming                 |                      Available |            - |                  - |              - |
 | toast                   |                      Available |            - |                  - |              - |
 | toolbar                 |                      Available |            - |                  - |            Yes |
 | tooltip                 |                      Available |            - |                  - |             No |
@@ -87,6 +88,7 @@
 [3]: ../projects/ids-enterprise-ng/src/lib/accordion/README.md
 [4]: ../projects/ids-enterprise-ng/src/lib/datagrid/README.md
 [5]: ../projects/ids-enterprise-ng/src/lib/tag/README.md
+[#781]: https://github.com/infor-design/enterprise-ng/issues/781
 [#6759]: http://jira/browse/SOHO-6759
 [#4344]: http://jira/browse/SOHO-4344
 [#5909]: http://jira/browse/SOHO-5909
