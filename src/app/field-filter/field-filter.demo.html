@@ -3,8 +3,21 @@
   <div class="one-half column">
 
     <div class="field">
+      <label soho-label for="example-dropdown">Filter Operator for Text Field</label>
+      <select soho-dropdown name="example-dropdown" class="input-mm" [(ngModel)]="filterOperator">
+        <option value="equals">equals</option>
+        <option value="does-not-equal">does-not-equal</option>
+        <option value="less-than">less-than</option>
+      </select>
+    </div>
+
+    <div class="field">
       <label soho-label for="filter-text">Text Field</label>
-      <input soho-field-filter [fieldSettings]="filterSettings" type="text" id="filter-text" name="filter-text" class="input-sm" [(ngModel)]="model.text.value" (filtered)="onFiltered($event)">
+      <input soho-field-filter type="text" id="filter-text" name="filter-text" class="input-sm"
+        [fieldDropdownDataSet]="fieldDropdownDataSet"
+        [selectedFilterType]="filterOperator"
+        (filtered)="onFiltered($event)"
+        [(ngModel)]="model.text.value" >
       <p>Value: {{model.text.value}} <br> FilterType: {{model.text.filterType}}</p>
     </div>
 
