@@ -5,6 +5,10 @@
  * interface of the Soho button control.
  */
 
+type SohoButtonOptionsStyle = 'default' | 'btn' | 'btn-primary' | 'btn-secondary' | 'btn-tertiary' | 'btn-destructive' | null | undefined;
+
+type SohoButtonOptionsType = 'default' | 'btn-icon' | 'btn-menu' | 'btn-actions' | 'btn-toggle' | 'icon-favorite' | 'btn-editor' | 'input' | null | undefined;
+
 /**
  * Button Options
  */
@@ -24,25 +28,28 @@ interface SohoButtonOptions {
   /** Hides menu arrow usually displayed to the right of a menu button/icon. */
   hideMenuArrow?: boolean;
 
-  /** button style: defaults to "default" */
-  style?: string,
+  /** button style: defaults to "default". */
+  style?: SohoButtonOptionsStyle;
 
-  /** button type: defaults to "default" */
-  type?: string,
+  /** button type: defaults to "default". */
+  type?: SohoButtonOptionsType,
 
-  /** ripple */
+  /** Ripple */
   ripple?: boolean,
 
-  // **** Added for buttonse **/
   /** validate? */
   validate?: boolean
 
+  /** Audible? */
   audible?: boolean;
 
+  /** Displayed text. */
   text?: string;
 
+  /** Associated icon. */
   icon?: string;
 
+  /** Disabled? */
   disabled?: boolean;
 }
 
@@ -51,26 +58,27 @@ interface SohoButtonOptions {
  * button.
  */
 declare class SohoButtonStatic {
+  /** Internal settings. */
   settings: SohoButtonOptions;
 
-  /**  */
+  /** Associated HTML element. */
   element: HTMLButtonElement;
 
+  /** Destroys any resources held by the button. */
   destroy(): void;
 
+  /** Returns true if the button is disabled; otherwise false. */
   get disabled(); boolean;
 
+  /** Sets the disable state of the button. */
   set disabled(bal: boolean);
 
-  /**
-   * whether or not this is a valid toggle button in a pressed state.
-   */
+  /** Whether or not this is a valid toggle button in a pressed state. */
   get pressed(): boolean;
 
   /**
    * On a Toggle or Favorite button, sets the current pressed state.
    * @param {boolean} val whether or not to set a "pressed" state on this valid toggle button.
-   * @returns {void}
    */
   set pressed(val: boolean);
 
@@ -83,9 +91,7 @@ declare class SohoButtonStatic {
    */
   toData(addContextElement: boolean): string;
 
-  /**
-   * Toggles the current state of the icon button.
-   */
+  /** Toggles the current state of the icon button. */
   toggle(): void;
 
   /** Update the component with new settings. */

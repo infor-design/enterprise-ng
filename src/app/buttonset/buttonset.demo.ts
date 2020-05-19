@@ -19,10 +19,11 @@ export class ButtonsetDemoComponent implements AfterViewInit {
 
   private newSettings: SohoButtonOptions = {};
 
-  defaultButtons = [
+  defaultButtons: SohoButtonOptions[] = [
     {
       id: 'btn-0',
-      text: 'Button 0'
+      text: 'Button 0',
+      style: undefined
     },
     {
       id: 'btn-1',
