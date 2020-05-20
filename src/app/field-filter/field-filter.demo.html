@@ -9,6 +9,7 @@
         <option value="does-not-equal">does-not-equal</option>
         <option value="less-than">less-than</option>
       </select>
+      <p>filterOperator: {{filterOperator}}</p>
     </div>
 
     <div class="field">
@@ -19,6 +20,7 @@
         (filtered)="onFiltered($event)"
         [(ngModel)]="model.text.value" >
       <p>Value: {{model.text.value}} <br> FilterType: {{model.text.filterType}}</p>
+      <button soho-button icon="reset" (click)="resetTextFilter()">Reset Filter</button>
     </div>
 
     <div class="field">

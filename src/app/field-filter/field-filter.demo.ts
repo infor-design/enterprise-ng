@@ -70,7 +70,10 @@ export class FieldFilterDemoComponent {
 
   public dateMode = 'standard';
 
-  constructor() { }
+  resetTextFilter() {
+    this.model.text.value = '';
+    this.filterOperator = null;
+  }
 
   onFiltered(event: SohoFieldFilteredEvent) {
     const targetElement = event.target as Element;

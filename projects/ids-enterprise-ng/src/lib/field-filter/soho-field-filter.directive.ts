@@ -118,8 +118,9 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
    * returns {void}
    */
   public setFilterType(value: SohoFieldFilterOperator | number) {
+    // set 1st option as default in order to achieve filter reset
     if (!value) {
-      return;
+      value = 0;
     }
     // Do this if jQueryElement has been built already
     if (this.fieldFilter) {
