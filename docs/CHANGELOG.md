@@ -4,6 +4,7 @@
 
 ### 7.2.0 Fixes
 
+- `[Datagrid]` Update the dynamic datagrid example to not show the browser contextmenu.  `TJM` ([#817](https://github.com/infor-design/enterprise/issues/817))
 - `[Modal]` The modal dialog had a second wrapper added (SohoModal vs SohoModalDialog), it was decided to stick with one, the existing SohoModalDialog.  `TJM` ([Issue #776](https://github.com/infor-design/enterprise-ng/issues/776))
 
 ## v7.1.0
