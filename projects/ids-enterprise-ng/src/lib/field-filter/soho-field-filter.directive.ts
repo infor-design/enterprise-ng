@@ -45,6 +45,10 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
     }
   }
 
+  @Input() set selectedFilterType(type: SohoFieldFilterOperator) {
+    this.setFilterType(type);
+  }
+
   @Output() filtered: EventEmitter<SohoFieldFilteredEvent> = new EventEmitter<SohoFieldFilteredEvent>();
 
   // default to only equals
@@ -60,6 +64,7 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
   private jQueryElement: JQuery;
   private fieldFilter: SohoFieldFilterStatic;
   private runUpdatedOnCheck: boolean;
+  private filterType: SohoFieldFilterOperator;
 
   constructor(
     private ref: ChangeDetectorRef,
@@ -112,8 +117,21 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
    * param {number|string} value to be set, index or value.
    * returns {void}
    */
-  public setFilterType(value: any) {
-    this.ngZone.runOutsideAngular(() => this.fieldFilter.setFilterType(value));
+  public setFilterType(value: SohoFieldFilterOperator | number) {
+    if (!value) {
+      return;
+    }
+    // Do this if jQueryElement has been built already
+    if (this.fieldFilter) {
+      this.ngZone.runOutsideAngular(() => this.fieldFilter.setFilterType(value));
+      return;
+    }
+    // Otherwise, as long as type is SohoFieldFilterOperator, set the selected attribute
+    if (typeof value !== 'number') {
+      this._settings.dataset.forEach((filterOption: SohoFieldFilterOption) => {
+        filterOption.selected = (filterOption.value === value);
+      });
+    }
   }
 
   /** Destructor. */

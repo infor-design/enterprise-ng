@@ -42,7 +42,7 @@
     "classlist.js": "^1.1.20150312",
     "d3": "4.13.0",
     "fix": "0.0.6",
-    "ids-enterprise": "4.28.0",
+    "ids-enterprise": "4.29.0-dev.20200509",
     "jquery": "^3.5.1",
     "lscache": "^1.2.0",
     "rxjs": "~6.5.5",

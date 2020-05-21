@@ -1,5 +1,6 @@
-<div class="row"><span class="code-tag" style="margin-left: 20px;">Live Example</span>
-<div class="twelve columns">
+<div class="row top-padding">
+  <div class="twelve columns">
+
   <!-- Input text field example. No soho components used-->
   <div class="field">
     <label id="label1" name="label1" soho-label for="field1" >{{normalText}}</label>
@@ -39,21 +40,18 @@
            (close)="onClose()"
            (open)="onOpen()" />
     <label soho-label for="optionVWO1" class="radio-label" soho-context-menu menu="action-popupmenu" >One</label>
-    <br>
     <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO2" value="2" soho-context-menu menu="action-popupmenu"  />
     <label soho-label for="optionVWO2" class="radio-label" soho-context-menu menu="action-popupmenu"
            (selected)="onSelected()"
            (beforeopen)="onBeforeOpen()"
            (close)="onClose()"
            (open)="onOpen()">Two</label>
-    <br>
     <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO3" value="3" soho-context-menu menu="action-popupmenu" />
     <label soho-label for="optionVWO3" class="radio-label" soho-context-menu menu="action-popupmenu"
            (selected)="onSelected()"
            (beforeopen)="onBeforeOpen()"
            (close)="onClose()"
            (open)="onOpen()" >Three</label>
-    <br>
     <input soho-radiobutton soho-trackdirty  name="optionsGroupVWO" id="optionVWO4" value="4" [attr.disabled]="true" soho-context-menu menu="action-popupmenu" />
     <label soho-label for="optionVWO4" class="radio-label" soho-context-menu menu="action-popupmenu"
            (selected)="onSelected()"
@@ -83,11 +81,31 @@
   </div>
 
   <!-- Context menu used in all examples (except the menu button)-->
-  <ul soho-popupmenu id="action-popupmenu" >
+  <ul soho-popupmenu id="action-popupmenu">
     <li soho-popupmenu-item *ngFor="let menuEntry of contextEntries" [isDisabled]="menuEntry.disabled">
       <a soho-popupmenu-label *ngIf="!menuEntry.url" menuId="{{menuEntry.id}}">{{menuEntry.displayString}}<span class="shortcut-text">{{menuEntry.shortcut}}</span></a>
       <a soho-popupmenu-label *ngIf="menuEntry.url" menuUrl="{{menuEntry.url}}">{{menuEntry.displayString}}<span class="shortcut-text">{{menuEntry.shortcut}}</span></a>
     </li>
+  </ul>
+
+  <div class="twelve columns" soho-context-menu menu="menu-two">
+    <h2>Text with context menu <br /><br /></h2>
+    <div class="field">
+      <ul>
+        <li soho-context-menu menu="menu-one">
+          <a href="">I am a link with a context menu</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <ul soho-popupmenu id="menu-one">
+    <li soho-popupmenu-item><a soho-popupmenu-label  href="#">Menu One Foo</a></li>
+    <li soho-popupmenu-item><a soho-popupmenu-label  href="#">Menu One Bar</a></li>
+  </ul>
+  <ul soho-popupmenu id="menu-two">
+    <li soho-popupmenu-item><a soho-popupmenu-label  href="#">Menu Two Foo</a></li>
+    <li soho-popupmenu-item><a soho-popupmenu-label  href="#">Menu Two Bar</a></li>
   </ul>
 
   </div>

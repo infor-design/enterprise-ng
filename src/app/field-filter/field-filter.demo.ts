@@ -46,6 +46,17 @@ export class FieldFilterDemoComponent {
     { value: 'greater-equals', text: 'Greater Or Equals', icon: 'filter-greater-equals' }]
   };
 
+  public fieldDropdownDataSet = [
+    { value: 'equals', text: 'Equals', icon: 'filter-equals' },
+    { value: 'does-not-equal', text: 'Does Not Equal', icon: 'filter-does-not-equal' },
+    { value: 'less-than', text: 'Less Than', icon: 'filter-less-than' },
+    { value: 'less-equals', text: 'Less Or Equals', icon: 'filter-less-equals', selected: true },
+    { value: 'greater-than', text: 'Greater Than', icon: 'filter-greater-than' },
+    { value: 'greater-equals', text: 'Greater Or Equals', icon: 'filter-greater-equals' }
+  ];
+
+  public filterOperator = 'equals';
+
   public filterSettingsWithRange: SohoFieldFilterSettings = {
     dataset: [
     { value: 'equals', text: 'Equals', icon: 'filter-equals' },

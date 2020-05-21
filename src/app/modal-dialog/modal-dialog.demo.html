@@ -1,14 +1,5 @@
 <div class="row">
   <div class="twelve columns">
-    <!-- On Hold for now see https://github.com/infor-design/enterprise-ng/issues/776
-    <h2 class="fieldset-title">Soho Modal (NEW)</h2>
-    <div class="row">
-      <button id="openSimpleBtn" soho-button (click)="openSimple()">Open {{ dialogRef ? 'Existing' : 'New' }} Modal</button>
-      <input soho-checkbox type="checkbox" id="allow-open-checkbox" [(ngModel)]="allowOpen">
-      <label soho-label for="allow-open-checkbox" [forCheckBox]="true">Allow Open</label>
-    </div>
-    <button id="destroyBtn" soho-button (click)="destroyModal()" *ngIf="dialogRef">Destroy Modal</button>
-    -->
     <h2 class="fieldset-title">Soho Modal Dialog</h2>
     <div class="field">
       <button id="openFullSize" soho-button (click)="openFullSize()">Full on Tablet</button>
@@ -30,8 +21,6 @@
       <label class="center-block">Dialog Title:
         <input id="dialogTitleInput" soho-input class="form-control" type="text" name="title" [(ngModel)]="title" />
       </label>
-      <input soho-checkbox id="id4" name="isAlert" [(ngModel)]="isAlert">
-      <label soho-label class="center-block" for="id4" [forCheckBox]="true">Is Alert</label>
     </div>
     <p>
       Last Dialog Result: {{closeResult}}

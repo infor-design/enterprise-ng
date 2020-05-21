@@ -44,7 +44,6 @@ export * from './mask/index';
 export * from './masthead/index';
 export * from './menu-button/index';
 export * from './message/index';
-export * from './modal/index';
 export * from './modal-dialog/index';
 export * from './notification/index';
 export * from './pager/index';
