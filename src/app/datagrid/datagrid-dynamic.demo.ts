@@ -96,6 +96,7 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
   }
 
   onContextMenu(e: SohoDataGridRowClicked) {
+    e.originalEvent.preventDefault();
     console.log('contextmenu fired', e);
 
     // -----------------------------------------------------------------
@@ -131,6 +132,8 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
       this.contextMenuEvent = e.originalEvent;
       this.displayContextMenu = true;
     });
+
+    return false;
   }
 
   onContextMenuClose(e: any) {
