@@ -15,13 +15,13 @@ export class HomePageEditableDemoComponent {
     this.isEditingMode = !this.isEditingMode;
   }
 
-  onResizeCard(event) {
-    this.toastService.show({ draggable: true, title: 'Widget Resized', message: 'A widget has been resized' });
+  onResizeCard(event: SohoHomePageEditEvent & SohoHomePageWidgetEditEvent) {
+    this.toastService.show({ draggable: true, title: `${event.widget ? 'Widget' : 'Homepage'}`, message: `A widget has been resized` });
     console.log(event);
   }
 
-  onReorderCard(event) {
-    this.toastService.show({ draggable: true, title: 'Widget Reordered', message: 'A widget has been moved' });
+  onReorderCard(event: SohoHomePageEditEvent & SohoHomePageWidgetEditEvent) {
+    this.toastService.show({ draggable: true, title: `${event.widget ? 'Widget' : 'Homepage'}`, message: `A widget has been reordered` });
     console.log(event);
   }
 
@@ -55,8 +55,8 @@ export class HomePageEditableDemoComponent {
     return result;
   }
 
-  onRemoveCard(event) {
-    this.toastService.show({ draggable: true, title: 'Widget Removed', message: 'A widget has been removed' });
+  onRemoveCard(event: SohoHomePageEditEvent & SohoHomePageWidgetEditEvent) {
+    this.toastService.show({ draggable: true, title: `${event.widget ? 'Widget' : 'Homepage'}`, message: `A widget has been removed` });
     console.log(event);
   }
 }

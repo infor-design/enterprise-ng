@@ -4,19 +4,19 @@
 <div soho-homepage soho-homepage-sizer [columns]="3" [editing]="isEditingMode" [onBeforeRemoveCard]="onBeforeRemoveCard"
   (resizecard)="onResizeCard($event)" (reordercard)="onReorderCard($event)" (removecard)="onRemoveCard($event)">
 
-  <div soho-widget>
+  <div soho-widget (resizecard)="onResizeCard($event)" (reordercard)="onReorderCard($event)" (removecard)="onRemoveCard($event)">
     <div soho-widget-header>
       <h2 soho-widget-title [tabIndex]="0">Widget 1x1 (Dom Order 1)</h2>
     </div>
   </div>
 
-  <div soho-widget removable="false" widgetWidth="double">
+  <div soho-widget removable="false" widgetWidth="double" (resizecard)="onResizeCard($event)" (reordercard)="onReorderCard($event)">
     <div soho-widget-header>
       <h2 soho-widget-title [tabIndex]="1">Widget 2x1 (Dom Order 2)</h2>
     </div>
   </div>
 
-  <div soho-widget>
+  <div soho-widget (resizecard)="onResizeCard($event)" (reordercard)="onReorderCard($event)" (removecard)="onRemoveCard($event)">
     <div soho-widget-header>
       <h2 soho-widget-title [tabIndex]="2">Widget 1x1 (Dom Order 3)</h2>
     </div>
