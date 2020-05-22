@@ -61,6 +61,15 @@ export class SohoModalDialogRef<T> {
     return null;
   }
 
+  /**
+   * The buttonset API for the modal dialog.
+   *
+   * @returns the buttonset API for the modal dialog, if initialised.
+   */
+  public get buttonsetAPI(): SohoButtonsetStatic {
+    return this.modal ? this.modal.buttonsetAPI : undefined;
+  }
+
   // -------------------------------------------
   // Default options block
   // -------------------------------------------
@@ -463,6 +472,14 @@ export class SohoModalDialogRef<T> {
     return this;
   }
 
+  /**
+   * Destroys the modal dialog.
+   */
+  destroy(): SohoModalDialogRef<T> {
+    this.modal.destroy();
+    return this;
+  }
+
   // ------------------------------------------
   // Events
   // ------------------------------------------
@@ -474,7 +491,7 @@ export class SohoModalDialogRef<T> {
    *
    * @param eventFn - the function to call before openning the dialog.
    */
-  beforeOpen(eventFn: () => boolean): SohoModalDialogRef<T> {
+  beforeOpen(eventFn: (dialogRef?: SohoModalDialogRef<T>) => boolean): SohoModalDialogRef<T> {
     this.eventGuard.beforeOpen = eventFn;
     return this;
   }
@@ -574,7 +591,7 @@ export class SohoModalDialogRef<T> {
    */
   private onBeforeOpen(event: any): boolean {
     const fn: Function = this.eventGuard.beforeOpen;
-    return fn ? fn.call(this.eventGuard) : true;
+    return fn ? fn.call(this.eventGuard, this) : true;
   }
 
   /**
@@ -704,7 +721,7 @@ export interface SohoModalDialogVetoableEventGuard<T> {
    *
    * @return false to veto the open action; otherwise true.
    */
-  beforeOpen?(): boolean;
+  beforeOpen?(dialogRef: SohoModalDialogRef<T>): boolean;
 
   /**
    * Invoked before a modal is closed, allowing the close to be vetoed.

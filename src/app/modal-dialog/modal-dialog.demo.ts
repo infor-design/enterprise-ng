@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 
 import {
-  SohoModalDialogService
+  SohoModalDialogService, SohoModalDialogRef
 } from 'ids-enterprise-ng';
 
 import { FullSizeModalDialogComponent } from './example-fullsize-modal.component';
@@ -44,10 +44,30 @@ export class ModalDialogDemoComponent {
       .title(this.title)
       .buttons(
         [
+          {
+            text: 'Enable', click: () => {
+              const api = dialogRef.buttonsetAPI;
+              api.at(2).disabled = false;
+              api.at(3).disabled = false;
+            }
+          },
+          {
+            text: 'Disable', click: () => {
+              const api = dialogRef.buttonsetAPI;
+              api.at(2).disabled = true;
+              api.at(3).disabled = true;
+            }
+          },
           { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
           { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }
         ])
-
+      .beforeOpen((ref?: SohoModalDialogRef<FullSizeModalDialogComponent>) => {
+        ref.buttonsetAPI.at(2).disabled = true;
+        return true;
+      }).afterOpen((_: any, ref: SohoModalDialogRef<FullSizeModalDialogComponent>) => {
+        ref.buttonsetAPI.at(3).disabled = true;
+        return true;
+      })
       .open();
   }
 

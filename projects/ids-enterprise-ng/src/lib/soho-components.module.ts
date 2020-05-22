@@ -9,6 +9,7 @@ import { SohoBulletModule } from './bullet/soho-bullet.module';
 import { SohoBlockGridModule } from './blockgrid/soho-blockgrid.module';
 import { SohoBusyIndicatorModule } from './busyindicator/soho-busyindicator.module';
 import { SohoButtonModule } from './button/soho-button.module';
+import { SohoButtonsetModule } from './buttonset/soho-buttonset.module';
 import { SohoCalendarModule } from './calendar/soho-calendar.module';
 import { SohoChartModule } from './chart/soho-chart.module';
 import { SohoCheckBoxModule } from './checkbox/soho-checkbox.module';
@@ -21,7 +22,7 @@ import { SohoDataGridModule } from './datagrid/soho-datagrid.module';
 import { SohoDatePickerModule } from './datepicker/soho-datepicker.module';
 import { SohoDropDownModule } from './dropdown/soho-dropdown.module';
 import { SohoEditorModule } from './editor/soho-editor.module';
-import { SohoEmptyMessageModule} from './emptymessage/soho-emptymessage.module';
+import { SohoEmptyMessageModule } from './emptymessage/soho-emptymessage.module';
 import { SohoErrorModule } from './error/soho-error.module';
 import { SohoExpandableAreaModule } from './expandablearea/soho-expandablearea.module';
 import { SohoFieldFilterModule } from './field-filter/soho-field-filter.module';
@@ -91,6 +92,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoBulletModule,
     SohoBusyIndicatorModule,
     SohoButtonModule,
+    SohoButtonsetModule,
     SohoCalendarModule,
     SohoChartModule,
     SohoCheckBoxModule,
@@ -172,6 +174,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoBulletModule,
     SohoBusyIndicatorModule,
     SohoButtonModule,
+    SohoButtonsetModule,
     SohoCalendarModule,
     SohoChartModule,
     SohoCheckBoxModule,
@@ -242,4 +245,4 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoWizardModule
   ]
 })
-export class SohoComponentsModule {}
+export class SohoComponentsModule { }

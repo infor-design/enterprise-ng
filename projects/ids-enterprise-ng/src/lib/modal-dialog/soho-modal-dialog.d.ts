@@ -167,6 +167,11 @@ interface SohoModalStatic {
   open(): void;
 
   /**
+   * API for interacting with the buttons on the dialog.
+   */
+  buttonsetAPI: SohoButtonsetStatic;
+
+  /**
    * Close the modal dialog.
    *
    * @param destroy - destroy the html elements.

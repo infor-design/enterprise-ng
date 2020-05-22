@@ -1,0 +1,98 @@
+<div class="row top-padding">
+  <div class="six columns">
+    <form [formGroup]="demoForm">
+      <div class="form-group">
+      <p>Current Button Count: <span id="button-count">{{buttonCount}}</span></p>
+      <p></p>
+
+      <div class="radio-group">
+        <label soho-label>ButtonSet Style:</label>
+        <div class="field">
+          <input soho-radiobutton type="radio" formControlName="buttonsetStyle" id="buttonset-style-0" value="default"/>
+          <label soho-label for="buttonset-style-0" forRadioButton>Default</label>
+          <input soho-radiobutton type="radio" formControlName="buttonsetStyle" id="buttonset-style-1" value="modal" />
+          <label soho-label for="buttonset-style-1" forRadioButton>Modal</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label soho-label for="btn-text">Button's Text</label>
+        <input soho-input formControlName="btnText" name="btn-text" id="btn-text" />
+      </div>
+
+      <div class="checkbox-group">
+        <div class="field field-checkbox">
+          <input soho-checkbox type="checkbox" formControlName="audible" id="btn-audible" />
+          <label soho-label for="btn-audible" forCheckBox>Make Text Audible</label>
+        </div>
+        <div class="field field-checkbox">
+          <input soho-checkbox type="checkbox" formControlName="disabled" id="btn-disabled" name="btn-disabled"/>
+          <label soho-label for="btn-disabled" forCheckBox>Disabled</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label soho-label for="btn-style">Button Style</label>
+        <select soho-dropdown formControlName="style" id="btn-style">
+          <option value="default" [disabled]="isStyledType">Default (none)</option>
+          <option value="btn" selected>Standard Button (btn)</option>
+          <option value="btn-primary">Primary (btn-primary)</option>
+          <option value="btn-secondary">Secondary (btn-secondary)</option>
+          <option value="btn-tertiary">Tertiary (btn-tertiary)</option>
+          <option value="btn-destructive">Destructive (btn-destructive)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label soho-label for="btn-type">Button Type</label>
+        <select soho-dropdown formControlName="type" name="btn-type" id="btn-type">
+          <option value="default">Default</option>
+          <option value="btn-icon">Icon (btn-icon)</option>
+          <option value="btn-menu">Menu (btn-menu)</option>
+          <option value="btn-actions">Actions (btn-actions)</option>
+          <option value="btn-toggle">Toggle (btn-toggle)</option>
+          <option value="icon-favorite">Favorite (btn-favorite)</option>
+        </select>
+      </div>
+
+      <div class="field standard-icons-rollout" *ngIf="!cannotHaveIcons">
+        <label soho-label for="btn-icon-def">Pick an icon:</label>
+        <select soho-dropdown formControlName="icon" id="btn-icon-def">
+          <option value="" data-icon="{ icon: 'empty-circle', class: 'demo-icon-empty' }" [disabled]="isIconBtn">No Icon</option>
+          <option value="icon-settings" data-icon="{ icon: 'settings' }">Settings</option>
+          <option value="icon-mail" data-icon="{ icon: 'mail' }">Mail</option>
+          <option value="icon-user-profile" data-icon="{ icon: 'user-profile' }">User Profile</option>
+          <option value="icon-camera" data-icon="{ icon: 'camera' }">Camera</option>
+          <option value="icon-send" data-icon="{ icon: 'send' }">Send (Mail)</option>
+          <option value="icon-notes" data-icon="{ icon: 'notes' }">Notes</option>
+        </select>
+      </div>
+
+      <div class="field toggle-icons-rollout" *ngIf="isToggleButton">
+        <label for="btn-toggle-icon-def">Pick a set of toggle icons:</label>
+        <select soho-dropdown formControlName="toggleIcon" id="btn-toggle-icon-def">
+          <option value="circles" data-icon="{ icon: 'confirm' }">Empty Circle/Confirm</option>
+          <option value="stars" data-icon="{ icon: 'star-filled' }" selected>Stars (Empty/Filled)</option>
+          <option value="hearts" data-icon="{ icon: 'heart-filled' }">Heart (Empty/Filled)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <button soho-button="secondary" id="reset" type="reset" (click)="reset()">
+          <span>Reset</span>
+        </button>
+        <button soho-button="primary" id="submit" [disabled]="demoForm.valid ? undefined : true" type="submit" (click)="submit()">
+          <span>Submit</span>
+        </button>
+      </div>
+    </div>
+    </form>
+
+    <h3>Form valid?: {{ demoForm.status | json }}</h3>
+
+    <h3>Model: {{ demoForm.getRawValue() | json }}</h3>
+  </div>
+  <div class="six columns">
+    <div soho-buttonset id="buttonset"></div>
+  </div>
+</div>
