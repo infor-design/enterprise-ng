@@ -5,6 +5,11 @@ import {
   SohoListViewComponent
 } from 'ids-enterprise-ng';
 
+import {
+  productsColumns,
+  productsData
+} from '../lookup/mock.data';
+
 @Component({
   selector: 'app-popdown-demo',
   templateUrl: 'popdown.demo.html',
@@ -15,6 +20,38 @@ export class PopDownDemoComponent {
   @ViewChild(SohoListViewComponent, { static: true }) public stateViewList: SohoListViewComponent;
 
   public showSelectedOnly = false;
+
+  public columns_product: SohoDataGridColumn[];
+  public data_product: any[];
+  public model: any = {
+    singleobjectexists: {
+      id: 1,
+      productId: 2142201,
+      productName: 'Compressor',
+      activity: 'Assemble Paint',
+      quantity: 1,
+      price: 210.99,
+      status: 'OK',
+      orderDate: new Date(2014, 12, 8),
+      action: 'Action',
+    }
+  };
+
+  setupProducts() {
+    this.columns_product = [];
+    this.data_product = [];
+
+    // Some Sample Data
+    productsData.forEach(data => {
+      this.data_product.push(data);
+    });
+
+    // Define Columns for the Grid.
+    productsColumns.forEach(column => {
+      this.columns_product.push(column);
+    });
+
+  }
 
   public states = [
     'Alabama',
