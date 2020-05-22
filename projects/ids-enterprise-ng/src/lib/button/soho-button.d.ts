@@ -71,7 +71,7 @@ declare class SohoButtonStatic {
   get disabled(): boolean;
 
   /** Sets the disable state of the button. */
-  set disabled(bal: boolean);
+  set disabled(value: boolean);
 
   /** Whether or not this is a valid toggle button in a pressed state. */
   get pressed(): boolean;
