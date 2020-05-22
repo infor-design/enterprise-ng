@@ -74,7 +74,7 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
   }
 
   /**
-   * Detect existing button in the markup rather than generating
+   * Detect existing buttons in the markup rather than generating
    * new button markup.
    */
   @Input()
@@ -85,7 +85,7 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
     }
   }
 
-  get detechHTMLButtons(): boolean {
+  get detectHTMLButtons(): boolean {
     if (this.buttonset) {
       return this.buttonset.settings.detectHTMLButtons;
     } else {

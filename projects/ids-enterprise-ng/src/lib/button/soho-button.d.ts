@@ -32,13 +32,13 @@ interface SohoButtonOptions {
   style?: SohoButtonOptionsStyle;
 
   /** button type: defaults to "default". */
-  type?: SohoButtonOptionsType,
+  type?: SohoButtonOptionsType;
 
   /** Ripple */
-  ripple?: boolean,
+  ripple?: boolean;
 
   /** validate? */
-  validate?: boolean
+  validate?: boolean;
 
   /** Audible? */
   audible?: boolean;
@@ -68,7 +68,7 @@ declare class SohoButtonStatic {
   destroy(): void;
 
   /** Returns true if the button is disabled; otherwise false. */
-  get disabled(); boolean;
+  get disabled(): boolean;
 
   /** Sets the disable state of the button. */
   set disabled(bal: boolean);
