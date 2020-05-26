@@ -52,6 +52,15 @@ interface SohoLookupOptions {
 
   /** Set the width of the input to the width of the selection */
   autoWidth?: boolean;
+
+  /** The character  used to separate data strings */
+  delimiter?: string;
+
+  /** Apply a minimum width to the lookup*/
+  minWidth?: number;
+
+  /**  Add an ability to clear the lookup field with an x */
+  clearable?: boolean;
 }
 
 /** Selection criteria. */

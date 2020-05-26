@@ -190,6 +190,16 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
     }
   }
 
+  /** If true chart height will fit in parent available height. */
+  @Input() set fitHeight(value: boolean) {
+    this.options.fitHeight = value;
+
+    if (this.bar) {
+      this.bar.settings.fitHeight = value;
+      this.updateRequired = true;
+    }
+  }
+
   /** An empty message will be displayed when there is no chart data. */
   @Input() set emptyMessage(value: SohoEmptyMessageOptions) {
     this.options.emptyMessage = value;

@@ -260,9 +260,9 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    * Expand the given Panel on the Accordion.
    * @param header &nbsp;-&nbsp; the header component
    */
-  public expand(header: SohoAccordionHeaderComponent): void {
+  public expand(header: SohoAccordionHeaderComponent | string): void {
     if (this.accordion) {
-      this.ngZone.runOutsideAngular(() => this.accordion.expand(header.jQueryElement));
+      this.ngZone.runOutsideAngular(() => this.accordion.expand(typeof header === 'string' ? header : header['jQueryElement']));
     }
   }
 
@@ -270,9 +270,9 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    * Collapse the given Panel on the Accordion.
    * @param header &nbsp;-&nbsp; the jquery header element
    */
-  public collapse(header: SohoAccordionHeaderComponent): void {
+  public collapse(header: SohoAccordionHeaderComponent | string): void {
     if (this.accordion) {
-      this.ngZone.runOutsideAngular(() => this.accordion.collapse(header.jQueryElement));
+      this.ngZone.runOutsideAngular(() => this.accordion.collapse(typeof header === 'string' ? header : header['jQueryElement']));
     }
   }
 
