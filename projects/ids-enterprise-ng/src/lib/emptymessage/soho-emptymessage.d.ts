@@ -45,7 +45,7 @@ interface SohoEmptyMessageOptions {
 /**
  * valid colors for the empty message color.
  */
-type EmptyMessageColor = 'graphite' | 'azure';
+type EmptyMessageColor = 'graphite' | 'azure' | 'amber' | 'amethyst' | 'emerald' | 'ruby' | 'slate' | 'turquoise';
 
 /**
  * Button definition.
@@ -70,6 +70,11 @@ interface SohoEmptyMessageButtonOptions {
    * Click function
    */
   click?: Function;
+
+  /**
+   * Set the button to primary (azure)
+   */
+  isPrimary?: boolean;
 }
 
 /**
