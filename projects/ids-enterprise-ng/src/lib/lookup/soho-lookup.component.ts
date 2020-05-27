@@ -56,6 +56,18 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     this._options.autoWidth = value;
   }
 
+  @Input() set delimiter(value: string) {
+    this._options.delimiter = value;
+  }
+
+  @Input() set minWidth(value: number) {
+    this._options.minWidth = value;
+  }
+
+  @Input() set clearable(value: boolean) {
+    this._options.clearable = value;
+  }
+
   @Input() set field(value: string | SohoLookupFieldFunction) {
     this._options.field = value;
   }

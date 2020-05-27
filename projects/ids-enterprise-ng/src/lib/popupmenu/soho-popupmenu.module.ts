@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {
   SohoPopupMenuComponent,
   SohoPopupMenuHeadingComponent,
+  SohoPopupMenuShortCutTextComponent,
   SohoPopupMenuItemComponent,
   SohoPopupMenuItemLabelComponent,
   SohoPopupMenuSeparatorComponent
@@ -13,6 +14,7 @@ import {
   declarations: [
     SohoPopupMenuComponent,
     SohoPopupMenuHeadingComponent,
+    SohoPopupMenuShortCutTextComponent,
     SohoPopupMenuItemComponent,
     SohoPopupMenuItemLabelComponent,
     SohoPopupMenuSeparatorComponent
@@ -20,6 +22,7 @@ import {
   exports: [
     SohoPopupMenuComponent,
     SohoPopupMenuHeadingComponent,
+    SohoPopupMenuShortCutTextComponent,
     SohoPopupMenuItemComponent,
     SohoPopupMenuItemLabelComponent,
     SohoPopupMenuSeparatorComponent

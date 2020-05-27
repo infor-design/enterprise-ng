@@ -81,6 +81,12 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
   @Input() set persistTooltip(persistTooltip: boolean) {
     this.options.persistTooltip = persistTooltip;
   }
+
+  /** Option to control the position of tooltip. ['top' , 'bottom'] */
+  @Input() set tooltipPosition(tooltipPosition: 'top' | 'bottom') {
+    this.options.tooltipPosition = tooltipPosition;
+  }
+
   /** Tooltip Content */
   @Input() set tooltipContent(tooltipContent: string[]) {
     this.options.tooltipContent = tooltipContent;
@@ -92,6 +98,15 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
 
   /** Called when the slider control changes */
   @Output() change: EventEmitter<SohoSliderEvent> = new EventEmitter<SohoSliderEvent>();
+
+  /** Called when the slider is being slid */
+  @Output() sliding: EventEmitter<SohoSliderEvent> = new EventEmitter<SohoSliderEvent>();
+
+  /** Called when the slider starts to be slid */
+  @Output() slidestart: EventEmitter<SohoSliderEvent> = new EventEmitter<SohoSliderEvent>();
+
+  /** Called when the slider is finished sliding, change will also fire here. */
+  @Output() slidestop: EventEmitter<SohoSliderEvent> = new EventEmitter<SohoSliderEvent>();
 
   /** Called when the slider is updated when the model value changes */
   @Output() updated: EventEmitter<SohoSliderEvent> = new EventEmitter<SohoSliderEvent>();
@@ -166,6 +181,9 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
 
     // Bind to events
     this.jQueryElement
+      .on('slidestart', (event: SohoSliderEvent) => this.onSlideStop(event))
+      .on('slidestop', (event: SohoSliderEvent) => this.onSlideStart(event))
+      .on('sliding', (event: SohoSliderEvent) => this.onSliding(event))
       .on('change', (event: SohoSliderEvent) => this.onChange(event))
       .on('updated', (event: SohoSliderEvent) => this.onUpdated(event));
   }
@@ -199,6 +217,21 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
       // ... then emit the changed value.
       this.change.emit(event);
     }
+  }
+
+  onSliding(event: SohoSliderEvent) {
+    event.data = this.jQueryElement.val();
+    this.sliding.emit(event);
+  }
+
+  onSlideStart(event: SohoSliderEvent) {
+    event.data = this.jQueryElement.val();
+    this.slidestart.emit(event);
+  }
+
+  onSlideStop(event: SohoSliderEvent) {
+    event.data = this.jQueryElement.val();
+    this.slidestop.emit(event);
   }
 
   onUpdated(event: SohoSliderEvent) {

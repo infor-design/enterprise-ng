@@ -148,7 +148,6 @@ import { ListViewCustomContentDemoComponent } from './listview/listview.custom-c
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
-import { MaskLegacyDemoComponent } from './mask/mask-legacy.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
@@ -355,7 +354,6 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
     LookupDemoComponent,
     LookupValidationDemoComponent,
     MaskDemoComponent,
-    MaskLegacyDemoComponent,
     MenuButtonDemoComponent,
     MessageDemoComponent,
     NotificationDemoComponent,

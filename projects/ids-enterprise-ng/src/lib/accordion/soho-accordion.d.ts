@@ -76,9 +76,9 @@ interface SohoAccordionStatic {
   /** Expands all panels. */
   expandAll(): void;
 
-  expand(jQuery): void;
+  expand(header: any | string): void;
 
-  collapse(jQuery): void;
+  collapse(header: any | string): void;
 
   /** Disables the accordion from reacting to events. */
   disable(): void;

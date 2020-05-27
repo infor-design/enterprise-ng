@@ -124,11 +124,26 @@ interface SohoDropDownOptions {
   showTags?: boolean;
 
   /**
+   *  If true, moves the Searchfield in the Dropdown list from directly on top of the pseudo-lement
+   *  to underneath/above, providing visibility into the currently selected results.
+   */
+  showSearchUnderSelected?: boolean;
+
+  /**
    * Allows you to hook into the onKeyDown.
    * If you do you can access the keydown event data.
    * And optionally return false to cancel the keyDown action.
    */
   onKeyDown?: SohoDropDownKeyDownFunction;
+
+  /** If defined, passes along 'clickHandler' and 'dismissHandler' functions to any Tags **/
+  tagSettings?: any;
+
+  /** Custom text string for `All` text header use in MultiSelect **/
+  allTextString?: string;
+
+  /** Custom text string for `Selected` text header use in MultiSelect **/
+  selectedTextString?: string;
 }
 
 type SohoDropDownKeyDownFunction = (

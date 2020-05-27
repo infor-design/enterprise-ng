@@ -4,8 +4,16 @@
 
 ### 7.2.0 Features
 
-- `[ModalDialog]` Added support the new buttonsetAPI on modal.  `BTHH` ([Issue #781](https://github.com/infor-design/enterprise-ng/issues/781))
+- `[Accordion]` Added the ability to pass a string ID to expand and collapse.  `TJM` ([Issue #783](https://github.com/infor-design/enterprise-ng/issues/783))
 - `[Buttonset]` Added support for `buttonset`.  `BTHH` ([Issue #781](https://github.com/infor-design/enterprise-ng/issues/781))
+- `[Bar]` Added new fitHeight setting for alternate widget sizing.  `TJM` ([Issue #3702](https://github.com/infor-design/enterprise/issues/3702))
+- `[Dropdown]` Added several missing search / tag related options.  `TJM` ([Issue #3767](https://github.com/infor-design/enterprise/issues/3767))
+- `[General]` d3 and jQuery dependencies are updated to newer versions.  `TJM` ([Issue #1083](https://github.com/infor-design/enterprise/issues/1083))
+- `[Lookup]` Added new clearable option and several missing settings (delimiter, minWidth).  `TJM` ([Issue #2507](https://github.com/infor-design/enterprise/issues2507781))
+- `[ModalDialog]` Added support the new buttonsetAPI on modal.  `BTHH` ([Issue #781](https://github.com/infor-design/enterprise-ng/issues/781))
+- `[Mask]` Removed the old and deprecated MaskLegacyDemoComponent from the examples.  `TJM` ([Issue #781](https://github.com/infor-design/enterprise-ng/issues/781))
+- `[Popupmenu]` Added new shortcut text option.  `TJM` ([Issue #3849](https://github.com/infor-design/enterprise/issues/3849))
+- `[Slider]` Added missing options tooltipPosition, sliding, slidestart, slidestop.  `TJM` ([Issue #3849](https://github.com/infor-design/enterprise-ng/issues/787 ))
 
 ### 7.2.0 Fixes
 

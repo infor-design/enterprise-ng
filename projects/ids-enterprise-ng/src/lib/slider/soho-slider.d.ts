@@ -33,6 +33,9 @@ interface SohoSliderOptions {
 
   /** Tooltip Content */
   tooltipContent?: string[];
+
+  /** Option to control the position of tooltip. ['top' , 'bottom'] */
+  tooltipPosition?: 'top' | 'bottom';
 }
 
 /**
