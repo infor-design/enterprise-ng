@@ -1,5 +1,10 @@
 # What's New with Enterprise-NG
 
+### 7.1.1 Fixes
+
+- `[General]` Added 4.28.1 patch release. `TJM`
+- `[General]` Added new type for isPrimary in empty message `TJM`
+
 ## v7.1.0
 
 ### 7.1.0 Fixes
