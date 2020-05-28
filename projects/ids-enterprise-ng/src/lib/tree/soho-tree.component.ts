@@ -175,6 +175,11 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   @Output() selected = new EventEmitter<SohoTreeEvent>();
 
   /**
+   * This event is fired when right clicking a node.
+   * */
+  @Output() contextmenu = new EventEmitter<SohoTreeEvent>();
+
+  /**
    * This event is fired when a node is unselected, the SohoTreeNode
    * unselected is passed in the argument passed to the handler.
    * */
@@ -482,6 +487,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     // Initialize any event handlers.
     this.jQueryElement
+      .on('contextmenu', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.contextmenu.next(args))
       .on('selected', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.selected.next(args))
       .on('unselected', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.unselected.next(args))
       .on('expand', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.expand.next(args))
