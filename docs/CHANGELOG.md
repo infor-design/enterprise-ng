@@ -1,8 +1,14 @@
 # What's New with Enterprise-NG
 
-## v7.1.2
+## v7.1.4
 
-### 7.1.2 Fixes
+### 7.1.4 Fixes
+
+- `[General]` Added 4.28.2 patch release. `TJM`
+
+## v7.1.3
+
+### 7.1.3 Fixes
 
 - `[FieldFilter]` Added patch for a new API setting the filter operator. `NBCP` ([Issue #820](https://github.com/infor-design/enterprise-ng/pull/820))
 
