@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v7.1.2
+
+### 7.1.2 Fixes
+
+- `[FieldFilter]` Added patch for a new API setting the filter operator. `NBCP` ([Issue #820](https://github.com/infor-design/enterprise-ng/pull/820))
+
 ## v7.1.1
 
 ### 7.1.1 Fixes
