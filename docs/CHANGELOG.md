@@ -13,7 +13,8 @@
 - `[ModalDialog]` Added support the new buttonsetAPI on modal.  `BTHH` ([Issue #781](https://github.com/infor-design/enterprise-ng/issues/781))
 - `[Mask]` Removed the old and deprecated MaskLegacyDemoComponent from the examples.  `TJM` ([Issue #781](https://github.com/infor-design/enterprise-ng/issues/781))
 - `[Popupmenu]` Added new shortcut text option.  `TJM` ([Issue #3849](https://github.com/infor-design/enterprise/issues/3849))
-- `[Slider]` Added missing options tooltipPosition, sliding, slidestart, slidestop.  `TJM` ([Issue #3849](https://github.com/infor-design/enterprise-ng/issues/787 ))
+- `[Slider]` Added missing options tooltipPosition, sliding, slidestart, slidestop.  `TJM` ([Issue #787](https://github.com/infor-design/enterprise-ng/issues/787))
+- `[Tree]` Added a new contextmenu method, and show a dynamic menu example.  `TJM` ([Issue #794](https://github.com/infor-design/enterprise-ng/issues/79))
 
 ### 7.2.0 Fixes
 

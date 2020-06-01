@@ -14,35 +14,55 @@
 <br>
 <div class="row top-padding">
   <div class="twelve columns demo" role="main">
-      <ul soho-busyindicator [soho-tree]="'content-only'" menuId="tree-popupmenu" (menuselect)="onMenuSelected($event)" (selected)="onSelected($event)">
-        <li>
-          <a href="#" id="home">Home</a>
-        </li>
-        <li><a href="#" id="about">About Us</a></li>
-        <li class="is-open">
-          <a href="#" id="public">Public Folders</a>
-          <ul class="is-open root">
-            <li class="is-open">
-              <a href="#" id="leadership">Leadership</a>
-              <ul class="is-open">
-                <li class="is-selected">
-                  <a href="#" id="managers" class="icon-tree-image">Managers</a>
-                </li>
-                <li>
-                  <a href="#" id="history">History</a>
-                </li>
-                <li>
-                  <a href="#" id="careers" class="is-disabled">Careers</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
+    <ul soho-busyindicator [soho-tree]="'content-only'" (menuopen)="onMenuOpen($event)"
+      (menuselect)="onMenuSelected($event)" (selected)="onSelected($event)" (contextmenu)="onContextMenu($event)">
+      <li>
+        <a href="#" id="home">Home</a>
+      </li>
+      <li><a href="#" id="about">About Us</a></li>
+      <li class="is-open">
+        <a href="#" id="public">Public Folders</a>
+        <ul class="is-open root">
+          <li class="is-open">
+            <a href="#" id="leadership">Leadership</a>
+            <ul class="is-open">
+              <li class="is-selected">
+                <a href="#" id="managers">Managers</a>
+              </li>
+              <li>
+                <a href="#" id="history">History</a>
+              </li>
+              <li>
+                <a href="#" id="careers">Careers</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="is-open">
+        <a href="#" id="priv">Private Folders</a>
+        <ul class="is-open root">
+          <li class="is-open">
+            <a href="#" id="departments">Departments</a>
+            <ul class="is-open">
+              <li>
+                <a href="#" id="hr">HR</a>
+              </li>
+              <li>
+                <a href="#" id="fin">Finance</a>
+              </li>
+              <li>
+                <a href="#" id="mkt">Mkt</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </div>
-
-<ul id="tree-popupmenu" class="popupmenu">
- <li><a id="add" href="#" data-cmd="add">Add</a></li>
- <li><a id="delete" href="#" data-cmd="delete">Delete</a></li>
- </ul>
+<ul #treeContextMenu id="treeContextPopupMenu" class="popupmenu">
+  <li *ngFor="let childOption of contextMenuOptions">
+    <a id="{{childOption.id}}" href="#">{{childOption.name}}</a>
+  </li>
+</ul>
