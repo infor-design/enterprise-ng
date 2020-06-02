@@ -6,6 +6,11 @@
 
 ## v7.2.0
 
+### 7.2.0 Notes
+
+- `[General]` Since d3 and jQuery dependencies are updated to newer versions you may have to adjust the path in your angular.json file for the d3 file `node_modules/d3/dist/d3.js`.  `TJM` ([Issue #1083](https://github.com/infor-design/enterprise/issues/1083))
+- `[General]` Note that Angular 9 needs TS 3.6 or above. We are currently testing on 3.83 so you may need to update your typescript version especially if you see an error such as `An accessor cannot be declared in ambient context`.  `TJM` ([Issue #1083](https://github.com/infor-design/enterprise/issues/1083))
+
 ### 7.2.0 Features
 
 - `[Accordion]` Added the ability to pass a string ID to expand and collapse.  `TJM` ([Issue #783](https://github.com/infor-design/enterprise-ng/issues/783))
