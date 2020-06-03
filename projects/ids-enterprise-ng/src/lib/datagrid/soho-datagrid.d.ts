@@ -933,6 +933,7 @@ interface SohoDataGridStatic {
 
   /** Reference to pager. */
   pager: SohoPagerStatic;
+  pagerAPI: SohoPagerStatic;
 
   /** Updates the dataset displayed by the data grid. */
   updateDataset(dataset: Object[], pagerInfo?: SohoPagerPagingInfo): void;
