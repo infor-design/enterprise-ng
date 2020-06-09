@@ -318,6 +318,15 @@ interface SohoDataGridOptions {
 
   /* Html string for the expandable row area*/
   rowTemplate?: string;
+
+  /* Dynamic component to build */
+  rowTemplateComponent?: any;
+
+  /* Field to get the data from datarow */
+  rowTemplateField?: string;
+
+  /* The inputs for dynamic component  */
+  rowTemplateComponentInputs?: any;
 }
 
 type SohoDataGridModifiedRows = { [index: number]: SohoDataGridModifiedRow };

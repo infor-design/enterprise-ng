@@ -1917,10 +1917,63 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   private onExpandRow(args: SohoDataGridRowExpandEvent) {
     const event = { grid: this, ...args };
+	if (this.gridOptions.rowTemplateComponent) {
+      this.buildRowTemplateComponent(event);
+    }
     this.ngZone.run(() => {
       this.expandrow.next(event);
     });
   }
+  
+  /**
+   * Build component for rowTemplate
+   *
+   */
+  private buildRowTemplateComponent(event: any) {
+	  
+    if (!this.gridOptions.rowTemplateComponent) {
+      return;
+    }
+
+    const componentFactory = this.resolver.resolveComponentFactory(
+      this.gridOptions.rowTemplateComponent
+    );
+
+    const container = event.detail
+      .find('.datagrid-row-detail-padding')
+      .empty()[0];
+
+    let dataComponent: any;
+    if (event.item.hasOwnProperty(this.gridOptions.rowTemplateField)) {
+      dataComponent = event.item[this.gridOptions.rowTemplateField];
+    } else {
+      dataComponent = undefined;
+    }
+
+    const injector = Injector.create({
+      providers: [
+        {
+          provide: 'args',
+          useValue: {
+            inputsData: this.gridOptions.rowTemplateComponentInputs,
+            data: dataComponent,
+            ...event,
+          },
+        },
+      ],
+      parent: this.injector,
+    });
+
+    // Create the component, in the container.
+    const component = componentFactory.create(injector, [], container);
+    event['rowTemplateComponent'] = component;
+
+    // ... attach to the app ...
+    this.app.attachView(component.hostView);
+
+    // ... update for changes ...
+    component.changeDetectorRef.detectChanges();
+}
 
   /**
    * Event fired after a key is pressed

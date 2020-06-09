@@ -105,6 +105,8 @@ import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DataGridTreeGridLazyDemoComponent } from './datagrid/datagrid-treegrid-lazy.demo';
 import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagrid-treegrid-dynamicfiltering.demo';
+import { ExpandedDemoComponent, DataGridExpandableRowDynamicDemoComponent } from './datagrid/datagrid-expandable-row-dynamic.demo';
+import { NestedDatagridDemoComponent, DataGridExpandableRowNestedDemoComponent } from './datagrid/datagrid-expandable-row-nested.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DonutDemoComponent } from './donut/donut.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
@@ -307,6 +309,10 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
     DataGridTreeGridCubeDemoComponent,
     DatagridTreegridDynamicfilteringDemoComponent,
     DataGridGroupableDemoComponent,
+	  NestedDatagridDemoComponent,
+	  ExpandedDemoComponent,
+	  DataGridExpandableRowNestedDemoComponent,
+	  DataGridExpandableRowDynamicDemoComponent,
     DatepickerDemoComponent,
     DemoCellInputEditorComponent,
     DemoCellFormatterComponent,
@@ -446,6 +452,8 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
     SohoRenderLoopService
   ],
   entryComponents: [
+    ExpandedDemoComponent,
+    NestedDatagridDemoComponent,
     DemoCellDatePickerEditorComponent,
     DemoCellInputEditorComponent,
     DemoCellFormatterComponent,
