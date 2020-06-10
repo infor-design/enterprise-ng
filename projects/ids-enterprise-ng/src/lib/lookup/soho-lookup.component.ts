@@ -505,13 +505,6 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
       // todo: why is this here, value is not defined anywhere, not sure where it's used so reluctant to remove it.
       event.values = this.internalValue;
-
-      // todo: theo: thinking it should be this instead - Phillip 2018/04/02
-      // if (!event) {
-      //   event = [{}];
-      // }
-      // event[0].value = this.internalValue;
-
       this.change.emit(event);
     });
   }

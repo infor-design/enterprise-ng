@@ -4,7 +4,9 @@
 
 ### 7.3.0 Fixes
 
-- `[Lookup]` Resynced the lookup api settings, methods and logic. Made sure everything is using ngZone. And added ability to use dataset as an input and the buttonsetAPI.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
+- `[Lookup]` Resynced the lookup api settings, methods and events with the core component. Also made sure everything is using ngZone. `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
+- `[Lookup]` And added an example showing how to use the buttonsetAPI to enable and disable buttons.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
+- `[Lookup]` And added an example showing how to use a dataset as an input to populate the lookup.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
 
 ## v7.2.0
 
