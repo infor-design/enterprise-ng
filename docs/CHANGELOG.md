@@ -4,6 +4,8 @@
 
 ### 7.3.0 Fixes
 
+- `[Datagrid]` Added target property for hyperlink formatter column. ([#3731](https://github.com/infor-design/enterprise/issues/3731))
+
 ## v7.2.0
 
 ### 7.2.0 Notes
