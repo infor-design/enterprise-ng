@@ -26,13 +26,19 @@ const customErrorFormatter = function (row, cell, value, col, item, api) {
 export class ExpandedDemoComponent implements OnDestroy {
   data: any[];
   id?: string;
-  constructor(@Inject("args") public args: any) {
-    if (args && args.data) this.data = args.data;
-    if (args && args.item) this.id = args.item.id;
+  constructor(@Inject('args') public args: any) {
+    if (args && args.data) {
+      this.data = args.data;
+    }
+
+    if (args && args.item) {
+      this.id = args.item.id;
+    }
+
   }
 
   ngOnDestroy() {
-    //console.log(`DemoCellFormatterComponent ${this.args.row} destroyed`);
+    // console.log(`DemoCellFormatterComponent ${this.args.row} destroyed`);
   }
 }
 

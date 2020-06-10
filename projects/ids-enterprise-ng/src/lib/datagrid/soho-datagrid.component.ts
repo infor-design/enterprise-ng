@@ -1917,20 +1917,20 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   private onExpandRow(args: SohoDataGridRowExpandEvent) {
     const event = { grid: this, ...args };
-	if (this.gridOptions.rowTemplateComponent) {
+    if (this.gridOptions.rowTemplateComponent) {
       this.buildRowTemplateComponent(event);
     }
     this.ngZone.run(() => {
       this.expandrow.next(event);
     });
   }
-  
+
   /**
    * Build component for rowTemplate
    *
    */
   private buildRowTemplateComponent(event: any) {
-	  
+
     if (!this.gridOptions.rowTemplateComponent) {
       return;
     }
