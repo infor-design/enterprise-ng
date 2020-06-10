@@ -4,6 +4,8 @@
 
 ### 7.3.0 Fixes
 
+- `[Lookup]` Resynced the lookup api settings, methods and logic. Made sure everything is using ngZone. And added ability to use dataset as an input and the buttonsetAPI.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
+
 ## v7.2.0
 
 ### 7.2.0 Notes

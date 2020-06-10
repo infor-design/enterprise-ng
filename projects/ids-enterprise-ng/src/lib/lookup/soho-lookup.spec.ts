@@ -172,7 +172,7 @@ export const checkboxColumn = {
   </form>`
 })
 class SohoLookupReactiveFormTestComponent {
-  @ViewChild(SohoLookupComponent) dropdown: SohoLookupComponent;
+  @ViewChild(SohoLookupComponent) lookup: SohoLookupComponent;
 
   formGroup: FormGroup;
 
@@ -195,7 +195,7 @@ class SohoLookupReactiveFormTestComponent {
 }
 
 describe('SohoLookupComponent on ReactiveForm', () => {
-  let dropdown: SohoLookupComponent;
+  let lookup: SohoLookupComponent;
   let component: SohoLookupReactiveFormTestComponent;
   let fixture: ComponentFixture<SohoLookupReactiveFormTestComponent>;
   let de: DebugElement;
@@ -206,7 +206,7 @@ describe('SohoLookupComponent on ReactiveForm', () => {
     fixture.detectChanges();
 
     const eventEmitterSpy = spyOn<any>(eventEmitter, functionName);
-    (component.dropdown as any).jQueryElement.trigger(eventName);
+    (component.lookup as any).jQueryElement.trigger(eventName);
     expect(eventEmitterSpy).toHaveBeenCalledTimes(1);
   };
 
@@ -218,7 +218,7 @@ describe('SohoLookupComponent on ReactiveForm', () => {
 
     fixture = TestBed.createComponent(SohoLookupReactiveFormTestComponent);
     component = fixture.componentInstance;
-    dropdown = component.dropdown;
+    lookup = component.lookup;
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-lookup]')).nativeElement;
@@ -240,6 +240,21 @@ describe('SohoLookupComponent on ReactiveForm', () => {
     fixture.detectChanges();
 
     expect(el.hasAttribute('disabled')).toBeFalsy('disabled');
+  });
+
+  it('is disabled after call to disable().', () => {
+    component.lookup.disable();
+    expect(el.hasAttribute('disabled')).toBeTruthy('disabled');
+  });
+
+  it('is enabled after call to enable().', () => {
+    component.lookup.enable();
+    expect(el.hasAttribute('disabled')).toBeFalsy('disabled');
+  });
+
+  it('is readonly after call to readonly().', () => {
+    component.lookup.readonly();
+    expect(el.hasAttribute('readonly')).toBeTruthy('readonly');
   });
 
   it('is disabled after call to disable().', () => {
@@ -270,39 +285,25 @@ describe('SohoLookupComponent on ReactiveForm', () => {
     expect(el.value).toEqual('2642205');
   });
 
-  it('check rest of inputs', () => {
-    component.formGroup.enable();
-    fixture.detectChanges();
-
-    component.dropdown.editable = false;
-    component.dropdown.autoWidth = false;
-    component.dropdown.title = 'some title';
-    component.dropdown.beforeShow = () => {};
-    component.dropdown.match = () => true;
-    component.dropdown.click = () => {};
-
-    fixture.detectChanges();
-
-    expect((component.dropdown as any)._options.editable).toBe(false);
-    expect((component.dropdown as any)._options.autoWidth).toBe(false);
-    expect((component.dropdown as any)._options.title).toBe('some title');
-  });
-
   it('should fire beforeopen event', () => {
-    testFireEvent((component.dropdown as any).beforeopen, 'emit', 'beforeopen');
+    testFireEvent((component.lookup as any).beforeopen, 'emit', 'beforeopen');
   });
 
   it('should fire open event', () => {
-    testFireEvent((component.dropdown as any).open, 'emit', 'open');
+    testFireEvent((component.lookup as any).open, 'emit', 'open');
+  });
+
+  it('should call destroy afteropen event', () => {
+    testFireEvent((component.lookup as any).afteropen, 'emit', 'afteropen');
   });
 
   // todo this.lookup.grid is undefined during this test. See lookup @Input dataset for details.
-  xit('control data updates when new data is set', () => {
+  it('control data updates when new data is set', () => {
     component.formGroup.enable();
     fixture.detectChanges();
 
-    expect(component.dropdown).toBeDefined('is not defined');
-    expect((component.dropdown as any).lookup).toBeDefined('lookup is not defined');
+    expect(component.lookup).toBeDefined('is not defined');
+    expect((component.lookup as any).lookup).toBeDefined('lookup is not defined');
     component.lookupData = updatedProductsData;
     fixture.detectChanges();
   });
