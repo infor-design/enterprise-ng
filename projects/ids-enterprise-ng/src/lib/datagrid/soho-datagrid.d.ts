@@ -807,6 +807,9 @@ interface SohoDataGridColumn {
   /** href for hyperlink */
   href?: SohoDataGridColumnHref;
 
+  /** href target for hyperlink */
+  target?: string;
+
   /** Column function to dynamically set the readonly property on cells based on row data. */
   isEditable?: SohoDataGridColumnIsEditableFunction;
 
