@@ -10,9 +10,9 @@
 - `[Lookup]` And added an example showing how to use the buttonsetAPI to enable and disable buttons.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
 - `[Lookup]` And added an example showing how to use a dataset as an input to populate the lookup.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
 
-## v7.2.2
+## v7.2.1
 
-### 7.2.2 Fixes
+### 7.2.1 Fixes
 
 - `[General]` Added Ids and Angular to latest stable versions.  `TJM`
 
