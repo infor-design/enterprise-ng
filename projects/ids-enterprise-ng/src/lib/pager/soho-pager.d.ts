@@ -149,6 +149,9 @@ interface SohoPagerStatic {
 
   /** Internal jQuery element. */
   element: JQuery;
+
+  /** Updates the pager associated with the grid. */
+  updatePagingInfo(pagerInfo: SohoPagerPagingInfo): void;
 }
 
 interface SohoStandalonePagerStatic {
