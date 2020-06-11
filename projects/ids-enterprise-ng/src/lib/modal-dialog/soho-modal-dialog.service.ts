@@ -7,6 +7,7 @@ import {
   NgZone,
   ViewContainerRef,
   ApplicationRef,
+  Optional
 } from '@angular/core';
 
 import { ArgumentHelper } from '../utils/argument.helper';
@@ -33,7 +34,7 @@ export class SohoModalDialogService {
     private readonly componentFactoryResolver: ComponentFactoryResolver,
     private readonly injector: Injector,
     private readonly ngZone: NgZone,
-    private readonly router: Router) {
+    @Optional() private readonly router: Router) {
   }
 
   /**
