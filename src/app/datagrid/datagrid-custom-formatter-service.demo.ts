@@ -38,6 +38,14 @@ export class DataGridCustomFormatterServiceDemoComponent implements OnInit {
 
     PAGING_COLUMNS.forEach(element => columns.push(element));
 
+    /**
+     * Add a href to hyperlink column, `Product Name`
+     */
+    if (columns.length > 2) {
+      columns[2].href = 'http://www.google.com';
+      columns[2].target = '_blank';
+    }
+
     columns.push({
       id: 'custom-formatter',
       name: 'Custom Formatter',
@@ -51,6 +59,7 @@ export class DataGridCustomFormatterServiceDemoComponent implements OnInit {
       selectable: 'single',
       paging: true,
       pagesize: 10,
+      toolbar: { title: 'Data Grid Header Title', collapsibleFilter: true, keywordFilter: true, actions: true, rowHeight: true }
     };
   }
 }
