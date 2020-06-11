@@ -1963,12 +1963,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       providers: [
         {
           provide: 'args',
-          useValue: {
-            inputsData: this.gridOptions.rowTemplateComponentInputs,
-            data: dataComponent,
-            ...event,
-          },
-        },
+          useValue: { inputsData: this.gridOptions.rowTemplateComponentInputs, data: dataComponent, ...event },
+        }
       ],
       parent: this.injector,
     });
