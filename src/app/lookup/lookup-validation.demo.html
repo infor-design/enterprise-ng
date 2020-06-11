@@ -1,8 +1,6 @@
 <div class="example-section">
   <form [formGroup]="form">
-    <div class="row">
-      <h1>Lookups</h1>
-      <span class="code-tag">Live Example</span>
+    <div class="row top-padding">
       <div class="row">
         <label soho-label for="product_single">Products (Single Select) with mask</label>
         <input soho-lookup
@@ -67,11 +65,11 @@
     </div>
   </form>
   <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+  <button soho-button (click)="clearModel()">Clear Model</button><br><br>
   <div *ngIf="showModel">
     <hr>
     <h3>{{ model | json }}</h3>
   </div>
-  <button soho-button (click)="clearModel()">Clear Model</button><br><br>
   <div class="row">
     <h3>Form dirty: {{form.dirty}}</h3>
   </div>
