@@ -5,6 +5,19 @@
 </div>
 
 <br>
+<div class="compound-field">
+  <div class="field">
+    <button soho-button (click)="exportExcel($event)">Export to Excel</button>
+  </div>
+  <div class="field">
+    <button soho-button (click)="exportCsv($event)">Export to CSV</button>
+  </div>
+  <div class="field">
+    <button soho-button (click)="goToPageTwo()">Set Pager to Page Two</button>
+  </div>
+</div>
+<br>
+
 <div class="row top-padding">
   <div class="twelve columns demo" role="main">
     <div soho-datagrid
@@ -14,14 +27,5 @@
       (settingsChanged)="onSettingsChanged($event)"
       (rendered)="onRendered($event)"
     ></div>
-  </div>
-</div>
-
-<div class="compound-field">
-  <div class="field">
-    <button soho-button (click)="exportExcel($event)">Export to Excel</button>
-  </div>
-  <div class="field">
-    <button soho-button (click)="exportCsv($event)">Export to CSV</button>
   </div>
 </div>

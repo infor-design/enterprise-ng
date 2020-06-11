@@ -934,8 +934,14 @@ interface SohoDataGridStatic {
   /** Overridable sort function. */
   sortFunction: SohoDataGridSortFunction;
 
-  /** Reference to pager. */
+  /**
+   * Reference to pager.
+   *  @deprecated use pagerAPI
+   */
   pager: SohoPagerStatic;
+
+  /** Reference to pager. */
+  pagerAPI: SohoPagerStatic;
 
   /** Updates the dataset displayed by the data grid. */
   updateDataset(dataset: Object[], pagerInfo?: SohoPagerPagingInfo): void;

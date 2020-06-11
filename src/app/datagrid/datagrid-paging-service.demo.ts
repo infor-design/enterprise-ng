@@ -71,6 +71,10 @@ export class DataGridPagingServiceDemoComponent implements OnInit {
     this.sohoDataGridComponent.exportToCsv('', this.datagridPagingService.getAllData());
   }
 
+  goToPageTwo() {
+    this.sohoDataGridComponent.updatePagingInfo({ activePage: 2, total: 100 });
+  }
+
   onRowClicked(event: SohoDataGridRowClicked) {
     console.log('onRowClicked event is: ' + event);
   }
@@ -87,6 +91,9 @@ export class DataGridPagingServiceDemoComponent implements OnInit {
 
   onRendered(event: SohoDataGridRenderedEvent) {
     const columnString = lscache.get(this.uniqueId + 'columns') ? JSON.stringify(lscache.get(this.uniqueId + 'columns')) : undefined;
+    if (!this.sohoDataGridComponent) {
+      return;
+    }
 
     if (columnString) {
       this.savedColumns = this.sohoDataGridComponent.columnsFromString(columnString);
