@@ -1978,10 +1978,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
     // ... update for changes ...
     component.changeDetectorRef.detectChanges();
-
-    // ... finally store the created component for later, we'll delete it when
-    // requested, or when the grid is destroyed.
-    this.rowTemplateComponents.push({ row: event.row, component: component });
 }
 
   /**
