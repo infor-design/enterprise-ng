@@ -1930,7 +1930,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Build component for rowTemplate
-   *
+   * @private
    */
   private buildRowTemplateComponent(event: any) {
 
