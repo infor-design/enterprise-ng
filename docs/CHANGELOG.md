@@ -5,7 +5,7 @@
 ### 7.3.0 Fixes
 
 - `[Datagrid]` Added target property for hyperlink formatter column. ([#3731](https://github.com/infor-design/enterprise/issues/3731))
-
+- `[Datagrid]` Build expanded datagrid row with dynamic component. Special case: nested datagrid.  `AF` ([Issue #206](https://github.com/infor-design/enterprise-ng/issues/206))
 ## v7.2.0
 
 ### 7.2.0 Notes
