@@ -12,6 +12,12 @@
 - `[Lookup]` And added an example showing how to use a dataset as an input to populate the lookup.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
 - `[ModalDialog]` Make the router dependency optional in the Modal Dialog. ([Issue #803](https://github.com/infor-design/enterprise/issues/803))
 
+## v7.2.4
+
+### 7.2.4 Fixes
+
+- `[General]` Added Ids and Angular to latest stable versions and fix a build issue with 7.2.3-7.2.1 and sync issues.  `TJM`
+
 ## v7.2.1
 
 ### 7.2.1 Fixes
