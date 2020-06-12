@@ -405,20 +405,22 @@ export class SohoModalDialogRef<T> {
 
     // Add a subscription to the router to remove
     // the dialog when the user navigates.
-    router.events
-      .pipe(takeUntil(this.destroyed$))
-      .subscribe(e => {
-        if (this._closeOnNavigation && e instanceof NavigationEnd) {
-          // Disable the beforeClose veto capability when navigating.
-          this.eventGuard.beforeClose = null;
-          if (this.modal) {
-            this.modal.close(true);
+    if (router) {
+      router.events
+        .pipe(takeUntil(this.destroyed$))
+        .subscribe(e => {
+          if (this._closeOnNavigation && e instanceof NavigationEnd) {
+            // Disable the beforeClose veto capability when navigating.
+            this.eventGuard.beforeClose = null;
+            if (this.modal) {
+              this.modal.close(true);
+            }
+            if (this.componentRef) {
+              this.componentRef.destroy();
+            }
           }
-          if (this.componentRef) {
-            this.componentRef.destroy();
-          }
-        }
-      });
+        });
+    }
   }
 
   /**
