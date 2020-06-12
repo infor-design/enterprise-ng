@@ -1359,7 +1359,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   updatePagingInfo(pageInfo: SohoPagerPagingInfo): void {
     this.ngZone.runOutsideAngular(() => {
-      this.datagrid.updatePagingInfo(pageInfo);
+      this.datagrid.pagerAPI.updatePagingInfo(pageInfo);
     });
   }
 

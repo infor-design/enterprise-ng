@@ -5,15 +5,15 @@
         <div class="field">
           <label soho-label for="product_single">Products (Single Select) with mask</label>
           <input soho-lookup
-            soho-mask [sohoPattern]="'#######'" [process]="'number'" [negative]="false" [number]="true"
+            soho-mask [sohoPattern]="'#######'" [process]="'number'" [allowNegative]="false"
             soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
             [(ngModel)]="model.single"
             [columns]="columns_product"
             [dataset]="data_product"
             (change)="onChange($event)"
-            [beforeShow]="onBeforeShow"
             (afteropen)="onAfterOpen($event)"
             field="productId"
+            title="Products"
             name="product_single" />
         </div>
       </div>
@@ -21,7 +21,7 @@
         <div class="field">
           <label soho-label for="product_single_exists">Products (Single Select) with mask with existing value</label>
           <input soho-lookup
-            soho-mask [sohoPattern]="'#######'" [process]="'number'" [negative]="false" [number]="true"
+            soho-mask [sohoPattern]="'#######'" [process]="'number'" [allowNegative]="false"
             soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
             [(ngModel)]="model.singleexists"
             [columns]="columns_product"
@@ -37,28 +37,26 @@
         <div class="field">
           <label soho-label for="product_single_object">Products (Single Select Stored as Object) with mask</label>
           <input soho-lookup
-            soho-mask [sohoPattern]="'#######'" [process]="'number'" [negative]="false" [number]="true"
+            soho-mask [sohoPattern]="'#######'" [process]="'number'" [allowNegative]="false"
             soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
             [(ngModel)]="model.singleobject"
             [columns]="columns_product"
             [dataset]="data_product"
             field="productId"
-            name="product_single_object"
-            asobject />
+            name="product_single_object" />
         </div>
       </div>
       <div class="six columns">
         <div class="field">
           <label soho-label for="product_single_object_exists">Products (Single Select Stored as Object) with mask with existing value</label>
           <input soho-lookup
-            soho-mask [sohoPattern]="'#######'" [process]="'number'" [negative]="false" [number]="true"
+            soho-mask [sohoPattern]="'#######'" [process]="'number'" [allowNegative]="false"
             soho-trackdirty (pristine)="onPristine($event)" (dirty)="onDirty($event)"
             [(ngModel)]="model.singleobjectexists"
             [columns]="columns_product"
             [dataset]="data_product"
             field="productId"
-            name="product_single_object_exists"
-            asobject />
+            name="product_single_object_exists" />
         </div>
       </div>
     </div>
@@ -124,19 +122,18 @@
             [dataset]="data_product"
             multiselect
             [toolbar]="{
-          results: true,
-          dateFilter: false,
-          keywordFilter: true,
-          advancedFilter: true,
-          actions: true,
-          views: true,
-          rowHeight: false,
-          collapsibleFilter: false,
-          fullWidth: true
-        }"
+              results: true,
+              dateFilter: false,
+              keywordFilter: true,
+              advancedFilter: true,
+              actions: true,
+              views: true,
+              rowHeight: false,
+              collapsibleFilter: false,
+              fullWidth: true
+            }"
             field="productId"
-            name="product_multi_object"
-            asobject />
+            name="product_multi_object" />
         </div>
       </div>
       <div class="six columns">
@@ -149,19 +146,18 @@
             [dataset]="data_product"
             multiselect
             [toolbar]="{
-          results: true,
-          dateFilter: false,
-          keywordFilter: true,
-          advancedFilter: true,
-          actions: true,
-          views: true,
-          rowHeight: false,
-          collapsibleFilter: false,
-          fullWidth: true
-        }"
+              results: true,
+              dateFilter: false,
+              keywordFilter: true,
+              advancedFilter: true,
+              actions: true,
+              views: true,
+              rowHeight: false,
+              collapsibleFilter: false,
+              fullWidth: true
+            }"
             field="productId"
-            name="product_multi_object_exists"
-            asobject />
+            name="product_multi_object_exists" />
         </div>
       </div>
     </div>
@@ -218,6 +214,20 @@
             }"
             field="productId"
             name="product_before_open"/>
+        </div>
+
+        <div class="field">
+          <label soho-label for="toggle-buttons">Enable/Disable Buttons</label>
+          <input soho-lookup
+            #toggleButtons
+            [(ngModel)]="model.single"
+            [columns]="columns_product"
+            [dataset]="data_product"
+            field="productId"
+            title="Products"
+            [buttons]="customButtons"
+            name="toggle-buttons"
+          />
         </div>
 
         <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
@@ -293,6 +303,19 @@
             }"
             field="productId"
             name="product_async_multi"/>
+        </div>
+
+        <div class="field">
+          <label soho-label for="dataset-input">Using Dataset Inputs</label>
+          <input soho-lookup
+            #templateId
+            multiselect
+            id="templateId"
+            field="templateId"
+            name="templateName"
+            [(ngModel)]="entityIds"
+            [dataset]="templates" 
+          />
         </div>
 
         </div>

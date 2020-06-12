@@ -943,8 +943,14 @@ interface SohoDataGridStatic {
   /** Overridable sort function. */
   sortFunction: SohoDataGridSortFunction;
 
-  /** Reference to pager. */
+  /**
+   * Reference to pager.
+   *  @deprecated use pagerAPI
+   */
   pager: SohoPagerStatic;
+
+  /** Reference to pager. */
+  pagerAPI: SohoPagerStatic;
 
   /** Updates the dataset displayed by the data grid. */
   updateDataset(dataset: Object[], pagerInfo?: SohoPagerPagingInfo): void;
@@ -1012,7 +1018,7 @@ interface SohoDataGridStatic {
    * @param columnId the id of the column to sort on.
    * @param ascending if true sort ascending, otherwise descending.  If not supplied the setting is toggled.
    */
-  setSortColumn(columnId: string, ascending?: boolean);
+  setSortColumn(columnId: string, ascending?: boolean): void;
 
   columnById(id: string): Array<any>;
 
