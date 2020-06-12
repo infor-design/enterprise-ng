@@ -1275,6 +1275,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   // List of dynamic formatter components - keyed by the original args.
   private cellComponents: any[] = [];
 
+  // List of dynamic rowtemplate components - keyed by the original args.
+  private rowTemplateComponents: any[] = [];
+
   /**
    * Constructor.
    *
@@ -1917,10 +1920,70 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   private onExpandRow(args: SohoDataGridRowExpandEvent) {
     const event = { grid: this, ...args };
+    if (this.gridOptions.rowTemplateComponent) {
+      this.buildRowTemplateComponent(event);
+    }
     this.ngZone.run(() => {
       this.expandrow.next(event);
     });
   }
+
+  /**
+   * Build component for rowTemplate
+   * @private
+   */
+  private buildRowTemplateComponent(event: any) {
+
+    if (!this.gridOptions.rowTemplateComponent) {
+      return;
+    }
+
+    const componentFactory = this.resolver.resolveComponentFactory(
+      this.gridOptions.rowTemplateComponent
+    );
+
+    // Remove component if exist
+    const idx = this.rowTemplateComponents.findIndex((c) => event.row === c.row);
+    if (idx > -1) {
+      this.rowTemplateComponents[idx].component.destroy();
+      this.rowTemplateComponents.splice(idx, 1);
+    }
+
+    const container = event.detail[0].querySelector('.datagrid-row-detail-padding');
+    container.innerHTML = '';
+
+    let dataComponent: any;
+    if (event.item.hasOwnProperty(this.gridOptions.rowTemplateField)) {
+      dataComponent = event.item[this.gridOptions.rowTemplateField];
+    } else {
+      dataComponent = undefined;
+    }
+
+    const injector = Injector.create({
+      providers: [
+        {
+          provide: 'args',
+          useValue: { inputsData: this.gridOptions.rowTemplateComponentInputs, data: dataComponent, ...event },
+        }
+      ],
+      parent: this.injector,
+    });
+
+    // Create the component, in the container.
+    const component = componentFactory.create(injector, [], container);
+    event['rowTemplateComponent'] = component;
+
+    // ... attach to the app ...
+    this.app.attachView(component.hostView);
+
+    // ... update for changes ...
+    component.changeDetectorRef.detectChanges();
+
+    // ... finally store the created component for later, we'll delete it when
+    // requested, or when the grid is destroyed.
+    this.rowTemplateComponents.push({ row: event.row, component: component });
+
+}
 
   /**
    * Event fired after a key is pressed
@@ -2279,6 +2342,12 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
     // Clear the cache.
     this.cellComponents = [];
+
+     // Remove rowTemplate dynamic components.
+    if (this.rowTemplateComponents && this.rowTemplateComponents.length > 0) {
+      this.rowTemplateComponents.forEach((c) => { c.component.destroy(); });
+      this.rowTemplateComponents = [];
+    }
 
     // Now destroy the grid.
     if (this.datagrid) {

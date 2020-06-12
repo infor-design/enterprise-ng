@@ -2,7 +2,6 @@
   "pkgFiles": ["package.json"],
   "hooks": {
       "before:init": "cd ../../ && npm run test:lib && cd projects/ids-enterprise-ng/",
-      "before:stage": "cd ../../ && npm run build:lib && cd projects/ids-enterprise-ng/",
       "before:bump": "cd ../../ && npm run build:lib && cd projects/ids-enterprise-ng/"
   },
   "git": {
