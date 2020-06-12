@@ -1,10 +1,10 @@
 # What's New with Enterprise-NG
 
-## v7.2.2
+## v7.2.3
 
-### 7.2.2 Fixes
+### 7.2.3 Fixes
 
-- `[General]` Added Ids and Angular to latest stable versions.  `TJM`
+- `[General]` Added Ids and Angular to latest stable versions and fix a build issue.  `TJM`
 
 ## v7.2.0
 
