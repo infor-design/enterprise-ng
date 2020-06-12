@@ -18,4 +18,13 @@ export class ToolbarFlexBasicDemoComponent {
   public onSubmit() {
     console.log('submit');
   }
+
+  public onChange(event) {
+    console.log('Change Fired', event);
+  }
+
+  public onCleared(event) {
+    console.log('Clear Fired', event);
+  }
+
 }

@@ -85,6 +85,7 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
 
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
   @Output() cleared: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+  @Output() change: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   @HostBinding('class.searchfield') get isSearchField() { return true; }
 
@@ -118,7 +119,8 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
        */
       this.jQueryElement.on('selected', (...args) =>
         this.ngZone.run(() => this.selected.emit(args)));
-
+      this.jQueryElement.on('change', (...args) =>
+        this.ngZone.run(() => this.change.emit(args)));
       this.jQueryElement.on('cleared', (...args) =>
         this.ngZone.run(() => this.cleared.emit(args)));
     });
