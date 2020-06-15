@@ -11,6 +11,13 @@
 - `[Lookup]` And added an example showing how to use the buttonsetAPI to enable and disable buttons.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
 - `[Lookup]` And added an example showing how to use a dataset as an input to populate the lookup.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
 - `[ModalDialog]` Make the router dependency optional in the Modal Dialog. ([Issue #803](https://github.com/infor-design/enterprise/issues/803))
+- `[ToolbarSearchField]` And missing change event.  `TJM` ([Issue #839](https://github.com/infor-design/enterprise/issues/839))
+
+## v7.2.3
+
+### 7.2.3 Fixes
+
+- `[General]` Fixes a build problem with 7.2.2 and 7.2.1.  `TJM`
 
 ## v7.2.4
 
