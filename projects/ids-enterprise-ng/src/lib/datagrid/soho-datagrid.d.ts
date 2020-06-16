@@ -1180,7 +1180,7 @@ interface SohoDataGridStatic {
    * @param cell The cell index
    * @param toggle True to set it and false to remove it
    */
-  setDirtyIndicator(row: number, cell: number, toggle: boolean): void;
+  setDirtyIndicator(row: number, cell: number, toggle: boolean, data?: object): void;
 
   /**
    * Returns the row dom jQuery node.
