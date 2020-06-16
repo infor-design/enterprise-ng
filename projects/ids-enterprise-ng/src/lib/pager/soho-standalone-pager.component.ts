@@ -31,47 +31,83 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
 
   @Input() set showFirstButton(showFirstButton: boolean) {
     this.options.showFirstButton = showFirstButton;
-    this.updateRequired = !!this.pager;
+    if (this.pager) {
+      this.pager.showButton('first', showFirstButton);
+    } else {
+      this.updateRequired = !!this.pager;
+    }
   }
 
   @Input() set showLastButton(showLastButton: boolean) {
     this.options.showLastButton = showLastButton;
-    this.updateRequired = !!this.pager;
+    if (this.pager) {
+      this.pager.showButton('last', showLastButton);
+    } else {
+      this.updateRequired = !!this.pager;
+    }
   }
 
   @Input() set showNextButton(showNextButton: boolean) {
     this.options.showNextButton = showNextButton;
-    this.updateRequired = !!this.pager;
+    if (this.pager) {
+      this.pager.showButton('next', showNextButton);
+    } else {
+      this.updateRequired = !!this.pager;
+    }
   }
 
   @Input() set showPreviousButton(showPreviousButton: boolean) {
     this.options.showPreviousButton = showPreviousButton;
-    this.updateRequired = !!this.pager;
+    if (this.pager) {
+      this.pager.showButton('previous', showPreviousButton);
+    } else {
+      this.updateRequired = !!this.pager;
+    }
   }
 
   @Input() set showPageSizeSelector(showPageSizeSelector: boolean) {
     this.options.showPageSizeSelector = showPageSizeSelector;
-    this.updateRequired = !!this.pager;
+    if (this.pager) {
+      this.pager.showPageSizeSelector(showPageSizeSelector);
+    } else {
+      this.updateRequired = !!this.pager;
+    }
   }
 
   @Input() set enableFirstButton(enableFirstButton: boolean) {
     this.options.enableFirstButton = enableFirstButton;
-    this.updateRequired = !!this.pager;
+    if (this.pager) {
+      this.pager.enableButton('first', enableFirstButton);
+    } else {
+      this.updateRequired = !!this.pager;
+    }
   }
 
   @Input() set enableLastButton(enableLastButton: boolean) {
     this.options.enableLastButton = enableLastButton;
-    this.updateRequired = !!this.pager;
+    if (this.pager) {
+      this.pager.enableButton('last', enableLastButton);
+    } else {
+      this.updateRequired = !!this.pager;
+    }
   }
 
   @Input() set enablePreviousButton(enablePreviousButton: boolean) {
     this.options.enablePreviousButton = enablePreviousButton;
-    this.updateRequired = !!this.pager;
+    if (this.pager) {
+      this.pager.enableButton('previous', enablePreviousButton);
+    } else {
+      this.updateRequired = !!this.pager;
+    }
   }
 
   @Input() set enableNextButton(enableNextButton: boolean) {
     this.options.enableNextButton = enableNextButton;
-    this.updateRequired = !!this.pager;
+    if (this.pager) {
+      this.pager.enableButton('next', enableNextButton);
+    } else {
+      this.updateRequired = !!this.pager;
+    }
   }
 
   @Input() set previousPageTooltip(previousPageTooltip: string) {
