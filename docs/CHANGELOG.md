@@ -7,6 +7,7 @@
 - `[Datagrid]` Fixed updatePagingInfo function which was wired on pager now and not working. To fix it i kept it flat on the datagrid object  `TJM` ([Issue #781](https://github.com/infor-design/enterprise-ng/issues/781))
 - `[Datagrid]` Added target property for hyperlink formatter column. ([#3731](https://github.com/infor-design/enterprise/issues/3731))
 - `[Datagrid]` Build expanded datagrid row with dynamic component. Special case: nested datagrid.  `AF` ([Issue #206](https://github.com/infor-design/enterprise-ng/issues/206))
+- `[DataGrid]` Added optional data object param to setDirtyIndicator to match soho datagrid setDirtyIndicator. `PWP` ([Issue #829](https://github.com/infor-design/enterprise-ng/issues/829))
 - `[Lookup]` Resynced the lookup api settings, methods and events with the core component. Also made sure everything is using ngZone. `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
 - `[Lookup]` And added an example showing how to use the buttonsetAPI to enable and disable buttons.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
 - `[Lookup]` And added an example showing how to use a dataset as an input to populate the lookup.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))

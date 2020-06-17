@@ -1574,10 +1574,11 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @param row The row index
    * @param cell The cell index
    * @param toggle True to set it and false to remove it
+   * @param data Adds dirty data to the internal tracker
    */
-  setDirtyIndicator(row: number, cell: number, toggle: boolean): void {
+  setDirtyIndicator(row: number, cell: number, toggle: boolean, data?: object): void {
     this.ngZone.runOutsideAngular(() => {
-      this.datagrid.setDirtyIndicator(row, cell, toggle);
+      this.datagrid.setDirtyIndicator(row, cell, toggle, data);
     });
   }
 
