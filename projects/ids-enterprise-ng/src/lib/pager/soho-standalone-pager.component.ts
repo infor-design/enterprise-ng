@@ -33,8 +33,6 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
     this.options.showFirstButton = showFirstButton;
     if (this.pager) {
       this.pager.showButton('first', showFirstButton);
-    } else {
-      this.updateRequired = !!this.pager;
     }
   }
 
@@ -42,8 +40,6 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
     this.options.showLastButton = showLastButton;
     if (this.pager) {
       this.pager.showButton('last', showLastButton);
-    } else {
-      this.updateRequired = !!this.pager;
     }
   }
 
@@ -51,8 +47,6 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
     this.options.showNextButton = showNextButton;
     if (this.pager) {
       this.pager.showButton('next', showNextButton);
-    } else {
-      this.updateRequired = !!this.pager;
     }
   }
 
@@ -60,8 +54,6 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
     this.options.showPreviousButton = showPreviousButton;
     if (this.pager) {
       this.pager.showButton('previous', showPreviousButton);
-    } else {
-      this.updateRequired = !!this.pager;
     }
   }
 
@@ -69,8 +61,6 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
     this.options.showPageSizeSelector = showPageSizeSelector;
     if (this.pager) {
       this.pager.showPageSizeSelector(showPageSizeSelector);
-    } else {
-      this.updateRequired = !!this.pager;
     }
   }
 
@@ -78,8 +68,6 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
     this.options.enableFirstButton = enableFirstButton;
     if (this.pager) {
       this.pager.enableButton('first', enableFirstButton);
-    } else {
-      this.updateRequired = !!this.pager;
     }
   }
 
@@ -87,8 +75,6 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
     this.options.enableLastButton = enableLastButton;
     if (this.pager) {
       this.pager.enableButton('last', enableLastButton);
-    } else {
-      this.updateRequired = !!this.pager;
     }
   }
 
@@ -96,8 +82,6 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
     this.options.enablePreviousButton = enablePreviousButton;
     if (this.pager) {
       this.pager.enableButton('previous', enablePreviousButton);
-    } else {
-      this.updateRequired = !!this.pager;
     }
   }
 
@@ -105,8 +89,6 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
     this.options.enableNextButton = enableNextButton;
     if (this.pager) {
       this.pager.enableButton('next', enableNextButton);
-    } else {
-      this.updateRequired = !!this.pager;
     }
   }
 
