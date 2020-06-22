@@ -226,6 +226,7 @@ import { WizardDemoTargetFolderPageComponent } from './wizard/wizard-target-fold
 import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validation-rules-page.demo';
 import { LocaleInitializerModule } from './locale-initializer/locale-initializer.module';
 import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
+import { ApplicationMenuTestPerfDemoComponent } from './application-menu/application-menu-test-performance.demo';
 import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-cube.demo';
 import { WeekViewDemoComponent } from './week-view/week-view.demo';
 import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
@@ -239,6 +240,7 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
     ApplicationMenuLazyDemoComponent,
     ApplicationMenuLazyMenuDemoComponent,
     ApplicationMenuRoleSwitcherDemoComponent,
+    ApplicationMenuTestPerfDemoComponent,
     AreaDemoComponent,
     AutocompleteDemoComponent,
     BarDemoComponent,
