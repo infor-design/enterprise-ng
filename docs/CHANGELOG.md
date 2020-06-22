@@ -2,6 +2,10 @@
 
 ## v7.3.0
 
+## v7.3.0 Notes
+
+- `[Datagrid]` The deprecated pager property has been removed. Please use pagerAPI instead. ([#841](https://github.com/infor-design/enterprise/issues/841))
+
 ### 7.3.0 Fixes
 
 - `[Datagrid]` Fixed updatePagingInfo function which was wired on pager now and not working. To fix it i kept it flat on the datagrid object  `TJM` ([Issue #781](https://github.com/infor-design/enterprise-ng/issues/781))
