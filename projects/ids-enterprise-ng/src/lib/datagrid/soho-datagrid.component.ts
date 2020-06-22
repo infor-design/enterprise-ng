@@ -1931,7 +1931,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Build component for rowTemplate
-   * @private
    */
   private buildRowTemplateComponent(event: any) {
 
@@ -2467,7 +2466,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       };
 
       // Add the destroy cell callback.
-      this._gridOptions.onDestroyCell = (c, args: SohoDataGridPostRenderCellArgs) => {
+      this._gridOptions.onDestroyCell = (_, args: SohoDataGridPostRenderCellArgs) => {
         this.onDestroyCell(args);
       };
 

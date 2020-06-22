@@ -8,7 +8,7 @@ import {
 import { SohoToolbarFlexComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'application-menu-test-performance-demo',
+  selector: 'app-menu-test-performance-demo',
   templateUrl: 'application-menu-test-performance.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

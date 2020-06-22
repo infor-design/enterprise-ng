@@ -43,7 +43,6 @@ export class ApplicationMenuRoleSwitcherDemoComponent implements AfterViewInit, 
 
   public selectRole($event?: any) {
     const button: any = $event.currentTarget;
-    const url = button.getAttribute('navigationmenuurl');
     this.myRole = button.getAttribute('title');
 
     setTimeout(() => {
