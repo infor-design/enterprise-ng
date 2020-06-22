@@ -943,12 +943,6 @@ interface SohoDataGridStatic {
   /** Overridable sort function. */
   sortFunction: SohoDataGridSortFunction;
 
-  /**
-   * Reference to pager.
-   *  @deprecated use pagerAPI
-   */
-  pager: SohoPagerStatic;
-
   /** Reference to pager. */
   pagerAPI: SohoPagerStatic;
 
