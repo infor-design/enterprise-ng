@@ -37,7 +37,7 @@ interface SohoTreeOptions {
   folderIconClosed?: string;
 
   /** If `true`, allows nodes to become sortable (reorderable) */
-  sortable?: string;
+  sortable?: boolean | string;
 
   /** If defined as a function, fires that function as a callback before the selection on a node occurs. */
   onBeforeSelect?: Function;

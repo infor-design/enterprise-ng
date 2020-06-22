@@ -271,7 +271,7 @@ export class TreeExpandTargetDemoComponent implements OnInit {
 
   private treeOptions: SohoTreeOptions = {
     dataset: this.DATA,
-    sortable: 'true',
+    sortable: true,
     useExpandTarget: true,
     showChildrenCount: true
   };
