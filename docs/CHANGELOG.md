@@ -5,6 +5,9 @@
 ## v7.3.0 Notes
 
 - `[Datagrid]` The deprecated pager property has been removed. Please use pagerAPI instead. ([#841](https://github.com/infor-design/enterprise/issues/841))
+### 7.3.0 Features
+
+- `[Tree]` Added the ability to have separate icon button for expand/collapse and children count. ([#3847](https://github.com/infor-design/enterprise/issues/3847))
 
 ### 7.3.0 Fixes
 
