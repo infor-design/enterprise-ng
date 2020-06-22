@@ -11,6 +11,13 @@
 type SohoTreeSelectable = 'single' | 'multiple';
 
 /**
+ * The available options for expand target.
+ * `node` can toggle by clicking on icon or node text.
+ * `icon` allows to toggle when clicking only the icon portion of the tree node.
+ */
+type SohoExpandTarget = 'node' | 'icon';
+
+/**
  * Tree options.
  */
 interface SohoTreeOptions {
@@ -30,7 +37,7 @@ interface SohoTreeOptions {
   folderIconClosed?: string;
 
   /** If `true`, allows nodes to become sortable (reorderable) */
-  sortable?: string;
+  sortable?: boolean | string;
 
   /** If defined as a function, fires that function as a callback before the selection on a node occurs. */
   onBeforeSelect?: Function;
@@ -46,6 +53,27 @@ interface SohoTreeOptions {
 
   /** Function used to provide the source of the tree data. */
   source?: SohoTreeSourceFunction;
+
+  /** If set to `icon` will allows to toggle when clicking only the icon portion of node. */
+  expandTarget?: SohoExpandTarget;
+
+  /** If `true`, allows separate icon button for expand/collapse. */
+  useExpandTarget?: boolean;
+
+  /** The icon used for expand target button when a tree folder node is open. */
+  expandIconOpen?: string;
+
+  /** The icon used for expand target button when a tree folder node is closed. */
+  expandIconClosed?: string;
+
+  /** If `true`, will rotate expand target plus-minus icon. */
+  expandPlusminusRotate?: boolean;
+
+  /** If `true`, allows show children count beside the node name text. */
+  showChildrenCount?: boolean;
+
+  /** If `true`, allows to auto count the children. */
+  childrenAutoCount?: boolean;
 }
 
 type SohoTreeSourceFunction = (
@@ -98,7 +126,10 @@ interface SohoTreeNode {
   hideCheckbox?: boolean;
 
   // specify type of control to render for node
-  type?: string;  //supported type- dropdown, anchor
+  type?: string;  // supported type- dropdown, anchor
+
+  // parent node or parent node Id
+  parent?: any;
 }
 
 /**
