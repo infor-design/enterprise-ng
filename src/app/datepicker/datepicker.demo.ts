@@ -81,6 +81,10 @@ export class DatepickerDemoComponent implements OnInit {
     this.showModel = !this.showModel;
   }
 
+  clear() {
+    this.model.standard = '';
+  }
+
   onChange(event: SohoDatePickerEvent) {
     if (event.originalEvent) {
       console.log('DatePickerDemoComponent.onChange: type=' + event.type);

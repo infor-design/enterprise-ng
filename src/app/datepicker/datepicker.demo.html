@@ -10,6 +10,7 @@
         <button soho-button [disabled]="datepickerDisabled" (click)="setDisable()">Disable</button>
         <button soho-button [disabled]="!datepickerDisabled && !datepickerReadOnly" (click)="setEnable()">Enable</button>
         <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+        <button soho-button (click)="clear()">Clear</button>
         <div *ngIf="showModel" class="row top-padding">
           <span>{{ model | json }}</span>
         </div>
