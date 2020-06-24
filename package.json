@@ -82,7 +82,7 @@
     "ng-packagr": "^9.1.1",
     "protractor": "~5.4.3",
     "puppeteer": "^1.13.0",
-    "release-it": "^10.4.5",
+    "release-it": "^13.6.1",
     "slash": "^2.0.0",
     "ts-node": "~8.3.0",
     "tsickle": "^0.38.0",
