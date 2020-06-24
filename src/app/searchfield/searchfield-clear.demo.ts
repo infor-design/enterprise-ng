@@ -21,7 +21,7 @@ export class SearchFieldClearDemoComponent implements AfterViewInit, OnInit {
 
   public model = {
     searchValue: ''
-  }
+  };
 
   public searchfieldOptions = {
     filterMode: 'contains',
@@ -32,7 +32,6 @@ export class SearchFieldClearDemoComponent implements AfterViewInit, OnInit {
       });
     }
   };
-
 
   constructor() { }
 
