@@ -66,7 +66,7 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
   }
 
   /** Number representing a size that will be used when a collapsible Searchfield becomes collapsed. */
-  @Input() set collapseSize(value: ((api: SohoSearchFieldStatic) => number)|number) {
+  @Input() set collapseSize(value: ((api: SohoSearchFieldStatic) => number) | number) {
     this.options.collapseSize = value;
   }
 
@@ -85,7 +85,7 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
   constructor(
     private element: ElementRef,
     private ngZone: NgZone
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     // TODO: Figure out what element to send to jQuery to init the component
@@ -110,7 +110,7 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
   }
 
   clear(): void {
-    this.searchfield.clear();
+    this.ngZone.runOutsideAngular(() => this.searchfield.clear());
   }
 
   updated(settings?: SohoSearchFieldOptions) {
