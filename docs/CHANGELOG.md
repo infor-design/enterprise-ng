@@ -68,6 +68,18 @@
 - `[Modal]` The modal dialog had a second wrapper added (SohoModal vs SohoModalDialog), it was decided to stick with one, the existing SohoModalDialog.  `TJM` ([Issue #776](https://github.com/infor-design/enterprise-ng/issues/776))
 - `[Homepage]` Homepage edit events (resize, reorder, remove widgets) now fire on widget elements too ([#770](https://github.com/infor-design/enterprise-ng/issues/770))
 
+## v7.1.7
+
+### 7.1.7 Fixes
+
+- `[General]` Added 4.28.5 patch release. `TJM`
+
+## v7.1.5
+
+### 7.1.5 Fixes
+
+- `[General]` Added 4.28.3 patch release. `TJM`
+
 ## v7.1.4
 
 ### 7.1.4 Fixes
