@@ -125,6 +125,7 @@ import { RadarDemoComponent } from './radar/radar.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 import { RatingDemoComponent } from './rating/rating.demo';
 import { SearchFieldDemoComponent } from './searchfield/searchfield.demo';
+import { SearchFieldClearDemoComponent } from './searchfield/searchfield-clear.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
 import { SparklineDemoComponent } from './sparkline/sparkline.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
@@ -316,6 +317,7 @@ export const routes: Routes = [
   { path: 'radiobutton', component: RadioButtonDemoComponent },
   { path: 'rating', component: RatingDemoComponent },
   { path: 'searchfield', component: SearchFieldDemoComponent },
+  { path: 'searchfield-clear', component: SearchFieldClearDemoComponent },
   { path: 'slider', component: SliderDemoComponent },
   { path: 'sparkline', component: SparklineDemoComponent },
   { path: 'splitter-horizontal', component: SplitterHorizontalDemoComponent },

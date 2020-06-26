@@ -20,6 +20,7 @@
 - `[Lookup]` And added an example showing how to use the buttonsetAPI to enable and disable buttons.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
 - `[Lookup]` And added an example showing how to use a dataset as an input to populate the lookup.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
 - `[ModalDialog]` Make the router dependency optional in the Modal Dialog. ([Issue #803](https://github.com/infor-design/enterprise/issues/803))
+- `[Searchfield]` Added an example of using clear() as a public function. `EA` ([#847](https://github.com/infor-design/enterprise-ng/issues/847))
 - `[StandalonePager]` Optimize enable/show buttons and pageSizeChooser to call methods directly in pager.js avoiding a rerender of the entire pager. ([Issue #843](https://github.com/infor-design/enterprise-ng/issues/843))
 - `[ToolbarSearchField]` And missing change event.  `TJM` ([Issue #839](https://github.com/infor-design/enterprise/issues/839))
 
