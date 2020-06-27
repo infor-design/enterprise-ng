@@ -13,39 +13,42 @@
           "build": {
             "builder": "@angular-devkit/build-angular:browser",
             "options": {
-              "vendorSourceMap": false,
-              "sourceMap": true,
-              "outputPath": "dist/ids-enterprise-ng-app",
-              "index": "src/index.html",
-              "main": "src/main.ts",
-              "polyfills": "src/polyfills.ts",
-              "tsConfig": "tsconfig.app.json",
-              "aot": true,
-              "assets": [
-                "src/favicon.ico",
-                "src/assets",
-                {
-                  "glob": "**/*",
-                  "input": "node_modules/ids-enterprise/dist/css",
-                  "output": "/assets/ids-enterprise/css"
-                },
-                {
-                  "glob": "**/*",
-                  "input": "node_modules/ids-enterprise/dist/js/cultures",
-                  "output": "/assets/ids-enterprise/js/cultures"
-                },
-                "src/app/demodata"
-              ],
-              "styles": [
-                "src/styles.css"
-              ],
-              "scripts": [
-                "node_modules/jquery/dist/jquery.js",
-                "node_modules/d3/dist/d3.js",
-                "node_modules/ids-enterprise/dist/js/sohoxi.js",
-                "node_modules/lscache/lscache.js"
-              ]
-            },
+                        "sourceMap": {
+                            "styles": true,
+                            "scripts": true,
+                            "vendor": false
+                        },
+                        "outputPath": "dist/ids-enterprise-ng-app",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "tsconfig.app.json",
+                        "aot": true,
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets",
+                            {
+                                "glob": "**/*",
+                                "input": "node_modules/ids-enterprise/dist/css",
+                                "output": "/assets/ids-enterprise/css"
+                            },
+                            {
+                                "glob": "**/*",
+                                "input": "node_modules/ids-enterprise/dist/js/cultures",
+                                "output": "/assets/ids-enterprise/js/cultures"
+                            },
+                            "src/app/demodata"
+                        ],
+                        "styles": [
+                            "src/styles.css"
+                        ],
+                        "scripts": [
+                            "node_modules/jquery/dist/jquery.js",
+                            "node_modules/d3/dist/d3.js",
+                            "node_modules/ids-enterprise/dist/js/sohoxi.js",
+                            "node_modules/lscache/lscache.js"
+                        ]
+                    },
             "configurations": {
               "production": {
                 "fileReplacements": [
@@ -83,11 +86,14 @@
           "serve": {
             "builder": "@angular-devkit/build-angular:dev-server",
             "options": {
-              "browserTarget": "ids-enterprise-ng-app:build",
-              "sourceMap": true,
-              "vendorSourceMap": true,
-              "servePath": "/ids-enterprise-ng-demo"
-            },
+                        "browserTarget": "ids-enterprise-ng-app:build",
+                        "sourceMap": {
+                            "styles": true,
+                            "scripts": true,
+                            "vendor": true
+                        },
+                        "servePath": "/ids-enterprise-ng-demo"
+                    },
             "configurations": {
               "production": {
                 "browserTarget": "ids-enterprise-ng-app:build:production"
