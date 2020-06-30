@@ -183,6 +183,8 @@ import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-
 import { WeekViewDemoComponent } from './week-view/week-view.demo';
 import { DataGridExpandableRowNestedDemoComponent } from './datagrid/datagrid-expandable-row-nested.demo';
 import { DataGridExpandableRowDynamicDemoComponent } from './datagrid/datagrid-expandable-row-dynamic.demo';
+import { DataGridSummaryRowDemoComponent } from './datagrid/datagrid-summary-row.demo';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -243,6 +245,7 @@ export const routes: Routes = [
   { path: 'datagrid-expandable-row', component: DataGridExpandableRowDemoComponent },
   { path: 'datagrid-expandable-row-dynamic', component: DataGridExpandableRowDynamicDemoComponent },
   { path: 'datagrid-expandable-row-nested', component: DataGridExpandableRowNestedDemoComponent },
+  { path: 'datagrid-summary-row', component: DataGridSummaryRowDemoComponent },
   { path: 'datagrid-standalone-pager', component: DatagridStandalonePagerDemoComponent },
   { path: 'datagrid-treegrid', component: DataGridTreeGridDemoComponent },
   { path: 'datagrid-treegrid-lazy', component: DataGridTreeGridLazyDemoComponent },
