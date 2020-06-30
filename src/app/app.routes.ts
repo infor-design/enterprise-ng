@@ -185,7 +185,6 @@ import { DataGridExpandableRowNestedDemoComponent } from './datagrid/datagrid-ex
 import { DataGridExpandableRowDynamicDemoComponent } from './datagrid/datagrid-expandable-row-dynamic.demo';
 import { DataGridSummaryRowDemoComponent } from './datagrid/datagrid-summary-row.demo';
 
-
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
   { path: 'about', component: AboutDemoComponent },

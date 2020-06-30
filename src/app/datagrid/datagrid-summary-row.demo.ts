@@ -63,9 +63,6 @@ export const SUMMARY_COLUMNS: SohoDataGridColumn[] = [
     align: 'right',
     numberFormat: { minimumFractionDigits: 2, maximumFractionDigits: 2 },
     editor: Soho.Editors.Input
-    //,
-    //editorComponent: DemoCellInputEditorComponent,
-    //editorComponentInputs: {}
   },
   {
     id: 'percentage',
@@ -80,17 +77,11 @@ export const SUMMARY_COLUMNS: SohoDataGridColumn[] = [
     summaryTextPlacement: 'after',
     align: 'right',
     editor: Soho.Editors.Input
-    //,
-    //editorComponent: DemoCellInputEditorComponent,
-    //editorComponentInputs: {}
   }
-
-
-  
 ];
 
 @Component({
-  selector: 'soho-datagrid-summary-row',
+  selector: 'app-soho-datagrid-summary-row',
   templateUrl: 'datagrid-summary-row.demo.html'
 })
 export class DataGridSummaryRowDemoComponent implements OnInit {
