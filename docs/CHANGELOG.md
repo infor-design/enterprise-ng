@@ -4,7 +4,8 @@
 
 ## v7.3.0 Notes
 
-- `[Datagrid]` The deprecated pager property has been removed. Please use pagerAPI instead. ([#841](https://github.com/infor-design/enterprise/issues/841))
+- `[Datagrid]` The deprecated pager property has been removed. Please use pagerAPI instead. ([#841](https://github.com/infor-design/enterprise-ng/issues/841))
+- `[Datagrid]` The rowHeight property now suggests extra-small, small, medium or large (default) as values. The old values of short, medium, normal are deprecated. ([#3755](https://github.com/infor-design/enterprise/issues/3755))
 
 ### 7.3.0 Features
 

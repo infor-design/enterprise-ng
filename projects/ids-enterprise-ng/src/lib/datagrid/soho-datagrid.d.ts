@@ -10,7 +10,7 @@
 /**
  * Possible row height options.
  */
-type SohoDataGridRowHeight = 'short' | 'medium' | 'normal';
+type SohoDataGridRowHeight = 'extra-small' | 'small' | 'medium' | 'large' | 'short' | 'medium' | 'normal';
 type SohoDataGridTextAlign = 'left' | 'center' | 'right';
 type SohoDataGridResizeMode = 'flex' | 'fit';
 
@@ -1145,7 +1145,7 @@ interface SohoDataGridStatic {
   /**
    * Set and show a message/error on the given row.
    */
-  showRowError(row: number, message:string, type: SohoAlertType): void;
+  showRowError(row: number, message: string, type: SohoAlertType): void;
 
   /**
    * Commit the cell that's currently in edit mode.

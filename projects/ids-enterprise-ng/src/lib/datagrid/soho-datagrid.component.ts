@@ -489,8 +489,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Sets the row height for the grid, to be one of the supported options.
-   *
-   * @param rowHeight - 'normal' | 'medium' | 'short'
+   * @param rowHeight - 'extra-small' | 'small' | 'medium' | 'large'
    */
   @Input() set rowHeight(rowHeight: SohoDataGridRowHeight) {
     this._gridOptions.rowHeight = rowHeight;
@@ -498,7 +497,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       this.datagrid.settings.rowHeight = rowHeight;
 
       this.ngZone.runOutsideAngular(() => {
-        // @todo add hints as this may be bundled up with other changes.
         this.datagrid.rowHeight(rowHeight);
       });
     }
