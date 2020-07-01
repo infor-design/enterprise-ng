@@ -107,6 +107,7 @@ import { DataGridTreeGridLazyDemoComponent } from './datagrid/datagrid-treegrid-
 import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagrid-treegrid-dynamicfiltering.demo';
 import { ExpandedDemoComponent, DataGridExpandableRowDynamicDemoComponent } from './datagrid/datagrid-expandable-row-dynamic.demo';
 import { NestedDatagridDemoComponent, DataGridExpandableRowNestedDemoComponent } from './datagrid/datagrid-expandable-row-nested.demo';
+import { DataGridSummaryRowDemoComponent } from './datagrid/datagrid-summary-row.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DonutDemoComponent } from './donut/donut.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
@@ -317,6 +318,7 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
     ExpandedDemoComponent,
     DataGridExpandableRowNestedDemoComponent,
     DataGridExpandableRowDynamicDemoComponent,
+    DataGridSummaryRowDemoComponent,
     DatepickerDemoComponent,
     DemoCellInputEditorComponent,
     DemoCellFormatterComponent,
