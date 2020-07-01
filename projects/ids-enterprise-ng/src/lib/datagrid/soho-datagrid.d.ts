@@ -327,6 +327,9 @@ interface SohoDataGridOptions {
 
   /* The inputs for dynamic component  */
   rowTemplateComponentInputs?: any;
+
+  /* add summary row */
+  summaryRow?: boolean;
 }
 
 type SohoDataGridModifiedRows = { [index: number]: SohoDataGridModifiedRow };
@@ -911,6 +914,19 @@ interface SohoDataGridColumn {
 
   /* Array of objects with a value and label to be used as options in the filter row dropdown. */
   filterRowEditorOptions?: SohoGridCellOption[];
+
+  /* formatter summary */
+  summaryRowFormatter?: SohoDataGridColumnFormatterFunction | string;
+
+  /* aggregator */
+  aggregator?: string;
+
+  /* summary Text */
+  summaryText?: string;
+
+  /* summary text placement */
+  summaryTextPlacement?: string;
+
 }
 
 interface SohoDataGridColumnNumberFormat {
