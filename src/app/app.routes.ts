@@ -199,7 +199,7 @@ export const routes: Routes = [
   { path: 'bar', component: BarDemoComponent },
   { path: 'bar-grouped', component: BarGroupedDemoComponent },
   { path: 'bar-stacked', component: BarStackedDemoComponent },
-  { path: 'breadcrumb-demo', component: BreadcrumbDemoComponent },
+  { path: 'breadcrumb', component: BreadcrumbDemoComponent },
   { path: 'blockgrid-custom-content', component: BlockGridCustomContentDemoComponent },
   { path: 'blockgrid-mixed-selection', component: BlockGridMixedSelectionDemoComponent },
   { path: 'blockgrid-multi-selection', component: BlockGridMultiSelectionDemoComponent },

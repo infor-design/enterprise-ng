@@ -22,8 +22,6 @@ type SohoBreadcrumbRef = SohoBreadcrumbItemStatic | HTMLAnchorElement | Number;
  * Breadcrumb Item Options
  */
 interface SohoBreadcrumbItemOptions {
-  /** Optional existing element.  Settings can be scraped from this element */
-  element?: HTMLLIElement;
 
   /** Breadcrumb Text/HTML Contents */
   content: string;
@@ -77,9 +75,6 @@ interface SohoBreadcrumbItemStatic {
 interface SohoBreadcrumbStatic {
   /** internal settings */
   settings?: SohoBreadcrumbOptions;
-
-  /** Associated HTML Element */
-  element: HTMLElement;
 
   /** Internal list of invoked IDS Breadcrumb Item APIs */
   breadcrumbs: SohoBreadcrumbItemStatic[];

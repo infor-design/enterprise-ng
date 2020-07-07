@@ -17,12 +17,12 @@ import {
  */
 @Component({
   selector: '[soho-breadcrumb]', // tslint:disable-line
-  templateUrl: '<ng-content></ng-content>',
+  templateUrl: 'soho-breadcrumb.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit {
 
-  private jQueryElement: JQuery;
+  private jQueryElement: JQuery<HTMLElement>;
   private breadcrumbAPI: SohoBreadcrumbStatic;
 
   // Default Options
@@ -54,7 +54,7 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
-      this.jQueryElement = jQuery(this.element);
+      this.jQueryElement = jQuery(this.element.nativeElement);
       this.jQueryElement.breadcrumb(this.options);
       this.breadcrumbAPI = this.jQueryElement.data('breadcrumb');
     });
