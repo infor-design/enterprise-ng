@@ -7,6 +7,7 @@ import { SohoAutoCompleteModule } from './autocomplete/soho-autocomplete.module'
 import { SohoBarModule } from './bar/soho-bar.module';
 import { SohoBulletModule } from './bullet/soho-bullet.module';
 import { SohoBlockGridModule } from './blockgrid/soho-blockgrid.module';
+import { SohoBreadcrumbModule } from './breadcrumb/soho-breadcrumb.module';
 import { SohoBusyIndicatorModule } from './busyindicator/soho-busyindicator.module';
 import { SohoButtonModule } from './button/soho-button.module';
 import { SohoButtonsetModule } from './buttonset/soho-buttonset.module';
@@ -89,6 +90,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoAutoCompleteModule,
     SohoBarModule,
     SohoBlockGridModule,
+    SohoBreadcrumbModule,
     SohoBulletModule,
     SohoBusyIndicatorModule,
     SohoButtonModule,
@@ -171,6 +173,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoAutoCompleteModule,
     SohoBarModule,
     SohoBlockGridModule,
+    SohoBreadcrumbModule,
     SohoBulletModule,
     SohoBusyIndicatorModule,
     SohoButtonModule,
