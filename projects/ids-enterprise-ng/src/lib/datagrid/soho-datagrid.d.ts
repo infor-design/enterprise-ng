@@ -330,6 +330,10 @@ interface SohoDataGridOptions {
 
   /* add summary row */
   summaryRow?: boolean;
+
+  /* summary row columns settings*/
+  summaryRowColumns?: SohoDataGridSummaryRowColumnSettings[];
+
 }
 
 type SohoDataGridModifiedRows = { [index: number]: SohoDataGridModifiedRow };
@@ -1375,6 +1379,26 @@ interface SohoDataGridGroupable {
   // Formatter for group row
   groupRowFormatter?: SohoDataGridColumnFormatterFunction;
 }
+
+/**
+ * Part of the column options, indicates what specific grid settings to manage summaryRow
+ */
+interface SohoDataGridSummaryRowColumnSettings {
+  /* Field */
+  field: string;
+  /* formatter summary */
+  summaryRowFormatter?: SohoDataGridColumnFormatterFunction | string;
+
+  /* aggregator */
+  aggregator?: SohoDataGridAggregator;
+
+  /* summary Text */
+  summaryText?: string;
+
+  /* summary text placement */
+  summaryTextPlacement?: string;
+}
+
 
 type SohoDataGridAggregator = 'sum' | 'min' | 'max' | 'list' | 'avg' | 'count' | string;
 

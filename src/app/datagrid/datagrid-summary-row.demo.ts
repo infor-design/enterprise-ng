@@ -10,74 +10,15 @@ export const SUMMARY_DATA: any[] = [
 ];
 
 export const SUMMARY_COLUMNS: SohoDataGridColumn[] = [
-  {
-    id: 'id',
-    name: 'Customer Id',
-    field: 'id',
-    sortable: true,
-    filterType: 'integer',
-    formatter: Soho.Formatters.Readonly
-  },
-
-  {
-    id: 'location',
-    name: 'Location',
-    field: 'location',
-    sortable: true,
-    filterType: 'text',
-    formatter: Soho.Formatters.Hyperlink
-  },
-  {
-    id: 'firstname',
-    name: 'First Name',
-    field: 'firstname',
-    sortable: true,
-    filterType: 'text',
-    formatter: Soho.Formatters.Readonly
-  },
-  {
-    id: 'lastname',
-    name: 'Last Name',
-    field: 'lastname',
-    sortable: true,
-    filterType: 'text',
-    formatter: Soho.Formatters.Readonly
-  },
-  {
-    id: 'phone',
-    name: 'Phone',
-    field: 'phone',
-    sortable: true,
-    filterType: 'text',
-    formatter: Soho.Formatters.Readonly
-  },
-  {
-    id: 'purchases',
-    name: 'Purchases',
-    field: 'purchases',
-    sortable: false,
-    filterType: 'number',
-    formatter: Soho.Formatters.Decimal,
-    summaryRowFormatter: Soho.Formatters.SummaryRow,
-    aggregator: 'sum',
-    align: 'right',
-    numberFormat: { minimumFractionDigits: 2, maximumFractionDigits: 2 },
-    editor: Soho.Editors.Input
-  },
-  {
-    id: 'percentage',
-    name: 'Percentage',
-    field: 'percentage',
-    sortable: false,
-    filterType: 'number',
-    formatter: Soho.Formatters.Decimal,
-    summaryRowFormatter: Soho.Formatters.SummaryRow,
-    aggregator: 'sum',
-    summaryText: ' %',
-    summaryTextPlacement: 'after',
-    align: 'right',
-    editor: Soho.Editors.Input
-  }
+  { id: 'id', name: 'Customer Id', field: 'id', sortable: true, filterType: 'integer', formatter: Soho.Formatters.Readonly },
+  { id: 'location', name: 'Location', field: 'location', sortable: true, filterType: 'text', formatter: Soho.Formatters.Hyperlink },
+  { id: 'firstname', name: 'First Name', field: 'firstname', sortable: true, filterType: 'text', formatter: Soho.Formatters.Readonly },
+  { id: 'lastname', name: 'Last Name', field: 'lastname', sortable: true, filterType: 'text', formatter: Soho.Formatters.Readonly },
+  { id: 'phone', name: 'Phone', field: 'phone', sortable: true, filterType: 'text', formatter: Soho.Formatters.Readonly },
+  { id: 'purchases', name: 'Purchases', field: 'purchases', sortable: false, filterType: 'number', formatter: Soho.Formatters.Decimal,
+    align: 'right', numberFormat: { minimumFractionDigits: 2, maximumFractionDigits: 2 }, editor: Soho.Editors.Input },
+  { id: 'percentage', name: 'Percentage', field: 'percentage', sortable: false, filterType: 'number', formatter: Soho.Formatters.Decimal,
+    align: 'right', editor: Soho.Editors.Input }
 ];
 
 @Component({
@@ -96,6 +37,10 @@ export class DataGridSummaryRowDemoComponent implements OnInit {
       editable: true,
       isList: false,
       summaryRow: true,
+      summaryRowColumns: [
+        { field: 'purchases', summaryRowFormatter: Soho.Formatters.SummaryRow, aggregator: 'sum' },
+        { field: 'percentage', summaryRowFormatter: Soho.Formatters.SummaryRow, aggregator: 'sum', summaryText: ' %', summaryTextPlacement: 'after' }
+      ],
       filterable: true
     };
   }
