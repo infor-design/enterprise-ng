@@ -1015,7 +1015,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
-
   /**
    * The name of the column stretched to fill the width of the datagrid,
    * or 'last' where the last column will be stretched to fill the
