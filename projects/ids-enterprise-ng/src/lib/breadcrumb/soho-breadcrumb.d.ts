@@ -21,7 +21,7 @@ type SohoBreadcrumbRef = SohoBreadcrumbItemStatic | HTMLAnchorElement | Number;
 /**
  * Breadcrumb Item Options
  */
-interface SohoBreadcrumbItemOptions {
+interface SohoBreadcrumbItemOptions extends Object {
 
   /** Breadcrumb Text/HTML Contents */
   content: string;
@@ -45,7 +45,7 @@ interface SohoBreadcrumbItemOptions {
 /**
  * Breadcrumb List Options
  */
-interface SohoBreadcrumbOptions {
+interface SohoBreadcrumbOptions extends Object {
 
   /* Rendering Style */
   style: SohoBreadcrumbOptionsStyle;

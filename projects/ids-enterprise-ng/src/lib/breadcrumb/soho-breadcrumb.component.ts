@@ -26,7 +26,9 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
   private breadcrumbAPI: SohoBreadcrumbStatic;
 
   // Default Options
-  private options: SohoBreadcrumbOptions;
+  private options: SohoBreadcrumbOptions = {
+    style: 'default'
+  };
 
   /** Allow Breadcrumb Definition by Input */
   @Input()
