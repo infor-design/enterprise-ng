@@ -169,6 +169,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this._gridOptions = gridOptions;
 
     this.checkForComponentEditors();
+    this.checkForSummaryRowSettings();
 
     if (this.jQueryElement) {
       // No need to set the 'settings' as the Rebuild will create
@@ -1000,6 +1001,20 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       });
     }
   }
+
+  /**
+   *
+   * Summary row columns settingss
+   */
+  @Input() set summaryRowColumns(summaryRowColumns: SohoDataGridSummaryRowColumnSettings[]) {
+    this._gridOptions.summaryRowColumns = summaryRowColumns;
+    this.checkForSummaryRowSettings();
+
+    if (this._gridOptions.columns && this.jQueryElement) {
+      this.ngZone.runOutsideAngular(() => this.datagrid.updateColumns(this._gridOptions.columns, this._gridOptions.columnGroups));
+    }
+  }
+
 
   /**
    * The name of the column stretched to fill the width of the datagrid,
@@ -2622,6 +2637,26 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       }
     });
   }
+
+  private checkForSummaryRowSettings() {
+    if (!this._gridOptions.summaryRowColumns || this._gridOptions.summaryRowColumns.length === 0 ) {
+      this._gridOptions.columns.forEach((c) => {
+        c.summaryRowFormatter = undefined;
+        c.summaryText = undefined;
+        c.aggregator = undefined;
+        c.summaryTextPlacement = undefined;
+      });
+    } else {
+      this._gridOptions.summaryRowColumns.forEach((sc) => {
+        const column = this._gridOptions.columns.find((c) => c.field === sc.field);
+        column.summaryRowFormatter = sc.summaryRowFormatter;
+        column.summaryText = sc.summaryText;
+        column.aggregator = sc.aggregator;
+        column.summaryTextPlacement = sc.summaryTextPlacement;
+      });
+    }
+  }
+
 }
 
 /**

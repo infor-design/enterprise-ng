@@ -15,6 +15,7 @@
 ### 7.3.0 Features
 
 - `[Tree]` Added the ability to have separate icon button for expand/collapse and children count. ([#3847](https://github.com/infor-design/enterprise/issues/3847))
+- `[Datagrid]` Add summaryRow settings.  `AF`
 
 ### 7.3.0 Fixes
 
