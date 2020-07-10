@@ -39,6 +39,24 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
     return this.options.breadcrumbs;
   }
 
+  /** Allow change to alternate styling via Input **/
+  @Input()
+  public set alternate(val: boolean) {
+    this.options.style = val ? 'alternate' : 'default';
+    this.updated();
+  }
+  public get alternate(): boolean {
+    return this.options.style === 'alternate';
+  }
+
+  /** Provides access to the internal array of currently-invoked IDS Breadcrumb APIs */
+  public get breadcrumbAPIs(): SohoBreadcrumbItemStatic[] {
+    if (!this.breadcrumbAPI) {
+      return [];
+    }
+    return this.breadcrumbAPI.breadcrumbs;
+  }
+
   /**
    * Constructor
    * @param elementRef - the element matching the component's selector.
@@ -79,6 +97,22 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
   // -------------------------------------------------------------
   // All the below methods pass through to the IDS Breadcrumb API
   // -------------------------------------------------------------
+
+  enable(): void {
+    if (!this.breadcrumbAPI) { return; }
+
+    this.ngZone.runOutsideAngular(() => {
+      this.breadcrumbAPI.enable();
+    });
+  }
+
+  disable(): void {
+    if (!this.breadcrumbAPI) { return; }
+
+    this.ngZone.runOutsideAngular(() => {
+      this.breadcrumbAPI.disable();
+    });
+  }
 
   /**
    * Adds a new breadcrumb item to the list
