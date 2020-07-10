@@ -3,7 +3,6 @@
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   ElementRef,
   Input,
@@ -45,7 +44,6 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
    * @param elementRef - the element matching the component's selector.
    */
   constructor(
-    private changeDetector: ChangeDetectorRef,
     private element: ElementRef,
     private ngZone: NgZone
   ) { }
@@ -78,8 +76,12 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
   ngOnInit() {
   }
 
+  // -------------------------------------------------------------
+  // All the below methods pass through to the IDS Breadcrumb API
+  // -------------------------------------------------------------
+
   /**
-   *
+   * Adds a new breadcrumb item to the list
    */
   add(settings?: SohoBreadcrumbItemOptions, doRender?: boolean) {
     if (!this.breadcrumbAPI) { return; }
@@ -90,7 +92,7 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
   }
 
   /**
-   *
+   * Removes a single breadcrumb item from the list
    */
   remove(item: SohoBreadcrumbRef, doRender?: boolean) {
     if (!this.breadcrumbAPI) { return; }
@@ -101,18 +103,43 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
   }
 
   /**
+   * Removes all breadcrumb items from the list
+   */
+  removeAll(doRender?: boolean) {
+    if (!this.breadcrumbAPI) { return; }
+
+    this.ngZone.runOutsideAngular(() => {
+      this.breadcrumbAPI.removeAll(doRender);
+    });
+  }
+
+  /**
    * Gets references related to a particular Breadcrumb Item.
-   * The return object containins:
+   * The return object contains:
    * - 'a' : a reference to the breadcrumb item's anchor tag
    * - 'api' : a reference to the breadcrumb item's API
    * - 'i' : a number representing the current index of the breadcrumb item.
    */
   getBreadcrumbItem(item: SohoBreadcrumbRef) {
+    if (!this.breadcrumbAPI) { return; }
+
     return this.breadcrumbAPI.getBreadcrumbItemAPI(item);
   }
 
   /**
-   * @param [settings] incoming IDS Breadcrumb settings
+   * Takes a reference to a Breadcrumb item and makes it "Current",
+   * styling it with bold text and popping it out of truncation.
+   */
+  makeCurrent(item: SohoBreadcrumbRef): void {
+    if (!this.breadcrumbAPI) { return; }
+
+    this.ngZone.runOutsideAngular(() => {
+      this.breadcrumbAPI.makeCurrent(item);
+    });
+  }
+
+  /**
+   * Updates the Breadcrumb List with new incoming settings
    */
   updated(settings?: SohoBreadcrumbOptions) {
     if (settings) {

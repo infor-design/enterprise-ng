@@ -19,7 +19,15 @@ type SohoBreadcrumbOptionsStyle = 'default' | 'alternate';
 type SohoBreadcrumbRef = SohoBreadcrumbItemStatic | HTMLAnchorElement | Number;
 
 /**
- * Breadcrumb Item Options
+ * Function prototype for the IDS Breadcrumb Item's optional `callback` property.
+ */
+type SohoBreadcrumbItemCallbackFunction = (
+  e?: any,
+  ...args: any[]
+) => boolean;
+
+/**
+ * IDS Breadcrumb Item Options
  */
 interface SohoBreadcrumbItemOptions extends Object {
 
@@ -39,11 +47,11 @@ interface SohoBreadcrumbItemOptions extends Object {
   id?: string | undefined;
 
   /** If defined, this callback is activated when a breadcrumb item is clicked */
-  callback(api: SohoBreadcrumbItemStatic, e?: any, ...args: []): boolean;
+  callback?: SohoBreadcrumbItemCallbackFunction;
 }
 
 /**
- * Breadcrumb List Options
+ * IDS Breadcrumb List Options
  */
 interface SohoBreadcrumbOptions extends Object {
 
@@ -58,15 +66,35 @@ interface SohoBreadcrumbOptions extends Object {
  * IDS Enterprise Breadcrumb Item API
  */
 interface SohoBreadcrumbItemStatic {
+  /** Internal Settings */
   settings?: SohoBreadcrumbItemOptions;
 
+  /** The HTML List Item element that represents this breadcrumb item */
   element: HTMLLIElement;
 
+  /** Returns `true` if the breadcrumb item is disabled */
+  disabled?: boolean;
+
+  /** Returns `true` if the breadcrumb item is marked as "current" */
+  current?: boolean;
+
   /**
-   If a callback setting is provided, this method can be called
-   to programmatically trigger the callback.
+   If a callback setting is provided to this breadcrumb item, this method
+   can be called to programmatically trigger the callback.
    */
   callback(e?: SohoBreadcrumbEvent, ...args: any[]): boolean;
+
+  /** Disables this breadcrumb item */
+  disable(): void;
+
+  /** Enables this breadcrumb item */
+  enable(): void;
+
+  /** Refreshes the current state of this breadcrumb item */
+  refresh(): void;
+
+  /** Destroys this breadcrumb item */
+  destroy(doRemove?: boolean): void;
 }
 
 /**
@@ -82,22 +110,41 @@ interface SohoBreadcrumbStatic {
   /** Destroys any resources held by the breadcrumb list*/
   destroy(doRemove?: boolean): void;
 
+  /** Disables the entire breadcrumb list */
   disable(): void;
 
+  /** Enables the entire breadcrumb list */
   enable(): void;
 
+  /** Adds a single breadcrumb item to the list */
   add(settings?: SohoBreadcrumbItemOptions, doRender?: boolean): void;
 
+  /** Removes an existing breadcrumb item from the list */
   remove(item: SohoBreadcrumbRef, doRender?: boolean): void;
+
+  /** Removes all breadcrumb items from the list */
+  removeAll(doRender?: boolean): void;
 
   /** Sets a breadcrumb in the row as the "current" one (bold styling) */
   makeCurrent(item: SohoBreadcrumbRef): void;
 
   /** Returns an object containing anchor, index, and API of a specified breadcrumb item */
-  getBreadcrumbItemAPI(item: SohoBreadcrumbRef): Object;
+  getBreadcrumbItemAPI(item: SohoBreadcrumbRef): SohoBreadcrumbTargetObject;
 
-  /** */
+  /** Updates the breadcrumb list with new settings */
   updated(settings?: SohoBreadcrumbOptions): void;
+}
+
+/**
+ * IDS Enterprise Breadcrumb Target Object
+ * Some internal methods in the IDS Enterprise API return this Object, which
+ * contains references to the Breadcrumb Item's anchor, API, and index within the
+ * Breadcrumb list.
+ */
+interface SohoBreadcrumbTargetObject {
+  a?: HTMLAnchorElement;
+  api?: SohoBreadcrumbItemStatic;
+  index?: Number;
 }
 
 /**

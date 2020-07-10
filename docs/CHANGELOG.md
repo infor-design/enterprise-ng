@@ -14,6 +14,7 @@
 
 ### 7.3.0 Features
 
+- `[Breadcrumb]` Added NG wrapper component for the IDS Breadcrumb API. `EPC` ([Issue #700](https://github.com/infor-design/enterprise-ng/issues/700))
 - `[Tree]` Added the ability to have separate icon button for expand/collapse and children count. ([#3847](https://github.com/infor-design/enterprise/issues/3847))
 - `[Datagrid]` Add summaryRow settings.  `AF`
 
