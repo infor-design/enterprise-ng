@@ -57,6 +57,11 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
     return this.breadcrumbAPI.breadcrumbs;
   }
 
+  /** Provides access to the IDS Breadcrumb's disabled property */
+  public get disabled(): boolean {
+    return this.breadcrumbAPI.disabled;
+  }
+
   /**
    * Constructor
    * @param elementRef - the element matching the component's selector.

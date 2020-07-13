@@ -107,6 +107,9 @@ interface SohoBreadcrumbStatic {
   /** Internal list of invoked IDS Breadcrumb Item APIs */
   breadcrumbs: SohoBreadcrumbItemStatic[];
 
+  /** Returns `true` if the breadcrumb list is disabled */
+  disabled?: boolean;
+
   /** Destroys any resources held by the breadcrumb list*/
   destroy(doRemove?: boolean): void;
 
