@@ -4,6 +4,8 @@
 
 ### 7.4.0 Fixes
 
+- `[Toolbar Flex]` Added missing type definitions. `EPC` ([#831](https://github.com/infor-design/enterprise-ng/issues/831))
+
 ## v7.3.0
 
 ## v7.3.0 Notes
