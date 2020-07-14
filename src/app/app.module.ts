@@ -28,6 +28,8 @@ import { BlockGridCustomContentDemoComponent } from './blockgrid/blockgrid-custo
 import { BlockGridMixedSelectionDemoComponent } from './blockgrid/blockgrid-mixed-selection.demo';
 import { BlockGridMultiSelectionDemoComponent } from './blockgrid/blockgrid-multi-selection.demo';
 import { BlockGridSingleSelectionDemoComponent } from './blockgrid/blockgrid-single-selection.demo';
+import { BreadcrumbDemoComponent } from './breadcrumb/breadcrumb.demo';
+import { BreadcrumbGauntletDemoComponent } from './breadcrumb/breadcrumb-gauntlet.demo';
 import { BubbleDemoComponent } from './bubble/bubble.demo';
 import { BulletDemoComponent } from './bullet/bullet.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
@@ -254,6 +256,8 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
     BlockGridMixedSelectionDemoComponent,
     BlockGridMultiSelectionDemoComponent,
     BlockGridSingleSelectionDemoComponent,
+    BreadcrumbDemoComponent,
+    BreadcrumbGauntletDemoComponent,
     BubbleDemoComponent,
     BulletDemoComponent,
     BusyIndicatorDemoComponent,

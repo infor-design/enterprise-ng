@@ -2,6 +2,10 @@
 
 ## v7.4.0
 
+### 7.4.0 Features
+
+- `[Breadcrumb]` Angular Wrapper Component for the IDS Breadcrumb API is now available. `EPC` ([Issue #700](https://github.com/infor-design/enterprise-ng/issues/700))
+
 ### 7.4.0 Fixes
 
 ## v7.3.0
