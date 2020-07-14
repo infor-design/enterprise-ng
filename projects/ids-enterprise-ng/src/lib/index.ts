@@ -19,6 +19,7 @@ export * from './context-menu/index';
 export * from './contextual-action-panel/index';
 export * from './datagrid/index';
 export * from './datepicker/index';
+export * from './drag/index';
 export * from './dropdown/index';
 export * from './editor/index';
 export * from './emptymessage/index';

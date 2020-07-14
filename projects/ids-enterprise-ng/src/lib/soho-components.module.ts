@@ -20,6 +20,7 @@ import { SohoContextMenuModule } from './context-menu/soho-context-menu.module';
 import { SohoContextualActionPanelModule } from './contextual-action-panel/soho-contextual-action-panel.module';
 import { SohoDataGridModule } from './datagrid/soho-datagrid.module';
 import { SohoDatePickerModule } from './datepicker/soho-datepicker.module';
+import { SohoDragModule } from './drag/soho-drag.module';
 import { SohoDropDownModule } from './dropdown/soho-dropdown.module';
 import { SohoEditorModule } from './editor/soho-editor.module';
 import { SohoEmptyMessageModule } from './emptymessage/soho-emptymessage.module';
@@ -103,6 +104,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoContextMenuModule,
     SohoDataGridModule,
     SohoDatePickerModule,
+    SohoDragModule,
     SohoDropDownModule,
     SohoEditorModule,
     SohoEmptyMessageModule,
@@ -185,6 +187,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoContextualActionPanelModule,
     SohoDataGridModule,
     SohoDatePickerModule,
+    SohoDragModule,
     SohoDropDownModule,
     SohoEditorModule,
     SohoEmptyMessageModule,

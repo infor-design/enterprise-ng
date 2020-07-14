@@ -72,6 +72,7 @@ import { DataGridTreeGridLazyDemoComponent } from './datagrid/datagrid-treegrid-
 import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagrid-treegrid-dynamicfiltering.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DonutDemoComponent } from './donut/donut.demo';
+import { DragDemoComponent } from './drag/drag.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
 import { DropdownAsyncDemoComponent } from './dropdown/dropdown-async.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
@@ -183,6 +184,7 @@ import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-
 import { WeekViewDemoComponent } from './week-view/week-view.demo';
 import { DataGridExpandableRowNestedDemoComponent } from './datagrid/datagrid-expandable-row-nested.demo';
 import { DataGridExpandableRowDynamicDemoComponent } from './datagrid/datagrid-expandable-row-dynamic.demo';
+import { DataGridSummaryRowDemoComponent } from './datagrid/datagrid-summary-row.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -243,6 +245,7 @@ export const routes: Routes = [
   { path: 'datagrid-expandable-row', component: DataGridExpandableRowDemoComponent },
   { path: 'datagrid-expandable-row-dynamic', component: DataGridExpandableRowDynamicDemoComponent },
   { path: 'datagrid-expandable-row-nested', component: DataGridExpandableRowNestedDemoComponent },
+  { path: 'datagrid-summary-row', component: DataGridSummaryRowDemoComponent },
   { path: 'datagrid-standalone-pager', component: DatagridStandalonePagerDemoComponent },
   { path: 'datagrid-treegrid', component: DataGridTreeGridDemoComponent },
   { path: 'datagrid-treegrid-lazy', component: DataGridTreeGridLazyDemoComponent },
@@ -262,6 +265,7 @@ export const routes: Routes = [
   { path: 'datagrid-standard-formatter', component: DataGridStandardFormatterDemoComponent },
   { path: 'datepicker', component: DatepickerDemoComponent },
   { path: 'donut', component: DonutDemoComponent },
+  { path: 'drag', component: DragDemoComponent },
   { path: 'dropdown', component: DropdownDemoComponent },
   { path: 'dropdown-async-busy', component: DropdownAsyncBusyDemoComponent },
   { path: 'dropdown-async', component: DropdownAsyncDemoComponent },

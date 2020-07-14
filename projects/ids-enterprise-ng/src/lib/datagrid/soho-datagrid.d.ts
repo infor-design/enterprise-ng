@@ -10,7 +10,7 @@
 /**
  * Possible row height options.
  */
-type SohoDataGridRowHeight = 'short' | 'medium' | 'normal';
+type SohoDataGridRowHeight = 'extra-small' | 'small' | 'medium' | 'large' | 'short' | 'medium' | 'normal';
 type SohoDataGridTextAlign = 'left' | 'center' | 'right';
 type SohoDataGridResizeMode = 'flex' | 'fit';
 
@@ -327,6 +327,13 @@ interface SohoDataGridOptions {
 
   /* The inputs for dynamic component  */
   rowTemplateComponentInputs?: any;
+
+  /* add summary row */
+  summaryRow?: boolean;
+
+  /* summary row columns settings*/
+  summaryRowColumns?: SohoDataGridSummaryRowColumnSettings[];
+
 }
 
 type SohoDataGridModifiedRows = { [index: number]: SohoDataGridModifiedRow };
@@ -911,6 +918,19 @@ interface SohoDataGridColumn {
 
   /* Array of objects with a value and label to be used as options in the filter row dropdown. */
   filterRowEditorOptions?: SohoGridCellOption[];
+
+  /* formatter summary */
+  summaryRowFormatter?: SohoDataGridColumnFormatterFunction | string;
+
+  /* aggregator */
+  aggregator?: string;
+
+  /* summary Text */
+  summaryText?: string;
+
+  /* summary text placement */
+  summaryTextPlacement?: string;
+
 }
 
 interface SohoDataGridColumnNumberFormat {
@@ -1145,7 +1165,7 @@ interface SohoDataGridStatic {
   /**
    * Set and show a message/error on the given row.
    */
-  showRowError(row: number, message:string, type: SohoAlertType): void;
+  showRowError(row: number, message: string, type: SohoAlertType): void;
 
   /**
    * Commit the cell that's currently in edit mode.
@@ -1359,6 +1379,26 @@ interface SohoDataGridGroupable {
   // Formatter for group row
   groupRowFormatter?: SohoDataGridColumnFormatterFunction;
 }
+
+/**
+ * Part of the column options, indicates what specific grid settings to manage summaryRow
+ */
+interface SohoDataGridSummaryRowColumnSettings {
+  /* Field */
+  field: string;
+  /* formatter summary */
+  summaryRowFormatter?: SohoDataGridColumnFormatterFunction | string;
+
+  /* aggregator */
+  aggregator?: SohoDataGridAggregator;
+
+  /* summary Text */
+  summaryText?: string;
+
+  /* summary text placement */
+  summaryTextPlacement?: string;
+}
+
 
 type SohoDataGridAggregator = 'sum' | 'min' | 'max' | 'list' | 'avg' | 'count' | string;
 

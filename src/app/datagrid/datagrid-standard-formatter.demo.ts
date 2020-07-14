@@ -1,13 +1,11 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component, OnInit,
   ViewChild
 } from '@angular/core';
 
 import {
-  SohoDataGridComponent,
-  SohoIconUtils
+  SohoDataGridComponent
 } from 'ids-enterprise-ng';
 
 import {
@@ -45,7 +43,7 @@ export class DataGridStandardFormatterDemoComponent implements OnInit {
         { id: 'On Hold', value: 'On Hold', label: 'On Hold' }
       ],
       ranges: [
-        { 'value': 'Active',  'classes': 'confirm', text: 'Active' },
+        { 'value': 'Active',  'classes': 'success', text: 'Active' },
         { 'value': 'Inactive', 'classes': 'alert',  text: 'Inactive' },
         { 'value': 'Late',    'classes': 'error',   text: 'Late' },
         { 'value': 'On Hold', 'classes': 'info',    text: 'On Hold' },

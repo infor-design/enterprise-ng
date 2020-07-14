@@ -1,14 +1,21 @@
 # What's New with Enterprise-NG
 
+## v7.4.0
+
+### 7.4.0 Fixes
+
 ## v7.3.0
 
 ## v7.3.0 Notes
 
-- `[Datagrid]` The deprecated pager property has been removed. Please use pagerAPI instead. ([#841](https://github.com/infor-design/enterprise/issues/841))
+- `[Datagrid]` The deprecated pager property has been removed. Please use pagerAPI instead. ([#841](https://github.com/infor-design/enterprise-ng/issues/841))
+- `[Datagrid]` The rowHeight property now suggests extra-small, small, medium or large (default) as values. The old values of short, medium, normal are deprecated. ([#3755](https://github.com/infor-design/enterprise/issues/3755))
+- `[Datagrid]` Added missing settings and an example for summary row. ([#859](https://github.com/infor-design/enterprise-ng/issues/859))
 
 ### 7.3.0 Features
 
 - `[Tree]` Added the ability to have separate icon button for expand/collapse and children count. ([#3847](https://github.com/infor-design/enterprise/issues/3847))
+- `[Datagrid]` Add summaryRow settings.  `AF`
 
 ### 7.3.0 Fixes
 
@@ -16,6 +23,7 @@
 - `[Datagrid]` Added target property for hyperlink formatter column. ([#3731](https://github.com/infor-design/enterprise/issues/3731))
 - `[Datagrid]` Build expanded datagrid row with dynamic component. Special case: nested datagrid.  `AF` ([Issue #206](https://github.com/infor-design/enterprise-ng/issues/206))
 - `[DataGrid]` Added optional data object param to setDirtyIndicator to match soho datagrid setDirtyIndicator. `PWP` ([Issue #829](https://github.com/infor-design/enterprise-ng/issues/829))
+- `[Datagrid]` Add missings types to manage summaryRow with an example.  `AF` ([Issue #852](https://github.com/infor-design/enterprise-ng/issues/852))
 - `[Lookup]` Resynced the lookup api settings, methods and events with the core component. Also made sure everything is using ngZone. `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
 - `[Lookup]` And added an example showing how to use the buttonsetAPI to enable and disable buttons.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
 - `[Lookup]` And added an example showing how to use a dataset as an input to populate the lookup.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
