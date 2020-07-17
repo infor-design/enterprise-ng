@@ -1,8 +1,20 @@
 # What's New with Enterprise-NG
 
+## v7.4.1
+
+### 7.4.1 Fixes
+
+- `[General]` Added a patched EP version 4.30.1.  `TJM`
+
 ## v7.4.0
 
+### 7.4.0 Features
+
+- `[Breadcrumb]` Angular Wrapper Component for the IDS Breadcrumb API is now available. `EPC` ([Issue #700](https://github.com/infor-design/enterprise-ng/issues/700))
+
 ### 7.4.0 Fixes
+
+- `[Toolbar Flex]` Added missing type definitions. `EPC` ([#831](https://github.com/infor-design/enterprise-ng/issues/831))
 
 ## v7.3.0
 
