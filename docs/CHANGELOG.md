@@ -1,5 +1,17 @@
 # What's New with Enterprise-NG
 
+## v7.5.0
+
+### 7.5.0 Fixes
+
+- `[General]` Uses EP version 4.31.0.  `TJM`
+
+## v7.4.1
+
+### 7.4.1 Fixes
+
+- `[General]` Added a patched EP version 4.30.1.  `TJM`
+
 ## v7.4.0
 
 ### 7.4.0 Features
