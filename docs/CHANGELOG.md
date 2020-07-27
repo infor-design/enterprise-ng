@@ -5,6 +5,7 @@
 ### 7.5.0 Fixes
 
 - `[General]` Uses EP version 4.31.0.  `TJM`
+- `[Lookup]` Fixed an issue where the console error was appearing after the modal close. ([#871](https://github.com/infor-design/enterprise/issues/871))
 
 ## v7.4.1
 
