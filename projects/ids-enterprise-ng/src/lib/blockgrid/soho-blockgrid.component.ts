@@ -165,19 +165,19 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
         return; // safety check
       }
 
-      this.blockgrid.selectBlock($(blockChildren[idx]), false);
+      this.blockgrid.select($(blockChildren[idx]), false);
     });
   }
 
   public deactivateBlock(): void {
-    this.blockgrid.selectBlock($(), false);
+    this.blockgrid.select($(), false);
   }
 
   public selectBlocks(idx: number[]) {
     this.ngZone.runOutsideAngular(() => {
       const blockChildren: NodeList = this.element.nativeElement.querySelectorAll('.block');
       const blockChildrenArray = Array.from(blockChildren).filter((blockChild, index) => idx.includes(index));
-      this.blockgrid.selectBlock($(blockChildrenArray), true);
+      this.blockgrid.select($(blockChildrenArray), true);
     });
   }
 

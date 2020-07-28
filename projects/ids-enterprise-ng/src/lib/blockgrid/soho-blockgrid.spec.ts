@@ -17,7 +17,20 @@ const blockGridTestData = [
   { img: 'https://randomuser.me/api/portraits/med/women/12.jpg', maintxt: 'Sheena Taylor', subtxt: 'Infor, Architect' }
 ];
 
-describe('Soho blockgrid Unit Tests', () => {
+const pagingTestData = [
+  { image: 'https://randomuser.me/api/portraits/med/women/8.jpg', title: 'Sheena Taylor', subtitle: 'Infor, Developer' },
+  { image: 'https://randomuser.me/api/portraits/med/women/9.jpg', title: 'Jane Taylor', subtitle: 'Infor, Developer' },
+  { image: 'https://randomuser.me/api/portraits/med/women/10.jpg', title: 'Sam Smith', subtitle: 'Infor, SVP' },
+  { image: 'https://randomuser.me/api/portraits/med/women/11.jpg', title: 'Mary Pane', subtitle: 'Infor, Developer' },
+  { image: 'https://randomuser.me/api/portraits/med/women/12.jpg', title: 'Paula Paulson', subtitle: 'Infor, Architect' },
+  { image: 'https://randomuser.me/api/portraits/med/women/13.jpg', title: 'Danielle Land', subtitle: 'Infor, Developer' },
+  { image: 'https://randomuser.me/api/portraits/med/women/14.jpg', title: 'Donna Horrocks', subtitle: 'Infor, Developer' },
+  { image: 'https://randomuser.me/api/portraits/med/women/15.jpg', title: 'Mary McConnel', subtitle: 'Infor, SVP' },
+  { image: 'https://randomuser.me/api/portraits/med/women/16.jpg', title: 'Julie Ayers', subtitle: 'Infor, Developer' },
+  { image: 'https://randomuser.me/api/portraits/med/women/17.jpg', title: 'Emily Bronte', subtitle: 'Infor, Architect' }
+];
+
+fdescribe('Soho blockgrid Unit Tests', () => {
   let comp: SohoBlockGridComponent;
   let fixture: ComponentFixture<SohoBlockGridComponent>;
   let de: DebugElement;
@@ -37,11 +50,17 @@ describe('Soho blockgrid Unit Tests', () => {
 
   it('Check Inputs', () => {
     const emptyData: any[] = [];
-    let selectable: SohoBlockGridSelectable = 'single';
+    const selectable: SohoBlockGridSelectable = 'single';
+    let paging = false;
+    let pageSize = 5;
+    let pageSizes = [5, 10, 25];
 
     // check that block grid options buffer variable is working.
     comp.dataset = emptyData;
     comp.selectable = selectable;
+    comp.paging = paging;
+    comp.pagesize = pageSize;
+    comp.pagesizes = pageSizes;
     expect(comp.dataset).toEqual(emptyData);
     expect(comp.selectable).toEqual(selectable);
 
@@ -58,21 +77,42 @@ describe('Soho blockgrid Unit Tests', () => {
     const updatedSpy = spyOn(comp, 'updated').and.callThrough();
     const blockgridUpdatedSpy = spyOn<any>((comp as any).blockgrid, 'updated');
 
-    selectable = 'mixed';
+    const mixedSelectable: SohoBlockGridSelectable = 'mixed';
     comp.dataset = blockGridTestData;
-    comp.selectable = selectable;
+    comp.selectable = mixedSelectable;
 
     expect(comp.dataset).toEqual(blockGridTestData);
-    expect(comp.selectable).toEqual(selectable);
+    expect(comp.selectable).toEqual(mixedSelectable);
 
     expect(updatedSpy).toHaveBeenCalledTimes(2);
     expect(blockgridUpdatedSpy).toHaveBeenCalledTimes(2);
+
+    // Check paging inputs
+    paging = true;
+    comp.dataset = pagingTestData;
+    comp.paging = paging;
+
+    expect(comp.dataset).toEqual(pagingTestData);
+    expect(comp.paging).toEqual(paging);
+
+    pageSize = 3;
+    comp.pagesize = 3;
+
+    expect(comp.pagesize).toEqual(pageSize);
+
+    pageSizes = [10, 20];
+    comp.pagesizes = pageSizes;
+
+    expect(comp.pagesizes).toEqual(pageSizes);
   });
 
   it('Check Outputs', () => {
     const selectable: SohoBlockGridSelectable = 'mixed';
-    comp.dataset = blockGridTestData;
+    comp.dataset = pagingTestData;
     comp.selectable = selectable;
+    comp.paging = true;
+    comp.pagesize = 3;
+    comp.pagesizes = [3, 5, 10, 20];
 
     // detect changes to cause the blockgrid component to be built.
     fixture.detectChanges();
@@ -82,6 +122,8 @@ describe('Soho blockgrid Unit Tests', () => {
     TestHelper.testFireEvent(comp['element'].nativeElement, 'deselected', comp['deselected']);
     TestHelper.testFireEvent(comp['element'].nativeElement, 'activated', comp['activated']);
     TestHelper.testFireEvent(comp['element'].nativeElement, 'deactivated', comp['deactivated']);
+    TestHelper.testFireEvent(comp['element'].nativeElement, 'page', comp['page']);
+    TestHelper.testFireEvent(comp['element'].nativeElement, 'pagesizechange', comp['pagesizechange']);
   });
 
   it('Check public functions', () => {
@@ -93,31 +135,31 @@ describe('Soho blockgrid Unit Tests', () => {
     expect((comp as any).blockgrid).not.toBeUndefined();
 
     // check activateBlock happy path
-    const selectBlockSpy = spyOn((comp as any).blockgrid, 'selectBlock');
+    const selectSpy = spyOn((comp as any).blockgrid, 'select');
     comp.activateBlock(1);
-    expect(selectBlockSpy).toHaveBeenCalledTimes(1);
-    expect(selectBlockSpy.calls.mostRecent().args.length).toEqual(2);
-    expect(selectBlockSpy.calls.mostRecent().args[1]).toEqual(false);
+    expect(selectSpy).toHaveBeenCalledTimes(1);
+    expect(selectSpy.calls.mostRecent().args.length).toEqual(2);
+    expect(selectSpy.calls.mostRecent().args[1]).toEqual(false);
 
     // check activateBlock safety checks
-    selectBlockSpy.calls.reset();
+    selectSpy.calls.reset();
     comp.activateBlock(-1); // lower out of bounds index
-    expect(selectBlockSpy).not.toHaveBeenCalled();
+    expect(selectSpy).not.toHaveBeenCalled();
     comp.activateBlock(5); // upper out of bounds index
-    expect(selectBlockSpy).not.toHaveBeenCalled();
+    expect(selectSpy).not.toHaveBeenCalled();
 
     // check deactivateBlock
-    selectBlockSpy.calls.reset();
+    selectSpy.calls.reset();
     comp.deactivateBlock();
-    expect(selectBlockSpy).toHaveBeenCalledTimes(1);
-    expect(selectBlockSpy.calls.mostRecent().args.length).toEqual(2);
-    expect(selectBlockSpy.calls.mostRecent().args[1]).toEqual(false);
+    expect(selectSpy).toHaveBeenCalledTimes(1);
+    expect(selectSpy.calls.mostRecent().args.length).toEqual(2);
+    expect(selectSpy.calls.mostRecent().args[1]).toEqual(false);
 
-    selectBlockSpy.calls.reset();
+    selectSpy.calls.reset();
     comp.selectBlocks([2, 3]);
-    expect(selectBlockSpy).toHaveBeenCalledTimes(1);
-    expect(selectBlockSpy.calls.mostRecent().args.length).toEqual(2);
-    expect(selectBlockSpy.calls.mostRecent().args[1]).toEqual(true);
+    expect(selectSpy).toHaveBeenCalledTimes(1);
+    expect(selectSpy.calls.mostRecent().args.length).toEqual(2);
+    expect(selectSpy.calls.mostRecent().args[1]).toEqual(true);
 
     // todo: Cannot test deselectBlock functionality. No EP API in blockgrid.js is available. 2/19/2019
   });

@@ -13,6 +13,7 @@ import { BlockGridCustomContentDemoComponent } from './blockgrid/blockgrid-custo
 import { BlockGridMixedSelectionDemoComponent } from './blockgrid/blockgrid-mixed-selection.demo';
 import { BlockGridMultiSelectionDemoComponent } from './blockgrid/blockgrid-multi-selection.demo';
 import { BlockGridSingleSelectionDemoComponent } from './blockgrid/blockgrid-single-selection.demo';
+import { BlockGridPagingDemoComponent } from './blockgrid/blockgrid-paging.demo';
 import { BreadcrumbDemoComponent } from './breadcrumb/breadcrumb.demo';
 import { BreadcrumbGauntletDemoComponent } from './breadcrumb/breadcrumb-gauntlet.demo';
 import { BubbleDemoComponent } from './bubble/bubble.demo';
@@ -207,6 +208,7 @@ export const routes: Routes = [
   { path: 'blockgrid-mixed-selection', component: BlockGridMixedSelectionDemoComponent },
   { path: 'blockgrid-multi-selection', component: BlockGridMultiSelectionDemoComponent },
   { path: 'blockgrid-single-selection', component: BlockGridSingleSelectionDemoComponent },
+  { path: 'blockgrid-paging', component: BlockGridPagingDemoComponent },
   { path: 'bubble', component: BubbleDemoComponent },
   { path: 'bullet', component: BulletDemoComponent },
   { path: 'button', component: ButtonDemoComponent },

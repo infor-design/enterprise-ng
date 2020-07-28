@@ -34,13 +34,13 @@ interface SohoBlockGrid {
 
   pagerAPI?: SohoPagerStatic;
 
-  select(activeBlock: JQuery<HTMLElement>, isCheckbox: boolean): void;
+  select(activeBlock: JQuery<Node[]|Node>, isCheckbox: boolean): void;
 
   /**
    * @deprecated (use `select()`)
    * Selects a block in the blockgrid
    */
-  selectBlock(activeBlock: JQuery<HTMLElement>, isCheckbox: boolean): void;
+  selectBlock(activeBlock: JQuery<Node[]|Node>, isCheckbox: boolean): void;
 
   /** Updates the blockgrid with any new settings. */
   updated(settings?: SohoBlockGridOptions): void;
