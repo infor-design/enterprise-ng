@@ -30,7 +30,7 @@ const pagingTestData = [
   { image: 'https://randomuser.me/api/portraits/med/women/17.jpg', title: 'Emily Bronte', subtitle: 'Infor, Architect' }
 ];
 
-fdescribe('Soho blockgrid Unit Tests', () => {
+describe('Soho blockgrid Unit Tests', () => {
   let comp: SohoBlockGridComponent;
   let fixture: ComponentFixture<SohoBlockGridComponent>;
   let de: DebugElement;
@@ -50,19 +50,21 @@ fdescribe('Soho blockgrid Unit Tests', () => {
 
   it('Check Inputs', () => {
     const emptyData: any[] = [];
-    const selectable: SohoBlockGridSelectable = 'single';
-    let paging = false;
+    let selectable: SohoBlockGridSelectable = 'single';
     let pageSize = 5;
     let pageSizes = [5, 10, 25];
 
     // check that block grid options buffer variable is working.
     comp.dataset = emptyData;
     comp.selectable = selectable;
-    comp.paging = paging;
+    comp.paging = false;
     comp.pagesize = pageSize;
     comp.pagesizes = pageSizes;
     expect(comp.dataset).toEqual(emptyData);
     expect(comp.selectable).toEqual(selectable);
+    expect(comp.paging).toBeFalsy();
+    expect(comp.pagesize).toEqual(pageSize);
+    expect(comp.pagesizes).toEqual(pageSizes);
 
     // detect changes to cause the blockgrid component to be built.
     fixture.detectChanges();
@@ -77,31 +79,37 @@ fdescribe('Soho blockgrid Unit Tests', () => {
     const updatedSpy = spyOn(comp, 'updated').and.callThrough();
     const blockgridUpdatedSpy = spyOn<any>((comp as any).blockgrid, 'updated');
 
-    const mixedSelectable: SohoBlockGridSelectable = 'mixed';
+    selectable = 'mixed';
     comp.dataset = blockGridTestData;
-    comp.selectable = mixedSelectable;
+    comp.selectable = selectable;
+    fixture.detectChanges();
 
     expect(comp.dataset).toEqual(blockGridTestData);
-    expect(comp.selectable).toEqual(mixedSelectable);
+    expect(comp.selectable).toEqual(selectable);
 
     expect(updatedSpy).toHaveBeenCalledTimes(2);
     expect(blockgridUpdatedSpy).toHaveBeenCalledTimes(2);
 
     // Check paging inputs
-    paging = true;
+    selectable = 'multiple';
     comp.dataset = pagingTestData;
-    comp.paging = paging;
+    comp.paging = true;
+    comp.selectable = selectable;
+    fixture.detectChanges();
 
     expect(comp.dataset).toEqual(pagingTestData);
-    expect(comp.paging).toEqual(paging);
+    expect(comp.paging).toBeTruthy();
+    expect(comp.selectable).toEqual(selectable);
 
     pageSize = 3;
     comp.pagesize = 3;
+    fixture.detectChanges();
 
     expect(comp.pagesize).toEqual(pageSize);
 
     pageSizes = [10, 20];
     comp.pagesizes = pageSizes;
+    fixture.detectChanges();
 
     expect(comp.pagesizes).toEqual(pageSizes);
   });

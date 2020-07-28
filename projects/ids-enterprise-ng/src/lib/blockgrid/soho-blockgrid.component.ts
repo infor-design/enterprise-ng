@@ -46,7 +46,8 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
   public set selectable(selectable: SohoBlockGridSelectable) {
     this.options.selectable = selectable;
     if (this.blockgrid) {
-      this.updated(this.options);
+      this.blockgrid.settings.selectable = selectable;
+      this.updated(this.blockgrid.settings);
     }
   }
   public get selectable(): SohoBlockGridSelectable {
@@ -61,7 +62,8 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
   public set paging(paging: boolean) {
     this.options.paging = paging;
     if (this.blockgrid) {
-      this.updated(this.options);
+      this.blockgrid.settings.paging = paging;
+      this.updated(this.blockgrid.settings);
     }
   }
   public get paging(): boolean {
@@ -76,7 +78,8 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
   public set pagesize(pagesize: Number) {
     this.options.pagesize = pagesize;
     if (this.blockgrid) {
-      this.updated(this.options);
+      this.blockgrid.settings.pagesize = pagesize;
+      this.updated(this.blockgrid.settings);
     }
   }
   public get pagesize(): Number {
@@ -91,7 +94,8 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
   public set pagesizes(pagesizes: Array<Number>) {
     this.options.pagesizes = pagesizes;
     if (this.blockgrid) {
-      this.updated(this.options);
+      this.blockgrid.settings.pagesizes = pagesizes;
+      this.updated(this.blockgrid.settings);
     }
   }
   public get pagesizes(): Array<Number> {
