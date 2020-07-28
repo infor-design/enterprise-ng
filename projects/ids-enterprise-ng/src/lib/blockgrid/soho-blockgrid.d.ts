@@ -15,6 +15,15 @@ interface SohoBlockGridOptions {
 
   /** Selection Mode Property */
   selectable?: SohoBlockGridSelectable;
+
+  /** If true, enables paging in the Blockgrid */
+  paging?: boolean;
+
+  /** If paging is active, defines the number of records allowed on the current page */
+  pagesize?: Number;
+
+  /** If paging is active, defines the various record sizes the pager will allow */
+  pagesizes?: Array<Number>;
 }
 
 /**
@@ -23,8 +32,15 @@ interface SohoBlockGridOptions {
 interface SohoBlockGrid {
   settings: SohoBlockGridOptions;
 
-  /** Select a block */
-  selectBlock(activeBlock: JQuery<Node | Node[]>, isCheckbox: boolean): void;
+  pagerAPI?: SohoPagerStatic;
+
+  select(activeBlock: JQuery<HTMLElement>, isCheckbox: boolean): void;
+
+  /**
+   * @deprecated (use `select()`)
+   * Selects a block in the blockgrid
+   */
+  selectBlock(activeBlock: JQuery<HTMLElement>, isCheckbox: boolean): void;
 
   /** Updates the blockgrid with any new settings. */
   updated(settings?: SohoBlockGridOptions): void;
