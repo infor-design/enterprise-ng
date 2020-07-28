@@ -46,7 +46,7 @@ class SohoBreadcrumbTestComponent {
   constructor() {}
 }
 
-fdescribe('Soho Breadcrumb Unit Tests', () => {
+describe('Soho Breadcrumb Unit Tests', () => {
   let breadcrumb: SohoBreadcrumbComponent;
   let component: SohoBreadcrumbTestComponent;
   let fixture: ComponentFixture<SohoBreadcrumbTestComponent>;
