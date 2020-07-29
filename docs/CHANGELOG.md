@@ -1,5 +1,9 @@
 # What's New with Enterprise-NG
 
+## v7.6.0
+
+### 7.6.0 Fixes
+
 ## v7.5.0
 
 ### 7.5.0 Fixes
