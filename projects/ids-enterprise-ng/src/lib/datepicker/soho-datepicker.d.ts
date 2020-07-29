@@ -179,7 +179,7 @@ interface SohoDatePickerStatic {
   getCurrentDate(): Date;
 
   // Sets the value of the date picker.
-  setValue(value: Date, trigger?: boolean): void;
+  setValue(value: Date | string, trigger?: boolean): void;
 
   readonly(): void;
 

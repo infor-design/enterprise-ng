@@ -56,6 +56,18 @@ interface SohoDataGridOptions {
   columns?: SohoDataGridColumn[];
 
   /**
+   * If true an extra column will be added to the end that fills the space.
+   * This allows columns to not stretch to fill so they are a constant size.
+   * This setting cannot be used with percent columns.
+   */
+  spacerColumn?: boolean;
+
+  /**
+   * Determines the sizing method for the auto sizing columns.
+   */
+  columnSizing?: 'both' | 'data' | 'header';
+
+  /**
    * The name of the column stretched to fill the width of the datagrid,
    * or 'last' where the last column will be stretched to fill the
    * remaining space.
@@ -299,6 +311,11 @@ interface SohoDataGridOptions {
    *  You may want to also use showSelectAllCheckBox: false
    */
   allowSelectAcrossPages?: boolean;
+
+  /**
+   * An array of column IDs used to define aria descriptors for selection checkboxes.
+   */
+  columnIds?: Array<String | Number>;
 
   /**
    * If true, the new row indicator will display after adding a row
