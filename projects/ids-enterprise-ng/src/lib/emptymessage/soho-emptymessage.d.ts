@@ -32,6 +32,11 @@ interface SohoEmptyMessageOptions {
   icon?: string;
 
   /**
+   * The container height. If set to 'small' will show only title and all other elements will not be rendered (icon, button, info)
+   */
+  height?: string;
+
+  /**
    * Button options - note this cannot be a Soho Angular Component.
    */
   button?: SohoEmptyMessageButtonOptions;

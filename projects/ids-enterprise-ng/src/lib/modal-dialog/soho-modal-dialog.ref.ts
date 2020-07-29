@@ -263,6 +263,18 @@ export class SohoModalDialogRef<T> {
   }
 
   /**
+   * Causes this modal instance to become hidden when another modal is displayed over top.
+   * @param hideUnderneath - If it should be on top or bottom.
+   */
+  hideUnderneath(hideUnderneath: boolean): SohoModalDialogRef<T> {
+    this._options.hideUnderneath = hideUnderneath;
+    if (this.modal) {
+      this.modal.settings.hideUnderneath = hideUnderneath;
+    }
+    return this;
+  }
+
+  /**
    * If true, causes the modal's trigger element not to become focused once the modal is closed.
    * @param noRefocus - If true, refocus
    */

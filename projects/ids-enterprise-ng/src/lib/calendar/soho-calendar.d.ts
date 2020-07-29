@@ -15,12 +15,13 @@ interface SohoCalendarMonthViewEvent {
   status: string;
   comments: string;
   icon?: string;
+  color?: string;
+  borderColor?: string;
 }
 
 /**
  * returned by the getDayEvents() function
-  */
-
+ */
 interface SohoCalendarDayEvents {
   date: Date;
   elem: Node;
@@ -129,6 +130,8 @@ interface SohoCalendarOptions {
   onChangeView?: Function;
   showToday?: boolean;
   weekOptions?: SohoCalendarWeekOptions;
+  disable?: SohoDatePickerDisable;
+  dayLegend?: SohoDatePickerLegend;
 }
 
 interface SohoCalendar {

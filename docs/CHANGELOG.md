@@ -4,9 +4,13 @@
 
 ### 7.5.0 Fixes
 
-- `[General]` Uses EP version 4.31.0.  `TJM`
 - `[Blockgrid]` Enable settings and API types for interactions with Blockgrid Pager. `EPC` ([#836](https://github.com/infor-design/enterprise-ng/issues/836))
+- `[Calendar]` Added new types for `dayLegend`, `disabled` and allow event overrides for `color` and `borderColor`. `TJM` ([#3893](https://github.com/infor-design/enterprise/issues/3893))
+- `[Datagrid]` Added several new types in datagrid from 4.31. `TJM` ([#3609](https://github.com/infor-design/enterprise/issues/3609))
+- `[General]` Uses EP version 4.31.0.  `TJM`
+- `[General]` Added several new types in Modal, Datepicker, Message and EmptyMessage from 4.31. `TJM` ([#3609](https://github.com/infor-design/enterprise/issues/3609))
 - `[Lookup]` Fixed an issue where the console error was appearing after the modal close. ([#871](https://github.com/infor-design/enterprise/issues/871))
+- `[Masthead]` Updated styles and flow in the masthead and made it use flex toolbar by default. Older versions should work ok but you may want to update to the latest markup. See `masthead.demo.html`. ([#800](https://github.com/infor-design/enterprise-ng/issues/800))
 
 ## v7.4.1
 

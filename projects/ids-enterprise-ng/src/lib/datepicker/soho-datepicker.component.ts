@@ -371,7 +371,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
     return this._options;
   }
 
-  public setValue(value: Date) {
+  public setValue(value: Date | string) {
     this.datepicker.setValue(value, true);
   }
 

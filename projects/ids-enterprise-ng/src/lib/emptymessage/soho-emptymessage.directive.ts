@@ -104,6 +104,21 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     return this._emptyMessageOptions.icon;
   }
 
+  @Input() set height(height: string) {
+    this._emptyMessageOptions.height = height;
+    if (this.emptymessage) {
+      this.emptymessage.settings.height = height;
+      this.markForCheck();
+    }
+  }
+
+  get height(): string {
+    if (this.emptymessage) {
+      return this.emptymessage.settings.height;
+    }
+    return this._emptyMessageOptions.height;
+  }
+
   @Input() set button(button: SohoEmptyMessageButtonOptions) {
     this._emptyMessageOptions.button = button;
     if (this.emptymessage) {
