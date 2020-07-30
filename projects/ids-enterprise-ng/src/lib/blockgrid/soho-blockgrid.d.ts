@@ -19,10 +19,21 @@ interface SohoBlockGridOptions {
   /** If true, enables paging in the Blockgrid */
   paging?: boolean;
 
-  /** If paging is active, defines the number of records allowed on the current page */
+  /**
+   * If defined, passes along a set of Pager options to the inline Pager.
+   */
+  pagerSettings: SohoPagerOptions;
+
+  /**
+   * @deprecated
+   * If paging is active, defines the number of records allowed on the current page
+   */
   pagesize?: Number;
 
-  /** If paging is active, defines the various record sizes the pager will allow */
+  /**
+   * @deprecated
+   * If paging is active, defines the various record sizes the pager will allow
+   */
   pagesizes?: Array<Number>;
 }
 
