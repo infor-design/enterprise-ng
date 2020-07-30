@@ -1,5 +1,10 @@
 # What's New with Enterprise-NG
 
+## v7.1.8
+
+### 7.1.8 Fixes
+- `[StepProcess]` StepProcess does not translate Save & Close and Continue buttons. ([#881](https://github.com/infor-design/enterprise-ng/issues/881))
+
 ## v7.1.5
 
 ### 7.1.5 Fixes
