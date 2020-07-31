@@ -306,7 +306,7 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
       this.jQueryElement.toolbarflex(this._options);
       this.toolbarFlex = this.jQueryElement.data('toolbarFlex');
 
-      this.jQueryElement.on('selected', (event: JQuery.TriggeredEvent, item: HTMLButtonElement | HTMLAnchorElement) =>
+      this.jQueryElement.on('selected', (event: JQuery.TriggeredEvent, item: SohoToolbarFlexItemStatic) =>
         this.ngZone.run(() => {
           this.selected.emit({ event, item });
         }));
@@ -333,7 +333,7 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
     });
   }
 
-  updated(settings?) {
+  updated(settings?: SohoToolbarFlexOptions) {
     if (this.toolbarFlex) {
       this.ngZone.runOutsideAngular(() => this.toolbarFlex.updated(settings));
     }

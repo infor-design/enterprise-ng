@@ -223,13 +223,13 @@ public clicked() {
 
 ## Locale Setup
 
-Set the locale path in `app.component.ts`:
+Set the locale path in `app.module.ts`:
 
 ```typescript
-constructor() {
-    Soho.Locale.culturesPath = '/assets/ids-enterprise/js/cultures/';
-    Soho.Locale.set('en-US');
-  }
+    useFactory: (locale: string) => () => {
+        Soho.Locale.culturesPath = 'assets/ids-enterprise/js/cultures/';
+        return Soho.Locale.set(locale).catch(err => log('Error when setting locale. Some translated strings might look off'));
+    }
 ```
 
 NOTE: In the checked in code, the quickstart uses an APP_INITIALIZER to set the locale BEFORE the components are rendered, which is the recommended way of setting and loading locale data.  This allows the locale to be based on the browsers locale, via a service or explicitly in the app.module:

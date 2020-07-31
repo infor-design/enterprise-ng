@@ -282,7 +282,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   @Output() complete: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() beforeopen: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() change: EventEmitter<SohoLookupChangeEvent[]> = new EventEmitter<SohoLookupChangeEvent[]>();
-  @Output() input: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() inputEvt: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() open: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() close: EventEmitter<Object> = new EventEmitter<Object>();
 
@@ -357,7 +357,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       this.jQueryElement.on('blur', (e: any) => this.ngZone.run(() => this.touched()));
       this.jQueryElement.on('start', () => this.ngZone.run(() => this.start.emit(null)));
       this.jQueryElement.on('complete', () => this.ngZone.run(() => this.complete.emit(null)));
-      this.jQueryElement.on('input', () => this.ngZone.run(() => this.input.emit(null)));
+      this.jQueryElement.on('input', () => this.ngZone.run(() => this.inputEvt.emit(null)));
       this.jQueryElement.on('close', () => this.ngZone.run(() => this.close.emit(null)));
 
       this.lookup = this.jQueryElement.data('lookup');

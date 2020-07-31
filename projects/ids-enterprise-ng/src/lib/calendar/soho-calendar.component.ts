@@ -87,6 +87,36 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
     return this._calendarWeekOptions;
   }
 
+  @Input() set disable(disable: SohoDatePickerDisable) {
+    this.calendar.settings.disable = disable;
+
+    if (this.jQueryElement) {
+      this.markForRefresh();
+    }
+  }
+  get disable(): SohoDatePickerDisable {
+    if (this.calendar) {
+      return this.calendar.settings.disable;
+    }
+
+    return this.disable;
+  }
+
+  @Input() set dayLegend(dayLegend: SohoDatePickerLegend) {
+    this.calendar.settings.dayLegend = dayLegend;
+
+    if (this.jQueryElement) {
+      this.markForRefresh();
+    }
+  }
+  get dayLegend(): SohoDatePickerLegend {
+    if (this.calendar) {
+      return this.calendar.settings.dayLegend;
+    }
+
+    return this.dayLegend;
+  }
+
   /**
    * An array of objects with data for the event types.
    */

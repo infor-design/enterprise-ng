@@ -1,8 +1,36 @@
 # What's New with Enterprise-NG
 
+## v7.6.0
+
+### 7.6.0 Fixes
+
+## v7.5.0
+
+### 7.5.0 Fixes
+
+- `[Blockgrid]` Enable settings and API types for interactions with Blockgrid Pager. `EPC` ([#836](https://github.com/infor-design/enterprise-ng/issues/836))
+- `[Calendar]` Added new types for `dayLegend`, `disabled` and allow event overrides for `color` and `borderColor`. `TJM` ([#3893](https://github.com/infor-design/enterprise/issues/3893))
+- `[Datagrid]` Added several new types in datagrid from 4.31. `TJM` ([#3609](https://github.com/infor-design/enterprise/issues/3609))
+- `[General]` Uses EP version 4.31.0.  `TJM`
+- `[General]` Added several new types in Modal, Datepicker, Message and EmptyMessage from 4.31. `TJM` ([#3609](https://github.com/infor-design/enterprise/issues/3609))
+- `[Lookup]` Fixed an issue where the console error was appearing after the modal close. ([#871](https://github.com/infor-design/enterprise/issues/871))
+- `[Masthead]` Updated styles and flow in the masthead and made it use flex toolbar by default. Older versions should work ok but you may want to update to the latest markup. See `masthead.demo.html`. ([#800](https://github.com/infor-design/enterprise-ng/issues/800))
+
+## v7.4.1
+
+### 7.4.1 Fixes
+
+- `[General]` Added a patched EP version 4.30.1.  `TJM`
+
 ## v7.4.0
 
+### 7.4.0 Features
+
+- `[Breadcrumb]` Angular Wrapper Component for the IDS Breadcrumb API is now available. `EPC` ([Issue #700](https://github.com/infor-design/enterprise-ng/issues/700))
+
 ### 7.4.0 Fixes
+
+- `[Toolbar Flex]` Added missing type definitions. `EPC` ([#831](https://github.com/infor-design/enterprise-ng/issues/831))
 
 ## v7.3.0
 
@@ -76,6 +104,12 @@
 - `[Datagrid]` Update the dynamic datagrid example to not show the browser contextmenu.  `TJM` ([#817](https://github.com/infor-design/enterprise/issues/817))
 - `[Modal]` The modal dialog had a second wrapper added (SohoModal vs SohoModalDialog), it was decided to stick with one, the existing SohoModalDialog.  `TJM` ([Issue #776](https://github.com/infor-design/enterprise-ng/issues/776))
 - `[Homepage]` Homepage edit events (resize, reorder, remove widgets) now fire on widget elements too ([#770](https://github.com/infor-design/enterprise-ng/issues/770))
+
+## v7.1.8
+
+### 7.1.8 Fixes
+
+- `[StepProcess]` StepProcess does not translate Save & Close and Continue buttons. ([#881](https://github.com/infor-design/enterprise-ng/issues/881))
 
 ## v7.1.7
 

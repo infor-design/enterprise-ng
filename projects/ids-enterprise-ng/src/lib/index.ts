@@ -5,6 +5,7 @@ export * from './application-menu/index';
 export * from './autocomplete/index';
 export * from './bar/index';
 export * from './blockgrid/index';
+export * from './breadcrumb/index';
 export * from './bullet/index';
 export * from './busyindicator/index';
 export * from './button/index';

@@ -42,6 +42,12 @@ interface SohoMessageOptions {
 
   /** Element to focus on return. */
   returnFocus?: JQuery;
+
+  /** Adds the ability to control the opacity of the background overlay. **/
+  overlayOpacity?: number;
+
+  /**  if true, causes this modal instance to become hidden when another modal is displayed over top. **/
+  hideUnderneath?: boolean;
 }
 
 /**

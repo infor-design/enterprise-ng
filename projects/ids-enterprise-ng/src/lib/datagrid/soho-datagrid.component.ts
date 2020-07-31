@@ -1016,6 +1016,44 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * If true an extra column will be added to the end that fills the space.
+   * This allows columns to not stretch to fill so they are a constant size.
+   * This setting cannot be used with percent columns.
+   */
+  @Input() set spacerColumn(spacerColumn: boolean) {
+    this._gridOptions.spacerColumn = spacerColumn;
+    if (this.jQueryElement) {
+      this.datagrid.settings.spacerColumn = spacerColumn;
+      this.markForRefresh('spacerColumn', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
+   * If true an extra column is currently added to the end that fills the space.
+   */
+  get spacerColumn() {
+    return this._gridOptions.spacerColumn;
+  }
+
+  /**
+   * Determines the sizing method for the auto sizing columns.
+   */
+  @Input() set columnSizing(columnSizing: 'both' | 'data' | 'header') {
+    this._gridOptions.columnSizing = columnSizing;
+    if (this.jQueryElement) {
+      this.datagrid.settings.columnSizing = columnSizing;
+      this.markForRefresh('columnSizing', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
+   * Determines the sizing method for the auto sizing columns.
+   */
+  get columnSizing() {
+    return this._gridOptions.columnSizing;
+  }
+
+  /**
    * The name of the column stretched to fill the width of the datagrid,
    * or 'last' where the last column will be stretched to fill the
    * remaining space.
@@ -2023,6 +2061,41 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       return this.datagrid.settings.onBeforeSelect;
     }
     return this._gridOptions.onBeforeSelect;
+  }
+
+  /**
+   *  Makes it possible to save selections when changing pages on server side paging.
+   *  You may want to also use showSelectAllCheckBox: false
+   */
+  @Input() set allowSelectAcrossPages(allowSelectAcrossPages: boolean) {
+    this._gridOptions.allowSelectAcrossPages = allowSelectAcrossPages;
+    if (this.datagrid) {
+      this.datagrid.settings.allowSelectAcrossPages = allowSelectAcrossPages;
+      this.markForRefresh('allowSelectAcrossPages', RefreshHintFlags.None);
+    }
+  }
+  get allowSelectAcrossPages(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.allowSelectAcrossPages;
+    }
+    return this._gridOptions.allowSelectAcrossPages;
+  }
+
+  /**
+   * An array of column IDs used to define aria descriptors for selection checkboxes.
+   */
+  @Input() set columnIds(columnIds: Array<String | Number>) {
+    this._gridOptions.columnIds = columnIds;
+    if (this.datagrid) {
+      this.datagrid.settings.columnIds = columnIds;
+      this.markForRefresh('columnIds', RefreshHintFlags.None);
+    }
+  }
+  get columnIds(): Array<String | Number> {
+    if (this.datagrid) {
+      return this.datagrid.settings.columnIds;
+    }
+    return this._gridOptions.columnIds;
   }
 
   /**

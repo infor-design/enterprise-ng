@@ -1,50 +1,51 @@
 <soho-toolbar-flex noActionsButton="true" maxVisibleButtons="4">
-  <soho-toolbar-flex-section [isTitle]="true">
-    <button soho-button="icon" icon="logo" id="logo-homepage" tabindex="0">
-      <span class="audible">Go To Home</span>
+
+  <soho-toolbar-flex-section>
+    <button type="button" class="masthead-icon">
+      <svg class="icon icon-logo" focusable="false" aria-hidden="true" role="presentation">
+        <use href="#icon-logo"></use>
+      </svg>
+       <span class="audible">Go To Home</span>
     </button>
-    <h1 class="masthead-appname">IDS Enterprise Angular Components</h1>
+  </soho-toolbar-flex-section>
+
+  <soho-toolbar-flex-section [isTitle]="true">
+      <h1 class="masthead-appname">IDS Enterprise Angular Components</h1>
   </soho-toolbar-flex-section>
 
   <soho-toolbar-flex-section [isButtonSet]="true">
 
-    <button soho-button [isToggle]="true" toggleOnIcon="heart-filled" toggleOffIcon="heart-outlined"
+    <!--
+      <button soho-button [isToggle]="true" toggleOnIcon="heart-filled" toggleOffIcon="heart-outlined"
       [isTogglePressed]="running" (click)="toggleRenderLoop()">{{renderLoopCount}}</button>
-
-    <button soho-button="icon" icon="user">
-      <span class="audible">User</span>
-    </button>
+    -->
 
     <button soho-button="icon" icon="mingle-share">
       <span class="audible">Share</span>
     </button>
 
-    <button soho-button="icon" icon="bookmark-filled">
-      <span class="audible">Bookmark</span>
-    </button>
-
-    <button soho-button="icon" icon="expand-app-tray">
-      <span class="audible">Expand App Tray</span>
-    </button>
-
     <button soho-menu-button menu="action-popupmenu" id="user-signout">
-      <div class="image-user-status">
-        <img [src]="DEFAULT_IMAGE_URL" class="image-round" style="width: 28px; height: 28px; border-radius: 50%;">
-        <svg class="icon" focusable="false" aria-hidden="true" role="presentation"
-          style="width: 10px; height: 10px; margin-left: -12px; top: 2px">
-          <use href="#icon-user-status-available"></use>
-        </svg>
-      </div>
+      <div class="image-initials">TM</div>
+      <span class="audible">Profile</span>
     </button>
     <ul soho-popupmenu id="action-popupmenu">
       <li>
         <a soho-popupmenu-label>
-          <img id="picture" class="drop-down-profile-picture" [src]="DEFAULT_IMAGE_URL" alt="image" style="width: 28px; height: 28px; border-radius: 50%;">
-          John Smith
+          <div class="image-user-status">
+              <img class="image-round" src="https://randomuser.me/api/portraits/med/men/7.jpg" alt="Photo of Evyn" tabindex="0"/>
+              <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+                <use href="#icon-user-status-available"></use>
+              </svg>
+            </div>
+          <span>Profile 1</span>
         </a>
       </li>
-      <li soho-popupmenu-separator></li>
-      <li soho-popupmenu-item><a id="signout">Sign out</a></li>
+      <li>
+        <a href="#">
+          <div class="image-initials">TM</div>
+          <span>Profile 2</span>
+        </a>
+      </li>
     </ul>
 
   </soho-toolbar-flex-section>
