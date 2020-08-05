@@ -1,0 +1,51 @@
+<div class="row">
+    <section class="six columns">
+        <p>Use the resize handle to resize the tabbed section below. The "more" menu, separator, and gradient is present even if the element is sized such that all the tabs should fit.</p>
+        <p>You can force it to update by triggering a</p>
+        <p>
+          <button soho-button="primary" (click)="triggerResize()">
+            <span>Window Resize Event</span>
+          </button>
+        </p>
+    </section>
+</div>
+<div class="row top-padding">
+    <section class="draggable-container three columns">
+        <div soho-tabs>
+            <div soho-tab-list-container>
+                <ul soho-tab-list>
+                    <li soho-tab>
+                        <a soho-tab-title tabId="tab-a">
+                            Tab Section A
+                        </a>
+                    </li>
+                    <li soho-tab>
+                        <a soho-tab-title tabId="tab-b">
+                            Tab Section B
+                        </a>
+                    </li>
+                    <li soho-tab>
+                        <a soho-tab-title tabId="tab-c">
+                            Tab Section C
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div soho-tab-panel-container>
+            <div soho-tab-panel tabId="tab-a">
+                <h1>Tab A</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div soho-tab-panel tabId="tab-b">
+                <h1>Tab B</h1>
+            </div>
+            <div soho-tab-panel tabId="tab-c">
+                <h1>Tab C</h1>
+            </div>
+        </div>
+    </section>
+</div>

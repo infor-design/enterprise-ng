@@ -1,0 +1,10 @@
+.draggable-container {
+  max-height: 500px;
+  overflow: hidden;
+  resize: both;
+}
+
+.tab-panel-container {
+  overflow: scroll;
+  max-height: inherit;
+}
