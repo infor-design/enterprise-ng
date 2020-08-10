@@ -10,7 +10,8 @@
 - `[General]` Uses EP version 4.31.0.  `TJM`
 - `[General]` Added several new types in Modal, Datepicker, Message and EmptyMessage from 4.31. `TJM` ([#3609](https://github.com/infor-design/enterprise/issues/3609))
 - `[Lookup]` Fixed an issue where the console error was appearing after the modal close. ([#871](https://github.com/infor-design/enterprise/issues/871))
-- `[Masthead]` Updated styles and flow in the masthead and made it use flex toolbar by default. Older versions should work ok but you may want to update to the latest markup. See `masthead.demo.html`. ([#800](https://github.com/infor-design/enterprise-ng/issues/800))
+- `[Masthead]` Updated styles and flow in the masthead and made it use flex toolbar by default. Older versions should work ok but you may want to update to the latest markup. See `masthead.demo.html`. ([#800](https://github.com/infor-design/enterprise-ng/issues/800
+- `[Multiselect]` Added an example showing how an ajax request where only part the results are returned. ([#800](https://github.com/infor-design/enterprise-ng/issues/885))
 
 ## v7.4.1
 
