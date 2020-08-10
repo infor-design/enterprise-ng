@@ -18,6 +18,7 @@ export class TimePickerDemoComponent implements OnInit {
 
   public model = { // tslint:disable-line
     hhmm: '1:23 PM',
+    hhmmss: '1:23:43 PM',
     HHmm24: '17:50'
   };
   public showModel = false;

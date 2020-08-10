@@ -39,7 +39,12 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
     mode: undefined,
     timeFormat: undefined,
     minuteInterval: undefined,
-    roundToInterval: false
+    roundToInterval: false,
+    locale: undefined,
+    language: undefined,
+    secondInterval: undefined,
+    parentElement: undefined,
+    returnFocus: true
   };
 
   /**
@@ -78,6 +83,58 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
    */
   @Input() set roundToInterval(roundToInterval: boolean) {
     this.options.roundToInterval = roundToInterval;
+    if (this.timepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * The name of the locale to use for this instance. If not set, the current locale will be used.
+   */
+  @Input() set locale(locale: string) {
+    this.options.locale = locale;
+    if (this.timepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * The name of the language to use for this instance. If not set, the current locale will be used or the the passed locale will be used.
+   */
+  @Input() set language(language: string) {
+    this.options.language = language;
+    if (this.timepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * An integer from 1 to 60; multiples of this value are displayed as options in the seconds dropdown;
+   * default value is 5.
+   */
+  @Input() set secondInterval(secondInterval: number) {
+    this.options.secondInterval = secondInterval;
+    if (this.timepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * If defined as a JQuery-wrapped element, will be used as the target element.
+   */
+  @Input() set parentElement(parentElement: JQuery) {
+    this.options.parentElement = parentElement;
+    if (this.timepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
+   * If set to false, focus will not be returned to the calling element;
+   * default value is true.
+   */
+  @Input() set returnFocus(returnFocus: boolean) {
+    this.options.returnFocus = returnFocus;
     if (this.timepicker) {
       this.markForRefresh();
     }
