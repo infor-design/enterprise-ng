@@ -20,6 +20,15 @@ import {
 })
 export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
+  /** Options. */
+  private options: SohoBlockGridOptions = {
+    pagerSettings: {
+      position: 'bottom'
+    }
+  };
+  private jQueryElement: JQuery;
+  private blockgrid: SohoBlockGrid;
+
   @HostBinding('class.blockgrid') get isBlockGrid() {
     return true;
   }
@@ -75,34 +84,34 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
   /** Defines the current page size */
   @Input()
-  public set pagesize(pagesize: Number) {
-    this.options.pagesize = pagesize;
+  public set pagesize(pagesize: number) {
+    this.options.pagerSettings.pagesize = pagesize;
     if (this.blockgrid) {
-      this.blockgrid.settings.pagesize = pagesize;
+      this.blockgrid.settings.pagerSettings.pagesize = pagesize;
       this.updated(this.blockgrid.settings);
     }
   }
-  public get pagesize(): Number {
+  public get pagesize(): number {
     if (!this.blockgrid) {
-      return this.options.pagesize;
+      return this.options.pagerSettings.pagesize;
     }
-    return this.blockgrid.settings.pagesize;
+    return this.blockgrid.settings.pagerSettings.pagesize;
   }
 
   /** Defines the array of selectable page sizes */
   @Input()
-  public set pagesizes(pagesizes: Array<Number>) {
-    this.options.pagesizes = pagesizes;
+  public set pagesizes(pagesizes: Array<number>) {
+    this.options.pagerSettings.pagesizes = pagesizes;
     if (this.blockgrid) {
-      this.blockgrid.settings.pagesizes = pagesizes;
+      this.blockgrid.settings.pagerSettings.pagesizes = pagesizes;
       this.updated(this.blockgrid.settings);
     }
   }
-  public get pagesizes(): Array<Number> {
+  public get pagesizes(): Array<number> {
     if (!this.blockgrid) {
-      return this.options.pagesizes;
+      return this.options.pagerSettings.pagesizes;
     }
-    return this.blockgrid.settings.pagesizes;
+    return this.blockgrid.settings.pagerSettings.pagesizes;
   }
 
   /* Events*/
@@ -112,11 +121,6 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
   @Output() deactivated: EventEmitter<Object[]> = new EventEmitter<Object[]>();
   @Output() page: EventEmitter<Object[]> = new EventEmitter<Object[]>();
   @Output() pagesizechange: EventEmitter<Object[]> = new EventEmitter<Object[]>();
-
-  /** Options. */
-  private options: SohoBlockGridOptions = {};
-  private jQueryElement: JQuery;
-  private blockgrid: SohoBlockGrid;
 
   constructor(
     private element: ElementRef,
