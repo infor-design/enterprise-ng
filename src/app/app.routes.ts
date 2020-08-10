@@ -150,6 +150,7 @@ import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDismissibleDemoComponent } from './tabs/tabs-dismissible.demo';
 import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
+import { TabsResizeDemoComponent } from './tabs/tabs-resize.demo';
 import { TabsModuleDemoComponent } from './tabs/tabs-module.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
 import { TagDemoComponent } from './tag/tag.demo';
@@ -348,6 +349,7 @@ export const routes: Routes = [
   { path: 'tabs-dismissible', component: TabsDismissibleDemoComponent },
   { path: 'tabs-dropdown', component: TabsDropdownDemoComponent },
   { path: 'tabs-dynamic', component: TabsDynamicDemoComponent },
+  { path: 'tabs-resize', component: TabsResizeDemoComponent },
   { path: 'tabs-module', component: TabsModuleDemoComponent },
   { path: 'tabs-vertical', component: TabsVerticalDemoComponent },
   { path: 'tags', component: TagDemoComponent },
