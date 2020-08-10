@@ -11,6 +11,7 @@
 - `[General]` Added several new types in Modal, Datepicker, Message and EmptyMessage from 4.31. `TJM` ([#3609](https://github.com/infor-design/enterprise/issues/3609))
 - `[Lookup]` Fixed an issue where the console error was appearing after the modal close. ([#871](https://github.com/infor-design/enterprise/issues/871))
 - `[Masthead]` Updated styles and flow in the masthead and made it use flex toolbar by default. Older versions should work ok but you may want to update to the latest markup. See `masthead.demo.html`. ([#800](https://github.com/infor-design/enterprise-ng/issues/800))
+- `[TimePicker]` Updated typings support for locale, language, secondInterval, parentElement and returnFocus. `MAF` ([#890](https://github.com/infor-design/enterprise-ng/issues/890))
 
 ## v7.4.1
 
