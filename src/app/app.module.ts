@@ -118,6 +118,7 @@ import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.d
 import { DropdownAsyncDemoComponent } from './dropdown/dropdown-async.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
+import { DropdownMultiselectLandmarkDemoComponent } from './dropdown/dropdown-multiselect-landmark.demo';
 import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { DropdownTypeaheadDemoComponent } from './dropdown/dropdown-typeahead.demo';
@@ -339,6 +340,7 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
     DropdownAsyncDemoComponent,
     DropdownDemoComponent,
     DropdownMultiselectDemoComponent,
+    DropdownMultiselectLandmarkDemoComponent,
     DropdownReactiveDemoComponent,
     DropdownSimpleDemoComponent,
     DropdownTypeaheadDemoComponent,
