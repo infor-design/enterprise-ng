@@ -118,6 +118,7 @@ import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.d
 import { DropdownAsyncDemoComponent } from './dropdown/dropdown-async.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
+import { DropdownMultiselectLandmarkDemoComponent } from './dropdown/dropdown-multiselect-landmark.demo';
 import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { DropdownTypeaheadDemoComponent } from './dropdown/dropdown-typeahead.demo';
@@ -194,6 +195,7 @@ import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDismissibleDemoComponent } from './tabs/tabs-dismissible.demo';
 import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
+import { TabsResizeDemoComponent } from './tabs/tabs-resize.demo';
 import { TabsModuleDemoComponent } from './tabs/tabs-module.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
 import { TagDemoComponent } from './tag/tag.demo';
@@ -338,6 +340,7 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
     DropdownAsyncDemoComponent,
     DropdownDemoComponent,
     DropdownMultiselectDemoComponent,
+    DropdownMultiselectLandmarkDemoComponent,
     DropdownReactiveDemoComponent,
     DropdownSimpleDemoComponent,
     DropdownTypeaheadDemoComponent,
@@ -412,6 +415,7 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
     TabsDismissibleDemoComponent,
     TabsDropdownDemoComponent,
     TabsDynamicDemoComponent,
+    TabsResizeDemoComponent,
     TabsModuleDemoComponent,
     TabsVerticalDemoComponent,
     TagDemoComponent,

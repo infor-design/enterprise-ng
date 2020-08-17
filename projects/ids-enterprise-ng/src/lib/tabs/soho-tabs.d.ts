@@ -80,7 +80,8 @@ interface SohoTabsStatic {
 
   enable(): void;
 
-  handleResize(): void;
+  /** Manually refreshes the component, with an optional check to swap the component to/from responsive mode (if applicable). */
+  handleResize(doResponsiveCheck?: boolean): void;
 
   /**
    * Destructor,

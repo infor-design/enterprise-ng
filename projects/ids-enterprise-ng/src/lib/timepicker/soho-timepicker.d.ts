@@ -20,6 +20,21 @@ interface SohoTimePickerOptions {
 
   /** Rounding. */
   roundToInterval: boolean;
+
+  /** Locale to use for this instance; if not set, the current locale is used. */
+  locale: string;
+
+  /** Name of the language to use for this instance; if not set, the current locale is used or the passed locale is used. */
+  language: string;
+
+  /** Second interval. */
+  secondInterval: number;
+
+  /** If set, will be used as the target element. */
+  parentElement: JQuery;
+
+  /** If false, focus will not be returned to the calling element. */
+  returnFocus: boolean;
 }
 
 interface SohoTimePickerEvent extends JQuery.TriggeredEvent {
