@@ -65,7 +65,7 @@ export class ModalDialogDemoComponent {
         ref.buttonsetAPI.at(2).disabled = true;
         return true;
       }).afterOpen((_: any, ref: SohoModalDialogRef<FullSizeModalDialogComponent>) => {
-        ref.buttonsetAPI.at(3).disabled = true;
+        ref.buttonsetAPI.at(3).disabled = false;
         return true;
       })
       .open();

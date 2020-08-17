@@ -1,13 +1,23 @@
-<div class="row form-responsive no-indent">
-  <div class="full-width column">
+<div class="full-width column">
     <div class="field">
       <label for="context-name" class="required">Name</label>
-      <input id="context-name"  aria-required="true" name="context-name" type="text"/>
+      <input id="context-name" aria-required="true" data-validate="required" name="context-name" type="text" value="John" />
+    </div>
+  
+    <div class="field">
+      <label for="context-type" class="required label">Type</label>
+      <select soho-dropdown id="context-type" name="type" data-validate="required">
+        <option value=""></option>
+        <option value="1" selected>Context 01</option>
+        <option value="2">Context 02</option>
+        <option value="3">Context 03</option>
+        <option value="4">Context 04</option>
+        <option value="5">Context 05</option>
+      </select>
     </div>
 
     <div class="field">
-     <label for="context-desc" class="required">Page Title</label>
-     <textarea id="context-desc" aria-required="true" name="context-desc" maxlength="50"></textarea>
+      <label for="context-desc" class="required">Page Title</label>
+      <textarea id="context-desc" aria-required="true" data-validate="required" name="context-desc" maxlength="50">Test Desc</textarea>
     </div>
   </div>
-</div>
