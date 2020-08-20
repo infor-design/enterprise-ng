@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SohoLookupComponent } from 'ids-enterprise-ng';
 import { TemplateService } from './template.service';
 import { Asset } from './asset';
+import { SohoToastService } from 'ids-enterprise-ng';
 
 import {
   checkboxColumn,
@@ -93,7 +94,7 @@ export class LookupDemoComponent implements OnInit {
   // So we can bind 'this' to the source function passed to the lookup control
   public context = this;
 
-  constructor(private service: TemplateService) {
+  constructor(private service: TemplateService, private toastService: SohoToastService) {
     this.setupProducts();
   }
 
@@ -228,17 +229,19 @@ export class LookupDemoComponent implements OnInit {
   // Example of calling before show to cancel the opening by returning false
   onBeforeShow = (api: any, response: any) => {
     console.log(api, response);
-    // 1. Do something like an ajax call.
+    // 1. Do something such as an ajax call.
 
     // 2. if no rows and you dont want to open
-    // return false; // and we will never open
+    // response(false); // and we will never open
 
     // 3. If there was rows (in this example we dont show this)
     // 4. Set the dynamic columns and _dataset
     // api.settings.options.columns = data[0].columns;
     // api.settings.options.dataset = data[0].dataset;
     // 5. And the response which will open the dialog
-    response();
+    this.toastService.show({ title: 'Lookup Test', message: 'By Rule You Cant Open Me' });
+
+    response(false);
   }
 
   // Example of custom displaying
