@@ -4,6 +4,8 @@
 
 ### 7.6.0 Fixes
 
+- `[Homepage]` Fixed an issue where the chart container was misaligned on example page. ([#894](https://github.com/infor-design/enterprise-ng/issues/894))
+
 ## v7.5.0
 
 ### 7.5.0 Fixes
