@@ -1,5 +1,17 @@
 # What's New with Enterprise-NG
 
+## v7.5.2
+
+### 7.5.2 Fixes
+
+- `[Datagrid]` Added an option to frozen columns to allow the left side to be scrollable for trees. ([#3852](https://github.com/infor-design/enterprise/issues/3852))
+
+## v7.5.1
+
+### 7.5.1 Fixes
+
+- `[General]` Added a patched EP version 4.31.1.  `TJM`
+
 ## v7.5.0
 
 ### 7.5.0 Fixes
