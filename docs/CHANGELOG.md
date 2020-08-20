@@ -4,7 +4,7 @@
 
 ### 7.6.0 Fixes
 
-- `[Homepage]` Fixed an issue where the chart container was pushed down a lot cutting off the bottom by removing css class `full-width` on example page. ([#894](https://github.com/infor-design/enterprise-ng/issues/894))
+- `[Homepage]` Fixed an issue where the chart container was misaligning on example page. ([#894](https://github.com/infor-design/enterprise-ng/issues/894))
 
 ## v7.5.0
 
