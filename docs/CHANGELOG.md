@@ -4,6 +4,12 @@
 
 ### 7.6.0 Fixes
 
+### 7.6.0 Features
+
+- `[General]` Upgraded to Angular 10.  `BTHH` ([Issue #858](https://github.com/infor-design/enterprise-ng/issues/858))
+    o See the UPGRADING guide for details.
+    o This release see the removal of the ids-enterprise typings from this package.
+
 ## v7.5.0
 
 ### 7.5.0 Fixes
