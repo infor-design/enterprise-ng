@@ -6,7 +6,8 @@
       "d3",
       "jasmine",
       "jquery",
-      "node"
+      "node",
+      "ids-enterprise-typings"
     ]
   },
   "files": [

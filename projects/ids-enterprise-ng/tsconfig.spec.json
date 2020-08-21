@@ -6,7 +6,8 @@
     "types": [
       "jasmine",
       "jquery",
-      "node"
+      "node",
+      "ids-enterprise-typings"
     ],
     "resolveJsonModule": true,
     "esModuleInterop": true,

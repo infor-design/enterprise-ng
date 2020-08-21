@@ -6,7 +6,8 @@
        "jasmine",
        "jquery",
        "node",
-       "lscache"
+       "lscache",
+       "ids-enterprise-typings"
     ]
   },
   "angularCompilerOptions": {
