@@ -1,5 +1,3 @@
-/// <reference path="soho-lookup.d.ts" />
-
 import {
   ComponentFixture,
   TestBed
@@ -30,7 +28,7 @@ export const productsData = [
     id: 1,
     productId: 2142201,
     productName: 'Compressor',
-    activity:  'Assemble Paint',
+    activity: 'Assemble Paint',
     quantity: 1,
     price: 210.99,
     status: 'OK',
@@ -40,7 +38,7 @@ export const productsData = [
     id: 2,
     productId: 2241202,
     productName: 'Different Compressor',
-    activity:  'Inspect and Repair',
+    activity: 'Inspect and Repair',
     quantity: 2,
     price: 210.99,
     status: '',
@@ -50,7 +48,7 @@ export const productsData = [
     id: 3,
     productId: 2342203,
     productName: 'Compressor',
-    activity:  'Inspect and Repair',
+    activity: 'Inspect and Repair',
     quantity: 1,
     price: 120.99,
     status: null as any,
@@ -60,7 +58,7 @@ export const productsData = [
     id: 4,
     productId: 2445204,
     productName: 'Another Compressor',
-    activity:  'Assemble Paint',
+    activity: 'Assemble Paint',
     quantity: 3,
     price: 210.99,
     status: 'OK',
@@ -70,7 +68,7 @@ export const productsData = [
     id: 5,
     productId: 2542205,
     productName: 'I Love Compressors',
-    activity:  'Inspect and Repair',
+    activity: 'Inspect and Repair',
     quantity: 4,
     price: 210.99,
     status: 'OK',
@@ -80,7 +78,7 @@ export const productsData = [
     id: 5,
     productId: 2642205,
     productName: 'Air Compressors',
-    activity:  'Inspect and Repair',
+    activity: 'Inspect and Repair',
     quantity: 41,
     price: 120.99,
     status: 'OK',
@@ -90,7 +88,7 @@ export const productsData = [
     id: 6,
     productId: 2642206,
     productName: 'Some Compressor',
-    activity:  'inspect and Repair',
+    activity: 'inspect and Repair',
     quantity: 41,
     price: 123.99,
     status: 'OK',
@@ -99,11 +97,11 @@ export const productsData = [
   },
 ];
 
-export const updatedProductsData = [ ...productsData, {
+export const updatedProductsData = [...productsData, {
   id: 7,
   productId: 2642207,
   productName: 'Some other Compressor',
-  activity:  'Buy it!',
+  activity: 'Buy it!',
   quantity: 54,
   price: 220.99,
   status: 'OK',

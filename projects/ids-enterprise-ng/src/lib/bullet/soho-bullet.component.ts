@@ -1,5 +1,3 @@
-/// <reference path="soho-bullet.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,
@@ -80,8 +78,8 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
       this.bullet = this.jQueryElement.data('bullet');
 
       // Setup the events
-      this.jQueryElement.on('rendered', (... args) =>
-          this.ngZone.run(() => this.rendered.emit(args)));
+      this.jQueryElement.on('rendered', (...args) =>
+        this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
         this.ngZone.run(() => this.contextmenu.emit(args)));
     });

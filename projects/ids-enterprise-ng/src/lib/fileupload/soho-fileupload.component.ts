@@ -1,5 +1,3 @@
-/// <reference path="soho-fileupload.d.ts" />
-
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -16,7 +14,7 @@ import {
 
 @Component({
   selector: 'input[soho-fileupload]',  // tslint:disable-line
-  template:  '<ng-content></ng-content>',
+  template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
@@ -104,7 +102,7 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
     private element: ElementRef,
     private changeDetectorRef: ChangeDetectorRef,
     private ngZone: NgZone
-  ) {}
+  ) { }
 
   /** Called when the value changes. */
   @Output() changeEvent = new EventEmitter<SohoFileUploadEvent>();
@@ -121,7 +119,7 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
        * Bind to jQueryElement's events
        */
       this.jQueryElement.on('change', (event: SohoFileUploadEvent) =>
-          this.ngZone.run(() => this.changeEvent.emit(event)));
+        this.ngZone.run(() => this.changeEvent.emit(event)));
     });
   }
 

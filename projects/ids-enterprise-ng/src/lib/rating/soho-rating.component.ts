@@ -1,5 +1,3 @@
-/// <reference path="soho-rating.d.ts" />
-
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

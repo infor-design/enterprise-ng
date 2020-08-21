@@ -1,5 +1,3 @@
-/// <reference path="soho-input-validate.d.ts" />
-
 import {
   AfterViewInit, Attribute, Directive, ElementRef,
   EventEmitter, HostBinding, Input, NgZone, Output
@@ -52,32 +50,32 @@ export class SohoInputValidateDirective implements AfterViewInit {
 
       // Initialise any event handlers.
       this.jQueryElement.on('error', (event: SohoInputValidateEvent, validation) => this.ngZone.run(() => {
-        event.validation = { field: validation.field[ 0 ], message: validation.message };
+        event.validation = { field: validation.field[0], message: validation.message };
         this.error.emit(event);
       }));
 
       this.jQueryElement.on('alert', (event: SohoInputValidateEvent, validation) => this.ngZone.run(() => {
-        event.validation = { field: validation.field[ 0 ], message: validation.message };
+        event.validation = { field: validation.field[0], message: validation.message };
         this.alert.emit(event);
       }));
 
       this.jQueryElement.on('success', (event: SohoInputValidateEvent, validation) => this.ngZone.run(() => {
-        event.validation = { field: validation.field[ 0 ], message: validation.message };
+        event.validation = { field: validation.field[0], message: validation.message };
         this.success.emit(event);
       }));
 
       this.jQueryElement.on('icon', (event: SohoInputValidateEvent, validation) => this.ngZone.run(() => {
-        event.validation = { field: validation.field[ 0 ], message: validation.message };
+        event.validation = { field: validation.field[0], message: validation.message };
         this.icon.emit(event);
       }));
 
       this.jQueryElement.on('info', (event: SohoInputValidateEvent, validation) => this.ngZone.run(() => {
-        event.validation = { field: validation.field[ 0 ], message: validation.message };
+        event.validation = { field: validation.field[0], message: validation.message };
         this.info.emit(event);
       }));
 
       this.jQueryElement.on('valid', (event: SohoInputValidateEvent, validation) => this.ngZone.run(() => {
-        event.validation = { field: validation.field[ 0 ], message: validation.message };
+        event.validation = { field: validation.field[0], message: validation.message };
         this.valid.emit(event);
       }));
 

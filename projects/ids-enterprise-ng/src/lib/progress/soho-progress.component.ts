@@ -1,5 +1,3 @@
-/// <reference path="soho-progress.d.ts" />
-
 import {
   AfterViewInit,
   Component,

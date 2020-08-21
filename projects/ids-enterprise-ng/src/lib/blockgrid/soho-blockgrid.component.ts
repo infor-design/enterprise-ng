@@ -1,5 +1,3 @@
-/// <reference path="soho-blockgrid.d.ts" />
-
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -125,7 +123,7 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
   constructor(
     private element: ElementRef,
     private ngZone: NgZone
-  ) {}
+  ) { }
 
   /** Setup */
   ngAfterViewInit() {
@@ -135,14 +133,14 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
       this.blockgrid = this.jQueryElement.data('blockgrid');
 
       // Setup the events
-      this.jQueryElement.on('selected', (... args) => this.onSelected(args));
-      this.jQueryElement.on('deselected', (... args) => this.onDeselected(args));
-      this.jQueryElement.on('activated', (... args) => this.onActivated(args));
-      this.jQueryElement.on('deactivated', (... args) => this.onDeactivated(args));
+      this.jQueryElement.on('selected', (...args) => this.onSelected(args));
+      this.jQueryElement.on('deselected', (...args) => this.onDeselected(args));
+      this.jQueryElement.on('activated', (...args) => this.onActivated(args));
+      this.jQueryElement.on('deactivated', (...args) => this.onDeactivated(args));
 
       if (this.blockgrid.pagerAPI) {
-        this.jQueryElement.on('page', (... args) => this.onPage(args));
-        this.jQueryElement.on('pagesizechange', (... args) => this.onPageSizeChange(args));
+        this.jQueryElement.on('page', (...args) => this.onPage(args));
+        this.jQueryElement.on('pagesizechange', (...args) => this.onPageSizeChange(args));
       }
     });
   }

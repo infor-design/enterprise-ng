@@ -1,5 +1,3 @@
-/// <reference path="soho-bar.d.ts"/>
-
 import {
   AfterViewChecked,
   AfterViewInit,
@@ -38,7 +36,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
     }
   }
 
-   /** Chart Type */
+  /** Chart Type */
   @Input() set type(value: SohoBarType) {
     this.options.type = value;
 
@@ -274,7 +272,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
     this.ngZone.runOutsideAngular(() => this.bar.toggleSelected(selected));
   }
 
-  public getSelected():  SohoBarSelected {
+  public getSelected(): SohoBarSelected {
     return this.ngZone.runOutsideAngular(() => this.bar.getSelected());
   }
 }

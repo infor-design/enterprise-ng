@@ -1,5 +1,3 @@
-/// <reference path="soho-tag.d.ts" />
-
 import {
   Component,
   Input,
@@ -71,7 +69,7 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
 
       // Add event handlers for the outer tag list.
       this.jQueryElement
-        .on('aftertagremove', (e: JQuery.TriggeredEvent) => this.onAfterTagRemove(e) );
+        .on('aftertagremove', (e: JQuery.TriggeredEvent) => this.onAfterTagRemove(e));
     });
   }
 
@@ -113,7 +111,7 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoTagComponent implements AfterViewInit, OnDestroy {
- // -------------------------------------------
+  // -------------------------------------------
   // Supported tag types.
   // -------------------------------------------
 
@@ -207,8 +205,8 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
       // this.jQueryElement
 
       this.jQueryElement
-        .on('beforetagremove', (e: JQuery.TriggeredEvent, element: HTMLElement) => this.onBeforeTagRemove(e, element) )
-        .on('click', (e: JQuery.TriggeredEvent) => this.onClick(e) );
+        .on('beforetagremove', (e: JQuery.TriggeredEvent, element: HTMLElement) => this.onBeforeTagRemove(e, element))
+        .on('click', (e: JQuery.TriggeredEvent) => this.onClick(e));
     });
   }
 
@@ -227,7 +225,7 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
    */
   public updated(): void {
     if (this.tag) {
-      this.ngZone.runOutsideAngular( () => this.tag.updated(this.options) );
+      this.ngZone.runOutsideAngular(() => this.tag.updated(this.options));
     }
   }
 

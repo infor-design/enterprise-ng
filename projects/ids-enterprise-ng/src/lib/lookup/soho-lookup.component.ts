@@ -1,5 +1,3 @@
-/// <reference path="soho-lookup.d.ts" />
-
 import {
   AfterViewInit,
   AfterViewChecked,
@@ -65,7 +63,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   /** Custom click event; can be used with a modal dialog and custom list component */
-  @Input() public set  click(value: SohoLookupClickFunction) {
+  @Input() public set click(value: SohoLookupClickFunction) {
     this.settings.click = value;
     if (this.lookup) {
       this.lookup.settings.click = this.settings.click;
@@ -77,7 +75,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   /** If a click method is defined, this flexible object can be passed in. */
-  @Input() public set  clickArguments(value: any) {
+  @Input() public set clickArguments(value: any) {
     this.settings.clickArguments = value;
     if (this.lookup) {
       this.lookup.settings.clickArguments = this.settings.clickArguments;
@@ -157,7 +155,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   /** Custom modal content. */
-  @Input() public set modalContent(value:  JQuery | string) {
+  @Input() public set modalContent(value: JQuery | string) {
     this.settings.modalContent = value;
     if (this.lookup) {
       this.lookup.settings.modalContent = this.settings.modalContent;
@@ -169,7 +167,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   /** Can the user type random text into the field. */
-  @Input() public set editable(value:  boolean) {
+  @Input() public set editable(value: boolean) {
     this.settings.editable = value;
     if (this.lookup) {
       this.lookup.settings.editable = this.settings.editable;
@@ -181,7 +179,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   /** If set to false the dialog wont apply the value on clicking a value. */
-  @Input() public set autoApply(value:  boolean) {
+  @Input() public set autoApply(value: boolean) {
     this.settings.autoApply = value;
     if (this.lookup) {
       this.lookup.settings.autoApply = this.settings.autoApply;

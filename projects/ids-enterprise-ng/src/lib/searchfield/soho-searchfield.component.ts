@@ -1,5 +1,3 @@
-/// <reference path="soho-searchfield.d.ts" />
-
 import {
   AfterViewInit,
   Component,

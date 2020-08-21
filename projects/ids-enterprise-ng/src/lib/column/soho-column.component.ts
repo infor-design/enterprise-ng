@@ -1,5 +1,3 @@
-/// <reference path="soho-column.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,
@@ -38,7 +36,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
     }
   }
 
-   /** Chart Type */
+  /** Chart Type */
   @Input() set type(value: SohoColumnType) {
     this.options.type = value;
 

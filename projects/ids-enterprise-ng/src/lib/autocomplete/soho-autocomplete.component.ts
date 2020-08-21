@@ -1,5 +1,3 @@
-/// <reference path="soho-autocomplete.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,

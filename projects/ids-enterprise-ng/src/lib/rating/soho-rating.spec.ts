@@ -1,5 +1,3 @@
-/// <reference path="soho-rating.d.ts" />
-
 import { } from 'jasmine';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -10,14 +8,14 @@ import { SohoRatingModule } from './soho-rating.module';
 import { SohoRatingComponent } from './soho-rating.component';
 
 describe('Soho Rating Unit Tests', () => {
-  let comp:     SohoRatingComponent;
-  let fixture:  ComponentFixture<SohoRatingComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let comp: SohoRatingComponent;
+  let fixture: ComponentFixture<SohoRatingComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoRatingComponent ]
+      declarations: [SohoRatingComponent]
     });
 
     fixture = TestBed.createComponent(SohoRatingComponent);
@@ -40,16 +38,16 @@ class SohoRatingTestComponent {
 }
 
 describe('Soho Rating Chart Render', () => {
-  let rating:  SohoRatingComponent;
+  let rating: SohoRatingComponent;
   let component: SohoRatingTestComponent;
-  let fixture:   ComponentFixture<SohoRatingTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoRatingTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoRatingTestComponent ],
-      imports: [ FormsModule, SohoRatingModule ]
+      declarations: [SohoRatingTestComponent],
+      imports: [FormsModule, SohoRatingModule]
     });
 
     fixture = TestBed.createComponent(SohoRatingTestComponent);

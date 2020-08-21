@@ -1,5 +1,3 @@
-/// <reference path="soho-breadcrumb.d.ts" />
-
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

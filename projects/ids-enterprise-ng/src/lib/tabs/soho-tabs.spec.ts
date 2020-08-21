@@ -1,5 +1,3 @@
-/// <reference path="soho-tabs.d.ts" />
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 // import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';
@@ -70,16 +68,16 @@ class SohoBasicTabsTestComponent {
 // });
 
 describe('Soho Basic Tabs Render', () => {
-  let tabs:      SohoTabsComponent;
+  let tabs: SohoTabsComponent;
   let component: SohoBasicTabsTestComponent;
-  let fixture:   ComponentFixture<SohoBasicTabsTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoBasicTabsTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoBasicTabsTestComponent ],
-      imports: [ SohoTabsModule ]
+      declarations: [SohoBasicTabsTestComponent],
+      imports: [SohoTabsModule]
     });
 
     fixture = TestBed.createComponent(SohoBasicTabsTestComponent);

@@ -1,5 +1,3 @@
-/// <reference path="soho-locale.d.ts" />
-
 import { SohoTranslatePipe } from './soho-translate.pipe';
 
 describe('Pipe: SohoTranslatePipe', () => {

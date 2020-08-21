@@ -1,5 +1,3 @@
-/// <reference path="soho-tag.d.ts" />
-
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DebugElement, Component, ViewChild } from '@angular/core';

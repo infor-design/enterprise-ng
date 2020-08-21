@@ -1,9 +1,8 @@
-/// <reference path="soho-homepage.d.ts" />
-
 import {
   Component,
   HostBinding,
-  Input } from '@angular/core';
+  Input
+} from '@angular/core';
 
 @Component({
   selector: '[soho-widget-title]', // tslint:disable-line

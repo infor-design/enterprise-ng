@@ -1,5 +1,3 @@
-/// <reference path="soho-expandablearea.d.ts" />
-
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

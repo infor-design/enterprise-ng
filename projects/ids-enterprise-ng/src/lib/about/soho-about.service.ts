@@ -1,5 +1,3 @@
-/// <reference path="./soho-about.d.ts" />
-
 import { Injectable } from '@angular/core';
 import { SohoAboutRef } from './soho-about.ref';
 

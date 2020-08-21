@@ -1,5 +1,3 @@
-/// <reference path="soho-radar.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,

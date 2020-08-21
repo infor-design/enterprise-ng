@@ -1,5 +1,3 @@
-/// <reference path="soho-spinbox.d.ts" />
-
 import {
   ComponentFixture,
   TestBed

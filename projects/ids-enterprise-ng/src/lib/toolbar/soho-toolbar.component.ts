@@ -1,6 +1,3 @@
-/// <reference path="soho-toolbar.d.ts"/>
-/// <reference path="../searchfield/soho-searchfield.d.ts"/>
-
 import {
   AfterViewChecked,
   AfterViewInit,

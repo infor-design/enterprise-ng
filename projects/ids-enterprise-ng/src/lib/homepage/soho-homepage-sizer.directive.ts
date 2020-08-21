@@ -1,5 +1,3 @@
-/// <reference path="soho-homepage.d.ts" />
-
 import {
   AfterViewInit,
   Directive,
@@ -21,7 +19,7 @@ export class SohoHomepageSizerDirective implements AfterViewInit, OnDestroy {
   private jQueryElement: JQuery;
   private containerHeight: number;
 
-  constructor(public elementRef: ElementRef, private ngZone: NgZone) {}
+  constructor(public elementRef: ElementRef, private ngZone: NgZone) { }
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {

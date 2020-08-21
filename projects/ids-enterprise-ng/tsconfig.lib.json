@@ -12,7 +12,8 @@
     "types": [
       "jasmine",
       "jquery",
-      "node"
+      "node",
+      "ids-enterprise-typings"
     ],
     "lib": [
       "dom",
@@ -32,6 +33,7 @@
   },
   "exclude": [
     "src/test.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "types"
   ]
 }

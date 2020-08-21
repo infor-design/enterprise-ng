@@ -1,5 +1,3 @@
-/// <reference path="soho-field-filter.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit, ChangeDetectorRef,
@@ -70,7 +68,7 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
     private ref: ChangeDetectorRef,
     private element: ElementRef,
     private ngZone: NgZone,
-  ) {  }
+  ) { }
 
   ngAfterViewChecked() {
     if (this.runUpdatedOnCheck) {

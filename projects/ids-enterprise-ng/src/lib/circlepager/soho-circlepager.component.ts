@@ -1,5 +1,3 @@
-/// <reference path="soho-circlepager.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,

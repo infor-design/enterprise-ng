@@ -1,5 +1,3 @@
-/// <reference path="soho-form-compact.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,

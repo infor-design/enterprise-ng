@@ -1,5 +1,3 @@
-/// <reference path="soho-toolbar-flex.d.ts"/>
-
 import {
   AfterViewChecked,
   AfterViewInit,

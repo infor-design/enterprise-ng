@@ -1,5 +1,3 @@
-/// <reference path="soho-message.d.ts" />
-
 import { Subject } from 'rxjs';
 
 import { SohoModalDialogVetoableEventGuard } from '../modal-dialog/soho-modal-dialog.ref';
@@ -9,7 +7,7 @@ import { SohoModalDialogVetoableEventGuard } from '../modal-dialog/soho-modal-di
  */
 export class SohoMessageRef {
   /** Vetoable Event Guard */
-  private eventGuard: SohoModalDialogVetoableEventGuard<any> = { };
+  private eventGuard: SohoModalDialogVetoableEventGuard<any> = {};
 
   /** Selector referencing the modal-dialog after it has been moved to the dialog container. */
   private jQueryElement: JQuery;
@@ -147,11 +145,11 @@ export class SohoMessageRef {
     return this;
   }
 
- /**
-   * Dialog result property.
-   *
-   * @param dialogResult - the stored restult of the dialog.
-   */
+  /**
+    * Dialog result property.
+    *
+    * @param dialogResult - the stored restult of the dialog.
+    */
   set dialogResult(dialogResult: any) {
     this._dialogResult = dialogResult;
   }
@@ -165,7 +163,7 @@ export class SohoMessageRef {
    * @param placeholder for the dialog; defaults to the body.
    */
   constructor() {
-      this._placeholder = $('body');
+    this._placeholder = $('body');
   }
 
   /**
@@ -271,12 +269,12 @@ export class SohoMessageRef {
     return fn ? fn.call(this.eventGuard, this) : true;
   }
 
- /**
-   * Handles the 'open' event, fired just before
-   * the focus is assigned to a message.
-   *
-   * @param event - full event object.
-   */
+  /**
+    * Handles the 'open' event, fired just before
+    * the focus is assigned to a message.
+    *
+    * @param event - full event object.
+    */
   private onOpen(event: any) {
     this.open$.next(event);
   }

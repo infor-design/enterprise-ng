@@ -1,5 +1,3 @@
-/// <reference path="soho-line.d.ts" />
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';
@@ -9,68 +7,68 @@ import { SohoLineModule } from './soho-line.module';
 import { SohoLineComponent } from './soho-line.component';
 
 const lineData = [{
-    data: [{
-        name: 'Aug:17 Week-1',
-        value: 8
-    }, {
-        name: 'Aug:17 Week-2',
-        value: 9
-    }, {
-        name: 'Aug:17 Week-3',
-        value: 0
-    }],
-    name: 'Logins'
-  },
-  {
-    data: [{
-        name: 'Aug:17 Week-1',
-        value: 7
-    }, {
-        name: 'Aug:17 Week-2',
-        value: 14
-    }, {
-        name: 'Aug:17 Week-3',
-        value: 0
-    }],
-    name: 'Logins'
-  },
-  {
-    data: [{
-        name: 'Aug:17 Week-1',
-        value: 6
-    }, {
-        name: 'Aug:17 Week-2',
-        value: 11
-    }, {
-        name: 'Aug:17 Week-3',
-        value: 0
-    }],
-    name: 'Logins'
-  }];
-
-const updatedLineData = [ ...lineData, {
   data: [{
-      name: 'Aug:17 Week-1',
-      value: 1
+    name: 'Aug:17 Week-1',
+    value: 8
   }, {
-      name: 'Aug:17 Week-2',
-      value: 2
+    name: 'Aug:17 Week-2',
+    value: 9
   }, {
-      name: 'Aug:17 Week-3',
-      value: 2
+    name: 'Aug:17 Week-3',
+    value: 0
+  }],
+  name: 'Logins'
+},
+{
+  data: [{
+    name: 'Aug:17 Week-1',
+    value: 7
+  }, {
+    name: 'Aug:17 Week-2',
+    value: 14
+  }, {
+    name: 'Aug:17 Week-3',
+    value: 0
+  }],
+  name: 'Logins'
+},
+{
+  data: [{
+    name: 'Aug:17 Week-1',
+    value: 6
+  }, {
+    name: 'Aug:17 Week-2',
+    value: 11
+  }, {
+    name: 'Aug:17 Week-3',
+    value: 0
+  }],
+  name: 'Logins'
+}];
+
+const updatedLineData = [...lineData, {
+  data: [{
+    name: 'Aug:17 Week-1',
+    value: 1
+  }, {
+    name: 'Aug:17 Week-2',
+    value: 2
+  }, {
+    name: 'Aug:17 Week-3',
+    value: 2
   }],
   name: 'Failures'
 }];
 
 describe('Soho Line Unit Tests', () => {
-  let comp:     SohoLineComponent;
-  let fixture:  ComponentFixture<SohoLineComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let comp: SohoLineComponent;
+  let fixture: ComponentFixture<SohoLineComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoLineComponent ]
+      declarations: [SohoLineComponent]
     });
 
     fixture = TestBed.createComponent(SohoLineComponent);
@@ -85,7 +83,7 @@ describe('Soho Line Unit Tests', () => {
 
   it('check inputs', () => {
     const tooltip = 'A Tooltip';
-    const dots = {number: 10, format: ',.1s'};
+    const dots = { number: 10, format: ',.1s' };
     const xAxis = { ticks: { number: 5, format: 'd' } };
     const yAxis = { ticks: 'auto' };
     const emptyMessage: SohoEmptyMessageOptions = {
@@ -129,7 +127,7 @@ describe('Soho Line Unit Tests', () => {
 
     // once bar chart is built setting input should cause bar.settings to update
     const updatedTooltip = 'Another tooltip';
-    const updatedDots = {number: 5, format: ',.1s'};
+    const updatedDots = { number: 5, format: ',.1s' };
     const updatedXAxis = yAxis;
     const updatedYAxis = xAxis;
     const updatedEmptyMessage: SohoEmptyMessageOptions = {
@@ -193,16 +191,16 @@ class SohoLineTestComponent {
 }
 
 describe('Soho line Chart Render', () => {
-  let line:  SohoLineComponent;
+  let line: SohoLineComponent;
   let component: SohoLineTestComponent;
-  let fixture:   ComponentFixture<SohoLineTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoLineTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoLineTestComponent ],
-      imports: [ FormsModule, SohoLineModule ]
+      declarations: [SohoLineTestComponent],
+      imports: [FormsModule, SohoLineModule]
     });
 
     fixture = TestBed.createComponent(SohoLineTestComponent);

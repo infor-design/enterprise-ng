@@ -1,5 +1,3 @@
-/// <reference path="soho-line.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,
@@ -184,7 +182,7 @@ export class SohoLineComponent implements AfterViewInit, AfterViewChecked, OnDes
         this.ngZone.run(() => this.selected.emit(args)));
       this.jQueryElement.on('unselected', (e: any, args: SohoLineSelectEvent) =>
         this.ngZone.run(() => this.unselected.emit(args)));
-      this.jQueryElement.on('rendered', (... args) =>
+      this.jQueryElement.on('rendered', (...args) =>
         this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
         this.ngZone.run(() => this.contextmenu.emit(args)));

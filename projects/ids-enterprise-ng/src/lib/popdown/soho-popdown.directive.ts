@@ -1,5 +1,3 @@
-/// <reference path="soho-popdown.d.ts" />
-
 import {
   AfterViewInit,
   Directive,
@@ -26,25 +24,25 @@ export class SohoPopDownDirective implements AfterViewInit, OnDestroy {
     this.popdownOptions.keepOpen = keepOpen;
   }
 
-   /*
-   * If defined, provides a way to place the popdown against an alternate element.
-   */
+  /*
+  * If defined, provides a way to place the popdown against an alternate element.
+  */
   @Input()
   set trigger(trigger: any) {
     this.popdownOptions.trigger = trigger;
   }
 
-   /*
-   * If true, when the popdown is opened, the first available input/button in its content area will be focused.
-   */
+  /*
+  * If true, when the popdown is opened, the first available input/button in its content area will be focused.
+  */
   @Input()
   set autoFocus(autoFocus: boolean) {
     this.popdownOptions.autoFocus = autoFocus;
   }
 
-   /*
-   * If true, popdown will be toggle soon focused on the popdown trigger.
-   */
+  /*
+  * If true, popdown will be toggle soon focused on the popdown trigger.
+  */
   @Input()
   set toggleOnFocus(toggleOnFocus: boolean) {
     this.popdownOptions.toggleOnFocus = toggleOnFocus;
@@ -58,7 +56,7 @@ export class SohoPopDownDirective implements AfterViewInit, OnDestroy {
     this.popdownOptions.firstLastTab = firstLastTab;
   }
 
-  constructor(private element: ElementRef) {}
+  constructor(private element: ElementRef) { }
 
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);

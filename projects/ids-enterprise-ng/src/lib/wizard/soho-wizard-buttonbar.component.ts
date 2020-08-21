@@ -1,5 +1,3 @@
-/// <reference path="soho-wizard.d.ts" />
-
 import {
   Component,
   ChangeDetectorRef,
@@ -77,24 +75,27 @@ export class SohoWizardButtonbarComponent {
 
   @Input()
   public buttons = [
-    { id:       'previous',
-      text:     Soho.Locale.translate('Previous'),
-      click:    () => { this.wizard.previous(); },
+    {
+      id: 'previous',
+      text: Soho.Locale.translate('Previous'),
+      click: () => { this.wizard.previous(); },
       disabled: () => !this.wizard.hasPrevious(),
       position: 'middle'
     },
-    { id:        'next',
-      text:      Soho.Locale.translate('Next'),
-      click:     () => { this.wizard.next(); },
-      disabled:  () => !this.wizard.hasNext(),
+    {
+      id: 'next',
+      text: Soho.Locale.translate('Next'),
+      click: () => { this.wizard.next(); },
+      disabled: () => !this.wizard.hasNext(),
       isDefault: true,
-      position:  'middle'
+      position: 'middle'
     },
-    { id:        'finish',
-      text:      'Finish', // Soho.Locale.translate('Finish'),
-      click:     () => { this.wizard.finish(); },
-      disabled:  () => this.wizard.hasFinished(),
-      position:  'right'
+    {
+      id: 'finish',
+      text: 'Finish', // Soho.Locale.translate('Finish'),
+      click: () => { this.wizard.finish(); },
+      disabled: () => this.wizard.hasFinished(),
+      position: 'right'
     }];
 
   @HostBinding('class.buttonset') isButtonBar = false;

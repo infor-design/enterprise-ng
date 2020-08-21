@@ -1,5 +1,3 @@
-/// <reference path="soho-context-menu.d.ts" />
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, DebugElement, EventEmitter, Output } from '@angular/core';
 
@@ -38,14 +36,14 @@ class TestContextMenuDirectiveComponent {
 }
 
 describe('Soho Context Menu Unit Tests', () => {
-  let comp:     TestContextMenuDirectiveComponent;
-  let fixture:  ComponentFixture<TestContextMenuDirectiveComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let comp: TestContextMenuDirectiveComponent;
+  let fixture: ComponentFixture<TestContextMenuDirectiveComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestContextMenuDirectiveComponent ]
+      declarations: [TestContextMenuDirectiveComponent]
     });
 
     fixture = TestBed.createComponent(TestContextMenuDirectiveComponent);

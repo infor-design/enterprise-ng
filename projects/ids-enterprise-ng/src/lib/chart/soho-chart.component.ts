@@ -1,5 +1,3 @@
-/// <reference path="soho-chart.d.ts" />
-
 import {
   AfterViewInit,
   Component,
@@ -16,10 +14,10 @@ import {
 export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   @Input() set chartOptions(chartOptions: SohoChartOptions) {
-      this._chartOptions = chartOptions;
-      if (this.jQueryElement) {
-        this.updateRequired = true;
-      }
+    this._chartOptions = chartOptions;
+    if (this.jQueryElement) {
+      this.updateRequired = true;
+    }
   }
 
   @Input() set selectedIndex(index: number) {
@@ -57,7 +55,7 @@ export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDe
     if (this._chartOptions.labels) {
       this._chartOptions.labels.hideLabels = !hideLabels;
     } else {
-      this._chartOptions['labels'] = {hideLabels: !hideLabels};
+      this._chartOptions['labels'] = { hideLabels: !hideLabels };
     }
   }
 
@@ -95,7 +93,7 @@ export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDe
 
   // An internal chartOptions object that gets updated by using
   // the component's Inputs()
-  private _chartOptions: SohoChartOptions = {animate: true};
+  private _chartOptions: SohoChartOptions = { animate: true };
 
   // Reference to the jQuery element.
   private jQueryElement: JQuery;
@@ -108,7 +106,7 @@ export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDe
   constructor(
     private elementRef: ElementRef,
     private ngZone: NgZone,
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
@@ -167,9 +165,9 @@ export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDe
       if (this.jQueryElement) {
         let selectOptions: ChartSelectionOptions;
         if (this._chartOptions.type.indexOf('grouped') >= 0 || this._chartOptions.type === 'column') {
-          selectOptions = {groupName: 'ref', groupValue: ref};
+          selectOptions = { groupName: 'ref', groupValue: ref };
         } else {
-          selectOptions = {fieldName: 'ref', fieldValue: ref};
+          selectOptions = { fieldName: 'ref', fieldValue: ref };
         }
 
         this.chart.setSelected(selectOptions);
@@ -182,9 +180,9 @@ export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDe
       const dataArray = this._chartOptions.dataset;
       if (this._chartOptions.type === 'pie' || this._chartOptions.type === 'donut') {
         for (let i = 0; i < dataArray.length; i++) {
-          const dataNode = dataArray[ i ];
+          const dataNode = dataArray[i];
           for (let j = 0; j < dataNode.data.length; j++) {
-            const data = dataNode.data[ j ];
+            const data = dataNode.data[j];
             if (selectIndex === j) {
               data.selected = true;
             } else {
@@ -194,7 +192,7 @@ export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDe
         }
       } else {
         for (let i = 0; i < dataArray.length; i++) {
-          const data = dataArray[ i ];
+          const data = dataArray[i];
           if (selectIndex === i) {
             data.selected = true;
           } else {

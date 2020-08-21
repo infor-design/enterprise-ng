@@ -1,5 +1,3 @@
-/// <reference path="soho-field-options.d.ts" />
-
 import {
   AfterViewInit,
   Directive,

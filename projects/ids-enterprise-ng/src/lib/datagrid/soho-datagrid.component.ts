@@ -1,5 +1,3 @@
-/// <reference path="./soho-datagrid.d.ts" />
-
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -2033,7 +2031,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // requested, or when the grid is destroyed.
     this.rowTemplateComponents.push({ row: event.row, component: component });
 
-}
+  }
 
   /**
    * Event fired after a key is pressed
@@ -2428,7 +2426,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // Clear the cache.
     this.cellComponents = [];
 
-     // Remove rowTemplate dynamic components.
+    // Remove rowTemplate dynamic components.
     if (this.rowTemplateComponents && this.rowTemplateComponents.length > 0) {
       this.rowTemplateComponents.forEach((c) => { c.component.destroy(); });
       this.rowTemplateComponents = [];
@@ -2711,7 +2709,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   private checkForSummaryRowSettings() {
-    if (!this._gridOptions.summaryRowColumns || this._gridOptions.summaryRowColumns.length === 0 ) {
+    if (!this._gridOptions.summaryRowColumns || this._gridOptions.summaryRowColumns.length === 0) {
       this._gridOptions.columns.forEach((c) => {
         c.summaryRowFormatter = undefined;
         c.summaryText = undefined;

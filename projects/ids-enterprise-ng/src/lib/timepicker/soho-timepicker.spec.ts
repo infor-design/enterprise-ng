@@ -1,5 +1,3 @@
-/// <reference path="soho-timepicker.d.ts" />
-
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Component, DebugElement, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -26,15 +24,15 @@ class TestTimepickerComponent {
 }
 
 describe('Soho Timepicker Unit Tests', () => {
-  let comp:     TestTimepickerComponent;
-  let fixture:  ComponentFixture<TestTimepickerComponent>;
-  let de:       DebugElement;
-  let el:       HTMLInputElement;
+  let comp: TestTimepickerComponent;
+  let fixture: ComponentFixture<TestTimepickerComponent>;
+  let de: DebugElement;
+  let el: HTMLInputElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestTimepickerComponent ],
-      imports: [ FormsModule, ReactiveFormsModule, SohoTimePickerModule ]
+      declarations: [TestTimepickerComponent],
+      imports: [FormsModule, ReactiveFormsModule, SohoTimePickerModule]
     });
 
     fixture = TestBed.createComponent(TestTimepickerComponent);
@@ -61,8 +59,8 @@ describe('Soho Timepicker Unit Tests', () => {
     fixture.detectChanges();
 
     fixture.whenStable().then(() => {
-        expect(comp.onChange).toHaveBeenCalled();
-        expect(comp.model).toBe('18:00', 'Model not updated to correct value.');
+      expect(comp.onChange).toHaveBeenCalled();
+      expect(comp.model).toBe('18:00', 'Model not updated to correct value.');
     });
   }));
 });

@@ -1,6 +1,4 @@
-﻿/// <reference path="soho-swaplist.d.ts" />
-
-import {
+﻿import {
   ComponentFixture,
   async,
   TestBed

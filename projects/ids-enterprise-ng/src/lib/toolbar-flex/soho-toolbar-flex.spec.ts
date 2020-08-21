@@ -1,5 +1,3 @@
-/// <reference path="soho-toolbar-flex.d.ts" />
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, EventEmitter, Input, Output, ViewChild } from '@angular/core';

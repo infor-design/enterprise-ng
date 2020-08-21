@@ -1,5 +1,3 @@
-/// <reference path="soho-application-menu.d.ts"/>
-
 import {
   AfterViewChecked,
   AfterViewInit,

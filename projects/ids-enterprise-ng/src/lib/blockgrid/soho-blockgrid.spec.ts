@@ -1,5 +1,3 @@
-/// <reference path="soho-blockgrid.d.ts" />
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, EventEmitter, ViewChild } from '@angular/core';

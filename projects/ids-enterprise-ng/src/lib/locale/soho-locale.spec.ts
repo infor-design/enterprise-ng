@@ -1,4 +1,3 @@
-/// <reference path="soho-locale.d.ts" />
 describe('Soho Locale Types Tests', () => {
 
   it('Validate Types and Translations', (done) => {
