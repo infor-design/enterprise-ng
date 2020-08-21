@@ -50,7 +50,7 @@ export class DataGridSaveUserSettingsDemoComponent implements AfterViewChecked, 
       pagesizes: [ 5, 10, 25, 100 ],
       sortable: false,
       filterable: true,
-      rowHeight: 'short',
+      rowHeight: 'small',
       rowReorder: true,
       saveUserSettings: {
         columns: true,
