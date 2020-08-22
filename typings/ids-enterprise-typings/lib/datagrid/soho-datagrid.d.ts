@@ -24,6 +24,7 @@ type SohoDataGridSelectable = boolean | 'single' | 'multiple' | 'mixed' | 'sibli
 
 interface SohoDataGridFrozenColumns {
   left?: any[];
+  leftScrollable?: boolean;
   right?: any[];
 }
 
