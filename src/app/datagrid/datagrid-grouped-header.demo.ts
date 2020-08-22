@@ -49,7 +49,7 @@ export class DataGridGroupedHeaderDemoComponent implements AfterViewChecked, OnI
       pagesize: 25,
       pagesizes: [ 5, 10, 25, 100 ],
       indeterminate: true,
-      rowHeight: 'short', // short, medium or normal
+      rowHeight: 'small',
       sortable: false,
       columnGroups: [{ colspan: 3, id: 'firstGroup', name: 'Grouped Headers'},
         {colspan: 1, id: '', name: ''},

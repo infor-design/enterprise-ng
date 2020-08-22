@@ -51,7 +51,7 @@ export class DataGridPagingServiceDemoComponent implements OnInit {
       pagesize:      pageSize,
       pagesizes:     [ 5, 10, 25 ],
       indeterminate: false,
-      rowHeight:     'medium', // short, medium or normal
+      rowHeight:     'medium',
       source:        this.dataGridSource
     };
   }

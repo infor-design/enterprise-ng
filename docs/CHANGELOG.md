@@ -9,6 +9,19 @@
 - `[General]` Upgraded to Angular 10.  `BTHH` ([Issue #858](https://github.com/infor-design/enterprise-ng/issues/858))
     o See the UPGRADING guide for details.
     o This release see the removal of the ids-enterprise typings from this package.
+- `[Homepage]` Fixed an issue where the chart container was misaligned on example page. ([#894](https://github.com/infor-design/enterprise-ng/issues/894))
+
+## v7.5.2
+
+### 7.5.2 Fixes
+
+- `[Datagrid]` Added an option to frozen columns to allow the left side to be scrollable for trees. ([#3852](https://github.com/infor-design/enterprise/issues/3852))
+
+## v7.5.1
+
+### 7.5.1 Fixes
+
+- `[General]` Added a patched EP version 4.31.1.  `TJM`
 
 ## v7.5.0
 

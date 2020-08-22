@@ -41,7 +41,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
       pagesize: 10,
       pagesizes: [5, 10, 25, 100],
       indeterminate: true,
-      rowHeight: 'short', // short, medium or normal
+      rowHeight: 'small',
       sortable: false,
       showPageSizeSelector: this.showPageSizeSelector,
       disableClientSort: true,

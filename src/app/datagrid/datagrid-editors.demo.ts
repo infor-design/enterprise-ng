@@ -269,7 +269,7 @@ export class DataGridEditorsDemoComponent implements OnInit {
       selectable: 'multiple',
       idProperty: 'productId',
       editable: true,
-      rowHeight: 'short',
+      rowHeight: 'small',
       filterable: true,
       showDirty: true,
       stretchColumn: 'favorite'

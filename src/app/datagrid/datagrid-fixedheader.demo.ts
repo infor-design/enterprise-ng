@@ -47,7 +47,7 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
       pagesize: 100,
       pagesizes: [ 5, 10, 25, 100 ],
       indeterminate: true,
-      rowHeight: 'short',
+      rowHeight: 'small',
       filterable: true,
       source: this.dataGridOptions
     } as SohoDataGridOptions;
