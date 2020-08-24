@@ -130,11 +130,11 @@ export class ModalDialogDemoComponent {
   }
 
   openDialogResult() {
-    const dialogRef = this.modalService
+    this.modalService
       .message('<span class="message">Are you sure you want to delete this page?</span>')
       .buttons(
-        [{ text: 'YES', click: () => { dialogRef.close('YES'); } },
-        { text: 'NO', click: () => { dialogRef.close('NO'); }, isDefault: true }])
+        [{ text: 'YES', click: (_e, modal) => { modal.close('YES'); } },
+        { text: 'NO', click: (_e, modal) => { modal.close('NO'); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose(result => {
