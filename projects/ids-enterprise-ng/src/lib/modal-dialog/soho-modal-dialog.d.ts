@@ -136,7 +136,7 @@ type SohoModalButtonClickFunction = (
   e: JQuery.TriggeredEvent,
 
   /** The jQuery control.  */
-  model: SohoModalStatic) => void;
+  modal: SohoModalStatic) => void;
 
 /**
  * This interface represents the Api exposed by the

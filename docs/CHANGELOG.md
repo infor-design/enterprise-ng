@@ -5,6 +5,7 @@
 ### 7.6.0 Fixes
 
 - `[Homepage]` Fixed an issue where the chart container was misaligned on example page. ([#894](https://github.com/infor-design/enterprise-ng/issues/894))
+- `[Modal]` The `model` parameter was misnamed in the modal button event object so renamed this to the correct `modal` name. ([#4292](https://github.com/infor-design/enterprise-ng/issues/4292))
 
 ## v7.5.2
 
