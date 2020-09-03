@@ -54,12 +54,14 @@ interface SohoBreadcrumbItemOptions extends Object {
  * IDS Breadcrumb List Options
  */
 interface SohoBreadcrumbOptions extends Object {
-
   /* Rendering Style */
   style: SohoBreadcrumbOptionsStyle;
 
   /* Object-based breadcrumb items */
   breadcrumbs?: SohoBreadcrumbItemOptions[];
+
+  /* Add truncatling behavior when a lot of items */
+  truncate?: boolean;
 }
 
 /**

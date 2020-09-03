@@ -39,6 +39,10 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
     }
   }
 
+  onSelected(args: SohoDataGridSelectedEvent) {
+    console.log('onSelected', args);
+  }
+
   private buildGridOptions(): SohoDataGridOptions {
     return {
       columns: this.datagridPagingService.getColumns(),

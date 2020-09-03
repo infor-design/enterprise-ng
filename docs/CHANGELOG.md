@@ -4,6 +4,9 @@
 
 ### 7.6.0 Fixes
 
+- `[BreadCrumb]` Added new truncate settings. ([#4091](https://github.com/infor-design/enterprise/issues/4091))
+- `[Datagrid]` Added row number formatter to types. ([#1904](https://github.com/infor-design/enterprise/issues/1904))
+- `[General]` Made sure slate is more prominent that graphite in uplift. ([#4206](https://github.com/infor-design/enterprise/issues/4206))
 - `[Homepage]` Fixed an issue where the chart container was misaligned on example page. ([#894](https://github.com/infor-design/enterprise-ng/issues/894))
 - `[Modal]` The `model` parameter was misnamed in the modal button event object so renamed this to the correct `modal` name. ([#4292](https://github.com/infor-design/enterprise-ng/issues/4292))
 

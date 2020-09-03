@@ -557,6 +557,7 @@ interface SohoStatic {
     Ellipsis: SohoDataGridColumnFormatterFunction;
     Password: SohoDataGridColumnFormatterFunction;
     Readonly: SohoDataGridColumnFormatterFunction;
+    RowNumber: SohoDataGridColumnFormatterFunction;
     Date: SohoDataGridColumnFormatterFunction;
     Time: SohoDataGridColumnFormatterFunction;
     Autocomplete: SohoDataGridColumnFormatterFunction;
