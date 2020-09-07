@@ -4,7 +4,7 @@ describe('App Tests', () => {
   });
 
   it('should display root route header text', () => {
-    cy.get('app-header-dynamic-demo soho-toolbar h1 span')
+    cy.get('.page-title')
       .contains('IDS Enterprise Angular Components');
   });
 });

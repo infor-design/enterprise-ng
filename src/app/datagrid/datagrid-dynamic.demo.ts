@@ -2,7 +2,7 @@
 import {
   of,
   Observable,
-  BehaviorSubject
+  Subject
 } from 'rxjs';
 
 import {
@@ -30,7 +30,7 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
   @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
   @ViewChild(SohoPopupMenuComponent) popupMenu: SohoPopupMenuComponent;
 
-  private _subject$ = new BehaviorSubject([]);
+  private _subject$ = new Subject();
   public data = this._subject$.asObservable();
   public displayContextMenu = false;
   public contextMenuEvent: any;
@@ -43,14 +43,14 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
   ) {}
 
   ngAfterViewInit() {
-    setTimeout(() => this.addRows(), 1000);
+    this.addRows();
   }
 
   public get columns(): Observable<SohoDataGridColumn[]> {
     return of(this.service.getColumns());
   }
 
-  addRows() {
+  private addRows() {
     this.service.getData(null).subscribe((d: any[]) => {
       this.busyIndicator.open();
       const newData = new Array<any>(...d);
@@ -200,7 +200,7 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
   }
 }
 
-type MenuItem = {
-  label: string,
+interface MenuItem {
+  label: string;
   submenu?: MenuItem[];
-};
+}

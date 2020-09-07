@@ -1,9 +1,6 @@
 describe('Locale Tests', () => {
   beforeEach(() => {
     cy.visit('/locale-pipe');
-    // close side nav
-    cy.get('button[soho-nav-button]').click();
-    cy.get('div.modal-page-container').should('not.exist');
   });
 
   const checkLocale = (locale, name, date, currency) => {

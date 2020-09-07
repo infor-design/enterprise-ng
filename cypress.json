@@ -1,6 +1,7 @@
 {
   "baseUrl": "http://localhost:4200/ids-enterprise-ng-demo",
-  "viewportWidth": 800,
+  "viewportWidth": 1024,
   "viewportHeight": 800,
-  "projectId": "b4167k"
+  "projectId": "b4167k",
+  "video": false
 }

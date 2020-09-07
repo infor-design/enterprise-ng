@@ -10,9 +10,6 @@ describe('Modal Tests', () => {
   beforeEach(() => {
     count = 0;
     cy.visit('/modal-dialog');
-    // close side nav
-    cy.get('button[soho-nav-button]').click();
-    cy.get('div.modal-page-container').should('not.exist');
   });
 
   describe('Full on Tablet', () => {

@@ -3,7 +3,6 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
-    "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
@@ -17,7 +16,8 @@
     "types": [
       "jasmine",
       "jquery",
-      "node"
+      "node",
+      "cypress",
     ],
     "lib": [
       "es2018",

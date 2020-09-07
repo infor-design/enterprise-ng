@@ -22,4 +22,9 @@
 //
 //
 // -- This will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+Cypress.Commands.overwrite("visit", (originalFn, url, options) => {
+  // set app menu to close
+  window.localStorage.setItem('is-application-menu-open', false);
+  // call the original visit command
+  return originalFn(url, options);
+});

@@ -3,9 +3,6 @@ describe('Swap List Tests', () => {
 
   beforeEach(() => {
     cy.visit('/swaplist');
-    // close side nav
-    cy.get('button[soho-nav-button]').click();
-    cy.get('div.modal-page-container').should('not.exist');
     dataTransfer = new DataTransfer();
   });
 
