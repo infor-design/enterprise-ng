@@ -21,6 +21,7 @@ import { ApplicationMenuLazyMenuDemoComponent } from './application-menu/applica
 import { ApplicationMenuLazyService } from './application-menu/application-menu-lazy-service.demo';
 import { AreaDemoComponent } from './area/area.demo';
 import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
+import { AutocompleteTemplatesDemoComponent } from './autocomplete/autocomplete-templates.demo';
 import { BarDemoComponent } from './bar/bar.demo';
 import { BarGroupedDemoComponent } from './bar-grouped/bar-grouped.demo';
 import { BarStackedDemoComponent } from './bar-stacked/bar-stacked.demo';
@@ -252,6 +253,7 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
     ApplicationMenuTestPerfDemoComponent,
     AreaDemoComponent,
     AutocompleteDemoComponent,
+    AutocompleteTemplatesDemoComponent,
     BarDemoComponent,
     BarGroupedDemoComponent,
     BarStackedDemoComponent,
