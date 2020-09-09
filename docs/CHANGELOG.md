@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v7.7.0
+
+### 7.7.0 Fixes
+
+- Placeholder
+
 ## v7.6.0
 
 ### 7.6.0 Fixes
