@@ -16,7 +16,7 @@ export class PopupMenuDemoComponent {
     showLabel: true,
     showAxis: false,
     autoScale: false,
-  }
+  };
 
   onInsertCommentButtonClicked() {
     this.isInsertCommentDisabled = !this.isInsertCommentDisabled;
