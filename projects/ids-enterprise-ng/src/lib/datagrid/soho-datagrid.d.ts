@@ -10,7 +10,7 @@
 /**
  * Possible row height options.
  */
-type SohoDataGridRowHeight = 'short' | 'medium' | 'normal';
+type SohoDataGridRowHeight = 'extra-small' | 'small' | 'medium' | 'large' | 'short' | 'medium' | 'normal';
 type SohoDataGridTextAlign = 'left' | 'center' | 'right';
 type SohoDataGridResizeMode = 'flex' | 'fit';
 
@@ -54,6 +54,18 @@ interface SohoDataGridOptions {
 
   /** List of columns definitions. */
   columns?: SohoDataGridColumn[];
+
+  /**
+   * If true an extra column will be added to the end that fills the space.
+   * This allows columns to not stretch to fill so they are a constant size.
+   * This setting cannot be used with percent columns.
+   */
+  spacerColumn?: boolean;
+
+  /**
+   * Determines the sizing method for the auto sizing columns.
+   */
+  columnSizing?: 'both' | 'data' | 'header';
 
   /**
    * The name of the column stretched to fill the width of the datagrid,
@@ -301,6 +313,11 @@ interface SohoDataGridOptions {
   allowSelectAcrossPages?: boolean;
 
   /**
+   * An array of column IDs used to define aria descriptors for selection checkboxes.
+   */
+  columnIds?: Array<String | Number>;
+
+  /**
    * If true, the new row indicator will display after adding a row
    */
   showNewRowIndicator?: boolean;
@@ -318,6 +335,22 @@ interface SohoDataGridOptions {
 
   /* Html string for the expandable row area*/
   rowTemplate?: string;
+
+  /* Dynamic component to build */
+  rowTemplateComponent?: any;
+
+  /* Field to get the data from datarow */
+  rowTemplateField?: string;
+
+  /* The inputs for dynamic component  */
+  rowTemplateComponentInputs?: any;
+
+  /* add summary row */
+  summaryRow?: boolean;
+
+  /* summary row columns settings*/
+  summaryRowColumns?: SohoDataGridSummaryRowColumnSettings[];
+
 }
 
 type SohoDataGridModifiedRows = { [index: number]: SohoDataGridModifiedRow };
@@ -524,6 +557,7 @@ interface SohoStatic {
     Ellipsis: SohoDataGridColumnFormatterFunction;
     Password: SohoDataGridColumnFormatterFunction;
     Readonly: SohoDataGridColumnFormatterFunction;
+    RowNumber: SohoDataGridColumnFormatterFunction;
     Date: SohoDataGridColumnFormatterFunction;
     Time: SohoDataGridColumnFormatterFunction;
     Autocomplete: SohoDataGridColumnFormatterFunction;
@@ -807,6 +841,9 @@ interface SohoDataGridColumn {
   /** href for hyperlink */
   href?: SohoDataGridColumnHref;
 
+  /** href target for hyperlink */
+  target?: string;
+
   /** Column function to dynamically set the readonly property on cells based on row data. */
   isEditable?: SohoDataGridColumnIsEditableFunction;
 
@@ -899,6 +936,19 @@ interface SohoDataGridColumn {
 
   /* Array of objects with a value and label to be used as options in the filter row dropdown. */
   filterRowEditorOptions?: SohoGridCellOption[];
+
+  /* formatter summary */
+  summaryRowFormatter?: SohoDataGridColumnFormatterFunction | string;
+
+  /* aggregator */
+  aggregator?: string;
+
+  /* summary Text */
+  summaryText?: string;
+
+  /* summary text placement */
+  summaryTextPlacement?: string;
+
 }
 
 interface SohoDataGridColumnNumberFormat {
@@ -932,7 +982,7 @@ interface SohoDataGridStatic {
   sortFunction: SohoDataGridSortFunction;
 
   /** Reference to pager. */
-  pager: SohoPagerStatic;
+  pagerAPI: SohoPagerStatic;
 
   /** Updates the dataset displayed by the data grid. */
   updateDataset(dataset: Object[], pagerInfo?: SohoPagerPagingInfo): void;
@@ -1000,7 +1050,7 @@ interface SohoDataGridStatic {
    * @param columnId the id of the column to sort on.
    * @param ascending if true sort ascending, otherwise descending.  If not supplied the setting is toggled.
    */
-  setSortColumn(columnId: string, ascending?: boolean);
+  setSortColumn(columnId: string, ascending?: boolean): void;
 
   columnById(id: string): Array<any>;
 
@@ -1133,7 +1183,7 @@ interface SohoDataGridStatic {
   /**
    * Set and show a message/error on the given row.
    */
-  showRowError(row: number, message:string, type: SohoAlertType): void;
+  showRowError(row: number, message: string, type: SohoAlertType): void;
 
   /**
    * Commit the cell that's currently in edit mode.
@@ -1162,7 +1212,7 @@ interface SohoDataGridStatic {
    * @param cell The cell index
    * @param toggle True to set it and false to remove it
    */
-  setDirtyIndicator(row: number, cell: number, toggle: boolean): void;
+  setDirtyIndicator(row: number, cell: number, toggle: boolean, data?: object): void;
 
   /**
    * Returns the row dom jQuery node.
@@ -1347,6 +1397,26 @@ interface SohoDataGridGroupable {
   // Formatter for group row
   groupRowFormatter?: SohoDataGridColumnFormatterFunction;
 }
+
+/**
+ * Part of the column options, indicates what specific grid settings to manage summaryRow
+ */
+interface SohoDataGridSummaryRowColumnSettings {
+  /* Field */
+  field: string;
+  /* formatter summary */
+  summaryRowFormatter?: SohoDataGridColumnFormatterFunction | string;
+
+  /* aggregator */
+  aggregator?: SohoDataGridAggregator;
+
+  /* summary Text */
+  summaryText?: string;
+
+  /* summary text placement */
+  summaryTextPlacement?: string;
+}
+
 
 type SohoDataGridAggregator = 'sum' | 'min' | 'max' | 'list' | 'avg' | 'count' | string;
 

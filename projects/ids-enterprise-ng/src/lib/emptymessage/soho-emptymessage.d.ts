@@ -32,12 +32,17 @@ interface SohoEmptyMessageOptions {
   icon?: string;
 
   /**
+   * The container height. If set to 'small' will show only title and all other elements will not be rendered (icon, button, info)
+   */
+  height?: string;
+
+  /**
    * Button options - note this cannot be a Soho Angular Component.
    */
   button?: SohoEmptyMessageButtonOptions;
 
   /**
-   * graphite or azure for now until personalization works
+   * slate or azure for now until personalization works
    */
   color?: EmptyMessageColor;
 }
@@ -45,7 +50,7 @@ interface SohoEmptyMessageOptions {
 /**
  * valid colors for the empty message color.
  */
-type EmptyMessageColor = 'graphite' | 'azure';
+type EmptyMessageColor = 'slate' | 'azure' | 'amber' | 'amethyst' | 'emerald' | 'ruby' | 'graphite' | 'turquoise';
 
 /**
  * Button definition.
@@ -70,6 +75,11 @@ interface SohoEmptyMessageButtonOptions {
    * Click function
    */
   click?: Function;
+
+  /**
+   * Set the button to primary (azure)
+   */
+  isPrimary?: boolean;
 }
 
 /**

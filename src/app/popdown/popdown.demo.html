@@ -1,115 +1,60 @@
 <div class="row top-padding">
   <div class="twelve columns">
-    <button soho-button="tertiary" icon="cart" soho-popdown>My Cart</button>
+    <button soho-button="tertiary" icon="cart" soho-popdown [keepOpen]="true">My Cart</button>
     <soho-popdown-contents>
-      <div class="widget">
-        <div class="widget-header">
-          <h2 class="widget-title">My Cart <span class="extra">(8 Items)</span></h2>
-        </div>
-        <div class="widget-content" style="overflow: hidden;">
-          <div id="popover-listview-example" class="listview is-selectable" data-tmpl="popdown-content-tmpl" data-dataset="/api/construction-cart-items" tabindex="-1" role="listbox" aria-label="My Cart (8 Items)">
-            <ul role="presentation">
-              <li tabindex="0" role="option" aria-posinset="1" aria-setsize="8">
-                <span class="listview-micro l-pull-right">$1,700.00</span>
-                <p class="listview-heading" style="width: 196.177px;">Masonry Bricks, Red Solid 6" Brick</p>
-                <p class="listview-subheading">
-                  Item Price: $12.00/bag<br>
-                  Quantity: 1,000
-                </p>
-              </li>
-              <li role="option" aria-posinset="2" aria-setsize="8">
-                <span class="listview-micro l-pull-right">$1,634.00</span>
-                <p class="listview-heading">Gravel, Gray Natural Stone</p>
-                <p class="listview-subheading">
-                  Item Price: $86.00/stone<br>
-                  Quantity: 19
-                </p>
-              </li>
-              <li role="option" aria-posinset="3" aria-setsize="8">
-                <span class="listview-micro l-pull-right">$1,700.00</span>
-                <p class="listview-heading">Masonry Bricks, Red Solid 6" Brick</p>
-                <p class="listview-subheading">
-                  Item Price: $12.00/bag<br>
-                  Quantity: 1,000
-                </p>
-              </li>
-              <li role="option" aria-posinset="4" aria-setsize="8">
-                <span class="listview-micro l-pull-right">$1,634.00</span>
-                <p class="listview-heading">Gravel, Gray Natural Stone</p>
-                <p class="listview-subheading">
-                  Item Price: $86.00/stone<br>
-                  Quantity: 19
-                </p>
-              </li>
-              <li role="option" aria-posinset="5" aria-setsize="8">
-                <span class="listview-micro l-pull-right">$1,700.00</span>
-                <p class="listview-heading">Masonry Bricks, Red Solid 6" Brick</p>
-                <p class="listview-subheading">
-                  Item Price: $12.00/bag<br>
-                  Quantity: 1,000
-                </p>
-              </li>
-              <li role="option" aria-posinset="6" aria-setsize="8">
-                <span class="listview-micro l-pull-right">$1,634.00</span>
-                <p class="listview-heading">Gravel, Gray Natural Stone</p>
-                <p class="listview-subheading">
-                  Item Price: $86.00/stone<br>
-                  Quantity: 19
-                </p>
-              </li>
-              <li role="option" aria-posinset="7" aria-setsize="8">
-                <span class="listview-micro l-pull-right">$1,700.00</span>
-                <p class="listview-heading">Masonry Bricks, Red Solid 6" Brick</p>
-                <p class="listview-subheading">
-                  Item Price: $12.00/bag<br>
-                  Quantity: 1,000
-                </p>
-              </li>
-              <li role="option" aria-posinset="8" aria-setsize="8">
-                <span class="listview-micro l-pull-right">$1,634.00</span>
-                <p class="listview-heading">Gravel, Gray Natural Stone</p>
-                <p class="listview-subheading">
-                  Item Price: $86.00/stone<br>
-                  Quantity: 19
-                </p>
-              </li>
-            </ul>
+    <div class="widget">
+      <div class="widget-header">
+        <h2 class="widget-title">My Cart <span class="extra">(8 Items)</span></h2>
+      </div>
+      <div class="widget-content" style="overflow: hidden;">
+        <div class="row">
+          <div class="twelve columns">
+            <div class="field">
+              <label soho-label for="product_single_exists">Products (Single Select) with mask with existing value</label>
+              <input soho-lookup
+                soho-mask [sohoPattern]="'#######'" [process]="'number'" [negative]="false" [number]="true"
+                soho-trackdirty
+                [(ngModel)]="model.singleexists"
+                [columns]="columns_product"
+                [dataset]="data_product"
+                field="productId"
+                name="product_single_exists" />
+            </div>
           </div>
         </div>
-          <div class="widget-footer modal-buttonset">
-            <button type="button" class="btn-modal-secondary" style="width: 50%;">Edit Cart</button>
-            <button type="button" class="btn-modal-primary hide-focus" style="width: 50%;">Checkout</button>
-          </div>
-        </div>
-    </soho-popdown-contents>
-  </div>
-</div>
-<div class="row top-padding">
-  <div class="twelve columns">
-    <button soho-button="tertiary" icon="filter" keepOpen="true" soho-popdown #statesPopDown>States</button>
-    <soho-popdown-contents>
-      <div class="widget">
-        <div class="widget-header">
-          <h2 class="widget-title">Choose States<span class="extra">({{selectedStates.length}} Items)</span></h2>
-        </div>
-        <div class="widget-content" style="height: 400px; overflow:hidden;">
-          <div style="height:360px; overflow-y: auto; overflow-x: hidden;">
-            <soho-listview [dataset]="visibleStates" [searchable]="false" selectable="multiple" (selected)="onSelected($event)" (unselected)="onSelected($event)">
-              <li soho-listview-item *ngFor="let data of visibleStates" [attr.data]="data">
-                <p soho-listview-header>{{data}}</p>
-              </li>
-            </soho-listview>
-          </div>
-          <div style="padding: 14px 8px 4px 14px;">
-            <input soho-checkbox type="checkbox" id="matchedOnly" name="matchedOnly" [(ngModel)]="showSelectedOnly">
-            <label for="matchedOnly">Show selected states only</label>
-          </div>
-        </div>
+      </div>
         <div class="widget-footer modal-buttonset">
-          <button type="button" class="btn-modal-primary" style="width: 50%;" (click)="onClickOK($event)">OK</button>
-          <button type="button" class="btn-modal-secondary" style="width: 50%;" (click)="onClickCancel($event)">Cancel</button>
+          <button type="button" class="btn-modal-secondary" style="width: 50%;">Edit Cart</button>
+          <button type="button" class="btn-modal-primary hide-focus" style="width: 50%;">Checkout</button>
         </div>
       </div>
     </soho-popdown-contents>
-  </div>
+</div>
+<div class="twelve columns">
+  <button soho-button="tertiary" icon="filter" keepOpen="true" soho-popdown #statesPopDown>States</button>
+  <soho-popdown-contents>
+    <div class="widget">
+      <div class="widget-header">
+        <h2 class="widget-title">Choose States<span class="extra">({{selectedStates.length}} Items)</span></h2>
+      </div>
+      <div class="widget-content" style="height: 400px; overflow:hidden;">
+        <div style="height:360px; overflow-y: auto; overflow: hidden;">
+          <soho-listview [dataset]="visibleStates" [searchable]="false" selectable="multiple" (selected)="onSelected($event)" (unselected)="onSelected($event)">
+            <li soho-listview-item *ngFor="let data of visibleStates" [attr.data]="data">
+              <p soho-listview-header>{{data}}</p>
+            </li>
+          </soho-listview>
+        </div>
+        <div style="padding: 14px 8px 4px 14px;">
+          <input soho-checkbox type="checkbox" id="matchedOnly" name="matchedOnly" [(ngModel)]="showSelectedOnly">
+          <label for="matchedOnly">Show selected states only</label>
+        </div>
+      </div>
+      <div class="widget-footer modal-buttonset">
+        <button type="button" class="btn-modal-primary" style="width: 50%;" (click)="onClickOK()">OK</button>
+        <button type="button" class="btn-modal-secondary" style="width: 50%;" (click)="onClickCancel()">Cancel</button>
+      </div>
+    </div>
+  </soho-popdown-contents>
+</div>
 </div>

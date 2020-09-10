@@ -149,7 +149,12 @@ interface SohoPagerStatic {
 
   /** Internal jQuery element. */
   element: JQuery;
+
+  /** Updates the pager associated with the grid. */
+  updatePagingInfo(pagerInfo: SohoPagerPagingInfo): void;
 }
+
+type PagerButtonType = 'first' | 'last' | 'previous' | 'next';
 
 interface SohoStandalonePagerStatic {
   /** Accessible settings - for updates. */
@@ -160,6 +165,26 @@ interface SohoStandalonePagerStatic {
 
   /** call updated when options change after the pager has been initialized */
   updated(SohoStandalonePagerOptions): void;
+
+  /**
+   * Shows or hides a specified special control button on the Pager.
+   * @param type the type of button to target.
+   * @param   toggleOption Show vs. Hide
+   */
+  showButton(type: PagerButtonType, toggleOption: boolean);
+
+  /**
+   * Enables or disables a specified special control button on the Pager.
+   * @param type the type of button to target.
+   * @param toggleOption Enable vs. Disable
+   */
+  enableButton(type: PagerButtonType, toggleOption: boolean);
+
+  /**
+   * Show page size selector
+   * @param toggleOption Toggle vs show
+   */
+  showPageSizeSelector(toggleOption: boolean);
 
   /** call from ngOnDestroy to ensure any resources the pager uses are cleaned up */
   destroy();

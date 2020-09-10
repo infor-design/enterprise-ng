@@ -89,6 +89,13 @@ For a final release, finish with:
     git merge <release branch>
     ```
 
+1. I have seen sometimes the latest tag in NPM gets set to the wrong thing (like an rc or beta). If that happens run commands like
+
+    ```sh
+    npm dist-tags add ids-enterprise-ng@7.1.4 latest
+    npm dist-tags add ids-enterprise-ng@7.2.0-rc.2 rc
+    ```
+
 1. Fix any conflicts (don't commit yet)
 1. Use the version sync script after verifying or correcting the `master` branch version (don't commit yet)
 

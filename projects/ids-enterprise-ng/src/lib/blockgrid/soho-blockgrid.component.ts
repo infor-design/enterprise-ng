@@ -20,6 +20,15 @@ import {
 })
 export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
+  /** Options. */
+  private options: SohoBlockGridOptions = {
+    pagerSettings: {
+      position: 'bottom'
+    }
+  };
+  private jQueryElement: JQuery;
+  private blockgrid: SohoBlockGrid;
+
   @HostBinding('class.blockgrid') get isBlockGrid() {
     return true;
   }
@@ -57,16 +66,61 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
     return this.blockgrid.settings.selectable;
   }
 
+  /** Defines whether or not paging is active. */
+  @Input()
+  public set paging(paging: boolean) {
+    this.options.paging = paging;
+    if (this.blockgrid) {
+      this.blockgrid.settings.paging = paging;
+      this.updated(this.blockgrid.settings);
+    }
+  }
+  public get paging(): boolean {
+    if (!this.blockgrid) {
+      return this.options.paging;
+    }
+    return this.blockgrid.settings.paging;
+  }
+
+  /** Defines the current page size */
+  @Input()
+  public set pagesize(pagesize: number) {
+    this.options.pagerSettings.pagesize = pagesize;
+    if (this.blockgrid) {
+      this.blockgrid.settings.pagerSettings.pagesize = pagesize;
+      this.updated(this.blockgrid.settings);
+    }
+  }
+  public get pagesize(): number {
+    if (!this.blockgrid) {
+      return this.options.pagerSettings.pagesize;
+    }
+    return this.blockgrid.settings.pagerSettings.pagesize;
+  }
+
+  /** Defines the array of selectable page sizes */
+  @Input()
+  public set pagesizes(pagesizes: Array<number>) {
+    this.options.pagerSettings.pagesizes = pagesizes;
+    if (this.blockgrid) {
+      this.blockgrid.settings.pagerSettings.pagesizes = pagesizes;
+      this.updated(this.blockgrid.settings);
+    }
+  }
+  public get pagesizes(): Array<number> {
+    if (!this.blockgrid) {
+      return this.options.pagerSettings.pagesizes;
+    }
+    return this.blockgrid.settings.pagerSettings.pagesizes;
+  }
+
   /* Events*/
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
   @Output() deselected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
   @Output() activated: EventEmitter<Object[]> = new EventEmitter<Object[]>();
   @Output() deactivated: EventEmitter<Object[]> = new EventEmitter<Object[]>();
-
-  /** Options. */
-  private options: SohoBlockGridOptions = {};
-  private jQueryElement: JQuery;
-  private blockgrid: SohoBlockGrid;
+  @Output() page: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+  @Output() pagesizechange: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   constructor(
     private element: ElementRef,
@@ -85,6 +139,11 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
       this.jQueryElement.on('deselected', (... args) => this.onDeselected(args));
       this.jQueryElement.on('activated', (... args) => this.onActivated(args));
       this.jQueryElement.on('deactivated', (... args) => this.onDeactivated(args));
+
+      if (this.blockgrid.pagerAPI) {
+        this.jQueryElement.on('page', (... args) => this.onPage(args));
+        this.jQueryElement.on('pagesizechange', (... args) => this.onPageSizeChange(args));
+      }
     });
   }
 
@@ -114,19 +173,19 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
         return; // safety check
       }
 
-      this.blockgrid.selectBlock($(blockChildren[idx]), false);
+      this.blockgrid.select($(blockChildren[idx]), false);
     });
   }
 
   public deactivateBlock(): void {
-    this.blockgrid.selectBlock($(), false);
+    this.blockgrid.select($(), false);
   }
 
   public selectBlocks(idx: number[]) {
     this.ngZone.runOutsideAngular(() => {
       const blockChildren: NodeList = this.element.nativeElement.querySelectorAll('.block');
       const blockChildrenArray = Array.from(blockChildren).filter((blockChild, index) => idx.includes(index));
-      this.blockgrid.selectBlock($(blockChildrenArray), true);
+      this.blockgrid.select($(blockChildrenArray), true);
     });
   }
 
@@ -144,5 +203,13 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
   private onDeactivated(args: any[]) {
     this.ngZone.run(() => this.deactivated.emit(args));
+  }
+
+  private onPage(args: any[]) {
+    this.ngZone.run(() => this.page.emit(args));
+  }
+
+  private onPageSizeChange(args: any[]) {
+    this.ngZone.run(() => this.pagesizechange.emit(args));
   }
 }

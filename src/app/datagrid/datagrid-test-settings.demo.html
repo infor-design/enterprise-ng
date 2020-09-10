@@ -35,20 +35,23 @@
 
                 <li soho-popupmenu-separator></li>
                 <li soho-popupmenu-item>
-                    <a soho-popupmenu-label href="#" data-option="export-to-excel">{{'ExportToExcel' | sohoTranslate}}l</a>
+                    <a soho-popupmenu-label href="#" data-option="export-to-excel">{{'ExportToExcel' | sohoTranslate}}</a>
                 </li>
 
                 <li soho-popupmenu-separator [singleSelectableSection]="true"></li>
                 <li soho-popupmenu-heading>{{'RowHeight' | sohoTranslate}}
                 </li>
                 <li soho-popupmenu-item [isSelectable]="true">
-                    <a soho-popupmenu-label href="#" data-option="row-short">{{'Short' | sohoTranslate}}</a>
+                    <a soho-popupmenu-label href="#" data-option="row-extra-small">{{'ExtraSmall' | sohoTranslate}}</a>
+                </li>
+                <li soho-popupmenu-item [isSelectable]="true">
+                    <a soho-popupmenu-label href="#" data-option="row-small">{{'Small' | sohoTranslate}}</a>
                 </li>
                 <li soho-popupmenu-item [isSelectable]="true">
                     <a soho-popupmenu-label href="#" data-option="row-medium">{{'Medium' | sohoTranslate}}</a>
                 </li>
                 <li soho-popupmenu-item [isSelectable]="true">
-                    <a soho-popupmenu-label href="#" data-option="row-normal">{{'Normal' | sohoTranslate}}</a>
+                    <a soho-popupmenu-label href="#" data-option="row-large">{{'Large' | sohoTranslate}}</a>
                 </li>
 
                 <li soho-popupmenu-separator></li>

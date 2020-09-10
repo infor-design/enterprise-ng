@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: 'example-fullsize-modal.component.html'
 })
 export class FullSizeModalDialogComponent {
-   public model = {
+  public model = {
     header: 'Full Size Modal'
   };
 }

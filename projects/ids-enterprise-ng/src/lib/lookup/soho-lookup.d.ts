@@ -9,6 +9,9 @@ interface SohoLookupOptions {
   /** Custom click event; can be used with a modal dialog and custom list component */
   click?: SohoLookupClickFunction;
 
+  /** If a click method is defined, this flexible object can be passed in. */
+  clickArguments?: any;
+
   /** Field to return from the array or can be a function. */
   field?: string | SohoLookupFieldFunction;
 
@@ -20,9 +23,6 @@ interface SohoLookupOptions {
 
   /** Options to pass to the underlying data grid. */
   options?: SohoDataGridOptions;
-
-  /** Function used to match the search term to the data. */
-  match?: SohoDataGridMatchFunction;
 
   /**
    * Used to manage data prior to showing the lookup.
@@ -41,17 +41,26 @@ interface SohoLookupOptions {
   /** Can the user type random text into the field. */
   editable?: boolean;
 
-  /** Not supported - future. */
-  typeahead?: boolean;
-
-  /** ?? */
+  /** If set to false the dialog wont apply the value on clicking a value. */
   autoApply?: boolean;
+
+  /** Function used to match the search term to the data. */
+  match?: SohoDataGridMatchFunction;
 
   /** A function that fires to let you validate form items on open and select. */
   validator?: SohoLookupValidatorFunction;
 
   /** Set the width of the input to the width of the selection */
   autoWidth?: boolean;
+
+  /** The character  used to separate data strings */
+  delimiter?: string;
+
+  /** Apply a minimum width to the lookup*/
+  minWidth?: number;
+
+  /**  Add an ability to clear the lookup field with an x */
+  clearable?: boolean;
 }
 
 /** Selection criteria. */
@@ -93,14 +102,44 @@ interface SohoLookupStatic {
   /** Access to the control's options block. */
   settings: SohoLookupOptions;
 
-  /** Acess to the datagrid used for this function. */
+  /** Access to the datagrid used for this function. */
   grid: SohoDataGridStatic;
+
+  /** Access to the modal when opened. */
+  modal: SohoModalStatic;
 
   /** Underlying element. */
   element: JQuery;
 
   /** Destructor. */
   destroy(): void;
+
+  /**  Find the row and select it based on select value / function / field value **/
+  selectRowByValue(field: String, value: String): void;
+
+  /** Get the selected rows and return them to the UI **/
+  insertRows(): void;
+
+  /** Enable the input. **/
+  enable(): void;
+
+  /** Disable the input. **/
+  disable(): void;
+
+  /** Make the input readonly. **/
+  readonly(): void;
+
+  /** Input is disabled or not **/
+  isDisabled(): boolean;
+
+  /** Input is readonly or not **/
+  isReadonly(): boolean;
+
+  /** Updates the lookup instance with new settings **/
+  updated(settings: any): void;
+
+  /**  Send in a new data set to display in the datagrid in the lookup. **/
+  updateDataset(dataset: Object[], pagerInfo: SohoPagerPagingInfo): void;
 }
 
 /**

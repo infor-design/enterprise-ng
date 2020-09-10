@@ -35,7 +35,7 @@
       </soho-toolbar-flex-section>
 
       <soho-toolbar-flex-section [isSearch]="true">
-        <input soho-toolbar-flex-searchfield placeholder="Search..." [clearable]="true" [collapsible]="true"/>
+        <input soho-toolbar-flex-searchfield (cleared)="onCleared($event)" (change)="onChange($event)" placeholder="Search Here" [clearable]="true" [collapsible]="true"/>
       </soho-toolbar-flex-section>
 
       <soho-toolbar-flex-more-button>

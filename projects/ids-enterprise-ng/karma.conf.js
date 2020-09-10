@@ -30,7 +30,7 @@ module.exports = function (config) {
     },
     files: [
       { pattern: '../../node_modules/jquery/dist/jquery.js', watched: false  },
-      { pattern: '../../node_modules/d3/build/d3.js', watched: false  },
+      { pattern: '../../node_modules/d3/dist/d3.js', watched: false  },
       { pattern: '../../node_modules/ids-enterprise/dist/js/sohoxi.js', watched: false },
       { pattern: '../../node_modules/ids-enterprise/dist/js/cultures/en-US.js', watched: false },
       { pattern: '../../node_modules/ids-enterprise/dist/js/cultures/it-IT.js', watched: false },

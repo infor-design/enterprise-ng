@@ -1,12 +1,179 @@
 # What's New with Enterprise-NG
 
+## v7.7.0
+
+### 7.7.0 Fixes
+
+- Placeholder
+
+## v7.6.0
+
+### 7.6.0 Fixes
+
+- `[BreadCrumb]` Added new truncate settings. ([#4091](https://github.com/infor-design/enterprise/issues/4091))
+- `[Datagrid]` Added row number formatter to types. ([#1904](https://github.com/infor-design/enterprise/issues/1904))
+- `[General]` Made sure slate is more prominent that graphite in uplift. ([#4206](https://github.com/infor-design/enterprise/issues/4206))
+- `[Homepage]` Fixed an issue where the chart container was misaligned on example page. ([#894](https://github.com/infor-design/enterprise-ng/issues/894))
+- `[Modal]` The `model` parameter was misnamed in the modal button event object so renamed this to the correct `modal` name. ([#4292](https://github.com/infor-design/enterprise-ng/issues/4292))
+
+## v7.5.3
+
+### 7.5.3 Fixes
+
+- `[General]` Added a patched EP version 4.31.2.  `TJM`
+
+## v7.5.2
+
+### 7.5.2 Fixes
+
+- `[General]` Added a patched EP version 4.31.1 - mistake on run.  `TJM`
+
+## v7.5.1
+
+### 7.5.1 Fixes
+
+- `[General]` Added a patched EP version 4.31.1.  `TJM`
+
+## v7.5.0
+
+### 7.5.0 Fixes
+
+- `[Blockgrid]` Enable settings and API types for interactions with Blockgrid Pager. `EPC` ([#836](https://github.com/infor-design/enterprise-ng/issues/836))
+- `[Calendar]` Added new types for `dayLegend`, `disabled` and allow event overrides for `color` and `borderColor`. `TJM` ([#3893](https://github.com/infor-design/enterprise/issues/3893))
+- `[Datagrid]` Added several new types in datagrid from 4.31. `TJM` ([#3609](https://github.com/infor-design/enterprise/issues/3609))
+- `[Dropdown]` Fixed a bug where the submit button remains disabled even when the fields has data. `EA` ([#884](https://github.com/infor-design/enterprise-ng/issues/884))
+- `[General]` Uses EP version 4.31.0.  `TJM`
+- `[General]` Added several new types in Modal, Datepicker, Message and EmptyMessage from 4.31. `TJM` ([#3609](https://github.com/infor-design/enterprise/issues/3609))
+- `[Lookup]` Fixed an issue where the console error was appearing after the modal close. ([#871](https://github.com/infor-design/enterprise/issues/871))
+- `[Masthead]` Updated styles and flow in the masthead and made it use flex toolbar by default. Older versions should work ok but you may want to update to the latest markup. See `masthead.demo.html`. ([#800](https://github.com/infor-design/enterprise-ng/issues/800))
+- `[Multiselect]` Added an example showing how an ajax request where only part the results are returned. ([#800](https://github.com/infor-design/enterprise-ng/issues/885))
+- `[TimePicker]` Updated typings support for locale, language, secondInterval, parentElement and returnFocus. Updated timepicker demo. `MAF` ([#890](https://github.com/infor-design/enterprise-ng/issues/890))
+
+## v7.4.1
+
+### 7.4.1 Fixes
+
+- `[General]` Added a patched EP version 4.30.1.  `TJM`
+
+## v7.4.0
+
+### 7.4.0 Features
+
+- `[Breadcrumb]` Angular Wrapper Component for the IDS Breadcrumb API is now available. `EPC` ([Issue #700](https://github.com/infor-design/enterprise-ng/issues/700))
+
+### 7.4.0 Fixes
+
+- `[Toolbar Flex]` Added missing type definitions. `EPC` ([#831](https://github.com/infor-design/enterprise-ng/issues/831))
+
+## v7.3.0
+
+## v7.3.0 Notes
+
+- `[Datagrid]` The deprecated pager property has been removed. Please use pagerAPI instead. ([#841](https://github.com/infor-design/enterprise-ng/issues/841))
+- `[Datagrid]` The rowHeight property now suggests extra-small, small, medium or large (default) as values. The old values of short, medium, normal are deprecated. ([#3755](https://github.com/infor-design/enterprise/issues/3755))
+- `[Datagrid]` Added missing settings and an example for summary row. ([#859](https://github.com/infor-design/enterprise-ng/issues/859))
+
+### 7.3.0 Features
+
+- `[Tree]` Added the ability to have separate icon button for expand/collapse and children count. ([#3847](https://github.com/infor-design/enterprise/issues/3847))
+- `[Datagrid]` Add summaryRow settings.  `AF`
+
+### 7.3.0 Fixes
+
+- `[Datagrid]` Fixed updatePagingInfo function which was wired on pager now and not working. To fix it i kept it flat on the datagrid object  `TJM` ([Issue #781](https://github.com/infor-design/enterprise-ng/issues/781))
+- `[Datagrid]` Added target property for hyperlink formatter column. ([#3731](https://github.com/infor-design/enterprise/issues/3731))
+- `[Datagrid]` Build expanded datagrid row with dynamic component. Special case: nested datagrid.  `AF` ([Issue #206](https://github.com/infor-design/enterprise-ng/issues/206))
+- `[DataGrid]` Added optional data object param to setDirtyIndicator to match soho datagrid setDirtyIndicator. `PWP` ([Issue #829](https://github.com/infor-design/enterprise-ng/issues/829))
+- `[Datagrid]` Add missings types to manage summaryRow with an example.  `AF` ([Issue #852](https://github.com/infor-design/enterprise-ng/issues/852))
+- `[Lookup]` Resynced the lookup api settings, methods and events with the core component. Also made sure everything is using ngZone. `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
+- `[Lookup]` And added an example showing how to use the buttonsetAPI to enable and disable buttons.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
+- `[Lookup]` And added an example showing how to use a dataset as an input to populate the lookup.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
+- `[ModalDialog]` Make the router dependency optional in the Modal Dialog. ([Issue #803](https://github.com/infor-design/enterprise/issues/803))
+- `[Searchfield]` Added an example of using clear() as a public function. `EA` ([#847](https://github.com/infor-design/enterprise-ng/issues/847))
+- `[StandalonePager]` Optimize enable/show buttons and pageSizeChooser to call methods directly in pager.js avoiding a rerender of the entire pager. ([Issue #843](https://github.com/infor-design/enterprise-ng/issues/843))
+- `[ToolbarSearchField]` And missing change event.  `TJM` ([Issue #839](https://github.com/infor-design/enterprise/issues/839))
+
+## v7.2.3
+
+### 7.2.3 Fixes
+
+- `[General]` Fixes a build problem with 7.2.2 and 7.2.1.  `TJM`
+
+## v7.2.4
+
+### 7.2.4 Fixes
+
+- `[General]` Added Ids and Angular to latest stable versions and fix a build issue with 7.2.3-7.2.1 and sync issues.  `TJM`
+
+## v7.2.1
+
+### 7.2.1 Fixes
+
+- `[General]` Added Ids and Angular to latest stable versions.  `TJM`
+
 ## v7.2.0
+
+### 7.2.0 Notes
+
+- `[General]` Since d3 and jQuery dependencies are updated to newer versions you may have to adjust the path in your angular.json file for the d3 file `node_modules/d3/dist/d3.js`.  `TJM` ([Issue #1083](https://github.com/infor-design/enterprise/issues/1083))
+- `[General]` Note that Angular 9 needs TS 3.6 or above. We are currently testing on 3.83 so you may need to update your typescript version especially if you see an error such as `An accessor cannot be declared in ambient context`.  `TJM` ([Issue #1083](https://github.com/infor-design/enterprise/issues/1083))
+
+### 7.2.0 Features
+
+- `[Accordion]` Added the ability to pass a string ID to expand and collapse.  `TJM` ([Issue #783](https://github.com/infor-design/enterprise-ng/issues/783))
+- `[Buttonset]` Added support for `buttonset`.  `BTHH` ([Issue #781](https://github.com/infor-design/enterprise-ng/issues/781))
+- `[Bar]` Added new fitHeight setting for alternate widget sizing.  `TJM` ([Issue #3702](https://github.com/infor-design/enterprise/issues/3702))
+- `[Dropdown]` Added several missing search / tag related options.  `TJM` ([Issue #3767](https://github.com/infor-design/enterprise/issues/3767))
+- `[General]` d3 and jQuery dependencies are updated to newer versions.  `TJM` ([Issue #1083](https://github.com/infor-design/enterprise/issues/1083))
+- `[Lookup]` Added new clearable option and several missing settings (delimiter, minWidth).  `TJM` ([Issue #2507](https://github.com/infor-design/enterprise/issues2507781))
+- `[ModalDialog]` Added support the new buttonsetAPI on modal.  `BTHH` ([Issue #781](https://github.com/infor-design/enterprise-ng/issues/781))
+- `[Mask]` Removed the old and deprecated MaskLegacyDemoComponent from the examples.  `TJM` ([Issue #781](https://github.com/infor-design/enterprise-ng/issues/781))
+- `[Popupmenu]` Added new shortcut text option.  `TJM` ([Issue #3849](https://github.com/infor-design/enterprise/issues/3849))
+- `[Slider]` Added missing options tooltipPosition, sliding, slidestart, slidestop.  `TJM` ([Issue #787](https://github.com/infor-design/enterprise-ng/issues/787))
+- `[Tree]` Added a new contextmenu method, and show a dynamic menu example.  `TJM` ([Issue #794](https://github.com/infor-design/enterprise-ng/issues/79))
 
 ### 7.2.0 Fixes
 
 - `[Datagrid]` Update the dynamic datagrid example to not show the browser contextmenu.  `TJM` ([#817](https://github.com/infor-design/enterprise/issues/817))
 - `[Modal]` The modal dialog had a second wrapper added (SohoModal vs SohoModalDialog), it was decided to stick with one, the existing SohoModalDialog.  `TJM` ([Issue #776](https://github.com/infor-design/enterprise-ng/issues/776))
 - `[Homepage]` Homepage edit events (resize, reorder, remove widgets) now fire on widget elements too ([#770](https://github.com/infor-design/enterprise-ng/issues/770))
+
+## v7.1.8
+
+### 7.1.8 Fixes
+
+- `[StepProcess]` StepProcess does not translate Save & Close and Continue buttons. ([#881](https://github.com/infor-design/enterprise-ng/issues/881))
+
+## v7.1.7
+
+### 7.1.7 Fixes
+
+- `[General]` Added 4.28.5 patch release. `TJM`
+
+## v7.1.5
+
+### 7.1.5 Fixes
+
+- `[General]` Added 4.28.3 patch release. `TJM`
+
+## v7.1.4
+
+### 7.1.4 Fixes
+
+- `[General]` Added 4.28.2 patch release. `TJM`
+
+## v7.1.3
+
+### 7.1.3 Fixes
+
+- `[FieldFilter]` Added patch for a new API setting the filter operator. `NBCP` ([Issue #820](https://github.com/infor-design/enterprise-ng/pull/820))
+
+## v7.1.1
+
+### 7.1.1 Fixes
+
+- `[General]` Added 4.28.1 patch release. `TJM`
+- `[General]` Added new type for isPrimary in empty message `TJM`
 
 ## v7.1.0
 

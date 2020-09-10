@@ -1,9 +1,9 @@
 {
   "pkgFiles": ["package.json"],
-  "scripts": {
-    "beforeStart": "cd ../../ && npm run test:lib && cd projects/ids-enterprise-ng/",
-    "beforeBump": "cd ../../ &&  npm run sync:lib && cd projects/ids-enterprise-ng/",
-    "beforeStage": "cd ../../ && npm run build:lib && cd projects/ids-enterprise-ng/"
+  "hooks": {
+      "before:init": "cd ../../ && npm run test:lib && cd projects/ids-enterprise-ng/",
+      "after:bump": "cd ../../ && npm run build:lib && cd projects/ids-enterprise-ng/",
+      "before:stage": "cd ../../ && npm run build:lib && cd projects/ids-enterprise-ng/"
   },
   "git": {
       "requireCleanWorkingDir": true,

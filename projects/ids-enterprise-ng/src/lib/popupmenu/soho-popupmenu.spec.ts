@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import {
   SohoPopupMenuComponent,
   SohoPopupMenuHeadingComponent,
+  SohoPopupMenuShortCutTextComponent,
   SohoPopupMenuModule,
   SohoPopupMenuItemComponent,
   SohoPopupMenuItemLabelComponent,
@@ -28,6 +29,14 @@ class SohoPopupMenuSeparatorTestComponent {
 })
 class SohoPopupMenuHeadingTestComponent {
   @ViewChild(SohoPopupMenuHeadingComponent) heading: SohoPopupMenuHeadingComponent;
+}
+
+@Component({
+  template: `
+             <span soho-popupmenu-shortcut-text>CTRL+X</span>`
+})
+class SohoPopupMenuShortCutTextTestComponent {
+  @ViewChild(SohoPopupMenuShortCutTextComponent) heading: SohoPopupMenuShortCutTextComponent;
 }
 
 @Component({
@@ -99,6 +108,35 @@ describe('Soho Popup Menu Heading Render', () => {
 
     expect(el.nodeName).toEqual('LI');
     expect(el.classList).toContain('heading');
+  });
+
+});
+
+describe('Soho Popup Menu Shortcut Text Render', () => {
+  let component: SohoPopupMenuShortCutTextTestComponent;
+  let fixture: ComponentFixture<SohoPopupMenuShortCutTextTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [SohoPopupMenuShortCutTextTestComponent],
+      imports: [FormsModule, SohoPopupMenuModule]
+    });
+
+    fixture = TestBed.createComponent(SohoPopupMenuShortCutTextTestComponent);
+    component = fixture.componentInstance;
+    de = fixture.debugElement;
+    el = de.query(By.css('span[soho-popupmenu-shortcut-text]')).nativeElement;
+
+    fixture.detectChanges();
+  });
+
+  it('Check Heading HTML content', () => {
+    fixture.detectChanges();
+
+    expect(el.nodeName).toEqual('SPAN');
+    expect(el.classList).toContain('shortcut-text');
   });
 
 });

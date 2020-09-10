@@ -7,8 +7,10 @@ import { SohoAutoCompleteModule } from './autocomplete/soho-autocomplete.module'
 import { SohoBarModule } from './bar/soho-bar.module';
 import { SohoBulletModule } from './bullet/soho-bullet.module';
 import { SohoBlockGridModule } from './blockgrid/soho-blockgrid.module';
+import { SohoBreadcrumbModule } from './breadcrumb/soho-breadcrumb.module';
 import { SohoBusyIndicatorModule } from './busyindicator/soho-busyindicator.module';
 import { SohoButtonModule } from './button/soho-button.module';
+import { SohoButtonsetModule } from './buttonset/soho-buttonset.module';
 import { SohoCalendarModule } from './calendar/soho-calendar.module';
 import { SohoChartModule } from './chart/soho-chart.module';
 import { SohoCheckBoxModule } from './checkbox/soho-checkbox.module';
@@ -19,9 +21,10 @@ import { SohoContextMenuModule } from './context-menu/soho-context-menu.module';
 import { SohoContextualActionPanelModule } from './contextual-action-panel/soho-contextual-action-panel.module';
 import { SohoDataGridModule } from './datagrid/soho-datagrid.module';
 import { SohoDatePickerModule } from './datepicker/soho-datepicker.module';
+import { SohoDragModule } from './drag/soho-drag.module';
 import { SohoDropDownModule } from './dropdown/soho-dropdown.module';
 import { SohoEditorModule } from './editor/soho-editor.module';
-import { SohoEmptyMessageModule} from './emptymessage/soho-emptymessage.module';
+import { SohoEmptyMessageModule } from './emptymessage/soho-emptymessage.module';
 import { SohoErrorModule } from './error/soho-error.module';
 import { SohoExpandableAreaModule } from './expandablearea/soho-expandablearea.module';
 import { SohoFieldFilterModule } from './field-filter/soho-field-filter.module';
@@ -88,9 +91,11 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoAutoCompleteModule,
     SohoBarModule,
     SohoBlockGridModule,
+    SohoBreadcrumbModule,
     SohoBulletModule,
     SohoBusyIndicatorModule,
     SohoButtonModule,
+    SohoButtonsetModule,
     SohoCalendarModule,
     SohoChartModule,
     SohoCheckBoxModule,
@@ -101,6 +106,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoContextMenuModule,
     SohoDataGridModule,
     SohoDatePickerModule,
+    SohoDragModule,
     SohoDropDownModule,
     SohoEditorModule,
     SohoEmptyMessageModule,
@@ -169,9 +175,11 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoAutoCompleteModule,
     SohoBarModule,
     SohoBlockGridModule,
+    SohoBreadcrumbModule,
     SohoBulletModule,
     SohoBusyIndicatorModule,
     SohoButtonModule,
+    SohoButtonsetModule,
     SohoCalendarModule,
     SohoChartModule,
     SohoCheckBoxModule,
@@ -182,6 +190,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoContextualActionPanelModule,
     SohoDataGridModule,
     SohoDatePickerModule,
+    SohoDragModule,
     SohoDropDownModule,
     SohoEditorModule,
     SohoEmptyMessageModule,
@@ -242,4 +251,4 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoWizardModule
   ]
 })
-export class SohoComponentsModule {}
+export class SohoComponentsModule { }

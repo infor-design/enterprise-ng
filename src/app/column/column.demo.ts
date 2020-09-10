@@ -23,38 +23,38 @@ export class ColumnDemoComponent implements OnInit {
       name: 'Automotive',
       shortName: 'Auto',
       abbrName: 'A',
-      value: 7,
+      value: 0.7,
       tooltip: 'Custom Tooltip - {{value}}'
     }, {
       name: 'Distribution',
       shortName: 'Dist',
       abbrName: 'D',
-      value: 10
+      value: 0.10
     }, {
       name: 'Equipment',
       shortName: 'Equip',
       abbrName: 'E',
-      value: 14
+      value: 1.4
     }, {
       name: 'Fashion',
       shortName: 'Fash',
       abbrName: 'F',
-      value: 10
+      value: 1.0
     }, {
       name: 'Food',
       shortName: 'Food',
       abbrName: 'F',
-      value: 14
+      value: 0.14
     }, {
       name: 'Healthcare',
       shortName: 'Health',
       abbrName: 'H',
-      value: 8
+      value: 4.8
     }, {
       name: 'Other',
       shortName: 'Other',
       abbrName: 'O',
-      value: 7
+      value: 2.7
     }]
   }];
 

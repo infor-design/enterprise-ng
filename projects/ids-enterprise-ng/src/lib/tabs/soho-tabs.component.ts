@@ -570,9 +570,9 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   /**
    * Call resize manually when tab titles change so that the underline width matches.
    */
-  public handleResize(): void {
+  public handleResize(doResponsiveCheck?: boolean): void {
     // call outside the angular zone so change detection isn't triggered by the soho component.
-    this.ngZone.runOutsideAngular(() => this.tabs.handleResize());
+    this.ngZone.runOutsideAngular(() => this.tabs.handleResize(doResponsiveCheck));
   }
 
   /**

@@ -13,11 +13,15 @@ import { BlockGridCustomContentDemoComponent } from './blockgrid/blockgrid-custo
 import { BlockGridMixedSelectionDemoComponent } from './blockgrid/blockgrid-mixed-selection.demo';
 import { BlockGridMultiSelectionDemoComponent } from './blockgrid/blockgrid-multi-selection.demo';
 import { BlockGridSingleSelectionDemoComponent } from './blockgrid/blockgrid-single-selection.demo';
+import { BlockGridPagingDemoComponent } from './blockgrid/blockgrid-paging.demo';
+import { BreadcrumbDemoComponent } from './breadcrumb/breadcrumb.demo';
+import { BreadcrumbGauntletDemoComponent } from './breadcrumb/breadcrumb-gauntlet.demo';
 import { BubbleDemoComponent } from './bubble/bubble.demo';
 import { BulletDemoComponent } from './bullet/bullet.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
 import { BusyIndicatorDemoBodyComponent } from './busyindicator/body-sample.demo';
 import { ButtonDemoComponent } from './button/button.demo';
+import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
 import { CalendarDemoComponent } from './calendar/calendar.demo';
 import { CalendarLegendDemoComponent } from './calendar/calendar-legend.demo';
 import { CalendarUpdatedDemoComponent } from './calendar/calendar-updated.demo';
@@ -71,10 +75,12 @@ import { DataGridTreeGridLazyDemoComponent } from './datagrid/datagrid-treegrid-
 import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagrid-treegrid-dynamicfiltering.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DonutDemoComponent } from './donut/donut.demo';
+import { DragDemoComponent } from './drag/drag.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
 import { DropdownAsyncDemoComponent } from './dropdown/dropdown-async.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
+import { DropdownMultiselectLandmarkDemoComponent } from './dropdown/dropdown-multiselect-landmark.demo';
 import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { DropdownTypeaheadDemoComponent } from './dropdown/dropdown-typeahead.demo';
@@ -110,7 +116,6 @@ import { ListViewCustomContentDemoComponent } from './listview/listview.custom-c
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
-import { MaskLegacyDemoComponent } from './mask/mask-legacy.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
@@ -125,6 +130,7 @@ import { RadarDemoComponent } from './radar/radar.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 import { RatingDemoComponent } from './rating/rating.demo';
 import { SearchFieldDemoComponent } from './searchfield/searchfield.demo';
+import { SearchFieldClearDemoComponent } from './searchfield/searchfield-clear.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
 import { SparklineDemoComponent } from './sparkline/sparkline.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
@@ -145,6 +151,7 @@ import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDismissibleDemoComponent } from './tabs/tabs-dismissible.demo';
 import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
+import { TabsResizeDemoComponent } from './tabs/tabs-resize.demo';
 import { TabsModuleDemoComponent } from './tabs/tabs-module.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
 import { TagDemoComponent } from './tag/tag.demo';
@@ -167,6 +174,7 @@ import { TooltipDemoComponent } from './tooltip/tooltip.demo';
 import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
 import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
+import { TreeExpandTargetDemoComponent } from './tree/tree-expand-target.demo';
 import { TreemapDemoComponent } from './treemap/treemap.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeSourceDemoComponent } from './tree/tree-source.demo';
@@ -176,8 +184,12 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 import { WizardDemoComponent } from './wizard/wizard.demo';
 import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
+import { ApplicationMenuTestPerfDemoComponent } from './application-menu/application-menu-test-performance.demo';
 import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-cube.demo';
 import { WeekViewDemoComponent } from './week-view/week-view.demo';
+import { DataGridExpandableRowNestedDemoComponent } from './datagrid/datagrid-expandable-row-nested.demo';
+import { DataGridExpandableRowDynamicDemoComponent } from './datagrid/datagrid-expandable-row-dynamic.demo';
+import { DataGridSummaryRowDemoComponent } from './datagrid/datagrid-summary-row.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -186,18 +198,23 @@ export const routes: Routes = [
   { path: 'alert', component: AlertDemoComponent },
   { path: 'application-lazy-menu', component: ApplicationMenuLazyDemoComponent },
   { path: 'application-menu-roleswitcher', component: ApplicationMenuRoleSwitcherDemoComponent },
+  { path: 'application-menu-test-performance', component: ApplicationMenuTestPerfDemoComponent },
   { path: 'area', component: AreaDemoComponent },
   { path: 'autocomplete', component: AutocompleteDemoComponent },
   { path: 'bar', component: BarDemoComponent },
   { path: 'bar-grouped', component: BarGroupedDemoComponent },
   { path: 'bar-stacked', component: BarStackedDemoComponent },
+  { path: 'breadcrumb', component: BreadcrumbDemoComponent },
+  { path: 'breadcrumb-gauntlet', component: BreadcrumbGauntletDemoComponent },
   { path: 'blockgrid-custom-content', component: BlockGridCustomContentDemoComponent },
   { path: 'blockgrid-mixed-selection', component: BlockGridMixedSelectionDemoComponent },
   { path: 'blockgrid-multi-selection', component: BlockGridMultiSelectionDemoComponent },
   { path: 'blockgrid-single-selection', component: BlockGridSingleSelectionDemoComponent },
+  { path: 'blockgrid-paging', component: BlockGridPagingDemoComponent },
   { path: 'bubble', component: BubbleDemoComponent },
   { path: 'bullet', component: BulletDemoComponent },
   { path: 'button', component: ButtonDemoComponent },
+  { path: 'buttonset', component: ButtonsetDemoComponent },
   { path: 'busyindicator', component: BusyIndicatorDemoComponent },
   { path: 'busyindicatorbody', component: BusyIndicatorDemoBodyComponent },
   { path: 'calendar-monthview', component: CalendarDemoComponent },
@@ -234,6 +251,9 @@ export const routes: Routes = [
   { path: 'datagrid-service', component: DataGridServiceDemoComponent },
   { path: 'datagrid-settings', component: DataGridSettingsDemoComponent },
   { path: 'datagrid-expandable-row', component: DataGridExpandableRowDemoComponent },
+  { path: 'datagrid-expandable-row-dynamic', component: DataGridExpandableRowDynamicDemoComponent },
+  { path: 'datagrid-expandable-row-nested', component: DataGridExpandableRowNestedDemoComponent },
+  { path: 'datagrid-summary-row', component: DataGridSummaryRowDemoComponent },
   { path: 'datagrid-standalone-pager', component: DatagridStandalonePagerDemoComponent },
   { path: 'datagrid-treegrid', component: DataGridTreeGridDemoComponent },
   { path: 'datagrid-treegrid-lazy', component: DataGridTreeGridLazyDemoComponent },
@@ -253,10 +273,12 @@ export const routes: Routes = [
   { path: 'datagrid-standard-formatter', component: DataGridStandardFormatterDemoComponent },
   { path: 'datepicker', component: DatepickerDemoComponent },
   { path: 'donut', component: DonutDemoComponent },
+  { path: 'drag', component: DragDemoComponent },
   { path: 'dropdown', component: DropdownDemoComponent },
   { path: 'dropdown-async-busy', component: DropdownAsyncBusyDemoComponent },
   { path: 'dropdown-async', component: DropdownAsyncDemoComponent },
   { path: 'dropdown-multi', component: DropdownMultiselectDemoComponent },
+  { path: 'dropdown-multi-landmark', component: DropdownMultiselectLandmarkDemoComponent },
   { path: 'dropdown-reactive', component: DropdownReactiveDemoComponent },
   { path: 'dropdown-simple', component: DropdownSimpleDemoComponent },
   { path: 'dropdown-typeahead', component: DropdownTypeaheadDemoComponent },
@@ -294,7 +316,6 @@ export const routes: Routes = [
   { path: 'lookup', component: LookupDemoComponent },
   { path: 'lookup-validation', component: LookupValidationDemoComponent },
   { path: 'mask', component: MaskDemoComponent },
-  { path: 'mask-legacy', component: MaskLegacyDemoComponent },
   { path: 'menu-button', component: MenuButtonDemoComponent },
   { path: 'message', component: MessageDemoComponent },
   { path: 'modal-dialog', component: ModalDialogDemoComponent },
@@ -309,6 +330,7 @@ export const routes: Routes = [
   { path: 'radiobutton', component: RadioButtonDemoComponent },
   { path: 'rating', component: RatingDemoComponent },
   { path: 'searchfield', component: SearchFieldDemoComponent },
+  { path: 'searchfield-clear', component: SearchFieldClearDemoComponent },
   { path: 'slider', component: SliderDemoComponent },
   { path: 'sparkline', component: SparklineDemoComponent },
   { path: 'splitter-horizontal', component: SplitterHorizontalDemoComponent },
@@ -329,6 +351,7 @@ export const routes: Routes = [
   { path: 'tabs-dismissible', component: TabsDismissibleDemoComponent },
   { path: 'tabs-dropdown', component: TabsDropdownDemoComponent },
   { path: 'tabs-dynamic', component: TabsDynamicDemoComponent },
+  { path: 'tabs-resize', component: TabsResizeDemoComponent },
   { path: 'tabs-module', component: TabsModuleDemoComponent },
   { path: 'tabs-vertical', component: TabsVerticalDemoComponent },
   { path: 'tags', component: TagDemoComponent },
@@ -351,6 +374,7 @@ export const routes: Routes = [
   { path: 'trackdirty', component: TrackDirtyDemoComponent },
   { path: 'tree-content', component: TreeContentDemoComponent },
   { path: 'tree-dynamic', component: TreeDynamicDemoComponent },
+  { path: 'tree-expand-target', component: TreeExpandTargetDemoComponent },
   { path: 'treemap', component: TreemapDemoComponent },
   { path: 'tree-service', component: TreeServiceDemoComponent },
   { path: 'tree-source', component: TreeSourceDemoComponent },

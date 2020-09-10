@@ -60,6 +60,9 @@ interface SohoBarOptions {
     * You may want to change this based on label data. */
   wrapWidth?: number;
 
+  /** If true chart height will fit in parent available height. */
+  fitHeight?: boolean;
+
   /** An empty message will be displayed when there is no chart data. */
   emptyMessage?: SohoEmptyMessageOptions;
 }

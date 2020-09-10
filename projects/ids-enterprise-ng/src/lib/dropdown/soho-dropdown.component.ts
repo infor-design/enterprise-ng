@@ -308,6 +308,53 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   }
 
   /**
+   * If true, moves the Searchfield in the Dropdown list from directly on top of the pseudo-lement
+   * to underneath/above, providing visibility into the currently selected results.
+   */
+  @Input()
+  public set showSearchUnderSelected(showSearchUnderSelected: boolean) {
+    this.options.showSearchUnderSelected = showSearchUnderSelected;
+  }
+
+  public get showSearchUnderSelected(): boolean {
+    return this.options.showSearchUnderSelected;
+  }
+
+  /**
+   * If defined, passes along 'clickHandler' and 'dismissHandler' functions to any Tags
+   */
+  @Input()
+  public set tagSettings(tagSettings: any) {
+    this.options.tagSettings = tagSettings;
+  }
+
+  public get tagSettings(): any {
+    return this.options.tagSettings;
+  }
+
+  /**
+   * If defined, passes along 'clickHandler' and 'dismissHandler' functions to any Tags
+   */
+  @Input()
+  public set allTextString(allTextString: string) {
+    this.options.allTextString = allTextString;
+  }
+
+  public get allTextString(): string {
+    return this.options.allTextString;
+  }
+
+  /**Custom text string for `Selected` text header use in MultiSelect */
+  @Input()
+  public set selectedTextString(selectedTextString: string) {
+    this.options.selectedTextString = selectedTextString;
+  }
+
+  public get selectedTextString(): string {
+    return this.options.tagSettings;
+  }
+
+  /**
    * Called when the dropdown value changes
    */
   // tslint:disable-next-line: no-output-rename

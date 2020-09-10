@@ -301,7 +301,7 @@ export class DataGridCodeBlockEditorDemoComponent implements OnInit {
       filterable: false,
       enableTooltips: true,
       redrawOnResize: false,
-      rowHeight: 'short',
+      rowHeight: 'small',
       selectable: 'mixed',
       showDirty: true,
       cellNavigation: true,

@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="twelve columns">
+    <nav soho-breadcrumb class="breadcrumb"></nav>
+  </div>
+</div>
+
+<form id="breadcrumb-gauntlet" [formGroup]="demoForm">
+  <div class="row top-padding">
+    <div class="six columns">
+      <h2>Add New Breadcrumb:</h2>
+      <div class="field">
+        <label soho-label for="new-id">ID</label>
+        <input soho-input formControlName="id" id="new-id"/>
+      </div>
+      <div class="field">
+        <input soho-checkbox formControlName="autoGenerateId" id="new-id-auto" type="checkbox" class="checkbox" name="new-id-auto" checked/>
+        <label soho-label for="new-id-auto" forCheckBox>Auto-generate IDs</label>
+      </div>
+      <div class="field">
+        <label soho-label for="new-content" class="required">Content</label>
+        <input soho-input formControlName="content" id="new-content" />
+      </div>
+      <div class="field">
+        <input soho-checkbox formControlName="autoGenerateContent" id="new-content-auto" type="checkbox" class="checkbox" name="new-id-auto" checked/>
+        <label soho-label for="new-content-auto" forCheckBox>Auto-generate Content</label>
+      </div>
+      <div class="field">
+        <label soho-label for="new-href">`href` Attribute (Causes Link to become Active)</label>
+        <input soho-input formControlName="href" id="new-href" />
+      </div>
+      <div class="field">
+        <input soho-checkbox formControlName="disabled" id="new-disabled" type="checkbox" class="checkbox" />
+        <label soho-label for="new-disabled" forCheckBox>Disabled</label>
+      </div>
+      <div class="field">
+        <input soho-checkbox formControlName="current" id="new-current" type="checkbox" class="checkbox" />
+        <label soho-label for="new-current" forCheckBox>Currently Active</label>
+      </div>
+      <div class="field">
+        <input soho-checkbox formControlName="callback" id="new-callback" type="checkbox" class="checkbox" checked />
+        <label soho-label for="new-callback" forCheckBox>Trigger a callback when clicked</label>
+      </div>
+      <div class="field">
+        <button soho-button="secondary" id="control-reset" type="reset" (click)="reset()">Reset</button>
+        <button soho-button="primary" id="control-add" type="submit" (click)="add()" [disabled]="demoForm.valid ? undefined : true">Add</button>
+      </div>
+    </div>
+
+    <div class="six columns">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="widget-title">Last-Clicked Breadcrumb Contents</h2>
+        </div>
+        <div class="card-content" id="results-card" [innerHTML]="lastClickedContents"></div>
+        <div class="card-footer">
+          <button soho-button="secondary" id="control-current" (click)="setCurrent()">Make Current</button>
+          <button soho-button="secondary" id="control-remove" (click)="removeLastClicked()">Remove This Breadcrumb</button>
+          <button soho-button="secondary" id="control-remove-all" (click)="removeAll()">Remove All</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

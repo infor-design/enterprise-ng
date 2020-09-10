@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { SohoLookupComponent } from 'ids-enterprise-ng';
+import { TemplateService } from './template.service';
+import { Asset } from './asset';
+import { SohoToastService } from 'ids-enterprise-ng';
 
 import {
   checkboxColumn,
@@ -16,11 +20,32 @@ export interface FakeResponse {
   selector: 'app-lookup-demo',
   templateUrl: 'lookup.demo.html',
 })
-export class LookupDemoComponent {
+export class LookupDemoComponent implements OnInit {
+  @ViewChild('templateId', { static: true }) sohoLookupComponent: SohoLookupComponent;
+  @ViewChild('toggleButtons', { static: true }) sohoLookupRef: SohoLookupComponent;
+
   public columns_product: SohoDataGridColumn[];
   public columns_multi: SohoDataGridColumn[];
-
+  public entityIds: string;
   public data_product: any[];
+  public customButtons: SohoModalButton[] = [
+    {
+      text: 'Enable', click: () => {
+        const api = this.sohoLookupRef.modal.buttonsetAPI;
+        api.at(2).disabled = false;
+        api.at(3).disabled = false;
+      }
+    },
+    {
+      text: 'Disable', click: () => {
+        const api = this.sohoLookupRef.modal.buttonsetAPI;
+        api.at(2).disabled = true;
+        api.at(3).disabled = true;
+      }
+    },
+    { text: 'Cancel', click: () => { this.sohoLookupRef.modal.close(); } },
+    { text: 'Submit', click: () => { this.sohoLookupRef.modal.close(); }, isDefault: true }
+  ];
   public model: any = {
     single: null,
     singleexists: '1212121',
@@ -64,12 +89,72 @@ export class LookupDemoComponent {
     asyncexists: '2342203',
   };
   public showModel = false;
+  public templates: Array<Asset>;
 
   // So we can bind 'this' to the source function passed to the lookup control
   public context = this;
 
-  constructor() {
+  constructor(private service: TemplateService, private toastService: SohoToastService) {
     this.setupProducts();
+  }
+
+  ngOnInit(): void {
+    const lookupOptions = {
+      columns: this.getAssetColumns(),
+      sortable: false,
+      alternateRowShading: false,
+      selectable: 'multiple',
+      clickToSelect: true,
+      paging: true,
+      toolbar: {
+        results: true,
+        dateFilter: false,
+        keywordFilter: true,
+        advancedFilter: false,
+        actions: false,
+        views: true,
+        rowHeight: true,
+        collapsibleFilter: false,
+        fullWidth: false,
+      }
+    } as SohoDataGridOptions;
+    this.sohoLookupComponent.options = lookupOptions;
+    this.service.getAvailableTemplates().subscribe(result => {
+      this.templates = result.data;
+    });
+  }
+
+  private getAssetColumns(): Array<SohoDataGridColumn> {
+    const columns = [
+      {
+        id: 'selectionCheckbox',
+        sortable: false,
+        formatter: Soho.Formatters.SelectionCheckbox,
+        align: 'center'
+      },
+      {
+        id: 'templateId',
+        sortable: false,
+        field: 'templateId'
+      },
+      {
+        id: 'templateDisplayName',
+        name: 'Template',
+        field: 'displayName',
+        sortable: false
+      }];
+    const sohoGridColumns: Array<SohoDataGridColumn> = [];
+    columns.forEach(column => {
+      const sohoGridColumn = {
+        name: column.name,
+        field: column.field,
+        formatter: column.formatter,
+        sortable: column.sortable,
+        id: column.id,
+      } as SohoDataGridColumn;
+      sohoGridColumns.push(sohoGridColumn);
+    });
+    return sohoGridColumns;
   }
 
   requestData(filter?: string, page?: number, pagesize?: number): Promise<FakeResponse> {
@@ -142,39 +227,41 @@ export class LookupDemoComponent {
   }
 
   // Example of calling before show to cancel the opening by returning false
-  onBeforeShow = (api, response) => {
-    console.log(this);
-    // 1. Do something like an ajax call.
+  onBeforeShow = (api: any, response: any) => {
+    console.log(api, response);
+    // 1. Do something such as an ajax call.
 
     // 2. if no rows and you dont want to open
-    // return false; // and we will never open
+    // response(false); // and we will never open
 
     // 3. If there was rows (in this example we dont show this)
     // 4. Set the dynamic columns and _dataset
     // api.settings.options.columns = data[0].columns;
     // api.settings.options.dataset = data[0].dataset;
     // 5. And the response which will open the dialog
-    response([]);
+    this.toastService.show({ title: 'Lookup Test', message: 'By Rule You Cant Open Me' });
+
+    response(false);
   }
 
   // Example of custom displaying
-  onField = (row, field, grid) => {
+  onField = (row: any, field: any, grid: any) => {
     console.log(row, field, grid, this);
     return row.productId + '|' + row.productName;
   }
 
   // Example of custom matching
-  onMatch(value, row, field, grid) {
+  onMatch(value: any, row: any, field: any, grid: any) {
     console.log(row, field, grid);
     return ((row.productId + '|' + row.productName) === value);
   }
 
   onDirty(event: SohoTrackDirtyEvent) {
-    console.log('lookup.onDirty');
+    console.log('lookup.onDirty', event);
   }
 
   onPristine(event: SohoTrackDirtyEvent) {
-    console.log('lookup.onPristine');
+    console.log('lookup.onPristine', event);
   }
 
   onChange(event: any) {

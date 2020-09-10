@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="twelve columns">
+    <h1 class="section-title">Block Grid Paging</h1>
+    <div soho-blockgrid
+      [dataset]="data"
+      [selectable]="'single'"
+      (selected)="onSelected($event)"
+      (deselected)="onDeselected($event)"
+      [paging]=true
+      [pagesize]=3
+      [pagesizes]="[3, 5, 10, 25]"
+      (page)="onPage($event)"
+      (pagesizechange)="onPageSizeChange($event)">
+    </div>
+  </div>
+</div>

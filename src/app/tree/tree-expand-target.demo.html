@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">SoHo Tree - Expand Target</h2>
+    <p>
+      1) Toggle node when clicking only the icon portion.<br>
+      2) Select node when clicking the text portion.<br>
+      3) Select any tree node and click button below to see in action.<br>
+      4) Use Drag/Drop nodes and see children count calculated.
+    </p>
+    <div class="field">
+      <button soho-button (click)="addNode()">Add Node</button>
+      <button soho-button (click)="removeNode()">Remove Node</button>
+      <button soho-button (click)="updateNode()">Update Node</button>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="twelve columns demo" role="main">
+    <section soho-busyindicator style="height: 100%">
+      <ul soho-tree (selected)="onSelected($event)"></ul>
+    </section>
+  </div>
+</div>

@@ -28,6 +28,9 @@ import { BlockGridCustomContentDemoComponent } from './blockgrid/blockgrid-custo
 import { BlockGridMixedSelectionDemoComponent } from './blockgrid/blockgrid-mixed-selection.demo';
 import { BlockGridMultiSelectionDemoComponent } from './blockgrid/blockgrid-multi-selection.demo';
 import { BlockGridSingleSelectionDemoComponent } from './blockgrid/blockgrid-single-selection.demo';
+import { BlockGridPagingDemoComponent } from './blockgrid/blockgrid-paging.demo';
+import { BreadcrumbDemoComponent } from './breadcrumb/breadcrumb.demo';
+import { BreadcrumbGauntletDemoComponent } from './breadcrumb/breadcrumb-gauntlet.demo';
 import { BubbleDemoComponent } from './bubble/bubble.demo';
 import { BulletDemoComponent } from './bullet/bullet.demo';
 import { BusyIndicatorDemoComponent } from './busyindicator/form.demo';
@@ -105,12 +108,17 @@ import { DataGridToolbarDemoComponent } from './datagrid/datagrid-toolbar.demo';
 import { DataGridTreeGridDemoComponent } from './datagrid/datagrid-treegrid.demo';
 import { DataGridTreeGridLazyDemoComponent } from './datagrid/datagrid-treegrid-lazy.demo';
 import { DatagridTreegridDynamicfilteringDemoComponent } from './datagrid/datagrid-treegrid-dynamicfiltering.demo';
+import { ExpandedDemoComponent, DataGridExpandableRowDynamicDemoComponent } from './datagrid/datagrid-expandable-row-dynamic.demo';
+import { NestedDatagridDemoComponent, DataGridExpandableRowNestedDemoComponent } from './datagrid/datagrid-expandable-row-nested.demo';
+import { DataGridSummaryRowDemoComponent } from './datagrid/datagrid-summary-row.demo';
 import { DatepickerDemoComponent } from './datepicker/datepicker.demo';
 import { DonutDemoComponent } from './donut/donut.demo';
+import { DragDemoComponent } from './drag/drag.demo';
 import { DropdownAsyncBusyDemoComponent } from './dropdown/dropdown-async-busy.demo';
 import { DropdownAsyncDemoComponent } from './dropdown/dropdown-async.demo';
 import { DropdownDemoComponent } from './dropdown/dropdown.demo';
 import { DropdownMultiselectDemoComponent } from './dropdown/dropdown-multiselect.demo';
+import { DropdownMultiselectLandmarkDemoComponent } from './dropdown/dropdown-multiselect-landmark.demo';
 import { DropdownReactiveDemoComponent } from './dropdown/dropdown-reactive.demo';
 import { DropdownSimpleDemoComponent } from './dropdown/dropdown-simple.demo';
 import { DropdownTypeaheadDemoComponent } from './dropdown/dropdown-typeahead.demo';
@@ -148,7 +156,6 @@ import { ListViewCustomContentDemoComponent } from './listview/listview.custom-c
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
-import { MaskLegacyDemoComponent } from './mask/mask-legacy.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
@@ -164,6 +171,7 @@ import { RadarDemoComponent } from './radar/radar.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 import { RatingDemoComponent } from './rating/rating.demo';
 import { SearchFieldDemoComponent } from './searchfield/searchfield.demo';
+import { SearchFieldClearDemoComponent } from './searchfield/searchfield-clear.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
 import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
 import { SohoMastheadDemoComponent } from './masthead/masthead.demo';
@@ -187,6 +195,7 @@ import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
 import { TabsDismissibleDemoComponent } from './tabs/tabs-dismissible.demo';
 import { TabsDropdownDemoComponent } from './tabs/tabs-dropdown.demo';
 import { TabsDynamicDemoComponent } from './tabs/tabs-dynamic.demo';
+import { TabsResizeDemoComponent } from './tabs/tabs-resize.demo';
 import { TabsModuleDemoComponent } from './tabs/tabs-module.demo';
 import { TabsVerticalDemoComponent } from './tabs/tabs-vertical.demo';
 import { TagDemoComponent } from './tag/tag.demo';
@@ -210,6 +219,7 @@ import { TooltipDemoComponent } from './tooltip/tooltip.demo';
 import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
 import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
+import { TreeExpandTargetDemoComponent } from './tree/tree-expand-target.demo';
 import { TreemapDemoComponent } from './treemap/treemap.demo';
 import { TreeServiceDemoComponent } from './tree/tree-service.demo';
 import { TreeSourceDemoComponent } from './tree/tree-source.demo';
@@ -225,8 +235,10 @@ import { WizardDemoTargetFolderPageComponent } from './wizard/wizard-target-fold
 import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validation-rules-page.demo';
 import { LocaleInitializerModule } from './locale-initializer/locale-initializer.module';
 import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
+import { ApplicationMenuTestPerfDemoComponent } from './application-menu/application-menu-test-performance.demo';
 import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-cube.demo';
 import { WeekViewDemoComponent } from './week-view/week-view.demo';
+import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
 
 @NgModule({
   declarations: [
@@ -237,6 +249,7 @@ import { WeekViewDemoComponent } from './week-view/week-view.demo';
     ApplicationMenuLazyDemoComponent,
     ApplicationMenuLazyMenuDemoComponent,
     ApplicationMenuRoleSwitcherDemoComponent,
+    ApplicationMenuTestPerfDemoComponent,
     AreaDemoComponent,
     AutocompleteDemoComponent,
     BarDemoComponent,
@@ -246,11 +259,15 @@ import { WeekViewDemoComponent } from './week-view/week-view.demo';
     BlockGridMixedSelectionDemoComponent,
     BlockGridMultiSelectionDemoComponent,
     BlockGridSingleSelectionDemoComponent,
+    BlockGridPagingDemoComponent,
+    BreadcrumbDemoComponent,
+    BreadcrumbGauntletDemoComponent,
     BubbleDemoComponent,
     BulletDemoComponent,
     BusyIndicatorDemoComponent,
     BusyIndicatorDemoBodyComponent,
     ButtonDemoComponent,
+    ButtonsetDemoComponent,
     CardFormatterComponent,
     CalendarDemoComponent,
     CalendarLegendDemoComponent,
@@ -306,17 +323,24 @@ import { WeekViewDemoComponent } from './week-view/week-view.demo';
     DataGridTreeGridCubeDemoComponent,
     DatagridTreegridDynamicfilteringDemoComponent,
     DataGridGroupableDemoComponent,
+    NestedDatagridDemoComponent,
+    ExpandedDemoComponent,
+    DataGridExpandableRowNestedDemoComponent,
+    DataGridExpandableRowDynamicDemoComponent,
+    DataGridSummaryRowDemoComponent,
     DatepickerDemoComponent,
     DemoCellInputEditorComponent,
     DemoCellFormatterComponent,
     DemoCellIntegerFormatterComponent,
     DonutDemoComponent,
+    DragDemoComponent,
     PriceCellFormatterComponent,
     ButtonCellFormatterComponent,
     DropdownAsyncBusyDemoComponent,
     DropdownAsyncDemoComponent,
     DropdownDemoComponent,
     DropdownMultiselectDemoComponent,
+    DropdownMultiselectLandmarkDemoComponent,
     DropdownReactiveDemoComponent,
     DropdownSimpleDemoComponent,
     DropdownTypeaheadDemoComponent,
@@ -353,7 +377,6 @@ import { WeekViewDemoComponent } from './week-view/week-view.demo';
     LookupDemoComponent,
     LookupValidationDemoComponent,
     MaskDemoComponent,
-    MaskLegacyDemoComponent,
     MenuButtonDemoComponent,
     MessageDemoComponent,
     NotificationDemoComponent,
@@ -368,6 +391,7 @@ import { WeekViewDemoComponent } from './week-view/week-view.demo';
     RadioButtonDemoComponent,
     RatingDemoComponent,
     SearchFieldDemoComponent,
+    SearchFieldClearDemoComponent,
     SliderDemoComponent,
     SohoHeaderDynamicDemoComponent,
     SohoHeaderDemoComponent,
@@ -391,6 +415,7 @@ import { WeekViewDemoComponent } from './week-view/week-view.demo';
     TabsDismissibleDemoComponent,
     TabsDropdownDemoComponent,
     TabsDynamicDemoComponent,
+    TabsResizeDemoComponent,
     TabsModuleDemoComponent,
     TabsVerticalDemoComponent,
     TagDemoComponent,
@@ -414,6 +439,7 @@ import { WeekViewDemoComponent } from './week-view/week-view.demo';
     TrackDirtyDemoComponent,
     TreeContentDemoComponent,
     TreeDynamicDemoComponent,
+    TreeExpandTargetDemoComponent,
     TreemapDemoComponent,
     TreeServiceDemoComponent,
     TreeSourceDemoComponent,
@@ -446,6 +472,8 @@ import { WeekViewDemoComponent } from './week-view/week-view.demo';
     SohoRenderLoopService
   ],
   entryComponents: [
+    ExpandedDemoComponent,
+    NestedDatagridDemoComponent,
     DemoCellDatePickerEditorComponent,
     DemoCellInputEditorComponent,
     DemoCellFormatterComponent,

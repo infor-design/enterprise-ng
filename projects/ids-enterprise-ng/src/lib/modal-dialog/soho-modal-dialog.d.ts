@@ -81,6 +81,9 @@ interface SohoModalOptions {
   /** Adds the ability to control the opacity of the background overlay. **/
   overlayOpacity?: number;
 
+  /**  if true, causes this modal instance to become hidden when another modal is displayed over top. **/
+  hideUnderneath?: boolean;
+
   /** If true, causes the modal's trigger element not to become focused once the modal is closed. **/
   noRefocus?: boolean;
 
@@ -133,7 +136,7 @@ type SohoModalButtonClickFunction = (
   e: JQuery.TriggeredEvent,
 
   /** The jQuery control.  */
-  model: SohoModalStatic) => void;
+  modal: SohoModalStatic) => void;
 
 /**
  * This interface represents the Api exposed by the
@@ -165,6 +168,11 @@ interface SohoModalStatic {
    * Open the modal dialog.
    */
   open(): void;
+
+  /**
+   * API for interacting with the buttons on the dialog.
+   */
+  buttonsetAPI: SohoButtonsetStatic;
 
   /**
    * Close the modal dialog.

@@ -17,15 +17,12 @@ import { DataGridDemoService } from './datagrid-demo.service';
 export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
   private static EMPTY_MSG_SERVER_ERROR: SohoEmptyMessageOptions = {
     title: 'Server Error',
-    info: 'The target server returned an error',
     icon: 'icon-empty-error-loading', // needs to be the full SVG name
-    button: { text: 'Retry', click: () => { alert('try again'); } },
-    color: 'graphite'
+    button: { isPrimary: true, text: 'Retry', click: () => { alert('try again'); } }
   };
 
   private static EMPTY_MSG_NO_MATCHES: SohoEmptyMessageOptions = {
     title: 'No Matches',
-    info: 'No products found that match your query',
     icon: 'icon-empty-no-orders', // needs to be the full SVG name
     button: { text: 'Retry', click: () => { alert('try again'); } },
     color: 'azure'

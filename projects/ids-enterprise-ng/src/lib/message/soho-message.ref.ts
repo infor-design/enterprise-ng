@@ -129,6 +129,24 @@ export class SohoMessageRef {
     return this;
   }
 
+  /**
+   * Controls the opacity of the background overlay.
+   * @param overlayOpacity - The percent between 0 and 1 of opacity to use.
+   */
+  overlayOpacity(overlayOpacity: number): SohoMessageRef {
+    this._options.overlayOpacity = overlayOpacity;
+    return this;
+  }
+
+  /**
+   * Causes this modal instance to become hidden when another modal is displayed over top.
+   * @param hideUnderneath - If it should be on top or bottom.
+   */
+  hideUnderneath(hideUnderneath: boolean): SohoMessageRef {
+    this._options.hideUnderneath = hideUnderneath;
+    return this;
+  }
+
  /**
    * Dialog result property.
    *

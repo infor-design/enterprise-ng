@@ -1,0 +1,52 @@
+
+<div class="twelve columns">
+  <!-- BEGIN Toolbar with All Buttons (Title Favoring) -->
+  <soho-toolbar-flex>
+    <soho-toolbar-flex-section [isTitle]="true" [isTitleFavor]="true">
+      <h2>Incredibly Long Toolbar (Favor's Title)</h2>
+    </soho-toolbar-flex-section>
+
+    <soho-toolbar-flex-section [isButtonSet]="true">
+      <button soho-button="btn">
+        <span>Text Button</span>
+      </button>
+
+      <button soho-menu-button>
+        <span>Menu Button</span>
+      </button>
+      <ul class="popupmenu">
+        <li><a href="#">Item One</a></li>
+        <li><a href="#">Item Two</a></li>
+        <li class="submenu">
+          <a href="#">Item Three</a>
+          <ul class="popupmenu">
+            <li><a href="#">Sub-Item One</a></li>
+            <li><a href="#">Sub-Item Two</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Item Four</a></li>
+      </ul>
+
+      <button soho-button="icon" icon="settings"> Settings </button>
+
+      <button soho-button="icon" icon="delete"> Trash </button>
+    </soho-toolbar-flex-section>
+
+    <soho-toolbar-flex-section [isSearch]="true">
+      <input soho-toolbar-flex-searchfield placeholder="Search..." [clearable]="true" [collapsible]="true"/>
+    </soho-toolbar-flex-section>
+
+    <soho-toolbar-flex-more-button>
+      <ul class="popupmenu">
+        <li><a href="#">Pre-defined Item #1</a></li>
+        <li><a href="#">Pre-defined Item #2</a></li>
+        <li><a href="#">Pre-defined Item #3</a></li>
+      </ul>
+    </soho-toolbar-flex-more-button>
+  </soho-toolbar-flex>
+
+  <div class="field">
+    <input soho-checkbox type="checkbox" id="id1" name="checkbox1" [(ngModel)]="checkBox1Value" (change)="checkChanged()">
+    <label soho-label for="id1" [forCheckBox]="true">Checkbox test updating the toolbar</label>
+  </div>
+</div>

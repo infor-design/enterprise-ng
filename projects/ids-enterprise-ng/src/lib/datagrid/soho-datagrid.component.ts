@@ -169,6 +169,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this._gridOptions = gridOptions;
 
     this.checkForComponentEditors();
+    this.checkForSummaryRowSettings();
 
     if (this.jQueryElement) {
       // No need to set the 'settings' as the Rebuild will create
@@ -489,8 +490,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   /**
    * Sets the row height for the grid, to be one of the supported options.
-   *
-   * @param rowHeight - 'normal' | 'medium' | 'short'
+   * @param rowHeight - 'extra-small' | 'small' | 'medium' | 'large'
    */
   @Input() set rowHeight(rowHeight: SohoDataGridRowHeight) {
     this._gridOptions.rowHeight = rowHeight;
@@ -498,7 +498,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       this.datagrid.settings.rowHeight = rowHeight;
 
       this.ngZone.runOutsideAngular(() => {
-        // @todo add hints as this may be bundled up with other changes.
         this.datagrid.rowHeight(rowHeight);
       });
     }
@@ -1004,6 +1003,57 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   *
+   * Summary row columns settingss
+   */
+  @Input() set summaryRowColumns(summaryRowColumns: SohoDataGridSummaryRowColumnSettings[]) {
+    this._gridOptions.summaryRowColumns = summaryRowColumns;
+    this.checkForSummaryRowSettings();
+
+    if (this._gridOptions.columns && this.jQueryElement) {
+      this.ngZone.runOutsideAngular(() => this.datagrid.updateColumns(this._gridOptions.columns, this._gridOptions.columnGroups));
+    }
+  }
+
+  /**
+   * If true an extra column will be added to the end that fills the space.
+   * This allows columns to not stretch to fill so they are a constant size.
+   * This setting cannot be used with percent columns.
+   */
+  @Input() set spacerColumn(spacerColumn: boolean) {
+    this._gridOptions.spacerColumn = spacerColumn;
+    if (this.jQueryElement) {
+      this.datagrid.settings.spacerColumn = spacerColumn;
+      this.markForRefresh('spacerColumn', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
+   * If true an extra column is currently added to the end that fills the space.
+   */
+  get spacerColumn() {
+    return this._gridOptions.spacerColumn;
+  }
+
+  /**
+   * Determines the sizing method for the auto sizing columns.
+   */
+  @Input() set columnSizing(columnSizing: 'both' | 'data' | 'header') {
+    this._gridOptions.columnSizing = columnSizing;
+    if (this.jQueryElement) {
+      this.datagrid.settings.columnSizing = columnSizing;
+      this.markForRefresh('columnSizing', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /**
+   * Determines the sizing method for the auto sizing columns.
+   */
+  get columnSizing() {
+    return this._gridOptions.columnSizing;
+  }
+
+  /**
    * The name of the column stretched to fill the width of the datagrid,
    * or 'last' where the last column will be stretched to fill the
    * remaining space.
@@ -1275,6 +1325,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   // List of dynamic formatter components - keyed by the original args.
   private cellComponents: any[] = [];
 
+  // List of dynamic rowtemplate components - keyed by the original args.
+  private rowTemplateComponents: any[] = [];
+
   /**
    * Constructor.
    *
@@ -1351,12 +1404,12 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   pageSize(): number {
-    return this.datagrid.pager.settings.pagesize;
+    return this.datagrid.pagerAPI.settings.pagesize;
   }
 
   updatePagingInfo(pageInfo: SohoPagerPagingInfo): void {
     this.ngZone.runOutsideAngular(() => {
-      this.datagrid.updatePagingInfo(pageInfo);
+      this.datagrid.pagerAPI.updatePagingInfo(pageInfo);
     });
   }
 
@@ -1571,10 +1624,11 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @param row The row index
    * @param cell The cell index
    * @param toggle True to set it and false to remove it
+   * @param data Adds dirty data to the internal tracker
    */
-  setDirtyIndicator(row: number, cell: number, toggle: boolean): void {
+  setDirtyIndicator(row: number, cell: number, toggle: boolean, data?: object): void {
     this.ngZone.runOutsideAngular(() => {
-      this.datagrid.setDirtyIndicator(row, cell, toggle);
+      this.datagrid.setDirtyIndicator(row, cell, toggle, data);
     });
   }
 
@@ -1917,10 +1971,69 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   private onExpandRow(args: SohoDataGridRowExpandEvent) {
     const event = { grid: this, ...args };
+    if (this.gridOptions.rowTemplateComponent) {
+      this.buildRowTemplateComponent(event);
+    }
     this.ngZone.run(() => {
       this.expandrow.next(event);
     });
   }
+
+  /**
+   * Build component for rowTemplate
+   */
+  private buildRowTemplateComponent(event: any) {
+
+    if (!this.gridOptions.rowTemplateComponent) {
+      return;
+    }
+
+    const componentFactory = this.resolver.resolveComponentFactory(
+      this.gridOptions.rowTemplateComponent
+    );
+
+    // Remove component if exist
+    const idx = this.rowTemplateComponents.findIndex((c) => event.row === c.row);
+    if (idx > -1) {
+      this.rowTemplateComponents[idx].component.destroy();
+      this.rowTemplateComponents.splice(idx, 1);
+    }
+
+    const container = event.detail[0].querySelector('.datagrid-row-detail-padding');
+    container.innerHTML = '';
+
+    let dataComponent: any;
+    if (event.item.hasOwnProperty(this.gridOptions.rowTemplateField)) {
+      dataComponent = event.item[this.gridOptions.rowTemplateField];
+    } else {
+      dataComponent = undefined;
+    }
+
+    const injector = Injector.create({
+      providers: [
+        {
+          provide: 'args',
+          useValue: { inputsData: this.gridOptions.rowTemplateComponentInputs, data: dataComponent, ...event },
+        }
+      ],
+      parent: this.injector,
+    });
+
+    // Create the component, in the container.
+    const component = componentFactory.create(injector, [], container);
+    event['rowTemplateComponent'] = component;
+
+    // ... attach to the app ...
+    this.app.attachView(component.hostView);
+
+    // ... update for changes ...
+    component.changeDetectorRef.detectChanges();
+
+    // ... finally store the created component for later, we'll delete it when
+    // requested, or when the grid is destroyed.
+    this.rowTemplateComponents.push({ row: event.row, component: component });
+
+}
 
   /**
    * Event fired after a key is pressed
@@ -1948,6 +2061,41 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       return this.datagrid.settings.onBeforeSelect;
     }
     return this._gridOptions.onBeforeSelect;
+  }
+
+  /**
+   *  Makes it possible to save selections when changing pages on server side paging.
+   *  You may want to also use showSelectAllCheckBox: false
+   */
+  @Input() set allowSelectAcrossPages(allowSelectAcrossPages: boolean) {
+    this._gridOptions.allowSelectAcrossPages = allowSelectAcrossPages;
+    if (this.datagrid) {
+      this.datagrid.settings.allowSelectAcrossPages = allowSelectAcrossPages;
+      this.markForRefresh('allowSelectAcrossPages', RefreshHintFlags.None);
+    }
+  }
+  get allowSelectAcrossPages(): boolean {
+    if (this.datagrid) {
+      return this.datagrid.settings.allowSelectAcrossPages;
+    }
+    return this._gridOptions.allowSelectAcrossPages;
+  }
+
+  /**
+   * An array of column IDs used to define aria descriptors for selection checkboxes.
+   */
+  @Input() set columnIds(columnIds: Array<String | Number>) {
+    this._gridOptions.columnIds = columnIds;
+    if (this.datagrid) {
+      this.datagrid.settings.columnIds = columnIds;
+      this.markForRefresh('columnIds', RefreshHintFlags.None);
+    }
+  }
+  get columnIds(): Array<String | Number> {
+    if (this.datagrid) {
+      return this.datagrid.settings.columnIds;
+    }
+    return this._gridOptions.columnIds;
   }
 
   /**
@@ -2280,6 +2428,12 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // Clear the cache.
     this.cellComponents = [];
 
+     // Remove rowTemplate dynamic components.
+    if (this.rowTemplateComponents && this.rowTemplateComponents.length > 0) {
+      this.rowTemplateComponents.forEach((c) => { c.component.destroy(); });
+      this.rowTemplateComponents = [];
+    }
+
     // Now destroy the grid.
     if (this.datagrid) {
       if (this.datagrid.destroy) {
@@ -2397,7 +2551,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       };
 
       // Add the destroy cell callback.
-      this._gridOptions.onDestroyCell = (c, args: SohoDataGridPostRenderCellArgs) => {
+      this._gridOptions.onDestroyCell = (_, args: SohoDataGridPostRenderCellArgs) => {
         this.onDestroyCell(args);
       };
 
@@ -2555,6 +2709,26 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       }
     });
   }
+
+  private checkForSummaryRowSettings() {
+    if (!this._gridOptions.summaryRowColumns || this._gridOptions.summaryRowColumns.length === 0 ) {
+      this._gridOptions.columns.forEach((c) => {
+        c.summaryRowFormatter = undefined;
+        c.summaryText = undefined;
+        c.aggregator = undefined;
+        c.summaryTextPlacement = undefined;
+      });
+    } else {
+      this._gridOptions.summaryRowColumns.forEach((sc) => {
+        const column = this._gridOptions.columns.find((c) => c.field === sc.field);
+        column.summaryRowFormatter = sc.summaryRowFormatter;
+        column.summaryText = sc.summaryText;
+        column.aggregator = sc.aggregator;
+        column.summaryTextPlacement = sc.summaryTextPlacement;
+      });
+    }
+  }
+
 }
 
 /**

@@ -23,6 +23,17 @@ export class SohoPopupMenuHeadingComponent {
 }
 
 /**
+ * SUB COMPONENT: SOHO-POPUPMENU-SHORTCUT-TEXT
+ */
+@Component({
+  selector: 'span[soho-popupmenu-shortcut-text]', // tslint:disable-line
+  template: `<ng-content></ng-content>`
+})
+export class SohoPopupMenuShortCutTextComponent {
+  @HostBinding('class.shortcut-text') get isShortCutText() { return true; }
+}
+
+/**
  * SUB COMPONENT: SOHO-MENUPOPUPMENU-SEPARATOR
  */
 @Component({
