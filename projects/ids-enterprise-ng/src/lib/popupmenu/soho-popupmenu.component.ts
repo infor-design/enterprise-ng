@@ -32,6 +32,7 @@ export class SohoPopupMenuHeadingComponent {
 export class SohoPopupMenuSeparatorComponent {
   @HostBinding('class.separator') get isSeparator() { return true; }
   @HostBinding('class.single-selectable-section') @Input() singleSelectableSection = false;
+  @HostBinding('class.multi-selectable-section') @Input() multiSelectableSection = false;
 }
 
 /**
@@ -312,6 +313,8 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   @HostBinding('class.popupmenu') isPopupmenu = true;
+  @HostBinding('class.is-selectable') @Input() isSelectable = true;
+  @HostBinding('class.is-multiselectable') @Input() isMultiselectable = false;
 
   // -------------------------------------------
   // Private Member Data
@@ -324,7 +327,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
 
   private _popupMenuOptions: SohoPopupMenuOptions = {};
 
-  constructor(private elementRef: ElementRef, private ngZone: NgZone) {}
+  constructor(private elementRef: ElementRef, private ngZone: NgZone) { }
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
@@ -342,19 +345,19 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
         this.ngZone.run(() => this.selected.emit({ e, args })));
 
       this.jQueryElement.on('popupmenuafterplace', (e: JQuery.TriggeredEvent, args: JQuery) =>
-        this.ngZone.run(() => this.popupmenuafterplace.emit({e, args})));
+        this.ngZone.run(() => this.popupmenuafterplace.emit({ e, args })));
 
       this.jQueryElement.on('beforeopen', (e: JQuery.TriggeredEvent, args: JQuery) =>
-        this.ngZone.run(() => this.beforeopen.emit({e, args})));
+        this.ngZone.run(() => this.beforeopen.emit({ e, args })));
 
       this.jQueryElement.on('open', (e: JQuery.TriggeredEvent, args: JQuery) =>
-        this.ngZone.run(() => this.open.emit({e, args})));
+        this.ngZone.run(() => this.open.emit({ e, args })));
 
       this.jQueryElement.on('afteropen', (e: JQuery.TriggeredEvent, args: JQuery) =>
-        this.ngZone.run(() => this.afteropen.emit({e, args})));
+        this.ngZone.run(() => this.afteropen.emit({ e, args })));
 
       this.jQueryElement.on('close', (e: JQuery.TriggeredEvent, args: JQuery) =>
-        this.ngZone.run(() => this.closeEvent.emit({e, args})));
+        this.ngZone.run(() => this.closeEvent.emit({ e, args })));
     });
   }
 

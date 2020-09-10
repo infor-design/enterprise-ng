@@ -11,6 +11,13 @@ export class PopupMenuDemoComponent {
   public insertCommentText = 'Enable';
   public insertNoteText = 'Enable';
 
+  public options = {
+    autoRefresh: true,
+    showLabel: true,
+    showAxis: false,
+    autoScale: false,
+  }
+
   onInsertCommentButtonClicked() {
     this.isInsertCommentDisabled = !this.isInsertCommentDisabled;
     this.insertCommentText = this.isInsertCommentDisabled ? 'Enable' : 'Disable';
@@ -39,5 +46,9 @@ export class PopupMenuDemoComponent {
 
   onOpen(event: SohoPopupMenuEvent) {
     console.log('PopupMenu Demo: popupmenu.onOpen');
+  }
+
+  toggleOption(option: string) {
+    this.options[option] = !this.options[option];
   }
 }
