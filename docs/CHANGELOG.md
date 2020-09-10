@@ -4,7 +4,7 @@
 
 ### 7.7.0 Fixes
 
-- Placeholder
+- `[Popupmenu]` Expose is-selectable, is-multiselectable, and multi-selectable-section as input properties. ([#907](https://github.com/infor-design/enterprise-ng/issues/907)) `CL`
 
 ## v7.6.0
 
