@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="twelve columns">
+    <p>
+        The (selected) event is not triggered when selecting an item with "enter", if it has a custom template.
+    </p>
+    <div class="field">
+      <label soho-label>Last selected: {{secondsSinceLastSelect | async}} seconds ago.</label>
+      <input soho-autocomplete [source]="source" [template]="template" [(ngModel)]="model" (selected)="resetSelectCount()" placeholder="Type something and select with enter">
+    </div>
+  </div>
+</div>

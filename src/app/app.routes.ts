@@ -6,6 +6,7 @@ import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { AreaDemoComponent } from './area/area.demo';
 import { AutocompleteDemoComponent } from './autocomplete/autocomplete.demo';
+import { AutocompleteTemplatesDemoComponent } from './autocomplete/autocomplete-templates.demo';
 import { BarDemoComponent } from './bar/bar.demo';
 import { BarStackedDemoComponent } from './bar-stacked/bar-stacked.demo';
 import { BarGroupedDemoComponent } from './bar-grouped/bar-grouped.demo';
@@ -201,6 +202,7 @@ export const routes: Routes = [
   { path: 'application-menu-test-performance', component: ApplicationMenuTestPerfDemoComponent },
   { path: 'area', component: AreaDemoComponent },
   { path: 'autocomplete', component: AutocompleteDemoComponent },
+  { path: 'autocomplete-templates', component: AutocompleteTemplatesDemoComponent },
   { path: 'bar', component: BarDemoComponent },
   { path: 'bar-grouped', component: BarGroupedDemoComponent },
   { path: 'bar-stacked', component: BarStackedDemoComponent },
