@@ -5,20 +5,27 @@ describe('Locale Tests', () => {
 
   const checkLocale = (locale, name, date, currency) => {
     it(`should format data in ${name}`, () => {
+      // dropdown list do not exist if dropdown is not opened
+      cy.get('#dropdown-list')
+        .should('not.exist');
+
       cy.get('div.dropdown-wrapper')
         .should('be.visible')
         .click();
+
       // select locale
       cy.get('#dropdown-list')
-        .should('be.visible')
+        .should('exist')
         .contains(name)
-        .should('be.visible')
-        .click()
+        .should('exist')
+        .click();
+
+      cy.get('#dropdown-list')
         .should('not.exist');
 
       cy.get('div.dropdown-wrapper')
         .contains(name)
-        .should('exist');
+        .should('be.visible');
 
       // check selection
       cy.get('#locale')
