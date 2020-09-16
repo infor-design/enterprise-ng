@@ -47,6 +47,15 @@
       <li soho-popupmenu-item [isDisabled]="isInsertCommentDisabled"><a soho-popupmenu-label id="x">Insert comment</a></li>
       <li soho-popupmenu-item [isDisabled]="isInsertNoteDisabled"><a soho-popupmenu-label>Insert note</a></li>
       <li soho-popupmenu-item><a soho-popupmenu-label >Clear notes</a></li>
+      <li soho-popupmenu-item [subMenu]="true">
+        <a soho-popupmenu-label>Multiselectable</a>
+        <ul soho-popupmenu [isMultiselectable]="true">
+          <li soho-popupmenu-item [isChecked]="options.autoScale"><a soho-popupmenu-label (click)="toggleOption('autoScale')">Auto Scale</a></li>
+          <li soho-popupmenu-item [isChecked]="options.showLabel"><a soho-popupmenu-label (click)="toggleOption('showLabel')">Show Label</a></li>
+          <li soho-popupmenu-item [isChecked]="options.showAxis"><a soho-popupmenu-label (click)="toggleOption('showAxis')">Show Axis</a></li>
+          <li soho-popupmenu-item [isChecked]="options.autoRefresh"><a soho-popupmenu-label (click)="toggleOption('autoRefresh')">Auto Refresh</a></li>
+        </ul>
+      </li>
       <li soho-popupmenu-separator singleSelectableSection="true"></li>
       <li soho-popupmenu-heading>Additional Options</li>
       <li soho-popupmenu-item isChecked="true" isSelectable="true"><a soho-popupmenu-label>Conditional formatting</a></li>
