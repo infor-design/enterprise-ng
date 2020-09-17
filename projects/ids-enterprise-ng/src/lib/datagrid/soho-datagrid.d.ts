@@ -697,7 +697,7 @@ type SohoDataGridColumnCssClassFunction = (
   rowData: Object
 ) => string;
 
-type SohoDataGridColumnDisableButtonFunction = (
+type SohoDataGridColumnDisabledFunction = (
   row: number,
   cell: any,
   fieldValue: any,
@@ -807,8 +807,8 @@ interface SohoDataGridColumn {
   /** css class  */
   cssClass?: SohoDataGridColumnCssClassFunction | string;
 
-  /** disable button  */
-  disableButton?: SohoDataGridColumnDisableButtonFunction;
+  /** disabled  */
+  disabled?: SohoDataGridColumnDisabledFunction;
 
   /** @todo fix type from any.  */
   dateShowFormat?: any;

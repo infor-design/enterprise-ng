@@ -42,7 +42,7 @@ export class DataGridAngularFormatterDemoComponent {
     { id: 'button-formatter', name: 'Edit', text: 'Edit Row',
       sortable: false, icon: 'edit', align: 'center',
       formatter: Soho.Formatters.Button, click: (e, args) => this.onClick(args),
-      disableButton: this.disableButton },
+      disabled: this.disableButton },
     { id: 'button', name: 'Settings',
       sortable: false, align: 'center', postRender: true,
       component: ButtonCellFormatterComponent,
