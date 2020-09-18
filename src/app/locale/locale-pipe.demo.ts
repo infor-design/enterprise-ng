@@ -22,14 +22,15 @@ export class LocalePipeDemoComponent {
   public locales = [
     { value: 'en-US', label: 'English (American)' },
     { value: 'en-GB', label: 'English (British)' },
+    { value: 'da-DK', label: 'Danish (Denmark)' },
     { value: 'zh-CN', label: 'Chinese (Simplified)' },
     { value: 'pt-BR', label: 'Portugese (Brazillian)' },
-    { value: 'fr-FR', label: 'French (France)' }
+    { value: 'fr-CA', label: 'French (Canada)' }
   ];
 
   public model = {
     locale: '',
-    datepicker: new Date(),
+    datepicker: new Date(2019, 11, 9),
     number: 1000,
     resourceKey: 'Ok'
   };

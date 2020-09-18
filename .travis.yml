@@ -8,6 +8,7 @@ cache:
 env:
   - TEST_SUITE=lint
   - TEST_SUITE=functional
+  - TEST_SUITE=e2e
 install:
   - npm install
 before_script:
@@ -16,5 +17,6 @@ before_script:
 script:
   - if [ $TEST_SUITE = lint ]; then npm run lint; fi
   - if [ $TEST_SUITE = functional ]; then npm run test; fi
+  - if [ $TEST_SUITE = e2e ]; then npm run test:e2e; fi
 after_success:
   - codecov
