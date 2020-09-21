@@ -697,6 +697,14 @@ type SohoDataGridColumnCssClassFunction = (
   rowData: Object
 ) => string;
 
+type SohoDataGridColumnDisabledFunction = (
+  row: number,
+  cell: any,
+  fieldValue: any,
+  columnDef: SohoDataGridColumn,
+  rowData: any
+) => boolean;
+
 type SohoDataGridColumnColSpanFunction = (
   row: number,
   cell: any,
@@ -798,6 +806,9 @@ interface SohoDataGridColumn {
 
   /** css class  */
   cssClass?: SohoDataGridColumnCssClassFunction | string;
+
+  /** disabled  */
+  disabled?: SohoDataGridColumnDisabledFunction;
 
   /** @todo fix type from any.  */
   dateShowFormat?: any;
