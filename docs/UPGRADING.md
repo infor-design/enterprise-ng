@@ -34,8 +34,21 @@ npm i typescript@3.7.4
 
 ### Install typings as a seperate package
 
+The typings should be install automatically, as they are a dependency of ids-enterprise-ng, if they are not you can install them explicitly as follows:
+
 ```sh
 npm i ids-enterprise-typings -S
+```
+
+These typings must be added to the `types` element of `tsconfig.base.json`, and where overwridden in child tsconfig files (e.g. `tsconfig.lib.json`). 
+
+```json
+"types": [
+      "jasmine",
+      "jquery",
+      "node",
+      "ids-enterprise-typings"
+    ],
 ```
 
 ### Uninstall old dependencies (for code upgrading from a version of ids-enterprise-ng before version 5)

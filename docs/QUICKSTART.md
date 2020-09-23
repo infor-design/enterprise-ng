@@ -72,9 +72,7 @@ Edit `angular.json`, change the `scripts` elements as follows:
 
 Change both the *test* and *build* architecture sections.
 
-Add the `jquery` types into the `tsconfig.base.json` and `tsconfig.spec.json`.  For example:
-
-// TODO - will need to add "@types/ids-enterprise" (or whatever we call it)
+Add the `jquery` and `ids-enterprise-typings` types into the `tsconfig.*.json` files.  For example:
 
 ```json
 {
