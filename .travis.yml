@@ -3,8 +3,10 @@ language: node_js
 # use version in `.nvmrc`
 node_js:
 cache:
+  # cache both npm modules and Cypress binary
   directories:
     - node_modules
+    - ~/.cache/Cypress
 env:
   - TEST_SUITE=lint
   - TEST_SUITE=functional
@@ -12,6 +14,10 @@ env:
 install:
   - npm install
 before_script:
+  - npx cypress install
+  - npx cypress verify
+  - npx cypress cache path
+  - npx cypress cache list
   - npm install -g codecov
   - if [ $TEST_SUITE != lint ]; then npm run build; fi
 script:

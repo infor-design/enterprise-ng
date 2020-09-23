@@ -32,6 +32,12 @@ When updating (and depending on your dependencies) the update *may* not complete
 npm i typescript@3.7.4
 ```
 
+### Install typings as a seperate package
+
+```sh
+npm i ids-enterprise-typings -S
+```
+
 ### Uninstall old dependencies (for code upgrading from a version of ids-enterprise-ng before version 5)
 
 These are now included as part of the ids-enterprise-ng package):

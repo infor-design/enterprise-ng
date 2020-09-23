@@ -2,6 +2,12 @@
 
 ## v7.7.0
 
+### 7.7.0 Features
+
+- `[General]` Upgraded to Angular 10.  `BTHH` ([Issue #858](https://github.com/infor-design/enterprise-ng/issues/858))
+    o See the UPGRADING guide for details.
+    o Note: The types have are now separated into to a new package `ids-enterprise typings` that you now must install.
+
 ### 7.7.0 Fixes
 
 - `[Datagrid]` Added support to disable column buttons. ([1590](https://github.com/infor-design/enterprise/issues/1590))
@@ -13,9 +19,6 @@
 
 ### 7.6.0 Features
 
-- `[General]` Upgraded to Angular 10.  `BTHH` ([Issue #858](https://github.com/infor-design/enterprise-ng/issues/858))
-    o See the UPGRADING guide for details.
-    o This release see the removal of the ids-enterprise typings from this package.
 - `[BreadCrumb]` Added new truncate settings. ([#4091](https://github.com/infor-design/enterprise/issues/4091))
 - `[Datagrid]` Added row number formatter to types. ([#1904](https://github.com/infor-design/enterprise/issues/1904))
 - `[General]` Made sure slate is more prominent that graphite in uplift. ([#4206](https://github.com/infor-design/enterprise/issues/4206))
