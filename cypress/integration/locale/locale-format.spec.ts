@@ -15,13 +15,9 @@ describe('Locale Tests', () => {
 
       // select locale
       cy.get('#dropdown-list')
-        .should('exist')
         .contains(name)
         .should('exist')
         .click();
-
-      cy.get('#dropdown-list')
-        .should('not.exist');
 
       cy.get('div.dropdown-wrapper')
         .contains(name)
