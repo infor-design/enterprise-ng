@@ -42,7 +42,7 @@ export class DataGridToolbarDemoComponent {
     breadcrumbs.push({ current: false, friendlyName: 'Root', path: '/', selectable: true });
     breadcrumbs.push({ current: false, friendlyName: 'Level 1', path: '/1', selectable: true });
     breadcrumbs.push({ current: false, friendlyName: 'Level 2', path: '/1/2', selectable: true });
-    breadcrumbs.push({ current: false, friendlyName: 'Level 3', path: '/1/2/3', selectable: true });
+    breadcrumbs.push({ current: true, friendlyName: 'Level 3', path: '/1/2/3', selectable: true });
 
     return breadcrumbs;
   }
