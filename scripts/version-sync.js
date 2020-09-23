@@ -19,6 +19,8 @@ const libPackageJsonPath = `${rootPath}/projects/ids-enterprise-ng/package.json`
 const libPackageJson = require(libPackageJsonPath);
 const libVersionJsonPath = `${rootPath}/projects/ids-enterprise-ng/src/version.json`;
 const libVersionJson = require(libVersionJsonPath);
+const typingPackageJsonPath = `${rootPath}/projects/ids-enterprise-typings/package.json`;
+const typingPackageJson = require(typingPackageJsonPath);
 
 // -------------------------------------
 //   Functions
@@ -68,5 +70,16 @@ const publVersionJsonStr = JSON.stringify(libVersionJson, null, 2) + '\n';
 
 // Write the file with the new version
 fs.writeFile(libVersionJsonPath, publVersionJsonStr, 'utf8', () => {
+  executeUpdate('git status -sb && echo \n');
+});
+
+
+// Synchronize the typing in the project folder with the version in the package.
+typingPackageJson.version = libPackageJson.version;
+
+const publTypingJsonStr = JSON.stringify(typingPackageJson, null, 2) + '\n';
+console.log(publTypingJsonStr)
+// Write the file with the new version
+fs.writeFile(typingPackageJsonPath, publTypingJsonStr, 'utf8', () => {
   executeUpdate('git status -sb && echo \n');
 });

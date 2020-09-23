@@ -30,7 +30,8 @@
     "release:alpha": "cd projects/ids-enterprise-ng && release-it minor --preRelease=alpha --no-github.release",
     "release:beta": "cd projects/ids-enterprise-ng && release-it minor --preRelease=beta --no-github.release",
     "release:rc": "cd projects/ids-enterprise-ng && release-it --preRelease=rc --no-github.release",
-    "release:final": "cd projects/ids-enterprise-ng && release-it",
+    "release:final": "cd projects/ids-enterprise-ng && release-it && npm release:typings",
+    "release:typings": "npm sync:lib && npm run build:typings && cd projects/ids-enterprise-typings && npm publish",
     "sync:lib": "node ./scripts/version-sync.js"
   },
   "private": true,

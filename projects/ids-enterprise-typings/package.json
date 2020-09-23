@@ -1,13 +1,14 @@
 {
   "name": "ids-enterprise-typings",
   "slug": "ids-enterprise-typings",
-  "version": "4.32.0-dev.20200820",
+  "version": "7.7.0-dev.20200923",
+  "declaration": true,
+  "types": "index.d.ts",
   "dependencies": {
     "@types/jquery": "3.3.29",
     "@types/d3": "4.13.0"
-},
-  "peerDependencies": {
-},
+  },
+  "peerDependencies": {},
   "description": "Infor Design System (IDS) Enterprise Widget Typings",
   "repository": {
     "type": "git",
