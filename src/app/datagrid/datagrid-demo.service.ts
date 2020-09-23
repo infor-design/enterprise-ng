@@ -1,5 +1,6 @@
 
 import { of, Observable } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 
 import {
@@ -24,7 +25,7 @@ export class DataGridDemoService extends SohoDataGridService {
   }
 
   getData(req: SohoDataGridSourceRequest): Observable<Array<any>> {
-    return of(this.data);
+    return of(this.data).pipe(delay(500));
   }
 
   constructor() {

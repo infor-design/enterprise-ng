@@ -1,5 +1,12 @@
 # What's New with Enterprise-NG
 
+## v7.7.0
+
+### 7.7.0 Fixes
+
+- `[Datagrid]` Added support to disable column buttons. ([1590](https://github.com/infor-design/enterprise/issues/1590))
+- `[Popupmenu]` Expose is-selectable, is-multiselectable, and multi-selectable-section as input properties. ([#907](https://github.com/infor-design/enterprise-ng/issues/907)) `CL`
+
 ## v7.6.0
 
 ### 7.6.0 Fixes
@@ -9,13 +16,23 @@
 - `[General]` Upgraded to Angular 10.  `BTHH` ([Issue #858](https://github.com/infor-design/enterprise-ng/issues/858))
     o See the UPGRADING guide for details.
     o This release see the removal of the ids-enterprise typings from this package.
+- `[BreadCrumb]` Added new truncate settings. ([#4091](https://github.com/infor-design/enterprise/issues/4091))
+- `[Datagrid]` Added row number formatter to types. ([#1904](https://github.com/infor-design/enterprise/issues/1904))
+- `[General]` Made sure slate is more prominent that graphite in uplift. ([#4206](https://github.com/infor-design/enterprise/issues/4206))
 - `[Homepage]` Fixed an issue where the chart container was misaligned on example page. ([#894](https://github.com/infor-design/enterprise-ng/issues/894))
+- `[Modal]` The `model` parameter was misnamed in the modal button event object so renamed this to the correct `modal` name. ([#4292](https://github.com/infor-design/enterprise-ng/issues/4292))
+
+## v7.5.3
+
+### 7.5.3 Fixes
+
+- `[General]` Added a patched EP version 4.31.2.  `TJM`
 
 ## v7.5.2
 
 ### 7.5.2 Fixes
 
-- `[Datagrid]` Added an option to frozen columns to allow the left side to be scrollable for trees. ([#3852](https://github.com/infor-design/enterprise/issues/3852))
+- `[General]` Added a patched EP version 4.31.1 - mistake on run.  `TJM`
 
 ## v7.5.1
 

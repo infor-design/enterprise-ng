@@ -47,6 +47,16 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
     return this.options.style === 'alternate';
   }
 
+  /** Add truncatling behavior when a lot of items */
+  @Input()
+  public set truncate(truncate: boolean) {
+    this.options.truncate = truncate;
+    this.updated();
+  }
+  public get truncate(): boolean {
+    return this.options.truncate;
+  }
+
   /** Provides access to the internal array of currently-invoked IDS Breadcrumb APIs */
   public get breadcrumbAPIs(): SohoBreadcrumbItemStatic[] {
     if (!this.breadcrumbAPI) {

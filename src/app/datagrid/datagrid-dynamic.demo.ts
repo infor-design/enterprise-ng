@@ -2,7 +2,7 @@
 import {
   of,
   Observable,
-  BehaviorSubject
+  Subject
 } from 'rxjs';
 
 import {
@@ -30,27 +30,27 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
   @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
   @ViewChild(SohoPopupMenuComponent) popupMenu: SohoPopupMenuComponent;
 
-  private _subject$ = new BehaviorSubject([]);
+  private _subject$ = new Subject();
   public data = this._subject$.asObservable();
   public displayContextMenu = false;
   public contextMenuEvent: any;
   public contextMenuId = 'grid-context-menu';
   private menuItemsChoice = -1;
-  public menuItems: Array<{label: string}> = [];
+  public menuItems: MenuItem[];
 
   constructor(
     private service: DataGridDemoService
   ) {}
 
   ngAfterViewInit() {
-    setTimeout(() => this.addRows(), 1000);
+    this.addRows();
   }
 
   public get columns(): Observable<SohoDataGridColumn[]> {
     return of(this.service.getColumns());
   }
 
-  addRows() {
+  private addRows() {
     this.service.getData(null).subscribe((d: any[]) => {
       this.busyIndicator.open();
       const newData = new Array<any>(...d);
@@ -169,7 +169,13 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
         this.menuItems.push({ label: 'Setting Two' });
         this.menuItems.push({ label: 'Settings Three' });
         this.menuItems.push({ label: 'Setting Four' });
-        this.menuItems.push({ label: 'Setting Five' });
+        this.menuItems.push({
+          label: 'Setting Five',
+          submenu: [
+            { label: 'Sub Menu 1' },
+            { label: 'Sub Menu 2' }
+          ]
+        });
         break;
 
       case 1:
@@ -192,4 +198,9 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
         break;
     }
   }
+}
+
+interface MenuItem {
+  label: string;
+  submenu?: MenuItem[];
 }

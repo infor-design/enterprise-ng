@@ -41,6 +41,7 @@ export class SohoPopupMenuShortCutTextComponent {
 export class SohoPopupMenuSeparatorComponent {
   @HostBinding('class.separator') get isSeparator() { return true; }
   @HostBinding('class.single-selectable-section') @Input() singleSelectableSection = false;
+  @HostBinding('class.multi-selectable-section') @Input() multiSelectableSection = false;
 }
 
 /**
@@ -321,6 +322,8 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   @HostBinding('class.popupmenu') isPopupmenu = true;
+  @HostBinding('class.is-selectable') @Input() isSelectable = true;
+  @HostBinding('class.is-multiselectable') @Input() isMultiselectable = false;
 
   // -------------------------------------------
   // Private Member Data

@@ -55,3 +55,7 @@ yarn.lock
 .DS_Store
 Thumbs.db
 debug.log
+
+# cypress outputs
+/cypress/screenshots/
+/cypress/videos/

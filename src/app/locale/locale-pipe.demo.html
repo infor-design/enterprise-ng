@@ -9,7 +9,7 @@
         </select>
       </div>
       <div class="field">
-        <input soho-textarea [readOnly]="true" value="{{demoForm.controls.locale.value}}"/>
+        <input id="locale" soho-textarea [readOnly]="true" value="{{demoForm.controls.locale.value}}"/>
       </div>
       <br/>
       <hr>
@@ -20,7 +20,7 @@
       </div>
 
       <div class="field">
-        <input soho-textarea [readOnly]="true" value="{{model.datepicker|sohoFormatDate}}"/>
+        <input id="date" soho-textarea [readOnly]="true" value="{{model.datepicker|sohoFormatDate}}"/>
         <input soho-textarea [readOnly]="true" value="{{model.datepicker|sohoFormatDate:{date:'long'} }}"/>
         <input soho-textarea [readOnly]="true" value="{{model.datepicker|sohoFormatDate:{date:'short'} }}"/>
         <input soho-textarea [readOnly]="true" value="{{model.datepicker|sohoFormatDate:{pattern:'d/M/yyyy HH:mm:ss'} }}"/>
@@ -34,7 +34,7 @@
       </div>
       <div class="field">
         <input soho-textarea [readOnly]="true" value="{{model.number|sohoFormatNumber}}"/>
-        <input soho-textarea [readOnly]="true" value="{{model.number|sohoFormatNumber:{style: 'currency'} }}"/>
+        <input id="currency" soho-textarea [readOnly]="true" value="{{model.number|sohoFormatNumber:{style: 'currency'} }}"/>
         <input soho-textarea [readOnly]="true" value="{{model.number|sohoFormatNumber:{style: 'percent'} }}"/>
       </div>
       <br/>

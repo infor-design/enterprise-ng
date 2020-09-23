@@ -42,7 +42,7 @@ interface SohoEmptyMessageOptions {
   button?: SohoEmptyMessageButtonOptions;
 
   /**
-   * graphite or azure for now until personalization works
+   * slate or azure for now until personalization works
    */
   color?: EmptyMessageColor;
 }
@@ -50,7 +50,7 @@ interface SohoEmptyMessageOptions {
 /**
  * valid colors for the empty message color.
  */
-type EmptyMessageColor = 'graphite' | 'azure' | 'amber' | 'amethyst' | 'emerald' | 'ruby' | 'slate' | 'turquoise';
+type EmptyMessageColor = 'slate' | 'azure' | 'amber' | 'amethyst' | 'emerald' | 'ruby' | 'graphite' | 'turquoise';
 
 /**
  * Button definition.

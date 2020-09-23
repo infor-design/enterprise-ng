@@ -14,15 +14,17 @@
   <div class="twelve columns demo" role="main">
     <section class="scrollable contained-scrolling-right-bottom" style="height: 100%">
       <div soho-busyindicator soho-datagrid
-          (selected)="onSelected($event)"
-          (rowDoubleClicked)="onRowDoubleClicked($event)"
-          (rowClicked)="onRowClicked($event)"
-          (contextMenu)="onContextMenu($event)"
-          [columns]="columns | async"
-          [data]="data | async"
-          displayDelay="0"
-          selectable="multiple"
-          filterable="true"
+        activated="true"
+        menuId="{{contextMenuId}}"
+        (selected)="onSelected($event)"
+        (rowDoubleClicked)="onRowDoubleClicked($event)"
+        (rowClicked)="onRowClicked($event)"
+        (contextMenu)="onContextMenu($event)"
+        [columns]="columns | async"
+        [data]="data | async"
+        displayDelay="0"
+        selectable="multiple"
+        filterable="true"
       ></div>
     </section>
   </div>
@@ -41,8 +43,13 @@
     (close)="onContextMenuClose($event)"
     (open)="onContextMenuOpen($event)"
   >
-    <li *ngFor="let item of menuItems">
+    <li soho-popupmenu-item *ngFor="let item of menuItems" [subMenu]="item.submenu">
       <a soho-popupmenu-label href="#">{{item.label}}</a>
+      <ul *ngIf="item.submenu">
+        <li soho-popupmenu-item *ngFor="let sub of item.submenu">
+          <a soho-popupmenu-label>{{sub.label}}</a>
+        </li>
+      </ul>
     </li>
   </ul>
 </div>

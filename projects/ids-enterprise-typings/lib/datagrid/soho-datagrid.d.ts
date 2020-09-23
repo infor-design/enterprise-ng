@@ -24,7 +24,6 @@ type SohoDataGridSelectable = boolean | 'single' | 'multiple' | 'mixed' | 'sibli
 
 interface SohoDataGridFrozenColumns {
   left?: any[];
-  leftScrollable?: boolean;
   right?: any[];
 }
 
@@ -556,6 +555,7 @@ interface SohoStatic {
     Ellipsis: SohoDataGridColumnFormatterFunction;
     Password: SohoDataGridColumnFormatterFunction;
     Readonly: SohoDataGridColumnFormatterFunction;
+    RowNumber: SohoDataGridColumnFormatterFunction;
     Date: SohoDataGridColumnFormatterFunction;
     Time: SohoDataGridColumnFormatterFunction;
     Autocomplete: SohoDataGridColumnFormatterFunction;
@@ -695,6 +695,14 @@ type SohoDataGridColumnCssClassFunction = (
   rowData: Object
 ) => string;
 
+type SohoDataGridColumnDisabledFunction = (
+  row: number,
+  cell: any,
+  fieldValue: any,
+  columnDef: SohoDataGridColumn,
+  rowData: any
+) => boolean;
+
 type SohoDataGridColumnColSpanFunction = (
   row: number,
   cell: any,
@@ -796,6 +804,9 @@ interface SohoDataGridColumn {
 
   /** css class  */
   cssClass?: SohoDataGridColumnCssClassFunction | string;
+
+  /** disabled  */
+  disabled?: SohoDataGridColumnDisabledFunction;
 
   /** @todo fix type from any.  */
   dateShowFormat?: any;

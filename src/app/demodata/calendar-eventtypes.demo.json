@@ -35,7 +35,7 @@
     "id": "holiday",
     "label": "Company Holiday",
     "translationKey": "CompanyHoliday",
-    "color": "graphite",
+    "color": "slate",
     "checked": true,
     "click": null,
     "disabled": true

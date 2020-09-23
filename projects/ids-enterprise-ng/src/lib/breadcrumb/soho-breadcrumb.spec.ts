@@ -74,18 +74,6 @@ describe('Soho Breadcrumb Unit Tests', () => {
     expect(breadcrumb.breadcrumbs.length).toEqual(4);
   });
 
-  xit('can disable and re-enable the entire breadcrumb list', () => {
-    breadcrumb.disable();
-    fixture.detectChanges();
-
-    expect(breadcrumb.disabled).toBeTruthy();
-
-    breadcrumb.enable();
-    fixture.detectChanges();
-
-    expect(breadcrumb.disabled).toBeFalsy();
-  });
-
   it('can add breadcrumbs', () => {
     breadcrumb.add({
       id: 'fifth-item',
@@ -96,7 +84,6 @@ describe('Soho Breadcrumb Unit Tests', () => {
 
     expect(breadcrumb.breadcrumbAPIs.length).toEqual(5);
     expect(fifth.settings.id).toEqual('fifth-item');
-    expect(fifth.disabled).toBeFalsy();
   });
 
   it('can remove a breadcrumb using its Index', () => {

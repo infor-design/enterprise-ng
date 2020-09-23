@@ -41,7 +41,8 @@ export class DataGridAngularFormatterDemoComponent {
       formatter: Soho.Formatters.Readonly },
     { id: 'button-formatter', name: 'Edit', text: 'Edit Row',
       sortable: false, icon: 'edit', align: 'center',
-      formatter: Soho.Formatters.Button, click: (e, args) => this.onClick(args) },
+      formatter: Soho.Formatters.Button, click: (e, args) => this.onClick(args),
+      disabled: this.disableButton },
     { id: 'button', name: 'Settings',
       sortable: false, align: 'center', postRender: true,
       component: ButtonCellFormatterComponent,
@@ -60,5 +61,8 @@ export class DataGridAngularFormatterDemoComponent {
 
   onClick(args) {
     console.log('click');
+  }
+  disableButton(row: number, cell: any, data: any, col: SohoDataGridColumn, item: any) {
+    return (item.productId === 214221 || item.productId === 214222);
   }
 }
