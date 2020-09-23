@@ -6,7 +6,7 @@
 
 - `[General]` Upgraded to Angular 10.  `BTHH` ([Issue #858](https://github.com/infor-design/enterprise-ng/issues/858))
     o See the UPGRADING guide for details.
-    o Note: The types have are now separated into to a new package `ids-enterprise typings` that you now must install.
+    o Note: The types have are now separated into to a new package `ids-enterprise typings` and installed as a dependency.  These will need to be added to main tsconfig file.
 
 ### 7.7.0 Fixes
 

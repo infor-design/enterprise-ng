@@ -73,6 +73,16 @@ fs.writeFile(libVersionJsonPath, publVersionJsonStr, 'utf8', () => {
   executeUpdate('git status -sb && echo \n');
 });
 
+// Synchronize the typings dependencies in the ids-enterprise-ng package
+libPackageJson.dependencies['ids-enterprise-typings'] = libPackageJson.version;
+
+const libPackageJsonStr = JSON.stringify(libPackageJson, null, 2) + '\n';
+console.log(libPackageJsonStr)
+
+// Write the file with the new version
+fs.writeFile(libPackageJsonPath, libPackageJsonStr, 'utf8', () => {
+  executeUpdate('git status -sb && echo \n');
+});
 
 // Synchronize the typing in the project folder with the version in the package.
 typingPackageJson.version = libPackageJson.version;
