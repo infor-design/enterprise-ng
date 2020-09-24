@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v7.5.4
+
+### 7.5.4 Fixes
+
+- `[General]` Added a patched EP version 4.31.3.  `TJM`
+
 ## v7.5.3
 
 ### 7.5.3 Fixes
