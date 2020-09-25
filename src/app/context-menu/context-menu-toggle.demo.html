@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Context Menu</h2>
+    <p>
+      This demo illustrates two things as below<br>
+      1) Toggle the context menu using *ngIf<br>
+      2) Overwrite default settings
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="twelve columns">
+    <button soho-button
+      (click)="toggleShowContextMenu()">ShowContextMenu: {{isShowContextMenu}}</button><br><br>
+
+    <button soho-button
+      [disabled]="!isShowContextMenu"
+      (click)="toggleAutoFocus()">autoFocus: {{isAutoFocus}}</button><br><br>
+
+    <button soho-button
+      [disabled]="!isShowContextMenu"
+      (click)="toggleAttachToBody()">attachToBody: {{isAttachToBody}}</button>
+  </div>
+</div>
+
+<div class="row top-padding">
+  <div class="twelve columns">
+
+    <div class="field">
+      <label soho-label id="label1" name="label1" for="field1" >{{labelText}}</label>
+      <input soho-context-menu
+        id="field1"
+        name="field1"
+        value="Right Click Here"
+        [menu]="isShowContextMenu ? 'test-contextmenu-01': null"
+        [autoFocus]="isAutoFocus"
+        [attachToBody]="isAttachToBody"
+        (selected)="onSelected()"
+        (beforeopen)="onBeforeOpen()"
+        (close)="onClose()"
+        (open)="onOpen()" />
+
+      <ul id="test-contextmenu-01" *ngIf="isShowContextMenu">
+        <li soho-context-menu-item *ngFor="let item of contextmenuItems" [isDisabled]="item.disabled">
+          <a soho-context-menu-label *ngIf="!item.url" menuId="{{item.id}}">{{item.displayString}}<span class="shortcut-text">{{item.shortcut}}</span></a>
+          <a soho-context-menu-label *ngIf="item.url" menuUrl="{{item.url}}">{{item.displayString}}<span class="shortcut-text">{{item.shortcut}}</span></a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
