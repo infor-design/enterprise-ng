@@ -10,6 +10,8 @@
 
 ### 7.7.0 Fixes
 
+- `[Context Menu]` Fixes a bug where using *ngIf directive to destroy the component was not working properly. ([#887](https://github.com/infor-design/enterprise-ng/issues/887))
+- `[Context Menu]` Fixes a bug where api settings were not overwriting the default settings. ([#888](https://github.com/infor-design/enterprise-ng/issues/888))
 - `[Datagrid]` Added support to disable column buttons. ([1590](https://github.com/infor-design/enterprise/issues/1590))
 - `[Popupmenu]` Expose is-selectable, is-multiselectable, and multi-selectable-section as input properties. ([#907](https://github.com/infor-design/enterprise-ng/issues/907)) `CL`
 

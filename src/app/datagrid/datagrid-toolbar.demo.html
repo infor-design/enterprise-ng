@@ -2,7 +2,7 @@
 
   <soho-toolbar-title>
     <nav class="breadcrumb">
-      <ol aria-label="breadcrumb">
+      <ol aria-label="breadcrumb" class="breadcrumb-list">
         <li *ngFor="let b of breadcrumbs" [ngClass]="{'current': b.current}">
           <a *ngIf="b.selectable" (click)="selectBreadcrumb(b)" href="#" class="hyperlink hide-focus">{{b.friendlyName}}</a>
           <span *ngIf="!b.selectable">{{b.friendlyName}}</span>
