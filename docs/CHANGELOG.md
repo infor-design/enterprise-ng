@@ -10,6 +10,18 @@
 - `[Datagrid]` Added support to disable column buttons. ([1590](https://github.com/infor-design/enterprise/issues/1590))
 - `[Popupmenu]` Expose is-selectable, is-multiselectable, and multi-selectable-section as input properties. ([#907](https://github.com/infor-design/enterprise-ng/issues/907)) `CL`
 
+## v7.6.2
+
+### 7.6.2 Fixes
+
+- `[General]` Added a patched EP version 4.32.2.  `TJM`
+
+## v7.6.1
+
+### 7.6.1 Fixes
+
+- `[General]` Added a patched EP version 4.32.1.  `TJM`
+
 ## v7.6.0
 
 ### 7.6.0 Fixes
@@ -19,6 +31,18 @@
 - `[General]` Made sure slate is more prominent that graphite in uplift. ([#4206](https://github.com/infor-design/enterprise/issues/4206))
 - `[Homepage]` Fixed an issue where the chart container was misaligned on example page. ([#894](https://github.com/infor-design/enterprise-ng/issues/894))
 - `[Modal]` The `model` parameter was misnamed in the modal button event object so renamed this to the correct `modal` name. ([#4292](https://github.com/infor-design/enterprise-ng/issues/4292))
+
+## v7.5.5
+
+### 7.5.5 Fixes
+
+- `[General]` Added a patched EP version 4.31.4.  `TJM`
+
+## v7.5.4
+
+### 7.5.4 Fixes
+
+- `[General]` Added a patched EP version 4.31.3.  `TJM`
 
 ## v7.5.3
 
