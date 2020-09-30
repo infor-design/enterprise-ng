@@ -38,7 +38,7 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
     }
   }
 
-   /** Chart Type */
+  /** Chart Type */
   @Input() set type(value: SohoColumnType) {
     this.options.type = value;
 
@@ -197,6 +197,14 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
       this.ngZone.runOutsideAngular(() => this.column.updated(this.column.settings));
       this.updateRequired = false;
     }
+  }
+
+  updated() {
+    this.ngZone.runOutsideAngular(() => {
+      this.options.type = 'column';
+      this.jQueryElement.chart(this.options);
+      this.column = this.jQueryElement.data('column');
+    });
   }
 
   /** Tear Down */

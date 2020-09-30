@@ -38,7 +38,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
     }
   }
 
-   /** Chart Type */
+  /** Chart Type */
   @Input() set type(value: SohoBarType) {
     this.options.type = value;
 
@@ -252,6 +252,14 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
     }
   }
 
+  updated() {
+    this.ngZone.runOutsideAngular(() => {
+      this.options.type = 'bar';
+      this.jQueryElement.chart(this.options);
+      this.bar = this.jQueryElement.data('bar');
+    });
+  }
+
   /** Tear Down */
   ngOnDestroy() {
     // call outside the angular zone so change detection isn't triggered by the soho component.
@@ -274,7 +282,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
     this.ngZone.runOutsideAngular(() => this.bar.toggleSelected(selected));
   }
 
-  public getSelected():  SohoBarSelected {
+  public getSelected(): SohoBarSelected {
     return this.ngZone.runOutsideAngular(() => this.bar.getSelected());
   }
 }
