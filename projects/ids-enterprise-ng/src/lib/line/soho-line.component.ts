@@ -184,7 +184,7 @@ export class SohoLineComponent implements AfterViewInit, AfterViewChecked, OnDes
         this.ngZone.run(() => this.selected.emit(args)));
       this.jQueryElement.on('unselected', (e: any, args: SohoLineSelectEvent) =>
         this.ngZone.run(() => this.unselected.emit(args)));
-      this.jQueryElement.on('rendered', (... args) =>
+      this.jQueryElement.on('rendered', (...args) =>
         this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
         this.ngZone.run(() => this.contextmenu.emit(args)));
@@ -196,6 +196,14 @@ export class SohoLineComponent implements AfterViewInit, AfterViewChecked, OnDes
       this.ngZone.runOutsideAngular(() => this.line.updated(this.line.settings));
       this.updateRequired = false;
     }
+  }
+
+  updated() {
+    this.ngZone.runOutsideAngular(() => {
+      this.options.type = 'line';
+      this.jQueryElement.chart(this.options);
+      this.line = this.jQueryElement.data('line');
+    });
   }
 
   /** Tear Down */

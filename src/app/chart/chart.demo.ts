@@ -28,7 +28,7 @@ export class ChartDemoComponent implements OnInit {
     return '100%';
   }
 
-  public lineAxisLabels: AxisLabels =  {
+  public lineAxisLabels: AxisLabels = {
     left: 'Left axis label',
     top: 'Top axis label',
     right: 'Right axis label',
@@ -119,7 +119,7 @@ export class ChartDemoComponent implements OnInit {
     if (chartOptions.labels) {
       chartOptions.labels.hideLabels = !this.hideLabel;
     } else {
-      chartOptions['labels'] = {hideLabels: !this.hideLabel};
+      chartOptions['labels'] = { hideLabels: !this.hideLabel };
     }
     this.sohoChartComponent.chartOptions = chartOptions;
   }

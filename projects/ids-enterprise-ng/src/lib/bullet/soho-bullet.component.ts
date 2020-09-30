@@ -80,8 +80,8 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
       this.bullet = this.jQueryElement.data('bullet');
 
       // Setup the events
-      this.jQueryElement.on('rendered', (... args) =>
-          this.ngZone.run(() => this.rendered.emit(args)));
+      this.jQueryElement.on('rendered', (...args) =>
+        this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
         this.ngZone.run(() => this.contextmenu.emit(args)));
     });
@@ -92,6 +92,14 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
       this.ngZone.runOutsideAngular(() => this.bullet.updated(this.bullet.settings));
       this.updateRequired = false;
     }
+  }
+
+  updated() {
+    this.ngZone.runOutsideAngular(() => {
+      this.options.type = 'bullet';
+      this.jQueryElement.chart(this.options);
+      this.bullet = this.jQueryElement.data('bullet');
+    });
   }
 
   /** Tear Down */

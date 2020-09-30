@@ -199,7 +199,7 @@ export class SohoPieComponent implements AfterViewInit, AfterViewChecked, OnDest
         this.ngZone.run(() => this.selected.emit(args)));
       this.jQueryElement.on('unselected', (e: any, args: SohoPieSelectEvent) =>
         this.ngZone.run(() => this.unselected.emit(args)));
-      this.jQueryElement.on('rendered', (... args) =>
+      this.jQueryElement.on('rendered', (...args) =>
         this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
         this.ngZone.run(() => this.contextmenu.emit(args)));
@@ -211,6 +211,14 @@ export class SohoPieComponent implements AfterViewInit, AfterViewChecked, OnDest
       this.ngZone.runOutsideAngular(() => this.pie.updated(this.pie.settings));
       this.updateRequired = false;
     }
+  }
+
+  updated() {
+    this.ngZone.runOutsideAngular(() => {
+      this.options.type = 'pie';
+      this.jQueryElement.chart(this.options);
+      this.pie = this.jQueryElement.data('pie');
+    });
   }
 
   /** Tear Down */
