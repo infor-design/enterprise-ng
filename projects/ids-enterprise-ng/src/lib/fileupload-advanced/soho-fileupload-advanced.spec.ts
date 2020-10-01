@@ -1,5 +1,3 @@
-/// <reference path="soho-fileupload-advanced.d.ts" />
-
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';

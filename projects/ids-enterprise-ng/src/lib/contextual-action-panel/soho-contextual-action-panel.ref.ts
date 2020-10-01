@@ -1,5 +1,3 @@
-/// <reference path="soho-contextual-action-panel.d.ts" />
-
 import { ComponentRef, ApplicationRef, ComponentFactoryResolver, Injector, NgZone } from '@angular/core';
 import { Subject } from 'rxjs';
 import { PanelComponentType } from '.';

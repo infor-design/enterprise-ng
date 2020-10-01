@@ -1,5 +1,3 @@
-/// <reference path="soho-slider.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,

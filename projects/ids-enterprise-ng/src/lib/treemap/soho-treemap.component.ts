@@ -1,5 +1,3 @@
-/// <reference path="soho-treemap.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,

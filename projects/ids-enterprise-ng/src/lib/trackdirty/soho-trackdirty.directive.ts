@@ -1,5 +1,3 @@
-/// <reference path="soho-trackdirty.d.ts" />
-
 import {
   AfterViewInit,
   Directive,

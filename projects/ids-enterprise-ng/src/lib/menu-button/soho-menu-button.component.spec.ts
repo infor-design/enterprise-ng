@@ -1,5 +1,3 @@
-/// <reference path="soho-menu-button.d.ts" />
-
 import {
   ComponentFixture,
   TestBed,
@@ -297,7 +295,7 @@ describe('Soho Menu Button Unit Tests', () => {
   });
 
   it('check open', () => {
-    const spy = spyOn((comp as any).menuButton, 'open').and.callFake(() => {});
+    const spy = spyOn((comp as any).menuButton, 'open').and.callFake(() => { });
 
     // const mockEvent = JQuery<HTMLElement>.TriggeredEvent('open');
     // comp.open(mockEvent);
@@ -305,7 +303,7 @@ describe('Soho Menu Button Unit Tests', () => {
   });
 
   it('check close', () => {
-    const spy = spyOn((comp as any).menuButton, 'close').and.callFake(() => {});
+    const spy = spyOn((comp as any).menuButton, 'close').and.callFake(() => { });
 
     comp.close();
     expect(spy).toHaveBeenCalledTimes(1);

@@ -1,5 +1,3 @@
-/// <reference path="soho-tabs.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,
@@ -101,7 +99,7 @@ export class SohoTabPanelComponent {
     element.nativeElement.classList.add('tab-panel');
   }
 
-  @HostBinding('attr.id')        @Input() tabId: string;
+  @HostBinding('attr.id') @Input() tabId: string;
   @HostBinding('attr.contained') @Input() contained: string;
 }
 
@@ -124,7 +122,7 @@ export class SohoTabComponent {
   @HostBinding('class.dismissible') @Input() dismissible = false;
   @HostBinding('class.is-selected') @Input() selected = false;
   @HostBinding('class.is-disabled') @Input() disabled = false;
-  @HostBinding('class.hidden')  @Input() hidden = false;
+  @HostBinding('class.hidden') @Input() hidden = false;
   @HostBinding('class.has-popupmenu') @Input() hasPopupMenu = false;
 }
 
@@ -173,10 +171,10 @@ export class SohoTabListContainerComponent {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
-  @HostBinding('class.vertical')      get isVertical()     { return this.vertical; }
-  @HostBinding('class.module-tabs')   get isModuleTabs()   { return this.moduleTabs; }
-  @HostBinding('class.header-tabs')   get isHeaderTabs()   { return this.headerTabs; }
-  @HostBinding('class.alternate')     get isAlternate()    { return this.alternate; }
+  @HostBinding('class.vertical') get isVertical() { return this.vertical; }
+  @HostBinding('class.module-tabs') get isModuleTabs() { return this.moduleTabs; }
+  @HostBinding('class.header-tabs') get isHeaderTabs() { return this.headerTabs; }
+  @HostBinding('class.alternate') get isAlternate() { return this.alternate; }
 
   // ------------------------------------------------------------------------
   // @Inputs
@@ -478,7 +476,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
       }
 
       for (let i = 0; i < tabIds.length; i++) {
-        if (tabIds[ i ] !== this.tabIds[ i ]) {
+        if (tabIds[i] !== this.tabIds[i]) {
           this.tabs.updated();
           this.tabIds = tabIds;
           this.tabTitles = this.getTabTitles($liList);
@@ -491,7 +489,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
        * It will update the tabs selection style and the overflow
        */
       for (let i = 0; i < tabTitles.length; i++) {
-        if (tabTitles[ i ] !== this.tabTitles[ i ]) {
+        if (tabTitles[i] !== this.tabTitles[i]) {
           this.tabs.handleResize();
           this.tabTitles = tabTitles;
           return;
@@ -695,7 +693,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   private onBeforeActivated(event: SohoTabsEvent, tab) {
     // ensure we are back in the angular zone
     this.ngZone.run(() => {
-      event.tab = tab[ 0 ];
+      event.tab = tab[0];
       this.beforeActivated.emit(event);
     });
   }
@@ -703,7 +701,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   private onActivated(event: SohoTabsEvent, tab) {
     // ensure we are back in the angular zone
     this.ngZone.run(() => {
-      event.tab = tab[ 0 ];
+      event.tab = tab[0];
       this.activated.emit(event);
     });
   }
@@ -711,7 +709,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   private onAfterActivated(event: SohoTabsEvent, tab) {
     // ensure we are back in the angular zone
     this.ngZone.run(() => {
-      event.tab = tab[ 0 ];
+      event.tab = tab[0];
       this.afterActivated.emit(event);
     });
   }
@@ -731,7 +729,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   private onClose(event: SohoTabsEvent, tab) {
     // ensure we are back in the angular zone
     this.ngZone.run(() => {
-      event.tab = tab[ 0 ];
+      event.tab = tab[0];
       this.close.emit(event);
     });
   }
@@ -739,7 +737,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   private onAfterClose(event: SohoTabsEvent, tab) {
     // ensure we are back in the angular zone
     this.ngZone.run(() => {
-      event.tab = tab[ 0 ];
+      event.tab = tab[0];
       this.afterClose.emit(event);
     });
   }
@@ -747,7 +745,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   private onTabAdded(event: SohoTabsEvent, tab) {
     // ensure we are back in the angular zone
     this.ngZone.run(() => {
-      event.tab = tab[ 0 ];
+      event.tab = tab[0];
       this.tabAdded.emit(event);
     });
   }

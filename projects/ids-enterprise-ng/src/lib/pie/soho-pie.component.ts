@@ -1,5 +1,3 @@
-/// <reference path="soho-pie.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,

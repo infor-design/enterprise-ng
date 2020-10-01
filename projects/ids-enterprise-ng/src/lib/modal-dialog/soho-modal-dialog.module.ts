@@ -1,5 +1,3 @@
-/// <reference path="soho-modal-dialog.d.ts" />
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -17,4 +15,4 @@ import { SohoModalDialogService } from './soho-modal-dialog.service';
     SohoModalDialogService
   ]
 })
-export class SohoModalDialogModule {}
+export class SohoModalDialogModule { }

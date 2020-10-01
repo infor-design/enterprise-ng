@@ -1,5 +1,3 @@
-/// <reference path="soho-bullet.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,

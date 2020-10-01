@@ -1,5 +1,3 @@
-/// <reference path="soho-emptymessage.d.ts"/>
-
 import {
   AfterViewChecked,
   AfterViewInit,
@@ -165,7 +163,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
   constructor(
     private changeDetector: ChangeDetectorRef,
     private element: ElementRef,
-  ) {}
+  ) { }
 
   /**
    * After the control has been initialised and the view is ready,

@@ -1,5 +1,3 @@
-/// <reference path="soho-bar.d.ts" />
-
 import { } from 'jasmine';
 import { ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';

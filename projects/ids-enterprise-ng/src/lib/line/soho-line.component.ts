@@ -1,5 +1,3 @@
-/// <reference path="soho-line.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,

@@ -1,5 +1,3 @@
-/// <reference path="soho-menu-button.d.ts" />
-
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -190,10 +188,10 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
 
       // Add listeners to emit events
       this.jQueryElement
-      .on('selected', (e: JQuery.TriggeredEvent, args: JQuery) => this.onSelected(e, args))
-      .on('beforeopen', (e: JQuery.TriggeredEvent, args: JQuery) => this.onBeforeOpen(e, args))
-      .on('close', (e: JQuery.TriggeredEvent, args: JQuery) => this.onClose(e, args))
-      .on('open', (e: JQuery.TriggeredEvent, args: JQuery) => this.onOpen(e, args));
+        .on('selected', (e: JQuery.TriggeredEvent, args: JQuery) => this.onSelected(e, args))
+        .on('beforeopen', (e: JQuery.TriggeredEvent, args: JQuery) => this.onBeforeOpen(e, args))
+        .on('close', (e: JQuery.TriggeredEvent, args: JQuery) => this.onClose(e, args))
+        .on('open', (e: JQuery.TriggeredEvent, args: JQuery) => this.onOpen(e, args));
     });
   }
 

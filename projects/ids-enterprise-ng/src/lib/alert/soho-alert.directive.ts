@@ -1,5 +1,3 @@
-/// <reference path="soho-alert.d.ts" />
-
 import {
   AfterViewInit,
   Directive,

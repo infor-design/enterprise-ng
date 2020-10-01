@@ -1,12 +1,13 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "types": [
       "d3",
       "jasmine",
       "jquery",
-      "node"
+      "node",
+      "ids-enterprise-typings"
     ]
   },
   "files": [

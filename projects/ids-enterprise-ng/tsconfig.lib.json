@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
     "target": "es2015",
@@ -12,7 +12,8 @@
     "types": [
       "jasmine",
       "jquery",
-      "node"
+      "node",
+      "ids-enterprise-typings"
     ],
     "lib": [
       "dom",
@@ -27,10 +28,12 @@
     "strictMetadataEmit": true,
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
-    "enableResourceInlining": true
+    "enableResourceInlining": true,
+    "enableIvy": false
   },
   "exclude": [
     "src/test.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "types"
   ]
 }

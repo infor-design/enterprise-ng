@@ -1,5 +1,3 @@
-/// <reference path="soho-personalize.d.ts" />
-
 import {
   ComponentFixture,
   TestBed

@@ -1,5 +1,3 @@
-/// <reference path="soho-locale.d.ts" />
-
 import { SohoFormatNumberPipe } from './soho-formatnumber.pipe';
 
 describe('Pipe: Default', () => {

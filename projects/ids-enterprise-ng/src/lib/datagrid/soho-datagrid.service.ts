@@ -1,5 +1,3 @@
-/// <reference path="soho-datagrid.d.ts" />
-
 import { Observable } from 'rxjs';
 
 /**

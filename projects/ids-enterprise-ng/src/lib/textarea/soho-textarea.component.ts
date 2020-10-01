@@ -1,5 +1,3 @@
-/// <reference path="soho-textarea.d.ts" />
-
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -21,7 +19,7 @@ import {
   selector: 'textarea[soho-textarea]', // tslint:disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ provideControlValueAccessor(SohoTextAreaComponent) ]
+  providers: [provideControlValueAccessor(SohoTextAreaComponent)]
 })
 export class SohoTextAreaComponent extends BaseControlValueAccessor<string> implements AfterViewInit, OnDestroy {
 

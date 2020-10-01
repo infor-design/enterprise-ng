@@ -1,5 +1,3 @@
-/// <reference path="soho-breadcrumb.d.ts" />
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, EventEmitter, ViewChild } from '@angular/core';
@@ -43,7 +41,7 @@ const STANDARD_DATA = [
 })
 class SohoBreadcrumbTestComponent {
   @ViewChild(SohoBreadcrumbComponent, { static: true }) breadcrumb: SohoBreadcrumbComponent;
-  constructor() {}
+  constructor() { }
 }
 
 describe('Soho Breadcrumb Unit Tests', () => {

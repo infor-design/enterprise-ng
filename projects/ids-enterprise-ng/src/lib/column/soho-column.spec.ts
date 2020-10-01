@@ -1,5 +1,3 @@
-/// <reference path="soho-column.d.ts" />
-
 import { } from 'jasmine';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -51,14 +49,14 @@ const columnData = [{
 }];
 
 describe('Soho Column Unit Tests', () => {
-  let fixture:  ComponentFixture<SohoColumnComponent>;
-  let comp:     SohoColumnComponent;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let fixture: ComponentFixture<SohoColumnComponent>;
+  let comp: SohoColumnComponent;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoColumnComponent ]
+      declarations: [SohoColumnComponent]
     });
 
     fixture = TestBed.createComponent(SohoColumnComponent);
@@ -73,7 +71,7 @@ describe('Soho Column Unit Tests', () => {
 
   it('check inputs', () => {
     const type = 'column';
-    const ticks = {number: 5, format: ',.1s'};
+    const ticks = { number: 5, format: ',.1s' };
     const xAxis = { ticks: { number: 5, format: 'd' } };
     const yAxis = { ticks: 'auto' };
     const emptyMessage: SohoEmptyMessageOptions = {
@@ -114,14 +112,14 @@ describe('Soho Column Unit Tests', () => {
     fixture.detectChanges();
 
     // once bar chart is built setting input should cause bar.settings to update
-    const updatedColumnData = [ ...columnData];
+    const updatedColumnData = [...columnData];
     updatedColumnData[0].data = [...updatedColumnData[0].data, {
       name: 'Other',
       shortName: 'Other',
       abbrName: 'O',
       value: 7.9
     }];
-    const updatedTicks = {number: 5, format: ',.1s'};
+    const updatedTicks = { number: 5, format: ',.1s' };
     const updatedEmptyMessage: SohoEmptyMessageOptions = {
       title: 'nothing to display',
       icon: 'icon-empty-no-data',
@@ -231,14 +229,14 @@ class SohoColumnTestComponent {
 
 describe('Soho Column Chart Render', () => {
   let component: SohoColumnTestComponent;
-  let fixture:   ComponentFixture<SohoColumnTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoColumnTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoColumnTestComponent ],
-      imports: [ FormsModule, SohoColumnModule ]
+      declarations: [SohoColumnTestComponent],
+      imports: [FormsModule, SohoColumnModule]
     });
 
     fixture = TestBed.createComponent(SohoColumnTestComponent);
@@ -256,44 +254,44 @@ describe('Soho Column Chart Render', () => {
 
   it('Check it can format yAxis content', (done) => {
     component.dataset = [{
-        data: [{
-          name: 'Automotive',
-          shortName: 'Auto',
-          abbrName: 'A',
-          value: 0.7,
-          tooltip: 'Custom Tooltip - {{value}}'
-        }, {
-          name: 'Distribution',
-          shortName: 'Dist',
-          abbrName: 'D',
-          value: 0.10
-        }, {
-          name: 'Equipment',
-          shortName: 'Equip',
-          abbrName: 'E',
-          value: 1.4
-        }, {
-          name: 'Fashion',
-          shortName: 'Fash',
-          abbrName: 'F',
-          value: 1.0
-        }, {
-          name: 'Food',
-          shortName: 'Food',
-          abbrName: 'F',
-          value: 0.14
-        }, {
-          name: 'Healthcare',
-          shortName: 'Health',
-          abbrName: 'H',
-          value: 4.8
-        }, {
-          name: 'Other',
-          shortName: 'Other',
-          abbrName: 'O',
-          value: 2.7
-        }]
-      }];
+      data: [{
+        name: 'Automotive',
+        shortName: 'Auto',
+        abbrName: 'A',
+        value: 0.7,
+        tooltip: 'Custom Tooltip - {{value}}'
+      }, {
+        name: 'Distribution',
+        shortName: 'Dist',
+        abbrName: 'D',
+        value: 0.10
+      }, {
+        name: 'Equipment',
+        shortName: 'Equip',
+        abbrName: 'E',
+        value: 1.4
+      }, {
+        name: 'Fashion',
+        shortName: 'Fash',
+        abbrName: 'F',
+        value: 1.0
+      }, {
+        name: 'Food',
+        shortName: 'Food',
+        abbrName: 'F',
+        value: 0.14
+      }, {
+        name: 'Healthcare',
+        shortName: 'Health',
+        abbrName: 'H',
+        value: 4.8
+      }, {
+        name: 'Other',
+        shortName: 'Other',
+        abbrName: 'O',
+        value: 2.7
+      }]
+    }];
 
     component.yAxis = {
       ticks: {

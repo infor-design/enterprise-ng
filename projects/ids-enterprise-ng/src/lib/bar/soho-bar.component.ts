@@ -1,5 +1,3 @@
-/// <reference path="soho-bar.d.ts"/>
-
 import {
   AfterViewChecked,
   AfterViewInit,

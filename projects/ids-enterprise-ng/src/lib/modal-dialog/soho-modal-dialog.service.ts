@@ -1,5 +1,3 @@
-/// <reference path="soho-modal-dialog.d.ts" />
-
 import {
   ComponentFactoryResolver,
   Injectable,

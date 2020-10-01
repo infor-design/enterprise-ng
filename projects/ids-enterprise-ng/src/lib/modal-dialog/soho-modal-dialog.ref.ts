@@ -1,5 +1,3 @@
-/// <reference path="soho-modal-dialog.d.ts" />
-
 import { ComponentRef, NgZone, ApplicationRef, ComponentFactoryResolver, Injector, ViewContainerRef } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';

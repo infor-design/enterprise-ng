@@ -2,6 +2,12 @@
 
 ## v7.7.0
 
+### 7.7.0 Features
+
+- `[General]` Upgraded to Angular 10.  `BTHH` ([Issue #858](https://github.com/infor-design/enterprise-ng/issues/858))
+    - Note: The types have are now separated into to a new package `ids-enterprise typings` and installed as a dependency.
+    - See the `UPGRADING.md` guide for details.
+
 ### 7.7.0 Fixes
 
 - `[Charts]` Exposed updated API for all the available charts. ([#905](https://github.com/infor-design/enterprise-ng/issues/905)) `EA`
@@ -25,6 +31,8 @@
 ## v7.6.0
 
 ### 7.6.0 Fixes
+
+### 7.6.0 Features
 
 - `[BreadCrumb]` Added new truncate settings. ([#4091](https://github.com/infor-design/enterprise/issues/4091))
 - `[Datagrid]` Added row number formatter to types. ([#1904](https://github.com/infor-design/enterprise/issues/1904))

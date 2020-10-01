@@ -1,5 +1,3 @@
-/// <reference path="soho-mask.d.ts" />
-
 import {
   AfterViewInit,
   Directive,
@@ -33,7 +31,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   }
 
   /** Definitions of pattern(s) as a regular expression. */
-  @Input() set definitions(value: {[key: string]: RegExp}) {
+  @Input() set definitions(value: { [key: string]: RegExp }) {
     this._options.definitions = value;
     if (this.mask) {
       this.mask.settings.definitions = value;
@@ -365,7 +363,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   private mask: SohoMaskStatic;
 
   constructor(private element: ElementRef) {
-    this._symbols = { };
+    this._symbols = {};
     this._patternOptions = {
       symbols: this._symbols
     };
@@ -387,7 +385,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
     this.jQueryElement
       .on('write.mask', (event: SohoMaskEvent) => {
         this.write.emit(event);
-       });
+      });
   }
 
   /** Destructor. */

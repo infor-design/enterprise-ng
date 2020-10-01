@@ -1,5 +1,3 @@
-/// <reference path="soho-stepprocess.d.ts" />
-
 import {
   AfterViewInit,
   Component,
@@ -8,7 +6,8 @@ import {
   HostBinding,
   Input,
   OnDestroy,
-  Output } from '@angular/core';
+  Output
+} from '@angular/core';
 
 /**************************************************************
  * STEP LIST TITLE
@@ -212,7 +211,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   // beforeStepSelect callback that is adapted to an Angular EventEmittier
   private beforeSelectStepDeferred: JQueryDeferred<boolean> = $.Deferred();
 
-  constructor(private element: ElementRef) {}
+  constructor(private element: ElementRef) { }
 
   ngAfterViewInit() {
     this.stepProcessOptions.stepList = '#step-list';
@@ -222,7 +221,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.stepprocess(this.stepProcessOptions);
     this.stepprocess = this.jQueryElement.data('stepprocess');
     this.jQueryElement.find('.js-btn-save-changes').
-    on('click', (e: JQuery.TriggeredEvent) => { this.fireOnSaveClose(); });
+      on('click', (e: JQuery.TriggeredEvent) => { this.fireOnSaveClose(); });
   }
 
   private beforeSelectStepPromise = (args: { stepLink: JQuery, isStepping: StepDirection }): JQueryPromise<boolean> => {
@@ -274,7 +273,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   private fireOnSaveClose(): void {
     const $selectedStep = this.stepprocess.getSelectedStep();
     const currentStepId = $selectedStep.children('a').attr('href').substring(1);
-    const event: SohoStepSaveCloseEvent = {currentStepId: currentStepId};
+    const event: SohoStepSaveCloseEvent = { currentStepId: currentStepId };
     this.saveClose.emit(event);
   }
 

@@ -1,3 +1,6 @@
+/*
+  This is a "Solution Style" tsconfig.json file, and is used by editors and TypeScript’s language server to improve development experience.
+  It is not intended to be used to perform a compilation.
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -31,19 +34,22 @@
         "dist/ids-enterprise-ng/*"
       ]
 
-    // For auto code compile use this.
-    // "paths": {
-    //   "ids-enterprise-ng": [
-    //     "projects/ids-enterprise-ng/src/public_api"
-    //   ]
+  To learn more about this file see: https://angular.io/config/solution-tsconfig.
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ids-enterprise-ng/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ids-enterprise-ng/tsconfig.spec.json"
     }
-  },
-  "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true,
-    "enableIvy": true
-  },
-  "exclude": [
-    "dist/**"
   ]
 }
+*/

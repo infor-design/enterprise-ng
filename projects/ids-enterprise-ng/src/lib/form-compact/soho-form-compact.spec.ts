@@ -1,5 +1,3 @@
-/// <reference path="soho-form-compact.d.ts" />
-
 import { } from 'jasmine';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -10,13 +8,13 @@ import { SohoFormCompactModule } from './soho-form-compact.module';
 import { SohoFormCompactComponent } from './soho-form-compact.component';
 
 describe('Soho Compact Form Unit Tests', () => {
-  let fixture:  ComponentFixture<SohoFormCompactComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let fixture: ComponentFixture<SohoFormCompactComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoFormCompactComponent ]
+      declarations: [SohoFormCompactComponent]
     });
 
     fixture = TestBed.createComponent(SohoFormCompactComponent);
@@ -92,14 +90,14 @@ class SohoFormCompactTestComponent {
 }
 
 describe('Soho Form Compact Render', () => {
-  let fixture:   ComponentFixture<SohoFormCompactTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoFormCompactTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoFormCompactTestComponent ],
-      imports: [ FormsModule, SohoFormCompactModule ]
+      declarations: [SohoFormCompactTestComponent],
+      imports: [FormsModule, SohoFormCompactModule]
     });
 
     fixture = TestBed.createComponent(SohoFormCompactTestComponent);

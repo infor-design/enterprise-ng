@@ -1,5 +1,3 @@
-/// <reference path="soho-colorpicker.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,
@@ -316,7 +314,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
         // has been updated (assuming there is one), so
         // execute updated after angular has generated
         // the model and the view markup.
-        setTimeout(() => this.updated() );
+        setTimeout(() => this.updated());
         this.runUpdatedOnCheck = false;
       });
     }
@@ -350,14 +348,14 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   public updated(): SohoColorPickerComponent {
     if (this.colorpicker) {
       // Calling updated when an item is selected, looses the selection!
-      this.ngZone.runOutsideAngular( () => this.colorpicker.updated() );
+      this.ngZone.runOutsideAngular(() => this.colorpicker.updated());
     }
     return this;
   }
 
   private onUpdated(event: JQuery.TriggeredEvent) {
     // Fire the event, in the angular zone.
-    this.ngZone.run(() => this.updatedEvent.next(event) );
+    this.ngZone.run(() => this.updatedEvent.next(event));
   }
 
   /**
@@ -375,9 +373,9 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
     }
   }
 
-   /**
-   * Marks the components as requiring a rebuild after the next update.
-   */
+  /**
+  * Marks the components as requiring a rebuild after the next update.
+  */
   markForRefresh() {
     // Run updated on the next updated check.
     this.runUpdatedOnCheck = true;

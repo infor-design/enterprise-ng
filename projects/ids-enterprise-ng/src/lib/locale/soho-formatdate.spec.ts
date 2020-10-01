@@ -1,5 +1,3 @@
-/// <reference path="soho-locale.d.ts" />
-
 import { SohoFormatDatePipe } from './soho-formatdate.pipe';
 
 describe('Pipe: Default', () => {

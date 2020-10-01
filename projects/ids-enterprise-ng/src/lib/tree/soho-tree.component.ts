@@ -1,5 +1,3 @@
-/// <reference path="soho-tree.d.ts"/>
-
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -259,7 +257,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   public reset() {
     if (this.treeType !== SohoTreeComponent.CONTENT_ONLY && this.treeService) {
       this.treeService.getRootTreeNodes()
-         .subscribe((dataset: SohoTreeNode[]) => this.dataset = dataset);
+        .subscribe((dataset: SohoTreeNode[]) => this.dataset = dataset);
     }
   }
 
@@ -467,7 +465,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     // Ensure the source is set when a service is defined.
     if (!this.options.dataset && !this.options.source && this.treeService) {
       this.options.source =
-      (args: SohoTreeEvent, response: SohoTreeResponseFunction) => this.onDataRequest(args, response);
+        (args: SohoTreeEvent, response: SohoTreeResponseFunction) => this.onDataRequest(args, response);
     }
 
     // Initialise the Soho control.
@@ -482,7 +480,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     if (this.treeType !== SohoTreeComponent.CONTENT_ONLY && !this.options.dataset && this.treeService) {
       // ... bootstrap the root nodes ...
       this.treeService.getRootTreeNodes()
-         .subscribe((dataset: SohoTreeNode[]) => this.dataset = dataset);
+        .subscribe((dataset: SohoTreeNode[]) => this.dataset = dataset);
     }
 
     // Initialize any event handlers.

@@ -1,5 +1,3 @@
-/// <reference path="soho-drag.d.ts" />
-
 import {
   Directive,
   ElementRef,

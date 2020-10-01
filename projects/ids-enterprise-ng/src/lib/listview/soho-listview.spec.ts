@@ -1,5 +1,3 @@
-/// <reference path="soho-listview.d.ts" />
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';
@@ -58,9 +56,9 @@ describe('Soho Listview Unit Tests', () => {
         SohoListViewItemComponent,
         SohoListViewMicroComponent,
         SohoListViewSearchComponent,
-       SohoListViewSubHeaderComponent,
+        SohoListViewSubHeaderComponent,
       ],
-      imports: [ SohoSearchFieldModule ]
+      imports: [SohoSearchFieldModule]
     });
 
     fixture = TestBed.createComponent(SohoListViewComponent);
@@ -167,15 +165,15 @@ describe('Soho ListView Render', () => {
       { task: '073001', error: true, date: '10/11/2015', desc: 'Special fields test - New item has been created.' },
       { task: '073002', date: '10/11/2015', desc: 'Part #4212132 has low inventory level', disabled: true }];
 
-      component.listview.selectable = 'multiple';
-      fixture.autoDetectChanges();
+    component.listview.selectable = 'multiple';
+    fixture.autoDetectChanges();
 
-      el = de.nativeElement;
-      const ul = el.children[0];
-      expect(ul.childElementCount).toBe(2);
+    el = de.nativeElement;
+    const ul = el.children[0];
+    expect(ul.childElementCount).toBe(2);
 
-      component.listItems.forEach(listItem => {
-        expect(ul.children.length).toBe(2);
-      });
+    component.listItems.forEach(listItem => {
+      expect(ul.children.length).toBe(2);
+    });
   });
 });

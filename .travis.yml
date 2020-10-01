@@ -3,26 +3,18 @@ language: node_js
 # use version in `.nvmrc`
 node_js:
 cache:
-  # cache both npm modules and Cypress binary
   directories:
     - node_modules
-    - ~/.cache/Cypress
 env:
   - TEST_SUITE=lint
   - TEST_SUITE=functional
-  - TEST_SUITE=e2e
 install:
   - npm install
 before_script:
-  - npx cypress install
-  - npx cypress verify
-  - npx cypress cache path
-  - npx cypress cache list
   - npm install -g codecov
   - if [ $TEST_SUITE != lint ]; then npm run build; fi
 script:
   - if [ $TEST_SUITE = lint ]; then npm run lint; fi
   - if [ $TEST_SUITE = functional ]; then npm run test; fi
-  - if [ $TEST_SUITE = e2e ]; then npm run test:e2e; fi
 after_success:
   - codecov

@@ -86,7 +86,7 @@ interface SohoHomePageEvent {
  * Soho Homepage Edit Event
  */
 interface SohoHomePageEditEvent {
-  homepage?: import("./soho-homepage.component").SohoHomePageComponent;
+  homepage?: any; // import("./soho-homepage.component").SohoHomePageComponent;
   card?: JQuery;
   metadata?: object;
 }
@@ -95,7 +95,7 @@ interface SohoHomePageEditEvent {
  * Soho Homepage Edit Event on Widget
  */
 interface SohoHomePageWidgetEditEvent {
-  widget?: import("./soho-widget.component").SohoWidgetComponent;
+  widget?: any; // import("./soho-widget.component").SohoWidgetComponent;
   card?: JQuery;
   metadata?: object;
 }

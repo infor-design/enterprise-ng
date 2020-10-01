@@ -10,9 +10,9 @@ Consuming the `ids-enterprise-ng` package will require changes to any projects r
 
 ### Upgrade angular and angular/cli
 
-These instructions assume you will be running the latest versions of `@angular/cli` and `@angular/core`. It is recommended that you review the information on <https://update.angular.io> before updating.  Also read <https://next.angular.io/guide/updating-to-version-9> for a detailed description of changes to angular.
+These instructions assume you will be running the latest versions of `@angular/cli` and `@angular/core`. It is recommended that you review the information on <https://update.angular.io> before updating.  Also read <https://next.angular.io/guide/updating-to-version-10> for a detailed description of changes to angular.
 
-Note: The libraries are currently compiled using angular 9, and so require all consumers to use the same major version.
+Note: The libraries are currently compiled using angular 10, and so require all consumers to use the same major version.
 
 These are the steps for upgrading existing projects:
 
@@ -24,12 +24,31 @@ ng update
 
 You will need to fix any issues raised, as these will depend on the dependency tree created by the packages you use and what version you are upgrading from.
 
-#### Angular 8
+#### Angular 10
 
-When updating (and depending on your dependencies) the update *may* not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install TypeScript 3.7.x first, as follows:
+When updating (and depending on your dependencies) the update *may* not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install TypeScript 3.9.x first, as follows:
 
 ```sh
 npm i typescript@3.7.4
+```
+
+### Install typings as a seperate package
+
+The typings should be install automatically, as they are a dependency of ids-enterprise-ng, if they are not you can install them explicitly as follows:
+
+```sh
+npm i ids-enterprise-typings -S
+```
+
+These typings must be added to the `types` element of `tsconfig.base.json`, and where overwridden in child tsconfig files (e.g. `tsconfig.lib.json`).
+
+```json
+"types": [
+      "jasmine",
+      "jquery",
+      "node",
+      "ids-enterprise-typings"
+    ],
 ```
 
 ### Uninstall old dependencies (for code upgrading from a version of ids-enterprise-ng before version 5)

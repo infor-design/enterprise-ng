@@ -1,5 +1,3 @@
-/// <reference path="soho-column.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,

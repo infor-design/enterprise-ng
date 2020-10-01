@@ -1,5 +1,3 @@
-/// <reference path="soho-utils.d.ts" />
-
 export class SohoIconUtils {
   /**
    * Returns the RAW HTML for creating a new icon in string form

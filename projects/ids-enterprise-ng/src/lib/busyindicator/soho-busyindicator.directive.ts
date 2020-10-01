@@ -1,5 +1,3 @@
-/// <reference path="soho-busyindicator.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,
@@ -149,7 +147,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
   constructor(
     private elementRef: ElementRef,
     private ngZone: NgZone,
-  ) {}
+  ) { }
 
   // -------------------------------------------
   // Public API

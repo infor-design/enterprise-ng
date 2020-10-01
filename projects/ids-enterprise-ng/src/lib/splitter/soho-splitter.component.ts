@@ -1,6 +1,4 @@
-﻿/// <reference path="soho-splitter.d.ts" />
-
-import {
+﻿import {
   AfterViewInit,
   Component,
   ElementRef,
@@ -26,11 +24,11 @@ import {
 })
 export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
 
- // -------------------------------------------
- // Options Block
- // -------------------------------------------
+  // -------------------------------------------
+  // Options Block
+  // -------------------------------------------
 
- private options: SohoSplitterOptions = {};
+  private options: SohoSplitterOptions = {};
 
   // -------------------------------------------
   // Component Inputs
@@ -64,7 +62,7 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-   // Adds/Remove the collapse button.
+  // Adds/Remove the collapse button.
   @Input() set collapseButton(collapseButton: boolean) {
     this.options.collapseButton = collapseButton;
     if (this.splitter) {
@@ -73,7 +71,7 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-   // Determines if the split percentage should be saved to local storage
+  // Determines if the split percentage should be saved to local storage
   @Input() set save(save: boolean) {
     this.options.save = save;
     if (this.splitter) {
@@ -124,7 +122,7 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
     // Wrap the element in a jQuery selector.
     this.jQueryElement = jQuery(this.element.nativeElement);
 
-     // Initialise the SohoXi Control
+    // Initialise the SohoXi Control
     this.jQueryElement.splitter(this.options);
 
     // Once the control is initialised, extract the control

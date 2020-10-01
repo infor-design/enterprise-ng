@@ -1,5 +1,3 @@
-/// <reference path="soho-error.d.ts" />
-
 import {
   AfterViewInit,
   Directive,

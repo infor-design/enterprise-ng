@@ -93,8 +93,6 @@ It is **important** that the typings files accurately represent the underlying *
 The structure of a very simple **enterprise-ng** Component that wraps a ficticious jQuery Control called **widget** is defined below:
 
 ```typescript
-/// <reference path="soho-widget.d.ts"/>
-
 @Component({
   selector: 'soho-widget',
   template: './soho-widget.component.html',

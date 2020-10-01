@@ -1,5 +1,3 @@
-/// <reference path="soho-button.d.ts" />
-
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

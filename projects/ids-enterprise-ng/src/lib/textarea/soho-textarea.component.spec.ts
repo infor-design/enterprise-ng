@@ -1,5 +1,3 @@
-/// <reference path="soho-textarea.d.ts" />
-
 import { } from 'jasmine';
 import { ComponentFixture, TestBed, tick, fakeAsync, async } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -11,14 +9,14 @@ import { SohoTextAreaComponent } from './soho-textarea.component';
 import { text } from 'd3';
 
 describe('Soho TextArea Unit Tests', () => {
-  let comp:     SohoTextAreaComponent;
-  let fixture:  ComponentFixture<SohoTextAreaComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let comp: SohoTextAreaComponent;
+  let fixture: ComponentFixture<SohoTextAreaComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoTextAreaComponent ]
+      declarations: [SohoTextAreaComponent]
     });
 
     fixture = TestBed.createComponent(SohoTextAreaComponent);
@@ -46,16 +44,16 @@ class SohoTextAreaTestComponent {
 }
 
 describe('Soho Rating Chart Render', () => {
-  let textarea:  SohoTextAreaComponent;
+  let textarea: SohoTextAreaComponent;
   let component: SohoTextAreaTestComponent;
-  let fixture:   ComponentFixture<SohoTextAreaTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLTextAreaElement;
+  let fixture: ComponentFixture<SohoTextAreaTestComponent>;
+  let de: DebugElement;
+  let el: HTMLTextAreaElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoTextAreaTestComponent ],
-      imports: [ FormsModule, SohoTextAreaModule ]
+      declarations: [SohoTextAreaTestComponent],
+      imports: [FormsModule, SohoTextAreaModule]
     });
 
     fixture = TestBed.createComponent(SohoTextAreaTestComponent);

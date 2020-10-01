@@ -1,5 +1,3 @@
-/// <reference path="soho-circlepager.d.ts" />
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';
@@ -9,14 +7,14 @@ import { SohoCirclepagerModule } from './soho-circlepager.module';
 import { SohoCirclepagerComponent } from './soho-circlepager.component';
 
 describe('Soho Circle Pager Unit Tests', () => {
-  let comp:     SohoCirclepagerComponent;
-  let fixture:  ComponentFixture<SohoCirclepagerComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let comp: SohoCirclepagerComponent;
+  let fixture: ComponentFixture<SohoCirclepagerComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoCirclepagerComponent ]
+      declarations: [SohoCirclepagerComponent]
     });
 
     fixture = TestBed.createComponent(SohoCirclepagerComponent);
@@ -72,14 +70,14 @@ class SohoCirclepagerTestComponent {
 
 describe('Soho Circle Pager Render', () => {
   let component: SohoCirclepagerTestComponent;
-  let fixture:   ComponentFixture<SohoCirclepagerTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoCirclepagerTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoCirclepagerTestComponent ],
-      imports: [ FormsModule, SohoCirclepagerModule ]
+      declarations: [SohoCirclepagerTestComponent],
+      imports: [FormsModule, SohoCirclepagerModule]
     });
 
     fixture = TestBed.createComponent(SohoCirclepagerTestComponent);

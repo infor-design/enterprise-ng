@@ -1,5 +1,3 @@
-/// <reference path="soho-tree.d.ts"/>
-
 import { Observable } from 'rxjs';
 
 /**

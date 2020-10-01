@@ -1,5 +1,3 @@
-/// <reference path="soho-datepicker.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,

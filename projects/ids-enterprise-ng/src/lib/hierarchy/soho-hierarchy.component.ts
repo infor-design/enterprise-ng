@@ -1,5 +1,3 @@
-/// <reference path="soho-hierarchy.d.ts" />
-
 import {
   AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input,
   OnDestroy, Output, EventEmitter, NgZone

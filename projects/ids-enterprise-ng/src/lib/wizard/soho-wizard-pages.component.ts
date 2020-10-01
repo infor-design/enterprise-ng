@@ -1,5 +1,3 @@
-/// <reference path="soho-wizard.d.ts" />
-
 import {
   Component,
   ContentChildren,
@@ -9,14 +7,14 @@ import {
 
 import { SohoWizardPageComponent } from './soho-wizard-page.component';
 
-  /**
-   * Angular wrapper for the soho wizard pagesß.
-   */
+/**
+ * Angular wrapper for the soho wizard pagesß.
+ */
 @Component({
   selector: 'div[soho-wizard-pages]', // tslint:disable-line
   template: `<ng-content></ng-content>`,
   styles: [
-  `:host {
+    `:host {
     display:        flex;
     flex:           1 100%;
     margin:         0px 40px 0px 40px;

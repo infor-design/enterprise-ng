@@ -1,5 +1,3 @@
-/// <reference path="soho-personalize.d.ts" />
-
 import {
   AfterViewInit,
   Directive,
@@ -30,7 +28,7 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
     if (this.personalize) {
       this.ngZone.runOutsideAngular(() => {
         this.personalize.setColors(colors);
-       });
+      });
     }
   }
 
@@ -40,7 +38,7 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
     if (this.personalize) {
       this.ngZone.runOutsideAngular(() => {
         this.personalize.setTheme(theme);
-       });
+      });
     }
   }
 

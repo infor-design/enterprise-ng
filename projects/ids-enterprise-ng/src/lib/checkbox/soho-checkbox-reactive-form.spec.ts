@@ -1,5 +1,3 @@
-/// <reference path="soho-checkbox.d.ts" />
-
 import {
   ComponentFixture,
   TestBed

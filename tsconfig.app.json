@@ -1,12 +1,13 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
     "types": [
        "jasmine",
        "jquery",
        "node",
-       "lscache"
+       "lscache",
+       "ids-enterprise-typings"
     ]
   },
   "angularCompilerOptions": {

@@ -1,5 +1,3 @@
-/// <reference path="soho-sparkline.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,
@@ -38,7 +36,7 @@ export class SohoSparklineComponent implements AfterViewInit, AfterViewChecked, 
     }
   }
 
-   /** Chart Type */
+  /** Chart Type */
   @Input() set type(value: SohoSparklineType) {
     this.options.type = value;
 

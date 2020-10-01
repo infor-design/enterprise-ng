@@ -1,0 +1,30 @@
+{
+  "name": "ids-enterprise-typings",
+  "slug": "ids-enterprise-typings",
+  "version": "7.7.0-dev.20200923",
+  "declaration": true,
+  "types": "index.d.ts",
+  "dependencies": {
+    "@types/jquery": "3.3.29",
+    "@types/d3": "4.13.0"
+  },
+  "peerDependencies": {},
+  "description": "Infor Design System (IDS) Enterprise Widget Typings",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infor-design/enterprise-ng.git"
+  },
+  "keywords": [
+    "infor design system",
+    "infor design system enterprise angular typings"
+  ],
+  "author": "Hook & Loop",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/infor-design/enterprise-ng/issues"
+  },
+  "homepage": "https://github.com/infor-design/enterprise-ng",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

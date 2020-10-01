@@ -1,5 +1,3 @@
-/// <reference path="soho-week-view.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,

@@ -1,5 +1,3 @@
-/// <reference path="soho-homepage.d.ts" />
-
 import {
   AfterViewInit,
   ChangeDetectionStrategy,

@@ -1,5 +1,3 @@
-/// <reference path="soho-sparkline.d.ts" />
-
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';
@@ -34,14 +32,14 @@ const sparklineData5 = [{
 }];
 
 describe('Soho Sparkline Unit Tests', () => {
-  let comp:     SohoSparklineComponent;
-  let fixture:  ComponentFixture<SohoSparklineComponent>;
-  let de:       DebugElement;
-  let el:       HTMLElement;
+  let comp: SohoSparklineComponent;
+  let fixture: ComponentFixture<SohoSparklineComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoSparklineComponent ]
+      declarations: [SohoSparklineComponent]
     });
 
     fixture = TestBed.createComponent(SohoSparklineComponent);
@@ -124,14 +122,14 @@ class SohoSparklineTestComponent {
 
 describe('Soho Sparkline Chart Render', () => {
   let component: SohoSparklineTestComponent;
-  let fixture:   ComponentFixture<SohoSparklineTestComponent>;
-  let de:        DebugElement;
-  let el:        HTMLElement;
+  let fixture: ComponentFixture<SohoSparklineTestComponent>;
+  let de: DebugElement;
+  let el: HTMLElement;
 
-  beforeEach( () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoSparklineTestComponent ],
-      imports: [ FormsModule, SohoSparklineModule ]
+      declarations: [SohoSparklineTestComponent],
+      imports: [FormsModule, SohoSparklineModule]
     });
 
     fixture = TestBed.createComponent(SohoSparklineTestComponent);

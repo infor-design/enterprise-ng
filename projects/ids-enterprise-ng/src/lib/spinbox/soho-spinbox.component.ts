@@ -1,5 +1,3 @@
-/// <reference path="soho-spinbox.d.ts" />
-
 import {
   AfterViewChecked,
   AfterViewInit,
@@ -132,9 +130,9 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
 
   ngAfterViewChecked() {
     if (this.runUpdatedOnCheck) {
-       // Enforce the initial disabled value (this handles the zone internall)
-       this.disabled = this.internalIsDisabled;
-       this.runUpdatedOnCheck = false;
+      // Enforce the initial disabled value (this handles the zone internall)
+      this.disabled = this.internalIsDisabled;
+      this.runUpdatedOnCheck = false;
     }
   }
 

@@ -1,5 +1,3 @@
-/// <reference path="../pager/soho-pager.d.ts" />
-
 /**
  * Soho DataGrid Control.
  *

@@ -1,5 +1,3 @@
-/// <reference path="../autocomplete/soho-autocomplete.d.ts" />
-
 /**
  * Soho Searchfield Control Typings.
  *
@@ -33,7 +31,7 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
   collapsible?: boolean;
 
   /* Can either be a number, or a function resolving a number */
-  collapseSize?: ((api: SohoSearchFieldStatic) => number)|number;
+  collapseSize?: ((api: SohoSearchFieldStatic) => number) | number;
 }
 
 /**
@@ -47,7 +45,7 @@ interface SohoSearchFieldStatic {
   element: JQuery;
 
   /** If this component resides within a toolbar, this returns `true` */
-  toolbarParent?: boolean|undefined;
+  toolbarParent?: boolean | undefined;
 
   /** Destructor. */
   destroy(): void;

@@ -1,5 +1,3 @@
-/// <reference path="soho-context-menu.d.ts" />
-
 import {
   AfterViewInit,
   Component,
@@ -231,7 +229,7 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
     return this.options.beforeOpen;
   }
 
-  constructor(private element: ElementRef, private ngZone: NgZone) {}
+  constructor(private element: ElementRef, private ngZone: NgZone) { }
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
@@ -241,16 +239,16 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
 
       // Add listeners to emit events
       this.jQueryElement.on('selected', (e: JQuery.TriggeredEvent, args: JQuery) =>
-        this.ngZone.run(() => this.selected.next({e, args})));
+        this.ngZone.run(() => this.selected.next({ e, args })));
 
       this.jQueryElement.on('beforeopen', (e: JQuery.TriggeredEvent, args: JQuery) =>
-        this.ngZone.run(() => this.beforeopen.emit({e, args})));
+        this.ngZone.run(() => this.beforeopen.emit({ e, args })));
 
       this.jQueryElement.on('close', (e: JQuery.TriggeredEvent, args: JQuery) =>
-        this.ngZone.run(() => this.close.emit({e, args})));
+        this.ngZone.run(() => this.close.emit({ e, args })));
 
       this.jQueryElement.on('open', (e: JQuery.TriggeredEvent, args: JQuery) =>
-        this.ngZone.run(() => this.open.emit({e, args})));
+        this.ngZone.run(() => this.open.emit({ e, args })));
     });
   }
 

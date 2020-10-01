@@ -1,5 +1,3 @@
-/// <reference path="soho-editor.d.ts" />
-
 import {
   ComponentFixture,
   TestBed

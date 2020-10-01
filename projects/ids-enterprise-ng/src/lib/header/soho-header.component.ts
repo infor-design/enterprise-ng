@@ -1,5 +1,3 @@
-/// <reference path="soho-header.d.ts" />
-
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -34,7 +32,7 @@ export class SohoHeaderComponent implements AfterViewInit {
   // Reference to the annotated SoHoXi control
   private header: SohoHeaderStatic;
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef) { }
 
   /**
    * Used to manually remove the back button when
