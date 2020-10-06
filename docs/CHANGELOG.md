@@ -1,14 +1,14 @@
 # What's New with Enterprise-NG
 
-## v7.7.0
+## v8.0.0
 
-### 7.7.0 Features
+### 8.0.0 Features
 
 - `[General]` Upgraded to Angular 10.  `BTHH` ([Issue #858](https://github.com/infor-design/enterprise-ng/issues/858))
     - Note: The types have are now separated into to a new package `ids-enterprise typings` and installed as a dependency.
     - See the `UPGRADING.md` guide for details.
 
-### 7.7.0 Fixes
+### 8.0.0 Fixes
 
 - `[Charts]` Exposed updated API for all the available charts. ([#905](https://github.com/infor-design/enterprise-ng/issues/905)) `EA`
 - `[Context Menu]` Fixes a bug where using *ngIf directive to destroy the component was not working properly. ([#887](https://github.com/infor-design/enterprise-ng/issues/887))
