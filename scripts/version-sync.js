@@ -10,6 +10,7 @@
 // -------------------------------------
 const fs = require('fs');
 const slash = require('slash');
+const chalk = require('chalk');
 
 // -------------------------------------
 //   Constants
