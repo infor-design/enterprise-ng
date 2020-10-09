@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v7.7.1
+
+### 7.7.1 Fixes
+
+- `[Popupmenu]` Revert is-selectable to default to false as it was set to true by mistake. ([#907](https://github.com/infor-design/enterprise-ng/issues/907)) `TJM`
+
 ## v7.7.0
 
 ### 7.7.0 Fixes
