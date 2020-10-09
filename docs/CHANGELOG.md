@@ -1,10 +1,16 @@
 # What's New with Enterprise-NG
 
+## v8.0.2
+
+### 8.0.2 Fixes
+
+- `[Placeholder]` Update me. ([#905](https://github.com/infor-design/enterprise-ng/issues/905)) `EA`
+
 ## v8.0.1
 
 ### 8.0.1 Fixes
 
-- `[Placeholder]` Update me. ([#905](https://github.com/infor-design/enterprise-ng/issues/905)) `EA`
+- `[Popupmenu]` Revert is-selectable to default to false as it was set to true by mistake. ([#907](https://github.com/infor-design/enterprise-ng/issues/907)) `TJM`
 
 ## v8.0.0
 
