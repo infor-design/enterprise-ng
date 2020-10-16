@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v8.0.1
+
+### 8.0.1 Fixes
+
+- `[General]` Added a patched EP version 4.33.1.  `TJM`
+
 ## v8.0.0
 
 ### 8.0.0 Features
