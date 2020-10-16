@@ -4,7 +4,7 @@
 
 ### 8.0.2 Fixes
 
-- `[Placeholder]` Update me. ([#905](https://github.com/infor-design/enterprise-ng/issues/905)) `EA`
+- `[General]` Added a patched EP version 4.33.1.  `TJM`
 
 ## v8.0.1
 
