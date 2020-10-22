@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v8.0.3
+
+### 8.0.3 Fixes
+
+- `[General]` Fixes an incorrect default for popup menu `isSelectable`.  `TJM`
+
 ## v8.0.2
 
 ### 8.0.2 Fixes

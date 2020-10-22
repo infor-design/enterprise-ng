@@ -322,7 +322,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   @HostBinding('class.popupmenu') isPopupmenu = true;
-  @HostBinding('class.is-selectable') @Input() isSelectable = true;
+  @HostBinding('class.is-selectable') @Input() isSelectable = false;
   @HostBinding('class.is-multiselectable') @Input() isMultiselectable = false;
 
   // -------------------------------------------
