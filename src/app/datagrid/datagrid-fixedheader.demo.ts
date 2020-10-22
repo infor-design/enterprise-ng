@@ -33,10 +33,11 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
   }
 
   ngAfterViewChecked() {
-    if (this.sohoDataGridComponent && this.updateSelectedRow) {
+    console.log('ngAfterViewChecked');
+    /*if (this.sohoDataGridComponent && this.updateSelectedRow) {
       this.sohoDataGridComponent.selectRows([this.selectedRow]);
       this.updateSelectedRow = false;
-    }
+    } */
   }
 
   onSelected(args: SohoDataGridSelectedEvent) {

@@ -26,10 +26,8 @@ export class SohoMastheadDemoComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked() {
     // Display the current render loop in real time
-    setTimeout(() => {
-      // This forces a view refresh.
+    // This forces a view refresh.
       this.renderLoopCount = this.renderLoop.getCurrentCount();
-    });
   }
 
   toggleRenderLoop() {
