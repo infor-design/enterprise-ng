@@ -1,7 +1,7 @@
 <div class="row">
   <div class="twelve columns">
 
-    <div soho-tabs>
+    <div soho-tabs registerForEvents="beforeClose" [beforeCloseCallback]="onBeforeClose">
       <div soho-tab-list-container>
         <ul soho-tab-list>
           <li soho-tab><a soho-tab-title tabId="tabs-dismissible-firefox">Firefox</a></li>
