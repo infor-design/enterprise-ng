@@ -574,6 +574,17 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   /**
+   * Manually call updated and refresh out of the zone.
+   */
+  public refresh(): void {
+    this.ngZone.runOutsideAngular(() => {
+      setTimeout(() => {
+        this.tabs.updated();
+      }, 1);
+    });
+  }
+
+  /**
    * Adds a new tab into the tab component
    * @param tabId The tabId of the tab to be added
    * @param options ?

@@ -1,10 +1,10 @@
 # What's New with Enterprise-NG
 
-## v8.0.3
+## v8.1.0
 
-### 8.0.3 Fixes
+### 8.1.0 Fixes
 
-- `[General]` Fixes an incorrect default for popup menu `isSelectable`.  `TJM`
+- `[Tabs]` Added a new method `refresh` which can be called when updating the tab count in a dynamic tab scenario). When called it will force a UI refresh to the tabs. Typical situations are changing all the tab header contents so the size is changed. If using `disableAutoUpdatedCall=true` you should call this when tab counts or names are changed. This did not introduce any breaking change.  ([#4521](https://github.com/infor-design/enterprise/issues/4521)) `TJM`
 
 ## v8.0.2
 
