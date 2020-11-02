@@ -4,7 +4,7 @@ import {
   ViewChild,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { SohoTextAreaComponent } from 'ids-enterprise-ng';
+import { SohoTextAreaComponent, SohoContextMenuDirective } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-content-menu-demo',
@@ -14,6 +14,7 @@ import { SohoTextAreaComponent } from 'ids-enterprise-ng';
 export class ContextMenuDemoComponent implements OnInit {
 
   @ViewChild(SohoTextAreaComponent, { static: true }) textarea: SohoTextAreaComponent;
+  @ViewChild('menuOne') menuOneContextMenu: SohoContextMenuDirective;
 
   public normalText = `Input Example`;
   public modText = `Enabled Text Area Example`;
@@ -21,6 +22,7 @@ export class ContextMenuDemoComponent implements OnInit {
   public radioButtonLabel = `Radio Button Example`;
   public checkboxButtonLabel = `Check Box Example`;
   public richTextEditorLabel = `Rich Text Editor Example`;
+  public manualCloseLabel = `Close Context Menu Manually`;
 
   public contextEntries: Array<ContextMenuEntries>;
 
@@ -42,48 +44,48 @@ export class ContextMenuDemoComponent implements OnInit {
     const entries: Array<ContextMenuEntries> = [];
 
     entries.push({
-      displayString       : 'Cutx',
-      disabled : false,
+      displayString: 'Cutx',
+      disabled: false,
       shortcut: '⌘+X'
     });
 
     entries.push({
-      displayString       : 'Copy',
-      disabled : false,
+      displayString: 'Copy',
+      disabled: false,
       shortcut: '⌘+C'
     });
 
     entries.push({
-      displayString       : 'Paste',
-      disabled : false,
+      displayString: 'Paste',
+      disabled: false,
       shortcut: '⌘+V'
     });
 
     entries.push({
-      displayString       : 'Name and project range',
-      id     : 'range',
-      disabled : false
+      displayString: 'Name and project range',
+      id: 'range',
+      disabled: false
     });
 
     entries.push({
-      displayString       : 'Insert comment',
-      disabled : true
+      displayString: 'Insert comment',
+      disabled: true
     });
 
     entries.push({
-      displayString       : 'Insert note',
-      disabled : false
+      displayString: 'Insert note',
+      disabled: false
     });
 
     entries.push({
-      displayString       : 'Clear notes',
-      disabled : true
+      displayString: 'Clear notes',
+      disabled: true
     });
 
     entries.push({
-      displayString       : 'Google',
-      url     : 'http://www.google.com',
-      disabled : false
+      displayString: 'Google',
+      url: 'http://www.google.com',
+      disabled: false
     });
 
     return entries;
@@ -93,7 +95,7 @@ export class ContextMenuDemoComponent implements OnInit {
     console.log('CheckboxDemoComponent.onUpdated');
   }
 
-  constructor() {}
+  constructor() { }
   ngOnInit() {
     this.contextEntries = this.buildContextMenu();
   }
@@ -112,6 +114,12 @@ export class ContextMenuDemoComponent implements OnInit {
 
   onOpen() {
     console.log('onOpen');
+  }
+
+  onOpenManually(e: SohoContextMenuEvent): void {
+    setTimeout(() => {
+      this.menuOneContextMenu.close();
+    }, 2000)
   }
 }
 
