@@ -119,7 +119,7 @@ export class ContextMenuDemoComponent implements OnInit {
   onOpenManually(e: SohoContextMenuEvent): void {
     setTimeout(() => {
       this.menuOneContextMenu.close();
-    }, 2000)
+    }, 2000);
   }
 }
 
