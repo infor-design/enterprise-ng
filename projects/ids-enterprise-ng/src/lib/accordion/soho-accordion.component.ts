@@ -270,7 +270,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    */
   public collapse(header: SohoAccordionHeaderComponent | string): void {
     if (this.accordion) {
-      this.ngZone.runOutsideAngular(() => this.accordion.collapse(typeof header === 'string' ? header : header['jQueryElement']));
+      this.ngZone.runOutsideAngular(() => this.accordion?.collapse(typeof header === 'string' ? header : header['jQueryElement']));
     }
   }
 
