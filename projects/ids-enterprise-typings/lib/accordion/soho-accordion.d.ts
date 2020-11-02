@@ -87,13 +87,13 @@ interface SohoAccordionStatic {
   enable(): void;
 
   /** Checks if a particular header is disabled, or if the entire accordion is disabled. */
-  isDisabled(jQuery): boolean;
+  isDisabled(jQuery: any): boolean;
 
   /** Checks if an Accordion Section is currently expanded. */
-  isExpanded(jQuery): boolean;
+  isExpanded(jQuery: any): boolean;
 
   /** Toggles the exanded state of the selected header. */
-  toggle(jQuery): void;
+  toggle(jQuery: any): void;
 
   /** Updates the accordion with any new settings. */
   updated(headers?: JQuery[], settings?: SohoAccordionOptions): void;

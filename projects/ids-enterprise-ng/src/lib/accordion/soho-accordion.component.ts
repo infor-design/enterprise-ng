@@ -38,12 +38,12 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   // All headers.
   // tslint:disable-next-line:no-forward-ref
   @ContentChildren(forwardRef(() => SohoAccordionHeaderComponent))
-  headers: QueryList<SohoAccordionHeaderComponent>;
+  headers?: QueryList<SohoAccordionHeaderComponent>;
 
   // All panes.
   // tslint:disable-next-line:no-forward-ref
   @ContentChildren(forwardRef(() => SohoAccordionPaneComponent))
-  panes: QueryList<SohoAccordionPaneComponent>;
+  panes?: QueryList<SohoAccordionPaneComponent>;
 
   // -------------------------------------------
   // Options Block
@@ -56,17 +56,17 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   // -------------------------------------------
 
   /** Reference to the jQuery selector. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /**
    * References to the Soho control api.
    */
-  private accordion: SohoAccordionStatic;
+  private accordion?: SohoAccordionStatic;
 
   /**
    * Used to call updated from the afterViewChecked lifecycle event.
    */
-  private updateRequired: boolean;
+  private updateRequired?: boolean;
 
   // -------------------------------------------
   // Component Output
@@ -94,7 +94,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    *
    * If set to true, allows only one pane of the accordion to be open at a time.
    */
-  @Input() public set allowOnePane(allowOnePane: boolean) {
+  @Input() public set allowOnePane(allowOnePane: boolean | undefined) {
     this.options.allowOnePane = typeof (allowOnePane) === 'boolean' && allowOnePane;
     if (this.accordion) {
       this.accordion.settings.allowOnePane = this.options.allowOnePane;
@@ -111,7 +111,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    *
    *
    */
-  @Input() public set displayChevron(displayChevron: boolean) {
+  @Input() public set displayChevron(displayChevron: boolean | undefined) {
     this.options.displayChevron = typeof (displayChevron) === 'boolean' && displayChevron;
     if (this.accordion) {
       this.accordion.settings.displayChevron = this.options.displayChevron;
@@ -125,8 +125,8 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   /**
    * Changes the iconography used in accordion header expander buttons.
    */
-  @Input() public set expanderDisplay(expanderDisplay: SohoAccordionExpanderType) {
-    this.options.expanderDisplay = typeof (expanderDisplay) === 'boolean' && expanderDisplay;
+  @Input() public set expanderDisplay(expanderDisplay: SohoAccordionExpanderType | undefined) {
+    this.options.expanderDisplay = expanderDisplay;
     if (this.accordion) {
       this.accordion.settings.expanderDisplay = this.options.expanderDisplay;
       this.markForUpdate();
@@ -142,7 +142,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    *
    *
    */
-  @Input() public set rerouteOnLinkClick(rerouteOnLinkClick: boolean) {
+  @Input() public set rerouteOnLinkClick(rerouteOnLinkClick: boolean | undefined) {
     this.options.rerouteOnLinkClick = typeof (rerouteOnLinkClick) === 'boolean' && rerouteOnLinkClick;
     if (this.accordion) {
       this.accordion.settings.rerouteOnLinkClick = this.options.rerouteOnLinkClick;
@@ -156,22 +156,21 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   /**
    * A callback function that when implemented provided a call back for "ajax loading" of tab contents on open.
    */
-  @Input() public set source(source: Function) {
+  @Input() public set source(source: Function | undefined) {
     this.options.source = source;
     if (this.accordion) {
       this.accordion.settings.source = this.options.source;
       this.markForUpdate();
     }
   }
-
-  public get source(): Function {
+  public get source(): Function | undefined {
     return this.options.source;
   }
 
   /**
    * Display accordion with panels
    */
-  @Input() public set hasPanels(hasPanels: boolean) {
+  @Input() public set hasPanels(hasPanels: boolean | undefined) {
     this.options.hasPanels = hasPanels;
     if (this.accordion) {
       this.accordion.settings.hasPanels = this.options.hasPanels;
@@ -179,29 +178,28 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
     }
   }
 
-  public get hasPanels(): boolean {
+  public get hasPanels(): boolean | undefined {
     return this.options.hasPanels;
   }
 
   /**
    * Set the color scheme to inverse
    */
-  @Input() public set inverse(inverse: boolean) {
+  @Input() public set inverse(inverse: boolean | undefined) {
     this.options.inverse = inverse;
     if (this.accordion) {
       this.accordion.settings.inverse = this.options.inverse;
       this.markForUpdate();
     }
   }
-
-  public get inverse(): boolean {
+  public get inverse(): boolean | undefined {
     return this.options.inverse;
   }
 
   /**
    * Set the color scheme to alternate
    */
-  @Input() public set alternate(bool: boolean) {
+  @Input() public set alternate(bool: boolean | undefined) {
     this.options.alternate = bool;
     if (this.accordion) {
       this.accordion.settings.alternate = this.options.alternate;
@@ -209,26 +207,25 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
     }
   }
 
-  public get alternate(): boolean {
+  public get alternate(): boolean | undefined {
     return this.options.alternate;
   }
 
   /**
    * Enables tooltips for longer text that is handled with ellipsis
    */
-  @Input() public set enableTooltips(enableTooltips: boolean) {
+  @Input() public set enableTooltips(enableTooltips: boolean | undefined) {
     this.options.enableTooltips = enableTooltips;
     if (this.accordion) {
       this.accordion.settings.enableTooltips = this.options.enableTooltips;
       this.markForUpdate();
     }
   }
-
-  public get enableTooltips(): boolean {
+  public get enableTooltips(): boolean | undefined {
     return this.options.enableTooltips;
   }
 
-  @Input() public hasSubheaderSeparators: boolean;
+  @Input() public hasSubheaderSeparators?: boolean;
 
   /**
    * Constructor.
@@ -250,7 +247,10 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    * @param index - the index of the accordion header.
    * @return the header at the given index.
    */
-  public getHeader(index: number): SohoAccordionHeaderComponent {
+  public getHeader(index: number): SohoAccordionHeaderComponent | undefined {
+    if (!this.headers) {
+      return undefined;
+    }
     return this.headers.toArray()[index];
   }
 
@@ -260,7 +260,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    */
   public expand(header: SohoAccordionHeaderComponent | string): void {
     if (this.accordion) {
-      this.ngZone.runOutsideAngular(() => this.accordion.expand(typeof header === 'string' ? header : header['jQueryElement']));
+      this.ngZone.runOutsideAngular(() => this.accordion?.expand(typeof header === 'string' ? header : header['jQueryElement']));
     }
   }
 
@@ -299,7 +299,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    */
   public disable() {
     if (this.accordion) {
-      this.ngZone.runOutsideAngular(() => this.accordion.disable());
+      this.ngZone.runOutsideAngular(() => this.accordion?.disable());
     }
   }
   /**
@@ -344,7 +344,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    */
   public toggle(header: SohoAccordionHeaderComponent): void {
     if (this.accordion) {
-      this.ngZone.runOutsideAngular(() => this.accordion.toggle(header.jQueryElement));
+      this.ngZone.runOutsideAngular(() => (this.accordion as any).toggle(header.jQueryElement));
     }
   }
 
@@ -353,11 +353,11 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    */
   public updated(headers?: JQuery[], settings?: SohoAccordionOptions): void {
     if (settings) {
-      this.options = Soho.utils.mergeSettings(this.element[0], settings, this.options);
+      this.options = Soho.utils.mergeSettings((this.element as any)[0], settings, this.options);
     }
 
     if (this.accordion) {
-      this.ngZone.runOutsideAngular(() => this.accordion.updated(headers, this.options));
+      this.ngZone.runOutsideAngular(() => (this.accordion as any).updated(headers, this.options));
     }
   }
 
@@ -417,7 +417,6 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
       }
       if (this.accordion) {
         this.accordion.destroy();
-        this.accordion = null;
       }
     });
   }
