@@ -80,6 +80,11 @@
          (open)="onOpen()">{{editorModel.editorText}}</div>
   </div>
 
+  <div class="field">
+    <span class="label">{{manualCloseLabel}}</span>
+    <a href="#" soho-context-menu menu="menu-one" (open)="onOpenManually($event)">This context menu will close after 2 seconds.</a>
+  </div>
+
   <!-- Context menu used in all examples (except the menu button)-->
   <ul soho-popupmenu id="action-popupmenu">
     <li soho-popupmenu-item *ngFor="let menuEntry of contextEntries" [isDisabled]="menuEntry.disabled">
@@ -99,7 +104,7 @@
     </div>
   </div>
 
-  <ul soho-popupmenu id="menu-one">
+  <ul soho-popupmenu id="menu-one" #menuOne>
     <li soho-popupmenu-item><a soho-popupmenu-label  href="#">Menu One Foo</a></li>
     <li soho-popupmenu-item><a soho-popupmenu-label  href="#">Menu One Bar</a></li>
   </ul>
