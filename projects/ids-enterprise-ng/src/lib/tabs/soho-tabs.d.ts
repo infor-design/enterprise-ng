@@ -66,6 +66,8 @@ interface SohoTabsStatic {
 
   rename(tabId: string, name: string): void;
 
+  refresh(): void;
+
   getTab(event: SohoTabsEvent, tabId: string): any;
 
   getActiveTab(): JQuery;
