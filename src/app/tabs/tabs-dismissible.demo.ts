@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
 })
 export class TabsDismissibleDemoComponent {
   onBeforeClose(event, tab) {
-    if ($(tab).children('a').attr('href') === '#tabs-dismissible-internetExplorer') {
-      console.log('can\'t dismiss Internet Explorer');
+    if ($(tab).children('a').attr('href') === '#tabs-dismissible-ie') {
+      console.log('can\'t dismiss this tab');
       return false;
     }
   }
