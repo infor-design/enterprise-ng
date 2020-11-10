@@ -51,6 +51,9 @@ interface SohoToolbarOptions {
    * Settings that get passed to the Toolbar.
    */
   moreMenuSettings?: SohoPopupMenuOptions;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

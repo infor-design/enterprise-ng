@@ -132,6 +132,7 @@ interface SohoCalendarOptions {
   weekOptions?: SohoCalendarWeekOptions;
   disable?: SohoDatePickerDisable;
   dayLegend?: SohoDatePickerLegend;
+  attributes?: Array<Object> | Object;
 }
 
 interface SohoCalendar {

@@ -89,6 +89,9 @@ interface SohoModalOptions {
 
   /** The modal's trigger element to keep refocused once the modal is closed.  **/
   triggerButton?: any;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 type SohoModalFullSize = false | 'responsive' | 'always';

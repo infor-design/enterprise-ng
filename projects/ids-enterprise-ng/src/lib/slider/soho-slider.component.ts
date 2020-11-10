@@ -89,9 +89,15 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
   @Input() set tooltipContent(tooltipContent: string[]) {
     this.options.tooltipContent = tooltipContent;
   }
+
   /** Set vertical class to render the slider vertically */
   @Input() set vertical(isVertical: boolean) {
     this.isVertical = isVertical;
+  }
+
+  /** Add extra attributes like id's to the component **/
+  @Input() set attributes(attributes: Array<Object> | Object) {
+    this.options.attributes = attributes;
   }
 
   /** Called when the slider control changes */

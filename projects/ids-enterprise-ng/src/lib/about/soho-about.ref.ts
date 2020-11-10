@@ -1,5 +1,3 @@
-import { Subject } from 'rxjs';
-
 /**
  * Wrapper for the jQuery about control.
  */
@@ -98,6 +96,15 @@ export class SohoAboutRef {
    */
   version(version: string): SohoAboutRef {
     this._options.version = version;
+    return this;
+  }
+
+  /**
+   * Add extra attributes like id's to the component
+   * @param attributes - the array or object of attributes to add
+   */
+  attributes(attributes: Array<Object> | Object): SohoAboutRef {
+    this._options.attributes = attributes;
     return this;
   }
 

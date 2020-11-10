@@ -101,9 +101,18 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
       this.textStatic.settings.autoGrowMaxHeight = autoGrowMaxHeight;
     }
   }
-
   get autoGrowMaxHeight() {
     return this.options.autoGrowMaxHeight;
+  }
+
+  @Input() set attributes(attributes: Array<Object> | Object) {
+    this.options.attributes = attributes;
+    if (this.textStatic) {
+      this.textStatic.settings.attributes = attributes;
+    }
+  }
+  get attributes() {
+    return this.options.attributes;
   }
 
   @Input() set characterCounter(characterCounter: boolean) {

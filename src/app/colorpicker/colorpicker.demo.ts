@@ -17,10 +17,12 @@ export class ColorPickerDemoComponent implements OnInit, AfterViewInit {
 
   @ViewChild(SohoColorPickerComponent, { static: true }) colorpicker: SohoColorPickerComponent;
 
-  public model = { // tslint:disable-line
+  public model = {
     color: '#1a1a1a',
-    label: 'Slate10'
+    label: 'Slate10',
+    attributes: { name: 'id', value: 'background-color' }
   };
+
   public showModel = false;
   public colorPickerDisabled = false;
   public colorPickerReadOnly = false;
@@ -45,7 +47,8 @@ export class ColorPickerDemoComponent implements OnInit, AfterViewInit {
   onChange(event: Event) {
     this.model = {
       color: this.colorpicker.getHexValue(),
-      label: this.colorpicker.getLabelValue()
+      label: this.colorpicker.getLabelValue(),
+      attributes: { name: 'id', value: 'background-color' }
     };
   }
 
@@ -103,7 +106,8 @@ export class ColorPickerDemoComponent implements OnInit, AfterViewInit {
     // the label value on the fly with this setting
     this.model = {
       color: '',
-      label: ''
+      label: '',
+      attributes: { name: 'id', value: 'background-color' }
     };
   }
 }

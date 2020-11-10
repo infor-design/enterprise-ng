@@ -26,6 +26,9 @@ interface SohoTextAreaOptions {
 
   /** Sets the maximum ceiling of growable textarea. */
   autoGrowMaxHeight?: number;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 interface SohoTextAreaEvent extends JQuery.TriggeredEvent {

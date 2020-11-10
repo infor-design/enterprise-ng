@@ -54,6 +54,9 @@ interface SohoPopupMenuOptions {
 
   /** If set to true, menu will be removed from the DOM when destroyed */
   removeOnDestroy?: boolean;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

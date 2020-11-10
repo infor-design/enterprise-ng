@@ -383,6 +383,15 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     }
   }
 
+/** Add extra attributes like id's to the component **/
+  @Input() set attributes(value: Array<Object> | Object) {
+    this.options.attributes = value;
+    if (this.toolbar) {
+      this.toolbar.settings.attributes = value;
+      this.markForRefresh();
+    }
+  }
+
   /**
    * The beforeactivate event is fired whenever a toolbar is activated giving the event handler a chance
    * to "veto" the tab selection change.

@@ -1,5 +1,12 @@
 # What's New with Enterprise-NG
 
+## v8.1.1
+
+### 8.1.1 Fixes
+
+- `[General]` Added new types for automation id's.  ([#934](https://github.com/infor-design/enterprise/issues/4521)) `934`
+- `[General]` Added EP version 4.35 `TJM`
+
 ## v8.1.0
 
 ### 8.1.0 Fixes
