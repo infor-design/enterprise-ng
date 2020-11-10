@@ -48,6 +48,9 @@ interface SohoMessageOptions {
 
   /**  if true, causes this modal instance to become hidden when another modal is displayed over top. **/
   hideUnderneath?: boolean;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

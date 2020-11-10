@@ -55,7 +55,11 @@ interface SohoColumnOptions {
   /** A series of options for the yAxis. */
   yAxis?: object;
 
+  /** A hook for tooltip logic */
   tooltip?: string | SohoColumnTooltipFunction;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 interface SohoColumnSelectEvent {

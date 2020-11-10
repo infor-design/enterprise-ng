@@ -35,6 +35,9 @@ interface SohoContextualActionPanelOptions {
   /** Settings to pass through to the modal */
   modalSettings?: SohoModalOptions;
 
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
+
   /** @deprecated settings should use modalSettings */
   /** @deprecated The buttons to create (use modalSettings) */
   buttons?: SohoContextualActionPanelButton[];
