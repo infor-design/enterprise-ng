@@ -65,6 +65,9 @@ interface SohoBarOptions {
 
   /** An empty message will be displayed when there is no chart data. */
   emptyMessage?: SohoEmptyMessageOptions;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 interface SohoBarSelectEvent {

@@ -282,6 +282,15 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
     }
   }
 
+  /** Add extra attributes like id's to the component **/
+  @Input() set attributes(attributes: Array<Object> | Object) {
+    this._options.attributes = attributes;
+    if (this.toolbarFlex) {
+      this.toolbarFlex.settings.attributes = attributes;
+      this.markForRefresh();
+    }
+  }
+
   /**
    * The selected event is fired when a toolbar button has been clicked.
    */

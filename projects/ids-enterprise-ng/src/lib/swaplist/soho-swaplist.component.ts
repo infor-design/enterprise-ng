@@ -210,14 +210,17 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   public set searchable(value: boolean) {
     this._options.searchable = value;
   }
-
-  /**
-   * Return the searchable option for SohoSwapList.
-   *
-   * @return an boolean of searchable option.
-   */
   public get searchable(): boolean {
     return this._options.searchable;
+  }
+
+  /** Add extra attributes like id's to the component **/
+  @Input()
+  public set attributes(value: Array<Object> | Object) {
+    this._options.attributes = value;
+  }
+  public get attributes(): Array<Object> | Object {
+    return this._options.attributes;
   }
 
   /**

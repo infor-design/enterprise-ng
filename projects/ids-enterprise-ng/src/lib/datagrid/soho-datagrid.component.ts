@@ -1028,6 +1028,24 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+  /* Experimental Feature to stick on the top of the page. This feature has numerous limitations. */
+  @Input() set stickyHeader(stickyHeader: boolean) {
+    this._gridOptions.stickyHeader = stickyHeader;
+    if (this.jQueryElement) {
+      this.datagrid.settings.stickyHeader = stickyHeader;
+      this.markForRefresh('stickyHeader', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  /* Experimental Feature to stick on the top of the page. This feature has numerous limitations. */
+  @Input() set attributes(attributes: Array<Object> | Object) {
+    this._gridOptions.attributes = attributes;
+    if (this.jQueryElement) {
+      this.datagrid.settings.attributes = attributes;
+      this.markForRefresh('attributes', RefreshHintFlags.Rebuild);
+    }
+  }
+
   /**
    * If true an extra column is currently added to the end that fills the space.
    */

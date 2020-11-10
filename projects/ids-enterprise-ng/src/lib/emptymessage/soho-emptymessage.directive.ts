@@ -157,6 +157,21 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     return this._emptyMessageOptions.color;
   }
 
+  @Input() set attributes(attributes: Array<Object> | Object) {
+    this._emptyMessageOptions.attributes = attributes;
+    if (this.emptymessage) {
+      this.emptymessage.settings.attributes = attributes;
+      this.markForCheck();
+    }
+  }
+
+  get attributes(): Array<Object> | Object {
+    if (this.emptymessage) {
+      return this.emptymessage.settings.attributes;
+    }
+    return this._emptyMessageOptions.attributes;
+  }
+
   private _emptyMessageOptions: SohoEmptyMessageOptions = {};
   private jQueryElement: JQuery;
   private emptymessage: SohoEmptyMessageStatic;

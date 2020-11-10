@@ -27,6 +27,10 @@ export class AboutDemoComponent {
     const version = $('html').attr(VERSION_ATTR_NAME);
     this.about = this.aboutService
       .about()
+      .attributes([
+        { name: 'id', value: 'about-modal' },
+        { name: 'data-automation-id', value: 'about-modal-automation-id' }
+      ])
       .appName('Infor Design')
       .productName('Enterprise Angular Components')
       .version(`ver. ${version}`)

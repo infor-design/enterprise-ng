@@ -19,6 +19,23 @@ interface SohoTooltipOptions {
   keepOpen?: boolean; // Forces the tooltip to stay open in situations where it would normally close.
   extraClass?: string; // Extra css class
   maxWidth?: number; // Tooltip max width
+
+  /** If the object with the tooltip is tabbed to, will also show the tooltip. **/
+  showOnKeyboardFocus?: boolean;
+  /** Call back for hiding. **/
+  onHidden?: Function;
+  /** Placement options pass through **/
+  placementOpt?: object;
+  /** Init the content in the tooltip. **/
+  initializeContent?: boolean;
+  /** If set this color will be used on the header (if a popover). **/
+  headerClass?: string;
+  /** The delay before showing the tooltip **/
+  delay?: number;
+  /** The if true (default) the popup is added to the body. **/
+  attachToBody?: boolean;
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

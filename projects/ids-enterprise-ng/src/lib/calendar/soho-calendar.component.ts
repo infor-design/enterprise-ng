@@ -117,6 +117,21 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
     return this.dayLegend;
   }
 
+  @Input() set attributes(attributes: Array<Object> | Object) {
+    this.calendar.settings.attributes = attributes;
+
+    if (this.jQueryElement) {
+      this.markForRefresh();
+    }
+  }
+  get attributes(): Array<Object> | Object {
+    if (this.calendar) {
+      return this.calendar.settings.attributes;
+    }
+
+    return this.attributes;
+  }
+
   /**
    * An array of objects with data for the event types.
    */

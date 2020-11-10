@@ -73,7 +73,16 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-   // Determines if the split percentage should be saved to local storage
+  /** Add extra attributes like id's to the component **/
+  @Input() set attributes(attributes: Array<Object> | Object) {
+    this.options.attributes = attributes;
+    if (this.splitter) {
+      this.splitter.settings.attributes = attributes;
+      this.splitter.updated();
+    }
+  }
+
+  // Determines if the split percentage should be saved to local storage
   @Input() set save(save: boolean) {
     this.options.save = save;
     if (this.splitter) {

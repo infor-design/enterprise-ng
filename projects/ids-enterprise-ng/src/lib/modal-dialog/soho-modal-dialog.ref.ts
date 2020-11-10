@@ -299,6 +299,17 @@ export class SohoModalDialogRef<T> {
   }
 
   /**
+   * Add extra attributes like id's to the component
+   */
+  attributes(attributes: boolean): SohoModalDialogRef<T> {
+    this._options.attributes = attributes;
+    if (this.modal) {
+      this.modal.settings.attributes = attributes;
+    }
+    return this;
+  }
+
+  /**
    * Sets the 'content' that the modal control uses.
    *
    * @param content - a selector or string representing the dialog content.

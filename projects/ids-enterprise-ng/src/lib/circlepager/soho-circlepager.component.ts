@@ -56,6 +56,16 @@ export class SohoCirclepagerComponent implements AfterViewInit, AfterViewChecked
     }
   }
 
+  /** Add extra attributes like id's to the component **/
+  @Input() set attributes(attributes: Array<Object> | Object) {
+    this.settings.attributes = attributes;
+
+    if (this.circlepager) {
+      this.circlepager.settings.attributes = attributes;
+      this.updateRequired = true;
+    }
+  }
+
   private jQueryElement: JQuery;
   private circlepager: SohoCirclepager;
   private updateRequired = false;

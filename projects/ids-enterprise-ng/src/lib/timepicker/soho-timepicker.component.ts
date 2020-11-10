@@ -140,6 +140,14 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
     }
   }
 
+  /** Add extra attributes like id's to the component **/
+  @Input() set attributes(attributes: Array<Object> | Object) {
+    this.options.attributes = attributes;
+    if (this.timepicker) {
+      this.markForRefresh();
+    }
+  }
+
   /**
    * Sets the control to be disabled or not.
    */

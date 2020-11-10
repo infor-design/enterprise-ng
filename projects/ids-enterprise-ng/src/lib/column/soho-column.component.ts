@@ -157,6 +157,18 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
     }
   }
 
+  /**
+   * Add extra attributes like id's to the component
+   */
+  @Input() set attributes(attributes: Array<Object> | Object) {
+    this.options.attributes = attributes;
+
+    if (this.column) {
+      this.column.settings.attributes = attributes;
+      this.updateRequired = true;
+    }
+  }
+
   /** Events */
   @Output() selected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();
   @Output() unselected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();

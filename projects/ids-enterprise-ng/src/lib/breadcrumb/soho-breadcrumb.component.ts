@@ -59,6 +59,16 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
     return this.options.truncate;
   }
 
+  /** Add extra attributes like id's to the component **/
+  @Input()
+  public set attributes(attributes: Array<Object> | Object) {
+    this.options.attributes = attributes;
+    this.updated();
+  }
+  public get attributes(): Array<Object> | Object {
+    return this.options.attributes;
+  }
+
   /** Provides access to the internal array of currently-invoked IDS Breadcrumb APIs */
   public get breadcrumbAPIs(): SohoBreadcrumbItemStatic[] {
     if (!this.breadcrumbAPI) {

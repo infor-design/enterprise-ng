@@ -40,6 +40,9 @@ interface SohoTabsOptions {
    * If Vertical Tabs & true, will automatically switch to Horizontal Tabs on smaller breakpoints.
    */
   verticalResponsive: boolean;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

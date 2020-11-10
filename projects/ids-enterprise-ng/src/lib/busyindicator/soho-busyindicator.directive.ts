@@ -142,6 +142,19 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
   }
 
   /**
+   * To display only the overlay w/o the badge and text. Useful to stop input to a component
+   * that doesn't already have another mechanism (like a disabled state).
+   */
+  @Input()
+  public set attributes(attributes:  Array<Object> | Object) {
+    this.options.attributes = attributes;
+    if (this.busyindicator) {
+      this.busyindicator.settings.attributes = attributes;
+      this.updateBusyIndicator = true;
+    }
+  }
+
+  /**
    * Constructor.
    *
    * @param elementRef - the element matching the component's selector.

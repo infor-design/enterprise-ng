@@ -127,6 +127,14 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
     }
   }
 
+  /** Add extra attributes like id's to the component **/
+  @Input() set attributes(attributes: Array<Object> | Object) {
+    this._options.attributes = attributes;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
   /**
    * Indicates mode, either 'standard' or 'range'.
    */
