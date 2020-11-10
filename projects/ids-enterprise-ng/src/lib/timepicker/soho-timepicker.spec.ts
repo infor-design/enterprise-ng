@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { Component, DebugElement, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -29,7 +29,7 @@ describe('Soho Timepicker Unit Tests', () => {
   let de: DebugElement;
   let el: HTMLInputElement;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [TestTimepickerComponent],
       imports: [FormsModule, ReactiveFormsModule, SohoTimePickerModule]
@@ -43,7 +43,7 @@ describe('Soho Timepicker Unit Tests', () => {
     el = de.nativeElement;
   }));
 
-  it('Check events', async(() => {
+  it('Check events', waitForAsync(() => {
 
     spyOn(comp, 'onChange');
 

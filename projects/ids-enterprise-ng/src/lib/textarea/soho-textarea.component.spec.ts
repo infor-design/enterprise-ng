@@ -1,5 +1,5 @@
 import { } from 'jasmine';
-import { ComponentFixture, TestBed, tick, fakeAsync, async } from '@angular/core/testing';
+import { ComponentFixture, TestBed, tick, fakeAsync, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -69,7 +69,7 @@ describe('Soho Rating Chart Render', () => {
     expect(el.hasAttribute('soho-textarea')).toBeTruthy('soho-textarea');
   });
 
-  it('set model on input event', async(() => {
+  it('set model on input event', waitForAsync(() => {
     const spy = spyOn(component, 'onTextChange');
 
     fixture.detectChanges();

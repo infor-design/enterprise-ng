@@ -1,8 +1,4 @@
-﻿import {
-  ComponentFixture,
-  async,
-  TestBed
-} from '@angular/core/testing';
+﻿import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { By } from '@angular/platform-browser';
 
@@ -312,7 +308,7 @@ describe('Soho Swap List Service', () => {
     fixture.detectChanges();
   });
 
-  xit('Check items text', async(() => {
+  xit('Check items text', waitForAsync(() => {
     fixture.detectChanges();
 
     fixture.whenStable().then(() => { // wait for async getQuote
