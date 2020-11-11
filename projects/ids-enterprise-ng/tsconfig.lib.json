@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
-    "target": "es2020",
+    "target": "es2015",
     "strict": true,
     "declaration": true,
     "sourceMap": true,
@@ -33,6 +33,8 @@
     "enableIvy": false
   },
   "exclude": [
+    "**/node_modules/**",
+    "dist",
     "src/test.ts",
     "**/*.spec.ts",
     "types"

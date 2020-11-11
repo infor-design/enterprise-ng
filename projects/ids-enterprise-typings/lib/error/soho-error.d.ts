@@ -43,5 +43,5 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
 
   getErrorMessage(options?: SohoErrorOptions): JQuery;
 
-  scrollIntoView(alignToTop?: boolean, options?: SohoErrorOptions);
+  scrollIntoView(alignToTop?: boolean, options?: SohoErrorOptions): void;
 }

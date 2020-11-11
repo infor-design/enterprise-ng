@@ -13,7 +13,7 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-// Import commands.js using es2020 syntax:
+// Import commands.js using es2015 syntax:
 import './commands';
 import 'cypress-pipe';
 

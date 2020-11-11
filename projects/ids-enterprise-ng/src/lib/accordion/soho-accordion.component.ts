@@ -279,7 +279,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    */
   public expandAll(): void {
     if (this.accordion) {
-      this.ngZone.runOutsideAngular(() => this.accordion.expandAll());
+      this.ngZone.runOutsideAngular(() => this.accordion?.expandAll());
     }
   }
 
@@ -290,7 +290,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    */
   public collapseAll(): void {
     if (this.accordion) {
-      this.ngZone.runOutsideAngular(() => this.accordion.collapseAll());
+      this.ngZone.runOutsideAngular(() => this.accordion?.collapseAll());
     }
   }
 
@@ -307,7 +307,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    */
   public enable() {
     if (this.accordion) {
-      this.ngZone.runOutsideAngular(() => this.accordion.enable());
+      this.ngZone.runOutsideAngular(() => this.accordion?.enable());
     }
   }
 
@@ -319,7 +319,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    */
   public isDisabled(header: SohoAccordionHeaderComponent): boolean {
     if (this.accordion) {
-      return this.ngZone.runOutsideAngular(() => this.accordion.isDisabled(header.jQueryElement));
+      return this.ngZone.runOutsideAngular(() => this.accordion ? this.accordion.isDisabled(header.jQueryElement) : false);
     }
     return false;
   }
@@ -332,7 +332,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    */
   public isExpanded(header: SohoAccordionHeaderComponent): boolean {
     if (this.accordion) {
-      return this.ngZone.runOutsideAngular(() => this.accordion.isExpanded(header.jQueryElement));
+      return this.ngZone.runOutsideAngular(() => this.accordion ? this.accordion.isExpanded(header.jQueryElement) : false);
     }
     return false;
   }

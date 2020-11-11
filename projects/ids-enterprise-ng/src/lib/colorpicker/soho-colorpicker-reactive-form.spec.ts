@@ -21,7 +21,6 @@ import { SohoColorPickerModule } from './soho-colorpicker.module';
 import { SohoLabelModule } from '../label/soho-label.module';
 import { SohoColorPickerComponent } from './soho-colorpicker.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { fakeAsync, tick } from '@angular/core/testing';
 
 @Component({
   template: `
@@ -32,7 +31,7 @@ import { fakeAsync, tick } from '@angular/core/testing';
 class SohoColorPickerReactiveFormTestComponent {
   public colorpickValue = 'red';
 
-  @ViewChild(SohoColorPickerComponent) dropdown: SohoColorPickerComponent;
+  @ViewChild(SohoColorPickerComponent) dropdown?: SohoColorPickerComponent;
 
   public formGroup: FormGroup;
 
@@ -51,7 +50,6 @@ class SohoColorPickerReactiveFormTestComponent {
 }
 
 describe('SohoColorPicker on ReactiveForm', () => {
-  let dropdown: SohoColorPickerComponent;
   let component: SohoColorPickerReactiveFormTestComponent;
   let fixture: ComponentFixture<SohoColorPickerReactiveFormTestComponent>;
   let de: DebugElement;
@@ -65,7 +63,6 @@ describe('SohoColorPicker on ReactiveForm', () => {
 
     fixture = TestBed.createComponent(SohoColorPickerReactiveFormTestComponent);
     component = fixture.componentInstance;
-    dropdown = component.dropdown;
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-colorpicker]')).nativeElement;

@@ -29,18 +29,18 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   /**
    * Flag to force an update of the control after the view is created.
    */
-  private runUpdatedOnCheck: boolean;
+  private runUpdatedOnCheck?: boolean;
 
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
-  private datepicker: SohoDatePickerStatic;
+  private datepicker?: SohoDatePickerStatic | null;
 
-  private isDisabled: boolean = null;
+  private isDisabled?: boolean = undefined;
 
-  private isReadOnly: boolean = null;
+  private isReadOnly?: boolean = undefined;
 
   private _options: SohoDatePickerOptions = {};
 
@@ -299,7 +299,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   /**
    * Enables or disables the control
    */
-  @Input() set disabled(value: boolean) {
+  @Input() set disabled(value: boolean | undefined) {
     // Avoid setting the value if not required,
     // this causes issue on component initialisation
     // as enable() is called by both disabled()
@@ -314,11 +314,11 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
 
     if (value) {
       this.ngZone.runOutsideAngular(() => {
-        this.datepicker.disable();
+        this.datepicker?.disable();
       });
     } else {
       this.ngZone.runOutsideAngular(() => {
-        this.datepicker.enable();
+        this.datepicker?.enable();
         this.isReadOnly = false;
       });
     }
@@ -327,7 +327,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   /**
    * Sets the control to readonly
    */
-  @Input() set readonly(value: boolean) {
+  @Input() set readonly(value: boolean | undefined) {
     // Avoid setting the value if not required,
     // this causes issue on component initialisation
     // as enable() is called by both disabled()
@@ -341,10 +341,10 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
     this.isReadOnly = value;
 
     if (value) {
-      this.ngZone.runOutsideAngular(() => this.datepicker.readonly());
+      this.ngZone.runOutsideAngular(() => this.datepicker?.readonly());
     } else {
       this.ngZone.runOutsideAngular(() => {
-        this.datepicker.enable();
+        this.datepicker?.enable();
         this.isDisabled = false;
       });
     }
@@ -358,10 +358,10 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   /**
    * Public API
    */
-  get disabled() {
+  get disabled(): boolean | undefined {
     return this.isDisabled;
   }
-  get readonly() {
+  get readonly(): boolean | undefined  {
     return this.isReadOnly;
   }
 
@@ -370,7 +370,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   }
 
   public setValue(value: Date | string) {
-    this.datepicker.setValue(value, true);
+    this.datepicker?.setValue(value, true);
   }
 
   public getValue(): Date {
@@ -424,10 +424,10 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
        * Bind to jQueryElement's events
        */
       this.jQueryElement
-        .on('change', (args: SohoDatePickerEvent) => this.onChange(args));
+        .on('change', (args: any) => this.onChange(args));
 
       if (this.internalValue) {
-        this.datepicker.element.val(this.internalValue);
+        this.datepicker?.element.val(this.internalValue);
       }
       this.runUpdatedOnCheck = true;
     });
@@ -460,7 +460,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
    * Handle the control being changed.
    */
   onChange(event: SohoDatePickerEvent) {
-    this.internalValue = this.datepicker.element.val();
+    this.internalValue = this.datepicker?.element.val();
 
     // Set the date on the event.
     event.data = this.internalValue;

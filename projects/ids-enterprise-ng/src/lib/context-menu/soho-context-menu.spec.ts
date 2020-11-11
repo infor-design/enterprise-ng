@@ -18,19 +18,19 @@ class TestContextMenuDirectiveComponent {
   @Output() open = new EventEmitter<SohoContextMenuEvent>();
   @Output() close = new EventEmitter<SohoContextMenuEvent>();
 
-  onSelected(value) {
+  onSelected(value: any) {
     this.selected.emit(value);
   }
 
-  onBeforeOpen(value) {
+  onBeforeOpen(value: any) {
     this.beforeopen.emit(value);
   }
 
-  onClose(value) {
+  onClose(value: any) {
     this.open.emit(value);
   }
 
-  onOpen(value) {
+  onOpen(value: any) {
     this.close.emit(value);
   }
 }
@@ -55,21 +55,20 @@ describe('Soho Context Menu Unit Tests', () => {
   });
 
   it('Check events', () => {
-    comp.selected.subscribe(x => {
+    comp.selected.subscribe((x: any) => {
       expect(x).toBe(1);
     });
-    comp.beforeopen.subscribe(x => {
+    comp.beforeopen.subscribe((x: any) => {
       expect(x).toBe(1);
     });
-    comp.open.subscribe(x => {
+    comp.open.subscribe((x: any) => {
       expect(x).toBe(1);
     });
-    comp.close.subscribe(x => {
+    comp.close.subscribe((x: any) => {
       expect(x).toBe(1);
     });
 
     el.click();
-    el.parentElement.click();
-
+    el.parentElement?.click();
   });
 });

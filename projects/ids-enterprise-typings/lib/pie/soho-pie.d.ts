@@ -97,13 +97,13 @@ interface SohoPie {
   updated(settings?: SohoPieOptions): void;
 
   /** Gets the currently selected element */
-  getSelected(settings?: SohoPieOptions, isToggle?: boolean);
+  getSelected(settings?: SohoPieOptions, isToggle?: boolean): Array<Object> | Object;
 
   /** Sets the currently selected element */
-  setSelected(selected: SohoPieSelected);
+  setSelected(selected: SohoPieSelected): void;
 
   /** Toggles the currently selected element */
-  toggleSelected(selected: SohoPieSelected);
+  toggleSelected(selected: SohoPieSelected): void;
 
   /** Destroys the control on completion. */
   destroy(): void;

@@ -13,7 +13,7 @@ const eventTypes: SohoCalendarEventType[] = [
     translationKey: 'DiscretionaryTimeOff',
     color: 'azure',
     checked: true,
-    click: null
+    click: () => {}
   }
 ];
 const events: SohoCalendarEvent[] = [
@@ -34,8 +34,6 @@ const events: SohoCalendarEvent[] = [
 describe('Soho Calendar Unit Tests', () => {
   let comp: SohoCalendarComponent;
   let fixture: ComponentFixture<SohoCalendarComponent>;
-  let de: DebugElement;
-  let el: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -44,8 +42,6 @@ describe('Soho Calendar Unit Tests', () => {
 
     fixture = TestBed.createComponent(SohoCalendarComponent);
     comp = fixture.componentInstance;
-    de = fixture.debugElement;
-    el = de.nativeElement;
   });
 
   it('check inputs', () => {
@@ -145,13 +141,12 @@ describe('Soho Calendar Unit Tests', () => {
 })
 class SohoCalendarTestComponent {
   @ViewChild(SohoCalendarComponent)
-  calendar: SohoCalendarComponent;
-
-  public events: SohoCalendarEvent[];
-  public eventTypes: SohoCalendarEventType[];
+  calendar?: SohoCalendarComponent | null;
+  public events?: SohoCalendarEvent[];
+  public eventTypes?: SohoCalendarEventType[];
   public locale = 'en-US';
-  public month: number;
-  public year: number;
+  public month?: number;
+  public year?: number;
 }
 
 describe('Soho Calendar Chart Render', () => {
@@ -174,8 +169,7 @@ describe('Soho Calendar Chart Render', () => {
     el = de.query(By.css('[soho-calendar]')).nativeElement;
 
     fixture.detectChanges();
-    calendar = comp.calendar;
-
+    calendar = (comp.calendar as any);
     expect(calendar).toBeDefined();
   });
 

@@ -34,11 +34,7 @@ describe('Soho AutoComplete Unit Tests', () => {
   it('Check Inputs', () => {
     const offset: SohoAutoCompleteOffset = { top: 10, left: 10 };
 
-    comp.source = null;
-    comp.sourceArguments = null;
-    comp.template = null;
     comp.caseSensitive = false;
-    comp.filterMode = null;
     comp.delay = 250;
     comp.width = 200;
     comp.offset = offset;
@@ -73,7 +69,7 @@ describe('Soho AutoComplete Unit Tests', () => {
   template: `<input soho-autocomplete [source]="source">`
 })
 class SohoAutoCompleteTestComponent {
-  @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
+  @ViewChild(SohoAutoCompleteComponent) autocomplete?: SohoAutoCompleteComponent;
 
   public source = (term: string, response: any) => {
     const states = [
@@ -92,9 +88,7 @@ class SohoAutoCompleteTestComponent {
   }
 }
 
-describe('Soho Autocomplete Render', () => {
-  let autocomplete: SohoAutoCompleteComponent;
-  let component: SohoAutoCompleteTestComponent;
+fdescribe('Soho Autocomplete Render', () => {
   let fixture: ComponentFixture<SohoAutoCompleteTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -106,13 +100,11 @@ describe('Soho Autocomplete Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoAutoCompleteTestComponent);
-    component = fixture.componentInstance;
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-autocomplete]')).nativeElement;
 
     fixture.detectChanges();
-    autocomplete = component.autocomplete;
   });
 
   it('Check HTML content', () => {

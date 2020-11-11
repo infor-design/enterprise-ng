@@ -118,7 +118,7 @@ interface SohoContextualActionPanelStatic {
   /**
    * Forces a resize of the panel.
    */
-  resize();
+  resize(): void;
 
   /**
    * Close the modal panel.

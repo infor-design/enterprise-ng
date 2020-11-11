@@ -6,9 +6,7 @@
  */
 
  /**
-  * Soho Widget model for a tick.
-  *
-  * @interface SohoWizardTick
+  * Soho Widget model for a tick
   */
  interface SohoWizardTick {
 
@@ -60,13 +58,7 @@ interface SohoWizardStatic {
   /** Control options. */
   settings: SohoWizardOptions;
 
-  /**
-   * Activates a tick - based on the index or jquery element.
-   *
-   * @param e
-   * @param tick
-   *
-   */
+  /** Activates a tick - based on the index or jquery element */
   activate(e: any, tick: number | JQuery): void;
 
   updated(): void;

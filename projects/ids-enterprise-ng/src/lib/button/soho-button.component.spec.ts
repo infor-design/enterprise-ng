@@ -3,11 +3,8 @@ import {
   TestBed
 } from '@angular/core/testing';
 
-import { By } from '@angular/platform-browser';
-
 import {
   Component,
-  DebugElement,
   ViewChild
 } from '@angular/core';
 
@@ -27,18 +24,16 @@ import { SohoButtonComponent } from './soho-button.component';
   </div>`
 })
 class SohoButtonTestComponent {
-  @ViewChild(SohoButtonComponent, { static: true }) button: SohoButtonComponent;
+  @ViewChild(SohoButtonComponent, { static: true }) button?: SohoButtonComponent;
 
   constructor() {
   }
 }
 
 describe('Soho Button Unit Tests', () => {
-  let button: SohoButtonComponent;
+  let button: SohoButtonComponent | undefined;
   let component: SohoButtonTestComponent;
   let fixture: ComponentFixture<SohoButtonTestComponent>;
-  let de: DebugElement;
-  let el: HTMLDivElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -52,8 +47,6 @@ describe('Soho Button Unit Tests', () => {
     fixture.detectChanges();
 
     button = component.button;
-    de = fixture.debugElement;
-    el = de.query(By.css('button[soho-button]')).nativeElement;
   });
 
   it('is created', () => {
@@ -61,25 +54,25 @@ describe('Soho Button Unit Tests', () => {
   });
 
   it('can get and set replaceText', () => {
-    expect(button.replaceText).toBeUndefined();
+    expect(button?.replaceText).toBeUndefined();
 
-    button.replaceText = true;
+    (button as any).replaceText = true;
     expect((button as any)._buttonOptions.replaceText).toBeTruthy();
 
-    button.replaceText = false;
+    (button as any).replaceText = false;
     expect((button as any)._buttonOptions.replaceText).toBeFalsy();
   });
 
   it('can get and set toggleOffIcon', () => {
-    expect(button.toggleOffIcon).toBeUndefined();
-    button.toggleOffIcon = 'heart';
+    expect(button?.toggleOffIcon).toBeUndefined();
+    (button as any).toggleOffIcon = 'heart';
 
     expect((button as any)._buttonOptions.toggleOffIcon).toEqual('heart');
   });
 
   it('can get and set toggleOnIcon', () => {
-    expect(button.toggleOnIcon).toBeUndefined();
-    button.toggleOnIcon = 'heart';
+    expect(button?.toggleOnIcon).toBeUndefined();
+    (button as any).toggleOnIcon = 'heart';
 
     expect((button as any)._buttonOptions.toggleOnIcon).toEqual('heart');
   });
@@ -87,7 +80,7 @@ describe('Soho Button Unit Tests', () => {
   it('check hideMenuArrow', () => {
     // const spy = spyOn((component as any).ref, 'markForCheck');
 
-    button.hideMenuArrow = false;
+    (button as any).hideMenuArrow = false;
 
     expect((button as any)._buttonOptions.hideMenuArrow).toBeFalsy();
     expect((button as any).button.settings.hideMenuArrow).toBeFalsy();
@@ -97,7 +90,7 @@ describe('Soho Button Unit Tests', () => {
   it('check hideMenuArrow sets option to true', () => {
     // const spy = spyOn((component as any).ref, 'markForCheck');
 
-    button.hideMenuArrow = true;
+    (button as any).hideMenuArrow = true;
 
     expect((button as any)._buttonOptions.hideMenuArrow).toBeTruthy();
     expect((button as any).button.settings.hideMenuArrow).toBeTruthy();
@@ -108,7 +101,7 @@ describe('Soho Button Unit Tests', () => {
     // const spy = spyOn((component as any).ref, 'markForCheck');
 
     (button as any).button = undefined;
-    button.hideMenuArrow = true;
+    (button as any).hideMenuArrow = true;
 
     expect((button as any)._buttonOptions.hideMenuArrow).toBeTruthy();
     // expect(spy).toHaveBeenCalledTimes(0);

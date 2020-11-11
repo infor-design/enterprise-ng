@@ -40,7 +40,7 @@ interface SohoSplitterOptions {
     save?: boolean;
 
     /** Display a collapse button on the splitter. */
-    collapseButton?: boolean
+    collapseButton?: boolean;
 }
 
 /**

@@ -22,7 +22,7 @@ interface SohoCirclepagerOptions {
 /**
  * Circle Pager Api.
  */
-interface SohoCirclepager{
+interface SohoCirclepager {
   /** The settings option */
   settings: SohoCirclepagerOptions;
 

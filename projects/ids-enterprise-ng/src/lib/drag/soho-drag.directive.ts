@@ -19,9 +19,9 @@ export class SohoDragDirective implements AfterViewInit, OnDestroy {
   @Output() dragStart = new EventEmitter<SohoDragEvent>();
   @Output() dragEnd = new EventEmitter<SohoDragEvent>();
   @Output() dragging = new EventEmitter<SohoDragEvent>();
-  private jQueryElement: JQuery;
-  private _dragOptions: SohoDragOptions;
-  private drag: SohoDragStatic;
+  private jQueryElement?: JQuery;
+  private _dragOptions?: SohoDragOptions;
+  private drag?: SohoDragStatic;
 
   constructor(
     private elementRef: ElementRef,
@@ -49,16 +49,16 @@ export class SohoDragDirective implements AfterViewInit, OnDestroy {
   }
 
   getElementsFromPoint(x: number, y: number): Element[] {
-    return this.drag.getElementsFromPoint(x, y);
+    return this.drag?.getElementsFromPoint(x, y);
   }
 
   ngOnDestroy() {
-    this.drag.destroy();
+    this.drag?.destroy();
   }
 
   updated(settings?: SohoDragOptions) {
     if (settings) {
-      this.drag.updated(settings);
+      this.drag?.updated(settings);
     }
   }
 }

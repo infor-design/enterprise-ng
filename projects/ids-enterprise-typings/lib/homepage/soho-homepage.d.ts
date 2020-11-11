@@ -101,5 +101,3 @@ interface SohoHomePageWidgetEditEvent {
 }
 
 type SohoHomePageBeforeRemoveCardFunction = null | Function;
-
-

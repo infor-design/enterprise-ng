@@ -1,11 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { Component, DebugElement, EventEmitter, ViewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
 
 import { SohoBreadcrumbModule } from './soho-breadcrumb.module';
 import { SohoBreadcrumbComponent } from './soho-breadcrumb.component';
-import { TestHelper } from '../utils';
 
 const STANDARD_DATA = [
   {
@@ -40,7 +37,7 @@ const STANDARD_DATA = [
   </div>`
 })
 class SohoBreadcrumbTestComponent {
-  @ViewChild(SohoBreadcrumbComponent, { static: true }) breadcrumb: SohoBreadcrumbComponent;
+  @ViewChild(SohoBreadcrumbComponent, { static: true }) breadcrumb?: SohoBreadcrumbComponent;
   constructor() { }
 }
 
@@ -48,8 +45,6 @@ describe('Soho Breadcrumb Unit Tests', () => {
   let breadcrumb: SohoBreadcrumbComponent;
   let component: SohoBreadcrumbTestComponent;
   let fixture: ComponentFixture<SohoBreadcrumbTestComponent>;
-  let de: DebugElement;
-  let el: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -59,9 +54,7 @@ describe('Soho Breadcrumb Unit Tests', () => {
 
     fixture = TestBed.createComponent(SohoBreadcrumbTestComponent);
     component = fixture.componentInstance;
-    breadcrumb = component.breadcrumb;
-    de = fixture.debugElement;
-    el = de.nativeElement;
+    breadcrumb = component.breadcrumb || ({} as any);
 
     // Set the breadcrumbs via the input
     breadcrumb.breadcrumbs = STANDARD_DATA;
@@ -71,7 +64,7 @@ describe('Soho Breadcrumb Unit Tests', () => {
   it('is created', () => {
     expect(component).toBeTruthy();
     expect(breadcrumb.breadcrumbs).toBeDefined();
-    expect(breadcrumb.breadcrumbs.length).toEqual(4);
+    expect(breadcrumb.breadcrumbs?.length).toEqual(4);
   });
 
   it('can add breadcrumbs', () => {
@@ -83,21 +76,24 @@ describe('Soho Breadcrumb Unit Tests', () => {
     const fifth = breadcrumb.breadcrumbAPIs[4];
 
     expect(breadcrumb.breadcrumbAPIs.length).toEqual(5);
-    expect(fifth.settings.id).toEqual('fifth-item');
+    expect(fifth.settings?.id).toEqual('fifth-item');
   });
 
   it('can remove a breadcrumb using its Index', () => {
     breadcrumb.remove(0, true);
 
     expect(breadcrumb.breadcrumbAPIs.length).toEqual(3);
-    expect(breadcrumb.breadcrumbAPIs[0].settings.content).toEqual('Second Item');
+    const firstItem = breadcrumb.breadcrumbAPIs[0];
+    expect(firstItem?.settings?.content).toEqual('Second Item');
   });
 
   it('can remove a breadcrumb uisng its IDS Breadcrumb API', () => {
-    const api1 = breadcrumb.getBreadcrumbItem(0).api;
-    breadcrumb.remove(api1, true);
+    const firstItem = breadcrumb.getBreadcrumbItem(0);
+    const api1 = firstItem?.api;
+    breadcrumb.remove((api1 as any), true);
 
     expect(breadcrumb.breadcrumbAPIs.length).toEqual(3);
-    expect(breadcrumb.breadcrumbAPIs[0].settings.content).toEqual('Second Item');
+    const firstArrItem = breadcrumb.breadcrumbAPIs[0];
+    expect(firstArrItem?.settings?.content).toEqual('Second Item');
   });
 });

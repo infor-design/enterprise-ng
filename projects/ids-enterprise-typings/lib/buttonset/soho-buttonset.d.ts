@@ -56,12 +56,7 @@ declare class SohoButtonsetStatic {
    */
   add(settings: SohoButtonOptions, doAddDOM?: boolean): void;
 
-  /**
-   * Removes a button from the buttonset.
-   *
-   * @param buttonAPI a Button Component instance, a Button HTML Element with an IDS component instance attached, or a string representing its ID
-   * @param [doRemoveDOM=false] if true, removes the button's HTML from the page.
-   */
+  /** Removes a button from the buttonset */
   remove(buttonAPI?: SohoButtonStatic | HTMLButtonElement | string, doRemoveDOM?: boolean): void;
 
   /**

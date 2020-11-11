@@ -84,6 +84,7 @@ Add the `jquery` and `ids-enterprise-typings` types into the `tsconfig.*.json` f
     ]
   },
   "exclude": [
+    "node_modules",
     "src/test.ts",
     "**/*.spec.ts"
   ]

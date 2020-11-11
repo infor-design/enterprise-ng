@@ -4,14 +4,14 @@
  * This file contains the Typescript mappings for the public
  * interface of the Soho jQuery BlockGrid control.
  */
-type SohoBlockGridSelectable = boolean | 'single' | 'multiple' | 'mixed';
+type SohoBlockGridSelectable = boolean | 'single' | 'multiple' | 'mixed' | undefined;
 
 /**
  * BlockGrid Options
  */
 interface SohoBlockGridOptions {
   /** Defines the data to use, must be specified for this component. */
-  dataset?: Object[];
+  dataset?: Array<any>;
 
   /** Selection Mode Property */
   selectable?: SohoBlockGridSelectable;
@@ -19,9 +19,7 @@ interface SohoBlockGridOptions {
   /** If true, enables paging in the Blockgrid */
   paging?: boolean;
 
-  /**
-   * If defined, passes along a set of Pager options to the inline Pager.
-   */
+  /** If defined, passes along a set of Pager options to the inline Pager. */
   pagerSettings: SohoPagerOptions;
 
   /**

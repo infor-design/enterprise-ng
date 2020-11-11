@@ -15,7 +15,7 @@ type SohoApplicationMenuBreakPoint =
   'phone-to-tablet' |
   'wide-tablet' |
   'tablet-to-desktop' |
-  'desktop-to-extralarge';
+  'desktop-to-extralarge' | undefined;
 
 type SohoApplicationMenuExpandSwitcherFunction = (
   applicationMenu: any,
@@ -37,10 +37,10 @@ interface SohoApplicationMenuOptions {
   filterable?: boolean;
 
   /** Open the menu when the screen width is larger that the breakpoint. */
-  openOnLarge: boolean;
+  openOnLarge: boolean | undefined;
 
   /** Allows the menu to become closed after an actionable header has been selected */
-  dismissOnClickMobile: boolean;
+  dismissOnClickMobile: boolean | undefined;
 
   /** The controls which can trigger the display state of the application menu. */
   triggers: any[];
@@ -105,7 +105,7 @@ interface SohoApplicationMenuStatic {
   /**
    * Cleans up any markup.
    */
-  destroy();
+  destroy(): void;
 }
 
 interface JQueryStatic {

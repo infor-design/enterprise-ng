@@ -37,22 +37,22 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   /**
    * Flag to force an update of the control after the view is created.
    */
-  private runUpdatedOnCheck: boolean;
+  private runUpdatedOnCheck?: boolean;
 
   /**
    * Integration with the Angular ControlValueAccessor for form controls.
    */
-  private valueAccessor: SohoDropDownControlValueAccessorDelegator;
+  private valueAccessor?: SohoDropDownControlValueAccessorDelegator;
 
   /**
    * Selector for originating element.
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /**
    * Reference to the IDS Enterprise Api.
    */
-  private dropdown: SohoDropDownStatic;
+  private dropdown?: SohoDropDownStatic;
 
   /**
    * Default block of options, use the accessors to modify.
@@ -65,7 +65,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Sets the dropdown to close on selecting a value (helpful for multi-select)
    */
   @Input()
-  public set closeOnSelect(closeOnSelect: boolean) {
+  public set closeOnSelect(closeOnSelect: boolean | undefined) {
     this.options.closeOnSelect = closeOnSelect;
     if (this.dropdown) {
       this.dropdown.settings.closeOnSelect = closeOnSelect;
@@ -73,7 +73,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     }
   }
 
-  public get closeOnSelect(): boolean {
+  public get closeOnSelect(): boolean | undefined {
     return this.options.closeOnSelect;
   }
 
@@ -81,11 +81,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Append a css class to the dropdown-list
    */
   @Input()
-  public set cssClass(cssClass: string) {
+  public set cssClass(cssClass: string | undefined) {
     this.options.cssClass = cssClass;
   }
 
-  public get cssClass(): string {
+  public get cssClass(): string | undefined {
     return this.options.cssClass;
   }
 
@@ -93,11 +93,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Typing debounce for search
    */
   @Input()
-  public set delay(delay: number) {
+  public set delay(delay: number | undefined) {
     this.options.delay = delay;
   }
 
-  public get delay(): number {
+  public get delay(): number | undefined {
     return this.options.delay;
   }
 
@@ -105,11 +105,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Initialize the empty value
    */
   @Input()
-  public set empty(empty: boolean) {
+  public set empty(empty: boolean | undefined) {
     this.options.empty = empty;
   }
 
-  public get empty(): boolean {
+  public get empty(): boolean | undefined {
     return this.options.empty;
   }
 
@@ -117,11 +117,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Value of the maximum number of selected elements (must have multiple set to true)
    */
   @Input()
-  public set maxSelected(maxSelected: number) {
+  public set maxSelected(maxSelected: number | undefined) {
     this.options.maxSelected = maxSelected;
   }
 
-  public get maxSelected(): number {
+  public get maxSelected(): number | undefined {
     return this.options.maxSelected;
   }
 
@@ -131,18 +131,18 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * @deprecated use moveSelected
    */
   @Input()
-  public set moveSelectedToTop(moveSelectedToTop: boolean) {
+  public set moveSelectedToTop(moveSelectedToTop: boolean | undefined) {
     console.warn(`'moveSelectedToTop' has been deprecated, please use 'moveSelected'.`);
     this.options.moveSelectedToTop = moveSelectedToTop;  // tslint:disable-line
   }
 
-  public get moveSelectedToTop(): boolean {
+  public get moveSelectedToTop(): boolean | undefined {
     // tslint:disable-next-line: deprecation
     return this.options.moveSelectedToTop;
   }
 
   @Input()
-  public set moveSelected(moveSelected: SohoDropDownMoveSelectedOptions) {
+  public set moveSelected(moveSelected: SohoDropDownMoveSelectedOptions | undefined) {
     this.options.moveSelected = moveSelected;
     if (this.dropdown) {
       this.dropdown.settings.moveSelected = moveSelected;
@@ -150,7 +150,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     }
   }
 
-  public get moveSelected(): SohoDropDownMoveSelectedOptions {
+  public get moveSelected(): SohoDropDownMoveSelectedOptions | undefined {
     return this.options.moveSelected;
   }
 

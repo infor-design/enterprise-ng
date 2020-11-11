@@ -31,7 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 class SohoCheckBoxReactiveFormTestComponent {
   public value = true;
 
-  @ViewChild(SohoCheckBoxComponent) dropdown: SohoCheckBoxComponent;
+  @ViewChild(SohoCheckBoxComponent) dropdown?: SohoCheckBoxComponent;
 
   public formGroup: FormGroup;
 
@@ -50,7 +50,6 @@ class SohoCheckBoxReactiveFormTestComponent {
 }
 
 describe('SohoCheckBoxComponent on Reactive Form', () => {
-  let dropdown: SohoCheckBoxComponent;
   let component: SohoCheckBoxReactiveFormTestComponent;
   let fixture: ComponentFixture<SohoCheckBoxReactiveFormTestComponent>;
   let de: DebugElement;
@@ -64,7 +63,6 @@ describe('SohoCheckBoxComponent on Reactive Form', () => {
 
     fixture = TestBed.createComponent(SohoCheckBoxReactiveFormTestComponent);
     component = fixture.componentInstance;
-    dropdown = component.dropdown;
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-checkbox]')).nativeElement;

@@ -42,21 +42,13 @@ interface SohoBreakpointsStatic {
    * Get the name of the current CSS breakpoint by checking the populated 'content' value of the
    * <body> tag's `::after` pseudo-element.  These names should be reflected in the breakpoints object
    * above.
-   * @returns {string} name of the current breakpoint
    */
   current: () => string;
 
-  /**
-   * @param {string} breakpoint matches one of the entries in the "Soho.breakpoints" object.
-   * @returns {boolean} whether or not the window is currently wider than the breakpoint provided.
-   */
+  /** Checks if the breakpoint is above **/
   isAbove: (breakpoint: string) => boolean;
 
-  /**
-   * @param {string} breakpoint matches one of the entries in the "Soho.breakpoints" object.
-   * @returns {boolean} whether or not the window is currently more narrow
-   *  than the breakpoint provided.
-   */
+  /** Checks if the breakpoint is above **/
   isBelow: (breakpoint: string) => boolean;
 }
 
@@ -65,7 +57,9 @@ interface SohoTheme {
   name: string;
 }
 
-type SohoPersonalizationColors = { [key: string]: SohoPersonalizationColor };
+interface SohoPersonalizationColors {
+  [key: string]: SohoPersonalizationColor;
+}
 
 interface SohoPersonalizationColor {
   id: string; // id of the color
@@ -81,21 +75,17 @@ interface SohoThemeStatic {
   currentTheme: SohoTheme;
 
   /**
-   * Return a list of all the available themes.
-   * @returns {array} The list of themes.
+   * Return a list of all the available themes
    */
   themes: () => SohoTheme[];
 
   /**
-   * Return the colors used in the current theme that are recommended for personalization.
-   * @returns {object} An object full of the colors with id, name, and hex value.
+   * Return the colors used in the current theme that are recommended for personalization
    */
   personalizationColors: () => SohoPersonalizationColors;
 
   /**
    * Set the current application theme.
-   * @param {string} themeId The id of the theme.
-   * @returns {Theme} the theme object just set as the theme.
    */
   setTheme: (themeId: string) => SohoTheme;
 }

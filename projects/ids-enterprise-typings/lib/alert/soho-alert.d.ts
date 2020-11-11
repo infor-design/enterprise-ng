@@ -61,5 +61,5 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
 
   removeMessage(options?: SohoAlertOptions): JQuery;
 
-  scrollIntoView(alignToTop?: boolean, options?: SohoAlertOptions);
+  scrollIntoView(alignToTop?: boolean, options?: SohoAlertOptions): void;
 }

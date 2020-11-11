@@ -101,7 +101,6 @@ interface BeforeSelectStepEvent {
   /**
    * The response callback that indicates whether the step change should occur or not.
    * The targetStepId can be overridden here as well.
-   * @param result
    */
   response(result: BeforeSelectStepResult): void;
 }

@@ -27,7 +27,7 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
   /**
    * Indicate that the checkbox is partial
    */
-  @Input() partial: boolean;
+  @Input() partial?: boolean;
 
   /**
    * Indicate that the checkbox is displayed as a switch.
@@ -53,7 +53,7 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
     return this.switch;
   }
 
-  @HostBinding('attr.checked') @Input() checked: boolean;
+  @HostBinding('attr.checked') @Input() checked?: boolean;
 
   // -------------------------------------------
   // Component Output
@@ -68,7 +68,7 @@ export class SohoCheckBoxComponent implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /**
    * Constructor.

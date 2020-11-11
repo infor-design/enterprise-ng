@@ -18,14 +18,14 @@ interface SohoFileUploadAdvancedEvent extends JQuery.TriggeredEvent {
 }
 
 interface SohoFileUploadAdvancedStatus {
-  setCompleted(data?: any);
-
-  setProgress(percent: number);
-
-  setAbort(jqXHR: JQueryXHR);
-
   /** The file being uploaded. */
   file: File;
+
+  setCompleted(data?: any): void;
+
+  setProgress(percent: number): void;
+
+  setAbort(jqXHR: JQueryXHR): void;
 }
 
 type SohoFileUploadAdvancedSendFunction =

@@ -145,6 +145,12 @@ type SohoModalButtonClickFunction = (
  * Only public members are exposed on this interface.
  */
 interface SohoModalStatic {
+
+  /**
+   * API for interacting with the buttons on the dialog.
+   */
+  buttonsetAPI: SohoButtonsetStatic;
+
   /** Existing configuration settings. */
   settings: SohoModalOptions;
 
@@ -162,17 +168,12 @@ interface SohoModalStatic {
   /**
    * Forces a resize of the dialog.
    */
-  resize();
+  resize(): void;
 
   /**
    * Open the modal dialog.
    */
   open(): void;
-
-  /**
-   * API for interacting with the buttons on the dialog.
-   */
-  buttonsetAPI: SohoButtonsetStatic;
 
   /**
    * Close the modal dialog.
