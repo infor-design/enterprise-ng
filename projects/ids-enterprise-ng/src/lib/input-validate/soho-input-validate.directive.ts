@@ -17,9 +17,9 @@ export class SohoInputValidateDirective implements AfterViewInit {
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
-  private validator: SohoInputValidateStatic;
+  private validator?: SohoInputValidateStatic;
 
   @HostBinding('attr.data-validate') @Input('data-validate') dataValidate: string;   // tslint:disable-line
 
@@ -32,7 +32,7 @@ export class SohoInputValidateDirective implements AfterViewInit {
 
   constructor(
     private el: ElementRef,
-    @Attribute('data-validate') dataValidateAttr, // tslint:disable-line
+    @Attribute('data-validate') dataValidateAttr: any, // tslint:disable-line
     private ngZone: NgZone,
   ) {
     this.dataValidate = dataValidateAttr;
@@ -86,18 +86,18 @@ export class SohoInputValidateDirective implements AfterViewInit {
   /**
    * Remove the message from the field if there is one and mark the field valid
    */
-  public removeMessage(type) {
+  public removeMessage(type: any) {
     this.ngZone.runOutsideAngular(() => {
-      this.validator.removeMessage(this.jQueryElement, type);
+      this.validator?.removeMessage(this.jQueryElement, type);
     });
   }
 
   /**
    * Trigger validation of the field
    */
-  public validate(event) {
+  public validate(event: any) {
     this.ngZone.runOutsideAngular(() => {
-      this.validator.validate(this.jQueryElement, false, event);
+      this.validator?.validate(this.jQueryElement, false, event);
     });
   }
 }

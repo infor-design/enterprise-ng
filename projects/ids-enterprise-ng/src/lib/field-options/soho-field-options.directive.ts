@@ -20,8 +20,8 @@ export class SohoFieldOptionsDirective implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
-  private fieldOptions: SohoFieldOptionsStatic;
+  private jQueryElement?: JQuery;
+  private fieldOptions?: SohoFieldOptionsStatic | null;
 
   constructor(
     private element: ElementRef,
@@ -48,7 +48,7 @@ export class SohoFieldOptionsDirective implements AfterViewInit, OnDestroy {
   ngOnDestroy() {
     if (this.fieldOptions) {
       this.ngZone.runOutsideAngular(() => {
-        this.fieldOptions.destroy();
+        this.fieldOptions?.destroy();
         this.fieldOptions = null;
       });
     }

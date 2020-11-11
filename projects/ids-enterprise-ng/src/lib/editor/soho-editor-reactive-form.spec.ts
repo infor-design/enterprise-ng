@@ -32,7 +32,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 class SohoEditorReactiveFormTestComponent {
   public editorValue = '1';
 
-  @ViewChild(SohoEditorComponent) editor: SohoEditorComponent;
+  @ViewChild(SohoEditorComponent) editor?: SohoEditorComponent;
 
   public formGroup: FormGroup;
 
@@ -102,22 +102,4 @@ describe('SohoEditorComponent on Reactive Form', () => {
 
     expect($(el).html()).toEqual('Hello World!');
   });
-
-  xit('Check readonly.', () => {
-    fixture.detectChanges();
-    component.editor.readonly = true;
-    fixture.detectChanges();
-    expect($(el).hasClass('is-disabled')).toBeTruthy('readonly() should not of removed disabled flag');
-    expect($(el).hasClass('is-readonly')).toBeTruthy('readonly() of added readonly flag');
-  });
-
-  xit('Check readonly - from enabled.', () => {
-    component.editor.disabled = false;
-    fixture.detectChanges();
-    component.editor.readonly = true;
-    fixture.detectChanges();
-    expect($(el).hasClass('is-disabled')).toBeFalsy('readonly() should not of added disabled flag');
-    expect($(el).hasClass('is-readonly')).toBeTruthy('readonly() of added readonly flag');
-  });
-
 });

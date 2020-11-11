@@ -16,7 +16,7 @@ import {
 export class SohoErrorDirective implements AfterViewInit {
 
   private _options: SohoErrorOptions = {}; // tslint:disable-line
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   constructor(private el: ElementRef) {
   }
@@ -60,7 +60,7 @@ export class SohoErrorDirective implements AfterViewInit {
    * @deprecated - use SohoAlert instead
    */
   get errorMessage() {
-    return this.jQueryElement.getErrorMessage(this._options);
+    return this.jQueryElement?.getErrorMessage(this._options);
   }
 
   /**
@@ -97,7 +97,7 @@ export class SohoErrorDirective implements AfterViewInit {
    * @param alignToTop (boolean) optional - true (default) element will be aligned to the top of the visible area of the scrollable ancestor
    */
   scrollIntoView(alignToTop?: boolean) {
-    this.jQueryElement.scrollIntoView(alignToTop, this._options);
+    this.jQueryElement?.scrollIntoView(alignToTop, this._options);
   }
 
   /**

@@ -16,7 +16,7 @@ import { SohoHyperlinkComponent } from './soho-hyperlink.component';
 })
 
 class SohoHyperlinkTestComponent {
-  @ViewChild(SohoHyperlinkComponent) hyperlink: SohoHyperlinkComponent;
+  @ViewChild(SohoHyperlinkComponent) hyperlink?: SohoHyperlinkComponent;
 }
 
 describe('Soho Hyperlink Unit tests', () => {
@@ -46,7 +46,7 @@ describe('Soho Hyperlink Unit tests', () => {
     el3 = el[3].nativeElement;
 
     fixture.detectChanges();
-    hyperlink = comp.hyperlink;
+    hyperlink = (comp.hyperlink as any);
   });
 
   it('Verify Hyperlink elements', () => {

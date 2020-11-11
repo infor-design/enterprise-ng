@@ -59,10 +59,9 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
-  private fieldFilter: SohoFieldFilterStatic;
-  private runUpdatedOnCheck: boolean;
-  private filterType: SohoFieldFilterOperator;
+  private jQueryElement?: JQuery;
+  private fieldFilter?: SohoFieldFilterStatic | null;
+  private runUpdatedOnCheck?: boolean;
 
   constructor(
     private ref: ChangeDetectorRef,
@@ -107,7 +106,7 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
    * returns {object} The current filter type
    */
   public getFilterType(): any {
-    return this.ngZone.runOutsideAngular(() => this.fieldFilter.getFilterType());
+    return this.ngZone.runOutsideAngular(() => this.fieldFilter?.getFilterType());
   }
 
   /**
@@ -121,12 +120,12 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
     }
     // Do this if jQueryElement has been built already
     if (this.fieldFilter) {
-      this.ngZone.runOutsideAngular(() => this.fieldFilter.setFilterType(value));
+      this.ngZone.runOutsideAngular(() => this.fieldFilter?.setFilterType(value));
       return;
     }
     // Otherwise, as long as type is SohoFieldFilterOperator, set the selected attribute
     if (typeof value !== 'number') {
-      this._settings.dataset.forEach((filterOption: SohoFieldFilterOption) => {
+      this._settings.dataset?.forEach((filterOption: SohoFieldFilterOption) => {
         filterOption.selected = (filterOption.value === value);
       });
     }
@@ -136,8 +135,8 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
   ngOnDestroy() {
     if (this.fieldFilter) {
       this.ngZone.runOutsideAngular(() => {
-        this.jQueryElement.off();
-        this.fieldFilter.destroy();
+        this.jQueryElement?.off();
+        this.fieldFilter?.destroy();
         this.fieldFilter = null;
       });
     }
@@ -153,7 +152,7 @@ export class SohoFieldFilterDirective implements AfterViewChecked, AfterViewInit
     this.ref.markForCheck();
   }
 
-  private onFiltered(event: SohoFieldFilteredEvent, args) {
+  private onFiltered(event: SohoFieldFilteredEvent, args: any) {
     // ensure we are back in the angular zone
     this.ngZone.run(() => {
       event.filterOption = args.data;

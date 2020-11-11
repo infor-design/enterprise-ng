@@ -65,8 +65,8 @@ export class ExpandableFooterComponent { }
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
-  @Input('soho-expandable-area') id: string; // tslint:disable-line
-  @Input() set disabled(value: boolean) {
+  @Input('soho-expandable-area') id?: string; // tslint:disable-line
+  @Input() set disabled(value: boolean | undefined) {
     this._disabled = value;
     if (this.jQueryElement) {
       if (value) {
@@ -77,7 +77,7 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  @Input() set closed(value: boolean) {
+  @Input() set closed(value: boolean | undefined) {
     this._closed = value;
     if (value && this.jQueryElement) {
       this.close();
@@ -85,17 +85,17 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   }
 
   // Expose Methods in case Angular needs to control the DOM, using Observables
-  @Input() toggle: Observable<boolean>;
+  @Input() toggle?: Observable<boolean>;
 
   // Get the header DOM element
   @ContentChild(forwardRef(() => ExpandableHeaderComponent), { static: true }) // tslint:disable-line
   // tslint:disable-line
   // tslint:disable-line
-  public header: ExpandableHeaderComponent = null;
+  public header?: ExpandableHeaderComponent = undefined;
 
   // Get the pane DOM elements
   @ContentChildren(forwardRef(() => ExpandablePaneComponent)) // tslint:disable-line
-  public panes: QueryList<ExpandablePaneComponent>;
+  public panes?: QueryList<ExpandablePaneComponent>;
 
   // @ContentChild(forwardRef(() => ExpandablePaneComponent))
   // private _pane: ExpandablePaneComponent = null;
@@ -104,7 +104,7 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   @ContentChild(forwardRef(() => ExpandableFooterComponent), { static: true }) // tslint:disable-line
   // tslint:disable-line
   // tslint:disable-line
-  public footer: ExpandablePaneComponent = null;
+  public footer?: ExpandablePaneComponent = undefined;
 
   // Add Events for Angular elements to listen to (can only have exposed events)
   @Output() beforeexpand: EventEmitter<Object> = new EventEmitter<Object>();
@@ -115,10 +115,10 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   @Output() aftercollapse: EventEmitter<Object> = new EventEmitter<Object>();
 
   // Various local variables used for logic
-  private jQueryElement: JQuery;
-  private expandablearea: SohoExpandableAreaStatic;
-  private _disabled: boolean;
-  private _closed: boolean;
+  private jQueryElement?: JQuery;
+  private expandablearea?: SohoExpandableAreaStatic | null;
+  private _disabled?: boolean;
+  private _closed?: boolean;
   public hasFixedPane = true;
 
   constructor(
@@ -172,7 +172,7 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
         // hence angular needs to know about it.
         setTimeout(() => {
           // todo @theo what do you think about this timeout?
-          this.hasFixedPane = this.panes.filter(pane => pane.fixed).length !== 0;
+          this.hasFixedPane = this.panes?.filter(pane => pane.fixed).length !== 0;
           this.changeDetectorRef.markForCheck();
         });
       });
@@ -197,7 +197,7 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
    */
   disable() {
     // call outside the angular zone so change detection isn't triggered by the soho component.
-    this.ngZone.runOutsideAngular(() => this.expandablearea.disable());
+    this.ngZone.runOutsideAngular(() => this.expandablearea?.disable());
   }
 
   /**
@@ -205,7 +205,7 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
    */
   enable() {
     // call outside the angular zone so change detection isn't triggered by the soho component.
-    this.ngZone.runOutsideAngular(() => this.expandablearea.enable());
+    this.ngZone.runOutsideAngular(() => this.expandablearea?.enable());
   }
 
   /**
@@ -216,31 +216,31 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
     // call outside the angular zone so change detection isn't triggered by the soho component.
     this.ngZone.runOutsideAngular(() => {
       this._closed = !open;
-      open ? this.expandablearea.open() : this.expandablearea.close();
+      open ? this.expandablearea?.open() : this.expandablearea?.close();
     });
   }
 
-  private close() {
+  close() {
     // call outside the angular zone so change detection isn't triggered by the soho component.
-    this.ngZone.runOutsideAngular(() => this.expandablearea.close());
+    this.ngZone.runOutsideAngular(() => this.expandablearea?.close());
   }
 
-  private open() {
+  open() {
     // call outside the angular zone so change detection isn't triggered by the soho component.
-    this.ngZone.runOutsideAngular(() => this.expandablearea.open());
+    this.ngZone.runOutsideAngular(() => this.expandablearea?.open());
   }
 
   /**
    * Boolean value of the closed state of the component
    */
-  get closed() {
+  get closed(): boolean | undefined {
     return this._closed;
   }
 
   /**
    * Boolean value of the disabled state of the component
    */
-  get disabled() {
+  get disabled(): boolean | undefined {
     return this._disabled;
   }
 

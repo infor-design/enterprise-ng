@@ -33,70 +33,70 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
   /**
    * Sets the maximum number of widget columns
    */
-  @Input() set columns(columns: number) {
+  @Input() set columns(columns: number | undefined) {
     this._homePageOptions.columns = columns;
     if (this.homepage) {
       this.homepage.settings.columns = columns;
     }
   }
 
-  get columns(): number {
+  get columns(): number | undefined {
     return this._homePageOptions.columns;
   }
 
   /**
    * Sets gutter size in between widgets
    */
-  @Input() set gutterSize(gutterSize: number) {
+  @Input() set gutterSize(gutterSize: number | undefined) {
     this._homePageOptions.gutterSize = gutterSize;
     if (this.homepage) {
       this.homepage.settings.gutterSize = gutterSize;
     }
   }
 
-  get gutterSize(): number {
+  get gutterSize(): number | undefined {
     return this._homePageOptions.gutterSize;
   }
 
   /**
    * Sets the default widget width in pixels
    */
-  @Input() set widgetWidth(widgetWidth: number) {
+  @Input() set widgetWidth(widgetWidth: number | undefined) {
     this._homePageOptions.widgetWidth = widgetWidth;
     if (this.homepage) {
       this.homepage.settings.widgetWidth = widgetWidth;
     }
   }
 
-  get widgetWidth(): number {
+  get widgetWidth(): number | undefined {
     return this._homePageOptions.widgetWidth;
   }
 
   /**
    * Sets the default widget height in pixels
    */
-  @Input() set widgetHeight(widgetHeight: number) {
+  @Input() set widgetHeight(widgetHeight: number | undefined) {
     this._homePageOptions.widgetHeight = widgetHeight;
     if (this.homepage) {
       this.homepage.settings.widgetHeight = widgetHeight;
     }
   }
 
-  get widgetHeight(): number {
+  get widgetHeight(): number | undefined {
     return this._homePageOptions.widgetHeight;
   }
 
   /**
    * Set edit for rearranging/reordering cards.
    */
-  @Input() set editing(editing: boolean) {
+  @Input() set editing(editing: boolean | undefined) {
     this._homePageOptions.editing = editing;
     if (this.homepage) {
-      this.homepage.setEdit(editing);
+      this.homepage.setEdit((editing as any));
     }
   }
 
-  get editing(): boolean {
+  get editing(): boolean | undefined {
     return this._homePageOptions.editing;
   }
 
@@ -104,14 +104,14 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
    * Event fired before a card is removed
    * @param beforeSelectFunction Function callback
    */
-  @Input() set onBeforeRemoveCard(beforeSelectFunction: SohoHomePageBeforeRemoveCardFunction) {
+  @Input() set onBeforeRemoveCard(beforeSelectFunction: SohoHomePageBeforeRemoveCardFunction | undefined) {
     this._homePageOptions.onBeforeRemoveCard = beforeSelectFunction;
     if (this.homepage) {
       this.homepage.settings.onBeforeRemoveCard = beforeSelectFunction;
     }
   }
 
-  get onBeforeRemoveCard(): SohoHomePageBeforeRemoveCardFunction {
+  get onBeforeRemoveCard(): SohoHomePageBeforeRemoveCardFunction | undefined {
     if (this.homepage) {
       return this.homepage.settings.onBeforeRemoveCard;
     }
@@ -121,52 +121,52 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
   /**
    * Whether to animate widget placement
    */
-  @Input() set animate(animate: boolean) {
+  @Input() set animate(animate: boolean | undefined) {
     this._homePageOptions.animate = animate;
     if (this.homepage) {
       this.homepage.settings.animate = animate;
     }
   }
 
-  get animate(): boolean {
+  get animate(): boolean | undefined {
     return this._homePageOptions.animate;
   }
 
   /**
    * this ...
    */
-  @Input() set timeout(timeout: number) {
+  @Input() set timeout(timeout: number | undefined) {
     this._homePageOptions.timeout = timeout;
     if (this.homepage) {
       this.homepage.settings.timeout = timeout;
     }
   }
 
-  get timeout(): number {
+  get timeout(): number | undefined {
     return this._homePageOptions.timeout;
   }
 
   /**
    * Specify the speed at which an animation progresses at different points within the animation.
    */
-  @Input() set easing(easing: EasingType) {
+  @Input() set easing(easing: EasingType | undefined) {
     this._homePageOptions.easing = easing;
     if (this.homepage) {
       this.homepage.settings.easing = easing;
     }
   }
 
-  get easing(): EasingType {
+  get easing(): EasingType | undefined {
     return this._homePageOptions.easing;
   }
 
   @HostBinding('class.homepage') isHomepage = true;
 
   // Reference to the jQuery element.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the annotated SoHoXi control
-  private homepage: SohoHomePageStatic;
+  private homepage?: SohoHomePageStatic | null;
 
   private _homePageOptions: SohoHomePageOptions = {};
 
@@ -180,7 +180,7 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
    */
   refresh(animate?: boolean): void {
     return this.ngZone.runOutsideAngular(() => {
-      this.homepage.refresh(animate);
+      this.homepage?.refresh(animate);
     });
   }
 
@@ -199,15 +199,15 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
       this.homepage = this.jQueryElement.data('homepage');
 
       this.jQueryElement
-        .on('resize', (e: JQuery.TriggeredEvent, columns: number, metadata: object) => this.onResize(columns, metadata))
-        .on('resizecard', (e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onResizeCard(card, metadata))
-        .on('reordercard', (e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onReorderCard(card, metadata))
-        .on('removecard', (e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onRemoveCard(card, metadata));
+        .on('resize', (_e: JQuery.TriggeredEvent, columns: number, metadata: object) => this.onResize(columns, metadata))
+        .on('resizecard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onResizeCard(card, metadata))
+        .on('reordercard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onReorderCard(card, metadata))
+        .on('removecard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onRemoveCard(card, metadata));
     });
   }
 
   onResize(columns: number, metadata: object) {
-    const event: SohoHomePageEvent = { columns: null, metadata: null };
+    const event: SohoHomePageEvent = { columns: undefined, metadata: undefined };
     event.columns = columns;
     event.metadata = metadata;
 
