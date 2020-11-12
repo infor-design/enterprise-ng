@@ -66,7 +66,7 @@ describe('Soho Wizard Unit Tests', () => {
 </div>`
 })
 class SohoWizardTestComponent {
-  @ViewChild(SohoWizardComponent) wizard: SohoWizardComponent;
+  @ViewChild(SohoWizardComponent) wizard?: SohoWizardComponent;
 
   public ticks: SohoWizardTick[] = [
     { label: 'One', href: 'one', state: 'current' },
@@ -79,11 +79,11 @@ class SohoWizardTestComponent {
 }
 
 describe('Soho Wizard Render', () => {
-  let wizard: SohoWizardComponent;
   let component: SohoWizardTestComponent;
   let fixture: ComponentFixture<SohoWizardTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
+  let wizard: SohoWizardComponent | undefined;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -114,9 +114,12 @@ describe('Soho Wizard Render', () => {
       { label: 'One', href: 'one', state: 'current' },
     ];
 
-    wizard.ticks = testData;
+    if (wizard) {
+      wizard.ticks = testData;
+    }
 
-    const ticks: SohoWizardTick[] = component.wizard.ticks;
+    const ticks: SohoWizardTick[] = component.wizard ? component.wizard.ticks : [];
+    expect(ticks).toBeDefined();
     expect(ticks.length).toBe(1);
     // expect(ticks[0].tickId).toBe('one');
     // expect(ticks[0].jQueryElement.text()).toBe('Data One');
@@ -124,49 +127,48 @@ describe('Soho Wizard Render', () => {
 
   it('check "first".', () => {
     fixture.detectChanges();
-    expect(wizard.currentTickId).toBe('one');
-    wizard.next();
-    wizard.first();
-    expect(wizard.currentTickId).toBe('one');
+    expect(component.wizard?.currentTickId).toBe('one');
+    (wizard as any).next();
+    (wizard as any).first();
+    expect(wizard?.currentTickId).toBe('one');
   });
 
   it('check "next".', () => {
     fixture.detectChanges();
-    expect(wizard.currentTickId).toBe('one');
-    wizard.next();
-    expect(wizard.currentTickId).toBe('two');
-    expect(wizard.hasNext()).toBeTruthy();
-    expect(wizard.hasPrevious()).toBeTruthy();
-    expect(wizard.hasFinished()).toBeFalsy();
+    expect(wizard?.currentTickId).toBe('one');
+    (wizard as any).next();
+    expect(wizard?.currentTickId).toBe('two');
+    expect(wizard?.hasNext()).toBeTruthy();
+    expect(wizard?.hasPrevious()).toBeTruthy();
+    expect(wizard?.hasFinished()).toBeFalsy();
   });
 
   it('check "previous".', () => {
     fixture.detectChanges();
-    expect(wizard.currentTickId).toBe('one');
-    wizard.next();
-    wizard.previous();
-    expect(wizard.currentTickId).toBe('one');
-    expect(wizard.hasNext()).toBeTruthy();
-    expect(wizard.hasPrevious()).toBeFalsy();
-    expect(wizard.hasFinished()).toBeFalsy();
+    expect(wizard?.currentTickId).toBe('one');
+    (wizard as any).next();
+    (wizard as any).previous();
+    expect(wizard?.currentTickId).toBe('one');
+    expect(wizard?.hasNext()).toBeTruthy();
+    expect(wizard?.hasPrevious()).toBeFalsy();
+    expect(wizard?.hasFinished()).toBeFalsy();
   });
 
   it('check "finish".', () => {
     fixture.detectChanges();
-    expect(wizard.currentTickId).toBe('one');
-    wizard.finish();
-    expect(wizard.currentTickId).toBe('three');
-    expect(wizard.hasNext()).toBeFalsy();
-    expect(wizard.hasPrevious()).toBeFalsy();
-    expect(wizard.hasFinished()).toBeTruthy();
+    expect(wizard?.currentTickId).toBe('one');
+    (wizard as any).finish();
+    expect(wizard?.currentTickId).toBe('three');
+    expect(wizard?.hasNext()).toBeFalsy();
+    expect(wizard?.hasPrevious()).toBeFalsy();
+    expect(wizard?.hasFinished()).toBeTruthy();
   });
 
   it('check "finish" then "previous".', () => {
     fixture.detectChanges();
-    expect(wizard.currentTickId).toBe('one');
-    wizard.finish();
-    wizard.previous();
-    expect(wizard.currentTickId).toBe('three');
+    expect(wizard?.currentTickId).toBe('one');
+    (wizard as any).finish();
+    (wizard as any).previous();
+    expect(wizard?.currentTickId).toBe('three');
   });
-
 });

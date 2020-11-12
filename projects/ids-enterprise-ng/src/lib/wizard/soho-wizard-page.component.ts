@@ -9,8 +9,6 @@ import {
   EventEmitter
 } from '@angular/core';
 
-import { SohoWizardComponent } from './soho-wizard.component';
-
 /**
  * Angular wrapper for the soho wizard page.
  */
@@ -28,7 +26,7 @@ import { SohoWizardComponent } from './soho-wizard.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoWizardPageComponent implements AfterViewInit {
-  jQueryElement: JQuery;
+  jQueryElement!: JQuery;
   @HostBinding('class.wizard-page') isWizardPage = true;
 
   /**
@@ -42,7 +40,7 @@ export class SohoWizardPageComponent implements AfterViewInit {
 
   /** This id of the associated tick. */
   @Input()
-  tickId: string; // tslint: ignore-line
+  tickId!: string; // tslint: ignore-line
 
   /**
    * Event fired when the page is activated.

@@ -30,7 +30,7 @@ export class SohoWizardHeaderComponent {
    *
    *
    */
-  @ContentChildren(SohoWizardTickComponent) steps: QueryList<SohoWizardTickComponent>;
+  @ContentChildren(SohoWizardTickComponent) steps?: QueryList<SohoWizardTickComponent>;
 
   @HostBinding('class.wizard-header') isWizardHeader = true;
 }
