@@ -34,7 +34,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   @Input() set definitions(value: { [key: string]: RegExp }) {
     this._options.definitions = value;
     if (this.mask) {
-      this.mask.settings.definitions = value;
+      (this.mask as any).settings.definitions = value;
       this.mask.updated();
     }
   }
@@ -136,135 +136,135 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
 
   /** When true, the decimal separator symbol is allowed in a formatted number. */
   @Input() set allowDecimal(value: boolean) {
-    this._options.patternOptions.allowDecimal = value;
+    (this._options as any).patternOptions.allowDecimal = value;
     if (this.mask) {
-      this.mask.settings.patternOptions.allowDecimal = value;
+      (this.mask.settings as any).patternOptions.allowDecimal = value;
       this.mask.updated();
     }
   }
 
   /** When true, allows leading zeros in a formatted number. */
   @Input() set allowLeadingZeros(value: boolean) {
-    this._options.patternOptions.allowLeadingZeros = value;
+    (this._options as any).patternOptions.allowLeadingZeros = value;
     if (this.mask) {
-      this.mask.settings.patternOptions.allowLeadingZeros = value;
+      (this.mask as any).settings.patternOptions.allowLeadingZeros = value;
       this.mask.updated();
     }
   }
 
   /** When true, the negative symbol is allowed in a formatted number. */
   @Input() set allowNegative(value: boolean) {
-    this._options.patternOptions.allowNegative = value;
+    (this._options as any).patternOptions.allowNegative = value;
     if (this.mask) {
-      this.mask.settings.patternOptions.allowNegative = value;
+      (this.mask as any).settings.patternOptions.allowNegative = value;
       this.mask.updated();
     }
   }
 
   /** When true, adds the thousands separator symbol to the correct location in a formatted number. */
   @Input() set allowThousandsSeparator(value: boolean) {
-    this._options.patternOptions.allowThousandsSeparator = value;
+    (this._options as any).patternOptions.allowThousandsSeparator = value;
     if (this.mask) {
-      this.mask.settings.patternOptions.allowThousandsSeparator = value;
+      (this.mask as any).settings.patternOptions.allowThousandsSeparator = value;
       this.mask.updated();
     }
   }
 
   /** The maximum number of digits to the left of the decimal separator symbol in a formatted number. */
   @Input() set decimalLimit(value: number) {
-    this._options.patternOptions.decimalLimit = value;
+    (this._options as any).patternOptions.decimalLimit = value;
     if (this.mask) {
-      this.mask.settings.patternOptions.decimalLimit = value;
+      (this.mask as any).settings.patternOptions.decimalLimit = value;
       this.mask.updated();
     }
   }
 
   /** The maximum number of digits to the right of decimal separator symbol in a formatted number. */
   @Input() set integerLimit(value: number) {
-    this._options.patternOptions.integerLimit = value;
+    (this._options as any).patternOptions.integerLimit = value;
     if (this.mask) {
-      this.mask.settings.patternOptions.integerLimit = value;
+      (this.mask as any).settings.patternOptions.integerLimit = value;
       this.mask.updated();
     }
   }
 
   /** The character that precedes the masked value. */
   @Input() set prefix(value: string) {
-    this._options.patternOptions.prefix = value;
+    (this._options as any).patternOptions.prefix = value;
     if (this.mask) {
-      this.mask.settings.patternOptions.prefix = value;
+      (this.mask as any).settings.patternOptions.prefix = value;
       this.mask.updated();
     }
   }
 
   /** When true, the decimal separator symbol is required in a formatted number. */
   @Input() set requireDecimal(value: boolean) {
-    this._options.patternOptions.requireDecimal = value;
+    (this._options as any).patternOptions.requireDecimal = value;
     if (this.mask) {
-      this.mask.settings.patternOptions.requireDecimal = value;
+      (this.mask as any).settings.patternOptions.requireDecimal = value;
       this.mask.updated();
     }
   }
 
   /** The character that follows the masked value. */
   @Input() set suffix(value: string) {
-    this._options.patternOptions.suffix = value;
+    (this._options as any).patternOptions.suffix = value;
     if (this.mask) {
-      this.mask.settings.patternOptions.suffix = value;
+      (this.mask as any).settings.patternOptions.suffix = value;
       this.mask.updated();
     }
   }
 
   /** The symbols to use for the formatted number. */
   @Input() set symbols(value: SohoMaskPatternSymbols | string) {
-    this._options.patternOptions.symbols = (typeof value === 'string') ? JSON.parse(value) : value;
+    (this._options as any).patternOptions.symbols = (typeof value === 'string') ? JSON.parse(value) : value;
     if (this.mask) {
-      this.mask.settings.patternOptions.symbols = this._options.patternOptions.symbols;
+      (this.mask as any).settings.patternOptions.symbols = (this._options as any).patternOptions.symbols;
       this.mask.updated();
     }
   }
 
   /** The locale to use for the formatted number. */
   @Input() set locale(value: string) {
-    this._options.patternOptions.locale = value;
+    (this._options as any).patternOptions.locale = value;
     if (this.mask) {
-      this.mask.settings.patternOptions.locale = this._options.patternOptions.locale;
+      (this.mask as any).settings.patternOptions.locale = (this._options as any).patternOptions.locale;
       this.mask.updated();
     }
   }
 
   /** The currency symbol to use for the formatted number. */
   @Input() set currencySymbol(value: string) {
-    this._options.patternOptions.symbols.currency = value;
+    (this._options as any).patternOptions.symbols.currency = value;
     if (this.mask) {
-      this.mask.settings.patternOptions.symbols.currency = value;
+      (this.mask as any).settings.patternOptions.symbols.currency = value;
       this.mask.updated();
     }
   }
 
   /** The decimal separator symbol to use for the formatted number. */
   @Input() set decimalSymbol(value: string) {
-    this._options.patternOptions.symbols.decimal = value;
+    (this._options as any).patternOptions.symbols.decimal = value;
     if (this.mask) {
-      this.mask.settings.patternOptions.symbols.decimal = value;
+      (this.mask as any).settings.patternOptions.symbols.decimal = value;
       this.mask.updated();
     }
   }
 
   /** The negative symbol to use for the formatted number. */
   @Input() set negativeSymbol(value: string) {
-    this._options.patternOptions.symbols.negative = value;
+    (this._options as any).patternOptions.symbols.negative = value;
     if (this.mask) {
-      this.mask.settings.patternOptions.symbols.negative = value;
+      (this.mask as any).settings.patternOptions.symbols.negative = value;
       this.mask.updated();
     }
   }
 
   /** The thousands separator symbol to use for the formatted number. */
   @Input() set thousandsSymbol(value: string) {
-    this._options.patternOptions.symbols.thousands = value;
+    (this._options as any).patternOptions.symbols.thousands = value;
     if (this.mask) {
-      this.mask.settings.patternOptions.symbols.thousands = value;
+      (this.mask as any).settings.patternOptions.symbols.thousands = value;
       this.mask.updated();
     }
   }
@@ -276,7 +276,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
    * type a literal to end that group until all characters in that group are entered).
    * @deprecated not supported
    */
-  @Input() set groupComplete(value: boolean) {
+  @Input() set groupComplete(_value: boolean) {
     console.warn('The groupComplete input is no longer supported, please remove your usage.');
   }
 
@@ -288,7 +288,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   @Input() set mode(value: SohoMaskMode) { // tslint:disable-line
     console.warn('The mode input has been renamed, please use the process input instead.');
 
-    this._options.process = value;
+    (this._options as any).process = value;
     if (this.mask) {
       this.mask.settings.process = value;
       this.mask.updated();
@@ -299,7 +299,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
    * Indicates to complete the full mask or the mask will revert to empty.
    * @deprecated not supported
    */
-  @Input() set mustComplete(value: boolean) {
+  @Input() set mustComplete(_value: boolean) {
     console.warn('The mustComplete input is no longer supported, please remove your usage.');
   }
 
@@ -311,9 +311,9 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   @Input() set negative(value: boolean) {
     console.warn('The negative input has been renamed, please use the allowNegative input instead.');
 
-    this._options.patternOptions.allowNegative = value;
+    (this._options as any).patternOptions.allowNegative = value;
     if (this.mask) {
-      this.mask.settings.patternOptions.allowNegative = value;
+      (this.mask as any).settings.patternOptions.allowNegative = value;
       this.mask.updated();
     }
   }
@@ -322,7 +322,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
    * Option defined in control, but not referenced.
    * @deprecated
    */
-  @Input() set number(value: boolean) {
+  @Input() set number(_value: boolean) {
     console.warn('The number input is no longer supported, please remove your usage.');
   }
 
@@ -335,9 +335,9 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   @Input() set thousandsSeparator(value: boolean) {
     console.warn('The thousandsSeparator input has been renamed, please use the allowThousandsSeparator input instead.');
 
-    this._options.patternOptions.allowThousandsSeparator = value;
+    (this._options as any).patternOptions.allowThousandsSeparator = value;
     if (this.mask) {
-      this.mask.settings.patternOptions.allowThousandsSeparator = value;
+      (this.mask as any).settings.patternOptions.allowThousandsSeparator = value;
       this.mask.updated();
     }
   }
@@ -347,7 +347,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
    * backwards compatible with old 'data-show-currency'; value true equates to currency
    * @deprecated use prefix or suffix instead
    */
-  @Input() set showSymbol(value: SohoMaskShowSymbol) { // tslint:disable-line
+  @Input() set showSymbol(_value: SohoMaskShowSymbol) { // tslint:disable-line
     console.warn('The showSymbol input is no longer supported, please use the prefix or suffix input instead.');
   }
 
@@ -359,8 +359,8 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
-  private mask: SohoMaskStatic;
+  private jQueryElement?: JQuery;
+  private mask?: SohoMaskStatic | null;
 
   constructor(private element: ElementRef) {
     this._symbols = {};

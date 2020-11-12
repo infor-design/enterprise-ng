@@ -83,7 +83,7 @@ export class SohoStepListItemAnchorComponent {
     return this.stepId ? '#' + this.stepId : null;
   }
 
-  @Input() stepId: string;
+  @Input() stepId?: string;
 }
 
 /**************************************************************
@@ -131,7 +131,7 @@ export class SohoStepContentComponent {
 export class SohoStepContentPanelComponent {
   @HostBinding('class.js-step-panel') get isJsStepProcessPanel() { return true; }
   @HostBinding('attr.id') get idAttr() { return this.stepId; }
-  @Input() stepId: string;
+  @Input() stepId?: string;
 }
 
 /**************************************************************
@@ -159,7 +159,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   @Input() set linearProgression(linearProgression: boolean) {
     this.stepProcessOptions.linearProgression = linearProgression;
     if (this.jQueryElement) {
-      this.stepprocess.settings.linearProgression = linearProgression;
+      (this.stepprocess as any).settings.linearProgression = linearProgression;
     }
   }
 
@@ -200,10 +200,10 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   // ------------------------------------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the soho stepprocess control api.
-  private stepprocess: SohoStepProcessStatic;
+  private stepprocess?: SohoStepProcessStatic;
 
   // The internal stepsOptions object used to construct the stepproces control
   private stepProcessOptions: SohoStepProcessOptions = {};
@@ -221,7 +221,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.stepprocess(this.stepProcessOptions);
     this.stepprocess = this.jQueryElement.data('stepprocess');
     this.jQueryElement.find('.js-btn-save-changes').
-      on('click', (e: JQuery.TriggeredEvent) => { this.fireOnSaveClose(); });
+      on('click', (_e: JQuery.TriggeredEvent) => { this.fireOnSaveClose(); });
   }
 
   private beforeSelectStepPromise = (args: { stepLink: JQuery, isStepping: StepDirection }): JQueryPromise<boolean> => {
@@ -243,11 +243,11 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
       // ------------------------------------------------------------------------------
       if (this.stepprocess) {
         const $selectedStep = this.stepprocess.getSelectedStep();
-        beforeSelectStepEvent.currentStepId = $selectedStep.children('a').attr('href').substring(1);
+        beforeSelectStepEvent.currentStepId = $selectedStep?.children('a')?.attr('href')?.substring(1);
       }
 
       if (args.stepLink) {
-        beforeSelectStepEvent.targetStepId = $(args.stepLink).attr('href').substring(1);
+        beforeSelectStepEvent.targetStepId = $(args.stepLink)?.attr('href')?.substring(1);
       } else {
         beforeSelectStepEvent.targetStepId = beforeSelectStepEvent.currentStepId;
       }
@@ -271,8 +271,8 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   }
 
   private fireOnSaveClose(): void {
-    const $selectedStep = this.stepprocess.getSelectedStep();
-    const currentStepId = $selectedStep.children('a').attr('href').substring(1);
+    const $selectedStep = this.stepprocess?.getSelectedStep();
+    const currentStepId = $selectedStep?.children('a')?.attr('href')?.substring(1);
     const event: SohoStepSaveCloseEvent = { currentStepId: currentStepId };
     this.saveClose.emit(event);
   }

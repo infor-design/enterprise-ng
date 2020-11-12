@@ -171,10 +171,10 @@ export class SohoPieComponent implements AfterViewInit, AfterViewChecked, OnDest
   @Output() selected: EventEmitter<SohoPieSelectEvent> = new EventEmitter<SohoPieSelectEvent>();
   @Output() unselected: EventEmitter<SohoPieSelectEvent> = new EventEmitter<SohoPieSelectEvent>();
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
-  @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
+  @Output() contextmenu?: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
-  private jQueryElement: JQuery;
-  private pie: SohoPie;
+  private jQueryElement?: JQuery;
+  private pie?: SohoPie | null;
   private updateRequired = false;
 
   constructor(
@@ -193,20 +193,20 @@ export class SohoPieComponent implements AfterViewInit, AfterViewChecked, OnDest
       this.pie = this.jQueryElement.data('pie');
 
       // Setup the events
-      this.jQueryElement.on('selected', (e: any, args: SohoPieSelectEvent) =>
+      this.jQueryElement.on('selected', (_e: any, args: SohoPieSelectEvent) =>
         this.ngZone.run(() => this.selected.emit(args)));
-      this.jQueryElement.on('unselected', (e: any, args: SohoPieSelectEvent) =>
+      this.jQueryElement.on('unselected', (_e: any, args: SohoPieSelectEvent) =>
         this.ngZone.run(() => this.unselected.emit(args)));
       this.jQueryElement.on('rendered', (...args) =>
         this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
-        this.ngZone.run(() => this.contextmenu.emit(args)));
+        this.ngZone.run(() => this.contextmenu?.emit(args)));
     });
   }
 
   ngAfterViewChecked() {
     if (this.pie && this.updateRequired) {
-      this.ngZone.runOutsideAngular(() => this.pie.updated(this.pie.settings));
+      this.ngZone.runOutsideAngular(() => this.pie?.updated(this.pie.settings));
       this.updateRequired = false;
     }
   }
@@ -214,8 +214,8 @@ export class SohoPieComponent implements AfterViewInit, AfterViewChecked, OnDest
   updated() {
     this.ngZone.runOutsideAngular(() => {
       this.options.type = 'pie';
-      this.jQueryElement.chart(this.options);
-      this.pie = this.jQueryElement.data('pie');
+      this.jQueryElement?.chart(this.options);
+      this.pie = this.jQueryElement?.data('pie');
     });
   }
 
@@ -234,14 +234,14 @@ export class SohoPieComponent implements AfterViewInit, AfterViewChecked, OnDest
   }
 
   public setSelected(selected: SohoPieSelected) {
-    this.ngZone.runOutsideAngular(() => this.pie.setSelected(selected));
+    this.ngZone.runOutsideAngular(() => this.pie?.setSelected(selected));
   }
 
   public toggleSelected(selected: SohoPieSelected) {
-    this.ngZone.runOutsideAngular(() => this.pie.toggleSelected(selected));
+    this.ngZone.runOutsideAngular(() => this.pie?.toggleSelected(selected));
   }
 
   public getSelected() {
-    return this.ngZone.runOutsideAngular(() => this.pie.getSelected());
+    return this.ngZone.runOutsideAngular(() => this.pie?.getSelected());
   }
 }

@@ -157,10 +157,10 @@ describe('Soho Pie Unit Tests', () => {
 
     comp.toggleSelected({ index: 1 });
 
-    expect(comp.getSelected()[0].index).toEqual(1);
+    expect((comp.getSelected() as any)[0].index).toEqual(1);
 
     comp.setSelected({ index: 2 });
-    expect(comp.getSelected()[0].index).toEqual(2);
+    expect((comp.getSelected() as any)[0].index).toEqual(2);
   });
 
   // xit('set data', () => {
@@ -193,12 +193,11 @@ describe('Soho Pie Unit Tests', () => {
   template: `<div soho-pie [dataset]="data"></div>`
 })
 class SohoPieTestComponent {
-  @ViewChild(SohoPieComponent) pie: SohoPieComponent;
+  @ViewChild(SohoPieComponent) pie?: SohoPieComponent;
   public data = pieData;
 }
 
 describe('Soho Pie Chart Render', () => {
-  let component: SohoPieTestComponent;
   let fixture: ComponentFixture<SohoPieTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -210,7 +209,6 @@ describe('Soho Pie Chart Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoPieTestComponent);
-    component = fixture.componentInstance;
     de = fixture.debugElement;
     el = de.query(By.css('[soho-pie]')).nativeElement;
   });

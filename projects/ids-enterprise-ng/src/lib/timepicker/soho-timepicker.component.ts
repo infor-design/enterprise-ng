@@ -25,23 +25,16 @@ import {
   providers: [provideControlValueAccessor(SohoTimePickerComponent)]
 })
 export class SohoTimePickerComponent extends BaseControlValueAccessor<any> implements AfterViewInit, AfterViewChecked, OnDestroy {
-  private runUpdatedOnCheck: boolean;
+  private runUpdatedOnCheck?: boolean;
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
-  private timepicker: SohoTimePickerStatic;
-  private isDisabled: boolean = null;
-  private isReadOnly: boolean = null;
-  private options: SohoTimePickerOptions = {
-    mode: undefined,
-    timeFormat: undefined,
-    minuteInterval: undefined,
+  private jQueryElement?: JQuery;
+  private timepicker?: SohoTimePickerStatic | null;
+  private isDisabled?: boolean = undefined;
+  private isReadOnly?: boolean = undefined;
+  private options?: SohoTimePickerOptions = {
     roundToInterval: false,
-    locale: undefined,
-    language: undefined,
-    secondInterval: undefined,
-    parentElement: undefined,
     returnFocus: true
   };
 
@@ -49,7 +42,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
    * Indicates mode, either 'standard' or 'range'; default value is 'standard'
    */
   @Input() set mode(mode: SohoTimePickerMode) {
-    this.options.mode = mode;
+    (this.options as any).mode = mode;
     if (this.timepicker) {
       this.markForRefresh();
     }
@@ -59,7 +52,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
    * Indicates the pattern for the time format.
    */
   @Input() set timeFormat(timeFormat: string) {
-    this.options.timeFormat = timeFormat;
+    (this.options as any).timeFormat = timeFormat;
     if (this.timepicker) {
       this.markForRefresh();
     }
@@ -69,7 +62,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
    * default value is 5.
    */
   @Input() set minuteInterval(minuteInterval: number) {
-    this.options.minuteInterval = minuteInterval;
+    (this.options as any).minuteInterval = minuteInterval;
     if (this.timepicker) {
       this.markForRefresh();
     }
@@ -80,7 +73,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
    * default value is false;
    */
   @Input() set roundToInterval(roundToInterval: boolean) {
-    this.options.roundToInterval = roundToInterval;
+    (this.options as any).roundToInterval = roundToInterval;
     if (this.timepicker) {
       this.markForRefresh();
     }
@@ -90,7 +83,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
    * The name of the locale to use for this instance. If not set, the current locale will be used.
    */
   @Input() set locale(locale: string) {
-    this.options.locale = locale;
+    (this.options as any).locale = locale;
     if (this.timepicker) {
       this.markForRefresh();
     }
@@ -100,7 +93,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
    * The name of the language to use for this instance. If not set, the current locale will be used or the the passed locale will be used.
    */
   @Input() set language(language: string) {
-    this.options.language = language;
+    (this.options as any).language = language;
     if (this.timepicker) {
       this.markForRefresh();
     }
@@ -111,7 +104,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
    * default value is 5.
    */
   @Input() set secondInterval(secondInterval: number) {
-    this.options.secondInterval = secondInterval;
+    (this.options as any).secondInterval = secondInterval;
     if (this.timepicker) {
       this.markForRefresh();
     }
@@ -121,7 +114,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
    * If defined as a JQuery-wrapped element, will be used as the target element.
    */
   @Input() set parentElement(parentElement: JQuery) {
-    this.options.parentElement = parentElement;
+    (this.options as any).parentElement = parentElement;
     if (this.timepicker) {
       this.markForRefresh();
     }
@@ -132,7 +125,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
    * default value is true.
    */
   @Input() set returnFocus(returnFocus: boolean) {
-    this.options.returnFocus = returnFocus;
+    (this.options as any).returnFocus = returnFocus;
     if (this.timepicker) {
       this.markForRefresh();
     }
@@ -141,7 +134,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
   /**
    * Sets the control to be disabled or not.
    */
-  @Input() set disabled(value: boolean) {
+  @Input() set disabled(value: boolean | undefined) {
     // Avoid setting the value if not required,
     // this causes issue on component initialisation
     // as enable() is called by both disabled()
@@ -156,11 +149,11 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
 
     if (value) {
       this.ngZone.runOutsideAngular(() => {
-        this.timepicker.disable();
+        (this.timepicker as any).disable();
       });
     } else {
       this.ngZone.runOutsideAngular(() => {
-        this.timepicker.enable();
+        (this.timepicker as any).enable();
         this.isReadOnly = false;
       });
     }
@@ -169,7 +162,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
   /**
    * Sets the control to readonly
    */
-  @Input() set readonly(value: boolean) {
+  @Input() set readonly(value: boolean | undefined) {
     // Avoid setting the value if not required,
     // this causes issue on component initialisation
     // as enable() is called by both disabled()
@@ -183,10 +176,10 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
     this.isReadOnly = value;
 
     if (value) {
-      this.ngZone.runOutsideAngular(() => this.timepicker.readonly());
+      this.ngZone.runOutsideAngular(() => (this.timepicker as any).readonly());
     } else {
       this.ngZone.runOutsideAngular(() => {
-        this.timepicker.enable();
+        (this.timepicker as any).enable();
         this.isDisabled = false;
       });
     }
@@ -200,17 +193,17 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
   /**
    * Public API
    */
-  get disabled() {
+  get disabled(): boolean | undefined {
     return this.isDisabled;
   }
-  get readonly() {
+  get readonly(): boolean | undefined {
     return this.isReadOnly;
   }
 
-  public setValue(time: string) {
+  public setValue(time: string | undefined) {
     // There is no API to set the value on the timepicker, so this
     // emulates what the control does internally.
-    this.timepicker.element.val(time).trigger('change');
+    (this.timepicker as any).element.val(time).trigger('change');
   }
 
   /**
@@ -254,7 +247,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
         .on('change', (args: SohoTimePickerEvent) => this.onChange(args));
 
       if (this.internalValue) {
-        this.timepicker.element.val(this.internalValue);
+        (this.timepicker as any).element.val(this.internalValue);
       }
 
       this.runUpdatedOnCheck = true;
@@ -303,7 +296,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
    * Handle the control being changed.
    */
   onChange(event: SohoTimePickerEvent) {
-    this.internalValue = this.timepicker.element.val();
+    this.internalValue = this.timepicker?.element.val();
 
     // Set the date on the event.
     event.data = this.internalValue;

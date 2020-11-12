@@ -88,7 +88,7 @@ interface BeforeSelectStepEvent {
   /**
    * The step that will be selected
    */
-  targetStepId: string;
+  targetStepId?: string;
 
   /**
    * The direction the user is stepping when going to another step

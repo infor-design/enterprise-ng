@@ -13,7 +13,7 @@ import { SohoSpinboxComponent } from './soho-spinbox.component';
 })
 
 class SohoSpinboxTestComponent {
-  @ViewChild(SohoSpinboxComponent) spinbox: SohoSpinboxComponent;
+  @ViewChild(SohoSpinboxComponent) spinbox?: SohoSpinboxComponent;
 }
 
 describe('Soho Spinbox Unit tests', () => {
@@ -36,7 +36,7 @@ describe('Soho Spinbox Unit tests', () => {
     el = de.query(By.css('input[soho-spinbox]')).nativeElement;
 
     fixture.detectChanges();
-    spinbox = comp.spinbox;
+    spinbox = (comp.spinbox as any);
   });
 
   it('Verify spinbox elements', () => {
@@ -48,7 +48,7 @@ describe('Soho Spinbox Unit tests', () => {
     // expect(el.getAttribute('min')).toEqual(-2147483647.toString());
     // expect(el.getAttribute('max')).toEqual(2147483647.toString());
     expect(el.getAttribute('value')).toEqual(spinbox.value.toString());
-    expect(el.getAttribute('step')).toEqual(spinbox.step.toString());
+    expect(el.getAttribute('step')).toEqual(spinbox.step?.toString());
   });
 
   it('Spinbox disabled', () => {

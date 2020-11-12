@@ -133,8 +133,8 @@ export class SohoStandalonePagerComponent implements AfterViewInit, AfterViewChe
   @Output() nextPage: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() pageSizeChange: EventEmitter<Object> = new EventEmitter<Object>();
 
-  private jQueryElement: JQuery;
-  private pager: SohoStandalonePagerStatic;
+  private jQueryElement?: JQuery;
+  private pager?: SohoStandalonePagerStatic | null;
   private options: SohoStandalonePagerOptions = {};
   private updateRequired = false;
 

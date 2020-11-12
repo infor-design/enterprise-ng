@@ -21,7 +21,6 @@ import { SohoRadioButtonModule } from './soho-radiobutton.module';
 import { SohoLabelModule } from '../label/soho-label.module';
 import { SohoRadioButtonComponent } from './soho-radiobutton.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { fakeAsync, tick } from '@angular/core/testing';
 
 @Component({
   template: `
@@ -33,7 +32,7 @@ import { fakeAsync, tick } from '@angular/core/testing';
 class SohoRadioButtonReactiveFormTestComponent {
   public radioButtonValue = '1';
 
-  @ViewChild(SohoRadioButtonComponent) dropdown: SohoRadioButtonComponent;
+  @ViewChild(SohoRadioButtonComponent) dropdown?: SohoRadioButtonComponent;
 
   public formGroup: FormGroup;
 
@@ -52,7 +51,6 @@ class SohoRadioButtonReactiveFormTestComponent {
 }
 
 describe('SohoRadioButtonComponent on ReactiveForm', () => {
-  let dropdown: SohoRadioButtonComponent;
   let component: SohoRadioButtonReactiveFormTestComponent;
   let fixture: ComponentFixture<SohoRadioButtonReactiveFormTestComponent>;
   let de: DebugElement;
@@ -67,7 +65,6 @@ describe('SohoRadioButtonComponent on ReactiveForm', () => {
 
     fixture = TestBed.createComponent(SohoRadioButtonReactiveFormTestComponent);
     component = fixture.componentInstance;
-    dropdown = component.dropdown;
 
     de = fixture.debugElement;
     el1 = de.query(By.css('input[soho-radiobutton][value="1"]')).nativeElement;

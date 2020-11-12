@@ -3,10 +3,6 @@ import {
   TestBed
 } from '@angular/core/testing';
 
-import { By } from '@angular/platform-browser';
-
-// import { FormsModule } from '@angular/forms';
-
 import {
   Component,
   DebugElement,
@@ -26,29 +22,19 @@ import { SohoProgressComponent } from './soho-progress.component';
 })
 
 class SohoProgressTestComponent {
-  @ViewChild(SohoProgressComponent) progress: SohoProgressComponent;
+  @ViewChild(SohoProgressComponent) progress?: SohoProgressComponent;
 }
 
 describe('Soho Progress Unit Tests', () => {
-  let progress: SohoProgressComponent;
-  let comp: SohoProgressTestComponent;
   let fixture: ComponentFixture<SohoProgressTestComponent>;
-  let de: DebugElement;
-  let el: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [SohoProgressTestComponent]
-      //  imports: [ FormsModule ]
     });
 
     fixture = TestBed.createComponent(SohoProgressTestComponent);
-    comp = fixture.componentInstance;
-    progress = comp.progress;
     fixture.detectChanges();
-
-    de = fixture.debugElement;
-    el = de.query(By.css('div')).nativeElement;
   });
 });
 

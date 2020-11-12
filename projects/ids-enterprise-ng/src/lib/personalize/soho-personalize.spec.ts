@@ -3,11 +3,8 @@ import {
   TestBed
 } from '@angular/core/testing';
 
-import { By } from '@angular/platform-browser';
-
 import {
   Component,
-  DebugElement,
   ViewChild
 } from '@angular/core';
 
@@ -23,14 +20,12 @@ import { SohoPersonalizeModule } from './soho-personalize.module';
   </html>`
 })
 class SohoPersonalizeTestComponent {
-  @ViewChild(SohoPersonalizeDirective) personalize: SohoPersonalizeDirective;
+  @ViewChild(SohoPersonalizeDirective) personalize?: SohoPersonalizeDirective;
 }
 
 describe('Soho Personalize Render', () => {
   let component: SohoPersonalizeTestComponent;
   let fixture: ComponentFixture<SohoPersonalizeTestComponent>;
-  let de: DebugElement;
-  let el: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -40,9 +35,6 @@ describe('Soho Personalize Render', () => {
 
     fixture = TestBed.createComponent(SohoPersonalizeTestComponent);
     component = fixture.componentInstance;
-
-    de = fixture.debugElement;
-    el = de.query(By.css('div[soho-personalize]')).nativeElement;
 
     fixture.detectChanges();
   });
@@ -56,19 +48,19 @@ describe('Soho Personalize Render', () => {
   it('Check setting theme updates the component', () => {
     fixture.detectChanges();
 
-    component.personalize.theme = 'dark';
+    (component.personalize as any).theme = 'dark';
 
     fixture.detectChanges();
 
-    expect(component.personalize.options.theme).toEqual('dark');
+    expect(component.personalize?.options.theme).toEqual('dark');
   });
 
   it('Check seetting colors updates the component', () => {
-    component.personalize.colors = 'FF0000';
+    (component.personalize as any).colors = 'FF0000';
 
     fixture.detectChanges();
 
-    expect(component.personalize.options.colors).toEqual('FF0000');
+    expect(component.personalize?.options.colors).toEqual('FF0000');
   });
 
   it('Check event handler when theme changed', () => {
