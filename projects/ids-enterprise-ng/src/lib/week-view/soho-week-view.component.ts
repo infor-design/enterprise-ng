@@ -404,14 +404,14 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
   }
 
   /** Add extra attributes like id's to the component **/
-  @Input() set attributes(attributes: Array<Object> | Object) {
+  @Input() set attributes(attributes: Array<Object> | Object | undefined) {
     this._weekViewOptions.attributes = attributes;
     if (this.weekView) {
       this.weekView.settings.attributes = attributes;
       this.markForRefresh();
     }
   }
-  get attributes(): Array<Object> | Object {
+  get attributes(): Array<Object> | Object | undefined {
     if (this.weekView) {
       return this.weekView.settings.attributes;
     }

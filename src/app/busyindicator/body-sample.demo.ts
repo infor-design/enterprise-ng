@@ -1,6 +1,5 @@
 import {
   Component,
-  ElementRef,
   ViewChild,
   OnInit
 } from '@angular/core';
@@ -25,7 +24,7 @@ export class BusyIndicatorDemoBodyComponent implements OnInit {
 
   @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
 
-  constructor(private elementRef: ElementRef) {
+  constructor() {
   }
 
   ngOnInit() {
@@ -45,7 +44,7 @@ export class BusyIndicatorDemoBodyComponent implements OnInit {
 
   timer() {
     this.start();
-    setTimeout((f: any) => this.stop(), 5000);
+    setTimeout((_f: any) => this.stop(), 5000);
   }
 
   onAfterStart(event: SohoBusyIndicatorEvent) {

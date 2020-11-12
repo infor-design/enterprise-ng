@@ -114,14 +114,14 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
   /** Add extra attributes like id's to the component **/
   @Input()
-  public set attributes(attributes: Array<Object> | Object) {
+  public set attributes(attributes: Array<Object> | Object | undefined) {
     this.options.attributes = attributes;
     if (this.blockgrid) {
       this.blockgrid.settings.attributes = attributes;
       this.updated(this.blockgrid.settings);
     }
   }
-  public get attributes():  Array<Object> | Object {
+  public get attributes():  Array<Object> | Object | undefined {
     if (!this.blockgrid) {
       return this.options.attributes;
     }

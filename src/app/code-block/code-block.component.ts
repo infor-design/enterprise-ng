@@ -85,7 +85,7 @@ export class CodeBlockComponent implements OnDestroy {
   focus() {
     // Using jquery to focus the element as ViewChildren is not working
     // tslint:disable-next-line: deprecation
-    const $event: MouseEventInit = event;
+    const $event: MouseEventInit | undefined = event;
     const focusables = $(':focusable', this.elementRef.nativeElement);
     const target =
       $event && $event.shiftKey ? focusables.last() : focusables.first();
@@ -109,7 +109,7 @@ export class CodeBlockComponent implements OnDestroy {
     }
   }
 
-  onSelected($event) {
+  onSelected($event: any) {
     const buttonId = $event.args[0].id;
     if (buttonId === 'ShowLabels') {
       this.toggleLabels();

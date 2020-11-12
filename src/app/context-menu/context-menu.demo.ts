@@ -24,7 +24,7 @@ export class ContextMenuDemoComponent implements OnInit {
   public richTextEditorLabel = `Rich Text Editor Example`;
   public manualCloseLabel = `Close Context Menu Manually`;
 
-  public contextEntries: Array<ContextMenuEntries>;
+  public contextEntries?: Array<ContextMenuEntries>;
 
   public textModel = {
     disableText: `This text area is disabled, so should show the browser context menu and not the same context menu as the other components`,// tslint:disable-line
@@ -116,7 +116,7 @@ export class ContextMenuDemoComponent implements OnInit {
     console.log('onOpen');
   }
 
-  onOpenManually(e: SohoContextMenuEvent): void {
+  onOpenManually(_e: SohoContextMenuEvent): void {
     setTimeout(() => {
       this.menuOneContextMenu.close();
     }, 2000);

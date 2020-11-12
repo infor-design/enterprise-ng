@@ -75,8 +75,7 @@ export class AutocompleteDemoComponent implements AfterViewInit {
   @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
 
   public selected: any;
-
-  private options: SohoAutoCompleteOptions;
+  options?: SohoAutoCompleteOptions;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) { }
 

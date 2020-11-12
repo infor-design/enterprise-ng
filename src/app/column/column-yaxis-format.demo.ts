@@ -57,7 +57,8 @@ export class ColumnYAxisDemoComponent implements OnInit {
   public columnType = 'column';
 
   constructor() {}
-  public yAxis: {};
+  public yAxis?: {};
+
   ngOnInit() {
     this.yAxis = {
       ticks: {

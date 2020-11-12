@@ -1,12 +1,7 @@
 import {
   Component,
-  OnInit,
-  ViewChild
+  OnInit
 } from '@angular/core';
-
-import {
-  SohoRadarComponent
-} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-column-demo',
@@ -64,13 +59,14 @@ export class ColumnGroupedXaxisTwolineDemoComponent implements OnInit {
   public columnType = 'column-grouped';
 
   constructor() {}
-  public xAxis: {};
+  public xAxis?: {};
+
   ngOnInit() {
     this.xAxis = {
-      formatText: function (d) {
+      formatText: function (d: any) {
         const text = d.split(' ');
         let markup = '';
-        text.map(function (mapText, i) {
+        text.map(function (mapText: any, i: any) {
           markup += '<tspan x="0" dy="' + ((i + 1) * .50) + 'em">' + mapText.replace(':', ' ').replace('-', ' ') + '</tspan>';
         });
         return markup;

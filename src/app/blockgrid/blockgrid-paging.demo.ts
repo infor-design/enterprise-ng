@@ -1,8 +1,6 @@
 import {
   ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  ViewChild
+  Component
 } from '@angular/core';
 
 import {
@@ -16,24 +14,24 @@ import {
 })
 export class BlockGridPagingDemoComponent {
 
-  constructor(private elementRef: ElementRef) {
+  constructor() {
   }
 
   public data = DATA;
 
-  onSelected(args) {
+  onSelected(args: any) {
     console.log('onSelected', args);
   }
 
-  onDeselected(args) {
+  onDeselected(args: any) {
     console.log('onDeselect', args);
   }
 
-  onPage(args) {
+  onPage(args: any) {
     console.log('onPage', args);
   }
 
-  onPageSizeChange(args) {
+  onPageSizeChange(args: any) {
     console.log('onPageSizeChange', args);
   }
 }

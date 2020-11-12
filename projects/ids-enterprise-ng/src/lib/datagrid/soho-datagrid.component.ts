@@ -973,7 +973,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   @Input() set stickyHeader(stickyHeader: boolean) {
     this._gridOptions.stickyHeader = stickyHeader;
     if (this.jQueryElement) {
-      this.datagrid.settings.stickyHeader = stickyHeader;
+      (this.datagrid as any).settings.stickyHeader = stickyHeader;
       this.markForRefresh('stickyHeader', RefreshHintFlags.Rebuild);
     }
   }
@@ -982,7 +982,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   @Input() set attributes(attributes: Array<Object> | Object) {
     this._gridOptions.attributes = attributes;
     if (this.jQueryElement) {
-      this.datagrid.settings.attributes = attributes;
+      (this.datagrid as any).settings.attributes = attributes;
       this.markForRefresh('attributes', RefreshHintFlags.Rebuild);
     }
   }

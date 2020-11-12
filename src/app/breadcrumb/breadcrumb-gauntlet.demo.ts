@@ -23,8 +23,8 @@ export class BreadcrumbGauntletDemoComponent {
   public breadcrumbIdCount = 0;
   public demoForm: FormGroup;
 
-  public lastClickedAPI: SohoBreadcrumbItemStatic;
-  public lastClickedContents = '';
+  public lastClickedAPI?: SohoBreadcrumbItemStatic;
+  public lastClickedContents: string | undefined = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -61,7 +61,7 @@ export class BreadcrumbGauntletDemoComponent {
   }
 
   add() {
-    let increaseCount: boolean;
+    let increaseCount = false;
     const newSettings: SohoBreadcrumbItemOptions = {
       content: ''
     };

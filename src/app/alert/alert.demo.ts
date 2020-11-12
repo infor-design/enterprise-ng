@@ -10,16 +10,16 @@ import { SohoAlertDirective } from 'ids-enterprise-ng';
   templateUrl: 'alert.demo.html'
 })
 export class AlertDemoComponent {
-  @ViewChildren(SohoAlertDirective) alerts: QueryList<SohoAlertDirective>;
+  @ViewChildren(SohoAlertDirective) alerts?: QueryList<SohoAlertDirective>;
 
   public model: {
     date:          string,
     text:          string,
     outputField:   string,
-    isAlert:       boolean,
-    triggerEvents: boolean,
+    isAlert:       boolean | undefined,
+    triggerEvents: boolean | undefined,
     type:          SohoAlertType,
-    icon:          string
+    icon:          string | undefined
   } = {
     date:          '12/12/2016',
     text:          'abcdef',
@@ -58,7 +58,7 @@ export class AlertDemoComponent {
   }
 
   addMessage() {
-    this.alerts.forEach((alert: SohoAlertDirective) => {
+    this.alerts?.forEach((alert: SohoAlertDirective) => {
       const alertText = (this.model.isAlert) ? ' is alert,' : '';
       const icon = (this.model.type === 'icon') ? this.model.icon : undefined;
       alert.addInlineMessage('Message' + alertText + ' type is ' + this.model.type,
@@ -70,10 +70,10 @@ export class AlertDemoComponent {
     let outputField = '';
 
     // for demo purposes, concatenate the displayed message(s) from each alert
-    this.alerts.forEach((alert: SohoAlertDirective) => {
+    this.alerts?.forEach((alert: SohoAlertDirective) => {
       const id = (alert.elementRef.nativeElement as Element).getAttribute('id');
 
-      this.types.forEach( (type: SohoAlertType) => {
+      this.types.forEach( (type: any) => {
         const message = alert.getMessage(type);
 
         if (message !== undefined) {
@@ -88,13 +88,13 @@ export class AlertDemoComponent {
   }
 
   removeMessage() {
-    this.alerts.forEach((alert: SohoAlertDirective) => {
+    this.alerts?.forEach((alert: SohoAlertDirective) => {
       alert.removeMessage(this.model.type, this.model.triggerEvents);
     });
   }
 
   removeAllMesssages() {
-    this.alerts.forEach((alert: SohoAlertDirective) => {
+    this.alerts?.forEach((alert: SohoAlertDirective) => {
       alert.removeAllMessages(this.model.triggerEvents);
     });
   }

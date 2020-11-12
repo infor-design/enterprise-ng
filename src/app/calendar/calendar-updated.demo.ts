@@ -17,8 +17,8 @@ export class CalendarUpdatedDemoComponent {
   public initialMonth = 1;
   public initialYear = 2019;
   public showViewChanger = false;
-  public eventTypes: [];
-  public events: [];
+  public eventTypes?: [];
+  public events?: [];
   public eventsLoaded = false;
   public iconTooltip = 'Tooltip';
 
@@ -26,11 +26,11 @@ export class CalendarUpdatedDemoComponent {
     private monthViewService: CalendarDemoService
   ) { }
 
-  public iconToolTip = (eventData: any) => {
+  public iconToolTip = (_eventData: any) => {
     console.log('iconToolTip');
   }
 
-  public eventTooltip = (eventData: any) => {
+  public eventTooltip = (_eventData: any) => {
     console.log('iconToolTip');
   }
 

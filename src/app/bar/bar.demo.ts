@@ -47,11 +47,11 @@ export class BarDemoComponent implements OnInit {
     this.sohoBarComponent.toggleSelected(SohoBarSelected);
   }
 
-  onRendered(e) {
+  onRendered(e: any) {
     console.log('onRendered', e);
   }
 
-  onContextMenu(args) {
+  onContextMenu(args: any) {
     console.log('onContextMenu', args);
   }
 }

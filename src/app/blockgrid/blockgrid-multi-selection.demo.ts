@@ -1,8 +1,6 @@
 import {
   ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  ViewChild
+  Component
 } from '@angular/core';
 
 import {
@@ -15,16 +13,16 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlockGridMultiSelectionDemoComponent {
-  constructor(private elementRef: ElementRef) {
+  constructor() {
   }
 
   public data = DATA;
 
-  onSelected(args) {
+  onSelected(args: any) {
     console.log('onSelected', args);
   }
 
-  onDeselected(args) {
+  onDeselected(args: any) {
     console.log('onDeselect', args);
   }
 }

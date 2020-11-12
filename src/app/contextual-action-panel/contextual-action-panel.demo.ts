@@ -26,13 +26,13 @@ export class ContextualActionPanelDemoComponent {
    * This can be the ViewContainerRef of this component, or another component.
    */
   @ViewChild('panelPlaceholder', { read: ViewContainerRef, static: true })
-  placeholder: ViewContainerRef;
+  placeholder?: ViewContainerRef;
 
   /**
    * The interface to an instantiated instance of the Contextual Action Panel.
    */
   public panelRef: SohoContextualActionPanelRef<any>;
-  public closeResult: string;
+  public closeResult?: string;
   public title = 'Contextual Action Panel';
 
   /**
@@ -49,7 +49,7 @@ export class ContextualActionPanelDemoComponent {
         text: 'Save',
         cssClass: 'btn',
         icon: '#icon-save',
-        click: (_e: any, panel: any) => {
+        click: (_e: any, _panel: any) => {
           this.openPanel2(); // This will reopen
           // panel.close(true); // This will show nothing
         }
@@ -119,7 +119,7 @@ export class ContextualActionPanelDemoComponent {
   openSearchfieldPanel() {
     const panel = this.panelService.contextualactionpanel(ContextualActionPanelSearchfieldComponent, this.placeholder);
     panel
-      .apply(component => component.panel = panel)
+      .apply((component: any) => component.panel = panel)
       .open()
       .initializeContent(true);
   }
@@ -127,7 +127,7 @@ export class ContextualActionPanelDemoComponent {
   openSearchfieldFlexPanel() {
     const panel = this.panelService.contextualactionpanel(ContextualActionPanelSearchfieldFlexComponent, this.placeholder);
     panel
-      .apply(component => component.panel = panel)
+      .apply((component: any) => component.panel = panel)
       .open()
       .initializeContent(true);
   }
@@ -162,7 +162,7 @@ export class ContextualActionPanelDemoComponent {
           .initializeContent(true);
 
     this.panelRef
-          .apply((ref) => {
+          .apply((ref: any) => {
             ref.panelRef = this.panelRef;
           })
           .open();

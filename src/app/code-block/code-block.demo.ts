@@ -3,7 +3,7 @@ import {
   Component, ElementRef,
   ViewChild
 } from '@angular/core';
-import { SohoPopDownContentsComponent, SohoPopDownDirective, SohoTooltipDirective } from 'ids-enterprise-ng';
+import { SohoPopDownDirective } from 'ids-enterprise-ng';
 import { columns, ledgerData } from './mock.data';
 
 @Component({
@@ -14,7 +14,7 @@ import { columns, ledgerData } from './mock.data';
 export class CodeBlockDemoComponent implements AfterViewInit {
 
   @ViewChild(SohoPopDownDirective, { static: true }) popdown: SohoPopDownDirective;
-  @ViewChild('compound_field_popdown_contents', { static: true }) contents: ElementRef;
+  @ViewChild('compound_field_popdown_contents', { static: true }) contents?: ElementRef;
 
   public model = {
     ledger: { title: 'Ledger', value: 'CORE' },

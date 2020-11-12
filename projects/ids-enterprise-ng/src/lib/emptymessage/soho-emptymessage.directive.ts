@@ -155,7 +155,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     return this._emptyMessageOptions.color;
   }
 
-  @Input() set attributes(attributes: Array<Object> | Object) {
+  @Input() set attributes(attributes: Array<Object> | Object | undefined ) {
     this._emptyMessageOptions.attributes = attributes;
     if (this.emptymessage) {
       this.emptymessage.settings.attributes = attributes;
@@ -163,7 +163,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     }
   }
 
-  get attributes(): Array<Object> | Object {
+  get attributes(): Array<Object> | Object | undefined {
     if (this.emptymessage) {
       return this.emptymessage.settings.attributes;
     }

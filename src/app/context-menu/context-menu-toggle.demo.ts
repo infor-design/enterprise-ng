@@ -17,12 +17,12 @@ export class ContextMenuToggleDemoComponent implements OnInit {
   @ViewChild(SohoTextAreaComponent, { static: true }) textarea: SohoTextAreaComponent;
   @ViewChild(SohoContextMenuDirective) contextMenu: SohoContextMenuDirective;
 
-  public labelText: string;
-  public isShowContextMenu: boolean;
-  public isAutoFocus: boolean;
-  public isAttachToBody: boolean;
+  public labelText?: string;
+  public isShowContextMenu?: boolean;
+  public isAutoFocus?: boolean;
+  public isAttachToBody?: boolean;
 
-  public contextmenuItems: Array<TypeContextMenuItems>;
+  public contextmenuItems?: Array<TypeContextMenuItems>;
 
   private buildContextMenu(): Array<TypeContextMenuItems> {
     const items: Array<TypeContextMenuItems> = [];

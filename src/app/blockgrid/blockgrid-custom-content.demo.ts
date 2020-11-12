@@ -28,19 +28,19 @@ export class BlockGridCustomContentDemoComponent implements AfterViewInit {
     this.blockGrid.selectBlocks([3, 4, 10]);
   }
 
-  onSelected(args) {
+  onSelected(args: any) {
     console.log('onSelected', args);
   }
 
-  onDeselected(args) {
+  onDeselected(args: any) {
     console.log('onDeselect', args);
   }
 
-  onActivated(args) {
+  onActivated(args: any) {
     console.log('onActivated', args);
   }
 
-  onDeactivated(args) {
+  onDeactivated(args: any) {
     console.log('onDeactivated', args);
   }
 }

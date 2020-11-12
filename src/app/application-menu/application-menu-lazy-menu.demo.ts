@@ -8,14 +8,14 @@ import { ApplicationMenuLazyService } from './application-menu-lazy-service.demo
 })
 export class ApplicationMenuLazyMenuDemoComponent {
 
-  @Input() menuSpec: Array<any>;
+  @Input() menuSpec?: Array<any>;
 
   @Output() subMenuLoaded: EventEmitter<any> = new EventEmitter<any>();
-  private menuExpanded = false;
+  private menuExpanded: boolean | undefined = false;
 
   constructor(private _lazyMenuService: ApplicationMenuLazyService) { }
 
-  public onLazyMenuClicked($event) {
+  public onLazyMenuClicked($event: any) {
     const element = $event.currentTarget;
 
     this.menuExpanded = this.isExpanded(element);
@@ -31,7 +31,7 @@ export class ApplicationMenuLazyMenuDemoComponent {
     });
   }
 
-  public isExpanded(button): boolean {
+  public isExpanded(button: any): boolean | undefined {
     if (button && button.parentElement.getElementsByTagName('a')[0]) {
       return button.parentElement.getElementsByTagName('a')[0].getAttribute('aria-expanded') === 'true';
     }

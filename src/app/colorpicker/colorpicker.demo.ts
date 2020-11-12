@@ -44,7 +44,7 @@ export class ColorPickerDemoComponent implements OnInit, AfterViewInit {
     this.showModel = !this.showModel;
   }
 
-  onChange(event: Event) {
+  onChange(_event: Event) {
     this.model = {
       color: this.colorpicker.getHexValue(),
       label: this.colorpicker.getLabelValue(),

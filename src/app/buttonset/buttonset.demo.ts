@@ -4,7 +4,7 @@ import {
   ViewChild,
   AfterViewInit
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SohoButtonsetComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -188,13 +188,13 @@ export class ButtonsetDemoComponent implements AfterViewInit {
   public adjustBtnWidths(btns: SohoButtonStatic[]) {
     const btnPercentageWidth = 100 / btns.length;
     btns.forEach(function (btn) {
-      btn.element[0].style.width = '' + btnPercentageWidth + '%';
+      (btn.element as any)[0].style.width = '' + btnPercentageWidth + '%';
     });
   }
 
   public resetBtnWidths(btns: SohoButtonStatic[]) {
     btns.forEach(function (btn: SohoButtonStatic) {
-      btn.element[0].style.width = '';
+      (btn.element as any)[0].style.width = '';
     });
   }
 

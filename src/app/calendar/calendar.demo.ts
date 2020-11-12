@@ -22,12 +22,12 @@ export class CalendarDemoComponent {
   public initialMonth = 1;
   public initialYear = 2019;
   public showViewChanger = true;
-  public eventTypes: [];
-  public events: [];
+  public eventTypes?: [];
+  public events?: [];
   public iconTooltip = 'status';
   public eventTooltip = 'comments';
 
-  public onRenderMonthCallback = (node: Node, response: Function) => {
+  public onRenderMonthCallback = (_node: Node, response: Function) => {
     this.monthViewService.getCalendarEventTypes().subscribe((types) => {
       this.monthViewService.getCalendarEvents().subscribe((events) => {
         this.eventTypes = types;
@@ -37,7 +37,7 @@ export class CalendarDemoComponent {
     });
   }
 
-  public onCalendarDateSelectedCallback = (node: Node, args: SohoCalendarDateSelectedEvent) => {
+  public onCalendarDateSelectedCallback = (_node: Node, args: SohoCalendarDateSelectedEvent) => {
     console.log('onCalendarEventSelectedCallback', args);
   }
 
@@ -52,18 +52,18 @@ export class CalendarDemoComponent {
   }
 
   onEventClicked(event: SohoCalendarEventClickEvent) {
-    this.toastService.show({ title: 'Calendar Test', message: 'Event "' + event.event.subject + '" Clicked' });
+    this.toastService.show({ title: 'Calendar Test', message: 'Event "' + event?.event?.subject + '" Clicked' });
     console.log('onEventClick', event);
   }
 
   onEventDblClicked(event: SohoCalendarEventClickEvent) {
-    this.toastService.show({ title: 'Calendar Test', message: 'Event "' + event.event.subject + '" Double Clicked' });
+    this.toastService.show({ title: 'Calendar Test', message: 'Event "' + event?.event?.subject + '" Double Clicked' });
     console.log('onEventDblClick', event);
   }
 
   onCalendarEventContextMenu(event: SohoCalendarEventClickEvent) {
     if (event) {
-      this.toastService.show({ title: 'Calendar Test', message: 'Event "' + event.event.subject + '" ContextMenu' });
+      this.toastService.show({ title: 'Calendar Test', message: 'Event "' + event?.event?.subject + '" ContextMenu' });
       console.log('onEventContextMenu', event);
     }
   }

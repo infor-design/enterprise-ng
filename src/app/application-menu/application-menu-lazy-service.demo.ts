@@ -18,12 +18,12 @@ export class ApplicationMenuLazyService {
     });
   }
 
-  public updateMenu(menuSpec: Array<any>, key?: string, menu?: Array<any>): void {
+  public updateMenu(menuSpec: Array<any>, key?: string, _menu?: Array<any>): void {
     if (this._menuSpec.length === 0) {
       this._menuSpec = menuSpec;
     } else {
       const newMenu: Array<any> = menuSpec;
-      this._updateMenuSpec(this._menuSpec, newMenu, key);
+      this._updateMenuSpec(this._menuSpec, newMenu, (key as any));
     }
   }
 

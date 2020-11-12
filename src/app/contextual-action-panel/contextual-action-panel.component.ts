@@ -23,7 +23,7 @@ import { NestedContextualActionPanelComponent } from './nested-contextualaction-
 
 export class ContextualActionPanelComponent {
   @ViewChild('panelPlaceholder', { read: ViewContainerRef, static: true })
-  placeholder: ViewContainerRef;
+  placeholder?: ViewContainerRef;
   public model = {
     header: 'Default Header Text',
     comment: 'This task needs to be escalated to maximum priority and delivered by the end of next week.',
@@ -31,7 +31,7 @@ export class ContextualActionPanelComponent {
 
   public title = 'Contextual Action Panel';
   public panelRef: SohoContextualActionPanelRef<any>;
-  public closeResult: string;
+  public closeResult?: string;
 
   constructor(private panelService: SohoContextualActionPanelService, private modalService: SohoModalDialogService) {
   }
@@ -44,7 +44,7 @@ export class ContextualActionPanelComponent {
       { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
       .title(this.title)
       .open()
-      .afterClose((result) => {
+      .afterClose((result: any) => {
         this.closeResult = result;
       });
   }

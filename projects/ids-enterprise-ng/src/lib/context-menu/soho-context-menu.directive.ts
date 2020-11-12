@@ -271,7 +271,7 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
    */
   close(isCancelled?: boolean, noFocus?: boolean): void {
     if (this.contextMenu) {
-      this.ngZone.runOutsideAngular(() => this.contextMenu.close(isCancelled, noFocus));
+      this.ngZone.runOutsideAngular(() => this.contextMenu?.close(isCancelled, noFocus));
     }
   }
 

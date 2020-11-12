@@ -251,14 +251,14 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     return this.options.disableItemDeactivation;
   }
 
-  @Input() set attributes(attributes: Array<Object> | Object) {
+  @Input() set attributes(attributes: Array<Object> | Object | undefined) {
     this.options.attributes = attributes;
     if (this.jQueryElement && this.listview) {
       this.listview.settings.attributes = attributes;
       this.updateRequired = true;
     }
   }
-  get attributes() {
+  get attributes(): Array<Object> | Object | undefined {
     return this.options.attributes;
   }
 

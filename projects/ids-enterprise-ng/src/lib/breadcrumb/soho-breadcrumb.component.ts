@@ -59,11 +59,11 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
 
   /** Add extra attributes like id's to the component **/
   @Input()
-  public set attributes(attributes: Array<Object> | Object) {
+  public set attributes(attributes: Array<Object> | Object | undefined) {
     this.options.attributes = attributes;
     this.updated();
   }
-  public get attributes(): Array<Object> | Object {
+  public get attributes(): Array<Object> | Object | undefined {
     return this.options.attributes;
   }
 

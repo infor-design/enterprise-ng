@@ -305,7 +305,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   @Input() set attributes(attributes: Array<Object> | Object) {
     this._tabsOptions.attributes = attributes;
     if (this.jQueryElement) {
-      this.tabs.settings.attributes = attributes;
+      (this.tabs as any).settings.attributes = attributes;
       this.updateRequired = true;
     }
   }

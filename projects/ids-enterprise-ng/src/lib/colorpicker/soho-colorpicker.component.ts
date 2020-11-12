@@ -185,7 +185,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
    * Add extra attributes like id's to the component
    */
   @Input() set attributes(value: Array<Object> | Object) {
-    this.options.attributes = value;
+    (this.options as any).attributes = value;
 
     if (this.colorpicker) {
       this.colorpicker.settings.attributes = value;
