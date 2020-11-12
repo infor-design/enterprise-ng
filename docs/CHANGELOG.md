@@ -5,14 +5,14 @@
 ### 8.1.1 Fixes
 
 - `[General]` Added new types for automation id's.  ([#934](https://github.com/infor-design/enterprise/issues/4521)) `934`
-- `[General]` Added EP version 4.35 `TJM`
+- `[General]` Added EP version 4.34.1 `TJM`
 
 ## v8.1.0
 
 ### 8.1.0 Fixes
 
 - `[Tabs]` Added a new method `refresh` which can be called when updating the tab count in a dynamic tab scenario). When called it will force a UI refresh to the tabs. Typical situations are changing all the tab header contents so the size is changed. If using `disableAutoUpdatedCall=true` you should call this when tab counts or names are changed. This did not introduce any breaking change.  ([#4521](https://github.com/infor-design/enterprise/issues/4521)) `TJM`
-- `[General]` Added a patched EP version 4.34 and NG 10.2.2  `TJM`
+- `[General]` Added a EP version 4.34 and NG 10.2.2  `TJM`
 
 ## v8.0.2
 
@@ -41,6 +41,19 @@
 - `[Context Menu]` Fixes a bug where api settings were not overwriting the default settings. ([#888](https://github.com/infor-design/enterprise-ng/issues/888))
 - `[Datagrid]` Added support to disable column buttons. ([1590](https://github.com/infor-design/enterprise/issues/1590))
 - `[Popupmenu]` Expose is-selectable, is-multiselectable, and multi-selectable-section as input properties. ([#907](https://github.com/infor-design/enterprise-ng/issues/907)) `CL`
+
+## v7.8.1
+
+### 7.8.1 Fixes
+
+- `[General]` Added new types for automation id's.  ([#934](https://github.com/infor-design/enterprise/issues/4521)) `934`
+- `[General]` Added EP version 4.34.1 `TJM`
+
+## v7.8.0
+
+### 7.8.0 Fixes
+
+- `[General]` Added EP version 4.34.1 `TJM`
 
 ## v7.6.2
 
