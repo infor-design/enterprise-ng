@@ -206,7 +206,7 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
     }
   }
 
-  getValue(): string {
+  getValue(): string | undefined {
     return this.internalValue;
   }
 

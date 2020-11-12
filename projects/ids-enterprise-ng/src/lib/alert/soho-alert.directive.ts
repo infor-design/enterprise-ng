@@ -46,19 +46,19 @@ export class SohoAlertDirective implements AfterViewInit {
 
   /** Set message with or without control color */
   @Input()
-  public set isAlert(isAlert: boolean) {
+  public set isAlert(isAlert: boolean | undefined) {
     this._options.isAlert = isAlert || false;
   }
 
   /** Set message whether to trigger events */
   @Input()
-  public set triggerEvents(triggerEvents: boolean) {
+  public set triggerEvents(triggerEvents: boolean | undefined) {
     this._options.triggerEvents = (typeof triggerEvents !== 'boolean') ? true : triggerEvents;
   }
 
   /** Set message with or without custom icon */
   @Input()
-  public set icon(icon: string) {
+  public set icon(icon: string | undefined) {
     this._options.icon = icon;
   }
 
@@ -144,7 +144,7 @@ export class SohoAlertDirective implements AfterViewInit {
    * @param type optional - 'error' (default)
    * @param triggerEvents optional - true (default) triggers events
    */
-  removeMessage(type?: SohoAlertType, triggerEvents?: boolean) {
+  removeMessage(type?: SohoAlertType, triggerEvents?: boolean | undefined) {
     this.type = type;
     this.triggerEvents = triggerEvents;
     this.message = '';

@@ -62,14 +62,13 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
   /**
    * Value of the spin box.
    */
-  @HostBinding('attr.value') @Input() public set value(val: number) {
+  @HostBinding('attr.value') @Input() public set value(val: number | string | any) {
     if (this.spinbox) {
       this.spinbox.updateVal(val);
     }
     this.internalValue = val;
   }
-
-  public get value() {
+  public get value(): number | string | any {
     return this.internalValue;
   }
 

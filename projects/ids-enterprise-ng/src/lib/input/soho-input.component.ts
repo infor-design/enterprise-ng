@@ -139,7 +139,7 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
     this.isDisabled = isDisabled ? true : undefined;
   }
 
-  getValue(): string {
+  getValue(): string | undefined {
     return this.internalValue;
   }
 

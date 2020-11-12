@@ -175,7 +175,7 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     this.jQueryElement = jQuery(this.element.nativeElement);
 
     // Initialise the SohoXi Control
-    this.jQueryElement.val(this.internalValue);
+    this.jQueryElement.val((this.internalValue as any));
     this.jQueryElement.textarea(this.options);
     this.textarea = this.jQueryElement.data('textarea');
 
