@@ -301,6 +301,15 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
     }
   }
 
+  /** Add extra attributes like id's to the component **/
+  @Input() set attributes(attributes: Array<Object> | Object) {
+    this._tabsOptions.attributes = attributes;
+    if (this.jQueryElement) {
+      this.tabs.settings.attributes = attributes;
+      this.updateRequired = true;
+    }
+  }
+
   /**
    * if you would like to run the updated() function yourself instead of having
    * this tabs component check for you set this input to true. The advantage to

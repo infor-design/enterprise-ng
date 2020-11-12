@@ -34,6 +34,8 @@ interface SohoTooltipOptions {
   delay?: number;
   /** The if true (default) the popup is added to the body. **/
   attachToBody?: boolean;
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

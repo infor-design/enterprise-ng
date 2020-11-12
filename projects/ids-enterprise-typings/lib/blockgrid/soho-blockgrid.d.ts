@@ -33,6 +33,9 @@ interface SohoBlockGridOptions {
    * If paging is active, defines the various record sizes the pager will allow
    */
   pagesizes?: Array<Number>;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

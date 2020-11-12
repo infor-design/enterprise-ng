@@ -100,6 +100,15 @@ export class SohoAboutRef {
   }
 
   /**
+   * Add extra attributes like id's to the component
+   * @param attributes - the array or object of attributes to add
+   */
+  attributes(attributes: Array<Object> | Object): SohoAboutRef {
+    this._options.attributes = attributes;
+    return this;
+  }
+
+  /**
    * Constructor.
    *
    * @param placeholder for the about dialog; defaults to the body.

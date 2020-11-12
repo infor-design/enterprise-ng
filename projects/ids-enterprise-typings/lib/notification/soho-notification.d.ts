@@ -27,6 +27,9 @@ interface SohoNotificationOptions {
 
   /** The text to show in the hyperlink. Leave empty for no link. */
   linkText?: string;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

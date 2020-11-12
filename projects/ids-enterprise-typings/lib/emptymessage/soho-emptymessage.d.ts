@@ -45,6 +45,9 @@ interface SohoEmptyMessageOptions {
    * slate or azure for now until personalization works
    */
   color?: EmptyMessageColor;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

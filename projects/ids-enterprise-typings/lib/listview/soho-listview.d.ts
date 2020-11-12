@@ -47,6 +47,9 @@ interface SohoListViewOptions {
 
   /** If true when an item is activated the user should not be able to deactivate it by clicking on the activated item. */
   disableItemDeactivation?: boolean;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 type SohoListViewSourceFunction = (

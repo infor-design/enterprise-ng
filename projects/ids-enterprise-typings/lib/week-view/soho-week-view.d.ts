@@ -107,6 +107,7 @@ interface SohoWeekViewOptions {
   onChangeToWeekDay?: Function;
   onChangeWeek?: Function;
   onChangeView?: Function;
+  attributes?: Array<Object> | Object;
 }
 
 interface SohoWeekView {

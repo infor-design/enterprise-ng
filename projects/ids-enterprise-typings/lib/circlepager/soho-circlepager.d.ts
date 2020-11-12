@@ -17,6 +17,9 @@ interface SohoCirclepagerOptions {
 
   /** Setting loop: true will loop back after next/previous reached to end */
   loop?: boolean;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

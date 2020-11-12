@@ -33,6 +33,9 @@ interface SohoBusyIndicatorOptions {
    * that doesn't already have another mechanism (like a disabled state).
    */
   overlayOnly?: boolean;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

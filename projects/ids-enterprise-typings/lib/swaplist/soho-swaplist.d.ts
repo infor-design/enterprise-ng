@@ -17,7 +17,6 @@ interface SohoSwapListItem {
 
   /** Is this item disabled. */
   disabled?: boolean;
-
 }
 
 /**
@@ -35,6 +34,9 @@ interface SohoSwapListOptions {
 
   /** Is this list searchable. */
   searchable?: boolean;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

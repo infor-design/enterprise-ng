@@ -262,6 +262,18 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     return this.settings.clearable;
   }
 
+  /**  Add extra attributes like id's to the component */
+  @Input() public set attributes(attributes: Array<Object> | Object) {
+    this.settings.attributes = attributes;
+    if (this.lookup) {
+      this.lookup.settings.attributes = this.settings.attributes;
+      this.markForUpdate();
+    }
+  }
+  public get attributes() {
+    return this.settings.attributes;
+  }
+
   @Input() multiselect = false;
 
   @Input() name?: string;

@@ -39,6 +39,9 @@ interface SohoColorPickerOptions {
 
   /** If true the colorpicker will be disabled. */
   disabled?: boolean;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 interface SohoColorPickerEvent extends JQuery.TriggeredEvent {

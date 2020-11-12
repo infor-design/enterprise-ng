@@ -146,6 +146,15 @@ export class SohoMessageRef {
   }
 
   /**
+   * Causes this modal instance to become hidden when another modal is displayed over top.
+   * @param hideUnderneath - If it should be on top or bottom.
+   */
+  attributes(attributes: Array<Object> | Object): SohoMessageRef {
+    this._options.attributes = attributes;
+    return this;
+  }
+
+  /**
     * Dialog result property.
     *
     * @param dialogResult - the stored restult of the dialog.

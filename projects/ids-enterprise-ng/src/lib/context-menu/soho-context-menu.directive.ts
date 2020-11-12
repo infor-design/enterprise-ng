@@ -106,7 +106,10 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
   @Output() selected = new EventEmitter<SohoContextMenuEvent>();
   @Output() beforeopen = new EventEmitter<SohoContextMenuEvent>();
   @Output() open = new EventEmitter<SohoContextMenuEvent>();
-  @Output() close = new EventEmitter<SohoContextMenuEvent>();
+
+  // using output renaming since close conflicts with the close method
+  // in this class.
+  @Output('close') closeEvent = new EventEmitter<SohoContextMenuEvent>(); //tslint:disable-line
 
   // -------------------------------------------
   // Component Inputs
@@ -245,7 +248,7 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
         this.ngZone.run(() => this.beforeopen.emit({ e, args })));
 
       this.jQueryElement.on('close', (e: JQuery.TriggeredEvent, args: JQuery) =>
-        this.ngZone.run(() => this.close.emit({ e, args })));
+        this.ngZone.run(() => this.closeEvent.emit({ e, args })));
 
       this.jQueryElement.on('open', (e: JQuery.TriggeredEvent, args: JQuery) =>
         this.ngZone.run(() => this.open.emit({ e, args })));
@@ -258,6 +261,18 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
 
   teardown() {
     this.ngZone.runOutsideAngular(() => this.contextMenu?.teardown());
+  }
+
+  /**
+   * Closes the popup menu
+   * @param isCancelled Internally set option used if the operation is a cancel.
+   *  Wont matter for manual api call.
+   * @param noFocus Do not return focus to the calling element (fx a button)
+   */
+  close(isCancelled?: boolean, noFocus?: boolean): void {
+    if (this.contextMenu) {
+      this.ngZone.runOutsideAngular(() => this.contextMenu.close(isCancelled, noFocus));
+    }
   }
 
   ngOnDestroy() {

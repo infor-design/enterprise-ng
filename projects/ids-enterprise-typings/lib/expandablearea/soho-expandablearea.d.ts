@@ -13,6 +13,8 @@ interface SohoExpandableAreaOptions {
   id?: string;
   disabled?: boolean;
   expanded?: boolean;
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

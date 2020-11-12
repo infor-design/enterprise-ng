@@ -208,6 +208,19 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
     }
   }
 
+  /**
+   * Add extra attributes like id's to the component
+   * @param attributes - the array or object of attributes to add
+   */
+  @Input() set attributes(attributes: Array<Object> | Object) {
+    this.options.attributes = attributes;
+
+    if (this.bar) {
+      this.bar.settings.attributes = attributes;
+      this.updateRequired = true;
+    }
+  }
+
   /** Events */
   @Output() selected: EventEmitter<SohoBarSelectEvent> = new EventEmitter<SohoBarSelectEvent>();
   @Output() unselected: EventEmitter<SohoBarSelectEvent> = new EventEmitter<SohoBarSelectEvent>();

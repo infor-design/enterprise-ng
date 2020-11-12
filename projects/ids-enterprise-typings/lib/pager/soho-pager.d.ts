@@ -79,6 +79,9 @@ interface SohoStandalonePagerOptions {
    * This helps with safari iOS in many cases.
    */
   pageSizeMenuSettings?: SohoPagerPageSizeMenuOptions;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

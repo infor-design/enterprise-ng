@@ -106,6 +106,17 @@ export class SohoContextualActionPanelRef<T> {
     return this;
   }
 
+  /** Add extra attributes like id's to the component **/
+  attributes(attributes: Array<Object> | Object): SohoContextualActionPanelRef<T> {
+    this._options.attributes = $.extend(true, this._options.attributes, attributes);
+
+    if (this.contextualactionpanel) {
+      this.contextualactionpanel.settings.attributes = this._options.attributes;
+    }
+
+    return this;
+  }
+
   /**
    * Sets the title of the panel.
    * @param title - the title of the panel.

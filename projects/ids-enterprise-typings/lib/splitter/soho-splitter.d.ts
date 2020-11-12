@@ -24,23 +24,26 @@ type SohoSplitterOptionsResize = 'immediate' | 'end';
  * Splitter options.
  */
 interface SohoSplitterOptions {
-    /** The orientation of the splitter. */
-    axis?: SohoSplitterOptionsAxis;
+  /** The orientation of the splitter. */
+  axis?: SohoSplitterOptionsAxis;
 
-    /** The side to dock on for vertical splitter. */
-    side?: SohoSplitterOptionsSide;
+  /** The side to dock on for vertical splitter. */
+  side?: SohoSplitterOptionsSide;
 
-    /** How the panes react to the splitter being moved. */
-    resize?: SohoSplitterOptionsResize;
+  /** How the panes react to the splitter being moved. */
+  resize?: SohoSplitterOptionsResize;
 
-    /** An element that is constraining the splitter. */
-    containment?: JQuery;
+  /** An element that is constraining the splitter. */
+  containment?: JQuery;
 
-    /** Save the location in local storage. */
-    save?: boolean;
+  /** Save the location in local storage. */
+  save?: boolean;
 
-    /** Display a collapse button on the splitter. */
-    collapseButton?: boolean;
+  /** Display a collapse button on the splitter. */
+  collapseButton?: boolean;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

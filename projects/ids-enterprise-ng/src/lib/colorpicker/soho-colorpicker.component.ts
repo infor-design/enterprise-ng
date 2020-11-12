@@ -182,6 +182,18 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   }
 
   /**
+   * Add extra attributes like id's to the component
+   */
+  @Input() set attributes(value: Array<Object> | Object) {
+    this.options.attributes = value;
+
+    if (this.colorpicker) {
+      this.colorpicker.settings.attributes = value;
+      this.markForRefresh();
+    }
+  }
+
+  /**
    * Sets the control to readonly
    */
   @Input() set readonly(value: boolean | undefined) {

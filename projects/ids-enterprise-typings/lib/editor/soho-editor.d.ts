@@ -30,6 +30,7 @@ interface SohoEditorOptions {
   showHtmlView?: boolean;
   preview?: boolean;
   rows?: SohoEditorRows;
+  attributes?: Array<Object> | Object;
 }
 
 interface SohoEditorAnchor {

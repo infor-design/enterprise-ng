@@ -106,6 +106,16 @@ export class SohoTreemapComponent implements AfterViewInit, AfterViewChecked, On
     }
   }
 
+  /** Add extra attributes like id's to the component **/
+  @Input() set attributes(value: Array<Object> | Object) {
+    this.options.attributes = value;
+
+    if (this.treemap) {
+      this.treemap.settings.attributes = value;
+      this.updateRequired = true;
+    }
+  }
+
   /** Events */
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
 

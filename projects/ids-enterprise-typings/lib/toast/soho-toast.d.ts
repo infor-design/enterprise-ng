@@ -39,6 +39,9 @@ interface SohoToastOptions {
 
   /** Save position to local storage. */
   savePosition?: boolean;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

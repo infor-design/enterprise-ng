@@ -238,6 +238,16 @@ export class SohoRadarComponent implements AfterViewInit, AfterViewChecked, OnDe
     }
   }
 
+  /** Add extra attributes like id's to the component **/
+  @Input() set attributes(value: Array<Object> | Object) {
+    this.options.attributes = value;
+
+    if (this.radar) {
+      this.radar.settings.attributes = value;
+      this.updateRequired = true;
+    }
+  }
+
   /* Events*/
   @Output() selected: EventEmitter<SohoRadarSelectEvent> = new EventEmitter<SohoRadarSelectEvent>();
   @Output() unselected: EventEmitter<SohoRadarSelectEvent> = new EventEmitter<SohoRadarSelectEvent>();

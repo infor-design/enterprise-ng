@@ -170,6 +170,11 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges
     this.options.attachToBody = attachToBody;
   }
 
+  /** Add extra attributes like id's to the component **/
+  @Input() set attributes(attributes: Array<Object> | Object) {
+    this.options.attributes = attributes;
+  }
+
   // -------------------------------------------
   // Component Output
   // -------------------------------------------

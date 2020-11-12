@@ -88,4 +88,8 @@ export class TabsDynamicDemoComponent implements OnInit {
       console.log('selected tab index is: ' + event.tab.tabIndex);
     }, 1);
   }
+
+  onAddTab() {
+    this.tabs.push({ id: 'dynamic', dismissible: true, title: 'Newly Added Tab', content: 'agnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.' });
+  }
 }
