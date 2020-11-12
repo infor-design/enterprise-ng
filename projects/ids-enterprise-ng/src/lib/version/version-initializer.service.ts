@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { version } from './../../version.json';
+import { version } from '../../version.json';
 
 /**
  * Initialise the locale service BEFORE the root application component is
