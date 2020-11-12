@@ -1,0 +1,16 @@
+<div class="row top-padding">
+  <div class="six columns">
+    <p>
+      When a nested dialog is opened from inside the About dialog, it should be possible to close the About dialog using the "X" button. To test:
+    </p>
+    <ol style="padding-top: 20px;">
+        <li>1. Click "About" to open the dialog</li>
+        <li>2. Click "OPEN NESTED" inside the dialog to open a nested dialog.</li>
+        <li>3. Close the nested dialog</li>
+        <li>4. Try to close the About dialog.  It should close with no issues.</li>
+    </ol>
+  </div>
+</div>
+<div class="row top-padding">
+  <button soho-button="primary" (click)="openAbout()">About</button>
+</div>
