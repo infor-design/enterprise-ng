@@ -189,6 +189,15 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
+  @Input() set attributes(attributes: Array<Object> | Object) {
+    this.options.attributes = attributes;
+
+    if (this.editor) {
+      this.editor.settings.attributes = attributes;
+      this.markForRefresh();
+    }
+  }
+
   // -------------------------------------------
   // Component Output
   // -------------------------------------------

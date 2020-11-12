@@ -36,6 +36,9 @@ interface SohoAboutOptions {
 
   /** Semantic Version Number for example (4.0.0) */
   version?: string;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

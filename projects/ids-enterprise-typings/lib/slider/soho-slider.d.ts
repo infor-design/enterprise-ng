@@ -36,6 +36,9 @@ interface SohoSliderOptions {
 
   /** Option to control the position of tooltip. ['top' , 'bottom'] */
   tooltipPosition?: 'top' | 'bottom';
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

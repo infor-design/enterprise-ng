@@ -130,6 +130,9 @@ interface SohoToolbarFlexOptions {
 
   /** Shortcut settings object for passing Popupmenu settings to a Toolbar Flex More Actions Item */
   moreMenuSettings?: SohoPopupMenuOptions;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**
