@@ -58,8 +58,8 @@ describe('Soho Tree Unit Tests', () => {
   template: `<ul soho-tree [dataset]="dataset"></ul>`
 })
 class SohoTreeTestComponent {
-  @ViewChild(SohoTreeComponent) tree: SohoTreeComponent;
-  _data: any[];
+  @ViewChild(SohoTreeComponent) tree?: SohoTreeComponent;
+  _data?: any[];
 
   public get dataset(): any[] {
     if (!this._data) {
@@ -126,7 +126,7 @@ describe('Soho Tree Render', () => {
     el = de.query(By.css('ul[soho-tree]')).nativeElement;
 
     fixture.detectChanges();
-    tree = component.tree;
+    tree = (component.tree as any);
   });
 
   it('Check HTML content', () => {
@@ -148,7 +148,10 @@ describe('Soho Tree Render', () => {
 
     tree.dataset = testData;
 
-    const actual = component.tree.dataset;
+    const actual = (component.tree as any).dataset;
+    if (!actual) {
+      return;
+    }
     expect(actual.length).toBe(1);
     expect(actual[0].id).toBe('node1');
     expect(actual[0].text).toBe('Data One');

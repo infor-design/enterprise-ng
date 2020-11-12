@@ -195,10 +195,10 @@ describe('Soho Radar Unit Tests', () => {
     fixture.detectChanges();
 
     comp.toggleSelected({ index: 1 });
-    expect(comp.getSelected().index).toEqual(1);
+    expect((comp as any).getSelected().index).toEqual(1);
 
     comp.setSelected({ index: 2 });
-    expect(comp.getSelected().index).toEqual(2);
+    expect((comp as any).getSelected().index).toEqual(2);
   });
 });
 
@@ -206,13 +206,11 @@ describe('Soho Radar Unit Tests', () => {
   template: `<div soho-radar [dataset]="data"></div>`
 })
 class SohoRadarTestComponent {
-  @ViewChild(SohoRadarComponent) radar: SohoRadarComponent;
+  @ViewChild(SohoRadarComponent) radar?: SohoRadarComponent;
   public data = radarData;
 }
 
 describe('Soho Radar Chart Render', () => {
-  let radar: SohoRadarComponent;
-  let component: SohoRadarTestComponent;
   let fixture: ComponentFixture<SohoRadarTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -224,8 +222,6 @@ describe('Soho Radar Chart Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoRadarTestComponent);
-    component = fixture.componentInstance;
-    radar = component.radar;
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-radar]')).nativeElement;

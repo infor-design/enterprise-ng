@@ -59,16 +59,16 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   // -------------------------------------------
 
   // The array of root tree nodes to display.
-  @Input() set dataset(dataset: SohoTreeNode[]) {
+  @Input() set dataset(dataset: SohoTreeNode[] | undefined) {
     // @todo this is not fully working as the tree control does not
     // replace the contents but looks to merge it.
     this.options.dataset = dataset;
     if (this.tree) {
-      this.tree.loadData(dataset);
+      this.tree.loadData((dataset as any));
     }
   }
 
-  get dataset(): SohoTreeNode[] {
+  get dataset(): SohoTreeNode[] | undefined {
     // If the Soho control has been created, then the dataset
     // in the settings object will contain the rows currently
     // on display.
@@ -89,7 +89,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   /** Is the tree selectable? */
-  @Input() set selectable(selectable: SohoTreeSelectable) {
+  @Input() set selectable(selectable: SohoTreeSelectable | undefined) {
     this.options.selectable = selectable;
     if (this.tree) {
       this.tree.settings.selectable = selectable;
@@ -97,8 +97,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
       // this.tree.updated();
     }
   }
-
-  get selectable(): SohoTreeSelectable {
+  get selectable(): SohoTreeSelectable | undefined {
     if (this.tree) {
       return this.tree.settings.selectable;
     }
@@ -107,17 +106,14 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   /** Show/hide selection checkboxe */
-  @Input() set hideCheckboxes(hideCheckboxes: boolean) {
+  @Input() set hideCheckboxes(hideCheckboxes: boolean | undefined) {
     this.options.hideCheckboxes = hideCheckboxes;
     if (this.tree) {
       this.tree.settings.hideCheckboxes = hideCheckboxes;
-      // @todo - make tree updatable when settings change,
-      // this.tree.updated();
     }
   }
 
-  /** Show a menu when selected */
-  @Input() set menuId(menuId: string) {
+  @Input() set menuId(menuId: string | undefined) {
     this.options.menuId = menuId;
     if (this.tree) {
       this.tree.settings.menuId = menuId;
@@ -217,13 +213,13 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   // -------------------------------------------
 
   /** Reference to the jQuery control. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** Reference to the SoHo tree control api. */
-  private tree: SohoTreeStatic;
+  private tree?: SohoTreeStatic | null;
 
   /** The tree's type. */
-  private treeType: SohoTreeType;
+  private treeType?: SohoTreeType;
 
   /** An internal options object that gets updated by using the component's Inputs(). */
   options: SohoTreeOptions = {};
@@ -280,21 +276,21 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   public setFocus(node: SohoTreeNode) {
     ArgumentHelper.checkNotNull('node', node);
 
-    this.tree.setFocus(node);
+    this.tree?.setFocus(node);
   }
 
   public disableNode(node: SohoTreeNode) {
     ArgumentHelper.checkNotNull('node', node);
 
     node.disabled = true;
-    this.tree.updateNode(node);
+    this.tree?.updateNode(node);
   }
 
   public enableNode(node: SohoTreeNode): void {
     ArgumentHelper.checkNotNull('node', node);
 
     node.disabled = false;
-    this.tree.updateNode(node);
+    this.tree?.updateNode(node);
   }
 
   /**
@@ -305,7 +301,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   public updateNode(node: SohoTreeNode): void {
     ArgumentHelper.checkNotNull('node', node);
 
-    this.tree.updateNode(node);
+    this.tree?.updateNode(node);
   }
 
   /**
@@ -362,9 +358,9 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   public selectNode(id: string, focus = true) {
     ArgumentHelper.checkNotEmpty('id', id);
 
-    const treeNode: SohoTreeNode = this.tree.findById(id);
+    const treeNode: undefined | SohoTreeNode = this.tree?.findById(id);
     if (treeNode && treeNode.node) {
-      this.tree.selectNode(treeNode.node, focus);
+      this.tree?.selectNode(treeNode.node, focus);
     } else {
       throw Error(`Node ${id} does not exist`);
     }
@@ -377,9 +373,9 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   public unSelectedNode(id: string, focus = false) {
     ArgumentHelper.checkNotEmpty('id', id);
 
-    const treeNode: SohoTreeNode = this.tree.findById(id);
+    const treeNode: SohoTreeNode = (this.tree as any).findById(id);
     if (treeNode && treeNode.node) {
-      this.tree.unSelectedNode(treeNode.node, focus);
+      (this.tree as any).unSelectedNode(treeNode.node, focus);
     } else {
       throw Error(`Node ${id} does not exist`);
     }
@@ -410,7 +406,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   public addNode(treeNode: SohoTreeNode, location: any = 'bottom', isBeforeOrAfter = '') {
     ArgumentHelper.checkNotNull('treeNode', treeNode);
 
-    this.tree.addNode(treeNode, location, isBeforeOrAfter);
+    this.tree?.addNode(treeNode, location, isBeforeOrAfter);
   }
 
   /**
@@ -419,7 +415,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   public findById(id: string): SohoTreeNode {
     ArgumentHelper.checkNotEmpty('id', id);
 
-    return this.tree.findById(id);
+    return (this.tree as any).findById(id);
   }
 
   /**
@@ -429,7 +425,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     ArgumentHelper.checkNotNull('node', node);
     ArgumentHelper.checkNotNull('node.node', node.node);
 
-    this.tree.toggleNode(node.node);
+    this.tree?.toggleNode((node.node as any));
   }
 
   // -------------------------------------------
@@ -485,15 +481,15 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     // Initialize any event handlers.
     this.jQueryElement
-      .on('contextmenu', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.contextmenu.next(args))
-      .on('selected', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.selected.next(args))
-      .on('unselected', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.unselected.next(args))
-      .on('expand', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.expand.next(args))
-      .on('collapse', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.collapse.next(args))
-      .on('sortstart', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.sortstart.next(args))
-      .on('sortend', (e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.sortend.next(args))
-      .on('menuselect', (e: JQuery.Event, args: SohoTreeEvent) => this.menuselect.next(args))
-      .on('menuopen', (e: JQuery.Event, args: SohoTreeEvent) => this.menuopen.next(args));
+      .on('contextmenu', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.contextmenu.next(args))
+      .on('selected', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.selected.next(args))
+      .on('unselected', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.unselected.next(args))
+      .on('expand', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.expand.next(args))
+      .on('collapse', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.collapse.next(args))
+      .on('sortstart', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.sortstart.next(args))
+      .on('sortend', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.sortend.next(args))
+      .on('menuselect', (_e: JQuery.Event, args: SohoTreeEvent) => this.menuselect.next(args))
+      .on('menuopen', (_e: JQuery.Event, args: SohoTreeEvent) => this.menuopen.next(args));
   }
 
   ngOnDestroy() {

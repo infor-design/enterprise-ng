@@ -53,7 +53,7 @@ describe('Soho Sparkline Unit Tests', () => {
   });
 
   it('check inputs', () => {
-    const colors = [];
+    const colors: Array<any> = [];
     comp.dataset = sparklineData1;
     comp.type = 'sparkline';
     comp.colors = colors;
@@ -111,7 +111,7 @@ describe('Soho Sparkline Unit Tests', () => {
   template: `<div soho-sparkline [dataset]="data"></div>`
 })
 class SohoSparklineTestComponent {
-  @ViewChild(SohoSparklineComponent) sparkline: SohoSparklineComponent;
+  @ViewChild(SohoSparklineComponent) sparkline?: SohoSparklineComponent;
 
   public sparklineData1 = sparklineData1;
   public sparklineData2 = sparklineData2;
@@ -121,7 +121,6 @@ class SohoSparklineTestComponent {
 }
 
 describe('Soho Sparkline Chart Render', () => {
-  let component: SohoSparklineTestComponent;
   let fixture: ComponentFixture<SohoSparklineTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -133,7 +132,6 @@ describe('Soho Sparkline Chart Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoSparklineTestComponent);
-    component = fixture.componentInstance;
     de = fixture.debugElement;
     el = de.query(By.css('[soho-sparkline]')).nativeElement;
 

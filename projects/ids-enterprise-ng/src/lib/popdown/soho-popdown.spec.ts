@@ -16,11 +16,10 @@ import {
     </soho-popdown-contents>`
 })
 class SohoPopDownDirectiveTestComponent {
-  @ViewChild(SohoPopDownContentsComponent) contents: SohoPopDownContentsComponent;
+  @ViewChild(SohoPopDownContentsComponent) contents?: SohoPopDownContentsComponent;
 }
 
 describe('Soho PopDown Unit Tests', () => {
-  let comp: SohoPopDownDirectiveTestComponent;
   let fixture: ComponentFixture<SohoPopDownDirectiveTestComponent>;
   let de: DebugElement;
   let element: HTMLElement;
@@ -33,7 +32,6 @@ describe('Soho PopDown Unit Tests', () => {
     });
 
     fixture = TestBed.createComponent(SohoPopDownDirectiveTestComponent);
-    comp = fixture.componentInstance;
 
     de = fixture.debugElement;
     element = de.query(By.css('[soho-popdown]')).nativeElement;

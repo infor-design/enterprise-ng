@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DebugElement, Component, ViewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 import { By } from '@angular/platform-browser';
 
@@ -38,7 +37,7 @@ describe('TagComponent', () => {
   template: `<span soho-tag="secondary">tag</span>`
 })
 class SohoTagTestComponent {
-  @ViewChild(SohoTagComponent) tag: SohoTagComponent;
+  @ViewChild(SohoTagComponent) tag?: SohoTagComponent;
 }
 
 describe('Soho Tag Render', () => {
@@ -61,7 +60,7 @@ describe('Soho Tag Render', () => {
     el = de.query(By.css('[soho-tag]')).nativeElement;
 
     fixture.detectChanges();
-    tag = component.tag;
+    tag = (component.tag as any);
   });
 
   afterEach(() => {

@@ -31,7 +31,7 @@ import { SohoTabsComponent } from './soho-tabs.component';
   `
 })
 class SohoBasicTabsTestComponent {
-  @ViewChild(SohoTabsComponent) tabs: SohoTabsComponent;
+  @ViewChild(SohoTabsComponent) tabs?: SohoTabsComponent;
 }
 
 // describe('Soho Tabs- Unit Tests', () => {
@@ -68,8 +68,6 @@ class SohoBasicTabsTestComponent {
 // });
 
 describe('Soho Basic Tabs Render', () => {
-  let tabs: SohoTabsComponent;
-  let component: SohoBasicTabsTestComponent;
   let fixture: ComponentFixture<SohoBasicTabsTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -81,8 +79,6 @@ describe('Soho Basic Tabs Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoBasicTabsTestComponent);
-    component = fixture.componentInstance;
-    tabs = component.tabs;
 
     fixture.detectChanges();
 
@@ -125,7 +121,7 @@ describe('Soho Basic Tabs Render', () => {
     let anchorElementList = tabListElementListItems[0].getElementsByTagName('a');
     expect(anchorElementList.length).toBe(1);
     expect(anchorElementList[0].getAttribute('soho-tab-title')).not.toBeNull();
-    let tabId: string = anchorElementList[0].getAttribute('tabId');
+    let tabId: any | string = anchorElementList[0].getAttribute('tabId');
     expect(tabId).toBe('tabs-normal-contracts');
     expect(anchorElementList[0].getAttribute('href')).toEqual('#' + tabId);
     // -------------------------------------------------------------------------------

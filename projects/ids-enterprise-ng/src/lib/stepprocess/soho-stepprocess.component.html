@@ -1,12 +1,12 @@
 
 <!-- STEP CONTROL STEPS -->
 <div class="sidebar">
-  <div soho-toolbar class='toolbar-custom toolbar-collapsible phone-visible'>
+  <div soho-toolbar class="toolbar-custom toolbar-collapsible phone-visible">
     <soho-toolbar-title>
       <ng-content select="div[soho-step-list-title]"></ng-content>
     </soho-toolbar-title>
   </div>
-  <ng-content select='ul[soho-step-list]'></ng-content>
+  <ng-content select="ul[soho-step-list]"></ng-content>
   <div class="phone-action-bar phone-visible">
     <button soho-button="secondary" class="btn btn-secondary js-btn-save-changes">{{saveAndCloseButtonLabel}}</button>
     <button soho-button="primary" class="btn btn-primary js-toggle-sidebar">{{continueButtonLabel}}</button>
@@ -17,13 +17,13 @@
 <div class="main no-scroll" role="main">
 
   <div class="toolbar-custom toolbar-collapsible">
-    <button soho-button='icon' icon='bullet-steps' class='btn-icon btn-toggle-steps js-toggle-sidebar'></button>
+    <button soho-button="icon" icon="bullet-steps" class="btn-icon btn-toggle-steps js-toggle-sidebar"></button>
 
-    <ng-content select='div[soho-step-content-title]'></ng-content>
+    <ng-content select="div[soho-step-content-title]"></ng-content>
 
     <div class="actions phone-hidden">
-      <button soho-button='tertiary' class="btn-tertiary js-step-link-prev">{{previousButtonLabel}}</button>
-      <button soho-button='tertiary' class="btn-tertiary js-step-link-next">{{nextButtonLabel}}</button>
+      <button soho-button="tertiary" class="btn-tertiary js-step-link-prev">{{previousButtonLabel}}</button>
+      <button soho-button="tertiary" class="btn-tertiary js-step-link-next">{{nextButtonLabel}}</button>
     </div>
   </div>
 

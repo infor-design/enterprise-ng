@@ -51,12 +51,12 @@ export class SohoRadioButtonComponent implements AfterViewInit {
    * and HostBinding has been removed, in favour of using
    * [attr.disabled]="isDisabled".
    */
-  @Input() set disabled(value: boolean) {
+  @Input() set disabled(_value: boolean) {
     console.warn('The property `disabled` has been removed, please use [attr.disabled]="disable"');
   }
 
   /** Sets the element to indicate checked. */
-  @HostBinding('attr.checked') @Input() checked: boolean;
+  @HostBinding('attr.checked') @Input() checked?: boolean;
 
   /**
    * ---------------------------------------------------
@@ -65,7 +65,7 @@ export class SohoRadioButtonComponent implements AfterViewInit {
    */
 
   /** JQuery Component */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /**
    * Constructor.
@@ -87,7 +87,7 @@ export class SohoRadioButtonComponent implements AfterViewInit {
   }
 
   onChange(event: SohoRadioButtonEvent) {
-    const newValue = this.jQueryElement.val();
+    const newValue = this.jQueryElement?.val();
 
     // Update the model
     this.value = newValue;

@@ -30,7 +30,7 @@ import { SohoLocaleModule } from '../locale';
   `
 })
 class SohoCustomMaskTestComponent {
-  @ViewChild(SohoMaskDirective) input: SohoMaskDirective;
+  @ViewChild(SohoMaskDirective) input?: SohoMaskDirective;
 
   public definitions: SohoMaskDefinitions = { U: /[A-Z]/ };
 }
@@ -50,11 +50,11 @@ class SohoCustomMaskTestComponent {
   `
 })
 class SohoMaskTestComponent {
-  @ViewChild(SohoMaskDirective) input: SohoMaskDirective;
+  @ViewChild(SohoMaskDirective) input?: SohoMaskDirective;
 
-  public value: string;
+  public value?: string;
 
-  public demoForm: FormGroup;
+  public demoForm?: FormGroup;
 
   constructor(public formBuilder: FormBuilder) {
     this.createForm();
@@ -72,11 +72,8 @@ class SohoMaskTestComponent {
 }
 
 describe('Soho Mask Render', () => {
-  let input: SohoMaskDirective;
   let component: SohoMaskTestComponent;
   let fixture: ComponentFixture<SohoMaskTestComponent>;
-  let de: DebugElement;
-  let el: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -93,11 +90,8 @@ describe('Soho Mask Render', () => {
     Soho.Locale.set('en-US').done(() => {
       fixture = TestBed.createComponent(SohoMaskTestComponent);
       component = fixture.componentInstance;
-      de = fixture.debugElement;
-      el = de.query(By.css('input[soho-mask]')).nativeElement;
 
       fixture.detectChanges();
-      input = component.input;
     });
   });
 
@@ -109,29 +103,29 @@ describe('Soho Mask Render', () => {
     const inp = fixture.debugElement.query(By.css('input'));
     expect(inp.nativeElement.value).toEqual('111');
 
-    component.demoForm.controls['ctrl'].setValue('222');
+    component.demoForm?.controls['ctrl'].setValue('222');
     inp.nativeElement.value = '222';
 
     fixture.detectChanges();
 
     expect(inp.nativeElement.value).toEqual('222');
 
-    expect(component.demoForm.controls['ctrl'].value).toBe('222');
-    expect(component.demoForm.controls['ctrl'].valid).toBeTruthy();
+    expect(component.demoForm?.controls['ctrl'].value).toBe('222');
+    expect(component.demoForm?.controls['ctrl'].valid).toBeTruthy();
     done();
   });
 
   it('should update control with new input invalid', () => {
     const inp = fixture.debugElement.query(By.css('input'));
     expect(inp.nativeElement.value).toEqual('111');
-    expect(component.demoForm.controls['ctrl'].valid).toBeTruthy();
+    expect(component.demoForm?.controls['ctrl'].valid).toBeTruthy();
 
-    component.demoForm.controls['ctrl'].setValue('555555');
+    component.demoForm?.controls['ctrl'].setValue('555555');
 
     expect(inp.nativeElement.value).toEqual('555555');
 
-    expect(component.demoForm.controls['ctrl'].value).toBe('555555');
-    expect(component.demoForm.controls['ctrl'].valid).toBeFalsy();
+    expect(component.demoForm?.controls['ctrl'].value).toBe('555555');
+    expect(component.demoForm?.controls['ctrl'].valid).toBeFalsy();
   });
 });
 
@@ -140,7 +134,6 @@ describe('Soho Custom Mask Render', () => {
   let component: SohoCustomMaskTestComponent;
   let fixture: ComponentFixture<SohoCustomMaskTestComponent>;
   let de: DebugElement;
-  let el: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -157,16 +150,13 @@ describe('Soho Custom Mask Render', () => {
     component = fixture.componentInstance;
 
     de = fixture.debugElement;
-    el = de.query(By.css('input[soho-mask]')).nativeElement;
 
     fixture.detectChanges();
-    input = component.input;
+    input = (component.input as any);
   });
 
   it('Check HTML content', () => {
     fixture.detectChanges();
     input.definitions = { U: /[A-Z]/ };
-
-    // TODO - interact
   });
 });
