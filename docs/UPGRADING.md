@@ -12,7 +12,7 @@ Consuming the `ids-enterprise-ng` package will require changes to any projects r
 
 These instructions assume you will be running the latest versions of `@angular/cli` and `@angular/core`. It is recommended that you review the information on <https://update.angular.io> before updating.  Also read <https://next.angular.io/guide/updating-to-version-10> for a detailed description of changes to angular.
 
-Note: The libraries are currently compiled using angular 10, and so require all consumers to use the same major version.
+Note: The libraries are currently compiled using angular 11, and so require all consumers to use the same major version.
 
 These are the steps for upgrading existing projects:
 
@@ -24,7 +24,7 @@ ng update
 
 You will need to fix any issues raised, as these will depend on the dependency tree created by the packages you use and what version you are upgrading from.
 
-#### Angular 10
+#### Angular 10 & 11
 
 When updating (and depending on your dependencies) the update *may* not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install TypeScript 3.9.x first, as follows:
 

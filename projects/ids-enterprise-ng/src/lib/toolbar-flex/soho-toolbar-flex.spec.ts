@@ -250,9 +250,9 @@ describe('Soho Toolbar Flex Tests', () => {
 
       component.searchField.options.filterMode = 'wordStartsWith';
       component.searchField.source = (query, done) => {
-        this.objectBasedData().subscribe((items) => {
-          done(query, items);
-        });
+        // this.objectBasedData().subscribe((items) => {
+        done(query, []);
+        // });
       };
       component.searchField.clearable = false;
       component.searchField.collapsible = true;

@@ -1,5 +1,15 @@
 # What's New with Enterprise-NG
 
+## v9.0.0
+
+# 9.0.0 Fixes
+
+# 9.0.0 Features
+
+- `[General]` Upgraded to Angular 11.  `BTHH` ([Issue #858](https://github.com/infor-design/enterprise-ng/issues/858))
+    - See the `UPGRADING.md` guide for details.
+    - Replaced karma-instanbul-coverage with karma-coverage
+
 ## v8.1.1
 
 ### 8.1.1 Fixes
