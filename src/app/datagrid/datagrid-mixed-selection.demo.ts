@@ -5,11 +5,8 @@ import {
 } from '@angular/core';
 
 import { DataGridDemoService } from './datagrid-demo.service';
-
-import {
-  SohoDataGridComponent,
-  SohoDataGridService
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoDataGridComponent, SohoDataGridService } from 'ids-enterprise-ng';
 
 import { PAGING_COLUMNS, PAGING_DATA } from './datagrid-paging-data';
 

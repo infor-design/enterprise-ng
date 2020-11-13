@@ -5,7 +5,7 @@ import {
   ViewChild,
   ChangeDetectionStrategy, ChangeDetectorRef
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoApplicationMenuComponent } from 'ids-enterprise-ng';
 import { ApplicationMenuLazyMenuDemoComponent } from './application-menu-lazy-menu.demo';
 

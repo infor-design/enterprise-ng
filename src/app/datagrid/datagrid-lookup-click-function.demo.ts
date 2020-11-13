@@ -1,8 +1,6 @@
 import { Component, ViewChild, ViewContainerRef, OnInit } from '@angular/core';
-import {
-  SohoDataGridComponent,
-  SohoModalDialogService
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoDataGridComponent, SohoModalDialogService } from 'ids-enterprise-ng';
 
 import { PAGING_COLUMNS, PAGING_DATA } from './datagrid-paging-data';
 import { DataGridLookupDialogDemoComponent } from './datagrid-lookup-dialog.demo';

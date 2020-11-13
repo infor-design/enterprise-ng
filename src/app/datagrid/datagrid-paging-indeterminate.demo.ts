@@ -4,10 +4,8 @@ import {
   Component, NgZone, OnInit,
   ViewChild
 } from '@angular/core';
-import {
-  SohoDataGridComponent,
-  SohoToastService,
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoDataGridComponent, SohoToastService} from 'ids-enterprise-ng';
 import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indeterminate-demo.service';
 
 @Component({

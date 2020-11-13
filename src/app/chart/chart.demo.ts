@@ -3,6 +3,7 @@ import {
   OnInit, HostBinding, ViewChild
 } from '@angular/core';
 import { ChartDemoService } from './chart-demo.service';
+// @ts-ignore
 import { SohoChartComponent } from 'ids-enterprise-ng';
 
 @Component({

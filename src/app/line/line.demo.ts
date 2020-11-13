@@ -3,10 +3,8 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-
-import {
-  SohoLineComponent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoLineComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-line-demo',

@@ -5,6 +5,7 @@ import {
   AfterViewInit
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// @ts-ignore
 import { SohoButtonsetComponent } from 'ids-enterprise-ng';
 
 @Component({

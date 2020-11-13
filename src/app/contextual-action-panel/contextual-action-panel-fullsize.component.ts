@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// @ts-ignore
 import { SohoContextualActionPanelRef } from 'ids-enterprise-ng/lib';
 
 @Component({

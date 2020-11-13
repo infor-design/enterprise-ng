@@ -7,9 +7,8 @@ import {
 } from '@angular/core';
 
 import { ApplicationMenuLazyService } from './application-menu-lazy-service.demo';
-
+// @ts-ignore
 import { SohoApplicationMenuComponent } from 'ids-enterprise-ng';
-import { ApplicationMenuLazyMenuDemoComponent } from './application-menu-lazy-menu.demo';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -20,8 +19,7 @@ import { ApplicationMenuLazyMenuDemoComponent } from './application-menu-lazy-me
 export class ApplicationMenuLazyDemoComponent implements AfterViewInit, OnInit {
 
   @ViewChild(SohoApplicationMenuComponent, { static: true }) applicationMenu: SohoApplicationMenuComponent;
-  @ViewChild(ApplicationMenuLazyMenuDemoComponent, { static: true }) private _lazyMenuComponent: ApplicationMenuLazyMenuDemoComponent;
-  @ViewChild('webAppMenuHeader', { static: true }) private _webAppMenuHeader: ElementRef;
+  @ViewChild('webAppMenuHeader', { static: true }) private _webAppMenuHeader?: ElementRef;
 
   public triggers: Array<string> = [];
   public menu: Array<any> = [];

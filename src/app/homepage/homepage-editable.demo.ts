@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+// @ts-ignore
 import { SohoToastService, SohoMessageService } from 'ids-enterprise-ng';
 
 @Component({

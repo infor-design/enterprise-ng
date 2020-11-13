@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, AfterViewInit, OnInit, ViewChildren, QueryList, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+// @ts-ignore
 import { SohoDropDownComponent, SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 import { Subject } from 'rxjs';
 

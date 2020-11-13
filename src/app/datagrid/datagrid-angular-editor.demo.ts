@@ -5,10 +5,8 @@ import {
   OnInit
 } from '@angular/core';
 
-import {
-  SohoInputComponent,
-  SohoDatePickerComponent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoInputComponent, SohoDatePickerComponent } from 'ids-enterprise-ng';
 
 export const EDITORS_DATA: any[] = [
   {

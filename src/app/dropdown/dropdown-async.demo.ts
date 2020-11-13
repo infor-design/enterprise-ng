@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 
 import { Subject } from 'rxjs';
-
+// @ts-ignore
 import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 import { MOCK_STATES } from './dropdown-mock.data';

@@ -4,7 +4,7 @@ import {
   ViewChild,
   ChangeDetectionStrategy
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoToolbarFlexComponent } from 'ids-enterprise-ng';
 
 @Component({

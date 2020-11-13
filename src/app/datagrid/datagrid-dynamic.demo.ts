@@ -10,12 +10,9 @@ import {
   ViewChild,
   AfterViewInit,
 } from '@angular/core';
-
-import {
-  SohoDataGridComponent,
-  SohoPopupMenuComponent
-} from 'ids-enterprise-ng';
-
+// @ts-ignore
+import { SohoDataGridComponent, SohoPopupMenuComponent } from 'ids-enterprise-ng';
+// @ts-ignore
 import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 
 import { DataGridDemoService } from './datagrid-demo.service';

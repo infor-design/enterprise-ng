@@ -9,7 +9,9 @@ import {
   ToolbarSearchField
 } from './header-dynamic-demo.model';
 import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
+// @ts-ignore
 import { SohoToolbarComponent } from 'ids-enterprise-ng';
+// @ts-ignore
 import { SohoTabsComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -22,8 +24,8 @@ export class SohoHeaderDynamicDemoComponent {
   @HostBinding('class.has-toolbar') get hasHeaderToolbar() { return !!this.toolbarOptions; }
   @HostBinding('class.has-tabs') get hasHeaderTabs() { return !!this.tabOptions; }
 
-  @ViewChild(SohoToolbarComponent, { static: true }) sohoToolbarComponent: SohoToolbarComponent;
-  @ViewChild(SohoTabsComponent) sohoTabsComponent: SohoTabsComponent;
+  @ViewChild(SohoToolbarComponent, { static: true }) sohoToolbarComponent?: SohoToolbarComponent;
+  @ViewChild(SohoTabsComponent) sohoTabsComponent?: SohoTabsComponent;
 
   /**
    * The current screen title

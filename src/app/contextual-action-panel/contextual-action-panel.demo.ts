@@ -3,11 +3,8 @@ import {
   ViewContainerRef,
   ViewChild
 } from '@angular/core';
-
-import {
-  SohoContextualActionPanelService,
-  SohoContextualActionPanelRef,
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoContextualActionPanelService, SohoContextualActionPanelRef } from 'ids-enterprise-ng';
 
 import { ContextualActionPanelComponent } from './contextual-action-panel.component';
 import { ContextualActionPanelSearchfieldComponent } from './contextual-action-panel-searchfield.component';

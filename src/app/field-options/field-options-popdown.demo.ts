@@ -2,10 +2,8 @@ import {
   Component,
   ViewChild
 } from '@angular/core';
-
-import {
-  SohoPopDownDirective
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoPopDownDirective } from 'ids-enterprise-ng';
 
 /**
  * This example shows clicking on an entry in an ajax build context menu, opening up

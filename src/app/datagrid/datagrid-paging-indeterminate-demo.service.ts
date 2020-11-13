@@ -5,7 +5,7 @@ import {
 } from 'rxjs';
 
 import { Injectable } from '@angular/core';
-
+// @ts-ignore
 import { SohoDataGridService } from 'ids-enterprise-ng';
 
 import {

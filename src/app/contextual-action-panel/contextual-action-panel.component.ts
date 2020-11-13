@@ -3,12 +3,8 @@ import {
   ViewChild,
   ViewContainerRef
  } from '@angular/core';
-
-import {
-  SohoContextualActionPanelService,
-  SohoContextualActionPanelRef,
-  SohoModalDialogService
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoContextualActionPanelService, SohoContextualActionPanelRef, SohoModalDialogService } from 'ids-enterprise-ng';
 
 import { NestedModalDialogComponent } from './nested-modal-dialog.component';
 import { NestedContextualActionPanelComponent } from './nested-contextualaction-panel.component';

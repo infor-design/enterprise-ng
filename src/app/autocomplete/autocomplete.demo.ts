@@ -5,6 +5,7 @@ import {
   Component,
   ViewChild
 } from '@angular/core';
+// @ts-ignore
 import { SohoAutoCompleteComponent } from 'ids-enterprise-ng';
 
 @Component({

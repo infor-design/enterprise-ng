@@ -4,6 +4,7 @@ import {
   ViewChildren,
   AfterViewInit
 } from '@angular/core';
+// @ts-ignore
 import { SohoDragDirective } from 'ids-enterprise-ng';
 
 @Component({

@@ -3,11 +3,8 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-
-import {
-  SohoFileUploadComponent,
-  SohoTrackDirtyDirective
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoFileUploadComponent, SohoTrackDirtyDirective } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-fileupload-demo',

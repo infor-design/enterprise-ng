@@ -9,7 +9,6 @@ import {
   FormGroup,
 } from '@angular/forms';
 
-
 import { MOCK_STATES } from '../dropdown/dropdown-mock.data';
 import { productsColumns, productsData } from '../lookup/mock.data';
 

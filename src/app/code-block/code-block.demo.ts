@@ -3,6 +3,7 @@ import {
   Component, ElementRef,
   ViewChild
 } from '@angular/core';
+// @ts-ignore
 import { SohoPopDownDirective } from 'ids-enterprise-ng';
 import { columns, ledgerData } from './mock.data';
 

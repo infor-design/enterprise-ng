@@ -9,7 +9,7 @@ import {
   PAGING_COLUMNS,
   PAGING_DATA
 } from './datagrid-paging-data';
-
+// @ts-ignore
 import { SohoIconUtils } from 'ids-enterprise-ng';
 
 export const LMFavorite = (_row: any, _cell: any, _value: any, _col: any, rowData: any, _api: any): string => {

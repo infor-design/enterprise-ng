@@ -5,10 +5,8 @@ import {
 } from '@angular/core';
 
 import { DomSanitizer } from '@angular/platform-browser';
-
-import {
-  SohoEditorComponent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoEditorComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-editor-demo',

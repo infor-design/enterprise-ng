@@ -1,4 +1,5 @@
 import { AfterViewChecked, ChangeDetectionStrategy, Component, OnInit, ViewChild, OnDestroy, Inject, } from '@angular/core';
+// @ts-ignore
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
 import { PAGING_COLUMNS, PAGING_DATA } from './datagrid-paging-data';

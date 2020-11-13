@@ -4,6 +4,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { CalendarDemoService } from './calendar.demo.service';
+// @ts-ignore
 import { SohoCalendarComponent, SohoToastService } from 'ids-enterprise-ng';
 
 @Component({

@@ -3,7 +3,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoBarComponent } from 'ids-enterprise-ng';
 
 @Component({
