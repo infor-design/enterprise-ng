@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+// @ts-ignore
 import { SohoAccordionComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -9,32 +10,32 @@ export class AccordionPanelsDemoComponent {
 
   @ViewChild(SohoAccordionComponent, { static: true }) accordion: SohoAccordionComponent;
 
-  onBeforeCollapse(args) {
+  onBeforeCollapse(args: any) {
     console.log('Collapsed!', args);
   }
-  onBeforeExpand(args) {
+  onBeforeExpand(args: any) {
     console.log('Expanded!', args);
   }
-  onBeforeSelect(args) {
+  onBeforeSelect(args: any) {
     console.log('Selected!', args);
   }
-  onAfterExpand(args) {
+  onAfterExpand(args: any) {
     console.log('onAfterExpand!', args);
   }
-  onSelected(args) {
+  onSelected(args: any) {
     console.log('onSelected!', args);
   }
 
-  onFollowlink(args): void {
+  onFollowlink(args: any): void {
     console.log('onFollowlink!', args);
   }
-  onExpand(args) {
+  onExpand(args: any) {
     console.log('onExpand!', args);
   }
-  onCollapse(args): void {
+  onCollapse(args: any): void {
     console.log('onExpand!', args);
   }
-  onAfterCollapse(args): void {
+  onAfterCollapse(args: any): void {
     console.log('onAfterCollapse!', args);
   }
 }
