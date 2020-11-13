@@ -3,7 +3,7 @@ import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
 import { PAGING_COLUMNS, PAGING_DATA } from './datagrid-paging-data';
 
-const customErrorFormatter = function (row, cell, value, col, item, api) {
+const customErrorFormatter = function (row: any, cell: any, value: any, col: any, item: any, api: any) {
   value = `<svg class="icon datagrid-alert-icon icon-alert"
               style="height: 15px; margin-right: 6px; top: -2px; position: relative;"
               focusable="false" aria-hidden="true" role="presentation">
@@ -26,9 +26,10 @@ const customErrorFormatter = function (row, cell, value, col, item, api) {
   `,
 })
 export class NestedDatagridDemoComponent implements OnDestroy {
-  columns: SohoDataGridColumn[];
-  data: any[];
+  columns?: SohoDataGridColumn[];
+  data?: any[];
   id: any;
+
   constructor(@Inject('args') public args: any) {
     if (args && args.inputsData) {
       this.columns = args.inputsData;
@@ -58,7 +59,8 @@ export class DataGridExpandableRowNestedDemoComponent
 
   constructor() {}
 
-  gridOptions: SohoDataGridOptions = undefined;
+  gridOptions?: SohoDataGridOptions = undefined;
+
   ngOnInit() {
     this.gridOptions = this.buildGridOptions();
   }
@@ -529,7 +531,7 @@ export class DataGridExpandableRowNestedDemoComponent
         formatter: Soho.Formatters.Button,
         icon: 'delete',
         headerTooltip: 'Delete',
-        click: function (e, args) {
+        click: function (_e, args) {
           console.log(args[0].cell, args[0].row, args[0].item.id);
         },
       },

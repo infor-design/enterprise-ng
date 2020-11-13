@@ -32,7 +32,7 @@ export class FieldOptionsPopdownDemoComponent {
   constructor() {
   }
 
-  onSelected($event) {
+  onSelected($event: any) {
     const buttonId = $event.args[0].id;
     if (buttonId === 'ShowFieldHistory') {
       if (this.popdown) {
@@ -43,7 +43,7 @@ export class FieldOptionsPopdownDemoComponent {
     }
   }
 
-  onBeforeContextMenuOpen = (response: AjaxBeforeOpenResponseFunction, options: any) => {
+  onBeforeContextMenuOpen = (response: AjaxBeforeOpenResponseFunction, _options: any) => {
     response(this.MENU_RESPONSE_HTML);
     return;
   }

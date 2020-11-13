@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit, AfterViewChecked, AfterViewInit } from '@angular/core';
+import { Component, HostBinding, OnInit, AfterViewChecked } from '@angular/core';
 
 import { SohoRenderLoopService } from 'ids-enterprise-ng';
 

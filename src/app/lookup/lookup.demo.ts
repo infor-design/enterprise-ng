@@ -24,10 +24,10 @@ export class LookupDemoComponent implements OnInit {
   @ViewChild('templateId', { static: true }) sohoLookupComponent: SohoLookupComponent;
   @ViewChild('toggleButtons', { static: true }) sohoLookupRef: SohoLookupComponent;
 
-  public columns_product: SohoDataGridColumn[];
-  public columns_multi: SohoDataGridColumn[];
-  public entityIds: string;
-  public data_product: any[];
+  public columns_product?: SohoDataGridColumn[];
+  public columns_multi?: SohoDataGridColumn[];
+  public entityIds?: string;
+  public data_product?: any[];
   public customButtons: SohoModalButton[] = [
     {
       text: 'Enable', click: () => {
@@ -89,7 +89,7 @@ export class LookupDemoComponent implements OnInit {
     asyncexists: '2342203',
   };
   public showModel = false;
-  public templates: Array<Asset>;
+  public templates?: Array<Asset>;
 
   // So we can bind 'this' to the source function passed to the lookup control
   public context = this;
@@ -172,6 +172,10 @@ export class LookupDemoComponent implements OnInit {
       }
 
       // Server supports paging
+      if (!page || !pagesize) {
+        return;
+      }
+
       const startIndex = (page - 1) * pagesize;
       const endIndex = page * pagesize;
       dataResult = dataResult.slice(startIndex, endIndex);
@@ -194,7 +198,7 @@ export class LookupDemoComponent implements OnInit {
 
     // Some Sample Data
     productsData.forEach(data => {
-      this.data_product.push(data);
+      this.data_product?.push(data);
     });
 
     // Add checkbox for multi select Grid
@@ -202,8 +206,8 @@ export class LookupDemoComponent implements OnInit {
 
     // Define Columns for the Grid.
     productsColumns.forEach(column => {
-      this.columns_product.push(column);
-      this.columns_multi.push(column);
+      this.columns_product?.push(column);
+      this.columns_multi?.push(column);
     });
 
   }

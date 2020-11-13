@@ -11,8 +11,8 @@ import { DatagridTreegridServiceDemo } from './datagrid-treegrid-service.demo';
 })
 
 export class DatagridTreegridDynamicfilteringDemoComponent implements OnInit, AfterViewInit {
-  public data = [];
-  public gridOptions: SohoDataGridOptions;
+  public data: any = [];
+  public gridOptions?: SohoDataGridOptions;
 
   @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
   @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;

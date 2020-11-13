@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   QueryList,
   ViewChildren,
   AfterViewInit
@@ -13,7 +12,7 @@ import { SohoDragDirective } from 'ids-enterprise-ng';
 })
 export class DragDemoComponent implements AfterViewInit {
 
-  @ViewChildren(SohoDragDirective) drags: QueryList<SohoDragDirective>;
+  @ViewChildren(SohoDragDirective) drags?: QueryList<SohoDragDirective>;
 
   dragOption0 = {};
 

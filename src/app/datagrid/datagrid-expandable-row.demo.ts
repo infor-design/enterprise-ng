@@ -12,7 +12,7 @@ import {
   PAGING_DATA
 } from './datagrid-paging-data';
 
-const customErrorFormatter = function(row, cell, value, col, item, api) {
+const customErrorFormatter = function(row: any, cell: any, value: any, col: any, item: any, api: any) {
    value = `<svg class="icon datagrid-alert-icon icon-alert"
           style="height: 15px; margin-right: 6px; top: -2px; position: relative;"
           focusable="false" aria-hidden="true" role="presentation">
@@ -32,7 +32,8 @@ export class DataGridExpandableRowDemoComponent implements AfterViewChecked, OnI
   constructor(
   ) {}
 
-  gridOptions: SohoDataGridOptions = undefined;
+  gridOptions?: SohoDataGridOptions = undefined;
+
   ngOnInit() {
     this.gridOptions = this.buildGridOptions();
   }

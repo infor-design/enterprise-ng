@@ -3,10 +3,12 @@ import {
   ViewChild,
   ChangeDetectionStrategy,
 } from '@angular/core';
+
 import {
   SohoDataGridComponent,
   SohoDataGridService
 } from 'ids-enterprise-ng';
+
 import {
   DataGridDemoService
 } from './datagrid-demo.service';

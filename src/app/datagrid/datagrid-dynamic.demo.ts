@@ -36,7 +36,7 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
   public contextMenuEvent: any;
   public contextMenuId = 'grid-context-menu';
   private menuItemsChoice = -1;
-  public menuItems: MenuItem[];
+  public menuItems?: MenuItem[];
 
   constructor(
     private service: DataGridDemoService
@@ -51,7 +51,7 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
   }
 
   private addRows() {
-    this.service.getData(null).subscribe((d: any[]) => {
+    this.service.getData((null) as any).subscribe((d: any[]) => {
       this.busyIndicator.open();
       const newData = new Array<any>(...d);
       newData.forEach((r) => r.orderDate = new Date());
@@ -61,7 +61,7 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
   }
 
   addRow() {
-    this.service.getData(null).subscribe((d: any[]) => {
+    this.service.getData((null) as any).subscribe((d: any[]) => {
       const newData = new Array<any>(d[0]);
       newData.forEach((r) => r.orderDate = new Date());
       this.dataGrid.addRow(newData[0], 'top');

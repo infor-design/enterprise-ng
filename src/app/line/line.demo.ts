@@ -58,14 +58,14 @@ export class LineDemoComponent implements OnInit {
 
   constructor() { }
 
-  public xAxis: {};
+  public xAxis?: {};
 
   ngOnInit() {
     this.xAxis = {
-      formatText: function (d) {
+      formatText: function (d: any) {
         const text = d.split('|');
         let markup = '';
-        text.map(function (mapText, i) {
+        text.map(function (mapText: any, i: any) {
           markup += '<tspan x="0" dy="' + ((i + 1) * .55) + 'em">' + mapText.replace('|', ' ') + '</tspan>';
         });
         return markup;

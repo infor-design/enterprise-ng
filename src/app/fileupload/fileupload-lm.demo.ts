@@ -65,11 +65,11 @@ export class FileUploadLMDemoComponent implements OnInit {
     this.showDisplayLink = false;
   }
 
-  onUpdated(event: SohoFileUploadEvent) {
+  onUpdated(_event: SohoFileUploadEvent) {
     console.log('FileUploadDemoComponent.onUpdated');
   }
 
-  onAfterResetDirty(event: SohoTrackDirtyEvent) {
+  onAfterResetDirty(_event: SohoTrackDirtyEvent) {
     console.log('onAfterResetDirty');
   }
 
@@ -85,7 +85,7 @@ export class FileUploadLMDemoComponent implements OnInit {
     }
   }
 
-  onPristine(event: SohoTrackDirtyEvent) {
+  onPristine(_event: SohoTrackDirtyEvent) {
     console.log('onPristine');
   }
 }

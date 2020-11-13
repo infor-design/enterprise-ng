@@ -17,7 +17,7 @@ export class DropdownSimpleDemoComponent implements AfterViewInit {
   showModel = false;
 
   /** Used the html to comntrol the options. */
-  options = [];
+  options: any = [];
 
   ngAfterViewInit() {
     this.initialise();

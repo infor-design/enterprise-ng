@@ -23,7 +23,7 @@ const CELL = 5;
 export class DataGridDirtyIndicationDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
-  public gridOptions = undefined;
+  public gridOptions: any;
   public row = ROW;
   public cell = CELL;
 

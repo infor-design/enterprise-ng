@@ -55,7 +55,7 @@ export class DropdownTypeaheadDemoComponent implements AfterViewInit {
     const states = MOCK_ALL_STATES;
 
     // Filter based on the search term
-    const filtered = [];
+    const filtered: any = [];
     for (let i = 0; i < states.length; i++) {
       if (states[i].label.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) {
         filtered.push(states[i]);

@@ -1,6 +1,5 @@
 import {
   AfterViewChecked,
-  AfterViewInit,
   ChangeDetectionStrategy, ChangeDetectorRef,
   Component, NgZone, OnInit,
   ViewChild
@@ -22,7 +21,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
   private sohoDataGridComponent: SohoDataGridComponent;
 
   public showPageSizeSelector = true;
-  public gridOptions: SohoDataGridOptions = undefined;
+  public gridOptions?: SohoDataGridOptions = undefined;
   private selectedRow = 0;
   private updateSelectedRow = false;
 
@@ -93,11 +92,11 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
     this.toastService.show({ title: 'Selected', message: 'Rows Selected: ' + selectedRows + ' type ' + e.type });
   }
 
-  onOpenFilterRow(e: SohoDataGridOpenFilterRowEvent) {
+  onOpenFilterRow(_e: SohoDataGridOpenFilterRowEvent) {
     this.toastService.show({ title: 'Filter', message: 'filter row opened' });
   }
 
-  onCloseFilterRow(e: SohoDataGridCloseFilterRowEvent) {
+  onCloseFilterRow(_e: SohoDataGridCloseFilterRowEvent) {
     this.toastService.show({ title: 'Filter', message: 'filter row closed' });
   }
 

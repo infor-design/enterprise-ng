@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class DataGridCustomFormatterService {
 
-  public randomIntegerFormatter(row, cell, value, column, item, api) {
+  public randomIntegerFormatter(row: any, cell: any, _value: any, column: any, item: any, api: any) {
     const newValue = this.getRandomNumber();
     return Soho.Formatters.Integer(row, cell, newValue, column, item, api);
   }

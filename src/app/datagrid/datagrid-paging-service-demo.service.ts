@@ -24,8 +24,8 @@ export class DataGridPagingServiceDemoService extends SohoDataGridService {
   }
 
   getData(req: SohoDataGridSourceRequest): Observable<any> {
-    const begin: number = (req.activePage - 1) * req.pagesize;
-    const end: number = begin + req.pagesize;
+    const begin: number = ((req.activePage as any) - 1) * (req.pagesize as any);
+    const end: number = begin + (req.pagesize as any);
     const data: Array<any> = this.data.slice(begin, end);
     const result: any = { total: 100, data: data };
     return of(result);

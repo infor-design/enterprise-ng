@@ -97,11 +97,11 @@ export class HomePageDemoComponent {
   onSorted(event: any) {
     console.log('Sorted: ' + event);
   }
-  onBeforeOpen(event: any) {
+  onBeforeOpen(_event: any) {
   }
-  onClose(event: any) {
+  onClose(_event: any) {
   }
-  onOpen(event: any) {
+  onOpen(_event: any) {
   }
   onResize(args: SohoHomePageEvent) {
     console.log(args);

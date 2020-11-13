@@ -132,11 +132,11 @@ export const EDITORS_DATA: any[] = [
   }
 ];
 
-function FIELD_FN(row: any, field, grid) {
+function FIELD_FN(row: any, _field: any, _grid: any) {
   return row.status;
 }
 
-function MATCH_FN(value, row: any, field, grid) {
+function MATCH_FN(value: any, row: any, _field: any, _grid: any) {
   return (row.status === value);
 }
 
@@ -186,7 +186,7 @@ export class DemoCellInputEditorComponent implements SohoDataGridCellEditor {
   @ViewChild(SohoInputComponent, { static: true }) input: SohoInputComponent;
 
   value: string;
-  className: string;
+  className?: string;
 
   constructor( @Inject('args') public args: SohoDataGridPostRenderCellArgs) {
     this.value = args.value;
@@ -224,7 +224,7 @@ export class DemoCellDatePickerEditorComponent implements SohoDataGridCellEditor
   constructor( @Inject('args') public args: SohoDataGridPostRenderCellArgs) {
   }
 
-  className: 'datepicker';
+  className?: 'datepicker';
 
   val(value?: any) {
     if (value) {
@@ -285,7 +285,7 @@ export const EDITORS_COLUMNS: SohoDataGridColumn[] = [
   templateUrl: 'datagrid-angular-editor.demo.html'
 })
 export class DataGridAngularEditorDemoComponent implements OnInit {
-  gridOptions: SohoDataGridOptions = undefined;
+  gridOptions?: SohoDataGridOptions = undefined;
 
   ngOnInit() {
     this.gridOptions = {

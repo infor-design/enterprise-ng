@@ -1,8 +1,7 @@
 import {
   AfterViewChecked,
-  ChangeDetectionStrategy, ChangeDetectorRef,
+  ChangeDetectionStrategy,
   Component,
-  NgZone,
   OnInit,
   ViewChild
 } from '@angular/core';
@@ -24,7 +23,7 @@ export class DataGridSaveUserSettingsDemoComponent implements AfterViewChecked, 
   constructor(
   ) {}
 
-  gridOptions: SohoDataGridOptions = undefined;
+  gridOptions?: SohoDataGridOptions = undefined;
   selectedRow = 0;
   updateSelectedRow = false;
 

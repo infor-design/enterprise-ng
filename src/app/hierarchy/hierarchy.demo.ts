@@ -18,8 +18,8 @@ export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
 
   @ViewChild('SohoHierarchy') sohoHierarchy: SohoHierarchyComponent;
 
-  public data: Array<any>;
-  public legend: Array<SohoHierarchyLegend>;
+  public data?: Array<any>;
+  public legend?: Array<SohoHierarchyLegend>;
   public leafTemplate: any;
   public leafTemplateId = 'hierarchyChartTemplate';
   public legendKey = 'EmploymentType';

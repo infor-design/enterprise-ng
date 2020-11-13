@@ -1,7 +1,6 @@
 import {
   Component,
   AfterContentInit,
-  ElementRef,
   ViewChild,
   AfterViewInit,
   ChangeDetectionStrategy
@@ -26,8 +25,7 @@ export class DataGridBreadcrumbDemoComponent implements AfterContentInit, AfterV
   @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
   @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
 
-  constructor(private el: ElementRef,
-    private service: SohoDataGridService) {
+  constructor(private service: SohoDataGridService) {
   }
 
   ngAfterContentInit() {
@@ -57,6 +55,6 @@ export class DataGridBreadcrumbDemoComponent implements AfterContentInit, AfterV
     });
   }
 
-  onSelected(e: any) {
+  onSelected(_e: any) {
   }
 }

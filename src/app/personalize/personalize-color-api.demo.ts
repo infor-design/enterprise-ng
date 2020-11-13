@@ -7,10 +7,6 @@ import {
 } from '@angular/core';
 import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
 
-interface DropDownColor extends SohoPersonalizationColor {
-  iconData?: string;
-}
-
 @Component({
   selector: 'app-personalize-color-api-demo',
   templateUrl: 'personalize-color-api.demo.html',
@@ -20,17 +16,17 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
 
   @ViewChild(SohoPersonalizeDirective, { static: true }) personalize: SohoPersonalizeDirective;
 
-  themes: SohoTheme[];
-  colors: SohoPersonalizationColors;
+  themes?: SohoTheme[];
+  colors?: SohoPersonalizationColors;
   showModel = false;
 
   model = {
-    themeId: ' ',
-    colorId: 'default'
+    themeId: ' ' || undefined,
+    colorId: 'default' || undefined
   };
 
-  private currentThemeId;
-  private currentColorId;
+  private currentThemeId: any;
+  private currentColorId: any;
 
   constructor(private ref: ChangeDetectorRef) {}
 
@@ -69,7 +65,7 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
       return; // color did not change
     }
 
-    this.model.colorId = colorId;
+    this.model.colorId = colorId || '';
     this.ref.markForCheck();
   }
 

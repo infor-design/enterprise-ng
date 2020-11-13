@@ -35,7 +35,7 @@ import { SohoDropDownComponent } from 'ids-enterprise-ng';
 })
 export class DropdownReactiveDemoComponent {
 
-  @ViewChild(SohoDropDownComponent, { static: true }) dropdown;
+  @ViewChild(SohoDropDownComponent, { static: true }) dropdown: any;
   states = [
     {label: 'Arizona', value: 'AZ'},
     {label: 'California', value: 'CA'},
@@ -48,7 +48,7 @@ export class DropdownReactiveDemoComponent {
     state: new FormControl(this.states[3]),
   });
 
-  showModel: boolean;
+  showModel?: boolean;
 
   toggleModel() {
     this.showModel = !this.showModel;

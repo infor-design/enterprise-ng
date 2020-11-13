@@ -22,7 +22,7 @@ import { PAGING_COLUMNS, PAGING_DATA } from './datagrid-paging-data';
 export class DataGridMixedSelectionDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
-  public gridOptions = undefined;
+  public gridOptions: any = undefined;
   public disableRowDeactivation = true;
   public get rowDeactivationLabel() {
     return (this.disableRowDeactivation ? 'Enable ' : 'Disable ') + 'Row Deactivation';
@@ -39,29 +39,29 @@ export class DataGridMixedSelectionDemoComponent implements OnInit {
     };
   }
 
-  onRowDeactivationToggle(event) {
+  onRowDeactivationToggle(_event: any) {
     this.disableRowDeactivation = !this.disableRowDeactivation;
   }
 
-  onActivateSelectedRow(event) {
+  onActivateSelectedRow(_event: any) {
     if (this.sohoDataGridComponent.selectedRows().length > 0 && this.sohoDataGridComponent.selectedRows()[0].idx > -1) {
       this.sohoDataGridComponent.activateRow(this.sohoDataGridComponent.selectedRows()[0].idx);
     }
   }
 
-  onDeactivateActivatedRow(event) {
+  onDeactivateActivatedRow(_event: any) {
     this.sohoDataGridComponent.deactivateRow();
   }
 
-  onBeforeRowActivated(event) {
+  onBeforeRowActivated(event: any) {
     console.log('onBeforeRowActivated: ' + event);
   }
 
-  onRowActivated(event) {
+  onRowActivated(event: any) {
     console.log('onRowActivated: ' + event);
   }
 
-  onRowDeactivated(event) {
+  onRowDeactivated(event: any) {
     console.log('onRowDeactivated: ' + event);
   }
 }

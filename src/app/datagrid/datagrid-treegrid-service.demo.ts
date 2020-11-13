@@ -5,8 +5,8 @@ import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class DatagridTreegridServiceDemo {
 
-  private _columns: SohoDataGridColumn[];
-  private _data: Object[];
+  private _columns?: SohoDataGridColumn[];
+  private _data?: Object[];
 
   constructor(private http: HttpClient) {}
 

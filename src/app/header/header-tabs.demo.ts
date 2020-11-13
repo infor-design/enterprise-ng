@@ -12,8 +12,8 @@ import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
   templateUrl: 'header-tabs.demo.html'
 })
 export class HeaderTabsDemoComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
-  public currentTabsOptions: HeaderDynamicTabsetOptions = undefined;
-  private showHeaderTabs;
+  public currentTabsOptions?: HeaderDynamicTabsetOptions = undefined;
+  private showHeaderTabs: any;
 
   constructor(private sohoHeaderRef: HeaderDynamicDemoRefService) {}
 
@@ -25,7 +25,7 @@ export class HeaderTabsDemoComponent implements AfterViewInit, AfterViewChecked,
   }
 
   get isShowingHeaderTabs(): boolean {
-    return !!this.sohoHeaderRef.instance.hasHeaderTabs;
+    return !!this.sohoHeaderRef?.instance?.hasHeaderTabs;
   }
 
   ngOnDestroy() {
@@ -35,7 +35,7 @@ export class HeaderTabsDemoComponent implements AfterViewInit, AfterViewChecked,
     this.showTabs(false);
   }
 
-  onToggleHeaderTabs($event) {
+  onToggleHeaderTabs(_$event: any) {
     this.showHeaderTabs = !this.isShowingHeaderTabs;
   }
 
@@ -51,8 +51,8 @@ export class HeaderTabsDemoComponent implements AfterViewInit, AfterViewChecked,
 
   showTabs(showTabs: boolean): void {
     this.currentTabsOptions = showTabs ? this.tabOptions : undefined;
-    this.sohoHeaderRef.instance.sectionTitle = showTabs ? 'Header Tabs Demo' : null;
-    this.sohoHeaderRef.instance.tabOptions = this.currentTabsOptions;
+    (this.sohoHeaderRef.instance as any).sectionTitle = showTabs ? 'Header Tabs Demo' : null;
+    (this.sohoHeaderRef.instance as any).tabOptions = this.currentTabsOptions;
   }
 
   private tabOptions: HeaderDynamicTabsetOptions = {

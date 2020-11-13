@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component, OnInit,
   ViewChild
@@ -22,9 +21,9 @@ import { DataGridCustomFormatterService } from './datagrid-custom-formatter.serv
 export class DataGridCustomFormatterServiceDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
-  gridOptions: SohoDataGridOptions = undefined;
+  gridOptions?: SohoDataGridOptions = undefined;
 
-  RandomIntegerFormatter = (row, cell, value, column, item, api): string => {
+  RandomIntegerFormatter = (row: any, cell: any, value: any, column: any, item: any, api: any): string => {
     return this.formatterService.randomIntegerFormatter(row, cell, value, column, item, api);
   }
 

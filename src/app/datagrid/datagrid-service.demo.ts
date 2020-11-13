@@ -1,6 +1,5 @@
 import {
   Component,
-  ElementRef,
   ViewChild,
   ChangeDetectionStrategy
 } from '@angular/core';
@@ -24,7 +23,7 @@ import { SohoToastService } from 'ids-enterprise-ng';
 export class DataGridServiceDemoComponent {
   @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
   @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
-  constructor(private el: ElementRef, private toastService: SohoToastService) {
+  constructor(private toastService: SohoToastService) {
   }
 
   onSelected(e: SohoDataGridSelectedEvent) {
@@ -36,11 +35,11 @@ export class DataGridServiceDemoComponent {
     }
   }
 
-  onOpenFilterRow(e: SohoDataGridOpenFilterRowEvent) {
+  onOpenFilterRow(_e: SohoDataGridOpenFilterRowEvent) {
     this.toastService.show({title: 'Filterbar', message: 'filter row opened'});
   }
 
-  onCloseFilterRow(e: SohoDataGridCloseFilterRowEvent) {
+  onCloseFilterRow(_e: SohoDataGridCloseFilterRowEvent) {
     this.toastService.show({title: 'Filterbar', message: 'filter row closed'});
   }
 

@@ -43,11 +43,11 @@ export class DataGridLookupDialogDemoComponent implements AfterViewInit {
   }
 
   addRows() {
-    this.service.getData(null).subscribe((d: any[]) => {
+    this.service.getData((null as any)).subscribe((d: any[]) => {
       this.busyIndicator.open();
       const newData = new Array<any>(...d);
       newData.forEach(r => (r.orderDate = new Date()));
-      this._subject$.next(newData);
+      this._subject$.next((newData as any));
       this.busyIndicator.close(true);
     });
   }

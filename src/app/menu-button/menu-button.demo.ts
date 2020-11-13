@@ -7,11 +7,11 @@ import { SohoMenuButtonComponent } from 'ids-enterprise-ng';
 })
 export class MenuButtonDemoComponent implements OnInit, AfterViewInit {
   @ViewChild('ajax', { static: true })ajaxMenuButton: SohoMenuButtonComponent;
-  public menuButtons: Array<any>;
+  public menuButtons?: Array<any>;
 
-  public showLastOption: boolean;
-  public toggle: boolean;
-  public isDisabled: boolean;
+  public showLastOption?: boolean;
+  public toggle?: boolean;
+  public isDisabled?: boolean;
 
   private SUBMENU_RESPONSE_HTML = `
     <li><a href="#" id="SubOptionOne" data-action="AJAX sub-option 1">AJAX sub-option 1</a></li>

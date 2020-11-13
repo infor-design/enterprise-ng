@@ -55,7 +55,7 @@ export class DataGridSettingsDemoComponent {
     this.datagrid.isList = !this.datagrid.isList;
     this.datagrid.alternateRowShading = !this.datagrid.alternateRowShading;
     this.datagrid.cellNavigation = !this.datagrid.cellNavigation;
-    this.datagrid.isRowDisabled = (rowIndex, rowData) => {
+    this.datagrid.isRowDisabled = (rowIndex: any, _rowData: any) => {
       return rowIndex % 2 === 0;
     };
   }

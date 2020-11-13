@@ -25,7 +25,7 @@ export class ModalDialogDemoComponent {
    * This can be the ViewContainerRef of this component, or another component.
    */
   @ViewChild('dialogPlaceholder', { read: ViewContainerRef, static: true })
-  placeholder: ViewContainerRef;
+  placeholder?: ViewContainerRef;
 
   public closeResult = '(N/A)';
   public title = 'Example Modal Dialog';
@@ -79,7 +79,7 @@ export class ModalDialogDemoComponent {
         { text: 'Submit', click: () => { dialogRef.close(); }, isDefault: true }])
       .title(this.title)
       .open()
-      .afterClose((result) => {
+      .afterClose((result: any) => {
         this.closeResult = result;
       });
   }
@@ -94,7 +94,7 @@ export class ModalDialogDemoComponent {
         ])
       .title(this.title)
       .open()
-      .afterClose(result => {
+      .afterClose((result: any) => {
         this.closeResult = result;
       });
   }
@@ -109,8 +109,8 @@ export class ModalDialogDemoComponent {
         ])
       .title(this.title)
       .open()
-      .beforeClose((ref) => ref.dialogResult === 'CANCEL')
-      .afterClose(result => {
+      .beforeClose((ref: any) => ref.dialogResult === 'CANCEL')
+      .afterClose((result: any) => {
         this.closeResult = result;
       });
   }
@@ -124,7 +124,7 @@ export class ModalDialogDemoComponent {
           { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
       .title(this.title)
       .open()
-      .afterClose(result => {
+      .afterClose((result: any) => {
         this.closeResult = result;
       });
   }
@@ -137,7 +137,7 @@ export class ModalDialogDemoComponent {
         { text: 'NO', click: () => { dialogRef.close('NO'); }, isDefault: true }])
       .title(this.title)
       .open()
-      .afterClose(result => {
+      .afterClose((result: any) => {
         alert(`You selected ${result}`);
         this.closeResult = result;
       });
@@ -151,7 +151,7 @@ export class ModalDialogDemoComponent {
         { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
       .title(this.title)
       .open()
-      .afterClose(result => {
+      .afterClose((result: any) => {
         this.closeResult = result;
       });
   }

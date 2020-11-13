@@ -22,7 +22,7 @@ import {
 export class DataGridTestSettingsDemoComponent {
   @ViewChild(SohoDataGridComponent, { static: true }) datagrid: SohoDataGridComponent;
 
-  constructor(private readonly gridService: SohoDataGridService) {
+  constructor() {
   }
 
   public resetColumns() {
@@ -33,6 +33,6 @@ export class DataGridTestSettingsDemoComponent {
     this.datagrid.personalizeColumns();
   }
 
-  public onSelected(event) {
+  public onSelected(_event: any) {
   }
 }

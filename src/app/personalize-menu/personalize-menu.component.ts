@@ -32,8 +32,8 @@ export class PersonalizeMenuComponent implements OnInit {
    */
   @HostBinding('class.is-selectable') isSelectable = true;
 
-  public themeMenuItems: ThemeMenuItem[];
-  public colorMenuItems: ColorMenuItem[];
+  public themeMenuItems?: ThemeMenuItem[];
+  public colorMenuItems?: ColorMenuItem[];
 
   /**
    * Default Theme: this should really be based on the one selected in
@@ -73,14 +73,14 @@ export class PersonalizeMenuComponent implements OnInit {
 
   setSelectedTheme(themeId: string) {
     // Make sure only the current theme is marked as selected.
-    this.themeMenuItems.forEach((theme) => {
+    this.themeMenuItems?.forEach((theme) => {
       theme.selected = (theme.id === themeId);
     });
   }
 
   setSelectedColor(color: string, isDefault: boolean) {
     // Make sure only the current color is marked as selected.
-    this.colorMenuItems.forEach((colorMenuItem) => {
+    this.colorMenuItems?.forEach((colorMenuItem) => {
       // The color is appearing as a real rgb value, so need to
       colorMenuItem.selected = (!isDefault && colorMenuItem.value === color);
     });

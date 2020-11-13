@@ -17,15 +17,15 @@ import { DataGridPagingServiceDemoService } from './datagrid-paging-service-demo
 })
 export class DataGridPagingServiceDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
-  private uniqueId: string;
+  private uniqueId?: string;
 
-  private savedColumns: Object;
-  private savedRowHeight: string;
-  private savedSortOrder: string;
-  private savedPagesize: string;
-  private savedActivePage: string;
-  private savedFilter: string;
-  public gridOptions = undefined;
+  private savedColumns?: Object;
+  private savedRowHeight?: string;
+  private savedSortOrder?: string;
+  private savedPagesize?: string;
+  private savedActivePage?: string;
+  private savedFilter?: string;
+  public gridOptions: any = undefined;
 
   constructor(private datagridPagingService: DataGridPagingServiceDemoService) {}
 
@@ -63,11 +63,11 @@ export class DataGridPagingServiceDemoComponent implements OnInit {
     });
   }
 
-  exportExcel(e: any) {
+  exportExcel(_e: any) {
     this.sohoDataGridComponent.exportToExcel('', '', this.datagridPagingService.getAllData());
   }
 
-  exportCsv(e: any) {
+  exportCsv(_e: any) {
     this.sohoDataGridComponent.exportToCsv('', this.datagridPagingService.getAllData());
   }
 
@@ -89,7 +89,7 @@ export class DataGridPagingServiceDemoComponent implements OnInit {
     lscache.set(this.uniqueId + 'filter', JSON.stringify(event.filter));
   }
 
-  onRendered(event: SohoDataGridRenderedEvent) {
+  onRendered(_event: SohoDataGridRenderedEvent) {
     const columnString = lscache.get(this.uniqueId + 'columns') ? JSON.stringify(lscache.get(this.uniqueId + 'columns')) : undefined;
     if (!this.sohoDataGridComponent) {
       return;

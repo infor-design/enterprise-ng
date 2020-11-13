@@ -75,29 +75,26 @@ export class FieldFilterDemoComponent {
   onFiltered(event: SohoFieldFilteredEvent) {
     const targetElement = event.target as Element;
     const id = targetElement.id;
-    if (id.includes('date-with-range')) {
-      this.model.dateRange.filterType = event.filterOption.value;
-      if (event.filterOption.value === 'in-range') {
+
+    if (id.includes('date-with-range') && event) {
+      (this.model.dateRange as any).filterType = event.filterOption?.value;
+      if (event?.filterOption?.value === 'in-range') {
         this.dateMode = 'range';
       } else {
         this.dateMode = 'standard';
       }
 
     } else if (id.includes('filter-text')) {
-      this.model.text.filterType = event.filterOption.value;
+      (this.model.text as any).filterType = event.filterOption?.value;
 
     } else if (id.includes('example-dropdown')) {
-      this.model.dropdown.filterType = event.filterOption.value;
-
+      (this.model.dropdown as any).filterType = event.filterOption?.value;
     } else if (id.includes('product-lookup')) {
-      this.model.lookup.filterType = event.filterOption.value;
-
+      (this.model.lookup as any).filterType = event.filterOption?.value;
     } else if (id.includes('date-without-range')) {
-      this.model.date.filterType = event.filterOption.value;
-
+      (this.model.date as any).filterType = event.filterOption?.value;
     } else if (id.includes('example-multiselect')) {
-      this.model.multiselect.filterType = event.filterOption.value;
-
+      (this.model.multiselect as any).filterType = event.filterOption?.value;
     }
   }
 

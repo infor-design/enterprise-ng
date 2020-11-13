@@ -126,11 +126,11 @@ export const EDITORS_DATA: any[] = [
   }
 ];
 
-function FIELD_FN(row: any, field, grid) {
+function FIELD_FN(row: any, _field: any, _grid: any) {
    return row.status;
 }
 
-function MATCH_FN (value, row: any, field, grid) {
+function MATCH_FN (value: any, row: any, _field: any, _grid: any) {
    return (row.status === value);
 }
 
@@ -259,7 +259,7 @@ export class DataGridEditorsDemoComponent implements OnInit {
 
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
-  gridOptions = null;
+  gridOptions: any = null;
 
   ngOnInit(): void {
     this.gridOptions = {

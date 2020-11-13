@@ -24,7 +24,7 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
     private datagridPagingService: DataGridPagingIndeterminateDemoService
   ) {}
 
-  gridOptions: SohoDataGridOptions = undefined;
+  gridOptions?: SohoDataGridOptions = undefined;
   selectedRow = 0;
   updateSelectedRow = false;
 

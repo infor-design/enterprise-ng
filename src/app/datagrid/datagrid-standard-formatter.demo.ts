@@ -21,7 +21,8 @@ import {
 export class DataGridStandardFormatterDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
-  gridOptions = undefined;
+  gridOptions: any = undefined;
+
   ngOnInit(): void {
     this.gridOptions = this.buildGridOptions();
   }

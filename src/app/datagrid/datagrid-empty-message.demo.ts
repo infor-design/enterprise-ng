@@ -30,8 +30,8 @@ export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
 
   @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
 
-  public hasData: boolean;
-  public emptyMessage: SohoEmptyMessageOptions = DataGridEmptyMessageDemoComponent.EMPTY_MSG_SERVER_ERROR;
+  public hasData?: boolean;
+  public emptyMessage: null | SohoEmptyMessageOptions = DataGridEmptyMessageDemoComponent.EMPTY_MSG_SERVER_ERROR;
 
   constructor(private service: DataGridDemoService) { }
 

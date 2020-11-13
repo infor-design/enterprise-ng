@@ -34,8 +34,8 @@ export class DataGridGroupableDemoComponent implements OnInit {
 
   public groups: any[] = [];
 
-  constructor(private service: SohoDataGridService) {
-    service.getColumns().forEach(element => {
+  constructor(service: SohoDataGridService) {
+    service.getColumns().forEach((element: any) => {
       if (element.field && element.hidden !== true) {
         this.groups.push({value: element.field, text: element.name});
       }

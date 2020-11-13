@@ -12,9 +12,9 @@ export class DataGridTreeGridCubeDemoComponent implements OnInit, AfterViewInit 
   @ViewChild(SohoChartComponent) sohoChartComponent: SohoChartComponent;
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
 
-  private _columns: SohoDataGridColumn[];
+  private _columns?: SohoDataGridColumn[];
   private _data: any;
-  private _chartData: Array<SohoDataSetItem>;
+  private _chartData?: Array<SohoDataSetItem>;
 
   ngOnInit() {
 
@@ -145,7 +145,7 @@ export class DataGridTreeGridCubeDemoComponent implements OnInit, AfterViewInit 
 
   private buildChartData(data: any[]): Array<SohoDataSetItem> {
     const chartData: Array<SohoDataSetItem> = [];
-    data.forEach((row: any, index: number) => {
+    data.forEach((row: any, _index: number) => {
       const chartRow: SohoDataSetItem = {} as SohoDataSetItem;
       chartRow.name = row.Dimension;
       chartRow.data = [];
@@ -161,7 +161,7 @@ export class DataGridTreeGridCubeDemoComponent implements OnInit, AfterViewInit 
     this.sohoChartComponent.chartOptions = chartOptions;
   }
 
-  public get chartData(): Array<SohoDataSetItem> {
+  public get chartData(): Array<SohoDataSetItem> | undefined {
     return this._chartData;
   }
 }

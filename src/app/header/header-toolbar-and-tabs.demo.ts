@@ -15,16 +15,16 @@ import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
 })
 export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
 
-  public currentTabsOptions: HeaderDynamicTabsetOptions = undefined;
-  private showHeaderTabs: boolean;
-  private showHeaderToolbar: boolean;
+  public currentTabsOptions?: HeaderDynamicTabsetOptions = undefined;
+  private showHeaderTabs?: boolean;
+  private showHeaderToolbar?: boolean;
 
-  public get isShowingHeaderToolbar(): boolean {
-    return this.sohoHeaderRef.instance.hasHeaderToolbar;
+  public get isShowingHeaderToolbar(): boolean | undefined {
+    return this.sohoHeaderRef?.instance?.hasHeaderToolbar;
   }
 
-  public get isShowingHeaderTabs(): boolean {
-    return this.sohoHeaderRef.instance.hasHeaderTabs;
+  public get isShowingHeaderTabs(): boolean | undefined {
+    return this.sohoHeaderRef?.instance?.hasHeaderTabs;
   }
 
   public tabsOptions: HeaderDynamicTabsetOptions = {
@@ -63,7 +63,7 @@ export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, AfterVi
     // ------------------------------------------------------------------------
     this.showHeaderTabs = true;
     this.showHeaderToolbar = true;
-    this.sohoHeaderRef.instance.sectionTitle = 'Header Toolbar And Tabs Demo';
+    (this.sohoHeaderRef.instance as any).sectionTitle = 'Header Toolbar And Tabs Demo';
   }
 
   ngOnDestroy() {
@@ -87,23 +87,23 @@ export class HeaderToolbarAndTabsDemoComponent implements AfterViewInit, AfterVi
     if (this.showHeaderTabs && !this.isShowingHeaderTabs) {
       setTimeout(() => {
         this.currentTabsOptions = this.tabsOptions;
-        this.sohoHeaderRef.instance.tabOptions = this.currentTabsOptions;
+        (this.sohoHeaderRef.instance as any).tabOptions = this.currentTabsOptions;
       });
     }
 
     if (!this.showHeaderTabs && this.isShowingHeaderTabs) {
       setTimeout(() => {
         this.currentTabsOptions = undefined;
-        this.sohoHeaderRef.instance.tabOptions = undefined;
+        (this.sohoHeaderRef.instance as any).tabOptions = undefined;
       });
     }
 
     if (this.showHeaderToolbar && !this.isShowingHeaderToolbar) {
-      setTimeout(() => this.sohoHeaderRef.instance.toolbarOptions = this.toolbarOptions);
+      setTimeout(() => (this.sohoHeaderRef.instance as any).toolbarOptions = this.toolbarOptions);
     }
 
     if (!this.showHeaderToolbar && this.isShowingHeaderToolbar) {
-      setTimeout(() => this.sohoHeaderRef.instance.toolbarOptions = undefined);
+      setTimeout(() => (this.sohoHeaderRef.instance as any).toolbarOptions = undefined);
     }
   }
 }

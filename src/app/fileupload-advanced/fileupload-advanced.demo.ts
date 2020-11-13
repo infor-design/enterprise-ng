@@ -53,14 +53,14 @@ export class FileUploadAdvancedDemoComponent implements OnInit {
     });
   }
 
-  onFilesdragenter(event: JQuery.TriggeredEvent) {
+  onFilesdragenter(_event: JQuery.TriggeredEvent) {
     console.log('FileUploadAdvancedDemoComponent.onFileDropped');
   }
 
   // To allow the function to passed into the options we need a scoped
   // local member variable representing the function, the neatest way is to
   // assign it to a lambda.
-  onSend = (formData: FormData, status: SohoFileUploadAdvancedStatus) => {
+  onSend = (_formData: FormData, status: SohoFileUploadAdvancedStatus) => {
 
     // To pass back multipart data to a WebApi requires the use of
     // a new FormData object, in which the additional non file data
@@ -74,7 +74,7 @@ export class FileUploadAdvancedDemoComponent implements OnInit {
     fd.append('BusinessUnitCode', 'PK1');
     fd.append('DataRecordType', `152`);
     fd.append('RecordKey', '81001');
-    fd.append('RecordKey2', null);
+    fd.append('RecordKey2', (null as any));
     fd.append('MimeType', status.file.type);
     fd.append('Data', status.file);
 
@@ -87,7 +87,7 @@ export class FileUploadAdvancedDemoComponent implements OnInit {
     // fileuploadadvnced widget to be updated.
     this.http.request(req).subscribe(event => {
       if (event.type === HttpEventType.UploadProgress) {
-        const percentDone = Math.round(100 * event.loaded / event.total);
+        const percentDone = Math.round(100 * event.loaded / (event as any).total);
         status.setProgress(percentDone);
       } else if (event instanceof HttpResponse) {
         status.setCompleted();

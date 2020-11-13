@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 /**
  * This example shows basic field options functionality on input elements

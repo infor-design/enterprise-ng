@@ -40,7 +40,7 @@ export class ListViewDemoComponent implements OnInit {
     '07/08/2015',
   ];
   public descCounter = 0;
-  public contentTypes: ContentType[];
+  public contentTypes?: ContentType[];
 
   constructor(private _contentService: ContentTypeService) {
     this._contentService.getContentTypes()
@@ -72,14 +72,12 @@ export class ListViewDemoComponent implements OnInit {
 
   addItems() {
     // Make sure we are passing a new object to the listview as an input
-    let temp = this.demoTasks;
     this.demoTasks = this.demoTasks.splice(0);
     this.demoTasks.push({
       task: `0${this.counter++}`,
       date: this.dates[Math.floor(Math.random() * this.dates.length)],
       desc: 'Description number ' + this.descCounter++,
     });
-    temp = null;
   }
 
   selectItems(listView: SohoListViewComponent) {
@@ -89,18 +87,17 @@ export class ListViewDemoComponent implements OnInit {
   }
 
   unselectItems(listView: SohoListViewComponent) {
-    listView.unselect(listView.items.map((item) => item.selector));
+    listView.unselect(listView.items.map((item: any) => item.selector));
   }
 
   removeItems(listView: SohoListViewComponent) {
-    listView.remove(listView.items.map((e) => e.index));
+    listView.remove(listView.items.map((e: any) => e.index));
 
     this.demoTasks = [];
   }
 
   load() {
     setTimeout(() => {
-    let temp = this.loadTasks;
     this.loadTasks = [];
     this.loadTasks.push({task: '063001', error: true, date: '10/11/2015', desc: 'Special fields test - New item has been created.'});
     this.loadTasks.push({task: '063002', date: '10/11/2015' , desc: 'Part #4212132 has low inventory level', disabled: true});
@@ -114,7 +111,6 @@ export class ListViewDemoComponent implements OnInit {
     this.loadTasks.push({task: '063010', date: '10/11/2015' , desc: 'Special fields test - New item has been created.'});
     this.loadTasks.push({task: '063011', date: '10/11/2015' , desc: 'Call TMZ Inc at 5 PM'});
     this.loadTasks.push({task: '063012', date: '07/08/2015' , desc: 'Part #6212132 has low inventory level'});
-    temp = null;
     }, 1000);
   }
 

@@ -106,7 +106,7 @@ export class DatepickerDemoComponent implements OnInit {
   }
 
   registerCustomValidator() {
-    Soho.Validation.rules['customRule'] = {
+    const customRule: any = {
       check: function (value: any, field: any, grid: any) {
         console.log(value, field, grid);
         return false;
@@ -115,5 +115,8 @@ export class DatepickerDemoComponent implements OnInit {
       type: 'error',
       message: 'Test Error - Anything you enter will be wrong'
     };
+
+    // @ts-ignore
+    Soho.Validation.rules['customRule'] = customRule;
   }
 }

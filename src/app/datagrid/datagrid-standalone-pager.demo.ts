@@ -10,8 +10,8 @@ import { DatagridStandalonePagerDemoService } from './datagrid-standalone-pager-
 export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnInit {
   @ViewChild(SohoDataGridComponent, { static: true }) sohoDataGridComponent: SohoDataGridComponent;
 
-  data: any[];
-  columns: SohoDataGridColumn[];
+  data?: any[];
+  columns?: SohoDataGridColumn[];
   showPageSizeSelector = true;
   pageSize = 10;
   pageSizes = [ 5, 10, 25, 100 ];
@@ -19,8 +19,8 @@ export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnIn
   isLastPage = true;
 
   // need to keep track of last filter and sort as setting data removes the visual state for these.
-  private currentConditions: SohoDataGridFilterCondition[];
-  private currentSort: SohoDataGridSortedEvent;
+  private currentConditions?: SohoDataGridFilterCondition[];
+  private currentSort?: SohoDataGridSortedEvent;
 
   constructor(
     private ngZone: NgZone,
@@ -88,7 +88,7 @@ export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnIn
 
       if (this.currentSort) {
         // todo: for disableClientSort setting data resets the sort - reset them here
-        setTimeout(() => this.sohoDataGridComponent.setSortIndicator(this.currentSort.sortId, this.currentSort.sortAsc));
+        setTimeout(() => this.sohoDataGridComponent.setSortIndicator(this.currentSort?.sortId, this.currentSort?.sortAsc));
       }
     }));
   }
