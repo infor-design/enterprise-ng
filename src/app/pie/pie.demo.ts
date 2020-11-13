@@ -66,11 +66,11 @@ export class PieDemoComponent implements OnInit {
 
   setChartSelection() {
     const sohoPieSelected: SohoPieSelected = this.selection;
-    this.sohoPieComponent.setSelected(sohoPieSelected);
+    this.sohoPieComponent?.setSelected(sohoPieSelected);
   }
 
   toggleChartSelection () {
     const sohoPieSelected: SohoPieSelected = this.selection;
-    this.sohoPieComponent.toggleSelected(sohoPieSelected);
+    this.sohoPieComponent?.toggleSelected(sohoPieSelected);
   }
 }

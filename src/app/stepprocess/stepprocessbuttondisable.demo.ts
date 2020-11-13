@@ -11,11 +11,11 @@ export class StepProcessBtnDisableDemoComponent implements AfterViewInit {
   @ViewChild('sohoStepProcessComponent', { static: true }) sohoStepProcessComponent?: SohoStepProcessComponent;
 
   ngAfterViewInit() {
-    this.sohoStepProcessComponent.previousButtonEnable = false;
-    this.sohoStepProcessComponent.nextButtonEnable = false;
+    (this.sohoStepProcessComponent as any).previousButtonEnable = false;
+    (this.sohoStepProcessComponent as any).nextButtonEnable = false;
     setTimeout(() => {
-      this.sohoStepProcessComponent.previousButtonEnable = true;
-      this.sohoStepProcessComponent.nextButtonEnable = true;
+      (this.sohoStepProcessComponent as any).previousButtonEnable = true;
+      (this.sohoStepProcessComponent as any).nextButtonEnable = true;
     }, 5000);
   }
 }

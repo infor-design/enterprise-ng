@@ -30,13 +30,13 @@ export class FileUploadAdvancedDemoComponent implements OnInit {
   }
 
   setEnable() {
-    this.fileUploadAdvanced.disabled = false;
-    this.fileUploadDisabled = this.fileUploadAdvanced.disabled;
+    (this.fileUploadAdvanced as any).disabled = false;
+    this.fileUploadDisabled = (this.fileUploadAdvanced as any).disabled;
   }
 
   setDisable() {
-    this.fileUploadAdvanced.disabled = true;
-    this.fileUploadDisabled = this.fileUploadAdvanced.disabled;
+    (this.fileUploadAdvanced as any).disabled = true;
+    this.fileUploadDisabled = (this.fileUploadAdvanced as any).disabled;
   }
 
   onFileAborted(file: File) {

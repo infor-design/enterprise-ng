@@ -47,15 +47,19 @@ export class ModalDialogDemoComponent {
           {
             text: 'Enable', click: () => {
               const api = dialogRef.buttonsetAPI;
-              api.at(2).disabled = false;
-              api.at(3).disabled = false;
+              if (api) {
+                api.at(2).disabled = false;
+                api.at(3).disabled = false;
+              }
             }
           },
           {
             text: 'Disable', click: () => {
               const api = dialogRef.buttonsetAPI;
-              api.at(2).disabled = true;
-              api.at(3).disabled = true;
+              if (api) {
+                api.at(2).disabled = true;
+                api.at(3).disabled = true;
+              }
             }
           },
           { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },

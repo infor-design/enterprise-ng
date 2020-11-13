@@ -88,7 +88,7 @@ export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
     // SetTimeout to give soho control a moment to render
     if (this.initializing && this.data && this.sohoHierarchy) {
       this.initializing = false;
-      setTimeout(() => this.sohoHierarchy.selectLeaf('1_1'));
+      setTimeout(() => this.sohoHierarchy?.selectLeaf('1_1'));
     }
   }
 
@@ -98,7 +98,7 @@ export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
     if (hierarchyEvent.eventType === 'expand' && !this.lazyDataLoaded) {
       this.hierarchyService.getHierarchyData().subscribe((data) => {
         const newData = data[0].lazyDataSet;
-        this.sohoHierarchy.add(hierarchyEvent.data.id, this.data, newData);
+        this.sohoHierarchy?.add(hierarchyEvent.data.id, this.data, newData);
         this.lazyDataLoaded = true;
       });
     }
@@ -107,7 +107,7 @@ export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
     // This one is used to illustrate a sub menu and disabled state
     if (hierarchyEvent.isActionsEvent && (hierarchyEvent.data.id !== '1_3_2' && hierarchyEvent.data.id !== '1_1')) {
       const actions = [{ value: 'action-1' }, { value: 'action-2' }];
-      this.sohoHierarchy.updateActions(hierarchyEvent, actions);
+      this.sohoHierarchy?.updateActions(hierarchyEvent, actions);
     }
   }
 

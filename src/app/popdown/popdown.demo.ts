@@ -122,10 +122,10 @@ export class PopDownDemoComponent {
   }
 
   public onClickOK() {
-    this.statesPopDown.close();
+    this.statesPopDown?.close();
   }
 
   public onClickCancel() {
-    this.statesPopDown.close();
+    this.statesPopDown?.close();
   }
 }

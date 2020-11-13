@@ -27,11 +27,11 @@ export class SpinboxDemoComponent {
   }
 
   setDisable() {
-    this.disabled = this.spinbox.disabled = true;
+    this.disabled = (this.spinbox as any).disabled = true;
   }
 
   setEnable() {
-    this.disabled = this.spinbox.disabled = false;
+    this.disabled = (this.spinbox as any).disabled = false;
   }
 
   toggleModel() {
@@ -41,7 +41,7 @@ export class SpinboxDemoComponent {
   update() {
     this.val = 46;
     if (!this.disabled) {
-      this.spinbox.value = 80;
+      (this.spinbox as any).value = 80;
     }
   }
 

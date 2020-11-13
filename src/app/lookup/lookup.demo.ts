@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+// @ts-ignore
 import { SohoLookupComponent } from 'ids-enterprise-ng';
 import { TemplateService } from './template.service';
 import { Asset } from './asset';
@@ -32,20 +33,20 @@ export class LookupDemoComponent implements OnInit {
   public customButtons: SohoModalButton[] = [
     {
       text: 'Enable', click: () => {
-        const api = this.sohoLookupRef.modal.buttonsetAPI;
+        const api = this.sohoLookupRef?.modal?.buttonsetAPI;
         api.at(2).disabled = false;
         api.at(3).disabled = false;
       }
     },
     {
       text: 'Disable', click: () => {
-        const api = this.sohoLookupRef.modal.buttonsetAPI;
+        const api = this.sohoLookupRef?.modal?.buttonsetAPI;
         api.at(2).disabled = true;
         api.at(3).disabled = true;
       }
     },
-    { text: 'Cancel', click: () => { this.sohoLookupRef.modal.close(); } },
-    { text: 'Submit', click: () => { this.sohoLookupRef.modal.close(); }, isDefault: true }
+    { text: 'Cancel', click: () => { this.sohoLookupRef?.modal?.close(); } },
+    { text: 'Submit', click: () => { this.sohoLookupRef?.modal?.close(); }, isDefault: true }
   ];
   public model: any = {
     single: null,
@@ -119,7 +120,7 @@ export class LookupDemoComponent implements OnInit {
         fullWidth: false,
       }
     } as SohoDataGridOptions;
-    this.sohoLookupComponent.options = lookupOptions;
+    (this.sohoLookupComponent as any).options = lookupOptions;
     this.service.getAvailableTemplates().subscribe(result => {
       this.templates = result.data;
     });

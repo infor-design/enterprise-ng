@@ -335,8 +335,13 @@ export class DataGridEditorsDemoComponent implements OnInit {
   }
 
   clearStatus() {
-    let dirtyRows: Array<any> = this.sohoDataGridComponent?.dirtyRows();
-    let allRows: Array<any> = this.sohoDataGridComponent?.dataset;
+    let dirtyRows: Array<any> | null | undefined = this.sohoDataGridComponent?.dirtyRows();
+    let allRows: Array<any>  | null | undefined = this.sohoDataGridComponent?.dataset;
+
+    if (!dirtyRows || !allRows) {
+      return;
+    }
+
     console.log('dirtyRows().length = ' + dirtyRows.length);
     for (let i = 0, l = allRows.length; i < l; i++) {
       var row = allRows[i];
@@ -350,7 +355,7 @@ export class DataGridEditorsDemoComponent implements OnInit {
   }
 
   export () {
-    this.sohoDataGridComponent?.exportToExcel('', '', null);
+    this.sohoDataGridComponent?.exportToExcel('', '');
   }
 
   public onBeforeEnterEditMode(event: SohoDataGridEditModeEvent) {
@@ -369,8 +374,11 @@ export class DataGridEditorsDemoComponent implements OnInit {
 
   // Note: If we called this onKeyDown we would get the NG keydown firing as well.
   public onKeyDown(event: SohoDataGridKeyDownEvent) {
-    if (event.e && event.e.which === 13 &&
-      this.sohoDataGridComponent?.dataset.length - 1 === event.args.row && event.args.cell === 4) {
+    if (event.e && event.e.which === 13 && this.sohoDataGridComponent &&
+      this.sohoDataGridComponent.dataset &&
+      this.sohoDataGridComponent.dataset.length &&
+      this.sohoDataGridComponent.dataset.length - 1 === event.args.row &&
+      event.args.cell === 4) {
       this.sohoDataGridComponent?.addRow({id: (parseInt('214229', 10) + this.cnt).toString() }, 'bottom');
       this.cnt++;
       return event.response(false);

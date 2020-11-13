@@ -65,7 +65,7 @@ export class ListViewDemoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.singleSelectListView.clearAllSelected();
+    this.singleSelectListView?.clearAllSelected();
   }
 
   addItems() {

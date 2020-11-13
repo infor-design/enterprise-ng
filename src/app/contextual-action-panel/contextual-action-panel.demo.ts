@@ -64,11 +64,11 @@ export class ContextualActionPanelDemoComponent {
         isDefault: true
       }];
 
-    if (!this.panelRef || !this.panelService) {
+    if (!this.panelRef || !this.panelService || !this.placeholder) {
       return;
     }
 
-    this.panelRef = this.panelService.contextualactionpanel(ContextualActionPanelComponent, (this.placeholder as any))
+    this.panelRef = this.panelService.contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
       .modalSettings({ buttons: buttons, title: this.title })
       .open()
       .initializeContent(true)
@@ -109,17 +109,21 @@ export class ContextualActionPanelDemoComponent {
         isDefault: true
       }];
 
-    if (!this.panelRef || !this.panelService) {
+    if (!this.panelRef || !this.panelService || !this.placeholder) {
       return;
     }
 
-    this.panelRef = this.panelService?.contextualactionpanel(NestedContextualActionPanelComponent, (this.placeholder as any))
+    this.panelRef = this.panelService?.contextualactionpanel(NestedContextualActionPanelComponent, this.placeholder as any)
       .modalSettings({ buttons: buttons, title: this.title })
       .open()
       .initializeContent(true);
   }
 
   openSearchfieldPanel() {
+    if (!this.panelRef || !this.panelService || !this.placeholder) {
+      return;
+    }
+
     const panel = this.panelService?.contextualactionpanel(ContextualActionPanelSearchfieldComponent, this.placeholder);
     panel
       .apply((component: any) => component.panel = panel)
@@ -128,6 +132,10 @@ export class ContextualActionPanelDemoComponent {
   }
 
   openSearchfieldFlexPanel() {
+    if (!this.panelRef || !this.panelService || !this.placeholder) {
+      return;
+    }
+
     const panel = this.panelService?.contextualactionpanel(ContextualActionPanelSearchfieldFlexComponent, this.placeholder);
     panel
       .apply((component: any) => component.panel = panel)
@@ -158,12 +166,12 @@ export class ContextualActionPanelDemoComponent {
         isDefault: true
       }];
 
-    if (!this.panelRef || !this.panelService) {
+    if (!this.panelRef || !this.panelService || this.placeholder) {
       return;
     }
 
     // In openPanel(), change the first CAP opening so that panelRef can be provided with apply
-    this.panelRef = this.panelService?.contextualactionpanel(ContextualActionPanelComponent, (this.placeholder as any))
+    this.panelRef = this.panelService?.contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
       .modalSettings({ buttons: buttons, title: this.title })
       .initializeContent(true);
 

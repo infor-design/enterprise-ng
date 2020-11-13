@@ -1085,10 +1085,10 @@ interface SohoDataGridStatic {
   toggleFilterRow(): void;
 
   /** Accept conditions from outside or pull from filter row */
-  applyFilter(conditions?: Array<SohoDataGridFilterCondition>): void;
+  applyFilter(conditions?: Array<SohoDataGridFilterCondition> | null | undefined): void;
 
   /** Set the filter row from passed data / settings */
-  setFilterConditions(conditions: Array<SohoDataGridFilterCondition>): void;
+  setFilterConditions(conditions: Array<SohoDataGridFilterCondition> | null | undefined): void;
 
   /** Get filter conditions in array form from the UI */
   filterConditions(): Array<SohoDataGridFilterCondition>;
@@ -1135,7 +1135,7 @@ interface SohoDataGridStatic {
 
   triggerSource(pagerType: SohoDataGridTriggerSourcePagerType, callback?: Function): void;
 
-  exportToExcel(fileName: string, worksheetName: string, customDs: Object[]): void;
+  exportToExcel(fileName: string, worksheetName: string | null | undefined, customDs: Object[] | null | undefined): void;
 
   exportToCsv(fileName: string, customDs: Object[], separator: string): void;
 

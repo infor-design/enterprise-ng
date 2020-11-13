@@ -28,12 +28,12 @@ export class ListViewCustomContentDemoComponent implements OnInit {
     this.data = this.data2;
   }
   makeMultipleSelection() {
-    this.sohoListViewComponent.selectable = 'multiple';
+    (this.sohoListViewComponent as any).selectable = 'multiple';
   }
   makeSingleSelection() {
-    this.sohoListViewComponent.selectable = 'single';
+    (this.sohoListViewComponent as any).selectable = 'single';
   }
   makeMixedSelection() {
-    this.sohoListViewComponent.selectable = 'mixed';
+    (this.sohoListViewComponent as any).selectable = 'mixed';
   }
 }
