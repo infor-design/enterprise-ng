@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { SohoLookupComponent } from 'ids-enterprise-ng';
 import { TemplateService } from './template.service';
 import { Asset } from './asset';
+// @ts-ignore
 import { SohoToastService } from 'ids-enterprise-ng';
 
 import {
@@ -21,8 +22,8 @@ export interface FakeResponse {
   templateUrl: 'lookup.demo.html',
 })
 export class LookupDemoComponent implements OnInit {
-  @ViewChild('templateId', { static: true }) sohoLookupComponent: SohoLookupComponent;
-  @ViewChild('toggleButtons', { static: true }) sohoLookupRef: SohoLookupComponent;
+  @ViewChild('templateId', { static: true }) sohoLookupComponent?: SohoLookupComponent;
+  @ViewChild('toggleButtons', { static: true }) sohoLookupRef?: SohoLookupComponent;
 
   public columns_product?: SohoDataGridColumn[];
   public columns_multi?: SohoDataGridColumn[];

@@ -7,7 +7,7 @@ import { SohoHomePageComponent } from 'ids-enterprise-ng';
   templateUrl: 'homepage.demo.html',
 })
 export class HomePageDemoComponent {
-  @ViewChild(SohoHomePageComponent, { static: true }) homepage: SohoHomePageComponent;
+  @ViewChild(SohoHomePageComponent, { static: true }) homepage?: SohoHomePageComponent;
 
   public demoTasks: Object[];
 

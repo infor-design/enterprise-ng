@@ -22,9 +22,9 @@ import { DataGridLookupSelectionEvent } from './datagrid-lookup-event.demo';
 })
 export class DataGridLookupDialogDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent, { static: true })
-  dataGrid: SohoDataGridComponent;
+  dataGrid?: SohoDataGridComponent;
   @ViewChild(SohoBusyIndicatorDirective, { static: true })
-  busyIndicator: SohoBusyIndicatorDirective;
+  busyIndicator?: SohoBusyIndicatorDirective;
 
   @Output() lookupSelection = new EventEmitter<
     DataGridLookupSelectionEvent<DataGridLookupDialogDemoComponent>

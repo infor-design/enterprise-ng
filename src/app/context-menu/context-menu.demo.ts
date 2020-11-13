@@ -14,8 +14,8 @@ import { SohoTextAreaComponent, SohoContextMenuDirective } from 'ids-enterprise-
 })
 export class ContextMenuDemoComponent implements OnInit {
 
-  @ViewChild(SohoTextAreaComponent, { static: true }) textarea: SohoTextAreaComponent;
-  @ViewChild('menuOne') menuOneContextMenu: SohoContextMenuDirective;
+  @ViewChild(SohoTextAreaComponent, { static: true }) textarea?: SohoTextAreaComponent;
+  @ViewChild('menuOne') menuOneContextMenu?: SohoContextMenuDirective;
 
   public normalText = `Input Example`;
   public modText = `Enabled Text Area Example`;

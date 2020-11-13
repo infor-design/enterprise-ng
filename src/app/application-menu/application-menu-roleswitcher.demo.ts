@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 // @ts-ignore
 import { SohoApplicationMenuComponent } from 'ids-enterprise-ng';
-import { ApplicationMenuLazyMenuDemoComponent } from './application-menu-lazy-menu.demo';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -17,13 +16,12 @@ import { ApplicationMenuLazyMenuDemoComponent } from './application-menu-lazy-me
 })
 export class ApplicationMenuRoleSwitcherDemoComponent implements AfterViewInit, OnInit {
 
-  @ViewChild(SohoApplicationMenuComponent) applicationMenu: SohoApplicationMenuComponent;
-  @ViewChild(ApplicationMenuLazyMenuDemoComponent) private _lazyMenuComponent: ApplicationMenuLazyMenuDemoComponent;
+  @ViewChild(SohoApplicationMenuComponent) applicationMenu?: SohoApplicationMenuComponent;
 
   public triggers: Array<string> = [];
   public menu: Array<any> = [];
   public menuItems: Array<string> = [];
-  public myRole: string;
+  public myRole?: string;
   public hasChangePasswordLink = true;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {

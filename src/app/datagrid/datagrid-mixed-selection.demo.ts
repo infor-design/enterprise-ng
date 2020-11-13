@@ -17,7 +17,7 @@ import { PAGING_COLUMNS, PAGING_DATA } from './datagrid-paging-data';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridMixedSelectionDemoComponent implements OnInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;
 
   public gridOptions: any = undefined;
   public disableRowDeactivation = true;

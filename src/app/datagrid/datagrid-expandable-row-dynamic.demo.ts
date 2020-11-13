@@ -51,7 +51,7 @@ export class ExpandedDemoComponent implements OnDestroy {
 export class DataGridExpandableRowDynamicDemoComponent
   implements AfterViewChecked, OnInit {
   @ViewChild(SohoDataGridComponent)
-  sohoDataGridComponent: SohoDataGridComponent;
+  sohoDataGridComponent?: SohoDataGridComponent;
 
   constructor() {}
 

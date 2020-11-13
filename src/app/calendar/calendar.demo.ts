@@ -18,7 +18,7 @@ export class CalendarDemoComponent {
   @HostBinding('style.height') height = 'auto';
   @HostBinding('style.display') block = 'block';
 
-  @ViewChild(SohoCalendarComponent) sohoCalendarComponent: SohoCalendarComponent;
+  @ViewChild(SohoCalendarComponent) sohoCalendarComponent?: SohoCalendarComponent;
 
   public initialMonth = 1;
   public initialYear = 2019;

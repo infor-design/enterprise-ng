@@ -17,7 +17,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridSettingsDemoComponent {
-  @ViewChild(SohoDataGridComponent, { static: true }) datagrid: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: true }) datagrid?: SohoDataGridComponent;
 
   constructor(gridService: SohoDataGridService) {
     (gridService as DataGridDemoService).addColumn({

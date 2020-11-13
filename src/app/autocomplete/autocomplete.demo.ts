@@ -73,7 +73,7 @@ export class AutocompleteDemoComponent implements AfterViewInit {
     'World',
     '<script>alert(1)</script>xss'
   ];
-  @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
+  @ViewChild(SohoAutoCompleteComponent) autocomplete?: SohoAutoCompleteComponent;
 
   public selected: any;
   options?: SohoAutoCompleteOptions;

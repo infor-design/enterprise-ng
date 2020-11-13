@@ -19,7 +19,7 @@ import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indete
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridGroupedHeaderDemoComponent implements AfterViewChecked, OnInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;
 
   gridOptions: any = null;
   selectedRow = 0;

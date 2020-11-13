@@ -51,7 +51,7 @@ export class ButtonsetDemoComponent implements AfterViewInit {
   ];
 
   @ViewChild(SohoButtonsetComponent)
-  public buttonset: SohoButtonsetComponent;
+  public buttonset?: SohoButtonsetComponent;
 
   public get buttonCount() {
     if (this.buttonset) {

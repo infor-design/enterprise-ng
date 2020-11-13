@@ -18,7 +18,7 @@ import { SohoApplicationMenuComponent } from 'ids-enterprise-ng';
 })
 export class ApplicationMenuLazyDemoComponent implements AfterViewInit, OnInit {
 
-  @ViewChild(SohoApplicationMenuComponent, { static: true }) applicationMenu: SohoApplicationMenuComponent;
+  @ViewChild(SohoApplicationMenuComponent, { static: true }) applicationMenu?: SohoApplicationMenuComponent;
   @ViewChild('webAppMenuHeader', { static: true }) private _webAppMenuHeader?: ElementRef;
 
   public triggers: Array<string> = [];

@@ -19,8 +19,8 @@ import { SohoFileUploadComponent, SohoTrackDirtyDirective } from 'ids-enterprise
 })
 export class FileUploadLMDemoComponent implements OnInit {
 
-  @ViewChild(SohoFileUploadComponent, { static: true }) fileupload: SohoFileUploadComponent;
-  @ViewChild('trackDirty', { static: true }) trackdirty: SohoTrackDirtyDirective;
+  @ViewChild(SohoFileUploadComponent, { static: true }) fileupload?: SohoFileUploadComponent;
+  @ViewChild('trackDirty', { static: true }) trackdirty?: SohoTrackDirtyDirective;
 
   public name3 = 'file-name-track-dirty-existing';
   public fileName = 'add-employee.png';

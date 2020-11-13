@@ -18,7 +18,7 @@ import { DataGridCustomFormatterService } from './datagrid-custom-formatter.serv
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridCustomFormatterServiceDemoComponent implements OnInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;
 
   gridOptions?: SohoDataGridOptions = undefined;
 

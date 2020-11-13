@@ -28,7 +28,7 @@ export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
     color: 'azure'
   };
 
-  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;
 
   public hasData?: boolean;
   public emptyMessage: null | SohoEmptyMessageOptions = DataGridEmptyMessageDemoComponent.EMPTY_MSG_SERVER_ERROR;

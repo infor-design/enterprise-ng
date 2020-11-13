@@ -12,8 +12,8 @@ import { DatagridTreegridLazyServiceDemo } from './datagrid-treegrid-lazy-servic
   providers: [DatagridTreegridLazyServiceDemo]
 })
 export class DataGridTreeGridLazyDemoComponent {
-  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
-  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator?: SohoBusyIndicatorDirective;
 
   events: any[] = [];
 

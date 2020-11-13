@@ -14,7 +14,7 @@ import { SohoDropDownComponent } from 'ids-enterprise-ng';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownMultiselectLandmarkDemoComponent implements OnInit {
-  @ViewChild(SohoDropDownComponent) dropdown: SohoDropDownComponent;
+  @ViewChild(SohoDropDownComponent) dropdown?: SohoDropDownComponent;
   @ViewChild(SohoDropDownComponent, { read: ElementRef }) dropdownElement?: ElementRef;
 
   public counter = 0;

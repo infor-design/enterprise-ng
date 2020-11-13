@@ -13,7 +13,7 @@ import { SohoCalendarComponent } from 'ids-enterprise-ng';
 })
 export class CalendarLegendDemoComponent {
 
-  @ViewChild('SohoCalendarComponent') sohoCalendarComponent: SohoCalendarComponent;
+  @ViewChild('SohoCalendarComponent') sohoCalendarComponent?: SohoCalendarComponent;
 
   public initialMonth = 11;
   public initialYear = 2018;

@@ -17,7 +17,7 @@ import { HttpResponse } from '@angular/common/http';
 })
 export class FileUploadAdvancedDemoComponent implements OnInit {
 
-  @ViewChild(SohoFileUploadAdvancedComponent, { static: true }) fileUploadAdvanced: SohoFileUploadAdvancedComponent;
+  @ViewChild(SohoFileUploadAdvancedComponent, { static: true }) fileUploadAdvanced?: SohoFileUploadAdvancedComponent;
 
   public showModel = false;
   public fileUploadDisabled = false;

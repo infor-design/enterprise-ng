@@ -14,7 +14,7 @@ import { SohoToolbarFlexComponent } from 'ids-enterprise-ng';
 })
 export class ApplicationMenuTestPerfDemoComponent implements AfterViewChecked {
 
-  @ViewChild(SohoToolbarFlexComponent) sohoFlexToolbar: SohoToolbarFlexComponent;
+  @ViewChild(SohoToolbarFlexComponent) sohoFlexToolbar?: SohoToolbarFlexComponent;
 
   public checkBox1Value = false;
   public updateToolbar = false;

@@ -19,7 +19,7 @@ import { SohoChartComponent } from 'ids-enterprise-ng';
 })
 export class ChartDemoComponent implements OnInit {
 
-  @ViewChild(SohoChartComponent, { static: true }) sohoChartComponent: SohoChartComponent;
+  @ViewChild(SohoChartComponent, { static: true }) sohoChartComponent?: SohoChartComponent;
 
   @HostBinding('style.display') get getDisplay() {
     return 'block';

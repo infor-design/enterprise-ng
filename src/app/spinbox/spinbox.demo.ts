@@ -8,7 +8,7 @@ import { SohoSpinboxComponent } from 'ids-enterprise-ng';
 })
 
 export class SpinboxDemoComponent {
-  @ViewChild('spinbox', { static: true }) spinbox: SohoSpinboxComponent;
+  @ViewChild('spinbox', { static: true }) spinbox?: SohoSpinboxComponent;
 
   public model = { // tslint:disable-line
     value1: '10'

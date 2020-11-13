@@ -13,7 +13,7 @@ import { SohoFileUploadComponent } from './soho-fileupload.component';
   `
 })
 class SohoFileUploadTestComponent {
-  @ViewChild(SohoFileUploadComponent) fileupload: SohoFileUploadComponent;
+  @ViewChild(SohoFileUploadComponent) fileupload?: SohoFileUploadComponent;
   public name = 'File';
   public text = 'File Upload';
 }

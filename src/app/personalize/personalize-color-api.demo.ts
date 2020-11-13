@@ -5,6 +5,7 @@ import {
   ViewChild,
   OnInit,
 } from '@angular/core';
+// @ts-ignore
 import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
 
 @Component({
@@ -14,7 +15,7 @@ import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
 })
 export class PersonalizeColorApiDemoComponent implements OnInit {
 
-  @ViewChild(SohoPersonalizeDirective, { static: true }) personalize: SohoPersonalizeDirective;
+  @ViewChild(SohoPersonalizeDirective, { static: true }) personalize?: SohoPersonalizeDirective;
 
   themes?: SohoTheme[];
   colors?: SohoPersonalizationColors;

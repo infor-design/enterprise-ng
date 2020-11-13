@@ -19,7 +19,7 @@ import { SohoBreadcrumbComponent } from 'ids-enterprise-ng';
 })
 export class BreadcrumbGauntletDemoComponent {
 
-  @ViewChild(SohoBreadcrumbComponent, { static: true }) breadcrumb: SohoBreadcrumbComponent;
+  @ViewChild(SohoBreadcrumbComponent, { static: true }) breadcrumb?: SohoBreadcrumbComponent;
 
   public breadcrumbIdCount = 0;
   public demoForm: FormGroup;

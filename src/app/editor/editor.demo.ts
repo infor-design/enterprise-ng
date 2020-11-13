@@ -15,7 +15,7 @@ import { SohoEditorComponent } from 'ids-enterprise-ng';
 })
 export class EditorDemoComponent implements AfterViewInit {
 
-  @ViewChild(SohoEditorComponent) editor: SohoEditorComponent;
+  @ViewChild(SohoEditorComponent) editor?: SohoEditorComponent;
 
   public model: any;
   public showMultipleEditors = false;

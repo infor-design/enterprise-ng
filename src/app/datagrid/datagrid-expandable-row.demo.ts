@@ -28,7 +28,7 @@ const customErrorFormatter = function(row: any, cell: any, value: any, col: any,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridExpandableRowDemoComponent implements AfterViewChecked, OnInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;
 
   constructor(
   ) {}

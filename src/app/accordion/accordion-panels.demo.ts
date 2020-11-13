@@ -8,7 +8,7 @@ import { SohoAccordionComponent } from 'ids-enterprise-ng';
 })
 export class AccordionPanelsDemoComponent {
 
-  @ViewChild(SohoAccordionComponent, { static: true }) accordion: SohoAccordionComponent;
+  @ViewChild(SohoAccordionComponent, { static: true }) accordion?: SohoAccordionComponent;
 
   onBeforeCollapse(args: any) {
     console.log('Collapsed!', args);

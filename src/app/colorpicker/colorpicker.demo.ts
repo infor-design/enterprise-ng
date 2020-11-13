@@ -14,7 +14,7 @@ import { SohoColorPickerComponent } from 'ids-enterprise-ng';
 })
 export class ColorPickerDemoComponent implements OnInit, AfterViewInit {
 
-  @ViewChild(SohoColorPickerComponent, { static: true }) colorpicker: SohoColorPickerComponent;
+  @ViewChild(SohoColorPickerComponent, { static: true }) colorpicker?: SohoColorPickerComponent;
 
   public model = {
     color: '#1a1a1a',

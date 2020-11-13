@@ -12,8 +12,8 @@ import { DatagridTreegridServiceDemo } from './datagrid-treegrid-service.demo';
   providers: [DatagridTreegridServiceDemo]
 })
 export class DataGridTreeGridDemoComponent {
-  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
-  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator?: SohoBusyIndicatorDirective;
 
   events: any[] = [];
 

@@ -19,7 +19,7 @@ const CELL = 5;
   templateUrl: 'datagrid-dirty-indication.demo.html',
 })
 export class DataGridDirtyIndicationDemoComponent implements OnInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;
 
   public gridOptions: any;
   public row = ROW;

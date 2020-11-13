@@ -14,7 +14,7 @@ import { columns, ledgerData } from './mock.data';
 })
 export class CodeBlockDemoComponent implements AfterViewInit {
 
-  @ViewChild(SohoPopDownDirective, { static: true }) popdown: SohoPopDownDirective;
+  @ViewChild(SohoPopDownDirective, { static: true }) popdown?: SohoPopDownDirective;
   @ViewChild('compound_field_popdown_contents', { static: true }) contents?: ElementRef;
 
   public model = {

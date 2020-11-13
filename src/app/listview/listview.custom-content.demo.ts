@@ -3,10 +3,8 @@ import {
   OnInit,
   ViewChild
  } from '@angular/core';
-
- import {
-   SohoListViewComponent
- } from 'ids-enterprise-ng';
+// @ts-ignore
+ import { SohoListViewComponent } from 'ids-enterprise-ng';
 
 // @ts-ignore
 @Component({
@@ -15,7 +13,7 @@ import {
 })
 export class ListViewCustomContentDemoComponent implements OnInit {
 
-  @ViewChild(SohoListViewComponent, { static: true }) sohoListViewComponent: SohoListViewComponent;
+  @ViewChild(SohoListViewComponent, { static: true }) sohoListViewComponent?: SohoListViewComponent;
   data1 = ['ONE', 'TWO', 'THREE'];
   data2 = ['Four', 'FIVE', 'SIX', 'SEVEN'];
   data = this.data1;

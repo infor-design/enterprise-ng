@@ -17,7 +17,7 @@ import { SohoHierarchyComponent } from 'ids-enterprise-ng';
 })
 export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
 
-  @ViewChild('SohoHierarchy') sohoHierarchy: SohoHierarchyComponent;
+  @ViewChild('SohoHierarchy') sohoHierarchy?: SohoHierarchyComponent;
 
   public data?: Array<any>;
   public legend?: Array<SohoHierarchyLegend>;

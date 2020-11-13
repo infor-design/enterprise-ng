@@ -76,8 +76,8 @@ describe('Soho Tree Map Unit Tests', () => {
   });
 
   it('check inputs', () => {
-    const margin = [];
-    const colors = [];
+    const margin: any = [];
+    const colors: any = [];
     const emptyMessage: SohoEmptyMessageOptions = {
       title: 'this chart has no data',
       icon: 'icon-empty-no-data',
@@ -107,8 +107,8 @@ describe('Soho Tree Map Unit Tests', () => {
 
     // once bar chart is built setting input should cause bar.settings to update
     const updatedTreeData = [...treeData];
-    const updatedMargin = [];
-    const updatedColors = [];
+    const updatedMargin: any = [];
+    const updatedColors: any = [];
     const updatedEmptyMessage: SohoEmptyMessageOptions = {
       title: 'nothing to display',
       icon: 'icon-empty-no-data',
@@ -147,12 +147,11 @@ describe('Soho Tree Map Unit Tests', () => {
   template: `<div soho-treemap [dataset]="data"></div>`
 })
 class SohoTreemapTestComponent {
-  @ViewChild(SohoTreemapComponent, { static: true }) treemap: SohoTreemapComponent;
+  @ViewChild(SohoTreemapComponent, { static: true }) treemap?: SohoTreemapComponent;
   public data = treeData;
 }
 
 describe('Soho Tree Map Render', () => {
-  let component: SohoTreemapTestComponent;
   let fixture: ComponentFixture<SohoTreemapTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -164,7 +163,6 @@ describe('Soho Tree Map Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoTreemapTestComponent);
-    component = fixture.componentInstance;
     de = fixture.debugElement;
     el = de.query(By.css('[soho-treemap]')).nativeElement;
 

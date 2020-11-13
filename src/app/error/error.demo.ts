@@ -14,7 +14,7 @@ import { SohoErrorDirective } from 'ids-enterprise-ng';
   templateUrl: 'error.demo.html'
 })
 export class ErrorDemoComponent {
-  @ViewChild(SohoErrorDirective, { static: true }) public error: SohoErrorDirective; // tslint:disable-line
+  @ViewChild(SohoErrorDirective, { static: true }) public error?: SohoErrorDirective; // tslint:disable-line
 
   // tslint:disable-next-line:no-unused-variable
   public message = 'Field is required';

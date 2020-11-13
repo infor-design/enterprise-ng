@@ -14,8 +14,8 @@ import { SohoTextAreaComponent, SohoContextMenuDirective } from 'ids-enterprise-
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContextMenuToggleDemoComponent implements OnInit {
-  @ViewChild(SohoTextAreaComponent, { static: true }) textarea: SohoTextAreaComponent;
-  @ViewChild(SohoContextMenuDirective) contextMenu: SohoContextMenuDirective;
+  @ViewChild(SohoTextAreaComponent, { static: true }) textarea?: SohoTextAreaComponent;
+  @ViewChild(SohoContextMenuDirective) contextMenu?: SohoContextMenuDirective;
 
   public labelText?: string;
   public isShowContextMenu?: boolean;

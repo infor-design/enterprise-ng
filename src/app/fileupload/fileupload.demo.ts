@@ -12,8 +12,8 @@ import { SohoFileUploadComponent, SohoTrackDirtyDirective } from 'ids-enterprise
 })
 export class FileUploadDemoComponent implements OnInit {
 
-  @ViewChild(SohoFileUploadComponent, { static: true }) fileupload: SohoFileUploadComponent;
-  @ViewChild(SohoTrackDirtyDirective, { static: true }) trackdirty: SohoTrackDirtyDirective;
+  @ViewChild(SohoFileUploadComponent, { static: true }) fileupload?: SohoFileUploadComponent;
+  @ViewChild(SohoTrackDirtyDirective, { static: true }) trackdirty?: SohoTrackDirtyDirective;
 
   public limitLabel = 'Limited to xls, xlsx and csv';
   public name1 = 'file-name';

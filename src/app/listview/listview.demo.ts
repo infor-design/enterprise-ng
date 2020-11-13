@@ -3,10 +3,8 @@ import {
   OnInit,
   ViewChild
  } from '@angular/core';
-
- import {
-   SohoListViewComponent
- } from 'ids-enterprise-ng';
+// @ts-ignore
+ import { SohoListViewComponent } from 'ids-enterprise-ng';
 
 import { ContentType } from './content-type.model';
 import { ContentTypeService } from './content-type.service';
@@ -23,11 +21,11 @@ import { ContentTypeService } from './content-type.service';
 })
 export class ListViewDemoComponent implements OnInit {
 
-  @ViewChild('singleSelectListView', { static: true }) singleSelectListView: SohoListViewComponent;
+  @ViewChild('singleSelectListView', { static: true }) singleSelectListView?: SohoListViewComponent;
 
-  @ViewChild('multipleSelectListView', { static: true }) multipleSelectListView: SohoListViewComponent;
+  @ViewChild('multipleSelectListView', { static: true }) multipleSelectListView?: SohoListViewComponent;
 
-  @ViewChild('mixedSelectionListView', { static: true }) mixedSelectionListView: SohoListViewComponent;
+  @ViewChild('mixedSelectionListView', { static: true }) mixedSelectionListView?: SohoListViewComponent;
 
   public errorMessage: any;
   public demoTasks: Object[];

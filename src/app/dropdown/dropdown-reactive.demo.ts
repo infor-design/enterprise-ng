@@ -36,7 +36,7 @@ import { SohoDropDownComponent } from 'ids-enterprise-ng';
 })
 export class DropdownReactiveDemoComponent {
 
-  @ViewChild(SohoDropDownComponent, { static: true }) dropdown: any;
+  @ViewChild(SohoDropDownComponent, { static: true }) dropdown?: any;
   states = [
     {label: 'Arizona', value: 'AZ'},
     {label: 'California', value: 'CA'},

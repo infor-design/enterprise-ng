@@ -17,7 +17,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridStandardFormatterDemoComponent implements OnInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;
 
   gridOptions: any = undefined;
 

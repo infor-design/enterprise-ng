@@ -20,7 +20,7 @@ enum MessageStatus {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridTabDemoComponent {
-  @ViewChild(SohoDataGridComponent, { static: true }) datagrid: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: true }) datagrid?: SohoDataGridComponent;
 
   public dataset = [
     {

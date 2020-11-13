@@ -18,7 +18,7 @@ import { SohoSearchFieldComponent } from 'ids-enterprise-ng';
   templateUrl: 'searchfield.demo.html'
 })
 export class SearchFieldDemoComponent implements OnInit {
-  @ViewChild(SohoSearchFieldComponent, { static: true }) searchfield: SohoSearchFieldComponent;
+  @ViewChild(SohoSearchFieldComponent, { static: true }) searchfield?: SohoSearchFieldComponent;
 
   /**
    * Bindable Model value for getting what was typed in the search box.

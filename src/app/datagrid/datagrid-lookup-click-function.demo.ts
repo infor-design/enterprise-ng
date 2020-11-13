@@ -12,7 +12,7 @@ import { DataGridLookupSelectionEvent } from './datagrid-lookup-event.demo';
 })
 export class DataGridLookupClickDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent)
-  sohoDataGridComponent: SohoDataGridComponent;
+  sohoDataGridComponent?: SohoDataGridComponent;
   @ViewChild('modalPlaceholder', { read: ViewContainerRef, static: true })
   modalPlaceholder?: ViewContainerRef;
 

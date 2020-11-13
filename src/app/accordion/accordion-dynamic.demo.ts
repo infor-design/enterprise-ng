@@ -29,7 +29,7 @@ export class AccordionDynamicDemoComponent {
 
   public allowOnePane = true;
 
-  @ViewChild(SohoAccordionComponent, { static: true }) accordion: SohoAccordionComponent;
+  @ViewChild(SohoAccordionComponent, { static: true }) accordion?: SohoAccordionComponent;
 
   public addMore() {
     this.sampleData.forEach((d) => { d.expanded = false; });

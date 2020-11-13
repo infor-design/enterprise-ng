@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
   ViewChild,
 } from '@angular/core';
 
@@ -21,9 +20,9 @@ export class BusyIndicatorDemoComponent {
 
   transparentOverlay = false;
 
-  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator?: SohoBusyIndicatorDirective;
 
-  constructor(private elementRef: ElementRef) {
+  constructor() {
   }
 
   start() {
@@ -36,7 +35,7 @@ export class BusyIndicatorDemoComponent {
 
   timer() {
     this.busyIndicator.activated = true;
-    setTimeout((f: any) => this.busyIndicator.activated = false, 10000);
+    setTimeout((_f: any) => this.busyIndicator.activated = false, 10000);
   }
 
   onAfterStart(event: SohoBusyIndicatorEvent) {

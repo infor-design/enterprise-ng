@@ -56,7 +56,7 @@ export class NestedDatagridDemoComponent implements OnDestroy {
 export class DataGridExpandableRowNestedDemoComponent
   implements AfterViewChecked, OnInit {
   @ViewChild(SohoDataGridComponent)
-  sohoDataGridComponent: SohoDataGridComponent;
+  sohoDataGridComponent?: SohoDataGridComponent;
 
   constructor() {}
 

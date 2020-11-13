@@ -23,7 +23,7 @@ is up to the calling application, but in this example the hosting component
 is used.
 
 ```typescript
-@ViewChild('panelPlaceholder', { read: ViewContainerRef }) placeholder: ViewContainerRef;
+@ViewChild('panelPlaceholder', { read: ViewContainerRef }) placeholder?: ViewContainerRef;
 ```
 
 In the markup for the hosting component add:

@@ -19,7 +19,7 @@ import { MOCK_STATES } from './dropdown-mock.data';
 })
 export class DropdownAsyncDemoComponent implements AfterViewInit {
   /** Reference to the dropdown component so we can interact with it programmatically. */
-  @ViewChild(SohoDropDownComponent, { static: true }) dropdown: SohoDropDownComponent;
+  @ViewChild(SohoDropDownComponent, { static: true }) dropdown?: SohoDropDownComponent;
 
   /** List of observable options {value: string, label: string} */
   @Input() options = new Subject<Array<any>>();

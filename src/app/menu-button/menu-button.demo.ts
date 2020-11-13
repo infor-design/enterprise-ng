@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+// @ts-ignore
 import { SohoMenuButtonComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -6,7 +7,7 @@ import { SohoMenuButtonComponent } from 'ids-enterprise-ng';
   templateUrl: 'menu-button.demo.html',
 })
 export class MenuButtonDemoComponent implements OnInit, AfterViewInit {
-  @ViewChild('ajax', { static: true })ajaxMenuButton: SohoMenuButtonComponent;
+  @ViewChild('ajax', { static: true })ajaxMenuButton?: SohoMenuButtonComponent;
   public menuButtons?: Array<any>;
 
   public showLastOption?: boolean;

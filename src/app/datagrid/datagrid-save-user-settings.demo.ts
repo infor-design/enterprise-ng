@@ -19,7 +19,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridSaveUserSettingsDemoComponent implements AfterViewChecked, OnInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;
 
   constructor(
   ) {}

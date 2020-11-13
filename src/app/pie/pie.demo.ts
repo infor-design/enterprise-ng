@@ -3,10 +3,8 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-
-import {
-  SohoPieComponent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoPieComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-pie-demo',
@@ -14,7 +12,7 @@ import {
 })
 export class PieDemoComponent implements OnInit {
 
-  @ViewChild(SohoPieComponent, { static: true }) sohoPieComponent: SohoPieComponent;
+  @ViewChild(SohoPieComponent, { static: true }) sohoPieComponent?: SohoPieComponent;
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   // private selection: SohoPieSelected  = {fieldName: 'name', fieldValue: 'Item D'};

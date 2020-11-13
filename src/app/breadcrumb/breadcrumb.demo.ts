@@ -15,7 +15,7 @@ import { STANDARD_DATA } from './breadcrumb-demo-data';
 })
 export class BreadcrumbDemoComponent {
 
-  @ViewChild(SohoBreadcrumbComponent, { static: true }) sohoBreadcrumbComponent: SohoBreadcrumbComponent;
+  @ViewChild(SohoBreadcrumbComponent, { static: true }) sohoBreadcrumbComponent?: SohoBreadcrumbComponent;
 
   public breadcrumbs = STANDARD_DATA;
 }

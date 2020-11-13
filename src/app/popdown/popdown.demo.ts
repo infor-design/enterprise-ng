@@ -1,9 +1,6 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-
-import {
-  SohoPopDownDirective,
-  SohoListViewComponent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoPopDownDirective, SohoListViewComponent } from 'ids-enterprise-ng';
 
 import {
   productsColumns,
@@ -15,9 +12,8 @@ import {
   templateUrl: 'popdown.demo.html',
 })
 export class PopDownDemoComponent {
-  @ViewChild('statesPopDown', { read: SohoPopDownDirective, static: true })
-  public statesPopDown: SohoPopDownDirective;
-  @ViewChild(SohoListViewComponent, { static: true }) public stateViewList: SohoListViewComponent;
+  @ViewChild('statesPopDown', { read: SohoPopDownDirective, static: true }) public statesPopDown?: SohoPopDownDirective;
+  @ViewChild(SohoListViewComponent, { static: true }) public stateViewList?: SohoListViewComponent;
 
   public showSelectedOnly = false;
   public columns_product?: SohoDataGridColumn[];

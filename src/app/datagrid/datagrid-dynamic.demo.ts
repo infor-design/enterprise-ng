@@ -23,9 +23,9 @@ import { DataGridDemoService } from './datagrid-demo.service';
   providers: [DataGridDemoService]
 })
 export class DataGridDynamicDemoComponent implements AfterViewInit {
-  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
-  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
-  @ViewChild(SohoPopupMenuComponent) popupMenu: SohoPopupMenuComponent;
+  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator?: SohoBusyIndicatorDirective;
+  @ViewChild(SohoPopupMenuComponent) popupMenu?: SohoPopupMenuComponent;
 
   private _subject$ = new Subject();
   public data = this._subject$.asObservable();
