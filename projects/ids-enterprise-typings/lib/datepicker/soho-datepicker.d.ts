@@ -84,6 +84,9 @@ interface SohoDatePickerOptions {
 
   /** Show the today button on the header. */
   showToday?: boolean;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /* Options for the legend */

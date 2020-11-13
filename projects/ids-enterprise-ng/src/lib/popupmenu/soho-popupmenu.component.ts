@@ -299,6 +299,21 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
     return this._popupMenuOptions.removeOnDestroy;
   }
 
+  @Input() set attributes(attributes: Array<Object> | Object) {
+    this._popupMenuOptions.attributes = attributes;
+    if (this.popupmenu) {
+      this.popupmenu.settings.attributes = attributes;
+    }
+  }
+
+  get attributes(): Array<Object> | Object {
+    if (this.popupmenu) {
+      return this.popupmenu.settings.attributes;
+    }
+
+    return this._popupMenuOptions.attributes;
+  }
+
   // -------------------------------------------
   // Component Output
   // -------------------------------------------

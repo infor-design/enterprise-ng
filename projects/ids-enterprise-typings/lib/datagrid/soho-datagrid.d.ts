@@ -60,6 +60,12 @@ interface SohoDataGridOptions {
    */
   spacerColumn?: boolean;
 
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
+
+  /* Experimental Feature to stick on the top of the page */
+  stickyHeader?: boolean;
+
   /**
    * Determines the sizing method for the auto sizing columns.
    */
@@ -1425,7 +1431,6 @@ interface SohoDataGridSummaryRowColumnSettings {
   /* summary text placement */
   summaryTextPlacement?: string;
 }
-
 
 type SohoDataGridAggregator = 'sum' | 'min' | 'max' | 'list' | 'avg' | 'count' | string;
 

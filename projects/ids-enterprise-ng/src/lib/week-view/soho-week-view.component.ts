@@ -403,6 +403,22 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
     return this._weekViewOptions.onChangeView;
   }
 
+  /** Add extra attributes like id's to the component **/
+  @Input() set attributes(attributes: Array<Object> | Object) {
+    this._weekViewOptions.attributes = attributes;
+    if (this.weekView) {
+      this.weekView.settings.attributes = attributes;
+      this.markForRefresh();
+    }
+  }
+  get attributes(): Array<Object> | Object {
+    if (this.weekView) {
+      return this.weekView.settings.attributes;
+    }
+
+    return this._weekViewOptions.attributes;
+  }
+
   constructor(
     private element: ElementRef,
     private ngZone: NgZone,

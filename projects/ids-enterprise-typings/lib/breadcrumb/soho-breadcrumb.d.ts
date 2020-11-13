@@ -62,6 +62,9 @@ interface SohoBreadcrumbOptions extends Object {
 
   /* Add truncatling behavior when a lot of items */
   truncate?: boolean;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 /**

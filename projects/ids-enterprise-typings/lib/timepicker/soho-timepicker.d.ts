@@ -35,6 +35,9 @@ interface SohoTimePickerOptions {
 
   /** If false, focus will not be returned to the calling element. */
   returnFocus: boolean;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 interface SohoTimePickerEvent extends JQuery.TriggeredEvent {

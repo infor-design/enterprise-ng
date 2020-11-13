@@ -112,6 +112,22 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
     return this.blockgrid.settings.pagerSettings.pagesizes;
   }
 
+  /** Add extra attributes like id's to the component **/
+  @Input()
+  public set attributes(attributes: Array<Object> | Object) {
+    this.options.attributes = attributes;
+    if (this.blockgrid) {
+      this.blockgrid.settings.attributes = attributes;
+      this.updated(this.blockgrid.settings);
+    }
+  }
+  public get attributes():  Array<Object> | Object {
+    if (!this.blockgrid) {
+      return this.options.attributes;
+    }
+    return this.blockgrid.settings.attributes;
+  }
+
   /* Events*/
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
   @Output() deselected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
