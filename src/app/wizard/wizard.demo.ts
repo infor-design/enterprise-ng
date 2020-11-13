@@ -1,18 +1,10 @@
 import {
   Component,
-  AfterViewInit,
   ViewChild,
-  Inject,
-  ContentChild
 } from '@angular/core';
 
-import {
-  SohoWizardComponent,
-  SohoProgressComponent,
-  SohoToastService
-} from 'ids-enterprise-ng';
-
-import { WizardDemoResultPageComponent } from './wizard-result-page.demo';
+// @ts-ignore
+import { SohoWizardComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-wizard-demo',
@@ -55,7 +47,7 @@ export class WizardDemoComponent {
   //   { label: 'Result', href: 'result'}
   // ];
 
-  constructor(private toastService: SohoToastService) {
+  constructor() {
   }
 
   nextButtonDisabled() {

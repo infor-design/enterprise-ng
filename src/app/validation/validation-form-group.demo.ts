@@ -1,11 +1,9 @@
 import {
   Component,
-  ElementRef,
-  OnInit,
   AfterViewInit
 } from '@angular/core';
 
-import { FormArray, FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-validation-form-group-demo',
@@ -13,18 +11,13 @@ import { FormArray, FormBuilder, FormGroup, Validators, ValidatorFn, AbstractCon
 })
 export class ValidationFormGroupDemoComponent implements AfterViewInit {
 
-  demoForm: FormGroup;
+  demoForm!: FormGroup;
 
   public maskedValue = '111.1';
   public notmaskedValue = '111.1';
-  public datevalue;
+  public datevalue = '';
 
-  private formErrors = {
-    'masked': '',
-    'notmasked': ''
-  };
-
-  constructor(private elementRef: ElementRef, private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder) {
     this.createForm();
   }
 
@@ -51,13 +44,13 @@ export class ValidationFormGroupDemoComponent implements AfterViewInit {
     console.log('in onSubmit');
   }
 
-  onChange(event: any) {
+  onChange(_event: any) {
     console.log('in onChange');
   }
 }
 
 export function customValidator(): ValidatorFn {
-  return (control: AbstractControl): { [key: string]: any } => {
+  return (control: AbstractControl): string[] | null => {
     console.log(`Custom Validator ${control.valid} - ${control.value}`);
     const name = control.value;
 
