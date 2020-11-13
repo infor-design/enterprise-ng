@@ -4,6 +4,7 @@ import {
   OnInit,
   HostBinding
 } from '@angular/core';
+
 // @ts-ignore
 import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
 

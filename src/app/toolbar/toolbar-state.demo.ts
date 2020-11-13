@@ -52,7 +52,7 @@ export class ToolbarStateDemoComponent implements AfterViewChecked, OnInit {
 
   ngAfterViewChecked() {
     if (this.updateToolbar) {
-      this.sohoToolbar.updated();
+      this.sohoToolbar?.updated();
       this.updateToolbar = false;
     }
   }
