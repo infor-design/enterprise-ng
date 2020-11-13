@@ -4,13 +4,8 @@ import {
   AfterViewInit
 } from '@angular/core';
 
-import {
-  SohoProgressComponent,
-  SohoWizardPageComponent,
-  SohoBusyIndicatorDirective
-} from 'ids-enterprise-ng';
-
-import { WizardDemoComponent } from './wizard.demo';
+// @ts-ignore
+import { SohoProgressComponent, SohoWizardPageComponent, SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-result-page',
@@ -45,7 +40,7 @@ export class WizardDemoResultPageComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.busyindicator.text = `Importing ${this.current} of ${this.total} ...`;
-    this.page.activated.subscribe((e) => {
+    this.page.activated.subscribe(() => {
       this.current = 0;
       this.validated = 0;
       this.busyindicator.open();
