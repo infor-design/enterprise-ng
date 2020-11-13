@@ -32,5 +32,9 @@
   "homepage": "https://github.com/infor-design/enterprise-ng",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "schematics": "./schematics/collection.json",
+  "ng-add": {
+    "save": "dependencies"
   }
 }
