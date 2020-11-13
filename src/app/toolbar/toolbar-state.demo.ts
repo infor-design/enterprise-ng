@@ -24,7 +24,7 @@ export class ToolbarStateDemoComponent implements AfterViewChecked, OnInit {
   public _maxVisibleButtons?: number;
   private updateToolbar = false;
 
-  @ViewChild('SohoToolbarComponent', { static: true }) sohoToolbar: SohoToolbarComponent;
+  @ViewChild('SohoToolbarComponent', { static: true }) sohoToolbar?: SohoToolbarComponent;
 
   @Input() set inHeader(param: boolean) {
     this._inHeader = param;
