@@ -352,6 +352,15 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     return this.options.tagSettings;
   }
 
+  @Input()
+  public set attributes(attributes: Array<Object> | Object | undefined) {
+    this.options.attributes = attributes;
+  }
+
+  public get attributes(): Array<Object> | Object | undefined {
+    return this.options.attributes;
+  }
+
   /**
    * Called when the dropdown value changes
    */

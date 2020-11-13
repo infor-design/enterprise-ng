@@ -144,6 +144,9 @@ interface SohoDropDownOptions {
 
   /** Custom text string for `Selected` text header use in MultiSelect **/
   selectedTextString?: string;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 type SohoDropDownKeyDownFunction = (
