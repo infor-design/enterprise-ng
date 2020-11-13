@@ -21,7 +21,7 @@ import { SohoTabsComponent } from 'ids-enterprise-ng';
 })
 export class TabsDynamicDemoComponent implements OnInit {
 
-  @ViewChild(SohoTabsComponent, { static: true }) sohoTabsComponent: SohoTabsComponent;
+  @ViewChild(SohoTabsComponent, { static: true }) sohoTabsComponent?: SohoTabsComponent;
 
   public tabs?: Array<any>;
   public currentTabsIndex = 1;
@@ -66,7 +66,7 @@ export class TabsDynamicDemoComponent implements OnInit {
     this.tabs = this.tabsData[this.currentTabsIndex];
     this.currentTabTitleChangeNumber = 1;
 
-    this.sohoTabsComponent.refresh();
+    this.sohoTabsComponent?.refresh();
   }
 
   onChangeTitles() {
@@ -79,13 +79,13 @@ export class TabsDynamicDemoComponent implements OnInit {
       // Calling setTitle on the soho component/control so that the entire
       // tabset doesn't have to be rebuilt and hence cause a FOUC.
       // ----------------------------------------------------------------------
-      this.sohoTabsComponent.rename(
+      this.sohoTabsComponent?.rename(
         this.tabs[i].id,
         this.tabs[i].title + ' Title Change ' + this.currentTabTitleChangeNumber);
     }
 
     this.currentTabTitleChangeNumber++;
-    this.sohoTabsComponent.refresh();
+    this.sohoTabsComponent?.refresh();
   }
 
   onActivated(event: SohoTabsEvent) {

@@ -52,11 +52,11 @@ export class BarStackedDemoComponent implements OnInit {
 
   setChartSelection() {
     const SohoBarSelected: SohoBarSelected = this.selection;
-    this.sohoBarComponent.setSelected(SohoBarSelected);
+    this.sohoBarComponent?.setSelected(SohoBarSelected);
   }
 
   toggleChartSelection () {
     const SohoBarSelected: SohoBarSelected = this.selection;
-    this.sohoBarComponent.toggleSelected(SohoBarSelected);
+    this.sohoBarComponent?.toggleSelected(SohoBarSelected);
   }
 }

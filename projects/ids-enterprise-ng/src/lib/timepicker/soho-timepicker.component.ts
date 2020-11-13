@@ -278,7 +278,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
         // execute updated after angular has generated
         // the model and the view markup.
         if (this.timepicker) {
-          this.timepicker.updated();
+          this.timepicker?.updated();
         }
         this.runUpdatedOnCheck = false;
       });
@@ -294,7 +294,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
 
       if (this.timepicker) {
         // Destroy any widget resources.
-        this.timepicker.destroy();
+        this.timepicker?.destroy();
         this.timepicker = null;
       }
     });
@@ -328,7 +328,7 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
     if (this.timepicker) {
       // The processing is required to ensure we use the correct format
       // in the control.
-      this.timepicker.element.val(value);
+      this.timepicker?.element.val(value);
     }
   }
 

@@ -13,7 +13,7 @@ import { SohoTreeComponent } from 'ids-enterprise-ng';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeExpandTargetDemoComponent implements OnInit {
-  @ViewChild(SohoTreeComponent, { static: true }) tree: SohoTreeComponent;
+  @ViewChild(SohoTreeComponent, { static: true }) tree?: SohoTreeComponent;
 
   private DATA: SohoTreeNode[] = [{
     id: 'node1',
@@ -279,12 +279,12 @@ export class TreeExpandTargetDemoComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.tree.options = this.treeOptions;
+    (this.tree as any).options = this.treeOptions;
   }
 
   addNode() {
     this.id++;
-    this.tree.addNode({
+    this.tree?.addNode({
       id: `new-item-${this.id}`,
       text: `New Item ${this.id}`,
       parent: this.selected ? this.selected.node : null
@@ -293,14 +293,14 @@ export class TreeExpandTargetDemoComponent implements OnInit {
 
   removeNode() {
     if (this.selected) {
-      this.tree.removeNode(this.selected.node);
+      this.tree?.removeNode(this.selected.node);
       this.selected = null;
     }
   }
 
   updateNode() {
     if (this.selected) {
-      this.tree.updateNode({ node: this.selected.node, text: 'Node Updated Text' });
+      this.tree?.updateNode({ node: this.selected.node, text: 'Node Updated Text' });
     }
   }
 

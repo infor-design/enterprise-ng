@@ -32,11 +32,11 @@ export class BusyIndicatorDemoBodyComponent implements OnInit {
   }
 
   start() {
-    this.busyIndicator.activated = true;
+    (this.busyIndicator as any).activated = true;
   }
 
   stop() {
-    this.busyIndicator.activated = false;
+    (this.busyIndicator as any).activated = false;
   }
 
   timer() {

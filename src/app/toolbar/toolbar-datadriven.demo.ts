@@ -13,7 +13,7 @@ import {ToolbarDataDrivenDemoService} from './toolbar-datadriven-demo.service';
 })
 export class ToolbarDataDrivenDemoComponent implements OnInit {
 
-  @ViewChild('sohoToolbar', { static: true }) sohoToolbar: any;
+  @ViewChild('sohoToolbar', { static: true }) sohoToolbar?: any;
 
   public pageTitle?: string;
   public sectionTitle?: string;

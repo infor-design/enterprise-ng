@@ -39,12 +39,12 @@ export class WizardDemoResultPageComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.busyindicator.text = `Importing ${this.current} of ${this.total} ...`;
+    (this.busyindicator as any).text = `Importing ${this.current} of ${this.total} ...`;
     this.page.activated.subscribe(() => {
       this.current = 0;
       this.validated = 0;
-      this.busyindicator.open();
-      this.busyindicator.text = `Imported ${this.current} of ${this.total} ...`;
+      this.busyindicator?.open();
+      (this.busyindicator as any).text = `Imported ${this.current} of ${this.total} ...`;
       if (this.progress) {
         this.progress.progressValue = ((this.current / this.total) * 100);
       }
@@ -58,12 +58,12 @@ export class WizardDemoResultPageComponent implements AfterViewInit {
        this.progress.progressValue = ((this.current / this.total) * 100);
     }
 
-    this.busyindicator.text = `Imported ${this.current} of ${this.total} ...`;
+    (this.busyindicator as any).text = `Imported ${this.current} of ${this.total} ...`;
 
     if (this.current < this.total) {
       setTimeout(() => { this.update(); }, 3000);
     } else {
-      this.busyindicator.close(false);
+      this.busyindicator?.close(false);
     }
   }
 }

@@ -40,8 +40,8 @@ export class DataGridBreadcrumbDemoComponent implements AfterContentInit, AfterV
   }
 
   busy() {
-    this.busyIndicator.open();
-    setTimeout(() => { this.busyIndicator.close(true); }, 3000);
+    this.busyindicator?.open();
+    setTimeout(() => { this.busyindicator?.close(true); }, 3000);
   }
 
   addRow() {

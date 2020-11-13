@@ -15,7 +15,7 @@ import { TreeDemoData } from './tree-data.demo';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeSourceDemoComponent implements AfterViewInit {
-  @ViewChild(SohoTreeComponent, { static: true }) tree: SohoTreeComponent;
+  @ViewChild(SohoTreeComponent, { static: true }) tree?: SohoTreeComponent;
 
   public enabled = true;
 
@@ -26,7 +26,7 @@ export class TreeSourceDemoComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.tree.dataset = this.demoData.getRootTreeNodes();
+    this.tree?.dataset = this.demoData.getRootTreeNodes();
   }
 
   /**
@@ -38,33 +38,33 @@ export class TreeSourceDemoComponent implements AfterViewInit {
   }
 
   expandAll() {
-    this.tree.expandAll();
+    this.tree?.expandAll();
   }
 
   collapseAll() {
-    this.tree.collapseAll();
+    this.tree?.collapseAll();
   }
 
   toggleEnabled(_event: any) {
     if (this.enabled) {
-      this.tree.disable();
+      this.tree?.disable();
       this.enabled = false;
     } else {
-      this.tree.enable();
+      this.tree?.enable();
       this.enabled = true;
     }
   }
 
   selectRoot() {
-    this.tree.selectNode('Root 2');
+    this.tree?.selectNode('Root 2');
   }
 
   unselectRoot() {
-    this.tree.unSelectedNode('Root 2');
+    this.tree?.unSelectedNode('Root 2');
   }
 
   reset() {
-    this.tree.reset();
+    this.tree?.reset();
   }
 
   onSelected(treeEvent: SohoTreeEvent) {

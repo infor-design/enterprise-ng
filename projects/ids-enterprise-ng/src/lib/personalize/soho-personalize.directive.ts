@@ -143,7 +143,7 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
       }
 
       if (this.personalize) {
-        this.personalize.destroy();
+        this.personalize?.destroy();
         this.personalize = null;
       }
     });

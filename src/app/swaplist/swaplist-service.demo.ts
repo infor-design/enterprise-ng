@@ -43,9 +43,9 @@ export class SwapListServiceDemoComponent implements OnInit, OnDestroy {
 
   updateData(_event: any) {
     this.service.getData().subscribe((d: SohoSwapListOptions) => {
-      this.busyIndicator.open();
+      this.busyIndicator?.open();
       this.swapListComponent.updateDataset(d);
-      this.busyIndicator.close(true);
+      this.busyIndicator?.close(true);
     });
   }
 

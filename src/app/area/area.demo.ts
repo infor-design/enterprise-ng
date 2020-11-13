@@ -4,7 +4,7 @@ import {
   ViewChild
 } from '@angular/core';
 // @ts-ignore
-import {SohoLineComponent} from 'ids-enterprise-ng';
+import {sohoAreaComponent} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-line-demo',
@@ -12,7 +12,7 @@ import {SohoLineComponent} from 'ids-enterprise-ng';
 })
 export class AreaDemoComponent implements OnInit {
 
-  @ViewChild(SohoLineComponent, { static: true }) sohoLineComponent?: SohoLineComponent;
+  @ViewChild(sohoAreaComponent, { static: true }) sohoAreaComponent?: sohoAreaComponent;
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   // private selection: SohoLineSelected  = {groupIndex: 1};
@@ -60,11 +60,11 @@ export class AreaDemoComponent implements OnInit {
 
   setChartSelection() {
     const sohoLineSelected: SohoLineSelected = this.selection;
-    this.sohoLineComponent.setSelected(sohoLineSelected);
+    this.sohoAreaComponent?.setSelected(sohoLineSelected);
   }
 
   toggleChartSelection () {
     const sohoLineSelected: SohoLineSelected = this.selection;
-    this.sohoLineComponent.toggleSelected(sohoLineSelected);
+    this.sohoAreaComponent?.toggleSelected(sohoLineSelected);
   }
 }

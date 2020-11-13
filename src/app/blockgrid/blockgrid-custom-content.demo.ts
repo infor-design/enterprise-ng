@@ -24,8 +24,8 @@ export class BlockGridCustomContentDemoComponent implements AfterViewInit {
   public data = DATA;
 
   ngAfterViewInit() {
-    this.blockGrid.activateBlock(1);
-    this.blockGrid.selectBlocks([3, 4, 10]);
+    this.blockGrid?.activateBlock(1);
+    this.blockGrid?.selectBlocks([3, 4, 10]);
   }
 
   onSelected(args: any) {

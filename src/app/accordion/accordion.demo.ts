@@ -39,42 +39,42 @@ export class AccordionDemoComponent implements AfterViewInit {
     console.log('onAfterCollapse!', args);
   }
   collapseAll(): void {
-    this.accordion.collapseAll();
+    this.accordion?.collapseAll();
   }
   expandAll(): void {
-    this.accordion.expandAll();
+    this.accordion?.expandAll();
   }
 
   toggle(): void {
-    this.accordion.toggle(this.accordion.getHeader(1));
+    this.accordion?.toggle(this.accordion?.getHeader(1));
   }
 
   expand(): void {
-    this.accordion.expand(this.accordion.getHeader(1));
+    this.accordion?.expand(this.accordion?.getHeader(1));
   }
 
   collapse(): void {
-    this.accordion.collapse(this.accordion.getHeader(1));
+    this.accordion?.collapse(this.accordion?.getHeader(1));
   }
 
   disable(): void {
-    this.accordion.getHeader(1).isDisabled = true;
-    //    this.accordion.disable();
+    this.accordion?.getHeader(1).isDisabled = true;
+    //    this.accordion?.disable();
   }
 
   enable(): void {
-    this.accordion.getHeader(1).isDisabled = false;
-    // this.accordion.enable();
+    this.accordion?.getHeader(1).isDisabled = false;
+    // this.accordion?.enable();
   }
 
   ngAfterViewInit(): void {
   }
 
   update(): void {
-    if (this.accordion.displayChevron === undefined) {
-      this.accordion.displayChevron = false;
+    if (this.accordion?.displayChevron === undefined) {
+      this.accordion?.displayChevron = false;
     } else {
-      this.accordion.displayChevron = !this.accordion.displayChevron;
+      this.accordion?.displayChevron = !this.accordion?.displayChevron;
     }
   }
 }

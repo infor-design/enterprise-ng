@@ -25,7 +25,7 @@ export class WeekViewDemoComponent implements OnInit {
   @HostBinding('style.height') height = 'auto';
   @HostBinding('style.display') block = 'block';
 
-  @ViewChild(SohoWeekViewComponent, { static: true }) sohoWeekViewComponent: SohoWeekViewComponent;
+  @ViewChild(SohoWeekViewComponent, { static: true }) sohoWeekViewComponent?: SohoWeekViewComponent;
 
   public startDate = new Date('2019-02-10');
   public endDate = new Date('2019-02-16');

@@ -9,7 +9,7 @@ import { SohoTextAreaComponent } from 'ids-enterprise-ng';
 })
 export class TextareaDemoComponent implements OnInit {
 
-  @ViewChild(SohoTextAreaComponent, { static: true }) textarea: SohoTextAreaComponent;
+  @ViewChild(SohoTextAreaComponent, { static: true }) textarea?: SohoTextAreaComponent;
 
   public model = { // tslint:disable-line
     resizableText: 'This text is resizable',

@@ -55,7 +55,7 @@ export class ButtonsetDemoComponent implements AfterViewInit {
 
   public get buttonCount() {
     if (this.buttonset) {
-      return this.buttonset.buttonAPIs.length;
+      return this.buttonset?.buttonAPIs?.length;
     } else {
       return this.defaultButtons.length;
     }
@@ -80,7 +80,7 @@ export class ButtonsetDemoComponent implements AfterViewInit {
       .controls['buttonsetStyle']
       .valueChanges
       .subscribe((newStyle) => {
-        this.buttonset.style = newStyle;
+        (this.buttonset as any).style = newStyle;
         this.handleButtonWidths();
       });
 
@@ -120,12 +120,12 @@ export class ButtonsetDemoComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     // Having issue getting .buttons working
-    this.buttonset.updated({ buttons: this.defaultButtons });
+    this.buttonset?.updated({ buttons: this.defaultButtons });
   }
 
   public reset() {
     // Removes all buttons from the buttonset
-    this.buttonset.removeAll(true);
+    this.buttonset?.removeAll(true);
     this.demoForm.reset();
   }
 
@@ -133,7 +133,7 @@ export class ButtonsetDemoComponent implements AfterViewInit {
     this.newSettings = {
       audible: this.demoForm.controls.audible.value,
       disabled: this.demoForm.controls.disabled.value,
-      id: 'test-btn-' + (this.buttonset.buttonAPIs.length + 1),
+      id: 'test-btn-' + (this.buttonset?.buttonAPIs?.length + 1),
       style: this.demoForm.controls.style.value,
       text: this.demoForm.controls.btnText.value,
       type: this.demoForm.controls.type.value
@@ -142,7 +142,7 @@ export class ButtonsetDemoComponent implements AfterViewInit {
     this.setIcon();
     this.setToggleIcons();
 
-    this.buttonset.add(this.newSettings, true);
+    this.buttonset?.add(this.newSettings, true);
     this.handleButtonWidths();
   }
 
@@ -201,9 +201,9 @@ export class ButtonsetDemoComponent implements AfterViewInit {
 
   public handleButtonWidths() {
     if (this.demoForm.controls.buttonsetStyle.value === 'modal') {
-      this.adjustBtnWidths(this.buttonset.buttonAPIs);
+      this.adjustBtnWidths(this.buttonset?.buttonAPIs);
     } else {
-      this.resetBtnWidths(this.buttonset.buttonAPIs);
+      this.resetBtnWidths(this.buttonset?.buttonAPIs);
     }
   }
 

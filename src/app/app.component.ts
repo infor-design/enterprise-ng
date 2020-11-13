@@ -55,9 +55,9 @@ export class AppComponent implements AfterViewInit {
     * this.applicationMenu.triggers = [ '.application-menu-trigger' ];
     */
     if (this.isApplicationMenuOpen) {
-      this.applicationMenu.openMenu(true, true);
+      this.applicationMenu?.openMenu(true, true);
     } else {
-      this.applicationMenu.closeMenu();
+      this.applicationMenu?.closeMenu();
     }
   }
 

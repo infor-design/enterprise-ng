@@ -53,7 +53,7 @@ export class CodeBlockDemoComponent implements AfterViewInit {
       this.popdown.open();
       $('#compound_field_popdown_contents .field:first-child :focusable:first-child').trigger('focus');
       $('#compound_field_popdown_contents .field:last-of-type :focusable').on('blur', () => {
-        this.popdown.close();
+        this.popdown?.close();
         setTimeout(() => $('#lm-code-block + div.field :focusable').trigger('focus'), 1);
       });
     }
@@ -61,7 +61,7 @@ export class CodeBlockDemoComponent implements AfterViewInit {
 
   onKeyDown(e: KeyboardEvent) {
     if (e.key === 'Escape') {
-      this.popdown.close();
+      this.popdown?.close();
       $('#lm-code-block + div.field :focusable').trigger('focus');
     }
   }

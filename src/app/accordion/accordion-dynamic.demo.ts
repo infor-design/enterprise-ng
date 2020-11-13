@@ -39,7 +39,7 @@ export class AccordionDynamicDemoComponent {
     // The updates must be called after the add has ocurred to allow for the view to be updated view, otherwise
     // the widget does not see the changes.  Consider changing the
     setTimeout(() => {
-      this.accordion.updated();
+      this.accordion?.updated();
     });
   }
 
@@ -58,7 +58,7 @@ export class AccordionDynamicDemoComponent {
       });
     }
 
-    setTimeout(() => { this.accordion.updated(); });
+    setTimeout(() => { this.accordion?.updated(); });
   }
 
   public onExpand(event: SohoAccordionEvent) {
@@ -66,9 +66,9 @@ export class AccordionDynamicDemoComponent {
     const header = this.sampleData.find((h) => `${h.id}` === event.anchor[0].parentElement.id);
 
     if (header) {
-      this.headers?.forEach((h) => this.accordion.collapse(h));
+      this.headers?.forEach((h) => this.accordion?.collapse(h));
 
-      // this.accordion.collapse(header)
+      // this.accordion?.collapse(header)
       header.expanded = true;
     }
   }

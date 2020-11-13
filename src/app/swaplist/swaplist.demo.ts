@@ -14,7 +14,7 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
   templateUrl: 'swaplist.demo.html',
 })
 export class SwapListDemoComponent implements OnInit, OnDestroy {
-  @ViewChild(SohoSwapListComponent, { static: true })swapListComponent: SohoSwapListComponent;
+  @ViewChild(SohoSwapListComponent, { static: true })swapListComponent?: SohoSwapListComponent;
 
   allDemoItems: any[] = [];
   availableDemoItems: any[] = [];

@@ -64,7 +64,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     // replace the contents but looks to merge it.
     this.options.dataset = dataset;
     if (this.tree) {
-      this.tree.loadData((dataset as any));
+      this.tree?.loadData((dataset as any));
     }
   }
 
@@ -73,7 +73,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
     // in the settings object will contain the rows currently
     // on display.
     if (this.tree) {
-      return this.tree.settings.dataset;
+      return (this.tree.settings as any).dataset;
     }
 
     // ... we've been called before the component has completed
@@ -92,14 +92,14 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   @Input() set selectable(selectable: SohoTreeSelectable | undefined) {
     this.options.selectable = selectable;
     if (this.tree) {
-      this.tree.settings.selectable = selectable;
+      (this.tree.settings as any).selectable = selectable;
       // @todo - make tree updatable when settings change,
-      // this.tree.updated();
+      // this.tree?.updated();
     }
   }
   get selectable(): SohoTreeSelectable | undefined {
     if (this.tree) {
-      return this.tree.settings.selectable;
+      return (this.tree.settings as any).selectable;
     }
 
     return this.options.selectable;
@@ -109,14 +109,14 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   @Input() set hideCheckboxes(hideCheckboxes: boolean | undefined) {
     this.options.hideCheckboxes = hideCheckboxes;
     if (this.tree) {
-      this.tree.settings.hideCheckboxes = hideCheckboxes;
+      (this.tree.settings as any).hideCheckboxes = hideCheckboxes;
     }
   }
 
   @Input() set menuId(menuId: string | undefined) {
     this.options.menuId = menuId;
     if (this.tree) {
-      this.tree.settings.menuId = menuId;
+      (this.tree.settings as any).menuId = menuId;
     }
   }
 
@@ -124,9 +124,9 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   @Input() set source(value: SohoTreeSourceFunction) {
     this.options.source = value;
     if (this.tree) {
-      this.tree.settings.source = value;
+      (this.tree.settings as any).source = value;
       // @todo - make tree updatable when settings change,
-      // this.tree.updated();
+      // this.tree?.updated();
     }
   }
 
@@ -134,7 +134,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   @Input() set folderIconOpen(folderIconOpen: string) {
     this.options.folderIconOpen = folderIconOpen;
     if (this.tree) {
-      this.tree.settings.folderIconOpen = folderIconOpen;
+      (this.tree.settings as any).folderIconOpen = folderIconOpen;
     }
   }
 
@@ -142,7 +142,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   @Input() set folderIconClosed(folderIconClosed: string) {
     this.options.folderIconClosed = folderIconClosed;
     if (this.tree) {
-      this.tree.settings.folderIconClosed = folderIconClosed;
+      (this.tree.settings as any).folderIconClosed = folderIconClosed;
     }
   }
 
@@ -261,7 +261,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   public enable(): void {
     this.isDisabled = false;
     if (this.tree) {
-      this.tree.enable();
+      this.tree?.enable();
     }
   }
 
@@ -269,7 +269,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   public disable(): void {
     this.isDisabled = true;
     if (this.tree) {
-      this.tree.disable();
+      this.tree?.disable();
     }
   }
 
@@ -311,7 +311,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
    */
   public expandAll() {
     if (this.tree) {
-      this.tree.expandAll();
+      this.tree?.expandAll();
     }
   }
 
@@ -320,7 +320,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
    */
   public collapseAll() {
     if (this.tree) {
-      this.tree.collapseAll();
+      this.tree?.collapseAll();
     }
   }
 
@@ -329,7 +329,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
    */
   public removeNode(node: SohoTreeNode) {
     if (this.tree) {
-      this.tree.removeNode(node);
+      this.tree?.removeNode(node);
     }
   }
 
@@ -338,7 +338,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
    */
   public preserveEnablementState() {
     if (this.tree) {
-      return this.tree.preserveEnablementState();
+      return this.tree?.preserveEnablementState();
     }
   }
 
@@ -347,7 +347,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
    */
   public restoreEnablementState() {
     if (this.tree) {
-      this.tree.restoreEnablementState();
+      this.tree?.restoreEnablementState();
     }
   }
 
@@ -393,7 +393,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
       // It would be good if the tree widget had a method that returned
       // tree nodes rather then an intermediate wrapper, but to clean up
       // the api we dispose of the extra information here.
-      this.tree.getSelectedNodes().forEach(
+      this.tree?.getSelectedNodes().forEach(
         (n) => { result.push(n.data); }
       );
     }
@@ -494,7 +494,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
   ngOnDestroy() {
     if (this.tree) {
-      this.tree.destroy();
+      this.tree?.destroy();
       this.tree = null;
     }
   }

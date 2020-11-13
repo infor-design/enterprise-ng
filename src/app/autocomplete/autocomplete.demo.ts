@@ -90,7 +90,7 @@ export class AutocompleteDemoComponent implements AfterViewInit {
     setTimeout(() => {
       this.url = this.statesUrl;
       this.changeDetectorRef.detectChanges();
-      this.autocomplete.updated();
+      this.autocomplete?.updated();
     }, 5000);
   }
 

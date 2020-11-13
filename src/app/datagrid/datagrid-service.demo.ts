@@ -46,7 +46,7 @@ export class DataGridServiceDemoComponent {
   }
 
   busy() {
-    this.busyIndicator.activated = true;
+    this.busyindicator?.activated = true;
   }
 
   toggleFilterRow() {

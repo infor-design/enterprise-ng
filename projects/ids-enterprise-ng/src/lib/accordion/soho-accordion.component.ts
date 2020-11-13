@@ -97,7 +97,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   @Input() public set allowOnePane(allowOnePane: boolean | undefined) {
     this.options.allowOnePane = typeof (allowOnePane) === 'boolean' && allowOnePane;
     if (this.accordion) {
-      this.accordion.settings.allowOnePane = this.options.allowOnePane;
+      (this.accordion.settings as any).allowOnePane = this.options.allowOnePane;
       this.markForUpdate();
     }
   }
@@ -114,7 +114,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   @Input() public set displayChevron(displayChevron: boolean | undefined) {
     this.options.displayChevron = typeof (displayChevron) === 'boolean' && displayChevron;
     if (this.accordion) {
-      this.accordion.settings.displayChevron = this.options.displayChevron;
+      (this.accordion.settings as any).displayChevron = this.options.displayChevron;
       this.markForUpdate();
     }
   }
@@ -128,7 +128,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   @Input() public set expanderDisplay(expanderDisplay: SohoAccordionExpanderType | undefined) {
     this.options.expanderDisplay = expanderDisplay;
     if (this.accordion) {
-      this.accordion.settings.expanderDisplay = this.options.expanderDisplay;
+      (this.accordion.settings as any).expanderDisplay = this.options.expanderDisplay;
       this.markForUpdate();
     }
   }
@@ -145,7 +145,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   @Input() public set rerouteOnLinkClick(rerouteOnLinkClick: boolean | undefined) {
     this.options.rerouteOnLinkClick = typeof (rerouteOnLinkClick) === 'boolean' && rerouteOnLinkClick;
     if (this.accordion) {
-      this.accordion.settings.rerouteOnLinkClick = this.options.rerouteOnLinkClick;
+      (this.accordion.settings as any).rerouteOnLinkClick = this.options.rerouteOnLinkClick;
       this.markForUpdate();
     }
   }
@@ -159,7 +159,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   @Input() public set source(source: Function | undefined) {
     this.options.source = source;
     if (this.accordion) {
-      this.accordion.settings.source = this.options.source;
+      (this.accordion.settings as any).source = this.options.source;
       this.markForUpdate();
     }
   }
@@ -173,7 +173,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   @Input() public set hasPanels(hasPanels: boolean | undefined) {
     this.options.hasPanels = hasPanels;
     if (this.accordion) {
-      this.accordion.settings.hasPanels = this.options.hasPanels;
+      (this.accordion.settings as any).hasPanels = this.options.hasPanels;
       this.markForUpdate();
     }
   }
@@ -188,7 +188,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   @Input() public set inverse(inverse: boolean | undefined) {
     this.options.inverse = inverse;
     if (this.accordion) {
-      this.accordion.settings.inverse = this.options.inverse;
+      (this.accordion.settings as any).inverse = this.options.inverse;
       this.markForUpdate();
     }
   }
@@ -202,7 +202,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   @Input() public set alternate(bool: boolean | undefined) {
     this.options.alternate = bool;
     if (this.accordion) {
-      this.accordion.settings.alternate = this.options.alternate;
+      (this.accordion.settings as any).alternate = this.options.alternate;
       this.markForUpdate();
     }
   }
@@ -217,7 +217,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   @Input() public set enableTooltips(enableTooltips: boolean | undefined) {
     this.options.enableTooltips = enableTooltips;
     if (this.accordion) {
-      this.accordion.settings.enableTooltips = this.options.enableTooltips;
+      (this.accordion.settings as any).enableTooltips = this.options.enableTooltips;
       this.markForUpdate();
     }
   }
@@ -319,7 +319,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    */
   public isDisabled(header: SohoAccordionHeaderComponent): boolean {
     if (this.accordion) {
-      return this.ngZone.runOutsideAngular(() => this.accordion ? this.accordion.isDisabled(header.jQueryElement) : false);
+      return this.ngZone.runOutsideAngular(() => this.accordion ? this.accordion?.isDisabled(header.jQueryElement) : false);
     }
     return false;
   }
@@ -332,7 +332,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
    */
   public isExpanded(header: SohoAccordionHeaderComponent): boolean {
     if (this.accordion) {
-      return this.ngZone.runOutsideAngular(() => this.accordion ? this.accordion.isExpanded(header.jQueryElement) : false);
+      return this.ngZone.runOutsideAngular(() => this.accordion ? this.accordion?.isExpanded(header.jQueryElement) : false);
     }
     return false;
   }
@@ -416,7 +416,7 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
         this.jQueryElement.off();
       }
       if (this.accordion) {
-        this.accordion.destroy();
+        this.accordion?.destroy();
       }
     });
   }

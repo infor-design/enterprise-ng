@@ -122,7 +122,7 @@ export class ChartDemoComponent implements OnInit {
     } else {
       chartOptions['labels'] = { hideLabels: !this.hideLabel };
     }
-    this.sohoChartComponent.chartOptions = chartOptions;
+    (this.sohoChartComponent as any).chartOptions = chartOptions;
   }
 
   public onChangeIndex(event: Event) {
@@ -130,7 +130,7 @@ export class ChartDemoComponent implements OnInit {
   }
 
   onSelected(chartEvent: ChartEvent) {
-    this.sohoChartComponent.getSelected();
+    this.sohoChartComponent?.getSelected();
     console.log(chartEvent.event, chartEvent.ui, chartEvent.data);
   }
 
@@ -143,7 +143,7 @@ export class ChartDemoComponent implements OnInit {
   }
 
   onContextMenu(chartEvent: ChartEvent) {
-    this.sohoChartComponent.getSelected();
+    this.sohoChartComponent?.getSelected();
     console.log(chartEvent.event, chartEvent.ui, chartEvent.data);
   }
 }

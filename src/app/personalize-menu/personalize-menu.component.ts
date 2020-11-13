@@ -62,11 +62,11 @@ export class PersonalizeMenuComponent implements OnInit {
    */
   public ngOnInit(): void {
     // Get the current values using the getters.
-    const currentTheme = this.personalize.theme = this.theme;
-    const currentColor = this.personalize.colors = this.color;
+    const currentTheme = (this.personalize as any).theme = this.theme;
+    const currentColor = (this.personalize as any).colors = this.color;
 
-    this.themeMenuItems = this.personalize.themes();
-    const personalizationColors = this.personalize.personalizationColors();
+    this.themeMenuItems = this.personalize?.themes();
+    const personalizationColors = this.personalize?.personalizationColors();
     this.colorMenuItems = Object.keys(personalizationColors).map(colorId => personalizationColors[colorId]);
 
     this.setSelectedTheme(currentTheme);

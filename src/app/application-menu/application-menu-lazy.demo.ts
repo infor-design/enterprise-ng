@@ -21,8 +21,8 @@ export class ApplicationMenuLazyDemoComponent implements AfterViewInit, OnInit {
   @ViewChild(SohoApplicationMenuComponent, { static: true }) applicationMenu?: SohoApplicationMenuComponent;
   @ViewChild('webAppMenuHeader', { static: true }) private _webAppMenuHeader?: ElementRef;
 
-  public triggers: Array<string> = [];
-  public menu: Array<any> = [];
+  public triggers?: Array<string> = [];
+  public menu?: Array<any> = [];
 
   constructor(private _lazyMenuService: ApplicationMenuLazyService) {}
 
@@ -42,17 +42,17 @@ export class ApplicationMenuLazyDemoComponent implements AfterViewInit, OnInit {
   public onSubMenuLoaded(menuObject: any) {
     this.menu = menuObject.menuSpec;
     const target = menuObject.event.target;
-    this.applicationMenu.updateLazy(this.applicationMenu, target);
+    this.applicationMenu?.updateLazy(this.applicationMenu, target);
   }
 
   public onWebAppMenuLoaded() {
     if (this._webAppMenuHeader) {
-      this.applicationMenu.toggleAndSelectHeader(this.applicationMenu, this._webAppMenuHeader.nativeElement);
+      this.applicationMenu?.toggleAndSelectHeader(this.applicationMenu, this._webAppMenuHeader.nativeElement);
     } else {
-      this.applicationMenu.updated();
+      this.applicationMenu?.updated();
     }
   }
   public openMenu() {
-    this.applicationMenu.openMenu(undefined, true, undefined);
+    this.applicationMenu?.openMenu(undefined, true, undefined);
   }
 }

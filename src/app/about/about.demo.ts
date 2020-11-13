@@ -8,7 +8,7 @@ import { SohoAboutService, SohoAboutRef } from 'ids-enterprise-ng';
 })
 export class AboutDemoComponent {
   /** The about dialog reference. */
-  about: SohoAboutRef;
+  about?: SohoAboutRef;
 
   /**
    * Constructor.

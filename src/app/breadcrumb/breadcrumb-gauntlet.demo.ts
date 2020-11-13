@@ -125,7 +125,7 @@ export class BreadcrumbGauntletDemoComponent {
       };
     }
 
-    this.breadcrumb.add(newSettings, true);
+    this.breadcrumb?.add(newSettings, true);
 
     if (increaseCount) {
       this.breadcrumbIdCount++;
@@ -137,9 +137,9 @@ export class BreadcrumbGauntletDemoComponent {
   }
 
   renderBreadcrumbConfig(item: SohoBreadcrumbRef) {
-    const target = this.breadcrumb.getBreadcrumbItem(item);
-    const api = target.api;
-    if (!api) {
+    const target = this.breadcrumb?.getBreadcrumbItem(item);
+    const api = (target as any).api;
+    if (!api || !api.settings) {
       return;
     }
 
@@ -159,7 +159,7 @@ export class BreadcrumbGauntletDemoComponent {
   }
 
   removeAll(): void {
-    this.breadcrumb.removeAll();
+    this.breadcrumb?.removeAll();
 
     this.lastClickedContents = undefined;
     this.lastClickedAPI = undefined;
@@ -170,7 +170,7 @@ export class BreadcrumbGauntletDemoComponent {
     if (!this.lastClickedAPI) {
       return;
     }
-    this.breadcrumb.remove(this.lastClickedAPI);
+    this.breadcrumb?.remove(this.lastClickedAPI);
 
     this.lastClickedContents = undefined;
     this.lastClickedAPI = undefined;
@@ -181,7 +181,7 @@ export class BreadcrumbGauntletDemoComponent {
     if (!this.lastClickedAPI) {
       return;
     }
-    this.breadcrumb.makeCurrent(this.lastClickedAPI);
+    this.breadcrumb?.makeCurrent(this.lastClickedAPI);
     this.renderBreadcrumbConfig(this.lastClickedAPI);
   }
 }

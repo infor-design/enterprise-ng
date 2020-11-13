@@ -67,7 +67,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
   public set blockUI(blockUI: boolean) {
     this.options.blockUI = blockUI;
     if (this.busyindicator) {
-      this.busyindicator.settings.blockUI = blockUI;
+      (this.busyindicator.settings as any).blockUI = blockUI;
       this.updateBusyIndicator = true;
     }
   }
@@ -77,7 +77,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
   public set displayDelay(displayDelay: number) {
     this.options.displayDelay = displayDelay;
     if (this.busyindicator) {
-      this.busyindicator.settings.displayDelay = displayDelay;
+      (this.busyindicator.settings as any).displayDelay = displayDelay;
       this.updateBusyIndicator = true;
     }
   }
@@ -87,7 +87,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
   public set timeToComplete(timeToComplete: number) {
     this.options.timeToComplete = timeToComplete;
     if (this.busyindicator) {
-      this.busyindicator.settings.timeToComplete = timeToComplete;
+      (this.busyindicator.settings as any).timeToComplete = timeToComplete;
       this.updateBusyIndicator = true;
     }
   }
@@ -97,7 +97,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
   public set text(text: string) {
     this.options.text = text;
     if (this.busyindicator) {
-      this.busyindicator.settings.text = text;
+      (this.busyindicator.settings as any).text = text;
       this.updateBusyIndicator = true;
     }
   }
@@ -121,7 +121,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
   public set transparentOverlay(transparentOverlay: boolean) {
     this.options.transparentOverlay = transparentOverlay;
     if (this.busyindicator) {
-      this.busyindicator.settings.transparentOverlay = transparentOverlay;
+      (this.busyindicator.settings as any).transparentOverlay = transparentOverlay;
       this.updateBusyIndicator = true;
     }
   }
@@ -134,7 +134,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
   public set overlayOnly(overlayOnly: boolean) {
     this.options.overlayOnly = overlayOnly;
     if (this.busyindicator) {
-      this.busyindicator.settings.overlayOnly = overlayOnly;
+      (this.busyindicator.settings as any).overlayOnly = overlayOnly;
       this.updateBusyIndicator = true;
     }
   }
@@ -147,7 +147,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
   public set attributes(attributes:  Array<Object> | Object) {
     this.options.attributes = attributes;
     if (this.busyindicator) {
-      this.busyindicator.settings.attributes = attributes;
+      (this.busyindicator.settings as any).attributes = attributes;
       this.updateBusyIndicator = true;
     }
   }
@@ -240,7 +240,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
       }
       if (this.busyindicator) {
         // call outside the angular zone so change detection isn't triggered by the soho component.
-        this.busyindicator.destroy();
+        this.busyindicator?.destroy();
         this.busyindicator = null;
       }
     });

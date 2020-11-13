@@ -16,7 +16,7 @@ import { SohoTreeComponent } from 'ids-enterprise-ng';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeContentDemoComponent implements OnInit {
-  @ViewChild(SohoTreeComponent, { static: true }) tree: SohoTreeComponent;
+  @ViewChild(SohoTreeComponent, { static: true }) tree?: SohoTreeComponent;
   @ViewChildren('treeContextMenu') treeContextMenu?: QueryList<any>;
 
   treeOptions: SohoTreeOptions = {
@@ -205,15 +205,15 @@ export class TreeContentDemoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tree.options = this.treeOptions;
+    (this.tree as any).options = this.treeOptions;
   }
 
   expandAll() {
-    this.tree.expandAll();
+    this.tree?.expandAll();
   }
 
   collapseAll() {
-    this.tree.collapseAll();
+    this.tree?.collapseAll();
   }
 
   onMenuOpen(e: any) {
@@ -239,27 +239,27 @@ export class TreeContentDemoComponent implements OnInit {
   toggleEnabled(_event: any) {
     this.enabled = !this.enabled;
     if (this.enabled) {
-      this.tree.enable();
+      this.tree?.enable();
     } else {
-      this.tree.disable();
+      this.tree?.disable();
     }
   }
 
   selectRoot() {
-    this.tree.selectNode('home');
+    this.tree?.selectNode('home');
   }
 
   enable() {
-    this.tree.enable();
+    this.tree?.enable();
   }
 
   disable() {
-    this.tree.disable();
+    this.tree?.disable();
   }
 
   addNode() {
     const tn: SohoTreeNode = { text: 'New Item 1.2', disabled: false };
-    this.tree.addNode(tn, this.selected);
+    this.tree?.addNode(tn, this.selected);
   }
 
   onSelected(treeEvent: SohoTreeEvent) {

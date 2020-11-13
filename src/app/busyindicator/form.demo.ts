@@ -26,16 +26,16 @@ export class BusyIndicatorDemoComponent {
   }
 
   start() {
-    this.busyIndicator.activated = true;
+    (this.busyIndicator as any).activated = true;
   }
 
   stop() {
-    this.busyIndicator.activated = false;
+    (this.busyIndicator as any).activated = false;
   }
 
   timer() {
-    this.busyIndicator.activated = true;
-    setTimeout((_f: any) => this.busyIndicator.activated = false, 10000);
+    (this.busyIndicator as any).activated = true;
+    setTimeout((_f: any) => (this.busyIndicator as any).activated = false, 10000);
   }
 
   onAfterStart(event: SohoBusyIndicatorEvent) {
@@ -47,7 +47,7 @@ export class BusyIndicatorDemoComponent {
   }
 
   onSubmit() {
-    this.busyIndicator.open();
+    this.busyIndicator?.open();
     console.log('submit');
   }
 }
