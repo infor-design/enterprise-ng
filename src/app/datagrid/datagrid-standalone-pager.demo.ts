@@ -20,7 +20,7 @@ export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnIn
   isLastPage = true;
 
   // need to keep track of last filter and sort as setting data removes the visual state for these.
-  private currentConditions?: SohoDataGridFilterCondition[];
+  private currentConditions?: SohoDataGridFilterCondition[] | null;
   private currentSort?: SohoDataGridSortedEvent;
 
   constructor(

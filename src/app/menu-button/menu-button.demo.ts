@@ -99,6 +99,6 @@ export class MenuButtonDemoComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.ajaxMenuButton.ajaxBeforeOpenFunction = this.ajaxMenuItems;
+    (this.ajaxMenuButton as any).ajaxBeforeOpenFunction = this.ajaxMenuItems;
   }
 }

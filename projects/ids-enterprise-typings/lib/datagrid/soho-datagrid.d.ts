@@ -1053,7 +1053,7 @@ interface SohoDataGridStatic {
   validateRow(row: number): void;
 
   /** Used to set the sort indicator on a column when disableClientSort is set to true */
-  setSortIndicator(columnId: string, ascending: boolean): void;
+  setSortIndicator(columnId: string | undefined | null, ascending: boolean | undefined | null): void;
 
   /** Use to change datagrid empty message */
   setEmptyMessage(emptyMessage: SohoEmptyMessageOptions | undefined | null): void;
@@ -1342,7 +1342,7 @@ interface SohoDataGridFilteredEvent extends SohoDataGridOpenFilteredEvent {
  * @deprecated use SohoDataGridFilteredEvent instead
  */
 interface SohoDataGridOpenFilteredEvent {
-  conditions: SohoDataGridFilterCondition[];
+  conditions?: SohoDataGridFilterCondition[] | null;
   op: 'apply' | 'clear';
   trigger: string;
 }

@@ -34,6 +34,10 @@ export class LookupDemoComponent implements OnInit {
     {
       text: 'Enable', click: () => {
         const api = this.sohoLookupRef?.modal?.buttonsetAPI;
+        if (!api) {
+          return;
+        }
+
         api.at(2).disabled = false;
         api.at(3).disabled = false;
       }
@@ -41,6 +45,9 @@ export class LookupDemoComponent implements OnInit {
     {
       text: 'Disable', click: () => {
         const api = this.sohoLookupRef?.modal?.buttonsetAPI;
+        if (!api) {
+          return;
+        }
         api.at(2).disabled = true;
         api.at(3).disabled = true;
       }

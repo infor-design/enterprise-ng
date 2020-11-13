@@ -79,16 +79,28 @@ export class ListViewDemoComponent implements OnInit {
   }
 
   selectItems(listView: SohoListViewComponent) {
+    if (!listView.items) {
+      return;
+    }
+
     for (let i = 0; i < listView.items.length; i++) {
       setTimeout(() => listView.select(i), i * 1000);
     }
   }
 
   unselectItems(listView: SohoListViewComponent) {
+    if (!listView.items) {
+      return;
+    }
+
     listView.unselect(listView.items.map((item: any) => item.selector));
   }
 
   removeItems(listView: SohoListViewComponent) {
+    if (!listView.items) {
+      return;
+    }
+
     listView.remove(listView.items.map((e: any) => e.index));
 
     this.demoTasks = [];

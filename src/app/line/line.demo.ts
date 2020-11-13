@@ -73,11 +73,11 @@ export class LineDemoComponent implements OnInit {
 
   setChartSelection() {
     const sohoLineSelected: SohoLineSelected = this.selection;
-    this.sohoLineComponent.setSelected(sohoLineSelected);
+    this.sohoLineComponent?.setSelected(sohoLineSelected);
   }
 
   toggleChartSelection() {
     const sohoLineSelected: SohoLineSelected = this.selection;
-    this.sohoLineComponent.toggleSelected(sohoLineSelected);
+    this.sohoLineComponent?.toggleSelected(sohoLineSelected);
   }
 }
