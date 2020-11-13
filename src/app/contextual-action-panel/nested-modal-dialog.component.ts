@@ -3,9 +3,9 @@ import {
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
-import {
-  SohoModalDialogService
-} from 'ids-enterprise-ng';
+
+// @ts-ignore
+import { SohoModalDialogService } from 'ids-enterprise-ng';
 
 /**
  * This is an example of a nested dialog component, that can be instantiated

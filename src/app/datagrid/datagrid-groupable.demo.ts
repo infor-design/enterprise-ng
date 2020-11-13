@@ -3,11 +3,8 @@ import {
   ViewChild,
   ChangeDetectionStrategy, OnInit
 } from '@angular/core';
-
-import {
-  SohoDataGridComponent,
-  SohoDataGridService
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoDataGridComponent, SohoDataGridService } from 'ids-enterprise-ng';
 
 import { DataGridDemoService } from './datagrid-demo.service';
 

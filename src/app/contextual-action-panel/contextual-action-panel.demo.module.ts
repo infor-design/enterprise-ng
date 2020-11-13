@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-
+// @ts-ignore
 import { SohoComponentsModule } from 'ids-enterprise-ng';
 
 import { ContextualActionPanelDemoComponent } from './contextual-action-panel.demo';

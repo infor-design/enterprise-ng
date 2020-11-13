@@ -2,10 +2,8 @@
 import { of, Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-
-import {
-  SohoDataGridService
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoDataGridService } from 'ids-enterprise-ng';
 
 @Injectable()
 export class DataGridDemoService extends SohoDataGridService {

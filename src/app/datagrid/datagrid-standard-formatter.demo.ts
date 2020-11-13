@@ -3,10 +3,8 @@ import {
   Component, OnInit,
   ViewChild
 } from '@angular/core';
-
-import {
-  SohoDataGridComponent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
 import {
   PAGING_COLUMNS,

@@ -2,10 +2,8 @@ import {
   Component,
   ViewChild
 } from '@angular/core';
-
-import {
-  SohoErrorDirective
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoErrorDirective } from 'ids-enterprise-ng';
 
 /**
  * This example:

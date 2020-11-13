@@ -7,8 +7,9 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
+// @ts-ignore
 import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 
 import { DataGridDemoService } from './datagrid-demo.service';

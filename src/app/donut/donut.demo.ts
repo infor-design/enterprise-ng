@@ -3,6 +3,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
+// @ts-ignore
 import {SohoPieComponent} from 'ids-enterprise-ng';
 
 @Component({

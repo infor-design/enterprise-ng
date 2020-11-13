@@ -5,12 +5,8 @@ import {
   ContentChildren,
   forwardRef
 } from '@angular/core';
-
-import {
-  SohoAccordionHeaderComponent,
-  SohoAccordionComponent,
-  SohoAccordionPaneComponent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import {SohoAccordionHeaderComponent, SohoAccordionComponent, SohoAccordionPaneComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'accordion-dynamic-demo', // tslint:disable-line
@@ -20,11 +16,11 @@ export class AccordionDynamicDemoComponent {
 
   // tslint:disable-next-line:no-forward-ref
   @ContentChildren(forwardRef(() => SohoAccordionHeaderComponent))
-  headers: QueryList<SohoAccordionHeaderComponent>;
+  headers?: QueryList<SohoAccordionHeaderComponent>;
 
   // tslint:disable-next-line:no-forward-ref
   @ContentChildren(forwardRef(() => SohoAccordionPaneComponent))
-  panes: QueryList<SohoAccordionPaneComponent>;
+  panes?: QueryList<SohoAccordionPaneComponent>;
 
   public sampleData = [
     { id: 1, header: 'Header 1', content: 'This is the content of header 1', expanded: false  },
@@ -66,10 +62,11 @@ export class AccordionDynamicDemoComponent {
   }
 
   public onExpand(event: SohoAccordionEvent) {
+    // @ts-ignore
     const header = this.sampleData.find((h) => `${h.id}` === event.anchor[0].parentElement.id);
 
     if (header) {
-      this.headers.forEach((h) => this.accordion.collapse(h));
+      this.headers?.forEach((h) => this.accordion.collapse(h));
 
       // this.accordion.collapse(header)
       header.expanded = true;
@@ -77,6 +74,7 @@ export class AccordionDynamicDemoComponent {
   }
 
   public onCollapse(event: SohoAccordionEvent) {
+    // @ts-ignore
     const header = this.sampleData.find((h) => `${h.id}` === event.anchor[0].parentElement.id);
 
     if (header) {

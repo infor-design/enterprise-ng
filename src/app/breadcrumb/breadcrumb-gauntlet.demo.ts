@@ -5,6 +5,7 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// @ts-ignore
 import { SohoBreadcrumbComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -104,6 +105,7 @@ export class BreadcrumbGauntletDemoComponent {
     if (this.demoForm.controls['callback'].value) {
       newSettings.callback = function testCallback (e) {
         self.renderBreadcrumbConfig(e.target);
+        // @ts-ignore
         const content = this.settings.content;
 
         // Trigger a toast message

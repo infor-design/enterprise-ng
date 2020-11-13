@@ -3,7 +3,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoFileUploadAdvancedComponent, SohoToastService } from 'ids-enterprise-ng';
 import { HttpRequest } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';

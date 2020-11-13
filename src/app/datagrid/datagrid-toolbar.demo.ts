@@ -3,6 +3,7 @@
   Input,
   ChangeDetectionStrategy
 } from '@angular/core';
+// @ts-ignore
 import { SohoMessageService } from 'ids-enterprise-ng';
 
 @Component({

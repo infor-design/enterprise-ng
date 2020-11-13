@@ -4,7 +4,7 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 import { DataGridDemoService } from './datagrid-demo.service';
 

@@ -4,9 +4,9 @@ import {
   Component,
   ViewChild,
 } from '@angular/core';
-import {
-  SohoBlockGridComponent
-} from 'ids-enterprise-ng';
+
+// @ts-ignore
+import { SohoBlockGridComponent } from 'ids-enterprise-ng';
 import {
   DATA
 } from './blockgrid-demo-data';

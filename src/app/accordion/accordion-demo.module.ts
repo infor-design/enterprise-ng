@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+// @ts-ignore
 import { SohoComponentsModule } from 'ids-enterprise-ng';
 import { AccordionDemoComponent } from './accordion.demo';
 import { AccordionDynamicDemoComponent } from './accordion-dynamic.demo';

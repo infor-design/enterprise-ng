@@ -5,9 +5,8 @@ import {
   AfterViewInit
 } from '@angular/core';
 
-import {
-  SohoColorPickerComponent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoColorPickerComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-colorpicker-demo',

@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+// @ts-ignore
 import { SohoHomePageComponent } from 'ids-enterprise-ng';
 
 @Component({

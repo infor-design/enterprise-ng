@@ -3,11 +3,8 @@ import {
   ViewChild,
   OnInit
 } from '@angular/core';
-
-import {
-  SohoBusyIndicatorDirective,
-  SohoBusyIndicatorEvent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoBusyIndicatorDirective, SohoBusyIndicatorEvent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-busyindicator-demo',

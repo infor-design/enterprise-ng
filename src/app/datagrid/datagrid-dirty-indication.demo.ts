@@ -3,10 +3,8 @@ import {
   ViewChild,
   OnInit
 } from '@angular/core';
-
-import {
-  SohoDataGridComponent,
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
 import {
   DIRTY_INDICATION_COLUMNS,

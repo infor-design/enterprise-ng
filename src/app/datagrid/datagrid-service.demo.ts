@@ -3,15 +3,13 @@ import {
   ViewChild,
   ChangeDetectionStrategy
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
-
-import {
-  SohoDataGridComponent,
-  SohoDataGridService
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoDataGridComponent, SohoDataGridService } from 'ids-enterprise-ng';
 
 import { DataGridDemoService } from './datagrid-demo.service';
+// @ts-ignore
 import { SohoToastService } from 'ids-enterprise-ng';
 
 @Component({

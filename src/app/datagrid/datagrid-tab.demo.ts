@@ -3,7 +3,7 @@ import {
   ViewChild,
   ChangeDetectionStrategy,
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
 enum MessageStatus {

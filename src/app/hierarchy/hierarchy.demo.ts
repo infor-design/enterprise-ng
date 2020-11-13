@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HierarchyDemoService } from './hierarchy.demo.service';
+// @ts-ignore
 import { SohoHierarchyComponent } from 'ids-enterprise-ng';
 
 @Component({

@@ -5,7 +5,7 @@ import {
   ChangeDetectorRef,
   ChangeDetectionStrategy
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoTextAreaComponent, SohoContextMenuDirective } from 'ids-enterprise-ng';
 
 @Component({

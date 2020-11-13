@@ -7,11 +7,8 @@ import {
 } from '@angular/core';
 
 import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.service';
-import {
-  SohoPersonalizeDirective,
-  SohoRenderLoopService,
-  SohoApplicationMenuComponent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoPersonalizeDirective, SohoRenderLoopService, SohoApplicationMenuComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'body', // tslint:disable-line

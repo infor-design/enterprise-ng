@@ -7,12 +7,9 @@ import {
 } from '@angular/core';
 
 import { DataGridDemoService } from './datagrid-demo.service';
-
-import {
-  SohoDataGridComponent,
-  SohoDataGridService
-} from 'ids-enterprise-ng';
-
+// @ts-ignore
+import { SohoDataGridComponent, SohoDataGridService } from 'ids-enterprise-ng';
+// @ts-ignore
 import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 
 @Component({

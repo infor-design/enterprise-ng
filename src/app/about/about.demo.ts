@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-
-import {
-  SohoAboutService,
-  SohoAboutRef
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoAboutService, SohoAboutRef } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-about.demo',

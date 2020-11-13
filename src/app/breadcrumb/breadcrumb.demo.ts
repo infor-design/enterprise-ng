@@ -3,7 +3,7 @@ import {
   Component,
   ViewChild
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoBreadcrumbComponent } from 'ids-enterprise-ng';
 
 import { STANDARD_DATA } from './breadcrumb-demo-data';

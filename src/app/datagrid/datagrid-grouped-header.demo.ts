@@ -7,6 +7,8 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
+
+// @ts-ignore
 import { SohoDataGridComponent, } from 'ids-enterprise-ng';
 import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indeterminate-demo.service';
 

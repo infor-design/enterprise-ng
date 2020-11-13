@@ -5,7 +5,7 @@ import {
   ViewChildren,
   QueryList
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 @Component({

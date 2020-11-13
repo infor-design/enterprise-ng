@@ -1,5 +1,7 @@
 import { AfterViewInit, OnInit, ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+// @ts-ignore
 import { SohoChartComponent } from 'ids-enterprise-ng';
+// @ts-ignore
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
 @Component({

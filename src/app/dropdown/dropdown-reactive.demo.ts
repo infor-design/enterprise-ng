@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
+// @ts-ignore
 import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 @Component({
