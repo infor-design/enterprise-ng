@@ -4,6 +4,8 @@ import {
   OnInit,
   HostBinding
 } from '@angular/core';
+
+// @ts-ignore
 import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
 
 interface ThemeMenuItem extends SohoTheme {
@@ -20,7 +22,7 @@ interface ColorMenuItem extends SohoPersonalizationColor {
 })
 export class PersonalizeMenuComponent implements OnInit {
   @ViewChild(SohoPersonalizeDirective, { static: true })
-  private personalize: SohoPersonalizeDirective;
+  private personalize?: SohoPersonalizeDirective;
 
   /**
    * Mark as a popupmenu.

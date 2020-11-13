@@ -19,9 +19,9 @@ import { SohoProgressComponent, SohoWizardPageComponent, SohoBusyIndicatorDirect
 })
 export class WizardDemoResultPageComponent implements AfterViewInit {
 
-  @ViewChild(SohoProgressComponent) progress: SohoProgressComponent;
+  @ViewChild(SohoProgressComponent) progress?: SohoProgressComponent;
 
-  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyindicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyindicator?: SohoBusyIndicatorDirective;
 
   public current = 0;
 
