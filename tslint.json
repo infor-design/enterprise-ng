@@ -121,8 +121,8 @@
   "no-consecutive-blank-lines": true,
   "no-angle-bracket-type-assertion": true,
 
-  "directive-selector": [true, "attribute", ["soho", "demo"], "kebab-case"],
-  "component-selector": [true, "element", ["soho", "demo"], "kebab-case"],
+  "directive-selector": [true, "attribute", ["soho", "demo", "app"], "kebab-case"],
+  "component-selector": [true, "element", ["soho", "demo", "app"], "kebab-case"],
 
   "no-inputs-metadata-property": true,
   "no-outputs-metadata-property": true,

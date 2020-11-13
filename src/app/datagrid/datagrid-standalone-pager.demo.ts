@@ -35,7 +35,7 @@ export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnIn
   }
 
   ngAfterViewInit(): void {
-    this.sohoDataGridComponent.setSortIndicator('productName', true);
+    this.sohoDataGridComponent?.setSortIndicator('productName', true);
   }
 
   onFirstPage() {
@@ -84,12 +84,12 @@ export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnIn
     this.ngZone.runOutsideAngular(() => setTimeout(() => {
       if (this.currentConditions) {
         // todo: for disableClientFilter setting data resets the filter conditions - reset them here
-        setTimeout(() => this.sohoDataGridComponent.setFilterConditions(this.currentConditions));
+        setTimeout(() => this.sohoDataGridComponent?.setFilterConditions(this.currentConditions));
       }
 
       if (this.currentSort) {
         // todo: for disableClientSort setting data resets the sort - reset them here
-        setTimeout(() => this.sohoDataGridComponent.setSortIndicator(this.currentSort?.sortId, this.currentSort?.sortAsc));
+        setTimeout(() => this.sohoDataGridComponent?.setSortIndicator(this.currentSort?.sortId, this.currentSort?.sortAsc));
       }
     }));
   }
@@ -99,6 +99,6 @@ export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnIn
   }
 
   toggleFilterRow() {
-    this.sohoDataGridComponent.toggleFilterRow();
+    this.sohoDataGridComponent?.toggleFilterRow();
   }
 }

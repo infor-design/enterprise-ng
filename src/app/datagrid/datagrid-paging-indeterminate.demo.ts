@@ -50,7 +50,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
 
   ngAfterViewChecked() {
     if (this.sohoDataGridComponent && this.updateSelectedRow) {
-      this.sohoDataGridComponent.selectRows([this.selectedRow]);
+      this.sohoDataGridComponent?.selectRows([this.selectedRow]);
       this.updateSelectedRow = false;
     }
   }
@@ -63,7 +63,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
       request.firstPage = result.firstPage;
       request.lastPage = result.lastPage;
 
-      const selectedRows = this.sohoDataGridComponent ? this.sohoDataGridComponent.selectedRows() : undefined;
+      const selectedRows = this.sohoDataGridComponent ? this.sohoDataGridComponent?.selectedRows() : undefined;
       this.selectedRow = selectedRows !== undefined ? selectedRows[0].idx : 0;
 
       /* Put the data into the data grid */
@@ -76,7 +76,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
 
   onRefresh() {
     console.log('onRefresh() called');
-    this.sohoDataGridComponent.triggerSource('refresh', function () {
+    this.sohoDataGridComponent?.triggerSource('refresh', function () {
       console.log('List Refresh Completed');
     });
   }
@@ -99,10 +99,10 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
   }
 
   toggleFilterRow() {
-    this.sohoDataGridComponent.toggleFilterRow();
+    this.sohoDataGridComponent?.toggleFilterRow();
   }
 
   setHeaderCheckbox(state: SohoDataGridHeaderCheckboxState) {
-    this.sohoDataGridComponent.setHeaderCheckboxState(state);
+    this.sohoDataGridComponent?.setHeaderCheckboxState(state);
   }
 }

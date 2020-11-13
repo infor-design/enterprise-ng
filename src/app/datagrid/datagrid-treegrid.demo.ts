@@ -28,11 +28,11 @@ export class DataGridTreeGridDemoComponent {
   }
 
   toggleFilterRow() {
-    this.dataGrid.toggleFilterRow();
+    this.dataGrid?.toggleFilterRow();
   }
 
   clearFilter() {
-    this.dataGrid.clearFilter();
+    this.dataGrid?.clearFilter();
   }
 
   onSelected(e: SohoDataGridSelectedEvent) {
@@ -62,13 +62,13 @@ export class DataGridTreeGridDemoComponent {
   }
 
   makeChange() {
-    this.dataGrid.isList = !this.dataGrid.isList;
-    this.dataGrid.alternateRowShading = !this.dataGrid.alternateRowShading;
-    this.dataGrid.cellNavigation = !this.dataGrid.cellNavigation;
+    (this.dataGrid as any).isList = !(this.dataGrid as any).isList;
+    (this.dataGrid as any).alternateRowShading = !(this.dataGrid as any).alternateRowShading;
+    (this.dataGrid as any).cellNavigation = !(this.dataGrid as any).cellNavigation;
   }
 
   toggleSelectAll() {
-    this.dataGrid.showSelectAllCheckBox = !this.dataGrid.showSelectAllCheckBox;
-    console.log(`showSelectAllCheckBox=${this.dataGrid.showSelectAllCheckBox}`);
+    (this.dataGrid as any).showSelectAllCheckBox = !(this.dataGrid as any).showSelectAllCheckBox;
+    console.log(`showSelectAllCheckBox=${(this.dataGrid as any).showSelectAllCheckBox}`);
   }
 }

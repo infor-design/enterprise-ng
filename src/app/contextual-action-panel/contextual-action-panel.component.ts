@@ -2,7 +2,7 @@ import {
   Component,
   ViewChild,
   ViewContainerRef
- } from '@angular/core';
+} from '@angular/core';
 // @ts-ignore
 import { SohoContextualActionPanelService, SohoContextualActionPanelRef, SohoModalDialogService } from 'ids-enterprise-ng';
 
@@ -26,7 +26,7 @@ export class ContextualActionPanelComponent {
   };
 
   public title = 'Contextual Action Panel';
-  public panelRef: SohoContextualActionPanelRef<any>;
+  public panelRef?: SohoContextualActionPanelRef<any> | null;
   public closeResult?: string;
 
   constructor(private panelService: SohoContextualActionPanelService, private modalService: SohoModalDialogService) {
@@ -34,10 +34,10 @@ export class ContextualActionPanelComponent {
 
   openNested() {
     const dialogRef = this.modalService
-      .modal<NestedModalDialogComponent>(NestedModalDialogComponent, this.placeholder)
+      .modal<NestedModalDialogComponent>(NestedModalDialogComponent, (this.placeholder as any))
       .buttons(
-      [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-      { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
+        [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
+        { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
       .title(this.title)
       .open()
       .afterClose((result: any) => {
@@ -45,7 +45,7 @@ export class ContextualActionPanelComponent {
       });
   }
 
- closeAndOpenSecondCAP() {
+  closeAndOpenSecondCAP() {
     const buttons = [
       {
         text: 'Save',
@@ -69,8 +69,9 @@ export class ContextualActionPanelComponent {
       }];
 
     this.panelService
-      .contextualactionpanel(NestedContextualActionPanelComponent, this.placeholder)
-      .modalSettings({ buttons: buttons, title: 'Nested CAP'})
+      // @ts-ignore
+      .contextualactionpanel(NestedContextualActionPanelComponent, (this.placeholder as any))
+      .modalSettings({ buttons: buttons, title: 'Nested CAP' })
       .open()
       .initializeContent(true);
   }

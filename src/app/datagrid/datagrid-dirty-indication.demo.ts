@@ -42,15 +42,18 @@ export class DataGridDirtyIndicationDemoComponent implements OnInit {
   onClearDirtySelected(event: SohoContextMenuEvent) {
     const action = event.args.attr('data-action');
     const gridApi = this.sohoDataGridComponent;
+    if (!gridApi) {
+      return;
+    }
 
     if (action === 'specific-cell') {
-      gridApi.clearDirtyCell(ROW, CELL);
+      gridApi?.clearDirtyCell(ROW, CELL);
     }
     if (action === 'all-cells-in-row') {
-      gridApi.clearDirtyRow(ROW);
+      gridApi?.clearDirtyRow(ROW);
     }
     if (action === 'all') {
-      gridApi.clearDirty();
+      gridApi?.clearDirty();
     }
   }
 }

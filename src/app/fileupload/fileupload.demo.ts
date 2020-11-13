@@ -31,19 +31,19 @@ export class FileUploadDemoComponent implements OnInit {
   ngOnInit() { }
 
   setEnable() {
-    this.fileupload.disabled = false;
-    this.fileUploadDisabled = this.fileupload.disabled;
-    this.fileUploadReadOnly = this.fileupload.readonly;
+    (this.fileupload as any).disabled = false;
+    this.fileUploadDisabled = (this.fileupload as any).disabled;
+    this.fileUploadReadOnly = (this.fileupload as any).readonly;
   }
 
   setDisable() {
-    this.fileupload.disabled = true;
-    this.fileUploadDisabled = this.fileupload.disabled;
+    (this.fileupload as any).disabled = true;
+    this.fileUploadDisabled = (this.fileupload as any).disabled;
   }
 
   setReadonly() {
-    this.fileupload.readonly = true;
-    this.fileUploadReadOnly = this.fileupload.readonly;
+    (this.fileupload as any).readonly = true;
+    this.fileUploadReadOnly = (this.fileupload as any).readonly;
   }
 
   onUpdated(_event: SohoFileUploadEvent) {

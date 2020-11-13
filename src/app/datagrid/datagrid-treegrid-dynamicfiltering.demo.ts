@@ -38,11 +38,11 @@ export class DatagridTreegridDynamicfilteringDemoComponent implements OnInit, Af
   }
 
   toggleFilterRow() {
-    this.dataGrid.toggleFilterRow();
+    this.dataGrid?.toggleFilterRow();
   }
 
   clearFilter() {
-    this.dataGrid.clearFilter();
+    this.dataGrid?.clearFilter();
   }
 
   /**

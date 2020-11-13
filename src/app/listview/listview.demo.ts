@@ -133,7 +133,7 @@ export class ListViewDemoComponent implements OnInit {
   }
 
   activatedItem() {
-    console.log('activatedItem', this.mixedSelectionListView.activatedItem());
+    console.log('activatedItem', this.mixedSelectionListView?.activatedItem());
   }
 
   activateItem() {
@@ -144,9 +144,9 @@ export class ListViewDemoComponent implements OnInit {
   deactivateItem() {
     console.log('deactivateItem');
 
-    const activatedItem = this.mixedSelectionListView.activatedItem();
+    const activatedItem = this.mixedSelectionListView?.activatedItem();
     if (activatedItem && activatedItem.index > -1) {
-      this.mixedSelectionListView.deactivateItem(activatedItem.index);
+      this.mixedSelectionListView?.deactivateItem(activatedItem.index);
     } else {
       console.log('cannot deactivate, must activate an item first.');
     }

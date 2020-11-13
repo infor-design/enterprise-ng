@@ -32,23 +32,23 @@ export class DataGridBreadcrumbDemoComponent implements AfterContentInit, AfterV
   }
 
   toggleFilterRow() {
-    this.dataGrid.toggleFilterRow();
+    this.dataGrid?.toggleFilterRow();
   }
 
   clearFilter() {
-    this.dataGrid.clearFilter();
+    this.dataGrid?.clearFilter();
   }
 
   busy() {
-    this.busyindicator?.open();
-    setTimeout(() => { this.busyindicator?.close(true); }, 3000);
+    this.busyIndicator?.open();
+    setTimeout(() => { this.busyIndicator?.close(true); }, 3000);
   }
 
   addRow() {
     this.service.getData(null).subscribe((d: any[]) => {
       const newData = new Array<any>(d[0]);
       newData.forEach((r) => r.orderDate = new Date());
-      this.dataGrid.addRow(newData[0], 'top');
+      this.dataGrid?.addRow(newData[0], 'top');
     });
   }
 

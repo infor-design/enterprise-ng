@@ -64,15 +64,15 @@ export class DataGridPagingServiceDemoComponent implements OnInit {
   }
 
   exportExcel(_e: any) {
-    this.sohoDataGridComponent.exportToExcel('', '', this.datagridPagingService.getAllData());
+    this.sohoDataGridComponent?.exportToExcel('', '', this.datagridPagingService.getAllData());
   }
 
   exportCsv(_e: any) {
-    this.sohoDataGridComponent.exportToCsv('', this.datagridPagingService.getAllData());
+    this.sohoDataGridComponent?.exportToCsv('', this.datagridPagingService.getAllData());
   }
 
   goToPageTwo() {
-    this.sohoDataGridComponent.updatePagingInfo({ activePage: 2, total: 100 });
+    this.sohoDataGridComponent?.updatePagingInfo({ activePage: 2, total: 100 });
   }
 
   onRowClicked(event: SohoDataGridRowClicked) {
@@ -96,10 +96,10 @@ export class DataGridPagingServiceDemoComponent implements OnInit {
     }
 
     if (columnString) {
-      this.savedColumns = this.sohoDataGridComponent.columnsFromString(columnString);
+      this.savedColumns = this.sohoDataGridComponent?.columnsFromString(columnString);
     }
 
-    this.sohoDataGridComponent.restoreUserSettings({activePage: this.savedActivePage, columns: this.savedColumns,
+    this.sohoDataGridComponent?.restoreUserSettings({activePage: this.savedActivePage, columns: this.savedColumns,
       rowHeight: this.savedRowHeight, sortOrder: this.savedSortOrder, pagesize: this.savedPagesize, filter: this.savedFilter});
   }
 }

@@ -90,19 +90,19 @@ export class DatepickerDemoComponent implements OnInit {
   }
 
   setEnable() {
-    this.datepicker.disabled = false;
-    this.datepickerDisabled = this.datepicker.disabled;
-    this.datepickerReadOnly = this.datepicker.readonly;
+    (this.datepicker as any).disabled = false;
+    this.datepickerDisabled = (this.datepicker as any).disabled;
+    this.datepickerReadOnly = (this.datepicker as any).readonly;
   }
 
   setDisable() {
-    this.datepicker.disabled = true;
-    this.datepickerDisabled = this.datepicker.disabled;
+    (this.datepicker as any).disabled = true;
+    this.datepickerDisabled = (this.datepicker as any).disabled;
   }
 
   setReadonly() {
-    this.datepicker.readonly = true;
-    this.datepickerReadOnly = this.datepicker.readonly;
+    (this.datepicker as any).readonly = true;
+    this.datepickerReadOnly = (this.datepicker as any).readonly;
   }
 
   registerCustomValidator() {

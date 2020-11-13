@@ -7,9 +7,9 @@ import { SohoContextualActionPanelRef } from 'ids-enterprise-ng/lib';
 })
 
 export class ContextualActionPanelSearchfieldComponent {
-  panel: SohoContextualActionPanelRef<unknown>;
+  panel?: SohoContextualActionPanelRef<unknown>;
 
   close() {
-    this.panel.close();
+    this.panel?.close();
   }
 }

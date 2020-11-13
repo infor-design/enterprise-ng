@@ -41,13 +41,13 @@ export class DataGridMixedSelectionDemoComponent implements OnInit {
   }
 
   onActivateSelectedRow(_event: any) {
-    if (this.sohoDataGridComponent.selectedRows().length > 0 && this.sohoDataGridComponent.selectedRows()[0].idx > -1) {
-      this.sohoDataGridComponent.activateRow(this.sohoDataGridComponent.selectedRows()[0].idx);
+    if (this.sohoDataGridComponent?.selectedRows().length > 0 && this.sohoDataGridComponent?.selectedRows()[0].idx > -1) {
+      this.sohoDataGridComponent?.activateRow(this.sohoDataGridComponent?.selectedRows()[0].idx);
     }
   }
 
   onDeactivateActivatedRow(_event: any) {
-    this.sohoDataGridComponent.deactivateRow();
+    this.sohoDataGridComponent?.deactivateRow();
   }
 
   onBeforeRowActivated(event: any) {

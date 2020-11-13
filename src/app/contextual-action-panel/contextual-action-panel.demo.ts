@@ -23,12 +23,12 @@ export class ContextualActionPanelDemoComponent {
    * This can be the ViewContainerRef of this component, or another component.
    */
   @ViewChild('panelPlaceholder', { read: ViewContainerRef, static: true })
-  placeholder?: ViewContainerRef;
+  placeholder?: ViewContainerRef | null;
 
   /**
    * The interface to an instantiated instance of the Contextual Action Panel.
    */
-  public panelRef: SohoContextualActionPanelRef<any>;
+  public panelRef?: SohoContextualActionPanelRef<any> | null;
   public closeResult?: string;
   public title = 'Contextual Action Panel';
 
@@ -64,8 +64,11 @@ export class ContextualActionPanelDemoComponent {
         isDefault: true
       }];
 
-    this.panelRef = this.panelService
-      .contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
+    if (!this.panelRef || !this.panelService) {
+      return;
+    }
+
+    this.panelRef = this.panelService.contextualactionpanel(ContextualActionPanelComponent, (this.placeholder as any))
       .modalSettings({ buttons: buttons, title: this.title })
       .open()
       .initializeContent(true)
@@ -106,15 +109,18 @@ export class ContextualActionPanelDemoComponent {
         isDefault: true
       }];
 
-    this.panelRef = this.panelService
-      .contextualactionpanel(NestedContextualActionPanelComponent, this.placeholder)
+    if (!this.panelRef || !this.panelService) {
+      return;
+    }
+
+    this.panelRef = this.panelService?.contextualactionpanel(NestedContextualActionPanelComponent, (this.placeholder as any))
       .modalSettings({ buttons: buttons, title: this.title })
       .open()
       .initializeContent(true);
   }
 
   openSearchfieldPanel() {
-    const panel = this.panelService.contextualactionpanel(ContextualActionPanelSearchfieldComponent, this.placeholder);
+    const panel = this.panelService?.contextualactionpanel(ContextualActionPanelSearchfieldComponent, this.placeholder);
     panel
       .apply((component: any) => component.panel = panel)
       .open()
@@ -122,7 +128,7 @@ export class ContextualActionPanelDemoComponent {
   }
 
   openSearchfieldFlexPanel() {
-    const panel = this.panelService.contextualactionpanel(ContextualActionPanelSearchfieldFlexComponent, this.placeholder);
+    const panel = this.panelService?.contextualactionpanel(ContextualActionPanelSearchfieldFlexComponent, this.placeholder);
     panel
       .apply((component: any) => component.panel = panel)
       .open()
@@ -152,16 +158,19 @@ export class ContextualActionPanelDemoComponent {
         isDefault: true
       }];
 
+    if (!this.panelRef || !this.panelService) {
+      return;
+    }
+
     // In openPanel(), change the first CAP opening so that panelRef can be provided with apply
-    this.panelRef = this.panelService
-          .contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
-          .modalSettings({ buttons: buttons, title: this.title })
-          .initializeContent(true);
+    this.panelRef = this.panelService?.contextualactionpanel(ContextualActionPanelComponent, (this.placeholder as any))
+      .modalSettings({ buttons: buttons, title: this.title })
+      .initializeContent(true);
 
     this.panelRef
-          .apply((ref: any) => {
-            ref.panelRef = this.panelRef;
-          })
-          .open();
+      .apply((ref: any) => {
+        ref.panelRef = this.panelRef;
+      })
+      .open();
   }
 }

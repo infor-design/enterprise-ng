@@ -39,7 +39,7 @@ export class EditorDemoComponent implements AfterViewInit {
 
     // Customize the settings on init
 
-    this.editor.anchor = {
+    (this.editor as any).anchor = {
       url: 'http://www.example.com',
       class: 'hyperlink',
       target: 'New Window',
@@ -58,19 +58,19 @@ export class EditorDemoComponent implements AfterViewInit {
   }
 
   setEnable() {
-    this.editor.disabled = false;
-    this.editorDisabled = this.editor.disabled;
-    this.editorReadOnly = this.editor.readonly;
+    (this.editor as any).disabled = false;
+    this.editorDisabled = (this.editor as any).disabled;
+    this.editorReadOnly = (this.editor as any).readonly;
   }
 
   setDisable() {
-    this.editor.disabled = true;
-    this.editorDisabled = this.editor.disabled;
+    (this.editor as any).disabled = true;
+    this.editorDisabled = (this.editor as any).disabled;
   }
 
   setReadonly() {
-    this.editor.readonly = true;
-    this.editorReadOnly = this.editor.readonly;
+    (this.editor as any).readonly = true;
+    this.editorReadOnly = (this.editor as any).readonly;
   }
 
   onChange(event: any) {

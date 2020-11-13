@@ -58,12 +58,12 @@ export class AccordionDemoComponent implements AfterViewInit {
   }
 
   disable(): void {
-    this.accordion?.getHeader(1).isDisabled = true;
+    (this.accordion as any).getHeader(1).isDisabled = true;
     //    this.accordion?.disable();
   }
 
   enable(): void {
-    this.accordion?.getHeader(1).isDisabled = false;
+    (this.accordion as any).getHeader(1).isDisabled = false;
     // this.accordion?.enable();
   }
 
@@ -72,9 +72,9 @@ export class AccordionDemoComponent implements AfterViewInit {
 
   update(): void {
     if (this.accordion?.displayChevron === undefined) {
-      this.accordion?.displayChevron = false;
+      (this.accordion as any).displayChevron = false;
     } else {
-      this.accordion?.displayChevron = !this.accordion?.displayChevron;
+      (this.accordion as any).displayChevron = !this.accordion?.displayChevron;
     }
   }
 }

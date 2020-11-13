@@ -4,9 +4,8 @@ import {
   OnInit
  } from '@angular/core';
 
+// @ts-ignore
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
-
-// tslint:disable
 
 export const EDITORS_DATA: any[] = [
   {
@@ -281,18 +280,22 @@ export class DataGridEditorsDemoComponent implements OnInit {
     // would be done when make a call to the back end and a row has
     // an error, want to use rowStatus to show the row in error
     // but this clears the dirtyRows
-    let dirtyRows: Array<any> = this.sohoDataGridComponent.dirtyRows();
-    console.log('dirtyRows().length = ' + dirtyRows.length);
+    let dirtyRows: Array<any> | undefined | null = this.sohoDataGridComponent?.dirtyRows();
+    if (!dirtyRows) {
+      return;
+    }
+    console.log('dirtyRows().length = ' + dirtyRows?.length);
+
     for (let i = 0, l = dirtyRows.length; i < l; i++) {
-      var dirtyRow = dirtyRows[i];
+      var dirtyRow = (dirtyRows as any)[i];
       if (dirtyRow.rowStatus.icon === 'dirty') {
-        this.sohoDataGridComponent.rowStatus(dirtyRow.id, 'dirtyerror', 'Testing');
+        this.sohoDataGridComponent?.rowStatus(dirtyRow.id, 'dirtyerror', 'Testing');
       } else {
-        this.sohoDataGridComponent.rowStatus(dirtyRow.id, 'error', 'Testing');
+        this.sohoDataGridComponent?.rowStatus(dirtyRow.id, 'error', 'Testing');
       }
     }
-    dirtyRows = this.sohoDataGridComponent.dirtyRows();
-    console.log('dirtyRows().length = ' + dirtyRows.length);
+    dirtyRows = this.sohoDataGridComponent?.dirtyRows();
+    console.log('dirtyRows().length = ' + dirtyRows?.length);
   }
 
 
@@ -320,34 +323,34 @@ export class DataGridEditorsDemoComponent implements OnInit {
   }
 
   showRowError () {
-    this.sohoDataGridComponent.showRowError(2, 'This row has a custom error message.', 'error');
+    this.sohoDataGridComponent?.showRowError(2, 'This row has a custom error message.', 'error');
   }
 
   validateRow() {
-    this.sohoDataGridComponent.validateRow(1);
+    this.sohoDataGridComponent?.validateRow(1);
   }
 
   validateAll() {
-    this.sohoDataGridComponent.validateAll();
+    this.sohoDataGridComponent?.validateAll();
   }
 
   clearStatus() {
-    let dirtyRows: Array<any> = this.sohoDataGridComponent.dirtyRows();
-    let allRows: Array<any> = this.sohoDataGridComponent.dataset;
+    let dirtyRows: Array<any> = this.sohoDataGridComponent?.dirtyRows();
+    let allRows: Array<any> = this.sohoDataGridComponent?.dataset;
     console.log('dirtyRows().length = ' + dirtyRows.length);
     for (let i = 0, l = allRows.length; i < l; i++) {
       var row = allRows[i];
       if (row.rowStatus && row.rowStatus.icon === 'dirtyerror') {
-        this.sohoDataGridComponent.rowStatus(row.id, 'dirty', '');
+        this.sohoDataGridComponent?.rowStatus(row.id, 'dirty', '');
       } else {
-        this.sohoDataGridComponent.rowStatus(row.id, '', '');
+        this.sohoDataGridComponent?.rowStatus(row.id, '', '');
       }
     }
-    this.sohoDataGridComponent.clearAllErrors();
+    this.sohoDataGridComponent?.clearAllErrors();
   }
 
   export () {
-    this.sohoDataGridComponent.exportToExcel('', '', null);
+    this.sohoDataGridComponent?.exportToExcel('', '', null);
   }
 
   public onBeforeEnterEditMode(event: SohoDataGridEditModeEvent) {
@@ -367,8 +370,8 @@ export class DataGridEditorsDemoComponent implements OnInit {
   // Note: If we called this onKeyDown we would get the NG keydown firing as well.
   public onKeyDown(event: SohoDataGridKeyDownEvent) {
     if (event.e && event.e.which === 13 &&
-      this.sohoDataGridComponent.dataset.length - 1 === event.args.row && event.args.cell === 4) {
-      this.sohoDataGridComponent.addRow({id: (parseInt('214229', 10) + this.cnt).toString() }, 'bottom');
+      this.sohoDataGridComponent?.dataset.length - 1 === event.args.row && event.args.cell === 4) {
+      this.sohoDataGridComponent?.addRow({id: (parseInt('214229', 10) + this.cnt).toString() }, 'bottom');
       this.cnt++;
       return event.response(false);
     }

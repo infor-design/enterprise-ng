@@ -22,7 +22,7 @@ export class DataGridGroupableDemoComponent implements OnInit {
   public set groupColumn(value: string) {
     this._groupColumn = value;
     if (this.dataGrid) {
-      this.dataGrid.groupable = {fields: [this._groupColumn], aggregator: 'sum'};
+      (this.dataGrid as any).groupable = {fields: [this._groupColumn], aggregator: 'sum'};
     }
   }
   public get groupColumn(): string {
@@ -42,7 +42,7 @@ export class DataGridGroupableDemoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataGrid.groupable = {fields: [this.groupColumn], aggregator: 'sum'};
+    (this.dataGrid as any).groupable = {fields: [this.groupColumn], aggregator: 'sum'};
   }
 
 }

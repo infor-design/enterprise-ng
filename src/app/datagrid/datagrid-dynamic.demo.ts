@@ -61,7 +61,7 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
     this.service.getData((null) as any).subscribe((d: any[]) => {
       const newData = new Array<any>(d[0]);
       newData.forEach((r) => r.orderDate = new Date());
-      this.dataGrid.addRow(newData[0], 'top');
+      this.dataGrid?.addRow(newData[0], 'top');
     });
   }
 
@@ -73,11 +73,11 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
   }
 
   toggleFilterRow() {
-    this.dataGrid.toggleFilterRow();
+    this.dataGrid?.toggleFilterRow();
   }
 
   resetFilter() {
-    this.dataGrid.clearFilter();
+    this.dataGrid?.clearFilter();
   }
 
   onSelected(e: SohoDataGridSelectedEvent) {
@@ -112,8 +112,8 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
     // -----------------------------------------------------------------
     // select right click row, unselect any other row first.
     // -----------------------------------------------------------------
-    this.dataGrid.unSelectAllRows();
-    this.dataGrid.selectRows([ e.row ]);
+    this.dataGrid?.unSelectAllRows();
+    this.dataGrid?.selectRows([ e.row ]);
 
     // -----------------------------------------------------------------
     // build the right click menu items array dynamically. When the

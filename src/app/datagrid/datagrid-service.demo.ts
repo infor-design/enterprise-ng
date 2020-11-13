@@ -46,26 +46,26 @@ export class DataGridServiceDemoComponent {
   }
 
   busy() {
-    this.busyindicator?.activated = true;
+    (this.busyIndicator as any).activated = true;
   }
 
   toggleFilterRow() {
-    this.dataGrid.toggleFilterRow();
+    this.dataGrid?.toggleFilterRow();
   }
 
   clearFilter() {
-    this.dataGrid.clearFilter();
+    this.dataGrid?.clearFilter();
   }
 
   sortColumn() {
-    this.dataGrid.setSortColumn('price1');
+    this.dataGrid?.setSortColumn('price1');
   }
 
   addRow() {
   }
 
   export() {
-    this.dataGrid.exportToExcel('my-export');
-    this.dataGrid.exportToCsv('my-export');
+    this.dataGrid?.exportToExcel('my-export');
+    this.dataGrid?.exportToCsv('my-export');
   }
 }

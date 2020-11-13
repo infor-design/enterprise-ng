@@ -47,7 +47,7 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
 
   private buildGridOptions(): SohoDataGridOptions {
     return {
-      columns: this.datagridPagingService.getColumns(),
+      columns: this.datagridPagingService?.getColumns(),
       selectable: 'multiple',
       paging: true,
       pagesize: 100,
@@ -60,7 +60,7 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
   }
 
   private dataGridOptions = (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
-    this.datagridPagingService.getData(request).subscribe((result: any) => {
+    this.datagridPagingService?.getData(request).subscribe((result: any) => {
       request.firstPage = result.firstPage;
       request.lastPage = result.lastPage;
 

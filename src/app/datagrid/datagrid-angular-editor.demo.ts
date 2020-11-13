@@ -204,7 +204,7 @@ export class DemoCellInputEditorComponent implements SohoDataGridCellEditor {
   }
 
   focus() {
-    this.input.focus();
+    this.input?.focus();
   }
 }
 
@@ -226,13 +226,13 @@ export class DemoCellDatePickerEditorComponent implements SohoDataGridCellEditor
 
   val(value?: any) {
     if (value) {
-      this.datePicker.setValue(value);
+      this.datePicker?.setValue(value);
     }
-    return this.datePicker.getValue();
+    return this.datePicker?.getValue();
   }
 
   focus() {
-    this.datePicker.focus();
+    this.datePicker?.focus();
   }
 }
 

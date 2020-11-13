@@ -69,11 +69,11 @@ export class HierarchyPagingDemoComponent implements OnInit {
     console.log(hierarchyEvent.data, hierarchyEvent.eventType);
 
     if (hierarchyEvent.eventType === 'back') {
-      this.sohoHierarchy.reloadDataSet(hierarchyEvent.data.parentDataSet);
+      this.sohoHierarchy?.reloadDataSet(hierarchyEvent.data.parentDataSet);
     } else if (!hierarchyEvent.data.isLoaded && !hierarchyEvent.data.isLeaf) {
       this.hierarchyService.getHierarchyData().subscribe((data) => {
         hierarchyEvent.data.children = data[0].lazyDataSet;
-        this.sohoHierarchy.reloadDataSet(hierarchyEvent.data);
+        this.sohoHierarchy?.reloadDataSet(hierarchyEvent.data);
       });
     }
   }
