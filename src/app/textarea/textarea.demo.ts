@@ -1,8 +1,6 @@
 import { Component, OnInit , ViewChild} from '@angular/core';
-
-import {
-  SohoTextAreaComponent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoTextAreaComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-textarea-demo',

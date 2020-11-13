@@ -1,6 +1,5 @@
 import {
   Component,
-  ElementRef,
   ViewChild,
   NgZone,
   ChangeDetectionStrategy,
@@ -8,7 +7,7 @@ import {
   OnInit,
   QueryList
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoTreeComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -18,7 +17,7 @@ import { SohoTreeComponent } from 'ids-enterprise-ng';
 })
 export class TreeContentDemoComponent implements OnInit {
   @ViewChild(SohoTreeComponent, { static: true }) tree: SohoTreeComponent;
-  @ViewChildren('treeContextMenu') treeContextMenu: QueryList<any>;
+  @ViewChildren('treeContextMenu') treeContextMenu?: QueryList<any>;
 
   treeOptions: SohoTreeOptions = {
     folderIconOpen: 'plusminus-folder-open',
@@ -27,8 +26,8 @@ export class TreeContentDemoComponent implements OnInit {
     hideCheckboxes: true
   };
   enabled = true;
-  selected: SohoTreeNode;
-  contextMenuOptions = [];
+  selected?: SohoTreeNode;
+  contextMenuOptions: any[] = [];
   options1 = [
     {
       'id': 'PISumOfMathFunctionBtn',
@@ -202,7 +201,7 @@ export class TreeContentDemoComponent implements OnInit {
     }
   ];
 
-  constructor(private element: ElementRef, private ngZone: NgZone) {
+  constructor(private ngZone: NgZone) {
   }
 
   ngOnInit() {
@@ -217,11 +216,11 @@ export class TreeContentDemoComponent implements OnInit {
     this.tree.collapseAll();
   }
 
-  onMenuOpen(e) {
+  onMenuOpen(e: any) {
     console.log('menu-open', e);
   }
 
-  onContextMenu(e) {
+  onContextMenu(e: any) {
     console.log('contextmenu', e);
     this.ngZone.runOutsideAngular(() => {
       if (this.contextMenuOptions.length === this.options1.length) {
@@ -237,7 +236,7 @@ export class TreeContentDemoComponent implements OnInit {
     console.log(`You selected command: ${cmd}`);
   }
 
-  toggleEnabled(event: any) {
+  toggleEnabled(_event: any) {
     this.enabled = !this.enabled;
     if (this.enabled) {
       this.tree.enable();

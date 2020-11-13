@@ -4,6 +4,7 @@
   ViewChild
 } from '@angular/core';
 
+// @ts-ignore
 import { SohoSwapListComponent } from 'ids-enterprise-ng';
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
@@ -43,14 +44,14 @@ export class SwapListFullAccessDemoComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.sohoHeaderRef.instance.sectionTitle = 'SwapList Full Access Demo';
+    (this.sohoHeaderRef.instance as any).sectionTitle = 'SwapList Full Access Demo';
   }
 
-  onSelected(event: any) {
+  onSelected(_event: any) {
     console.log(this.swapListComponent.selectedItems);
   }
 
-  onUpdated(event: any) {
+  onUpdated(_event: any) {
     console.log(this.swapListComponent.selectedItems);
   }
   toggleModel() {

@@ -55,7 +55,7 @@ export class RadioButtonDemoComponent implements OnInit {
 
   public model: any = {};
   public showModel = true;
-  public form: FormGroup;
+  public form?: FormGroup;
   public codeValue = 'test1';
 
   constructor() {
@@ -64,9 +64,8 @@ export class RadioButtonDemoComponent implements OnInit {
   ngOnInit() {
     // build model and form group
     const group: {[key: string]: any} = [];
-    const keys = Object.keys(this.fieldSpec);
 
-    Object.keys(this.fieldSpec).map( (item, index, ary) => {
+    Object.keys(this.fieldSpec).map( (item: any, _index: any, _ary: any) => {
       this.model[item] = {value: this.dataView[item].value};
       group[item] = new FormControl();
     });

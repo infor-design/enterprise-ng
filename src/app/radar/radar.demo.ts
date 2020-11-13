@@ -4,6 +4,7 @@ import {
   ViewChild
 } from '@angular/core';
 
+// @ts-ignore
 import {SohoRadarComponent} from 'ids-enterprise-ng';
 
 @Component({

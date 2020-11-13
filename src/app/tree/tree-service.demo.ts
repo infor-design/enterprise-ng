@@ -1,14 +1,10 @@
 import {
   Component,
   ChangeDetectionStrategy,
-  ElementRef,
   ViewChild
 } from '@angular/core';
-
-import {
-  SohoTreeComponent,
-  SohoTreeService
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoTreeComponent, SohoTreeService } from 'ids-enterprise-ng';
 
 import { TreeDemoService } from './tree-demo.service';
 
@@ -23,9 +19,9 @@ export class TreeServiceDemoComponent {
 
   enabled = true;
 
-  selected: SohoTreeNode;
+  selected?: SohoTreeNode;
 
-  constructor(private el: ElementRef) {}
+  constructor() {}
 
   expandAll() {
     this.tree.expandAll();
@@ -35,7 +31,7 @@ export class TreeServiceDemoComponent {
     this.tree.collapseAll();
   }
 
-  toggleEnabled(event: any) {
+  toggleEnabled(_event: any) {
     if (this.enabled) {
       this.tree.disable();
       this.enabled = false;

@@ -10,6 +10,7 @@ import {
   ViewChild,
 } from '@angular/core';
 
+// @ts-ignore
 import { SohoSearchFieldComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -32,7 +33,7 @@ export class SearchFieldDemoComponent implements OnInit {
   searchfieldOptions = {
     filterMode: 'contains',
     delay: 500,
-    source: (query, done) => {
+    source: (query: any, done: any) => {
       this.objectBasedData().subscribe((items) => {
           done(query, items);
       });

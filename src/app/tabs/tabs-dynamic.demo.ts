@@ -4,6 +4,7 @@ import {
   ViewChild
 } from '@angular/core';
 
+// @ts-ignore
 import { SohoTabsComponent } from 'ids-enterprise-ng';
 
 /**
@@ -22,7 +23,7 @@ export class TabsDynamicDemoComponent implements OnInit {
 
   @ViewChild(SohoTabsComponent, { static: true }) sohoTabsComponent: SohoTabsComponent;
 
-  public tabs: Array<any>;
+  public tabs?: Array<any>;
   public currentTabsIndex = 1;
   public currentTabTitleChangeNumber = 1;
 
@@ -69,6 +70,10 @@ export class TabsDynamicDemoComponent implements OnInit {
   }
 
   onChangeTitles() {
+    if (!this.tabs) {
+      return;
+    }
+
     for (let i = 0; i < this.tabs.length; i++) {
       // ----------------------------------------------------------------------
       // Calling setTitle on the soho component/control so that the entire
@@ -90,6 +95,6 @@ export class TabsDynamicDemoComponent implements OnInit {
   }
 
   onAddTab() {
-    this.tabs.push({ id: 'dynamic', dismissible: true, title: 'Newly Added Tab', content: 'agnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.' });
+    this.tabs?.push({ id: 'dynamic', dismissible: true, title: 'Newly Added Tab', content: 'agnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.' });
   }
 }

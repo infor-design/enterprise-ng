@@ -2,10 +2,10 @@ import {
   AfterViewInit,
   Component,
   ChangeDetectionStrategy,
-  ElementRef,
   ViewChild
 } from '@angular/core';
 
+// @ts-ignore
 import { SohoTreeComponent } from 'ids-enterprise-ng';
 import { TreeDemoData } from './tree-data.demo';
 
@@ -21,7 +21,7 @@ export class TreeSourceDemoComponent implements AfterViewInit {
 
   public demoData = new TreeDemoData();
 
-  constructor(private el: ElementRef) {
+  constructor() {
     // Configure options here?
   }
 
@@ -45,7 +45,7 @@ export class TreeSourceDemoComponent implements AfterViewInit {
     this.tree.collapseAll();
   }
 
-  toggleEnabled(event: any) {
+  toggleEnabled(_event: any) {
     if (this.enabled) {
       this.tree.disable();
       this.enabled = false;
