@@ -481,7 +481,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
 
     // Initialize any event handlers.
     this.jQueryElement
-      .on('contextmenu', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.contextmenu.next(args))
+      .on('contextmenu', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.contextmenu?.next(args))
       .on('selected', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.selected.next(args))
       .on('unselected', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.unselected.next(args))
       .on('expand', (_e: JQuery.TriggeredEvent, args: SohoTreeEvent) => this.expand.next(args))

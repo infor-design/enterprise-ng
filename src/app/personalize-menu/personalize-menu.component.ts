@@ -67,7 +67,7 @@ export class PersonalizeMenuComponent implements OnInit {
 
     this.themeMenuItems = this.personalize?.themes();
     const personalizationColors = this.personalize?.personalizationColors();
-    this.colorMenuItems = Object.keys(personalizationColors).map(colorId => personalizationColors[colorId]);
+    this.colorMenuItems = Object.keys((personalizationColors as any)).map(colorId => personalizationColors[colorId]);
 
     this.setSelectedTheme(currentTheme);
     this.setSelectedColor(currentColor, false);

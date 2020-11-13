@@ -50,7 +50,7 @@ export class CodeBlockDemoComponent implements AfterViewInit {
 
   onFocusCompoundField() {
     if (this.popdown) {
-      this.popdown.open();
+      this.popdown?.open();
       $('#compound_field_popdown_contents .field:first-child :focusable:first-child').trigger('focus');
       $('#compound_field_popdown_contents .field:last-of-type :focusable').on('blur', () => {
         this.popdown?.close();

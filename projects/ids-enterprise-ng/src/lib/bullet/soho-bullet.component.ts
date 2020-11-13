@@ -81,7 +81,7 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
       this.jQueryElement.on('rendered', (...args) =>
         this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
-        this.ngZone.run(() => this.contextmenu.emit(args)));
+        this.ngZone.run(() => this.contextmenu?.emit(args)));
     });
   }
 

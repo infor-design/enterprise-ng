@@ -121,7 +121,7 @@ export class SohoSparklineComponent implements AfterViewInit, AfterViewChecked, 
       this.jQueryElement.on('rendered', (...args) =>
         this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
-        this.ngZone.run(() => this.contextmenu.emit(args)));
+        this.ngZone.run(() => this.contextmenu?.emit(args)));
     });
   }
 

@@ -130,10 +130,14 @@ export class ButtonsetDemoComponent implements AfterViewInit {
   }
 
   submit() {
+    if (!this.buttonset?.buttonAPIs?.length) {
+      return;
+    }
+
     this.newSettings = {
       audible: this.demoForm.controls.audible.value,
       disabled: this.demoForm.controls.disabled.value,
-      id: 'test-btn-' + (this.buttonset?.buttonAPIs?.length + 1),
+      id: 'test-btn-' + (this.buttonset.buttonAPIs.length + 1),
       style: this.demoForm.controls.style.value,
       text: this.demoForm.controls.btnText.value,
       type: this.demoForm.controls.type.value
@@ -200,10 +204,14 @@ export class ButtonsetDemoComponent implements AfterViewInit {
   }
 
   public handleButtonWidths() {
+    if (!this.buttonset?.buttonAPIs) {
+      return;
+    }
+
     if (this.demoForm.controls.buttonsetStyle.value === 'modal') {
-      this.adjustBtnWidths(this.buttonset?.buttonAPIs);
+      this.adjustBtnWidths(this.buttonset.buttonAPIs);
     } else {
-      this.resetBtnWidths(this.buttonset?.buttonAPIs);
+      this.resetBtnWidths(this.buttonset.buttonAPIs);
     }
   }
 

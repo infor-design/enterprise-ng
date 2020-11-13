@@ -128,7 +128,7 @@ export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDe
         this.ngZone.run(() => this.rendered.emit({ event, ui, data })));
 
       this.jQueryElement.on('contextmenu', (event: JQuery.TriggeredEvent, ui: any, data: any) =>
-        this.ngZone.run(() => this.contextmenu.emit({ event, ui, data })));
+        this.ngZone.run(() => this.contextmenu?.emit({ event, ui, data })));
     });
   }
 

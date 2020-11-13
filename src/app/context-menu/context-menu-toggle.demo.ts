@@ -115,15 +115,15 @@ export class ContextMenuToggleDemoComponent implements OnInit {
 
   updateSettings() {
     this.changeDetectorRef.detectChanges();
-    this.contextMenu.updated();
+    this.contextMenu?.updated();
   }
 
   setContextMenu() {
     this.changeDetectorRef.detectChanges();
     if (this.isShowContextMenu) {
-      this.contextMenu.ngAfterViewInit();
+      this.contextMenu?.ngAfterViewInit();
     } else {
-      this.contextMenu.ngOnDestroy();
+      this.contextMenu?.ngOnDestroy();
     }
   }
 

@@ -118,7 +118,7 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
     this.options.trigger = trigger;
     if (this.contextMenu) {
       (this.contextMenu as any).settings.trigger = trigger;
-      this.contextMenu.updated();
+      this.contextMenu?.updated();
     }
   }
 
@@ -126,7 +126,7 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
     this.options.menu = menu;
     if (this.contextMenu) {
       (this.contextMenu as any).settings.menu = menu;
-      this.contextMenu.updated();
+      this.contextMenu?.updated();
     }
   }
 
@@ -178,7 +178,7 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
   @Input() set placementOpts(placementOpts: SohoPopupmenuPlacementOpts) {
     this.options.placementOpts = placementOpts;
     if (this.contextMenu) {
-      (this.contextMenu.settings as any).placementOpts = placementOpts;
+      ((this.contextMenu as any).settings as any).placementOpts = placementOpts;
     }
   }
 
@@ -192,13 +192,13 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
   @Input() set offset(offset: SohoPopupmenuOffset) {
     this.options.offset = offset;
     if (this.contextMenu) {
-      (this.contextMenu.settings as any).offset = offset;
+      ((this.contextMenu as any).settings as any).offset = offset;
     }
   }
 
   get offset(): SohoPopupmenuOffset {
     if (this.contextMenu) {
-      return (this.contextMenu.settings as any).offset;
+      return ((this.contextMenu as any).settings as any).offset;
     }
     return (this.options as any).offset;
   }

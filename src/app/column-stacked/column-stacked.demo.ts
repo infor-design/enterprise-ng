@@ -108,11 +108,11 @@ export class ColumnStackedDemoComponent implements OnInit {
 
   setChartSelection() {
     const SohoColumnSelected: SohoColumnSelected = this.selection;
-    this.sohoColumnComponent.setSelected(SohoColumnSelected);
+    this.sohoColumnComponent?.setSelected(SohoColumnSelected);
   }
 
   toggleChartSelection () {
     const SohoColumnSelected: SohoColumnSelected = this.selection;
-    this.sohoColumnComponent.toggleSelected(SohoColumnSelected);
+    this.sohoColumnComponent?.toggleSelected(SohoColumnSelected);
   }
 }

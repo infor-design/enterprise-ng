@@ -2189,7 +2189,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    */
   private onContextMenu(args: SohoDataGridRowClicked) {
     this.ngZone.run(() => {
-      this.contextMenu.next(args);
+      this.contextMenu?.next(args);
     });
   }
 

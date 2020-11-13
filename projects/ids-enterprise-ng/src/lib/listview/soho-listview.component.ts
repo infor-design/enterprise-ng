@@ -388,7 +388,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
       this.jQueryElement.on('itemdeactivated', (...args) => this.ngZone.run(() => this.itemdeactivated.emit(args)));
       this.jQueryElement.on('click', (...args) => this.ngZone.run(() => this.click.emit(args)));
       this.jQueryElement.on('dblclick', (...args) => this.ngZone.run(() => this.dblclick.emit(args)));
-      this.jQueryElement.on('contextmenu', (...args) => this.ngZone.run(() => this.contextmenu.emit(args)));
+      this.jQueryElement.on('contextmenu', (...args) => this.ngZone.run(() => this.contextmenu?.emit(args)));
       this.jQueryElement.on('sorted', (...args) => this.ngZone.run(() => this.sorted.emit(args)));
     });
 

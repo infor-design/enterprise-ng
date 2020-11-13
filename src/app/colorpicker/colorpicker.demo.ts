@@ -22,19 +22,19 @@ export class ColorPickerDemoComponent implements OnInit, AfterViewInit {
     attributes: { name: 'id', value: 'background-color' }
   };
 
-  public showModel = false;
-  public colorPickerDisabled = false;
-  public colorPickerReadOnly = false;
-  public colorPickerEditable = true;
-  public colorPickerClearable = true;
-  public showLabel = false;
+  public showModel?: any = false;
+  public colorPickerDisabled?: any = false;
+  public colorPickerReadOnly?: any = false;
+  public colorPickerEditable?: any = true;
+  public colorPickerClearable?: any = true;
+  public showLabel?: any = false;
 
   constructor() {}
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.colorPickerDisabled = this.colorpicker.disabled;
-      this.colorPickerEditable = this.colorpicker.editable;
+      this.colorPickerDisabled = this.colorpicker?.disabled;
+      this.colorPickerEditable = this.colorpicker?.editable;
     }, 300);
   }
   ngOnInit() {}
@@ -45,30 +45,30 @@ export class ColorPickerDemoComponent implements OnInit, AfterViewInit {
 
   onChange(_event: Event) {
     this.model = {
-      color: this.colorpicker.getHexValue(),
-      label: this.colorpicker.getLabelValue(),
+      color: this.colorpicker?.getHexValue(),
+      label: this.colorpicker?.getLabelValue(),
       attributes: { name: 'id', value: 'background-color' }
     };
   }
 
   setStatus() {
     this.colorPickerDisabled = !this.colorPickerDisabled;
-    this.colorpicker.disabled = this.colorPickerDisabled;
+    (this.colorpicker as any).disabled = this.colorPickerDisabled;
   }
 
   setEditable() {
     this.colorPickerEditable = !this.colorPickerEditable;
-    this.colorpicker.editable = this.colorPickerEditable;
+    (this.colorpicker as any).editable = this.colorPickerEditable;
   }
 
   setReadonly() {
     this.colorPickerReadOnly = !this.colorPickerReadOnly;
-    this.colorpicker.readonly = this.colorPickerReadOnly;
+    (this.colorpicker as any).readonly = this.colorPickerReadOnly;
   }
 
   setClearable() {
     this.colorPickerClearable = !this.colorPickerClearable;
-    this.colorpicker.clearable = this.colorPickerClearable;
+    (this.colorpicker as any).clearable = this.colorPickerClearable;
   }
 
   changeCustomColors() {
@@ -77,8 +77,8 @@ export class ColorPickerDemoComponent implements OnInit, AfterViewInit {
     newColors.push({label: 'Blueberry', value: '2578A9', number: '08'});
     newColors.push({label: 'Banana', value: 'efa836', number: '09'});
 
-    this.colorpicker.customColors = true;
-    this.colorpicker.colors = newColors;
+    (this.colorpicker as any).customColors = true;
+    (this.colorpicker as any).colors = newColors;
 
   }
   changeColors() {
@@ -94,12 +94,12 @@ export class ColorPickerDemoComponent implements OnInit, AfterViewInit {
     newColors.push({label: 'Slate', number: '02', value: 'D8D8D8'});
     newColors.push({label: 'Slate', number: '01', value: 'F0F0F0', border: 'light, high-contrast'});
 
-    this.colorpicker.colors = newColors;
+    (this.colorpicker as any).colors = newColors;
   }
 
   toggleLabel() {
     this.showLabel = !this.showLabel;
-    this.colorpicker.showLabel = this.showLabel;
+    (this.colorpicker as any).showLabel = this.showLabel;
 
     // Clear the value since we cant easily toggle
     // the label value on the fly with this setting
