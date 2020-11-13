@@ -1,12 +1,10 @@
 import {
   Component,
-  ElementRef,
   ViewChild,
-  NgZone,
   ChangeDetectionStrategy,
   OnInit
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoTreeComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -275,11 +273,10 @@ export class TreeExpandTargetDemoComponent implements OnInit {
     useExpandTarget: true,
     showChildrenCount: true
   };
-  private selected: SohoTreeNode;
+  private selected?: any | SohoTreeNode;
   private id = 0;
 
-  constructor(private element: ElementRef, private ngZone: NgZone) {
-  }
+  constructor() {}
 
   ngOnInit() {
     this.tree.options = this.treeOptions;

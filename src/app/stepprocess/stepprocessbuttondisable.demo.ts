@@ -1,4 +1,5 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
+// @ts-ignore
 import { SohoStepProcessComponent } from 'ids-enterprise-ng';
 
 @Component({

@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, NgZone } from '@angular/core';
+import { AfterViewChecked, Component } from '@angular/core';
 
 /**
  * This example:
@@ -16,13 +16,12 @@ export class TestTabsBasicComponent implements AfterViewChecked {
     console.log('TestTabsBasicComponent.ngAfterViewChecked called ' + (++this.viewCheckCount) + ' times');
   }
 
-  onTabActivated(event) {
-    // NgZone.assertInAngularZone();
+  onTabActivated(_event: any) {
     this.tabActivatedCount++;
     console.log('TabsBasicDemoComponent.onTabActivated');
   }
 
-  onAfterActivated(event) {
+  onAfterActivated(_event: any) {
     // NgZone.assertInAngularZone();
     console.log('TabsBasicDemoComponent.onAfterActivated');
   }

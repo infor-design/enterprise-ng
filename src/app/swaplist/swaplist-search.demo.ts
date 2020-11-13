@@ -5,6 +5,7 @@ import {
   ViewChild
 } from '@angular/core';
 
+// @ts-ignore
 import { SohoSwapListComponent } from 'ids-enterprise-ng';
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
@@ -13,7 +14,8 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
   templateUrl: 'swaplist-search.demo.html'
 })
 export class SwapListSearchDemoComponent implements OnInit, OnDestroy {
-  @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent: SohoSwapListComponent; SohoBusyIndicatorDirective;
+  @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent: SohoSwapListComponent;
+  SohoBusyIndicatorDirective: any;
 
   allDemoItems: any[] = [];
   availableDemoItems: any[] = [];
@@ -39,14 +41,14 @@ export class SwapListSearchDemoComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit() {
-    this.sohoHeaderRef.instance.sectionTitle = 'SwapList Search Demo';
+    (this.sohoHeaderRef.instance as any).sectionTitle = 'SwapList Search Demo';
   }
 
   onSelected() {
     console.log(this.swapListComponent.selectedItems);
   }
 
-  onBeforeswap(event) {
+  onBeforeswap(event: any) {
     if (event) {
       event.result = this.validationResults;
 
@@ -70,10 +72,10 @@ export class SwapListSearchDemoComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.sohoHeaderRef.instance.sectionTitle = '';
+    (this.sohoHeaderRef.instance as any).sectionTitle = '';
   }
 
-  getResults(el) {
+  getResults(el: any) {
     return (el.attr('data-result') === 'true');
   }
 

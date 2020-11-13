@@ -14,7 +14,7 @@ import {
 })
 export class TabsDataDrivenDemoComponent implements OnInit {
 
-  public tabs: Array<{id: string, title: string, content: string}>;
+  public tabs?: Array<{id: string, title: string, content: string}>;
 
   ngOnInit() {
     this.tabs = [
@@ -24,7 +24,7 @@ export class TabsDataDrivenDemoComponent implements OnInit {
     ];
   }
 
-  onTabActivated(event) {
+  onTabActivated(event: any) {
     console.log(event.tab + ' TabsDataDrivenDemoComponent.onTabActivated');
   }
 }

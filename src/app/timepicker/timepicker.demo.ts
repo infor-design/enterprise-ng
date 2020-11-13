@@ -4,9 +4,8 @@ import {
   ViewChild
 } from '@angular/core';
 
-import {
-  SohoTimePickerComponent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoTimePickerComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-timepicker-demo',
@@ -33,7 +32,7 @@ export class TimePickerDemoComponent implements OnInit {
     this.showModel = !this.showModel;
   }
 
-  onChange(event: Event) {
+  onChange(_event: Event) {
     console.log('TimepickerDemoComponent.onChange');
   }
 

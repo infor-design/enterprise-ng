@@ -28,7 +28,7 @@ export class ToolbarFlexMoreActionsAjaxDemoComponent {
     <li><a href="#" id="MenuButtonOptionTwo" data-action="{'button':'Menu Button AJAX Option 2'}">Menu Button AJAX Option 2</a></li>
   `;
 
-  onSelected(event) {
+  onSelected(event: any) {
       let data = '';
       if (event.item.type === 'actionbutton' || event.item.type === 'menubutton') {
         data = event.item.selectedAnchor[0].dataset.action;
@@ -52,7 +52,7 @@ export class ToolbarFlexMoreActionsAjaxDemoComponent {
     }
   }
 
-  onBeforeMenuButtonOpen = (response: AjaxBeforeOpenResponseFunction, options: any) => {
+  onBeforeMenuButtonOpen = (response: AjaxBeforeOpenResponseFunction, _options: any) => {
     response(this.MENU_BUTTON_RESPONSE_HTML);
     return;
   }

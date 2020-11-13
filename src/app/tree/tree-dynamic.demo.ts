@@ -8,9 +8,9 @@ import {
 
 import {
   Subject,
-  Observable
 } from 'rxjs';
 
+// @ts-ignore
 import { SohoTreeComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -69,13 +69,13 @@ export class TreeDynamicDemoComponent implements AfterViewInit {
   // Is this component enabled.
   enabled = true;
 
-  selected: SohoTreeNode;
+  selected?: SohoTreeNode;
 
   get dataset() {
     return this.source;
   }
 
-  constructor(private el: ElementRef) {}
+  constructor() {}
 
   expandAll() {
     this.tree.expandAll();

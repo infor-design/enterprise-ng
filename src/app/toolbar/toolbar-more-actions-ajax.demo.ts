@@ -23,7 +23,7 @@ export class ToolbarMoreActionsAjaxDemoComponent {
     <li><a href="#" id="SubOptionThree" data-action="AJAX sub-option 3">AJAX sub-option 3</a></li>
   `;
 
-  onSelected(event) {
+  onSelected(event: any) {
     const data = event.event.currentTarget.dataset.action;
     alert(data);
   }

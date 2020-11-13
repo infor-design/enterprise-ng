@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ToolbarStateService {
   public  buildToolbarButtonSet1(): Array<LMToolbarButton> {
-    const toolbarButtonSet = [];
+    const toolbarButtonSet: any[] = [];
 
     toolbarButtonSet.push({
-      id    : 'Create',
+      id : 'Create',
       button: 'icon',
       data  : '{"btn" : "create"}',
       text  : 'Create',

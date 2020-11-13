@@ -1,12 +1,7 @@
 import {
   Component,
-  OnInit,
-  ViewChild
+  OnInit
 } from '@angular/core';
-
-import {
-  SohoRadarComponent
-} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-sparkline-demo',
