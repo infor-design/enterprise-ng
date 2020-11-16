@@ -4,7 +4,7 @@ import {
   ChangeDetectionStrategy,
   OnInit
 } from '@angular/core';
-// @ts-ignore
+
 import { SohoTreeComponent } from 'ids-enterprise-ng';
 
 @Component({

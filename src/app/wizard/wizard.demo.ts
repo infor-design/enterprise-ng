@@ -3,7 +3,6 @@ import {
   ViewChild,
 } from '@angular/core';
 
-// @ts-ignore
 import { SohoWizardComponent } from 'ids-enterprise-ng';
 
 @Component({

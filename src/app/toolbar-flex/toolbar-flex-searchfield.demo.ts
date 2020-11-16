@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-// @ts-ignore
+
 import { SohoToolbarFlexSearchFieldComponent } from 'ids-enterprise-ng';
 
 /**

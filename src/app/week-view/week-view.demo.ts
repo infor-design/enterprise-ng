@@ -6,7 +6,6 @@ import {
   ViewChild,
 } from '@angular/core';
 
-// @ts-ignore
 import { SohoToastService, SohoWeekViewComponent } from 'ids-enterprise-ng';
 
 import { WeekViewDemoService } from './week-view.demo.service';

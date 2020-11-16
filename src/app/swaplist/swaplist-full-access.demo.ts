@@ -4,7 +4,6 @@
   ViewChild
 } from '@angular/core';
 
-// @ts-ignore
 import { SohoSwapListComponent } from 'ids-enterprise-ng';
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
@@ -13,7 +12,7 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
   templateUrl: 'swaplist-full-access.demo.html',
 })
 export class SwapListFullAccessDemoComponent implements OnInit {
-  @ViewChild(SohoSwapListComponent, { static: true })swapListComponent?: SohoSwapListComponent;
+  @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent!: SohoSwapListComponent;
 
   availableDemoItems: SohoSwapListItem[] = [];
   selectedDemoItems: SohoSwapListItem[] = [];

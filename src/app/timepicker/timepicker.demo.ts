@@ -4,7 +4,6 @@ import {
   ViewChild
 } from '@angular/core';
 
-// @ts-ignore
 import { SohoTimePickerComponent } from 'ids-enterprise-ng';
 
 @Component({

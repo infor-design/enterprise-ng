@@ -4,7 +4,7 @@ import {
   ViewChildren,
   QueryList
 } from '@angular/core';
-// @ts-ignore
+
 import { SohoTooltipDirective } from 'ids-enterprise-ng';
 
 @Component({

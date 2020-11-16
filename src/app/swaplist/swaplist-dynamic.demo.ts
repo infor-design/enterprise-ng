@@ -8,7 +8,6 @@ import {
 import { BehaviorSubject } from 'rxjs';
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
-// @ts-ignore
 import { SohoSwapListComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -16,7 +15,7 @@ import { SohoSwapListComponent } from 'ids-enterprise-ng';
     templateUrl: 'swaplist-dynamic.demo.html',
 })
 export class SwapListDynamicDemoComponent implements OnInit, OnDestroy {
-    @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent?: SohoSwapListComponent;
+    @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent!: SohoSwapListComponent;
 
     private _subject1$ = new BehaviorSubject([]);
     public available = this._subject1$.asObservable();

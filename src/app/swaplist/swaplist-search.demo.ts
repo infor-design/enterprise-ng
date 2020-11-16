@@ -5,7 +5,6 @@ import {
   ViewChild
 } from '@angular/core';
 
-// @ts-ignore
 import { SohoSwapListComponent } from 'ids-enterprise-ng';
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
@@ -14,7 +13,7 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
   templateUrl: 'swaplist-search.demo.html'
 })
 export class SwapListSearchDemoComponent implements OnInit, OnDestroy {
-  @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent?: SohoSwapListComponent;
+  @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent!: SohoSwapListComponent;
   SohoBusyIndicatorDirective: any;
 
   allDemoItems: any[] = [];

@@ -6,7 +6,6 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
-// @ts-ignore
 import { SohoSwapListComponent, SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 
 import { SwapListDemoService } from './swaplist-demo.service';
@@ -19,8 +18,8 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SwapListServiceDemoComponent implements OnInit, OnDestroy {
-  @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent?: SohoSwapListComponent;
-  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator?: SohoBusyIndicatorDirective;
+  @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent!: SohoSwapListComponent;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator!: SohoBusyIndicatorDirective;
 
   showModel = false;
   available: SohoSwapListItem[] = [];
@@ -43,9 +42,9 @@ export class SwapListServiceDemoComponent implements OnInit, OnDestroy {
 
   updateData(_event: any) {
     this.service.getData().subscribe((d: SohoSwapListOptions) => {
-      this.busyIndicator?.open();
+      this.busyIndicator.open();
       this.swapListComponent.updateDataset(d);
-      this.busyIndicator?.close(true);
+      this.busyIndicator.close(true);
     });
   }
 

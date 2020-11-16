@@ -10,7 +10,6 @@ import {
   ViewChild,
 } from '@angular/core';
 
-// @ts-ignore
 import { SohoSearchFieldComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -18,7 +17,7 @@ import { SohoSearchFieldComponent } from 'ids-enterprise-ng';
   templateUrl: 'searchfield-clear.demo.html'
 })
 export class SearchFieldClearDemoComponent implements AfterViewInit, OnInit {
-  @ViewChild(SohoSearchFieldComponent, { static: true }) searchfield?: SohoSearchFieldComponent;
+  @ViewChild(SohoSearchFieldComponent, { static: true }) searchfield!: SohoSearchFieldComponent;
 
   public model = {
     searchValue: ''

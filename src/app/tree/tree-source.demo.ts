@@ -5,7 +5,6 @@ import {
   ViewChild
 } from '@angular/core';
 
-// @ts-ignore
 import { SohoTreeComponent } from 'ids-enterprise-ng';
 import { TreeDemoData } from './tree-data.demo';
 

@@ -6,7 +6,6 @@ import {
   ViewChildren
 } from '@angular/core';
 
-// @ts-ignore
 import { SohoLookupComponent, SohoTrackDirtyDirective } from 'ids-enterprise-ng';
 
 /**

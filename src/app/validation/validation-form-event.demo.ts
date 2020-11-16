@@ -1,7 +1,6 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 
-// @ts-ignore
 import { SohoTrackDirtyDirective, SohoErrorDirective } from 'ids-enterprise-ng';
 
 @Component({

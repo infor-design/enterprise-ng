@@ -4,8 +4,11 @@ import {
   AfterViewInit
 } from '@angular/core';
 
-// @ts-ignore
-import { SohoProgressComponent, SohoWizardPageComponent, SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
+import {
+  SohoProgressComponent,
+  SohoWizardPageComponent,
+  SohoBusyIndicatorDirective
+} from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-result-page',

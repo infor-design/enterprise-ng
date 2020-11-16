@@ -1,5 +1,5 @@
 import { Component, OnInit , ViewChild} from '@angular/core';
-// @ts-ignore
+
 import { SohoTextAreaComponent } from 'ids-enterprise-ng';
 
 @Component({

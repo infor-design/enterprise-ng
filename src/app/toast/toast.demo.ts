@@ -3,7 +3,6 @@ import {
   OnInit
 } from '@angular/core';
 
-// @ts-ignore
 import { SohoToastService } from 'ids-enterprise-ng';
 
 @Component({

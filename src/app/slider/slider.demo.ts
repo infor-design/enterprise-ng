@@ -13,7 +13,7 @@ import { SohoSliderComponent } from 'ids-enterprise-ng';
   styles: [`pre{font-size: 15px}`] // set font size to be larger so pre tag content is more readable
 })
 export class SliderDemoComponent implements OnInit {
-  @ViewChild(SohoSliderComponent, { static: true }) slider?: SohoSliderComponent;
+  @ViewChild(SohoSliderComponent, { static: true }) slider!: SohoSliderComponent;
 
   public sliderDisabled = false;
   public sliderReadOnly = false;
@@ -48,6 +48,8 @@ export class SliderDemoComponent implements OnInit {
   setEnable() {
     this.slider.disabled = false;
     this.sliderDisabled = this.slider.disabled;
+
+    this.slider.readonly = false;
     this.sliderReadOnly = this.slider.readonly;
   }
 }

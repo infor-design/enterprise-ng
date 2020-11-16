@@ -9,7 +9,6 @@ import {
   Subject,
 } from 'rxjs';
 
-// @ts-ignore
 import { SohoTreeComponent } from 'ids-enterprise-ng';
 
 @Component({

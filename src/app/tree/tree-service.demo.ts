@@ -3,7 +3,7 @@ import {
   ChangeDetectionStrategy,
   ViewChild
 } from '@angular/core';
-// @ts-ignore
+
 import { SohoTreeComponent, SohoTreeService } from 'ids-enterprise-ng';
 
 import { TreeDemoService } from './tree-demo.service';

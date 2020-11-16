@@ -5,7 +5,6 @@ import {
 } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-// @ts-ignore
 import { SohoInputValidateDirective } from 'ids-enterprise-ng';
 
 @Component({

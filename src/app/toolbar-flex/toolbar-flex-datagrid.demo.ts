@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { DataGridDemoService } from '../datagrid/datagrid-demo.service';
-// @ts-ignore
+
 import { SohoDataGridService } from 'ids-enterprise-ng';
 
 @Component({

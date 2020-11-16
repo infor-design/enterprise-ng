@@ -5,7 +5,7 @@ import {
 } from 'rxjs';
 
 import { Injectable } from '@angular/core';
-// @ts-ignore
+
 import { SohoTreeService } from 'ids-enterprise-ng';
 
 import { TreeDemoData } from './tree-data.demo';
