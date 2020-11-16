@@ -32,10 +32,12 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
   constructor(private ref: ChangeDetectorRef) {}
 
   ngOnInit() {
-    this.themes = this.personalize?.themes();
-    this.colors = this.personalize?.personalizationColors();
+    const personalize = (this.personalize as any);
 
-    this.model.themeId = this.personalize?.currentTheme.id;
+    this.themes = personalize.themes();
+    this.colors = personalize.personalizationColors();
+
+    this.model.themeId = personalize.currentTheme.id;
     this.model.colorId = 'default';
 
     this.currentThemeId = this.model.themeId;
@@ -60,8 +62,10 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
   }
 
   onChangeColor(event: SohoChangeColorsPersonalizeEvent) {
-    const colorIdArray = Object.keys(this.personalize?.personalizationColors());
-    const colorId = colorIdArray.find(cid => this.personalize?.personalizationColors()[cid].value === event.data.colors);
+    const personalize = (this.personalize as any);
+
+    const colorIdArray = Object.keys(personalize.personalizationColors());
+    const colorId = colorIdArray.find(cid => personalize.personalizationColors()[cid].value === event.data.colors);
     if (colorId === this.currentColorId) {
       return; // color did not change
     }
@@ -71,28 +75,30 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
   }
 
   onThemeChange(event: JQuery.TriggeredEvent) {
+    const personalize = (this.personalize as any);
     const themeId = event.data;
-    if (themeId === this.personalize?.currentTheme.id) {
+    if (themeId === personalize.currentTheme.id) {
       return; // themeId did not change
     }
 
     this.currentThemeId = themeId;
-    (this.personalize as any).theme = themeId;
+    personalize.theme = themeId;
 
-    this.colors = this.personalize?.personalizationColors();
+    this.colors = personalize.personalizationColors();
     this.model.colorId = 'default';
 
     this.ref.markForCheck(); // mark for check so personalization.theme input is messaged
   }
 
   onColorChange(event: JQuery.TriggeredEvent) {
+    const personalize = (this.personalize as any);
     const colorId = event.data;
     if (colorId === this.currentColorId) {
       return;
     }
     this.currentColorId = colorId;
 
-    const colorHex = this.personalize?.personalizationColors()[colorId].value;
+    const colorHex = personalize.personalizationColors()[colorId].value;
     (this.personalize as any).colors = colorHex;
     this.ref.markForCheck(); // mark for check so personalization.colors input is messaged
 

@@ -5,7 +5,6 @@ import {
   HostBinding
 } from '@angular/core';
 
-// @ts-ignore
 import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
 
 interface ThemeMenuItem extends SohoTheme {
@@ -65,8 +64,8 @@ export class PersonalizeMenuComponent implements OnInit {
     const currentTheme = (this.personalize as any).theme = this.theme;
     const currentColor = (this.personalize as any).colors = this.color;
 
-    this.themeMenuItems = this.personalize?.themes();
-    const personalizationColors = this.personalize?.personalizationColors();
+    this.themeMenuItems = (this.personalize as any).themes();
+    const personalizationColors = (this.personalize as any).personalizationColors();
     this.colorMenuItems = Object.keys((personalizationColors as any)).map(colorId => personalizationColors[colorId]);
 
     this.setSelectedTheme(currentTheme);
