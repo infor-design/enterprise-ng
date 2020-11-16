@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v8.1.3
+
+### 8.1.3 Fixes
+
+- `[General]` Added EP version 4.34.2 with Big Sur fixes `TJM`
+
 ## v8.1.2
 
 ### 8.1.2 Fixes
