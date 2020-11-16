@@ -1,14 +1,14 @@
 # What's New with Enterprise-NG
 
-## v8.1.3
-
-### 8.1.3 Fixes
-
-- `[General]` Added EP version 4.34.2 with Big Sur fixes `TJM`
-
 ## v8.1.2
 
 ### 8.1.2 Fixes
+
+- `[General]` Added EP version 4.34.2 with Big Sur fixes `TJM`
+
+## v8.1.1
+
+### 8.1.1 Fixes
 
 - `[General]` Added new types for automation id's.  ([#934](https://github.com/infor-design/enterprise/issues/4521)) `934`
 - `[General]` Added EP version 4.34.1 `TJM`
