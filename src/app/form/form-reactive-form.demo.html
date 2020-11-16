@@ -95,20 +95,20 @@
 
       <button soho-button="tertiary" (click)="toggleDisableForm()">Toggle Disable Form</button>
 
-      <h3>Form valid?: {{ demoForm.status | json }}</h3>
+      <h3>Form valid?: {{ demoForm!.status | json }}</h3>
 
-      <h3>Input Value: {{ demoForm.controls.input.value | json }}</h3>
-      <h3>Date Value: {{ demoForm.controls.datepick.value | json }}</h3>
-      <h3>Time Value: {{ demoForm.controls.timepick.value | json }}</h3>
-      <h3>Dropdown Value: {{ demoForm.controls.dropdown.value | json }}</h3>
-      <h3>Colour Value: {{ demoForm.controls.colorpick.value | json }}</h3>
-      <h3>Checkbox Value: {{ demoForm.controls.checkbox.value | json }}</h3>
-      <h3>Autocomplete Value: {{ demoForm.controls.autocomplete.value | json }}</h3>
-      <h3>Slider Value: {{ demoForm.controls.slider.value | json }}</h3>
-      <h3>Lookup Value: {{ demoForm.controls.lookup.value | json }}</h3>
-      <h3>RadioButton Value: {{ demoForm.controls.radiobutton.value | json }}</h3>
-      <h3>TextArea Value: {{ demoForm.controls.textarea.value | json }}</h3>
-      <h3>Spinbox Value: {{ demoForm.controls.spinbox.value | json }}</h3>
+      <h3>Input Value: {{ demoForm!.controls!.input.value | json }}</h3>
+      <h3>Date Value: {{ demoForm!.controls!.datepick.value | json }}</h3>
+      <h3>Time Value: {{ demoForm!.controls!.timepick.value | json }}</h3>
+      <h3>Dropdown Value: {{ demoForm!.controls!.dropdown.value | json }}</h3>
+      <h3>Colour Value: {{ demoForm!.controls!.colorpick.value | json }}</h3>
+      <h3>Checkbox Value: {{ demoForm!.controls!.checkbox.value | json }}</h3>
+      <h3>Autocomplete Value: {{ demoForm!.controls!.autocomplete.value | json }}</h3>
+      <h3>Slider Value: {{ demoForm!.controls!.slider.value | json }}</h3>
+      <h3>Lookup Value: {{ demoForm!.controls!.lookup.value | json }}</h3>
+      <h3>RadioButton Value: {{ demoForm!.controls!.radiobutton.value | json }}</h3>
+      <h3>TextArea Value: {{ demoForm!.controls!.textarea.value | json }}</h3>
+      <h3>Spinbox Value: {{ demoForm!.controls!.spinbox.value | json }}</h3>
     </div>
   </form>
 </div>

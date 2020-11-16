@@ -22,7 +22,7 @@ export class AboutNestedDemoComponent {
       .content(content)
       .open();
 
-    document.getElementById('nestedAboutDialogButton').onclick = () => {
+    (document.getElementById('nestedAboutDialogButton') as any).onclick = () => {
       this.modalService.message('').options({
         id: 'nested',
         content: 'This is a nested dialog',

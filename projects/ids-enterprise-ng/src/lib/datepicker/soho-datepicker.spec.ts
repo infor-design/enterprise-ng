@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -243,7 +243,7 @@ describe('Soho Datepicker Unit Tests', () => {
   let comp: TestDatePickerComponent;
   let fixture: ComponentFixture<TestDatePickerComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [TestDatePickerComponent],
       imports: [FormsModule, ReactiveFormsModule, SohoDatePickerModule]
@@ -258,7 +258,7 @@ describe('Soho Datepicker Unit Tests', () => {
     });
   }));
 
-  it('Check events', async(() => {
+  it('Check events', waitForAsync(() => {
 
     spyOn(comp, 'onChange');
 

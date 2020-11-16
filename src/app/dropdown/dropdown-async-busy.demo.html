@@ -14,7 +14,7 @@
                         blockUI="true"
                         displayDelay="0"
                         [formControlName]="'testControl'">
-                        <option *ngFor="let child of childrenPreload | async" [value]="child.value">{{child.label}}</option>
+                        <option *ngFor="let child of childrenPreload | async" [value]="child.value">{{child!.label}}</option>
                     </select>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                         displayDelay="0"
                         [formControlName]="'testControl2'"
                         [source]="onSource">
-                        <option *ngFor="let child of childrenOnClick" [value]="child.value">{{child.label}}</option>
+                        <option *ngFor="let child of childrenOnClick" [value]="child.value">{{child!.label}}</option>
                     </select>
                 </div>
             </div>
@@ -37,6 +37,6 @@
     <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
     <div *ngIf="showModel">
         <hr>
-        <h3>{{ form.value | json }}</h3>
+        <h3>{{ form!.value | json }}</h3>
     </div>
 </div>

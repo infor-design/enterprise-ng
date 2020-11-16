@@ -15,10 +15,10 @@
         <label for="color" class="label">Theme Colors</label>
         <select soho-dropdown soho-busyindicator noSearch id="color" name="color" (change)="onColorChange($event)" [(ngModel)]="model.colorId">
           <option
-            *ngFor="let color of colors | keyvalue"
-            attr.data-icon="{{ dataIcon(colors[color.key]) }}"
-            attr.data-hex="{{ colors[color.key].value }}"
-            value="{{ colors[color.key].id }}"
+            *ngFor="let color of colors! | keyvalue"
+            attr.data-icon="{{ dataIcon(colors![color.key]) }}"
+            attr.data-hex="{{ colors![color.key].value }}"
+            value="{{ colors![color.key].id }}"
           >
             {{ colors[color.key].name }}
           </option>

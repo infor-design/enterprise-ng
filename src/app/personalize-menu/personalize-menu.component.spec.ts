@@ -8,7 +8,7 @@ describe('PersonalizeMenuComponent', () => {
   let component: PersonalizeMenuComponent;
   let fixture: ComponentFixture<PersonalizeMenuComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ PersonalizeMenuComponent ],
       providers: [],
