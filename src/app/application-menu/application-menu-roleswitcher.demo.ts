@@ -36,7 +36,7 @@ export class ApplicationMenuRoleSwitcherDemoComponent implements AfterViewInit, 
   }
 
   public openMenu() {
-    this.applicationMenu.openMenu(undefined, true, undefined);
+    this.applicationMenu?.openMenu(undefined, true, undefined);
   }
 
   public selectRole($event?: any) {
@@ -49,6 +49,7 @@ export class ApplicationMenuRoleSwitcherDemoComponent implements AfterViewInit, 
 
       this.changeDetectorRef.detectChanges();
     }, 1000);
-    this.applicationMenu.closeSwitcherPanel();
+
+    this.applicationMenu?.closeSwitcherPanel();
   }
 }

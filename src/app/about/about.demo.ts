@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-// @ts-ignore
 import { SohoAboutService, SohoAboutRef } from 'ids-enterprise-ng';
 
 @Component({

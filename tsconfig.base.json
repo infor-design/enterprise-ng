@@ -45,7 +45,8 @@
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
-    "enableIvy": true
+    "enableIvy": true,
+    "experimentalDecorators": true
   },
   "exclude": [
     "node_modules",

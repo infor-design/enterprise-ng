@@ -66,7 +66,9 @@ export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnIn
 
   onFilterPage(event: SohoDataGridFilteredEvent): void {
     const result = this.datagridPagingService.filterPage();
-    this.currentConditions = [...event.conditions];
+    for (let i = 0; i < (event.conditions as any).length; i++) {
+      this.currentConditions?.push((event as any).conditions[i]);
+    }
     this.updateTemplateVariables(result);
   }
 
@@ -84,12 +86,12 @@ export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnIn
     this.ngZone.runOutsideAngular(() => setTimeout(() => {
       if (this.currentConditions) {
         // todo: for disableClientFilter setting data resets the filter conditions - reset them here
-        setTimeout(() => this.sohoDataGridComponent?.setFilterConditions(this.currentConditions));
+        setTimeout(() => this.sohoDataGridComponent?.setFilterConditions((this.currentConditions as any)));
       }
 
       if (this.currentSort) {
         // todo: for disableClientSort setting data resets the sort - reset them here
-        setTimeout(() => this.sohoDataGridComponent?.setSortIndicator(this.currentSort?.sortId, this.currentSort?.sortAsc));
+        setTimeout(() => this.sohoDataGridComponent?.setSortIndicator((this.currentSort as any).sortId, this.currentSort?.sortAsc));
       }
     }));
   }

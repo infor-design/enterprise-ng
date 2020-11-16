@@ -46,15 +46,15 @@ export class AccordionDemoComponent implements AfterViewInit {
   }
 
   toggle(): void {
-    this.accordion?.toggle(this.accordion?.getHeader(1));
+    this.accordion?.toggle((this.accordion as any).getHeader(1));
   }
 
   expand(): void {
-    this.accordion?.expand(this.accordion?.getHeader(1));
+    this.accordion?.expand((this.accordion as any).getHeader(1));
   }
 
   collapse(): void {
-    this.accordion?.collapse(this.accordion?.getHeader(1));
+    this.accordion?.collapse((this.accordion as any).getHeader(1));
   }
 
   disable(): void {
