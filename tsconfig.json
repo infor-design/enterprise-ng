@@ -1,6 +1,17 @@
 {
+  "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": [
+       "jasmine",
+       "jquery",
+       "node",
+       "lscache",
+       "ids-enterprise-typings"
+    ]
+  },
+  "angularCompilerOptions": {
     "declaration": false,
     "experimentalDecorators": true,
     "module": "esnext",
@@ -10,6 +21,13 @@
     "target": "es2015",
     "strict": true
   },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ],
   "exclude": [
     "node_modules",
     "dist/**/*"

@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, NgZone, OnInit, ViewChild, } from '@angular/core';
-// @ts-ignore
+
 import { SohoDataGridComponent, } from 'ids-enterprise-ng';
 import { DatagridStandalonePagerDemoService } from './datagrid-standalone-pager-demo.service';
 
