@@ -17,8 +17,8 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
 
   @ViewChild(SohoPersonalizeDirective, { static: true }) personalize?: SohoPersonalizeDirective;
 
-  themes?: SohoTheme[];
-  colors?: SohoPersonalizationColors;
+  themes!: SohoTheme[];
+  colors!: SohoPersonalizationColors;
   showModel = false;
 
   model = {

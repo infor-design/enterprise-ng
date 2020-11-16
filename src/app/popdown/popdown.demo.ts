@@ -83,7 +83,7 @@ export class PopDownDemoComponent {
     'Wisconsin',
     'Wyoming'
   ];
-  public selectedStates?: any[] = [];
+  public selectedStates: any[] = [];
 
   setupProducts() {
     this.columns_product = [];
