@@ -84,7 +84,7 @@ class SohoAutoCompleteTestComponent {
   }
 }
 
-fdescribe('Soho Autocomplete Render', () => {
+describe('Soho Autocomplete Render', () => {
   let fixture: ComponentFixture<SohoAutoCompleteTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;

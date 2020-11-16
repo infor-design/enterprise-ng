@@ -1,13 +1,10 @@
 {
   "extends": "../../tsconfig.base.json",
-  "compileOnSave": false,
   "compilerOptions": {
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "sourceMap": true,
+    "experimentalDecorators": true,
     "outDir": "../../out-tsc/spec",
     "types": [
-      "d3",
       "jasmine",
       "jquery",
       "node",
@@ -17,14 +14,9 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   },
-  "angularCompilerOptions": {
-    "declaration": false,
-    "module": "esnext",
-    "importHelpers": true,
-    "resolveJsonModule": true,
-    "target": "es2015",
-    "strict": true
-  },
+  "files": [
+    "src/test.ts"
+  ],
   "include": [
     "**/*.spec.ts",
     "**/*.d.ts"
