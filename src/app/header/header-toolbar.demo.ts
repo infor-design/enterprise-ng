@@ -60,11 +60,14 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
    * Set Input using toolbarOptions to have the header toolbar display.
    */
   private showHeaderToolbar() {
-    if (!this.sohoHeaderRef?.instance?.hasHeaderToolbar) {
-      (this.sohoHeaderRef.instance as any).sectionTitle = 'Header Toolbar Demo';
-      (this.sohoHeaderRef.instance as any).toolbarOptions = this.toolbarOptions;
-      this.buttonClickedSubscription = (this.sohoHeaderRef.instance as any).sohoToolbarComponent.selected.subscribe((event: any) =>
-        this.onToolbarButtonClicked(event));
+    const header = this.sohoHeaderRef?.instance;
+    if (header) {
+      header.sectionTitle = 'Header Toolbar Demo';
+      header.toolbarOptions = this.toolbarOptions;
+      if (header.sohoToolbarComponent) {
+        this.buttonClickedSubscription = header.sohoToolbarComponent.selected.subscribe((event: any) =>
+          this.onToolbarButtonClicked(event));
+      }
     }
   }
 
@@ -72,9 +75,10 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
    * put the default header toolbar back.
    */
   private removeHeaderToolbar() {
-    if ((this.sohoHeaderRef.instance as any).hasHeaderToolbar) {
-      (this.sohoHeaderRef.instance as any).sectionTitle = null;
-      (this.sohoHeaderRef.instance as any).toolbarOptions = undefined;
+    const header = this.sohoHeaderRef?.instance;
+    if (header && header.hasHeaderToolbar) {
+      header.sectionTitle = undefined;
+      header.toolbarOptions = undefined;
       if (this.buttonClickedSubscription) {
         this.buttonClickedSubscription.unsubscribe();
       }
