@@ -63,7 +63,7 @@ describe('Soho Rating Chart Render', () => {
     expect(el.hasAttribute('soho-textarea')).toBeTruthy('soho-textarea');
   });
 
-  it('set model on input event', async(() => {
+  it('set model on input event', waitForAsync(() => {
     const spy = spyOn(component, 'onTextChange');
 
     fixture.detectChanges();

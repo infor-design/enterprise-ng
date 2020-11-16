@@ -74,7 +74,7 @@ describe('Soho Tag Render', () => {
   it('Check \"class\" ', () => {
     fixture.detectChanges();
 
-    const topLevelElement = tag.tag.element;
+    const topLevelElement = (tag as any).tag.element;
     expect(topLevelElement.classList).toContain('secondary');
     expect(topLevelElement.classList).toContain('tag');
   });
@@ -86,7 +86,7 @@ describe('Soho Tag Render', () => {
 
     fixture.detectChanges();
 
-    const topLevelElement = tag.tag.element;
+    const topLevelElement = (tag as any).tag.element;
     expect(topLevelElement.classList).toContain('error');
     expect(topLevelElement.classList).toContain('tag');
   });
@@ -98,7 +98,7 @@ describe('Soho Tag Render', () => {
 
     fixture.detectChanges();
 
-    const topLevelElement = tag.tag.element;
+    const topLevelElement = (tag as any).tag.element;
     expect(topLevelElement.classList).not.toContain('error');
     expect(topLevelElement.classList).not.toContain('secondary');
     expect(topLevelElement.classList).not.toContain('alert');

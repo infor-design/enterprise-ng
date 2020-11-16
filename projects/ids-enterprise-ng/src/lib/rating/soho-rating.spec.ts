@@ -36,8 +36,6 @@ class SohoRatingTestComponent {
 }
 
 describe('Soho Rating Chart Render', () => {
-  let rating: SohoRatingComponent;
-  let component: SohoRatingTestComponent;
   let fixture: ComponentFixture<SohoRatingTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -49,12 +47,9 @@ describe('Soho Rating Chart Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoRatingTestComponent);
-    component = fixture.componentInstance;
-    rating = (component.rating as any);
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-rating]')).nativeElement;
-
   });
 
   it('Check HTML content', () => {
