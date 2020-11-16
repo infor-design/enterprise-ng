@@ -68,7 +68,7 @@ export class ContextualActionPanelDemoComponent {
       return;
     }
 
-    this.panelRef = this.panelService.contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
+    this.panelRef = (this.panelService as any).contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
       .modalSettings({ buttons: buttons, title: this.title })
       .open()
       .initializeContent(true)
@@ -171,12 +171,11 @@ export class ContextualActionPanelDemoComponent {
     }
 
     // In openPanel(), change the first CAP opening so that panelRef can be provided with apply
-    this.panelRef = this.panelService?.contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
+    this.panelRef = (this.panelService as any).contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
       .modalSettings({ buttons: buttons, title: this.title })
       .initializeContent(true);
 
-    this.panelRef
-      .apply((ref: any) => {
+    this.panelRef?.apply((ref: any) => {
         ref.panelRef = this.panelRef;
       })
       .open();

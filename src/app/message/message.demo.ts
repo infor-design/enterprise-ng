@@ -12,7 +12,7 @@ import { timer } from 'rxjs';
 })
 export class MessageDemoComponent {
   /** The message dialog reference. */
-  dialog: SohoMessageRef;
+  dialog?: SohoMessageRef;
 
   /** The result. */
   closeResult?: string;
@@ -27,7 +27,7 @@ export class MessageDemoComponent {
 
   openError() {
     const buttons = [
-      { text: 'Restart Now', click: (_e: any, modal: any) => { modal.close(true); this.dialog = null; }, isDefault: true }
+      { text: 'Restart Now', click: (_e: any, modal: any) => { modal.close(true); (this.dialog as any) = null; }, isDefault: true }
     ];
 
     this.dialog = this.messageService
@@ -44,14 +44,14 @@ export class MessageDemoComponent {
       {
         text: 'Acknowledge', click: (_e: any, modal: any) => {
           this.closeResult = 'Acknowledge';
-          this.dialog = null;
+          (this.dialog as any) = null;
           modal.close(true);
         }, isDefault: true
       },
       {
         text: 'Cancel', click: (_e: any, modal: any) => {
           this.closeResult = 'Cancel';
-          this.dialog = null; modal.close(true);
+          (this.dialog as any) = null; modal.close(true);
         }
       }];
 
@@ -66,9 +66,9 @@ export class MessageDemoComponent {
   openConfirm() {
     const buttons = [
       { text: 'Cancel', click: (_e: any, modal: any) => {
-        this.closeResult = 'Cancel'; this.dialog = null; modal.close(true); }, isDefault: true
+        this.closeResult = 'Cancel'; (this.dialog as any) = null; modal.close(true); }, isDefault: true
       },
-      { text: 'Remove', click: (_e: any, modal: any) => { this.closeResult = 'Remove'; this.dialog = null; modal.close(true); } }];
+      { text: 'Remove', click: (_e: any, modal: any) => { this.closeResult = 'Remove'; (this.dialog as any) = null; modal.close(true); } }];
 
     this.dialog = this.messageService
       .confirm()
@@ -83,13 +83,13 @@ export class MessageDemoComponent {
       text: 'Done',
       click: (_e: any, modal: any) => {
         this.closeResult = 'Done';
-        this.dialog = null;
+        (this.dialog as any) = null;
         modal.close(true);
       },
       isDefault: true
     }];
 
-    this.dialog = this.messageService
+    this.dialog = (this.messageService as any)
       .message()
       .title('<span>File Upload Complete</span>')
       .message(`<span class="message">
@@ -111,11 +111,11 @@ export class MessageDemoComponent {
   openConfirmation() {
     const buttons = [
       { text: 'Yes', click: (_e: any, modal: any) => {
-        this.closeResult = 'Yes'; this.dialog = null; modal.close(true); }, isDefault: true
+        this.closeResult = 'Yes'; (this.dialog as any) = null; modal.close(true); }, isDefault: true
       },
-      { text: 'No', click: (_e: any, modal: any) => { this.closeResult = 'No'; this.dialog = null; modal.close(true); } }];
+      { text: 'No', click: (_e: any, modal: any) => { this.closeResult = 'No'; (this.dialog as any) = null; modal.close(true); } }];
 
-    this.dialog = this.messageService
+    this.dialog = (this.messageService as any)
       .message()
       .title('<span>Delete this Application?</span>')
       .message('<span class="message">You are about to delete this application permanently. Would you like to proceed?</span>')
@@ -137,13 +137,13 @@ export class MessageDemoComponent {
       text: 'Done',
       click: (_e: any, modal: any) => {
         this.closeResult = 'Done';
-        this.dialog = null;
+        (this.dialog as any) = null;
         modal.close(true);
       },
       isDefault: true
     }];
 
-    this.dialog = this.messageService
+    this.dialog = (this.messageService as any)
       .message()
       .title('<span>File Upload Complete</span>')
       .message(`<span class="message">
@@ -169,7 +169,7 @@ export class MessageDemoComponent {
       if (this.dialog) {
         console.log('programaticallyClosed');
         this.dialog.close();
-        this.dialog = null;
+        (this.dialog as any) = null;
       }
     });
   }

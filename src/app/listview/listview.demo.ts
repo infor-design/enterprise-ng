@@ -150,7 +150,7 @@ export class ListViewDemoComponent implements OnInit {
 
   activateItem() {
     console.log('activateItem at index 2');
-    this.mixedSelectionListView.activateItem(2);
+    this.mixedSelectionListView?.activateItem(2);
   }
 
   deactivateItem() {

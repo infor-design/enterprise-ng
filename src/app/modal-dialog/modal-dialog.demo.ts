@@ -66,10 +66,10 @@ export class ModalDialogDemoComponent {
           { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }
         ])
       .beforeOpen((ref?: SohoModalDialogRef<FullSizeModalDialogComponent>) => {
-        ref.buttonsetAPI.at(2).disabled = true;
+        (ref as any).buttonsetAPI.at(2).disabled = true;
         return true;
       }).afterOpen((_: any, ref: SohoModalDialogRef<FullSizeModalDialogComponent>) => {
-        ref.buttonsetAPI.at(3).disabled = false;
+        (ref as any).buttonsetAPI.at(3).disabled = false;
         return true;
       })
       .open();

@@ -23,7 +23,7 @@ export class ApplicationMenuTestPerfDemoComponent implements AfterViewChecked {
 
   ngAfterViewChecked() {
     if (this.updateToolbar) {
-      this.sohoFlexToolbar.updated();
+      (this.sohoFlexToolbar as any).updated();
       this.updateToolbar = false;
     }
   }

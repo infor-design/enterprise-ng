@@ -23,11 +23,10 @@ export class DataGridTreeGridCubeDemoComponent implements OnInit, AfterViewInit 
   }
 
   ngAfterViewInit() {
-    const options: SohoDataGridOptions = this.sohoDataGridComponent.gridOptions;
+    const options: SohoDataGridOptions = (this.sohoDataGridComponent as any).gridOptions;
     options.enableTooltips = true;
-    this.sohoDataGridComponent.gridOptions = options;
-
-    this.sohoDataGridComponent.selectRows(0);
+    (this.sohoDataGridComponent as any).gridOptions = options;
+    (this.sohoDataGridComponent as any).selectRows(0);
   }
 
   public get columns(): SohoDataGridColumn[] {
@@ -160,7 +159,7 @@ export class DataGridTreeGridCubeDemoComponent implements OnInit, AfterViewInit 
 
   private setChartOptions() {
     const chartOptions: SohoChartOptions = { dataset: this._chartData, type: 'column', animate: false, showLegend: false };
-    this.sohoChartComponent.chartOptions = chartOptions;
+    (this.sohoChartComponent as any).chartOptions = chartOptions;
   }
 
   public get chartData(): Array<SohoDataSetItem> | undefined {

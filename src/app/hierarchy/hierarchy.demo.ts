@@ -98,7 +98,7 @@ export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
     if (hierarchyEvent.eventType === 'expand' && !this.lazyDataLoaded && this.data) {
       this.hierarchyService.getHierarchyData().subscribe((data) => {
         const newData = data[0].lazyDataSet;
-        this.sohoHierarchy?.add(hierarchyEvent.data.id, this.data, newData);
+        this.sohoHierarchy?.add(hierarchyEvent.data.id, (this.data as any), newData);
         this.lazyDataLoaded = true;
       });
     }

@@ -16,7 +16,7 @@ import { DataGridPagingServiceDemoService } from './datagrid-paging-service-demo
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridPagingServiceDemoComponent implements OnInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;
   private uniqueId?: string;
 
   private savedColumns?: Object;
