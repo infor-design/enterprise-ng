@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v8.1.2
+
+### 8.1.2 Fixes
+
+- `[General]` Added EP version 4.34.2 with Big Sur fixes `TJM`
+
 ## v8.1.1
 
 ### 8.1.1 Fixes
@@ -35,6 +41,41 @@
     - See the `UPGRADING.md` guide for details.
 
 ### 8.0.0 Fixes
+
+- `[Charts]` Exposed updated API for all the available charts. ([#905](https://github.com/infor-design/enterprise-ng/issues/905)) `EA`
+- `[Context Menu]` Fixes a bug where using *ngIf directive to destroy the component was not working properly. ([#887](https://github.com/infor-design/enterprise-ng/issues/887))
+- `[Context Menu]` Fixes a bug where api settings were not overwriting the default settings. ([#888](https://github.com/infor-design/enterprise-ng/issues/888))
+- `[Datagrid]` Added support to disable column buttons. ([1590](https://github.com/infor-design/enterprise/issues/1590))
+- `[Popupmenu]` Expose is-selectable, is-multiselectable, and multi-selectable-section as input properties. ([#907](https://github.com/infor-design/enterprise-ng/issues/907)) `CL`
+
+## v7.8.2
+
+### 7.8.2 Fixes
+
+- `[General]` Added EP version 4.34.2 with Big Sur fixes `TJM`
+
+## v7.8.1
+
+### 7.8.1 Fixes
+
+- `[General]` Added new types for automation id's.  ([#934](https://github.com/infor-design/enterprise/issues/4521)) `934`
+- `[General]` Added EP version 4.34.1 `TJM`
+
+## v7.8.0
+
+### 7.8.0 Fixes
+
+- `[General]` Added EP version 4.34.1 `TJM`
+
+## v7.7.1
+
+### 7.7.1 Fixes
+
+- `[Popupmenu]` Revert is-selectable to default to false as it was set to true by mistake. ([#907](https://github.com/infor-design/enterprise-ng/issues/907)) `TJM`
+
+## v7.7.0
+
+### 7.7.0 Fixes
 
 - `[Charts]` Exposed updated API for all the available charts. ([#905](https://github.com/infor-design/enterprise-ng/issues/905)) `EA`
 - `[Context Menu]` Fixes a bug where using *ngIf directive to destroy the component was not working properly. ([#887](https://github.com/infor-design/enterprise-ng/issues/887))
