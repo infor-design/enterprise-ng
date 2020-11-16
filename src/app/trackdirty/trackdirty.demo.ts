@@ -19,7 +19,7 @@ import { SohoLookupComponent, SohoTrackDirtyDirective } from 'ids-enterprise-ng'
 })
 export class TrackDirtyDemoComponent implements OnInit {
 
-  @ViewChild(SohoLookupComponent, { static: true }) sohoLookup?: SohoLookupComponent;
+  @ViewChild(SohoLookupComponent, { static: true }) sohoLookup!: SohoLookupComponent;
   @ViewChildren(SohoTrackDirtyDirective) trackDirtyComponents?: QueryList<SohoTrackDirtyDirective>;
 
   public model = {

@@ -40,7 +40,7 @@ const collapseSizeOptions = [
   templateUrl: 'toolbar-flex-searchfield.demo.html'
 })
 export class ToolbarFlexSearchfieldDemoComponent {
-  @ViewChild(SohoToolbarFlexSearchFieldComponent) toolbarFlexSearchField?: SohoToolbarFlexSearchFieldComponent;
+  @ViewChild(SohoToolbarFlexSearchFieldComponent) toolbarFlexSearchField!: SohoToolbarFlexSearchFieldComponent;
 
   /**
    * Bindable Model value for getting what was typed in the search box.

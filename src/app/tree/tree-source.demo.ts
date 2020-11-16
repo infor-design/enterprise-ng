@@ -15,7 +15,7 @@ import { TreeDemoData } from './tree-data.demo';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeSourceDemoComponent implements AfterViewInit {
-  @ViewChild(SohoTreeComponent, { static: true }) tree?: SohoTreeComponent;
+  @ViewChild(SohoTreeComponent, { static: true }) tree!: SohoTreeComponent;
 
   public enabled = true;
 
@@ -26,7 +26,7 @@ export class TreeSourceDemoComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.tree?.dataset = this.demoData.getRootTreeNodes();
+    this.tree.dataset = this.demoData.getRootTreeNodes();
   }
 
   /**

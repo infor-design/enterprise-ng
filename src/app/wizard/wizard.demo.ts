@@ -11,7 +11,7 @@ import { SohoWizardComponent } from 'ids-enterprise-ng';
   templateUrl: 'wizard.demo.html',
 })
 export class WizardDemoComponent {
-  @ViewChild(SohoWizardComponent, { static: true }) wizard?: SohoWizardComponent;
+  @ViewChild(SohoWizardComponent, { static: true }) wizard!: SohoWizardComponent;
 
   public buttons = [
     {

@@ -10,7 +10,7 @@ import { SohoTrackDirtyDirective, SohoErrorDirective } from 'ids-enterprise-ng';
 })
 export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
   @ViewChildren(SohoTrackDirtyDirective) trackDirtyComponents!: QueryList<SohoTrackDirtyDirective>;
-  @ViewChild(SohoErrorDirective, { static: true }) errorDirective?: SohoErrorDirective; // tslint:disable-line
+  @ViewChild(SohoErrorDirective, { static: true }) errorDirective!: SohoErrorDirective; // tslint:disable-line
 
   public dataView: any = {
     EventField:    {

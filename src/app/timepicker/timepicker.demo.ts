@@ -13,7 +13,7 @@ import { SohoTimePickerComponent } from 'ids-enterprise-ng';
 })
 export class TimePickerDemoComponent implements OnInit {
 
-  @ViewChild(SohoTimePickerComponent, { static: true }) timepicker?: SohoTimePickerComponent;
+  @ViewChild(SohoTimePickerComponent, { static: true }) timepicker!: SohoTimePickerComponent;
 
   public model = { // tslint:disable-line
     hhmm: '1:23 PM',
@@ -37,18 +37,20 @@ export class TimePickerDemoComponent implements OnInit {
   }
 
   setEnable() {
-    (this.timepicker as any).disabled = false;
-    this.timepickerDisabled = this.timepicker?.disabled;
-    this.timepickerReadOnly = this.timepicker?.readonly;
+    this.timepicker.disabled = false;
+    this.timepickerDisabled = this.timepicker.disabled;
+
+    this.timepicker.readonly = false;
+    this.timepickerReadOnly = this.timepicker.readonly;
   }
 
   setDisable() {
-    (this.timepicker as any).disabled = true;
-    this.timepickerDisabled = this.timepicker?.disabled;
+    this.timepicker.disabled = true;
+    this.timepickerDisabled = this.timepicker.disabled;
   }
 
   setReadonly() {
-    (this.timepicker as any).readonly = true;
-    this.timepickerReadOnly = this.timepicker?.readonly;
+    this.timepicker.readonly = true;
+    this.timepickerReadOnly = this.timepicker.readonly;
   }
 }
