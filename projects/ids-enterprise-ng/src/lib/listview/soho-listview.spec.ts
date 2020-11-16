@@ -116,15 +116,15 @@ describe('Soho ListView Render', () => {
 
       // Header
       const headerDe = de.query(By.css('.listview-heading'));
-      expect(headerDe).not.toBe(null);
+      expect(headerDe).not.toBe((null as any));
 
       // Subheader
       const subHeadingDe = de.query(By.css('.listview-subheading'));
-      expect(subHeadingDe).not.toBe(null);
+      expect(subHeadingDe).not.toBe((null as any));
 
       // Micro
       const microDe = de.query(By.css('.listview-micro'));
-      expect(microDe).not.toBe(null);
+      expect(microDe).not.toBe((null as any));
     });
 
     fixture.detectChanges();

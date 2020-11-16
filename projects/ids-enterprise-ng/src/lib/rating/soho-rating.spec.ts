@@ -8,7 +8,6 @@ import { SohoRatingModule } from './soho-rating.module';
 import { SohoRatingComponent } from './soho-rating.component';
 
 describe('Soho Rating Unit Tests', () => {
-  let comp: SohoRatingComponent;
   let fixture: ComponentFixture<SohoRatingComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -19,7 +18,6 @@ describe('Soho Rating Unit Tests', () => {
     });
 
     fixture = TestBed.createComponent(SohoRatingComponent);
-    comp = fixture.componentInstance;
 
     de = fixture.debugElement;
     el = de.nativeElement;
@@ -52,7 +50,7 @@ describe('Soho Rating Chart Render', () => {
 
     fixture = TestBed.createComponent(SohoRatingTestComponent);
     component = fixture.componentInstance;
-    rating = component.rating;
+    rating = (component.rating as any);
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-rating]')).nativeElement;

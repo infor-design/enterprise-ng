@@ -53,7 +53,7 @@ describe('Soho Hyperlink Unit tests', () => {
     fixture.detectChanges();
     expect(el0.nodeName).toEqual('A');
     expect(el0.classList[0]).toContain('hyperlink');
-    expect(el0.getAttribute('href')).toEqual(hyperlink.href);
+    expect(el0.getAttribute('href')).toEqual((hyperlink.href as any));
   });
 
   it('Hyperlink disabled', () => {

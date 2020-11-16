@@ -90,7 +90,7 @@ describe('Directive: SohoFieldFilter', () => {
   });
 
   it('should getFilterType', () => {
-    const getFilterTypeSpy = spyOn(sohoFieldFilter['fieldFilter'], 'getFilterType');
+    const getFilterTypeSpy = spyOn((sohoFieldFilter['fieldFilter'] as any), 'getFilterType');
     getFilterTypeSpy.and.returnValue(1);
 
     const result = sohoFieldFilter.getFilterType();
@@ -121,7 +121,7 @@ describe('Directive: SohoFieldFilter', () => {
 
   it('should fire filtered event', () => {
     const filteredSpy = spyOn(component, 'filtered');
-    sohoFieldFilter['jQueryElement'].trigger('filtered', { data: 3 });
+    (sohoFieldFilter as any)['jQueryElement'].trigger('filtered', { data: 3 });
 
     expect(filteredSpy).toHaveBeenCalledTimes(1);
     expect((filteredSpy.calls.mostRecent() as any).args[0].filterOption).toEqual(3);
