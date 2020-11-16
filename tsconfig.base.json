@@ -7,6 +7,7 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
@@ -34,19 +35,12 @@
       "ids-enterprise-ng/*": [
         "dist/ids-enterprise-ng/*"
       ]
-
-    // For auto code compile use this.
-    // "paths": {
-    //   "ids-enterprise-ng": [
-    //     "projects/ids-enterprise-ng/src/public_api"
-    //   ]
     }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
-    "enableIvy": true,
-    "experimentalDecorators": true
+    "enableIvy": true
   },
   "exclude": [
     "node_modules",

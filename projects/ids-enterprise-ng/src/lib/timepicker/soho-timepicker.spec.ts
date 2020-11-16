@@ -23,7 +23,7 @@ describe('Soho Timepicker Unit Tests', () => {
   let comp: TestTimepickerComponent;
   let fixture: ComponentFixture<TestTimepickerComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [TestTimepickerComponent],
       imports: [FormsModule, ReactiveFormsModule, SohoTimePickerModule]
@@ -34,16 +34,11 @@ describe('Soho Timepicker Unit Tests', () => {
     fixture.detectChanges();
   }));
 
-  it('Check events', async(() => {
+  it('Check events', waitForAsync(() => {
 
     spyOn(comp, 'onChange');
 
     const time = '18:00';
-
-    // comp.changed.map((x: SohoTimePickerEvent) => x.data).subscribe((x) => {
-    //   expect(x).toBe(time, 'Incorrect value passed to event');
-    // });
-
     // Emulate setting the time field.
     comp.timepicker?.setValue(time);
 

@@ -70,8 +70,8 @@ describe('Soho Button Unit Tests', () => {
     buttonset?.add({ id: 'btn-0', text: 'Button 0' }, true);
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(buttonset?.buttons.length).toBe(0, 'The buttons in settings are not changed.');
-      expect(buttonset?.buttonAPIs.length).toBe(1, 'buttonAPIs');
+      expect((buttonset as any).buttons.length).toBe(0, 'The buttons in settings are not changed.');
+      expect((buttonset as any).buttonAPIs.length).toBe(1, 'buttonAPIs');
     });
   }));
 
@@ -79,8 +79,8 @@ describe('Soho Button Unit Tests', () => {
     (buttonset as any).buttons = [{ id: 'btn-0', text: 'Button 0' }, { id: 'btn-1', text: 'Button 1' }];
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      expect(buttonset?.buttons.length).toBe(2, 'The buttons in settings changed.');
-      expect(buttonset?.buttonAPIs.length).toBe(2, 'buttonsAPIs');
+      expect((buttonset as any).buttons.length).toBe(2, 'The buttons in settings changed.');
+      expect((buttonset as any).buttonAPIs.length).toBe(2, 'buttonsAPIs');
     });
   }));
 

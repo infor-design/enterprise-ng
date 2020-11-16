@@ -1,6 +1,8 @@
 {
   "extends": "./tsconfig.base.json",
+  "compileOnSave": false,
   "compilerOptions": {
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "outDir": "./out-tsc/spec",
     "types": [
@@ -11,6 +13,14 @@
       "ids-enterprise-typings"
     ]
   },
+  "angularCompilerOptions": {
+    "declaration": false,
+    "module": "esnext",
+    "importHelpers": true,
+    "resolveJsonModule": true,
+    "target": "es2015",
+    "strict": true
+  },
   "files": [
     "src/test.ts",
     "src/polyfills.ts"
@@ -18,5 +28,9 @@
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist/**/*"
   ]
 }

@@ -2,6 +2,7 @@
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "compilerOptions": {
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "outDir": "./out-tsc/app",
     "types": [
@@ -14,7 +15,6 @@
   },
   "angularCompilerOptions": {
     "declaration": false,
-    "experimentalDecorators": true,
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,

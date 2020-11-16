@@ -32,22 +32,18 @@ describe('Soho AutoComplete Unit Tests', () => {
   });
 
   it('Check Inputs', () => {
-    const offset: SohoAutoCompleteOffset = { top: 10, left: 10 };
-
     comp.caseSensitive = false;
     comp.delay = 250;
     comp.width = 200;
-    comp.offset = offset;
     comp.autoSelectFirstItem = false;
 
-    expect(comp['options'].source).toEqual(null);
-    expect(comp['options'].sourceArguments).toEqual(null);
-    expect(comp['options'].template).toEqual(null);
+    expect(comp['options'].source).toEqual((null as any));
+    expect(comp['options'].sourceArguments).toEqual((null as any));
+    expect(comp['options'].template).toEqual((null as any));
     expect(comp['options'].caseSensitive).toEqual(false);
-    expect(comp['options'].filterMode).toEqual(null);
+    expect(comp['options'].filterMode).toEqual((null as any));
     expect(comp['options'].delay).toEqual(250);
     expect(comp['options'].width).toEqual(200);
-    expect(comp['options'].offset).toEqual(offset);
     expect(comp['options'].autoSelectFirstItem).toEqual(false);
 
     fixture.detectChanges();

@@ -280,7 +280,7 @@ describe('Soho Datepicker Unit Tests', () => {
     });
   }));
 
-  it('Check inputs', async(() => {
+  it('Check inputs', waitForAsync(() => {
     fixture.autoDetectChanges();
 
     const testOptions: SohoDatePickerOptions = {

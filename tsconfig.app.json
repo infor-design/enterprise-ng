@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "outDir": "./out-tsc/app",
     "types": [
@@ -14,8 +15,7 @@
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
-    "enableIvy": true,
-    "experimentalDecorators": true
+    "enableIvy": true
   },
   "files": [
     "src/main.ts",
