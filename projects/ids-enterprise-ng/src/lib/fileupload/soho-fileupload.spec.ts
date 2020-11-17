@@ -63,7 +63,7 @@ describe('Soho File Upload Render', () => {
     el = de.nativeElement;
 
     fixture.detectChanges();
-    (fileupload as any) = component.fileupload;
+    fileupload = (component.fileupload as any);
   });
 
   it('@Input() disabled', () => {

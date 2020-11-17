@@ -187,39 +187,6 @@ describe('Soho Calendar Chart Render', () => {
     );
   });
 
-  xit('check outputs', () => {
-    comp.eventTypes = eventTypes;
-    comp.events = events;
-    comp.month = 7;
-    comp.year = 2018;
-
-    fixture.detectChanges();
-
-    TestHelper.testFireEvent(
-      calendar['element'].nativeElement,
-      'selected',
-      calendar['selected']
-    );
-    TestHelper.testFireEvent(
-      calendar['element'].nativeElement,
-      'monthrendered',
-      calendar['monthRendered']
-    );
-  });
-
-  xit('check currentDate function', () => {
-    comp.eventTypes = eventTypes;
-    comp.events = events;
-    comp.month = 7;
-    comp.year = 2018;
-
-    fixture.detectChanges();
-
-    const date: Date = calendar.currentDate();
-    expect(date.getMonth()).toEqual(7);
-    expect(date.getFullYear()).toEqual(2018);
-  });
-
   it('check getDayEvents function', () => {
     comp.eventTypes = eventTypes;
     comp.events = events;

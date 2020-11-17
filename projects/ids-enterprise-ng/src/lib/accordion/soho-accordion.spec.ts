@@ -238,6 +238,7 @@ describe('Soho Accordion Unit Tests', () => {
 
   it('can be updated', () => {
     accordion.updated();
+    expect(component).toBeTruthy();
   });
 
   it('can be updated with new options', () => {

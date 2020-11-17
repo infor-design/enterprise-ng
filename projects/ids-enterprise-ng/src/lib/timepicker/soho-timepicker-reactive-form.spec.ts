@@ -75,10 +75,12 @@ describe('Soho TimePicker Reactive Form', () => {
   it('..', fakeAsync(() => {
     fixture.detectChanges();
     tick();
+    component.formGroup.disable();
     expect(el.hasAttribute('disabled')).toBeTruthy('disabled by default');
   }));
 
   it('is disabled by default.', () => {
+    component.formGroup.disable();
     expect(el.hasAttribute('disabled')).toBeTruthy('disabled by default');
   });
 

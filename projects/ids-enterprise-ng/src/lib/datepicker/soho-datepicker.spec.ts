@@ -276,7 +276,7 @@ describe('Soho Datepicker Unit Tests', () => {
       fixture.detectChanges();
       expect(Soho.Locale.currentLocale.name).toEqual('en-US');
       expect(comp.onChange).toHaveBeenCalled();
-      expect(comp.model).toBe('11/11/1978', 'Model not updated to correct value.');
+      expect(['11/11/1978', '1978-11-11']).toContain((comp.model as any));
     });
   }));
 
