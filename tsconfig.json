@@ -1,26 +1,29 @@
-/*
-  This is a "Solution Style" tsconfig.json file, and is used by editors and TypeScript’s language server to improve development experience.
-  It is not intended to be used to perform a compilation.
 {
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
+    "module": "es2020",
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types",
+       "./dist"
     ],
     "types": [
       "jasmine",
       "jquery",
       "node",
-      "cypress",
+      "ids-enterprise-typings"
     ],
     "lib": [
       "es2018",
@@ -28,28 +31,27 @@
     ],
     "paths": {
       "ids-enterprise-ng": [
+        "dist/ids-enterprise-ng/ids-enterprise-ng",
         "dist/ids-enterprise-ng"
       ],
       "ids-enterprise-ng/*": [
         "dist/ids-enterprise-ng/*"
       ]
 
-  To learn more about this file see: https://angular.io/config/solution-tsconfig.
-{
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/ids-enterprise-ng/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/ids-enterprise-ng/tsconfig.spec.json"
+    // For auto code compile use this.
+    // "paths": {
+    //   "ids-enterprise-ng": [
+    //     "projects/ids-enterprise-ng/src/public_api"
+    //   ]
     }
+  },
+  "angularCompilerOptions": {
+    "strictInjectionParameters": false,
+    "strictInputAccessModifiers": false,
+    "strictTemplates": false
+  },
+  "exclude": [
+    "dist/**"
   ]
 }
-*/
+
