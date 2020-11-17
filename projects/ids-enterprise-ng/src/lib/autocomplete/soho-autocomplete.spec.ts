@@ -37,11 +37,11 @@ describe('Soho AutoComplete Unit Tests', () => {
     comp.width = 200;
     comp.autoSelectFirstItem = false;
 
-    expect(comp['options'].source).toEqual((null as any));
-    expect(comp['options'].sourceArguments).toEqual((null as any));
-    expect(comp['options'].template).toEqual((null as any));
+    expect(comp['options'].source).toEqual(undefined);
+    expect(comp['options'].sourceArguments).toEqual(undefined);
+    expect(comp['options'].template).toEqual(undefined);
     expect(comp['options'].caseSensitive).toEqual(false);
-    expect(comp['options'].filterMode).toEqual((null as any));
+    expect(comp['options'].filterMode).toEqual(undefined);
     expect(comp['options'].delay).toEqual(250);
     expect(comp['options'].width).toEqual(200);
     expect(comp['options'].autoSelectFirstItem).toEqual(false);

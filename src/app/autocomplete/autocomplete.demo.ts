@@ -9,7 +9,7 @@ import {
 import { SohoAutoCompleteComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'autocomplete-demo', // tslint:disable-line
+  selector: 'autocomplete-demo',
   templateUrl: 'autocomplete.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
