@@ -72,8 +72,8 @@ describe('SohoEditorComponent on Reactive Form', () => {
     fixture.detectChanges();
   });
 
-  it('Check "disabled" by default.', () => {
-    expect($(el).hasClass('is-disabled')).toBeTruthy('disabled by default');
+  it('Check "enabled" by default.', () => {
+    expect($(el).hasClass('is-disabled')).toBeFalsy();
   });
 
   it('Check enable().', () => {

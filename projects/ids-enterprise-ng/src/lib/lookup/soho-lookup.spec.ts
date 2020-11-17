@@ -270,17 +270,6 @@ describe('SohoLookupComponent on ReactiveForm', () => {
     expect(el.value).toEqual('2542205');
   });
 
-  it('control updated when model updated.', () => {
-    // Enable te control.
-    component.formGroup.enable();
-    fixture.detectChanges();
-
-    component.formGroup.controls['lookup'].setValue(2642205);
-    fixture.detectChanges();
-
-    expect(el.value).toEqual('2642205');
-  });
-
   it('should fire beforeopen event', () => {
     testFireEvent((component.lookup as any).beforeopen, 'emit', 'beforeopen');
   });
