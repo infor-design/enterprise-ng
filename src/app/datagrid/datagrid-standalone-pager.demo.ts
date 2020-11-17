@@ -5,7 +5,7 @@ import { DatagridStandalonePagerDemoService } from './datagrid-standalone-pager-
 @Component({
   selector: 'app-datagrid-standalone-pager',
   templateUrl: 'datagrid-standalone-pager.demo.html',
-  providers: [ DatagridStandalonePagerDemoService ]
+  providers: [DatagridStandalonePagerDemoService]
 })
 export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnInit {
   @ViewChild(SohoDataGridComponent, { static: true }) sohoDataGridComponent: SohoDataGridComponent;
@@ -14,7 +14,7 @@ export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnIn
   columns: SohoDataGridColumn[];
   showPageSizeSelector = true;
   pageSize = 10;
-  pageSizes = [ 5, 10, 25, 100 ];
+  pageSizes = [5, 10, 25, 100];
   isFirstPage = true;
   isLastPage = true;
 
@@ -25,7 +25,7 @@ export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnIn
   constructor(
     private ngZone: NgZone,
     private datagridPagingService: DatagridStandalonePagerDemoService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.columns = this.datagridPagingService.getColumns();

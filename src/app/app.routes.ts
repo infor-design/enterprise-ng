@@ -2,6 +2,7 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { AboutDemoComponent } from './about/about.demo';
+import { AboutNestedDemoComponent } from './about/nested-about.demo';
 import { AlertDemoComponent } from './alert/alert.demo';
 import { ApplicationMenuLazyDemoComponent } from './application-menu/application-menu-lazy.demo';
 import { AreaDemoComponent } from './area/area.demo';
@@ -196,6 +197,7 @@ import { DataGridSummaryRowDemoComponent } from './datagrid/datagrid-summary-row
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
   { path: 'about', component: AboutDemoComponent },
+  { path: 'about-nested', component: AboutNestedDemoComponent },
   { path: 'accordion', loadChildren: () => import('./accordion/accordion-demo.module').then(m => m.AccordionDemoModule) },
   { path: 'alert', component: AlertDemoComponent },
   { path: 'application-lazy-menu', component: ApplicationMenuLazyDemoComponent },
