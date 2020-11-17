@@ -9,7 +9,7 @@ import {
 import { SohoAutoCompleteComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'autocomplete-demo',
+  selector: 'app-autocomplete-demo',
   templateUrl: 'autocomplete.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
