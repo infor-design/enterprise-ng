@@ -222,7 +222,7 @@ describe('Soho Accordion Unit Tests', () => {
     expect(result).toBeDefined();
   });
 
-  it('can collapse be called', () => {
+  fit('can collapse be called', () => {
     const header = accordion.getHeader(0);
 
     expect(header).toBeDefined();
@@ -230,7 +230,9 @@ describe('Soho Accordion Unit Tests', () => {
       return;
     }
 
-    const result = accordion.collapse(header);
+    accordion.collapse(header);
+
+    const result = accordion.isExpanded(header);
     expect(result).toBeDefined();
   });
 
