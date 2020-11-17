@@ -79,7 +79,9 @@
         "no-multiple-empty-lines": "error",
         "no-redeclare": "error",
         "no-underscore-dangle": "off"
-      }
+      },
+      "@typescript-eslint/member-ordering": []
+
     },
     {
       "files": [
