@@ -129,6 +129,7 @@ export class SohoMessageRef {
 
   /**
    * Controls the opacity of the background overlay.
+   *
    * @param overlayOpacity - The percent between 0 and 1 of opacity to use.
    */
   overlayOpacity(overlayOpacity: number): SohoMessageRef {
@@ -138,6 +139,7 @@ export class SohoMessageRef {
 
   /**
    * Causes this modal instance to become hidden when another modal is displayed over top.
+   *
    * @param hideUnderneath - If it should be on top or bottom.
    */
   hideUnderneath(hideUnderneath: boolean): SohoMessageRef {
@@ -147,6 +149,7 @@ export class SohoMessageRef {
 
   /**
    * Causes this modal instance to become hidden when another modal is displayed over top.
+   *
    * @param hideUnderneath - If it should be on top or bottom.
    */
   attributes(attributes: Array<Object> | Object): SohoMessageRef {
@@ -155,10 +158,10 @@ export class SohoMessageRef {
   }
 
   /**
-    * Dialog result property.
-    *
-    * @param dialogResult - the stored restult of the dialog.
-    */
+   * Dialog result property.
+   *
+   * @param dialogResult - the stored restult of the dialog.
+   */
   set dialogResult(dialogResult: any) {
     this._dialogResult = dialogResult;
   }
@@ -191,7 +194,9 @@ export class SohoMessageRef {
     this._message = this.jQueryElement.data('modal');
 
     // Add listeners to control event (which are on the placeholder)
-    this._placeholder.on('open', ((event: any) => { this.onOpen(event); }));
+    this._placeholder.on('open', ((event: any) => {
+ this.onOpen(event);
+}));
 
     // These are vetoable events.
     this._placeholder.on('beforeopen', ((event: any) => this.onBeforeOpen(event)));
@@ -235,7 +240,9 @@ export class SohoMessageRef {
    * @param eventFn - the function to invoke when the dialog is to be opened.
    */
   opened(eventFn: Function): SohoMessageRef {
-    this.open$.subscribe((f: any) => { eventFn(f, this); });
+    this.open$.subscribe((f: any) => {
+ eventFn(f, this);
+});
     return this;
   }
 
@@ -279,11 +286,11 @@ export class SohoMessageRef {
   }
 
   /**
-    * Handles the 'open' event, fired just before
-    * the focus is assigned to a message.
-    *
-    * @param event - full event object.
-    */
+   * Handles the 'open' event, fired just before
+   * the focus is assigned to a message.
+   *
+   * @param event - full event object.
+   */
   private onOpen(event: any) {
     this.open$.next(event);
   }

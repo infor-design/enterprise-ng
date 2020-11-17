@@ -65,7 +65,7 @@ export class ExpandableFooterComponent { }
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
-  @Input('soho-expandable-area') id: string; // tslint:disable-line
+  @Input('soho-expandable-area') id: string; // eslint-disable-line
   @Input() set disabled(value: boolean) {
     this._disabled = value;
     if (this.jQueryElement) {
@@ -88,22 +88,22 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   @Input() toggle: Observable<boolean>;
 
   // Get the header DOM element
-  @ContentChild(forwardRef(() => ExpandableHeaderComponent), { static: true }) // tslint:disable-line
-  // tslint:disable-line
-  // tslint:disable-line
+  @ContentChild(forwardRef(() => ExpandableHeaderComponent), { static: true }) // eslint-disable-line
+  // eslint-disable-line
+  // eslint-disable-line
   public header: ExpandableHeaderComponent = null;
 
   // Get the pane DOM elements
-  @ContentChildren(forwardRef(() => ExpandablePaneComponent)) // tslint:disable-line
+  @ContentChildren(forwardRef(() => ExpandablePaneComponent)) // eslint-disable-line
   public panes: QueryList<ExpandablePaneComponent>;
 
   // @ContentChild(forwardRef(() => ExpandablePaneComponent))
   // private _pane: ExpandablePaneComponent = null;
 
   // Get the pane DOM element
-  @ContentChild(forwardRef(() => ExpandableFooterComponent), { static: true }) // tslint:disable-line
-  // tslint:disable-line
-  // tslint:disable-line
+  @ContentChild(forwardRef(() => ExpandableFooterComponent), { static: true }) // eslint-disable-line
+  // eslint-disable-line
+  // eslint-disable-line
   public footer: ExpandablePaneComponent = null;
 
   // Add Events for Angular elements to listen to (can only have exposed events)

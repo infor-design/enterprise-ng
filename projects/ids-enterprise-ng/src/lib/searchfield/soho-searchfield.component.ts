@@ -11,15 +11,17 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-searchfield-wrapper]', // tslint:disable-line
+  selector: '[soho-searchfield-wrapper]', // eslint-disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoSearchFieldWrapperComponent {
-  @HostBinding('class.searchfield-wrapper') get isSearchfieldWrapper() { return true; }
+  @HostBinding('class.searchfield-wrapper') get isSearchfieldWrapper() {
+ return true;
+}
 }
 
 @Component({
-  selector: 'input[soho-searchfield]', // tslint:disable-line
+  selector: 'input[soho-searchfield]', // eslint-disable-line
   template: '<ng-content></ng-content>'
 })
 export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
@@ -72,7 +74,9 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
 
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
-  @HostBinding('class.searchfield') get isSearchField() { return true; }
+  @HostBinding('class.searchfield') get isSearchField() {
+ return true;
+}
 
   /**
    * Local variables

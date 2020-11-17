@@ -13,7 +13,7 @@ export class SohoModalDialogRef<T> {
   private componentRef?: ComponentRef<T>;
 
   /** Vetoable Event Guard */
-  // tslint:disable-next-line: deprecation
+  // eslint-disable-next-line import/no-deprecated
   private eventGuard: SohoModalDialogVetoableEventGuard<T> = {};
 
   /**
@@ -96,6 +96,7 @@ export class SohoModalDialogRef<T> {
 
   /**
    * Sets the frame height for the dialog.
+   *
    * @param frameHeight - the extra frame height to allow.
    */
   frameHeight(frameHeight: number): SohoModalDialogRef<T> {
@@ -108,6 +109,7 @@ export class SohoModalDialogRef<T> {
 
   /**
    * Sets the frame width for the dialog.
+   *
    * @param frameWidth - the extra frame width to allow.
    */
   frameWidth(frameWidth: number): SohoModalDialogRef<T> {
@@ -120,6 +122,7 @@ export class SohoModalDialogRef<T> {
 
   /**
    * A call back function that can be used to return data for the modal. This is the callback form of the before show event.
+   *
    * @param beforeShow - The callback function
    */
   beforeShow(beforeShow: any): SohoModalDialogRef<T> {
@@ -132,6 +135,7 @@ export class SohoModalDialogRef<T> {
 
   /**
    * If true, show a close icon button on the top right of the modal.
+   *
    * @param showCloseBtn - if true the x will be shown.
    */
   showCloseBtn(showCloseBtn: boolean): SohoModalDialogRef<T> {
@@ -144,6 +148,7 @@ export class SohoModalDialogRef<T> {
 
   /**
    * Optional max width to add in pixels.
+   *
    * @param maxWidth - The width in pixels
    */
   maxWidth(maxWidth: number): SohoModalDialogRef<T> {
@@ -226,6 +231,7 @@ export class SohoModalDialogRef<T> {
 
   /**
    * Sets the fullsize configuration that the modal control uses.
+   *
    * @param fullsize - The full size configuration to use.
    */
   fullsize(fullsize: SohoModalFullSize): SohoModalDialogRef<T> {
@@ -238,6 +244,7 @@ export class SohoModalDialogRef<T> {
 
   /**
    * Sets the breakpoint configuration that the modal control uses in full size mode(s).
+   *
    * @param breakpoint - The full size configuration to use.
    */
   breakpoint(breakpoint: SohoModalBreakPoint): SohoModalDialogRef<T> {
@@ -250,6 +257,7 @@ export class SohoModalDialogRef<T> {
 
   /**
    * Controls the opacity of the background overlay.
+   *
    * @param overlayOpacity - The percent between 0 and 1 of opacity to use.
    */
   overlayOpacity(overlayOpacity: number): SohoModalDialogRef<T> {
@@ -262,6 +270,7 @@ export class SohoModalDialogRef<T> {
 
   /**
    * Causes this modal instance to become hidden when another modal is displayed over top.
+   *
    * @param hideUnderneath - If it should be on top or bottom.
    */
   hideUnderneath(hideUnderneath: boolean): SohoModalDialogRef<T> {
@@ -274,6 +283,7 @@ export class SohoModalDialogRef<T> {
 
   /**
    * If true, causes the modal's trigger element not to become focused once the modal is closed.
+   *
    * @param noRefocus - If true, refocus
    */
   noRefocus(noRefocus: boolean): SohoModalDialogRef<T> {
@@ -286,6 +296,7 @@ export class SohoModalDialogRef<T> {
 
   /**
    * The modal's trigger element to keep refocused once the modal is closed. This can be html or jquery object or query selector as string.
+   *
    * @param triggerButton - The element (for example a button) to refocus on close.
    */
   triggerButton(triggerButton: boolean): SohoModalDialogRef<T> {
@@ -376,10 +387,10 @@ export class SohoModalDialogRef<T> {
   }
 
   /**
-    * Dialog result property.
-    *
-    * @param dialogResult - the stored restult of the dialog.
-    */
+   * Dialog result property.
+   *
+   * @param dialogResult - the stored restult of the dialog.
+   */
   set dialogResult(dialogResult: any) {
     this._dialogResult = dialogResult;
   }
@@ -527,7 +538,9 @@ export class SohoModalDialogRef<T> {
    * @param eventFn - the function to invoke when the dialog is to be opened.
    */
   opened(eventFn: Function): SohoModalDialogRef<T> {
-    this.open$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => { eventFn(f, this); });
+    this.open$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => {
+ eventFn(f, this);
+});
     return this;
   }
 
@@ -539,7 +552,9 @@ export class SohoModalDialogRef<T> {
    * @param eventFn - the function to invoke when the dialog is to be opened.
    */
   afterOpen(eventFn: Function): SohoModalDialogRef<T> {
-    this.afterOpen$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => { eventFn(f, this); });
+    this.afterOpen$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => {
+ eventFn(f, this);
+});
     return this;
   }
 
@@ -561,7 +576,9 @@ export class SohoModalDialogRef<T> {
    * @param eventFn - the function to invoke when the dialog is to be closed.
    */
   closed(eventFn: SohoModalDialogEventFunction<T>): SohoModalDialogRef<T> {
-    this.close$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => { eventFn(f, this, this.componentDialog); });
+    this.close$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => {
+ eventFn(f, this, this.componentDialog);
+});
     return this;
   }
 
@@ -574,7 +591,9 @@ export class SohoModalDialogRef<T> {
    * @param eventFn - the function to invoke after the dialog has been closed.
    */
   afterClose(eventFn: SohoModalDialogEventFunction<T>): SohoModalDialogRef<T> {
-    this.afterClose$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => { eventFn(result, this, this.componentDialog); });
+    this.afterClose$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => {
+ eventFn(result, this, this.componentDialog);
+});
     return this;
   }
 
@@ -725,7 +744,7 @@ export type SohoModalDialogEventVetoFunction<T> = (dialogRef: SohoModalDialogRef
 /**
  * Contract for all SohoModalDialogComponents.
  */
-// tslint:disable-next-line:no-empty-interface
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface SohoModalComponent<T> {
 }
 

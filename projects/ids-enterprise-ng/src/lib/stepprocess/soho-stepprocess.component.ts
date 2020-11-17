@@ -13,19 +13,23 @@ import {
  * STEP LIST TITLE
  **************************************************************/
 @Component({
-  selector: 'div[soho-step-list-title]', // tslint:disable-line
+  selector: 'div[soho-step-list-title]', // eslint-disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoStepListTitleComponent {
-  @HostBinding('class.title') get title() { return true; }
-  @HostBinding('class.title-wide') get titleWide() { return true; }
+  @HostBinding('class.title') get title() {
+ return true;
+}
+  @HostBinding('class.title-wide') get titleWide() {
+ return true;
+}
 }
 
 /**************************************************************
  * STEP LIST
  **************************************************************/
 @Component({
-  selector: 'ul[soho-step-list]', // tslint:disable-line
+  selector: 'ul[soho-step-list]', // eslint-disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoStepListComponent {
@@ -50,7 +54,7 @@ export class SohoStepListComponent {
  * SUB STEP LIST
  **************************************************************/
 @Component({
-  selector: 'ul[soho-substep-list]', // tslint:disable-line
+  selector: 'ul[soho-substep-list]', // eslint-disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoSubstepListComponent {
@@ -62,11 +66,13 @@ export class SohoSubstepListComponent {
  * STEP LIST ITEM
  **************************************************************/
 @Component({
-  selector: 'li[soho-step-list-item]', // tslint:disable-line
+  selector: 'li[soho-step-list-item]', // eslint-disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoStepListItemComponent {
-  @HostBinding('class.js-step') get jsStep() { return true; }
+  @HostBinding('class.js-step') get jsStep() {
+ return true;
+}
   @HostBinding('class.is-selected') @Input() isSelected = false;
 }
 
@@ -74,7 +80,7 @@ export class SohoStepListItemComponent {
  * STEP LIST ITEM ANCHOR
  **************************************************************/
 @Component({
-  selector: 'a[soho-step-list-item-anchor]', // tslint:disable-line
+  selector: 'a[soho-step-list-item-anchor]', // eslint-disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoStepListItemAnchorComponent {
@@ -90,7 +96,7 @@ export class SohoStepListItemAnchorComponent {
  * STEP LIST ITEM TITLE
  **************************************************************/
 @Component({
-  selector: 'span[soho-step-list-item-title]', // tslint:disable-line
+  selector: 'span[soho-step-list-item-title]', // eslint-disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoStepListItemTitleComponent {
@@ -101,7 +107,7 @@ export class SohoStepListItemTitleComponent {
  * STEP CONTENT TITLE
  **************************************************************/
 @Component({
-  selector: 'div[soho-step-content-title]', // tslint:disable-line
+  selector: 'div[soho-step-content-title]', // eslint-disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoStepContentTitleComponent {
@@ -112,25 +118,35 @@ export class SohoStepContentTitleComponent {
  * STEP CONTENT
  **************************************************************/
 @Component({
-  selector: 'div[soho-step-content]', // tslint:disable-line
+  selector: 'div[soho-step-content]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
 })
 export class SohoStepContentComponent {
-  @HostBinding('class.scrollable') get isScrollable() { return true; }
-  @HostBinding('class.step-container') get iStepContainer() { return true; }
-  @HostBinding('class.js-step-container-scroll') get isJsStepPanelsScroll() { return true; }
+  @HostBinding('class.scrollable') get isScrollable() {
+ return true;
+}
+  @HostBinding('class.step-container') get iStepContainer() {
+ return true;
+}
+  @HostBinding('class.js-step-container-scroll') get isJsStepPanelsScroll() {
+ return true;
+}
 }
 
 /**************************************************************
  * STEP CONTENT PANEL
  **************************************************************/
 @Component({
-  selector: 'div[soho-step-content-panel]', // tslint:disable-line
+  selector: 'div[soho-step-content-panel]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
 })
 export class SohoStepContentPanelComponent {
-  @HostBinding('class.js-step-panel') get isJsStepProcessPanel() { return true; }
-  @HostBinding('attr.id') get idAttr() { return this.stepId; }
+  @HostBinding('class.js-step-panel') get isJsStepProcessPanel() {
+ return true;
+}
+  @HostBinding('attr.id') get idAttr() {
+ return this.stepId;
+}
   @Input() stepId: string;
 }
 
@@ -138,7 +154,7 @@ export class SohoStepContentPanelComponent {
  * MAIN STEP PROCESS COMPONENT
  **************************************************************/
 @Component({
-  selector: 'div[soho-stepprocess]', // tslint:disable-line
+  selector: 'div[soho-stepprocess]', // eslint-disable-line
   templateUrl: 'soho-stepprocess.component.html',
 })
 export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
@@ -221,10 +237,12 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.stepprocess(this.stepProcessOptions);
     this.stepprocess = this.jQueryElement.data('stepprocess');
     this.jQueryElement.find('.js-btn-save-changes').
-      on('click', (e: JQuery.TriggeredEvent) => { this.fireOnSaveClose(); });
+      on('click', (e: JQuery.TriggeredEvent) => {
+ this.fireOnSaveClose();
+});
   }
 
-  private beforeSelectStepPromise = (args: { stepLink: JQuery, isStepping: StepDirection }): JQueryPromise<boolean> => {
+  private beforeSelectStepPromise = (args: { stepLink: JQuery; isStepping: StepDirection }): JQueryPromise<boolean> => {
     this.beforeSelectStepDeferred = $.Deferred();
 
     if (this.beforeSelectStep.observers.length > 0) {
@@ -260,7 +278,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     }
 
     return this.beforeSelectStepDeferred.promise();
-  }
+  };
   private beforeSelectStepResponse = (response: BeforeSelectStepResult) => {
     if (response.overrideTargetStepId) {
       const stepLinkToSelect = $('.js-step-link[href="#' + response.overrideTargetStepId + '"]');
@@ -268,12 +286,12 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     } else {
       this.beforeSelectStepDeferred.resolve(response.continue);
     }
-  }
+  };
 
   private fireOnSaveClose(): void {
     const $selectedStep = this.stepprocess.getSelectedStep();
     const currentStepId = $selectedStep.children('a').attr('href').substring(1);
-    const event: SohoStepSaveCloseEvent = { currentStepId: currentStepId };
+    const event: SohoStepSaveCloseEvent = { currentStepId };
     this.saveClose.emit(event);
   }
 

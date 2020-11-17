@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-form-compact]', // tslint:disable-line
+  selector: '[soho-form-compact]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

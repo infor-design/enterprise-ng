@@ -14,14 +14,18 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'button[soho-menu-button]', // tslint:disable-line
+  selector: 'button[soho-menu-button]', // eslint-disable-line
   templateUrl: 'soho-menu-button.component.html',
   styleUrls: ['./soho-menu-button.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
-  @HostBinding('class.btn-menu') get isBtnMenu() { return true; }
-  @HostBinding('attr.type') get buttonType() { return 'button'; }
+  @HostBinding('class.btn-menu') get isBtnMenu() {
+ return true;
+}
+  @HostBinding('attr.type') get buttonType() {
+ return 'button';
+}
 
   /** The underlying jQuery instance. */
   private jQueryElement: JQuery;
@@ -51,9 +55,9 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
 
   @Output() selected = new EventEmitter<SohoContextMenuEvent>();
   @Output() beforeopen = new EventEmitter<SohoContextMenuEvent>();
-  // tslint:disable-next-line:no-output-rename
+  // eslint-disable-next-line @angular-eslint/no-output-rename
   @Output('open') open$ = new EventEmitter<SohoContextMenuEvent>();
-  // tslint:disable-next-line:no-output-rename
+  // eslint-disable-next-line @angular-eslint/no-output-rename
   @Output('close') close$ = new EventEmitter<SohoContextMenuEvent>();
 
   // -------------------------------------------

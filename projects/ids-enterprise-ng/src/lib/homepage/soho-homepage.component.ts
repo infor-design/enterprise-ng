@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'div[soho-homepage]', // tslint:disable-line
+  selector: 'div[soho-homepage]', // eslint-disable-line
   template: `<div class="content"><ng-content></ng-content></div>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -102,6 +102,7 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
 
   /**
    * Event fired before a card is removed
+   *
    * @param beforeSelectFunction Function callback
    */
   @Input() set onBeforeRemoveCard(beforeSelectFunction: SohoHomePageBeforeRemoveCardFunction) {
@@ -217,7 +218,7 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
   }
 
   onResizeCard(card: JQuery, metadata: object) {
-    const event: SohoHomePageEditEvent = { homepage: this, card: card, metadata: metadata };
+    const event: SohoHomePageEditEvent = { homepage: this, card, metadata };
 
     this.ngZone.run(() => {
       this.resizecard.emit(event);
@@ -225,7 +226,7 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
   }
 
   onReorderCard(card: JQuery, metadata: object) {
-    const event: SohoHomePageEditEvent = { homepage: this, card: card, metadata: metadata };
+    const event: SohoHomePageEditEvent = { homepage: this, card, metadata };
 
     this.ngZone.run(() => {
       this.reordercard.emit(event);
@@ -233,7 +234,7 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
   }
 
   onRemoveCard(card: JQuery, metadata: object) {
-    const event: SohoHomePageEditEvent = { homepage: this, card: card, metadata: metadata };
+    const event: SohoHomePageEditEvent = { homepage: this, card, metadata };
 
     this.ngZone.run(() => {
       this.removecard.emit(event);

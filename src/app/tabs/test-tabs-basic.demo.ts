@@ -5,7 +5,7 @@ import { AfterViewChecked, Component, NgZone } from '@angular/core';
  * - Shows how to make a simple tab component with an angular template.
  */
 @Component({
-  selector: 'test-tabs-basic', // tslint:disable-line
+  selector: 'test-tabs-basic', // eslint-disable-line
   templateUrl: 'test-tabs-basic.demo.html',
 })
 export class TestTabsBasicComponent implements AfterViewChecked {

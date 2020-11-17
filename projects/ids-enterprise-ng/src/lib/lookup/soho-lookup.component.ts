@@ -19,7 +19,7 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: 'input[soho-lookup]', // tslint:disable-line
+  selector: 'input[soho-lookup]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoLookupComponent)]
@@ -418,9 +418,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   /** Input is disabled or not **/
   public isReadonly(): boolean {
     if (this.lookup) {
-      return this.ngZone.runOutsideAngular(() => {
-        return this.lookup.isReadonly();
-      });
+      return this.ngZone.runOutsideAngular(() => this.lookup.isReadonly());
     }
   }
 
@@ -489,8 +487,8 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
        */
       if (args[1] && args[2]) {
 
-        const datagrid: SohoDataGridStatic = args[1],
-          modal: SohoModalStatic = args[2];
+        const datagrid: SohoDataGridStatic = args[1];
+          const modal: SohoModalStatic = args[2];
 
         if (datagrid.pagerAPI) {
           datagrid.pagerAPI.element.on('afterpaging', () => {

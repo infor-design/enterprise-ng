@@ -14,33 +14,39 @@ import {
  * SUB COMPONENT: SOHO-CONTEXT-MENU-HEADING
  */
 @Component({
-  selector: 'li[soho-context-menu-heading]', // tslint:disable-line
+  selector: 'li[soho-context-menu-heading]', // eslint-disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoContextMenuHeadingComponent {
-  @HostBinding('class.heading') get isHeading() { return true; }
+  @HostBinding('class.heading') get isHeading() {
+ return true;
+}
 }
 
 /**
  * SUB COMPONENT: SOHO-CONTEXT-MENU-SHORTCUT-TEXT
  */
 @Component({
-  selector: 'span[soho-context-menu-shortcut-text]', // tslint:disable-line
+  selector: 'span[soho-context-menu-shortcut-text]', // eslint-disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoContextMenuShortCutTextComponent {
-  @HostBinding('class.shortcut-text') get isShortCutText() { return true; }
+  @HostBinding('class.shortcut-text') get isShortCutText() {
+ return true;
+}
 }
 
 /**
  * SUB COMPONENT: SOHO-CONTEXT-MENU-SEPARATOR
  */
 @Component({
-  selector: 'li[soho-context-menu-separator]', // tslint:disable-line
+  selector: 'li[soho-context-menu-separator]', // eslint-disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoContextMenuSeparatorComponent {
-  @HostBinding('class.separator') get isSeparator() { return true; }
+  @HostBinding('class.separator') get isSeparator() {
+ return true;
+}
   @HostBinding('class.single-selectable-section') @Input() singleSelectableSection = false;
   @HostBinding('class.multi-selectable-section') @Input() multiSelectableSection = false;
 }
@@ -49,7 +55,7 @@ export class SohoContextMenuSeparatorComponent {
  * SUB COMPONENT: SOHO-CONTEXT-MENU-LABEL
  */
 @Component({
-  selector: 'a[soho-context-menu-label]', // tslint:disable-line
+  selector: 'a[soho-context-menu-label]', // eslint-disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoContextMenuItemLabelComponent {
@@ -70,7 +76,7 @@ export class SohoContextMenuItemLabelComponent {
  * SUB COMPONENT: SOHO-CONTEXT-MENU-ITEM
  */
 @Component({
-  selector: 'li[soho-context-menu-item]', // tslint:disable-line
+  selector: 'li[soho-context-menu-item]', // eslint-disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoContextMenuItemComponent {
@@ -85,7 +91,7 @@ export class SohoContextMenuItemComponent {
  * MAIN DIRECTIVE: SOHO-CONTEXT-MENU
  */
 @Directive({
-  selector: '[soho-context-menu]', // tslint:disable-line
+  selector: '[soho-context-menu]', // eslint-disable-line
 })
 
 export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
@@ -109,7 +115,7 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
 
   // using output renaming since close conflicts with the close method
   // in this class.
-  @Output('close') closeEvent = new EventEmitter<SohoContextMenuEvent>(); //tslint:disable-line
+  @Output('close') closeEvent = new EventEmitter<SohoContextMenuEvent>(); // eslint-disable-line
 
   // -------------------------------------------
   // Component Inputs
@@ -265,6 +271,7 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
 
   /**
    * Closes the popup menu
+   *
    * @param isCancelled Internally set option used if the operation is a cancel.
    *  Wont matter for manual api call.
    * @param noFocus Do not return focus to the calling element (fx a button)

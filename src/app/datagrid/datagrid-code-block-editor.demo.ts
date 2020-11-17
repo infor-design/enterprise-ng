@@ -14,7 +14,7 @@ import {
 } from '../code-block/code-block.component';
 
 export const CodeBlockFormatter = (row, cell, value, col, rowData, api): string => {
-  /* tslint:disable */
+  /* eslint-disable */
   return `
     <span class="code-block">
 
@@ -36,7 +36,7 @@ export const CodeBlockFormatter = (row, cell, value, col, rowData, api): string 
         -->
 
   </span>`;
-  /* tslint:enable */
+  /* eslint-enable */
 };
 
 @Component({
@@ -202,7 +202,7 @@ export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
   }
 
   get columns(): SohoDataGridColumn[] {
-    return COLUMNS; // tslint:disable-line
+    return COLUMNS; // eslint-disable-line
   }
 
   ledgerData(): any[] {
@@ -295,7 +295,7 @@ export class DataGridCodeBlockEditorDemoComponent implements OnInit {
     COLUMNS[2].tooltip = tooltipCallback;
 
     this.gridOptions = {
-      columns: COLUMNS, // tslint:disable-line
+      columns: COLUMNS, // eslint-disable-line
       dataset: CODE_BLOCK_DATA,
       editable: true,
       filterable: false,

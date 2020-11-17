@@ -5,7 +5,7 @@ import { Component, HostBinding } from '@angular/core';
  * - Shows how to make a tab component with the tabs on the left side.
  */
 @Component({
-  selector: 'div[vertical-tabs-demo]', // tslint:disable-line
+  selector: 'div[vertical-tabs-demo]', // eslint-disable-line
   templateUrl: 'tabs-vertical.demo.html'
 })
 export class TabsVerticalDemoComponent {

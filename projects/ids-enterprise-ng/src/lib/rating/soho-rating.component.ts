@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-rating]', // tslint:disable-line
+  selector: '[soho-rating]', // eslint-disable-line
   template: '<ng-content></ng-content>'
 })
 

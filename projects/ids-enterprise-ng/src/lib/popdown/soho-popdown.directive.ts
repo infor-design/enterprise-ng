@@ -8,10 +8,12 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[soho-popdown]', // tslint:disable-line
+  selector: '[soho-popdown]', // eslint-disable-line
 })
 export class SohoPopDownDirective implements AfterViewInit, OnDestroy {
-  @HostBinding('attr.popdown') get isPopdown() { return true; }
+  @HostBinding('attr.popdown') get isPopdown() {
+ return true;
+}
 
   private jQueryElement: JQuery;
 

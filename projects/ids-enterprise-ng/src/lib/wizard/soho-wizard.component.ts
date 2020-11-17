@@ -34,7 +34,7 @@ import { SohoWizardPageComponent } from './soho-wizard-page.component';
  * - extract state machine
  */
 @Component({
-  selector: 'div[soho-wizard]', // tslint:disable-line
+  selector: 'div[soho-wizard]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   styles: [
     `:host {
@@ -290,11 +290,13 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
     this.jQueryElement
       .on('beforeactivate', (e: JQuery.TriggeredEvent, tick: SohoWizardTick) => this.onBeforeActivate(tick))
       .on('activated', (e: JQuery.TriggeredEvent, tick: JQuery) => this.onActivated(tick))
-      .on('afteractivated', (e: JQuery.TriggeredEvent, tick: JQuery) => this.afteractivated.next({ tick: tick }));
+      .on('afteractivated', (e: JQuery.TriggeredEvent, tick: JQuery) => this.afteractivated.next({ tick }));
 
     // Reset the cached steps if the list of steps changes.
     if (this.header) {
-      this.header.steps.changes.subscribe(() => { this._steps = null; });
+      this.header.steps.changes.subscribe(() => {
+ this._steps = null;
+});
     }
   }
 
@@ -336,7 +338,7 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
           (p) => {
             if (tickId === p.tickId) {
               // fire an event on the page.
-              p.fireActivated({ tick: tick });
+              p.fireActivated({ tick });
 
               // ... show it.
               p.hidden = false;
@@ -348,7 +350,7 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
           });
 
         // ... publish.
-        this.activated.next({ tick: tick });
+        this.activated.next({ tick });
       }
     }
   }

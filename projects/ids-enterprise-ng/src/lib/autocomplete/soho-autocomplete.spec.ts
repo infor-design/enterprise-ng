@@ -89,7 +89,7 @@ class SohoAutoCompleteTestComponent {
     ];
 
     response(term, states);
-  }
+  };
 }
 
 describe('Soho Autocomplete Render', () => {

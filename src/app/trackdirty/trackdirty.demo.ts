@@ -84,7 +84,7 @@ interface DataView {
   fields: DataFields;
 }
 
-// tslint:disable-next-line
+// eslint-disable-next-line
 type DataFields = { [key: string]: DataField };
 
 interface DataField {

@@ -11,7 +11,7 @@ import {
  *
  */
 @Directive({
-  selector: '[soho-alert]', // tslint:disable-line
+  selector: '[soho-alert]', // eslint-disable-line
   exportAs: 'soho-alert'
 })
 export class SohoAlertDirective implements AfterViewInit {
@@ -66,6 +66,7 @@ export class SohoAlertDirective implements AfterViewInit {
 
   /**
    * Returns the data object data-errormessage
+   *
    * @deprecated use getMessage() instead
    * @return error
    */
@@ -93,6 +94,7 @@ export class SohoAlertDirective implements AfterViewInit {
   // public methods
   /**
    * Adds an inline error message
+   *
    * @deprecated use addInlineMessage() instead
    * @param message the error message to add.
    */
@@ -134,6 +136,7 @@ export class SohoAlertDirective implements AfterViewInit {
 
   /**
    * Removes the error message
+   *
    * @deprecated use removeMessage() instead
    */
   removeError() {

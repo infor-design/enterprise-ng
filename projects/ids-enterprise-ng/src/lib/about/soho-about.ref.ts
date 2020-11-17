@@ -101,6 +101,7 @@ export class SohoAboutRef {
 
   /**
    * Add extra attributes like id's to the component
+   *
    * @param attributes - the array or object of attributes to add
    */
   attributes(attributes: Array<Object> | Object): SohoAboutRef {

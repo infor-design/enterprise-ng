@@ -19,7 +19,7 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: 'input[soho-timepicker]', // tslint:disable-line
+  selector: 'input[soho-timepicker]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoTimePickerComponent)]

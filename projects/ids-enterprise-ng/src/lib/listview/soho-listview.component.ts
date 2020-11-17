@@ -25,7 +25,7 @@ import { SohoSearchFieldComponent } from '../searchfield/soho-searchfield.compon
  * by exposing it (if desired)
  */
 @Component({
-  // tslint:disable-next-line:component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[soho-listview-search]',
   template: `
     <input soho-searchfield *ngIf="buildSearch">
@@ -42,11 +42,13 @@ export class SohoListViewSearchComponent {
    */
   @Input() buildSearch = true;
 
-  @HostBinding('class.listview-search') get isListviewSearch() { return true; }
+  @HostBinding('class.listview-search') get isListviewSearch() {
+ return true;
+}
 }
 
 @Component({
-  // tslint:disable-next-line:component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[soho-listview-item]',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -88,33 +90,39 @@ export class SohoListViewItemComponent implements AfterViewInit {
 }
 
 @Component({
-  // tslint:disable-next-line:component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[soho-listview-header]',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoListViewHeaderComponent {
-  @HostBinding('class.listview-heading') get isHeading() { return true; }
+  @HostBinding('class.listview-heading') get isHeading() {
+ return true;
+}
 }
 
 @Component({
-  // tslint:disable-next-line:component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[soho-listview-subheader]',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoListViewSubHeaderComponent {
-  @HostBinding('class.listview-subheading') get isSubHeading() { return true; }
+  @HostBinding('class.listview-subheading') get isSubHeading() {
+ return true;
+}
 }
 
 @Component({
-  // tslint:disable-next-line:component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[soho-listview-micro]',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoListViewMicroComponent {
-  @HostBinding('class.listview-micro') get isMicro() { return true; }
+  @HostBinding('class.listview-micro') get isMicro() {
+ return true;
+}
 }
 
 @Component({
@@ -326,8 +334,8 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
   @Output() click: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**
-  * Called once an item is double clicked. This isnt used that often.
-  */
+   * Called once an item is double clicked. This isnt used that often.
+   */
   @Output() dblclick: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**
@@ -343,9 +351,9 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
 
   // Used to locate the listViewReference in the HTML to init the component through jQuery
   @ViewChild('listview', { static: true }) listViewRef: ElementRef;
-  @ContentChild(forwardRef(() => SohoSearchFieldComponent), { static: true }) // tslint:disable-line
-  // tslint:disable-line
-  // tslint:disable-line
+  @ContentChild(forwardRef(() => SohoSearchFieldComponent), { static: true }) // eslint-disable-line
+  // eslint-disable-line
+  // eslint-disable-line
   public searchfieldRef: SohoSearchFieldComponent = null;
 
   /**
@@ -393,7 +401,9 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
       this.jQueryElement.on('sorted', (...args) => this.ngZone.run(() => this.sorted.emit(args)));
     });
 
-    this.items.changes.subscribe(() => { this.updateRequired = true; });
+    this.items.changes.subscribe(() => {
+ this.updateRequired = true;
+});
   }
 
   ngAfterViewChecked() {

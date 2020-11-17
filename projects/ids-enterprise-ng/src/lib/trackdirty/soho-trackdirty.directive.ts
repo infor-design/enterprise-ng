@@ -10,13 +10,15 @@ import {
 } from '@angular/core';
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: '[soho-trackdirty]',
   exportAs: 'soho-trackdirty'
 })
 export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
 
-  @HostBinding('attr.data-trackdirty') get trackDirtyAttr() { return true; }
+  @HostBinding('attr.data-trackdirty') get trackDirtyAttr() {
+ return true;
+}
 
   /**
    * Called when element value is different from original value

@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'input[soho-fileupload]',  // tslint:disable-line
+  selector: 'input[soho-fileupload]',  // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

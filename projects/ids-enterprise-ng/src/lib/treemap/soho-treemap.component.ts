@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-treemap]', // tslint:disable-line
+  selector: '[soho-treemap]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

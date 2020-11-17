@@ -78,9 +78,13 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
 
       this.jQueryElement
         .on('themechanged',
-          (ev: JQuery.TriggeredEvent, theme: string) => { this.onChangeTheme(ev, theme); })
+          (ev: JQuery.TriggeredEvent, theme: string) => {
+ this.onChangeTheme(ev, theme);
+})
         .on('colorschanged',
-          (ev: JQuery.TriggeredEvent, colors: any) => { this.onChangeColors(ev, colors); });
+          (ev: JQuery.TriggeredEvent, colors: any) => {
+ this.onChangeColors(ev, colors);
+});
 
       /**
        * Bind to jQueryElement's events
@@ -101,6 +105,7 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
 
   /**
    * Return a list of all the available themes.
+   *
    * @returns The list of themes.
    */
   public themes(): SohoTheme[] {
@@ -109,6 +114,7 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
 
   /**
    * Return the colors used in the current theme that are recommended for personalization.
+   *
    * @returns An object full of the colors with id, name, and hex value.
    */
   public personalizationColors(): SohoPersonalizationColors {

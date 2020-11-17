@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-circlepager]', // tslint:disable-line
+  selector: '[soho-circlepager]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

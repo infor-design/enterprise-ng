@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'soho-progress', // tslint:disable-line
+  selector: 'soho-progress', // eslint-disable-line
   template: `<div [class.progress-bar]="true" [attr.data-value]="value"></div>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })

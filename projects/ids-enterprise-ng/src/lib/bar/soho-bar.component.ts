@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-bar]', // tslint:disable-line
+  selector: '[soho-bar]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -167,7 +167,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
   }
 
   /** How far out than the outer circle should the labels be placed, this
-    * may be useful to adjust for some labels. */
+   * may be useful to adjust for some labels. */
   @Input() set labelFactor(value: number) {
     this.options.labelFactor = value;
 
@@ -178,7 +178,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
   }
 
   /** The number of pixels after which a label needs to be given a new line.
-    * You may want to change this based on label data. */
+   * You may want to change this based on label data. */
   @Input() set wrapWidth(value: number) {
     this.options.wrapWidth = value;
 
@@ -210,6 +210,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
 
   /**
    * Add extra attributes like id's to the component
+   *
    * @param attributes - the array or object of attributes to add
    */
   @Input() set attributes(attributes: Array<Object> | Object) {

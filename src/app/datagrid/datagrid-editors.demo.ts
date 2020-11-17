@@ -6,7 +6,7 @@ import {
 
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
-// tslint:disable
+/* eslint-disable */
 
 export const EDITORS_DATA: any[] = [
   {
@@ -159,7 +159,7 @@ export const LOOKUP_DATA = [
   { status: '', description: 'Unknown'}
 ];
 
-/* tslint:disable */
+/* eslint-disable */
 export const STATUS_LOOKUP_OPTIONS = {
    field: FIELD_FN,
    match: MATCH_FN,

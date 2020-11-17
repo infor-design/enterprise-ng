@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-column]', // tslint:disable-line
+  selector: '[soho-column]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

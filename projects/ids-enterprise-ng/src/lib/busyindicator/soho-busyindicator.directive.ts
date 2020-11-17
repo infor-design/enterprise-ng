@@ -258,7 +258,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
       this.afterstart.next({
         type: 'afterstart',
         component: this,
-        event: event
+        event
       }));
   }
 
@@ -270,7 +270,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
       this.complete.next({
         type: 'complete',
         component: this,
-        event: event
+        event
       }));
   }
 }

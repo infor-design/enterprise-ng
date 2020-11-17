@@ -24,7 +24,7 @@ import {
  * Angular wrapper for the `dropdown` widget in the ids-enterprise controls.
  */
 @Component({
-  selector: 'select[soho-dropdown]', // tslint:disable-line
+  selector: 'select[soho-dropdown]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -133,11 +133,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   @Input()
   public set moveSelectedToTop(moveSelectedToTop: boolean) {
     console.warn(`'moveSelectedToTop' has been deprecated, please use 'moveSelected'.`);
-    this.options.moveSelectedToTop = moveSelectedToTop;  // tslint:disable-line
+    this.options.moveSelectedToTop = moveSelectedToTop;  // eslint-disable-line
   }
 
   public get moveSelectedToTop(): boolean {
-    // tslint:disable-next-line: deprecation
+    // eslint-disable-next-line import/no-deprecated
     return this.options.moveSelectedToTop;
   }
 
@@ -355,35 +355,35 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   /**
    * Called when the dropdown value changes
    */
-  // tslint:disable-next-line: no-output-rename
+  // eslint-disable-next-line @angular-eslint/no-output-rename
   @Output('change')
   change$ = new EventEmitter<JQuery.TriggeredEvent>();
 
   /**
    * Called when the dropdown updates in some way.
    */
-  // tslint:disable-next-line: no-output-rename
+  // eslint-disable-next-line @angular-eslint/no-output-rename
   @Output('updated')
   updated$ = new EventEmitter<JQuery.TriggeredEvent>();
 
   /**
    * Fired when the dropdown list is closed.
    */
-  // tslint:disable-next-line: no-output-rename
+  // eslint-disable-next-line @angular-eslint/no-output-rename
   @Output('listclosed')
   listClosed$ = new EventEmitter<SohoDropDownEvent>();
 
   /**
    * Fired when the dropdown list is opened.
    */
-  // tslint:disable-next-line: no-output-rename
+  // eslint-disable-next-line @angular-eslint/no-output-rename
   @Output('listopened')
   listOpened$ = new EventEmitter<SohoDropDownEvent>();
 
   /**
    * This event is fired when a key is pressed
    */
-  // tslint:disable-next-line: no-output-rename
+  // eslint-disable-next-line @angular-eslint/no-output-rename
   @Output('keydown')
   keydown$ = new EventEmitter<Event>();
 
@@ -413,6 +413,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
 
   /**
    * Creates an instance of SohoDropDownComponent.
+   *
    * @param element the element this component encapsulates.
    * @param ngZone the angular zone for this component
    * @param ngControl any associated form control (optional)
@@ -429,7 +430,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       // Wrap the accessor to allow updates to be pushed,
       // but also use the standard accessors provided by angular.
       this.valueAccessor =
-        new SohoDropDownControlValueAccessorDelegator( // tslint:disable-line
+        new SohoDropDownControlValueAccessorDelegator( // eslint-disable-line
           this.ngControl.valueAccessor, this);
 
       // ... change the accessor on the control to use ours.
@@ -636,8 +637,8 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   }
 
   /**
-  * Marks the components as requiring a rebuild after the next update.
-  */
+   * Marks the components as requiring a rebuild after the next update.
+   */
   markForRefresh() {
     // Run updated on the next updated check.
     this.runUpdatedOnCheck = true;
@@ -732,6 +733,7 @@ class SohoDropDownControlValueAccessorDelegator implements ControlValueAccessor 
   /**
    * Copy of the "valuestring" builder used by the Angular
    * Select and MultiSelect
+   *
    * @param id option id (ordinal)
    * @param value the actual value
    */

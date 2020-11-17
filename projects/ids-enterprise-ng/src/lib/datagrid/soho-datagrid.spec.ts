@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { SohoDataGridModule } from './soho-datagrid.module';
 import { SohoDataGridComponent } from './soho-datagrid.component';
 
-/* tslint:disable */
+/* eslint-disable */
 const COLUMNS: SohoDataGridColumn[] = [
   {
     id: 'selectionCheckbox',
@@ -74,9 +74,9 @@ const COLUMNS: SohoDataGridColumn[] = [
     dateFormat: 'M/d/yyyy'
   }
 ];
-/* tslint:enable */
+/* eslint-enable */
 
-/* tslint:disable */
+/* eslint-disable */
 const DATA: any[] = [
   {
     id: 0,
@@ -163,7 +163,7 @@ const DATA: any[] = [
     rated: 0.54
   }
 ];
-/* tslint:enable */
+/* eslint-enable */
 
 describe('Soho DataGrid Unit Tests', () => {
   let comp: SohoDataGridComponent;

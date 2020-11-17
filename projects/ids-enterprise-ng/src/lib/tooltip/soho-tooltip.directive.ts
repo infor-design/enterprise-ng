@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[soho-tooltip]' // tslint:disable-line
+  selector: '[soho-tooltip]' // eslint-disable-line
 })
 export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges {
 
@@ -123,49 +123,49 @@ export class SohoTooltipDirective implements AfterViewInit, OnDestroy, OnChanges
 
   /**
    * If the object with the tooltip is tabbed to, will also show the tooltip.
-  */
+   */
   @Input() set showOnKeyboardFocus(showOnKeyboardFocus: boolean) {
     this.options.showOnKeyboardFocus = showOnKeyboardFocus;
   }
 
   /**
    * Call back for hiding.
-  */
+   */
   @Input() set onHidden(onHidden: Function) {
     this.options.onHidden = onHidden;
   }
 
   /**
    * Placement options pass through
-  */
+   */
   @Input() set placementOpt(placementOpt: object) {
     this.options.placementOpt = placementOpt;
   }
 
   /**
    * Init the content in the tooltip.
-  */
+   */
   @Input() set initializeContent(initializeContent: boolean) {
     this.options.initializeContent = initializeContent;
   }
 
   /**
    * If set this color will be used on the header (if a popover).
-  */
+   */
   @Input() set headerClass(headerClass: string) {
     this.options.headerClass = headerClass;
   }
 
   /**
    * The delay before showing the tooltip
-  */
+   */
   @Input() set delay(delay: number) {
     this.options.delay = delay;
   }
 
   /**
    * The if true (default) the popup is added to the body.
-  */
+   */
   @Input() set attachToBody(attachToBody: boolean) {
     this.options.attachToBody = attachToBody;
   }

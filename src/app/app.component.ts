@@ -14,7 +14,7 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'body', // tslint:disable-line
+  selector: 'body', // eslint-disable-line
   templateUrl: 'app.component.html',
   styleUrls: [ './app.component.css' ],
   providers: [ HeaderDynamicDemoRefService ],

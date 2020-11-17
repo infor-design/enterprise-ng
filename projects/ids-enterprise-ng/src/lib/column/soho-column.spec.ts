@@ -302,7 +302,7 @@ describe('Soho Column Chart Render', () => {
     fixture.detectChanges();
 
     // Wait for animation
-    setTimeout(function () {
+    setTimeout(function() {
       expect(document.querySelectorAll('.y.axis .tick').length).toEqual(6);
       expect(document.querySelectorAll('.y.axis .tick text')[0].innerHTML).toEqual('0');
       expect(document.querySelectorAll('.y.axis .tick text')[1].innerHTML).toEqual('1');

@@ -4,7 +4,7 @@ import { CODE_BLOCK_DATA } from '../demodata/code-block-data';
 export const CodeBlockFormatter = (row, cell, value, col, rowData, api): string => {
   console.log(rowData);
 
-  /* tslint:disable */
+  /* eslint-disable */
   return `
     <span class="code-block">
 
@@ -24,7 +24,7 @@ export const CodeBlockFormatter = (row, cell, value, col, rowData, api): string 
         <span class="data">102</span>
 
   </span>`;
-  /* tslint:enable */
+  /* eslint-enable */
 };
 
 @Component({

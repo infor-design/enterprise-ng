@@ -17,7 +17,7 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: 'input[soho-slider]', // tslint:disable-line
+  selector: 'input[soho-slider]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoSliderComponent)]

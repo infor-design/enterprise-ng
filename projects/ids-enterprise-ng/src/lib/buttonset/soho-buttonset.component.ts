@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'div[soho-buttonset]', // tslint:disable-line
+  selector: 'div[soho-buttonset]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -183,9 +183,7 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
    */
   public at(idx: number): SohoButtonStatic {
     if (this.buttonset) {
-      return this.ngZone.runOutsideAngular(() => {
-        return this.buttonset.at(idx);
-      });
+      return this.ngZone.runOutsideAngular(() => this.buttonset.at(idx));
     } else {
       throw Error('buttonset not initialised');
     }
@@ -200,9 +198,7 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
    */
   public toData(addContextElement: boolean): string {
     if (this.buttonset) {
-      return this.ngZone.runOutsideAngular(() => {
-        return this.buttonset.toData(addContextElement);
-      });
+      return this.ngZone.runOutsideAngular(() => this.buttonset.toData(addContextElement));
     } else {
       throw Error('buttonset not initialised');
     }

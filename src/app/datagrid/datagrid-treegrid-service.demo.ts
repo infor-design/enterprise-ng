@@ -13,21 +13,21 @@ export class DatagridTreegridServiceDemo {
   public getColumns(): SohoDataGridColumn[] {
     if (!this._columns) {
       this._columns = [];
-      /* tslint:disable */
+      /* eslint-disable */
       this._columns.push({id: 'selectionCheckbox', sortable: false, resizable: false, width: 50, formatter: Soho.Formatters.SelectionCheckbox, align: 'center'});
       this._columns.push({id: 'taskName', name: 'Task', field: 'taskName', expanded: 'expanded', formatter: Soho.Formatters.Tree, filterType: 'text', width: 250});
       this._columns.push({id: 'id', name: 'Id', field: 'id', filterType: 'text', width: 25 });
       this._columns.push({id: 'desc', name: 'Description', field: 'desc', filterType: 'text'});
       this._columns.push({id: 'comments', name: 'Comments', field: 'comments', formatter: Soho.Formatters.Hyperlink, filterType: 'text', width: 60 });
       this._columns.push({id: 'time', name: 'Time', field: 'time', filterType: 'time', width: 60 });
-      /* tslint:enable */
+      /* eslint-enable */
     }
     return this._columns;
   }
 
   public getData(): any[] {
     if (!this._data) {
-      /* tslint:disable */
+      /* eslint-disable */
       this._data = [
         {id: 1, escalated: 2, depth: 1, expanded: false, taskName: 'Follow up action with HMM Global', desc: '', comments: null, time: '', children: [
             {id: 2, escalated: 1, depth: 2, taskName: 'Quotes due to expire',  desc: 'Update pending quotes and send out again to customers.', comments: 3, time: '7:10 AM'},

@@ -47,9 +47,9 @@ export class SohoContextualActionPanelRef<T> {
   }
 
   /**
-    * The component displayed inside the panel's frame, if specified.  This may
-    * be null if the component is built from an HTML fragment or a jQuery selector.
-    */
+   * The component displayed inside the panel's frame, if specified.  This may
+   * be null if the component is built from an HTML fragment or a jQuery selector.
+   */
   public get componentPanel(): T {
     if (this.componentRef) {
       return this.componentRef.instance;
@@ -120,6 +120,7 @@ export class SohoContextualActionPanelRef<T> {
 
   /**
    * Sets the title of the panel.
+   *
    * @param title - the title of the panel.
    */
   title(title: string): SohoContextualActionPanelRef<T> {
@@ -132,14 +133,15 @@ export class SohoContextualActionPanelRef<T> {
 
   /**
    * Sets the buttons to use on the panel panel.
+   *
    * @deprecated (use modalSettings)
    * @param buttons - list of buttons to display
    */
   buttons(buttons: SohoContextualActionPanelButton[]): SohoContextualActionPanelRef<T> {
-    // tslint:disable-next-line: deprecation
+    // eslint-disable-next-line import/no-deprecated
     this._options.buttons = buttons;
     if (this.contextualactionpanel) {
-      // tslint:disable-next-line: deprecation
+      // eslint-disable-next-line import/no-deprecated
       this.contextualactionpanel.settings.buttons = buttons;
     }
     return this;
@@ -147,14 +149,15 @@ export class SohoContextualActionPanelRef<T> {
 
   /**
    * Sets the 'id' that the panel control uses.
+   *
    * @deprecated (use modalSettings)
    * @param id - the id.
    */
   id(id: string): SohoContextualActionPanelRef<T> {
-    // tslint:disable-next-line: deprecation
+    // eslint-disable-next-line import/no-deprecated
     this._options.id = id;
     if (this.contextualactionpanel) {
-      // tslint:disable-next-line: deprecation
+      // eslint-disable-next-line import/no-deprecated
       this.contextualactionpanel.settings.id = id;
     }
     return this;
@@ -175,14 +178,15 @@ export class SohoContextualActionPanelRef<T> {
 
   /**
    * Sets the 'centerTitle' that the panel control uses.
+   *
    * @deprecated (use modalSettings)
    * @param centerTitle - Aligns title to center
    */
   centerTitle(centerTitle: boolean): SohoContextualActionPanelRef<T> {
-    // tslint:disable-next-line: deprecation
+    // eslint-disable-next-line import/no-deprecated
     this._options.centerTitle = centerTitle;
     if (this.contextualactionpanel) {
-      // tslint:disable-next-line: deprecation
+      // eslint-disable-next-line import/no-deprecated
       this.contextualactionpanel.settings.centerTitle = centerTitle;
     }
     return this;
@@ -190,14 +194,15 @@ export class SohoContextualActionPanelRef<T> {
 
   /**
    * Sets the 'trigger' that the panel control uses.
+   *
    * @deprecated (use modalSettings)
    * @param trigger - when to open the panel.
    */
   trigger(trigger: SohoContextualActionPanelTriggerType): SohoContextualActionPanelRef<T> {
-    // tslint:disable-next-line: deprecation
+    // eslint-disable-next-line import/no-deprecated
     this._options.trigger = trigger;
     if (this.contextualactionpanel) {
-      // tslint:disable-next-line: deprecation
+      // eslint-disable-next-line import/no-deprecated
       this.contextualactionpanel.settings.trigger = trigger;
     }
     return this;
@@ -234,10 +239,10 @@ export class SohoContextualActionPanelRef<T> {
   }
 
   /**
-    * panel result property.
-    *
-    * @param panelResult - the stored result of the panel.
-    */
+   * panel result property.
+   *
+   * @param panelResult - the stored result of the panel.
+   */
   set panelResult(panelResult: any) {
     this._panelResult = panelResult;
   }
@@ -293,10 +298,18 @@ export class SohoContextualActionPanelRef<T> {
     });
 
     // Add listeners to control events
-    this.jQueryElement.on('close.contextualactionpanel', ((event: any, isCancelled: boolean) => { this.onClose(event, isCancelled); }));
-    this.jQueryElement.on('open.contextualactionpanel', ((event: any) => { this.onOpen(event); }));
-    this.contextualactionpanel.panel.on('afterclose.contextualactionpanel', ((event: any) => { this.onAfterClose(event); }));
-    this.contextualactionpanel.panel.on('afteropen.contextualactionpanel', ((event: any) => { this.onAfterOpen(event); }));
+    this.jQueryElement.on('close.contextualactionpanel', ((event: any, isCancelled: boolean) => {
+ this.onClose(event, isCancelled);
+}));
+    this.jQueryElement.on('open.contextualactionpanel', ((event: any) => {
+ this.onOpen(event);
+}));
+    this.contextualactionpanel.panel.on('afterclose.contextualactionpanel', ((event: any) => {
+ this.onAfterClose(event);
+}));
+    this.contextualactionpanel.panel.on('afteropen.contextualactionpanel', ((event: any) => {
+ this.onAfterOpen(event);
+}));
 
     return this;
   }
@@ -329,7 +342,9 @@ export class SohoContextualActionPanelRef<T> {
    * @param eventFn - the function to invoke when the panel is to be opened.
    */
   opened(eventFn: Function): SohoContextualActionPanelRef<T> {
-    this.open$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => { eventFn(f, this); });
+    this.open$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => {
+ eventFn(f, this);
+});
     return this;
   }
 
@@ -340,7 +355,9 @@ export class SohoContextualActionPanelRef<T> {
    * @param eventFn - the function to invoke when the panel is to be opened.
    */
   afterOpen(eventFn: Function): SohoContextualActionPanelRef<T> {
-    this.afterOpen$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => { eventFn(f, this); });
+    this.afterOpen$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => {
+ eventFn(f, this);
+});
     return this;
   }
 
@@ -352,7 +369,9 @@ export class SohoContextualActionPanelRef<T> {
    * @param eventFn - the function to invoke when the panel is to be closed.
    */
   closed(eventFn: SohoContextualActionPanelEventFunction<T>): SohoContextualActionPanelRef<T> {
-    this.close$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => { eventFn(result, this, this.componentPanel); });
+    this.close$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => {
+ eventFn(result, this, this.componentPanel);
+});
     return this;
   }
 
@@ -365,7 +384,9 @@ export class SohoContextualActionPanelRef<T> {
    * @param eventFn - the function to invoke after the panel has been closed.
    */
   afterClose(eventFn: SohoContextualActionPanelEventFunction<T>): SohoContextualActionPanelRef<T> {
-    this.afterClose$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => { eventFn(result, this, this.componentPanel); });
+    this.afterClose$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => {
+ eventFn(result, this, this.componentPanel);
+});
     return this;
   }
 
@@ -447,6 +468,6 @@ export type SohoContextualActionPanelEventFunction<T> = (result: any, panelRef: 
 /**
  * Contract for all SohoContextualActionPanelComponents.
  */
-// tslint:disable-next-line:no-empty-interface
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface SohoContextualActionPanelComponent<T> {
 }

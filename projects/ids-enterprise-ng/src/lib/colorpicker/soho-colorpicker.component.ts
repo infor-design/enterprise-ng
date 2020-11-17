@@ -24,7 +24,7 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'input[soho-colorpicker]', // tslint:disable-line
+  selector: 'input[soho-colorpicker]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -238,7 +238,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   /**
    * Called when the colorpicker updates in some way.
    */
-  @Output('updated')  // tslint:disable-line
+  @Output('updated')  // eslint-disable-line
   updatedEvent: EventEmitter<Object> = new EventEmitter<JQuery.TriggeredEvent>();
 
   /**
@@ -272,6 +272,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
 
   /**
    * Creates an instance of SohoColorPickerComponent.
+   *
    * @param element the element this component encapsulates.
    * @param ngZone the angualar zone for this component
    * @param ngControl any associated form control (optional)
@@ -288,8 +289,8 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
       // Wrap the accessor to allow updates to be pushed,
       // but also use the standard accessors provided by angular.
       this.valueAccessor =
-        new SohoColorPickerComponentValueAccessorDelegator( // tslint:disable-line
-          this.ngControl.valueAccessor, this); // tslint:disable-line
+        new SohoColorPickerComponentValueAccessorDelegator( // eslint-disable-line
+          this.ngControl.valueAccessor, this); // eslint-disable-line
 
       // ... change the accessor on the control to use ours.
       this.ngControl.valueAccessor = this.valueAccessor;
@@ -386,8 +387,8 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   }
 
   /**
-  * Marks the components as requiring a rebuild after the next update.
-  */
+   * Marks the components as requiring a rebuild after the next update.
+   */
   markForRefresh() {
     // Run updated on the next updated check.
     this.runUpdatedOnCheck = true;

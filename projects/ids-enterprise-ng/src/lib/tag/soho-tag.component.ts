@@ -27,7 +27,7 @@ import {
 export type SohoTagType = 'error' | 'good' | 'alert' | 'secondary' | undefined;
 
 @Component({
-  selector: '[soho-tag-list]', // tslint:disable-line
+  selector: '[soho-tag-list]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -99,6 +99,7 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
  * <span soho-tag='error'>#Error</span>
  * }
  *</pre>
+ *
  * @export
  *
  *
@@ -106,7 +107,7 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
  */
 
 @Component({
-  selector: '[soho-tag]', // tslint:disable-line
+  selector: '[soho-tag]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

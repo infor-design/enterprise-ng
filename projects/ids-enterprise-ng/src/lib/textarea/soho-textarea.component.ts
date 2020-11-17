@@ -16,7 +16,7 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: 'textarea[soho-textarea]', // tslint:disable-line
+  selector: 'textarea[soho-textarea]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoTextAreaComponent)]
@@ -224,6 +224,7 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
 
   /**
    * Override writeValue to allow the input to count correctly
+   *
    * @param value - the new value
    */
   writeValue(value: any) {

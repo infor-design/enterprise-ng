@@ -32,7 +32,7 @@ export class ApplicationMenuLazyService {
   }
 
   private _updateMenuSpec(menu: Array<any>, newMenu: Array<any>, key: string): void {
-    // tslint:disable-next-line:prefer-const
+    // eslint-disable-next-line prefer-const
     for (let i = 0, l = menu.length; i < l; i++) {
       const object = menu[i];
       for (const k in object) {

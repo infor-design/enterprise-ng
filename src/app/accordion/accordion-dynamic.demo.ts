@@ -13,16 +13,16 @@ import {
 } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'accordion-dynamic-demo', // tslint:disable-line
+  selector: 'accordion-dynamic-demo', // eslint-disable-line
   templateUrl: 'accordion-dynamic.demo.html',
 })
 export class AccordionDynamicDemoComponent {
 
-  // tslint:disable-next-line:no-forward-ref
+  // eslint-disable-next-line @angular-eslint/no-forward-ref
   @ContentChildren(forwardRef(() => SohoAccordionHeaderComponent))
   headers: QueryList<SohoAccordionHeaderComponent>;
 
-  // tslint:disable-next-line:no-forward-ref
+  // eslint-disable-next-line @angular-eslint/no-forward-ref
   @ContentChildren(forwardRef(() => SohoAccordionPaneComponent))
   panes: QueryList<SohoAccordionPaneComponent>;
 

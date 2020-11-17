@@ -11,7 +11,9 @@ export class SohoRenderLoopService {
    */
   start() {
     this.ngZone.runOutsideAngular(() => {
-      Soho.renderLoop.register(() => { this.renderLoopCount++; }, undefined, 'angular-timer-count');
+      Soho.renderLoop.register(() => {
+ this.renderLoopCount++;
+}, undefined, 'angular-timer-count');
       Soho.renderLoop.start();
     });
   }

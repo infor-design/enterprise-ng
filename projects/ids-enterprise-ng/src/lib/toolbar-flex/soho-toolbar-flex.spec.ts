@@ -106,12 +106,12 @@ class SohoToolbarFlexTestComponent {
       response(this.MENU_RESPONSE_HTML);
       return;
     }
-  }
+  };
 
   onBeforeMenuButtonOpen = (response: AjaxBeforeOpenResponseFunction, options: any) => {
     response(this.MENU_BUTTON_RESPONSE_HTML);
     return;
-  }
+  };
 
   onSelected(event: SohoToolbarFlexSelectedEvent) {
     this.selected.emit(event);

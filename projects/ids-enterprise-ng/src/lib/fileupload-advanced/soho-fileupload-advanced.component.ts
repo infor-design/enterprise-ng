@@ -412,7 +412,9 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
         });
       })
       .on('filesdroped', (args: JQuery.TriggeredEvent, files: File[]) => {
-        this.ngZone.run(() => { this.filesdropped.next(files); });
+        this.ngZone.run(() => {
+ this.filesdropped.next(files);
+});
       })
       .on('beforecreatestatus', (args: JQuery.TriggeredEvent, files: File[]) => {
         this.ngZone.run(() => {

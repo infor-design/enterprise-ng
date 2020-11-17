@@ -26,7 +26,7 @@ export class EditorDemoComponent implements AfterViewInit {
   public editorReadOnly = false;
 
   constructor(sanitizer: DomSanitizer) {
-    // tslint:disable
+    /* eslint-disable */
     // This text is assumed trusted through the editor since we handle security in our back end and database.
     // Or you should be careful here
     this.model = {
@@ -34,7 +34,7 @@ export class EditorDemoComponent implements AfterViewInit {
         <p>Cross-platform, evolve, ROI scale cultivate eyeballs addelivery, e-services content cross-platform leverage extensible viral incentivize integrateAJAX-enabled sticky evolve magnetic cultivate leverage; cutting-edge. Innovate, end-to-end podcasting, whiteboard streamline e-business social; compelling, "cross-media exploit infomediaries innovative integrate integrateAJAX-enabled." Killer interactive reinvent, cultivate widgets leverage morph.</p>`)
     };
 
-    // tslint:enable
+    /* eslint-enable */
   }
 
   ngAfterViewInit() {

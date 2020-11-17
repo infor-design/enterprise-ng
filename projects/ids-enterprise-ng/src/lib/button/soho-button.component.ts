@@ -19,7 +19,7 @@ import { ArgumentHelper } from '../utils/argument.helper';
 export type SohoButtonType = 'btn' | 'primary' | 'secondary' | 'tertiary' | 'icon' | 'favorite' | 'modal' | 'modal-primary';
 
 @Component({
-  selector: 'button[soho-button]', // tslint:disable-line
+  selector: 'button[soho-button]', // eslint-disable-line
   templateUrl: 'soho-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -162,6 +162,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
 
   /**
    * The icon to be used when the state is false.
+   *
    * @deprecated use isToggle=true input instead along with toggleOnIcon/toggleOffIcon options
    */
   @Input() toggle: string;
@@ -239,8 +240,8 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    * @deprecated no longer needed once this.toggle is removed.
    */
   @HostListener('click') toggleState() {
-    if (this.toggle) {  // tslint:disable-line
-      this.state = !this.state; // tslint:disable-line
+    if (this.toggle) {  // eslint-disable-line
+      this.state = !this.state; // eslint-disable-line
     }
   }
 
@@ -267,7 +268,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
         this.toggleOnIcon = 'star-filled';
       } else {
         // deprecated in 4.3.0 sohoxi
-        this.toggle = 'star-outlined'; // tslint:disable-line
+        this.toggle = 'star-outlined'; // eslint-disable-line
         this.icon = 'star-filled';
       }
     }
@@ -292,7 +293,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
       // by the plug-in, but in this case is 'button'.
       this.button = this.jQueryElement.data('button');
 
-      if (this.state !== undefined) { // tslint:disable-line
+      if (this.state !== undefined) { // eslint-disable-line
         // turn off the default handling of the favorite icon switching
         // in the sohoxi controls (button.js). This is so that only this
         // button-component handles the switching of the toggle icon for
@@ -330,8 +331,8 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
       return this.isTogglePressed ? this.buttonOptions.toggleOnIcon : this.buttonOptions.toggleOffIcon;
     }
 
-    if (this.toggle) { // tslint:disable-line
-      return this.state ? this.icon : this.toggle; // tslint:disable-line
+    if (this.toggle) { // eslint-disable-line
+      return this.state ? this.icon : this.toggle; // eslint-disable-line
     }
 
     return this.icon;

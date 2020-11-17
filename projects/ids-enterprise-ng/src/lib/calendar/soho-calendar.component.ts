@@ -18,7 +18,7 @@ import {
  *******************************************************************/
 // @ts-ignore
 @Component({
-  selector: 'div[soho-calendar-week-view]', // tslint:disable-line
+  selector: 'div[soho-calendar-week-view]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -31,7 +31,7 @@ export class SohoCalendarWeekViewComponent {
  *******************************************************************/
 // @ts-ignore
 @Component({
-  selector: 'div[soho-calendar-monthview]', // tslint:disable-line
+  selector: 'div[soho-calendar-monthview]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -43,7 +43,7 @@ export class SohoCalendarMonthViewComponent {
  * Main Calendar component
  *******************************************************************/
 @Component({
-  selector: '[soho-calendar]', // tslint:disable-line
+  selector: '[soho-calendar]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -535,6 +535,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
 
   /**
    * Get the current selected date on the calendar.
+   *
    * @returns the currently selected date on the control.
    */
   currentDate(): Date {
@@ -543,6 +544,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
 
   /**
    * Get the events and date for the currently selected calendar day.
+   *
    * @param date The date to find the events for.
    * @returns dayEvents An object with all the events and the event date.
    */
@@ -552,6 +554,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
 
   /**
    * Add a new event via the event object and show it if it should be visible in the calendar.
+   *
    * @param event The event object with common event properties.
    */
   addEvent(event: SohoCalendarEvent): void {
@@ -561,6 +564,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * Update an event via the event object and show it if it should be visible in the calendar.
    * It uses the event id to do this.
+   *
    * @param event The event object with common event properties.
    */
   updateEvent(event: SohoCalendarEvent): void {
@@ -569,6 +573,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
 
   /**
    * Remove an event from the dataset and page. It uses the id property.
+   *
    * @param event The event object with common event properties.
    */
   deleteEvent(event: SohoCalendarEvent): void {
@@ -577,6 +582,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
 
   /**
    * Show a modal used to add/edit events. This uses the modalTemplate setting for the modal contents.
+   *
    * @param event The event object with common event properties for defaulting fields in the template.
    * @param done The callback for when the modal closes.
    */

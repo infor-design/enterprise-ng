@@ -18,7 +18,7 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: 'input[soho-autocomplete]', // tslint:disable-line
+  selector: 'input[soho-autocomplete]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoAutoCompleteComponent)]
@@ -82,7 +82,9 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
 
   @Output() beforeopen: EventEmitter<SohoAutoCompleteEvent> = new EventEmitter<SohoAutoCompleteEvent>();
 
-  @HostBinding('class.autocomplete') get isAutoComplete() { return true; }
+  @HostBinding('class.autocomplete') get isAutoComplete() {
+ return true;
+}
 
   // -------------------------------------------
   // Public API

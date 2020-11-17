@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-sparkline]', // tslint:disable-line
+  selector: '[soho-sparkline]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

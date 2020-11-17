@@ -17,7 +17,7 @@ import {
  * Weekview component
  *******************************************************************/
 @Component({
-  selector: 'div[soho-week-view]', // tslint:disable-line
+  selector: 'div[soho-week-view]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -507,6 +507,7 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
 
   /**
    * Get the current selected date on the weekView calendar.
+   *
    * @returns the currently selected date on the control.
    */
   currentDate(): Date {
@@ -515,6 +516,7 @@ export class SohoWeekViewComponent implements AfterViewChecked, AfterViewInit, O
 
   /**
    * Get the events and date for the currently selected weekView calendar day.
+   *
    * @param date The date to find the events for.
    * @returns dayEvents An object with all the events and the event date.
    */

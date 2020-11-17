@@ -7,15 +7,16 @@ import {
 
 /**
  * Angular Wrapper for the SoHo Error Directive.
+ *
  * @deprecated - use SohoAlert instead
  */
 @Directive({
-  selector: '[soho-error]', // tslint:disable-line
+  selector: '[soho-error]', // eslint-disable-line
   exportAs: 'soho-error'
 })
 export class SohoErrorDirective implements AfterViewInit {
 
-  private _options: SohoErrorOptions = {}; // tslint:disable-line
+  private _options: SohoErrorOptions = {}; // eslint-disable-line
   private jQueryElement: JQuery;
 
   constructor(private el: ElementRef) {
@@ -23,6 +24,7 @@ export class SohoErrorDirective implements AfterViewInit {
 
   /**
    *  message for the error.
+   *
    * @deprecated - use SohoAlert instead
    */
   @Input()
@@ -39,6 +41,7 @@ export class SohoErrorDirective implements AfterViewInit {
 
   /**
    *  set error in tooltip.
+   *
    * @deprecated - use SohoAlert instead
    */
   @Input()
@@ -48,6 +51,7 @@ export class SohoErrorDirective implements AfterViewInit {
 
   /**
    * set error to be inline.
+   *
    * @deprecated - use SohoAlert instead
    */
   @Input()
@@ -57,6 +61,7 @@ export class SohoErrorDirective implements AfterViewInit {
 
   /**
    * Returns the data object data-errormessage
+   *
    * @deprecated - use SohoAlert instead
    */
   get errorMessage() {
@@ -65,34 +70,38 @@ export class SohoErrorDirective implements AfterViewInit {
 
   /**
    * add inline error
+   *
    * @deprecated - use SohoAlert instead
    */
   addInlineError(message: string) {
-    this.showTooltip = false; // tslint:disable-line
-    this.inline = true; // tslint:disable-line
-    this.message = message; // tslint:disable-line
+    this.showTooltip = false; // eslint-disable-line
+    this.inline = true; // eslint-disable-line
+    this.message = message; // eslint-disable-line
   }
 
   /**
    * add tooltip error
+   *
    * @deprecated - use SohoAlert instead
    */
   addTooltipError(message: string) {
-    this.showTooltip = true; // tslint:disable-line
-    this.inline = false; // tslint:disable-line
-    this.message = message; // tslint:disable-line
+    this.showTooltip = true; // eslint-disable-line
+    this.inline = false; // eslint-disable-line
+    this.message = message; // eslint-disable-line
   }
 
   /**
    * remove inline/tooltip error
+   *
    * @deprecated - use SohoAlert instead
    */
   removeError() {
-    this.message = ''; // tslint:disable-line
+    this.message = ''; // eslint-disable-line
   }
 
   /**
    * Scrolls the element into the visible area of the browser window
+   *
    * @deprecated - use SohoAlert instead
    * @param alignToTop (boolean) optional - true (default) element will be aligned to the top of the visible area of the scrollable ancestor
    */

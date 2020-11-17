@@ -42,7 +42,9 @@ export type SohoSwapListCardType = 'available' | 'selected' | 'full-access';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoSwapListCardComponent {
-  @HostBinding('class.swaplist') get isSwapList() { return true; }
+  @HostBinding('class.swaplist') get isSwapList() {
+ return true;
+}
 
   /** The type of card. */
   private cardtype: SohoSwapListCardType;
@@ -312,14 +314,14 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   /**
    * Called before swap item/s.
    */
-  // tslint:disable-next-line:no-output-rename
+  // eslint-disable-next-line @angular-eslint/no-output-rename
   @Output('beforeswap')
   public beforeSwapEvent = new EventEmitter<SohoSwapListBeforeSwapEvent>();
 
   /**
    * Called when the swap list updates in some way.
    */
-  // tslint:disable-next-line:no-output-rename
+  // eslint-disable-next-line @angular-eslint/no-output-rename
   @Output('updated')
   public updateEvent = new EventEmitter<SohoSwapListSwapUpdateEvent>();
 

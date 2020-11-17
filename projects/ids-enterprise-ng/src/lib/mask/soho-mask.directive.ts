@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: 'input[soho-mask]' // tslint:disable-line
+  selector: 'input[soho-mask]' // eslint-disable-line
 })
 export class SohoMaskDirective implements AfterViewInit, OnDestroy {
 
@@ -274,6 +274,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
    * Indicates if each section of the group pattern match must be full in order for
    * the literals in-between each section to be automatically added (meaning you can't
    * type a literal to end that group until all characters in that group are entered).
+   *
    * @deprecated not supported
    */
   @Input() set groupComplete(value: boolean) {
@@ -285,7 +286,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
    *
    * @deprecated use process instead
    */
-  @Input() set mode(value: SohoMaskMode) { // tslint:disable-line
+  @Input() set mode(value: SohoMaskMode) { // eslint-disable-line
     console.warn('The mode input has been renamed, please use the process input instead.');
 
     this._options.process = value;
@@ -297,6 +298,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
 
   /**
    * Indicates to complete the full mask or the mask will revert to empty.
+   *
    * @deprecated not supported
    */
   @Input() set mustComplete(value: boolean) {
@@ -306,6 +308,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   /**
    * Indicates you can enter the negative symbol in front of the number;
    * automatically set to true if a negative symbol is detected inside the mask.
+   *
    * @deprecated use allowNegative instead
    */
   @Input() set negative(value: boolean) {
@@ -320,6 +323,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
 
   /**
    * Option defined in control, but not referenced.
+   *
    * @deprecated
    */
   @Input() set number(value: boolean) {
@@ -330,6 +334,7 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
    * Indicates the thousands separator for numbers (based on localization) will be
    * inserted wherever necessary during typing; automatically set to true if the
    * localized thousands separator is detected inside the mask.
+   *
    * @deprecated use allowThousandsSeparator instead
    */
   @Input() set thousandsSeparator(value: boolean) {
@@ -345,9 +350,10 @@ export class SohoMaskDirective implements AfterViewInit, OnDestroy {
   /**
    * Indicates to display the localized symbol for currency or percent;
    * backwards compatible with old 'data-show-currency'; value true equates to currency
+   *
    * @deprecated use prefix or suffix instead
    */
-  @Input() set showSymbol(value: SohoMaskShowSymbol) { // tslint:disable-line
+  @Input() set showSymbol(value: SohoMaskShowSymbol) { // eslint-disable-line
     console.warn('The showSymbol input is no longer supported, please use the prefix or suffix input instead.');
   }
 

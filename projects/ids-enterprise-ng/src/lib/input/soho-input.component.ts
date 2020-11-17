@@ -17,7 +17,7 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: 'input[soho-input]', // tslint:disable-line
+  selector: 'input[soho-input]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoInputComponent)]
@@ -132,9 +132,9 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
   }
 
   /**
-    * This function is called when the control status changes to or from "DISABLED".
-    * Depending on the value, it will enable or disable the appropriate DOM element.
-    */
+   * This function is called when the control status changes to or from "DISABLED".
+   * Depending on the value, it will enable or disable the appropriate DOM element.
+   */
   setDisabledState(isDisabled: boolean): void {
     this.isDisabled = isDisabled ? true : null;
   }

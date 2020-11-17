@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'div[soho-chart]', // tslint:disable-line
+  selector: 'div[soho-chart]', // eslint-disable-line
   template: ' '
 })
 

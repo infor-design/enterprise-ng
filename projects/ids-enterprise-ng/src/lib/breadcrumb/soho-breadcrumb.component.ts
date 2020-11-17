@@ -13,7 +13,7 @@ import {
  * Soho Breadcrumb Component
  */
 @Component({
-  selector: '[soho-breadcrumb]', // tslint:disable-line
+  selector: '[soho-breadcrumb]', // eslint-disable-line
   templateUrl: 'soho-breadcrumb.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -82,6 +82,7 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
 
   /**
    * Constructor
+   *
    * @param elementRef - the element matching the component's selector.
    */
   constructor(
@@ -122,7 +123,9 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
   // -------------------------------------------------------------
 
   enable(): void {
-    if (!this.breadcrumbAPI) { return; }
+    if (!this.breadcrumbAPI) {
+ return;
+}
 
     this.ngZone.runOutsideAngular(() => {
       this.breadcrumbAPI.enable();
@@ -130,7 +133,9 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
   }
 
   disable(): void {
-    if (!this.breadcrumbAPI) { return; }
+    if (!this.breadcrumbAPI) {
+ return;
+}
 
     this.ngZone.runOutsideAngular(() => {
       this.breadcrumbAPI.disable();
@@ -141,7 +146,9 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
    * Adds a new breadcrumb item to the list
    */
   add(settings?: SohoBreadcrumbItemOptions, doRender?: boolean) {
-    if (!this.breadcrumbAPI) { return; }
+    if (!this.breadcrumbAPI) {
+ return;
+}
 
     this.ngZone.runOutsideAngular(() => {
       this.breadcrumbAPI.add(settings, doRender);
@@ -152,7 +159,9 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
    * Removes a single breadcrumb item from the list
    */
   remove(item: SohoBreadcrumbRef, doRender?: boolean) {
-    if (!this.breadcrumbAPI) { return; }
+    if (!this.breadcrumbAPI) {
+ return;
+}
 
     this.ngZone.runOutsideAngular(() => {
       this.breadcrumbAPI.remove(item, doRender);
@@ -163,7 +172,9 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
    * Removes all breadcrumb items from the list
    */
   removeAll(doRender?: boolean) {
-    if (!this.breadcrumbAPI) { return; }
+    if (!this.breadcrumbAPI) {
+ return;
+}
 
     this.ngZone.runOutsideAngular(() => {
       this.breadcrumbAPI.removeAll(doRender);
@@ -178,7 +189,9 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
    * - 'i' : a number representing the current index of the breadcrumb item.
    */
   getBreadcrumbItem(item: SohoBreadcrumbRef) {
-    if (!this.breadcrumbAPI) { return; }
+    if (!this.breadcrumbAPI) {
+ return;
+}
 
     return this.breadcrumbAPI.getBreadcrumbItemAPI(item);
   }
@@ -188,7 +201,9 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
    * styling it with bold text and popping it out of truncation.
    */
   makeCurrent(item: SohoBreadcrumbRef): void {
-    if (!this.breadcrumbAPI) { return; }
+    if (!this.breadcrumbAPI) {
+ return;
+}
 
     this.ngZone.runOutsideAngular(() => {
       this.breadcrumbAPI.makeCurrent(item);
@@ -203,7 +218,9 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
       this.options = settings;
     }
 
-    if (!this.breadcrumbAPI) { return; }
+    if (!this.breadcrumbAPI) {
+ return;
+}
 
     this.ngZone.runOutsideAngular(() => {
       this.breadcrumbAPI.updated(this.options);
@@ -214,7 +231,9 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
    * Destroys this component and tears down the IDS Breadcrumb
    */
   destroy() {
-    if (!this.breadcrumbAPI) { return; }
+    if (!this.breadcrumbAPI) {
+ return;
+}
 
     this.ngZone.runOutsideAngular(() => {
       this.breadcrumbAPI.destroy();

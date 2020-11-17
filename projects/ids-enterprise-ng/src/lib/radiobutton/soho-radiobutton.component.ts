@@ -25,7 +25,7 @@ import {
  * Make sure you add `type="radio"` to your markup.
  */
 @Component({
-  selector: 'input[soho-radiobutton]', // tslint:disable-line
+  selector: 'input[soho-radiobutton]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })

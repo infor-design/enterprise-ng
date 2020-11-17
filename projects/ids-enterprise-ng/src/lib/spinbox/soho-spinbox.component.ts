@@ -18,7 +18,7 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: 'input[soho-spinbox]', // tslint:disable-line
+  selector: 'input[soho-spinbox]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoSpinboxComponent)]
