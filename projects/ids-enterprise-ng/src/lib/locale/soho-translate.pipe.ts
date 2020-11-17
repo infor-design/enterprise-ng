@@ -16,13 +16,14 @@ export class SohoTranslatePipe implements PipeTransform {
    *
    * @param value the resource string, must not be null.
    * @param locale the locale to use, defaults to current locale.
+   * @param options additional options passed to the locale translate function
    * @returns the translated resource string or undefined.
    *
    */
-  transform(value: string, locale?: string): string {
+  transform(value: string, locale?: string | undefined, options?: Object | undefined): string | undefined {
     if (locale) {
       Soho.Locale.set(locale);
     }
-    return Soho.Locale.translate(value);
+    return Soho.Locale.translate(value, options);
   }
 }

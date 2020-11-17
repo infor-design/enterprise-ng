@@ -71,7 +71,8 @@ describe('SohoDatePickerComponent on Reactive Form', () => {
     fixture.detectChanges();
   });
 
-  it('is disabled by default.', () => {
+  it('can be disabled', () => {
+    component.formGroup.disable();
     expect(el.hasAttribute('disabled')).toBeTruthy('disabled by default');
   });
 

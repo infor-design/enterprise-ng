@@ -15,8 +15,8 @@ describe('Pipe: SohoTranslatePipe', () => {
       });
   });
 
-  it('providing no value returns [undefined]', () => {
-    expect(pipe.transform('')).toBe('[undefined]');
+  it('providing no value returns []', () => {
+    expect(pipe.transform('')).toEqual('[]');
   });
 
   it('providing missing resourceKey returns [resourceKey]', () => {
