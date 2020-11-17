@@ -1,93 +1,122 @@
 import { Tree, SchematicsException } from '@angular-devkit/schematics';
-import { experimental, json } from '@angular-devkit/core';
+import { json } from '@angular-devkit/core';
+import { ProjectType, WorkspaceProject, WorkspaceSchema } from '@schematics/angular/utility/workspace-models';
 
-export class Workspace {
-    static read(tree: Tree): Workspace {
-        const workspaceConfig = tree.read('/angular.json');
-        if (!workspaceConfig) {
-            throw new SchematicsException('Could not find Angular workspace configuration');
-        }
-        const workspace = fromJson<experimental.workspace.WorkspaceSchema>(workspaceConfig.toString());
-        return new Workspace(tree, workspace);
-    }
-
-    private constructor(private tree: Tree, private ws: experimental.workspace.WorkspaceSchema) { }
-
-    write() {
-        this.tree.overwrite('/angular.json', toJson(this.ws));
-    }
-
-    getProject(name?: string): Project {
-        name = name || this.ws.defaultProject;
-        if (!name) {
-            throw new Error('Could not determine project from workspace configuration');
-        }
-        const project = this.ws.projects[name];
-        return new Project(this.tree, project);
-    }
-}
-
-export type ProjectTarget = 'build' | 'test';
-export interface TSConfig {
+type WorkspaceTarget = 'build' | 'test';
+type WorkspaceScript = string;
+type WorkspaceAsset = string | { glob: string; input: string; output: string; };
+interface TSConfig {
     compilerOptions?: {
         types?: string[];
     };
 }
 
-export class Project {
-    constructor(private tree: Tree, private project: experimental.workspace.WorkspaceProject) { }
+export function getWorkspace(tree: Tree): WorkspaceSchema {
+    const workspace = readJson<WorkspaceSchema>(tree, '/angular.json');
+    return workspace;
+}
 
-    getTsConfig(target: ProjectTarget): TSConfig {
-        const tsConfigPath = this.getOptions(target).tsConfig;
-        const tsConfig = this.tree.read(tsConfigPath);
-        if (!tsConfig) {
-            throw new Error(`Could not find tsconfig for target '${target}'`);
+function writeWorkspace(tree: Tree, workspace: WorkspaceSchema) {
+    // tree.overwrite('/angular.json', toJson(workspace));
+    writeJson(tree, '/angular.json', workspace);
+}
+
+export function addScripts(tree: Tree, workspace: WorkspaceSchema, target: WorkspaceTarget, projectName: string, scripts: WorkspaceScript[]) {
+    const options = getProjectOptions(workspace, target, projectName);
+    if (!options.scripts) {
+        options.scripts = scripts;
+    } else {
+        for (const script of scripts) {
+            if (!options.scripts.includes(script)) {
+                options.scripts.push(script);
+            }
         }
-        return fromJson<TSConfig>(tsConfig.toString());
     }
+    writeWorkspace(tree, workspace);
+}
 
-    writeTsConfig(target: ProjectTarget, tsconfig: TSConfig) {
-        this.tree.overwrite(this.getOptions(target).tsConfig, toJson(tsconfig));
-    }
-
-    getIndexHtml(target: ProjectTarget) {
-        const indexHtmlPath = this.getOptions(target).index;
-        const indexHtml = this.tree.read(indexHtmlPath);
-        if (!indexHtml) {
-            throw new Error(`Could not find index.html for target '${target}'`);
+export function addAssets(tree: Tree, workspace: WorkspaceSchema, target: WorkspaceTarget, projectName: string, assets: WorkspaceAsset[]) {
+    const options = getProjectOptions(workspace, target, projectName);
+    if (!options.assets) {
+        options.assets = assets;
+    } else {
+        const existingAssetInputs = (options.assets as WorkspaceAsset[]).map(a => typeof a === 'string' ? a : a.input);
+        for (const asset of assets) {
+            const assetInput = typeof asset === 'string' ? asset : asset.input;
+            if (!existingAssetInputs.includes(assetInput)) {
+                options.assets.push(asset);
+            }
         }
-        return indexHtml.toString();
     }
+    writeWorkspace(tree, workspace);
+}
 
-    writeIndexHtml(target: ProjectTarget, content: string) {
-        this.tree.overwrite(this.getOptions(target).index, content);
+export function addTsConfigTypes(tree: Tree, workspace: WorkspaceSchema, target: WorkspaceTarget, projectName: string, types: string[]) {
+    const options = getProjectOptions(workspace, target, projectName);
+    if (!options.tsConfig || typeof options.tsConfig !== 'string') {
+        throw new SchematicsException(`Cannot determine tsconfig for project ${projectName}`);
     }
-
-    addScripts(target: ProjectTarget, scripts: string[]) {
-        const options = this.getOptions(target);
-        if (!options.scripts) {
-            options.scripts = [];
+    const tsConfig = readJson<TSConfig>(tree, options.tsConfig);
+    if (!tsConfig.compilerOptions) {
+        tsConfig.compilerOptions = {};
+    }
+    if (!tsConfig.compilerOptions.types) {
+        tsConfig.compilerOptions.types = types;
+    } else {
+        for (const type of types) {
+            if (!tsConfig.compilerOptions.types.includes(type)) {
+                tsConfig.compilerOptions.types.push(type);
+            }
         }
-        options.scripts.push(...scripts);
     }
+    writeJson(tree, options.tsConfig, tsConfig);
+}
 
-    addAssets(target: ProjectTarget, assets: unknown[]) {
-        const options = this.getOptions(target);
-        if (!options.assets) {
-            options.assets = [];
-        }
-        options.assets.push(...assets);
+export function addStylesheetToHead(tree: Tree, workspace: WorkspaceSchema, projectName: string, href: string, id?: string) {
+    const options = getProjectOptions(workspace, 'build', projectName);
+    if (!options.index) {
+        throw new SchematicsException(`Cannot determine index.html for project ${projectName}`);
     }
-
-    private getOptions(target: ProjectTarget) {
-        const options = this.project.architect?.[target]?.options;
-        if (!options) {
-            throw new Error(`Could not find options for architect target '${target}'`);
-        }
-        return options;
+    const indexHtml = tree.read(options.index);
+    if (!indexHtml) {
+        throw new SchematicsException(`Cannot read file ${options.index}`);
+    }
+    let linkTag: string;
+    if (id) {
+        linkTag = `<link rel="stylesheet" id="${id}" href="${href}" type="text/css">`;
+    } else {
+        linkTag = `<link rel="stylesheet" href="${href}" type="text/css">`;
+    }
+    if (!indexHtml.toString().includes(linkTag)) {
+        const modified = indexHtml.toString().replace(/(<\/head>)/, `  ${linkTag}\n$1`);
+        tree.overwrite(options.index, modified);
     }
 }
 
+function getProjectOptions(workspace: WorkspaceSchema, target: WorkspaceTarget = 'build', projectName = workspace.defaultProject) {
+    const project = workspace.projects[projectName];
+    if (!isApplicationProject(project)) {
+        throw new SchematicsException(`Project ${projectName} is not an Application project`);
+    } else {
+        return project.architect[target].options;
+    }
+
+    function isApplicationProject(p: WorkspaceProject): p is WorkspaceProject<ProjectType.Application> {
+        return p.projectType === ProjectType.Application;
+    }
+}
+
+function readJson<T>(tree: Tree, path: string) {
+    const file = tree.read(path);
+    if (!file) {
+        throw new SchematicsException(`File ${path} does not exist`);
+    }
+    return fromJson<T>(file.toString());
+}
+
+function writeJson(tree: Tree, path: string, obj: any) {
+    tree.overwrite(path, toJson(obj));
+}
 /**
  * JSON.parse(), but it can handle JSON with comments.
  */

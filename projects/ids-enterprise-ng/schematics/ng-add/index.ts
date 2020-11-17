@@ -1,26 +1,38 @@
-import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
+import { Rule, SchematicContext, Tree, chain } from '@angular-devkit/schematics';
+import { addAssets, addScripts, addStylesheetToHead, addTsConfigTypes, getWorkspace } from '../utils';
 import { Schema } from './schema';
-import { Workspace } from '../utils';
 
 export function ngAdd(options: Schema): Rule {
-    return (tree: Tree, context: SchematicContext) => {
-        const workspace = Workspace.read(tree);
-        const project = workspace.getProject(options.project);
+    return chain([
+        addIdsScripts(options),
+        addIdsAssets(options),
+        addIdsTypes(options),
+        addIdsStylesheets(options),
+    ]);
+}
 
+function addIdsScripts(options: Schema): Rule {
+    return (tree: Tree, context: SchematicContext) => {
         context.logger.info('Adding scripts');
+        const workspace = getWorkspace(tree);
         const scripts = [
             './node_modules/jquery/dist/jquery.min.js',
             './node_modules/d3/dist/d3.min.js',
             './node_modules/ids-enterprise/dist/js/sohoxi.min.js',
         ];
-        project.addScripts('build', scripts);
+        addScripts(tree, workspace, 'build', options.project, scripts);
         try {
-            project.addScripts('test', scripts);
+            addScripts(tree, workspace, 'test', options.project, scripts);
         } catch (err) {
             context.logger.warn('Did not add test scripts. Assuming that project is configured to skip tests');
         }
+    };
+}
 
+function addIdsAssets(options: Schema): Rule {
+    return (tree: Tree, context: SchematicContext) => {
         context.logger.info('Adding assets');
+        const workspace = getWorkspace(tree);
         const assets = [
             {
                 'glob': '**/*',
@@ -33,47 +45,33 @@ export function ngAdd(options: Schema): Rule {
                 'output': '/assets/ids-enterprise/js/cultures'
             },
         ];
-        project.addAssets('build', assets);
+        addAssets(tree, workspace, 'build', options.project, assets);
         try {
-            project.addAssets('test', assets);
+            addAssets(tree, workspace, 'test', options.project, assets);
         } catch (err) {
             context.logger.warn('Did not add test assets. Assuming that project is configured to skip tests');
         }
+    };
+}
 
-        workspace.write();
-
+function addIdsTypes(options: Schema): Rule {
+    return (tree: Tree, context: SchematicContext) => {
         context.logger.info('Adding types to tsconfig');
+        const workspace = getWorkspace(tree);
         const types = ['jquery'];
-        const tsConfig = project.getTsConfig('build');
-        if (!tsConfig.compilerOptions) {
-            tsConfig.compilerOptions = {};
-        }
-        if (!tsConfig.compilerOptions.types) {
-            tsConfig.compilerOptions.types = [];
-        }
-        tsConfig.compilerOptions.types.push(...types);
-        project.writeTsConfig('build', tsConfig);
-
+        addTsConfigTypes(tree, workspace, 'build', options.project, types);
         try {
-            const tsConfigTest = project.getTsConfig('test');
-            if (!tsConfigTest.compilerOptions) {
-                tsConfigTest.compilerOptions = {};
-            }
-            if (!tsConfigTest.compilerOptions.types) {
-                tsConfigTest.compilerOptions.types = [];
-            }
-            tsConfigTest.compilerOptions.types.push(...types);
-            project.writeTsConfig('test', tsConfigTest);
+            addTsConfigTypes(tree, workspace, 'test', options.project, types);
         } catch (err) {
-            context.logger.warn('Did not add types to test tsconfig. Assuming that project is configured to skip tests');
+            context.logger.warn('Did not add test types. Assuming that project is configured to skip tests');
         }
+    };
+}
 
+function addIdsStylesheets(options: Schema): Rule {
+    return (tree: Tree, context: SchematicContext) => {
         context.logger.info('Adding stylesheet to index.html');
-        const indexHtml = project.getIndexHtml('build');
-        const linkTag = `<link rel="stylesheet" id="stylesheet" href="/assets/ids-enterprise/css/light-theme.css" type="text/css">`;
-        const modified = indexHtml.replace(/(<\/head>)/, `  ${linkTag}\n$1`);
-        project.writeIndexHtml('build', modified);
-
-        return tree;
+        const workspace = getWorkspace(tree);
+        addStylesheetToHead(tree, workspace, options.project, '/assets/ids-enterprise/css/light-theme.css', 'stylesheet');
     };
 }
