@@ -259,9 +259,6 @@ describe('Soho Toolbar Flex Tests', () => {
       expect((component as any).searchField.options.collapsible).toBeTruthy('search field not collapsible');
       expect((component as any).searchField.options.collapsibleOnMobile).toBeTruthy('search field not collapsible on mobile');
       expect((component as any).searchField.options.filterMode).toBe('wordStartsWith');
-      expect((component as any).searchField.options.source).toBeDefined();
-
     });
-
   });
 });
