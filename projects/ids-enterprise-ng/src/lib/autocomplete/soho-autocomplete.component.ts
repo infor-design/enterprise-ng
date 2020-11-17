@@ -100,8 +100,8 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
    */
   private isDisabled?: boolean | undefined;
   private isReadOnly?: boolean | undefined;
-  private jQueryElement?: JQuery;
-  private autocomplete?: SohoAutoCompleteStatic | null;
+  private jQueryElement!: JQuery;
+  private autocomplete!: SohoAutoCompleteStatic | null;
 
   // -------------------------------------------
   // Component Input
