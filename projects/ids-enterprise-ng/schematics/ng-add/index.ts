@@ -69,7 +69,7 @@ function addIdsTypes(options: Schema): Rule {
 function addIdsStylesheets(options: Schema): Rule {
     return (tree: Tree, context: SchematicContext) => {
         context.logger.info('Adding stylesheet to index.html');
-        addStylesheetToHead(tree, '/assets/ids-enterprise/css/light-theme.css', options.project, 'stylesheet');
+        addStylesheetToHead(tree, '/assets/ids-enterprise/css/theme-uplift-light.css', options.project, 'stylesheet');
     };
 }
 
