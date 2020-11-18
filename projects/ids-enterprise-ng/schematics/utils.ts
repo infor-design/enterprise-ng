@@ -1,6 +1,10 @@
 import { Tree, SchematicsException } from '@angular-devkit/schematics';
 import { json } from '@angular-devkit/core';
 import { ProjectType, WorkspaceProject, WorkspaceSchema } from '@schematics/angular/utility/workspace-models';
+import { getAppModulePath } from '@schematics/angular/utility/ng-ast-utils';
+import { addImportToModule } from '@schematics/angular/utility/ast-utils';
+import { applyToUpdateRecorder } from '@schematics/angular/utility/change';
+import { SourceFile, ScriptTarget, createSourceFile } from '@schematics/angular/third_party/github.com/Microsoft/TypeScript/lib/typescript';
 
 type WorkspaceTarget = 'build' | 'test';
 type WorkspaceScript = string;
@@ -11,17 +15,8 @@ interface TSConfig {
     };
 }
 
-export function getWorkspace(tree: Tree): WorkspaceSchema {
-    const workspace = readJson<WorkspaceSchema>(tree, '/angular.json');
-    return workspace;
-}
-
-function writeWorkspace(tree: Tree, workspace: WorkspaceSchema) {
-    // tree.overwrite('/angular.json', toJson(workspace));
-    writeJson(tree, '/angular.json', workspace);
-}
-
-export function addScripts(tree: Tree, workspace: WorkspaceSchema, target: WorkspaceTarget, projectName: string, scripts: WorkspaceScript[]) {
+export function addScripts(tree: Tree, scripts: WorkspaceScript[], target?: WorkspaceTarget, projectName?: string) {
+    const workspace = getWorkspace(tree);
     const options = getProjectOptions(workspace, target, projectName);
     if (!options.scripts) {
         options.scripts = scripts;
@@ -35,7 +30,8 @@ export function addScripts(tree: Tree, workspace: WorkspaceSchema, target: Works
     writeWorkspace(tree, workspace);
 }
 
-export function addAssets(tree: Tree, workspace: WorkspaceSchema, target: WorkspaceTarget, projectName: string, assets: WorkspaceAsset[]) {
+export function addAssets(tree: Tree, assets: WorkspaceAsset[], target?: WorkspaceTarget, projectName?: string) {
+    const workspace = getWorkspace(tree);
     const options = getProjectOptions(workspace, target, projectName);
     if (!options.assets) {
         options.assets = assets;
@@ -51,7 +47,8 @@ export function addAssets(tree: Tree, workspace: WorkspaceSchema, target: Worksp
     writeWorkspace(tree, workspace);
 }
 
-export function addTsConfigTypes(tree: Tree, workspace: WorkspaceSchema, target: WorkspaceTarget, projectName: string, types: string[]) {
+export function addTsConfigTypes(tree: Tree, types: string[], target?: WorkspaceTarget, projectName?: string) {
+    const workspace = getWorkspace(tree);
     const options = getProjectOptions(workspace, target, projectName);
     if (!options.tsConfig || typeof options.tsConfig !== 'string') {
         throw new SchematicsException(`Cannot determine tsconfig for project ${projectName}`);
@@ -72,7 +69,8 @@ export function addTsConfigTypes(tree: Tree, workspace: WorkspaceSchema, target:
     writeJson(tree, options.tsConfig, tsConfig);
 }
 
-export function addStylesheetToHead(tree: Tree, workspace: WorkspaceSchema, projectName: string, href: string, id?: string) {
+export function addStylesheetToHead(tree: Tree, href: string, projectName?: string, id?: string) {
+    const workspace = getWorkspace(tree);
     const options = getProjectOptions(workspace, 'build', projectName);
     if (!options.index) {
         throw new SchematicsException(`Cannot determine index.html for project ${projectName}`);
@@ -91,6 +89,39 @@ export function addStylesheetToHead(tree: Tree, workspace: WorkspaceSchema, proj
         const modified = indexHtml.toString().replace(/(<\/head>)/, `  ${linkTag}\n$1`);
         tree.overwrite(options.index, modified);
     }
+}
+
+export function addAppModuleImport(tree: Tree, moduleName: string, modulePath: string, projectName?: string): void {
+    const workspace = getWorkspace(tree);
+    const mainPath = getProjectOptions(workspace, 'build', projectName).main;
+    if (!mainPath) {
+        throw new SchematicsException(`Cannot read the main entry-point (usually src/main.ts)`);
+    }
+    const appModulePath = getAppModulePath(tree, mainPath);
+    const appModuleSource = getSourceFile(tree, appModulePath);
+    const changes = addImportToModule(appModuleSource, appModulePath, moduleName, modulePath);
+    const recorder = tree.beginUpdate(appModulePath);
+    applyToUpdateRecorder(recorder, changes);
+    tree.commitUpdate(recorder);
+}
+
+function getSourceFile(tree: Tree, path: string): SourceFile {
+    const buffer = tree.read(path);
+    if (!buffer) {
+        throw new SchematicsException(`Could not find ${path}`);
+    }
+    const source = createSourceFile(path, buffer.toString(), ScriptTarget.Latest, true);
+    return source;
+}
+
+function getWorkspace(tree: Tree): WorkspaceSchema {
+    const workspace = readJson<WorkspaceSchema>(tree, '/angular.json');
+    return workspace;
+}
+
+function writeWorkspace(tree: Tree, workspace: WorkspaceSchema) {
+    // tree.overwrite('/angular.json', toJson(workspace));
+    writeJson(tree, '/angular.json', workspace);
 }
 
 function getProjectOptions(workspace: WorkspaceSchema, target: WorkspaceTarget = 'build', projectName = workspace.defaultProject) {

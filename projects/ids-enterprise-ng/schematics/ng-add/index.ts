@@ -1,5 +1,5 @@
 import { Rule, SchematicContext, Tree, chain } from '@angular-devkit/schematics';
-import { addAssets, addScripts, addStylesheetToHead, addTsConfigTypes, getWorkspace } from '../utils';
+import { addAppModuleImport, addAssets, addScripts, addStylesheetToHead, addTsConfigTypes } from '../utils';
 import { Schema } from './schema';
 
 export function ngAdd(options: Schema): Rule {
@@ -8,21 +8,21 @@ export function ngAdd(options: Schema): Rule {
         addIdsAssets(options),
         addIdsTypes(options),
         addIdsStylesheets(options),
+        importIdsComponentsModule(options),
     ]);
 }
 
 function addIdsScripts(options: Schema): Rule {
     return (tree: Tree, context: SchematicContext) => {
         context.logger.info('Adding scripts');
-        const workspace = getWorkspace(tree);
         const scripts = [
             './node_modules/jquery/dist/jquery.min.js',
             './node_modules/d3/dist/d3.min.js',
             './node_modules/ids-enterprise/dist/js/sohoxi.min.js',
         ];
-        addScripts(tree, workspace, 'build', options.project, scripts);
+        addScripts(tree, scripts, 'build', options.project);
         try {
-            addScripts(tree, workspace, 'test', options.project, scripts);
+            addScripts(tree, scripts, 'test', options.project);
         } catch (err) {
             context.logger.warn('Did not add test scripts. Assuming that project is configured to skip tests');
         }
@@ -32,7 +32,6 @@ function addIdsScripts(options: Schema): Rule {
 function addIdsAssets(options: Schema): Rule {
     return (tree: Tree, context: SchematicContext) => {
         context.logger.info('Adding assets');
-        const workspace = getWorkspace(tree);
         const assets = [
             {
                 'glob': '**/*',
@@ -45,9 +44,9 @@ function addIdsAssets(options: Schema): Rule {
                 'output': '/assets/ids-enterprise/js/cultures'
             },
         ];
-        addAssets(tree, workspace, 'build', options.project, assets);
+        addAssets(tree, assets, 'build', options.project);
         try {
-            addAssets(tree, workspace, 'test', options.project, assets);
+            addAssets(tree, assets, 'test', options.project);
         } catch (err) {
             context.logger.warn('Did not add test assets. Assuming that project is configured to skip tests');
         }
@@ -57,11 +56,10 @@ function addIdsAssets(options: Schema): Rule {
 function addIdsTypes(options: Schema): Rule {
     return (tree: Tree, context: SchematicContext) => {
         context.logger.info('Adding types to tsconfig');
-        const workspace = getWorkspace(tree);
         const types = ['jquery'];
-        addTsConfigTypes(tree, workspace, 'build', options.project, types);
+        addTsConfigTypes(tree, types, 'build', options.project);
         try {
-            addTsConfigTypes(tree, workspace, 'test', options.project, types);
+            addTsConfigTypes(tree, types, 'test', options.project);
         } catch (err) {
             context.logger.warn('Did not add test types. Assuming that project is configured to skip tests');
         }
@@ -71,7 +69,13 @@ function addIdsTypes(options: Schema): Rule {
 function addIdsStylesheets(options: Schema): Rule {
     return (tree: Tree, context: SchematicContext) => {
         context.logger.info('Adding stylesheet to index.html');
-        const workspace = getWorkspace(tree);
-        addStylesheetToHead(tree, workspace, options.project, '/assets/ids-enterprise/css/light-theme.css', 'stylesheet');
+        addStylesheetToHead(tree, '/assets/ids-enterprise/css/light-theme.css', options.project, 'stylesheet');
+    };
+}
+
+function importIdsComponentsModule(options: Schema): Rule {
+    return (tree: Tree, context: SchematicContext) => {
+        context.logger.info('Importing module');
+        addAppModuleImport(tree, 'SohoComponentsModule', 'ids-enterprise-ng', options.project);
     };
 }
