@@ -22,7 +22,7 @@ interface SohoFileUploadAdvancedStatus {
 
   setProgress(percent: number);
 
-  setAbort(jqXHR: JQueryXHR);
+  setAbort(xhr?: any); // xml http request object
 
   /** The file being uploaded. */
   file: File;
