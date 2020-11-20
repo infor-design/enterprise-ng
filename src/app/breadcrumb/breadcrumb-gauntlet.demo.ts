@@ -103,7 +103,7 @@ export class BreadcrumbGauntletDemoComponent {
     const self = this;
     if (this.demoForm.controls['callback'].value) {
       newSettings.callback = function testCallback (e) {
-        self.renderBreadcrumbConfig(e.target);
+        self.renderBreadcrumbConfig(e.currentTarget);
         const content = this.settings.content;
 
         // Trigger a toast message
