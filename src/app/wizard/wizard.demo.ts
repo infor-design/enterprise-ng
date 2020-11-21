@@ -15,7 +15,7 @@ import {
 import { WizardDemoResultPageComponent } from './wizard-result-page.demo';
 
 @Component({
-  selector: 'app-wizard-demo',
+  selector: 'demo-wizard-demo',
   templateUrl: 'wizard.demo.html',
 })
 export class WizardDemoComponent {
@@ -25,14 +25,14 @@ export class WizardDemoComponent {
     {
       id: 'prevous',
       text: Soho.Locale.translate('Previous'),
-      click: () => { this.wizard.previous(); },
+      click: () => this.wizard.previous(),
       disabled: () => !this.wizard.hasPrevious(),
       position: 'middle'
     },
     {
       id: 'next',
       text: Soho.Locale.translate('Next'),
-      click: () => { this.wizard.next(); },
+      click: () => this.wizard.next(),
       isDefault: true,
       disabled: () => this.nextButtonDisabled(),
       position: 'middle'
@@ -40,7 +40,7 @@ export class WizardDemoComponent {
     {
       id: 'finish',
       text: 'Finish', // Soho.Locale.translate('Finish'),
-      click: () => { this.wizard.finish(); },
+      click: () => this.wizard.finish(),
       disabled: () => !this.wizard.hasFinished(),
       position: 'middle'
     }

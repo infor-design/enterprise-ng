@@ -288,12 +288,22 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    * Should match the Soho event names for the component
    */
   @Output() afteropen: EventEmitter<Object> = new EventEmitter<Object>();
+
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() start: EventEmitter<Object> = new EventEmitter<Object>();
+
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() complete: EventEmitter<Object> = new EventEmitter<Object>();
   @Output() beforeopen: EventEmitter<Object> = new EventEmitter<Object>();
+
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() change: EventEmitter<SohoLookupChangeEvent[]> = new EventEmitter<SohoLookupChangeEvent[]>();
   @Output() inputEvt: EventEmitter<Object> = new EventEmitter<Object>();
+
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() open: EventEmitter<Object> = new EventEmitter<Object>();
+
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() close: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**
@@ -488,7 +498,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       if (args[1] && args[2]) {
 
         const datagrid: SohoDataGridStatic = args[1];
-          const modal: SohoModalStatic = args[2];
+        const modal: SohoModalStatic = args[2];
 
         if (datagrid.pagerAPI) {
           datagrid.pagerAPI.element.on('afterpaging', () => {

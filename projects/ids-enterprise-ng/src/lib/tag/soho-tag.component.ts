@@ -133,7 +133,10 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
 
   /**
    * Fired after a tag item is removed.
+   *
+   * @todo remove usage of native element
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() click = new EventEmitter<SohoTagAfterRemoveEvent>();
 
   /** Options. */
@@ -167,6 +170,10 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
 
   @HostBinding('class.is-dismissible') @Input() isDismissible: boolean;
 
+  /**
+   * Allow override of element name, to match the component name.
+   */
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('soho-tag') set sohoTag(type: SohoTagType) {
     if (!type) {
       type = SohoTagComponent.DEFAULT;

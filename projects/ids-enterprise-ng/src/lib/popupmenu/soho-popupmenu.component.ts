@@ -18,8 +18,8 @@ import {
 })
 export class SohoPopupMenuHeadingComponent {
   @HostBinding('class.heading') get isHeading() {
- return true;
-}
+    return true;
+  }
 }
 
 /**
@@ -31,8 +31,8 @@ export class SohoPopupMenuHeadingComponent {
 })
 export class SohoPopupMenuShortCutTextComponent {
   @HostBinding('class.shortcut-text') get isShortCutText() {
- return true;
-}
+    return true;
+  }
 }
 
 /**
@@ -44,8 +44,8 @@ export class SohoPopupMenuShortCutTextComponent {
 })
 export class SohoPopupMenuSeparatorComponent {
   @HostBinding('class.separator') get isSeparator() {
- return true;
-}
+    return true;
+  }
   @HostBinding('class.single-selectable-section') @Input() singleSelectableSection = false;
   @HostBinding('class.multi-selectable-section') @Input() multiSelectableSection = false;
 }
@@ -330,6 +330,10 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
 
   @Output() beforeopen = new EventEmitter<SohoPopupMenuEvent>();
 
+  /**
+   * @todo remove override of native element
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() open = new EventEmitter<SohoPopupMenuEvent>();
 
   @Output() afteropen = new EventEmitter<SohoPopupMenuEvent>();

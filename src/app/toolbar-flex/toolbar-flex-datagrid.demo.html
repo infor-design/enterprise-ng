@@ -1,13 +1,13 @@
 <div class="full-width scrollable-flex full-height">
   <div soho-toolbar-flex>
-    <soho-toolbar-flex-section [isTitle]="true">
-      <nav class="breadcrumb">
-        <ol aria-label="breadcrumb">
-          <li class="current selectable">
-            <h2>Products</h2>
-          </li>
-        </ol>
-      </nav>
+      <soho-toolbar-flex-section [isTitle]="true">
+        <nav soho-breadcrumb>
+            <ol soho-breadcrumb-list>
+                <li soho-breadcrumb-item [isCurrent]="true" [isSelectable]="true">
+                  <a soho-hyperlink href="#">Products</a>
+                </li>
+            </ol>
+        </nav>
     </soho-toolbar-flex-section>
 
     <soho-toolbar-flex-section [isSearch]="true">

@@ -21,11 +21,11 @@ import {
 })
 export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   @HostBinding('class.btn-menu') get isBtnMenu() {
- return true;
-}
+    return true;
+  }
   @HostBinding('attr.type') get buttonType() {
- return 'button';
-}
+    return 'button';
+  }
 
   /** The underlying jQuery instance. */
   private jQueryElement: JQuery;
@@ -56,8 +56,16 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   @Output() selected = new EventEmitter<SohoContextMenuEvent>();
   @Output() beforeopen = new EventEmitter<SohoContextMenuEvent>();
   // eslint-disable-next-line @angular-eslint/no-output-rename
+
+  /**
+   * @todo remove override of native element
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output('open') open$ = new EventEmitter<SohoContextMenuEvent>();
-  // eslint-disable-next-line @angular-eslint/no-output-rename
+  /**
+   * @todo remove override of native element
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output('close') close$ = new EventEmitter<SohoContextMenuEvent>();
 
   // -------------------------------------------

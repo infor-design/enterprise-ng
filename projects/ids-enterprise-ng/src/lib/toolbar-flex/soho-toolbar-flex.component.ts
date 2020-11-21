@@ -83,11 +83,16 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
 
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
   @Output() cleared: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+
+  /**
+   * @todo replace override of native element
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() change: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   @HostBinding('class.searchfield') get isSearchField() {
- return true;
-}
+    return true;
+  }
 
   /**
    * Local variables

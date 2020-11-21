@@ -19,8 +19,8 @@ import {
 })
 export class SohoContextMenuHeadingComponent {
   @HostBinding('class.heading') get isHeading() {
- return true;
-}
+    return true;
+  }
 }
 
 /**
@@ -32,8 +32,8 @@ export class SohoContextMenuHeadingComponent {
 })
 export class SohoContextMenuShortCutTextComponent {
   @HostBinding('class.shortcut-text') get isShortCutText() {
- return true;
-}
+    return true;
+  }
 }
 
 /**
@@ -45,8 +45,8 @@ export class SohoContextMenuShortCutTextComponent {
 })
 export class SohoContextMenuSeparatorComponent {
   @HostBinding('class.separator') get isSeparator() {
- return true;
-}
+    return true;
+  }
   @HostBinding('class.single-selectable-section') @Input() singleSelectableSection = false;
   @HostBinding('class.multi-selectable-section') @Input() multiSelectableSection = false;
 }
@@ -111,6 +111,11 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
 
   @Output() selected = new EventEmitter<SohoContextMenuEvent>();
   @Output() beforeopen = new EventEmitter<SohoContextMenuEvent>();
+
+  /**
+   * @todo replace override of native attribute
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() open = new EventEmitter<SohoContextMenuEvent>();
 
   // using output renaming since close conflicts with the close method

@@ -23,6 +23,10 @@
         "prettier/@typescript-eslint"
       ],
       "rules": {
+        "@typescript-eslint/member-ordering": "off",
+        "@typescript-eslint/ban-types": "off",
+        "prefer-arrow/prefer-arrow-functions": "off",
+        "@typescript-eslint/naming-convention": "off",
         "@angular-eslint/component-class-suffix": [
           "error",
           {

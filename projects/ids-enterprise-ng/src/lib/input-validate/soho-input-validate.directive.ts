@@ -23,8 +23,17 @@ export class SohoInputValidateDirective implements AfterViewInit {
 
   @HostBinding('attr.data-validate') @Input('data-validate') dataValidate: string;   // eslint-disable-line
 
+  /**
+   * @todo replace override of native attribute
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() error = new EventEmitter<SohoInputValidateEvent>();
   @Output() alert = new EventEmitter<SohoInputValidateEvent>();
+
+  /**
+   * @todo replace override of native attribute
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() success = new EventEmitter<SohoInputValidateEvent>();
   @Output() icon = new EventEmitter<SohoInputValidateEvent>();
   @Output() info = new EventEmitter<SohoInputValidateEvent>();

@@ -43,8 +43,8 @@ export class SohoListViewSearchComponent {
   @Input() buildSearch = true;
 
   @HostBinding('class.listview-search') get isListviewSearch() {
- return true;
-}
+    return true;
+  }
 }
 
 @Component({
@@ -97,8 +97,8 @@ export class SohoListViewItemComponent implements AfterViewInit {
 })
 export class SohoListViewHeaderComponent {
   @HostBinding('class.listview-heading') get isHeading() {
- return true;
-}
+    return true;
+  }
 }
 
 @Component({
@@ -109,8 +109,8 @@ export class SohoListViewHeaderComponent {
 })
 export class SohoListViewSubHeaderComponent {
   @HostBinding('class.listview-subheading') get isSubHeading() {
- return true;
-}
+    return true;
+  }
 }
 
 @Component({
@@ -121,8 +121,8 @@ export class SohoListViewSubHeaderComponent {
 })
 export class SohoListViewMicroComponent {
   @HostBinding('class.listview-micro') get isMicro() {
- return true;
-}
+    return true;
+  }
 }
 
 @Component({
@@ -331,17 +331,20 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
   /**
    * Called once an item is clicked. You may also prefer need activated / deactived here.
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() click: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**
    * Called once an item is double clicked. This isnt used that often.
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() dblclick: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**
    * Called during right click to enable context menus on list items.
    * Use popupmenu during this event.
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**
@@ -402,8 +405,8 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
     });
 
     this.items.changes.subscribe(() => {
- this.updateRequired = true;
-});
+      this.updateRequired = true;
+    });
   }
 
   ngAfterViewChecked() {

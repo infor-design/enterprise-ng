@@ -171,6 +171,11 @@ export class SohoPieComponent implements AfterViewInit, AfterViewChecked, OnDest
   @Output() selected: EventEmitter<SohoPieSelectEvent> = new EventEmitter<SohoPieSelectEvent>();
   @Output() unselected: EventEmitter<SohoPieSelectEvent> = new EventEmitter<SohoPieSelectEvent>();
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * @todo remove override of native element
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
 
   private jQueryElement: JQuery;

@@ -33,7 +33,10 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
   /**
    * Available Soho Template events as Output (EventEmitters passing the event)
    * Should match the Soho event names for the component
+   *
+   * @todo replace override of native attribute
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() change: EventEmitter<SohoInputEvent[]> = new EventEmitter<SohoInputEvent[]>();
 
   /**

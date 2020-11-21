@@ -15,7 +15,17 @@ import { Component, DebugElement, EventEmitter, Output } from '@angular/core';
 class TestContextMenuDirectiveComponent {
   @Output() selected = new EventEmitter<SohoContextMenuEvent>();
   @Output() beforeopen = new EventEmitter<SohoContextMenuEvent>();
+
+  /**
+   * @todo replace override of native attribute
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() open = new EventEmitter<SohoContextMenuEvent>();
+
+  /**
+   * @todo replace override of native attribute
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() close = new EventEmitter<SohoContextMenuEvent>();
 
   onSelected(value) {

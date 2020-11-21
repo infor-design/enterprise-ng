@@ -46,6 +46,10 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
     return this.internalIsDisabled;
   }
 
+  /**
+   * @todo replace override of native element
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() change = new EventEmitter<number>();
 
   // Set the spinbox class.

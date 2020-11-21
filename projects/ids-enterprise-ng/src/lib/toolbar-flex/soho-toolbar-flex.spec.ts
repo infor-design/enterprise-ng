@@ -67,6 +67,9 @@ class SohoToolbarFlexTestComponent {
   @ViewChild(SohoToolbarFlexSearchFieldComponent) searchField: SohoToolbarFlexSearchFieldComponent;
 
   @Output() selected = new EventEmitter<SohoToolbarFlexSelectedEvent>();
+
+  /** @todo fix the use of this native attribute */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() change = new EventEmitter<SohoSearchFieldEvent>();
 
   private MENU_RESPONSE_HTML = `

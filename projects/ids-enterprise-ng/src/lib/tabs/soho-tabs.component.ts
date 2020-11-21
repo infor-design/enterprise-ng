@@ -27,8 +27,8 @@ import {
 })
 export class SohoTabTitleComponent {
   @HostBinding('attr.href') get hrefAttr() {
- return '#' + this.tabId;
-}
+    return '#' + this.tabId;
+  }
   @Input() tabId: string;
 }
 
@@ -174,17 +174,17 @@ export class SohoTabListContainerComponent {
 })
 export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
   @HostBinding('class.vertical') get isVertical() {
- return this.vertical;
-}
+    return this.vertical;
+  }
   @HostBinding('class.module-tabs') get isModuleTabs() {
- return this.moduleTabs;
-}
+    return this.moduleTabs;
+  }
   @HostBinding('class.header-tabs') get isHeaderTabs() {
- return this.headerTabs;
-}
+    return this.headerTabs;
+  }
   @HostBinding('class.alternate') get isAlternate() {
- return this.alternate;
-}
+    return this.alternate;
+  }
 
   // ------------------------------------------------------------------------
   // @Inputs
@@ -361,7 +361,10 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * fired when a tab closes
+   *
+   * @todo replace override of native element
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() close = new EventEmitter<SohoTabsEvent>();
 
   /**
@@ -569,7 +572,8 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
       }
 
       const tabTitles: Array<string> = [];
-      const $anchorList: JQuery = $liList.find('a');
+      const $anchorList: JQuery<HTMLAnchorElement> = $liList.find('a');
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
       for (let i = 0; i < $anchorList.length; i++) {
         tabTitles.push($($anchorList[i]).html());
       }

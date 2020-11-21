@@ -252,6 +252,11 @@ export class SohoRadarComponent implements AfterViewInit, AfterViewChecked, OnDe
   @Output() selected: EventEmitter<SohoRadarSelectEvent> = new EventEmitter<SohoRadarSelectEvent>();
   @Output() unselected: EventEmitter<SohoRadarSelectEvent> = new EventEmitter<SohoRadarSelectEvent>();
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * @todo remove override of native elements
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
 
   private jQueryElement: JQuery;

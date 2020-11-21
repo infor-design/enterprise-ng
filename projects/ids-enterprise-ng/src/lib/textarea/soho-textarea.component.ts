@@ -55,6 +55,10 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     }
   }
 
+  get disabled() {
+    return this.isDisabled;
+  }
+
   @Input() set readonly(value: boolean) {
     this.isReadOnly = value;
 
@@ -68,6 +72,10 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
         this.isReadOnly = false;
       }
     }
+  }
+
+  get readonly() {
+    return this.isReadOnly;
   }
 
   @HostBinding('class.resizable')
@@ -140,19 +148,16 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
    */
   @Output() updated = new EventEmitter<SohoTextAreaEvent>();
 
-  // @todo Change to 'changed'.
+  /**
+   * @todo Change to 'changed'.
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() change: EventEmitter<SohoTextAreaEvent[]> = new EventEmitter<SohoTextAreaEvent[]>();
 
   // -------------------------------------------
   // Public API
   // -------------------------------------------
 
-  get disabled() {
-    return this.isDisabled;
-  }
-  get readonly() {
-    return this.isReadOnly;
-  }
 
   // -------------------------------------------
   // Private Member Data

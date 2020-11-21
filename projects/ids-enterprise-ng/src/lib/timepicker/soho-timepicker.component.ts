@@ -175,6 +175,13 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
   }
 
   /**
+   * Public API
+   */
+  get disabled() {
+    return this.isDisabled;
+  }
+
+  /**
    * Sets the control to readonly
    */
   @Input() set readonly(value: boolean) {
@@ -200,20 +207,18 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
     }
   }
 
-  /**
-   * Called when the datepicker value changes
-   */
-  @Output() change: EventEmitter<SohoTimePickerEvent> = new EventEmitter<SohoTimePickerEvent>();
-
-  /**
-   * Public API
-   */
-  get disabled() {
-    return this.isDisabled;
-  }
   get readonly() {
     return this.isReadOnly;
   }
+
+  /**
+   * Called when the datepicker value changes
+   *
+   * @todo remove override of native attribute.
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
+  @Output() change: EventEmitter<SohoTimePickerEvent> = new EventEmitter<SohoTimePickerEvent>();
+
 
   public setValue(time: string) {
     // There is no API to set the value on the timepicker, so this

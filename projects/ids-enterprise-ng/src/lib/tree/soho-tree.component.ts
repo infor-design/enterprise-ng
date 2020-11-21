@@ -84,6 +84,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   /** Defines the source type of the tree. */
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('soho-tree') set sohoTree(treeType: SohoTreeType) {
     this.treeType = treeType ? treeType : SohoTreeComponent.AUTO;
   }
@@ -175,6 +176,8 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   /**
    * This event is fired when right clicking a node.
    * */
+  // @todo fix the use of this native attribute
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() contextmenu = new EventEmitter<SohoTreeEvent>();
 
   /**
@@ -399,8 +402,8 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
       // the api we dispose of the extra information here.
       this.tree.getSelectedNodes().forEach(
         (n) => {
- result.push(n.data);
-}
+          result.push(n.data);
+        }
       );
     }
     return result;

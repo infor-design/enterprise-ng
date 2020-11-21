@@ -43,8 +43,8 @@ export type SohoSwapListCardType = 'available' | 'selected' | 'full-access';
 })
 export class SohoSwapListCardComponent {
   @HostBinding('class.swaplist') get isSwapList() {
- return true;
-}
+    return true;
+  }
 
   /** The type of card. */
   private cardtype: SohoSwapListCardType;
@@ -396,11 +396,12 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
    * Converts the list of items into a list of swaplist items.
    *
    * @param items data to convert to item model.
+   *
+   * @todo remove any
    */
   private ConvertToModel(items: any[]): SohoSwapListItem[] {
     const results = [];
-    for (let i = 0; i < items.length; i++) {
-      const item = items[i];
+    for (const item of items) {
       results.push({ id: item.id, value: item.value, text: item.text });
     }
     return results;

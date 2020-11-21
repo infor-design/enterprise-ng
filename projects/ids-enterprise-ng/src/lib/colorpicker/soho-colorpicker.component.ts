@@ -232,7 +232,10 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
 
   /**
    * Called when the colorpicker value changes
+   *
+   * @todo replace override of native attribute
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() change: EventEmitter<SohoColorPickerEvent> = new EventEmitter<SohoColorPickerEvent>();
 
   /**
