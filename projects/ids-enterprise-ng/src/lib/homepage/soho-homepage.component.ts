@@ -18,6 +18,10 @@ import {
 })
 export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
 
+  /**
+   * @todo replace override of native attribute
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-rename, @angular-eslint/no-output-native
   @Output() resize = new EventEmitter<SohoHomePageEvent>();
   @Output() resizecard = new EventEmitter<SohoHomePageEditEvent>();
   @Output() reordercard = new EventEmitter<SohoHomePageEditEvent>();

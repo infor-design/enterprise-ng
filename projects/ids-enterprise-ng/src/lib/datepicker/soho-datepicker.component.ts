@@ -304,6 +304,10 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
     }
   }
 
+  get options(): SohoDatePickerOptions {
+    return this._options;
+  }
+
   /**
    * Enables or disables the control
    */
@@ -332,6 +336,10 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
     }
   }
 
+  get disabled() {
+    return this.isDisabled;
+  }
+
   /**
    * Sets the control to readonly
    */
@@ -358,24 +366,21 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
     }
   }
 
+  get readonly() {
+    return this.isReadOnly;
+  }
+
   /**
    * Called when the datepicker value changes
+   *
+   * @todo replace override of native attribute
    */
+  // eslint-disable-next-line @angular-eslint/no-output-rename, @angular-eslint/no-output-native
   @Output() change = new EventEmitter<SohoDatePickerEvent>();
 
   /**
    * Public API
    */
-  get disabled() {
-    return this.isDisabled;
-  }
-  get readonly() {
-    return this.isReadOnly;
-  }
-
-  get options(): SohoDatePickerOptions {
-    return this._options;
-  }
 
   public setValue(value: Date | string) {
     this.datepicker.setValue(value, true);

@@ -79,6 +79,10 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
+  get disabled() {
+    return this.isDisabled;
+  }
+
   /**
    * Sets the control to readonly
    */
@@ -102,6 +106,10 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
         this.isDisabled = false;
       });
     }
+  }
+
+  get readonly() {
+    return this.isReadOnly;
   }
 
   @Input() set delay(delay: number) {
@@ -201,9 +209,13 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
+
   /**
    * Called when the editor value changes
+   *
+   * @todo replace override of native attribute
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() change = new EventEmitter<SohoEditorEvent>();
 
   /**
@@ -214,13 +226,6 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   // -------------------------------------------
   // Public API
   // -------------------------------------------
-
-  get disabled() {
-    return this.isDisabled;
-  }
-  get readonly() {
-    return this.isReadOnly;
-  }
 
   // -------------------------------------------
   // Private Member Data

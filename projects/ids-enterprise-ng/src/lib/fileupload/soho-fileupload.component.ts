@@ -51,6 +51,10 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
     this.changeDetectorRef.markForCheck();
   }
 
+  get disabled() {
+    return this.isDisabled;
+  }
+
   @Input() set readonly(value: boolean) {
     this.isReadOnly = value;
 
@@ -68,25 +72,25 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
     this.changeDetectorRef.markForCheck();
   }
 
+  get readonly() {
+    return this.isReadOnly;
+  }
+
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
 
   /**
    * Called when the fileupload value changes
+   *
+   * @todo replace override of native attribute
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() change = new EventEmitter<SohoFileUploadEvent>();
 
   // -------------------------------------------
   // Public API
   // -------------------------------------------
-
-  get disabled() {
-    return this.isDisabled;
-  }
-  get readonly() {
-    return this.isReadOnly;
-  }
 
   // -------------------------------------------
   // Private Member Data

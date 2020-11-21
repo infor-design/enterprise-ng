@@ -58,6 +58,11 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * @todo replace override of native attribute
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
 
   private jQueryElement: JQuery;

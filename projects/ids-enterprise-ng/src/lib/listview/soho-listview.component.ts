@@ -461,7 +461,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * @throws Error if the argument is null, or contains out of range indices then any error is thrown.
    */
   remove(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
-    this.apply((e) => this.ngZone.runOutsideAngular(() => this.listview.remove(e)), index);
+    this.apply({ fn: (e) => this.ngZone.runOutsideAngular(() => this.listview.remove(e)), index });
   }
 
   /**
@@ -471,7 +471,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * @throws Error if the argument is null, or contains out of range indices then any error is thrown.
    */
   unselect(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
-    this.apply((e) => this.ngZone.runOutsideAngular(() => this.listview.deselect(e)), index);
+    this.apply({ fn: (e) => this.ngZone.runOutsideAngular(() => this.listview.deselect(e)), index });
   }
   /**
    * Selects the list item (or list items) identified by their index or jQuery element.
@@ -482,14 +482,14 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * @throws Error if the argument is null, or contains out of range indices then any error is thrown.
    */
   select(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
-    this.apply((e) => this.ngZone.runOutsideAngular(() => this.listview.select(e)), index);
+    this.apply({ fn: (e) => this.ngZone.runOutsideAngular(() => this.listview.select(e)), index });
   }
 
   /**
    * Activate the given list item.
    */
   activateItem(item: SohoListViewItemReference): void {
-    this.apply((e) => this.ngZone.runOutsideAngular(() => this.listview.activateItem(e)), item);
+    this.apply({ fn: (e) => this.ngZone.runOutsideAngular(() => this.listview.activateItem(e)), index: item });
   }
 
   /**
@@ -511,7 +511,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * Toggle Activation on the given list item.
    */
   toggleItemActivation(item: SohoListViewItemReference): void {
-    this.apply((e) => this.ngZone.runOutsideAngular(() => this.listview.toggleItemActivation(e)), item);
+    this.apply({ fn: (e) => this.ngZone.runOutsideAngular(() => this.listview.toggleItemActivation(e)), index: item });
   }
 
   /**
@@ -520,7 +520,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * @param fn the function to apply - must take a SohoListViewReference.
    * @param index the index of list view item(s).
    */
-  private apply(fn: (index: SohoListViewItemReference) => void, index: SohoListViewItemReference | SohoListViewItemReference[]): void {
+  private apply({ fn, index }: { fn: (idx: SohoListViewItemReference) => void; index: SohoListViewItemReference | SohoListViewItemReference[]; }): void {
     ArgumentHelper.checkNotNull('index', index);
 
     if (this.listview) {

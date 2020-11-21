@@ -41,7 +41,8 @@
             "type": "element",
             "prefix": [
               "soho",
-              "demo"
+              "demo",
+              "app"
             ],
             "style": "kebab-case"
           }

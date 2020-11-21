@@ -15,10 +15,6 @@ import {
   ChangeDetectorRef
 } from '@angular/core';
 import {
-  BaseControlValueAccessor,
-  provideControlValueAccessor
-} from '../utils/base-control-value-accessor';
-import {
   NgControl,
   ControlValueAccessor
 } from '@angular/forms';
@@ -99,6 +95,10 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
     }
   }
 
+  get disabled() {
+    return this.isDisabled;
+  }
+
   /**
    * Enables or disables editing
    */
@@ -119,6 +119,10 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
         this.isEditable = false;
       }
     }
+  }
+
+  get editable() {
+    return this.isEditable;
   }
 
   /**
@@ -217,6 +221,10 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
     }
   }
 
+  get readonly() {
+    return this.isReadOnly;
+  }
+
   /**
    * Sets the control to show color label
    */
@@ -228,6 +236,10 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
       this.colorpicker.settings.showLabel = value;
       this.markForRefresh();
     }
+  }
+
+  get showLabel() {
+    return this.isShowLabel;
   }
 
   /**
@@ -247,18 +259,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   /**
    * Public API
    */
-  get disabled() {
-    return this.isDisabled;
-  }
-  get editable() {
-    return this.isEditable;
-  }
-  get readonly() {
-    return this.isReadOnly;
-  }
-  get showLabel() {
-    return this.isShowLabel;
-  }
+
   getLabelValue() {
     return this.colorpicker.getLabelValue();
   }

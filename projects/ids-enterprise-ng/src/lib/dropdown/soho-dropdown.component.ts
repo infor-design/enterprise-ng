@@ -363,10 +363,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
 
   /**
    * Called when the dropdown value changes
+   *
+   * @todo replace override of native attribute
    */
-  // eslint-disable-next-line @angular-eslint/no-output-rename
-  @Output('change')
-  change$ = new EventEmitter<JQuery.TriggeredEvent>();
+  // eslint-disable-next-line @angular-eslint/no-output-rename, @angular-eslint/no-output-native
+  @Output('change') change$ = new EventEmitter<JQuery.TriggeredEvent>();
 
   /**
    * Called when the dropdown updates in some way.
@@ -392,9 +393,8 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   /**
    * This event is fired when a key is pressed
    */
-  // eslint-disable-next-line @angular-eslint/no-output-rename
-  @Output('keydown')
-  keydown$ = new EventEmitter<Event>();
+  // eslint-disable-next-line @angular-eslint/no-output-rename, @angular-eslint/no-output-native
+  @Output('keydown') keydown$ = new EventEmitter<Event>();
 
   /**
    * Bind attributes to the host select element

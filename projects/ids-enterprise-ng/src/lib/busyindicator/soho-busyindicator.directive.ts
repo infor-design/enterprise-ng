@@ -55,7 +55,10 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
   /**
    * This event is fired when 'timeToComplete' milliseconds is reached
    * after the indicator is opened.
+   *
+   * @todo replace override of native attribute
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() complete = new EventEmitter<SohoBusyIndicatorEvent>();
 
   // -------------------------------------------
@@ -144,7 +147,7 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
    * that doesn't already have another mechanism (like a disabled state).
    */
   @Input()
-  public set attributes(attributes:  Array<Object> | Object) {
+  public set attributes(attributes: Array<Object> | Object) {
     this.options.attributes = attributes;
     if (this.busyindicator) {
       this.busyindicator.settings.attributes = attributes;

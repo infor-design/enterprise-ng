@@ -33,7 +33,12 @@ export class SohoProgressComponent implements AfterViewInit, OnDestroy {
 
   /*
    *  Calling when the progress-bar value changes
+   *
+   * Fired when the dropdown list is opened.
+   *
+   * @todo replace override of native attribute
    */
+  // eslint-disable-next-line @angular-eslint/no-output-rename, @angular-eslint/no-output-native
   @Output() change: EventEmitter<Object>;
 
   // Set the progress-bar class.

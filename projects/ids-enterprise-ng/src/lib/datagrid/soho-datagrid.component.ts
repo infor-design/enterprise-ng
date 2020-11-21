@@ -107,7 +107,10 @@ export class SohoAngularEditorAdapter implements ExtendedSohoDataGridCellEditor 
  * Internal refresh hints used to determine what type of "refresh" is
  * required after the change detection process has completed and the
  * AfterViewChecked method is called.
+ *
+ * @todo resolve no-shadow
  */
+// eslint-disable-next-line no-shadow
 enum RefreshHintFlags {
   // No refresh required.
   None = 0,
@@ -529,6 +532,17 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+  get selectable(): any {
+    if (this.datagrid) {
+      return this.datagrid.settings.selectable;
+    }
+
+    // ... we've been called before the component has completed
+    // initialisation, so return the current value from the
+    // options.
+    return this._gridOptions.selectable;
+  }
+
   @Input() set showSelectAllCheckBox(showSelectAllCheckBox: boolean) {
     this._gridOptions.showSelectAllCheckBox = showSelectAllCheckBox;
     if (this.jQueryElement) {
@@ -540,17 +554,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
   get showSelectAllCheckBox() {
     return this._gridOptions.showSelectAllCheckBox;
-  }
-
-  get selectable(): any {
-    if (this.datagrid) {
-      return this.datagrid.settings.selectable;
-    }
-
-    // ... we've been called before the component has completed
-    // initialisation, so return the current value from the
-    // options.
-    return this._gridOptions.selectable;
   }
 
   @Input() set clickToSelect(clickToSelect: boolean) {
@@ -2447,8 +2450,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   private destroyDataGrid(): void {
     // Remove any remaining dynamic components.
     this.cellComponents.forEach((c) => {
- c.component.destroy();
-});
+      c.component.destroy();
+    });
 
     // Clear the cache.
     this.cellComponents = [];
@@ -2456,8 +2459,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     // Remove rowTemplate dynamic components.
     if (this.rowTemplateComponents && this.rowTemplateComponents.length > 0) {
       this.rowTemplateComponents.forEach((c) => {
- c.component.destroy();
-});
+        c.component.destroy();
+      });
       this.rowTemplateComponents = [];
     }
 
@@ -2596,73 +2599,73 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       // Initialise any event handlers.
       this.jQueryElement
         .on('addrow', (e: any, args: SohoDataGridAddRowEvent) => {
- this.onRowAdd(args);
-})
+          this.onRowAdd(args);
+        })
         .on('cellchange', (e: any, args: SohoDataGridCellChangeEvent) => this.onCellChange(args))
         .on('click', (e: any, args: SohoDataGridRowClicked) => {
- this.onRowClicked(args);
-})
+          this.onRowClicked(args);
+        })
         .on('closefilterrow', (e: any, args: SohoDataGridCloseFilterRowEvent) => {
- this.onCloseFilterRow(args);
-})
+          this.onCloseFilterRow(args);
+        })
         .on('collapserow', (e: any, args: SohoDataGridRowCollapseEvent) => {
- this.onCollapseRow(args);
-})
+          this.onCollapseRow(args);
+        })
         .on('contextmenu', (e: any, args: SohoDataGridRowClicked) => {
- this.onContextMenu(args);
-})
+          this.onContextMenu(args);
+        })
         .on('dblclick', (e: JQuery.TriggeredEvent, args: SohoDataGridRowClicked) => {
- this.onDoubleClick(args);
-})
+          this.onDoubleClick(args);
+        })
         .on('beforeentereditmode', (e: any, args: SohoDataGridEditModeEvent) => {
- this.onBeforeEnterEditMode(args);
-})
+          this.onBeforeEnterEditMode(args);
+        })
         .on('exiteditmode', (e: any, args: SohoDataGridEditModeEvent) => {
- this.onExitEditMode(args);
-})
+          this.onExitEditMode(args);
+        })
         .on('entereditmode', (e: any, args: SohoDataGridEditModeEvent) => {
- this.onEnterEditMode(args);
-})
+          this.onEnterEditMode(args);
+        })
         .on('expandrow', (e: any, args: SohoDataGridRowExpandEvent) => {
- this.onExpandRow(args);
-})
+          this.onExpandRow(args);
+        })
         .on('filtered', (e: any, args: SohoDataGridFilteredEvent) => {
- this.onFiltered(args);
-})
+          this.onFiltered(args);
+        })
         .on('openfilterrow', (e: any, args: SohoDataGridOpenFilterRowEvent) => {
- this.onOpenFilterRow(args);
-})
+          this.onOpenFilterRow(args);
+        })
         .on('rowremove', (e: any, args: SohoDataGridRowRemoveEvent) => {
- this.onRowRemove(args);
-})
+          this.onRowRemove(args);
+        })
         .on('rendered', (e: any, args: SohoDataGridRenderedEvent) => {
- this.onRendered(args);
-})
+          this.onRendered(args);
+        })
         .on('afterrender', (e: any, args: SohoDataGridAfterRenderEvent) => {
- this.onAfterRender(args);
-})
+          this.onAfterRender(args);
+        })
         .on('beforerowactivated', (e: any, args: SohoDataGridRowActivatedEvent) => {
- this.onBeforeRowActivated(args);
-})
+          this.onBeforeRowActivated(args);
+        })
         .on('rowactivated', (e: any, args: SohoDataGridRowActivatedEvent) => {
- this.onRowActivated(args);
-})
+          this.onRowActivated(args);
+        })
         .on('rowdeactivated', (e: any, args: SohoDataGridRowDeactivatedEvent) => {
- this.onRowDeactivated(args);
-})
+          this.onRowDeactivated(args);
+        })
         .on('rowreorder', (e: any, args: SohoDataGridRowReorderedEvent) => {
- this.onRowReordered(args);
-})
+          this.onRowReordered(args);
+        })
         .on('selected',
           (e: any,
             args: SohoDataGridSelectedRow[],
             type?: SohoDataGridSelectedEventType) => this.onSelected({ e, rows: args, type }))
         .on('settingschanged', (e: any, args: SohoDataGridSettingsChangedEvent) => {
- this.onSettingsChanged(args);
-})
+          this.onSettingsChanged(args);
+        })
         .on('sorted', (e: any, args: SohoDataGridSortedEvent) => {
- this.onSorted(args);
-});
+          this.onSorted(args);
+        });
     });
 
     // Initialise the SohoXi control.
@@ -2773,7 +2776,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         // Use a `function expression` rather than an `arrow function` as the editor is used
         // as constructor.
         // eslint-disable-next-line max-len
-        c.editor = function(row?: any, cell?: any, value?: any, container?: JQuery, col?: SohoDataGridColumn, e?: any, api?: any, item?: any) {
+        c.editor = function (row?: any, cell?: any, value?: any, container?: JQuery, col?: SohoDataGridColumn, e?: any, api?: any, item?: any) {
           return new SohoAngularEditorAdapter(c.editorComponent, { row, cell, value, container: container[0], col, e, api, item });
         };
       }

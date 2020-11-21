@@ -41,9 +41,18 @@ export class SohoIconComponent {
     this._alert = alert;
     this.setAlertIcon();
   }
+
+  get alert(): boolean {
+    return this._alert;
+  }
+
   @Input() set icon(icon: string) {
     this._icon = icon ? 'icon-' + icon : '';
     this.setAlertIcon();
+  }
+
+  get icon(): string {
+    return this._icon;
   }
 
   private _alert: boolean;
@@ -52,7 +61,7 @@ export class SohoIconComponent {
 
   constructor(
     private elementRef: ElementRef,
-  ) {}
+  ) { }
 
   private setAlertIcon() {
     // This allows us to set a dynamic class to the class list
@@ -67,11 +76,4 @@ export class SohoIconComponent {
       this.elementRef.nativeElement.classList.add(this._extraIconClass);
     }
   }
-
-  get alert(): boolean {
- return this._alert;
-}
-  get icon(): string {
- return this._icon;
-}
 }

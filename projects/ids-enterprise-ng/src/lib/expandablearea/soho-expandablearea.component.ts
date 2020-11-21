@@ -77,11 +77,25 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  /**
+   * Boolean value of the disabled state of the component
+   */
+  get disabled() {
+    return this._disabled;
+  }
+
   @Input() set closed(value: boolean) {
     this._closed = value;
     if (value && this.jQueryElement) {
       this.close();
     }
+  }
+
+  /**
+   * Boolean value of the closed state of the component
+   */
+  get closed() {
+    return this._closed;
   }
 
   // Expose Methods in case Angular needs to control the DOM, using Observables
@@ -216,7 +230,11 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
     // call outside the angular zone so change detection isn't triggered by the soho component.
     this.ngZone.runOutsideAngular(() => {
       this._closed = !open;
-      open ? this.expandablearea.open() : this.expandablearea.close();
+      if (open) {
+        this.expandablearea.open();
+      } else {
+        this.expandablearea.close();
+      }
     });
   }
 
@@ -228,20 +246,6 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   private open() {
     // call outside the angular zone so change detection isn't triggered by the soho component.
     this.ngZone.runOutsideAngular(() => this.expandablearea.open());
-  }
-
-  /**
-   * Boolean value of the closed state of the component
-   */
-  get closed() {
-    return this._closed;
-  }
-
-  /**
-   * Boolean value of the disabled state of the component
-   */
-  get disabled() {
-    return this._disabled;
   }
 
   /**
