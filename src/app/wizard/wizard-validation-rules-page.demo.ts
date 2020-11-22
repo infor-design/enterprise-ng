@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'demo-validation-rules-page',
+  selector: 'app-validation-rules-page',
   templateUrl: 'wizard-validation-rules-page.demo.html',
   styles: [
     `:host {
