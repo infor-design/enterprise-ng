@@ -16,7 +16,7 @@ import { DataGridCustomFormatterService } from './datagrid-custom-formatter.serv
 @Component({
   selector: 'app-datagrid-custom-formatter-service-demo',
   templateUrl: 'datagrid-custom-formatter-service.demo.html',
-  providers: [ DataGridCustomFormatterService ],
+  providers: [DataGridCustomFormatterService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridCustomFormatterServiceDemoComponent implements OnInit {
@@ -28,7 +28,7 @@ export class DataGridCustomFormatterServiceDemoComponent implements OnInit {
     return this.formatterService.randomIntegerFormatter(row, cell, value, column, item, api);
   }
 
-  constructor(private formatterService: DataGridCustomFormatterService) {}
+  constructor(private formatterService: DataGridCustomFormatterService) { }
 
   ngOnInit(): void {
     /**
@@ -54,7 +54,7 @@ export class DataGridCustomFormatterServiceDemoComponent implements OnInit {
     });
 
     this.gridOptions = {
-      columns: columns,
+      columns,
       dataset: PAGING_DATA,
       selectable: 'single',
       paging: true,

@@ -43,8 +43,16 @@ export class LookupDemoComponent implements OnInit {
         api.at(3).disabled = true;
       }
     },
-    { text: 'Cancel', click: () => { this.sohoLookupRef.modal.close(); } },
-    { text: 'Submit', click: () => { this.sohoLookupRef.modal.close(); }, isDefault: true }
+    {
+      text: 'Cancel', click: () => {
+        this.sohoLookupRef.modal.close();
+      }
+    },
+    {
+      text: 'Submit', click: () => {
+        this.sohoLookupRef.modal.close();
+      }, isDefault: true
+    }
   ];
   public model: any = {
     single: null,

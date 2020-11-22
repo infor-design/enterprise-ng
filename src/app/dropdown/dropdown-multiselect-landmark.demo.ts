@@ -10,7 +10,7 @@ import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-dropdown-multiselect-landmark-demo',
-  templateUrl:     './dropdown-multiselect-landmark.demo.html',
+  templateUrl: './dropdown-multiselect-landmark.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownMultiselectLandmarkDemoComponent implements OnInit {
@@ -19,7 +19,7 @@ export class DropdownMultiselectLandmarkDemoComponent implements OnInit {
 
   public counter = 0;
   public model: Options = {
-    value: [ 'AK', 'CA' ],
+    value: ['AK', 'CA'],
     options: [
       { value: 'AK', label: 'Alaska', selected: true },
       { value: 'CA', label: 'California', selected: true }
@@ -56,11 +56,12 @@ export class DropdownMultiselectLandmarkDemoComponent implements OnInit {
     { value: 'FM', label: 'Federated States Of Micronesia' },
     { value: 'FL', label: 'Florida' },
     { value: 'GA', label: 'Georgia' },
-    { value: 'GU', label: 'Guam'
+    {
+      value: 'GU', label: 'Guam'
     }];
 
-  constructor() {}
-  ngOnInit() {}
+  constructor() { }
+  ngOnInit() { }
 
   toggleModel() {
     this.showModel = !this.showModel;
@@ -70,6 +71,7 @@ export class DropdownMultiselectLandmarkDemoComponent implements OnInit {
     const responseValues = [];
     const selectedValues = this.dropdownElement.nativeElement.querySelectorAll('option:checked');
 
+    // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let i = 0; i < selectedValues.length; i++) {
       const optionValue = selectedValues[i].value;
       const array = optionValue.split(':');
@@ -115,11 +117,11 @@ export class DropdownMultiselectLandmarkDemoComponent implements OnInit {
 
   public get stateAsText(): string {
     if (this.model.options.length > 0) {
-      return this.model.options.filter( (state) => {
+      return this.model.options.filter((state) => {
         if (this.model.value.includes(state.value)) {
           return state;
         }
-      }).map( (state) => {
+      }).map((state) => {
         return state.label;
       }).join(', ');
     }
@@ -136,5 +138,5 @@ interface Options {
 interface OptionValue {
   value: any;
   label: string;
-  selected ?: boolean;
+  selected?: boolean;
 }

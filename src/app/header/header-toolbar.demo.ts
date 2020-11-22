@@ -46,6 +46,7 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
   }
 
   onToggleHeaderToolbar(event: any) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     this.sohoHeaderRef.instance.hasHeaderToolbar ?
       this.removeHeaderToolbar() :
       this.showHeaderToolbar();

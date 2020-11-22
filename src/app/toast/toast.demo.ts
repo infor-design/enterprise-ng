@@ -15,6 +15,6 @@ export class ToastDemoComponent implements OnInit {
   ngOnInit() { }
 
   showToast(position: SohoToastPosition = SohoToastService.TOP_RIGHT) {
-    this.toastService.show({draggable: true, title: 'Sample Message', message: 'This is a Toast message', position: position});
+    this.toastService.show({ draggable: true, title: 'Sample Message', message: 'This is a Toast message', position });
   }
 }

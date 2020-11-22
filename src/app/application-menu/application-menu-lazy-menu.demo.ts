@@ -26,7 +26,7 @@ export class ApplicationMenuLazyMenuDemoComponent {
         this._lazyMenuService.updateMenu(response, url);
 
         const menuSpec = this._lazyMenuService.getMenuSpec();
-        this.subMenuLoaded.emit({ menuSpec: menuSpec, event: $event });
+        this.subMenuLoaded.emit({ menuSpec, event: $event });
       }
     });
   }

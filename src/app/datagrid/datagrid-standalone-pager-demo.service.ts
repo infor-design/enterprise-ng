@@ -23,11 +23,21 @@ export class DatagridStandalonePagerDemoService {
     return this.getData('initial');
   }
 
-  firstPage(): any    { return this.getData('first');    }
-  nextPage(): any     { return this.getData('next');     }
-  previousPage(): any { return this.getData('prev');     }
-  lastPage(): any     { return this.getData('last');     }
-  filterPage(): any   { return this.getData('initial');  }
+  firstPage(): any {
+    return this.getData('first');
+  }
+  nextPage(): any {
+    return this.getData('next');
+  }
+  previousPage(): any {
+    return this.getData('prev');
+  }
+  lastPage(): any {
+    return this.getData('last');
+  }
+  filterPage(): any {
+    return this.getData('initial');
+  }
 
   sortPage(isAscending: boolean): any {
     this.data.sort((o1, o2) => o1.id - o2.id);

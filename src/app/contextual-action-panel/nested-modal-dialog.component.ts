@@ -1,11 +1,9 @@
 import {
-  ChangeDetectionStrategy,
   Component,
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
 import {
-  SohoModalDialogRef,
   SohoModalDialogService
 } from 'ids-enterprise-ng';
 
@@ -33,7 +31,7 @@ export class NestedModalDialogComponent {
   /**
    * Constructor, taking the interface to the Soho Modal Dialog Api.
    */
-  constructor(private dialog: SohoModalDialogService) {  }
+  constructor(private dialog: SohoModalDialogService) { }
 
   public get depth(): number {
     return NestedModalDialogComponent.s_depth;
@@ -44,9 +42,19 @@ export class NestedModalDialogComponent {
       .modal(NestedModalDialogComponent, this.placeholder)
       .title(`Modal Dialog no. '${++NestedModalDialogComponent.s_depth}'.`)
       .buttons(
-        [{text: 'Cancel', click: (e, modal) => { modal.close(true); }},
-         {text: 'OK', click: (e, modal) => { modal.close(true); }, isDefault: true}])
-      .afterClose((f) => { NestedModalDialogComponent.s_depth--; })
+        [{
+          text: 'Cancel', click: (e, modal) => {
+            modal.close(true);
+          }
+        },
+        {
+          text: 'OK', click: (e, modal) => {
+            modal.close(true);
+          }, isDefault: true
+        }])
+      .afterClose((f) => {
+        NestedModalDialogComponent.s_depth--;
+      })
       .open();
   }
 }

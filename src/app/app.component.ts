@@ -16,8 +16,8 @@ import {
 @Component({
   selector: 'body', // eslint-disable-line
   templateUrl: 'app.component.html',
-  styleUrls: [ './app.component.css' ],
-  providers: [ HeaderDynamicDemoRefService ],
+  styleUrls: ['./app.component.css'],
+  providers: [HeaderDynamicDemoRefService],
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements AfterViewInit {
@@ -31,7 +31,9 @@ export class AppComponent implements AfterViewInit {
 
   @ViewChild(SohoPersonalizeDirective, { static: true }) personalize: SohoPersonalizeDirective;
 
-  @HostBinding('class.no-scroll') get isNoScroll() { return true; }
+  @HostBinding('class.no-scroll') get isNoScroll() {
+    return true;
+  }
 
   /**
    * Include the uplift icons only if required by the current theme, this
@@ -51,12 +53,12 @@ export class AppComponent implements AfterViewInit {
   ngAfterViewInit(): void {
 
     /**
-    * Note: If using an input like [triggers]="[ '.application-menu-trigger' ]"
-    * hookup the app menu trigger once the afterViewInit is called. This will
-    * ensure that the toolbar has had a chance to create the application-menu-trugger
-    * button.
-    * this.applicationMenu.triggers = [ '.application-menu-trigger' ];
-    */
+     * Note: If using an input like [triggers]="[ '.application-menu-trigger' ]"
+     * hookup the app menu trigger once the afterViewInit is called. This will
+     * ensure that the toolbar has had a chance to create the application-menu-trugger
+     * button.
+     * this.applicationMenu.triggers = [ '.application-menu-trigger' ];
+     */
     if (this.isApplicationMenuOpen) {
       this.applicationMenu.openMenu(true, true);
     } else {

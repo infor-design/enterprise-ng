@@ -96,6 +96,7 @@ export class PersonalizeMenuComponent implements OnInit {
 
   /**
    * Handle the theme change event, by setting it in local storage.
+   *
    * @todo may want to consider making the persistence of this
    * configurable, so we could use a state pattern.
    *

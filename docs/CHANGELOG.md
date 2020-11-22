@@ -9,6 +9,8 @@
 - `[General]` Upgraded to Angular 11.  `BTHH` ([Issue #858](https://github.com/infor-design/enterprise-ng/issues/858))
     - See the `UPGRADING.md` guide for details.
     - Replaced karma-instanbul-coverage with karma-coverage
+    - Replace tslint with eslint.
+
 ## v8.1.2
 
 ### 8.1.2 Fixes

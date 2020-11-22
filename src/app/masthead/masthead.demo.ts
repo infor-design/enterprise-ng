@@ -8,8 +8,12 @@ import { SohoRenderLoopService } from 'ids-enterprise-ng';
 })
 export class SohoMastheadDemoComponent implements OnInit, AfterViewChecked {
 
-  @HostBinding('class.masthead') get isMasthead() { return true; }
-  @HostBinding('style.display') get isDisplayBlock() { return 'block'; }
+  @HostBinding('class.masthead') get isMasthead() {
+    return true;
+  }
+  @HostBinding('style.display') get isDisplayBlock() {
+    return 'block';
+  }
 
   constructor(private readonly renderLoop: SohoRenderLoopService) { }
 
@@ -27,7 +31,7 @@ export class SohoMastheadDemoComponent implements OnInit, AfterViewChecked {
   ngAfterViewChecked() {
     // Display the current render loop in real time
     // This forces a view refresh.
-      this.renderLoopCount = this.renderLoop.getCurrentCount();
+    this.renderLoopCount = this.renderLoop.getCurrentCount();
   }
 
   toggleRenderLoop() {

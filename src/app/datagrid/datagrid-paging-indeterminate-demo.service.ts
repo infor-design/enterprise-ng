@@ -13,7 +13,7 @@ import {
   PAGING_COLUMNS
 } from './datagrid-paging-data';
 
-declare var Formatters: any;
+// declare var Formatters: any;
 
 @Injectable()
 export class DataGridPagingIndeterminateDemoService extends SohoDataGridService {

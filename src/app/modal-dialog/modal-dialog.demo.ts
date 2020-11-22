@@ -58,8 +58,16 @@ export class ModalDialogDemoComponent {
               api.at(3).disabled = true;
             }
           },
-          { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-          { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }
+          {
+            text: 'Cancel', click: () => {
+              dialogRef.close('CANCEL');
+            }
+          },
+          {
+            text: 'Submit', click: () => {
+              dialogRef.close('SUBMIT');
+            }, isDefault: true
+          }
         ])
       .beforeOpen((ref?: SohoModalDialogRef<FullSizeModalDialogComponent>) => {
         ref.buttonsetAPI.at(2).disabled = true;
@@ -75,8 +83,16 @@ export class ModalDialogDemoComponent {
     const dialogRef = this.modalService
       .modal<NestedModalDialogComponent>(NestedModalDialogComponent, this.placeholder)
       .buttons(
-        [{ text: 'Cancel', click: () => { dialogRef.close(); } },
-        { text: 'Submit', click: () => { dialogRef.close(); }, isDefault: true }])
+        [{
+          text: 'Cancel', click: () => {
+            dialogRef.close();
+          }
+        },
+        {
+          text: 'Submit', click: () => {
+            dialogRef.close();
+          }, isDefault: true
+        }])
       .title(this.title)
       .open()
       .afterClose((result) => {
@@ -89,8 +105,16 @@ export class ModalDialogDemoComponent {
       .message('<span class="message">Are you sure you want to delete this page?</span>')
       .buttons(
         [
-          { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-          { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }
+          {
+            text: 'Cancel', click: () => {
+              dialogRef.close('CANCEL');
+            }
+          },
+          {
+            text: 'Submit', click: () => {
+              dialogRef.close('SUBMIT');
+            }, isDefault: true
+          }
         ])
       .title(this.title)
       .open()
@@ -104,8 +128,16 @@ export class ModalDialogDemoComponent {
       .message('<span class="message">Are you sure you want to delete this page?</span>')
       .buttons(
         [
-          { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-          { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }
+          {
+            text: 'Cancel', click: () => {
+              dialogRef.close('CANCEL');
+            }
+          },
+          {
+            text: 'Submit', click: () => {
+              dialogRef.close('SUBMIT');
+            }, isDefault: true
+          }
         ])
       .title(this.title)
       .open()
@@ -120,8 +152,16 @@ export class ModalDialogDemoComponent {
       .modal(VetoableModalDialogComponent, this.placeholder)
       .buttons(
         [
-          { text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-          { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
+          {
+            text: 'Cancel', click: () => {
+              dialogRef.close('CANCEL');
+            }
+          },
+          {
+            text: 'Submit', click: () => {
+              dialogRef.close('SUBMIT');
+            }, isDefault: true
+          }])
       .title(this.title)
       .open()
       .afterClose(result => {
@@ -133,8 +173,16 @@ export class ModalDialogDemoComponent {
     const dialogRef = this.modalService
       .message('<span class="message">Are you sure you want to delete this page?</span>')
       .buttons(
-        [{ text: 'YES', click: () => { dialogRef.close('YES'); } },
-        { text: 'NO', click: () => { dialogRef.close('NO'); }, isDefault: true }])
+        [{
+          text: 'YES', click: () => {
+            dialogRef.close('YES');
+          }
+        },
+        {
+          text: 'NO', click: () => {
+            dialogRef.close('NO');
+          }, isDefault: true
+        }])
       .title(this.title)
       .open()
       .afterClose(result => {
@@ -147,8 +195,16 @@ export class ModalDialogDemoComponent {
     const dialogRef = this.modalService
       .modal(ModalDialogDataGridComponent, this.placeholder)
       .buttons(
-        [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-        { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
+        [{
+          text: 'Cancel', click: () => {
+            dialogRef.close('CANCEL');
+          }
+        },
+        {
+          text: 'Submit', click: () => {
+            dialogRef.close('SUBMIT');
+          }, isDefault: true
+        }])
       .title(this.title)
       .open()
       .afterClose(result => {

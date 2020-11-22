@@ -62,7 +62,7 @@ export class LineDemoComponent implements OnInit {
 
   ngOnInit() {
     this.xAxis = {
-      formatText: function (d) {
+      formatText(d) {
         const text = d.split('|');
         let markup = '';
         text.map(function (mapText, i) {

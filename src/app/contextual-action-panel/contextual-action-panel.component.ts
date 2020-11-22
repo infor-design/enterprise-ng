@@ -2,7 +2,7 @@ import {
   Component,
   ViewChild,
   ViewContainerRef
- } from '@angular/core';
+} from '@angular/core';
 
 import {
   SohoContextualActionPanelService,
@@ -40,8 +40,16 @@ export class ContextualActionPanelComponent {
     const dialogRef = this.modalService
       .modal<NestedModalDialogComponent>(NestedModalDialogComponent, this.placeholder)
       .buttons(
-      [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-      { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
+        [{
+          text: 'Cancel', click: () => {
+            dialogRef.close('CANCEL');
+          }
+        },
+        {
+          text: 'Submit', click: () => {
+            dialogRef.close('SUBMIT');
+          }, isDefault: true
+        }])
       .title(this.title)
       .open()
       .afterClose((result) => {
@@ -49,7 +57,7 @@ export class ContextualActionPanelComponent {
       });
   }
 
- closeAndOpenSecondCAP() {
+  closeAndOpenSecondCAP() {
     const buttons = [
       {
         text: 'Save',
@@ -74,7 +82,7 @@ export class ContextualActionPanelComponent {
 
     this.panelService
       .contextualactionpanel(NestedContextualActionPanelComponent, this.placeholder)
-      .modalSettings({ buttons: buttons, title: 'Nested CAP'})
+      .modalSettings({ buttons, title: 'Nested CAP' })
       .open()
       .initializeContent(true);
   }

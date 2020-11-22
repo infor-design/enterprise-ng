@@ -27,7 +27,7 @@ export class AccordionDynamicDemoComponent {
   panes: QueryList<SohoAccordionPaneComponent>;
 
   public sampleData = [
-    { id: 1, header: 'Header 1', content: 'This is the content of header 1', expanded: false  },
+    { id: 1, header: 'Header 1', content: 'This is the content of header 1', expanded: false },
     { id: 2, header: 'Header 2', content: 'This is the content of header 2', expanded: true }
   ];
 
@@ -36,7 +36,9 @@ export class AccordionDynamicDemoComponent {
   @ViewChild(SohoAccordionComponent, { static: true }) accordion: SohoAccordionComponent;
 
   public addMore() {
-    this.sampleData.forEach((d) => { d.expanded = false; });
+    this.sampleData.forEach((d) => {
+      d.expanded = false;
+    });
     const idx = this.sampleData.length + 1;
     this.sampleData.push({ id: idx, header: 'Header ' + idx, content: 'I\'ve added some more header ' + idx, expanded: true });
 
@@ -62,7 +64,9 @@ export class AccordionDynamicDemoComponent {
       });
     }
 
-    setTimeout(() => { this.accordion.updated(); });
+    setTimeout(() => {
+      this.accordion.updated();
+    });
   }
 
   public onExpand(event: SohoAccordionEvent) {

@@ -27,7 +27,11 @@ export class DataGridToolbarDemoComponent {
   public onDelete() {
     const opts: SohoMessageOptions = {
       buttons: [
-        { text: 'Close', click: (e, modal) => { modal.close(true); }, isDefault: true }
+        {
+          text: 'Close', click: (e, modal) => {
+            modal.close(true);
+          }, isDefault: true
+        }
       ]
     };
     opts.message = 'Test Message. Testing 1.2';

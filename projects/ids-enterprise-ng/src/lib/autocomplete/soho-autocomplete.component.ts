@@ -76,26 +76,23 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
   /**
    * Available Soho Template events as Output (EventEmitters passing the event)
    * Should match the Soho event names for the component
+   *
+   * @todo replace override of native attribute.
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() change: EventEmitter<SohoInputEvent[]> = new EventEmitter<SohoInputEvent[]>();
+
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   @Output() beforeopen: EventEmitter<SohoAutoCompleteEvent> = new EventEmitter<SohoAutoCompleteEvent>();
 
   @HostBinding('class.autocomplete') get isAutoComplete() {
- return true;
-}
+    return true;
+  }
 
   // -------------------------------------------
   // Public API
   // -------------------------------------------
-
-  get disabled() {
-    return this.isDisabled;
-  }
-  get readonly() {
-    return this.isReadOnly;
-  }
 
   /**
    * Local variables
@@ -124,6 +121,11 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
     }
   }
 
+  get disabled() {
+    return this.isDisabled;
+  }
+
+
   @Input() set readonly(value: boolean) {
     if (this.autocomplete) {
       if (value) {
@@ -135,6 +137,10 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
         this.isReadOnly = false;
       }
     }
+  }
+
+  get readonly() {
+    return this.isReadOnly;
   }
 
   constructor(private element: ElementRef) {

@@ -37,16 +37,16 @@ export class DataGridStandardFormatterDemoComponent implements OnInit {
       width: 100,
       formatter: Soho.Formatters.Alert,
       options: [
-        { id: 'Active',  value: 'Active',  label: 'Active' },
+        { id: 'Active', value: 'Active', label: 'Active' },
         { id: 'Inactive', value: 'Inactive', label: 'Inactive' },
-        { id: 'Late',    value: 'Late',    label: 'Late' },
+        { id: 'Late', value: 'Late', label: 'Late' },
         { id: 'On Hold', value: 'On Hold', label: 'On Hold' }
       ],
       ranges: [
-        { 'value': 'Active',  'classes': 'success', text: 'Active' },
-        { 'value': 'Inactive', 'classes': 'alert',  text: 'Inactive' },
-        { 'value': 'Late',    'classes': 'error',   text: 'Late' },
-        { 'value': 'On Hold', 'classes': 'info',    text: 'On Hold' },
+        { 'value': 'Active', 'classes': 'success', text: 'Active' },
+        { 'value': 'Inactive', 'classes': 'alert', text: 'Inactive' },
+        { 'value': 'Late', 'classes': 'error', text: 'Late' },
+        { 'value': 'On Hold', 'classes': 'info', text: 'On Hold' },
       ]
     };
 
@@ -73,10 +73,10 @@ export class DataGridStandardFormatterDemoComponent implements OnInit {
       });
     }
 
-    const columns = [ ...PAGING_COLUMNS, statusColumn, ratedColumn ];
+    const columns = [...PAGING_COLUMNS, statusColumn, ratedColumn];
 
     return {
-      columns: columns,
+      columns,
       dataset: PAGING_DATA,
       selectable: 'single',
       paging: true,

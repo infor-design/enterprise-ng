@@ -6,6 +6,7 @@ import {
 
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
+// eslint-disable-next-line no-shadow
 enum MessageStatus {
   Queued = 'Queued',
   Running = 'Running',

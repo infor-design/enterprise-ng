@@ -38,7 +38,9 @@ export class DropdownAsyncDemoComponent implements AfterViewInit {
      * are ready, call the initialise method async which emulates making an ajax call to
      * load data from a backend webapi.
      */
-     setTimeout(() => { this.webApiResponse(); });
+    setTimeout(() => {
+      this.webApiResponse();
+    });
   }
 
   toggleModel() {

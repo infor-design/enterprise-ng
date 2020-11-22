@@ -9,6 +9,7 @@ import { SohoToastService } from 'ids-enterprise-ng';
 import { SohoWeekViewComponent } from 'ids-enterprise-ng';
 import { WeekViewDemoService } from './week-view.demo.service';
 
+// eslint-disable-next-line no-shadow
 export enum displayType { 'oneWeek', 'twoWeeks', 'oneDay', 'twoDays' }
 
 @Component({

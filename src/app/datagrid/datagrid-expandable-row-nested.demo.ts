@@ -56,14 +56,14 @@ export class DataGridExpandableRowNestedDemoComponent
   @ViewChild(SohoDataGridComponent)
   sohoDataGridComponent: SohoDataGridComponent;
 
-  constructor() {}
+  constructor() { }
 
   gridOptions: SohoDataGridOptions = undefined;
   ngOnInit() {
     this.gridOptions = this.buildGridOptions();
   }
 
-  ngAfterViewChecked() {}
+  ngAfterViewChecked() { }
 
   private buildGridOptions(): SohoDataGridOptions {
     PAGING_DATA[0].detail = [
@@ -529,7 +529,7 @@ export class DataGridExpandableRowNestedDemoComponent
         formatter: Soho.Formatters.Button,
         icon: 'delete',
         headerTooltip: 'Delete',
-        click: function (e, args) {
+        click: (e, args) => {
           console.log(args[0].cell, args[0].row, args[0].item.id);
         },
       },
