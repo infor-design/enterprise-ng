@@ -56,7 +56,12 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   private _isTogglePressed = false;
   private _isPressed = false;
 
-  /** The type of the button, defaulting to 'secondary'. */
+  /**
+   * The type of the button, defaulting to 'secondary'.
+   *
+   * Allow override of input, to match component selector.
+   */
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('soho-button') set sohoButton(type: SohoButtonType) {
     this.buttonType = type ? type : SohoButtonComponent.SECONDARY;
   }
@@ -106,15 +111,15 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     }
   }
 
+  get hideMenuArrow() {
+    return this._buttonOptions.hideMenuArrow;
+  }
+
   /**
    * Used to set an extra class on the soho-icon being used by soho-button.
    * Useful to set emerald06-color azure10-color to change the icon color.
    */
   @Input() extraIconClass: string;
-
-  get hideMenuArrow() {
-    return this._buttonOptions.hideMenuArrow;
-  }
 
   /**
    * Whether this button should be a toggle button or not. Alternate toggle on/off icons

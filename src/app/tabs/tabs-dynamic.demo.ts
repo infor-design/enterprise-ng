@@ -69,7 +69,9 @@ export class TabsDynamicDemoComponent implements OnInit {
   }
 
   onChangeTitles() {
-    for (let i = 0; i < this.tabs.length; i++) {
+    // eslint-disable-next-line @typescript-eslint/prefer-for-of
+    for
+      (let i = 0; i < this.tabs.length; i++) {
       // ----------------------------------------------------------------------
       // Calling setTitle on the soho component/control so that the entire
       // tabset doesn't have to be rebuilt and hence cause a FOUC.

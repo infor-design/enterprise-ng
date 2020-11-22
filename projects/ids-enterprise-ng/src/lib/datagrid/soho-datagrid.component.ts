@@ -1031,6 +1031,14 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+
+  /**
+   * If true an extra column is currently added to the end that fills the space.
+   */
+  get spacerColumn() {
+    return this._gridOptions?.spacerColumn;
+  }
+
   /* Experimental Feature to stick on the top of the page. This feature has numerous limitations. */
   @Input() set stickyHeader(stickyHeader: boolean) {
     this._gridOptions.stickyHeader = stickyHeader;
@@ -1047,13 +1055,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       this.datagrid.settings.attributes = attributes;
       this.markForRefresh('attributes', RefreshHintFlags.Rebuild);
     }
-  }
-
-  /**
-   * If true an extra column is currently added to the end that fills the space.
-   */
-  get spacerColumn() {
-    return this._gridOptions.spacerColumn;
   }
 
   /**
@@ -1203,7 +1204,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * - "content-only" where table elements are provided in the body.
    * - "auto" where columns and rows are obtained for an
    *   injected service (if defined) or via the Inputs if not.
+   *
+   * Allow the input to be overriden, to match the component selector.
    */
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('soho-datagrid') set sohoDatagrid(datagridType: SohoDataGridType) {
     this.datagridType = datagridType ? datagridType : SohoDataGridComponent.AUTO;
   }
@@ -1236,7 +1240,12 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   @Output()
   expandrow = new EventEmitter<SohoDataGridToggleRowEvent>();
 
-  // This event is fired when a key is pressed
+  /**
+   * This event is fired when a key is pressed
+   *
+   * @todo remove override of native attribute
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output()
   keydown = new EventEmitter<SohoDataGridKeyDownEvent>();
 
@@ -1248,7 +1257,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   @Output()
   beforeentereditmode = new EventEmitter<SohoDataGridEditModeEvent>();
 
-  // This event is fired when edit mode is entered.
+  /**
+   * This event is fired when edit mode is entered.
+   */
   @Output()
   entereditmode = new EventEmitter<SohoDataGridEditModeEvent>();
 
