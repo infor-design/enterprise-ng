@@ -24,9 +24,8 @@ interface SohoFileUploadAdvancedStatus {
   setCompleted(data?: any): void;
 
   setProgress(percent: number): void;
-  setAbort(xhr?: any); // xml http request object
 
-  setAbort(jqXHR: JQueryXHR): void;
+  setAbort(xhr?: any): void; // xml http request object
 }
 
 type SohoFileUploadAdvancedSendFunction =
