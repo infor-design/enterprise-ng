@@ -103,7 +103,11 @@ export class FileUploadAdvancedDemoComponent implements OnInit {
         console.error(`Backend returned code ${err.status}, body was: ${err.error}`);
         alert(`Backend returned code ${err.status}, body was: ${err.error}`);
       }
-      status.setCompleted();
+      status.setAbort({
+        abort: function() {
+          console.log('Abort action called');
+        }
+      });
     }
   );
   }
