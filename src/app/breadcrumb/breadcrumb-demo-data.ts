@@ -3,7 +3,6 @@ export const STANDARD_DATA = [
   {
     content: 'Home',
     id: 'test-breadcrumb-home',
-    href: '#'
   },
   {
     content: 'Second Item',
@@ -19,6 +18,5 @@ export const STANDARD_DATA = [
     content: 'Fourth Item',
     current: true,
     id: 'test-breadcrumb-fourth',
-    href: '#'
   }
 ];

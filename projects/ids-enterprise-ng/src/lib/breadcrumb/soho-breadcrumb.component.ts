@@ -3,6 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  HostBinding,
   Input,
   NgZone,
   OnDestroy,
@@ -26,6 +27,8 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
   private options: SohoBreadcrumbOptions = {
     style: 'default'
   };
+
+  @HostBinding('class.breadcrumb') get isBreadcrumb() { return true; }
 
   /** Allow Breadcrumb Definition by Input */
   @Input()
@@ -220,4 +223,13 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
       this.breadcrumbAPI.destroy();
     });
   }
+}
+
+@Component({
+  selector: '[soho-breadcrumb-list]', // tslint:disable-line
+  template: `<ng-content></ng-content>`,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class SohoBreadcrumbListComponent {
+  @HostBinding('class.breadcrumb-list') get isBreadcrumbList() { return true; }
 }

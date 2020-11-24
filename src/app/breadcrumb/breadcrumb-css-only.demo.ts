@@ -6,14 +6,11 @@ import {
 
 import { SohoBreadcrumbComponent } from 'ids-enterprise-ng';
 
-import { STANDARD_DATA } from './breadcrumb-demo-data';
-
 @Component({
   selector: 'app-breadcrumb-demo',
-  templateUrl: 'breadcrumb.demo.html',
+  templateUrl: 'breadcrumb-css-only.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BreadcrumbDemoComponent {
+export class BreadcrumbCssOnlyDemoComponent {
   @ViewChild(SohoBreadcrumbComponent, { static: true }) sohoBreadcrumbComponent: SohoBreadcrumbComponent;
-  public breadcrumbs = STANDARD_DATA;
 }
