@@ -1,13 +1,9 @@
 import {
   AfterViewInit,
-  ChangeDetectionStrategy,
   Component,
   ElementRef,
-  EventEmitter,
   HostBinding,
-  Input,
   OnDestroy,
-  Output,
 } from '@angular/core';
 
 @Component({
@@ -23,8 +19,8 @@ export class SohoRatingComponent implements AfterViewInit, OnDestroy {
     return true;
   }
 
-  private jQueryElement: JQuery;
-  private rating: SohoRating;
+  private jQueryElement?: JQuery;
+  private rating?: SohoRating | null;
   constructor(private element: ElementRef) { }
 
   /** Setup */
@@ -38,7 +34,7 @@ export class SohoRatingComponent implements AfterViewInit, OnDestroy {
   ngOnDestroy() {
     if (this.rating) {
       this.rating.destroy();
-      this.jQueryElement.off();
+      this.jQueryElement?.off();
       this.rating = null;
     }
   }

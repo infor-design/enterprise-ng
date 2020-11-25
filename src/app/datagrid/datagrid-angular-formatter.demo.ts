@@ -14,7 +14,7 @@ export class ButtonCellFormatterComponent implements OnDestroy {
   constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {
     console.log(`constructor ${this.args.value}`);
   }
-  public onClick(e) {
+  public onClick(_e: any) {
     console.log(`${this.args.row}`);
   }
 
@@ -41,7 +41,7 @@ export class DataGridAngularFormatterDemoComponent {
       formatter: Soho.Formatters.Readonly },
     { id: 'button-formatter', name: 'Edit', text: 'Edit Row',
       sortable: false, icon: 'edit', align: 'center',
-      formatter: Soho.Formatters.Button, click: (e, args) => this.onClick(args),
+      formatter: Soho.Formatters.Button, click: (_e, args) => this.onClick(args),
       disabled: this.disableButton },
     { id: 'button', name: 'Settings',
       sortable: false, align: 'center', postRender: true,
@@ -59,10 +59,10 @@ export class DataGridAngularFormatterDemoComponent {
 
   constructor() {}
 
-  onClick(args) {
+  onClick(_args: any) {
     console.log('click');
   }
-  disableButton(row: number, cell: any, data: any, col: SohoDataGridColumn, item: any) {
+  disableButton(_row: number, _cell: any, _data: any, _col: SohoDataGridColumn, item: any) {
     return (item.productId === 214221 || item.productId === 214222);
   }
 }

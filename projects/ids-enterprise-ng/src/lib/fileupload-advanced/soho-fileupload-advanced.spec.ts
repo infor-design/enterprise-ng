@@ -1,6 +1,5 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { Component, DebugElement, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { SohoFileUploadAdvancedModule } from './soho-fileupload-advanced.module';
@@ -11,15 +10,13 @@ import { SohoFileUploadAdvancedComponent } from './soho-fileupload-advanced.comp
     <div soho-fileupload-advanced></div>`
 })
 class SohoFileUploadAdvancedTestComponent {
-  @ViewChild(SohoFileUploadAdvancedComponent) fileuploadadvanced: SohoFileUploadAdvancedComponent;
+  @ViewChild(SohoFileUploadAdvancedComponent) fileuploadadvanced?: SohoFileUploadAdvancedComponent;
 }
 
 describe('Soho File Upload Advanced Render', () => {
   let fileuploadadvanced: SohoFileUploadAdvancedComponent;
   let component: SohoFileUploadAdvancedTestComponent;
   let fixture: ComponentFixture<SohoFileUploadAdvancedTestComponent>;
-  let de: DebugElement;
-  let el: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -30,12 +27,9 @@ describe('Soho File Upload Advanced Render', () => {
     fixture = TestBed.createComponent(SohoFileUploadAdvancedTestComponent);
     component = fixture.componentInstance;
 
-    de = fixture.debugElement.query(By.css('div[soho-fileupload-advanced]'));
-    el = de.nativeElement;
-
     fixture.detectChanges(true);
 
-    fileuploadadvanced = component.fileuploadadvanced;
+    fileuploadadvanced = (component.fileuploadadvanced as any);
   });
 
   it('@Input() disabled', () => {

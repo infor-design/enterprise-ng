@@ -25,14 +25,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 @Component({
   template: `
   <form [formGroup]="formGroup">
-  <div soho-editor id="editor" role="textbox" aria-multiline="true" aria-label="editor" formControlName="editor">
-  </div>
+    <div class="field">
+      <span id="comments-label" class="label">Comments</span>
+      <div soho-editor id="editor1" id="editor" role="textbox" aria-multiline="true" aria-label="editor" formControlName="editor">
+        <p>Embrace <a href="http://en.wikipedia.org/wiki/e-commerce" class="hyperlink">e-commerce action-items</a>, reintermediate, ecologies paradigms wireless share life-hacks create innovative harness. Evolve solutions rich-clientAPIs synergies harness relationships virtual vertical facilitate end-to-end, wireless, evolve synergistic synergies.</p>
+        <p>Cross-platform, evolve, ROI scale cultivate eyeballs addelivery, e-services content cross-platform leverage extensible viral incentivize integrateAJAX-enabled sticky evolve magnetic cultivate leverage; cutting-edge. Innovate, end-to-end podcasting, whiteboard streamline e-business social; compelling, "cross-media exploit infomediaries innovative integrate integrateAJAX-enabled." Killer interactive reinvent, cultivate widgets leverage morph.</p>
+      </div>
+    </div>
   </form>`
 })
 class SohoEditorReactiveFormTestComponent {
   public editorValue = '1';
 
-  @ViewChild(SohoEditorComponent) editor: SohoEditorComponent;
+  @ViewChild(SohoEditorComponent) editor?: SohoEditorComponent;
 
   public formGroup: FormGroup;
 
@@ -72,8 +77,8 @@ describe('SohoEditorComponent on Reactive Form', () => {
     fixture.detectChanges();
   });
 
-  it('Check "disabled" by default.', () => {
-    expect($(el).hasClass('is-disabled')).toBeTruthy('disabled by default');
+  it('Check "enabled" by default.', () => {
+    expect($(el).hasClass('is-disabled')).toBeFalsy();
   });
 
   it('Check enable().', () => {
@@ -102,22 +107,4 @@ describe('SohoEditorComponent on Reactive Form', () => {
 
     expect($(el).html()).toEqual('Hello World!');
   });
-
-  xit('Check readonly.', () => {
-    fixture.detectChanges();
-    component.editor.readonly = true;
-    fixture.detectChanges();
-    expect($(el).hasClass('is-disabled')).toBeTruthy('readonly() should not of removed disabled flag');
-    expect($(el).hasClass('is-readonly')).toBeTruthy('readonly() of added readonly flag');
-  });
-
-  xit('Check readonly - from enabled.', () => {
-    component.editor.disabled = false;
-    fixture.detectChanges();
-    component.editor.readonly = true;
-    fixture.detectChanges();
-    expect($(el).hasClass('is-disabled')).toBeFalsy('readonly() should not of added disabled flag');
-    expect($(el).hasClass('is-readonly')).toBeTruthy('readonly() of added readonly flag');
-  });
-
 });

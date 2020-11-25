@@ -98,10 +98,10 @@ export class SohoSparklineComponent implements AfterViewInit, AfterViewChecked, 
 
   /* Events*/
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
-  @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
+  @Output() contextmenu: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
-  private jQueryElement: JQuery;
-  private sparkline: SohoSparkline;
+  private jQueryElement?: JQuery;
+  private sparkline?: SohoSparkline | null;
   private updateRequired = false;
 
   constructor(
@@ -121,13 +121,13 @@ export class SohoSparklineComponent implements AfterViewInit, AfterViewChecked, 
       this.jQueryElement.on('rendered', (...args) =>
         this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
-        this.ngZone.run(() => this.contextmenu.emit(args)));
+        this.ngZone.run(() => this.contextmenu?.emit(args)));
     });
   }
 
   ngAfterViewChecked() {
     if (this.sparkline && this.updateRequired) {
-      this.ngZone.runOutsideAngular(() => this.sparkline.updated(this.sparkline.settings));
+      this.ngZone.runOutsideAngular(() => this.sparkline?.updated(this.sparkline.settings));
       this.updateRequired = false;
     }
   }

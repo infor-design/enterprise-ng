@@ -1,6 +1,5 @@
 import {
   AfterViewChecked,
-  ChangeDetectionStrategy,
   Component,
   Input,
   OnInit,
@@ -8,6 +7,7 @@ import {
 } from '@angular/core';
 
 import { LMToolbarButton } from './toolbar-state.service';
+// @ts-ignore
 import { SohoToolbarComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -17,14 +17,14 @@ import { SohoToolbarComponent } from 'ids-enterprise-ng';
 })
 export class ToolbarStateDemoComponent implements AfterViewChecked, OnInit {
 
-  public _inHeader: boolean;
-  public _sectionTitle: string;
-  public _pageTitle: string;
-  public _buttons: Array<LMToolbarButton>;
-  public _maxVisibleButtons: number;
+  public _inHeader?: boolean;
+  public _sectionTitle?: string;
+  public _pageTitle?: string;
+  public _buttons?: Array<LMToolbarButton>;
+  public _maxVisibleButtons?: number;
   private updateToolbar = false;
 
-  @ViewChild('SohoToolbarComponent', { static: true }) sohoToolbar: SohoToolbarComponent;
+  @ViewChild('SohoToolbarComponent', { static: true }) sohoToolbar?: SohoToolbarComponent;
 
   @Input() set inHeader(param: boolean) {
     this._inHeader = param;
@@ -47,12 +47,12 @@ export class ToolbarStateDemoComponent implements AfterViewChecked, OnInit {
   }
 
   ngOnInit() {
-    this._maxVisibleButtons = this._buttons.length;
+    this._maxVisibleButtons = this._buttons?.length;
   }
 
   ngAfterViewChecked() {
     if (this.updateToolbar) {
-      this.sohoToolbar.updated();
+      this.sohoToolbar?.updated();
       this.updateToolbar = false;
     }
   }

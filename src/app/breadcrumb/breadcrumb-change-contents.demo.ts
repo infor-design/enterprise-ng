@@ -13,7 +13,7 @@ import { SohoBreadcrumbComponent } from 'ids-enterprise-ng';
 })
 export class BreadcrumbChangeContentsDemoComponent {
   private _i = 1;
-  @ViewChild(SohoBreadcrumbComponent, { static: true }) sohoBreadcrumbComponent: SohoBreadcrumbComponent;
+  @ViewChild(SohoBreadcrumbComponent, { static: true }) sohoBreadcrumbComponent?: SohoBreadcrumbComponent;
 
   /**
    * Enables template-driven updating of the CSS-only breadcrumb chain.
@@ -27,10 +27,10 @@ export class BreadcrumbChangeContentsDemoComponent {
    * of the last breadcrumb item in the chain.
    */
   public increment() {
-    const targetBreadcrumb = this.sohoBreadcrumbComponent.breadcrumbAPIs[2];
+    const targetBreadcrumb = this.sohoBreadcrumbComponent?.breadcrumbAPIs[2];
 
     console.log(`Incrementing ${this._i++}`);
-    targetBreadcrumb.settings.content = `${this._i}`;
-    targetBreadcrumb.refresh();
+    (targetBreadcrumb as any).settings.content = `${this._i}`;
+    targetBreadcrumb?.refresh();
   }
 }

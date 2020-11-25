@@ -1,6 +1,5 @@
 import {
-  forwardRef,
-  ChangeDetectorRef
+  forwardRef
 } from '@angular/core';
 
 import {
@@ -16,7 +15,7 @@ export const NOOP: any = () => {};
 export class BaseControlValueAccessor<T> implements ControlValueAccessor {
 
   /** Current value. */
-  private _value: T;
+  private _value?: T;
 
   /** ControlValueAccessor method called when the attached control has changed, */
   protected _onChangeCallback: (_: T) => void = NOOP;
@@ -25,15 +24,15 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
   private _onTouchedCallback: () => void = NOOP;
 
   /** Gets the value for the control. */
-  protected get internalValue(): T {
+  protected get internalValue(): T | undefined {
     return this._value;
   }
 
   /** Sets the value for the control. */
-  protected set internalValue(newValue: T) {
+  protected set internalValue(newValue: T | undefined) {
     if (newValue !== this._value) {
       this._value = newValue;
-      this._onChangeCallback(newValue);
+      this._onChangeCallback((newValue as any));
     }
   }
 
@@ -62,7 +61,7 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
    */
   registerOnChange(fn: (_: T) => void): void {
     this._onChangeCallback = () => {
-      fn(this.internalValue);
+      fn((this.internalValue as any));
     };
   }
 
@@ -77,8 +76,7 @@ export class BaseControlValueAccessor<T> implements ControlValueAccessor {
    * This function is called when the control status changes to or from "DISABLED".
    * Depending on the value, it will enable or disable the appropriate DOM element.
    */
-  setDisabledState(isDisabled: boolean): void {
-    // NOP
+  setDisabledState(_isDisabled: boolean): void {
   }
 }
 

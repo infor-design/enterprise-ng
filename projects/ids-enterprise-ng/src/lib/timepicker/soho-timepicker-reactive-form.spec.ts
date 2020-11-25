@@ -32,7 +32,7 @@ import { fakeAsync, tick } from '@angular/core/testing';
 class SohoTimePickerReactiveFormTestComponent {
   public timepickerValue = '12:00 AM';
 
-  @ViewChild(SohoTimePickerComponent) dropdown: SohoTimePickerComponent;
+  @ViewChild(SohoTimePickerComponent) dropdown?: SohoTimePickerComponent;
 
   public formGroup: FormGroup;
 
@@ -51,7 +51,6 @@ class SohoTimePickerReactiveFormTestComponent {
 }
 
 describe('Soho TimePicker Reactive Form', () => {
-  let dropdown: SohoTimePickerComponent;
   let component: SohoTimePickerReactiveFormTestComponent;
   let fixture: ComponentFixture<SohoTimePickerReactiveFormTestComponent>;
   let de: DebugElement;
@@ -65,7 +64,6 @@ describe('Soho TimePicker Reactive Form', () => {
 
     fixture = TestBed.createComponent(SohoTimePickerReactiveFormTestComponent);
     component = fixture.componentInstance;
-    dropdown = component.dropdown;
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-timepicker]')).nativeElement;
@@ -77,10 +75,12 @@ describe('Soho TimePicker Reactive Form', () => {
   it('..', fakeAsync(() => {
     fixture.detectChanges();
     tick();
+    component.formGroup.disable();
     expect(el.hasAttribute('disabled')).toBeTruthy('disabled by default');
   }));
 
   it('is disabled by default.', () => {
+    component.formGroup.disable();
     expect(el.hasAttribute('disabled')).toBeTruthy('disabled by default');
   });
 

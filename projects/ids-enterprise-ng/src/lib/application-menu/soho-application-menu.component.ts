@@ -31,10 +31,10 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   // -------------------------------------------
 
   /** Breakpoint. */
-  @Input() public breakpoint: SohoApplicationMenuBreakPoint;
+  @Input() public breakpoint?: SohoApplicationMenuBreakPoint;
 
   /** Sets Open on resize */
-  @Input() public set openOnLarge(openOnLarge: boolean) {
+  @Input() public set openOnLarge(openOnLarge: boolean | undefined) {
     this._openOnLarge = openOnLarge;
 
     if (this.applicationmenu) {
@@ -43,7 +43,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
     }
   }
 
-  public get openOnLarge() {
+  public get openOnLarge(): boolean | undefined {
     if (this.applicationmenu) {
       return this.applicationmenu.settings.openOnLarge;
     }
@@ -55,7 +55,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   }
 
   /** Allows the menu to become closed after an actionable header has been selected */
-  @Input() public set dismissOnClickMobile(dismissOnClickMobile: boolean) {
+  @Input() public set dismissOnClickMobile(dismissOnClickMobile: boolean | undefined) {
     this._dismissOnClickMobile = dismissOnClickMobile;
 
     if (this.applicationmenu) {
@@ -94,7 +94,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   /**
    * Is the application menu filterable?
    */
-  @Input() public filterable: boolean;
+  @Input() public filterable?: boolean;
 
   /**
    *
@@ -144,25 +144,25 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   // -------------------------------------------
 
   /** Reference to the jQuery element. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** Reference to the annotated SoHoXi control */
-  private applicationmenu: SohoApplicationMenuStatic;
+  private applicationmenu?: SohoApplicationMenuStatic | null;
 
   /** List of jQuery triggers. */
   private _triggers: Array<any> = [];
 
   /** Open on resize */
-  private _openOnLarge: boolean;
+  private _openOnLarge?: boolean | undefined;
 
   /** Dismiss the menu when an item is clicked in the mobile breakpoints */
-  private _dismissOnClickMobile: boolean;
+  private _dismissOnClickMobile?: boolean;
 
   /** Menu switcher expand callback  */
-  private _onExpandSwitcher: SohoApplicationMenuExpandSwitcherFunction;
+  private _onExpandSwitcher?: SohoApplicationMenuExpandSwitcherFunction;
 
   /** Menu switcher collapse callback  */
-  private _onCollapseSwitcher: SohoApplicationMenuCollapseSwitcherFunction;
+  private _onCollapseSwitcher?: SohoApplicationMenuCollapseSwitcherFunction;
 
   /**
    * This event is fired when the visibility of the application menu is changed,
@@ -205,33 +205,33 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
    * Close the menu.
    */
   public closeMenu() {
-    this.ngZone.runOutsideAngular(() => this.applicationmenu.closeMenu());
+    this.ngZone.runOutsideAngular(() => this.applicationmenu?.closeMenu());
   }
 
   /** Open the menu. */
   public openMenu(noFocus?: boolean, userOpened?: boolean, openedByClass?: boolean) {
-    this.ngZone.runOutsideAngular(() => this.applicationmenu.openMenu(noFocus, userOpened, openedByClass));
+    this.ngZone.runOutsideAngular(() => this.applicationmenu?.openMenu(noFocus, userOpened, openedByClass));
   }
 
   /**
    * Returns true if the menu is open, otherwise false.
    */
-  public isOpen(): boolean {
-    return this.ngZone.runOutsideAngular(() => this.applicationmenu.isOpen());
+  public isOpen(): boolean | undefined {
+    return this.ngZone.runOutsideAngular(() => this.applicationmenu?.isOpen());
   }
 
   /**
    * Notifies application menu that it has been updated
    */
   public updated() {
-    this.ngZone.runOutsideAngular(() => this.applicationmenu.updated());
+    this.ngZone.runOutsideAngular(() => this.applicationmenu?.updated());
   }
 
   /**
    * Closes the panel area controlled by switcher
    */
   public closeSwitcherPanel() {
-    this.ngZone.runOutsideAngular(() => this.applicationmenu.closeSwitcherPanel());
+    this.ngZone.runOutsideAngular(() => this.applicationmenu?.closeSwitcherPanel());
   }
 
   /*
@@ -299,13 +299,13 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
 
       // Initialise any event handlers.
       this.jQueryElement
-        .on('expand', (e, results: any[]) => this.ngZone.run(() => this.accordionExpand.next(results)))
+        .on('expand', (_e, results: any[]) => this.ngZone.run(() => this.accordionExpand.next(results)))
         .on('collapse', () => this.ngZone.run(() => this.accordionCollapse.next(true)))
         // tslint:disable-next-line: deprecation
         .on('expand', () => this.ngZone.run(() => this.visibility.next(true)))
         // tslint:disable-next-line: deprecation
         .on('collapse', () => this.ngZone.run(() => this.visibility.next(false)))
-        .on('filtered', (e, results: any[]) => this.ngZone.run(() => this.filtered.next(results)))
+        .on('filtered', (_e, results: any[]) => this.ngZone.run(() => this.filtered.next(results)))
         .on('applicationmenuopen', () => this.ngZone.run(() => this.menuVisibility.next(true)))
         .on('applicationmenuclose', () => this.ngZone.run(() => this.menuVisibility.next(false)));
     });
@@ -313,7 +313,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
 
   ngAfterViewChecked() {
     if (this.applicationmenu && this.updateRequired) {
-      this.ngZone.runOutsideAngular(() => this.applicationmenu.updated());
+      this.ngZone.runOutsideAngular(() => this.applicationmenu?.updated());
       this.updateRequired = false;
     }
   }

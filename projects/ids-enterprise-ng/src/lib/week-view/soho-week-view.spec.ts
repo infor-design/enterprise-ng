@@ -13,7 +13,7 @@ const eventTypes: SohoWeekViewEventType[] = [
     translationKey: 'DiscretionaryTimeOff',
     color: 'azure',
     checked: true,
-    click: null
+    click: undefined
   }
 ];
 const events: SohoWeekViewEvent[] = [
@@ -34,8 +34,6 @@ const events: SohoWeekViewEvent[] = [
 describe('Soho Week view Unit Tests', () => {
   let comp: SohoWeekViewComponent;
   let fixture: ComponentFixture<SohoWeekViewComponent>;
-  let de: DebugElement;
-  let el: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -44,16 +42,12 @@ describe('Soho Week view Unit Tests', () => {
 
     fixture = TestBed.createComponent(SohoWeekViewComponent);
     comp = fixture.componentInstance;
-    de = fixture.debugElement;
-    el = de.nativeElement;
 
     Soho.Locale.set('en-US');
   });
 
   it('check inputs', () => {
     const onWeekRendered = () => {
-    };
-    const onSelected = () => {
     };
 
     comp.locale = 'en-US';
@@ -77,8 +71,6 @@ describe('Soho Week view Unit Tests', () => {
     const updatedEventTypes = [...eventTypes];
     const updateEvents = [...events];
     const onWeekViewRendered2 = () => {
-    };
-    const onSelected2 = () => {
     };
 
     comp.locale = 'en-GB';
@@ -125,19 +117,19 @@ describe('Soho Week view Unit Tests', () => {
 })
 class SohoWeekViewTestComponent {
   @ViewChild(SohoWeekViewComponent)
-  weekView: SohoWeekViewComponent;
+  weekView?: SohoWeekViewComponent;
 
-  public events: SohoWeekViewEvent[];
-  public eventTypes: SohoWeekViewEventType[];
+  public events?: SohoWeekViewEvent[];
+  public eventTypes?: SohoWeekViewEventType[];
   public locale = 'en-US';
-  public month: number;
-  public year: number;
-  public startDate: Date;
-  public endDate: Date;
+  public month?: number;
+  public year?: number;
+  public startDate?: Date;
+  public endDate?: Date;
 }
 
 describe('Soho Week view Chart Render', () => {
-  let weekView: SohoWeekViewComponent;
+  let weekView: SohoWeekViewComponent | undefined;
   let comp: SohoWeekViewTestComponent;
   let fixture: ComponentFixture<SohoWeekViewTestComponent>;
   let de: DebugElement;
@@ -183,15 +175,17 @@ describe('Soho Week view Chart Render', () => {
 
     fixture.detectChanges();
 
-    TestHelper.testFireEvent(
-      weekView['element'].nativeElement,
-      'selected',
-      weekView['selected']
-    );
-    TestHelper.testFireEvent(
-      weekView['element'].nativeElement,
-      'weekrendered',
-      weekView['weekRendered']
-    );
+    if (weekView) {
+      TestHelper.testFireEvent(
+        weekView['element'].nativeElement,
+        'selected',
+        weekView['selected']
+      );
+      TestHelper.testFireEvent(
+        weekView['element'].nativeElement,
+        'weekrendered',
+        weekView['weekRendered']
+      );
+    }
   });
 });

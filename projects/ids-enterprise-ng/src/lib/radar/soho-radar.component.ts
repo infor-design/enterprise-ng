@@ -252,10 +252,10 @@ export class SohoRadarComponent implements AfterViewInit, AfterViewChecked, OnDe
   @Output() selected: EventEmitter<SohoRadarSelectEvent> = new EventEmitter<SohoRadarSelectEvent>();
   @Output() unselected: EventEmitter<SohoRadarSelectEvent> = new EventEmitter<SohoRadarSelectEvent>();
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
-  @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
+  @Output() contextmenu: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
-  private jQueryElement: JQuery;
-  private radar: SohoRadar;
+  private jQueryElement?: JQuery;
+  private radar?: SohoRadar | null;
   private updateRequired = false;
 
   constructor(
@@ -273,20 +273,20 @@ export class SohoRadarComponent implements AfterViewInit, AfterViewChecked, OnDe
       this.radar = this.jQueryElement.data('radar');
 
       // Setup the events
-      this.jQueryElement.on('selected', (e: any, args: SohoRadarSelectEvent) =>
+      this.jQueryElement.on('selected', (_e: any, args: SohoRadarSelectEvent) =>
         this.ngZone.run(() => this.selected.emit(args)));
-      this.jQueryElement.on('unselected', (e: any, args: SohoRadarSelectEvent) =>
+      this.jQueryElement.on('unselected', (_e: any, args: SohoRadarSelectEvent) =>
         this.ngZone.run(() => this.unselected.emit(args)));
       this.jQueryElement.on('rendered', (...args) =>
         this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
-        this.ngZone.run(() => this.contextmenu.emit(args)));
+        this.ngZone.run(() => this.contextmenu?.emit(args)));
     });
   }
 
   ngAfterViewChecked() {
     if (this.radar && this.updateRequired) {
-      this.ngZone.runOutsideAngular(() => this.radar.updated(this.radar.settings));
+      this.ngZone.runOutsideAngular(() => this.radar?.updated(this.radar.settings));
       this.updateRequired = false;
     }
   }
@@ -306,14 +306,14 @@ export class SohoRadarComponent implements AfterViewInit, AfterViewChecked, OnDe
   }
 
   public setSelected(selected: SohoRadarSelected) {
-    this.ngZone.runOutsideAngular(() => this.radar.setSelected(selected));
+    this.ngZone.runOutsideAngular(() => this.radar?.setSelected(selected));
   }
 
   public toggleSelected(selected: SohoRadarSelected) {
-    this.ngZone.runOutsideAngular(() => this.radar.toggleSelected(selected));
+    this.ngZone.runOutsideAngular(() => this.radar?.toggleSelected(selected));
   }
 
   public getSelected() {
-    return this.ngZone.runOutsideAngular(() => this.radar.getSelected());
+    return this.ngZone.runOutsideAngular(() => this.radar?.getSelected());
   }
 }

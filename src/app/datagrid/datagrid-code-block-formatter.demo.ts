@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CODE_BLOCK_DATA } from '../demodata/code-block-data';
 
-export const CodeBlockFormatter = (row, cell, value, col, rowData, api): string => {
+export const CodeBlockFormatter = (_row: any, _cell: any, _value: any, _col: any, rowData: any, _api: any): string => {
   console.log(rowData);
 
   /* tslint:disable */
@@ -48,7 +48,7 @@ export class DataGridCodeBlockFormatterDemoComponent {
 
   constructor() {}
 
-  onClick(args) {
+  onClick(_args: any) {
     console.log('click');
   }
 }

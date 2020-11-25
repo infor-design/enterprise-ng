@@ -13,13 +13,12 @@ import { SohoFileUploadComponent } from './soho-fileupload.component';
   `
 })
 class SohoFileUploadTestComponent {
-  @ViewChild(SohoFileUploadComponent) fileupload: SohoFileUploadComponent;
+  @ViewChild(SohoFileUploadComponent) fileupload?: SohoFileUploadComponent;
   public name = 'File';
   public text = 'File Upload';
 }
 
 describe('Soho File Upload Unit Tests', () => {
-  let comp: SohoFileUploadTestComponent;
   let fixture: ComponentFixture<SohoFileUploadTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -30,7 +29,6 @@ describe('Soho File Upload Unit Tests', () => {
     });
 
     fixture = TestBed.createComponent(SohoFileUploadTestComponent);
-    comp = fixture.componentInstance;
 
     de = fixture.debugElement.query(By.css('input[soho-fileupload]'));
     el = de.nativeElement;
@@ -40,10 +38,6 @@ describe('Soho File Upload Unit Tests', () => {
 
   it('Check Content', () => {
     expect(el.nodeName).toEqual('INPUT');
-    // expect(el.attributes[0].name).toEqual('type');
-    // expect(el.attributes[0].value).toEqual('file');
-    // expect(el.parentElement.nodeName).toEqual('LABEL');
-    // expect(el.parentElement.classList).toContain('fileupload');
   });
 
   // Add more method tests.
@@ -69,7 +63,7 @@ describe('Soho File Upload Render', () => {
     el = de.nativeElement;
 
     fixture.detectChanges();
-    fileupload = component.fileupload;
+    fileupload = (component.fileupload as any);
   });
 
   it('@Input() disabled', () => {

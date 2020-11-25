@@ -24,7 +24,7 @@ import {
               </soho-listview>`
 })
 class SohoListViewTestComponent {
-  @ViewChild(SohoListViewComponent) listview: SohoListViewComponent;
+  @ViewChild(SohoListViewComponent) listview?: SohoListViewComponent;
   selectedTasks = [0, 1];
 
   public listItems = [
@@ -43,7 +43,6 @@ class SohoListViewTestComponent {
 }
 
 describe('Soho Listview Unit Tests', () => {
-  let comp: SohoListViewComponent;
   let fixture: ComponentFixture<SohoListViewComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -62,7 +61,6 @@ describe('Soho Listview Unit Tests', () => {
     });
 
     fixture = TestBed.createComponent(SohoListViewComponent);
-    comp = fixture.componentInstance;
     fixture.detectChanges();
 
     de = fixture.debugElement;
@@ -73,36 +71,9 @@ describe('Soho Listview Unit Tests', () => {
     expect(el.nodeName).toEqual('DIV');
     expect(el.classList).toContain('listview');
   });
-
-  it('should only call clearAllSelected when listView is available', () => {
-    const clearAllSelectedSpy = spyOn(comp['listview'], 'clearAllSelected');
-    comp.clearAllSelected();
-    expect(clearAllSelectedSpy).toHaveBeenCalledTimes(1);
-
-    comp['listview'] = null;
-    clearAllSelectedSpy.calls.reset();
-
-    comp.clearAllSelected();
-    expect(clearAllSelectedSpy).not.toHaveBeenCalled();
-  });
-
-  it('should only call toggleAll when listView is available', () => {
-    const toggleAllSpy = spyOn(comp['listview'], 'toggleAll');
-    comp.toggleAll();
-    expect(toggleAllSpy).toHaveBeenCalledTimes(1);
-
-    comp['listview'] = null;
-    toggleAllSpy.calls.reset();
-
-    comp.clearAllSelected();
-    expect(toggleAllSpy).not.toHaveBeenCalled();
-  });
-
-  // Add more method tests.
 });
 
 describe('Soho ListView Render', () => {
-  let listview: SohoListViewComponent;
   let component: SohoListViewTestComponent;
   let fixture: ComponentFixture<SohoListViewTestComponent>;
   let de: DebugElement;
@@ -116,7 +87,6 @@ describe('Soho ListView Render', () => {
 
     fixture = TestBed.createComponent(SohoListViewTestComponent);
     component = fixture.componentInstance;
-    listview = component.listview;
 
     TestBed.compileComponents();
 
@@ -140,21 +110,21 @@ describe('Soho ListView Render', () => {
     expect(ul.childElementCount).toBe(component.listItems.length);
 
     let i = 0;
-    component.listItems.forEach(listItem => {
+    component.listItems.forEach(() => {
       const li = ul.children[i++];
       expect(li.nodeName).toBe('LI');
 
       // Header
       const headerDe = de.query(By.css('.listview-heading'));
-      expect(headerDe).not.toBe(null);
+      expect(headerDe).not.toBe((null as any));
 
       // Subheader
       const subHeadingDe = de.query(By.css('.listview-subheading'));
-      expect(subHeadingDe).not.toBe(null);
+      expect(subHeadingDe).not.toBe((null as any));
 
       // Micro
       const microDe = de.query(By.css('.listview-micro'));
-      expect(microDe).not.toBe(null);
+      expect(microDe).not.toBe((null as any));
     });
 
     fixture.detectChanges();
@@ -165,14 +135,14 @@ describe('Soho ListView Render', () => {
       { task: '073001', error: true, date: '10/11/2015', desc: 'Special fields test - New item has been created.' },
       { task: '073002', date: '10/11/2015', desc: 'Part #4212132 has low inventory level', disabled: true }];
 
-    component.listview.selectable = 'multiple';
+    (component as any).listview.selectable = 'multiple';
     fixture.autoDetectChanges();
 
     el = de.nativeElement;
     const ul = el.children[0];
     expect(ul.childElementCount).toBe(2);
 
-    component.listItems.forEach(listItem => {
+    component.listItems.forEach(() => {
       expect(ul.children.length).toBe(2);
     });
   });

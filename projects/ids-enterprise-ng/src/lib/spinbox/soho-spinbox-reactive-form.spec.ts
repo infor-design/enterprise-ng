@@ -21,7 +21,6 @@ import { SohoSpinboxModule } from './soho-spinbox.module';
 import { SohoLabelModule } from '../label/soho-label.module';
 import { SohoSpinboxComponent } from './soho-spinbox.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { fakeAsync, tick } from '@angular/core/testing';
 
 @Component({
   template: `
@@ -32,7 +31,7 @@ import { fakeAsync, tick } from '@angular/core/testing';
 class SohoSpinboxReactiveFormTestComponent {
   public value = 25;
 
-  @ViewChild(SohoSpinboxComponent) dropdown: SohoSpinboxComponent;
+  @ViewChild(SohoSpinboxComponent) dropdown?: SohoSpinboxComponent;
 
   public formGroup: FormGroup;
 
@@ -51,7 +50,6 @@ class SohoSpinboxReactiveFormTestComponent {
 }
 
 describe('SohoSpinboxComponent on ReactiveForm', () => {
-  let dropdown: SohoSpinboxComponent;
   let component: SohoSpinboxReactiveFormTestComponent;
   let fixture: ComponentFixture<SohoSpinboxReactiveFormTestComponent>;
   let de: DebugElement;
@@ -65,7 +63,6 @@ describe('SohoSpinboxComponent on ReactiveForm', () => {
 
     fixture = TestBed.createComponent(SohoSpinboxReactiveFormTestComponent);
     component = fixture.componentInstance;
-    dropdown = component.dropdown;
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-spinbox]')).nativeElement;

@@ -3,10 +3,8 @@ import {
   OnInit,
   ViewChild
  } from '@angular/core';
-
- import {
-   SohoListViewComponent
- } from 'ids-enterprise-ng';
+// @ts-ignore
+ import { SohoListViewComponent } from 'ids-enterprise-ng';
 
 // @ts-ignore
 @Component({
@@ -15,7 +13,7 @@ import {
 })
 export class ListViewCustomContentDemoComponent implements OnInit {
 
-  @ViewChild(SohoListViewComponent, { static: true }) sohoListViewComponent: SohoListViewComponent;
+  @ViewChild(SohoListViewComponent, { static: true }) sohoListViewComponent?: SohoListViewComponent;
   data1 = ['ONE', 'TWO', 'THREE'];
   data2 = ['Four', 'FIVE', 'SIX', 'SEVEN'];
   data = this.data1;
@@ -30,12 +28,12 @@ export class ListViewCustomContentDemoComponent implements OnInit {
     this.data = this.data2;
   }
   makeMultipleSelection() {
-    this.sohoListViewComponent.selectable = 'multiple';
+    (this.sohoListViewComponent as any).selectable = 'multiple';
   }
   makeSingleSelection() {
-    this.sohoListViewComponent.selectable = 'single';
+    (this.sohoListViewComponent as any).selectable = 'single';
   }
   makeMixedSelection() {
-    this.sohoListViewComponent.selectable = 'mixed';
+    (this.sohoListViewComponent as any).selectable = 'mixed';
   }
 }

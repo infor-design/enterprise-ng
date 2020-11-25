@@ -155,7 +155,8 @@
               ],
               "exclude": [
                 "**/node_modules/**",
-                "**/version.json"
+                "**/version.json",
+                "dist/**/*"
               ]
             }
           },
@@ -209,7 +210,8 @@
               ],
               "exclude": [
                 "**/node_modules/**",
-                "**/version.json"
+                "**/version.json",
+                "dist/**/*"
               ]
             }
           }

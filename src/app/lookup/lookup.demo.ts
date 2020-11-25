@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+// @ts-ignore
 import { SohoLookupComponent } from 'ids-enterprise-ng';
 import { TemplateService } from './template.service';
 import { Asset } from './asset';
+// @ts-ignore
 import { SohoToastService } from 'ids-enterprise-ng';
 
 import {
@@ -21,30 +23,37 @@ export interface FakeResponse {
   templateUrl: 'lookup.demo.html',
 })
 export class LookupDemoComponent implements OnInit {
-  @ViewChild('templateId', { static: true }) sohoLookupComponent: SohoLookupComponent;
-  @ViewChild('toggleButtons', { static: true }) sohoLookupRef: SohoLookupComponent;
+  @ViewChild('templateId', { static: true }) sohoLookupComponent?: SohoLookupComponent;
+  @ViewChild('toggleButtons', { static: true }) sohoLookupRef?: SohoLookupComponent;
 
-  public columns_product: SohoDataGridColumn[];
-  public columns_multi: SohoDataGridColumn[];
-  public entityIds: string;
-  public data_product: any[];
+  public columns_product?: SohoDataGridColumn[];
+  public columns_multi?: SohoDataGridColumn[];
+  public entityIds?: string;
+  public data_product?: any[];
   public customButtons: SohoModalButton[] = [
     {
       text: 'Enable', click: () => {
-        const api = this.sohoLookupRef.modal.buttonsetAPI;
+        const api = this.sohoLookupRef?.modal?.buttonsetAPI;
+        if (!api) {
+          return;
+        }
+
         api.at(2).disabled = false;
         api.at(3).disabled = false;
       }
     },
     {
       text: 'Disable', click: () => {
-        const api = this.sohoLookupRef.modal.buttonsetAPI;
+        const api = this.sohoLookupRef?.modal?.buttonsetAPI;
+        if (!api) {
+          return;
+        }
         api.at(2).disabled = true;
         api.at(3).disabled = true;
       }
     },
-    { text: 'Cancel', click: () => { this.sohoLookupRef.modal.close(); } },
-    { text: 'Submit', click: () => { this.sohoLookupRef.modal.close(); }, isDefault: true }
+    { text: 'Cancel', click: () => { this.sohoLookupRef?.modal?.close(); } },
+    { text: 'Submit', click: () => { this.sohoLookupRef?.modal?.close(); }, isDefault: true }
   ];
   public model: any = {
     single: null,
@@ -89,7 +98,7 @@ export class LookupDemoComponent implements OnInit {
     asyncexists: '2342203',
   };
   public showModel = false;
-  public templates: Array<Asset>;
+  public templates?: Array<Asset>;
 
   // So we can bind 'this' to the source function passed to the lookup control
   public context = this;
@@ -118,7 +127,7 @@ export class LookupDemoComponent implements OnInit {
         fullWidth: false,
       }
     } as SohoDataGridOptions;
-    this.sohoLookupComponent.options = lookupOptions;
+    (this.sohoLookupComponent as any).options = lookupOptions;
     this.service.getAvailableTemplates().subscribe(result => {
       this.templates = result.data;
     });
@@ -172,6 +181,10 @@ export class LookupDemoComponent implements OnInit {
       }
 
       // Server supports paging
+      if (!page || !pagesize) {
+        return;
+      }
+
       const startIndex = (page - 1) * pagesize;
       const endIndex = page * pagesize;
       dataResult = dataResult.slice(startIndex, endIndex);
@@ -194,7 +207,7 @@ export class LookupDemoComponent implements OnInit {
 
     // Some Sample Data
     productsData.forEach(data => {
-      this.data_product.push(data);
+      this.data_product?.push(data);
     });
 
     // Add checkbox for multi select Grid
@@ -202,8 +215,8 @@ export class LookupDemoComponent implements OnInit {
 
     // Define Columns for the Grid.
     productsColumns.forEach(column => {
-      this.columns_product.push(column);
-      this.columns_multi.push(column);
+      this.columns_product?.push(column);
+      this.columns_multi?.push(column);
     });
 
   }

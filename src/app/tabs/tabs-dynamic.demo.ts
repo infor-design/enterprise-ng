@@ -4,6 +4,7 @@ import {
   ViewChild
 } from '@angular/core';
 
+// @ts-ignore
 import { SohoTabsComponent } from 'ids-enterprise-ng';
 
 /**
@@ -20,9 +21,9 @@ import { SohoTabsComponent } from 'ids-enterprise-ng';
 })
 export class TabsDynamicDemoComponent implements OnInit {
 
-  @ViewChild(SohoTabsComponent, { static: true }) sohoTabsComponent: SohoTabsComponent;
+  @ViewChild(SohoTabsComponent, { static: true }) sohoTabsComponent?: SohoTabsComponent;
 
-  public tabs: Array<any>;
+  public tabs?: Array<any>;
   public currentTabsIndex = 1;
   public currentTabTitleChangeNumber = 1;
 
@@ -65,22 +66,26 @@ export class TabsDynamicDemoComponent implements OnInit {
     this.tabs = this.tabsData[this.currentTabsIndex];
     this.currentTabTitleChangeNumber = 1;
 
-    this.sohoTabsComponent.refresh();
+    this.sohoTabsComponent?.refresh();
   }
 
   onChangeTitles() {
+    if (!this.tabs) {
+      return;
+    }
+
     for (let i = 0; i < this.tabs.length; i++) {
       // ----------------------------------------------------------------------
       // Calling setTitle on the soho component/control so that the entire
       // tabset doesn't have to be rebuilt and hence cause a FOUC.
       // ----------------------------------------------------------------------
-      this.sohoTabsComponent.rename(
+      this.sohoTabsComponent?.rename(
         this.tabs[i].id,
         this.tabs[i].title + ' Title Change ' + this.currentTabTitleChangeNumber);
     }
 
     this.currentTabTitleChangeNumber++;
-    this.sohoTabsComponent.refresh();
+    this.sohoTabsComponent?.refresh();
   }
 
   onActivated(event: SohoTabsEvent) {
@@ -90,6 +95,6 @@ export class TabsDynamicDemoComponent implements OnInit {
   }
 
   onAddTab() {
-    this.tabs.push({ id: 'dynamic', dismissible: true, title: 'Newly Added Tab', content: 'agnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.' });
+    this.tabs?.push({ id: 'dynamic', dismissible: true, title: 'Newly Added Tab', content: 'agnetic; proactive citizen-media granular strategic compelling blogging interactive bleeding-edge transform. Standards-compliant monetize enhance drive e-services.' });
   }
 }

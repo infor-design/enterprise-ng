@@ -175,10 +175,10 @@ describe('Soho Line Unit Tests', () => {
     fixture.detectChanges();
 
     comp.toggleSelected({ groupIndex: 1 });
-    expect(comp.getSelected()[0].data.name).toEqual(lineData[1].name);
+    expect((comp as any).getSelected()[0].data.name).toEqual(lineData[1].name);
 
     comp.setSelected({ groupIndex: 2 });
-    expect(comp.getSelected()[0].data.name).toEqual(lineData[2].name);
+    expect((comp as any).getSelected()[0].data.name).toEqual(lineData[2].name);
   });
 });
 
@@ -186,13 +186,11 @@ describe('Soho Line Unit Tests', () => {
   template: `<div soho-line [dataset]="data"></div>`
 })
 class SohoLineTestComponent {
-  @ViewChild(SohoLineComponent) line: SohoLineComponent;
+  @ViewChild(SohoLineComponent) line?: SohoLineComponent;
   public data = [{}];
 }
 
 describe('Soho line Chart Render', () => {
-  let line: SohoLineComponent;
-  let component: SohoLineTestComponent;
   let fixture: ComponentFixture<SohoLineTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -204,8 +202,6 @@ describe('Soho line Chart Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoLineTestComponent);
-    component = fixture.componentInstance;
-    line = component.line;
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-line]')).nativeElement;

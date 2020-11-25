@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
-
+// @ts-ignore
 import { SohoComponentsModule } from 'ids-enterprise-ng';
 
 import { AboutDemoComponent } from './about/about.demo';

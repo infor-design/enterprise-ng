@@ -5,7 +5,7 @@
  * interface of the Soho jQuery alert control.
  */
 
-type SohoAlertType = 'error' | 'alert' | 'success' | 'info' | 'icon';
+type SohoAlertType = 'error' | 'alert' | 'success' | 'info' | 'icon' | undefined;
 
 interface SohoAlertOptions {
   /** */
@@ -61,5 +61,5 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
 
   removeMessage(options?: SohoAlertOptions): JQuery;
 
-  scrollIntoView(alignToTop?: boolean, options?: SohoAlertOptions);
+  scrollIntoView(alignToTop?: boolean, options?: SohoAlertOptions): void;
 }

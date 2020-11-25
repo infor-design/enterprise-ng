@@ -7,7 +7,8 @@
 
 type SohoButtonOptionsStyle = 'default' | 'btn' | 'btn-primary' | 'btn-secondary' | 'btn-tertiary' | 'btn-destructive' | null | undefined;
 
-type SohoButtonOptionsType = 'default' | 'btn-icon' | 'btn-menu' | 'btn-actions' | 'btn-toggle' | 'icon-favorite' | 'btn-editor' | 'input' | null | undefined;
+type SohoButtonOptionsType = 'default' | 'btn-icon' | 'btn-menu' | 'btn-actions' | 'btn-toggle' |
+  'icon-favorite' | 'btn-editor' | 'input' | null | undefined;
 
 /**
  * Button Options
@@ -79,18 +80,12 @@ declare class SohoButtonStatic {
   /** Whether or not this is a valid toggle button in a pressed state. */
   get pressed(): boolean;
 
-  /**
-   * On a Toggle or Favorite button, sets the current pressed state.
-   * @param {boolean} val whether or not to set a "pressed" state on this valid toggle button.
-   */
+  /** On a Toggle or Favorite button, sets the current pressed state. */
   set pressed(val: boolean);
 
   /**
    * Provides a JSON-compatible data representation of this button component for use with
    * higher-level components.
-   *
-   * @param addContextElement if true, adds a reference to this button element to the return data (NOT JSON-compatible).
-   * @returns JSON-compatible representation of this button's configuration.
    */
   toData(addContextElement: boolean): string;
 

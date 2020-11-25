@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+// @ts-ignore
 import { SohoHomePageComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -6,7 +7,7 @@ import { SohoHomePageComponent } from 'ids-enterprise-ng';
   templateUrl: 'homepage.demo.html',
 })
 export class HomePageDemoComponent {
-  @ViewChild(SohoHomePageComponent, { static: true }) homepage: SohoHomePageComponent;
+  @ViewChild(SohoHomePageComponent, { static: true }) homepage?: SohoHomePageComponent;
 
   public demoTasks: Object[];
 
@@ -97,11 +98,11 @@ export class HomePageDemoComponent {
   onSorted(event: any) {
     console.log('Sorted: ' + event);
   }
-  onBeforeOpen(event: any) {
+  onBeforeOpen(_event: any) {
   }
-  onClose(event: any) {
+  onClose(_event: any) {
   }
-  onOpen(event: any) {
+  onOpen(_event: any) {
   }
   onResize(args: SohoHomePageEvent) {
     console.log(args);

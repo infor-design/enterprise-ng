@@ -18,7 +18,7 @@ import {
              <li soho-popupmenu-separator singleSelectableSection=true></li>`
 })
 class SohoPopupMenuSeparatorTestComponent {
-  @ViewChild(SohoPopupMenuSeparatorComponent) separator: SohoPopupMenuSeparatorComponent;
+  @ViewChild(SohoPopupMenuSeparatorComponent) separator?: SohoPopupMenuSeparatorComponent;
 }
 
 @Component({
@@ -26,7 +26,7 @@ class SohoPopupMenuSeparatorTestComponent {
              <li soho-popupmenu-heading>Heading One</li>`
 })
 class SohoPopupMenuHeadingTestComponent {
-  @ViewChild(SohoPopupMenuHeadingComponent) heading: SohoPopupMenuHeadingComponent;
+  @ViewChild(SohoPopupMenuHeadingComponent) heading?: SohoPopupMenuHeadingComponent;
 }
 
 @Component({
@@ -34,7 +34,7 @@ class SohoPopupMenuHeadingTestComponent {
              <span soho-popupmenu-shortcut-text>CTRL+X</span>`
 })
 class SohoPopupMenuShortCutTextTestComponent {
-  @ViewChild(SohoPopupMenuShortCutTextComponent) heading: SohoPopupMenuShortCutTextComponent;
+  @ViewChild(SohoPopupMenuShortCutTextComponent) heading?: SohoPopupMenuShortCutTextComponent;
 }
 
 @Component({
@@ -42,7 +42,7 @@ class SohoPopupMenuShortCutTextTestComponent {
              <li soho-popupmenu-item>Item One</li>`
 })
 class SohoPopupMenuItemTestComponent {
-  @ViewChild(SohoPopupMenuItemComponent) item: SohoPopupMenuItemComponent;
+  @ViewChild(SohoPopupMenuItemComponent) item?: SohoPopupMenuItemComponent;
 }
 
 @Component({
@@ -50,11 +50,10 @@ class SohoPopupMenuItemTestComponent {
              <a soho-popupmenu-label isDisabled="true" > Entry One</a>`
 })
 class SohoPopupMenuItemLabelTestComponent {
-  @ViewChild(SohoPopupMenuItemLabelComponent) label: SohoPopupMenuItemLabelComponent;
+  @ViewChild(SohoPopupMenuItemLabelComponent) label?: SohoPopupMenuItemLabelComponent;
 }
 
 describe('Soho Popup Menu Unit Tests', () => {
-  let comp: SohoPopupMenuComponent;
   let fixture: ComponentFixture<SohoPopupMenuComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -65,7 +64,6 @@ describe('Soho Popup Menu Unit Tests', () => {
     });
 
     fixture = TestBed.createComponent(SohoPopupMenuComponent);
-    comp = fixture.componentInstance;
     fixture.detectChanges();
 
     de = fixture.debugElement;
@@ -79,8 +77,6 @@ describe('Soho Popup Menu Unit Tests', () => {
 });
 
 describe('Soho Popup Menu Heading Render', () => {
-  let heading: SohoPopupMenuHeadingComponent;
-  let component: SohoPopupMenuHeadingTestComponent;
   let fixture: ComponentFixture<SohoPopupMenuHeadingTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -92,8 +88,6 @@ describe('Soho Popup Menu Heading Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoPopupMenuHeadingTestComponent);
-    component = fixture.componentInstance;
-    heading = component.heading;
 
     de = fixture.debugElement;
     el = de.query(By.css('li[soho-popupmenu-heading]')).nativeElement;
@@ -111,7 +105,6 @@ describe('Soho Popup Menu Heading Render', () => {
 });
 
 describe('Soho Popup Menu Shortcut Text Render', () => {
-  let component: SohoPopupMenuShortCutTextTestComponent;
   let fixture: ComponentFixture<SohoPopupMenuShortCutTextTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -123,7 +116,6 @@ describe('Soho Popup Menu Shortcut Text Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoPopupMenuShortCutTextTestComponent);
-    component = fixture.componentInstance;
     de = fixture.debugElement;
     el = de.query(By.css('span[soho-popupmenu-shortcut-text]')).nativeElement;
 
@@ -140,8 +132,6 @@ describe('Soho Popup Menu Shortcut Text Render', () => {
 });
 
 describe('Soho Popup Menu Separator Render', () => {
-  let separator: SohoPopupMenuSeparatorComponent;
-  let component: SohoPopupMenuSeparatorTestComponent;
   let fixture: ComponentFixture<SohoPopupMenuSeparatorTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -153,8 +143,6 @@ describe('Soho Popup Menu Separator Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoPopupMenuSeparatorTestComponent);
-    component = fixture.componentInstance;
-    separator = component.separator;
 
     de = fixture.debugElement;
     el = de.query(By.css('li[soho-popupmenu-separator]')).nativeElement;
@@ -192,7 +180,7 @@ describe('Soho Popup Menu Item Render', () => {
     el = de.query(By.css('li[soho-popupmenu-item]')).nativeElement;
 
     fixture.detectChanges();
-    item = component.item;
+    item = (component.item as any);
   });
 
   it('Check Item HTML content', () => {
@@ -227,7 +215,7 @@ describe('Soho Popup Menu Item Label Render', () => {
     component = fixture.componentInstance;
 
     fixture.detectChanges();
-    label = component.label;
+    label = (component.label as any);
 
     de = fixture.debugElement;
     el = de.query(By.css('a[soho-popupmenu-label]')).nativeElement;
@@ -245,7 +233,7 @@ describe('Soho Popup Menu Item Label Render', () => {
 
     expect(el.getAttribute('href')).toEqual('#my-id');
 
-    label.menuId = null;
+    label.menuId = undefined;
     label.menuUrl = 'www.google.com';
     fixture.detectChanges();
 

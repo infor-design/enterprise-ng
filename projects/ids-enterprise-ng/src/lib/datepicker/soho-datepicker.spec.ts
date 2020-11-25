@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -34,11 +34,11 @@ import { SohoDatePickerModule, SohoDatePickerComponent } from './index';
 `
 })
 class TestDatePickerComponent {
-  @ViewChild(SohoDatePickerComponent) datepicker: SohoDatePickerComponent;
+  @ViewChild(SohoDatePickerComponent) datepicker?: SohoDatePickerComponent;
 
   @Output() changed = new EventEmitter<SohoDatePickerEvent>();
 
-  public model: string;
+  public model?: string;
   public _options: SohoDatePickerOptions = {};
 
   @Input() set options(options: SohoDatePickerOptions) {
@@ -48,7 +48,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _showTime: boolean;
+  public _showTime?: boolean;
 
   @Input() set showTime(showTime: boolean) {
     this._showTime = showTime;
@@ -57,7 +57,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _useCurrentTime: boolean;
+  public _useCurrentTime?: boolean;
 
   @Input() set useCurrentTime(useCurrentTime: boolean) {
     this._useCurrentTime = useCurrentTime;
@@ -66,7 +66,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _timeFormat: string;
+  public _timeFormat?: string;
   @Input() set timeFormat(timeFormat: string) {
     this._timeFormat = timeFormat;
     if (this.datepicker) {
@@ -74,7 +74,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _minuteInterval: number;
+  public _minuteInterval?: number;
   @Input() set minuteInterval(minuteInterval: number) {
     this._minuteInterval = minuteInterval;
     if (this.datepicker) {
@@ -82,7 +82,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _secondInterval: number;
+  public _secondInterval?: number;
   @Input() set secondInterval(secondInterval: number) {
     this._secondInterval = secondInterval;
     if (this.datepicker) {
@@ -90,7 +90,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _firstDayOfWeek: SohoDatePickerDayOfWeek;
+  public _firstDayOfWeek?: SohoDatePickerDayOfWeek;
   @Input() set firstDayOfWeek(firstDayOfWeek: SohoDatePickerDayOfWeek) {
     this._firstDayOfWeek = firstDayOfWeek;
     if (this.datepicker) {
@@ -98,7 +98,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _showToday: boolean;
+  public _showToday?: boolean;
   @Input() set showToday(showToday: boolean) {
     this._showToday = showToday;
     if (this.datepicker) {
@@ -106,7 +106,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _autoSize: boolean;
+  public _autoSize?: boolean;
   @Input() set autoSize(autoSize: boolean) {
     this._autoSize = autoSize;
     if (this.datepicker) {
@@ -114,7 +114,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _roundToInterval: boolean;
+  public _roundToInterval?: boolean;
   @Input() set roundToInterval(roundToInterval: boolean) {
     this._roundToInterval = roundToInterval;
     if (this.datepicker) {
@@ -122,7 +122,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _dateFormat: string;
+  public _dateFormat?: string;
   @Input() set dateFormat(dateFormat: string) {
     this._dateFormat = dateFormat;
     if (this.datepicker) {
@@ -130,7 +130,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _placeholder: string;
+  public _placeholder?: string;
   @Input() set placeholder(placeholder: string) {
     this._placeholder = placeholder;
     if (this.datepicker) {
@@ -138,7 +138,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _showLegend: boolean;
+  public _showLegend?: boolean;
   @Input() set showLegend(showLegend: boolean) {
     this._showLegend = showLegend;
     if (this.datepicker) {
@@ -146,7 +146,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _showMonthYearPicker: boolean;
+  public _showMonthYearPicker?: boolean;
   @Input() set showMonthYearPicker(showMonthYearPicker: boolean) {
     this._showMonthYearPicker = showMonthYearPicker;
     if (this.datepicker) {
@@ -154,7 +154,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _legend: Array<SohoDatePickerLegend>;
+  public _legend?: Array<SohoDatePickerLegend>;
   @Input() set legend(legend: Array<SohoDatePickerLegend>) {
     this._legend = legend;
     if (this.datepicker) {
@@ -162,7 +162,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _locale: string;
+  public _locale?: string;
   @Input() set locale(locale: string) {
     this._locale = locale;
     if (this.datepicker) {
@@ -170,7 +170,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _calendarName: SohoDatePickerCalendarName;
+  public _calendarName?: SohoDatePickerCalendarName;
   @Input() set calendarName(calendarName: SohoDatePickerCalendarName) {
     this._calendarName = calendarName;
     if (this.datepicker) {
@@ -178,7 +178,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _mode: SohoDatePickerMode;
+  public _mode?: SohoDatePickerMode;
   @Input() set mode(mode: SohoDatePickerMode) {
     this._mode = mode;
     if (this.datepicker) {
@@ -186,7 +186,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _range: SohoDatePickerRange;
+  public _range?: SohoDatePickerRange;
   @Input() set range(range: SohoDatePickerRange) {
     this._range = range;
     if (this.datepicker) {
@@ -194,7 +194,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _disable: SohoDatePickerDisable;
+  public _disable?: SohoDatePickerDisable;
   @Input() set disable(disable: SohoDatePickerDisable) {
     this._disable = disable;
     if (this.datepicker) {
@@ -202,7 +202,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _hideDays: boolean;
+  public _hideDays?: boolean;
   @Input() set hideDays(hideDays: boolean) {
     this._hideDays = hideDays;
     if (this.datepicker) {
@@ -210,7 +210,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _yearsAhead: number;
+  public _yearsAhead?: number;
   @Input() set yearsAhead(yearsAhead: number) {
     this._yearsAhead = yearsAhead;
     if (this.datepicker) {
@@ -218,7 +218,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _yearsBack: number;
+  public _yearsBack?: number;
   @Input() set yearsBack(yearsBack: number) {
     this._yearsBack = yearsBack;
     if (this.datepicker) {
@@ -226,7 +226,7 @@ class TestDatePickerComponent {
     }
   }
 
-  public _useUTC: boolean;
+  public _useUTC?: boolean;
   @Input() set useUTC(useUTC: boolean) {
     this._useUTC = useUTC;
     if (this.datepicker) {
@@ -243,7 +243,7 @@ describe('Soho Datepicker Unit Tests', () => {
   let comp: TestDatePickerComponent;
   let fixture: ComponentFixture<TestDatePickerComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [TestDatePickerComponent],
       imports: [FormsModule, ReactiveFormsModule, SohoDatePickerModule]
@@ -258,7 +258,7 @@ describe('Soho Datepicker Unit Tests', () => {
     });
   }));
 
-  it('Check events', async(() => {
+  it('Check events', waitForAsync(() => {
 
     spyOn(comp, 'onChange');
 
@@ -268,7 +268,7 @@ describe('Soho Datepicker Unit Tests', () => {
     //   expect(x).toBe(date, 'Incorrect value passed to event');
     // });
     expect(Soho.Locale.currentLocale.name).toEqual('en-US');
-    comp.datepicker.setValue(date);
+    comp.datepicker?.setValue(date);
 
     fixture.detectChanges();
 
@@ -276,11 +276,11 @@ describe('Soho Datepicker Unit Tests', () => {
       fixture.detectChanges();
       expect(Soho.Locale.currentLocale.name).toEqual('en-US');
       expect(comp.onChange).toHaveBeenCalled();
-      expect(comp.model).toBe('11/11/1978', 'Model not updated to correct value.');
+      expect(['11/11/1978', '1978-11-11']).toContain((comp.model as any));
     });
   }));
 
-  it('Check inputs', async(() => {
+  it('Check inputs', waitForAsync(() => {
     fixture.autoDetectChanges();
 
     const testOptions: SohoDatePickerOptions = {
@@ -333,7 +333,7 @@ describe('Soho Datepicker Unit Tests', () => {
     fixture.detectChanges();
 
     fixture.whenStable().then(() => {
-      expect(comp.datepicker.options).toEqual(testOptions, 'Options didn\'t match');
+      expect(comp.datepicker?.options).toEqual(testOptions, 'Options didn\'t match');
       comp.options = {};
       // fixture.detectChanges();
 
@@ -366,14 +366,14 @@ describe('Soho Datepicker Unit Tests', () => {
       // fixture.detectChanges();
 
       fixture.whenStable().then(() => {
-        expect(comp.datepicker.options).toEqual(testOptionsTwo, 'Options set via individual methods didn\'t match');
-        expect(comp.datepicker.options.range).toBeUndefined('Range object created early');
+        expect(comp.datepicker?.options).toEqual(testOptionsTwo, 'Options set via individual methods didn\'t match');
+        expect(comp.datepicker?.options.range).toBeUndefined('Range object created early');
 
         comp.mode = 'range';
         // fixture.detectChanges();
 
         fixture.whenStable().then(() => {
-          expect(comp.datepicker.options.range).toEqual({ useRange: true }, 'Range object nor set to useRange: true');
+          expect(comp.datepicker?.options.range).toEqual({ useRange: true }, 'Range object nor set to useRange: true');
 
           comp.range = {};
           comp.mode = 'range';

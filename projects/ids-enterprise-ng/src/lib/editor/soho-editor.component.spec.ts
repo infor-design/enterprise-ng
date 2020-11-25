@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SohoEditorComponent } from './soho-editor.component';
 
@@ -6,7 +6,7 @@ describe('SohoEditorComponent', () => {
   let component: SohoEditorComponent;
   let fixture: ComponentFixture<SohoEditorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SohoEditorComponent ]
     })
@@ -70,9 +70,9 @@ describe('SohoEditorComponent', () => {
     // check editor internal soho component options object
     // expect(component['editor'].settings.delay).toEqual(delay);
     // expect(component['editor'].settings.firstHeader).toEqual(firstHeader);
-    expect(component['editor'].settings.secondHeader).toEqual(secondHeader);
-    expect(component['editor'].settings.placeholder).toEqual(placeHolder);
-    expect(component['editor'].settings.showHtmlView).toEqual(showHtmlView);
-    expect(component['editor'].settings.preview).toEqual(preview);
+    expect((component['editor'] as any).settings.secondHeader).toEqual(secondHeader);
+    expect((component['editor'] as any).settings.placeholder).toEqual(placeHolder);
+    expect((component['editor'] as any).settings.showHtmlView).toEqual(showHtmlView);
+    expect((component['editor'] as any).settings.preview).toEqual(preview);
   });
 });

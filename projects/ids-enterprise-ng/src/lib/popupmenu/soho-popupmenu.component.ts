@@ -64,8 +64,8 @@ export class SohoPopupMenuItemLabelComponent {
     return '#';
   }
 
-  @Input() menuId: string;
-  @Input() menuUrl: string;
+  @Input() menuId?: string;
+  @Input() menuUrl?: string;
 }
 
 /**
@@ -76,7 +76,7 @@ export class SohoPopupMenuItemLabelComponent {
   template: `<ng-content></ng-content>`
 })
 export class SohoPopupMenuItemComponent {
-  @HostBinding('class.is-checked') @Input() isChecked: boolean;
+  @HostBinding('class.is-checked') @Input() isChecked?: boolean;
   @HostBinding('class.is-selectable') @Input() isSelectable = false;
   @HostBinding('class.is-disabled') @Input() isDisabled = false;
   @HostBinding('class.is-indented') @Input() isIndented = false;
@@ -95,13 +95,13 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
   @Input() set popupmenuOptions(_popupMenuOptions: SohoPopupMenuOptions) {
     this._popupMenuOptions = _popupMenuOptions;
     if (this.jQueryElement) {
-      this.popupmenu.settings = _popupMenuOptions;
+      (this.popupmenu as any).settings = _popupMenuOptions;
     }
   }
 
   get popupmenuOptions(): SohoPopupMenuOptions {
     if (this.popupmenu) {
-      return this.popupmenu.settings;
+      return (this.popupmenu as any).settings;
     }
 
     return this._popupMenuOptions;
@@ -111,112 +111,112 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
   @Input() set menu(menu: string | JQuery) {
     this._popupMenuOptions.menu = menu;
     if (this.popupmenu) {
-      this.popupmenu.settings.menu = menu;
+      (this.popupmenu as any).settings.menu = menu;
     }
   }
 
   get menu(): string | JQuery {
     if (this.popupmenu) {
-      return this.popupmenu.settings.menu;
+      return (this.popupmenu as any).settings.menu;
     }
 
-    return this._popupMenuOptions.menu;
+    return (this._popupMenuOptions as any).menu;
   }
 
   /** 'click' | 'rightClick' | 'immediate' */
   @Input() set trigger(trigger: SohoPopupMenuTrigger) {
     this._popupMenuOptions.trigger = trigger;
     if (this.popupmenu) {
-      this.popupmenu.settings.trigger = trigger;
+      (this.popupmenu as any).settings.trigger = trigger;
     }
   }
 
   get trigger(): SohoPopupMenuTrigger {
     if (this.popupmenu) {
-      return this.popupmenu.settings.trigger;
+      return (this.popupmenu as any).settings.trigger;
     }
 
-    return this._popupMenuOptions.trigger;
+    return (this._popupMenuOptions as any).trigger;
   }
 
   /** Auto Focus */
   @Input() set autoFocus(autoFocus: boolean) {
     this._popupMenuOptions.autoFocus = autoFocus;
     if (this.popupmenu) {
-      this.popupmenu.settings.autoFocus = autoFocus;
+      (this.popupmenu as any).settings.autoFocus = autoFocus;
     }
   }
 
   get autoFocus(): boolean {
     if (this.popupmenu) {
-      return this.popupmenu.settings.autoFocus;
+      return (this.popupmenu as any).settings.autoFocus;
     }
 
-    return this._popupMenuOptions.autoFocus;
+    return (this._popupMenuOptions as any).autoFocus;
   }
 
   /** Mouse focus. */
   @Input() set mouseFocus(mouseFocus: boolean) {
     this._popupMenuOptions.mouseFocus = mouseFocus;
     if (this.popupmenu) {
-      this.popupmenu.settings.mouseFocus = mouseFocus;
+      (this.popupmenu as any).settings.mouseFocus = mouseFocus;
     }
   }
 
   get mouseFocus(): boolean {
     if (this.popupmenu) {
-      return this.popupmenu.settings.mouseFocus;
+      return (this.popupmenu as any).settings.mouseFocus;
     }
 
-    return this._popupMenuOptions.mouseFocus;
+    return (this._popupMenuOptions as any).mouseFocus;
   }
 
   /** Attach to body. */
   @Input() set attachToBody(attachToBody: boolean) {
     this._popupMenuOptions.attachToBody = attachToBody;
     if (this.popupmenu) {
-      this.popupmenu.settings.attachToBody = attachToBody;
+      (this.popupmenu as any).settings.attachToBody = attachToBody;
     }
   }
 
   get attachToBody(): boolean {
     if (this.popupmenu) {
-      return this.popupmenu.settings.attachToBody;
+      return (this.popupmenu as any).settings.attachToBody;
     }
 
-    return this._popupMenuOptions.attachToBody;
+    return (this._popupMenuOptions as any).attachToBody;
   }
 
   /** beforeOpen - ajax callback for open event */
   @Input() set beforeOpen(beforeOpen: SohoPopupMenuSourceFunction) {
     this._popupMenuOptions.beforeOpen = beforeOpen;
     if (this.popupmenu) {
-      this.popupmenu.settings.beforeOpen = beforeOpen;
+      (this.popupmenu as any).settings.beforeOpen = beforeOpen;
     }
   }
 
   get beforeOpen(): SohoPopupMenuSourceFunction {
     if (this.popupmenu) {
-      return this.popupmenu.settings.beforeOpen;
+      return (this.popupmenu as any).settings.beforeOpen;
     }
 
-    return this._popupMenuOptions.beforeOpen;
+    return (this._popupMenuOptions as any).beforeOpen;
   }
 
   /** Switches aria to use listbox construct instead of menu construct (internal). */
   @Input() set ariaListbox(ariaListbox: boolean) {
     this._popupMenuOptions.ariaListbox = ariaListbox;
     if (this.popupmenu) {
-      this.popupmenu.settings.ariaListbox = ariaListbox;
+      (this.popupmenu as any).settings.ariaListbox = ariaListbox;
     }
   }
 
   get ariaListbox(): boolean {
     if (this.popupmenu) {
-      return this.popupmenu.settings.ariaListbox;
+      return (this.popupmenu as any).settings.ariaListbox;
     }
 
-    return this._popupMenuOptions.ariaListbox;
+    return (this._popupMenuOptions as any).ariaListbox;
   }
 
   /**
@@ -226,89 +226,89 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
   @Input() set useCoordsForClick(useCoordsForClick: boolean) {
     this._popupMenuOptions.useCoordsForClick = useCoordsForClick;
     if (this.popupmenu) {
-      this.popupmenu.settings.useCoordsForClick = useCoordsForClick;
+      (this.popupmenu as any).settings.useCoordsForClick = useCoordsForClick;
     }
   }
 
   get useCoordsForClick(): boolean {
     if (this.popupmenu) {
-      return this.popupmenu.settings.useCoordsForClick;
+      return (this.popupmenu as any).settings.useCoordsForClick;
     }
 
-    return this._popupMenuOptions.useCoordsForClick;
+    return (this._popupMenuOptions as any).useCoordsForClick;
   }
 
   /** Can pass in the event object so you can do a right click with immediate */
   @Input() set eventObj(eventObj: any) {
     this._popupMenuOptions.eventObj = eventObj;
     if (this.popupmenu) {
-      this.popupmenu.settings.eventObj = eventObj;
+      (this.popupmenu as any).settings.eventObj = eventObj;
     }
   }
 
   get eventObj(): any {
     if (this.popupmenu) {
-      return this.popupmenu.settings.eventObj;
+      return (this.popupmenu as any).settings.eventObj;
     }
 
-    return this._popupMenuOptions.eventObj;
+    return (this._popupMenuOptions as any).eventObj;
   }
 
   @Input() set placementOpts(placementOpts: SohoPopupmenuPlacementOpts) {
     this._popupMenuOptions.placementOpts = placementOpts;
     if (this.popupmenu) {
-      this.popupmenu.settings.placementOpts = placementOpts;
+      (this.popupmenu as any).settings.placementOpts = placementOpts;
     }
   }
 
   get placementOpts(): SohoPopupmenuPlacementOpts {
     if (this.popupmenu) {
-      return this.popupmenu.settings.placementOpts;
+      return (this.popupmenu as any).settings.placementOpts;
     }
 
-    return this._popupMenuOptions.placementOpts;
+    return (this._popupMenuOptions as any).placementOpts;
   }
 
   @Input() set offset(offset: SohoPopupmenuOffset) {
     this._popupMenuOptions.offset = offset;
     if (this.popupmenu) {
-      this.popupmenu.settings.offset = offset;
+      (this.popupmenu as any).settings.offset = offset;
     }
   }
 
   get offset(): SohoPopupmenuOffset {
     if (this.popupmenu) {
-      return this.popupmenu.settings.offset;
+      return (this.popupmenu as any).settings.offset;
     }
 
-    return this._popupMenuOptions.offset;
+    return (this._popupMenuOptions as any).offset;
   }
 
   @Input() set removeOnDestroy(removeOnDestroy: boolean) {
     this._popupMenuOptions.removeOnDestroy = removeOnDestroy;
     if (this.popupmenu) {
-      this.popupmenu.settings.removeOnDestroy = removeOnDestroy;
+      (this.popupmenu as any).settings.removeOnDestroy = removeOnDestroy;
     }
   }
 
   get removeOnDestroy(): boolean {
     if (this.popupmenu) {
-      return this.popupmenu.settings.removeOnDestroy;
+      return (this.popupmenu as any).settings.removeOnDestroy;
     }
 
-    return this._popupMenuOptions.removeOnDestroy;
+    return (this._popupMenuOptions as any).removeOnDestroy;
   }
 
-  @Input() set attributes(attributes: Array<Object> | Object) {
+  @Input() set attributes(attributes: Array<Object> | Object | undefined) {
     this._popupMenuOptions.attributes = attributes;
     if (this.popupmenu) {
-      this.popupmenu.settings.attributes = attributes;
+      (this.popupmenu as any).settings.attributes = attributes;
     }
   }
 
-  get attributes(): Array<Object> | Object {
+  get attributes(): Array<Object> | Object | undefined {
     if (this.popupmenu) {
-      return this.popupmenu.settings.attributes;
+      return (this.popupmenu as any).settings.attributes;
     }
 
     return this._popupMenuOptions.attributes;
@@ -345,9 +345,9 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
-  private popupmenu: SohoPopupMenuStatic;
+  private popupmenu?: SohoPopupMenuStatic;
 
   private _popupMenuOptions: SohoPopupMenuOptions = {};
 
@@ -390,16 +390,16 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
    */
   getSelected(): any {
     if (this.popupmenu) {
-      return this.ngZone.runOutsideAngular(() => this.popupmenu.getSelected());
+      return this.ngZone.runOutsideAngular(() => this.popupmenu?.getSelected());
     }
   }
 
   /**
    * Updates the control to reflect the settings.
    */
-  updated(settings): void {
+  updated(settings: any): void {
     if (this.popupmenu) {
-      this.ngZone.runOutsideAngular(() => this.popupmenu.updated(settings));
+      this.ngZone.runOutsideAngular(() => this.popupmenu?.updated(settings));
     }
   }
 
@@ -408,7 +408,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
    */
   teardown(): void {
     if (this.popupmenu) {
-      this.ngZone.runOutsideAngular(() => this.popupmenu.teardown());
+      this.ngZone.runOutsideAngular(() => this.popupmenu?.teardown());
     }
   }
 
@@ -417,7 +417,7 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
    */
   close(isCancelled?: boolean, noFocus?: boolean): void {
     if (this.popupmenu) {
-      this.ngZone.runOutsideAngular(() => this.popupmenu.close(isCancelled, noFocus));
+      this.ngZone.runOutsideAngular(() => this.popupmenu?.close(isCancelled, noFocus));
     }
   }
 

@@ -3,11 +3,8 @@ import {
   TestBed
 } from '@angular/core/testing';
 
-import { By } from '@angular/platform-browser';
-
 import {
   Component,
-  DebugElement,
   ViewChild
 } from '@angular/core';
 
@@ -29,7 +26,7 @@ import { SohoAccordionComponent } from './soho-accordion.component';
   `
 })
 class SohoAccordionTestComponent {
-  @ViewChild(SohoAccordionComponent) accordion: SohoAccordionComponent;
+  @ViewChild(SohoAccordionComponent) accordion!: SohoAccordionComponent;
 
   constructor() {
   }
@@ -39,8 +36,6 @@ describe('Soho Accordion Unit Tests', () => {
   let accordion: SohoAccordionComponent;
   let component: SohoAccordionTestComponent;
   let fixture: ComponentFixture<SohoAccordionTestComponent>;
-  let de: DebugElement;
-  let el: HTMLDivElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -50,9 +45,6 @@ describe('Soho Accordion Unit Tests', () => {
 
     fixture = TestBed.createComponent(SohoAccordionTestComponent);
     component = fixture.componentInstance;
-
-    de = fixture.debugElement;
-    el = de.query(By.css('soho-accordion')).nativeElement;
 
     fixture.detectChanges();
     accordion = component.accordion;
@@ -171,8 +163,12 @@ describe('Soho Accordion Unit Tests', () => {
 
   it('can expand', () => {
     const header = accordion.getHeader(0);
-
     expect(header).toBeDefined();
+
+    if (!header) {
+      return;
+    }
+
     accordion.expand(header);
   });
 
@@ -194,8 +190,11 @@ describe('Soho Accordion Unit Tests', () => {
 
   it('can toggle', () => {
     const header = accordion.getHeader(0);
-
     expect(header).toBeDefined();
+
+    if (!header) {
+      return;
+    }
     accordion.toggle(header);
   });
 
@@ -203,28 +202,43 @@ describe('Soho Accordion Unit Tests', () => {
     const header = accordion.getHeader(0);
 
     expect(header).toBeDefined();
+    if (!header) {
+      return;
+    }
 
     const result = accordion.isExpanded(header);
+    expect(result).toBeDefined();
   });
 
   it('can isDisabled be called', () => {
     const header = accordion.getHeader(0);
 
     expect(header).toBeDefined();
+    if (!header) {
+      return;
+    }
 
     const result = accordion.isDisabled(header);
+    expect(result).toBeDefined();
   });
 
   it('can collapse be called', () => {
     const header = accordion.getHeader(0);
 
     expect(header).toBeDefined();
+    if (!header) {
+      return;
+    }
 
-    const result = accordion.collapse(header);
+    accordion.collapse(header);
+
+    const result = accordion.isExpanded(header);
+    expect(result).toBeDefined();
   });
 
   it('can be updated', () => {
     accordion.updated();
+    expect(component).toBeTruthy();
   });
 
   it('can be updated with new options', () => {

@@ -26,5 +26,4 @@ export class SohoAboutService {
   about(options?: SohoAboutOptions): SohoAboutRef {
     return new SohoAboutRef().options(options);
   }
-
 }

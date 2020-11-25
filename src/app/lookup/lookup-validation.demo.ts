@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ViewChildren, QueryList } from '@angular/core';
+import { Component, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
 
 import {
   checkboxColumn,
@@ -19,12 +19,12 @@ export interface FakeResponse {
   templateUrl: 'lookup-validation.demo.html',
 })
 export class LookupValidationDemoComponent implements AfterViewInit {
-  @ViewChildren(SohoLookupComponent) sohoLookups: QueryList<SohoLookupComponent>;
+  @ViewChildren(SohoLookupComponent) sohoLookups?: QueryList<SohoLookupComponent>;
 
-  public columns_product: SohoDataGridColumn[];
-  public columns_multi: SohoDataGridColumn[];
+  public columns_product?: SohoDataGridColumn[];
+  public columns_multi?: SohoDataGridColumn[];
 
-  public data_product: any[];
+  public data_product?: any[];
   public model: any = {
     single: null,
     multi: null,
@@ -47,7 +47,7 @@ export class LookupValidationDemoComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.sohoLookups.last.writeValue('2142201');
+    this.sohoLookups?.last.writeValue('2142201');
   }
 
   requestData(filter?: string, page?: number, pagesize?: number): Promise<FakeResponse> {
@@ -65,6 +65,10 @@ export class LookupValidationDemoComponent implements AfterViewInit {
       }
 
       // Server supports paging
+      if (!page || !pagesize) {
+        return;
+      }
+
       const startIndex = (page - 1) * pagesize;
       const endIndex = page * pagesize;
       dataResult = dataResult.slice(startIndex, endIndex);
@@ -86,7 +90,7 @@ export class LookupValidationDemoComponent implements AfterViewInit {
 
     // Some Sample Data
     productsData.forEach( data => {
-      this.data_product.push(data);
+      this.data_product?.push(data);
     });
 
     // Add checkbox for multi select Grid
@@ -94,8 +98,8 @@ export class LookupValidationDemoComponent implements AfterViewInit {
 
     // Define Columns for the Grid.
     productsColumns.forEach(column => {
-      this.columns_product.push(column);
-      this.columns_multi.push(column);
+      this.columns_product?.push(column);
+      this.columns_multi?.push(column);
     });
 
   }
@@ -123,11 +127,11 @@ export class LookupValidationDemoComponent implements AfterViewInit {
     });
   }
 
-  onDirty(event: SohoTrackDirtyEvent) {
+  onDirty(_event: SohoTrackDirtyEvent) {
     console.log('lookup.onDirty');
   }
 
-  onPristine(event: SohoTrackDirtyEvent) {
+  onPristine(_event: SohoTrackDirtyEvent) {
     console.log('lookup.onPristine');
   }
 }

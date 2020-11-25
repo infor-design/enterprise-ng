@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// @ts-ignore
 import { SohoContextualActionPanelRef } from 'ids-enterprise-ng/lib';
 
 @Component({
@@ -6,9 +7,9 @@ import { SohoContextualActionPanelRef } from 'ids-enterprise-ng/lib';
 })
 
 export class ContextualActionPanelSearchfieldFlexComponent {
-  panel: SohoContextualActionPanelRef<unknown>;
+  panel?: SohoContextualActionPanelRef<unknown>;
 
   close() {
-    this.panel.close();
+    this.panel?.close();
   }
 }

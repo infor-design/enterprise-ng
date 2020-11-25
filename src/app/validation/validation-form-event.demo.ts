@@ -1,15 +1,15 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
-import { SohoTrackDirtyDirective } from 'ids-enterprise-ng';
-import { SohoErrorDirective } from 'ids-enterprise-ng';
+
+import { SohoTrackDirtyDirective, SohoErrorDirective } from 'ids-enterprise-ng';
 
 @Component({
   selector:    'app-validation-form-event-demo',
   templateUrl: 'validation-form-event.demo.html'
 })
 export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
-  @ViewChildren(SohoTrackDirtyDirective) trackDirtyComponents: QueryList<SohoTrackDirtyDirective>;
-  @ViewChild(SohoErrorDirective, { static: true }) errorDirective: SohoErrorDirective; // tslint:disable-line
+  @ViewChildren(SohoTrackDirtyDirective) trackDirtyComponents!: QueryList<SohoTrackDirtyDirective>;
+  @ViewChild(SohoErrorDirective, { static: true }) errorDirective!: SohoErrorDirective; // tslint:disable-line
 
   public dataView: any = {
     EventField:    {
@@ -35,7 +35,7 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
 
   public model: any = {};
   public showModel = true;
-  public form: FormGroup;
+  public form!: FormGroup;
 
   public events: any = {};
 
@@ -52,14 +52,20 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
   }
 
   onAfterResetDirty(event: SohoTrackDirtyEvent) {
-    this.form.controls[ event.currentTarget.getAttribute('formControlName') ].markAsPristine();
+    const elem = event.currentTarget.getAttribute('formControlName');
+    if (elem) {
+      this.form.controls[ elem ].markAsPristine();
+    }
   }
 
-  onDirty(event: SohoTrackDirtyEvent) {
+  onDirty(_event: SohoTrackDirtyEvent) {
   }
 
   onPristine(event: SohoTrackDirtyEvent) {
-    this.form.controls[ event.currentTarget.getAttribute('formControlName') ].markAsPristine();
+    const elem = event.currentTarget.getAttribute('formControlName');
+    if (elem) {
+      this.form.controls[ elem ].markAsPristine();
+    }
   }
 
   onError(event: SohoInputValidateEvent) {
@@ -74,7 +80,7 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
     // build model and form group
     const group: { [key: string]: any } = [];
 
-    Object.keys(this.dataView).map((item, index, ary) => {
+    Object.keys(this.dataView).map((item) => {
       const required = this.dataView[ item ].required;
 
       this.model[ item ] = {
@@ -89,17 +95,12 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
     this.changeDetector.detectChanges();
   }
 
+  // Enables/Disables Save Button
   get disableSave(): boolean {
-    if (this.form.valid && this.form.dirty) {
-      // enables save button
-      return null;
-    }
-
-    // disables save button
-    return true;
+    return (this.form.valid && this.form.dirty);
   }
 
-  isRequired(id: string): string {
+  isRequired(id: string): string | null {
     // used to set the sohoxi required validator on the data-validate attribute on a control
     // return null means attribute is not set
     if (this.model[ id ].required) {
@@ -152,7 +153,7 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
     this.showModel = !this.showModel;
   }
 
-  event(key?: string): string {
+  event(key: string): string {
     let msg = 'Event: {';
     if (this.events[key] !== undefined) {
       const event = this.events[key];
@@ -163,8 +164,8 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
     return msg;
   }
 
-  onValidationEvent(event) {
-    const id = event.target.id;
+  onValidationEvent(event: SohoInputValidateEvent) {
+    const id = event.target?.id;
     const type = event.type;
     const timeStamp = event.timeStamp;
     this.events[id] = {type, timeStamp};

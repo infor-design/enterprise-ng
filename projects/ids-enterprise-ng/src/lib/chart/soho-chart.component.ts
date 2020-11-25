@@ -96,10 +96,10 @@ export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDe
   private _chartOptions: SohoChartOptions = { animate: true };
 
   // Reference to the jQuery element.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the soho chart control api.
-  private chart: SohoChartStatic;
+  private chart?: SohoChartStatic;
 
   private updateRequired = false;
 
@@ -128,7 +128,7 @@ export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDe
         this.ngZone.run(() => this.rendered.emit({ event, ui, data })));
 
       this.jQueryElement.on('contextmenu', (event: JQuery.TriggeredEvent, ui: any, data: any) =>
-        this.ngZone.run(() => this.contextmenu.emit({ event, ui, data })));
+        this.ngZone.run(() => this.contextmenu?.emit({ event, ui, data })));
     });
   }
 
@@ -148,14 +148,14 @@ export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDe
 
   updated() {
     this.ngZone.runOutsideAngular(() => {
-      this.jQueryElement.chart(this._chartOptions);
-      this.chart = this.jQueryElement.data('chart');
+      this.jQueryElement?.chart(this._chartOptions);
+      this.chart = this.jQueryElement?.data('chart');
     });
   }
 
   getSelected() {
     if (this.jQueryElement) {
-      return this.ngZone.runOutsideAngular(() => this.chart.getSelected());
+      return this.ngZone.runOutsideAngular(() => this.chart?.getSelected());
     }
     return undefined;
   }
@@ -164,20 +164,20 @@ export class SohoChartComponent implements AfterViewInit, AfterViewChecked, OnDe
     this.ngZone.runOutsideAngular(() => {
       if (this.jQueryElement) {
         let selectOptions: ChartSelectionOptions;
-        if (this._chartOptions.type.indexOf('grouped') >= 0 || this._chartOptions.type === 'column') {
+        if ((this._chartOptions as any).type?.indexOf('grouped') >= 0 || this._chartOptions.type === 'column') {
           selectOptions = { groupName: 'ref', groupValue: ref };
         } else {
           selectOptions = { fieldName: 'ref', fieldValue: ref };
         }
 
-        this.chart.setSelected(selectOptions);
+        this.chart?.setSelected(selectOptions);
       }
     });
   }
 
   setSelectDataIndex(selectIndex: number) {
     if (this.jQueryElement) {
-      const dataArray = this._chartOptions.dataset;
+      const dataArray = this._chartOptions.dataset || [];
       if (this._chartOptions.type === 'pie' || this._chartOptions.type === 'donut') {
         for (let i = 0; i < dataArray.length; i++) {
           const dataNode = dataArray[i];

@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, NgZone, OnInit, ViewChild, } from '@angular/core';
+
 import { SohoDataGridComponent, } from 'ids-enterprise-ng';
 import { DatagridStandalonePagerDemoService } from './datagrid-standalone-pager-demo.service';
 
@@ -8,10 +9,10 @@ import { DatagridStandalonePagerDemoService } from './datagrid-standalone-pager-
   providers: [DatagridStandalonePagerDemoService]
 })
 export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnInit {
-  @ViewChild(SohoDataGridComponent, { static: true }) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: true }) sohoDataGridComponent?: SohoDataGridComponent;
 
-  data: any[];
-  columns: SohoDataGridColumn[];
+  data?: any[];
+  columns?: SohoDataGridColumn[];
   showPageSizeSelector = true;
   pageSize = 10;
   pageSizes = [5, 10, 25, 100];
@@ -19,8 +20,8 @@ export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnIn
   isLastPage = true;
 
   // need to keep track of last filter and sort as setting data removes the visual state for these.
-  private currentConditions: SohoDataGridFilterCondition[];
-  private currentSort: SohoDataGridSortedEvent;
+  private currentConditions?: SohoDataGridFilterCondition[] | null;
+  private currentSort?: SohoDataGridSortedEvent;
 
   constructor(
     private ngZone: NgZone,
@@ -34,7 +35,7 @@ export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnIn
   }
 
   ngAfterViewInit(): void {
-    this.sohoDataGridComponent.setSortIndicator('productName', true);
+    this.sohoDataGridComponent?.setSortIndicator('productName', true);
   }
 
   onFirstPage() {
@@ -65,7 +66,9 @@ export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnIn
 
   onFilterPage(event: SohoDataGridFilteredEvent): void {
     const result = this.datagridPagingService.filterPage();
-    this.currentConditions = [...event.conditions];
+    for (let i = 0; i < (event.conditions as any).length; i++) {
+      this.currentConditions?.push((event as any).conditions[i]);
+    }
     this.updateTemplateVariables(result);
   }
 
@@ -83,12 +86,12 @@ export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnIn
     this.ngZone.runOutsideAngular(() => setTimeout(() => {
       if (this.currentConditions) {
         // todo: for disableClientFilter setting data resets the filter conditions - reset them here
-        setTimeout(() => this.sohoDataGridComponent.setFilterConditions(this.currentConditions));
+        setTimeout(() => this.sohoDataGridComponent?.setFilterConditions((this.currentConditions as any)));
       }
 
       if (this.currentSort) {
         // todo: for disableClientSort setting data resets the sort - reset them here
-        setTimeout(() => this.sohoDataGridComponent.setSortIndicator(this.currentSort.sortId, this.currentSort.sortAsc));
+        setTimeout(() => this.sohoDataGridComponent?.setSortIndicator((this.currentSort as any).sortId, this.currentSort?.sortAsc));
       }
     }));
   }
@@ -98,6 +101,6 @@ export class DatagridStandalonePagerDemoComponent implements AfterViewInit, OnIn
   }
 
   toggleFilterRow() {
-    this.sohoDataGridComponent.toggleFilterRow();
+    this.sohoDataGridComponent?.toggleFilterRow();
   }
 }

@@ -24,13 +24,13 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   @HostBinding('attr.type') get buttonType() { return 'button'; }
 
   /** The underlying jQuery instance. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** The enterprise widget api. */
-  private menuButton: SohoPopupMenuStatic;
+  private menuButton?: SohoPopupMenuStatic | null;
 
   /** The button widget api */
-  private button: SohoButtonStatic;
+  private button?: SohoButtonStatic | null;
 
   // -------------------------------------------
   // Default options block
@@ -43,7 +43,7 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   /**
    * Flag to force an update of the control after the view is created.
    */
-  private runUpdatedOnCheck: boolean;
+  private runUpdatedOnCheck?: boolean;
 
   // -------------------------------------------
   // Component Output
@@ -61,12 +61,12 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   // -------------------------------------------
 
   /** The icon to be used. */
-  @Input() icon: string;
+  @Input() icon?: string;
 
   @Input() set autoFocus(value: boolean) {
     this.options.autoFocus = value;
     if (this.menuButton) {
-      this.menuButton.settings.autoFocus = value;
+      (this.menuButton as any).settings.autoFocus = value;
       this.markForRefresh();
     }
   }
@@ -74,7 +74,7 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   @Input() set mouseFocus(value: boolean) {
     this.options.mouseFocus = value;
     if (this.menuButton) {
-      this.menuButton.settings.mouseFocus = value;
+      (this.menuButton as any).settings.mouseFocus = value;
       this.markForRefresh();
     }
   }
@@ -82,7 +82,7 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   @Input() set showArrow(value: boolean) {
     this.options.showArrow = value;
     if (this.menuButton) {
-      this.menuButton.settings.showArrow = value;
+      (this.menuButton as any).settings.showArrow = value;
       this.markForRefresh();
     }
   }
@@ -90,7 +90,7 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   @Input() set returnFocus(value: boolean) {
     this.options.returnFocus = value;
     if (this.menuButton) {
-      this.menuButton.settings.returnFocus = value;
+      (this.menuButton as any).settings.returnFocus = value;
       this.markForRefresh();
     }
   }
@@ -98,7 +98,7 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   @Input() set trigger(trigger: SohoPopupMenuTrigger) {
     this.options.trigger = trigger;
     if (this.menuButton) {
-      this.menuButton.settings.trigger = trigger;
+      (this.menuButton as any).settings.trigger = trigger;
       this.markForRefresh();
     }
   }
@@ -106,7 +106,7 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   @Input() set menu(menu: string | JQuery<HTMLElement>) {
     this.options.menu = menu;
     if (this.menuButton) {
-      this.menuButton.settings.menu = menu;
+      (this.menuButton as any).settings.menu = menu;
       this.markForRefresh();
     }
   }
@@ -114,12 +114,12 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   @Input() set ajaxBeforeOpenFunction(fn: AjaxBeforeOpenFunction) {
     this.options.beforeOpen = fn;
     if (this.menuButton) {
-      this.menuButton.settings.beforeOpen = fn;
+      (this.menuButton as any).settings.beforeOpen = fn;
       // No update required.
     }
   }
 
-  @Input() set hideMenuArrow(value: boolean) {
+  @Input() set hideMenuArrow(value: boolean | undefined) {
     this.buttonOptions.hideMenuArrow = value;
     if (this.button) {
       this.button.settings.hideMenuArrow = value;
@@ -128,31 +128,29 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
     }
   }
 
-  get hideMenuArrow(): boolean {
+  get hideMenuArrow(): boolean | undefined {
     return this.buttonOptions.hideMenuArrow;
   }
 
-  @Input() set attachToBody(value: boolean) {
+  @Input() set attachToBody(value: boolean | undefined) {
     this.options.attachToBody = value;
     if (this.menuButton) {
-      this.menuButton.settings.attachToBody = value;
+      (this.menuButton as any).settings.attachToBody = value;
       this.markForRefresh();
     }
   }
-
-  get attachToBody(): boolean {
+  get attachToBody(): boolean | undefined {
     return this.options.attachToBody;
   }
 
-  @Input() set removeOnDestroy(value: boolean) {
+  @Input() set removeOnDestroy(value: boolean | undefined) {
     this.options.removeOnDestroy = value;
     if (this.menuButton) {
-      this.menuButton.settings.removeOnDestroy = value;
+      (this.menuButton as any).settings.removeOnDestroy = value;
       this.markForRefresh();
     }
   }
-
-  get removeOnDestroy(): boolean {
+  get removeOnDestroy(): boolean | undefined {
     return this.options.removeOnDestroy;
   }
 
@@ -198,7 +196,7 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
   ngAfterViewChecked() {
     if (this.runUpdatedOnCheck) {
       this.ngZone.runOutsideAngular(() => {
-        this.menuButton.updated();
+        this.menuButton?.updated();
         this.runUpdatedOnCheck = false;
       });
     }
@@ -230,25 +228,25 @@ export class SohoMenuButtonComponent implements AfterViewInit, AfterViewChecked,
 
   updated() {
     this.ngZone.runOutsideAngular(() => {
-      this.menuButton.updated();
+      this.menuButton?.updated();
     });
   }
 
   teardown() {
     this.ngZone.runOutsideAngular(() => {
-      this.menuButton.teardown();
+      this.menuButton?.teardown();
     });
   }
 
   public close(): void {
     this.ngZone.runOutsideAngular(() => {
-      this.menuButton.close();
+      this.menuButton?.close();
     });
   }
 
   public open(event: JQuery.TriggeredEvent, ajaxReturn?: boolean, useDelay?: boolean): void {
     this.ngZone.runOutsideAngular(() => {
-      this.menuButton.open(event, ajaxReturn, useDelay);
+      this.menuButton?.open(event, ajaxReturn, useDelay);
     });
   }
 

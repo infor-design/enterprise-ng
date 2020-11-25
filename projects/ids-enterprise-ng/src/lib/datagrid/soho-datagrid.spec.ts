@@ -225,7 +225,6 @@ describe('Soho DataGrid Unit Tests', () => {
     comp.isList = false;
     comp.menuId = 'id1';
     comp.rowHeight = 'small';
-    comp.fixedRowHeight = null;
     comp.selectable = false;
     comp.clickToSelect = false;
     comp.toolbar = toolbar;
@@ -503,9 +502,9 @@ describe('Soho DataGrid Unit Tests', () => {
 })
 class SohoDataGridTestComponent {
   @ViewChild(SohoDataGridComponent)
-  datagrid: SohoDataGridComponent;
-  _columns: SohoDataGridColumn[];
-  _data: Object[];
+  datagrid?: SohoDataGridComponent | null;
+  _columns?: SohoDataGridColumn[];
+  _data?: Object[];
   public get columns(): SohoDataGridColumn[] {
     if (!this._columns) {
       this._columns = COLUMNS;
@@ -522,7 +521,6 @@ class SohoDataGridTestComponent {
 }
 
 describe('Soho DataGrid Render', () => {
-  let datagrid: SohoDataGridComponent;
   let component: SohoDataGridTestComponent;
   let fixture: ComponentFixture<SohoDataGridTestComponent>;
   let de: DebugElement;
@@ -541,7 +539,6 @@ describe('Soho DataGrid Render', () => {
     el = de.query(By.css('div[soho-datagrid]')).nativeElement;
 
     fixture.detectChanges();
-    datagrid = component.datagrid;
   });
 
   it('Check HTML content', () => {
@@ -554,15 +551,15 @@ describe('Soho DataGrid Render', () => {
     fixture.detectChanges();
 
     const testData = [['d1', 'd2'], ['a1', 'a2']];
-    component.datagrid.dataset = testData;
+    (component as any).datagrid.dataset = testData;
 
-    expect(component.datagrid.dataset).toBe(testData);
+    expect((component as any).datagrid.dataset).toBe(testData);
   });
 
   it('check exiteditmode', done => {
     fixture.detectChanges();
 
-    component.datagrid.exiteditmode.subscribe(
+    (component as any).datagrid.exiteditmode.subscribe(
       (exiteditedEvent: SohoDataGridEditModeEvent) => {
         expect(exiteditedEvent.cell).toEqual(2);
         done();
@@ -587,7 +584,7 @@ describe('Soho DataGrid Render', () => {
   it('check beforentereditmode', done => {
     fixture.detectChanges();
 
-    component.datagrid.beforeentereditmode.subscribe(
+    (component as any).datagrid.beforeentereditmode.subscribe(
       (editModeEvent: SohoDataGridEditModeEvent) => {
         expect(editModeEvent.cell).toEqual(2);
         done();
@@ -615,7 +612,7 @@ describe('Soho DataGrid Render', () => {
   it('check entereditmode', done => {
     fixture.detectChanges();
 
-    component.datagrid.entereditmode.subscribe(
+    (component as any).datagrid.entereditmode.subscribe(
       (editModeEvent: SohoDataGridEditModeEvent) => {
         expect(editModeEvent.cell).toEqual(2);
         done();
@@ -638,7 +635,7 @@ describe('Soho DataGrid Render', () => {
   });
 
   it('check setColumnSort(id, descending)', done => {
-    component.datagrid.sorted.subscribe(
+    (component as any).datagrid.sorted.subscribe(
       (sortedEvent: SohoDataGridSortedEvent) => {
         expect(sortedEvent.sortId).toEqual('desc');
         expect(sortedEvent.sortAsc).toBeTruthy();
@@ -649,30 +646,14 @@ describe('Soho DataGrid Render', () => {
 
     fixture.detectChanges();
 
-    component.datagrid.setSortColumn('desc', true);
-
-    fixture.detectChanges();
-    fixture.detectChanges();
-  });
-
-  xit('check rendered', done => {
-    component.datagrid.rendered.subscribe(
-      (renderedEvent: SohoDataGridRenderedEvent) => {
-        expect(renderedEvent).not.toBeNull();
-        done();
-      }
-    );
-
-    fixture.detectChanges();
-
-    component.datagrid.setSortColumn('desc', true);
+    (component as any).datagrid.setSortColumn('desc', true);
 
     fixture.detectChanges();
     fixture.detectChanges();
   });
 
   it('check afterrender', done => {
-    component.datagrid.afterRender.subscribe(
+    (component as any).datagrid.afterRender.subscribe(
       (afterRenderEvent: SohoDataGridAfterRenderEvent) => {
         expect(afterRenderEvent).not.toBeNull();
         done();
@@ -681,13 +662,13 @@ describe('Soho DataGrid Render', () => {
 
     fixture.detectChanges();
 
-    component.datagrid.setSortColumn('desc', true);
+    (component as any).datagrid.setSortColumn('desc', true);
 
     fixture.detectChanges();
   });
 
   it('check setColumnSort(id, ascending)', done => {
-    component.datagrid.sorted.subscribe(
+    (component as any).datagrid.sorted.subscribe(
       (sortedEvent: SohoDataGridSortedEvent) => {
         expect(sortedEvent.sortId).toEqual('desc');
         expect(sortedEvent.sortAsc).toBeFalsy();
@@ -698,11 +679,11 @@ describe('Soho DataGrid Render', () => {
 
     fixture.detectChanges();
 
-    component.datagrid.setSortColumn('desc', false);
+    (component as any).datagrid.setSortColumn('desc', false);
   });
 
   it('check setColumnSort(id)', done => {
-    component.datagrid.sorted.subscribe(
+    (component as any).datagrid.sorted.subscribe(
       (sortedEvent: SohoDataGridSortedEvent) => {
         expect(sortedEvent.sortId).toEqual('desc');
         expect(sortedEvent.sortAsc).toBeTruthy();
@@ -713,11 +694,11 @@ describe('Soho DataGrid Render', () => {
 
     fixture.detectChanges();
 
-    component.datagrid.setSortColumn('desc');
+    (component as any).datagrid.setSortColumn('desc');
   });
 
   it('check selected event', done => {
-    component.datagrid.selected.subscribe(
+    (component as any).datagrid.selected.subscribe(
       (event: SohoDataGridSelectedEvent) => {
         expect(event.rows[0].data).toEqual(component.data[1]);
         done();
@@ -726,7 +707,7 @@ describe('Soho DataGrid Render', () => {
 
     fixture.detectChanges();
 
-    component.datagrid.selectRows([1]);
+    (component as any).datagrid.selectRows([1]);
   });
 
   it('fires `addrow` when a new row is added', done => {
@@ -745,7 +726,7 @@ describe('Soho DataGrid Render', () => {
       rated: 0.8
     };
 
-    component.datagrid.rowAdd.subscribe((event: SohoDataGridAddRowEvent) => {
+    (component as any).datagrid.rowAdd.subscribe((event: SohoDataGridAddRowEvent) => {
       expect(event.row).toEqual(0);
       expect(event.cell).toEqual(0);
       expect(event.value).toEqual(newRow, 'addrow');
@@ -753,13 +734,13 @@ describe('Soho DataGrid Render', () => {
       done();
     });
 
-    component.datagrid.addRow(newRow, 'top');
+    (component as any).datagrid.addRow(newRow, 'top');
   });
 
   it('fires `cellchange` when a cell is edited', done => {
     fixture.detectChanges();
 
-    component.datagrid.cellchange.subscribe(
+    (component as any).datagrid.cellchange.subscribe(
       (event: SohoDataGridCellChangeEvent) => {
         expect(event.row).toEqual(0);
         expect(event.cell).toEqual(2);
@@ -781,7 +762,7 @@ describe('Soho DataGrid Render', () => {
   it('fires `rowclicked` when a cell clicked', done => {
     fixture.detectChanges();
 
-    component.datagrid.rowClicked.subscribe((event: SohoDataGridRowClicked) => {
+    (component as any).datagrid.rowClicked.subscribe((event: SohoDataGridRowClicked) => {
       expect(event.row).toEqual(0);
       expect(event.cell).toEqual(2);
       expect(event.item).toEqual('');

@@ -3,10 +3,8 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-
-import {
-  SohoLineComponent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoLineComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-line-demo',
@@ -14,7 +12,7 @@ import {
 })
 export class LineDemoComponent implements OnInit {
 
-  @ViewChild(SohoLineComponent, { static: true }) sohoLineComponent: SohoLineComponent;
+  @ViewChild(SohoLineComponent, { static: true }) sohoLineComponent?: SohoLineComponent;
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   private selection: SohoLineSelected = { groupIndex: 2 };
@@ -58,14 +56,14 @@ export class LineDemoComponent implements OnInit {
 
   constructor() { }
 
-  public xAxis: {};
+  public xAxis?: {};
 
   ngOnInit() {
     this.xAxis = {
-      formatText: function (d) {
+      formatText: function (d: any) {
         const text = d.split('|');
         let markup = '';
-        text.map(function (mapText, i) {
+        text.map(function (mapText: any, i: any) {
           markup += '<tspan x="0" dy="' + ((i + 1) * .55) + 'em">' + mapText.replace('|', ' ') + '</tspan>';
         });
         return markup;
@@ -75,11 +73,11 @@ export class LineDemoComponent implements OnInit {
 
   setChartSelection() {
     const sohoLineSelected: SohoLineSelected = this.selection;
-    this.sohoLineComponent.setSelected(sohoLineSelected);
+    this.sohoLineComponent?.setSelected(sohoLineSelected);
   }
 
   toggleChartSelection() {
     const sohoLineSelected: SohoLineSelected = this.selection;
-    this.sohoLineComponent.toggleSelected(sohoLineSelected);
+    this.sohoLineComponent?.toggleSelected(sohoLineSelected);
   }
 }

@@ -10,10 +10,10 @@ export class SohoMessageRef {
   private eventGuard: SohoModalDialogVetoableEventGuard<any> = {};
 
   /** Selector referencing the modal-dialog after it has been moved to the dialog container. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** Soho Control Api */
-  private _message: SohoMessageStatic;
+  private _message?: SohoMessageStatic;
 
   /** The result of the dialog. */
   private _dialogResult: any;
@@ -38,7 +38,7 @@ export class SohoMessageRef {
    *
    * @param options - the options to set.
    */
-  options(options: SohoMessageOptions): SohoMessageRef {
+  options(options?: SohoMessageOptions): SohoMessageRef {
     this._options = options || {};
     return this;
   }
@@ -261,8 +261,8 @@ export class SohoMessageRef {
    *
    * @return true if the dialog can be opened; otherwise false if veoted.
    */
-  private onBeforeOpen(event: any): boolean {
-    const fn: Function = this.eventGuard.beforeOpen;
+  private onBeforeOpen(_event: any): boolean | undefined {
+    const fn: Function = (this.eventGuard.beforeOpen as any);
     return fn ? fn.call(this.eventGuard) : true;
   }
 
@@ -273,9 +273,9 @@ export class SohoMessageRef {
    * @param event - event object.
    * @return true if the dialog can be closed; otherwise false if veoted.
    */
-  private onBeforeClose(event: any): boolean {
+  private onBeforeClose(_event: any): boolean {
     const fn = this.eventGuard.beforeClose;
-    return fn ? fn.call(this.eventGuard, this) : true;
+    return fn ? fn.call(this.eventGuard, this, ({} as any), undefined) : true;
   }
 
   /**

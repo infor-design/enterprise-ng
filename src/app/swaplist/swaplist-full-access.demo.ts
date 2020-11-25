@@ -12,7 +12,7 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
   templateUrl: 'swaplist-full-access.demo.html',
 })
 export class SwapListFullAccessDemoComponent implements OnInit {
-  @ViewChild(SohoSwapListComponent, { static: true })swapListComponent: SohoSwapListComponent;
+  @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent!: SohoSwapListComponent;
 
   availableDemoItems: SohoSwapListItem[] = [];
   selectedDemoItems: SohoSwapListItem[] = [];
@@ -43,14 +43,14 @@ export class SwapListFullAccessDemoComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.sohoHeaderRef.instance.sectionTitle = 'SwapList Full Access Demo';
+    (this.sohoHeaderRef.instance as any).sectionTitle = 'SwapList Full Access Demo';
   }
 
-  onSelected(event: any) {
+  onSelected(_event: any) {
     console.log(this.swapListComponent.selectedItems);
   }
 
-  onUpdated(event: any) {
+  onUpdated(_event: any) {
     console.log(this.swapListComponent.selectedItems);
   }
   toggleModel() {

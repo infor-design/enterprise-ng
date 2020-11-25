@@ -23,8 +23,8 @@ export class SohoFormCompactComponent implements AfterViewInit, AfterViewChecked
     return true;
   }
 
-  private jQueryElement: JQuery;
-  private formcompact: SohoFormCompact;
+  private jQueryElement?: JQuery;
+  private formcompact?: SohoFormCompact | null;
   private updateRequired = false;
 
   constructor(
@@ -44,7 +44,7 @@ export class SohoFormCompactComponent implements AfterViewInit, AfterViewChecked
 
   ngAfterViewChecked() {
     if (this.formcompact && this.updateRequired) {
-      this.ngZone.runOutsideAngular(() => this.formcompact.updated(this.formcompact.settings));
+      this.ngZone.runOutsideAngular(() => this.formcompact?.updated(this.formcompact?.settings));
       this.updateRequired = false;
     }
   }

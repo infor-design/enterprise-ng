@@ -36,19 +36,20 @@ export class PopupMenuDemoComponent {
     });
   }
 
-  onBeforeOpen(event: SohoPopupMenuEvent) {
+  onBeforeOpen(_event: SohoPopupMenuEvent) {
     console.log('PopupMenu Demo: popupmenu.onBeforeOpen');
   }
 
-  onClose(event: SohoPopupMenuEvent) {
+  onClose(_event: SohoPopupMenuEvent) {
     console.log('PopupMenu Demo: popupmenu.onClose');
   }
 
-  onOpen(event: SohoPopupMenuEvent) {
+  onOpen(_event: SohoPopupMenuEvent) {
     console.log('PopupMenu Demo: popupmenu.onOpen');
   }
 
   toggleOption(option: string) {
+    // @ts-ignore
     this.options[option] = !this.options[option];
   }
 }

@@ -3,11 +3,8 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-
-import {
-  SohoFileUploadComponent,
-  SohoTrackDirtyDirective
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoFileUploadComponent, SohoTrackDirtyDirective } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-fileupload-lm-demo',
@@ -22,8 +19,8 @@ import {
 })
 export class FileUploadLMDemoComponent implements OnInit {
 
-  @ViewChild(SohoFileUploadComponent, { static: true }) fileupload: SohoFileUploadComponent;
-  @ViewChild('trackDirty', { static: true }) trackdirty: SohoTrackDirtyDirective;
+  @ViewChild(SohoFileUploadComponent, { static: true }) fileupload?: SohoFileUploadComponent;
+  @ViewChild('trackDirty', { static: true }) trackdirty?: SohoTrackDirtyDirective;
 
   public name3 = 'file-name-track-dirty-existing';
   public fileName = 'add-employee.png';
@@ -65,11 +62,11 @@ export class FileUploadLMDemoComponent implements OnInit {
     this.showDisplayLink = false;
   }
 
-  onUpdated(event: SohoFileUploadEvent) {
+  onUpdated(_event: SohoFileUploadEvent) {
     console.log('FileUploadDemoComponent.onUpdated');
   }
 
-  onAfterResetDirty(event: SohoTrackDirtyEvent) {
+  onAfterResetDirty(_event: SohoTrackDirtyEvent) {
     console.log('onAfterResetDirty');
   }
 
@@ -85,7 +82,7 @@ export class FileUploadLMDemoComponent implements OnInit {
     }
   }
 
-  onPristine(event: SohoTrackDirtyEvent) {
+  onPristine(_event: SohoTrackDirtyEvent) {
     console.log('onPristine');
   }
 }

@@ -5,10 +5,11 @@ import {
   Component,
   ViewChild
 } from '@angular/core';
+// @ts-ignore
 import { SohoAutoCompleteComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'autocomplete-demo', // tslint:disable-line
+  selector: 'app-autocomplete-demo',
   templateUrl: 'autocomplete.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -72,11 +73,10 @@ export class AutocompleteDemoComponent implements AfterViewInit {
     'World',
     '<script>alert(1)</script>xss'
   ];
-  @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
+  @ViewChild(SohoAutoCompleteComponent) autocomplete?: SohoAutoCompleteComponent;
 
   public selected: any;
-
-  private options: SohoAutoCompleteOptions;
+  options?: SohoAutoCompleteOptions;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) { }
 
@@ -90,7 +90,7 @@ export class AutocompleteDemoComponent implements AfterViewInit {
     setTimeout(() => {
       this.url = this.statesUrl;
       this.changeDetectorRef.detectChanges();
-      this.autocomplete.updated();
+      this.autocomplete?.updated();
     }, 5000);
   }
 

@@ -16,25 +16,25 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoProgressComponent implements AfterViewInit, OnDestroy {
-  public value: number;
+  public value?: number;
   /*
    *  @param value
    */
-  @Input() set progressValue(value: number) {
+  @Input() set progressValue(value: number | undefined) {
     this.value = value;
     if (this.progress) {
-      this.progress.update(this.value);
+      this.progress.update((this.value as any));
     }
   }
 
-  get progressValue() {
+  get progressValue(): number | undefined {
     return this.value;
   }
 
   /*
    *  Calling when the progress-bar value changes
    */
-  @Output() change: EventEmitter<Object>;
+  @Output() change?: EventEmitter<Object>;
 
   // Set the progress-bar class.
   @HostBinding('class.progress') progressClass = true;
@@ -44,8 +44,8 @@ export class SohoProgressComponent implements AfterViewInit, OnDestroy {
   }
 
   private options: SohoProgressOptions = {};
-  private jQueryElement: JQuery;
-  private progress: SohoProgressStatic;
+  private jQueryElement?: JQuery;
+  private progress?: SohoProgressStatic | null;
 
   constructor(private element: ElementRef) { }
 
@@ -56,7 +56,7 @@ export class SohoProgressComponent implements AfterViewInit, OnDestroy {
     /**
      * Bind to jQueryElement's events
      */
-    this.jQueryElement.on('change', (event: SohoProgressEvent) => this.change.emit(event));
+    this.jQueryElement.on('change', (event: SohoProgressEvent) => this.change?.emit(event));
     this.progress = this.jQueryElement.data('progress');
   }
 

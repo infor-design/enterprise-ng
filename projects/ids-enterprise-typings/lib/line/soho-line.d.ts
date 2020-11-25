@@ -37,20 +37,20 @@ interface SohoLineOptions {
   hideDots?: boolean;
 
   /** Option to a label to one of the four sides. For Example
-		* `{left: 'Left axis label', top: 'Top axis label',
-		* right: 'Right axis label', bottom: 'Bottom axis label'}` */
+    * `{left: 'Left axis label', top: 'Top axis label',
+    * right: 'Right axis label', bottom: 'Bottom axis label'}` */
   axisLabels?: any;
 
   /** true|false - will do or not do the animation.
-		* 'initial' will do only first time the animation. */
+    * 'initial' will do only first time the animation. */
   animate?: boolean;
 
   /** If true, the component will not resize when resizing the page. */
   redrawOnResize?: boolean;
 
   /** Option to customize the dot behavior. You can set the dot size (radius),
-		* the size on hover and stroke or even add a custom class.
-		* Example `dots: { radius: 3, radiusOnHover: 4, strokeWidth: 0, class: 'custom-dots'}` */
+    * the size on hover and stroke or even add a custom class.
+    * Example `dots: { radius: 3, radiusOnHover: 4, strokeWidth: 0, class: 'custom-dots'}` */
   dots?: object;
 
   /** Use d3 format some examples can be found on http://bit.ly/1IKVhHh */
@@ -77,13 +77,13 @@ interface SohoLine {
   updated(settings?: SohoLineOptions): void;
 
   /** Gets the currently selected element */
-  getSelected(settings?: SohoLineOptions, isToggle?: boolean);
+  getSelected(settings?: SohoLineOptions, isToggle?: boolean): Array<Object> | Object;
 
   /** Sets the currently selected element */
-  setSelected(selected: SohoLineSelected);
+  setSelected(selected: SohoLineSelected): void;
 
   /** Toggles the currently selected element */
-  toggleSelected(selected: SohoLineSelected);
+  toggleSelected(selected: SohoLineSelected): void;
 
   /** Destroys the control on completion. */
   destroy(): void;

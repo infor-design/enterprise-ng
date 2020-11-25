@@ -30,7 +30,7 @@ interface SohoWeekViewEventType {
   label: string;
   color: SohoWeekViewColors;
   checked: boolean;
-  click: Function;
+  click?: Function | undefined;
   translationKey: string;
 }
 

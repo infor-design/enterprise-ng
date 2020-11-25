@@ -20,8 +20,8 @@ import {
 })
 export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit {
 
-  private jQueryElement: JQuery<HTMLElement>;
-  private breadcrumbAPI: SohoBreadcrumbStatic;
+  private jQueryElement?: JQuery<HTMLElement>;
+  private breadcrumbAPI?: SohoBreadcrumbStatic | null;
 
   // Default Options
   private options: SohoBreadcrumbOptions = {
@@ -32,11 +32,11 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
 
   /** Allow Breadcrumb Definition by Input */
   @Input()
-  public set breadcrumbs(items: SohoBreadcrumbItemOptions[]) {
+  public set breadcrumbs(items: SohoBreadcrumbItemOptions[] | undefined ) {
     this.options.breadcrumbs = items;
     this.updated();
   }
-  public get breadcrumbs(): SohoBreadcrumbItemOptions[] {
+  public get breadcrumbs(): SohoBreadcrumbItemOptions[] | undefined {
     return this.options.breadcrumbs;
   }
 
@@ -52,21 +52,21 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
 
   /** Add truncatling behavior when a lot of items */
   @Input()
-  public set truncate(truncate: boolean) {
+  public set truncate(truncate: boolean | undefined ) {
     this.options.truncate = truncate;
     this.updated();
   }
-  public get truncate(): boolean {
+  public get truncate(): boolean | undefined {
     return this.options.truncate;
   }
 
   /** Add extra attributes like id's to the component **/
   @Input()
-  public set attributes(attributes: Array<Object> | Object) {
+  public set attributes(attributes: Array<Object> | Object | undefined) {
     this.options.attributes = attributes;
     this.updated();
   }
-  public get attributes(): Array<Object> | Object {
+  public get attributes(): Array<Object> | Object | undefined {
     return this.options.attributes;
   }
 
@@ -79,8 +79,8 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
   }
 
   /** Provides access to the IDS Breadcrumb's disabled property */
-  public get disabled(): boolean {
-    return this.breadcrumbAPI.disabled;
+  public get disabled(): boolean | undefined  {
+    return this.breadcrumbAPI?.disabled;
   }
 
   /**
@@ -128,7 +128,7 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
     if (!this.breadcrumbAPI) { return; }
 
     this.ngZone.runOutsideAngular(() => {
-      this.breadcrumbAPI.enable();
+      this.breadcrumbAPI?.enable();
     });
   }
 
@@ -136,7 +136,7 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
     if (!this.breadcrumbAPI) { return; }
 
     this.ngZone.runOutsideAngular(() => {
-      this.breadcrumbAPI.disable();
+      this.breadcrumbAPI?.disable();
     });
   }
 
@@ -147,7 +147,7 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
     if (!this.breadcrumbAPI) { return; }
 
     this.ngZone.runOutsideAngular(() => {
-      this.breadcrumbAPI.add(settings, doRender);
+      this.breadcrumbAPI?.add(settings, doRender);
     });
   }
 
@@ -158,7 +158,7 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
     if (!this.breadcrumbAPI) { return; }
 
     this.ngZone.runOutsideAngular(() => {
-      this.breadcrumbAPI.remove(item, doRender);
+      this.breadcrumbAPI?.remove(item, doRender);
     });
   }
 
@@ -169,7 +169,7 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
     if (!this.breadcrumbAPI) { return; }
 
     this.ngZone.runOutsideAngular(() => {
-      this.breadcrumbAPI.removeAll(doRender);
+      this.breadcrumbAPI?.removeAll(doRender);
     });
   }
 
@@ -194,7 +194,7 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
     if (!this.breadcrumbAPI) { return; }
 
     this.ngZone.runOutsideAngular(() => {
-      this.breadcrumbAPI.makeCurrent(item);
+      this.breadcrumbAPI?.makeCurrent(item);
     });
   }
 
@@ -209,7 +209,7 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
     if (!this.breadcrumbAPI) { return; }
 
     this.ngZone.runOutsideAngular(() => {
-      this.breadcrumbAPI.updated(this.options);
+      this.breadcrumbAPI?.updated(this.options);
     });
   }
 
@@ -220,7 +220,7 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
     if (!this.breadcrumbAPI) { return; }
 
     this.ngZone.runOutsideAngular(() => {
-      this.breadcrumbAPI.destroy();
+      this.breadcrumbAPI?.destroy();
     });
   }
 }

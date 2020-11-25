@@ -1,12 +1,10 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component, OnInit,
   ViewChild
 } from '@angular/core';
-import {
-  SohoDataGridComponent,
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoDataGridComponent } from 'ids-enterprise-ng';
 import {
   PAGING_COLUMNS,
   PAGING_DATA
@@ -20,11 +18,11 @@ import { DataGridCustomFormatterService } from './datagrid-custom-formatter.serv
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridCustomFormatterServiceDemoComponent implements OnInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;
 
-  gridOptions: SohoDataGridOptions = undefined;
+  gridOptions?: SohoDataGridOptions = undefined;
 
-  RandomIntegerFormatter = (row, cell, value, column, item, api): string => {
+  RandomIntegerFormatter = (row: any, cell: any, value: any, column: any, item: any, api: any): string => {
     return this.formatterService.randomIntegerFormatter(row, cell, value, column, item, api);
   }
 

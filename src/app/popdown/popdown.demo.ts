@@ -1,9 +1,6 @@
 import { Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-
-import {
-  SohoPopDownDirective,
-  SohoListViewComponent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoPopDownDirective, SohoListViewComponent } from 'ids-enterprise-ng';
 
 import {
   productsColumns,
@@ -15,13 +12,12 @@ import {
   templateUrl: 'popdown.demo.html',
 })
 export class PopDownDemoComponent {
-  @ViewChild('statesPopDown', { read: SohoPopDownDirective, static: true })
-  public statesPopDown: SohoPopDownDirective;
-  @ViewChild(SohoListViewComponent, { static: true }) public stateViewList: SohoListViewComponent;
+  @ViewChild('statesPopDown', { read: SohoPopDownDirective, static: true }) public statesPopDown?: SohoPopDownDirective;
+  @ViewChild(SohoListViewComponent, { static: true }) public stateViewList?: SohoListViewComponent;
 
   public showSelectedOnly = false;
-  public columns_product: SohoDataGridColumn[];
-  public data_product: any[];
+  public columns_product?: SohoDataGridColumn[];
+  public data_product?: any[];
   public model: any = {
     singleobjectexists: {
       id: 1,
@@ -87,7 +83,7 @@ export class PopDownDemoComponent {
     'Wisconsin',
     'Wyoming'
   ];
-  public selectedStates = [];
+  public selectedStates: any[] = [];
 
   setupProducts() {
     this.columns_product = [];
@@ -95,12 +91,12 @@ export class PopDownDemoComponent {
 
     // Some Sample Data
     productsData.forEach(data => {
-      this.data_product.push(data);
+      this.data_product?.push(data);
     });
 
     // Define Columns for the Grid.
     productsColumns.forEach(column => {
-      this.columns_product.push(column);
+      this.columns_product?.push(column);
     });
 
   }
@@ -114,21 +110,22 @@ export class PopDownDemoComponent {
 
   public onSelected(event: any) {
     this.selectedStates = [];
+
     if (event.length > 1 && event[1].selectedItems !== undefined) {
       event[1].selectedItems.forEach((item: any) => {
         const data = $(item).attr('data');
         console.log(data);
-        this.selectedStates.push(data);
+        this.selectedStates?.push((data as any));
       });
       this.changeDetector.detectChanges();
     }
   }
 
   public onClickOK() {
-    this.statesPopDown.close();
+    this.statesPopDown?.close();
   }
 
   public onClickCancel() {
-    this.statesPopDown.close();
+    this.statesPopDown?.close();
   }
 }

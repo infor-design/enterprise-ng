@@ -13,22 +13,22 @@ export class SohoLabelDirective implements AfterViewInit {
   /**
    * Indicate that the label is audible
    */
-  @Input() audible: boolean;
+  @Input() audible?: boolean;
 
   /**
    * Indicate that the label is required
    */
-  @Input() required: boolean;
+  @Input() required?: boolean;
 
   /**
    * Indicate that the label is for checkbox or non-checkbox
    */
-  @Input() forCheckBox: boolean;
+  @Input() forCheckBox?: boolean;
 
   /**
    * Indicate that the label is for radiobutton or non-radiobutton
    */
-  @Input() forRadioButton: boolean;
+  @Input() forRadioButton?: boolean;
 
   /**
    * Bind attributes to the host label element
@@ -56,14 +56,13 @@ export class SohoLabelDirective implements AfterViewInit {
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  // tslint:disable-next-line
+  jQueryElement?: JQuery;
 
   constructor(private element: ElementRef) {
   }
 
   ngAfterViewInit() {
     this.jQueryElement = jQuery(this.element.nativeElement);
-
-    // no control initializer for label
   }
 }

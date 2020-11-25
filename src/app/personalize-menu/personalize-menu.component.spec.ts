@@ -1,13 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PersonalizeMenuComponent } from './personalize-menu.component';
+// @ts-ignore
 import { SohoComponentsModule } from 'ids-enterprise-ng';
 
 describe('PersonalizeMenuComponent', () => {
   let component: PersonalizeMenuComponent;
   let fixture: ComponentFixture<PersonalizeMenuComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ PersonalizeMenuComponent ],
       providers: [],

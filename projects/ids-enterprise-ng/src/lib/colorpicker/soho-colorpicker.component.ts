@@ -14,10 +14,7 @@ import {
   Optional,
   ChangeDetectorRef
 } from '@angular/core';
-import {
-  BaseControlValueAccessor,
-  provideControlValueAccessor
-} from '../utils/base-control-value-accessor';
+
 import {
   NgControl,
   ControlValueAccessor
@@ -33,33 +30,31 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   /**
    * Flag to force an update of the control after the view is created.
    */
-  private runUpdatedOnCheck: boolean;
+  private runUpdatedOnCheck?: boolean;
 
   /** Value Accessor */
-  private valueAccessor: SohoColorPickerComponentValueAccessorDelegator;
+  private valueAccessor?: SohoColorPickerComponentValueAccessorDelegator;
 
   /**
    * Local variables
    */
   private jQueryElement: any;
   private colorpicker: any;
-  private isEditable: boolean = null;
-  private isUppercase: boolean = null;
-  private isClearable: boolean = null;
-  private isDisabled: boolean = null;
-  private isReadOnly: boolean = null;
-  private isShowLabel: boolean = null;
-  private isColorOnly: boolean = null;
-  private hasCustomColor: boolean = null;
-  private clearableTextString = '';
-  private options: SohoColorPickerOptions = {
-    colors: undefined,
+  private isEditable?: boolean = undefined;
+  isUppercase?: boolean = undefined;
+  isClearable?: boolean = undefined;
+  private isDisabled?: boolean = undefined;
+  private isReadOnly?: boolean = undefined;
+  private isShowLabel?: boolean = undefined;
+  isColorOnly?: boolean = undefined;
+  hasCustomColor?: boolean = undefined;
+  clearableTextString = '';
+  private options?: SohoColorPickerOptions = {
     showLabel: false,
     editable: true,
     uppercase: true,
     colorOnly: false,
     clearable: true,
-    clearableText: null,
     customColors: false,
     disabled: false
   };
@@ -67,8 +62,8 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   /**
    * Indicates the color list
    */
-  @Input() set colors(colors: Array<SohoColorOption>) {
-    this.options.colors = colors;
+  @Input() set colors(colors: Array<SohoColorOption> | undefined) {
+    (this.options as any).colors = colors;
 
     if (this.colorpicker) {
       this.colorpicker.settings.colors = colors;
@@ -79,9 +74,9 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   /**
    * Enables or disables the control
    */
-  @Input() set disabled(value: boolean) {
+  @Input() set disabled(value: boolean | undefined) {
     this.isDisabled = value;
-    this.options.disabled = value;
+    (this.options as any).disabled = value;
 
     if (this.colorpicker) {
       this.colorpicker.settings.disabled = value;
@@ -102,9 +97,9 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   /**
    * Enables or disables editing
    */
-  @Input() set editable(value: boolean) {
+  @Input() set editable(value: boolean | undefined) {
     this.isEditable = value;
-    this.options.editable = value;
+    (this.options as any).editable = value;
 
     if (this.colorpicker) {
       this.colorpicker.settings.editable = value;
@@ -126,7 +121,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
    */
   @Input() set uppercase(value: boolean) {
     this.isUppercase = value;
-    this.options.uppercase = value;
+    (this.options as any).uppercase = value;
 
     if (this.colorpicker) {
       this.colorpicker.settings.uppercase = value;
@@ -139,7 +134,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
    */
   @Input() set clearable(value: boolean) {
     this.isClearable = value;
-    this.options.clearable = value;
+    (this.options as any).clearable = value;
 
     if (this.colorpicker) {
       this.colorpicker.settings.clearable = value;
@@ -152,7 +147,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
    */
   @Input() set customColors(value: boolean) {
     this.hasCustomColor = value;
-    this.options.customColors = value;
+    (this.options as any).customColors = value;
 
     if (this.colorpicker) {
       this.colorpicker.settings.customColors = value;
@@ -165,7 +160,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
    */
   @Input() set colorOnly(value: boolean) {
     this.isColorOnly = value;
-    this.options.colorOnly = value;
+    (this.options as any).colorOnly = value;
 
     if (this.colorpicker) {
       this.colorpicker.settings.colorOnly = value;
@@ -178,7 +173,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
    */
   @Input() set clearableText(value: string) {
     this.clearableTextString = value;
-    this.options.clearableText = value;
+    (this.options as any).clearableText = value;
 
     if (this.colorpicker) {
       this.colorpicker.settings.clearableText = value;
@@ -190,7 +185,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
    * Add extra attributes like id's to the component
    */
   @Input() set attributes(value: Array<Object> | Object) {
-    this.options.attributes = value;
+    (this.options as any).attributes = value;
 
     if (this.colorpicker) {
       this.colorpicker.settings.attributes = value;
@@ -201,7 +196,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   /**
    * Sets the control to readonly
    */
-  @Input() set readonly(value: boolean) {
+  @Input() set readonly(value: boolean | undefined) {
     this.isReadOnly = value;
 
     // 4.3.1 did not have this method in time add a safety check it works for future versions
@@ -220,9 +215,9 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   /**
    * Sets the control to show color label
    */
-  @Input() set showLabel(value: boolean) {
+  @Input() set showLabel(value: boolean | undefined) {
     this.isShowLabel = value;
-    this.options.showLabel = value;
+    (this.options as any).showLabel = value;
 
     if (this.colorpicker) {
       this.colorpicker.settings.showLabel = value;
@@ -239,21 +234,21 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
    * Called when the colorpicker updates in some way.
    */
   @Output('updated')  // tslint:disable-line
-  updatedEvent: EventEmitter<Object> = new EventEmitter<JQuery.TriggeredEvent>();
+  updatedEvent: EventEmitter<JQuery.TriggeredEvent> = new EventEmitter<JQuery.TriggeredEvent>();
 
   /**
    * Public API
    */
-  get disabled() {
+  get disabled(): boolean | undefined {
     return this.isDisabled;
   }
-  get editable() {
+  get editable(): boolean | undefined {
     return this.isEditable;
   }
-  get readonly() {
+  get readonly(): boolean | undefined {
     return this.isReadOnly;
   }
-  get showLabel() {
+  get showLabel(): boolean | undefined {
     return this.isShowLabel;
   }
   getLabelValue() {
@@ -289,7 +284,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
       // but also use the standard accessors provided by angular.
       this.valueAccessor =
         new SohoColorPickerComponentValueAccessorDelegator( // tslint:disable-line
-          this.ngControl.valueAccessor, this); // tslint:disable-line
+          (this.ngControl.valueAccessor as any), this); // tslint:disable-line
 
       // ... change the accessor on the control to use ours.
       this.ngControl.valueAccessor = this.valueAccessor;
@@ -347,7 +342,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
       // ... update the model (which will fire change
       // detection if required).
       this.colorpicker.setColor(internalValue);
-      this.valueAccessor.onChangeFn(internalValue);
+      (this.valueAccessor as any).onChangeFn(internalValue);
 
       this.change.emit(event);
     });
@@ -365,7 +360,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
     return this;
   }
 
-  private onUpdated(event: JQuery.TriggeredEvent) {
+  onUpdated(event: JQuery.TriggeredEvent) {
     // Fire the event, in the angular zone.
     this.ngZone.run(() => this.updatedEvent.next(event));
   }
@@ -412,7 +407,7 @@ class SohoColorPickerComponentValueAccessorDelegator implements ControlValueAcce
   /**
    * The Function to call when the value of the control changes.
    */
-  public onChangeFn: Function;
+  public onChangeFn?: Function;
 
   /**
    * Creates an instance of SohoColorPickerComponentValueAccessorDelegate.
@@ -443,6 +438,6 @@ class SohoColorPickerComponentValueAccessorDelegator implements ControlValueAcce
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    this.delegate.setDisabledState(isDisabled);
+    (this.delegate as any).setDisabledState(isDisabled);
   }
 }

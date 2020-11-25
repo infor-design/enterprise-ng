@@ -52,7 +52,7 @@ export class SohoContextualActionPanelService {
     ArgumentHelper.checkNotNull('parent', parent);
 
     return new SohoContextualActionPanelRef<T>(
-      this.appRef, this.componentFactoryResolver, this.injector, this.ngZone, options, component);
+      this.appRef, this.componentFactoryResolver, this.injector, this.ngZone, (options as any), component);
   }
 }
 

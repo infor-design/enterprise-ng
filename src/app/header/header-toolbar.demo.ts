@@ -14,7 +14,7 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
 export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
 
   public lastToolbarEvent: any;
-  public buttonClickedSubscription: Subscription;
+  public buttonClickedSubscription?: Subscription;
   public isShowingHeaderToolbar = true;
   public isShowingHeaderTabs = false;
 
@@ -45,8 +45,8 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
     this.removeHeaderToolbar();
   }
 
-  onToggleHeaderToolbar(event: any) {
-    this.sohoHeaderRef.instance.hasHeaderToolbar ?
+  onToggleHeaderToolbar(_event: any) {
+    (this.sohoHeaderRef.instance as any).hasHeaderToolbar ?
       this.removeHeaderToolbar() :
       this.showHeaderToolbar();
   }
@@ -60,11 +60,14 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
    * Set Input using toolbarOptions to have the header toolbar display.
    */
   private showHeaderToolbar() {
-    if (!this.sohoHeaderRef.instance.hasHeaderToolbar) {
-      this.sohoHeaderRef.instance.sectionTitle = 'Header Toolbar Demo';
-      this.sohoHeaderRef.instance.toolbarOptions = this.toolbarOptions;
-      this.buttonClickedSubscription = this.sohoHeaderRef.instance.sohoToolbarComponent.selected.subscribe(event =>
-        this.onToolbarButtonClicked(event));
+    const header = this.sohoHeaderRef?.instance;
+    if (header) {
+      header.sectionTitle = 'Header Toolbar Demo';
+      header.toolbarOptions = this.toolbarOptions;
+      if (header.sohoToolbarComponent) {
+        this.buttonClickedSubscription = header.sohoToolbarComponent.selected.subscribe((event: any) =>
+          this.onToolbarButtonClicked(event));
+      }
     }
   }
 
@@ -72,9 +75,10 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
    * put the default header toolbar back.
    */
   private removeHeaderToolbar() {
-    if (this.sohoHeaderRef.instance.hasHeaderToolbar) {
-      this.sohoHeaderRef.instance.sectionTitle = null;
-      this.sohoHeaderRef.instance.toolbarOptions = undefined;
+    const header = this.sohoHeaderRef?.instance;
+    if (header && header.hasHeaderToolbar) {
+      header.sectionTitle = undefined;
+      header.toolbarOptions = undefined;
       if (this.buttonClickedSubscription) {
         this.buttonClickedSubscription.unsubscribe();
       }

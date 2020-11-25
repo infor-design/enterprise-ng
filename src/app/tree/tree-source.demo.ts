@@ -2,7 +2,6 @@ import {
   AfterViewInit,
   Component,
   ChangeDetectionStrategy,
-  ElementRef,
   ViewChild
 } from '@angular/core';
 
@@ -15,13 +14,13 @@ import { TreeDemoData } from './tree-data.demo';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeSourceDemoComponent implements AfterViewInit {
-  @ViewChild(SohoTreeComponent, { static: true }) tree: SohoTreeComponent;
+  @ViewChild(SohoTreeComponent, { static: true }) tree!: SohoTreeComponent;
 
   public enabled = true;
 
   public demoData = new TreeDemoData();
 
-  constructor(private el: ElementRef) {
+  constructor() {
     // Configure options here?
   }
 
@@ -38,33 +37,33 @@ export class TreeSourceDemoComponent implements AfterViewInit {
   }
 
   expandAll() {
-    this.tree.expandAll();
+    this.tree?.expandAll();
   }
 
   collapseAll() {
-    this.tree.collapseAll();
+    this.tree?.collapseAll();
   }
 
-  toggleEnabled(event: any) {
+  toggleEnabled(_event: any) {
     if (this.enabled) {
-      this.tree.disable();
+      this.tree?.disable();
       this.enabled = false;
     } else {
-      this.tree.enable();
+      this.tree?.enable();
       this.enabled = true;
     }
   }
 
   selectRoot() {
-    this.tree.selectNode('Root 2');
+    this.tree?.selectNode('Root 2');
   }
 
   unselectRoot() {
-    this.tree.unSelectedNode('Root 2');
+    this.tree?.unSelectedNode('Root 2');
   }
 
   reset() {
-    this.tree.reset();
+    this.tree?.reset();
   }
 
   onSelected(treeEvent: SohoTreeEvent) {

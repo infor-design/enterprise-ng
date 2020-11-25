@@ -4,7 +4,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
 import { DataGridPagingServiceDemoService } from './datagrid-paging-service-demo.service';
@@ -16,16 +16,16 @@ import { DataGridPagingServiceDemoService } from './datagrid-paging-service-demo
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridPagingServiceDemoComponent implements OnInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
-  private uniqueId: string;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;
+  private uniqueId?: string;
 
-  private savedColumns: Object;
-  private savedRowHeight: string;
-  private savedSortOrder: string;
-  private savedPagesize: string;
-  private savedActivePage: string;
-  private savedFilter: string;
-  public gridOptions = undefined;
+  private savedColumns?: Object;
+  private savedRowHeight?: string;
+  private savedSortOrder?: string;
+  private savedPagesize?: string;
+  private savedActivePage?: string;
+  private savedFilter?: string;
+  public gridOptions: any = undefined;
 
   constructor(private datagridPagingService: DataGridPagingServiceDemoService) {}
 
@@ -63,16 +63,16 @@ export class DataGridPagingServiceDemoComponent implements OnInit {
     });
   }
 
-  exportExcel(e: any) {
-    this.sohoDataGridComponent.exportToExcel('', '', this.datagridPagingService.getAllData());
+  exportExcel(_e: any) {
+    this.sohoDataGridComponent?.exportToExcel('', '', this.datagridPagingService.getAllData());
   }
 
-  exportCsv(e: any) {
-    this.sohoDataGridComponent.exportToCsv('', this.datagridPagingService.getAllData());
+  exportCsv(_e: any) {
+    this.sohoDataGridComponent?.exportToCsv('', this.datagridPagingService.getAllData());
   }
 
   goToPageTwo() {
-    this.sohoDataGridComponent.updatePagingInfo({ activePage: 2, total: 100 });
+    this.sohoDataGridComponent?.updatePagingInfo({ activePage: 2, total: 100 });
   }
 
   onRowClicked(event: SohoDataGridRowClicked) {
@@ -89,17 +89,17 @@ export class DataGridPagingServiceDemoComponent implements OnInit {
     lscache.set(this.uniqueId + 'filter', JSON.stringify(event.filter));
   }
 
-  onRendered(event: SohoDataGridRenderedEvent) {
+  onRendered(_event: SohoDataGridRenderedEvent) {
     const columnString = lscache.get(this.uniqueId + 'columns') ? JSON.stringify(lscache.get(this.uniqueId + 'columns')) : undefined;
     if (!this.sohoDataGridComponent) {
       return;
     }
 
     if (columnString) {
-      this.savedColumns = this.sohoDataGridComponent.columnsFromString(columnString);
+      this.savedColumns = this.sohoDataGridComponent?.columnsFromString(columnString);
     }
 
-    this.sohoDataGridComponent.restoreUserSettings({activePage: this.savedActivePage, columns: this.savedColumns,
+    this.sohoDataGridComponent?.restoreUserSettings({activePage: this.savedActivePage, columns: this.savedColumns,
       rowHeight: this.savedRowHeight, sortOrder: this.savedSortOrder, pagesize: this.savedPagesize, filter: this.savedFilter});
   }
 }

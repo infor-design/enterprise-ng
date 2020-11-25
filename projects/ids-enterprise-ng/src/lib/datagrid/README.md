@@ -107,7 +107,7 @@ The component MUST implement the `SohoDataGridCellEditor` interface, which defin
   template: `<input [(ngModel)]="value" soho-input"/>`
 })
 export class DemoCellInputEditorComponent implements SohoDataGridCellEditor {
-  @ViewChild(SohoInputComponent) input: SohoInputComponent;
+  @ViewChild(SohoInputComponent) input?: SohoInputComponent;
 
   value: string;
 

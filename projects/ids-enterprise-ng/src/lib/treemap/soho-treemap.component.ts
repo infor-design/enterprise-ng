@@ -119,8 +119,8 @@ export class SohoTreemapComponent implements AfterViewInit, AfterViewChecked, On
   /** Events */
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
 
-  private jQueryElement: JQuery;
-  private treemap: SohoTreemap;
+  private jQueryElement?: JQuery;
+  private treemap?: SohoTreemap | null;
   private updateRequired = false;
 
   constructor(
@@ -145,7 +145,7 @@ export class SohoTreemapComponent implements AfterViewInit, AfterViewChecked, On
 
   ngAfterViewChecked() {
     if (this.treemap && this.updateRequired) {
-      this.ngZone.runOutsideAngular(() => this.treemap.updated(this.treemap.settings));
+      this.ngZone.runOutsideAngular(() => this.treemap?.updated(this.treemap.settings));
       this.updateRequired = false;
     }
   }

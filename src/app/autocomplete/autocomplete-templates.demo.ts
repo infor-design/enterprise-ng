@@ -8,14 +8,14 @@ import { startWith, map } from 'rxjs/operators';
 })
 export class AutocompleteTemplatesDemoComponent {
 
-  model: string;
+  model?: string;
   source: SohoAutoCompleteSource = [
     'Hello',
     'World',
     'Alice',
     'Bob',
   ];
-  secondsSinceLastSelect: Observable<number>;
+  secondsSinceLastSelect?: Observable<number>;
   template = `<script type="text/html">
   <li id="{{listItemId}}" {{#hasValue}} data-value="{{value}}" {{/hasValue}} role="listitem">
     <a tabindex="-1">

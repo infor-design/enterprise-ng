@@ -53,10 +53,10 @@ export class MaskDemoComponent {
     custommask:           'ZZZ'
   };
   private _symbols: SohoMaskPatternSymbols = {
-    currency: Soho.Locale.currentLocale.data.currencySign,
-    decimal: Soho.Locale.currentLocale.data.numbers.decimal,
-    negative: Soho.Locale.currentLocale.data.numbers.minusSign,
-    thousands: Soho.Locale.currentLocale.data.numbers.group
+    currency: Soho?.Locale?.currentLocale?.data?.currencySign,
+    decimal: Soho?.Locale?.currentLocale?.data?.numbers.decimal,
+    negative: Soho?.Locale?.currentLocale?.data?.numbers.minusSign,
+    thousands: Soho?.Locale?.currentLocale?.data?.numbers.group
   };
   private _patternOptions: SohoMaskPatternOptions = {
     allowDecimal: true,
@@ -112,7 +112,7 @@ export class MaskDemoComponent {
 
               // todo: updating the options object causes the MaskAPI to be lost.
               // mast-input.js init() adds the MastAPI but calling updated(settings) does not.
-              this._options.patternOptions.locale = value;
+              (this._options?.patternOptions as any).locale = value;
               this._options = Object.assign({}, this._options);
 
               this.ref.markForCheck();
@@ -123,7 +123,7 @@ export class MaskDemoComponent {
     });
   }
 
-  pipe = (processResult, opts) => {
+  pipe = (processResult: any, _opts: any) => {
     console.log('pipe was executed');
     return processResult.conformedValue + ' | ';
   }
@@ -144,7 +144,7 @@ export class MaskDemoComponent {
     this.showModel = !this.showModel;
   }
 
-  onMaskWrite(event: SohoMaskEvent) {
+  onMaskWrite(_event: SohoMaskEvent) {
     console.log('MaskDemoComponent.onMaskWrite');
   }
 }

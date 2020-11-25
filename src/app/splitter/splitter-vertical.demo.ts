@@ -2,8 +2,9 @@
   Component,
   ChangeDetectionStrategy
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoDataGridService } from 'ids-enterprise-ng';
+// @ts-ignore
 import { SohoTreeService } from 'ids-enterprise-ng';
 
 import { TreeDemoService } from '../tree/tree-demo.service';

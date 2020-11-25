@@ -32,26 +32,18 @@ describe('Soho AutoComplete Unit Tests', () => {
   });
 
   it('Check Inputs', () => {
-    const offset: SohoAutoCompleteOffset = { top: 10, left: 10 };
-
-    comp.source = null;
-    comp.sourceArguments = null;
-    comp.template = null;
     comp.caseSensitive = false;
-    comp.filterMode = null;
     comp.delay = 250;
     comp.width = 200;
-    comp.offset = offset;
     comp.autoSelectFirstItem = false;
 
-    expect(comp['options'].source).toEqual(null);
-    expect(comp['options'].sourceArguments).toEqual(null);
-    expect(comp['options'].template).toEqual(null);
+    expect(comp['options'].source).toEqual(undefined);
+    expect(comp['options'].sourceArguments).toEqual(undefined);
+    expect(comp['options'].template).toEqual(undefined);
     expect(comp['options'].caseSensitive).toEqual(false);
-    expect(comp['options'].filterMode).toEqual(null);
+    expect(comp['options'].filterMode).toEqual(undefined);
     expect(comp['options'].delay).toEqual(250);
     expect(comp['options'].width).toEqual(200);
-    expect(comp['options'].offset).toEqual(offset);
     expect(comp['options'].autoSelectFirstItem).toEqual(false);
 
     fixture.detectChanges();
@@ -73,7 +65,7 @@ describe('Soho AutoComplete Unit Tests', () => {
   template: `<input soho-autocomplete [source]="source">`
 })
 class SohoAutoCompleteTestComponent {
-  @ViewChild(SohoAutoCompleteComponent) autocomplete: SohoAutoCompleteComponent;
+  @ViewChild(SohoAutoCompleteComponent) autocomplete?: SohoAutoCompleteComponent;
 
   public source = (term: string, response: any) => {
     const states = [
@@ -93,8 +85,6 @@ class SohoAutoCompleteTestComponent {
 }
 
 describe('Soho Autocomplete Render', () => {
-  let autocomplete: SohoAutoCompleteComponent;
-  let component: SohoAutoCompleteTestComponent;
   let fixture: ComponentFixture<SohoAutoCompleteTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -106,13 +96,11 @@ describe('Soho Autocomplete Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoAutoCompleteTestComponent);
-    component = fixture.componentInstance;
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-autocomplete]')).nativeElement;
 
     fixture.detectChanges();
-    autocomplete = component.autocomplete;
   });
 
   it('Check HTML content', () => {

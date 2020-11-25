@@ -47,7 +47,7 @@ export class CheckBoxDemoComponent implements OnInit {
     this.model.checkBox1Value = false;
   }
 
-  onUpdated(event: SohoCheckBoxEvent) {
+  onUpdated(_event: SohoCheckBoxEvent) {
     console.log('CheckboxDemoComponent.onUpdated');
   }
 

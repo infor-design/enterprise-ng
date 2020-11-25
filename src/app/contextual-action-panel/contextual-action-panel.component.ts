@@ -2,13 +2,9 @@ import {
   Component,
   ViewChild,
   ViewContainerRef
- } from '@angular/core';
-
-import {
-  SohoContextualActionPanelService,
-  SohoContextualActionPanelRef,
-  SohoModalDialogService
-} from 'ids-enterprise-ng';
+} from '@angular/core';
+// @ts-ignore
+import { SohoContextualActionPanelService, SohoContextualActionPanelRef, SohoModalDialogService } from 'ids-enterprise-ng';
 
 import { NestedModalDialogComponent } from './nested-modal-dialog.component';
 import { NestedContextualActionPanelComponent } from './nested-contextualaction-panel.component';
@@ -23,33 +19,33 @@ import { NestedContextualActionPanelComponent } from './nested-contextualaction-
 
 export class ContextualActionPanelComponent {
   @ViewChild('panelPlaceholder', { read: ViewContainerRef, static: true })
-  placeholder: ViewContainerRef;
+  placeholder?: ViewContainerRef;
   public model = {
     header: 'Default Header Text',
     comment: 'This task needs to be escalated to maximum priority and delivered by the end of next week.',
   };
 
   public title = 'Contextual Action Panel';
-  public panelRef: SohoContextualActionPanelRef<any>;
-  public closeResult: string;
+  public panelRef?: SohoContextualActionPanelRef<any> | null;
+  public closeResult?: string;
 
   constructor(private panelService: SohoContextualActionPanelService, private modalService: SohoModalDialogService) {
   }
 
   openNested() {
     const dialogRef = this.modalService
-      .modal<NestedModalDialogComponent>(NestedModalDialogComponent, this.placeholder)
+      .modal<NestedModalDialogComponent>(NestedModalDialogComponent, (this.placeholder as any))
       .buttons(
-      [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-      { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
+        [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
+        { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
       .title(this.title)
       .open()
-      .afterClose((result) => {
+      .afterClose((result: any) => {
         this.closeResult = result;
       });
   }
 
- closeAndOpenSecondCAP() {
+  closeAndOpenSecondCAP() {
     const buttons = [
       {
         text: 'Save',
@@ -73,8 +69,9 @@ export class ContextualActionPanelComponent {
       }];
 
     this.panelService
-      .contextualactionpanel(NestedContextualActionPanelComponent, this.placeholder)
-      .modalSettings({ buttons: buttons, title: 'Nested CAP'})
+      // @ts-ignore
+      .contextualactionpanel(NestedContextualActionPanelComponent, (this.placeholder as any))
+      .modalSettings({ buttons: buttons, title: 'Nested CAP' })
       .open()
       .initializeContent(true);
   }

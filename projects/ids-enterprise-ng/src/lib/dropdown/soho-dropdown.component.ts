@@ -37,22 +37,22 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   /**
    * Flag to force an update of the control after the view is created.
    */
-  private runUpdatedOnCheck: boolean;
+  private runUpdatedOnCheck?: boolean;
 
   /**
    * Integration with the Angular ControlValueAccessor for form controls.
    */
-  private valueAccessor: SohoDropDownControlValueAccessorDelegator;
+  private valueAccessor?: SohoDropDownControlValueAccessorDelegator;
 
   /**
    * Selector for originating element.
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /**
    * Reference to the IDS Enterprise Api.
    */
-  private dropdown: SohoDropDownStatic;
+  private dropdown?: SohoDropDownStatic | null;
 
   /**
    * Default block of options, use the accessors to modify.
@@ -65,7 +65,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Sets the dropdown to close on selecting a value (helpful for multi-select)
    */
   @Input()
-  public set closeOnSelect(closeOnSelect: boolean) {
+  public set closeOnSelect(closeOnSelect: boolean | undefined) {
     this.options.closeOnSelect = closeOnSelect;
     if (this.dropdown) {
       this.dropdown.settings.closeOnSelect = closeOnSelect;
@@ -73,7 +73,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     }
   }
 
-  public get closeOnSelect(): boolean {
+  public get closeOnSelect(): boolean | undefined {
     return this.options.closeOnSelect;
   }
 
@@ -81,11 +81,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Append a css class to the dropdown-list
    */
   @Input()
-  public set cssClass(cssClass: string) {
+  public set cssClass(cssClass: string | undefined) {
     this.options.cssClass = cssClass;
   }
 
-  public get cssClass(): string {
+  public get cssClass(): string | undefined {
     return this.options.cssClass;
   }
 
@@ -93,11 +93,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Typing debounce for search
    */
   @Input()
-  public set delay(delay: number) {
+  public set delay(delay: number | undefined) {
     this.options.delay = delay;
   }
 
-  public get delay(): number {
+  public get delay(): number | undefined {
     return this.options.delay;
   }
 
@@ -105,11 +105,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Initialize the empty value
    */
   @Input()
-  public set empty(empty: boolean) {
+  public set empty(empty: boolean | undefined) {
     this.options.empty = empty;
   }
 
-  public get empty(): boolean {
+  public get empty(): boolean | undefined {
     return this.options.empty;
   }
 
@@ -117,11 +117,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Value of the maximum number of selected elements (must have multiple set to true)
    */
   @Input()
-  public set maxSelected(maxSelected: number) {
+  public set maxSelected(maxSelected: number | undefined) {
     this.options.maxSelected = maxSelected;
   }
 
-  public get maxSelected(): number {
+  public get maxSelected(): number | undefined {
     return this.options.maxSelected;
   }
 
@@ -131,18 +131,18 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * @deprecated use moveSelected
    */
   @Input()
-  public set moveSelectedToTop(moveSelectedToTop: boolean) {
+  public set moveSelectedToTop(moveSelectedToTop: boolean | undefined) {
     console.warn(`'moveSelectedToTop' has been deprecated, please use 'moveSelected'.`);
     this.options.moveSelectedToTop = moveSelectedToTop;  // tslint:disable-line
   }
 
-  public get moveSelectedToTop(): boolean {
+  public get moveSelectedToTop(): boolean | undefined {
     // tslint:disable-next-line: deprecation
     return this.options.moveSelectedToTop;
   }
 
   @Input()
-  public set moveSelected(moveSelected: SohoDropDownMoveSelectedOptions) {
+  public set moveSelected(moveSelected: SohoDropDownMoveSelectedOptions | undefined) {
     this.options.moveSelected = moveSelected;
     if (this.dropdown) {
       this.dropdown.settings.moveSelected = moveSelected;
@@ -150,12 +150,12 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     }
   }
 
-  public get moveSelected(): SohoDropDownMoveSelectedOptions {
+  public get moveSelected(): SohoDropDownMoveSelectedOptions | undefined {
     return this.options.moveSelected;
   }
 
   @Input()
-  public set showEmptyGroupHeaders(showEmptyGroupHeaders: boolean) {
+  public set showEmptyGroupHeaders(showEmptyGroupHeaders: boolean| undefined) {
     this.options.showEmptyGroupHeaders = showEmptyGroupHeaders;
     if (this.dropdown) {
       this.dropdown.settings.showEmptyGroupHeaders = showEmptyGroupHeaders;
@@ -163,7 +163,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     }
   }
 
-  public get showEmptyGroupHeaders(): boolean {
+  public get showEmptyGroupHeaders(): boolean | undefined {
     return this.options.showEmptyGroupHeaders;
   }
 
@@ -201,7 +201,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Use 300 for the 300 px size fields. Default is size of the largest data.
    */
   @Input()
-  public set maxWidth(maxWidth: number) {
+  public set maxWidth(maxWidth: number | undefined) {
     this.options.maxWidth = maxWidth;
     if (this.dropdown) {
       // @todo this property can not be updated once the control
@@ -211,12 +211,12 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     }
   }
 
-  public get maxWidth(): number {
+  public get maxWidth(): number | undefined {
     return this.options.maxWidth;
   }
 
   @Input()
-  public set filterMode(filterMode: SohoDropDownFilterModeOptions) {
+  public set filterMode(filterMode: SohoDropDownFilterModeOptions | undefined) {
     this.options.filterMode = filterMode;
     if (this.dropdown) {
       this.dropdown.settings.filterMode = filterMode;
@@ -224,7 +224,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     }
   }
 
-  public get filterMode(): SohoDropDownFilterModeOptions {
+  public get filterMode(): SohoDropDownFilterModeOptions | undefined {
     return this.options.filterMode;
   }
 
@@ -232,7 +232,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Sets the select element as a multi-select
    */
   @Input()
-  public set multiple(multiple: boolean) {
+  public set multiple(multiple: boolean | undefined) {
     this.options.multiple = multiple;
     if (this.dropdown) {
       this.dropdown.settings.multiple = multiple;
@@ -240,7 +240,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     }
   }
 
-  public get multiple(): boolean {
+  public get multiple(): boolean | undefined {
     return this.options.multiple;
   }
 
@@ -253,7 +253,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Flag to add/remove search functionality from the dropdown
    */
   @Input()
-  public set noSearch(noSearch: boolean) {
+  public set noSearch(noSearch: boolean | undefined) {
     // Assume any value is true to allow the noSearch attribute to be added
     // without a boolean value.
     const value = noSearch !== null && noSearch as any !== 'false';
@@ -264,7 +264,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     }
   }
 
-  public get noSearch(): boolean {
+  public get noSearch(): boolean | undefined {
     return this.options.noSearch;
   }
 
@@ -273,11 +273,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * then create and pass to the control to use
    */
   @Input()
-  public set source(source: SohoDropDownSourceFunction | Object | string) {
+  public set source(source: SohoDropDownSourceFunction | Object | string | undefined) {
     this.options.source = source;
   }
 
-  public get source(): SohoDropDownSourceFunction | Object | string {
+  public get source(): SohoDropDownSourceFunction | Object | string | undefined {
     return this.options.source;
   }
 
@@ -285,11 +285,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Initialize the showSelectAll value for multi-select drop downs
    */
   @Input()
-  public set showSelectAll(selectAll: boolean) {
+  public set showSelectAll(selectAll: boolean | undefined) {
     this.options.showSelectAll = selectAll;
   }
 
-  public get showSelectAll(): boolean {
+  public get showSelectAll(): boolean | undefined {
     return this.options.showSelectAll;
   }
 
@@ -297,11 +297,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * Initialize the showTags value for multi-select drop downs
    */
   @Input()
-  public set showTags(showTags: boolean) {
+  public set showTags(showTags: boolean | undefined) {
     this.options.showTags = showTags;
   }
 
-  public get showTags(): boolean {
+  public get showTags(): boolean | undefined {
     return this.options.showTags;
   }
 
@@ -310,11 +310,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * to underneath/above, providing visibility into the currently selected results.
    */
   @Input()
-  public set showSearchUnderSelected(showSearchUnderSelected: boolean) {
+  public set showSearchUnderSelected(showSearchUnderSelected: boolean | undefined) {
     this.options.showSearchUnderSelected = showSearchUnderSelected;
   }
 
-  public get showSearchUnderSelected(): boolean {
+  public get showSearchUnderSelected(): boolean | undefined {
     return this.options.showSearchUnderSelected;
   }
 
@@ -334,11 +334,11 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * If defined, passes along 'clickHandler' and 'dismissHandler' functions to any Tags
    */
   @Input()
-  public set allTextString(allTextString: string) {
+  public set allTextString(allTextString: string | undefined) {
     this.options.allTextString = allTextString;
   }
 
-  public get allTextString(): string {
+  public get allTextString(): string | undefined {
     return this.options.allTextString;
   }
 
@@ -438,8 +438,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       // Wrap the accessor to allow updates to be pushed,
       // but also use the standard accessors provided by angular.
       this.valueAccessor =
-        new SohoDropDownControlValueAccessorDelegator( // tslint:disable-line
-          this.ngControl.valueAccessor, this);
+        new SohoDropDownControlValueAccessorDelegator((this.ngControl.valueAccessor as any), this);
 
       // ... change the accessor on the control to use ours.
       this.ngControl.valueAccessor = this.valueAccessor;
@@ -494,7 +493,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
       }
 
       // Destroy any widget resources.
-      this.dropdown.destroy();
+      this.dropdown?.destroy();
       this.dropdown = null;
     });
   }
@@ -507,7 +506,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    * @param data any data passed by the dropdown (todo the type)
    *
    */
-  private onRequestEnd(event: JQuery.TriggeredEvent, searchTerm: string, data: any[]) {
+  private onRequestEnd(_event: JQuery.TriggeredEvent, _searchTerm: string, _data: any[]) {
     // When the request for data has completed, make sure we
     // update the 'dropdown' control.
     this.ngZone.run(() => {
@@ -530,7 +529,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
    */
   private onChanged(event: any) {
     // Retrieve the value from the 'dropdown' component.
-    const val = this.jQueryElement.val();
+    const val = this.jQueryElement?.val();
 
     this.ngZone.run(() => {
       // This value needs to be converted into an options value, which is
@@ -541,7 +540,9 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
         // Make sure calls to angular are made in the right zone.
         // ... update the model (which will fire change
         // detection if required).
-        this.valueAccessor.onChangeFn(optionValue);
+        if (this.valueAccessor && this.valueAccessor.onChangeFn) {
+          this.valueAccessor.onChangeFn(optionValue);
+        }
       }
 
       // @todo - this wants to be the real value, so we may need to look
@@ -582,7 +583,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   public updated(): SohoDropDownComponent {
     if (this.dropdown) {
       // Calling updated when an item is selected, loses the selection!
-      this.ngZone.runOutsideAngular(() => this.dropdown.updated());
+      this.ngZone.runOutsideAngular(() => this.dropdown?.updated());
     }
     return this;
   }
@@ -594,9 +595,9 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   @Input() set disabled(value: boolean) {
     if (this.dropdown) {
       if (value) {
-        this.ngZone.runOutsideAngular(() => this.dropdown.disable());
+        this.ngZone.runOutsideAngular(() => this.dropdown?.disable());
       } else {
-        this.ngZone.runOutsideAngular(() => this.dropdown.enable());
+        this.ngZone.runOutsideAngular(() => this.dropdown?.enable());
       }
     }
   }
@@ -604,9 +605,9 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   @Input() set readonly(value: boolean) {
     if (this.dropdown) {
       if (value) {
-        this.ngZone.runOutsideAngular(() => this.dropdown.readonly());
+        this.ngZone.runOutsideAngular(() => this.dropdown?.readonly());
       } else {
-        this.ngZone.runOutsideAngular(() => this.dropdown.enable());
+        this.ngZone.runOutsideAngular(() => this.dropdown?.enable());
       }
     }
   }
@@ -620,7 +621,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   public setFocus(): void {
     if (this.jQueryElement) {
       this.ngZone.runOutsideAngular(() => {
-        this.jQueryElement.trigger('activated');
+        this.jQueryElement?.trigger('activated');
       });
     }
   }
@@ -639,7 +640,7 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
   public selectValue(value: any): void {
     if (this.dropdown) {
       this.ngZone.runOutsideAngular(() => {
-        this.dropdown.selectValue(value);
+        this.dropdown?.selectValue(value);
       });
     }
   }
@@ -679,7 +680,7 @@ class SohoDropDownControlValueAccessorDelegator implements ControlValueAccessor 
   /**
    * The Function to call when the value of the control changes.
    */
-  public onChangeFn: Function;
+  public onChangeFn?: Function;
 
   /**
    * Creates an instance of SohoDropDownControlValueAccessorDelegate.
@@ -720,7 +721,10 @@ class SohoDropDownControlValueAccessorDelegator implements ControlValueAccessor 
    */
   setDisabledState(isDisabled: boolean): void {
     this.dropdown.disabled = isDisabled;
-    this.delegate.setDisabledState(isDisabled);
+
+    if (this.delegate.setDisabledState) {
+      this.delegate.setDisabledState(isDisabled);
+    }
   }
 
   /**
@@ -744,7 +748,7 @@ class SohoDropDownControlValueAccessorDelegator implements ControlValueAccessor 
    * @param id option id (ordinal)
    * @param value the actual value
    */
-  private buildValueString(id, value) {
+  private buildValueString(id: any, value: any) {
     if (id == null) {
       return '' + value;
     }

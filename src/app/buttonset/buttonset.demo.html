@@ -88,7 +88,7 @@
     </div>
     </form>
 
-    <h3>Form valid?: {{ demoForm.status | json }}</h3>
+    <h3>Form valid?: {{ demoForm!.status | json }}</h3>
 
     <h3>Model: {{ demoForm.getRawValue() | json }}</h3>
   </div>

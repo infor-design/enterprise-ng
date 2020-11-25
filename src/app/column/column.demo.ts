@@ -3,7 +3,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoColumnComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -12,7 +12,7 @@ import { SohoColumnComponent } from 'ids-enterprise-ng';
 })
 export class ColumnDemoComponent implements OnInit {
 
-  @ViewChild(SohoColumnComponent, { static: true }) sohoColumnComponent: SohoColumnComponent;
+  @ViewChild(SohoColumnComponent, { static: true }) sohoColumnComponent?: SohoColumnComponent;
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   private selection: SohoColumnSelected  = {fieldName: 'name', fieldValue: 'Equipment'};
@@ -65,11 +65,11 @@ export class ColumnDemoComponent implements OnInit {
 
   setChartSelection() {
     const SohoColumnSelected: SohoColumnSelected = this.selection;
-    this.sohoColumnComponent.setSelected(SohoColumnSelected);
+    this.sohoColumnComponent?.setSelected(SohoColumnSelected);
   }
 
   toggleChartSelection () {
     const SohoColumnSelected: SohoColumnSelected = this.selection;
-    this.sohoColumnComponent.toggleSelected(SohoColumnSelected);
+    this.sohoColumnComponent?.toggleSelected(SohoColumnSelected);
   }
 }

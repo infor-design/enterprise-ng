@@ -1,7 +1,6 @@
 import {
   Component,
   AfterViewInit,
-  ElementRef
 } from '@angular/core';
 
 import {
@@ -42,9 +41,9 @@ export class FormCompactDemoComponent implements AfterViewInit {
     checkbox3: true,
     checkbox4: true
   };
-  demoForm: FormGroup;
+  demoForm?: FormGroup;
 
-  constructor(private elementRef: ElementRef, private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder) {
     this.createForm();
   }
 

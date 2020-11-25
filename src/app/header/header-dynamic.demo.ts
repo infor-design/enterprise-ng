@@ -9,7 +9,9 @@ import {
   ToolbarSearchField
 } from './header-dynamic-demo.model';
 import { HeaderDynamicDemoRefService } from './header-dynamic-demo-ref.service';
+// @ts-ignore
 import { SohoToolbarComponent } from 'ids-enterprise-ng';
+// @ts-ignore
 import { SohoTabsComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -22,25 +24,25 @@ export class SohoHeaderDynamicDemoComponent {
   @HostBinding('class.has-toolbar') get hasHeaderToolbar() { return !!this.toolbarOptions; }
   @HostBinding('class.has-tabs') get hasHeaderTabs() { return !!this.tabOptions; }
 
-  @ViewChild(SohoToolbarComponent, { static: true }) sohoToolbarComponent: SohoToolbarComponent;
-  @ViewChild(SohoTabsComponent) sohoTabsComponent: SohoTabsComponent;
+  @ViewChild(SohoToolbarComponent, { static: true }) sohoToolbarComponent?: SohoToolbarComponent;
+  @ViewChild(SohoTabsComponent) sohoTabsComponent?: SohoTabsComponent;
 
   /**
    * The current screen title
    */
-  @Input() sectionTitle: string;
+  @Input() sectionTitle?: string;
 
   /**
    * Sets the header toolbar using TabOptions
    */
-  @Input() set toolbarOptions(options: HeaderDynamicToolbarOptions) {
+  @Input() set toolbarOptions(options: HeaderDynamicToolbarOptions | undefined) {
     this.currentToolbarOptions = options;
   }
 
   /**
    * Sets the header tabset using TabOptions
    */
-  @Input() public set tabOptions(options: HeaderDynamicTabsetOptions) {
+  @Input() public set tabOptions(options: HeaderDynamicTabsetOptions | undefined) {
     this.currentTabsOptions = options;
   }
 
@@ -69,16 +71,16 @@ export class SohoHeaderDynamicDemoComponent {
    * Used by the component template to decide when to display the tabs.
    *
    */
-  public currentToolbarOptions: HeaderDynamicToolbarOptions = null;
+  public currentToolbarOptions?: HeaderDynamicToolbarOptions = undefined;
 
   /**
    * Used by the component template to decide when to display the toolbar.
    *
    */
-  public currentTabsOptions: HeaderDynamicTabsetOptions = null;
+  public currentTabsOptions?: HeaderDynamicTabsetOptions = undefined;
 
-  public defaultPersonalizeColor: string;
-  public defaultPersonalizeTheme: string;
+  public defaultPersonalizeColor?: string | null;
+  public defaultPersonalizeTheme?: string | null;
 
   constructor(private headerRef: HeaderDynamicDemoRefService) {
     this.headerRef.instance = this;
@@ -89,14 +91,14 @@ export class SohoHeaderDynamicDemoComponent {
   /**
    * Get the current toolbar options.
    */
-  get toolbarOptions(): HeaderDynamicToolbarOptions {
+  get toolbarOptions(): HeaderDynamicToolbarOptions | undefined {
     return this.currentToolbarOptions;
   }
 
   /**
    * Get the current toolbar options.
    */
-  public get tabOptions(): HeaderDynamicTabsetOptions {
+  public get tabOptions(): HeaderDynamicTabsetOptions | undefined {
     return this.currentTabsOptions;
   }
 
@@ -114,11 +116,11 @@ export class SohoHeaderDynamicDemoComponent {
     return theme;
   }
 
-  fireSearchEvent(event: any) {
+  fireSearchEvent(_event: any) {
     alert('run search value : "' + this.toolbarSearchField.value + '"');
   }
 
-  fireClearSearchEvent(event: any) {
+  fireClearSearchEvent(_event: any) {
     alert('search value cleared');
   }
 }

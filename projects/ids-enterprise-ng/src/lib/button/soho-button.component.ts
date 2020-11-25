@@ -43,13 +43,13 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   // -------------------------------------------
 
   /** Reference to the jQuery control. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** Reference to the Soho control api. */
-  private button: SohoButtonStatic;
+  private button?: SohoButtonStatic | null;
 
   /** The type of the button. */
-  private buttonType: SohoButtonType;
+  private buttonType?: SohoButtonType;
 
   private _buttonOptions: SohoButtonOptions = {};
   private _isToggle = false;
@@ -93,16 +93,14 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   @Input() set replaceText(replaceText: boolean) {
     this._buttonOptions.replaceText = replaceText;
     if (this.jQueryElement) {
-      this.button.settings.replaceText = replaceText;
-      // todo: how to update the button when replaceText changes?
+      ((this.button as any).settings as any).replaceText = replaceText;
     }
   }
 
-  @Input() set hideMenuArrow(value: boolean) {
+  @Input() set hideMenuArrow(value: boolean | undefined) {
     this._buttonOptions.hideMenuArrow = value;
     if (this.button) {
       this.button.settings.hideMenuArrow = value;
-      // todo: how to update the button when hideMenuArrow changes?
     }
   }
 
@@ -110,10 +108,10 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    * Used to set an extra class on the soho-icon being used by soho-button.
    * Useful to set emerald06-color azure10-color to change the icon color.
    */
-  @Input() extraIconClass: string;
+  @Input() extraIconClass?: string;
 
   get hideMenuArrow() {
-    return this._buttonOptions.hideMenuArrow;
+    return this._buttonOptions?.hideMenuArrow;
   }
 
   /**
@@ -143,7 +141,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    * The icon to be used
    *  - shows when the state is true if toggle has a value
    */
-  @Input() icon: string;
+  @Input() icon?: string;
 
   /** Sets the button type to 'submit' when true. */
   @Input() isSubmit = false;
@@ -158,13 +156,13 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    *
    *  @deprecated use isToggle=true input instead along with toggleOnIcon/toggleOffIcon options
    */
-  @Input() state = undefined;
+  @Input() state?: boolean;
 
   /**
    * The icon to be used when the state is false.
    * @deprecated use isToggle=true input instead along with toggleOnIcon/toggleOffIcon options
    */
-  @Input() toggle: string;
+  @Input() toggle?: string;
 
   /**
    * Sets the expandable-expander class to be placed on the button for the
@@ -218,9 +216,9 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     return this.buttonType === SohoButtonComponent.FAVORITE;
   }
 
-  @HostBinding('class.btn-moveto-left') @Input() moveToLeft;
-  @HostBinding('class.btn-moveto-right') @Input() moveToRight;
-  @HostBinding('class.btn-moveto-selected') @Input() moveToSelected;
+  @HostBinding('class.btn-moveto-left') @Input() moveToLeft: any;
+  @HostBinding('class.btn-moveto-right') @Input() moveToRight: any;
+  @HostBinding('class.btn-moveto-selected') @Input() moveToSelected: any;
 
   @HostBinding('class.no-ripple')
   get noRipple(): boolean {

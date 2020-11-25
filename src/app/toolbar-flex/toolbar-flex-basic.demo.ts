@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: 'toolbar-flex-basic.demo.html'
 })
 export class ToolbarFlexBasicDemoComponent {
-  onSelected(event) {
+  onSelected(event: any) {
     let data = '';
     if (event.item.type === 'actionbutton' || event.item.type === 'menubutton') {
       data = event.item.selectedAnchor[0].dataset.action;
@@ -19,11 +19,11 @@ export class ToolbarFlexBasicDemoComponent {
     console.log('submit');
   }
 
-  public onChange(event) {
+  public onChange(event: any) {
     console.log('Change Fired', event);
   }
 
-  public onCleared(event) {
+  public onCleared(event: any) {
     console.log('Clear Fired', event);
   }
 

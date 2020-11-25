@@ -44,12 +44,12 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
    *
    */
   @HostBinding('attr.disabled') @Input()
-  isDisabled = null;
+  isDisabled: boolean | undefined = undefined;
 
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /**
    * Constructor.
@@ -65,10 +65,10 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
   }
 
   @HostListener('keyup', ['$event'])
-  onKeyUp(event: KeyboardEvent) {
+  onKeyUp(_event: KeyboardEvent) {
     // This is required if masking is used, otherwise the
     // the form binding does not see updates.
-    this.internalValue = this.jQueryElement.val() as string;
+    this.internalValue = this.jQueryElement?.val() as string;
   }
 
   ngAfterViewInit() {
@@ -76,7 +76,7 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
 
     // Bind to jQueryElement's events
     this.jQueryElement
-      .on('change', (e: any, args: any[]) => this.onChange(args));
+      .on('change', (_e: any, args: any[]) => this.onChange(args));
 
     // There is no SoHoXi control initializer for input
 
@@ -88,8 +88,8 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
 
   ngOnDestroy() {
     // No jQuery control.
-    this.jQueryElement.off();
-    this.jQueryElement.remove();
+    this.jQueryElement?.off();
+    this.jQueryElement?.remove();
   }
 
   /**
@@ -98,7 +98,7 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
   onChange(event: any[]) {
     if (!event) {
       // sometimes the event is not available
-      this.internalValue = this.jQueryElement.val() as string;
+      this.internalValue = this.jQueryElement?.val() as string;
       super.writeValue(this.internalValue);
       return;
     }
@@ -135,11 +135,11 @@ export class SohoInputComponent extends BaseControlValueAccessor<string> impleme
     * This function is called when the control status changes to or from "DISABLED".
     * Depending on the value, it will enable or disable the appropriate DOM element.
     */
-  setDisabledState(isDisabled: boolean): void {
-    this.isDisabled = isDisabled ? true : null;
+  setDisabledState(isDisabled: boolean | undefined): void {
+    this.isDisabled = isDisabled ? true : undefined;
   }
 
-  getValue(): string {
+  getValue(): string | undefined {
     return this.internalValue;
   }
 

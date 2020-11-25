@@ -1,14 +1,10 @@
 import {
   Component,
-  ElementRef,
   ViewChild,
   OnInit
 } from '@angular/core';
-
-import {
-  SohoBusyIndicatorDirective,
-  SohoBusyIndicatorEvent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoBusyIndicatorDirective, SohoBusyIndicatorEvent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-busyindicator-demo',
@@ -23,9 +19,9 @@ export class BusyIndicatorDemoBodyComponent implements OnInit {
   transparentOverlay = false;
   showInitially = true;
 
-  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator?: SohoBusyIndicatorDirective;
 
-  constructor(private elementRef: ElementRef) {
+  constructor() {
   }
 
   ngOnInit() {
@@ -36,16 +32,16 @@ export class BusyIndicatorDemoBodyComponent implements OnInit {
   }
 
   start() {
-    this.busyIndicator.activated = true;
+    (this.busyIndicator as any).activated = true;
   }
 
   stop() {
-    this.busyIndicator.activated = false;
+    (this.busyIndicator as any).activated = false;
   }
 
   timer() {
     this.start();
-    setTimeout((f: any) => this.stop(), 5000);
+    setTimeout((_f: any) => this.stop(), 5000);
   }
 
   onAfterStart(event: SohoBusyIndicatorEvent) {

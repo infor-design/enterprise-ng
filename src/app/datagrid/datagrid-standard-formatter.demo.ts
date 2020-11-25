@@ -3,10 +3,8 @@ import {
   Component, OnInit,
   ViewChild
 } from '@angular/core';
-
-import {
-  SohoDataGridComponent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
 import {
   PAGING_COLUMNS,
@@ -19,9 +17,10 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridStandardFormatterDemoComponent implements OnInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;
 
-  gridOptions = undefined;
+  gridOptions: any = undefined;
+
   ngOnInit(): void {
     this.gridOptions = this.buildGridOptions();
   }

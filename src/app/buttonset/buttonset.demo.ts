@@ -4,7 +4,8 @@ import {
   ViewChild,
   AfterViewInit
 } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// @ts-ignore
 import { SohoButtonsetComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -50,11 +51,11 @@ export class ButtonsetDemoComponent implements AfterViewInit {
   ];
 
   @ViewChild(SohoButtonsetComponent)
-  public buttonset: SohoButtonsetComponent;
+  public buttonset?: SohoButtonsetComponent;
 
   public get buttonCount() {
     if (this.buttonset) {
-      return this.buttonset.buttonAPIs.length;
+      return this.buttonset?.buttonAPIs?.length;
     } else {
       return this.defaultButtons.length;
     }
@@ -79,7 +80,7 @@ export class ButtonsetDemoComponent implements AfterViewInit {
       .controls['buttonsetStyle']
       .valueChanges
       .subscribe((newStyle) => {
-        this.buttonset.style = newStyle;
+        (this.buttonset as any).style = newStyle;
         this.handleButtonWidths();
       });
 
@@ -119,16 +120,20 @@ export class ButtonsetDemoComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     // Having issue getting .buttons working
-    this.buttonset.updated({ buttons: this.defaultButtons });
+    this.buttonset?.updated({ buttons: this.defaultButtons });
   }
 
   public reset() {
     // Removes all buttons from the buttonset
-    this.buttonset.removeAll(true);
+    this.buttonset?.removeAll(true);
     this.demoForm.reset();
   }
 
   submit() {
+    if (!this.buttonset?.buttonAPIs?.length) {
+      return;
+    }
+
     this.newSettings = {
       audible: this.demoForm.controls.audible.value,
       disabled: this.demoForm.controls.disabled.value,
@@ -141,7 +146,7 @@ export class ButtonsetDemoComponent implements AfterViewInit {
     this.setIcon();
     this.setToggleIcons();
 
-    this.buttonset.add(this.newSettings, true);
+    this.buttonset?.add(this.newSettings, true);
     this.handleButtonWidths();
   }
 
@@ -188,17 +193,21 @@ export class ButtonsetDemoComponent implements AfterViewInit {
   public adjustBtnWidths(btns: SohoButtonStatic[]) {
     const btnPercentageWidth = 100 / btns.length;
     btns.forEach(function (btn) {
-      btn.element[0].style.width = '' + btnPercentageWidth + '%';
+      (btn.element as any)[0].style.width = '' + btnPercentageWidth + '%';
     });
   }
 
   public resetBtnWidths(btns: SohoButtonStatic[]) {
     btns.forEach(function (btn: SohoButtonStatic) {
-      btn.element[0].style.width = '';
+      (btn.element as any)[0].style.width = '';
     });
   }
 
   public handleButtonWidths() {
+    if (!this.buttonset?.buttonAPIs) {
+      return;
+    }
+
     if (this.demoForm.controls.buttonsetStyle.value === 'modal') {
       this.adjustBtnWidths(this.buttonset.buttonAPIs);
     } else {

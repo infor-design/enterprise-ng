@@ -3,7 +3,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoDatePickerComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -12,7 +12,7 @@ import { SohoDatePickerComponent } from 'ids-enterprise-ng';
 })
 export class DatepickerDemoComponent implements OnInit {
 
-  @ViewChild(SohoDatePickerComponent, { static: true }) datepicker: SohoDatePickerComponent;
+  @ViewChild(SohoDatePickerComponent, { static: true }) datepicker?: SohoDatePickerComponent;
 
   public model = {
     standard: '12/12/2016',
@@ -90,23 +90,23 @@ export class DatepickerDemoComponent implements OnInit {
   }
 
   setEnable() {
-    this.datepicker.disabled = false;
-    this.datepickerDisabled = this.datepicker.disabled;
-    this.datepickerReadOnly = this.datepicker.readonly;
+    (this.datepicker as any).disabled = false;
+    this.datepickerDisabled = (this.datepicker as any).disabled;
+    this.datepickerReadOnly = (this.datepicker as any).readonly;
   }
 
   setDisable() {
-    this.datepicker.disabled = true;
-    this.datepickerDisabled = this.datepicker.disabled;
+    (this.datepicker as any).disabled = true;
+    this.datepickerDisabled = (this.datepicker as any).disabled;
   }
 
   setReadonly() {
-    this.datepicker.readonly = true;
-    this.datepickerReadOnly = this.datepicker.readonly;
+    (this.datepicker as any).readonly = true;
+    this.datepickerReadOnly = (this.datepicker as any).readonly;
   }
 
   registerCustomValidator() {
-    Soho.Validation.rules['customRule'] = {
+    const customRule: any = {
       check: function (value: any, field: any, grid: any) {
         console.log(value, field, grid);
         return false;
@@ -115,5 +115,8 @@ export class DatepickerDemoComponent implements OnInit {
       type: 'error',
       message: 'Test Error - Anything you enter will be wrong'
     };
+
+    // @ts-ignore
+    Soho.Validation.rules['customRule'] = customRule;
   }
 }

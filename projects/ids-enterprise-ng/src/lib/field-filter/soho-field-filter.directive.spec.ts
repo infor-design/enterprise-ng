@@ -1,5 +1,5 @@
 
-import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SohoFieldFilterDirective } from './soho-field-filter.directive';
@@ -16,12 +16,12 @@ import { SohoFieldFilterDirective } from './soho-field-filter.directive';
     </div>`
 })
 class SohoFieldFilterTestComponent {
-  @ViewChild(SohoFieldFilterDirective) sohoFieldFilter: SohoFieldFilterDirective;
+  @ViewChild(SohoFieldFilterDirective) sohoFieldFilter?: SohoFieldFilterDirective;
 
-  fieldSettings: SohoFieldFilterSettings;
-  fieldDropdownDataSet: SohoFieldFilterOption[];
-  dropdownOpts: SohoDropDownOptions;
-  template: string;
+  fieldSettings?: SohoFieldFilterSettings;
+  fieldDropdownDataSet?: SohoFieldFilterOption[];
+  dropdownOpts?: SohoDropDownOptions;
+  template?: string;
 
   filtered() { }
 }
@@ -42,7 +42,7 @@ describe('Directive: SohoFieldFilter', () => {
     component = fixture.componentInstance;
 
     fixture.detectChanges();
-    sohoFieldFilter = component.sohoFieldFilter;
+    sohoFieldFilter = (component.sohoFieldFilter as any);
 
     const sohFieldFilterAny = (sohoFieldFilter as any);
     updatedSpy = spyOn(sohFieldFilterAny.fieldFilter, 'updated');
@@ -90,7 +90,7 @@ describe('Directive: SohoFieldFilter', () => {
   });
 
   it('should getFilterType', () => {
-    const getFilterTypeSpy = spyOn(sohoFieldFilter['fieldFilter'], 'getFilterType');
+    const getFilterTypeSpy = spyOn((sohoFieldFilter['fieldFilter'] as any), 'getFilterType');
     getFilterTypeSpy.and.returnValue(1);
 
     const result = sohoFieldFilter.getFilterType();
@@ -121,7 +121,7 @@ describe('Directive: SohoFieldFilter', () => {
 
   it('should fire filtered event', () => {
     const filteredSpy = spyOn(component, 'filtered');
-    sohoFieldFilter['jQueryElement'].trigger('filtered', { data: 3 });
+    (sohoFieldFilter as any)['jQueryElement'].trigger('filtered', { data: 3 });
 
     expect(filteredSpy).toHaveBeenCalledTimes(1);
     expect((filteredSpy.calls.mostRecent() as any).args[0].filterOption).toEqual(3);

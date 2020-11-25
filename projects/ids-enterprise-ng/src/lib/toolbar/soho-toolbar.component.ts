@@ -90,8 +90,8 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
-  private toolbarsearchfield: SohoToolbarSearchFieldStatic;
+  private jQueryElement?: JQuery;
+  private toolbarsearchfield?: SohoToolbarSearchFieldStatic;
   private searchFieldChanged = false;
 
   constructor(
@@ -125,7 +125,7 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
 
   ngAfterViewChecked() {
     if (this.searchFieldChanged) {
-      this.ngZone.runOutsideAngular(() => this.toolbarsearchfield.updated());
+      this.ngZone.runOutsideAngular(() => this.toolbarsearchfield?.updated());
       this.searchFieldChanged = false;
     }
   }
@@ -146,7 +146,7 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
   }
 
   clear(): void {
-    this.ngZone.runOutsideAngular(() => this.toolbarsearchfield.clear());
+    this.ngZone.runOutsideAngular(() => this.toolbarsearchfield?.clear());
   }
 
   private markForRefresh() {
@@ -418,9 +418,9 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
   @Output() menuItemMouseOver: EventEmitter<HTMLButtonElement> = new EventEmitter<HTMLButtonElement>();
 
   private options: SohoToolbarOptions = {};
-  private jQueryElement: JQuery;
-  private toolbar: SohoToolbarStatic;
-  private toolbarChanged: boolean;
+  private jQueryElement?: JQuery;
+  private toolbar?: SohoToolbarStatic | null;
+  private toolbarChanged?: boolean;
 
   constructor(
     private changeDetector: ChangeDetectorRef,
@@ -483,15 +483,15 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     });
   }
 
-  updated(settings?) {
+  updated(settings?: any) {
     if (this.toolbar) {
-      this.ngZone.runOutsideAngular(() => this.toolbar.updated(settings));
+      this.ngZone.runOutsideAngular(() => this.toolbar?.updated(settings));
     }
   }
 
   handleResize() {
     if (this.toolbar) {
-      this.ngZone.runOutsideAngular(() => this.toolbar.handleResize());
+      this.ngZone.runOutsideAngular(() => this.toolbar?.handleResize());
     }
   }
 

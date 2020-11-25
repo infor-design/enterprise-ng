@@ -19,5 +19,5 @@ export class NestedContextualActionPanelComponent {
    * This can be the ViewContainerRef of this component, or another component.
    */
   @ViewChild('nestedCapPlaceholder', { read: ViewContainerRef, static: true })
-  placeholder: ViewContainerRef;
+  placeholder?: ViewContainerRef;
 }

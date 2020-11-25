@@ -286,20 +286,12 @@ describe('Soho Menu Button Unit Tests', () => {
   it('check fires `selected`', () => {
     const spy = spyOn((comp as any), 'onSelected').and.callThrough();
 
-    const selectionResult = []; // list of selected anchors.
+    const selectionResult: Array<any> = []; // list of selected anchors.
     // Emulate the event being triggered (args?)
     (comp as any).jQueryElement.trigger('selected', selectionResult);
 
     // Check it was caled
     expect(spy).toHaveBeenCalledTimes(1);
-  });
-
-  it('check open', () => {
-    const spy = spyOn((comp as any).menuButton, 'open').and.callFake(() => { });
-
-    // const mockEvent = JQuery<HTMLElement>.TriggeredEvent('open');
-    // comp.open(mockEvent);
-    // expect(spy).toHaveBeenCalledTimes(1);
   });
 
   it('check close', () => {
@@ -367,7 +359,7 @@ describe('Soho Menu Button Unit Tests', () => {
 </ul>`
 })
 export class TestSohoMenuButtonComponent {
-  @ViewChild(SohoMenuButtonComponent) menuButton;
+  @ViewChild(SohoMenuButtonComponent) menuButton?: any;
 }
 
 describe('Soho Menu Button Render', () => {

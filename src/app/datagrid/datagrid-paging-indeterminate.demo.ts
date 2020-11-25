@@ -1,14 +1,11 @@
 import {
   AfterViewChecked,
-  AfterViewInit,
   ChangeDetectionStrategy, ChangeDetectorRef,
   Component, NgZone, OnInit,
   ViewChild
 } from '@angular/core';
-import {
-  SohoDataGridComponent,
-  SohoToastService,
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoDataGridComponent, SohoToastService} from 'ids-enterprise-ng';
 import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indeterminate-demo.service';
 
 @Component({
@@ -19,10 +16,10 @@ import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indete
 })
 export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecked, OnInit {
   @ViewChild(SohoDataGridComponent)
-  private sohoDataGridComponent: SohoDataGridComponent;
+  private sohoDataGridComponent?: SohoDataGridComponent;
 
   public showPageSizeSelector = true;
-  public gridOptions: SohoDataGridOptions = undefined;
+  public gridOptions?: SohoDataGridOptions = undefined;
   private selectedRow = 0;
   private updateSelectedRow = false;
 
@@ -53,7 +50,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
 
   ngAfterViewChecked() {
     if (this.sohoDataGridComponent && this.updateSelectedRow) {
-      this.sohoDataGridComponent.selectRows([this.selectedRow]);
+      this.sohoDataGridComponent?.selectRows([this.selectedRow]);
       this.updateSelectedRow = false;
     }
   }
@@ -66,7 +63,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
       request.firstPage = result.firstPage;
       request.lastPage = result.lastPage;
 
-      const selectedRows = this.sohoDataGridComponent ? this.sohoDataGridComponent.selectedRows() : undefined;
+      const selectedRows = this.sohoDataGridComponent ? this.sohoDataGridComponent?.selectedRows() : undefined;
       this.selectedRow = selectedRows !== undefined ? selectedRows[0].idx : 0;
 
       /* Put the data into the data grid */
@@ -79,7 +76,7 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
 
   onRefresh() {
     console.log('onRefresh() called');
-    this.sohoDataGridComponent.triggerSource('refresh', function () {
+    this.sohoDataGridComponent?.triggerSource('refresh', function () {
       console.log('List Refresh Completed');
     });
   }
@@ -93,19 +90,19 @@ export class DataGridPagingIndeterminateDemoComponent implements AfterViewChecke
     this.toastService.show({ title: 'Selected', message: 'Rows Selected: ' + selectedRows + ' type ' + e.type });
   }
 
-  onOpenFilterRow(e: SohoDataGridOpenFilterRowEvent) {
+  onOpenFilterRow(_e: SohoDataGridOpenFilterRowEvent) {
     this.toastService.show({ title: 'Filter', message: 'filter row opened' });
   }
 
-  onCloseFilterRow(e: SohoDataGridCloseFilterRowEvent) {
+  onCloseFilterRow(_e: SohoDataGridCloseFilterRowEvent) {
     this.toastService.show({ title: 'Filter', message: 'filter row closed' });
   }
 
   toggleFilterRow() {
-    this.sohoDataGridComponent.toggleFilterRow();
+    this.sohoDataGridComponent?.toggleFilterRow();
   }
 
   setHeaderCheckbox(state: SohoDataGridHeaderCheckboxState) {
-    this.sohoDataGridComponent.setHeaderCheckboxState(state);
+    this.sohoDataGridComponent?.setHeaderCheckboxState(state);
   }
 }

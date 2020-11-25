@@ -5,7 +5,7 @@ import {
   ChangeDetectorRef,
   ChangeDetectionStrategy
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoTextAreaComponent, SohoContextMenuDirective } from 'ids-enterprise-ng';
 
 @Component({
@@ -14,15 +14,15 @@ import { SohoTextAreaComponent, SohoContextMenuDirective } from 'ids-enterprise-
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContextMenuToggleDemoComponent implements OnInit {
-  @ViewChild(SohoTextAreaComponent, { static: true }) textarea: SohoTextAreaComponent;
-  @ViewChild(SohoContextMenuDirective) contextMenu: SohoContextMenuDirective;
+  @ViewChild(SohoTextAreaComponent, { static: true }) textarea?: SohoTextAreaComponent;
+  @ViewChild(SohoContextMenuDirective) contextMenu?: SohoContextMenuDirective;
 
-  public labelText: string;
-  public isShowContextMenu: boolean;
-  public isAutoFocus: boolean;
-  public isAttachToBody: boolean;
+  public labelText?: string;
+  public isShowContextMenu?: boolean;
+  public isAutoFocus?: boolean;
+  public isAttachToBody?: boolean;
 
-  public contextmenuItems: Array<TypeContextMenuItems>;
+  public contextmenuItems?: Array<TypeContextMenuItems>;
 
   private buildContextMenu(): Array<TypeContextMenuItems> {
     const items: Array<TypeContextMenuItems> = [];
@@ -115,15 +115,15 @@ export class ContextMenuToggleDemoComponent implements OnInit {
 
   updateSettings() {
     this.changeDetectorRef.detectChanges();
-    this.contextMenu.updated();
+    this.contextMenu?.updated();
   }
 
   setContextMenu() {
     this.changeDetectorRef.detectChanges();
     if (this.isShowContextMenu) {
-      this.contextMenu.ngAfterViewInit();
+      this.contextMenu?.ngAfterViewInit();
     } else {
-      this.contextMenu.ngOnDestroy();
+      this.contextMenu?.ngOnDestroy();
     }
   }
 

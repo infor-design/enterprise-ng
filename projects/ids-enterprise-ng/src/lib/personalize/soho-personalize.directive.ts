@@ -27,7 +27,7 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
     this.options.colors = colors;
     if (this.personalize) {
       this.ngZone.runOutsideAngular(() => {
-        this.personalize.setColors(colors);
+        this.personalize?.setColors(colors);
       });
     }
   }
@@ -37,7 +37,7 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
     this.options.theme = theme;
     if (this.personalize) {
       this.ngZone.runOutsideAngular(() => {
-        this.personalize.setTheme(theme);
+        this.personalize?.setTheme(theme);
       });
     }
   }
@@ -47,10 +47,10 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
   @Output() changecolors = new EventEmitter<SohoChangeColorsPersonalizeEvent>();
 
   /** EP api */
-  private personalize: SohoPersonalizeStatic;
+  private personalize?: SohoPersonalizeStatic | null;
 
   /** jQuery Widget */
-  private jQueryElement: JQuery<HTMLElement>;
+  private jQueryElement?: JQuery<HTMLElement>;
 
   /**
    * Constructor.
@@ -143,7 +143,7 @@ export class SohoPersonalizeDirective implements AfterViewInit, OnDestroy {
       }
 
       if (this.personalize) {
-        this.personalize.destroy();
+        this.personalize?.destroy();
         this.personalize = null;
       }
     });

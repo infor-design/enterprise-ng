@@ -1,4 +1,4 @@
-import { Component, ViewChild, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 export const SUMMARY_DATA: any[] = [
 
@@ -26,7 +26,7 @@ export const SUMMARY_COLUMNS: SohoDataGridColumn[] = [
   templateUrl: 'datagrid-summary-row.demo.html'
 })
 export class DataGridSummaryRowDemoComponent implements OnInit {
-  gridOptions: SohoDataGridOptions = undefined;
+  gridOptions?: SohoDataGridOptions = undefined;
 
   ngOnInit() {
     this.gridOptions = {

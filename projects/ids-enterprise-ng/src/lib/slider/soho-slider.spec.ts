@@ -6,34 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { SohoSliderModule } from './soho-slider.module';
 import { SohoSliderComponent } from './soho-slider.component';
 
-// Not able to create a component instance. Running into an error when creating jQuery instance
-// Error: Element with ID "undefined" cannot invoke a slider;  it's not an Input element.
-
-// describe('Soho Slider Unit Tests', () => {
-//   let comp:     SohoSliderComponent;
-//   let fixture:  ComponentFixture<SohoSliderComponent>;
-//   let de:       DebugElement;
-//   let el:       HTMLElement;
-//
-//   beforeEach( () => {
-//     TestBed.configureTestingModule({
-//       declarations: [ SohoSliderComponent ]
-//     })
-//
-//     fixture = TestBed.createComponent(SohoSliderComponent);
-//     comp = fixture.componentInstance;
-//     fixture.detectChanges();
-//
-//     de = fixture.debugElement;
-//     el = de.nativeElement;
-//   });
-//
-//   it('Check Content', () => {
-//     expect(el.nodeName).toEqual('DIV');
-//     expect(el.classList).toContain('slider-wrapper');
-//   });
-// });
-
 @Component({
   template: `
     <input soho-slider id="slider-regular" name="slider-regular"
@@ -42,7 +14,7 @@ import { SohoSliderComponent } from './soho-slider.component';
 })
 
 class SohoSliderTestComponent {
-  @ViewChild(SohoSliderComponent) slider: SohoSliderComponent;
+  @ViewChild(SohoSliderComponent) slider?: SohoSliderComponent | null;
 }
 
 describe('Soho Slider Render', () => {
@@ -65,16 +37,16 @@ describe('Soho Slider Render', () => {
     el = de.query(By.css('input[soho-slider]')).nativeElement;
 
     fixture.detectChanges();
-    slider = comp.slider;
+    slider = (comp.slider as any);
   });
 
   it('Check slider element', () => {
     fixture.detectChanges();
     expect(el.nodeName).toEqual('INPUT');
     expect(el.classList).toContain('slider');
-    expect(el.getAttribute('min')).toEqual(slider.min.toString());
-    expect(el.getAttribute('max')).toEqual(slider.max.toString());
-    expect(el.getAttribute('value')).toEqual(slider.value[0].toString());
+    expect(el.getAttribute('min')).toEqual((slider as any).min.toString());
+    expect(el.getAttribute('max')).toEqual((slider as any).max.toString());
+    expect(el.getAttribute('value')).toEqual((slider as any).value[0].toString());
   });
 
   it('Slider disabled', () => {

@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild } from '@angular/core';
-import { FormsModule, FormGroup, FormBuilder } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { SohoDropDownModule } from './soho-dropdown.module';
 import { SohoDropDownComponent } from './soho-dropdown.component';
@@ -13,7 +13,7 @@ import { SohoDropDownComponent } from './soho-dropdown.component';
   </select>`
 })
 class SohoDropDownTestComponent {
-  @ViewChild(SohoDropDownComponent) dropdown: SohoDropDownComponent;
+  @ViewChild(SohoDropDownComponent) dropdown?: SohoDropDownComponent;
   selectedOption = 'ND';
   public options = [
     { value: 'AK', label: 'Alaska' },
@@ -27,7 +27,7 @@ class SohoDropDownTestComponent {
     { value: 'WY', label: 'Wyoming' }
   ];
 
-  public lastEvent: SohoDropDownEvent;
+  public lastEvent?: SohoDropDownEvent;
 
   public onListclosed(event: SohoDropDownEvent) {
     this.lastEvent = event;
@@ -92,7 +92,7 @@ describe('Soho Dropdown Render', () => {
     el = de.query(By.css('select[soho-dropdown]')).nativeElement;
 
     fixture.detectChanges();
-    dropdown = component.dropdown;
+    dropdown = (component.dropdown as any);
   });
 
   it('Check HTML content', () => {

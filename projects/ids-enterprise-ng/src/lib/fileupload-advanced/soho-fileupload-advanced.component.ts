@@ -29,10 +29,10 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
   /**
    * Flag to force an update of the control after the view is created.
    */
-  private runUpdatedOnCheck: boolean;
+  private runUpdatedOnCheck?: boolean;
 
   /** Keeps track of the enabled / disabled state. */
-  public isDisabled: boolean;
+  public isDisabled?: boolean;
 
   // -------------------------------------------
   // Component Input
@@ -41,24 +41,24 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
   /**
    * Set the disabled state of the control.
    */
-  @Input() set disabled(value: boolean) {
+  @Input() set disabled(value: boolean | undefined) {
     this.isDisabled = value;
     if (this.fileuploadadvanced) {
       if (value) {
         this.ngZone.runOutsideAngular(() => {
-          this.fileuploadadvanced.disable();
+          this.fileuploadadvanced?.disable();
         });
         this.isDisabled = true;
       } else {
         this.ngZone.runOutsideAngular(() => {
-          this.fileuploadadvanced.enable();
+          this.fileuploadadvanced?.enable();
         });
         this.isDisabled = false;
       }
     }
   }
 
-  get disabled() {
+  get disabled(): boolean | undefined {
     return this.isDisabled;
   }
 
@@ -67,7 +67,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
    *
    * @param isStandalone true for onPage otherwise false.
    */
-  @Input() set isStandalone(isStandaline: boolean) {
+  @Input() set isStandalone(isStandaline: boolean | undefined) {
     this.options.isStandalone = isStandaline;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.isStandalone = isStandaline;
@@ -75,7 +75,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     }
   }
 
-  get isStandalone(): boolean {
+  get isStandalone(): boolean | undefined {
     return this.options.isStandalone;
   }
 
@@ -84,7 +84,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
    *
    * @param allowedTypes - the allowed types.
    */
-  @Input() set allowedTypes(allowedTypes: string) {
+  @Input() set allowedTypes(allowedTypes: string | undefined) {
     this.options.allowedTypes = allowedTypes;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.allowedTypes = allowedTypes;
@@ -92,7 +92,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     }
   }
 
-  get allowedTypes(): string {
+  get allowedTypes(): string | undefined {
     return this.options.allowedTypes;
   }
 
@@ -104,7 +104,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
    *
    * @param sendFn - the callback function responsible to uploading the file.
    */
-  @Input() set send(sendFn: SohoFileUploadAdvancedSendFunction) {
+  @Input() set send(sendFn: SohoFileUploadAdvancedSendFunction | any) {
     this.options.send = sendFn;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.send = sendFn;
@@ -112,7 +112,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     }
   }
 
-  get send() {
+  get send(): any {
     return this.options.send;
   }
 
@@ -121,7 +121,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
    *
    * @param maxFiles - max files cab be upload.
    */
-  @Input() set maxFiles(maxFiles: number) {
+  @Input() set maxFiles(maxFiles: number | undefined) {
     this.options.maxFiles = maxFiles;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.maxFiles = maxFiles;
@@ -129,7 +129,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     }
   }
 
-  get maxFiles() {
+  get maxFiles(): number | undefined {
     return this.options.maxFiles;
   }
 
@@ -138,7 +138,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
    *
    * @param maxFilesInProcess - the callback function responsible to uploading the file.
    */
-  @Input() set maxFilesInProcess(maxFilesInProcess: number) {
+  @Input() set maxFilesInProcess(maxFilesInProcess: number | undefined) {
     this.options.maxFilesInProcess = maxFilesInProcess;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.maxFilesInProcess = maxFilesInProcess;
@@ -146,7 +146,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     }
   }
 
-  get maxFilesInProcess() {
+  get maxFilesInProcess(): number | undefined {
     return this.options.maxFilesInProcess;
   }
 
@@ -155,7 +155,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
    *
    * @param maxFileSize - Max file size in bytes, -1 for unlimited.
    */
-  @Input() set maxFileSize(maxFileSize: number) {
+  @Input() set maxFileSize(maxFileSize: number | undefined) {
     this.options.maxFileSize = maxFileSize;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.maxFileSize = maxFileSize;
@@ -163,7 +163,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     }
   }
 
-  get maxFileSize() {
+  get maxFileSize(): number | undefined {
     return this.options.maxFileSize;
   }
 
@@ -172,7 +172,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
    *
    * @param fileName - Variable name to read from server..
    */
-  @Input() set fileName(fileName: string) {
+  @Input() set fileName(fileName: string | undefined) {
     this.options.fileName = fileName;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.fileName = fileName;
@@ -180,7 +180,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     }
   }
 
-  get fileName() {
+  get fileName(): string | undefined {
     return this.options.fileName;
   }
 
@@ -189,7 +189,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
    *
    * @param showBrowseButton - if true, displays the browse button; otherwise do not.
    */
-  @Input() set showBrowseButton(showBrowseButton: boolean) {
+  @Input() set showBrowseButton(showBrowseButton: boolean | undefined) {
     this.options.showBrowseButton = showBrowseButton;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.showBrowseButton = showBrowseButton;
@@ -197,7 +197,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     }
   }
 
-  get showBrowseButton() {
+  get showBrowseButton(): boolean | undefined {
     return this.options.showBrowseButton;
   }
 
@@ -206,7 +206,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
    *
    * @param textDropArea - Text to show in drop area.
    */
-  @Input() set textDropArea(textDropArea: string) {
+  @Input() set textDropArea(textDropArea: string | undefined) {
     this.options.textDropArea = textDropArea;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.textDropArea = textDropArea;
@@ -214,7 +214,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     }
   }
 
-  get textDropArea() {
+  get textDropArea(): string | undefined {
     return this.options.textDropArea;
   }
 
@@ -223,7 +223,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
    *
    * @param textDropAreaWithBrowse - Text to show in drop area when browse option true.
    */
-  @Input() set textDropAreaWithBrowse(textDropAreaWithBrowse: string) {
+  @Input() set textDropAreaWithBrowse(textDropAreaWithBrowse: string | undefined) {
     this.options.textDropAreaWithBrowse = textDropAreaWithBrowse;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.textDropAreaWithBrowse = textDropAreaWithBrowse;
@@ -231,7 +231,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     }
   }
 
-  get textDropAreaWithBrowse() {
+  get textDropAreaWithBrowse(): string | undefined {
     return this.options.textDropAreaWithBrowse;
   }
 
@@ -240,7 +240,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
    *
    * @param textBtnCancel - Hidden text for cancel button.
    */
-  @Input() set textBtnCancel(textBtnCancel: string) {
+  @Input() set textBtnCancel(textBtnCancel: string | undefined) {
     this.options.textBtnCancel = textBtnCancel;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.textBtnCancel = textBtnCancel;
@@ -248,7 +248,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     }
   }
 
-  get textBtnCancel() {
+  get textBtnCancel(): string | undefined {
     return this.options.textBtnCancel;
   }
 
@@ -257,7 +257,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
    *
    * @param textBtnCloseError - Hidden text for error close button.
    */
-  @Input() set textBtnCloseError(textBtnCloseError: string) {
+  @Input() set textBtnCloseError(textBtnCloseError: string | undefined) {
     this.options.textBtnCloseError = textBtnCloseError;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.textBtnCloseError = textBtnCloseError;
@@ -265,7 +265,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     }
   }
 
-  get textBtnCloseError() {
+  get textBtnCloseError(): string | undefined {
     return this.options.textBtnCloseError;
   }
 
@@ -274,7 +274,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
    *
    * @param textBtnRemove - Hidden text for remove button.
    */
-  @Input() set textBtnRemove(textBtnRemove: string) {
+  @Input() set textBtnRemove(textBtnRemove: string | undefined) {
     this.options.textBtnRemove = textBtnRemove;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.textBtnRemove = textBtnRemove;
@@ -282,14 +282,14 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     }
   }
 
-  get textBtnRemove() {
+  get textBtnRemove(): string | undefined {
     return this.options.textBtnRemove;
   }
 
   /**
    *
    */
-  @Input() set errorMaxFiles(errorMaxFiles: string) {
+  @Input() set errorMaxFiles(errorMaxFiles: string | undefined) {
     this.options.errorMaxFiles = errorMaxFiles;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.updated(this.fileuploadadvanced.settings);
@@ -297,14 +297,14 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     }
   }
 
-  get errorMaxFiles(): string {
+  get errorMaxFiles(): string | undefined {
     return this.options.errorMaxFiles;
   }
 
   /**
    *
    */
-  @Input() set errorMaxFilesInProcess(errorMaxFilesInProcess: string) {
+  @Input() set errorMaxFilesInProcess(errorMaxFilesInProcess: string | undefined) {
     this.options.errorMaxFilesInProcess = errorMaxFilesInProcess;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.updated(this.fileuploadadvanced.settings);
@@ -312,14 +312,14 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     }
   }
 
-  get errorMaxFilesInProcess(): string {
+  get errorMaxFilesInProcess(): string | undefined {
     return this.options.errorMaxFilesInProcess;
   }
 
   /**
    *
    */
-  @Input() set errorMaxFileSize(errorMaxFilesSize: string) {
+  @Input() set errorMaxFileSize(errorMaxFilesSize: string | undefined) {
     this.options.errorMaxFileSize = errorMaxFilesSize;
     if (this.fileuploadadvanced) {
       this.fileuploadadvanced.settings.errorMaxFileSize = errorMaxFilesSize;
@@ -327,7 +327,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
     }
   }
 
-  get errorMaxFileSize(): string {
+  get errorMaxFileSize(): string | undefined {
     return this.options.errorMaxFileSize;
   }
 
@@ -354,10 +354,10 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
   private options: SohoFileUploadAdvancedOptions = {};
 
   // Reference to the jQuery control.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the SoHoXi control api.
-  private fileuploadadvanced: SohoFileUploadAdvancedStatic;
+  private fileuploadadvanced?: SohoFileUploadAdvancedStatic | null;
 
   // -------------------------------------------
   // Public API
@@ -372,7 +372,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
   updated(settings: SohoFileUploadAdvancedOptions): void {
     if (this.fileuploadadvanced) {
       this.ngZone.runOutsideAngular(() => {
-        this.fileuploadadvanced.updated(settings);
+        this.fileuploadadvanced?.updated(settings);
       });
       this.options = this.fileuploadadvanced.settings;
     } else {
@@ -386,7 +386,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
   destroy() {
     if (this.fileuploadadvanced) {
       this.ngZone.runOutsideAngular(() => {
-        this.fileuploadadvanced.destroy();
+        this.fileuploadadvanced?.destroy();
       });
       this.fileuploadadvanced = null;
     }
@@ -411,35 +411,35 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
           this.filesdragenter.next(e);
         });
       })
-      .on('filesdroped', (args: JQuery.TriggeredEvent, files: File[]) => {
+      .on('filesdroped', (_args: JQuery.TriggeredEvent, files: File[]) => {
         this.ngZone.run(() => { this.filesdropped.next(files); });
       })
-      .on('beforecreatestatus', (args: JQuery.TriggeredEvent, files: File[]) => {
+      .on('beforecreatestatus', (_args: JQuery.TriggeredEvent, files: File[]) => {
         this.ngZone.run(() => {
           this.beforecreatestatus.next(files);
         });
       })
-      .on('aftercreatestatus', (args: JQuery.TriggeredEvent, files: File[]) => {
+      .on('aftercreatestatus', (_args: JQuery.TriggeredEvent, files: File[]) => {
         this.ngZone.run(() => {
           this.aftercreatestatus.next(files);
         });
       })
-      .on('fileprogress', (args: JQuery.TriggeredEvent, files: File[]) => {
+      .on('fileprogress', (_args: JQuery.TriggeredEvent, files: File[]) => {
         this.ngZone.run(() => {
           this.fileprogress.next(files);
         });
       })
-      .on('fileaborted', (args: JQuery.TriggeredEvent, files: File[]) => {
+      .on('fileaborted', (_args: JQuery.TriggeredEvent, files: File[]) => {
         this.ngZone.run(() => {
           this.fileaborted.next(files);
         });
       })
-      .on('filecompleteuploading', (args: JQuery.TriggeredEvent, files: File[]) => {
+      .on('filecompleteuploading', (_args: JQuery.TriggeredEvent, files: File[]) => {
         this.ngZone.run(() => {
           this.filecompleteduploading.next(files);
         });
       })
-      .on('fileremoved', (args: JQuery.TriggeredEvent, files: File[]) => {
+      .on('fileremoved', (_args: JQuery.TriggeredEvent, files: File[]) => {
         this.ngZone.run(() => {
           this.fileremoved.next(files);
         });
@@ -460,7 +460,7 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
   ngOnDestroy() {
     if (this.fileuploadadvanced) {
       this.ngZone.runOutsideAngular(() => {
-        this.fileuploadadvanced.destroy();
+        this.fileuploadadvanced?.destroy();
       });
       this.fileuploadadvanced = null;
     }

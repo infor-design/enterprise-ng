@@ -87,19 +87,19 @@ interface SohoBar {
   updated(settings?: SohoBarOptions): void;
 
   /** Gets the currently selected element */
-  getSelected(settings?: SohoBarOptions, isToggle?: boolean);
+  getSelected(settings?: SohoBarOptions, isToggle?: boolean): Array<Object> | Object | SohoBarSelected;
 
   /** Sets the currently selected element */
-  setSelected(selected: SohoBarSelected);
+  setSelected(selected: SohoBarSelected): void;
 
   /** Toggles the currently selected element */
-  toggleSelected(selected: SohoBarSelected);
+  toggleSelected(selected: SohoBarSelected): void;
 
   /** Destroys the control on completion. */
   destroy(): void;
 }
 
-type SohoBarSelected = SohoBarFieldSelected | SohoBarGroupSelected;
+type SohoBarSelected = SohoBarFieldSelected | SohoBarGroupSelected | Array<Object> ;
 
 interface SohoBarFieldSelected {
   // use either index or fieldName and fieldValue

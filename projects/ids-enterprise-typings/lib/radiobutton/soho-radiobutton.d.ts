@@ -5,7 +5,7 @@
  */
 
 interface SohoRadioButtonEvent extends JQuery.TriggeredEvent {
-  data: any
+  data: any;
 }
 
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {

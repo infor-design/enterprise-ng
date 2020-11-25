@@ -9,6 +9,6 @@ import {
   template: `<ng-content></ng-content>`
 })
 export class SohoWidgetTitleComponent {
-  @HostBinding('attr.tabindex') @Input() tabIndex: number;
+  @HostBinding('attr.tabindex') @Input() tabIndex?: number;
   @HostBinding('class.widget-title') isWidgetTitle = true;
 }

@@ -170,7 +170,7 @@ export const checkboxColumn = {
   </form>`
 })
 class SohoLookupReactiveFormTestComponent {
-  @ViewChild(SohoLookupComponent) lookup: SohoLookupComponent;
+  @ViewChild(SohoLookupComponent) lookup?: SohoLookupComponent;
 
   formGroup: FormGroup;
 
@@ -193,7 +193,6 @@ class SohoLookupReactiveFormTestComponent {
 }
 
 describe('SohoLookupComponent on ReactiveForm', () => {
-  let lookup: SohoLookupComponent;
   let component: SohoLookupReactiveFormTestComponent;
   let fixture: ComponentFixture<SohoLookupReactiveFormTestComponent>;
   let de: DebugElement;
@@ -216,7 +215,6 @@ describe('SohoLookupComponent on ReactiveForm', () => {
 
     fixture = TestBed.createComponent(SohoLookupReactiveFormTestComponent);
     component = fixture.componentInstance;
-    lookup = component.lookup;
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-lookup]')).nativeElement;
@@ -241,17 +239,17 @@ describe('SohoLookupComponent on ReactiveForm', () => {
   });
 
   it('is disabled after call to disable().', () => {
-    component.lookup.disable();
+    component.lookup?.disable();
     expect(el.hasAttribute('disabled')).toBeTruthy('disabled');
   });
 
   it('is enabled after call to enable().', () => {
-    component.lookup.enable();
+    component.lookup?.enable();
     expect(el.hasAttribute('disabled')).toBeFalsy('disabled');
   });
 
   it('is readonly after call to readonly().', () => {
-    component.lookup.readonly();
+    component.lookup?.readonly();
     expect(el.hasAttribute('readonly')).toBeTruthy('readonly');
   });
 
@@ -270,17 +268,6 @@ describe('SohoLookupComponent on ReactiveForm', () => {
     fixture.detectChanges();
 
     expect(el.value).toEqual('2542205');
-  });
-
-  it('control updated when model updated.', () => {
-    // Enable te control.
-    component.formGroup.enable();
-    fixture.detectChanges();
-
-    component.formGroup.controls['lookup'].setValue(2642205);
-    fixture.detectChanges();
-
-    expect(el.value).toEqual('2642205');
   });
 
   it('should fire beforeopen event', () => {

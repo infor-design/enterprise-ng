@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
   templateUrl: 'tabs-basic.demo.html',
 })
 export class TabsBasicDemoComponent {
-  onTabActivated(event) {
+  onTabActivated(event: any) {
     console.log(event.tab + ' TabsBasicDemoComponent.onTabActivated');
   }
 }

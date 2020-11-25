@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
-
+// @ts-ignore
 import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 import { MOCK_STATES } from './dropdown-mock.data';
@@ -9,7 +9,7 @@ import { MOCK_STATES } from './dropdown-mock.data';
   templateUrl: 'dropdown-simple.demo.html'
 })
 export class DropdownSimpleDemoComponent implements AfterViewInit {
-  @ViewChild(SohoDropDownComponent, { static: true }) dropDownComponent: SohoDropDownComponent;
+  @ViewChild(SohoDropDownComponent, { static: true }) dropDownComponent?: SohoDropDownComponent;
 
   /** Defautl selected item.  */
   model = { selectedOption: 'ND', selectedOptionXss: '<script>window.alert("dropdown xss")</script>XSS' };
@@ -17,7 +17,7 @@ export class DropdownSimpleDemoComponent implements AfterViewInit {
   showModel = false;
 
   /** Used the html to comntrol the options. */
-  options = [];
+  options: any = [];
 
   ngAfterViewInit() {
     this.initialise();

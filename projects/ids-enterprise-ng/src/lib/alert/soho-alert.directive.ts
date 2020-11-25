@@ -17,7 +17,7 @@ import {
 export class SohoAlertDirective implements AfterViewInit {
 
   private _options: SohoAlertOptions = {};
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** Set or remove the message. */
   @Input()
@@ -26,21 +26,19 @@ export class SohoAlertDirective implements AfterViewInit {
     if (this.jQueryElement) {
       this.ngZone.runOutsideAngular(() => {
         if (message) {
-          this.jQueryElement.addMessage(this._options);
+          this.jQueryElement?.addMessage(this._options);
         } else {
-          this.jQueryElement.removeMessage(this._options);
+          this.jQueryElement?.removeMessage(this._options);
         }
       });
     }
   }
 
-  /** Set id with the SohoAlertType. */
   @Input()
   public set id(id: string) {
     this._options.id = id;
   }
 
-  /** Set message with the SohoAlertType. */
   @Input()
   public set type(type: SohoAlertType) {
     this._options.type = type || 'error';
@@ -48,19 +46,19 @@ export class SohoAlertDirective implements AfterViewInit {
 
   /** Set message with or without control color */
   @Input()
-  public set isAlert(isAlert: boolean) {
+  public set isAlert(isAlert: boolean | undefined) {
     this._options.isAlert = isAlert || false;
   }
 
   /** Set message whether to trigger events */
   @Input()
-  public set triggerEvents(triggerEvents: boolean) {
+  public set triggerEvents(triggerEvents: boolean | undefined) {
     this._options.triggerEvents = (typeof triggerEvents !== 'boolean') ? true : triggerEvents;
   }
 
   /** Set message with or without custom icon */
   @Input()
-  public set icon(icon: string) {
+  public set icon(icon: string | undefined) {
     this._options.icon = icon;
   }
 
@@ -146,7 +144,7 @@ export class SohoAlertDirective implements AfterViewInit {
    * @param type optional - 'error' (default)
    * @param triggerEvents optional - true (default) triggers events
    */
-  removeMessage(type?: SohoAlertType, triggerEvents?: boolean) {
+  removeMessage(type?: SohoAlertType, triggerEvents?: boolean | undefined) {
     this.type = type;
     this.triggerEvents = triggerEvents;
     this.message = '';

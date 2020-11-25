@@ -3,10 +3,9 @@ import {
   ViewChild,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import {
-  SohoDataGridComponent,
-  SohoDataGridService
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoDataGridComponent, SohoDataGridService } from 'ids-enterprise-ng';
+
 import {
   DataGridDemoService
 } from './datagrid-demo.service';
@@ -18,7 +17,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridRowReorderDemoComponent {
-  @ViewChild(SohoDataGridComponent, { static: true }) datagrid: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: true }) datagrid?: SohoDataGridComponent;
 
   constructor(gridService: SohoDataGridService) {
     (gridService as DataGridDemoService).addColumn({

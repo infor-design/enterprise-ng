@@ -216,7 +216,7 @@ interface SohoTreeStatic {
   /**
    * Toggle the node expanded or collapsed.
   */
-  toggleNode(node: SohoTreeNode);
+  toggleNode(node: SohoTreeNode): void;
 
   /**
    * Destructor,
@@ -231,7 +231,6 @@ interface SohoTreeStatic {
 
   /**
    * Preserves all nodes' enablement states in the Tree component
-   * @returns {array} of node objects containing attributes nodeId and state (enablement state)
    */
   preserveEnablementState(): SohoTreeNode[];
 

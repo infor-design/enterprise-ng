@@ -57,6 +57,8 @@ interface SohoBreadcrumbOptions extends Object {
   /* Rendering Style */
   style: SohoBreadcrumbOptionsStyle;
 
+  settings?: SohoBreadcrumbItemOptions;
+
   /* Object-based breadcrumb items */
   breadcrumbs?: SohoBreadcrumbItemOptions[];
 

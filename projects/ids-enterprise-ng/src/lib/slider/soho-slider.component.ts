@@ -26,36 +26,36 @@ import {
 export class SohoSliderComponent extends BaseControlValueAccessor<number> implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   /** Minimum Value */
-  @Input() public set min(min: number) {
+  @Input() public set min(min: number | undefined) {
     this.options.min = min;
   }
-  public get min(): number {
+  public get min(): number | undefined {
     return this.options.min;
   }
 
   /** Maximum Value */
-  @Input() public set max(max: number) {
+  @Input() public set max(max: number | undefined) {
     this.options.max = max;
   }
-  public get max(): number {
+  public get max(): number | undefined {
     return this.options.max;
   }
   /** Increment or decrement by step value */
-  @Input() public set step(step: number) {
+  @Input() public set step(step: number | undefined) {
     this.options.step = step;
   }
-  public get step(): number {
+  public get step(): number | undefined {
     return this.options.step;
   }
 
   /** value or a range of values */
-  @Input() public set value(value: number[]) {
+  @Input() public set value(value: number[] | undefined) {
     this.options.value = value;
-    if (this.slider) {
+    if (this.slider && value) {
       this.slider.setValue(value[0], value[1]);
     }
   }
-  public get value(): number[] {
+  public get value(): number[] | undefined {
     if (this.slider) {
       return this.slider.value();
     }
@@ -63,10 +63,10 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
   }
 
   /** Choose a range of values or select a value */
-  @Input() public set range(range: boolean) {
+  @Input() public set range(range: boolean | undefined) {
     this.options.range = range;
   }
-  public get range(): boolean {
+  public get range(): boolean | undefined {
     return this.options.range;
   }
 
@@ -131,20 +131,20 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
   /**
    * Local variables
    */
-  private isDisabled: boolean = null;
-  private isReadOnly: boolean = null;
+  private isDisabled?: boolean = undefined;
+  private isReadOnly?: boolean = undefined;
   private isVertical = false;
   private isVerticalOriginal = false;
 
-  private jQueryElement: JQuery;
-  private slider: SohoSliderStatic;
+  private jQueryElement?: JQuery;
+  private slider?: SohoSliderStatic | null;
   private options: SohoSliderOptions = {};
 
   constructor(private element: ElementRef) {
     super();
   }
 
-  @Input() set disabled(value: boolean) {
+  @Input() set disabled(value: boolean | undefined) {
     this.isDisabled = value;
     if (this.slider) {
       if (value) {
@@ -158,23 +158,23 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
     }
   }
 
-  @Input() set readonly(value: boolean) {
+  @Input() set readonly(value: boolean | undefined) {
     this.isReadOnly = value;
     if (value) {
-      this.slider.readonly();
+      this.slider?.readonly();
       this.isReadOnly = true;
     } else {
-      this.slider.enable();
+      this.slider?.enable();
       this.isReadOnly = false;
       this.isDisabled = false;
     }
   }
 
-  get disabled(): boolean {
+  get disabled(): boolean | undefined {
     return this.isDisabled;
   }
 
-  get readonly(): boolean {
+  get readonly(): boolean | undefined {
     return this.isReadOnly;
   }
 
@@ -212,7 +212,7 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
   }
 
   onChange(event: SohoSliderEvent) {
-    const newValue = this.jQueryElement.val() as number;
+    const newValue = this.jQueryElement?.val() as number;
     if (this.internalValue !== newValue) {
       // Update the model ...
       this.internalValue = newValue;
@@ -224,22 +224,22 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
   }
 
   onSliding(event: SohoSliderEvent) {
-    event.data = this.jQueryElement.val();
+    event.data = this.jQueryElement?.val();
     this.sliding.emit(event);
   }
 
   onSlideStart(event: SohoSliderEvent) {
-    event.data = this.jQueryElement.val();
+    event.data = this.jQueryElement?.val();
     this.slidestart.emit(event);
   }
 
   onSlideStop(event: SohoSliderEvent) {
-    event.data = this.jQueryElement.val();
+    event.data = this.jQueryElement?.val();
     this.slidestop.emit(event);
   }
 
   onUpdated(event: SohoSliderEvent) {
-    event.data = this.jQueryElement.val();
+    event.data = this.jQueryElement?.val();
     this.updated.emit(event);
   }
 

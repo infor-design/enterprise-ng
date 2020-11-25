@@ -14,31 +14,31 @@ interface SohoColorOption {
 
 interface SohoColorPickerOptions {
   /**  An array of objects of the form {label: 'Azure', number: '01', value: 'CBEBF4'} that can be used to populate the color grid. */
-  colors: Array<SohoColorOption>;
+  colors?: Array<SohoColorOption>;
 
   /** Show the label if true vs the hex value if false. */
-  showLabel: boolean;
+  showLabel?: boolean;
 
   /** If false only allow setting the value from the list (No typing) */
-  editable: boolean;
+  editable?: boolean;
 
   /** If false, lower case hex is allowed. If true upper case hex is allowed. If showLabel is true this setting is ignored. */
-  uppercase: boolean;
+  uppercase?: boolean;
 
   /** If true the field will be shrunk to only show the color portion. */
-  colorOnly: boolean;
+  colorOnly?: boolean;
 
   /** If true will add clearable option. */
-  clearable: boolean;
+  clearable?: boolean;
 
   /** The text to show in the clearable item's tooltip. */
-  clearableText: string;
+  clearableText?: string;
 
   /** If true the colorpicker will permit custom colors in the palette. */
-  customColors: boolean;
+  customColors?: boolean;
 
   /** If true the colorpicker will be disabled. */
-  disabled: boolean;
+  disabled?: boolean;
 
   /** Add extra attributes like id's to the component **/
   attributes?: Array<Object> | Object;

@@ -1,25 +1,16 @@
 import {
   Component,
-  AfterViewInit,
   ViewChild,
-  Inject,
-  ContentChild
 } from '@angular/core';
 
-import {
-  SohoWizardComponent,
-  SohoProgressComponent,
-  SohoToastService
-} from 'ids-enterprise-ng';
-
-import { WizardDemoResultPageComponent } from './wizard-result-page.demo';
+import { SohoWizardComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-wizard-demo',
   templateUrl: 'wizard.demo.html',
 })
 export class WizardDemoComponent {
-  @ViewChild(SohoWizardComponent, { static: true }) wizard: SohoWizardComponent;
+  @ViewChild(SohoWizardComponent, { static: true }) wizard!: SohoWizardComponent;
 
   public buttons = [
     {
@@ -55,7 +46,7 @@ export class WizardDemoComponent {
   //   { label: 'Result', href: 'result'}
   // ];
 
-  constructor(private toastService: SohoToastService) {
+  constructor() {
   }
 
   nextButtonDisabled() {

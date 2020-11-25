@@ -43,7 +43,7 @@ interface SohoTreemapOptions {
 /**
  * Tree Map Api.
  */
-interface SohoTreemap{
+interface SohoTreemap {
   /** The settings option */
   settings: SohoTreemapOptions;
 

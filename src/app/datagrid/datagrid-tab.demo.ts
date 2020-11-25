@@ -3,7 +3,7 @@ import {
   ViewChild,
   ChangeDetectionStrategy,
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
 enum MessageStatus {
@@ -20,7 +20,7 @@ enum MessageStatus {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridTabDemoComponent {
-  @ViewChild(SohoDataGridComponent, { static: true }) datagrid: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: true }) datagrid?: SohoDataGridComponent;
 
   public dataset = [
     {

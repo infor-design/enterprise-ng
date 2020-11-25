@@ -17,5 +17,5 @@ export abstract class SohoDataGridService {
    *
    * @param gridRequest -used to define the data to return.
    */
-  abstract getData(req: SohoDataGridSourceRequest): Observable<any[]>;
+  abstract getData(req: SohoDataGridSourceRequest | undefined | null): Observable<any[]>;
 }

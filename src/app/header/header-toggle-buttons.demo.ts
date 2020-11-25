@@ -41,7 +41,7 @@ export class HeaderToggleButtonsDemoComponent implements AfterViewInit, OnDestro
     // After the view has been initialized then build and set the header tabs.
     // ------------------------------------------------------------------------
     setTimeout(() =>
-      this.sohoHeaderRef.instance.toolbarOptions = this.toolbarOptions);
+      (this.sohoHeaderRef.instance as any).toolbarOptions = this.toolbarOptions);
   }
 
   ngOnDestroy() {
@@ -49,7 +49,7 @@ export class HeaderToggleButtonsDemoComponent implements AfterViewInit, OnDestro
   }
 
   private removeHeaderToolbar() {
-    if (this.sohoHeaderRef.instance.hasHeaderToolbar) {
+    if (this.sohoHeaderRef?.instance?.hasHeaderToolbar) {
       this.sohoHeaderRef.instance.toolbarOptions = undefined;
     }
   }

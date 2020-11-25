@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+// @ts-ignore
 import { SohoHierarchyComponent } from 'ids-enterprise-ng';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HierarchyDemoService } from './hierarchy.demo.service';
@@ -11,10 +12,10 @@ import { HierarchyDemoService } from './hierarchy.demo.service';
 })
 export class HierarchyPagingDemoComponent implements OnInit {
 
-  @ViewChild('SohoHierarchy') sohoHierarchy: SohoHierarchyComponent;
+  @ViewChild('SohoHierarchy') sohoHierarchy?: SohoHierarchyComponent;
 
-  public data: Array<any>;
-  public legend: Array<SohoHierarchyLegend>;
+  public data?: Array<any>;
+  public legend?: Array<SohoHierarchyLegend>;
   public leafTemplate: any;
   public leafTemplateId = 'hierarchyChartTemplate';
   public legendKey = 'EmploymentType';
@@ -68,11 +69,11 @@ export class HierarchyPagingDemoComponent implements OnInit {
     console.log(hierarchyEvent.data, hierarchyEvent.eventType);
 
     if (hierarchyEvent.eventType === 'back') {
-      this.sohoHierarchy.reloadDataSet(hierarchyEvent.data.parentDataSet);
+      this.sohoHierarchy?.reloadDataSet(hierarchyEvent.data.parentDataSet);
     } else if (!hierarchyEvent.data.isLoaded && !hierarchyEvent.data.isLeaf) {
       this.hierarchyService.getHierarchyData().subscribe((data) => {
         hierarchyEvent.data.children = data[0].lazyDataSet;
-        this.sohoHierarchy.reloadDataSet(hierarchyEvent.data);
+        this.sohoHierarchy?.reloadDataSet(hierarchyEvent.data);
       });
     }
   }

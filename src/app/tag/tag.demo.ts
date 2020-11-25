@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-tag-demo',
@@ -13,11 +12,11 @@ export class TagDemoComponent implements OnInit {
   ngOnInit() {
   }
 
-  afterRemove(e) {
+  afterRemove(e: any) {
     alert(`Removed ${JSON.stringify(e)}`);
   }
 
-  onClick(e) {
+  onClick(e: any) {
     alert(`Clicked ${JSON.stringify(e)}`);
   }
 }

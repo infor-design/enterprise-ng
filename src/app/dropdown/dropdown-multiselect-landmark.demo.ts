@@ -5,7 +5,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -14,8 +14,8 @@ import { SohoDropDownComponent } from 'ids-enterprise-ng';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownMultiselectLandmarkDemoComponent implements OnInit {
-  @ViewChild(SohoDropDownComponent) dropdown: SohoDropDownComponent;
-  @ViewChild(SohoDropDownComponent, { read: ElementRef }) dropdownElement: ElementRef;
+  @ViewChild(SohoDropDownComponent) dropdown?: SohoDropDownComponent;
+  @ViewChild(SohoDropDownComponent, { read: ElementRef }) dropdownElement?: ElementRef;
 
   public counter = 0;
   public model: Options = {
@@ -28,7 +28,7 @@ export class DropdownMultiselectLandmarkDemoComponent implements OnInit {
 
   public showModel = false;
 
-  private statesAlpha: Array<OptionValue> = [
+  statesAlpha: Array<OptionValue> = [
     { value: 'AK', label: 'Alaska' },
     { value: 'AZ', label: 'Arizona' },
     { value: 'CA', label: 'California' },
@@ -68,7 +68,7 @@ export class DropdownMultiselectLandmarkDemoComponent implements OnInit {
 
   sourceAlpha = (response: SohoDropDownResponseFunction, searchTerm: any) => {
     const responseValues = [];
-    const selectedValues = this.dropdownElement.nativeElement.querySelectorAll('option:checked');
+    const selectedValues = (this.dropdownElement as any).nativeElement.querySelectorAll('option:checked');
 
     for (let i = 0; i < selectedValues.length; i++) {
       const optionValue = selectedValues[i].value;
@@ -99,18 +99,18 @@ export class DropdownMultiselectLandmarkDemoComponent implements OnInit {
     }
   }
 
-  private diffContains(containsArray, valueArray): Array<OptionValue> {
+  private diffContains(containsArray: any, valueArray: any): Array<OptionValue> {
     let diffArray = [];
     if (containsArray.length < 1) {
       return valueArray;
     }
 
-    diffArray = valueArray.filter(x => !this.arrayContains(containsArray, x.value));
+    diffArray = valueArray.filter((x: any) => !this.arrayContains(containsArray, x.value));
     return diffArray;
   }
 
-  private arrayContains(array, value): boolean {
-    return array.find(x => x.value === value);
+  private arrayContains(array: any, value: any): boolean {
+    return array.find((x: any) => x.value === value);
   }
 
   public get stateAsText(): string {

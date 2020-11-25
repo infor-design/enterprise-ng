@@ -21,7 +21,6 @@ import { SohoDatePickerModule } from './soho-datepicker.module';
 import { SohoLabelModule } from '../label/soho-label.module';
 import { SohoDatePickerComponent } from './soho-datepicker.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { fakeAsync, tick } from '@angular/core/testing';
 
 @Component({
   template: `
@@ -32,7 +31,7 @@ import { fakeAsync, tick } from '@angular/core/testing';
 class SohoDatePickerReactiveFormTestComponent {
   public datepickerValue = '';
 
-  @ViewChild(SohoDatePickerComponent) dropdown: SohoDatePickerComponent;
+  @ViewChild(SohoDatePickerComponent) dropdown?: SohoDatePickerComponent;
 
   public formGroup: FormGroup;
 
@@ -51,7 +50,6 @@ class SohoDatePickerReactiveFormTestComponent {
 }
 
 describe('SohoDatePickerComponent on Reactive Form', () => {
-  let dropdown: SohoDatePickerComponent;
   let component: SohoDatePickerReactiveFormTestComponent;
   let fixture: ComponentFixture<SohoDatePickerReactiveFormTestComponent>;
   let de: DebugElement;
@@ -65,7 +63,6 @@ describe('SohoDatePickerComponent on Reactive Form', () => {
 
     fixture = TestBed.createComponent(SohoDatePickerReactiveFormTestComponent);
     component = fixture.componentInstance;
-    dropdown = component.dropdown;
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-datepicker]')).nativeElement;
@@ -74,7 +71,8 @@ describe('SohoDatePickerComponent on Reactive Form', () => {
     fixture.detectChanges();
   });
 
-  it('is disabled by default.', () => {
+  it('can be disabled', () => {
+    component.formGroup.disable();
     expect(el.hasAttribute('disabled')).toBeTruthy('disabled by default');
   });
 

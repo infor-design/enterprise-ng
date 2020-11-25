@@ -28,7 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   </form>`
 })
 class SohoInputReactiveFormTestComponent {
-  @ViewChild(SohoInputComponent, { static: true }) dropdown: SohoInputComponent;
+  @ViewChild(SohoInputComponent, { static: true }) dropdown?: SohoInputComponent;
 
   formGroup: FormGroup;
 
@@ -47,7 +47,6 @@ class SohoInputReactiveFormTestComponent {
 }
 
 describe('SohoInputComponent on Reactive Form', () => {
-  let dropdown: SohoInputComponent;
   let component: SohoInputReactiveFormTestComponent;
   let fixture: ComponentFixture<SohoInputReactiveFormTestComponent>;
   let de: DebugElement;
@@ -61,7 +60,6 @@ describe('SohoInputComponent on Reactive Form', () => {
 
     fixture = TestBed.createComponent(SohoInputReactiveFormTestComponent);
     component = fixture.componentInstance;
-    dropdown = component.dropdown;
 
     de = fixture.debugElement;
     el = de.query(By.css('input[soho-input]')).nativeElement;

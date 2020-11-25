@@ -3,11 +3,8 @@ import {
   ViewContainerRef,
   ViewChild
 } from '@angular/core';
-
-import {
-  SohoContextualActionPanelService,
-  SohoContextualActionPanelRef,
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoContextualActionPanelService, SohoContextualActionPanelRef } from 'ids-enterprise-ng';
 
 import { ContextualActionPanelComponent } from './contextual-action-panel.component';
 import { ContextualActionPanelSearchfieldComponent } from './contextual-action-panel-searchfield.component';
@@ -26,13 +23,13 @@ export class ContextualActionPanelDemoComponent {
    * This can be the ViewContainerRef of this component, or another component.
    */
   @ViewChild('panelPlaceholder', { read: ViewContainerRef, static: true })
-  placeholder: ViewContainerRef;
+  placeholder?: ViewContainerRef | null;
 
   /**
    * The interface to an instantiated instance of the Contextual Action Panel.
    */
-  public panelRef: SohoContextualActionPanelRef<any>;
-  public closeResult: string;
+  public panelRef?: SohoContextualActionPanelRef<any> | null;
+  public closeResult?: string;
   public title = 'Contextual Action Panel';
 
   /**
@@ -49,7 +46,7 @@ export class ContextualActionPanelDemoComponent {
         text: 'Save',
         cssClass: 'btn',
         icon: '#icon-save',
-        click: (_e: any, panel: any) => {
+        click: (_e: any, _panel: any) => {
           this.openPanel2(); // This will reopen
           // panel.close(true); // This will show nothing
         }
@@ -67,8 +64,11 @@ export class ContextualActionPanelDemoComponent {
         isDefault: true
       }];
 
-    this.panelRef = this.panelService
-      .contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
+    if (!this.panelRef || !this.panelService || !this.placeholder) {
+      return;
+    }
+
+    this.panelRef = (this.panelService as any).contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
       .modalSettings({ buttons: buttons, title: this.title })
       .open()
       .initializeContent(true)
@@ -109,25 +109,36 @@ export class ContextualActionPanelDemoComponent {
         isDefault: true
       }];
 
-    this.panelRef = this.panelService
-      .contextualactionpanel(NestedContextualActionPanelComponent, this.placeholder)
+    if (!this.panelRef || !this.panelService || !this.placeholder) {
+      return;
+    }
+
+    this.panelRef = this.panelService?.contextualactionpanel(NestedContextualActionPanelComponent, this.placeholder as any)
       .modalSettings({ buttons: buttons, title: this.title })
       .open()
       .initializeContent(true);
   }
 
   openSearchfieldPanel() {
-    const panel = this.panelService.contextualactionpanel(ContextualActionPanelSearchfieldComponent, this.placeholder);
+    if (!this.panelRef || !this.panelService || !this.placeholder) {
+      return;
+    }
+
+    const panel = this.panelService?.contextualactionpanel(ContextualActionPanelSearchfieldComponent, this.placeholder);
     panel
-      .apply(component => component.panel = panel)
+      .apply((component: any) => component.panel = panel)
       .open()
       .initializeContent(true);
   }
 
   openSearchfieldFlexPanel() {
-    const panel = this.panelService.contextualactionpanel(ContextualActionPanelSearchfieldFlexComponent, this.placeholder);
+    if (!this.panelRef || !this.panelService || !this.placeholder) {
+      return;
+    }
+
+    const panel = this.panelService?.contextualactionpanel(ContextualActionPanelSearchfieldFlexComponent, this.placeholder);
     panel
-      .apply(component => component.panel = panel)
+      .apply((component: any) => component.panel = panel)
       .open()
       .initializeContent(true);
   }
@@ -155,16 +166,18 @@ export class ContextualActionPanelDemoComponent {
         isDefault: true
       }];
 
-    // In openPanel(), change the first CAP opening so that panelRef can be provided with apply
-    this.panelRef = this.panelService
-          .contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
-          .modalSettings({ buttons: buttons, title: this.title })
-          .initializeContent(true);
+    if (!this.panelRef || !this.panelService || this.placeholder) {
+      return;
+    }
 
-    this.panelRef
-          .apply((ref) => {
-            ref.panelRef = this.panelRef;
-          })
-          .open();
+    // In openPanel(), change the first CAP opening so that panelRef can be provided with apply
+    this.panelRef = (this.panelService as any).contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
+      .modalSettings({ buttons: buttons, title: this.title })
+      .initializeContent(true);
+
+    this.panelRef?.apply((ref: any) => {
+        ref.panelRef = this.panelRef;
+      })
+      .open();
   }
 }

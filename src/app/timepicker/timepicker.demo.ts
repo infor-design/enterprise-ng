@@ -4,9 +4,7 @@ import {
   ViewChild
 } from '@angular/core';
 
-import {
-  SohoTimePickerComponent
-} from 'ids-enterprise-ng';
+import { SohoTimePickerComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-timepicker-demo',
@@ -14,7 +12,7 @@ import {
 })
 export class TimePickerDemoComponent implements OnInit {
 
-  @ViewChild(SohoTimePickerComponent, { static: true }) timepicker: SohoTimePickerComponent;
+  @ViewChild(SohoTimePickerComponent, { static: true }) timepicker!: SohoTimePickerComponent;
 
   public model = { // tslint:disable-line
     hhmm: '1:23 PM',
@@ -33,13 +31,15 @@ export class TimePickerDemoComponent implements OnInit {
     this.showModel = !this.showModel;
   }
 
-  onChange(event: Event) {
+  onChange(_event: Event) {
     console.log('TimepickerDemoComponent.onChange');
   }
 
   setEnable() {
     this.timepicker.disabled = false;
     this.timepickerDisabled = this.timepicker.disabled;
+
+    this.timepicker.readonly = false;
     this.timepickerReadOnly = this.timepicker.readonly;
   }
 

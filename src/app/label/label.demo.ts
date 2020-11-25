@@ -13,8 +13,8 @@ import {
 })
 export class LabelDemoComponent implements OnInit {
 
-  private isAudible: boolean;
-  private isRequired: boolean;
+  isAudible?: boolean;
+  isRequired?: boolean;
 
   normalText = 'Normal label';
   audibleText = 'Audible label';

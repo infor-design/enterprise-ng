@@ -1,5 +1,7 @@
 import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
+// @ts-ignore
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
+// @ts-ignore
 import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 import { DatagridTreegridServiceDemo } from './datagrid-treegrid-service.demo';
 
@@ -11,11 +13,11 @@ import { DatagridTreegridServiceDemo } from './datagrid-treegrid-service.demo';
 })
 
 export class DatagridTreegridDynamicfilteringDemoComponent implements OnInit, AfterViewInit {
-  public data = [];
-  public gridOptions: SohoDataGridOptions;
+  public data: any = [];
+  public gridOptions?: SohoDataGridOptions;
 
-  @ViewChild(SohoDataGridComponent) dataGrid: SohoDataGridComponent;
-  @ViewChild(SohoBusyIndicatorDirective) busyIndicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoDataGridComponent) dataGrid?: SohoDataGridComponent;
+  @ViewChild(SohoBusyIndicatorDirective) busyIndicator?: SohoBusyIndicatorDirective;
 
   constructor(
     private treeService: DatagridTreegridServiceDemo,
@@ -36,11 +38,11 @@ export class DatagridTreegridDynamicfilteringDemoComponent implements OnInit, Af
   }
 
   toggleFilterRow() {
-    this.dataGrid.toggleFilterRow();
+    this.dataGrid?.toggleFilterRow();
   }
 
   clearFilter() {
-    this.dataGrid.clearFilter();
+    this.dataGrid?.clearFilter();
   }
 
   /**
@@ -51,7 +53,7 @@ export class DatagridTreegridDynamicfilteringDemoComponent implements OnInit, Af
   }
 
   onFiltered(e: SohoDataGridFilteredEvent) {
-    if (e.conditions[0] !== undefined) {
+    if ((e.conditions as any)[0] !== undefined) {
       // Emulate server side filtering
       // Reset data and replacing with new (mock) data from a server
       const dataCopy: any[] = this.treeService.getSimpleData();
@@ -60,14 +62,14 @@ export class DatagridTreegridDynamicfilteringDemoComponent implements OnInit, Af
       this.data = [];
 
       // Hard coding check for child records for demo
-      if (e.conditions[0].value === 'c1') {
+      if ((e.conditions as any)[0].value === 'c1') {
         this.data.push(dataCopy[2].children[0]);
-      } else if (e.conditions[0].value === 'c2') {
+      } else if ((e.conditions as any)[0].value === 'c2') {
         this.data.push(dataCopy[2].children[1]);
       } else {
         // Get new data that matches filter criteria
         this.data = [].concat(dataCopy.find((d) => {
-          return d.alpha.toLowerCase() === e.conditions[0].value;
+          return d.alpha.toLowerCase() === (e.conditions as any)[0].value;
         }));
       }
 

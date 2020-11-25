@@ -54,7 +54,7 @@ interface SohoListViewOptions {
 
 type SohoListViewSourceFunction = (
   pagerInfo: SohoPagerPagingInfo,
-  SohoListViewResponseFunction
+  response: SohoListViewResponseFunction
 ) => void;
 
 type SohoListViewResponseFunction = (
@@ -124,7 +124,7 @@ interface SohoListViewStatic {
   /**
    * Return an object containing info about the currently activated item.
    */
-  activatedItem();
+  activatedItem(): Array<Object> | Object;
 
   /**
    * De-activate the given list item.

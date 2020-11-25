@@ -12,5 +12,5 @@ import { SohoBreadcrumbComponent } from 'ids-enterprise-ng';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BreadcrumbCssOnlyDemoComponent {
-  @ViewChild(SohoBreadcrumbComponent, { static: true }) sohoBreadcrumbComponent: SohoBreadcrumbComponent;
+  @ViewChild(SohoBreadcrumbComponent, { static: true }) sohoBreadcrumbComponent?: SohoBreadcrumbComponent;
 }

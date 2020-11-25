@@ -1,5 +1,7 @@
 ﻿import { Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+// @ts-ignore
 import { SohoDataGridComponent, SohoDataGridToggleRowEvent } from 'ids-enterprise-ng';
+// @ts-ignore
 import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 import { DatagridTreegridServiceDemo } from './datagrid-treegrid-service.demo';
 
@@ -10,8 +12,8 @@ import { DatagridTreegridServiceDemo } from './datagrid-treegrid-service.demo';
   providers: [DatagridTreegridServiceDemo]
 })
 export class DataGridTreeGridDemoComponent {
-  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
-  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator?: SohoBusyIndicatorDirective;
 
   events: any[] = [];
 
@@ -26,11 +28,11 @@ export class DataGridTreeGridDemoComponent {
   }
 
   toggleFilterRow() {
-    this.dataGrid.toggleFilterRow();
+    this.dataGrid?.toggleFilterRow();
   }
 
   clearFilter() {
-    this.dataGrid.clearFilter();
+    this.dataGrid?.clearFilter();
   }
 
   onSelected(e: SohoDataGridSelectedEvent) {
@@ -60,13 +62,13 @@ export class DataGridTreeGridDemoComponent {
   }
 
   makeChange() {
-    this.dataGrid.isList = !this.dataGrid.isList;
-    this.dataGrid.alternateRowShading = !this.dataGrid.alternateRowShading;
-    this.dataGrid.cellNavigation = !this.dataGrid.cellNavigation;
+    (this.dataGrid as any).isList = !(this.dataGrid as any).isList;
+    (this.dataGrid as any).alternateRowShading = !(this.dataGrid as any).alternateRowShading;
+    (this.dataGrid as any).cellNavigation = !(this.dataGrid as any).cellNavigation;
   }
 
   toggleSelectAll() {
-    this.dataGrid.showSelectAllCheckBox = !this.dataGrid.showSelectAllCheckBox;
-    console.log(`showSelectAllCheckBox=${this.dataGrid.showSelectAllCheckBox}`);
+    (this.dataGrid as any).showSelectAllCheckBox = !(this.dataGrid as any).showSelectAllCheckBox;
+    console.log(`showSelectAllCheckBox=${(this.dataGrid as any).showSelectAllCheckBox}`);
   }
 }

@@ -1,6 +1,6 @@
 import {
   Component,
-  OnInit, ElementRef, AfterViewInit
+  OnInit, AfterViewInit
 } from '@angular/core';
 
 @Component({
@@ -9,14 +9,14 @@ import {
 })
 export class StepProcessDataDrivenDemoComponent implements OnInit, AfterViewInit {
 
-  public steps: Array<{
+  public steps?: Array<{
                   id: string,
                   title: string,
                   icon: string,
                   content?: string,
                   substeps?: Array<{id: string, title: string, icon: string, content: string}>
                 }>;
-  constructor(private element: ElementRef) { }
+  constructor() { }
 
   ngOnInit() {
     this.steps = [
@@ -53,7 +53,7 @@ export class StepProcessDataDrivenDemoComponent implements OnInit, AfterViewInit
 
   ngAfterViewInit() { }
 
-  stepChange(event: Event) {
+  stepChange(_event: Event) {
     console.log('stepProcessDataDrivenDemoComponent.stepChange');
   }
 }

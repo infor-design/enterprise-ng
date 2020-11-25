@@ -5,11 +5,8 @@ import {
   ViewChild,
   ViewChildren
 } from '@angular/core';
-import {
-  SohoInputComponent,
-  SohoLookupComponent,
-  SohoTrackDirtyDirective
-} from 'ids-enterprise-ng';
+
+import { SohoLookupComponent, SohoTrackDirtyDirective } from 'ids-enterprise-ng';
 
 /**
  * This example:
@@ -21,8 +18,8 @@ import {
 })
 export class TrackDirtyDemoComponent implements OnInit {
 
-  @ViewChild(SohoLookupComponent, { static: true }) sohoLookup: SohoLookupComponent;
-  @ViewChildren(SohoTrackDirtyDirective) trackDirtyComponents: QueryList<SohoTrackDirtyDirective>;
+  @ViewChild(SohoLookupComponent, { static: true }) sohoLookup!: SohoLookupComponent;
+  @ViewChildren(SohoTrackDirtyDirective) trackDirtyComponents?: QueryList<SohoTrackDirtyDirective>;
 
   public model = {
     lookup: '',
@@ -37,7 +34,7 @@ export class TrackDirtyDemoComponent implements OnInit {
   ngOnInit() { }
 
   saveForm() {
-    this.trackDirtyComponents.forEach( (trackDirty: SohoTrackDirtyDirective) => {
+    this.trackDirtyComponents?.forEach( (trackDirty: SohoTrackDirtyDirective) => {
       trackDirty.resetDirty();
     });
   }
@@ -52,19 +49,19 @@ export class TrackDirtyDemoComponent implements OnInit {
     this.showModel = !this.showModel;
   }
 
-  onAfterResetDirty(event: SohoTrackDirtyEvent) {
+  onAfterResetDirty(_event: SohoTrackDirtyEvent) {
     console.log('TrackDirtyDemoComponent.onAfterResetDirty');
   }
 
-  onDirty(event: SohoTrackDirtyEvent) {
+  onDirty(_event: SohoTrackDirtyEvent) {
     console.log('TrackDirtyDemoComponent.onDirty');
   }
 
-  onPristine(event: SohoTrackDirtyEvent) {
+  onPristine(_event: SohoTrackDirtyEvent) {
     console.log('TrackDirtyDemoComponent.onPristine');
   }
 
-  onLookupClick = (event: Event) => {
+  onLookupClick = (_event: Event) => {
     const data = [JSON.parse(`{"data":{
     "fields": {
       "RelationshipToOrganization": {
@@ -76,12 +73,9 @@ export class TrackDirtyDemoComponent implements OnInit {
   }
 
   onLookupField = (data: DataFields) => {
+    // @ts-ignore
     return data.fields['RelationshipToOrganization'].value;
   }
-}
-
-interface DataView {
-  fields: DataFields;
 }
 
 // tslint:disable-next-line

@@ -6,6 +6,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
+// @ts-ignore
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indeterminate-demo.service';
 
@@ -16,7 +17,7 @@ import { DataGridPagingIndeterminateDemoService } from './datagrid-paging-indete
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
@@ -24,7 +25,7 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
     private datagridPagingService: DataGridPagingIndeterminateDemoService
   ) {}
 
-  gridOptions: SohoDataGridOptions = undefined;
+  gridOptions?: SohoDataGridOptions = undefined;
   selectedRow = 0;
   updateSelectedRow = false;
 
@@ -46,7 +47,7 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
 
   private buildGridOptions(): SohoDataGridOptions {
     return {
-      columns: this.datagridPagingService.getColumns(),
+      columns: this.datagridPagingService?.getColumns(),
       selectable: 'multiple',
       paging: true,
       pagesize: 100,
@@ -59,7 +60,7 @@ export class DataGridFixedHeaderDemoComponent implements AfterViewChecked, OnIni
   }
 
   private dataGridOptions = (request: SohoDataGridSourceRequest, response: SohoDataGridResponseFunction) => {
-    this.datagridPagingService.getData(request).subscribe((result: any) => {
+    this.datagridPagingService?.getData(request).subscribe((result: any) => {
       request.firstPage = result.firstPage;
       request.lastPage = result.lastPage;
 

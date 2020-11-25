@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HierarchyDemoService } from './hierarchy.demo.service';
+// @ts-ignore
 import { SohoHierarchyComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -16,10 +17,10 @@ import { SohoHierarchyComponent } from 'ids-enterprise-ng';
 })
 export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
 
-  @ViewChild('SohoHierarchy') sohoHierarchy: SohoHierarchyComponent;
+  @ViewChild('SohoHierarchy') sohoHierarchy?: SohoHierarchyComponent;
 
-  public data: Array<any>;
-  public legend: Array<SohoHierarchyLegend>;
+  public data?: Array<any>;
+  public legend?: Array<SohoHierarchyLegend>;
   public leafTemplate: any;
   public leafTemplateId = 'hierarchyChartTemplate';
   public legendKey = 'EmploymentType';
@@ -87,17 +88,17 @@ export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
     // SetTimeout to give soho control a moment to render
     if (this.initializing && this.data && this.sohoHierarchy) {
       this.initializing = false;
-      setTimeout(() => this.sohoHierarchy.selectLeaf('1_1'));
+      setTimeout(() => this.sohoHierarchy?.selectLeaf('1_1'));
     }
   }
 
   onSelected(hierarchyEvent: SohoHierarchyEvent) {
     console.log(hierarchyEvent.data, hierarchyEvent.eventType);
 
-    if (hierarchyEvent.eventType === 'expand' && !this.lazyDataLoaded) {
+    if (hierarchyEvent.eventType === 'expand' && !this.lazyDataLoaded && this.data) {
       this.hierarchyService.getHierarchyData().subscribe((data) => {
         const newData = data[0].lazyDataSet;
-        this.sohoHierarchy.add(hierarchyEvent.data.id, this.data, newData);
+        this.sohoHierarchy?.add(hierarchyEvent.data.id, (this.data as any), newData);
         this.lazyDataLoaded = true;
       });
     }
@@ -106,7 +107,7 @@ export class HierarchyDemoComponent implements OnInit, AfterViewChecked {
     // This one is used to illustrate a sub menu and disabled state
     if (hierarchyEvent.isActionsEvent && (hierarchyEvent.data.id !== '1_3_2' && hierarchyEvent.data.id !== '1_1')) {
       const actions = [{ value: 'action-1' }, { value: 'action-2' }];
-      this.sohoHierarchy.updateActions(hierarchyEvent, actions);
+      this.sohoHierarchy?.updateActions(hierarchyEvent, actions);
     }
   }
 

@@ -7,10 +7,13 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "module": "es2020",
+    "emitDecoratorMetadata": true,
+    "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
+    "resolveJsonModule": true,
     "target": "es2015",
+    "strict": true,
     "typeRoots": [
       "node_modules/@types",
        "./dist"
@@ -32,12 +35,6 @@
       "ids-enterprise-ng/*": [
         "dist/ids-enterprise-ng/*"
       ]
-
-    // For auto code compile use this.
-    // "paths": {
-    //   "ids-enterprise-ng": [
-    //     "projects/ids-enterprise-ng/src/public_api"
-    //   ]
     }
   },
   "angularCompilerOptions": {
@@ -46,6 +43,7 @@
     "enableIvy": true
   },
   "exclude": [
-    "dist/**"
+    "node_modules",
+    "dist"
   ]
 }

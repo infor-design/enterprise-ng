@@ -108,13 +108,13 @@ interface SohoRadar {
   updated(settings?: SohoRadarOptions): void;
 
   /** Gets the currently selected element */
-  getSelected(o?: SohoRadarOptions, isToggle?: boolean);
+  getSelected(o?: SohoRadarOptions, isToggle?: boolean): Array<Object> | Object;
 
   /** Sets the currently selected element */
-  setSelected(selected: SohoRadarSelected);
+  setSelected(selected: SohoRadarSelected): void;
 
   /** Toggles the currently selected element */
-  toggleSelected(selected: SohoRadarSelected);
+  toggleSelected(selected: SohoRadarSelected): void;
 
   /** Destroys the control on completion. */
   destroy(): void;

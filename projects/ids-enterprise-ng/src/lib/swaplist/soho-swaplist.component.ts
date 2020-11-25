@@ -45,16 +45,16 @@ export class SohoSwapListCardComponent {
   @HostBinding('class.swaplist') get isSwapList() { return true; }
 
   /** The type of card. */
-  private cardtype: SohoSwapListCardType;
+  private cardtype?: SohoSwapListCardType;
 
   /** The title for the card. */
-  private cardtitle: string;
+  private cardtitle?: string;
 
   /** The show searchable for the search-field. */
-  private showsearchable: boolean;
+  private showsearchable?: boolean;
 
   /** The show searchable for the search-field. */
-  private searchtitle: string;
+  private searchtitle?: string;
 
   @Input()
   public set type(value: SohoSwapListCardType) {
@@ -62,20 +62,19 @@ export class SohoSwapListCardComponent {
   }
 
   @Input()
-  public set showSearchable(value: boolean) {
+  public set showSearchable(value: boolean | undefined) {
     this.showsearchable = value;
   }
-
-  public get showSearchable(): boolean {
+  public get showSearchable(): boolean | undefined {
     return this.showsearchable;
   }
 
   @Input()
-  public set searchTitle(value: string) {
+  public set searchTitle(value: string | undefined) {
     this.searchtitle = value;
   }
 
-  public get searchTitle(): string {
+  public get searchTitle(): string | undefined {
     return this.searchtitle;
   }
 
@@ -97,11 +96,11 @@ export class SohoSwapListCardComponent {
    * Title of the card, e.g. 'Available'.
    */
   @Input()
-  public set title(value: string) {
+  public set title(value: string | undefined) {
     this.cardtitle = value;
   }
 
-  public get title(): string {
+  public get title(): string | undefined {
     return this.cardtitle;
   }
 }
@@ -119,10 +118,10 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   private static counter = 0;
 
   /** Selector for originating element. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** Reference to the SoHoXi control api. */
-  private swaplist: SohoSwapListStatic;
+  private swaplist?: SohoSwapListStatic | null;
 
   /** Block of options, use the accessors to modify. */
   private _options: SohoSwapListOptions = {};
@@ -149,13 +148,13 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
   }
 
   /** The component used to represent the available items. */
-  @ContentChild('available', { static: true }) private _availableCard: SohoSwapListCardComponent = null;
+  @ContentChild('available', { static: true }) _availableCard?: SohoSwapListCardComponent = undefined;
 
   /** The component used to represent the selected items. */
-  @ContentChild('selected', { static: true }) private _selectedCard: SohoSwapListCardComponent = null;
+  @ContentChild('selected', { static: true }) _selectedCard?: SohoSwapListCardComponent = undefined;
 
   /** The component used to represent the full access (additional) items. */
-  @ContentChild('additional', { static: true }) private _additionalCard: SohoSwapListCardComponent = null;
+  @ContentChild('additional', { static: true }) _additionalCard?: SohoSwapListCardComponent = undefined;
 
   // ------------------------------------------------------------------------
   // @Inputs
@@ -205,19 +204,20 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
    * @param value option.
    */
   @Input()
-  public set searchable(value: boolean) {
+  public set searchable(value: boolean | undefined) {
     this._options.searchable = value;
   }
-  public get searchable(): boolean {
+
+  public get searchable(): boolean | undefined {
     return this._options.searchable;
   }
 
   /** Add extra attributes like id's to the component **/
   @Input()
-  public set attributes(value: Array<Object> | Object) {
+  public set attributes(value: Array<Object> | Object | undefined) {
     this._options.attributes = value;
   }
-  public get attributes(): Array<Object> | Object {
+  public get attributes(): Array<Object> | Object | undefined {
     return this._options.attributes;
   }
 
@@ -227,21 +227,15 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
    * @param value item data.
    */
   @Input()
-  public set availableItems(value: SohoSwapListItem[]) {
+  public set availableItems(value: SohoSwapListItem[] | undefined) {
     this._options.available = value;
     if (this.swaplist) {
       this.swaplist.settings.available = value;
       this.swaplist.updated();
     }
   }
-
-  /**
-   * Return the dataset currently available card items.
-   *
-   * @return an array of SohoSwapListItem.
-   */
-  public get availableItems(): SohoSwapListItem[] {
-    return this.ConvertToModel(this.swaplist.getAvailable());
+  public get availableItems(): SohoSwapListItem[] | undefined {
+    return this.ConvertToModel((this.swaplist as any).getAvailable());
   }
 
   /**
@@ -264,7 +258,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
    * @return an array of SohoSwapListItem.
    */
   public get selectedItems(): SohoSwapListItem[] {
-    return this.ConvertToModel(this.swaplist.getSelected());
+    return this.ConvertToModel((this.swaplist as any).getSelected());
   }
 
   /**
@@ -287,7 +281,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
    * @return an array of SohoSwapListItem.
    */
   public get additionalItems(): SohoSwapListItem[] {
-    return this.ConvertToModel(this.swaplist.getAdditional());
+    return this.ConvertToModel((this.swaplist as any).getAdditional());
   }
 
   /**
@@ -360,7 +354,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
       if (this.swaplist) {
         this.swaplist.destroy();
         this.swaplist = null;
-        this.jQueryElement.off();
+        this.jQueryElement?.off();
       }
     });
   }
@@ -371,7 +365,7 @@ export class SohoSwapListComponent implements AfterViewInit, OnDestroy {
    */
   public updated() {
     if (this.swaplist) {
-      this.ngZone.runOutsideAngular(() => this.swaplist.updated());
+      this.ngZone.runOutsideAngular(() => this.swaplist?.updated());
     }
   }
 

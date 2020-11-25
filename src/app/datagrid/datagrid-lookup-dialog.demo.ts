@@ -7,8 +7,9 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
+// @ts-ignore
 import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 
 import { DataGridDemoService } from './datagrid-demo.service';
@@ -21,9 +22,9 @@ import { DataGridLookupSelectionEvent } from './datagrid-lookup-event.demo';
 })
 export class DataGridLookupDialogDemoComponent implements AfterViewInit {
   @ViewChild(SohoDataGridComponent, { static: true })
-  dataGrid: SohoDataGridComponent;
+  dataGrid?: SohoDataGridComponent;
   @ViewChild(SohoBusyIndicatorDirective, { static: true })
-  busyIndicator: SohoBusyIndicatorDirective;
+  busyIndicator?: SohoBusyIndicatorDirective;
 
   @Output() lookupSelection = new EventEmitter<
     DataGridLookupSelectionEvent<DataGridLookupDialogDemoComponent>
@@ -43,19 +44,19 @@ export class DataGridLookupDialogDemoComponent implements AfterViewInit {
   }
 
   addRows() {
-    this.service.getData(null).subscribe((d: any[]) => {
-      this.busyIndicator.open();
+    this.service.getData((null as any)).subscribe((d: any[]) => {
+      this.busyIndicator?.open();
       const newData = new Array<any>(...d);
       newData.forEach(r => (r.orderDate = new Date()));
-      this._subject$.next(newData);
-      this.busyIndicator.close(true);
+      this._subject$.next((newData as any));
+      this.busyIndicator?.close(true);
     });
   }
 
   busy() {
     if (this.busyIndicator) {
-      this.busyIndicator.activated = true;
-      setTimeout(() => (this.busyIndicator.activated = false), 2000);
+      (this.busyIndicator as any).activated = true;
+      setTimeout(() => ((this.busyIndicator as any).activated = false), 2000);
     }
   }
 

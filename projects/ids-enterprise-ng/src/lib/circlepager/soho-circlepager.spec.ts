@@ -52,12 +52,6 @@ describe('Soho Circle Pager Unit Tests', () => {
 
     // update required should be true after updating inputs after bar is built.
     expect((comp as any).updateRequired).toEqual(true);
-
-    // todo circle pager fails when calling detectChanges here due to undefined controlButtons being ref'd in circlepager.js unbind function
-    const updatedSpy = spyOn<any>((comp as any).circlepager, 'updated').and.callThrough();
-    // fixture.detectChanges();
-    // expect((comp as any).updateRequired).toEqual(false);
-    // expect(updatedSpy).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -65,11 +59,10 @@ describe('Soho Circle Pager Unit Tests', () => {
   template: `<div soho-circlepager></div>`
 })
 class SohoCirclepagerTestComponent {
-  @ViewChild(SohoCirclepagerComponent) circlepager: SohoCirclepagerComponent;
+  @ViewChild(SohoCirclepagerComponent) circlepager?: SohoCirclepagerComponent;
 }
 
 describe('Soho Circle Pager Render', () => {
-  let component: SohoCirclepagerTestComponent;
   let fixture: ComponentFixture<SohoCirclepagerTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -81,7 +74,6 @@ describe('Soho Circle Pager Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoCirclepagerTestComponent);
-    component = fixture.componentInstance;
     de = fixture.debugElement;
     el = de.query(By.css('[soho-circlepager]')).nativeElement;
   });

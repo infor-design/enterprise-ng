@@ -28,12 +28,12 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   /**
    * Used to call updated from the afterViewChecked lifecycle event.
    */
-  private updateRequired: boolean;
+  private updateRequired?: boolean;
 
   /**
    * API for interacting with modal and then in turn the buttons on the dialog.
    */
-  modal: SohoModalStatic;
+  modal?: SohoModalStatic;
 
   /**
    * Available Soho Template control settings as Inputs
@@ -42,35 +42,35 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   @Input() asobject = false; // set to false for backwards compatibility
 
   /** Grid columns. */
-  @Input() columns: SohoDataGridColumn[];
+  @Input() columns?: SohoDataGridColumn[];
 
   /**
    * Changes the dataset being used
    */
-  @Input() public set dataset(data: Object[]) {
+  @Input() public set dataset(data: Object[] | undefined) {
     if (!data) {
       return;
     }
 
     this._dataset = data;
-    if (data && this.jQueryElement && this.lookup.settings) {
-      this.lookup.settings.options.dataset = data;
+    if (data && this.jQueryElement && this.lookup?.settings) {
+      (this.lookup as any).settings.options.dataset = data;
       this.markForUpdate();
     }
   }
-  public get dataset() {
+  public get dataset(): Object[] | undefined {
     return this._dataset;
   }
 
   /** Custom click event; can be used with a modal dialog and custom list component */
-  @Input() public set click(value: SohoLookupClickFunction) {
+  @Input() public set click(value: SohoLookupClickFunction | undefined) {
     this.settings.click = value;
     if (this.lookup) {
       this.lookup.settings.click = this.settings.click;
       this.markForUpdate();
     }
   }
-  public get click() {
+  public get click(): SohoLookupClickFunction | undefined {
     return this.settings.click;
   }
 
@@ -87,50 +87,50 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   /** Field to return from the array or can be a function. */
-  @Input() public set field(value: string | SohoLookupFieldFunction) {
+  @Input() public set field(value: string | SohoLookupFieldFunction | undefined ) {
     this.settings.field = value;
     if (this.lookup) {
       this.lookup.settings.field = this.settings.field;
       this.markForUpdate();
     }
   }
-  public get field() {
+  public get field(): string | SohoLookupFieldFunction | undefined {
     return this.settings.field;
   }
 
   /** Dialog title or takes the label + Lookup. */
-  @Input() public set title(value: string) {
+  @Input() public set title(value: string | undefined) {
     this.settings.title = value;
     if (this.lookup) {
       this.lookup.settings.title = this.settings.title;
       this.markForUpdate();
     }
   }
-  public get title() {
+  public get title(): string | undefined {
     return this.settings.title;
   }
 
   /** Pass dialog buttons or Cancel / Apply. */
-  @Input() public set buttons(value: SohoModalButton[]) {
+  @Input() public set buttons(value: SohoModalButton[] | undefined) {
     this.settings.buttons = value;
     if (this.lookup) {
       this.lookup.settings.buttons = this.settings.buttons;
       this.markForUpdate();
     }
   }
-  public get buttons() {
+  public get buttons(): SohoModalButton[] | undefined {
     return this.settings.buttons;
   }
 
   /** Options to pass to the underlying data grid. */
-  @Input() public set options(value: SohoDataGridOptions) {
+  @Input() public set options(value: SohoDataGridOptions | undefined) {
     this.settings.options = value;
     if (this.lookup) {
       this.lookup.settings.options = this.settings.options;
       this.markForUpdate();
     }
   }
-  public get options() {
+  public get options(): SohoDataGridOptions | undefined {
     return this.settings.options;
   }
 
@@ -143,143 +143,143 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    *  - Upon receiving grid data, set lookup.settings.options for the columns and dataset.
    *  - Then call grid() to build the grid and complete the lookup call.
    */
-  @Input() public set beforeShow(value: SohoLookupBeforeShowFunction) {
+  @Input() public set beforeShow(value: SohoLookupBeforeShowFunction | undefined) {
     this.settings.beforeShow = value;
     if (this.lookup) {
       this.lookup.settings.beforeShow = this.settings.beforeShow;
       this.markForUpdate();
     }
   }
-  public get beforeShow() {
+  public get beforeShow(): SohoLookupBeforeShowFunction | undefined {
     return this.settings.beforeShow;
   }
 
   /** Custom modal content. */
-  @Input() public set modalContent(value: JQuery | string) {
+  @Input() public set modalContent(value: JQuery | string | undefined) {
     this.settings.modalContent = value;
     if (this.lookup) {
       this.lookup.settings.modalContent = this.settings.modalContent;
       this.markForUpdate();
     }
   }
-  public get modalContent() {
+  public get modalContent(): JQuery | string | undefined {
     return this.settings.modalContent;
   }
 
   /** Can the user type random text into the field. */
-  @Input() public set editable(value: boolean) {
+  @Input() public set editable(value: boolean | undefined) {
     this.settings.editable = value;
     if (this.lookup) {
       this.lookup.settings.editable = this.settings.editable;
       this.markForUpdate();
     }
   }
-  public get editable() {
+  public get editable(): boolean | undefined {
     return this.settings.editable;
   }
 
   /** If set to false the dialog wont apply the value on clicking a value. */
-  @Input() public set autoApply(value: boolean) {
+  @Input() public set autoApply(value: boolean | undefined) {
     this.settings.autoApply = value;
     if (this.lookup) {
       this.lookup.settings.autoApply = this.settings.autoApply;
       this.markForUpdate();
     }
   }
-  public get autoApply() {
+  public get autoApply(): boolean | undefined {
     return this.settings.autoApply;
   }
 
   /** Function used to match the search term to the data. */
-  @Input() public set match(value: SohoDataGridMatchFunction) {
+  @Input() public set match(value: SohoDataGridMatchFunction | undefined) {
     this.settings.match = value;
     if (this.lookup) {
       this.lookup.settings.match = this.settings.match;
       this.markForUpdate();
     }
   }
-  public get match() {
+  public get match(): SohoDataGridMatchFunction | undefined {
     return this.settings.match;
   }
 
   /** A function that fires to let you validate form items on open and select. */
-  @Input() public set validator(value: SohoLookupValidatorFunction) {
+  @Input() public set validator(value: SohoLookupValidatorFunction | undefined) {
     this.settings.validator = value;
     if (this.lookup) {
       this.lookup.settings.validator = this.settings.validator;
       this.markForUpdate();
     }
   }
-  public get validator() {
+  public get validator(): SohoLookupValidatorFunction | undefined {
     return this.settings.validator;
   }
 
   /** Set the width of the input to the width of the selection */
-  @Input() public set autoWidth(value: boolean) {
+  @Input() public set autoWidth(value: boolean | undefined) {
     this.settings.autoWidth = value;
     if (this.lookup) {
       this.lookup.settings.autoWidth = this.settings.autoWidth;
       this.markForUpdate();
     }
   }
-  public get autoWidth() {
+  public get autoWidth(): boolean | undefined {
     return this.settings.autoWidth;
   }
 
   /** The character  used to separate data strings */
-  @Input() public set delimiter(value: string) {
+  @Input() public set delimiter(value: string | undefined) {
     this.settings.delimiter = value;
     if (this.lookup) {
       this.lookup.settings.delimiter = this.settings.delimiter;
       this.markForUpdate();
     }
   }
-  public get delimiter() {
+  public get delimiter(): string | undefined {
     return this.settings.delimiter;
   }
 
   /** Apply a minimum width to the lookup*/
-  @Input() public set minWidth(value: number) {
+  @Input() public set minWidth(value: number | undefined) {
     this.settings.minWidth = value;
     if (this.lookup) {
       this.lookup.settings.minWidth = this.settings.minWidth;
       this.markForUpdate();
     }
   }
-  public get minWidth() {
+  public get minWidth(): number | undefined {
     return this.settings.minWidth;
   }
 
   /**  Add an ability to clear the lookup field with an x */
-  @Input() public set clearable(value: boolean) {
+  @Input() public set clearable(value: boolean | undefined) {
     this.settings.clearable = value;
     if (this.lookup) {
       this.lookup.settings.clearable = this.settings.clearable;
       this.markForUpdate();
     }
   }
-  public get clearable() {
+  public get clearable(): boolean | undefined {
     return this.settings.clearable;
   }
 
   /**  Add extra attributes like id's to the component */
-  @Input() public set attributes(attributes: Array<Object> | Object) {
+  @Input() public set attributes(attributes: Array<Object> | Object | undefined) {
     this.settings.attributes = attributes;
     if (this.lookup) {
       this.lookup.settings.attributes = this.settings.attributes;
       this.markForUpdate();
     }
   }
-  public get attributes() {
+  public get attributes(): Array<Object> | Object | undefined {
     return this.settings.attributes;
   }
 
   @Input() multiselect = false;
 
-  @Input() name: string;
+  @Input() name?: string;
 
   // Make sure you bind the context to the function
-  @Input() source: SohoDataGridSourceFunction;
+  @Input() source?: SohoDataGridSourceFunction;
 
   @Input() toolbar: any;
 
@@ -305,28 +305,28 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
   @HostBinding('attr.disabled')
   @Input()
-  isDisabled = undefined;
+  isDisabled: boolean | undefined = undefined;
 
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
-  private lookup: SohoLookupStatic;
+  private lookup?: SohoLookupStatic | null;
 
   private settings: SohoLookupOptions = {};
 
   /** Initial dataset */
-  private _dataset: Object[];
+  private _dataset?: Object[];
 
   constructor(private element: ElementRef, private ngZone: NgZone) {
     super();
   }
 
   @HostListener('keyup', ['$event'])
-  onKeyUp(event: KeyboardEvent) {
+  onKeyUp(_event: KeyboardEvent) {
     // This is required, otherwise the form binding does not see updates.
-    this.internalValue = this.jQueryElement.val() as string;
+    this.internalValue = this.jQueryElement?.val() as string;
   }
 
   ngAfterViewInit() {
@@ -361,19 +361,19 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
        * Bind to jQueryElement's events
        */
       this.jQueryElement.on('afteropen', (...args: any[]) => this.modalOpened(args));
-      this.jQueryElement.on('beforeopen', () => this.ngZone.run(() => this.beforeopen.emit(null)));
-      this.jQueryElement.on('open', () => this.ngZone.run(() => this.open.emit(null)));
-      this.jQueryElement.on('change', (e: any, args: SohoLookupChangeEvent[]) => this.onChange(args));
-      this.jQueryElement.on('blur', (e: any) => this.ngZone.run(() => this.touched()));
-      this.jQueryElement.on('start', () => this.ngZone.run(() => this.start.emit(null)));
-      this.jQueryElement.on('complete', () => this.ngZone.run(() => this.complete.emit(null)));
-      this.jQueryElement.on('input', () => this.ngZone.run(() => this.inputEvt.emit(null)));
-      this.jQueryElement.on('close', () => this.ngZone.run(() => this.close.emit(null)));
+      this.jQueryElement.on('beforeopen', () => this.ngZone.run(() => this.beforeopen.emit(undefined)));
+      this.jQueryElement.on('open', () => this.ngZone.run(() => this.open.emit(undefined)));
+      this.jQueryElement.on('change', (_e: any, args: SohoLookupChangeEvent[]) => this.onChange(args));
+      this.jQueryElement.on('blur', (_e: any) => this.ngZone.run(() => this.touched()));
+      this.jQueryElement.on('start', () => this.ngZone.run(() => this.start.emit(undefined)));
+      this.jQueryElement.on('complete', () => this.ngZone.run(() => this.complete.emit(undefined)));
+      this.jQueryElement.on('input', () => this.ngZone.run(() => this.inputEvt.emit(undefined)));
+      this.jQueryElement.on('close', () => this.ngZone.run(() => this.close.emit(undefined)));
 
       this.lookup = this.jQueryElement.data('lookup');
 
       if (this.internalValue) {
-        this.lookup.element.val(this.internalValue);
+        this.lookup?.element.val(this.internalValue);
       }
     });
   }
@@ -383,43 +383,43 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    */
   public selectRowByValue(field: String, value: String): void {
     if (this.lookup) {
-      this.ngZone.runOutsideAngular(() => this.lookup.selectRowByValue(field, value));
+      this.ngZone.runOutsideAngular(() => this.lookup?.selectRowByValue(field, value));
     }
   }
 
   /** Get the selected rows and return them to the UI **/
   public insertRows(): void {
     if (this.lookup) {
-      this.ngZone.runOutsideAngular(() => this.lookup.insertRows());
+      this.ngZone.runOutsideAngular(() => this.lookup?.insertRows());
     }
   }
 
   /** Enable the input. **/
   public enable(): void {
     if (this.lookup) {
-      this.ngZone.runOutsideAngular(() => this.lookup.enable());
+      this.ngZone.runOutsideAngular(() => this.lookup?.enable());
     }
   }
 
   /** Disable the input. **/
   public disable(): void {
     if (this.lookup) {
-      this.ngZone.runOutsideAngular(() => this.lookup.disable());
+      this.ngZone.runOutsideAngular(() => this.lookup?.disable());
     }
   }
 
   /** Make the input readonly. **/
   public readonly(): void {
     if (this.lookup) {
-      this.ngZone.runOutsideAngular(() => this.lookup.readonly());
+      this.ngZone.runOutsideAngular(() => this.lookup?.readonly());
     }
   }
 
   /** Input is disabled or not **/
-  public isReadonly(): boolean {
+  public isReadonly(): boolean | undefined {
     if (this.lookup) {
       return this.ngZone.runOutsideAngular(() => {
-        return this.lookup.isReadonly();
+        return (this.lookup as any).isReadonly();
       });
     }
   }
@@ -427,7 +427,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   /**  Send in a new data set to display in the datagrid in the lookup. **/
   public updateDataset(dataset: Object[], pagerInfo: SohoPagerPagingInfo): void {
     if (this.lookup) {
-      this.ngZone.runOutsideAngular(() => this.lookup.updateDataset(dataset, pagerInfo));
+      this.ngZone.runOutsideAngular(() => this.lookup?.updateDataset(dataset, pagerInfo));
     }
   }
 
@@ -436,11 +436,11 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    */
   public updated(settings?: any): void {
     if (settings) {
-      this.settings = Soho.utils.mergeSettings(this.element[0], settings, this.settings);
+      this.settings = Soho.utils.mergeSettings((this.element as any)[0], settings, this.settings);
     }
 
     if (this.lookup) {
-      this.ngZone.runOutsideAngular(() => this.lookup.updated(this.settings));
+      this.ngZone.runOutsideAngular(() => this.lookup?.updated(this.settings));
     }
   }
 
@@ -449,7 +449,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    */
   destroy() {
     if (this.lookup) {
-      this.ngZone.runOutsideAngular(() => this.lookup.destroy());
+      this.ngZone.runOutsideAngular(() => this.lookup?.destroy());
     }
   }
 
@@ -473,13 +473,13 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     });
   }
 
-  isMultiselect(): boolean {
+  isMultiselect(): boolean | undefined {
     return this.multiselect !== false || (this.options && this.options.selectable === 'multiple');
   }
 
   modalOpened(args: any[]) {
     this.ngZone.run(() => {
-      this.modal = this.lookup.modal;
+      this.modal = this.lookup?.modal;
 
       /**
        * Temporary fix for inability for grid to async call data and resize modal on returned
@@ -519,7 +519,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     });
   }
 
-  setDisabledState(isDisabled: boolean): void {
+  setDisabledState(isDisabled: boolean | undefined): void {
     // Update the jQuery widget with the requested disabled state.
     this.isDisabled = isDisabled ? true : undefined;
   }
@@ -532,8 +532,8 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    * @todo raise SOHO jira issue
    */
   processValue(value: Object | Object[]): string {
-    if (!value) {
-      return;
+    if (value) {
+      return '';
     }
     let val = '';
     let toProcess: Object[] = value as Object[];
@@ -547,7 +547,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
       if (typeof toProcess[i] === 'object') {
         if (typeof this.settings.field === 'function') {
-          current = (this.settings.field as SohoLookupFieldFunction)(toProcess[i], this.lookup.element, this.lookup.grid);
+          current = (this.settings.field as SohoLookupFieldFunction)(toProcess[i], (this.lookup as any).element, (this.lookup as any).grid);
         } else {
           current = (toProcess[i] as any)[this.settings.field as string];
         }
@@ -603,7 +603,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   private parseValue(event: SohoLookupChangeEvent[]) {
     if (!event) {
       // sometimes the event is not available
-      this.internalValue = this.lookup.element.val();
+      this.internalValue = this.lookup?.element.val();
       return;
     }
 
