@@ -14,7 +14,6 @@ import { STANDARD_DATA } from './breadcrumb-demo-data';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BreadcrumbDemoComponent {
-
   @ViewChild(SohoBreadcrumbComponent, { static: true }) sohoBreadcrumbComponent?: SohoBreadcrumbComponent;
 
   public breadcrumbs = STANDARD_DATA;

@@ -12,6 +12,7 @@
 
 - `[General]` Added EP version 4.34.2 with Big Sur fixes `TJM`
 - `[FileUploadAdvanced]` Fixed an issue where abort method was not working properly to remove the file block when upload fails. ([#938](https://github.com/infor-design/enterprise-ng/issues/938))
+- `[Breadcrumb]` Enable support for using `span` instead of `a` inside Breadcrumb List Items.  Also added demos of CSS-only and changing content on both JS-powered and CSS-only breadcrumbs. `EPC` ([#926](https://github.com/infor-design/enterprise-ng/issues/926))
 
 ## v8.1.1
 

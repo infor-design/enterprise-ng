@@ -16,7 +16,7 @@ type SohoBreadcrumbOptionsStyle = 'default' | 'alternate';
  * with a mixed argument, which can be an IDS Breadcrumb Item API,
  * a breadcrumb item's anchor, or a number representing the current index of a breadcrumb item within the list.
  */
-type SohoBreadcrumbRef = SohoBreadcrumbItemStatic | HTMLAnchorElement | Number;
+type SohoBreadcrumbRef = SohoBreadcrumbItemStatic | HTMLLIElement | HTMLAnchorElement | Number;
 
 /**
  * Function prototype for the IDS Breadcrumb Item's optional `callback` property.
@@ -148,11 +148,11 @@ interface SohoBreadcrumbStatic {
 /**
  * IDS Enterprise Breadcrumb Target Object
  * Some internal methods in the IDS Enterprise API return this Object, which
- * contains references to the Breadcrumb Item's anchor, API, and index within the
+ * contains references to the Breadcrumb Item's list item, API, and index within the
  * Breadcrumb list.
  */
 interface SohoBreadcrumbTargetObject {
-  a?: HTMLAnchorElement;
+  li?: HTMLLIElement;
   api?: SohoBreadcrumbItemStatic;
   index?: Number;
 }
