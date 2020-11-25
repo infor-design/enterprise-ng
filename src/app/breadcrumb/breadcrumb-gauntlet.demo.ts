@@ -106,7 +106,7 @@ export class BreadcrumbGauntletDemoComponent {
       newSettings.callback = function testCallback (e) {
         // @ts-ignore
         self.renderBreadcrumbConfig(e.currentTarget);
-        const content = this.settings.content;
+        const content = (e.currentTarget).text();
 
         // Trigger a toast message
         $('body').toast({
