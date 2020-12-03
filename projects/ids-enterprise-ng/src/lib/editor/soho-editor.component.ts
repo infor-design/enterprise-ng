@@ -267,7 +267,6 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
       if (this.internalValue) {
         this.jQueryElement.html(this.internalValue);
       }
-      this.runUpdatedOnCheck = true;
     });
   }
 
