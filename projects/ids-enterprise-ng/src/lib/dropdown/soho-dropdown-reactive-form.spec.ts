@@ -49,7 +49,6 @@ class SohoDropDownReactiveFormTestComponent {
 }
 
 describe('SohoDropdownComponent on ReactiveForms', () => {
-  let dropdown: SohoDropDownComponent;
   let component: SohoDropDownReactiveFormTestComponent;
   let fixture: ComponentFixture<SohoDropDownReactiveFormTestComponent>;
   let de: DebugElement;
@@ -63,21 +62,11 @@ describe('SohoDropdownComponent on ReactiveForms', () => {
 
     fixture = TestBed.createComponent(SohoDropDownReactiveFormTestComponent);
     component = fixture.componentInstance;
-    dropdown = component.dropdown;
 
     de = fixture.debugElement;
     el = de.query(By.css('select[soho-dropdown]')).nativeElement;
 
     fixture.detectChanges();
-  });
-
-  it('Check "disabled" by default.', () => {
-    expect(el.hasAttribute('disabled')).toBeTruthy('disabled');
-
-    component.formGroup.enable();
-    fixture.detectChanges();
-
-    expect(el.hasAttribute('disabled')).toBeFalsy('disabled');
   });
 
   it('is enabled after call to enable()', () => {

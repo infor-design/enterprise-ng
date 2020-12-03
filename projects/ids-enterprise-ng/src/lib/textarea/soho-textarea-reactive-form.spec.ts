@@ -80,10 +80,6 @@ describe('Soho TextArea Reactive Form', () => {
     expect(el.hasAttribute('disabled')).toBeTruthy('disabled by default');
   }));
 
-  it('Check "disabled" by default.', () => {
-    expect(el.hasAttribute('disabled')).toBeTruthy('disabled by default');
-  });
-
   it('Check enable().', () => {
     component.formGroup.enable();
     fixture.detectChanges();
