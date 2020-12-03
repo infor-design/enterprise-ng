@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v7.8.4
+
+### 7.8.4 Fixes
+
+- `[Editor]` Fix change detection in editor  ([#934](https://github.com/infor-design/enterprise-ng/issues/949)) `PWP`
+
 ## v7.8.2
 
 ### 7.8.2 Fixes
