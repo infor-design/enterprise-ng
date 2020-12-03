@@ -4,7 +4,7 @@
 
 ### 9.0.0 Fixes
 
-- `[General]` Enabled script compiling in the library and demos. This allows you to enable it as well when compiling. If you do you can do this in the tsconfig in your project like [this](https://github.com/infor-design/enterprise-ng/pull/939/files#diff-b5f32afdd9e8c14b02c570db855022a30aeb595e3dd1c3a71c187d685c0a2860R7). Then you may need to update your code to add more types and protections from null.  ([#755](https://github.com/infor-design/enterprise/issues/755)) `TJM`
+- `[General]` Enabled strict compiling in the library and demos. This allows you to enable it as well when compiling. If you do you can do this in the tsconfig in your project like [this](https://github.com/infor-design/enterprise-ng/pull/939/files#diff-b5f32afdd9e8c14b02c570db855022a30aeb595e3dd1c3a71c187d685c0a2860R7). Then you may need to update your code to add more types and protections from null.  ([#755](https://github.com/infor-design/enterprise/issues/755)) `TJM`
 
 ## v8.1.2
 
@@ -55,6 +55,12 @@
 - `[Context Menu]` Fixes a bug where api settings were not overwriting the default settings. ([#888](https://github.com/infor-design/enterprise-ng/issues/888))
 - `[Datagrid]` Added support to disable column buttons. ([1590](https://github.com/infor-design/enterprise/issues/1590))
 - `[Popupmenu]` Expose is-selectable, is-multiselectable, and multi-selectable-section as input properties. ([#907](https://github.com/infor-design/enterprise-ng/issues/907)) `CL`
+
+## v7.8.4
+
+### 7.8.4 Fixes
+
+- `[Editor]` Fix change detection in editor  ([#934](https://github.com/infor-design/enterprise-ng/issues/949)) `PWP`
 
 ## v7.8.2
 
