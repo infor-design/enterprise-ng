@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v8.2.0
+
+### 8.2.0 Fixes
+
+- `[General]` Added EP version 4.35.0 final using NG 10. For NG 11 9.0.0 is to follow.
+
 ## v8.1.2
 
 ### 8.1.2 Fixes
