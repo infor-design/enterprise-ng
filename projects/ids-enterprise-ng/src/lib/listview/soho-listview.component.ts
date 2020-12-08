@@ -353,7 +353,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
   @Output() sorted: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   // Used to locate the listViewReference in the HTML to init the component through jQuery
-  @ViewChild('listview', { static: true }) listViewRef: ElementRef;
+  @ViewChild('listview', { static: true }) listViewRef: ElementRef | undefined;
   @ContentChild(forwardRef(() => SohoSearchFieldComponent), { static: true }) // eslint-disable-line
   // eslint-disable-line
   // eslint-disable-line
@@ -479,7 +479,10 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * @throws Error if the argument is null, or contains out of range indices then any error is thrown.
    */
   select(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
-    this.apply((e) => this.ngZone.runOutsideAngular(() => this.listview?.select(e)), index);
+    this.apply(
+      (e: SohoListViewItemReference) => this.ngZone.runOutsideAngular(
+        () => this.listview?.select(e)),
+      index);
   }
 
   /**

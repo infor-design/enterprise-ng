@@ -109,7 +109,7 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
     }
   }
 
-  get hideMenuArrow() {
+  get hideMenuArrow(): boolean | undefined {
     return this._buttonOptions.hideMenuArrow;
   }
 
@@ -118,10 +118,6 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
    * Useful to set emerald06-color azure10-color to change the icon color.
    */
   @Input() extraIconClass?: string;
-
-  get hideMenuArrow() {
-    return this._buttonOptions?.hideMenuArrow;
-  }
 
   /**
    * Whether this button should be a toggle button or not. Alternate toggle on/off icons

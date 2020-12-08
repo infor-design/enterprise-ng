@@ -65,7 +65,7 @@ export class ExpandableFooterComponent { }
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
-  @Input('soho-expandable-area') id: string; // eslint-disable-line
+  @Input('soho-expandable-area') id: string | undefined; // eslint-disable-line
   @Input() set disabled(value: boolean | undefined) {
     this._disabled = value;
     if (this.jQueryElement) {
@@ -105,11 +105,11 @@ export class ExpandableAreaComponent implements AfterViewInit, OnDestroy {
   @ContentChild(forwardRef(() => ExpandableHeaderComponent), { static: true }) // eslint-disable-line
   // eslint-disable-line
   // eslint-disable-line
-  public header: ExpandableHeaderComponent = undefined;
+  public header: ExpandableHeaderComponent | undefined = undefined;
 
   // Get the pane DOM elements
   @ContentChildren(forwardRef(() => ExpandablePaneComponent)) // eslint-disable-line
-  public panes: QueryList<ExpandablePaneComponent>;
+  public panes: QueryList<ExpandablePaneComponent> | undefined;
 
   // @ContentChild(forwardRef(() => ExpandablePaneComponent))
   // private _pane: ExpandablePaneComponent = null;

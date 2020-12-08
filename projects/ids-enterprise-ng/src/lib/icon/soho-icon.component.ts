@@ -51,7 +51,7 @@ export class SohoIconComponent {
     this.setAlertIcon();
   }
 
-  get icon(): string {
+  get icon(): string | undefined {
     return this._icon;
   }
 

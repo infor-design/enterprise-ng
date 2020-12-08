@@ -100,7 +100,7 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
   private isDisabled?: boolean | undefined;
   private isReadOnly?: boolean | undefined;
   private jQueryElement!: JQuery;
-  private autocomplete!: SohoAutoCompleteStatic | null;
+  private autocomplete!: SohoAutoCompleteStatic | undefined;
 
   // -------------------------------------------
   // Component Input
@@ -121,12 +121,12 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
     }
   }
 
-  get disabled() {
+  get disabled(): boolean | undefined {
     return this.isDisabled;
   }
 
 
-  @Input() set readonly(value: boolean) {
+  @Input() set readonly(value: boolean | undefined) {
     if (this.autocomplete) {
       if (value) {
         this.autocomplete.readonly();
@@ -139,7 +139,7 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
     }
   }
 
-  get readonly() {
+  get readonly(): boolean | undefined {
     return this.isReadOnly;
   }
 
@@ -180,7 +180,7 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
   ngOnDestroy() {
     if (this.autocomplete) {
       this.autocomplete.destroy();
-      this.autocomplete = null;
+      this.autocomplete = undefined;
     }
   }
 

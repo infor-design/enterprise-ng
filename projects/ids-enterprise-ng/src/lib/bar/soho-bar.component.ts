@@ -230,7 +230,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
    * @todo replace override of native attribute
    */
   // eslint-disable-next-line @angular-eslint/no-output-native
-  @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
+  @Output() contextmenu: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   private jQueryElement?: JQuery;
   private bar?: SohoBar | null;
