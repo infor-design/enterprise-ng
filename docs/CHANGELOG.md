@@ -6,6 +6,12 @@
 
 - `[General]` Enabled strict compiling in the library and demos. This allows you to enable it as well when compiling. If you do you can do this in the tsconfig in your project like [this](https://github.com/infor-design/enterprise-ng/pull/939/files#diff-b5f32afdd9e8c14b02c570db855022a30aeb595e3dd1c3a71c187d685c0a2860R7). Then you may need to update your code to add more types and protections from null.  ([#755](https://github.com/infor-design/enterprise/issues/755)) `TJM`
 
+## v8.2.0
+
+### 8.2.0 Fixes
+
+- `[General]` Added EP version 4.35.0 final using NG 10. For NG 11 9.0.0 will follow.
+
 ## v8.1.2
 
 ### 8.1.2 Fixes
