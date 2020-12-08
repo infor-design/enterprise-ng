@@ -60,7 +60,9 @@ export class AccordionDynamicDemoComponent {
       });
     }
 
-    setTimeout(() => { this.accordion?.updated(); });
+    setTimeout(() => {
+      this.accordion?.updated();
+    });
   }
 
   public onExpand(event: SohoAccordionEvent) {

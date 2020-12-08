@@ -36,8 +36,16 @@ export class ContextualActionPanelComponent {
     const dialogRef = this.modalService
       .modal<NestedModalDialogComponent>(NestedModalDialogComponent, (this.placeholder as any))
       .buttons(
-        [{ text: 'Cancel', click: () => { dialogRef.close('CANCEL'); } },
-        { text: 'Submit', click: () => { dialogRef.close('SUBMIT'); }, isDefault: true }])
+        [{
+          text: 'Cancel', click: () => {
+            dialogRef.close('CANCEL');
+          }
+        },
+        {
+          text: 'Submit', click: () => {
+            dialogRef.close('SUBMIT');
+          }, isDefault: true
+        }])
       .title(this.title)
       .open()
       .afterClose((result: any) => {
@@ -71,7 +79,7 @@ export class ContextualActionPanelComponent {
     this.panelService
       // @ts-ignore
       .contextualactionpanel(NestedContextualActionPanelComponent, (this.placeholder as any))
-      .modalSettings({ buttons: buttons, title: 'Nested CAP' })
+      .modalSettings({ buttons, title: 'Nested CAP' })
       .open()
       .initializeContent(true);
   }
