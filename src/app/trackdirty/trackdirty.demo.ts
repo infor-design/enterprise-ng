@@ -79,7 +79,7 @@ export class TrackDirtyDemoComponent implements OnInit {
 }
 
 // teslint-disable-next-line
-type DataFields = { [key: string]: DataField };
+interface DataFields { [key: string]: DataField }
 
 interface DataField {
   value: string | number | boolean;

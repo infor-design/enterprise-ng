@@ -141,8 +141,12 @@ export class SohoStepContentComponent {
   template: `<ng-content></ng-content>`,
 })
 export class SohoStepContentPanelComponent {
-  @HostBinding('class.js-step-panel') get isJsStepProcessPanel() { return true; }
-  @HostBinding('attr.id') get idAttr() { return this.stepId; }
+  @HostBinding('class.js-step-panel') get isJsStepProcessPanel() {
+    return true;
+  }
+  @HostBinding('attr.id') get idAttr() {
+    return this.stepId;
+  }
   @Input() stepId?: string;
 }
 
@@ -233,7 +237,9 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
     this.jQueryElement.stepprocess(this.stepProcessOptions);
     this.stepprocess = this.jQueryElement.data('stepprocess');
     this.jQueryElement.find('.js-btn-save-changes').
-      on('click', (_e: JQuery.TriggeredEvent) => { this.fireOnSaveClose(); });
+      on('click', (_e: JQuery.TriggeredEvent) => {
+        this.fireOnSaveClose();
+      });
   }
 
   private beforeSelectStepPromise = (args: { stepLink: JQuery; isStepping: StepDirection }): JQueryPromise<boolean> => {
@@ -285,7 +291,9 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   private fireOnSaveClose(): void {
     const $selectedStep = this.stepprocess?.getSelectedStep();
     const currentStepId = $selectedStep?.children('a')?.attr('href')?.substring(1);
-    const event: SohoStepSaveCloseEvent = { currentStepId: currentStepId };
+    const event: SohoStepSaveCloseEvent = {
+      currentStepId
+    };
     this.saveClose.emit(event);
   }
 

@@ -307,7 +307,9 @@ export class SohoWizardComponent implements AfterViewInit, AfterContentInit, OnD
 
     // Reset the cached steps if the list of steps changes.
     if (this.header) {
-      this.header.steps?.changes.subscribe(() => { this._steps = []; });
+      this.header.steps?.changes.subscribe(() => {
+        this._steps = [];
+      });
     }
   }
 

@@ -26,7 +26,9 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabTitleComponent {
-  @HostBinding('attr.href') get hrefAttr() { return '#' + this.tabId; }
+  @HostBinding('attr.href') get hrefAttr() {
+    return '#' + this.tabId;
+  }
   @Input() tabId?: string;
 }
 
