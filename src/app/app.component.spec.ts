@@ -2,6 +2,7 @@
 
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+// @ts-ignore
 import { SohoComponentsModule } from 'ids-enterprise-ng';
 
 describe('AppComponent', () => {

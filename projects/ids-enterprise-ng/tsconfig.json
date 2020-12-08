@@ -1,0 +1,36 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": false,
+    "outDir": "../../out-tsc/spec",
+    "types": [
+      "d3",
+      "jasmine",
+      "jquery",
+      "node",
+      "ids-enterprise-typings"
+    ],
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "angularCompilerOptions": {
+    "declaration": false,
+    "module": "esnext",
+    "importHelpers": true,
+    "resolveJsonModule": true,
+    "target": "es2015",
+    "strict": true
+  },
+  "include": [
+    "**/*.spec.ts",
+    "**/*.d.ts",
+    "**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist/**/*"
+  ]
+}

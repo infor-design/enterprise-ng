@@ -16,7 +16,7 @@ import { SohoHyperlinkComponent } from './soho-hyperlink.component';
 })
 
 class SohoHyperlinkTestComponent {
-  @ViewChild(SohoHyperlinkComponent) hyperlink: SohoHyperlinkComponent;
+  @ViewChild(SohoHyperlinkComponent) hyperlink?: SohoHyperlinkComponent;
 }
 
 describe('Soho Hyperlink Unit tests', () => {
@@ -46,14 +46,14 @@ describe('Soho Hyperlink Unit tests', () => {
     el3 = el[3].nativeElement;
 
     fixture.detectChanges();
-    hyperlink = comp.hyperlink;
+    hyperlink = (comp.hyperlink as any);
   });
 
   it('Verify Hyperlink elements', () => {
     fixture.detectChanges();
     expect(el0.nodeName).toEqual('A');
     expect(el0.classList[0]).toContain('hyperlink');
-    expect(el0.getAttribute('href')).toEqual(hyperlink.href);
+    expect(el0.getAttribute('href')).toEqual((hyperlink.href as any));
   });
 
   it('Hyperlink disabled', () => {

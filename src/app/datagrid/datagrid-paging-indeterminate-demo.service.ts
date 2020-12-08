@@ -5,7 +5,7 @@ import {
 } from 'rxjs';
 
 import { Injectable } from '@angular/core';
-
+// @ts-ignore
 import { SohoDataGridService } from 'ids-enterprise-ng';
 
 import {
@@ -13,14 +13,12 @@ import {
   PAGING_COLUMNS
 } from './datagrid-paging-data';
 
-// declare var Formatters: any;
-
 @Injectable()
 export class DataGridPagingIndeterminateDemoService extends SohoDataGridService {
   private columns: SohoDataGridColumn[] = [];
-  private data: Array<any>;
-  private beginIndex: number;
-  private endIndex: number;
+  private data?: Array<any>;
+  private beginIndex?: number;
+  private endIndex?: number;
 
   getColumns(): SohoDataGridColumn[] {
     if (this.columns.length === 0) {
@@ -32,23 +30,24 @@ export class DataGridPagingIndeterminateDemoService extends SohoDataGridService 
   }
 
   getData(req: SohoDataGridSourceRequest): Observable<any> {
+
     switch (req.type) {
       case 'initial': this.beginIndex = 0; break;
       case 'first': this.beginIndex = 0; break;
-      case 'last': this.beginIndex = this.data.length - req.pagesize; break;
-      case 'next': this.beginIndex = this.beginIndex + req.pagesize; break;
-      case 'prev': this.beginIndex = this.beginIndex - req.pagesize; break;
+      case 'last': this.beginIndex = (this.data as any).length - (req as any).pagesize; break;
+      case 'next': this.beginIndex = (this.beginIndex as any) + (req as any).pagesize; break;
+      case 'prev': this.beginIndex = (this.beginIndex as any) - (req as any).pagesize; break;
 
       case 'sorted': console.log('sorted stub called - implement me'); break;
       case 'filtered': console.log('filtered stub called - implement me'); break;
     }
 
-    this.endIndex = this.beginIndex + req.pagesize;
+    this.endIndex = (this.beginIndex as any) + (req as any).pagesize;
 
     const result: any = {
-      data: this.data.slice(this.beginIndex, this.endIndex),
+      data: (this.data as any).slice(this.beginIndex, this.endIndex),
       firstPage: this.beginIndex === 0,
-      lastPage: this.endIndex >= this.data.length - 1
+      lastPage: (this.endIndex as any) >= (this.data as any).length - 1
     };
 
     return of(result);

@@ -25,7 +25,7 @@ export class ModalDialogDemoComponent {
    * This can be the ViewContainerRef of this component, or another component.
    */
   @ViewChild('dialogPlaceholder', { read: ViewContainerRef, static: true })
-  placeholder: ViewContainerRef;
+  placeholder?: ViewContainerRef;
 
   public closeResult = '(N/A)';
   public title = 'Example Modal Dialog';
@@ -47,15 +47,19 @@ export class ModalDialogDemoComponent {
           {
             text: 'Enable', click: () => {
               const api = dialogRef.buttonsetAPI;
-              api.at(2).disabled = false;
-              api.at(3).disabled = false;
+              if (api) {
+                api.at(2).disabled = false;
+                api.at(3).disabled = false;
+              }
             }
           },
           {
             text: 'Disable', click: () => {
               const api = dialogRef.buttonsetAPI;
-              api.at(2).disabled = true;
-              api.at(3).disabled = true;
+              if (api) {
+                api.at(2).disabled = true;
+                api.at(3).disabled = true;
+              }
             }
           },
           {
@@ -70,10 +74,10 @@ export class ModalDialogDemoComponent {
           }
         ])
       .beforeOpen((ref?: SohoModalDialogRef<FullSizeModalDialogComponent>) => {
-        ref.buttonsetAPI.at(2).disabled = true;
+        (ref as any).buttonsetAPI.at(2).disabled = true;
         return true;
       }).afterOpen((_: any, ref: SohoModalDialogRef<FullSizeModalDialogComponent>) => {
-        ref.buttonsetAPI.at(3).disabled = false;
+        (ref as any).buttonsetAPI.at(3).disabled = false;
         return true;
       })
       .open();
@@ -95,7 +99,7 @@ export class ModalDialogDemoComponent {
         }])
       .title(this.title)
       .open()
-      .afterClose((result) => {
+      .afterClose((result: any) => {
         this.closeResult = result;
       });
   }
@@ -118,7 +122,7 @@ export class ModalDialogDemoComponent {
         ])
       .title(this.title)
       .open()
-      .afterClose(result => {
+      .afterClose((result: any) => {
         this.closeResult = result;
       });
   }
@@ -141,8 +145,8 @@ export class ModalDialogDemoComponent {
         ])
       .title(this.title)
       .open()
-      .beforeClose((ref) => ref.dialogResult === 'CANCEL')
-      .afterClose(result => {
+      .beforeClose((ref: any) => ref.dialogResult === 'CANCEL')
+      .afterClose((result: any) => {
         this.closeResult = result;
       });
   }
@@ -164,7 +168,7 @@ export class ModalDialogDemoComponent {
           }])
       .title(this.title)
       .open()
-      .afterClose(result => {
+      .afterClose((result: any) => {
         this.closeResult = result;
       });
   }
@@ -185,7 +189,7 @@ export class ModalDialogDemoComponent {
         }])
       .title(this.title)
       .open()
-      .afterClose(result => {
+      .afterClose((result: any) => {
         alert(`You selected ${result}`);
         this.closeResult = result;
       });
@@ -207,7 +211,7 @@ export class ModalDialogDemoComponent {
         }])
       .title(this.title)
       .open()
-      .afterClose(result => {
+      .afterClose((result: any) => {
         this.closeResult = result;
       });
   }

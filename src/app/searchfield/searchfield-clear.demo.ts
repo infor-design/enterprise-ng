@@ -17,7 +17,7 @@ import { SohoSearchFieldComponent } from 'ids-enterprise-ng';
   templateUrl: 'searchfield-clear.demo.html'
 })
 export class SearchFieldClearDemoComponent implements AfterViewInit, OnInit {
-  @ViewChild(SohoSearchFieldComponent, { static: true }) searchfield: SohoSearchFieldComponent;
+  @ViewChild(SohoSearchFieldComponent, { static: true }) searchfield!: SohoSearchFieldComponent;
 
   public model = {
     searchValue: ''
@@ -26,7 +26,7 @@ export class SearchFieldClearDemoComponent implements AfterViewInit, OnInit {
   public searchfieldOptions = {
     filterMode: 'contains',
     delay: 500,
-    source: (query, done) => {
+    source: (query: any, done: any) => {
       this.objectBasedData().subscribe((items) => {
         done(query, items);
       });

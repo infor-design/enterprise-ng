@@ -176,10 +176,10 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
    * @todo replace override of native attribute
    */
   // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
-  @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
+  @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object>();
 
-  private jQueryElement: JQuery;
-  public column: SohoColumn;
+  private jQueryElement?: JQuery;
+  public column?: SohoColumn | null;
   private updateRequired = false;
 
   constructor(
@@ -196,20 +196,20 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
       this.column = this.jQueryElement.data('column');
 
       // Setup the events
-      this.jQueryElement.on('selected', (e: any, args: SohoColumnSelectEvent) =>
+      this.jQueryElement.on('selected', (_e: any, args: SohoColumnSelectEvent) =>
         this.ngZone.run(() => this.selected.emit(args)));
-      this.jQueryElement.on('unselected', (e: any, args: SohoColumnSelectEvent) =>
+      this.jQueryElement.on('unselected', (_e: any, args: SohoColumnSelectEvent) =>
         this.ngZone.run(() => this.unselected.emit(args)));
       this.jQueryElement.on('rendered', (...args) =>
         this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
-        this.ngZone.run(() => this.contextmenu.emit(args)));
+        this.ngZone.run(() => this.contextmenu?.emit(args)));
     });
   }
 
   ngAfterViewChecked() {
     if (this.column && this.updateRequired) {
-      this.ngZone.runOutsideAngular(() => this.column.updated(this.column.settings));
+      this.ngZone.runOutsideAngular(() => this.column?.updated(this.column.settings));
       this.updateRequired = false;
     }
   }
@@ -217,8 +217,8 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   updated() {
     this.ngZone.runOutsideAngular(() => {
       this.options.type = 'column';
-      this.jQueryElement.chart(this.options);
-      this.column = this.jQueryElement.data('column');
+      this.jQueryElement?.chart(this.options);
+      this.column = this.jQueryElement?.data('column');
     });
   }
 
@@ -237,14 +237,14 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   public setSelected(selected: SohoColumnSelected) {
-    this.ngZone.runOutsideAngular(() => this.column.setSelected(selected));
+    this.ngZone.runOutsideAngular(() => this.column?.setSelected(selected));
   }
 
   public toggleSelected(selected: SohoColumnSelected) {
-    this.ngZone.runOutsideAngular(() => this.column.toggleSelected(selected));
+    this.ngZone.runOutsideAngular(() => this.column?.toggleSelected(selected));
   }
 
   public getSelected() {
-    return this.ngZone.runOutsideAngular(() => this.column.getSelected());
+    return this.ngZone.runOutsideAngular(() => this.column?.getSelected());
   }
 }

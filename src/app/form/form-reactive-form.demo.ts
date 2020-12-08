@@ -1,6 +1,5 @@
 import {
   Component,
-  ElementRef,
   AfterViewInit,
   ChangeDetectionStrategy
 } from '@angular/core';
@@ -9,8 +8,6 @@ import {
   FormBuilder,
   FormGroup,
 } from '@angular/forms';
-
-import { DomSanitizer } from '@angular/platform-browser';
 
 import { MOCK_STATES } from '../dropdown/dropdown-mock.data';
 import { productsColumns, productsData } from '../lookup/mock.data';
@@ -40,15 +37,16 @@ export class FormReactiveFormDemoComponent implements AfterViewInit {
   };
 
   form: void;
-  demoForm: FormGroup;
+  demoForm?: FormGroup;
   public options = MOCK_STATES;
 
   public lookupColumns = productsColumns;
 
   public lookupData = productsData;
 
-  constructor(private elementRef: ElementRef, private formBuilder: FormBuilder, sanitizer: DomSanitizer) {
-    // eslint-disable-next-line max-len
+  // @ts-ignore
+  constructor(private formBuilder: FormBuilder) {
+    // tslint:disable-next-line:max-line-length
     this.model.editorValue = `<a href="http://en.wikipedia.org/wiki/e-commerce" class="hyperlink">e-commerce action-items</a>, reintermediate, ecologies paradigms wireless share life-hacks create innovative harness. Evolve solutions rich-clientAPIs synergies harness relationships virtual vertical facilitate end-to-end, wireless, evolve synergistic synergies.</p> <p>Cross-platform, evolve, ROI scale cultivate eyeballs addelivery, e-services content cross-platform leverage extensible viral incentivize integrateAJAX-enabled sticky evolve magnetic cultivate leverage; cutting-edge. Innovate, end-to-end podcasting, whiteboard streamline e-business social; compelling, "cross-media exploit infomediaries innovative integrate integrateAJAX-enabled." Killer interactive reinvent, cultivate widgets leverage morph.</p>`;
     this.createForm();
   }
@@ -79,6 +77,10 @@ export class FormReactiveFormDemoComponent implements AfterViewInit {
   }
 
   toggleDisableForm() {
+    if (!this.demoForm) {
+      return;
+    }
+
     if (this.demoForm.disabled) {
       this.demoForm.enable();
     } else {
@@ -94,7 +96,7 @@ export class FormReactiveFormDemoComponent implements AfterViewInit {
     console.log('in onSubmit');
   }
 
-  onChange(event: any) {
+  onChange(_event: any) {
     console.log('in onChange');
   }
 }

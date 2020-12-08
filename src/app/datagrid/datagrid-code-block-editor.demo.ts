@@ -13,8 +13,8 @@ import {
   CodeBlockComponent
 } from '../code-block/code-block.component';
 
-export const CodeBlockFormatter = (row, cell, value, col, rowData, api): string => {
-  /* eslint-disable */
+export const CodeBlockFormatter = (_row: any, _cell: any, _value: any, _col: any, _rowData: any, _api: any): string => {
+  /* tslint:disable */
   return `
     <span class="code-block">
 
@@ -171,8 +171,8 @@ export const CodeBlockFormatter = (row, cell, value, col, rowData, api): string 
       </div>
   `
 })
-export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
-  @ViewChild(CodeBlockComponent, { static: true }) codeblock: CodeBlockComponent;
+export class CodeBlockEditorComponent implements SohoDataGridCellEditor {
+  @ViewChild(CodeBlockComponent, { static: true }) codeblock?: CodeBlockComponent;
 
   value: string;
   public className = '.code-block';
@@ -185,7 +185,7 @@ export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
     department: '102'
   };
 
-  constructor( @Inject('args') public args: SohoDataGridPostRenderCellArgs) {
+  constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {
     this.value = args.value;
   }
 
@@ -198,7 +198,7 @@ export class CodeBlockEditorComponent  implements SohoDataGridCellEditor {
   }
 
   focus() {
-    this.codeblock.focus();
+    this.codeblock?.focus();
   }
 
   get columns(): SohoDataGridColumn[] {
@@ -241,7 +241,8 @@ export const COLUMNS: SohoDataGridColumn[] = [
     editor: Soho.Editors.Input
   },
 
-  { id: 'codeBlock',
+  {
+    id: 'codeBlock',
     name: 'Code Block',
     field: 'codeBlock',
     sortable: false,
@@ -284,10 +285,10 @@ export const COLUMNS: SohoDataGridColumn[] = [
   styleUrls: ['../code-block/code-block.formatter.css']
 })
 export class DataGridCodeBlockEditorDemoComponent implements OnInit {
-  gridOptions: SohoDataGridOptions = null;
+  gridOptions?: SohoDataGridOptions = undefined;
 
   ngOnInit(): void {
-    const tooltipCallback = (cell: number, value: any): string => {
+    const tooltipCallback = (_cell: number, value: any): string => {
       return 'Test: ' + value;
     };
 

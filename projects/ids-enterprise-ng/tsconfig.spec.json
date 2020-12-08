@@ -3,6 +3,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "sourceMap": true,
+    "experimentalDecorators": true,
     "outDir": "../../out-tsc/spec",
     "types": [
       "jasmine",
@@ -20,5 +21,9 @@
   "include": [
     "**/*.spec.ts",
     "**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist/**/*"
   ]
 }

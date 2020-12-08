@@ -28,7 +28,7 @@
       </div>
 
       <h3>Is Non Masked Control valid?: {{ demoForm.controls.notmasked.valid | json }}</h3>
-      <h3>Form valid?: {{ demoForm.status | json }}</h3>
+      <h3>Form valid?: {{ demoForm!.status | json }}</h3>
 
       <h3>Masked Value: {{ demoForm.controls.masked.value | json }}</h3>
       <h3>NotMasked Value: {{ demoForm.controls.notmasked.value | json }}</h3>

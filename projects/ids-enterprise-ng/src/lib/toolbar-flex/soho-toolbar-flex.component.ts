@@ -97,8 +97,8 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
   /**
    * Local variables
    */
-  private jQueryElement: JQuery<HTMLElement>;
-  private toolbarFlexSearchField: SohoToolbarFlexSearchFieldStatic;
+  private jQueryElement?: JQuery<HTMLElement>;
+  private toolbarFlexSearchField?: SohoToolbarFlexSearchFieldStatic;
   private searchFieldChanged = false;
 
   constructor(
@@ -133,7 +133,7 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
 
   ngAfterViewChecked() {
     if (this.searchFieldChanged) {
-      this.ngZone.runOutsideAngular(() => this.toolbarFlexSearchField.updated());
+      this.ngZone.runOutsideAngular(() => this.toolbarFlexSearchField?.updated());
       this.searchFieldChanged = false;
     }
   }
@@ -154,11 +154,11 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
   }
 
   clear(): void {
-    this.ngZone.runOutsideAngular(() => this.toolbarFlexSearchField.clear());
+    this.ngZone.runOutsideAngular(() => this.toolbarFlexSearchField?.clear());
   }
 
   // for testing
-  get searchField(): SohoToolbarFlexSearchFieldStatic {
+  get searchField(): SohoToolbarFlexSearchFieldStatic | undefined {
     return this.toolbarFlexSearchField;
   }
 
@@ -172,7 +172,7 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
   }
 
   updated(settings: SohoToolbarFlexSearchFieldOptions) {
-    this.ngZone.runOutsideAngular(() => this.toolbarFlexSearchField.updated(settings));
+    this.ngZone.runOutsideAngular(() => this.toolbarFlexSearchField?.updated(settings));
   }
 }
 
@@ -196,8 +196,8 @@ export class SohoToolbarFlexMoreButtonComponent {
   @HostBinding('class.toolbar-section') isToolbarSection = true;
   @Input() isPageChanger = false;
   @Input() isDisabled = false;
-  @Input() ajaxBeforeFunction: Function;
-  @Input() menuId: string;
+  @Input() ajaxBeforeFunction?: Function;
+  @Input() menuId?: string;
 }
 
 /**
@@ -302,9 +302,9 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
   @Output() selected: EventEmitter<SohoToolbarFlexSelectedEvent> = new EventEmitter<SohoToolbarFlexSelectedEvent>();
 
   private _options: SohoToolbarFlexOptions = {};
-  private jQueryElement: JQuery<HTMLElement>;
-  private toolbarFlex: SohoToolbarFlexStatic;
-  private toolbarFlexChanged: boolean;
+  private jQueryElement?: JQuery<HTMLElement>;
+  private toolbarFlex?: SohoToolbarFlexStatic | null;
+  private toolbarFlexChanged?: boolean;
 
   constructor(
     private changeDetector: ChangeDetectorRef,
@@ -349,7 +349,7 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
 
   updated(settings?: SohoToolbarFlexOptions) {
     if (this.toolbarFlex) {
-      this.ngZone.runOutsideAngular(() => this.toolbarFlex.updated(settings));
+      this.ngZone.runOutsideAngular(() => this.toolbarFlex?.updated(settings));
     }
   }
 

@@ -40,7 +40,7 @@ The typings should be install automatically, as they are a dependency of ids-ent
 npm i ids-enterprise-typings -S
 ```
 
-These typings must be added to the `types` element of `tsconfig.base.json`, and where overwridden in child tsconfig files (e.g. `tsconfig.lib.json`).
+These typings must be added to the `types` element of `tsconfig.json`, and where overwridden in child tsconfig files (e.g. `tsconfig.lib.json`).
 
 ```json
 "types": [

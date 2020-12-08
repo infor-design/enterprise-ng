@@ -15,9 +15,9 @@ export class SohoPopDownDirective implements AfterViewInit, OnDestroy {
  return true;
 }
 
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
-  private popdown: SohoPopDownStatic;
+  private popdown?: SohoPopDownStatic;
 
   private popdownOptions: SohoPopDownOptions = {};
 
@@ -73,10 +73,10 @@ export class SohoPopDownDirective implements AfterViewInit, OnDestroy {
   }
 
   open() {
-    this.popdown.open();
+    this.popdown?.open();
   }
 
   close() {
-    this.popdown.close();
+    this.popdown?.close();
   }
 }

@@ -79,13 +79,13 @@ interface SohoColumn {
   updated(settings?: SohoColumnOptions): void;
 
   /** Gets the currently selected element */
-  getSelected(settings?: SohoColumnOptions, isToggle?: boolean);
+  getSelected(settings?: SohoColumnOptions, isToggle?: boolean): Array<Object> | Object;
 
   /** Sets the currently selected element */
-  setSelected(selected: SohoColumnSelected);
+  setSelected(selected: SohoColumnSelected): void;
 
   /** Toggles the currently selected element */
-  toggleSelected(selected: SohoColumnSelected);
+  toggleSelected(selected: SohoColumnSelected): void;
 
   /** Destroys the control on completion. */
   destroy(): void;

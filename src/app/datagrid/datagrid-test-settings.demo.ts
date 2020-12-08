@@ -3,11 +3,8 @@ import {
   ViewChild,
   ChangeDetectionStrategy,
 } from '@angular/core';
-
-import {
-  SohoDataGridComponent,
-  SohoDataGridService
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoDataGridComponent, SohoDataGridService } from 'ids-enterprise-ng';
 
 import {
   DataGridDemoService
@@ -20,19 +17,19 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridTestSettingsDemoComponent {
-  @ViewChild(SohoDataGridComponent, { static: true }) datagrid: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: true }) datagrid?: SohoDataGridComponent;
 
-  constructor(private readonly gridService: SohoDataGridService) {
+  constructor() {
   }
 
   public resetColumns() {
-    this.datagrid.resetColumns();
+    this.datagrid?.resetColumns();
   }
 
   public personalizeColumns() {
-    this.datagrid.personalizeColumns();
+    this.datagrid?.personalizeColumns();
   }
 
-  public onSelected(event) {
+  public onSelected(_event: any) {
   }
 }

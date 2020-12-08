@@ -48,7 +48,7 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
    *
    *
    */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /**
    * Creates an instance of SohoTagListComponent.
@@ -166,9 +166,9 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
     return this.tagType === SohoTagComponent.ERROR;
   }
 
-  @HostBinding('class.is-linkable') @Input() isClickable: boolean;
+  @HostBinding('class.is-linkable') @Input() isClickable?: boolean;
 
-  @HostBinding('class.is-dismissible') @Input() isDismissible: boolean;
+  @HostBinding('class.is-dismissible') @Input() isDismissible?: boolean;
 
   /**
    * Allow override of element name, to match the component name.
@@ -185,9 +185,9 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
 
   private tagType: SohoTagType;
 
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
-  tag: SohoTag;
+  tag?: SohoTag | null;
 
   /**
    * Creates an instance of SohoTagComponent.
@@ -218,7 +218,7 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  private onBeforeTagRemove(event: JQuery.TriggeredEvent, element: HTMLElement) {
+  private onBeforeTagRemove(event: JQuery.TriggeredEvent, _element: HTMLElement) {
     this.ngZone.run(() =>
       this.beforeRemove.next(event));
   }
@@ -233,7 +233,7 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
    */
   public updated(): void {
     if (this.tag) {
-      this.ngZone.runOutsideAngular(() => this.tag.updated(this.options));
+      this.ngZone.runOutsideAngular(() => this.tag?.updated(this.options));
     }
   }
 

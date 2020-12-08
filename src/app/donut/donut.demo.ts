@@ -3,6 +3,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
+// @ts-ignore
 import {SohoPieComponent} from 'ids-enterprise-ng';
 
 @Component({
@@ -11,7 +12,7 @@ import {SohoPieComponent} from 'ids-enterprise-ng';
 })
 export class DonutDemoComponent implements OnInit {
 
-  @ViewChild(SohoPieComponent, { static: true }) sohoPieComponent: SohoPieComponent;
+  @ViewChild(SohoPieComponent, { static: true }) sohoPieComponent?: SohoPieComponent;
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   private selection: SohoPieSelected  = {fieldName: 'name', fieldValue: 'Component A'};
@@ -49,11 +50,11 @@ export class DonutDemoComponent implements OnInit {
 
   setChartSelection() {
     const sohoPieSelected: SohoPieSelected = this.selection;
-    this.sohoPieComponent.setSelected(sohoPieSelected);
+    this.sohoPieComponent?.setSelected(sohoPieSelected);
   }
 
   toggleChartSelection () {
     const sohoPieSelected: SohoPieSelected = this.selection;
-    this.sohoPieComponent.toggleSelected(sohoPieSelected);
+    this.sohoPieComponent?.toggleSelected(sohoPieSelected);
   }
 }

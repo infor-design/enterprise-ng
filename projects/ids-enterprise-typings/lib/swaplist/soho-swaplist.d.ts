@@ -67,7 +67,7 @@ interface SohoSwapListStatic {
   /**
    * Dyhnamically updates the data stored in the swap list.
    */
-  updateDataset(dataset: SohoSwapListOptions);
+  updateDataset(dataset: SohoSwapListOptions): void;
 
   /**
    * Forces an update of the control to reflect any changes made in the settings object.

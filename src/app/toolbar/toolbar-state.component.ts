@@ -17,10 +17,10 @@ import {
   providers: [ ToolbarStateService ]
 })
 export class ToolbarStateComponent implements OnInit {
-  public toolbarInHeader: boolean;
-  public toolbarSectionTitle: string;
-  public toolbarPageTitle: string;
-  public toolbarButtons: Array<LMToolbarButton>;
+  public toolbarInHeader?: boolean;
+  public toolbarSectionTitle?: string;
+  public toolbarPageTitle?: string;
+  public toolbarButtons?: Array<LMToolbarButton>;
 
   constructor(public toolbarService: ToolbarStateService) {}
 
@@ -47,45 +47,45 @@ export class ToolbarStateComponent implements OnInit {
   }
 
   onOpenDisable() {
-    let i = this.toolbarButtons.length;
+    let i = this.toolbarButtons?.length || 0;
 
     while (i--) {
-      const data = JSON.parse(this.toolbarButtons[i].data).btn;
+      const data = JSON.parse((this.toolbarButtons as any)[i].data).btn;
       if (data === 'open') {
-        this.toolbarButtons[i].state.disabled = true;
+        (this.toolbarButtons as any)[i].state.disabled = true;
       }
     }
   }
 
   onOpenEnable() {
-    let i = this.toolbarButtons.length;
+    let i = this.toolbarButtons?.length || 0;
 
     while (i--) {
-      const data = JSON.parse(this.toolbarButtons[i].data).btn;
+      const data = JSON.parse((this.toolbarButtons as any)[i].data).btn;
       if (data === 'open') {
-        this.toolbarButtons[i].state.disabled = false;
+        (this.toolbarButtons as any)[i].state.disabled = false;
       }
     }
   }
 
   onOpenShow() {
-    let i = this.toolbarButtons.length;
+    let i = this.toolbarButtons?.length || 0;
 
     while (i--) {
-      const data = JSON.parse(this.toolbarButtons[i].data).btn;
+      const data = JSON.parse((this.toolbarButtons as any)[i].data).btn;
       if (data === 'open') {
-        this.toolbarButtons[i].state.visible = true;
+        (this.toolbarButtons as any)[i].state.visible = true;
       }
     }
   }
 
   onOpenHide() {
-    let i = this.toolbarButtons.length;
+    let i = this.toolbarButtons?.length || 0;
 
     while (i--) {
-      const data = JSON.parse(this.toolbarButtons[i].data).btn;
+      const data = JSON.parse((this.toolbarButtons as any)[i].data).btn;
       if (data === 'open') {
-        this.toolbarButtons[i].state.visible = false;
+        (this.toolbarButtons as any)[i].state.visible = false;
       }
     }
   }

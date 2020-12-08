@@ -3,7 +3,7 @@ import {
   Component,
   ViewChild
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoBreadcrumbComponent } from 'ids-enterprise-ng';
 
 import { STANDARD_DATA } from './breadcrumb-demo-data';
@@ -14,8 +14,7 @@ import { STANDARD_DATA } from './breadcrumb-demo-data';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BreadcrumbDemoComponent {
-
-  @ViewChild(SohoBreadcrumbComponent, { static: true }) sohoBreadcrumbComponent: SohoBreadcrumbComponent;
+  @ViewChild(SohoBreadcrumbComponent, { static: true }) sohoBreadcrumbComponent?: SohoBreadcrumbComponent;
 
   public breadcrumbs = STANDARD_DATA;
 }

@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routes';
-
+// @ts-ignore
 import { SohoComponentsModule } from 'ids-enterprise-ng';
 
 import { AboutDemoComponent } from './about/about.demo';
@@ -32,6 +32,8 @@ import { BlockGridMultiSelectionDemoComponent } from './blockgrid/blockgrid-mult
 import { BlockGridSingleSelectionDemoComponent } from './blockgrid/blockgrid-single-selection.demo';
 import { BlockGridPagingDemoComponent } from './blockgrid/blockgrid-paging.demo';
 import { BreadcrumbDemoComponent } from './breadcrumb/breadcrumb.demo';
+import { BreadcrumbChangeContentsDemoComponent } from './breadcrumb/breadcrumb-change-contents.demo';
+import { BreadcrumbCssOnlyDemoComponent } from './breadcrumb/breadcrumb-css-only.demo';
 import { BreadcrumbGauntletDemoComponent } from './breadcrumb/breadcrumb-gauntlet.demo';
 import { BubbleDemoComponent } from './bubble/bubble.demo';
 import { BulletDemoComponent } from './bullet/bullet.demo';
@@ -266,6 +268,8 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
     BlockGridSingleSelectionDemoComponent,
     BlockGridPagingDemoComponent,
     BreadcrumbDemoComponent,
+    BreadcrumbChangeContentsDemoComponent,
+    BreadcrumbCssOnlyDemoComponent,
     BreadcrumbGauntletDemoComponent,
     BubbleDemoComponent,
     BulletDemoComponent,

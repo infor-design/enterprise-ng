@@ -1,5 +1,5 @@
 import { } from 'jasmine';
-import { ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Component, DebugElement, ViewChild, NgZone } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -180,26 +180,6 @@ describe('Soho Bar Unit Tests', () => {
     expect((comp as any).updateRequired).toEqual(false);
     expect(updatedSpy).toHaveBeenCalledTimes(1);
   });
-
-  xit('check public functions', () => {
-    comp.dataset = barData;
-    comp.type = 'bar';
-
-    fixture.detectChanges();
-
-    expect((comp as any).bar).toBeDefined(
-      'bar widget not set on bar component'
-    );
-
-    comp.toggleSelected({ index: 1 });
-
-    // todo: selected bar element doesn't have selected index set correctly.
-    // expect(comp.getSelected()[0].data.index).toEqual(1);
-    expect(comp.getSelected()[0].data.name).toEqual(barData[0].data[1].name);
-
-    comp.setSelected({ index: 2 });
-    expect(comp.getSelected()[0].data.name).toEqual(barData[0].data[2].name);
-  });
 });
 
 @Component({
@@ -208,13 +188,11 @@ describe('Soho Bar Unit Tests', () => {
   `
 })
 class SohoBarTestComponent {
-  @ViewChild(SohoBarComponent) bar: SohoBarComponent;
+  @ViewChild(SohoBarComponent) bar?: SohoBarComponent;
   public data = barData;
 }
 
 describe('Soho Bar Chart Render', () => {
-  let bar: SohoBarComponent;
-  let component: SohoBarTestComponent;
   let fixture: ComponentFixture<SohoBarTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -226,13 +204,11 @@ describe('Soho Bar Chart Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoBarTestComponent);
-    component = fixture.componentInstance;
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-bar]')).nativeElement;
 
     fixture.detectChanges();
-    bar = component.bar;
   });
 
   it('Check HTML content', () => {

@@ -1,11 +1,10 @@
 import {
   Component,
-  ElementRef,
   QueryList,
-  ViewChildren,
-  ChangeDetectorRef
+  ViewChildren
 } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 import { SohoInputValidateDirective } from 'ids-enterprise-ng';
 
 @Component({
@@ -13,20 +12,18 @@ import { SohoInputValidateDirective } from 'ids-enterprise-ng';
   templateUrl: 'validation-form.demo.html'
 })
 export class ValidationFormDemoComponent {
-  @ViewChildren(SohoInputValidateDirective) validateDirectives: QueryList<SohoInputValidateDirective>;
+  @ViewChildren(SohoInputValidateDirective) validateDirectives!: QueryList<SohoInputValidateDirective>;
 
-  demoForm: FormGroup;
-  email_addr: string;
-  credit_card: string;
-  credit_code1: number;
-  credit_code2: number;
-  requiredText: string;
-  states: string;
+  demoForm!: FormGroup;
+  email_addr!: string;
+  credit_card!: string;
+  credit_code1!: number;
+  credit_code2!: number;
+  requiredText!: string;
+  states!: string;
 
   constructor(
-    private elementRef: ElementRef,
     private formBuilder: FormBuilder,
-    private changeDetector: ChangeDetectorRef
   ) {
     this.createForm();
   }
@@ -40,7 +37,7 @@ export class ValidationFormDemoComponent {
     });
   }
 
-  public onClickTrigger(event) {
+  public onClickTrigger(event: MouseEvent) {
     this.validateDirectives.forEach(item => {
       item.validate(event);
     });

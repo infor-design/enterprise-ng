@@ -27,20 +27,20 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
   // Options Block
   // -------------------------------------------
 
-  private textStatic: SohoTextAreaStatic;
+  private textStatic?: SohoTextAreaStatic;
   private options: SohoTextAreaOptions = {};
 
   /**
    * Local variables
    */
-  private isDisabled: boolean;
-  private isReadOnly: boolean;
+  private isDisabled?: boolean;
+  private isReadOnly?: boolean;
 
   // -------------------------------------------
   // Component Input
   // -------------------------------------------
 
-  @Input() set disabled(value: boolean) {
+  @Input() set disabled(value: boolean | undefined) {
     this.isDisabled = value;
 
     if (this.textarea) {
@@ -55,11 +55,11 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     }
   }
 
-  get disabled() {
+  get disabled(): boolean | undefined {
     return this.isDisabled;
   }
 
-  @Input() set readonly(value: boolean) {
+  @Input() set readonly(value: boolean | undefined) {
     this.isReadOnly = value;
 
     if (this.textarea) {
@@ -74,46 +74,47 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     }
   }
 
-  get readonly() {
+  get readonly(): boolean | undefined {
     return this.isReadOnly;
   }
 
   @HostBinding('class.resizable')
-  @Input() resizable: boolean = null;
+  @Input() resizable?: boolean = undefined;
 
-  @Input() set maxLength(maxLength: number) {
+  @Input() set maxLength(maxLength: number | undefined) {
     this.options.maxLength = maxLength;
     if (this.textStatic) {
       this.textStatic.settings.maxLength = maxLength;
     }
   }
 
-  get maxLength() {
+  get maxLength(): number | undefined {
     return this.options.maxLength;
   }
 
-  @Input() set autoGrow(autoGrow: boolean) {
+  @Input() set autoGrow(autoGrow: boolean | undefined) {
     this.options.autoGrow = autoGrow;
     if (this.textStatic) {
       this.textStatic.settings.autoGrow = autoGrow;
     }
   }
 
-  get autoGrow() {
+  get autoGrow(): boolean | undefined {
     return this.options.autoGrow;
   }
 
-  @Input() set autoGrowMaxHeight(autoGrowMaxHeight: number) {
+  @Input() set autoGrowMaxHeight(autoGrowMaxHeight: number | undefined) {
     this.options.autoGrowMaxHeight = autoGrowMaxHeight;
     if (this.textStatic) {
       this.textStatic.settings.autoGrowMaxHeight = autoGrowMaxHeight;
     }
   }
-  get autoGrowMaxHeight() {
+
+  get autoGrowMaxHeight(): number | undefined {
     return this.options.autoGrowMaxHeight;
   }
 
-  @Input() set attributes(attributes: Array<Object> | Object) {
+  @Input() set attributes(attributes: Array<Object> | Object | undefined) {
     this.options.attributes = attributes;
     if (this.textStatic) {
       this.textStatic.settings.attributes = attributes;
@@ -164,10 +165,10 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
   // -------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the SoHoXi control api.
-  private textarea: SohoTextAreaStatic;
+  private textarea?: SohoTextAreaStatic | null;
 
   /**
    * Specific host listener for textarea.
@@ -189,16 +190,16 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     this.jQueryElement = jQuery(this.element.nativeElement);
 
     // Initialise the SohoXi Control
-    this.jQueryElement.val(this.internalValue);
+    this.jQueryElement.val((this.internalValue as any));
     this.jQueryElement.textarea(this.options);
     this.textarea = this.jQueryElement.data('textarea');
 
     if (this.isReadOnly) {
-      this.textarea.readonly();
+      this.textarea?.readonly();
     }
 
     if (this.isDisabled) {
-      this.textarea.disable();
+      this.textarea?.disable();
     }
 
     if (this.internalValue) {
@@ -209,8 +210,8 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
      * Bind to jQueryElement's events
      */
     this.jQueryElement
-      .on('change', (e: any, args: any[]) => this.onChange(args))
-      .on('updated', (e: any, args: SohoTextAreaEvent) => this.updated.next(args));
+      .on('change', (_e: any, args: any[]) => this.onChange(args))
+      .on('updated', (_e: any, args: SohoTextAreaEvent) => this.updated.next(args));
   }
 
   /**
@@ -219,7 +220,7 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
   onChange(event: any[]) {
     if (!event) {
       // sometimes the event is not available
-      this.internalValue = this.jQueryElement.val() as string;
+      this.internalValue = this.jQueryElement?.val() as string;
       super.writeValue(this.internalValue);
       return;
     }

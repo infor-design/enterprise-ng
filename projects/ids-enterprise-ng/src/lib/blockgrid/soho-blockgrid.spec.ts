@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Component, DebugElement, EventEmitter, ViewChild } from '@angular/core';
+import { Component, DebugElement, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { SohoBlockGridModule } from './soho-blockgrid.module';
@@ -31,8 +31,6 @@ const pagingTestData = [
 describe('Soho blockgrid Unit Tests', () => {
   let comp: SohoBlockGridComponent;
   let fixture: ComponentFixture<SohoBlockGridComponent>;
-  let de: DebugElement;
-  let el: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -41,9 +39,6 @@ describe('Soho blockgrid Unit Tests', () => {
 
     fixture = TestBed.createComponent(SohoBlockGridComponent);
     comp = fixture.componentInstance;
-
-    de = fixture.debugElement;
-    el = de.nativeElement;
   });
 
   it('Check Inputs', () => {
@@ -182,11 +177,9 @@ describe('Soho blockgrid Unit Tests', () => {
 })
 class SohoBlockGridTestComponent {
   public data = blockGridTestData;
-  @ViewChild(SohoBlockGridComponent) blockgrid: SohoBlockGridComponent;
+  @ViewChild(SohoBlockGridComponent) blockgrid?: SohoBlockGridComponent;
 }
 describe('Soho blockgrid Render', () => {
-  let blockgrid: SohoBlockGridComponent;
-  let component: SohoBlockGridTestComponent;
   let fixture: ComponentFixture<SohoBlockGridTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -198,13 +191,11 @@ describe('Soho blockgrid Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoBlockGridTestComponent);
-    component = fixture.componentInstance;
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-blockgrid]')).nativeElement;
 
     fixture.detectChanges();
-    blockgrid = component.blockgrid;
   });
 
   it('Check HTML content', () => {

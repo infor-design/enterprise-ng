@@ -4,6 +4,7 @@ import {
   QueryList,
   ViewChildren
 } from '@angular/core';
+// @ts-ignore
 import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -12,7 +13,7 @@ import { SohoDropDownComponent } from 'ids-enterprise-ng';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownDemoComponent {
-  @ViewChildren(SohoDropDownComponent) dropDowns: QueryList<SohoDropDownComponent>;
+  @ViewChildren(SohoDropDownComponent) dropDowns?: QueryList<SohoDropDownComponent>;
 
   public options: Array<Object> = [
     { value: 'AL', text: 'Alabama' },
@@ -57,7 +58,7 @@ export class DropdownDemoComponent {
     console.log(`listclosed: ${e.action}`);
   }
 
-  onListOpened(e: SohoDropDownEvent) {
+  onListOpened(_e: SohoDropDownEvent) {
     console.log(`listopened`);
   }
 
@@ -69,22 +70,22 @@ export class DropdownDemoComponent {
   }
 
   setEnable() {
-    this.dropDowns.first.disabled = false;
-    this.dropDownDisabled = this.dropDowns.first.disabled;
-    this.dropDownReadOnly = this.dropDowns.first.readonly;
+    (this.dropDowns as any).first.disabled = false;
+    this.dropDownDisabled = (this.dropDowns as any).first.disabled;
+    this.dropDownReadOnly = (this.dropDowns as any).first.readonly;
   }
 
   setDisable() {
-    this.dropDowns.first.disabled = true;
+    (this.dropDowns as any).first.disabled = true;
     this.dropDownDisabled = true;
   }
 
   setReadonly() {
-    this.dropDowns.first.readonly = true;
+    (this.dropDowns as any).first.readonly = true;
     this.dropDownReadOnly = true;
   }
 
-  source = (response: any, searchTerm: any) => {
+  source = (response: any, _searchTerm: any) => {
     const states = [
       { value: 'AK', label: 'Alaska' },
       { value: 'AZ', label: 'Arizona' },

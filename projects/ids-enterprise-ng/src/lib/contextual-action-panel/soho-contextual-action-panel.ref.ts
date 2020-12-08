@@ -9,13 +9,13 @@ import { takeUntil } from 'rxjs/operators';
  */
 export class SohoContextualActionPanelRef<T> {
   /** Component - if the content is derived from an existing component. */
-  private componentRef?: ComponentRef<T>;
+  private componentRef?: ComponentRef<T> | null;
 
   /** Selector referencing the panel-panel after it has been moved to the panel container. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** Soho Control Api */
-  private contextualactionpanel: SohoContextualActionPanelStatic;
+  private contextualactionpanel?: SohoContextualActionPanelStatic | null;
 
   /** The result of the panel. */
   private _panelResult: any;
@@ -50,7 +50,7 @@ export class SohoContextualActionPanelRef<T> {
    * The component displayed inside the panel's frame, if specified.  This may
    * be null if the component is built from an HTML fragment or a jQuery selector.
    */
-  public get componentPanel(): T {
+  public get componentPanel(): T | null {
     if (this.componentRef) {
       return this.componentRef.instance;
     }
@@ -65,11 +65,10 @@ export class SohoContextualActionPanelRef<T> {
    * Cached options.
    */
   private _options: SohoContextualActionPanelOptions = {
-    content: null,
+    content: undefined,
     initializeContent: true, // initialize content before opening
     title: 'Contextual Action Panel',
     modalSettings: {
-      buttons: null,
       centerTitle: false,
       showCloseBtn: false,
       trigger: 'immediate',
@@ -232,8 +231,8 @@ export class SohoContextualActionPanelRef<T> {
    * @return the panel ref for onward assignment.
    */
   apply(fn: (component: T) => void): SohoContextualActionPanelRef<T> {
-    if (fn && this.componentRef.instance) {
-      fn(this.componentRef.instance);
+    if (fn && this.componentRef?.instance) {
+      fn(this.componentRef?.instance);
     }
     return this;
   }
@@ -294,22 +293,14 @@ export class SohoContextualActionPanelRef<T> {
       element.contextualactionpanel(this._options);
 
       this.contextualactionpanel = element.data('contextualactionpanel');
-      return this.contextualactionpanel.element;
+      return this.contextualactionpanel?.element;
     });
 
     // Add listeners to control events
-    this.jQueryElement.on('close.contextualactionpanel', ((event: any, isCancelled: boolean) => {
- this.onClose(event, isCancelled);
-}));
-    this.jQueryElement.on('open.contextualactionpanel', ((event: any) => {
- this.onOpen(event);
-}));
-    this.contextualactionpanel.panel.on('afterclose.contextualactionpanel', ((event: any) => {
- this.onAfterClose(event);
-}));
-    this.contextualactionpanel.panel.on('afteropen.contextualactionpanel', ((event: any) => {
- this.onAfterOpen(event);
-}));
+    this.jQueryElement?.on('close.contextualactionpanel', ((event: any, isCancelled: boolean) => { this.onClose(event, isCancelled); }));
+    this.jQueryElement?.on('open.contextualactionpanel', ((event: any) => { this.onOpen(event); }));
+    (this.contextualactionpanel as any).panel?.on('afterclose.contextualactionpanel', ((event: any) => { this.onAfterClose(event); }));
+    (this.contextualactionpanel as any).panel?.on('afteropen.contextualactionpanel', ((event: any) => { this.onAfterOpen(event); }));
 
     return this;
   }
@@ -324,7 +315,7 @@ export class SohoContextualActionPanelRef<T> {
     this.panelResult = panelResult;
     if (this.contextualactionpanel) {
       this.ngZone.runOutsideAngular(() => {
-        this.contextualactionpanel.close();
+        this.contextualactionpanel?.close();
       });
     }
     return this;
@@ -341,10 +332,8 @@ export class SohoContextualActionPanelRef<T> {
    *
    * @param eventFn - the function to invoke when the panel is to be opened.
    */
-  opened(eventFn: Function): SohoContextualActionPanelRef<T> {
-    this.open$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => {
- eventFn(f, this);
-});
+  opened(eventFn: Function): SohoContextualActionPanelRef<T> | null {
+    this.open$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => { eventFn(f, this); });
     return this;
   }
 
@@ -354,10 +343,8 @@ export class SohoContextualActionPanelRef<T> {
    *
    * @param eventFn - the function to invoke when the panel is to be opened.
    */
-  afterOpen(eventFn: Function): SohoContextualActionPanelRef<T> {
-    this.afterOpen$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => {
- eventFn(f, this);
-});
+  afterOpen(eventFn: Function): SohoContextualActionPanelRef<T> | null {
+    this.afterOpen$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => { eventFn(f, this); });
     return this;
   }
 
@@ -368,10 +355,8 @@ export class SohoContextualActionPanelRef<T> {
    *
    * @param eventFn - the function to invoke when the panel is to be closed.
    */
-  closed(eventFn: SohoContextualActionPanelEventFunction<T>): SohoContextualActionPanelRef<T> {
-    this.close$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => {
- eventFn(result, this, this.componentPanel);
-});
+  closed(eventFn: SohoContextualActionPanelEventFunction<T>): SohoContextualActionPanelRef<T> | null {
+    this.close$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => { eventFn(result, this, (this.componentPanel as any)); });
     return this;
   }
 
@@ -383,10 +368,13 @@ export class SohoContextualActionPanelRef<T> {
    *
    * @param eventFn - the function to invoke after the panel has been closed.
    */
-  afterClose(eventFn: SohoContextualActionPanelEventFunction<T>): SohoContextualActionPanelRef<T> {
+  afterClose(eventFn: SohoContextualActionPanelEventFunction<T> | null): SohoContextualActionPanelRef<T> | null {
     this.afterClose$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => {
- eventFn(result, this, this.componentPanel);
-});
+      if (!eventFn) {
+        return;
+      }
+      eventFn(result, this, (this.componentPanel as any));
+    });
     return this;
   }
 
@@ -419,7 +407,7 @@ export class SohoContextualActionPanelRef<T> {
    * @param event - full event object.
    * @param isCancelled - is true if the cancel button was pressed; otherwise false.
    */
-  private onClose(event: any, isCancelled: boolean) {
+  private onClose(_event: any, isCancelled: boolean) {
     this.close$.next(isCancelled);
   }
 
@@ -429,7 +417,7 @@ export class SohoContextualActionPanelRef<T> {
    *
    * @param event - full event object.
    */
-  private onAfterClose(event: any) {
+  private onAfterClose(_event: any) {
     // Pass the panel result back.
     this.ngZone.run(() => {
       this.afterClose$.next(this.panelResult);
@@ -440,7 +428,7 @@ export class SohoContextualActionPanelRef<T> {
       this.jQueryElement.off('close.contextualactionpanel open.contextualactionpanel');
     }
 
-    this.contextualactionpanel.destroy();
+    this.contextualactionpanel?.destroy();
     this.contextualactionpanel = null;
 
     this.ngZone.run(() => {

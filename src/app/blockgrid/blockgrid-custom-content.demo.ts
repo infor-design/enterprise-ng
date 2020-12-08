@@ -4,9 +4,9 @@ import {
   Component,
   ViewChild,
 } from '@angular/core';
-import {
-  SohoBlockGridComponent
-} from 'ids-enterprise-ng';
+
+// @ts-ignore
+import { SohoBlockGridComponent } from 'ids-enterprise-ng';
 import {
   DATA
 } from './blockgrid-demo-data';
@@ -19,28 +19,28 @@ import {
 })
 export class BlockGridCustomContentDemoComponent implements AfterViewInit {
 
-  @ViewChild(SohoBlockGridComponent, { static: true }) blockGrid: SohoBlockGridComponent;
+  @ViewChild(SohoBlockGridComponent, { static: true }) blockGrid?: SohoBlockGridComponent;
 
   public data = DATA;
 
   ngAfterViewInit() {
-    this.blockGrid.activateBlock(1);
-    this.blockGrid.selectBlocks([3, 4, 10]);
+    this.blockGrid?.activateBlock(1);
+    this.blockGrid?.selectBlocks([3, 4, 10]);
   }
 
-  onSelected(args) {
+  onSelected(args: any) {
     console.log('onSelected', args);
   }
 
-  onDeselected(args) {
+  onDeselected(args: any) {
     console.log('onDeselect', args);
   }
 
-  onActivated(args) {
+  onActivated(args: any) {
     console.log('onActivated', args);
   }
 
-  onDeactivated(args) {
+  onDeactivated(args: any) {
     console.log('onDeactivated', args);
   }
 }

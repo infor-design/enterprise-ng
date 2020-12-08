@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { PersonalizeMenuComponent } from './personalize-menu.component';
+// @ts-ignore
 import { SohoComponentsModule } from 'ids-enterprise-ng';
 
 describe('PersonalizeMenuComponent', () => {

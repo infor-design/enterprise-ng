@@ -3,7 +3,8 @@ import {
   Component, ElementRef,
   ViewChild
 } from '@angular/core';
-import { SohoPopDownContentsComponent, SohoPopDownDirective, SohoTooltipDirective } from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoPopDownDirective } from 'ids-enterprise-ng';
 import { columns, ledgerData } from './mock.data';
 
 @Component({
@@ -13,8 +14,8 @@ import { columns, ledgerData } from './mock.data';
 })
 export class CodeBlockDemoComponent implements AfterViewInit {
 
-  @ViewChild(SohoPopDownDirective, { static: true }) popdown: SohoPopDownDirective;
-  @ViewChild('compound_field_popdown_contents', { static: true }) contents: ElementRef;
+  @ViewChild(SohoPopDownDirective, { static: true }) popdown?: SohoPopDownDirective;
+  @ViewChild('compound_field_popdown_contents', { static: true }) contents?: ElementRef;
 
   public model = {
     ledger: { title: 'Ledger', value: 'CORE' },
@@ -49,10 +50,10 @@ export class CodeBlockDemoComponent implements AfterViewInit {
 
   onFocusCompoundField() {
     if (this.popdown) {
-      this.popdown.open();
+      this.popdown?.open();
       $('#compound_field_popdown_contents .field:first-child :focusable:first-child').trigger('focus');
       $('#compound_field_popdown_contents .field:last-of-type :focusable').on('blur', () => {
-        this.popdown.close();
+        this.popdown?.close();
         setTimeout(() => $('#lm-code-block + div.field :focusable').trigger('focus'), 1);
       });
     }
@@ -60,7 +61,7 @@ export class CodeBlockDemoComponent implements AfterViewInit {
 
   onKeyDown(e: KeyboardEvent) {
     if (e.key === 'Escape') {
-      this.popdown.close();
+      this.popdown?.close();
       $('#lm-code-block + div.field :focusable').trigger('focus');
     }
   }

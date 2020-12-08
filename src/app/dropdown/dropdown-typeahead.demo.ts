@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 
 import { Subject } from 'rxjs';
-
+// @ts-ignore
 import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 import { MOCK_ALL_STATES } from './dropdown-mock-all.data';
@@ -19,7 +19,7 @@ import { MOCK_ALL_STATES } from './dropdown-mock-all.data';
 })
 export class DropdownTypeaheadDemoComponent implements AfterViewInit {
   /** Reference to the dropdown component so we can interact with it programmatically. */
-  @ViewChild(SohoDropDownComponent, { static: true }) dropdown: SohoDropDownComponent;
+  @ViewChild(SohoDropDownComponent, { static: true }) dropdown?: SohoDropDownComponent;
 
   /** List of observable options {value: string, label: string} */
   @Input() options = new Subject<Array<any>>();
@@ -55,8 +55,7 @@ export class DropdownTypeaheadDemoComponent implements AfterViewInit {
     const states = MOCK_ALL_STATES;
 
     // Filter based on the search term
-    const filtered = [];
-    // eslint-disable-next-line @typescript-eslint/prefer-for-of
+    const filtered: any = [];
     for (let i = 0; i < states.length; i++) {
       if (states[i].label.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1) {
         filtered.push(states[i]);

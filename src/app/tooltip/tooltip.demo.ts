@@ -5,9 +5,7 @@ import {
   QueryList
 } from '@angular/core';
 
-import {
-  SohoTooltipDirective
-} from 'ids-enterprise-ng';
+import { SohoTooltipDirective } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-tooltip-demo',
@@ -15,7 +13,7 @@ import {
 })
 export class TooltipDemoComponent implements OnInit {
 
-  @ViewChildren(SohoTooltipDirective) tooltips: QueryList<SohoTooltipDirective>;
+  @ViewChildren(SohoTooltipDirective) tooltips?: QueryList<SohoTooltipDirective>;
 
   public normalTooltipText = 'Tooltips Provide<br> Additional Information';
 
@@ -55,7 +53,7 @@ export class TooltipDemoComponent implements OnInit {
   }
 
   openTooltip() {
-    this.tooltips.toArray()[1].show();
+    this.tooltips?.toArray()[1].show();
   }
 
   changeTooltip() {

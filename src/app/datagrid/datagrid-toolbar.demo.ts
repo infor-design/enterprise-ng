@@ -1,9 +1,9 @@
 ﻿import {
   Component,
-  ElementRef,
   Input,
   ChangeDetectionStrategy
 } from '@angular/core';
+// @ts-ignore
 import { SohoMessageService } from 'ids-enterprise-ng';
 
 @Component({
@@ -16,22 +16,18 @@ export class DataGridToolbarDemoComponent {
   // Breadcrumbs.
   @Input() breadcrumbs: Breadcrumb[];
 
-  constructor(private element: ElementRef, private messages: SohoMessageService) {
+  constructor(private messages: SohoMessageService) {
     this.breadcrumbs = this.buildBreadcrumbs();
   }
 
   selectBreadcrumb(breadcrumb: Breadcrumb) {
-    console.log('Selected ${breadcrumb.friendlyName}');
+    console.log(`Selected ${breadcrumb.friendlyName}`);
   }
 
   public onDelete() {
     const opts: SohoMessageOptions = {
       buttons: [
-        {
-          text: 'Close', click: (e, modal) => {
-            modal.close(true);
-          }, isDefault: true
-        }
+        { text: 'Close', click: (_e, modal) => { modal.close(true); }, isDefault: true }
       ]
     };
     opts.message = 'Test Message. Testing 1.2';
@@ -57,10 +53,10 @@ export class DataGridToolbarDemoComponent {
  */
 export class Breadcrumb {
   // The display name (or friendly name) of the breadcrumb.
-  friendlyName: string;
+  friendlyName?: string;
 
   // The id (or key) used when selected.
-  path: string;
+  path?: string;
 
   // Indicator that this is the selectable.
   selectable = false;

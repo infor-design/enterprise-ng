@@ -5,10 +5,8 @@ import {
   OnInit
 } from '@angular/core';
 
-import {
-  SohoInputComponent,
-  SohoDatePickerComponent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoInputComponent, SohoDatePickerComponent } from 'ids-enterprise-ng';
 
 export const EDITORS_DATA: any[] = [
   {
@@ -132,11 +130,11 @@ export const EDITORS_DATA: any[] = [
   }
 ];
 
-function FIELD_FN(row: any, field, grid) {
+function FIELD_FN(row: any, _field: any, _grid: any) {
   return row.status;
 }
 
-function MATCH_FN(value, row: any, field, grid) {
+function MATCH_FN(value: any, row: any, _field: any, _grid: any) {
   return (row.status === value);
 }
 
@@ -183,10 +181,10 @@ export const STATUS_LOOKUP_OPTIONS = {
         soho-mask [process]="'number'" [integerLimit]="3" (write)="onMaskWrite($event)"/>`
 })
 export class DemoCellInputEditorComponent implements SohoDataGridCellEditor {
-  @ViewChild(SohoInputComponent, { static: true }) input: SohoInputComponent;
+  @ViewChild(SohoInputComponent, { static: true }) input?: SohoInputComponent;
 
   value: string;
-  className: string;
+  className?: string;
 
   constructor( @Inject('args') public args: SohoDataGridPostRenderCellArgs) {
     this.value = args.value;
@@ -206,7 +204,7 @@ export class DemoCellInputEditorComponent implements SohoDataGridCellEditor {
   }
 
   focus() {
-    this.input.focus();
+    this.input?.focus();
   }
 }
 
@@ -219,22 +217,22 @@ export class DemoCellInputEditorComponent implements SohoDataGridCellEditor {
   template: `<input soho-datepicker dateFormat="MM/dd/yyyy" mode="standard" placeholder="MM/dd/yyyy"/>`
 })
 export class DemoCellDatePickerEditorComponent implements SohoDataGridCellEditor {
-  @ViewChild(SohoDatePickerComponent, { static: true }) datePicker: SohoDatePickerComponent;
+  @ViewChild(SohoDatePickerComponent, { static: true }) datePicker?: SohoDatePickerComponent;
 
   constructor( @Inject('args') public args: SohoDataGridPostRenderCellArgs) {
   }
 
-  className: 'datepicker';
+  className?: 'datepicker';
 
   val(value?: any) {
     if (value) {
-      this.datePicker.setValue(value);
+      this.datePicker?.setValue(value);
     }
-    return this.datePicker.getValue();
+    return this.datePicker?.getValue();
   }
 
   focus() {
-    this.datePicker.focus();
+    this.datePicker?.focus();
   }
 }
 
@@ -285,7 +283,7 @@ export const EDITORS_COLUMNS: SohoDataGridColumn[] = [
   templateUrl: 'datagrid-angular-editor.demo.html'
 })
 export class DataGridAngularEditorDemoComponent implements OnInit {
-  gridOptions: SohoDataGridOptions = undefined;
+  gridOptions?: SohoDataGridOptions = undefined;
 
   ngOnInit() {
     this.gridOptions = {

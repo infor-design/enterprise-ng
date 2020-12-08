@@ -9,10 +9,10 @@ import {
   PAGING_COLUMNS,
   PAGING_DATA
 } from './datagrid-paging-data';
-
+// @ts-ignore
 import { SohoIconUtils } from 'ids-enterprise-ng';
 
-export const LMFavorite = (row, cell, value, col, rowData, api): string => {
+export const LMFavorite = (_row: any, _cell: any, _value: any, _col: any, rowData: any, _api: any): string => {
   const isChecked: boolean = (rowData && rowData.price > 200); // jshint ignore:line
   const icon = isChecked ? 'star-filled' : 'star-outlined';
   return '<span class="audible">' + Soho.Locale.translate('Favorite') +
@@ -26,7 +26,7 @@ export class DemoCellFormatterComponent implements OnDestroy {
   constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {
     console.log(`constructor ${this.args.value}`);
   }
-  public onClick(e) {
+  public onClick(_e: any) {
     console.log(`${this.args.row}`);
   }
 
@@ -48,18 +48,18 @@ export class DemoCellIntegerFormatterComponent {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridCustomFormatterDemoComponent implements OnInit {
-  visible: boolean;
-  gridOptions: SohoDataGridOptions = undefined;
+  visible?: boolean;
+  gridOptions?: SohoDataGridOptions = undefined;
 
   ngOnInit(): void {
     this.gridOptions = this.buildGridOptions();
   }
 
-  onClick(args) {
+  onClick(_args: any) {
     console.log('click');
   }
 
-  isContentVisible(row: number, cell: HTMLElement, data: Object, col: SohoDataGridColumn, item: any): boolean {
+  isContentVisible(_row: number, _cell: HTMLElement, _data: Object, _col: SohoDataGridColumn, _item: any): boolean {
     if (this.visible) {
       this.visible = false;
     } else {
@@ -97,7 +97,7 @@ export class DataGridCustomFormatterDemoComponent implements OnInit {
       icon: 'edit',
       align: 'center',
       formatter: Soho.Formatters.Button,
-      click: (e, args) => this.onClick(args)
+      click: (_e, args) => this.onClick(args)
     });
     columns.push({
       id: 'buton-formatter',
@@ -106,7 +106,7 @@ export class DataGridCustomFormatterDemoComponent implements OnInit {
       sortable: false,
       align: 'center',
       formatter: Soho.Formatters.Button,
-      click: (e, args) => this.onClick(args),
+      click: (_e, args) => this.onClick(args),
       contentVisible: (row, cell, data, col, item) => this.isContentVisible(row, cell, data, col, item)
     });
 

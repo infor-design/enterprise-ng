@@ -3,11 +3,8 @@ import {
   ViewChild,
   ChangeDetectionStrategy, OnInit
 } from '@angular/core';
-
-import {
-  SohoDataGridComponent,
-  SohoDataGridService
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoDataGridComponent, SohoDataGridService } from 'ids-enterprise-ng';
 
 import { DataGridDemoService } from './datagrid-demo.service';
 
@@ -18,14 +15,14 @@ import { DataGridDemoService } from './datagrid-demo.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridGroupableDemoComponent implements OnInit {
-  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;
 
   private _groupColumn: string;
 
   public set groupColumn(value: string) {
     this._groupColumn = value;
     if (this.dataGrid) {
-      this.dataGrid.groupable = {fields: [this._groupColumn], aggregator: 'sum'};
+      (this.dataGrid as any).groupable = {fields: [this._groupColumn], aggregator: 'sum'};
     }
   }
   public get groupColumn(): string {
@@ -34,8 +31,8 @@ export class DataGridGroupableDemoComponent implements OnInit {
 
   public groups: any[] = [];
 
-  constructor(private service: SohoDataGridService) {
-    service.getColumns().forEach(element => {
+  constructor(service: SohoDataGridService) {
+    service.getColumns().forEach((element: any) => {
       if (element.field && element.hidden !== true) {
         this.groups.push({value: element.field, text: element.name});
       }
@@ -45,7 +42,7 @@ export class DataGridGroupableDemoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataGrid.groupable = {fields: [this.groupColumn], aggregator: 'sum'};
+    (this.dataGrid as any).groupable = {fields: [this.groupColumn], aggregator: 'sum'};
   }
 
 }

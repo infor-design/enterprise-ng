@@ -1,8 +1,7 @@
 import { Component, ViewChild, ViewContainerRef, OnInit } from '@angular/core';
-import {
-  SohoDataGridComponent,
-  SohoModalDialogService
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoDataGridComponent, SohoModalDialogService } from 'ids-enterprise-ng';
+
 import { PAGING_COLUMNS, PAGING_DATA } from './datagrid-paging-data';
 import { DataGridLookupDialogDemoComponent } from './datagrid-lookup-dialog.demo';
 import { DataGridLookupSelectionEvent } from './datagrid-lookup-event.demo';
@@ -13,11 +12,11 @@ import { DataGridLookupSelectionEvent } from './datagrid-lookup-event.demo';
 })
 export class DataGridLookupClickDemoComponent implements OnInit {
   @ViewChild(SohoDataGridComponent)
-  sohoDataGridComponent: SohoDataGridComponent;
+  sohoDataGridComponent?: SohoDataGridComponent;
   @ViewChild('modalPlaceholder', { read: ViewContainerRef, static: true })
-  modalPlaceholder: ViewContainerRef;
+  modalPlaceholder?: ViewContainerRef;
 
-  gridOptions = undefined;
+  gridOptions: any = undefined;
 
   constructor(private modalService: SohoModalDialogService) { }
 
@@ -88,7 +87,7 @@ export class DataGridLookupClickDemoComponent implements OnInit {
 }
 
 function LMLookupClickFunction(
-  event: any,
+  _event: any,
   lookup: SohoLookupStatic,
   clickArguments: any
 ) {

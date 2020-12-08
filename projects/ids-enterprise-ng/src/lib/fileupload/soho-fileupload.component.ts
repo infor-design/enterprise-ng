@@ -28,14 +28,14 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  public isDisabled: boolean;
-  public isReadOnly: boolean;
+  public isDisabled?: boolean;
+  public isReadOnly?: boolean;
 
   // -------------------------------------------
   // Component Input
   // -------------------------------------------
 
-  @Input() set disabled(value: boolean) {
+  @Input() set disabled(value: boolean | undefined) {
     this.isDisabled = value;
     this.isDisabled = false;
     this.isReadOnly = false;
@@ -51,11 +51,11 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
     this.changeDetectorRef.markForCheck();
   }
 
-  get disabled() {
+  get disabled(): boolean | undefined {
     return this.isDisabled;
   }
 
-  @Input() set readonly(value: boolean) {
+  @Input() set readonly(value: boolean | undefined) {
     this.isReadOnly = value;
 
     if (this.fileUpload) {
@@ -72,7 +72,7 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
     this.changeDetectorRef.markForCheck();
   }
 
-  get readonly() {
+  get readonly(): boolean | undefined {
     return this.isReadOnly;
   }
 
@@ -97,10 +97,10 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   // -------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the SoHoXi control api.
-  private fileUpload: SohoFileUploadStatic;
+  private fileUpload?: SohoFileUploadStatic | null;
 
   constructor(
     private element: ElementRef,

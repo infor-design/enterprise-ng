@@ -35,12 +35,12 @@ export class SohoWizardTickComponent implements AfterViewInit {
   /**
    * A shorter label.
    */
-  @Input() public shortLabel: string;
+  @Input() public shortLabel?: string;
 
   /**
    * The id, used to link back to the pages.
    */
-  @Input() public tickId: string;
+  @Input() public tickId!: string;
 
   /**
    *
@@ -57,7 +57,7 @@ export class SohoWizardTickComponent implements AfterViewInit {
   /**
    * JQuery Element.
    */
-  public jQueryElement: JQuery;
+  public jQueryElement?: JQuery;
 
   /**
    * Disable the click handler.
@@ -69,7 +69,7 @@ export class SohoWizardTickComponent implements AfterViewInit {
 
   public isCurrentTick(): boolean {
     // A step is selected if the element has the current class.
-    return this.jQueryElement && this.jQueryElement.hasClass('current');
+    return this.jQueryElement?.hasClass('current') || false;
   }
 
   /**

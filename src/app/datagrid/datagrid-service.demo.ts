@@ -1,18 +1,15 @@
 import {
   Component,
-  ElementRef,
   ViewChild,
   ChangeDetectionStrategy
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
-
-import {
-  SohoDataGridComponent,
-  SohoDataGridService
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoDataGridComponent, SohoDataGridService } from 'ids-enterprise-ng';
 
 import { DataGridDemoService } from './datagrid-demo.service';
+// @ts-ignore
 import { SohoToastService } from 'ids-enterprise-ng';
 
 @Component({
@@ -22,9 +19,9 @@ import { SohoToastService } from 'ids-enterprise-ng';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridServiceDemoComponent {
-  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
-  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
-  constructor(private el: ElementRef, private toastService: SohoToastService) {
+  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator?: SohoBusyIndicatorDirective;
+  constructor(private toastService: SohoToastService) {
   }
 
   onSelected(e: SohoDataGridSelectedEvent) {
@@ -36,11 +33,11 @@ export class DataGridServiceDemoComponent {
     }
   }
 
-  onOpenFilterRow(e: SohoDataGridOpenFilterRowEvent) {
+  onOpenFilterRow(_e: SohoDataGridOpenFilterRowEvent) {
     this.toastService.show({title: 'Filterbar', message: 'filter row opened'});
   }
 
-  onCloseFilterRow(e: SohoDataGridCloseFilterRowEvent) {
+  onCloseFilterRow(_e: SohoDataGridCloseFilterRowEvent) {
     this.toastService.show({title: 'Filterbar', message: 'filter row closed'});
   }
 
@@ -49,26 +46,26 @@ export class DataGridServiceDemoComponent {
   }
 
   busy() {
-    this.busyIndicator.activated = true;
+    (this.busyIndicator as any).activated = true;
   }
 
   toggleFilterRow() {
-    this.dataGrid.toggleFilterRow();
+    this.dataGrid?.toggleFilterRow();
   }
 
   clearFilter() {
-    this.dataGrid.clearFilter();
+    this.dataGrid?.clearFilter();
   }
 
   sortColumn() {
-    this.dataGrid.setSortColumn('price1');
+    this.dataGrid?.setSortColumn('price1');
   }
 
   addRow() {
   }
 
   export() {
-    this.dataGrid.exportToExcel('my-export');
-    this.dataGrid.exportToCsv('my-export');
+    this.dataGrid?.exportToExcel('my-export');
+    this.dataGrid?.exportToCsv('my-export');
   }
 }

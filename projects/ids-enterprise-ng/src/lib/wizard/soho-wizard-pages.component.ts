@@ -24,5 +24,5 @@ import { SohoWizardPageComponent } from './soho-wizard-page.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoWizardPagesComponent {
-  @ContentChildren(SohoWizardPageComponent) public pages: QueryList<SohoWizardPageComponent>;
+  @ContentChildren(SohoWizardPageComponent) public pages!: QueryList<SohoWizardPageComponent>;
 }

@@ -21,7 +21,7 @@ export class SohoAccordionHeaderComponent implements AfterViewInit {
    * Reference to the jQuery control - this is public so
    * it can be used in the api on the accordion control.
    */
-  jQueryElement: JQuery;
+  jQueryElement!: JQuery;
 
   @HostBinding('class.is-disabled') isDisabled = false;
   @HostBinding('style.display') get isBlockDisplay() {

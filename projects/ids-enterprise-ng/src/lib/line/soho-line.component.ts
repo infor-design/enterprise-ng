@@ -161,10 +161,10 @@ export class SohoLineComponent implements AfterViewInit, AfterViewChecked, OnDes
    * @todo replace override of native attribute
    */
   // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
-  @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
+  @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object>();
 
-  private jQueryElement: JQuery;
-  private line: SohoLine;
+  private jQueryElement?: JQuery;
+  private line?: SohoLine | null;
   private updateRequired = false;
 
   constructor(
@@ -183,20 +183,20 @@ export class SohoLineComponent implements AfterViewInit, AfterViewChecked, OnDes
       this.line = this.jQueryElement.data('line');
 
       // Setup the events
-      this.jQueryElement.on('selected', (e: any, args: SohoLineSelectEvent) =>
+      this.jQueryElement.on('selected', (_e: any, args: SohoLineSelectEvent) =>
         this.ngZone.run(() => this.selected.emit(args)));
-      this.jQueryElement.on('unselected', (e: any, args: SohoLineSelectEvent) =>
+      this.jQueryElement.on('unselected', (_e: any, args: SohoLineSelectEvent) =>
         this.ngZone.run(() => this.unselected.emit(args)));
       this.jQueryElement.on('rendered', (...args) =>
         this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
-        this.ngZone.run(() => this.contextmenu.emit(args)));
+        this.ngZone.run(() => this.contextmenu?.emit(args)));
     });
   }
 
   ngAfterViewChecked() {
     if (this.line && this.updateRequired) {
-      this.ngZone.runOutsideAngular(() => this.line.updated(this.line.settings));
+      this.ngZone.runOutsideAngular(() => this.line?.updated(this.line.settings));
       this.updateRequired = false;
     }
   }
@@ -204,8 +204,8 @@ export class SohoLineComponent implements AfterViewInit, AfterViewChecked, OnDes
   updated() {
     this.ngZone.runOutsideAngular(() => {
       this.options.type = 'line';
-      this.jQueryElement.chart(this.options);
-      this.line = this.jQueryElement.data('line');
+      this.jQueryElement?.chart(this.options);
+      this.line = this.jQueryElement?.data('line');
     });
   }
 
@@ -224,14 +224,14 @@ export class SohoLineComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   public setSelected(selected: SohoLineSelected) {
-    this.ngZone.runOutsideAngular(() => this.line.setSelected(selected));
+    this.ngZone.runOutsideAngular(() => this.line?.setSelected(selected));
   }
 
   public toggleSelected(selected: SohoLineSelected) {
-    this.ngZone.runOutsideAngular(() => this.line.toggleSelected(selected));
+    this.ngZone.runOutsideAngular(() => this.line?.toggleSelected(selected));
   }
 
   public getSelected() {
-    return this.ngZone.runOutsideAngular(() => this.line.getSelected());
+    return this.ngZone.runOutsideAngular(() => this.line?.getSelected());
   }
 }

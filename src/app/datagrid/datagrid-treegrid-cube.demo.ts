@@ -1,5 +1,7 @@
 import { AfterViewInit, OnInit, ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+// @ts-ignore
 import { SohoChartComponent } from 'ids-enterprise-ng';
+// @ts-ignore
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -9,23 +11,22 @@ import { SohoDataGridComponent } from 'ids-enterprise-ng';
 })
 
 export class DataGridTreeGridCubeDemoComponent implements OnInit, AfterViewInit {
-  @ViewChild(SohoChartComponent) sohoChartComponent: SohoChartComponent;
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoChartComponent) sohoChartComponent?: SohoChartComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;
 
-  private _columns: SohoDataGridColumn[];
+  private _columns?: SohoDataGridColumn[];
   private _data: any;
-  private _chartData: Array<SohoDataSetItem>;
+  private _chartData?: Array<SohoDataSetItem>;
 
   ngOnInit() {
 
   }
 
   ngAfterViewInit() {
-    const options: SohoDataGridOptions = this.sohoDataGridComponent.gridOptions;
+    const options: SohoDataGridOptions = (this.sohoDataGridComponent as any).gridOptions;
     options.enableTooltips = true;
-    this.sohoDataGridComponent.gridOptions = options;
-
-    this.sohoDataGridComponent.selectRows(0);
+    (this.sohoDataGridComponent as any).gridOptions = options;
+    (this.sohoDataGridComponent as any).selectRows(0);
   }
 
   public get columns(): SohoDataGridColumn[] {
@@ -145,7 +146,7 @@ export class DataGridTreeGridCubeDemoComponent implements OnInit, AfterViewInit 
 
   private buildChartData(data: any[]): Array<SohoDataSetItem> {
     const chartData: Array<SohoDataSetItem> = [];
-    data.forEach((row: any, index: number) => {
+    data.forEach((row: any, _index: number) => {
       const chartRow: SohoDataSetItem = {} as SohoDataSetItem;
       chartRow.name = row.Dimension;
       chartRow.data = [];
@@ -158,10 +159,10 @@ export class DataGridTreeGridCubeDemoComponent implements OnInit, AfterViewInit 
 
   private setChartOptions() {
     const chartOptions: SohoChartOptions = { dataset: this._chartData, type: 'column', animate: false, showLegend: false };
-    this.sohoChartComponent.chartOptions = chartOptions;
+    (this.sohoChartComponent as any).chartOptions = chartOptions;
   }
 
-  public get chartData(): Array<SohoDataSetItem> {
+  public get chartData(): Array<SohoDataSetItem> | undefined {
     return this._chartData;
   }
 }

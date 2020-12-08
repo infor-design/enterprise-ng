@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+// @ts-ignore
 import { SohoToastService, SohoMessageService } from 'ids-enterprise-ng';
 
 @Component({
@@ -26,11 +26,11 @@ export class HomePageEditableDemoComponent {
   }
 
   // Use arrow function for proper resolution of this in the callback
-  public onBeforeRemoveCard = (event) => {
+  public onBeforeRemoveCard = (_event: any) => {
     const result = new Promise((resolve, reject) => {
       const buttons = [
         {
-          text: 'Cancel', click: (e, modal) => {
+          text: 'Cancel', click: (_e: any, modal: any) => {
             modal.close(true);
             this.toastService.show({
               draggable: true, title: 'Widget Remove Cancelled', message: 'The user cancelled the remove operation.'
@@ -39,7 +39,7 @@ export class HomePageEditableDemoComponent {
           }, isDefault: true
         },
         {
-          text: 'Remove', click: (e, modal) => {
+          text: 'Remove', click: (_e: any, modal: any) => {
             modal.close(true);
             resolve();
           }

@@ -5,8 +5,9 @@ import {
   HostBinding, OnInit,
   ViewChild,
 } from '@angular/core';
-import { SohoToastService } from 'ids-enterprise-ng';
-import { SohoWeekViewComponent } from 'ids-enterprise-ng';
+
+import { SohoToastService, SohoWeekViewComponent } from 'ids-enterprise-ng';
+
 import { WeekViewDemoService } from './week-view.demo.service';
 
 // eslint-disable-next-line no-shadow
@@ -24,25 +25,25 @@ export class WeekViewDemoComponent implements OnInit {
   @HostBinding('style.height') height = 'auto';
   @HostBinding('style.display') block = 'block';
 
-  @ViewChild(SohoWeekViewComponent, { static: true }) sohoWeekViewComponent: SohoWeekViewComponent;
+  @ViewChild(SohoWeekViewComponent, { static: true }) sohoWeekViewComponent?: SohoWeekViewComponent;
 
   public startDate = new Date('2019-02-10');
   public endDate = new Date('2019-02-16');
   public showViewChanger = false;
-  public eventTypes: [];
-  public events: [];
+  public eventTypes?: [];
+  public events?: [];
   public iconTooltip = 'status';
   public eventTooltip = 'comments';
   public dateIsSet = false;
-  public demoType;
-  public demoTypeEnum;
+  public demoType = displayType.oneWeek;
+  public demoTypeEnum = displayType;
 
   ngOnInit(): void {
     this.demoType = displayType.oneWeek;
     this.demoTypeEnum = displayType;
   }
 
-  public onRenderWeekCallback = (node: Node, response: Function) => {
+  public onRenderWeekCallback = (_node: Node, response: Function) => {
     this.weekViewService.getWeekviewEventTypes().subscribe((types) => {
       this.weekViewService.getWeekviewEvents().subscribe((events) => {
         this.eventTypes = types;
@@ -52,7 +53,7 @@ export class WeekViewDemoComponent implements OnInit {
     });
   }
 
-  public onWeekviewDateSelectedCallback = (node: Node, args: SohoWeekViewDateSelectedEvent) => {
+  public onWeekviewDateSelectedCallback = (_node: Node, args: SohoWeekViewDateSelectedEvent) => {
     console.log('onWeekviewDateSelectedCallback', args);
   }
 
@@ -97,12 +98,12 @@ export class WeekViewDemoComponent implements OnInit {
   }
 
   onEventClicked(event: SohoWeekViewClickEvent) {
-    this.toastService.show({ title: 'Calendar Test', message: 'Event "' + event.event.subject + '" Clicked' });
+    this.toastService.show({ title: 'Calendar Test', message: 'Event "' + event?.event?.subject + '" Clicked' });
     console.log('onEventClick', event);
   }
 
   onEventDblClicked(event: SohoWeekViewClickEvent) {
-    this.toastService.show({ title: 'Calendar Test', message: 'Event "' + event.event.subject + '" Double Clicked' });
+    this.toastService.show({ title: 'Calendar Test', message: 'Event "' + event?.event?.subject + '" Double Clicked' });
     console.log('onEventDblClick', event);
   }
 }

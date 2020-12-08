@@ -4,7 +4,7 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 import { DataGridDemoService } from './datagrid-demo.service';
 
@@ -36,10 +36,10 @@ export class DataGridEmptyMessageDemoComponent implements AfterViewInit {
     color: 'azure'
   };
 
-  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;
 
-  public hasData: boolean;
-  public emptyMessage: SohoEmptyMessageOptions = DataGridEmptyMessageDemoComponent.EMPTY_MSG_SERVER_ERROR;
+  public hasData?: boolean;
+  public emptyMessage: null | SohoEmptyMessageOptions = DataGridEmptyMessageDemoComponent.EMPTY_MSG_SERVER_ERROR;
 
   constructor(private service: DataGridDemoService) { }
 

@@ -24,8 +24,8 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
       position: 'bottom'
     }
   };
-  private jQueryElement: JQuery;
-  private blockgrid: SohoBlockGrid;
+  private jQueryElement?: JQuery;
+  private blockgrid?: SohoBlockGrid | null;
 
   @HostBinding('class.blockgrid') get isBlockGrid() {
     return true;
@@ -33,7 +33,7 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
   /** Defines the data to use, must be specified for this component. */
   @Input()
-  public set dataset(dataset: Array<any>) {
+  public set dataset(dataset: Array<any> | undefined) {
     this.options.dataset = dataset;
 
     if (this.blockgrid) {
@@ -41,7 +41,7 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
       this.updated(this.blockgrid.settings);
     }
   }
-  public get dataset(): Array<any> {
+  public get dataset(): Array<any> | undefined {
     if (!this.blockgrid) {
       return this.options.dataset;
     }
@@ -66,14 +66,14 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
   /** Defines whether or not paging is active. */
   @Input()
-  public set paging(paging: boolean) {
+  public set paging(paging: boolean | undefined) {
     this.options.paging = paging;
     if (this.blockgrid) {
       this.blockgrid.settings.paging = paging;
       this.updated(this.blockgrid.settings);
     }
   }
-  public get paging(): boolean {
+  public get paging(): boolean | undefined {
     if (!this.blockgrid) {
       return this.options.paging;
     }
@@ -82,14 +82,14 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
   /** Defines the current page size */
   @Input()
-  public set pagesize(pagesize: number) {
+  public set pagesize(pagesize: number | undefined) {
     this.options.pagerSettings.pagesize = pagesize;
     if (this.blockgrid) {
       this.blockgrid.settings.pagerSettings.pagesize = pagesize;
       this.updated(this.blockgrid.settings);
     }
   }
-  public get pagesize(): number {
+  public get pagesize(): number | undefined {
     if (!this.blockgrid) {
       return this.options.pagerSettings.pagesize;
     }
@@ -98,14 +98,14 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
   /** Defines the array of selectable page sizes */
   @Input()
-  public set pagesizes(pagesizes: Array<number>) {
+  public set pagesizes(pagesizes: Array<number> | undefined) {
     this.options.pagerSettings.pagesizes = pagesizes;
     if (this.blockgrid) {
       this.blockgrid.settings.pagerSettings.pagesizes = pagesizes;
       this.updated(this.blockgrid.settings);
     }
   }
-  public get pagesizes(): Array<number> {
+  public get pagesizes(): Array<number> | undefined {
     if (!this.blockgrid) {
       return this.options.pagerSettings.pagesizes;
     }
@@ -114,14 +114,14 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
   /** Add extra attributes like id's to the component **/
   @Input()
-  public set attributes(attributes: Array<Object> | Object) {
+  public set attributes(attributes: Array<Object> | Object | undefined) {
     this.options.attributes = attributes;
     if (this.blockgrid) {
       this.blockgrid.settings.attributes = attributes;
       this.updated(this.blockgrid.settings);
     }
   }
-  public get attributes():  Array<Object> | Object {
+  public get attributes():  Array<Object> | Object | undefined {
     if (!this.blockgrid) {
       return this.options.attributes;
     }
@@ -154,7 +154,7 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
       this.jQueryElement.on('activated', (...args) => this.onActivated(args));
       this.jQueryElement.on('deactivated', (...args) => this.onDeactivated(args));
 
-      if (this.blockgrid.pagerAPI) {
+      if (this.blockgrid?.pagerAPI) {
         this.jQueryElement.on('page', (...args) => this.onPage(args));
         this.jQueryElement.on('pagesizechange', (...args) => this.onPageSizeChange(args));
       }
@@ -176,7 +176,7 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
 
   /** Reinit blockgrid settings */
   public updated(settings: any): SohoBlockGridComponent {
-    this.ngZone.runOutsideAngular(() => this.blockgrid.updated(settings));
+    this.ngZone.runOutsideAngular(() => this.blockgrid?.updated(settings));
     return this;
   }
 
@@ -187,19 +187,19 @@ export class SohoBlockGridComponent implements AfterViewInit, OnDestroy {
         return; // safety check
       }
 
-      this.blockgrid.select($(blockChildren[idx]), false);
+      this.blockgrid?.select($(blockChildren[idx]), false);
     });
   }
 
   public deactivateBlock(): void {
-    this.blockgrid.select($(), false);
+    this.blockgrid?.select($(), false);
   }
 
   public selectBlocks(idx: number[]) {
     this.ngZone.runOutsideAngular(() => {
       const blockChildren: NodeList = this.element.nativeElement.querySelectorAll('.block');
-      const blockChildrenArray = Array.from(blockChildren).filter((blockChild, index) => idx.includes(index));
-      this.blockgrid.select($(blockChildrenArray), true);
+      const blockChildrenArray = Array.from(blockChildren).filter((_blockChild, index) => idx.includes(index));
+      this.blockgrid?.select($(blockChildrenArray), true);
     });
   }
 

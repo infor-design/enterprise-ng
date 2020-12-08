@@ -29,7 +29,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
 
     this._emptyMessageOptions = options;
     if (this.jQueryElement) {
-      this.emptymessage.settings = options;
+      (this.emptymessage as any).settings = options;
       this.markForCheck();
     }
   }
@@ -45,7 +45,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     return this._emptyMessageOptions;
   }
 
-  @Input() set title(title: string) {
+  @Input() set title(title: string | undefined) {
     this._emptyMessageOptions.title = title;
     if (this.emptymessage) {
       this.emptymessage.settings.title = title;
@@ -53,7 +53,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     }
   }
 
-  get title(): string {
+  get title(): string | undefined {
     if (this.emptymessage) {
       return this.emptymessage.settings.title;
     }
@@ -64,7 +64,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     return this._emptyMessageOptions.title;
   }
 
-  @Input() set info(info: string) {
+  @Input() set info(info: string | undefined) {
     this._emptyMessageOptions.info = info;
     if (this.emptymessage) {
       this.emptymessage.settings.info = info;
@@ -72,7 +72,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     }
   }
 
-  get info(): string {
+  get info(): string | undefined {
     if (this.emptymessage) {
       return this.emptymessage.settings.info;
     }
@@ -83,7 +83,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     return this._emptyMessageOptions.info;
   }
 
-  @Input() set icon(icon: string) {
+  @Input() set icon(icon: string | undefined) {
     this._emptyMessageOptions.icon = icon;
     if (this.emptymessage) {
       this.emptymessage.settings.icon = icon;
@@ -91,7 +91,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     }
   }
 
-  get icon(): string {
+  get icon(): string | undefined {
     if (this.emptymessage) {
       return this.emptymessage.settings.icon;
     }
@@ -102,7 +102,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     return this._emptyMessageOptions.icon;
   }
 
-  @Input() set height(height: string) {
+  @Input() set height(height: string | undefined) {
     this._emptyMessageOptions.height = height;
     if (this.emptymessage) {
       this.emptymessage.settings.height = height;
@@ -110,14 +110,14 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     }
   }
 
-  get height(): string {
+  get height(): string | undefined {
     if (this.emptymessage) {
       return this.emptymessage.settings.height;
     }
     return this._emptyMessageOptions.height;
   }
 
-  @Input() set button(button: SohoEmptyMessageButtonOptions) {
+  @Input() set button(button: SohoEmptyMessageButtonOptions | undefined) {
     this._emptyMessageOptions.button = button;
     if (this.emptymessage) {
       this.emptymessage.settings.button = button;
@@ -125,7 +125,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     }
   }
 
-  get button(): SohoEmptyMessageButtonOptions {
+  get button(): SohoEmptyMessageButtonOptions | undefined {
     if (this.emptymessage) {
       return this.emptymessage.settings.button;
     }
@@ -136,7 +136,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     return this._emptyMessageOptions.button;
   }
 
-  @Input() set color(color: EmptyMessageColor) {
+  @Input() set color(color: EmptyMessageColor | undefined) {
     this._emptyMessageOptions.color = color;
     if (this.emptymessage) {
       this.emptymessage.settings.color = color;
@@ -144,7 +144,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     }
   }
 
-  get color(): EmptyMessageColor {
+  get color(): EmptyMessageColor | undefined {
     if (this.emptymessage) {
       return this.emptymessage.settings.color;
     }
@@ -155,7 +155,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     return this._emptyMessageOptions.color;
   }
 
-  @Input() set attributes(attributes: Array<Object> | Object) {
+  @Input() set attributes(attributes: Array<Object> | Object | undefined ) {
     this._emptyMessageOptions.attributes = attributes;
     if (this.emptymessage) {
       this.emptymessage.settings.attributes = attributes;
@@ -163,7 +163,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
     }
   }
 
-  get attributes(): Array<Object> | Object {
+  get attributes(): Array<Object> | Object | undefined {
     if (this.emptymessage) {
       return this.emptymessage.settings.attributes;
     }
@@ -171,8 +171,8 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
   }
 
   private _emptyMessageOptions: SohoEmptyMessageOptions = {};
-  private jQueryElement: JQuery;
-  private emptymessage: SohoEmptyMessageStatic;
+  private jQueryElement?: JQuery;
+  private emptymessage?: SohoEmptyMessageStatic;
   private updateComponent = false;
 
   constructor(
@@ -195,7 +195,7 @@ export class SohoEmptyMessageDirective implements AfterViewChecked, AfterViewIni
    */
   ngAfterViewChecked() {
     if (this.updateComponent) {
-      this.emptymessage.updated();
+      this.emptymessage?.updated();
       this.updateComponent = false;
     }
   }

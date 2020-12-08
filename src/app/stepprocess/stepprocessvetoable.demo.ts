@@ -3,15 +3,13 @@ import {
   Component,
 } from '@angular/core';
 
-import { Observable } from 'rxjs';
-
 @Component({
   selector: 'app-stepprocessvetoable-demo',
   templateUrl: 'stepprocessvetoable.demo.html'
 })
 export class StepProcessVetoableDemoComponent {
 
-  public infoSubSteps: Array<InfoSubStep> = undefined;
+  public infoSubSteps?: Array<InfoSubStep> = undefined;
   public showBusyIndicator = false;
   public showStep4 = false;
 

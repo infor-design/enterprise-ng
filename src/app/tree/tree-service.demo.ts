@@ -1,14 +1,10 @@
 import {
   Component,
   ChangeDetectionStrategy,
-  ElementRef,
   ViewChild
 } from '@angular/core';
 
-import {
-  SohoTreeComponent,
-  SohoTreeService
-} from 'ids-enterprise-ng';
+import { SohoTreeComponent, SohoTreeService } from 'ids-enterprise-ng';
 
 import { TreeDemoService } from './tree-demo.service';
 
@@ -19,43 +15,43 @@ import { TreeDemoService } from './tree-demo.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeServiceDemoComponent {
-  @ViewChild(SohoTreeComponent, { static: true }) tree: SohoTreeComponent;
+  @ViewChild(SohoTreeComponent, { static: true }) tree?: SohoTreeComponent;
 
   enabled = true;
 
-  selected: SohoTreeNode;
+  selected?: SohoTreeNode;
 
-  constructor(private el: ElementRef) { }
+  constructor() { }
 
   expandAll() {
-    this.tree.expandAll();
+    this.tree?.expandAll();
   }
 
   collapseAll() {
-    this.tree.collapseAll();
+    this.tree?.collapseAll();
   }
 
-  toggleEnabled(event: any) {
+  toggleEnabled(_event: any) {
     if (this.enabled) {
-      this.tree.disable();
+      this.tree?.disable();
       this.enabled = false;
     } else {
-      this.tree.enable();
+      this.tree?.enable();
       this.enabled = true;
     }
   }
 
   selectRoot() {
-    this.tree.selectNode('Root 2');
+    this.tree?.selectNode('Root 2');
   }
 
   addNode() {
     const tn: SohoTreeNode = { text: 'New Item 1.2', disabled: true };
-    this.tree.addNode(tn, this.selected);
+    this.tree?.addNode(tn, this.selected);
   }
 
   reset() {
-    this.tree.reset();
+    this.tree?.reset();
   }
 
   onSelected(treeEvent: SohoTreeEvent) {

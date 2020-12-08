@@ -1,21 +1,12 @@
 import {
   Component,
-  ElementRef,
   OnInit,
   OnDestroy,
   ViewChild,
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import {
-  Observable,
-  BehaviorSubject
-} from 'rxjs';
-
-import {
-  SohoSwapListComponent,
-  SohoBusyIndicatorDirective
-} from 'ids-enterprise-ng';
+import { SohoSwapListComponent, SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 
 import { SwapListDemoService } from './swaplist-demo.service';
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
@@ -27,29 +18,29 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SwapListServiceDemoComponent implements OnInit, OnDestroy {
-  @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent: SohoSwapListComponent;
-  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent!: SohoSwapListComponent;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator!: SohoBusyIndicatorDirective;
 
   showModel = false;
   available: SohoSwapListItem[] = [];
   selected: SohoSwapListItem[] = [];
 
-  constructor(private el: ElementRef, private service: SwapListDemoService, private sohoHeaderRef: HeaderDynamicDemoRefService) {
+  constructor(private service: SwapListDemoService, private sohoHeaderRef: HeaderDynamicDemoRefService) {
   }
 
   ngOnInit() {
-    this.sohoHeaderRef.instance.sectionTitle = 'SwapList Service Demo';
+    (this.sohoHeaderRef.instance as any).sectionTitle = 'SwapList Service Demo';
   }
 
-  onSelected(event: any) {
+  onSelected(_event: any) {
     console.log(this.swapListComponent.selectedItems);
   }
 
-  onUpdated(event: any) {
+  onUpdated(_event: any) {
     console.log(this.swapListComponent.selectedItems);
   }
 
-  updateData(event: any) {
+  updateData(_event: any) {
     this.service.getData().subscribe((d: SohoSwapListOptions) => {
       this.busyIndicator.open();
       this.swapListComponent.updateDataset(d);
@@ -62,7 +53,7 @@ export class SwapListServiceDemoComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.sohoHeaderRef.instance.sectionTitle = '';
+    (this.sohoHeaderRef.instance as any).sectionTitle = '';
   }
 
   get selectedItems(): SohoSwapListItem[] {

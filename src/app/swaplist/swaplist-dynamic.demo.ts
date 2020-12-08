@@ -5,19 +5,17 @@ import {
     ViewChild
 } from '@angular/core';
 
-import { Observable ,  BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.service';
 
-import {
-    SohoSwapListComponent
-} from 'ids-enterprise-ng';
+import { SohoSwapListComponent } from 'ids-enterprise-ng';
 
 @Component({
     selector: 'app-swaplist-dynamic-demo',
     templateUrl: 'swaplist-dynamic.demo.html',
 })
 export class SwapListDynamicDemoComponent implements OnInit, OnDestroy {
-    @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent: SohoSwapListComponent;
+    @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent!: SohoSwapListComponent;
 
     private _subject1$ = new BehaviorSubject([]);
     public available = this._subject1$.asObservable();
@@ -47,20 +45,20 @@ export class SwapListDynamicDemoComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-      this.sohoHeaderRef.instance.sectionTitle = 'SwapList Dynamic Demo';
+      (this.sohoHeaderRef?.instance as any).sectionTitle = 'SwapList Dynamic Demo';
     }
 
-    onSelected(event: any) {
+    onSelected(_event: any) {
         console.log(this.swapListComponent.selectedItems);
     }
 
-    onUpdated(event: any) {
+    onUpdated(_event: any) {
         console.log(this.swapListComponent.selectedItems);
     }
 
-    updateData(event: any) {
-        this._subject1$.next(this.availableDemoItems);
-        this._subject2$.next(this.selectedDemoItems);
+    updateData(_event: any) {
+        this._subject1$.next((this.availableDemoItems as any));
+        this._subject2$.next((this.selectedDemoItems as any));
     }
 
     toggleModel() {
@@ -68,7 +66,7 @@ export class SwapListDynamicDemoComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-      this.sohoHeaderRef.instance.sectionTitle = '';
+      (this.sohoHeaderRef.instance as any).sectionTitle = '';
     }
 
     get selectedItems(): SohoSwapListItem[] {

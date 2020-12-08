@@ -4,7 +4,7 @@ import {
   ViewChild,
   ChangeDetectionStrategy
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoToolbarFlexComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -14,7 +14,7 @@ import { SohoToolbarFlexComponent } from 'ids-enterprise-ng';
 })
 export class ApplicationMenuTestPerfDemoComponent implements AfterViewChecked {
 
-  @ViewChild(SohoToolbarFlexComponent) sohoFlexToolbar: SohoToolbarFlexComponent;
+  @ViewChild(SohoToolbarFlexComponent) sohoFlexToolbar?: SohoToolbarFlexComponent;
 
   public checkBox1Value = false;
   public updateToolbar = false;
@@ -23,7 +23,7 @@ export class ApplicationMenuTestPerfDemoComponent implements AfterViewChecked {
 
   ngAfterViewChecked() {
     if (this.updateToolbar) {
-      this.sohoFlexToolbar.updated();
+      (this.sohoFlexToolbar as any).updated();
       this.updateToolbar = false;
     }
   }

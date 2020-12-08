@@ -2,9 +2,7 @@ import {
   Component,
   Inject
 } from '@angular/core';
-import {
-  SohoButtonComponent,
-} from 'ids-enterprise-ng';
+
 import {
   CARD_DATA
 } from './datagrid-paging-data';
@@ -13,7 +11,7 @@ import {
   template: `<app-datagrid-card-demo [dataSet]="data"></app-datagrid-card-demo>`
 })
 export class CardFormatterComponent {
-  public data;
+  public data: any;
 
   constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {
     this.data = args.value.cardData;
@@ -34,7 +32,7 @@ export class DataGridAngularCardFormatterDemoComponent {
       formatter: Soho.Formatters.Readonly },
     { id: 'button-formatter', name: 'Edit', text: 'Edit Row',
       sortable: false, icon: 'edit', align: 'center',
-      formatter: Soho.Formatters.Button, click: (e, args) => this.onClick(args) },
+      formatter: Soho.Formatters.Button, click: (_e, args) => this.onClick(args) },
     { id: 'price',  name: 'Price (std fmt)', field: 'price',
       sortable: false, filterType: 'decimal',
       formatter: Soho.Formatters.Decimal }
@@ -44,7 +42,7 @@ export class DataGridAngularCardFormatterDemoComponent {
 
   constructor() {}
 
-  onClick(args) {
+  onClick(args: any) {
     console.log(args);
   }
 }

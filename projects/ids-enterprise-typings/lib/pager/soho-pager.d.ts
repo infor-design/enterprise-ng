@@ -167,30 +167,30 @@ interface SohoStandalonePagerStatic {
   element: JQuery;
 
   /** call updated when options change after the pager has been initialized */
-  updated(SohoStandalonePagerOptions): void;
+  updated(options: SohoStandalonePagerOptions): void;
 
   /**
    * Shows or hides a specified special control button on the Pager.
    * @param type the type of button to target.
    * @param   toggleOption Show vs. Hide
    */
-  showButton(type: PagerButtonType, toggleOption: boolean);
+  showButton(type: PagerButtonType, toggleOption: boolean): void;
 
   /**
    * Enables or disables a specified special control button on the Pager.
    * @param type the type of button to target.
    * @param toggleOption Enable vs. Disable
    */
-  enableButton(type: PagerButtonType, toggleOption: boolean);
+  enableButton(type: PagerButtonType, toggleOption: boolean): void;
 
   /**
    * Show page size selector
    * @param toggleOption Toggle vs show
    */
-  showPageSizeSelector(toggleOption: boolean);
+  showPageSizeSelector(toggleOption: boolean): void;
 
   /** call from ngOnDestroy to ensure any resources the pager uses are cleaned up */
-  destroy();
+  destroy(): void;
 }
 
 /**

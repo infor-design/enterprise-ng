@@ -1,7 +1,6 @@
 import {
   Component,
   OnInit,
-  ElementRef,
   ChangeDetectionStrategy
 } from '@angular/core';
 
@@ -13,7 +12,7 @@ import {
 })
 export class CirclepagerDemoComponent implements OnInit {
 
-  constructor(private elementRef: ElementRef) {
+  constructor() {
   }
 
   ngOnInit() {}

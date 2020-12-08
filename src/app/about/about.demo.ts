@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-
-import {
-  SohoAboutService,
-  SohoAboutRef
-} from 'ids-enterprise-ng';
+import { SohoAboutService, SohoAboutRef } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-about.demo',
@@ -11,7 +7,7 @@ import {
 })
 export class AboutDemoComponent {
   /** The about dialog reference. */
-  about: SohoAboutRef;
+  about?: SohoAboutRef;
 
   /**
    * Constructor.

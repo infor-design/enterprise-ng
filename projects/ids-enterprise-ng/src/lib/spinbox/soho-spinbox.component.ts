@@ -26,23 +26,22 @@ import {
 export class SohoSpinboxComponent extends BaseControlValueAccessor<number> implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   /** Disabled flag - used by initialisation. */
-  internalIsDisabled: boolean;
-  private runUpdatedOnCheck: boolean;
+  internalIsDisabled?: boolean;
+  private runUpdatedOnCheck?: boolean;
 
-  @Input() set disabled(value: boolean) {
+  @Input() set disabled(value: boolean | undefined) {
     this.internalIsDisabled = value;
     if (this.spinbox) {
       if (value) {
-        this.ngZone.runOutsideAngular(() => this.spinbox.disable());
+        this.ngZone.runOutsideAngular(() => this.spinbox?.disable());
       } else {
-        this.ngZone.runOutsideAngular(() => this.spinbox.enable());
+        this.ngZone.runOutsideAngular(() => this.spinbox?.enable());
       }
     } else {
       this.runUpdatedOnCheck = true;
     }
   }
-
-  get disabled(): boolean {
+  get disabled(): boolean | undefined {
     return this.internalIsDisabled;
   }
 
@@ -59,34 +58,33 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
     return 'text';
   }
 
-  @HostBinding('attr.id') @Input() id: string;
-  @HostBinding('attr.name') @Input() name: string;
-  @HostBinding('attr.min') @Input() min: number;
-  @HostBinding('attr.max') @Input() max: number;
+  @HostBinding('attr.id') @Input() id?: string;
+  @HostBinding('attr.name') @Input() name?: string;
+  @HostBinding('attr.min') @Input() min?: number;
+  @HostBinding('attr.max') @Input() max?: number;
 
   /**
    * Value of the spin box.
    */
-  @HostBinding('attr.value') @Input() public set value(val: number) {
+  @HostBinding('attr.value') @Input() public set value(val: number | string | any) {
     if (this.spinbox) {
       this.spinbox.updateVal(val);
     }
     this.internalValue = val;
   }
-
-  public get value() {
+  public get value(): number | string | any {
     return this.internalValue;
   }
 
-  @HostBinding('attr.step') @Input() step: boolean;
+  @HostBinding('attr.step') @Input() step?: boolean;
 
-  @Input() set attrDisabled(value: boolean) {
+  @Input() set attrDisabled(_value: boolean) {
     console.warn(`soho-spinbox 'disabled' input has been deprecated, please use '[attr.disabled]'.`);
   }
 
   private options: SohoSpinboxOptions = {};
-  private jQueryElement: JQuery;
-  private spinbox: SohoSpinboxStatic;
+  private jQueryElement?: JQuery;
+  private spinbox?: SohoSpinboxStatic | null;
 
   updateVal(value: string | number) {
     if (this.spinbox) {
@@ -148,19 +146,19 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
       }
 
       // Destroy any widget resources.
-      this.spinbox.destroy();
+      this.spinbox?.destroy();
       this.spinbox = null;
     });
   }
 
-  onChange(event: SohoSpinboxEvent) {
+  onChange(_event: SohoSpinboxEvent) {
     // When the request for data has completed, make sure we
     // update the 'dropdown' control.
     this.ngZone.run(() => {
-      const newValue = this.jQueryElement.val();
+      const newValue = this.jQueryElement?.val();
       if (this.internalValue !== newValue) {
         // Update the model ...
-        this.internalValue = this.jQueryElement.val() as number;
+        this.internalValue = this.jQueryElement?.val() as number;
 
         // ... then emit the changed value.
         this.change.emit(this.internalValue);

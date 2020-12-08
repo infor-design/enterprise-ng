@@ -54,6 +54,9 @@ export class SohoCirclepagerComponent implements AfterViewInit, AfterViewChecked
     }
   }
 
+  private jQueryElement?: JQuery;
+  private circlepager?: SohoCirclepager | null;
+
   /** Add extra attributes like id's to the component **/
   @Input() set attributes(attributes: Array<Object> | Object) {
     this.settings.attributes = attributes;
@@ -64,8 +67,6 @@ export class SohoCirclepagerComponent implements AfterViewInit, AfterViewChecked
     }
   }
 
-  private jQueryElement: JQuery;
-  private circlepager: SohoCirclepager;
   private updateRequired = false;
 
   constructor(
@@ -84,7 +85,7 @@ export class SohoCirclepagerComponent implements AfterViewInit, AfterViewChecked
 
   ngAfterViewChecked() {
     if (this.circlepager && this.updateRequired) {
-      this.ngZone.runOutsideAngular(() => this.circlepager.updated(this.circlepager.settings));
+      this.ngZone.runOutsideAngular(() => this.circlepager?.updated(this.circlepager.settings));
       this.updateRequired = false;
     }
   }

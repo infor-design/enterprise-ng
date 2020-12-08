@@ -1,11 +1,11 @@
 import {
   AfterViewChecked,
-  ChangeDetectionStrategy, ChangeDetectorRef,
+  ChangeDetectionStrategy,
   Component,
-  NgZone,
   OnInit,
   ViewChild
 } from '@angular/core';
+// @ts-ignore
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
 import {
@@ -19,12 +19,12 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridSaveUserSettingsDemoComponent implements AfterViewChecked, OnInit {
-  @ViewChild(SohoDataGridComponent) sohoDataGridComponent: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;
 
   constructor(
   ) {}
 
-  gridOptions: SohoDataGridOptions = undefined;
+  gridOptions?: SohoDataGridOptions = undefined;
   selectedRow = 0;
   updateSelectedRow = false;
 

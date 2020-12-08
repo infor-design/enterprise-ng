@@ -1,0 +1,47 @@
+<div class="row top-padding">
+  <div class="six columns">
+    <p>This demonstrates how to update the contents of Breadcrumb items in two different scenarios.  The top breadcrumb item is updated via the Breadcrumb API, which is preferred if you are taking advantage of the IDS Enterprise Breadcrumb component API.  The bottom breadcrumb item is CSS-only, and is updated directly with string interpolation.</p>
+  </div>
+</div>
+
+<div class="row small-top-padding">
+  <div class="twelve columns">
+    <nav soho-breadcrumb class="breadcrumb">
+      <ol soho-breadcrumb-list class="breadcrumb-list">
+        <li>
+          <span>Top</span>
+        </li>
+        <li>
+          <span>Breadcrumb</span>
+        </li>
+        <li>
+          <span>{{someData}}</span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="row small-top-padding">
+  <div class="twelve columns">
+    <nav class="breadcrumb">
+      <ol class="breadcrumb-list">
+        <li>
+          <span>Bottom</span>
+        </li>
+        <li>
+          <span>Breadcrumb</span>
+        </li>
+        <li>
+          <span>{{someData}}</span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="row small-top-padding">
+  <div class="twelve columns">
+    <button soho-button (click)="increment()">Increment</button>
+  </div>
+</div>

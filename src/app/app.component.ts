@@ -7,11 +7,8 @@ import {
 } from '@angular/core';
 
 import { HeaderDynamicDemoRefService } from './header/header-dynamic-demo-ref.service';
-import {
-  SohoPersonalizeDirective,
-  SohoRenderLoopService,
-  SohoApplicationMenuComponent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoPersonalizeDirective, SohoRenderLoopService, SohoApplicationMenuComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'body', // eslint-disable-line
@@ -27,9 +24,9 @@ export class AppComponent implements AfterViewInit {
   private static IS_APPLICATION_MENU_OPEN_KEY = 'is-application-menu-open';
 
   @ViewChild(SohoApplicationMenuComponent, { static: true })
-  public applicationMenu: SohoApplicationMenuComponent;
+  public applicationMenu?: SohoApplicationMenuComponent;
 
-  @ViewChild(SohoPersonalizeDirective, { static: true }) personalize: SohoPersonalizeDirective;
+  @ViewChild(SohoPersonalizeDirective, { static: true }) personalize?: SohoPersonalizeDirective;
 
   @HostBinding('class.no-scroll') get isNoScroll() {
     return true;
@@ -60,9 +57,9 @@ export class AppComponent implements AfterViewInit {
      * this.applicationMenu.triggers = [ '.application-menu-trigger' ];
      */
     if (this.isApplicationMenuOpen) {
-      this.applicationMenu.openMenu(true, true);
+      this.applicationMenu?.openMenu(true, true);
     } else {
-      this.applicationMenu.closeMenu();
+      this.applicationMenu?.closeMenu();
     }
   }
 

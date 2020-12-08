@@ -1,9 +1,10 @@
 import { AfterViewChecked, ChangeDetectionStrategy, Component, OnInit, ViewChild, OnDestroy, Inject, } from '@angular/core';
+// @ts-ignore
 import { SohoDataGridComponent } from 'ids-enterprise-ng';
 
 import { PAGING_COLUMNS, PAGING_DATA } from './datagrid-paging-data';
 
-const customErrorFormatter = function (row, cell, value, col, item, api) {
+const customErrorFormatter = function (row: any, cell: any, value: any, col: any, item: any, api: any) {
   value = `<svg class="icon datagrid-alert-icon icon-alert"
               style="height: 15px; margin-right: 6px; top: -2px; position: relative;"
               focusable="false" aria-hidden="true" role="presentation">
@@ -24,7 +25,7 @@ const customErrorFormatter = function (row, cell, value, col, item, api) {
   `,
 })
 export class ExpandedDemoComponent implements OnDestroy {
-  data: any[];
+  data?: any[];
   id?: string;
   constructor(@Inject('args') public args: any) {
     if (args && args.data) {
@@ -50,11 +51,11 @@ export class ExpandedDemoComponent implements OnDestroy {
 export class DataGridExpandableRowDynamicDemoComponent
   implements AfterViewChecked, OnInit {
   @ViewChild(SohoDataGridComponent)
-  sohoDataGridComponent: SohoDataGridComponent;
+  sohoDataGridComponent?: SohoDataGridComponent;
 
   constructor() {}
 
-  gridOptions: SohoDataGridOptions = undefined;
+  gridOptions?: SohoDataGridOptions = undefined;
   ngOnInit() {
     this.gridOptions = this.buildGridOptions();
   }

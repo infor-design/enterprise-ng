@@ -2,10 +2,8 @@ import {
   Component,
   ViewChild
 } from '@angular/core';
-
-import {
-  SohoPopDownDirective
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoPopDownDirective } from 'ids-enterprise-ng';
 
 /**
  * This example shows clicking on an entry in an ajax build context menu, opening up
@@ -17,7 +15,7 @@ import {
 })
 export class FieldOptionsPopdownDemoComponent {
 
-  @ViewChild(SohoPopDownDirective, { static: true }) popdown: SohoPopDownDirective;
+  @ViewChild(SohoPopDownDirective, { static: true }) popdown?: SohoPopDownDirective;
 
   private MENU_RESPONSE_HTML = '' +
     '<li><a href="#" id="ShowFieldHistory">Show Field History</a></li>' +
@@ -32,7 +30,7 @@ export class FieldOptionsPopdownDemoComponent {
   constructor() {
   }
 
-  onSelected($event) {
+  onSelected($event: any) {
     const buttonId = $event.args[0].id;
     if (buttonId === 'ShowFieldHistory') {
       if (this.popdown) {
@@ -43,7 +41,7 @@ export class FieldOptionsPopdownDemoComponent {
     }
   }
 
-  onBeforeContextMenuOpen = (response: AjaxBeforeOpenResponseFunction, options: any) => {
+  onBeforeContextMenuOpen = (response: AjaxBeforeOpenResponseFunction, _options: any) => {
     response(this.MENU_RESPONSE_HTML);
     return;
   }

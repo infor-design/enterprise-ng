@@ -36,8 +36,8 @@ export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
-  private trackDirty: TrackDirtyStatic;
+  private jQueryElement?: JQuery;
+  private trackDirty?: TrackDirtyStatic | null;
 
   constructor(
     private element: ElementRef,
@@ -70,26 +70,26 @@ export class SohoTrackDirtyDirective implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     if (this.trackDirty) {
-      this.ngZone.runOutsideAngular(() => this.trackDirty.destroy());
+      this.ngZone.runOutsideAngular(() => this.trackDirty?.destroy());
       this.trackDirty = null;
     }
   }
 
   changeDirty() {
     if (this.trackDirty) {
-      this.ngZone.runOutsideAngular(() => this.jQueryElement.trigger('change.dirty'));
+      this.ngZone.runOutsideAngular(() => this.jQueryElement?.trigger('change.dirty'));
     }
   }
 
   resetDirty() {
     if (this.trackDirty) {
-      this.ngZone.runOutsideAngular(() => this.jQueryElement.trigger('resetdirty.dirty'));
+      this.ngZone.runOutsideAngular(() => this.jQueryElement?.trigger('resetdirty.dirty'));
     }
   }
 
   updated() {
     if (this.trackDirty) {
-      this.ngZone.runOutsideAngular(() => this.trackDirty.updated());
+      this.ngZone.runOutsideAngular(() => this.trackDirty?.updated());
     }
   }
 }

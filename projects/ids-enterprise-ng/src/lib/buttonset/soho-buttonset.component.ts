@@ -22,16 +22,16 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
   // -------------------------------------------
 
   /** Reference to the jQuery control. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** Reference to the Soho buttonset api. */
-  private buttonset: SohoButtonsetStatic;
+  private buttonset?: SohoButtonsetStatic | null;
 
   /** Settings (options) */
   private settings: SohoButtonsetOptions = {};
 
   /** Flag to force an update of the control after the view is created. */
-  private runUpdatedOnCheck: boolean;
+  private runUpdatedOnCheck?: boolean;
 
   /**
    * Constructor.
@@ -56,14 +56,14 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
    * @params buttons - list of modal button definitions to use.
    */
   @Input()
-  public set buttons(buttons: SohoButtonOptions[]) {
+  public set buttons(buttons: SohoButtonOptions[] | undefined) {
     this.settings.buttons = buttons;
     if (this.buttonset) {
       this.markForRefresh();
     }
   }
 
-  public get buttons(): SohoButtonOptions[] {
+  public get buttons(): SohoButtonOptions[] | undefined {
     if (this.buttonset) {
       return this.buttonset.settings.buttons;
     } else {
@@ -76,14 +76,14 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
    * new button markup.
    */
   @Input()
-  set detectHTMLButtons(value: boolean) {
+  set detectHTMLButtons(value: boolean | undefined) {
     this.settings.detectHTMLButtons = value;
     if (this.buttonset) {
       this.markForRefresh();
     }
   }
 
-  get detectHTMLButtons(): boolean {
+  get detectHTMLButtons(): boolean | undefined {
     if (this.buttonset) {
       return this.buttonset.settings.detectHTMLButtons;
     } else {
@@ -95,14 +95,14 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
    * Styles to add to any generated button markup.
    */
   @Input()
-  set style(style: string) {
+  set style(style: string | undefined) {
     this.settings.style = style;
     if (this.buttonset) {
       this.markForRefresh();
     }
   }
 
-  get style(): string {
+  get style(): string | undefined {
     if (this.buttonset) {
       return this.buttonset.settings.style;
     } else {
@@ -111,7 +111,7 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
   }
 
   get buttonAPIs(): SohoButtonStatic[] {
-    return this.buttonset.buttons;
+    return (this.buttonset as any).buttons;
   }
 
   /**
@@ -123,7 +123,7 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
   set disabled(val: boolean) {
     if (this.buttonset) {
       this.ngZone.runOutsideAngular(() => {
-        this.buttonset.disabled = val;
+        (this.buttonset as any).disabled = val;
       });
     }
   }
@@ -137,7 +137,7 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
   public add(button: SohoButtonOptions, doAddDOM?: boolean): void {
     if (this.buttonset) {
       this.ngZone.runOutsideAngular(() => {
-        this.buttonset.add(button, doAddDOM);
+        (this.buttonset as any).add(button, doAddDOM);
       });
     } else {
       throw Error('buttonset not initialised');
@@ -153,7 +153,7 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
   public remove(buttonAPI?: SohoButtonStatic | HTMLButtonElement | string, doRemoveDOM?: boolean): void {
     if (this.buttonset) {
       this.ngZone.runOutsideAngular(() => {
-        this.buttonset.remove(buttonAPI, doRemoveDOM);
+        (this.buttonset as any).remove(buttonAPI, doRemoveDOM);
       });
     } else {
       throw Error('buttonset not initialised');
@@ -168,7 +168,7 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
   public removeAll(doRemoveDOM?: boolean): void {
     if (this.buttonset) {
       this.ngZone.runOutsideAngular(() => {
-        this.buttonset.removeAll(doRemoveDOM);
+        (this.buttonset as any).removeAll(doRemoveDOM);
       });
     } else {
       throw Error('buttonset not initialised');
@@ -183,7 +183,9 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
    */
   public at(idx: number): SohoButtonStatic {
     if (this.buttonset) {
-      return this.ngZone.runOutsideAngular(() => this.buttonset.at(idx));
+      return this.ngZone.runOutsideAngular(() => {
+        return (this.buttonset as any).at(idx);
+      });
     } else {
       throw Error('buttonset not initialised');
     }
@@ -198,7 +200,9 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
    */
   public toData(addContextElement: boolean): string {
     if (this.buttonset) {
-      return this.ngZone.runOutsideAngular(() => this.buttonset.toData(addContextElement));
+      return this.ngZone.runOutsideAngular(() => {
+        return (this.buttonset as any).toData(addContextElement);
+      });
     } else {
       throw Error('buttonset not initialised');
     }
@@ -213,12 +217,12 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
   public updated(settings: SohoButtonsetOptions): SohoButtonsetStatic {
     // Merge the settings.
     if (settings) {
-      this.settings = Soho.utils.mergeSettings(this.element[0], settings, this.settings);
+      this.settings = Soho.utils.mergeSettings((this.element as any)[0], settings, this.settings);
     }
 
     if (this.buttonset) {
       this.ngZone.runOutsideAngular(() => {
-        this.buttonset.updated(this.settings);
+        this.buttonset?.updated(this.settings);
       });
       return this.buttonset;
     } else {
@@ -232,7 +236,7 @@ export class SohoButtonsetComponent implements AfterViewInit, AfterViewChecked, 
   public destroy(): void {
     if (this.buttonset) {
       this.ngZone.runOutsideAngular(() => {
-        this.buttonset.destroy();
+        this.buttonset?.destroy();
       });
       this.buttonset = null;
     } else {

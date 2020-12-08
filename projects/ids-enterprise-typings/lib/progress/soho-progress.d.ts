@@ -8,7 +8,7 @@ interface SohoProgressEvent extends JQuery.TriggeredEvent {
 interface SohoProgressStatic {
   /** Destroys any resources used by the control. */
   settings?: SohoProgressOptions;
-  destroy();
+  destroy(): void;
   update(value: number): void;
 }
 

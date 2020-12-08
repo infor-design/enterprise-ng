@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Component, DebugElement, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, DebugElement, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SohoToolbarFlexComponent, SohoToolbarFlexSearchFieldComponent } from './soho-toolbar-flex.component';
 import { SohoToolbarFlexModule } from './soho-toolbar-flex.module';
@@ -63,8 +63,8 @@ import { TestHelper } from '../utils';
   </soho-toolbar-flex>`
 })
 class SohoToolbarFlexTestComponent {
-  @ViewChild(SohoToolbarFlexComponent) toolbarFlex: SohoToolbarFlexComponent;
-  @ViewChild(SohoToolbarFlexSearchFieldComponent) searchField: SohoToolbarFlexSearchFieldComponent;
+  @ViewChild(SohoToolbarFlexComponent) toolbarFlex?: SohoToolbarFlexComponent;
+  @ViewChild(SohoToolbarFlexSearchFieldComponent) searchField?: SohoToolbarFlexSearchFieldComponent;
 
   @Output() selected = new EventEmitter<SohoToolbarFlexSelectedEvent>();
 
@@ -111,7 +111,7 @@ class SohoToolbarFlexTestComponent {
     }
   };
 
-  onBeforeMenuButtonOpen = (response: AjaxBeforeOpenResponseFunction, options: any) => {
+  onBeforeMenuButtonOpen = (response: AjaxBeforeOpenResponseFunction, _options: any) => {
     response(this.MENU_BUTTON_RESPONSE_HTML);
     return;
   };
@@ -200,7 +200,7 @@ describe('Soho Toolbar Flex Tests', () => {
     });
 
     it('more menu button', () => {
-      component.toolbarFlex.moreMenuBeforeOpenFunction = component.onBeforeMoreMenuOpen;
+      (component.toolbarFlex as any).moreMenuBeforeOpenFunction = component.onBeforeMoreMenuOpen;
       fixture.detectChanges();
 
       const button = de.query(By.css('SOHO-TOOLBAR-FLEX-MORE-BUTTON button')).nativeElement;
@@ -219,8 +219,8 @@ describe('Soho Toolbar Flex Tests', () => {
 
       const searchField = de.query(By.css('#search-field')).nativeElement;
 
-      TestHelper.testFireEvent(searchField, 'selected', component.searchField['selected']);
-      TestHelper.testFireEvent(searchField, 'cleared', component.searchField['cleared']);
+      TestHelper.testFireEvent(searchField, 'selected', (component as any).searchField['selected']);
+      TestHelper.testFireEvent(searchField, 'cleared', (component as any).searchField['cleared']);
     });
   });
 
@@ -228,13 +228,13 @@ describe('Soho Toolbar Flex Tests', () => {
     it('flex toolbar ', () => {
       fixture.detectChanges();
 
-      expect(component.toolbarFlex.options.beforeMoreMenuOpen).toBeDefined('more menu callback not defined');
+      expect((component as any).toolbarFlex.options.beforeMoreMenuOpen).toBeDefined('more menu callback not defined');
 
       const spy = spyOn<any>(component.toolbarFlex, 'updated').and.callThrough();
-      component.toolbarFlex.moreMenuBeforeOpenFunction = undefined;
+      (component as any).toolbarFlex.moreMenuBeforeOpenFunction = undefined;
       fixture.detectChanges();
 
-      expect(component.toolbarFlex.options.beforeMoreMenuOpen).toBeUndefined('more menu callback is still defined');
+      expect((component as any).toolbarFlex.options.beforeMoreMenuOpen).toBeUndefined('more menu callback is still defined');
       expect(spy.calls.count()).toEqual(1);
     });
 
@@ -242,34 +242,26 @@ describe('Soho Toolbar Flex Tests', () => {
       fixture.detectChanges();
 
       expect(component.searchField).toBeDefined('search field is undefined');
-      expect(component.searchField.options.clearable).toBeTruthy('search field not clearable');
-      expect(component.searchField.options.collapsible).toBeFalsy('search field collapsible');
-      expect(component.searchField.options.filterMode).toBe('contains');
-      expect(component.searchField.options.collapsibleOnMobile).toBeUndefined();
-      expect(component.searchField.options.source).toBeUndefined();
-      expect(component.searchField.options.template).toBeUndefined();
+      expect((component as any).searchField.options.clearable).toBeTruthy('search field not clearable');
+      expect((component as any).searchField.options.collapsible).toBeFalsy('search field collapsible');
+      expect((component as any).searchField.options.filterMode).toBe('contains');
+      expect((component as any).searchField.options.collapsibleOnMobile).toBeUndefined();
+      expect((component as any).searchField.options.source).toBeUndefined();
+      expect((component as any).searchField.options.template).toBeUndefined();
 
-      const spy = spyOn<any>(component.searchField.searchField, 'updated').and.callThrough();
+      const spy = spyOn<any>((component as any).searchField.searchField, 'updated').and.callThrough();
 
-      component.searchField.options.filterMode = 'wordStartsWith';
-      component.searchField.source = (query, done) => {
-        // this.objectBasedData().subscribe((items) => {
-        done(query, []);
-        // });
-      };
-      component.searchField.clearable = false;
-      component.searchField.collapsible = true;
-      component.searchField.collapsibleOnMobile = true;
+      (component as any).searchField.options.filterMode = 'wordStartsWith';
+      (component as any).searchField.clearable = false;
+      (component as any).searchField.collapsible = true;
+      (component as any).searchField.collapsibleOnMobile = true;
       fixture.detectChanges();
       expect(spy.calls.count()).toEqual(1);
 
-      expect(component.searchField.options.clearable).toBeFalsy('search field clearable');
-      expect(component.searchField.options.collapsible).toBeTruthy('search field not collapsible');
-      expect(component.searchField.options.collapsibleOnMobile).toBeTruthy('search field not collapsible on mobile');
-      expect(component.searchField.options.filterMode).toBe('wordStartsWith');
-      expect(component.searchField.options.source).toBeDefined();
-
+      expect((component as any).searchField.options.clearable).toBeFalsy('search field clearable');
+      expect((component as any).searchField.options.collapsible).toBeTruthy('search field not collapsible');
+      expect((component as any).searchField.options.collapsibleOnMobile).toBeTruthy('search field not collapsible on mobile');
+      expect((component as any).searchField.options.filterMode).toBe('wordStartsWith');
     });
-
   });
 });

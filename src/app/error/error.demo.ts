@@ -2,10 +2,8 @@ import {
   Component,
   ViewChild
 } from '@angular/core';
-
-import {
-  SohoErrorDirective
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoErrorDirective } from 'ids-enterprise-ng';
 
 /**
  * This example:
@@ -16,7 +14,7 @@ import {
   templateUrl: 'error.demo.html'
 })
 export class ErrorDemoComponent {
-  @ViewChild(SohoErrorDirective, { static: true }) public error: SohoErrorDirective; // eslint-disable-line
+  @ViewChild(SohoErrorDirective, { static: true }) public error?: SohoErrorDirective; // eslint-disable-line
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public message = 'Field is required';

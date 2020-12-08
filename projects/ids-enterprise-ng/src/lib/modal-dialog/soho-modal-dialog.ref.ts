@@ -1,4 +1,4 @@
-import { ComponentRef, NgZone, ApplicationRef, ComponentFactoryResolver, Injector, ViewContainerRef } from '@angular/core';
+import { ComponentRef, NgZone, ApplicationRef, ComponentFactoryResolver, Injector } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ComponentType } from '.';
@@ -10,11 +10,11 @@ import { Router, NavigationEnd } from '@angular/router';
  */
 export class SohoModalDialogRef<T> {
   /** Component - if the content is derived from an existing component. */
-  private componentRef?: ComponentRef<T>;
+  private componentRef?: ComponentRef<T> | null;
 
   /** Vetoable Event Guard */
-  // eslint-disable-next-line import/no-deprecated
-  private eventGuard: SohoModalDialogVetoableEventGuard<T> = {};
+  // teslint-disable-next-line import/no-deprecated
+  private eventGuard: SohoModalDialogVetoableEventGuard<T> | null | undefined = {};
 
   /**
    * Closes the modal dialogs if router navigation is detected, this prevents diaslogs from being
@@ -23,10 +23,10 @@ export class SohoModalDialogRef<T> {
   private _closeOnNavigation = true;
 
   /** Selector referencing the modal-dialog after it has been moved to the dialog container. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** Soho Control Api */
-  private modal: SohoModalStatic;
+  private modal?: SohoModalStatic | null;
 
   /** The result of the dialog. */
   private _dialogResult: any;
@@ -52,11 +52,11 @@ export class SohoModalDialogRef<T> {
    *
    * @returns the contained component dialog.
    */
-  public get componentDialog(): T {
+  public get componentDialog(): T | undefined {
     if (this.componentRef) {
       return this.componentRef.instance;
     }
-    return null;
+    return undefined;
   }
 
   /**
@@ -64,7 +64,7 @@ export class SohoModalDialogRef<T> {
    *
    * @returns the buttonset API for the modal dialog, if initialised.
    */
-  public get buttonsetAPI(): SohoButtonsetStatic {
+  public get buttonsetAPI(): SohoButtonsetStatic | undefined {
     return this.modal ? this.modal.buttonsetAPI : undefined;
   }
 
@@ -152,7 +152,7 @@ export class SohoModalDialogRef<T> {
    * @param maxWidth - The width in pixels
    */
   maxWidth(maxWidth: number): SohoModalDialogRef<T> {
-    this.modal.settings.maxWidth = maxWidth;
+    (this.modal as any).settings.maxWidth = maxWidth;
     if (this.modal) {
       this.modal.settings.maxWidth = maxWidth;
     }
@@ -369,7 +369,7 @@ export class SohoModalDialogRef<T> {
    * @return the dialog ref for onward assignment.
    */
   apply(fn: (component: T) => void): SohoModalDialogRef<T> {
-    if (fn && this.componentRef.instance) {
+    if (fn && this.componentRef?.instance) {
       fn(this.componentRef.instance);
     }
     return this;
@@ -425,7 +425,7 @@ export class SohoModalDialogRef<T> {
       // Handle angular closing the component by closing the corresponding dialog.
       this.componentRef.onDestroy(() => {
         // Disable the beforeClose veto capability when navigating.
-        this.eventGuard.beforeClose = null;
+        (this.eventGuard as any).beforeClose = null;
         this.close();
       });
 
@@ -443,7 +443,7 @@ export class SohoModalDialogRef<T> {
         .subscribe(e => {
           if (this._closeOnNavigation && e instanceof NavigationEnd) {
             // Disable the beforeClose veto capability when navigating.
-            this.eventGuard.beforeClose = null;
+            (this.eventGuard as any).beforeClose = null;
             if (this.modal) {
               this.modal.close(true);
             }
@@ -475,19 +475,19 @@ export class SohoModalDialogRef<T> {
       element.modal(this._options);
 
       this.modal = element.data('modal');
-      return this.modal.element;
+      return this.modal?.element;
     });
 
     // Add listeners to control events
-    this.jQueryElement.on('close', ((event: any, isCancelled: boolean) => this.ngZone.run(() => this.onClose(event, isCancelled))));
-    this.jQueryElement.on('afterclose', ((event: any) => this.ngZone.run(() => this.onAfterClose(event))));
-    this.jQueryElement.on('open', ((event: any) => this.ngZone.run(() => this.onOpen(event))));
-    this.jQueryElement.on('afteropen', ((event: any) => this.ngZone.run(() => this.onAfterOpen(event))));
+    this.jQueryElement?.on('close', ((event: any, isCancelled: boolean) => this.ngZone.run(() => this.onClose(event, isCancelled))));
+    this.jQueryElement?.on('afterclose', ((event: any) => this.ngZone.run(() => this.onAfterClose(event))));
+    this.jQueryElement?.on('open', ((event: any) => this.ngZone.run(() => this.onOpen(event))));
+    this.jQueryElement?.on('afteropen', ((event: any) => this.ngZone.run(() => this.onAfterOpen(event))));
 
     // These are vetoable events.
-    this.jQueryElement.on('beforeopen', ((event: any) => this.ngZone.run(() => this.onBeforeOpen(event))));
-    this.jQueryElement.on('beforeclose', ((event: any) => this.ngZone.run(() => this.onBeforeClose(event))));
-    this.jQueryElement.on('beforedestroy', ((event: any) => this.ngZone.run(() => this.onBeforeDestroy(event))));
+    this.jQueryElement?.on('beforeopen', ((event: any) => this.ngZone.run(() => this.onBeforeOpen(event))));
+    this.jQueryElement?.on('beforeclose', ((event: any) => this.ngZone.run(() => this.onBeforeClose(event))));
+    this.jQueryElement?.on('beforedestroy', ((event: any) => this.ngZone.run(() => this.onBeforeDestroy(event))));
 
     return this;
   }
@@ -501,7 +501,7 @@ export class SohoModalDialogRef<T> {
   close(dialogResult?: any): SohoModalDialogRef<T> {
     this.dialogResult = dialogResult;
     if (this.modal) {
-      this.ngZone.runOutsideAngular(() => this.modal.close());
+      this.ngZone.runOutsideAngular(() => this.modal?.close());
     }
     return this;
   }
@@ -510,7 +510,7 @@ export class SohoModalDialogRef<T> {
    * Destroys the modal dialog.
    */
   destroy(): SohoModalDialogRef<T> {
-    this.modal.destroy();
+    this.modal?.destroy();
     return this;
   }
 
@@ -526,7 +526,7 @@ export class SohoModalDialogRef<T> {
    * @param eventFn - the function to call before openning the dialog.
    */
   beforeOpen(eventFn: (dialogRef?: SohoModalDialogRef<T>) => boolean): SohoModalDialogRef<T> {
-    this.eventGuard.beforeOpen = eventFn;
+    (this.eventGuard as any).beforeOpen = eventFn;
     return this;
   }
 
@@ -539,8 +539,8 @@ export class SohoModalDialogRef<T> {
    */
   opened(eventFn: Function): SohoModalDialogRef<T> {
     this.open$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => {
- eventFn(f, this);
-});
+      eventFn(f, this);
+    });
     return this;
   }
 
@@ -553,8 +553,8 @@ export class SohoModalDialogRef<T> {
    */
   afterOpen(eventFn: Function): SohoModalDialogRef<T> {
     this.afterOpen$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => {
- eventFn(f, this);
-});
+      eventFn(f, this);
+    });
     return this;
   }
 
@@ -564,7 +564,7 @@ export class SohoModalDialogRef<T> {
    * @param eventFn - the function to call before closing the dialog.
    */
   beforeClose(eventFn: SohoModalDialogEventVetoFunction<T>): SohoModalDialogRef<T> {
-    this.eventGuard.beforeClose = eventFn;
+    (this.eventGuard as any).beforeClose = eventFn;
     return this;
   }
 
@@ -576,9 +576,7 @@ export class SohoModalDialogRef<T> {
    * @param eventFn - the function to invoke when the dialog is to be closed.
    */
   closed(eventFn: SohoModalDialogEventFunction<T>): SohoModalDialogRef<T> {
-    this.close$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => {
- eventFn(f, this, this.componentDialog);
-});
+    this.close$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => { eventFn(f, this, (this.componentDialog as any)); });
     return this;
   }
 
@@ -591,9 +589,7 @@ export class SohoModalDialogRef<T> {
    * @param eventFn - the function to invoke after the dialog has been closed.
    */
   afterClose(eventFn: SohoModalDialogEventFunction<T>): SohoModalDialogRef<T> {
-    this.afterClose$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => {
- eventFn(result, this, this.componentDialog);
-});
+    this.afterClose$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => { eventFn(result, this, (this.componentDialog as any)); });
     return this;
   }
 
@@ -605,7 +601,7 @@ export class SohoModalDialogRef<T> {
    * @param eventFn - the function to call before destroying the dialog.
    */
   beforeDestroy(eventFn: () => boolean): SohoModalDialogRef<T> {
-    this.eventGuard.beforeDestroy = eventFn;
+    (this.eventGuard as any).beforeDestroy = eventFn;
     return this;
   }
 
@@ -631,8 +627,8 @@ export class SohoModalDialogRef<T> {
    *
    * @return true if the dialog can be opened; otherwise false if veoted.
    */
-  private onBeforeOpen(event: any): boolean {
-    const fn: Function = this.eventGuard.beforeOpen;
+  private onBeforeOpen(_event: any): boolean {
+    const fn: Function = (this.eventGuard?.beforeOpen as any);
     return fn ? fn.call(this.eventGuard, this) : true;
   }
 
@@ -643,9 +639,9 @@ export class SohoModalDialogRef<T> {
    * @param event - event object.
    * @return true if the dialog can be closed; otherwise false if veoted.
    */
-  private onBeforeClose(event: any): boolean {
-    const fn: Function = this.eventGuard.beforeClose;
-    this.eventGuard.isCancelled = this.modal.isCancelled;
+  private onBeforeClose(_event: any): boolean {
+    const fn: Function = ((this.eventGuard as any).beforeClose as any);
+    (this.eventGuard as any).isCancelled = this.modal?.isCancelled;
 
     return fn ? fn.call(this.eventGuard, this) : true;
   }
@@ -658,7 +654,7 @@ export class SohoModalDialogRef<T> {
    * @return true if the dialog can be destroyed; otherwise false if veoted.
    */
   private onBeforeDestroy(_: any): boolean {
-    const fn: Function = this.eventGuard.beforeDestroy;
+    const fn: Function = (this.eventGuard?.beforeDestroy as any);
     const allow = fn ? fn.call(this.eventGuard) : true;
 
     if (allow) {
@@ -701,7 +697,7 @@ export class SohoModalDialogRef<T> {
    * @param event - full event object.
    * @param isCancelled - is true if the cancel button was pressed; otherwise false.
    */
-  private onClose(event: any, isCancelled: boolean) {
+  private onClose(_event: any, isCancelled: boolean) {
     this.close$.next(isCancelled);
   }
 
@@ -711,7 +707,7 @@ export class SohoModalDialogRef<T> {
    *
    * @param event - full event object.
    */
-  private onAfterClose(event: any) {
+  private onAfterClose(_event: any) {
     // Pass the dialog result back.
     this.afterClose$.next(this.dialogResult);
     this.afterClose$.complete();
@@ -719,7 +715,7 @@ export class SohoModalDialogRef<T> {
     this.ngZone.runOutsideAngular(() => {
       // must destroy before turning off jquery events. modal.destroy relies on
       // the onBeforeDestroy event.
-      this.modal.destroy();
+      this.modal?.destroy();
       this.modal = null;
     });
   }

@@ -81,8 +81,8 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
-  private searchfield: SohoSearchFieldStatic;
+  private jQueryElement?: JQuery;
+  private searchfield?: SohoSearchFieldStatic | null;
 
   constructor(
     private element: ElementRef,
@@ -112,10 +112,10 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
   }
 
   clear(): void {
-    this.ngZone.runOutsideAngular(() => this.searchfield.clear());
+    this.ngZone.runOutsideAngular(() => this.searchfield?.clear());
   }
 
   updated(settings?: SohoSearchFieldOptions) {
-    this.ngZone.runOutsideAngular(() => this.searchfield.updated(settings));
+    this.ngZone.runOutsideAngular(() => this.searchfield?.updated(settings));
   }
 }

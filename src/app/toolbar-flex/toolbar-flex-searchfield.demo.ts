@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+
 import { SohoToolbarFlexSearchFieldComponent } from 'ids-enterprise-ng';
 
 /**
@@ -21,7 +22,9 @@ const collapseSizeOptions = [
       const buttonPadding = parseInt(buttonStyle.paddingLeft, 10) +
         parseInt(buttonStyle.paddingRight, 10);
 
-      buttonSize += (buttonWidth + buttonBorder + buttonPadding + 4);
+      if (buttonWidth) {
+        buttonSize += (buttonWidth + buttonBorder + buttonPadding + 4);
+      }
     }
 
     // Can't be bigger than 300px.
@@ -37,7 +40,7 @@ const collapseSizeOptions = [
   templateUrl: 'toolbar-flex-searchfield.demo.html'
 })
 export class ToolbarFlexSearchfieldDemoComponent {
-  @ViewChild(SohoToolbarFlexSearchFieldComponent) toolbarFlexSearchField: SohoToolbarFlexSearchFieldComponent;
+  @ViewChild(SohoToolbarFlexSearchFieldComponent) toolbarFlexSearchField!: SohoToolbarFlexSearchFieldComponent;
 
   /**
    * Bindable Model value for getting what was typed in the search box.
@@ -56,7 +59,7 @@ export class ToolbarFlexSearchfieldDemoComponent {
     collapseSize: collapseSizeOptions[0]
   };
 
-  onSelected(event) {
+  onSelected(event: any) {
     let data = '';
     if (event.item.type === 'actionbutton' || event.item.type === 'menubutton') {
       data = event.item.selectedAnchor[0].dataset.action;
@@ -69,7 +72,7 @@ export class ToolbarFlexSearchfieldDemoComponent {
   /**
    * Change Event, fired by the Searchfield, when its value is changed
    */
-  onValueChange(event: SohoSearchFieldEvent) {
+  onValueChange(_event: SohoSearchFieldEvent) {
     console.log(`Searchfield Value Changed: ${this.model.searchValue}`);
   }
 
@@ -86,8 +89,8 @@ export class ToolbarFlexSearchfieldDemoComponent {
    * Change Event, fired by the Radio Buttons that control `collapseSize`, when they are changed.
    */
   onCollapseSizeChange(event: JQuery.TriggeredEvent) {
-    const value = Number(event.target.value);
-    const mapping = {
+    const value: number = Number(event.target.value);
+    const mapping: any = {
       0: 'undefined (CSS-Driven)',
       1: 'Static Number (200)',
       2: 'Function-based (Resolves to Number)'

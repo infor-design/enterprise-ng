@@ -13,12 +13,12 @@ import { ToolbarDataDrivenDemoService } from './toolbar-datadriven-demo.service'
 })
 export class ToolbarDataDrivenDemoComponent implements OnInit {
 
-  @ViewChild('sohoToolbar', { static: true }) sohoToolbar: any;
+  @ViewChild('sohoToolbar', { static: true }) sohoToolbar?: any;
 
-  public pageTitle: string;
-  public sectionTitle: string;
+  public pageTitle?: string;
+  public sectionTitle?: string;
   public buttons: Array<ToolbarButton> = [];
-  public searchField: SearchField;
+  public searchField?: SearchField;
   public actionsLoaded = false;
   public inHeader = false;
 
@@ -39,7 +39,7 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
 
   // Lazy loading example
   onMenuItemMouseOver(event: HTMLButtonElement) {
-    const button = JSON.parse(event[0].dataset.action);
+    const button = JSON.parse((event as any)[0].dataset.action);
 
     if (button.btn === 'actions' && !this.actionsLoaded) {
       this.toolbarDataDrivenDemoService.getToolbarData().then((items: any) => {
@@ -56,7 +56,7 @@ export class ToolbarDataDrivenDemoComponent implements OnInit {
   }
 
   onSelected(event: SohoToolbarSelectedEvent) {
-    const data = event.item[0].dataset.action;
+    const data = (event.item as any)[0].dataset.action;
     $('body').toast({
       title: 'Selected',
       message: '' + data

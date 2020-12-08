@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 
 export class ToolbarPresetMoreActionsDemoComponent {
   onSelected(event: SohoToolbarSelectedEvent) {
-    const data = event.item[0].dataset.action;
+    const data = (event.item as any)[0].dataset.action;
     alert(data);
   }
 }

@@ -7,13 +7,13 @@ import { SohoHeaderDynamicDemoComponent } from './header-dynamic.demo';
  */
 @Injectable()
 export class HeaderDynamicDemoRefService {
-  private sohoHeaderComponent: SohoHeaderDynamicDemoComponent;
+  private sohoHeaderComponent?: SohoHeaderDynamicDemoComponent;
 
-  public set instance(sohoHeaderComponent: SohoHeaderDynamicDemoComponent) {
+  public set instance(sohoHeaderComponent: SohoHeaderDynamicDemoComponent | undefined) {
     this.sohoHeaderComponent = sohoHeaderComponent;
   }
 
-  public get instance(): SohoHeaderDynamicDemoComponent {
+  public get instance(): SohoHeaderDynamicDemoComponent | undefined {
     return this.sohoHeaderComponent;
   }
 }

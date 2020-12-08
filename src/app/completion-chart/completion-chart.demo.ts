@@ -7,9 +7,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 
 export class CompletionChartDemoComponent implements OnInit, OnDestroy {
 
-  private _completionData: SohoDataSet = null;
-  private _completionTargetData: SohoDataSet = null;
-  private _targetedAchievementData: SohoDataSet = null;
+  private _completionData: SohoDataSet | undefined = undefined;
+  private _completionTargetData?: SohoDataSet = undefined;
+  private _targetedAchievementData?: SohoDataSet = undefined;
 
   constructor() {
   }

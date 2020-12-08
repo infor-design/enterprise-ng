@@ -8,7 +8,6 @@ import { SohoRatingModule } from './soho-rating.module';
 import { SohoRatingComponent } from './soho-rating.component';
 
 describe('Soho Rating Unit Tests', () => {
-  let comp: SohoRatingComponent;
   let fixture: ComponentFixture<SohoRatingComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -19,7 +18,6 @@ describe('Soho Rating Unit Tests', () => {
     });
 
     fixture = TestBed.createComponent(SohoRatingComponent);
-    comp = fixture.componentInstance;
 
     de = fixture.debugElement;
     el = de.nativeElement;
@@ -34,12 +32,10 @@ describe('Soho Rating Unit Tests', () => {
   template: `<div soho-rating>`
 })
 class SohoRatingTestComponent {
-  @ViewChild(SohoRatingComponent) rating: SohoRatingComponent;
+  @ViewChild(SohoRatingComponent) rating?: SohoRatingComponent;
 }
 
 describe('Soho Rating Chart Render', () => {
-  let rating: SohoRatingComponent;
-  let component: SohoRatingTestComponent;
   let fixture: ComponentFixture<SohoRatingTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
@@ -51,12 +47,9 @@ describe('Soho Rating Chart Render', () => {
     });
 
     fixture = TestBed.createComponent(SohoRatingTestComponent);
-    component = fixture.componentInstance;
-    rating = component.rating;
 
     de = fixture.debugElement;
     el = de.query(By.css('[soho-rating]')).nativeElement;
-
   });
 
   it('Check HTML content', () => {

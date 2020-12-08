@@ -5,9 +5,8 @@ import {
   ViewChild,
   ChangeDetectionStrategy, ChangeDetectorRef
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoApplicationMenuComponent } from 'ids-enterprise-ng';
-import { ApplicationMenuLazyMenuDemoComponent } from './application-menu-lazy-menu.demo';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -17,13 +16,12 @@ import { ApplicationMenuLazyMenuDemoComponent } from './application-menu-lazy-me
 })
 export class ApplicationMenuRoleSwitcherDemoComponent implements AfterViewInit, OnInit {
 
-  @ViewChild(SohoApplicationMenuComponent) applicationMenu: SohoApplicationMenuComponent;
-  @ViewChild(ApplicationMenuLazyMenuDemoComponent) private _lazyMenuComponent: ApplicationMenuLazyMenuDemoComponent;
+  @ViewChild(SohoApplicationMenuComponent) applicationMenu?: SohoApplicationMenuComponent;
 
   public triggers: Array<string> = [];
   public menu: Array<any> = [];
   public menuItems: Array<string> = [];
-  public myRole: string;
+  public myRole?: string;
   public hasChangePasswordLink = true;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
@@ -38,7 +36,7 @@ export class ApplicationMenuRoleSwitcherDemoComponent implements AfterViewInit, 
   }
 
   public openMenu() {
-    this.applicationMenu.openMenu(undefined, true, undefined);
+    this.applicationMenu?.openMenu(undefined, true, undefined);
   }
 
   public selectRole($event?: any) {
@@ -51,6 +49,7 @@ export class ApplicationMenuRoleSwitcherDemoComponent implements AfterViewInit, 
 
       this.changeDetectorRef.detectChanges();
     }, 1000);
-    this.applicationMenu.closeSwitcherPanel();
+
+    this.applicationMenu?.closeSwitcherPanel();
   }
 }

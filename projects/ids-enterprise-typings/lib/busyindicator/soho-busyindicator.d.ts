@@ -60,7 +60,7 @@ interface SohoBusyIndicatorStatic {
   updated(): void;
 
   /** whether or not the busy indicator is displaying or not */
-  isActive(): boolean;
+  isActive(): boolean | undefined;
 
   /** Destroys the control on completion. */
   destroy(): void;

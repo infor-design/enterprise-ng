@@ -32,12 +32,12 @@ interface SohoFieldFilterStatic {
    * param {number|string} value to be set, index or value.
    * returns {void}
    */
-  setFilterType(value: any);
+  setFilterType(value: any): void;
 
   /** Destructor. */
   destroy(): void;
 
-  updated(SohoFieldFilterSettings): void;
+  updated(settings: SohoFieldFilterSettings): void;
 }
 
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {

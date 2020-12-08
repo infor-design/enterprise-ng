@@ -5,7 +5,7 @@ import {
   ViewChildren,
   QueryList
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoDropDownComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -14,7 +14,7 @@ import { SohoDropDownComponent } from 'ids-enterprise-ng';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownMultiselectDemoComponent implements OnInit {
-  @ViewChildren(SohoDropDownComponent) dropDowns: QueryList<SohoDropDownComponent>;
+  @ViewChildren(SohoDropDownComponent) dropDowns?: QueryList<SohoDropDownComponent>;
 
   public options: Array<OptionValue> = [
     { value: 'AL', label: 'Alabama' },
@@ -96,27 +96,26 @@ export class DropdownMultiselectDemoComponent implements OnInit {
   }
 
   setEnable() {
-    this.dropDowns.first.disabled = false;
-    this.dropDownDisabled = this.dropDowns.first.disabled;
-    this.dropDownReadOnly = this.dropDowns.first.readonly;
+    (this.dropDowns as any).first.disabled = false;
+    this.dropDownDisabled = (this.dropDowns as any).first.disabled;
+    this.dropDownReadOnly = (this.dropDowns as any).first.readonly;
   }
 
   setDisable() {
-    this.dropDowns.first.disabled = true;
+    (this.dropDowns as any).first.disabled = true;
     this.dropDownDisabled = true;
   }
 
   setReadonly() {
-    this.dropDowns.first.readonly = true;
+    (this.dropDowns as any).first.readonly = true;
     this.dropDownReadOnly = true;
   }
 
-  sourceAlpha = (response: SohoDropDownResponseFunction, searchTerm: any) => {
+  sourceAlpha = (response: SohoDropDownResponseFunction, _searchTerm: any) => {
     // uses statesAlpha array as response
     // rebuild options using current model value to set the selected state
     const values = this.model.multiSourceAlpha.value;
-    const options = [];
-    // eslint-disable-next-line @typescript-eslint/prefer-for-of
+    const options: any = [];
     for (let index = 0; index < this.statesAlpha.length; index++) {
       const state = this.statesAlpha[index];
       const isSelected = (values.includes(state.value)) ? true : undefined;
@@ -132,12 +131,11 @@ export class DropdownMultiselectDemoComponent implements OnInit {
     }, 1);
   }
 
-  sourceNumeric = (response: SohoDropDownResponseFunction, searchTerm: any) => {
+  sourceNumeric = (response: SohoDropDownResponseFunction, _searchTerm: any) => {
     // uses statesNumeric array as response
     // rebuild options using current model value to set the selected state
     const values = this.model.multiSourceNumeric.value;
-    const options = [];
-    // eslint-disable-next-line @typescript-eslint/prefer-for-of
+    const options: any = [];
     for (let index = 0; index < this.statesNumeric.length; index++) {
       const state = this.statesNumeric[index];
       const isSelected = (values.includes(state.value)) ? true : undefined;

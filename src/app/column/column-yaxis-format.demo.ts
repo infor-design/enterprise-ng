@@ -3,7 +3,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-
+// @ts-ignore
 import { SohoColumnComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -12,7 +12,7 @@ import { SohoColumnComponent } from 'ids-enterprise-ng';
 })
 export class ColumnYAxisDemoComponent implements OnInit {
 
-  @ViewChild(SohoColumnComponent, { static: true }) sohoColumnComponent: SohoColumnComponent;
+  @ViewChild(SohoColumnComponent, { static: true }) sohoColumnComponent?: SohoColumnComponent;
 
   public columnData = [{
     data: [{
@@ -56,8 +56,9 @@ export class ColumnYAxisDemoComponent implements OnInit {
 
   public columnType = 'column';
 
-  constructor() {}
-  public yAxis: {};
+  constructor() { }
+  public yAxis?: {};
+
   ngOnInit() {
     this.yAxis = {
       ticks: {

@@ -68,8 +68,8 @@ export class SohoContextMenuItemLabelComponent {
     }
     return '#';
   }
-  @Input() menuId: string;
-  @Input() menuUrl: string;
+  @Input() menuId?: string;
+  @Input() menuUrl?: string;
 }
 
 /**
@@ -80,7 +80,7 @@ export class SohoContextMenuItemLabelComponent {
   template: `<ng-content></ng-content>`
 })
 export class SohoContextMenuItemComponent {
-  @HostBinding('class.is-checked') @Input() isChecked: boolean;
+  @HostBinding('class.is-checked') @Input() isChecked?: boolean;
   @HostBinding('class.is-selectable') @Input() isSelectable = false;
   @HostBinding('class.is-disabled') @Input() isDisabled = false;
   @HostBinding('class.is-indented') @Input() isIndented = false;
@@ -95,8 +95,8 @@ export class SohoContextMenuItemComponent {
 })
 
 export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
-  private jQueryElement: JQuery;
-  private contextMenu: SohoPopupMenuStatic;
+  private jQueryElement?: JQuery;
+  private contextMenu?: SohoPopupMenuStatic | null;
 
   // -------------------------------------------
   // Default options block
@@ -128,16 +128,16 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
   @Input() set trigger(trigger: SohoPopupMenuTrigger) {
     this.options.trigger = trigger;
     if (this.contextMenu) {
-      this.contextMenu.settings.trigger = trigger;
-      this.contextMenu.updated();
+      (this.contextMenu as any).settings.trigger = trigger;
+      this.contextMenu?.updated();
     }
   }
 
   @Input() set menu(menu: string) {
     this.options.menu = menu;
     if (this.contextMenu) {
-      this.contextMenu.settings.menu = menu;
-      this.contextMenu.updated();
+      (this.contextMenu as any).settings.menu = menu;
+      this.contextMenu?.updated();
     }
   }
 
@@ -145,102 +145,102 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
   @Input() set autoFocus(autoFocus: boolean) {
     this.options.autoFocus = autoFocus;
     if (this.contextMenu) {
-      this.contextMenu.settings.autoFocus = autoFocus;
+      (this.contextMenu as any).settings.autoFocus = autoFocus;
     }
   }
 
   get autoFocus(): boolean {
     if (this.contextMenu) {
-      return this.contextMenu.settings.autoFocus;
+      return (this.contextMenu as any).settings.autoFocus;
     }
-    return this.options.autoFocus;
+    return (this.options as any).autoFocus;
   }
 
   /** Mouse focus. */
   @Input() set mouseFocus(mouseFocus: boolean) {
     this.options.mouseFocus = mouseFocus;
     if (this.contextMenu) {
-      this.contextMenu.settings.mouseFocus = mouseFocus;
+      (this.contextMenu as any).settings.mouseFocus = mouseFocus;
     }
   }
 
   get mouseFocus(): boolean {
     if (this.contextMenu) {
-      return this.contextMenu.settings.mouseFocus;
+      return (this.contextMenu as any).settings.mouseFocus;
     }
-    return this.options.mouseFocus;
+    return (this.options as any).mouseFocus;
   }
 
   /** Attach to body. */
   @Input() set attachToBody(attachToBody: boolean) {
     this.options.attachToBody = attachToBody;
     if (this.contextMenu) {
-      this.contextMenu.settings.attachToBody = attachToBody;
+      (this.contextMenu as any).settings.attachToBody = attachToBody;
     }
   }
 
   get attachToBody(): boolean {
     if (this.contextMenu) {
-      return this.contextMenu.settings.attachToBody;
+      return (this.contextMenu as any).settings.attachToBody;
     }
-    return this.options.attachToBody;
+    return (this.options as any).attachToBody;
   }
 
   @Input() set placementOpts(placementOpts: SohoPopupmenuPlacementOpts) {
     this.options.placementOpts = placementOpts;
     if (this.contextMenu) {
-      this.contextMenu.settings.placementOpts = placementOpts;
+      ((this.contextMenu as any).settings as any).placementOpts = placementOpts;
     }
   }
 
   get placementOpts(): SohoPopupmenuPlacementOpts {
     if (this.contextMenu) {
-      return this.contextMenu.settings.placementOpts;
+      return (this.contextMenu as any).settings.placementOpts;
     }
-    return this.options.placementOpts;
+    return (this.options as any).placementOpts;
   }
 
   @Input() set offset(offset: SohoPopupmenuOffset) {
     this.options.offset = offset;
     if (this.contextMenu) {
-      this.contextMenu.settings.offset = offset;
+      ((this.contextMenu as any).settings as any).offset = offset;
     }
   }
 
   get offset(): SohoPopupmenuOffset {
     if (this.contextMenu) {
-      return this.contextMenu.settings.offset;
+      return ((this.contextMenu as any).settings as any).offset;
     }
-    return this.options.offset;
+    return (this.options as any).offset;
   }
 
   @Input() set removeOnDestroy(removeOnDestroy: boolean) {
     this.options.removeOnDestroy = removeOnDestroy;
     if (this.contextMenu) {
-      this.contextMenu.settings.removeOnDestroy = removeOnDestroy;
+      (this.contextMenu.settings as any).removeOnDestroy = removeOnDestroy;
     }
   }
 
   get removeOnDestroy(): boolean {
     if (this.contextMenu) {
-      return this.contextMenu.settings.removeOnDestroy;
+      return (this.contextMenu.settings as any).removeOnDestroy;
     }
-    return this.options.removeOnDestroy;
+    return (this.options as any).removeOnDestroy;
   }
 
   /** beforeOpen - ajax callback for open event */
   @Input() set beforeOpen(beforeOpen: SohoPopupMenuSourceFunction) {
     this.options.beforeOpen = beforeOpen;
     if (this.contextMenu) {
-      this.contextMenu.settings.beforeOpen = beforeOpen;
+      (this.contextMenu.settings as any).beforeOpen = beforeOpen;
     }
   }
 
   get beforeOpen(): SohoPopupMenuSourceFunction {
     if (this.contextMenu) {
-      return this.contextMenu.settings.beforeOpen;
+      return (this.contextMenu.settings as any).beforeOpen;
     }
-    return this.options.beforeOpen;
+    return (this.options as any).beforeOpen;
   }
 
   constructor(private element: ElementRef, private ngZone: NgZone) { }
@@ -267,11 +267,11 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
   }
 
   updated() {
-    this.ngZone.runOutsideAngular(() => this.contextMenu.updated());
+    this.ngZone.runOutsideAngular(() => this.contextMenu?.updated());
   }
 
   teardown() {
-    this.ngZone.runOutsideAngular(() => this.contextMenu.teardown());
+    this.ngZone.runOutsideAngular(() => this.contextMenu?.teardown());
   }
 
   /**
@@ -283,7 +283,7 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
    */
   close(isCancelled?: boolean, noFocus?: boolean): void {
     if (this.contextMenu) {
-      this.ngZone.runOutsideAngular(() => this.contextMenu.close(isCancelled, noFocus));
+      this.ngZone.runOutsideAngular(() => this.contextMenu?.close(isCancelled, noFocus));
     }
   }
 

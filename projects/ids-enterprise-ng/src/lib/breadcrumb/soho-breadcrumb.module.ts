@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SohoBreadcrumbComponent } from './soho-breadcrumb.component';
+import { SohoBreadcrumbComponent, SohoBreadcrumbListComponent } from './soho-breadcrumb.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    SohoBreadcrumbComponent
+    SohoBreadcrumbComponent,
+    SohoBreadcrumbListComponent
   ],
   exports: [
-    SohoBreadcrumbComponent
+    SohoBreadcrumbComponent,
+    SohoBreadcrumbListComponent
   ]
 })
 
-export class SohoBreadcrumbModule {}
+export class SohoBreadcrumbModule { }

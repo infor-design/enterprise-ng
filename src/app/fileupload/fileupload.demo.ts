@@ -3,11 +3,8 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-
-import {
-  SohoFileUploadComponent,
-  SohoTrackDirtyDirective
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoFileUploadComponent, SohoTrackDirtyDirective } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-fileupload-demo',
@@ -15,8 +12,8 @@ import {
 })
 export class FileUploadDemoComponent implements OnInit {
 
-  @ViewChild(SohoFileUploadComponent, { static: true }) fileupload: SohoFileUploadComponent;
-  @ViewChild(SohoTrackDirtyDirective, { static: true }) trackdirty: SohoTrackDirtyDirective;
+  @ViewChild(SohoFileUploadComponent, { static: true }) fileupload?: SohoFileUploadComponent;
+  @ViewChild(SohoTrackDirtyDirective, { static: true }) trackdirty?: SohoTrackDirtyDirective;
 
   public limitLabel = 'Limited to xls, xlsx and csv';
   public name1 = 'file-name';
@@ -34,34 +31,34 @@ export class FileUploadDemoComponent implements OnInit {
   ngOnInit() { }
 
   setEnable() {
-    this.fileupload.disabled = false;
-    this.fileUploadDisabled = this.fileupload.disabled;
-    this.fileUploadReadOnly = this.fileupload.readonly;
+    (this.fileupload as any).disabled = false;
+    this.fileUploadDisabled = (this.fileupload as any).disabled;
+    this.fileUploadReadOnly = (this.fileupload as any).readonly;
   }
 
   setDisable() {
-    this.fileupload.disabled = true;
-    this.fileUploadDisabled = this.fileupload.disabled;
+    (this.fileupload as any).disabled = true;
+    this.fileUploadDisabled = (this.fileupload as any).disabled;
   }
 
   setReadonly() {
-    this.fileupload.readonly = true;
-    this.fileUploadReadOnly = this.fileupload.readonly;
+    (this.fileupload as any).readonly = true;
+    this.fileUploadReadOnly = (this.fileupload as any).readonly;
   }
 
-  onUpdated(event: SohoFileUploadEvent) {
+  onUpdated(_event: SohoFileUploadEvent) {
     console.log('FileUploadDemoComponent.onUpdated');
   }
 
-  onAfterResetDirty(event: SohoTrackDirtyEvent) {
+  onAfterResetDirty(_event: SohoTrackDirtyEvent) {
     console.log('onAfterResetDirty');
   }
 
-  onDirty(event: SohoTrackDirtyEvent) {
+  onDirty(_event: SohoTrackDirtyEvent) {
     console.log('onDirty');
   }
 
-  onPristine(event: SohoTrackDirtyEvent) {
+  onPristine(_event: SohoTrackDirtyEvent) {
     console.log('onPristine');
   }
 

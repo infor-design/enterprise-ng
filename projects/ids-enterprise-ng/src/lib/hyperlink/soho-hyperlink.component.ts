@@ -38,13 +38,13 @@ export class SohoHyperlinkComponent implements AfterViewInit {
     }
   }
 
-  @Input() icon: string;
+  @Input() icon?: string;
 
   /**
    * @todo replace override of native attribute
    */
   // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
-  @Output() change: EventEmitter<SohoHyperlinkEvent>;
+  @Output() change?: EventEmitter<SohoHyperlinkEvent>;
 
   @HostBinding('class.hyperlink') hyperLinkClass = true;
 
@@ -66,16 +66,16 @@ export class SohoHyperlinkComponent implements AfterViewInit {
     }
   }
 
-  @HostBinding('attr.href') @Input() href: string;
+  @HostBinding('attr.href') @Input() href?: string;
 
-  @HostBinding('attr.disabled') @Input() disabled: boolean;
+  @HostBinding('attr.disabled') @Input() disabled?: boolean;
 
-  @HostBinding('attr.isCaretRight') @Input() isCaretRight: boolean;
+  @HostBinding('attr.isCaretRight') @Input() isCaretRight?: boolean;
 
-  @HostBinding('attr.isCaretLeft') @Input() isCaretLeft: boolean;
+  @HostBinding('attr.isCaretLeft') @Input() isCaretLeft?: boolean;
 
-  private hyperlinkType: SohoHyperlinkType;
-  private jQueryElement: JQuery;
+  private hyperlinkType?: SohoHyperlinkType;
+  private jQueryElement?: JQuery;
 
   constructor(private element: ElementRef) { }
 

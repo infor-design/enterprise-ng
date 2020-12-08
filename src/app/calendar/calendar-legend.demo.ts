@@ -3,6 +3,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { CalendarDemoService } from './calendar.demo.service';
+// @ts-ignore
 import { SohoCalendarComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -12,17 +13,17 @@ import { SohoCalendarComponent } from 'ids-enterprise-ng';
 })
 export class CalendarLegendDemoComponent {
 
-  @ViewChild('SohoCalendarComponent') sohoCalendarComponent: SohoCalendarComponent;
+  @ViewChild('SohoCalendarComponent') sohoCalendarComponent?: SohoCalendarComponent;
 
   public initialMonth = 11;
   public initialYear = 2018;
   public showViewChanger = true;
-  public eventTypes: [];
-  public events: [];
+  public eventTypes?: [];
+  public events?: [];
 
   constructor(private monthViewService: CalendarDemoService) { }
 
-  public onRenderMonthCallback = (node: Node, response: Function) => {
+  public onRenderMonthCallback = (_node: Node, response: Function) => {
     this.monthViewService.getCalendarEventTypes().subscribe((types) => {
       this.monthViewService.getCalendarEvents().subscribe((events) => {
         this.eventTypes = types;
@@ -32,7 +33,7 @@ export class CalendarLegendDemoComponent {
     });
   }
 
-  public onCalendarDateSelectedCallback = (node: Node, args: SohoCalendarDateSelectedEvent) => {
+  public onCalendarDateSelectedCallback = (_node: Node, args: SohoCalendarDateSelectedEvent) => {
     console.log('onCalendarEventSelectedCallback', args);
   }
 }

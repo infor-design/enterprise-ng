@@ -1,5 +1,7 @@
 ﻿import { Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+// @ts-ignore
 import { SohoDataGridComponent, SohoDataGridToggleRowEvent } from 'ids-enterprise-ng';
+// @ts-ignore
 import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 import { DatagridTreegridLazyServiceDemo } from './datagrid-treegrid-lazy-service.demo';
 
@@ -10,8 +12,8 @@ import { DatagridTreegridLazyServiceDemo } from './datagrid-treegrid-lazy-servic
   providers: [DatagridTreegridLazyServiceDemo]
 })
 export class DataGridTreeGridLazyDemoComponent {
-  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
-  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
+  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator?: SohoBusyIndicatorDirective;
 
   events: any[] = [];
 
@@ -36,7 +38,7 @@ export class DataGridTreeGridLazyDemoComponent {
       comments: 2,
       time: '22:10 PM'
     }];
-    const promise = new Promise((resolve, reject) => {
+    const promise = new Promise((resolve, _reject) => {
       setTimeout(() => {
         args.grid.addChildren(args.row, someData);
         resolve();

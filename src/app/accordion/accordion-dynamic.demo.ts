@@ -5,12 +5,8 @@ import {
   ContentChildren,
   forwardRef
 } from '@angular/core';
-
-import {
-  SohoAccordionHeaderComponent,
-  SohoAccordionComponent,
-  SohoAccordionPaneComponent
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoAccordionHeaderComponent, SohoAccordionComponent, SohoAccordionPaneComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'accordion-dynamic-demo', // eslint-disable-line
@@ -20,11 +16,11 @@ export class AccordionDynamicDemoComponent {
 
   // eslint-disable-next-line @angular-eslint/no-forward-ref
   @ContentChildren(forwardRef(() => SohoAccordionHeaderComponent))
-  headers: QueryList<SohoAccordionHeaderComponent>;
+  headers?: QueryList<SohoAccordionHeaderComponent>;
 
   // eslint-disable-next-line @angular-eslint/no-forward-ref
   @ContentChildren(forwardRef(() => SohoAccordionPaneComponent))
-  panes: QueryList<SohoAccordionPaneComponent>;
+  panes?: QueryList<SohoAccordionPaneComponent>;
 
   public sampleData = [
     { id: 1, header: 'Header 1', content: 'This is the content of header 1', expanded: false },
@@ -33,7 +29,7 @@ export class AccordionDynamicDemoComponent {
 
   public allowOnePane = true;
 
-  @ViewChild(SohoAccordionComponent, { static: true }) accordion: SohoAccordionComponent;
+  @ViewChild(SohoAccordionComponent, { static: true }) accordion?: SohoAccordionComponent;
 
   public addMore() {
     this.sampleData.forEach((d) => {
@@ -45,7 +41,7 @@ export class AccordionDynamicDemoComponent {
     // The updates must be called after the add has ocurred to allow for the view to be updated view, otherwise
     // the widget does not see the changes.  Consider changing the
     setTimeout(() => {
-      this.accordion.updated();
+      this.accordion?.updated();
     });
   }
 
@@ -64,23 +60,23 @@ export class AccordionDynamicDemoComponent {
       });
     }
 
-    setTimeout(() => {
-      this.accordion.updated();
-    });
+    setTimeout(() => { this.accordion?.updated(); });
   }
 
   public onExpand(event: SohoAccordionEvent) {
+    // @ts-ignore
     const header = this.sampleData.find((h) => `${h.id}` === event.anchor[0].parentElement.id);
 
     if (header) {
-      this.headers.forEach((h) => this.accordion.collapse(h));
+      this.headers?.forEach((h) => this.accordion?.collapse(h));
 
-      // this.accordion.collapse(header)
+      // this.accordion?.collapse(header)
       header.expanded = true;
     }
   }
 
   public onCollapse(event: SohoAccordionEvent) {
+    // @ts-ignore
     const header = this.sampleData.find((h) => `${h.id}` === event.anchor[0].parentElement.id);
 
     if (header) {

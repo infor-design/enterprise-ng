@@ -4,10 +4,10 @@
 export class SohoAboutRef {
 
   /** Selector referencing the about-dialog after it has been moved to the dialog container. */
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   /** Soho Control Api */
-  private _about: SohoAboutStatic;
+  private _about?: SohoAboutStatic;
 
   /** Dialog placeholder, defaults to $('body')*/
   private _placeholder: JQuery;
@@ -26,7 +26,7 @@ export class SohoAboutRef {
    *
    * @param options - the options to set.
    */
-  options(options: SohoAboutOptions): SohoAboutRef {
+  options(options?: SohoAboutOptions): SohoAboutRef {
     this._options = options || {};
     return this;
   }

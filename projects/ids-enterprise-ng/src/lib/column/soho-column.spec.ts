@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 
 import { SohoColumnModule } from './soho-column.module';
 import { SohoColumnComponent } from './soho-column.component';
-import { SohoBarComponent } from '../bar';
 
 const columnData = [{
   data: [{
@@ -179,12 +178,11 @@ describe('Soho Column Unit Tests', () => {
 
     comp.toggleSelected({ index: 1 });
 
-    // todo: selected column element doesn't have selected index set correctly.
-    // expect(comp.getSelected()[0].data.index).toEqual(1);
-    expect(comp.getSelected()[0].data.name).toEqual(columnData[0].data[1].name);
+    const firstElem = (comp.getSelected() as any)[0];
+    expect(firstElem.data.name).toEqual(columnData[0].data[1].name);
 
     comp.setSelected({ index: 2 });
-    expect(comp.getSelected()[0].data.name).toEqual(columnData[0].data[2].name);
+    expect((comp as any).getSelected()[0].data.name).toEqual(columnData[0].data[2].name);
   });
 });
 
@@ -204,13 +202,14 @@ describe('Soho Column Unit Tests', () => {
   </div>`
 })
 class SohoColumnTestComponent {
-  @ViewChild(SohoColumnComponent) column: SohoColumnComponent;
+  @ViewChild(SohoColumnComponent) column?: SohoColumnComponent;
 
   public chartType = 'column';
 
   public data = columnData;
 
-  public _yAxis: object;
+  public _yAxis?: object;
+
   @Input() set yAxis(yAxis: object) {
     this._yAxis = yAxis;
     if (this.column) {
@@ -218,7 +217,7 @@ class SohoColumnTestComponent {
     }
   }
 
-  public _dataset: Array<any>;
+  public _dataset?: Array<any>;
   @Input() set dataset(dataset: Array<any>) {
     this._dataset = dataset;
     if (this.column) {

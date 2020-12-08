@@ -4,6 +4,7 @@ import {
   OnInit,
   HostBinding
 } from '@angular/core';
+
 import { SohoPersonalizeDirective } from 'ids-enterprise-ng';
 
 interface ThemeMenuItem extends SohoTheme {
@@ -20,7 +21,7 @@ interface ColorMenuItem extends SohoPersonalizationColor {
 })
 export class PersonalizeMenuComponent implements OnInit {
   @ViewChild(SohoPersonalizeDirective, { static: true })
-  private personalize: SohoPersonalizeDirective;
+  private personalize?: SohoPersonalizeDirective;
 
   /**
    * Mark as a popupmenu.
@@ -32,8 +33,8 @@ export class PersonalizeMenuComponent implements OnInit {
    */
   @HostBinding('class.is-selectable') isSelectable = true;
 
-  public themeMenuItems: ThemeMenuItem[];
-  public colorMenuItems: ColorMenuItem[];
+  public themeMenuItems?: ThemeMenuItem[];
+  public colorMenuItems?: ColorMenuItem[];
 
   /**
    * Default Theme: this should really be based on the one selected in
@@ -60,12 +61,12 @@ export class PersonalizeMenuComponent implements OnInit {
    */
   public ngOnInit(): void {
     // Get the current values using the getters.
-    const currentTheme = this.personalize.theme = this.theme;
-    const currentColor = this.personalize.colors = this.color;
+    const currentTheme = (this.personalize as any).theme = this.theme;
+    const currentColor = (this.personalize as any).colors = this.color;
 
-    this.themeMenuItems = this.personalize.themes();
-    const personalizationColors = this.personalize.personalizationColors();
-    this.colorMenuItems = Object.keys(personalizationColors).map(colorId => personalizationColors[colorId]);
+    this.themeMenuItems = (this.personalize as any).themes();
+    const personalizationColors = (this.personalize as any).personalizationColors();
+    this.colorMenuItems = Object.keys((personalizationColors as any)).map(colorId => personalizationColors[colorId]);
 
     this.setSelectedTheme(currentTheme);
     this.setSelectedColor(currentColor, false);
@@ -73,14 +74,14 @@ export class PersonalizeMenuComponent implements OnInit {
 
   setSelectedTheme(themeId: string) {
     // Make sure only the current theme is marked as selected.
-    this.themeMenuItems.forEach((theme) => {
+    this.themeMenuItems?.forEach((theme) => {
       theme.selected = (theme.id === themeId);
     });
   }
 
   setSelectedColor(color: string, isDefault: boolean) {
     // Make sure only the current color is marked as selected.
-    this.colorMenuItems.forEach((colorMenuItem) => {
+    this.colorMenuItems?.forEach((colorMenuItem) => {
       // The color is appearing as a real rgb value, so need to
       colorMenuItem.selected = (!isDefault && colorMenuItem.value === color);
     });

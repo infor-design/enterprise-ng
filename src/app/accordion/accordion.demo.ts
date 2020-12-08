@@ -1,4 +1,5 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
+// @ts-ignore
 import { SohoAccordionComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -7,73 +8,73 @@ import { SohoAccordionComponent } from 'ids-enterprise-ng';
 })
 export class AccordionDemoComponent implements AfterViewInit {
 
-  @ViewChild(SohoAccordionComponent, { static: true }) accordion: SohoAccordionComponent;
+  @ViewChild(SohoAccordionComponent, { static: true }) accordion?: SohoAccordionComponent;
 
-  onBeforeCollapse(args) {
+  onBeforeCollapse(args: any) {
     console.log('Collapsed!', args);
   }
-  onBeforeExpand(args) {
+  onBeforeExpand(args: any) {
     console.log('Expanded!', args);
   }
-  onBeforeSelect(args) {
+  onBeforeSelect(args: any) {
     console.log('Selected!', args);
   }
-  onAfterExpand(args) {
+  onAfterExpand(args: any) {
     console.log('onAfterExpand!', args);
   }
-  onSelected(args) {
+  onSelected(args: any) {
     console.log('onSelected!', args);
   }
 
-  onFollowlink(args): void {
+  onFollowlink(args: any): void {
     console.log('onFollowlink!', args);
   }
-  onExpand(args) {
+  onExpand(args: any) {
     console.log('onExpand!', args);
   }
-  onCollapse(args): void {
+  onCollapse(args: any): void {
     console.log('onExpand!', args);
   }
-  onAfterCollapse(args): void {
+  onAfterCollapse(args: any): void {
     console.log('onAfterCollapse!', args);
   }
   collapseAll(): void {
-    this.accordion.collapseAll();
+    this.accordion?.collapseAll();
   }
   expandAll(): void {
-    this.accordion.expandAll();
+    this.accordion?.expandAll();
   }
 
   toggle(): void {
-    this.accordion.toggle(this.accordion.getHeader(1));
+    this.accordion?.toggle((this.accordion as any).getHeader(1));
   }
 
   expand(): void {
-    this.accordion.expand(this.accordion.getHeader(1));
+    this.accordion?.expand((this.accordion as any).getHeader(1));
   }
 
   collapse(): void {
-    this.accordion.collapse(this.accordion.getHeader(1));
+    this.accordion?.collapse((this.accordion as any).getHeader(1));
   }
 
   disable(): void {
-    this.accordion.getHeader(1).isDisabled = true;
-    //    this.accordion.disable();
+    (this.accordion as any).getHeader(1).isDisabled = true;
+    //    this.accordion?.disable();
   }
 
   enable(): void {
-    this.accordion.getHeader(1).isDisabled = false;
-    // this.accordion.enable();
+    (this.accordion as any).getHeader(1).isDisabled = false;
+    // this.accordion?.enable();
   }
 
   ngAfterViewInit(): void {
   }
 
   update(): void {
-    if (this.accordion.displayChevron === undefined) {
-      this.accordion.displayChevron = false;
+    if (this.accordion?.displayChevron === undefined) {
+      (this.accordion as any).displayChevron = false;
     } else {
-      this.accordion.displayChevron = !this.accordion.displayChevron;
+      (this.accordion as any).displayChevron = !this.accordion?.displayChevron;
     }
   }
 }

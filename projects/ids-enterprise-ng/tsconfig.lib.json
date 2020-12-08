@@ -4,6 +4,7 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
     "target": "es2015",
+    "strict": true,
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
@@ -34,6 +35,8 @@
     "enableIvy": false
   },
   "exclude": [
+    "**/node_modules/**",
+    "dist",
     "src/test.ts",
     "**/*.spec.ts"
   ]

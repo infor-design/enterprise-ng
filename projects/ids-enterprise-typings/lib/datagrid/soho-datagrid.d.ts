@@ -296,7 +296,7 @@ interface SohoDataGridOptions {
    * This accepts an object of the form SohoEmptyMessageOptions, set
    * this to null for no message or it will default to 'No Data Found with an icon.'
    */
-  emptyMessage?: SohoEmptyMessageOptions;
+  emptyMessage?: SohoEmptyMessageOptions | undefined | null;
 
   /**
    *  Option for tree datagrid
@@ -357,7 +357,9 @@ interface SohoDataGridOptions {
 
 }
 
-type SohoDataGridModifiedRows = { [index: number]: SohoDataGridModifiedRow };
+interface SohoDataGridModifiedRows {
+  [index: number]: SohoDataGridModifiedRow;
+}
 
 /**
  * returned by getModifiedRows
@@ -537,7 +539,7 @@ type SohoDataGridColumnFilterConditions = 'contains' | 'does-not-contain' | 'equ
   'greater-equals' | 'end-with' | 'does-not-end-with' | 'start-with' | 'does-not-start-with';
 
 interface SohoDataGridCellEditor {
-  className: string;
+  className?: string;
   val(value?: any): any;
   focus(): void;
 }
@@ -1051,10 +1053,10 @@ interface SohoDataGridStatic {
   validateRow(row: number): void;
 
   /** Used to set the sort indicator on a column when disableClientSort is set to true */
-  setSortIndicator(columnId: string, ascending: boolean): void;
+  setSortIndicator(columnId: string | undefined | null, ascending: boolean | undefined | null): void;
 
   /** Use to change datagrid empty message */
-  setEmptyMessage(emptyMessage: SohoEmptyMessageOptions): void;
+  setEmptyMessage(emptyMessage: SohoEmptyMessageOptions | undefined | null): void;
 
   /**
    * Sets the column and direction to sort the dataset on.
@@ -1083,10 +1085,10 @@ interface SohoDataGridStatic {
   toggleFilterRow(): void;
 
   /** Accept conditions from outside or pull from filter row */
-  applyFilter(conditions?: Array<SohoDataGridFilterCondition>): void;
+  applyFilter(conditions?: Array<SohoDataGridFilterCondition> | null | undefined): void;
 
   /** Set the filter row from passed data / settings */
-  setFilterConditions(conditions: Array<SohoDataGridFilterCondition>): void;
+  setFilterConditions(conditions: Array<SohoDataGridFilterCondition> | null | undefined): void;
 
   /** Get filter conditions in array form from the UI */
   filterConditions(): Array<SohoDataGridFilterCondition>;
@@ -1104,11 +1106,11 @@ interface SohoDataGridStatic {
 
   unselectRow(idx: number): void;
 
-  selectRowsBetweenIndexes(range: number[]);
+  selectRowsBetweenIndexes(range: number[]): void;
 
   selectedRows(): SohoDataGridSelectedRow[];
 
-  selectRows(row: number | number[]);
+  selectRows(row: number | number[]): void;
 
   activateRow(idx: number): void;
 
@@ -1133,7 +1135,7 @@ interface SohoDataGridStatic {
 
   triggerSource(pagerType: SohoDataGridTriggerSourcePagerType, callback?: Function): void;
 
-  exportToExcel(fileName: string, worksheetName: string, customDs: Object[]): void;
+  exportToExcel(fileName: string, worksheetName: string | null | undefined, customDs: Object[] | null | undefined): void;
 
   exportToCsv(fileName: string, customDs: Object[], separator: string): void;
 
@@ -1291,7 +1293,7 @@ interface SohoDataGridRowClicked {
 
 type SohoDataGridHeaderCheckboxState = 'all' | 'none' | 'partial';
 
-type SohoDataGridSelectedEventType = 'deselectall' | 'selectall' | 'select' | 'deselect';
+type SohoDataGridSelectedEventType = 'deselectall' | 'selectall' | 'select' | 'deselect' | undefined;
 
 interface SohoDataGridSelectedEvent {
   e: JQuery.TriggeredEvent;
@@ -1340,7 +1342,7 @@ interface SohoDataGridFilteredEvent extends SohoDataGridOpenFilteredEvent {
  * @deprecated use SohoDataGridFilteredEvent instead
  */
 interface SohoDataGridOpenFilteredEvent {
-  conditions: SohoDataGridFilterCondition[];
+  conditions?: SohoDataGridFilterCondition[] | null;
   op: 'apply' | 'clear';
   trigger: string;
 }

@@ -23,7 +23,7 @@ is up to the calling application, but in this example the hosting component
 is used.
 
 ```typescript
-@ViewChild('panelPlaceholder', { read: ViewContainerRef }) placeholder: ViewContainerRef;
+@ViewChild('panelPlaceholder', { read: ViewContainerRef }) placeholder?: ViewContainerRef;
 ```
 
 In the markup for the hosting component add:
@@ -94,7 +94,7 @@ This example show how a simple contextual action panel component can be instanti
 
 ```typescript
   this.panel = this.contextualActionPanelService
-    .panel(contextualActionPanelComponent, this.placeholder)
+    .panel(ContextualActionPanelComponent, (this.placeholder as any))
     .buttons([{text: 'OK', click: () => { this.panel.close(); }, isDefault: true}])
     .title('My Panel')
     .open());

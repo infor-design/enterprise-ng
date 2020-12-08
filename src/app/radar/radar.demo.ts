@@ -12,7 +12,7 @@ import {SohoRadarComponent} from 'ids-enterprise-ng';
 })
 export class RadarDemoComponent implements OnInit {
 
-  @ViewChild(SohoRadarComponent, { static: true }) sohoRadarComponent: SohoRadarComponent;
+  @ViewChild(SohoRadarComponent, { static: true }) sohoRadarComponent!: SohoRadarComponent;
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
   // private selection: SohoRadarSelected  = {fieldName: 'name', fieldValue: 'Samsung'};

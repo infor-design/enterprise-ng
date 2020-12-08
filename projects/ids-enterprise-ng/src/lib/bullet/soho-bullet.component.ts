@@ -65,8 +65,8 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
   // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
 
-  private jQueryElement: JQuery;
-  private bullet: SohoBullet;
+  private jQueryElement?: JQuery;
+  private bullet?: SohoBullet | null;
   private updateRequired = false;
 
   constructor(
@@ -86,13 +86,13 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
       this.jQueryElement.on('rendered', (...args) =>
         this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
-        this.ngZone.run(() => this.contextmenu.emit(args)));
+        this.ngZone.run(() => this.contextmenu?.emit(args)));
     });
   }
 
   ngAfterViewChecked() {
     if (this.bullet && this.updateRequired) {
-      this.ngZone.runOutsideAngular(() => this.bullet.updated(this.bullet.settings));
+      this.ngZone.runOutsideAngular(() => this.bullet?.updated(this.bullet?.settings));
       this.updateRequired = false;
     }
   }
@@ -100,8 +100,8 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
   updated() {
     this.ngZone.runOutsideAngular(() => {
       this.options.type = 'bullet';
-      this.jQueryElement.chart(this.options);
-      this.bullet = this.jQueryElement.data('bullet');
+      this.jQueryElement?.chart(this.options);
+      this.bullet = this.jQueryElement?.data('bullet');
     });
   }
 

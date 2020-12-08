@@ -103,17 +103,17 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.splitter') isSplitter = true;
 
   // Is the splitter on the right?  Defaults to the left.
-  @HostBinding('class.splitter-right') @Input() isSplitterRight;
+  @HostBinding('class.splitter-right') @Input() isSplitterRight: boolean | undefined;
 
   // -------------------------------------------
   // Private Member Data
   // -------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the Soho splitter control api.
-  private splitter: SohoSplitterStatic;
+  private splitter?: SohoSplitterStatic | null;
 
   /**
    * Constructor.

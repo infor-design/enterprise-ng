@@ -4,6 +4,7 @@ import {
   ViewChild,
   ChangeDetectionStrategy
 } from '@angular/core';
+// @ts-ignore
 import { SohoTextAreaComponent, SohoContextMenuDirective } from 'ids-enterprise-ng';
 
 @Component({
@@ -13,8 +14,8 @@ import { SohoTextAreaComponent, SohoContextMenuDirective } from 'ids-enterprise-
 })
 export class ContextMenuDemoComponent implements OnInit {
 
-  @ViewChild(SohoTextAreaComponent, { static: true }) textarea: SohoTextAreaComponent;
-  @ViewChild('menuOne') menuOneContextMenu: SohoContextMenuDirective;
+  @ViewChild(SohoTextAreaComponent, { static: true }) textarea?: SohoTextAreaComponent;
+  @ViewChild('menuOne') menuOneContextMenu?: SohoContextMenuDirective;
 
   public normalText = `Input Example`;
   public modText = `Enabled Text Area Example`;
@@ -24,7 +25,7 @@ export class ContextMenuDemoComponent implements OnInit {
   public richTextEditorLabel = `Rich Text Editor Example`;
   public manualCloseLabel = `Close Context Menu Manually`;
 
-  public contextEntries: Array<ContextMenuEntries>;
+  public contextEntries?: Array<ContextMenuEntries>;
 
   public textModel = {
     disableText: `This text area is disabled, so should show the browser context menu and not the same context menu as the other components`,// eslint-disable-line
@@ -116,9 +117,9 @@ export class ContextMenuDemoComponent implements OnInit {
     console.log('onOpen');
   }
 
-  onOpenManually(e: SohoContextMenuEvent): void {
+  onOpenManually(_e: SohoContextMenuEvent): void {
     setTimeout(() => {
-      this.menuOneContextMenu.close();
+      this.menuOneContextMenu?.close();
     }, 2000);
   }
 }

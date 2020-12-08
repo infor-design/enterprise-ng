@@ -8,9 +8,9 @@ describe('SohoEditorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SohoEditorComponent ]
+      declarations: [SohoEditorComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -70,9 +70,9 @@ describe('SohoEditorComponent', () => {
     // check editor internal soho component options object
     // expect(component['editor'].settings.delay).toEqual(delay);
     // expect(component['editor'].settings.firstHeader).toEqual(firstHeader);
-    expect(component['editor'].settings.secondHeader).toEqual(secondHeader);
-    expect(component['editor'].settings.placeholder).toEqual(placeHolder);
-    expect(component['editor'].settings.showHtmlView).toEqual(showHtmlView);
-    expect(component['editor'].settings.preview).toEqual(preview);
+    expect((component['editor'] as any).settings.secondHeader).toEqual(secondHeader);
+    expect((component['editor'] as any).settings.placeholder).toEqual(placeHolder);
+    expect((component['editor'] as any).settings.showHtmlView).toEqual(showHtmlView);
+    expect((component['editor'] as any).settings.preview).toEqual(preview);
   });
 });

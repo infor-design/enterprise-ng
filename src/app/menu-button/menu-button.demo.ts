@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+// @ts-ignore
 import { SohoMenuButtonComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -6,12 +7,12 @@ import { SohoMenuButtonComponent } from 'ids-enterprise-ng';
   templateUrl: 'menu-button.demo.html',
 })
 export class MenuButtonDemoComponent implements OnInit, AfterViewInit {
-  @ViewChild('ajax', { static: true })ajaxMenuButton: SohoMenuButtonComponent;
-  public menuButtons: Array<any>;
+  @ViewChild('ajax', { static: true })ajaxMenuButton?: SohoMenuButtonComponent;
+  public menuButtons?: Array<any>;
 
-  public showLastOption: boolean;
-  public toggle: boolean;
-  public isDisabled: boolean;
+  public showLastOption?: boolean;
+  public toggle?: boolean;
+  public isDisabled?: boolean;
 
   private SUBMENU_RESPONSE_HTML = `
     <li><a href="#" id="SubOptionOne" data-action="AJAX sub-option 1">AJAX sub-option 1</a></li>
@@ -98,6 +99,6 @@ export class MenuButtonDemoComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.ajaxMenuButton.ajaxBeforeOpenFunction = this.ajaxMenuItems;
+    (this.ajaxMenuButton as any).ajaxBeforeOpenFunction = this.ajaxMenuItems;
   }
 }

@@ -13,7 +13,7 @@ import { HeaderDynamicDemoRefService } from '../header/header-dynamic-demo-ref.s
   templateUrl: 'swaplist.demo.html',
 })
 export class SwapListDemoComponent implements OnInit, OnDestroy {
-  @ViewChild(SohoSwapListComponent, { static: true })swapListComponent: SohoSwapListComponent;
+  @ViewChild(SohoSwapListComponent, { static: true }) swapListComponent!: SohoSwapListComponent;
 
   allDemoItems: any[] = [];
   availableDemoItems: any[] = [];
@@ -39,14 +39,14 @@ export class SwapListDemoComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit() {
-    this.sohoHeaderRef.instance.sectionTitle = 'SwapList Basic Demo';
+    (this.sohoHeaderRef.instance as any).sectionTitle = 'SwapList Basic Demo';
   }
 
-  onSelected(event) {
+  onSelected(_event: any) {
     // console.log(this.swapListComponent.selectedItems);
   }
 
-  onBeforeswap(event) {
+  onBeforeswap(event: any) {
     if (event) {
       event.result = this.validationResults;
 
@@ -70,10 +70,10 @@ export class SwapListDemoComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.sohoHeaderRef.instance.sectionTitle = '';
+    (this.sohoHeaderRef.instance as any).sectionTitle = '';
   }
 
-  getResults(el) {
+  getResults(el: any) {
     return (el.attr('data-result') === 'true');
   }
 

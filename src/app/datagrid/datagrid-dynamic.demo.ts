@@ -10,12 +10,9 @@ import {
   ViewChild,
   AfterViewInit,
 } from '@angular/core';
-
-import {
-  SohoDataGridComponent,
-  SohoPopupMenuComponent
-} from 'ids-enterprise-ng';
-
+// @ts-ignore
+import { SohoDataGridComponent, SohoPopupMenuComponent } from 'ids-enterprise-ng';
+// @ts-ignore
 import { SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 
 import { DataGridDemoService } from './datagrid-demo.service';
@@ -26,9 +23,9 @@ import { DataGridDemoService } from './datagrid-demo.service';
   providers: [DataGridDemoService]
 })
 export class DataGridDynamicDemoComponent implements AfterViewInit {
-  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid: SohoDataGridComponent;
-  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator: SohoBusyIndicatorDirective;
-  @ViewChild(SohoPopupMenuComponent) popupMenu: SohoPopupMenuComponent;
+  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;
+  @ViewChild(SohoBusyIndicatorDirective, { static: true }) busyIndicator?: SohoBusyIndicatorDirective;
+  @ViewChild(SohoPopupMenuComponent) popupMenu?: SohoPopupMenuComponent;
 
   private _subject$ = new Subject();
   public data = this._subject$.asObservable();
@@ -36,7 +33,7 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
   public contextMenuEvent: any;
   public contextMenuId = 'grid-context-menu';
   private menuItemsChoice = -1;
-  public menuItems: MenuItem[];
+  public menuItems?: MenuItem[];
 
   constructor(
     private service: DataGridDemoService
@@ -51,36 +48,36 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
   }
 
   private addRows() {
-    this.service.getData(null).subscribe((d: any[]) => {
-      this.busyIndicator.open();
+    this.service.getData((null) as any).subscribe((d: any[]) => {
+      this.busyIndicator?.open();
       const newData = new Array<any>(...d);
       newData.forEach((r) => r.orderDate = new Date());
       this._subject$.next(newData);
-      this.busyIndicator.close(true);
+      this.busyIndicator?.close(true);
     });
   }
 
   addRow() {
-    this.service.getData(null).subscribe((d: any[]) => {
+    this.service.getData((null) as any).subscribe((d: any[]) => {
       const newData = new Array<any>(d[0]);
       newData.forEach((r) => r.orderDate = new Date());
-      this.dataGrid.addRow(newData[0], 'top');
+      this.dataGrid?.addRow(newData[0], 'top');
     });
   }
 
   busy() {
     if (this.busyIndicator) {
-      this.busyIndicator.activated = true;
-      setTimeout(() => this.busyIndicator.activated = false, 2000);
+      (this.busyIndicator as any).activated = true;
+      setTimeout(() => (this.busyIndicator as any).activated = false, 2000);
     }
   }
 
   toggleFilterRow() {
-    this.dataGrid.toggleFilterRow();
+    this.dataGrid?.toggleFilterRow();
   }
 
   resetFilter() {
-    this.dataGrid.clearFilter();
+    this.dataGrid?.clearFilter();
   }
 
   onSelected(e: SohoDataGridSelectedEvent) {
@@ -115,8 +112,8 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
     // -----------------------------------------------------------------
     // select right click row, unselect any other row first.
     // -----------------------------------------------------------------
-    this.dataGrid.unSelectAllRows();
-    this.dataGrid.selectRows([ e.row ]);
+    this.dataGrid?.unSelectAllRows();
+    this.dataGrid?.selectRows([ e.row ]);
 
     // -----------------------------------------------------------------
     // build the right click menu items array dynamically. When the

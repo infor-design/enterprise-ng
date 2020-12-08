@@ -8,7 +8,6 @@ import {
   ElementRef,
   AfterViewInit,
 } from '@angular/core';
-import { eventNames } from 'process';
 
 export type WidgetSize = 'single' | 'double' | 'triple' | 'quad';
 
@@ -39,9 +38,9 @@ export class SohoWidgetComponent implements AfterViewInit {
 
   @HostBinding('class.widget') isWidget = true;
 
-  @Input() widgetWidth: WidgetSize;
-  @Input() widgetHeight: WidgetSize | 'auto';
-  @Input() removable: boolean;
+  @Input() widgetWidth?: WidgetSize;
+  @Input() widgetHeight?: WidgetSize | 'auto';
+  @Input() removable?: boolean;
 
   @Output() resizecard = new EventEmitter<any>();
   @Output() reordercard = new EventEmitter<any>();
@@ -53,22 +52,16 @@ export class SohoWidgetComponent implements AfterViewInit {
   ) { }
 
   // Reference to the jQuery element.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
       this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
       this.jQueryElement
-        .on('resizecard', (e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => {
- this.onResizeCard(card, metadata);
-})
-        .on('reordercard', (e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => {
- this.onReorderCard(card, metadata);
-})
-        .on('removecard', (e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => {
- this.onRemoveCard(card, metadata);
-});
+        .on('resizecard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => { this.onResizeCard(card, metadata); })
+        .on('reordercard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => { this.onReorderCard(card, metadata); })
+        .on('removecard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => { this.onRemoveCard(card, metadata); });
     });
   }
 

@@ -1,8 +1,9 @@
 import {
   Component,
-  OnInit, HostBinding, ElementRef, ViewChild
+  OnInit, HostBinding, ViewChild
 } from '@angular/core';
 import { ChartDemoService } from './chart-demo.service';
+// @ts-ignore
 import { SohoChartComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -18,7 +19,7 @@ import { SohoChartComponent } from 'ids-enterprise-ng';
 })
 export class ChartDemoComponent implements OnInit {
 
-  @ViewChild(SohoChartComponent, { static: true }) sohoChartComponent: SohoChartComponent;
+  @ViewChild(SohoChartComponent, { static: true }) sohoChartComponent?: SohoChartComponent;
 
   @HostBinding('style.display') get getDisplay() {
     return 'block';
@@ -60,32 +61,32 @@ export class ChartDemoComponent implements OnInit {
   private currentChartType: ChartTypes = 'column';
   private animateCharts = true;
 
-  constructor(public chartDemoService: ChartDemoService, private elementRef: ElementRef) { }
+  constructor(public chartDemoService: ChartDemoService) { }
   ngOnInit() { }
 
   public onAnimateCheckboxChange(event: Event) {
-    const animateCheckElement = $(event.currentTarget);
-    const isCheck = $(event.currentTarget).is(':checked');
+    const animateCheckElement = $((event.currentTarget as any));
+    const isCheck = $((event.currentTarget as any)).is(':checked');
     this.animateCharts = isCheck;
     this.buildChartOptions(animateCheckElement);
   }
 
   public onLegendCheckboxChange(event: Event) {
-    const legendCheckElement = $(event.currentTarget);
-    const isCheck = $(event.currentTarget).is(':checked');
+    const legendCheckElement = $((event.currentTarget as any));
+    const isCheck = $((event.currentTarget as any)).is(':checked');
     this.showLegend = isCheck;
     this.buildChartOptions(legendCheckElement);
   }
 
   public onShowLabelCheckboxChange(event: Event) {
-    const showLabelCheckElement = $(event.currentTarget);
-    const isCheck = $(event.currentTarget).is(':checked');
+    const showLabelCheckElement = $((event.currentTarget as any));
+    const isCheck = $((event.currentTarget as any)).is(':checked');
     this.hideLabel = isCheck;
     this.buildChartOptions(showLabelCheckElement);
   }
 
   public onChange(event: Event) {
-    const element = $(event.currentTarget);
+    const element = $((event.currentTarget as any));
     const chartType: ChartTypes = element.filter(':checked').val() as ChartTypes;
     if (chartType === this.currentChartType) {
       // dont do anything if the chart is the same type
@@ -96,7 +97,7 @@ export class ChartDemoComponent implements OnInit {
     this.buildChartOptions(element);
   }
 
-  private buildChartOptions(element) {
+  private buildChartOptions(_element: any) {
     const chartOptions: SohoChartOptions = {};
 
     if (this.currentChartType === 'pie' || this.currentChartType === 'donut') {
@@ -121,15 +122,15 @@ export class ChartDemoComponent implements OnInit {
     } else {
       chartOptions['labels'] = { hideLabels: !this.hideLabel };
     }
-    this.sohoChartComponent.chartOptions = chartOptions;
+    (this.sohoChartComponent as any).chartOptions = chartOptions;
   }
 
   public onChangeIndex(event: Event) {
-    this.selectedIndex = parseInt($(event.currentTarget).filter(':checked').val() as string, 10);
+    this.selectedIndex = parseInt($((event.currentTarget as any)).filter(':checked').val() as string, 10);
   }
 
   onSelected(chartEvent: ChartEvent) {
-    this.sohoChartComponent.getSelected();
+    this.sohoChartComponent?.getSelected();
     console.log(chartEvent.event, chartEvent.ui, chartEvent.data);
   }
 
@@ -142,7 +143,7 @@ export class ChartDemoComponent implements OnInit {
   }
 
   onContextMenu(chartEvent: ChartEvent) {
-    this.sohoChartComponent.getSelected();
+    this.sohoChartComponent?.getSelected();
     console.log(chartEvent.event, chartEvent.ui, chartEvent.data);
   }
 }

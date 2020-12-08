@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, AfterViewInit, OnInit, ViewChildren, QueryList, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+// @ts-ignore
 import { SohoDropDownComponent, SohoBusyIndicatorDirective } from 'ids-enterprise-ng';
 import { Subject } from 'rxjs';
 
@@ -9,11 +10,11 @@ import { Subject } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
-  @ViewChildren(SohoDropDownComponent) dropDownComponents: QueryList<SohoDropDownComponent>;
-  @ViewChildren(SohoBusyIndicatorDirective) busyIndicators: QueryList<SohoBusyIndicatorDirective>;
+  @ViewChildren(SohoDropDownComponent) dropDownComponents?: QueryList<SohoDropDownComponent>;
+  @ViewChildren(SohoBusyIndicatorDirective) busyIndicators?: QueryList<SohoBusyIndicatorDirective>;
 
   public showModel = true;
-  public form: FormGroup;
+  public form?: FormGroup;
   public itemsAvailable = false;
   public states = [
       { value: 'AK', label: 'Alaska' },
@@ -30,7 +31,7 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
   public model2 = { value: 'ND', label: 'North Dakota' };
 
   public childrenPreload: Subject<any> = new Subject<any>();
-  public childrenOnClick: Array<any>;
+  public childrenOnClick?: Array<any>;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
   }
@@ -44,27 +45,25 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit() {
     // Initialize options for onLoad dropdown
-    const dropdown = this.dropDownComponents.toArray()[0];
-    const busyIndicator = this.busyIndicators.toArray()[0];
+    const dropdown = (this.dropDownComponents as any).toArray()[0];
+    const busyIndicator = (this.busyIndicators as any).toArray()[0];
     this.bindDropdown(this.childrenPreload, dropdown, busyIndicator);
 
     // Initialize options for onClick dropdown
     const arInit = [];
     arInit.push(this.model2);
     this.childrenOnClick = arInit;
-    const dropdown2 = this.dropDownComponents.toArray()[1];
+    const dropdown2 = (this.dropDownComponents as any).toArray()[1];
     this.changeDetectorRef.detectChanges();
     dropdown2.updated();
   }
 
-  onSource = (response: SohoDropDownResponseFunction, searchTerm: any) => {
+  onSource = (response: SohoDropDownResponseFunction, _searchTerm: any) => {
     if (!this.itemsAvailable) {
       this.itemsAvailable = true;
       this.childrenOnClick = this.states;
       setTimeout(() => {
         response(this.states, true);
-        // this.dropDownComponents.toArray()[0].selectValue('MN');
-        // this.changeDetectorRef.markForCheck();
       }, 2000);
     } else {
       this.childrenOnClick = this.states;
@@ -72,7 +71,7 @@ export class DropdownAsyncBusyDemoComponent implements AfterViewInit, OnInit {
     }
   }
 
-  private bindDropdown(subject, dropdown, busyIndicator) {
+  private bindDropdown(subject: any, _dropdown: any, busyIndicator: any) {
     busyIndicator.activated = true;
     // Retrieve data from rest service and apply to observer
     // setTimeout simulates the behaviour of a rest service

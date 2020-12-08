@@ -3,10 +3,8 @@ import {
   OnInit,
   ViewChild
  } from '@angular/core';
-
- import {
-   SohoListViewComponent
- } from 'ids-enterprise-ng';
+// @ts-ignore
+ import { SohoListViewComponent } from 'ids-enterprise-ng';
 
 import { ContentType } from './content-type.model';
 import { ContentTypeService } from './content-type.service';
@@ -23,11 +21,11 @@ import { ContentTypeService } from './content-type.service';
 })
 export class ListViewDemoComponent implements OnInit {
 
-  @ViewChild('singleSelectListView', { static: true }) singleSelectListView: SohoListViewComponent;
+  @ViewChild('singleSelectListView', { static: true }) singleSelectListView?: SohoListViewComponent;
 
-  @ViewChild('multipleSelectListView', { static: true }) multipleSelectListView: SohoListViewComponent;
+  @ViewChild('multipleSelectListView', { static: true }) multipleSelectListView?: SohoListViewComponent;
 
-  @ViewChild('mixedSelectionListView', { static: true }) mixedSelectionListView: SohoListViewComponent;
+  @ViewChild('mixedSelectionListView', { static: true }) mixedSelectionListView?: SohoListViewComponent;
 
   public errorMessage: any;
   public demoTasks: Object[];
@@ -40,7 +38,7 @@ export class ListViewDemoComponent implements OnInit {
     '07/08/2015',
   ];
   public descCounter = 0;
-  public contentTypes: ContentType[];
+  public contentTypes?: ContentType[];
 
   constructor(private _contentService: ContentTypeService) {
     this._contentService.getContentTypes()
@@ -67,40 +65,49 @@ export class ListViewDemoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.singleSelectListView.clearAllSelected();
+    this.singleSelectListView?.clearAllSelected();
   }
 
   addItems() {
     // Make sure we are passing a new object to the listview as an input
-    let temp = this.demoTasks;
     this.demoTasks = this.demoTasks.splice(0);
     this.demoTasks.push({
       task: `0${this.counter++}`,
       date: this.dates[Math.floor(Math.random() * this.dates.length)],
       desc: 'Description number ' + this.descCounter++,
     });
-    temp = null;
   }
 
   selectItems(listView: SohoListViewComponent) {
+    if (!listView.items) {
+      return;
+    }
+
     for (let i = 0; i < listView.items.length; i++) {
       setTimeout(() => listView.select(i), i * 1000);
     }
   }
 
   unselectItems(listView: SohoListViewComponent) {
-    listView.unselect(listView.items.map((item) => item.selector));
+    if (!listView.items) {
+      return;
+    }
+
+    listView.unselect(listView.items.map((item: any) => item.selector));
   }
 
   removeItems(listView: SohoListViewComponent) {
-    listView.remove(listView.items.map((e) => e.index));
+    if (!listView.items) {
+      return;
+    }
+
+    listView.remove(listView.items.map((e: any) => e.index));
 
     this.demoTasks = [];
   }
 
   load() {
     setTimeout(() => {
-    let temp = this.loadTasks;
     this.loadTasks = [];
     this.loadTasks.push({task: '063001', error: true, date: '10/11/2015', desc: 'Special fields test - New item has been created.'});
     this.loadTasks.push({task: '063002', date: '10/11/2015' , desc: 'Part #4212132 has low inventory level', disabled: true});
@@ -114,7 +121,6 @@ export class ListViewDemoComponent implements OnInit {
     this.loadTasks.push({task: '063010', date: '10/11/2015' , desc: 'Special fields test - New item has been created.'});
     this.loadTasks.push({task: '063011', date: '10/11/2015' , desc: 'Call TMZ Inc at 5 PM'});
     this.loadTasks.push({task: '063012', date: '07/08/2015' , desc: 'Part #6212132 has low inventory level'});
-    temp = null;
     }, 1000);
   }
 
@@ -139,20 +145,20 @@ export class ListViewDemoComponent implements OnInit {
   }
 
   activatedItem() {
-    console.log('activatedItem', this.mixedSelectionListView.activatedItem());
+    console.log('activatedItem', this.mixedSelectionListView?.activatedItem());
   }
 
   activateItem() {
     console.log('activateItem at index 2');
-    this.mixedSelectionListView.activateItem(2);
+    this.mixedSelectionListView?.activateItem(2);
   }
 
   deactivateItem() {
     console.log('deactivateItem');
 
-    const activatedItem = this.mixedSelectionListView.activatedItem();
+    const activatedItem = this.mixedSelectionListView?.activatedItem();
     if (activatedItem && activatedItem.index > -1) {
-      this.mixedSelectionListView.deactivateItem(activatedItem.index);
+      this.mixedSelectionListView?.deactivateItem(activatedItem.index);
     } else {
       console.log('cannot deactivate, must activate an item first.');
     }

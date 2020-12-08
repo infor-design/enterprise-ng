@@ -15,14 +15,10 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoHeaderComponent implements AfterViewInit {
-  @HostBinding('class.header') get isHeader() {
- return true;
-}
-  @HostBinding('class.is-personalizable') get isPersonalizable() {
- return true;
-}
-  @HostBinding('class.has-toolbar') @Input() hasToolbar;
-  @HostBinding('class.has-tabs') @Input() hasTabs;
+  @HostBinding('class.header') get isHeader() { return true; }
+  @HostBinding('class.is-personalizable') get isPersonalizable() { return true; }
+  @HostBinding('class.has-toolbar') @Input() hasToolbar: any;
+  @HostBinding('class.has-tabs') @Input() hasTabs: any;
 
   /**
    * This event is fired when the status of the header is changed.
@@ -31,10 +27,10 @@ export class SohoHeaderComponent implements AfterViewInit {
   @Output() updated = new EventEmitter<any>();
 
   // Reference to the jQuery element.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the annotated SoHoXi control
-  private header: SohoHeaderStatic;
+  private header?: SohoHeaderStatic;
 
   constructor(private elementRef: ElementRef) { }
 
@@ -43,7 +39,7 @@ export class SohoHeaderComponent implements AfterViewInit {
    * Which is used in the header via the list/detail pattern
    */
   removeBackButton() {
-    this.header.removeBackButton();
+    this.header?.removeBackButton();
   }
 
   ngAfterViewInit() {
@@ -59,8 +55,6 @@ export class SohoHeaderComponent implements AfterViewInit {
     this.header = this.jQueryElement.data('header');
 
     // Initialize any event handlers.
-    this.jQueryElement.on('updated', (e: JQuery.TriggeredEvent, args: any) => {
- this.updated.emit(args);
-});
+    this.jQueryElement.on('updated', (_e: JQuery.TriggeredEvent, args: any) => { this.updated.emit(args); });
   }
 }

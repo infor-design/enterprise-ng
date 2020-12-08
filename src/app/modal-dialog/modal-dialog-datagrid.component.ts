@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-const groups = require('./groups.json');
+// @ts-ignore
+import groups from './groups.json';
 
 /**
  * This is an example of a simple dialog component, that can be instantiated

@@ -5,6 +5,7 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+// @ts-ignore
 import { SohoBreadcrumbComponent } from 'ids-enterprise-ng';
 
 @Component({
@@ -18,13 +19,13 @@ import { SohoBreadcrumbComponent } from 'ids-enterprise-ng';
 })
 export class BreadcrumbGauntletDemoComponent {
 
-  @ViewChild(SohoBreadcrumbComponent, { static: true }) breadcrumb: SohoBreadcrumbComponent;
+  @ViewChild(SohoBreadcrumbComponent, { static: true }) breadcrumb?: SohoBreadcrumbComponent;
 
   public breadcrumbIdCount = 0;
   public demoForm: FormGroup;
 
-  public lastClickedAPI: SohoBreadcrumbItemStatic;
-  public lastClickedContents = '';
+  public lastClickedAPI?: SohoBreadcrumbItemStatic;
+  public lastClickedContents: string | undefined = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -61,7 +62,7 @@ export class BreadcrumbGauntletDemoComponent {
   }
 
   add() {
-    let increaseCount: boolean;
+    let increaseCount = false;
     const newSettings: SohoBreadcrumbItemOptions = {
       content: ''
     };
@@ -103,8 +104,9 @@ export class BreadcrumbGauntletDemoComponent {
     const self = this;
     if (this.demoForm.controls['callback'].value) {
       newSettings.callback = function testCallback (e) {
-        self.renderBreadcrumbConfig(e.target);
-        const content = this.settings.content;
+        // @ts-ignore
+        self.renderBreadcrumbConfig(e.currentTarget);
+        const content = (e.currentTarget).text();
 
         // Trigger a toast message
         $('body').toast({
@@ -123,7 +125,7 @@ export class BreadcrumbGauntletDemoComponent {
       };
     }
 
-    this.breadcrumb.add(newSettings, true);
+    this.breadcrumb?.add(newSettings, true);
 
     if (increaseCount) {
       this.breadcrumbIdCount++;
@@ -135,9 +137,9 @@ export class BreadcrumbGauntletDemoComponent {
   }
 
   renderBreadcrumbConfig(item: SohoBreadcrumbRef) {
-    const target = this.breadcrumb.getBreadcrumbItem(item);
-    const api = target.api;
-    if (!api) {
+    const target = this.breadcrumb?.getBreadcrumbItem(item);
+    const api = (target as any).api;
+    if (!api || !api.settings) {
       return;
     }
 
@@ -157,7 +159,7 @@ export class BreadcrumbGauntletDemoComponent {
   }
 
   removeAll(): void {
-    this.breadcrumb.removeAll();
+    this.breadcrumb?.removeAll();
 
     this.lastClickedContents = undefined;
     this.lastClickedAPI = undefined;
@@ -168,7 +170,7 @@ export class BreadcrumbGauntletDemoComponent {
     if (!this.lastClickedAPI) {
       return;
     }
-    this.breadcrumb.remove(this.lastClickedAPI);
+    this.breadcrumb?.remove(this.lastClickedAPI);
 
     this.lastClickedContents = undefined;
     this.lastClickedAPI = undefined;
@@ -179,7 +181,7 @@ export class BreadcrumbGauntletDemoComponent {
     if (!this.lastClickedAPI) {
       return;
     }
-    this.breadcrumb.makeCurrent(this.lastClickedAPI);
+    this.breadcrumb?.makeCurrent(this.lastClickedAPI);
     this.renderBreadcrumbConfig(this.lastClickedAPI);
   }
 }

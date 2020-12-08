@@ -3,9 +3,9 @@ import {
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
-import {
-  SohoModalDialogService
-} from 'ids-enterprise-ng';
+
+// @ts-ignore
+import { SohoModalDialogService } from 'ids-enterprise-ng';
 
 /**
  * This is an example of a nested dialog component, that can be instantiated
@@ -26,7 +26,7 @@ export class NestedModalDialogComponent {
    * This can be the ViewContainerRef of this component, or another component.
    */
   @ViewChild('dialogPlaceholder', { read: ViewContainerRef, static: true })
-  placeholder: ViewContainerRef;
+  placeholder?: ViewContainerRef;
 
   /**
    * Constructor, taking the interface to the Soho Modal Dialog Api.
@@ -42,19 +42,9 @@ export class NestedModalDialogComponent {
       .modal(NestedModalDialogComponent, this.placeholder)
       .title(`Modal Dialog no. '${++NestedModalDialogComponent.s_depth}'.`)
       .buttons(
-        [{
-          text: 'Cancel', click: (e, modal) => {
-            modal.close(true);
-          }
-        },
-        {
-          text: 'OK', click: (e, modal) => {
-            modal.close(true);
-          }, isDefault: true
-        }])
-      .afterClose((f) => {
-        NestedModalDialogComponent.s_depth--;
-      })
+        [{ text: 'Cancel', click: (_e: any, modal: any) => { modal.close(true); } },
+        { text: 'OK', click: (_e: any, modal: any) => { modal.close(true); }, isDefault: true }])
+      .afterClose((_f: any) => { NestedModalDialogComponent.s_depth--; })
       .open();
   }
 }

@@ -232,8 +232,8 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
   // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object[]>();
 
-  private jQueryElement: JQuery;
-  private bar: SohoBar;
+  private jQueryElement?: JQuery;
+  private bar?: SohoBar | null;
   private updateRequired = false;
 
   constructor(
@@ -250,20 +250,20 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
       this.bar = this.jQueryElement.data('bar');
 
       // Setup the events
-      this.jQueryElement.on('selected', (e: any, args: SohoBarSelectEvent) =>
+      this.jQueryElement.on('selected', (_e: any, args: SohoBarSelectEvent) =>
         this.ngZone.run(() => this.selected.emit(args)));
-      this.jQueryElement.on('unselected', (e: any, args: SohoBarSelectEvent) =>
+      this.jQueryElement.on('unselected', (_e: any, args: SohoBarSelectEvent) =>
         this.ngZone.run(() => this.unselected.emit(args)));
       this.jQueryElement.on('rendered', (...args) =>
         this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
-        this.ngZone.run(() => this.contextmenu.emit(args)));
+        this.ngZone.run(() => this.contextmenu?.emit(args)));
     });
   }
 
   ngAfterViewChecked() {
     if (this.bar && this.updateRequired) {
-      this.ngZone.runOutsideAngular(() => this.bar.updated(this.bar.settings));
+      this.ngZone.runOutsideAngular(() => this.bar?.updated(this.bar.settings));
       this.updateRequired = false;
     }
   }
@@ -271,8 +271,8 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
   updated() {
     this.ngZone.runOutsideAngular(() => {
       this.options.type = 'bar';
-      this.jQueryElement.chart(this.options);
-      this.bar = this.jQueryElement.data('bar');
+      this.jQueryElement?.chart(this.options);
+      this.bar = this.jQueryElement?.data('bar');
     });
   }
 
@@ -291,14 +291,14 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
   }
 
   public setSelected(selected: SohoBarSelected) {
-    this.ngZone.runOutsideAngular(() => this.bar.setSelected(selected));
+    this.ngZone.runOutsideAngular(() => this.bar?.setSelected(selected));
   }
 
   public toggleSelected(selected: SohoBarSelected) {
-    this.ngZone.runOutsideAngular(() => this.bar.toggleSelected(selected));
+    this.ngZone.runOutsideAngular(() => this.bar?.toggleSelected(selected));
   }
 
   public getSelected(): SohoBarSelected {
-    return this.ngZone.runOutsideAngular(() => this.bar.getSelected());
+    return this.ngZone.runOutsideAngular(() => (this.bar as any).getSelected());
   }
 }

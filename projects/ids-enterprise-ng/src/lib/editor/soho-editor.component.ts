@@ -38,10 +38,9 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   /**
    * Flag to force an update of the control after the view is created.
    */
-  private runUpdatedOnCheck: boolean;
-
-  private isDisabled: boolean = null;
-  private isReadOnly: boolean = null;
+  private runUpdatedOnCheck?: boolean;
+  private isDisabled?: boolean = undefined;
+  private isReadOnly?: boolean = undefined;
 
   @HostBinding('class.editor') get isEditor() {
     return true;
@@ -54,7 +53,7 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   /**
    * Enables or disables the control
    */
-  @Input() set disabled(value: boolean) {
+  @Input() set disabled(value: boolean | undefined) {
     // Avoid setting the value if not required,
     // this causes issue on component initialisation
     // as enable() is called by both disabled()
@@ -69,24 +68,24 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
 
     if (value) {
       this.ngZone.runOutsideAngular(() => {
-        this.editor.disable();
+        this.editor?.disable();
       });
     } else {
       this.ngZone.runOutsideAngular(() => {
-        this.editor.enable();
+        this.editor?.enable();
         this.isReadOnly = false;
       });
     }
   }
 
-  get disabled() {
+  get disabled(): boolean | undefined {
     return this.isDisabled;
   }
 
   /**
    * Sets the control to readonly
    */
-  @Input() set readonly(value: boolean) {
+  @Input() set readonly(value: boolean | undefined) {
     // Avoid setting the value if not required,
     // this causes issue on component initialisation
     // as enable() is called by both disabled()
@@ -99,16 +98,16 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     // Set the status locally (for refreshing)
     this.isReadOnly = value;
     if (value) {
-      this.ngZone.runOutsideAngular(() => this.editor.readonly());
+      this.ngZone.runOutsideAngular(() => this.editor?.readonly());
     } else {
       this.ngZone.runOutsideAngular(() => {
-        this.editor.enable();
+        this.editor?.enable();
         this.isDisabled = false;
       });
     }
   }
 
-  get readonly() {
+  get readonly(): boolean | undefined {
     return this.isReadOnly;
   }
 
@@ -232,10 +231,10 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   // -------------------------------------------
 
   // Reference to the jQuery control.
-  private jQueryElement: JQuery;
+  private jQueryElement?: JQuery;
 
   // Reference to the SoHoXi control api.
-  private editor: SohoEditorStatic;
+  private editor?: SohoEditorStatic | null;
 
   /**
    * Creates an instance of SohoEditorComponent.
@@ -265,13 +264,12 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
 
       // Bind to jQueryElement's events
       this.jQueryElement
-        .on('change', (e: JQuery.TriggeredEvent, args: SohoEditorEvent) => this.onChange(args))
-        .on('updated', (e: JQuery.TriggeredEvent, args: SohoEditorEvent) => this.onUpdated(args));
+        .on('change', (_e: JQuery.TriggeredEvent, args: SohoEditorEvent) => this.onChange(args))
+        .on('updated', (_e: JQuery.TriggeredEvent, args: SohoEditorEvent) => this.onUpdated(args));
 
       if (this.internalValue) {
         this.jQueryElement.html(this.internalValue);
       }
-      this.runUpdatedOnCheck = true;
     });
   }
 
@@ -301,8 +299,8 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   /**
    * Handle the control being changed.
    */
-  onChange(event: SohoEditorEvent) {
-    this.internalValue = this.jQueryElement.html();
+  onChange(_event: SohoEditorEvent) {
+    this.internalValue = this.jQueryElement?.html();
 
     super.writeValue(this.internalValue);
 

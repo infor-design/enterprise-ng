@@ -3,11 +3,8 @@ import {
   ViewChild,
   ChangeDetectionStrategy,
 } from '@angular/core';
-
-import {
-  SohoDataGridComponent,
-  SohoDataGridService
-} from 'ids-enterprise-ng';
+// @ts-ignore
+import { SohoDataGridComponent, SohoDataGridService } from 'ids-enterprise-ng';
 
 import {
   DataGridDemoService
@@ -20,7 +17,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridSettingsDemoComponent {
-  @ViewChild(SohoDataGridComponent, { static: true }) datagrid: SohoDataGridComponent;
+  @ViewChild(SohoDataGridComponent, { static: true }) datagrid?: SohoDataGridComponent;
 
   constructor(gridService: SohoDataGridService) {
     (gridService as DataGridDemoService).addColumn({
@@ -36,26 +33,26 @@ export class DataGridSettingsDemoComponent {
 
   set isRowDisabled(disabled: boolean) {
     if (disabled) {
-      this.datagrid.isRowDisabled = () => {
+      (this.datagrid as any).isRowDisabled = () => {
         return disabled;
       };
     } else {
-      this.datagrid.isRowDisabled = null;
+      (this.datagrid as any).isRowDisabled = null;
     }
   }
 
   get isRowDisabled(): boolean {
-    return !!this.datagrid.isRowDisabled;
+    return !!(this.datagrid as any).isRowDisabled;
   }
 
   /**
    * Make several changes to the component in one go.
    */
   makeChange() {
-    this.datagrid.isList = !this.datagrid.isList;
-    this.datagrid.alternateRowShading = !this.datagrid.alternateRowShading;
-    this.datagrid.cellNavigation = !this.datagrid.cellNavigation;
-    this.datagrid.isRowDisabled = (rowIndex, rowData) => {
+    (this.datagrid as any).isList = !(this.datagrid as any).isList;
+    (this.datagrid as any).alternateRowShading = !(this.datagrid as any).alternateRowShading;
+    (this.datagrid as any).cellNavigation = !(this.datagrid as any).cellNavigation;
+    (this.datagrid as any).isRowDisabled = (rowIndex: any, _rowData: any) => {
       return rowIndex % 2 === 0;
     };
   }

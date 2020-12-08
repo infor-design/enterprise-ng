@@ -1,6 +1,5 @@
 import {
   Component,
-  ElementRef,
   ViewChild,
   AfterViewInit,
   ChangeDetectionStrategy
@@ -8,7 +7,6 @@ import {
 
 import {
   Subject,
-  Observable
 } from 'rxjs';
 
 import { SohoTreeComponent } from 'ids-enterprise-ng';
@@ -60,7 +58,7 @@ export class TreeDynamicDemoComponent implements AfterViewInit {
   ];
 
   @ViewChild(SohoTreeComponent, { static: true })
-  tree: SohoTreeComponent;
+  tree?: SohoTreeComponent;
 
   private subject = new Subject<SohoTreeNode[]>();
 
@@ -69,39 +67,39 @@ export class TreeDynamicDemoComponent implements AfterViewInit {
   // Is this component enabled.
   enabled = true;
 
-  selected: SohoTreeNode;
+  selected?: SohoTreeNode;
 
   get dataset() {
     return this.source;
   }
 
-  constructor(private el: ElementRef) { }
+  constructor() { }
 
   expandAll() {
-    this.tree.expandAll();
+    this.tree?.expandAll();
   }
 
   collapseAll() {
-    this.tree.collapseAll();
+    this.tree?.collapseAll();
   }
 
   // toggleEnabled(event: any) {
   //   if (this.enabled) {
-  //     this.tree.disable();
+  //     this.tree?.disable();
   //     this.enabled = false;
   //   } else {
-  //     this.tree.enable();
+  //     this.tree?.enable();
   //     this.enabled = true;
   //   }
   // }
 
   selectRoot() {
-    this.tree.selectNode('node1');
+    this.tree?.selectNode('node1');
   }
 
   addNode() {
     const tn: SohoTreeNode = { text: 'New Item 1.2', disabled: true };
-    this.tree.addNode(tn, this.selected);
+    this.tree?.addNode(tn, this.selected);
   }
 
   reset() {

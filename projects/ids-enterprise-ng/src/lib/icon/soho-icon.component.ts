@@ -14,7 +14,7 @@ export class SohoIconUseComponent {
     return '#' + this.icon;
   }
 
-  @Input() icon: string;
+  @Input() icon?: string;
 }
 
 @Component({
@@ -37,16 +37,16 @@ export class SohoIconComponent {
     this._extraIconClass = extraIconClass;
     this.setExtraIconsClass();
   }
-  @Input() set alert(alert: boolean) {
+  @Input() set alert(alert: boolean | undefined) {
     this._alert = alert;
     this.setAlertIcon();
   }
 
-  get alert(): boolean {
+  get alert(): boolean | undefined {
     return this._alert;
   }
 
-  @Input() set icon(icon: string) {
+  @Input() set icon(icon: string | undefined) {
     this._icon = icon ? 'icon-' + icon : '';
     this.setAlertIcon();
   }
@@ -55,9 +55,9 @@ export class SohoIconComponent {
     return this._icon;
   }
 
-  private _alert: boolean;
-  private _icon: string;
-  private _extraIconClass: string;
+  private _alert?: boolean;
+  private _icon?: string;
+  private _extraIconClass?: string;
 
   constructor(
     private elementRef: ElementRef,

@@ -10,31 +10,31 @@ type SohoTimePickerMode = 'standard' | 'range';
 
 interface SohoTimePickerOptions {
   /** The mode of the time picker. */
-  mode: SohoTimePickerMode;
+  mode?: SohoTimePickerMode;
 
   /** Formatting for the time component. */
-  timeFormat: string;
+  timeFormat?: string;
 
   /** Minute interval. */
-  minuteInterval: number;
+  minuteInterval?: number;
 
   /** Rounding. */
-  roundToInterval: boolean;
+  roundToInterval?: boolean;
 
   /** Locale to use for this instance; if not set, the current locale is used. */
-  locale: string;
+  locale?: string;
 
   /** Name of the language to use for this instance; if not set, the current locale is used or the passed locale is used. */
-  language: string;
+  language?: string;
 
   /** Second interval. */
-  secondInterval: number;
+  secondInterval?: number;
 
   /** If set, will be used as the target element. */
-  parentElement: JQuery;
+  parentElement?: JQuery;
 
   /** If false, focus will not be returned to the calling element. */
-  returnFocus: boolean;
+  returnFocus?: boolean;
 
   /** Add extra attributes like id's to the component **/
   attributes?: Array<Object> | Object;

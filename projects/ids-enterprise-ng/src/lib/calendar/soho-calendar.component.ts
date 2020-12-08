@@ -51,7 +51,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
 
   @HostBinding('class.calendar') isCalendar = true;
 
-  @Input() set calendarOptions(calendarOptions: SohoCalendarOptions) {
+  @Input() set calendarOptions(calendarOptions: SohoCalendarOptions | undefined) {
     this._calendarOptions = calendarOptions;
 
     if (this.jQueryElement) {
@@ -60,7 +60,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
       this.markForRefresh();
     }
   }
-  get calendarOptions(): SohoCalendarOptions {
+  get calendarOptions(): SohoCalendarOptions | undefined {
     if (this.calendar) {
       return this.calendar.settings;
     }
@@ -68,7 +68,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
     return this._calendarOptions;
   }
 
-  @Input() set calendarWeekOptions(calendarWeekOptions: SohoCalendarWeekOptions) {
+  @Input() set calendarWeekOptions(calendarWeekOptions: SohoCalendarWeekOptions | undefined) {
     this._calendarWeekOptions = calendarWeekOptions;
 
     if (this.jQueryElement) {
@@ -77,7 +77,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
       this.markForRefresh();
     }
   }
-  get calendarWeekOptions(): SohoCalendarWeekOptions {
+  get calendarWeekOptions(): SohoCalendarWeekOptions | undefined {
     if (this.calendar) {
       return this.calendar.settings.weekOptions;
     }
@@ -86,7 +86,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   }
 
   @Input() set disable(disable: SohoDatePickerDisable) {
-    this.calendar.settings.disable = disable;
+    (this.calendar as any).settings.disable = disable;
 
     if (this.jQueryElement) {
       this.markForRefresh();
@@ -94,14 +94,14 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   }
   get disable(): SohoDatePickerDisable {
     if (this.calendar) {
-      return this.calendar.settings.disable;
+      return (this.calendar as any).settings.disable;
     }
 
     return this.disable;
   }
 
   @Input() set dayLegend(dayLegend: SohoDatePickerLegend) {
-    this.calendar.settings.dayLegend = dayLegend;
+    (this.calendar as any).settings.dayLegend = dayLegend;
 
     if (this.jQueryElement) {
       this.markForRefresh();
@@ -109,20 +109,20 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   }
   get dayLegend(): SohoDatePickerLegend {
     if (this.calendar) {
-      return this.calendar.settings.dayLegend;
+      return (this.calendar as any).settings.dayLegend;
     }
 
     return this.dayLegend;
   }
 
-  @Input() set attributes(attributes: Array<Object> | Object) {
-    this.calendar.settings.attributes = attributes;
+  @Input() set attributes(attributes: Array<Object> | Object | undefined) {
+    (this.calendar as any).settings.attributes = attributes;
 
     if (this.jQueryElement) {
       this.markForRefresh();
     }
   }
-  get attributes(): Array<Object> | Object {
+  get attributes(): Array<Object> | Object | undefined {
     if (this.calendar) {
       return this.calendar.settings.attributes;
     }
@@ -133,26 +133,26 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * An array of objects with data for the event types.
    */
-  @Input() set eventTypes(eventTypes: SohoCalendarEventType[]) {
-    this._calendarOptions.eventTypes = eventTypes;
+  @Input() set eventTypes(eventTypes: SohoCalendarEventType[] | undefined) {
+    (this._calendarOptions as any).eventTypes = eventTypes;
     if (this.calendar) {
       this.calendar.settings.eventTypes = eventTypes;
       this.markForRefresh();
     }
   }
-  get eventTypes(): SohoCalendarEventType[] {
+  get eventTypes(): SohoCalendarEventType[] | undefined {
     if (this.calendar) {
       return this.calendar.settings.eventTypes;
     }
 
-    return this._calendarOptions.eventTypes;
+    return (this._calendarOptions as any).eventTypes;
   }
 
   /**
    * An array of objects with data for the events.
    */
   @Input() set events(events: SohoCalendarEvent[]) {
-    this._calendarOptions.events = events;
+    (this._calendarOptions as any).events = events;
     if (this.calendar) {
       this.calendar.settings.events = events;
       this.markForRefresh();
@@ -160,17 +160,17 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   }
   get events(): SohoCalendarEvent[] {
     if (this.calendar) {
-      return this.calendar.settings.events;
+      return (this.calendar as any).settings.events;
     }
 
-    return this._calendarOptions.events;
+    return (this._calendarOptions as any).events;
   }
 
   /**
    * The name of the locale to use for this instance. If not set the current locale will be used.
    */
   @Input() set locale(locale: string) {
-    this._calendarOptions.locale = locale;
+    (this._calendarOptions as any).locale = locale;
     if (this.calendar) {
       this.calendar.settings.locale = locale;
       this.markForRefresh();
@@ -178,71 +178,71 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   }
   get locale(): string {
     if (this.calendar) {
-      return this.calendar.settings.locale;
+      return (this.calendar as any).settings.locale;
     }
 
-    return this._calendarOptions.locale;
+    return (this._calendarOptions as any).locale;
   }
 
   /**
    * Initial month to show.
    */
-  @Input() set month(month: number) {
-    this._calendarOptions.month = month;
+  @Input() set month(month: number | undefined) {
+    (this._calendarOptions as any).month = month;
     if (this.calendar) {
       this.calendar.settings.month = month;
       this.markForRefresh();
     }
   }
-  get month(): number {
+  get month(): number | undefined {
     if (this.calendar) {
       return this.calendar.settings.month;
     }
 
-    return this._calendarOptions.month;
+    return (this._calendarOptions as any).month;
   }
 
   /**
    * Initial year to show.
    */
-  @Input() set year(year: number) {
-    this._calendarOptions.year = year;
+  @Input() set year(year: number | undefined) {
+    (this._calendarOptions as any).year = year;
     if (this.calendar) {
       this.calendar.settings.year = year;
       this.markForRefresh();
     }
   }
-  get year(): number {
+  get year(): number | undefined {
     if (this.calendar) {
       return this.calendar.settings.year;
     }
 
-    return this._calendarOptions.year;
+    return (this._calendarOptions as any).year;
   }
 
   /**
    * If false the dropdown to change views will not be shown.
    */
-  @Input() set showViewChanger(showViewChanger: boolean) {
-    this._calendarOptions.showViewChanger = showViewChanger;
+  @Input() set showViewChanger(showViewChanger: boolean | undefined) {
+    (this._calendarOptions as any).showViewChanger = showViewChanger;
     if (this.calendar) {
       this.calendar.settings.showViewChanger = showViewChanger;
       this.markForRefresh();
     }
   }
-  get showViewChanger(): boolean {
+  get showViewChanger(): boolean | undefined {
     if (this.calendar) {
       return this.calendar.settings.showViewChanger;
     }
 
-    return this._calendarOptions.showViewChanger;
+    return (this._calendarOptions as any).showViewChanger;
   }
 
   /**
    * If false the mouseover text or day event will not be shown.
    */
   @Input() set eventTooltip(eventTooltip: string | SohoCalendarTooltipFunction) {
-    this._calendarOptions.eventTooltip = eventTooltip;
+    (this._calendarOptions as any).eventTooltip = eventTooltip;
     if (this.calendar) {
       this.calendar.settings.eventTooltip = eventTooltip;
       this.markForRefresh();
@@ -250,35 +250,35 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   }
   get eventTooltip(): string | SohoCalendarTooltipFunction {
     if (this.calendar) {
-      return this.calendar.settings.eventTooltip;
+      return (this.calendar.settings as any).eventTooltip;
     }
 
-    return this._calendarOptions.eventTooltip;
+    return (this._calendarOptions as any).eventTooltip;
   }
 
   /**
    * If false the mouseover text for event icon will not be shown.
    */
   @Input() set iconTooltip(iconTooltip: string | SohoCalendarTooltipFunction) {
-    this._calendarOptions.iconTooltip = iconTooltip;
+    (this._calendarOptions as any).iconTooltip = iconTooltip;
     if (this.calendar) {
-      this.calendar.settings.iconTooltip = iconTooltip;
+      (this.calendar.settings as any).iconTooltip = iconTooltip;
       this.markForRefresh();
     }
   }
   get iconTooltip(): string | SohoCalendarTooltipFunction {
     if (this.calendar) {
-      return this.calendar.settings.iconTooltip;
+      return (this.calendar.settings as any).iconTooltip;
     }
 
-    return this._calendarOptions.iconTooltip;
+    return (this._calendarOptions as any).iconTooltip;
   }
 
   /**
    * Fires when a month is rendered, allowing you to pass back events or event types to show.
    */
   @Input() set renderMonthCallback(renderMonthCallback: Function) {
-    this._calendarOptions.onRenderMonth = renderMonthCallback;
+    (this._calendarOptions as any).onRenderMonth = renderMonthCallback;
     if (this.calendar) {
       this.calendar.settings.onRenderMonth = renderMonthCallback;
       this.markForRefresh();
@@ -286,172 +286,172 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   }
   get renderMonthCallback(): Function {
     if (this.calendar) {
-      return this.calendar.settings.onRenderMonth;
+      return (this.calendar.settings as any).onRenderMonth;
     }
 
-    return this._calendarOptions.onRenderMonth;
+    return (this._calendarOptions as any).onRenderMonth;
   }
 
   /**
    * Fires when a month day is clicked. Allowing you to do something.
    */
-  @Input() set selectedCallback(selectedCallback: Function) {
-    this._calendarOptions.onSelected = selectedCallback;
+  @Input() set selectedCallback(selectedCallback: Function | undefined) {
+    (this._calendarOptions as any).onSelected = selectedCallback;
     if (this.calendar) {
       this.calendar.settings.onSelected = selectedCallback;
       this.markForRefresh();
     }
   }
-  get selectedCallback(): Function {
+  get selectedCallback(): Function | undefined {
     if (this.calendar) {
       return this.calendar.settings.onSelected;
     }
 
-    return this._calendarOptions.onSelected;
+    return (this._calendarOptions as any).onSelected;
   }
 
   /**
    * The ID of the template used for the events.
    */
-  @Input() set template(template: string) {
-    this._calendarOptions.template = template;
+  @Input() set template(template: string  | undefined) {
+    (this._calendarOptions as any).template = template;
     if (this.calendar) {
       this.calendar.settings.template = template;
       this.markForRefresh();
     }
   }
-  get template(): string {
+  get template(): string | undefined {
     if (this.calendar) {
       return this.calendar.settings.template;
     }
 
-    return this._calendarOptions.template;
+    return (this._calendarOptions as any).template;
   }
 
   /**
    * How many days in advance should we show in the upcoming events pane.
    */
-  @Input() set upcomingEventDays(upcomingEventDays: number) {
-    this._calendarOptions.upcomingEventDays = upcomingEventDays;
+  @Input() set upcomingEventDays(upcomingEventDays: number | undefined ) {
+    (this._calendarOptions as any).upcomingEventDays = upcomingEventDays;
     if (this.calendar) {
       this.calendar.settings.upcomingEventDays = upcomingEventDays;
       this.markForRefresh();
     }
   }
-  get upcomingEventDays(): number {
+  get upcomingEventDays(): number | undefined {
     if (this.calendar) {
       return this.calendar.settings.upcomingEventDays;
     }
 
-    return this._calendarOptions.upcomingEventDays;
+    return (this._calendarOptions as any).upcomingEventDays;
   }
 
   /**
    * The ID of the template used for the modal dialog on events.
    */
-  @Input() set modalTemplate(modalTemplate: string) {
-    this._calendarOptions.modalTemplate = modalTemplate;
+  @Input() set modalTemplate(modalTemplate: string | undefined ) {
+    (this._calendarOptions as any).modalTemplate = modalTemplate;
     if (this.calendar) {
       this.calendar.settings.modalTemplate = modalTemplate;
       this.markForRefresh();
     }
   }
-  get modalTemplate(): string {
+  get modalTemplate(): string | undefined  {
     if (this.calendar) {
       return this.calendar.settings.modalTemplate;
     }
 
-    return this._calendarOptions.modalTemplate;
+    return (this._calendarOptions as any).modalTemplate;
   }
 
   /**
    * ID of the menu to use for an event right click context menu
    */
-  @Input() set menuId(menuId: string) {
-    this._calendarOptions.menuId = menuId;
+  @Input() set menuId(menuId: string | undefined ) {
+    (this._calendarOptions as any).menuId = menuId;
     if (this.calendar) {
       this.calendar.settings.menuId = menuId;
       this.markForRefresh();
     }
   }
-  get menuId(): string {
+  get menuId(): string | undefined {
     if (this.calendar) {
       return this.calendar.settings.menuId;
     }
 
-    return this._calendarOptions.menuId;
+    return (this._calendarOptions as any).menuId;
   }
 
   /**
    * Callback for the  right click context menu
    */
-  @Input() set menuSelected(menuSelected: string) {
-    this._calendarOptions.menuSelected = menuSelected;
+  @Input() set menuSelected(menuSelected: string | undefined ) {
+    (this._calendarOptions as any).menuSelected = menuSelected;
     if (this.calendar) {
       this.calendar.settings.menuSelected = menuSelected;
       this.markForRefresh();
     }
   }
-  get menuSelected(): string {
+  get menuSelected(): string | undefined  {
     if (this.calendar) {
       return this.calendar.settings.menuSelected;
     }
 
-    return this._calendarOptions.menuSelected;
+    return (this._calendarOptions as any).menuSelected;
   }
 
   /**
    * Initial event properties for the new events dialog.
    */
-  @Input() set newEventDefaults(newEventDefaults: SohoCalendarEvent) {
-    this._calendarOptions.newEventDefaults = newEventDefaults;
+  @Input() set newEventDefaults(newEventDefaults: SohoCalendarEvent | undefined ) {
+    (this._calendarOptions as any).newEventDefaults = newEventDefaults;
     if (this.calendar) {
       this.calendar.settings.newEventDefaults = newEventDefaults;
       this.markForRefresh();
     }
   }
-  get newEventDefaults(): SohoCalendarEvent {
+  get newEventDefaults(): SohoCalendarEvent | undefined  {
     if (this.calendar) {
       return this.calendar.settings.newEventDefaults;
     }
 
-    return this._calendarOptions.newEventDefaults;
+    return (this._calendarOptions as any).newEventDefaults;
   }
 
   /**
    * Call back for when the view changer is changed
    */
-  @Input() set changeViewCallback(changeViewCallback: Function) {
-    this._calendarOptions.onChangeView = changeViewCallback;
+  @Input() set changeViewCallback(changeViewCallback: Function | undefined ) {
+    (this._calendarOptions as any).onChangeView = changeViewCallback;
     if (this.calendar) {
       this.calendar.settings.onChangeView = changeViewCallback;
       this.markForRefresh();
     }
   }
-  get changeViewCallback(): Function {
+  get changeViewCallback(): Function | undefined  {
     if (this.calendar) {
       return this.calendar.settings.onChangeView;
     }
 
-    return this._calendarOptions.onChangeView;
+    return (this._calendarOptions as any).onChangeView;
   }
 
   /**
    * Deterimines if the today button should be shown.
    */
-  @Input() set showToday(showToday: boolean) {
-    this._calendarOptions.showToday = showToday;
+  @Input() set showToday(showToday: boolean | undefined ) {
+    (this._calendarOptions as any).showToday = showToday;
     if (this.calendar) {
       this.calendar.settings.showToday = showToday;
       this.markForRefresh();
     }
   }
-  get showToday(): boolean {
+  get showToday(): boolean | undefined  {
     if (this.calendar) {
       return this.calendar.settings.showToday;
     }
 
-    return this._calendarOptions.showToday;
+    return (this._calendarOptions as any).showToday;
   }
 
   // -------------------------------------------
@@ -466,11 +466,11 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * Local variables
    */
-  private jQueryElement: JQuery;
-  private calendar: SohoCalendar;
-  private _calendarOptions: SohoCalendarOptions = {};
-  private _calendarWeekOptions: SohoCalendarWeekOptions = {};
-  private updateRequired: boolean;
+  private jQueryElement?: JQuery;
+  private calendar?: SohoCalendar | null;
+  private _calendarOptions?: SohoCalendarOptions = {};
+  private _calendarWeekOptions?: SohoCalendarWeekOptions = {};
+  private updateRequired?: boolean;
 
   constructor(
     private element: ElementRef,
@@ -485,11 +485,11 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
 
       // Add listeners to emit events
       this.jQueryElement
-        .on('selected', (e: any, event: SohoCalendarDateSelectedEvent) => this.onSelectedEvent(event))
-        .on('monthrendered', (e: any, args: SohoCalendarRenderMonthEvent) => this.onMonthRenderedEvent(args))
-        .on('eventclick', (e: any, args: SohoCalendarEventClickEvent) => this.onEventClick(args))
-        .on('eventdblclick', (e: any, args: SohoCalendarEventClickEvent) => this.onEventDblClick(args))
-        .on('contextmenu', (e: any, args: SohoCalendarEventClickEvent) => this.onEventContextMenu(args));
+        .on('selected', (_e: any, event: SohoCalendarDateSelectedEvent) => this.onSelectedEvent(event))
+        .on('monthrendered', (_e: any, args: SohoCalendarRenderMonthEvent) => this.onMonthRenderedEvent(args))
+        .on('eventclick', (_e: any, args: SohoCalendarEventClickEvent) => this.onEventClick(args))
+        .on('eventdblclick', (_e: any, args: SohoCalendarEventClickEvent) => this.onEventDblClick(args))
+        .on('contextmenu', (_e: any, args: SohoCalendarEventClickEvent) => this.onEventContextMenu(args));
 
       // Initialise the Soho control.
       this.jQueryElement.calendar(this._calendarOptions);
@@ -539,7 +539,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
    * @returns the currently selected date on the control.
    */
   currentDate(): Date {
-    return this.ngZone.runOutsideAngular(() => this.calendar.currentDate());
+    return this.ngZone.runOutsideAngular(() => (this.calendar as any).currentDate());
   }
 
   /**
@@ -549,7 +549,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
    * @returns dayEvents An object with all the events and the event date.
    */
   getDayEvents(date: Date): SohoCalendarDayEvents {
-    return this.ngZone.runOutsideAngular(() => this.calendar.getDayEvents(date));
+    return this.ngZone.runOutsideAngular(() => (this.calendar as any).getDayEvents(date));
   }
 
   /**
@@ -558,7 +558,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
    * @param event The event object with common event properties.
    */
   addEvent(event: SohoCalendarEvent): void {
-    this.ngZone.runOutsideAngular(() => this.calendar.addEvent(event));
+    this.ngZone.runOutsideAngular(() => (this.calendar as any).addEvent(event));
   }
 
   /**
@@ -568,7 +568,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
    * @param event The event object with common event properties.
    */
   updateEvent(event: SohoCalendarEvent): void {
-    this.ngZone.runOutsideAngular(() => this.calendar.updateEvent(event));
+    this.ngZone.runOutsideAngular(() => (this.calendar as any).updateEvent(event));
   }
 
   /**
@@ -577,7 +577,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
    * @param event The event object with common event properties.
    */
   deleteEvent(event: SohoCalendarEvent): void {
-    this.ngZone.runOutsideAngular(() => this.calendar.deleteEvent(event));
+    this.ngZone.runOutsideAngular(() => (this.calendar as any).deleteEvent(event));
   }
 
   /**
@@ -587,28 +587,28 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
    * @param done The callback for when the modal closes.
    */
   showEventModal(event: SohoCalendarEvent[], done: Function): void {
-    this.ngZone.runOutsideAngular(() => this.calendar.showEventModal(event, done));
+    this.ngZone.runOutsideAngular(() => (this.calendar as any).showEventModal(event, done));
   }
 
   /**
    * @returns whether or not this Modal is currently being displayed
    */
   modalVisible(): boolean {
-    return this.ngZone.runOutsideAngular(() => this.calendar.modalVisible());
+    return this.ngZone.runOutsideAngular(() => (this.calendar as any).modalVisible());
   }
 
   /**
    * Remove all events from the calendar
    */
   clearEvents() {
-    this.ngZone.runOutsideAngular(() => this.calendar.clearEvents());
+    this.ngZone.runOutsideAngular(() => (this.calendar as any).clearEvents());
   }
 
   /**
    * Handle updated settings and values.
    */
   updated(settings?: SohoCalendarOptions) {
-    this.ngZone.runOutsideAngular(() => this.calendar.updated(settings));
+    this.ngZone.runOutsideAngular(() => (this.calendar as any).updated(settings));
   }
 
   /**
