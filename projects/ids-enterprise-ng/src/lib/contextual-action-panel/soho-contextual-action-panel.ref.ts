@@ -297,10 +297,18 @@ export class SohoContextualActionPanelRef<T> {
     });
 
     // Add listeners to control events
-    this.jQueryElement?.on('close.contextualactionpanel', ((event: any, isCancelled: boolean) => { this.onClose(event, isCancelled); }));
-    this.jQueryElement?.on('open.contextualactionpanel', ((event: any) => { this.onOpen(event); }));
-    (this.contextualactionpanel as any).panel?.on('afterclose.contextualactionpanel', ((event: any) => { this.onAfterClose(event); }));
-    (this.contextualactionpanel as any).panel?.on('afteropen.contextualactionpanel', ((event: any) => { this.onAfterOpen(event); }));
+    this.jQueryElement?.on('close.contextualactionpanel', ((event: any, isCancelled: boolean) => {
+      this.onClose(event, isCancelled);
+    }));
+    this.jQueryElement?.on('open.contextualactionpanel', ((event: any) => {
+      this.onOpen(event);
+    }));
+    (this.contextualactionpanel as any).panel?.on('afterclose.contextualactionpanel', ((event: any) => {
+      this.onAfterClose(event);
+    }));
+    (this.contextualactionpanel as any).panel?.on('afteropen.contextualactionpanel', ((event: any) => {
+      this.onAfterOpen(event);
+    }));
 
     return this;
   }
@@ -333,7 +341,9 @@ export class SohoContextualActionPanelRef<T> {
    * @param eventFn - the function to invoke when the panel is to be opened.
    */
   opened(eventFn: Function): SohoContextualActionPanelRef<T> | null {
-    this.open$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => { eventFn(f, this); });
+    this.open$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => {
+      eventFn(f, this);
+    });
     return this;
   }
 
@@ -344,7 +354,9 @@ export class SohoContextualActionPanelRef<T> {
    * @param eventFn - the function to invoke when the panel is to be opened.
    */
   afterOpen(eventFn: Function): SohoContextualActionPanelRef<T> | null {
-    this.afterOpen$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => { eventFn(f, this); });
+    this.afterOpen$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => {
+      eventFn(f, this);
+    });
     return this;
   }
 
@@ -356,7 +368,9 @@ export class SohoContextualActionPanelRef<T> {
    * @param eventFn - the function to invoke when the panel is to be closed.
    */
   closed(eventFn: SohoContextualActionPanelEventFunction<T>): SohoContextualActionPanelRef<T> | null {
-    this.close$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => { eventFn(result, this, (this.componentPanel as any)); });
+    this.close$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => {
+      eventFn(result, this, (this.componentPanel as any));
+    });
     return this;
   }
 

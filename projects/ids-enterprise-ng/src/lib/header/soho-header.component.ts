@@ -15,7 +15,9 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoHeaderComponent implements AfterViewInit {
-  @HostBinding('class.header') get isHeader() { return true; }
+  @HostBinding('class.header') get isHeader() {
+    return true;
+  }
   @HostBinding('class.is-personalizable') get isPersonalizable() { return true; }
   @HostBinding('class.has-toolbar') @Input() hasToolbar: any;
   @HostBinding('class.has-tabs') @Input() hasTabs: any;
@@ -55,6 +57,8 @@ export class SohoHeaderComponent implements AfterViewInit {
     this.header = this.jQueryElement.data('header');
 
     // Initialize any event handlers.
-    this.jQueryElement.on('updated', (_e: JQuery.TriggeredEvent, args: any) => { this.updated.emit(args); });
+    this.jQueryElement.on('updated', (_e: JQuery.TriggeredEvent, args: any) => {
+      this.updated.emit(args);
+    });
   }
 }

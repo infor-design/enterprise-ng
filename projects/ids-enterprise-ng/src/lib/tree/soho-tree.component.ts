@@ -397,7 +397,9 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
       // tree nodes rather then an intermediate wrapper, but to clean up
       // the api we dispose of the extra information here.
       this.tree?.getSelectedNodes().forEach(
-        (n) => { result.push(n.data); }
+        (n) => {
+          result.push(n.data);
+        }
       );
     }
     return result;

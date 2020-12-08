@@ -27,7 +27,11 @@ export class MessageDemoComponent {
 
   openError() {
     const buttons = [
-      { text: 'Restart Now', click: (_e: any, modal: any) => { modal.close(true); (this.dialog as any) = null; }, isDefault: true }
+      {
+        text: 'Restart Now', click: (_e: any, modal: any) => {
+          modal.close(true); (this.dialog as any) = null;
+        }, isDefault: true
+      }
     ];
 
     this.dialog = this.messageService
@@ -70,7 +74,11 @@ export class MessageDemoComponent {
           this.closeResult = 'Cancel'; (this.dialog as any) = null; modal.close(true);
         }, isDefault: true
       },
-      { text: 'Remove', click: (_e: any, modal: any) => { this.closeResult = 'Remove'; (this.dialog as any) = null; modal.close(true); } }];
+      {
+        text: 'Remove', click: (_e: any, modal: any) => {
+          this.closeResult = 'Remove'; (this.dialog as any) = null; modal.close(true);
+        }
+      }];
 
     this.dialog = this.messageService
       .confirm()
@@ -117,7 +125,11 @@ export class MessageDemoComponent {
           this.closeResult = 'Yes'; (this.dialog as any) = null; modal.close(true);
         }, isDefault: true
       },
-      { text: 'No', click: (_e: any, modal: any) => { this.closeResult = 'No'; (this.dialog as any) = null; modal.close(true); } }];
+      {
+        text: 'No', click: (_e: any, modal: any) => {
+          this.closeResult = 'No'; (this.dialog as any) = null; modal.close(true);
+        }
+      }];
 
     this.dialog = (this.messageService as any)
       .message()
