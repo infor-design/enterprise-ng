@@ -89,7 +89,7 @@ export class ToolbarFlexSearchfieldDemoComponent {
    * Change Event, fired by the Radio Buttons that control `collapseSize`, when they are changed.
    */
   onCollapseSizeChange(event: JQuery.TriggeredEvent) {
-    const value: number = Number(event.target.value);
+    const value = Number(event.target.value);
     const mapping: any = {
       0: 'undefined (CSS-Driven)',
       1: 'Static Number (200)',
