@@ -576,7 +576,9 @@ export class SohoModalDialogRef<T> {
    * @param eventFn - the function to invoke when the dialog is to be closed.
    */
   closed(eventFn: SohoModalDialogEventFunction<T>): SohoModalDialogRef<T> {
-    this.close$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => { eventFn(f, this, (this.componentDialog as any)); });
+    this.close$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => { 
+      eventFn(f, this, (this.componentDialog as any)); 
+    });
     return this;
   }
 
@@ -589,9 +591,11 @@ export class SohoModalDialogRef<T> {
    * @param eventFn - the function to invoke after the dialog has been closed.
    */
   afterClose(eventFn: SohoModalDialogEventFunction<T>): SohoModalDialogRef<T> {
-    this.afterClose$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => { eventFn(result, this, (this.componentDialog as any)); });
+    this.afterClose$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => {
+       eventFn(result, this, (this.componentDialog as any)); 
+      });
     return this;
-  }
+    }
 
   /**
    * Registers a before destroy guard.

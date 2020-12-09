@@ -15,10 +15,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoHeaderComponent implements AfterViewInit {
-  @HostBinding('class.header') get isHeader() {
-    return true;
-  }
-  @HostBinding('class.is-personalizable') get isPersonalizable() { return true; }
+  @HostBinding('class.header') isHeader = true;
+  @HostBinding('class.is-personalizable') isPersonalizable = true;
   @HostBinding('class.has-toolbar') @Input() hasToolbar: any;
   @HostBinding('class.has-tabs') @Input() hasTabs: any;
 

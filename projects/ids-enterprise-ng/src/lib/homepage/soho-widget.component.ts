@@ -59,9 +59,9 @@ export class SohoWidgetComponent implements AfterViewInit {
       this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
       this.jQueryElement
-        .on('resizecard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => { this.onResizeCard(card, metadata); })
-        .on('reordercard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => { this.onReorderCard(card, metadata); })
-        .on('removecard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => { this.onRemoveCard(card, metadata); });
+        .on('resizecard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onResizeCard(card, metadata))
+        .on('reordercard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onReorderCard(card, metadata))
+        .on('removecard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onRemoveCard(card, metadata));
     });
   }
 

@@ -28,11 +28,13 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
     style: 'default'
   };
 
-  @HostBinding('class.breadcrumb') get isBreadcrumb() { return true; }
+  @HostBinding('class.breadcrumb') get isBreadcrumb() {
+    return true;
+  }
 
   /** Allow Breadcrumb Definition by Input */
   @Input()
-  public set breadcrumbs(items: SohoBreadcrumbItemOptions[] | undefined ) {
+  public set breadcrumbs(items: SohoBreadcrumbItemOptions[] | undefined) {
     this.options.breadcrumbs = items;
     this.updated();
   }
@@ -52,7 +54,7 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
 
   /** Add truncatling behavior when a lot of items */
   @Input()
-  public set truncate(truncate: boolean | undefined ) {
+  public set truncate(truncate: boolean | undefined) {
     this.options.truncate = truncate;
     this.updated();
   }
@@ -79,7 +81,7 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
   }
 
   /** Provides access to the IDS Breadcrumb's disabled property */
-  public get disabled(): boolean | undefined  {
+  public get disabled(): boolean | undefined {
     return this.breadcrumbAPI?.disabled;
   }
 
@@ -127,8 +129,8 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
 
   enable(): void {
     if (!this.breadcrumbAPI) {
- return;
-}
+      return;
+    }
 
     this.ngZone.runOutsideAngular(() => {
       this.breadcrumbAPI?.enable();
@@ -137,8 +139,8 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
 
   disable(): void {
     if (!this.breadcrumbAPI) {
- return;
-}
+      return;
+    }
 
     this.ngZone.runOutsideAngular(() => {
       this.breadcrumbAPI?.disable();
@@ -150,8 +152,8 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
    */
   add(settings?: SohoBreadcrumbItemOptions, doRender?: boolean) {
     if (!this.breadcrumbAPI) {
- return;
-}
+      return;
+    }
 
     this.ngZone.runOutsideAngular(() => {
       this.breadcrumbAPI?.add(settings, doRender);
@@ -163,8 +165,8 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
    */
   remove(item: SohoBreadcrumbRef, doRender?: boolean) {
     if (!this.breadcrumbAPI) {
- return;
-}
+      return;
+    }
 
     this.ngZone.runOutsideAngular(() => {
       this.breadcrumbAPI?.remove(item, doRender);
@@ -176,8 +178,8 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
    */
   removeAll(doRender?: boolean) {
     if (!this.breadcrumbAPI) {
- return;
-}
+      return;
+    }
 
     this.ngZone.runOutsideAngular(() => {
       this.breadcrumbAPI?.removeAll(doRender);
@@ -193,8 +195,8 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
    */
   getBreadcrumbItem(item: SohoBreadcrumbRef) {
     if (!this.breadcrumbAPI) {
- return;
-}
+      return;
+    }
 
     return this.breadcrumbAPI.getBreadcrumbItemAPI(item);
   }
@@ -205,8 +207,8 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
    */
   makeCurrent(item: SohoBreadcrumbRef): void {
     if (!this.breadcrumbAPI) {
- return;
-}
+      return;
+    }
 
     this.ngZone.runOutsideAngular(() => {
       this.breadcrumbAPI?.makeCurrent(item);
@@ -222,8 +224,8 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
     }
 
     if (!this.breadcrumbAPI) {
- return;
-}
+      return;
+    }
 
     this.ngZone.runOutsideAngular(() => {
       this.breadcrumbAPI?.updated(this.options);
@@ -235,8 +237,8 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
    */
   destroy() {
     if (!this.breadcrumbAPI) {
- return;
-}
+      return;
+    }
 
     this.ngZone.runOutsideAngular(() => {
       this.breadcrumbAPI?.destroy();
@@ -245,7 +247,7 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
 }
 
 @Component({
-  selector: '[soho-breadcrumb-list]', // tslint:disable-line
+  selector: '[soho-breadcrumb-list]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })

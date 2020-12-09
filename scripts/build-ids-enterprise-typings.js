@@ -59,6 +59,14 @@ function executeUpdate(cmd) {
 //   Main
 // -------------------------------------
 
+fs.mkdir('./dist', (err) => {
+  if (err) {
+    throw err;
+  } else {
+    console.log(`copied typings to ${distTypingpath}`);
+  }
+});
+
 fs.copy(libTypingsPath, distTypingpath, (err) => {
   if (err) {
     throw err;

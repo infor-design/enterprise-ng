@@ -73,14 +73,13 @@ import { SohoWizardComponent } from './soho-wizard.component';
 })
 export class SohoWizardButtonbarComponent {
 
+  // @todo need types for these button, these seem to be different from SohoButtonOptions
   @Input()
-  public buttons = [
+  public buttons: any[] = [
     {
       id: 'previous',
       text: Soho.Locale.translate('Previous'),
-      click: () => {
- this.wizard.previous();
-},
+      click: () => this.wizard.previous(),
       disabled: () => !this.wizard.hasPrevious(),
       position: 'middle'
     },
@@ -88,8 +87,8 @@ export class SohoWizardButtonbarComponent {
       id: 'next',
       text: Soho.Locale.translate('Next'),
       click: () => {
- this.wizard.next();
-},
+        this.wizard.next();
+      },
       disabled: () => !this.wizard.hasNext(),
       isDefault: true,
       position: 'middle'
@@ -98,8 +97,8 @@ export class SohoWizardButtonbarComponent {
       id: 'finish',
       text: 'Finish', // Soho.Locale.translate('Finish'),
       click: () => {
- this.wizard.finish();
-},
+        this.wizard.finish();
+      },
       disabled: () => this.wizard.hasFinished(),
       position: 'right'
     }];
