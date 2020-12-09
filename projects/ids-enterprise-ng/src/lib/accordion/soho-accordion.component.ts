@@ -379,40 +379,40 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
       this.jQueryElement
         .on('beforeexpand', (event: SohoAccordionEvent, anchor) =>
           this.ngZone.run(() => {
- event.anchor = anchor; this.beforeexpandEvent.emit(event);
-}))
+            event.anchor = anchor; this.beforeexpandEvent.emit(event);
+          }))
         .on('beforecollapse', (event: SohoAccordionEvent, anchor) =>
           this.ngZone.run(() => {
- event.anchor = anchor; this.beforecollapseEvent.emit(event);
-}))
+            event.anchor = anchor; this.beforecollapseEvent.emit(event);
+          }))
         .on('beforeselect', (event: SohoAccordionEvent, anchor) =>
           this.ngZone.run(() => {
- event.anchor = anchor; this.beforeselectEvent.emit(event);
-}))
+            event.anchor = anchor; this.beforeselectEvent.emit(event);
+          }))
         .on('selected', (event: SohoAccordionEvent, anchor) =>
           this.ngZone.run(() => {
- event.anchor = anchor; this.selectedEvent.emit(event);
-}))
+            event.anchor = anchor; this.selectedEvent.emit(event);
+          }))
         .on('followlink', (event: SohoAccordionEvent, anchor) =>
           this.ngZone.run(() => {
- event.anchor = anchor; this.followlinkEvent.emit(event);
-}))
+            event.anchor = anchor; this.followlinkEvent.emit(event);
+          }))
         .on('expand', (event: SohoAccordionEvent, anchor) =>
           this.ngZone.run(() => {
- event.anchor = anchor; this.expandEvent.emit(event);
-}))
+            event.anchor = anchor; this.expandEvent.emit(event);
+          }))
         .on('afterexpand', (event: SohoAccordionEvent, anchor) =>
           this.ngZone.run(() => {
- event.anchor = anchor; this.afterexpandEvent.emit(event);
-}))
+            event.anchor = anchor; this.afterexpandEvent.emit(event);
+          }))
         .on('collapse', (event: SohoAccordionEvent, anchor) =>
           this.ngZone.run(() => {
- event.anchor = anchor; this.collapseEvent.emit(event);
-}))
+            event.anchor = anchor; this.collapseEvent.emit(event);
+          }))
         .on('aftercollapse', (event: SohoAccordionEvent, anchor) =>
           this.ngZone.run(() => {
- event.anchor = anchor; this.aftercollapseEvent.emit(event);
-}));
+            event.anchor = anchor; this.aftercollapseEvent.emit(event);
+          }));
 
       // Initialise the SohoXi Control
       this.jQueryElement.accordion(this.options);
