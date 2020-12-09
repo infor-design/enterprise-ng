@@ -61,9 +61,9 @@ function executeUpdate(cmd) {
 
 fs.mkdir('./dist', (err) => {
   if (err) {
-    throw err;
+    // Already exists
   } else {
-    console.log(`copied typings to ${distTypingpath}`);
+    console.log(`created 'dist' folder`);
   }
 });
 

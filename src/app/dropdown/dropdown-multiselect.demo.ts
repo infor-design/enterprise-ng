@@ -116,6 +116,7 @@ export class DropdownMultiselectDemoComponent implements OnInit {
     // rebuild options using current model value to set the selected state
     const values = this.model.multiSourceAlpha.value;
     const options: any = [];
+    // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let index = 0; index < this.statesAlpha.length; index++) {
       const state = this.statesAlpha[index];
       const isSelected = (values.includes(state.value)) ? true : undefined;
@@ -136,6 +137,7 @@ export class DropdownMultiselectDemoComponent implements OnInit {
     // rebuild options using current model value to set the selected state
     const values = this.model.multiSourceNumeric.value;
     const options: any = [];
+    // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let index = 0; index < this.statesNumeric.length; index++) {
       const state = this.statesNumeric[index];
       const isSelected = (values.includes(state.value)) ? true : undefined;

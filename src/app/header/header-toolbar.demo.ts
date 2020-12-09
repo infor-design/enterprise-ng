@@ -46,9 +46,11 @@ export class HeaderToolbarDemoComponent implements AfterViewInit, OnDestroy {
   }
 
   onToggleHeaderToolbar(_event: any) {
-    (this.sohoHeaderRef.instance as any).hasHeaderToolbar ?
-      this.removeHeaderToolbar() :
+    if ((this.sohoHeaderRef.instance as any).hasHeaderToolbar) {
+      this.removeHeaderToolbar();;
+    } else {
       this.showHeaderToolbar();
+    }
   }
 
   onToolbarButtonClicked(event: any) {
