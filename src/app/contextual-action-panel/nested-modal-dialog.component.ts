@@ -42,9 +42,9 @@ export class NestedModalDialogComponent {
       .modal(NestedModalDialogComponent, this.placeholder)
       .title(`Modal Dialog no. '${++NestedModalDialogComponent.s_depth}'.`)
       .buttons(
-        [{ text: 'Cancel', click: (_e: any, modal: any) => { modal.close(true); } },
-        { text: 'OK', click: (_e: any, modal: any) => { modal.close(true); }, isDefault: true }])
-      .afterClose((_f: any) => { NestedModalDialogComponent.s_depth--; })
+        [{ text: 'Cancel', click: (_e: any, modal: any) => modal.close(true) },
+        { text: 'OK', click: (_e: any, modal: any) => modal.close(true), isDefault: true }])
+      .afterClose((_f: any) => NestedModalDialogComponent.s_depth--)
       .open();
   }
 }

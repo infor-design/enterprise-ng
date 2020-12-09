@@ -532,7 +532,7 @@ export class DataGridExpandableRowNestedDemoComponent
         formatter: Soho.Formatters.Button,
         icon: 'delete',
         headerTooltip: 'Delete',
-        click: function (_e, args) {
+        click: (_e, args) => {
           console.log(args[0].cell, args[0].row, args[0].item.id);
         },
       },
