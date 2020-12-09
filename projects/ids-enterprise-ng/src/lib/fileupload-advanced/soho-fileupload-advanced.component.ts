@@ -412,27 +412,19 @@ export class SohoFileUploadAdvancedComponent implements AfterViewInit, AfterView
         });
       })
       .on('filesdroped', (_args: JQuery.TriggeredEvent, files: File[]) => {
-        this.ngZone.run(() => { this.filesdropped.next(files); });
+        this.ngZone.run(() => this.filesdropped.next(files));
       })
       .on('beforecreatestatus', (_args: JQuery.TriggeredEvent, files: File[]) => {
-        this.ngZone.run(() => {
-          this.beforecreatestatus.next(files);
-        });
+        this.ngZone.run(() => this.beforecreatestatus.next(files));
       })
       .on('aftercreatestatus', (_args: JQuery.TriggeredEvent, files: File[]) => {
-        this.ngZone.run(() => {
-          this.aftercreatestatus.next(files);
-        });
+        this.ngZone.run(() => this.aftercreatestatus.next(files));
       })
       .on('fileprogress', (_args: JQuery.TriggeredEvent, files: File[]) => {
-        this.ngZone.run(() => {
-          this.fileprogress.next(files);
-        });
+        this.ngZone.run(() => this.fileprogress.next(files));
       })
       .on('fileaborted', (_args: JQuery.TriggeredEvent, files: File[]) => {
-        this.ngZone.run(() => {
-          this.fileaborted.next(files);
-        });
+        this.ngZone.run(() => this.fileaborted.next(files));
       })
       .on('filecompleteuploading', (_args: JQuery.TriggeredEvent, files: File[]) => {
         this.ngZone.run(() => {

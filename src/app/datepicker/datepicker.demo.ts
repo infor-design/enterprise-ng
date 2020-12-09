@@ -107,7 +107,7 @@ export class DatepickerDemoComponent implements OnInit {
 
   registerCustomValidator() {
     const customRule: any = {
-      check: function (value: any, field: any, grid: any) {
+      check: (value: any, field: any, grid: any) => {
         console.log(value, field, grid);
         return false;
       },

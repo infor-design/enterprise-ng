@@ -252,5 +252,5 @@ export class SohoBreadcrumbComponent implements AfterViewInit, OnDestroy, OnInit
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoBreadcrumbListComponent {
-  @HostBinding('class.breadcrumb-list') get isBreadcrumbList() { return true; }
+  @HostBinding('class.breadcrumb-list') isBreadcrumbList = true;
 }
