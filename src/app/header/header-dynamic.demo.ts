@@ -64,7 +64,7 @@ export class SohoHeaderDynamicDemoComponent {
   /**
    * Get the current toolbar options.
    */
-  public get tabOptions(): HeaderDynamicTabsetOptions {
+  public get tabOptions(): HeaderDynamicTabsetOptions | undefined {
     return this.currentTabsOptions;
   }
 

@@ -8,8 +8,8 @@ import { SohoTrackDirtyDirective, SohoErrorDirective } from 'ids-enterprise-ng';
   templateUrl: 'validation-form-event.demo.html'
 })
 export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
-  @ViewChildren(SohoTrackDirtyDirective) trackDirtyComponents: QueryList<SohoTrackDirtyDirective>;
-  @ViewChild(SohoErrorDirective, { static: true }) errorDirective: SohoErrorDirective; // eslint-disable-line
+  @ViewChildren(SohoTrackDirtyDirective) trackDirtyComponents!: QueryList<SohoTrackDirtyDirective>;
+  @ViewChild(SohoErrorDirective, { static: true }) errorDirective!: SohoErrorDirective; // eslint-disable-line
 
   public dataView: any = {
     EventField: {
