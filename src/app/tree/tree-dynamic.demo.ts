@@ -12,7 +12,7 @@ import {
 import { SohoTreeComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'app-tree-dynamic-demo',
+  selector: 'demo-tree-dynamic-demo',
   templateUrl: 'tree-dynamic.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -73,7 +73,7 @@ export class TreeDynamicDemoComponent implements AfterViewInit {
     return this.source;
   }
 
-  constructor() {}
+  constructor() { }
 
   expandAll() {
     this.tree?.expandAll();

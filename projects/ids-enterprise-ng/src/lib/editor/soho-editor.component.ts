@@ -19,7 +19,7 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: '[soho-editor]', // tslint:disable-line
+  selector: '[soho-editor]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoEditorComponent)]
@@ -78,6 +78,10 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
+  get disabled(): boolean | undefined {
+    return this.isDisabled;
+  }
+
   /**
    * Sets the control to readonly
    */
@@ -101,6 +105,10 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
         this.isDisabled = false;
       });
     }
+  }
+
+  get readonly(): boolean | undefined {
+    return this.isReadOnly;
   }
 
   @Input() set delay(delay: number) {
@@ -200,9 +208,13 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
+
   /**
    * Called when the editor value changes
+   *
+   * @todo replace override of native attribute
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() change = new EventEmitter<SohoEditorEvent>();
 
   /**
@@ -213,13 +225,6 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   // -------------------------------------------
   // Public API
   // -------------------------------------------
-
-  get disabled(): boolean | undefined {
-    return this.isDisabled;
-  }
-  get readonly(): boolean | undefined {
-    return this.isReadOnly;
-  }
 
   // -------------------------------------------
   // Private Member Data
@@ -232,11 +237,12 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   private editor?: SohoEditorStatic | null;
 
   /**
-  * Creates an instance of SohoEditorComponent.
-  * @param element the element this component encapsulates.
-  * @param ngZone the angualar zone for this component.
-  * @param ref reference to the change detector
-  */
+   * Creates an instance of SohoEditorComponent.
+   *
+   * @param element the element this component encapsulates.
+   * @param ngZone the angualar zone for this component.
+   * @param ref reference to the change detector
+   */
   constructor(
     private element: ElementRef<HTMLElement>,
     private ngZone: NgZone,
@@ -344,8 +350,8 @@ export class SohoEditorComponent extends BaseControlValueAccessor<any> implement
   }
 
   /**
-    * Marks the components as requiring a rebuild after the next update.
-    */
+   * Marks the components as requiring a rebuild after the next update.
+   */
   markForRefresh() {
     // Run updated on the next updated check.
     this.runUpdatedOnCheck = true;

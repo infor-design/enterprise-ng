@@ -4,14 +4,16 @@ import { Injectable, NgZone } from '@angular/core';
 export class SohoRenderLoopService {
   private renderLoopCount = 0;
 
-  constructor(private ngZone: NgZone) {}
+  constructor(private ngZone: NgZone) { }
 
   /**
    * Start the entire render loop
    */
   start() {
     this.ngZone.runOutsideAngular(() => {
-      Soho.renderLoop.register(() => { this.renderLoopCount++; }, undefined, 'angular-timer-count');
+      Soho.renderLoop.register(() => {
+        this.renderLoopCount++;
+      }, undefined, 'angular-timer-count');
       Soho.renderLoop.start();
     });
   }

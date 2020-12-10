@@ -14,14 +14,13 @@ import {
   Optional,
   ChangeDetectorRef
 } from '@angular/core';
-
 import {
   NgControl,
   ControlValueAccessor
 } from '@angular/forms';
 
 @Component({
-  selector: 'input[soho-colorpicker]', // tslint:disable-line
+  selector: 'input[soho-colorpicker]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -94,6 +93,10 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
     }
   }
 
+  get disabled() {
+    return this.isDisabled;
+  }
+
   /**
    * Enables or disables editing
    */
@@ -114,6 +117,10 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
         this.isEditable = false;
       }
     }
+  }
+
+  get editable() {
+    return this.isEditable;
   }
 
   /**
@@ -212,6 +219,10 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
     }
   }
 
+  get readonly() {
+    return this.isReadOnly;
+  }
+
   /**
    * Sets the control to show color label
    */
@@ -225,32 +236,27 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
     }
   }
 
+  get showLabel() {
+    return this.isShowLabel;
+  }
+
   /**
    * Called when the colorpicker value changes
+   *
+   * @todo replace override of native attribute
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() change: EventEmitter<SohoColorPickerEvent> = new EventEmitter<SohoColorPickerEvent>();
 
   /**
    * Called when the colorpicker updates in some way.
    */
-  @Output('updated')  // tslint:disable-line
+  @Output('updated')  // eslint-disable-line
   updatedEvent: EventEmitter<JQuery.TriggeredEvent> = new EventEmitter<JQuery.TriggeredEvent>();
 
   /**
    * Public API
    */
-  get disabled(): boolean | undefined {
-    return this.isDisabled;
-  }
-  get editable(): boolean | undefined {
-    return this.isEditable;
-  }
-  get readonly(): boolean | undefined {
-    return this.isReadOnly;
-  }
-  get showLabel(): boolean | undefined {
-    return this.isShowLabel;
-  }
   getLabelValue() {
     return this.colorpicker.getLabelValue();
   }
@@ -267,6 +273,7 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
 
   /**
    * Creates an instance of SohoColorPickerComponent.
+   *
    * @param element the element this component encapsulates.
    * @param ngZone the angualar zone for this component
    * @param ngControl any associated form control (optional)
@@ -283,8 +290,8 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
       // Wrap the accessor to allow updates to be pushed,
       // but also use the standard accessors provided by angular.
       this.valueAccessor =
-        new SohoColorPickerComponentValueAccessorDelegator( // tslint:disable-line
-          (this.ngControl.valueAccessor as any), this); // tslint:disable-line
+        new SohoColorPickerComponentValueAccessorDelegator( // teslint-disable-line
+          (this.ngControl.valueAccessor as any), this); // eslint-disable-line
 
       // ... change the accessor on the control to use ours.
       this.ngControl.valueAccessor = this.valueAccessor;
@@ -381,8 +388,8 @@ export class SohoColorPickerComponent implements AfterViewInit, AfterViewChecked
   }
 
   /**
-  * Marks the components as requiring a rebuild after the next update.
-  */
+   * Marks the components as requiring a rebuild after the next update.
+   */
   markForRefresh() {
     // Run updated on the next updated check.
     this.runUpdatedOnCheck = true;

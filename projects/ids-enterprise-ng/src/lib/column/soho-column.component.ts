@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-column]', // tslint:disable-line
+  selector: '[soho-column]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -171,6 +171,11 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
   @Output() selected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();
   @Output() unselected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * @todo replace override of native attribute
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object>();
 
   private jQueryElement?: JQuery;

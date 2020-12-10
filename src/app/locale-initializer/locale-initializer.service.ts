@@ -20,6 +20,7 @@ export class LocaleInitializerService {
 
   /**
    * Constructor.
+   *
    * @param locale the locale being displayed.
    * @param baseHref the base url of the web app
    */

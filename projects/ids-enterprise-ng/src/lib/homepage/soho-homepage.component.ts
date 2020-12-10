@@ -12,12 +12,16 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'div[soho-homepage]', // tslint:disable-line
+  selector: 'div[soho-homepage]', // eslint-disable-line
   template: `<div class="content"><ng-content></ng-content></div>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
 
+  /**
+   * @todo replace override of native attribute
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-rename, @angular-eslint/no-output-native
   @Output() resize = new EventEmitter<SohoHomePageEvent>();
   @Output() resizecard = new EventEmitter<SohoHomePageEditEvent>();
   @Output() reordercard = new EventEmitter<SohoHomePageEditEvent>();
@@ -102,6 +106,7 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
 
   /**
    * Event fired before a card is removed
+   *
    * @param beforeSelectFunction Function callback
    */
   @Input() set onBeforeRemoveCard(beforeSelectFunction: SohoHomePageBeforeRemoveCardFunction | undefined) {
@@ -217,7 +222,7 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
   }
 
   onResizeCard(card: JQuery, metadata: object) {
-    const event: SohoHomePageEditEvent = { homepage: this, card: card, metadata: metadata };
+    const event: SohoHomePageEditEvent = { homepage: this, card, metadata };
 
     this.ngZone.run(() => {
       this.resizecard.emit(event);
@@ -225,7 +230,7 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
   }
 
   onReorderCard(card: JQuery, metadata: object) {
-    const event: SohoHomePageEditEvent = { homepage: this, card: card, metadata: metadata };
+    const event: SohoHomePageEditEvent = { homepage: this, card, metadata };
 
     this.ngZone.run(() => {
       this.reordercard.emit(event);
@@ -233,7 +238,7 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
   }
 
   onRemoveCard(card: JQuery, metadata: object) {
-    const event: SohoHomePageEditEvent = { homepage: this, card: card, metadata: metadata };
+    const event: SohoHomePageEditEvent = { homepage: this, card, metadata };
 
     this.ngZone.run(() => {
       this.removecard.emit(event);

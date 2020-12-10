@@ -54,7 +54,7 @@ export class DataGridGroupedHeaderDemoComponent implements AfterViewChecked, OnI
       sortable: false,
       columnGroups: [{ colspan: 3, id: 'firstGroup', name: 'Grouped Headers'},
         {colspan: 1, id: '', name: ''},
-        {colspan: 2, id: 'secondGroup', name: 'Grouped Headers 2'}],// tslint:disable-line
+        {colspan: 2, id: 'secondGroup', name: 'Grouped Headers 2'}],// eslint-disable-line
       disableClientSort: true,
       disableClientFilter: true,
       filterable: true,

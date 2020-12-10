@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[soho-field-options]' // tslint:disable-line
+  selector: '[soho-field-options]' // eslint-disable-line
 })
 export class SohoFieldOptionsDirective implements AfterViewInit, OnDestroy {
 

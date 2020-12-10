@@ -16,7 +16,7 @@ export const LMFavorite = (_row: any, _cell: any, _value: any, _col: any, rowDat
   const isChecked: boolean = (rowData && rowData.price > 200); // jshint ignore:line
   const icon = isChecked ? 'star-filled' : 'star-outlined';
   return '<span class="audible">' + Soho.Locale.translate('Favorite') +
-    '</span><span class="icon-favorite">' + SohoIconUtils.createIcon({ icon: icon }) + '</span>';
+    '</span><span class="icon-favorite">' + SohoIconUtils.createIcon({ icon }) + '</span>';
 };
 
 @Component({
@@ -39,7 +39,7 @@ export class DemoCellFormatterComponent implements OnDestroy {
   template: '{{args?.value?.price}}'
 })
 export class DemoCellIntegerFormatterComponent {
-  constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {}
+  constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) { }
 }
 
 @Component({
@@ -111,7 +111,7 @@ export class DataGridCustomFormatterDemoComponent implements OnInit {
     });
 
     return {
-      columns: columns,
+      columns,
       dataset: PAGING_DATA,
       selectable: 'single',
       paging: true,

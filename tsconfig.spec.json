@@ -1,6 +1,5 @@
 {
-  "extends": "./tsconfig.base.json",
-  "compileOnSave": false,
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,

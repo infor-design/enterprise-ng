@@ -43,7 +43,7 @@ export class DataGridTreeGridDemoComponent {
           descr += `${r.data.taskName}\n`;
         }
       });
-      this.events.push({ name: 'Selected', descr: descr, date: new Date() });
+      this.events.push({ name: 'Selected', descr, date: new Date() });
     }
   }
 

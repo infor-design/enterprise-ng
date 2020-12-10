@@ -18,7 +18,7 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: 'input[soho-spinbox]', // tslint:disable-line
+  selector: 'input[soho-spinbox]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoSpinboxComponent)]
@@ -45,6 +45,10 @@ export class SohoSpinboxComponent extends BaseControlValueAccessor<number> imple
     return this.internalIsDisabled;
   }
 
+  /**
+   * @todo replace override of native element
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() change = new EventEmitter<number>();
 
   // Set the spinbox class.

@@ -1,10 +1,12 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
     "target": "es2015",
     "strict": true,
     "declaration": true,
+    "declarationMap": true,
     "sourceMap": true,
     "inlineSources": true,
     "emitDecoratorMetadata": true,
@@ -36,7 +38,6 @@
     "**/node_modules/**",
     "dist",
     "src/test.ts",
-    "**/*.spec.ts",
-    "types"
+    "**/*.spec.ts"
   ]
 }

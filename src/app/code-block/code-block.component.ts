@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[lm-code-block]', // tslint:disable-line
+  selector: '[lm-code-block]', // eslint-disable-line
   template: `
     <div class="code-block-container">
       <div
@@ -84,7 +84,7 @@ export class CodeBlockComponent implements OnDestroy {
 
   focus() {
     // Using jquery to focus the element as ViewChildren is not working
-    // tslint:disable-next-line: deprecation
+    // eslint-disable-next-line import/no-deprecated
     const $event: MouseEventInit | undefined = event;
     const focusables = $(':focusable', this.elementRef.nativeElement);
     const target =

@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-bullet]', // tslint:disable-line
+  selector: '[soho-bullet]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -47,7 +47,7 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   /** If true, the component will not resize when resizing the page. There is tooltip values provided.
-    * It will not be shown. If you still want lines at the lower breakpoint you can set this to true */
+   * It will not be shown. If you still want lines at the lower breakpoint you can set this to true */
   @Input() set redrawOnResize(value: boolean) {
     this.options.redrawOnResize = value;
 
@@ -58,6 +58,11 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
   }
 
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * @todo replace override of native attribute
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() contextmenu: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   private jQueryElement?: JQuery;

@@ -1,4 +1,4 @@
-/* tslint:disable */
+/* eslint-disable */
 export const PAGING_COLUMNS: SohoDataGridColumn[] = [
   { id: 'selectionCheckbox', sortable: false, resizable: false, width: 50, formatter: Soho.Formatters.SelectionCheckbox, align: 'center', exportable: false },
   { id: 'productId',   name: 'Product Id',   field: 'productId',   sortable: false, filterType: 'text', formatter: Soho.Formatters.Readonly },
@@ -8,7 +8,7 @@ export const PAGING_COLUMNS: SohoDataGridColumn[] = [
   { id: 'price',       name: 'Price',        field: 'price',       sortable: false, filterType: 'decimal', formatter: Soho.Formatters.Decimal },
   { id: 'orderDate',   name: 'Order Date',   field: 'orderDate',   sortable: false, filterType: 'date',  formatter: Soho.Formatters.Date, dateFormat: 'M/d/yyyy' }
 ];
-/* tslint:enable */
+/* eslint-enable */
 
 export const PAGING_DATA: any[] = [
   {

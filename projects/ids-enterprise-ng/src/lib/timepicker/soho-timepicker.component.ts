@@ -19,7 +19,7 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: 'input[soho-timepicker]', // tslint:disable-line
+  selector: 'input[soho-timepicker]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoTimePickerComponent)]
@@ -168,6 +168,13 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
   }
 
   /**
+   * Public API
+   */
+  get disabled(): boolean | undefined {
+    return this.isDisabled;
+  }
+
+  /**
    * Sets the control to readonly
    */
   @Input() set readonly(value: boolean | undefined) {
@@ -193,20 +200,18 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
     }
   }
 
-  /**
-   * Called when the datepicker value changes
-   */
-  @Output() change: EventEmitter<SohoTimePickerEvent> = new EventEmitter<SohoTimePickerEvent>();
-
-  /**
-   * Public API
-   */
-  get disabled(): boolean | undefined {
-    return this.isDisabled;
-  }
   get readonly(): boolean | undefined {
     return this.isReadOnly;
   }
+
+  /**
+   * Called when the datepicker value changes
+   *
+   * @todo remove override of native attribute.
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
+  @Output() change: EventEmitter<SohoTimePickerEvent> = new EventEmitter<SohoTimePickerEvent>();
+
 
   public setValue(time: string | undefined) {
     // There is no API to set the value on the timepicker, so this

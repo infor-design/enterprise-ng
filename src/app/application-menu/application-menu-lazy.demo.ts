@@ -11,7 +11,7 @@ import { ApplicationMenuLazyService } from './application-menu-lazy-service.demo
 import { SohoApplicationMenuComponent } from 'ids-enterprise-ng';
 
 @Component({
-  // tslint:disable-next-line:component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'application-menu-lazy-demo',
   templateUrl: 'application-menu-lazy.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush

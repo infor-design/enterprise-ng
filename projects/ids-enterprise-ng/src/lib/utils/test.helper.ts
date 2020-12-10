@@ -6,6 +6,7 @@ import { EventEmitter } from '@angular/core';
 export class TestHelper {
   /**
    * Fire a soho or dom event where it's expected to be re-emitted by the passed in event emitter
+   *
    * @param element The native element where the dom event is triggered from.
    * @param eventName The name of the event to trigger on the native element.
    * @param eventEmitter The angular event emitter that will be checked toHaveBeenCalled 1 time.

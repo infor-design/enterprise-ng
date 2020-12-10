@@ -20,7 +20,7 @@ import {
  * the Soho application menu control.
  */
 @Component({
-  selector: 'nav[soho-application-menu]', // tslint:disable-line
+  selector: 'nav[soho-application-menu]', // eslint-disable-line
   templateUrl: 'soho-application-menu.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -167,6 +167,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   /**
    * This event is fired when the visibility of the application menu is changed,
    * is it also called when the item is changed programmatically.
+   *
    * @deprecated use accordionExpand and accordionCollapse events instead
    */
   @Output() visibility = new EventEmitter<any>();
@@ -301,9 +302,9 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
       this.jQueryElement
         .on('expand', (_e, results: any[]) => this.ngZone.run(() => this.accordionExpand.next(results)))
         .on('collapse', () => this.ngZone.run(() => this.accordionCollapse.next(true)))
-        // tslint:disable-next-line: deprecation
+        // eslint-disable-next-line import/no-deprecated
         .on('expand', () => this.ngZone.run(() => this.visibility.next(true)))
-        // tslint:disable-next-line: deprecation
+        // eslint-disable-next-line import/no-deprecated
         .on('collapse', () => this.ngZone.run(() => this.visibility.next(false)))
         .on('filtered', (_e, results: any[]) => this.ngZone.run(() => this.filtered.next(results)))
         .on('applicationmenuopen', () => this.ngZone.run(() => this.menuVisibility.next(true)))

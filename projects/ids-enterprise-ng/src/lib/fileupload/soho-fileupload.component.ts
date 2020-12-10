@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'input[soho-fileupload]',  // tslint:disable-line
+  selector: 'input[soho-fileupload]',  // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -51,6 +51,10 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
     this.changeDetectorRef.markForCheck();
   }
 
+  get disabled(): boolean | undefined {
+    return this.isDisabled;
+  }
+
   @Input() set readonly(value: boolean | undefined) {
     this.isReadOnly = value;
 
@@ -68,25 +72,25 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
     this.changeDetectorRef.markForCheck();
   }
 
+  get readonly(): boolean | undefined {
+    return this.isReadOnly;
+  }
+
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
 
   /**
    * Called when the fileupload value changes
+   *
+   * @todo replace override of native attribute
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() change = new EventEmitter<SohoFileUploadEvent>();
 
   // -------------------------------------------
   // Public API
   // -------------------------------------------
-
-  get disabled(): boolean | undefined {
-    return this.isDisabled;
-  }
-  get readonly(): boolean | undefined {
-    return this.isReadOnly;
-  }
 
   // -------------------------------------------
   // Private Member Data

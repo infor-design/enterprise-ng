@@ -12,7 +12,7 @@ import {
 export type WidgetSize = 'single' | 'double' | 'triple' | 'quad';
 
 @Component({
-  selector: 'div[soho-widget]', // tslint:disable-line
+  selector: 'div[soho-widget]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
 })
 export class SohoWidgetComponent implements AfterViewInit {
@@ -59,14 +59,14 @@ export class SohoWidgetComponent implements AfterViewInit {
       this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
       this.jQueryElement
-        .on('resizecard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => { this.onResizeCard(card, metadata); })
-        .on('reordercard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => { this.onReorderCard(card, metadata); })
-        .on('removecard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => { this.onRemoveCard(card, metadata); });
+        .on('resizecard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onResizeCard(card, metadata))
+        .on('reordercard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onReorderCard(card, metadata))
+        .on('removecard', (_e: JQuery.TriggeredEvent, card: JQuery, metadata: object) => this.onRemoveCard(card, metadata));
     });
   }
 
   onResizeCard(card: JQuery<HTMLElement>, metadata: object) {
-    const event: SohoHomePageWidgetEditEvent = { widget: this, card: card, metadata: metadata };
+    const event: SohoHomePageWidgetEditEvent = { widget: this, card, metadata };
 
     this.ngZone.run(() => {
       this.resizecard.emit(event);
@@ -74,7 +74,7 @@ export class SohoWidgetComponent implements AfterViewInit {
   }
 
   onReorderCard(card: JQuery<HTMLElement>, metadata: object) {
-    const event: SohoHomePageWidgetEditEvent = { widget: this, card: card, metadata: metadata };
+    const event: SohoHomePageWidgetEditEvent = { widget: this, card, metadata };
 
     this.ngZone.run(() => {
       this.reordercard.emit(event);
@@ -82,7 +82,7 @@ export class SohoWidgetComponent implements AfterViewInit {
   }
 
   onRemoveCard(card: JQuery<HTMLElement>, metadata: object) {
-    const event: SohoHomePageWidgetEditEvent = { widget: this, card: card, metadata: metadata };
+    const event: SohoHomePageWidgetEditEvent = { widget: this, card, metadata };
 
     this.ngZone.run(() => {
       this.removecard.emit(event);

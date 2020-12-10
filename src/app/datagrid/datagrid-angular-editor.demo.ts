@@ -163,7 +163,7 @@ export const LOOKUP_DATA = [
   { status: '', description: 'Unknown' }
 ];
 
-/* tslint:disable */
+/* eslint-disable */
 export const STATUS_LOOKUP_OPTIONS = {
   field: FIELD_FN,
   match: MATCH_FN,

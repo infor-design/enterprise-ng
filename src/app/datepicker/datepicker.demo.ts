@@ -60,15 +60,15 @@ export class DatepickerDemoComponent implements OnInit {
     placeholder: 'placeholder',
     showLegend: true,
     showMonthYearPicker: true,
-    legend: [{name: 'Weekends', color: '#EFA836', dayOfWeek: [0, 6]}],
-    calendarName:  'gregorian'
+    legend: [{ name: 'Weekends', color: '#EFA836', dayOfWeek: [0, 6] }],
+    calendarName: 'gregorian'
   };
 
   public umalquraOptions: SohoDatePickerOptions = {
     mode: 'standard',
     dateFormat: 'yyyy/MM/dd',
     showMonthYearPicker: true,
-    calendarName:  'islamic-umalqura',
+    calendarName: 'islamic-umalqura',
     locale: 'ar-SA'
   };
 
@@ -107,7 +107,7 @@ export class DatepickerDemoComponent implements OnInit {
 
   registerCustomValidator() {
     const customRule: any = {
-      check: function (value: any, field: any, grid: any) {
+      check: (value: any, field: any, grid: any) => {
         console.log(value, field, grid);
         return false;
       },

@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-blockgrid]', // tslint:disable-line
+  selector: '[soho-blockgrid]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

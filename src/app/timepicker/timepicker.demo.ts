@@ -14,7 +14,7 @@ export class TimePickerDemoComponent implements OnInit {
 
   @ViewChild(SohoTimePickerComponent, { static: true }) timepicker!: SohoTimePickerComponent;
 
-  public model = { // tslint:disable-line
+  public model = { // eslint-disable-line
     hhmm: '1:23 PM',
     hhmmss: '1:23:43 PM',
     HHmm24: '17:50'

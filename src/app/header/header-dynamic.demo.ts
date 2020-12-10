@@ -19,10 +19,18 @@ import { SohoTabsComponent } from 'ids-enterprise-ng';
   templateUrl: 'header-dynamic.demo.html'
 })
 export class SohoHeaderDynamicDemoComponent {
-  @HostBinding('class.header') get isHeader() { return true; }
-  @HostBinding('class.is-personalizable') get isPersonalizable() { return true; }
-  @HostBinding('class.has-toolbar') get hasHeaderToolbar() { return !!this.toolbarOptions; }
-  @HostBinding('class.has-tabs') get hasHeaderTabs() { return !!this.tabOptions; }
+  @HostBinding('class.header') get isHeader() {
+    return true;
+  }
+  @HostBinding('class.is-personalizable') get isPersonalizable() {
+    return true;
+  }
+  @HostBinding('class.has-toolbar') get hasHeaderToolbar() {
+    return !!this.toolbarOptions;
+  }
+  @HostBinding('class.has-tabs') get hasHeaderTabs() {
+    return !!this.tabOptions;
+  }
 
   @ViewChild(SohoToolbarComponent, { static: true }) sohoToolbarComponent?: SohoToolbarComponent;
   @ViewChild(SohoTabsComponent) sohoTabsComponent?: SohoTabsComponent;
@@ -40,10 +48,24 @@ export class SohoHeaderDynamicDemoComponent {
   }
 
   /**
+   * Get the current toolbar options.
+   */
+  get toolbarOptions(): HeaderDynamicToolbarOptions | undefined {
+    return this.currentToolbarOptions;
+  }
+
+  /**
    * Sets the header tabset using TabOptions
    */
   @Input() public set tabOptions(options: HeaderDynamicTabsetOptions | undefined) {
     this.currentTabsOptions = options;
+  }
+
+  /**
+   * Get the current toolbar options.
+   */
+  public get tabOptions(): HeaderDynamicTabsetOptions {
+    return this.currentTabsOptions;
   }
 
   @Input() set toolbarSearchField(searchField: ToolbarSearchField) {
@@ -86,20 +108,6 @@ export class SohoHeaderDynamicDemoComponent {
     this.headerRef.instance = this;
     this.defaultPersonalizeColor = this.getDefaultColor();
     this.defaultPersonalizeTheme = this.getDefaultTheme();
-  }
-
-  /**
-   * Get the current toolbar options.
-   */
-  get toolbarOptions(): HeaderDynamicToolbarOptions | undefined {
-    return this.currentToolbarOptions;
-  }
-
-  /**
-   * Get the current toolbar options.
-   */
-  public get tabOptions(): HeaderDynamicTabsetOptions | undefined {
-    return this.currentTabsOptions;
   }
 
   // This should be within an Application Service in your local project

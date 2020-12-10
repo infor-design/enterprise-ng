@@ -11,7 +11,7 @@ import {
 export class SohoHierarchyLeafTemplateComponent { }
 
 @Component({
-  selector: 'figure[soho-hierarchy]', // tslint:disable-line
+  selector: 'figure[soho-hierarchy]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -79,6 +79,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
 
   /**
    * Used to add new data lazily when a leaf is expanded
+   *
    * @param id should match the leaf id in the DOM
    */
   add(id: string, dataset: Array<any>, newData: Array<any>) {

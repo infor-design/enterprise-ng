@@ -59,6 +59,14 @@ function executeUpdate(cmd) {
 //   Main
 // -------------------------------------
 
+fs.mkdir('./dist', (err) => {
+  if (err) {
+    // Already exists
+  } else {
+    console.log(`created 'dist' folder`);
+  }
+});
+
 fs.copy(libTypingsPath, distTypingpath, (err) => {
   if (err) {
     throw err;

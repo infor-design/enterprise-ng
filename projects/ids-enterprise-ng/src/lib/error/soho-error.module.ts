@@ -7,10 +7,10 @@ import { SohoErrorDirective } from './soho-error.directive';
     CommonModule
   ],
   declarations: [
-    SohoErrorDirective // tslint:disable-line
+    SohoErrorDirective // eslint-disable-line
   ],
   exports: [
-    SohoErrorDirective // tslint:disable-line
+    SohoErrorDirective // eslint-disable-line
   ]
 })
 export class SohoErrorModule { }

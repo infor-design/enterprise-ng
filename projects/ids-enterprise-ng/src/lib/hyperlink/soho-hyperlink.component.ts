@@ -12,7 +12,7 @@ import {
 export type SohoHyperlinkType = 'show-visited' | 'forward-caret' | 'back-caret';
 
 @Component({
-  selector: 'a[soho-hyperlink]', // tslint:disable-line
+  selector: 'a[soho-hyperlink]', // eslint-disable-line
   template: ` <svg soho-icon *ngIf="isCaretLeft" [icon]="'caret-left'"></svg>
               <ng-content></ng-content>
               <svg soho-icon *ngIf="isCaretRight" [icon]="'caret-right'"></svg>
@@ -26,7 +26,12 @@ export class SohoHyperlinkComponent implements AfterViewInit {
   static DIRECTIONAL: SohoHyperlinkType = 'forward-caret';
   static BACK: SohoHyperlinkType = 'back-caret';
 
-  /** The type of the hyperlink, defaulting to 'hide-focus'. */
+  /**
+   * The type of the hyperlink, defaulting to 'hide-focus'.
+   *
+   * @todo replace override of native attribute
+   */
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('soho-hyperlink') set sohoHyperlink(type: SohoHyperlinkType) {
     if (type) {
       this.hyperlinkType = type;
@@ -35,6 +40,10 @@ export class SohoHyperlinkComponent implements AfterViewInit {
 
   @Input() icon?: string;
 
+  /**
+   * @todo replace override of native attribute
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() change?: EventEmitter<SohoHyperlinkEvent>;
 
   @HostBinding('class.hyperlink') hyperLinkClass = true;

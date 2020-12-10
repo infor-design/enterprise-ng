@@ -51,20 +51,25 @@ export class WizardDemoResultPageComponent implements AfterViewInit {
       if (this.progress) {
         this.progress.progressValue = ((this.current / this.total) * 100);
       }
-     setTimeout(() => { this.update(); }, 5000); });
+      setTimeout(() => {
+        this.update();
+      }, 5000);
+    });
   }
 
   update() {
     this.current++;
     this.validated++;
     if (this.progress) {
-       this.progress.progressValue = ((this.current / this.total) * 100);
+      this.progress.progressValue = ((this.current / this.total) * 100);
     }
 
     (this.busyindicator as any).text = `Imported ${this.current} of ${this.total} ...`;
 
     if (this.current < this.total) {
-      setTimeout(() => { this.update(); }, 3000);
+      setTimeout(() => {
+        this.update();
+      }, 3000);
     } else {
       this.busyindicator?.close(false);
     }

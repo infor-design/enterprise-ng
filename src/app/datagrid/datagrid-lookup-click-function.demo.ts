@@ -18,7 +18,7 @@ export class DataGridLookupClickDemoComponent implements OnInit {
 
   gridOptions: any = undefined;
 
-  constructor(private modalService: SohoModalDialogService) {}
+  constructor(private modalService: SohoModalDialogService) { }
 
   ngOnInit(): void {
     /**
@@ -37,7 +37,7 @@ export class DataGridLookupClickDemoComponent implements OnInit {
     });
 
     this.gridOptions = {
-      columns: columns,
+      columns,
       dataset: PAGING_DATA,
       selectable: 'mixed',
       paging: true,

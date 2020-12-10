@@ -27,11 +27,11 @@ export class DataGridPagingServiceDemoService extends SohoDataGridService {
     const begin: number = ((req.activePage as any) - 1) * (req.pagesize as any);
     const end: number = begin + (req.pagesize as any);
     const data: Array<any> = this.data.slice(begin, end);
-    const result: any = { total: 100, data: data };
+    const result: any = { total: 100, data };
     return of(result);
   }
 
-  getAllData (): Array<any> {
+  getAllData(): Array<any> {
     return this.data;
   }
 

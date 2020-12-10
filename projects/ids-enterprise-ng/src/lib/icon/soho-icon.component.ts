@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'use', // tslint:disable-line
+  selector: 'use', // eslint-disable-line
   template: ``
 })
 export class SohoIconUseComponent {
@@ -18,7 +18,7 @@ export class SohoIconUseComponent {
 }
 
 @Component({
-  selector: 'svg[soho-icon]',  // tslint:disable-line
+  selector: 'svg[soho-icon]',  // eslint-disable-line
   template: `<svg:use [icon]="icon"></svg:use>`
 })
 export class SohoIconComponent {
@@ -41,9 +41,18 @@ export class SohoIconComponent {
     this._alert = alert;
     this.setAlertIcon();
   }
+
+  get alert(): boolean | undefined {
+    return this._alert;
+  }
+
   @Input() set icon(icon: string | undefined) {
     this._icon = icon ? 'icon-' + icon : '';
     this.setAlertIcon();
+  }
+
+  get icon(): string | undefined {
+    return this._icon;
   }
 
   private _alert?: boolean;
@@ -52,7 +61,7 @@ export class SohoIconComponent {
 
   constructor(
     private elementRef: ElementRef,
-  ) {}
+  ) { }
 
   private setAlertIcon() {
     // This allows us to set a dynamic class to the class list
@@ -67,7 +76,4 @@ export class SohoIconComponent {
       this.elementRef.nativeElement.classList.add(this._extraIconClass);
     }
   }
-
-  get alert(): boolean | undefined { return this._alert; }
-  get icon(): string | undefined { return this._icon; }
 }

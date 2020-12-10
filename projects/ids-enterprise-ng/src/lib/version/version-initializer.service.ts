@@ -11,16 +11,16 @@ import { version } from '../../version.json';
   providedIn: 'root'
 })
 export class SohoVersionInitializerService {
-  private readonly VERSION_ATTR_NAME = 'data-ids-enterprise-ng-version';
+  private static readonly VERSION_ATTR_NAME = 'data-ids-enterprise-ng-version';
 
   /**
    * Initializes the version attribute.
    */
   initialize() {
-    $('html').attr(this.VERSION_ATTR_NAME, version);
+    $('html').attr(SohoVersionInitializerService.VERSION_ATTR_NAME, version);
   }
 }
 
 export function SohoVersionInitializerFactory(service: SohoVersionInitializerService) {
-    return () => service.initialize();
+  return () => service.initialize();
 }

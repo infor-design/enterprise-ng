@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ApplicationMenuLazyService } from './application-menu-lazy-service.demo';
 
 @Component({
-  // tslint:disable-next-line:component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'application-menu-lazy-menu',
   templateUrl: 'application-menu-lazy-menu.demo.html'
 })
@@ -26,7 +26,7 @@ export class ApplicationMenuLazyMenuDemoComponent {
         this._lazyMenuService.updateMenu(response, url);
 
         const menuSpec = this._lazyMenuService.getMenuSpec();
-        this.subMenuLoaded.emit({ menuSpec: menuSpec, event: $event });
+        this.subMenuLoaded.emit({ menuSpec, event: $event });
       }
     });
   }

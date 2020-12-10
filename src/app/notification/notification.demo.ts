@@ -16,6 +16,6 @@ export class NotificationDemoComponent implements OnInit {
   ngOnInit() { }
 
   showNotification(type: SohoNotificationType = SohoNotificationService.INFO) {
-    this.notificationService.show({ parent: '.page-container.scrollable', message: 'This is a Toast message', type: type });
+    this.notificationService.show({ parent: '.page-container.scrollable', message: 'This is a Toast message', type });
   }
 }

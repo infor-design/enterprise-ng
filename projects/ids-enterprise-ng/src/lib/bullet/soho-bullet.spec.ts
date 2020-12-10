@@ -9,11 +9,11 @@ import { SohoBulletComponent } from './soho-bullet.component';
 
 const bulletData1 = [{
   data: [{
-    'title': 'Revenue',
-    'subtitle': 'US$, in thousands',
-    'ranges': [150, 225, 300, 400, 600],
-    'measures': [220, 270],
-    'markers': [250], url: 'http://someplace.com',
+    title: 'Revenue',
+    subtitle: 'US$, in thousands',
+    ranges: [150, 225, 300, 400, 600],
+    measures: [220, 270],
+    markers: [250], url: 'http://someplace.com',
     tooltip: ['<b>Poor</b> 150', '<b>Ok</b> 225', '<b>Good</b> 300', '<b>Excellent</b> 400', '<b>Revenue</b> 600']
   }
   ],
@@ -24,11 +24,11 @@ const bulletData1 = [{
 
 const bulletData2 = [{
   data: [{
-    'title': 'Profit',
-    'subtitle': '%',
-    'ranges': [20, 25, 30],
-    'measures': [17, 21],
-    'markers': [26]
+    title: 'Profit',
+    subtitle: '%',
+    ranges: [20, 25, 30],
+    measures: [17, 21],
+    markers: [26]
   }
   ],
   barColors: ['#ADD8EB', '#69B5DD', '#2578A9'],

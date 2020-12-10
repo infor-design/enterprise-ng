@@ -18,7 +18,7 @@ import {
  * to and from any ng model instances.
  */
 @Component({
-  selector: '[soho-checkbox]', // tslint:disable-line
+  selector: '[soho-checkbox]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })

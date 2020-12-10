@@ -14,7 +14,7 @@ import { SohoIconsEmptyUpliftComponent } from './soho-icons-empty-uplift.compone
     SohoIconUseComponent,
     SohoIconsComponent,
     SohoIconsEmptyComponent,
-    SohoIconsExtendedComponent, // tslint:disable-line: deprecation
+    SohoIconsExtendedComponent, // eslint-disable-line import/no-deprecated
     SohoIconsUpliftComponent,
     SohoIconsEmptyUpliftComponent
   ],
@@ -22,7 +22,7 @@ import { SohoIconsEmptyUpliftComponent } from './soho-icons-empty-uplift.compone
     SohoIconComponent,
     SohoIconsComponent,
     SohoIconsEmptyComponent,
-    SohoIconsExtendedComponent, // tslint:disable-line: deprecation
+    SohoIconsExtendedComponent, // eslint-disable-line import/no-deprecated
     SohoIconsUpliftComponent,
     SohoIconsEmptyUpliftComponent
   ]

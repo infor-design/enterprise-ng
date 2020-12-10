@@ -16,7 +16,7 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: 'textarea[soho-textarea]', // tslint:disable-line
+  selector: 'textarea[soho-textarea]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoTextAreaComponent)]
@@ -55,6 +55,10 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
     }
   }
 
+  get disabled(): boolean | undefined {
+    return this.isDisabled;
+  }
+
   @Input() set readonly(value: boolean | undefined) {
     this.isReadOnly = value;
 
@@ -68,6 +72,10 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
         this.isReadOnly = false;
       }
     }
+  }
+
+  get readonly(): boolean | undefined {
+    return this.isReadOnly;
   }
 
   @HostBinding('class.resizable')
@@ -141,19 +149,16 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
    */
   @Output() updated = new EventEmitter<SohoTextAreaEvent>();
 
-  // @todo Change to 'changed'.
+  /**
+   * @todo Change to 'changed'.
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() change: EventEmitter<SohoTextAreaEvent[]> = new EventEmitter<SohoTextAreaEvent[]>();
 
   // -------------------------------------------
   // Public API
   // -------------------------------------------
 
-  get disabled(): boolean | undefined {
-    return this.isDisabled;
-  }
-  get readonly(): boolean | undefined  {
-    return this.isReadOnly;
-  }
 
   // -------------------------------------------
   // Private Member Data
@@ -225,6 +230,7 @@ export class SohoTextAreaComponent extends BaseControlValueAccessor<string> impl
 
   /**
    * Override writeValue to allow the input to count correctly
+   *
    * @param value - the new value
    */
   writeValue(value: any) {

@@ -58,12 +58,12 @@ export class ColumnGroupedXaxisTwolineDemoComponent implements OnInit {
 
   public columnType = 'column-grouped';
 
-  constructor() {}
+  constructor() { }
   public xAxis?: {};
 
   ngOnInit() {
     this.xAxis = {
-      formatText: function (d: any) {
+      formatText: (d: any) => {
         const text = d.split(' ');
         let markup = '';
         text.map(function (mapText: any, i: any) {

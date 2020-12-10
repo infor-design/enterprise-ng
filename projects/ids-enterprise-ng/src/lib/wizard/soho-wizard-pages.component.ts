@@ -11,7 +11,7 @@ import { SohoWizardPageComponent } from './soho-wizard-page.component';
  * Angular wrapper for the soho wizard pagesß.
  */
 @Component({
-  selector: 'div[soho-wizard-pages]', // tslint:disable-line
+  selector: 'div[soho-wizard-pages]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   styles: [
     `:host {

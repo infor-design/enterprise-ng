@@ -1,225 +1,213 @@
 {
-    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-    "version": 1,
-    "newProjectRoot": "projects",
-    "projects": {
-      "ids-enterprise-ng-app": {
-        "projectType": "application",
-        "schematics": {},
-        "root": "",
-        "sourceRoot": "src",
-        "prefix": "app",
-        "architect": {
-          "build": {
-            "builder": "@angular-devkit/build-angular:browser",
-            "options": {
-                        "sourceMap": {
-                            "styles": true,
-                            "scripts": true,
-                            "vendor": false
-                        },
-                        "outputPath": "dist/ids-enterprise-ng-app",
-                        "index": "src/index.html",
-                        "main": "src/main.ts",
-                        "polyfills": "src/polyfills.ts",
-                        "tsConfig": "tsconfig.app.json",
-                        "aot": true,
-                        "assets": [
-                            "src/favicon.ico",
-                            "src/assets",
-                            {
-                                "glob": "**/*",
-                                "input": "node_modules/ids-enterprise/dist/css",
-                                "output": "/assets/ids-enterprise/css"
-                            },
-                            {
-                                "glob": "**/*",
-                                "input": "node_modules/ids-enterprise/dist/js/cultures",
-                                "output": "/assets/ids-enterprise/js/cultures"
-                            },
-                            "src/app/demodata"
-                        ],
-                        "styles": [
-                            "src/styles.css"
-                        ],
-                        "scripts": [
-                            "node_modules/jquery/dist/jquery.js",
-                            "node_modules/d3/dist/d3.js",
-                            "node_modules/ids-enterprise/dist/js/sohoxi.js",
-                            "node_modules/lscache/lscache.js"
-                        ]
-                    },
-            "configurations": {
-              "production": {
-                "fileReplacements": [
-                  {
-                    "replace": "src/environments/environment.ts",
-                    "with": "src/environments/environment.prod.ts"
-                  }
-                ],
-                "optimization": true,
-                "outputHashing": "all",
-                "sourceMap": false,
-                "extractCss": true,
-                "namedChunks": false,
-                "extractLicenses": true,
-                "vendorChunk": false,
-                "buildOptimizer": true,
-                "budgets": [
-                  {
-                    "type": "initial",
-                    "maximumWarning": "2mb",
-                    "maximumError": "5mb"
-                  },
-                  {
-                    "type": "anyComponentStyle",
-                    "maximumWarning": "6kb",
-                    "maximumError": "10kb"
-                  }
-                ]
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ids-enterprise-ng-app": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "sourceMap": {
+              "styles": true,
+              "scripts": true,
+              "vendor": false
+            },
+            "outputPath": "dist/ids-enterprise-ng-app",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/ids-enterprise/dist/css",
+                "output": "/assets/ids-enterprise/css"
               },
-              "es5": {
-                "tsConfig": "tsconfig.es5.json"
-              }
-            }
-          },
-          "serve": {
-            "builder": "@angular-devkit/build-angular:dev-server",
-            "options": {
-                        "browserTarget": "ids-enterprise-ng-app:build",
-                        "sourceMap": {
-                            "styles": true,
-                            "scripts": true,
-                            "vendor": true
-                        },
-                        "servePath": "/ids-enterprise-ng-demo"
-                    },
-            "configurations": {
-              "production": {
-                "browserTarget": "ids-enterprise-ng-app:build:production"
+              {
+                "glob": "**/*",
+                "input": "node_modules/ids-enterprise/dist/js/cultures",
+                "output": "/assets/ids-enterprise/js/cultures"
               },
-              "es5": {
-                "browserTarget": "ids-enterprise-ng-app:build:es5"
-              }
-            }
+              "src/app/demodata"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/d3/dist/d3.js",
+              "node_modules/ids-enterprise/dist/js/sohoxi.js",
+              "node_modules/lscache/lscache.js"
+            ]
           },
-          "extract-i18n": {
-            "builder": "@angular-devkit/build-angular:extract-i18n",
-            "options": {
-              "browserTarget": "ids-enterprise-ng-app:build"
-            }
-          },
-          "test": {
-            "builder": "@angular-devkit/build-angular:karma",
-            "options": {
-              "sourceMap": true,
-              "main": "src/test.ts",
-              "polyfills": "src/polyfills.ts",
-              "tsConfig": "tsconfig.spec.json",
-              "karmaConfig": "karma.conf.js",
-              "scripts": [
-                "node_modules/jquery/dist/jquery.js",
-                "node_modules/d3/dist/d3.js",
-                "node_modules/ids-enterprise/dist/js/sohoxi.js",
-                "node_modules/ids-enterprise/dist/js/cultures/en-US.js",
-                "node_modules/lscache/lscache.js"
-              ],
-              "styles": [
-                "src/styles.css"
-              ],
-              "assets": [
+          "configurations": {
+            "production": {
+              "fileReplacements": [
                 {
-                  "glob": "**/*",
-                  "input": "node_modules/ids-enterprise/dist/css",
-                  "output": "/assets/sohoxi/css"
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
-                  "glob": "**/*",
-                  "input": "./node_modules/ids-enterprise/dist/js/cultures",
-                  "output": "/assets/ids-enterprise/js/cultures"
-                },
-                "src/app/demodata"
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
               ]
             },
             "es5": {
               "tsConfig": "tsconfig.es5.json"
             }
-          },
-          "lint": {
-            "builder": "@angular-devkit/build-angular:tslint",
-            "options": {
-              "tsConfig": [
-                "tsconfig.app.json",
-                "tsconfig.spec.json",
-                "e2e/tsconfig.json"
-              ],
-              "exclude": [
-                "**/node_modules/**",
-                "**/version.json",
-                "dist/**/*"
-              ]
-            }
-          },
-          "e2e": {
-            "builder": "@angular-devkit/build-angular:protractor",
-            "options": {
-              "protractorConfig": "e2e/protractor.conf.js",
-              "devServerTarget": "ids-enterprise-ng-app:serve"
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ids-enterprise-ng-app:build",
+            "sourceMap": {
+              "styles": true,
+              "scripts": true,
+              "vendor": true
             },
-            "configurations": {
-              "production": {
-                "devServerTarget": "ids-enterprise-ng-app:serve:production"
-              }
+            "servePath": "/ids-enterprise-ng-demo"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ids-enterprise-ng-app:build:production"
+            },
+            "es5": {
+              "browserTarget": "ids-enterprise-ng-app:build:es5"
             }
           }
-        }
-      },
-      "ids-enterprise-ng": {
-        "projectType": "library",
-        "root": "projects/ids-enterprise-ng",
-        "sourceRoot": "projects/ids-enterprise-ng/src",
-        "prefix": "soho",
-        "architect": {
-          "build": {
-            "builder": "@angular-devkit/build-ng-packagr:build",
-            "options": {
-              "tsConfig": "projects/ids-enterprise-ng/tsconfig.lib.json",
-              "project": "projects/ids-enterprise-ng/ng-package.json"
-            },
-            "configurations": {
-              "production": {
-                "project": "projects/ids-enterprise-ng/ng-package.prod.json",
-                "tsConfig": "projects/ids-enterprise-ng/tsconfig.lib.prod.json"
-              }
-            }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ids-enterprise-ng-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "sourceMap": true,
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/d3/dist/d3.js",
+              "node_modules/ids-enterprise/dist/js/sohoxi.js",
+              "node_modules/ids-enterprise/dist/js/cultures/en-US.js",
+              "node_modules/lscache/lscache.js"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "node_modules/ids-enterprise/dist/css",
+                "output": "/assets/sohoxi/css"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/ids-enterprise/dist/js/cultures",
+                "output": "/assets/ids-enterprise/js/cultures"
+              },
+              "src/app/demodata"
+            ]
           },
-          "test": {
-            "builder": "@angular-devkit/build-angular:karma",
-            "options": {
-              "main": "projects/ids-enterprise-ng/src/test.ts",
-              "tsConfig": "projects/ids-enterprise-ng/tsconfig.spec.json",
-              "karmaConfig": "projects/ids-enterprise-ng/karma.conf.js"
-            }
+          "es5": {
+            "tsConfig": "tsconfig.es5.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "ids-enterprise-ng-app:serve"
           },
-          "lint": {
-            "builder": "@angular-devkit/build-angular:tslint",
-            "options": {
-              "tsConfig": [
-                "projects/ids-enterprise-ng/tsconfig.lib.json",
-                "projects/ids-enterprise-ng/tsconfig.spec.json"
-              ],
-              "exclude": [
-                "**/node_modules/**",
-                "**/version.json",
-                "dist/**/*"
-              ]
+          "configurations": {
+            "production": {
+              "devServerTarget": "ids-enterprise-ng-app:serve:production"
             }
           }
         }
       }
     },
-    "defaultProject": "ids-enterprise-ng-app",
-    "cli": {
-      "analytics": "deda5b6f-0536-400b-81ca-445018af21f9"
+    "ids-enterprise-ng": {
+      "projectType": "library",
+      "root": "projects/ids-enterprise-ng",
+      "sourceRoot": "projects/ids-enterprise-ng/src",
+      "prefix": "soho",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ids-enterprise-ng/tsconfig.lib.json",
+            "project": "projects/ids-enterprise-ng/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ids-enterprise-ng/ng-package.prod.json",
+              "tsConfig": "projects/ids-enterprise-ng/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ids-enterprise-ng/src/test.ts",
+            "tsConfig": "projects/ids-enterprise-ng/tsconfig.spec.json",
+            "karmaConfig": "projects/ids-enterprise-ng/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ids-enterprise-ng/**/*.ts",
+              "projects/ids-enterprise-ng/**/*.html"
+            ]
+          }
+        }
+      }
     }
+  },
+  "defaultProject": "ids-enterprise-ng-app",
+  "cli": {
+    "analytics": "deda5b6f-0536-400b-81ca-445018af21f9"
+  }
 }

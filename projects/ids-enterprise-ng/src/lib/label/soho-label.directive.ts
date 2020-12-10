@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: 'label[soho-label]' // tslint:disable-line
+  selector: 'label[soho-label]' // eslint-disable-line
 })
 export class SohoLabelDirective implements AfterViewInit {
   /**

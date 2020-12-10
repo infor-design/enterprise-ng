@@ -12,7 +12,7 @@ import {
 } from './toolbar-state.service';
 
 @Component({
-  selector: 'toolbar-state-component', // tslint:disable-line
+  selector: 'toolbar-state-component', // eslint-disable-line
   templateUrl: 'toolbar-state.component.html',
   providers: [ ToolbarStateService ]
 })

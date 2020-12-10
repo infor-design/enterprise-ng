@@ -36,13 +36,13 @@ export class DataGridTreeGridCubeDemoComponent implements OnInit, AfterViewInit 
   private getColumns(): SohoDataGridColumn[] {
     if (!this._columns) {
       this._columns = [];
-      /* tslint:disable */
+      /* eslint-disable */
       this._columns.push({ align: 'left', id: 'Dimension', name: 'Recruiter', field: 'Dimension', formatter: Soho.Formatters.Tree, width: 250 });
       this._columns.push({ align: 'right', id: 'NumberOfCandidates', name: 'Candidates', field: 'NumberOfCandidates', width: 90 });
       this._columns.push({ align: 'right', id: 'InterviewCount', name: 'Interviews', field: 'InterviewCount', width: 85 });
       this._columns.push({ align: 'right', id: 'OfferCount', name: 'Offers', field: 'OfferCount', width: 75 });
       this._columns.push({ align: 'right', id: 'HireCount', name: 'Hire', field: 'HireCount', width: 75 });
-      /* tslint:enable */
+      /* eslint-enable */
     }
     return this._columns;
   }
@@ -53,7 +53,7 @@ export class DataGridTreeGridCubeDemoComponent implements OnInit, AfterViewInit 
 
   private getData(): any[] {
     if (!this._data) {
-      /* tslint:disable */
+      /* eslint-disable */
       this._data = [
         {
           id: 1, depth: 1, parentId: 0, expanded: false, Dimension: 'Schroder, Helen', NumberOfCandidates: 18, InterviewCount: 0, OfferCount: 0, HireCount: 0, children: [
@@ -103,7 +103,7 @@ export class DataGridTreeGridCubeDemoComponent implements OnInit, AfterViewInit 
           ]
         },
       ];
-      /* tslint:enable */
+      /* eslint-enable */
     }
     return this._data;
   }

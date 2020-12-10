@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-pie]', // tslint:disable-line
+  selector: '[soho-pie]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -67,7 +67,7 @@ export class SohoPieComponent implements AfterViewInit, AfterViewChecked, OnDest
   }
 
   /** If true, the component will not resize when resizing the page. There is tooltip values provided.
-    * It will not be shown. If you still want lines at the lower breakpoint you can set this to true */
+   * It will not be shown. If you still want lines at the lower breakpoint you can set this to true */
   @Input() set redrawOnResize(value: boolean) {
     this.options.redrawOnResize = value;
 
@@ -171,6 +171,11 @@ export class SohoPieComponent implements AfterViewInit, AfterViewChecked, OnDest
   @Output() selected: EventEmitter<SohoPieSelectEvent> = new EventEmitter<SohoPieSelectEvent>();
   @Output() unselected: EventEmitter<SohoPieSelectEvent> = new EventEmitter<SohoPieSelectEvent>();
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * @todo remove override of native element
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() contextmenu?: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   private jQueryElement?: JQuery;

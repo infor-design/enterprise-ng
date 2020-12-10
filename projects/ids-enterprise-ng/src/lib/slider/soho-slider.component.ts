@@ -17,7 +17,7 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: 'input[soho-slider]', // tslint:disable-line
+  selector: 'input[soho-slider]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoSliderComponent)]
@@ -100,7 +100,12 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
     this.options.attributes = attributes;
   }
 
-  /** Called when the slider control changes */
+  /**
+   * Called when the slider control changes
+   *
+   * @todo replace override of native element
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() change: EventEmitter<SohoSliderEvent> = new EventEmitter<SohoSliderEvent>();
 
   /** Called when the slider is being slid */
@@ -158,6 +163,10 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
     }
   }
 
+  get disabled(): boolean | undefined {
+    return this.isDisabled;
+  }
+
   @Input() set readonly(value: boolean | undefined) {
     this.isReadOnly = value;
     if (value) {
@@ -168,10 +177,6 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
       this.isReadOnly = false;
       this.isDisabled = false;
     }
-  }
-
-  get disabled(): boolean | undefined {
-    return this.isDisabled;
   }
 
   get readonly(): boolean | undefined {

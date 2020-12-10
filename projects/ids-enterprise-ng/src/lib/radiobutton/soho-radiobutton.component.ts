@@ -25,7 +25,7 @@ import {
  * Make sure you add `type="radio"` to your markup.
  */
 @Component({
-  selector: 'input[soho-radiobutton]', // tslint:disable-line
+  selector: 'input[soho-radiobutton]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -33,7 +33,12 @@ export class SohoRadioButtonComponent implements AfterViewInit {
   /** Current value. */
   @Input() value: any;
 
-  /** Called when the radiobutton value changes.  */
+  /**
+   * Called when the radiobutton value changes.
+   *
+   * @todo remove override of native element
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() change = new EventEmitter<SohoRadioButtonEvent>();
 
   /** Bind attributes to the host input element. */

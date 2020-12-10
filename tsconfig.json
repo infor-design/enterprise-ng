@@ -1,36 +1,58 @@
 {
-  "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "compilerOptions": {
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "outDir": "./out-tsc/app",
-    "types": [
-       "jasmine",
-       "jquery",
-       "node",
-       "lscache",
-       "ids-enterprise-typings"
-    ]
-  },
-  "angularCompilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
     "declaration": false,
-    "module": "esnext",
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
     "resolveJsonModule": true,
     "target": "es2015",
-    "strict": true
+    "module": "es2020",
+    "typeRoots": [
+      "node_modules/@types",
+       "./dist"
+    ],
+    "types": [
+      "jasmine",
+      "jquery",
+      "node",
+      "ids-enterprise-typings"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "ids-enterprise-ng": [
+        "dist/ids-enterprise-ng/ids-enterprise-ng",
+        "dist/ids-enterprise-ng"
+      ],
+      "ids-enterprise-ng/*": [
+        "dist/ids-enterprise-ng/*"
+      ]
+
+    // For auto code compile use this.
+    // "paths": {
+    //   "ids-enterprise-ng": [
+    //     "projects/ids-enterprise-ng/src/public_api"
+    //   ]
+    }
   },
-  "files": [
-    "src/main.ts",
-    "src/polyfills.ts"
-  ],
-  "include": [
-    "src/**/*.d.ts"
-  ],
+  "angularCompilerOptions": {
+    "strictInjectionParameters": false,
+    "strictInputAccessModifiers": false,
+    "strictTemplates": false
+  },
   "exclude": [
-    "node_modules",
-    "dist/**/*"
+    "dist/**"
   ]
 }
+

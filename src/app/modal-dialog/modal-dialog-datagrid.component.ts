@@ -12,8 +12,8 @@ import groups from './groups.json';
 })
 export class ModalDialogDataGridComponent {
   /**
-  * Define the user grid columns
-  */
+   * Define the user grid columns
+   */
   private USER_FORM_GROUP_GRID_COLUMNS: SohoDataGridColumn[] = [
     {
       id: 'selectionCheckbox',

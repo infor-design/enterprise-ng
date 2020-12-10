@@ -21,12 +21,14 @@ import {
  * Internal component to support the tab title
  */
 @Component({
-  selector: 'a[soho-tab-title]', // tslint:disable-line
+  selector: 'a[soho-tab-title]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoTabTitleComponent {
-  @HostBinding('attr.href') get hrefAttr() { return '#' + this.tabId; }
+  @HostBinding('attr.href') get hrefAttr() {
+    return '#' + this.tabId;
+  }
   @Input() tabId?: string;
 }
 
@@ -34,7 +36,7 @@ export class SohoTabTitleComponent {
  * Internal component to support the tab with a 'count' on it.
  */
 @Component({
-  selector: 'span[soho-tab-count]', // tslint:disable-line
+  selector: 'span[soho-tab-count]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -52,7 +54,7 @@ export class SohoTabCountComponent {
  * Internal component to support a divider between tab items
  */
 @Component({
-  selector: 'li[soho-tab-separator]', // tslint:disable-line
+  selector: 'li[soho-tab-separator]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -69,7 +71,7 @@ export class SohoTabSeparatorComponent {
  * Internal component to support tab panel container content.
  */
 @Component({
-  selector: 'div[soho-tab-panel-container]', // tslint:disable-line
+  selector: 'div[soho-tab-panel-container]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -88,7 +90,7 @@ export class SohoTabPanelContainerComponent {
  * Internal component to support tab panel content.
  */
 @Component({
-  selector: 'div[soho-tab-panel]', // tslint:disable-line
+  selector: 'div[soho-tab-panel]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -108,7 +110,7 @@ export class SohoTabPanelComponent {
  * Internal component to support the tab list items
  */
 @Component({
-  selector: 'li[soho-tab]', // tslint:disable-line
+  selector: 'li[soho-tab]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -131,7 +133,7 @@ export class SohoTabComponent {
  * Main tabset header component
  */
 @Component({
-  selector: 'ul[soho-tab-list]', // tslint:disable-line
+  selector: 'ul[soho-tab-list]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -148,7 +150,7 @@ export class SohoTabListComponent {
  * Main tabset header component
  */
 @Component({
-  selector: 'div[soho-tab-list-container]', // tslint:disable-line
+  selector: 'div[soho-tab-list-container]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -167,15 +169,23 @@ export class SohoTabListContainerComponent {
  * The main soho-tabs component
  */
 @Component({
-  selector: 'div[soho-tabs]', // tslint:disable-line
+  selector: 'div[soho-tabs]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
-  @HostBinding('class.vertical') get isVertical() { return this.vertical; }
-  @HostBinding('class.module-tabs') get isModuleTabs() { return this.moduleTabs; }
-  @HostBinding('class.header-tabs') get isHeaderTabs() { return this.headerTabs; }
-  @HostBinding('class.alternate') get isAlternate() { return this.alternate; }
+  @HostBinding('class.vertical') get isVertical() {
+    return this.vertical;
+  }
+  @HostBinding('class.module-tabs') get isModuleTabs() {
+    return this.moduleTabs;
+  }
+  @HostBinding('class.header-tabs') get isHeaderTabs() {
+    return this.headerTabs;
+  }
+  @HostBinding('class.alternate') get isAlternate() {
+    return this.alternate;
+  }
 
   // ------------------------------------------------------------------------
   // @Inputs
@@ -330,6 +340,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * The beforeactivate event is deprecated in favor of `beforeactivated`.
+   *
    * @deprecated
    */
   @Output() beforeActivate = new DeprecatedEventEmitter<SohoTabsEvent>('beforeactivate', 'beforeactivated');
@@ -351,7 +362,10 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * fired when a tab closes
+   *
+   * @todo replace override of native element
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() close = new EventEmitter<SohoTabsEvent>();
 
   /**
@@ -560,6 +574,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
       const tabTitles: Array<string> = [];
       const $anchorList: any | JQuery = $liList?.find('a');
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
       for (let i = 0; i < $anchorList.length; i++) {
         tabTitles.push($($anchorList[i]).html());
       }
@@ -596,6 +611,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * Adds a new tab into the tab component
+   *
    * @param tabId The tabId of the tab to be added
    * @param options ?
    * @param atIndex The index location where the tab is to be added.
@@ -607,6 +623,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * Removes a tab
+   *
    * @param tabId The tabId of the tab to be removed.
    * @param disableBeforeClose If true, the beforeClose callback should be called
    * before removing the tab.
@@ -618,6 +635,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * Hides a tab for the given tabId
+   *
    * @param tabId The id of the tab to hide
    */
   hide(tabId: string): void {
@@ -647,6 +665,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * Gets a tab given either an event or a tabId
+   *
    * @param event And event from a tab that will allow tab retrieval
    * @param tabId The tabId of the tab to be retrieved.
    */
@@ -658,6 +677,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * Return the currenlty active/selected tab.
+   *
    * @return  A JQuery object of the active tab element.
    */
   getActiveTab(): JQuery {
@@ -668,6 +688,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * Returns the visible tabs
+   *
    * @return  An array of JQuery objects of the visible tab elements
    */
   getVisibleTabs(): Array<JQuery> {
@@ -678,6 +699,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * Returns the overflow tabs
+   *
    * @return  An array of JQuery objects of the overflow tab elements
    */
   getOverflowTabs(): Array<JQuery> {
@@ -688,6 +710,7 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
 
   /**
    * Selects the tab given an href
+   *
    * @param href an href used to find the tab to select
    */
   select(href: string): void {

@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-sparkline]', // tslint:disable-line
+  selector: '[soho-sparkline]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -98,6 +98,11 @@ export class SohoSparklineComponent implements AfterViewInit, AfterViewChecked, 
 
   /* Events*/
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * @todo remove override of native element
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() contextmenu: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   private jQueryElement?: JQuery;

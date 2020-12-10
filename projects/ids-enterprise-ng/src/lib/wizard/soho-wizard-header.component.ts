@@ -15,7 +15,7 @@ import { SohoWizardTickComponent } from './soho-wizard-tick.component';
  * simply add a wrapper around the wizard ticks.
  */
 @Component({
-  selector: 'div[soho-wizard-header]', // tslint:disable-line
+  selector: 'div[soho-wizard-header]', // eslint-disable-line
   template: `<div class="bar">
     <div class="completed-range"></div>
     <ng-content></ng-content>

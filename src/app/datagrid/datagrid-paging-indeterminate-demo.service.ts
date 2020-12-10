@@ -45,9 +45,9 @@ export class DataGridPagingIndeterminateDemoService extends SohoDataGridService 
     this.endIndex = (this.beginIndex as any) + (req as any).pagesize;
 
     const result: any = {
-      data:  (this.data as any).slice(this.beginIndex, this.endIndex),
+      data: (this.data as any).slice(this.beginIndex, this.endIndex),
       firstPage: this.beginIndex === 0,
-      lastPage: (this.endIndex as any)  >= (this.data as any).length - 1
+      lastPage: (this.endIndex as any) >= (this.data as any).length - 1
     };
 
     return of(result);

@@ -38,7 +38,7 @@ export type SohoTreeType = 'auto' | 'content-only';
  * @todo Complete interface definition
  */
 @Component({
-  selector: 'ul[soho-tree]', // tslint:disable-line
+  selector: 'ul[soho-tree]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -84,6 +84,7 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   /** Defines the source type of the tree. */
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('soho-tree') set sohoTree(treeType: SohoTreeType) {
     this.treeType = treeType ? treeType : SohoTreeComponent.AUTO;
   }
@@ -171,6 +172,8 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   /**
    * This event is fired when right clicking a node.
    * */
+  // @todo fix the use of this native attribute
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() contextmenu = new EventEmitter<SohoTreeEvent>();
 
   /**
@@ -184,9 +187,9 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
   @Output() sortend = new EventEmitter<SohoTreeEvent>();
 
   /**
-  * This event is fired when context menu is selected, the SohoTreeNode
-  * selected is passed in the argument passed to the handler.
-  * */
+   * This event is fired when context menu is selected, the SohoTreeNode
+   * selected is passed in the argument passed to the handler.
+   * */
   @Output() menuselect = new EventEmitter<SohoTreeEvent>();
 
   /**
@@ -394,7 +397,9 @@ export class SohoTreeComponent implements AfterViewInit, OnInit, OnDestroy {
       // tree nodes rather then an intermediate wrapper, but to clean up
       // the api we dispose of the extra information here.
       this.tree?.getSelectedNodes().forEach(
-        (n) => { result.push(n.data); }
+        (n) => {
+          result.push(n.data);
+        }
       );
     }
     return result;

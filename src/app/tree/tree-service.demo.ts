@@ -9,7 +9,7 @@ import { SohoTreeComponent, SohoTreeService } from 'ids-enterprise-ng';
 import { TreeDemoService } from './tree-demo.service';
 
 @Component({
-  selector: 'app-tree-service-demo',
+  selector: 'demo-tree-service-demo',
   templateUrl: 'tree-service.demo.html',
   providers: [{ provide: SohoTreeService, useClass: TreeDemoService }],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -21,7 +21,7 @@ export class TreeServiceDemoComponent {
 
   selected?: SohoTreeNode;
 
-  constructor() {}
+  constructor() { }
 
   expandAll() {
     this.tree?.expandAll();

@@ -4,31 +4,31 @@ import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { SohoTrackDirtyDirective, SohoErrorDirective } from 'ids-enterprise-ng';
 
 @Component({
-  selector:    'app-validation-form-event-demo',
+  selector: 'app-validation-form-event-demo',
   templateUrl: 'validation-form-event.demo.html'
 })
 export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
-  @ViewChildren(SohoTrackDirtyDirective) trackDirtyComponents!: QueryList<SohoTrackDirtyDirective>;
-  @ViewChild(SohoErrorDirective, { static: true }) errorDirective!: SohoErrorDirective; // tslint:disable-line
+  @ViewChildren(SohoTrackDirtyDirective) trackDirtyComponents: QueryList<SohoTrackDirtyDirective>;
+  @ViewChild(SohoErrorDirective, { static: true }) errorDirective: SohoErrorDirective; // eslint-disable-line
 
   public dataView: any = {
-    EventField:    {
+    EventField: {
       value: 'event',
       required: true
     },
-    AlphaField:    {
-      value:    'abc',
+    AlphaField: {
+      value: 'abc',
       required: true
     },
-    NumericField:  {
-      value:    '',
+    NumericField: {
+      value: '',
       required: true
     },
-    DateField:     {
+    DateField: {
       value: ''
     },
     DropdownField: {
-      value:    '',
+      value: '',
       required: true
     }
   };
@@ -54,7 +54,7 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
   onAfterResetDirty(event: SohoTrackDirtyEvent) {
     const elem = event.currentTarget.getAttribute('formControlName');
     if (elem) {
-      this.form.controls[ elem ].markAsPristine();
+      this.form.controls[elem].markAsPristine();
     }
   }
 
@@ -64,16 +64,16 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
   onPristine(event: SohoTrackDirtyEvent) {
     const elem = event.currentTarget.getAttribute('formControlName');
     if (elem) {
-      this.form.controls[ elem ].markAsPristine();
+      this.form.controls[elem].markAsPristine();
     }
   }
 
   onError(event: SohoInputValidateEvent) {
-    this.form.controls[ event.validation.field.getAttribute('formControlName') ].setErrors({ inError: true });
+    this.form.controls[event.validation.field.getAttribute('formControlName')].setErrors({ inError: true });
   }
 
   onValid(event: SohoInputValidateEvent) {
-    this.form.controls[ event.validation.field.getAttribute('formControlName') ].setErrors(null);
+    this.form.controls[event.validation.field.getAttribute('formControlName')].setErrors(null);
   }
 
   private buildModel() {
@@ -81,14 +81,14 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
     const group: { [key: string]: any } = [];
 
     Object.keys(this.dataView).map((item) => {
-      const required = this.dataView[ item ].required;
+      const required = this.dataView[item].required;
 
-      this.model[ item ] = {
-        value:    this.dataView[ item ].value,
+      this.model[item] = {
+        value: this.dataView[item].value,
         required
       };
 
-      group[ item ] = new FormControl('');
+      group[item] = new FormControl('');
     });
 
     this.form = new FormGroup(group);
@@ -103,7 +103,7 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
   isRequired(id: string): string | null {
     // used to set the sohoxi required validator on the data-validate attribute on a control
     // return null means attribute is not set
-    if (this.model[ id ].required) {
+    if (this.model[id].required) {
       return 'required';
     }
     return null;
@@ -111,7 +111,7 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
 
   status(key?: string): string {
     const fc: AbstractControl = (key)
-      ? this.form.controls[ key ]
+      ? this.form.controls[key]
       : this.form;
 
     let msg = 'Status:';
@@ -130,22 +130,22 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
 
   addError() {
     // don't add an error if field already has an error
-    if (!this.errorDirective.errorMessage) { // tslint:disable-line
-      this.errorDirective.addInlineError('Field is in error'); // tslint:disable-line
+    if (!this.errorDirective.errorMessage) { // eslint-disable-line
+      this.errorDirective.addInlineError('Field is in error'); // eslint-disable-line
     }
   }
 
   removeError() {
     // only remove an error if an error exists
-    if (this.errorDirective.errorMessage) { // tslint:disable-line
-      this.errorDirective.removeError(); // tslint:disable-line
+    if (this.errorDirective.errorMessage) { // eslint-disable-line
+      this.errorDirective.removeError(); // eslint-disable-line
     }
   }
 
   goToError() {
     // scroll element into view if there is an error
-    if (this.errorDirective.errorMessage) { // tslint:disable-line
-      this.errorDirective.scrollIntoView(); // tslint:disable-line
+    if (this.errorDirective.errorMessage) { // eslint-disable-line
+      this.errorDirective.scrollIntoView(); // eslint-disable-line
     }
   }
 
@@ -168,6 +168,6 @@ export class ValidationFormEventDemoComponent implements OnInit, AfterViewInit {
     const id = event.target?.id;
     const type = event.type;
     const timeStamp = event.timeStamp;
-    this.events[id] = {type, timeStamp};
+    this.events[id] = { type, timeStamp };
   }
 }

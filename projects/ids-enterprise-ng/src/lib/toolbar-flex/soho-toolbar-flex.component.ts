@@ -14,7 +14,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'input[soho-toolbar-flex-searchfield]', // tslint:disable-line
+  selector: 'input[soho-toolbar-flex-searchfield]', // eslint-disable-line
   template: '<div #toolbarFlexSearchField><ng-content></ng-content></div>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -24,7 +24,7 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
    * this Input with the othera is not recommended.
    *
    * (Note: could change this to use {...this._options,...value})
-  */
+   */
   @Input() options: SohoToolbarFlexSearchFieldOptions = {};
 
   /** Adds an X button for clearing the search value. */
@@ -83,9 +83,16 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
 
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
   @Output() cleared: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+
+  /**
+   * @todo replace override of native element
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() change: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
-  @HostBinding('class.searchfield') get isSearchField() { return true; }
+  @HostBinding('class.searchfield') get isSearchField() {
+    return true;
+  }
 
   /**
    * Local variables
@@ -173,7 +180,7 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
  * soho toolbar flex more button
  */
 @Component({
-  selector: 'soho-toolbar-flex-more-button', // tslint:disable-line
+  selector: 'soho-toolbar-flex-more-button', // eslint-disable-line
   template: `<button class="btn-actions" [ngClass]="{'page-changer': isPageChanger}"
                      type="button" [attr.disabled]="isDisabled ? 'disabled' : null">
     <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
@@ -197,7 +204,7 @@ export class SohoToolbarFlexMoreButtonComponent {
  * soho toolbar flex page title.
  */
 @Component({
-  selector: '[soho-toolbar-flex-page-title]', // tslint:disable-line
+  selector: '[soho-toolbar-flex-page-title]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -209,7 +216,7 @@ export class SohoToolbarFlexPageTitleComponent {
  * soho toolbar flex section title.
  */
 @Component({
-  selector: '[soho-toolbar-flex-section-title]', // tslint:disable-line
+  selector: '[soho-toolbar-flex-section-title]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -221,7 +228,7 @@ export class SohoToolbarFlexSectionTitleComponent {
  * Generic soho toolbar flex section
  */
 @Component({
-  selector: 'soho-toolbar-flex-section', // tslint:disable-line
+  selector: 'soho-toolbar-flex-section', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -237,7 +244,7 @@ export class SohoToolbarFlexSectionComponent {
  * Soho toolbar Navigation button
  */
 @Component({
-  selector: 'button[soho-toolbar-flex-nav-button]', // tslint:disable-line
+  selector: 'button[soho-toolbar-flex-nav-button]', // eslint-disable-line
   template: `
     <span class="icon app-header">
         <span class="one"></span>

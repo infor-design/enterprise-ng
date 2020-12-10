@@ -3,7 +3,7 @@ import { Component, ViewChild } from '@angular/core';
 import { SohoAccordionComponent } from 'ids-enterprise-ng';
 
 @Component({
-  selector: 'accordion-panels-demo', // tslint:disable-line
+  selector: 'accordion-panels-demo', // eslint-disable-line
   templateUrl: 'accordion-panels.demo.html',
 })
 export class AccordionPanelsDemoComponent {

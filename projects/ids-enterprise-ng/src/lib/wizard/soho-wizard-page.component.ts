@@ -13,7 +13,7 @@ import {
  * Angular wrapper for the soho wizard page.
  */
 @Component({
-  selector: 'div[soho-wizard-page]', // tslint:disable-line
+  selector: 'div[soho-wizard-page]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   styles: [
     `:host {

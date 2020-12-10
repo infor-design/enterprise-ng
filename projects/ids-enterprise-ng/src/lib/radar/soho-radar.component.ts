@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-radar]', // tslint:disable-line
+  selector: '[soho-radar]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -77,7 +77,7 @@ export class SohoRadarComponent implements AfterViewInit, AfterViewChecked, OnDe
   }
 
   /** How far out than the outer circle should the labels be placed,
-    * this may be useful to adjust for some charts. */
+   * this may be useful to adjust for some charts. */
   @Input() set labelFactor(value: number) {
     this.options.labelFactor = value;
 
@@ -88,7 +88,7 @@ export class SohoRadarComponent implements AfterViewInit, AfterViewChecked, OnDe
   }
 
   /**  The number of pixels after which a label needs to be
-  * given a new line. You may want to change this based on label data. */
+   * given a new line. You may want to change this based on label data. */
   @Input() set wrapWidth(value: number) {
     this.options.wrapWidth = value;
 
@@ -252,6 +252,11 @@ export class SohoRadarComponent implements AfterViewInit, AfterViewChecked, OnDe
   @Output() selected: EventEmitter<SohoRadarSelectEvent> = new EventEmitter<SohoRadarSelectEvent>();
   @Output() unselected: EventEmitter<SohoRadarSelectEvent> = new EventEmitter<SohoRadarSelectEvent>();
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+
+  /**
+   * @todo remove override of native elements
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() contextmenu: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   private jQueryElement?: JQuery;

@@ -12,8 +12,8 @@ import {
 } from '@angular/core';
 
 // @ts-ignore
-@Component({                                    // tslint:disable-line
-  selector: 'div[soho-standalone-pager]',       // tslint:disable-line
+@Component({                                    // eslint-disable-line
+  selector: 'div[soho-standalone-pager]',       // eslint-disable-line
   template: `<div class="pager-container"></div>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })

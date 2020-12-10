@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: '[soho-widget-title]', // tslint:disable-line
+  selector: '[soho-widget-title]', // eslint-disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoWidgetTitleComponent {

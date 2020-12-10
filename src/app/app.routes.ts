@@ -398,4 +398,4 @@ export const routes: Routes = [
 /**
  * To test the application using the hashing routing strategy, swap the two lines below.
  */
-export const AppRoutingModule: ModuleWithProviders<RouterModule> = RouterModule.forRoot(routes, { useHash: false });
+export const AppRoutingModule: ModuleWithProviders<RouterModule> = RouterModule.forRoot(routes, { useHash: false, relativeLinkResolution: 'legacy' });

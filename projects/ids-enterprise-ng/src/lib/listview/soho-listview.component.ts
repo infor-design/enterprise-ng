@@ -25,7 +25,7 @@ import { SohoSearchFieldComponent } from '../searchfield/soho-searchfield.compon
  * by exposing it (if desired)
  */
 @Component({
-  // tslint:disable-next-line:component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[soho-listview-search]',
   template: `
     <input soho-searchfield *ngIf="buildSearch">
@@ -42,11 +42,13 @@ export class SohoListViewSearchComponent {
    */
   @Input() buildSearch = true;
 
-  @HostBinding('class.listview-search') get isListviewSearch() { return true; }
+  @HostBinding('class.listview-search') get isListviewSearch() {
+    return true;
+  }
 }
 
 @Component({
-  // tslint:disable-next-line:component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[soho-listview-item]',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -88,33 +90,39 @@ export class SohoListViewItemComponent implements AfterViewInit {
 }
 
 @Component({
-  // tslint:disable-next-line:component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[soho-listview-header]',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoListViewHeaderComponent {
-  @HostBinding('class.listview-heading') get isHeading() { return true; }
+  @HostBinding('class.listview-heading') get isHeading() {
+    return true;
+  }
 }
 
 @Component({
-  // tslint:disable-next-line:component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[soho-listview-subheader]',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoListViewSubHeaderComponent {
-  @HostBinding('class.listview-subheading') get isSubHeading() { return true; }
+  @HostBinding('class.listview-subheading') get isSubHeading() {
+    return true;
+  }
 }
 
 @Component({
-  // tslint:disable-next-line:component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[soho-listview-micro]',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoListViewMicroComponent {
-  @HostBinding('class.listview-micro') get isMicro() { return true; }
+  @HostBinding('class.listview-micro') get isMicro() {
+    return true;
+  }
 }
 
 @Component({
@@ -323,17 +331,20 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
   /**
    * Called once an item is clicked. You may also prefer need activated / deactived here.
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() click: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**
-  * Called once an item is double clicked. This isnt used that often.
-  */
+   * Called once an item is double clicked. This isnt used that often.
+   */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() dblclick: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**
    * Called during right click to enable context menus on list items.
    * Use popupmenu during this event.
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() contextmenu: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**
@@ -342,10 +353,10 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
   @Output() sorted: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   // Used to locate the listViewReference in the HTML to init the component through jQuery
-  @ViewChild('listview', { static: true }) listViewRef?: ElementRef;
-  @ContentChild(forwardRef(() => SohoSearchFieldComponent), { static: true }) // tslint:disable-line
-  // tslint:disable-line
-  // tslint:disable-line
+  @ViewChild('listview', { static: true }) listViewRef: ElementRef | undefined;
+  @ContentChild(forwardRef(() => SohoSearchFieldComponent), { static: true }) // eslint-disable-line
+  // eslint-disable-line
+  // eslint-disable-line
   public searchfieldRef?: SohoSearchFieldComponent = undefined;
 
   /**
@@ -392,7 +403,9 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
       this.jQueryElement.on('sorted', (...args) => this.ngZone.run(() => this.sorted.emit(args)));
     });
 
-    this.items?.changes.subscribe(() => { this.updateRequired = true; });
+    this.items?.changes.subscribe(() => {
+      this.updateRequired = true;
+    });
   }
 
   ngAfterViewChecked() {
@@ -447,7 +460,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * @throws Error if the argument is null, or contains out of range indices then any error is thrown.
    */
   remove(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
-    this.apply((e) => this.ngZone.runOutsideAngular(() => this.listview?.remove(e)), index);
+    this.apply({ fn: (e) => this.ngZone.runOutsideAngular(() => this.listview?.remove(e)), index });
   }
 
   /**
@@ -457,7 +470,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * @throws Error if the argument is null, or contains out of range indices then any error is thrown.
    */
   unselect(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
-    this.apply((e) => this.ngZone.runOutsideAngular(() => this.listview?.deselect(e)), index);
+    this.apply({ fn: (e) => this.ngZone.runOutsideAngular(() => this.listview?.deselect(e)), index });
   }
   /**
    * Selects the list item (or list items) identified by their index or jQuery element.
@@ -468,14 +481,14 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * @throws Error if the argument is null, or contains out of range indices then any error is thrown.
    */
   select(index: SohoListViewItemReference | SohoListViewItemReference[]): void {
-    this.apply((e) => this.ngZone.runOutsideAngular(() => this.listview?.select(e)), index);
+    this.apply({ fn: (e: SohoListViewItemReference) => this.ngZone.runOutsideAngular(() => this.listview?.select(e)), index });
   }
 
   /**
    * Activate the given list item.
    */
   activateItem(item: SohoListViewItemReference): void {
-    this.apply((e) => this.ngZone.runOutsideAngular(() => this.listview?.activateItem(e)), item);
+    this.apply({ fn: (e) => this.ngZone.runOutsideAngular(() => this.listview?.activateItem(e)), index: item });
   }
 
   /**
@@ -497,7 +510,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * Toggle Activation on the given list item.
    */
   toggleItemActivation(item: SohoListViewItemReference): void {
-    this.apply((e) => this.ngZone.runOutsideAngular(() => this.listview?.toggleItemActivation(e)), item);
+    this.apply({ fn: (e) => this.ngZone.runOutsideAngular(() => this.listview?.toggleItemActivation(e)), index: item });
   }
 
   /**
@@ -506,7 +519,7 @@ export class SohoListViewComponent implements AfterViewInit, OnDestroy, AfterVie
    * @param fn the function to apply - must take a SohoListViewReference.
    * @param index the index of list view item(s).
    */
-  private apply(fn: (index: SohoListViewItemReference) => void, index: SohoListViewItemReference | SohoListViewItemReference[]): void {
+  private apply({ fn, index }: { fn: (idx: SohoListViewItemReference) => void; index: SohoListViewItemReference | SohoListViewItemReference[]; }): void {
     ArgumentHelper.checkNotNull('index', index);
 
     if (this.listview) {

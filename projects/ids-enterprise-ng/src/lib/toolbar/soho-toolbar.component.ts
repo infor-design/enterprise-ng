@@ -18,16 +18,20 @@ import {
  * element structure change.
  */
 @Component({
-  selector: 'span[soho-toolbar-searchfield-wrapper]', // tslint:disable-line
+  selector: 'span[soho-toolbar-searchfield-wrapper]', // eslint-disable-line
   template: `<ng-content></ng-content>`
 })
 export class SohoToolbarSearchFieldWrapperComponent {
-  @HostBinding('class.searchfield-wrapper') get isSearchfieldWrapper() { return true; }
-  @HostBinding('class.toolbar-searchfield-wrapper') get isToolbarSearchfieldWrapper() { return true; }
+  @HostBinding('class.searchfield-wrapper') get isSearchfieldWrapper() {
+ return true;
+}
+  @HostBinding('class.toolbar-searchfield-wrapper') get isToolbarSearchfieldWrapper() {
+ return true;
+}
 }
 
 @Component({
-  selector: 'input[soho-toolbar-searchfield]', // tslint:disable-line
+  selector: 'input[soho-toolbar-searchfield]', // eslint-disable-line
   template: '<div #toolbarSearchField><ng-content></ng-content></div>',
   changeDetection: ChangeDetectionStrategy.OnPush,
 
@@ -85,7 +89,9 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
   @Output() cleared: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
-  @HostBinding('class.searchfield') get isSearchField() { return true; }
+  @HostBinding('class.searchfield') get isSearchField() {
+ return true;
+}
 
   /**
    * Local variables
@@ -182,7 +188,9 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarMoreButtonComponent {
-  @HostBinding('class.more') get isMoreButton() { return true; }
+  @HostBinding('class.more') get isMoreButton() {
+ return true;
+}
   @Input() @HostBinding('class.page-changer') isPageChanger = false;
   @Input() isDisabled = false;
 }
@@ -191,44 +199,52 @@ export class SohoToolbarMoreButtonComponent {
  * soho toolbar page title.
  */
 @Component({
-  selector: 'span[soho-page-title]', // tslint:disable-line
+  selector: 'span[soho-page-title]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoPageTitleComponent {
-  @HostBinding('class.page-title') get isPageTitle() { return true; }
+  @HostBinding('class.page-title') get isPageTitle() {
+ return true;
+}
 }
 
 /**
  * soho section title.
  */
 @Component({
-  selector: 'span[soho-section-title]', // tslint:disable-line
+  selector: 'span[soho-section-title]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoSectionTitleComponent {
-  @HostBinding('class.section-title') get isSectionTitle() { return true; }
+  @HostBinding('class.section-title') get isSectionTitle() {
+ return true;
+}
 }
 
 /**
  * soho selection count.
  */
 @Component({
-  selector: 'div[soho-selection-count]', // tslint:disable-line
+  selector: 'div[soho-selection-count]', // eslint-disable-line
   template: `<ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoSelectionCountComponent {
-  @HostBinding('class.title') get isTitle() { return true; }
-  @HostBinding('class.selection-count') get isSelectionCount() { return true; }
+  @HostBinding('class.title') get isTitle() {
+ return true;
+}
+  @HostBinding('class.selection-count') get isSelectionCount() {
+ return true;
+}
 }
 
 /**
  * Soho toolbar Navigation button
  */
 @Component({
-  selector: 'button[soho-nav-button]', // tslint:disable-line
+  selector: 'button[soho-nav-button]', // eslint-disable-line
   template: `
               <span class="icon app-header">
         <span class="one"></span>
@@ -243,9 +259,15 @@ export class SohoSelectionCountComponent {
 })
 export class SohoToolbarNavButtonComponent {
   // This HostBinding needs to go first to maintain correct styling
-  @HostBinding('class.btn-icon') get isIconButton() { return true; }
-  @HostBinding('class.application-menu-trigger') get isAppMenuTrigger() { return true; }
-  @HostBinding('attr.type') get typeAttr() { return 'button'; }
+  @HostBinding('class.btn-icon') get isIconButton() {
+ return true;
+}
+  @HostBinding('class.application-menu-trigger') get isAppMenuTrigger() {
+ return true;
+}
+  @HostBinding('attr.type') get typeAttr() {
+ return 'button';
+}
 }
 
 /**
@@ -258,7 +280,9 @@ export class SohoToolbarNavButtonComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarTitleComponent {
-  @HostBinding('class.title') get isTitle() { return true; }
+  @HostBinding('class.title') get isTitle() {
+ return true;
+}
 }
 
 /**
@@ -271,7 +295,9 @@ export class SohoToolbarTitleComponent {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoToolbarButtonSetComponent {
-  @HostBinding('class.buttonset') get isButtonSet() { return true; }
+  @HostBinding('class.buttonset') get isButtonSet() {
+ return true;
+}
 }
 
 /**
@@ -283,7 +309,9 @@ export class SohoToolbarButtonSetComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
-  @HostBinding('class.toolbar') get isToolbar() { return true; }
+  @HostBinding('class.toolbar') get isToolbar() {
+ return true;
+}
   @HostBinding('class.has-more-button') get showMoreButton() {
     return this.options.hasMoreButton;
   }

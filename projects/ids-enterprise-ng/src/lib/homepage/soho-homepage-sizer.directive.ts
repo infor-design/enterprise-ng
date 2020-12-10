@@ -11,10 +11,12 @@ import {
  * Angular Directive for keeping a homepage elements height correctly up to date.
  */
 @Directive({
-  selector: '[soho-homepage-sizer]', // tslint:disable-line
+  selector: '[soho-homepage-sizer]', // eslint-disable-line
 })
 export class SohoHomepageSizerDirective implements AfterViewInit, OnDestroy {
-  @HostBinding('style.height.px') get heightStyle() { return this.containerHeight; }
+  @HostBinding('style.height.px') get heightStyle() {
+ return this.containerHeight;
+}
 
   private jQueryElement?: JQuery;
   private containerHeight?: number;

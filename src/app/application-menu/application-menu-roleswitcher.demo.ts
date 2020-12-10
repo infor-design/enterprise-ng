@@ -9,7 +9,7 @@ import {
 import { SohoApplicationMenuComponent } from 'ids-enterprise-ng';
 
 @Component({
-  // tslint:disable-next-line:component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'application-menu-roleswitcher-demo',
   templateUrl: 'application-menu-roleswitcher.demo.html',
   changeDetection: ChangeDetectionStrategy.OnPush

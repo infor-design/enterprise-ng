@@ -63,7 +63,7 @@ class SohoTreeTestComponent {
 
   public get dataset(): any[] {
     if (!this._data) {
-      /* tslint:disable */
+      /* eslint-disable */
       this._data = [{
         'id': 'node1',
         'text': 'Data One',

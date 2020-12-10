@@ -15,7 +15,7 @@ import { SohoWizardComponent } from './soho-wizard.component';
  * simply adds a component used to handle the button selection.
  */
 @Component({
-  selector: 'div[soho-wizard-buttonbar]', // tslint:disable-line
+  selector: 'div[soho-wizard-buttonbar]', // eslint-disable-line
   template: `
     <hr class="fieldset-hr">
     <div class="buttonbar">
@@ -73,19 +73,22 @@ import { SohoWizardComponent } from './soho-wizard.component';
 })
 export class SohoWizardButtonbarComponent {
 
+  // @todo need types for these button, these seem to be different from SohoButtonOptions
   @Input()
-  public buttons = [
+  public buttons: any[] = [
     {
       id: 'previous',
       text: Soho.Locale.translate('Previous'),
-      click: () => { this.wizard.previous(); },
+      click: () => this.wizard.previous(),
       disabled: () => !this.wizard.hasPrevious(),
       position: 'middle'
     },
     {
       id: 'next',
       text: Soho.Locale.translate('Next'),
-      click: () => { this.wizard.next(); },
+      click: () => {
+        this.wizard.next();
+      },
       disabled: () => !this.wizard.hasNext(),
       isDefault: true,
       position: 'middle'
@@ -93,7 +96,9 @@ export class SohoWizardButtonbarComponent {
     {
       id: 'finish',
       text: 'Finish', // Soho.Locale.translate('Finish'),
-      click: () => { this.wizard.finish(); },
+      click: () => {
+        this.wizard.finish();
+      },
       disabled: () => this.wizard.hasFinished(),
       position: 'right'
     }];

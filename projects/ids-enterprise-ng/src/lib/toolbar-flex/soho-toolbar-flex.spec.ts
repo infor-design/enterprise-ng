@@ -67,6 +67,9 @@ class SohoToolbarFlexTestComponent {
   @ViewChild(SohoToolbarFlexSearchFieldComponent) searchField?: SohoToolbarFlexSearchFieldComponent;
 
   @Output() selected = new EventEmitter<SohoToolbarFlexSelectedEvent>();
+
+  /** @todo fix the use of this native attribute */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() change = new EventEmitter<SohoSearchFieldEvent>();
 
   private MENU_RESPONSE_HTML = `
@@ -106,12 +109,12 @@ class SohoToolbarFlexTestComponent {
       response(this.MENU_RESPONSE_HTML);
       return;
     }
-  }
+  };
 
   onBeforeMenuButtonOpen = (response: AjaxBeforeOpenResponseFunction, _options: any) => {
     response(this.MENU_BUTTON_RESPONSE_HTML);
     return;
-  }
+  };
 
   onSelected(event: SohoToolbarFlexSelectedEvent) {
     this.selected.emit(event);

@@ -10,7 +10,7 @@ import { SohoSpinboxComponent } from 'ids-enterprise-ng';
 export class SpinboxDemoComponent {
   @ViewChild('spinbox', { static: true }) spinbox?: SohoSpinboxComponent;
 
-  public model = { // tslint:disable-line
+  public model = { // eslint-disable-line
     value1: '10'
   };
   public disabled = false;

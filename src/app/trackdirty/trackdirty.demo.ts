@@ -34,7 +34,7 @@ export class TrackDirtyDemoComponent implements OnInit {
   ngOnInit() { }
 
   saveForm() {
-    this.trackDirtyComponents?.forEach( (trackDirty: SohoTrackDirtyDirective) => {
+    this.trackDirtyComponents?.forEach((trackDirty: SohoTrackDirtyDirective) => {
       trackDirty.resetDirty();
     });
   }
@@ -78,8 +78,8 @@ export class TrackDirtyDemoComponent implements OnInit {
   }
 }
 
-// tslint:disable-next-line
-type DataFields = { [key: string]: DataField };
+// teslint-disable-next-line
+interface DataFields { [key: string]: DataField }
 
 interface DataField {
   value: string | number | boolean;

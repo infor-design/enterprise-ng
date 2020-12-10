@@ -18,7 +18,7 @@ import {
 } from '../utils/base-control-value-accessor';
 
 @Component({
-  selector: 'input[soho-autocomplete]', // tslint:disable-line
+  selector: 'input[soho-autocomplete]', // eslint-disable-line
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoAutoCompleteComponent)]
@@ -76,24 +76,23 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
   /**
    * Available Soho Template events as Output (EventEmitters passing the event)
    * Should match the Soho event names for the component
+   *
+   * @todo replace override of native attribute.
    */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() change: EventEmitter<SohoInputEvent[]> = new EventEmitter<SohoInputEvent[]>();
+
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   @Output() beforeopen: EventEmitter<SohoAutoCompleteEvent> = new EventEmitter<SohoAutoCompleteEvent>();
 
-  @HostBinding('class.autocomplete') get isAutoComplete() { return true; }
+  @HostBinding('class.autocomplete') get isAutoComplete() {
+    return true;
+  }
 
   // -------------------------------------------
   // Public API
   // -------------------------------------------
-
-  get disabled(): boolean | undefined {
-    return this.isDisabled;
-  }
-  get readonly(): boolean | undefined {
-    return this.isReadOnly;
-  }
 
   /**
    * Local variables
@@ -101,7 +100,7 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
   private isDisabled?: boolean | undefined;
   private isReadOnly?: boolean | undefined;
   private jQueryElement!: JQuery;
-  private autocomplete!: SohoAutoCompleteStatic | null;
+  private autocomplete!: SohoAutoCompleteStatic | undefined;
 
   // -------------------------------------------
   // Component Input
@@ -122,6 +121,11 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
     }
   }
 
+  get disabled(): boolean | undefined {
+    return this.isDisabled;
+  }
+
+
   @Input() set readonly(value: boolean | undefined) {
     if (this.autocomplete) {
       if (value) {
@@ -133,6 +137,10 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
         this.isReadOnly = false;
       }
     }
+  }
+
+  get readonly(): boolean | undefined {
+    return this.isReadOnly;
   }
 
   constructor(private element: ElementRef) {
@@ -172,7 +180,7 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
   ngOnDestroy() {
     if (this.autocomplete) {
       this.autocomplete.destroy();
-      this.autocomplete = null;
+      this.autocomplete = undefined;
     }
   }
 
