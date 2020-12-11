@@ -33,6 +33,8 @@ export class DataGridRowReorderDemoComponent {
 
   onRowReordered(event: SohoDataGridRowReorderedEvent) {
     console.log('startIndex: ' + event.startIndex, 'endIndex: ' + event.endIndex);
+    alert()
+    this.datagrid?.updateRow(event.endIndex, (this.datagrid as any).dataset[event.endIndex]);
   }
 
   onRowClicked(event: SohoDataGridRowClicked) {
