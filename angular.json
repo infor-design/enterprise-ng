@@ -13,11 +13,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "sourceMap": {
-              "styles": true,
-              "scripts": true,
-              "vendor": false
-            },
             "outputPath": "dist/ids-enterprise-ng-app",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -59,7 +54,6 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -86,11 +80,6 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "ids-enterprise-ng-app:build",
-            "sourceMap": {
-              "styles": true,
-              "scripts": true,
-              "vendor": true
-            },
             "servePath": "/ids-enterprise-ng-demo"
           },
           "configurations": {
@@ -111,7 +100,6 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "sourceMap": true,
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",

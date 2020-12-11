@@ -4,7 +4,6 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "sourceMap": false,
     "outDir": "../../out-tsc/spec",
     "types": [
       "d3",

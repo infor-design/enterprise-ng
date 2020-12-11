@@ -7,7 +7,6 @@
     "strict": true,
     "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
