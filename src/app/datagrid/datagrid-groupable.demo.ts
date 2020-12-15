@@ -30,6 +30,7 @@ export class DataGridGroupableDemoComponent implements OnInit {
   }
 
   public groups: any[] = [];
+  public columns: any[] = [];
 
   constructor(service: SohoDataGridService) {
     service.getColumns().forEach((element: any) => {
