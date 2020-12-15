@@ -4,7 +4,7 @@
 
 ### 9.1.0 Fixes
 
-- `[General]` Placeholder please remove. ([Issue #NNN](https://github.com/infor-design/enterprise-ng/issues/NNN)) `NNN`
+- `[General]` Fixed an issue where column resetToDefault didnt work in some situations. ([#4688](https://github.com/infor-design/enterprise-ng/issues/4688)) `TJM`
 
 ## v9.0.0
 
