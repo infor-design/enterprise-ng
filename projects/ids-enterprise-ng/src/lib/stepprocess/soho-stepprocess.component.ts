@@ -77,7 +77,7 @@ export class SohoStepListItemComponent {
 
   @HostBinding('class.is-selected') @Input() set isSelected(isSelected: boolean) {
     if (isSelected) {
-      let stepLink = $(this.element.nativeElement).children('a.js-step-link');
+      const stepLink = $(this.element.nativeElement).children('a.js-step-link');
       this.sohoStepProcessComponent.stepprocess?.selectStep(stepLink);
     }
   }
