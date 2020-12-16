@@ -1,8 +1,8 @@
 # What's New with Enterprise-NG
 
-## v8.2.1
+## v8.2.2
 
-### 8.2.1 Fixes
+### 8.2.2 Fixes
 
 - `[Datagrid]` Fixed an issue where column resetToDefault didnt work in some situations ([#4688](https://github.com/infor-design/enterprise/issues/4688)) `TJM`
 
