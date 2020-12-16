@@ -996,6 +996,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       this.ngZone.runOutsideAngular(() => {
         // @todo add hints for this too, as other changes may force a rebuild?
         this.datagrid.updateColumns(this._gridOptions.columns, this._gridOptions.columnGroups);
+        (this.datagrid as any).setOriginalColumns();
       });
     }
   }

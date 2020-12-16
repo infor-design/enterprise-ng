@@ -17,8 +17,81 @@
 <br>
 <div class="row">
   <div class="twelve columns demo" role="main">
+
+
     <section class="scrollable contained-scrolling-right-bottom" style="height: 100%">
-      <div soho-datagrid selectable="true" filterable="false">
+      <div soho-toolbar [maxVisibleButtons]="4">
+        <soho-toolbar-title></soho-toolbar-title>
+          <soho-toolbar-button-set>
+            <input soho-searchfield id="common-toolbar-searchfield" name="common-toolbar-searchfield" />
+            <label class="audible" for="common-toolbar-searchfield">Keyword Search</label>
+
+            <button id="refresh-item" soho-button="icon" icon="refresh">Refresh</button>
+
+            <soho-toolbar-button-set>
+               <button soho-button="btn" icon="filter" data-action="{'button':'filter'}">
+                  <span>Filter</span>
+                </button>
+              </soho-toolbar-button-set>
+
+              <soho-toolbar-more-button>
+                <div class="popupmenu-wrapper">
+                  <ul soho-popupmenu id="my-popupmenu-element" class="popupmenu">
+                    <li soho-popupmenu-item>
+                      <a soho-popupmenu-label href="#" data-option="personalize-columns">{{'PersonalizeColumns' | sohoTranslate}}</a>
+                    </li>
+                    <li soho-popupmenu-item>
+                      <a soho-popupmenu-label href="#" data-option="reset-layout">{{'ResetDefault' | sohoTranslate}}</a>
+                    </li>
+
+                    <li soho-popupmenu-separator></li>
+                    <li soho-popupmenu-item>
+                        <a soho-popupmenu-label href="#" data-option="export-to-excel">{{'ExportToExcel' | sohoTranslate}}</a>
+                    </li>
+
+                    <li soho-popupmenu-separator [singleSelectableSection]="true"></li>
+                    <li soho-popupmenu-heading>{{'RowHeight' | sohoTranslate}}
+                    </li>
+                    <li soho-popupmenu-item [isSelectable]="true">
+                        <a soho-popupmenu-label href="#" data-option="row-extra-small">{{'ExtraSmall' | sohoTranslate}}</a>
+                    </li>
+                    <li soho-popupmenu-item [isSelectable]="true">
+                        <a soho-popupmenu-label href="#" data-option="row-small">{{'Small' | sohoTranslate}}</a>
+                    </li>
+                    <li soho-popupmenu-item [isSelectable]="true">
+                        <a soho-popupmenu-label href="#" data-option="row-medium">{{'Medium' | sohoTranslate}}</a>
+                    </li>
+                    <li soho-popupmenu-item [isSelectable]="true">
+                        <a soho-popupmenu-label href="#" data-option="row-large">{{'Large' | sohoTranslate}}</a>
+                    </li>
+
+                    <li soho-popupmenu-separator></li>
+                    <li soho-popupmenu-heading>{{'Filter' | sohoTranslate}}</li>
+                    <li soho-popupmenu-item [isIndented]="true">
+                        <a soho-popupmenu-label href="#" data-option="show-filter-row">{{'ShowFilterRow' | sohoTranslate}}</a>
+                    </li>
+                    <li soho-popupmenu-item [isIndented]="true">
+                        <a soho-popupmenu-label href="#" data-option="run-filter">{{'RunFilter' | sohoTranslate}}</a>
+                    </li>
+                    <li soho-popupmenu-item [isIndented]="true">
+                        <a soho-popupmenu-label href="#" data-option="clear-filter">{{'ClearFilter' | sohoTranslate}}</a>
+                    </li>
+
+                  </ul>
+                </div>
+              </soho-toolbar-more-button>
+
+          </soho-toolbar-button-set>
+        </div>
+      <div soho-datagrid
+        selectable="true"
+        filterable="true"
+        columnReorder="true"
+        [toolbar]="{
+          results: true,
+          keywordFilter: true
+        }"
+      >
       </div>
     </section>
   </div>

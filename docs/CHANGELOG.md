@@ -4,6 +4,12 @@
 
 ### 8.2.1 Fixes
 
+- `[Datagrid]` Fixed an issue where column resetToDefault didnt work in some situations ([#4688](https://github.com/infor-design/enterprise/issues/4688)) `TJM`
+
+## v8.2.1
+
+### 8.2.1 Fixes
+
 - `[General]` Added patched EP version 4.35.1 final using NG 10.
 
 ## v8.2.0
