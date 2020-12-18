@@ -10,7 +10,7 @@ import { SohoStepListItemComponent } from 'ids-enterprise-ng';
 })
 export class StepProcessAutoStepChangeComponent implements OnInit, AfterViewInit {
 
-  public selectedPanelId: string = "";
+  public selectedPanelId?: string;
 
   @ViewChildren(SohoStepListItemComponent) stepListItems!: QueryList<SohoStepListItemComponent>;
 
@@ -46,7 +46,7 @@ export class StepProcessAutoStepChangeComponent implements OnInit, AfterViewInit
 
   selectPanel(id: string) {
     console.log(id);
-    const selectedItem = this.stepListItems.find((item) => item.stepId == id);
+    const selectedItem = this.stepListItems.find((item) => item.stepId === id);
     if (selectedItem) {
       selectedItem.isSelected = true;
     }
