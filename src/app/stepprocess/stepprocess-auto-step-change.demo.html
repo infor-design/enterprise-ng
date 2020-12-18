@@ -8,21 +8,21 @@
 
     <ng-template ngFor let-step [ngForOf]="steps">
 
-      <li soho-step-list-item *ngIf="step.content">
+      <li soho-step-list-item stepId="{{step.id}}" *ngIf="step.content">
         <a soho-step-list-item-anchor stepId="{{step.id}}">
           <svg soho-icon icon="{{step.icon}}" alert="true"></svg>
           <span soho-step-list-item-title>{{step.title}}</span>
         </a>
       </li>
 
-      <li soho-step-list-item *ngIf="!step.content">
+      <li soho-step-list-item stepId="{{step.id}}" *ngIf="!step.content">
         <a soho-step-list-item-anchor stepId="{{step.id}}" *ngIf="step.substeps">
           <svg soho-icon icon="{{step.icon}}" alert="true"></svg>
           <span soho-step-list-item-title>{{step.title}}</span>
           <svg soho-icon icon="caret-down" class="icon-tree"></svg>
         </a>
         <ul soho-substep-list *ngIf="step.substeps">
-          <li soho-step-list-item *ngFor="let substep of step.substeps">
+          <li soho-step-list-item stepId="{{substep.id}}" *ngFor="let substep of step.substeps">
             <a soho-step-list-item-anchor stepId="{{substep.id}}">
               <svg soho-icon icon="{{substep.icon}}"></svg>
               <span soho-step-list-item-title>{{substep.title}}</span>
@@ -52,5 +52,27 @@
         </div>
       </div>
     </div>
-  </div>
+
+      <p>
+        <button soho-button (click)="selectPanel('step1')">Toggle step1</button>
+      </p>
+      <p>
+        <button soho-button (click)="selectPanel('step1Sub1')">Select step1Sub1</button>
+      </p>
+      <p>
+        <button soho-button (click)="selectPanel('step1Sub2')">Select step1Sub2</button>
+      </p>
+      <p>
+        <button soho-button (click)="selectPanel('step2')">Select step2</button>
+      </p>
+      <p>
+        <button soho-button (click)="selectPanel('step3')">Toggle step3</button>
+      </p>
+      <p>
+        <button soho-button (click)="selectPanel('step3Sub1')">Select step3Sub1</button>
+      </p>
+      <p>
+        <button soho-button (click)="selectPanel('step3Sub2')">step3Sub2</button>
+      </p>
+    </div>
 </div>

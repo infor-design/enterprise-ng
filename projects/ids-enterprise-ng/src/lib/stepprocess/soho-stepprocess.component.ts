@@ -82,6 +82,8 @@ export class SohoStepListItemComponent {
     }
   }
 
+  @Input() stepId?: string;
+
   constructor(@Host() private sohoStepProcessComponent: SohoStepProcessComponent, private element: ElementRef) { }
 }
 
