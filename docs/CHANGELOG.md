@@ -21,6 +21,7 @@
 ## v8.2.4
 
 ### 8.2.4 Fixes
+
 - `[Rating]` Exposed the readonly and enable methods. This allows the component to be toggled between read only and editable. ([#958](https://github.com/infor-design/enterprise-ng/issues/958)) `MHH`
 
 ## v8.2.3
