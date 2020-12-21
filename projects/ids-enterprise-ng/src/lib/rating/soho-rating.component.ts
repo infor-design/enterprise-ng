@@ -42,4 +42,18 @@ export class SohoRatingComponent implements AfterViewInit, OnDestroy {
       this.rating = null;
     }
   }
+
+  /** Make control read only **/
+  public readonly(): void {
+    if (this.rating) {
+      this.rating.readonly();
+    }
+  }
+
+  /** Enable the control **/
+  public enable(): void {
+    if (this.rating) {
+      this.rating.enable();
+    }
+  }
 }

@@ -1,7 +1,7 @@
 <div class="row top-padding">
   <div class="twelve columns">
     <div class="field">
-      <div soho-rating>
+      <div #sohoRating soho-rating>
         <fieldset>
           <legend class="audible">Rate Your Experience</legend>
           <input type="radio" class="is-filled" name="rating-id1" id="one-star-id1">
@@ -46,5 +46,8 @@
         </fieldset>
       </div>
     </div>
+
+    <button soho-button (click)="readonly()">Make Read Only</button>
+    <button soho-button (click)="enable()">Enable</button>
   </div>
 </div>
