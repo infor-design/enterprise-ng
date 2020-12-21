@@ -86,6 +86,30 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     return this.settings.clickArguments;
   }
 
+  /** Custom clear event; can be used with a modal dialog and custom list component */
+  @Input() public set clear(value: SohoLookupClearFunction | undefined) {
+    this.settings.clear = value;
+    if (this.lookup) {
+      this.lookup.settings.clear = this.settings.clear;
+      this.markForUpdate();
+    }
+  }
+  public get clear(): SohoLookupClearFunction | undefined {
+    return this.settings.clear;
+  }
+
+  /** If a clear method is defined, this flexible object can be passed in. */
+  @Input() public set clearArguments(value: any) {
+    this.settings.clearArguments = value;
+    if (this.lookup) {
+      this.lookup.settings.clearArguments = this.settings.clearArguments;
+      this.markForUpdate();
+    }
+  }
+  public get clearArguments() {
+    return this.settings.clearArguments;
+  }
+
   /** Field to return from the array or can be a function. */
   @Input() public set field(value: string | SohoLookupFieldFunction | undefined) {
     this.settings.field = value;
