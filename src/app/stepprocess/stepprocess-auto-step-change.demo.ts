@@ -12,8 +12,6 @@ export class StepProcessAutoStepChangeComponent implements OnInit, AfterViewInit
 
   public selectedPanelId?: string;
 
-  @ViewChildren(SohoStepListItemComponent) stepListItems!: QueryList<SohoStepListItemComponent>;
-
   public steps?: Array<{
     id: string,
     title: string,
@@ -39,17 +37,14 @@ export class StepProcessAutoStepChangeComponent implements OnInit, AfterViewInit
           { id: 'step3Sub1', title: 'Step 3 Sub 1', icon: 'empty-circle', content: 'Step 3 Sub 1 content' }, // eslint-disable-line
           { id: 'step3Sub2', title: 'Step 3 Sub 2', icon: 'error', content: 'Step 3 Sub 2 content' }, // eslint-disable-line
         ]
-      }
+      },
+      { id: 'step4', title: 'Step 4', icon: 'success', content: 'Step 4 content' }
     ]
   }
 
 
   selectPanel(id: string) {
-    console.log(id);
-    const selectedItem = this.stepListItems.find((item) => item.stepId === id);
-    if (selectedItem) {
-      selectedItem.isSelected = true;
-    }
+    this.selectedPanelId = id;
   }
 
   ngAfterViewInit() { }
