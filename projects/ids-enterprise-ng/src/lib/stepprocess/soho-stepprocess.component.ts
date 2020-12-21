@@ -75,20 +75,15 @@ export class SohoStepListItemComponent {
     return true;
   }
 
+  @HostBinding('class.is-selected') _isSelected = false;
+
   @Input() set isSelected(isSelected: boolean) {
+    this._isSelected = isSelected;
     if (isSelected) {
       const stepLink = $(this.element.nativeElement).children('a.js-step-link');
       this.sohoStepProcessComponent.stepprocess?.selectStep(stepLink);
     }
-    this._isSelected = isSelected;
   }
-
-  get isSelected() {
-    return this._isSelected;
-  }
-
-  @HostBinding('class.is-selected') _isSelected: boolean = false;
-
 
   constructor(@Host() private sohoStepProcessComponent: SohoStepProcessComponent, private element: ElementRef) { }
 }
