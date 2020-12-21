@@ -18,6 +18,11 @@
     - Replace `tslint` with `eslint`.
 - `[General]` Enabled strict compiling in the library and demos. This allows you to enable it as well when compiling. If you do you can do this in the tsconfig in your project like [this](https://github.com/infor-design/enterprise-ng/pull/939/files#diff-b5f32afdd9e8c14b02c570db855022a30aeb595e3dd1c3a71c187d685c0a2860R7). Then you may need to update your code to add more types and protections from null.  ([#755](https://github.com/infor-design/enterprise/issues/755)) `TJM`
 
+## v8.2.4
+
+### 8.2.4 Fixes
+- `[Rating]` Exposed the readonly and enable methods. This allows the component to be toggled between read only and editable. ([#958](https://github.com/infor-design/enterprise-ng/issues/958)) `MHH`
+
 ## v8.2.3
 
 ### 8.2.3 Fixes
