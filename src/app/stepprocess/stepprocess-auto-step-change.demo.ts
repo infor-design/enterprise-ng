@@ -8,7 +8,7 @@ import { SohoStepListItemComponent } from 'ids-enterprise-ng';
   selector: 'app-stepprocess-auto-step-change-demo',
   templateUrl: 'stepprocess-auto-step-change.demo.html'
 })
-export class StepProcessAutoStepChangeComponent implements OnInit, AfterViewInit {
+export class StepProcessAutoStepChangeComponent implements OnInit {
 
   public selectedPanelId?: string;
 
@@ -19,7 +19,6 @@ export class StepProcessAutoStepChangeComponent implements OnInit, AfterViewInit
     content?: string,
     substeps?: Array<{ id: string, title: string, icon: string, content: string }>
   }>;
-  constructor() { }
 
   ngOnInit() {
     this.steps = [
@@ -46,8 +45,6 @@ export class StepProcessAutoStepChangeComponent implements OnInit, AfterViewInit
   selectPanel(id: string) {
     this.selectedPanelId = id;
   }
-
-  ngAfterViewInit() { }
 
   stepChange(_event: Event) {
     console.log('StepProcessAutoStepChangeComponent.stepChange');
