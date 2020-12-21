@@ -23,6 +23,8 @@
 
 ### 8.2.4 Fixes
 
+- `[General]` Added patched EP version 4.35.3.
+- `[Lookup]` Added new types for the clear function in lookups. ([#4693](https://github.com/infor-design/enterprise-ng/issues/4693)) `TJM`
 - `[Rating]` Exposed the readonly and enable methods. This allows the component to be toggled between read only and editable. ([#958](https://github.com/infor-design/enterprise-ng/issues/958)) `MHH`
 
 ## v8.2.3
