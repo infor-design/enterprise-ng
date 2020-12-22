@@ -15,7 +15,7 @@ interface SohoLookupOptions {
   /** If a click method is defined, this flexible object can be passed in. */
   clickArguments?: any;
 
-  /** If a click method is defined, this flexible object can be passed in. */
+  /** If a clear method is defined, this flexible object can be passed in. */
   clearArguments?: any;
 
   /** Field to return from the array or can be a function. */
