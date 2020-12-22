@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  Host,
   HostBinding,
   Input,
   OnDestroy,
@@ -73,7 +74,18 @@ export class SohoStepListItemComponent {
   @HostBinding('class.js-step') get jsStep() {
     return true;
   }
-  @HostBinding('class.is-selected') @Input() isSelected = false;
+
+  @HostBinding('class.is-selected') _isSelected = false;
+
+  @Input() set isSelected(isSelected: boolean) {
+    this._isSelected = isSelected;
+    if (isSelected) {
+      const stepLink = $(this.element.nativeElement).children('a.js-step-link');
+      this.sohoStepProcessComponent.stepprocess?.selectStep(stepLink);
+    }
+  }
+
+  constructor(@Host() private sohoStepProcessComponent: SohoStepProcessComponent, private element: ElementRef) { }
 }
 
 /**************************************************************
@@ -219,7 +231,7 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   private jQueryElement?: JQuery;
 
   // Reference to the soho stepprocess control api.
-  private stepprocess?: SohoStepProcessStatic;
+  public stepprocess?: SohoStepProcessStatic;
 
   // The internal stepsOptions object used to construct the stepproces control
   private stepProcessOptions: SohoStepProcessOptions = {};

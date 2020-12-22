@@ -1,4 +1,5 @@
-﻿import { ModuleWithProviders } from '@angular/core';
+﻿import { StepProcessAutoStepChangeComponent } from './stepprocess/stepprocess-auto-step-change.demo';
+import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AboutDemoComponent } from './about/about.demo';
@@ -349,6 +350,7 @@ export const routes: Routes = [
   { path: 'step-process-btn-disble', component: StepProcessBtnDisableDemoComponent },
   { path: 'step-data-driven', component: StepProcessDataDrivenDemoComponent },
   { path: 'step-process-vetoable', component: StepProcessVetoableDemoComponent },
+  { path: 'step-process-auto-step-change', component: StepProcessAutoStepChangeComponent },
   { path: 'swaplist', component: SwapListDemoComponent },
   { path: 'swaplist-dynamic', component: SwapListDynamicDemoComponent },
   { path: 'swaplist-full-access', component: SwapListFullAccessDemoComponent },
