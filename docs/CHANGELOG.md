@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v8.2.5
+
+### 8.2.5 Fixes
+
+- `[General]` Added patched EP version 4.35.4.
+
 ## v8.2.4
 
 ### 8.2.4 Fixes
