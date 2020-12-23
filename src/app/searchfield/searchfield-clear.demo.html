@@ -5,6 +5,7 @@
        id="searchfield"
        name="searchfield-clear"
        class="searchfield"
+       [clearable]="true"
        [options]="searchfieldOptions"
        [(ngModel)]="model.searchValue"
        (change)="onChange($event)"/>

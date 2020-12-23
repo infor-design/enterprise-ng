@@ -26,6 +26,7 @@ export class SearchFieldClearDemoComponent implements AfterViewInit, OnInit {
   public searchfieldOptions = {
     filterMode: 'contains',
     delay: 500,
+    clearable: true,
     source: (query: any, done: any) => {
       this.objectBasedData().subscribe((items) => {
         done(query, items);
