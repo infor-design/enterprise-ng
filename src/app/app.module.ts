@@ -1,4 +1,5 @@
-﻿import { BrowserModule } from '@angular/platform-browser';
+﻿import { StepProcessAutoStepChangeComponent } from './stepprocess/stepprocess-auto-step-change.demo';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {
   CommonModule
@@ -414,6 +415,7 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
     StepProcessBtnDisableDemoComponent,
     StepProcessDataDrivenDemoComponent,
     StepProcessVetoableDemoComponent,
+    StepProcessAutoStepChangeComponent,
     SwapListDemoComponent,
     SwapListDynamicDemoComponent,
     SwapListFullAccessDemoComponent,
