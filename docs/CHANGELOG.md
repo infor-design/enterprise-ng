@@ -109,6 +109,12 @@
 - `[Datagrid]` Added support to disable column buttons. ([1590](https://github.com/infor-design/enterprise/issues/1590))
 - `[Popupmenu]` Expose is-selectable, is-multiselectable, and multi-selectable-section as input properties. ([#907](https://github.com/infor-design/enterprise-ng/issues/907)) `CL`
 
+## v7.9.0
+
+### 7.9.0 Fixes
+
+- `[General]` Added EP version 4.35.4
+
 ## v7.8.4
 
 ### 7.8.4 Fixes
