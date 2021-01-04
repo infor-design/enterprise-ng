@@ -4,7 +4,7 @@
 
 ### 8.2.5 Fixes
 
-- `[Toolbar Flex]` Added moreButtonId input to soho-toolbar-flex-more-button to be placed on the inner button element. `EPC` ([#963](https://github.com/infor-design/enterprise-ng/issues/963))
+- `[Toolbar Flex]` Added moreButtonId input to soho-toolbar-flex-more-button to be placed on the inner button element. `PWP` ([#963](https://github.com/infor-design/enterprise-ng/issues/963))
 
 ## v8.2.5
 
