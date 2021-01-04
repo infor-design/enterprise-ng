@@ -15,6 +15,8 @@ export class ToolbarFlexBasicDemoComponent {
     alert(data);
   }
 
+  public moreButtonId = 'my-more-button';
+
   public onSubmit() {
     console.log('submit');
   }

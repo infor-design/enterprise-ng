@@ -174,14 +174,20 @@ export class SohoToolbarFlexSearchFieldComponent implements AfterViewChecked, Af
  */
 @Component({
   selector: 'soho-toolbar-flex-more-button', // tslint:disable-line
-  template: `<button class="btn-actions" [ngClass]="{'page-changer': isPageChanger}"
-                     type="button" [attr.disabled]="isDisabled ? 'disabled' : null">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-      <use href="#icon-more"></use>
-    </svg>
-    <span class="audible">More Actions</span>
-  </button>
-  <ng-content></ng-content>`,
+    template:
+      `<button
+        class="btn-actions"
+        type="button"
+        [ngClass]="{'page-changer': isPageChanger}"
+        [attr.id]="moreButtonId"
+        [attr.disabled]="isDisabled ? 'disabled' : null"
+      >
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+          <use href="#icon-more"></use>
+        </svg>
+        <span class="audible">More Actions</span>
+      </button>
+      <ng-content></ng-content>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarFlexMoreButtonComponent {
@@ -189,7 +195,11 @@ export class SohoToolbarFlexMoreButtonComponent {
   @HostBinding('class.toolbar-section') isToolbarSection = true;
   @Input() isPageChanger = false;
   @Input() isDisabled = false;
+  @Input() moreButtonId: string;
+
+  /** @deprecated doesn't seem to be used **/
   @Input() ajaxBeforeFunction: Function;
+  /** @deprecated doesn't seem to be used **/
   @Input() menuId: string;
 }
 
