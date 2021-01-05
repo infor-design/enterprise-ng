@@ -7,6 +7,18 @@
 - `[General]` Fixed an issue where column resetToDefault didnt work in some situations. ([#4688](https://github.com/infor-design/enterprise-ng/issues/4688)) `TJM`
 - `[Lookup]` Added new types for the clear function in lookups. ([#4693](https://github.com/infor-design/enterprise-ng/issues/4693)) `TJM`
 
+## v9.0.2
+
+### 9.0.2 Fixes
+
+- `[Toolbar Flex]` Added moreButtonId input to soho-toolbar-flex-more-button to be placed on the inner button element. `PWP` ([#963](https://github.com/infor-design/enterprise-ng/issues/963))
+
+## v9.0.1
+
+### 9.0.1 Fixes
+
+- `[General]` Added EP version 4.35.4 final using NG 11.
+
 ## v9.0.0
 
 ### 9.0.0 Fixes
