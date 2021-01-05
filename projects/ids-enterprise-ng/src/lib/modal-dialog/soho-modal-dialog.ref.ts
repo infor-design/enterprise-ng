@@ -83,11 +83,11 @@ export class SohoModalDialogRef<T> {
    * @param options - the options to set.
    */
   options(options: SohoModalOptions): SohoModalDialogRef<T> {
-    this._options = options;
+    this._options = Object.assign({}, this._options, options);
 
     // @todo update the dialog if required.
     if (this.modal) {
-      this.modal.settings = options;
+      this.modal.settings = this._options;
       // @todo - need an api on modal to update settings.
     }
 
@@ -576,8 +576,8 @@ export class SohoModalDialogRef<T> {
    * @param eventFn - the function to invoke when the dialog is to be closed.
    */
   closed(eventFn: SohoModalDialogEventFunction<T>): SohoModalDialogRef<T> {
-    this.close$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => { 
-      eventFn(f, this, (this.componentDialog as any)); 
+    this.close$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => {
+      eventFn(f, this, (this.componentDialog as any));
     });
     return this;
   }
@@ -592,10 +592,10 @@ export class SohoModalDialogRef<T> {
    */
   afterClose(eventFn: SohoModalDialogEventFunction<T>): SohoModalDialogRef<T> {
     this.afterClose$.pipe(takeUntil(this.destroyed$)).subscribe((result: any) => {
-       eventFn(result, this, (this.componentDialog as any)); 
-      });
+      eventFn(result, this, (this.componentDialog as any));
+    });
     return this;
-    }
+  }
 
   /**
    * Registers a before destroy guard.
