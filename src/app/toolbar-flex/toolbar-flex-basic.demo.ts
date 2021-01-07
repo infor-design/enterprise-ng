@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: 'toolbar-flex-basic.demo.html'
 })
 export class ToolbarFlexBasicDemoComponent {
-  onSelected(event: any) {
+  onSelected(event: SohoToolbarFlexSelectedEvent) {
     if (event.item.type === 'actionbutton' || event.item.type === 'menubutton') {
       console.log(event.item.selectedAnchor[0].getAttribute('id'));
     } else {
