@@ -6,6 +6,7 @@
 
 - `[General]` Fixed an issue where column resetToDefault didnt work in some situations. ([#4688](https://github.com/infor-design/enterprise-ng/issues/4688)) `TJM`
 - `[Lookup]` Added new types for the clear function in lookups. ([#4693](https://github.com/infor-design/enterprise-ng/issues/4693)) `TJM`
+- `[General]` Added EP version 4.36.0 final using NG 11.
 
 ## v9.0.2
 
