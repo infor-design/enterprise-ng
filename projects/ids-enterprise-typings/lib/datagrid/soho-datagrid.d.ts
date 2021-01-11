@@ -1077,7 +1077,7 @@ interface SohoDataGridStatic {
 
   addRow(data: Object, location?: 'top' | 'bottom' | number): void;
 
-  removeRow(data: Object, noSync: boolean, noTrigger: boolean): void;
+  removeRow(data: Object, noSync?: boolean, noTrigger?: boolean): void;
 
   removeSelected(): void;
 
