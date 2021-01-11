@@ -1455,9 +1455,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    *
    * @param data the row of data to remove
    */
-  removeRow(data: any) {
+  removeRow(data: any, noSync?: boolean, noTrigger?: boolean) {
     this.ngZone.runOutsideAngular(() => {
-      this.datagrid?.removeRow(data);
+      this.datagrid?.removeRow(data, noSync, noTrigger);
     });
   }
 
