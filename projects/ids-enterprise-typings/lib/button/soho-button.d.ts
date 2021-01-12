@@ -47,6 +47,9 @@ interface SohoButtonOptions {
   /** Displayed text. */
   text?: string;
 
+  /** Setting to override the more button behavior */
+  title?: string;
+
   /** Associated icon. */
   icon?: string;
 

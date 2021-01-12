@@ -101,6 +101,9 @@ interface SohoDataGridOptions {
   /** Is the grid editable? */
   editable?: boolean;
 
+  /** If true, will select the cell text soon as entering edit mode. */
+  selectOnEdit?: boolean;
+
   /** Allows you to provide a function so you can set some rows to disabled based on the data and/or the row index. */
   isRowDisabled?: SohoIsRowDisabledFunction;
 
@@ -315,6 +318,11 @@ interface SohoDataGridOptions {
    *  You may want to also use showSelectAllCheckBox: false
    */
   allowSelectAcrossPages?: boolean;
+
+  /**
+   *  Select all will effect only on current page and its for client side paging only.
+   */
+  selectAllCurrentPage?: boolean;
 
   /**
    * An array of column IDs used to define aria descriptors for selection checkboxes.

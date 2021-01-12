@@ -6,6 +6,7 @@
 
 - `[General]` Added EP version 4.37.0 final using NG 11.
 - `[General]` Added missing types to removeRow ([#966](https://github.com/infor-design/enterprise-ng/issues/966)) `TJM`
+- `[General]` Added missing types from 4.35 and 4.36 `TJM`
 
 ## v9.1.0
 

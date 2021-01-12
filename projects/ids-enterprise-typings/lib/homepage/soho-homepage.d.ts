@@ -19,14 +19,15 @@ interface SohoHomePageResizeEvent {
  * Homepage Options
  */
 interface SohoHomePageOptions {
-  gutterSize?: number;
-  widgetWidth?: number;
-  widgetHeight?: number;
   animate?: boolean;
-  timeout?: number;
   columns?: number;
   editing?: boolean;
   easing?: EasingType;
+  gutterSize?: number;
+  widgetWidth?: number;
+  widgetHeight?: number;
+  useSmall?: boolean;
+  timeout?: number;
   onBeforeRemoveCard?: SohoHomePageBeforeRemoveCardFunction;
 }
 
