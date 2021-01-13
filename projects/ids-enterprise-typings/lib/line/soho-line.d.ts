@@ -28,7 +28,6 @@ interface SohoLineOptions {
   showLegend?: boolean;
 
   /** A series of options for the xAxis. */
-  xAxis?: object;
 
   /** A series of options for the yAxis. */
   yAxis?: object;

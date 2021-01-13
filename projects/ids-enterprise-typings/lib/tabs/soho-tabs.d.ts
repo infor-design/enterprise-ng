@@ -9,89 +9,89 @@ interface SohoTabsOptions {
   /**
    * If set to true, creates a button at the end of the tab list that can be used to add an empty tab and panel
    */
-  addTabButton: boolean;
+  addTabButton?: boolean;
 
   /**
    * if defined as a function, will be used in-place of the default Tab Adding method
    */
-  addTabButtonCallback: Function;
+  addTabButtonCallback?: Function;
 
   /**
    * If defined, replaces the default "Menu" text used in the app menu trigger.
    */
-  appMenuTriggerText: string;
+  appMenuTriggerText?: string;
 
   /**
    * If true, causes an app menu trigger's text content to be visually hidden (but still exists for accessiblity purposes)
    */
-  appMenuTriggerTextAudible: boolean;
+  appMenuTriggerTextAudible?: boolean;
 
   /**
    * If defined, will be used by any internal Tabs AJAX calls as the desired request settings.
    */
-  ajaxOptions: object;
+  ajaxOptions?: any;
 
   /**
    * If defined as a function, fires this before a tab is activated to allow a possible "veto" of the tab swap (SOHO-5250).
    */
-  beforeActivate: Function;
+  beforeActivate?: Function;
 
   /**
    * If set to true, will force an App Menu trigger to be present on Non-Vertical Tabs implementatations.
    */
-  appMenuTrigger: boolean;
+  appMenuTrigger?: boolean;
 
   /**
    * Defines a separate element to be used for containing the tab panels.  Defaults to the Tab Container itself
    */
-  containerElement: string | HTMLElement;
+  containerElement?: string | HTMLElement;
 
   /**
    * If true, will change the selected tab on invocation based on the URL that exists after the hash
    */
-  changeTabOnHashChange: boolean;
+  changeTabOnHashChange?: boolean;
 
   /**
    * If defined as a function, provides an external method for adjusting the current page hash used by these tabs
    */
-  hashChangeCallback: Function;
+  hashChangeCallback?: Function;
 
   /**
    * If true, when using full URLs in tab HREFs, or when using Ajax calls, tabs will be loaded as needed instead of the markup
    * all being established at once.
    */
-  lazyLoad: boolean;
+  lazyLoad?: boolean;
 
   /**
    * If true, will display a tooltip or Module Tabs with cut-off text content.
    */
-  moduleTabsTooltips: boolean;
+  moduleTabsTooltips?: boolean;
 
   /**
    * If true, will display a tooltip on Multi Tabs with cut-off text content.
    */
-  multiTabsTooltips: boolean;
+  multiTabsTooltips?: boolean;
 
   /**
    * If defined, will serve as a way of pulling in external content to fill tabs.
    */
-  source: Function;
+  source?: Function;
 
   /**
    * If a source method is defined, this flexible object can be passed into the source method, and augmented with
    * parameters specific to the implementation.
    */
-  sourceArguments: object;
+  sourceArguments?: Object;
 
   /**
    * If true, Displays a modifiable count above each tab.
    */
-  tabCounts: boolean;
+  tabCounts?: boolean;
 
   /**
    * If Vertical Tabs & true, will automatically switch to Horizontal Tabs on smaller breakpoints.
    */
-  verticalResponsive: boolean;
+  verticalResponsive?: boolean;
 
   /** Add extra attributes like id's to the component **/
   attributes?: Array<Object> | Object;
