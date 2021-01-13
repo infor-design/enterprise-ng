@@ -2009,14 +2009,16 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       this.gridOptions.rowTemplateComponent
     );
 
-    // Remove component if exist
+    // Remove component if it exists
     const idx = this.rowTemplateComponents.findIndex((c) => event.row === c.row);
     if (idx > -1) {
       this.rowTemplateComponents[idx].component.destroy();
       this.rowTemplateComponents.splice(idx, 1);
     }
 
-    const container = event.detail[0].querySelector('.datagrid-row-detail-padding');
+    const containerParent = event.detail[0].querySelector('.datagrid-row-detail-padding');
+    containerParent.innerHTML = '<div class="datagrid-cell-layout"></div>';
+    const container = containerParent.querySelector('.datagrid-cell-layout');
     container.innerHTML = '';
 
     let dataComponent: any;
