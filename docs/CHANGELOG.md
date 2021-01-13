@@ -6,6 +6,7 @@
 
 - `[General]` Added EP version 4.37.0 final using NG 11.
 - `[General]` Added missing types to removeRow ([#966](https://github.com/infor-design/enterprise-ng/issues/966)) `TJM`
+- `[General]` Fixed a bug expanding and collapsing nested datagrid rows ([#967](https://github.com/infor-design/enterprise-ng/issues/967)) `TJM`
 
 ## v9.1.0
 
