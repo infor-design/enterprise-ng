@@ -1,5 +1,135 @@
 # What's New with Enterprise-NG
 
+## v9.2.0
+
+### 9.2.0 Fixes
+
+- `[General]` Added EP version 4.37.0 final using NG 11.
+- `[General]` Added missing types to removeRow ([#966](https://github.com/infor-design/enterprise-ng/issues/966)) `TJM`
+- `[General]` Added missing attributes setting to fileupload ([#966](https://github.com/infor-design/enterprise-ng/issues/966)) `TJM`
+
+## v9.1.0
+
+### 9.1.0 Fixes
+
+- `[General]` Fixed an issue where column resetToDefault didnt work in some situations. ([#4688](https://github.com/infor-design/enterprise-ng/issues/4688)) `TJM`
+- `[Lookup]` Added new types for the clear function in lookups. ([#4693](https://github.com/infor-design/enterprise-ng/issues/4693)) `TJM`
+- `[General]` Added EP version 4.36.0 final using NG 11.
+
+## v9.0.2
+
+### 9.0.2 Fixes
+
+- `[Toolbar Flex]` Added moreButtonId input to soho-toolbar-flex-more-button to be placed on the inner button element. `PWP` ([#963](https://github.com/infor-design/enterprise-ng/issues/963))
+
+## v9.0.1
+
+### 9.0.1 Fixes
+
+- `[General]` Added EP version 4.35.4 final using NG 11.
+
+## v9.0.0
+
+### 9.0.0 Fixes
+
+### 9.0.0 Features
+
+- `[General]` Upgraded to Angular 11. ([Issue #945](https://github.com/infor-design/enterprise-ng/issues/945)) `BTHH`
+    - See the `UPGRADING.md` guide for details.
+    - Replaced `karma-instanbul-coverage` with `karma-coverage`.
+    - Replace `tslint` with `eslint`.
+- `[General]` Enabled strict compiling in the library and demos. This allows you to enable it as well when compiling. If you do you can do this in the tsconfig in your project like [this](https://github.com/infor-design/enterprise-ng/pull/939/files#diff-b5f32afdd9e8c14b02c570db855022a30aeb595e3dd1c3a71c187d685c0a2860R7). Then you may need to update your code to add more types and protections from null.  ([#755](https://github.com/infor-design/enterprise/issues/755)) `TJM`
+
+## v8.2.5
+
+### 8.2.5 Fixes
+
+- `[General]` Added patched EP version 4.35.4.
+
+## v8.2.4
+
+### 8.2.4 Fixes
+
+- `[Lookup]` Added new types for the clear function in lookups. ([#4693](https://github.com/infor-design/enterprise-ng/issues/4693)) `TJM`
+- `[General]` Added patched EP version 4.35.3 final.
+- `[General]` Added patched EP version 4.35.3.
+- `[Lookup]` Added new types for the clear function in lookups. ([#4693](https://github.com/infor-design/enterprise-ng/issues/4693)) `TJM`
+- `[Rating]` Exposed the readonly and enable methods. This allows the component to be toggled between read only and editable. ([#958](https://github.com/infor-design/enterprise-ng/issues/958)) `MHH`
+
+## v8.2.3
+
+### 8.2.3 Fixes
+
+- `[General]` Added patched EP version 4.35.2 final
+
+## v8.2.2
+
+### 8.2.2 Fixes
+
+- `[Datagrid]` Fixed an issue where column resetToDefault didnt work in some situations ([#4688](https://github.com/infor-design/enterprise/issues/4688)) `TJM`
+
+## v8.2.1
+
+### 8.2.1 Fixes
+
+- `[General]` Added patched EP version 4.35.1 final using NG 10.
+
+## v8.2.0
+
+### 8.2.0 Fixes
+
+- `[General]` Added EP version 4.35.0 final using NG 10. For NG 11 9.0.0 will follow.
+
+## v8.1.2
+
+### 8.1.2 Fixes
+
+- `[General]` Added EP version 4.34.2 with Big Sur fixes `TJM`
+- `[FileUploadAdvanced]` Fixed an issue where abort method was not working properly to remove the file block when upload fails. ([#938](https://github.com/infor-design/enterprise-ng/issues/938))
+- `[Breadcrumb]` Enable support for using `span` instead of `a` inside Breadcrumb List Items.  Also added demos of CSS-only and changing content on both JS-powered and CSS-only breadcrumbs. `EPC` ([#926](https://github.com/infor-design/enterprise-ng/issues/926))
+
+## v8.1.1
+
+### 8.1.1 Fixes
+
+- `[General]` Added new types for automation id's.  ([#934](https://github.com/infor-design/enterprise/issues/4521)) `934`
+- `[General]` Added EP version 4.35 `TJM`
+
+## v8.1.0
+
+### 8.1.0 Fixes
+
+- `[Tabs]` Added a new method `refresh` which can be called when updating the tab count in a dynamic tab scenario). When called it will force a UI refresh to the tabs. Typical situations are changing all the tab header contents so the size is changed. If using `disableAutoUpdatedCall=true` you should call this when tab counts or names are changed. This did not introduce any breaking change.  ([#4521](https://github.com/infor-design/enterprise/issues/4521)) `TJM`
+- `[General]` Added a patched EP version 4.34 and NG 10.2.2  `TJM`
+
+## v8.0.2
+
+### 8.0.2 Fixes
+
+- `[General]` Added a patched EP version 4.33.1.  `TJM`
+
+## v8.0.1
+
+### 8.0.1 Fixes
+
+- `[Popupmenu]` Revert is-selectable to default to false as it was set to true by mistake. ([#907](https://github.com/infor-design/enterprise-ng/issues/907)) `TJM`
+
+## v8.0.0
+
+### 8.0.0 Features
+
+- `[General]` Upgraded to Angular 10.  `BTHH` ([Issue #858](https://github.com/infor-design/enterprise-ng/issues/858))
+    - Note: The types have are now separated into to a new package `ids-enterprise typings` and installed as a dependency.
+    - See the `UPGRADING.md` guide for details.
+
+### 8.0.0 Fixes
+
+- `[Charts]` Exposed updated API for all the available charts. ([#905](https://github.com/infor-design/enterprise-ng/issues/905)) `EA`
+- `[Context Menu]` Fixes a bug where using *ngIf directive to destroy the component was not working properly. ([#887](https://github.com/infor-design/enterprise-ng/issues/887))
+- `[Context Menu]` Fixes a bug where api settings were not overwriting the default settings. ([#888](https://github.com/infor-design/enterprise-ng/issues/888))
+- `[Datagrid]` Added support to disable column buttons. ([1590](https://github.com/infor-design/enterprise/issues/1590))
+- `[Popupmenu]` Expose is-selectable, is-multiselectable, and multi-selectable-section as input properties. ([#907](https://github.com/infor-design/enterprise-ng/issues/907)) `CL`
+
 ## v7.9.0
 
 ### 7.9.0 Fixes

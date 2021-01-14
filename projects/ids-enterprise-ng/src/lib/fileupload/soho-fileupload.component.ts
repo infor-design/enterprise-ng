@@ -98,7 +98,8 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   private jQueryElement: JQuery;
 
   // Reference to the SoHoXi control api.
-  private fileUpload: SohoFileUploadStatic;
+  private fileUpload?: SohoFileUploadStatic | null;
+  private options: SohoFileUploadOptions = {};
 
   constructor(
     private element: ElementRef,
@@ -109,12 +110,23 @@ export class SohoFileUploadComponent implements AfterViewInit, OnDestroy {
   /** Called when the value changes. */
   @Output() changeEvent = new EventEmitter<SohoFileUploadEvent>();
 
+  @Input() public set attributes(attributes: Array<Object> | Object | undefined) {
+    this.options.attributes = attributes;
+    if (this.jQueryElement) {
+      this.options.attributes = this.options.attributes;
+      this.jQueryElement?.data('fileupload').updated(this.options);
+    }
+  }
+  public get attributes(): Array<Object> | Object | undefined {
+    return this.options.attributes;
+  }
+
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
       this.jQueryElement = jQuery(this.element.nativeElement);
 
       // Initialize the SohoXi Control
-      const $fileUpload = this.jQueryElement.fileupload();
+      const $fileUpload = this.jQueryElement.fileupload(this.options);
       this.fileUpload = $fileUpload.data('fileupload');
 
       /**

@@ -29,6 +29,12 @@ export class FileUploadDemoComponent implements OnInit {
 
   public fileUploadDisabled = false;
   public fileUploadReadOnly = false;
+  public fileUploadOptions = {
+    attributes: {
+      name: 'data-automation-id',
+      value: 'fileupload-field-automation-id'
+    }
+  };
 
   constructor() { }
   ngOnInit() { }
