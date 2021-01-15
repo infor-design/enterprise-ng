@@ -3,25 +3,8 @@
 ## v8.2.6
 
 ### 8.2.6 Fixes
-### 9.2.0 Fixes
 
-- `[General]` Added EP version 4.37.0 final using NG 11.
-- `[General]` Added missing types to removeRow ([#966](https://github.com/infor-design/enterprise-ng/issues/966)) `TJM`
 - `[General]` Fixed a bug expanding and collapsing nested datagrid rows ([#967](https://github.com/infor-design/enterprise-ng/issues/967)) `TJM`
-
-## v9.1.0
-
-### 9.1.0 Fixes
-
-- `[General]` Fixed an issue where column resetToDefault didnt work in some situations. ([#4688](https://github.com/infor-design/enterprise-ng/issues/4688)) `TJM`
-- `[Lookup]` Added new types for the clear function in lookups. ([#4693](https://github.com/infor-design/enterprise-ng/issues/4693)) `TJM`
-- `[General]` Added EP version 4.36.0 final using NG 11.
-
-## v9.0.2
-
-### 9.0.2 Fixes
-
-- `[Toolbar Flex]` Added moreButtonId input to soho-toolbar-flex-more-button to be placed on the inner button element. `PWP` ([#963](https://github.com/infor-design/enterprise-ng/issues/963))
 
 ## v8.2.5
 
