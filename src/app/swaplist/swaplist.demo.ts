@@ -21,6 +21,7 @@ export class SwapListDemoComponent implements OnInit, OnDestroy {
 
   showModel = false;
   validationResults = true;
+  ids = [{ name: 'id', value: 'my-temp-id' }];
 
   constructor(private sohoHeaderRef: HeaderDynamicDemoRefService) {
     this.availableDemoItems.push(
