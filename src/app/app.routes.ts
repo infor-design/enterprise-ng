@@ -120,6 +120,7 @@ import { LineDemoComponent } from './line/line.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
 import { ListViewCustomContentDemoComponent } from './listview/listview.custom-content.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
+import { LookupLandmarkDemoComponent } from './lookup/lookup-landmark.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
@@ -325,6 +326,7 @@ export const routes: Routes = [
   { path: 'listview-custom', component: ListViewCustomContentDemoComponent },
   { path: 'locale-pipe', loadChildren: () => import('./locale/locale-demo.module').then(m => m.LocaleDemoModule) },
   { path: 'lookup', component: LookupDemoComponent },
+  { path: 'lookup-landmark', component: LookupLandmarkDemoComponent },
   { path: 'lookup-validation', component: LookupValidationDemoComponent },
   { path: 'mask', component: MaskDemoComponent },
   { path: 'menu-button', component: MenuButtonDemoComponent },

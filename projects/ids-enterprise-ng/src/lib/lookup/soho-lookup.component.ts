@@ -566,7 +566,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    * @todo raise SOHO jira issue
    */
   processValue(value: Object | Object[]): string {
-    if (value) {
+    if (!value) {
       return '';
     }
     let val = '';
