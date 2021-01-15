@@ -253,6 +253,50 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
   }
 
   /**
+   * If set to true, will force an App Menu trigger to be present on Non-Vertical Tabs implementatations.
+   */
+  @Input() set appMenuTrigger(appMenuTrigger: boolean) {
+    this._tabsOptions.appMenuTrigger = appMenuTrigger;
+    if (this.jQueryElement) {
+      (this.tabs as any).settings.appMenuTrigger = appMenuTrigger;
+      this.updateRequired = true;
+    }
+  }
+
+  /**
+   * If defined, replaces the default "Menu" text used in the app menu trigger.
+   */
+  @Input() set appMenuTriggerText(appMenuTriggerText: string) {
+    this._tabsOptions.appMenuTriggerText = appMenuTriggerText;
+    if (this.jQueryElement) {
+      (this.tabs as any).settings.appMenuTriggerText = appMenuTriggerText;
+      this.updateRequired = true;
+    }
+  }
+
+  /**
+   *  If true, causes an app menu trigger's text content to be visually hidden (but still exists for accessiblity purposes)
+   */
+  @Input() set appMenuTriggerTextAudible(appMenuTriggerTextAudible: boolean) {
+    this._tabsOptions.appMenuTriggerTextAudible = appMenuTriggerTextAudible;
+    if (this.jQueryElement) {
+      (this.tabs as any).settings.appMenuTriggerTextAudible = appMenuTriggerTextAudible;
+      this.updateRequired = true;
+    }
+  }
+
+  /**
+   *  If defined, will be used by any internal Tabs AJAX calls as the desired request settings.
+   */
+  @Input() set ajaxOptions(ajaxOptions: object) {
+    this._tabsOptions.ajaxOptions = ajaxOptions;
+    if (this.jQueryElement) {
+      (this.tabs as any).settings.ajaxOptions = ajaxOptions;
+      this.updateRequired = true;
+    }
+  }
+
+  /**
    * Defines a separate element to be used for containing the tab panels.  Defaults to the Tab Container itself
    */
   @Input() set containerElement(containerElement: string) {
@@ -283,6 +327,63 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
     this._tabsOptions.hashChangeCallback = hashChangeCallback;
     if (this.jQueryElement) {
       (this.tabs as any).settings.hashChangeCallback = hashChangeCallback;
+      this.updateRequired = true;
+    }
+  }
+
+  /**
+   * If true, when using full URLs in tab HREFs, or when using Ajax calls, tabs will be loaded as needed instead of the markup
+   * all being established at once.
+   */
+  @Input() set lazyLoad(lazyLoad: boolean) {
+    this._tabsOptions.lazyLoad = lazyLoad;
+    if (this.jQueryElement) {
+      (this.tabs as any).settings.lazyLoad = lazyLoad;
+      this.updateRequired = true;
+    }
+  }
+
+  /**
+   * If true, will display a tooltip or Module Tabs with cut-off text content.
+   */
+  @Input() set moduleTabsTooltips(moduleTabsTooltips: boolean) {
+    this._tabsOptions.moduleTabsTooltips = moduleTabsTooltips;
+    if (this.jQueryElement) {
+      (this.tabs as any).settings.moduleTabsTooltips = moduleTabsTooltips;
+      this.updateRequired = true;
+    }
+  }
+
+  /**
+   * If true, will display a tooltip on Multi Tabs with cut-off text content.
+   */
+  @Input() set multiTabsTooltips(multiTabsTooltips: boolean) {
+    this._tabsOptions.multiTabsTooltips = multiTabsTooltips;
+    if (this.jQueryElement) {
+      (this.tabs as any).settings.multiTabsTooltips = multiTabsTooltips;
+      this.updateRequired = true;
+    }
+  }
+
+  /**
+   * If defined, will serve as a way of pulling in external content to fill tabs.
+   */
+  @Input() set source(source: Function) {
+    this._tabsOptions.source = source;
+    if (this.jQueryElement) {
+      (this.tabs as any).settings.source = source;
+      this.updateRequired = true;
+    }
+  }
+
+  /**
+   * If a source method is defined, this flexible object can be passed into the source method, and augmented with
+   * parameters specific to the implementation.
+   */
+  @Input() set sourceArguments(sourceArguments: Function) {
+    this._tabsOptions.sourceArguments = sourceArguments;
+    if (this.jQueryElement) {
+      (this.tabs as any).settings.sourceArguments = sourceArguments;
       this.updateRequired = true;
     }
   }

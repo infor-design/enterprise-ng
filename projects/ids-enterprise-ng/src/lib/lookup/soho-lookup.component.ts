@@ -134,6 +134,18 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     return this.settings.title;
   }
 
+  /** Swap out the lookup id for any other icon in the icon set by name */
+  @Input() public set icon(value: string | undefined) {
+    this.settings.icon = value;
+    if (this.lookup) {
+      this.lookup.settings.icon = this.settings.icon;
+      this.markForUpdate();
+    }
+  }
+  public get icon(): string | undefined {
+    return this.settings.icon;
+  }
+
   /** Pass dialog buttons or Cancel / Apply. */
   @Input() public set buttons(value: SohoModalButton[] | undefined) {
     this.settings.buttons = value;

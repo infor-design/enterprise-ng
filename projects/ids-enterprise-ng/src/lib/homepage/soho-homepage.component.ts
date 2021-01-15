@@ -35,6 +35,20 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
   }
 
   /**
+   * Whether to animate widget placement
+   */
+  @Input() set animate(animate: boolean | undefined) {
+    this._homePageOptions.animate = animate;
+    if (this.homepage) {
+      this.homepage.settings.animate = animate;
+    }
+  }
+
+  get animate(): boolean | undefined {
+    return this._homePageOptions.animate;
+  }
+
+  /**
    * Sets the maximum number of widget columns
    */
   @Input() set columns(columns: number | undefined) {
@@ -46,6 +60,34 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
 
   get columns(): number | undefined {
     return this._homePageOptions.columns;
+  }
+
+  /**
+   * Set edit for rearranging/reordering cards.
+   */
+  @Input() set editing(editing: boolean | undefined) {
+    this._homePageOptions.editing = editing;
+    if (this.homepage) {
+      this.homepage.setEdit((editing as any));
+    }
+  }
+
+  get editing(): boolean | undefined {
+    return this._homePageOptions.editing;
+  }
+
+  /**
+   * Specify the speed at which an animation progresses at different points within the animation.
+   */
+  @Input() set easing(easing: EasingType | undefined) {
+    this._homePageOptions.easing = easing;
+    if (this.homepage) {
+      this.homepage.settings.easing = easing;
+    }
+  }
+
+  get easing(): EasingType | undefined {
+    return this._homePageOptions.easing;
   }
 
   /**
@@ -91,17 +133,31 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
   }
 
   /**
-   * Set edit for rearranging/reordering cards.
+   * Sets the widgets to smaller size
    */
-  @Input() set editing(editing: boolean | undefined) {
-    this._homePageOptions.editing = editing;
+  @Input() set useSmall(useSmall: boolean | undefined) {
+    this._homePageOptions.useSmall = useSmall;
     if (this.homepage) {
-      this.homepage.setEdit((editing as any));
+      this.homepage.settings.useSmall = useSmall;
     }
   }
 
-  get editing(): boolean | undefined {
-    return this._homePageOptions.editing;
+  get useSmall(): boolean | undefined {
+    return this._homePageOptions.useSmall;
+  }
+
+  /**
+   * this ...
+   */
+  @Input() set timeout(timeout: number | undefined) {
+    this._homePageOptions.timeout = timeout;
+    if (this.homepage) {
+      this.homepage.settings.timeout = timeout;
+    }
+  }
+
+  get timeout(): number | undefined {
+    return this._homePageOptions.timeout;
   }
 
   /**
@@ -121,48 +177,6 @@ export class SohoHomePageComponent implements AfterViewInit, OnDestroy {
       return this.homepage.settings.onBeforeRemoveCard;
     }
     return this._homePageOptions.onBeforeRemoveCard;
-  }
-
-  /**
-   * Whether to animate widget placement
-   */
-  @Input() set animate(animate: boolean | undefined) {
-    this._homePageOptions.animate = animate;
-    if (this.homepage) {
-      this.homepage.settings.animate = animate;
-    }
-  }
-
-  get animate(): boolean | undefined {
-    return this._homePageOptions.animate;
-  }
-
-  /**
-   * this ...
-   */
-  @Input() set timeout(timeout: number | undefined) {
-    this._homePageOptions.timeout = timeout;
-    if (this.homepage) {
-      this.homepage.settings.timeout = timeout;
-    }
-  }
-
-  get timeout(): number | undefined {
-    return this._homePageOptions.timeout;
-  }
-
-  /**
-   * Specify the speed at which an animation progresses at different points within the animation.
-   */
-  @Input() set easing(easing: EasingType | undefined) {
-    this._homePageOptions.easing = easing;
-    if (this.homepage) {
-      this.homepage.settings.easing = easing;
-    }
-  }
-
-  get easing(): EasingType | undefined {
-    return this._homePageOptions.easing;
   }
 
   @HostBinding('class.homepage') isHomepage = true;

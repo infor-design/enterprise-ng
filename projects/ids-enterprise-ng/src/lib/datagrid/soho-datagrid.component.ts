@@ -460,6 +460,24 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.isRowDisabled;
   }
 
+  /**
+   * If true, will select the cell text soon as entering edit mode
+   */
+  @Input() set selectOnEdit(selectOnEdit: boolean | undefined) {
+    this._gridOptions.selectOnEdit = selectOnEdit;
+    if (this.datagrid) {
+      this.datagrid.settings.selectOnEdit = selectOnEdit;
+      this.markForRefresh('editable', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  get selectOnEdit(): boolean | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.selectOnEdit;
+    }
+    return this._gridOptions.selectOnEdit;
+  }
+
   @Input() set isList(isList: boolean | undefined) {
     this._gridOptions.isList = isList;
     if (this.jQueryElement) {
@@ -2076,6 +2094,23 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       return (this.datagrid as any).settings.allowSelectAcrossPages;
     }
     return this._gridOptions.allowSelectAcrossPages;
+  }
+
+  /**
+   *  Select all will effect only on current page and its for client side paging only.
+   */
+  @Input() set selectAllCurrentPage(selectAllCurrentPage: boolean | undefined) {
+    this._gridOptions.selectAllCurrentPage = selectAllCurrentPage;
+    if (this.datagrid) {
+      this.datagrid.settings.selectAllCurrentPage = selectAllCurrentPage;
+      this.markForRefresh('selectAllCurrentPage', RefreshHintFlags.None);
+    }
+  }
+  get selectAllCurrentPage(): boolean | undefined {
+    if (this.datagrid) {
+      return (this.datagrid as any).settings.selectAllCurrentPage;
+    }
+    return this._gridOptions.selectAllCurrentPage;
   }
 
   /**

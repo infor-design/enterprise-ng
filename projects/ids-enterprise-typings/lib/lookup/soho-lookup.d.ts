@@ -21,8 +21,11 @@ interface SohoLookupOptions {
   /** Field to return from the array or can be a function. */
   field?: string | SohoLookupFieldFunction;
 
-  /** Dialog title or takes the label + Lookup. */
+  /** Swap out the lookup id for any other icon in the icon set by name */
   title?: string;
+
+  /** Dialog title or takes the label + Lookup. */
+  icon?: string;
 
   /** Pass dialog buttons or Cancel / Apply. */
   buttons?: SohoModalButton[];
