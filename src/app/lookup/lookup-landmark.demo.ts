@@ -16,7 +16,7 @@ export class LookupLandmarkDemoComponent {
 
   onLookupClick = () => {
     const dialog = this.modalDialog.modal(LookupDialogDemoComponent);
-    let dialogComponent: LookupDialogDemoComponent = null;
+    let dialogComponent: LookupDialogDemoComponent;
 
     dialog.buttons([
       {
@@ -34,11 +34,9 @@ export class LookupLandmarkDemoComponent {
       dialogComponent = comp;
     })
     .afterClose((result) => {
-      if (result) {
-        // this.lookupValue = dialogComponent.selected;
+      if (result && this.sohoLookup) {
         this.sohoLookup.setValue(dialogComponent.selected);
       }
-      dialogComponent = null;
     });
   }
 }
