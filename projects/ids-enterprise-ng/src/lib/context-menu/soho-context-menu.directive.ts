@@ -243,9 +243,18 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
     return (this.options as any).beforeOpen;
   }
 
+  /** beforeOpen - ajax callback for open event */
+  @Input() lazyLoad = false;
+
   constructor(private element: ElementRef, private ngZone: NgZone) { }
 
   ngAfterViewInit() {
+    if (!this.lazyLoad) {
+      this.init();
+    }
+  }
+
+  private init() {
     this.ngZone.runOutsideAngular(() => {
       this.jQueryElement = jQuery(this.element.nativeElement);
       this.jQueryElement.popupmenu(this.options);
@@ -299,5 +308,12 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
         this.contextMenu = null;
       }
     });
+  }
+
+  public initializeComponent() {
+    if (this.lazyLoad) {
+      this.options.trigger = 'immediate';
+      this.init();
+    }
   }
 }
