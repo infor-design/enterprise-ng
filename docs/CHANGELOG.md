@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v9.1.1
+
+### 9.1.1 Fixes
+
+- `[Lookup]` Fixed an issue in process value where SohoLookupComponen processValue would incorrectly save values. ([#972](https://github.com/infor-design/enterprise-ng/issues/972)) `NBCP`
+
 ## v9.1.0
 
 ### 9.1.0 Fixes

@@ -1,0 +1,4 @@
+<div soho-datagrid
+  selectable="single"
+  [columns]="columns" [data]="data"
+  (selected)="onSelected($event)"></div>
