@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="twelve columns">
+    <h2 class="fieldset-title">Soho Context Menu Lazy Load</h2>
+    <p>
+      Example for lazy loading a context menu.<br>
+      To test: <br>
+      1. On load of the page, open the developers tools. See that there are only two div.popupmenu-wrapper. <br>
+      2. With the developers tools still open, click the button next to the text field <br>
+      3. See that a new div.popupmenu-wrapper has been added, and that a context menu has appeared on the screen
+    </p>
+  </div>
+</div>
+<div class="row top-padding">
+  <div class="twelve columns">
+
+    <!-- Input text field example. No soho components used-->
+    <div class="field">
+      <label id="label1" soho-label for="field1" >{{normalText}}</label>
+      <input id="field1" name="field1" />
+      <button
+          soho-context-menu [lazyLoad]="true" [attachToBody]="true" menu="action-popupmenu"
+          soho-button="icon" icon="more" class="context-menu-button"
+          (click)="onContextClick()"></button>
+    </div>
+
+    <!-- Context menu used in all examples (except the menu button)-->
+    <ul soho-popupmenu id="action-popupmenu">
+      <li soho-popupmenu-item *ngFor="let menuEntry of contextEntries" [isDisabled]="menuEntry.disabled">
+        <a soho-popupmenu-label *ngIf="!menuEntry.url" menuId="{{menuEntry.id}}">{{menuEntry.displayString}}<span class="shortcut-text">{{menuEntry.shortcut}}</span></a>
+        <a soho-popupmenu-label *ngIf="menuEntry.url" menuUrl="{{menuEntry.url}}">{{menuEntry.displayString}}<span class="shortcut-text">{{menuEntry.shortcut}}</span></a>
+      </li>
+    </ul>
+
+  </div>
+</div>

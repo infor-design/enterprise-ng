@@ -42,6 +42,7 @@ import { ColumnGroupedXaxisTwolineDemoComponent } from './column-grouped/column-
 import { ColumnStackedDemoComponent } from './column-stacked/column-stacked.demo';
 import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
+import { ContextMenuLazyLoadDemoComponent } from './context-menu/context-menu-lazy-load.demo';
 import { ContextMenuToggleDemoComponent } from './context-menu/context-menu-toggle.demo';
 import { ContextualActionPanelDemoComponent } from './contextual-action-panel/contextual-action-panel.demo';
 import { DataGridAngularEditorDemoComponent } from './datagrid/datagrid-angular-editor.demo';
@@ -243,6 +244,7 @@ export const routes: Routes = [
   { path: 'column-stacked', component: ColumnStackedDemoComponent },
   { path: 'completion-chart', component: CompletionChartDemoComponent },
   { path: 'context-menu', component: ContextMenuDemoComponent },
+  { path: 'context-menu-lazy-load', component: ContextMenuLazyLoadDemoComponent },
   { path: 'context-menu-toggle', component: ContextMenuToggleDemoComponent },
   { path: 'contextual-action-panel', component: ContextualActionPanelDemoComponent },
   { path: 'datagrid-breadcrumb', component: DataGridBreadcrumbDemoComponent },
