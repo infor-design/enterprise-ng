@@ -1,15 +1,22 @@
 # What's New with Enterprise-NG
 
-## v9.1.1
+## v9.2.0
 
-### 9.1.1 Fixes
+### 9.2.0 Fixes
 
-- `[Lookup]` Fixed an issue in process value where SohoLookupComponen processValue would incorrectly save values. ([#972](https://github.com/infor-design/enterprise-ng/issues/972)) `NBCP`
-- `[General]` Added EP version 4.36.1 final using NG 11.
 - `[General]` Added EP version 4.37.0 final using NG 11.
 - `[General]` Added missing types to removeRow ([#966](https://github.com/infor-design/enterprise-ng/issues/966)) `TJM`
 - `[General]` Added missing types from 4.35 and 4.36 `TJM`
 - `[General]` Fixed a bug expanding and collapsing nested datagrid rows ([#967](https://github.com/infor-design/enterprise-ng/issues/967)) `TJM`
+- `[General]` Added missing attributes setting to fileupload ([#966](https://github.com/infor-design/enterprise-ng/issues/966)) `TJM`
+- `[Context Menu]` Added lazy loading for the directive. ([#974](https://github.com/infor-design/enterprise-ng/issues/974)) `MHH`
+
+## v9.1.1
+
+### 9.1.1 Fixes
+
+- `[Lookup]` Fixed an issue in process value where SohoLookupComponent processValue would incorrectly save values. ([#972](https://github.com/infor-design/enterprise-ng/issues/972)) `NBCP`
+- `[General]` Added EP version 4.36.1 final using NG 11.
 - `[General]` Added missing attributes setting to fileupload ([#966](https://github.com/infor-design/enterprise-ng/issues/966)) `TJM`
 - `[Context Menu]` Added lazy loading for the directive. ([#974](https://github.com/infor-design/enterprise-ng/issues/974)) `MHH`
 
