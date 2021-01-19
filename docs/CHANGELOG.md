@@ -11,6 +11,15 @@
 - `[General]` Added missing attributes setting to fileupload ([#966](https://github.com/infor-design/enterprise-ng/issues/966)) `TJM`
 - `[Context Menu]` Added lazy loading for the directive. ([#974](https://github.com/infor-design/enterprise-ng/issues/974)) `MHH`
 
+## v9.1.1
+
+### 9.1.1 Fixes
+
+- `[Lookup]` Fixed an issue in process value where SohoLookupComponent processValue would incorrectly save values. ([#972](https://github.com/infor-design/enterprise-ng/issues/972)) `NBCP`
+- `[General]` Added EP version 4.36.1 final using NG 11.
+- `[General]` Added missing attributes setting to fileupload ([#966](https://github.com/infor-design/enterprise-ng/issues/966)) `TJM`
+- `[Context Menu]` Added lazy loading for the directive. ([#974](https://github.com/infor-design/enterprise-ng/issues/974)) `MHH`
+
 ## v9.1.0
 
 ### 9.1.0 Fixes
