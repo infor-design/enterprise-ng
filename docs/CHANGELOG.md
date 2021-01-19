@@ -5,6 +5,7 @@
 ### 9.1.1 Fixes
 
 - `[Lookup]` Fixed an issue in process value where SohoLookupComponen processValue would incorrectly save values. ([#972](https://github.com/infor-design/enterprise-ng/issues/972)) `NBCP`
+- `[General]` Added EP version 4.36.1 final using NG 11.
 
 ## v9.1.0
 
