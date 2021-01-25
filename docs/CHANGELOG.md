@@ -11,6 +11,12 @@
 - `[General]` Added missing attributes setting to fileupload ([#966](https://github.com/infor-design/enterprise-ng/issues/966)) `TJM`
 - `[Context Menu]` Added lazy loading for the directive. ([#974](https://github.com/infor-design/enterprise-ng/issues/974)) `MHH`
 
+## v9.1.2
+
+### 9.1.2 Fixes
+
+- `[General]` Added EP version 4.36.2 final using NG 11.
+
 ## v9.1.1
 
 ### 9.1.1 Fixes
