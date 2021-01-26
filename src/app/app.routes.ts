@@ -42,6 +42,7 @@ import { ColumnGroupedXaxisTwolineDemoComponent } from './column-grouped/column-
 import { ColumnStackedDemoComponent } from './column-stacked/column-stacked.demo';
 import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
+import { ContextMenuLazyLoadDemoComponent } from './context-menu/context-menu-lazy-load.demo';
 import { ContextMenuToggleDemoComponent } from './context-menu/context-menu-toggle.demo';
 import { ContextualActionPanelDemoComponent } from './contextual-action-panel/contextual-action-panel.demo';
 import { DataGridAngularEditorDemoComponent } from './datagrid/datagrid-angular-editor.demo';
@@ -120,6 +121,7 @@ import { LineDemoComponent } from './line/line.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
 import { ListViewCustomContentDemoComponent } from './listview/listview.custom-content.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
+import { LookupLandmarkDemoComponent } from './lookup/lookup-landmark.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
@@ -242,6 +244,7 @@ export const routes: Routes = [
   { path: 'column-stacked', component: ColumnStackedDemoComponent },
   { path: 'completion-chart', component: CompletionChartDemoComponent },
   { path: 'context-menu', component: ContextMenuDemoComponent },
+  { path: 'context-menu-lazy-load', component: ContextMenuLazyLoadDemoComponent },
   { path: 'context-menu-toggle', component: ContextMenuToggleDemoComponent },
   { path: 'contextual-action-panel', component: ContextualActionPanelDemoComponent },
   { path: 'datagrid-breadcrumb', component: DataGridBreadcrumbDemoComponent },
@@ -325,6 +328,7 @@ export const routes: Routes = [
   { path: 'listview-custom', component: ListViewCustomContentDemoComponent },
   { path: 'locale-pipe', loadChildren: () => import('./locale/locale-demo.module').then(m => m.LocaleDemoModule) },
   { path: 'lookup', component: LookupDemoComponent },
+  { path: 'lookup-landmark', component: LookupLandmarkDemoComponent },
   { path: 'lookup-validation', component: LookupValidationDemoComponent },
   { path: 'mask', component: MaskDemoComponent },
   { path: 'menu-button', component: MenuButtonDemoComponent },

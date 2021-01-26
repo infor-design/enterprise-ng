@@ -58,6 +58,7 @@ import { CodeBlockDemoComponent } from './code-block/code-block.demo';
 import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextMenuToggleDemoComponent } from './context-menu/context-menu-toggle.demo';
+import { ContextMenuLazyLoadDemoComponent } from './context-menu/context-menu-lazy-load.demo';
 import { ContextualActionPanelDemoModule } from './contextual-action-panel/contextual-action-panel.demo.module';
 import { DataGridBreadcrumbDemoComponent } from './datagrid/datagrid-breadcrumb.demo';
 import {
@@ -160,6 +161,8 @@ import { LineDemoComponent } from './line/line.demo';
 import { ListViewDemoComponent } from './listview/listview.demo';
 import { ListViewCustomContentDemoComponent } from './listview/listview.custom-content.demo';
 import { LookupDemoComponent } from './lookup/lookup.demo';
+import { LookupDialogDemoComponent } from './lookup/lookup-dialog.demo';
+import { LookupLandmarkDemoComponent } from './lookup/lookup-landmark.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
@@ -297,6 +300,7 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
     CompletionChartDemoComponent,
     ContextMenuDemoComponent,
     ContextMenuToggleDemoComponent,
+    ContextMenuLazyLoadDemoComponent,
     DataGridBreadcrumbDemoComponent,
     DataGridCardDemoComponent,
     DataGridAngularEditorDemoComponent,
@@ -386,6 +390,8 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
     ListViewCustomContentDemoComponent,
     ListViewDemoComponent,
     LookupDemoComponent,
+    LookupDialogDemoComponent,
+    LookupLandmarkDemoComponent,
     LookupValidationDemoComponent,
     MaskDemoComponent,
     MenuButtonDemoComponent,

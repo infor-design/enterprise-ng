@@ -6,7 +6,8 @@
  */
 
 interface SohoFileUploadOptions {
-  // no-op - no settings defined
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 interface SohoFileUploadEvent extends JQuery.TriggeredEvent {

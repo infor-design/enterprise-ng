@@ -9,14 +9,23 @@ interface SohoLookupOptions {
   /** Custom click event; can be used with a modal dialog and custom list component */
   click?: SohoLookupClickFunction;
 
+  /** Custom clear event; can be used with a modal dialog and custom list component */
+  clear?: SohoLookupClearFunction;
+
   /** If a click method is defined, this flexible object can be passed in. */
   clickArguments?: any;
+
+  /** If a clear method is defined, this flexible object can be passed in. */
+  clearArguments?: any;
 
   /** Field to return from the array or can be a function. */
   field?: string | SohoLookupFieldFunction;
 
-  /** Dialog title or takes the label + Lookup. */
+  /** Swap out the lookup id for any other icon in the icon set by name */
   title?: string;
+
+  /** Dialog title or takes the label + Lookup. */
+  icon?: string;
 
   /** Pass dialog buttons or Cancel / Apply. */
   buttons?: SohoModalButton[];
@@ -82,6 +91,11 @@ type SohoDataGridMatchFunction = (
 ) => boolean;
 
 type SohoLookupClickFunction = (
+  e: JQuery.TriggeredEvent,
+  lookup: SohoLookupStatic
+) => void;
+
+type SohoLookupClearFunction = (
   e: JQuery.TriggeredEvent,
   lookup: SohoLookupStatic
 ) => void;

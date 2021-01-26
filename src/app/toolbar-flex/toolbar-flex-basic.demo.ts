@@ -5,15 +5,15 @@ import { Component } from '@angular/core';
   templateUrl: 'toolbar-flex-basic.demo.html'
 })
 export class ToolbarFlexBasicDemoComponent {
-  onSelected(event: any) {
-    let data = '';
+  onSelected(event: SohoToolbarFlexSelectedEvent) {
     if (event.item.type === 'actionbutton' || event.item.type === 'menubutton') {
-      data = event.item.selectedAnchor[0].dataset.action;
+      console.log(event.item.selectedAnchor[0].getAttribute('id'));
     } else {
-      data = event.item.element.dataset.action;
+      console.log(event.item);
     }
-    alert(data);
   }
+
+  public moreButtonId = 'my-more-button';
 
   public onSubmit() {
     console.log('submit');

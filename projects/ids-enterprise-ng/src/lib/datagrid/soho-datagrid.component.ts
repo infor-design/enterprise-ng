@@ -460,6 +460,24 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return this._gridOptions.isRowDisabled;
   }
 
+  /**
+   * If true, will select the cell text soon as entering edit mode
+   */
+  @Input() set selectOnEdit(selectOnEdit: boolean | undefined) {
+    this._gridOptions.selectOnEdit = selectOnEdit;
+    if (this.datagrid) {
+      this.datagrid.settings.selectOnEdit = selectOnEdit;
+      this.markForRefresh('editable', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  get selectOnEdit(): boolean | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.selectOnEdit;
+    }
+    return this._gridOptions.selectOnEdit;
+  }
+
   @Input() set isList(isList: boolean | undefined) {
     this._gridOptions.isList = isList;
     if (this.jQueryElement) {
@@ -1455,9 +1473,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    *
    * @param data the row of data to remove
    */
-  removeRow(data: any) {
+  removeRow(data: any, noSync?: boolean, noTrigger?: boolean) {
     this.ngZone.runOutsideAngular(() => {
-      this.datagrid?.removeRow(data);
+      this.datagrid?.removeRow(data, noSync, noTrigger);
     });
   }
 
@@ -1986,14 +2004,16 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       this.gridOptions.rowTemplateComponent
     );
 
-    // Remove component if exist
+    // Remove component if it exists
     const idx = this.rowTemplateComponents.findIndex((c) => event.row === c.row);
     if (idx > -1) {
       this.rowTemplateComponents[idx].component.destroy();
       this.rowTemplateComponents.splice(idx, 1);
     }
 
-    const container = event.detail[0].querySelector('.datagrid-row-detail-padding');
+    const containerParent = event.detail[0].querySelector('.datagrid-row-detail-padding');
+    containerParent.innerHTML = '<div class="datagrid-cell-layout"></div>';
+    const container = containerParent.querySelector('.datagrid-cell-layout');
     container.innerHTML = '';
 
     let dataComponent: any;
@@ -2074,6 +2094,23 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       return (this.datagrid as any).settings.allowSelectAcrossPages;
     }
     return this._gridOptions.allowSelectAcrossPages;
+  }
+
+  /**
+   *  Select all will effect only on current page and its for client side paging only.
+   */
+  @Input() set selectAllCurrentPage(selectAllCurrentPage: boolean | undefined) {
+    this._gridOptions.selectAllCurrentPage = selectAllCurrentPage;
+    if (this.datagrid) {
+      this.datagrid.settings.selectAllCurrentPage = selectAllCurrentPage;
+      this.markForRefresh('selectAllCurrentPage', RefreshHintFlags.None);
+    }
+  }
+  get selectAllCurrentPage(): boolean | undefined {
+    if (this.datagrid) {
+      return (this.datagrid as any).settings.selectAllCurrentPage;
+    }
+    return this._gridOptions.selectAllCurrentPage;
   }
 
   /**

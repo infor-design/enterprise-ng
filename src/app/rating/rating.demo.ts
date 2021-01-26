@@ -1,14 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { SohoRatingComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-rating-demo',
   templateUrl: 'rating.demo.html'
 })
-export class RatingDemoComponent implements OnInit {
+export class RatingDemoComponent implements AfterViewInit {
+  @ViewChild('sohoRating') rating!:SohoRatingComponent;
 
-  constructor() {
+  ngAfterViewInit() { }
+
+  public readonly(): void {
+    if (this.rating) {
+      this.rating.readonly();
+    }
   }
 
-  ngOnInit() {
+  public enable(): void {
+    if (this.rating) {
+      this.rating.enable();
+    }
   }
 }

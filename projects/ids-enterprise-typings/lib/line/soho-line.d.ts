@@ -28,10 +28,10 @@ interface SohoLineOptions {
   showLegend?: boolean;
 
   /** A series of options for the xAxis. */
-  xAxis?: object;
+  xAxis?: Object;
 
   /** A series of options for the yAxis. */
-  yAxis?: object;
+  yAxis?: Object;
 
   /** If true no dots are shown. */
   hideDots?: boolean;
@@ -51,7 +51,7 @@ interface SohoLineOptions {
   /** Option to customize the dot behavior. You can set the dot size (radius),
     * the size on hover and stroke or even add a custom class.
     * Example `dots: { radius: 3, radiusOnHover: 4, strokeWidth: 0, class: 'custom-dots'}` */
-  dots?: object;
+  dots?: Object;
 
   /** Use d3 format some examples can be found on http://bit.ly/1IKVhHh */
   formatterString?: string;

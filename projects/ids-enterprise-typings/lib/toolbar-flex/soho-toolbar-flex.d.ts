@@ -116,6 +116,9 @@ interface SohoToolbarFlexItemStatic {
 
   /** Completely destroys the Toolbar Flex Item component instance. */
   destroy(): void;
+
+  /** Selected anchor in the selected event */
+  selectedAnchor: JQuery;
 }
 
 /**

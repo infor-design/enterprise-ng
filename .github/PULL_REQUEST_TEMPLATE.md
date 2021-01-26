@@ -21,5 +21,5 @@ Include:
 <!-- 
 Also Remember to...
 - Update the changelog (if needed)
-- Check back to make sure tests pass on Travis
+- Check back to make sure tests pass CI Checks
 -->

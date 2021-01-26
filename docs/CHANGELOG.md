@@ -1,10 +1,50 @@
 # What's New with Enterprise-NG
 
+## v9.2.0
+
+### 9.2.0 Fixes
+
+- `[General]` Added EP version 4.37.0 final using NG 11.
+- `[General]` Added missing types to removeRow ([#966](https://github.com/infor-design/enterprise-ng/issues/966)) `TJM`
+- `[General]` Added missing types from 4.35 and 4.36 `TJM`
+- `[General]` Fixed a bug expanding and collapsing nested datagrid rows ([#967](https://github.com/infor-design/enterprise-ng/issues/967)) `TJM`
+- `[General]` Added missing attributes setting to fileupload ([#966](https://github.com/infor-design/enterprise-ng/issues/966)) `TJM`
+- `[Context Menu]` Added lazy loading for the directive. ([#974](https://github.com/infor-design/enterprise-ng/issues/974)) `MHH`
+
+## v9.1.2
+
+### 9.1.2 Fixes
+
+- `[General]` Added EP version 4.36.2 final using NG 11.
+
+## v9.1.1
+
+### 9.1.1 Fixes
+
+- `[Lookup]` Fixed an issue in process value where SohoLookupComponent processValue would incorrectly save values. ([#972](https://github.com/infor-design/enterprise-ng/issues/972)) `NBCP`
+- `[General]` Added EP version 4.36.1 final using NG 11.
+- `[General]` Added missing attributes setting to fileupload ([#966](https://github.com/infor-design/enterprise-ng/issues/966)) `TJM`
+- `[Context Menu]` Added lazy loading for the directive. ([#974](https://github.com/infor-design/enterprise-ng/issues/974)) `MHH`
+
 ## v9.1.0
 
 ### 9.1.0 Fixes
 
 - `[General]` Fixed an issue where column resetToDefault didnt work in some situations. ([#4688](https://github.com/infor-design/enterprise-ng/issues/4688)) `TJM`
+- `[Lookup]` Added new types for the clear function in lookups. ([#4693](https://github.com/infor-design/enterprise-ng/issues/4693)) `TJM`
+- `[General]` Added EP version 4.36.0 final using NG 11.
+
+## v9.0.2
+
+### 9.0.2 Fixes
+
+- `[Toolbar Flex]` Added moreButtonId input to soho-toolbar-flex-more-button to be placed on the inner button element. `PWP` ([#963](https://github.com/infor-design/enterprise-ng/issues/963))
+
+## v9.0.1
+
+### 9.0.1 Fixes
+
+- `[General]` Added EP version 4.35.4 final using NG 11.
 
 ## v9.0.0
 
@@ -17,6 +57,34 @@
     - Replaced `karma-instanbul-coverage` with `karma-coverage`.
     - Replace `tslint` with `eslint`.
 - `[General]` Enabled strict compiling in the library and demos. This allows you to enable it as well when compiling. If you do you can do this in the tsconfig in your project like [this](https://github.com/infor-design/enterprise-ng/pull/939/files#diff-b5f32afdd9e8c14b02c570db855022a30aeb595e3dd1c3a71c187d685c0a2860R7). Then you may need to update your code to add more types and protections from null.  ([#755](https://github.com/infor-design/enterprise/issues/755)) `TJM`
+
+## v8.2.5
+
+### 8.2.5 Fixes
+
+- `[General]` Added patched EP version 4.35.4.
+
+## v8.2.4
+
+### 8.2.4 Fixes
+
+- `[Lookup]` Added new types for the clear function in lookups. ([#4693](https://github.com/infor-design/enterprise-ng/issues/4693)) `TJM`
+- `[General]` Added patched EP version 4.35.3 final.
+- `[General]` Added patched EP version 4.35.3.
+- `[Lookup]` Added new types for the clear function in lookups. ([#4693](https://github.com/infor-design/enterprise-ng/issues/4693)) `TJM`
+- `[Rating]` Exposed the readonly and enable methods. This allows the component to be toggled between read only and editable. ([#958](https://github.com/infor-design/enterprise-ng/issues/958)) `MHH`
+
+## v8.2.3
+
+### 8.2.3 Fixes
+
+- `[General]` Added patched EP version 4.35.2 final
+
+## v8.2.2
+
+### 8.2.2 Fixes
+
+- `[Datagrid]` Fixed an issue where column resetToDefault didnt work in some situations ([#4688](https://github.com/infor-design/enterprise/issues/4688)) `TJM`
 
 ## v8.2.1
 
@@ -79,6 +147,12 @@
 - `[Context Menu]` Fixes a bug where api settings were not overwriting the default settings. ([#888](https://github.com/infor-design/enterprise-ng/issues/888))
 - `[Datagrid]` Added support to disable column buttons. ([1590](https://github.com/infor-design/enterprise/issues/1590))
 - `[Popupmenu]` Expose is-selectable, is-multiselectable, and multi-selectable-section as input properties. ([#907](https://github.com/infor-design/enterprise-ng/issues/907)) `CL`
+
+## v7.9.0
+
+### 7.9.0 Fixes
+
+- `[General]` Added EP version 4.35.4
 
 ## v7.8.4
 

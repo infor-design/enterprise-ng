@@ -38,11 +38,11 @@
         <input soho-toolbar-flex-searchfield (cleared)="onCleared($event)" (change)="onChange($event)" placeholder="Search Here" [clearable]="true" [collapsible]="true"/>
       </soho-toolbar-flex-section>
 
-      <soho-toolbar-flex-more-button>
+      <soho-toolbar-flex-more-button [moreButtonId]="moreButtonId">
         <ul class="popupmenu">
-          <li><a href="#">Pre-defined Item #1</a></li>
-          <li><a href="#">Pre-defined Item #2</a></li>
-          <li><a href="#">Pre-defined Item #3</a></li>
+          <li><a href="#" id="item-one">Pre-defined Item #1</a></li>
+          <li><a href="#" id="item-two">Pre-defined Item #2</a></li>
+          <li><a href="#" id="item-three">Pre-defined Item #3</a></li>
         </ul>
       </soho-toolbar-flex-more-button>
     </soho-toolbar-flex>
