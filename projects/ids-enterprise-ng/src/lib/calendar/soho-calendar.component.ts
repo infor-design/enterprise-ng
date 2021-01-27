@@ -385,14 +385,14 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * Callback for the  right click context menu
    */
-  @Input() set menuSelected(menuSelected: string | undefined ) {
+  @Input() set menuSelected(menuSelected: Function | undefined ) {
     (this._calendarOptions as any).menuSelected = menuSelected;
     if (this.calendar) {
       this.calendar.settings.menuSelected = menuSelected;
       this.markForRefresh();
     }
   }
-  get menuSelected(): string | undefined  {
+  get menuSelected(): Function | undefined  {
     if (this.calendar) {
       return this.calendar.settings.menuSelected;
     }
