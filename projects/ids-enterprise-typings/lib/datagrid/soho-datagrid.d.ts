@@ -810,9 +810,6 @@ interface SohoDataGridColumn {
   /** Limit filter conditions to a prescribed set of conditionals.  */
   filterConditions?: SohoDataGridColumnFilterConditions[];
 
-  /** Column formatter function.  */
-  filterFormatter?: SohoDataGridColumnFormatterFunction | string;
-
   caseSensitive?: boolean;
 
   // String array or an array of objects with a value method used for filters and editors.
