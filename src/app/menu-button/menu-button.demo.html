@@ -20,7 +20,7 @@
       <li soho-popupmenu-item isSelectable="true"><a soho-popupmenu-label>Protect Sheet Rules</a></li>
     </ul>
 
-    <button soho-menu-button icon="user" [disabled]="isDisabled" menu="user-popupmenu" data-options="{'hideMenuArrow': true}" [hideMenuArrow]="true" (selected)="onSelected($event)"></button>
+    <button soho-menu-button icon="user" [disabled]="isDisabled" menu="user-popupmenu" [hideMenuArrow]="true" (selected)="onSelected($event)"></button>
     <ul soho-popupmenu id="user-popupmenu">
       <li><a soho-popupmenu-label>Admin</a></li>
       <li soho-popupmenu-separator></li>
