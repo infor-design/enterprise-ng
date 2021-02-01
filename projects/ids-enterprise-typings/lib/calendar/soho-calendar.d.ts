@@ -104,30 +104,33 @@ interface SohoCalendarRenderMonthEvent {
 
 interface SohoCalendarWeekOptions {
   firstDayOfWeek?: string;
-  showAllDay?: boolean;
-  showTimeLine?: boolean;
   startHour?: number;
   endHour?: number;
+  showAllDay?: boolean;
+  showTimeLine?: boolean;
 }
 
 interface SohoCalendarOptions {
   eventTypes?: SohoCalendarEventType[];
   events?: SohoCalendarEvent[];
   locale?: string;
-  month?: number;
+  language?: string;
   year?: number;
+  month?: number;
+  day?: number;
+  upcomingEventDays?: number;
   showViewChanger?: boolean;
-  eventTooltip?: string | SohoCalendarTooltipFunction;
-  iconTooltip?: string | SohoCalendarTooltipFunction;
   onRenderMonth?: Function; // (node: any, response: (SohoCalendarEvent, SohoCalendarEventType) => void) => void;
   onSelected?: Function; // (node: TNode, args: SohoCalendarDaySelectedEvent) => void;
+  onChangeView?: Function;
   template?: string;
-  upcomingEventDays?: number;
+  mobileTemplate?: string;
   modalTemplate?: string;
   menuId?: string;
-  menuSelected?: string;
+  menuSelected?: Function;
   newEventDefaults?: SohoCalendarEvent;
-  onChangeView?: Function;
+  eventTooltip?: string | SohoCalendarTooltipFunction;
+  iconTooltip?: string | SohoCalendarTooltipFunction;
   showToday?: boolean;
   weekOptions?: SohoCalendarWeekOptions;
   disable?: SohoDatePickerDisable;
