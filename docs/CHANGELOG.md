@@ -15,6 +15,12 @@
 - `[DataGrid]` Removed unused filterFormatter type ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
 - `[Rating]` Expose the val() method ([#981](https://github.com/infor-design/enterprise-ng/issues/981)) `MHH`
 
+## v9.1.3
+
+### 9.1.3 Fixes
+
+- `[Rating]` Expose the val() method ([#981](https://github.com/infor-design/enterprise-ng/issues/981)) `MHH`
+
 ## v9.1.2
 
 ### 9.1.2 Fixes
