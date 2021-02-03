@@ -8,7 +8,13 @@ import { SohoRatingComponent } from 'ids-enterprise-ng';
 export class RatingDemoComponent implements AfterViewInit {
   @ViewChild('sohoRating') rating!:SohoRatingComponent;
 
-  ngAfterViewInit() { }
+  public currentValue?: number;
+
+  ngAfterViewInit() {
+    if (this.rating) {
+      this.currentValue = this.rating.currentValue;
+    }
+  }
 
   public readonly(): void {
     if (this.rating) {
@@ -20,5 +26,9 @@ export class RatingDemoComponent implements AfterViewInit {
     if (this.rating) {
       this.rating.enable();
     }
+  }
+
+  public onClick(): void {
+    this.currentValue = this.rating.currentValue;
   }
 }

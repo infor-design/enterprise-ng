@@ -29,6 +29,9 @@ interface SohoRating {
 
   /** Destroys the control on completion. */
   destroy(): void;
+
+  /** Returns the current value if called with no value, or sets the current value to the passed in value*/
+  val(newValue?: number): number;
 }
 
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
