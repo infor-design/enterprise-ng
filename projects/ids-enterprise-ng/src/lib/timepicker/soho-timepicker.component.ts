@@ -270,10 +270,10 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
   ngAfterViewChecked() {
     if (this.runUpdatedOnCheck) {
       // Ensure the enabled/disabled flags are set.
-      if (this.isDisabled !== null) {
+      if (this.isDisabled !== null && this.isDisabled !== undefined) {
         this.disabled = this.isDisabled;
       }
-      if (this.isReadOnly !== null) {
+      if (this.isReadOnly !== null && this.isReadOnly !== undefined) {
         this.readonly = this.isReadOnly;
       }
 

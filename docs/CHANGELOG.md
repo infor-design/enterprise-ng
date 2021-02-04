@@ -14,6 +14,13 @@
 - `[Calendar]` Fixed some types and added some missing types ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
 - `[DataGrid]` Removed unused filterFormatter type ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
 - `[Rating]` Expose the val() method ([#981](https://github.com/infor-design/enterprise-ng/issues/981)) `MHH`
+- `[Slider/TimePicker/Datepicker]` The readonly input was not working correctly after adding strict types ([#983](https://github.com/infor-design/enterprise-ng/issues/983)) `TJM`
+
+## v9.1.4
+
+### 9.1.4 Fixes
+
+- `[Slider/TimePicker/Datepicker]` The readonly input was not working correctly after adding strict types ([#983](https://github.com/infor-design/enterprise-ng/issues/983)) `TJM`
 
 ## v9.1.3
 
