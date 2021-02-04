@@ -7,6 +7,7 @@ import {
   EventEmitter,
   HostBinding,
   Input,
+  NgZone,
   OnDestroy,
   Output,
 } from '@angular/core';
@@ -24,6 +25,11 @@ import {
 })
 
 export class SohoSliderComponent extends BaseControlValueAccessor<number> implements AfterViewInit, AfterViewChecked, OnDestroy {
+
+  /**
+   * Flag to force an update of the control after the view is created.
+   */
+  private runUpdatedOnCheck?: boolean;
 
   /** Minimum Value */
   @Input() public set min(min: number | undefined) {
@@ -145,7 +151,7 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
   private slider?: SohoSliderStatic | null;
   private options: SohoSliderOptions = {};
 
-  constructor(private element: ElementRef) {
+  constructor(private element: ElementRef, private ngZone: NgZone,) {
     super();
   }
 
@@ -153,10 +159,10 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
     this.isDisabled = value;
     if (this.slider) {
       if (value) {
-        this.slider.disable();
+        this.ngZone.runOutsideAngular(() => this.slider?.disable());
         this.isDisabled = true;
       } else {
-        this.slider.enable();
+        this.ngZone.runOutsideAngular(() => this.slider?.enable());
         this.isDisabled = false;
         this.isReadOnly = false;
       }
@@ -170,10 +176,10 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
   @Input() set readonly(value: boolean | undefined) {
     this.isReadOnly = value;
     if (value) {
-      this.slider?.readonly();
+      this.ngZone.runOutsideAngular(() => this.slider?.readonly());
       this.isReadOnly = true;
     } else {
-      this.slider?.enable();
+      this.ngZone.runOutsideAngular(() => this.slider?.enable());
       this.isReadOnly = false;
       this.isDisabled = false;
     }
@@ -184,21 +190,25 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
   }
 
   ngAfterViewInit() {
-    this.jQueryElement = jQuery(this.element.nativeElement);
-    this.jQueryElement.slider(this.options);
-    this.slider = this.jQueryElement.data('slider');
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
+      this.jQueryElement.slider(this.options);
+      this.slider = this.jQueryElement.data('slider');
 
-    // Bind to events
-    this.jQueryElement
-      .on('slidestart', (event: SohoSliderEvent) => this.onSlideStop(event))
-      .on('slidestop', (event: SohoSliderEvent) => this.onSlideStart(event))
-      .on('sliding', (event: SohoSliderEvent) => this.onSliding(event))
-      .on('change', (event: SohoSliderEvent) => this.onChange(event))
-      .on('updated', (event: SohoSliderEvent) => this.onUpdated(event));
+      // Bind to events
+      this.jQueryElement
+        .on('slidestart', (event: SohoSliderEvent) => this.onSlideStop(event))
+        .on('slidestop', (event: SohoSliderEvent) => this.onSlideStart(event))
+        .on('sliding', (event: SohoSliderEvent) => this.onSliding(event))
+        .on('change', (event: SohoSliderEvent) => this.onChange(event))
+        .on('updated', (event: SohoSliderEvent) => this.onUpdated(event));
+
+      this.runUpdatedOnCheck = true;
+    });
   }
 
   ngAfterViewChecked() {
-    if (this.slider) {
+    if (this.slider && this.runUpdatedOnCheck) {
       // Ensure the default disabled flag is applied.
       this.disabled = this.isDisabled;
       // Delay updated a bit so the class is also set for updated to render correctly.
@@ -206,6 +216,10 @@ export class SohoSliderComponent extends BaseControlValueAccessor<number> implem
         this.slider.updated();
         this.isVerticalOriginal = this.isVertical;
       }
+
+      this.ngZone.runOutsideAngular(() => {
+        this.runUpdatedOnCheck = false;
+      });
     }
   }
 
