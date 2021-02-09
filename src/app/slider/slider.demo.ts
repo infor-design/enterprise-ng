@@ -35,7 +35,6 @@ export class SliderDemoComponent implements OnInit {
   }
 
   setReadonly() {
-    // TODO: Depends on SOHO-5012. Needs a readonly method for slider.
     this.slider.readonly = true;
     this.sliderReadOnly = this.slider.readonly;
   }

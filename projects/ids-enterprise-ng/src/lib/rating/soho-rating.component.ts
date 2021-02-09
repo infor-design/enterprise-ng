@@ -52,4 +52,19 @@ export class SohoRatingComponent implements AfterViewInit, OnDestroy {
       this.rating.enable();
     }
   }
+
+  /** Gets the current value of the control. If the control doesn't exist, will return -1 */
+  public get currentValue() {
+    if (this.rating) {
+      return this.rating.val();
+    }
+    return -1;
+  }
+
+  /** Sets the value for the control */
+  public set currentValue(newValue: number) {
+    if (this.rating) {
+      this.rating.val(newValue);
+    }
+  }
 }

@@ -139,6 +139,8 @@ interface SohoDatePickerDisable {
    */
   dates?: string | (string | Date)[];
 
+  years?: string | (string | Date)[];
+
   /** 'M/d/yyyy' */
   minDate?: string|Date;
 
