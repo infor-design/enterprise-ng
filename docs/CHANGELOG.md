@@ -16,6 +16,12 @@
 - `[Rating]` Expose the val() method ([#981](https://github.com/infor-design/enterprise-ng/issues/981)) `MHH`
 - `[Slider/TimePicker/Datepicker]` The readonly input was not working correctly after adding strict types ([#983](https://github.com/infor-design/enterprise-ng/issues/983)) `TJM`
 
+## v9.1.5
+
+### 9.1.5 Fixes
+
+- `[Step Process]` Reverted a change to step process as it caused regressions. ([#983](https://github.com/infor-design/enterprise-ng/issues/955)) `NBCP`
+
 ## v9.1.4
 
 ### 9.1.4 Fixes
