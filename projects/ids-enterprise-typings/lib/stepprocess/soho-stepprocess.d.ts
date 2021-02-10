@@ -45,12 +45,6 @@ interface SohoStepProcessStatic {
   getSelectedStep(): JQuery;
 
   /**
-   * go to a specific step
-   * @param stepLink jquery object of the step anchor
-   */
-  selectStep(stepLink: JQuery): void;
-
-  /**
    * Destructor,
    */
   destroy(): void;
