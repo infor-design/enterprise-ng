@@ -1,5 +1,12 @@
 # What's New with Enterprise-NG
 
+## v9.3.1
+
+### 9.3.0 Fixes
+
+- `[General]` Added EP version 4.37.3 final using NG 11.
+- `[StepProcess]` Reverted fix 995 due to problems with it. `NBCP` ([#955](https://github.com/infor-design/enterprise-ng/issues/955))
+
 ## v9.3.0
 
 ### 9.3.0 Features
