@@ -33,6 +33,11 @@ interface SohoDropDownOptions {
   filterMode?: SohoDropDownFilterModeOptions;
 
   /**
+   * If true virtual scrolling will be used, this is good for larger lists but may not work with all other features.
+   */
+  virtualScroll?: boolean;
+
+  /**
    * If true, displays <optgroup> headers in the list even if no selectable options are present underneath.
    */
   showEmptyGroupHeaders?: boolean;
@@ -112,6 +117,11 @@ interface SohoDropDownOptions {
    * Fx 300 for the 300 px size fields. Default is size of the largest data.
    */
   maxWidth?: number;
+
+  /**
+   * Sets the exact width of the open list, by default its the size of the field
+   */
+  width?: number;
 
   /**
    * Show the select all text/option.

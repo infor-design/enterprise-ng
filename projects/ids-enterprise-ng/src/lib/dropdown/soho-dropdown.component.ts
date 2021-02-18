@@ -215,6 +215,22 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
     return this.options.maxWidth;
   }
 
+  /**
+   * Sets the exact width of the open list, by default its the size of the field
+   */
+  @Input()
+  public set width(width: number | undefined) {
+    this.options.width = width;
+    if (this.dropdown) {
+      this.dropdown.settings.width = width;
+      this.markForRefresh();
+    }
+  }
+
+  public get width(): number | undefined {
+    return this.options.width;
+  }
+
   @Input()
   public set filterMode(filterMode: SohoDropDownFilterModeOptions | undefined) {
     this.options.filterMode = filterMode;
@@ -226,6 +242,19 @@ export class SohoDropDownComponent implements AfterViewInit, AfterViewChecked, O
 
   public get filterMode(): SohoDropDownFilterModeOptions | undefined {
     return this.options.filterMode;
+  }
+
+  @Input()
+  public set virtualScroll(virtualScroll: boolean | undefined) {
+    this.options.virtualScroll = virtualScroll;
+    if (this.dropdown) {
+      this.dropdown.settings.virtualScroll = virtualScroll;
+      this.markForRefresh();
+    }
+  }
+
+  public get virtualScroll(): boolean | undefined {
+    return this.options.virtualScroll;
   }
 
   /**
