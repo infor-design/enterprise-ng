@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v9.3.0
+
+## v9.3.0 Fixes
+
+- `[Context Menu]` Fixed a bug causing events to be subscribed to multiple times. ([#996](https://github.com/infor-design/enterprise-ng)) `MHH`
+
 ## v9.2.0
 
 ### 9.2.0 Fixes

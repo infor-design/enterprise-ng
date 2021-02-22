@@ -313,6 +313,11 @@ export class SohoContextMenuDirective implements AfterViewInit, OnDestroy {
   public initializeComponent() {
     if (this.lazyLoad) {
       this.options.trigger = 'immediate';
+      // Remove all existing events before re-initializing, or the events will keep getting listened
+      // to (so on first click, listened to once. On second click, listened to twice).
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
       this.init();
     }
   }
