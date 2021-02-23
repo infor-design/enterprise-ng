@@ -1,5 +1,12 @@
 # What's New with Enterprise-NG
 
+## v9.3.0
+
+### 9.3.0 Fixes
+
+- `[DataGrid]` Added missing getActiveCell getter. ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
+- `[DataGrid]` Updated the datagrid context menu example to work with the keyboard ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
+
 ## v9.2.0
 
 ### 9.2.0 Fixes

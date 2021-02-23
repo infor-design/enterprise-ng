@@ -1844,6 +1844,16 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Gets the active cell info
+   */
+  public getActiveCell(): any {
+    return this.ngZone.runOutsideAngular(() => {
+      return this.datagrid?.activeCell;
+    });
+  }
+
+
+  /**
    * Scrolls the row at <b>idx</b> into view in the view port.
    *
    * @param idx The index of the row to scroll into view.
@@ -2057,6 +2067,10 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this.ngZone.run(() => {
       this.keydown.next(event);
     });
+
+    if (e.key === 'F10' && e.shiftKey) {
+      $((e as any).currentTarget).trigger('contextmenu');
+    }
   }
 
   /**
@@ -2610,12 +2624,12 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
 
       // Initialise any event handlers.
       this.jQueryElement
-        .on('addrow', (_e: any, args: SohoDataGridAddRowEvent) => this.onRowAdd(args) )
+        .on('addrow', (_e: any, args: SohoDataGridAddRowEvent) => this.onRowAdd(args))
         .on('cellchange', (_e: any, args: SohoDataGridCellChangeEvent) => this.onCellChange(args))
         .on('click', (_e: any, args: SohoDataGridRowClicked) => this.onRowClicked(args))
         .on('closefilterrow', (_e: any, args: SohoDataGridCloseFilterRowEvent) => this.onCloseFilterRow(args))
         .on('collapserow', (_e: any, args: SohoDataGridRowCollapseEvent) => this.onCollapseRow(args))
-        .on('contextmenu', (_e: any, args: SohoDataGridRowClicked) =>  this.onContextMenu(args))
+        .on('contextmenu', (_e: any, args: SohoDataGridRowClicked) => this.onContextMenu(args))
         .on('dblclick', (_e: JQuery.TriggeredEvent, args: SohoDataGridRowClicked) => this.onDoubleClick(args))
         .on('beforeentereditmode', (_e: any, args: SohoDataGridEditModeEvent) => this.onBeforeEnterEditMode(args))
         .on('exiteditmode', (_e: any, args: SohoDataGridEditModeEvent) => this.onExitEditMode(args))
@@ -2632,7 +2646,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('rowreorder', (_e: any, args: SohoDataGridRowReorderedEvent) => this.onRowReordered(args))
         .on('selected',
           (e: any, args: SohoDataGridSelectedRow[], type?: SohoDataGridSelectedEventType) =>
-          this.onSelected({ e, rows: args, type }))
+            this.onSelected({ e, rows: args, type }))
         .on('settingschanged', (_e: any, args: SohoDataGridSettingsChangedEvent) => this.onSettingsChanged(args))
         .on('sorted', (_e: any, args: SohoDataGridSortedEvent) => this.onSorted(args));
     });
