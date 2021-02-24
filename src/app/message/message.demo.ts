@@ -40,6 +40,14 @@ export class MessageDemoComponent {
       .message(`This application has experienced a system error due to the lack of internet access.
                 Please restart the application in order to proceed.`)
       .buttons(buttons)
+      .beforeOpen(() => {
+        console.log('before open');
+        return true;
+      })
+      .beforeClose(() => {
+        console.log('before close');
+        return true;
+      })
       .open();
   }
 

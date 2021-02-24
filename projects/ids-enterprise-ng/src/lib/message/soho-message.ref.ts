@@ -194,13 +194,13 @@ export class SohoMessageRef {
     this._message = this.jQueryElement.data('modal');
 
     // Add listeners to control event (which are on the placeholder)
-    this._placeholder.on('open', ((event: any) => {
- this.onOpen(event);
-}));
+    this._placeholder.off('open').on('open', ((event: any) => {
+      this.onOpen(event);
+    }));
 
     // These are vetoable events.
-    this._placeholder.on('beforeopen', ((event: any) => this.onBeforeOpen(event)));
-    this._placeholder.on('beforeclose', ((event: any) => this.onBeforeClose(event)));
+    this._placeholder.off('beforeopen').on('beforeopen', ((event: any) => this.onBeforeOpen(event)));
+    this._placeholder.off('beforeclose').on('beforeclose', ((event: any) => this.onBeforeClose(event)));
 
     return this;
   }
@@ -241,8 +241,8 @@ export class SohoMessageRef {
    */
   opened(eventFn: Function): SohoMessageRef {
     this.open$.subscribe((f: any) => {
- eventFn(f, this);
-});
+      eventFn(f, this);
+    });
     return this;
   }
 
