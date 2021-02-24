@@ -64,7 +64,7 @@ export class ContextualActionPanelDemoComponent {
         isDefault: true
       }];
 
-    if (!this.panelRef || !this.panelService || !this.placeholder) {
+    if (!this.panelService || !this.placeholder) {
       return;
     }
 
@@ -109,7 +109,7 @@ export class ContextualActionPanelDemoComponent {
         isDefault: true
       }];
 
-    if (!this.panelRef || !this.panelService || !this.placeholder) {
+    if (!this.panelService || !this.placeholder) {
       return;
     }
 
@@ -120,7 +120,7 @@ export class ContextualActionPanelDemoComponent {
   }
 
   openSearchfieldPanel() {
-    if (!this.panelRef || !this.panelService || !this.placeholder) {
+    if (!this.panelService || !this.placeholder) {
       return;
     }
 
@@ -132,7 +132,7 @@ export class ContextualActionPanelDemoComponent {
   }
 
   openSearchfieldFlexPanel() {
-    if (!this.panelRef || !this.panelService || !this.placeholder) {
+    if (!this.panelService || !this.placeholder) {
       return;
     }
 
@@ -166,7 +166,7 @@ export class ContextualActionPanelDemoComponent {
         isDefault: true
       }];
 
-    if (!this.panelRef || !this.panelService || this.placeholder) {
+    if (!this.panelService || this.placeholder) {
       return;
     }
 

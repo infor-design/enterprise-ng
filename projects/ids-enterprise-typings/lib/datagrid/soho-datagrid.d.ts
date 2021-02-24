@@ -1131,6 +1131,9 @@ interface SohoDataGridStatic {
 
   setActiveCell(idx: number, idx2: number): void;
 
+  /* Gets info about the currently activated cell */
+  activeCell: any;
+
   /** Returns an array of row numbers for the rows containing the value for the specified field */
   findRowsByValue(fieldName: string, value: any): number[];
 

@@ -37,7 +37,7 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
 
   constructor(
     private service: DataGridDemoService
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     this.addRows();
@@ -93,51 +93,13 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
   }
 
   onContextMenu(e: SohoDataGridRowClicked) {
-    e.originalEvent.preventDefault();
-    console.log('contextmenu fired', e);
-
-    // -----------------------------------------------------------------
-    // destroy any existing popup menu so that the dom markup is
-    // completely removed. this is needed before the new menu is
-    // built and displayed.
-    // -----------------------------------------------------------------
-    if (this.popupMenu) {
-      this.contextMenuEvent = null;
-      this.displayContextMenu = false;
-
-      this.popupMenu.close();
-      this.popupMenu.destroy();
-    }
-
-    // -----------------------------------------------------------------
-    // select right click row, unselect any other row first.
-    // -----------------------------------------------------------------
     this.dataGrid?.unSelectAllRows();
-    this.dataGrid?.selectRows([ e.row ]);
-
-    // -----------------------------------------------------------------
-    // build the right click menu items array dynamically. When the
-    // context menu is generated into the dom it will use these items
-    // -----------------------------------------------------------------
+    this.dataGrid?.selectRows([e.row]);
     this.buildMenuOptions();
-
-    // -----------------------------------------------------------------
-    // cause the new right click menu markup to be built, which
-    // causes the popup menu to be displayed.
-    // -----------------------------------------------------------------
-    setTimeout(() => {
-      this.contextMenuEvent = e.originalEvent;
-      this.displayContextMenu = true;
-    });
-
-    return false;
   }
 
   onContextMenuClose(e: any) {
     console.log('onContextMenuClose()', e);
-
-    this.contextMenuEvent = null;
-    this.displayContextMenu = false;
   }
 
   onMenuItemSelected(e: any) {
