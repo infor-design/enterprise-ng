@@ -7,6 +7,7 @@
 - `[Context Menu]` Fixed a bug causing events to be subscribed to multiple times. ([#996](https://github.com/infor-design/enterprise-ng)) `MHH`
 - `[DataGrid]` Added missing getActiveCell getter. ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
 - `[DataGrid]` Updated the datagrid context menu example to work with the keyboard ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
+- `[Message]` Fixed multiple events were firing. ([#953](https://github.com/infor-design/enterprise-ng/issues/953))
 
 ## v9.2.0
 
