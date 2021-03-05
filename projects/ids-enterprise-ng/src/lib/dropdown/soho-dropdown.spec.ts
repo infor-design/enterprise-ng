@@ -52,24 +52,6 @@ describe('Soho Dropdown Unit Tests', () => {
     de = fixture.debugElement;
     el = de.nativeElement;
   });
-
-  it('Check Content', () => {
-    expect(el.nodeName).toEqual('DIV');
-    expect(el.id).toEqual(comp.id);
-    expect(el.classList).toContain('dropdown');
-  });
-
-  it('Check Default \'name\' property', () => {
-    expect(comp.name).toContain('soho-dropdown-');
-  });
-
-  it('Check setting \'name\' property.', () => {
-    comp.name = 'my-id';
-    expect(comp.name).toEqual('my-id');
-    expect(comp.id).toEqual('my-id');
-  });
-
-  // Add more method tests.
 });
 
 describe('Soho Dropdown Render', () => {
