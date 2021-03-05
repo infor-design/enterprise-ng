@@ -1,11 +1,5 @@
 # What's New with Enterprise-NG
 
-## v9.3.0
-
-### 9.2.0 Features
-
-- `[General]` Renamed uplift theme to new theme and soho theme to classic theme also changed variants to modes. ([#2606](https://github.com/infor-design/enterprise/issues/2606))
-
 ### 9.3.0 Fixes
 
 - `[Calendar]` Fixed dayLegend type in the calendar component. ([#1001](https://github.com/infor-design/enterprise-ng/issues/1001)) `TJM`
@@ -13,6 +7,12 @@
 - `[DataGrid]` Added missing getActiveCell getter. ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
 - `[DataGrid]` Updated the datagrid context menu example to work with the keyboard ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
 - `[Message]` Fixed multiple events were firing. ([#953](https://github.com/infor-design/enterprise-ng/issues/953))
+
+## v9.2.1
+
+### 9.2.1 Fixes
+
+- `[General]` Added EP version 4.37.1 final using NG 11.
 
 ## v9.2.0
 
