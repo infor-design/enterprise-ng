@@ -1,5 +1,7 @@
 # What's New with Enterprise-NG
 
+## v9.3.1
+
 ### 9.3.0 Fixes
 
 - `[Calendar]` Fixed dayLegend type in the calendar component. ([#1001](https://github.com/infor-design/enterprise-ng/issues/1001)) `TJM`
