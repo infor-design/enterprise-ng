@@ -33,11 +33,11 @@ export class AppComponent implements AfterViewInit {
   }
 
   /**
-   * Include the uplift icons only if required by the current theme, this
+   * Include the new icons only if required by the current theme, this
    * is not quite perfect, as we need to listen for the theme change here.
    * Maybe wrap all the icons into their own component?
    */
-  public useUpliftIcons = false;
+  public useNewIcons = false;
 
   public personalizeOptions: SohoPersonalizeOptions = {};
 
@@ -73,9 +73,12 @@ export class AppComponent implements AfterViewInit {
   }
 
   onChangeTheme(ev: SohoPersonalizeEvent) {
-    this.useUpliftIcons = ev.data.theme === 'theme-uplift-light'
+    this.useNewIcons = ev.data.theme === 'theme-uplift-light'
       || ev.data.theme === 'theme-uplift-dark'
-      || ev.data.theme === 'theme-uplift-contrast';
+      || ev.data.theme === 'theme-uplift-contrast'
+      || ev.data.theme === 'theme-new-light'
+      || ev.data.theme === 'theme-new-dark'
+      || ev.data.theme === 'theme-new-contrast';
   }
 
   public onMenuVisibility(visible: boolean): void {
