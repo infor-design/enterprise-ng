@@ -4,6 +4,7 @@
 
 ### 9.3.0 Fixes
 
+- `[Calendar]` Fixed dayLegend type in the calendar component. ([#1001](https://github.com/infor-design/enterprise-ng/issues/1001)) `TJM`
 - `[Context Menu]` Fixed a bug causing events to be subscribed to multiple times. ([#996](https://github.com/infor-design/enterprise-ng)) `MHH`
 - `[DataGrid]` Added missing getActiveCell getter. ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
 - `[DataGrid]` Updated the datagrid context menu example to work with the keyboard ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
