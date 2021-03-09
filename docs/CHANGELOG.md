@@ -10,6 +10,12 @@
 - `[DataGrid]` Updated the datagrid context menu example to work with the keyboard ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
 - `[Message]` Fixed multiple events were firing. ([#953](https://github.com/infor-design/enterprise-ng/issues/953))
 
+## v9.2.2
+
+### 9.2.2 Fixes
+
+- `[General]` Added EP version 4.37.2 final using NG 11.
+
 ## v9.2.1
 
 ### 9.2.1 Fixes
