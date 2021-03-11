@@ -2,7 +2,7 @@
 
 ## v9.3.0
 
-### 9.2.0 Features
+### 9.3.0 Features
 
 - `[General]` Renamed uplift theme to new theme and soho theme to classic theme also changed variants to modes. ([#2606](https://github.com/infor-design/enterprise/issues/2606))
 
