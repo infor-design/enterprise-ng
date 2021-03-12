@@ -1,6 +1,12 @@
 # What's New with Enterprise-NG
 
-## v9.3.1
+## v9.4.0
+
+### 9.4.0 Fixes
+
+- `[Placeholder]` Remove me.... ([#1001](https://github.com/infor-design/enterprise-ng/issues/1001)) `TJM`
+
+## v9.3.0
 
 ### 9.3.0 Fixes
 
