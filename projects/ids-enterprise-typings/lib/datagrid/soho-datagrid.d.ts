@@ -218,6 +218,9 @@ interface SohoDataGridOptions {
   /** If a row is activated the user should not be able to deactivate it by clicking on the activated row */
   disableRowDeactivation?: boolean;
 
+  /** If a row is selected the user should not be able to deselect it by clicking on the activated row */
+  disableRowDeselection?: boolean;
+
   /** If true make all the columns equal width. */
   sizeColumnsEqually?: boolean;
 
