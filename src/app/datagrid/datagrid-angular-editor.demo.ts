@@ -186,7 +186,7 @@ export class DemoCellInputEditorComponent implements SohoDataGridCellEditor {
   value: string;
   className?: string;
 
-  constructor( @Inject('args') public args: SohoDataGridPostRenderCellArgs) {
+  constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {
     this.value = args.value;
   }
 
@@ -219,7 +219,7 @@ export class DemoCellInputEditorComponent implements SohoDataGridCellEditor {
 export class DemoCellDatePickerEditorComponent implements SohoDataGridCellEditor {
   @ViewChild(SohoDatePickerComponent, { static: true }) datePicker?: SohoDatePickerComponent;
 
-  constructor( @Inject('args') public args: SohoDataGridPostRenderCellArgs) {
+  constructor(@Inject('args') public args: SohoDataGridPostRenderCellArgs) {
   }
 
   className?: 'datepicker';
@@ -283,7 +283,7 @@ export const EDITORS_COLUMNS: SohoDataGridColumn[] = [
   templateUrl: 'datagrid-angular-editor.demo.html'
 })
 export class DataGridAngularEditorDemoComponent implements OnInit {
-  gridOptions?: SohoDataGridOptions = undefined;
+  gridOptions?: any;
 
   ngOnInit() {
     this.gridOptions = {

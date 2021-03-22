@@ -6,7 +6,19 @@
 
 - `[Placeholder]` Remove me.... ([#1001](https://github.com/infor-design/enterprise-ng/issues/1001)) `TJM`
 
+## v9.3.1
+
+### 9.3.1 Fixes
+
+- `[General]` Added EP version 4.37.3 final using NG 11.
+- `[StepProcess]` Reverted fix 995 due to problems with it. `NBCP` ([#955](https://github.com/infor-design/enterprise-ng/issues/955))
+
 ## v9.3.0
+
+### 9.3.0 Important Notes
+
+- `[General]` We renamed the themes from uplift to new and from soho to classic. If using the theme switcher you may need to update the labels in the component. Change uplift to new, soho to classic and variants to mode and theme to version. For reference see the commits in the
+([quick start project changes](https://github.com/infor-design/enterprise-ng-quickstart/commit/8494528696fe10f81d9b31ec4704c5ad0cd48e79#diff-2b25077f8984b1a7471f792c3ffc39fea9b49e8cd6180b9b6c08b0e02eae1111R4)) for reference. ([#2606](https://github.com/infor-design/enterprise/issues/2606)) `TJM`
 
 ### 9.3.0 Fixes
 
@@ -16,6 +28,13 @@
 - `[DataGrid]` Added missing getActiveCell getter. ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
 - `[DataGrid]` Updated the datagrid context menu example to work with the keyboard ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
 - `[Message]` Fixed multiple events were firing. ([#953](https://github.com/infor-design/enterprise-ng/issues/953))
+
+## v9.2.4
+
+### 9.2.4 Fixes
+
+- `[General]` Added EP version 4.37.3 final using NG 11.
+- `[StepProcess]` Reverted fix 995 due to problems with it. `NBCP` ([#955](https://github.com/infor-design/enterprise-ng/issues/955))
 
 ## v9.2.2
 

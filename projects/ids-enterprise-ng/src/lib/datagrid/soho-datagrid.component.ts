@@ -866,12 +866,23 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this._gridOptions.disableRowDeactivation = value;
     if (this.datagrid) {
       this.datagrid.settings.disableRowDeactivation = value;
-
-      // Force all a full rebuild of the control.
-      // this.markForRefresh('disableRowDeactivation', RefreshHintFlags.Rebuild);
     }
   }
 
+  get disableRowDeselection(): boolean | undefined {
+    if (this.datagrid) {
+      return this.datagrid.settings.disableRowDeselection;
+    }
+
+    return this._gridOptions.disableRowDeselection;
+  }
+
+  @Input() set disableRowDeselection(value: boolean | undefined) {
+    this._gridOptions.disableRowDeselection = value;
+    if (this.datagrid) {
+      this.datagrid.settings.disableRowDeselection = value;
+    }
+  }
   /**
    * Used to hold an object that can be referenced in formatters
    * and editors or anywhere else a datagrid reference is available
