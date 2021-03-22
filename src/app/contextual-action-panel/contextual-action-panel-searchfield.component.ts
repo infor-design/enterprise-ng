@@ -10,6 +10,6 @@ export class ContextualActionPanelSearchfieldComponent {
   panel?: SohoContextualActionPanelRef<unknown>;
 
   close() {
-    this.panel?.close();
+    this.panel?.close(true);
   }
 }
