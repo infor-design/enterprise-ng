@@ -1,0 +1,36 @@
+<div class="row top-padding">
+  <div class="twelve columns">
+
+    <!-- Controls -->
+    <div class="field">
+      <button soho-button="secondary" id="destroy-input-popup" (click)="destroyInputPopup()">Destroy Input Popup</button>
+      <button soho-button="secondary" id="destroy-textarea-popup" (click)="destroyTextAreaPopup()">Destroy TextArea Popup</button>
+    </div>
+
+    <!-- Input text field example. No soho components used-->
+    <div class="field">
+      <label id="label1" name="label1" soho-label for="field1">{{normalText}}</label>
+      <input id="field1" name="field1" soho-context-menu menu="action-popupmenu-2" value="Right Click Here"
+        (selected)="onSelected()" (beforeopen)="onBeforeOpen()" (close)="onClose()" (open)="onOpen()" />
+    </div>
+
+    <!-- Text area example. Soho-textarea component used-->
+    <div class="field">
+      <label soho-label for="textarea" id="label2" name="label2">{{modText}}</label>
+      <textarea soho-textarea id="textarea" name="textarea" [(ngModel)]="textModel.modifiableText" soho-context-menu
+        menu="action-popupmenu-2" (selected)="onSelected()" (beforeopen)="onBeforeOpen()" (close)="onClose()"
+        (open)="onOpen()"></textarea>
+    </div>
+
+    <!-- Context menu used in all examples (except the menu button)-->
+    <ul soho-popupmenu id="action-popupmenu-2">
+      <li soho-popupmenu-item *ngFor="let menuEntry of contextEntries" [isDisabled]="menuEntry.disabled">
+        <a soho-popupmenu-label *ngIf="!menuEntry.url" menuId="{{menuEntry.id}}">{{menuEntry.displayString}}<span
+            class="shortcut-text">{{menuEntry.shortcut}}</span></a>
+        <a soho-popupmenu-label *ngIf="menuEntry.url" menuUrl="{{menuEntry.url}}">{{menuEntry.displayString}}<span
+            class="shortcut-text">{{menuEntry.shortcut}}</span></a>
+      </li>
+    </ul>
+
+  </div>
+</div>
