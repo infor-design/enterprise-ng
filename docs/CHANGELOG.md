@@ -4,7 +4,7 @@
 
 ### 9.4.0 Fixes
 
-- `[Placeholder]` Remove me.... ([#1001](https://github.com/infor-design/enterprise-ng/issues/1001)) `TJM`
+- `[Popupmenu]` Add example demonstrating shared Popupmenus working after one is destroyed. ([#987](https://github.com/infor-design/enterprise-ng/issues/987)) `EPC`
 
 ## v9.3.1
 
@@ -24,7 +24,7 @@
 
 - `[Calendar]` Fixed dayLegend type in the calendar component. ([#1001](https://github.com/infor-design/enterprise-ng/issues/1001)) `TJM`
 - `[Context Menu]` Fixed a bug causing events to be subscribed to multiple times. ([#996](https://github.com/infor-design/enterprise-ng)) `MHH`
-- `[Contextual Action Panel]` Added an optional parameter to the CAP's close() API to support the same behavior as the jQuery. ([#993](https://github.com/infor-design/enterprise-ng/issues/993))
+- `[Contextual Action Panel]` Added an optional parameter to the CAP's close() API to support the same behavior as the jQuery. ([#993](https://github.com/infor-design/enterprise-ng/issues/993)) `EA`
 - `[DataGrid]` Added missing getActiveCell getter. ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
 - `[DataGrid]` Updated the datagrid context menu example to work with the keyboard ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
 - `[Message]` Fixed multiple events were firing. ([#953](https://github.com/infor-design/enterprise-ng/issues/953))
