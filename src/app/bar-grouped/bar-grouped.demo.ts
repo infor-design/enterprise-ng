@@ -68,4 +68,15 @@ export class BarGroupedDemoComponent implements OnInit {
     const SohoBarSelected: SohoBarSelected = this.selection;
     this.sohoBarComponent?.toggleSelected(SohoBarSelected);
   }
+
+  onSelected (args: any) {
+    console.log('selected', args);
+  }
+
+  onDblclick (args: any) {
+    // Use only when `dblclick` is firing on our component
+    if (!args.target) {
+     console.log('double clicked', args);
+    }
+  }
 }

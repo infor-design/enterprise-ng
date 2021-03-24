@@ -57,7 +57,9 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
     }
   }
 
+  @Output() selected: EventEmitter<SohoLineSelectEvent> = new EventEmitter<SohoLineSelectEvent>();
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() dblclick: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**
    * @todo replace override of native attribute
@@ -83,10 +85,14 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
       this.bullet = this.jQueryElement.data('bullet');
 
       // Setup the events
+      this.jQueryElement.on('selected', (_e: any, args: SohoLineSelectEvent) =>
+        this.ngZone.run(() => this.selected.emit(args)));
       this.jQueryElement.on('rendered', (...args) =>
         this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
         this.ngZone.run(() => this.contextmenu?.emit(args)));
+      this.jQueryElement.on('dblclick', (_e: any, args: Object) =>
+        this.ngZone.run(() => this.dblclick.emit(args)));
     });
   }
 

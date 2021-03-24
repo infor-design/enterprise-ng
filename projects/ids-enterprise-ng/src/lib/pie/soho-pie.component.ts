@@ -171,6 +171,7 @@ export class SohoPieComponent implements AfterViewInit, AfterViewChecked, OnDest
   @Output() selected: EventEmitter<SohoPieSelectEvent> = new EventEmitter<SohoPieSelectEvent>();
   @Output() unselected: EventEmitter<SohoPieSelectEvent> = new EventEmitter<SohoPieSelectEvent>();
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+  @Output() dblclick: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**
    * @todo remove override of native element
@@ -206,6 +207,8 @@ export class SohoPieComponent implements AfterViewInit, AfterViewChecked, OnDest
         this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
         this.ngZone.run(() => this.contextmenu?.emit(args)));
+      this.jQueryElement.on('dblclick', (_e: any, args: Object) =>
+        this.ngZone.run(() => this.dblclick.emit(args)));
     });
   }
 

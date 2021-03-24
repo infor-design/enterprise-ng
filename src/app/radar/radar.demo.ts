@@ -79,6 +79,13 @@ export class RadarDemoComponent implements OnInit {
     console.log('Soho Radar: Deselected', event);
   }
 
+  onDblclick (args: any) {
+    // Use only when `dblclick` is firing on our component
+    if (!args.target) {
+     console.log('Soho Radar: double clicked', args);
+    }
+  }
+
   update() {
     this.radarData = [{
       data: [

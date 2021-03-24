@@ -68,11 +68,14 @@ export class AreaDemoComponent implements OnInit {
     this.sohoLineComponent?.toggleSelected(sohoLineSelected);
   }
 
-  onSelected (_e: any) {
-    console.log('selected', _e);
+  onSelected (args: any) {
+    console.log('selected', args);
   }
 
-  onDblclick (_e: any) {
-    console.log('double clicked', _e);
+  onDblclick (args: any) {
+    // Use only when `dblclick` is firing on our component
+    if (!args.target) {
+     console.log('double clicked', args);
+    }
   }
 }

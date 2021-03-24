@@ -171,18 +171,23 @@ describe('Soho Column Unit Tests', () => {
     expect(updatedSpy).toHaveBeenCalledTimes(1);
   });
 
-  it('check public functions', () => {
+  it('check public functions', (done) => {
     comp.dataset = columnData;
     comp.type = 'column';
     fixture.detectChanges();
 
     comp.toggleSelected({ index: 1 });
 
-    const firstElem = (comp.getSelected() as any)[0];
-    expect(firstElem.data.name).toEqual(columnData[0].data[1].name);
+    setTimeout(() => {
+      const firstElem = (comp.getSelected() as any)[0];
+      expect(firstElem.data.name).toEqual(columnData[0].data[1].name);
+      comp.setSelected({ index: 2 });
 
-    comp.setSelected({ index: 2 });
-    expect((comp as any).getSelected()[0].data.name).toEqual(columnData[0].data[2].name);
+      setTimeout(() => {
+        expect((comp as any).getSelected()[0].data.name).toEqual(columnData[0].data[2].name);
+        done();
+      }, 201);
+    }, 201);
   });
 });
 

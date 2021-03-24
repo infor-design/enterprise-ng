@@ -1,10 +1,14 @@
 <div class="row top-padding">
   <div class="full column center">
     <div soho-bullet
+      (selected)="onSelected($event)"
+      (dblclick)="onDblclick($event)"
       [dataset]="bulletData1"
       (rendered)="onRendered($event)">
     </div>
     <div soho-bullet
+      (selected)="onSelected($event)"
+      (dblclick)="onDblclick($event)"
       [dataset]="bulletData2"
       (rendered)="onRendered($event)">
     </div>

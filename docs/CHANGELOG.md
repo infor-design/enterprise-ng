@@ -4,6 +4,7 @@
 
 ### 9.4.0 Fixes
 
+- `[Charts]` Added double click event to all chart types. `DV` ([#3229](https://github.com/infor-design/enterprise/pull/3229))
 - `[Popupmenu]` Add example demonstrating shared Popupmenus working after one is destroyed. ([#987](https://github.com/infor-design/enterprise-ng/issues/987)) `EPC`
 
 ## v9.3.1
