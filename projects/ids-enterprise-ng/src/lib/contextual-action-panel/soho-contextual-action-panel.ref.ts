@@ -320,7 +320,7 @@ export class SohoContextualActionPanelRef<T> {
    * @param panelResult - optional result - passed back to the caller.
    * @param doForce - optional - forces the modal to close.
    */
-  close(doForce?: boolean, panelResult?: any): SohoContextualActionPanelRef<T> {
+  close(panelResult?: any, doForce?: boolean): SohoContextualActionPanelRef<T> {
     this.panelResult = panelResult;
     if (this.contextualactionpanel) {
       this.ngZone.runOutsideAngular(() => {
