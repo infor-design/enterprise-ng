@@ -59,6 +59,7 @@ export class SohoBulletComponent implements AfterViewInit, AfterViewChecked, OnD
 
   @Output() selected: EventEmitter<SohoLineSelectEvent> = new EventEmitter<SohoLineSelectEvent>();
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() dblclick: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**

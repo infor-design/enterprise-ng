@@ -226,6 +226,7 @@ export class SohoBarComponent implements AfterViewInit, AfterViewChecked, OnDest
   @Output() selected: EventEmitter<SohoBarSelectEvent> = new EventEmitter<SohoBarSelectEvent>();
   @Output() unselected: EventEmitter<SohoBarSelectEvent> = new EventEmitter<SohoBarSelectEvent>();
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() dblclick: EventEmitter<Object> = new EventEmitter<Object>();
   /**
    * @todo replace override of native attribute
