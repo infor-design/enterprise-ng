@@ -182,8 +182,10 @@ interface SohoModalStatic {
    * Close the modal dialog.
    *
    * @param destroy - destroy the html elements.
+   * @param noRefresh - if true, prevents the ModalManager from refreshing state when the close is complete.
+   * @param force - if true, forces the modal closed and ignores open subcomponents/visibility.
    */
-  close(destroy?: boolean): void;
+  close(destroy?: boolean, noRefresh?: boolean, force?: boolean): void;
 
   /**
    * Releases all resources managed by the modal.
