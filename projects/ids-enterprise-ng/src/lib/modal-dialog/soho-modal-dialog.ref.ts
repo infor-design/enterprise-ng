@@ -501,7 +501,7 @@ export class SohoModalDialogRef<T> {
   close(dialogResult?: any): SohoModalDialogRef<T> {
     this.dialogResult = dialogResult;
     if (this.modal) {
-      this.ngZone.runOutsideAngular(() => this.modal?.close());
+      this.ngZone.runOutsideAngular(() => this.modal?.close(false, false, true));
     }
     return this;
   }
