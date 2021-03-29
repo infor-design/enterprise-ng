@@ -6,6 +6,12 @@
 
 - `[Placeholder]` Remove me.... ([#1001](https://github.com/infor-design/enterprise-ng/issues/1001)) `TJM`
 
+## v9.3.2
+
+### 9.3.2 Fixes
+
+- `[Modal]` Update modal close method API and use force as default to proceed modal closing even when tooltip is open. `NBCP` ([#1014](https://github.com/infor-design/enterprise-ng/issues/1014))
+
 ## v9.3.1
 
 ### 9.3.1 Fixes
