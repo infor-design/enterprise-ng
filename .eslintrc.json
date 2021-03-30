@@ -19,8 +19,7 @@
         "plugin:@angular-eslint/ng-cli-compat",
         "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
         "plugin:@angular-eslint/template/process-inline-templates",
-        "prettier",
-        "prettier/@typescript-eslint"
+        "prettier"
       ],
       "rules": {
         "@typescript-eslint/member-ordering": "off",
@@ -86,7 +85,8 @@
         "id-match": "off",
         "no-multiple-empty-lines": "error",
         "no-redeclare": "error",
-        "no-underscore-dangle": "off"
+        "no-underscore-dangle": "off",
+        "arrow-body-style": "off"
       }
     },
     {
