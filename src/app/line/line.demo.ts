@@ -80,4 +80,15 @@ export class LineDemoComponent implements OnInit {
     const sohoLineSelected: SohoLineSelected = this.selection;
     this.sohoLineComponent?.toggleSelected(sohoLineSelected);
   }
+
+  onSelected (args: any) {
+    console.log('selected', args);
+  }
+
+  onDblclick (args: any) {
+    // Use only when `dblclick` is firing on our component
+    if (!args.target) {
+     console.log('double clicked', args);
+    }
+  }
 }

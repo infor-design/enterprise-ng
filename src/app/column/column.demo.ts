@@ -72,4 +72,15 @@ export class ColumnDemoComponent implements OnInit {
     const SohoColumnSelected: SohoColumnSelected = this.selection;
     this.sohoColumnComponent?.toggleSelected(SohoColumnSelected);
   }
+
+  onSelected (args: any) {
+    console.log('selected', args);
+  }
+
+  onDblclick (args: any) {
+    // Use only when `dblclick` is firing on our component
+    if (!args.target) {
+     console.log('double clicked', args);
+    }
+  }
 }

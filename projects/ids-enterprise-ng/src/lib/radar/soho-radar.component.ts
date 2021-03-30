@@ -252,6 +252,8 @@ export class SohoRadarComponent implements AfterViewInit, AfterViewChecked, OnDe
   @Output() selected: EventEmitter<SohoRadarSelectEvent> = new EventEmitter<SohoRadarSelectEvent>();
   @Output() unselected: EventEmitter<SohoRadarSelectEvent> = new EventEmitter<SohoRadarSelectEvent>();
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
+  @Output() dblclick: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**
    * @todo remove override of native elements
@@ -286,6 +288,8 @@ export class SohoRadarComponent implements AfterViewInit, AfterViewChecked, OnDe
         this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
         this.ngZone.run(() => this.contextmenu?.emit(args)));
+      this.jQueryElement.on('dblclick', (_e: any, args: Object) =>
+        this.ngZone.run(() => this.dblclick.emit(args)));
     });
   }
 

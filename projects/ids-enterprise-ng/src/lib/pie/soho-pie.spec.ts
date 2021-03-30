@@ -151,16 +151,20 @@ describe('Soho Pie Unit Tests', () => {
     expect(pieUpdatedSpy).toHaveBeenCalledTimes(1);
   });
 
-  it('check public functions', () => {
+  it('check public functions', (done) => {
     comp.dataset = pieData;
     fixture.detectChanges();
 
     comp.toggleSelected({ index: 1 });
 
-    expect((comp.getSelected() as any)[0].index).toEqual(1);
-
-    comp.setSelected({ index: 2 });
-    expect((comp.getSelected() as any)[0].index).toEqual(2);
+    setTimeout(() => {
+      expect((comp.getSelected() as any)[0].index).toEqual(1);
+      comp.setSelected({ index: 2 });
+      setTimeout(() => {
+        expect((comp.getSelected() as any)[0].index).toEqual(2);
+        done();
+      }, 201);
+    }, 201);
   });
 
   // xit('set data', () => {

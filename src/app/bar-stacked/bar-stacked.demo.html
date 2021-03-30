@@ -6,6 +6,8 @@
         </div>
         <div class="widget-content">
           <div soho-bar
+            (selected)="onSelected($event)"
+            (dblclick)="onDblclick($event)"
             [dataset]="barStackedData"
             [type]="barType">
           </div>
