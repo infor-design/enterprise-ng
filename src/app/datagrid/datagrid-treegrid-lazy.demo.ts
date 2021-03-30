@@ -41,7 +41,7 @@ export class DataGridTreeGridLazyDemoComponent {
     const promise = new Promise((resolve, _reject) => {
       setTimeout(() => {
         args.grid.addChildren(args.row, someData);
-        resolve();
+        resolve(true);
       }, 1000);
     });
     return promise;

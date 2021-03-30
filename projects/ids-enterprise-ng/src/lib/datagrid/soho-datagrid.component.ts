@@ -507,6 +507,19 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     }
   }
 
+  /** beforeOpen - ajax callback for open event */
+  @Input() set menuBeforeOpen(menuBeforeOpen: SohoPopupMenuSourceFunction) {
+    this._gridOptions.menuBeforeOpen = menuBeforeOpen;
+    if (this.jQueryElement) {
+      (this.datagrid as any).settings.menuBeforeOpen = menuBeforeOpen;
+      this.markForRefresh('menuId', RefreshHintFlags.Rebuild);
+    }
+  }
+
+  get menuBeforeOpen(): SohoPopupMenuSourceFunction {
+    return (this._gridOptions as any).settings.menuBeforeOpen;
+  }
+
   /**
    * Sets the row height for the grid, to be one of the supported options.
    *

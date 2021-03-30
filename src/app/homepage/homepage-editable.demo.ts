@@ -41,7 +41,7 @@ export class HomePageEditableDemoComponent {
         {
           text: 'Remove', click: (_e: any, modal: any) => {
             modal.close(true);
-            resolve();
+            resolve(true);
           }
         }];
 

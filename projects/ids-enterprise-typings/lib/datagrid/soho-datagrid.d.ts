@@ -120,7 +120,7 @@ interface SohoDataGridOptions {
   menuSelected?: Function;
 
   /** Call back for the grid level before open menu event. */
-  menuBeforeOpen?: Function;
+  menuBeforeOpen?: SohoPopupMenuSourceFunction;
 
   /** Callback for the header level right click menu. */
   headerMenuSelected?: Function;
