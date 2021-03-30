@@ -48,6 +48,13 @@ export class DonutDemoComponent implements OnInit {
     console.log('Soho Donut: Deselected', event);
   }
 
+  onDblclick (args: any) {
+    // Use only when `dblclick` is firing on our component
+    if (!args.target) {
+     console.log('Soho Donut: double clicked', args);
+    }
+  }
+
   setChartSelection() {
     const sohoPieSelected: SohoPieSelected = this.selection;
     this.sohoPieComponent?.setSelected(sohoPieSelected);

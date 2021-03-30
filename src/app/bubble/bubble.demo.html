@@ -6,6 +6,8 @@
       </div>
       <div class="widget-content">
         <div soho-line
+          (selected)="onSelected($event)"
+          (dblclick)="onDblclick($event)"
           [dataset]="bubbleData"
           [isBubble]="true">
         </div>
