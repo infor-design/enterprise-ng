@@ -512,7 +512,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     this._gridOptions.menuBeforeOpen = menuBeforeOpen;
     if (this.jQueryElement) {
       (this.datagrid as any).settings.menuBeforeOpen = menuBeforeOpen;
-      this.markForRefresh('menuId', RefreshHintFlags.Rebuild);
+      this.markForRefresh('menuBeforeOpen', RefreshHintFlags.Rebuild);
     }
   }
 
@@ -1234,9 +1234,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   // eslint-disable-next-line @angular-eslint/no-output-native
   @Output()
   keydown = new EventEmitter<SohoDataGridKeyDownEvent>();
-
-  @Output()
-  menuBeforeOpen = new EventEmitter<SohoPopupMenuEvent>();
 
   // This event is fired when edit mode is exited.
   @Output()
@@ -2089,15 +2086,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   /**
    * Event fired after a context menu is opened
    */
-  private onMenuBeforeOpen(e: JQuery.Event, args: SohoPopupMenuEvent) {
-    this.ngZone.run(() => {
-      this.menuBeforeOpen.next(args);
-    });
-  }
-
-  /**
-   * Event fired after a context menu is opened
-   */
   private onKeyDown(e: JQuery.Event, args: SohoDataGridKeyDownArgs, response: Function) {
     const event = { e, args, response };
     this.ngZone.run(() => {
@@ -2656,11 +2644,6 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
       // Add the keydown callback.
       this._gridOptions.onKeyDown = (e: JQuery.Event, args: SohoDataGridKeyDownArgs, response: Function) => {
         this.onKeyDown(e, args, response);
-      };
-
-      // Add the menuBeforeOpen callback.
-      this._gridOptions.menuBeforeOpen = (e: JQuery.Event, args: SohoPopupMenuEvent) => {
-        this.onMenuBeforeOpen(e, args);
       };
 
       // Initialise any event handlers.

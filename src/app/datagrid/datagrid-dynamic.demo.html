@@ -20,7 +20,7 @@
         (rowDoubleClicked)="onRowDoubleClicked($event)"
         (rowClicked)="onRowClicked($event)"
         (contextMenu)="onContextMenu($event)"
-        (menuBeforeOpen)="onBeforeContextMenuOpen($event)"
+        [menuBeforeOpen]="onBeforeContextMenuOpen"
         [columns]="columns | async"
         [data]="data | async"
         displayDelay="0"

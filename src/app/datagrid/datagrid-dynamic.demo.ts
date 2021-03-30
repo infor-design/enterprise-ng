@@ -107,7 +107,6 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
   }
 
   onBeforeContextMenuOpen(e: SohoPopupMenuEvent) {
-    debugger;
     console.log('onBeforeContextMenuOpen()', e);
   }
 
