@@ -32,7 +32,7 @@ jobs:
         path: |
           ~/.cache/Cypress
           node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+        key: 9.4.0-dev
 
     - name: Setup timezone
       uses: zcong1993/setup-timezone@master
