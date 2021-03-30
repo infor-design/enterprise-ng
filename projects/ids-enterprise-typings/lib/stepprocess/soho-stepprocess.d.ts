@@ -44,6 +44,8 @@ interface SohoStepProcessStatic {
    */
   getSelectedStep(): JQuery;
 
+  showStepPanel(contentId: string): void
+
   /**
    * Destructor,
    */
