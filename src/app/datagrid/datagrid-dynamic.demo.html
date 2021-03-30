@@ -20,6 +20,22 @@
         (rowDoubleClicked)="onRowDoubleClicked($event)"
         (rowClicked)="onRowClicked($event)"
         (contextMenu)="onContextMenu($event)"
+        [columns]="columns | async"
+        [data]="data | async"
+        [menuBeforeOpen]="onBeforeContextMenuOpen"
+        displayDelay="0"
+        selectable="multiple"
+        filterable="true"
+      ></div>
+      <!--
+        This will work if you pass a response back from onBeforeContextMenuOpen
+        <div soho-busyindicator soho-datagrid
+        activated="true"
+        menuId="{{contextMenuId}}"
+        (selected)="onSelected($event)"
+        (rowDoubleClicked)="onRowDoubleClicked($event)"
+        (rowClicked)="onRowClicked($event)"
+        (contextMenu)="onContextMenu($event)"
         [menuBeforeOpen]="onBeforeContextMenuOpen"
         [columns]="columns | async"
         [data]="data | async"
@@ -27,6 +43,7 @@
         selectable="multiple"
         filterable="true"
       ></div>
+      -->
     </section>
   </div>
 </div>
