@@ -381,4 +381,78 @@ describe('Soho Datepicker Unit Tests', () => {
       });
     });
   }));
+
+  it('Check getting value for en-US', waitForAsync(() => {
+    spyOn(comp, 'onChange');
+
+    const date = new Date('1978-11-11T12:00:00Z');
+    const dateWithoutTime = getDateWithoutTime(date);
+
+    expect(Soho.Locale.currentLocale.name).toEqual('en-US');
+    comp.datepicker?.setValue(date);
+
+    fixture.detectChanges();
+
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      expect(Soho.Locale.currentLocale.name).toEqual('en-US');
+      expect(comp.onChange).toHaveBeenCalled();
+      expect(['11/11/1978', '1978-11-11']).toContain(comp.datepicker?.getValue() as any);
+      expect(dateWithoutTime).toEqual(comp.datepicker?.getValue(true) as any);
+    });
+  }));
+
+  it('Check getting value for different date format', waitForAsync(() => {
+    comp.dateFormat = 'dd:MM:yyyy';
+    fixture.detectChanges();
+
+    spyOn(comp, 'onChange');
+
+    const date = new Date('1978-11-11T12:00:00Z');
+    const dateWithoutTime = getDateWithoutTime(date);
+
+    expect(Soho.Locale.currentLocale.name).toEqual('en-US');
+    comp.datepicker?.setValue(date);
+
+    fixture.detectChanges();
+
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      expect(Soho.Locale.currentLocale.name).toEqual('en-US');
+      expect(comp.onChange).toHaveBeenCalled();
+      expect('11:11:1978').toBe(comp.datepicker?.getValue() as any);
+      expect(dateWithoutTime).toEqual(comp.datepicker?.getValue(true) as any);
+    });
+  }));
+
+  it('Check getting value with time', waitForAsync(() => {
+    comp.showTime = true;
+    fixture.detectChanges();
+
+    spyOn(comp, 'onChange');
+
+    const date = new Date('1978-11-11T06:00:00Z');
+    const dateWithoutTime = getDateWithoutTime(date);
+
+    expect(Soho.Locale.currentLocale.name).toEqual('en-US');
+    comp.datepicker?.setValue(date);
+
+    fixture.detectChanges();
+
+    fixture.whenStable().then(() => {
+      fixture.detectChanges();
+      expect(Soho.Locale.currentLocale.name).toEqual('en-US');
+      expect(comp.onChange).toHaveBeenCalled();
+      expect('11/11/1978 12:00 AM').toBe(comp.datepicker?.getValue() as any);
+      expect(dateWithoutTime).toEqual(comp.datepicker?.getValue(true) as any);
+    });
+  }));
+
+  function getDateWithoutTime(date: Date): Date {
+    const dateWithoutTime = date;
+    dateWithoutTime.setHours(0);
+    dateWithoutTime.setMinutes(0);
+    dateWithoutTime.setSeconds(0);
+    return dateWithoutTime;
+  }
 });
