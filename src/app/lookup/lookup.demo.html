@@ -30,7 +30,6 @@
             name="product_single_exists" />
         </div>
       </div>
-
     </div>
     <div class="row">
       <div class="six columns">
@@ -275,7 +274,6 @@
             field="productId"
             name="product_custom_match" />
         </div>
-
         <div class="field">
           <label soho-label for="product_async">Products (Async Results) Multi Select</label>
           <input soho-lookup
@@ -305,7 +303,6 @@
             field="productId"
             name="product_async_multi"/>
         </div>
-
         <div class="field">
           <label soho-label for="dataset-input">Using Dataset Inputs</label>
           <input soho-lookup
@@ -318,8 +315,23 @@
             [dataset]="templates" 
           />
         </div>
-
+        <div class="field">
+          <label soho-label for="toggle-disabled">Toggle isDisabled</label>
+          <input soho-lookup
+            [isDisabled]="isDisabled"
+            [(ngModel)]="model.single"
+            [columns]="columns_product"
+            [dataset]="data_product"
+            field="productId"
+            title="Products"
+            name="toggle-disabled" />
+          <button soho-button="primary"
+            [style.margin-left.px]="10"
+            (click)="isDisabled = !isDisabled">
+            {{ isDisabled ? 'Enable' : 'Disable'}}
+          </button>
         </div>
       </div>
     </div>
+  </div>
 </form>
