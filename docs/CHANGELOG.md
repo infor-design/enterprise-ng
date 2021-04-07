@@ -5,6 +5,7 @@
 ### 9.3.2 Fixes
 
 - `[DatePicker]` Fixed issue when switching mode back to range wouldn't clear out the range in the options object. ([#1024](https://github.com/infor-design/enterprise-ng/issues/1024)) `MHH`
+- `[General]` Removed tsickle dependency as it is likely no longer needed and causing errors. `TJM` ([#1014](https://github.com/infor-design/enterprise-ng/issues/1014))
 - `[Modal]` Update modal close method API and use force as default to proceed modal closing even when tooltip is open. `NBCP` ([#1014](https://github.com/infor-design/enterprise-ng/issues/1014))
 
 ## v9.3.1
