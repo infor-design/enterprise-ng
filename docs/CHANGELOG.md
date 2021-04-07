@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v9.5.0
+
+### 9.5.0 Fixes
+
+- `[Misc]` Placeholder..... `P` ([#3229](https://github.com/infor-design/enterprise/pull/3229))
+
 ## v9.4.0
 
 ### 9.4.0 Fixes
