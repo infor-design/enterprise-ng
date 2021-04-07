@@ -146,6 +146,10 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
         this._options.range = {};
         this._options.range.useRange = true;
       }
+    } else {
+      if (this._options.range) {
+        this._options.range.useRange = false;
+      }
     }
     if (this.datepicker) {
       this.markForRefresh();
