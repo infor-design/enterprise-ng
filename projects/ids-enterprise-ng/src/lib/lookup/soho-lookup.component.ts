@@ -349,9 +349,12 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     return true;
   }
 
-  @HostBinding('attr.disabled')
-  @Input()
-  isDisabled: boolean | undefined = undefined;
+  @HostBinding('attr.disabled') get isDisabledAttr() {
+    return this.isDisabled || undefined;
+  }
+
+  @Input() isDisabled: boolean | undefined = undefined;
+
 
   /**
    * Local variables
