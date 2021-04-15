@@ -7,6 +7,12 @@
 - `[Misc]` Placeholder..... `P` ([#3229](https://github.com/infor-design/enterprise/pull/3229))
 - `[Lookup]` Fixed issue where setting `[isDisabled]="false"` would add the disabled attribute anyway. ([#1023](https://github.com/infor-design/enterprise-ng/issues/1023))
 
+## v9.4.1
+
+### 9.4.1 Fixes
+
+- `[General]` Added EP version 4.50.1 final using NG 11.
+
 ## v9.4.0
 
 ### 9.4.0 Fixes
