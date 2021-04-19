@@ -1,5 +1,23 @@
 # What's New with Enterprise-NG
 
+## v9.5.0
+
+### 9.5.0 Fixes
+
+- `[Placeholder]` Placeholder...
+
+## v9.4.2
+
+### 9.4.2 Fixes
+
+- `[General]` Added EP version 4.50.2 final using NG 11.
+
+## v9.4.1
+
+### 9.4.1 Fixes
+
+- `[General]` Added EP version 4.50.1 final using NG 11.
+
 ## v9.4.0
 
 ### 9.4.0 Fixes
