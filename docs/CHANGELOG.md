@@ -6,15 +6,15 @@
 
 - `[StepProcess]` Removed unnecessary role=main from ts and template files. ([1033](https://github.com/infor-design/enterprise-ng/issues/1033)) `MHH`
 
-## v9.4.3
+## v9.4.4
 
-### 9.4.3 Fixes
+### 9.4.4 Fixes
 
 - `[StepProcess]` Removed unnecessary role=main from ts and template files. ([1033](https://github.com/infor-design/enterprise-ng/issues/1033)) `MHH`
 
-## v9.4.2
+## v9.4.3
 
-### 9.4.2 Fixes
+### 9.4.3 Fixes
 
 - `[General]` Added EP version 4.50.2 final using NG 11.
 - `[Misc]` Placeholder..... `P` ([#3229](https://github.com/infor-design/enterprise/pull/3229))
