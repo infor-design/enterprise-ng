@@ -82,7 +82,7 @@ if (versionHasSuffix(libPackageJson.version)) {
     cmds .push('npm run pack:lib');
     logError(`DRY RUN!! using "${cmds.join(' && ')}"`);
   } else {
-    cmds.push('npm publish dist/ids-enterprise-ng --tag=dev');
+    cmds.push('npm publish ./dist/ids-enterprise-ng --tag=dev');
   }
   executeUpdate(cmds.join(' && '));
 } else {
