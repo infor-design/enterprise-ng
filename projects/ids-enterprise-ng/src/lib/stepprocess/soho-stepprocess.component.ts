@@ -163,7 +163,6 @@ export class SohoStepProcessComponent implements AfterViewInit, OnDestroy {
   @HostBinding('class.fixed') isFixed = true;
   @HostBinding('class.page-container') isPageContainer = true;
   @HostBinding('class.no-scroll') isNoScroll = true;
-  @HostBinding('attr.role') main = 'main';
 
   // ------------------------------------------------------------------------
   // @Inputs
