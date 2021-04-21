@@ -146,6 +146,10 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
         this._options.range = {};
         this._options.range.useRange = true;
       }
+    } else {
+      if (this._options.range) {
+        this._options.range.useRange = false;
+      }
     }
     if (this.datepicker) {
       this.markForRefresh();
@@ -386,7 +390,17 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
     this.datepicker?.setValue(value, true);
   }
 
-  public getValue(): Date {
+  public getValue(asDate: boolean = false): string | Date {
+    if (asDate) {
+      const calendar = Soho.Locale.calendar();
+      const dateFormat = this._options.dateFormat || calendar.dateFormat.short;
+      const timeFormat = this._options.timeFormat || calendar.timeFormat;
+      let format = dateFormat;
+      if (this._options.showTime) {
+        format += 'T' + timeFormat;
+      }
+      return Soho.Locale.parseDate(this.internalValue, format);
+    }
     return this.internalValue;
   }
 

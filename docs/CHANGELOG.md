@@ -6,11 +6,19 @@
 
 - `[StepProcess]` Removed unnecessary role=main from ts and template files. ([1033](https://github.com/infor-design/enterprise-ng/issues/1033)) `MHH`
 
+## v9.4.3
+
+### 9.4.3 Fixes
+
+- `[StepProcess]` Removed unnecessary role=main from ts and template files. ([1033](https://github.com/infor-design/enterprise-ng/issues/1033)) `MHH`
+
 ## v9.4.2
 
 ### 9.4.2 Fixes
 
 - `[General]` Added EP version 4.50.2 final using NG 11.
+- `[Misc]` Placeholder..... `P` ([#3229](https://github.com/infor-design/enterprise/pull/3229))
+- `[Lookup]` Fixed issue where setting `[isDisabled]="false"` would add the disabled attribute anyway. ([#1023](https://github.com/infor-design/enterprise-ng/issues/1023))
 
 ## v9.4.1
 
@@ -24,6 +32,7 @@
 
 - `[Charts]` Added double click event to all chart types. `DV` ([#3229](https://github.com/infor-design/enterprise/pull/3229))
 - `[Popupmenu]` Add example demonstrating shared Popupmenus working after one is destroyed. ([#987](https://github.com/infor-design/enterprise-ng/issues/987)) `EPC`
+- `[DatePicker]` Fixed issue when switching mode back to range wouldn't clear out the range in the options object. ([#1024](https://github.com/infor-design/enterprise-ng/issues/1024)) `MHH`
 
 ## v9.3.2
 
