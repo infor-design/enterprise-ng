@@ -4,7 +4,7 @@
 
 ### 9.5.0 Fixes
 
-- `[Placeholder]` Placeholder...
+- `[StepProcess]` Removed unnecessary role=main from ts and template files. ([1033](https://github.com/infor-design/enterprise-ng/issues/1033)) `MHH`
 
 ## v9.4.2
 
