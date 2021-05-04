@@ -4,8 +4,14 @@
 
 ### 9.5.0 Fixes
 
-- `[Genera]` Added EP version 4.51.0-dev final using NG 11.2.10.
+- `[General]` Added EP version 4.51.0-dev final using NG 11.2.10.
 - `[StepProcess]` Removed unnecessary role=main from ts and template files. ([1033](https://github.com/infor-design/enterprise-ng/issues/1033)) `MHH`
+
+## v9.4.5
+
+### 9.4.5 Fixes
+
+- `[General]` Added EP version 4.50.3 final using NG 11.
 
 ## v9.4.4
 
