@@ -1,10 +1,16 @@
 # What's New with Enterprise-NG
 
+## v9.5.1
+
+### 9.5.1 Fixes
+
+- `[General]` Added EP version 4.52.0-dev final using NG 11.2.10.
+
 ## v9.5.0
 
 ### 9.5.0 Fixes
 
-- `[General]` Added EP version 4.51.0-dev final using NG 11.2.10.
+- `[General]` Added EP version 4.51.0 final using NG 11.2.12.
 - `[StepProcess]` Removed unnecessary role=main from ts and template files. ([1033](https://github.com/infor-design/enterprise-ng/issues/1033)) `MHH`
 
 ## v9.4.5

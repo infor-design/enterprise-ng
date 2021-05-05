@@ -78,6 +78,7 @@ are copied into src/app/icon.
 1. Run `npm run sync:lib` after setting the master branch version
 1. Commit the version change and push to master
 1. Bump the changelog
+1. Update the stackblitz and quickstart
 
 For a final release, finish with:
 
