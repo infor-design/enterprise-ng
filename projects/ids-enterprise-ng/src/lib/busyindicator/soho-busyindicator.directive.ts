@@ -156,6 +156,16 @@ export class SohoBusyIndicatorDirective implements AfterViewInit, AfterViewCheck
   }
 
   /**
+   * To get the attributes of the busy indicator. Useful for things like getting an indicator based on an Id.
+   */
+  public get attributes(): Object | Array<Object> {
+    if (this.busyindicator) {
+      return this.options.attributes ? this.options.attributes : [];
+    }
+    return [];
+  }
+
+  /**
    * Constructor.
    *
    * @param elementRef - the element matching the component's selector.
