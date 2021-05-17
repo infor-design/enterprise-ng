@@ -37,7 +37,7 @@ module.exports = function (config) {
       { pattern: '../../node_modules/ids-enterprise/dist/js/cultures/nl-NL.js', watched: false },
       { pattern: '../../node_modules/ids-enterprise/dist/js/cultures/hi-IN.js', watched: false },
       { pattern: '../../node_modules/ids-enterprise/dist/js/cultures/sv-SE.js', watched: false },
-      { pattern: '../../node_modules/ids-enterprise/dist/css/light-theme.css', watched: false },
+      { pattern: '../../node_modules/ids-enterprise/dist/css/theme-classic-light.css', watched: false },
     ],
     preprocessors: {
     },

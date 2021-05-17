@@ -123,7 +123,7 @@ The link in the following to the `src/index.html` file would be the output folde
 ```html
 <head>
   ...
-  <link rel="stylesheet" id="stylesheet" href="/assets/ids-enterprise/css/light-theme.css" type="text/css">
+  <link rel="stylesheet" id="stylesheet" href="/assets/ids-enterprise/css/new-theme.css" type="text/css">
 </head>
 ```
 
