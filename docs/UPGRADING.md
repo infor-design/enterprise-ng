@@ -92,7 +92,7 @@ remove `"./node_modules/ids-enterprise-ng/**/*"` from the `include` section.
 
 ### Build / Test / Serve
 
-At this point try building your app, you may want to try the `--prod` option too.
+At this point try building your app, you may want to try the `--configuration production` option too.
 
 ## Component Library Developers
 
@@ -101,7 +101,7 @@ For those working on the `ids-enterprise-ng` components, the layout of the proje
 To build the library (`ids-enterprise-ng`):
 
 ```sh
-npm run build:lib (ng build ids-enterprise-ng --prod)
+npm run build:lib (ng build ids-enterprise-ng --configuration production)
 ```
 
 To build the demo app (note: requires the library to have been built already)
@@ -113,7 +113,7 @@ npm run build:app (ng build)
 To build both library and demo app:
 
 ```sh
-npm run build (ng build ids-enterprise-ng --prod && ng build)
+npm run build (ng build ids-enterprise-ng --configuration production && ng build)
 ```
 
 Testing the library is as follows:

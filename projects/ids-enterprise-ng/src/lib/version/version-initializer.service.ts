@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-
-import { version } from '../../version.json';
+// @ts-ignore
+import { version } from '../../version.json'; // eslint-disable-line
 
 /**
  * Initialise the locale service BEFORE the root application component is

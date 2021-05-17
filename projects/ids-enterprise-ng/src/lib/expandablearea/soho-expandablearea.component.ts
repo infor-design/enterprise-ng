@@ -1,3 +1,4 @@
+// tslint:disable-next-line:no-unused-variable
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -15,6 +16,7 @@ import {
   QueryList,
 } from '@angular/core';
 
+// tslint:disable-next-line:no-unused-variable
 import { Observable } from 'rxjs';
 
 /**

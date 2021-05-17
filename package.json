@@ -6,7 +6,7 @@
     "start": "npx ng serve",
     "start:ie": "ng serve --configuration=es5",
     "build": "npm run build:lib && npm run build:app",
-    "build:lib": "npm run sync:lib && npm run build:typings && npx ng build ids-enterprise-ng --prod",
+    "build:lib": "npm run sync:lib && npm run build:typings && npx ng build ids-enterprise-ng --configuration production",
     "build:typings": "node ./scripts/build-ids-enterprise-typings.js",
     "build:app": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build",
     "test:lib": "npx ng test ids-enterprise-ng --watch=false",
