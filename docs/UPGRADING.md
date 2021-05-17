@@ -24,6 +24,14 @@ ng update
 
 You will need to fix any issues raised, as these will depend on the dependency tree created by the packages you use and what version you are upgrading from.
 
+#### Angular 11
+
+When updating from angular 11 to 12 we were able to do this with the following command. The `--force` part was needed due to a problem with the `@angular-eslint/builder` dependency labels which will presumably be fixed shortly in NG 12.
+
+```sh
+ng update @angular/core@12 @angular/cli@12 --force
+```
+
 #### Angular 10 & 11
 
 When updating (and depending on your dependencies) the update *may* not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install TypeScript 3.9.x first, as follows:

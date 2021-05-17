@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v10.0.0
+
+### 10.0.0 Fixes
+
+- `[General]` Upgraded the project to use Angular 12. See the [Angular change log](https://github.com/angular/angular/blob/master/CHANGELOG.md) for more info and see the [UPGRADING.md](https://github.com/infor-design/enterprise-ng/blob/main/docs/UPGRADING.md) doc.
+
 ## v9.5.1
 
 ### 9.5.1 Fixes

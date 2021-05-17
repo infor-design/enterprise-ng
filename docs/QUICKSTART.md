@@ -149,7 +149,7 @@ This will open a Chrome window, and run the tests from there.
 
 ## IE11
 
-If you plan on using IE11, then it is advisable to include a number of polyfills used to plug holes in IEs JavaScript support.
+As of Angular 12 IE 11 is no longer supported. If you plan on using IE11, then you will need to stay on older versions of the components / angular. then it is advisable to include a number of polyfills used to plug holes in IEs JavaScript support.
 
 First, edit `./browsersupport`, enabling ie11 support.
 
