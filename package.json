@@ -1,12 +1,13 @@
 {
   "name": "ids-enterprise-ng-app",
   "scripts": {
-    "ng-high-memory": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng",
+    "ng-high-memory": "node --max_old_space_size=12000 ./node_modules/@angular/cli/bin/ng",
     "ng": "npx ng",
     "start": "npx ng serve",
     "start:ie": "ng serve --configuration=es5",
     "build": "npm run build:lib && npm run build:app",
-    "build:lib": "npm run sync:lib && npm run build:typings && npx ng build ids-enterprise-ng --configuration production",
+    "build:lib": "npm run sync:lib && npm run build:typings && npm run build:library",
+    "build:library": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build ids-enterprise-ng --configuration production",
     "build:typings": "node ./scripts/build-ids-enterprise-typings.js",
     "build:app": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build",
     "test:lib": "npx ng test ids-enterprise-ng --watch=false",
