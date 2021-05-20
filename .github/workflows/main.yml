@@ -32,7 +32,7 @@ jobs:
         path: |
           ~/.cache/Cypress
           node_modules
-        key: 1000
+        key: 1001
 
     - name: Setup timezone
       uses: zcong1993/setup-timezone@master
