@@ -12,8 +12,8 @@
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
-    "@angular/common": "^12.0.0",
-    "@angular/core": "^12.0.0"
+    "@angular/common": "^12.0.1",
+    "@angular/core": "^12.0.1"
   },
   "description": "Infor Design System (IDS) Enterprise Angular Components",
   "repository": {

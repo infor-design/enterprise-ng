@@ -453,7 +453,7 @@ export class SohoContextualActionPanelRef<T> {
         this.componentRef = null;
       }
 
-      this.destroyed$.next();
+      this.destroyed$.next(_event);
       this.destroyed$.complete();
     });
 
