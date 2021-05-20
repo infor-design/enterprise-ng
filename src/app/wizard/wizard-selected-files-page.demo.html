@@ -5,10 +5,10 @@
   </fieldset>
 </div>
 <div class="buttonset" style="flex: 0; margin-bottom: 5px;">
-  <button soho-button>Add</button>
-  <button soho-button disabled>Remove</button>
+  <button soho-button=btn>Add</button>
+  <button soho-button=btn disabled>Remove</button>
 </div>
 <div style="flex: 1; overflow: hidden;">
-  <div soho-datagrid [columns]="columns" [data]="data" selectable="true" filterable="true" class="scrollable-area" style="overflow: hidden;">
+  <div soho-datagrid=auto [columns]="columns" [data]="data" selectable="true" [filterable]="true" class="scrollable-area" style="overflow: hidden;">
   </div>
 </div>

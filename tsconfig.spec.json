@@ -1,8 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "emitDecoratorMetadata": false,
-    "experimentalDecorators": true,
     "outDir": "./out-tsc/spec",
     "types": [
       "d3",

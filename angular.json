@@ -5,7 +5,11 @@
   "projects": {
     "ids-enterprise-ng-app": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
