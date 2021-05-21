@@ -32,12 +32,7 @@ jobs:
         path: |
           ~/.cache/Cypress
           node_modules
-        key: 1001
-
-    - name: Setup timezone
-      uses: zcong1993/setup-timezone@master
-      with:
-        timezone: America/New_York
+        key: 1002
 
     - name: Install Dependencies
       run: npm i
