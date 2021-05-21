@@ -25,6 +25,7 @@ ng update
 You will need to fix any issues raised, as these will depend on the dependency tree created by the packages you use and what version you are upgrading from.
 
 #### Angular 12
+
 When updating from angular 11 to 12 we were able to do this with the following command. The `--force` part was needed due to a problem with the `@angular-eslint/builder` dependency labels which will presumably be fixed shortly in NG 12.
 
 ```sh
@@ -40,6 +41,13 @@ For preopery tree shaking you may need:
 ```
 
 See https://angular.io/guide/creating-libraries, and search for Transitioning libraries to partial-Ivy format.
+
+Also on Mac OS i had to run this in the command line as the new NG 12 builds are more intensive.
+
+```sh
+# For angular 12 to build
+export NODE_OPTIONS="--max-old-space-size=8192"
+```
 
 #### Angular 10 & 11
 
