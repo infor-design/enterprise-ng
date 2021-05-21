@@ -24,13 +24,22 @@ ng update
 
 You will need to fix any issues raised, as these will depend on the dependency tree created by the packages you use and what version you are upgrading from.
 
-#### Angular 11
-
+#### Angular 12
 When updating from angular 11 to 12 we were able to do this with the following command. The `--force` part was needed due to a problem with the `@angular-eslint/builder` dependency labels which will presumably be fixed shortly in NG 12.
 
 ```sh
 ng update @angular/core@12 @angular/cli@12 --force
 ```
+
+For preopery tree shaking you may need: 
+
+```sh
+"angularCompilerOptions": {
+    "compilationMode": "partial"
+  }
+```
+
+See https://angular.io/guide/creating-libraries, and search for Transitioning libraries to partial-Ivy format.
 
 #### Angular 10 & 11
 
