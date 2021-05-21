@@ -32,7 +32,7 @@ When updating from angular 11 to 12 we were able to do this with the following c
 ng update @angular/core@12 @angular/cli@12 --force
 ```
 
-For preopery tree shaking you may need: 
+For proper tree shaking you may need:
 
 ```sh
 "angularCompilerOptions": {
@@ -40,7 +40,7 @@ For preopery tree shaking you may need:
   }
 ```
 
-See https://angular.io/guide/creating-libraries, and search for Transitioning libraries to partial-Ivy format.
+See <https://angular.io/guide/creating-libraries>, and search for Transitioning libraries to partial-Ivy format.
 
 Also on Mac OS i had to run this in the command line as the new NG 12 builds are more intensive.
 
