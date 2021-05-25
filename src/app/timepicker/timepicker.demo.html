@@ -37,7 +37,7 @@
         <div class="four columns">
           <div class="field">
             <label for="standard12hhmmss" class="label">Standard Time (h:mm:ss a)</label>
-            <input soho-timepicker name="standard12hhmmss" timeFormat="h:mm:ss a" mode="standard" minuteInterval=1 secondInterval=1
+            <input soho-timepicker name="standard12hhmmss" timeFormat="h:mm:ss a" mode="standard" [minuteInterval]=1 [secondInterval]=1
               [(ngModel)]="model.hhmmss" (change)="onChange($event)"/>
           </div>
         </div>

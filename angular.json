@@ -5,7 +5,11 @@
   "projects": {
     "ids-enterprise-ng-app": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -18,7 +22,6 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
             "sourceMap": {
               "styles": true,
               "scripts": true,
@@ -47,7 +50,12 @@
               "node_modules/d3/dist/d3.js",
               "node_modules/ids-enterprise/dist/js/sohoxi.js",
               "node_modules/lscache/lscache.js"
-            ]
+            ],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {

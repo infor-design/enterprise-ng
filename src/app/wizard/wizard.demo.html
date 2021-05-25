@@ -4,7 +4,7 @@
        (beforeactivate)="onBeforeActivated($event)"
        (activated)="onActivated($event)">
     <div soho-wizard-header>
-      <a soho-wizard-tick tickId="select-files" shortLabel="Select" current="true">Select Files</a>
+      <a soho-wizard-tick tickId="select-files" shortLabel="Select" [current]="true">Select Files</a>
       <a soho-wizard-tick tickId="target-folder" shortLabel="Target">Target Folder</a>
       <a soho-wizard-tick tickId="backup-rule" shortLabel="Backup">Backup Rule</a>
       <a soho-wizard-tick tickId="validation-rule" shortLabel="Rule">Validation Rule</a>

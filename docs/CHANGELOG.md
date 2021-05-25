@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v10.0.0
+
+### 10.0.0 Fixes
+
+- `[General]` Upgraded the project to use Angular 12. See the [Angular docs](https://blog.angular.io/angular-v12-is-now-available-32ed51fbfd49) for more info on NG 12 also see the [UPGRADING.md](https://github.com/infor-design/enterprise-ng/blob/main/docs/UPGRADING.md) for steps we took to update (pretty simple this time). Note that support for IE 11 is removed in NG 12.
+
 ## v9.5.1
 
 ### 9.5.1 Fixes

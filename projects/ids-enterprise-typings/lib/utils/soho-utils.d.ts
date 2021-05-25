@@ -30,15 +30,21 @@ interface SohoUtilsStatic {
   /**
    * Merges various sets of options into a single object,
    * whose intention is to be set as options on a Soho component.
-   * @private
    * @param {HTMLElement|SVGElement|jQuery[]} [element] the element to process for inline-settings
    * @param {Object|function} incomingOptions desired settings
    * @param {Object|function} [defaultOptions] optional base settings
    * @returns {object} processed settings
    */
-  mergeSettings(element: HTMLElement|SVGElement|JQuery[],
-    incomingOptions: Object|Function,
-    defaultOptions: Object|Function): Object;
+  mergeSettings(element: HTMLElement | SVGElement | JQuery[],
+    incomingOptions: Object | Function,
+    defaultOptions: Object | Function): Object;
+
+  /**
+   * Create deep copy for given array or object.
+   * @param {Object | []]} [arrayOrObject] The array or object to be copied.
+   * @returns {Object | []}The copied array or object.
+   */
+  deepCopy(arrayOrObject: Object | []): Object | [];
 }
 
 interface SohoUtilsKeyboard {

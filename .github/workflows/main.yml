@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     strategy:
       matrix:
@@ -32,24 +32,16 @@ jobs:
         path: |
           ~/.cache/Cypress
           node_modules
-        key: 9.4.0
-
-    - name: Setup timezone
-      uses: zcong1993/setup-timezone@master
-      with:
-        timezone: America/New_York
+        key: 1002
 
     - name: Install Dependencies
       run: npm i
 
     - name: Build
-      run: npm run build
+      run: npm run build --verbose
 
     - name: Run Lint Checks
       run: npm run lint
 
     - name: Run tests
       run: npm run test
-
-    - name: Run e2e tests
-      run: npm run test:e2e

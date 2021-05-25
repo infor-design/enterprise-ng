@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "declaration": false,
-    "emitDecoratorMetadata": true,
+    "emitDecoratorMetadata": false,
     "experimentalDecorators": true,
     "module": "esnext",
     "moduleResolution": "node",

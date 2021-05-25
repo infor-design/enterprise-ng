@@ -675,7 +675,7 @@ export class SohoModalDialogRef<T> {
         }
 
         // Tidy up all subscriptions.
-        this.destroyed$.next();
+        this.destroyed$.next(_);
         this.destroyed$.complete();
 
         // Clean up references

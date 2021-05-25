@@ -31,7 +31,7 @@ export class TimePickerDemoComponent implements OnInit {
     this.showModel = !this.showModel;
   }
 
-  onChange(_event: Event) {
+  onChange(_event: SohoTimePickerEvent) {
     console.log('TimepickerDemoComponent.onChange');
   }
 

@@ -24,6 +24,31 @@ ng update
 
 You will need to fix any issues raised, as these will depend on the dependency tree created by the packages you use and what version you are upgrading from.
 
+#### Angular 12
+
+When updating from angular 11 to 12 we were able to do this with the following command. The `--force` part was needed due to a problem with the `@angular-eslint/builder` dependency labels which will presumably be fixed shortly in NG 12.
+
+```sh
+ng update @angular/core@12 @angular/cli@12 --force
+```
+
+For proper tree shaking you may need:
+
+```sh
+"angularCompilerOptions": {
+    "compilationMode": "partial"
+  }
+```
+
+See <https://angular.io/guide/creating-libraries>, and search for Transitioning libraries to partial-Ivy format.
+
+Also on Mac OS i had to run this in the command line as the new NG 12 builds are more intensive.
+
+```sh
+# For angular 12 to build
+export NODE_OPTIONS="--max-old-space-size=8192"
+```
+
 #### Angular 10 & 11
 
 When updating (and depending on your dependencies) the update *may* not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install TypeScript 3.9.x first, as follows:
@@ -84,7 +109,7 @@ remove `"./node_modules/ids-enterprise-ng/**/*"` from the `include` section.
 
 ### Build / Test / Serve
 
-At this point try building your app, you may want to try the `--prod` option too.
+At this point try building your app, you may want to try the `--configuration production` option too.
 
 ## Component Library Developers
 
@@ -93,7 +118,7 @@ For those working on the `ids-enterprise-ng` components, the layout of the proje
 To build the library (`ids-enterprise-ng`):
 
 ```sh
-npm run build:lib (ng build ids-enterprise-ng --prod)
+npm run build:lib (ng build ids-enterprise-ng --configuration production)
 ```
 
 To build the demo app (note: requires the library to have been built already)
@@ -105,7 +130,7 @@ npm run build:app (ng build)
 To build both library and demo app:
 
 ```sh
-npm run build (ng build ids-enterprise-ng --prod && ng build)
+npm run build (ng build ids-enterprise-ng --configuration production && ng build)
 ```
 
 Testing the library is as follows:
