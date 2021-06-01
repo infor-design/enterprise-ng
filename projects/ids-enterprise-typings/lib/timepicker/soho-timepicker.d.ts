@@ -38,6 +38,9 @@ interface SohoTimePickerOptions {
 
   /** Add extra attributes like id's to the component **/
   attributes?: Array<Object> | Object;
+
+  /** Set the input to tabbable */
+  tabbable?: boolean;
 }
 
 interface SohoTimePickerEvent extends JQuery.TriggeredEvent {

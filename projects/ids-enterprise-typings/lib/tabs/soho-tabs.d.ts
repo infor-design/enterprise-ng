@@ -95,6 +95,9 @@ interface SohoTabsOptions {
 
   /** Add extra attributes like id's to the component **/
   attributes?: Array<Object> | Object;
+
+  /** Sets the tabs to be sortable by drag and drop. **/
+  sortable?: boolean;
 }
 
 /**

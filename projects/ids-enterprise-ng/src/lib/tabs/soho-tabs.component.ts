@@ -421,6 +421,15 @@ export class SohoTabsComponent implements AfterViewInit, AfterViewChecked, OnDes
     }
   }
 
+  /** Sets the tabs to be sortable by drag and drop. **/
+  @Input() set sortable(sortable: boolean) {
+    this._tabsOptions.sortable = sortable;
+    if (this.jQueryElement) {
+      (this.tabs as any).settings.sortable = sortable;
+      this.updateRequired = true;
+    }
+  }
+
   /**
    * if you would like to run the updated() function yourself instead of having
    * this tabs component check for you set this input to true. The advantage to

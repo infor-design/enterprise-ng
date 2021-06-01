@@ -299,6 +299,16 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
   }
 
   /**
+   * Set the input to tabbable
+   */
+  @Input() set tabbable(tabbable: boolean) {
+    this._options.tabbable = tabbable;
+    if (this.datepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
    * Sets the options for the date picker
    */
   @Input() set options(options: SohoDatePickerOptions) {

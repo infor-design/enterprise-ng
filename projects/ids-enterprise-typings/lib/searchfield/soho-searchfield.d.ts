@@ -32,6 +32,9 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
 
   /* Can either be a number, or a function resolving a number */
   collapseSize?: ((api: SohoSearchFieldStatic) => number) | number;
+
+  /* Set the trigger inputs to tabbable */
+  tabbable?: boolean;
 }
 
 /**

@@ -310,6 +310,18 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     return this.settings.attributes;
   }
 
+  /**  Set the input to tabbable */
+  @Input() public set tabbable(tabbable: boolean | undefined) {
+    this.settings.tabbable = tabbable;
+    if (this.lookup) {
+      this.lookup.settings.tabbable = this.settings.tabbable;
+      this.markForUpdate();
+    }
+  }
+  public get tabbable(): boolean | undefined {
+    return this.settings.tabbable;
+  }
+
   @Input() multiselect = false;
 
   @Input() name?: string;

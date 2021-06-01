@@ -16,8 +16,8 @@ import {
 })
 export class SohoSearchFieldWrapperComponent {
   @HostBinding('class.searchfield-wrapper') get isSearchfieldWrapper() {
- return true;
-}
+    return true;
+  }
 }
 
 @Component({
@@ -70,13 +70,18 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
     this.options.collapseSize = value;
   }
 
+  /** Set the input to tabbable */
+  @Input() set tabbable(value: boolean) {
+    this.options.tabbable = value;
+  }
+
   // ------------------------------------------------------------
 
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   @HostBinding('class.searchfield') get isSearchField() {
- return true;
-}
+    return true;
+  }
 
   /**
    * Local variables

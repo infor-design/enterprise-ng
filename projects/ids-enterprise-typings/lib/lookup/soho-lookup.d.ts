@@ -68,11 +68,14 @@ interface SohoLookupOptions {
   /** Apply a minimum width to the lookup*/
   minWidth?: number;
 
-  /**  Add an ability to clear the lookup field with an x */
+  /** Add an ability to clear the lookup field with an x */
   clearable?: boolean;
 
   /** Add extra attributes like id's to the component **/
   attributes?: Array<Object> | Object;
+
+  /** Set the input to tabbabe */
+  tabbable?: boolean;
 }
 
 /** Selection criteria. */

@@ -64,10 +64,10 @@ interface SohoDatePickerOptions {
   legend?: Array<SohoDatePickerLegend>;
 
   /** Use range of two dates options. */
-  range?:  SohoDatePickerRange;
+  range?: SohoDatePickerRange;
 
   /** Calendar name. */
-  calendarName?:  SohoDatePickerCalendarName;
+  calendarName?: SohoDatePickerCalendarName;
 
   /** The name of the locale to use for this instance. If not set, the current locale will be used. */
   locale?: string;
@@ -87,6 +87,9 @@ interface SohoDatePickerOptions {
 
   /** Add extra attributes like id's to the component **/
   attributes?: Array<Object> | Object;
+
+  /** Set the input to tabbale or not. */
+  tabbable?: boolean;
 }
 
 /* Options for the legend */
@@ -116,7 +119,7 @@ interface SohoDatePickerRange {
   includeDisabled?: boolean;
 
   /** Use range of two dates options. */
-  useRange?:  boolean;
+  useRange?: boolean;
 }
 
 /* Options for the legend */
@@ -142,7 +145,7 @@ interface SohoDatePickerDisable {
   years?: string | (string | Date)[];
 
   /** 'M/d/yyyy' */
-  minDate?: string|Date;
+  minDate?: string | Date;
 
   /** 'M/d/yyyy' */
   maxDate?: string | Date;

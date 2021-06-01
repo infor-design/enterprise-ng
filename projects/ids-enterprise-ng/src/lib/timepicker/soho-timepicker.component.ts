@@ -140,6 +140,16 @@ export class SohoTimePickerComponent extends BaseControlValueAccessor<any> imple
   }
 
   /**
+   * Set the input to tabbable
+   */
+  @Input() set tabbable(tabbable: boolean) {
+    (this.options as any).tabbable = tabbable;
+    if (this.timepicker) {
+      this.markForRefresh();
+    }
+  }
+
+  /**
    * Sets the control to be disabled or not.
    */
   @Input() set disabled(value: boolean | undefined) {
