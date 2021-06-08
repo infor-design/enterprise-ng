@@ -51,10 +51,10 @@ export NODE_OPTIONS="--max-old-space-size=8192"
 
 #### Angular 10 & 11
 
-When updating (and depending on your dependencies) the update *may* not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install TypeScript 3.9.x first, as follows:
+When updating (and depending on your dependencies) the update *may* not complete, and this is often because one of the referenced packages has a dependency on an older version of TypeScript.  If this is the case, install [TypeScript](https://github.com/infor-design/enterprise-ng/blob/main/package.json#L109) first, as follows:
 
 ```sh
-npm i typescript@4.0.4
+npm i typescript@<version>
 ```
 
 ### Install typings as a seperate package
