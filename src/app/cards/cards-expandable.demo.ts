@@ -2,21 +2,25 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  ViewChild,
 } from '@angular/core';
-
-import { SohoCardComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-cards-expandable-demo',
   templateUrl: 'cards-expandable.demo.html',
+  styleUrls: ['cards-expandable.demo.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardsExpandableDemoComponent implements AfterViewInit {
 
-  @ViewChild(SohoCardComponent, { static: true }) card?: SohoCardComponent;
+  ngAfterViewInit(): void { }
 
-  ngAfterViewInit(): void {
-    console.log("test");
+  onBeforeOpen(_event: any) {
+  }
+  onClose(_event: any) {
+  }
+  onOpen(_event: any) {
+  }
+  onSelected(event: any) {
+    console.log('Selected item: ' + event);
   }
 }
