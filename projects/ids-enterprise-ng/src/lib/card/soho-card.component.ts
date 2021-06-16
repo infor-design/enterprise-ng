@@ -21,7 +21,9 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoCardHeaderComponent {
-  @HostBinding('class.card-header') get isCardHeader() { return true; }
+  @HostBinding('class.card-header') get isCardHeader() {
+    return true;
+  }
   @HostBinding('style.display') block = 'block';
 }
 
@@ -33,7 +35,9 @@ export class SohoCardHeaderComponent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoCardPaneComponent {
-  @HostBinding('class.card-pane') get isCardPane() { return true; }
+  @HostBinding('class.card-pane') get isCardPane() {
+    return true;
+  }
   @HostBinding('style.display') none = 'none';
 }
 
@@ -45,12 +49,14 @@ export class SohoCardPaneComponent {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoCardComponent implements AfterViewInit {
-  @Input('soho-card') id: string | undefined;
-  @Input() expandableHeader: boolean = false;
-  @Input() verticalButtonAction: boolean = false;
-  @Input() autoHeight: boolean = false;
+  @Input('soho-card') id: string | undefined; // eslint-disable-line
+  @Input() expandableHeader: boolean | undefined; // eslint-disable-line
+  @Input() verticalButtonAction: boolean | undefined; // eslint-disable-line
+  @Input() autoHeight: boolean | undefined; // eslint-disable-line
   @HostBinding('style.display') block = 'block';
-  @HostBinding('class.card') get isCard() { return true; }
+  @HostBinding('class.card') get isCard() {
+    return true;
+  }
   @HostBinding('class.expandable-card') get isExpandableHeader() {
     return this.expandableHeader;
   }
@@ -68,7 +74,9 @@ export class SohoCardComponent implements AfterViewInit {
   /**
    * Closed the state of the component
    */
-  get closed(): boolean | undefined { return this._closed; }
+  get closed(): boolean | undefined {
+    return this._closed;
+  }
 
   // Expose methods in case Angular needs to control the DOM
   // using Observable
