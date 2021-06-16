@@ -4,7 +4,9 @@
 
 ### 10.2.0 Fixes
 
-- `[General]` Temporary Placeholder
+### 10.2.0 Features
+
+- `[Cards]` Added Angular Wrapper Component for the IDS Cards. ([#1036](https://github.com/infor-design/enterprise-ng/issues/1036)) `EA`
 
 ## v10.1.0
 
