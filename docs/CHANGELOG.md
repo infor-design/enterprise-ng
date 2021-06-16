@@ -12,6 +12,12 @@
 
 - `[General]` Upgraded the project to use Angular 12. See the [Angular docs](https://blog.angular.io/angular-v12-is-now-available-32ed51fbfd49) for more info on NG 12 also see the [UPGRADING.md](https://github.com/infor-design/enterprise-ng/blob/main/docs/UPGRADING.md) for steps we took to update (pretty simple this time). Note that support for IE 11 is removed in NG 12.
 
+## v9.5.3
+
+### 9.5.3 Fixes
+
+- `[General]` Remove tilde to bring in the right build
+
 ## v9.5.2
 
 ### 9.5.2 Fixes
@@ -30,6 +36,12 @@
 
 - `[General]` Added EP version 4.51.0 final using NG 11.2.12.
 - `[StepProcess]` Removed unnecessary role=main from ts and template files. ([1033](https://github.com/infor-design/enterprise-ng/issues/1033)) `MHH`
+
+## v9.4.7
+
+### 9.4.7 Fixes
+
+- `[General]` Remove tilde to bring in the right build
 
 ## v9.4.5
 
