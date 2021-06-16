@@ -16,7 +16,7 @@
 
 ### 9.5.2 Fixes
 
-- `[General]` Added EP version 4.51.2 final using NG 11.2.10.
+- `[General]` Added EP version 4.51.4 final using NG 11.2.10.
 
 ## v9.5.1
 
