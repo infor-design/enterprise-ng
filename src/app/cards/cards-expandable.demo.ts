@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
 } from '@angular/core';
@@ -10,9 +9,7 @@ import {
   styleUrls: ['cards-expandable.demo.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CardsExpandableDemoComponent implements AfterViewInit {
-
-  ngAfterViewInit(): void { }
+export class CardsExpandableDemoComponent {
 
   onBeforeOpen(_event: any) {
   }

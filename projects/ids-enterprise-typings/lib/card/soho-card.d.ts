@@ -14,6 +14,7 @@ interface SohoCardOptions {
   expandableHeader?: boolean;
   verticalButtonAction?: boolean;
   expanded?: boolean;
+  autoHeight?: boolean;
   /** Add extra attributes like id's to the component */
   attributes?: Array<Object> | Object;
 }

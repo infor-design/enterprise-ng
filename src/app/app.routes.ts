@@ -29,6 +29,7 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
 import { CalendarDemoComponent } from './calendar/calendar.demo';
 import { CalendarLegendDemoComponent } from './calendar/calendar-legend.demo';
 import { CalendarUpdatedDemoComponent } from './calendar/calendar-updated.demo';
+import { CardsDemoComponent } from './cards/cards.demo';
 import { CardsExpandableDemoComponent } from './cards/cards-expandable.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
@@ -233,6 +234,7 @@ export const routes: Routes = [
   { path: 'calendar-monthview', component: CalendarDemoComponent },
   { path: 'calendar-monthview-legend', component: CalendarLegendDemoComponent },
   { path: 'calendar-updated', component: CalendarUpdatedDemoComponent },
+  { path: 'cards', component: CardsDemoComponent },
   { path: 'cards-expandable', component: CardsExpandableDemoComponent },
   { path: 'chart', component: ChartDemoComponent },
   { path: 'checkbox', component: CheckBoxDemoComponent },

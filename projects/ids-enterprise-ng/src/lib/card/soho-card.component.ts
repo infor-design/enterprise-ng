@@ -48,11 +48,14 @@ export class SohoCardComponent implements AfterViewInit {
   @Input('soho-card') id: string | undefined;
   @Input() expandableHeader: boolean = false;
   @Input() verticalButtonAction: boolean = false;
-  @HostBinding('class.card') get isCard() { return true; }
+  @Input() autoHeight: boolean = false;
   @HostBinding('style.display') block = 'block';
-
+  @HostBinding('class.card') get isCard() { return true; }
   @HostBinding('class.expandable-card') get isExpandableHeader() {
     return this.expandableHeader;
+  }
+  @HostBinding('class.auto-height') get isAutoHeight() {
+    return this.autoHeight;
   }
 
   @Input() set closed(value: boolean | undefined) {
@@ -65,7 +68,7 @@ export class SohoCardComponent implements AfterViewInit {
   /**
    * Closed the state of the component
    */
-  get closed(): boolean | undefined { return this.expandableHeader; }
+  get closed(): boolean | undefined { return this._closed; }
 
   // Expose methods in case Angular needs to control the DOM
   // using Observable
