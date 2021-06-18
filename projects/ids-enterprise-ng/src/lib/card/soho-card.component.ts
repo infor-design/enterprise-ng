@@ -78,6 +78,18 @@ export class SohoCardComponent implements AfterViewInit {
     return this._closed;
   }
 
+  @Input()
+  public set attributes(value: Array<Object> | Object | undefined) {
+    (this.options as any).attributes = value;
+    if (this.card) {
+      this.options.attributes = value;
+    }
+  }
+
+  public get attributes(): Array<Object> | Object | undefined {
+    return this.options.attributes;
+  }
+
   // Expose methods in case Angular needs to control the DOM
   // using Observable
   @Input() toggle?: Observable<boolean>;
@@ -91,6 +103,7 @@ export class SohoCardComponent implements AfterViewInit {
   @Output() aftercollapse: EventEmitter<Object> = new EventEmitter<Object>();
 
   private jQueryElement?: JQuery;
+  private options: SohoCardOptions = {};
   private card?: SohoCardStatic | null;
   private _closed?: boolean;
 
@@ -122,6 +135,7 @@ export class SohoCardComponent implements AfterViewInit {
         expandableHeader: this.expandableHeader,
         expanded: !this.closed,
         verticalButtonAction: this.verticalButtonAction,
+        attributes: this.options.attributes
       });
 
       this.card = this.jQueryElement.data('cards');

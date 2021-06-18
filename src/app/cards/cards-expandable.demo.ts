@@ -11,6 +11,10 @@ import {
 })
 export class CardsExpandableDemoComponent {
 
+  public model = {
+    attributes: { name: 'id', value: 'attr-ids-test' }
+  };
+
   onBeforeOpen(_event: any) {
   }
   onClose(_event: any) {
