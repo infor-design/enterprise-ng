@@ -227,6 +227,7 @@ import { ToolbarStateComponent } from './toolbar/toolbar-state.component';
 import { ToolbarStateDemoComponent } from './toolbar/toolbar-state.demo';
 import { ToolbarRightAlignedDemoComponent } from './toolbar/toolbar-right-aligned.demo';
 import { TooltipDemoComponent } from './tooltip/tooltip.demo';
+import { TooltipNestedDemoComponent } from './tooltip/tooltip-nested.demo';
 import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
 import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
@@ -459,6 +460,7 @@ import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-
     ToolbarPresetMoreActionsDemoComponent,
     ToolbarRightAlignedDemoComponent,
     TooltipDemoComponent,
+    TooltipNestedDemoComponent,
     TrackDirtyDemoComponent,
     TreeContentDemoComponent,
     TreeDynamicDemoComponent,

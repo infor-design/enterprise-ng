@@ -181,6 +181,7 @@ import { ToolbarPresetMoreActionsDemoComponent } from './toolbar/toolbar-preset-
 import { ToolbarRightAlignedDemoComponent } from './toolbar/toolbar-right-aligned.demo';
 import { ToolbarStateComponent } from './toolbar/toolbar-state.component';
 import { TooltipDemoComponent } from './tooltip/tooltip.demo';
+import { TooltipNestedDemoComponent } from './tooltip/tooltip-nested.demo';
 import { TrackDirtyDemoComponent } from './trackdirty/trackdirty.demo';
 import { TreeContentDemoComponent } from './tree/tree-content.demo';
 import { TreeDynamicDemoComponent } from './tree/tree-dynamic.demo';
@@ -393,6 +394,7 @@ export const routes: Routes = [
   { path: 'toolbar-flex-more-actions-ajax', component: ToolbarFlexMoreActionsAjaxDemoComponent },
   { path: 'toolbar-flex-searchfield', component: ToolbarFlexSearchfieldDemoComponent },
   { path: 'tooltip', component: TooltipDemoComponent },
+  { path: 'tooltip-nested', component: TooltipNestedDemoComponent },
   { path: 'trackdirty', component: TrackDirtyDemoComponent },
   { path: 'tree-content', component: TreeContentDemoComponent },
   { path: 'tree-dynamic', component: TreeDynamicDemoComponent },
