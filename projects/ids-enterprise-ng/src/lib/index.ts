@@ -11,6 +11,7 @@ export * from './busyindicator/index';
 export * from './button/index';
 export * from './buttonset/index';
 export * from './calendar/index';
+export * from './card/index';
 export * from './chart/index';
 export * from './checkbox/index';
 export * from './circlepager/index';
