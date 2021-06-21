@@ -1,0 +1,67 @@
+<div class="row top-padding">
+  <div class="six columns">
+    <h2>Basic Cards</h2>
+    <br />
+  </div>
+</div>
+<div class="row">
+  <div class="one-third column">
+    <soho-card>
+      <soho-card-header>
+        <h2 class="widget-title">Card Title</h2>
+        <button soho-button="icon" icon="more" soho-context-menu menu="action-popupmenu" trigger="click"
+          class="btn-actions"></button>
+        <ul soho-popupmenu id="action-popupmenu" (selected)="onSelected($event)" (beforeopen)="onBeforeOpen($event)"
+          (close)="onClose($event)" (open)="onOpen($event)">
+          <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
+          <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
+        </ul>
+      </soho-card-header>
+    </soho-card>
+  </div>
+
+  <div class="two-thirds column">
+    <soho-card>
+      <soho-card-header>
+        <h2 class="widget-title">Card Title</h2>
+        <button soho-button="icon" icon="more" soho-context-menu menu="action-popupmenu" trigger="click"
+          class="btn-actions"></button>
+        <ul soho-popupmenu id="action-popupmenu" (selected)="onSelected($event)" (beforeopen)="onBeforeOpen($event)"
+          (close)="onClose($event)" (open)="onOpen($event)">
+          <li soho-popupmenu-item><a soho-popupmenu-label>Action One</a></li>
+          <li soho-popupmenu-item><a soho-popupmenu-label>Action Two</a></li>
+        </ul>
+      </soho-card-header>
+    </soho-card>
+  </div>
+</div>
+
+<div class="row top-padding">
+  <div class="six columns">
+    <h2>Cards - Auto Height</h2>
+    <br />
+  </div>
+</div>
+<div class="row">
+  <div class="one-third column">
+    <soho-card [autoHeight]="true">
+      <div>Text</div>
+      <div>Text</div>
+      <div>Text</div>
+    </soho-card>
+  </div>
+  <div class="one-third column">
+    <soho-card [autoHeight]="true">
+      <div>Text</div>
+      <div>Text</div>
+      <div>Text</div>
+    </soho-card>
+  </div>
+  <div class="one-third column">
+    <soho-card [autoHeight]="true">
+      <div>Text</div>
+      <div>Text</div>
+      <div>Text</div>
+    </soho-card>
+  </div>
+</div>

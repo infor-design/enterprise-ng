@@ -1,0 +1,19 @@
+.card-list-title-container {
+  width: 50%;
+}
+
+.card-list-title-text-container {
+  text-align: right;
+  width: 50%;
+}
+
+.card-list-title-text-container button svg {
+  color: #666666;
+  height: 18px;
+  vertical-align: middle;
+  width: 18px;
+}
+
+.card-list-title-text-container p {
+  color: #606066;
+}

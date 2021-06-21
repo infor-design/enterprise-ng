@@ -16,6 +16,7 @@
 /// <reference path='lib/button/soho-button.d.ts' />
 /// <reference path='lib/buttonset/soho-buttonset.d.ts' />
 /// <reference path='lib/calendar/soho-calendar.d.ts' />
+/// <reference path='lib/card/soho-card.d.ts' />
 /// <reference path='lib/chart/soho-chart.d.ts' />
 /// <reference path='lib/checkbox/soho-checkbox.d.ts' />
 /// <reference path='lib/circlepager/soho-circlepager.d.ts' />

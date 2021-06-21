@@ -43,6 +43,8 @@ import { ButtonDemoComponent } from './button/button.demo';
 import { CalendarDemoComponent } from './calendar/calendar.demo';
 import { CalendarLegendDemoComponent } from './calendar/calendar-legend.demo';
 import { CalendarUpdatedDemoComponent } from './calendar/calendar-updated.demo';
+import { CardsDemoComponent } from './cards/cards.demo';
+import { CardsExpandableDemoComponent } from './cards/cards-expandable.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { CirclepagerDemoComponent } from './circlepager/circlepager.demo';
@@ -285,6 +287,8 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
     CalendarDemoComponent,
     CalendarLegendDemoComponent,
     CalendarUpdatedDemoComponent,
+    CardsDemoComponent,
+    CardsExpandableDemoComponent,
     ChartDemoComponent,
     CheckBoxDemoComponent,
     CirclepagerDemoComponent,

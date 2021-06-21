@@ -12,6 +12,7 @@ import { SohoBusyIndicatorModule } from './busyindicator/soho-busyindicator.modu
 import { SohoButtonModule } from './button/soho-button.module';
 import { SohoButtonsetModule } from './buttonset/soho-buttonset.module';
 import { SohoCalendarModule } from './calendar/soho-calendar.module';
+import { SohoCardModule } from './card/soho-card.module';
 import { SohoChartModule } from './chart/soho-chart.module';
 import { SohoCheckBoxModule } from './checkbox/soho-checkbox.module';
 import { SohoCirclepagerModule } from './circlepager/soho-circlepager.module';
@@ -99,6 +100,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoCalendarModule,
     SohoChartModule,
     SohoCheckBoxModule,
+    SohoCardModule,
     SohoCirclepagerModule,
     SohoColorPickerModule,
     SohoColumnModule,
@@ -181,6 +183,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoButtonModule,
     SohoButtonsetModule,
     SohoCalendarModule,
+    SohoCardModule,
     SohoChartModule,
     SohoCheckBoxModule,
     SohoCirclepagerModule,
