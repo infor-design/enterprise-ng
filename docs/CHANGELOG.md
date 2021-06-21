@@ -5,6 +5,7 @@
 ### 10.2.0 Fixes
 
 - `[General]` Temporary Placeholder
+- `[Multiselect]` Added an example showing automation id attributes on options in multiselect. ([#1005](https://github.com/infor-design/enterprise-ng/issues/1005))
 
 ## v10.1.0
 
