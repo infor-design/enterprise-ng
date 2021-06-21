@@ -1,0 +1,25 @@
+<form>
+    <div class="row top-padding">
+      <div class="twelve columns">
+        <p>This example show a case where values are initially selected and when you request new data by typing only part the values are brought back. Type c and Alaska and California should remain selected</p>
+        <br />
+        <div class="field">
+          <label for="states-multi-source-alpha" class="label">Towns</label>
+          <select soho-dropdown name="states-multi-source-alpha" id="states-multi-source-alpha" [attributes]="extraAttributes.attributes" multiple [source]="sourceAlpha" [showSearchUnderSelected]="true" [reload]="'typeahead'" [moveSelected]="'all'"
+                  soho-tooltip content="{{stateAsText}}" [(ngModel)]="model.value">
+            <option *ngFor="let option of model.options" selected="{{option.selected}}" [value]="option.value">{{option.label}}</option>
+          </select>
+        </div>
+      </div>
+        <div class="row">
+          <div class="twelve columns">
+            <button soho-button (click)="toggleModel()">{{showModel ? 'Hide' : 'Show'}} Model</button>
+            <div *ngIf="showModel">
+              <hr>
+              <h3>{{ model | json }}</h3>
+            </div>
+          </div>
+        </div>
+    </div>
+  </form>
+  

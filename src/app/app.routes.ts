@@ -200,6 +200,7 @@ import { WeekViewDemoComponent } from './week-view/week-view.demo';
 import { DataGridExpandableRowNestedDemoComponent } from './datagrid/datagrid-expandable-row-nested.demo';
 import { DataGridExpandableRowDynamicDemoComponent } from './datagrid/datagrid-expandable-row-dynamic.demo';
 import { DataGridSummaryRowDemoComponent } from './datagrid/datagrid-summary-row.demo';
+import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-multiselect-attributes-demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -298,6 +299,7 @@ export const routes: Routes = [
   { path: 'dropdown-async', component: DropdownAsyncDemoComponent },
   { path: 'dropdown-multi', component: DropdownMultiselectDemoComponent },
   { path: 'dropdown-multi-landmark', component: DropdownMultiselectLandmarkDemoComponent },
+  { path: 'dropdown-multi-attributes', component: DropdownMultiselectAttributesDemoComponent },
   { path: 'dropdown-reactive', component: DropdownReactiveDemoComponent },
   { path: 'dropdown-simple', component: DropdownSimpleDemoComponent },
   { path: 'dropdown-typeahead', component: DropdownTypeaheadDemoComponent },

@@ -250,6 +250,7 @@ import { ApplicationMenuTestPerfDemoComponent } from './application-menu/applica
 import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-cube.demo';
 import { WeekViewDemoComponent } from './week-view/week-view.demo';
 import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
+import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-multiselect-attributes-demo'
 
 @NgModule({
   declarations: [
@@ -476,6 +477,7 @@ import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
     WizardDemoBackupRulePageComponent,
     WizardDemoResultPageComponent,
     WizardDemoValidationRulesPageComponent,
+    DropdownMultiselectAttributesDemoComponent
   ],
   imports: [
     AppRoutingModule,
