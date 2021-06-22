@@ -6,7 +6,7 @@
 
 - `[General]` Temporary Placeholder
 - `[Multiselect]` Added an example showing automation id attributes on options in multiselect. ([#1005](https://github.com/infor-design/enterprise-ng/issues/1005))
-- `[MessageDialog]` Removed `undefined` return type from messages method. ([#1061](https://github.com/infor-design/enterprise-ng/issues/1061))
+- `[SohoMessageService]` Removed `undefined` return type from messages method. ([#1061](https://github.com/infor-design/enterprise-ng/issues/1061))
 
 ### 10.2.0 Features
 
