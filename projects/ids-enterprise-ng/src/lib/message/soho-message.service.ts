@@ -24,7 +24,7 @@ export class SohoMessageService {
    *
    * @return the message reference.
    */
-  message(options?: SohoMessageOptions): SohoMessageRef | undefined {
+  message(options?: SohoMessageOptions): SohoMessageRef {
     return new SohoMessageRef().options(options);
   }
 
