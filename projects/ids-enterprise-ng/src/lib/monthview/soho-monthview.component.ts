@@ -218,6 +218,24 @@ export class SohoMonthViewComponent implements AfterViewChecked, AfterViewInit, 
     return (this._monthviewOptions as any).inPageToggleable;
   }
 
+  /**
+   * If true, will init as expanded
+   */
+  @Input() set inPageExpanded(inPageExpanded: boolean | undefined) {
+    (this._monthviewOptions as any).inPageExpanded = inPageExpanded;
+    if (this.monthview) {
+      this.monthview.settings.inPageExpanded = inPageExpanded;
+      this.markForRefresh();
+    }
+  }
+  get inPageExpanded(): boolean | undefined {
+    if (this.monthview) {
+      return this.monthview.settings.inPageExpanded;
+    }
+
+    return (this._monthviewOptions as any).inPageExpanded;
+  }
+
   // -------------------------------------
   // Component Output
   // -------------------------------------

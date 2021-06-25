@@ -5,8 +5,6 @@
  * interface of the Soho JQuery monthview control.
  */
 
-type SohoMonthViewColors = 'ruby' | 'azure' | 'amber' | 'emerald' | 'turquoise' | 'amethyst' | 'slate' | 'graphite';
-
 interface SohoMonthViewOptions {
   locale?: string;
   language?: string;
@@ -19,10 +17,19 @@ interface SohoMonthViewOptions {
   inPage?: boolean;
   inPageTitleAsButton?: boolean;
   inPageToggleable?: boolean;
-  inPageExpanded?: string;
+  inPageExpanded?: boolean;
   firstDayOfWeek?: number;
   showToday?: boolean;
   isMonthPicker?: boolean;
+  showMonthYearPicker?: boolean;
+  showLegend?: boolean;
+  legend?: SohoMonthViewLegend[];
+}
+
+interface SohoMonthViewLegend {
+  name: string;
+  color: string;
+  date: string[];
 }
 
 interface SohoMonthViewRenderEvent {
