@@ -13,10 +13,10 @@ interface SohoMonthViewOptions {
   month?: number;
   year?: number;
   day?: number;
-  inPage?: boolean;
   activeDate?: number;
   activeDateIslamic?: number;
   isPopup?: boolean;
+  inPage?: boolean;
   inPageTitleAsButton?: boolean;
   inPageToggleable?: boolean;
   inPageExpanded?: string;
@@ -41,9 +41,13 @@ interface SohoMonthView {
 
   setRangeSelection(): void;
 
-  addLegend(): void;
-
   setDisabled(): void;
+
+  /** Tear down the markup for the control */
+  teardown(): void;
+
+  /** Updates the monthview with any new settings */
+  updated(): void;
 
   /** Destroys the control on completion. */
   destroy(): void;
