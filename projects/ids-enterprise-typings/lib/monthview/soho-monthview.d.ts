@@ -25,7 +25,7 @@ interface SohoMonthViewOptions {
   showLegend?: boolean;
   legend?: SohoMonthViewLegend[];
   hideDays?: boolean;
-  disable?: SohoMonthViewDisable[];
+  disable?: SohoDatePickerDisable;
   yearsAhead?: number;
   yearsBack?: number;
   range?: SohoMonthViewRange[];
@@ -33,7 +33,7 @@ interface SohoMonthViewOptions {
   onSelected?: boolean;
   onKeyDown?: boolean;
   showNextPrevious?: boolean;
-  onChangeView: Function;
+  onChangeView?: Function;
   attributes?: Array<Object> | Object;
 }
 
@@ -47,17 +47,6 @@ interface SohoMonthViewRange {
   selectForward: boolean;
   selectBackward: boolean;
   includeDisabled: boolean;
-}
-
-interface SohoMonthViewDisable {
-  callback: Function;
-  dates: Array<string | number>;
-  years: Array<string | number>;
-  minDate: string | number;
-  maxDate: string | number;
-  dayOfWeek: Array<number>;
-  isEnable: boolean;
-  restrictMonths: boolean;
 }
 
 interface SohoMonthViewLegend {
