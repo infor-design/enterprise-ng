@@ -89,7 +89,15 @@ interface SohoMonthViewRenderMonthEvent {
   year: number;
 }
 
+interface SohoMonthViewSelectedEvent {
+  api: any;
+  elem: JQuery;
+  month: number;
+  year: number;
+}
+
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   monthview(options?: SohoMonthViewOptions): JQuery;
   on(events: 'monthrendered', handler: JQuery.EventHandlerBase<any, SohoMonthViewRenderMonthEvent>): this;
+  on(events: 'selected', handler: JQuery.EventHandlerBase<any, SohoMonthViewSelectedEvent>): this;
 }
