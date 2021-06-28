@@ -24,12 +24,47 @@ interface SohoMonthViewOptions {
   showMonthYearPicker?: boolean;
   showLegend?: boolean;
   legend?: SohoMonthViewLegend[];
+  hideDays?: boolean;
+  disable?: SohoMonthViewDisable[];
+  yearsAhead?: number;
+  yearsBack?: number;
+  range?: SohoMonthViewRange[];
+  selectable?: boolean;
+  onSelected?: boolean;
+  onKeyDown?: boolean;
+  showNextPrevious?: boolean;
+  onChangeView: Function;
+  attributes?: Array<Object> | Object;
+}
+
+interface SohoMonthViewRange {
+  useRange: boolean;
+  start: string | Date;
+  end: string | Date;
+  separator: string;
+  minDays: number;
+  maxDays: number;
+  selectForward: boolean;
+  selectBackward: boolean;
+  includeDisabled: boolean;
+}
+
+interface SohoMonthViewDisable {
+  callback: Function;
+  dates: Array<string | number>;
+  years: Array<string | number>;
+  minDate: string | number;
+  maxDate: string | number;
+  dayOfWeek: Array<number>;
+  isEnable: boolean;
+  restrictMonths: boolean;
 }
 
 interface SohoMonthViewLegend {
   name: string;
   color: string;
-  date: string[];
+  dates: string[];
+  dayOfWeek: Array<number>;
 }
 
 interface SohoMonthViewRenderEvent {
@@ -42,12 +77,10 @@ interface SohoMonthViewRenderEvent {
 interface SohoMonthView {
   settings: SohoMonthViewOptions;
 
-  appendMonthYearPicker(month: SohoMonthViewOptions, year: SohoMonthViewOptions): void;
-
-  firstDayOfMonth(year: SohoMonthViewOptions, month: SohoMonthViewOptions): number;
-
+  /** Set range selection */
   setRangeSelection(): void;
 
+  /** Set disable Date */
   setDisabled(): void;
 
   /** Tear down the markup for the control */
