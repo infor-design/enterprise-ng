@@ -1,0 +1,28 @@
+<div class="row top-padding">
+  <div class="six columns">
+    <span class="label font-size-px-20">Monthview - In Page</span>
+  </div>
+</div>
+
+<div class="row top-padding">
+  <div class="six columns">
+    <div soho-monthview
+      [month]="initialMonth"
+      [year]="initialYear"
+      [day]="initialDay"
+      [inPage]=true
+      [inPageExpanded]=true
+      [showMonthYearPicker]=true
+      [showLegend]=true
+      [legend]="legends"
+    >
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="six columns">
+    <div id="test-content"></div>
+    <br />
+  </div>
+</div>
