@@ -57,7 +57,20 @@ export class MonthViewDemoInPageComponent implements AfterViewInit {
 
     this.ngZone.runOutsideAngular(() => {
 
+      this.jQueryElement = jQuery(this.elementRef.nativeElement);
 
+      const elem = jQuery(this.elementRef.nativeElement.querySelector('.monthview'));
+      const container = jQuery(this.elementRef.nativeElement.querySelector('#test-content'));
+
+      // Init test content first time on load
+      const dateOnLoad = new Date((this.initialMonth + 1) + '/' + this.initialDay + '/' + this.initialYear);
+
+      console.log({
+        elem: elem,
+        container: container,
+        dateOnLoad: dateOnLoad,
+        jQ: this.jQueryElement
+      })
     });
   }
 

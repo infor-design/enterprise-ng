@@ -310,8 +310,8 @@ export class SohoMonthViewComponent implements AfterViewChecked, AfterViewInit, 
   }
 
   /**
-    * Shows the legend below the table.
-    */
+   * Shows the legend below the table.
+   */
   @Input() set showLegend(showLegend: boolean | undefined) {
     (this._monthviewOptions as any).showLegend = showLegend;
     if (this.monthview) {
