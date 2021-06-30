@@ -3,3 +3,20 @@
 #compound_field_popdown_contents.popdown {
   width: 700px;
 }
+
+/* Monthview In Page style */
+.test-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.is-active .heading {
+  color: #0072ed;
+}
+
+.sub-heading {
+  color: #606066;
+  margin-top: 8px;
+}

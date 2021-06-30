@@ -545,6 +545,7 @@ export class SohoMonthViewComponent implements AfterViewChecked, AfterViewInit, 
   // Component Output
   // -------------------------------------
   @Output() monthRendered = new EventEmitter<SohoMonthViewRenderEvent>();
+  @Output() selected = new EventEmitter<SohoMonthViewSelectedEvent>();
 
   /**
    * Local variables
@@ -552,7 +553,7 @@ export class SohoMonthViewComponent implements AfterViewChecked, AfterViewInit, 
   private jQueryElement?: JQuery;
   private monthview?: SohoMonthView | null;
   private _monthviewOptions?: SohoMonthViewOptions = {};
-  private updatedRequired?: boolean;
+  private updateRequired?: boolean;
 
   constructor(
     private element: ElementRef,
@@ -567,7 +568,8 @@ export class SohoMonthViewComponent implements AfterViewChecked, AfterViewInit, 
 
       // Add listeners to emit events
       this.jQueryElement
-        .on('monthrendered', (_e: any, args: SohoMonthViewRenderEvent) => this.onMonthViewRenderedEvent(args));
+        .on('monthrendered', (_e: any, args: SohoMonthViewRenderEvent) => this.onMonthViewRenderedEvent(args))
+        .on('selected', (_e: any, event: SohoMonthViewSelectedEvent) => this.onMonthViewSelectedEvent(event));
 
       // Initialize the Soho control.
       this.jQueryElement.monthview(this._monthviewOptions);
@@ -581,14 +583,18 @@ export class SohoMonthViewComponent implements AfterViewChecked, AfterViewInit, 
       return;
     }
 
-    if (this.updatedRequired) {
+    if (this.updateRequired) {
       this.updated();
-      this.updatedRequired = false;
+      this.updateRequired = false;
     }
   }
 
   onMonthViewRenderedEvent(event: SohoMonthViewRenderEvent) {
     this.ngZone.runOutsideAngular(() => this.monthRendered.emit(event));
+  }
+
+  onMonthViewSelectedEvent(event: SohoMonthViewSelectedEvent) {
+    this.ngZone.runOutsideAngular(() => this.selected.emit(event));
   }
 
   /**
@@ -602,7 +608,7 @@ export class SohoMonthViewComponent implements AfterViewChecked, AfterViewInit, 
    * Mark the components as requiring a rebuild after the next update.
    */
   markForRefresh() {
-    this.updatedRequired = true;
+    this.updateRequired = true;
 
     this.ref.markForCheck();
   }

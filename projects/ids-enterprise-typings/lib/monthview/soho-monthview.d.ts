@@ -90,10 +90,12 @@ interface SohoMonthViewRenderMonthEvent {
 }
 
 interface SohoMonthViewSelectedEvent {
-  api: any;
-  elem: JQuery;
-  month: number;
-  year: number;
+  close?: boolean;
+  day?: number;
+  key?: string;
+  month?: number;
+  node?: Node;
+  year?: number;
 }
 
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
