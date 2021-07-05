@@ -26,7 +26,7 @@ export class FormReactiveFormDemoComponent implements AfterViewInit {
     autocompleteValue: '',
     autocompleteUrl: 'http://localhost:4200/app/demodata/states.demo.json?term=',
     inputValue: 'Hello World!',
-    datevalue: '',
+    datevalue: new Date(),
     timevalue: '',
     dropdownvValue: 'ND',
     colorpickValue: '',

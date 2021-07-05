@@ -6,6 +6,7 @@
 
 - `[Multiselect]` Added an example showing automation id attributes on options in multiselect. ([#1005](https://github.com/infor-design/enterprise-ng/issues/1005))
 - `[SohoMessageService]` Removed `undefined` return type from messages method. ([#1061](https://github.com/infor-design/enterprise-ng/issues/1061))
+- `[SohoDatePicker]` Fixed datepicker format when assigned via angular formcontrol. ([#xxxx](https://github.com/infor-design/enterprise-ng/issues/xxxx))
 
 ### 10.2.0 Features
 
