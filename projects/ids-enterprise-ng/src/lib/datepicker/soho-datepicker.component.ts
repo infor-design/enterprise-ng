@@ -518,7 +518,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<string | n
    *
    * @param value - the new value
    */
-  writeValue(value: Date | string) {
+  writeValue(value: Date | string | number | string[]) {
     super.writeValue(value);
     if (this.datepicker) {
       // The processing is required to ensure we use the correct format
