@@ -24,7 +24,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [provideControlValueAccessor(SohoDatePickerComponent)]
 })
-export class SohoDatePickerComponent extends BaseControlValueAccessor<any> implements AfterViewInit, AfterViewChecked, OnDestroy {
+export class SohoDatePickerComponent extends BaseControlValueAccessor<string | number | string[] | Date | undefined> implements AfterViewInit, AfterViewChecked, OnDestroy {
 
   /**
    * Flag to force an update of the control after the view is created.
@@ -396,12 +396,12 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
    * Public API
    */
 
-  public setValue(value: Date | string) {
+  public setValue(value: string | Date | number | string[]) {
     this.datepicker?.setValue(value, true);
   }
 
-  public getValue(asDate: boolean = false): string | Date {
-    if (asDate) {
+  public getValue(asDate: boolean = false): string | Date | number | string[] {
+    if (asDate && (typeof this.internalValue === 'string')) {
       const calendar = Soho.Locale.calendar();
       const dateFormat = this._options.dateFormat || calendar.dateFormat.short;
       const timeFormat = this._options.timeFormat || calendar.timeFormat;
@@ -409,9 +409,11 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
       if (this._options.showTime) {
         format += 'T' + timeFormat;
       }
-      return Soho.Locale.parseDate(this.internalValue, format);
+
+      return Soho.Locale.parseDate(this.internalValue || '', format);
     }
-    return this.internalValue;
+
+    return this.internalValue || '';
   }
 
   public focus(): void {
@@ -464,7 +466,7 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
         .on('change', (args: any) => this.onChange(args));
 
       if (this.internalValue) {
-        this.datepicker?.element.val(this.internalValue);
+        this.datepicker?.setValue(this.internalValue, false);
       }
       this.runUpdatedOnCheck = true;
     });
@@ -516,12 +518,12 @@ export class SohoDatePickerComponent extends BaseControlValueAccessor<any> imple
    *
    * @param value - the new value
    */
-  writeValue(value: any) {
+  writeValue(value: Date | string | number | string[]) {
     super.writeValue(value);
     if (this.datepicker) {
       // The processing is required to ensure we use the correct format
       // in the control.
-      this.datepicker.element.val(value);
+      this.datepicker.setValue(value, false);
     }
   }
 

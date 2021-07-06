@@ -15,9 +15,9 @@ export class DatepickerDemoComponent implements OnInit {
   @ViewChild(SohoDatePickerComponent, { static: true }) datepicker?: SohoDatePickerComponent;
 
   public model = {
-    standard: '12/12/2016',
+    standard: new Date(),
     validrange: '12/12/2016',
-    anniversary: '',
+    anniversary: new Date(),
     birthday: '',
     year: '',
     datetime: '',
@@ -82,7 +82,7 @@ export class DatepickerDemoComponent implements OnInit {
   }
 
   clear() {
-    this.model.standard = '';
+    this.model.standard = new Date(0);
   }
 
   onChange(event: SohoDatePickerEvent) {
