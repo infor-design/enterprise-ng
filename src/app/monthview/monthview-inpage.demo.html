@@ -1,0 +1,30 @@
+<div class="row top-padding">
+  <div class="six columns">
+    <span class="label font-size-px-20">Monthview - In Page</span>
+  </div>
+</div>
+
+<div class="row top-padding">
+  <div class="eight columns">
+    <div soho-monthview
+      [month]="initialMonth"
+      [year]="initialYear"
+      [day]="initialDay"
+      [inPage]=true
+      [inPageExpanded]=false
+      [showMonthYearPicker]=false
+      [showLegend]=true
+      [legend]="legends"
+      (selected)="onSelected($event)"
+      (monthRendered)="onRenderMonth($event)"
+    >
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="eight columns">
+    <div id="test-content"></div>
+    <br />
+  </div>
+</div>

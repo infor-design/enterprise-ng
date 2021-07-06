@@ -129,6 +129,8 @@ import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
 import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
+import { MonthViewDemoComponent } from './monthview/monthview.demo';
+import { MonthViewDemoInPageComponent } from './monthview/monthview-inpage.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PersonalizeColorApiDemoComponent } from './personalize/personalize-color-api.demo';
@@ -342,6 +344,8 @@ export const routes: Routes = [
   { path: 'menu-button', component: MenuButtonDemoComponent },
   { path: 'message', component: MessageDemoComponent },
   { path: 'modal-dialog', component: ModalDialogDemoComponent },
+  { path: 'monthview', component: MonthViewDemoComponent },
+  { path: 'monthview-inpage', component: MonthViewDemoInPageComponent },
   { path: 'notification', component: NotificationDemoComponent },
   { path: 'pager-standalone', component: PagerStandaloneDemoComponent },
   { path: 'personalize-color-api', component: PersonalizeColorApiDemoComponent },
