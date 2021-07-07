@@ -26,7 +26,7 @@ export class LookupDemoComponent implements OnInit {
   @ViewChild('templateId', { static: true }) sohoLookupComponent?: SohoLookupComponent;
   @ViewChild('toggleButtons', { static: true }) sohoLookupRef?: SohoLookupComponent;
 
-  public isDisabled = false;
+  public isDisabled = true;
   public columns_product?: SohoDataGridColumn[];
   public columns_multi?: SohoDataGridColumn[];
   public entityIds?: string;

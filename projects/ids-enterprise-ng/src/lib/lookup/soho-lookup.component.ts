@@ -431,6 +431,14 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       this.jQueryElement.on('input', () => this.ngZone.run(() => this.inputEvt.emit(undefined)));
       this.jQueryElement.on('close', () => this.ngZone.run(() => this.close.emit(undefined)));
 
+      // this.jQueryElement.on('click', () => {
+      //   this.ngZone.runOutsideAngular(() => {
+      //     if (!this.isDisabled) {
+      //       this.enable();
+      //     }
+      //   });
+      // });
+
       this.lookup = this.jQueryElement.data('lookup');
 
       if (this.internalValue) {
@@ -516,6 +524,11 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     if (this.updateRequired) {
       this.updated();
       this.updateRequired = false;
+    }
+
+    // enabling all elements of lookup when component is initially disabled
+    if (!this.isDisabled) {
+      this.enable();
     }
   }
 
