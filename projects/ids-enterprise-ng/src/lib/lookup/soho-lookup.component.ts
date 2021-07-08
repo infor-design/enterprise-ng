@@ -380,7 +380,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   /** Initial dataset */
   private _dataset?: Object[];
 
-  constructor(private element: ElementRef, private ngZone: NgZone) {
+  constructor(private element: ElementRef<HTMLInputElement>, private ngZone: NgZone) {
     super();
   }
 
@@ -519,7 +519,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     }
 
     // enabling all elements of lookup when component is initially disabled
-    if (!this.isDisabled) {
+    if (!this.isDisabled && !this.element.nativeElement.getAttribute('disabled')) {
       this.enable();
     }
   }
