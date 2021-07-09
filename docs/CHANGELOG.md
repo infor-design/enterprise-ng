@@ -4,7 +4,7 @@
 
 ### 10.2.0 Fixes
 
-- `[Lookup]` Fixed a bug where the enabling the lookup doesn't work when the component is initially disabled. ([#1069](https://github.com/infor-design/enterprise-ng/issues/1069)) `EA`
+- `[Lookup]` Fixed a bug where the enabling the lookup doesn't work when the component is initially disabled. In order to do this we changed the examples to use `[attr.disabled]` instead of an `isDisabled` input to be more consistent. Suggest using this but kept `isDisabled` for compatibility. ([#1069](https://github.com/infor-design/enterprise-ng/issues/1069)) `EA`
 - `[Multiselect]` Added an example showing automation id attributes on options in multiselect. ([#1005](https://github.com/infor-design/enterprise-ng/issues/1005))
 - `[SohoMessageService]` Removed `undefined` return type from messages method. ([#1061](https://github.com/infor-design/enterprise-ng/issues/1061))
 - `[SohoDatePicker]` Fixed datepicker format when assigned via angular form control. ([#1072](https://github.com/infor-design/enterprise-ng/issues/1072))

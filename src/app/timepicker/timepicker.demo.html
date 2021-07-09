@@ -22,7 +22,11 @@
           </div>
           <div class="field">
             <label for="disable" class="label">Disable</label>
-            <input soho-timepicker name="disable" [disabled]="true" timeFormat="h:mm a" mode="standard" [(ngModel)]="model.hhmm" (change)="onChange($event)"/>
+            <input soho-timepicker name="disable" [attr.disabled]="disabled ? '' : null" timeFormat="h:mm a" mode="standard" [(ngModel)]="model.hhmm" (change)="onChange($event)"/>
+          </div>
+          <div class="field">
+            <label for="disable" class="label">Disable (Inverse)</label>
+            <input soho-timepicker name="disable" [attr.disabled]="!disabled ? '' : null" timeFormat="h:mm a" mode="standard" [(ngModel)]="model.hhmm" (change)="onChange($event)"/>
           </div>
         </div>
       </div>

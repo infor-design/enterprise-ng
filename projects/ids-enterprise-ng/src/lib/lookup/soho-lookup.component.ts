@@ -25,6 +25,8 @@ import {
   providers: [provideControlValueAccessor(SohoLookupComponent)]
 })
 export class SohoLookupComponent extends BaseControlValueAccessor<any> implements AfterViewInit, AfterViewChecked, OnDestroy {
+  private runUpdatedOnCheck?: boolean;
+
   /**
    * Used to call updated from the afterViewChecked lifecycle event.
    */
@@ -361,12 +363,8 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     return true;
   }
 
-  @HostBinding('attr.disabled') get isDisabledAttr() {
-    return this.isDisabled || undefined;
-  }
-
-  @Input() isDisabled: boolean | undefined = undefined;
-
+  private _isDisabled?: boolean = undefined;
+  private _isReadOnly?: boolean = undefined;
 
   /**
    * Local variables
@@ -436,6 +434,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       if (this.internalValue) {
         this.lookup?.element.val(this.internalValue);
       }
+      this.runUpdatedOnCheck = true;
     });
   }
 
@@ -469,18 +468,76 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
-  /** Make the input readonly. **/
-  public readonly(): void {
-    if (this.lookup) {
-      this.ngZone.runOutsideAngular(() => this.lookup?.readonly());
+  /**
+   * Sets the control to be disabled or not.
+   */
+  @Input() set disabled(value: boolean | undefined) {
+    // Avoid setting the value if not required,
+    // this causes issue on component initialisation
+    // as enable() is called by both disabled()
+    // and readonly().
+    if (this.lookup == null) {
+      this._isDisabled = value;
+      return;
+    }
+
+    // Set the status locally (for refreshing)
+    this._isDisabled = value;
+
+    if (value) {
+      this.ngZone.runOutsideAngular(() => {
+        (this.lookup as any).disable();
+      });
+    } else {
+      this.ngZone.runOutsideAngular(() => {
+        (this.lookup as any).enable();
+        this._isReadOnly = false;
+      });
     }
   }
 
-  /** Input is disabled or not **/
-  public isReadonly(): boolean | undefined {
-    if (this.lookup) {
-      return this.ngZone.runOutsideAngular(() => (this.lookup as any).isReadonly());
+  get disabled(): boolean | undefined {
+    return this._isDisabled;
+  }
+
+  /** @deprecated use disabled attribute */
+  @Input() set isDisabled(value: boolean | undefined) {
+    this.disabled = value;
+  }
+
+  /**
+   * Sets the control to readonly
+   */
+  @Input() set readonly(value: boolean | undefined) {
+    // Avoid setting the value if not required,
+    // this causes issue on component initialisation
+    // as enable() is called by both disabled()
+    // and readonly().
+    if (this.lookup == null) {
+      this._isReadOnly = value;
+      return;
     }
+
+    // Set the status locally (for refreshing)
+    this._isReadOnly = value;
+
+    if (value) {
+      this.ngZone.runOutsideAngular(() => (this.lookup as any).readonly());
+    } else {
+      this.ngZone.runOutsideAngular(() => {
+        (this.lookup as any).enable();
+        this._isDisabled = false;
+      });
+    }
+  }
+
+  get readonly(): boolean | undefined {
+    return this._isReadOnly;
+  }
+
+  /** @deprecated use readonly attribute */
+  @Input() set isReadonly(value: boolean | undefined) {
+    this.readonly = value;
   }
 
   /**  Send in a new data set to display in the datagrid in the lookup. **/
@@ -513,14 +570,15 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   ngAfterViewChecked() {
+    if (this.runUpdatedOnCheck) {
+      // Ensure the enabled/disabled flags are set.
+      if (this._isDisabled !== null && this._isDisabled !== undefined) {
+        this.disabled = this._isDisabled;
+      }
+    }
     if (this.updateRequired) {
       this.updated();
       this.updateRequired = false;
-    }
-
-    // enabling all elements of lookup when component is initially disabled
-    if (!this.isDisabled && !this.element.nativeElement.getAttribute('disabled')) {
-      this.enable();
     }
   }
 
@@ -581,11 +639,6 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       event.values = this.internalValue;
       this.change.emit(event);
     });
-  }
-
-  setDisabledState(isDisabled: boolean | undefined): void {
-    // Update the jQuery widget with the requested disabled state.
-    this.isDisabled = isDisabled ? true : undefined;
   }
 
   /**
@@ -659,7 +712,13 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
-  // private methods
+  /**
+   * This function is called when the control status changes to or from "DISABLED".
+   * Depending on the value, it will enable or disable the appropriate DOM element.
+   */
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
 
   /**
    * Evaluate the event param and parse the value

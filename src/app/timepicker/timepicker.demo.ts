@@ -22,6 +22,7 @@ export class TimePickerDemoComponent implements OnInit {
   public showModel = false;
   public timepickerDisabled = false;
   public timepickerReadOnly = false;
+  public disabled = true;
 
   constructor() { }
 
