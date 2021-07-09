@@ -575,6 +575,9 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       if (this._isDisabled !== null && this._isDisabled !== undefined) {
         this.disabled = this._isDisabled;
       }
+      if (this._isReadOnly !== null && this._isReadOnly !== undefined) {
+        this.readonly = this._isReadOnly;
+      }
     }
     if (this.updateRequired) {
       this.updated();

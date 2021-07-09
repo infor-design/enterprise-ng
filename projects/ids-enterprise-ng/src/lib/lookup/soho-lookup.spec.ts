@@ -249,7 +249,9 @@ describe('SohoLookupComponent on ReactiveForm', () => {
   });
 
   it('is readonly after call to readonly().', () => {
-    component.lookup?.readonly();
+    if (component.lookup) {
+      component.lookup.readonly = true;
+    }
     expect(el.hasAttribute('readonly')).toBeTruthy('readonly');
   });
 
