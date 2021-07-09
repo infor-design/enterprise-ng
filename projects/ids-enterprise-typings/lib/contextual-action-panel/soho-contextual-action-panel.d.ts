@@ -49,7 +49,7 @@ interface SohoContextualActionPanelOptions {
   centerTitle?: boolean;
 }
 
-interface SohoContextualActionPanelButton  {
+interface SohoContextualActionPanelButton {
   /** An optional identifier for the button. */
   id?: string;
 
@@ -99,6 +99,11 @@ type SohoContextualActionPanelButtonClickFunction = (
  * Only public members are exposed on this interface.
  */
 interface SohoContextualActionPanelStatic {
+  /**
+   * API for interacting with the buttons on the dialog.
+   */
+  buttonsetAPI: SohoButtonsetStatic;
+
   /** Existing configuration settings. */
   settings: SohoContextualActionPanelOptions;
 

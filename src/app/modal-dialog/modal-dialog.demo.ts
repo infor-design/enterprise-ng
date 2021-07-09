@@ -81,6 +81,8 @@ export class ModalDialogDemoComponent {
         return true;
       })
       .open();
+
+    console.log(dialogRef.buttonsetAPI)
   }
 
   openNested() {

@@ -30,7 +30,7 @@ export class ContextualActionPanelDemoComponent {
    */
   public panelRef?: SohoContextualActionPanelRef<any> | null;
   public closeResult?: string;
-  public title = 'Contextual Action Panel';
+  public title = 'Title using modalSettings title';
 
   /**
    * Constructor.
@@ -67,6 +67,8 @@ export class ContextualActionPanelDemoComponent {
     if (!this.panelService || !this.placeholder) {
       return;
     }
+
+    console.log(this.panelService?.contextualactionpanel(ContextualActionPanelComponent, this.placeholder))
 
     this.panelRef = (this.panelService as any).contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
       .modalSettings({ buttons, title: this.title })
