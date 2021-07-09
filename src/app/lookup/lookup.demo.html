@@ -316,6 +316,17 @@
           />
         </div>
         <div class="field">
+          <label soho-label for="readonly">Readonly [attr.readonly]</label>
+          <input soho-lookup
+            [attr.readonly]="isDisabled"
+            [(ngModel)]="model.single"
+            [columns]="columns_product"
+            [dataset]="data_product"
+            field="productId"
+            title="Products"
+            name="readonly" />
+        </div>
+        <div class="field">
           <label soho-label for="toggle-disabled">Toggle [attr.disabled]</label>
           <input soho-lookup
             [attr.disabled]="isDisabled ? '' : null"
@@ -327,7 +338,7 @@
             name="toggle-disabled" />
         </div>
         <div class="field">
-          <label soho-label for="toggle-disabled">Toggle [attr.disabled] (Inverse)</label>
+          <label soho-label for="toggle-inverse">Toggle [attr.disabled] (Inverse)</label>
           <input soho-lookup
             [attr.disabled]="!isDisabled ? '' : null"
             [(ngModel)]="model.single"
@@ -335,10 +346,10 @@
             [dataset]="data_product"
             field="productId"
             title="Products"
-            name="toggle--inverse" />
+            name="toggle-inverse" />
         </div>
         <div class="field">
-          <label soho-label for="toggle-disabled">Toggle isDisabled</label>
+          <label soho-label for="toggle-isdisabled">Toggle isDisabled</label>
           <input soho-lookup
             [isDisabled]="isDisabled"
             [(ngModel)]="model.single"
