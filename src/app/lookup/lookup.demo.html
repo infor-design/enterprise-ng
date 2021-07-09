@@ -362,7 +362,10 @@
         <button soho-button
         (click)="isDisabled = !isDisabled">
         {{ isDisabled ? 'Enable' : 'Disable'}}
-      </button>
+        </button>
+        <button soho-button
+        (click)="toggleDisabled()">Toggle Disabled (Method)
+        </button>
       </div>
     </div>
   </div>

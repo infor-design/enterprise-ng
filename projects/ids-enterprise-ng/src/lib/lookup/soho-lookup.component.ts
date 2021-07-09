@@ -719,8 +719,14 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    * This function is called when the control status changes to or from "DISABLED".
    * Depending on the value, it will enable or disable the appropriate DOM element.
    */
-  setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+  setDisabledState(isDisabled: boolean | undefined): void {
+    // Update the jQuery widget with the requested disabled state.
+    this.disabled = isDisabled ? true : undefined;
+    if (isDisabled) {
+      this.lookup?.element.attr('disabled', 'true');
+    } else {
+      this.lookup?.element.removeAttr('disabled');
+    }
   }
 
   /**
