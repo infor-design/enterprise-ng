@@ -600,7 +600,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    * @todo raise SOHO jira issue
    */
   processValue(value: Object | Object[]): string {
-    if (!value) {
+    if (!value || !this.lookup) {
       return '';
     }
     let val = '';
@@ -615,7 +615,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
       if (typeof toProcess[i] === 'object') {
         if (typeof this.settings.field === 'function') {
-          current = (this.settings.field as SohoLookupFieldFunction)(toProcess[i], this.lookup!.element, this.lookup!.grid);
+          current = (this.settings.field as SohoLookupFieldFunction)(toProcess[i], this.lookup.element, this.lookup.grid);
         } else {
           current = (toProcess[i] as any)[this.settings.field as string];
         }
