@@ -68,8 +68,6 @@ export class ContextualActionPanelDemoComponent {
       return;
     }
 
-    console.log(this.panelService?.contextualactionpanel(ContextualActionPanelComponent, this.placeholder))
-
     this.panelRef = (this.panelService as any).contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
       .modalSettings({ buttons, title: this.title })
       .open()

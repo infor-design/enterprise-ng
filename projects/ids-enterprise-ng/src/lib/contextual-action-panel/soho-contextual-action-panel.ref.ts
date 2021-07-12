@@ -60,15 +60,6 @@ export class SohoContextualActionPanelRef<T> {
     return null;
   }
 
-  /**
-   * The buttonset API for the CAP dialog.
-   *
-   * @returns the buttonset API for the modal dialog, if initialised.
-   */
-  public get buttonsetAPI(): SohoButtonsetStatic | undefined {
-    return this.contextualactionpanel ? this.contextualactionpanel.buttonsetAPI : undefined;
-  }
-
   // -------------------------------------------
   // Default options block
   // -------------------------------------------

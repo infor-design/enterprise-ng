@@ -99,11 +99,6 @@ type SohoContextualActionPanelButtonClickFunction = (
  * Only public members are exposed on this interface.
  */
 interface SohoContextualActionPanelStatic {
-  /**
-   * API for interacting with the buttons on the dialog.
-   */
-  buttonsetAPI: SohoButtonsetStatic;
-
   /** Existing configuration settings. */
   settings: SohoContextualActionPanelOptions;
 
