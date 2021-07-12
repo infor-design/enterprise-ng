@@ -57,7 +57,7 @@ When updating (and depending on your dependencies) the update *may* not complete
 npm i typescript@<version>
 ```
 
-### Install typings as a seperate package
+### Install typings as a separate package
 
 The typings should be install automatically, as they are a dependency of ids-enterprise-ng, if they are not you can install them explicitly as follows:
 
