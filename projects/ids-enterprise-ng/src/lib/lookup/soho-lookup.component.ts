@@ -369,6 +369,14 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   @Input("disabled") _disabled: boolean | undefined = undefined;
 
   /**
+   * Add class binding.
+   */
+  @HostBinding('class.is-disabled')
+  public get disabledClass() {
+    return this._disabled;
+  }
+
+  /**
    * Is the lookup control readonly?
    */
   // eslint-disable-next-line @angular-eslint/no-input-rename
@@ -451,6 +459,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
       this.lookup = this.jQueryElement.data('lookup');
 
+      // Pick up the internal value from the form control.
       if (this.internalValue) {
         this.lookup?.element.val(this.internalValue);
       }
