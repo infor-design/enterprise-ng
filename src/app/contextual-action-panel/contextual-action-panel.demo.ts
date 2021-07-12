@@ -80,6 +80,9 @@ export class ContextualActionPanelDemoComponent {
       .afterOpen(() => {
         console.log('After Open Fires');
       })
+      .beforeClose(() => {
+        console.log('Before close fires');
+      })
       .closed(() => {
         console.log('Closed Fires');
       })
