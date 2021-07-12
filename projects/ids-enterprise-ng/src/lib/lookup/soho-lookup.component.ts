@@ -365,13 +365,13 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    * Is the lookup control disabled?
    */
   @HostBinding('disabled')
-  @Input() isDisabled: boolean | undefined = undefined;
+  @Input() disabled: boolean | undefined = undefined;
 
   /**
    * Is the lookup control readonly?
    */
   @HostBinding('readonly')
-  @Input() isReadonly: boolean | undefined = undefined;
+  @Input('readonly') _readonly: boolean | undefined = undefined;
 
   /**
    * Local variables
@@ -390,12 +390,11 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   /** Initial dataset */
   private _dataset?: Object[];
 
-
   /**
    * Constructor.
    *
-   * @param element
-   * @param ngZone
+   * @param element associated element
+   * @param ngZone angular zone
    */
   constructor(private element: ElementRef, private ngZone: NgZone) {
     super();
@@ -474,20 +473,20 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
   /** Enable the input. **/
   public enable(): void {
-    this.isDisabled = false;
-    this.isReadonly = false;
+    this.disabled = false;
+    this._readonly = false;
     this.markForUpdate();
   }
 
   /** Disable the input. **/
   public disable(): void {
-    this.isDisabled = true;
+    this.disabled = true;
     this.markForUpdate();
   }
 
   /** Make the input readonly. **/
   public readonly(): void {
-    this.isReadonly = true;
+    this._readonly = true;
     this.markForUpdate();
   }
 
@@ -541,7 +540,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   isMultiselect(): boolean | undefined {
-    return this.multiselect !== false || (this.options && this.options.selectable === 'multiple');
+    return this.multiselect || (this.options && this.options.selectable === 'multiple');
   }
 
   modalOpened(args: any[]) {
@@ -588,7 +587,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
   setDisabledState(isDisabled: boolean | undefined): void {
     // Update the jQuery widget with the requested disabled state.
-    this.isDisabled = isDisabled ? true : undefined;
+    this.disabled = isDisabled;
   }
 
   /**
