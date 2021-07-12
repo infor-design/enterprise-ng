@@ -26,7 +26,7 @@ export class LookupDemoComponent implements OnInit {
   @ViewChild('templateId', { static: true }) sohoLookupComponent?: SohoLookupComponent;
   @ViewChild('toggleButtons', { static: true }) sohoLookupRef?: SohoLookupComponent;
 
-  public isDisabled = false;
+  public isDisabled = true;
   public columns_product?: SohoDataGridColumn[];
   public columns_multi?: SohoDataGridColumn[];
   public entityIds?: string;
@@ -288,5 +288,15 @@ export class LookupDemoComponent implements OnInit {
 
   onBeforeOpen(event: any) {
     console.log('lookup.onbeforeopen', event);
+  }
+
+  toggleDisabled(event: any) {
+    console.log('lookup.toggleDisabled', event);
+    const exampleComp = this.sohoLookupComponent;
+    if (exampleComp?.isDisabled) {
+      this.sohoLookupComponent?.enable();
+    } else {
+      this.sohoLookupComponent?.disable();
+    }
   }
 }

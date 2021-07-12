@@ -243,9 +243,14 @@ describe('SohoLookupComponent on ReactiveForm', () => {
     expect(el.hasAttribute('disabled')).toBeTruthy('disabled');
   });
 
-  it('is enabled after call to enable().', () => {
+  it('is enabled after call to enable().', (done) => {
+    fixture.detectChanges();
     component.lookup?.enable();
+    fixture.detectChanges();
+
     expect(el.hasAttribute('disabled')).toBeFalsy('disabled');
+
+    done();
   });
 
   it('is readonly after call to readonly().', () => {
