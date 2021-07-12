@@ -362,10 +362,16 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   /**
-   * Disables ths lookup control.
+   * Is the lookup control disabled?
    */
   @HostBinding('disabled')
   @Input() isDisabled: boolean | undefined = undefined;
+
+  /**
+   * Is the lookup control readonly?
+   */
+  @HostBinding('readonly')
+  @Input() isReadonly: boolean | undefined = undefined;
 
   /**
    * Local variables
@@ -469,6 +475,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   /** Enable the input. **/
   public enable(): void {
     this.isDisabled = false;
+    this.isReadonly = false;
     this.markForUpdate();
   }
 
@@ -480,16 +487,8 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
   /** Make the input readonly. **/
   public readonly(): void {
-    if (this.lookup) {
-      this.ngZone.runOutsideAngular(() => this.lookup?.readonly());
-    }
-  }
-
-  /** Input is disabled or not **/
-  public isReadonly(): boolean | undefined {
-    if (this.lookup) {
-      return this.ngZone.runOutsideAngular(() => this.lookup?.isReadonly());
-    }
+    this.isReadonly = true;
+    this.markForUpdate();
   }
 
   /**  Send in a new data set to display in the datagrid in the lookup. **/
