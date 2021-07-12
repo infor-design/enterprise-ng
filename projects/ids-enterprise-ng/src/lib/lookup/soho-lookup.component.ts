@@ -364,12 +364,14 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   /**
    * Is the lookup control disabled?
    */
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @HostBinding('disabled')
-  @Input() disabled: boolean | undefined = undefined;
+  @Input("disabled") _disabled: boolean | undefined = undefined;
 
   /**
    * Is the lookup control readonly?
    */
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @HostBinding('readonly')
   @Input('readonly') _readonly: boolean | undefined = undefined;
 
@@ -473,14 +475,14 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
   /** Enable the input. **/
   public enable(): void {
-    this.disabled = false;
+    this._disabled = false;
     this._readonly = false;
     this.markForUpdate();
   }
 
   /** Disable the input. **/
   public disable(): void {
-    this.disabled = true;
+    this._disabled = true;
     this.markForUpdate();
   }
 
@@ -587,7 +589,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
   setDisabledState(isDisabled: boolean | undefined): void {
     // Update the jQuery widget with the requested disabled state.
-    this.disabled = isDisabled;
+    this._disabled = isDisabled;
   }
 
   /**

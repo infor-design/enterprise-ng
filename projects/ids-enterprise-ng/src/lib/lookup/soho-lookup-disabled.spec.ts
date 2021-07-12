@@ -18,7 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   template: `
-    <input #disabledBound soho-lookup [disabled]="disabled">
+    <input #disabledBound soho-lookup [_disabled]="disabled">
 
     <input #attrDisabledBound soho-lookup [attr.disabled]="disabled ? '' : null">
 
