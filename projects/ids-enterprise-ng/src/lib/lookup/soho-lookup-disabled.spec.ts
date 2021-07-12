@@ -3,32 +3,22 @@ import {
   TestBed
 } from '@angular/core/testing';
 
-import { By } from '@angular/platform-browser';
-
 import {
   Component,
-  DebugElement,
-  EventEmitter,
-  Input,
   ViewChild,
   ElementRef
 } from '@angular/core';
 
 import {
-  FormsModule,
-  FormGroup,
   FormBuilder
 } from '@angular/forms';
 
 import { SohoLookupModule } from './soho-lookup.module';
-import { SohoLookupComponent } from './soho-lookup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   template: `
     <input #disabledBound soho-lookup [disabled]="disabled">
-
-    <input #isDisabledBound soho-lookup [isDisabled]="disabled">
 
     <input #attrDisabledBound soho-lookup [attr.disabled]="disabled ? '' : null">
 
@@ -80,16 +70,6 @@ describe('SohoLookupComponent disabled state', () => {
       await disableAll();
     });
 
-    it("should be disabled when [isDisabled] is true", async () => {
-      await disableAll();
-      expectDisabled(component.isDisabledBound)
-    });
-
-    it("should be enabled when [isDisabled] is false", async () => {
-      await enableAll();
-      expectEnabled(component.isDisabledBound)
-    });
-
     it("should be disabled when [disabled] is true", async () => {
       await disableAll();
       expectDisabled(component.disabledBound)
@@ -101,6 +81,8 @@ describe('SohoLookupComponent disabled state', () => {
     });
 
     it("should be disabled when [attr.disabled] is ''", async () => {
+      // @todo - the use of attr.disabled is an issue here, as the component holds the disabled state and does not
+      // extract this from the markup.
       await disableAll();
       expectDisabled(component.attrDisabledBound)
     });
@@ -124,16 +106,6 @@ describe('SohoLookupComponent disabled state', () => {
   describe("when initially enabled", () => {
     beforeEach(async () => {
       await enableAll();
-    });
-
-    it("should be disabled when [isDisabled] is true", async () => {
-      await disableAll();
-      expectDisabled(component.isDisabledBound)
-    });
-
-    it("should be enabled when [isDisabled] is false", async () => {
-      await enableAll();
-      expectEnabled(component.isDisabledBound)
     });
 
     it("should be disabled when [disabled] is true", async () => {
