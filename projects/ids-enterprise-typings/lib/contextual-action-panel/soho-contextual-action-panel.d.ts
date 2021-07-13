@@ -49,7 +49,7 @@ interface SohoContextualActionPanelOptions {
   centerTitle?: boolean;
 }
 
-interface SohoContextualActionPanelButton  {
+interface SohoContextualActionPanelButton {
   /** An optional identifier for the button. */
   id?: string;
 

@@ -9,6 +9,7 @@ import { SohoContextualActionPanelService, SohoContextualActionPanelRef } from '
 import { ContextualActionPanelComponent } from './contextual-action-panel.component';
 import { ContextualActionPanelSearchfieldComponent } from './contextual-action-panel-searchfield.component';
 import { ContextualActionPanelSearchfieldFlexComponent } from './contextual-action-panel-searchfield-flex.component';
+import { ContextualActionPanelVerticalTabsComponent } from './contextual-action-panel-tabs-vertical.component';
 import { NestedContextualActionPanelComponent } from './nested-contextualaction-panel.component';
 
 @Component({
@@ -37,7 +38,22 @@ export class ContextualActionPanelDemoComponent {
    *
    * @param panelService - the modal dialog service.
    */
-  constructor(private panelService: SohoContextualActionPanelService) {
+  constructor(
+    private panelService: SohoContextualActionPanelService,
+  ) {
+  }
+
+  tabsVertical() {
+    this.panelRef = (this.panelService as any).contextualactionpanel(ContextualActionPanelVerticalTabsComponent, this.placeholder)
+      .modalSettings({
+        fullsize: 'responsive',
+        title: 'CAP - Tabs Vertical',
+        trigger: 'immediate',
+        showCloseBtn: true,
+        breakpoint: 'wide-tablet'
+      })
+      .open()
+      .cssClass('tabs-modal page-container');
   }
 
   openPanel() {
