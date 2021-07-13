@@ -110,8 +110,8 @@ export class LookupDescDemoComponent implements AfterViewInit {
   onAfterpaging(e: any) {
     this.processing = true;
     e.lookup.grid.unSelectAllRows(true);
-    for (let i = 0; i < this.previouslySelectedRows.length; i++) {
-      e.lookup.selectRowByValue('id', this.previouslySelectedRows[i].data.id);
+    for (const selectedRow of this.previouslySelectedRows) {
+      e.lookup.selectRowByValue('id', selectedRow.data.id);
     }
 
     // If using the contextual toolbar
