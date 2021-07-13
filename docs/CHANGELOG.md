@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v10.32.0
+
+### 10.3.0 Fixes
+
+- `[General]` Placeholder remove me for the first issue. ([#1069](https://github.com/infor-design/enterprise-ng/issues/1069))
+
 ## v10.2.0
 
 ### 10.2.0 Fixes
