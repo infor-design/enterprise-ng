@@ -21,6 +21,18 @@
 
 - `[General]` Upgraded the project to use Angular 12. See the [Angular docs](https://blog.angular.io/angular-v12-is-now-available-32ed51fbfd49) for more info on NG 12 also see the [UPGRADING.md](https://github.com/infor-design/enterprise-ng/blob/main/docs/UPGRADING.md) for steps we took to update (pretty simple this time). Note that support for IE 11 is removed in NG 12.
 
+## v9.6.1
+
+### 9.6.1 Fixes
+
+- `[General]` Added EP version 4.52.1 final using NG 11.2.10.
+
+## v9.6.0
+
+### 9.6.0 Fixes
+
+- `[General]` Added EP version 4.52.0 final using NG 11.2.10.
+
 ## v9.5.3
 
 ### 9.5.3 Fixes
