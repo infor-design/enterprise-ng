@@ -166,6 +166,7 @@ import { LookupDemoComponent } from './lookup/lookup.demo';
 import { LookupDialogDemoComponent } from './lookup/lookup-dialog.demo';
 import { LookupLandmarkDemoComponent } from './lookup/lookup-landmark.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
+import { LookupDescDemoComponent } from './lookup/lookup-desc.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
@@ -402,6 +403,7 @@ import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-
     LookupDialogDemoComponent,
     LookupLandmarkDemoComponent,
     LookupValidationDemoComponent,
+    LookupDescDemoComponent,
     MaskDemoComponent,
     MenuButtonDemoComponent,
     MessageDemoComponent,

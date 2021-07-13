@@ -13,6 +13,7 @@
 ### 10.2.0 Features
 
 - `[Cards]` Added Angular Wrapper Component for the IDS Cards. ([#1036](https://github.com/infor-design/enterprise-ng/issues/1036)) `EA`
+- `[Lookup]` Added selected, afterpaging events and api setting to allow duplicate selected value to input element. ([#986](https://github.com/infor-design/enterprise-ng/issues/986))
 - `[Monthview]` Added Angular Wrapper Component for the IDS MonthView. ([#1051](https://github.com/infor-design/enterprise-ng/issues/1051)) `EA`
 
 ## v10.1.1
