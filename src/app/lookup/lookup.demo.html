@@ -325,22 +325,21 @@
                  field="productId"
                  title="Products"
                  name="toggle-isdisabled" />
-        </div>
+                 <br><br><button soho-button (click)="isDisabled = !isDisabled">{{ isDisabled ? 'Enable' : 'Disable'}}</button>
+       </div>
         <div class="field">
           <label soho-label for="toggle-isreadonly">Toggle isReadonly</label>
           <input soho-lookup
                  [readonly]="isReadonly"
-                 [(ngModel)]="model.single"
+                 [(ngModel)]="model.singleR"
                  [columns]="columns_product"
                  [dataset]="data_product"
                  field="productId"
                  title="Products"
                  name="toggle-isreadonly" />
-        </div>
-        <button soho-button (click)="isDisabled = !isDisabled">{{ isDisabled ? 'Enable' : 'Disable'}}</button>
-        <button soho-button (click)="isReadonly = !isReadonly">{{ isReadonly ? 'Readonly' : 'ReadWrite'}}</button>
-        <button soho-button (click)="toggleDisabled($event)">Toggle Disabled (Method)</button>
-      </div>
+                 <br><br><button soho-button (click)="isReadonly = !isReadonly">{{ isReadonly ? 'Enable' : 'Readonly'}}</button>
+          </div>
+     </div>
     </div>
   </div>
 </form>
