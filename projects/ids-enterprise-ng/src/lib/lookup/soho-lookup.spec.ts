@@ -7,7 +7,7 @@ import { By } from '@angular/platform-browser';
 
 import {
   Component,
-  DebugElement,
+  DebugElement, ElementRef,
   EventEmitter,
   Input,
   ViewChild
@@ -243,13 +243,19 @@ describe('SohoLookupComponent on ReactiveForm', () => {
     expect(el.hasAttribute('disabled')).toBeTruthy('disabled');
   });
 
-  it('is enabled after call to enable().', () => {
+  it('is enabled after call to enable().', (done) => {
+    fixture.detectChanges();
     component.lookup?.enable();
+    fixture.detectChanges();
+
     expect(el.hasAttribute('disabled')).toBeFalsy('disabled');
+
+    done();
   });
 
-  it('is readonly after call to readonly().', () => {
-    component.lookup?.readonly();
+  it('is readonly after call to readonly().', async () => {
+    await component.lookup?.readonly();
+    fixture.detectChanges();
     expect(el.hasAttribute('readonly')).toBeTruthy('readonly');
   });
 
@@ -283,9 +289,8 @@ describe('SohoLookupComponent on ReactiveForm', () => {
   });
 
   // todo this.lookup.grid is undefined during this test. See lookup @Input dataset for details.
-  it('control data updates when new data is set', () => {
-    component.formGroup.enable();
-    fixture.detectChanges();
+  it('control data updates when new data is set', async () => {
+    await component.formGroup.enable();
 
     expect(component.lookup).toBeDefined('is not defined');
     expect((component.lookup as any).lookup).toBeDefined('lookup is not defined');
