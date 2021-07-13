@@ -364,9 +364,30 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   /**
    * Is the lookup control disabled?
    */
-  // eslint-disable-next-line @angular-eslint/no-input-rename
   @HostBinding('disabled')
-  @Input("disabled") _disabled: boolean | undefined = undefined;
+  private _disabled: boolean | undefined = undefined;
+
+  /**
+   * Accessor for _disabled.
+   */
+  public get isDisabled() {
+    return this._disabled;
+  }
+
+  // eslint-disable-next-line @angular-eslint/no-input-rename
+  @Input("disabled")
+  public set isDisabled(disabled: boolean | undefined) {
+    if (this._disabled !== disabled) {
+      this._disabled = disabled;
+
+      // Ensure the widget is updated.
+      if (this._disabled) {
+        this.ngZone.runOutsideAngular(() => this.lookup?.disable());
+      } else {
+        this.ngZone.runOutsideAngular(() => this.lookup?.enable());
+      }
+    }
+  }
 
   /**
    * Add class binding.
@@ -486,18 +507,21 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   public enable(): void {
     this._disabled = false;
     this._readonly = false;
+    this.ngZone.runOutsideAngular(() => this.lookup?.enable());
     this.markForUpdate();
   }
 
   /** Disable the input. **/
   public disable(): void {
     this._disabled = true;
+    this.ngZone.runOutsideAngular(() => this.lookup?.disable());
     this.markForUpdate();
   }
 
   /** Make the input readonly. **/
   public readonly(): void {
     this._readonly = true;
+    this.ngZone.runOutsideAngular(() => this.lookup?.readonly());
     this.markForUpdate();
   }
 
@@ -598,7 +622,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
   setDisabledState(isDisabled: boolean | undefined): void {
     // Update the jQuery widget with the requested disabled state.
-    this._disabled = isDisabled;
+    this.isDisabled = isDisabled;
   }
 
   /**
