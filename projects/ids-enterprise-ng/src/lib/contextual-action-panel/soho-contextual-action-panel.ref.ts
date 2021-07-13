@@ -26,6 +26,9 @@ export class SohoContextualActionPanelRef<T> {
   /** Event fired when the panel is closed. */
   private close$: Subject<any> = new Subject();
 
+  /** Event fired before closing the panel */
+  private beforeClose$: Subject<any> = new Subject();
+
   /** Event fired after closing the panel. */
   private afterClose$: Subject<any> = new Subject();
 
@@ -69,6 +72,8 @@ export class SohoContextualActionPanelRef<T> {
     initializeContent: true, // initialize content before opening
     title: 'Contextual Action Panel',
     modalSettings: {
+      title: undefined,
+      buttons: [],
       centerTitle: false,
       showCloseBtn: false,
       trigger: 'immediate',
@@ -309,6 +314,9 @@ export class SohoContextualActionPanelRef<T> {
     (this.contextualactionpanel as any).panel?.on('afteropen.contextualactionpanel', ((event: any) => {
       this.onAfterOpen(event);
     }));
+    (this.contextualactionpanel as any).panel?.on('beforeclose.contextualactionpanel', ((event: any) => {
+      this.onBeforeClose(event);
+    }));
 
     return this;
   }
@@ -356,6 +364,19 @@ export class SohoContextualActionPanelRef<T> {
    */
   afterOpen(eventFn: Function): SohoContextualActionPanelRef<T> | null {
     this.afterOpen$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => {
+      eventFn(f, this);
+    });
+    return this;
+  }
+
+  /**
+   * Before Closed Event.
+   * This event is fired before closing the panel.
+   * 
+   * @param eventFn - the function to invoke when the panel before closing.
+   */
+  beforeClose(eventFn: Function): SohoContextualActionPanelRef<T> | null {
+    this.beforeClose$.pipe(takeUntil(this.destroyed$)).subscribe((f: any) => {
       eventFn(f, this);
     });
     return this;
@@ -457,6 +478,15 @@ export class SohoContextualActionPanelRef<T> {
       this.destroyed$.complete();
     });
 
+  }
+
+  /**
+   * Handles the 'beforeclose' event.
+   * 
+   * @param event - full event object.
+   */
+  private onBeforeClose(event: any) {
+    this.beforeClose$.next(event);
   }
 }
 /**

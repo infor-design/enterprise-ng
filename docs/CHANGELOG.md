@@ -4,6 +4,7 @@
 
 ### 10.2.0 Fixes
 
+- `[ContextualActionPanel]` Fixed missing title prop in modalSettings, and `beforeclose` event emit. ([#1048](https://github.com/infor-design/enterprise-ng/issues/1048)) `EA`
 - `[Lookup]` Fixed disable/readonly attribute support. ([#1069](https://github.com/infor-design/enterprise-ng/issues/1069))
 - `[Multiselect]` Added an example showing automation id attributes on options in multiselect. ([#1005](https://github.com/infor-design/enterprise-ng/issues/1005))
 - `[SohoMessageService]` Removed `undefined` return type from messages method. ([#1061](https://github.com/infor-design/enterprise-ng/issues/1061))
