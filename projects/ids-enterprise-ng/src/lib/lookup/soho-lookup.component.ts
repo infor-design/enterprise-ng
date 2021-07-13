@@ -322,6 +322,18 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     return this.settings.tabbable;
   }
 
+  /**  Set the input to allow duplicates */
+  @Input() public set allowDuplicates(allowDuplicates: boolean | undefined) {
+    this.settings.allowDuplicates = allowDuplicates;
+    if (this.lookup) {
+      this.lookup.settings.allowDuplicates = this.settings.allowDuplicates;
+      this.markForUpdate();
+    }
+  }
+  public get allowDuplicates(): boolean | undefined {
+    return this.settings.allowDuplicates;
+  }
+
   @Input() multiselect = false;
 
   @Input() name?: string;
@@ -353,6 +365,12 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
   // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() close: EventEmitter<Object> = new EventEmitter<Object>();
+
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
+  @Output() selected: EventEmitter<Object> = new EventEmitter<Object>();
+
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
+  @Output() afterpaging: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**
    * Bind attributes to the host input element
@@ -477,6 +495,8 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       this.jQueryElement.on('complete', () => this.ngZone.run(() => this.complete.emit(undefined)));
       this.jQueryElement.on('input', () => this.ngZone.run(() => this.inputEvt.emit(undefined)));
       this.jQueryElement.on('close', () => this.ngZone.run(() => this.close.emit(undefined)));
+      this.jQueryElement.on('selected', (_e: any, selectedRows: any, op: any, rowData: any) => this.ngZone.run(() => this.selected.emit({ selectedRows, op, rowData })));
+      this.jQueryElement.on('afterpaging', (_e: any, pagingInfo: any, lookup: any) => this.ngZone.run(() => this.afterpaging.emit({ pagingInfo, lookup })));
 
       this.lookup = this.jQueryElement.data('lookup');
 

@@ -76,6 +76,9 @@ interface SohoLookupOptions {
 
   /** Set the input to tabbabe */
   tabbable?: boolean;
+
+  /** Set the input to allow duplicates */
+  allowDuplicates?: boolean;
 }
 
 /** Selection criteria. */
