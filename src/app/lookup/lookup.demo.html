@@ -316,17 +316,6 @@
           />
         </div>
         <div class="field">
-          <label soho-label for="readonly">Readonly [attr.readonly]</label>
-          <input soho-lookup
-                 [attr.readonly]="isReadonly"
-                 [(ngModel)]="model.single"
-                 [columns]="columns_product"
-                 [dataset]="data_product"
-                 field="productId"
-                 title="Products"
-                 name="readonly" />
-        </div>
-        <div class="field">
           <label soho-label for="toggle-isdisabled">Toggle isDisabled</label>
           <input soho-lookup
                  [disabled]="isDisabled"

@@ -294,7 +294,7 @@ export class LookupDemoComponent implements OnInit {
   toggleDisabled(event: any) {
     console.log('lookup.toggleDisabled', event);
     const exampleComp = this.sohoLookupComponent;
-    if (exampleComp?.isDisabled) {
+    if (this.isDisabled) {
       this.sohoLookupComponent?.enable();
     } else {
       this.sohoLookupComponent?.disable();
