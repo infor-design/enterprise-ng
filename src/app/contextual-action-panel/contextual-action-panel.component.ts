@@ -79,7 +79,7 @@ export class ContextualActionPanelComponent {
     this.panelService
       // @ts-ignore
       .contextualactionpanel(NestedContextualActionPanelComponent, (this.placeholder as any))
-      .modalSettings({ buttons, title: 'Nested CAP' })
+      .modalSettings({ buttons, title: 'Nested CAP using modalSettings' })
       .open()
       .initializeContent(true);
   }
