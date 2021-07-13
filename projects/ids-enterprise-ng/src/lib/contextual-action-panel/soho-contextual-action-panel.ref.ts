@@ -111,6 +111,20 @@ export class SohoContextualActionPanelRef<T> {
     return this;
   }
 
+  /**
+   * Ability to add class(es) to the parent CAP element.
+   *
+   * @param cssClass - the class(es) value to add in CAP element.
+   */
+  cssClass(cssClass: string) {
+    if (this.contextualactionpanel && this.open()) {
+      this.ngZone.runOutsideAngular(() => {
+        const cap = jQuery('div.contextual-action-panel.modal');
+        cap.addClass(`${cssClass}`);
+      });
+    }
+  }
+
   /** Add extra attributes like id's to the component **/
   attributes(attributes: Array<Object> | Object): SohoContextualActionPanelRef<T> {
     this._options.attributes = $.extend(true, this._options.attributes, attributes);
