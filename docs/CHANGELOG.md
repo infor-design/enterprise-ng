@@ -5,6 +5,7 @@
 ### 10.2.0 Fixes
 
 - `[ContextualActionPanel]` Fixed missing title prop in modalSettings, and `beforeclose` event emit. ([#1048](https://github.com/infor-design/enterprise-ng/issues/1048)) `EA`
+- `[Lookup]` Fixed disable/readonly attribute support. ([#1069](https://github.com/infor-design/enterprise-ng/issues/1069))
 - `[Multiselect]` Added an example showing automation id attributes on options in multiselect. ([#1005](https://github.com/infor-design/enterprise-ng/issues/1005))
 - `[SohoMessageService]` Removed `undefined` return type from messages method. ([#1061](https://github.com/infor-design/enterprise-ng/issues/1061))
 - `[SohoDatePicker]` Fixed datepicker format when assigned via angular form control. ([#1072](https://github.com/infor-design/enterprise-ng/issues/1072))
@@ -19,6 +20,18 @@
 ### 10.1.0 Fixes
 
 - `[General]` Upgraded the project to use Angular 12. See the [Angular docs](https://blog.angular.io/angular-v12-is-now-available-32ed51fbfd49) for more info on NG 12 also see the [UPGRADING.md](https://github.com/infor-design/enterprise-ng/blob/main/docs/UPGRADING.md) for steps we took to update (pretty simple this time). Note that support for IE 11 is removed in NG 12.
+
+## v9.6.1
+
+### 9.6.1 Fixes
+
+- `[General]` Added EP version 4.52.1 final using NG 11.2.10.
+
+## v9.6.0
+
+### 9.6.0 Fixes
+
+- `[General]` Added EP version 4.52.0 final using NG 11.2.10.
 
 ## v9.5.3
 

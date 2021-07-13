@@ -10,8 +10,8 @@
       ],
       "parserOptions": {
         "project": [
-          "projects/ids-enterprise-ng/tsconfig.lib.json",
-          "projects/ids-enterprise-ng/tsconfig.spec.json"
+          "../../projects/ids-enterprise-ng/tsconfig.lib.json",
+          "../../projects/ids-enterprise-ng/tsconfig.spec.json"
         ],
         "createDefaultProgram": true
       },
