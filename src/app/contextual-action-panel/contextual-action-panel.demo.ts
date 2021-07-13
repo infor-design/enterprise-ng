@@ -31,7 +31,7 @@ export class ContextualActionPanelDemoComponent {
    */
   public panelRef?: SohoContextualActionPanelRef<any> | null;
   public closeResult?: string;
-  public title = 'Contextual Action Panel';
+  public title = 'Title using modalSettings title';
 
   /**
    * Constructor.
@@ -93,6 +93,9 @@ export class ContextualActionPanelDemoComponent {
       })
       .afterOpen(() => {
         console.log('After Open Fires');
+      })
+      .beforeClose(() => {
+        console.log('Before close fires');
       })
       .closed(() => {
         console.log('Closed Fires');

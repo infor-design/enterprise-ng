@@ -4,6 +4,7 @@
 
 ### 10.2.0 Fixes
 
+- `[ContextualActionPanel]` Fixed missing title prop in modalSettings, and `beforeclose` event emit. ([#1048](https://github.com/infor-design/enterprise-ng/issues/1048)) `EA`
 - `[Multiselect]` Added an example showing automation id attributes on options in multiselect. ([#1005](https://github.com/infor-design/enterprise-ng/issues/1005))
 - `[SohoMessageService]` Removed `undefined` return type from messages method. ([#1061](https://github.com/infor-design/enterprise-ng/issues/1061))
 - `[SohoDatePicker]` Fixed datepicker format when assigned via angular form control. ([#1072](https://github.com/infor-design/enterprise-ng/issues/1072))
