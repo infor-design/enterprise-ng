@@ -16,7 +16,7 @@ import {
 import {
   BaseControlValueAccessor,
   provideControlValueAccessor
-} from '../utils/base-control-value-accessor';
+} from '../utils';
 
 @Component({
   selector: 'input[soho-lookup]', // eslint-disable-line
@@ -53,8 +53,8 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     }
 
     this._dataset = data;
-    if (data && this.jQueryElement && this.lookup?.settings) {
-      (this.lookup as any).settings.options.dataset = data;
+    if (data && this.jQueryElement && this.lookup?.settings?.options) {
+      this.lookup.settings.options.dataset = data;
       this.markForUpdate();
     }
   }
@@ -322,6 +322,18 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     return this.settings.tabbable;
   }
 
+  /**  Set the input to allow duplicates */
+  @Input() public set allowDuplicates(allowDuplicates: boolean | undefined) {
+    this.settings.allowDuplicates = allowDuplicates;
+    if (this.lookup) {
+      this.lookup.settings.allowDuplicates = this.settings.allowDuplicates;
+      this.markForUpdate();
+    }
+  }
+  public get allowDuplicates(): boolean | undefined {
+    return this.settings.allowDuplicates;
+  }
+
   @Input() multiselect = false;
 
   @Input() name?: string;
@@ -354,6 +366,12 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
   @Output() close: EventEmitter<Object> = new EventEmitter<Object>();
 
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
+  @Output() selected: EventEmitter<Object> = new EventEmitter<Object>();
+
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
+  @Output() afterpaging: EventEmitter<Object> = new EventEmitter<Object>();
+
   /**
    * Bind attributes to the host input element
    */
@@ -361,18 +379,59 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     return true;
   }
 
-  @HostBinding('attr.disabled') get isDisabledAttr() {
-    return this.isDisabled || undefined;
+  /**
+   * Is the lookup control disabled?
+   */
+  @HostBinding('disabled')
+  private _disabled: boolean | undefined = undefined;
+
+  /**
+   * Accessor for _disabled.
+   */
+  public get isDisabled() {
+    return this._disabled;
   }
 
-  @Input() isDisabled: boolean | undefined = undefined;
+  // eslint-disable-next-line @angular-eslint/no-input-rename
+  @Input("disabled")
+  public set isDisabled(disabled: boolean | undefined) {
+    if (this._disabled !== disabled) {
+      this._disabled = disabled;
 
+      // Ensure the widget is updated.
+      if (this._disabled) {
+        this.ngZone.runOutsideAngular(() => this.lookup?.disable());
+      } else {
+        this.ngZone.runOutsideAngular(() => this.lookup?.enable());
+      }
+    }
+  }
+
+  /**
+   * Add class binding.
+   */
+  @HostBinding('class.is-disabled')
+  public get disabledClass() {
+    return this._disabled;
+  }
+
+  /**
+   * Is the lookup control readonly?
+   */
+  // eslint-disable-next-line @angular-eslint/no-input-rename
+  @HostBinding('readonly')
+  @Input('readonly') _readonly: boolean | undefined = undefined;
 
   /**
    * Local variables
    */
   private jQueryElement?: JQuery;
 
+  /**
+   * Soho Lookup widget.
+   *
+   * @private
+   */
   private lookup?: SohoLookupStatic | null;
 
   private settings: SohoLookupOptions = {};
@@ -380,6 +439,12 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   /** Initial dataset */
   private _dataset?: Object[];
 
+  /**
+   * Constructor.
+   *
+   * @param element associated element
+   * @param ngZone angular zone
+   */
   constructor(private element: ElementRef, private ngZone: NgZone) {
     super();
   }
@@ -430,9 +495,12 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       this.jQueryElement.on('complete', () => this.ngZone.run(() => this.complete.emit(undefined)));
       this.jQueryElement.on('input', () => this.ngZone.run(() => this.inputEvt.emit(undefined)));
       this.jQueryElement.on('close', () => this.ngZone.run(() => this.close.emit(undefined)));
+      this.jQueryElement.on('selected', (_e: any, selectedRows: any, op: any, rowData: any) => this.ngZone.run(() => this.selected.emit({ selectedRows, op, rowData })));
+      this.jQueryElement.on('afterpaging', (_e: any, pagingInfo: any, lookup: any) => this.ngZone.run(() => this.afterpaging.emit({ pagingInfo, lookup })));
 
       this.lookup = this.jQueryElement.data('lookup');
 
+      // Pick up the internal value from the form control.
       if (this.internalValue) {
         this.lookup?.element.val(this.internalValue);
       }
@@ -457,30 +525,24 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
   /** Enable the input. **/
   public enable(): void {
-    if (this.lookup) {
-      this.ngZone.runOutsideAngular(() => this.lookup?.enable());
-    }
+    this._disabled = false;
+    this._readonly = false;
+    this.ngZone.runOutsideAngular(() => this.lookup?.enable());
+    this.markForUpdate();
   }
 
   /** Disable the input. **/
   public disable(): void {
-    if (this.lookup) {
-      this.ngZone.runOutsideAngular(() => this.lookup?.disable());
-    }
+    this._disabled = true;
+    this.ngZone.runOutsideAngular(() => this.lookup?.disable());
+    this.markForUpdate();
   }
 
   /** Make the input readonly. **/
   public readonly(): void {
-    if (this.lookup) {
-      this.ngZone.runOutsideAngular(() => this.lookup?.readonly());
-    }
-  }
-
-  /** Input is disabled or not **/
-  public isReadonly(): boolean | undefined {
-    if (this.lookup) {
-      return this.ngZone.runOutsideAngular(() => (this.lookup as any).isReadonly());
-    }
+    this._readonly = true;
+    this.ngZone.runOutsideAngular(() => this.lookup?.readonly());
+    this.markForUpdate();
   }
 
   /**  Send in a new data set to display in the datagrid in the lookup. **/
@@ -533,7 +595,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   isMultiselect(): boolean | undefined {
-    return this.multiselect !== false || (this.options && this.options.selectable === 'multiple');
+    return this.multiselect || (this.options && this.options.selectable === 'multiple');
   }
 
   modalOpened(args: any[]) {
@@ -580,7 +642,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
   setDisabledState(isDisabled: boolean | undefined): void {
     // Update the jQuery widget with the requested disabled state.
-    this.isDisabled = isDisabled ? true : undefined;
+    this.isDisabled = isDisabled;
   }
 
   /**
@@ -591,7 +653,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    * @todo raise SOHO jira issue
    */
   processValue(value: Object | Object[]): string {
-    if (!value) {
+    if (!value || !this.lookup) {
       return '';
     }
     let val = '';
@@ -606,7 +668,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
       if (typeof toProcess[i] === 'object') {
         if (typeof this.settings.field === 'function') {
-          current = (this.settings.field as SohoLookupFieldFunction)(toProcess[i], (this.lookup as any).element, (this.lookup as any).grid);
+          current = (this.settings.field as SohoLookupFieldFunction)(toProcess[i], this.lookup.element, this.lookup.grid);
         } else {
           current = (toProcess[i] as any)[this.settings.field as string];
         }
@@ -667,9 +729,9 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     }
 
     if (event.length && event.length === 1 && !this.isMultiselect()) {
-      this.internalValue = this.asobject !== false ? event[0].data : this.processValue(event[0].data);
+      this.internalValue = this.asobject ? event[0].data : this.processValue(event[0].data);
     } else {
-      this.internalValue = event.map(val => this.asobject !== false ? val.data : this.processValue(val.data));
+      this.internalValue = event.map(val => this.asobject ? val.data : this.processValue(val.data));
     }
   }
 

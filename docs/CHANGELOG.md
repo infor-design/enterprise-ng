@@ -1,10 +1,17 @@
 # What's New with Enterprise-NG
 
+## v10.32.0
+
+### 10.3.0 Fixes
+
+- `[General]` Placeholder remove me for the first issue. ([#1069](https://github.com/infor-design/enterprise-ng/issues/1069))
+
 ## v10.2.0
 
 ### 10.2.0 Fixes
 
 - `[ContextualActionPanel]` Fixed missing title prop in modalSettings, and `beforeclose` event emit. ([#1048](https://github.com/infor-design/enterprise-ng/issues/1048)) `EA`
+- `[Lookup]` Fixed disable/readonly attribute support. ([#1069](https://github.com/infor-design/enterprise-ng/issues/1069))
 - `[Multiselect]` Added an example showing automation id attributes on options in multiselect. ([#1005](https://github.com/infor-design/enterprise-ng/issues/1005))
 - `[SohoMessageService]` Removed `undefined` return type from messages method. ([#1061](https://github.com/infor-design/enterprise-ng/issues/1061))
 - `[SohoDatePicker]` Fixed datepicker format when assigned via angular form control. ([#1072](https://github.com/infor-design/enterprise-ng/issues/1072))
@@ -13,13 +20,32 @@
 
 - `[Cards]` Added Angular Wrapper Component for the IDS Cards. ([#1036](https://github.com/infor-design/enterprise-ng/issues/1036)) `EA`
 - `[ContextualActionPanel]` Added example of vertical tabs inside of Contextual Action Panel. ([#1065](https://github.com/infor-design/enterprise-ng/issues/1065)) `EA`
+- `[Lookup]` Added selected, afterpaging events and api setting to allow duplicate selected value to input element. ([#986](https://github.com/infor-design/enterprise-ng/issues/986))
 - `[Monthview]` Added Angular Wrapper Component for the IDS MonthView. ([#1051](https://github.com/infor-design/enterprise-ng/issues/1051)) `EA`
+
+## v10.1.1
+
+### 10.1.1 Fixes
+
+- `[General]` Added EP version 4.52.2 final using NG 12
 
 ## v10.1.0
 
 ### 10.1.0 Fixes
 
 - `[General]` Upgraded the project to use Angular 12. See the [Angular docs](https://blog.angular.io/angular-v12-is-now-available-32ed51fbfd49) for more info on NG 12 also see the [UPGRADING.md](https://github.com/infor-design/enterprise-ng/blob/main/docs/UPGRADING.md) for steps we took to update (pretty simple this time). Note that support for IE 11 is removed in NG 12.
+
+## v9.6.1
+
+### 9.6.1 Fixes
+
+- `[General]` Added EP version 4.52.1 final using NG 11.2.10.
+
+## v9.6.0
+
+### 9.6.0 Fixes
+
+- `[General]` Added EP version 4.52.0 final using NG 11.2.10.
 
 ## v9.5.3
 

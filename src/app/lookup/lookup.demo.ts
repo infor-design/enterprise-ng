@@ -26,7 +26,8 @@ export class LookupDemoComponent implements OnInit {
   @ViewChild('templateId', { static: true }) sohoLookupComponent?: SohoLookupComponent;
   @ViewChild('toggleButtons', { static: true }) sohoLookupRef?: SohoLookupComponent;
 
-  public isDisabled = false;
+  public isDisabled = true;
+  public isReadonly = true;
   public columns_product?: SohoDataGridColumn[];
   public columns_multi?: SohoDataGridColumn[];
   public entityIds?: string;
@@ -58,6 +59,7 @@ export class LookupDemoComponent implements OnInit {
   ];
   public model: any = {
     single: null,
+    singleR: null,
     singleexists: '1212121',
     singleobject: null,
     singleobjectexists: {
@@ -254,7 +256,6 @@ export class LookupDemoComponent implements OnInit {
     // api.settings.options.dataset = data[0].dataset;
     // 5. And the response which will open the dialog
     this.toastService.show({ title: 'Lookup Test', message: 'By Rule You Cant Open Me' });
-
     response(false);
   }
 

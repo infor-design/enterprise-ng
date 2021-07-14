@@ -42,7 +42,7 @@ For proper tree shaking you may need:
 
 See <https://angular.io/guide/creating-libraries>, and search for Transitioning libraries to partial-Ivy format.
 
-Also on Mac OS i had to run this in the command line as the new NG 12 builds are more intensive.
+Also on Mac OS I had to run this in the command line as the new NG 12 builds are more intensive.
 
 ```sh
 # For angular 12 to build
@@ -57,7 +57,7 @@ When updating (and depending on your dependencies) the update *may* not complete
 npm i typescript@<version>
 ```
 
-### Install typings as a seperate package
+### Install typings as a separate package
 
 The typings should be install automatically, as they are a dependency of ids-enterprise-ng, if they are not you can install them explicitly as follows:
 

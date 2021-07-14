@@ -125,6 +125,7 @@ import { ListViewCustomContentDemoComponent } from './listview/listview.custom-c
 import { LookupDemoComponent } from './lookup/lookup.demo';
 import { LookupLandmarkDemoComponent } from './lookup/lookup-landmark.demo';
 import { LookupValidationDemoComponent } from './lookup/lookup-validation.demo';
+import { LookupDescDemoComponent } from './lookup/lookup-desc.demo';
 import { MaskDemoComponent } from './mask/mask.demo';
 import { MenuButtonDemoComponent } from './menu-button/menu-button.demo';
 import { MessageDemoComponent } from './message/message.demo';
@@ -340,6 +341,7 @@ export const routes: Routes = [
   { path: 'lookup', component: LookupDemoComponent },
   { path: 'lookup-landmark', component: LookupLandmarkDemoComponent },
   { path: 'lookup-validation', component: LookupValidationDemoComponent },
+  { path: 'lookup-desc', component: LookupDescDemoComponent },
   { path: 'mask', component: MaskDemoComponent },
   { path: 'menu-button', component: MenuButtonDemoComponent },
   { path: 'message', component: MessageDemoComponent },
