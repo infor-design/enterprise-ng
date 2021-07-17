@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
+import { Component, AfterViewInit, ViewChildren, QueryList, ViewChild } from '@angular/core';
 import { appInstanceColumns, appInstanceData } from './mock.data';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { SohoLookupComponent } from 'ids-enterprise-ng';
@@ -14,14 +14,14 @@ export interface FakeResponse {
   templateUrl: 'lookup-desc.demo.html',
 })
 export class LookupDescDemoComponent implements AfterViewInit {
+  @ViewChild(SohoLookupComponent) sohoLookupComponent?: SohoLookupComponent;
+
   public columns_desc?: SohoDataGridColumn[];
   public data_appInstance?: any[];
   public model: any = { desc: null };
   public context = this;
   public form: FormGroup;
   private formGroup: { [key: string]: any } = {};
-  public previouslySelectedRows: any[] = [];
-  public processing = false;
 
   constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group(this.formGroup);
@@ -99,27 +99,10 @@ export class LookupDescDemoComponent implements AfterViewInit {
     });
   }
 
-  onSelected(e: any) {
-    if (this.processing) {
-      return;
-    }
-    this.previouslySelectedRows = e.selectedRows?.slice();
-    console.log('selected', this.previouslySelectedRows);
-  }
+  showSelected() {
+    const selectedRows = this;
+    // const selectedRows = this.sohoLookupComponent.selectedRows();
 
-  onAfterpaging(e: any) {
-    this.processing = true;
-    e.lookup.grid.unSelectAllRows(true);
-    for (const selectedRow of this.previouslySelectedRows) {
-      e.lookup.selectRowByValue('id', selectedRow.data.id);
-    }
-
-    // If using the contextual toolbar
-    if (e.lookup.grid.contextualToolbar) {
-      e.lookup.grid.syncSelectedUI();
-      e.lookup.grid.contextualToolbar.find('.selection-count').text(`${this.previouslySelectedRows.length} ${Soho.Locale.translate('Selected')}`);
-    }
-    e.lookup.isChanged = false;
-    this.processing = false;
+    console.log('Selected:', selectedRows);
   }
 }

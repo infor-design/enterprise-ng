@@ -523,6 +523,26 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
+  /**
+   * Returns the rows currently selected.
+   * @returns {array} Selected rows
+   */
+  public selectedRows(): any[] {
+    return this.ngZone.runOutsideAngular(() => {
+      return (this.lookup as any).getSelectedRows();
+    });
+  }
+
+  // /**
+  //  * Returns the rows currently selected.
+  //  * @returns {array} Selected rows
+  //  */
+  // public selectedRows(): SohoLookupSelectedRow[] {
+  //   return this.ngZone.runOutsideAngular(() => {
+  //     return (this.lookup as any).getSelectedRows();
+  //   });
+  // }
+
   /** Enable the input. **/
   public enable(): void {
     this._disabled = false;

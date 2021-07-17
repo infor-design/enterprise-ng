@@ -143,6 +143,10 @@ interface SohoLookupStatic {
   /** Get the selected rows and return them to the UI **/
   insertRows(): void;
 
+  /** Get currently selected rows **/
+  selectedRows(): any[];
+  // selectedRows(): SohoLookupSelectedRow[];
+
   /** Enable the input. **/
   enable(): void;
 
@@ -213,4 +217,14 @@ interface JQueryStatic {
 
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   lookup(options?: SohoLookupOptions): JQuery;
+}
+
+interface SohoLookupSelectedRow {
+  idx: number;
+  page: number;
+  pagesize: number;
+  pagingIdx: number;
+  uniqueRowID: string;
+  data: any;
+  elem: HTMLElement;
 }
