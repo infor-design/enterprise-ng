@@ -4,7 +4,7 @@
 
 ### 10.3.0 Fixes
 
-- `[General]` Placeholder remove me for the first issue. ([#1069](https://github.com/infor-design/enterprise-ng/issues/1069))
+- `[Datagrid]` The `getColumnIndex` function did not exist, so changed it to the working `columnIdxById` which does the same.
 
 ## v10.2.0
 
