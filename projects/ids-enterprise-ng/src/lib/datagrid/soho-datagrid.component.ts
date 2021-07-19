@@ -1472,8 +1472,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     return (this.datagrid as any).settings.columnGroups;
   }
 
-  getColumnIndex(columnId: string): number {
-    return (this.datagrid as any).getColumnIndex(columnId);
+  /** Get the column index from the col's id */
+  columnIdxById(columnId: string): number {
+    return (this.datagrid as any).columnIdxById(columnId);
   }
 
   getHeaderRowColumn(fld: any) {
