@@ -29,7 +29,7 @@ export class LookupDescDemoComponent implements AfterViewInit {
     this.setupAppInstance();
   }
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() { }
 
   requestData(filter?: string, page?: number, pagesize?: number): Promise<FakeResponse> {
     // This acts as a fake response from the server, therefore all computations
@@ -100,8 +100,7 @@ export class LookupDescDemoComponent implements AfterViewInit {
   }
 
   showSelected() {
-    const selectedRows = this;
-    // const selectedRows = this.sohoLookupComponent.selectedRows();
+    const selectedRows = this.sohoLookupComponent?.selectedRows();
 
     console.log('Selected:', selectedRows);
   }
