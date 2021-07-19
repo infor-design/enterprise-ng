@@ -1079,7 +1079,8 @@ interface SohoDataGridStatic {
 
   columnById(id: string): Array<any>;
 
-  getColumnIndex(columnId: string): number;
+  /** Get the column index from the col's id */
+  columnIdxById(columnId: string): number;
 
   getHeaderRowColumn(fld: any): any;
 
