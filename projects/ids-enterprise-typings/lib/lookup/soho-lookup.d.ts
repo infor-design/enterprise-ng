@@ -217,13 +217,3 @@ interface JQueryStatic {
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   lookup(options?: SohoLookupOptions): JQuery;
 }
-
-interface SohoLookupSelectedRow {
-  idx: number;
-  page: number;
-  pagesize: number;
-  pagingIdx: number;
-  uniqueRowID: string;
-  data: any;
-  elem: HTMLElement;
-}

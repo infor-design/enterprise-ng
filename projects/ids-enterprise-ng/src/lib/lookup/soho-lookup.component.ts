@@ -495,7 +495,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       this.jQueryElement.on('complete', () => this.ngZone.run(() => this.complete.emit(undefined)));
       this.jQueryElement.on('input', () => this.ngZone.run(() => this.inputEvt.emit(undefined)));
       this.jQueryElement.on('close', () => this.ngZone.run(() => this.close.emit(undefined)));
-      this.jQueryElement.on('selected', (_e: any, selectedRows: any, op: any, rowData: any) => this.ngZone.run(() => this.selected.emit({ selectedRows, op, rowData })));
+      this.jQueryElement.on('selected', (_e: any, selectedRows: any, op: any, rowData: any, lookup: any) => this.ngZone.run(() => this.selected.emit({ selectedRows, op, rowData, lookup })));
       this.jQueryElement.on('afterpaging', (_e: any, pagingInfo: any, lookup: any) => this.ngZone.run(() => this.afterpaging.emit({ pagingInfo, lookup })));
 
       this.lookup = this.jQueryElement.data('lookup');
@@ -523,9 +523,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
     }
   }
 
-  /**
-   * Returns the rows currently selected.
-   */
+  /** Returns the rows currently selected **/
   public selectedRows(): any[] {
     return this.ngZone.runOutsideAngular(() => {
       return (this.lookup as any).selectedRows || [];
