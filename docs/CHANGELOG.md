@@ -1,5 +1,12 @@
 # What's New with Enterprise-NG
 
+## v10.32.0
+
+### 10.3.0 Fixes
+
+- `[Datagrid]` The `getColumnIndex` function did not exist, so changed it to the working `columnIdxById` which does the same.
+- `[Lookup]` Fixed an issue where selection for server side and paging was not working. ([#986](https://github.com/infor-design/enterprise-ng/issues/986))
+
 ## v10.2.0
 
 ### 10.2.0 Fixes
@@ -13,6 +20,7 @@
 ### 10.2.0 Features
 
 - `[Cards]` Added Angular Wrapper Component for the IDS Cards. ([#1036](https://github.com/infor-design/enterprise-ng/issues/1036)) `EA`
+- `[ContextualActionPanel]` Added example of vertical tabs inside of Contextual Action Panel. ([#1065](https://github.com/infor-design/enterprise-ng/issues/1065)) `EA`
 - `[Lookup]` Added selected, afterpaging events and api setting to allow duplicate selected value to input element. ([#986](https://github.com/infor-design/enterprise-ng/issues/986))
 - `[Monthview]` Added Angular Wrapper Component for the IDS MonthView. ([#1051](https://github.com/infor-design/enterprise-ng/issues/1051)) `EA`
 
