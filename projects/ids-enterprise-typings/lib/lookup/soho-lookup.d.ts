@@ -143,6 +143,9 @@ interface SohoLookupStatic {
   /** Get the selected rows and return them to the UI **/
   insertRows(): void;
 
+  /** Get currently selected rows **/
+  selectedRows(): any[];
+
   /** Enable the input. **/
   enable(): void;
 
