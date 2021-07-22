@@ -1,11 +1,8 @@
 # What's New with Enterprise-NG
 
-## v10.32.0
+### 10.2.1 Fixes
 
-### 10.3.0 Fixes
-
-- `[Datagrid]` The `getColumnIndex` function did not exist, so changed it to the working `columnIdxById` which does the same.
-- `[Lookup]` Fixed an issue where selection for server side and paging was not working. ([#986](https://github.com/infor-design/enterprise-ng/issues/986))
+- `[Lookup]` Patch an additional issue where selection for server side and paging was not working. ([#986](https://github.com/infor-design/enterprise-ng/issues/986))
 
 ## v10.2.0
 
