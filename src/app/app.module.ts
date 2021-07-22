@@ -45,6 +45,7 @@ import { CalendarLegendDemoComponent } from './calendar/calendar-legend.demo';
 import { CalendarUpdatedDemoComponent } from './calendar/calendar-updated.demo';
 import { CardsDemoComponent } from './cards/cards.demo';
 import { CardsExpandableDemoComponent } from './cards/cards-expandable.demo';
+import { CardsSingleSelectDemoComponent } from './cards/cards-single-select.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { CirclepagerDemoComponent } from './circlepager/circlepager.demo';
@@ -294,6 +295,7 @@ import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-
     CalendarUpdatedDemoComponent,
     CardsDemoComponent,
     CardsExpandableDemoComponent,
+    CardsSingleSelectDemoComponent,
     ChartDemoComponent,
     CheckBoxDemoComponent,
     CirclepagerDemoComponent,

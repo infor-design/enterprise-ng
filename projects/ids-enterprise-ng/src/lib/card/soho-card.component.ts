@@ -7,11 +7,82 @@ import {
   HostBinding,
   Input,
   NgZone,
+  OnInit,
   Output,
 } from '@angular/core';
 
 // tslin:disable-next-line:no-unused-variable
 import { Observable } from 'rxjs';
+
+@Component({
+  selector: '[soho-cards]', // eslint-disable-line
+  template: '<ng-content></ng-content>',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class SohoCardsComponent implements AfterViewInit {
+  @HostBinding('class.cards') get isCards() {
+    return true;
+  }
+
+  constructor(
+    private element: ElementRef,
+    private ngZone: NgZone
+  ) { }
+
+  ngAfterViewInit() {
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
+
+      this.jQueryElement.cards({
+        selectable: this.selectable,
+      });
+
+    });
+  }
+
+  private jQueryElement?: JQuery;
+  private options: SohoCardOptions = {};
+  private card?: SohoCardStatic | null;
+
+  /** Defines the data to use, must be specified for this component */
+  @Input()
+  public set dataset(dataset: Array<any> | undefined) {
+    this.options.dataset = dataset;
+
+    if (this.card) {
+      this.card.settings.dataset = dataset;
+      this.updated(this.card.settings);
+    }
+  }
+  public get dataset(): Array<any> | undefined {
+    if (!this.card) {
+      return this.options.dataset;
+    }
+    return this.card.settings.dataset;
+  }
+
+  /** Defines the selection type of cards */
+  @Input()
+  public set selectable(selectable: SohoCardsSelectable) {
+    this.options.selectable = selectable;
+
+    if (this.card) {
+      this.card.settings.selectable = selectable;
+      this.updated(this.card.settings);
+    }
+  }
+  public get selectable(): SohoCardsSelectable {
+    if (!this.card) {
+      return this.options.selectable;
+    }
+    return this.card.settings.selectable;
+  }
+
+  public updated(settings: any): SohoCardsComponent {
+    this.ngZone.runOutsideAngular(() => this.card?.updated(settings));
+    return this;
+  }
+}
 
 @Component({
   selector: 'soho-card-header',
@@ -83,11 +154,26 @@ export class SohoCardComponent implements AfterViewInit {
     (this.options as any).attributes = value;
     if (this.card) {
       this.options.attributes = value;
+      this.updated(this.card.settings);
     }
   }
 
   public get attributes(): Array<Object> | Object | undefined {
     return this.options.attributes;
+  }
+
+  /** Html template string */
+  @Input() set template(template: string) {
+    this.options.template = template;
+    if (this.jQueryElement && this.card) {
+      this.card.settings.template = template;
+      this.updated(this.card.settings);
+    }
+  }
+
+  public updated(settings: any): SohoCardComponent {
+    this.ngZone.runOutsideAngular(() => this.card?.updated(settings));
+    return this;
   }
 
   // Expose methods in case Angular needs to control the DOM
