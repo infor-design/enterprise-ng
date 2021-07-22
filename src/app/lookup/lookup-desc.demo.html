@@ -2,16 +2,16 @@
   <form [formGroup]="form">
     <div class="row top-padding">
 
-      <div class="row">
+      <div class="twelve columns">
+        <button soho-button (click)="showSelected()">Show Selected</button><br><br>
         <label soho-label for="appInstance_desc">Description Only</label>
         <input soho-lookup
           [(ngModel)]="model.desc"
-          (selected)="onSelected($event)"
-          (afterpaging)="onAfterpaging($event)"
           [columns]="columns_desc"
           [options]="{
             selectable: 'multiple',
             allowSelectAcrossPages: true,
+            columnIds: ['applicationInstanceName', 'applicationInstanceGuid'],
             paging: true,
             pagesize: 5,
             pagesizes: [3, 5, 10, 15]
