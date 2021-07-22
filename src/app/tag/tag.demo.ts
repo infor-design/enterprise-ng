@@ -13,10 +13,14 @@ export class TagDemoComponent implements OnInit {
   }
 
   afterRemove(e: any) {
-    alert(`Removed ${JSON.stringify(e)}`);
+    alert(`afterRemove`);
+  }
+
+  beforeTagRemove(e: any) {
+    alert(`beforeTagRemove`);
   }
 
   onClick(e: any) {
-    alert(`Clicked ${JSON.stringify(e)}`);
+    alert(`Clicked`);
   }
 }

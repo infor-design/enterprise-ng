@@ -37,16 +37,17 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
   }
 
   /**
+   * Fired before a tag item is removed.
+   */
+  @Output() beforeTagRemove = new EventEmitter<SohoTagBeforeRemoveEvent>();
+
+  /**
    * Fired after a tag item is removed.
    */
   @Output() afterRemove = new EventEmitter<SohoTagAfterRemoveEvent>();
 
   /**
    * The wrapped jQuery element.
-   *
-   *
-   *
-   *
    */
   private jQueryElement?: JQuery;
 
@@ -70,6 +71,8 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
       // Add event handlers for the outer tag list.
       this.jQueryElement
         .on('aftertagremove', (e: JQuery.TriggeredEvent) => this.onAfterTagRemove(e));
+      this.jQueryElement
+        .on('beforetagremove', (e: JQuery.TriggeredEvent) => this.onBeforeTagRemove(e));
     });
   }
 
@@ -77,6 +80,12 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
     this.ngZone.run(() =>
       this.afterRemove.next(e));
   }
+
+  private onBeforeTagRemove(e: JQuery.TriggeredEvent) {
+    this.ngZone.run(() =>
+      this.beforeTagRemove.next(e));
+  }
+
 
   ngOnDestroy() {
     this.ngZone.runOutsideAngular(() => {
@@ -129,7 +138,7 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
   /**
    * Fired before a tag item is removed.
    */
-  @Output() beforeRemove = new EventEmitter<SohoTagBeforeRemoveEvent>();
+  @Output() beforeTagRemove = new EventEmitter<SohoTagBeforeRemoveEvent>();
 
   /**
    * Fired after a tag item is removed.
@@ -220,7 +229,7 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
 
   private onBeforeTagRemove(event: JQuery.TriggeredEvent, _element: HTMLElement) {
     this.ngZone.run(() =>
-      this.beforeRemove.next(event));
+      this.beforeTagRemove.next(event));
   }
 
   private onClick(event: JQuery.TriggeredEvent) {
