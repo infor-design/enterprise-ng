@@ -3,10 +3,10 @@
     <div class="row">
       <div class="twelve columns">
         <div class="field">
-          <label soho-label for={{name1}}>Normal Input</label>
+          <label soho-label for={{name1}} class="required">Normal Input (Required)</label>
           <input
             soho-fileupload [attributes]="fileUploadOptions.attributes" [disabled]="fileUploadDisabled" [readonly]="fileUploadReadOnly"
-            id="{{name1}}" name={{name1}} accept="true" (change)="onChange($event)"
+            id="{{name1}}" name={{name1}} accept="true" class="required" (change)="onChange($event)" data-validate="required"
           />
         </div>
 
