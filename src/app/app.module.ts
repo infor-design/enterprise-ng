@@ -174,6 +174,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
 import { MonthViewDemoComponent } from './monthview/monthview.demo';
 import { MonthViewDemoInPageComponent } from './monthview/monthview-inpage.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
+import { NotificationBadgePlacementDemoComponent } from './notification-badge/notification-badge-placement.demo';
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PersonalizeMenuComponent } from './personalize-menu/personalize-menu.component';
 import { PersonalizeColorApiDemoComponent } from './personalize/personalize-color-api.demo';
@@ -410,6 +411,7 @@ import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-
     MonthViewDemoComponent,
     MonthViewDemoInPageComponent,
     NotificationDemoComponent,
+    NotificationBadgePlacementDemoComponent,
     PagerStandaloneDemoComponent,
     PersonalizeColorApiDemoComponent,
     PersonalizeMenuComponent,
