@@ -39,7 +39,7 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
   /**
    * Fired before a tag item is removed.
    */
-  @Output() beforeTagRemove = new EventEmitter<SohoTagBeforeRemoveEvent>();
+  @Output() beforeRemove = new EventEmitter<SohoTagBeforeRemoveEvent>();
 
   /**
    * Fired after a tag item is removed.
@@ -83,7 +83,7 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
 
   private onBeforeTagRemove(e: JQuery.TriggeredEvent) {
     this.ngZone.run(() =>
-      this.beforeTagRemove.next(e));
+      this.beforeRemove.next(e));
   }
 
 

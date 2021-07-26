@@ -16,8 +16,8 @@ export class TagDemoComponent implements OnInit {
     alert(`afterRemove`);
   }
 
-  beforeTagRemove(e: any) {
-    alert(`beforeTagRemove`);
+  beforeRemove(e: any) {
+    alert(`beforeRemove`);
   }
 
   onClick(e: any) {
