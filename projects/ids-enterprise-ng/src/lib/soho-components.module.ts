@@ -67,6 +67,7 @@ import { SohoSliderModule } from './slider/soho-slider.module';
 import { SohoSparklineModule } from './sparkline/soho-sparkline.module';
 import { SohoSplitterModule } from './splitter/soho-splitter.module';
 import { SohoSpinboxModule } from './spinbox/soho-spinbox.module';
+import { SohoStepChartModule } from './stepchart';
 import { SohoStepProcessModule } from './stepprocess/soho-stepprocess.module';
 import { SohoSwapListModule } from './swaplist/soho-swaplist.module';
 import { SohoTabsModule } from './tabs/soho-tabs.module';
@@ -154,6 +155,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoSplitterModule,
     SohoSliderModule,
     SohoSpinboxModule,
+    SohoStepChartModule,
     SohoStepProcessModule,
     SohoSwapListModule,
     SohoTabsModule,
@@ -239,6 +241,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoSparklineModule,
     SohoSplitterModule,
     SohoSpinboxModule,
+    SohoStepChartModule,
     SohoStepProcessModule,
     SohoSwapListModule,
     SohoTabsModule,

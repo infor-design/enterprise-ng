@@ -205,6 +205,7 @@ import { DataGridExpandableRowNestedDemoComponent } from './datagrid/datagrid-ex
 import { DataGridExpandableRowDynamicDemoComponent } from './datagrid/datagrid-expandable-row-dynamic.demo';
 import { DataGridSummaryRowDemoComponent } from './datagrid/datagrid-summary-row.demo';
 import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-multiselect-attributes-demo';
+import { StepChartDemoComponent } from './stepchart/stepchart.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -364,6 +365,7 @@ export const routes: Routes = [
   { path: 'sparkline', component: SparklineDemoComponent },
   { path: 'splitter-horizontal', component: SplitterHorizontalDemoComponent },
   { path: 'splitter-vertical', component: SplitterVerticalDemoComponent },
+  { path: 'step-chart', component: StepChartDemoComponent },
   { path: 'step-process', component: StepProcessDemoComponent },
   { path: 'step-process-btn-disble', component: StepProcessBtnDisableDemoComponent },
   { path: 'step-data-driven', component: StepProcessDataDrivenDemoComponent },

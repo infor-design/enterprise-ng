@@ -67,6 +67,7 @@
 /// <reference path='lib/sparkline/soho-sparkline.d.ts' />
 /// <reference path='lib/spinbox/soho-spinbox.d.ts' />
 /// <reference path='lib/splitter/soho-splitter.d.ts' />
+/// <reference path='lib/stepchart/soho-stepchart.d.ts' />
 /// <reference path='lib/stepprocess/soho-stepprocess.d.ts' />
 /// <reference path='lib/swaplist/soho-swaplist.d.ts' />
 /// <reference path='lib/tabs/soho-tabs.d.ts' />

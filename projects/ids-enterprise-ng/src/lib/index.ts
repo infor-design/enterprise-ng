@@ -66,6 +66,7 @@ export * from './slider/index';
 export * from './sparkline/index';
 export * from './spinbox/index';
 export * from './splitter/index';
+export * from './stepchart/index';
 export * from './stepprocess/index';
 export * from './swaplist/index';
 export * from './tag/index';
