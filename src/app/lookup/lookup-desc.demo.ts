@@ -23,7 +23,7 @@ export class LookupDescDemoComponent implements AfterViewInit {
   public form: FormGroup;
   private formGroup: { [key: string]: any } = {};
   public selectedRows: any[] = [];
-  public fieldNameAppInstance: string = 'applicationInstanceName';
+  private fieldNameAppInstance = 'applicationInstanceName';
 
   constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group(this.formGroup);
