@@ -2,7 +2,7 @@
   <form [formGroup]="form">
     <div class="row top-padding">
 
-      <div class="twelve columns">
+      <div class="six columns">
         <button soho-button (click)="showSelected()">Show Selected</button><br><br>
         <label soho-label for="appInstance_desc">Description Only</label>
         <input soho-lookup
@@ -28,7 +28,23 @@
           }"
           allowDuplicates="true"
           field="applicationInstanceName"
-          formControlName="appInstance_desc"/>
+          formControlName="appInstance_desc"
+          (change)="onChange($event)"
+          #lookup/>
+
+          <div class="listviewApprova" id="selectedListView" *ngIf="this.selectedRows && this.selectedRows.length > 0">
+          <soho-listview #simpleSelectListView>
+            <li soho-listview-item *ngFor="let obj of this.selectedRows; index as i">
+              <p>{{obj.data[this.fieldNameAppInstance] }}</p>
+              <div class="l-pull-right">
+                <button soho-button="icon" aos-translate translateTitle="Global_Remove" icon="close"
+                (click)="this.delSelectedTree(i)">
+                </button>
+              </div>
+            </li>
+          </soho-listview>
+        </div>
+
       </div>
 
     </div>

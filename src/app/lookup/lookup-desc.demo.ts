@@ -22,6 +22,8 @@ export class LookupDescDemoComponent implements AfterViewInit {
   public context = this;
   public form: FormGroup;
   private formGroup: { [key: string]: any } = {};
+  public selectedRows: any[] = [];
+  public fieldNameAppInstance: string = 'applicationInstanceName';
 
   constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group(this.formGroup);
@@ -79,6 +81,21 @@ export class LookupDescDemoComponent implements AfterViewInit {
       this.columns_desc?.push(column);
     });
 
+  }
+
+  onChange(e: any) {
+    if (this.sohoLookupComponent) {
+      this.selectedRows = this.sohoLookupComponent.selectedRows();
+    }
+  }
+
+  delSelectedTree(idx: number) {
+    const updatedRows = this.selectedRows;
+
+    if (this.sohoLookupComponent && updatedRows.length > idx) {
+      updatedRows.splice(idx, 1); // remove
+      this.sohoLookupComponent.updateSelectedRows(updatedRows);
+    }
   }
 
   clearModel() {
