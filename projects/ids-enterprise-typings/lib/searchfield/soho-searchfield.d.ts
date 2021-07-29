@@ -41,6 +41,15 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
  * Soho control seachfield api.
  */
 interface SohoSearchFieldStatic {
+  /**  Gets a complete list of categories in jQuery-collection form. */
+  getCategories(): any;
+
+  /**  Gets a complete list of categories in jQuery-collection form. */
+  getSelectedCategories(): any;
+
+  /** Gets the currently selected list of categories in jQuery-collection form. */
+  setCategoryButtonText(textContent?: string): void;
+
   /** Category Button */
   categoryButton?: JQuery;
 

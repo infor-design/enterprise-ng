@@ -108,6 +108,9 @@ interface SohoTreeNode {
   // Children.
   children?: SohoTreeNode[];
 
+  // Children.
+  badge?: SohoTreeBadge;
+
   // Is this node to be displayed open.
   open?: boolean;
 
@@ -130,6 +133,14 @@ interface SohoTreeNode {
 
   // parent node or parent node Id
   parent?: any;
+}
+
+interface SohoTreeBadge {
+  /* The type of badge (info ect) */
+  type?: string;
+
+  /** The text for the badge. */
+  text?: string;
 }
 
 /**
