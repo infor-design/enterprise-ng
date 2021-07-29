@@ -11,6 +11,9 @@
 ### v10.3.0 Features
 
 - `[Notification Badge]` Implemented the wrapper for Notification Badge Component. ([#5344](https://github.com/infor-design/enterprise/issues/5344)) `EA`
+### 10.3.0 Features
+
+- `[Cards]` Added cards' selection states (single and multiple). ([#5253](https://github.com/infor-design/enterprise/issues/5253)) `EA`
 
 ### 10.2.1 Fixes
 
