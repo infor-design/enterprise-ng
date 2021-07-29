@@ -8,6 +8,10 @@
 - `[Lookup]` Fixed an issue where selection for server side and paging was not working. ([#986](https://github.com/infor-design/enterprise-ng/issues/986))
 - `[Tag]` Fixed an issue where before tag remove was not called. ([#1063](https://github.com/infor-design/enterprise-ng/issues/1063))
 
+### 10.3.0 Features
+
+- `[Cards]` Added cards' selection states (single and multiple). ([#5253](https://github.com/infor-design/enterprise/issues/5253)) `EA`
+
 ### 10.2.1 Fixes
 
 - `[Lookup]` Patch an additional issue where selection for server side and paging was not working. ([#986](https://github.com/infor-design/enterprise-ng/issues/986))

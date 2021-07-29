@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="six columns">
+    <p class="section-title">Cards: Multiple Selections</p>
+  </div>
+</div>
+
+<div class="row top-padding">
+  <div class="six columns">
+    <div soho-cards
+      [selectable]="'multiple'"
+      [dataset]="data">
+      <soho-card
+        [autoHeight]="true"
+        *ngFor="let i of data">
+        <div class="card-content">
+          <p class="text-strong">{{i.time}}</p>
+          <p>Job: {{i.job}}</p>
+          <p>Location: {{i.location}}</p>
+          <p>Team: {{i.team}}</p>
+          <p>Department: {{i.department}}</p>
+        </div>
+      </soho-card>
+    </div>
+  </div>
+</div>
