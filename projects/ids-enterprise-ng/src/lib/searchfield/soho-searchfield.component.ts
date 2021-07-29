@@ -120,6 +120,25 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
     this.ngZone.runOutsideAngular(() => this.searchfield?.clear());
   }
 
+  /**  Gets a complete list of categories in jQuery-collection form. */
+  getCategories(): any {
+    return this.ngZone.runOutsideAngular(() => {
+      return this.searchfield?.getCategories();
+    });
+  }
+
+  /**  Gets a complete list of categories in jQuery-collection form. */
+  getSelectedCategories(): any {
+    return this.ngZone.runOutsideAngular(() => {
+      return this.searchfield?.getSelectedCategories();
+    });
+  }
+
+  /** Gets the currently selected list of categories in jQuery-collection form. */
+  setCategoryButtonText(textContent?: string): void {
+    this.ngZone.runOutsideAngular(() => this.searchfield?.setCategoryButtonText());
+  }
+
   updated(settings?: SohoSearchFieldOptions) {
     this.ngZone.runOutsideAngular(() => this.searchfield?.updated(settings));
   }
