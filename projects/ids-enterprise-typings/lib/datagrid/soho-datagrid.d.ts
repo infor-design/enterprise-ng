@@ -1060,7 +1060,7 @@ interface SohoDataGridStatic {
   /** Validate all cells in a specific row */
   validateRow(row: number): void;
 
-  /** Used to set the sort indicator on a column when disableClientSort is set to true */
+  /** Used to set the sort indicator on a column (ui only not actual sorting) */
   setSortIndicator(columnId: string | undefined | null, ascending: boolean | undefined | null): void;
 
   /** Use to change datagrid empty message */
