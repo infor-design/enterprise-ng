@@ -137,6 +137,9 @@ interface SohoLookupStatic {
   /** Destructor. */
   destroy(): void;
 
+  /**  Update the selected rows **/
+  updateSelectedRows(rows: any[]): void;
+
   /**  Find the row and select it based on select value / function / field value **/
   selectRowByValue(field: String, value: String): void;
 
