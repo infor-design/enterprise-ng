@@ -24,6 +24,7 @@ export class SohoStepChartComponent implements AfterViewInit, AfterViewChecked, 
         return true;
     }
 
+    /** The number of steps to show. */
     @Input() set steps(steps: number) {
         this.options.steps = steps;
         if (this.stepchart) {
@@ -32,6 +33,7 @@ export class SohoStepChartComponent implements AfterViewInit, AfterViewChecked, 
         }
     }
 
+    /** The number of steps complete (linear). */
     @Input() set completed(completed: number) {
         this.options.completed = completed;
         if (this.stepchart) {
@@ -40,6 +42,7 @@ export class SohoStepChartComponent implements AfterViewInit, AfterViewChecked, 
         }
     }
 
+    /** The number of the in progress step (linear). */
     @Input() set inProgress(inProgress: number) {
         this.options.inProgress = inProgress;
         if (this.stepchart) {
@@ -48,6 +51,7 @@ export class SohoStepChartComponent implements AfterViewInit, AfterViewChecked, 
         }
     }
 
+    /** The icon to display fx. 'icon-error', 'icon-success' */
     @Input() set iconType(iconType: boolean) {
         this.options.iconType = iconType;
         if (this.stepchart) {
@@ -56,6 +60,10 @@ export class SohoStepChartComponent implements AfterViewInit, AfterViewChecked, 
         }
     }
 
+    /**
+     * The completed text or uses a localized 'N of N Steps complete'.
+     *  You can use {0} and {1} to replace n of n in the string.
+     */
     @Input() set completedText(completedText: string) {
         this.options.completedText = completedText;
         if (this.stepchart) {
@@ -64,6 +72,10 @@ export class SohoStepChartComponent implements AfterViewInit, AfterViewChecked, 
         }
     }
 
+    /**
+     * The additional text to show on the right. Defaults to none. 
+     * You can use {0} to replace with the steps remaining count and {1} to replace the number of steps.
+     */
     @Input() set extraText(extraText: string) {
         this.options.extraText = extraText;
         if (this.stepchart) {
@@ -72,6 +84,7 @@ export class SohoStepChartComponent implements AfterViewInit, AfterViewChecked, 
         }
     }
 
+    /** The color to show completed steps. Defaults to primary color. */
     @Input() set completedColor(completedColor: string) {
         this.options.completedColor = completedColor;
         if (this.stepchart) {
@@ -80,6 +93,7 @@ export class SohoStepChartComponent implements AfterViewInit, AfterViewChecked, 
         }
     }
 
+    /** The color to steps when all are completed. Defaults to primary color. */
     @Input() set allCompletedColor(allCompletedColor: string) {
         this.options.allCompletedColor = allCompletedColor;
         if (this.stepchart) {
@@ -88,11 +102,24 @@ export class SohoStepChartComponent implements AfterViewInit, AfterViewChecked, 
         }
     }
 
+    /** The color to show in-progress steps. Defaults to ruby02. */
     @Input() set inProgressColor(inProgressColor: string) {
         this.options.inProgressColor = inProgressColor;
         if (this.stepchart) {
             this.stepchart.settings.inProgressColor = inProgressColor;
             this.updateRequired = true;
+        }
+    }
+
+    /** Add extra attributes like id's to the chart elements. 
+     * For example { name: 'id', value: 'my-unique-id' } 
+     */
+    @Input() set attributes(attributes: Array<Object> | Object) {
+        this.options.attributes = attributes;
+    
+        if (this.stepchart) {
+          this.stepchart.settings.attributes = attributes;
+          this.updateRequired = true;
         }
     }
 
@@ -134,7 +161,7 @@ export class SohoStepChartComponent implements AfterViewInit, AfterViewChecked, 
 
             // Destroy any widget resources.
             if (this.stepchart) {
-                // Error occurs in teardown
+                // Error occurs in teardown in enterprise
                 // this.stepchart.destroy();
                 this.stepchart = null;
             }

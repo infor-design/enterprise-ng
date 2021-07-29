@@ -8,6 +8,7 @@ interface SohoStepChartOptions {
     completedColor?: string;
     allCompletedColor?: string;
     inProgressColor?: string;
+    attributes?: Array<Object> | Object;
 }
 
 interface SohoStepChart {
