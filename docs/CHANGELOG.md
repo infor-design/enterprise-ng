@@ -3,7 +3,9 @@
 ## v10.3.0
 
 ### 10.3.0 Features
+
 - `[Stepchart]` Added Angular Wrapper Component for Stepchart. ([#1058](https://github.com/infor-design/enterprise-ng/issues/1058))
+
 ### 10.3.0 Fixes
 
 - `[Datagrid]` The `getColumnIndex` function did not exist, so changed it to the working `columnIdxById` which does the same.
