@@ -149,6 +149,8 @@ import { SparklineDemoComponent } from './sparkline/sparkline.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
 import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
+import { StepChartColorDemoComponent } from './stepchart/stepchart-color.demo';
+import { StepChartDemoComponent } from './stepchart/stepchart.demo';
 import { StepProcessBtnDisableDemoComponent } from './stepprocess/stepprocessbuttondisable.demo';
 import { StepProcessDemoComponent } from './stepprocess/stepprocess.demo';
 import { StepProcessDataDrivenDemoComponent } from './stepprocess/stepprocess-data-driven.demo';
@@ -205,7 +207,6 @@ import { DataGridExpandableRowNestedDemoComponent } from './datagrid/datagrid-ex
 import { DataGridExpandableRowDynamicDemoComponent } from './datagrid/datagrid-expandable-row-dynamic.demo';
 import { DataGridSummaryRowDemoComponent } from './datagrid/datagrid-summary-row.demo';
 import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-multiselect-attributes-demo';
-import { StepChartDemoComponent } from './stepchart/stepchart.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -365,6 +366,7 @@ export const routes: Routes = [
   { path: 'sparkline', component: SparklineDemoComponent },
   { path: 'splitter-horizontal', component: SplitterHorizontalDemoComponent },
   { path: 'splitter-vertical', component: SplitterVerticalDemoComponent },
+  { path: 'step-chart-color', component: StepChartColorDemoComponent },
   { path: 'step-chart', component: StepChartDemoComponent },
   { path: 'step-process', component: StepProcessDemoComponent },
   { path: 'step-process-btn-disble', component: StepProcessBtnDisableDemoComponent },

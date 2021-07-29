@@ -12,7 +12,7 @@ interface SohoStepChartOptions {
 
 interface SohoStepChart {
     settings: SohoStepChartOptions;
-
+    
     /** Updates the stepchart with any new settings and data */
     updated(settings?: SohoStepChartOptions): void;
 

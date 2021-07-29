@@ -194,6 +194,7 @@ import { SparklineDemoComponent } from './sparkline/sparkline.demo';
 import { SpinboxDemoComponent } from './spinbox/spinbox.demo';
 import { SplitterHorizontalDemoComponent } from './splitter/splitter-horizontal.demo';
 import { SplitterVerticalDemoComponent } from './splitter/splitter-vertical.demo';
+import { StepChartColorDemoComponent } from './stepchart/stepchart-color.demo';
 import { StepChartDemoComponent } from './stepchart/stepchart.demo';
 import { StepProcessBtnDisableDemoComponent } from './stepprocess/stepprocessbuttondisable.demo';
 import { StepProcessDemoComponent } from './stepprocess/stepprocess.demo';
@@ -432,6 +433,7 @@ import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-
     SplitterHorizontalDemoComponent,
     SplitterVerticalDemoComponent,
     StepChartDemoComponent,
+    StepChartColorDemoComponent,
     StepProcessDemoComponent,
     StepProcessBtnDisableDemoComponent,
     StepProcessDataDrivenDemoComponent,

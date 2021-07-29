@@ -1,5 +1,6 @@
 /* eslint-disable @angular-eslint/no-input-rename */
 import { 
+    AfterViewChecked,
     AfterViewInit, 
     ChangeDetectionStrategy, 
     Component, 
@@ -12,16 +13,12 @@ import {
 
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
-    selector: 'div[soho-stepchart]',
+    selector: '[soho-stepchart]',
     template: '<ng-content></ng-content>',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SohoStepChartComponent implements AfterViewInit, OnDestroy {
+export class SohoStepChartComponent implements AfterViewInit, AfterViewChecked, OnDestroy {
     private options: SohoStepChartOptions = {};
-
-    private stepchart?: SohoStepChart | null;
-
-    private jQueryElement?: JQuery;
 
     @HostBinding('class.step-chart') get isStepChart() {
         return true;
@@ -31,7 +28,7 @@ export class SohoStepChartComponent implements AfterViewInit, OnDestroy {
         this.options.steps = steps;
         if (this.stepchart) {
             this.stepchart.settings.steps = steps;
-            this.ngZone.runOutsideAngular(() => this.stepchart?.updated(this.options));
+            this.updateRequired = true;
         }
     }
 
@@ -39,7 +36,7 @@ export class SohoStepChartComponent implements AfterViewInit, OnDestroy {
         this.options.completed = completed;
         if (this.stepchart) {
             this.stepchart.settings.completed = completed;
-            this.ngZone.runOutsideAngular(() => this.stepchart?.updated(this.options));
+            this.updateRequired = true;
         }
     }
 
@@ -47,7 +44,7 @@ export class SohoStepChartComponent implements AfterViewInit, OnDestroy {
         this.options.inProgress = inProgress;
         if (this.stepchart) {
             this.stepchart.settings.inProgress = inProgress;
-            this.ngZone.runOutsideAngular(() => this.stepchart?.updated(this.options));
+            this.updateRequired = true;
         }
     }
 
@@ -55,7 +52,7 @@ export class SohoStepChartComponent implements AfterViewInit, OnDestroy {
         this.options.iconType = iconType;
         if (this.stepchart) {
             this.stepchart.settings.iconType = iconType;
-            this.ngZone.runOutsideAngular(() => this.stepchart?.updated(this.options));
+            this.updateRequired = true;
         }
     }
 
@@ -63,7 +60,7 @@ export class SohoStepChartComponent implements AfterViewInit, OnDestroy {
         this.options.completedText = completedText;
         if (this.stepchart) {
             this.stepchart.settings.completedText = completedText;
-            this.ngZone.runOutsideAngular(() => this.stepchart?.updated(this.options));
+            this.updateRequired = true;
         }
     }
 
@@ -71,7 +68,7 @@ export class SohoStepChartComponent implements AfterViewInit, OnDestroy {
         this.options.extraText = extraText;
         if (this.stepchart) {
             this.stepchart.settings.extraText = extraText;
-            this.ngZone.runOutsideAngular(() => this.stepchart?.updated(this.options));
+            this.updateRequired = true;
         }
     }
 
@@ -79,7 +76,7 @@ export class SohoStepChartComponent implements AfterViewInit, OnDestroy {
         this.options.completedColor = completedColor;
         if (this.stepchart) {
             this.stepchart.settings.completedColor = completedColor;
-            this.ngZone.runOutsideAngular(() => this.stepchart?.updated(this.options));
+            this.updateRequired = true;
         }
     }
 
@@ -87,7 +84,7 @@ export class SohoStepChartComponent implements AfterViewInit, OnDestroy {
         this.options.allCompletedColor = allCompletedColor;
         if (this.stepchart) {
             this.stepchart.settings.allCompletedColor = allCompletedColor;
-            this.ngZone.runOutsideAngular(() => this.stepchart?.updated(this.options));
+            this.updateRequired = true;
         }
     }
 
@@ -95,9 +92,13 @@ export class SohoStepChartComponent implements AfterViewInit, OnDestroy {
         this.options.inProgressColor = inProgressColor;
         if (this.stepchart) {
             this.stepchart.settings.inProgressColor = inProgressColor;
-            this.ngZone.runOutsideAngular(() => this.stepchart?.updated(this.options));
+            this.updateRequired = true;
         }
     }
+
+    private jQueryElement?: JQuery;
+    private stepchart?: SohoStepChart | null;
+    private updateRequired = false;
 
     constructor(
         private element: ElementRef,
@@ -116,6 +117,13 @@ export class SohoStepChartComponent implements AfterViewInit, OnDestroy {
             this.stepchart = this.jQueryElement.data('stepchart');
         });
     }
+
+    ngAfterViewChecked() {
+        if (this.stepchart && this.updateRequired) {
+          this.ngZone.runOutsideAngular(() => this.stepchart?.updated(this.stepchart.settings));
+          this.updateRequired = false;
+        }
+    }
     
     ngOnDestroy() {
         this.ngZone.runOutsideAngular(() => {
@@ -123,10 +131,12 @@ export class SohoStepChartComponent implements AfterViewInit, OnDestroy {
                 // remove the event listeners on this element.
                 this.jQueryElement.off();
             }
-        
+
             // Destroy any widget resources.
             if (this.stepchart) {
-                this.stepchart.destroy();
+                // Error occurs in teardown
+                // this.stepchart.destroy();
+                this.stepchart = null;
             }
         });
     }
