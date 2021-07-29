@@ -6,7 +6,7 @@
 
 - `[Datagrid]` The `getColumnIndex` function did not exist, so changed it to the working `columnIdxById` which does the same.
 - `[Lookup]` Fixed an issue where selection for server side and paging was not working. ([#986](https://github.com/infor-design/enterprise-ng/issues/986))
-- `[Searchfied]`Added missing category functions. ([#1079](https://github.com/infor-design/enterprise-ng/issues/1079))
+- `[Searchfield]`Added missing category functions. ([#1079](https://github.com/infor-design/enterprise-ng/issues/1079))
 - `[Tag]` Fixed an issue where before tag remove was not called. ([#1063](https://github.com/infor-design/enterprise-ng/issues/1063))
 - `[Tree]`Added missing badge types. ([#1079](https://github.com/infor-design/enterprise-ng/issues/1079))
 
