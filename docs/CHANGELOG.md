@@ -2,20 +2,17 @@
 
 ## v10.3.0
 
-### 10.3.0 Features
-
-- `[Stepchart]` Added Angular Wrapper Component for Stepchart. ([#1058](https://github.com/infor-design/enterprise-ng/issues/1058))
-
 ### 10.3.0 Fixes
 
 - `[Datagrid]` The `getColumnIndex` function did not exist, so changed it to the working `columnIdxById` which does the same.
 - `[Lookup]` Fixed an issue where selection for server side and paging was not working. ([#986](https://github.com/infor-design/enterprise-ng/issues/986))
 - `[Tag]` Fixed an issue where before tag remove was not called. ([#1063](https://github.com/infor-design/enterprise-ng/issues/1063))
 
-### v10.3.0 Features
+### 10.3.0 Features
 
 - `[Cards]` Added cards' selection states (single and multiple). ([#5253](https://github.com/infor-design/enterprise/issues/5253)) `EA`
 - `[Notification Badge]` Implemented the wrapper for Notification Badge Component. ([#5344](https://github.com/infor-design/enterprise/issues/5344)) `EA`
+- `[Stepchart]` Added Angular Wrapper Component for Stepchart. ([#1058](https://github.com/infor-design/enterprise-ng/issues/1058))
 
 ### 10.2.1 Fixes
 
