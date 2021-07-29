@@ -6,15 +6,35 @@
  */
 
 /**
-  * Card Options
-  */
+ * Card Options
+ */
+
+type SohoCardsSelectable = boolean | 'single' | 'multiple' | undefined;
+
 interface SohoCardOptions {
   /** Identifier */
   id?: string;
+
+  /** Abilty to expand the card header */
   expandableHeader?: boolean;
+
+  /** Ability to rotate the button action vertically */
   verticalButtonAction?: boolean;
+
   expanded?: boolean;
+
+  /** Sets the card's height automatically */
   autoHeight?: boolean;
+
+  /** An array of data objects that will be represented as cards */
+  dataset?: Array<any>;
+
+  /** Html template string */
+  template?: string;
+
+  /** Ability to enable the selection state e.g. 'single', 'multiple' or false */
+  selectable?: SohoCardsSelectable;
+
   /** Add extra attributes like id's to the component */
   attributes?: Array<Object> | Object;
 }
@@ -23,6 +43,10 @@ interface SohoCardOptions {
  * Interface represents the public API
  */
 interface SohoCardStatic {
+  settings: SohoCardOptions;
+
+  select(activeCard: JQuery<Node[] | Node>): void;
+
   /**
    * Opens the expandable card.
    */
@@ -31,6 +55,9 @@ interface SohoCardStatic {
    * Closes the expandable card.
    */
   close(): void;
+
+  /** Updates tha card with any new settings. */
+  updated(settings?: SohoCardOptions): void;
 }
 
 /**

@@ -508,6 +508,16 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   /**
+   * Update the selected rows
+   */
+  public updateSelectedRows(rows: any[]): void {
+    if (this.lookup && Array.isArray(rows)) {
+      this.ngZone.runOutsideAngular(() => ((this.lookup as any).updateSelectedRows(rows)));
+      this.markForUpdate();
+    }
+  }
+
+  /**
    * Find the row and select it based on select value / function / field value
    */
   public selectRowByValue(field: String, value: String): void {
@@ -526,7 +536,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   /** Returns the rows currently selected **/
   public selectedRows(): any[] {
     return this.ngZone.runOutsideAngular(() => {
-      return (this.lookup as any).selectedRows || [];
+      return ((this.lookup as any).selectedRows || []).slice();
     });
   }
 

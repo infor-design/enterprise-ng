@@ -45,6 +45,8 @@ import { CalendarLegendDemoComponent } from './calendar/calendar-legend.demo';
 import { CalendarUpdatedDemoComponent } from './calendar/calendar-updated.demo';
 import { CardsDemoComponent } from './cards/cards.demo';
 import { CardsExpandableDemoComponent } from './cards/cards-expandable.demo';
+import { CardsMultiSelectDemoComponent } from './cards/cards-multi-select.demo';
+import { CardsSingleSelectDemoComponent } from './cards/cards-single-select.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { CirclepagerDemoComponent } from './circlepager/circlepager.demo';
@@ -174,6 +176,7 @@ import { ModalDialogDemoModule } from './modal-dialog/modal-dialog.demo.module';
 import { MonthViewDemoComponent } from './monthview/monthview.demo';
 import { MonthViewDemoInPageComponent } from './monthview/monthview-inpage.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
+import { NotificationBadgePlacementDemoComponent } from './notification-badge/notification-badge-placement.demo';
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PersonalizeMenuComponent } from './personalize-menu/personalize-menu.component';
 import { PersonalizeColorApiDemoComponent } from './personalize/personalize-color-api.demo';
@@ -296,6 +299,8 @@ import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-
     CalendarUpdatedDemoComponent,
     CardsDemoComponent,
     CardsExpandableDemoComponent,
+    CardsMultiSelectDemoComponent,
+    CardsSingleSelectDemoComponent,
     ChartDemoComponent,
     CheckBoxDemoComponent,
     CirclepagerDemoComponent,
@@ -412,6 +417,7 @@ import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-
     MonthViewDemoComponent,
     MonthViewDemoInPageComponent,
     NotificationDemoComponent,
+    NotificationBadgePlacementDemoComponent,
     PagerStandaloneDemoComponent,
     PersonalizeColorApiDemoComponent,
     PersonalizeMenuComponent,
