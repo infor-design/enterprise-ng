@@ -53,6 +53,7 @@
 /// <reference path='lib/modal-dialog/soho-modal-dialog.d.ts' />
 /// <reference path='lib/monthview/soho-monthview.d.ts' />
 /// <reference path='lib/notification/soho-notification.d.ts' />
+/// <reference path='lib/notification-badge/soho-notification-badge.d.ts' />
 /// <reference path='lib/pager/soho-pager.d.ts' />
 /// <reference path='lib/personalize/soho-personalize.d.ts' />
 /// <reference path='lib/pie/soho-pie.d.ts' />

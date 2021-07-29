@@ -51,6 +51,7 @@ export * from './message/index';
 export * from './modal-dialog/index';
 export * from './monthview/index';
 export * from './notification/index';
+export * from './notification-badge/index';
 export * from './pager/index';
 export * from './personalize/index';
 export * from './pie/index';

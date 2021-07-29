@@ -1,0 +1,44 @@
+<div class="row top-padding">
+  <div class="twelve columns">
+    <p class="section-title">Notification Badge Placements</p>
+    <p class="text-descriptive">Notification dots will be placed at the corner of icons.</p>
+  </div>
+</div>
+
+<div class="row top-padding bottom-padding">
+  <div class="twelve columns" style="display: flex;">
+    <div class="container-spacer"
+      soho-notification-badge
+      [color]="'alert'"
+      [position]="'upper-left'">
+    </div>
+    <div class="container-spacer"
+      soho-notification-badge
+      [icon]="'phone-linear'"
+      [color]="'warning'"
+      [position]="'upper-right'">
+    </div>
+    <div class="container-spacer"
+      soho-notification-badge
+      [icon]="'checkbox'"
+      [color]="'caution'"
+      [position]="'lower-left'">
+    </div>
+    <div class="container-spacer"
+      soho-notification-badge
+      [icon]="'folder'"
+      [color]="'complete'"
+      [position]="'lower-right'">
+    </div>
+    <div class="container-spacer"
+      soho-notification-badge
+      [icon]="'bookmark-outlined'"
+      [color]="'progress'"
+      [position]="'upper-left'">
+    </div>
+    <div class="container-spacer"
+      soho-notification-badge
+      [icon]="'stop'"
+      [color]="'yield'">
+  </div>
+</div>

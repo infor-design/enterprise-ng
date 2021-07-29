@@ -31,6 +31,8 @@ import { CalendarLegendDemoComponent } from './calendar/calendar-legend.demo';
 import { CalendarUpdatedDemoComponent } from './calendar/calendar-updated.demo';
 import { CardsDemoComponent } from './cards/cards.demo';
 import { CardsExpandableDemoComponent } from './cards/cards-expandable.demo';
+import { CardsMultiSelectDemoComponent } from './cards/cards-multi-select.demo';
+import { CardsSingleSelectDemoComponent } from './cards/cards-single-select.demo';
 import { ChartDemoComponent } from './chart/chart.demo';
 import { CheckBoxDemoComponent } from './checkbox/checkbox.demo';
 import { CirclepagerDemoComponent } from './circlepager/circlepager.demo';
@@ -133,6 +135,7 @@ import { ModalDialogDemoComponent } from './modal-dialog/modal-dialog.demo';
 import { MonthViewDemoComponent } from './monthview/monthview.demo';
 import { MonthViewDemoInPageComponent } from './monthview/monthview-inpage.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
+import { NotificationBadgePlacementDemoComponent } from './notification-badge/notification-badge-placement.demo';
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PersonalizeColorApiDemoComponent } from './personalize/personalize-color-api.demo';
 import { PieDemoComponent } from './pie/pie.demo';
@@ -241,6 +244,8 @@ export const routes: Routes = [
   { path: 'calendar-updated', component: CalendarUpdatedDemoComponent },
   { path: 'cards', component: CardsDemoComponent },
   { path: 'cards-expandable', component: CardsExpandableDemoComponent },
+  { path: 'cards-multi-select', component: CardsMultiSelectDemoComponent },
+  { path: 'cards-single-select', component: CardsSingleSelectDemoComponent },
   { path: 'chart', component: ChartDemoComponent },
   { path: 'checkbox', component: CheckBoxDemoComponent },
   { path: 'circlepager', component: CirclepagerDemoComponent },
@@ -349,6 +354,7 @@ export const routes: Routes = [
   { path: 'monthview', component: MonthViewDemoComponent },
   { path: 'monthview-inpage', component: MonthViewDemoInPageComponent },
   { path: 'notification', component: NotificationDemoComponent },
+  { path: 'notification-badge-placement', component: NotificationBadgePlacementDemoComponent },
   { path: 'pager-standalone', component: PagerStandaloneDemoComponent },
   { path: 'personalize-color-api', component: PersonalizeColorApiDemoComponent },
   { path: 'pie', component: PieDemoComponent },
