@@ -1468,6 +1468,8 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   on(events: 'filtered', handler: JQuery.EventHandlerBase<any, SohoDataGridFilteredEvent>): this;
   on(events: 'rowreorder', handler: JQuery.EventHandlerBase<any, SohoDataGridRowReorderedEvent>): this;
   on(events: 'sorted', handler: JQuery.EventHandlerBase<any, SohoDataGridSortedEvent>): this;
+  on(events: 'beforepaging', handler: JQuery.EventHandlerBase<any, SohoPagerPagingInfo>): this;
+  on(events: 'afterpaging', handler: JQuery.EventHandlerBase<any, SohoPagerPagingInfo>): this;
   on(events: 'expandrow', handler: JQuery.EventHandlerBase<any, SohoDataGridRowExpandEvent>): this;
   on(events: 'rowactivated | beforerowactivated', handler: JQuery.EventHandlerBase<any, SohoDataGridRowActivatedEvent>): this;
   on(events: 'rowdeactivated', handler: JQuery.EventHandlerBase<any, SohoDataGridRowDeactivatedEvent>): this;
