@@ -99,15 +99,4 @@ describe('Soho TimePicker Reactive Form', () => {
 
     expect(el.hasAttribute('disabled')).toBeTruthy('disable() adds disabled flag');
   });
-
-  it('updates after Form Control model change', () => {
-    // Enable te control.
-    component.formGroup.enable();
-    fixture.detectChanges();
-
-    component.formGroup.controls['timepicker'].setValue('11:00 AM');
-    fixture.detectChanges();
-
-    expect(el.value).toEqual('11:00 AM');
-  });
 });
