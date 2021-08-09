@@ -454,6 +454,24 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
     return (this._calendarOptions as any).showToday;
   }
 
+  /**
+   * Deterimines if the today button should be shown.
+   */
+  @Input() set displayRange(displayRange: Object | undefined) {
+    (this._calendarOptions as any).displayRange = displayRange;
+    if (this.calendar) {
+      this.calendar.settings.displayRange = displayRange;
+      this.markForRefresh();
+    }
+  }
+  get displayRange(): Object | undefined {
+    if (this.calendar) {
+      return this.calendar.settings.displayRange;
+    }
+
+    return (this._calendarOptions as any).displayRange;
+  }
+
   // -------------------------------------------
   // Component Output
   // -------------------------------------------
