@@ -25,8 +25,8 @@ export class CalendarRangeDemoComponent {
   public iconTooltip = 'status';
   public eventTooltip = 'comments';
   public displayRange = {
-    start: '07/11/2021',
-    end: '09/30/2021',
+    start: '07/21/2018',
+    end: '09/30/2018',
   }
 
   public onRenderMonthCallback = (_node: Node, response: Function) => {
