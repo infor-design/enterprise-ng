@@ -1,5 +1,9 @@
 # What's New with Enterprise-NG
 
+## v10.4.0
+
+### 10.4.0 Fixes
+
 ## v10.3.0
 
 ### 10.3.0 Fixes
