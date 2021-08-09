@@ -1257,6 +1257,12 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   sorted = new EventEmitter<SohoDataGridSortedEvent>();
 
   @Output()
+  beforePaging = new EventEmitter<SohoPagerPagingInfo>();
+
+  @Output()
+  afterPaging = new EventEmitter<SohoPagerPagingInfo>();
+
+  @Output()
   beforeRowActivated = new EventEmitter<SohoDataGridRowActivated>();
 
   @Output()
@@ -2427,6 +2433,25 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   }
 
   /**
+   * Event fired before paging
+   */
+  private onBeforePaging(args: SohoPagerPagingInfo) {
+    this.ngZone.run(() => {
+      this.beforePaging.next(args);
+    });
+  }
+
+  /**
+   * Event fired after paging
+   */
+  private onAfterPaging(args: SohoPagerPagingInfo) {
+    this.ngZone.run(() => {
+      this.afterPaging.next(args);
+    });
+  }
+
+
+  /**
    * Returns the row dom jQuery node.
    *
    * @param  row The row index.
@@ -2673,7 +2698,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
           (e: any, args: SohoDataGridSelectedRow[], type?: SohoDataGridSelectedEventType) =>
             this.onSelected({ e, rows: args, type }))
         .on('settingschanged', (_e: any, args: SohoDataGridSettingsChangedEvent) => this.onSettingsChanged(args))
-        .on('sorted', (_e: any, args: SohoDataGridSortedEvent) => this.onSorted(args));
+        .on('sorted', (_e: any, args: SohoDataGridSortedEvent) => this.onSorted(args))
+        .on('beforepaging', (_e: any, args: SohoPagerPagingInfo) => this.onBeforePaging(args))
+        .on('afterpaging', (_e: any, args: SohoPagerPagingInfo) => this.onAfterPaging(args))
     });
 
     // Initialise the SohoXi control.

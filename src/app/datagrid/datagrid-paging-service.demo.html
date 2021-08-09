@@ -24,6 +24,8 @@
       *ngIf="gridOptions"
       [gridOptions]="gridOptions"
       (rowClicked)="onRowClicked($event)"
+      (beforePaging)="onBeforePaging($event)"
+      (afterPaging)="onAfterPaging($event)"
       (settingsChanged)="onSettingsChanged($event)"
       (rendered)="onRendered($event)"
     ></div>

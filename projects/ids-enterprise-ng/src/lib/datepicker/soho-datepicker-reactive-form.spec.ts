@@ -91,15 +91,4 @@ describe('SohoDatePickerComponent on Reactive Form', () => {
 
     expect(el.hasAttribute('disabled')).toBeTruthy('disable() adds disabled flag');
   });
-
-  it('updates after Form Control model change.', () => {
-    // Enable te control.
-    component.formGroup.enable();
-    fixture.detectChanges();
-
-    component.formGroup.controls['datepicker'].setValue('12/12/2016');
-    fixture.detectChanges();
-
-    expect(el.value).toEqual('12/12/2016');
-  });
 });
