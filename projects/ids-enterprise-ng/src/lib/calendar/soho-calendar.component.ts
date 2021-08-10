@@ -455,7 +455,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   }
 
   /**
-   * Deterimines if the today button should be shown.
+   * Configure date range for calendar
    */
   @Input() set displayRange(displayRange: Object | undefined) {
     (this._calendarOptions as any).displayRange = displayRange;
