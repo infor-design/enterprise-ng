@@ -57,6 +57,10 @@ describe('Soho Calendar Unit Tests', () => {
     comp.renderMonthCallback = onMonthRendered;
     comp.selectedCallback = onSelected;
     comp.upcomingEventDays = 5;
+    comp.displayRange = {
+      start: '07/11/2018',
+      end: '09/30/2018',
+    }
     // comp.template = '';
     // comp.modalTemplate = 'abc';
     // comp.menuId = 'id1';
@@ -73,6 +77,10 @@ describe('Soho Calendar Unit Tests', () => {
     expect(comp.renderMonthCallback).toEqual(onMonthRendered);
     expect(comp.selectedCallback).toEqual(onSelected);
     expect(comp.upcomingEventDays).toEqual(5);
+    expect(comp.displayRange).toEqual({
+      start: '07/11/2018',
+      end: '09/30/2018',
+    });
     // expect((comp as any).options.template).toEqual();
     // expect((comp as any).options.modalTemplate).toEqual();
     // expect((comp as any).options.menuId).toEqual();
@@ -132,6 +140,7 @@ describe('Soho Calendar Unit Tests', () => {
       [events]="events"
       [eventTypes]="eventTypes"
       [month]="month"
+      [displayRange]="displayRange"
       [year]="year"
       [locale]="locale"
     >
@@ -147,6 +156,7 @@ class SohoCalendarTestComponent {
   public locale = 'en-US';
   public month?: number;
   public year?: number;
+  public displayRange?: Object;
 }
 
 describe('Soho Calendar Chart Render', () => {
@@ -155,6 +165,18 @@ describe('Soho Calendar Chart Render', () => {
   let fixture: ComponentFixture<SohoCalendarTestComponent>;
   let de: DebugElement;
   let el: HTMLElement;
+  const testParams = [
+    {
+      month: 7,
+      year: 2018
+    },
+    {
+      displayRange: {
+        start: '07/11/2018',
+        end: '09/30/2018',
+      }
+    }
+  ]
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -173,126 +195,138 @@ describe('Soho Calendar Chart Render', () => {
     expect(calendar).toBeDefined();
   });
 
-  it('Check HTML content', () => {
-    comp.eventTypes = eventTypes;
-    comp.events = events;
-    comp.month = 7;
-    comp.year = 2018;
+  // Rerun the same tests using different parameters
+  for (const testParam of testParams){
+    (function (testSpec) {
+      it('Check HTML content', () => {
+        comp.eventTypes = eventTypes;
+        comp.events = events;
+        comp.month = testSpec.month ?? undefined;
+        comp.year = testSpec.year ?? undefined;
+        comp.displayRange = testSpec.displayRange ?? undefined;
 
-    fixture.detectChanges();
+        fixture.detectChanges();
 
-    expect(el.nodeName).toEqual('DIV');
-    expect(el.hasAttribute('soho-calendar')).toBeTruthy(
-      'soho-calendar not set'
-    );
-  });
+        expect(el.nodeName).toEqual('DIV');
+        expect(el.hasAttribute('soho-calendar')).toBeTruthy(
+          'soho-calendar not set'
+        );
+      });
 
-  it('check getDayEvents function', () => {
-    comp.eventTypes = eventTypes;
-    comp.events = events;
-    comp.month = 7;
-    comp.year = 2018;
+      it('check getDayEvents function', () => {
+        comp.eventTypes = eventTypes;
+        comp.events = events;
+        comp.month = testSpec.month ?? 7;
+        comp.year = testSpec.year ?? 2018;
+        comp.displayRange = testSpec.displayRange ?? undefined;
 
-    fixture.detectChanges();
+        fixture.detectChanges();
 
-    const requestDate: Date = new Date(comp.year, comp.month, 22);
-    const dayEvents: SohoCalendarDayEvents = calendar.getDayEvents(requestDate);
+        const requestDate: Date = new Date(comp.year, comp.month, 22);
+        const dayEvents: SohoCalendarDayEvents = calendar.getDayEvents(requestDate);
 
-    expect(dayEvents.events[0].id).toEqual(events[0].id);
-    expect(dayEvents.events[0].title).toEqual(events[0].title);
-    expect(dayEvents.events[0].type).toEqual(events[0].type);
-    expect(dayEvents.events[0].comments).toEqual(events[0].comments);
-    expect(dayEvents.events[0].location).toEqual(events[0].location);
-    expect(dayEvents.events[0].status).toEqual(events[0].status);
-    expect(dayEvents.events[0].starts).toEqual(events[0].starts);
-    expect(dayEvents.events[0].ends).toEqual(events[0].ends);
-    expect(dayEvents.events[0].type).toEqual(events[0].type);
-  });
+        expect(dayEvents.events[0].id).toEqual(events[0].id);
+        expect(dayEvents.events[0].title).toEqual(events[0].title);
+        expect(dayEvents.events[0].type).toEqual(events[0].type);
+        expect(dayEvents.events[0].comments).toEqual(events[0].comments);
+        expect(dayEvents.events[0].location).toEqual(events[0].location);
+        expect(dayEvents.events[0].status).toEqual(events[0].status);
+        expect(dayEvents.events[0].starts).toEqual(events[0].starts);
+        expect(dayEvents.events[0].ends).toEqual(events[0].ends);
+        expect(dayEvents.events[0].type).toEqual(events[0].type);
+      });
 
-  it('check addEvent function', () => {
-    comp.eventTypes = eventTypes;
-    comp.events = events;
-    comp.month = 7;
-    comp.year = 2018;
+      it('check addEvent function', () => {
+        comp.eventTypes = eventTypes;
+        comp.events = events;
+        comp.month = testSpec.month ?? undefined;
+        comp.year = testSpec.year ?? undefined;
+        comp.displayRange = testSpec.displayRange ?? undefined;
 
-    fixture.detectChanges();
+        fixture.detectChanges();
 
-    const newEvent: SohoCalendarEvent = {
-      id: '6',
-      subject: 'Discretionary Time Off',
-      shortSubject: 'DTO',
-      comments: 'Personal time',
-      location: 'Canada Office',
-      status: 'Approved',
-      starts: '2018-08-24T10:00:00.999',
-      ends: '2018-08-24T14:00:00.999',
-      type: 'dto',
-      isAllDay: false
-    };
+        const newEvent: SohoCalendarEvent = {
+          id: '6',
+          subject: 'Discretionary Time Off',
+          shortSubject: 'DTO',
+          comments: 'Personal time',
+          location: 'Canada Office',
+          status: 'Approved',
+          starts: '2018-08-24T10:00:00.999',
+          ends: '2018-08-24T14:00:00.999',
+          type: 'dto',
+          isAllDay: false
+        };
 
-    const calAddEventSpy = spyOn<any>(
-      (comp as any).calendar,
-      'addEvent'
-    ).and.callThrough();
-    calendar.addEvent(newEvent);
-    expect(calAddEventSpy).toHaveBeenCalledTimes(1);
-  });
+        const calAddEventSpy = spyOn<any>(
+          (comp as any).calendar,
+          'addEvent'
+        ).and.callThrough();
+        calendar.addEvent(newEvent);
+        expect(calAddEventSpy).toHaveBeenCalledTimes(1);
+      });
 
-  it('check updateEvent function', () => {
-    comp.eventTypes = eventTypes;
-    comp.events = events;
-    comp.month = 7;
-    comp.year = 2018;
+      it('check updateEvent function', () => {
+        comp.eventTypes = eventTypes;
+        comp.events = events;
+        comp.month = testSpec.month ?? undefined;
+        comp.year = testSpec.year ?? undefined;
+        comp.displayRange = testSpec.displayRange ?? undefined;
 
-    fixture.detectChanges();
+        fixture.detectChanges();
 
-    const updateEvent: SohoCalendarEvent = Object.assign(events[0], {
-      comments: 'Vacation Time',
-      location: 'Africa'
-    });
+        const updateEvent: SohoCalendarEvent = Object.assign(events[0], {
+          comments: 'Vacation Time',
+          location: 'Africa'
+        });
 
-    const calUpdateEventSpy = spyOn<any>(
-      (comp as any).calendar,
-      'updateEvent'
-    ).and.callThrough();
-    calendar.updateEvent(updateEvent);
-    expect(calUpdateEventSpy).toHaveBeenCalledTimes(1);
-  });
+        const calUpdateEventSpy = spyOn<any>(
+          (comp as any).calendar,
+          'updateEvent'
+        ).and.callThrough();
+        calendar.updateEvent(updateEvent);
+        expect(calUpdateEventSpy).toHaveBeenCalledTimes(1);
+      });
 
-  it('check deleteEvent function', () => {
-    comp.eventTypes = eventTypes;
-    comp.events = events;
-    comp.month = 7;
-    comp.year = 2018;
+      it('check deleteEvent function', () => {
+        comp.eventTypes = eventTypes;
+        comp.events = events;
+        comp.month = testSpec.month ?? undefined;
+        comp.year = testSpec.year ?? undefined;
+        comp.displayRange = testSpec.displayRange ?? undefined;
 
-    fixture.detectChanges();
+        fixture.detectChanges();
 
-    const deleteEvent: SohoCalendarEvent = events[0];
-    const calDeleteEventSpy = spyOn<any>(
-      (comp as any).calendar,
-      'deleteEvent'
-    ).and.callThrough();
-    calendar.deleteEvent(deleteEvent);
-    expect(calDeleteEventSpy).toHaveBeenCalledTimes(1);
-  });
+        const deleteEvent: SohoCalendarEvent = events[0];
+        const calDeleteEventSpy = spyOn<any>(
+          (comp as any).calendar,
+          'deleteEvent'
+        ).and.callThrough();
+        calendar.deleteEvent(deleteEvent);
+        expect(calDeleteEventSpy).toHaveBeenCalledTimes(1);
+      });
 
-  it('check clearEvents function', () => {
-    comp.eventTypes = eventTypes;
-    comp.events = events;
-    comp.month = 7;
-    comp.year = 2018;
+      it('check clearEvents function', () => {
+        comp.eventTypes = eventTypes;
+        comp.events = events;
+        comp.month = testSpec.month ?? undefined;
+        comp.year = testSpec.year ?? undefined;
+        comp.displayRange = testSpec.displayRange ?? undefined;
 
-    fixture.detectChanges();
+        fixture.detectChanges();
 
-    const clearEventsSpy = spyOn<any>(
-      (comp as any).calendar,
-      'clearEvents'
-    ).and.callThrough();
-    calendar.clearEvents();
-    expect(clearEventsSpy).toHaveBeenCalledTimes(1);
-  });
+        const clearEventsSpy = spyOn<any>(
+          (comp as any).calendar,
+          'clearEvents'
+        ).and.callThrough();
+        calendar.clearEvents();
+        expect(clearEventsSpy).toHaveBeenCalledTimes(1);
+      });
 
-  xit('check showEventModal function', () => { });
+      xit('check showEventModal function', () => { });
 
-  xit('check modalVisible function', () => { });
+      xit('check modalVisible function', () => { });
+
+    })(testParam);
+  }
 });
