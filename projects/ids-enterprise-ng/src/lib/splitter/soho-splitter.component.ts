@@ -137,7 +137,7 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
     // Once the control is initialised, extract the control
     // plug-in from the element.  The element name is
     // defined by the plug-in, but in this case it is 'splitter'.
-    this.splitter = this.jQueryElement.data('data');
+    this.splitter = this.jQueryElement.data('splitter');
 
     // Initialise any event handlers.
     this.jQueryElement
