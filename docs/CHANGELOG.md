@@ -12,6 +12,7 @@
 - `[Datagrid]` Added missing beforepaging and afterpaging events. ([#5493](https://github.com/infor-design/enterprise/issues/5493))
 - `[Lookup]` Fixed an issue where selection for server side and paging was not working. ([#986](https://github.com/infor-design/enterprise-ng/issues/986))
 - `[Searchfield]`Added missing category functions. ([#1079](https://github.com/infor-design/enterprise-ng/issues/1079))
+- `[Splitter]` assign correct value for `splitter` property. ([#1099](https://github.com/infor-design/enterprise-ng/issues/1099))
 - `[Tag]` Fixed an issue where before tag remove was not called. ([#1063](https://github.com/infor-design/enterprise-ng/issues/1063))
 - `[Tree]`Added missing badge types. ([#1079](https://github.com/infor-design/enterprise-ng/issues/1079))
 
