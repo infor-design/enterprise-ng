@@ -43,6 +43,7 @@ import { ButtonDemoComponent } from './button/button.demo';
 import { CalendarDemoComponent } from './calendar/calendar.demo';
 import { CalendarLegendDemoComponent } from './calendar/calendar-legend.demo';
 import { CalendarUpdatedDemoComponent } from './calendar/calendar-updated.demo';
+import { CalendarRangeDemoComponent } from './calendar/calendar-range.demo';
 import { CardsDemoComponent } from './cards/cards.demo';
 import { CardsExpandableDemoComponent } from './cards/cards-expandable.demo';
 import { CardsMultiSelectDemoComponent } from './cards/cards-multi-select.demo';
@@ -297,6 +298,7 @@ import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-
     CalendarDemoComponent,
     CalendarLegendDemoComponent,
     CalendarUpdatedDemoComponent,
+    CalendarRangeDemoComponent,
     CardsDemoComponent,
     CardsExpandableDemoComponent,
     CardsMultiSelectDemoComponent,
