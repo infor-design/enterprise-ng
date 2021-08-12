@@ -6,12 +6,11 @@ import { SohoSplitterModule } from './soho-splitter.module';
 
 @Component({
   template: `
-    <soho-splitter [isSplitterRight]="true" [collapseButton]="true" [save]="false">
+    <soho-splitter [isSplitterRight]="true" [collapseButton]="true" [save]="false" [maxWidth]="300">
       <div class="panel-header"></div>
     </soho-splitter>
     `
 })
-
 class SohoSplitterRightTestComponent {
   @ViewChild(SohoSplitterComponent) splitter?: SohoSplitterComponent | null;
 }
@@ -45,7 +44,9 @@ describe('Soho Right Splitter Render', () => {
     expect(Object.values(el.classList)).toEqual(['splitter', 'splitter-right']);
     expect((splitter as any).options.collapseButton).toEqual(true);
     expect((splitter as any).options.save).toEqual(false);
+    expect((splitter as any).options.maxWidth).toEqual(300);
     expect((splitter as any).splitter.settings.collapseButton).toEqual(true);
     expect((splitter as any).splitter.settings.save).toEqual(false);
+    expect((splitter as any).splitter.settings.maxWidth).toEqual(300);
   });
 });

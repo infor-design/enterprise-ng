@@ -21,6 +21,14 @@ type SohoSplitterOptionsSide = 'left' | 'right';
 type SohoSplitterOptionsResize = 'immediate' | 'end';
 
 /**
+ * MaxWidth options.
+ */
+interface SohoSplitterOptionsMaxWidth {
+  left?: 'auto' | number
+  right?: 'auto' | number
+}
+
+/**
  * Splitter options.
  */
 interface SohoSplitterOptions {
@@ -44,6 +52,9 @@ interface SohoSplitterOptions {
 
   /** Add extra attributes like id's to the component **/
   attributes?: Array<Object> | Object;
+
+  /** Ability to stop dragging at a max left or right size. (default {left: 'auto', right: 'auto'}) **/
+  maxWidth?: SohoSplitterOptionsMaxWidth;
 }
 
 /**
