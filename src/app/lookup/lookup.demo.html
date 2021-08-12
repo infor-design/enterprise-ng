@@ -214,6 +214,23 @@
                  field="productId"
                  name="product_before_open"/>
         </div>
+        
+        <div class="field">
+          <label soho-label for="autocomplete">Products (with autocomplete)</label>
+          <input soho-lookup
+                 multiselect
+                 [isAutoComplete]="true"
+                 [(ngModel)]="model.single"
+                 [columns]="columns_product"
+                 [dataset]="data_product"
+                 (change)="onChange($event)"
+                 (afteropen)="onAfterOpen($event)"
+                 field="productId"
+                 title="Products"
+                 name="product_single"
+                 [autoCompleteSettings]="autoCompleteSettings"
+          />
+        </div>
 
         <div class="field">
           <label soho-label for="toggle-buttons">Enable/Disable Buttons</label>
@@ -338,22 +355,6 @@
                  title="Products"
                  name="toggle-isreadonly" />
                  <br><br><button soho-button (click)="isReadonly = !isReadonly">{{ isReadonly ? 'Enable' : 'Readonly'}}</button>
-        </div>
-        <div class="field">
-          <label soho-label for="autocomplete">With autocomplete</label>
-          <input soho-lookup
-                 multiselect
-                 [isAutoComplete]="true"
-                 [(ngModel)]="model.single"
-                 [columns]="columns_product"
-                 [dataset]="data_product"
-                 (change)="onChange($event)"
-                 (afteropen)="onAfterOpen($event)"
-                 field="productId"
-                 title="Products"
-                 name="product_single"
-                 [autoCompleteSettings]="autoCompleteSettings"
-          />
         </div>
      </div>
     </div>
