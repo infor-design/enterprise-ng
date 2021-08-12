@@ -100,6 +100,11 @@ export class LookupDemoComponent implements OnInit {
     async: null,
     asyncexists: '2342203',
   };
+  public autoCompleteSettings: SohoLookupAutoComplete = {
+    id: 'id',
+    label: 'productName',
+    value: 'productId'
+  };
   public showModel = false;
   public templates?: Array<Asset>;
 

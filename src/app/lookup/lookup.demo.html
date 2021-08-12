@@ -312,7 +312,7 @@
                  field="templateId"
                  name="templateName"
                  [(ngModel)]="entityIds"
-                             [dataset]="templates" 
+                 [dataset]="templates" 
           />
         </div>
         <div class="field">
@@ -338,7 +338,23 @@
                  title="Products"
                  name="toggle-isreadonly" />
                  <br><br><button soho-button (click)="isReadonly = !isReadonly">{{ isReadonly ? 'Enable' : 'Readonly'}}</button>
-          </div>
+        </div>
+        <div class="field">
+          <label soho-label for="autocomplete">With autocomplete</label>
+          <input soho-lookup
+                 multiselect
+                 [isAutoComplete]="true"
+                 [(ngModel)]="model.single"
+                 [columns]="columns_product"
+                 [dataset]="data_product"
+                 (change)="onChange($event)"
+                 (afteropen)="onAfterOpen($event)"
+                 field="productId"
+                 title="Products"
+                 name="product_single"
+                 [autoCompleteSettings]="autoCompleteSettings"
+          />
+        </div>
      </div>
     </div>
   </div>

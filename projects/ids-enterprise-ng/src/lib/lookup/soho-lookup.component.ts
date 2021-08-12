@@ -343,6 +343,12 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
   @Input() toolbar: any;
 
+  // Check to add autocomplete in lookup, default is false
+  @Input() isAutoComplete?: boolean = false; 
+
+  // Autocomplete template settings
+  @Input() autoCompleteSettings?: SohoLookupAutoComplete;
+
   /**
    * Available Soho Template events as Output (EventEmitters passing the event)
    * Should match the Soho event names for the component
@@ -434,6 +440,11 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
    */
   private lookup?: SohoLookupStatic | null;
 
+  /**
+   * Autocomplete
+   */
+  private autocomplete!: SohoAutoCompleteStatic | null;
+
   private settings: SohoLookupOptions = {};
 
   /** Initial dataset */
@@ -458,6 +469,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {
       this.jQueryElement = jQuery(this.element.nativeElement);
+      const dataSet = this._dataset ? this._dataset : [];
 
       // The default options for the data grid, which will
       // be overriden by the options provided by the caller
@@ -465,7 +477,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       const datagridConfig: SohoDataGridOptions = {
         cellNavigation: false,
         columns: this.columns,
-        dataset: this._dataset ? this._dataset : [],
+        dataset: dataSet,
         selectable: this.isMultiselect() ? 'multiple' : 'single',
         toolbar: Object.assign({
           actions: true,
@@ -482,6 +494,23 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
       this.settings.options = Object.assign(datagridConfig, this.options);
       this.jQueryElement.lookup(this.settings);
+
+      // setup autocomplete
+      if (this.isAutoComplete) {
+        const acDataset = dataSet.map((data: { [key: string]: any }) => {
+          return this.autoCompleteSettings ? {
+            id: data[this.autoCompleteSettings.id],
+            value: data[this.autoCompleteSettings.value],
+            label: data[this.autoCompleteSettings.label]
+          } : data;
+        });
+
+        this.jQueryElement.autocomplete({
+          source: acDataset
+        });
+
+        this.autocomplete = this.jQueryElement.data('autocomplete');
+      }
 
       /**
        * Bind to jQueryElement's events
@@ -604,9 +633,15 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       if (this.jQueryElement) {
         this.jQueryElement.off();
       }
+
       if (this.lookup) {
         this.lookup.destroy();
         this.lookup = null;
+      }
+
+      if (this.autocomplete) {
+        this.autocomplete.destroy();
+        this.autocomplete = null;
       }
     });
   }
