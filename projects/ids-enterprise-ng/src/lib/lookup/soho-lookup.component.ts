@@ -497,6 +497,16 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
       // setup autocomplete
       if (this.isAutoComplete) {
+        const acTemplate =`<script id="autocomplete-template-lookup" type="text/html">
+          <li id="{{listItemId}}" data-index="{{index}}" {{#hasValue}}data-value="{{value}}"{{/hasValue}} role="listitem">
+          <a href="#" tabindex="-1">
+            <span>{{{label}}}</span>
+            <small>{{{value}}}</small>
+            <span style="display: none;" class="display-value">{{{value}}}</span>
+          </a>
+          </li>
+       </script>`;
+
         const acDataset = dataSet.map((data: { [key: string]: any }) => {
           return this.autoCompleteSettings ? {
             id: data[this.autoCompleteSettings.id],
@@ -506,6 +516,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
         });
 
         this.jQueryElement.autocomplete({
+          template: acTemplate,
           source: acDataset
         });
 
