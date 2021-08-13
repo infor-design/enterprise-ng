@@ -343,9 +343,6 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
 
   @Input() toolbar: any;
 
-  // Check to add autocomplete in lookup, default is false
-  @Input() isAutoComplete?: boolean = false; 
-
   // Autocomplete template settings
   @Input() autoCompleteSettings?: SohoLookupAutoComplete;
 
@@ -496,17 +493,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
       this.jQueryElement.lookup(this.settings);
 
       // setup autocomplete
-      if (this.isAutoComplete) {
-        const acTemplate =`<script id="autocomplete-template-lookup" type="text/html">
-          <li id="{{listItemId}}" data-index="{{index}}" {{#hasValue}}data-value="{{value}}"{{/hasValue}} role="listitem">
-          <a href="#" tabindex="-1">
-            <span>{{{label}}}</span>
-            <small>{{{value}}}</small>
-            <span style="display: none;" class="display-value">{{{value}}}</span>
-          </a>
-          </li>
-       </script>`;
-
+      if (this.autoCompleteSettings) {
         const acDataset = dataSet.map((data: { [key: string]: any }) => {
           return this.autoCompleteSettings ? {
             id: data[this.autoCompleteSettings.id],
@@ -515,10 +502,13 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
           } : data;
         });
 
-        this.jQueryElement.autocomplete({
-          template: acTemplate,
-          source: acDataset
-        });
+        const acSettings: SohoAutoCompleteOptions = { source: acDataset };
+
+        if (this.autoCompleteSettings.template) {
+          acSettings.template = this.autoCompleteSettings.template;
+        }
+
+        this.jQueryElement.autocomplete(acSettings);
 
         this.autocomplete = this.jQueryElement.data('autocomplete');
       }

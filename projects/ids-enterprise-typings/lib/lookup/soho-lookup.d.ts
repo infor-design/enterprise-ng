@@ -92,8 +92,11 @@ interface SohoLookupAutoComplete {
   /** Value of selected item */
   value: string;
 
-  /** Label to be shown in the autocomplete list and selected input */
+  /** Label to be shown in the autocomplete list*/
   label: string;
+
+  /** Menu template, appropriate markup is expected. */
+  template?: string;
 }
 
 /** Selection criteria. */
