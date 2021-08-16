@@ -81,6 +81,24 @@ interface SohoLookupOptions {
   allowDuplicates?: boolean;
 }
 
+/**
+ * Autocomplete template
+ * Dataset is taken from lookup dataset, assign which key names will be used for autocomplete's template
+ */
+interface SohoLookupAutoComplete {
+  /** id of item */
+  id: string;
+
+  /** Value of selected item */
+  value: string;
+
+  /** Label to be shown in the autocomplete list*/
+  label: string;
+
+  /** Menu template, appropriate markup is expected. */
+  template?: string;
+}
+
 /** Selection criteria. */
 type SohoDataGridMatchFunction = (
   /** Value to match against. */

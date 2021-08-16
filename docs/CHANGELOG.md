@@ -4,6 +4,8 @@
 
 ### 10.4.0 Fixes
 
+- `[Lookup]` Added autocomplete in lookup. ([#1087](https://github.com/infor-design/enterprise/issues/1087))
+
 ## v10.3.0
 
 ### 10.3.0 Fixes
