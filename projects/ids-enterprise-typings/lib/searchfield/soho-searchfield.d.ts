@@ -60,7 +60,7 @@ interface SohoSearchFieldStatic {
   element: JQuery;
 
   /** If this component resides within a toolbar, this returns `true` */
-  toolbarParent?: boolean | undefined;
+  toolbarParent?: boolean;
 
   /** Destructor. */
   destroy(): void;
