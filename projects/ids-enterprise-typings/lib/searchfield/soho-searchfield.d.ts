@@ -16,7 +16,7 @@ interface SohoSearchFieldOptions extends SohoAutoCompleteOptions {
   showAllResults?: boolean;
 
   /** Displays a dropdown containing categories that can be used to filter results. */
-  categories?: Object[];
+  categories?: SohoSearchFieldCategoryType[];
 
   /** If true, creates a multiselectable Categories list. */
   categoryMultiselect?: boolean;
@@ -81,6 +81,9 @@ interface SohoSearchFieldCategory {
     id?: string | number;
     value?: string | number;
 }
+
+/** Search field category type */
+type SohoSearchFieldCategoryType = SohoSearchFieldCategory | string;
 
 /**
  * Type safe SearchField event object.

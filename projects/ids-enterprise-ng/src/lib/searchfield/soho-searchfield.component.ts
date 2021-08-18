@@ -32,7 +32,7 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
     this.options.allResultsCallback = value;
   }
   /** Displays a dropdown containing categories that can be used to filter results. */
-  @Input() set categories(value: Object[]) {
+  @Input() set categories(value: SohoSearchFieldCategoryType[]) {
     this.options.categories = value;
   }
 
