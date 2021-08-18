@@ -44,6 +44,9 @@ interface SohoSearchFieldStatic {
   /**  Gets a complete list of categories in jQuery-collection form. */
   getCategories(): any;
 
+  /** Gets the currently selected categories as data */
+  getCategoryData(onlySelected: boolean): SohoSearchFieldCategory[];
+
   /**  Gets a complete list of categories in jQuery-collection form. */
   getSelectedCategories(): any;
 
@@ -67,6 +70,16 @@ interface SohoSearchFieldStatic {
 
   /** Updated */
   updated(settings?: SohoSearchFieldOptions): void;
+}
+
+/**
+ * Search field category.
+ */
+interface SohoSearchFieldCategory {
+    checked: boolean;
+    name: string;
+    id?: string | number;
+    value?: string | number;
 }
 
 /**
