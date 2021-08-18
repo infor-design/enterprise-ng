@@ -1,0 +1,17 @@
+<div class="row top-padding">
+  <div class="twelve columns">
+    <label for="searchfield" class="audible">Search</label>
+    <input soho-searchfield
+       id="searchfield"
+       name="searchfield"
+       class="searchfield"
+       [options]="searchfieldOptions"
+       [(ngModel)]="model.searchValue"
+       (selected)="onCategorySelected()"/>
+  </div>
+
+  <div class="twelve columns">
+    <p>Selected categories: {{ selectedCategories | json }}</p>
+    <p>Search value: {{ model.searchValue }} </p>
+  </div>
+</div>

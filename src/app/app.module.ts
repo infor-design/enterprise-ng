@@ -189,6 +189,7 @@ import { RadarDemoComponent } from './radar/radar.demo';
 import { RadioButtonDemoComponent } from './radiobutton/radiobutton.demo';
 import { RatingDemoComponent } from './rating/rating.demo';
 import { SearchFieldDemoComponent } from './searchfield/searchfield.demo';
+import { SearchFieldCategoryDemoComponent } from './searchfield/searchfield-category.demo';
 import { SearchFieldClearDemoComponent } from './searchfield/searchfield-clear.demo';
 import { SliderDemoComponent } from './slider/slider.demo';
 import { SohoHeaderDynamicDemoComponent } from './header/header-dynamic.demo';
@@ -431,6 +432,7 @@ import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-
     RadioButtonDemoComponent,
     RatingDemoComponent,
     SearchFieldDemoComponent,
+    SearchFieldCategoryDemoComponent,
     SearchFieldClearDemoComponent,
     SliderDemoComponent,
     SohoHeaderDynamicDemoComponent,
