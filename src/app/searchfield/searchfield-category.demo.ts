@@ -5,13 +5,12 @@ import {
 } from '@angular/core';
 
 import { SohoSearchFieldComponent } from 'ids-enterprise-ng';
-import { AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-searchfield-category-demo',
   templateUrl: 'searchfield-category.demo.html'
 })
-export class SearchFieldCategoryDemoComponent implements AfterViewInit {
+export class SearchFieldCategoryDemoComponent  {
   @ViewChild(SohoSearchFieldComponent, { static: true })
   private searchfield!: SohoSearchFieldComponent;
 
@@ -29,21 +28,13 @@ export class SearchFieldCategoryDemoComponent implements AfterViewInit {
    */
   searchfieldOptions: SohoSearchFieldOptions = {
     filterMode: 'contains',
-    // categories: [{ name: 'Books', checked: true }, 'Movies', 'TV Shows', 'Video Games'],
+    categories: [{ name: 'Books', checked: false }, 'Movies', 'TV Shows', 'Video Games'],
     categoryMultiselect: true,
     showCategoryText: true,
     clearable: false,
   };
   
-  ngAfterViewInit(): void {
-    this.setSelectedCategories();
-  }
-  
   onCategorySelected(): void {
-    this.setSelectedCategories();
-  }
-
-  setSelectedCategories(): void {
     this.selectedCategories = this.searchfield.getCategoryData(true) || [];
   }
 }
