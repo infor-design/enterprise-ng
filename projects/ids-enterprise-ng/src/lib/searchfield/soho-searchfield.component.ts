@@ -78,6 +78,7 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
   // ------------------------------------------------------------
 
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+  @Output() cleared: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   @HostBinding('class.searchfield') get isSearchField() {
     return true;
@@ -104,16 +105,23 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
      * Bind to jQueryElement's events
      */
     this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
+    this.jQueryElement.on('cleared', (...args) => this.ngZone.run(() => this.cleared.emit(args)));
 
     this.searchfield = this.jQueryElement.data('searchfield');
   }
 
   ngOnDestroy() {
     // Necessary clean up step (add additional here)
-    if (this.searchfield) {
-      this.searchfield.destroy();
-      this.searchfield = null;
-    }
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        // clean up attached events.
+        this.jQueryElement.off();
+      }
+      if (this.searchfield) {
+        this.searchfield.destroy();
+        this.searchfield = null;
+      }
+    });
   }
 
   clear(): void {

@@ -46,6 +46,10 @@ export class SearchFieldClearDemoComponent implements AfterViewInit, OnInit {
     console.log('Search Changed', event.type);
   }
 
+  onClear(event: unknown) {
+    console.log('Search cleared', event);
+  }
+
   objectBasedData(): Observable<Array<object>> {
     return of([
       { value: '1', label: 'Atlanta' },

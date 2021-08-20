@@ -8,6 +8,7 @@
        [clearable]="true"
        [options]="searchfieldOptions"
        [(ngModel)]="model.searchValue"
-       (change)="onChange($event)"/>
+       (change)="onChange($event)"
+       (cleared)="onClear($event)"/>
   </div>
 </div>
