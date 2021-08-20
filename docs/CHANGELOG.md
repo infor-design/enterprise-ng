@@ -5,6 +5,7 @@
 ### 10.4.0 Fixes
 
 - `[Lookup]` Added autocomplete in lookup. ([#1087](https://github.com/infor-design/enterprise/issues/1087))
+- `[Searchfield]` Added `cleared` EventEmitter. ([#1109](https://github.com/infor-design/enterprise-ng/issues/1109))
 
 ## v10.3.0
 
