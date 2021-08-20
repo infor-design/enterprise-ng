@@ -32,7 +32,7 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
     this.options.allResultsCallback = value;
   }
   /** Displays a dropdown containing categories that can be used to filter results. */
-  @Input() set categories(value: Object[]) {
+  @Input() set categories(value: SohoSearchFieldCategoryType[]) {
     this.options.categories = value;
   }
 
@@ -135,6 +135,13 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
     });
   }
 
+  /** Gets the categories as data. Passing true will return only the selected category data.*/
+  getCategoryData(onlySelected: boolean): SohoSearchFieldCategory[] | undefined {
+    return this.ngZone.runOutsideAngular(() => {
+      return this.searchfield?.getCategoryData(onlySelected);
+    });
+  }
+  
   /**  Gets a complete list of categories in jQuery-collection form. */
   getSelectedCategories(): any {
     return this.ngZone.runOutsideAngular(() => {
