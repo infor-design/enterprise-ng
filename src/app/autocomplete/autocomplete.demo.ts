@@ -78,6 +78,15 @@ export class AutocompleteDemoComponent implements AfterViewInit {
   public selected: any;
   options?: SohoAutoCompleteOptions;
 
+  public extraAttributes = {
+    attributes : [
+      {
+        name: 'data-automation-id',
+        value: 'my-custom-1'
+      }
+    ]
+  };
+
   constructor(private changeDetectorRef: ChangeDetectorRef) { }
 
   ngAfterViewInit() {

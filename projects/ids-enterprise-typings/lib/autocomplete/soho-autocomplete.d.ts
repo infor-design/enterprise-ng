@@ -35,6 +35,9 @@ interface SohoAutoCompleteOptions {
 
   /** Selects first item menu */
   autoSelectFirstItem?: boolean;
+
+  /** Add extra attributes like id's to the component **/
+  attributes?: Array<Object> | Object;
 }
 
 type SohoAutoCompleteSource = Object[] | string | Object | SohoAutoCompleteSourceFunction;
