@@ -28,6 +28,9 @@ export class CalendarRangeDemoComponent {
     start: '07/21/2018',
     end: '09/30/2018',
   }
+  public disable = {
+    dates: ['2018/08/08', '2018/09/01']
+  }
 
   public onRenderMonthCallback = (_node: Node, response: Function) => {
     this.monthViewService.getCalendarEventTypes().subscribe((types) => {

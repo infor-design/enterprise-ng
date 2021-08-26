@@ -86,9 +86,10 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   }
 
   @Input() set disable(disable: SohoDatePickerDisable) {
-    (this.calendar as any).settings.disable = disable;
+    (this._calendarOptions as any).disable = disable;
 
-    if (this.jQueryElement) {
+    if (this.calendar) {
+      this.calendar.settings.disable = disable;
       this.markForRefresh();
     }
   }
@@ -100,14 +101,15 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
     return this.disable;
   }
 
-  @Input() set dayLegend(dayLegend: SohoDatePickerLegend) {
-    (this.calendar as any).settings.dayLegend = dayLegend;
+  @Input() set dayLegend(dayLegend: Array<SohoDatePickerLegend>) {
+    (this._calendarOptions as any).dayLegend = dayLegend;
 
-    if (this.jQueryElement) {
+    if (this.calendar) {
+      this.calendar.settings.dayLegend = dayLegend;
       this.markForRefresh();
     }
   }
-  get dayLegend(): SohoDatePickerLegend {
+  get dayLegend(): Array<SohoDatePickerLegend> {
     if (this.calendar) {
       return (this.calendar as any).settings.dayLegend;
     }
@@ -116,9 +118,10 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   }
 
   @Input() set attributes(attributes: Array<Object> | Object | undefined) {
-    (this.calendar as any).settings.attributes = attributes;
+    (this._calendarOptions as any).attributes = attributes;
 
-    if (this.jQueryElement) {
+    if (this.calendar) {
+      this.calendar.settings.attributes = attributes;
       this.markForRefresh();
     }
   }
