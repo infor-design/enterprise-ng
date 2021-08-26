@@ -29,7 +29,7 @@ export class CalendarRangeDemoComponent {
     end: '09/30/2018',
   }
   public disable = {
-    dates: ['2018/08/08', '2018/09/01']
+    dates: ['2018/08/08', '2018/09/02']
   }
 
   public onRenderMonthCallback = (_node: Node, response: Function) => {
