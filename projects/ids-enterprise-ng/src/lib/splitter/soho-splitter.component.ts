@@ -80,6 +80,15 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  /** Ability to stop dragging at a max left or right size. **/
+  @Input() set maxWidth(maxWidth: SohoSplitterOptionsMaxWidth) {
+    this.options.maxWidth = maxWidth;
+    if (this.splitter) {
+      this.splitter.settings.maxWidth = maxWidth;
+      this.splitter.updated();
+    }
+  }
+
   // Determines if the split percentage should be saved to local storage
   @Input() set save(save: boolean) {
     this.options.save = save;
@@ -137,7 +146,7 @@ export class SohoSplitterComponent implements AfterViewInit, OnDestroy {
     // Once the control is initialised, extract the control
     // plug-in from the element.  The element name is
     // defined by the plug-in, but in this case it is 'splitter'.
-    this.splitter = this.jQueryElement.data('data');
+    this.splitter = this.jQueryElement.data('splitter');
 
     // Initialise any event handlers.
     this.jQueryElement

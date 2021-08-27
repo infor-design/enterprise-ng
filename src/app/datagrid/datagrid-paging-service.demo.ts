@@ -12,7 +12,7 @@ import { DataGridPagingServiceDemoService } from './datagrid-paging-service-demo
 @Component({
   selector: 'app-datagrid-paging-service-demo',
   templateUrl: 'datagrid-paging-service.demo.html',
-  providers: [ DataGridPagingServiceDemoService ],
+  providers: [DataGridPagingServiceDemoService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DataGridPagingServiceDemoComponent implements OnInit {
@@ -27,7 +27,7 @@ export class DataGridPagingServiceDemoComponent implements OnInit {
   private savedFilter?: string;
   public gridOptions: any = undefined;
 
-  constructor(private datagridPagingService: DataGridPagingServiceDemoService) {}
+  constructor(private datagridPagingService: DataGridPagingServiceDemoService) { }
 
   ngOnInit(): void {
     /*
@@ -45,14 +45,14 @@ export class DataGridPagingServiceDemoComponent implements OnInit {
     this.savedActivePage = lscache.get(this.uniqueId + 'activePage');
     this.savedFilter = lscache.get(this.uniqueId + 'filter') ? lscache.get(this.uniqueId + 'filter') : null;
     this.gridOptions = {
-      columns:       this.datagridPagingService.getColumns(),
-      selectable:    'multiple',
-      paging:        true,
-      pagesize:      pageSize,
-      pagesizes:     [ 5, 10, 25 ],
+      columns: this.datagridPagingService.getColumns(),
+      selectable: 'multiple',
+      paging: true,
+      pagesize: pageSize,
+      pagesizes: [5, 10, 25],
       indeterminate: false,
-      rowHeight:     'medium',
-      source:        this.dataGridSource
+      rowHeight: 'medium',
+      source: this.dataGridSource
     };
   }
 
@@ -99,7 +99,17 @@ export class DataGridPagingServiceDemoComponent implements OnInit {
       this.savedColumns = this.sohoDataGridComponent?.columnsFromString(columnString);
     }
 
-    this.sohoDataGridComponent?.restoreUserSettings({activePage: this.savedActivePage, columns: this.savedColumns,
-      rowHeight: this.savedRowHeight, sortOrder: this.savedSortOrder, pagesize: this.savedPagesize, filter: this.savedFilter});
+    this.sohoDataGridComponent?.restoreUserSettings({
+      activePage: this.savedActivePage, columns: this.savedColumns,
+      rowHeight: this.savedRowHeight, sortOrder: this.savedSortOrder, pagesize: this.savedPagesize, filter: this.savedFilter
+    });
+  }
+
+  onBeforePaging(_event: SohoPagerPagingInfo) {
+    console.log('onBeforePaging', _event);
+  }
+
+  onAfterPaging(_event: SohoPagerPagingInfo) {
+    console.log('onAfterPaging', _event);
   }
 }

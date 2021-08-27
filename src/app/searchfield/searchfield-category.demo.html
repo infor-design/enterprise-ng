@@ -3,12 +3,15 @@
     <label for="searchfield" class="audible">Search</label>
     <input soho-searchfield
        id="searchfield"
-       name="searchfield-clear"
+       name="searchfield"
        class="searchfield"
-       [clearable]="true"
        [options]="searchfieldOptions"
        [(ngModel)]="model.searchValue"
-       (change)="onChange($event)"
-       (cleared)="onClear($event)"/>
+       (selected)="onCategorySelected()"/>
+  </div>
+
+  <div class="twelve columns">
+    <p>Selected categories: {{ selectedCategories | json }}</p>
+    <p>Search value: {{ model.searchValue }} </p>
   </div>
 </div>

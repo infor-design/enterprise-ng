@@ -32,7 +32,7 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
     this.options.allResultsCallback = value;
   }
   /** Displays a dropdown containing categories that can be used to filter results. */
-  @Input() set categories(value: Object[]) {
+  @Input() set categories(value: SohoSearchFieldCategoryType[]) {
     this.options.categories = value;
   }
 
@@ -78,6 +78,7 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
   // ------------------------------------------------------------
 
   @Output() selected: EventEmitter<Object[]> = new EventEmitter<Object[]>();
+  @Output() cleared: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   @HostBinding('class.searchfield') get isSearchField() {
     return true;
@@ -104,16 +105,23 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
      * Bind to jQueryElement's events
      */
     this.jQueryElement.on('selected', (...args) => this.selected.emit(args));
+    this.jQueryElement.on('cleared', (...args) => this.ngZone.run(() => this.cleared.emit(args)));
 
     this.searchfield = this.jQueryElement.data('searchfield');
   }
 
   ngOnDestroy() {
     // Necessary clean up step (add additional here)
-    if (this.searchfield) {
-      this.searchfield.destroy();
-      this.searchfield = null;
-    }
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        // clean up attached events.
+        this.jQueryElement.off();
+      }
+      if (this.searchfield) {
+        this.searchfield.destroy();
+        this.searchfield = null;
+      }
+    });
   }
 
   clear(): void {
@@ -127,6 +135,13 @@ export class SohoSearchFieldComponent implements AfterViewInit, OnDestroy {
     });
   }
 
+  /** Gets the categories as data. Passing true will return only the selected category data.*/
+  getCategoryData(onlySelected: boolean): SohoSearchFieldCategory[] | undefined {
+    return this.ngZone.runOutsideAngular(() => {
+      return this.searchfield?.getCategoryData(onlySelected);
+    });
+  }
+  
   /**  Gets a complete list of categories in jQuery-collection form. */
   getSelectedCategories(): any {
     return this.ngZone.runOutsideAngular(() => {

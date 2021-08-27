@@ -1,12 +1,23 @@
 # What's New with Enterprise-NG
 
+## v10.4.0
+
+### 10.4.0 Fixes
+
+- `[Lookup]` Added autocomplete in lookup. ([#1087](https://github.com/infor-design/enterprise/issues/1087))
+- `[Searchfield]` Added `cleared` EventEmitter. ([#1109](https://github.com/infor-design/enterprise-ng/issues/1109))
+- `[SearchField]` Added method for getting category data and improved typings for searchfield cateegories. ([#1107](https://github.com/infor-design/enterprise-ng/issues/1107))
+
 ## v10.3.0
 
 ### 10.3.0 Fixes
 
 - `[Datagrid]` The `getColumnIndex` function did not exist, so changed it to the working `columnIdxById` which does the same.
+- `[Datagrid]` Added missing beforepaging and afterpaging events. ([#5493](https://github.com/infor-design/enterprise/issues/5493))
 - `[Lookup]` Fixed an issue where selection for server side and paging was not working. ([#986](https://github.com/infor-design/enterprise-ng/issues/986))
 - `[Searchfield]`Added missing category functions. ([#1079](https://github.com/infor-design/enterprise-ng/issues/1079))
+- `[Splitter]` assign correct value for `splitter` property. ([#1099](https://github.com/infor-design/enterprise-ng/issues/1099))
+- `[Splitter]` add missing `maxWidth` splitter setting. ([#1106](https://github.com/infor-design/enterprise-ng/issues/1106))
 - `[Tag]` Fixed an issue where before tag remove was not called. ([#1063](https://github.com/infor-design/enterprise-ng/issues/1063))
 - `[Tree]`Added missing badge types. ([#1079](https://github.com/infor-design/enterprise-ng/issues/1079))
 

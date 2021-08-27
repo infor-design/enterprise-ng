@@ -100,6 +100,22 @@ export class LookupDemoComponent implements OnInit {
     async: null,
     asyncexists: '2342203',
   };
+
+  public autoCompleteSettings: SohoLookupAutoComplete = {
+    id: 'id',
+    label: 'productName',
+    value: 'productId',
+    template: `<script id="autocomplete-template-lookup" type="text/html">
+      <li id="{{listItemId}}" data-index="{{index}}" {{#hasValue}}data-value="{{value}}"{{/hasValue}} role="listitem">
+      <a href="#" tabindex="-1">
+        <span>{{{label}}}</span>
+        <small>{{{value}}}</small>
+        <span style="display: none;" class="display-value">{{{value}}}</span>
+      </a>
+      </li>
+    </script>`
+  };
+  
   public showModel = false;
   public templates?: Array<Asset>;
 
