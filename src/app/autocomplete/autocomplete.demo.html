@@ -2,7 +2,7 @@
   <div class="twelve columns">
     <div class="field">
       <label for="autocomplete-default">Set source as string, update from cities to states</label>
-      <input id="autocomplete-default" soho-autocomplete soho-mask [sohoPattern]="'********************'" [attr.data-autocomplete]="url" type="text"  (selected)="onSelected($event)">
+      <input id="autocomplete-default" soho-autocomplete soho-mask [sohoPattern]="'********************'" [attributes]="extraAttributes.attributes" [attr.data-autocomplete]="url" type="text"  (selected)="onSelected($event)">
     </div>
     <div class="field">
       <label for="autocomplete-source">Set source as a function</label>

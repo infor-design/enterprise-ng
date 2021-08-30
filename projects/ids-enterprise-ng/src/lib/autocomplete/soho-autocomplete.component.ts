@@ -73,6 +73,15 @@ export class SohoAutoCompleteComponent extends BaseControlValueAccessor<string> 
     this.options.autoSelectFirstItem = autoSelectFirstItem;
   }
 
+  @Input()
+  public set attributes(attributes: Array<Object> | Object | undefined) {
+    this.options.attributes = attributes;
+  }
+
+  public get attributes(): Array<Object> | Object | undefined {
+    return this.options.attributes;
+  }
+
   /**
    * Available Soho Template events as Output (EventEmitters passing the event)
    * Should match the Soho event names for the component
