@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v10.3.1
+
+### 10.3.1 Fixes
+
+- `[Datagrid]` Added missing `filterMaskOptions` type
+
 ## v10.3.0
 
 ### 10.3.0 Fixes

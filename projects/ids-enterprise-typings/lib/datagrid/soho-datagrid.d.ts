@@ -887,6 +887,9 @@ interface SohoDataGridColumn {
   /** The newer style object pattern mask for the column*/
   maskOptions?: SohoMaskOptions;
 
+  /** The newer style object pattern mask for the column filter row*/
+  filterMaskOptions?: SohoMaskOptions;
+
   /** Call the grids `onPostRenderCell` function for cells in this column after they are rendered. */
   postRender?: boolean;
 
