@@ -884,10 +884,13 @@ interface SohoDataGridColumn {
   /** The older style pattern mask for the column */
   mask?: string;
 
-  /** The newer style object pattern mask for the column*/
+  /** The older style pattern mask for the column filter row only */
+  filterMask?: string;
+
+  /** The newer style object pattern mask for the column */
   maskOptions?: SohoMaskOptions;
 
-  /** The newer style object pattern mask for the column*/
+  /** The newer style object pattern mask for the column filter row only*/
   filterMaskOptions?: SohoMaskOptions;
 
   /** Call the grids `onPostRenderCell` function for cells in this column after they are rendered. */

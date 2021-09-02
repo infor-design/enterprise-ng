@@ -5,6 +5,7 @@
 ### 10.4.0 Fixes
 
 - `[Autocomplete]` Added automation attributes in Autocomplete. ([#1035](https://github.com/infor-design/enterprise/issues/1035))
+- `[Datagrid]` Added missing `filterMaskOptions` type.  ([#1121](https://github.com/infor-design/enterprise/issues/1121))
 - `[Lookup]` Added autocomplete in lookup. ([#1087](https://github.com/infor-design/enterprise/issues/1087))
 - `[Searchfield]` Added `cleared` EventEmitter. ([#1109](https://github.com/infor-design/enterprise-ng/issues/1109))
 - `[SearchField]` Added method for getting category data and improved typings for searchfield cateegories. ([#1107](https://github.com/infor-design/enterprise-ng/issues/1107))
