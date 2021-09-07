@@ -383,11 +383,19 @@ interface SohoDataGridModifiedRow {
 }
 
 interface SohoDataGridDirtyCell {
+  row: number;
+  col: number;
+  cellData: SohoCellData;
+}
+
+interface SohoCellData {
   value: any;
   coercedVal: any;
   escapedCoercedVal: any;
+  originalVal: any;
   cellNodeText: string;
   cell: number;
+  isDirty: boolean;
   column: SohoDataGridColumn;
 }
 
