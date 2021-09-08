@@ -648,7 +648,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   }
 
   isMultiselect(): boolean | undefined {
-    return this.multiselect || (this.options && this.options.selectable === 'multiple');
+    return this.multiselect !== false || (this.options && this.options.selectable === 'multiple');
   }
 
   modalOpened(args: any[]) {
