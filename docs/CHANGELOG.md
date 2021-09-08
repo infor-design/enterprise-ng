@@ -1,8 +1,14 @@
 # What's New with Enterprise-NG
 
-## v10.4.0
+## v10.7.0
 
-### 10.4.0 Fixes
+### 10.7.0 Fixes
+
+- `[Placeholder]` Change me. ([#1035](https://github.com/infor-design/enterprise/issues/1035))
+
+## v10.6.0
+
+### 10.6.0 Fixes
 
 - `[Autocomplete]` Added automation attributes in Autocomplete. ([#1035](https://github.com/infor-design/enterprise/issues/1035))
 - `[Datagrid]` Added missing `filterMaskOptions` type.  ([#1121](https://github.com/infor-design/enterprise/issues/1121))
