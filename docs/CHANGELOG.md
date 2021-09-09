@@ -14,7 +14,7 @@
 - `[Datagrid]` Added missing `filterMaskOptions` type.  ([#1121](https://github.com/infor-design/enterprise/issues/1121))
 - `[Lookup]` Added autocomplete in lookup. ([#1087](https://github.com/infor-design/enterprise/issues/1087))
 - `[Searchfield]` Added `cleared` EventEmitter. ([#1109](https://github.com/infor-design/enterprise-ng/issues/1109))
-- `[SearchField]` Added method for getting category data and improved typings for searchfield cateegories. ([#1107](https://github.com/infor-design/enterprise-ng/issues/1107))
+- `[SearchField]` Added method for getting category data and improved typings for searchfield categories. ([#1107](https://github.com/infor-design/enterprise-ng/issues/1107))
 - `[Calendar Options]` Fixed disable options throws calendar not found error ([#1115](https://github.com/infor-design/enterprise-ng/issues/1115))
 
 ## v10.3.0
