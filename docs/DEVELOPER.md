@@ -3,7 +3,7 @@
 ## Install
 
 - PC users suggest [ComEmu](https://conemu.github.io/) which works a bit better than CMD.
-- Get the latest LTS **Node.js** release from <https://nodejs.org/en/> (version 12 or later)
+- Get the latest LTS **Node.js** release from <https://nodejs.org/en/> (version 12 - see .npmrc for the exact version)
 - Get an Editor like [Visual Studio Code](https://code.visualstudio.com/) or [Atom](https://atom.io/) or your fav.
 
 ## Initial Setup with npm
