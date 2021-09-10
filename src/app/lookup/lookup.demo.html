@@ -355,6 +355,30 @@
                  name="toggle-isreadonly" />
                  <br><br><button soho-button (click)="isReadonly = !isReadonly">{{ isReadonly ? 'Enable' : 'Readonly'}}</button>
         </div>
+
+        <div class="field">
+          <label soho-label for="attr-disabled">Disabled By Attr</label>
+          <input soho-lookup
+                 disabled="true"
+                 [(ngModel)]="model.singleR"
+                 [columns]="columns_product"
+                 [dataset]="data_product"
+                 field="productId"
+                 title="Products"
+                 name="attr-disabled" />
+        </div>
+
+        <div class="field">
+          <label soho-label for="attr-readonly">Readonly By Attr</label>
+          <input soho-lookup
+                 readonly="true"
+                 [(ngModel)]="model.singleR"
+                 [columns]="columns_product"
+                 [dataset]="data_product"
+                 field="productId"
+                 title="Products"
+                 name="attr-readonly" />
+        </div>
      </div>
     </div>
   </div>
