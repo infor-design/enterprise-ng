@@ -2,7 +2,7 @@
 
 ## v10.7.0
 
-- `[Alert]` Alert component test set-up. ([#1110](https://github.com/infor-design/enterprise/issues/1110))
+- `[Alert]` Alert component test set-up. ([#1110](https://github.com/infor-design/enterprise-ng/issues/1110))
 
 ### 10.7.0 Fixes
 
