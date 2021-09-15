@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v10.3.2
+
+### 10.3.2 Fixes
+
+- `[Locale]` Fixed an additional case where large numbers cannot be formatted correctly. ([#5605](https://github.com/infor-design/enterprise/issues/5605))
+
 ## v10.3.1
 
 ### 10.3.1 Fixes
