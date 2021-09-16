@@ -8,6 +8,12 @@
 
 - `[Placeholder]` Change me. ([#1035](https://github.com/infor-design/enterprise/issues/1035))
 
+## v10.6.1
+
+### 10.6.1 Fixes
+
+- `[Locale]` Fixed an additional case where large numbers cannot be formatted correctly. ([#5605](https://github.com/infor-design/enterprise/issues/5605))
+
 ## v10.6.0
 
 ### 10.6.0 Fixes
@@ -18,6 +24,12 @@
 - `[Searchfield]` Added `cleared` EventEmitter. ([#1109](https://github.com/infor-design/enterprise-ng/issues/1109))
 - `[SearchField]` Added method for getting category data and improved typings for searchfield categories. ([#1107](https://github.com/infor-design/enterprise-ng/issues/1107))
 - `[Calendar Options]` Fixed disable options throws calendar not found error ([#1115](https://github.com/infor-design/enterprise-ng/issues/1115))
+
+## v10.3.2
+
+### 10.3.2 Fixes
+
+- `[Locale]` Fixed an additional case where large numbers cannot be formatted correctly. ([#5605](https://github.com/infor-design/enterprise/issues/5605))
 
 ## v10.3.0
 
