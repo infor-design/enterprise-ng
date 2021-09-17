@@ -1,12 +1,12 @@
 {
   "name": "ids-enterprise-ng",
   "slug": "ids-enterprise-ng",
-  "version": "10.1.1",
+  "version": "10.1.2",
   "dependencies": {
     "@types/jquery": "3.3.29",
     "@types/d3": "4.13.0",
     "ids-enterprise": "4.52.3",
-    "ids-enterprise-typings": "10.1.1",
+    "ids-enterprise-typings": "10.1.2",
     "jquery": "3.6.0",
     "d3": "5.16.0",
     "tslib": "^2.0.0"
