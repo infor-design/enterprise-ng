@@ -37,7 +37,6 @@ describe('Soho Alert Directive Render', () => {
 
     fixture.detectChanges();
     alert = (comp.alert as any);
-    (alert as any)._options.type = 'error';
   });
 
   it('Check splitter element', () => {
