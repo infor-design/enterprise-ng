@@ -70,6 +70,12 @@
 - `[Lookup]` Added selected, afterpaging events and api setting to allow duplicate selected value to input element. ([#986](https://github.com/infor-design/enterprise-ng/issues/986))
 - `[Monthview]` Added Angular Wrapper Component for the IDS MonthView. ([#1051](https://github.com/infor-design/enterprise-ng/issues/1051)) `EA`
 
+## v10.1.2
+
+### 10.1.2 Fixes
+
+- `[General]` Added EP version 4.52.3 final using NG 12
+
 ## v10.1.1
 
 ### 10.1.1 Fixes
