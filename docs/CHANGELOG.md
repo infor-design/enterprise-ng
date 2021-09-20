@@ -6,6 +6,12 @@
 
 - `[Placeholder]` Change me. ([#1035](https://github.com/infor-design/enterprise/issues/1035))
 
+## v10.6.2
+
+### 10.6.2 Fixes
+
+- `[Icons]` Fix sizes on some of the icons in classic mode. ([#5626](https://github.com/infor-design/enterprise/issues/5626))
+
 ## v10.6.1
 
 ### 10.6.1 Fixes
