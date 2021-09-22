@@ -11,12 +11,20 @@ export class PopupMenuDemoComponent {
   public insertCommentText = 'Enable';
   public insertNoteText = 'Enable';
 
+  showMenu = true;
+
   public options = {
     autoRefresh: true,
     showLabel: true,
     showAxis: false,
     autoScale: false,
   };
+
+  onMenu(item: number) {
+    if (item === 3) {
+      this.showMenu = false;
+    }
+  }
 
   onInsertCommentButtonClicked() {
     this.isInsertCommentDisabled = !this.isInsertCommentDisabled;
