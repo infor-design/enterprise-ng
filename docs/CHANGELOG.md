@@ -8,6 +8,12 @@
 
 - `[Placeholder]` Change me. ([#1035](https://github.com/infor-design/enterprise/issues/1035))
 
+## v10.6.3
+
+### 10.6.2 Fixes
+
+- `[Locale]` Added 4.55.3 with fixes for datagrid and locale.
+
 ## v10.6.2
 
 ### 10.6.2 Fixes
