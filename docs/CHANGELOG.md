@@ -10,7 +10,7 @@
 
 ## v10.6.3
 
-### 10.6.2 Fixes
+### 10.6.3 Fixes
 
 - `[Locale]` Added 4.55.3 with fixes for datagrid and locale.
 
