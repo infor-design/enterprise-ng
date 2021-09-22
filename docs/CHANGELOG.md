@@ -31,6 +31,12 @@
 - `[SearchField]` Added method for getting category data and improved typings for searchfield categories. ([#1107](https://github.com/infor-design/enterprise-ng/issues/1107))
 - `[Calendar Options]` Fixed disable options throws calendar not found error ([#1115](https://github.com/infor-design/enterprise-ng/issues/1115))
 
+## v10.3.3
+
+### 10.3.3 Fixes
+
+- `[Locale]` Added 4.54.3 with patches for Locale big numbrs.
+
 ## v10.3.2
 
 ### 10.3.2 Fixes
