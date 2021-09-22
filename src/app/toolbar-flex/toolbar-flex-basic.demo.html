@@ -1,168 +1,171 @@
 <form onsubmit="onSubmit()">
   <div class="row top-padding">
     <div class="twelve columns">
+      <!-- BEGIN Toolbar with All Buttons (Buttonset Favoring) -->
+      <soho-toolbar-flex
+      (selected)="onSelected($event)">
+        <soho-toolbar-flex-section [isTitle]="true">
+          <h2>Incredibly Long Toolbar (Favor's Buttonset)</h2>
+        </soho-toolbar-flex-section>
 
-    <!-- BEGIN Toolbar with All Buttons (Buttonset Favoring) -->
-    <soho-toolbar-flex
-     (selected)="onSelected($event)">
-      <soho-toolbar-flex-section [isTitle]="true">
-        <h2>Incredibly Long Toolbar (Favor's Buttonset)</h2>
-      </soho-toolbar-flex-section>
+        <soho-toolbar-flex-section [isButtonSet]="true">
+          <button soho-button="btn">
+            <span>Text Button</span>
+          </button>
 
-      <soho-toolbar-flex-section [isButtonSet]="true">
-        <button soho-button="btn">
-          <span>Text Button</span>
-        </button>
+          <button soho-menu-button>
+            <span>Menu Button</span>
+          </button>
+          <ul class="popupmenu">
+            <li><a href="#">Item One</a></li>
+            <li><a href="#">Item Two</a></li>
+            <li class="submenu">
+              <a href="#">Item Three</a>
+              <ul class="popupmenu">
+                <li><a href="#">Sub-Item One</a></li>
+                <li><a href="#">Sub-Item Two</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Item Four</a></li>
+          </ul>
 
-        <button soho-menu-button>
-          <span>Menu Button</span>
-        </button>
-        <ul class="popupmenu">
-          <li><a href="#">Item One</a></li>
-          <li><a href="#">Item Two</a></li>
-          <li class="submenu">
-            <a href="#">Item Three</a>
-            <ul class="popupmenu">
-              <li><a href="#">Sub-Item One</a></li>
-              <li><a href="#">Sub-Item Two</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Item Four</a></li>
-        </ul>
+          <button soho-button="icon" icon="settings" [disabled]="true">Settings</button>
+          <button soho-button="icon" icon="delete">Delete</button>
+        </soho-toolbar-flex-section>
 
-        <button soho-button="icon" icon="settings" [disabled]="true">Settings</button>
-        <button soho-button="icon" icon="delete">Delete</button>
-      </soho-toolbar-flex-section>
+        <soho-toolbar-flex-section [isSearch]="true">
+          <input soho-toolbar-flex-searchfield (cleared)="onCleared($event)" (change)="onChange($event)" placeholder="Search Here" [clearable]="true" [collapsible]="true"/>
+        </soho-toolbar-flex-section>
 
-      <soho-toolbar-flex-section [isSearch]="true">
-        <input soho-toolbar-flex-searchfield (cleared)="onCleared($event)" (change)="onChange($event)" placeholder="Search Here" [clearable]="true" [collapsible]="true"/>
-      </soho-toolbar-flex-section>
-
-      <soho-toolbar-flex-more-button [moreButtonId]="moreButtonId">
-        <ul class="popupmenu">
-          <li><a href="#" id="item-one">Pre-defined Item #1</a></li>
-          <li><a href="#" id="item-two">Pre-defined Item #2</a></li>
-          <li><a href="#" id="item-three">Pre-defined Item #3</a></li>
-        </ul>
-      </soho-toolbar-flex-more-button>
-    </soho-toolbar-flex>
-    <!-- END Toolbar with All Buttons (Buttonset Favoring) -->
-
-  </div>
-  </div>
-  <div class="row top-padding">
-  <div class="twelve columns">
-
-    <!-- BEGIN Toolbar with All Buttons (Title Favoring) -->
-    <soho-toolbar-flex>
-      <soho-toolbar-flex-section [isTitle]="true" [isTitleFavor]="true">
-        <h2>Incredibly Long Toolbar (Favor's Title)</h2>
-      </soho-toolbar-flex-section>
-
-      <soho-toolbar-flex-section [isButtonSet]="true">
-        <button soho-button="btn">
-          <span>Text Button</span>
-        </button>
-
-        <button soho-menu-button>
-          <span>Menu Button</span>
-        </button>
-        <ul class="popupmenu">
-          <li><a href="#">Item One</a></li>
-          <li><a href="#">Item Two</a></li>
-          <li class="submenu">
-            <a href="#">Item Three</a>
-            <ul class="popupmenu">
-              <li><a href="#">Sub-Item One</a></li>
-              <li><a href="#">Sub-Item Two</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Item Four</a></li>
-        </ul>
-
-        <button soho-button="icon" icon="settings"> Settings </button>
-
-        <button soho-button="icon" icon="delete"> Trash </button>
-      </soho-toolbar-flex-section>
-
-      <soho-toolbar-flex-section [isSearch]="true">
-        <input soho-toolbar-flex-searchfield placeholder="Search..." [clearable]="true" [collapsible]="true"/>
-      </soho-toolbar-flex-section>
-
-      <soho-toolbar-flex-more-button>
-        <ul class="popupmenu">
-          <li><a href="#">Pre-defined Item #1</a></li>
-          <li><a href="#">Pre-defined Item #2</a></li>
-          <li><a href="#">Pre-defined Item #3</a></li>
-        </ul>
-      </soho-toolbar-flex-more-button>
-    </soho-toolbar-flex>
-    <!-- END Toolbar with All Buttons (Title Favoring) -->
-
-  </div>
-  </div>
-  <div class="row top-padding">
-  <div class="twelve columns">
-
-    <!-- BEGIN Toolbar similar to Header Toolbar -->
-    <soho-toolbar-flex>
-      <soho-toolbar-flex-section><button soho-toolbar-flex-nav-button>Show Navigation</button></soho-toolbar-flex-section>
-      <soho-toolbar-flex-section [isTitle]="true">
-        <h2>Toolbar Title</h2>
-      </soho-toolbar-flex-section>
-
-      <soho-toolbar-flex-section [isButtonSet]="true">
-        <a class="hyperlink" href="#">Outbound Link</a>
-      </soho-toolbar-flex-section>
-
-      <soho-toolbar-flex-section [isSearch]="true">
-        <input soho-toolbar-flex-searchfield placeholder="Search..." [clearable]="true" [collapsible]="true"/>
-      </soho-toolbar-flex-section>
-    </soho-toolbar-flex>
-    <!-- END Toolbar similar to Header Toolbar -->
-
-  </div>
-  </div>
-  <div class="row top-padding">
-  <div class="twelve columns">
-
-    <!-- BEGIN Toolbar with Title Eyebrow -->
-    <soho-toolbar-flex>
-      <soho-toolbar-flex-section>
-        <button soho-button="icon" icon="bullet-steps">
-          Workflow Steps
-        </button>
-      </soho-toolbar-flex-section>
-
-      <soho-toolbar-flex-section [isTitle]="true">
-        <h2 soho-toolbar-flex-page-title>Page Title</h2>
-        <span soho-toolbar-flex-section-title>Smaller Subsection Title with Details</span>
-      </soho-toolbar-flex-section>
-
-      <soho-toolbar-flex-section [isSearch]="true">
-        <input soho-toolbar-flex-searchfield placeholder="Search..." [clearable]="true" [collapsible]="true"/>
-      </soho-toolbar-flex-section>
-
-      <soho-toolbar-flex-more-button>
-        <ul class="popupmenu">
-          <li><a href="#">Pre-defined Item #1</a></li>
-          <li><a href="#">Pre-defined Item #2</a></li>
-          <li><a href="#">Pre-defined Item #3</a></li>
-        </ul>
-      </soho-toolbar-flex-more-button>
-    </soho-toolbar-flex>
-    <!-- END Toolbar with Title Eyebrow -->
-
+        <soho-toolbar-flex-more-button [moreButtonId]="moreButtonId">
+          <ul class="popupmenu">
+            <li><a href="#" id="item-one">Pre-defined Item #1</a></li>
+            <li><a href="#" id="item-two">Pre-defined Item #2</a></li>
+            <li><a href="#" id="item-three">Pre-defined Item #3</a></li>
+          </ul>
+        </soho-toolbar-flex-more-button>
+      </soho-toolbar-flex>
+      <!-- END Toolbar with All Buttons (Buttonset Favoring) -->
+    </div>
   </div>
 
   <div class="row top-padding">
     <div class="twelve columns">
+      <!-- BEGIN Toolbar with All Buttons (Title Favoring) -->
+      <soho-toolbar-flex>
+        <soho-toolbar-flex-section [isTitle]="true" [isTitleFavor]="true">
+          <h2>Incredibly Long Toolbar (Favor's Title)</h2>
+        </soho-toolbar-flex-section>
 
-        <fieldset>
-          <label for="simpleInput">Press OK in the input:</label>
-          <input soho-input id="simpleInput"/>
-        </fieldset>
+        <soho-toolbar-flex-section [isButtonSet]="true">
+          <button soho-button="btn">
+            <span>Text Button</span>
+          </button>
+
+          <button soho-menu-button>
+            <span>Menu Button</span>
+          </button>
+          <ul class="popupmenu">
+            <li><a href="#">Item One</a></li>
+            <li><a href="#">Item Two</a></li>
+            <li class="submenu">
+              <a href="#">Item Three</a>
+              <ul class="popupmenu">
+                <li><a href="#">Sub-Item One</a></li>
+                <li><a href="#">Sub-Item Two</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Item Four</a></li>
+          </ul>
+
+          <button soho-button="icon" icon="settings"> Settings </button>
+
+          <button soho-button="icon" icon="delete"> Trash </button>
+        </soho-toolbar-flex-section>
+
+        <soho-toolbar-flex-section [isSearch]="true">
+          <input soho-toolbar-flex-searchfield placeholder="Search..." [clearable]="true" [collapsible]="true"/>
+        </soho-toolbar-flex-section>
+
+        <soho-toolbar-flex-more-button>
+          <ul class="popupmenu">
+            <li><a href="#">Pre-defined Item #1</a></li>
+            <li><a href="#">Pre-defined Item #2</a></li>
+            <li><a href="#">Pre-defined Item #3</a></li>
+          </ul>
+        </soho-toolbar-flex-more-button>
+      </soho-toolbar-flex>
+      <!-- END Toolbar with All Buttons (Title Favoring) -->
     </div>
-</div>
+  </div>
+
+  <div class="row top-padding">
+    <div class="twelve columns">
+      <!-- BEGIN Toolbar similar to Header Toolbar -->
+      <soho-toolbar-flex>
+        <soho-toolbar-flex-section><button soho-toolbar-flex-nav-button>Show Navigation</button></soho-toolbar-flex-section>
+        <soho-toolbar-flex-section [isTitle]="true">
+          <h2>Toolbar Title</h2>
+        </soho-toolbar-flex-section>
+
+        <soho-toolbar-flex-section [isButtonSet]="true">
+          <a class="hyperlink" href="#">Outbound Link</a>
+        </soho-toolbar-flex-section>
+
+        <soho-toolbar-flex-section [isSearch]="true">
+          <input soho-toolbar-flex-searchfield placeholder="Search..." [clearable]="true" [collapsible]="true"/>
+        </soho-toolbar-flex-section>
+      </soho-toolbar-flex>
+      <!-- END Toolbar similar to Header Toolbar -->
+    </div>
+  </div>
+
+  <div class="row top-padding">
+    <div class="twelve columns">
+      <!-- BEGIN Toolbar with Title Eyebrow -->
+      <soho-toolbar-flex>
+        <soho-toolbar-flex-section>
+          <button soho-button="icon" icon="bullet-steps">
+            Workflow Steps
+          </button>
+        </soho-toolbar-flex-section>
+
+        <soho-toolbar-flex-section [isTitle]="true">
+          <h2 soho-toolbar-flex-page-title>Page Title</h2>
+          <span soho-toolbar-flex-section-title>Smaller Subsection Title with Details</span>
+        </soho-toolbar-flex-section>
+
+        <soho-toolbar-flex-section [isSearch]="true">
+          <input soho-toolbar-flex-searchfield placeholder="Search..." [clearable]="true" [collapsible]="true"/>
+        </soho-toolbar-flex-section>
+
+        <soho-toolbar-flex-more-button>
+          <ul class="popupmenu">
+            <li><a href="#">Pre-defined Item #1</a></li>
+            <li><a href="#">Pre-defined Item #2</a></li>
+            <li><a href="#">Pre-defined Item #3</a></li>
+          </ul>
+        </soho-toolbar-flex-more-button>
+      </soho-toolbar-flex>
+      <!-- END Toolbar with Title Eyebrow -->
+    </div>
+  </div>
+
+  <div class="row top-padding">
+    <div class="twelve columns">
+      <fieldset>
+        <label for="simpleInput">Press OK in the input:</label>
+        <input soho-input id="simpleInput"/>
+      </fieldset>
+    </div>
+  </div>
+
+  <div class="row top-padding">
+    <div class="twelve columns">
+      <div class="field">
+        <input soho-checkbox id="toggle-disabled" type="checkbox" name="disabled-menu-button" (click)="toggleDisabled()">
+        <label for="toggle-disabled">Toggle Disabled on "Menu Button" on the first Toolbar</label>
+      </div>
+    </div>
   </div>
 </form>

@@ -104,7 +104,9 @@ export class ContextualActionPanelDemoComponent {
         console.log('After Close Fires');
       });
 
-    debugger;
+    this.panelRef?.apply((ref: any) => {
+      ref.panelRef = this.panelRef;
+    }).open();
   }
 
   openPanel2() {

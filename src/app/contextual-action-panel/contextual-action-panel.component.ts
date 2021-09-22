@@ -88,10 +88,10 @@ export class ContextualActionPanelComponent {
    * Enable/Disable a button on the CAP panel reference's buttonsetAPI
    */
   toggleSaveDisabled() {
-    debugger;
-
-    const btn = (this.panelRef as any).buttonsetAPI.buttons[0];
-    btn.disabled = !btn.disabled;
+    const btn = (this.panelRef as any).buttonsetAPI?.buttons[0];
+    if (btn) {
+      btn.disabled = !btn.disabled;
+    }
   }
 
 }
