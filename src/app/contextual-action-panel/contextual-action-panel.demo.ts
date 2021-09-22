@@ -85,7 +85,7 @@ export class ContextualActionPanelDemoComponent {
     }
 
     this.panelRef = (this.panelService as any).contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
-      .modalSettings({ buttons, title: this.title })
+      .modalSettings({ buttons, title: this.title, useFlexToolbar: true })
       .open()
       .initializeContent(true)
       .opened(() => {
@@ -103,6 +103,8 @@ export class ContextualActionPanelDemoComponent {
       .afterClose(() => {
         console.log('After Close Fires');
       });
+
+    debugger;
   }
 
   openPanel2() {
@@ -133,7 +135,7 @@ export class ContextualActionPanelDemoComponent {
     }
 
     this.panelRef = this.panelService?.contextualactionpanel(NestedContextualActionPanelComponent, this.placeholder as any)
-      .modalSettings({ buttons, title: this.title })
+      .modalSettings({ buttons, title: this.title, useFlexToolbar: true })
       .open()
       .initializeContent(true);
   }
@@ -196,7 +198,6 @@ export class ContextualActionPanelDemoComponent {
 
     this.panelRef?.apply((ref: any) => {
       ref.panelRef = this.panelRef;
-    })
-      .open();
+    }).open();
   }
 }

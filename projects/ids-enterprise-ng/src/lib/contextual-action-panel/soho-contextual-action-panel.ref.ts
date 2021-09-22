@@ -60,6 +60,15 @@ export class SohoContextualActionPanelRef<T> {
     return null;
   }
 
+  /**
+   * The buttonset API for the CAP dialog.
+   *
+   * @returns the buttonset API for the CAP dialog, if initialized.
+   */
+  public get buttonsetAPI(): SohoButtonsetStatic | undefined {
+    return this.contextualactionpanel ? this.contextualactionpanel.buttonsetAPI : undefined;
+  }
+
   // -------------------------------------------
   // Default options block
   // -------------------------------------------
@@ -386,7 +395,7 @@ export class SohoContextualActionPanelRef<T> {
   /**
    * Before Closed Event.
    * This event is fired before closing the panel.
-   * 
+   *
    * @param eventFn - the function to invoke when the panel before closing.
    */
   beforeClose(eventFn: Function): SohoContextualActionPanelRef<T> | null {
@@ -496,7 +505,7 @@ export class SohoContextualActionPanelRef<T> {
 
   /**
    * Handles the 'beforeclose' event.
-   * 
+   *
    * @param event - full event object.
    */
   private onBeforeClose(event: any) {

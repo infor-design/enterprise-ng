@@ -204,7 +204,7 @@ export class SohoToolbarFlexMoreButtonComponent {
   @Input() isDisabled = false;
 
   @Input() moreButtonId?: string;
-    /** @deprecated doesn't seem to be used **/
+  /** @deprecated doesn't seem to be used **/
   @Input() ajaxBeforeFunction?: Function;
   /** @deprecated doesn't seem to be used **/
 
@@ -362,6 +362,24 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
     if (this.toolbarFlex) {
       this.ngZone.runOutsideAngular(() => this.toolbarFlex?.updated(settings));
     }
+  }
+
+  /**
+   * The buttonset API for the modal dialog.
+   *
+   * @returns the buttonset API for the modal dialog, if initialised.
+   */
+  public get buttonsetAPIs(): Array<SohoButtonsetStatic> | undefined {
+    return this.toolbarFlex ? this.toolbarFlex.buttonsetAPIs : undefined;
+  }
+
+  /**
+   * The buttonset API for the modal dialog.
+   *
+   * @returns the buttonset API for the modal dialog, if initialised.
+   */
+  public get buttonsets(): Array<HTMLElement> | undefined {
+    return this.toolbarFlex ? this.toolbarFlex.buttonsets : undefined;
   }
 
   // For testing

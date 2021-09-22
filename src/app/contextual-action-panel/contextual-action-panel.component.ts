@@ -76,11 +76,22 @@ export class ContextualActionPanelComponent {
         isDefault: true
       }];
 
-    this.panelService
+    this.panelRef = this.panelService
       // @ts-ignore
       .contextualactionpanel(NestedContextualActionPanelComponent, (this.placeholder as any))
       .modalSettings({ buttons, title: 'Nested CAP using modalSettings' })
       .open()
       .initializeContent(true);
   }
+
+  /**
+   * Enable/Disable a button on the CAP panel reference's buttonsetAPI
+   */
+  toggleSaveDisabled() {
+    debugger;
+
+    const btn = (this.panelRef as any).buttonsetAPI.buttons[0];
+    btn.disabled = !btn.disabled;
+  }
+
 }

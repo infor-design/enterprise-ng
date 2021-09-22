@@ -145,6 +145,12 @@ interface SohoToolbarFlexStatic {
   /** Control options. */
   settings: SohoToolbarFlexOptions;
 
+  /** If Applicable, references to buttonset APIs on this toolbar */
+  buttonsetAPIs?: Array<SohoButtonsetStatic>;
+
+  /** If Applicable, references to buttonset section elements on this toolbar */
+  buttonsets?: Array<HTMLElement>;
+
   /** If applicable, returns a link to the Searchfield Component's API */
   searchfieldAPI?: SohoToolbarFlexSearchFieldStatic;
 
@@ -219,7 +225,7 @@ interface SohoToolbarFlexMenuItemEvent extends SohoToolbarFlexButtonEvent {
   event: SohoToolbarFlexButtonEvent;
 }
 
-interface SohoToolbarFlexEvent extends JQuery.TriggeredEvent {}
+interface SohoToolbarFlexEvent extends JQuery.TriggeredEvent { }
 
 /**
  * Configuration options.
