@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v10.6.3
+
+### 10.6.2 Fixes
+
+- `[Locale]` Added 4.55.3 with fixes for datagrid and locale.
+
 ## v10.6.2
 
 ### 10.6.2 Fixes
