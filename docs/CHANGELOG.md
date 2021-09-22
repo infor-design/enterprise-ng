@@ -2,9 +2,23 @@
 
 ## v10.7.0
 
+- `[Alert]` Alert component test set-up. ([#1110](https://github.com/infor-design/enterprise-ng/issues/1110))
+
 ### 10.7.0 Fixes
 
 - `[Placeholder]` Change me. ([#1035](https://github.com/infor-design/enterprise/issues/1035))
+
+## v10.6.3
+
+### 10.6.3 Fixes
+
+- `[Locale]` Added 4.55.3 with fixes for datagrid and locale.
+
+## v10.6.2
+
+### 10.6.2 Fixes
+
+- `[Icons]` Fix sizes on some of the icons in classic mode. ([#5626](https://github.com/infor-design/enterprise/issues/5626))
 
 ## v10.6.1
 
@@ -22,6 +36,12 @@
 - `[Searchfield]` Added `cleared` EventEmitter. ([#1109](https://github.com/infor-design/enterprise-ng/issues/1109))
 - `[SearchField]` Added method for getting category data and improved typings for searchfield categories. ([#1107](https://github.com/infor-design/enterprise-ng/issues/1107))
 - `[Calendar Options]` Fixed disable options throws calendar not found error ([#1115](https://github.com/infor-design/enterprise-ng/issues/1115))
+
+## v10.3.3
+
+### 10.3.3 Fixes
+
+- `[Locale]` Added 4.54.3 with patches for Locale big numbrs.
 
 ## v10.3.2
 

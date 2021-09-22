@@ -16,7 +16,7 @@ import {
 })
 export class SohoAlertDirective implements AfterViewInit {
 
-  private _options: SohoAlertOptions = {};
+  private _options: SohoAlertOptions;
   private jQueryElement?: JQuery;
 
   /** Set or remove the message. */
@@ -76,7 +76,10 @@ export class SohoAlertDirective implements AfterViewInit {
     public elementRef: ElementRef,
     private ngZone: NgZone,
   ) {
-    this._options.inline = true;
+    this._options = {
+      inline: true,
+      type: 'error'
+    };
   }
 
   /**

@@ -1,4 +1,3 @@
-
 <div style="padding: 20px 20px 0 20px;">
   <div class="row">
     <div class="inline">
@@ -64,4 +63,27 @@
 
   </div>
 
+</div>
+
+<div class="row">
+  <div class="twelve columns">
+    <div *ngIf="showMenu">
+      <button id="popupmenu-trigger" soho-menu-button menu="my-menu">Menu</button>
+      <ul soho-popupmenu id="my-menu">
+        <li soho-popupmenu-item>
+          <a soho-popupmenu-label (click)="onMenu(1)">A</a>
+        </li>
+        <li soho-popupmenu-item>
+          <a soho-popupmenu-label (click)="onMenu(2)">B</a>
+        </li>
+        <li soho-popupmenu-item>
+          <a soho-popupmenu-label (click)="onMenu(3)">C</a>
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="!showMenu">
+      <p>Menu is no longer shown, and should not append '#' on URL navigation</p>
+    </div>
+  </div>
 </div>
