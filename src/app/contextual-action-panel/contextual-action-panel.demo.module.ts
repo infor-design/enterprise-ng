@@ -14,6 +14,7 @@ import { ContextualActionPanelSearchfieldComponent } from './contextual-action-p
 import { ContextualActionPanelSearchfieldFlexComponent } from './contextual-action-panel-searchfield-flex.component';
 import { ContextualActionPanelFullSizeComponent } from './contextual-action-panel-fullsize.component';
 import { ContextualActionPanelVerticalTabsComponent } from './contextual-action-panel-tabs-vertical.component';
+import { ContextualActionPanelButtonsetAPIComponent } from './contextual-action-panel-buttonsetapi.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +24,13 @@ import { ContextualActionPanelVerticalTabsComponent } from './contextual-action-
     ContextualActionPanelFullSizeComponent,
     ContextualActionPanelVerticalTabsComponent,
     ContextualActionPanelDemoComponent,
-    NestedModalDialogComponent
+    ContextualActionPanelButtonsetAPIComponent,
+    NestedModalDialogComponent,
   ],
   exports: [
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -42,7 +44,8 @@ import { ContextualActionPanelVerticalTabsComponent } from './contextual-action-
     ContextualActionPanelSearchfieldFlexComponent,
     ContextualActionPanelFullSizeComponent,
     ContextualActionPanelVerticalTabsComponent,
-    NestedModalDialogComponent
+    ContextualActionPanelButtonsetAPIComponent,
+    NestedModalDialogComponent,
   ],
 })
 export class ContextualActionPanelDemoModule { }
