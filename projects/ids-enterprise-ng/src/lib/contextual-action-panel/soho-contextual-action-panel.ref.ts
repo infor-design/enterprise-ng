@@ -132,6 +132,8 @@ export class SohoContextualActionPanelRef<T> {
         cap.addClass(`${cssClass}`);
       });
     }
+
+    return this;
   }
 
   /** Add extra attributes like id's to the component **/

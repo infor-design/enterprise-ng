@@ -88,6 +88,7 @@ export class ContextualActionPanelDemoComponent {
       .modalSettings({ buttons, title: this.title, useFlexToolbar: true })
       .open()
       .initializeContent(true)
+      .cssClass('custom-panel')
       .opened(() => {
         console.log('Open Fires');
       })
