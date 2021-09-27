@@ -6,7 +6,7 @@
 
 ### 10.7.0 Fixes
 
-- `[Placeholder]` Change me. ([#1035](https://github.com/infor-design/enterprise/issues/1035))
+- `[Datagrid]` Updated the type of activePage property. ([#1035](https://github.com/infor-design/enterprise/issues/1035)) `EA`
 
 ## v10.6.3
 
