@@ -291,7 +291,11 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
    * menu's jQuery Popupmenu.
    */
   @Input() set moreMenuBeforeOpenFunction(beforeOpen: AjaxBeforeMoreMenuOpenFunction) {
-    this._options.beforeMoreMenuOpen = beforeOpen;
+    if (!this._options.moreMenuSettings) {
+      this._options.moreMenuSettings = {};
+    }  
+    this._options.moreMenuSettings.beforeOpen = beforeOpen;
+    
     if (this.toolbarFlex) {
       this.toolbarFlex.settings.beforeMoreMenuOpen = beforeOpen;
       this.markForRefresh();
@@ -321,7 +325,7 @@ export class SohoToolbarFlexComponent implements AfterViewChecked, AfterViewInit
     private changeDetector: ChangeDetectorRef,
     private element: ElementRef,
     private ngZone: NgZone
-  ) { }
+  ) {}
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => {

@@ -6,7 +6,7 @@
 
 ### 10.7.0 Fixes
 
-- `[Placeholder]` Change me. ([#1035](https://github.com/infor-design/enterprise/issues/1035))
+- `[Toolbar]` Changed moreMenuBeforeOpenFunction to remove deprecated warning. ([#1118](https://github.com/infor-design/enterprise/issues/1118))
 
 ## v10.6.3
 

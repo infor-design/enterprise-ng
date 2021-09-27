@@ -228,7 +228,7 @@ describe('Soho Toolbar Flex Tests', () => {
     it('flex toolbar ', () => {
       fixture.detectChanges();
 
-      expect((component as any).toolbarFlex.options.beforeMoreMenuOpen).toBeDefined('more menu callback not defined');
+      expect((component as any).toolbarFlex.options.moreMenuSettings.beforeOpen).toBeDefined('more menu callback not defined');
 
       const spy = spyOn<any>(component.toolbarFlex, 'updated').and.callThrough();
       (component as any).toolbarFlex.moreMenuBeforeOpenFunction = undefined;
