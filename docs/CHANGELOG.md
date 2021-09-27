@@ -3,6 +3,7 @@
 ## v10.7.0
 
 - `[Alert]` Alert component test set-up. ([#1110](https://github.com/infor-design/enterprise-ng/issues/1110))
+- `[ContextualActionPanel]` Add typescript bindings for enabling control of ButtonSetAPI via the CAP API. ([#1101](https://github.com/infor-design/enterprise-ng/issues/1101))
 
 ### 10.7.0 Fixes
 
