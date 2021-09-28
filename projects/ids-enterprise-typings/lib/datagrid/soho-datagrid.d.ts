@@ -1000,7 +1000,7 @@ interface SohoDataGridColumnNumberFormat {
 }
 
 type SohoDataGridColumnNumberFormatStyle = 'decimal' | 'currency' | 'percent' | 'integer' | string;
-type SohoDataGridTriggerSourcePagerType = 'initial' | 'refresh' | 'filtered' | 'sorted' | 'updatecolums' | string;
+type SohoDataGridTriggerSourcePagerType = 'initial' | 'refresh' | 'filtered' | 'sorted' | 'updatecolums' | string | object;
 
 interface SohoGridCellOption {
   /** The underlying data value. */

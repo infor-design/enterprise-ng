@@ -7,6 +7,7 @@
 
 ### 10.7.0 Fixes
 
+- `[Datagrid]` Updated the type of `pagerType` to accept object so that the data source can be properly reset. ([#927](https://github.com/infor-design/enterprise-ng/issues/927)) `EA`
 - `[Datagrid]` Updated the type of activePage property. ([#1031](https://github.com/infor-design/enterprise-ng/issues/1031)) `EA`
 
 ## v10.6.3
