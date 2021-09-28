@@ -1384,7 +1384,7 @@ interface SohoDataGridSettingsChangedEvent {
   rowHeight?: SohoDataGridRowHeight;
   sortOrder?: { columnId: string, ascending?: boolean };
   pagesize?: number;
-  activePage?: string;
+  activePage?: string | number;
   filter?: Array<SohoDataGridFilterCondition>;
 }
 

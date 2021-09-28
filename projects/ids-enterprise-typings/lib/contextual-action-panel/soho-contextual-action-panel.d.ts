@@ -103,6 +103,11 @@ interface SohoContextualActionPanelStatic {
   settings: SohoContextualActionPanelOptions;
 
   /**
+   * API for interacting with the buttons on the dialog.
+   */
+  buttonsetAPI: SohoButtonsetStatic;
+
+  /**
    * A jQuery selector to the element in the DOM where the
    * panel is placed after opening.
    */

@@ -3,10 +3,12 @@
 ## v10.7.0
 
 - `[Alert]` Alert component test set-up. ([#1110](https://github.com/infor-design/enterprise-ng/issues/1110))
+- `[ContextualActionPanel]` Add typescript bindings for enabling control of ButtonSetAPI via the CAP API. ([#1101](https://github.com/infor-design/enterprise-ng/issues/1101))
 
 ### 10.7.0 Fixes
 
 - `[Datagrid]` Updated the type of `pagerType` to accept object so that the data source can be properly reset. ([#927](https://github.com/infor-design/enterprise-ng/issues/927)) `EA`
+- `[Datagrid]` Updated the type of activePage property. ([#1031](https://github.com/infor-design/enterprise-ng/issues/1031)) `EA`
 
 ## v10.6.3
 

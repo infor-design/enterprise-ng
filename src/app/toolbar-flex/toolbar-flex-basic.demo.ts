@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { SohoToolbarFlexComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-toolbar-flex-basic-demo',
   templateUrl: 'toolbar-flex-basic.demo.html'
 })
 export class ToolbarFlexBasicDemoComponent {
+  @ViewChild(SohoToolbarFlexComponent) toolbarFlex!: SohoToolbarFlexComponent;
+
   onSelected(event: SohoToolbarFlexSelectedEvent) {
     if (event.item.type === 'actionbutton' || event.item.type === 'menubutton') {
       console.log(event.item.selectedAnchor[0].getAttribute('id'));
@@ -27,4 +30,8 @@ export class ToolbarFlexBasicDemoComponent {
     console.log('Clear Fired', event);
   }
 
+  toggleDisabled() {
+    const btn = (this.toolbarFlex.buttonsetAPIs as any)[0].buttons[1];
+    btn.disabled = !btn.disabled;
+  }
 }
