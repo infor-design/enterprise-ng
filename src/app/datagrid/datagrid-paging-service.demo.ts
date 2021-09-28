@@ -87,6 +87,8 @@ export class DataGridPagingServiceDemoComponent implements OnInit {
     lscache.set(this.uniqueId + 'pagesize', event.pagesize);
     lscache.set(this.uniqueId + 'activePage', event.activePage);
     lscache.set(this.uniqueId + 'filter', JSON.stringify(event.filter));
+
+    console.log('activePage type', typeof event.activePage)
   }
 
   onRendered(_event: SohoDataGridRenderedEvent) {
