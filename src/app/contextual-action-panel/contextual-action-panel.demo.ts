@@ -11,6 +11,7 @@ import { ContextualActionPanelSearchfieldComponent } from './contextual-action-p
 import { ContextualActionPanelSearchfieldFlexComponent } from './contextual-action-panel-searchfield-flex.component';
 import { ContextualActionPanelVerticalTabsComponent } from './contextual-action-panel-tabs-vertical.component';
 import { NestedContextualActionPanelComponent } from './nested-contextualaction-panel.component';
+import { ContextualActionPanelButtonsetAPIComponent } from './contextual-action-panel-buttonsetapi.component';
 
 @Component({
   selector: 'app-contextual-action-panel-demo',
@@ -24,7 +25,7 @@ export class ContextualActionPanelDemoComponent {
    * This can be the ViewContainerRef of this component, or another component.
    */
   @ViewChild('panelPlaceholder', { read: ViewContainerRef, static: true })
-  placeholder?: ViewContainerRef | null;
+  private placeholder!: ViewContainerRef;
 
   /**
    * The interface to an instantiated instance of the Contextual Action Panel.
@@ -85,9 +86,10 @@ export class ContextualActionPanelDemoComponent {
     }
 
     this.panelRef = (this.panelService as any).contextualactionpanel(ContextualActionPanelComponent, this.placeholder)
-      .modalSettings({ buttons, title: this.title })
+      .modalSettings({ buttons, title: this.title, useFlexToolbar: true })
       .open()
       .initializeContent(true)
+      .cssClass('custom-panel')
       .opened(() => {
         console.log('Open Fires');
       })
@@ -103,6 +105,10 @@ export class ContextualActionPanelDemoComponent {
       .afterClose(() => {
         console.log('After Close Fires');
       });
+
+    this.panelRef?.apply((ref: any) => {
+      ref.panelRef = this.panelRef;
+    }).open();
   }
 
   openPanel2() {
@@ -133,7 +139,7 @@ export class ContextualActionPanelDemoComponent {
     }
 
     this.panelRef = this.panelService?.contextualactionpanel(NestedContextualActionPanelComponent, this.placeholder as any)
-      .modalSettings({ buttons, title: this.title })
+      .modalSettings({ buttons, title: this.title, useFlexToolbar: true })
       .open()
       .initializeContent(true);
   }
@@ -196,7 +202,54 @@ export class ContextualActionPanelDemoComponent {
 
     this.panelRef?.apply((ref: any) => {
       ref.panelRef = this.panelRef;
-    })
+    }).open();
+  }
+
+  openPanelWithFormValidation(): void {
+    const buttons = [
+      {
+        id: 'save',
+        text: 'Save',
+        cssClass: 'btn',
+        icon: '#icon-save',
+        click: (_e: any, panel: any) => {
+          panel.close(true);
+        }
+      },
+      {
+        cssClass: 'separator'
+      },
+      {
+        text: 'Close',
+        cssClass: 'btn',
+        icon: '#icon-close',
+        click: (_e: any, panel: any) => {
+          panel.close(true);
+        },
+        isDefault: true
+      }
+    ];
+
+    const ref = this.panelService.contextualactionpanel<ContextualActionPanelButtonsetAPIComponent>(
+      ContextualActionPanelButtonsetAPIComponent,
+      this.placeholder
+    )
+      .modalSettings({
+        buttons,
+        title: 'CAP - Form Validation',
+        useFlexToolbar: true, // 👈 needed to use buttonsetAPI
+      })
       .open();
+
+    ref.cssClass('tabs-modal page-container');
+    ref.apply(component => {
+      const saveButton = ref.buttonsetAPI?.buttons.find(button => button.settings.id === 'save');
+      if (saveButton) {
+        component.form.statusChanges.subscribe(status => {
+          saveButton.disabled = status !== 'VALID';
+        });
+      }
+    })
+
   }
 }

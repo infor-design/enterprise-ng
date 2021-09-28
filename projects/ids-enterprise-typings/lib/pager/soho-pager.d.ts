@@ -95,7 +95,7 @@ interface SohoPagerOptions {
   position: SohoPagerPosition;
 
   /** Current page. */
-  activePage?: number;
+  activePage?: string | number;
 
   /** Source Function */
   source?: SohoDataGridSourceFunction;

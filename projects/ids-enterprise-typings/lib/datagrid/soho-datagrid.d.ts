@@ -1000,7 +1000,7 @@ interface SohoDataGridColumnNumberFormat {
 }
 
 type SohoDataGridColumnNumberFormatStyle = 'decimal' | 'currency' | 'percent' | 'integer' | string;
-type SohoDataGridTriggerSourcePagerType = 'initial' | 'refresh' | 'filtered' | 'sorted' | 'updatecolums' | string;
+type SohoDataGridTriggerSourcePagerType = 'initial' | 'refresh' | 'filtered' | 'sorted' | 'updatecolums' | string | object;
 
 interface SohoGridCellOption {
   /** The underlying data value. */
@@ -1384,7 +1384,7 @@ interface SohoDataGridSettingsChangedEvent {
   rowHeight?: SohoDataGridRowHeight;
   sortOrder?: { columnId: string, ascending?: boolean };
   pagesize?: number;
-  activePage?: string;
+  activePage?: string | number;
   filter?: Array<SohoDataGridFilterCondition>;
 }
 

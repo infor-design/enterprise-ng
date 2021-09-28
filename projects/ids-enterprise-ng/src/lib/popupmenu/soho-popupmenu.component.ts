@@ -435,14 +435,16 @@ export class SohoPopupMenuComponent implements AfterViewInit, OnDestroy {
    * Destroy the markup and any other resources.
    */
   destroy() {
-    this.ngZone.runOutsideAngular(() => {
-      if (this.jQueryElement) {
-        this.jQueryElement.off();
-      }
-      if (this.popupmenu) {
-        this.popupmenu.destroy();
-      }
-    });
+    setTimeout(() => {
+      this.ngZone.runOutsideAngular(() => {
+        if (this.jQueryElement) {
+          this.jQueryElement.off();
+        }
+        if (this.popupmenu) {
+          this.popupmenu.destroy();
+        }
+      });
+    }, 200);
   }
 
   /**

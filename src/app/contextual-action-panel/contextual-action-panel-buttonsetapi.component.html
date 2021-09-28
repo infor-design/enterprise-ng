@@ -1,0 +1,35 @@
+<form [formGroup]="form">
+  <div soho-tabs vertical="true">
+    <div soho-tab-list-container [verticalScrolling]="true">
+      <div class="tab-list-info">
+        <div class="field">
+          <label for="id" class="required">Id</label>
+          <input id="id" soho-input type="text" placeholder="Id" formControlName="id">
+        </div>
+      </div>
+      <ul soho-tab-list>
+        <li soho-tab><a soho-tab-title tabId="general">General</a></li>
+        <li soho-tab><a soho-tab-title tabId="details">Details</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div soho-tab-panel-container [verticalScrolling]="true">
+    <div soho-tab-panel tabId="general">
+      <h2 [style.padding-bottom.rem]="2">General</h2>
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" soho-input type="text" placeholder="Name" formControlName="name">
+      </div>
+  
+    </div>
+    <div soho-tab-panel tabId="details">
+      <h2 [style.padding-bottom.rem]="2">Details</h2>
+      <div class="field">
+        <label for="address">Address</label>
+        <input id="address" soho-input type="text" placeholder="Address" formControlName="address">
+      </div>
+    </div>
+  </div>
+  
+</form>
