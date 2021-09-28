@@ -4,7 +4,7 @@ import {
   ViewChild
 } from '@angular/core';
 // @ts-ignore
-import {SohoPieComponent} from 'ids-enterprise-ng';
+import { SohoPieComponent } from 'ids-enterprise-ng';
 
 @Component({
   selector: 'app-pie-demo',
@@ -15,7 +15,7 @@ export class DonutDemoComponent implements OnInit {
   @ViewChild(SohoPieComponent, { static: true }) sohoPieComponent?: SohoPieComponent;
 
   // The following multiple "private selection" definitions are all examples of ways to set the selection on the chart
-  private selection: SohoPieSelected  = {fieldName: 'name', fieldValue: 'Component A'};
+  private selection: SohoPieSelected = { fieldName: 'name', fieldValue: 'Component A' };
   // private selection: SohoPieSelected  = {index: 1};
 
   public donutData = [{
@@ -29,12 +29,13 @@ export class DonutDemoComponent implements OnInit {
       name: 'Component C',
       value: 14
     }],
-    centerLabel: 'Donut Chart'
+    centerLabel: 'Donut Chart',
+    centerTooltip: 'Total Value: 41'
   }];
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   onRendered(event: Event) {
     console.log('Soho Donut: onRender', event);
@@ -48,10 +49,10 @@ export class DonutDemoComponent implements OnInit {
     console.log('Soho Donut: Deselected', event);
   }
 
-  onDblclick (args: any) {
+  onDblclick(args: any) {
     // Use only when `dblclick` is firing on our component
     if (!args.target) {
-     console.log('Soho Donut: double clicked', args);
+      console.log('Soho Donut: double clicked', args);
     }
   }
 
@@ -60,7 +61,7 @@ export class DonutDemoComponent implements OnInit {
     this.sohoPieComponent?.setSelected(sohoPieSelected);
   }
 
-  toggleChartSelection () {
+  toggleChartSelection() {
     const sohoPieSelected: SohoPieSelected = this.selection;
     this.sohoPieComponent?.toggleSelected(sohoPieSelected);
   }

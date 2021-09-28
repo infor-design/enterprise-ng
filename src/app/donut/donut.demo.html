@@ -8,6 +8,7 @@
         <div soho-pie
           [dataset]="donutData"
           [isDonut]="true"
+          [showCenterTooltip]="true"
           (selected)="onSelected($event)"
           (deselected)="onDeselected($event)"
           (dblclick)="onDblclick($event)"

@@ -4,6 +4,8 @@
 
 - `[Alert]` Alert component test set-up. ([#1110](https://github.com/infor-design/enterprise-ng/issues/1110))
 - `[ContextualActionPanel]` Add typescript bindings for enabling control of ButtonSetAPI via the CAP API. ([#1101](https://github.com/infor-design/enterprise-ng/issues/1101))
+- `[Datagrid]` Adds the ability to have a selection radio buttons on Datagrid. ([#5384](https://github.com/infor-design/enterprise/issues/5384))
+- `[Pie]` Add missing types for center tooltip. ([#5302](https://github.com/infor-design/enterprise/issues/5302))
 
 ### 10.7.0 Fixes
 
@@ -42,7 +44,7 @@
 
 ### 10.3.3 Fixes
 
-- `[Locale]` Added 4.54.3 with patches for Locale big numbrs.
+- `[Locale]` Added 4.54.3 with patches for Locale big numbers.
 
 ## v10.3.2
 

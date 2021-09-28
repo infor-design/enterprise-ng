@@ -595,6 +595,7 @@ interface SohoStatic {
     RowReorder: SohoDataGridColumnFormatterFunction;
     Checkbox: SohoDataGridColumnFormatterFunction;
     SelectionCheckbox: SohoDataGridColumnFormatterFunction;
+    SelectionRadio: SohoDataGridColumnFormatterFunction;
     Actions: SohoDataGridColumnFormatterFunction;
     Textarea: SohoDataGridColumnFormatterFunction;
     Editor: SohoDataGridColumnFormatterFunction;
