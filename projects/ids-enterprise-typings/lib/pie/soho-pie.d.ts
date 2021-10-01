@@ -49,11 +49,20 @@ interface SohoPieOptions {
   /** A setting that controls the legend values and format. */
   legend?: SohoPieLegendOptions;
 
-  /** If false now tooltips will be shown */
+  /** If false no tooltips will be shown */
   showTooltips?: boolean;
 
   /** A setting that controls the tooltip values and format. */
   tooltip?: SohoPieTooltipOptions;
+
+  /** If true center tooltip will be shown */
+  showCenterTooltip?: boolean;
+
+  /** If true chart height will fit in parent available height. */
+  fitHeight?: boolean;
+
+  /** An empty message will be displayed when there is no chart data. */
+  emptyMessage?: SohoEmptyMessageOptions;
 }
 
 interface SohoPieLinesOptions {

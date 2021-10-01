@@ -167,6 +167,36 @@ export class SohoPieComponent implements AfterViewInit, AfterViewChecked, OnDest
     }
   }
 
+  /** If true center tooltip will be shown */
+  @Input() set showCenterTooltip(value: boolean) {
+    this.options.showCenterTooltip = value;
+
+    if (this.pie) {
+      this.pie.settings.showCenterTooltip = value;
+      this.updateRequired = true;
+    }
+  }
+
+  /** If true chart height will fit in parent available height. */
+  @Input() set fitHeight(value: boolean) {
+    this.options.fitHeight = value;
+
+    if (this.pie) {
+      this.pie.settings.fitHeight = value;
+      this.updateRequired = true;
+    }
+  }
+
+  /** An empty message will be displayed when there is no chart data. */
+  @Input() set emptyMessage(value: SohoEmptyMessageOptions) {
+    this.options.emptyMessage = value;
+
+    if (this.pie) {
+      this.pie.settings.emptyMessage = value;
+      this.updateRequired = true;
+    }
+  }
+
   /** Events */
   @Output() selected: EventEmitter<SohoPieSelectEvent> = new EventEmitter<SohoPieSelectEvent>();
   @Output() unselected: EventEmitter<SohoPieSelectEvent> = new EventEmitter<SohoPieSelectEvent>();
