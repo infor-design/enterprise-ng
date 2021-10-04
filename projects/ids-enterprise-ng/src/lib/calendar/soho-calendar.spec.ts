@@ -13,7 +13,7 @@ const eventTypes: SohoCalendarEventType[] = [
     translationKey: 'DiscretionaryTimeOff',
     color: 'azure',
     checked: true,
-    click: () => {}
+    click: () => { }
   }
 ];
 const events: SohoCalendarEvent[] = [
@@ -24,8 +24,8 @@ const events: SohoCalendarEvent[] = [
     comments: 'Short getaway',
     location: 'Us Office',
     status: 'Draft',
-    starts: '2018-08-22T00:00:00.000',
-    ends: '2018-08-22T23:59:59.999',
+    starts: '2018-08-11T00:00:00.000',
+    ends: '2018-08-11T23:59:59.999',
     type: 'dto',
     isAllDay: true
   }
@@ -196,7 +196,7 @@ describe('Soho Calendar Chart Render', () => {
   });
 
   // Rerun the same tests using different parameters
-  for (const testParam of testParams){
+  for (const testParam of testParams) {
     (function (testSpec) {
       it('Check HTML content', () => {
         comp.eventTypes = eventTypes;
@@ -221,8 +221,7 @@ describe('Soho Calendar Chart Render', () => {
         comp.displayRange = testSpec.displayRange ?? undefined;
 
         fixture.detectChanges();
-
-        const requestDate: Date = new Date(comp.year, comp.month, 22);
+        const requestDate: Date = new Date(comp.year, comp.month, 11);
         const dayEvents: SohoCalendarDayEvents = calendar.getDayEvents(requestDate);
 
         expect(dayEvents.events[0].id).toEqual(events[0].id);
