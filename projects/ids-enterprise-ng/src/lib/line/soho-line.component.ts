@@ -156,6 +156,8 @@ export class SohoLineComponent implements AfterViewInit, AfterViewChecked, OnDes
   @Output() selected: EventEmitter<SohoLineSelectEvent> = new EventEmitter<SohoLineSelectEvent>();
   @Output() unselected: EventEmitter<SohoLineSelectEvent> = new EventEmitter<SohoLineSelectEvent>();
   @Output() rendered: EventEmitter<Object> = new EventEmitter<Object>();
+  // eslint-disable-next-line @angular-eslint/no-output-native, @angular-eslint/no-output-rename
+  @Output() dblclick: EventEmitter<Object> = new EventEmitter<Object>();
 
   /**
    * @todo replace override of native attribute
@@ -191,6 +193,8 @@ export class SohoLineComponent implements AfterViewInit, AfterViewChecked, OnDes
         this.ngZone.run(() => this.rendered.emit(args)));
       this.jQueryElement.on('contextmenu', (...args) =>
         this.ngZone.run(() => this.contextmenu?.emit(args)));
+      this.jQueryElement.on('dblclick', (_e: any, args: Object) =>
+        this.ngZone.run(() => this.dblclick.emit(args)));
     });
   }
 

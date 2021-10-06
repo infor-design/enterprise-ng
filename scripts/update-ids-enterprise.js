@@ -81,28 +81,27 @@ function copySvgIcons() {
   const sourcePath = `${rootPath}/node_modules/ids-enterprise/dist/svg/`;
   const destPath = `${rootPath}/src/app/icon/`;
   const destPathLib = `${rootPath}/projects/ids-enterprise-ng/src/lib/icon/`;
-  const copy = function(fileName) {
+  const copy = function (fileName) {
     fs.copyFile(sourcePath + fileName, destPath + fileName, (err) => {
-       if (err) {
+      if (err) {
         throw err;
-       } else {
-         console.log(`updated 1 file src/app/icon/${fileName}`);
-       }
-   });
+      } else {
+        console.log(`updated 1 file src/app/icon/${fileName}`);
+      }
+    });
     fs.copyFile(sourcePath + fileName, destPathLib + fileName, (err) => {
-       if (err) {
+      if (err) {
         throw err;
-       } else {
-         console.log(`updated 1 file /projects/ids-enterprise-ng/src/lib/icon/${fileName}`);
-       }
-   });
+      } else {
+        console.log(`updated 1 file /projects/ids-enterprise-ng/src/lib/icon/${fileName}`);
+      }
+    });
   };
 
-  copy('svg-patterns.html');
-  copy('svg.html');
-  copy('svg-empty.html');
-  copy('theme-uplift-svg.html');
-  copy('theme-uplift-svg-empty.html');
+  copy('theme-new-svg.html');
+  copy('theme-new-svg-empty.html');
+  copy('theme-classic-svg.html');
+  copy('theme-classic-svg-empty.html');
 }
 
 // -------------------------------------

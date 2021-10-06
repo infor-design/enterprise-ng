@@ -53,15 +53,22 @@ export class PieDemoComponent implements OnInit {
   ngOnInit() {}
 
   onRendered(event: Event) {
-    console.log('Soho Radar: onRender', event);
+    console.log('Soho Pie: onRender', event);
   }
 
   onSelected(event: Event) {
-    console.log('Soho Radar: Selected', event);
+    console.log('Soho Pie: Selected', event);
   }
 
   onDeselected(event: Event) {
-    console.log('Soho Radar: Deselected', event);
+    console.log('Soho Pie: Deselected', event);
+  }
+
+  onDblclick (args: any) {
+    // Use only when `dblclick` is firing on our component
+    if (!args.target) {
+     console.log('Soho Pie: double clicked', args);
+    }
   }
 
   setChartSelection() {

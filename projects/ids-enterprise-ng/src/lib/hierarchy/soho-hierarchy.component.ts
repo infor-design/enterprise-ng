@@ -129,9 +129,7 @@ export class SohoHierarchyComponent implements OnDestroy, AfterViewInit {
       this.jQueryElement.hierarchy(this.options);
 
       this.jQueryElement
-        .on('dblclick', ((_e: JQuery.TriggeredEvent, args: SohoHierarchyDoubleClickEvent) => {
-          return this.ngZone.run(() => this.doubleClick.next(args));
-        }))
+        .on('dblclick', ((_e: JQuery.TriggeredEvent, args: SohoHierarchyDoubleClickEvent) => this.ngZone.run(() => this.doubleClick.next(args))))
         .on('selected', ((_e: JQuery.TriggeredEvent, args: SohoHierarchyEvent) => this.ngZone.run(() => this.selected.next(args))));
 
       // Assign the hierarchy control

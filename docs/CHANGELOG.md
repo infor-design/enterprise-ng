@@ -1,5 +1,78 @@
 # What's New with Enterprise-NG
 
+## v9.5.0
+
+### 9.5.0 Fixes
+
+- `[Placeholder]` Placeholder...
+
+## v9.4.2
+
+### 9.4.2 Fixes
+
+- `[General]` Added EP version 4.50.2 final using NG 11.
+
+## v9.4.1
+
+### 9.4.1 Fixes
+
+- `[General]` Added EP version 4.50.1 final using NG 11.
+
+## v9.4.0
+
+### 9.4.0 Fixes
+
+- `[Charts]` Added double click event to all chart types. `DV` ([#3229](https://github.com/infor-design/enterprise/pull/3229))
+- `[Popupmenu]` Add example demonstrating shared Popupmenus working after one is destroyed. ([#987](https://github.com/infor-design/enterprise-ng/issues/987)) `EPC`
+
+## v9.3.2
+
+### 9.3.2 Fixes
+
+- `[Modal]` Update modal close method API and use force as default to proceed modal closing even when tooltip is open. `NBCP` ([#1014](https://github.com/infor-design/enterprise-ng/issues/1014))
+
+## v9.3.1
+
+### 9.3.1 Fixes
+
+- `[General]` Added EP version 4.37.3 final using NG 11.
+- `[StepProcess]` Reverted fix 995 due to problems with it. `NBCP` ([#955](https://github.com/infor-design/enterprise-ng/issues/955))
+
+## v9.3.0
+
+### 9.3.0 Important Notes
+
+- `[General]` We renamed the themes from uplift to new and from soho to classic. If using the theme switcher you may need to update the labels in the component. Change uplift to new, soho to classic and variants to mode and theme to version. For reference see the commits in the
+([quick start project changes](https://github.com/infor-design/enterprise-ng-quickstart/commit/8494528696fe10f81d9b31ec4704c5ad0cd48e79#diff-2b25077f8984b1a7471f792c3ffc39fea9b49e8cd6180b9b6c08b0e02eae1111R4)) for reference. ([#2606](https://github.com/infor-design/enterprise/issues/2606)) `TJM`
+
+### 9.3.0 Fixes
+
+- `[Calendar]` Fixed dayLegend type in the calendar component. ([#1001](https://github.com/infor-design/enterprise-ng/issues/1001)) `TJM`
+- `[Context Menu]` Fixed a bug causing events to be subscribed to multiple times. ([#996](https://github.com/infor-design/enterprise-ng)) `MHH`
+- `[Contextual Action Panel]` Added an optional parameter to the CAP's close() API to support the same behavior as the jQuery. ([#993](https://github.com/infor-design/enterprise-ng/issues/993)) `EA`
+- `[DataGrid]` Added missing getActiveCell getter. ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
+- `[DataGrid]` Updated the datagrid context menu example to work with the keyboard ([#4781](https://github.com/infor-design/enterprise/issues/4781)) `TJM`
+- `[Message]` Fixed multiple events were firing. ([#953](https://github.com/infor-design/enterprise-ng/issues/953))
+
+## v9.2.4
+
+### 9.2.4 Fixes
+
+- `[General]` Added EP version 4.37.3 final using NG 11.
+- `[StepProcess]` Reverted fix 995 due to problems with it. `NBCP` ([#955](https://github.com/infor-design/enterprise-ng/issues/955))
+
+## v9.2.2
+
+### 9.2.2 Fixes
+
+- `[General]` Added EP version 4.37.2 final using NG 11.
+
+## v9.2.1
+
+### 9.2.1 Fixes
+
+- `[General]` Added EP version 4.37.1 final using NG 11.
+
 ## v9.2.0
 
 ### 9.2.0 Fixes

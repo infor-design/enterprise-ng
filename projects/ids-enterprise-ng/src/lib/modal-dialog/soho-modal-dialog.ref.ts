@@ -479,15 +479,15 @@ export class SohoModalDialogRef<T> {
     });
 
     // Add listeners to control events
-    this.jQueryElement?.on('close', ((event: any, isCancelled: boolean) => this.ngZone.run(() => this.onClose(event, isCancelled))));
-    this.jQueryElement?.on('afterclose', ((event: any) => this.ngZone.run(() => this.onAfterClose(event))));
-    this.jQueryElement?.on('open', ((event: any) => this.ngZone.run(() => this.onOpen(event))));
-    this.jQueryElement?.on('afteropen', ((event: any) => this.ngZone.run(() => this.onAfterOpen(event))));
+    this.jQueryElement?.off('close').on('close', ((event: any, isCancelled: boolean) => this.ngZone.run(() => this.onClose(event, isCancelled))));
+    this.jQueryElement?.off('afterclose').on('afterclose', ((event: any) => this.ngZone.run(() => this.onAfterClose(event))));
+    this.jQueryElement?.off('open').on('open', ((event: any) => this.ngZone.run(() => this.onOpen(event))));
+    this.jQueryElement?.off('afteropen').on('afteropen', ((event: any) => this.ngZone.run(() => this.onAfterOpen(event))));
 
     // These are vetoable events.
-    this.jQueryElement?.on('beforeopen', ((event: any) => this.ngZone.run(() => this.onBeforeOpen(event))));
-    this.jQueryElement?.on('beforeclose', ((event: any) => this.ngZone.run(() => this.onBeforeClose(event))));
-    this.jQueryElement?.on('beforedestroy', ((event: any) => this.ngZone.run(() => this.onBeforeDestroy(event))));
+    this.jQueryElement?.off('beforeopen').on('beforeopen', ((event: any) => this.ngZone.run(() => this.onBeforeOpen(event))));
+    this.jQueryElement?.off('beforeclose').on('beforeclose', ((event: any) => this.ngZone.run(() => this.onBeforeClose(event))));
+    this.jQueryElement?.off('beforedestroy').on('beforedestroy', ((event: any) => this.ngZone.run(() => this.onBeforeDestroy(event))));
 
     return this;
   }
@@ -501,7 +501,7 @@ export class SohoModalDialogRef<T> {
   close(dialogResult?: any): SohoModalDialogRef<T> {
     this.dialogResult = dialogResult;
     if (this.modal) {
-      this.ngZone.runOutsideAngular(() => this.modal?.close());
+      this.ngZone.runOutsideAngular(() => this.modal?.close(false, false, true));
     }
     return this;
   }

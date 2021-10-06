@@ -464,9 +464,7 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   /** Input is disabled or not **/
   public isReadonly(): boolean | undefined {
     if (this.lookup) {
-      return this.ngZone.runOutsideAngular(() => {
-        return (this.lookup as any).isReadonly();
-      });
+      return this.ngZone.runOutsideAngular(() => (this.lookup as any).isReadonly());
     }
   }
 

@@ -120,7 +120,7 @@ interface SohoDataGridOptions {
   menuSelected?: Function;
 
   /** Call back for the grid level before open menu event. */
-  menuBeforeOpen?: Function;
+  menuBeforeOpen?: SohoPopupMenuSourceFunction;
 
   /** Callback for the header level right click menu. */
   headerMenuSelected?: Function;
@@ -217,6 +217,9 @@ interface SohoDataGridOptions {
 
   /** If a row is activated the user should not be able to deactivate it by clicking on the activated row */
   disableRowDeactivation?: boolean;
+
+  /** If a row is selected the user should not be able to deselect it by clicking on the activated row */
+  disableRowDeselection?: boolean;
 
   /** If true make all the columns equal width. */
   sizeColumnsEqually?: boolean;
@@ -1130,6 +1133,9 @@ interface SohoDataGridStatic {
   toggleRowSelection(idx: number): void;
 
   setActiveCell(idx: number, idx2: number): void;
+
+  /* Gets info about the currently activated cell */
+  activeCell: any;
 
   /** Returns an array of row numbers for the rows containing the value for the specified field */
   findRowsByValue(fieldName: string, value: any): number[];

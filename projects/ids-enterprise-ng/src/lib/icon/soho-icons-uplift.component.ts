@@ -6,7 +6,7 @@ import {
 
 @Component({
   selector: 'soho-icons-uplift',
-  templateUrl: 'theme-uplift-svg.html',
+  templateUrl: 'theme-new-svg.html',
 })
 export class SohoIconsUpliftComponent {
   @HostBinding('style.display') none = 'none';

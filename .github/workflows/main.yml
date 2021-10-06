@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -32,7 +32,7 @@ jobs:
         path: |
           ~/.cache/Cypress
           node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+        key: 9.4.0
 
     - name: Setup timezone
       uses: zcong1993/setup-timezone@master

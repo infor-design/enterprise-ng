@@ -6,6 +6,8 @@ import { SohoIconsEmptyComponent } from './soho-icons-empty.component';
 import { SohoIconsUpliftComponent } from './soho-icons-uplift.component';
 import { SohoIconsExtendedComponent } from './soho-icons-extended.component';
 import { SohoIconsEmptyUpliftComponent } from './soho-icons-empty-uplift.component';
+import { SohoIconsNewComponent } from './soho-icons-new.component';
+import { SohoIconsEmptyNewComponent } from './soho-icons-empty-new.component';
 
 @NgModule({
   imports: [CommonModule],
@@ -16,7 +18,9 @@ import { SohoIconsEmptyUpliftComponent } from './soho-icons-empty-uplift.compone
     SohoIconsEmptyComponent,
     SohoIconsExtendedComponent, // eslint-disable-line import/no-deprecated
     SohoIconsUpliftComponent,
-    SohoIconsEmptyUpliftComponent
+    SohoIconsEmptyUpliftComponent,
+    SohoIconsNewComponent,
+    SohoIconsEmptyNewComponent
   ],
   exports: [
     SohoIconComponent,
@@ -24,7 +28,9 @@ import { SohoIconsEmptyUpliftComponent } from './soho-icons-empty-uplift.compone
     SohoIconsEmptyComponent,
     SohoIconsExtendedComponent, // eslint-disable-line import/no-deprecated
     SohoIconsUpliftComponent,
-    SohoIconsEmptyUpliftComponent
+    SohoIconsEmptyUpliftComponent,
+    SohoIconsNewComponent,
+    SohoIconsEmptyNewComponent
   ]
 })
 export class SohoIconModule { }

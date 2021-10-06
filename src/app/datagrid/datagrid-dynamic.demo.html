@@ -26,30 +26,43 @@
         selectable="multiple"
         filterable="true"
       ></div>
+      <!--
+        This will work if you pass a response back from onBeforeContextMenuOpen
+        <div soho-busyindicator soho-datagrid
+        activated="true"
+        menuId="{{contextMenuId}}"
+        (selected)="onSelected($event)"
+        (rowDoubleClicked)="onRowDoubleClicked($event)"
+        (rowClicked)="onRowClicked($event)"
+        (contextMenu)="onContextMenu($event)"
+        [menuBeforeOpen]="onBeforeContextMenuOpen"
+        [columns]="columns | async"
+        [data]="data | async"
+        displayDelay="0"
+        selectable="multiple"
+        filterable="true"
+      ></div>
+      -->
     </section>
   </div>
 </div>
 
-<div *ngIf="displayContextMenu" class="popupmenu-wrapper" role="application" aria-hidden="true">
-  <ul soho-popupmenu
-    id="{{contextMenuId}}"
-    menu="{{contextMenuId}}"
-    trigger="immediate"
-    [eventObj]="contextMenuEvent"
-    [attachToBody]="true"
-    [removeOnDestroy]="true"
-    (selected)="onMenuItemSelected($event)"
-    (beforeopen)="onBeforeContextMenuOpen($event)"
-    (close)="onContextMenuClose($event)"
-    (open)="onContextMenuOpen($event)"
-  >
-    <li soho-popupmenu-item *ngFor="let item of menuItems" [subMenu]="item.submenu">
-      <a soho-popupmenu-label href="#">{{item.label}}</a>
-      <ul *ngIf="item.submenu">
-        <li soho-popupmenu-item *ngFor="let sub of item.submenu">
-          <a soho-popupmenu-label>{{sub.label}}</a>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</div>
+<ul soho-popupmenu
+  id="{{contextMenuId}}"
+  [eventObj]="contextMenuEvent"
+  [attachToBody]="true"
+  [removeOnDestroy]="true"
+  (selected)="onMenuItemSelected($event)"
+  (beforeopen)="onBeforeContextMenuOpen($event)"
+  (close)="onContextMenuClose($event)"
+  (open)="onContextMenuOpen($event)"
+>
+  <li soho-popupmenu-item *ngFor="let item of menuItems" [subMenu]="item.submenu">
+    <a soho-popupmenu-label href="#">{{item.label}}</a>
+    <ul *ngIf="item.submenu">
+      <li soho-popupmenu-item *ngFor="let sub of item.submenu">
+        <a soho-popupmenu-label>{{sub.label}}</a>
+      </li>
+    </ul>
+  </li>
+</ul>

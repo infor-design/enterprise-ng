@@ -29,7 +29,7 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
   private currentThemeId: any;
   private currentColorId: any;
 
-  constructor(private ref: ChangeDetectorRef) {}
+  constructor(private ref: ChangeDetectorRef) { }
 
   ngOnInit() {
     const personalize = (this.personalize as any);
@@ -108,6 +108,6 @@ export class PersonalizeColorApiDemoComponent implements OnInit {
    * used internally to set the color swatch for the color chooser.
    */
   dataIcon(color: SohoPersonalizationColor): string {
-    return JSON.stringify({ icon: 'swatch', class: color.backgroundColorClass + ' swatch'});
+    return JSON.stringify({ icon: 'swatch', class: color.backgroundColorClass + ' swatch' });
   }
 }

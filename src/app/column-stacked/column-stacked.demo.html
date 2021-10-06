@@ -6,6 +6,8 @@
       </div>
       <div class="widget-content">
         <div soho-column
+          (selected)="onSelected($event)"
+          (dblclick)="onDblclick($event)"
           [dataset]="columnStackedData"
           [type]="columnType">
         </div>

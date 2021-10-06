@@ -8,6 +8,8 @@
         <div soho-bar
           [dataset]="barData"
           [type]="barType"
+          (selected)="onSelected($event)"
+          (dblclick)="onDblclick($event)"
           (rendered)="onRendered($event)"
           (contextmenu)="onContextMenu($event)">
         </div>
