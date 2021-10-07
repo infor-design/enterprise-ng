@@ -2,6 +2,8 @@
 
 ## v10.10.0
 
+- `[Notification]` Added hide in notification service. ([#5562](https://github.com/infor-design/enterprise/issues/5562))
+
 ### 10.10.0 Fixes
 
 - `[Placeholder]` Remove me.

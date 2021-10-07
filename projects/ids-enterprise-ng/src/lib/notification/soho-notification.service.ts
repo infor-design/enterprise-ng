@@ -18,6 +18,7 @@ export class SohoNotificationService {
 
   /**
    * Hide a specified notification
+   * 
    * @param id id of notification
    */
   hide(id: string): void {
