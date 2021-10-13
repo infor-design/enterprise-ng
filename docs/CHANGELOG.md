@@ -6,6 +6,10 @@
 
 - `[Placeholder]` Remove me.
 
+### 10.10.0 Features
+
+- `[ApplicationMenu]` Added Wrapper for Resizable Feature ([#1143](https://github.com/infor-design/enterprise-ng/issues/1143))
+
 ## v10.9.0
 
 - `[Alert]` Alert component test set-up. ([#1110](https://github.com/infor-design/enterprise-ng/issues/1110))
