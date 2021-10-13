@@ -99,7 +99,15 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   /**
    * Is the application menu resizable?
    */
-  @Input() public resizable?: boolean;
+  @Input() 
+  public set resizable (resizable: boolean | undefined) {
+    if (this.applicationmenu) {
+      this.applicationmenu.settings.resizable = this.resizable;
+    }
+  }
+  public get resizable(): boolean | undefined {
+    return this.applicationmenu?.settings.resizable;
+  }
 
   /**
    *
