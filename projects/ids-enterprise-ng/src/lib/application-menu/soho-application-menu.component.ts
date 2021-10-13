@@ -99,19 +99,19 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   /**
    * Is the application menu resizable?
    */
-  @Input() 
-  public set resizable (resizable: boolean | undefined) {
-    this.resizable = resizable;
+  @Input() public set resizable (resizable: boolean | undefined) {
+    this._resizable = resizable;
     if (this.applicationmenu) {
-      this.applicationmenu.settings.resizable = this.resizable;
+      this.applicationmenu.settings.resizable = this._resizable;
     }
   }
+  
   public get resizable(): boolean | undefined {
     if (this.applicationmenu) {
-      return this.applicationmenu?.settings.resizable;
+      return this.applicationmenu.settings.resizable;
     }
 
-    return this.resizable;
+    return this._resizable;
   }
 
   /**
@@ -175,6 +175,8 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
 
   /** Dismiss the menu when an item is clicked in the mobile breakpoints */
   private _dismissOnClickMobile?: boolean;
+
+  private _resizable?: boolean | undefined;
 
   /** Menu switcher expand callback  */
   private _onExpandSwitcher?: SohoApplicationMenuExpandSwitcherFunction;
@@ -304,7 +306,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
         openOnLarge: this._openOnLarge,
         triggers: this._triggers,
         filterable: this.filterable,
-        resizable: this.resizable,
+        resizable: this._resizable,
         onExpandSwitcher: this._onExpandSwitcher,
         onCollapseSwitcher: this._onCollapseSwitcher
       };
