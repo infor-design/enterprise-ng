@@ -1,0 +1,134 @@
+<div class="row">
+  <div class="twelve columns">
+    <div class="field top-padding">
+      <button soho-button id="roleswitcher-trigger" (click)="openMenu()">Open Menu</button>
+    </div>
+  </div>
+</div>
+
+<nav id="applicationMenu" soho-application-menu
+  [triggers]="triggers" breakpoint="desktop"
+  class="has-searchfield"
+  [dismissOnClickMobile]=true
+  [style.height]="'100%'"
+  [filterable]=true
+  [resizable]=true
+>
+
+<div class="flex-wrapper">
+  <div class="application-menu-header expandable-area-header">
+    <img src="https://randomuser.me/api/portraits/med/men/7.jpg" class="icon avatar l-center" alt="Photo of Richard Fairbanks"/>
+    <button type="button" class="btn application-menu-switcher-trigger expandable-area-trigger" id="trigger-btn">
+      <span>{{ myRole }}</span>
+      <svg class="icon icon-closed" focusable="false" aria-hidden="true" role="presentation">
+        <use href="#icon-caret-down"></use>
+      </svg>
+      <svg class="icon icon-opened" focusable="false" aria-hidden="true" role="presentation">
+        <use href="#icon-caret-up"></use>
+      </svg>
+    </button>
+    <div class="expandable-area">
+      <div class="expandable-pane application-menu-switcher-panel">
+        <div class="content">
+          <div class="accordion panel inverse">
+            <div class="accordion-header">
+              <a href="#" title="Manager"><span>Manager</span></a>
+            </div>
+            <div class="accordion-header">
+              <a href="#" (click)="selectRole($event)" title="Role1"
+              ><span>Role 1</span></a>
+            </div>
+            <div class="accordion-header is-selected">
+              <a href="#" (click)="selectRole($event)" title="Recruiter"><span>Recruiter</span></a>
+            </div>
+            <div class="accordion-header">
+              <a href="#" (click)="selectRole($event)" title="Admin"><span>Admin</span></a>
+            </div>
+            <div class="accordion-header">
+              <a href="#" (click)="selectRole($event)" title="Example Role Thats Really Really Long So Long that it flows into an ellipsis just really long, maybe too long?"><span>Example Role Thats Really Really Long So Long that it flows into an ellipsis just really long, maybe too long?</span></a>
+            </div>
+            <div class="accordion-header">
+              <a href="#" (click)="selectRole($event)" title="Example Role"><span>Example Role</span></a>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="name-xl">Richard <br /> Fairbanks</span>
+    <div class="application-menu-toolbar">
+      <div class="flex-toolbar">
+        <div class="toolbar-section buttonset">
+          <button class="btn-icon" title="Download My Profile">
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-download"></use>
+            </svg>
+            <span class="audible">Download</span>
+          </button>
+          <button class="btn-icon" title="Print My Profile">
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-print"></use>
+            </svg>
+            <span class="audible">Print</span>
+          </button>
+          <button class="btn-icon" title="Show Purchasing Info">
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-purchasing"></use>
+            </svg>
+            <span class="audible">Purchasing</span>
+          </button>
+          <button class="btn-icon" title="Show Notification Info">
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-notification"></use>
+            </svg>
+            <span class="audible">Notification</span>
+          </button>
+          <button class="btn-icon" title="Show Inventory Info">
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-inventory"></use>
+            </svg>
+            <span class="audible">Inventory</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="application-menu-content">
+  <div class="searchfield-wrapper">
+    <label class="audible" for="application-menu-searchfield-roles">Search</label>
+    <input id="application-menu-searchfield-roles" class="searchfield" data-options='{ "clearable": true }' placeholder="Search this menu"/>
+  </div>
+
+  <div class="accordion panel inverse" data-options="{'allowOnePane': false}" >
+    <ng-container *ngIf="menuItems.length === 0">
+      <div class="accordion-header">
+        <a href="#"><span>My Home</span></a>
+      </div>
+
+      <div class="accordion-header">
+        <a href="#"><span>Raves</span></a>
+      </div>
+
+      <div class="accordion-header">
+        <a href="#"><span>Request Time Off</span></a>
+      </div>
+
+      <div class="accordion-header">
+        <a href="#"><span>My Growth</span></a>
+      </div>
+
+      <div class="accordion-header">
+        <a href="#"><span>My Rewards</span></a>
+      </div>
+
+      <div class="accordion-header">
+        <a href="#"><span>Find a Coworker</span></a>
+      </div>
+    </ng-container>
+
+    <div *ngFor="let menuItem of menuItems" class="accordion-header">
+      <a href="#"><span>{{menuItem}}</span></a>
+    </div>
+  </div>
+</div>

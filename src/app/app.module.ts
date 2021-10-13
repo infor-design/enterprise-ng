@@ -256,6 +256,7 @@ import { WizardDemoSelectFilePageComponent } from './wizard/wizard-selected-file
 import { WizardDemoTargetFolderPageComponent } from './wizard/wizard-target-folder-page.demo';
 import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validation-rules-page.demo';
 import { LocaleInitializerModule } from './locale-initializer/locale-initializer.module';
+import { ApplicationMenuResizableDemoComponent } from './application-menu/application-menu-resizable.demo';
 import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
 import { ApplicationMenuTestPerfDemoComponent } from './application-menu/application-menu-test-performance.demo';
 import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-cube.demo';
@@ -272,6 +273,7 @@ import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-
     ApplicationMenuDemoComponent,
     ApplicationMenuLazyDemoComponent,
     ApplicationMenuLazyMenuDemoComponent,
+    ApplicationMenuResizableDemoComponent,
     ApplicationMenuRoleSwitcherDemoComponent,
     ApplicationMenuTestPerfDemoComponent,
     AreaDemoComponent,

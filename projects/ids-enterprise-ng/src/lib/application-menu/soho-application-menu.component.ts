@@ -97,6 +97,11 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   @Input() public filterable?: boolean;
 
   /**
+   * Is the application menu resizable?
+   */
+  @Input() public resizable?: boolean;
+
+  /**
    *
    * @param expandSwitcher
    * Menu switcher expand setting to provide callback
@@ -286,6 +291,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
         openOnLarge: this._openOnLarge,
         triggers: this._triggers,
         filterable: this.filterable,
+        resizable: this.resizable,
         onExpandSwitcher: this._onExpandSwitcher,
         onCollapseSwitcher: this._onCollapseSwitcher
       };
