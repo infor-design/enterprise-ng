@@ -97,6 +97,42 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   @Input() public filterable?: boolean;
 
   /**
+   * Is the application menu resizable?
+   */
+  @Input() public set resizable (resizable: boolean | undefined) {
+    this._resizable = resizable;
+    if (this.applicationmenu) {
+      this.applicationmenu.settings.resizable = this._resizable;
+    }
+  }
+  
+  public get resizable(): boolean | undefined {
+    if (this.applicationmenu) {
+      return this.applicationmenu.settings.resizable;
+    }
+
+    return this._resizable;
+  }
+
+  /**
+   * Resizeable Save Position Settings
+   */
+   @Input() public set savePosition (savePosition: boolean | undefined) {
+    this._savePosition = savePosition;
+    if (this.applicationmenu) {
+      this.applicationmenu.settings.resizable = this._savePosition;
+    }
+  }
+  
+  public get savePosition(): boolean | undefined {
+    if (this.applicationmenu) {
+      return this.applicationmenu.settings.savePosition;
+    }
+
+    return this._savePosition;
+  }
+
+  /**
    *
    * @param expandSwitcher
    * Menu switcher expand setting to provide callback
@@ -157,6 +193,10 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
 
   /** Dismiss the menu when an item is clicked in the mobile breakpoints */
   private _dismissOnClickMobile?: boolean;
+
+  private _resizable?: boolean;
+
+  private _savePosition?: boolean;
 
   /** Menu switcher expand callback  */
   private _onExpandSwitcher?: SohoApplicationMenuExpandSwitcherFunction;
@@ -286,6 +326,8 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
         openOnLarge: this._openOnLarge,
         triggers: this._triggers,
         filterable: this.filterable,
+        resizable: this._resizable,
+        savePosition: this._savePosition,
         onExpandSwitcher: this._onExpandSwitcher,
         onCollapseSwitcher: this._onCollapseSwitcher
       };

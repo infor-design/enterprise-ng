@@ -36,6 +36,12 @@ interface SohoApplicationMenuOptions {
   /** Is this application menu filterable. */
   filterable?: boolean;
 
+  /** Is this application menu resizable. */
+  resizable?: boolean;
+
+  /** Is this application menu resizable. */
+  savePosition?: boolean;
+
   /** Open the menu when the screen width is larger that the breakpoint. */
   openOnLarge: boolean | undefined;
 
