@@ -11,6 +11,15 @@ export class SohoNotificationService {
    * Show a notification using the specified options.
    */
   show(options: SohoNotificationOptions): void {
-    jQuery('body').notification(options);
+    jQuery('body').notification(options).data('notification').registerNotification();
+  }
+
+  /**
+   * Hide a specified notification
+   * 
+   * @param id id of notification
+   */
+  hide(id: string): void {
+    jQuery('body').data('notification').close(id);
   }
 }

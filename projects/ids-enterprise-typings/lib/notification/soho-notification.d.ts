@@ -13,6 +13,9 @@ type SohoNotificationType = 'error' | 'alert' | 'info' | 'success';
 * Notification Options
 */
 interface SohoNotificationOptions {
+  /** ID of notification */
+  id?: string;
+
   /** The title string in the notification. */
   message: string;
 
