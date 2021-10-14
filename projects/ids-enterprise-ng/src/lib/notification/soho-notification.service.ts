@@ -7,8 +7,6 @@ export class SohoNotificationService {
   public static INFO: SohoNotificationType = 'info';
   public static SUCCESS: SohoNotificationType = 'success';
 
-  private notifApis: Array<JQuery.PlainObject> = [];
-
   /**
    * Show a notification using the specified options.
    */
