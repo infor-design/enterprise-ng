@@ -211,7 +211,7 @@ Add a button to `app.component.html`, by appending the following code snippet:
 
 ```html
 <soho-icons></soho-icons>
-<button soho-button icon="alert" (click)="clicked()">{{'Alert' | sohoTranslate}}</button>
+<button oho-button="icon" icon="alert" (click)="clicked()">{{'Alert' | sohoTranslate}}</button>
 ```
 
 Add the clicked handler to `app.component.ts`, as follows:
