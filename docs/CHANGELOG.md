@@ -6,7 +6,7 @@
 
 ### 10.10.0 Fixes
 
-- `[Placeholder]` Remove me.
+- `[Datepicker]` Fix on error when value in input is string and datepicker mode is range. ([#1140](https://github.com/infor-design/enterprise-ng/issues/1140))
 
 ### 10.10.0 Features
 
