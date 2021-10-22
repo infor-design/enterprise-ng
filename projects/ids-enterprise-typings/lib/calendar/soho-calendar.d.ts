@@ -137,6 +137,7 @@ interface SohoCalendarOptions {
   dayLegend?: Array<SohoDatePickerLegend>;
   attributes?: Array<Object> | Object;
   displayRange?: Object;
+  firstDayOfWeek?: number;
 }
 
 interface SohoCalendar {
