@@ -262,6 +262,7 @@ import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-
 import { WeekViewDemoComponent } from './week-view/week-view.demo';
 import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
 import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-multiselect-attributes-demo'
+import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertical-scroll-to-end.demo';
 
 @NgModule({
   declarations: [
@@ -358,6 +359,7 @@ import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-
     DataGridTreeGridCubeDemoComponent,
     DatagridTreegridDynamicfilteringDemoComponent,
     DataGridGroupableDemoComponent,
+    DataGridVerticalScrollDemoComponent,
     NestedDatagridDemoComponent,
     ExpandedDemoComponent,
     DataGridExpandableRowNestedDemoComponent,

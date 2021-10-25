@@ -1,0 +1,13 @@
+
+<div class="row top-padding">
+  <div class="twelve columns" role="main">
+    <div id="test" soho-datagrid style="height: 300px;"
+      [columns]="columns"
+      [data]="data"
+      [pagesize]="25"
+      (verticalScroll)="onVerticalScroll($event)"
+      (rowClicked)="onRowClicked($event)"
+      >
+    </div>
+  </div>
+</div>

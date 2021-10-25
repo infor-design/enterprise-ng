@@ -1015,6 +1015,7 @@ interface SohoGridCellOption {
  * Soho datagrid control.
  */
 interface SohoDataGridStatic {
+  hasVerticalScrollbar: boolean;
   /** Control options. */
   settings: SohoDataGridOptions;
 
@@ -1567,4 +1568,9 @@ interface SohoDataGridKeyDownEvent {
   e: JQuery.Event;
   args: SohoDataGridKeyDownArgs;
   response: Function;
+}
+
+interface SohoDataGridScrollEvent {
+  percent: number;
+  percentScrolled: number;
 }
