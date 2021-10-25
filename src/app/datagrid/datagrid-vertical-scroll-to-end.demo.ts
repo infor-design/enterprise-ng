@@ -1,5 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { SohoDataGridComponent, SohoToastService } from 'ids-enterprise-ng';
+import { Component } from '@angular/core';
 import { CODE_BLOCK_DATA } from '../demodata/code-block-data';
 
 @Component({
@@ -15,9 +14,7 @@ public columns: SohoDataGridColumn[] = [
 
   public data = CODE_BLOCK_DATA;
 
-  @ViewChild(SohoDataGridComponent, { static: true }) dataGrid?: SohoDataGridComponent;
-
-  constructor(private toastService: SohoToastService) {}
+  constructor() {}
 
   onVerticalScroll(_args: any) {
     if (_args.percent  >= 90 && _args.percent < 100) {
