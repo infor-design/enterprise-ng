@@ -1015,7 +1015,6 @@ interface SohoGridCellOption {
  * Soho datagrid control.
  */
 interface SohoDataGridStatic {
-  hasVerticalScrollbar: boolean;
   /** Control options. */
   settings: SohoDataGridOptions;
 
