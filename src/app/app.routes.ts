@@ -212,6 +212,7 @@ import { DataGridExpandableRowNestedDemoComponent } from './datagrid/datagrid-ex
 import { DataGridExpandableRowDynamicDemoComponent } from './datagrid/datagrid-expandable-row-dynamic.demo';
 import { DataGridSummaryRowDemoComponent } from './datagrid/datagrid-summary-row.demo';
 import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-multiselect-attributes-demo';
+import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertical-scroll-to-end.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -293,6 +294,7 @@ export const routes: Routes = [
   { path: 'datagrid-treegrid-lazy', component: DataGridTreeGridLazyDemoComponent },
   { path: 'datagrid-treegrid-cube', component: DataGridTreeGridCubeDemoComponent },
   { path: 'datagrid-treegrid-dynamicfilter', component: DatagridTreegridDynamicfilteringDemoComponent },
+  { path: 'datagrid-vertical-scroll', component: DataGridVerticalScrollDemoComponent },
   { path: 'datagrid-tab', component: DataGridTabDemoComponent },
   { path: 'datagrid-angular-editor', component: DataGridAngularEditorDemoComponent },
   { path: 'datagrid-angular-card-formatter', component: DataGridAngularCardFormatterDemoComponent },
