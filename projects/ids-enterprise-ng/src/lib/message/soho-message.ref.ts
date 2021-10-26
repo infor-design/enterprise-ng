@@ -110,7 +110,16 @@ export class SohoMessageRef {
   }
 
   /**
-   * Sets the 'cssClass' of the modal control.
+   * If true, it will show a close icon button on the top right of the message.
+   * @param showCloseBtn - if true, the x button will be shown.
+   */
+  showCloseBtn(showCloseBtn: boolean): SohoMessageRef {
+    this._options.showCloseBtn = showCloseBtn;
+    return this;
+  }
+
+  /**
+   * Sets the 'allowTags' of the modal control.
    */
   allowedTags(allowedTags: string): SohoMessageRef {
     this._options.allowedTags = allowedTags;

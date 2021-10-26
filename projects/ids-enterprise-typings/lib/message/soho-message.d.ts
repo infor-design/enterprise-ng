@@ -37,6 +37,9 @@ interface SohoMessageOptions {
   /** Set allowed tags */
   allowedTags?: string;
 
+  /* Show close icon button on the top right of the message. */
+  showCloseBtn?: boolean;
+
   /** The buttons to create. */
   buttons?: SohoModalButton[];
 
