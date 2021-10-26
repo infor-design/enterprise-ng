@@ -111,6 +111,7 @@ export class SohoMessageRef {
 
   /**
    * If true, it will show a close icon button on the top right of the message.
+   * 
    * @param showCloseBtn - if true, the x button will be shown.
    */
   showCloseBtn(showCloseBtn: boolean): SohoMessageRef {
