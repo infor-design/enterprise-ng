@@ -2,11 +2,9 @@
 
 ## v10.10.0
 
-- `[Datagrid]` Added vertical scroll event in datagrid. ([#1154](https://github.com/infor-design/enterprise/issues/1154))
-- `[Notification]` Added hide in notification service. ([#5562](https://github.com/infor-design/enterprise/issues/5562))
-
 ### 10.10.0 Fixes
 
+- `[Datagrid]` Added vertical scroll event in datagrid. ([#1154](https://github.com/infor-design/enterprise/issues/1154))
 - `[Datepicker]` Fix on error when value in input is string and datepicker mode is range. ([#1140](https://github.com/infor-design/enterprise-ng/issues/1140))
 - `[Notification]` Added hide in notification service. ([#5562](https://github.com/infor-design/enterprise/issues/5562))
 
