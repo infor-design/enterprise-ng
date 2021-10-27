@@ -2,6 +2,7 @@
 
 ## v10.10.0
 
+- `[Calendar]` Added first day of the week parameter in calendar settings. ([#5775](https://github.com/infor-design/enterprise/issues/5775))
 - `[Notification]` Added hide in notification service. ([#5562](https://github.com/infor-design/enterprise/issues/5562))
 
 ### 10.10.0 Fixes
