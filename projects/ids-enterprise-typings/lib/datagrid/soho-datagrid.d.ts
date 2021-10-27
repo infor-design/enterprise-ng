@@ -1568,3 +1568,8 @@ interface SohoDataGridKeyDownEvent {
   args: SohoDataGridKeyDownArgs;
   response: Function;
 }
+
+interface SohoDataGridScrollEvent {
+  percent: number;
+  percentScrolled: number;
+}

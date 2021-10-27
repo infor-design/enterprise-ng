@@ -1298,6 +1298,9 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
   @Output()
   afterRender = new EventEmitter<SohoDataGridAfterRenderEvent>();
 
+  @Output()
+  verticalScroll = new EventEmitter<SohoDataGridScrollEvent>();
+
   // -------------------------------------------
   // Host Bindings
   // -------------------------------------------
@@ -2450,6 +2453,14 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
     });
   }
 
+  /**
+   * Event fired after vertical scroll
+   */
+  private onVerticalScroll(args: SohoDataGridScrollEvent) {
+    this.ngZone.run(() => {
+      this.verticalScroll.next(args);
+    })
+  }
 
   /**
    * Returns the row dom jQuery node.
@@ -2701,6 +2712,7 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
         .on('sorted', (_e: any, args: SohoDataGridSortedEvent) => this.onSorted(args))
         .on('beforepaging', (_e: any, args: SohoPagerPagingInfo) => this.onBeforePaging(args))
         .on('afterpaging', (_e: any, args: SohoPagerPagingInfo) => this.onAfterPaging(args))
+        .on('scroll', (_e: any, args: SohoDataGridScrollEvent) => this.onVerticalScroll(args))
     });
 
     // Initialise the SohoXi control.
