@@ -71,6 +71,7 @@ export class MessageDemoComponent {
       .alert()
       .title('<span>Application Alert</span>')
       .message(`This application has experienced a security alert. Please acknowledge the alert to proceed or cancel to abort.`)
+      .showCloseBtn(true)
       .buttons(buttons)
       .open();
   }
