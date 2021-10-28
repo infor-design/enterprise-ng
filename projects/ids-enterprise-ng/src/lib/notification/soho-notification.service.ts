@@ -22,4 +22,18 @@ export class SohoNotificationService {
   hide(id: string): void {
     jQuery('body').data('notification').close(id);
   }
+
+  /**
+   * Hide the latest notification in the list
+   */
+  hideLatest(): void {
+    jQuery('body').data('notification').closeLatest();
+  }
+
+  /**
+   * Hide all the notifications in the list
+   */
+  hideAll(): void {
+    jQuery('body').data('notification').closeAll();
+  }
 }
