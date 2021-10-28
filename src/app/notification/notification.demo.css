@@ -1,10 +1,5 @@
-#show-notification-btn {
-    bottom: 20px; 
-    position: fixed;
-}
-
-#hide-notification-btn {
-    bottom: 20px; 
-    right: 20px; 
-    position: fixed;
+button {
+    bottom: -700px; 
+    right: -100px;
+    margin-left: 10px;
 }

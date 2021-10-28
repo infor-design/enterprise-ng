@@ -2,6 +2,9 @@
 
 ## v10.10.0
 
+- `[Datagrid]` Added vertical scroll event in datagrid. ([#1154](https://github.com/infor-design/enterprise/issues/1154))
+- `[Notification]` Added hide, hideLatest, and hideAll in notification service. ([#5562](https://github.com/infor-design/enterprise/issues/5562))
+
 ### 10.10.0 Fixes
 
 - `[Datagrid]` Added vertical scroll event in datagrid. ([#1154](https://github.com/infor-design/enterprise/issues/1154))
