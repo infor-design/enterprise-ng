@@ -316,7 +316,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * The ID of the template used for the events.
    */
-  @Input() set template(template: string  | undefined) {
+  @Input() set template(template: string | undefined) {
     (this._calendarOptions as any).template = template;
     if (this.calendar) {
       this.calendar.settings.template = template;
@@ -334,7 +334,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * How many days in advance should we show in the upcoming events pane.
    */
-  @Input() set upcomingEventDays(upcomingEventDays: number | undefined ) {
+  @Input() set upcomingEventDays(upcomingEventDays: number | undefined) {
     (this._calendarOptions as any).upcomingEventDays = upcomingEventDays;
     if (this.calendar) {
       this.calendar.settings.upcomingEventDays = upcomingEventDays;
@@ -352,14 +352,14 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * The ID of the template used for the modal dialog on events.
    */
-  @Input() set modalTemplate(modalTemplate: string | undefined ) {
+  @Input() set modalTemplate(modalTemplate: string | undefined) {
     (this._calendarOptions as any).modalTemplate = modalTemplate;
     if (this.calendar) {
       this.calendar.settings.modalTemplate = modalTemplate;
       this.markForRefresh();
     }
   }
-  get modalTemplate(): string | undefined  {
+  get modalTemplate(): string | undefined {
     if (this.calendar) {
       return this.calendar.settings.modalTemplate;
     }
@@ -370,7 +370,7 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * ID of the menu to use for an event right click context menu
    */
-  @Input() set menuId(menuId: string | undefined ) {
+  @Input() set menuId(menuId: string | undefined) {
     (this._calendarOptions as any).menuId = menuId;
     if (this.calendar) {
       this.calendar.settings.menuId = menuId;
@@ -388,14 +388,14 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * Callback for the  right click context menu
    */
-  @Input() set menuSelected(menuSelected: Function | undefined ) {
+  @Input() set menuSelected(menuSelected: Function | undefined) {
     (this._calendarOptions as any).menuSelected = menuSelected;
     if (this.calendar) {
       this.calendar.settings.menuSelected = menuSelected;
       this.markForRefresh();
     }
   }
-  get menuSelected(): Function | undefined  {
+  get menuSelected(): Function | undefined {
     if (this.calendar) {
       return this.calendar.settings.menuSelected;
     }
@@ -406,14 +406,14 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * Initial event properties for the new events dialog.
    */
-  @Input() set newEventDefaults(newEventDefaults: SohoCalendarEvent | undefined ) {
+  @Input() set newEventDefaults(newEventDefaults: SohoCalendarEvent | undefined) {
     (this._calendarOptions as any).newEventDefaults = newEventDefaults;
     if (this.calendar) {
       this.calendar.settings.newEventDefaults = newEventDefaults;
       this.markForRefresh();
     }
   }
-  get newEventDefaults(): SohoCalendarEvent | undefined  {
+  get newEventDefaults(): SohoCalendarEvent | undefined {
     if (this.calendar) {
       return this.calendar.settings.newEventDefaults;
     }
@@ -424,14 +424,14 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * Call back for when the view changer is changed
    */
-  @Input() set changeViewCallback(changeViewCallback: Function | undefined ) {
+  @Input() set changeViewCallback(changeViewCallback: Function | undefined) {
     (this._calendarOptions as any).onChangeView = changeViewCallback;
     if (this.calendar) {
       this.calendar.settings.onChangeView = changeViewCallback;
       this.markForRefresh();
     }
   }
-  get changeViewCallback(): Function | undefined  {
+  get changeViewCallback(): Function | undefined {
     if (this.calendar) {
       return this.calendar.settings.onChangeView;
     }
@@ -442,14 +442,14 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
   /**
    * Deterimines if the today button should be shown.
    */
-  @Input() set showToday(showToday: boolean | undefined ) {
+  @Input() set showToday(showToday: boolean | undefined) {
     (this._calendarOptions as any).showToday = showToday;
     if (this.calendar) {
       this.calendar.settings.showToday = showToday;
       this.markForRefresh();
     }
   }
-  get showToday(): boolean | undefined  {
+  get showToday(): boolean | undefined {
     if (this.calendar) {
       return this.calendar.settings.showToday;
     }
@@ -473,6 +473,25 @@ export class SohoCalendarComponent implements AfterViewChecked, AfterViewInit, O
     }
 
     return (this._calendarOptions as any).displayRange;
+  }
+
+  /**
+   * Configure day of week setting
+   */
+  @Input() set firstDayOfWeek(day: number) {
+    (this._calendarOptions as any).firstDayOfWeek = day;
+
+    if (this.calendar) {
+      this.calendar.settings.firstDayOfWeek = day;
+      this.markForRefresh();
+    }
+  }
+  get firstDayOfWeek(): number {
+    if (this.calendar) {
+      return (this.calendar as any).settings.firstDayOfWeek;
+    }
+
+    return this.firstDayOfWeek;
   }
 
   // -------------------------------------------

@@ -2,6 +2,7 @@
     [renderMonthCallback]="onRenderMonthCallback"
     [selectedCallback]="onCalendarDateSelectedCallback"
     [displayRange]= "displayRange"
+    [firstDayOfWeek]="0"
     (monthRendered)="onRenderMonth($event)"
     (selected)="onSelected($event)"
     (eventClick)="onEventClicked($event)"
