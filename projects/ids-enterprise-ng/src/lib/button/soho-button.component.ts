@@ -305,6 +305,13 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
           this.jQueryElement.off('click.favorite');
         }
       }
+
+      // Remove aria-pressed attribute if button is not toggle
+      if (!this.isToggle) {
+        if (this.jQueryElement.attr('aria-pressed') !== undefined) {
+          this.jQueryElement.removeAttr('aria-pressed');
+        }
+      }
     });
 
     // There are no 'extra' event handlers for button.
