@@ -63,6 +63,8 @@ interface SohoModalOptions {
   /** If true the an x will be shown on the modal**/
   showCloseBtn?: boolean;
 
+  closeBtnOptions?: CloseBtnOptions;
+
   // The maximum width to show for the modal, regardless of content.
   maxWidth?: number;
 
@@ -129,6 +131,18 @@ interface SohoModalButton {
 
   /** Align the button (CAP Centered Tooltip) **/
   align?: 'left' | 'center' | 'right';
+
+  tabindex?: number;
+}
+
+interface CloseBtnOptions {
+  /** Tooltip message */
+  closeBtnTooltip?: string;
+
+  /** Add extra attributes for the close button 
+   * [{ name: 'tabIndex', value: '-1' }]
+   */
+  attributes?: Array<Object>;
 }
 
 /**
