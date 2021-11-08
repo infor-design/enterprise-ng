@@ -41,7 +41,7 @@
   </div>
 </div>
 
-<div class="row top-padding">
+<div class="row">
   <div class="six columns">
     <span class="label">Swipe Action (Reveal / One Action)</span>
     <soho-card ngClass="card-variant">
@@ -73,5 +73,54 @@
       <li soho-popupmenu-item><a soho-popupmenu-label>Right Action</a></li>
       <li soho-popupmenu-item><a soho-popupmenu-label>Desktop Only Action</a></li>
     </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="six columns">
+    <span class="label">Swipe Action (Continuous)</span>
+    <soho-card ngClass="card-variant">
+      <div soho-swipe-action data-options="{'swipeType': 'continuous'}">
+        <div class="swipe-action-left">
+          <button id="action-left-continuous" class="btn-swipe-action-left">
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-reply"></use>
+            </svg>
+            <span>Left Action</span>
+          </button>
+        </div>
+        <div class="swipe-element">
+          <div class="card-content">
+            <div class="card-content-header">Thursday, 23nd September</div>
+            <div class="card-content-sub">9:40AM-3:00PM</div>
+          </div>
+          <div class="card-buttonset">
+            <div class="card-content-action">
+              <button soho-button="icon" icon="more" soho-context-menu menu="action-popupmenu-3" trigger="click"
+                class="btn-actions"></button>
+            </div>
+          </div>
+        </div>
+        <div class="swipe-action-right">
+          <button id="action-right-continuous" class="btn-swipe-action-right">
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+              <use href="#icon-tack"></use>
+            </svg>
+            <span>Right Action</span>
+          </button>
+        </div>
+      </div>
+    </soho-card>
+    <ul soho-popupmenu id="action-popupmenu-3">
+      <li soho-popupmenu-item><a soho-popupmenu-label>Left Action</a></li>
+      <li soho-popupmenu-item><a soho-popupmenu-label>Right Action</a></li>
+      <li soho-popupmenu-item><a soho-popupmenu-label>Desktop Only Action</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="six columns">
+    <span class="label" id="output">&nbsp;</span>
   </div>
 </div>

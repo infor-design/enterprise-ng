@@ -1,8 +1,10 @@
 import {
+  AfterViewInit,
   Component,
+  ElementRef,
   HostBinding,
-  Input,
   NgZone,
+  OnDestroy,
 } from '@angular/core';
 
 @Component({
@@ -12,37 +14,44 @@ import {
       <ng-content></ng-content>
     </div>`,
 })
-export class SohoSwipeActionComponent {
+export class SohoSwipeActionComponent implements AfterViewInit, OnDestroy {
 
   /** Options */
-  private _options: SohoSwipeActionOptions = {};
-  private _swipeaction?: SohoSwipeActionStatic | null;
+  private swipeaction?: SohoSwipeActionStatic | null;
+  private jQueryElement!: JQuery;
 
   @HostBinding('class.swipe-action') get isSwipeAction() {
     return true;
   }
 
-  @Input()
-  public set swipeType(swipeType: SohoSwipeType) {
-    this._options.swipeType = swipeType;
-    if (this._swipeaction) {
-      this._swipeaction.settings.swipeType = swipeType;
-      this.updated(this._swipeaction.settings);
-    }
-  }
-  public get swipeType(): SohoSwipeType {
-    if (!this._swipeaction) {
-      return this._options.swipeType;
-    }
-    return this._swipeaction.settings.swipeType;
-  }
-
   constructor(
+    private element: ElementRef,
     private ngZone: NgZone,
   ) { }
 
+  ngAfterViewInit() {
+    this.ngZone.runOutsideAngular(() => {
+      this.jQueryElement = jQuery(this.element.nativeElement);
+
+      // Initialize the component
+      this.jQueryElement.swipeaction();
+    });
+  }
+
+  ngOnDestroy() {
+    this.ngZone.runOutsideAngular(() => {
+      if (this.jQueryElement) {
+        this.jQueryElement.off();
+      }
+      if (this.swipeaction) {
+        this.swipeaction.destroy();
+        this.swipeaction = null;
+      }
+    });
+  }
+
   public updated(settings: any): SohoSwipeActionComponent {
-    this.ngZone.runOutsideAngular(() => this._swipeaction?.updated(settings));
+    this.ngZone.runOutsideAngular(() => this.swipeaction?.updated(settings));
     return this;
   }
 }
