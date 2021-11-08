@@ -71,6 +71,7 @@
 /// <reference path='lib/stepchart/soho-stepchart.d.ts' />
 /// <reference path='lib/stepprocess/soho-stepprocess.d.ts' />
 /// <reference path='lib/swaplist/soho-swaplist.d.ts' />
+/// <reference path='lib/swipe-action/soho-swipe-action.d.ts' />
 /// <reference path='lib/tabs/soho-tabs.d.ts' />
 /// <reference path='lib/tag/soho-tag.d.ts' />
 /// <reference path='lib/textarea/soho-textarea.d.ts' />
