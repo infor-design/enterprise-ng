@@ -1,9 +1,5 @@
 # What's New with Enterprise-NG
 
-## v10.11.0 Features
-
-- `[Swipe Action]` Added a wrapper for Swipe Action Component. ([#1164](https://github.com/infor-design/enterprise-ng/issues/1164)) `EA`
-
 ## v10.10.0
 
 - `[Calendar]` Added first day of the week parameter in calendar settings. ([#5775](https://github.com/infor-design/enterprise/issues/5775))
@@ -21,6 +17,7 @@
 
 - `[ApplicationMenu]` Added Wrapper for Resizable Feature ([#1143](https://github.com/infor-design/enterprise-ng/issues/1143))
 - `[Message]` Added `showCloseBtn` setting to `SohoMessageOptions`. ([#1161](https://github.com/infor-design/enterprise-ng/issues/1161)) `EA`
+- `[Swipe Action]` Added a wrapper for Swipe Action Component. ([#1164](https://github.com/infor-design/enterprise-ng/issues/1164)) `EA`
 
 ## v10.9.0
 
