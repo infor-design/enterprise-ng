@@ -70,6 +70,7 @@ export * from './splitter/index';
 export * from './stepchart/index';
 export * from './stepprocess/index';
 export * from './swaplist/index';
+export * from './swipe-action/index';
 export * from './tag/index';
 export * from './tabs/index';
 export * from './textarea/index';

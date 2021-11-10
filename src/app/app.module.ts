@@ -210,6 +210,7 @@ import { SwapListDynamicDemoComponent } from './swaplist/swaplist-dynamic.demo';
 import { SwapListFullAccessDemoComponent } from './swaplist/swaplist-full-access.demo';
 import { SwapListSearchDemoComponent } from './swaplist/swaplist-search.demo';
 import { SwapListServiceDemoComponent } from './swaplist/swaplist-service.demo';
+import { SwipeActionDemoComponent } from './swipe-action/swipe-action.demo';
 import { TabsBasicDemoComponent } from './tabs/tabs-basic.demo';
 import { TabsCountsDemoComponent } from './tabs/tabs-counts.demo';
 import { TabsDataDrivenDemoComponent } from './tabs/tabs-datadriven.demo';
@@ -455,6 +456,7 @@ import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertica
     SwapListFullAccessDemoComponent,
     SwapListSearchDemoComponent,
     SwapListServiceDemoComponent,
+    SwipeActionDemoComponent,
     TabsBasicDemoComponent,
     TabsCountsDemoComponent,
     TabsDataDrivenDemoComponent,

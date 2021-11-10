@@ -71,6 +71,7 @@ import { SohoSpinboxModule } from './spinbox/soho-spinbox.module';
 import { SohoStepChartModule } from './stepchart';
 import { SohoStepProcessModule } from './stepprocess/soho-stepprocess.module';
 import { SohoSwapListModule } from './swaplist/soho-swaplist.module';
+import { SohoSwipeActionModule } from './swipe-action/soho-swipe-action.module';
 import { SohoTabsModule } from './tabs/soho-tabs.module';
 import { SohoTagModule } from './tag/soho-tag.module';
 import { SohoTextAreaModule } from './textarea/soho-textarea.module';
@@ -160,6 +161,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoStepChartModule,
     SohoStepProcessModule,
     SohoSwapListModule,
+    SohoSwipeActionModule,
     SohoTabsModule,
     SohoTagModule,
     SohoTextAreaModule,
@@ -247,6 +249,7 @@ import { SohoWizardModule } from './wizard/soho-wizard.module';
     SohoStepChartModule,
     SohoStepProcessModule,
     SohoSwapListModule,
+    SohoSwipeActionModule,
     SohoTabsModule,
     SohoTagModule,
     SohoTextAreaModule,
