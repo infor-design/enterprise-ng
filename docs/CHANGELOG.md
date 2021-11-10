@@ -1,5 +1,9 @@
 # What's New with Enterprise-NG
 
+## v10.11.0
+
+- `[Placeholder]` TODO. ([#nnnn](https://github.com/infor-design/enterprise/issues/nnnn))
+
 ## v10.10.0
 
 - `[Calendar]` Added first day of the week parameter in calendar settings. ([#5775](https://github.com/infor-design/enterprise/issues/5775))
