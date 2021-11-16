@@ -70,20 +70,24 @@ export class SohoTagListComponent implements AfterViewInit, OnDestroy {
 
       // Add event handlers for the outer tag list.
       this.jQueryElement
-        .on('aftertagremove', (e: JQuery.TriggeredEvent) => this.onAfterTagRemove(e));
+        .on('aftertagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onAfterTagRemove(e, tag));
       this.jQueryElement
-        .on('beforetagremove', (e: JQuery.TriggeredEvent) => this.onBeforeTagRemove(e));
+        .on('beforetagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onBeforeTagRemove(e, tag));
     });
   }
 
-  private onAfterTagRemove(e: JQuery.TriggeredEvent) {
-    this.ngZone.run(() =>
-      this.afterRemove.next(e));
+  private onAfterTagRemove(e: SohoTagAfterRemoveEvent, tag: SohoTag) {
+    this.ngZone.run(() => {
+      e.tag = tag;
+      this.afterRemove.next(e)
+    });
   }
 
-  private onBeforeTagRemove(e: JQuery.TriggeredEvent) {
-    this.ngZone.run(() =>
-      this.beforeRemove.next(e));
+  private onBeforeTagRemove(e: SohoTagBeforeRemoveEvent, tag: SohoTag) {
+    this.ngZone.run(() => {
+      e.tag = tag;
+      this.beforeRemove.next(e);
+    });
   }
 
 
@@ -220,16 +224,23 @@ export class SohoTagComponent implements AfterViewInit, OnDestroy {
 
       // @todo - add event binding control so we don't bind if not required.
       // this.jQueryElement
+      const tagElem = this.tag?.element;
+      const parent = tagElem ? jQuery(tagElem).parent() : null;
 
       this.jQueryElement
-        .on('beforetagremove', (e: JQuery.TriggeredEvent, element: HTMLElement) => this.onBeforeTagRemove(e, element))
         .on('click', (e: JQuery.TriggeredEvent) => this.onClick(e));
+      
+      if (parent) {
+        parent.on('beforetagremove', (e: JQuery.TriggeredEvent, tag: SohoTag) => this.onBeforeTagRemove(e, tag));
+      }
     });
   }
 
-  private onBeforeTagRemove(event: JQuery.TriggeredEvent, _element: HTMLElement) {
-    this.ngZone.run(() =>
-      this.beforeTagRemove.next(event));
+  private onBeforeTagRemove(event: SohoTagBeforeRemoveEvent, tag: SohoTag) {
+    this.ngZone.run(() => {
+      event.tag = tag;
+      this.beforeTagRemove.next(event)
+    });
   }
 
   private onClick(event: JQuery.TriggeredEvent) {

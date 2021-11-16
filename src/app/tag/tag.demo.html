@@ -13,6 +13,10 @@
 
       <br/>
 
+      <div soho-tag-list>
+        <a href="#" soho-tag="secondary" [isDismissible]="true" (beforeTagRemove)="beforeRemoveSolo($event)">#Solo Tag</a>
+      </div>
+
       <div soho-tag-list (afterRemove)="afterRemove($event)" (beforeRemove)="beforeRemove($event)">
         <a href="#" soho-tag="secondary" [isDismissible]="true">#Administrative Assistant</a>
         <a href="#" soho-tag="secondary" [isDismissible]="true">#Office Manager </a>
