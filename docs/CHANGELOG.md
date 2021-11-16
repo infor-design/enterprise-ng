@@ -1,15 +1,14 @@
 # What's New with Enterprise-NG
 
-## v10.11.0
+## v10.11.0 Fixes
 
-- `[Placeholder]` TODO. ([#nnnn](https://github.com/infor-design/enterprise/issues/nnnn))
+- `[Tag]` Updated arguments and handler in tag events. ([#5562](https://github.com/infor-design/enterprise/issues/5562))
 
 ## v10.10.0
 
 - `[Calendar]` Added first day of the week parameter in calendar settings. ([#5775](https://github.com/infor-design/enterprise/issues/5775))
 - `[Datagrid]` Added vertical scroll event in datagrid. ([#1154](https://github.com/infor-design/enterprise/issues/1154))
 - `[Notification]` Added hide, hideLatest, and hideAll in notification service. ([#5562](https://github.com/infor-design/enterprise/issues/5562))
-- `[Tag]` Updated arguments and handler in tag events. ([#5562](https://github.com/infor-design/enterprise/issues/5562))
 
 ### 10.10.0 Fixes
 
