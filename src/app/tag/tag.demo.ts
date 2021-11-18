@@ -13,11 +13,15 @@ export class TagDemoComponent implements OnInit {
   }
 
   afterRemove(e: any) {
-    alert(`afterRemove`);
+    alert(`afterRemove ${e.tag.settings.content}`);
   }
 
   beforeRemove(e: any) {
-    alert(`beforeRemove`);
+    alert(`beforeRemove ${e.tag.settings.content}`);
+  }
+
+  beforeRemoveSolo(e: any) {
+    alert(`beforeRemove (solo) ${e.tag.settings.content}`);
   }
 
   onClick(e: any) {
