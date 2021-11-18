@@ -4,6 +4,12 @@
 
 - `[Tag]` Updated arguments and handler in tag events. ([#5562](https://github.com/infor-design/enterprise/issues/5562))
 
+## v10.10.1
+
+### 10.10.1 Fixes
+
+- `[Locale]` Added 4.57.1 with fixes for modals on tabs.
+
 ## v10.10.0
 
 - `[Calendar]` Added first day of the week parameter in calendar settings. ([#5775](https://github.com/infor-design/enterprise/issues/5775))
