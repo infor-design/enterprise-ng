@@ -10,6 +10,14 @@ type SohoButtonOptionsStyle = 'default' | 'btn' | 'btn-primary' | 'btn-secondary
 type SohoButtonOptionsType = 'default' | 'btn-icon' | 'btn-menu' | 'btn-actions' | 'btn-toggle' |
   'icon-favorite' | 'btn-editor' | 'input' | null | undefined;
 
+interface SohoBadgeOptions {
+  /** The placement of notification badge. */
+  position?: SohoNotificationBadgePosition;
+
+  /** The color of the notification badge. */
+  color?: SohoNotificationBadgeColor;
+}
+
 /**
  * Button Options
  */
@@ -55,6 +63,14 @@ interface SohoButtonOptions {
 
   /** Disabled? */
   disabled?: boolean;
+
+  /**
+   * Set to true to enable notification badge
+   */
+  badge?: boolean;
+
+  /** Options for notification badge **/
+  badgeOptions?: SohoBadgeOptions;
 
   /** Add extra attributes like id's to the component **/
   attributes?: Array<Object> | Object;

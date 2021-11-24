@@ -22,6 +22,26 @@ export class SohoNotificationBadgeComponent implements OnInit {
     private ngZone: NgZone,
   ) { }
 
+  get enable(): void {
+    if (this.notificationBadge) {
+      return;
+    }
+
+    this.ngZone.runOutsideAngular(() => {
+      return this.notificationBadge?.enable();
+    });
+  }
+
+  get disable(): void {
+    if (this.notificationBadge) {
+      return;
+    }
+    
+    this.ngZone.runOutsideAngular(() => {
+      return this.notificationBadge?.disable();
+    });
+  }
+
   @Input() set position(position: string | undefined) {
     (this.options as any).position = position;
     if (this.notificationBadge) {
@@ -34,20 +54,6 @@ export class SohoNotificationBadgeComponent implements OnInit {
     }
 
     return (this.options as any).position;
-  }
-
-  @Input() set icon(icon: string | undefined) {
-    (this.options as any).icon = icon;
-    if (this.notificationBadge) {
-      this.notificationBadge.settings.icon = icon;
-    }
-  }
-  get icon(): string | undefined {
-    if (this.notificationBadge) {
-      return this.notificationBadge.settings.icon;
-    }
-
-    return (this.options as any).icon;
   }
 
   @Input() set color(color: string | undefined) {
@@ -84,7 +90,6 @@ export class SohoNotificationBadgeComponent implements OnInit {
 
       const options: SohoNotificationBadgeOptions = {
         position: this.position,
-        icon: this.icon,
         color: this.color,
         attributes: this.attributes
       };

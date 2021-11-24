@@ -184,6 +184,21 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   }
 
   /**
+   * Display accordion with notification badge
+   */
+  @Input() public set badge(badge: boolean | undefined) {
+    this.options.badge = badge;
+    if (this.accordion) {
+      (this.accordion.settings as any).badge = this.options.badge;
+      this.markForUpdate();
+    }
+  }
+
+  public get badge(): boolean | undefined {
+    return this.options.badge;
+  }
+
+  /**
    * Set the color scheme to inverse
    */
   @Input() public set inverse(inverse: boolean | undefined) {

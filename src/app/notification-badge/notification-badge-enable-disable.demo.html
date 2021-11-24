@@ -1,0 +1,21 @@
+<div class="row top-padding">
+  <div class="twelve columns">
+    <p class="section-title">Notification Badge Enable/Disable</p>
+    <p class="text-descriptive">Notification dots will be disabled.</p>
+    <div class="field1">
+      <button soho-button (click)="disable()">Disable</button>
+      <button soho-button (click)="enable()">Enable</button>
+    </div>
+  </div>
+</div>
+
+<div class="row top-padding bottom-padding">
+  <div class="twelve columns" style="display: flex;">
+    <div class="container-spacer"
+      soho-notification-badge
+      [color]="'alert'"
+      [position]="'upper-left'">
+      <svg soho-icon [icon]="'menu'"></svg>
+    </div>
+  </div>
+</div>

@@ -178,6 +178,7 @@ import { MonthViewDemoComponent } from './monthview/monthview.demo';
 import { MonthViewDemoInPageComponent } from './monthview/monthview-inpage.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
 import { NotificationBadgePlacementDemoComponent } from './notification-badge/notification-badge-placement.demo';
+import { NotificationBadgeEnableDisableDemoComponent } from './notification-badge/notification-badge-enable-disable.demo';
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PersonalizeMenuComponent } from './personalize-menu/personalize-menu.component';
 import { PersonalizeColorApiDemoComponent } from './personalize/personalize-color-api.demo';
@@ -424,6 +425,7 @@ import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertica
     MonthViewDemoInPageComponent,
     NotificationDemoComponent,
     NotificationBadgePlacementDemoComponent,
+    NotificationBadgeEnableDisableDemoComponent,
     PagerStandaloneDemoComponent,
     PersonalizeColorApiDemoComponent,
     PersonalizeMenuComponent,
