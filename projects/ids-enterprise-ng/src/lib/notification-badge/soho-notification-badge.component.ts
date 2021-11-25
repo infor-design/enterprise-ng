@@ -14,33 +14,13 @@ import {
 })
 export class SohoNotificationBadgeComponent implements OnInit {
   private jQueryElement!: JQuery;
-  private notificationBadge?: SohoNotificationBadge;
+  private notificationBadge?: SohoNotificationBadge | null;
   private options?: SohoNotificationBadgeOptions = {};
 
   constructor(
     private element: ElementRef,
     private ngZone: NgZone,
   ) { }
-
-  get enable(): void {
-    if (this.notificationBadge) {
-      return;
-    }
-
-    this.ngZone.runOutsideAngular(() => {
-      return this.notificationBadge?.enable();
-    });
-  }
-
-  get disable(): void {
-    if (this.notificationBadge) {
-      return;
-    }
-    
-    this.ngZone.runOutsideAngular(() => {
-      return this.notificationBadge?.disable();
-    });
-  }
 
   @Input() set position(position: string | undefined) {
     (this.options as any).position = position;
@@ -84,6 +64,18 @@ export class SohoNotificationBadgeComponent implements OnInit {
     return (this.options as any).attributes;
   }
 
+  enable(): void {
+    this.ngZone.runOutsideAngular(() => { 
+      this.jQueryElement.find('.notification-dot').removeClass('is-disabled');
+    });
+  }
+
+  disable(): void {
+    this.ngZone.runOutsideAngular(() => { 
+      this.jQueryElement.find('.notification-dot').addClass('is-disabled');
+    });
+  }
+
   ngOnInit() {
     this.ngZone.runOutsideAngular(() => {
       this.jQueryElement = jQuery(this.element.nativeElement);
@@ -97,6 +89,6 @@ export class SohoNotificationBadgeComponent implements OnInit {
       // Initialize the notification badge component.
       this.jQueryElement.notificationbadge(options);
 
-    });
+     });
   }
 }

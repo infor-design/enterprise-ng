@@ -1,5 +1,5 @@
 import {
-    Component, ViewChild,
+    Component, OnInit, ViewChild,
   } from '@angular/core';
 import { SohoNotificationBadgeComponent } from 'ids-enterprise-ng';
   
@@ -10,15 +10,20 @@ import { SohoNotificationBadgeComponent } from 'ids-enterprise-ng';
     .container-spacer {flex-grow: 1}
     `]
   })
-  export class NotificationBadgeEnableDisableDemoComponent {
+  export class NotificationBadgeEnableDisableDemoComponent implements OnInit {
     @ViewChild(SohoNotificationBadgeComponent) notificationBadge?: SohoNotificationBadgeComponent;
+    public disabledButton = true;
 
     enable(): void {
-      this.notificationBadge?.enable;
+      this.disabledButton = false;
+      this.notificationBadge?.enable();
     }
 
     disable(): void {
-      this.notificationBadge?.disable;
+      this.disabledButton = true;
+      this.notificationBadge?.disable();
     }
+
+    ngOnInit() {}
   }
   

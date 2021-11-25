@@ -3,8 +3,8 @@
     <p class="section-title">Notification Badge Enable/Disable</p>
     <p class="text-descriptive">Notification dots will be disabled.</p>
     <div class="field1">
-      <button soho-button (click)="disable()">Disable</button>
-      <button soho-button (click)="enable()">Enable</button>
+      <button soho-button (click)="disable()" [disabled]="disabledButton">Disable</button>
+      <button soho-button (click)="enable()" [disabled]="!disabledButton">Enable</button>
     </div>
   </div>
 </div>
