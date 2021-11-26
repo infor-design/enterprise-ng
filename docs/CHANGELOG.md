@@ -1,5 +1,9 @@
 # What's New with Enterprise-NG
 
+## v10.11.0 Features
+
+- `[NotificationBadge]` Added notification badge feature in button and accordion headers. ([#1169](https://github.com/infor-design/enterprise-ng/issues/1169))
+
 ## v10.11.0 Fixes
 
 - `[Tag]` Updated arguments and handler in tag events. ([#5562](https://github.com/infor-design/enterprise/issues/5562))
