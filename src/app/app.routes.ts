@@ -207,6 +207,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 import { WizardDemoComponent } from './wizard/wizard.demo';
 import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
+import { ApplicationMenuNotificationBadgeDemoComponent } from './application-menu/application-menu-notification-badge.demo';
 import { ApplicationMenuTestPerfDemoComponent } from './application-menu/application-menu-test-performance.demo';
 import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-cube.demo';
 import { WeekViewDemoComponent } from './week-view/week-view.demo';
@@ -224,6 +225,7 @@ export const routes: Routes = [
   { path: 'alert', component: AlertDemoComponent },
   { path: 'application-lazy-menu', component: ApplicationMenuLazyDemoComponent },
   { path: 'application-menu-roleswitcher', component: ApplicationMenuRoleSwitcherDemoComponent },
+  { path: 'application-menu-notification-badge', component: ApplicationMenuNotificationBadgeDemoComponent },
   { path: 'application-menu-test-performance', component: ApplicationMenuTestPerfDemoComponent },
   { path: 'area', component: AreaDemoComponent },
   { path: 'autocomplete', component: AutocompleteDemoComponent },

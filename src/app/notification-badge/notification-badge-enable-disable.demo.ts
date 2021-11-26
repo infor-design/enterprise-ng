@@ -26,4 +26,3 @@ import { SohoNotificationBadgeComponent } from 'ids-enterprise-ng';
 
     ngOnInit() {}
   }
-  
