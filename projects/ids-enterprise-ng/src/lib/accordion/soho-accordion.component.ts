@@ -186,16 +186,16 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   /**
    * Display accordion with notification badge
    */
-  @Input() public set badge(badge: boolean | undefined) {
-    this.options.badge = badge;
+  @Input() public set notificationBadge(notificationBadge: boolean | undefined) {
+    this.options.notificationBadge = notificationBadge;
     if (this.accordion) {
-      (this.accordion.settings as any).badge = this.options.badge;
+      (this.accordion.settings as any).notificationBadge = this.options.notificationBadge;
       this.markForUpdate();
     }
   }
 
-  public get badge(): boolean | undefined {
-    return this.options.badge;
+  public get notificationBadge(): boolean | undefined {
+    return this.options.notificationBadge;
   }
 
   /**

@@ -137,7 +137,7 @@ import { MonthViewDemoComponent } from './monthview/monthview.demo';
 import { MonthViewDemoInPageComponent } from './monthview/monthview-inpage.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
 import { NotificationBadgePlacementDemoComponent } from './notification-badge/notification-badge-placement.demo';
-import { NotificationBadgeEnableDisableDemoComponent } from './notification-badge/notification-badge-enable-disable.demo';
+import { NotificationBadgeShowHideDemoComponent } from './notification-badge/notification-badge-show-hide.demo';
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PersonalizeColorApiDemoComponent } from './personalize/personalize-color-api.demo';
 import { PieDemoComponent } from './pie/pie.demo';
@@ -366,7 +366,7 @@ export const routes: Routes = [
   { path: 'monthview-inpage', component: MonthViewDemoInPageComponent },
   { path: 'notification', component: NotificationDemoComponent },
   { path: 'notification-badge-placement', component: NotificationBadgePlacementDemoComponent },
-  { path: 'notification-badge-enable-disable', component: NotificationBadgeEnableDisableDemoComponent },
+  { path: 'notification-badge-show-hide', component: NotificationBadgeShowHideDemoComponent },
   { path: 'pager-standalone', component: PagerStandaloneDemoComponent },
   { path: 'personalize-color-api', component: PersonalizeColorApiDemoComponent },
   { path: 'pie', component: PieDemoComponent },

@@ -13,24 +13,24 @@ export class ButtonDemoComponent implements OnInit {
   public shouldSayHi = false;
   
   public badgeOption1: SohoButtonOptions = {
-    badge: true,
-    badgeOptions: {
+    notificationBadge: true,
+    notificationBadgeOptions: {
       position: 'upper-left',
       color: 'alert'
     }
   }
 
   public badgeOption2: SohoButtonOptions = {
-    badge: true,
-    badgeOptions: {
+    notificationBadge: true,
+    notificationBadgeOptions: {
       position: 'lower-left',
       color: 'yield'
     }
   }
 
   public badgeOption3: SohoButtonOptions = {
-    badge: true,
-    badgeOptions: {
+    notificationBadge: true,
+    notificationBadgeOptions: {
       position: 'lower-right',
       color: 'complete'
     }

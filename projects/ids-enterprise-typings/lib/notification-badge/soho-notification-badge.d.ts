@@ -31,9 +31,9 @@ interface SohoNotificationBadgeOptions {
 interface SohoNotificationBadge {
   settings: SohoNotificationBadgeOptions;
 
-  enable(): void;
+  show(): void;
 
-  disable(): void;
+  hide(): void;
 }
 
 interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {

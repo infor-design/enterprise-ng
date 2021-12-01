@@ -67,10 +67,10 @@ interface SohoButtonOptions {
   /**
    * Set to true to enable notification badge
    */
-  badge?: boolean;
+  notificationBadge?: boolean;
 
   /** Options for notification badge **/
-  badgeOptions?: SohoBadgeOptions;
+  notificationBadgeOptions?: SohoBadgeOptions;
 
   /** Add extra attributes like id's to the component **/
   attributes?: Array<Object> | Object;

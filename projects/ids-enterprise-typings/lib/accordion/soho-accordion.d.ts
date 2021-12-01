@@ -38,7 +38,7 @@ type SohoAccordionExpanderType = 'classic' | 'plus-minus' | 'chevron';
   /**
    * Set to true to enable notification badge
    */
-  badge?: boolean
+  notificationBadge?: boolean
 
   /**
    * A callback function that when implemented provided a call back for "ajax loading"

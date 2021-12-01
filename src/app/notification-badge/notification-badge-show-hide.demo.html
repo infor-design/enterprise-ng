@@ -1,10 +1,10 @@
 <div class="row top-padding">
   <div class="twelve columns">
-    <p class="section-title">Notification Badge Enable/Disable</p>
-    <p class="text-descriptive">Notification dots will be disabled.</p>
+    <p class="section-title">Notification Badge Show/Hide</p>
+    <p class="text-descriptive">Notification dots will be hidden.</p>
     <div class="field1">
-      <button soho-button (click)="disable()" [disabled]="disabledButton">Disable</button>
-      <button soho-button (click)="enable()" [disabled]="!disabledButton">Enable</button>
+      <button soho-button (click)="show()" [disabled]="!disabledButton">Show</button>
+      <button soho-button (click)="hide()" [disabled]="disabledButton">Hide</button>
     </div>
   </div>
 </div>

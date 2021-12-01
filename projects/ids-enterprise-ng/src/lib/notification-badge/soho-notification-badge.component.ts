@@ -64,13 +64,13 @@ export class SohoNotificationBadgeComponent implements OnInit {
     return (this.options as any).attributes;
   }
 
-  enable(): void {
+  show(): void {
     this.ngZone.runOutsideAngular(() => { 
       this.jQueryElement.find('.notification-dot').removeClass('is-disabled');
     });
   }
 
-  disable(): void {
+  hide(): void {
     this.ngZone.runOutsideAngular(() => { 
       this.jQueryElement.find('.notification-dot').addClass('is-disabled');
     });
