@@ -8,10 +8,10 @@
 
 type SohoAccordionExpanderType = 'classic' | 'plus-minus' | 'chevron';
 
- /**
- * Soho Accordion Control Options
- */
- interface SohoAccordionOptions {
+/**
+* Soho Accordion Control Options
+*/
+interface SohoAccordionOptions {
   /**
    * If set to true, allows only one pane of the Accordion to be open at a time.
    * If an Accordion pane is open, and that pane contains sub-headers,
@@ -36,31 +36,36 @@ type SohoAccordionExpanderType = 'classic' | 'plus-minus' | 'chevron';
   rerouteOnLinkClick?: boolean;
 
   /**
+   * Add a alert badge to the accordion header (used for App menu)
+   */
+  notificationBadge?: boolean;
+
+  /**
    * A callback function that when implemented provided a call back for "ajax loading"
    * of tab contents on open.
    */
   source?: Function;
 
-   /**
-    *  Set true to use panels with header selection
-    */
-   hasPanels?: boolean;
+  /**
+   *  Set true to use panels with header selection
+   */
+  hasPanels?: boolean;
 
-   /**
-    * Sets the color scheme to inverse
-    */
-   inverse?: boolean;
+  /**
+   * Sets the color scheme to inverse
+   */
+  inverse?: boolean;
 
-   /**
-    * Sets the color scheme to alternate
-    */
-   alternate?: boolean;
+  /**
+   * Sets the color scheme to alternate
+   */
+  alternate?: boolean;
 
-   /**
-    * Enables tooltips for longer text that is handled with ellipsis
-    */
-   enableTooltips?: boolean;
- }
+  /**
+   * Enables tooltips for longer text that is handled with ellipsis
+   */
+  enableTooltips?: boolean;
+}
 
 /**
  * This interface represents the public API exposed by the

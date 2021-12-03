@@ -167,6 +167,40 @@ export class SohoColumnComponent implements AfterViewInit, AfterViewChecked, OnD
     }
   }
 
+  /**
+   * Add extra options to control axisLabels
+   */
+  @Input() set axisLabels(value: any) {
+    this.options.axisLabels = value;
+
+    if (this.column) {
+      this.column.settings.axisLabels = value;
+      this.updateRequired = true;
+    }
+  }
+
+  /**
+   * Adds the ability to use line chart if set to true. This will need a target value to the dataset.
+   */
+  @Input() set hideDots(value: boolean) {
+    this.options.hideDots = value;
+
+    if (this.column) {
+      this.column.settings.hideDots = value;
+      this.updateRequired = true;
+    }
+  }
+
+  @Input() set useLine(value: boolean) {
+    this.options.useLine = value;
+
+    if (this.column) {
+      this.column.settings.useLine = value;
+      this.updateRequired = true;
+    }
+  }
+
+
   /** Events */
   @Output() selected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();
   @Output() unselected: EventEmitter<SohoColumnSelectEvent> = new EventEmitter<SohoColumnSelectEvent>();

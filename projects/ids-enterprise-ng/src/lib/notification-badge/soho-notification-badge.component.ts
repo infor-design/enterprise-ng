@@ -78,6 +78,21 @@ export class SohoNotificationBadgeComponent implements OnInit {
     return (this.options as any).attributes;
   }
 
+  /**
+   * Show the NotificationBadge
+   */
+  show() {
+    this.ngZone.runOutsideAngular(() => this.notificationBadge?.show());
+  }
+
+  /**
+   * Hide the NotificationBadge
+   */
+  hide() {
+    this.ngZone.runOutsideAngular(() => this.notificationBadge?.hide());
+  }
+
+
   ngOnInit() {
     this.ngZone.runOutsideAngular(() => {
       this.jQueryElement = jQuery(this.element.nativeElement);

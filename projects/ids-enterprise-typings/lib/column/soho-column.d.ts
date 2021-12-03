@@ -60,6 +60,17 @@ interface SohoColumnOptions {
 
   /** Add extra attributes like id's to the component **/
   attributes?: Array<Object> | Object;
+
+  /** Option to a label to one of the four sides. For Example
+  * `{left: 'Left axis label', top: 'Top axis label',
+  * right: 'Right axis label', bottom: 'Bottom axis label'}` */
+  axisLabels?: any;
+
+  /** If true no dots are shown. */
+  hideDots?: boolean;
+
+  /** The ability to use line chart if set to true. This will need a target value to the dataset. */
+  useLine?: boolean;
 }
 
 interface SohoColumnSelectEvent {

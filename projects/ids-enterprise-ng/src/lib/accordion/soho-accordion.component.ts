@@ -155,6 +155,21 @@ export class SohoAccordionComponent implements AfterViewInit, AfterViewChecked, 
   }
 
   /**
+   * Add a alert badge to the accordion header (used for App menu)
+   */
+  @Input() public set notificationBadge(notificationBadge: boolean | undefined) {
+    this.options.notificationBadge = typeof (notificationBadge) === 'boolean' && notificationBadge;
+    if (this.accordion) {
+      (this.accordion.settings as any).notificationBadge = this.options.notificationBadge;
+      this.markForUpdate();
+    }
+  }
+  public get notificationBadge() {
+    return this.options.notificationBadge;
+  }
+
+
+  /**
    * A callback function that when implemented provided a call back for "ajax loading" of tab contents on open.
    */
   @Input() public set source(source: Function | undefined) {

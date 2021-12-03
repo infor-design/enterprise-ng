@@ -100,7 +100,6 @@ interface SohoRadarSelectEvent {
  * Radar Api.
  */
 interface SohoRadar {
-
   /** The settings option */
   settings: SohoRadarOptions;
 

@@ -4,7 +4,6 @@
  * This file contains the Typescript mappings for the public
  * interface of the Soho button control.
  */
-
 type SohoButtonOptionsStyle = 'default' | 'btn' | 'btn-primary' | 'btn-secondary' | 'btn-tertiary' | 'btn-destructive' | null | undefined;
 
 type SohoButtonOptionsType = 'default' | 'btn-icon' | 'btn-menu' | 'btn-actions' | 'btn-toggle' |
@@ -37,6 +36,15 @@ interface SohoButtonOptions {
 
   /** Ripple */
   ripple?: boolean;
+
+  /** Add bigger hit area (for mobile) */
+  hitbox?: boolean;
+
+  /** Used to set a notification badge on the button */
+  notificationBadge?: boolean;
+
+  /** Set the position and color of the notification badge on the button */
+  notificationBadgeOptions?: SohoNotificationBadgeOptions;
 
   /** validate? */
   validate?: boolean;

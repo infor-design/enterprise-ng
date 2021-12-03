@@ -86,6 +86,9 @@ interface SohoModalOptions {
   /**  if true, causes this modal instance to become hidden when another modal is displayed over top. **/
   hideUnderneath?: boolean;
 
+  /**  if true, causes the modal to not exit when the enter key is pressed. **/
+  suppressEnterKey?: boolean;
+
   /** If true, causes the modal's trigger element not to become focused once the modal is closed. **/
   noRefocus?: boolean;
 
@@ -139,7 +142,7 @@ interface CloseBtnOptions {
   /** Tooltip message */
   closeBtnTooltip?: string;
 
-  /** Add extra attributes for the close button 
+  /** Add extra attributes for the close button
    * [{ name: 'tabIndex', value: '-1' }]
    */
   attributes?: Array<Object>;
