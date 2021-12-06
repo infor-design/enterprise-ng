@@ -9,9 +9,10 @@
 // -------------------------------------
 //   Node Modules/Options
 // -------------------------------------
-const argv = require('yargs').argv;
-const slash = require('slash');
-const chalk = require('chalk');
+import argv from 'yargs';
+import { exec } from 'child_process';
+import slash from 'slash';
+import fs from 'fs';
 
 // -------------------------------------
 //   Constants
@@ -19,7 +20,10 @@ const chalk = require('chalk');
 const rootPath = slash(process.cwd());
 const libPath = `${rootPath}/projects/ids-enterprise-ng`;
 const libPackageJsonPath = `${libPath}/package.json`;
-const libPackageJson = require(libPackageJsonPath);
+
+const libPackageStr = fs.readFileSync(libPackageJsonPath);
+const libPackageJson = JSON.parse(libPackageStr);
+
 const tagSuffixFormat = 'dev.YYYYMMDD';
 
 // -------------------------------------
@@ -32,7 +36,7 @@ const tagSuffixFormat = 'dev.YYYYMMDD';
  * @param {string} msg - the message
  */
 const logAction = (action, msg) => {
-  console.log(chalk.cyan(action), msg, '\n');
+  console.log(action, msg, '\n');
 }
 
 /**
@@ -40,7 +44,7 @@ const logAction = (action, msg) => {
  * @param {string} msg - the message
  */
 const logError = msg => {
-  console.log(chalk.red('Error!'), msg, '\n');
+  console.log('Error!', msg, '\n');
 }
 
 /**
@@ -59,7 +63,6 @@ const versionHasSuffix = version => {
  * @param {function} callback - A callback
  */
 const executeUpdate = (cmd) => {
-  const exec = require('child_process').exec
   const updateProcess = exec(cmd, (err, stdout, stderr) => {
     if (err) {
       logError(`exec error: ${err}`);
@@ -86,5 +89,5 @@ if (versionHasSuffix(libPackageJson.version)) {
   }
   executeUpdate(cmds.join(' && '));
 } else {
-  logError(`Cannot release a "dev" semver without a dated tag suffix (i.e. X.Y.Z-${tagSuffixFormat}).\nDid you execute "${chalk.cyan("npm run version-bump:dev")}"?`)
+  logError(`Cannot release a "dev" semver without a dated tag suffix (i.e. X.Y.Z-${tagSuffixFormat}).\nDid you execute "npm run version-bump:dev"?`)
 }

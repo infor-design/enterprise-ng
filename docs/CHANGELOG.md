@@ -1,5 +1,9 @@
 # What's New with Enterprise-NG
 
+## v11.0.0 Fixes
+
+- `[General]` Updated to NG 13. Changed the linters and made small lint fixes. See the `UPGRADING.md` guide for details. ([#1170](https://github.com/infor-design/enterprise/issues/1170))
+
 ## v10.11.0 Fixes
 
 - `[Tag]` Updated arguments and handler in tag events. ([#5562](https://github.com/infor-design/enterprise/issues/5562))
@@ -88,7 +92,7 @@
 ### 10.3.0 Fixes
 
 - `[Datagrid]` The `getColumnIndex` function did not exist, so changed it to the working `columnIdxById` which does the same.
-- `[Datagrid]` Added missing beforepaging and afterpaging events. ([#5493](https://github.com/infor-design/enterprise/issues/5493))
+- `[Datagrid]` Added missing `beforepaging` and `afterpaging` events. ([#5493](https://github.com/infor-design/enterprise/issues/5493))
 - `[Datagrid]` Changed type definition in row cell. ([#1096](https://github.com/infor-design/enterprise/issues/1096))
 - `[Lookup]` Fixed an issue where selection for server side and paging was not working. ([#986](https://github.com/infor-design/enterprise-ng/issues/986))
 - `[Searchfield]`Added missing category functions. ([#1079](https://github.com/infor-design/enterprise-ng/issues/1079))
@@ -320,7 +324,7 @@
 
 ### 9.1.0 Fixes
 
-- `[General]` Fixed an issue where column resetToDefault didnt work in some situations. ([#4688](https://github.com/infor-design/enterprise-ng/issues/4688)) `TJM`
+- `[General]` Fixed an issue where column resetToDefault didn't work in some situations. ([#4688](https://github.com/infor-design/enterprise-ng/issues/4688)) `TJM`
 - `[Lookup]` Added new types for the clear function in lookups. ([#4693](https://github.com/infor-design/enterprise-ng/issues/4693)) `TJM`
 - `[General]` Added EP version 4.36.0 final using NG 11.
 
@@ -374,7 +378,7 @@
 
 ### 8.2.2 Fixes
 
-- `[Datagrid]` Fixed an issue where column resetToDefault didnt work in some situations ([#4688](https://github.com/infor-design/enterprise/issues/4688)) `TJM`
+- `[Datagrid]` Fixed an issue where column resetToDefault didn't work in some situations ([#4688](https://github.com/infor-design/enterprise/issues/4688)) `TJM`
 
 ## v8.2.1
 
@@ -990,7 +994,7 @@
 
 ### 5.2.1 Fixes
 
-- `[General]` - Bug fixes from updating to the latest ids-enteprise package `CRL` ([ids-enterprise@4.17.1](https://github.com/infor-design/enterprise/releases/tag/4.17.1)
+- `[General]` - Bug fixes from updating to the latest ids-enterprise package `CRL` ([ids-enterprise@4.17.1](https://github.com/infor-design/enterprise/releases/tag/4.17.1)
 
 ## v5.2.0
 

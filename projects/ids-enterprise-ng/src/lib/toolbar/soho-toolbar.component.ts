@@ -23,11 +23,11 @@ import {
 })
 export class SohoToolbarSearchFieldWrapperComponent {
   @HostBinding('class.searchfield-wrapper') get isSearchfieldWrapper() {
- return true;
-}
+    return true;
+  }
   @HostBinding('class.toolbar-searchfield-wrapper') get isToolbarSearchfieldWrapper() {
- return true;
-}
+    return true;
+  }
 }
 
 @Component({
@@ -90,8 +90,8 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
   @Output() cleared: EventEmitter<Object[]> = new EventEmitter<Object[]>();
 
   @HostBinding('class.searchfield') get isSearchField() {
- return true;
-}
+    return true;
+  }
 
   /**
    * Local variables
@@ -189,8 +189,8 @@ export class SohoToolbarSearchFieldComponent implements AfterViewChecked, AfterV
 })
 export class SohoToolbarMoreButtonComponent {
   @HostBinding('class.more') get isMoreButton() {
- return true;
-}
+    return true;
+  }
   @Input() @HostBinding('class.page-changer') isPageChanger = false;
   @Input() isDisabled = false;
 }
@@ -205,8 +205,8 @@ export class SohoToolbarMoreButtonComponent {
 })
 export class SohoPageTitleComponent {
   @HostBinding('class.page-title') get isPageTitle() {
- return true;
-}
+    return true;
+  }
 }
 
 /**
@@ -219,8 +219,8 @@ export class SohoPageTitleComponent {
 })
 export class SohoSectionTitleComponent {
   @HostBinding('class.section-title') get isSectionTitle() {
- return true;
-}
+    return true;
+  }
 }
 
 /**
@@ -233,11 +233,11 @@ export class SohoSectionTitleComponent {
 })
 export class SohoSelectionCountComponent {
   @HostBinding('class.title') get isTitle() {
- return true;
-}
+    return true;
+  }
   @HostBinding('class.selection-count') get isSelectionCount() {
- return true;
-}
+    return true;
+  }
 }
 
 /**
@@ -260,14 +260,14 @@ export class SohoSelectionCountComponent {
 export class SohoToolbarNavButtonComponent {
   // This HostBinding needs to go first to maintain correct styling
   @HostBinding('class.btn-icon') get isIconButton() {
- return true;
-}
+    return true;
+  }
   @HostBinding('class.application-menu-trigger') get isAppMenuTrigger() {
- return true;
-}
+    return true;
+  }
   @HostBinding('attr.type') get typeAttr() {
- return 'button';
-}
+    return 'button';
+  }
 }
 
 /**
@@ -276,13 +276,13 @@ export class SohoToolbarNavButtonComponent {
 @Component({
   selector: 'soho-toolbar-title',
   template: `<ng-content></ng-content>`,
-  styles: [`{ display:inline-block }`],
+  styles: [`:host { display:inline-block }`],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SohoToolbarTitleComponent {
   @HostBinding('class.title') get isTitle() {
- return true;
-}
+    return true;
+  }
 }
 
 /**
@@ -291,13 +291,13 @@ export class SohoToolbarTitleComponent {
 @Component({
   selector: 'soho-toolbar-button-set',
   template: `<ng-content></ng-content>`,
-  styles: [`{ display:inline-block }`],
+  styles: [`:host{ display:inline-block }`],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SohoToolbarButtonSetComponent {
   @HostBinding('class.buttonset') get isButtonSet() {
- return true;
-}
+    return true;
+  }
 }
 
 /**
@@ -310,8 +310,8 @@ export class SohoToolbarButtonSetComponent {
 })
 export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, OnDestroy {
   @HostBinding('class.toolbar') get isToolbar() {
- return true;
-}
+    return true;
+  }
   @HostBinding('class.has-more-button') get showMoreButton() {
     return this.options.hasMoreButton;
   }
@@ -411,7 +411,7 @@ export class SohoToolbarComponent implements AfterViewChecked, AfterViewInit, On
     }
   }
 
-/** Add extra attributes like id's to the component **/
+  /** Add extra attributes like id's to the component **/
   @Input() set attributes(value: Array<Object> | Object) {
     this.options.attributes = value;
     if (this.toolbar) {

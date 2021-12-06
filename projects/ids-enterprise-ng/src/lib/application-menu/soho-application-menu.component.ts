@@ -99,13 +99,13 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   /**
    * Is the application menu resizable?
    */
-  @Input() public set resizable (resizable: boolean | undefined) {
+  @Input() public set resizable(resizable: boolean | undefined) {
     this._resizable = resizable;
     if (this.applicationmenu) {
       this.applicationmenu.settings.resizable = this._resizable;
     }
   }
-  
+
   public get resizable(): boolean | undefined {
     if (this.applicationmenu) {
       return this.applicationmenu.settings.resizable;
@@ -117,13 +117,13 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
   /**
    * Resizeable Save Position Settings
    */
-   @Input() public set savePosition (savePosition: boolean | undefined) {
+  @Input() public set savePosition(savePosition: boolean | undefined) {
     this._savePosition = savePosition;
     if (this.applicationmenu) {
       this.applicationmenu.settings.resizable = this._savePosition;
     }
   }
-  
+
   public get savePosition(): boolean | undefined {
     if (this.applicationmenu) {
       return this.applicationmenu.settings.savePosition;
@@ -344,9 +344,7 @@ export class SohoApplicationMenuComponent implements AfterViewInit, AfterViewChe
       this.jQueryElement
         .on('expand', (_e, results: any[]) => this.ngZone.run(() => this.accordionExpand.next(results)))
         .on('collapse', () => this.ngZone.run(() => this.accordionCollapse.next(true)))
-        // eslint-disable-next-line import/no-deprecated
         .on('expand', () => this.ngZone.run(() => this.visibility.next(true)))
-        // eslint-disable-next-line import/no-deprecated
         .on('collapse', () => this.ngZone.run(() => this.visibility.next(false)))
         .on('filtered', (_e, results: any[]) => this.ngZone.run(() => this.filtered.next(results)))
         .on('applicationmenuopen', () => this.ngZone.run(() => this.menuVisibility.next(true)))

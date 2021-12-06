@@ -8,6 +8,7 @@
 /bin
 /src/assets/sohoxi
 *.tgz
+.cache
 
 # dependencies
 /node_modules
@@ -35,6 +36,7 @@
 publish/**
 
 # misc
+/.angular/cache
 /.sass-cache
 /connect.lock
 /coverage

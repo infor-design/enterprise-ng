@@ -1231,8 +1231,8 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    *
    * @todo remove override of native attribute
    */
-  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output()
+  // eslint-disable-next-line @angular-eslint/no-output-native
   keydown = new EventEmitter<SohoDataGridKeyDownEvent>();
 
   // This event is fired when edit mode is exited.
