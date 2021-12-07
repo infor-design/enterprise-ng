@@ -9,14 +9,11 @@
 //   Node Modules/Options
 // -------------------------------------
 import fs from 'fs';
-import slash from 'slash';
 import { exec } from 'child_process';
-import { SSL_OP_ALL } from 'constants';
 
 // -------------------------------------
 //   Constants
 // -------------------------------------
-const rootPath = slash(process.cwd());
 const libPackageJsonPath = './projects/ids-enterprise-ng/package.json';
 const libPackageStr = fs.readFileSync(libPackageJsonPath);
 const libPackageJson = JSON.parse(libPackageStr);

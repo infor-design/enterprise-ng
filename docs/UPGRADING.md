@@ -51,7 +51,7 @@ See <https://blog.angular.io/angular-v13-is-now-available-cce66f7bc296> for more
 Also on Mac OS I had to run this in the command line as the new NG 13 builds are more intensive.
 
 ```sh
-# For angular 12 to build
+# For angular 13 to build
 export NODE_OPTIONS="--max-old-space-size=8192"
 ```
 
