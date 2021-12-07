@@ -31,7 +31,8 @@
     "release:beta": "cd projects/ids-enterprise-ng && release-it minor --preRelease=beta --no-github.release && cd ../../ && npm run release:typings",
     "release:rc": "cd projects/ids-enterprise-ng && release-it --preRelease=rc --no-github.release && cd ../../ && npm run release:typings",
     "release:final": "cd projects/ids-enterprise-ng && release-it && cd ../../ && npm run release:typings",
-    "release:typings": "npm run build:typings && cd projects/ids-enterprise-typings && npm publish"
+    "release:typings": "npm run sync:lib && npm run build:typings && cd projects/ids-enterprise-typings && npm publish",
+    "sync:lib": "node ./scripts/version-sync.js"
   },
   "private": true,
   "type": "module",
@@ -75,6 +76,7 @@
     "cypress-pipe": "^2.0.0",
     "del": "^6.0.0",
     "eslint": "^8.4.0",
+    "fs-extra": "^10.0.0",
     "htmlhint": "^0.14.2",
     "inquirer": "^8.0.0",
     "jasmine-core": "~3.10.1",

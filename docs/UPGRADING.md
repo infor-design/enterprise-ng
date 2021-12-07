@@ -52,7 +52,7 @@ Also on Mac OS I had to run this in the command line as the new NG 13 builds are
 
 ```sh
 # For angular 13 to build
-export NODE_OPTIONS="--max-old-space-size=8192"
+export NODE_OPTIONS="--max-old-space-size=10000"
 ```
 
 This can be added to `pico ~/.zshrc` or `pico ~/.bashrc`.
