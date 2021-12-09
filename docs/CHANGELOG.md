@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v10.10.2
+
+### 10.10.2 Fixes
+
+- `[Locale]` Added 4.57.2 with fixes for xss issues.
+
 ## v10.10.1
 
 ### 10.10.1 Fixes

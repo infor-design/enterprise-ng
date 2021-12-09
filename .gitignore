@@ -30,6 +30,8 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.angular
+.cache
 
 # Deprecated
 publish/**
