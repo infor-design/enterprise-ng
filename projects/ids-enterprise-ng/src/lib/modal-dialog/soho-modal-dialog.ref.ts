@@ -282,6 +282,19 @@ export class SohoModalDialogRef<T> {
   }
 
   /**
+   * if true, causes the modal to not exit when the enter key is pressed.
+   *
+   * @param suppressEnterKey - If it supress enter
+   */
+  suppressEnterKey(suppressEnterKey: boolean): SohoModalDialogRef<T> {
+    this._options.suppressEnterKey = suppressEnterKey;
+    if (this.modal) {
+      this.modal.settings.suppressEnterKey = suppressEnterKey;
+    }
+    return this;
+  }
+
+  /**
    * If true, causes the modal's trigger element not to become focused once the modal is closed.
    *
    * @param noRefocus - If true, refocus

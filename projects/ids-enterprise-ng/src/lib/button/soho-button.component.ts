@@ -114,6 +114,48 @@ export class SohoButtonComponent implements AfterViewInit, OnDestroy, OnInit {
   }
 
   /**
+   * Used to add a bigger hit area (for mobile)
+   */
+  @Input() set hitbox(value: boolean | undefined) {
+    this._buttonOptions.hitbox = value;
+    if (this.button) {
+      this.button.settings.hitbox = value;
+    }
+  }
+
+  get hitbox(): boolean | undefined {
+    return this._buttonOptions.hitbox;
+  }
+
+  /**
+   * Used to set a notification badge on the button
+   */
+  @Input() set notificationBadge(value: boolean | undefined) {
+    this._buttonOptions.notificationBadge = value;
+    if (this.button) {
+      this.button.settings.notificationBadge = value;
+    }
+  }
+
+  get notificationBadge(): boolean | undefined {
+    return this._buttonOptions.notificationBadge;
+  }
+
+  /**
+   * Set the position and color of the notification badge on the button
+   */
+  @Input() set notificationBadgeOptions(value: SohoNotificationBadgeOptions | undefined) {
+    this._buttonOptions.notificationBadgeOptions = value;
+    if (this.button) {
+      this.button.settings.notificationBadgeOptions = value;
+    }
+  }
+
+  get notificationBadgeOptions(): SohoNotificationBadgeOptions | undefined {
+    return this._buttonOptions.notificationBadgeOptions;
+  }
+
+  /**
    * Used to set an extra class on the soho-icon being used by soho-button.
    * Useful to set emerald06-color azure10-color to change the icon color.
    */

@@ -1941,10 +1941,11 @@ export class SohoDataGridComponent implements OnInit, AfterViewInit, OnDestroy, 
    * @param fileName The prefix name to be used for the exported file.
    * @param customDs A datasource to override the default.
    * @param separator The separator to use in the cvs file, defaults to 'sep=,'
+   * @param format if true, date and number values will be formatted based on the locale
    */
-  exportToCsv(fileName: string, customDs?: Object[], separator: string = 'sep=,'): void {
+  exportToCsv(fileName: string, customDs?: Object[], separator: string = 'sep=,', format?: boolean): void {
     this.ngZone.runOutsideAngular(() => {
-      this.datagrid?.exportToCsv(fileName, (customDs as any), separator);
+      this.datagrid?.exportToCsv(fileName, (customDs as any), separator, format);
     });
   }
 
