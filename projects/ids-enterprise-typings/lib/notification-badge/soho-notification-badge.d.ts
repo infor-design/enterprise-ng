@@ -24,9 +24,6 @@ interface SohoNotificationBadgeOptions {
   /** The color of the notification badge. */
   color?: SohoNotificationBadgeColor;
 
-  /** The icon to display. */
-  icon?: string;
-
   /** Add extra attributes like id's to the component */
   attributes?: Array<Object> | Object;
 }

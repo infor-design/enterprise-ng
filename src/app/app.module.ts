@@ -178,6 +178,7 @@ import { MonthViewDemoComponent } from './monthview/monthview.demo';
 import { MonthViewDemoInPageComponent } from './monthview/monthview-inpage.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
 import { NotificationBadgePlacementDemoComponent } from './notification-badge/notification-badge-placement.demo';
+import { NotificationBadgeShowHideDemoComponent } from './notification-badge/notification-badge-show-hide.demo';
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PersonalizeMenuComponent } from './personalize-menu/personalize-menu.component';
 import { PersonalizeColorApiDemoComponent } from './personalize/personalize-color-api.demo';
@@ -258,6 +259,7 @@ import { WizardDemoTargetFolderPageComponent } from './wizard/wizard-target-fold
 import { WizardDemoValidationRulesPageComponent } from './wizard/wizard-validation-rules-page.demo';
 import { LocaleInitializerModule } from './locale-initializer/locale-initializer.module';
 import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
+import { ApplicationMenuNotificationBadgeDemoComponent } from './application-menu/application-menu-notification-badge.demo';
 import { ApplicationMenuTestPerfDemoComponent } from './application-menu/application-menu-test-performance.demo';
 import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-cube.demo';
 import { WeekViewDemoComponent } from './week-view/week-view.demo';
@@ -275,6 +277,7 @@ import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertica
     ApplicationMenuLazyDemoComponent,
     ApplicationMenuLazyMenuDemoComponent,
     ApplicationMenuRoleSwitcherDemoComponent,
+    ApplicationMenuNotificationBadgeDemoComponent,
     ApplicationMenuTestPerfDemoComponent,
     AreaDemoComponent,
     AutocompleteDemoComponent,
@@ -424,6 +427,7 @@ import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertica
     MonthViewDemoInPageComponent,
     NotificationDemoComponent,
     NotificationBadgePlacementDemoComponent,
+    NotificationBadgeShowHideDemoComponent,
     PagerStandaloneDemoComponent,
     PersonalizeColorApiDemoComponent,
     PersonalizeMenuComponent,

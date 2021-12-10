@@ -9,6 +9,14 @@ type SohoButtonOptionsStyle = 'default' | 'btn' | 'btn-primary' | 'btn-secondary
 type SohoButtonOptionsType = 'default' | 'btn-icon' | 'btn-menu' | 'btn-actions' | 'btn-toggle' |
   'icon-favorite' | 'btn-editor' | 'input' | null | undefined;
 
+interface SohoBadgeOptions {
+  /** The placement of notification badge. */
+  position?: SohoNotificationBadgePosition;
+
+  /** The color of the notification badge. */
+  color?: SohoNotificationBadgeColor;
+}
+
 /**
  * Button Options
  */

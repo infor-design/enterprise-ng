@@ -1,8 +1,18 @@
 # What's New with Enterprise-NG
 
-## 10.11.1 Fixes
+## v10.12.0
+
+### v10.12.0 Features
+
+- `[NotificationBadge]` Added notification badge feature in button and accordion headers. ([#1169](https://github.com/infor-design/enterprise-ng/issues/1169))
+
+## v10.11.1
+
+### 10.11.1 Fixes
 
 - `[General]` Added 4.58.1 with fixes for xss/security.
+
+## v10.11.0
 
 ### v10.11.0 Fixes
 
