@@ -32,7 +32,7 @@ jobs:
         path: |
           ~/.cache/Cypress
           node_modules
-        key: 1004
+        key: 1005
 
     - name: Install Dependencies
       run: npm i --force
