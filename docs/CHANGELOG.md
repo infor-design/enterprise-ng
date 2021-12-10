@@ -1,12 +1,28 @@
 # What's New with Enterprise-NG
 
-## v10.11.0 Features
+## v10.12.0
+
+### v10.12.0 Features
 
 - `[NotificationBadge]` Added notification badge feature in button and accordion headers. ([#1169](https://github.com/infor-design/enterprise-ng/issues/1169))
 
-## v10.11.0 Fixes
+## v10.11.1
+
+### 10.11.1 Fixes
+
+- `[General]` Added 4.58.1 with fixes for xss/security.
+
+## v10.11.0
+
+### v10.11.0 Fixes
 
 - `[Tag]` Updated arguments and handler in tag events. ([#5562](https://github.com/infor-design/enterprise/issues/5562))
+
+## v10.10.2
+
+### 10.10.2 Fixes
+
+- `[Locale]` Added 4.57.2 with fixes for xss issues.
 
 ## v10.10.1
 
@@ -324,7 +340,7 @@
 
 ### 9.1.0 Fixes
 
-- `[General]` Fixed an issue where column resetToDefault didnt work in some situations. ([#4688](https://github.com/infor-design/enterprise-ng/issues/4688)) `TJM`
+- `[General]` Fixed an issue where column resetToDefault didn't work in some situations. ([#4688](https://github.com/infor-design/enterprise-ng/issues/4688)) `TJM`
 - `[Lookup]` Added new types for the clear function in lookups. ([#4693](https://github.com/infor-design/enterprise-ng/issues/4693)) `TJM`
 - `[General]` Added EP version 4.36.0 final using NG 11.
 
@@ -378,7 +394,7 @@
 
 ### 8.2.2 Fixes
 
-- `[Datagrid]` Fixed an issue where column resetToDefault didnt work in some situations ([#4688](https://github.com/infor-design/enterprise/issues/4688)) `TJM`
+- `[Datagrid]` Fixed an issue where column resetToDefault didn't work in some situations ([#4688](https://github.com/infor-design/enterprise/issues/4688)) `TJM`
 
 ## v8.2.1
 
@@ -593,8 +609,8 @@
 - `[Datagrid]` Added target property for hyperlink formatter column. ([#3731](https://github.com/infor-design/enterprise/issues/3731))
 - `[Datagrid]` Build expanded datagrid row with dynamic component. Special case: nested datagrid.  `AF` ([Issue #206](https://github.com/infor-design/enterprise-ng/issues/206))
 - `[DataGrid]` Added optional data object param to setDirtyIndicator to match soho datagrid setDirtyIndicator. `PWP` ([Issue #829](https://github.com/infor-design/enterprise-ng/issues/829))
-- `[Datagrid]` Add missings types to manage summaryRow with an example.  `AF` ([Issue #852](https://github.com/infor-design/enterprise-ng/issues/852))
-- `[Lookup]` Resynced the lookup api settings, methods and events with the core component. Also made sure everything is using ngZone. `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
+- `[Datagrid]` Add missing types to manage summaryRow with an example.  `AF` ([Issue #852](https://github.com/infor-design/enterprise-ng/issues/852))
+- `[Lookup]` Re-synced the lookup api settings, methods and events with the core component. Also made sure everything is using ngZone. `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
 - `[Lookup]` And added an example showing how to use the buttonsetAPI to enable and disable buttons.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
 - `[Lookup]` And added an example showing how to use a dataset as an input to populate the lookup.  `TJM` ([Issue #236](https://github.com/infor-design/enterprise/issues/236))
 - `[ModalDialog]` Make the router dependency optional in the Modal Dialog. ([Issue #803](https://github.com/infor-design/enterprise/issues/803))
@@ -798,9 +814,9 @@
 
 - `[Alert]` Added support for the id property. `DPB` ([#725](https://github.com/infor-design/enterprise-ng/issues/725]))
 - `[ModalDialog]` Added 'centerTitle' to SohoModalOptions. `BTHH`  ([#721](https://github.com/infor-design/enterprise-ng/pull/721]))
-- `[DropDown]` Added 'listclosed' and 'listopened' outputs to soho-dropdown. `BTHH`  ([#662](https://github.com/infor-design/enterprise-ng/issues/662]))
+- `[DropDown]` Added `listclosed` and `listopened` outputs to soho-dropdown. `BTHH`  ([#662](https://github.com/infor-design/enterprise-ng/issues/662]))
 - `[ModalDialog]` Added 'centreTitle' to SohoModalOptions. `BTHH`  ([#721](https://github.com/infor-design/enterprise-ng/pull/721]))
-- `[Searchfield]` Exposed the `collapseSize` setting for use with the IDS Enteprise Searchfield component ([#719](https://github.com/infor-design/enterprise-ng/issues/719))
+- `[Searchfield]` Exposed the `collapseSize` setting for use with the IDS Enterprise Searchfield component ([#719](https://github.com/infor-design/enterprise-ng/issues/719))
 - `[Demo]` Added support for running the demo app in Internet Explorer. `BTHH` ([#668](https://github.com/infor-design/enterprise-ng/issues/668]))
 
 ## v6.4.3
@@ -853,7 +869,7 @@
 
 - `[Datagrid]` Added rowTemplate / expandable row example. `TJM` ([#https://github.com/infor-design/enterprise-ng/issues/606](https://github.com/infor-design/enterprise-ng/pull/https://github.com/infor-design/enterprise-ng/issues/606))
 - `[Modal]` Added a new SohoModalModule that would work almost similar to SohoModalDialogModule but fixes memory leak issues. `NBCP` ([#639](https://github.com/infor-design/enterprise-ng/pull/639))
-- `[Datagrid]` Made the last two options on exportToExcel optional. Note that passing in a third option is incorrect and will give you no headers in the exported file, so generally shouldnt be used. `TJM` ([#654](https://github.com/infor-design/enterprise-ng/pull/654))
+- `[Datagrid]` Made the last two options on exportToExcel optional. Note that passing in a third option is incorrect and will give you no headers in the exported file, so generally shouldn't be used. `TJM` ([#654](https://github.com/infor-design/enterprise-ng/pull/654))
 - `[Datagrid]` Added the row template type and an example of expandable rows. `TJM` ([#606](https://github.com/infor-design/enterprise-ng/pull/606))
 - `[Datepicker]` Removed `autoSize` option, this was added for using calendar and is now no longer used. It Should not be used. keydown output EventEmitter. `NBCP` ([#660](https://github.com/infor-design/enterprise-ng/pull/660))
 - `[Dropdown]` Added keydown output EventEmitter. `NBCP` ([#658](https://github.com/infor-design/enterprise-ng/pull/658))
@@ -935,7 +951,7 @@
 - `[Message]` - Close method does not close dialog. ([#554](https://github.com/infor-design/enterprise-ng/pull/554))
 - `[Popupmenu, MenuButton]` - Added `removeOnDestroy` to `popupmenu` and `menu-button` components. `PWP` ([#541](https://github.com/infor-design/enterprise/issues/541))
 - `[Toast]` - Added draggable and savePosition options to toast message. `PWP` ([#563](https://github.com/infor-design/enterprise-ng/issues/563))
-- `[Toolbar]` - Fix for memroy leak where .more button listeners were not being removed. `PWP` ([#560](https://github.com/infor-design/enterprise-ng/issues/560))
+- `[Toolbar]` - Fix for memory leak where .more button listeners were not being removed. `PWP` ([#560](https://github.com/infor-design/enterprise-ng/issues/560))
 
 ### 5.5.0 Chore & Maintenance
 
@@ -954,7 +970,7 @@
 
 - `[Datagrid]` - Adds a onBeforeSelect call back setting to the types. `TJM` ([#472](https://github.com/infor-design/enterprise-ng/issues/472))
 - `[HomePage]` - remove element node (div) from widget title selector `PWP` ([#507](https://github.com/infor-design/enterprise-ng/pull/507))
-- `[Icons]` - Change name of icon 'confirm' to 'success' to match breaking change made in EP. `PWP` ([#477](https://github.com/infor-design/enterprise-ng/pull/477)) See [EP 4.15.0 changelog](https://github.com/infor-design/enterprise/blob/master/docs/CHANGELOG.md#v4150-fixes) for more details.
+- `[Icons]` - Change name of icon 'confirm' to 'success' to match breaking change made in EP. `PWP` ([#477](https://github.com/infor-design/enterprise-ng/pull/477)) See [EP 4.15.0 change log](https://github.com/infor-design/enterprise/blob/master/docs/CHANGELOG.md#v4150-fixes) for more details.
 - `[Keyboard]` - Adds a `Soho.keyboard.pressedKeys` to see what the currently pressed keys are. `TJM` ([#472](https://github.com/infor-design/enterprise-ng/issues/472))
 - `[MenuButton]` - Adds attachToBody as an  input. `PWP` ([#519](https://github.com/infor-design/enterprise-ng/pull/519))
 
@@ -967,12 +983,12 @@
 
 ### 5.3.0 Features
 
-- `[AppMenu]` - Added 'isPersonalizable' input for setting the is-personalization class on the EP app-menu element. `PWP`
+- `[AppMenu]` - Added `isPersonalizable` input for setting the is-personalization class on the EP app-menu element. `PWP`
 - `[AppMenu]` - Added new events for accordion expansion that will include the element so it can be lazily loaded. `PWP` ([#434](https://github.com/infor-design/enterprise-ng/issues/434))
 - `[AppMenu]` - Added new settings for application menu switcher expand/collapse. `VW` ([#443](https://github.com/infor-design/enterprise-ng/issues/443))
 - `[Calendar]` - Hooked up new `eventClick` and `eventDblClick` event. `PWP` ([#542](https://github.com/infor-design/enterprise-ng/issues/542))
 - `[DataGrid]` - Added 'resetColumns' and 'personalizeColumns' to the datagrid component. `BTHH` ([#413](https://github.com/infor-design/enterprise-ng/issues/413))
-- `[DataGrid]` - Added 'entereditmode', 'exiteditmode' and 'beforeentereditmode' event outputs from component. `BTHH` ([#410](https://github.com/infor-design/enterprise-ng/issues/410))
+- `[DataGrid]` - Added `entereditmode`, `exiteditmode` and `beforeentereditmode` event outputs from component. `BTHH` ([#410](https://github.com/infor-design/enterprise-ng/issues/410))
 - `[DataGrid]` - Added NG support for EP tooltip callback function . `PWP` ([#470](https://github.com/infor-design/enterprise-ng/pull/470))
 - `[Datepicker]` - Adds an example to show custom validation to the datepicker test page. `TJM` ([#411](https://github.com/infor-design/enterprise-ng/issues/411)
 - `[DemoApp]` - Added `PersonalizeMenuComponent` example. `BTHH` ([Pull Request 425](https://github.com/infor-design/enterprise-ng/pull/425))
@@ -994,7 +1010,7 @@
 
 ### 5.2.1 Fixes
 
-- `[General]` - Bug fixes from updating to the latest ids-enteprise package `CRL` ([ids-enterprise@4.17.1](https://github.com/infor-design/enterprise/releases/tag/4.17.1)
+- `[General]` - Bug fixes from updating to the latest ids-enterprise package `CRL` ([ids-enterprise@4.17.1](https://github.com/infor-design/enterprise/releases/tag/4.17.1)
 
 ## v5.2.0
 
@@ -1009,12 +1025,12 @@
 - `[Datagrid]` Added support for the beforerowactivated event. `TJM` ([1021](https://github.com/infor-design/enterprise-ng/issues/1699))
 - `[Locale]` Added support for new api methods, for timezones, split locale and language, functions that run outside the current locale. `TJM` ([402](https://github.com/infor-design/enterprise-ng/issues/402))
 - `[Locale]` Added support for the moved language location. This used to be in `Soho.Locale.cultures[this.locale]` now please use `Soho.Locale.extendTranslations`. `TJM` ([1552](https://github.com/infor-design/enterprise-ng/issues/1552))
-- `[Form Compact]` Added support and directives and an eaxample of a reactive form for the new EP 4.17 Compact form styles. `TJM` ([1699](https://github.com/infor-design/enterprise-ng/issues/1699))
+- `[Form Compact]` Added support and directives and an example of a reactive form for the new EP 4.17 Compact form styles. `TJM` ([1699](https://github.com/infor-design/enterprise-ng/issues/1699))
 
 ### 5.2.0 Fixes
 
 - `[ListView]` - Added optional SohoListViewOptions arg to updated() function in listview.d.ts `PWP` ([Pull Request 384](https://github.com/infor-design/enterprise-ng/pull/384))
-- `[Datagrid]` - Added hideable option to datagrid column typings. `MRW` ([Pull Request 408](https://github.com/infor-design/enterprise-ng/pull/408))
+- `[Datagrid]` - Added hide-able option to datagrid column typings. `MRW` ([Pull Request 408](https://github.com/infor-design/enterprise-ng/pull/408))
 
 ### 5.2.0 Chore & Maintenance
 
@@ -1180,13 +1196,13 @@
 
 - `[General]` Upgraded to latest angular/cli release (Version 6) `BTH`
 - `[Tag]` Added Tag support `BTH`
-- `[General]` The new package is now available open sourced on ([npmjs](https://www.npmjs.com/package/ids-enterprise-ng)) , the new package name is `ids-enterprise-ng`
+- `[General]` The new package is now available open sourced on ([npm](https://www.npmjs.com/package/ids-enterprise-ng)) , the new package name is `ids-enterprise-ng`
 - `[Datagrid]` 4.0 Datagrid filter expose the filterWhenTyping setting `MHH` ([SOHO-7851](https://jira.infor.com/browse/SOHO-7851))
 
 ### 4.7.0 Fixes
 
 - `[ColorPicker]` Updated colorpicker to use ngZone and added a few missing settings. This effects the constructor so may effect those using AOT. `TJM`
-- `[Svg]` Fixed 'svg' file inclusion `BTH`
+- `[Svg]` Fixed svg file inclusion `BTH`
 
 ### v4.7.0 Chore & Maintenance
 
