@@ -137,6 +137,7 @@ import { MonthViewDemoComponent } from './monthview/monthview.demo';
 import { MonthViewDemoInPageComponent } from './monthview/monthview-inpage.demo';
 import { NotificationDemoComponent } from './notification/notification.demo';
 import { NotificationBadgePlacementDemoComponent } from './notification-badge/notification-badge-placement.demo';
+import { NotificationBadgeShowHideDemoComponent } from './notification-badge/notification-badge-show-hide.demo';
 import { PagerStandaloneDemoComponent } from './pager/pager-standalone.demo';
 import { PersonalizeColorApiDemoComponent } from './personalize/personalize-color-api.demo';
 import { PieDemoComponent } from './pie/pie.demo';
@@ -206,6 +207,7 @@ import { ValidationFormGroupDemoComponent } from './validation/validation-form-g
 import { ExpandableAreaFooterDemoComponent } from './expandablearea/expandablearea-footer.demo';
 import { WizardDemoComponent } from './wizard/wizard.demo';
 import { ApplicationMenuRoleSwitcherDemoComponent } from './application-menu/application-menu-roleswitcher.demo';
+import { ApplicationMenuNotificationBadgeDemoComponent } from './application-menu/application-menu-notification-badge.demo';
 import { ApplicationMenuTestPerfDemoComponent } from './application-menu/application-menu-test-performance.demo';
 import { DataGridTreeGridCubeDemoComponent } from './datagrid/datagrid-treegrid-cube.demo';
 import { WeekViewDemoComponent } from './week-view/week-view.demo';
@@ -223,6 +225,7 @@ export const routes: Routes = [
   { path: 'alert', component: AlertDemoComponent },
   { path: 'application-lazy-menu', component: ApplicationMenuLazyDemoComponent },
   { path: 'application-menu-roleswitcher', component: ApplicationMenuRoleSwitcherDemoComponent },
+  { path: 'application-menu-notification-badge', component: ApplicationMenuNotificationBadgeDemoComponent },
   { path: 'application-menu-test-performance', component: ApplicationMenuTestPerfDemoComponent },
   { path: 'area', component: AreaDemoComponent },
   { path: 'autocomplete', component: AutocompleteDemoComponent },
@@ -363,6 +366,7 @@ export const routes: Routes = [
   { path: 'monthview-inpage', component: MonthViewDemoInPageComponent },
   { path: 'notification', component: NotificationDemoComponent },
   { path: 'notification-badge-placement', component: NotificationBadgePlacementDemoComponent },
+  { path: 'notification-badge-show-hide', component: NotificationBadgeShowHideDemoComponent },
   { path: 'pager-standalone', component: PagerStandaloneDemoComponent },
   { path: 'personalize-color-api', component: PersonalizeColorApiDemoComponent },
   { path: 'pie', component: PieDemoComponent },
