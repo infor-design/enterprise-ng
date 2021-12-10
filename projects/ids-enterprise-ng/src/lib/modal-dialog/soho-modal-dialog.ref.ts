@@ -13,7 +13,6 @@ export class SohoModalDialogRef<T> {
   private componentRef?: ComponentRef<T> | null;
 
   /** Vetoable Event Guard */
-  // teslint-disable-next-line import/no-deprecated
   private eventGuard: SohoModalDialogVetoableEventGuard<T> | null | undefined = {};
 
   /**

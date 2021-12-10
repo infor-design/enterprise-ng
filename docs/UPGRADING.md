@@ -10,9 +10,9 @@ Consuming the `ids-enterprise-ng` package will require changes to any projects r
 
 ### Upgrade angular and angular/cli
 
-These instructions assume you will be running the latest versions of `@angular/cli` and `@angular/core`. It is recommended that you review the information on <https://update.angular.io> before updating.  Also read <https://next.angular.io/guide/updating-to-version-11> for a detailed description of changes to angular.
+These instructions assume you will be running the latest versions of `@angular/cli` and `@angular/core`. It is recommended that you review the information on <https://update.angular.io> before updating.  Also read <https://update.angular.io/> for a detailed description of changes to angular.
 
-Note: The libraries are currently compiled using angular 11, and so require all consumers to use the same major version.
+Note: The libraries are currently compiled using angular 13, and so require all consumers to use the same major version.
 
 These are the steps for upgrading existing projects:
 
@@ -23,6 +23,39 @@ ng update
 ```
 
 You will need to fix any issues raised, as these will depend on the dependency tree created by the packages you use and what version you are upgrading from.
+
+#### Angular 13
+
+When updating from angular 12 to 13 we were able to do this with the command:
+
+```sh
+@angular/cli@13 update @angular/core@13 @angular/cli@13 --force
+```
+
+The `--force` part was needed due to a problem with the `@angular-eslint/builder` dependency labels. To ultimately fix this I compared to a new project with `npx ng add @angular-eslint/schematic` and changed all enlist related dependencies
+
+For build caching speed I added:
+
+```sh
+  "cli": {
+    "cache": {
+      "enabled": true,
+      "path": ".cache",
+      "environment": "all"
+    }
+  }
+```
+
+See <https://blog.angular.io/angular-v13-is-now-available-cce66f7bc296> for more information.
+
+Also on Mac OS I had to run this in the command line as the new NG 13 builds are more intensive.
+
+```sh
+# For angular 13 to build
+export NODE_OPTIONS="--max-old-space-size=10000"
+```
+
+This can be added to `pico ~/.zshrc` or `pico ~/.bashrc`.
 
 #### Angular 12
 
@@ -65,15 +98,15 @@ The typings should be install automatically, as they are a dependency of ids-ent
 npm i ids-enterprise-typings -S
 ```
 
-These typings must be added to the `types` element of `tsconfig.json`, and where overwridden in child tsconfig files (e.g. `tsconfig.lib.json`).
+These typings must be added to the `types` element of `tsconfig.json`, and where overridden in child `tsconfig` files (e.g. `tsconfig.lib.json`).
 
 ```json
 "types": [
-      "jasmine",
-      "jquery",
-      "node",
-      "ids-enterprise-typings"
-    ],
+    "jasmine",
+    "jquery",
+    "node",
+    "ids-enterprise-typings"
+],
 ```
 
 ### Uninstall old dependencies (for code upgrading from a version of ids-enterprise-ng before version 5)

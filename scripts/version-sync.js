@@ -8,20 +8,23 @@
 // -------------------------------------
 //   Node Modules/Options
 // -------------------------------------
-const fs = require('fs');
-const slash = require('slash');
-const chalk = require('chalk');
+import fs from 'fs';
+import { exec } from 'child_process';
 
 // -------------------------------------
 //   Constants
 // -------------------------------------
-const rootPath = slash(process.cwd());
-const libPackageJsonPath = `${rootPath}/projects/ids-enterprise-ng/package.json`;
-const libPackageJson = require(libPackageJsonPath);
-const libVersionJsonPath = `${rootPath}/projects/ids-enterprise-ng/src/version.json`;
-const libVersionJson = require(libVersionJsonPath);
-const typingPackageJsonPath = `${rootPath}/projects/ids-enterprise-typings/package.json`;
-const typingPackageJson = require(typingPackageJsonPath);
+const libPackageJsonPath = './projects/ids-enterprise-ng/package.json';
+const libPackageStr = fs.readFileSync(libPackageJsonPath);
+const libPackageJson = JSON.parse(libPackageStr);
+
+const libVersionJsonPath = './projects/ids-enterprise-ng/src/version.json';
+const libVersionStr = fs.readFileSync(libVersionJsonPath);
+const libVersionJson = JSON.parse(libVersionStr);
+
+const typingPackageJsonPath = './projects/ids-enterprise-typings/package.json';
+const typingPackagenStr = fs.readFileSync(typingPackageJsonPath);
+const typingPackageJson = JSON.parse(typingPackagenStr);
 
 // -------------------------------------
 //   Functions
@@ -33,7 +36,7 @@ const typingPackageJson = require(typingPackageJsonPath);
  * @param {string} msg - the message
  */
 const logAction = (action, msg) => {
-  console.log(chalk.cyan(action), msg, '\n');
+  console.log(action, msg, '\n');
 }
 
 /**
@@ -41,7 +44,7 @@ const logAction = (action, msg) => {
  * @param {string} msg - the message
  */
 const logError = msg => {
-  console.log(chalk.red('Error!'), msg, '\n');
+  console.log('Error!', msg, '\n');
 }
 
 /**
@@ -49,7 +52,6 @@ const logError = msg => {
  * @param {string} cmd - The command
  */
 function executeUpdate(cmd) {
-  const exec = require('child_process').exec
   exec(cmd, (err, stdout, stderr) => {
     if (err) {
       logError(`exec error: ${err}`);

@@ -421,8 +421,8 @@ export class SohoLookupComponent extends BaseControlValueAccessor<any> implement
   /**
    * Is the lookup control readonly?
    */
-  // eslint-disable-next-line @angular-eslint/no-input-rename
   @HostBinding('readonly')
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('readonly') _readonly: boolean | undefined = undefined;
 
   /**

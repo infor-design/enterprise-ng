@@ -8,16 +8,16 @@
 // -------------------------------------
 //   Node Modules/Options
 // -------------------------------------
-const fs = require('fs');
-const inquirer = require('inquirer');
-const slash = require('slash');
+import fs from 'fs';
+import inquirer from 'inquirer';
+import slash from 'slash';
+import { exec } from 'child_process';
+import { createRequire } from 'module'; // Bring in the ability to create the 'require' method
 
 // -------------------------------------
 //   Constants
 // -------------------------------------
 const rootPath = slash(process.cwd());
-const rootPackageJsonPath = `${rootPath}/package.json`;
-const libPackageJsonPath = `${rootPath}/projects/ids-enterprise-ng/package.json`;
 const tagArr = ['dev', 'beta', 'rc', 'latest'];
 
 // -------------------------------------
@@ -48,7 +48,6 @@ function chooseVersionTag(options) {
  * @param {string} cmd - The command
  */
 function executeUpdate(cmd) {
-  const exec = require('child_process').exec
   const updateProcess = exec(cmd, () => {
     syncPackageJsonVersions();
     copySvgIcons();
@@ -60,16 +59,21 @@ function executeUpdate(cmd) {
  * Copy the ids-enterprise package version from the root package.json
  * to the library package.json and the write it to the file
  */
-function syncPackageJsonVersions() {
-  const rootPackageJson = require(rootPackageJsonPath);
-  const libPackageJson = require(libPackageJsonPath);
+ function syncPackageJsonVersions() {
+  const rootPackageStr = fs.readFileSync('./package.json');
+  const libPackageStr = fs.readFileSync('./projects/ids-enterprise-ng/package.json');
 
-  libPackageJson.dependencies['ids-enterprise'] = rootPackageJson.dependencies['ids-enterprise'];
+  const rootPackageJson = JSON.parse(rootPackageStr);
+  const libPackageJson = JSON.parse(libPackageStr);
+
+  const version = JSON.parse(rootPackageStr).dependencies['ids-enterprise'];
+  libPackageJson.dependencies['ids-enterprise'] = version;
+  rootPackageJson.dependencies['ids-enterprise'] = version;
 
   // Make sure to write the trailing line to the file
   const libPackageJsonStr = JSON.stringify(libPackageJson, null, 2) + `\n`;
 
-  fs.writeFile(libPackageJsonPath, libPackageJsonStr, 'utf8', () => {
+  fs.writeFile('./projects/ids-enterprise-ng/package.json', libPackageJsonStr, 'utf8', () => {
     console.log('updated 1 package in package.json');
   });
 }

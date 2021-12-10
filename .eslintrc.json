@@ -3,6 +3,13 @@
   "ignorePatterns": [
     "projects/**/*"
   ],
+  "env": {
+    "es6": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "globalReturn": true
+  },
   "overrides": [
     {
       "files": [
@@ -16,16 +23,18 @@
         "createDefaultProgram": true
       },
       "extends": [
-        "plugin:@angular-eslint/ng-cli-compat",
-        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
-        "plugin:@angular-eslint/template/process-inline-templates",
-        "prettier"
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
         "@typescript-eslint/member-ordering": "off",
         "@typescript-eslint/ban-types": "off",
         "prefer-arrow/prefer-arrow-functions": "off",
         "@typescript-eslint/naming-convention": "off",
+        "@angular-eslint/no-input-rename": "off",
+        "@angular-eslint/no-output-native": "off",
+        "@angular-eslint/no-empty-lifecycle-method": "off",
+        "brace-style": "off",
         "@angular-eslint/component-class-suffix": [
           "error",
           {
@@ -76,10 +85,6 @@
           }
         ],
         "@typescript-eslint/no-empty-interface": "off",
-        "brace-style": [
-          "error",
-          "1tbs"
-        ],
         "id-blacklist": "off",
         "id-match": "off",
         "no-multiple-empty-lines": "error",

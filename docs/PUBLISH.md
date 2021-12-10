@@ -75,7 +75,6 @@ are copied into src/app/icon.
     - **Always** verify the release version when the script asks
 1. Set the main branch to the next minor dev version.
     - For example if we made branch `4.9.x`, then the `main` projects/ids-enterprise-ng/package.json version should now be changed to `4.10.0-dev`
-1. Run `npm run sync:lib` after setting the main branch version
 1. Commit the version change and push to main
 1. Bump the changelog
 1. Update the stackblitz and quickstart
@@ -98,11 +97,6 @@ For a final release, finish with:
     ```
 
 1. Fix any conflicts (don't commit yet)
-1. Use the version sync script after verifying or correcting the `main` branch version (don't commit yet)
-
-    ```sh
-    npm run sync:lib
-    ```
 
 1. Commit the version change (and any merge conflict fixes) and push to `main`
 

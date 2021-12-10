@@ -8,15 +8,15 @@
 // -------------------------------------
 //   Node Modules/Options
 // -------------------------------------
-const fs = require('fs');
-const slash = require('slash');
+import fs from 'fs';
+import { exec } from 'child_process';
 
 // -------------------------------------
 //   Constants
 // -------------------------------------
-const rootPath = slash(process.cwd());
-const libPackageJsonPath = `${rootPath}/projects/ids-enterprise-ng/package.json`;
-const libPackageJson = require(libPackageJsonPath);
+const libPackageJsonPath = './projects/ids-enterprise-ng/package.json';
+const libPackageStr = fs.readFileSync(libPackageJsonPath);
+const libPackageJson = JSON.parse(libPackageStr);
 const todaysDate = formatDate(new Date());
 const versionTag = 'dev';
 
@@ -45,7 +45,6 @@ function formatDate (date) {
  * @param {string} cmd - The command
  */
 function executeUpdate(cmd) {
-  const exec = require('child_process').exec
   const updateProcess = exec(cmd, (err, stdout, stderr) => {
     if (err) {
       logError(`exec error: ${err}`);
@@ -70,13 +69,12 @@ function getBaseVersion(str) {
 // -------------------------------------
 if (libPackageJson.version.indexOf('-dev') === -1) {
   console.log('Error! Cannot append date to non-dev version. Are you on the master branch?');
-  return false;
+} else {
+  libPackageJson.version = `${getBaseVersion(libPackageJson.version)}.${todaysDate}`;
+  const publPkgJsonStr = JSON.stringify(libPackageJson, null, 2) + '\n';
+
+  // Write the file with the new version
+  fs.writeFile(libPackageJsonPath, publPkgJsonStr, 'utf8', () => {
+    executeUpdate('git status -sb && echo \n');
+  });
 }
-
-libPackageJson.version = `${getBaseVersion(libPackageJson.version)}.${todaysDate}`;
-const publPkgJsonStr = JSON.stringify(libPackageJson, null, 2) + '\n';
-
-// Write the file with the new version
-fs.writeFile(libPackageJsonPath, publPkgJsonStr, 'utf8', () => {
-  executeUpdate('git status -sb && echo \n');
-});

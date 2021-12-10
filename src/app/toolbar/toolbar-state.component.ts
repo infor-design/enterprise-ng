@@ -7,14 +7,14 @@ import {
 } from '@angular/core';
 
 import {
-   ToolbarStateService,
-   LMToolbarButton
+  ToolbarStateService,
+  LMToolbarButton
 } from './toolbar-state.service';
 
 @Component({
   selector: 'toolbar-state-component', // eslint-disable-line
   templateUrl: 'toolbar-state.component.html',
-  providers: [ ToolbarStateService ]
+  providers: [ToolbarStateService]
 })
 export class ToolbarStateComponent implements OnInit {
   public toolbarInHeader?: boolean;
@@ -22,7 +22,7 @@ export class ToolbarStateComponent implements OnInit {
   public toolbarPageTitle?: string;
   public toolbarButtons?: Array<LMToolbarButton>;
 
-  constructor(public toolbarService: ToolbarStateService) {}
+  constructor(public toolbarService: ToolbarStateService) { }
 
   ngOnInit() {
     this.toolbarInHeader = false;

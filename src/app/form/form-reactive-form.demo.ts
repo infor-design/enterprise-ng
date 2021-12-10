@@ -36,7 +36,7 @@ export class FormReactiveFormDemoComponent implements AfterViewInit {
     spinbox: 0
   };
 
-  form: void;
+  form?: void;
   demoForm?: FormGroup;
   public options = MOCK_STATES;
 
