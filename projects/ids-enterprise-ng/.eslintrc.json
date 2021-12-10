@@ -13,8 +13,8 @@
         "sourceType": "module",
         "allowImportExportEverywhere": true,
         "project": [
-          "../../projects/ids-enterprise-ng/tsconfig.lib.json",
-          "../../projects/ids-enterprise-ng/tsconfig.spec.json"
+          "./tsconfig.lib.json",
+          "./tsconfig.spec.json"
         ],
         "createDefaultProgram": true
       },
