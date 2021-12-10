@@ -16,32 +16,22 @@ import { ModalDialogDataGridComponent } from './modal-dialog-datagrid.component'
 import { FullSizeModalDialogComponent } from './example-fullsize-modal.component';
 
 @NgModule({
-  declarations: [
-    FullSizeModalDialogComponent,
-    NestedModalDialogComponent,
-    ExampleModalDialogComponent,
-    ModalDialogDemoComponent,
-    VetoableModalDialogComponent,
-    ModalDialogDataGridComponent
-  ],
-  exports: [
-  ],
-  imports: [
-    BrowserModule,
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    SohoComponentsModule
-  ],
-  providers: [
-  ],
-  entryComponents: [
-    // You need to add any 'dynamic' components to the entry components otherwise the factory can't find them.
-    FullSizeModalDialogComponent,
-    ExampleModalDialogComponent,
-    NestedModalDialogComponent,
-    VetoableModalDialogComponent,
-    ModalDialogDataGridComponent
-  ],
+    declarations: [
+        FullSizeModalDialogComponent,
+        NestedModalDialogComponent,
+        ExampleModalDialogComponent,
+        ModalDialogDemoComponent,
+        VetoableModalDialogComponent,
+        ModalDialogDataGridComponent
+    ],
+    exports: [],
+    imports: [
+        BrowserModule,
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        SohoComponentsModule
+    ],
+    providers: []
 })
 export class ModalDialogDemoModule { }

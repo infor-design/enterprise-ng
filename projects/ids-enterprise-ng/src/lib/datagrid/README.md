@@ -2,7 +2,7 @@
 
 This component provides access from Angular to the SoHoXi `datagrid` control.
 
-This component searches for an element with the attribute `soho-datagrid` in the parent's DOM tree, initialising it with
+This component searches for an element with the attribute `soho-datagrid` in the parent's DOM tree, initializing it with
 the Soho datagrid control.  The data is provided either by a component input or an implementation
 of the DataGridService interface, by specifying an implementation on the hosting component, i.e.
 
@@ -16,7 +16,7 @@ of the DataGridService interface, by specifying an implementation on the hosting
 
 ## Inputs
 
-The 'datagrid' component provides a number of options to control its behaviour, and presentation.
+The 'datagrid' component provides a number of options to control its behavior, and presentation.
 
 | Name | Description |
 | --- | --- |
@@ -33,7 +33,7 @@ The 'datagrid' component provides a number of options to control its behaviour, 
 | rowHeight | Sets the row height in the data grid to be 'large', 'medium', 'small' or 'extra-small'. |
 | selectable | If true selection can be used, other if false selection is disabled. |
 | stretchColumn| The name of the column to stretch, if 'last' the last column is stretched. |
-| enableTooltips | Enable toolips on the cell values, at a cost of performance.. |
+| enableTooltips | Enable tooltips on the cell values, at a cost of performance.. |
 
 Changes to these properties will dynamically update the component.
 

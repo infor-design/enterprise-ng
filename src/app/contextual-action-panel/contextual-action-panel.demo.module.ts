@@ -17,35 +17,24 @@ import { ContextualActionPanelVerticalTabsComponent } from './contextual-action-
 import { ContextualActionPanelButtonsetAPIComponent } from './contextual-action-panel-buttonsetapi.component';
 
 @NgModule({
-  declarations: [
-    ContextualActionPanelComponent,
-    ContextualActionPanelSearchfieldComponent,
-    ContextualActionPanelSearchfieldFlexComponent,
-    ContextualActionPanelFullSizeComponent,
-    ContextualActionPanelVerticalTabsComponent,
-    ContextualActionPanelDemoComponent,
-    ContextualActionPanelButtonsetAPIComponent,
-    NestedModalDialogComponent,
-  ],
-  exports: [
-  ],
-  imports: [
-  BrowserModule,
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    SohoComponentsModule
-  ],
-  providers: [
-  ],
-  entryComponents: [
-    ContextualActionPanelComponent,
-    ContextualActionPanelSearchfieldComponent,
-    ContextualActionPanelSearchfieldFlexComponent,
-    ContextualActionPanelFullSizeComponent,
-    ContextualActionPanelVerticalTabsComponent,
-    ContextualActionPanelButtonsetAPIComponent,
-    NestedModalDialogComponent,
-  ],
+    declarations: [
+        ContextualActionPanelComponent,
+        ContextualActionPanelSearchfieldComponent,
+        ContextualActionPanelSearchfieldFlexComponent,
+        ContextualActionPanelFullSizeComponent,
+        ContextualActionPanelVerticalTabsComponent,
+        ContextualActionPanelDemoComponent,
+        ContextualActionPanelButtonsetAPIComponent,
+        NestedModalDialogComponent,
+    ],
+    exports: [],
+    imports: [
+        BrowserModule,
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        SohoComponentsModule
+    ],
+    providers: []
 })
 export class ContextualActionPanelDemoModule { }
