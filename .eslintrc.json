@@ -32,6 +32,7 @@
         "prefer-arrow/prefer-arrow-functions": "off",
         "@typescript-eslint/naming-convention": "off",
         "@angular-eslint/no-input-rename": "off",
+        "@angular-eslint/no-output-native": "off",
         "@angular-eslint/no-empty-lifecycle-method": "off",
         "brace-style": "off",
         "@angular-eslint/component-class-suffix": [
