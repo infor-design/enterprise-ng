@@ -1,6 +1,6 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "projects/ids-enterprise-ng/tsconfig.lib.json",
+  "extends": "./tsconfig.lib.json",
   "compilerOptions": {
     "declarationMap": false
   },
