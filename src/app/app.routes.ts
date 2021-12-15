@@ -47,6 +47,7 @@ import { ColumnStackedDemoComponent } from './column-stacked/column-stacked.demo
 import { CompletionChartDemoComponent } from './completion-chart/completion-chart.demo';
 import { ContextMenuDemoComponent } from './context-menu/context-menu.demo';
 import { ContextMenuLazyLoadDemoComponent } from './context-menu/context-menu-lazy-load.demo';
+import { ContextMenuNestedDemoComponent } from './context-menu/context-menu-nested.demo';
 import { ContextMenuSharedDemoComponent } from './context-menu/context-menu-shared.demo';
 import { ContextMenuToggleDemoComponent } from './context-menu/context-menu-toggle.demo';
 import { ContextualActionPanelDemoComponent } from './contextual-action-panel/contextual-action-panel.demo';
@@ -269,6 +270,7 @@ export const routes: Routes = [
   { path: 'completion-chart', component: CompletionChartDemoComponent },
   { path: 'context-menu', component: ContextMenuDemoComponent },
   { path: 'context-menu-lazy-load', component: ContextMenuLazyLoadDemoComponent },
+  { path: 'context-menu-nested', component: ContextMenuNestedDemoComponent },
   { path: 'context-menu-shared', component: ContextMenuSharedDemoComponent },
   { path: 'context-menu-toggle', component: ContextMenuToggleDemoComponent },
   { path: 'contextual-action-panel', component: ContextualActionPanelDemoComponent },
