@@ -7,6 +7,12 @@
 - `[General]` Updated to NG 13. Changed the linters and made small lint fixes. See the `UPGRADING.md` guide for details. ([#1170](https://github.com/infor-design/enterprise/issues/1170))
 - `[NotificationBadge]` Added notification badge feature in button and accordion headers. ([#1169](https://github.com/infor-design/enterprise-ng/issues/1169))
 
+## v10.11.2
+
+### 10.11.2 Fixes
+
+- `[General]` Added 4.58.2 with fixes for undefined ids.
+
 ## v10.11.1
 
 ### 10.11.1 Fixes
