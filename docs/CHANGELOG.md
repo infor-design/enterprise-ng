@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v10.11.2
+
+### 10.11.2 Fixes
+
+- `[General]` Added 4.58.2 with fixes for undefined ids.
+
 ## v10.11.1
 
 ### 10.11.1 Fixes
