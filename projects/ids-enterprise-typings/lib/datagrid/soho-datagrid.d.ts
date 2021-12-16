@@ -1431,7 +1431,7 @@ interface SohoDataGridGroupable {
   /* An array containing the field(s) you want to group by */
   fields: string[];
   /* The field to run the aggregator on */
-  aggregate: string[];
+  aggregate: string;
   /* A function or boolean that returns true of false allowing you to custom which rows are initially collapsed or expanded  */
   expanded?: boolean | Function;
   /* An optional single aggregator that will run over the data and do either a sum, min, max, avg, count (non-blank/non-null)  */
