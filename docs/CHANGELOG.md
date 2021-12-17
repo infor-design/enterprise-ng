@@ -1,11 +1,11 @@
 # What's New with Enterprise-NG
 
-## v11.0.0
+## v11.3.0
 
-### 11.0.0 Fixes
+### 11.3.0 Fixes
 
 - `[General]` Updated to NG 13. Changed the linters and made small lint fixes. See the `UPGRADING.md` guide for details. ([#1170](https://github.com/infor-design/enterprise/issues/1170))
-- `[Datagrid]` Added missing maskOption function opt. ([#1175](https://github.com/infor-design/enterprise-ng/issues/1175))
+- `[Datagrid]` Added missing maskOption function options to the types. ([#1175](https://github.com/infor-design/enterprise-ng/issues/1175))
 - `[NotificationBadge]` Added notification badge feature in button and accordion headers. ([#1169](https://github.com/infor-design/enterprise-ng/issues/1169))
 
 ## v10.11.2
