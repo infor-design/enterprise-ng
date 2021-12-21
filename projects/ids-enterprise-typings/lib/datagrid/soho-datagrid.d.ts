@@ -27,6 +27,14 @@ interface SohoDataGridFrozenColumns {
   right?: any[];
 }
 
+type SohoDataGridColumnMaskOptionsFunction = (
+  row: number,
+  cell: number,
+  fieldValue: any,
+  columnDef: SohoDataGridColumn,
+  rowData: Object
+) => SohoMaskOptions;
+
 /**
  * Settings for the Soho datagrid control.
  */
@@ -897,10 +905,10 @@ interface SohoDataGridColumn {
   filterMask?: string;
 
   /** The newer style object pattern mask for the column */
-  maskOptions?: SohoMaskOptions;
+  maskOptions?: SohoMaskOptions | SohoDataGridColumnMaskOptionsFunction;
 
   /** The newer style object pattern mask for the column filter row only*/
-  filterMaskOptions?: SohoMaskOptions;
+  filterMaskOptions?: SohoMaskOptions | SohoDataGridColumnMaskOptionsFunction;
 
   /** Call the grids `onPostRenderCell` function for cells in this column after they are rendered. */
   postRender?: boolean;
