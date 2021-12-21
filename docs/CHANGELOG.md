@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v10.11.3
+
+### 10.11.3 Fixes
+
+- `[General]` Added 4.58.3 with fixes for a new filter event.
+
 ## v10.11.2
 
 ### 10.11.2 Fixes
