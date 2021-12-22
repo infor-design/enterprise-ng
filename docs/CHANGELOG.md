@@ -8,6 +8,12 @@
 - `[Datagrid]` Added missing maskOption function options to the types. ([#1175](https://github.com/infor-design/enterprise-ng/issues/1175))
 - `[NotificationBadge]` Added notification badge feature in button and accordion headers. ([#1169](https://github.com/infor-design/enterprise-ng/issues/1169))
 
+## v10.11.4
+
+### 10.11.4 Fixes
+
+- `[Datagrid]` Added new type for the new `filteroperatorchanged` event.
+
 ## v10.11.3
 
 ### 10.11.3 Fixes
