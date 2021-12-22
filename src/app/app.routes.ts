@@ -216,6 +216,7 @@ import { DataGridExpandableRowDynamicDemoComponent } from './datagrid/datagrid-e
 import { DataGridSummaryRowDemoComponent } from './datagrid/datagrid-summary-row.demo';
 import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-multiselect-attributes-demo';
 import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertical-scroll-to-end.demo';
+import { LookupSourceDemoComponent } from './lookup/lookup-source.demo';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' }, // default
@@ -356,6 +357,7 @@ export const routes: Routes = [
   { path: 'locale-pipe', loadChildren: () => import('./locale/locale-demo.module').then(m => m.LocaleDemoModule) },
   { path: 'lookup', component: LookupDemoComponent },
   { path: 'lookup-landmark', component: LookupLandmarkDemoComponent },
+  { path: 'lookup-source', component: LookupSourceDemoComponent },
   { path: 'lookup-validation', component: LookupValidationDemoComponent },
   { path: 'lookup-desc', component: LookupDescDemoComponent },
   { path: 'mask', component: MaskDemoComponent },
