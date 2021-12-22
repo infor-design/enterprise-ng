@@ -21,9 +21,9 @@ export class NotificationDemoComponent implements OnInit {
     this.notificationService.show({ id: `notif-${this.counter++}`, parent: '.page-container.scrollable', message: `${this.counter}) This is a Toast message`, type });
   }
 
-  hideFirstNotification() {
+  closeFirstNotification() {
     if (this.counter > 0) {
-      this.notificationService.hide(`notif-${this.current++}`);
+      this.notificationService.close(`notif-${this.current++}`);
       this.counter--;
 
       if (this.counter === 0) {
@@ -32,9 +32,9 @@ export class NotificationDemoComponent implements OnInit {
     }
   }
 
-  hideLatestNotification() {
+  closeLatestNotification() {
     if (this.counter > 0) {
-      this.notificationService.hideLatest();
+      this.notificationService.closeLatest();
       this.counter--;
 
       if (this.counter === 0) {
@@ -43,9 +43,9 @@ export class NotificationDemoComponent implements OnInit {
     }
   }
 
-  hideAllNotification() {
+  closeAllNotification() {
     if (this.counter > 0) {
-      this.notificationService.hideAll();
+      this.notificationService.closeAll();
       this.counter = 0;
       this.current = 0;
     }
