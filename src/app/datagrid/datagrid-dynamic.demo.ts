@@ -114,6 +114,10 @@ export class DataGridDynamicDemoComponent implements AfterViewInit {
     console.log('onContextMenuOpen()', e);
   }
 
+  onFilterOperatorChanged(e: any) {
+    console.log('onFilterOperatorChanged()', e);
+  }
+
   private buildMenuOptions() {
     if (this.menuItemsChoice === 2) {
       this.menuItemsChoice = -1;
