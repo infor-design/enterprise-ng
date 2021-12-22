@@ -20,6 +20,7 @@
         (rowDoubleClicked)="onRowDoubleClicked($event)"
         (rowClicked)="onRowClicked($event)"
         (contextMenu)="onContextMenu($event)"
+        (filteroperatorchanged)="onFilterOperatorChanged($event)"
         [columns]="columns | async"
         [data]="data | async"
         displayDelay="0"
