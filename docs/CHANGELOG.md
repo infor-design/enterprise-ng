@@ -1,5 +1,11 @@
 # What's New with Enterprise-NG
 
+## v10.11.4
+
+### 10.11.4 Fixes
+
+- `[Datagrid]` Added new type for the new `filteroperatorchanged` event.
+
 ## v10.11.3
 
 ### 10.11.3 Fixes
