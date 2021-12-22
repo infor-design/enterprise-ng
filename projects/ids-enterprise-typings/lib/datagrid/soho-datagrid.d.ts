@@ -1495,6 +1495,7 @@ interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
   on(events: 'rowactivated | beforerowactivated', handler: JQuery.EventHandlerBase<any, SohoDataGridRowActivatedEvent>): this;
   on(events: 'rowdeactivated', handler: JQuery.EventHandlerBase<any, SohoDataGridRowDeactivatedEvent>): this;
   on(events: 'selected', handler: JQuery.EventHandlerBase<any, SohoDataGridSelectedRow[]>): this;
+  on(events: 'filteroperatorchanged', handler: JQuery.EventHandlerBase<any, SohoDataGridFilterOperatorChangedEvent>): this;
 }
 
 interface SohoDataGridRowExpandEvent {
@@ -1578,4 +1579,11 @@ interface SohoDataGridKeyDownEvent {
 interface SohoDataGridScrollEvent {
   percent: number;
   percentScrolled: number;
+}
+
+interface SohoDataGridFilterOperatorChangedEvent {
+  operator: string;
+  defaultOperator: string;
+  value?: string;
+  columnId: string;
 }
