@@ -19,21 +19,21 @@ export class SohoNotificationService {
    * 
    * @param id id of notification
    */
-  hide(id: string): void {
+  close(id: string): void {
     jQuery('body').data('notification').close(id);
   }
 
   /**
    * Hide the latest notification in the list
    */
-  hideLatest(): void {
+  closeLatest(): void {
     jQuery('body').data('notification').closeLatest();
   }
 
   /**
    * Hide all the notifications in the list
    */
-  hideAll(): void {
+  closeAll(): void {
     jQuery('body').data('notification').closeAll();
   }
 }
