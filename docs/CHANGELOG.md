@@ -9,6 +9,10 @@
 - `[Notification]` Update Method Names for better readability. ([#1201](https://github.com/infor-design/enterprise/issues/1201))
 - `[NotificationBadge]` Added notification badge feature in button and accordion headers. ([#1169](https://github.com/infor-design/enterprise-ng/issues/1169))
 
+### 11.3.0 Features
+
+- `[Lookup]` Added example page for lookup with initial data. ([#1132](https://github.com/infor-design/enterprise-ng/issues/1132))
+
 ## v10.11.4
 
 ### 10.11.4 Fixes

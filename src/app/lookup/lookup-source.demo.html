@@ -1,0 +1,21 @@
+<div class="row">
+    <section class="six columns">
+        <p>
+            When a multiselect lookup gets data from a "source" function, the values should be selected in the lookup dialog.
+        </p>
+    </section>
+</div>
+<div class="row top-padding">
+    <section class="twelve columns">
+        <div class="field">
+            <label soho-label for="the-source-lookup">Lookup with source</label>
+            <input soho-lookup id="the-source-lookup" [(ngModel)]="model" [source]="source" [columns]="columns"
+                field="productId" [multiselect]="true">
+        </div>
+        <div class="field">
+            <label soho-label for="the-dataset-lookup">Lookup with dataset</label>
+            <input soho-lookup id="the-dataset-lookup" [(ngModel)]="model" [dataset]="dataset" [columns]="columns"
+                field="productId" [multiselect]="true">
+        </div>
+    </section>
+</div>

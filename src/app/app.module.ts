@@ -266,6 +266,7 @@ import { WeekViewDemoComponent } from './week-view/week-view.demo';
 import { ButtonsetDemoComponent } from './buttonset/buttonset.demo';
 import { DropdownMultiselectAttributesDemoComponent } from './dropdown/dropdown-multiselect-attributes-demo'
 import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertical-scroll-to-end.demo';
+import { LookupSourceDemoComponent } from './lookup/lookup-source.demo';
 
 @NgModule({
     declarations: [
@@ -420,6 +421,7 @@ import { DataGridVerticalScrollDemoComponent } from './datagrid/datagrid-vertica
         LookupLandmarkDemoComponent,
         LookupValidationDemoComponent,
         LookupDescDemoComponent,
+        LookupSourceDemoComponent,
         MaskDemoComponent,
         MenuButtonDemoComponent,
         MessageDemoComponent,
